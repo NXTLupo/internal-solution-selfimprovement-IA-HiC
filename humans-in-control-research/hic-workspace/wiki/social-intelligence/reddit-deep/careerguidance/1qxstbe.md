@@ -19,21 +19,26 @@ chunks:
     char_span: [0, 2336]
     sentence_count: 12
     key_terms: [startups, business, learning, linkedin, careerguidance, international, information, cold]
+    concepts: [startups, business, learning, linkedin, careerguidance]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qxstbe/job_search_log_is_cold_emailing_earlystage/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1qxstbe.md#c1"
     char_span: [2338, 4736]
     sentence_count: 13
     key_terms: [company, myself, reflections, employees, workflows, building, outreach, practice]
+    concepts: [company, myself, reflections, employees, workflows]
     token_count: 514
   - id: "social-intelligence/reddit-deep/careerguidance/1qxstbe.md#c2"
     char_span: [4738, 5430]
     sentence_count: 9
     key_terms: [feedback, startup, work, international, appreciated, early-stage, proposition, contractor]
+    concepts: [feedback, startup]
     token_count: 146
   - id: "social-intelligence/reddit-deep/careerguidance/1qxstbe.md#c3"
     char_span: [5444, 6603]
     sentence_count: 4
     key_terms: [personal-mistake-957, like, startups, doing, early, email, going, stage]
+    concepts: [personal-mistake-957, startups, doing, early, email]
     section: Comments
     token_count: 286
 ---

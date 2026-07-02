@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1577]
     sentence_count: 13
     key_terms: [data, science, major, "i'm", comments, graduate, because, college]
+    concepts: [science, major, comments, graduate, because]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qw1anr.md#c2"]
     token_count: 384
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1qw1anr/graduating_early_vs_double_majoringdual_degree/"}]
   - id: "social-intelligence/reddit-deep/college/1qw1anr.md#c1"
     char_span: [1591, 3879]
     sentence_count: 16
     key_terms: [major, additional, going, internships, original, projects, majors, experience]
+    concepts: [major, additional, going, internships, original]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/college/1qw1anr.md#c2"
     char_span: [3881, 5715]
     sentence_count: 13
     key_terms: [graduate, major, school, requirements, opportunity, going, level, start]
+    concepts: [graduate, major, school, requirements, opportunity]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qw1anr.md#c0"]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/college/1qw1anr.md#c3"
     char_span: [5717, 8051]
     sentence_count: 17
     key_terms: [appropriate, internships, internship, outside, science, skills, early, major]
+    concepts: [appropriate, internships, internship, outside, science]
     section: Comments
     token_count: 502
 ---

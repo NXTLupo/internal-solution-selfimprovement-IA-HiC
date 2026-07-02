@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 845]
     sentence_count: 3
     key_terms: [salesforce, demo, create, cloud, life, lsc, comments, content]
+    concepts: [salesforce, create, cloud, comments, content]
     token_count: 205
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1qiuytk/i_have_to_create_a_demo_on_salesforce_life/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1qiuytk.md#c1"
-    char_span: [860, 1751]
+    char_span: [859, 1750]
     sentence_count: 4
     key_terms: [salesforce, starlord7595, group, https, mindcompetitive6475, com, demo, htm]
+    concepts: [salesforce, starlord7595, group, https]
     section: Comments
     token_count: 242
 ---

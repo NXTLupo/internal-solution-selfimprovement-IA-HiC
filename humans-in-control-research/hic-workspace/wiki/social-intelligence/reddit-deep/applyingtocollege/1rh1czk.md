@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 924]
     sentence_count: 7
     key_terms: [applyingtocollege, language, application, math, math-heavy, comments, around, add]
+    concepts: [applyingtocollege, language, application, math-heavy, comments]
     token_count: 203
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rh1czk/do_language_skills_add_value_to_a_mathheavy/"}]
 ---
 # Do language skills add value to a math-heavy college application?
 

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2192]
     sentence_count: 19
     key_terms: [opportunity, everything, engineeringstudents, college, engineering, didn, got, internship]
+    concepts: [engineeringstudents, opportunity, everything, college, engineering]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1se0nm1/final_year_engineering_student_with_6l_loan_tried/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1se0nm1.md#c1"
     char_span: [2194, 3192]
     sentence_count: 9
     key_terms: [development, because, family, months, didn, feel, next, time]
+    concepts: [development, because, family, months]
     token_count: 218
 ---
 # Final Year Engineering Student with ₹6L Loan — Tried Everything but Still No Job, Feeling Lost

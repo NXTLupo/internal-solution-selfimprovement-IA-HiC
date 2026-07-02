@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2089]
     sentence_count: 16
     key_terms: [university, survey, study, looking, recent, pennsylvania, share, "we'll"]
+    concepts: [university, survey, study, looking, pennsylvania]
     token_count: 494
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1l9svwb/cs_seniors_and_recent_grads_share_your_job_search/"}]
 ---
 # CS Seniors and Recent Grads: Share Your Job Search Experience (10-25 min survey; Mod-Approved)
 

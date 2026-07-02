@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 1158]
     sentence_count: 12
     key_terms: [drive, google, professors, university, comments, onedrive, students, terrible]
+    concepts: [drive, google, professors, university, comments]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1o5vww8.md#c5", "social-intelligence/reddit-deep/professors/1o5vww8.md#c7"]
     token_count: 264
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1o5vww8/goodbye_google_drive/"}]
   - id: "social-intelligence/reddit-deep/professors/1o5vww8.md#c1"
     char_span: [1172, 3278]
     sentence_count: 15
     key_terms: [exactly, shitty, data, don, work, migration, research, migrate]
+    concepts: [exactly, shitty, migration, research, migrate]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/professors/1o5vww8.md#c2"
     char_span: [3280, 4311]
     sentence_count: 10
     key_terms: [google, products, microsoft, deleted, better, because, forced, people]
+    concepts: [google, products, microsoft, deleted, better]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1o5vww8.md#c6", "social-intelligence/reddit-deep/professors/1o5vww8.md#c7"]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/professors/1o5vww8.md#c3"
     char_span: [4313, 6477]
     sentence_count: 15
     key_terms: [email, like, access, people, scroll, application, permissions, file]
+    concepts: [email, access, people, scroll, application]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1o5vww8.md#c4"
@@ -48,18 +55,24 @@ chunks:
     char_span: [6561, 8535]
     sentence_count: 13
     key_terms: [crowdsourced, drive, dropbox, etancrazynpoor, google, microsoft, onedrive, terrible]
+    concepts: [crowdsourced, drive, etancrazynpoor, dropbox, google]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1o5vww8.md#c0", "social-intelligence/reddit-deep/professors/1o5vww8.md#c7"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/professors/1o5vww8.md#c6"
     char_span: [8537, 10330]
     sentence_count: 20
     key_terms: [students, google, need, microsoft, use, sharing, collaborative, excel]
+    concepts: [students, google, microsoft, collaborative, sharing]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1o5vww8.md#c2", "social-intelligence/reddit-deep/professors/1o5vww8.md#c7"]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/professors/1o5vww8.md#c7"
     char_span: [10332, 11988]
     sentence_count: 15
     key_terms: [google, crowdsourced, school, docs, link, use, university, microsoft]
+    concepts: [google, crowdsourced, school, university, microsoft]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1o5vww8.md#c0", "social-intelligence/reddit-deep/professors/1o5vww8.md#c2", "social-intelligence/reddit-deep/professors/1o5vww8.md#c5", "social-intelligence/reddit-deep/professors/1o5vww8.md#c6"]
     section: Comments
     token_count: 389
 ---

@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1162]
     sentence_count: 8
     key_terms: [jobs, job, like, currently, comments, degree, entry, level]
+    concepts: [currently, comments, degree, entry, level]
     token_count: 278
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1pmlssl/what_entry_level_jobs_did_you_actually_like/"}]
   - id: "social-intelligence/reddit-deep/jobs/1pmlssl.md#c1"
     char_span: [1176, 3236]
     sentence_count: 10
     key_terms: [being, job, receptionist, loved, groundsman, favorite, leverage, company]
+    concepts: [being, receptionist, groundsman, loved, favorite]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1pmlssl.md#c2"
     char_span: [2994, 3943]
     sentence_count: 10
     key_terms: [worked, college, grocery, school, throwawayfrompa1701, crafty-guest-2826, good, jobs]
+    concepts: [worked, college, grocery, school]
     section: Comments
     token_count: 237
 ---

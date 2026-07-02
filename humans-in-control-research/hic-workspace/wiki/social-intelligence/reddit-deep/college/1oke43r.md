@@ -19,50 +19,64 @@ chunks:
     char_span: [0, 227]
     sentence_count: 2
     key_terms: [comments, college, otherunderstanding44, reddit-deep, professor, further, posted, reddit]
+    concepts: [comments, college]
     token_count: 63
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1oke43r/should_i_further_talk_to_my_professor/"}]
   - id: "social-intelligence/reddit-deep/college/1oke43r.md#c1"
     char_span: [229, 2557]
     sentence_count: 14
     key_terms: [class, because, "didn't", honors, semester, disrespectful, angry, professor]
+    concepts: [class, because, "didn't", honors, disrespectful]
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1oke43r.md#c2"
     char_span: [2274, 4579]
     sentence_count: 17
     key_terms: [class, myself, explaining, doing, "don't", phone, professor, honestly]
+    concepts: [class, explaining, myself, professor, doing]
+    related_chunks: ["social-intelligence/reddit-deep/college/1oke43r.md#c6"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1oke43r.md#c3"
     char_span: [4581, 5273]
     sentence_count: 8
     key_terms: [unreasonable, "don't", apologize, further, saying, seem, talk, disrespectfully]
+    concepts: [unreasonable, "don't", apologize, further, saying]
     token_count: 154
   - id: "social-intelligence/reddit-deep/college/1oke43r.md#c4"
     char_span: [5287, 7404]
     sentence_count: 23
     key_terms: [otherunderstanding44, "don't", professor, time, annoyed, "professor's", "it's", work]
+    concepts: [otherunderstanding44, professor, "don't", annoyed, "professor's"]
+    related_chunks: ["social-intelligence/reddit-deep/college/1oke43r.md#c7"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/college/1oke43r.md#c5"
     char_span: [7406, 9205]
     sentence_count: 18
     key_terms: [class, accusing, otherunderstanding44, mrmahsterbaiter, "doesn't", saying, unreasonable, composition]
+    concepts: [accusing, class, otherunderstanding44, mrmahsterbaiter, "doesn't"]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/college/1oke43r.md#c6"
     char_span: [9207, 10299]
     sentence_count: 13
     key_terms: [class, distracting, professor, activity, missing, nothing, otherunderstanding44, prestigious-tea6514]
+    concepts: [class, distracting, professor, activity, missing]
+    related_chunks: ["social-intelligence/reddit-deep/college/1oke43r.md#c2"]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/college/1oke43r.md#c7"
     char_span: [10301, 12130]
     sentence_count: 18
     key_terms: [otherunderstanding44, prestigious-tea6514, professor, bathroom, unreceptive, ipad, like, reasonable]
+    concepts: [otherunderstanding44, prestigious-tea6514, professor, bathroom, unreceptive]
+    related_chunks: ["social-intelligence/reddit-deep/college/1oke43r.md#c4"]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/college/1oke43r.md#c8"
     char_span: [12132, 13152]
     sentence_count: 8
     key_terms: [otherunderstanding44, like, talk, further, reason, sounds, power, don]
+    concepts: [otherunderstanding44, further, reason, sounds, power]
     section: Comments
     token_count: 248
 ---

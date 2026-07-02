@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 621]
     sentence_count: 3
     key_terms: [gradadmissions, back, comments, program, landed, years, post, mission-ad-5869]
+    concepts: [gradadmissions, comments, program, landed, years]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1s8agrg.md#c1"]
     token_count: 161
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1s8agrg/still_in_shock/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1s8agrg.md#c1"
     char_span: [635, 1661]
     sentence_count: 6
     key_terms: [congrats, mission-ad-5869, years, because, program, brook, stony, agitatedmuscle1252]
+    concepts: [mission-ad-5869, congrats, years, because, program]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1s8agrg.md#c0"]
     section: Comments
     token_count: 296
 ---

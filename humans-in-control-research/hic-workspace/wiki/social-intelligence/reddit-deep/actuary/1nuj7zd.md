@@ -17,10 +17,12 @@ research_goal: "Deliver a comprehensive 2026 outlook on the global insurance ind
 engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
 chunks:
   - id: "social-intelligence/reddit-deep/actuary/1nuj7zd.md#c0"
-    char_span: [0, 569]
+    char_span: [0, 568]
     sentence_count: 4
     key_terms: [comments, actuary, change, looks, leatherlift, reddit-deep, completing, impressive]
+    concepts: [comments, actuary, change, looks]
     token_count: 146
+    sources: [{"n":"reddit-deep: r/actuary","u":"https://www.reddit.com/r/actuary/comments/1nuj7zd/networking_event_tomorrow_please_let_me_know_what/"}]
 ---
 # Networking event tomorrow, please let me know what to change, thanks!
 

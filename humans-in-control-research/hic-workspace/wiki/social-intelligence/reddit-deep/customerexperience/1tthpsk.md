@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1323]
     sentence_count: 9
     key_terms: [agents, autonomous, customerexperience, customer-facing, operations, companies, workflows, comments]
+    concepts: [agents, customerexperience, autonomous, customer-facing, operations]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1tthpsk.md#c1"]
     token_count: 252
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1tthpsk/are_autonomous_ai_agents_actually_ready_for/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1tthpsk.md#c1"
-    char_span: [1338, 3581]
+    char_span: [1337, 3580]
     sentence_count: 18
     key_terms: [agents, agent, workflows, customer-facing, failure, answer, well-defined, deployments]
+    concepts: [agents, workflows, agent, customer-facing, failure]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1tthpsk.md#c0"]
     section: Comments
     token_count: 458
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1305]
     sentence_count: 12
     key_terms: [gradadmissions, comments, science, around, asking, better, figure, apply]
+    concepts: [gradadmissions, comments, science, around, asking]
     token_count: 304
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1pnzx91/need_helpguidance_researching_for_a_grad_school/"}]
 ---
 # Need help/guidance researching for a grad school
 

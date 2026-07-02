@@ -20,22 +20,28 @@ chunks:
     char_span: [0, 2452]
     sentence_count: 26
     key_terms: [account, context, claude, personal, university, neu, run, building]
+    concepts: [account, context, claude, personal, university]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1rr2mdp.md#c1"]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rr2mdp/your_neu_claude_account_data_belongs_to_the/"}]
   - id: "social-intelligence/reddit-deep/neu/1rr2mdp.md#c1"
     char_span: [2454, 3178]
     sentence_count: 7
     key_terms: [anything, account, claude, graduation, personal, "you're", doing, want]
+    concepts: [anything, account, claude, graduation, personal]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1rr2mdp.md#c0"]
     token_count: 147
   - id: "social-intelligence/reddit-deep/neu/1rr2mdp.md#c2"
-    char_span: [3193, 4045]
+    char_span: [3192, 4044]
     sentence_count: 6
     key_terms: [impressive-door-2616, iterativeintention, data, like, time, trustyhuskyneu, cheesypanther, orientation]
     section: Comments
     token_count: 227
   - id: "social-intelligence/reddit-deep/neu/1rr2mdp.md#c3"
-    char_span: [4047, 6081]
+    char_span: [4046, 6080]
     sentence_count: 12
     key_terms: [claude, access, northeastern, usage, chat, appreciate, bostonnu, comments]
+    concepts: [claude, access, northeastern, appreciate, usage]
     section: Comments
     token_count: 496
 ---

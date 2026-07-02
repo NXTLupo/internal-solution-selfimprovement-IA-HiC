@@ -20,28 +20,33 @@ chunks:
     char_span: [0, 1918]
     sentence_count: 10
     key_terms: [etf, amundi, acc, ucits, msci, aggressive, allocation, portfolio]
+    concepts: [amundi, ucits, aggressive, allocation, portfolio]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1reidu1/thoughts_on_this_aggressive_roboadvisor_portfolio/"}]
   - id: "social-intelligence/reddit-deep/etfs/1reidu1.md#c1"
     char_span: [1920, 2463]
     sentence_count: 6
     key_terms: [over-engineered, concentrating, intelligently, risk-adjusted, concentrated, confirmation, construction, essentially]
     token_count: 102
   - id: "social-intelligence/reddit-deep/etfs/1reidu1.md#c2"
-    char_span: [2478, 4667]
+    char_span: [2477, 4666]
     sentence_count: 18
     key_terms: [income, risk, diversification, equity, higher, market, autocallable, allocations]
+    concepts: [income, diversification, autocallable, equity, higher]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/etfs/1reidu1.md#c3"
-    char_span: [4669, 6487]
+    char_span: [4668, 6486]
     sentence_count: 9
     key_terms: [portfolio, revolut, etfs, artificial, complexity, ridiculous, different, investing]
+    concepts: [portfolio, revolut, artificial, complexity, ridiculous]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/etfs/1reidu1.md#c4"
-    char_span: [6489, 6619]
+    char_span: [6488, 6618]
     sentence_count: 1
     key_terms: [month, investing, amount, months, trying, been, day, fees]
+    concepts: [month]
     section: Comments
     token_count: 36
 ---

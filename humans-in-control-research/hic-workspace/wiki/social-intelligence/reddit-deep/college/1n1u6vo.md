@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 790]
     sentence_count: 9
     key_terms: [free, college, textbooks, comments, books, money, texts, brainphysical6238]
+    concepts: [college, textbooks, comments, books, money]
     token_count: 188
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1n1u6vo/psa_dont_spend_money_on_textbooks_ever/"}]
   - id: "social-intelligence/reddit-deep/college/1n1u6vo.md#c1"
     char_span: [804, 2889]
     sentence_count: 10
     key_terms: [textbooks, homework, textbook, automoderator, class, assignments, duplication, bookfinder]
+    concepts: [textbooks, homework, textbook, automoderator, assignments]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/college/1n1u6vo.md#c2"
     char_span: [2891, 4898]
     sentence_count: 12
     key_terms: [books, class, professor, physical, textbook, because, book, "i'm"]
+    concepts: [books, class, professor, physical, textbook]
+    related_chunks: ["social-intelligence/reddit-deep/college/1n1u6vo.md#c3"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/college/1n1u6vo.md#c3"
     char_span: [4900, 5724]
     sentence_count: 5
     key_terms: [professors, get, textbook, industry, class, back, free, alternatives]
+    concepts: [professors, textbook, industry, class]
+    related_chunks: ["social-intelligence/reddit-deep/college/1n1u6vo.md#c2"]
     section: Comments
     token_count: 180
 ---

@@ -21,23 +21,32 @@ chunks:
     char_span: [0, 1362]
     sentence_count: 10
     key_terms: [waterloo, university, alberta, co-op, regular, scholarship, uwaterloo, comments]
+    concepts: [waterloo, university, alberta, co-op, regular]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1ryxp8f.md#c3"]
     token_count: 311
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1ryxp8f/need_advice_waterloo_cs_regular_vs_university_of/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1ryxp8f.md#c1"
     char_span: [1376, 3155]
     sentence_count: 12
     key_terms: [co-op, coop, degree, posingmonkey, terms, uofa, graduate, waterloo]
+    concepts: [co-op, posingmonkey, degree, terms, graduate]
     section: Comments
     token_count: 453
+    sources: [{"n":"UW Class of '82 in Co-op Engineering, now retired.","u":""}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1ryxp8f.md#c2"
     char_span: [3160, 4359]
     sentence_count: 5
     key_terms: [internships, posingmonkey, summer, waterloo, tech, probably, apply, did]
+    concepts: [internships, posingmonkey, summer, waterloo, probably]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1ryxp8f.md#c3"]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/uwaterloo/1ryxp8f.md#c3"
     char_span: [4361, 5414]
     sentence_count: 4
     key_terms: [waterloo, posingmonkey, alberta, quite, informal-layer2241, here, entrepreneurial, international]
+    concepts: [waterloo, posingmonkey, alberta, quite]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1ryxp8f.md#c0", "social-intelligence/reddit-deep/uwaterloo/1ryxp8f.md#c2"]
     section: Comments
     token_count: 255
 ---

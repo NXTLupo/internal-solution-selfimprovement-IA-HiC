@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1985]
     sentence_count: 34
     key_terms: ["didn't", work, never, good, "i'd", like, plan, because]
+    concepts: ["didn't", never, conversations, because, spent]
     token_count: 471
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1tfhr7p/i_spent_my_20s_panicking_because_my_dream_career/"}]
   - id: "social-intelligence/reddit-deep/findapath/1tfhr7p.md#c1"
     char_span: [1999, 2946]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1tfhr7p.md#c2"
     char_span: [2949, 4801]
     sentence_count: 9
     key_terms: [good, anything, get, man, something, treating, through, people]
+    concepts: [anything, something, treating, through, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1tfhr7p.md#c3"

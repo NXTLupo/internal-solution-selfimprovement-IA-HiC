@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1270]
     sentence_count: 6
     key_terms: [https, ai-isnt-always-scary-uw-student-helps-families-save-money-on-groceries, waterloo, archive, people, nba3w, list, www]
+    concepts: [https, waterloo, archive, people, nba3w]
     token_count: 343
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1pzfnni/heroes_and_zeroes_in_2025/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1pzfnni.md#c1"
     char_span: [1284, 2090]
     sentence_count: 4
     key_terms: [police, mistake, budget, wilmot, boo, gets, good, vote]
+    concepts: [police, mistake, budget, wilmot]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/waterloo/1pzfnni.md#c2"
     char_span: [2092, 3272]
     sentence_count: 6
     key_terms: [heroes, skrimp, council, entire, rights, items, sure, counsellors]
+    concepts: [heroes, skrimp, council, entire, rights]
     section: Comments
     token_count: 314
 ---

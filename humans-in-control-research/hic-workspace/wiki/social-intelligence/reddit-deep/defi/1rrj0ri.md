@@ -17,10 +17,12 @@ research_goal: "Produce the definitive guide to personal investing in 2026 by an
 engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/defi/1rrj0ri.md#c0"
-    char_span: [0, 850]
+    char_span: [0, 849]
     sentence_count: 1
     key_terms: [cross-chain, defi, comments, because, like, xrp, aggregators, integration]
-    token_count: 210
+    concepts: [cross-chain, comments, because]
+    token_count: 209
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1rrj0ri/this_is_what_crosschain_ux_should_look_like/"}]
 ---
 # this is what cross-chain ux should look like
 

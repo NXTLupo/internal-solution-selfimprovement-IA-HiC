@@ -19,53 +19,63 @@ chunks:
     char_span: [0, 1396]
     sentence_count: 17
     key_terms: [software, cscareerquestions, new, comments, forever, always, hiring, person]
+    concepts: [software, cscareerquestions, comments, forever, always]
     token_count: 311
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1m4emsv/cs_will_forever_need_new_grads/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4emsv.md#c1"
     char_span: [1410, 3467]
     sentence_count: 15
     key_terms: [bitter, interns, life, new, time, hiring, hours, full]
+    concepts: [bitter, interns, hiring, assumption, hours]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4emsv.md#c2"
     char_span: [3469, 5014]
     sentence_count: 15
     key_terms: [engineers, job, new, tech, industry, working, bitter, grads]
+    concepts: [engineers, industry, working, bitter, grads]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4emsv.md#c3"
     char_span: [5016, 7149]
     sentence_count: 12
     key_terms: [college, stressful, through, grads, engineering, job, part, business]
+    concepts: [college, stressful, through, engineering, grads]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4emsv.md#c4"
     char_span: [7151, 8878]
     sentence_count: 13
     key_terms: [india, best, california, understand, investors, postings, because, density]
+    concepts: [california, india, understand, investors, postings]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4emsv.md#c5"
     char_span: [8880, 10000]
     sentence_count: 8
     key_terms: [shareholders, security, require, people, talent, cheesecakesquared, best, time]
+    concepts: [shareholders, security, require, people, talent]
     section: Comments
     token_count: 229
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4emsv.md#c6"
     char_span: [10002, 11686]
     sentence_count: 10
     key_terms: ["you're", obscuragaming, get, "it's", job, pay, incredibly, millions]
+    concepts: [obscuragaming, "you're", incredibly, millions, because]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4emsv.md#c7"
     char_span: [11688, 13565]
     sentence_count: 14
     key_terms: [people, grads, always, place, new, salaries, salary, middle-class]
+    concepts: [people, grads, always, place, salaries]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4emsv.md#c8"
     char_span: [13567, 14140]
     sentence_count: 2
     key_terms: [going, salaries, "don't", we-could-be-heros, enchantedsalvia, developers, anthropic, companies]
+    concepts: [going, salaries, "don't"]
     section: Comments
     token_count: 144
 ---

@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 860]
     sentence_count: 7
     key_terms: [huge, comments, suicides, middle, going, spike, years, age]
+    concepts: [comments, suicides, middle, going, spike]
     token_count: 200
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1ojmymx/are_we_going_to_see_a_huge_spike_in_suicides_with/"}]
   - id: "social-intelligence/reddit-deep/genz/1ojmymx.md#c1"
     char_span: [874, 1318]
     sentence_count: 2
     key_terms: [discord, apartmentworried5692, automatically, automoderator, depressing, moderators, nwe6js5rh9, thegalator]
+    concepts: [discord]
     section: Comments
     token_count: 123
   - id: "social-intelligence/reddit-deep/genz/1ojmymx.md#c2"
     char_span: [1320, 3437]
     sentence_count: 12
     key_terms: [people, get, friends, suicide, going, "i'm", lot, everything]
+    concepts: [people, friends, suicide, everything, going]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1ojmymx.md#c3"
     char_span: [3165, 3515]
     sentence_count: 3
     key_terms: [making, improvements, everything, anything, drinking, exercise, judgiest, remedies]
+    concepts: [making]
     section: Comments
     token_count: 80
   - id: "social-intelligence/reddit-deep/genz/1ojmymx.md#c4"
     char_span: [3517, 5136]
     sentence_count: 15
     key_terms: [people, like, probably, alcohol, running, alive, "can't", drugs]
+    concepts: [people, probably, alcohol, running, alive]
     section: Comments
     token_count: 434
 ---

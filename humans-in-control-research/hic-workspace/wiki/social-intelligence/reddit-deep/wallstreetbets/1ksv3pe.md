@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 316]
     sentence_count: 2
     key_terms: [wallstreetbets, comments, reddit-deep, dasherlao, overdraft, business, checking, account]
+    concepts: [wallstreetbets, comments]
     token_count: 94
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1ksv3pe/100000_overdraft_to_my_business_checking_account/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c1"
     char_span: [330, 1522]
     sentence_count: 4
     key_terms: [retardium, wsb, https, deleted, discord, leaps, total, years]
+    concepts: [retardium, https, deleted, discord, leaps]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c2"
     char_span: [1524, 3148]
     sentence_count: 10
     key_terms: [fake, c18a4d2958f714b30735582185df831b591924ff, deleted, enough, therapy, smart, bust, far]
+    concepts: [deleted, enough, therapy, smart]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c3"
     char_span: [2941, 4928]
     sentence_count: 8
     key_terms: [certain, cognitive, thoughts, spotify, therapy, mrprivateobservation, crime, doesn]
+    concepts: [certain, cognitive, thoughts, spotify, therapy]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c4"
     char_span: [4712, 4936]
     sentence_count: 2
     key_terms: [thats, stonkatrucks, obviously, generate, thousand, capital, protect, crazy]
+    concepts: [thats]
     section: Comments
     token_count: 67
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c5"
@@ -56,36 +62,42 @@ chunks:
     char_span: [5411, 7070]
     sentence_count: 4
     key_terms: [king, broiled, burger, like, business, either, flames, gamble]
+    concepts: [broiled, burger, business, either, flames]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c7"
     char_span: [6889, 7666]
     sentence_count: 1
     key_terms: [either, dicaprio, dualipatrophyhusband, councilmanrickprime, inmontibus-adflumen, abstractbettafish, call, king]
+    concepts: [either, dicaprio]
     section: Comments
     token_count: 251
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c8"
     char_span: [7668, 8347]
     sentence_count: 2
     key_terms: [like, eating, penny, poop, thegreatlightdesert, snail, sheriffbartholomew, eat]
+    concepts: [eating, penny, snail]
     section: Comments
     token_count: 209
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c9"
     char_span: [8349, 10032]
     sentence_count: 9
     key_terms: [get, maybe, collection, gambling, deleted, cancer, eating, emote]
+    concepts: [maybe, collection, gambling, deleted, cancer]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c10"
     char_span: [9786, 11040]
     sentence_count: 6
     key_terms: [deleted, problem, owe, business, because, hoping, maybe, fine]
+    concepts: [deleted, problem, business, because, hoping]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c11"
     char_span: [11042, 12156]
     sentence_count: 6
     key_terms: [get, debt, poopbucketchallenge, trade, card, did, let, nationalowl9561]
+    concepts: [trade]
     section: Comments
     token_count: 309
 ---

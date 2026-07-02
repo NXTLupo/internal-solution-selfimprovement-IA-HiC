@@ -20,28 +20,34 @@ chunks:
     char_span: [0, 1717]
     sentence_count: 6
     key_terms: [sales, workbook, leaderboards, activity, comments, managers, salesops, analyst]
+    concepts: [sales, workbook, leaderboards, activity, comments]
     token_count: 380
+    sources: [{"n":"reddit-deep: r/salesops","u":"https://www.reddit.com/r/SalesOps/comments/1st15ev/best_way_to_create_live_sales_metric_dashboards/"}]
   - id: "social-intelligence/reddit-deep/salesops/1st15ev.md#c1"
     char_span: [1719, 3589]
     sentence_count: 11
     key_terms: [salesforce, analytics, different, ambition, coaching, deciding, metrics, tableau]
+    concepts: [salesforce, analytics, different, ambition, coaching]
     token_count: 412
   - id: "social-intelligence/reddit-deep/salesops/1st15ev.md#c2"
-    char_span: [3604, 6060]
+    char_span: [3603, 6059]
     sentence_count: 14
     key_terms: [data, dashboards, visibility, trust, com, activity, building, https]
+    concepts: [dashboards, visibility, trust, activity, building]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/salesops/1st15ev.md#c3"
-    char_span: [6062, 8243]
+    char_span: [6061, 8242]
     sentence_count: 26
     key_terms: [implementation, team, tool, questions, fte, outreach, definitions, "i'd"]
+    concepts: [implementation, questions, outreach, definitions, salesforce]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/salesops/1st15ev.md#c4"
-    char_span: [8245, 8913]
+    char_span: [8244, 8912]
     sentence_count: 7
     key_terms: [snowflake, tableau, data, tool, use, transformations, definitions, self-serve]
+    concepts: [snowflake, tableau]
     section: Comments
     token_count: 149
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1060]
     sentence_count: 7
     key_terms: [entry-level, experience, internship, comments, guidance, finance, looking, remote]
+    concepts: [entry-level, experience, internship, comments, guidance]
     token_count: 260
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1s8knk2/looking_for_entrylevel_hr_opportunity_remote_mba/"}]
 ---
 # Looking for Entry-Level HR Opportunity (Remote) – MBA + 1 Yr Experience | Open to Internship / Guidance
 

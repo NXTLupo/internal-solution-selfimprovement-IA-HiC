@@ -21,59 +21,72 @@ chunks:
     char_span: [0, 796]
     sentence_count: 2
     key_terms: [admission, applyingtocollege, system, comments, people, prefer, major, complicated]
+    concepts: [applyingtocollege, admission, system, comments, people]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c9"]
     token_count: 179
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1pwwlck/would_you_prefer_an_examonly_acceptance_system/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c1"
     char_span: [810, 3124]
     sentence_count: 16
     key_terms: [people, diversity, income, meritocracy, correlated, different, argument, national]
+    concepts: [people, diversity, income, meritocracy, correlated]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c2"
     char_span: [3126, 4667]
     sentence_count: 16
     key_terms: [diversity, colleges, because, engineering, approach, amounts, example, schools]
+    concepts: [diversity, colleges, because, engineering, approach]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c3"
     char_span: [4670, 6965]
     sentence_count: 13
     key_terms: [diversity, engineers, physicists, example, physics, good, experience, humanities]
+    concepts: [diversity, engineers, physicists, example, physics]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c4"
     char_span: [6967, 8779]
     sentence_count: 16
     key_terms: [opportunities, connections, good, idea, scientists, accepted, einstein, because]
+    concepts: [opportunities, connections, scientists, accepted, einstein]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c5"
     char_span: [8781, 10417]
     sentence_count: 9
     key_terms: [admissions, system, grades, flawed, standardized, grade, like, side]
+    concepts: [admissions, system, grades, standardized, flawed]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c6"
     char_span: [10419, 12478]
     sentence_count: 10
     key_terms: [system, china, worse, probably, extracurriculars, "china's", income, ecs]
+    concepts: [system, probably, china, worse, extracurriculars]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c7"
     char_span: [12480, 13636]
     sentence_count: 8
     key_terms: [system, college, school, "it's", rest, packing-tape-man, standardized, competition]
+    concepts: [system, college, school]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c8"
     char_span: [13638, 15715]
     sentence_count: 12
     key_terms: [exam, entrance, system, "you're", life, colleges, parental, pressure]
+    concepts: [entrance, system, "you're", colleges, parental]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c9"
     char_span: [15717, 17748]
     sentence_count: 9
     key_terms: [system, get, people, academics, ecs, test, because, prefer]
+    concepts: [system, people, academics, because, prefer]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c0"]
     section: Comments
     token_count: 465
 ---

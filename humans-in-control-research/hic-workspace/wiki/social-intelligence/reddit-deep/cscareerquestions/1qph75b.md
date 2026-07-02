@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1049]
     sentence_count: 11
     key_terms: [wgu, cscareerquestions, because, jobs, year, struggling, comments, applied]
+    concepts: [cscareerquestions, because, struggling, comments, applied]
     token_count: 282
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qph75b/any_20242026_wgu_cs_grads_who_are_struggling_to/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qph75b.md#c1"
     char_span: [1063, 2293]
     sentence_count: 12
     key_terms: [resume, "don't", applications, interviews, different, market, matter, school]
+    concepts: [resume, "don't", applications, interviews, different]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qph75b.md#c2"
     char_span: [2295, 4154]
     sentence_count: 12
     key_terms: [swe, coinbase-discrd-rddt, didn, "it's", job, time, internship, companies]
+    concepts: [coinbase-discrd-rddt, internship, companies, working, degree]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qph75b.md#c3"
     char_span: [4156, 5658]
     sentence_count: 15
     key_terms: [market, going, credentials, like, headhunted, companies, interview, struggle]
+    concepts: [market, credentials, going, headhunted, companies]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qph75b.md#c4"
     char_span: [5660, 7721]
     sentence_count: 22
     key_terms: [market, people, instruction, schools, bunnytiger23, prestigious, "it's", job]
+    concepts: [market, people, instruction, schools, bunnytiger23]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qph75b.md#c5"
     char_span: [7723, 8335]
     sentence_count: 5
     key_terms: [professors, abraineatingamoeboid, teach, specifically, experienced, instruction, internships, curriculum]
+    concepts: [professors, teach]
     section: Comments
     token_count: 124
 ---

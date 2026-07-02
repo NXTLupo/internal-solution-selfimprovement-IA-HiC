@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2044]
     sentence_count: 21
     key_terms: [questrade, transfer, form, months, wealthsimple, stock, institution, "questrade's"]
+    concepts: [questrade, transfer, wealthsimple, months, institution]
     token_count: 474
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1sxdy9m/psa_do_not_use_questrade_for_registered_accounts/"}]
   - id: "social-intelligence/reddit-deep/investing/1sxdy9m.md#c1"
-    char_span: [2059, 3569]
+    char_span: [2058, 3568]
     sentence_count: 14
     key_terms: [issues, fbiscalledwhatnow, account, "i've", reps, tfsa, zeldagold, bullymog]
+    concepts: [fbiscalledwhatnow, issues, account, zeldagold, bullymog]
     section: Comments
     token_count: 392
 ---

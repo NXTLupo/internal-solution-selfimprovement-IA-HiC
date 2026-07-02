@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2370]
     sentence_count: 16
     key_terms: [email, internship, company, manager, emailed, february, follow, commencement]
+    concepts: [email, internship, company, manager, emailed]
     token_count: 495
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rpplnk/manager_not_responding_to_email_about_first_week/"}]
   - id: "social-intelligence/reddit-deep/internships/1rpplnk.md#c1"
     char_span: [2375, 3134]
     sentence_count: 7
     key_terms: [graduation, questions, allowed, whether, always, attend, appropriate-tutor587, alert-locksmith2231]
+    concepts: [graduation, questions, allowed, whether, always]
     section: Comments
     token_count: 193
 ---

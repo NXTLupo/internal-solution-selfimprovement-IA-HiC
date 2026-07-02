@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1577]
     sentence_count: 7
     key_terms: [offer, interview, received, finally, internships, opportunity, experience, internship]
+    concepts: [offer, interview, received, finally, internships]
     token_count: 352
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rtpjc7/after_5_months_i_finally_got_an_offer/"}]
   - id: "social-intelligence/reddit-deep/internships/1rtpjc7.md#c1"
     char_span: [1591, 3266]
     sentence_count: 13
     key_terms: [congratulations, psychologicalcup6385, offer, internship, searching, congrats, timeline, awesome]
+    concepts: [congratulations, psychologicalcup6385, internship, offer, searching]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/internships/1rtpjc7.md#c2"
     char_span: [3268, 4223]
     sentence_count: 10
     key_terms: [ghosted, couple, internship, something, getting, since, luck, paid]
+    concepts: [ghosted, couple, internship, something, getting]
     section: Comments
     token_count: 209
 ---

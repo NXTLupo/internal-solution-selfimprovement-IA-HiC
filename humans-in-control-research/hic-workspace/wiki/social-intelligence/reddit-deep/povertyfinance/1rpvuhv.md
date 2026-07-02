@@ -21,58 +21,74 @@ chunks:
     char_span: [0, 1140]
     sentence_count: 4
     key_terms: [school, loans, job, college, povertyfinance, grad, comments, parents]
+    concepts: [school, loans, povertyfinance, college, comments]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c5"]
     token_count: 268
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1rpvuhv/student_loans_absolutely_ruined_my_life/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c1"
     char_span: [1142, 2374]
     sentence_count: 9
     key_terms: [job, month, pay, getting, afford, myself, people, trying]
+    concepts: [month, getting, afford, myself, people]
     token_count: 278
   - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c2"
     char_span: [2388, 3368]
     sentence_count: 5
     key_terms: [public, physical-vapor, loans, work, forgiven, history, service, degree]
+    concepts: [public, physical-vapor, loans, forgiven, history]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c3"]
     section: Comments
     token_count: 275
   - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c3"
     char_span: [3370, 5527]
     sentence_count: 11
     key_terms: [student, discharged, loans, administration, public, trying, discharge, payment]
+    concepts: [student, discharged, loans, administration, public]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c2"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c4"
     char_span: [5529, 7271]
     sentence_count: 9
     key_terms: [loans, lender, credit, bankruptcy, student, circumstances, discharged, co-signer]
+    concepts: [loans, lender, bankruptcy, credit, circumstances]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c5"]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c5"
     char_span: [7273, 9290]
     sentence_count: 27
     key_terms: [loans, school, didn, loan, bankruptcy, financial, interest, military]
+    concepts: [loans, school, bankruptcy, financial, interest]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c0", "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c4"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c6"
     char_span: [9292, 11133]
     sentence_count: 29
     key_terms: [loan, loans, garnishment, didn, like, per, manageable, something]
+    concepts: [garnishment, loans, manageable, something, payments]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c7"
     char_span: [11135, 13261]
     sentence_count: 30
     key_terms: [year, abroad, moving, option, jobs, visa, countries, undergrad]
+    concepts: [abroad, moving, option, countries, undergrad]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c8"
     char_span: [13263, 14467]
     sentence_count: 8
     key_terms: [private, loans, don, students, paying, job, pay, side]
+    concepts: [private, loans, students, paying]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c9"
     char_span: [14469, 16475]
     sentence_count: 17
     key_terms: [school, expensive, time, throwaway098424, degree, state, cost, get]
+    concepts: [school, expensive, throwaway098424, degree, state]
     section: Comments
     token_count: 489
 ---

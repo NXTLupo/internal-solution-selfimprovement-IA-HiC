@@ -16,10 +16,12 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1tipek8.md#c0"
-    char_span: [0, 350]
+    char_span: [0, 349]
     sentence_count: 3
     key_terms: [gradadmissions, comments, princetonengineers, engineering, reddit-deep, admissions, anything, clarify]
-    token_count: 96
+    concepts: [gradadmissions, comments]
+    token_count: 95
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1tipek8/im_a_dean_at_a_top_engineering_school_on_a/"}]
 ---
 # I’m a dean at a top engineering school on a mission to clarify the STEM grad admissions process. Ask me anything!
 

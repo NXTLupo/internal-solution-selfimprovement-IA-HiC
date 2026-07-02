@@ -21,59 +21,72 @@ chunks:
     char_span: [0, 1231]
     sentence_count: 10
     key_terms: [info, artificial, comments, websites, "doesn't", claude, "don't", tools]
+    concepts: [artificial, comments, websites, "doesn't", claude]
     token_count: 302
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1nf9sd7/i_am_over_ai/"}]
   - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c1"
     char_span: [1245, 3374]
     sentence_count: 17
     key_terms: [next, prediction, iddoitatleastonce, like, word, hallucinations, manipulation, "it's"]
+    concepts: [prediction, iddoitatleastonce, hallucinations, manipulation, complex]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c2"
     char_span: [3376, 5217]
     sentence_count: 16
     key_terms: [search, engine, like, get, gets, hardware, context, engines]
+    concepts: [search, engine, hardware, context, engines]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c3"
     char_span: [5220, 6856]
     sentence_count: 12
     key_terms: [github, com, like, planetaryrestorationarchive, something, treating, feels, model]
+    concepts: [github, something, treating, feels, model]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c4"
     char_span: [6858, 8656]
     sentence_count: 15
     key_terms: [people, honeymoon, avoid, kinds, like, dismissed, because, schlock]
+    concepts: [people, honeymoon, avoid, kinds, dismissed]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c5"
     char_span: [8658, 10624]
     sentence_count: 6
     key_terms: [like, deleted, people, box, god, jlsilicon9, personally, marketed]
+    concepts: [deleted, people, jlsilicon9, personally, marketed]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1nf9sd7.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c6"
     char_span: [10406, 10805]
     sentence_count: 1
     key_terms: [real, people, person, minimumoverkill, accidentally, interactions, frequently, available]
+    concepts: [people, person]
     section: Comments
     token_count: 101
   - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c7"
     char_span: [10807, 12663]
     sentence_count: 11
     key_terms: [people, internet, deleted, posicrit868, away, machine, nothing, started]
+    concepts: [people, internet, deleted, posicrit868, machine]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1nf9sd7.md#c5"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c8"
     char_span: [12665, 14442]
     sentence_count: 19
     key_terms: [years, been, data, training, info, like, llms, oldbluer]
+    concepts: [years, training, oldbluer, gobbled, almost]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c9"
     char_span: [14444, 15428]
     sentence_count: 10
     key_terms: [large, model, language, use, analysis, presence, leading-plastic5771, "don't"]
+    concepts: [large, model, language, analysis, presence]
     section: Comments
     token_count: 233
 ---

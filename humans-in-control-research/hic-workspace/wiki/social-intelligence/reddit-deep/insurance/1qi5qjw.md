@@ -8,41 +8,49 @@ title: "Driver kills dog, demands owner pay for car damage"
 author: "brightdreamer25"
 date: "2026-01-20T16:28:27.000Z"
 score: 0
-upvote_ratio: 0.25
+upvote_ratio: 0.26
 num_comments: 36
 flair: "Home Insurance"
-extracted_at: "2026-06-17T19:26:46.489Z"
+extracted_at: "2026-06-20T17:52:10.530Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/insurance/1qi5qjw.md#c0"
     char_span: [0, 1487]
     sentence_count: 9
     key_terms: [insurance, car, dog, been, pay, adjuster, comments, customer]
+    concepts: [insurance, adjuster, comments, customer, service]
     token_count: 356
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1qi5qjw/driver_kills_dog_demands_owner_pay_for_car_damage/"}]
   - id: "social-intelligence/reddit-deep/insurance/1qi5qjw.md#c1"
-    char_span: [1502, 3378]
+    char_span: [1501, 3377]
     sentence_count: 14
     key_terms: [dog, owner, responsible, car, damage, liable, insurance, damages]
+    concepts: [responsible, owner, damage, liable, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qi5qjw.md#c3"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/insurance/1qi5qjw.md#c2"
-    char_span: [3380, 5455]
+    char_span: [3379, 5454]
     sentence_count: 17
     key_terms: [dog, owner, livestock, range, vehicle, animal, laws, open]
+    concepts: [owner, livestock, range, vehicle, animal]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/insurance/1qi5qjw.md#c3"
-    char_span: [5459, 7612]
+    char_span: [5458, 7611]
     sentence_count: 22
     key_terms: [dog, property, owner, damage, car, driver, "don't", mower]
+    concepts: [property, owner, damage, driver, responsible]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qi5qjw.md#c1"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/insurance/1qi5qjw.md#c4"
-    char_span: [7614, 8984]
+    char_span: [7613, 8982]
     sentence_count: 6
     key_terms: [independent-junket-6, range, idaho, car, open, different, negligent, vehicle]
+    concepts: [independent-junket-6, range, idaho, different, negligent]
     section: Comments
     token_count: 341
 ---
@@ -67,10 +75,10 @@ EDIT: okay I’ve been sufficiently corrected. I’m not an adjuster, I don’t 
 
 ## Comments
 
-- **ugadawgs98** (43↑): The dog owner is liable for the damage.  It could be a shake down or there could be actual damage to the vehicle.  Some parts on the front of a vehicle including many new style headlights or lane sensors are insanely expensive.  
+- **ugadawgs98** (41↑): The dog owner is liable for the damage.  It could be a shake down or there could be actual damage to the vehicle.  Some parts on the front of a vehicle including many new style headlights or lane sensors are insanely expensive.  
 
 So....without factual details of the damage I'm not sure how you come to such a concrete conclusion.
-- **ektap12** (17↑): >Or, they offered so generously to file a claim with their car insurance and have him pay the deductible.
+- **ektap12** (18↑): >Or, they offered so generously to file a claim with their car insurance and have him pay the deductible.
 
 It's a sad situation, no doubt. But that's not how that works. *If* the dog owner was liable for the car's damages, then they would be responsible for all the damages not just the deductible, so if this person intends to go through insurance they should be paid nothing. The insurance can pursue them if they want.
 
@@ -90,7 +98,7 @@ A dog's not livestock, obviously.  The owner of the dog has a duty to keep their
   - **ghost9680** (3↑): The dog being on or off leash makes no difference in states with strict liability laws. Dog owner is liable either way.
   - **drjenkstah** (3↑): Depends on the law of the land where the loss occurred. Some places the person driving the vehicle can collect from the animal’s owner.
     - **E0H1PPU5** (8↑): I’m not aware of any place in the US where the owner of the dog wouldn’t be liable for damages here. I’d love to hear if you know someplace that’s not the case.
-- **Shotgun_Mosquito** (8↑): > home insurance customer service for over 5 years
+- **Shotgun_Mosquito** (7↑): > home insurance customer service for over 5 years
 
 Auto insurance adjuster for 23 years.  Hold on to your hat.
 
@@ -120,8 +128,8 @@ what if the driver swerved and missed the dog, dog lived.  The driver struck ano
 - **Certain_Luck_8266** (6↑): \>this would be immediately thrown out of any court
 
 How would you be able to claim this without knowing the damages?  Every cent of actual damages is owed by the dog owner.  Sure 3k sounds like it is a lot, but that is why you don't pay claims without proof.  I can see a scenario where it could easily be 3K though.  Take a 10 pound thawed turkey and throw it at 45mph into the front of a car and tell me you don't dent/break things.  I once caught a rabbit in the front lower grill of my honda accord.  Busted the radiator, radiator bracket, and aero trim.  That was over 1.5K, so I can see it actually being that high.
-- **MCXL** (4↑): You got this one wrong. The owner of the dog is liable for damage it causes, including by it throwing itself in the way of a car and smashing the bumper in the process. Animals are considered property in the care of the owner, and broadly speaking the owner is liable for damage caused by their property.
-- **MintyGame** (5↑): So your customer admits to their dog being hit by the car. Your customer is at fault
+- **MCXL** (5↑): You got this one wrong. The owner of the dog is liable for damage it causes, including by it throwing itself in the way of a car and smashing the bumper in the process. Animals are considered property in the care of the owner, and broadly speaking the owner is liable for damage caused by their property.
+- **MintyGame** (4↑): So your customer admits to their dog being hit by the car. Your customer is at fault
 - **TrumpHasaMicroDick** (3↑): OP, I'm so confused.
 
 You say you work in insurance, yet you don't understand how the dog owner is completely at fault? 
@@ -142,7 +150,7 @@ If but for the PH's negligence, there wouldn't be a mower in the middle of the s
 Now replace the mower with the dog.
 
 Please explain your rationale that this would be thrown out in court.
-- **Cheap_Respond_170** (10↑): I hit my neighbors cow, which had gotten out of its fence. The farmer was 100% responsible for all damages. I don't see how this is any different.
+- **Cheap_Respond_170** (8↑): I hit my neighbors cow, which had gotten out of its fence. The farmer was 100% responsible for all damages. I don't see how this is any different.
   - **W2WageSlave** (2↑): Idaho "Open Range" would be different.
 
 [**Idaho Code 25-2118**](http://legislature.idaho.gov/statutesrules/idstat/Title25/T25CH21/SECT25-2118/) states that “No person owning, or controlling the possession of, any domestic animals running on open range, shall have the duty to keep such animal off any highway on such range, and shall not be liable for damage to any vehicle or for injury to any person riding therein, caused by a collision between the vehicle and the animal.

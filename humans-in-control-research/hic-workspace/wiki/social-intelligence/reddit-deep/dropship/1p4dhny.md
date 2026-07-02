@@ -20,22 +20,29 @@ chunks:
     char_span: [0, 2574]
     sentence_count: 16
     key_terms: [solution, problem, paypal, order, keep, disputes, policies, shipping]
+    concepts: [solution, problem, paypal, order, disputes]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1p4dhny.md#c1"]
     token_count: 538
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1p4dhny/paypal_problems_dropshippers_face_and_how_to/"}]
   - id: "social-intelligence/reddit-deep/dropship/1p4dhny.md#c1"
     char_span: [2578, 3935]
     sentence_count: 8
     key_terms: [paypal, problem, suppliers, business, shipping, solution, tracking, account]
+    concepts: [paypal, problem, suppliers, business, shipping]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1p4dhny.md#c0"]
     token_count: 278
   - id: "social-intelligence/reddit-deep/dropship/1p4dhny.md#c2"
-    char_span: [3950, 5812]
+    char_span: [3949, 5811]
     sentence_count: 8
     key_terms: [paypal, dropship, daylily, https, chat, free, spam, www]
+    concepts: [paypal, dropship, daylily, https, self-promotion]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/dropship/1p4dhny.md#c3"
-    char_span: [5814, 6604]
+    char_span: [5813, 6603]
     sentence_count: 3
     key_terms: [ohlookitsastory, paypal, dropshipping, ships, did, post, ship, stealthagents]
+    concepts: [ohlookitsastory, dropshipping, paypal, ships]
     section: Comments
     token_count: 199
 ---

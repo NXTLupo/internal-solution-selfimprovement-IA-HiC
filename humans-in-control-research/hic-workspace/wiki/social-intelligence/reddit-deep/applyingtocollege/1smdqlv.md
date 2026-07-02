@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1907]
     sentence_count: 14
     key_terms: [vanderbilt, applicant, applyingtocollege, students, transfer, college, please, application]
+    concepts: [vanderbilt, applyingtocollege, applicant, students, transfer]
     token_count: 404
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1smdqlv/i_could_just_be_coping_but_did_anyone_else/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1smdqlv.md#c1"
     char_span: [1921, 3666]
     sentence_count: 8
     key_terms: [rejected, transfer, got, only-decision-5198, manipulation, like, year, rejection]
+    concepts: [rejected, transfer, only-decision-5198, manipulation, rejection]
     section: Comments
     token_count: 425
 ---

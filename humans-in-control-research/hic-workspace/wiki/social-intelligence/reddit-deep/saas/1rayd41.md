@@ -17,10 +17,12 @@ research_goal: "Generate a comprehensive product marketing report for NXT Humans
 engagement: "generate-a-comprehensive-product-marketing-report-for-nxt-hu"
 chunks:
   - id: "social-intelligence/reddit-deep/saas/1rayd41.md#c0"
-    char_span: [0, 1790]
+    char_span: [0, 1789]
     sentence_count: 16
     key_terms: [building, providers, different, saas, provider, api, technical, anything]
-    token_count: 393
+    concepts: [building, providers, different, provider, technical]
+    token_count: 392
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1rayd41/we_integrated_16_ai_providers_into_one_api_and/"}]
 ---
 # We integrated 16 AI providers into one API and here is what we learned about building on top of LLMs
 

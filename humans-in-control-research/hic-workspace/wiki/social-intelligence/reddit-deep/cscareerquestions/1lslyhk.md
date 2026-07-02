@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 772]
     sentence_count: 5
     key_terms: [cscareerquestions, comments, language, learning, mandarin, like, tech, collaboration]
+    concepts: [cscareerquestions, comments, language, learning, mandarin]
     token_count: 164
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1lslyhk/does_learning_a_foreign_language_like_mandarin/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lslyhk.md#c1"
     char_span: [786, 2751]
     sentence_count: 12
     key_terms: [english, proficient, time, native, goldenpedro, languages, singapore, technical]
+    concepts: [english, proficient, native, goldenpedro, languages]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lslyhk.md#c2"
     char_span: [2753, 4496]
     sentence_count: 15
     key_terms: [english-most-spoken-at-home-for-nearly-half-of-spore-residents-population-census, mandarin, english, career, global, like, companies, marketing]
+    concepts: [mandarin, english, career, global, companies]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lslyhk.md#c3"]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lslyhk.md#c3"
     char_span: [4498, 6452]
     sentence_count: 15
     key_terms: [english, mandarin, fluency, professional, learn, development, perspective, relatively]
+    concepts: [english, mandarin, fluency, professional, development]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lslyhk.md#c2"]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lslyhk.md#c4"
     char_span: [6454, 7367]
     sentence_count: 6
     key_terms: [language, foreign, interest, english, thatmanwiththefedora, life, ways, communicating]
+    concepts: [language, foreign, interest, english]
     section: Comments
     token_count: 207
 ---

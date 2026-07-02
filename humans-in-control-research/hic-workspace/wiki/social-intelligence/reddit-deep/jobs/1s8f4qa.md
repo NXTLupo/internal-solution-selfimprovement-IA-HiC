@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 245]
     sentence_count: 3
     key_terms: [comments, jobs, bibigengmurat, reddit-deep, omygaaad, posted, reddit, source]
+    concepts: [comments]
     token_count: 83
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1s8f4qa/too_risky_to_share_or_like/"}]
   - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c1"
     char_span: [259, 1865]
     sentence_count: 12
     key_terms: [like, manager, responsibility, ceo, get, management, delegate, promoted]
+    concepts: [responsibility, manager, management, delegate, promoted]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c2"
     char_span: [1867, 3707]
     sentence_count: 9
     key_terms: [course, start, use, absolutely, "you're", "can't", doing, least]
+    concepts: [course, absolutely, start, "you're", "can't"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c3"
     char_span: [3709, 3988]
     sentence_count: 4
     key_terms: [writing, explaining, profession, discovery, important, accurate, another, mention]
+    concepts: [writing]
     section: Comments
     token_count: 58
   - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c4"
     char_span: [3990, 6029]
     sentence_count: 12
     key_terms: [hard, work, people, great, job, like, time, seacat8586]
+    concepts: [people, great, seacat8586, watching, ability]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c5"
     char_span: [5707, 6100]
     sentence_count: 2
     key_terms: [ability, because, time, exaggerated, immigration, awareness, interview, solitaire]
+    concepts: [ability, because]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c6"
     char_span: [6102, 7885]
     sentence_count: 13
     key_terms: ["wasn't", job, lol, everyone, "don't", point, years, loose-specific7142]
+    concepts: ["wasn't", everyone, "don't", point, years]
     section: Comments
     token_count: 452
 ---

@@ -21,130 +21,155 @@ chunks:
     char_span: [0, 2186]
     sentence_count: 16
     key_terms: [like, chatgpt, openai, don, capability, alignment, something, comments]
+    concepts: [chatgpt, openai, capability, alignment, something]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c13"]
     token_count: 497
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1kka1t5/openai_might_be_in_deeper_shit_than_we_think/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c1"
     char_span: [2188, 2453]
     sentence_count: 2
     key_terms: [https, com, deteriorating, competence, especially, excessive, creative, noticed]
+    concepts: [https]
     token_count: 85
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c2"
     char_span: [2467, 4127]
     sentence_count: 13
     key_terms: [please, conversation, image, using, post, extension, questions, concerns]
+    concepts: [conversation, please, image, using, extension]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c3"
     char_span: [4129, 5821]
     sentence_count: 5
     key_terms: [saying, "it's", probably, chatgpt, mistake, answer, gemini, people]
+    concepts: [saying, probably, chatgpt, mistake, answer]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c4"
     char_span: [5823, 7577]
     sentence_count: 10
     key_terms: [like, antimatter, chatgpt, create, progressions, energy, guitar, lopsided-letter1353]
+    concepts: [antimatter, chatgpt, progressions, create, energy]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c5"
     char_span: [7579, 8860]
     sentence_count: 5
     key_terms: [over-provisioning, scalability, been, catching, rollback, deleted, "they're", "they've"]
+    concepts: [over-provisioning, scalability, catching, rollback, deleted]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c6"
     char_span: [8862, 10930]
     sentence_count: 11
     key_terms: [compute, end, because, google, been, dumb, lol, too]
+    concepts: [compute, because, google]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c7"
     char_span: [10636, 11466]
     sentence_count: 4
     key_terms: [salad, tosses, maybe, lot, plus, dramatically, feetandballs, instructions]
+    concepts: [salad, tosses, maybe]
     section: Comments
     token_count: 218
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c8"
     char_span: [11468, 12885]
     sentence_count: 11
     key_terms: [money, something, version, always, likely, people, going, back]
+    concepts: [money, something, version, always, likely]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c9"
     char_span: [12887, 14492]
     sentence_count: 14
     key_terms: [member, direction, people, unexaminedlifeofmine, "don't", model, away, back]
+    concepts: [member, direction, people, "don't", model]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c10"
     char_span: [14494, 16399]
     sentence_count: 16
     key_terms: [coding, plus, pro, use, campaign, answers, version, become]
+    concepts: [coding, campaign, answers, version, become]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c11"
     char_span: [16401, 17361]
     sentence_count: 8
     key_terms: [visit, started, claude, making, prompt, crew, play, role]
+    concepts: [visit, started, claude, making, prompt]
     section: Comments
     token_count: 229
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c12"
     char_span: [17363, 18555]
     sentence_count: 5
     key_terms: [been, version, non-personal-matters, bannedwith1milkarma, month, good, own, solo]
+    concepts: [version, month]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c13"
     char_span: [18557, 20052]
     sentence_count: 10
     key_terms: [point, chatgpt, want, something, entirely, fucked, write, ask]
+    concepts: [point, chatgpt, something, entirely, fucked]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c0"]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c14"
     char_span: [20054, 21635]
     sentence_count: 15
     key_terms: [tell, procedure, right, ask, code, text, something, sometimes]
+    concepts: [procedure, right, something, sometimes, deleted]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c15"
     char_span: [21637, 23589]
     sentence_count: 13
     key_terms: [document, like, terms, architect, chat, sure, developer, provision]
+    concepts: [document, architect, terms, developer, provision]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c16"
     char_span: [23591, 23881]
     sentence_count: 2
     key_terms: [wrong, fundamentally, instructions, desperately, prediction, different, something, explicit]
+    concepts: [wrong]
     section: Comments
     token_count: 60
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c17"
     char_span: [23883, 25895]
     sentence_count: 17
     key_terms: ["can't", emojis, point, chat, "it's", won, thought, issues]
+    concepts: ["can't", emojis, point, thought, issues]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c18"
     char_span: [25663, 26393]
     sentence_count: 5
     key_terms: [wrong, model, stats, doodooduterte, double-check, specifically, categories, constantly]
+    concepts: [wrong, model, stats]
     section: Comments
     token_count: 178
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c19"
     char_span: [26395, 28438]
     sentence_count: 15
     key_terms: [use, data, too, characters, creative, thought, writing, "don't"]
+    concepts: [characters, creative, thought, writing, "don't"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c20"
     char_span: [28440, 30488]
     sentence_count: 6
     key_terms: [development, cat, accidentally, story, tax, available, character, creative]
+    concepts: [development, accidentally, story, available, character]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c21"
     char_span: [30490, 32355]
     sentence_count: 11
     key_terms: [companies, keeping, back, surprised, equivalent-bet-8771, going, place, track]
+    concepts: [companies, keeping, surprised, going, place]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1kka1t5.md#c22"

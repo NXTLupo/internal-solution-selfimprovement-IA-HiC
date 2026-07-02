@@ -19,47 +19,58 @@ chunks:
     char_span: [0, 329]
     sentence_count: 1
     key_terms: [jobs, comments, backfire-and, entry-level, reddit-deep, automating, companies, workforce]
+    concepts: [comments]
     token_count: 91
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1t1kv2b/mit_ai_expert_warns_automating_gen_z_entrylevel/"}]
   - id: "social-intelligence/reddit-deep/jobs/1t1kv2b.md#c1"
     char_span: [343, 2377]
     sentence_count: 12
     key_terms: [corporations, level, been, don, companies, providing, workforce, training]
+    concepts: [corporations, level, companies, providing, workforce]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/jobs/1t1kv2b.md#c2"
     char_span: [2379, 4572]
     sentence_count: 14
     key_terms: [experience, work, position, manufacturing, train, don, want, anyone]
+    concepts: [experience, position, manufacturing, train, anyone]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1t1kv2b.md#c4"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/jobs/1t1kv2b.md#c3"
     char_span: [4574, 6154]
     sentence_count: 13
     key_terms: [employees, people, employee, training, interns, higher, fresh, level]
+    concepts: [employees, people, employee, training, interns]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/jobs/1t1kv2b.md#c4"
     char_span: [6158, 8371]
     sentence_count: 13
     key_terms: [because, training, train, companies, gone, got, time, want]
+    concepts: [because, training, companies, train, experience]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1t1kv2b.md#c2"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/jobs/1t1kv2b.md#c5"
     char_span: [8373, 9791]
     sentence_count: 6
     key_terms: [accumulation, labor, want, somebody, problem, sports, arbitrarymeritocracy, bobbywiththejuice]
+    concepts: [accumulation, labor, somebody, problem, sports]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/jobs/1t1kv2b.md#c6"
     char_span: [9793, 11557]
     sentence_count: 17
     key_terms: [people, game, complete, industry, "wouldn't", already, quality, quarter]
+    concepts: [people, complete, industry, "wouldn't", already]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/jobs/1t1kv2b.md#c7"
     char_span: [11559, 13030]
     sentence_count: 12
     key_terms: [ford, need, companies, employees, products, services, turnover, workers]
+    concepts: [companies, employees, products, services, turnover]
     section: Comments
     token_count: 347
 ---

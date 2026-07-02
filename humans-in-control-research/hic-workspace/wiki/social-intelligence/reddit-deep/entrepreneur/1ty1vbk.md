@@ -20,34 +20,41 @@ chunks:
     char_span: [0, 1838]
     sentence_count: 9
     key_terms: [company, entrepreneur, relationship, ideas, time, processes, something, comments]
+    concepts: [company, entrepreneur, relationship, ideas, processes]
     token_count: 413
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1ty1vbk/need_advice_navigating_with_first_client_pricing/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1ty1vbk.md#c1"
     char_span: [1840, 3413]
     sentence_count: 9
     key_terms: ["i'm", like, pricing, etc, work, mentioned, worried, advice]
+    concepts: [pricing, mentioned, worried, advice, anyone]
     token_count: 351
   - id: "social-intelligence/reddit-deep/entrepreneur/1ty1vbk.md#c2"
-    char_span: [3428, 5763]
+    char_span: [3427, 5762]
     sentence_count: 20
     key_terms: [support, pricing, entrepreneur, maintenance, please, "i'd", charge, relationship]
+    concepts: [support, entrepreneur, maintenance, pricing, please]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/entrepreneur/1ty1vbk.md#c3"
-    char_span: [5765, 7818]
+    char_span: [5764, 7817]
     sentence_count: 13
     key_terms: [price, support, discount, based, value, business, ongoing, client]
+    concepts: [price, support, discount, based, value]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/entrepreneur/1ty1vbk.md#c4"
-    char_span: [7820, 10069]
+    char_span: [7819, 10068]
     sentence_count: 15
     key_terms: [price, "i'd", building, instead, problem, relationship, win, discussing]
+    concepts: [price, building, instead, problem, relationship]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/entrepreneur/1ty1vbk.md#c5"
-    char_span: [10071, 11299]
+    char_span: [10070, 11298]
     sentence_count: 10
     key_terms: [discount, salesforce, recurring, pricing, estimate, client, myself, big]
+    concepts: [discount, salesforce, recurring, pricing, estimate]
     section: Comments
     token_count: 270
 ---

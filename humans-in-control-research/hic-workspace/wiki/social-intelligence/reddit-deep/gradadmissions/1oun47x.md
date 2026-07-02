@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 805]
     sentence_count: 5
     key_terms: [gradadmissions, school, applying, comments, balance, grad, "i'm", nyu]
+    concepts: [gradadmissions, school, applying, comments, balance]
     token_count: 189
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1oun47x/will_an_old_bursar_balance_impact_applying_to/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1oun47x.md#c1"
     char_span: [819, 1793]
     sentence_count: 8
     key_terms: [credit, collections, financial, score, debt, get, "it's", try]
+    concepts: [credit, collections, financial, score]
     section: Comments
     token_count: 209
 ---

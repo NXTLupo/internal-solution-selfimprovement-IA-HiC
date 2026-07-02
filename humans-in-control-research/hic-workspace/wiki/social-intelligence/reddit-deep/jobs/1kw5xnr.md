@@ -21,47 +21,61 @@ chunks:
     char_span: [0, 1193]
     sentence_count: 14
     key_terms: [something, comments, reality, barely, commercial-basil7859, alone, "don't", hard]
+    concepts: [something, comments, reality, barely, alone]
     token_count: 274
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1kw5xnr/just_started_my_professional_job_and_realized_my/"}]
   - id: "social-intelligence/reddit-deep/jobs/1kw5xnr.md#c1"
     char_span: [1207, 2938]
     sentence_count: 19
     key_terms: [live, roommates, people, embarrassing, until, big, city, get]
+    concepts: [roommates, people, embarrassing, until, everyone]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1kw5xnr.md#c5"]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/jobs/1kw5xnr.md#c2"
     char_span: [2940, 4779]
     sentence_count: 15
     key_terms: [college, deleted, afford, living, "couldn't", roommate, parents, society]
+    concepts: [college, deleted, afford, living, "couldn't"]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1kw5xnr.md#c3"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/jobs/1kw5xnr.md#c3"
     char_span: [4781, 5889]
     sentence_count: 6
     key_terms: [been, job, roommates, college, afford, additional-coffee-86, early, able-distribution]
+    concepts: [roommates, college, afford, early]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1kw5xnr.md#c2"]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/jobs/1kw5xnr.md#c4"
     char_span: [5892, 7534]
     sentence_count: 14
     key_terms: [roommates, roommate, commute, working, living, people, yippiekayyaymrfalcon, "can't"]
+    concepts: [roommates, roommate, commute, working, living]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1kw5xnr.md#c5"]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/jobs/1kw5xnr.md#c5"
     char_span: [7536, 9477]
     sentence_count: 16
     key_terms: [rent, living, people, roommates, get, job, like, paying]
+    concepts: [living, people, roommates, paying, paycheck]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1kw5xnr.md#c1", "social-intelligence/reddit-deep/jobs/1kw5xnr.md#c4"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/jobs/1kw5xnr.md#c6"
     char_span: [9479, 10174]
     sentence_count: 5
     key_terms: [brainwavecc, housing, work, self-awareness, disappointed, appreciate, reasonable, expensive]
+    concepts: [brainwavecc, housing]
     section: Comments
     token_count: 194
   - id: "social-intelligence/reddit-deep/jobs/1kw5xnr.md#c7"
     char_span: [10176, 11781]
     sentence_count: 7
     key_terms: [job, expensive, did, accepting, roommates, friends, startup, income]
+    concepts: [expensive, accepting, roommates, friends, startup]
     section: Comments
     token_count: 417
 ---

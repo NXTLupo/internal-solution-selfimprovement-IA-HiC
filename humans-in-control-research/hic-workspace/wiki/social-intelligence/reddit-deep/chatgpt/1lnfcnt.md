@@ -21,75 +21,94 @@ chunks:
     char_span: [0, 2114]
     sentence_count: 16
     key_terms: [chatgpt, "what's", email, lyra, write, meal, prep, comments]
+    concepts: [chatgpt, "what's", email, write, comments]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c9", "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c14"]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1lnfcnt/after_147_failed_chatgpt_prompts_i_had_a/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c1"
     char_span: [2120, 4430]
     sentence_count: 5
     key_terms: [prompt, optimization, techniques, context, optimized, multi-perspective, requests, chain-of-thought]
+    concepts: [prompt, optimization, techniques, context, multi-perspective]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c2"]
     token_count: 516
   - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c2"
     char_span: [4436, 6017]
     sentence_count: 24
     key_terms: [prompt, optimization, been, "i'm", lyra, mode, memory, "you're"]
+    concepts: [optimization, prompt, memory, "you're", right]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c1"]
     token_count: 366
   - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c3"
     char_span: [6031, 7734]
     sentence_count: 12
     key_terms: [questions, ask, chatgpt, expert, please, prompt, automatically, conversation]
+    concepts: [questions, automatically, chatgpt, conversation, expert]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c4"
     char_span: [7737, 8723]
     sentence_count: 6
     key_terms: [question, follow, sounds, kinda, car, help, need, time]
+    concepts: [question, follow, sounds, kinda]
     section: Comments
     token_count: 232
   - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c5"
     char_span: [8725, 10559]
     sentence_count: 14
     key_terms: [suggestions, questions, approach, "that's", smart, ask, structured, something]
+    concepts: [suggestions, questions, approach, "that's", smart]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c6"
     char_span: [10561, 12220]
     sentence_count: 10
     key_terms: [engineer, language, prompts, software, writing, casual, common, failed]
+    concepts: [engineer, language, prompts, software, writing]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c7"
     char_span: [12222, 14092]
     sentence_count: 16
     key_terms: [questions, get, prompt, relevant, specific, foreman, somehow, asking]
+    concepts: [questions, prompt, relevant, specific, foreman]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c8"
     char_span: [14095, 15761]
     sentence_count: 8
     key_terms: [questions, ask, like, created, people, bro, engineered, something]
+    concepts: [questions, created, people, engineered, something]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c9"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c9"
     char_span: [15763, 17516]
     sentence_count: 13
     key_terms: [something, email, like, chatgpt, people, interaction, get, themselves]
+    concepts: [something, email, chatgpt, people, interaction]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c0", "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c8", "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c14"]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c10"
     char_span: [17518, 19408]
     sentence_count: 10
     key_terms: [something, like, comments, "they're", person, basic, "can't", right]
+    concepts: [something, comments, "they're", person, basic]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c11"
     char_span: [19410, 21280]
     sentence_count: 16
     key_terms: [chatgpt, master-level, telling, prompt, ask, like, knowledge, prompting]
+    concepts: [master-level, chatgpt, telling, prompt, knowledge]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c12"
     char_span: [21282, 23298]
     sentence_count: 6
     key_terms: [oncologist, like, rash, accurate, cancer, product, prompts, answer]
+    concepts: [oncologist, accurate, cancer, product, prompts]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c13"
@@ -102,6 +121,8 @@ chunks:
     char_span: [23441, 24205]
     sentence_count: 4
     key_terms: [thinking, chatgpt, people, jejudjdjnfntbensjsj, email, largethopiantestes, technical-cat-2017, get]
+    concepts: [thinking, chatgpt, people, email]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c0", "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c9"]
     section: Comments
     token_count: 213
 ---

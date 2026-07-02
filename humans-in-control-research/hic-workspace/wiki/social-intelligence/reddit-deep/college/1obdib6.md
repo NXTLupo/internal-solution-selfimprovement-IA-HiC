@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 1334]
     sentence_count: 12
     key_terms: [medicine, field, safe, bioengineering, seems, hard, everything, comments]
+    concepts: [medicine, field, bioengineering, everything, seems]
+    related_chunks: ["social-intelligence/reddit-deep/college/1obdib6.md#c2"]
     token_count: 297
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1obdib6/i_think_no_field_is_truly_safe_anymore_except/"}]
   - id: "social-intelligence/reddit-deep/college/1obdib6.md#c1"
     char_span: [1348, 3103]
     sentence_count: 10
     key_terms: [finlandia1865, city, planners, always, planning, medical, student, workers]
+    concepts: [finlandia1865, planners, always, planning, medical]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/college/1obdib6.md#c2"
     char_span: [3105, 5363]
     sentence_count: 13
     key_terms: [being, medicine, field, medical, nearly, opportunities, right, back]
+    concepts: [medicine, being, field, opportunities, medical]
+    related_chunks: ["social-intelligence/reddit-deep/college/1obdib6.md#c0"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/college/1obdib6.md#c3"
     char_span: [5365, 7527]
     sentence_count: 18
     key_terms: [medical, insurance, cdc, government, use, companies, treatment, journals]
+    concepts: [medical, insurance, government, companies, treatment]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/college/1obdib6.md#c4"
     char_span: [7529, 9616]
     sentence_count: 17
     key_terms: [what-student-loan-borrowers-need-to-know-about-the-big-beautiful-bill, research, people, hospitals, something, field, competitive, been]
+    concepts: [research, people, hospitals, something, competitive]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/college/1obdib6.md#c5"
     char_span: [9618, 10210]
     sentence_count: 6
     key_terms: [either, people, competitive, curriculars, importantly, automatic, candidate, generally]
+    concepts: [either, people]
     section: Comments
     token_count: 125
   - id: "social-intelligence/reddit-deep/college/1obdib6.md#c6"
     char_span: [10212, 12603]
     sentence_count: 17
     key_terms: [need, jobs, replaced, pharmaceutical, data, high, like, engineers]
+    concepts: [replaced, pharmaceutical, engineers, positions, generate]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/college/1obdib6.md#c7"

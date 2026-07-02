@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1489]
     sentence_count: 12
     key_terms: [security, questions, because, "they're", model, traditional, data, keep]
+    concepts: [security, questions, because, "they're", traditional]
     token_count: 329
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1q4w7wg/enterprise_buyers_keep_asking_ai_security/"}]
   - id: "social-intelligence/reddit-deep/saas/1q4w7wg.md#c1"
-    char_span: [1504, 2131]
+    char_span: [1503, 2130]
     sentence_count: 6
     key_terms: [prompts, flowing, data, don, tylerthechaos, traditional, embeddings, especially]
+    concepts: [prompts, flowing]
     section: Comments
     token_count: 140
 ---

@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1272]
     sentence_count: 7
     key_terms: [integrations, integration, productmanagement, company, role, approach, comments, recently]
+    concepts: [integrations, integration, productmanagement, company, approach]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1rxv7t1.md#c1"]
     token_count: 297
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1rxv7t1/integrations_pms_b2b_saas_stakeholders_and/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1rxv7t1.md#c1"
-    char_span: [1287, 2928]
+    char_span: [1286, 2927]
     sentence_count: 5
     key_terms: [integrations, developers, documentation, build, integration, use, customers, business]
+    concepts: [integrations, developers, documentation, integration, build]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1rxv7t1.md#c0"]
     section: Comments
     token_count: 334
 ---

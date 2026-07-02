@@ -20,28 +20,36 @@ chunks:
     char_span: [0, 2114]
     sentence_count: 19
     key_terms: [job, savings, month, good, like, bogleheads, investing, part-time]
+    concepts: [savings, bogleheads, month, investing, part-time]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1p51afx.md#c2"]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1p51afx/should_i_be_investing_in_a_roth_ira_how_do_i/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1p51afx.md#c1"
     char_span: [2116, 2460]
     sentence_count: 5
     key_terms: [fidelity, vanguard, wealthfront, complexity, mentioned, narrowed, indexes, keeping]
+    concepts: [fidelity, vanguard]
     token_count: 79
   - id: "social-intelligence/reddit-deep/bogleheads/1p51afx.md#c2"
-    char_span: [2475, 4530]
+    char_span: [2474, 4529]
     sentence_count: 16
     key_terms: [savings, income, like, bogleheads, full-time, investing, account, already]
+    concepts: [savings, income, bogleheads, full-time, investing]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1p51afx.md#c0"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/bogleheads/1p51afx.md#c3"
-    char_span: [4532, 6420]
+    char_span: [4531, 6419]
     sentence_count: 20
     key_terms: [school, thanks, get, good, time, long-term, already, medical]
+    concepts: [school, thanks, long-term, already, medical]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/bogleheads/1p51afx.md#c4"
-    char_span: [6422, 6859]
+    char_span: [6421, 6858]
     sentence_count: 7
     key_terms: [vanguard, little, get, thegruentransfer, "fidelity's", foundation, cluttered, investing]
+    concepts: [vanguard, little]
     section: Comments
     token_count: 102
 ---

@@ -20,41 +20,54 @@ chunks:
     char_span: [0, 576]
     sentence_count: 4
     key_terms: [vanguard, bogleheads, comments, fidelity, schwab, park, ninjagirl321, investments]
+    concepts: [vanguard, bogleheads, comments, fidelity, schwab]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lksgb1.md#c5", "social-intelligence/reddit-deep/bogleheads/1lksgb1.md#c6"]
     token_count: 143
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1lksgb1/vanguard_vs_schwab_vs_fidelity_where_to_park/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1lksgb1.md#c1"
-    char_span: [591, 2752]
+    char_span: [590, 2751]
     sentence_count: 25
     key_terms: [brokerage, bad, like, experience, different, fidelity, jpmorgan, vanguard]
+    concepts: [brokerage, experience, different, fidelity, jpmorgan]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lksgb1.md#c2"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/bogleheads/1lksgb1.md#c2"
-    char_span: [2754, 4858]
+    char_span: [2753, 4857]
     sentence_count: 16
     key_terms: [account, fidelity, use, brokerage, brother, service, schwab, been]
+    concepts: [account, fidelity, brokerage, brother, service]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lksgb1.md#c1"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/bogleheads/1lksgb1.md#c3"
-    char_span: [4860, 6466]
+    char_span: [4859, 6465]
     sentence_count: 15
     key_terms: [schwab, funds, sweep, like, interest, better, fidelity, "schwab's"]
+    concepts: [schwab, funds, sweep, interest, better]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/bogleheads/1lksgb1.md#c4"
-    char_span: [6468, 8205]
+    char_span: [6467, 8204]
     sentence_count: 14
     key_terms: [reviews, problems, vanguard, star, misogyny, slightly, cykoth, listed]
+    concepts: [reviews, problems, vanguard, misogyny, slightly]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/bogleheads/1lksgb1.md#c5"
-    char_span: [8207, 10209]
+    char_span: [8206, 10208]
     sentence_count: 21
     key_terms: [vanguard, phone, investments, genesimmonstongue415, app, fidelity, mega-lithium, years]
+    concepts: [vanguard, genesimmonstongue415, phone, investments, fidelity]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lksgb1.md#c0"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/bogleheads/1lksgb1.md#c6"
-    char_span: [10211, 10760]
+    char_span: [10210, 10759]
     sentence_count: 5
     key_terms: [fidelity, schwab, "don't", cash, work, auto-investing, transferring, coworkers]
+    concepts: [fidelity, schwab, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lksgb1.md#c0"]
     section: Comments
     token_count: 122
 ---

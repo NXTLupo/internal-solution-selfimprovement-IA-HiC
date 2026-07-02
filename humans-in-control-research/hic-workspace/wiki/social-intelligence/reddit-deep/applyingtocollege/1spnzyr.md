@@ -19,53 +19,68 @@ chunks:
     char_span: [0, 2277]
     sentence_count: 1
     key_terms: [people, going, connections, applyingtocollege, top, colleges, wealth, generational]
+    concepts: [people, going, connections, applyingtocollege, colleges]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c7"]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1spnzyr/you_wont_get_the_connections_you_think_you_will/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c1"
     char_span: [2291, 4063]
     sentence_count: 8
     key_terms: [extension-inside-826, like, sometimes, fst8y9, league, saying, school, social]
+    concepts: [extension-inside-826, sometimes, fst8y9, league, saying]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c2"
     char_span: [4065, 6083]
     sentence_count: 17
     key_terms: [alumni, people, network, generational, wealth, kids, post, industry]
+    concepts: [alumni, people, generational, network, wealth]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c3"]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c3"
     char_span: [6085, 8420]
     sentence_count: 18
     key_terms: [students, rich, networking, people, lol, connections, alumni, ivy]
+    concepts: [students, networking, people, connections, alumni]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c4"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c4"
     char_span: [8422, 9935]
     sentence_count: 7
     key_terms: [connections, people, rich, neuroltree, certainly, extremely, apparent, alumni]
+    concepts: [connections, people, neuroltree, certainly, extremely]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c3"]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c5"
     char_span: [9937, 11666]
     sentence_count: 12
     key_terms: [southern-werewolf386, successful, social, connections, gets, something, weekends, already]
+    concepts: [southern-werewolf386, successful, social, connections, something]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c6"
     char_span: [11668, 12729]
     sentence_count: 8
     key_terms: [students, student, income, middle, school, doing, terms, full]
+    concepts: [students, student, income, middle, school]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c7"
     char_span: [12731, 14778]
     sentence_count: 15
     key_terms: [wealthy, rich, colleges, middle, people, like, look, classmates]
+    concepts: [wealthy, colleges, middle, people, classmates]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c0"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c8"
     char_span: [14780, 15293]
     sentence_count: 6
     key_terms: [willing, years, good, connections, department, professor, company, getting]
+    concepts: [willing, years]
     section: Comments
     token_count: 121
 ---

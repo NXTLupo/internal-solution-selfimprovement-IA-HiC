@@ -21,89 +21,106 @@ chunks:
     char_span: [0, 2104]
     sentence_count: 28
     key_terms: [money, "i'm", like, comments, personalfinance, savings, couple, "didn't"]
+    concepts: [money, personalfinance, comments, savings, couple]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1sqc5z6/i_feel_so_behind_financially/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c1"
     char_span: [2118, 4222]
     sentence_count: 21
     key_terms: [savings, doing, failure, emergency, financial, capabilities, perspective, back]
+    concepts: [savings, doing, failure, emergency, financial]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c2"
     char_span: [4224, 6281]
     sentence_count: 19
     key_terms: [probably, people, find, hour, life, pay, work, stressful]
+    concepts: [probably, people, stressful, forkboy2, yourself]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c3"
     char_span: [6013, 7240]
     sentence_count: 13
     key_terms: [call, job, better, center, education, internal, started, making]
+    concepts: [better, center, education, internal, started]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c4"
     char_span: [7242, 9194]
     sentence_count: 29
     key_terms: [work, "don't", "won't", warehouse, "couldn't", jobs, want, kentucky]
+    concepts: [warehouse, "don't", "won't", "couldn't", kentucky]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c5"
     char_span: [9196, 11346]
     sentence_count: 16
     key_terms: [low, pay, good, hour, job, jobs, like, warehouses]
+    concepts: [warehouses, depending, financial, paycheck, seasonal]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c6"
     char_span: [11348, 12977]
     sentence_count: 11
     key_terms: [good, jobs, healthcare, assistant, glassdoor, familiar, office-assistant-1680495, remote]
+    concepts: [healthcare, assistant, glassdoor, familiar, remote]
     section: Comments
     token_count: 410
+    sources: [{"n":"me currently working such a job that pays double what you make.","u":""}]
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c7"
     char_span: [12979, 14707]
     sentence_count: 11
     key_terms: [don, job, work, comfortable, home, situation, because, parents]
+    concepts: [comfortable, situation, because, parents, replies]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c8"
     char_span: [14709, 16977]
     sentence_count: 17
     key_terms: [job, homelessnightkin, program, similar, degree, school, skills, money]
+    concepts: [homelessnightkin, program, similar, degree, school]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c9"
     char_span: [16661, 17645]
     sentence_count: 10
     key_terms: [definitely, because, savings, old, time, too, communicating, personality]
+    concepts: [definitely, because, savings]
     section: Comments
     token_count: 216
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c10"
     char_span: [17647, 19246]
     sentence_count: 18
     key_terms: [sustainability, people, "you're", environmental, job, change, degree, doing]
+    concepts: [sustainability, environmental, people, "you're", change]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c11"
     char_span: [19248, 20941]
     sentence_count: 13
     key_terms: [commute, "you're", field, home, job, jobs, experience, "doesn't"]
+    concepts: [commute, "you're", experience, field, "doesn't"]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c12"
     char_span: [20943, 21922]
     sentence_count: 6
     key_terms: [work, near, virtual, making, remote, jobs, move, sustainability]
+    concepts: [virtual, making, remote]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c13"
     char_span: [21924, 23783]
     sentence_count: 12
     key_terms: [degree, like, work, "don't", ambulatory, "bachelor's", healthcare, education]
+    concepts: [degree, ambulatory, "bachelor's", "don't", healthcare]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c14"
     char_span: [23785, 24278]
     sentence_count: 3
     key_terms: [problem, burger, kuttymongoose, challenges, educatihrs, empowering, especially, incredibly]
+    concepts: [problem, burger]
     section: Comments
     token_count: 134
 ---

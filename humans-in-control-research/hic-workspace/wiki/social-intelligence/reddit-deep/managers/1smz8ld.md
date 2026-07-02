@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 700]
     sentence_count: 4
     key_terms: [tools, team, microsoft, comments, managers, manage, tasks, using]
+    concepts: [tools, microsoft, comments, managers, manage]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1smz8ld.md#c1"]
     token_count: 161
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1smz8ld/best_way_to_manage_tasks_team_using_microsoft/"}]
   - id: "social-intelligence/reddit-deep/managers/1smz8ld.md#c1"
     char_span: [714, 2713]
     sentence_count: 10
     key_terms: [tasks, meetings, videokilledmyzzz, tools, use, work, microsoft, multiple]
+    concepts: [tasks, videokilledmyzzz, meetings, tools, microsoft]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1smz8ld.md#c0"]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/managers/1smz8ld.md#c2"
     char_span: [2715, 3228]
     sentence_count: 5
     key_terms: [huckleberryknown9288, excel, videokilledmyzzz, revolutionized, accountable, completely, formatting, customize]
+    concepts: [excel]
     section: Comments
     token_count: 123
 ---

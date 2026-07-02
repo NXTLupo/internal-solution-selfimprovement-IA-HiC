@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1311]
     sentence_count: 9
     key_terms: [fortune500, humanresources, comments, company, master, feels, great, known]
+    concepts: [fortune500, humanresources, comments, company, master]
     token_count: 318
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1sradyy/the_great_certification_debate_na/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1sradyy.md#c1"
     char_span: [1325, 2136]
     sentence_count: 8
     key_terms: [hrci, shrm, certified, tons, membership-based, certifications, gingerfringe88, professionals]
+    concepts: [certified]
     section: Comments
     token_count: 172
   - id: "social-intelligence/reddit-deep/humanresources/1sradyy.md#c2"
     char_span: [2138, 4183]
     sentence_count: 15
     key_terms: [shrm, certification, phr, get, money, sphr, because, getting]
+    concepts: [certification, money, because, getting, shrm-cp]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1sradyy.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1sradyy.md#c3"
     char_span: [3938, 5426]
     sentence_count: 10
     key_terms: [shrm, certification, phr, sphr, broader, adventurous-cat8847, money, cert]
+    concepts: [certification, broader, money]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1sradyy.md#c2"]
     section: Comments
     token_count: 364
 ---

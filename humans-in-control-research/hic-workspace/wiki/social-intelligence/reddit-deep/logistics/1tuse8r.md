@@ -20,31 +20,42 @@ chunks:
     char_span: [0, 2186]
     sentence_count: 21
     key_terms: [logistics, people, american, "you're", since, week, retirement, comments]
+    concepts: [logistics, people, american, "you're", retirement]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1tuse8r.md#c5"]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1tuse8r/catch_up_on_what_happened_this_week_in_logistics/"}]
   - id: "social-intelligence/reddit-deep/logistics/1tuse8r.md#c1"
     char_span: [2188, 4174]
     sentence_count: 22
     key_terms: [usps, amazon, dhl, billion, weeks, does, delivery, edition]
+    concepts: [amazon, billion, weeks, delivery, edition]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1tuse8r.md#c3"]
     token_count: 437
   - id: "social-intelligence/reddit-deep/logistics/1tuse8r.md#c2"
     char_span: [4176, 6563]
     sentence_count: 21
     key_terms: [usps, stord, infrastructure, amazon, brands, been, competitor, enterprise]
+    concepts: [stord, infrastructure, amazon, brands, competitor]
     token_count: 504
   - id: "social-intelligence/reddit-deep/logistics/1tuse8r.md#c3"
     char_span: [6565, 8640]
     sentence_count: 18
     key_terms: [billion, refunds, acquisition, software-plus-warehouses, edition, seeing, "that's", valuation-arbitrage]
+    concepts: [billion, refunds, acquisition, edition, seeing]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1tuse8r.md#c1"]
     token_count: 445
   - id: "social-intelligence/reddit-deep/logistics/1tuse8r.md#c4"
     char_span: [8642, 10264]
     sentence_count: 11
     key_terms: [administration, tariff, fraud, customs, million, brands, paying, refund]
+    concepts: [administration, tariff, fraud, customs, million]
     token_count: 333
   - id: "social-intelligence/reddit-deep/logistics/1tuse8r.md#c5"
-    char_span: [10279, 11679]
+    char_span: [10278, 11678]
     sentence_count: 9
     key_terms: [logistics, "you're", particularly, management, inventory, sales, vndly, "it's"]
+    concepts: [logistics, particularly, "you're", management, inventory]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1tuse8r.md#c0"]
     section: Comments
     token_count: 297
 ---

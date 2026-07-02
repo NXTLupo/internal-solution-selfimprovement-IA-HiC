@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 314]
     sentence_count: 2
     key_terms: [applyingtocollege, comments, reddit-deep, financial, applying, benefits, college, filling]
+    concepts: [applyingtocollege, comments]
     token_count: 93
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1qaa4ak/are_there_any_benefits_to_filling_out_fafsa_if/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qaa4ak.md#c1"
     char_span: [328, 1672]
     sentence_count: 11
     key_terms: [fafsa, schools, merit, requirement, aid, free, profile, income]
+    concepts: [fafsa, schools, requirement, merit, profile]
     section: Comments
     token_count: 352
 ---

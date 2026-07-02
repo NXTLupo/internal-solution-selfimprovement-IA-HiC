@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 534]
     sentence_count: 3
     key_terms: [engineeringstudents, learn, cad, comments, significantly, reddit-deep, hallowalls, mechanical]
+    concepts: [engineeringstudents, learn, comments]
     token_count: 132
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1pp2ims/which_cad_solidworks_fusion_360_or_autocad_is/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pp2ims.md#c1"
     char_span: [548, 1779]
     sentence_count: 8
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    concepts: [engineeringstudents, please, reddit, https, automoderator]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pp2ims.md#c2"
     char_span: [1781, 3761]
     sentence_count: 16
     key_terms: [modeling, onshape, industry, license, free, use, used, definitely]
+    concepts: [modeling, onshape, industry, license, definitely]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pp2ims.md#c3"
@@ -42,12 +46,14 @@ chunks:
     char_span: [3764, 5844]
     sentence_count: 18
     key_terms: [solidworks, inventor, software, use, catia, industry, never, works]
+    concepts: [solidworks, inventor, software, catia, industry]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pp2ims.md#c5"
     char_span: [5846, 6915]
     sentence_count: 9
     key_terms: [solidworks, autocad, personally, university, recommend, access, fusion, start]
+    concepts: [solidworks, autocad, personally, university, recommend]
     section: Comments
     token_count: 261
 ---

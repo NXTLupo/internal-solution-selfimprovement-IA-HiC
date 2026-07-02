@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 392]
     sentence_count: 2
     key_terms: [chatgpt, comments, reddit-deep, vibecoding, research, obvious, absurd, agents]
+    concepts: [chatgpt, comments]
     token_count: 115
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1s7eq7i/what_are_the_things_that_chatgpt_or_any_other_ai/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1s7eq7i.md#c1"
     char_span: [406, 2335]
     sentence_count: 13
     key_terms: [openai, please, conversation, image, post, r-chatgpt-1050422060352024636, everything, subreddit]
+    concepts: [conversation, openai, please, everything, image]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/chatgpt/1s7eq7i.md#c2"

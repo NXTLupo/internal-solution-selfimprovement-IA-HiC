@@ -21,59 +21,77 @@ chunks:
     char_span: [0, 2316]
     sentence_count: 20
     key_terms: [publication, graduate, students, training, already, college, gradadmissions, opportunities]
+    concepts: [publication, graduate, students, training, gradadmissions]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c1", "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c2", "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c8"]
     token_count: 464
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1ptjgzf/is_publication_now_a_golden_standard_for_graduate/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c1"
     char_span: [2330, 4307]
     sentence_count: 16
     key_terms: [students, programs, stereoisomer, people, graduate, training, years, less]
+    concepts: [students, programs, stereoisomer, people, graduate]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c0", "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c2"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c2"
     char_span: [4309, 6163]
     sentence_count: 12
     key_terms: [students, phd, want, don, get, pis, qualifies, graduate]
+    concepts: [students, qualifies, graduate, valuable, student]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c0", "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c1"]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c3"
     char_span: [6165, 8381]
     sentence_count: 12
     key_terms: [assistimmediate8077, phd, interview, publication, like, experience, diversity, evidence]
+    concepts: [assistimmediate8077, interview, publication, experience, diversity]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c7"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c4"
     char_span: [8383, 10560]
     sentence_count: 10
     key_terms: [students, because, nature, going, application, get, sure, statement]
+    concepts: [students, because, nature, application, going]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c5"
     char_span: [10562, 12401]
     sentence_count: 10
     key_terms: [phd, programs, publications, experience, undergrad, research, journal, working]
+    concepts: [programs, publications, experience, undergrad, research]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c7"]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c6"
     char_span: [12403, 13360]
     sentence_count: 12
     key_terms: [publications, masters, meant, disadvantaged, darkerspirit, candidature, considered, delusional]
+    concepts: [publications, masters, meant]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c7"
     char_span: [13362, 15295]
     sentence_count: 12
     key_terms: [experience, assistimmediate8077, grad, publications, been, best, fit, get]
+    concepts: [assistimmediate8077, experience, publications, department, probably]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c3", "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c5"]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c8"
     char_span: [15297, 16850]
     sentence_count: 10
     key_terms: [research, publication, work, university, training, depends, student, career]
+    concepts: [research, publication, university, training, depends]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c0"]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c9"
     char_span: [16852, 18383]
     sentence_count: 6
     key_terms: [school, publication, demonstrate, ppl, potential, programs, getting, masters]
+    concepts: [school, publication, demonstrate, potential, programs]
     section: Comments
     token_count: 339
 ---

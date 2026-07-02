@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1522]
     sentence_count: 8
     key_terms: [like, machinelearning, physics, phd, algorithms, comments, modeling, physical]
+    concepts: [machinelearning, physics, algorithms, comments, modeling]
     token_count: 339
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1olehrk/d_realized_i_like_the_coding_and_ml_side_of_my/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1olehrk.md#c1"
     char_span: [1536, 3684]
     sentence_count: 14
     key_terms: [learn, supergeilerkollege, job, empirical, engineer, software, physics, writing]
+    concepts: [learn, supergeilerkollege, empirical, engineer, software]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/machinelearning/1olehrk.md#c2"
     char_span: [3686, 5788]
     sentence_count: 15
     key_terms: [college-graduates-face-toughest-job-market-in-more-than-a-decade-as-hiring-slows, software, physics, job, skills, requirements, engineering, what-s-the-short-timeline-plan]
+    concepts: [software, physics, requirements, skills, engineering]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/machinelearning/1olehrk.md#c3"
     char_span: [5790, 7845]
     sentence_count: 17
     key_terms: [domain, experience, code, lot, projects, software, helped, skills]
+    concepts: [domain, experience, projects, software, helped]
     section: Comments
     token_count: 456
 ---

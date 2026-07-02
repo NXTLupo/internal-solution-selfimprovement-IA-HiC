@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 880]
     sentence_count: 8
     key_terms: [semester, been, accepted, comments, starting, program, got, neu]
+    concepts: [semester, accepted, comments, starting, program]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1qqcs4v.md#c1"]
     token_count: 204
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qqcs4v/accepted_into_the_nuin_program/"}]
   - id: "social-intelligence/reddit-deep/neu/1qqcs4v.md#c1"
     char_span: [894, 2742]
     sentence_count: 9
     key_terms: [got, campus, did, semester, spending, program, abroad, boston]
+    concepts: [campus, semester, spending, program, abroad]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1qqcs4v.md#c0"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/neu/1qqcs4v.md#c2"
     char_span: [2744, 3668]
     sentence_count: 7
     key_terms: [nuin, friends, program, people, did, feel, life, too]
+    concepts: [friends, program, people]
     section: Comments
     token_count: 249
 ---

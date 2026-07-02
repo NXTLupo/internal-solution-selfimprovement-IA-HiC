@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2222]
     sentence_count: 15
     key_terms: [international, university, "master's", get, program, design, universities, "university's"]
+    concepts: [international, university, "master's", program, universities]
     token_count: 490
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1srezj7/how_weird_would_it_be_to_apply_to_other_grad/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1srezj7.md#c1"
     char_span: [2227, 3917]
     sentence_count: 13
     key_terms: [apply, schools, grad, applications, program, adults, "didn't", school]
+    concepts: [apply, schools, applications, program, adults]
     section: Comments
     token_count: 392
 ---

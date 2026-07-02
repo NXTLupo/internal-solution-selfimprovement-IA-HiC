@@ -1,9 +1,45 @@
 ---
+id: brand/image-slots/personas-competitive.md
 title: Image Slots — personas / persona-detail / competitive (NXT GOLD)
 type: brand
 updated: 2026-06-17
+chunks:
+  - id: "brand/image-slots/personas-competitive.md#c0"
+    char_span: [0, 524]
+    sentence_count: 5
+    key_terms: [persona-detail, competitive, personas, isqhavm7si4qhawb7y9c2z, setsharedplugindata, fills, nxt, placeholders]
+    concepts: [persona-detail, competitive, personas, fills]
+    token_count: 134
+  - id: "brand/image-slots/personas-competitive.md#c1"
+    char_span: [526, 2366]
+    sentence_count: 1
+    key_terms: [thumbnail, light, self-serve, personas, customer, repeater, persona-detail, never]
+    concepts: [thumbnail, light, self-serve, personas, customer]
+    related_chunks: ["brand/image-slots/personas-competitive.md#c2", "brand/image-slots/personas-competitive.md#c4"]
+    token_count: 512
+  - id: "brand/image-slots/personas-competitive.md#c2"
+    char_span: [2113, 2843]
+    sentence_count: 1
+    key_terms: [competitive, resolution, self-serve, thumbnail, light, call, documentation, handle-time]
+    concepts: [competitive, resolution, self-serve, thumbnail, light]
+    related_chunks: ["brand/image-slots/personas-competitive.md#c1"]
+    token_count: 190
+  - id: "brand/image-slots/personas-competitive.md#c3"
+    char_span: [2877, 3235]
+    sentence_count: 3
+    key_terms: [matrix, dense, content-complete, cell-evidence, edge-to-edge, competitive, capability, destroying]
+    concepts: [matrix, dense]
+    section: Deliberately left image-free
+    token_count: 83
+  - id: "brand/image-slots/personas-competitive.md#c4"
+    char_span: [3247, 4181]
+    sentence_count: 3
+    key_terms: [row, journey, thumbnails, thumbnail, behavior, personas, content, touched]
+    concepts: [journey, thumbnails, thumbnail, behavior, personas]
+    related_chunks: ["brand/image-slots/personas-competitive.md#c1"]
+    section: Notes
+    token_count: 253
 ---
-
 # Image Slots — personas / persona-detail / competitive
 
 Blank `img-slot` placeholders placed into the NXT GOLD components on the personas (`111:159`),

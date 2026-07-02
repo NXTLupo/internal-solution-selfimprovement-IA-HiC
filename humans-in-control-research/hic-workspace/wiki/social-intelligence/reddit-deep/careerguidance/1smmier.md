@@ -19,121 +19,150 @@ chunks:
     char_span: [0, 1803]
     sentence_count: 17
     key_terms: [pip, "i'm", "it's", meeting, careerguidance, put, comments, concerns]
+    concepts: [careerguidance, meeting, comments, concerns, meetings]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1smmier/got_put_on_a_pip_is_it_truly_a_death_sentence/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c1"
     char_span: [1805, 3989]
     sentence_count: 21
     key_terms: [want, clearly, improve, truly, improvement, "i'm", job, honesty]
+    concepts: [clearly, improve, improvement, truly, honesty]
     token_count: 502
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c2"
     char_span: [3991, 5102]
     sentence_count: 8
     key_terms: [comments, day, hear, "i'm", did, edit, mind, post]
+    concepts: [comments]
     token_count: 262
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c3"
     char_span: [5104, 7300]
     sentence_count: 13
     key_terms: [adhd, through, psychiatrist, sleep, case, personally, diagnosed, diagnosis]
+    concepts: [through, psychiatrist, personally, sleep, diagnosed]
     token_count: 488
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c4"
     char_span: [7302, 7750]
     sentence_count: 4
     key_terms: [thank, "i'm", suggestions, well-wishes, appreciate, eventually, marinating, obviously]
+    concepts: [thank]
     token_count: 104
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c5"
     char_span: [7764, 9817]
     sentence_count: 22
     key_terms: [because, being, someone, change, "you're", late, already, respect]
+    concepts: [because, being, someone, change, "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1smmier.md#c13", "social-intelligence/reddit-deep/careerguidance/1smmier.md#c15"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c6"
     char_span: [9819, 10947]
     sentence_count: 9
     key_terms: ["don't", work, adhd, alarm, hard, meds, need, characteristics]
+    concepts: ["don't", alarm]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c7"
     char_span: [10949, 12916]
     sentence_count: 20
     key_terms: [because, world, meetings, real, diagnosis, behavior, people, though]
+    concepts: [because, world, meetings, diagnosis, behavior]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c8"
     char_span: [12918, 14180]
     sentence_count: 11
     key_terms: [accommodate, "it's", company, subject-hedgehog6278, being, performance-based, "i'd", time]
+    concepts: [accommodate, company, being]
     section: Comments
     token_count: 300
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c9"
     char_span: [14185, 15896]
     sentence_count: 14
     key_terms: [truly, jobs, looking, always, career, issues, alarm, means]
+    concepts: [truly, looking, always, career, issues]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c10"
     char_span: [15898, 17902]
     sentence_count: 23
     key_terms: [meetings, want, don, thru, office, being, truly, get]
+    concepts: [meetings, office, being, truly, seriously]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1smmier.md#c11"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c11"
     char_span: [17904, 18830]
     sentence_count: 11
     key_terms: [office, "can't", meetings, figure, meds, need, time, week]
+    concepts: [office, "can't", meetings, figure]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1smmier.md#c10"]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c12"
     char_span: [18832, 20783]
     sentence_count: 20
     key_terms: [office, back, agree, email, adhd, home, basketball, something]
+    concepts: [office, agree, basketball, email, something]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1smmier.md#c14"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c13"
     char_span: [20785, 22694]
     sentence_count: 14
     key_terms: [pip, manager, meeting, time, work, managers, because, someone]
+    concepts: [manager, meeting, managers, because, someone]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1smmier.md#c5"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c14"
     char_span: [22697, 24604]
     sentence_count: 30
     key_terms: [days, work, office, home, week, "don't", get, help]
+    concepts: [office, "don't", attention, something, disorder]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1smmier.md#c12"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c15"
     char_span: [24606, 26710]
     sentence_count: 17
     key_terms: [being, get, need, adhd, nothing, someone, adult, "don't"]
+    concepts: [being, nothing, someone, adult, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1smmier.md#c5"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c16"
     char_span: [26712, 28768]
     sentence_count: 18
     key_terms: [calendar, slack, day, meeting, google, notification, performance, get]
+    concepts: [calendar, slack, meeting, notification, google]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c17"
     char_span: [28770, 30510]
     sentence_count: 16
     key_terms: [sleep, start, anything, honestly, problems, getting, doctor, apnea]
+    concepts: [sleep, start, anything, honestly, problems]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c18"
     char_span: [30512, 32466]
     sentence_count: 14
     key_terms: [adhd, job, through, bad, don, sometimes, sleeping, meeting]
+    concepts: [through, sometimes, sleeping, meeting, always]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c19"
     char_span: [32213, 32920]
     sentence_count: 3
     key_terms: [office, someone, always, tangerinecheap5379, adhd, got, time, wfh]
+    concepts: [office, someone, always]
     section: Comments
     token_count: 181
   - id: "social-intelligence/reddit-deep/careerguidance/1smmier.md#c20"
     char_span: [32922, 34032]
     sentence_count: 14
     key_terms: [learn, adhd, meetings, earlier, alarms, alarm, habit, aren]
+    concepts: [learn, meetings, earlier, alarms, alarm]
     section: Comments
     token_count: 274
 ---

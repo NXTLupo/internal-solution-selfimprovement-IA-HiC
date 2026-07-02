@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1033]
     sentence_count: 6
     key_terms: [cscareerquestions, computer, science, "i'm", currently, comments, software, career]
+    concepts: [cscareerquestions, computer, science, currently, comments]
     token_count: 244
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1locyrf/16_yo_in_uk_is_software_engineering_a_good_career/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1locyrf.md#c1"
     char_span: [1047, 3041]
     sentence_count: 15
     key_terms: [better, people, years, get, "it's", like, lot, something]
+    concepts: [better, people, years, something, change]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1locyrf.md#c2"
     char_span: [3043, 5042]
     sentence_count: 23
     key_terms: [junior, roles, engineering, like, stay, tech, considered, engineers]
+    concepts: [junior, engineering, considered, roles, engineers]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/cscareerquestions/1locyrf.md#c3"
     char_span: [5044, 7151]
     sentence_count: 22
     key_terms: [job, passion, programming, did, degree, "don't", programmers, developer]
+    concepts: [programming, passion, degree, programmers, "don't"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1locyrf.md#c4"
     char_span: [7153, 8253]
     sentence_count: 8
     key_terms: [market, years, educationalmud5010, earn, "he's", job, next, donut-disastrous]
+    concepts: [market, years]
     section: Comments
     token_count: 264
 ---

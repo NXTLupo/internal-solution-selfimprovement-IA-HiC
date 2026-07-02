@@ -20,16 +20,22 @@ chunks:
     char_span: [0, 2121]
     sentence_count: 21
     key_terms: [space, company, rocket, lab, revenue, launch, government, electron]
+    concepts: [space, company, rocket, revenue, government]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1t5bugk.md#c1"]
     token_count: 462
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1t5bugk/rklb_is_a_real_space_business_but_the_stock_is/"}]
   - id: "social-intelligence/reddit-deep/investing/1t5bugk.md#c1"
     char_span: [2125, 3191]
     sentence_count: 13
     key_terms: [neutron, stock, company, revenue, strong, space, already, because]
+    concepts: [neutron, stock, company, revenue, strong]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1t5bugk.md#c0"]
     token_count: 213
   - id: "social-intelligence/reddit-deep/investing/1t5bugk.md#c2"
-    char_span: [3206, 4289]
+    char_span: [3205, 4288]
     sentence_count: 12
     key_terms: [market, traded, basis, going, cost, year, bornpotential599, freshposthistory]
+    concepts: [market, traded, basis, going]
     section: Comments
     token_count: 288
 ---

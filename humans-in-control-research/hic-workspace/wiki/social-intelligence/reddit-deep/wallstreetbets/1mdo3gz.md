@@ -21,65 +21,79 @@ chunks:
     char_span: [0, 703]
     sentence_count: 12
     key_terms: [everything, wallstreetbets, comments, tomorrow, anyways, wanted, sucks, don]
+    concepts: [everything, wallstreetbets, comments, tomorrow, anyways]
     token_count: 192
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1mdo3gz/i_lost_everything_cvna/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c1"
     char_span: [717, 1920]
     sentence_count: 4
     key_terms: [wsb, degenerate, discord, called, making, https, money, never]
+    concepts: [degenerate, discord, called, making, https]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c2"
     char_span: [1923, 2889]
     sentence_count: 3
     key_terms: [rope, playing, doing, until, yacht, teslaselectricbill, thebourbonoftruth, png]
+    concepts: [playing, doing, until, yacht]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c3"
     char_span: [2891, 4664]
     sentence_count: 19
     key_terms: [like, loss, individual, minutes, options, outcome, boring, stocks]
+    concepts: [individual, minutes, options, outcome, boring]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c4"
     char_span: [4666, 5900]
     sentence_count: 7
     key_terms: [million, did, yippiekayyaymrfalcon, sword, stunning-power8885, dumb, get, hit]
+    concepts: [million, sword]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c5"
     char_span: [5902, 6839]
     sentence_count: 1
     key_terms: [e947d670e7b9c241137c624c4ff063b0aeb89a03, couple, options-n-hookers, popularplanet3000, some-elevator3065, post-rock-mickey, idkwhatimbrewin, dolphingarden]
+    concepts: [couple]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c6"
     char_span: [6841, 8035]
     sentence_count: 7
     key_terms: [tsla, short, cvna, down, time, shorting, selling, report]
+    concepts: [short, shorting, selling, report, below]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c7"]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c7"
     char_span: [8037, 9606]
     sentence_count: 10
     key_terms: [cvna, shorting, wendies, anbu-black-ops, short, bro, get, last]
+    concepts: [shorting, anbu-black-ops, wendies, short, around]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c6"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c8"
     char_span: [9611, 10499]
     sentence_count: 4
     key_terms: [stock, earnings, never, sofi, isospeedrix, wafflepiezz, expiration, logicbully]
+    concepts: [stock, earnings, never]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c9"
     char_span: [10501, 12261]
     sentence_count: 6
     key_terms: [too, least, unionadventurous3831, calls, overcookedfantasy, ball, cvna, get]
+    concepts: [least, calls]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c10"
     char_span: [12264, 14090]
     sentence_count: 13
     key_terms: [cars, cooking, fucking, people, short, been, hype, inventory]
+    concepts: [cooking, fucking, people, short, inventory]
     section: Comments
     token_count: 498
 ---

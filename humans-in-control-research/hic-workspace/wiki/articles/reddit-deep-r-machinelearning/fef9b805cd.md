@@ -18,36 +18,48 @@ chunks:
     char_span: [0, 2074]
     sentence_count: 11
     key_terms: [machinelearning, image, kernels, models, reddit, architecture, found, https]
+    concepts: [machinelearning, image, kernels, architecture, models]
     token_count: 484
+    sources: [{"n":"Reddit Deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1pwd8su/p_s2id_scale_invariant_image_diffuser_trained_on/"}]
   - id: "articles/reddit-deep-r-machinelearning/fef9b805cd.md#c1"
     char_span: [2076, 3875]
     sentence_count: 14
     key_terms: [resolution, information, image, s2id, although, training, trained, photo]
+    concepts: [resolution, information, image, although, training]
+    related_chunks: ["articles/reddit-deep-r-machinelearning/fef9b805cd.md#c6"]
     token_count: 430
   - id: "articles/reddit-deep-r-machinelearning/fef9b805cd.md#c2"
     char_span: [3877, 5532]
     sentence_count: 7
     key_terms: [time, png, b03a59cc5ee0b05803de88b5d1efe9e6d0a88c87, digits, images, augmentation, model, training]
+    concepts: [augmentation, digits, images, model, training]
     token_count: 451
   - id: "articles/reddit-deep-r-machinelearning/fef9b805cd.md#c3"
     char_span: [5534, 6598]
     sentence_count: 1
     key_terms: [png, preview, format, https, width, auto, redd, webp]
+    concepts: [preview, format, https, width]
+    related_chunks: ["articles/reddit-deep-r-machinelearning/fef9b805cd.md#c4"]
     token_count: 510
   - id: "articles/reddit-deep-r-machinelearning/fef9b805cd.md#c4"
     char_span: [6600, 8352]
     sentence_count: 8
     key_terms: [png, time, resolution, last, fd2d587da70cae59b6dd2163e4d977553921f92f, preview, results, better]
+    concepts: [resolution, preview, results, better, format]
+    related_chunks: ["articles/reddit-deep-r-machinelearning/fef9b805cd.md#c3"]
     token_count: 463
   - id: "articles/reddit-deep-r-machinelearning/fef9b805cd.md#c5"
     char_span: [8354, 10665]
     sentence_count: 17
     key_terms: [model, coordinates, image, composition, data, coordinate, relative, pixels]
+    concepts: [model, coordinates, image, composition, coordinate]
     token_count: 512
   - id: "articles/reddit-deep-r-machinelearning/fef9b805cd.md#c6"
     char_span: [10667, 12379]
     sentence_count: 15
     key_terms: [information, resolution, different, mnist, invariance, textures, resolutions, especially]
+    concepts: [information, resolution, different, mnist, invariance]
+    related_chunks: ["articles/reddit-deep-r-machinelearning/fef9b805cd.md#c1"]
     token_count: 331
 ---
 # [P] S2ID: Scale Invariant Image Diffuser - trained on standard MNIST, generates 1024x1024 digits and at arbitrary aspect ratios with almost no artifacts at 6.1M parameters (Drastic code change and architectural improvement)

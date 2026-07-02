@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2461]
     sentence_count: 17
     key_terms: [technical, internship, work, position, support, full-time, cscareerquestions, engineer]
+    concepts: [technical, internship, position, support, cscareerquestions]
     token_count: 513
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1srw5zd/internship_or_fulltime_for_career_pivot/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/9e887bddbb.md#c1"
     char_span: [2463, 2856]
     sentence_count: 2

@@ -21,50 +21,60 @@ chunks:
     char_span: [0, 1881]
     sentence_count: 15
     key_terms: [relationship, uni, work, started, vehicle, "didn't", going, money]
+    concepts: [relationship, started, vehicle, "didn't", scholarship]
     token_count: 457
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1l8wdgi/turning_30_this_year_feel_like_i_stagnated_for_an/"}]
   - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c1"
     char_span: [1883, 3728]
     sentence_count: 12
     key_terms: [information, work, job, water, started, data, line, electrical]
+    concepts: [information, water, started, electrical, industrial]
     token_count: 402
   - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c2"
     char_span: [3730, 5138]
     sentence_count: 14
     key_terms: [construction, engineering, essentially, age, bartender, anywhere, benefits, drawings]
+    concepts: [construction, engineering, essentially, bartender, anywhere]
     token_count: 307
   - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c3"
     char_span: [5140, 6199]
     sentence_count: 10
     key_terms: [feel, "i've", like, build, never, bill, egg, home]
+    concepts: [build, never]
     token_count: 261
   - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c4"
     char_span: [6213, 7160]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c5"
     char_span: [7163, 8939]
     sentence_count: 14
     key_terms: ["i'm", ddrf1re, money, good, deleted, finding, making, intelligent-bite-717]
+    concepts: [ddrf1re, money, deleted, finding, making]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c6"
     char_span: [8687, 10112]
     sentence_count: 15
     key_terms: [job, new, year, anywhere, specific, talking, resume, "i'm"]
+    concepts: [anywhere, specific, talking, resume]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c7"
     char_span: [10114, 11899]
     sentence_count: 23
     key_terms: [feel, job, keep, new, understand, tejones01, drinking, "you're"]
+    concepts: [understand, tejones01, drinking, "you're", "don't"]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c8"
     char_span: [11901, 13037]
     sentence_count: 5
     key_terms: [got, situation, better, makes, age, cant, day, feel]
+    concepts: [situation, better, makes]
     section: Comments
     token_count: 287
 ---

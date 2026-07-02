@@ -19,23 +19,32 @@ chunks:
     char_span: [0, 1651]
     sentence_count: 8
     key_terms: [internships, internship, retail, undergraduate, volunteering, experience, research, working]
+    concepts: [internships, internship, retail, undergraduate, volunteering]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1t6jbdj.md#c1"]
     token_count: 361
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t6jbdj/do_not_take_any_unpaid_internships/"}]
   - id: "social-intelligence/reddit-deep/internships/1t6jbdj.md#c1"
     char_span: [1665, 3594]
     sentence_count: 12
     key_terms: [internship, unpaid, students, internships, summer, appropriate-tutor587, companies, getting]
+    concepts: [internship, unpaid, students, appropriate-tutor587, internships]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1t6jbdj.md#c0", "social-intelligence/reddit-deep/internships/1t6jbdj.md#c2", "social-intelligence/reddit-deep/internships/1t6jbdj.md#c3"]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/internships/1t6jbdj.md#c2"
     char_span: [3596, 5696]
     sentence_count: 8
     key_terms: [experience, unpaid, internship, hours, get, doing, "don't", great]
+    concepts: [experience, internship, unpaid, hours, doing]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1t6jbdj.md#c1", "social-intelligence/reddit-deep/internships/1t6jbdj.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1t6jbdj.md#c3"
     char_span: [5413, 7493]
     sentence_count: 10
     key_terms: [unpaid, experience, appropriate-tutor587, internship, doing, job, internships, undergraduate]
+    concepts: [unpaid, appropriate-tutor587, experience, internship, doing]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1t6jbdj.md#c1", "social-intelligence/reddit-deep/internships/1t6jbdj.md#c2"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/internships/1t6jbdj.md#c4"

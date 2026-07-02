@@ -21,45 +21,54 @@ chunks:
     char_span: [0, 1973]
     sentence_count: 13
     key_terms: [today, poet, wallstreetbets, week, comments, realized, marvell, regards]
+    concepts: [today, wallstreetbets, comments, realized, marvell]
     token_count: 473
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1sxj94f/poet_yolo_fail_being_the_top_signal_and_learning/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sxj94f.md#c1"
     char_span: [1975, 3574]
     sentence_count: 9
     key_terms: [learned, been, car, money, never, today, full, life]
+    concepts: [learned, money, never, today]
     token_count: 371
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sxj94f.md#c2"
     char_span: [3576, 5608]
     sentence_count: 19
     key_terms: [process, learn, life, grateful, learning, realized, classic, learned]
+    concepts: [process, learn, grateful, learning, realized]
     token_count: 458
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sxj94f.md#c3"
     char_span: [5622, 7033]
     sentence_count: 5
     key_terms: [cfo, comments, discord, existing-mammoth-315, total, did, pump, wsb]
+    concepts: [comments, discord, total]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sxj94f.md#c4"
     char_span: [7036, 8766]
     sentence_count: 7
     key_terms: [like, going, poet, profit, did, trading, action, around]
+    concepts: [going, profit, trading, action, around]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sxj94f.md#c5"
     char_span: [8768, 10267]
     sentence_count: 8
     key_terms: [existing-mammoth-315, thatperspective3765, people, here, initial, deargodwhydidntisell, "don't", sting]
+    concepts: [existing-mammoth-315, thatperspective3765, people, initial, "don't"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sxj94f.md#c6"
     char_span: [10269, 10811]
     sentence_count: 1
     key_terms: [existing-mammoth-315, goodintroduction6344, ports, znxwkw48ktxg1, billionaires, millionaires, vesploogie, hoodlum95]
+    concepts: [ports]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sxj94f.md#c7"
     char_span: [10813, 12067]
     sentence_count: 6
     key_terms: [existing-mammoth-315, f1dfdda7ea82981ec5fb3cbcde30208d655c59f0, diversified, dropped, preview, format, insane, deargodwhydidntisell]
+    concepts: [existing-mammoth-315, diversified, dropped, preview, format]
     section: Comments
     token_count: 422
 ---

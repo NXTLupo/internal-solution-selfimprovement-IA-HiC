@@ -20,27 +20,33 @@ chunks:
     char_span: [0, 359]
     sentence_count: 2
     key_terms: [entrepreneur, comments, learned, years, reddit-deep, generator, dezgoai, largely]
+    concepts: [entrepreneur, comments, learned, years]
     token_count: 103
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1pks5rk/100k_users_six_figure_revenue_3_years_later_heres/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1pks5rk.md#c1"
     char_span: [361, 2655]
     sentence_count: 12
     key_terms: [users, marketing, product, because, value, months, long, current]
+    concepts: [marketing, users, product, because, value]
     token_count: 512
   - id: "social-intelligence/reddit-deep/entrepreneur/1pks5rk.md#c2"
     char_span: [2360, 3567]
     sentence_count: 6
     key_terms: ["it's", better, world, like, company, product, "don't", right]
+    concepts: [better, world, company, product, "don't"]
     token_count: 274
   - id: "social-intelligence/reddit-deep/entrepreneur/1pks5rk.md#c3"
-    char_span: [3582, 5738]
+    char_span: [3581, 5737]
     sentence_count: 10
     key_terms: [entrepreneur, please, dezgoai, registration, being, permanent, promotion, ryanopoly]
+    concepts: [entrepreneur, please, dezgoai, registration, being]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/entrepreneur/1pks5rk.md#c4"
-    char_span: [5740, 7557]
+    char_span: [5739, 7556]
     sentence_count: 7
     key_terms: [customer, dezgoai, support, "didn't", best, "it's", like, journey]
+    concepts: [customer, dezgoai, support, "didn't", journey]
     section: Comments
     token_count: 457
 ---

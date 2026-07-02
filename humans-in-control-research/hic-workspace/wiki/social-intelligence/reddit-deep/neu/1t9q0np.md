@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1247]
     sentence_count: 9
     key_terms: [math, people, technical, comments, incoming, switched, courses, co-ops]
+    concepts: [people, technical, comments, incoming, switched]
     token_count: 285
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1t9q0np/incoming_cs_and_math/"}]
 ---
 # Incoming CS and Math
 

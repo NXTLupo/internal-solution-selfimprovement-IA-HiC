@@ -21,47 +21,62 @@ chunks:
     char_span: [0, 2032]
     sentence_count: 11
     key_terms: [stanford, "i'm", brown, applyingtocollege, rea, school, find, like]
+    concepts: [stanford, brown, applyingtocollege, school, applying]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c7"]
     token_count: 453
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sks88m/im_not_sure_whether_to_rea_at_stanford_or_ed_at/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c1"
     char_span: [2046, 4047]
     sentence_count: 3
     key_terms: [brown, stanford, get, rea, risd, weather, decision, because]
+    concepts: [brown, stanford, weather, decision, because]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c2"
     char_span: [3768, 5780]
     sentence_count: 6
     key_terms: [delicious-speaker-84, brown, get, rea, stanford, because, feel, like]
+    concepts: [delicious-speaker-84, brown, stanford, because, definitely]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c6"]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c3"
     char_span: [5782, 7678]
     sentence_count: 10
     key_terms: [schools, apply, consider, getting, top, universities, rea, want]
+    concepts: [schools, apply, consider, getting, universities]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c4"
     char_span: [7680, 8466]
     sentence_count: 3
     key_terms: [applied, come, because, emory, get, deferred, probably, cornell]
+    concepts: [applied, because, emory, deferred, probably]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c5"
     char_span: [8468, 10447]
     sentence_count: 17
     key_terms: [stanford, get, acceptance, rea, brown, athletes, "it's", applicant]
+    concepts: [stanford, acceptance, brown, athletes, applicant]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c6"
     char_span: [10222, 10851]
     sentence_count: 7
     key_terms: ["it's", legacy, does, too, stanford, brown, round, rea]
+    concepts: [legacy, stanford, brown, round]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c5"]
     section: Comments
     token_count: 166
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c7"
     char_span: [10853, 11675]
     sentence_count: 11
     key_terms: [school, collegevine, acceptance, personally, stanford, chances, brown, get]
+    concepts: [school, collegevine, acceptance, personally, stanford]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c5"]
     section: Comments
     token_count: 201
 ---

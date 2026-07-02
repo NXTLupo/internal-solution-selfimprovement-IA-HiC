@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1868]
     sentence_count: 11
     key_terms: [pre-med, courses, science, health, classes, summer, co-ops, northeastern]
+    concepts: [pre-med, courses, science, health, classes]
     token_count: 434
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1krjwwr/premed_health_science_coop_with_no_summer_courses/"}]
   - id: "social-intelligence/reddit-deep/neu/1krjwwr.md#c1"
     char_span: [1882, 2678]
     sentence_count: 5
     key_terms: [credit, experience, semester, summer, going, big, coop, get]
+    concepts: [credit, experience, semester, summer, going]
     section: Comments
     token_count: 189
 ---

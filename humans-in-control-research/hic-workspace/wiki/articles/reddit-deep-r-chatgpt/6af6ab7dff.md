@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1760]
     sentence_count: 10
     key_terms: [chatgpt, https, save, a67df99152969d796f9f11b204d9826f971f9f51, callmejimmilton, please, conversation, image]
+    concepts: [chatgpt, https, callmejimmilton, conversation, please]
     token_count: 512
+    sources: [{"n":"Reddit Deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1mjbpyc/to_help_me_save_money_i_had_chatgpt_start/"}]
   - id: "articles/reddit-deep-r-chatgpt/6af6ab7dff.md#c1"
     char_span: [1762, 2143]
     sentence_count: 2

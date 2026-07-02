@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1691]
     sentence_count: 14
     key_terms: [fulfillment, logistics, insights, tracking, coast, performance, e-commerce, carriers]
+    concepts: [fulfillment, logistics, insights, tracking, performance]
     token_count: 358
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1ttkjph/why_is_lax_ecommerce_fulfillment_significantly/"}]
   - id: "social-intelligence/reddit-deep/logistics/1ttkjph.md#c1"
-    char_span: [1706, 3934]
+    char_span: [1705, 3933]
     sentence_count: 11
     key_terms: [carrier, coast, fulfillment, get, downstream, anchorage, networks, because]
+    concepts: [carrier, coast, fulfillment, downstream, anchorage]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/logistics/1ttkjph.md#c2"
-    char_span: [3936, 4900]
+    char_span: [3935, 4899]
     sentence_count: 1
     key_terms: [inventory, meetings, around, embarrassed-sail8142, black, coast, east, mix]
+    concepts: [inventory, meetings, around, black, coast]
     section: Comments
     token_count: 209
 ---

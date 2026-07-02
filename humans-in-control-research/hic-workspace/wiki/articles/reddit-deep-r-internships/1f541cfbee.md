@@ -18,21 +18,28 @@ chunks:
     char_span: [0, 2139]
     sentence_count: 11
     key_terms: [job, experience, internships, internship, aerospace, uah, company, cfd]
+    concepts: [experience, internships, internship, aerospace, company]
     token_count: 496
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sbyrck/internships_arent_a_numbers_game/"}]
   - id: "articles/reddit-deep-r-internships/1f541cfbee.md#c1"
     char_span: [2141, 4144]
     sentence_count: 15
     key_terms: [fraternity, email, friend, told, because, works, connections, interview]
+    concepts: [fraternity, email, friend, because, connections]
+    related_chunks: ["articles/reddit-deep-r-internships/1f541cfbee.md#c3"]
     token_count: 461
   - id: "articles/reddit-deep-r-internships/1f541cfbee.md#c2"
     char_span: [4146, 6342]
     sentence_count: 15
     key_terms: [school, people, companies, connections, engineering, fraternity, aerospace, recommend]
+    concepts: [school, companies, people, connections, engineering]
     token_count: 455
   - id: "articles/reddit-deep-r-internships/1f541cfbee.md#c3"
     char_span: [6344, 8655]
     sentence_count: 15
     key_terms: [get, connections, because, working, hypnotic8008, clubs, email, definitely]
+    concepts: [connections, because, working, hypnotic8008, clubs]
+    related_chunks: ["articles/reddit-deep-r-internships/1f541cfbee.md#c1"]
     token_count: 512
   - id: "articles/reddit-deep-r-internships/1f541cfbee.md#c4"
     char_span: [8385, 8684]
@@ -43,6 +50,7 @@ chunks:
     char_span: [8686, 9617]
     sentence_count: 10
     key_terms: [connections, "it's", portfolio, something, building, skills, "you're", get]
+    concepts: [connections, portfolio, something, building, skills]
     token_count: 193
 ---
 # Internships aren’t a numbers game

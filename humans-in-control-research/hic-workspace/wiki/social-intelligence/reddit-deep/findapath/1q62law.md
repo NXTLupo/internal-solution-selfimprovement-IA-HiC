@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 319]
     sentence_count: 1
     key_terms: [findapath, comments, reddit-deep, because, student, anyone, career, choose]
+    concepts: [findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1q62law.md#c1"]
     token_count: 92
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1q62law/does_anyone_else_feel_stuck_because_they_dont/"}]
   - id: "social-intelligence/reddit-deep/findapath/1q62law.md#c1"
     char_span: [333, 1465]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    concepts: [thank, helpful, please, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1q62law.md#c0"]
     section: Comments
     token_count: 248
 ---

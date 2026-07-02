@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1991]
     sentence_count: 8
     key_terms: [claude, https, com, sessions, chatgpt, source, conversation, mode]
+    concepts: [claude, https, sessions, chatgpt, conversation]
     token_count: 505
+    sources: [{"n":"Reddit Deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1s8j27e/someone_just_leaked_claude_codes_source_code_on_x/"}]
   - id: "articles/reddit-deep-r-chatgpt/a25b3cea7f.md#c1"
     char_span: [1993, 3423]
     sentence_count: 10
     key_terms: [code, map, source, image, r-chatgpt-1050422060352024636, anthropic, subreddit, concerns]
+    concepts: [source, image, anthropic, subreddit, concerns]
     token_count: 364
 ---
 # Someone just leaked claude code's Source code on X

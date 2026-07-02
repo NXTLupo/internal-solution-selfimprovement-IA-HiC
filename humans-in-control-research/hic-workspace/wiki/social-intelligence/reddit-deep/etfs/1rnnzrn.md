@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1096]
     sentence_count: 2
     key_terms: [taxable, investing, international, total, been, etfs, comments, example]
+    concepts: [taxable, investing, international, total, comments]
     token_count: 299
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1rnnzrn/23m_100k_salary/"}]
   - id: "social-intelligence/reddit-deep/etfs/1rnnzrn.md#c1"
-    char_span: [1111, 2800]
+    char_span: [1110, 2799]
     sentence_count: 13
     key_terms: [income, market, autocallable, educational, calamosautocallablewhitepaper, strategies, different, potential]
+    concepts: [income, autocallable, market, educational, strategies]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/etfs/1rnnzrn.md#c2"
-    char_span: [2802, 4639]
+    char_span: [2801, 4638]
     sentence_count: 11
     key_terms: [taxable, dividends, etfs, small, value, avuv, cap, roc]
+    concepts: [taxable, dividends, small, value, dividend]
     section: Comments
     token_count: 471
 ---

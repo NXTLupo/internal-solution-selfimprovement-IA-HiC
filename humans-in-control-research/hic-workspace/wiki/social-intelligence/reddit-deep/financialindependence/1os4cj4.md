@@ -19,45 +19,54 @@ chunks:
     char_span: [0, 1983]
     sentence_count: 18
     key_terms: [financialindependence, money, part-time, got, sub-optimal, age, went, recession]
+    concepts: [financialindependence, part-time, money, sub-optimal, recession]
     token_count: 481
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1os4cj4/another_successful_earlyish_retirement_story/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c1"
     char_span: [1985, 3939]
     sentence_count: 26
     key_terms: [part-time, income, "i'm", job, pay, "this-isn't-fun-why-am-i-doing-it-again", retired, semi-retired]
+    concepts: [part-time, income, retired, semi-retired, sometimes]
     token_count: 463
   - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c2"
     char_span: [3941, 4335]
     sentence_count: 8
     key_terms: [fuck, whatever, stop, get-rich-quick, algorithm, bernstein, recommend, gambling]
+    concepts: [whatever]
     token_count: 91
   - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c3"
     char_span: [4349, 5351]
     sentence_count: 12
     key_terms: [percent, maxing, big, get, went, year, forgivemefashion, get-rich-quick]
+    concepts: [percent, maxing]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c4"
     char_span: [5353, 7297]
     sentence_count: 15
     key_terms: [like, roth, backdoor, invest, job, post-tax, staying, maxed]
+    concepts: [backdoor, invest, post-tax, staying, maxed]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c5"
     char_span: [7002, 7320]
     sentence_count: 3
     key_terms: [wrong, additionally, satisfaction, absolutely, everything, elsewhere, financial, nothing]
+    concepts: [wrong]
     section: Comments
     token_count: 68
   - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c6"
     char_span: [7322, 9016]
     sentence_count: 14
     key_terms: [been, good, job, like, get, paid, work, situations]
+    concepts: [situations, loathing, people, faang, years]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c7"
     char_span: [9018, 10241]
     sentence_count: 9
     key_terms: [job, "i'm", good, huge, work, difference, talking, working]
+    concepts: [difference, talking, working, making, "you're"]
     section: Comments
     token_count: 300
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1976]
     sentence_count: 14
     key_terms: [emotional, feel, people, companionship, using, help, like, chatbots]
+    concepts: [emotional, companionship, people, using, chatbots]
     token_count: 466
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1pbhcq0/how_extensively_are_genz_using_ai_chatbots_to_vent/"},{"n":"arxiv, Lifeware, SciencePG, Arizona State University","u":""}]
   - id: "social-intelligence/reddit-deep/genz/1pbhcq0.md#c1"
     char_span: [1990, 3774]
     sentence_count: 10
     key_terms: [are-you-the-therapist-friend-things-you-must-know-to-deal-with-this-label-3d4e06179d6d, the-unseen-burden-of-being-the-therapist-friend, https, people, com, like, need, rouxjean]
+    concepts: [https, people, rouxjean, deleted, discord]
     section: Comments
     token_count: 491
 ---

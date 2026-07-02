@@ -20,40 +20,52 @@ chunks:
     char_span: [0, 2310]
     sentence_count: 15
     key_terms: [whatsapp, meta, messaging, subscriptions, advertising, ads, tab, billion]
+    concepts: [whatsapp, messaging, subscriptions, advertising, billion]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1lcshjd.md#c3", "social-intelligence/reddit-deep/stocks/1lcshjd.md#c6"]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1lcshjd/whatsapp_to_show_ads_offer_paid_subscriptions_for/"}]
   - id: "social-intelligence/reddit-deep/stocks/1lcshjd.md#c1"
     char_span: [2312, 3793]
     sentence_count: 8
     key_terms: [whatsapp, ads, meta, messages, users, information, user, instagram]
+    concepts: [whatsapp, messages, information, users, instagram]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1lcshjd.md#c6"]
     token_count: 287
   - id: "social-intelligence/reddit-deep/stocks/1lcshjd.md#c2"
-    char_span: [3808, 4650]
+    char_span: [3807, 4649]
     sentence_count: 7
     key_terms: [people, swindlingaccountant, watch, ads, app, free, brunocat2021, eventually]
+    concepts: [people, watch]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/stocks/1lcshjd.md#c3"
-    char_span: [4652, 6583]
+    char_span: [4651, 6582]
     sentence_count: 10
     key_terms: [whatsapp, messaging, going, ads, app, pay, nuttfellas, privacy]
+    concepts: [whatsapp, messaging, going, nuttfellas, privacy]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1lcshjd.md#c0"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/stocks/1lcshjd.md#c4"
-    char_span: [6585, 8525]
+    char_span: [6584, 8524]
     sentence_count: 15
     key_terms: [because, people, whatsapp, ads, europe, big, facebook, already]
+    concepts: [because, people, whatsapp, europe, facebook]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/stocks/1lcshjd.md#c5"
-    char_span: [8527, 9380]
+    char_span: [8526, 9379]
     sentence_count: 7
     key_terms: [because, change, going, thisismypewpewacct, november16th-1938, keep, communication, monetization]
+    concepts: [because, change, going]
     section: Comments
     token_count: 205
   - id: "social-intelligence/reddit-deep/stocks/1lcshjd.md#c6"
-    char_span: [9382, 11388]
+    char_span: [9381, 11387]
     sentence_count: 13
     key_terms: [whatsapp, subscriptions, "won't", advertising, information, softdisk-60, ads, app]
+    concepts: [whatsapp, subscriptions, advertising, information, softdisk-60]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1lcshjd.md#c0", "social-intelligence/reddit-deep/stocks/1lcshjd.md#c1"]
     section: Comments
     token_count: 470
 ---

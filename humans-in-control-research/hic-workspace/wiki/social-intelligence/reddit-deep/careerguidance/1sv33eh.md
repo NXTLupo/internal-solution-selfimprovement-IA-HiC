@@ -21,28 +21,38 @@ chunks:
     char_span: [0, 1984]
     sentence_count: 18
     key_terms: [like, feel, careerguidance, unethical, comments, expected, because, degrees]
+    concepts: [careerguidance, unethical, comments, expected, because]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sv33eh/im_26_burnt_out_on_stressful_sales_and_dont_have/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sv33eh.md#c1"
     char_span: [1986, 3516]
     sentence_count: 15
     key_terms: [something, sales, like, work, someone, being, small, find]
+    concepts: [something, sales, someone, being, small]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sv33eh.md#c4"]
     token_count: 356
   - id: "social-intelligence/reddit-deep/careerguidance/1sv33eh.md#c2"
     char_span: [3530, 5275]
     sentence_count: 13
     key_terms: [misaligned, sales, like, people, burnt, internet, figure, start]
+    concepts: [misaligned, sales, people, burnt, internet]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sv33eh.md#c3"]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/careerguidance/1sv33eh.md#c3"
     char_span: [5277, 7378]
     sentence_count: 14
     key_terms: [work, answer, people, sales, life, treatment, industry, thinking]
+    concepts: [answer, people, sales, treatment, industry]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sv33eh.md#c2"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/careerguidance/1sv33eh.md#c4"
     char_span: [7380, 9420]
     sentence_count: 18
     key_terms: [rich, sales, business, start, job, like, new, something]
+    concepts: [sales, business, start, something, thoughts]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sv33eh.md#c1"]
     section: Comments
     token_count: 426
 ---

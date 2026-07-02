@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 2166]
     sentence_count: 13
     key_terms: [agent, clawbot, agents, deeplearning, instructions, local, like, attackers]
+    concepts: [agent, clawbot, deeplearning, instructions, agents]
     token_count: 482
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1qsfinm/clawbot_is_a_pretty_brutal_reminder_that_local/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1qsfinm.md#c1"
     char_span: [2180, 4155]
     sentence_count: 7
     key_terms: [people, injection, diamondgeeezer, prompt, uneducated, clawdbot, docker, itself]
+    concepts: [people, injection, diamondgeeezer, prompt, uneducated]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1qsfinm.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/deeplearning/1qsfinm.md#c2"
     char_span: [3878, 4572]
     sentence_count: 4
     key_terms: [people, injection, clawdbot, prompt, data, automatically, misconfigured, uncontrolled]
+    concepts: [people, injection, clawdbot, prompt]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1qsfinm.md#c1"]
     section: Comments
     token_count: 157
 ---

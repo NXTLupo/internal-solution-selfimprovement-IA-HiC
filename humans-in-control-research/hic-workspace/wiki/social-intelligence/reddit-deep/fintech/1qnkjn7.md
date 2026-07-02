@@ -17,25 +17,24 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/fintech/1qnkjn7.md#c0"
-    char_span: [0, 2279]
+    char_span: [0, 2422]
     sentence_count: 15
-    key_terms: [investment, management, platform, investors, portfolio, customer, system, users]
-    token_count: 461
+    key_terms: [investment, management, portfolio, platform, investors, png, customer, system]
+    concepts: [investment, management, portfolio, platform, investors]
+    token_count: 516
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1qnkjn7/creation_of_the_investment_portfolio_management/"}]
   - id: "social-intelligence/reddit-deep/fintech/1qnkjn7.md#c1"
-    char_span: [2281, 4348]
-    sentence_count: 8
-    key_terms: [portfolio, positions, investments, png, efd089600558d4530b81b77eea786d4cfcc0f9da, create, stock, tools]
-    token_count: 442
+    char_span: [2424, 4821]
+    sentence_count: 11
+    key_terms: [portfolio, positions, investments, stock, data, efd089600558d4530b81b77eea786d4cfcc0f9da, several, create]
+    concepts: [portfolio, positions, investments, stock, several]
+    token_count: 473
   - id: "social-intelligence/reddit-deep/fintech/1qnkjn7.md#c2"
-    char_span: [4350, 6739]
-    sentence_count: 9
-    key_terms: [data, prices, historical, integrated, financial, stock, customer, services]
-    token_count: 485
-  - id: "social-intelligence/reddit-deep/fintech/1qnkjn7.md#c3"
-    char_span: [6741, 7304]
-    sentence_count: 3
-    key_terms: [providers, data, provider, create, api, simultaneously, integrations, third-party]
-    token_count: 103
+    char_span: [4823, 7303]
+    sentence_count: 7
+    key_terms: [data, historical, prices, customer, api, information, integration, market]
+    concepts: [historical, prices, customer, information, integration]
+    token_count: 503
 ---
 # Creation of the investment portfolio management ecosystem - Core platform example
 

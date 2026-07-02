@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1429]
     sentence_count: 12
     key_terms: [been, multiple, careerguidance, opportunities, being, interested, different, comments]
+    concepts: [multiple, careerguidance, opportunities, being, interested]
     token_count: 309
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pcuanc/early_career_advice_am_i_wrong_for_being/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1pcuanc.md#c1"
     char_span: [1443, 3378]
     sentence_count: 18
     key_terms: ["i'm", get, noinitiative1439, being, comfortable, perspective, "it's", appreciate]
+    concepts: [noinitiative1439, comfortable, perspective, appreciate, being]
     section: Comments
     token_count: 447
 ---

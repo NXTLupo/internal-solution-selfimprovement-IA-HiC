@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 928]
     sentence_count: 9
     key_terms: [projects, experience, uwaterloo, comments, metrics, design, feels, get]
+    concepts: [projects, experience, uwaterloo, comments, metrics]
     token_count: 220
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1p49qgv/i_came_to_waterloo_to_get_coops_and_experience/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1p49qgv.md#c1"
     char_span: [942, 2258]
     sentence_count: 7
     key_terms: [work, lol, blackberry, technical, students, watching, nothing, impact]
+    concepts: [blackberry, technical, students, watching, nothing]
     section: Comments
     token_count: 320
 ---

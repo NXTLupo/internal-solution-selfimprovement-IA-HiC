@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1922]
     sentence_count: 16
     key_terms: [interviews, companies, cscareerquestions, personal, grind, guy, tech, comments]
+    concepts: [interviews, cscareerquestions, companies, personal, grind]
     token_count: 451
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1mcop22/i_quit_cs_and_im_300_happier/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c1"
     char_span: [1924, 2193]
     sentence_count: 6
@@ -29,36 +31,45 @@ chunks:
     char_span: [2207, 4210]
     sentence_count: 17
     key_terms: [like, interview, people, internship, technical, director, managers, because]
+    concepts: [interview, people, internship, technical, director]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c5"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c3"
     char_span: [4212, 5472]
     sentence_count: 11
     key_terms: [company, working, supply, interviews, ridiculous, exceeding, interview, applied]
+    concepts: [company, working, supply, interviews, ridiculous]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c9"]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c4"
     char_span: [5474, 7331]
     sentence_count: 19
     key_terms: [https, time, corporate, fizzbuzz, archive, problem, without, coding]
+    concepts: [https, corporate, fizzbuzz, archive, problem]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c5"
     char_span: [7333, 9619]
     sentence_count: 17
     key_terms: [companies, interview, people, like, years, programming, been, good]
+    concepts: [companies, interview, people, programming, experience]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c2"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c6"
     char_span: [9622, 11470]
     sentence_count: 8
     key_terms: [people, personal, brand, merredditor, city, something, probably, office]
+    concepts: [people, personal, merredditor, brand, something]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c7"
     char_span: [11472, 13297]
     sentence_count: 16
     key_terms: [sales, commission, extremely, turnwol7, because, deleted, happier, someone]
+    concepts: [commission, sales, extremely, turnwol7, because]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c8"
@@ -71,54 +82,64 @@ chunks:
     char_span: [13811, 15837]
     sentence_count: 16
     key_terms: [position, company, working, job, less, shit, work, year]
+    concepts: [position, company, working, experience, because]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c3"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c10"
     char_span: [15839, 17918]
     sentence_count: 17
     key_terms: [people, relationships, day, end, like, tech, software, attacks]
+    concepts: [relationships, people, software, attacks, become]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c11"
     char_span: [17920, 19417]
     sentence_count: 13
     key_terms: [job, career, like, leaving, selling, sounds, presentationold9784, boats]
+    concepts: [career, leaving, selling, sounds, boats]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c12"
     char_span: [19419, 21628]
     sentence_count: 25
     key_terms: [industry, "it's", like, tech, "can't", "don't", devs, job]
+    concepts: [industry, "can't", "don't", agencies, "doesn't"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c13"
     char_span: [21630, 23901]
     sentence_count: 26
     key_terms: [squarespace, companies, end, want, probably, sales, tech, enterprise]
+    concepts: [squarespace, companies, probably, enterprise, sales]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c14"
     char_span: [23903, 26019]
     sentence_count: 20
     key_terms: [industry, like, skills, tech, online, people, been, "it's"]
+    concepts: [industry, skills, online, people, problems]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c15"
     char_span: [26021, 27984]
     sentence_count: 21
     key_terms: [engineers, comfortable-tart7734, senior, call, work, interviews, onboarding, interview]
+    concepts: [engineers, comfortable-tart7734, senior, interviews, onboarding]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c16"
     char_span: [27986, 29951]
     sentence_count: 32
     key_terms: [engineer, work, month, term, moonlighting, learn, contracting, "it's"]
+    concepts: [engineer, month, moonlighting, contracting, difference]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c17"
     char_span: [29953, 32059]
     sentence_count: 24
     key_terms: ["it's", repeatable, month, valuable, business, scalable, turnwol7, selling]
+    concepts: [repeatable, month, valuable, business, scalable]
     section: Comments
     token_count: 502
 ---

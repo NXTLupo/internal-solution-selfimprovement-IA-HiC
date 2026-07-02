@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1366]
     sentence_count: 8
     key_terms: [chatgpt, questions, answer, continuation, want, comments, training, users]
+    concepts: [chatgpt, questions, continuation, answer, comments]
     token_count: 316
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1pgxcjl/if_each_input_costs_openai_money_why_does_chatgpt/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1pgxcjl.md#c1"
     char_span: [1380, 2412]
     sentence_count: 7
     key_terms: [engagement, comments, serious, bakraofwallstreet, did, keep, tag, automatically]
+    concepts: [engagement, comments, serious]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/chatgpt/1pgxcjl.md#c2"
     char_span: [2414, 4358]
     sentence_count: 17
     key_terms: [money, reddit, engagement, million, costs, serve, times, get]
+    concepts: [money, engagement, reddit, million, costs]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/chatgpt/1pgxcjl.md#c3"
     char_span: [4360, 5958]
     sentence_count: 18
     key_terms: [reddit, expensive, inference, cost, instructions, pay, per, user]
+    concepts: [reddit, expensive, inference, instructions, chatgpt]
     section: Comments
     token_count: 377
 ---

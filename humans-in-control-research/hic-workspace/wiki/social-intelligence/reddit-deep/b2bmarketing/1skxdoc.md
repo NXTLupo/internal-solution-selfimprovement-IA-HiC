@@ -20,49 +20,62 @@ chunks:
     char_span: [0, 1997]
     sentence_count: 12
     key_terms: [teams, marketing, problem, vendors, volume, b2bmarketing, b2b, assumption]
+    concepts: [teams, marketing, problem, vendors, b2bmarketing]
     token_count: 414
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1skxdoc/the_b2b_pipeline_problem_is_a_targeting_problem/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1skxdoc.md#c1"
     char_span: [1999, 4392]
     sentence_count: 18
     key_terms: [layer, marketing, buyers, population, different, specific, content, active]
+    concepts: [layer, marketing, population, buyers, different]
     token_count: 464
   - id: "social-intelligence/reddit-deep/b2bmarketing/1skxdoc.md#c2"
     char_span: [4394, 6570]
     sentence_count: 17
     key_terms: [accounts, layer, retargeting, specific, content, operational, paid, performing]
+    concepts: [accounts, layer, retargeting, specific, content]
     token_count: 431
   - id: "social-intelligence/reddit-deep/b2bmarketing/1skxdoc.md#c3"
     char_span: [6572, 9089]
     sentence_count: 22
     key_terms: [signals, signal, accounts, marketing, work, content, running, consideration]
+    concepts: [signals, signal, accounts, marketing, consideration]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1skxdoc.md#c4", "social-intelligence/reddit-deep/b2bmarketing/1skxdoc.md#c8"]
     token_count: 498
   - id: "social-intelligence/reddit-deep/b2bmarketing/1skxdoc.md#c4"
     char_span: [9091, 10326]
     sentence_count: 11
     key_terms: [top, funnel, signals, down, broadening, marketing, pipeline, adding]
+    concepts: [funnel, signals, broadening, marketing, pipeline]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1skxdoc.md#c3"]
     token_count: 249
   - id: "social-intelligence/reddit-deep/b2bmarketing/1skxdoc.md#c5"
-    char_span: [10341, 12560]
+    char_span: [10340, 12559]
     sentence_count: 7
     key_terms: [looking-for-marketing-discussion-811236647760298024, people, signal, time, questions, discord, instead, message]
+    concepts: [people, signal, questions, discord, instead]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/b2bmarketing/1skxdoc.md#c6"
-    char_span: [12562, 13913]
+    char_span: [12561, 13912]
     sentence_count: 10
     key_terms: [signal, triggers, email, right, completely, outreach, sequence, system]
+    concepts: [signal, triggers, completely, email, right]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/b2bmarketing/1skxdoc.md#c7"
-    char_span: [13915, 16057]
+    char_span: [13914, 16056]
     sentence_count: 16
     key_terms: [volume, teams, because, company, matters, "you're", targeting, getting]
+    concepts: [volume, teams, because, company, matters]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/b2bmarketing/1skxdoc.md#c8"
-    char_span: [16061, 17275]
+    char_span: [16060, 17274]
     sentence_count: 14
     key_terms: [signal, video, signals, reference, content, curious, funding, being]
+    concepts: [signal, video, signals, reference, content]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1skxdoc.md#c3"]
     section: Comments
     token_count: 256
 ---

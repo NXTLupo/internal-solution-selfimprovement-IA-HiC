@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2014]
     sentence_count: 13
     key_terms: [futuristic, productmanagement, cooking, product, subscription, https, sub-process, com]
+    concepts: [futuristic, productmanagement, cooking, product, subscription]
     token_count: 459
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1tmkdek/why_do_so_many_products_target_the_wrong/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1tmkdek.md#c1"
-    char_span: [2029, 3419]
+    char_span: [2028, 3418]
     sentence_count: 13
     key_terms: [problem, products, like, product, walkslikeaduck08, solve, clarified, different]
+    concepts: [problem, products, product, walkslikeaduck08, solve]
     section: Comments
     token_count: 331
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 912]
     sentence_count: 6
     key_terms: [gradadmissions, professional, application, did, corporate, doctorate, comments, research]
+    concepts: [gradadmissions, professional, application, corporate, doctorate]
     token_count: 199
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1pt3so2/transitioning_from_corporate_research_to_grad/"}]
 ---
 # Transitioning from corporate research to Grad School
 

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2147]
     sentence_count: 12
     key_terms: [dafs, philanthropyproject, philanthropy, nonprofits, https, grantwriter-speaks, because, donors]
+    concepts: [philanthropyproject, philanthropy, grantwriter-speaks, nonprofits, https]
     token_count: 489
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1q6iwfc/dafs_a_grantwriter_speaks_her_mind/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1q6iwfc.md#c1"
-    char_span: [2162, 2569]
+    char_span: [2161, 2568]
     sentence_count: 6
     key_terms: [donors, salt-association6876, organizations, directives, ultimately, diligence, important, illusion]
+    concepts: [donors]
     section: Comments
     token_count: 89
 ---

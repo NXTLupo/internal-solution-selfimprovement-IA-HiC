@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1565]
     sentence_count: 10
     key_terms: [fashion, design, concepts, mockups, sneaker, guide, comments, creating]
+    concepts: [fashion, design, concepts, mockups, sneaker]
     token_count: 352
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1kxzzml/save_time_on_mockups_create_detailed_sneaker/"}]
 ---
 # Save Time on Mockups: Create detailed sneaker concepts using ChatGPT 4.0 in seconds
 

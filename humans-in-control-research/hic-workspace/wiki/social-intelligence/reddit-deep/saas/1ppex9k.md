@@ -20,35 +20,43 @@ chunks:
     char_span: [0, 1710]
     sentence_count: 23
     key_terms: [customer, custom, enterprise, product, months, requirements, deal, year]
+    concepts: [customer, enterprise, custom, product, requirements]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1ppex9k.md#c1"]
     token_count: 409
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1ppex9k/said_no_to_a_48kyear_enterprise_deal_best/"}]
   - id: "social-intelligence/reddit-deep/saas/1ppex9k.md#c1"
-    char_span: [1725, 3926]
+    char_span: [1724, 3925]
     sentence_count: 14
     key_terms: [customer, anyways, support, "don't", able, enterprise, honestly, standing]
+    concepts: [customer, anyways, support, "don't", enterprise]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1ppex9k.md#c0"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/saas/1ppex9k.md#c2"
-    char_span: [3928, 4986]
+    char_span: [3927, 4985]
     sentence_count: 6
     key_terms: [security, always, price, work, nippyeagerness7, questionnaires, consulting, discipline]
+    concepts: [security, always, price]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/saas/1ppex9k.md#c3"
-    char_span: [4988, 7091]
+    char_span: [4987, 7090]
     sentence_count: 10
     key_terms: [enterprise, post, especially, backwards, clients, instead, product, willing]
+    concepts: [enterprise, especially, backwards, clients, instead]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/saas/1ppex9k.md#c4"
-    char_span: [6833, 7431]
+    char_span: [6832, 7430]
     sentence_count: 5
     key_terms: [did, like, emeraldcrusher, requirements, potentially, convincing, enterprise, eventually]
     section: Comments
     token_count: 149
   - id: "social-intelligence/reddit-deep/saas/1ppex9k.md#c5"
-    char_span: [7433, 8157]
+    char_span: [7432, 8156]
     sentence_count: 4
     key_terms: [service, saying, level, electronic-cat185, like, new, sla, agreement]
+    concepts: [service, saying, level]
     section: Comments
     token_count: 177
 ---

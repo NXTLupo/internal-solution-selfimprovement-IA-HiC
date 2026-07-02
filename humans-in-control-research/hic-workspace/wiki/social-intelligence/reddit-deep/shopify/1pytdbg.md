@@ -20,36 +20,44 @@ chunks:
     char_span: [0, 721]
     sentence_count: 3
     key_terms: [shopify, e-commerce, news, comments, recaps, weekly, adventurepaul, reddit-deep]
+    concepts: [shopify, e-commerce, comments, recaps, weekly]
     token_count: 186
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1pytdbg/this_weeks_top_ecommerce_news_stories_dec_29th/"}]
   - id: "social-intelligence/reddit-deep/shopify/1pytdbg.md#c1"
     char_span: [723, 3275]
     sentence_count: 11
     key_terms: [information, experiments, according, different, instacart, sponsored, chatgpt, wealth]
+    concepts: [information, experiments, according, different, instacart]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1pytdbg.md#c2"
     char_span: [2994, 5693]
     sentence_count: 11
     key_terms: [users, alexa, cards, through, skills, integrations, reservations, gift]
+    concepts: [users, alexa, cards, through, integrations]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1pytdbg.md#c3"
     char_span: [5349, 7823]
     sentence_count: 13
     key_terms: [amazon, necklace, swastika, senators, tiktok, used, vehicles, pendant]
+    concepts: [amazon, necklace, swastika, senators, tiktok]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1pytdbg.md#c4"
     char_span: [7513, 10147]
     sentence_count: 14
     key_terms: [amazon, e-commerce, used, online, foods, users, whole, data]
+    concepts: [amazon, e-commerce, online, foods, fragmented]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1pytdbg.md#c5"
     char_span: [9825, 10247]
     sentence_count: 2
     key_terms: [spokesperson, company, reddit, chatgptjailbreak, communities, guardrails, bypassing, following]
+    concepts: [spokesperson, company, reddit]
     token_count: 80
   - id: "social-intelligence/reddit-deep/shopify/1pytdbg.md#c6"
-    char_span: [10262, 10680]
+    char_span: [10261, 10679]
     sentence_count: 3
     key_terms: [community, contact, shopify, automatically, automoderator, moderators, soliciting, performed]
+    concepts: [community, contact, shopify]
     section: Comments
     token_count: 90
 ---

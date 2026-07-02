@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 1412]
     sentence_count: 12
     key_terms: [people, humanresources, been, breakfast, comments, certain, beginningfragrant395, donut]
+    concepts: [people, humanresources, breakfast, comments, certain]
     token_count: 334
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1thpyih/is_hr_still_for_me_tx/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1thpyih.md#c1"
     char_span: [1426, 3171]
     sentence_count: 14
     key_terms: [people, company, around, like, work, previous, probably, getting]
+    concepts: [people, company, around, previous, probably]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/humanresources/1thpyih.md#c2"
     char_span: [3173, 5078]
     sentence_count: 20
     key_terms: [people, ask, good, time, something, everyone, manager, coffee]
+    concepts: [people, something, everyone, manager, coffee]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/humanresources/1thpyih.md#c3"
     char_span: [5080, 7039]
     sentence_count: 18
     key_terms: [people, like, lot, cultural, person, moved, here, "i'm"]
+    concepts: [people, cultural, person, moved, different]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1thpyih.md#c4"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/humanresources/1thpyih.md#c4"
     char_span: [7041, 8990]
     sentence_count: 11
     key_terms: [people, personality, get, here, lot, hrgooglefu, different, culture]
+    concepts: [people, personality, hrgooglefu, different, culture]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1thpyih.md#c3"]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/humanresources/1thpyih.md#c5"
     char_span: [8992, 10173]
     sentence_count: 12
     key_terms: [post, career, beginningfragrant395, mundane-jump-7546, lot, side, sure, work]
+    concepts: [career]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/humanresources/1thpyih.md#c6"
     char_span: [10175, 11727]
     sentence_count: 19
     key_terms: [people, worked, like, compliance, introvert, yourecoolforagayguy, flakyassistant7681, care]
+    concepts: [people, worked, compliance, introvert]
     section: Comments
     token_count: 381
 ---

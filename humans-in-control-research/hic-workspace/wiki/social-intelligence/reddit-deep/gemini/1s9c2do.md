@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 964]
     sentence_count: 2
     key_terms: [api, gemini, cost, comments, charged, around, search, tokens]
+    concepts: [gemini, comments, charged, around, search]
     token_count: 250
+    sources: [{"n":"reddit-deep: r/gemini","u":"https://www.reddit.com/r/Gemini/comments/1s9c2do/api_cost/"}]
 ---
 # Api cost
 

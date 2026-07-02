@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1724]
     sentence_count: 20
     key_terms: [because, math, accounting, class, "i'm", degree, "that's", grade]
+    concepts: [because, accounting, class, degree, "that's"]
     token_count: 398
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1l9zvrr/older_student/"}]
   - id: "social-intelligence/reddit-deep/college/1l9zvrr.md#c1"
     char_span: [1738, 2375]
     sentence_count: 5
     key_terms: [dyscalculia, math, recommend, get, "i'm", accessibility, requirement, substituted]
+    concepts: [dyscalculia, recommend]
     section: Comments
     token_count: 151
 ---

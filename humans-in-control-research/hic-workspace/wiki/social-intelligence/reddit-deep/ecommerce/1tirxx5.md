@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1757]
     sentence_count: 14
     key_terms: [ecommerce, something, like, feedback, product, people, ads, "i'm"]
+    concepts: [ecommerce, something, feedback, product, people]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1tirxx5.md#c1"]
     token_count: 395
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1tirxx5/curious_about_opinions/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1tirxx5.md#c1"
-    char_span: [1772, 3438]
+    char_span: [1771, 3437]
     sentence_count: 10
     key_terms: [ads, illustrious-chard790, product, ecommerce, something, retainer, instead, thought]
+    concepts: [illustrious-chard790, product, ecommerce, something, retainer]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1tirxx5.md#c0"]
     section: Comments
     token_count: 366
 ---

@@ -18,21 +18,28 @@ chunks:
     char_span: [0, 1886]
     sentence_count: 14
     key_terms: [through, classes, college, going, care, like, academic, brother]
+    concepts: [through, classes, college, going, academic]
     token_count: 443
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1oi6if8/stuck_and_would_like_advice/"}]
   - id: "articles/reddit-deep-r-college/aefe91ce07.md#c1"
     char_span: [1888, 3447]
     sentence_count: 16
     key_terms: [degree, get, business, advisor, school, like, understand, because]
+    concepts: [degree, business, advisor, school, understand]
+    related_chunks: ["articles/reddit-deep-r-college/aefe91ce07.md#c2"]
     token_count: 350
   - id: "articles/reddit-deep-r-college/aefe91ce07.md#c2"
     char_span: [3450, 5089]
     sentence_count: 12
     key_terms: [going, something, get, degree, school, path, business, another]
+    concepts: [something, going, degree, school, business]
+    related_chunks: ["articles/reddit-deep-r-college/aefe91ce07.md#c1"]
     token_count: 377
   - id: "articles/reddit-deep-r-college/aefe91ce07.md#c3"
     char_span: [5092, 6180]
     sentence_count: 10
     key_terms: [university, undergrad, transfer, applied, credits, grades, people, school]
+    concepts: [university, undergrad, transfer, applied, credits]
     token_count: 253
 ---
 # Stuck and would like advice

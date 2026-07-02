@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1552]
     sentence_count: 10
     key_terms: [review, school, grad, status, department, program, gradadmissions, hcim]
+    concepts: [review, school, status, department, gradadmissions]
     token_count: 355
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1r10l78/umd_hcim_under_grad_school_review_vs_under/"}]
   - id: "articles/reddit-deep-r-gradadmissions/aeaaba8149.md#c1"
     char_span: [1554, 2589]
     sentence_count: 8
     key_terms: [externalwindow9234, decision, status, admission, program, waiting, thank, desperatemark8581]
+    concepts: [externalwindow9234, decision, status, admission, program]
     token_count: 243
 ---
 # UMD HCIM – "Under Grad School Review" vs. "Under Program Review" (Admission Signal or Just Process?)

@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1489]
     sentence_count: 7
     key_terms: [job, realized, careerguidance, comments, deleted, thought, career, define]
+    concepts: [realized, careerguidance, comments, deleted, thought]
     token_count: 376
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qx8e7h/when_did_you_realize_your_first_job_wasnt_going/"}]
 ---
 # When did you realize your first job wasn’t going to define your career?
 

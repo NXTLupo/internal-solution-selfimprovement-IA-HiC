@@ -19,23 +19,31 @@ chunks:
     char_span: [0, 1443]
     sentence_count: 9
     key_terms: [accounting, school, applyingtocollege, told, want, tuition, grandparents, good]
+    concepts: [accounting, applyingtocollege, school, tuition, grandparents]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t3vzto.md#c2"]
     token_count: 339
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1t3vzto/can_i_hide_my_major_from_parents_whos_paying_my/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t3vzto.md#c1"
     char_span: [1457, 3331]
     sentence_count: 8
     key_terms: [accounting, major, double, honest-ad1279, accountants, compromise, automated, classes]
+    concepts: [accounting, major, honest-ad1279, double, accountants]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t3vzto.md#c2"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t3vzto.md#c2"
     char_span: [3333, 5111]
     sentence_count: 14
     key_terms: [accounting, don, school, majors, major, money, get, take]
+    concepts: [accounting, school, majors, major, money]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t3vzto.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1t3vzto.md#c1"]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t3vzto.md#c3"
     char_span: [5113, 6344]
     sentence_count: 12
     key_terms: [access, information, grades, likely, accounting, graduation, parents, gives]
+    concepts: [access, information, grades, likely, accounting]
     section: Comments
     token_count: 288
 ---

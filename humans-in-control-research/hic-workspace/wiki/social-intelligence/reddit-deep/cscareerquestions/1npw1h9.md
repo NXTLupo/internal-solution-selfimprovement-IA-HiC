@@ -19,7 +19,10 @@ chunks:
     char_span: [0, 1928]
     sentence_count: 22
     key_terms: [cscareerquestions, got, offers, tech, interviews, engineers, referrals, comments]
+    concepts: [cscareerquestions, offers, interviews, engineers, referrals]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c13"]
     token_count: 457
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1npw1h9/is_tech_job_market_really_cooked/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c1"
     char_span: [1930, 2244]
     sentence_count: 2
@@ -29,78 +32,97 @@ chunks:
     char_span: [2258, 3934]
     sentence_count: 14
     key_terms: [linkedin, experience, competitive-one441, premium, market, got, job, work]
+    concepts: [linkedin, competitive-one441, experience, premium, market]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c3"
     char_span: [3936, 5683]
     sentence_count: 14
     key_terms: [remote, lot, outside, resume, offer, find, work, interviews]
+    concepts: [remote, outside, resume, interviews, offer]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c9"]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c4"
     char_span: [5686, 7512]
     sentence_count: 12
     key_terms: [people, going, internships, jobs, experience, positions, position, hybrid]
+    concepts: [people, internships, experience, going, positions]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c7"]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c5"
     char_span: [7514, 8856]
     sentence_count: 11
     key_terms: [interviews, work, company, outside, hybrid, little, office, trying]
+    concepts: [interviews, company, outside, hybrid, little]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c3"]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c6"
     char_span: [8858, 10873]
     sentence_count: 17
     key_terms: [easy, hepennypacker1131, solve, get, too, appreciate, questions, getting]
+    concepts: [hepennypacker1131, appreciate, solve, questions, getting]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c7"
     char_span: [10875, 13111]
     sentence_count: 16
     key_terms: [people, "don't", experience, get, "it's", work, eliminated, companies]
+    concepts: [people, "don't", experience, eliminated, companies]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c9"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c8"
     char_span: [13113, 13444]
     sentence_count: 1
     key_terms: ["doesn't", "aren't", simultaneously, ridiculous, competent, perfectly, engineer, familiar]
+    concepts: ["doesn't", "aren't"]
     section: Comments
     token_count: 67
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c9"
     char_span: [13446, 15683]
     sentence_count: 20
     key_terms: [interviews, "i'm", resume, "i've", job, definitely, experience, companies]
+    concepts: [interviews, resume, definitely, experience, companies]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c10"
     char_span: [15423, 15826]
     sentence_count: 5
     key_terms: [good, career, "don't", like, changing, everyone, unlikely, deserve]
+    concepts: [career, "don't"]
     section: Comments
     token_count: 101
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c11"
     char_span: [15828, 17100]
     sentence_count: 14
     key_terms: [devs, "that's", filtering, industry, getting, "they're", "aren't", cooked]
+    concepts: ["that's", filtering, industry, getting, "they're"]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c12"
     char_span: [17102, 18969]
     sentence_count: 13
     key_terms: [like, year, market, people, ago, job, fuckoholic, challenge]
+    concepts: [market, people, fuckoholic, challenge, problems]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c13"
     char_span: [18971, 20491]
     sentence_count: 22
     key_terms: [gotten, interviews, higher, offers, didn, background, looking, similar]
+    concepts: [interviews, gotten, higher, offers, background]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c0"]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c14"
     char_span: [20493, 21179]
     sentence_count: 6
     key_terms: [feedback, started, going, get, bluesquare2543, interviews, throughout, beginning]
+    concepts: [feedback, started, going]
     section: Comments
     token_count: 172
 ---

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2078]
     sentence_count: 16
     key_terms: [prompts, layer, negatives, precision, data, hard, roleplay, prompt]
+    concepts: [prompts, negatives, precision, layer, roleplay]
     token_count: 477
+    sources: [{"n":"Reddit Deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1syngsc/built_a_prompt_injection_detector_using_fisherrao/"}]
   - id: "articles/reddit-deep-r-deeplearning/f3eb72b2cc.md#c1"
     char_span: [2080, 3783]
     sentence_count: 13
     key_terms: [prompts, benign, ambiguous, "false", ones, classifier, compliance, legitimate]
+    concepts: [prompts, benign, ambiguous, classifier, compliance]
     token_count: 349
 ---
 # Built a prompt injection detector using Fisher-Rao geometry that outperforms LlamaGuard and OpenAI Moderation on indirect attacks

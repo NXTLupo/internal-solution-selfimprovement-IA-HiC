@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 345]
     sentence_count: 3
     key_terms: [engineeringstudents, comments, warsecure8036, engineering, internships, reddit-deep, electrical, seeking]
+    concepts: [engineeringstudents, comments]
     token_count: 89
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1ql13ly/studentelectrical_engineering_us_seeking_resume/"}]
 ---
 # [Student]-[Electrical Engineering] [US] Seeking resume advice/review for internships in RF. Junior.
 

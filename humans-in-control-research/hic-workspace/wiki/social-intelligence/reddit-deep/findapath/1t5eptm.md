@@ -21,34 +21,41 @@ chunks:
     char_span: [0, 2116]
     sentence_count: 17
     key_terms: [job, "i'm", because, career, having, home, "i've", life]
+    concepts: [because, career, having, economics, extremely]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1t5eptm/25yo_no_job_work_experience_career_gaps_and/"}]
   - id: "social-intelligence/reddit-deep/findapath/1t5eptm.md#c1"
     char_span: [2121, 4251]
     sentence_count: 16
     key_terms: ["i've", life, like, "don't", did, felt, "i'm", experience]
+    concepts: ["don't", experience, something, friends, little]
     token_count: 483
   - id: "social-intelligence/reddit-deep/findapath/1t5eptm.md#c2"
     char_span: [4265, 6049]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, nessarin]
+    concepts: [thank, helpful, please, findapath, comments]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/findapath/1t5eptm.md#c3"
     char_span: [6052, 8058]
     sentence_count: 20
     key_terms: [like, activities, been, everything, interests, situation, comment, feeling]
+    concepts: [activities, everything, interests, situation, comment]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/findapath/1t5eptm.md#c4"
     char_span: [8060, 10059]
     sentence_count: 8
     key_terms: [felt, life, like, thoughts, someone, started, helped, inside]
+    concepts: [thoughts, someone, started, helped, inside]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/findapath/1t5eptm.md#c5"
     char_span: [10061, 12322]
     sentence_count: 18
     key_terms: [pretty, therapy, job, like, time, yourself, correct, degree]
+    concepts: [pretty, therapy, yourself, correct, degree]
     section: Comments
     token_count: 509
 ---

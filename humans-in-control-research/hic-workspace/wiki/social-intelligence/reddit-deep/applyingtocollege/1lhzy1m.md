@@ -21,47 +21,60 @@ chunks:
     char_span: [0, 732]
     sentence_count: 5
     key_terms: [applyingtocollege, prelaw, prestigious, comments, prestige, decided, people, premed]
+    concepts: [applyingtocollege, prelaw, prestigious, comments, prestige]
     token_count: 164
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1lhzy1m/why_do_so_many_prelawpremed_people_on_here_care/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c1"
     char_span: [746, 2526]
     sentence_count: 11
     key_terms: [applyingtocollege, undergrad, grad, school, maybe, recognition, attended, comments]
+    concepts: [applyingtocollege, undergrad, school, recognition, maybe]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c6"]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c2"
     char_span: [2528, 4482]
     sentence_count: 21
     key_terms: [school, people, law, state, best, lot, went, undergrad]
+    concepts: [school, people, state, undergrad, college]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c6"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c3"
     char_span: [4484, 6267]
     sentence_count: 13
     key_terms: [work, law, prestige, school, big, good, lawyers, schools]
+    concepts: [prestige, school, lawyers, schools, factor]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c6"]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c4"
     char_span: [6269, 7879]
     sentence_count: 7
     key_terms: [schools, students, middle, scholarships, institution, aid, undergrad, because]
+    concepts: [schools, students, scholarships, middle, institution]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c5"
     char_span: [7881, 9020]
     sentence_count: 8
     key_terms: [colleges, top, law, students, undergraduate, elite, college, schools]
+    concepts: [colleges, students, undergraduate, elite, college]
     section: Comments
     token_count: 251
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c6"
     char_span: [9022, 10889]
     sentence_count: 12
     key_terms: [school, schools, top, state, come, grad, odds, undergrad]
+    concepts: [school, schools, state, undergrad, satisest]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c3"]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c7"
     char_span: [10891, 11346]
     sentence_count: 2
     key_terms: [school, undergraduate, association, potentially, affordable, experience, rewarding, graduate]
+    concepts: [school]
     section: Comments
     token_count: 101
 ---

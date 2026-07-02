@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1191]
     sentence_count: 4
     key_terms: [internships, robotics, extra-alps-3127, comments, current, student, impedance-controlled, mid-tier-engineering]
+    concepts: [internships, extra-alps-3127, robotics, comments, current]
     token_count: 286
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sdgfy0/ee_student_skills_to_develop_for_robotics/"}]
 ---
 # EE Student: Skills to develop for robotics internship
 

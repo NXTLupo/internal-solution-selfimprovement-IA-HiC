@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1061]
     sentence_count: 10
     key_terms: [shopify, abandoned, like, retention, comments, people, carts, store]
+    concepts: [shopify, abandoned, retention, comments, people]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1n8xg3o.md#c1"]
     token_count: 234
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1n8xg3o/i_experienced_abandoned_cart_until_i_found/"}]
   - id: "social-intelligence/reddit-deep/shopify/1n8xg3o.md#c1"
-    char_span: [1076, 2046]
+    char_span: [1075, 2045]
     sentence_count: 6
     key_terms: [shopify, community, contact, problem, people, cart, like, ilovetrouble66]
+    concepts: [shopify, community, contact, problem, people]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1n8xg3o.md#c0"]
     section: Comments
     token_count: 244
 ---

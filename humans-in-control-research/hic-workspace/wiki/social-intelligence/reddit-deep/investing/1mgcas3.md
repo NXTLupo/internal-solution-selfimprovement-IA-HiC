@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 1095]
     sentence_count: 7
     key_terms: [trading, something, better, crypto, chase, investing, comments, customer]
+    concepts: [trading, something, better, crypto, chase]
     token_count: 244
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1mgcas3/looking_for_a_better_online_trading_app_chase/"}]
   - id: "social-intelligence/reddit-deep/investing/1mgcas3.md#c1"
-    char_span: [1110, 3078]
+    char_span: [1109, 3077]
     sentence_count: 14
     key_terms: [trading, fidelity, schwab, options, looking, webull, tools, app]
+    concepts: [trading, fidelity, schwab, options, looking]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1mgcas3.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1mgcas3.md#c2"
-    char_span: [3080, 4077]
+    char_span: [3079, 4076]
     sentence_count: 6
     key_terms: [robinhood, fidelity, schwab, site, directly, bitcoin, deleted, etrade]
+    concepts: [robinhood, fidelity, schwab, directly, bitcoin]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1mgcas3.md#c1"]
     section: Comments
     token_count: 260
 ---

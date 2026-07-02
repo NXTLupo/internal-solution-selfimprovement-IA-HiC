@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 453]
     sentence_count: 1
     key_terms: [comments, received, applied, manager, hiring, email, later, day]
+    concepts: [comments, received, applied, manager, hiring]
     token_count: 119
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1nuc5v4/i_applied_for_a_job_and_received_this_email_from/"}]
   - id: "social-intelligence/reddit-deep/jobs/1nuc5v4.md#c1"
     char_span: [467, 680]
     sentence_count: 2
@@ -32,12 +34,14 @@ chunks:
     char_span: [682, 2547]
     sentence_count: 8
     key_terms: [people, scam, want, "it's", job, link, because, english]
+    concepts: [people, because, english, needful, "don't"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1nuc5v4.md#c3"
     char_span: [2311, 3230]
     sentence_count: 2
     key_terms: [needful, giggle, trexgiraffehybrid, team, tonythenetworker, national-ad8416, angusmeatstick, "applicant's"]
+    concepts: [needful, giggle]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/jobs/1nuc5v4.md#c4"
@@ -50,12 +54,14 @@ chunks:
     char_span: [3540, 5276]
     sentence_count: 9
     key_terms: [scam, "it's", like, deleted, amount, indeed, people, sounds]
+    concepts: [deleted, amount, indeed, people, sounds]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1nuc5v4.md#c6"
     char_span: [5000, 6800]
     sentence_count: 10
     key_terms: [scam, scammers, english, immediately, use, malicious, phishing, clients]
+    concepts: [scammers, english, immediately, malicious, phishing]
     section: Comments
     token_count: 402
 ---

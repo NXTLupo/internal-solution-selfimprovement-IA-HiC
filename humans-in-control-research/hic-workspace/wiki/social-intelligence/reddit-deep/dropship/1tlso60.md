@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1167]
     sentence_count: 6
     key_terms: [certificates, questions, comments, dropship, shipping, cooking, country, sample]
+    concepts: [certificates, questions, comments, dropship, shipping]
     token_count: 290
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1tlso60/what_questions_should_i_ask_a_potential_supplier/"}]
   - id: "social-intelligence/reddit-deep/dropship/1tlso60.md#c1"
-    char_span: [1182, 2986]
+    char_span: [1181, 2985]
     sentence_count: 5
     key_terms: [stock, automatically, dropship, shopify, safety, batch, solid, worth]
+    concepts: [stock, automatically, dropship, shopify, safety]
     section: Comments
     token_count: 418
 ---

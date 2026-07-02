@@ -20,39 +20,47 @@ chunks:
     char_span: [0, 2555]
     sentence_count: 14
     key_terms: [company, data, automated, training, chatbot, quality, through, datascience]
+    concepts: [company, automated, training, chatbot, quality]
     token_count: 515
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1n0ep0g/how_do_i_make_the_most_of_this_opportunity/"}]
   - id: "social-intelligence/reddit-deep/datascience/1n0ep0g.md#c1"
     char_span: [2557, 5291]
     sentence_count: 5
     key_terms: [deliverables, background, candidate, prototype, forecasting, company, predictive, intern]
+    concepts: [deliverables, background, candidate, prototype, forecasting]
     token_count: 515
   - id: "social-intelligence/reddit-deep/datascience/1n0ep0g.md#c2"
     char_span: [5293, 6333]
     sentence_count: 2
     key_terms: [compliance, monitoring, usage, prototype, opportunities, deliverables, background, clustering]
+    concepts: [compliance, monitoring, prototype, usage, opportunities]
     token_count: 195
   - id: "social-intelligence/reddit-deep/datascience/1n0ep0g.md#c3"
-    char_span: [6348, 7598]
+    char_span: [6347, 7597]
     sentence_count: 10
     key_terms: [data, expensive, company, decisions, situation, probably, valuable, science]
+    concepts: [expensive, company, decisions, situation, probably]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/datascience/1n0ep0g.md#c4"
-    char_span: [7600, 9955]
+    char_span: [7599, 9954]
     sentence_count: 15
     key_terms: [internship, time, employers, data, work, chubbyfruit, too, want]
+    concepts: [internship, employers, chubbyfruit, valuable, company]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/datascience/1n0ep0g.md#c5"
-    char_span: [9957, 12143]
+    char_span: [9956, 12142]
     sentence_count: 20
     key_terms: ["that's", "you're", being, work, absolutely, predictive, resistance, resolution]
+    concepts: ["that's", "you're", absolutely, being, predictive]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/datascience/1n0ep0g.md#c6"
-    char_span: [12145, 13690]
+    char_span: [12144, 13689]
     sentence_count: 10
     key_terms: [chubbyfruit, work, experience, projects, because, copilot, support, "aren't"]
+    concepts: [chubbyfruit, experience, projects, because, copilot]
     section: Comments
     token_count: 342
 ---

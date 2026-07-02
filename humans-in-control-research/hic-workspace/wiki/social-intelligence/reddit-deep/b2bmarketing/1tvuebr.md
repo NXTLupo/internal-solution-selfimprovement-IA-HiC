@@ -20,22 +20,29 @@ chunks:
     char_span: [0, 2085]
     sentence_count: 12
     key_terms: [results, volume, b2b, messages, outreach, getting, through, b2bmarketing]
+    concepts: [results, volume, messages, outreach, getting]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1tvuebr.md#c1"]
     token_count: 465
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1tvuebr/slow_and_steady_wins_the_race_or_why_consistency/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tvuebr.md#c1"
     char_span: [2087, 4100]
     sentence_count: 10
     key_terms: [sending, volume, keep, time, linkedin, messages, relevant, optimal]
+    concepts: [sending, volume, linkedin, messages, relevant]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1tvuebr.md#c0"]
     token_count: 405
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tvuebr.md#c2"
-    char_span: [4115, 6027]
+    char_span: [4114, 6026]
     sentence_count: 9
     key_terms: [volume, looking-for-marketing-discussion-811236647760298024, message, timing, like, long, time, questions]
+    concepts: [volume, message, timing, questions, focusing]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tvuebr.md#c3"
-    char_span: [6029, 6521]
+    char_span: [6028, 6520]
     sentence_count: 3
     key_terms: [because, people, good, expansivemind, integrations, popapalooza, companies, customers]
+    concepts: [because, people]
     section: Comments
     token_count: 127
 ---

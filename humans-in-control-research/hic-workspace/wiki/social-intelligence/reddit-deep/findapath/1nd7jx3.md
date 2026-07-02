@@ -19,34 +19,41 @@ chunks:
     char_span: [0, 2149]
     sentence_count: 19
     key_terms: [internship, life, want, chronic, month, aspirations, like, experience]
+    concepts: [internship, chronic, aspirations, experience, month]
     token_count: 477
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1nd7jx3/i_dont_want_a_95_life_for_the_rest_of_my_life_i/"}]
   - id: "social-intelligence/reddit-deep/findapath/1nd7jx3.md#c1"
     char_span: [2152, 4437]
     sentence_count: 16
     key_terms: [money, lot, like, time, career, degree, design, maybe]
+    concepts: [money, career, degree, design, investments]
     token_count: 506
   - id: "social-intelligence/reddit-deep/findapath/1nd7jx3.md#c2"
-    char_span: [4439, 6542]
+    char_span: [4439, 6541]
     sentence_count: 19
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, disease]
+    concepts: [thank, helpful, please, findapath, comments]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/findapath/1nd7jx3.md#c3"
-    char_span: [6544, 7793]
+    char_span: [6543, 7792]
     sentence_count: 10
     key_terms: [focusing, looking, options, thank, connect-media8345, yourbasicusername, like, flairpointsbot]
+    concepts: [focusing, looking, options, thank]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/findapath/1nd7jx3.md#c4"
-    char_span: [7795, 9279]
+    char_span: [7794, 9278]
     sentence_count: 9
     key_terms: [peace-corps-volunteers-recollection-relevance-20769571, money, channel, youtube, videos, going, point, value]
+    concepts: [money, channel, youtube, videos, going]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/findapath/1nd7jx3.md#c5"
-    char_span: [9281, 10059]
+    char_span: [9280, 10058]
     sentence_count: 7
     key_terms: [career, "didn't", fire, good, path, deliberately, independence, engineering]
+    concepts: [career, "didn't"]
     section: Comments
     token_count: 174
 ---

@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 657]
     sentence_count: 5
     key_terms: [productivity, comments, habit, overthinking, william45623, reddit-deep, difference, frameworks]
+    concepts: [productivity, comments, habit]
     token_count: 150
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1pembws/whats_the_simplest_habit_that_boosted_your/"}]
   - id: "social-intelligence/reddit-deep/productivity/1pembws.md#c1"
     char_span: [671, 1905]
     sentence_count: 4
     key_terms: [head, like, mental, brain, bad, day, get, tab]
+    concepts: [mental, brain]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/productivity/1pembws.md#c2"
     char_span: [1907, 3845]
     sentence_count: 18
     key_terms: [minutes, luckyone9591, focus, day, like, listening, instead, podcast]
+    concepts: [minutes, luckyone9591, focus, listening, instead]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/productivity/1pembws.md#c3"
     char_span: [3847, 6028]
     sentence_count: 18
     key_terms: [brain-dumping, used, iwantboringtimes, waiting, want, week, something, advice]
+    concepts: [brain-dumping, iwantboringtimes, waiting, something, advice]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/productivity/1pembws.md#c4"
     char_span: [6030, 6419]
     sentence_count: 4
     key_terms: [stress, procrastinating, procrastination, considerations, especially, regulation, strategies, increases]
+    concepts: [stress]
     section: Comments
     token_count: 79
 ---

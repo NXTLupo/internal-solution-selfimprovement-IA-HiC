@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1495]
     sentence_count: 16
     key_terms: [cscareerquestions, always, applications, find, job, time, unemployed, something]
+    concepts: [cscareerquestions, applications, always, unemployed, something]
     token_count: 350
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ss5vqj/how_much_harder_is_it_to_find_a_job_when_your_are/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5vqj.md#c1"
     char_span: [1509, 3239]
     sentence_count: 15
     key_terms: [job, unemployed, chubbyvegantravels, employed, people, get, leverage, because]
+    concepts: [chubbyvegantravels, unemployed, employed, people, leverage]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5vqj.md#c2"
     char_span: [3241, 5191]
     sentence_count: 18
     key_terms: [get, reason, candidates, freeing, totally, decent, months, people]
+    concepts: [reason, candidates, freeing, totally, decent]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5vqj.md#c3"
     char_span: [5196, 7213]
     sentence_count: 13
     key_terms: [people, laid, managers, hiring, hire, tech, work, probably]
+    concepts: [people, managers, hiring, probably, terrible]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5vqj.md#c4"

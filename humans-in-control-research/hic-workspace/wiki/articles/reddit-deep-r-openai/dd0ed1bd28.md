@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 967]
     sentence_count: 6
     key_terms: [traditional-let-856, loops, offontangent, shivansh12t, reasoning, schedules, comments, thoughts]
+    concepts: [traditional-let-856, loops, offontangent, shivansh12t, reasoning]
     token_count: 265
+    sources: [{"n":"Reddit Deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1n205h4/gpt5_pro_breaking_itself_after_reasoning_for_30/"}]
 ---
 # GPT-5 pro breaking itself after reasoning for 30+ minutes? Did it reach full context window?
 

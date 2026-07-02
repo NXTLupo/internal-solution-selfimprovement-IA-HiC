@@ -21,27 +21,36 @@ chunks:
     char_span: [0, 990]
     sentence_count: 5
     key_terms: [research, gradadmissions, career, "i'm", comments, physics, chance, decent]
+    concepts: [research, gradadmissions, career, comments, physics]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1p8pn7r.md#c4"]
     token_count: 280
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1p8pn7r/for_physics_grad_school_do_i_have_a_chance_at_a/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1p8pn7r.md#c1"
     char_span: [992, 2982]
     sentence_count: 17
     key_terms: ["i'm", grades, classes, physics, calculus, quantum, reason, good]
+    concepts: [grades, classes, physics, calculus, quantum]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1p8pn7r.md#c4"]
     token_count: 479
   - id: "social-intelligence/reddit-deep/gradadmissions/1p8pn7r.md#c2"
     char_span: [2984, 4422]
     sentence_count: 9
     key_terms: [physics, get, help, graduate, letters, program, advice, longer]
+    concepts: [physics, graduate, letters, program, advice]
     token_count: 361
   - id: "social-intelligence/reddit-deep/gradadmissions/1p8pn7r.md#c3"
     char_span: [4436, 6430]
     sentence_count: 13
     key_terms: [phd, ranked, research, program, profs, competitive, get, need]
+    concepts: [ranked, research, program, competitive, broedinger]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/gradadmissions/1p8pn7r.md#c4"
     char_span: [6432, 7489]
     sentence_count: 9
     key_terms: [physics, research, phd, difficult, classes, python, "don't", core]
+    concepts: [physics, research, difficult, classes, python]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1p8pn7r.md#c0", "social-intelligence/reddit-deep/gradadmissions/1p8pn7r.md#c1"]
     section: Comments
     token_count: 218
 ---

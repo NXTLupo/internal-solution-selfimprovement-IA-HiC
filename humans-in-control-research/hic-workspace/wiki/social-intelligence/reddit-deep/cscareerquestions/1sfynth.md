@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 369]
     sentence_count: 3
     key_terms: [cscareerquestions, market, comments, job, medium-rare, reddit-deep, cooked, posted]
+    concepts: [cscareerquestions, market, comments]
     token_count: 115
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sfynth/if_the_cs_job_market_was_a_steak_how_cooked_would/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sfynth.md#c1"
     char_span: [383, 2135]
     sentence_count: 10
     key_terms: [compare, "can't", better, usd, because, getting, landing, normal]
+    concepts: [compare, "can't", better, because, getting]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sfynth.md#c2"
     char_span: [2137, 2782]
     sentence_count: 12
     key_terms: ["that's", feb, baseline, closer, "we're", year, considerable, improvement]
+    concepts: ["that's", baseline, closer, "we're"]
     section: Comments
     token_count: 175
 ---

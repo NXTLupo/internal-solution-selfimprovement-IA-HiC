@@ -19,47 +19,57 @@ chunks:
     char_span: [0, 1191]
     sentence_count: 12
     key_terms: [careerguidance, job, work, comments, actual, career, school, careless-silver-4161]
+    concepts: [careerguidance, comments, actual, career, school]
     token_count: 291
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1p7loi0/guys_why_is_the_job_market_so_bad_right_now/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1p7loi0.md#c1"
     char_span: [1205, 3098]
     sentence_count: 15
     key_terms: [recession, people, lot, definition, declared, negative, quarters, complex]
+    concepts: [recession, people, definition, declared, negative]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/careerguidance/1p7loi0.md#c2"
     char_span: [3100, 4909]
     sentence_count: 22
     key_terms: [speckonthisearth, been, school, trade, find, programs, classes, deleted]
+    concepts: [speckonthisearth, school, trade, programs, classes]
     section: Comments
     token_count: 491
+    sources: [{"n":"been recruiting in the space for 20 yrs and hiring is difficult.","u":""}]
   - id: "social-intelligence/reddit-deep/careerguidance/1p7loi0.md#c3"
     char_span: [4911, 5648]
     sentence_count: 7
     key_terms: [applying, physical-condition76, back, been, jobs, administration, communications, consequences]
+    concepts: [applying]
     section: Comments
     token_count: 173
   - id: "social-intelligence/reddit-deep/careerguidance/1p7loi0.md#c4"
     char_span: [5650, 7648]
     sentence_count: 18
     key_terms: [normal, worldtallestengineer, zestyclose-second295, new, jobs, time, government, interviews]
+    concepts: [normal, worldtallestengineer, zestyclose-second295, government, interviews]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1p7loi0.md#c5"
     char_span: [7372, 7826]
     sentence_count: 6
     key_terms: [worldtallestengineer, fault, money, mountaindadwbeard, costfinal3263, depression, government, countries]
+    concepts: [fault, money]
     section: Comments
     token_count: 120
   - id: "social-intelligence/reddit-deep/careerguidance/1p7loi0.md#c6"
     char_span: [7828, 9952]
     sentence_count: 14
     key_terms: [trump, government, mountaindadwbeard, year, people, been, canceling, american]
+    concepts: [trump, government, mountaindadwbeard, people, canceling]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1p7loi0.md#c7"
     char_span: [9954, 11066]
     sentence_count: 9
     key_terms: [industry, change, county, roles, using, job, fast-learning, strengthening]
+    concepts: [industry, change, county, roles, using]
     section: Comments
     token_count: 260
 ---

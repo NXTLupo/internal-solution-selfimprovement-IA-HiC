@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1785]
     sentence_count: 14
     key_terms: [companies, humanresources, apply, here, hrbp, challenged, experience, management]
+    concepts: [companies, humanresources, apply, challenged, experience]
     token_count: 426
+    sources: [{"n":"Reddit Deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1tc8qm0/need_career_advice_na/"}]
   - id: "articles/reddit-deep-r-humanresources/e5ee77ca9d.md#c1"
     char_span: [1787, 4038]
     sentence_count: 11
     key_terms: [puddingadorable9260, experience, years, company, smaller, people, emarialartayu, get]
+    concepts: [puddingadorable9260, experience, years, emarialartayu, company]
     token_count: 503
 ---
 # Need Career Advice [N/A]

@@ -19,59 +19,70 @@ chunks:
     char_span: [0, 1622]
     sentence_count: 13
     key_terms: [cscareerquestions, jobs, love, take, because, years, programming, understand]
+    concepts: [cscareerquestions, because, programming, understand, years]
     token_count: 403
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1syd3y6/my_parent_doesnt_want_me_doing_cs_or_ce_because/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syd3y6.md#c1"
     char_span: [1636, 3819]
     sentence_count: 17
     key_terms: [people, years, "don't", field, going, like, especially, primarily]
+    concepts: [people, years, "don't", especially, field]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syd3y6.md#c2"
     char_span: [3821, 5820]
     sentence_count: 12
     key_terms: [major, engineering, accounting, marketing, technical, maintain, probably, specific]
+    concepts: [engineering, accounting, major, marketing, technical]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syd3y6.md#c3"
     char_span: [5822, 7978]
     sentence_count: 14
     key_terms: [because, good, people, maybe, predictions, engineers, massive, agents]
+    concepts: [because, people, predictions, maybe, engineers]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syd3y6.md#c4"
     char_span: [7980, 9978]
     sentence_count: 18
     key_terms: [art, overabundance, programming, like, parents, unsupportive, programmers, "it's"]
+    concepts: [overabundance, programming, parents, unsupportive, programmers]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syd3y6.md#c5"
     char_span: [9980, 11682]
     sentence_count: 13
     key_terms: [programmers, yourself, ashamed, demand, market, reason, supply, "don't"]
+    concepts: [programmers, yourself, ashamed, demand, market]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syd3y6.md#c6"
     char_span: [11684, 13358]
     sentence_count: 8
     key_terms: ["you're", always, good, passionate, bottom, people, place, right]
+    concepts: ["you're", always, passionate, bottom, people]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syd3y6.md#c7"
     char_span: [13360, 15228]
     sentence_count: 10
     key_terms: [like, different, work, school, feeling, "they're", fields, little]
+    concepts: [different, school, feeling, "they're", fields]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syd3y6.md#c8"
     char_span: [15230, 16672]
     sentence_count: 8
     key_terms: [disappear, residency, wizywig, better, cobblerimpressive975, "don't", com, "it's"]
+    concepts: [disappear, residency, wizywig, better, "don't"]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syd3y6.md#c9"
     char_span: [16675, 17543]
     sentence_count: 9
     key_terms: [like, pixelizedgaming, something, probably, saying, least, time, competitive]
+    concepts: [pixelizedgaming, something, probably, saying, least]
     section: Comments
     token_count: 206
 ---

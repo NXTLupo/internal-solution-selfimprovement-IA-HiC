@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 941]
     sentence_count: 6
     key_terms: [career, looking, careerguidance, experience, comments, advice, people, trying]
+    concepts: [career, looking, careerguidance, experience, comments]
     token_count: 224
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t3p1ly/20m_feeling_lost_on_career_path_looking_for/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t3p1ly.md#c1"
-    char_span: [956, 2798]
+    char_span: [955, 2797]
     sentence_count: 16
     key_terms: [trades, hot-criticism8353, working, doing, years, like, work, ghawblin]
+    concepts: [hot-criticism8353, trades, working, doing, years]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/careerguidance/1t3p1ly.md#c2"
-    char_span: [2800, 4216]
+    char_span: [2799, 4215]
     sentence_count: 13
     key_terms: [career, education, months, trades, moved, get, job, managing]
+    concepts: [career, education, months, trades, moved]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/careerguidance/1t3p1ly.md#c3"
-    char_span: [4218, 6153]
+    char_span: [4217, 6152]
     sentence_count: 26
     key_terms: [look, paying, community, good, college, recommendation, get, financial]
+    concepts: [paying, community, recommendation, college, financial]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/careerguidance/1t3p1ly.md#c4"
-    char_span: [6155, 7413]
+    char_span: [6154, 7412]
     sentence_count: 11
     key_terms: [technician, maintenance, school, tech, aircraft, desperate-sleep-6302, power, etc]
+    concepts: [technician, maintenance, school, aircraft, power]
     section: Comments
     token_count: 292
 ---

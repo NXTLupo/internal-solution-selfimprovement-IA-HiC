@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 317]
     sentence_count: 1
     key_terms: [internships, comments, opportunities, reddit-deep, project, student, advice, domain]
+    concepts: [internships, comments]
     token_count: 90
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1no7s6q/student_need_resumeproject_advice_for_mlnlp/"}]
 ---
 # [Student] Need resume/project advice for ML/NLP domain internships or job opportunities
 

@@ -20,41 +20,51 @@ chunks:
     char_span: [0, 998]
     sentence_count: 8
     key_terms: [system, questions, comments, customer, dropship, handling, service, hiring]
+    concepts: [system, questions, comments, customer, dropship]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1p19ycz.md#c1"]
     token_count: 223
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1p19ycz/whats_the_best_system_for_handling_300_customer/"}]
   - id: "social-intelligence/reddit-deep/dropship/1p19ycz.md#c1"
-    char_span: [1013, 3056]
+    char_span: [1012, 3055]
     sentence_count: 11
     key_terms: [tickets, system, automatically, bla, help, dropship, keywords, tracking]
+    concepts: [automatically, tickets, system, dropship, keywords]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1p19ycz.md#c0"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/dropship/1p19ycz.md#c2"
-    char_span: [3058, 4412]
+    char_span: [3057, 4411]
     sentence_count: 11
     key_terms: [because, high-volume, like, questions, reporting, question, tracking, parcel]
+    concepts: [because, high-volume, questions, reporting, question]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/dropship/1p19ycz.md#c3"
-    char_span: [4414, 6421]
+    char_span: [4413, 6420]
     sentence_count: 14
     key_terms: [shopify, richpanel, because, gorgias, order, dont, analysis, helpdesk]
+    concepts: [shopify, richpanel, because, gorgias, order]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/dropship/1p19ycz.md#c4"
-    char_span: [6423, 8628]
+    char_span: [6422, 8627]
     sentence_count: 3
     key_terms: [tickets, people, volume, order, data, like, per, something]
+    concepts: [tickets, people, volume, order, something]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/dropship/1p19ycz.md#c5"
-    char_span: [8630, 10918]
+    char_span: [8629, 10917]
     sentence_count: 10
     key_terms: [tracking, answer, handle, issues, order, time, automation, customers]
+    concepts: [tracking, answer, handle, issues, automation]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/dropship/1p19ycz.md#c6"
-    char_span: [10920, 11800]
+    char_span: [10919, 11799]
     sentence_count: 14
     key_terms: [anything, needing, gets, time, auto-approving, automatically, expectations, complicated]
+    concepts: [anything, needing]
     section: Comments
     token_count: 176
 ---

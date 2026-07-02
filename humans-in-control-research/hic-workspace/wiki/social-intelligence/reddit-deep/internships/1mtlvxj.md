@@ -19,47 +19,61 @@ chunks:
     char_span: [0, 1306]
     sentence_count: 11
     key_terms: ["i'm", model, internships, bad, experience, internship, something, comments]
+    concepts: [internships, experience, internship, model, something]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1mtlvxj.md#c5"]
     token_count: 312
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1mtlvxj/failling_my_6_month_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1mtlvxj.md#c1"
     char_span: [1320, 2010]
     sentence_count: 5
     key_terms: [projects, failed, silentschwanzlurche, kellogsnutrigrain, long, put, completely, dismissing]
+    concepts: [projects, failed]
     section: Comments
     token_count: 176
   - id: "social-intelligence/reddit-deep/internships/1mtlvxj.md#c2"
     char_span: [2012, 4144]
     sentence_count: 10
     key_terms: [internship, aromatic-fig8733, project, like, location, company, garbage, upstairsimpressive84]
+    concepts: [internship, aromatic-fig8733, project, location, company]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1mtlvxj.md#c3", "social-intelligence/reddit-deep/internships/1mtlvxj.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1mtlvxj.md#c3"
     char_span: [3821, 5057]
     sentence_count: 6
     key_terms: [engineers, location, internship, mechanical, software, given, help, biomedical]
+    concepts: [engineers, location, internship, mechanical, software]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1mtlvxj.md#c2", "social-intelligence/reddit-deep/internships/1mtlvxj.md#c4"]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/internships/1mtlvxj.md#c4"
     char_span: [5059, 6823]
     sentence_count: 12
     key_terms: [project, did, team, acknowledged, internship, mechanical, freshman, herself]
+    concepts: [project, acknowledged, internship, mechanical, freshman]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1mtlvxj.md#c2", "social-intelligence/reddit-deep/internships/1mtlvxj.md#c3"]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/internships/1mtlvxj.md#c5"
     char_span: [6825, 9081]
     sentence_count: 18
     key_terms: [internship, experience, interns, "i'm", thoughtful, comments, everyone, linkedin]
+    concepts: [internship, experience, interns, thoughtful, comments]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1mtlvxj.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1mtlvxj.md#c6"
     char_span: [8830, 10823]
     sentence_count: 11
     key_terms: [implement, project, intern, feel, "it's", captxlevi, wanted, smart-conflict-5405]
+    concepts: [implement, project, intern, captxlevi, wanted]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1mtlvxj.md#c7"
     char_span: [10569, 11575]
     sentence_count: 4
     key_terms: [smart-conflict-5405, understand, "couldn't", people, model, coz, data, "it's"]
+    concepts: [smart-conflict-5405, understand, "couldn't", people, model]
     section: Comments
     token_count: 240
 ---

@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 2021]
     sentence_count: 17
     key_terms: [cscareerquestions, specific, working, experience, companies, interview, comments, matching]
+    concepts: [cscareerquestions, specific, working, experience, companies]
     token_count: 482
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1snhmje/junior_tech_postings_down_67_and_43_of_class_of/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1snhmje.md#c1"
     char_span: [2035, 3754]
     sentence_count: 12
     key_terms: [school, graduating, class, years, graduated, since, good, grad]
+    concepts: [graduating, school, graduated, class, years]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/cscareerquestions/1snhmje.md#c2"
     char_span: [3756, 4827]
     sentence_count: 5
     key_terms: [junior, years, jobs, experience, cew-blog-major-payoff, illustrious-pound266, gold-flatworm-4313, known-tourist-6102]
+    concepts: [junior, experience, years]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/cscareerquestions/1snhmje.md#c3"
     char_span: [4829, 5775]
     sentence_count: 4
     key_terms: [ai-and-a-frozen-job-market-leave-college-grads-underemployed, daily-labor-report, bloomberglaw, "they're", https, com, like, news]
+    concepts: [ai-and-a-frozen-job-market-leave-college-grads-underemployed, daily-labor-report, bloomberglaw, "they're", https]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/cscareerquestions/1snhmje.md#c4"
     char_span: [5780, 7888]
     sentence_count: 8
     key_terms: [companies, build, mock, friends, project, short, until, collegestudentlol1]
+    concepts: [companies, build, friends, project, short]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1snhmje.md#c5"

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1232]
     sentence_count: 11
     key_terms: [jobs, like, job, long-term, comments, anymore, working, reddit]
+    concepts: [long-term, comments, anymore, working, reddit]
     token_count: 310
+    sources: [{"n":"Reddit Deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1m258rn/jobs_dont_feel_longterm_anymore/"}]
   - id: "articles/reddit-deep-r-jobs/ead54acfc2.md#c1"
     char_span: [1234, 2069]
     sentence_count: 4
     key_terms: [job, stay, staying, career, get, jobs, long, henrykimzgh]
+    concepts: [staying, career]
     token_count: 205
 ---
 # Jobs don’t feel long-term anymore

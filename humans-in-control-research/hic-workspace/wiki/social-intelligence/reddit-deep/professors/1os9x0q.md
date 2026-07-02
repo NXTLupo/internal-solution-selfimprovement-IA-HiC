@@ -19,52 +19,64 @@ chunks:
     char_span: [0, 2410]
     sentence_count: 24
     key_terms: [students, class, submitted, instructions, assignments, notes, material, handwritten]
+    concepts: [students, class, submitted, instructions, assignments]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1os9x0q.md#c2", "social-intelligence/reddit-deep/professors/1os9x0q.md#c7", "social-intelligence/reddit-deep/professors/1os9x0q.md#c8"]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1os9x0q/my_worst_class_ever/"}]
   - id: "social-intelligence/reddit-deep/professors/1os9x0q.md#c1"
     char_span: [2412, 2918]
     sentence_count: 6
     key_terms: [class, consistently, instructions, demonstrate, corrective, feedback, followed, learning]
+    concepts: [class]
     token_count: 100
   - id: "social-intelligence/reddit-deep/professors/1os9x0q.md#c2"
-    char_span: [2933, 4912]
+    char_span: [2932, 4911]
     sentence_count: 20
     key_terms: [students, life-education-8030, class, interesting, try, sometimes, cheating, better]
+    concepts: [students, life-education-8030, class, interesting, sometimes]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1os9x0q.md#c0", "social-intelligence/reddit-deep/professors/1os9x0q.md#c7", "social-intelligence/reddit-deep/professors/1os9x0q.md#c8"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/professors/1os9x0q.md#c3"
-    char_span: [4914, 5078]
+    char_span: [4913, 5077]
     sentence_count: 3
     key_terms: [protections, everything, respondus, anything, adjunct, classes, "doesn't", schools]
     section: Comments
     token_count: 35
   - id: "social-intelligence/reddit-deep/professors/1os9x0q.md#c4"
-    char_span: [5080, 7251]
+    char_span: [5079, 7250]
     sentence_count: 22
     key_terms: [students, flags, assistant, education, financial, realized, research, because]
+    concepts: [students, flags, assistant, education, financial]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1os9x0q.md#c5"
-    char_span: [6989, 7852]
+    char_span: [6988, 7851]
     sentence_count: 9
     key_terms: [pleasant-season-2658, sillyconstruction872, "don't", secret-bobcat-4909, assignments, threatening, absolutely, interested]
+    concepts: ["don't"]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/professors/1os9x0q.md#c6"
-    char_span: [7854, 8320]
+    char_span: [7853, 8319]
     sentence_count: 8
     key_terms: [show, demoralizing, assignments, everything, guessing, provided, students, grading]
     section: Comments
     token_count: 108
   - id: "social-intelligence/reddit-deep/professors/1os9x0q.md#c7"
-    char_span: [8322, 10466]
+    char_span: [8321, 10465]
     sentence_count: 16
     key_terms: [class, students, asynchronous, teach, week, different, semester, grades]
+    concepts: [class, students, asynchronous, teach, different]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1os9x0q.md#c0", "social-intelligence/reddit-deep/professors/1os9x0q.md#c2", "social-intelligence/reddit-deep/professors/1os9x0q.md#c8"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/professors/1os9x0q.md#c8"
-    char_span: [10468, 12470]
+    char_span: [10467, 12469]
     sentence_count: 18
     key_terms: [students, class, assignment, teaching, classes, asynchronous, "don't", get]
+    concepts: [students, class, assignment, teaching, classes]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1os9x0q.md#c0", "social-intelligence/reddit-deep/professors/1os9x0q.md#c2", "social-intelligence/reddit-deep/professors/1os9x0q.md#c7"]
     section: Comments
     token_count: 452
 ---

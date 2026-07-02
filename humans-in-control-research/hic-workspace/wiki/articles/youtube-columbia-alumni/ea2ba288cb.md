@@ -18,81 +18,108 @@ chunks:
     char_span: [0, 180]
     sentence_count: 1
     key_terms: [youtube, columbia, journey, olympic, skating, alumni, expert, figure]
+    concepts: [youtube]
     token_count: 48
+    sources: [{"n":"YouTube: Columbia Alumni","u":"https://www.youtube.com/watch?v=03UiuCKKYEI"}]
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c1"
     char_span: [182, 2594]
     sentence_count: 26
     key_terms: [columbia, opened, sasha, today, door, skating, technologies, age]
+    concepts: [columbia, opened, sasha, today, skating]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c2"
     char_span: [2313, 4623]
     sentence_count: 16
     key_terms: [skating, energy, gymnastics, age, figure, school, homeschooled, early]
+    concepts: [skating, gymnastics, energy, homeschooled, figure]
+    related_chunks: ["articles/youtube-columbia-alumni/ea2ba288cb.md#c6"]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c3"
     char_span: [4304, 6589]
     sentence_count: 18
     key_terms: [experience, olympic, little, later, education, columbia, olympics, priority]
+    concepts: [experience, olympic, little, later, education]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c4"
     char_span: [6266, 8464]
     sentence_count: 21
     key_terms: ["you're", program, going, year, injuries, performance, long, old]
+    concepts: ["you're", program, going, injuries, performance]
+    related_chunks: ["articles/youtube-columbia-alumni/ea2ba288cb.md#c5"]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c5"
     char_span: [8207, 10437]
     sentence_count: 18
     key_terms: [kind, career, going, night, performance, meaningful, mentorship, emotional]
+    concepts: [career, performance, going, meaningful, mentorship]
+    related_chunks: ["articles/youtube-columbia-alumni/ea2ba288cb.md#c4"]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c6"
     char_span: [10151, 12424]
     sentence_count: 15
     key_terms: [skating, figure, wonderful, kind, like, skaters, maybe, day]
+    concepts: [skating, figure, wonderful, skaters, maybe]
+    related_chunks: ["articles/youtube-columbia-alumni/ea2ba288cb.md#c2"]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c7"
     char_span: [12142, 14417]
     sentence_count: 21
     key_terms: [like, because, moscow, people, "you're", interesting, time, definitely]
+    concepts: [because, moscow, people, "you're", interesting]
+    related_chunks: ["articles/youtube-columbia-alumni/ea2ba288cb.md#c12"]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c8"
     char_span: [14160, 16404]
     sentence_count: 20
     key_terms: ["you're", acting, person, words, away, like, put, vulnerable]
+    concepts: ["you're", acting, person, vulnerable, words]
+    related_chunks: ["articles/youtube-columbia-alumni/ea2ba288cb.md#c9"]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c9"
     char_span: [16146, 18367]
     sentence_count: 25
     key_terms: [like, kind, "you're", did, yourself, acting, autobiography, onion]
+    concepts: ["you're", yourself, autobiography, acting, experiences]
+    related_chunks: ["articles/youtube-columbia-alumni/ea2ba288cb.md#c8"]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c10"
     char_span: [18074, 20266]
     sentence_count: 18
     key_terms: [kind, "you're", back, "i'm", getting, olympic, skating, opportunities]
+    concepts: ["you're", opportunities, getting, olympic, skating]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c11"
     char_span: [19991, 22306]
     sentence_count: 24
     key_terms: [athletes, documentary, health, mental, time, olympic, issues, gold]
+    concepts: [athletes, documentary, health, mental, olympic]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c12"
     char_span: [22035, 24245]
     sentence_count: 19
     key_terms: ["you're", because, day, like, athletes, friends, debate, "that's"]
+    concepts: ["you're", because, athletes, friends, debate]
+    related_chunks: ["articles/youtube-columbia-alumni/ea2ba288cb.md#c7"]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c13"
     char_span: [23948, 26190]
     sentence_count: 27
     key_terms: [kind, people, athlete, career, mental, wanted, peers, "it's"]
+    concepts: [people, athlete, career, mental, wanted]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c14"
     char_span: [25874, 28291]
     sentence_count: 32
     key_terms: [classes, columbia, class, professor, time, people, loved, definitely]
+    concepts: [classes, columbia, professor, class, people]
+    related_chunks: ["articles/youtube-columbia-alumni/ea2ba288cb.md#c15"]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c15"
     char_span: [27974, 30182]
     sentence_count: 30
     key_terms: [columbia, "i'm", campus, back, because, classes, special, "you're"]
+    concepts: [columbia, campus, because, classes, special]
+    related_chunks: ["articles/youtube-columbia-alumni/ea2ba288cb.md#c14"]
     token_count: 495
 ---
 # Ask the Expert | Sasha Cohen ’16GS: My Journey to the Olympic Games and Life After Figure Skating

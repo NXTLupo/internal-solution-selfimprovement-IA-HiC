@@ -21,46 +21,55 @@ chunks:
     char_span: [0, 1427]
     sentence_count: 12
     key_terms: [comfortable, povertyfinance, good, job, comments, school, money, food]
+    concepts: [comfortable, povertyfinance, comments, school, money]
     token_count: 331
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1pfhmt8/my_mom_continues_to_gouge_herself_into_debt_and/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1pfhmt8.md#c1"
     char_span: [1429, 2790]
     sentence_count: 14
     key_terms: [bills, pay, savings, grandmother, everything, family, paying, jesus]
+    concepts: [bills, savings, grandmother, everything, family]
     token_count: 304
   - id: "social-intelligence/reddit-deep/povertyfinance/1pfhmt8.md#c2"
     char_span: [2804, 4787]
     sentence_count: 17
     key_terms: [submitter, appropriate, ways-filial-responsibility-laws-can-affect-you, need, advice, please, vents, vent]
+    concepts: [submitter, appropriate, advice, please, vents]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/povertyfinance/1pfhmt8.md#c3"
     char_span: [4790, 6053]
     sentence_count: 8
     key_terms: [cute-consequence-184, mom, nursing, parents, care, home, enforcing, children]
+    concepts: [cute-consequence-184, nursing, parents, enforcing, children]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/povertyfinance/1pfhmt8.md#c4"
     char_span: [6055, 7099]
     sentence_count: 10
     key_terms: [pennsylvania, "mother's", maiden, church-basement-lady, technical-agency8128, child, like, name]
+    concepts: [pennsylvania, "mother's", maiden, child]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/povertyfinance/1pfhmt8.md#c5"
     char_span: [7101, 9145]
     sentence_count: 13
     key_terms: [laws, filial, states, children, responsibility, parent, care, like]
+    concepts: [filial, states, children, responsibility, parent]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/povertyfinance/1pfhmt8.md#c6"
     char_span: [9147, 10690]
     sentence_count: 25
     key_terms: [generational, cut, everything, advantage, financial, because, mother, theirs]
+    concepts: [generational, everything, advantage, financial, because]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/povertyfinance/1pfhmt8.md#c7"
     char_span: [10692, 12570]
     sentence_count: 7
     key_terms: [state, disastrous-lime9805, because, parent, financially, psychiatric, addiction, gambling]
+    concepts: [state, disastrous-lime9805, because, parent, financially]
     section: Comments
     token_count: 453
 ---

@@ -19,39 +19,52 @@ content_hash: "4e4363aac8b1743e"
 relevance_by_goal: {"68c375ef0d4e":55}
 chunks:
   - id: "articles/reddit-deep-r-healthinsurance/4d23beaaff.md#c0"
-    char_span: [0, 1704]
+    char_span: [0, 1703]
     sentence_count: 12
     key_terms: [psychiatrist, plan, insurance, ambetter, healthinsurance, network, health, month]
-    token_count: 377
+    concepts: [psychiatrist, insurance, healthinsurance, ambetter, network]
+    token_count: 376
+    sources: [{"n":"Reddit Deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1s0ffnl/need_advice_on_how_to_proceed_with_new_insurance/"}]
   - id: "articles/reddit-deep-r-healthinsurance/4d23beaaff.md#c1"
-    char_span: [1706, 3529]
+    char_span: [1705, 3528]
     sentence_count: 11
     key_terms: [deductible, office, visit, paid, psychiatrist, co-pay, responsibility, health]
+    concepts: [deductible, office, psychiatrist, visit, co-pay]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/4d23beaaff.md#c4"]
     token_count: 390
   - id: "articles/reddit-deep-r-healthinsurance/4d23beaaff.md#c2"
-    char_span: [3531, 4536]
+    char_span: [3530, 4535]
     sentence_count: 7
     key_terms: [referral, authorization, get, insurance, seemed, being, prior, spoke]
+    concepts: [referral, authorization, insurance, seemed, being]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/4d23beaaff.md#c4"]
     token_count: 206
   - id: "articles/reddit-deep-r-healthinsurance/4d23beaaff.md#c3"
-    char_span: [4538, 6706]
+    char_span: [4537, 6705]
     sentence_count: 11
     key_terms: [authorization, ambetter, deductible, annual, never, get, someone, asked]
+    concepts: [authorization, ambetter, deductible, annual, never]
     token_count: 459
   - id: "articles/reddit-deep-r-healthinsurance/4d23beaaff.md#c4"
-    char_span: [6708, 9086]
+    char_span: [6707, 9085]
     sentence_count: 16
     key_terms: [insurance, authorization, company, office, visit, seems, required, visits]
+    concepts: [insurance, authorization, company, office, visit]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/4d23beaaff.md#c1", "articles/reddit-deep-r-healthinsurance/4d23beaaff.md#c2"]
     token_count: 511
   - id: "articles/reddit-deep-r-healthinsurance/4d23beaaff.md#c5"
-    char_span: [9088, 10979]
+    char_span: [9087, 10978]
     sentence_count: 6
     key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    concepts: [information, questions, following, please, healthinsurance]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/4d23beaaff.md#c6"]
     token_count: 389
   - id: "articles/reddit-deep-r-healthinsurance/4d23beaaff.md#c6"
-    char_span: [10981, 12209]
+    char_span: [10980, 12208]
     sentence_count: 6
     key_terms: [please, eob, contact, subreddit, post, via, report, information]
+    concepts: [please, contact, subreddit, report, information]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/4d23beaaff.md#c5"]
     token_count: 273
 ---
 # Need advice on how to proceed with new insurance co.

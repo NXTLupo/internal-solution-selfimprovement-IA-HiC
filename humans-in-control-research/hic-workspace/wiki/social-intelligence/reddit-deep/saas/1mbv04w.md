@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1544]
     sentence_count: 18
     key_terms: [healthcare, development, data, compliance, comments, platform, thought, actual]
+    concepts: [healthcare, development, compliance, comments, platform]
     token_count: 342
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1mbv04w/built_a_sexual_wellness_app_with_ai_tools_and/"}]
   - id: "social-intelligence/reddit-deep/saas/1mbv04w.md#c1"
-    char_span: [1559, 2443]
+    char_span: [1558, 2442]
     sentence_count: 7
     key_terms: ["it's", anuninterestingevent, using, scared-gazelle659, llm, lol, man, bitter-good-2540]
+    concepts: [using]
     section: Comments
     token_count: 243
   - id: "social-intelligence/reddit-deep/saas/1mbv04w.md#c2"
-    char_span: [2445, 4571]
+    char_span: [2444, 4570]
     sentence_count: 8
     key_terms: [vibe, compliance, regulated, app, code, health, dallasactual, industries]
+    concepts: [compliance, regulated, dallasactual, health, industries]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/saas/1mbv04w.md#c3"
-    char_span: [4573, 6263]
+    char_span: [4572, 6262]
     sentence_count: 11
     key_terms: [apply, hipaa, "doesn't", hippa, like, need, compliant, covered]
+    concepts: [apply, hipaa, "doesn't", hippa, compliant]
     section: Comments
     token_count: 439
 ---

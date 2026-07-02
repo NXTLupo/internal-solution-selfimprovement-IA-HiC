@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1123]
     sentence_count: 6
     key_terms: [college, feel, courses, apply, like, comments, learning, junior]
+    concepts: [college, courses, apply, comments, learning]
     token_count: 254
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ockzrn/still_feel_stuckjunior_in_college/"}]
   - id: "social-intelligence/reddit-deep/college/1ockzrn.md#c1"
-    char_span: [1138, 1521]
+    char_span: [1137, 1520]
     sentence_count: 5
     key_terms: [college, job, glimmeringsea, self-studying, descriptions, emphasizing, perceptive, specifics]
+    concepts: [college]
     section: Comments
     token_count: 84
 ---

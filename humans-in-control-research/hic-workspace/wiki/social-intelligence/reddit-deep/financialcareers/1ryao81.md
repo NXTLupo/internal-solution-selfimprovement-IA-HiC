@@ -7,83 +7,94 @@ subreddit: "financialcareers"
 title: "Sophomore year IB recruit, AMA happy to help people trying to break in."
 author: "Head_Distribution_81"
 date: "2026-03-19T20:00:42.000Z"
-score: 46
-upvote_ratio: 0.9
-num_comments: 58
+score: 48
+upvote_ratio: 0.91
+num_comments: 59
 flair: "Breaking In"
-extracted_at: "2026-06-11T18:58:14.065Z"
+extracted_at: "2026-06-29T14:40:16.483Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Define the 2026 \"state of the Art\" operational and technological benchmarks for \"The State of Data & Distribution in Asset Management\". Synthesize key developments across data infrastructure, distribution enablement, and AI governance frameworks to identify leading industry capabilities and compliance standards."
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
 chunks:
   - id: "social-intelligence/reddit-deep/financialcareers/1ryao81.md#c0"
     char_span: [0, 948]
     sentence_count: 8
     key_terms: [financialcareers, people, help, recruiting, questions, comments, everyone, answer]
+    concepts: [financialcareers, people, recruiting, questions, comments]
     token_count: 211
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1ryao81/sophomore_year_ib_recruit_ama_happy_to_help/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1ryao81.md#c1"
-    char_span: [963, 1832]
+    char_span: [962, 1831]
     sentence_count: 6
     key_terms: [people, advice, take, want, probably, point, get, archaemenes]
+    concepts: [people, advice, probably, point]
     section: Comments
     token_count: 204
   - id: "social-intelligence/reddit-deep/financialcareers/1ryao81.md#c2"
-    char_span: [1834, 3942]
+    char_span: [1833, 3941]
     sentence_count: 17
     key_terms: [schedule, don, like, get, nice, shit, experience, something]
+    concepts: [schedule, experience, something, minutes, volumes]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1ryao81.md#c3"
-    char_span: [3692, 4448]
+    char_span: [3691, 4447]
     sentence_count: 4
     key_terms: [internships, internship, schedule, applied, emails, months, consciousgrowth101, congratulations]
+    concepts: [internships, internship, schedule, applied, emails]
     section: Comments
     token_count: 179
   - id: "social-intelligence/reddit-deep/financialcareers/1ryao81.md#c4"
-    char_span: [4450, 5818]
+    char_span: [4449, 5817]
     sentence_count: 2
     key_terms: [message, com, remindmebot, reddit, www, delete, https, technical]
+    concepts: [message, remindmebot, reddit, delete, https]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1ryao81.md#c5"]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/financialcareers/1ryao81.md#c5"
-    char_span: [5820, 7890]
+    char_span: [5819, 7889]
     sentence_count: 11
     key_terms: [remindmebot, message, reddit, summer, https, sophomore, com, www]
+    concepts: [remindmebot, message, reddit, summer, sophomore]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1ryao81.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1ryao81.md#c6"
-    char_span: [7655, 8763]
+    char_span: [7654, 8762]
     sentence_count: 4
     key_terms: [been, break, specific, credit, aromaticcarpenter969, since, cold, got]
+    concepts: [break, specific, credit, since]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/financialcareers/1ryao81.md#c7"
-    char_span: [8765, 9449]
+    char_span: [8764, 9448]
     sentence_count: 5
     key_terms: [different, printhuman3538, recommendation, international, appreciated, experiences, completely, experience]
+    concepts: [different]
     section: Comments
     token_count: 162
 ---
 # Sophomore year IB recruit, AMA happy to help people trying to break in.
 
 Source: [reddit-deep: r/financialcareers](https://www.reddit.com/r/FinancialCareers/comments/1ryao81/sophomore_year_ib_recruit_ama_happy_to_help/)
-Posted by **Head_Distribution_81** · **46↑** · **58 comments**
+Posted by **Head_Distribution_81** · **48↑** · **59 comments**
 
 Hey everyone, I hope everyone’s spring is off to a nice start. I wanted to create this thread as someone who benefited immensely from this page when I was recruiting. I have recently accepted a role in IB and want to help people who are trying to place into similar roles. Happy to answer any questions about recruiting, emails, whatever. Only questions I cannot answer are for international students and perhaps MBA professionals - you guys are in a whole different world from mine so I doubt I will be of much help. Attached a resume below as well, albeit dated, still should provide some solid ground so people can get an idea of what is expected. Shoot away!
 
 ## Comments
 
-- **codydog125** (23↑): I think what OP is doing is a good thing and I respect wanting to give people advice but I also want to caution people that want to take this advice that a sophomore in college has hardly broken into the industry. Advice to get to the point that OP is at is probably useful but past that I would take it with a grain of salt
-  - **Head_Distribution_81** (7↑): Exactly my point. I’ve noticed that a lot of people focus on breaking in, which is probably the most important part, so I want to shed some light on the process that is somewhat gated. I’m not deciding for people whether they should take their corporate banking A vs B job, just how to get there as a student or maybe a fresh grad
-- **Archaemenes** (6↑): Any tips for cold emailing? In this market I’m pretty sure seniors at banks are getting flooded. What helps your email stand out? 
+- **codydog125** (24↑): I think what OP is doing is a good thing and I respect wanting to give people advice but I also want to caution people that want to take this advice that a sophomore in college has hardly broken into the industry. Advice to get to the point that OP is at is probably useful but past that I would take it with a grain of salt
+  - **Head_Distribution_81** (8↑): Exactly my point. I’ve noticed that a lot of people focus on breaking in, which is probably the most important part, so I want to shed some light on the process that is somewhat gated. I’m not deciding for people whether they should take their corporate banking A vs B job, just how to get there as a student or maybe a fresh grad
+- **Archaemenes** (7↑): Any tips for cold emailing? In this market I’m pretty sure seniors at banks are getting flooded. What helps your email stand out? 
 
 Congratulations btw!
   - **Head_Distribution_81** (10↑): Thanks man. There are a couple of things. 1. Have a nice email headline, something like “student interested in learning from your experience” or some shit like that. Don’t be corny and don’t be a kiss ass, humble is the word to live by. 2. Always personalize, mention that you play the same sport, did the same volunteering, joined same clubs, whatever. If you don’t have any of that, join a club at your school. Doesn’t matter if it’s lacrosse, rowing, wrestling, you need to have something in common with these people, maybe even speaking the same language or coming from the same country. Never just copy and paste same email, it’s not that hard to write these and you are risking of making a mistake by copying and pasting shit. 3. Pretty obvious but attach your resume, make sure it’s polished. Just sound like a normal human being too, don’t say that you’ve always loved IB or some shit like that, they don’t care. All you’re trying to do is get 15 minutes out of them and a nice call asking about their undergrad experience and path to IB
     - **Archaemenes** (2↑): Noted. Good luck at your internship man!
     - **JxstNick** (1↑): What do you include in those 15 minutes? My current chats usually go for over an hour, but I was wondering if it would be more efficient/more likely to get those 15 minute chats.
   - **theddrew** (1↑): Also attach your availability for ease of scheduling
-    - **Head_Distribution_81** (1↑): As much as I think it’s a nice thing to do, I would wager that for your own schedule’s sake it adds unnecessary complexity. In my case I would send 100-300 emails a week. At these volumes it is impossible to give out your schedule to people as they can cross schedule and you’re gonna be in a pickle. Better to schedule them one by one as they respond, or at least that makes it easier for yourself not to over schedule things. I guess this largely depends on your volumes, if you’re sending 20-50 emails a week, then attaching a schedule is better.
-- **Ok-Isopod2755** (4↑): How tf did you get all these internships, I graduate Magna Cum Laude in 2 months and have been rejected for every internship I’ve applied to
+    - **Head_Distribution_81** (2↑): As much as I think it’s a nice thing to do, I would wager that for your own schedule’s sake it adds unnecessary complexity. In my case I would send 100-300 emails a week. At these volumes it is impossible to give out your schedule to people as they can cross schedule and you’re gonna be in a pickle. Better to schedule them one by one as they respond, or at least that makes it easier for yourself not to over schedule things. I guess this largely depends on your volumes, if you’re sending 20-50 emails a week, then attaching a schedule is better.
+- **Ok-Isopod2755** (5↑): How tf did you get all these internships, I graduate Magna Cum Laude in 2 months and have been rejected for every internship I’ve applied to
   - **Head_Distribution_81** (3↑): I would say that I never applied to anytbing other than official summer IB internships. Everything else was cold emails and getting to know people who either had interviews for me already or I was able to impress them to secure the internship. Obviously this will be harder to do for someone who is graduating in 2 months.
 - **consciousgrowth101** (2↑): 1. congratulations!
 

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1182]
     sentence_count: 7
     key_terms: [logistics, documentation, tasks, "i'm", management, comments, trucking, company]
+    concepts: [logistics, documentation, management, tasks, comments]
     token_count: 285
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1q6pmf3/am_i_underfairoverpaid/"}]
   - id: "social-intelligence/reddit-deep/logistics/1q6pmf3.md#c1"
-    char_span: [1197, 2845]
+    char_span: [1196, 2844]
     sentence_count: 10
     key_terms: [benefits, salary, day, good, pay, especially, experience, underpaid]
+    concepts: [benefits, salary, especially, experience, underpaid]
     section: Comments
     token_count: 432
 ---

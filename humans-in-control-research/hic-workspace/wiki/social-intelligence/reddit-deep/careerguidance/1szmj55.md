@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 1813]
     sentence_count: 15
     key_terms: [nursing, like, different, careerguidance, trying, been, healthcare, switching]
+    concepts: [nursing, different, careerguidance, trying, healthcare]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1szmj55.md#c1"]
     token_count: 390
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1szmj55/im_thinking_about_switching_career_paths_into/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1szmj55.md#c1"
-    char_span: [1828, 4258]
+    char_span: [1827, 4257]
     sentence_count: 19
     key_terms: ["you're", nursing, committing, different, good, "it's", hospital, patient]
+    concepts: ["you're", nursing, committing, different, hospital]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1szmj55.md#c0"]
     section: Comments
     token_count: 496
 ---

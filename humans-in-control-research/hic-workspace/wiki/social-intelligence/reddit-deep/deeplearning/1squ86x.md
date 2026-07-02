@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1071]
     sentence_count: 1
     key_terms: [physical, deeplearning, algorithm, comments, lip-sync, kitto-true-ai-agent-toy, getting, https]
+    concepts: [physical, deeplearning, algorithm, comments, lip-sync]
     token_count: 242
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1squ86x/bridging_the_gap_between_text_generation_and/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1squ86x.md#c1"
     char_span: [1085, 1380]
     sentence_count: 1
     key_terms: [kickstarter, kitto-true-ai-agent-toy, pre-launch, optimized, resources, hardware, projects, driving]
+    concepts: [kickstarter]
     section: Comments
     token_count: 83
 ---

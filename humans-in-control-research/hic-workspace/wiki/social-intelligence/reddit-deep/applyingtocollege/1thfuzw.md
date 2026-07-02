@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 1018]
     sentence_count: 9
     key_terms: [applyingtocollege, colleges, comments, because, major, more-rounded, overreacting, reassurance]
+    concepts: [applyingtocollege, colleges, comments, because, major]
     token_count: 239
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1thfuzw/is_rise_of_ai_linked_to_fall_of_sillicon_valley/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thfuzw.md#c1"
     char_span: [1032, 1794]
     sentence_count: 5
     key_terms: [candidates, companies, paul721, problem, ilovebaconeggncheese, folks, years, main]
+    concepts: [candidates, companies, paul721, problem, folks]
     section: Comments
     token_count: 179
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thfuzw.md#c2"
     char_span: [1796, 3318]
     sentence_count: 13
     key_terms: [oversaturation, people, need, college, hiring, school, bathroommaximum1721, money]
+    concepts: [oversaturation, people, college, hiring, school]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thfuzw.md#c3"
     char_span: [3320, 5337]
     sentence_count: 16
     key_terms: [humanities, jobs, tech, coding, people, skills, well-rounded, uncle]
+    concepts: [humanities, well-rounded, coding, people, skills]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thfuzw.md#c4"
     char_span: [5339, 7272]
     sentence_count: 7
     key_terms: [computer, science, chadwithzipp2, specifically, major, love, humanities, knowledge]
+    concepts: [computer, chadwithzipp2, science, specifically, humanities]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thfuzw.md#c5"
     char_span: [7274, 7761]
     sentence_count: 6
     key_terms: [college, learn, information, accelerate, experience, humanities, critical, learning]
+    concepts: [college, learn]
     section: Comments
     token_count: 102
 ---

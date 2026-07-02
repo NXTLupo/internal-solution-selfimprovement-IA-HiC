@@ -20,41 +20,54 @@ chunks:
     char_span: [0, 2160]
     sentence_count: 13
     key_terms: [day, product, failure, data, features, datascience, probability, like]
+    concepts: [product, failure, features, datascience, probability]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1lu7gqq.md#c2"]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1lu7gqq/how_to_deal_with_time_series_unbalanced_situations/"}]
   - id: "social-intelligence/reddit-deep/datascience/1lu7gqq.md#c1"
-    char_span: [2162, 3807]
+    char_span: [2162, 3806]
     sentence_count: 10
     key_terms: [day, unavailable, survival, predict, happen, time-to-event, available, imbalance]
+    concepts: [unavailable, survival, time-to-event, predict, happen]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/datascience/1lu7gqq.md#c2"
-    char_span: [3809, 5643]
+    char_span: [3808, 5642]
     sentence_count: 13
     key_terms: [time, features, problem, product, series, educationaluse9983, day, forecasting]
+    concepts: [features, problem, product, educationaluse9983, series]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1lu7gqq.md#c0", "social-intelligence/reddit-deep/datascience/1lu7gqq.md#c3", "social-intelligence/reddit-deep/datascience/1lu7gqq.md#c4", "social-intelligence/reddit-deep/datascience/1lu7gqq.md#c6"]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/datascience/1lu7gqq.md#c3"
-    char_span: [5645, 7887]
+    char_span: [5644, 7886]
     sentence_count: 10
     key_terms: [time, series, problem, like, data, model, day, tabular]
+    concepts: [series, problem, model, tabular, observations]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1lu7gqq.md#c2", "social-intelligence/reddit-deep/datascience/1lu7gqq.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/datascience/1lu7gqq.md#c4"
-    char_span: [7568, 8733]
+    char_span: [7567, 8732]
     sentence_count: 12
     key_terms: [day, time, product, train, data, series, model, setting]
+    concepts: [product, train, series, model, setting]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1lu7gqq.md#c2", "social-intelligence/reddit-deep/datascience/1lu7gqq.md#c3"]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/datascience/1lu7gqq.md#c5"
-    char_span: [8736, 10482]
+    char_span: [8735, 10481]
     sentence_count: 9
     key_terms: [time, educationaluse9983, data, day, good, use, rolling, classification]
+    concepts: [educationaluse9983, classification, saitamagasaki, rolling, functions]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/datascience/1lu7gqq.md#c6"
-    char_span: [10485, 12698]
+    char_span: [10484, 12697]
     sentence_count: 15
     key_terms: [variables, educationaluse9983, time, series, stock, data, "i'm", like]
+    concepts: [variables, educationaluse9983, series, parametric, randomised]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1lu7gqq.md#c2"]
     section: Comments
     token_count: 485
 ---

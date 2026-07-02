@@ -21,23 +21,32 @@ chunks:
     char_span: [0, 1001]
     sentence_count: 7
     key_terms: [internships, https, stats, com, internship, comments, viewform, google]
+    concepts: [internships, https, internship, stats, comments]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1meb2r3.md#c1"]
     token_count: 310
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1meb2r3/what_internship_did_you_get_into_and_what_were/"}]
   - id: "social-intelligence/reddit-deep/internships/1meb2r3.md#c1"
     char_span: [1015, 2857]
     sentence_count: 9
     key_terms: [school, internship, research, internships, people, experience, grade, previous]
+    concepts: [school, internship, research, internships, experience]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1meb2r3.md#c0", "social-intelligence/reddit-deep/internships/1meb2r3.md#c2", "social-intelligence/reddit-deep/internships/1meb2r3.md#c3"]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/internships/1meb2r3.md#c2"
     char_span: [2859, 4548]
     sentence_count: 5
     key_terms: [internship, school, research, ranking, extra-alps-3127, grade, previous, gpa]
+    concepts: [internship, school, research, extra-alps-3127, ranking]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1meb2r3.md#c1", "social-intelligence/reddit-deep/internships/1meb2r3.md#c3"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/internships/1meb2r3.md#c3"
     char_span: [4550, 5135]
     sentence_count: 3
     key_terms: [internship, company, school, rank, top, honeypop1113, immediately, interviewed]
+    concepts: [internship, company, school]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1meb2r3.md#c1", "social-intelligence/reddit-deep/internships/1meb2r3.md#c2"]
     section: Comments
     token_count: 142
 ---

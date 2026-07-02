@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1446]
     sentence_count: 12
     key_terms: [cscareerquestions, like, program, programming, work, comments, anyways, worried]
+    concepts: [cscareerquestions, program, programming, comments, anyways]
     token_count: 338
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rs6nl5/whats_the_situation_like_for_people_who_prefer/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rs6nl5.md#c1"
     char_span: [1460, 2199]
     sentence_count: 2
     key_terms: [martinomon, securityclearance, code, find, jail, time, wait, dudewithparrot]
+    concepts: [martinomon]
     section: Comments
     token_count: 214
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rs6nl5.md#c2"
     char_span: [2202, 3889]
     sentence_count: 4
     key_terms: [claude, wait, deleted, dangerously-skip-permissions, generate, comes, until, cranberrylast4683]
+    concepts: [claude, deleted, generate, comes, until]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rs6nl5.md#c3"
     char_span: [3891, 5001]
     sentence_count: 7
     key_terms: [everyone, making, signal, "don't", big, code, jira, sure]
+    concepts: [everyone, making, signal, "don't"]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rs6nl5.md#c4"
     char_span: [5003, 7058]
     sentence_count: 10
     key_terms: [code, use, because, aromaticgust, files, llm, tag, interviews]
+    concepts: [because, aromaticgust, files, interviews, interview]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rs6nl5.md#c5"
@@ -56,12 +62,14 @@ chunks:
     char_span: [7719, 9312]
     sentence_count: 12
     key_terms: [considering, people, "don't", model, using, bad, come, etc]
+    concepts: [considering, people, "don't", model, using]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rs6nl5.md#c7"
     char_span: [9314, 10683]
     sentence_count: 10
     key_terms: [like, syntax, comprehensiveride946, dev, lot, real, work, production-ready]
+    concepts: [syntax]
     section: Comments
     token_count: 327
 ---

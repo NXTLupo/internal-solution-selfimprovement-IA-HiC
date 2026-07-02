@@ -19,64 +19,81 @@ chunks:
     char_span: [0, 2125]
     sentence_count: 27
     key_terms: [quantum, technology, infrastructure, stocks, businesses, companies, business, cash]
+    concepts: [quantum, infrastructure, technology, businesses, stocks]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1npncdh.md#c1", "social-intelligence/reddit-deep/investing/1npncdh.md#c7", "social-intelligence/reddit-deep/investing/1npncdh.md#c9", "social-intelligence/reddit-deep/investing/1npncdh.md#c10"]
     token_count: 447
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1npncdh/be_careful_with_quantum_stocks/"}]
   - id: "social-intelligence/reddit-deep/investing/1npncdh.md#c1"
     char_span: [2127, 3175]
     sentence_count: 13
     key_terms: [quantum, money, yourself, stocks, "don't", put, fundamentals, information]
+    concepts: [quantum, money, yourself, stocks, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1npncdh.md#c0"]
     token_count: 221
   - id: "social-intelligence/reddit-deep/investing/1npncdh.md#c2"
     char_span: [3189, 3813]
     sentence_count: 4
     key_terms: [simultaneously, lolthisisnotmyname, playstationjeans, youdontknowsqwat, precariously, schrodinger, bobdevnul, entangled]
+    concepts: [simultaneously]
     section: Comments
     token_count: 194
   - id: "social-intelligence/reddit-deep/investing/1npncdh.md#c3"
     char_span: [3815, 5034]
     sentence_count: 9
     key_terms: [long, investors, positions, sentiment, reality, dreams, market, incomingaxofkindness]
+    concepts: [investors, positions, sentiment, reality, dreams]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/investing/1npncdh.md#c4"
     char_span: [5036, 6657]
     sentence_count: 7
     key_terms: [everyone, broke, "i'm", investment, companies, patterns, because, quantum]
+    concepts: [everyone, broke, investment, companies, patterns]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/investing/1npncdh.md#c5"
     char_span: [6660, 8600]
     sentence_count: 12
     key_terms: [quantum, dip, strategy, chips, tsmc, disruptive, because, deleted]
+    concepts: [quantum, strategy, chips, disruptive, because]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/investing/1npncdh.md#c6"
     char_span: [8602, 10071]
     sentence_count: 7
     key_terms: [technology, encryption, chemistry, research, already, quantum, single, sphere]
+    concepts: [technology, encryption, chemistry, research, already]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/investing/1npncdh.md#c7"
     char_span: [10073, 11723]
     sentence_count: 8
     key_terms: [technology, redditmademedothis5, engineer, quantum, thermodynamics, "don't", extrapolate, mathematics]
+    concepts: [redditmademedothis5, technology, engineer, thermodynamics, quantum]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1npncdh.md#c0", "social-intelligence/reddit-deep/investing/1npncdh.md#c10"]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/investing/1npncdh.md#c8"
     char_span: [11725, 13318]
     sentence_count: 13
     key_terms: [decades, monroe, agree, christopher, ionq, technology, chatgpt, quantum]
+    concepts: [decades, monroe, christopher, agree, technology]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/investing/1npncdh.md#c9"
     char_span: [13320, 14194]
     sentence_count: 5
     key_terms: [stocks, does, businesses, tommorow, dollars, insider, number, "don't"]
+    concepts: [stocks, businesses, tommorow, dollars, insider]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1npncdh.md#c0"]
     section: Comments
     token_count: 243
   - id: "social-intelligence/reddit-deep/investing/1npncdh.md#c10"
     char_span: [14196, 15614]
     sentence_count: 11
     key_terms: [technology, commercial, investment, quantum, bought, esquie, invest, people]
+    concepts: [technology, commercial, investment, quantum, bought]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1npncdh.md#c0", "social-intelligence/reddit-deep/investing/1npncdh.md#c7"]
     section: Comments
     token_count: 346
 ---

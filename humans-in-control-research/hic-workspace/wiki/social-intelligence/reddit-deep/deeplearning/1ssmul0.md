@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1870]
     sentence_count: 15
     key_terms: [multi-agent, agents, hallucinations, deeplearning, model, does, comments, asking]
+    concepts: [multi-agent, agents, hallucinations, deeplearning, model]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1ssmul0.md#c1"]
     token_count: 405
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1ssmul0/are_multiagent_ai_systems_actually_better_at/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1ssmul0.md#c1"
     char_span: [1884, 4146]
     sentence_count: 2
     key_terms: [hallucinations, different, get, gets, llm, better, models, model]
+    concepts: [hallucinations, different, better, models, model]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1ssmul0.md#c0"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/deeplearning/1ssmul0.md#c2"
     char_span: [4151, 4690]
     sentence_count: 2
     key_terms: [whether, keep, programmatically, conversations, professional, satisfactory, evaluations, necroforest]
+    concepts: [whether]
     section: Comments
     token_count: 109
 ---

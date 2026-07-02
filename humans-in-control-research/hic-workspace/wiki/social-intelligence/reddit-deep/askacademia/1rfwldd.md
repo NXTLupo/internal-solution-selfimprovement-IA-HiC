@@ -21,29 +21,40 @@ chunks:
     char_span: [0, 2133]
     sentence_count: 21
     key_terms: [education, higher, "i'm", change, work, students, working, askacademia]
+    concepts: [education, higher, change, students, working]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rfwldd.md#c2", "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c3", "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c4"]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1rfwldd/is_getting_an_edd_worth_it_right_now/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c1"
     char_span: [2147, 4337]
     sentence_count: 16
     key_terms: [edd, experience, college, professional, education, faculty, level, application]
+    concepts: [experience, professional, college, education, faculty]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rfwldd.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c2"
     char_span: [4075, 5019]
     sentence_count: 7
     key_terms: [education, edd, higher, professional, teaching, college, program, zookeepergamesad3519]
+    concepts: [education, professional, higher, teaching, college]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rfwldd.md#c0", "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c1", "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c3"]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c3"
     char_span: [5021, 7040]
     sentence_count: 17
     key_terms: [higher, people, education, edd, want, current, working, change]
+    concepts: [higher, people, education, current, working]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rfwldd.md#c0", "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c2"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c4"
     char_span: [7042, 8085]
     sentence_count: 7
     key_terms: [higher, landscape, change, degree, sounds, worked, value, fact]
+    concepts: [higher, landscape, change, degree, sounds]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rfwldd.md#c0"]
     section: Comments
     token_count: 204
 ---

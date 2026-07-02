@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1708]
     sentence_count: 14
     key_terms: [science, "it's", "i'm", like, tech, careerguidance, path, impossible]
+    concepts: [science, careerguidance, impossible, sometimes, comments]
     token_count: 432
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tjh1sf/which_career_path_should_i_actively_working/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tjh1sf.md#c1"
     char_span: [1710, 3518]
     sentence_count: 22
     key_terms: ["it's", like, exam, "i'll", "there's", here, consulting, genetics]
+    concepts: ["there's", consulting, genetics, medicine, salaries]
     token_count: 475
   - id: "social-intelligence/reddit-deep/careerguidance/1tjh1sf.md#c2"
     char_span: [3520, 4764]
     sentence_count: 17
     key_terms: [good, "i'd", mbbs, want, residency, lawyer, physician-researcher, match]
+    concepts: [residency, lawyer, match, since]
     token_count: 317
 ---
 # Which career path should I actively working towards?

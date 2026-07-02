@@ -20,26 +20,36 @@ chunks:
     char_span: [0, 1818]
     sentence_count: 7
     key_terms: [https, com, space, moog-ir-presentation-2025, moog, finviz, names, quote]
+    concepts: [https, moog-ir-presentation-2025, space, press-releases-pdf, finviz]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1shs8li.md#c1", "social-intelligence/reddit-deep/stocks/1shs8li.md#c2"]
     token_count: 459
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1shs8li/some_under_the_radar_space_names/"}]
   - id: "social-intelligence/reddit-deep/stocks/1shs8li.md#c1"
     char_span: [1820, 3504]
     sentence_count: 6
     key_terms: [https, presentation, com, itt, investor, finviz, quote, a950-6db4d596402b]
+    concepts: [https, presentation, investor, a950-6db4d596402b, finviz]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1shs8li.md#c0", "social-intelligence/reddit-deep/stocks/1shs8li.md#c2", "social-intelligence/reddit-deep/stocks/1shs8li.md#c3"]
     token_count: 479
   - id: "social-intelligence/reddit-deep/stocks/1shs8li.md#c2"
     char_span: [3506, 5260]
     sentence_count: 6
     key_terms: [https, com, finviz, static-files, quote, ashx, fd27-43ad-82c8-fa2bb32a4968, valuation]
+    concepts: [https, static-files, finviz, fd27-43ad-82c8-fa2bb32a4968, quote]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1shs8li.md#c0", "social-intelligence/reddit-deep/stocks/1shs8li.md#c1"]
     token_count: 473
   - id: "social-intelligence/reddit-deep/stocks/1shs8li.md#c3"
     char_span: [5262, 6425]
     sentence_count: 4
     key_terms: [cts-investor-presentation-feb-2026-final, https, com, events-and-presentations, investor, components, precision, satellite]
+    concepts: [cts-investor-presentation-feb-2026-final, https, events-and-presentations, investor, components]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1shs8li.md#c1"]
     token_count: 274
   - id: "social-intelligence/reddit-deep/stocks/1shs8li.md#c4"
-    char_span: [6440, 8190]
+    char_span: [6439, 8189]
     sentence_count: 13
     key_terms: [company, names, space, like, list, exposure, research, sbuy210]
+    concepts: [company, names, space, exposure, research]
     section: Comments
     token_count: 512
 ---

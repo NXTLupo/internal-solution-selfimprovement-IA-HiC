@@ -21,41 +21,55 @@ chunks:
     char_span: [0, 779]
     sentence_count: 7
     key_terms: [engineering, engineeringstudents, experience, comments, engineer, become, job, internships]
+    concepts: [engineering, engineeringstudents, experience, comments, engineer]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c1", "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c3", "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c5"]
     token_count: 178
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1ovwioe/can_you_ever_become_an_engineer_without_and/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c1"
     char_span: [793, 2479]
     sentence_count: 9
     key_terms: [engineering, engineer, degree, chemistry, physics, semiconductor, industry, "that's"]
+    concepts: [engineering, engineer, degree, chemistry, semiconductor]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c3", "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c5"]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c2"
     char_span: [2481, 4496]
     sentence_count: 24
     key_terms: [degree, engineer, engineering, manufacturing, experience, being, role, engineers]
+    concepts: [degree, engineer, engineering, manufacturing, experience]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c1", "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c3", "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c5"]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c3"
     char_span: [4498, 6506]
     sentence_count: 12
     key_terms: [engineer, engineering, degree, accounting, engineers, without, ncees, wp-content]
+    concepts: [engineer, engineering, accounting, degree, engineers]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c1", "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c4"
     char_span: [6508, 8365]
     sentence_count: 11
     key_terms: [degree, ncees, states, prizeinterest4314, need, without, dontchuworri, https]
+    concepts: [degree, ncees, prizeinterest4314, states, without]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c5"
     char_span: [8367, 9792]
     sentence_count: 9
     key_terms: [engineer, professional, engineering, examinations-in-pow-camps, education-and-social, dictionary, https, prisoners-of-war]
+    concepts: [engineer, professional, engineering, examinations-in-pow-camps, education-and-social]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c1", "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c3", "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c6"]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c6"
     char_span: [9794, 11469]
     sentence_count: 12
     key_terms: [engineering, without, worked, professional, path, starbolin, technical, engineer]
+    concepts: [engineering, without, professional, worked, starbolin]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c5"]
     section: Comments
     token_count: 386
 ---

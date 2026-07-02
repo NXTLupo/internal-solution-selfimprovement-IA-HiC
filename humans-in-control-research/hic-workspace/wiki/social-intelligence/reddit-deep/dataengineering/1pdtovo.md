@@ -20,35 +20,44 @@ chunks:
     char_span: [0, 1147]
     sentence_count: 6
     key_terms: [engineering, data, dataengineering, analytics, companies, becoming, comments, teams]
+    concepts: [engineering, dataengineering, analytics, companies, becoming]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1pdtovo.md#c5"]
     token_count: 223
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1pdtovo/is_data_engineering_becoming_the_most_important/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1pdtovo.md#c1"
-    char_span: [1162, 2728]
+    char_span: [1161, 2727]
     sentence_count: 11
     key_terms: [data, engineer, value, company, bringing, probably, "don't", perfectly]
+    concepts: [engineer, company, value, bringing, probably]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/dataengineering/1pdtovo.md#c2"
-    char_span: [2730, 4303]
+    char_span: [2729, 4302]
     sentence_count: 7
     key_terms: [one-man-who-can-do-the-work-of-an-entire-it-department, want, engineering, like, pay, possible, certain, "that's"]
+    concepts: [engineering, possible, certain, "that's", "don't"]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/dataengineering/1pdtovo.md#c3"
-    char_span: [4305, 5842]
+    char_span: [4304, 5841]
     sentence_count: 10
     key_terms: [data, engineering, teams, because, shift, governance, understand, ownership]
+    concepts: [engineering, teams, because, governance, shift]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/dataengineering/1pdtovo.md#c4"
-    char_span: [5844, 7010]
+    char_span: [5843, 7009]
     sentence_count: 6
     key_terms: [data, company, project, seeing, theoverzealousengie, car, like, oil]
+    concepts: [company, project, seeing]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/dataengineering/1pdtovo.md#c5"
-    char_span: [7012, 8619]
+    char_span: [7011, 8618]
     sentence_count: 10
     key_terms: [data, engineering, companies, important, fit-employee-4393, been, core, "i'll"]
+    concepts: [engineering, companies, important]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1pdtovo.md#c0"]
     section: Comments
     token_count: 358
 ---

@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1209]
     sentence_count: 12
     key_terms: [spacex, engineering, engineeringstudents, comments, space, tesla, interesting, like]
+    concepts: [spacex, engineering, engineeringstudents, comments, interesting]
     token_count: 277
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tdmozh/which_internship_should_i_pick_as_an_aerospace/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tdmozh.md#c1"
     char_span: [1223, 3183]
     sentence_count: 18
     key_terms: [working, starlink, quality, experience, space, tesla, spacex, constraints]
+    concepts: [working, starlink, quality, experience, space]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tdmozh.md#c2"
     char_span: [3185, 3890]
     sentence_count: 5
     key_terms: [path, hardware, flight, spacex, space, illustrious-limit160, put, work]
+    concepts: [hardware, flight, spacex, space]
     section: Comments
     token_count: 178
 ---

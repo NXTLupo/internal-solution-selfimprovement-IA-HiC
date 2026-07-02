@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 2116]
     sentence_count: 19
     key_terms: [company, work, backend, years, currently, cscareerquestions, database, engineer]
+    concepts: [company, backend, cscareerquestions, currently, years]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1p0wz9w/backend_software_engineer_in_oil_and_gas_long/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p0wz9w.md#c1"
     char_span: [2130, 4116]
     sentence_count: 11
     key_terms: [potentially, live, unless, asteroidtube, comfortably, city, mcol, pay]
+    concepts: [potentially, asteroidtube, unless, comfortably, retirement]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p0wz9w.md#c2"
     char_span: [4118, 4768]
     sentence_count: 8
     key_terms: [retire, comfortably, meantime, enough, early, until, don, home]
+    concepts: [retire, comfortably, meantime, enough, early]
     section: Comments
     token_count: 160
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p0wz9w.md#c3"
     char_span: [4770, 6540]
     sentence_count: 12
     key_terms: [company, traveling-techie, themselves, engineers, handcuffs, compared, beyond, making]
+    concepts: [company, traveling-techie, themselves, engineers, handcuffs]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p0wz9w.md#c4"

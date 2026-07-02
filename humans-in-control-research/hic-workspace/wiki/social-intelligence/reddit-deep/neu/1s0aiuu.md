@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1146]
     sentence_count: 9
     key_terms: [design, game, computer, science, development, neu, interested, comments]
+    concepts: [design, computer, science, development, interested]
     token_count: 277
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1s0aiuu/thoughts_on_computer_science_and_design_and_also/"}]
   - id: "social-intelligence/reddit-deep/neu/1s0aiuu.md#c1"
     char_span: [1160, 1367]
     sentence_count: 1
@@ -30,12 +32,14 @@ chunks:
     char_span: [1369, 3646]
     sentence_count: 15
     key_terms: [courses, requirements, professor, game, get, oakland, majors, major]
+    concepts: [courses, requirements, professor, oakland, majors]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/neu/1s0aiuu.md#c3"
     char_span: [3648, 4535]
     sentence_count: 3
     key_terms: [feels, like, students, general, "they're", people, makes, practically]
+    concepts: [feels, students, general, "they're", people]
     section: Comments
     token_count: 181
 ---

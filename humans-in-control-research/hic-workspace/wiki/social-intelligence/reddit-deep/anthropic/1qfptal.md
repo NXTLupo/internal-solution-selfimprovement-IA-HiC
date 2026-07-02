@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 276]
     sentence_count: 1
     key_terms: [anthropic, comments, reddit-deep, jpcaparas, improver, serious, claude, posted]
+    concepts: [anthropic, comments]
     token_count: 80
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1qfptal/the_prompt_improver_every_serious_claude_code/"}]
 ---
 # The Prompt Improver Every Serious Claude Code User Needs
 

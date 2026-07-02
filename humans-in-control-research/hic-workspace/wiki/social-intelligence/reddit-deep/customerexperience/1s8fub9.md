@@ -20,26 +20,31 @@ chunks:
     char_span: [0, 1844]
     sentence_count: 16
     key_terms: [customer, support, business, small, customerexperience, felt, conversations, nexos]
+    concepts: [customer, support, business, customerexperience, small]
     token_count: 393
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1s8fub9/best_ai_for_customer_support_small_business/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1s8fub9.md#c1"
     char_span: [1846, 2613]
     sentence_count: 5
     key_terms: [tools, find, gid, plug-and-play, spreadsheets, comparison, difference, especially]
+    concepts: [tools]
     token_count: 196
   - id: "social-intelligence/reddit-deep/customerexperience/1s8fub9.md#c2"
-    char_span: [2628, 4782]
+    char_span: [2627, 4781]
     sentence_count: 5
     key_terms: [support, breakdown, something, day, instead, manage, people, makes]
+    concepts: [support, breakdown, something, instead, manage]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/customerexperience/1s8fub9.md#c3"
-    char_span: [4456, 5000]
+    char_span: [4455, 4999]
     sentence_count: 1
     key_terms: [people, faah-rated, reasonable, resolution, customers, articles, whatever, answers]
+    concepts: [people]
     section: Comments
     token_count: 121
   - id: "social-intelligence/reddit-deep/customerexperience/1s8fub9.md#c4"
-    char_span: [5002, 5470]
+    char_span: [5001, 5469]
     sentence_count: 4
     key_terms: [com, day, too, integrations, candidate, customgpt, something, building]
     section: Comments

@@ -21,36 +21,50 @@ chunks:
     char_span: [0, 1901]
     sentence_count: 10
     key_terms: [https, cambridge-hosting-speed-skating-ontario-elite-championships-next-month-11845226, march, calendar-a2cb7790-d2db-4f6e-a149-d05217ce711e, waterloo, grandriverbuzz, events, com]
+    concepts: [https, march, waterloo, grandriverbuzz, events]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c4", "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c5"]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1rlz9vb/local_events_this_weekend/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c1"
     char_span: [1903, 3929]
     sentence_count: 5
     key_terms: [event, https, music, kitchener, com, classic-albums-live-princes-purple-rain, jazz, soul]
+    concepts: [kitchener, event, https, music, mystical]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c2", "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c3"]
     token_count: 486
   - id: "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c2"
     char_span: [3931, 5766]
     sentence_count: 7
     key_terms: [learn-macrame-make-your-own-knotted-earrings-tickets-1979952833223, market, kitchener, seedlings, growing-seedlings-indoors-tickets-1983204516094, https, own, eventbrite]
+    concepts: [kitchener, seedlings, market, https, eventbrite]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c1", "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c3"]
     token_count: 458
   - id: "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c3"
     char_span: [5768, 7571]
     sentence_count: 6
     key_terms: [https, kitchener, nargis-son-comedy-show-featuring-zul-gulamhusein-tickets-1852800057849, com, www, eventbrite, march-mayhem-fight-night-tickets-1981169261593, centreinthesquare]
+    concepts: [https, kitchener, eventbrite, centreinthesquare, comedy]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c1", "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c2"]
     token_count: 505
   - id: "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c4"
     char_span: [7573, 9107]
     sentence_count: 4
     key_terms: [empowerher-an-international-womens-day-wellness-retreat-tickets-1980389848347, definite-leppard-live-at-evo-kitchen-bar-tickets-1980754902233, waterloo, https, heartfulness-chair-yoga-amp-meditation, leppard, session, international]
+    concepts: [waterloo, https, international, leppard, session]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c0", "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c5"]
     token_count: 404
   - id: "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c5"
     char_span: [9109, 10203]
     sentence_count: 3
     key_terms: [country-hoedown-drag-bingo-brunch-and-show-tickets-1981496080116, trades, women, international-womens-day-women-in-trades, demonstrations, https, join, waterloo]
+    concepts: [trades, women, demonstrations, https, waterloo]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c0", "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c4"]
     token_count: 277
   - id: "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c6"
     char_span: [10217, 10772]
     sentence_count: 5
     key_terms: [fragrant-divide240, thanks, outstanding, band, name, appreciate, newsletter, boathouse]
+    concepts: [fragrant-divide240, thanks, outstanding]
     section: Comments
     token_count: 164
 ---

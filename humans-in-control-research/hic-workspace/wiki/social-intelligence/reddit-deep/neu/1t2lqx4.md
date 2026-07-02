@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 542]
     sentence_count: 3
     key_terms: [business, comments, majoring, science, advice, anyone, co-ops, health]
+    concepts: [business, comments, majoring, science, advice]
     token_count: 144
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1t2lqx4/need_direction_best_coopsjobs_for_a_health/"}]
   - id: "social-intelligence/reddit-deep/neu/1t2lqx4.md#c1"
     char_span: [556, 2453]
     sentence_count: 7
     key_terms: [business, like, healthcare, investmentpuzzled800, combined, doing, major, roles]
+    concepts: [business, healthcare, investmentpuzzled800, combined, doing]
     section: Comments
     token_count: 473
 ---

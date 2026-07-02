@@ -21,67 +21,85 @@ chunks:
     char_span: [0, 1915]
     sentence_count: 12
     key_terms: [insurance, wife, comments, povertyfinance, truck, job, lost, definitely]
+    concepts: [insurance, comments, povertyfinance, definitely, truck]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c4"]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1sfk5iq/i_37m_may_be_losing_my_job_soon_im_trying_to/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c1"
     char_span: [1917, 4078]
     sentence_count: 25
     key_terms: [alternatives, bare-minimum, young, appreciate, currently, emergency, comments, daughter]
+    concepts: [alternatives, bare-minimum, appreciate, young, currently]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c2"]
     token_count: 488
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c2"
     char_span: [4080, 6271]
     sentence_count: 26
     key_terms: [bare-minimum, right, california, currently, insurance, daughter, planning, starting]
+    concepts: [bare-minimum, california, right, currently, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c1"]
     token_count: 488
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c3"
     char_span: [6273, 8400]
     sentence_count: 24
     key_terms: [internet, update, haven, phone, been, month, job, insurance]
+    concepts: [internet, update, haven, phone, month]
     token_count: 482
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c4"
     char_span: [8402, 10260]
     sentence_count: 22
     key_terms: [truck, suggestions, groceries, insurance, mortgage, cheaper, looking, vehicle]
+    concepts: [suggestions, truck, groceries, insurance, mortgage]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c0", "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c8"]
     token_count: 407
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c5"
     char_span: [10274, 11706]
     sentence_count: 8
     key_terms: [wife, bill, groceries, daughter, decent, people, zealousideal-world71, empty-disaster-6738]
+    concepts: [groceries, daughter, decent, people, month]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c6"
     char_span: [11708, 12429]
     sentence_count: 5
     key_terms: [store, coupons, buying, fragrant-employer-60, direct-from-farmer, plan, circussloth3, arcoperator]
+    concepts: [store, coupons, buying]
     section: Comments
     token_count: 181
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c7"
     char_span: [12431, 14033]
     sentence_count: 16
     key_terms: [back, grocery, adults, brands, "you're", empty-disaster-6738, brand, going]
+    concepts: [grocery, adults, brands, "you're", brand]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c8"
     char_span: [14035, 15990]
     sentence_count: 14
     key_terms: [car, job, cheaper, propertylogic, truck, loan, sell, unemployed]
+    concepts: [propertylogic, cheaper, truck, unemployed, groceries]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c9"
     char_span: [15778, 16735]
     sentence_count: 9
     key_terms: [case, job, happens, better, "you're", costs, going, "isn't"]
+    concepts: [happens, better, "you're", costs, going]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c10"
     char_span: [16740, 18712]
     sentence_count: 19
     key_terms: [lower, food, insurance, something, look, snap, apply, month]
+    concepts: [lower, insurance, something, apply, month]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c11"
     char_span: [18714, 19319]
     sentence_count: 8
     key_terms: [looking, levelsofcocainebrain, bank, food, lifestyle, meanwhile, stoplight, borrowed]
+    concepts: [looking]
     section: Comments
     token_count: 154
 ---

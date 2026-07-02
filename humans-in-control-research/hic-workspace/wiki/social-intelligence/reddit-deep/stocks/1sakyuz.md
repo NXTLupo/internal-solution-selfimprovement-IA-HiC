@@ -18,68 +18,83 @@ industries: [financial_services, policy]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c0"
-    char_span: [0, 1300]
+    char_span: [0, 1266]
     sentence_count: 7
-    key_terms: [michael-burry-flags-structural-manipulation-ri***REDACTED-KEY***, nasdaq, spacex, index, company, manipulation, elon, structural]
-    token_count: 325
+    key_terms: [nasdaq, spacex, michael-burry-flags-structural-manipulation-ri, index, company, manipulation, elon, structural]
+    concepts: [nasdaq, spacex, index, company, manipulation]
+    token_count: 318
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1sakyuz/michael_burry_flags_structural_manipulation_risk/"}]
   - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c1"
-    char_span: [1325, 2036]
+    char_span: [1291, 2002]
     sentence_count: 3
     key_terms: [nasdaq, changes, public, float, nasdaq-100, february, company, trading]
+    concepts: [nasdaq, changes, public, float, nasdaq-100]
     section: What Nasdaq changed
     token_count: 178
   - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c2"
-    char_span: [2080, 2712]
+    char_span: [2046, 2678]
     sentence_count: 4
     key_terms: [shares, artificially, available, company, public, means, small, actually-available]
+    concepts: [shares, artificially, available, company, public]
     section: What “float” means in normal language
     token_count: 126
   - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c3"
-    char_span: [2740, 3865]
+    char_span: [2706, 3831]
     sentence_count: 5
     key_terms: [index, stock, investors, price, get, nasdaq-100, company, concern]
+    concepts: [investors, index, stock, nasdaq-100, price]
     section: Why this is a problem
     token_count: 246
   - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c4"
-    char_span: [3903, 4255]
+    char_span: [3869, 4221]
     sentence_count: 2
     key_terms: [people, guaranteed, nasdaq-100, retirement, discovery, investors, workplace, accounts]
+    concepts: [people]
     section: Why ordinary people should care
     token_count: 77
   - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c5"
-    char_span: [4269, 4943]
+    char_span: [4235, 4909]
     sentence_count: 1
     key_terms: [elon-musks-spacex-weighs-nasdaq-listing-after-seeking-early-index-entry-sources-2026-03-10, new-nasdaq-rules-include-fast-entry-new-listings-benchmark-index-2026-03-30, https, com, nasdaq-concludes-public-consultation-nasdaq-100-indexr, reuters, nasdaq, pdf]
+    concepts: [https, reuters, nasdaq, nasdaqomx, business]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1sakyuz.md#c7", "social-intelligence/reddit-deep/stocks/1sakyuz.md#c9"]
     section: Sources
     token_count: 194
   - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c6"
-    char_span: [4958, 5886]
+    char_span: [4924, 5852]
     sentence_count: 5
     key_terms: [ticker, spacex, wanted, zestyclose-ice-3434, bags, ipo, national-two2417, radioactive-235]
+    concepts: [ticker, spacex, wanted]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c7"
-    char_span: [5888, 7732]
+    char_span: [5854, 7698]
     sentence_count: 7
     key_terms: [https, sec, www, nasdaq, gov, something, gamestop, submit-tip-or-complaint]
+    concepts: [https, nasdaq, something, gamestop, because]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1sakyuz.md#c5", "social-intelligence/reddit-deep/stocks/1sakyuz.md#c9"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c8"
-    char_span: [7734, 9397]
+    char_span: [7700, 9363]
     sentence_count: 5
     key_terms: [tips, public, bloomberg, comments, governance, investment, propublica, retirement]
+    concepts: [bloomberg, public, comments, governance, investment]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c9"
-    char_span: [9399, 10732]
+    char_span: [9365, 10698]
     sentence_count: 4
     key_terms: [elon-musks-spacex-weighs-nasdaq-listing-after-seeking-early-index-entry-sources-2026-03-10, new-nasdaq-rules-include-fast-entry-new-listings-benchmark-index-2026-03-30, https, com, nasdaq-concludes-public-consultation-nasdaq-100-indexr, reuters, nasdaq, pdf]
+    concepts: [https, reuters, nasdaq, nasdaqomx, business]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1sakyuz.md#c5", "social-intelligence/reddit-deep/stocks/1sakyuz.md#c7"]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c10"
-    char_span: [10735, 11900]
+    char_span: [10701, 11866]
     sentence_count: 8
     key_terms: [being, smooth-limit-1712, "it's", like, coachdennisgreen, scary-oven8260, manipulation, absolutely]
+    concepts: [being]
     section: Comments
     token_count: 286
 ---

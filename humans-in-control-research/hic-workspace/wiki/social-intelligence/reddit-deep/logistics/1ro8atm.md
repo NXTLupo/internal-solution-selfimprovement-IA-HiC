@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 942]
     sentence_count: 6
     key_terms: [getting, seeing, countries, logistics, comments, delivery, already, express]
+    concepts: [getting, seeing, countries, logistics, comments]
     token_count: 207
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1ro8atm/if_youre_shipping_orders_to_the_middle_east_right/"}]
   - id: "social-intelligence/reddit-deep/logistics/1ro8atm.md#c1"
-    char_span: [957, 3080]
+    char_span: [956, 3079]
     sentence_count: 11
     key_terms: [shipment, nextsmartship, dealdispatch, visibility, shipments, situation, affected, customer]
+    concepts: [shipment, nextsmartship, dealdispatch, visibility, shipments]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/logistics/1ro8atm.md#c2"
-    char_span: [3083, 3236]
+    char_span: [3082, 3235]
     sentence_count: 1
     key_terms: [surcharges, eventual, informed, possible, clients, delays, sudden, hikes]
+    concepts: [surcharges]
     section: Comments
     token_count: 29
 ---

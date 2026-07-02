@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 2018]
     sentence_count: 13
     key_terms: [distance, school, graduate, grad, long, together, getting, close]
+    concepts: [distance, school, graduate, together, getting]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1szgpuk.md#c3"]
     token_count: 420
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1szgpuk/long_distance_girlfriend_and_i_are_concerned/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c1"
     char_span: [2032, 4086]
     sentence_count: 16
     key_terms: [person, school, compromise, grad, like, time, reality, finish]
+    concepts: [person, compromise, school, reality, relationship]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c2"
     char_span: [4088, 4473]
     sentence_count: 4
     key_terms: [partner, sacrificed, graduated, sacrifice, together, visiting, already, applied]
+    concepts: [partner]
     section: Comments
     token_count: 95
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c3"
     char_span: [4475, 6353]
     sentence_count: 11
     key_terms: [distance, school, job, getting, got, grad, experience, marriage]
+    concepts: [distance, school, getting, experience, marriage]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1szgpuk.md#c0"]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c4"
     char_span: [6355, 7505]
     sentence_count: 5
     key_terms: [job, afterwards, classmates, because, "didn't", school, best, get]
+    concepts: [afterwards, classmates, because, "didn't", school]
     section: Comments
     token_count: 232
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c5"
     char_span: [7507, 9896]
     sentence_count: 19
     key_terms: [relationship, top, want, prestige, priority, together, career, school]
+    concepts: [relationship, prestige, priority, together, career]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c6"
     char_span: [9592, 11912]
     sentence_count: 15
     key_terms: [something, get, year, person, hard, job, situation, academic]
+    concepts: [something, person, situation, academic, entirely]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c7"
@@ -68,18 +78,22 @@ chunks:
     char_span: [11970, 14162]
     sentence_count: 1
     key_terms: ["it's", academia, distance, long-distance, long, couple, got, academic]
+    concepts: [long-distance, academia, distance, couple, academic]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c9"
     char_span: [14164, 14928]
     sentence_count: 2
     key_terms: [different, academic, careers, advice, anyway, "that's", seen, localdescription]
+    concepts: [different, academic, careers, advice, anyway]
     section: Comments
     token_count: 171
+    sources: [{"n":"trust me","u":""}]
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c10"
     char_span: [14930, 16962]
     sentence_count: 8
     key_terms: [years, phd, assuming, research, getting, couple, going, institution]
+    concepts: [years, assuming, research, getting, couple]
     section: Comments
     token_count: 436
 ---

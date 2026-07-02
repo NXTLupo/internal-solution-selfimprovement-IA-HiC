@@ -7,72 +7,84 @@ subreddit: "dataengineering"
 title: "Fresh grad dropped into a data swamp. ~20 tools (that I know of), very little (and highly fragmented) documentation, and a black-box warehouse. How do I reverse-engineer this?"
 author: "HelpMeMapData"
 date: "2026-05-28T00:29:37.000Z"
-score: 50
-upvote_ratio: 0.95
-num_comments: 38
+score: 52
+upvote_ratio: 0.94
+num_comments: 39
 flair: "Help"
-extracted_at: "2026-06-11T18:58:17.204Z"
+extracted_at: "2026-06-29T14:40:47.213Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Define the 2026 \"state of the Art\" operational and technological benchmarks for \"The State of Data & Distribution in Asset Management\". Synthesize key developments across data infrastructure, distribution enablement, and AI governance frameworks to identify leading industry capabilities and compliance standards."
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
 chunks:
   - id: "social-intelligence/reddit-deep/dataengineering/1tpnr8n.md#c0"
     char_span: [0, 2188]
     sentence_count: 12
     key_terms: [data, department, warehouse, different, dataengineering, documentation, tools, fragmented]
+    concepts: [department, warehouse, different, dataengineering, documentation]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1tpnr8n.md#c4"]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1tpnr8n/fresh_grad_dropped_into_a_data_swamp_20_tools/"},{"n":"Data is being pulled into the cloud warehouse from at least two different SaaS p","u":""}]
   - id: "social-intelligence/reddit-deep/dataengineering/1tpnr8n.md#c1"
     char_span: [2190, 3820]
     sentence_count: 11
     key_terms: [data, use, interviewing, like, department, everything, everyone, specific]
+    concepts: [interviewing, department, everything, everyone, specific]
     token_count: 340
   - id: "social-intelligence/reddit-deep/dataengineering/1tpnr8n.md#c2"
-    char_span: [3835, 5157]
+    char_span: [3834, 5156]
     sentence_count: 21
     key_terms: [data, noonecanfindmenow, start, team, business, database, account, house]
+    concepts: [noonecanfindmenow, start, business, database, account]
     section: Comments
     token_count: 306
   - id: "social-intelligence/reddit-deep/dataengineering/1tpnr8n.md#c3"
-    char_span: [5159, 7374]
+    char_span: [5158, 7373]
     sentence_count: 17
     key_terms: [data, business, processes, company, fundamentals, map, work, businesses]
+    concepts: [business, processes, company, fundamentals, businesses]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/dataengineering/1tpnr8n.md#c4"
-    char_span: [7376, 9505]
+    char_span: [7375, 9505]
     sentence_count: 15
     key_terms: [warehouse, github, documentation, helpmemapdata, data, org, use, governance]
+    concepts: [warehouse, documentation, helpmemapdata, github, governance]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1tpnr8n.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/dataengineering/1tpnr8n.md#c5"
     char_span: [9507, 11652]
     sentence_count: 27
     key_terms: [need, "don't", lot, step, take, management, company, message]
+    concepts: ["don't", management, company, message, months]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/dataengineering/1tpnr8n.md#c6"
     char_span: [11654, 13799]
     sentence_count: 31
     key_terms: [data, step, start, products, steps, tools, need, want]
+    concepts: [start, products, steps, tools, processes]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/dataengineering/1tpnr8n.md#c7"
     char_span: [13801, 15754]
     sentence_count: 25
     key_terms: [good, governance, inventory, identify, manager, column, create, github]
+    concepts: [governance, inventory, identify, manager, column]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/dataengineering/1tpnr8n.md#c8"
     char_span: [15756, 17814]
     sentence_count: 14
     key_terms: [company, governance, access, get, new, use, anything, allowed]
+    concepts: [company, governance, access, anything, allowed]
     section: Comments
     token_count: 462
 ---
 # Fresh grad dropped into a data swamp. ~20 tools (that I know of), very little (and highly fragmented) documentation, and a black-box warehouse. How do I reverse-engineer this?
 
 Source: [reddit-deep: r/dataengineering](https://www.reddit.com/r/dataengineering/comments/1tpnr8n/fresh_grad_dropped_into_a_data_swamp_20_tools/)
-Posted by **HelpMeMapData** · **50↑** · **38 comments**
+Posted by **HelpMeMapData** · **52↑** · **39 comments**
 
 Hello reddit,
 
@@ -105,7 +117,7 @@ Oh also, these is currently no version control being used. In theory we have a G
 
 ## Comments
 
-- **Noonecanfindmenow** (44↑): Always start with your inputs and outputs. 
+- **Noonecanfindmenow** (45↑): Always start with your inputs and outputs. 
 
 What data are you consuming? What does your company do? Do you have in house apps? Do you scrape various data from the web? If it's I house apps there is a database somewhere. There is a team that manages that database. There is an account (hopefully a service account) that will data engineering uses to ingest data. 
 
@@ -115,7 +127,7 @@ Where are you writing to? Do you have a datamart? What are the most frequently l
 Don't have any of this? Talk to people. "hi I'm new. I've been asked to take on a new data initiative and I want to start by understanding a bit more on what your team does and how you guys use data. But really I'm just wanting to learn more about the business"
 
 You have your start. You have your end. You will eventually figure out the links in between.
-  - **Noonecanfindmenow** (12↑): Your end product should firstly be a super high level overview/diagram about what tools talk to which and for which business unit. 
+  - **Noonecanfindmenow** (13↑): Your end product should firstly be a super high level overview/diagram about what tools talk to which and for which business unit. 
 
 If your data is as messy as you say, you will likely need a tool like data dog that helps you track everything.
 
@@ -125,32 +137,32 @@ It should also be to create mappings of the new cloud data warehouse to what it 
 
   
 I think a big challenge is that our reports that rely on the data warehouse are not centralized in one location to my knowledge. So I will have to figure that out. Thank you for your advice though :).
-- **spoopypoptartz** (20↑): unironically if you have access to LLM coding agents like Claude Code or Codex go to the actual source code for the data sources and the pipelines and use them to help you map out the structure.
+- **spoopypoptartz** (18↑): unironically if you have access to LLM coding agents like Claude Code or Codex go to the actual source code for the data sources and the pipelines and use them to help you map out the structure.
 
 if you do this before meeting with anyone you will go in much more prepared and be able to take full advantage.
 
 if you have more time long term, build a knowledge base for the data warehouse. i believe there are a few open source solutions that approach it in different ways (Meta and OpenAI have articles detailing their approach and people have used those to create their own solutions).
-  - **spoopypoptartz** (5↑): otherwise my advice would be to bumrush the process I detail above manually. but thats painful.
+  - **spoopypoptartz** (6↑): otherwise my advice would be to bumrush the process I detail above manually. but thats painful.
     - **HelpMeMapData** (3↑): They are definitely not gonna let me put any code into Claude or Codex sadly. My org is very big on \~security\~
-- **Bunkerman91** (8↑): This is the real world for most companies. Data is messy, documentation is sparse, and nobody has the whole picture.
+- **Bunkerman91** (11↑): This is the real world for most companies. Data is messy, documentation is sparse, and nobody has the whole picture.
 
 A good data engineer will do exactly what you’re doing. Interview everyone, map things out, write documentation, and establish version control.
 
 The warehouse is built. The value you bring to the table is making that warehouse something the company can use and understand. It’s a challenge but it seems like you’re on the right track.
   - **HelpMeMapData** (2↑): How do I build that buy-in for version control, though? Today there was confusion over the fact that GitHub is not the same thing as git (by a senior person who should really know the difference, imo), and another person was like "why would we want to use GitHub?"
-    - **Illustrious-Win4432** (2↑): “Why would we want to use GitHub?” Is the winner. Frame that and hang it on the wall when you take your bosses job.
+    - **Illustrious-Win4432** (3↑): “Why would we want to use GitHub?” Is the winner. Frame that and hang it on the wall when you take your bosses job.
 
 Your company isn’t worried about security as much as they are the perception of it. The lack of governance you called out is evidence. Governance is just as much about understanding risk as it is about permissions. Has the smell of fear more than a desire to understand the tools they bought
-- **liprais** (14↑): welcome to the gronw-up's world.
-  - **wmru5wfMv** (7↑): You’re gonna hate it
+- **liprais** (13↑): welcome to the gronw-up's world.
+  - **wmru5wfMv** (8↑): You’re gonna hate it
     - **liprais** (6↑): well,it sucks for sure.
-  - **teddythepooh99** (7↑): My previous org has < 200 employees. Now, I work in an org with 30k+ employees.
+  - **teddythepooh99** (6↑): My previous org has < 200 employees. Now, I work in an org with 30k+ employees.
 
 None of OPs's challenges are surprising. This is not unique to DE: you will encounter very little written documentation, if at all, throughout your career that would spell everything out for you.
 
 OP: this is how you grow as a professional, insofar as navigating ambiguity and making sense out of the chaos. If you are still overwhelmed after six months up to a year, then maybe the role is not a good fit.
-    - **AndrewLucksFlipPhone** (9↑): Meh my company has paid a lot of people a lot of money for a lot of years and has still not solved the problems OP described. He ain't gonna solve them in 6 months or a year.
-- **marketlurker** (3↑): Slow your roll a bit. You need to take a few and just breathe. This is important. You are in full on panic mode and you don't need to be or need to be seen freaking out. It will be tempting to talk to anyone. Don't.
+    - **AndrewLucksFlipPhone** (8↑): Meh my company has paid a lot of people a lot of money for a lot of years and has still not solved the problems OP described. He ain't gonna solve them in 6 months or a year.
+- **marketlurker** (4↑): Slow your roll a bit. You need to take a few and just breathe. This is important. You are in full on panic mode and you don't need to be or need to be seen freaking out. It will be tempting to talk to anyone. Don't.
 
 Being a bit corny, "Let's start at the very beginning, a very good place to start..." (If you don't know where this comes from, Google it.)
 

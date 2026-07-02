@@ -19,19 +19,23 @@ content_hash: "f64d26093f8a7eb1"
 relevance_by_goal: {"46dec9599ad5":95}
 chunks:
   - id: "articles/reddit-deep-r-etfs/ad411faac1.md#c0"
-    char_span: [0, 1766]
+    char_span: [0, 1765]
     sentence_count: 12
     key_terms: [tfsa, rrsp, xeqt, growth, reddit, funds, "i'm", keep]
-    token_count: 496
+    concepts: [growth, reddit, funds, investing, portfolio]
+    token_count: 495
+    sources: [{"n":"Reddit Deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1sdjruu/best_tfsa_rrsp_combo_for_a_36_yr_old_looking_for/"}]
   - id: "articles/reddit-deep-r-etfs/ad411faac1.md#c1"
-    char_span: [1768, 3652]
+    char_span: [1767, 3651]
     sentence_count: 15
     key_terms: [etfcentral, voo, reddit, https, com, www, comment, considering]
+    concepts: [etfcentral, reddit, https, comment, considering]
     token_count: 504
   - id: "articles/reddit-deep-r-etfs/ad411faac1.md#c2"
-    char_span: [3654, 4525]
+    char_span: [3653, 4524]
     sentence_count: 9
     key_terms: [a74c61c00f8315b62dffc6053f8ed208452a52e3, hugheston987, "it's", portfolio, current, looked, climateoutrageous757, looks]
+    concepts: [hugheston987, portfolio, current, looked, looks]
     token_count: 237
 ---
 # Best TFSA & RRSP Combo for a 36 Yr. Old Looking for Serious Growth

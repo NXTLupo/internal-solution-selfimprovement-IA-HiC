@@ -20,26 +20,32 @@ chunks:
     char_span: [0, 2307]
     sentence_count: 15
     key_terms: [container, logistics, gulf, global, hapag-lloyd, week, disruption, operations]
+    concepts: [container, logistics, global, hapag-lloyd, disruption]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1rjrel2/catch_up_on_what_happened_this_week_in_logistics/"}]
   - id: "social-intelligence/reddit-deep/logistics/1rjrel2.md#c1"
     char_span: [2309, 4801]
     sentence_count: 16
     key_terms: [dedicated, drivers, walmart, pay, market, trucking, billion, freight]
+    concepts: [dedicated, drivers, walmart, market, trucking]
     token_count: 475
   - id: "social-intelligence/reddit-deep/logistics/1rjrel2.md#c2"
     char_span: [4803, 7126]
     sentence_count: 21
     key_terms: [billion, e-commerce, freight, workers, infrastructure, international, new, projected]
+    concepts: [billion, e-commerce, infrastructure, international, freight]
     token_count: 468
   - id: "social-intelligence/reddit-deep/logistics/1rjrel2.md#c3"
     char_span: [7128, 9530]
     sentence_count: 13
     key_terms: [inventory, new, in-store, internationally, clients, market, target, "that's"]
+    concepts: [inventory, internationally, in-store, clients, market]
     token_count: 490
   - id: "social-intelligence/reddit-deep/logistics/1rjrel2.md#c4"
-    char_span: [9532, 11106]
+    char_span: [9532, 11105]
     sentence_count: 16
     key_terms: [charlesholmes1, reliability, logistics-pulse-by-fulfillyn, business, upstream, faster, global, prices]
+    concepts: [charlesholmes1, reliability, business, upstream, faster]
     section: Comments
     token_count: 346
 ---

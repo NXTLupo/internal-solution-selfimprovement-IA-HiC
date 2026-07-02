@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1607]
     sentence_count: 9
     key_terms: [internships, experience, applying, junior, fast-nuces, currently, difficult, genuinely]
+    concepts: [internships, experience, applying, junior, fast-nuces]
     token_count: 340
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tic9vr/20m_fastnuces_15_yoe_need_guidance_regarding/"}]
   - id: "social-intelligence/reddit-deep/internships/1tic9vr.md#c1"
     char_span: [1621, 2234]
     sentence_count: 5
     key_terms: [difficult, refferals, juniors, market, immediatematter6801, experience, internship, understand]
+    concepts: [difficult, refferals, juniors, market]
     section: Comments
     token_count: 165
 ---

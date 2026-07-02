@@ -7,56 +7,66 @@ subreddit: "ecommerce"
 title: "E-commerce Industry News Recap 🔥 Week of Mar 23rd, 2026"
 author: "adventurepaul"
 date: "2026-03-23T19:27:31.000Z"
-score: 34
-upvote_ratio: 0.92
+score: 35
+upvote_ratio: 0.93
 num_comments: 22
 flair: "📰 News"
-extracted_at: "2026-06-18T13:35:23.805Z"
+extracted_at: "2026-06-24T22:13:57.306Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1s1qu9v.md#c0"
     char_span: [0, 250]
     sentence_count: 1
     key_terms: [ecommerce, comments, adventurepaul, reddit-deep, e-commerce, industry, posted, reddit]
+    concepts: [ecommerce, comments]
     token_count: 81
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1s1qu9v/ecommerce_industry_news_recap_week_of_mar_23rd/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1s1qu9v.md#c1"
     char_span: [252, 2631]
     sentence_count: 11
     key_terms: [delivery, amazon, hour, e-commerce, introduced, usps, year, million]
+    concepts: [delivery, amazon, e-commerce, introduced, million]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1s1qu9v.md#c2"
     char_span: [2388, 4857]
     sentence_count: 10
     key_terms: [commerce, delivery, hour, protocol, new, same-day, shipping, options]
+    concepts: [commerce, delivery, protocol, same-day, shipping]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1s1qu9v.md#c3"
     char_span: [4537, 7163]
     sentence_count: 13
     key_terms: [walmart, amazon, experience, court, appeals, "zuckerberg's", perplexity, metaverse]
+    concepts: [walmart, experience, amazon, court, appeals]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1s1qu9v.md#c4"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1s1qu9v.md#c4"
     char_span: [6806, 9405]
     sentence_count: 11
     key_terms: [walmart, amazon, phone, fire, checkout, prime, finkelstein, e-commerce]
+    concepts: [walmart, amazon, phone, checkout, finkelstein]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1s1qu9v.md#c3"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1s1qu9v.md#c5"
     char_span: [9081, 10252]
     sentence_count: 4
     key_terms: [find, commerce, coffee-loving, e-commerce, checkout, shopping, agentic, chatgpt]
+    concepts: [commerce, coffee-loving, e-commerce, checkout, shopping]
     token_count: 255
   - id: "social-intelligence/reddit-deep/ecommerce/1s1qu9v.md#c6"
-    char_span: [10267, 11491]
+    char_span: [10266, 11490]
     sentence_count: 11
     key_terms: [brands, insane, thanks, alansuperpowersocial, trustmeimnotnotlying, flakyelderberry3246, local-assistant9617, adventurepaul]
+    concepts: [brands, insane, thanks]
     section: Comments
     token_count: 290
 ---
 # E-commerce Industry News Recap 🔥 Week of Mar 23rd, 2026
 
 Source: [reddit-deep: r/ecommerce](https://www.reddit.com/r/ecommerce/comments/1s1qu9v/ecommerce_industry_news_recap_week_of_mar_23rd/)
-Posted by **adventurepaul** · **34↑** · **22 comments**
+Posted by **adventurepaul** · **35↑** · **22 comments**
 
 Hi r/ecommerce \- I'm Paul and I follow the e-commerce industry closely for my Shopifreaks E-commerce Newsletter. Every week for the past 5 years I've posted a summary recap of the week's top stories on this subreddit, which I cover in depth with sources in the full edition. Let's dive in to this week's top e-commerce news...
 ___

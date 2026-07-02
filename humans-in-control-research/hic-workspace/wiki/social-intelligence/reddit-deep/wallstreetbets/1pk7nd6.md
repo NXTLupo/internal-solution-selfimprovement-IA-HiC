@@ -21,28 +21,36 @@ chunks:
     char_span: [0, 1847]
     sentence_count: 5
     key_terms: [why-robinhood-hood-shares-getting-164146915, robinhood, trading, news, company, volumes, wallstreetbets, market]
+    concepts: [why-robinhood-hood-shares-getting-164146915, robinhood, trading, wallstreetbets, company]
     token_count: 411
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1pk7nd6/robinhood_drops_9_as_november_data_shows_sharp/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pk7nd6.md#c1"
     char_span: [1849, 2925]
     sentence_count: 6
     key_terms: [market, investors, robinhood, capital, million, trading, crypto, worth]
+    concepts: [market, investors, robinhood, capital, million]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1pk7nd6.md#c2"]
     token_count: 269
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pk7nd6.md#c2"
     char_span: [2939, 4540]
     sentence_count: 11
     key_terms: [market, pinpsychological82, robinhood, poly, invested, discord, months, month]
+    concepts: [pinpsychological82, market, robinhood, invested, discord]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1pk7nd6.md#c1"]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pk7nd6.md#c3"
     char_span: [4542, 6405]
     sentence_count: 10
     key_terms: [priced, excitingpackage1301, "it's", probably, trading, market, polymarket, already]
+    concepts: [excitingpackage1301, priced, probably, trading, market]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pk7nd6.md#c4"
     char_span: [6407, 8326]
     sentence_count: 20
     key_terms: [sports, thatstodd, like, gambling, states, day, tax, want]
+    concepts: [sports, thatstodd, gambling, states, draftkings]
     section: Comments
     token_count: 489
 ---

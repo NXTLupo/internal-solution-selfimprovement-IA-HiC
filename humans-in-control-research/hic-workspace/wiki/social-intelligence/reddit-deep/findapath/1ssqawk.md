@@ -19,35 +19,47 @@ chunks:
     char_span: [0, 1116]
     sentence_count: 7
     key_terms: [like, job, findapath, warehouse, comments, software, rather, trying]
+    concepts: [findapath, warehouse, comments, software, rather]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1ssqawk/id_rather_work_a_warehouse_job_than_be_a_software/"}]
   - id: "social-intelligence/reddit-deep/findapath/1ssqawk.md#c1"
-    char_span: [1131, 2878]
+    char_span: [1130, 2877]
     sentence_count: 11
     key_terms: [warehouse, thank, helpful, working, please, findapath, comments, everyone]
+    concepts: [warehouse, thank, helpful, working, please]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1ssqawk.md#c2"]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/findapath/1ssqawk.md#c2"
-    char_span: [2880, 4923]
+    char_span: [2879, 4922]
     sentence_count: 13
     key_terms: [warehouse, job, working, warehouses, corporate, too, monotonous, surrounded]
+    concepts: [warehouse, working, warehouses, corporate, monotonous]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1ssqawk.md#c1", "social-intelligence/reddit-deep/findapath/1ssqawk.md#c3"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/findapath/1ssqawk.md#c3"
-    char_span: [4925, 6778]
+    char_span: [4924, 6777]
     sentence_count: 16
     key_terms: [warehouse, like, work, year, experience, understand, corporate, lifestyle]
+    concepts: [warehouse, experience, understand, corporate, lifestyle]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1ssqawk.md#c2"]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/findapath/1ssqawk.md#c4"
-    char_span: [6780, 8265]
+    char_span: [6779, 8264]
     sentence_count: 19
     key_terms: ["you're", people, job, software, collar, blue, like, work]
+    concepts: ["you're", people, software, collar, because]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1ssqawk.md#c5"]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/findapath/1ssqawk.md#c5"
-    char_span: [8267, 10413]
+    char_span: [8266, 10412]
     sentence_count: 16
     key_terms: [job, software, collar, money, blue, physical, having, school]
+    concepts: [software, collar, money, physical, having]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1ssqawk.md#c4"]
     section: Comments
     token_count: 509
 ---

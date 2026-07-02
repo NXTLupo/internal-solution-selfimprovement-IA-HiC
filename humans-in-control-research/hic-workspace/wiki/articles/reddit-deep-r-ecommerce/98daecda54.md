@@ -19,39 +19,49 @@ content_hash: "d07b1e664c6f728d"
 relevance_by_goal: {"490684cfa204":40}
 chunks:
   - id: "articles/reddit-deep-r-ecommerce/98daecda54.md#c0"
-    char_span: [0, 547]
+    char_span: [0, 546]
     sentence_count: 3
     key_terms: [e-commerce, ecommerce, industry, edition, reddit, "week's", recap, news]
-    token_count: 148
+    concepts: [e-commerce, ecommerce, industry, edition, reddit]
+    token_count: 147
+    sources: [{"n":"Reddit Deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1u0m8pr/ecommerce_industry_news_recap_week_of_june_8th/"}]
   - id: "articles/reddit-deep-r-ecommerce/98daecda54.md#c1"
-    char_span: [549, 3050]
+    char_span: [548, 3049]
     sentence_count: 12
     key_terms: [search, google, publishers, discover, creator, feature, direct, tokens]
+    concepts: [search, google, publishers, discover, creator]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/98daecda54.md#c2"
-    char_span: [2694, 5318]
+    char_span: [2693, 5317]
     sentence_count: 15
     key_terms: [business, walmart, competition, governments, new, delivery, in-store, company]
+    concepts: [business, walmart, competition, governments, delivery]
+    related_chunks: ["articles/reddit-deep-r-ecommerce/98daecda54.md#c3"]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/98daecda54.md#c3"
-    char_span: [4971, 7470]
+    char_span: [4970, 7469]
     sentence_count: 9
     key_terms: [june, business, walmart, prime, run, company, agents, announcement]
+    concepts: [business, walmart, prime, company, announcement]
+    related_chunks: ["articles/reddit-deep-r-ecommerce/98daecda54.md#c2"]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/98daecda54.md#c4"
-    char_span: [7173, 9532]
+    char_span: [7172, 9531]
     sentence_count: 12
     key_terms: [companies, prime, amazon, market, public, sales, membership, listening]
+    concepts: [companies, prime, amazon, market, public]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/98daecda54.md#c5"
-    char_span: [9277, 10197]
+    char_span: [9276, 10196]
     sentence_count: 6
     key_terms: [consumer, across, google, sales, healthcare-related, ads, ross, broad-match]
+    concepts: [consumer, across, google, sales]
     token_count: 213
   - id: "articles/reddit-deep-r-ecommerce/98daecda54.md#c6"
-    char_span: [10199, 11125]
+    char_span: [10198, 11124]
     sentence_count: 7
     key_terms: [interesting, discounts, reviews, smaller, people, search, "it's", expectations]
+    concepts: [interesting, discounts, reviews, smaller, people]
     token_count: 198
 ---
 # E-commerce Industry News Recap 🔥 Week of June 8th, 2026

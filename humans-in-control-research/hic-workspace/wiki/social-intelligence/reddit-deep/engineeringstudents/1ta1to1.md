@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 516]
     sentence_count: 4
     key_terms: [experience, internship, engineeringstudents, comments, fresher, months, abap, get]
+    concepts: [engineeringstudents, experience, internship, comments, fresher]
     token_count: 138
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1ta1to1/how_to_get_a_job_in_sap_abap_as_a_fresher_with_6/"}]
 ---
 # How to get a job in SAP ABAP as a fresher with 6 months internship experience.
 

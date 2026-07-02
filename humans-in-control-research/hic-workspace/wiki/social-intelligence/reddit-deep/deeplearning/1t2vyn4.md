@@ -21,16 +21,23 @@ chunks:
     char_span: [0, 2169]
     sentence_count: 12
     key_terms: [transformer, interfaces, orientation, diagnostic, invariants, scope, contract, architecture]
+    concepts: [transformer, interfaces, orientation, diagnostic, invariants]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1t2vyn4.md#c1", "social-intelligence/reddit-deep/deeplearning/1t2vyn4.md#c2"]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1t2vyn4/3iatlas_diagnostic_run_on_a_transformer_dnn_via/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1t2vyn4.md#c1"
     char_span: [2171, 3910]
     sentence_count: 9
     key_terms: [transformer, intelligence, invariants, invariant, attention, lens, model, explicitly]
+    concepts: [transformer, intelligence, invariants, invariant, attention]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1t2vyn4.md#c0", "social-intelligence/reddit-deep/deeplearning/1t2vyn4.md#c2"]
     token_count: 417
   - id: "social-intelligence/reddit-deep/deeplearning/1t2vyn4.md#c2"
     char_span: [3912, 5835]
     sentence_count: 10
     key_terms: [transformer, intelligence, attention, diagnostic, gradient, sensing, weights, system]
+    concepts: [transformer, intelligence, attention, diagnostic, gradient]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1t2vyn4.md#c0", "social-intelligence/reddit-deep/deeplearning/1t2vyn4.md#c1"]
     token_count: 448
 ---
 # 3I-ATLAS diagnostic run on a Transformer DNN (via Manus AI)

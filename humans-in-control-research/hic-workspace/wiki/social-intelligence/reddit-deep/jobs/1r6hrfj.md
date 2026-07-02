@@ -19,40 +19,52 @@ chunks:
     char_span: [0, 1988]
     sentence_count: 25
     key_terms: [entry-level, ibm, jobs, junior, people, "that's", experienced, week]
+    concepts: [entry-level, junior, people, "that's", experienced]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1r6hrfj/ibm_laid_off_thousands_of_senior_workers_in_2025/"}]
   - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c1"
     char_span: [1990, 2965]
     sentence_count: 10
     key_terms: [like, automate, saying, "you're", going, car, jobs, keep]
+    concepts: [automate, saying, "you're", going]
     token_count: 196
   - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c2"
     char_span: [2979, 5053]
     sentence_count: 13
     key_terms: [reset, going, makes, get, efficiency, mortgage, perfect, better]
+    concepts: [reset, efficiency, going, makes, mortgage]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1r6hrfj.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c3"
     char_span: [4817, 5576]
     sentence_count: 5
     key_terms: [salary, reset, mortgage, security, lowest, prices, wonderfulvariation93, good]
+    concepts: [salary, reset, mortgage, security, lowest]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1r6hrfj.md#c2"]
     section: Comments
     token_count: 185
   - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c4"
     char_span: [5578, 7465]
     sentence_count: 13
     key_terms: [hiring, salaries, back, new, juniors, senior, alaskaexplorationgeo, available-range-5341]
+    concepts: [hiring, salaries, juniors, senior, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1r6hrfj.md#c5"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c5"
     char_span: [7467, 9488]
     sentence_count: 11
     key_terms: [ibm, talent, earnings, company, senior, "don't", like, management]
+    concepts: [talent, earnings, company, senior, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1r6hrfj.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c6"
     char_span: [9213, 10664]
     sentence_count: 8
     key_terms: [appropriate-leg3965, fromafooltoawiseman, "don't", house, own, conversations, oz7tyubbs5sh6, appreciation]
+    concepts: [appropriate-leg3965, "don't", house]
     section: Comments
     token_count: 410
 ---

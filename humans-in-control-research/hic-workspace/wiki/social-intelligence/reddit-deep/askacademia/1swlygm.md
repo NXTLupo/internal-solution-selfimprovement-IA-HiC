@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 1889]
     sentence_count: 17
     key_terms: [history, get, top, pursue, school, academia, question, schools]
+    concepts: [history, pursue, school, academia, question]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1swlygm.md#c1"]
     token_count: 451
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1swlygm/should_i_pursue_academia_in_history/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1swlygm.md#c1"
     char_span: [1903, 4064]
     sentence_count: 19
     key_terms: [job, academic, okay, history, exhausted-teacher789, top, pursue, tenure]
+    concepts: [academic, exhausted-teacher789, history, pursue, tenure]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1swlygm.md#c0", "social-intelligence/reddit-deep/askacademia/1swlygm.md#c2", "social-intelligence/reddit-deep/askacademia/1swlygm.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1swlygm.md#c2"
     char_span: [3787, 5034]
     sentence_count: 14
     key_terms: [did, jobs, academic, because, history, paying, wouldn, years]
+    concepts: [academic, because, history, paying, wouldn]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1swlygm.md#c1", "social-intelligence/reddit-deep/askacademia/1swlygm.md#c3"]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/askacademia/1swlygm.md#c3"
     char_span: [5036, 7317]
     sentence_count: 24
     key_terms: [history, academic, job, someone, jobs, teach, get, guarantee]
+    concepts: [history, academic, someone, teach, guarantee]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1swlygm.md#c1", "social-intelligence/reddit-deep/askacademia/1swlygm.md#c2"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/askacademia/1swlygm.md#c4"
     char_span: [7319, 8906]
     sentence_count: 4
     key_terms: [phd, experience, teaching, school, transferrable, broadwaybean, internships, plus]
+    concepts: [experience, teaching, transferrable, broadwaybean, school]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/askacademia/1swlygm.md#c5"
     char_span: [8908, 11135]
     sentence_count: 12
     key_terms: [history, sad-staff1734, drtonytiger, phd, oversupply, professors, professor, analyst]
+    concepts: [history, sad-staff1734, drtonytiger, oversupply, professors]
     section: Comments
     token_count: 510
 ---

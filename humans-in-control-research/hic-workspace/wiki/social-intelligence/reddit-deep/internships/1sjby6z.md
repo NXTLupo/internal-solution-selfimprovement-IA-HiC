@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1638]
     sentence_count: 4
     key_terms: [internships, nothing, anything, experience, companies, doing, atp, got]
+    concepts: [internships, nothing, anything, experience, companies]
     token_count: 374
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sjby6z/internships/"}]
   - id: "social-intelligence/reddit-deep/internships/1sjby6z.md#c1"
     char_span: [1652, 3020]
     sentence_count: 5
     key_terms: [anjalii18, best, hope, trying, field, mails, phase, hotreflection9251]
+    concepts: [anjalii18, trying, field, mails, phase]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/internships/1sjby6z.md#c2"
     char_span: [3022, 4240]
     sentence_count: 8
     key_terms: [because, increase, opportunity, get, like, take, experience, failing]
+    concepts: [because, increase, opportunity, experience, failing]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/internships/1sjby6z.md#c3"
     char_span: [4242, 6197]
     sentence_count: 8
     key_terms: [anjalii18, working, work, internship, honestly, thankyou, timely-transition785, right]
+    concepts: [anjalii18, working, internship, honestly, thankyou]
     section: Comments
     token_count: 510
 ---

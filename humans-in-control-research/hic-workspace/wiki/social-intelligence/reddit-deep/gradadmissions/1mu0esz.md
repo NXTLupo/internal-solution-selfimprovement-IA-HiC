@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1156]
     sentence_count: 9
     key_terms: [getting, gradadmissions, application, year, comments, learning, software, machine]
+    concepts: [gradadmissions, getting, application, comments, learning]
     token_count: 277
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1mu0esz/getting_into_machine_learning_grad_school_with/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1mu0esz.md#c1"
     char_span: [1170, 1379]
     sentence_count: 5

@@ -20,41 +20,54 @@ chunks:
     char_span: [0, 1565]
     sentence_count: 14
     key_terms: [data, snowflake, low-code, dataengineering, through, fabric, centralized, engineering]
+    concepts: [snowflake, dataengineering, low-code, through, fabric]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c1", "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c2", "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c3", "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c6"]
     token_count: 343
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1oj8uaq/snowflake_vs_ms_fabric/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c1"
-    char_span: [1580, 3836]
+    char_span: [1579, 3835]
     sentence_count: 15
     key_terms: [snowflake, data, engineering, platform, dataengineering, fabric, power, sql]
+    concepts: [snowflake, engineering, dataengineering, platform, fabric]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c0", "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c2", "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c3", "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c6"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c2"
-    char_span: [3838, 4349]
+    char_span: [3837, 4348]
     sentence_count: 6
     key_terms: [fabric, snowflake, skills, team, use, onaliquidrock, enterprise, unfinished]
+    concepts: [fabric, snowflake, skills]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c0", "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c1", "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c3", "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c6"]
     section: Comments
     token_count: 126
   - id: "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c3"
-    char_span: [4351, 6482]
+    char_span: [4350, 6481]
     sentence_count: 15
     key_terms: [snowflake, fabric, power, solution, tools, data, like, time]
+    concepts: [snowflake, fabric, power, solution, tools]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c0", "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c1", "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c2", "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c5", "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c4"
-    char_span: [6182, 6710]
+    char_span: [6181, 6709]
     sentence_count: 3
     key_terms: [need, centralization, capabilities, enterprise, guidelines, certified, effective, analysts]
     section: Comments
     token_count: 110
   - id: "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c5"
-    char_span: [6712, 8965]
+    char_span: [6711, 8964]
     sentence_count: 18
     key_terms: [snowflake, data, power, use, storage, pretty, tools, code]
+    concepts: [snowflake, power, storage, pretty, tools]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c3"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c6"
-    char_span: [8967, 10456]
+    char_span: [8966, 10455]
     sentence_count: 10
     key_terms: [snowflake, user-guide-getting-started, requirements, microsoft, want, fabric, ecosystem, technical]
+    concepts: [user-guide-getting-started, snowflake, requirements, microsoft, fabric]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c0", "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c1", "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c2", "social-intelligence/reddit-deep/dataengineering/1oj8uaq.md#c3"]
     section: Comments
     token_count: 340
 ---

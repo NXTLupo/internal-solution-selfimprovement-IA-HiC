@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1081]
     sentence_count: 6
     key_terms: [wealth, management, financialcareers, people, paths, best, comments, advisor]
+    concepts: [management, wealth, financialcareers, people, paths]
     token_count: 231
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1tmz72x/what_career_paths_can_you_realistically_move_into/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1tmz72x.md#c1"
-    char_span: [1096, 2018]
+    char_span: [1095, 2017]
     sentence_count: 6
     key_terms: [financialcareers, discord, professionals, full-time, banking, trading, career, automatically]
+    concepts: [financialcareers, professionals, discord, full-time, banking]
     section: Comments
     token_count: 202
 ---

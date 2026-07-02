@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1446]
     sentence_count: 11
     key_terms: [degree, engineeringstudents, job, real, unemployable, given, essentially, experience]
+    concepts: [engineeringstudents, degree, unemployable, essentially, experience]
     token_count: 321
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1lld2pf/unemployed_and_cant_find_job_what_to_do/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lld2pf.md#c1"
     char_span: [1460, 3537]
     sentence_count: 18
     key_terms: [companies, time, work, find, linkedin, college, message, working]
+    concepts: [companies, linkedin, college, message, working]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lld2pf.md#c2"

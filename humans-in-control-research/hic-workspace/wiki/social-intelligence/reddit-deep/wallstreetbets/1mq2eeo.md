@@ -21,57 +21,68 @@ chunks:
     char_span: [0, 1958]
     sentence_count: 12
     key_terms: [reddit, wallstreetbets, advertisers, comments, intelligence, arpu, rddt, community]
+    concepts: [reddit, wallstreetbets, advertisers, comments, intelligence]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1mq2eeo/14m_dd_gainz_rddt_is_still_cheap/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c1"
     char_span: [1960, 4318]
     sentence_count: 17
     key_terms: [reddit, microsoft-confirms-reddit-blocked-bing-search-444385, search, users, searchengineland, engines, google, monetization]
+    concepts: [reddit, microsoft-confirms-reddit-blocked-bing-search-444385, search, searchengineland, users]
     token_count: 497
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c2"
     char_span: [4320, 6145]
     sentence_count: 10
     key_terms: [reddit, png, committee, rddt, diverse, preview, format, https]
+    concepts: [reddit, committee, diverse, preview, format]
     token_count: 465
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c3"
     char_span: [6159, 6461]
     sentence_count: 1
     key_terms: [comments, total, wallstreetbets, submissions, visualmod, previous, account, months]
+    concepts: [comments, total]
     section: Comments
     token_count: 112
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c4"
     char_span: [6463, 8292]
     sentence_count: 13
     key_terms: [buy, reddit, ipo, myself, stock, like, wsb, position]
+    concepts: [reddit, myself, stock, position, discord]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c5"
     char_span: [8294, 9722]
     sentence_count: 19
     key_terms: [ticker, platform, usually, growth, green, price, back, rddt]
+    concepts: [ticker, platform, usually, growth, green]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c6"
     char_span: [9724, 10767]
     sentence_count: 8
     key_terms: [looking, fundamentals, time, astrology, technical, against, growing, ripping]
+    concepts: [looking, fundamentals, astrology, technical, against]
     section: Comments
     token_count: 253
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c7"
     char_span: [10769, 12385]
     sentence_count: 14
     key_terms: [buy, bought, market, time, technicals, obviously, anything, netflix]
+    concepts: [bought, market, technicals, obviously, anything]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c8"
     char_span: [12387, 13519]
     sentence_count: 8
     key_terms: [roas, winners, though, takebackyourfuture, organizational, techtuna1200, nygiants181, impressive]
+    concepts: [winners, though]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c9"
     char_span: [13521, 14962]
     sentence_count: 8
     key_terms: [bots, people, internet, buying, stupid, alarmingadvertising5, alwaysfavoriteasian, users]
+    concepts: [people, internet, buying, stupid, users]
     section: Comments
     token_count: 445
 ---

@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 1498]
     sentence_count: 5
     key_terms: [productivity, productive, identity, someone, person, trying, "i'm", consistent]
+    concepts: [productivity, productive, identity, someone, person]
     token_count: 316
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1mh47vp/i_discovered_why_most_people_never_actually/"}]
   - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c1"
     char_span: [1512, 3252]
     sentence_count: 9
     key_terms: [shame, get, uncertainty, eliminate, inability, want, designerspot1469, deleted]
+    concepts: [shame, uncertainty, designerspot1469, eliminate, inability]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1mh47vp.md#c2"]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c2"
     char_span: [3254, 4368]
     sentence_count: 13
     key_terms: [uncertainty, resistance, shame, constantly, inability, feel, eliminate, control]
+    concepts: [uncertainty, resistance, shame, constantly, inability]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1mh47vp.md#c1"]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c3"
     char_span: [4370, 6343]
     sentence_count: 11
     key_terms: [designerspot1469, feel, change, person, agree, thank, done, dont]
+    concepts: [designerspot1469, change, person, agree, thank]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c4"
     char_span: [6108, 6736]
     sentence_count: 4
     key_terms: [night, neurodevelopmental, designerspot1469, person-specific, nona-sequitur, procrastinate, solutions--at, impenetrable]
+    concepts: [night]
     section: Comments
     token_count: 159
   - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c5"
     char_span: [6738, 8346]
     sentence_count: 10
     key_terms: [thoughts, myself, reframing, happened, identity, foresee, bad, past]
+    concepts: [thoughts, myself, reframing, happened, identity]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c6"
     char_span: [8349, 10390]
     sentence_count: 26
     key_terms: [work, people, network, budget, dishes, "it's", like, need]
+    concepts: [people, network, budget, dishes, analysis]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c7"
     char_span: [10392, 11190]
     sentence_count: 9
     key_terms: [different, technique, everyone, designerspot1469, common, situations, useful, using]
+    concepts: [different, designerspot1469, technique, everyone, common]
     section: Comments
     token_count: 189
 ---

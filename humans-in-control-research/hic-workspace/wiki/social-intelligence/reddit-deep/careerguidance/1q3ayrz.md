@@ -19,44 +19,53 @@ chunks:
     char_span: [0, 323]
     sentence_count: 3
     key_terms: [careerguidance, comments, reddit-deep, department, scratch, trained, posted, reddit]
+    concepts: [careerguidance, comments]
     token_count: 94
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1q3ayrz/i_built_the_it_department_from_scratch_and_now_i/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1q3ayrz.md#c1"
     char_span: [325, 2624]
     sentence_count: 22
     key_terms: [bosses, carlos, months, been, because, "didn't", department, everything]
+    concepts: [bosses, carlos, months, because, "didn't"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1q3ayrz.md#c2"
     char_span: [2349, 2705]
     sentence_count: 5
     key_terms: [carlos, department, reporting, technical, deserved, scenario, todayits, tomorrow]
+    concepts: [carlos]
     token_count: 82
   - id: "social-intelligence/reddit-deep/careerguidance/1q3ayrz.md#c3"
     char_span: [2707, 4122]
     sentence_count: 16
     key_terms: [carlos, going, knowledge, agreed, better, single, opportunities, professional]
+    concepts: [carlos, going, knowledge, agreed, better]
     token_count: 323
   - id: "social-intelligence/reddit-deep/careerguidance/1q3ayrz.md#c4"
     char_span: [4136, 4583]
     sentence_count: 5
     key_terms: [golden, resume, time, contributions, recognition, daughter, leverage, promoted]
+    concepts: [golden, resume]
     section: Comments
     token_count: 104
   - id: "social-intelligence/reddit-deep/careerguidance/1q3ayrz.md#c5"
     char_span: [4585, 6339]
     sentence_count: 12
     key_terms: [like, carlos, look, "i'd", "it's", everything, company, learned]
+    concepts: [carlos, everything, company, learned, minimum]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/careerguidance/1q3ayrz.md#c6"
     char_span: [6341, 8033]
     sentence_count: 20
     key_terms: [few-painting-8096, good, job, answers, "don't", "it's", yourself, carlos]
+    concepts: [few-painting-8096, answers, "don't", yourself, carlos]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/careerguidance/1q3ayrz.md#c7"
     char_span: [8035, 8370]
     sentence_count: 4
     key_terms: [get, somewhere, sashasidelcoaching, thelearningjourney, appreciated, promotion, message, thought]
+    concepts: [somewhere]
     section: Comments
     token_count: 89
 ---

@@ -19,58 +19,75 @@ chunks:
     char_span: [0, 2166]
     sentence_count: 3
     key_terms: [berkeley, eecs, within, mit, applyingtocollege, school, class, tier]
+    concepts: [berkeley, within, applyingtocollege, school, acceptance]
     token_count: 471
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1ti8twh/uc_berkeley_eecs_instate_other_t1_engineering/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c1"
     char_span: [2168, 2750]
     sentence_count: 3
     key_terms: [berkeley, because, did, get, mit, connections, financially, prestigious]
+    concepts: [berkeley, because]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c9"]
     token_count: 126
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c2"
     char_span: [2764, 4740]
     sentence_count: 6
     key_terms: [engineering, mit, flexibility, schools, big, tech, berkeley, natural]
+    concepts: [engineering, flexibility, schools, berkeley, natural]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c7", "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c9"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c3"
     char_span: [4742, 6618]
     sentence_count: 4
     key_terms: [major, day, engineering, additional, transfer, degree, majors, public]
+    concepts: [major, engineering, additional, transfer, simultaneous]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c4"
     char_span: [6620, 8606]
     sentence_count: 11
     key_terms: [mit, employment, scared-traffic-4060, vast-operation3463, berkeley, primary, degree, market]
+    concepts: [scared-traffic-4060, vast-operation3463, employment, berkeley, ritzcraackerz]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c5"
     char_span: [8608, 10456]
     sentence_count: 9
     key_terms: [coast, schools, east, engineering, collegetransitions, top-feeders-tech, school, cmu]
+    concepts: [coast, schools, engineering, collegetransitions, top-feeders-tech]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c2"]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c6"
     char_span: [10458, 12673]
     sentence_count: 8
     key_terms: [berkeley, flagship, waterloo, independent-tart608, people, "don't", get, acceptance]
+    concepts: [berkeley, flagship, waterloo, independent-tart608, people]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c7"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c7"
     char_span: [12675, 14687]
     sentence_count: 6
     key_terms: [berkeley, schools, outcome, people, time, developing, generation, honestly]
+    concepts: [berkeley, schools, outcome, people, developing]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c9"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c8"
     char_span: [14689, 16450]
     sentence_count: 11
     key_terms: [berkeley, mit, lawrence, been, cost, new, roi, in-state]
+    concepts: [berkeley, lawrence, in-state, believe, federal]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c9"
     char_span: [16452, 17576]
     sentence_count: 9
     key_terms: [berkeley, because, labs, students, private, schools, bigstatistician4166, range]
+    concepts: [berkeley, because, students, private, schools]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c7"]
     section: Comments
     token_count: 245
 ---

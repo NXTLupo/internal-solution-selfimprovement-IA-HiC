@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 992]
     sentence_count: 5
     key_terms: [engineeringstudents, please, ece, free, comments, industry, seniors, online]
+    concepts: [engineeringstudents, please, comments, industry, seniors]
     token_count: 237
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1kw1owp/what_all_skills_does_an_electronics_engineer_need/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kw1owp.md#c1"
     char_span: [1006, 1963]
     sentence_count: 4
     key_terms: [engineeringstudents, infinitecoderunner, wiki, reddit, https, com, new-tie-6529, read]
+    concepts: [engineeringstudents, infinitecoderunner, reddit, https, new-tie-6529]
     section: Comments
     token_count: 248
 ---

@@ -20,36 +20,48 @@ chunks:
     char_span: [0, 1083]
     sentence_count: 7
     key_terms: [registration, classes, jellybeans, beginning, comments, tomorrow, bostonu, through]
+    concepts: [registration, classes, jellybeans, beginning, comments]
+    related_chunks: ["social-intelligence/reddit-deep/bostonu/1lihmnf.md#c3", "social-intelligence/reddit-deep/bostonu/1lihmnf.md#c6"]
     token_count: 256
+    sources: [{"n":"reddit-deep: r/bostonu","u":"https://www.reddit.com/r/BostonU/comments/1lihmnf/incoming_student_course_registration_is_tomorrow/"}]
   - id: "social-intelligence/reddit-deep/bostonu/1lihmnf.md#c1"
     char_span: [1085, 2967]
     sentence_count: 5
     key_terms: [https, edu, www, for-current-students, admissions, academics, incoming-first-year-student-registration, checklist-for-incoming-bu-eng-students]
+    concepts: [https, for-current-students, admissions, academics, writingprogram]
     token_count: 512
   - id: "social-intelligence/reddit-deep/bostonu/1lihmnf.md#c2"
     char_span: [2739, 4077]
     sentence_count: 8
     key_terms: [hub, classes, requirements, hub-requirements-for-entering-first-year-students, edu, credits, writingprogram, https]
+    concepts: [requirements, classes, writingprogram, credits, curriculum]
+    related_chunks: ["social-intelligence/reddit-deep/bostonu/1lihmnf.md#c3"]
     token_count: 328
   - id: "social-intelligence/reddit-deep/bostonu/1lihmnf.md#c3"
     char_span: [4081, 6124]
     sentence_count: 9
     key_terms: [register, classes, schedule, mybu, registration, requirements, https, shopping]
+    concepts: [register, classes, schedule, registration, requirements]
+    related_chunks: ["social-intelligence/reddit-deep/bostonu/1lihmnf.md#c0", "social-intelligence/reddit-deep/bostonu/1lihmnf.md#c2", "social-intelligence/reddit-deep/bostonu/1lihmnf.md#c6"]
     token_count: 490
   - id: "social-intelligence/reddit-deep/bostonu/1lihmnf.md#c4"
     char_span: [6126, 8218]
     sentence_count: 18
     key_terms: [classes, major, highly, connections, professor, recommend, students, explore]
+    concepts: [classes, major, highly, connections, professor]
     token_count: 469
   - id: "social-intelligence/reddit-deep/bostonu/1lihmnf.md#c5"
     char_span: [8222, 8628]
     sentence_count: 6
     key_terms: [questions, "can't", feel, free, registration, jellybeans, available, exciting]
+    concepts: [questions, "can't"]
     token_count: 96
   - id: "social-intelligence/reddit-deep/bostonu/1lihmnf.md#c6"
-    char_span: [8643, 10175]
+    char_span: [8642, 10174]
     sentence_count: 7
     key_terms: [registration, classes, enroll, click, backups, course, buowo, get]
+    concepts: [registration, classes, enroll, click, backups]
+    related_chunks: ["social-intelligence/reddit-deep/bostonu/1lihmnf.md#c0", "social-intelligence/reddit-deep/bostonu/1lihmnf.md#c3"]
     section: Comments
     token_count: 427
 ---

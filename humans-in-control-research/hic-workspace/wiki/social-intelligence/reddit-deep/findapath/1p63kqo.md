@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 664]
     sentence_count: 3
     key_terms: [work, findapath, comments, balance, "i'm", job, less, life]
+    concepts: [findapath, comments, balance]
     token_count: 163
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1p63kqo/career_paths_that_have_good_work_life_balance_or/"}]
   - id: "social-intelligence/reddit-deep/findapath/1p63kqo.md#c1"
     char_span: [678, 2630]
     sentence_count: 14
     key_terms: [thank, like, work, everyone, helpful, please, findapath, comments]
+    concepts: [thank, everyone, helpful, please, findapath]
     section: Comments
     token_count: 454
 ---

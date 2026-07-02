@@ -20,52 +20,66 @@ chunks:
     char_span: [0, 2014]
     sentence_count: 19
     key_terms: [car, statefarm, phone, repair, subaru, intersection, since, total]
+    concepts: [statefarm, phone, intersection, repair, subaru]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1qhpjiy/statefarm_deems_my_car_totaled_is_there_any/"}]
   - id: "social-intelligence/reddit-deep/insurance/1qhpjiy.md#c1"
     char_span: [2016, 3367]
     sentence_count: 14
     key_terms: [estimate, repair, total, mechanics, communicated, car, statefarm, valuation]
+    concepts: [estimate, repair, mechanics, total, communicated]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qhpjiy.md#c3", "social-intelligence/reddit-deep/insurance/1qhpjiy.md#c5"]
     token_count: 293
   - id: "social-intelligence/reddit-deep/insurance/1qhpjiy.md#c2"
-    char_span: [3382, 5037]
+    char_span: [3381, 5036]
     sentence_count: 12
     key_terms: [valuation, car, dispute, "it's", appraisal, challenge, extremely, possible]
+    concepts: [valuation, dispute, appraisal, challenge, extremely]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/insurance/1qhpjiy.md#c3"
-    char_span: [5039, 6590]
+    char_span: [5038, 6589]
     sentence_count: 17
     key_terms: [car, repair, modifications, total, value, did, got, disputing]
+    concepts: [modifications, repair, total, value, disputing]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qhpjiy.md#c1"]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/insurance/1qhpjiy.md#c4"
-    char_span: [6592, 8675]
+    char_span: [6591, 8674]
     sentence_count: 17
     key_terms: [car, rental, estimate, actual, days, get, time, insurance]
+    concepts: [rental, estimate, actual, insurance, company]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qhpjiy.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/insurance/1qhpjiy.md#c5"
-    char_span: [8420, 9550]
+    char_span: [8419, 9549]
     sentence_count: 9
     key_terms: [repair, sales, note, estimate, vehicle, actual, report, based]
+    concepts: [repair, sales, estimate, vehicle, actual]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qhpjiy.md#c1", "social-intelligence/reddit-deep/insurance/1qhpjiy.md#c4"]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/insurance/1qhpjiy.md#c6"
-    char_span: [9552, 11047]
+    char_span: [9551, 11046]
     sentence_count: 10
     key_terms: [cars, car, primarchchaoss, going, yourself, because, altruistic-delay350, comps]
+    concepts: [primarchchaoss, going, yourself, because, comps]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/insurance/1qhpjiy.md#c7"
-    char_span: [11049, 12799]
+    char_span: [11048, 12798]
     sentence_count: 14
     key_terms: [c4ef86dd-0ee6-4278-a64c-257fe1243994, value, car, sold, enthusiast, appraisal, appraiser, currently]
+    concepts: [enthusiast, value, appraisal, appraiser, currently]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/insurance/1qhpjiy.md#c8"
-    char_span: [12801, 13264]
+    char_span: [12800, 13263]
     sentence_count: 6
     key_terms: [gonna, "you're", car, get, replacement, comparison, evaluation, appraisal]
+    concepts: [gonna, "you're"]
     section: Comments
     token_count: 101
 ---

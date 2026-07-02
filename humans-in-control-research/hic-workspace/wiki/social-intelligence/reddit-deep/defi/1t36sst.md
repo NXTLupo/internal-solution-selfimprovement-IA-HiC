@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1021]
     sentence_count: 2
     key_terms: [defi, building, liquidity, comments, dapp, hype, lot, overengineering]
+    concepts: [building, liquidity, comments]
     token_count: 234
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1t36sst/what_i_learned_building_a_defi_dapp_no_hype/"}]
   - id: "social-intelligence/reddit-deep/defi/1t36sst.md#c1"
-    char_span: [1036, 1900]
+    char_span: [1035, 1899]
     sentence_count: 9
     key_terms: [krystal, "don't", pools, defi, new, slop, attribution, automation]
+    concepts: [krystal, "don't", pools]
     section: Comments
     token_count: 232
 ---

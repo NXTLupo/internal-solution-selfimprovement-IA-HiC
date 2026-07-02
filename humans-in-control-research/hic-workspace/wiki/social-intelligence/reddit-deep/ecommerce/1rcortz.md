@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1922]
     sentence_count: 22
     key_terms: [snipcart, website, cart, shopping, shopify, entire, sales, ecommerce]
+    concepts: [snipcart, website, shopping, shopify, entire]
     token_count: 430
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1rcortz/snipcart_vs_ecwid_vs_shopify_checkout/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1rcortz.md#c1"
-    char_span: [1937, 3829]
+    char_span: [1936, 3828]
     sentence_count: 8
     key_terms: [checkout, shopify, payment, custom, integrations, alp44, processor, involved]
+    concepts: [checkout, shopify, payment, integrations, custom]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/ecommerce/1rcortz.md#c2"
-    char_span: [3831, 4497]
+    char_span: [3830, 4496]
     sentence_count: 6
     key_terms: ["snipcart's", checkout, stripe, fewer, issue, customization, transactions, calculation]
+    concepts: ["snipcart's", checkout, stripe, fewer, issue]
     section: Comments
     token_count: 148
 ---

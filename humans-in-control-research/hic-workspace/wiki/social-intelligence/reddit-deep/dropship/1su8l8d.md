@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1144]
     sentence_count: 12
     key_terms: [suppliers, sometimes, comments, dropship, sourcing, finding, always, like]
+    concepts: [suppliers, sometimes, comments, dropship, sourcing]
     token_count: 252
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1su8l8d/things_i_wish_i_understood_earlier_about_sourcing/"}]
   - id: "social-intelligence/reddit-deep/dropship/1su8l8d.md#c1"
-    char_span: [1159, 1715]
+    char_span: [1158, 1714]
     sentence_count: 2
     key_terms: [dropship, spam, self-promotion, automatically, automoderator, communication, understanding, completely]
+    concepts: [dropship]
     section: Comments
     token_count: 129
 ---

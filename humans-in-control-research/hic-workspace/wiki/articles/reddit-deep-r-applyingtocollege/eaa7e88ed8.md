@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1036]
     sentence_count: 7
     key_terms: [experience, applyingtocollege, through, professors, comments, college, reddit, great]
+    concepts: [experience, applyingtocollege, through, professors, comments]
     token_count: 239
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1n2mjdu/colleges_only_deliver_on_65_of_what_they_sell_to/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/eaa7e88ed8.md#c1"
     char_span: [1038, 3173]
     sentence_count: 12
     key_terms: [college, school, professors, university, "you're", keybother7510, great, kids]
+    concepts: [college, school, professors, university, keybother7510]
     token_count: 457
 ---
 # Colleges only deliver on 65% of what they "sell" to applicants

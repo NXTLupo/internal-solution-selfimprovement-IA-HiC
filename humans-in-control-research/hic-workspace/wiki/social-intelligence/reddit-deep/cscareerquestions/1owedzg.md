@@ -19,70 +19,87 @@ chunks:
     char_span: [0, 1103]
     sentence_count: 2
     key_terms: [especially, cscareerquestions, https, post, comments, careers, andrew, useful]
+    concepts: [especially, cscareerquestions, https, comments, careers]
     token_count: 275
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1owedzg/even_andrew_ng_is_saying_overhyped_ai_is_causing/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c1"
     char_span: [1105, 3298]
     sentence_count: 9
     key_terms: [general, frontier, models, applications, time, work, contribute, particular]
+    concepts: [general, frontier, applications, models, contribute]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c8"]
     token_count: 452
   - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c2"
-    char_span: [3313, 4865]
+    char_span: [3312, 4864]
     sentence_count: 16
     key_terms: [sure, need, writing, understanding, "it's", codebase, software, yourself]
+    concepts: [understanding, writing, codebase, software, yourself]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c3"
-    char_span: [4867, 5944]
+    char_span: [4866, 5943]
     sentence_count: 6
     key_terms: [dev, companies, anything, market, people, redact, tough, web]
+    concepts: [companies, anything, market, people, redact]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c4"
-    char_span: [5946, 7901]
+    char_span: [5945, 7900]
     sentence_count: 12
     key_terms: [manufacturing, offshoring, better, killed, people, jobs, automation, compliance]
+    concepts: [manufacturing, offshoring, better, killed, people]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c9"]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c5"
-    char_span: [7903, 9039]
+    char_span: [7902, 9038]
     sentence_count: 10
     key_terms: [job, positions, people, doing, guys, like, work, ienumerable661]
+    concepts: [positions, people, doing]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c6"
-    char_span: [9041, 10284]
+    char_span: [9040, 10283]
     sentence_count: 7
     key_terms: [next, management, offshore, getting, windows, right, been, lol]
+    concepts: [management, offshore, getting, windows, right]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c7"
-    char_span: [10286, 12234]
+    char_span: [10285, 12233]
     sentence_count: 9
     key_terms: [outsourcing, talking, offshoring, ability, around, bubble, evolve, nobody]
+    concepts: [outsourcing, talking, offshoring, ability, around]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c8"
-    char_span: [12238, 13315]
+    char_span: [12237, 13314]
     sentence_count: 5
     key_terms: [long, engineers, frontier, company, models, application-layer, end, need]
+    concepts: [engineers, frontier, company, models]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c1"]
     section: Comments
     token_count: 227
   - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c9"
-    char_span: [13317, 14519]
+    char_span: [13316, 14518]
     sentence_count: 8
     key_terms: [get, people, back, offshoring, onshore, number, swings, different-maize-9818]
+    concepts: [people, offshoring, onshore, number, swings]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c4"]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c10"
-    char_span: [14521, 16593]
+    char_span: [14520, 16592]
     sentence_count: 20
     key_terms: [ubi, anyone, ignore, point, agi, inflection, different, replaced]
+    concepts: [anyone, ignore, inflection, point, different]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c11"
-    char_span: [16595, 18873]
+    char_span: [16594, 18872]
     sentence_count: 15
     key_terms: [code, shit, degree, guarantee, economy, design, people, requirements]
+    concepts: [degree, guarantee, economy, requirements, design]
     section: Comments
     token_count: 507
 ---

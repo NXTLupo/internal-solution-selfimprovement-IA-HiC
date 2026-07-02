@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1595]
     sentence_count: 5
     key_terms: [japan, years, job, careerguidance, jobs, bangladesh, experience, developer]
+    concepts: [japan, years, careerguidance, bangladesh, experience]
     token_count: 385
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sqsman/how_can_i_get_a_job_in_it_industry_in_japan_after/"}]
 ---
 # How can I get a job in IT industry in japan after 3.5 years career gap due to language barriers? 2 years tried but no success. Now I am jlpt N3 passed and learning N2. Any advice or suugestions how can I manage a job now? I am trying but not getting any interviews. #IT Jobs in Japan
 

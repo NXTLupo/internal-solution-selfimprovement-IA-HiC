@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 1201]
     sentence_count: 11
     key_terms: [customers, order, delivery, comments, dropship, messages, product, asking]
+    concepts: [customers, order, delivery, comments, dropship]
     token_count: 253
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1rmxbmf/how_do_you_keep_customers_happy_with_longer/"}]
   - id: "social-intelligence/reddit-deep/dropship/1rmxbmf.md#c1"
-    char_span: [1216, 3253]
+    char_span: [1215, 3252]
     sentence_count: 8
     key_terms: [package, awaiting, delivery, customs, flight, order, destination, set]
+    concepts: [package, awaiting, delivery, customs, flight]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1rmxbmf.md#c2"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/dropship/1rmxbmf.md#c2"
-    char_span: [3255, 4167]
+    char_span: [3254, 4166]
     sentence_count: 3
     key_terms: [package, order, airport, cleared, customs, flight, processing, packing]
+    concepts: [package, order, airport, cleared, customs]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1rmxbmf.md#c1"]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/dropship/1rmxbmf.md#c3"
-    char_span: [4170, 6002]
+    char_span: [4169, 6001]
     sentence_count: 11
     key_terms: [shipping, product, powerful-annual6060, day, email, "isn't", order, customers]
+    concepts: [shipping, powerful-annual6060, product, email, "isn't"]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/dropship/1rmxbmf.md#c4"
-    char_span: [6004, 6433]
+    char_span: [6003, 6432]
     sentence_count: 1
     key_terms: [tracking, aftership, customers, milestones, self-serve, estimates, proactive, processed]
+    concepts: [tracking, aftership, customers]
     section: Comments
     token_count: 97
 ---

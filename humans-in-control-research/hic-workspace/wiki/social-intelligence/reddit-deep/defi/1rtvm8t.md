@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1697]
     sentence_count: 10
     key_terms: [geniepay, https, transaction, wallet, employees, payroll, crypto, github]
+    concepts: [geniepay, https, transaction, wallet, employees]
     token_count: 424
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1rtvm8t/blockchain_payroll_platform/"}]
   - id: "social-intelligence/reddit-deep/defi/1rtvm8t.md#c1"
-    char_span: [1712, 2354]
+    char_span: [1711, 2353]
     sentence_count: 4
     key_terms: [conversion, different, rates, paid, time, denomination, per-employee, compliance]
+    concepts: [conversion, different, rates]
     section: Comments
     token_count: 140
 ---

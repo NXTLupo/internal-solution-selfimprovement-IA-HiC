@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1122]
     sentence_count: 5
     key_terms: [interviewed, job, jobs, graduating, comments, rejected, anyone, co-op]
+    concepts: [interviewed, graduating, comments, rejected, anyone]
     token_count: 270
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1s8epvd/postgrad_jobs_prelaw/"}]
 ---
 # Post-grad jobs Pre-Law
 

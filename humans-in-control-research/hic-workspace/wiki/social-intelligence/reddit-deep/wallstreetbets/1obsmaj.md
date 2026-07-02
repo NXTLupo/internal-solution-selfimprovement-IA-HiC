@@ -21,28 +21,34 @@ chunks:
     char_span: [0, 1506]
     sentence_count: 12
     key_terms: [earnings, wallstreetbets, institutional, comments, investor, tomorrow, bitcoin, expect]
+    concepts: [earnings, wallstreetbets, institutional, comments, investor]
     token_count: 368
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1obsmaj/the_moon_tomorrow_to_glxy_and_beyond_after/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1obsmaj.md#c1"
     char_span: [1508, 2766]
     sentence_count: 10
     key_terms: [https, b0380b954e5f4a217fe8b753accb799ea52c19d9, dipto-mukherjee-scpm-mba-192a322a, com, glxy, here, continuing, coreweave]
+    concepts: [https, continuing, coreweave, business, earnings]
     token_count: 333
   - id: "social-intelligence/reddit-deep/wallstreetbets/1obsmaj.md#c2"
     char_span: [2780, 3897]
     sentence_count: 4
     key_terms: [https, tendies, "wendy's", com, category, account, discord, tenders]
+    concepts: [https, tendies, "wendy's", category, account]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/wallstreetbets/1obsmaj.md#c3"
     char_span: [3899, 5370]
     sentence_count: 3
     key_terms: [peppybilly, e186faadd8ebf3a414f1dcec77770a24e6eafd8d, thabluecat, bought, painterelectrical372, tasselledwobbegong1, money, bet]
+    concepts: [peppybilly, thabluecat, bought, money]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/wallstreetbets/1obsmaj.md#c4"
     char_span: [5372, 6580]
     sentence_count: 3
     key_terms: [deleted, shares, napalm2142, probably, discord, bought, https, never]
+    concepts: [deleted, shares, napalm2142, probably, discord]
     section: Comments
     token_count: 419
 ---

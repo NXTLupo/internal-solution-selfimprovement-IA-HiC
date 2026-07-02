@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 738]
     sentence_count: 2
     key_terms: [customer, fulfillmentbyamazon, amazon, item, classified, comments, damaged, reimbursement]
+    concepts: [customer, fulfillmentbyamazon, amazon, classified, comments]
     token_count: 169
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1t30rtx/has_amazon_ever_classified_your_item_as_customer/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1t30rtx.md#c1"
-    char_span: [753, 1606]
+    char_span: [752, 1605]
     sentence_count: 5
     key_terms: [customer, damaged, happens, "that's", claim, items, camp-affectionate, reimbursement]
+    concepts: [customer, damaged, happens, "that's", claim]
     section: Comments
     token_count: 197
 ---

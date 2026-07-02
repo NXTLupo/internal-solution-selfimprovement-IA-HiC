@@ -20,40 +20,51 @@ chunks:
     char_span: [0, 2347]
     sentence_count: 14
     key_terms: [industry, problem, been, building, because, talking, access, demand]
+    concepts: [industry, problem, building, fragmentation, because]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1qoskgw/trying_to_understand_if_im_doing_something_wrong/"}]
   - id: "social-intelligence/reddit-deep/startups/1qoskgw.md#c1"
     char_span: [2349, 4498]
     sentence_count: 16
     key_terms: [development, round, teams, something, product, raising, distribution, partnerships]
+    concepts: [development, something, round, teams, product]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1qoskgw.md#c2"]
     token_count: 497
   - id: "social-intelligence/reddit-deep/startups/1qoskgw.md#c2"
-    char_span: [4513, 6703]
+    char_span: [4512, 6702]
     sentence_count: 19
     key_terms: [round, larger, beginningrelative811, appreciate, want, product, enough, makes]
+    concepts: [round, beginningrelative811, appreciate, larger, product]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1qoskgw.md#c1", "social-intelligence/reddit-deep/startups/1qoskgw.md#c4"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/startups/1qoskgw.md#c3"
-    char_span: [6705, 8937]
+    char_span: [6704, 8936]
     sentence_count: 20
     key_terms: [beginningrelative811, investor, outreach, deliver, revenue, access, taking, conversations]
+    concepts: [beginningrelative811, investor, outreach, conversations, deliver]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/startups/1qoskgw.md#c4"
-    char_span: [8939, 11140]
+    char_span: [8938, 11139]
     sentence_count: 21
     key_terms: [beginningrelative811, appreciate, distribution, raise, credibility, perspective, incumbents, investors]
+    concepts: [beginningrelative811, appreciate, distribution, credibility, perspective]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1qoskgw.md#c2"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/startups/1qoskgw.md#c5"
-    char_span: [11142, 13430]
+    char_span: [11141, 13429]
     sentence_count: 16
     key_terms: [product, successful-tip1971, investor, capital, startup, sustainability, distribution, expectations]
+    concepts: [product, successful-tip1971, investor, sustainability, capital]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/startups/1qoskgw.md#c6"
-    char_span: [13432, 14618]
+    char_span: [13431, 14617]
     sentence_count: 8
     key_terms: [professionals, industry, specifically, grow, licensed, revenue, startup, beginningrelative811]
+    concepts: [professionals, industry, specifically, licensed, revenue]
     section: Comments
     token_count: 250
 ---

@@ -20,29 +20,39 @@ chunks:
     char_span: [0, 1871]
     sentence_count: 16
     key_terms: [violation, brand, registry, product, fulfillmentbyamazon, selling, infringement, buy]
+    concepts: [violation, registry, brand, fulfillmentbyamazon, product]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1sz6xnq.md#c1"]
     token_count: 411
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1sz6xnq/how_boot_off_hijack_sellers_for_private_label/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1sz6xnq.md#c1"
-    char_span: [1886, 3929]
+    char_span: [1885, 3928]
     sentence_count: 12
     key_terms: [trademark, fulfillmentbyamazon, complaint, registry, discord, amazon, brand, frustrating]
+    concepts: [trademark, fulfillmentbyamazon, complaint, registry, discord]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1sz6xnq.md#c0"]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1sz6xnq.md#c2"
-    char_span: [3931, 6100]
+    char_span: [3930, 6099]
     sentence_count: 16
     key_terms: [transparency, amazon, seller, apply, trademark, happened, brand-registry, counterfeit]
+    concepts: [transparency, amazon, seller, trademark, apply]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1sz6xnq.md#c3"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1sz6xnq.md#c3"
-    char_span: [6102, 8096]
+    char_span: [6101, 8095]
     sentence_count: 17
     key_terms: [transparency, grandfathered, without, buy, test, report, seller, doing]
+    concepts: [transparency, grandfathered, without, report, seller]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1sz6xnq.md#c2"]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1sz6xnq.md#c4"
-    char_span: [8098, 9018]
+    char_span: [8097, 9017]
     sentence_count: 5
     key_terms: [report, flashynomad, ezfrag2016, fraudulent, parallel, country, arrive, import]
+    concepts: [report, flashynomad, ezfrag2016, fraudulent, parallel]
     section: Comments
     token_count: 218
 ---

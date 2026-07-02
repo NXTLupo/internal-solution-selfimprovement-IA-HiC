@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1948]
     sentence_count: 22
     key_terms: [azure, microsoft, already, openai, stock, down, earnings, expected]
+    concepts: [microsoft, azure, already, openai, stock]
     token_count: 499
+    sources: [{"n":"Reddit Deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1shvm71/microsoft_msft_is_down_31_from_its_ath/"}]
   - id: "articles/reddit-deep-r-stocks/1debcb894c.md#c1"
     char_span: [1950, 3427]
     sentence_count: 12
     key_terms: [sub, earnings, google, doomposting, buy, good, everyone, buying]
+    concepts: [earnings, google, doomposting, everyone, buying]
     token_count: 372
 ---
 # Microsoft ($MSFT) is down ~31% from its ATH

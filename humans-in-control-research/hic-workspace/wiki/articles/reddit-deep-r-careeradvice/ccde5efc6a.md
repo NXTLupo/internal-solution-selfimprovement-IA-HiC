@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1060]
     sentence_count: 10
     key_terms: [career, people, careeradvice, personally, comments, anxiety, reddit, right]
+    concepts: [careeradvice, career, people, personally, comments]
     token_count: 249
+    sources: [{"n":"Reddit Deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1rir3az/how_are_you_personally_handling_ai_career_anxiety/"}]
   - id: "articles/reddit-deep-r-careeradvice/ccde5efc6a.md#c1"
     char_span: [1062, 3073]
     sentence_count: 15
     key_terms: [client, using, gap, designer, judgment, careers, option, people]
+    concepts: [client, using, designer, judgment, careers]
     token_count: 454
   - id: "articles/reddit-deep-r-careeradvice/ccde5efc6a.md#c2"
     char_span: [3075, 4375]
     sentence_count: 16
     key_terms: [anxiety, displacement, automatable, assessment, building, industry, instead, seeing]
+    concepts: [anxiety, displacement, automatable, assessment, building]
     token_count: 272
 ---
 # How are you personally handling AI career anxiety right now?

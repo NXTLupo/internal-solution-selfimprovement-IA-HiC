@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1533]
     sentence_count: 7
     key_terms: [applications, universities, applyingtocollege, student, advice, international, scholarships, feel]
+    concepts: [applications, universities, applyingtocollege, international, student]
     token_count: 349
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1mv33nq/uk_student_considering_moving_to_the_us_for/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mv33nq.md#c1"
     char_span: [1547, 3216]
     sentence_count: 15
     key_terms: [major, school, throwawaygremlins, apply, application, per, year, realistic]
+    concepts: [major, school, throwawaygremlins, application, apply]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mv33nq.md#c2"
     char_span: [3218, 5318]
     sentence_count: 18
     key_terms: [school, schools, financial, aid, scholarships, "you're", need-aware, selective]
+    concepts: [school, schools, financial, scholarships, need-aware]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mv33nq.md#c3"
     char_span: [5320, 7416]
     sentence_count: 18
     key_terms: [international, admissions, look, students, schools, internationals, competitive, like]
+    concepts: [international, admissions, students, internationals, schools]
     section: Comments
     token_count: 471
 ---

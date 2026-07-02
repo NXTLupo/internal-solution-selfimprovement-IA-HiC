@@ -7,87 +7,110 @@ subreddit: "salesforce"
 title: "Headless Salesforce on 10 Free Nonprofit Seats — Here’s the Full Stack"
 author: "mcc0nnell"
 date: "2026-02-24T13:50:27.000Z"
-score: 40
-upvote_ratio: 0.83
-num_comments: 48
+score: 39
+upvote_ratio: 0.82
+num_comments: 47
 flair: "developer"
-extracted_at: "2026-06-11T18:58:38.958Z"
+extracted_at: "2026-06-23T20:32:01.764Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Analyze case studies of private equity firms and holding companies (such as Medforth) that build repeatable AI capabilities once and scale them across higher education portfolio companies. Deliver an operational playbook detailing the shared-service models, governance frameworks, and deployment strategies used to scale AI across admissions workflows, student communications, and enrollment operations to accelerate long enrollment cycles."
+engagement: "analyze-case-studies-of-private-equity-firms-and-holding-com"
 chunks:
   - id: "social-intelligence/reddit-deep/salesforce/1rdgr2d.md#c0"
     char_span: [0, 2043]
     sentence_count: 14
     key_terms: [salesforce, portal, nonprofit, org, laravel, authentication, infrastructure, passwordless]
+    concepts: [salesforce, portal, nonprofit, authentication, infrastructure]
     token_count: 481
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1rdgr2d/headless_salesforce_on_10_free_nonprofit_seats/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1rdgr2d.md#c1"
     char_span: [2045, 4536]
     sentence_count: 22
     key_terms: [membership, salesforce, contact, laravel, magic, creates, status, flows]
+    concepts: [membership, salesforce, contact, laravel, magic]
     token_count: 514
   - id: "social-intelligence/reddit-deep/salesforce/1rdgr2d.md#c2"
     char_span: [4538, 6672]
     sentence_count: 18
     key_terms: [idempotency, governance, duplicate, motions, return, board, don, key]
+    concepts: [idempotency, governance, duplicate, motions, return]
     token_count: 521
   - id: "social-intelligence/reddit-deep/salesforce/1rdgr2d.md#c3"
     char_span: [6674, 8787]
     sentence_count: 12
     key_terms: [events, emission, event, dig, summit, governance, eventkey, append-only]
+    concepts: [events, emission, event, governance, summit]
     token_count: 494
   - id: "social-intelligence/reddit-deep/salesforce/1rdgr2d.md#c4"
     char_span: [8789, 10265]
     sentence_count: 6
     key_terms: [geary, slice, deploy, membership, python, tools, cli, manifest]
+    concepts: [geary, slice, deploy, membership, python]
     token_count: 330
   - id: "social-intelligence/reddit-deep/salesforce/1rdgr2d.md#c5"
-    char_span: [10280, 12585]
+    char_span: [10279, 12584]
     sentence_count: 17
     key_terms: [salesforce, application, mcc0nnell, something, features, another, showing, support]
+    concepts: [salesforce, application, mcc0nnell, something, features]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1rdgr2d.md#c7"]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/salesforce/1rdgr2d.md#c6"
-    char_span: [12587, 13006]
+    char_span: [12586, 13005]
     sentence_count: 3
     key_terms: [deterministic, intentionally, revolutionary, architecture, hash-chained, idempotency, zero-budget, membership]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/salesforce/1rdgr2d.md#c7"
-    char_span: [13008, 14985]
+    char_span: [13007, 14984]
     sentence_count: 12
     key_terms: [mcc0nnell, internal, system, "it's", everything, salesforce, database, requests]
+    concepts: [mcc0nnell, internal, system, everything, salesforce]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1rdgr2d.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/salesforce/1rdgr2d.md#c8"
-    char_span: [14726, 15421]
+    char_span: [14725, 15420]
     sentence_count: 5
     key_terms: [portal, members, system, gold-efficiency-4308, user, member-facing, idempotency, information]
+    concepts: [portal, members, system]
     section: Comments
     token_count: 175
   - id: "social-intelligence/reddit-deep/salesforce/1rdgr2d.md#c9"
-    char_span: [15423, 17810]
+    char_span: [15422, 17809]
     sentence_count: 9
     key_terms: [emission, subscriber, chain, hash, platform, question, events, verification]
+    concepts: [emission, subscriber, chain, platform, question]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1rdgr2d.md#c10"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/salesforce/1rdgr2d.md#c10"
-    char_span: [17812, 19916]
+    char_span: [17811, 19915]
     sentence_count: 12
     key_terms: [idempotency, reconciliation, emission, chain, recovery, replay, job, gap]
+    concepts: [idempotency, reconciliation, emission, recovery, chain]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1rdgr2d.md#c9"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/salesforce/1rdgr2d.md#c11"
-    char_span: [19918, 21540]
-    sentence_count: 13
-    key_terms: [salesforce, users, access, available, service, integration, api, different]
+    char_span: [19917, 22169]
+    sentence_count: 20
+    key_terms: [salesforce, access, users, available, free, licenses, service, "can't"]
+    concepts: [salesforce, access, users, available, licenses]
     section: Comments
-    token_count: 370
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/salesforce/1rdgr2d.md#c12"
+    char_span: [22171, 22685]
+    sentence_count: 6
+    key_terms: [control, accessibility, deterministic, hash-chained, "salesforce's", enforcement, idempotency, constrains]
+    concepts: [control]
+    section: Comments
+    token_count: 95
 ---
 # Headless Salesforce on 10 Free Nonprofit Seats — Here’s the Full Stack
 
 Source: [reddit-deep: r/salesforce](https://www.reddit.com/r/salesforce/comments/1rdgr2d/headless_salesforce_on_10_free_nonprofit_seats/)
-Posted by **mcc0nnell** · **40↑** · **48 comments**
+Posted by **mcc0nnell** · **39↑** · **47 comments**
 
 I run a nonprofit called Deaf in Government (DIG). We needed a member portal — not a landing page, a real platform. Membership engine, governance with ballot secrecy, event management, hash-chained audit trails, passwordless auth, and a deployment toolchain that doesn’t require deploying the whole org every time you touch a field.
 
@@ -288,11 +311,11 @@ Full member lifecycle:
 
 ## Comments
 
-- **Interesting_Button60** (33↑): Really thorough post which I appreciate, but this is hella complicated and questionably legal as pointed out. Maybe you should have posted it without tying it to your non profit so you don't get into any trouble.
-  - **mcc0nnell** (11↑): On the complexity: yeah, it’s a lot. But that’s kind of the point of the post — showing what’s actually involved in building something real on the platform without paying for Experience Cloud or a consulting firm. Most Salesforce content stays at the surface level. I wanted to go deeper for the people who’d get something out of it.
+- **Interesting_Button60** (31↑): Really thorough post which I appreciate, but this is hella complicated and questionably legal as pointed out. Maybe you should have posted it without tying it to your non profit so you don't get into any trouble.
+  - **mcc0nnell** (10↑): On the complexity: yeah, it’s a lot. But that’s kind of the point of the post — showing what’s actually involved in building something real on the platform without paying for Experience Cloud or a consulting firm. Most Salesforce content stays at the surface level. I wanted to go deeper for the people who’d get something out of it.
 
 And tying it to the nonprofit is intentional. DIG is the reason it exists. I’m not trying to hide what it’s for — I’m trying to show what’s possible for orgs that have more talent than budget. Sometimes edge cases are worth exploring and questioning.
-    - **Interesting_Button60** (5↑): You 100% succeeded in showing the details of this :)
+    - **Interesting_Button60** (4↑): You 100% succeeded in showing the details of this :)
   - **Strong-Dinner-1367** (1↑): Completely agree.
 - **EnvironmentalTap2413** (10↑): This is acceptable use and not a violation of terms. All you've done is integrate Salesforce with another system. That system happens to be home grown but it could just as easily have been any 3rd party application that provides the functionality you need.
 
@@ -301,25 +324,25 @@ Tens of thousands of customers have integrations between their systems and many 
 Your excitement and lengthy description make it sound like you achieved some amazing feat, and it is commendable that you found a way to support your constituents and keep costs down, however it is not revolutionary and has been done before. Keep supporting your organization and sharing to support the greater community as it is inspiring for others.
 
 If anyone gives you a hard time just ask them "What's not allowed about integrating Salesforce with another application, that's what External Clients/Connected Apps, Mulesoft, Heroku Connect, and a bunch of other Salesforce (and 3rd party) products/features are built to do?"
-  - **mcc0nnell** (6↑): This is exactly it. Thank you for laying it out so clearly.
+  - **mcc0nnell** (5↑): This is exactly it. Thank you for laying it out so clearly.
 
 And you're right — the architecture itself isn't revolutionary. Thousands of orgs integrate external apps with Salesforce every day. What I wanted to show was the full picture of what's possible when a zero-budget nonprofit applies those same patterns intentionally — idempotency, hash-chained audit trails, ballot secrecy, deterministic membership logic — instead of settling for a basic contact form and a newsletter.
 
 Appreciate the encouragement. Will keep sharing.
-- **Etanclan** (20↑): The post and comments all scream AI generated and give me the creeps.
+- **Etanclan** (19↑): The post and comments all scream AI generated and give me the creeps.
   - **SoshulBattery** (8↑): I was thinking the same thing. I have never seen a human leave raw markdown formatting in their post, so probably OP copied and pasted text from an LLM.
-    - **mcc0nnell** (4↑): Half-and-half, admittedly.
-    - **jjdonald** (5↑): Going out on a limb and saying it's Claude.  A lot of the cadence reads the same.
-  - **mcc0nnell** (3↑): Hopefully it helps other nonprofits, though!
+    - **mcc0nnell** (7↑): Half-and-half, admittedly.
+    - **jjdonald** (4↑): Going out on a limb and saying it's Claude.  A lot of the cadence reads the same.
+  - **mcc0nnell** (2↑): Hopefully it helps other nonprofits, though!
   - **Wild_Brilliant_7270** (1↑): Not everything that AI generates is bad, particularly if it's reviewed by the person publishing the content.
-- **No-Coast3171** (11↑): One of the great parts of LLMs is how you can prompt them to provide succinct outputs.
-- **AndroxxTraxxon** (5↑): This seems like a lot of work to set up a Salesforce instance as basically just a database backend. I get that it's done now, but why not use any one of the many FOSS or cheaply hostable databases? At the scale you're limited to here (only 100k requests/day, or a little over 1 request/second), you could run that on a Raspberry Pi.
+- **No-Coast3171** (10↑): One of the great parts of LLMs is how you can prompt them to provide succinct outputs.
+- **AndroxxTraxxon** (6↑): This seems like a lot of work to set up a Salesforce instance as basically just a database backend. I get that it's done now, but why not use any one of the many FOSS or cheaply hostable databases? At the scale you're limited to here (only 100k requests/day, or a little over 1 request/second), you could run that on a Raspberry Pi.
   - **gmsd90** (7↑): I don't think it is a database backend, it is an internal system with off platform portal. I have seen many large clients following this paradigm.
-  - **mcc0nnell** (5↑): If I swapped Salesforce for Postgres, I’d still need to build everything the internal team uses: user management, role-based access, reporting, dashboards, workflow automation, email integration, audit UI. That’s a full application, not a schema.
+  - **mcc0nnell** (8↑): If I swapped Salesforce for Postgres, I’d still need to build everything the internal team uses: user management, role-based access, reporting, dashboards, workflow automation, email integration, audit UI. That’s a full application, not a schema.
 The 10 free Enterprise seats give me all of that out of the box. The API is just the bridge between the internal system and the member-facing portal.
 As for the 100K limit — for a nonprofit with a few hundred active members, with caching and composite requests, we barely touch it. Not every system needs to handle 1 req/sec sustained.
     - **Wild_Brilliant_7270** (1↑): What does the Salesforce side of the schema look like for the members interacting with the portal? Is there information stored in Contacts? Also are you using an integration user to call the API from the portal, or a full enterprise user, or some other license type?
-- **RektAccount** (5↑): Holy ai slop
+- **RektAccount** (6↑): Holy ai slop
   - **mcc0nnell** (-1↑): Hopefully it helps other nonprofits, though!
 - **Gold-Efficiency-4308** (3↑): In the idempotency section. 
 
@@ -341,7 +364,7 @@ Gaps that fall outside the 72-hour replay window get an honest gap marker emissi
 Appreciate you flagging this — it's going straight into the build.
     - **neilsarkr** (2↑): the idempotency as a safe replay mechanism is the part that really clicks - most people treat idempotency as just a duplicate prevention layer but you've essentially made it the foundation of your entire recovery story. the gap marker emission for breaks outside the 72 hour window is elegant too, honest about what happened instead of trying to paper over it. the reconciliation job emitting to the chain so it's auditable is the kind of thing that sounds obvious in hindsight but most people would never think to do. genuinely excited to see where this goes - if you ever open it up beyond DIG I'd be first in line to implement this pattern in a compliance-heavy org we work with. this thread convinced me to go rethink how we handle platform event failures because "hope the subscriber doesn't error" is apparently what we've been doing
 - **gearcollector** (8↑): Sound like aou are violating the Salesforce MSA and EULA with this solution.
-  - **mcc0nnell** (5↑): Appreciate the flag — licensing is worth getting right.
+  - **mcc0nnell** (4↑): Appreciate the flag — licensing is worth getting right.
 
 Short version: end users never access Salesforce. They access a Laravel app. The portal connects to Salesforce via a licensed Integration User (one of the 5 free API-only licenses included with Enterprise Edition) through the REST API. That's a documented, supported integration pattern — same as Mailchimp, HubSpot, or any custom app using the API.
 
@@ -356,6 +379,15 @@ Happy to dig into specific clauses if you see something I'm not seeing.
 
 However, is there a contract for free NPSP?
     - **big-blue-balls** (2↑): What you’ve just described is exactly what you’re not permitted to do. Using an API used to bypass the need to pay for actual users is a circumvention of limits and does indeed have its own clause.
-- **AcksYouaSyn** (12↑): AI Slop
-  - **mcc0nnell** (1↑): Hopefully it helps other nonprofits, though!
-    - **East-Selection-4897** (6↑): if it wasn't worth writing, it's not worth reading
+- **CalBearFan** (4↑): Cool stuff but I'd also be concerned about the MSA terms.
+
+Why not just use the free guest Experience Cloud site that all SF users, including Power of 10, get for free. Custom logic can be built out with Screen Flows and where needed, an LWC. Magic Links can be set up as well. 
+
+Just use a screen flow that relies on a token set by magic link to 'start'/allow access and you're off to the races.
+  - **mcc0nnell** (2↑): Looked at this early on. The problem is guest users can't write data — as of Spring '26 enforcement, they can't update or delete records, can't own records, and max access is read-only. Our portal needs to create memberships, cast ballots, submit RSVPs, and write audit emissions. That requires authenticated write access, which means Community licenses and licensing costs.
+
+The governance system also needs things Flows can't guarantee: strict execution ordering for ballot secrecy, idempotency enforcement via custom headers, hash-chained emissions, and atomic composite operations. Apex gives deterministic control over all of that.
+
+Plus the frontend — Experience Cloud constrains you to Salesforce's component framework. We needed full UI control with Vue + Tailwind for accessibility reasons.
+
+Guest sites are great for public content and simple forms. Just didn't fit this use case.

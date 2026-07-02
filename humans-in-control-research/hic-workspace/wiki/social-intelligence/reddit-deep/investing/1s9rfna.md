@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 1106]
     sentence_count: 10
     key_terms: [spacex-ipo-nasdaq-anthropic-openai-index-investing, investors, https, com, "i'm", www, investing, comments]
+    concepts: [spacex-ipo-nasdaq-anthropic-openai-index-investing, investors, https, investing, comments]
     token_count: 294
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1s9rfna/the_nasdaq_is_being_taken_over/"}]
   - id: "social-intelligence/reddit-deep/investing/1s9rfna.md#c1"
     char_span: [1120, 2075]
     sentence_count: 8
     key_terms: [been, "i've", bit, market, prestigiouspen-2468, good, concentration, interestingly]
+    concepts: [market]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/investing/1s9rfna.md#c2"
     char_span: [2077, 3888]
     sentence_count: 10
     key_terms: [funds, rationalreminder, podcast, concentration, index, like, decided, bubble]
+    concepts: [rationalreminder, funds, concentration, podcast, index]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1s9rfna.md#c3"]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/investing/1s9rfna.md#c3"
     char_span: [3890, 5459]
     sentence_count: 6
     key_terms: [index, funds, qqq, nasdaq, spacex, considering, tech, companies]
+    concepts: [index, funds, nasdaq, spacex, considering]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1s9rfna.md#c2"]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/investing/1s9rfna.md#c4"
     char_span: [5461, 7145]
     sentence_count: 7
     key_terms: [pretty, retirement, prestigiouspen-2468, index, fund, "i'm", parents, kenjiurada]
+    concepts: [pretty, prestigiouspen-2468, retirement, index, parents]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/investing/1s9rfna.md#c5"
     char_span: [7147, 9188]
     sentence_count: 14
     key_terms: [distributionbroad173, spacex, contributions, down, ipo, year, investors, employer]
+    concepts: [distributionbroad173, contributions, spacex, investors, employer]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/investing/1s9rfna.md#c6"
     char_span: [9190, 11162]
     sentence_count: 7
     key_terms: [ipo, prestigiouspen-2468, get, companies, investors, liquidity, anything, indexing]
+    concepts: [prestigiouspen-2468, companies, investors, liquidity, anything]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/investing/1s9rfna.md#c7"
     char_span: [11164, 12505]
     sentence_count: 5
     key_terms: [like, minimums, vanguard, minimum, funds, holdings, indexing, johnson]
+    concepts: [minimums, vanguard, minimum, funds, holdings]
     section: Comments
     token_count: 330
 ---

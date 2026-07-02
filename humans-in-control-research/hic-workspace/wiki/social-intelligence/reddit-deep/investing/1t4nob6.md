@@ -19,47 +19,56 @@ chunks:
     char_span: [0, 1040]
     sentence_count: 9
     key_terms: [market, indicator, buffet, overvaluation, investments, protecting, investing, investors]
+    concepts: [market, indicator, overvaluation, buffet, investments]
     token_count: 250
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1t4nob6/us_market_longterm_investors_are_you_worried/"}]
   - id: "social-intelligence/reddit-deep/investing/1t4nob6.md#c1"
     char_span: [1054, 2984]
     sentence_count: 13
     key_terms: [inflation, recession, cash, choice, alternative, high, tips, worthless]
+    concepts: [inflation, recession, choice, alternative, worthless]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/investing/1t4nob6.md#c2"
     char_span: [2986, 4671]
     sentence_count: 13
     key_terms: [gold, companies, because, house, buy, land, own, invested]
+    concepts: [companies, because, house, invested, produce]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/investing/1t4nob6.md#c3"
     char_span: [4673, 6724]
     sentence_count: 12
     key_terms: [understand, indicator, because, buffett, money, years, everybody, companys]
+    concepts: [understand, indicator, because, buffett, money]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/investing/1t4nob6.md#c4"
     char_span: [6726, 7718]
     sentence_count: 6
     key_terms: [ytd, treasuries, already, hopeful-internal-919, alone, easik, icy-mycologist1524, cash]
+    concepts: [treasuries, already, alone, easik]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/investing/1t4nob6.md#c5"
     char_span: [7720, 9504]
     sentence_count: 12
     key_terms: [metric, years, indicator, earnings, paperhandsthedip, people, corporations, information]
+    concepts: [metric, paperhandsthedip, indicator, years, earnings]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/investing/1t4nob6.md#c6"
     char_span: [9506, 11494]
     sentence_count: 10
     key_terms: [year, higher, market, international, substantial, rate, inflation, equities]
+    concepts: [international, higher, market, substantial, inflation]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/investing/1t4nob6.md#c7"
     char_span: [11496, 12061]
     sentence_count: 5
     key_terms: [stocks, hopeful-internal-919, bonds, reallocations, anticipation, invisibleear, contrary, divested]
+    concepts: [stocks, bonds]
     section: Comments
     token_count: 141
 ---

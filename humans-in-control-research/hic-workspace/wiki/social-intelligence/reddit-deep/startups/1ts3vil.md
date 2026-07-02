@@ -20,28 +20,36 @@ chunks:
     char_span: [0, 2047]
     sentence_count: 12
     key_terms: [product, co-founder, complaints, saas, work, building, intelligence, jira]
+    concepts: [product, co-founder, complaints, building, intelligence]
     token_count: 471
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1ts3vil/i_will_not_promote_looking_for_a_gtm_cofounder/"}]
   - id: "social-intelligence/reddit-deep/startups/1ts3vil.md#c1"
     char_span: [2049, 2928]
     sentence_count: 13
     key_terms: [product, designed, looking, problem, someone, almost, distribution, engineering]
+    concepts: [product, designed, looking, problem, someone]
     token_count: 186
   - id: "social-intelligence/reddit-deep/startups/1ts3vil.md#c2"
-    char_span: [2943, 4728]
+    char_span: [2942, 4727]
     sentence_count: 19
     key_terms: [reviews, mean, customers, validated, whatever, missing, through, usually]
+    concepts: [reviews, customers, validated, whatever, missing]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1ts3vil.md#c3"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/startups/1ts3vil.md#c3"
-    char_span: [4730, 6684]
+    char_span: [4729, 6683]
     sentence_count: 20
     key_terms: [product, customers, paulsonfanboy134, reviews, engineering, did, challenges, co-founder]
+    concepts: [product, paulsonfanboy134, customers, reviews, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1ts3vil.md#c2"]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/startups/1ts3vil.md#c4"
-    char_span: [6686, 7728]
+    char_span: [6685, 7727]
     sentence_count: 10
     key_terms: [good, gtm, dontbelieveawordof1t, churn, find, loop, brianchase2882, super-ride4501]
+    concepts: [churn]
     section: Comments
     token_count: 261
 ---

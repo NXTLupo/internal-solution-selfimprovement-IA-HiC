@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 305]
     sentence_count: 1
     key_terms: [internships, comments, accuratepatience3691, reddit-deep, experience, internship, interview, regular]
+    concepts: [internships, comments]
     token_count: 81
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1q92zcr/oracle_internship_interview_experience_from_a/"}]
 ---
 # Oracle internship interview experience from a regular BTech CS student
 

@@ -21,59 +21,70 @@ chunks:
     char_span: [0, 1755]
     sentence_count: 12
     key_terms: [world, tools, immediately, artificial, notebooklm, comments, research, noticed]
+    concepts: [world, immediately, artificial, notebooklm, tools]
     token_count: 375
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1l72frg/the_kneejerk_hate_for_ai_tools_is_pretty_tiring/"}]
   - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c1"
     char_span: [1769, 4017]
     sentence_count: 20
     key_terms: [like, tools, skilled, intent, output, people, image, slop]
+    concepts: [tools, skilled, intent, output, people]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c2"
     char_span: [4019, 5672]
     sentence_count: 14
     key_terms: ["it's", too, annoying, replace, whether, people, being, world]
+    concepts: [annoying, replace, whether, people, being]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c3"
     char_span: [5674, 7565]
     sentence_count: 15
     key_terms: [people, something, like, dce193f10fe4bbbc25b5b665ce22222e399dfa0e, useful, did, get, subreddit]
+    concepts: [something, people, useful, subreddit, happened]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c4"
     char_span: [7567, 9480]
     sentence_count: 27
     key_terms: [people, because, job, government, companies, everyone, human, tech]
+    concepts: [people, because, government, companies, everyone]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c5"
     char_span: [9482, 11469]
     sentence_count: 14
     key_terms: [people, "it's", zelkovamoon, parrot, new, old, stochastic, community]
+    concepts: [people, zelkovamoon, parrot, stochastic, community]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c6"
     char_span: [11471, 13629]
     sentence_count: 29
     key_terms: ["it's", people, "i'm", anything, doing, magic, like, use]
+    concepts: [people, anything, doing, exhausting, magic]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c7"
     char_span: [13631, 15857]
     sentence_count: 13
     key_terms: [people, perspective, especially, copyright, unpopular, creative, critical, sampling]
+    concepts: [people, perspective, especially, copyright, unpopular]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c8"
     char_span: [15859, 17455]
     sentence_count: 9
     key_terms: [people, pandaschmanda, "it's", fantasy, present, artist, "that's", "don't"]
+    concepts: [people, pandaschmanda, fantasy, present, artist]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c9"
     char_span: [17460, 18025]
     sentence_count: 2
     key_terms: [dwarffortress, comments, cakk9q, reddit, dwarf, https, com, www]
+    concepts: [dwarffortress, comments, cakk9q, reddit, dwarf]
     section: Comments
     token_count: 147
 ---

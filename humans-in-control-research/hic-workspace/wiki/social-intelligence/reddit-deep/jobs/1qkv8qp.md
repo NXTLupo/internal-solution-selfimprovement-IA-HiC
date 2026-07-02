@@ -19,23 +19,31 @@ chunks:
     char_span: [0, 569]
     sentence_count: 4
     key_terms: [entry-level, experience, jobs, require, years, comments, reddit-deep, multitudes]
+    concepts: [entry-level, experience, require, years, comments]
     token_count: 144
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1qkv8qp/why_do_so_many_entrylevel_positions_require_25/"}]
   - id: "social-intelligence/reddit-deep/jobs/1qkv8qp.md#c1"
     char_span: [583, 2581]
     sentence_count: 4
     key_terms: [ok-energy-9785, people, entry, level, jobs, experience, different, employers]
+    concepts: [ok-energy-9785, people, entry, level, experience]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qkv8qp.md#c2", "social-intelligence/reddit-deep/jobs/1qkv8qp.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qkv8qp.md#c2"
     char_span: [2309, 3108]
     sentence_count: 7
     key_terms: [internships, experience, co-ops, people, prices, onlythephantomknows, want, stitchwreckriot]
+    concepts: [internships, experience, co-ops, people, prices]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qkv8qp.md#c1"]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/jobs/1qkv8qp.md#c3"
     char_span: [3110, 4025]
     sentence_count: 7
     key_terms: [experience, entry, level, someone, companies, lost, want, cyberentomology]
+    concepts: [experience, entry, level, someone, companies]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qkv8qp.md#c1"]
     section: Comments
     token_count: 206
 ---

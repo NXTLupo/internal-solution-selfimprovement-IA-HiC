@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 707]
     sentence_count: 5
     key_terms: [resume, comments, https, grad, neu, new, png, androidslash]
+    concepts: [resume, comments, https]
     token_count: 207
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1pef1we/roast_my_resume_applying_for_new_grad_roles_but/"}]
   - id: "social-intelligence/reddit-deep/neu/1pef1we.md#c1"
     char_span: [721, 1675]
     sentence_count: 2
     key_terms: [androidslash, oddactive2516, experience, fatkitty72, technical, template, skills, impossible-medium204]
+    concepts: [androidslash, oddactive2516, experience, fatkitty72, technical]
     section: Comments
     token_count: 289
 ---

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 841]
     sentence_count: 6
     key_terms: [citizen, getting, careerguidance, achievable, comments, danielfromnigeria, cia, fbi]
+    concepts: [citizen, careerguidance, getting, achievable, comments]
     token_count: 205
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sdk5mw/is_my_career_path_achievable_and_what_is_the/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sdk5mw.md#c1"
     char_span: [855, 2279]
     sentence_count: 5
     key_terms: [citizenship, intelligence, canadian, get, recruited, security, citizen, getting]
+    concepts: [citizenship, intelligence, canadian, recruited, security]
     section: Comments
     token_count: 339
 ---

@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 2184]
     sentence_count: 14
     key_terms: [chatgpt, persona, something, "i'm", "i've", behavior, people, prompt]
+    concepts: [chatgpt, persona, something, behavior, philosophical]
     token_count: 486
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1kjzh57/chatgpt_should_have_clickable_personality_controls/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1kjzh57.md#c1"
     char_span: [2186, 3502]
     sentence_count: 9
     key_terms: [within, experience, wonderful, persona, openai, "you're", makes, day]
+    concepts: [within, experience, wonderful, persona, openai]
     token_count: 268
   - id: "social-intelligence/reddit-deep/chatgpt/1kjzh57.md#c2"
     char_span: [3516, 5077]
     sentence_count: 10
     key_terms: [openai, please, prompt, conversation, image, post, concerns, chatgpt-shared-links-faq]
+    concepts: [conversation, openai, please, prompt, image]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/chatgpt/1kjzh57.md#c3"
     char_span: [5079, 5713]
     sentence_count: 5
     key_terms: [instructions, custom, conversation, use, seabearsfoam, instruction, personality, scaffolding]
+    concepts: [instructions, conversation, custom]
     section: Comments
     token_count: 147
 ---

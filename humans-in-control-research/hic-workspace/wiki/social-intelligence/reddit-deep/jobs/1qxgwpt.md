@@ -21,113 +21,139 @@ chunks:
     char_span: [0, 1157]
     sentence_count: 13
     key_terms: [offer, because, asked, comments, hiring, jobcat, market, back]
+    concepts: [offer, because, asked, comments, hiring]
     token_count: 277
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1qxgwpt/offer_rescinded_because_i_asked_too_much/"}]
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c1"
     char_span: [1171, 2577]
     sentence_count: 8
     key_terms: [software, people, years, ago, california, criminal, someone, "they're"]
+    concepts: [software, people, california, years, criminal]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c2"
     char_span: [2579, 4535]
     sentence_count: 12
     key_terms: [people, going, job, collapse, because, country, economy, market]
+    concepts: [people, going, collapse, because, country]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c3"
     char_span: [4537, 5262]
     sentence_count: 6
     key_terms: [months, ago, get, job, delusional, vindicated, austinvvs, different]
+    concepts: [months]
     section: Comments
     token_count: 189
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c4"
     char_span: [5264, 7200]
     sentence_count: 13
     key_terms: [devs, jobs, pay, resources, everyone, college, driving, redact]
+    concepts: [resources, everyone, college, driving, redact]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c5"
     char_span: [7202, 9314]
     sentence_count: 19
     key_terms: [salary, recruiter, range, interview, didn, time, email, going]
+    concepts: [salary, recruiter, interview, range, email]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qxgwpt.md#c6"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c6"
     char_span: [9316, 11117]
     sentence_count: 15
     key_terms: [job, company, salary, range, like, telling, asking, months]
+    concepts: [company, salary, range, telling, asking]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qxgwpt.md#c5", "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c18"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c7"
     char_span: [11119, 13053]
     sentence_count: 13
     key_terms: [candidates, job, accepted, level, free, time, work, experience]
+    concepts: [candidates, accepted, experience, level, applying]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qxgwpt.md#c9"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c8"
     char_span: [13055, 13577]
     sentence_count: 6
     key_terms: [early, least, been, "i'm", too, compensation, consistently, experiencing]
+    concepts: [early, least]
     section: Comments
     token_count: 113
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c9"
     char_span: [13579, 15647]
     sentence_count: 10
     key_terms: [experience, because, entry, level, get, job, jobs, like]
+    concepts: [experience, because, entry, level, always]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qxgwpt.md#c7", "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c16"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c10"
     char_span: [15374, 15774]
     sentence_count: 4
     key_terms: [experience, job, companies, employers, "shouldn't", employee, position, college]
+    concepts: [experience]
     section: Comments
     token_count: 98
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c11"
     char_span: [15776, 17688]
     sentence_count: 15
     key_terms: [job, market, people, work, counter, experienced, risk, countered]
+    concepts: [market, people, counter, experienced, countered]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c12"
     char_span: [17690, 19537]
     sentence_count: 18
     key_terms: [offer, take, candidate, anything, employer, position, company, "there's"]
+    concepts: [offer, candidate, anything, employer, position]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c13"
     char_span: [19539, 21297]
     sentence_count: 21
     key_terms: [offer, "don't", let, company, counter, decline, nothing, gotten]
+    concepts: [offer, "don't", company, counter, decline]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c14"
     char_span: [21300, 23163]
     sentence_count: 13
     key_terms: [negotiate, offer, job, salary, trying, years, days, experience]
+    concepts: [negotiate, offer, salary, trying, experience]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c15"
     char_span: [23165, 25259]
     sentence_count: 11
     key_terms: [job, time, looking, been, need, especially, companies, negotiate]
+    concepts: [looking, especially, companies, negotiate, getting]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c16"
     char_span: [25261, 27014]
     sentence_count: 10
     key_terms: [because, exists, worth, job, time, position, always, middle]
+    concepts: [because, exists, worth, position, always]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qxgwpt.md#c9"]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c17"
     char_span: [27017, 28675]
     sentence_count: 11
     key_terms: [market, counteroffer, california, re-contact, regretting, expected, ability, another]
+    concepts: [counteroffer, market, california, re-contact, regretting]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c18"
     char_span: [28677, 30402]
     sentence_count: 16
     key_terms: [job, people, company, keep, looking, enough, salary, world]
+    concepts: [people, company, looking, enough, salary]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qxgwpt.md#c6"]
     section: Comments
     token_count: 443
 ---

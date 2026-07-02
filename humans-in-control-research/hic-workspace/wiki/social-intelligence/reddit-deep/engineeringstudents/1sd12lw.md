@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1106]
     sentence_count: 6
     key_terms: [automotive, engineeringstudents, electronics, "i'm", work, comments, always, maths]
+    concepts: [automotive, engineeringstudents, electronics, comments, always]
     token_count: 256
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sd12lw/automotive_engineering_career_advice/"}]
 ---
 # Automotive Engineering Career Advice
 

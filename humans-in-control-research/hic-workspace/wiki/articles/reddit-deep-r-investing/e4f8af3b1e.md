@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2124]
     sentence_count: 9
     key_terms: [market, stock-market-dow-record-economy-jobs-inflation, inflation, "it's", stock, cuts, rate, top]
+    concepts: [market, inflation, stock, investing, business]
     token_count: 489
+    sources: [{"n":"Reddit Deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1ni6kr5/article_why_are_stocks_setting_records_when_the/"}]
 ---
 # Article: Why are stocks setting records when the economy feels down in the dumps?
 

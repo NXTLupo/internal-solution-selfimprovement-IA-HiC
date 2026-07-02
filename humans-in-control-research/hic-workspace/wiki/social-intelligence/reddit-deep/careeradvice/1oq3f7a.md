@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2313]
     sentence_count: 23
     key_terms: [career, progress, "you'll", careeradvice, engineering, progression, "i've", need]
+    concepts: [career, progress, careeradvice, "you'll", engineering]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1oq3f7a/lessons_learned_from_changing_careers_four_times/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1oq3f7a.md#c1"
     char_span: [2327, 2514]
     sentence_count: 3
@@ -32,12 +34,14 @@ chunks:
     char_span: [2517, 4530]
     sentence_count: 18
     key_terms: [joinvocation, want, current, get, help, job, cyber, pivot]
+    concepts: [joinvocation, current, cyber, pivot, progress]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careeradvice/1oq3f7a.md#c3"
     char_span: [4260, 6058]
     sentence_count: 17
     key_terms: [like, want, possible, software, careers, people, taking, cyber]
+    concepts: [possible, software, careers, people, taking]
     section: Comments
     token_count: 438
 ---

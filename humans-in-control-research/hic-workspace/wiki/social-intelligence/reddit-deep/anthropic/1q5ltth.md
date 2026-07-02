@@ -21,47 +21,56 @@ chunks:
     char_span: [0, 285]
     sentence_count: 1
     key_terms: [anthropic, comments, existential, metaknowing, reddit-deep, developer, claude, crisis]
+    concepts: [anthropic, comments]
     token_count: 77
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1q5ltth/developer_uses_claude_code_and_has_an_existential/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c1"
     char_span: [299, 1971]
     sentence_count: 9
     key_terms: [writing, code, abject-bandicoot8890, through, guidance, aspects, handle, allergictobullshit24]
+    concepts: [writing, abject-bandicoot8890, through, guidance, aspects]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c2"
     char_span: [1973, 3856]
     sentence_count: 10
     key_terms: [people, like, problem, complaining, code, else, part, everything]
+    concepts: [people, problem, complaining, everything, biggest]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c3"
     char_span: [3858, 6137]
     sentence_count: 13
     key_terms: [software, faster, programming, fun, part, ship, engineers, knowledge]
+    concepts: [software, faster, programming, engineers, knowledge]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c4"
     char_span: [6139, 7934]
     sentence_count: 13
     key_terms: [need, agents, claude, code, plan, use, different, engineers]
+    concepts: [agents, claude, different, engineers, function]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c5"
     char_span: [7936, 9999]
     sentence_count: 11
     key_terms: [sixstringsoul, count, job, sure, time, electrical, mechanical, engineers]
+    concepts: [sixstringsoul, count, electrical, mechanical, engineers]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c6"
     char_span: [10001, 10858]
     sentence_count: 4
     key_terms: [cycle, diamonds-are-hard, help, own, time, clemenslode, absolutely, complexity]
+    concepts: [cycle]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c7"
     char_span: [10860, 11873]
     sentence_count: 6
     key_terms: [multiplication, coding, commercialcomputer15, never, code, thomastoindia, g4n0esp4r4n, programming]
+    concepts: [multiplication, coding, never]
     section: Comments
     token_count: 284
 ---

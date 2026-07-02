@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 1033]
     sentence_count: 10
     key_terms: [company, cscareerquestions, path, career, growth, tech, comments, stuck]
+    concepts: [company, cscareerquestions, career, growth, comments]
     token_count: 259
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sj4jvo/how_can_i_escape_feeling_stuck_in_tech_with_no/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c1"
     char_span: [1047, 3052]
     sentence_count: 16
     key_terms: [applications, skills, experience, companies, like, move, targeting, applying]
+    concepts: [applications, experience, skills, companies, targeting]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c3"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c2"
     char_span: [3054, 4846]
     sentence_count: 23
     key_terms: [year, promotion, company, normal, like, swes, because, current]
+    concepts: [promotion, company, normal, because, current]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c3"
     char_span: [4851, 6106]
     sentence_count: 12
     key_terms: [experience, years, companies, residency, because, market, school, target]
+    concepts: [experience, companies, years, residency, because]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c1"]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c4"
     char_span: [6111, 8173]
     sentence_count: 23
     key_terms: [code, viewed, review, discussion, years, unviewed, place, dyledion]
+    concepts: [viewed, discussion, review, years, unviewed]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c5"
     char_span: [8175, 9723]
     sentence_count: 22
     key_terms: [companies, people, job, like, new, time, interviews, taking]
+    concepts: [companies, people, interviews, taking, worked]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c6"
     char_span: [9725, 10440]
     sentence_count: 7
     key_terms: [career, doctor, librarianoutside2376, remote-ground-8847, day, job, applications, everything]
+    concepts: [career, doctor]
     section: Comments
     token_count: 177
 ---

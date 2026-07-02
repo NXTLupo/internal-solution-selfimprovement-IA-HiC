@@ -20,49 +20,62 @@ chunks:
     char_span: [0, 2039]
     sentence_count: 13
     key_terms: [rivian, autonomy, earnings, company, current, fundamental, consistent, deliveries]
+    concepts: [rivian, autonomy, earnings, company, current]
     token_count: 481
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1t1yu2l/rivians_real_bet_r2_buys_time_for_the_autonomy/"}]
   - id: "social-intelligence/reddit-deep/stocks/1t1yu2l.md#c1"
     char_span: [2041, 4172]
     sentence_count: 17
     key_terms: [cost, per, savings, non-bom, car, rivian, bom, million]
+    concepts: [savings, non-bom, rivian, million, vehicle]
     token_count: 494
   - id: "social-intelligence/reddit-deep/stocks/1t1yu2l.md#c2"
     char_span: [4174, 6563]
     sentence_count: 14
     key_terms: [rivian, amazon, administration, big, doe, autonomous, department, government]
+    concepts: [rivian, amazon, administration, autonomous, department]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1t1yu2l.md#c5", "social-intelligence/reddit-deep/stocks/1t1yu2l.md#c6"]
     token_count: 486
   - id: "social-intelligence/reddit-deep/stocks/1t1yu2l.md#c3"
     char_span: [6565, 8955]
     sentence_count: 13
     key_terms: [manufacturers, software, autonomy, platform, architecture, rivian, stack, "rivian's"]
+    concepts: [manufacturers, software, autonomy, platform, architecture]
     token_count: 434
   - id: "social-intelligence/reddit-deep/stocks/1t1yu2l.md#c4"
     char_span: [8957, 9690]
     sentence_count: 5
     key_terms: [rivian, conclusion, technical, next, milestone-gated, information, performance, commitment]
+    concepts: [rivian, conclusion, technical]
     token_count: 146
   - id: "social-intelligence/reddit-deep/stocks/1t1yu2l.md#c5"
-    char_span: [9705, 11978]
+    char_span: [9704, 11977]
     sentence_count: 18
     key_terms: [autonomous, rivian, amazon, clear, get, long, time, licensing]
+    concepts: [autonomous, rivian, amazon, clear, licensing]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1t1yu2l.md#c2", "social-intelligence/reddit-deep/stocks/1t1yu2l.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1t1yu2l.md#c6"
-    char_span: [11657, 12932]
+    char_span: [11656, 12931]
     sentence_count: 4
     key_terms: [buying, mutations, variants, amazon, rivian, saying, strong, inevitable-wish-1664]
+    concepts: [buying, mutations, variants, amazon, rivian]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1t1yu2l.md#c2", "social-intelligence/reddit-deep/stocks/1t1yu2l.md#c5"]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/stocks/1t1yu2l.md#c7"
-    char_span: [12934, 14246]
+    char_span: [12933, 14245]
     sentence_count: 7
     key_terms: [positionjournal, stock, com, time, www, year, mr-tiggo-bitties, some-aspect2913]
+    concepts: [positionjournal, stock]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/stocks/1t1yu2l.md#c8"
-    char_span: [14248, 15365]
+    char_span: [14247, 15364]
     sentence_count: 1
     key_terms: [message, remindmebot, reddit, com, https, compose, subject, www]
+    concepts: [message, remindmebot, reddit, compose, https]
     section: Comments
     token_count: 394
 ---

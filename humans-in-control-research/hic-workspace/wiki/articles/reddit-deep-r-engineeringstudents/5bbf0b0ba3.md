@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1288]
     sentence_count: 8
     key_terms: [poster, experiment, chemistry, engineeringstudents, project, engineering, first-year, scientific]
+    concepts: [poster, experiment, chemistry, engineeringstudents, project]
     token_count: 268
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1pndnmd/firstyear_engineering_student_need_help_with/"}]
 ---
 # First-Year Engineering Student – Need Help with Chemistry Project (Toothpaste Experiment,poster outline & Poster
 

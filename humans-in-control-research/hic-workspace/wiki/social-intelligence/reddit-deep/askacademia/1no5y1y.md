@@ -21,53 +21,71 @@ chunks:
     char_span: [0, 2301]
     sentence_count: 17
     key_terms: [program, another, university, advice, phd, given, askacademia, told]
+    concepts: [program, another, university, advice, askacademia]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1no5y1y.md#c1", "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c4"]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1no5y1y/advice_needed_my_pi_passed_away_and_im_losing_my/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c1"
     char_span: [2315, 4186]
     sentence_count: 15
     key_terms: [student, someone, spiritualamoeba84, lab, another, program, like, co-mentor]
+    concepts: [student, someone, spiritualamoeba84, another, program]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1no5y1y.md#c0", "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c3", "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c4"]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c2"
     char_span: [4188, 5605]
     sentence_count: 13
     key_terms: [degree, exceptions, different, someone, future, able, get, grad]
+    concepts: [degree, exceptions, different, someone, future]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c3"
     char_span: [5607, 6969]
     sentence_count: 11
     key_terms: [sometimes, program, several, student, supervisor, university, something, students]
+    concepts: [sometimes, program, several, student, supervisor]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1no5y1y.md#c1"]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c4"
     char_span: [6971, 9126]
     sentence_count: 14
     key_terms: [university, take, another, funding, student, mentor, work, graduate]
+    concepts: [university, another, funding, student, mentor]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1no5y1y.md#c0", "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c1", "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c6"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c5"
     char_span: [9128, 10293]
     sentence_count: 6
     key_terms: [funding, dean, reasonable, graduate, funded, passed, find, hell]
+    concepts: [funding, reasonable, graduate, funded, passed]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1no5y1y.md#c8"]
     section: Comments
     token_count: 237
   - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c6"
     char_span: [10295, 12694]
     sentence_count: 19
     key_terms: [grant, another, funding, institution, faculty, through, indefinitely, universities]
+    concepts: [grant, institution, another, funding, faculty]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1no5y1y.md#c4", "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c7"
     char_span: [12402, 13077]
     sentence_count: 6
     key_terms: [another, faculty, maybe, work, co-supervisors, collaborators, accommodate, angrypuggle]
+    concepts: [another, faculty, maybe]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1no5y1y.md#c6"]
     section: Comments
     token_count: 146
   - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c8"
     char_span: [13079, 15024]
     sentence_count: 18
     key_terms: [dean, students, graduate, research, funding, program, someone, office]
+    concepts: [students, graduate, research, collaborators, funding]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1no5y1y.md#c5"]
     section: Comments
     token_count: 411
 ---

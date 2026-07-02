@@ -21,37 +21,52 @@ chunks:
     char_span: [0, 2232]
     sentence_count: 11
     key_terms: [reward, brain, signal, social, artificial, dopamine, attention, behavior]
+    concepts: [reward, brain, artificial, signal, social]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1oau8uz.md#c1", "social-intelligence/reddit-deep/openai/1oau8uz.md#c2", "social-intelligence/reddit-deep/openai/1oau8uz.md#c3", "social-intelligence/reddit-deep/openai/1oau8uz.md#c4"]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1oau8uz/worthwhile_idea_to_have_age_gated_llms_pre_21/"}]
   - id: "social-intelligence/reddit-deep/openai/1oau8uz.md#c1"
     char_span: [2234, 4738]
     sentence_count: 10
     key_terms: [social, effort, required, reward, human, signal, brain, stimulation]
+    concepts: [social, effort, required, reward, human]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1oau8uz.md#c0", "social-intelligence/reddit-deep/openai/1oau8uz.md#c2", "social-intelligence/reddit-deep/openai/1oau8uz.md#c4", "social-intelligence/reddit-deep/openai/1oau8uz.md#c6"]
     token_count: 502
   - id: "social-intelligence/reddit-deep/openai/1oau8uz.md#c2"
     char_span: [4740, 7008]
     sentence_count: 13
     key_terms: [exposure, social, brain, reward, architecture, calibration, consequence, development]
+    concepts: [exposure, social, brain, architecture, reward]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1oau8uz.md#c0", "social-intelligence/reddit-deep/openai/1oau8uz.md#c1", "social-intelligence/reddit-deep/openai/1oau8uz.md#c3", "social-intelligence/reddit-deep/openai/1oau8uz.md#c4"]
     token_count: 475
   - id: "social-intelligence/reddit-deep/openai/1oau8uz.md#c3"
     char_span: [7010, 9514]
     sentence_count: 10
     key_terms: [brain, social, calibration, expectation, real, artificial, compelling, developing]
+    concepts: [brain, social, calibration, expectation, artificial]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1oau8uz.md#c0", "social-intelligence/reddit-deep/openai/1oau8uz.md#c2", "social-intelligence/reddit-deep/openai/1oau8uz.md#c4"]
     token_count: 502
   - id: "social-intelligence/reddit-deep/openai/1oau8uz.md#c4"
     char_span: [9516, 10238]
     sentence_count: 6
     key_terms: [calibration, intelligent, social, brain, human, reward-circuit, interactions, adolescence]
+    concepts: [calibration, intelligent, social, brain, human]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1oau8uz.md#c0", "social-intelligence/reddit-deep/openai/1oau8uz.md#c1", "social-intelligence/reddit-deep/openai/1oau8uz.md#c2", "social-intelligence/reddit-deep/openai/1oau8uz.md#c3", "social-intelligence/reddit-deep/openai/1oau8uz.md#c5"]
     token_count: 142
   - id: "social-intelligence/reddit-deep/openai/1oau8uz.md#c5"
     char_span: [10252, 12150]
     sentence_count: 20
     key_terms: [information, brain, human, developed, pasted, social, interaction, back]
+    concepts: [information, developed, brain, human, pasted]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1oau8uz.md#c4"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/openai/1oau8uz.md#c6"
     char_span: [12153, 12800]
     sentence_count: 6
     key_terms: [different, interactions, interaction, social, human, model, generational, reliability]
+    concepts: [different, interactions, interaction, social, human]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1oau8uz.md#c1", "social-intelligence/reddit-deep/openai/1oau8uz.md#c4"]
     section: Comments
     token_count: 131
 ---

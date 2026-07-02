@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1585]
     sentence_count: 21
     key_terms: [business, operations, dizzy-turnip-350, nothing, careerguidance, internships, procurement, real]
+    concepts: [business, operations, dizzy-turnip-350, careerguidance, nothing]
     token_count: 366
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tlpe7l/no_internships_no_connections_no_corporate/"}]
 ---
 # No internships, no connections, no corporate experience. Built a real business anyway. Now trying to break in. Anyone else on this path?
 

@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 1859]
     sentence_count: 6
     key_terms: [training, tsetlin, faster, inference, machinelearning, implementation, fuzzy-pattern, optimizations]
+    concepts: [training, tsetlin, faster, inference, machinelearning]
     token_count: 466
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1q6igw3/p_reengineered_the_fuzzypattern_tsetlin_machine/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1q6igw3.md#c1"
     char_span: [1865, 2749]
     sentence_count: 4
     key_terms: [shall, https, com, prince, code, come, king, optimization]
+    concepts: [shall, https, prince]
     token_count: 241
   - id: "social-intelligence/reddit-deep/machinelearning/1q6igw3.md#c2"
     char_span: [2763, 3808]
     sentence_count: 5
     key_terms: [symbolic-discrete, artemhnilov, plausible, generate, millions, model, cpu, hdc]
+    concepts: [symbolic-discrete, artemhnilov, plausible, generate, millions]
     section: Comments
     token_count: 275
   - id: "social-intelligence/reddit-deep/machinelearning/1q6igw3.md#c3"
     char_span: [3810, 4946]
     sentence_count: 5
     key_terms: [artemhnilov, character-level, tsetlin, generation, machines, binary, arxiv, https]
+    concepts: [artemhnilov, character-level, tsetlin, generation, machines]
     section: Comments
     token_count: 304
 ---

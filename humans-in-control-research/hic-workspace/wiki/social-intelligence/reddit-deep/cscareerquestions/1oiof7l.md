@@ -19,71 +19,86 @@ chunks:
     char_span: [0, 1528]
     sentence_count: 4
     key_terms: [grads, majors, college, decided, started, apply, cscareerquestions, market]
+    concepts: [grads, majors, college, decided, started]
     token_count: 377
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1oiof7l/people_with_crystal_balls_when_will_the_tech_job/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c1"
     char_span: [1542, 2895]
     sentence_count: 3
     key_terms: [people, high, talking, worth, back, tech, interviews, candidate]
+    concepts: [people, talking, interviews, worth, candidate]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c2"
     char_span: [2898, 4829]
     sentence_count: 8
     key_terms: [bubble, years, tech, marketing, bootcamp, expect, market, travel]
+    concepts: [bubble, years, marketing, bootcamp, expect]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c3"
     char_span: [4831, 7063]
     sentence_count: 15
     key_terms: [countries, companies, people, street, manufacturing, gap, wall, advantage]
+    concepts: [countries, companies, manufacturing, people, street]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c4"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c4"
     char_span: [7065, 9286]
     sentence_count: 22
     key_terms: [companies, country, countries, foreign, western, workers, talent, thecamerlengo]
+    concepts: [companies, country, countries, thecamerlengo, foreign]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c3"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c5"
     char_span: [9288, 11500]
     sentence_count: 14
     key_terms: [europe, companies, years, asia, tech, because, infrastructure, africa]
+    concepts: [companies, europe, years, infrastructure, because]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c6"
     char_span: [11502, 13658]
     sentence_count: 17
     key_terms: [nebulousnitrate, been, large, right, development, continuing, companies, different]
+    concepts: [nebulousnitrate, development, continuing, large, right]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c7"
     char_span: [13409, 14184]
     sentence_count: 7
     key_terms: [been, get, states, doing, hit, job, like, availability]
+    concepts: [states, doing]
     section: Comments
     token_count: 189
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c8"
     char_span: [14186, 15568]
     sentence_count: 11
     key_terms: [senior, engineers, engineer, years, software, career, lot, everyone]
+    concepts: [senior, engineers, engineer, years, software]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c9"
     char_span: [15570, 16427]
     sentence_count: 7
     key_terms: [seniors, senior, roles, "it's", level, chubbyvegantravels, timmyturnahp21, disappearing]
+    concepts: [seniors, senior, roles, level]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c10"
     char_span: [16429, 17945]
     sentence_count: 9
     key_terms: [because, comment, seniors, sources, higher, turbulent-pattern653, years, get]
+    concepts: [because, comment, seniors, sources, higher]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c11"
     char_span: [17947, 18493]
     sentence_count: 1
     key_terms: [people, omqitzmilkyway, alternative, macrowaving, significant, kevinossia, staggering, currently]
+    concepts: [people]
     section: Comments
     token_count: 156
 ---

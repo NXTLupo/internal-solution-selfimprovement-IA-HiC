@@ -21,7 +21,10 @@ chunks:
     char_span: [0, 2016]
     sentence_count: 8
     key_terms: [english, humanities, professors, value, askacademia, "i'm", completely, professor]
+    concepts: [english, humanities, professors, askacademia, completely]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1riuhxu.md#c9"]
     token_count: 433
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1riuhxu/wanting_to_be_an_english_professor_in_a_time_when/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c1"
     char_span: [2030, 2165]
     sentence_count: 2
@@ -32,54 +35,66 @@ chunks:
     char_span: [2167, 4474]
     sentence_count: 17
     key_terms: [phd, years, getting, career, right, "i'm", job, humanities]
+    concepts: [years, getting, career, humanities, right]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1riuhxu.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c3"
     char_span: [4203, 5556]
     sentence_count: 9
     key_terms: [income, school, opportunities, years, grad, year, experience, investment]
+    concepts: [opportunities, income, school, experience, investment]
     section: Comments
     token_count: 296
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c4"
     char_span: [5558, 7436]
     sentence_count: 16
     key_terms: [because, english, school, skills, job, another, "didn't", going]
+    concepts: [because, english, school, skills, another]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c5"
     char_span: [7438, 9329]
     sentence_count: 14
     key_terms: [people, academic, learn, completely, incredibly, difficult, ai-proof, anything]
+    concepts: [people, academic, completely, incredibly, learn]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c6"
     char_span: [9331, 11273]
     sentence_count: 14
     key_terms: [lost, humanities, years, getting, school, get, academic, prepared]
+    concepts: [humanities, years, getting, school, academic]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1riuhxu.md#c2"]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c7"
     char_span: [11275, 12780]
     sentence_count: 8
     key_terms: [careers, school, work, especially, teachers, friends, worked, "don't"]
+    concepts: [careers, school, especially, teachers, friends]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c8"
     char_span: [12782, 14513]
     sentence_count: 15
     key_terms: [education, phd, program, competitive, "it's", professor, pursuing, english]
+    concepts: [education, program, competitive, professor, pursuing]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c9"
     char_span: [14516, 16527]
     sentence_count: 20
     key_terms: [english, professors, practitioner, doctorates, humanities, doctorate, positive, passion]
+    concepts: [english, professors, practitioner, doctorates, humanities]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1riuhxu.md#c0"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c10"
     char_span: [16529, 17046]
     sentence_count: 5
     key_terms: [english, enter, phd, communications, accomplished, bestsellers, previously, professors]
+    concepts: [english, enter]
     section: Comments
     token_count: 99
 ---

@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 963]
     sentence_count: 10
     key_terms: [digitalnomad, unemployment, base, need, affordable, apartment, somewhere, comments]
+    concepts: [digitalnomad, unemployment, affordable, apartment, somewhere]
     token_count: 229
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1taryl8/starting_over_after_unemployment_need_an/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1taryl8.md#c1"
     char_span: [977, 3012]
     sentence_count: 12
     key_terms: [budget, because, affordable, definitely, places, find, too, expensive]
+    concepts: [budget, because, affordable, definitely, places]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/digitalnomad/1taryl8.md#c2"
     char_span: [3017, 4394]
     sentence_count: 15
     key_terms: [europe, krakow, salary, usd, liveable, national, probably, enough]
+    concepts: [europe, krakow, salary, liveable, national]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/digitalnomad/1taryl8.md#c3"
     char_span: [4396, 5108]
     sentence_count: 7
     key_terms: [expensive, residence, bosnia, people, permit, wideneighborhood8167, recent-classic7398, interesting]
+    concepts: [expensive, residence, bosnia, people, permit]
     section: Comments
     token_count: 188
 ---

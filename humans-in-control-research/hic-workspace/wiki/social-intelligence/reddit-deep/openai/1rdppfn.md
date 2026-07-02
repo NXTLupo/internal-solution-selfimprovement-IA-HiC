@@ -21,31 +21,38 @@ chunks:
     char_span: [0, 2902]
     sentence_count: 10
     key_terms: [sovereign, local, agentic, enterprise, infrastructure, architecture, autonomous, reasoning]
+    concepts: [sovereign, local, agentic, enterprise, infrastructure]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1rdppfn/engineering_the_autonomous_local_enterprise_a/"}]
   - id: "social-intelligence/reddit-deep/openai/1rdppfn.md#c1"
     char_span: [2904, 4245]
     sentence_count: 1
     key_terms: [python, rag, document, agentic, visual, data, top, industry-leading]
+    concepts: [python, document, agentic, visual]
     token_count: 387
   - id: "social-intelligence/reddit-deep/openai/1rdppfn.md#c2"
     char_span: [4247, 5623]
     sentence_count: 4
     key_terms: [vram, bandwidth, inference, memory, approximately, model, deepseek-r1-distill-llama-70b, qwen]
+    concepts: [bandwidth, inference, approximately, memory, model]
     token_count: 457
   - id: "social-intelligence/reddit-deep/openai/1rdppfn.md#c3"
     char_span: [5625, 6867]
     sentence_count: 3
     key_terms: [nvidia, quantized, models, mathematical, quantization, bit, rtx, precision]
+    concepts: [nvidia, quantized, mathematical, quantization, models]
     token_count: 402
   - id: "social-intelligence/reddit-deep/openai/1rdppfn.md#c4"
     char_span: [6869, 8711]
     sentence_count: 5
     key_terms: [seconds, bit, accuracy, tables, quantization, maintaining, correctly, documents]
+    concepts: [seconds, accuracy, quantization, tables, maintaining]
     token_count: 457
   - id: "social-intelligence/reddit-deep/openai/1rdppfn.md#c5"
     char_span: [8713, 10398]
     sentence_count: 6
     key_terms: [system, architecture, orchestrator, characters, blueprint, inference, langgraph, chunking]
+    concepts: [architecture, orchestrator, system, characters, blueprint]
     token_count: 445
 ---
 # Engineering the Autonomous Local Enterprise: A Technical Blueprint for Agentic RAG and Sovereign AI Infrastructure

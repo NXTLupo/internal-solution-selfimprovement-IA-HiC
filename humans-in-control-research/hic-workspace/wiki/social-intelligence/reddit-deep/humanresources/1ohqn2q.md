@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 424]
     sentence_count: 1
     key_terms: [humanresources, stressful, comments, development, reddit-deep, management, recruiting, relations]
+    concepts: [humanresources, stressful, comments]
     token_count: 111
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1ohqn2q/what_do_you_think_is_the_most_stressful_dept/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1ohqn2q.md#c1"
     char_span: [438, 499]
     sentence_count: 1
@@ -32,6 +34,8 @@ chunks:
     char_span: [501, 2466]
     sentence_count: 12
     key_terms: [business, payroll, messed, track, hrbp, pay, employee, thinking]
+    concepts: [business, payroll, messed, track, employee]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1ohqn2q.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1ohqn2q.md#c3"
@@ -44,12 +48,15 @@ chunks:
     char_span: [2555, 4378]
     sentence_count: 14
     key_terms: [accommodations, payroll, issues, time, business, employee, remember, company]
+    concepts: [accommodations, payroll, issues, business, employee]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1ohqn2q.md#c2"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/humanresources/1ohqn2q.md#c5"
     char_span: [4380, 5479]
     sentence_count: 6
     key_terms: [benefits, employee, areas, recruiting, relations, ada, cat, come]
+    concepts: [benefits, employee, areas, recruiting, relations]
     section: Comments
     token_count: 276
 ---

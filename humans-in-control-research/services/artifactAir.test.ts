@@ -102,7 +102,8 @@ describe('Stage-3: AIR emission wired into emitDeliverable (shadow beachhead)', 
         const src = read('services/emitDeliverable.ts');
         expect(src).toMatch(/air\?:\s*\{/);                         // the opt-in option
         expect(src).toMatch(/buildAir|writeAir/);                    // builds + persists
-        expect(src).toMatch(/shadowMode:\s*true/);                   // ramped: shadow first, non-blocking
+        // D12 ramp: shadow by default, per-path opt-in to blocking (air.blocking flag)
+        expect(src).toMatch(/shadowMode:\s*opts\.air\.blocking !== true/);
     });
     it('the strategy/HTML-artifact path opts into AIR emission', () => {
         const panel = read('components/CorpusChatPanel.tsx');
@@ -140,6 +141,175 @@ describe('Stage-3: real evidence ledger from resolved chunks', () => {
         ]);
         expect(ledger.length).toBe(1);
         expect(ledger[0].pointer).toBe('a.md#c1');
+    });
+});
+
+// ============================================================================
+// 2026-07-01 scorecard gap-closure guards (AIR Contract Compliance FAIL -> fixed)
+// ============================================================================
+describe('W4: renderPlan derives from the catalog (never empty)', () => {
+    it('#journey gets analyst+pptx target modes and a wired D17 native-render diagram slot', () => {
+        const { air } = buildAir({ runId: 'r1', artifactId: 'a1', trigger: '#journey', objective });
+        expect(air.renderPlan.targetModes).toEqual(['analyst', 'pptx']);
+        const diag = air.renderPlan.imageSlots.find(s => s.mode === 'diagram');
+        expect(diag).toBeTruthy();
+        expect(diag!.wired).toBe(true);
+        expect(diag!.modelTier).toBe('native_render_chromium');
+    });
+    it('#gap (image-free schema deliverable) records an explicit mode:none slot, never an empty array', () => {
+        const { air } = buildAir({ runId: 'r1', artifactId: 'a1', trigger: '#gap', objective });
+        expect(air.renderPlan.targetModes.length).toBeGreaterThan(0);
+        expect(air.renderPlan.imageSlots.length).toBeGreaterThan(0);
+        expect(air.renderPlan.imageSlots[0].mode).toBe('none');
+        expect(air.renderPlan.imageSlots[0].wired).toBe(true);
+    });
+    it('#personas (image-bearing) records a brand_image slot; #brief targets html', () => {
+        const personas = buildAir({ runId: 'r1', artifactId: 'a1', trigger: '#personas', objective }).air;
+        expect(personas.renderPlan.imageSlots.some(s => s.mode === 'brand_image')).toBe(true);
+        const brief = buildAir({ runId: 'r1', artifactId: 'a2', trigger: '#brief', objective }).air;
+        expect(brief.renderPlan.targetModes).toContain('html');
+    });
+    it('a caller-supplied renderPlan is never overridden', () => {
+        const { air } = buildAir({
+            runId: 'r1', artifactId: 'a1', trigger: '#journey', objective,
+            renderPlan: { targetModes: ['designer'], imageSlots: [{ slotId: 'x', mode: 'icon', wired: false }] },
+        });
+        expect(air.renderPlan.targetModes).toEqual(['designer']);
+        expect(air.renderPlan.imageSlots[0].slotId).toBe('x');
+    });
+});
+
+describe('W5: provider-bucket citations in the payload are a CONTRACT failure', () => {
+    it('flags "(Source: Gemini Focused Research)" in the payload and BLOCKS when non-shadow', () => {
+        const { air } = buildAir({
+            runId: 'r1', artifactId: 'a1', trigger: '#slides', objective,
+            evidenceLedger: [goodPointer], shadowMode: false,
+            artifactPayload: 'Morgan Stanley achieved adoption (Source: Gemini Focused Research).',
+        });
+        const res = validateAir(air);
+        expect(res.ok).toBe(false);
+        expect(res.failures.some(f => /provider-bucket citation/.test(f))).toBe(true);
+    });
+    it('reports the same defect in shadow mode without blocking (ramp semantics)', () => {
+        const { air } = buildAir({
+            runId: 'r1', artifactId: 'a1', trigger: '#slides', objective,
+            artifactPayload: 'x (Source: Gemini Focused Research)',
+        });
+        const res = validateAir(air);
+        expect(res.ok).toBe(true);
+        expect(res.failures.some(f => /provider-bucket citation/.test(f))).toBe(true);
+    });
+    it('a real named citation does not trip the bucket scan', () => {
+        const { air } = buildAir({
+            runId: 'r1', artifactId: 'a1', trigger: '#slides', objective,
+            evidenceLedger: [goodPointer], shadowMode: false,
+            artifactPayload: '"98% adoption of internal AI tools" (Source: Higher Ed Dive).',
+        });
+        expect(validateAir(air).ok).toBe(true);
+    });
+});
+
+describe('W8: naked-number review signal + W2/W3 hydration warnings', () => {
+    it('counts naked quantitative claims outside verbatim quotes into reviewScores', () => {
+        const { air } = buildAir({
+            runId: 'r1', artifactId: 'a1', trigger: '#strategy', objective,
+            artifactPayload: '60% to 80% of IT budgets go to maintenance. "We cut costs 30% in a year" (Source: Chronicle).',
+        });
+        const res = validateAir(air);
+        expect(air.qualityReport!.reviewScores['naked_numbers_outside_quotes']).toBe(2); // the quoted 30% is exempt
+        expect(res.warnings.some(w => /naked quantitative/.test(w))).toBe(true);
+    });
+    it('warns when modelTrace or decomposedQuestions are empty (the 0/11 scorecard gaps)', () => {
+        const { air } = buildAir({
+            runId: 'r1', artifactId: 'a1', trigger: '#gap',
+            objective: { objectiveId: 'o', userObjective: 'goal', decomposedQuestions: [] },
+        });
+        const res = validateAir(air);
+        expect(res.warnings.some(w => /modelTrace empty/.test(w))).toBe(true);
+        expect(res.warnings.some(w => /decomposedQuestions empty/.test(w))).toBe(true);
+    });
+});
+
+describe('W1: evidence ledger page-level attribution fallback (registry ladder)', () => {
+    it('an unsourced chunk falls back to the registered page title (e.g. a Reddit page)', async () => {
+        const { registerPointerSource } = await import('./citationPointerRegistry');
+        registerPointerSource('articles/reddit-deep-r-waterloo/9b1.md', 'Reddit Deep: r/waterloo');
+        const ev = resolvedChunkToEvidence({
+            id: 'articles/reddit-deep-r-waterloo/9b1.md#c0',
+            sourcePath: 'articles/reddit-deep-r-waterloo/9b1.md',
+            text: 'a long enough real chunk body about co-op housing pressure in Waterloo',
+        });
+        expect(ev.sources.length).toBe(1);
+        expect(ev.sources[0].sourceName).toBe('Reddit Deep: r/waterloo');
+        expect(ev.sources[0].sourceType).toBe('social');
+        expect(ev.provenanceConfidence).toBe(0.5);
+        expect(isWellFormedPointer(ev)).toBe(true);
+    });
+    it('doc-level resolved_sources outrank the page title (honest synthesis attribution)', async () => {
+        const { registerPageResolvedSources, registerPointerSource } = await import('./citationPointerRegistry');
+        registerPageResolvedSources('articles/gemini-syn/abc.md', ['JD Power', 'Insurance Journal']);
+        registerPointerSource('articles/gemini-syn/abc.md', 'AI Research (gemini): buckets');
+        const ev = resolvedChunkToEvidence({
+            id: 'articles/gemini-syn/abc.md#c2',
+            sourcePath: 'articles/gemini-syn/abc.md',
+            text: 'a synthesized span long enough to not be a stub',
+        });
+        expect(ev.sources.map(s => s.sourceName)).toEqual(['JD Power', 'Insurance Journal']);
+        expect(ev.provenanceConfidence).toBe(0.55);
+    });
+    it('per-chunk structured sources always win over page-level fallback', async () => {
+        const { registerPointerSource } = await import('./citationPointerRegistry');
+        registerPointerSource('articles/z.md', 'Page Title');
+        const ev = resolvedChunkToEvidence({
+            id: 'articles/z.md#c1', sourcePath: 'articles/z.md', text: 'body',
+            sources: [{ n: 'Higher Ed Dive', u: 'https://x' }],
+        });
+        expect(ev.sources[0].sourceName).toBe('Higher Ed Dive');
+        expect(ev.provenanceConfidence).toBe(0.85);
+    });
+    it('retrievalScore flows into objectiveScore (W6)', () => {
+        const ev = resolvedChunkToEvidence({ id: 'a.md#c1', text: 'long enough chunk body here', retrievalScore: 73 });
+        expect(ev.objectiveScore).toBe(73);
+    });
+});
+
+describe('W6: retrieval hardening (source-level guards; behavior needs live proxy)', () => {
+    const read = (rel: string) => readFileSync(join(__dirname, '..', rel), 'utf-8');
+    it('pickChunksForPrompt drops non-evidence (bot/boilerplate) chunks at retrieval', () => {
+        const src = read('services/chunkRetrieval.ts');
+        expect(src).toMatch(/isNonEvidenceChunk\(ch\.text\)/);
+    });
+    it('cross-engagement chunks are excluded from zero-overlap broaden backfill', () => {
+        const src = read('services/chunkRetrieval.ts');
+        expect(src).toMatch(/_broaden && !rec\.offEngagement/);
+        expect(src).toMatch(/offEngagement: _offEngagementIds\.has\(id\)/);
+    });
+    it('retrieval scores are returned and attached to the grounding chunks', () => {
+        const src = read('services/chunkRetrieval.ts');
+        expect(src).toMatch(/scores\[id\]/);
+        expect(src).toMatch(/retrievalScore: picked\.scores/);
+    });
+});
+
+describe('W2: emitDeliverable records the routed model into the AIR modelTrace', () => {
+    const read = (rel: string) => readFileSync(join(__dirname, '..', rel), 'utf-8');
+    it('the air block records a model step with selectedModel + routingReason', () => {
+        const src = read('services/emitDeliverable.ts');
+        expect(src).toMatch(/recordModelStep\(airTrace/);
+        expect(src).toMatch(/routingReason:/);
+        expect(src).toMatch(/FELL BACK from/);
+    });
+    it('the HTML-artifact call site passes the chooseArtifactModel decision', () => {
+        const panel = read('components/CorpusChatPanel.tsx');
+        expect(panel).toMatch(/chooseArtifactModel\(_htmlKind\)/);
+        expect(panel).toMatch(/routing:\s*\{\s*model:\s*_artModel,\s*reason:\s*_artDecision\.reason/);
+    });
+    it('the research plan sub-questions are published for AIR objective hydration (W3)', () => {
+        const app = read('App.tsx');
+        expect(app).toMatch(/__hicResearchPlanSubQuestions/);
+        const emit = read('services/emitDeliverable.ts');
+        expect(emit).toMatch(/__hicResearchPlanSubQuestions/);
+        expect(emit).toMatch(/auditSubQuestionCoverage/);
     });
 });
 

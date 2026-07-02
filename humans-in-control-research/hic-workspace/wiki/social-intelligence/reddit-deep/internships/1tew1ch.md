@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 1580]
     sentence_count: 10
     key_terms: [manufacturing, chemical, company, motor-vehicle, parts, engineering, internships, "i'm"]
+    concepts: [manufacturing, chemical, motor-vehicle, company, engineering]
     token_count: 361
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tew1ch/anxiety_with_manufacturing_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1tew1ch.md#c1"
     char_span: [1582, 2667]
     sentence_count: 8
     key_terms: [company, resume, fact, get, time, manufacturing, complaining, engineering]
+    concepts: [company, resume]
     token_count: 234
   - id: "social-intelligence/reddit-deep/internships/1tew1ch.md#c2"
     char_span: [2681, 4095]
     sentence_count: 4
     key_terms: [experience, chemical, like, supervisor, success, choice, resume, don]
+    concepts: [experience, chemical, supervisor, success, choice]
     section: Comments
     token_count: 291
 ---

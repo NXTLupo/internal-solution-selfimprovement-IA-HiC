@@ -21,65 +21,85 @@ chunks:
     char_span: [0, 1756]
     sentence_count: 14
     key_terms: [kitchener, inc, low, wage, waterloo, list, lmiamap, crafty]
+    concepts: [kitchener, waterloo, international, lmiamap, crafty]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c1", "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c2"]
     token_count: 497
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1o2jwzp/in_regards_to_our_region/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c1"
     char_span: [1758, 3143]
     sentence_count: 10
     key_terms: [waterloo, wage, inc, low, n2l, service, food, supervisors]
+    concepts: [waterloo, service, supervisors, kitchener, programmers]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c0", "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c2", "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c3", "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c4", "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c5"]
     token_count: 518
   - id: "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c2"
     char_span: [3145, 4604]
     sentence_count: 9
     key_terms: [wage, waterloo, inc, low, n2l, food, kitchener, helpers]
+    concepts: [waterloo, kitchener, occupations, supervisors, helpers]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c0", "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c1", "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c3", "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c5"]
     token_count: 516
   - id: "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c3"
     char_span: [4606, 6056]
     sentence_count: 5
     key_terms: [waterloo, wage, inc, supervisors, service, low, n2l, food]
+    concepts: [waterloo, supervisors, service, technicians, ontario]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c1", "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c2", "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c5"]
     token_count: 515
   - id: "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c4"
     char_span: [6058, 7578]
     sentence_count: 6
     key_terms: [waterloo, inc, n2l, global, stream, talent, programmers, developers]
+    concepts: [waterloo, global, stream, talent, programmers]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c1", "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c6"]
     token_count: 510
   - id: "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c5"
     char_span: [7580, 9062]
     sentence_count: 9
     key_terms: [waterloo, wage, construction, inc, high, n2l, management, prica]
+    concepts: [waterloo, construction, management, prica, supervisors]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c1", "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c2", "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c3", "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c6"]
     token_count: 516
   - id: "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c6"
     char_span: [9064, 10198]
     sentence_count: 10
     key_terms: [waterloo, inc, n2l, wage, high, construction, prica, global]
+    concepts: [waterloo, construction, prica, global, enterprises]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c4", "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c5"]
     token_count: 392
   - id: "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c7"
     char_span: [10212, 11331]
     sentence_count: 11
     key_terms: [programmers, area, find, inetro, within, best, cant, got]
+    concepts: [programmers, inetro, within]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c8"
     char_span: [11333, 12507]
     sentence_count: 10
     key_terms: [work, subway, japan, agreements, super, here, "i've", live]
+    concepts: [subway, agreements, japan, super]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c9"
     char_span: [12510, 14722]
     sentence_count: 20
     key_terms: [japanese, raman, signatures, hitachino, something, anywhere, canadian, brewery]
+    concepts: [japanese, raman, signatures, hitachino, something]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c10"
     char_span: [14724, 16468]
     sentence_count: 13
     key_terms: [temporary-foreign-worker-reforms-immigration-chamber-report-1, text, https, something, fucking, bettertransit, thefringthing, www]
+    concepts: [something, https, bettertransit, thefringthing, fucking]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c11"
     char_span: [16471, 18464]
     sentence_count: 22
     key_terms: [action, people, labourers, anything, farmers, fucking, voting, "you're"]
+    concepts: [action, people, labourers, anything, farmers]
     section: Comments
     token_count: 497
 ---

@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 1600]
     sentence_count: 17
     key_terms: [chatgpt, claude, model, gemini, models, openai, "what's", "can't"]
+    concepts: [chatgpt, claude, model, gemini, models]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1s5kidk.md#c2"]
     token_count: 375
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1s5kidk/how_does_openai_plan_to_make_money_whats_the/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1s5kidk.md#c1"
     char_span: [1614, 2264]
     sentence_count: 4
     key_terms: [openai, conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, support]
+    concepts: [conversation, openai, image, discord, support]
     section: Comments
     token_count: 171
   - id: "social-intelligence/reddit-deep/chatgpt/1s5kidk.md#c2"
     char_span: [2267, 4226]
     sentence_count: 12
     key_terms: [chatgpt, claude, never, write, content, single, issue, spicy]
+    concepts: [chatgpt, claude, never, write, content]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1s5kidk.md#c0"]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/chatgpt/1s5kidk.md#c3"
     char_span: [4228, 5836]
     sentence_count: 14
     key_terms: [like, "true", scientific, absolute, honestly, workflow, gpt-pro, minutes]
+    concepts: [scientific, absolute, honestly, workflow, gpt-pro]
     section: Comments
     token_count: 406
+    sources: [{"n":"am astronomer","u":""}]
   - id: "social-intelligence/reddit-deep/chatgpt/1s5kidk.md#c4"
     char_span: [5838, 7742]
     sentence_count: 12
     key_terms: [hallucinated, integration, chatgpt, partner, google, safety, like, microsoft]
+    concepts: [hallucinated, integration, chatgpt, partner, google]
     section: Comments
     token_count: 489
 ---

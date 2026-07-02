@@ -21,46 +21,59 @@ chunks:
     char_span: [0, 1982]
     sentence_count: 26
     key_terms: ["i'm", financialindependence, health, job, time, barista-fire, aca, care]
+    concepts: [financialindependence, health, barista-fire, sabbatical, semi-fire]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1qi5z3c/semifire_baristafire_sabbatical/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c1"
     char_span: [1985, 3345]
     sentence_count: 21
     key_terms: [years, pet, anticipate, expenses, savings, travel, months--projected, care]
+    concepts: [anticipate, years, expenses, savings, travel]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c4"]
     token_count: 361
   - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c2"
     char_span: [3359, 4842]
     sentence_count: 17
     key_terms: [insurance, get, health, need, university, barista, spanish, student]
+    concepts: [insurance, health, university, barista, spanish]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c3"]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c3"
     char_span: [4844, 6750]
     sentence_count: 12
     key_terms: [insurance, health, working, solomongrumpy, conversions, "it's", week, starbucks]
+    concepts: [insurance, health, solomongrumpy, working, conversions]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c2"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c4"
     char_span: [6753, 8471]
     sentence_count: 15
     key_terms: [years, neithercatnorfowl, travel, start, job, like, work, enough]
+    concepts: [years, neithercatnorfowl, travel, start, enough]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c1"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c5"
     char_span: [8473, 10393]
     sentence_count: 27
     key_terms: [calculator, fire, income, mymoneymile, job, stop, yourself, health]
+    concepts: [calculator, income, mymoneymile, yourself, health]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c6"
     char_span: [10395, 12473]
     sentence_count: 19
     key_terms: [like, right, able, get, good, help, use, advisor]
+    concepts: [right, advisor, current, better, liquid]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c7"
     char_span: [12475, 14735]
     sentence_count: 15
     key_terms: [money, inefficient, better, working, inefficiently, state, efficiently, healthcare]
+    concepts: [inefficient, money, better, working, inefficiently]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c8"

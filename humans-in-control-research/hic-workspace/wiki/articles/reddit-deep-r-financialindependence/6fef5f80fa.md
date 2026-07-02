@@ -18,16 +18,22 @@ chunks:
     char_span: [0, 1982]
     sentence_count: 22
     key_terms: [fire, financialindependence, worth, been, healthcare, retirement, currently, goalposts]
+    concepts: [financialindependence, healthcare, retirement, worth, currently]
     token_count: 462
+    sources: [{"n":"Reddit Deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1qrasca/moving_goalposts_and_future_anxiety/"}]
   - id: "articles/reddit-deep-r-financialindependence/6fef5f80fa.md#c1"
     char_span: [1984, 3417]
     sentence_count: 8
     key_terms: [fire, number, people, bumping, curious, without, closer, others]
+    concepts: [number, people, bumping, curious, without]
+    related_chunks: ["articles/reddit-deep-r-financialindependence/6fef5f80fa.md#c2"]
     token_count: 348
   - id: "articles/reddit-deep-r-financialindependence/6fef5f80fa.md#c2"
     char_span: [3419, 4663]
     sentence_count: 10
     key_terms: [husband, retiring, without, having, number, though, years, ago]
+    concepts: [husband, retiring, without, having, number]
+    related_chunks: ["articles/reddit-deep-r-financialindependence/6fef5f80fa.md#c1"]
     token_count: 312
 ---
 # Moving Goalposts and Future Anxiety

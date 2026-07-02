@@ -11,45 +11,53 @@ score: 31
 upvote_ratio: 0.94
 num_comments: 17
 flair: "Shopify General Discussion"
-extracted_at: "2026-06-18T13:35:23.057Z"
+extracted_at: "2026-06-24T22:14:23.472Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/shopify/1oto8fw.md#c0"
     char_span: [0, 723]
     sentence_count: 3
     key_terms: [shopify, e-commerce, news, comments, recaps, weekly, adventurepaul, reddit-deep]
+    concepts: [shopify, e-commerce, comments, recaps, weekly]
     token_count: 187
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1oto8fw/this_weeks_top_ecommerce_news_stories_nov_10th/"}]
   - id: "social-intelligence/reddit-deep/shopify/1oto8fw.md#c1"
     char_span: [725, 3169]
     sentence_count: 11
     key_terms: [perplexity, amazon, letter, model, "amazon's", multiple, tiktok, apple]
+    concepts: [perplexity, amazon, letter, model, "amazon's"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1oto8fw.md#c2"
     char_span: [2841, 5346]
     sentence_count: 9
     key_terms: [feedonomics, marketplace, model, shopify, app, launched, amazon, bazaar]
+    concepts: [feedonomics, marketplace, model, shopify, launched]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1oto8fw.md#c3"
     char_span: [5036, 7521]
     sentence_count: 11
     key_terms: [meta, developers, services, billion, company, sp-api, feedonomics, api]
+    concepts: [developers, services, billion, company, sp-api]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1oto8fw.md#c4"
     char_span: [7208, 9756]
     sentence_count: 13
     key_terms: [company, openai, offers, discounts, chatgpt, suicide, issue, app]
+    concepts: [company, openai, offers, discounts, chatgpt]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1oto8fw.md#c5"
     char_span: [9451, 10249]
     sentence_count: 3
     key_terms: [product, ai-generated, reviews, beauty, audio, app, hear, conversational]
+    concepts: [product, ai-generated, reviews, beauty, audio]
     token_count: 168
   - id: "social-intelligence/reddit-deep/shopify/1oto8fw.md#c6"
-    char_span: [10264, 11758]
+    char_span: [10263, 11757]
     sentence_count: 9
     key_terms: [adventurepaul, independencelife6884, merchants, shopify, community, recharge, contact, content]
+    concepts: [adventurepaul, independencelife6884, merchants, shopify, community]
     section: Comments
     token_count: 375
 ---

@@ -19,19 +19,23 @@ content_hash: "9a9cc66e79785485"
 relevance_by_goal: {"490684cfa204":35}
 chunks:
   - id: "articles/reddit-deep-r-ecommerce/b3dcfec1a8.md#c0"
-    char_span: [0, 1591]
+    char_span: [0, 1590]
     sentence_count: 10
     key_terms: [roas, scale, retargeting, ctr, high, pack, ecommerce, editorial]
-    token_count: 429
+    concepts: [retargeting, scale, ecommerce, editorial, account]
+    token_count: 428
+    sources: [{"n":"Reddit Deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1u1he4i/survival_mode_dtc_recovering_from_ctrchasing/"}]
   - id: "articles/reddit-deep-r-ecommerce/b3dcfec1a8.md#c1"
-    char_span: [1593, 3374]
+    char_span: [1592, 3373]
     sentence_count: 10
     key_terms: [days, scale, pack, roas, campaign, rebuild, voice, cbo]
+    concepts: [scale, campaign, rebuild, purchasers, relearning]
     token_count: 447
   - id: "articles/reddit-deep-r-ecommerce/b3dcfec1a8.md#c2"
-    char_span: [3376, 4067]
+    char_span: [3375, 4066]
     sentence_count: 5
     key_terms: [lal, retention, missing, rebuild, acquire-on-sale, interest-based, high-ltv-only, recommending]
+    concepts: [retention, missing, rebuild]
     token_count: 166
 ---
 # Survival mode DTC: recovering from CTR-chasing strategy + lost my scale campaign. Honest advice needed.

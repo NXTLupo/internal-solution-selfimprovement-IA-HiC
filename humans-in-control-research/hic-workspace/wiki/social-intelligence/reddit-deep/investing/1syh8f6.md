@@ -21,28 +21,34 @@ chunks:
     char_span: [0, 1667]
     sentence_count: 6
     key_terms: [stock, bond, cap, developed, domestic, fidelity, intl, saying]
+    concepts: [stock, developed, domestic, fidelity, saying]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1syh8f6/fidelity_came_up_with_this_plan_for_me_and_i_am/"}]
   - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c1"
     char_span: [1669, 2595]
     sentence_count: 2
     key_terms: [strategic, advisers, fidelity, fund, emerging, markets, international, etf]
+    concepts: [strategic, advisers, fidelity, emerging, markets]
     token_count: 315
   - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c2"
     char_span: [2609, 4334]
     sentence_count: 14
     key_terms: [weightedslanket, fees, readsalotman, complicated, yeah, year, portfolio, fidelity]
+    concepts: [weightedslanket, readsalotman, complicated, portfolio, fidelity]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c3"
     char_span: [4104, 5136]
     sentence_count: 6
     key_terms: [portfolio, yeah, like, frustrated, arthurmanercatsirman, based, maybe, cfp]
+    concepts: [portfolio, frustrated, based, maybe]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c4"
     char_span: [5138, 7118]
     sentence_count: 13
     key_terms: [fidelity, investing, risky, fund, market, index, selling, global]
+    concepts: [fidelity, investing, risky, market, index]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c5"
@@ -55,24 +61,28 @@ chunks:
     char_span: [7435, 9288]
     sentence_count: 9
     key_terms: [stocks, money, years, bonds, bond, allocation, volatility, averse]
+    concepts: [stocks, money, years, allocation, bonds]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c7"
     char_span: [9049, 10773]
     sentence_count: 12
     key_terms: [fee, thesleepytruth, natureboyj1, voo, brokerage, portfolio, blended, market]
+    concepts: [thesleepytruth, natureboyj1, brokerage, portfolio, blended]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c8"
     char_span: [10528, 10958]
     sentence_count: 4
     key_terms: [brokerage, disadvantage, applemasher, retirement, portfolio, standard, account, another]
+    concepts: [brokerage]
     section: Comments
     token_count: 122
   - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c9"
     char_span: [10960, 12185]
     sentence_count: 12
     key_terms: [market, reasonable, retirement, financial, advisor, return, never, works]
+    concepts: [market, reasonable, retirement, financial, advisor]
     section: Comments
     token_count: 277
 ---

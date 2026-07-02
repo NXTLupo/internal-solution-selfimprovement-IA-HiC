@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 938]
     sentence_count: 8
     key_terms: [product, advice, experience, negotiate, comments, driving, fintech, traffic]
+    concepts: [product, advice, experience, negotiate, comments]
     token_count: 212
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1sjo5ye/advice_to_gain_commercial_api_usage_agreement/"}]
   - id: "social-intelligence/reddit-deep/fintech/1sjo5ye.md#c1"
-    char_span: [953, 2846]
+    char_span: [952, 2845]
     sentence_count: 22
     key_terms: [api, conversation, distribution, access, "you're", commercial, partnerships, development]
+    concepts: [conversation, distribution, commercial, access, "you're"]
     section: Comments
     token_count: 364
 ---

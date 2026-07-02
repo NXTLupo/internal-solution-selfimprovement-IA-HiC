@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 1441]
     sentence_count: 9
     key_terms: [market, record, last, correction, industries, composite, investing, comments]
+    concepts: [market, record, correction, industries, composite]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1s5g9vv.md#c5"]
     token_count: 355
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1s5g9vv/dow_jones_nasdaq_composite_close_in_10_correction/"}]
   - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c1"
     char_span: [1443, 2169]
     sentence_count: 2
     key_terms: [currently, down, topped, big, etc, oct, pre-earnings, ai-adjacent]
+    concepts: [currently, topped]
     token_count: 207
   - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c2"
     char_span: [2183, 3189]
     sentence_count: 5
     key_terms: [get, "it's", shicken684, markets, numbers, redact, going, posts]
+    concepts: [shicken684, markets, numbers, redact, going]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c3"
     char_span: [3191, 4667]
     sentence_count: 7
     key_terms: [inflation, likely, going, rates, johnbrownserection, methylphenidateman, able, cash]
+    concepts: [inflation, likely, going, rates]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c4"
     char_span: [4676, 5409]
     sentence_count: 2
     key_terms: [insanely, popular, product, nvidia, infinite-4-a-moment, methylphenidateman, got, use]
+    concepts: [insanely, popular, product, nvidia]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c5"
     char_span: [5411, 7298]
     sentence_count: 12
     key_terms: [high, correction, record, "i'm", week, alfb63, hot, comparison]
+    concepts: [correction, record, alfb63, comparison, instead]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1s5g9vv.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c6"
     char_span: [7055, 7862]
     sentence_count: 8
     key_terms: [curious-zucchini763, buying, happen, vandownbytheriver63, high, sell, use, week]
+    concepts: [curious-zucchini763, buying, happen]
     section: Comments
     token_count: 223
 ---

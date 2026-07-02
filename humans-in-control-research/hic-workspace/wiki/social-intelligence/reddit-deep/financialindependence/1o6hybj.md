@@ -21,70 +21,94 @@ chunks:
     char_span: [0, 1784]
     sentence_count: 11
     key_terms: [roth, taxes, contributing, financialindependence, tax, trying, contributions, contribution]
+    concepts: [financialindependence, contributing, taxes, contributions, contribution]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c2", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c5", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c9"]
     token_count: 427
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1o6hybj/something_subtle_that_i_just_realized_about_roth/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c1"
     char_span: [1786, 2608]
     sentence_count: 7
     key_terms: [retirement, tax, account, income, note, rate, roth, compounding]
+    concepts: [retirement, account, income]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c10"]
     token_count: 178
   - id: "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c2"
     char_span: [2622, 4391]
     sentence_count: 14
     key_terms: [traditional, tax, taxes, roth, contribution, brokerage, account, bracket]
+    concepts: [traditional, contribution, taxes, brokerage, account]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c0", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c3", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c4", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c5", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c9"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c3"
     char_span: [4393, 6716]
     sentence_count: 19
     key_terms: [tax, traditional, bracket, marginal, roth, withdrawal, taxes, rate]
+    concepts: [traditional, bracket, marginal, withdrawal, taxes]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c2", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c4", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c5", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c6", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c7"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c4"
     char_span: [6718, 8691]
     sentence_count: 15
     key_terms: [retirement, better, studies, taxes, traditional, roth, personal, spending]
+    concepts: [retirement, better, studies, traditional, taxes]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c2", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c3", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c5", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c7", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c9"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c5"
     char_span: [8693, 10175]
     sentence_count: 16
     key_terms: [brokerage, traditional, gains, taxes, roth, tax, bracket, afford]
+    concepts: [brokerage, traditional, gains, taxes, contributions]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c0", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c2", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c3", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c4", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c9"]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c6"
     char_span: [10178, 11688]
     sentence_count: 12
     key_terms: [taxed, marginal, traditional, being, going, roth, bracket, rate]
+    concepts: [taxed, marginal, traditional, being, going]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c3", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c7", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c8"]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c7"
     char_span: [11690, 13876]
     sentence_count: 15
     key_terms: [traditional, marginal, rate, dollar, taxed, retirement, contributed, roth]
+    concepts: [traditional, marginal, dollar, taxed, retirement]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c3", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c4", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c6", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c8"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c8"
     char_span: [13878, 15708]
     sentence_count: 19
     key_terms: [dollar, marginal, bracket, retirement, rate, taxed, traditional, account]
+    concepts: [marginal, dollar, retirement, bracket, taxed]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c3", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c6", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c7"]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c9"
     char_span: [15710, 17591]
     sentence_count: 13
     key_terms: [taxes, contribute, contributions, traditional, limit, roth, because, people]
+    concepts: [contribute, taxes, contributions, traditional, limit]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c0", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c2", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c3", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c4", "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c5"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c10"
     char_span: [17593, 19056]
     sentence_count: 12
     key_terms: [tax, retirement, required-minimum-distribution-calculator, going, calculators, take, year, financial-tools-calculators]
+    concepts: [retirement, calculators, going, income]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c1"]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/financialindependence/1o6hybj.md#c11"
     char_span: [19058, 20219]
     sentence_count: 8
     key_terms: [tax, taxable, no-block-2095, years, don, bracket, expect, income]
+    concepts: [no-block-2095, taxable, years, bracket, expect]
     section: Comments
     token_count: 337
 ---

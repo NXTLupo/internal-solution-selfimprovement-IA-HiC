@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 490]
     sentence_count: 2
     key_terms: [highereducation, comments, laura-growthspurt, communications, incorporated, prospective, reddit-deep, applicants]
+    concepts: [highereducation, comments]
     token_count: 110
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1opntkx/higher_ed_communications_and_marketing_directors/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1opntkx.md#c1"
     char_span: [504, 2700]
     sentence_count: 14
     key_terms: [college, redghostorchid, change, higher, moving, school, martechnician, going]
+    concepts: [redghostorchid, martechnician, college, change, higher]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1opntkx.md#c2"
     char_span: [2438, 3394]
     sentence_count: 6
     key_terms: [school, communications, alumni, university, happening, marketing, towards, career]
+    concepts: [school, communications, alumni, university, happening]
     section: Comments
     token_count: 204
   - id: "social-intelligence/reddit-deep/highereducation/1opntkx.md#c3"
     char_span: [3396, 5089]
     sentence_count: 13
     key_terms: [departments, marketing, budgets, like, year, enrollment, experience, lifelong]
+    concepts: [departments, marketing, budgets, enrollment, experience]
     section: Comments
     token_count: 345
 ---

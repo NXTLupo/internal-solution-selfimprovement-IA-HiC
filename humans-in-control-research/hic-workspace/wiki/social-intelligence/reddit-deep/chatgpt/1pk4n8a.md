@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 1250]
     sentence_count: 6
     key_terms: [gpt-5, model, previous, chatgpt, general, best, especially, accuracy]
+    concepts: [gpt-5, model, previous, chatgpt, general]
     token_count: 333
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1pk4n8a/breaking_openai_releases_gpt_52/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1pk4n8a.md#c1"
     char_span: [1264, 2499]
     sentence_count: 5
     key_terms: [like, versions, r-chatgpt-1050422060352024636, remember, discord, windows, people, atworkwasalreadytake]
+    concepts: [versions, remember, discord, windows, people]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/chatgpt/1pk4n8a.md#c2"
     char_span: [2501, 4198]
     sentence_count: 18
     key_terms: ["it's", reasoning, context, gemini, reallllly, million, prompts, openai]
+    concepts: [reasoning, context, gemini, reallllly, million]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/chatgpt/1pk4n8a.md#c3"
     char_span: [4200, 5744]
     sentence_count: 11
     key_terms: [better, gemini, "don't", benchmarks, distance, chatgpt, someacanthocephala17, least]
+    concepts: [better, gemini, benchmarks, "don't", distance]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1pk4n8a.md#c4"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/chatgpt/1pk4n8a.md#c4"
     char_span: [5746, 6249]
     sentence_count: 1
     key_terms: [better, gemini, currently, justwalkingalonghere, "it's", pro, ultrababyvegeta, godofpumpkins]
+    concepts: [better, gemini, currently]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1pk4n8a.md#c3"]
     section: Comments
     token_count: 149
   - id: "social-intelligence/reddit-deep/chatgpt/1pk4n8a.md#c5"
     char_span: [6251, 7983]
     sentence_count: 6
     key_terms: [like, guardrails, instant, red286, brave-turnover-522, not-insignificant, age, "it's"]
+    concepts: [guardrails, instant, red286]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/chatgpt/1pk4n8a.md#c6"
     char_span: [7985, 9604]
     sentence_count: 10
     key_terms: [ultrababyvegeta, shit, teenager, improve, introductionsouth513, knows, model, good]
+    concepts: [ultrababyvegeta, teenager, improve, knows, model]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/chatgpt/1pk4n8a.md#c7"
     char_span: [9606, 10354]
     sentence_count: 8
     key_terms: [provide, sources, longer, get, misinterpreting, functionality, bullshitting, approaching]
+    concepts: [provide, sources, longer]
     section: Comments
     token_count: 190
 ---

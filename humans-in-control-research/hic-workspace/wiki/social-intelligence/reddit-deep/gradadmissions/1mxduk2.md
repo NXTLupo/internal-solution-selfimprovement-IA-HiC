@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 654]
     sentence_count: 2
     key_terms: [gradadmissions, gpa, comments, because, reddit, grad, low, reddit-deep]
+    concepts: [gradadmissions, comments, because, reddit]
     token_count: 165
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1mxduk2/low_gpa_acceptance/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1mxduk2.md#c1"
     char_span: [668, 2570]
     sentence_count: 9
     key_terms: [gpa, like, low, undergrad, roseyardgraves, addressed, genuinely, radianthc]
+    concepts: [undergrad, roseyardgraves, addressed, genuinely, radianthc]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1mxduk2.md#c2"
     char_span: [2417, 4088]
     sentence_count: 11
     key_terms: [gpa, did, statement, congrats, application, thank, low, admissions]
+    concepts: [statement, congrats, application, thank, admissions]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/gradadmissions/1mxduk2.md#c3"
     char_span: [4090, 6195]
     sentence_count: 15
     key_terms: [gpa, experience, did, confidence, addressed, interview, professor, undergrad]
+    concepts: [experience, confidence, addressed, interview, professor]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/gradadmissions/1mxduk2.md#c4"
     char_span: [6197, 6856]
     sentence_count: 8
     key_terms: [experience, got, gpa, gre, research, publication, university, australia]
+    concepts: [experience, research]
     section: Comments
     token_count: 173
 ---

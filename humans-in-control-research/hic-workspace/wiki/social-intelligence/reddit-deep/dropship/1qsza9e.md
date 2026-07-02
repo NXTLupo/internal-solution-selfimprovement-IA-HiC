@@ -20,21 +20,25 @@ chunks:
     char_span: [0, 1708]
     sentence_count: 16
     key_terms: [fulfillment, tried, everything, different, business, comments, dropship, margin]
+    concepts: [fulfillment, everything, tried, different, business]
     token_count: 422
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1qsza9e/scaled_from_17k_to_75k_in_4_months/"}]
   - id: "social-intelligence/reddit-deep/dropship/1qsza9e.md#c1"
-    char_span: [1723, 3680]
+    char_span: [1722, 3679]
     sentence_count: 16
     key_terms: [product, did, page, images, everywhere, different, pagonz342, dropship]
+    concepts: [product, images, everywhere, different, pagonz342]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/dropship/1qsza9e.md#c2"
-    char_span: [3682, 5042]
+    char_span: [3681, 5041]
     sentence_count: 16
     key_terms: [product, increased, days, colors, did, shipping, amazon, best]
+    concepts: [product, increased, colors, shipping, amazon]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/dropship/1qsza9e.md#c3"
-    char_span: [5044, 6048]
+    char_span: [5043, 6047]
     sentence_count: 5
     key_terms: [day, charlielovesolives, expectations, highlighting, warriorbeta3, affilitated, sixjasefive, acceptable]
     section: Comments

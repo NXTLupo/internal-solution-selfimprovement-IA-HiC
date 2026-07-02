@@ -21,59 +21,70 @@ chunks:
     char_span: [0, 1141]
     sentence_count: 2
     key_terms: [car, personalfinance, been, down, sell, emergency, comments, interest]
+    concepts: [personalfinance, emergency, comments, interest, savings]
     token_count: 286
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1tbki5v/how_to_cut_losses_with_1000mo_car_loan/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c1"
     char_span: [1155, 2542]
     sentence_count: 11
     key_terms: [car, sell, likely, value, owe, pay, difference, vehicle]
+    concepts: [likely, difference, value, vehicle, lender]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c2"
     char_span: [2544, 3451]
     sentence_count: 7
     key_terms: [car, lot, balance, home, loan, save, hatemakingnames1, maintenance]
+    concepts: [balance]
     section: Comments
     token_count: 225
   - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c3"
     char_span: [3453, 5015]
     sentence_count: 9
     key_terms: [car, loan, difference, credit, get, paid, pay, depending]
+    concepts: [difference, credit, depending, possibly, better]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c4"
     char_span: [5017, 6873]
     sentence_count: 10
     key_terms: [insurance, car, month, pay, pretty, sale, terrible, driver]
+    concepts: [insurance, month, pretty, terrible, driver]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c5"
     char_span: [6613, 7767]
     sentence_count: 7
     key_terms: [insurance, "he's", coverage, year-old, driving, policy, state, years]
+    concepts: [insurance, coverage, year-old, driving, policy]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c6"
     char_span: [7769, 9727]
     sentence_count: 19
     key_terms: [car, insurance, pay, another, likely, paying, years, move]
+    concepts: [insurance, another, likely, paying, years]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c7"
     char_span: [9730, 11140]
     sentence_count: 9
     key_terms: [car, balance, deal, got, coworker, interest, market, camry]
+    concepts: [balance, coworker, interest, market, camry]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c8"
     char_span: [11142, 12924]
     sentence_count: 19
     key_terms: [pay, car, interest, cars, "i'm", principal, something, hyundai]
+    concepts: [interest, principal, something, hyundai, parents]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c9"
     char_span: [12926, 13744]
     sentence_count: 6
     key_terms: [car, interest, credit, don, get, job, rate, sell]
+    concepts: [interest, credit]
     section: Comments
     token_count: 222
 ---

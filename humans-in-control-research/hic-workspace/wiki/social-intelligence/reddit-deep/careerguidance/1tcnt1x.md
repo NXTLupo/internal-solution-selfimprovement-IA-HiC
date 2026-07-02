@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1462]
     sentence_count: 2
     key_terms: [career, like, college, careerguidance, entertainment, interested, profession, direction]
+    concepts: [career, careerguidance, entertainment, college, interested]
     token_count: 324
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tcnt1x/im_a_college_freshman_that_needs_career_guidance/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tcnt1x.md#c1"
     char_span: [1476, 3105]
     sentence_count: 12
     key_terms: [people, different, work, looking, writing, communications, fields, check]
+    concepts: [people, different, communications, looking, writing]
     section: Comments
     token_count: 318
 ---

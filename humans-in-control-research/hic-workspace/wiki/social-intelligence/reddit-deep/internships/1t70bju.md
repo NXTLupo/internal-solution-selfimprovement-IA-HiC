@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1633]
     sentence_count: 1
     key_terms: [communication, internship, interns, remote, internships, work, experience, interested]
+    concepts: [communication, internship, interns, remote, internships]
     token_count: 381
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t70bju/urgently_hiring_hr_interns_remote_limited_slots/"}]
   - id: "social-intelligence/reddit-deep/internships/1t70bju.md#c1"
-    char_span: [1648, 2525]
+    char_span: [1647, 2524]
     sentence_count: 2
     key_terms: [interested, shal270, opportunity, internship, kindly, great, got, chipmunkkkkk]
+    concepts: [interested, shal270, opportunity, internship, kindly]
     section: Comments
     token_count: 308
 ---

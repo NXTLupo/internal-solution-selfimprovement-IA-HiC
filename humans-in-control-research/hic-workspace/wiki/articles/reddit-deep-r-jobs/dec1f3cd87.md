@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2025]
     sentence_count: 10
     key_terms: [like, pay, fulfilling, job, tired, career, fulfillment, want]
+    concepts: [fulfilling, tired, career, fulfillment, comments]
     token_count: 511
+    sources: [{"n":"Reddit Deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1ln94tt/anyone_else_feel_like_every_job_now_wants_way_too/"}]
 ---
 # Anyone else feel like every job now wants way too much for what they pay?
 

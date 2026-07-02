@@ -19,29 +19,39 @@ chunks:
     char_span: [0, 1670]
     sentence_count: 11
     key_terms: [offer, aws, atlassian, cscareerquestions, time, bonus, full, team]
+    concepts: [offer, atlassian, cscareerquestions, bonus, vancouver]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1oxffx2.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1oxffx2.md#c3"]
     token_count: 425
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1oxffx2/atlassian_vs_aws_for_full_time_swe/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oxffx2.md#c1"
-    char_span: [1685, 2447]
+    char_span: [1684, 2446]
     sentence_count: 4
     key_terms: [atlassian, aws, year, effective, horrible, "it's", less, net]
+    concepts: [atlassian, effective, horrible]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oxffx2.md#c2"
-    char_span: [2449, 3705]
+    char_span: [2448, 3704]
     sentence_count: 5
     key_terms: [atlassian, amazon, worked, recruiter, vancouver, "there's", cooked, events]
+    concepts: [atlassian, amazon, worked, recruiter, vancouver]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1oxffx2.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1oxffx2.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1oxffx2.md#c4"]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oxffx2.md#c3"
-    char_span: [3707, 5647]
+    char_span: [3706, 5646]
     sentence_count: 17
     key_terms: [atlassian, offer, amazon, expected, better, right, mentorship, surprised]
+    concepts: [atlassian, offer, amazon, expected, better]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1oxffx2.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1oxffx2.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1oxffx2.md#c4"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oxffx2.md#c4"
-    char_span: [5649, 6749]
+    char_span: [5648, 6748]
     sentence_count: 7
     key_terms: [amazon, atlassian, aws, "don't", schedule, vesting, layoff, least]
+    concepts: [amazon, atlassian, "don't", schedule, vesting]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1oxffx2.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1oxffx2.md#c3"]
     section: Comments
     token_count: 306
 ---

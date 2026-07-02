@@ -19,53 +19,70 @@ chunks:
     char_span: [0, 794]
     sentence_count: 6
     key_terms: [class, student, accommodation, attendance, professors, reasonable, comments, learning]
+    concepts: [class, accommodation, student, attendance, professors]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1sgqeip.md#c6", "social-intelligence/reddit-deep/professors/1sgqeip.md#c7", "social-intelligence/reddit-deep/professors/1sgqeip.md#c8"]
     token_count: 185
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1sgqeip/attendance_accommodation/"}]
   - id: "social-intelligence/reddit-deep/professors/1sgqeip.md#c1"
-    char_span: [809, 1795]
+    char_span: [808, 1794]
     sentence_count: 6
     key_terms: [get, gerswindevilkid, unsuccessfully, requirements, "don't", absences, because, despite]
+    concepts: [gerswindevilkid, unsuccessfully, requirements, "don't", absences]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/professors/1sgqeip.md#c2"
-    char_span: [1797, 3621]
+    char_span: [1796, 3620]
     sentence_count: 5
     key_terms: [percent-stanford-undergraduates-claim-disabled-sw99r3k8c, elite-university-student-accommodation, accommodations, students, https, com, www, accommodation]
+    concepts: [percent-stanford-undergraduates-claim-disabled-sw99r3k8c, elite-university-student-accommodation, accommodations, students, https]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1sgqeip.md#c6"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/professors/1sgqeip.md#c3"
-    char_span: [3623, 4602]
+    char_span: [3622, 4601]
     sentence_count: 7
     key_terms: [accommodation, assignments, experience, deadlines, industry, pretty, non-collaborative, time]
+    concepts: [accommodation, assignments, experience, deadlines, industry]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1sgqeip.md#c8"]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/professors/1sgqeip.md#c4"
-    char_span: [4604, 6661]
+    char_span: [4603, 6660]
     sentence_count: 10
     key_terms: [attendance, time, elite-university-student-accommodation, nursing, hours, atlantic, breaking, meetings]
+    concepts: [attendance, nursing, hours, atlantic, breaking]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1sgqeip.md#c5"
-    char_span: [6334, 7390]
+    char_span: [6333, 7389]
     sentence_count: 5
     key_terms: [accommodations, interpretation, accommodation, something, meetings, discussion-intensive, mystudentsaredumb100, "i'll"]
+    concepts: [accommodations, interpretation, accommodation, something, meetings]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1sgqeip.md#c7", "social-intelligence/reddit-deep/professors/1sgqeip.md#c8"]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/professors/1sgqeip.md#c6"
-    char_span: [7392, 9798]
+    char_span: [7391, 9797]
     sentence_count: 15
     key_terms: [accommodations, class, student, students, office, miss, work, frustrated]
+    concepts: [accommodations, class, student, students, office]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1sgqeip.md#c0", "social-intelligence/reddit-deep/professors/1sgqeip.md#c2", "social-intelligence/reddit-deep/professors/1sgqeip.md#c7"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/professors/1sgqeip.md#c7"
-    char_span: [9800, 11282]
+    char_span: [9799, 11281]
     sentence_count: 12
     key_terms: [class, did, student, accommodations, accommodation, communicate, assignment, reasonable]
+    concepts: [class, accommodations, accommodation, student, communicate]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1sgqeip.md#c0", "social-intelligence/reddit-deep/professors/1sgqeip.md#c5", "social-intelligence/reddit-deep/professors/1sgqeip.md#c6", "social-intelligence/reddit-deep/professors/1sgqeip.md#c8"]
     section: Comments
     token_count: 306
   - id: "social-intelligence/reddit-deep/professors/1sgqeip.md#c8"
-    char_span: [11284, 12815]
+    char_span: [11283, 12814]
     sentence_count: 12
     key_terms: [professors, accommodation, semester, accommodations, experience, refractory, beginning, epilepsy]
+    concepts: [professors, accommodation, semester, accommodations, experience]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1sgqeip.md#c0", "social-intelligence/reddit-deep/professors/1sgqeip.md#c3", "social-intelligence/reddit-deep/professors/1sgqeip.md#c5", "social-intelligence/reddit-deep/professors/1sgqeip.md#c7"]
     section: Comments
     token_count: 319
 ---

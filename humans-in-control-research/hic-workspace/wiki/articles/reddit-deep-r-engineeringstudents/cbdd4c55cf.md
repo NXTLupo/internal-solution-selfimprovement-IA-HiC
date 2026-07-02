@@ -18,21 +18,28 @@ chunks:
     char_span: [0, 1945]
     sentence_count: 6
     key_terms: [engineering, systems, technical, job, internship, engineeringstudents, role, raytheon]
+    concepts: [engineering, systems, technical, engineeringstudents, internship]
+    related_chunks: ["articles/reddit-deep-r-engineeringstudents/cbdd4c55cf.md#c3"]
     token_count: 450
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1p6575j/help_i_cant_decide_between_a_systems_engineering/"}]
   - id: "articles/reddit-deep-r-engineeringstudents/cbdd4c55cf.md#c1"
     char_span: [1947, 2700]
     sentence_count: 6
     key_terms: [defense, cross-transfer, hellraiserl33t, professional, standardized, departments, engineering, environment]
+    concepts: [defense]
     token_count: 150
   - id: "articles/reddit-deep-r-engineeringstudents/cbdd4c55cf.md#c2"
     char_span: [2702, 4887]
     sentence_count: 18
     key_terms: [job, pretty, engineering, internships, "i've", jobs, life, like]
+    concepts: [pretty, engineering, internships, benefits, engineer]
     token_count: 502
   - id: "articles/reddit-deep-r-engineeringstudents/cbdd4c55cf.md#c3"
     char_span: [4889, 6571]
     sentence_count: 11
     key_terms: [internship, get, engineering, experience, job, lot, northeast, technical]
+    concepts: [internship, engineering, experience, northeast, technical]
+    related_chunks: ["articles/reddit-deep-r-engineeringstudents/cbdd4c55cf.md#c0"]
     token_count: 374
 ---
 # Help I can't decide between a systems engineering internship at Raytheon or a Navy engineering internship if I am interested in a highly technical job and getting my masters/phd

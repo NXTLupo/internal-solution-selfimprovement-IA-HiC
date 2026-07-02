@@ -20,22 +20,29 @@ chunks:
     char_span: [0, 2044]
     sentence_count: 9
     key_terms: [financial, trust, building, platform, fintech, users, "don't", "we're"]
+    concepts: [financial, building, platform, trust, fintech]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1omjo5p/building_user_trust_as_a_new_fintech/"}]
   - id: "social-intelligence/reddit-deep/fintech/1omjo5p.md#c1"
     char_span: [2046, 2897]
     sentence_count: 9
     key_terms: [recommendations, returns, performance, past, emphasize, bought, reason, stocks]
+    concepts: [recommendations, returns, performance, emphasize, bought]
     token_count: 177
   - id: "social-intelligence/reddit-deep/fintech/1omjo5p.md#c2"
-    char_span: [2912, 5136]
+    char_span: [2911, 5135]
     sentence_count: 8
     key_terms: [fulfilled, trust, point, recommendations, returns, people, gheyparee2092, producthunt]
+    concepts: [fulfilled, trust, point, recommendations, gheyparee2092]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1omjo5p.md#c3"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/fintech/1omjo5p.md#c3"
-    char_span: [5141, 6233]
+    char_span: [5140, 6232]
     sentence_count: 9
     key_terms: [fulfilled, gheyparee2092, point, users, investments, producthunt, platform, products]
+    concepts: [fulfilled, gheyparee2092, investments, producthunt, point]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1omjo5p.md#c2"]
     section: Comments
     token_count: 252
 ---

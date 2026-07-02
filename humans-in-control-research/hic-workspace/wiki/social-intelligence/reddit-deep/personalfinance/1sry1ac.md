@@ -21,47 +21,60 @@ chunks:
     char_span: [0, 962]
     sentence_count: 9
     key_terms: [personalfinance, comments, savings, always, feels, like, too, aggressively]
+    concepts: [personalfinance, comments, savings, always, feels]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c7"]
     token_count: 249
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1sry1ac/it_never_feels_like_enough/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c1"
     char_span: [976, 3099]
     sentence_count: 14
     key_terms: [marketing, transferable, skills, definitely, like, lot, interest, something]
+    concepts: [marketing, transferable, definitely, skills, interest]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c2"
     char_span: [3101, 4633]
     sentence_count: 12
     key_terms: [degree, "don't", get, yourself, job, program, income, people]
+    concepts: [degree, "don't", yourself, program, income]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c3"
     char_span: [4635, 6214]
     sentence_count: 13
     key_terms: [savings, saving, consistently, doing, money, roth, building, income]
+    concepts: [savings, consistently, saving, doing, money]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c4"
     char_span: [6216, 7677]
     sentence_count: 11
     key_terms: [saving, goals, life, like, retirement, emergency, tangible, whatever]
+    concepts: [saving, goals, retirement, emergency, tangible]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c6"]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c5"
     char_span: [7679, 9753]
     sentence_count: 12
     key_terms: [saving, fun, save, goal, like, enough, cover, get]
+    concepts: [saving, enough, cover, something, expenses]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c6"
     char_span: [9755, 11654]
     sentence_count: 21
     key_terms: [saving, like, set, goals, goal, cash, invested, yourself]
+    concepts: [saving, goals, invested, yourself, amount]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c4"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c7"
     char_span: [11656, 13423]
     sentence_count: 26
     key_terms: [want, don, need, people, retirement, savings, wedding, always]
+    concepts: [people, retirement, savings, wedding, always]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c0"]
     section: Comments
     token_count: 431
 ---

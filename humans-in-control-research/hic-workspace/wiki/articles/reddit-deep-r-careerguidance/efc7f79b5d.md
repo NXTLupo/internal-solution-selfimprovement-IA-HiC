@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2351]
     sentence_count: 15
     key_terms: [like, healthcare, law, administration, don, supply, chain, feel]
+    concepts: [healthcare, administration, supply, chain, freshman]
     token_count: 508
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sivize/freshman_trying_to_figure_out_a_stable_career/"}]
   - id: "articles/reddit-deep-r-careerguidance/efc7f79b5d.md#c1"
     char_span: [2353, 3401]
     sentence_count: 9
     key_terms: [people, try, specific, helpful, asking, maybe, b0uldersh0ulders, thepandapear]
+    concepts: [people, specific, helpful, asking, maybe]
     token_count: 220
 ---
 # Freshman trying to figure out a stable career path (healthcare admin, supply chain, law?) – need real advice

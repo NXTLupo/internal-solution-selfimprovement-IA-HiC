@@ -21,40 +21,48 @@ chunks:
     char_span: [0, 1485]
     sentence_count: 1
     key_terms: [fried, rice, comments, value, pork, inflation, uwaterloo, mushroom]
+    concepts: [fried, comments, value, inflation, uwaterloo]
     token_count: 434
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1mi0ttw/campus_restaurant_ranking_after_5_years_experience/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1mi0ttw.md#c1"
     char_span: [1487, 2532]
     sentence_count: 1
     key_terms: [mid, pricey, edit, taste, added, sweet, food, chungchun]
+    concepts: [pricey, taste, added, sweet, chungchun]
     token_count: 332
   - id: "social-intelligence/reddit-deep/uwaterloo/1mi0ttw.md#c2"
     char_span: [2546, 4542]
     sentence_count: 12
     key_terms: [restaurant, shinwa, baba, dysondexterity, grill, restaurants, been, wok]
+    concepts: [restaurant, shinwa, dysondexterity, restaurants, grill]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/uwaterloo/1mi0ttw.md#c3"
     char_span: [4544, 5282]
     sentence_count: 4
     key_terms: [pineapples, tahini, put, perchance, shawarma, chinese, theyre, baba]
+    concepts: [pineapples, tahini, perchance, shawarma, chinese]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/uwaterloo/1mi0ttw.md#c4"
     char_span: [5284, 7140]
     sentence_count: 11
     key_terms: [better, "gol's", ipotato, "song's", grill, been, soopachris, mongolian]
+    concepts: [better, "gol's", ipotato, "song's", grill]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/uwaterloo/1mi0ttw.md#c5"
     char_span: [6859, 7654]
     sentence_count: 6
     key_terms: [soopachris, grill, baba, tier, bottomless, breakfast, coffee, "mel's"]
+    concepts: [soopachris, grill, bottomless, breakfast, coffee]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/uwaterloo/1mi0ttw.md#c6"
     char_span: [7656, 8906]
     sentence_count: 8
     key_terms: [williams, chicken, kimchi, fried, "mel's", like, menu, shop]
+    concepts: [williams, chicken, kimchi, fried, "mel's"]
     section: Comments
     token_count: 327
 ---

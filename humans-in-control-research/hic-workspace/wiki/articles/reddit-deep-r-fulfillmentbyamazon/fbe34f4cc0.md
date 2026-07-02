@@ -19,14 +19,17 @@ content_hash: "aada2932d2545261"
 relevance_by_goal: {"490684cfa204":40}
 chunks:
   - id: "articles/reddit-deep-r-fulfillmentbyamazon/fbe34f4cc0.md#c0"
-    char_span: [0, 2240]
+    char_span: [0, 2239]
     sentence_count: 12
     key_terms: [fulfillmentbyamazon, queries, like, discord, support, order, fba, customers]
-    token_count: 498
+    concepts: [fulfillmentbyamazon, queries, discord, support, order]
+    token_count: 497
+    sources: [{"n":"Reddit Deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1s0vqnq/anyone_else_getting_flooded_with_where_is_my/"}]
   - id: "articles/reddit-deep-r-fulfillmentbyamazon/fbe34f4cc0.md#c1"
-    char_span: [2242, 4538]
+    char_span: [2241, 4537]
     sentence_count: 12
     key_terms: [tracking, agents, reasonable-jelly-143, problem, queries, amazon, volume, copy-pasting]
+    concepts: [tracking, reasonable-jelly-143, agents, problem, queries]
     token_count: 502
 ---
 # Anyone else getting flooded with “where is my order?” queries?

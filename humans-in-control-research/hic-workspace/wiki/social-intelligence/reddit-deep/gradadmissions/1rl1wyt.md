@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1550]
     sentence_count: 1
     key_terms: [research, gradadmissions, been, "i'm", "i've", like, something, undergrad]
+    concepts: [research, gradadmissions, something, undergrad, comments]
     token_count: 369
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rl1wyt/got_in_to_my_dream_program/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rl1wyt.md#c1"
     char_span: [1564, 2743]
     sentence_count: 7
     key_terms: [congratulations, katelyn-gwv, good, congrats, mhrafr22, sankey, like, miscommunication]
+    concepts: [congratulations, katelyn-gwv, congrats, mhrafr22, sankey]
     section: Comments
     token_count: 370
 ---

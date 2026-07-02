@@ -21,59 +21,72 @@ chunks:
     char_span: [0, 1718]
     sentence_count: 16
     key_terms: [school, "i'm", degree, cscareerquestions, like, job, work, situation]
+    concepts: [school, cscareerquestions, degree, situation, comments]
     token_count: 406
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1l12okm/32_wondering_if_going_to_school_for_cs_makes/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c1"
     char_span: [1732, 3837]
     sentence_count: 21
     key_terms: [work, studying, enjoy, older, sadly, like, disability, in-person]
+    concepts: [studying, disability, enjoy, older, sadly]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c2"
     char_span: [3839, 5739]
     sentence_count: 18
     key_terms: [courses, get, employment, college, advice, career, enough, market]
+    concepts: [courses, employment, college, advice, career]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c3"
     char_span: [5741, 7731]
     sentence_count: 12
     key_terms: [time, college, pretty, skills, collegepayoff, hearulemaking, https, get]
+    concepts: [collegepayoff, hearulemaking, college, pretty, skills]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c4"
     char_span: [7733, 9509]
     sentence_count: 16
     key_terms: [because, job, market, degree, people, switch, trying, "i'm"]
+    concepts: [because, market, degree, people, switch]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c9"]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c5"
     char_span: [9511, 11702]
     sentence_count: 22
     key_terms: ["i'm", "you're", "it's", work, degree, "don't", major, job]
+    concepts: ["you're", degree, disability, "don't", major]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c6"
     char_span: [11704, 13922]
     sentence_count: 25
     key_terms: [cs50, project, connections, help, odin, problem-solving, dev, "i'm"]
+    concepts: [connections, project, problem-solving, connection, different]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c7"
     char_span: [13924, 16102]
     sentence_count: 25
     key_terms: [get, love, career, money, big, game, help, like]
+    concepts: [career, money, regardless, reputation, something]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c8"
     char_span: [16104, 17105]
     sentence_count: 7
     key_terms: [game, like, studios, pragmatic-but-positive, always, skills, visual, enjoy]
+    concepts: [studios, always, skills, visual, enjoy]
     section: Comments
     token_count: 226
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c9"
     char_span: [17107, 19061]
     sentence_count: 19
     key_terms: [people, got, "i'm", "it's", job, everything, experience, internship]
+    concepts: [people, everything, experience, internship, because]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c4"]
     section: Comments
     token_count: 457
 ---

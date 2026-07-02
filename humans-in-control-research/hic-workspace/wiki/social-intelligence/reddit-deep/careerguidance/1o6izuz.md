@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 938]
     sentence_count: 5
     key_terms: [job, careerguidance, career, error, comments, learning, costing, costed]
+    concepts: [careerguidance, career, error, comments, learning]
     token_count: 222
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1o6izuz/just_want_to_vent_i_graduated_with_a_masters/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1o6izuz.md#c1"
     char_span: [952, 2739]
     sentence_count: 15
     key_terms: [talltelevision4121, response, taboverspaces, fired, interviews, because, geocsw, resume]
+    concepts: [talltelevision4121, response, taboverspaces, fired, interviews]
     section: Comments
     token_count: 440
 ---

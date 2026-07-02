@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 944]
     sentence_count: 8
     key_terms: [paycheck, povertyfinance, trying, collections, get, comments, single, long-assignment-1832]
+    concepts: [paycheck, povertyfinance, trying, collections, comments]
     token_count: 228
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1s49eae/single_mom_trying_to_get_out_of_debt_and_stop/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1s49eae.md#c1"
     char_span: [958, 2928]
     sentence_count: 6
     key_terms: [kids, collections, long-assignment-1832, getting, income, single, "you're", loans]
+    concepts: [long-assignment-1832, collections, getting, income, single]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1s49eae.md#c6"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/povertyfinance/1s49eae.md#c2"
     char_span: [2930, 3647]
     sentence_count: 7
     key_terms: [reduce, long-assignment-1832, free, subscriptions, everything, something, utilities, accepted]
+    concepts: [reduce]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/povertyfinance/1s49eae.md#c3"
     char_span: [3649, 5547]
     sentence_count: 15
     key_terms: [save, cheapest, advice, people, everything, sometimes, jbooth72, through]
+    concepts: [cheapest, advice, people, everything, sometimes]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/povertyfinance/1s49eae.md#c4"
     char_span: [5549, 7421]
     sentence_count: 16
     key_terms: [collections, collection, interest, debts, loans, rates, emergency, current]
+    concepts: [collections, collection, interest, debts, loans]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/povertyfinance/1s49eae.md#c5"
     char_span: [7423, 8630]
     sentence_count: 10
     key_terms: [plans, electronics, kids, internet, long-assignment-1832, month, phone, home]
+    concepts: [electronics, plans, internet, month, phone]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/povertyfinance/1s49eae.md#c6"
     char_span: [8632, 10617]
     sentence_count: 24
     key_terms: [long-assignment-1832, like, pay, bills, check, collections, get, expenses]
+    concepts: [long-assignment-1832, collections, bills, check, expenses]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1s49eae.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1s49eae.md#c7"
     char_span: [10351, 10881]
     sentence_count: 7
     key_terms: [year, long-assignment-1832, going, phone, like, old, pay, nonessential]
+    concepts: [going, phone]
     section: Comments
     token_count: 131
 ---

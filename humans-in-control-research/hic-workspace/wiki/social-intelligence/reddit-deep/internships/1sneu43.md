@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 845]
     sentence_count: 3
     key_terms: [internships, real, job, experience, internship, something, comments, students]
+    concepts: [internships, experience, internship, something, comments]
     token_count: 206
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sneu43/struggling_with_internships_and_jobs/"}]
   - id: "social-intelligence/reddit-deep/internships/1sneu43.md#c1"
     char_span: [859, 2641]
     sentence_count: 1
     key_terms: [like, heyiloveya, something, job, everything, interviews, software, already]
+    concepts: [heyiloveya, something, everything, interviews, software]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/internships/1sneu43.md#c2"
     char_span: [2643, 3328]
     sentence_count: 2
     key_terms: [looking, project, lot, work, notimpossible, competitions, companies, programme]
+    concepts: [looking, project]
     section: Comments
     token_count: 151
   - id: "social-intelligence/reddit-deep/internships/1sneu43.md#c3"
     char_span: [3330, 5050]
     sentence_count: 10
     key_terms: [students, something, like, free, pay, projects, already, joining]
+    concepts: [students, something, projects, already, joining]
     section: Comments
     token_count: 377
 ---

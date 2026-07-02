@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2283]
     sentence_count: 16
     key_terms: ["i'm", work, design, learning, troubleshooting, careeradvice, engineering, maintenance]
+    concepts: [design, troubleshooting, learning, careeradvice, engineering]
     token_count: 484
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1rs7uws/maintenance_technician_looking_to_transition_into/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1rs7uws.md#c1"
     char_span: [2297, 2784]
     sentence_count: 4
     key_terms: [competitors, equipment, zizzianyouthminister, administration, capitalist, collected, customers, marketing]
+    concepts: [competitors, equipment]
     section: Comments
     token_count: 101
 ---

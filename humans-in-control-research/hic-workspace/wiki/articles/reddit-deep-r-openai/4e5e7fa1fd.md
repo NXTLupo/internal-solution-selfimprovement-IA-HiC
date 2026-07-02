@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1479]
     sentence_count: 14
     key_terms: [context, mxforest, openai, window, subscription, gpt-4, comments, chatgpt]
+    concepts: [context, mxforest, subscription, openai, window]
     token_count: 386
+    sources: [{"n":"Reddit Deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1l236t2/has_anyone_confirmed_that_gpt41_has_a_1_million/"}]
 ---
 # Has anyone confirmed that GPT-4.1 has a 1 million token context window?
 

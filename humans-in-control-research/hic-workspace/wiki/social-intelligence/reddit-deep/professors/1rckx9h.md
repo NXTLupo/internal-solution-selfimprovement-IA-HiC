@@ -19,87 +19,105 @@ chunks:
     char_span: [0, 392]
     sentence_count: 2
     key_terms: [humanities, professors, comments, reddit-deep, conscious, flat-out, sciences, socially]
+    concepts: [humanities, professors, comments]
     token_count: 106
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1rckx9h/a_rat_race_humanities_style/"}]
   - id: "social-intelligence/reddit-deep/professors/1rckx9h.md#c1"
     char_span: [394, 2579]
     sentence_count: 16
     key_terms: ["you're", rat, ones, race, prestige, makes, line, plan]
+    concepts: ["you're", prestige, makes, academia, assembly]
     token_count: 498
   - id: "social-intelligence/reddit-deep/professors/1rckx9h.md#c2"
     char_span: [2581, 3342]
     sentence_count: 8
     key_terms: [graduates, "that's", "you're", hyper-performativity, real, performaitivity, sub-disciplines, no-jobs-land]
+    concepts: [graduates, "that's", "you're"]
     token_count: 182
   - id: "social-intelligence/reddit-deep/professors/1rckx9h.md#c3"
-    char_span: [3357, 4849]
+    char_span: [3356, 4848]
     sentence_count: 6
     key_terms: [scholarship, faculty, "i've", ones, programs, research, students, believe]
+    concepts: [scholarship, faculty, programs, research, students]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rckx9h.md#c9"]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/professors/1rckx9h.md#c4"
-    char_span: [4851, 6992]
+    char_span: [4850, 6991]
     sentence_count: 20
     key_terms: [students, work, academic, political, through, suffocating, grad, "it's"]
+    concepts: [students, academic, political, through, suffocating]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/professors/1rckx9h.md#c5"
-    char_span: [6994, 9350]
+    char_span: [6993, 9349]
     sentence_count: 14
     key_terms: [academia, scholars, decolonization, performative, politically, scholarship, etc, phd]
+    concepts: [academia, scholars, decolonization, performative, politically]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1rckx9h.md#c6"
-    char_span: [9352, 10307]
+    char_span: [9351, 10306]
     sentence_count: 5
     key_terms: [another, history, became, ended, academia-adjacent, got, responsibility, tenure-track]
+    concepts: [another, history, became, ended]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/professors/1rckx9h.md#c7"
-    char_span: [10309, 12211]
+    char_span: [10308, 12210]
     sentence_count: 13
     key_terms: [grad, school, money, long, academia, doctoral, students, program]
+    concepts: [school, money, academia, doctoral, students]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/professors/1rckx9h.md#c8"
-    char_span: [12215, 14290]
+    char_span: [12214, 14289]
     sentence_count: 15
     key_terms: [students, either, mostly, non-profits, lot, generally, teaching, changes]
+    concepts: [students, either, mostly, non-profits, generally]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/professors/1rckx9h.md#c9"
-    char_span: [14292, 15647]
+    char_span: [14291, 15646]
     sentence_count: 11
     key_terms: [analyze, "it's", race, rat, students, faculty, playing, trying]
+    concepts: [analyze, students, faculty, playing, trying]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rckx9h.md#c3"]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/professors/1rckx9h.md#c10"
-    char_span: [15651, 17755]
+    char_span: [15650, 17754]
     sentence_count: 19
     key_terms: ["you're", students, liberal, system, good, race, rat, capitalist]
+    concepts: ["you're", students, liberal, system, capitalist]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/professors/1rckx9h.md#c11"
-    char_span: [17757, 19806]
+    char_span: [17756, 19805]
     sentence_count: 15
     key_terms: [because, people, sacrifices, "don't", academia, willing, desperately, race]
+    concepts: [because, sacrifices, people, "don't", academia]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/professors/1rckx9h.md#c12"
-    char_span: [19808, 20872]
+    char_span: [19807, 20871]
     sentence_count: 10
     key_terms: [for-yourself-and-hoard-it, values, life, take-everything, exclusionary, manufactured, self-serving, infiltrated]
+    concepts: [values]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/professors/1rckx9h.md#c13"
-    char_span: [20876, 23122]
+    char_span: [20875, 23121]
     sentence_count: 18
     key_terms: ["it's", humanities, work, academia, else, colleagues, everything, incredibly]
+    concepts: [humanities, academia, colleagues, everything, incredibly]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1rckx9h.md#c14"
-    char_span: [22829, 23418]
+    char_span: [22828, 23417]
     sentence_count: 2
     key_terms: [professors, felixir-the-cat, engineering, definitely, incredibly, generally, political, published]
+    concepts: [professors]
     section: Comments
     token_count: 131
 ---

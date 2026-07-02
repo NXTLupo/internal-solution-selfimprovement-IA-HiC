@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1670]
     sentence_count: 10
     key_terms: [economics, masters, master, finance, careerguidance, international, internship, economist]
+    concepts: [economics, masters, master, careerguidance, international]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1th26io.md#c1"]
     token_count: 354
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1th26io/which_ma_in_economics_is_the_best_option_in/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1th26io.md#c1"
     char_span: [1684, 3325]
     sentence_count: 10
     key_terms: [economics, finance, international, alumni, recruiting, program, western, strong]
+    concepts: [economics, finance, international, recruiting, alumni]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1th26io.md#c0"]
     section: Comments
     token_count: 351
 ---

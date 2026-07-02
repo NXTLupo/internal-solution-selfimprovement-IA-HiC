@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2119]
     sentence_count: 13
     key_terms: [research, grad, comments, industry, gradadmissions, school, biochemistry, drug]
+    concepts: [research, comments, industry, gradadmissions, biochemistry]
     token_count: 489
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1lsocdd/advice_on_going_to_grad_school_or_industry_after/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1lsocdd.md#c1"
     char_span: [2121, 2885]
     sentence_count: 5
     key_terms: [considering, advice, super, best, feel, "i've", like, phd]
+    concepts: [considering, advice, super]
     token_count: 176
 ---
 # Advice on going to grad school or industry after graduation

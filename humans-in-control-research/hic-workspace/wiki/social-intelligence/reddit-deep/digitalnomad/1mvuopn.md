@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1905]
     sentence_count: 15
     key_terms: [digital, nomad, bali, anywhere, living, digitalnomad, being, "isn't"]
+    concepts: [digital, nomad, anywhere, digitalnomad, living]
     token_count: 438
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1mvuopn/i_thought_being_a_digital_nomad_in_bali_would_be/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1mvuopn.md#c1"
     char_span: [1919, 3108]
     sentence_count: 7
     key_terms: [previous, "didn't", leave, here, need, co-founders, instability, philippines]
+    concepts: [previous, "didn't", leave]
     section: Comments
     token_count: 289
   - id: "social-intelligence/reddit-deep/digitalnomad/1mvuopn.md#c2"
     char_span: [3110, 4805]
     sentence_count: 11
     key_terms: [apprehensiveyou8920, income, freelancing, get, "it's", job, instagram, though]
+    concepts: [apprehensiveyou8920, income, freelancing, instagram, though]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/digitalnomad/1mvuopn.md#c3"
     char_span: [4807, 6765]
     sentence_count: 15
     key_terms: [like, work, business, always, "that's", lamboforwork, great, bali]
+    concepts: [business, lamboforwork, always, "that's", great]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/digitalnomad/1mvuopn.md#c4"
     char_span: [6767, 8453]
     sentence_count: 14
     key_terms: [everything, years, bali, been, last, successful, "you're", focus]
+    concepts: [everything, successful, years, "you're", focus]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/digitalnomad/1mvuopn.md#c5"
     char_span: [8456, 10639]
     sentence_count: 18
     key_terms: [business, freelancing, startups, never, want, sometimes, digital, getting]
+    concepts: [business, freelancing, startups, never, sometimes]
     section: Comments
     token_count: 508
 ---

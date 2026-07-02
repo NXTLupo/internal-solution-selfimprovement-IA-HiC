@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1066]
     sentence_count: 10
     key_terms: [engineeringstudents, semester, engineering, community, comments, college, student, spring]
+    concepts: [engineeringstudents, semester, engineering, community, comments]
     token_count: 251
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1s1mgna/advice_and_suggestions_on_what_to_do_as_a/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s1mgna.md#c1"
     char_span: [1080, 3165]
     sentence_count: 10
     key_terms: [get, project, understanding, doing, something, started, python, learn]
+    concepts: [project, understanding, something, doing, started]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s1mgna.md#c2"
     char_span: [3167, 5473]
     sentence_count: 1
     key_terms: [start, don, time, projects, college, getting, people, small]
+    concepts: [start, projects, college, getting, people]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s1mgna.md#c3"
     char_span: [5475, 6522]
     sentence_count: 4
     key_terms: [thankyou, mundanejudgment4013, feels, sleep, small, start, hefty-builder-1335, hear]
+    concepts: [thankyou, feels, sleep, small, start]
     section: Comments
     token_count: 255
 ---

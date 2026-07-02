@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 1195]
     sentence_count: 12
     key_terms: [bla, cscareerquestions, supply, chain, work, situation, comments, projects]
+    concepts: [cscareerquestions, supply, chain, situation, comments]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t01trm.md#c1"]
     token_count: 298
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t01trm/new_grad_here_does_it_hurt_my_career_to_start/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t01trm.md#c1"
     char_span: [1209, 3203]
     sentence_count: 12
     key_terms: [title, supply, chain, job, official, resume, list, swe]
+    concepts: [title, supply, chain, official, resume]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t01trm.md#c0"]
     section: Comments
     token_count: 440
 ---

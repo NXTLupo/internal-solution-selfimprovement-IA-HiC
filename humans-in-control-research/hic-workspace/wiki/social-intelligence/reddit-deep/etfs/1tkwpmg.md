@@ -20,31 +20,42 @@ chunks:
     char_span: [0, 348]
     sentence_count: 1
     key_terms: [comments, etfs, reddit-deep, hectormcn1, fundstrat, investors, deutsche, european]
+    concepts: [comments]
     token_count: 106
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1tkwpmg/tom_lees_fundstrat_capital_brings_granny_shots/"}]
   - id: "social-intelligence/reddit-deep/etfs/1tkwpmg.md#c1"
     char_span: [350, 2561]
     sentence_count: 6
     key_terms: [fundstrat, granny, etf, shots, investors, large, cap, grny]
+    concepts: [fundstrat, granny, shots, investors, large]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1tkwpmg.md#c2"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/etfs/1tkwpmg.md#c2"
     char_span: [2225, 4499]
     sentence_count: 10
     key_terms: [fundstrat, com, investment, granny, investors, shots, strategy, themes]
+    concepts: [fundstrat, investment, investors, granny, strategy]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1tkwpmg.md#c1", "social-intelligence/reddit-deep/etfs/1tkwpmg.md#c4"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/etfs/1tkwpmg.md#c3"
     char_span: [4244, 6245]
     sentence_count: 9
     key_terms: [com, fundstratcapital, hanetf, fundstrat, capital, https, investing, across]
+    concepts: [fundstratcapital, hanetf, fundstrat, capital, investing]
     token_count: 512
   - id: "social-intelligence/reddit-deep/etfs/1tkwpmg.md#c4"
     char_span: [5951, 7936]
     sentence_count: 10
     key_terms: [etf, securities, fundstrat, investment, ucits, act, persons, recommendation]
+    concepts: [securities, fundstrat, investment, ucits, recommendation]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1tkwpmg.md#c2"]
     token_count: 458
+    sources: [{"n":"Morningstar and FactSet as of January 9, 2026; data includes all actively manage","u":""}]
   - id: "social-intelligence/reddit-deep/etfs/1tkwpmg.md#c5"
-    char_span: [7951, 9060]
+    char_span: [7950, 9059]
     sentence_count: 4
     key_terms: [nuclear, active, ucits, etf, hectormcn1, different, expansion, european]
+    concepts: [nuclear, active, hectormcn1, ucits, different]
     section: Comments
     token_count: 252
 ---

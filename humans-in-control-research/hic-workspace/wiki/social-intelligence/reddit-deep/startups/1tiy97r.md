@@ -20,80 +20,106 @@ chunks:
     char_span: [0, 2366]
     sentence_count: 20
     key_terms: [product, building, founder, launch, early, flaws, money, trust]
+    concepts: [product, building, founder, launch, early]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tiy97r.md#c10"]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1tiy97r/solo_founder_here_how_do_you_know_when_something/"}]
   - id: "social-intelligence/reddit-deep/startups/1tiy97r.md#c1"
     char_span: [2368, 4811]
     sentence_count: 31
     key_terms: [product, people, part, trying, trust, keep, products, problem]
+    concepts: [product, people, trying, trust, products]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tiy97r.md#c7", "social-intelligence/reddit-deep/startups/1tiy97r.md#c8", "social-intelligence/reddit-deep/startups/1tiy97r.md#c9", "social-intelligence/reddit-deep/startups/1tiy97r.md#c12", "social-intelligence/reddit-deep/startups/1tiy97r.md#c13"]
     token_count: 505
   - id: "social-intelligence/reddit-deep/startups/1tiy97r.md#c2"
     char_span: [4813, 7229]
     sentence_count: 19
     key_terms: [people, did, enough, understand, early, something, founder, product]
+    concepts: [people, understand, enough, something, early]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tiy97r.md#c7", "social-intelligence/reddit-deep/startups/1tiy97r.md#c8", "social-intelligence/reddit-deep/startups/1tiy97r.md#c10", "social-intelligence/reddit-deep/startups/1tiy97r.md#c13"]
     token_count: 494
   - id: "social-intelligence/reddit-deep/startups/1tiy97r.md#c3"
     char_span: [7231, 8337]
     sentence_count: 8
     key_terms: [version, conversations, walkthrough, prototype, sandboxed, customer, workflow, diagram]
+    concepts: [version, conversations, walkthrough, prototype, sandboxed]
     token_count: 217
   - id: "social-intelligence/reddit-deep/startups/1tiy97r.md#c4"
-    char_span: [8352, 10568]
+    char_span: [8351, 10567]
     sentence_count: 14
     key_terms: [product, feedback, mockup, demo, problem, working, early, did]
+    concepts: [product, feedback, mockup, problem, working]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tiy97r.md#c12"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/startups/1tiy97r.md#c5"
-    char_span: [10570, 12713]
+    char_span: [10569, 12712]
     sentence_count: 14
     key_terms: [pl9o3dnnplzcgm5qpokbfd04rwmfgxbn2l, customers, product, start, conviction, experience, successful, playlist]
+    concepts: [pl9o3dnnplzcgm5qpokbfd04rwmfgxbn2l, customers, product, conviction, experience]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/startups/1tiy97r.md#c6"
-    char_span: [12715, 14105]
+    char_span: [12714, 14104]
     sentence_count: 12
     key_terms: [companies, something, big, too, seeing, gave, real, conviction]
+    concepts: [companies, something, seeing, conviction, because]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/startups/1tiy97r.md#c7"
-    char_span: [14107, 16194]
+    char_span: [14106, 16193]
     sentence_count: 14
     key_terms: [product, something, too, version, better, people, trying, early]
+    concepts: [product, something, version, better, people]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tiy97r.md#c1", "social-intelligence/reddit-deep/startups/1tiy97r.md#c2", "social-intelligence/reddit-deep/startups/1tiy97r.md#c8", "social-intelligence/reddit-deep/startups/1tiy97r.md#c10", "social-intelligence/reddit-deep/startups/1tiy97r.md#c12"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/startups/1tiy97r.md#c8"
-    char_span: [16196, 18346]
+    char_span: [16195, 18345]
     sentence_count: 16
     key_terms: [direction, something, product, userinterviews, people, users, walkthrough, surprised]
+    concepts: [direction, something, userinterviews, product, people]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tiy97r.md#c1", "social-intelligence/reddit-deep/startups/1tiy97r.md#c2", "social-intelligence/reddit-deep/startups/1tiy97r.md#c7", "social-intelligence/reddit-deep/startups/1tiy97r.md#c10", "social-intelligence/reddit-deep/startups/1tiy97r.md#c12"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/startups/1tiy97r.md#c9"
-    char_span: [18348, 19933]
+    char_span: [18347, 19932]
     sentence_count: 10
     key_terms: [product, parachute, trying, build, understand, companies, founder, problem]
+    concepts: [product, parachute, trying, build, understand]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tiy97r.md#c1", "social-intelligence/reddit-deep/startups/1tiy97r.md#c12", "social-intelligence/reddit-deep/startups/1tiy97r.md#c13"]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/startups/1tiy97r.md#c10"
-    char_span: [19935, 21610]
+    char_span: [19934, 21609]
     sentence_count: 14
     key_terms: [version, something, product, early, wrong, feedback, showing, people]
+    concepts: [version, something, product, early, wrong]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tiy97r.md#c0", "social-intelligence/reddit-deep/startups/1tiy97r.md#c2", "social-intelligence/reddit-deep/startups/1tiy97r.md#c7", "social-intelligence/reddit-deep/startups/1tiy97r.md#c8", "social-intelligence/reddit-deep/startups/1tiy97r.md#c13"]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/startups/1tiy97r.md#c11"
-    char_span: [21612, 23654]
+    char_span: [21611, 23653]
     sentence_count: 16
     key_terms: [feedback, build, need, expectations, "don't", get, good, detailed]
+    concepts: [feedback, build, expectations, "don't", detailed]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tiy97r.md#c12"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/startups/1tiy97r.md#c12"
-    char_span: [23656, 25822]
+    char_span: [23655, 25821]
     sentence_count: 18
     key_terms: [get, people, did, show, "you're", feedback, product, build]
+    concepts: [people, "you're", feedback, product, build]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tiy97r.md#c1", "social-intelligence/reddit-deep/startups/1tiy97r.md#c4", "social-intelligence/reddit-deep/startups/1tiy97r.md#c7", "social-intelligence/reddit-deep/startups/1tiy97r.md#c8", "social-intelligence/reddit-deep/startups/1tiy97r.md#c9"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/startups/1tiy97r.md#c13"
-    char_span: [25824, 27567]
+    char_span: [25823, 27566]
     sentence_count: 18
     key_terms: [product, "you're", real, version, people, value, wrong, data]
+    concepts: [product, "you're", version, people, understand]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tiy97r.md#c1", "social-intelligence/reddit-deep/startups/1tiy97r.md#c2", "social-intelligence/reddit-deep/startups/1tiy97r.md#c7", "social-intelligence/reddit-deep/startups/1tiy97r.md#c8", "social-intelligence/reddit-deep/startups/1tiy97r.md#c9"]
     section: Comments
     token_count: 394
 ---

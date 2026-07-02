@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1097]
     sentence_count: 9
     key_terms: [problem, code, anyone, issues, else, comments, merging, openai]
+    concepts: [problem, anyone, issues, comments, merging]
     token_count: 291
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1qctue1/anyone_else_regularly_use_51_instead_of_52_anyone/"}]
   - id: "social-intelligence/reddit-deep/openai/1qctue1.md#c1"
     char_span: [1111, 2918]
     sentence_count: 11
     key_terms: [code, use, verbosity, changes, happens, prompts, smarter, almost]
+    concepts: [verbosity, changes, happens, prompts, smarter]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/openai/1qctue1.md#c2"
     char_span: [2920, 3408]
     sentence_count: 3
     key_terms: [model, misconfigurations, work, slytherinspectre, experiences, performance, enterprise, inadequate]
+    concepts: [model]
     section: Comments
     token_count: 123
 ---

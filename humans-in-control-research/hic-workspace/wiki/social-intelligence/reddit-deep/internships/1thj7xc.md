@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1394]
     sentence_count: 2
     key_terms: [scholarship, session, coursera, learning, certifications, career, cohort, opportunities]
+    concepts: [scholarship, session, coursera, learning, certifications]
     token_count: 344
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1thj7xc/she_plus_tech_coursera_scholarship_cohort_2_info/"}]
 ---
 # She Plus Tech – Coursera Scholarship Cohort 2 Info Session | Learn About Eligibility, Certifications & Career Growth
 

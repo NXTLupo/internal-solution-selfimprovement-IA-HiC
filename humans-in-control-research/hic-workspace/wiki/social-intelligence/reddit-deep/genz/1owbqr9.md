@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 259]
     sentence_count: 2
     key_terms: [genz, comments, downpayment, reddit-deep, bbrk9845, "they've", posted, reddit]
+    concepts: [comments]
     token_count: 80
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1owbqr9/genz_when_theyve_saved_up_money_for_the/"}]
   - id: "social-intelligence/reddit-deep/genz/1owbqr9.md#c1"
     char_span: [273, 2183]
     sentence_count: 13
     key_terms: [year, mortgage, house, "that's", discord, anyone, equity, likely]
+    concepts: [mortgage, house, "that's", discord, anyone]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1owbqr9.md#c2"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/genz/1owbqr9.md#c2"
     char_span: [2185, 4168]
     sentence_count: 14
     key_terms: [mortgage, year, people, "it's", pay, early, house, payment]
+    concepts: [mortgage, people, early, house, payment]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1owbqr9.md#c1"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/genz/1owbqr9.md#c3"
     char_span: [4170, 5384]
     sentence_count: 10
     key_terms: [interest, house, price, value, year, increases, principal, paying]
+    concepts: [interest, house, price, value, increases]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/genz/1owbqr9.md#c4"
     char_span: [5386, 7477]
     sentence_count: 13
     key_terms: [deep-temporary-1268, lower, years, goes, pay, interest, market, people]
+    concepts: [deep-temporary-1268, lower, years, interest, market]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/genz/1owbqr9.md#c5"

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 853]
     sentence_count: 4
     key_terms: [actuarial, apply, comments, actuary, landed, resume, https, job]
+    concepts: [actuarial, apply, comments, actuary, landed]
     token_count: 221
+    sources: [{"n":"reddit-deep: r/actuary","u":"https://www.reddit.com/r/actuary/comments/1psjnsu/resume_review_internal_application/"}]
   - id: "social-intelligence/reddit-deep/actuary/1psjnsu.md#c1"
-    char_span: [868, 2150]
+    char_span: [867, 2149]
     sentence_count: 7
     key_terms: [current, project, add, include, course, "don't", hired, imo]
+    concepts: [current, project, include, course, "don't"]
     section: Comments
     token_count: 298
 ---

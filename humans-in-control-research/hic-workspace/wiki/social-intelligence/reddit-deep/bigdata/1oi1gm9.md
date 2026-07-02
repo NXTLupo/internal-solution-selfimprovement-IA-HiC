@@ -17,19 +17,23 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/bigdata/1oi1gm9.md#c0"
-    char_span: [0, 2204]
+    char_span: [0, 2203]
     sentence_count: 13
     key_terms: [data, learning, courses, learn, certified, employers, science, future]
-    token_count: 487
+    concepts: [learning, courses, certified, employers, learn]
+    token_count: 486
+    sources: [{"n":"reddit-deep: r/bigdata","u":"https://www.reddit.com/r/bigdata/comments/1oi1gm9/top_7_courses_to_learn_in_2026_for_highpaying/"}]
   - id: "social-intelligence/reddit-deep/bigdata/1oi1gm9.md#c1"
-    char_span: [2206, 4946]
+    char_span: [2205, 4945]
     sentence_count: 18
     key_terms: [data, digital, cybersecurity, marketing, cloud, transformation, engineering, automation]
+    concepts: [cybersecurity, digital, transformation, marketing, cloud]
     token_count: 505
   - id: "social-intelligence/reddit-deep/bigdata/1oi1gm9.md#c2"
-    char_span: [4948, 6170]
+    char_span: [4947, 6169]
     sentence_count: 2
     key_terms: [digital, innovation, data-driven, data, blockchain, recognized, globally, science]
+    concepts: [digital, innovation, data-driven, blockchain, recognized]
     token_count: 259
 ---
 # Top 7 Courses to Learn in 2026 for High-Paying, Future-Ready Careers

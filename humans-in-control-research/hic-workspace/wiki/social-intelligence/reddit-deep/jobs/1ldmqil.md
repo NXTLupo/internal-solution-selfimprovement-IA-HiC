@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1655]
     sentence_count: 22
     key_terms: [someone, "i'm", anyone, connections, introduce, comments, instead, never]
+    concepts: [someone, anyone, connections, introduce, comments]
     token_count: 383
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1ldmqil/psa_dont_ignore_when_someone_offers_to_introduce/"}]
   - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c1"
     char_span: [1669, 3038]
     sentence_count: 15
     key_terms: [job, former, "don't", networking, co-worker, friends, looking, superpomegranate7933]
+    concepts: [former, "don't", networking, co-worker, friends]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c2"
     char_span: [3040, 4156]
     sentence_count: 11
     key_terms: [job, applications, been, last, friend, people, thanossnapsslimjims, best]
+    concepts: [applications, friend, people]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c3"
     char_span: [4158, 6315]
     sentence_count: 17
     key_terms: [job, been, get, years, purchasing, something, somewhere, because]
+    concepts: [purchasing, years, something, somewhere, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c4"
@@ -50,12 +55,14 @@ chunks:
     char_span: [6318, 8261]
     sentence_count: 15
     key_terms: [week, job, year, company, graphic, hiring, got, last]
+    concepts: [company, graphic, hiring, experience, marketing]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c6"
     char_span: [8263, 9048]
     sentence_count: 7
     key_terms: [cleaninfresno, networking, referring, generic, period, month, trial, no-investment8322]
+    concepts: [cleaninfresno, networking, referring, generic, period]
     section: Comments
     token_count: 195
 ---

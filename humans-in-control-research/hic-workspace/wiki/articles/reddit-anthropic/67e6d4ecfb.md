@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1652]
     sentence_count: 1
     key_terms: [anthropics-claude-mythos-isnt-a-sentient-super-hacker-its-a-sales-pitch-claims-of-thousands-of-severe-zero-days-rely-on-just-198-manual-reviews, claude-mythos-isnt-a-sentient-super-hacker-its-a-sales-pitch-claims-of-thousands-of-severe-zero-days-rely-on-just-198-manual-reviews, https, ai-cybersecurity-after-mythos-the-jagged-frontier, com, tomshardware, anthropic, artificial-intelligence]
+    concepts: [anthropics-claude-mythos-isnt-a-sentient-super-hacker-its-a-sales-pitch-claims-of-thousands-of-severe-zero-days-rely-on-just-198-manual-reviews, claude-mythos-isnt-a-sentient-super-hacker-its-a-sales-pitch-claims-of-thousands-of-severe-zero-days-rely-on-just-198-manual-reviews, ai-cybersecurity-after-mythos-the-jagged-frontier, https, tomshardware]
     token_count: 509
+    sources: [{"n":"reddit: anthropic","u":"https://reddit.com/r/Anthropic/comments/1sj9558/mythos_is_mostly_hype_also_the_bugs_it_found_were/"}]
   - id: "articles/reddit-anthropic/67e6d4ecfb.md#c1"
     char_span: [1654, 3738]
     sentence_count: 9
     key_terms: [models, anthropic, vulnerability, exploits, e2f78c7ec1655fedd945366151ba54fcb9580508, exploit, https, open-source]
+    concepts: [models, anthropic, vulnerability, exploits, exploit]
     token_count: 476
 ---
 # Mythos is Mostly Hype... (also the bugs it found were mostly unexploitable and exaggerated...)

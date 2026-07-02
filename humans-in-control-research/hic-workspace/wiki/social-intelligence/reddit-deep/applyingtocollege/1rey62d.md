@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2451]
     sentence_count: 3
     key_terms: [business, senior, applyingtocollege, extracurriculars, classes, library, policy, opportunities]
+    concepts: [business, applyingtocollege, senior, extracurriculars, opportunities]
     token_count: 531
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rey62d/please_help_me_with_my_college_application_im_a/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rey62d.md#c1"
     char_span: [2453, 2590]
     sentence_count: 1

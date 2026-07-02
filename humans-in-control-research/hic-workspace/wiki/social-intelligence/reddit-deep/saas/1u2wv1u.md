@@ -20,21 +20,26 @@ chunks:
     char_span: [0, 1943]
     sentence_count: 23
     key_terms: [product, actual, funded, users, cut, comments, features, founders]
+    concepts: [product, actual, funded, users, comments]
     token_count: 448
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1u2wv1u/ive_built_25_mvps_the_funded_ones_all_cut_these_5/"}]
   - id: "social-intelligence/reddit-deep/saas/1u2wv1u.md#c1"
     char_span: [1945, 3809]
     sentence_count: 25
     key_terms: [users, api, founders, nobody, asked, integration, dashboards, customer]
+    concepts: [users, founders, nobody, integration, asked]
     token_count: 399
   - id: "social-intelligence/reddit-deep/saas/1u2wv1u.md#c2"
     char_span: [3811, 4788]
     sentence_count: 12
     key_terms: ["you're", dead, ones, v1s, enterprises, instructive, bottleneck, everything]
+    concepts: ["you're"]
     token_count: 215
   - id: "social-intelligence/reddit-deep/saas/1u2wv1u.md#c3"
-    char_span: [4803, 6317]
+    char_span: [4802, 6316]
     sentence_count: 8
     key_terms: [product, demos, point, analytics, dashboard, copilot, softwareengineer2026, improvementtough735]
+    concepts: [product, demos, point, analytics, dashboard]
     section: Comments
     token_count: 365
 ---

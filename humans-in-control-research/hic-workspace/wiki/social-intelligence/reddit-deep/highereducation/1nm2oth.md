@@ -7,50 +7,57 @@ subreddit: "highereducation"
 title: "Salary/Quality of Life in Higher Ed"
 author: "thesecretlifeofnani"
 date: "2025-09-20T16:29:12.000Z"
-score: 30
-upvote_ratio: 0.94
+score: 27
+upvote_ratio: 0.9
 num_comments: 32
 flair: ""
-extracted_at: "2026-05-23T14:53:59.511Z"
+extracted_at: "2026-06-23T20:31:59.069Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
-industries: [higher_ed, workforce]
-industry_method: deterministic
+research_goal: "Analyze case studies of private equity firms and holding companies (such as Medforth) that build repeatable AI capabilities once and scale them across higher education portfolio companies. Deliver an operational playbook detailing the shared-service models, governance frameworks, and deployment strategies used to scale AI across admissions workflows, student communications, and enrollment operations to accelerate long enrollment cycles."
+engagement: "analyze-case-studies-of-private-equity-firms-and-holding-com"
 chunks:
   - id: "social-intelligence/reddit-deep/highereducation/1nm2oth.md#c0"
     char_span: [0, 1216]
     sentence_count: 9
     key_terms: [higher, highereducation, salary, comments, quality, without, thesecretlifeofnani, ideas]
+    concepts: [higher, highereducation, salary, comments, quality]
     token_count: 264
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1nm2oth/salaryquality_of_life_in_higher_ed/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1nm2oth.md#c1"
-    char_span: [1230, 3443]
+    char_span: [1230, 3444]
     sentence_count: 23
     key_terms: [university, support, management, pay, project, student, administration, roles]
+    concepts: [university, support, management, administration, project]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1nm2oth.md#c4"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/highereducation/1nm2oth.md#c2"
-    char_span: [3445, 4315]
+    char_span: [3446, 4316]
     sentence_count: 8
     key_terms: [higher, month, southerncalifornia, foreignlibrary424, work, instructional, professionals, realistically]
+    concepts: [higher, month]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/highereducation/1nm2oth.md#c3"
-    char_span: [4317, 5909]
+    char_span: [4318, 5910]
     sentence_count: 14
     key_terms: [higher, working, "don't", environment, move, retirement, inflation, students]
+    concepts: [higher, working, environment, "don't", retirement]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/highereducation/1nm2oth.md#c4"
-    char_span: [5911, 7558]
+    char_span: [5912, 7559]
     sentence_count: 11
     key_terms: [higher, supervisory, jobs, management, university, education, technical, analysts]
+    concepts: [higher, supervisory, management, university, education]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1nm2oth.md#c1"]
     section: Comments
     token_count: 378
 ---
 # Salary/Quality of Life in Higher Ed
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1nm2oth/salaryquality_of_life_in_higher_ed/)
-Posted by **thesecretlifeofnani** · **30↑** · **32 comments**
+Posted by **thesecretlifeofnani** · **27↑** · **32 comments**
 
 I have a BS in Business and I’m currently pursuing an MSEd in Instructional Design & Technology. My motivation for the degree is mainly to increase my salary while keeping options open outside of higher education.
 Right now, I work in higher ed, making about $45k in a small city with a low cost of living. I genuinely enjoy helping young adults succeed. I even have ideas to start a mentorship program in the future, but I’m concerned about long-term financial security and quality of life.
@@ -62,19 +69,19 @@ Any advice, personal experiences, or ideas would be greatly appreciated!
 ## Comments
 
 - **cmorris313** (38↑): I was an academic advisor for 9 years (2012-2021). The pay was low but as a single person living a relatively simple life (no car, little to no travel/vacations) it paid all my bills and left me a little room for dinner splurges, going out to movies, etc. In 2021 I swapped to a non-student facing academic operations role because I was, in part, burnt out on dealing with student issues. The pay was slightly better because it was more technical; however, inflation has sucked all the top end out of my budget and things are really lean right now. So, in education overall, you get pretty high job security but the pay just isn't there (unless you are willing to go into more managerial roles).
-- **Johoski** (15↑): A lot of this depends on the size of the university. 
+- **Johoski** (14↑): A lot of this depends on the size of the university. 
 
 At a larger university you could grow upwards from student facing roles to administrative support, and also project support, coordination, and management in that order. I'm at a big-big university in a MCOL city, and high level admin support and project management roles pay in the mid-upper 5 to low-mid 6 figures. Look up the salaries for the state university nearest you, they're listed somewhere googleable. Also consider focusing on what niche/s of student support you're interested in - international students? Special needs? Greek life? Biosciences? Engineering? Veteran? First-gen? And consider where these can overlap. Lots of growth in transfer credit administration happening, lots of collaboration happening between institutions to facilitate transfer activity. 
 
 Growth is often slow, especially without relevant graduate degrees. If there's a good tuition benefit at your school, look into post-bac certifications and degrees relevant to higher education. Optimally, any certificate should be stackable into a degree program if you choose to go that route later. Data analysis, project management, higher ed administration...
-- **Elvira333** (9↑): I’ve had to change positions a lot - my first salary started with a “3” - yikes! Internal promotions usually aren’t a thing where I’ve worked so I’ve moved positions every 2-3 years so far for salary and job fit. They’ve all been at the same institution. 
+- **Elvira333** (10↑): I’ve had to change positions a lot - my first salary started with a “3” - yikes! Internal promotions usually aren’t a thing where I’ve worked so I’ve moved positions every 2-3 years so far for salary and job fit. They’ve all been at the same institution. 
 
 The instructional designers at my university make good money (60-90K) and IT professionals also tend to have higher salaries without going into management/director level positions. 
 
 The benefits - especially the time off - are really nice though!  The work life balance is something that keeps me in the field.
   - **ForeignLibrary424** (3↑): THIS IS THE WAY. 💯
 - **WeaselPhontom** (10↑): I work in Advising  the salary does not meet COL needs in my area of SouthernCalifornia.  After all my bills are paid I have $75 remaining for the month. My actual take home is 3338.75 a month. There's job security but realistically I isn't sustainable for me as a single person living alone. Actively seeking other roles with higher compensation. The burnout is real
-- **Soggy_Pineapple7769** (14↑): Remain in higher Ed but change employees, I did that and went from 45k to 65k. 
+- **Soggy_Pineapple7769** (15↑): Remain in higher Ed but change employees, I did that and went from 45k to 65k. 
 
 With inflation, I haven’t even really felt the salary change. :(
   - **Long_Audience4403** (11↑): Yes. I switched schools and went from $38k to $60k, year round to 11 months now. I know it's not a ton, but it's enough for me now that my kids don't need childcare and my commute is 5 mins and my schedule is better and the job is better and the retirement plan is the best I've seen. Our bills are low enough that my husband went back to school and can do whatever he'd like to for work once he's done. I'll never leave higher ed, the perks are too many.
@@ -84,7 +91,7 @@ With inflation, I haven’t even really felt the salary change. :(
 - **Unlikely-Section-600** (4↑): I moved across the country to move out of admissions to advising.  After about 7yrs I was able to move to the next level to a tenured academic counselor position.  I will ride this out until retirement in 2 yrs.  I never wanted to move up in the corporation, I like working with students too much.
 
 Do not discount the community college, in Vegas, often the folks at CC make more than the university.
-- **DIAMOND-D0G** (12↑): They depend on spouses or live extremely humble lives. If salary is a concern, stay out of higher ed or  at least gun for tenured faculty or administrative supervisory jobs. There are a few highly paid niche technical jobs like certain research analysts or attorneys but for a normal person in higher education those are your only two paths to a good income in higher education. For example, if you’re at $45k now after a few years of experience, and you become more and more senior but never enter a supervisory or management job, you’ll probably cap somewhere between $75k and $90k in the next 20-30 years. Think about how bad that is. First-year financial analysts and software developers are making that on day 1 and you’ll be lucky to make that for a single year before you retire. So other than those niche technical jobs, tenured faculty/academic admin, and admin/staff supervisory/management roles, every other job gets paid as little as possible and that is only going to get worse.
+- **DIAMOND-D0G** (13↑): They depend on spouses or live extremely humble lives. If salary is a concern, stay out of higher ed or  at least gun for tenured faculty or administrative supervisory jobs. There are a few highly paid niche technical jobs like certain research analysts or attorneys but for a normal person in higher education those are your only two paths to a good income in higher education. For example, if you’re at $45k now after a few years of experience, and you become more and more senior but never enter a supervisory or management job, you’ll probably cap somewhere between $75k and $90k in the next 20-30 years. Think about how bad that is. First-year financial analysts and software developers are making that on day 1 and you’ll be lucky to make that for a single year before you retire. So other than those niche technical jobs, tenured faculty/academic admin, and admin/staff supervisory/management roles, every other job gets paid as little as possible and that is only going to get worse.
 - **April_4th** (3↑): Some universities pay higher than others.  Ours pays higher than other state employers for the same level (but our living cost is mid to high).  Around 6 ys ago, another public university called me for a opening, the same level with mine then, the highest was 65k, but I started my role with 72k, two ys before the conversation.
 
 Now I am a manager, making 120k+.

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 911]
     sentence_count: 9
     key_terms: [delete, data, cancer, codex, gpt, comments, archive, "haven't"]
+    concepts: [delete, cancer, codex, comments, archive]
     token_count: 249
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1mygprf/codex_is_delete_chatroom_supported_beyond_archive/"}]
 ---
 # Codex: is Delete chat/room supported (beyond Archive)? - IP & Copyright Cancer.
 

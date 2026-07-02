@@ -21,16 +21,22 @@ chunks:
     char_span: [0, 2302]
     sentence_count: 18
     key_terms: [supervisor, research, work, journal, submission, published, author, askacademia]
+    concepts: [supervisor, research, journal, submission, published]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1sfv4dx.md#c1"]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1sfv4dx/guidance_on_publishing_research/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1sfv4dx.md#c1"
     char_span: [2304, 3817]
     sentence_count: 12
     key_terms: [research, supervisor, phd, academia, identify, journal, publish, wanting]
+    concepts: [research, supervisor, academia, identify, journal]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1sfv4dx.md#c0"]
     token_count: 320
   - id: "social-intelligence/reddit-deep/askacademia/1sfv4dx.md#c2"
     char_span: [3831, 6025]
     sentence_count: 16
     key_terms: [publish, research, data, publication, better, university, dualprocessmodel, project]
+    concepts: [publish, research, publication, university, better]
     section: Comments
     token_count: 503
 ---

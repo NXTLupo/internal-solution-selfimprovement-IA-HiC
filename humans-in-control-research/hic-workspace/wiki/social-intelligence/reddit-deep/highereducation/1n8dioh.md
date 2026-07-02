@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2299]
     sentence_count: 8
     key_terms: [students, antisemitism, jewish, directive, swanson, university, columbia, highereducation]
+    concepts: [students, antisemitism, directive, jewish, swanson]
     token_count: 448
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1n8dioh/the_white_house_is_declaring_war_on_campus_dei/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1n8dioh.md#c1"
     char_span: [2313, 4540]
     sentence_count: 9
     key_terms: [education, antisemitism, people, studies, higher, being, babymaybe15, scapegoats]
+    concepts: [education, antisemitism, people, studies, higher]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1n8dioh.md#c2"

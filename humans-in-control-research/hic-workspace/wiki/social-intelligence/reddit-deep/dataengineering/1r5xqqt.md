@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1244]
     sentence_count: 10
     key_terms: [work, data, dataengineering, webhook, app, automate, comments, engineer]
+    concepts: [dataengineering, webhook, automate, comments, engineer]
     token_count: 290
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1r5xqqt/how_often_do_you_make_webhooks_and_apis_as_a_data/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1r5xqqt.md#c1"
-    char_span: [1259, 3227]
+    char_span: [1258, 3226]
     sentence_count: 12
     key_terms: [python, backend, ketopraktanjungduren, learning, redditreader2020, token, engineering, data]
+    concepts: [python, ketopraktanjungduren, backend, redditreader2020, learning]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/dataengineering/1r5xqqt.md#c2"
-    char_span: [3230, 5051]
+    char_span: [3229, 5050]
     sentence_count: 8
     key_terms: [data, software, engineering, themselves, analysis, development, engineers, frontend]
+    concepts: [engineering, software, themselves, analysis, development]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/dataengineering/1r5xqqt.md#c3"
-    char_span: [5053, 7139]
+    char_span: [5052, 7138]
     sentence_count: 11
     key_terms: [work, code, lot, management, endpoint, honestly, webhooks, deleted]
+    concepts: [management, endpoint, honestly, webhooks, deleted]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/dataengineering/1r5xqqt.md#c4"
-    char_span: [7141, 7720]
+    char_span: [7140, 7719]
     sentence_count: 1
     key_terms: [problem, "you're", indefinitely, development, integration, maintaining, immediate, marketing]
+    concepts: [problem, "you're"]
     section: Comments
     token_count: 107
 ---

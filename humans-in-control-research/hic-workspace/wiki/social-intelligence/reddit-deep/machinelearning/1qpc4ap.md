@@ -19,28 +19,34 @@ chunks:
     char_span: [0, 2301]
     sentence_count: 10
     key_terms: [machinelearning, models, model, diffusion, releasing, comments, garment, open-sourced]
+    concepts: [machinelearning, models, diffusion, releasing, model]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1qpc4ap/r_we_opensourced_fashn_vton_v15_a_pixelspace/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1qpc4ap.md#c1"
     char_span: [2303, 3343]
     sentence_count: 1
     key_terms: [fashn-vton-1, fashn-ai, huggingface, garment, person, tryonpipeline, architecture, https]
+    concepts: [fashn-vton-1, fashn-ai, huggingface, tryonpipeline, garment]
     token_count: 307
   - id: "social-intelligence/reddit-deep/machinelearning/1qpc4ap.md#c2"
     char_span: [3357, 5084]
     sentence_count: 17
     key_terms: [time, use, distribution, https, model, inference, technical, representation-comparison]
+    concepts: [distribution, https, model, inference, technical]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/machinelearning/1qpc4ap.md#c3"
     char_span: [5086, 6972]
     sentence_count: 10
     key_terms: [glasses, model, fit, currentscurrents, clothes, data, does, something]
+    concepts: [glasses, model, currentscurrents, clothes, something]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/machinelearning/1qpc4ap.md#c4"
     char_span: [6974, 7484]
     sentence_count: 3
     key_terms: [training, reckon, open, appreciate, nuclearvii, available, extremely, obviously]
+    concepts: [training, reckon]
     section: Comments
     token_count: 131
 ---

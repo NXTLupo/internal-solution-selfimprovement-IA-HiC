@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1459]
     sentence_count: 14
     key_terms: [boring, creative, b2bmarketing, creativity, campaigns, comments, linkedin, because]
+    concepts: [boring, creative, b2bmarketing, creativity, campaigns]
     token_count: 305
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1qxwka3/our_boring_email_strategy_is_outperforming/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1qxwka3.md#c1"
-    char_span: [1474, 3236]
+    char_span: [1473, 3235]
     sentence_count: 14
     key_terms: [looking-for-marketing-discussion-811236647760298024, cycle, converted, questions, approach, because, discord, message]
+    concepts: [cycle, converted, questions, approach, because]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/b2bmarketing/1qxwka3.md#c2"
-    char_span: [3238, 5411]
+    char_span: [3237, 5410]
     sentence_count: 14
     key_terms: [boring, responsible-brick881, design, emails, simple, consistent, beautiful, creative]
+    concepts: [responsible-brick881, boring, design, emails, simple]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1qxwka3.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/b2bmarketing/1qxwka3.md#c3"
-    char_span: [5128, 5752]
+    char_span: [5127, 5751]
     sentence_count: 7
     key_terms: [boring, design, email, beautiful, custom, option, using, multi-channel]
+    concepts: [boring, design, email, beautiful, custom]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1qxwka3.md#c2"]
     section: Comments
     token_count: 161
 ---

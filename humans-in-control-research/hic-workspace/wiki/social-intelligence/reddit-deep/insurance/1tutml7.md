@@ -20,22 +20,30 @@ chunks:
     char_span: [0, 1914]
     sentence_count: 21
     key_terms: [insurance, company, statement, work, "i've", declined, fault, companies]
+    concepts: [insurance, company, statement, declined, fault]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tutml7.md#c3"]
     token_count: 440
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1tutml7/0_my_fault_contact_the_at_fault_drivers_insurance/"}]
   - id: "social-intelligence/reddit-deep/insurance/1tutml7.md#c1"
     char_span: [1916, 2959]
     sentence_count: 8
     key_terms: ["don't", everyone, anymore, company, service, myself, simple, since]
+    concepts: ["don't", everyone, anymore, company, service]
     token_count: 221
   - id: "social-intelligence/reddit-deep/insurance/1tutml7.md#c2"
-    char_span: [2974, 4911]
+    char_span: [2973, 4910]
     sentence_count: 21
     key_terms: [insurance, anything, findtheothers623, claim, usaa, work, deductible, because]
+    concepts: [insurance, findtheothers623, anything, claim, deductible]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tutml7.md#c3"]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/insurance/1tutml7.md#c3"
-    char_span: [4913, 6804]
+    char_span: [4912, 6803]
     sentence_count: 19
     key_terms: [insurance, statement, deductible, need, overthinking, "won't", car, happened]
+    concepts: [insurance, statement, deductible, overthinking, "won't"]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tutml7.md#c0", "social-intelligence/reddit-deep/insurance/1tutml7.md#c2"]
     section: Comments
     token_count: 454
 ---

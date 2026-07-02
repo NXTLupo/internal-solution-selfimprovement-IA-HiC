@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1008]
     sentence_count: 6
     key_terms: [experience, "i'm", jobs, assistant, comments, specific, getting, admin]
+    concepts: [experience, assistant, comments, specific, getting]
     token_count: 232
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1ozaqgi/im_tired_of_seeing_entry_level_with_35_years/"}]
   - id: "social-intelligence/reddit-deep/jobs/1ozaqgi.md#c1"
     char_span: [1022, 3046]
     sentence_count: 15
     key_terms: [experience, benedictcumberknits, together, working, find, job, something, venting]
+    concepts: [benedictcumberknits, experience, together, working, something]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1ozaqgi.md#c2"
     char_span: [2823, 3229]
     sentence_count: 5
     key_terms: [degree, benedictcumberknits, find, recession, strangers, homicide, language, believe]
+    concepts: [degree]
     section: Comments
     token_count: 111
   - id: "social-intelligence/reddit-deep/jobs/1ozaqgi.md#c3"
     char_span: [3231, 3961]
     sentence_count: 9
     key_terms: [experience, college, degree, market, right, dazzling-lead-8557, don, need]
+    concepts: [experience, college, degree, market, right]
     section: Comments
     token_count: 190
 ---

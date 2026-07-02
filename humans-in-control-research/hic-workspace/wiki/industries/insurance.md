@@ -10,6 +10,7 @@ chunks:
     char_span: [0, 708]
     sentence_count: 2
     key_terms: [sources, industries, articles, reddit-deep-r-povertyfinance, shared, reddit-deep-r-digitalnomad, reddit-deep-r-personalfinance, insurance]
+    concepts: [industries, sources, reddit-deep-r-povertyfinance, articles, reddit-deep-r-digitalnomad]
     section: Cross-over verticals (shared sources) / Representative sources
     token_count: 201
 ---

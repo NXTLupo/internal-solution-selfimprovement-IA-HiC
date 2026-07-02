@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 2463]
     sentence_count: 20
     key_terms: [finance, experience, investment, roles, management, like, research, careerguidance]
+    concepts: [experience, investment, finance, roles, management]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c3"]
     token_count: 516
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tn2vbk/how_does_a_woman_break_into_finance_when_it_still/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c1"
     char_span: [2465, 4213]
     sentence_count: 22
     key_terms: [applications, networking, unconventional, top-ground22, club, appreciate, targeted, looking]
+    concepts: [applications, networking, unconventional, top-ground22, appreciate]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c2"
     char_span: [4215, 6772]
     sentence_count: 19
     key_terms: [advice, networking, because, finance, generic, opportunities, applications, top-ground22]
+    concepts: [advice, networking, opportunities, because, finance]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c3", "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c3"
     char_span: [6437, 8792]
     sentence_count: 18
     key_terms: [experience, consulting, get, because, finance, people, top-ground22, competitive]
+    concepts: [experience, consulting, because, finance, top-ground22]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c0", "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c2", "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c4"
     char_span: [8523, 10138]
     sentence_count: 11
     key_terms: [top-ground22, field, because, finance, advice, similarcomfortable69, asked, women]
+    concepts: [top-ground22, field, because, finance, advice]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c2", "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c3"]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c5"
     char_span: [10140, 10928]
     sentence_count: 8
     key_terms: [entry, level, city, jobs, move, nyc, connection, personal]
+    concepts: [entry, level, connection, personal, finance]
     section: Comments
     token_count: 168
 ---

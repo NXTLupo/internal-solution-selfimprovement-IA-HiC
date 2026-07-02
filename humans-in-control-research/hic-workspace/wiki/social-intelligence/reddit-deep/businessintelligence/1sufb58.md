@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1571]
     sentence_count: 2
     key_terms: [migration, data, businessintelligence, analytics, missing, dashboards, visibility, finalized]
+    concepts: [migration, businessintelligence, analytics, missing, dashboards]
     token_count: 325
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1sufb58/what_does_your_daytoday_analytics_work_look_like/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1sufb58.md#c1"
-    char_span: [1586, 2976]
+    char_span: [1585, 2975]
     sentence_count: 8
     key_terms: [data, issues, security, people, historical-donut-918, focus, issue, until]
+    concepts: [issues, security, people, focus, issue]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/businessintelligence/1sufb58.md#c2"
-    char_span: [2978, 3901]
+    char_span: [2977, 3900]
     sentence_count: 1
     key_terms: [data, everything, customers, monitor, quality, script, consistent-radio-428, tune]
+    concepts: [everything, customers, monitor, quality, script]
     section: Comments
     token_count: 196
 ---

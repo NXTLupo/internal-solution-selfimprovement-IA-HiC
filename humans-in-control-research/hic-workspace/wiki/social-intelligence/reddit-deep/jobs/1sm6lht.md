@@ -19,35 +19,44 @@ chunks:
     char_span: [0, 1255]
     sentence_count: 13
     key_terms: [ceo, entry-level, jobs, economists, comments, getting, outlook, surveys]
+    concepts: [entry-level, economists, comments, getting, outlook]
     token_count: 296
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1sm6lht/why_are_ceos_saying_ai_will_create_more/"}]
   - id: "social-intelligence/reddit-deep/jobs/1sm6lht.md#c1"
     char_span: [1269, 3558]
     sentence_count: 13
     key_terms: [mistakes, people, barry, learn, because, traditional, does, like]
+    concepts: [mistakes, people, barry, learn, because]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/jobs/1sm6lht.md#c2"
     char_span: [3560, 5728]
     sentence_count: 17
     key_terms: [people, exponentially, limitations, human, energy, being, years, time]
+    concepts: [people, exponentially, limitations, human, energy]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/jobs/1sm6lht.md#c3"
     char_span: [5730, 7796]
     sentence_count: 15
     key_terms: [different, something, learning, completely, like, llms, convincingly, "isn't"]
+    concepts: [different, something, learning, completely, convincingly]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/jobs/1sm6lht.md#c4"
     char_span: [7798, 9205]
     sentence_count: 14
     key_terms: [competitors, ceo, knowledge, because, company, problem, signal-implement-70, human]
+    concepts: [competitors, knowledge, because, company, problem]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sm6lht.md#c5"]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/jobs/1sm6lht.md#c5"
     char_span: [9207, 11155]
     sentence_count: 7
     key_terms: ["doesn't", ceos, because, money, ceo, "it's", company, replace]
+    concepts: ["doesn't", because, money, company, replace]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sm6lht.md#c4"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/jobs/1sm6lht.md#c6"

@@ -21,53 +21,63 @@ chunks:
     char_span: [0, 1821]
     sentence_count: 18
     key_terms: [travel, living, years, life, digitalnomad, back, jobs, year]
+    concepts: [travel, living, years, digitalnomad, corporate]
     token_count: 434
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1o71iwx/after_10_years_of_dreaming_were_finally_living/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c1"
     char_span: [1835, 3757]
     sentence_count: 24
     key_terms: [websites, gun3ro, seo, started, wordpress, work, because, coding]
+    concepts: [websites, gun3ro, started, wordpress, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c2"
     char_span: [3530, 4334]
     sentence_count: 7
     key_terms: [because, freely, comprehensive-phase3, start, work, recommendations, oversaturated, photography]
+    concepts: [because, freely, start]
     section: Comments
     token_count: 216
   - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c3"
     char_span: [4336, 6262]
     sentence_count: 26
     key_terms: [tech, couldn, months, found, money, take, tool, developer]
+    concepts: [couldn, months, found, money, developer]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c4"
     char_span: [6264, 7425]
     sentence_count: 11
     key_terms: [new-jeweler1363, problem, product, market, redact, miu-miu-miu-miu-miu, steve, did]
+    concepts: [new-jeweler1363, problem, product, market, redact]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c5"
     char_span: [7427, 9186]
     sentence_count: 19
     key_terms: [mdeeebeee-101, backpack, english, minored, startup, through, travel, doing]
+    concepts: [mdeeebeee-101, backpack, english, minored, startup]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c6"
     char_span: [9188, 11337]
     sentence_count: 33
     key_terms: [condition, get, together, health, years, applying, thailand, serious]
+    concepts: [condition, together, health, years, applying]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c7"
     char_span: [11339, 12593]
     sentence_count: 14
     key_terms: [company, work, software, finding, diegofromwifitribe, best, long, requirements]
+    concepts: [company, software, finding]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c8"
     char_span: [12595, 14451]
     sentence_count: 11
     key_terms: [good, going, life, own, time, iceydiceyz, something, positive]
+    concepts: [going, iceydiceyz, something, positive, feeling]
     section: Comments
     token_count: 489
 ---

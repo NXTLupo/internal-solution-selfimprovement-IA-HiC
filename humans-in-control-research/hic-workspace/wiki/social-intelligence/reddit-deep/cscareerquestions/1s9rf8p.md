@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1669]
     sentence_count: 15
     key_terms: [company, development, cscareerquestions, been, "it's", new, soon, experience]
+    concepts: [development, company, cscareerquestions, experience, technology]
     token_count: 386
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1s9rf8p/beginning_of_career_advice_pay_or_experience/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s9rf8p.md#c1"
     char_span: [1683, 3618]
     sentence_count: 11
     key_terms: [job, experience, something, because, java, pay, difference, companies]
+    concepts: [experience, something, because, difference, companies]
     section: Comments
     token_count: 440
 ---

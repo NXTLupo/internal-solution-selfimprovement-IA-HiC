@@ -17,14 +17,17 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1rpugq8.md#c0"
-    char_span: [0, 1836]
+    char_span: [0, 1835]
     sentence_count: 6
     key_terms: [corporate, volunteering, impact, report, nonprofit, needs, benevity, funding]
-    token_count: 423
+    concepts: [corporate, volunteering, nonprofit, impact, report]
+    token_count: 422
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1rpugq8/report_growing_chasm_between_corporate_interests/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1rpugq8.md#c1"
-    char_span: [1838, 2366]
+    char_span: [1837, 2365]
     sentence_count: 1
     key_terms: [benevity-impact-labs-releases-state-of-corporate-volunteering-2026-report-finds-growing-chasm-between-corporate-interests-and-nonprofit-needs-as-employee-volunteering-reaches-record-levels, businesswire, https, com, home, news, www]
+    concepts: [benevity-impact-labs-releases-state-of-corporate-volunteering-2026-report-finds-growing-chasm-between-corporate-interests-and-nonprofit-needs-as-employee-volunteering-reaches-record-levels, businesswire, https]
     token_count: 167
 ---
 # report: Growing Chasm Between Corporate Interests and Nonprofit Needs

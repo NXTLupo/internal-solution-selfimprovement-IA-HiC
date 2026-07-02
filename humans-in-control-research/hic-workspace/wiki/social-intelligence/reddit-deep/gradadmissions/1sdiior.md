@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 948]
     sentence_count: 5
     key_terms: [looking, gradadmissions, currently, inorganic, materials, comments, advice, doing]
+    concepts: [gradadmissions, looking, currently, inorganic, materials]
     token_count: 200
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1sdiior/grad_school_admission_advice_request/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1sdiior.md#c1"
-    char_span: [963, 2702]
+    char_span: [962, 2701]
     sentence_count: 18
     key_terms: ["you're", research, "don't", get, "i'm", "it's", interested, advisor]
+    concepts: ["you're", research, "don't", interested, advisor]
     section: Comments
     token_count: 386
 ---

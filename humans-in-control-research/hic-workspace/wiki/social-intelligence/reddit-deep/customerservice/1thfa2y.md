@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2418]
     sentence_count: 14
     key_terms: [being, customerservice, because, support, people, social, inconvenience, media]
+    concepts: [being, customerservice, inconvenience, because, support]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/customerservice","u":"https://www.reddit.com/r/CustomerService/comments/1thfa2y/being_a_social_media_support_is_ruining_me_mental/"}]
   - id: "social-intelligence/reddit-deep/customerservice/1thfa2y.md#c1"
-    char_span: [2433, 3124]
+    char_span: [2432, 3123]
     sentence_count: 6
     key_terms: [sorry, find, hang, "i'm", "it's", anxious-ad-1699, experiencing, absolutely]
+    concepts: [sorry]
     section: Comments
     token_count: 170
 ---

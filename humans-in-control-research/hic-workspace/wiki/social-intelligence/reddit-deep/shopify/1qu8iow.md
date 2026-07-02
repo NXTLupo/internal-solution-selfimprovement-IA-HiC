@@ -7,56 +7,64 @@ subreddit: "shopify"
 title: "This Week's Top E-commerce News Stories 💥 Feb 2nd, 2026"
 author: "adventurepaul"
 date: "2026-02-02T21:36:31.000Z"
-score: 8
+score: 9
 upvote_ratio: 1
 num_comments: 5
 flair: "Shopify General Discussion"
-extracted_at: "2026-06-18T13:35:23.060Z"
+extracted_at: "2026-06-24T22:14:23.474Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/shopify/1qu8iow.md#c0"
     char_span: [0, 799]
     sentence_count: 3
     key_terms: [shopify, e-commerce, reddit, https, com, news, www, comments]
+    concepts: [shopify, e-commerce, reddit, https, comments]
     token_count: 216
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1qu8iow/this_weeks_top_ecommerce_news_stories_feb_2nd_2026/"}]
   - id: "social-intelligence/reddit-deep/shopify/1qu8iow.md#c1"
     char_span: [801, 3169]
     sentence_count: 7
     key_terms: [requests, information, ads, around, total, views, advertisers, call]
+    concepts: [requests, information, around, advertisers, total]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1qu8iow.md#c2"
     char_span: [2915, 5411]
     sentence_count: 13
     key_terms: [tiktok, users, grocery, censorship, foods, whole, been, company]
+    concepts: [tiktok, users, grocery, censorship, foods]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1qu8iow.md#c3"
     char_span: [5087, 7562]
     sentence_count: 13
     key_terms: [amazon, saks, "amazon's", company, grocery, payment, discontinuing, partnership]
+    concepts: [amazon, "amazon's", discontinuing, company, grocery]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1qu8iow.md#c4"
     char_span: [7258, 9824]
     sentence_count: 12
     key_terms: [saks, subscription, search, content, google, meta, new, publishers]
+    concepts: [subscription, search, content, google, publishers]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1qu8iow.md#c5"
     char_span: [9522, 10250]
     sentence_count: 4
     key_terms: [whatsapp, remain, click-to-message, conversations, double-edged, foreseeable, interaction, publishers]
+    concepts: [whatsapp, remain]
     token_count: 141
   - id: "social-intelligence/reddit-deep/shopify/1qu8iow.md#c6"
-    char_span: [10265, 11603]
+    char_span: [10264, 11602]
     sentence_count: 6
     key_terms: [shopify, katarinabatina, adventurepaul, feed, community, personal, contact, digging]
+    concepts: [katarinabatina, adventurepaul, shopify, community, personal]
     section: Comments
     token_count: 320
 ---
 # This Week's Top E-commerce News Stories 💥 Feb 2nd, 2026
 
 Source: [reddit-deep: r/shopify](https://www.reddit.com/r/shopify/comments/1qu8iow/this_weeks_top_ecommerce_news_stories_feb_2nd_2026/)
-Posted by **adventurepaul** · **8↑** · **5 comments**
+Posted by **adventurepaul** · **9↑** · **5 comments**
 
 Hi [r/Shopify](https://www.reddit.com/r/Shopify/) \- I'm Paul and I follow the e-commerce industry closely for my Shopifreaks E-commerce Newsletter, which I've published weekly since 2021.
 

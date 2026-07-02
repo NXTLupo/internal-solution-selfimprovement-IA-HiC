@@ -20,58 +20,71 @@ chunks:
     char_span: [0, 2256]
     sentence_count: 13
     key_terms: [niche, small, accounts, targeted, people, b2bmarketing, conservative, leads]
+    concepts: [niche, small, accounts, targeted, b2bmarketing]
     token_count: 486
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1r9pxwi/how_do_you_guys_generate_leads_in_conservative/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1r9pxwi.md#c1"
     char_span: [2258, 2726]
     sentence_count: 6
     key_terms: [niches, people, conservative, generate, similar, ideas, leads, niche]
+    concepts: [conservative, niches, people, generate, similar]
     token_count: 93
   - id: "social-intelligence/reddit-deep/b2bmarketing/1r9pxwi.md#c2"
-    char_span: [2741, 4918]
+    char_span: [2740, 4917]
     sentence_count: 9
     key_terms: [lead, looking-for-marketing-discussion-811236647760298024, mid-size, clients, magnet, specifically, new, questions]
+    concepts: [mid-size, clients, specifically, magnet, questions]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/b2bmarketing/1r9pxwi.md#c3"
-    char_span: [4920, 7333]
+    char_span: [4919, 7332]
     sentence_count: 11
     key_terms: [outreach, like, buy, niche, industry, buyers, people, conservative]
+    concepts: [outreach, niche, industry, conservative, intellectual]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1r9pxwi.md#c7"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/b2bmarketing/1r9pxwi.md#c4"
-    char_span: [7335, 9874]
+    char_span: [7334, 9873]
     sentence_count: 11
     key_terms: [problem, conservative, linkedin, email, industries, industry, outreach, specific]
+    concepts: [conservative, problem, linkedin, email, industries]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/b2bmarketing/1r9pxwi.md#c5"
-    char_span: [9876, 12407]
+    char_span: [9875, 12406]
     sentence_count: 21
     key_terms: [described, already, specialization, funnel, right, sales, terms, case]
+    concepts: [described, specialization, already, funnel, right]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/b2bmarketing/1r9pxwi.md#c6"
-    char_span: [12409, 14335]
+    char_span: [12408, 14334]
     sentence_count: 12
     key_terms: [dinners, s1lv3rs4rf3r, small, like, referrals, advisors, linkedin, webinars]
+    concepts: [dinners, s1lv3rs4rf3r, small, referrals, advisors]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/b2bmarketing/1r9pxwi.md#c7"
-    char_span: [14337, 16477]
+    char_span: [14336, 16476]
     sentence_count: 15
     key_terms: [conservative, niche, contacts, sending, broker, niches, volume, left-instruction9074]
+    concepts: [conservative, niche, contacts, sending, broker]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1r9pxwi.md#c3"]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/b2bmarketing/1r9pxwi.md#c8"
-    char_span: [16481, 18308]
+    char_span: [16480, 18307]
     sentence_count: 16
     key_terms: [closed, s1lv3rs4rf3r, type, operators, something, accounts, approach, speaking]
+    concepts: [s1lv3rs4rf3r, closed, operators, something, accounts]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/b2bmarketing/1r9pxwi.md#c9"
-    char_span: [18310, 20071]
+    char_span: [18309, 20070]
     sentence_count: 13
     key_terms: [platforms, agencies, clients, advertising, "i've", like, something, services]
+    concepts: [platforms, agencies, clients, advertising, something]
     section: Comments
     token_count: 387
 ---

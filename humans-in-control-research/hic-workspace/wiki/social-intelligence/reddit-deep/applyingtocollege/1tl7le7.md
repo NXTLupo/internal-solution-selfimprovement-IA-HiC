@@ -21,47 +21,63 @@ chunks:
     char_span: [0, 1242]
     sentence_count: 14
     key_terms: [stanford, better, harvard, applyingtocollege, school, prestigious, considered, comments]
+    concepts: [stanford, better, harvard, applyingtocollege, school]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c6"]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1tl7le7/what_does_even_harvard_do_better_than_stanford/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c1"
     char_span: [1256, 2910]
     sentence_count: 7
     key_terms: [harvard, yale, stanford, ppl, princeton, columbia, big, mit]
+    concepts: [harvard, stanford, princeton, columbia, difference]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c7"]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c2"
     char_span: [2912, 4907]
     sentence_count: 14
     key_terms: [harvard, stanford, coast, east, power, reach, like, definitely]
+    concepts: [harvard, stanford, coast, definitely, power]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c7"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c3"
     char_span: [4909, 7045]
     sentence_count: 18
     key_terms: [stanford, law, perfect, social, great, engineering, like, different]
+    concepts: [stanford, perfect, social, engineering, great]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c4"
     char_span: [7047, 8289]
     sentence_count: 6
     key_terms: [college-cross-admit-comparison, university, harvard, parchment, school, bush, american, stanford]
+    concepts: [college-cross-admit-comparison, university, harvard, parchment, school]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c0"]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c5"
     char_span: [8291, 9769]
     sentence_count: 15
     key_terms: [harvard, stanford, cultural-risk-6667, iit, student, schools, family, insane]
+    concepts: [harvard, stanford, cultural-risk-6667, student, schools]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c7"]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c6"
     char_span: [9771, 11888]
     sentence_count: 8
     key_terms: [stanford, harvard, scholars, produces, rhodes, opportunities, postgraduate, scholarship]
+    concepts: [stanford, harvard, scholars, produces, opportunities]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c7"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c7"
     char_span: [11890, 13671]
     sentence_count: 13
     key_terms: [stanford, harvard, politics, law, want, first-degree-colleges-of-congresspeople, strong, definitely]
+    concepts: [stanford, harvard, politics, strong, definitely]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c6"]
     section: Comments
     token_count: 473
 ---

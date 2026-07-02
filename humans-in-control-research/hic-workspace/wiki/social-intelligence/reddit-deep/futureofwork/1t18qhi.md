@@ -21,27 +21,33 @@ chunks:
     char_span: [0, 2211]
     sentence_count: 18
     key_terms: [interested, document, post-agi, reddit, futureofwork, state, transition, something]
+    concepts: [interested, document, post-agi, futureofwork, reddit]
     token_count: 500
+    sources: [{"n":"reddit-deep: r/futureofwork","u":"https://www.reddit.com/r/FutureOfWork/comments/1t18qhi/a_blueprint_for_irelands_workforce_transition_to/"}]
   - id: "social-intelligence/reddit-deep/futureofwork/1t18qhi.md#c1"
     char_span: [2213, 3881]
     sentence_count: 3
     key_terms: [energy, state-owned, data, automated, digital, bridge, grind, food]
+    concepts: [energy, state-owned, automated, digital, bridge]
     token_count: 436
   - id: "social-intelligence/reddit-deep/futureofwork/1t18qhi.md#c2"
     char_span: [3883, 4371]
     sentence_count: 3
     key_terms: [people, costs, tax, self-sufficient, infrastructure, immediately, independent, high-speed]
+    concepts: [people, costs]
     token_count: 139
   - id: "social-intelligence/reddit-deep/futureofwork/1t18qhi.md#c3"
     char_span: [4385, 6552]
     sentence_count: 14
     key_terms: [projects, country, plan, planning, around, contingency, transition, ambitious]
+    concepts: [projects, country, planning, around, contingency]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/futureofwork/1t18qhi.md#c4"
     char_span: [6554, 7823]
     sentence_count: 8
     key_terms: [digital, twin, pressure, across, system, findingbalancedaily, based, like]
+    concepts: [digital, pressure, across, system, based]
     section: Comments
     token_count: 244
 ---

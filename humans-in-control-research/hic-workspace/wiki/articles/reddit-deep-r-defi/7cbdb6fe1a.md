@@ -19,14 +19,17 @@ content_hash: "77c8e7b83ae1c03f"
 relevance_by_goal: {"46dec9599ad5":40}
 chunks:
   - id: "articles/reddit-deep-r-defi/7cbdb6fe1a.md#c0"
-    char_span: [0, 1576]
+    char_span: [0, 1575]
     sentence_count: 11
     key_terms: [wallet, decentralized-key-management-agents, https, oasis, multichain-wallet-agents, blog, net, responsibility]
-    token_count: 337
+    concepts: [wallet, decentralized-key-management-agents, multichain-wallet-agents, https, oasis]
+    token_count: 336
+    sources: [{"n":"Reddit Deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1sgi116/why_do_most_people_ignore_who_actually_builds/"}]
   - id: "articles/reddit-deep-r-defi/7cbdb6fe1a.md#c1"
-    char_span: [1578, 2979]
+    char_span: [1577, 2978]
     sentence_count: 8
     key_terms: [wallet, "you're", cold, always, "that's", pleasant-ambition-41, impressive-dust5395, chose]
+    concepts: [wallet, "you're", always, "that's", chose]
     token_count: 356
 ---
 # Why do most people ignore who actually builds their crypto wallet?

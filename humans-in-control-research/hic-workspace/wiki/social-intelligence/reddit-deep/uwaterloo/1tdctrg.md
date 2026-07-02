@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 229]
     sentence_count: 1
     key_terms: [uwaterloo, comments, reddit-deep, posted, reddit, source, happy, https]
+    concepts: [uwaterloo, comments]
     token_count: 72
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1tdctrg/should_i_be_happy_or_not/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1tdctrg.md#c1"
     char_span: [243, 1904]
     sentence_count: 8
     key_terms: [choice, business, rejected, "you're", engineering, management, admission, alternate]
+    concepts: [choice, business, rejected, "you're", engineering]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1tdctrg.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/uwaterloo/1tdctrg.md#c2"
     char_span: [1650, 2220]
     sentence_count: 5
     key_terms: [choice, got, math, alternate, rejected, haunting-mulberry-12, main, environmental]
+    concepts: [choice, alternate, rejected]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1tdctrg.md#c1"]
     section: Comments
     token_count: 168
 ---

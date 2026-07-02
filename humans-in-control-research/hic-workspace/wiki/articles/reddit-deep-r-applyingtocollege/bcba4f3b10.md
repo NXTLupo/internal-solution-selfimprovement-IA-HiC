@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2278]
     sentence_count: 9
     key_terms: [admissions, year, cycle, colleges, college, applicant, school, apply]
+    concepts: [admissions, cycle, colleges, college, applicant]
     token_count: 482
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1q4md48/is_it_worse_to_apply_to_colleges_in_the/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/bcba4f3b10.md#c1"
     char_span: [2281, 3626]
     sentence_count: 11
     key_terms: [transfer, year, apply, different, college, schools, gap, first-year]
+    concepts: [transfer, different, apply, college, schools]
     token_count: 311
 ---
 # Is it worse to apply to colleges in the admissions cycle a year after I graduate high school?

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1377]
     sentence_count: 10
     key_terms: [internships, internship, unpaid, institute, gandhinagar, government, bisag, here]
+    concepts: [internships, internship, institute, unpaid, gandhinagar]
     token_count: 322
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1ov7dc9/should_i_take_an_unpaid_6month_internship_at/"}]
   - id: "social-intelligence/reddit-deep/internships/1ov7dc9.md#c1"
-    char_span: [1392, 1924]
+    char_span: [1391, 1923]
     sentence_count: 1
     key_terms: [karma-farmer4688, internship, many-assistance-9286, did, less, barracudano2385, employement, conversion]
+    concepts: [karma-farmer4688, internship]
     section: Comments
     token_count: 160
 ---

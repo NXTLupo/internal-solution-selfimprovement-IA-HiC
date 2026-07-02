@@ -21,52 +21,62 @@ chunks:
     char_span: [0, 2106]
     sentence_count: 13
     key_terms: [university, gradadmissions, school, admissions, transcript, understand, comments, incident]
+    concepts: [university, gradadmissions, school, admissions, transcript]
     token_count: 472
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1t0gsay/academic_dishonesty_how_to_move_forward/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1t0gsay.md#c1"
     char_span: [2108, 2985]
     sentence_count: 8
     key_terms: [question, research, mistake, like, show, want, work, applicable]
+    concepts: [question, research, mistake]
     token_count: 198
   - id: "social-intelligence/reddit-deep/gradadmissions/1t0gsay.md#c2"
     char_span: [2999, 5223]
     sentence_count: 13
     key_terms: [best, get, people, application, interview, question, college, forward]
+    concepts: [people, application, interview, question, college]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/gradadmissions/1t0gsay.md#c3"
     char_span: [5225, 7018]
     sentence_count: 11
     key_terms: [course, example, application, transcript, situation, student, higher, middle]
+    concepts: [course, example, application, transcript, situation]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/gradadmissions/1t0gsay.md#c4"
     char_span: [7020, 9042]
     sentence_count: 12
     key_terms: [professor, ananthropolothology, did, academic, course, applications, transcripts, programs]
+    concepts: [professor, ananthropolothology, academic, applications, course]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/gradadmissions/1t0gsay.md#c5"
     char_span: [9044, 10996]
     sentence_count: 16
     key_terms: [personal, yourself, growth, thank, own, show, experience, professor]
+    concepts: [personal, yourself, growth, experience, thank]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/gradadmissions/1t0gsay.md#c6"
     char_span: [10998, 12500]
     sentence_count: 9
     key_terms: [professor, relationship, class, outside, student, extend, grace, work]
+    concepts: [professor, relationship, class, outside, student]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/gradadmissions/1t0gsay.md#c7"
     char_span: [12502, 13825]
     sentence_count: 12
     key_terms: [consider, thinking, sleep, mysterious-art8838, end, grow, like, cinnamonstixxxx]
+    concepts: [consider, thinking, sleep]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/gradadmissions/1t0gsay.md#c8"
     char_span: [13827, 15716]
     sentence_count: 16
     key_terms: [lie, get, "you're", admissions, applicant, "doesn't", offense, raiden-]
+    concepts: ["you're", admissions, applicant, "doesn't", offense]
     section: Comments
     token_count: 434
 ---

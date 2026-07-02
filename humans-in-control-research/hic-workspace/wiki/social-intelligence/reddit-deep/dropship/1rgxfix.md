@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 847]
     sentence_count: 5
     key_terms: [fulfillment, recommendations, looking, service, items, comments, dropship, source]
+    concepts: [fulfillment, recommendations, looking, service, items]
     token_count: 187
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1rgxfix/looking_for_a_3pl_fulfillment_service/"}]
   - id: "social-intelligence/reddit-deep/dropship/1rgxfix.md#c1"
-    char_span: [862, 2724]
+    char_span: [861, 2723]
     sentence_count: 13
     key_terms: [please, kasuga101, message, randallchou, did, free, help, love]
+    concepts: [please, kasuga101, message, randallchou, interested]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/dropship/1rgxfix.md#c2"
-    char_span: [2726, 3230]
+    char_span: [2725, 3229]
     sentence_count: 2
     key_terms: [hours, hour, nextsmartship, china-direct, lightweight, recommended, consulting, underrated]
+    concepts: [hours]
     section: Comments
     token_count: 116
 ---

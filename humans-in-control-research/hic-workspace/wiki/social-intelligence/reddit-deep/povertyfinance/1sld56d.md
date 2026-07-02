@@ -21,52 +21,62 @@ chunks:
     char_span: [0, 1659]
     sentence_count: 8
     key_terms: [hour, povertyfinance, making, car, get, half, job, loan]
+    concepts: [povertyfinance, making, comments, student, budget]
     token_count: 408
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1sld56d/reducing_my_budget/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c1"
     char_span: [1661, 2128]
     sentence_count: 5
     key_terms: [better, plan, rap, flexibility, calculator, discussing, thankfully, donation]
+    concepts: [better]
     token_count: 108
   - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c2"
     char_span: [2142, 4080]
     sentence_count: 21
     key_terms: [job, experience, maintenance, jadedunionoperator, manufacturing, got, janitorial, education]
+    concepts: [experience, maintenance, jadedunionoperator, manufacturing, janitorial]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c3"
     char_span: [4085, 5720]
     sentence_count: 12
     key_terms: [eggs, around, clearance, grocery, freeze, cut, definitely, something]
+    concepts: [around, clearance, grocery, freeze, definitely]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c4"
     char_span: [5724, 7249]
     sentence_count: 19
     key_terms: [internet, food, like, retention, probably, qualify, xfinity, asking]
+    concepts: [internet, retention, probably, qualify, xfinity]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c5"
     char_span: [7251, 8681]
     sentence_count: 11
     key_terms: [particular-fly3409, gas, "i'm", meal, plan, partner, "it's", depends]
+    concepts: [particular-fly3409, partner, depends, license, looking]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c6"
     char_span: [8684, 10416]
     sentence_count: 13
     key_terms: [like, policy, bill, internet, recipes, charge, beans, "y'all"]
+    concepts: [policy, internet, recipes, charge, beans]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c7"
     char_span: [10419, 12469]
     sentence_count: 10
     key_terms: [customer, new, cancel, call, insurance, car, deal, get]
+    concepts: [customer, cancel, insurance, established, termination]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c8"
     char_span: [12472, 12892]
     sentence_count: 6
     key_terms: [internet, name, new, plan, rate, unfortunately, investigate, "shouldn't"]
+    concepts: [internet]
     section: Comments
     token_count: 94
 ---

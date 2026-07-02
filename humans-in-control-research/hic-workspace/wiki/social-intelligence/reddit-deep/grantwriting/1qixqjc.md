@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1368]
     sentence_count: 20
     key_terms: [writing, checkers, grantwriting, years, foundations, been, too, comments]
+    concepts: [writing, checkers, grantwriting, foundations, years]
     token_count: 351
+    sources: [{"n":"reddit-deep: r/grantwriting","u":"https://www.reddit.com/r/grantwriting/comments/1qixqjc/am_i_writing_too_formally_if_ai_checkers_think_im/"}]
   - id: "social-intelligence/reddit-deep/grantwriting/1qixqjc.md#c1"
-    char_span: [1383, 3324]
+    char_span: [1382, 3323]
     sentence_count: 18
     key_terms: [use, funding, review, "don't", foundations, proposals, because, problem]
+    concepts: [funding, review, foundations, "don't", proposals]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/grantwriting/1qixqjc.md#c2"
-    char_span: [3326, 4477]
+    char_span: [3325, 4476]
     sentence_count: 12
     key_terms: [writing, like, proposal, sounding, checker, formal, sound, write]
+    concepts: [writing, proposal, sounding, checker, formal]
     section: Comments
     token_count: 244
 ---

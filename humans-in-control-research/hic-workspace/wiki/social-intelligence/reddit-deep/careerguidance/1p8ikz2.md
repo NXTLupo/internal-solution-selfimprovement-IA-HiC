@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 1279]
     sentence_count: 8
     key_terms: [python, learning, starting, careerguidance, career, automation, recommend, comments]
+    concepts: [python, learning, starting, careerguidance, career]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1p8ikz2.md#c2"]
     token_count: 277
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1p8ikz2/is_learning_python_the_right_first_step_to/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1p8ikz2.md#c1"
     char_span: [1293, 1799]
     sentence_count: 7
     key_terms: [python, seriousgourmetshit, talltelevision4121, necessarily, checked, correct, coming, deploy]
+    concepts: [python]
     section: Comments
     token_count: 139
   - id: "social-intelligence/reddit-deep/careerguidance/1p8ikz2.md#c2"
     char_span: [1801, 3617]
     sentence_count: 9
     key_terms: [like, python, data, job, work, automation, projects, starting]
+    concepts: [python, automation, projects, starting, because]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1p8ikz2.md#c0"]
     section: Comments
     token_count: 438
 ---

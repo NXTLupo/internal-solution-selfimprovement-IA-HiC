@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 2252]
     sentence_count: 17
     key_terms: [essay, argumentative, taught, communication, seems, voice, engineering, information]
+    concepts: [essay, argumentative, taught, communication, engineering]
     token_count: 473
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1sbljzc/changes_in_communications_teaching/"}]
   - id: "social-intelligence/reddit-deep/college/1sbljzc.md#c1"
     char_span: [2266, 4615]
     sentence_count: 14
     key_terms: [opposing, argumentative, perspectives, being, paper, like, teacher, defend]
+    concepts: [argumentative, opposing, perspectives, being, paper]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/college/1sbljzc.md#c2"
     char_span: [4617, 6786]
     sentence_count: 7
     key_terms: [time, classes, "you're", class, essay, assignments, "it's", expository]
+    concepts: [classes, "you're", assignments, class, essay]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/college/1sbljzc.md#c3"
     char_span: [6788, 7205]
     sentence_count: 4
     key_terms: [defending, position, counterarguments, argumentation, discovering, articulate, influences, presenting]
+    concepts: [defending, position]
     section: Comments
     token_count: 88
 ---

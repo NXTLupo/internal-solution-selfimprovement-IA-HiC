@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1326]
     sentence_count: 8
     key_terms: [engineeringstudents, job, company, manufacturing, engineering, got, time, assembly]
+    concepts: [engineeringstudents, manufacturing, company, engineering, assembly]
     token_count: 293
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rhn2o2/industrial_engineering_college_student_who_got_an/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rhn2o2.md#c1"
     char_span: [1340, 2561]
     sentence_count: 7
     key_terms: [engineeringstudents, exciting-yogurt-9635, wiki, reddit, https, com, read, www]
+    concepts: [engineeringstudents, exciting-yogurt-9635, reddit, https, resources]
     section: Comments
     token_count: 297
 ---

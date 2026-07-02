@@ -21,7 +21,10 @@ chunks:
     char_span: [0, 2029]
     sentence_count: 23
     key_terms: [always, manager, been, pto, take, "i'm", "it's", need]
+    concepts: [always, manager, sometimes, unlimited, comments]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1o3ma5d.md#c5", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c12"]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1o3ma5d/our_untracked_unlimited_pto_policy_was_working/"}]
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c1"
     char_span: [2031, 2522]
     sentence_count: 4
@@ -31,84 +34,108 @@ chunks:
     char_span: [2536, 4011]
     sentence_count: 7
     key_terms: [days, vacation, week, approved, flexible, unlimited, employee, because]
+    concepts: [vacation, approved, flexible, unlimited, employee]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1o3ma5d.md#c5", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c7", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c13"]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c3"
     char_span: [4013, 5706]
     sentence_count: 13
     key_terms: [day, district, vacation, typical, middle, person, pieces, taking]
+    concepts: [district, vacation, typical, middle, person]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c4"
     char_span: [5708, 7047]
     sentence_count: 5
     key_terms: [unlimited, pto, days, company, having, pretty, found, taken]
+    concepts: [unlimited, company, having, pretty, found]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1o3ma5d.md#c5", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c6", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c12"]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c5"
     char_span: [7049, 9026]
     sentence_count: 16
     key_terms: [days, pto, take, vacation, company, always, scandinavian, time]
+    concepts: [vacation, company, scandinavian, always, unlimited]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1o3ma5d.md#c0", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c2", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c4", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c6", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c12"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c6"
     char_span: [9028, 11046]
     sentence_count: 14
     key_terms: [days, take, pto, company, hours, leave, sick, incredibly]
+    concepts: [company, hours, incredibly, leave, unlimited]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1o3ma5d.md#c4", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c5", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c12"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c7"
     char_span: [11048, 12920]
     sentence_count: 13
     key_terms: [department, pto, unlimited, policy, boss, "it's", authority, employee]
+    concepts: [department, unlimited, policy, authority, employee]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1o3ma5d.md#c2", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c11", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c12", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c13"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c8"
     char_span: [12922, 15178]
     sentence_count: 19
     key_terms: [boss, been, meeting, "you're", documentation, professional, "don't", departments]
+    concepts: [documentation, meeting, professional, "you're", departments]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c9"
     char_span: [15180, 17385]
     sentence_count: 15
     key_terms: [policy, training, boss, pto, managers, been, everything, enforcing]
+    concepts: [policy, training, managers, everything, enforcing]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c10"
     char_span: [17387, 19283]
     sentence_count: 12
     key_terms: [specialization, people, person, policy, "it's", like, management, authority]
+    concepts: [specialization, people, person, policy, management]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1o3ma5d.md#c13"]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c11"
     char_span: [19285, 21370]
     sentence_count: 12
     key_terms: [unlimited, policy, pto, someone, department, subjective, arbitrary, business]
+    concepts: [unlimited, policy, someone, department, subjective]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1o3ma5d.md#c7", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c12", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c13"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c12"
     char_span: [21372, 23207]
     sentence_count: 12
     key_terms: [policy, anarkittensurprise, pto, unlimited, company, manager, meeting, intend]
+    concepts: [anarkittensurprise, policy, unlimited, company, manager]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1o3ma5d.md#c0", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c4", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c5", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c6", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c7"]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c13"
     char_span: [23209, 25377]
     sentence_count: 13
     key_terms: [policy, employee, days, year, person, tell, work, situation]
+    concepts: [policy, employee, person, situation, unlimited]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1o3ma5d.md#c2", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c7", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c10", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c11", "social-intelligence/reddit-deep/managers/1o3ma5d.md#c12"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c14"
     char_span: [25379, 27378]
     sentence_count: 12
     key_terms: [company, hustle, policy, worth, team, absolutely, themselves, unlimited]
+    concepts: [company, hustle, policy, absolutely, themselves]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1o3ma5d.md#c12"]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c15"
     char_span: [27380, 28070]
     sentence_count: 6
     key_terms: [barely, people, power, kids, sartensinaceite, department, americans, employees]
+    concepts: [barely, people, power]
     section: Comments
     token_count: 165
 ---

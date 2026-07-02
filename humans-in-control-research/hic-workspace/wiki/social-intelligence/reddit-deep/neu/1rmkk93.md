@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 381]
     sentence_count: 3
     key_terms: [comments, public, search, sector, law, neu, internships, reddit-deep]
+    concepts: [comments, public, search, sector]
     token_count: 107
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rmkk93/first_cssh_coop_search_prelaw/"}]
   - id: "social-intelligence/reddit-deep/neu/1rmkk93.md#c1"
     char_span: [395, 892]
     sentence_count: 2
     key_terms: [different, congrats, perfect-cobbler-2754, radomchinese, sankeymatic, interviews, currently, positions]
+    concepts: [different, congrats]
     section: Comments
     token_count: 157
 ---

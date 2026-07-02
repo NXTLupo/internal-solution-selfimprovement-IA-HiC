@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 485]
     sentence_count: 6
     key_terms: [internships, marketing, comments, opportunities, immediately, reddit-deep, internship, tomorrow]
+    concepts: [internships, marketing, comments]
     token_count: 130
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1szwsik/hi_im_rohan_a_bba_student_from_amity_pune_im/"}]
   - id: "social-intelligence/reddit-deep/internships/1szwsik.md#c1"
     char_span: [499, 853]
     sentence_count: 1

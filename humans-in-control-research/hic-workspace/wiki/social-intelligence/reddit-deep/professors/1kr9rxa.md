@@ -21,77 +21,96 @@ chunks:
     char_span: [0, 1493]
     sentence_count: 15
     key_terms: [here, too, students, worst, time, professors, professor, comments]
+    concepts: [students, professors, worst, professor, comments]
     token_count: 364
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1kr9rxa/i_am_the_actual_worst/"}]
   - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c1"
     char_span: [1507, 3193]
     sentence_count: 8
     key_terms: [universities, privatizing, professor, personal, received, students, terrible, comment]
+    concepts: [universities, privatizing, professor, personal, received]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c2"
     char_span: [3195, 4197]
     sentence_count: 9
     key_terms: [too, students, require, actual, superb-leader-3416, caninenapolean, compelling, department]
+    concepts: [students, require, actual]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c3"
     char_span: [4199, 6080]
     sentence_count: 16
     key_terms: [through, vibes, read, multiple, textbook, reading, require, videos]
+    concepts: [through, vibes, multiple, textbook, reading]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c4"
     char_span: [5806, 7668]
     sentence_count: 15
     key_terms: [monster, class, lollipop77, discuss, nothing, adventurous-dot-3313, inevitable-ratio-756, life-education-8030]
+    concepts: [monster, class, lollipop77, discuss, nothing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c5"
     char_span: [7506, 8358]
     sentence_count: 6
     key_terms: [seance, ahazred8vt, dead, chancesundae821, birdmadgirl74, chili-beanie, eenie-meenie, lostmywasps]
+    concepts: [seance, ahazred8vt]
     section: Comments
     token_count: 280
   - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c6"
     char_span: [8360, 8864]
     sentence_count: 1
     key_terms: [university, students, college, galaxywhisperer, birdmadgirl74, community, goddamnit, standards]
+    concepts: [university, students, college]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1kr9rxa.md#c7"]
     section: Comments
     token_count: 127
   - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c7"
     char_span: [8866, 10806]
     sentence_count: 11
     key_terms: [students, university, year, hariboberries, exceptions, unprepared, transfers, because]
+    concepts: [students, university, hariboberries, exceptions, unprepared]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1kr9rxa.md#c6"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c8"
     char_span: [10808, 12683]
     sentence_count: 13
     key_terms: [charisma, caninenapolean, class, evals, evaluations, read, amendment, evaluate]
+    concepts: [charisma, caninenapolean, evaluations, class, evals]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c9"
     char_span: [12685, 14683]
     sentence_count: 16
     key_terms: [students, did, classes, office, evaluations, read, realized, because]
+    concepts: [students, classes, office, evaluations, realized]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1kr9rxa.md#c10", "social-intelligence/reddit-deep/professors/1kr9rxa.md#c11"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c10"
     char_span: [14686, 16024]
     sentence_count: 13
     key_terms: [students, work, colleagues, because, classes, thought, being, days]
+    concepts: [students, colleagues, because, classes, thought]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1kr9rxa.md#c9", "social-intelligence/reddit-deep/professors/1kr9rxa.md#c11"]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c11"
     char_span: [16026, 17895]
     sentence_count: 14
     key_terms: [too, feedback, evaluations, urnbabyurn, students, because, nervous, student]
+    concepts: [feedback, evaluations, urnbabyurn, students, because]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1kr9rxa.md#c9", "social-intelligence/reddit-deep/professors/1kr9rxa.md#c10"]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c12"
     char_span: [17897, 19589]
     sentence_count: 9
     key_terms: [student, funny, assignments, complaints, motives, people, adventurous-dot-3313, shoes]
+    concepts: [student, assignments, complaints, funny, motives]
     section: Comments
     token_count: 464
 ---

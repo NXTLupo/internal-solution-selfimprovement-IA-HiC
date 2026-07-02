@@ -21,34 +21,41 @@ chunks:
     char_span: [0, 2112]
     sentence_count: 6
     key_terms: [personal, personalfinance, unfortunately, cards, debt, rest, anything, comments]
+    concepts: [personalfinance, personal, unfortunately, cards, anything]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1rig38n/im_24_years_old_in_50k_debt_making_42000year/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1rig38n.md#c1"
     char_span: [2114, 2668]
     sentence_count: 3
     key_terms: [higher, find, jobs, like, time, subscriptions, interviewing, necessities]
+    concepts: [higher]
     token_count: 122
   - id: "social-intelligence/reddit-deep/personalfinance/1rig38n.md#c2"
     char_span: [2682, 4666]
     sentence_count: 16
     key_terms: [car, cheaper, behind, "don't", money, rent, little, people]
+    concepts: [cheaper, behind, "don't", money, little]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/personalfinance/1rig38n.md#c3"
     char_span: [4668, 5327]
     sentence_count: 4
     key_terms: [learned, back, been, addressing, emergency, hindsight, rustycake, spookmann]
+    concepts: [learned]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/personalfinance/1rig38n.md#c4"
     char_span: [5329, 7103]
     sentence_count: 14
     key_terms: [excuse, never, learning, credit, saving, debt, anything, learned]
+    concepts: [excuse, never, learning, credit, saving]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/personalfinance/1rig38n.md#c5"
     char_span: [7105, 9253]
     sentence_count: 8
     key_terms: [lostinthe-sauce-204, because, cash, like, spending, back, thinner, helped]
+    concepts: [lostinthe-sauce-204, because, spending, thinner, helped]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1rig38n.md#c6"
@@ -61,18 +68,23 @@ chunks:
     char_span: [9299, 10498]
     sentence_count: 9
     key_terms: [pay, family, debt, live, money, get, relationship, solodarlings]
+    concepts: [family, money]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/personalfinance/1rig38n.md#c8"
     char_span: [10500, 12726]
     sentence_count: 31
     key_terms: [debt, pay, getting, savings, credit, car, down, interest]
+    concepts: [getting, savings, credit, interest, payments]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1rig38n.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1rig38n.md#c9"
     char_span: [12728, 13952]
     sentence_count: 11
     key_terms: [interest, card, pay, end, rate, possible, monthly, payment]
+    concepts: [interest, possible, monthly, payment, credit]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1rig38n.md#c8"]
     section: Comments
     token_count: 294
 ---

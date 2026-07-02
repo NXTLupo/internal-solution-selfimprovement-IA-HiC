@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1680]
     sentence_count: 12
     key_terms: [cscareerquestions, careers, considering, tech, positions, comments, already, college]
+    concepts: [cscareerquestions, careers, considering, positions, comments]
     token_count: 364
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tbb4jv/what_fields_to_shift_to/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tbb4jv.md#c1"
-    char_span: [1695, 3560]
+    char_span: [1694, 3559]
     sentence_count: 11
     key_terms: [difficultsession51, specializations, careers, lhorie, requirements, andhausen, different, thinking]
+    concepts: [difficultsession51, specializations, careers, requirements, lhorie]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tbb4jv.md#c2"
-    char_span: [3562, 5499]
+    char_span: [3561, 5498]
     sentence_count: 10
     key_terms: [difficultsession51, okposition4563, collar, people, white, programming, job, jobs]
+    concepts: [difficultsession51, okposition4563, collar, people, programming]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tbb4jv.md#c3"
-    char_span: [5501, 7359]
+    char_span: [5500, 7358]
     sentence_count: 15
     key_terms: [jobs, thecrowwhisperer3004, posts, outsourcing, been, job, sub, automated]
+    concepts: [thecrowwhisperer3004, outsourcing, posts, automated, physical]
     section: Comments
     token_count: 470
 ---

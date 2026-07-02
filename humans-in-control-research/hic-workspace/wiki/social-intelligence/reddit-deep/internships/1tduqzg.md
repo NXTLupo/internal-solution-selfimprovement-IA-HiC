@@ -16,10 +16,12 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1tduqzg.md#c0"
-    char_span: [0, 1794]
+    char_span: [0, 1793]
     sentence_count: 19
     key_terms: [internships, international, confidence, communication, opportunities, keep, understood, companies]
+    concepts: [internships, international, confidence, communication, opportunities]
     token_count: 358
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tduqzg/the_untold_reality_of_international_students_in/"}]
 ---
 # The Untold Reality of International Students in the UK
 

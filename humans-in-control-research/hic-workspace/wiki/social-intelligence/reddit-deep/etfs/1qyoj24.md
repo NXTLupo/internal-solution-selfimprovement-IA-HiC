@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1904]
     sentence_count: 10
     key_terms: [etfs, specific, github, return, https, total, rebalancing, page]
+    concepts: [specific, github, return, rebalancing, historical]
     token_count: 461
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1qyoj24/oc_i_built_a_free_etf_portfolio/"}]
   - id: "social-intelligence/reddit-deep/etfs/1qyoj24.md#c1"
-    char_span: [1906, 2894]
+    char_span: [1906, 2893]
     sentence_count: 5
     key_terms: [new, rigorously, portfoliovisualizer, coded, going, thats, case, data]
+    concepts: [rigorously, coded, going, thats]
     section: Comments
     token_count: 227
 ---

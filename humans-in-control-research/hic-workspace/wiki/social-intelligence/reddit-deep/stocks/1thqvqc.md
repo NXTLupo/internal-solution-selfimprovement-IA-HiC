@@ -20,29 +20,34 @@ chunks:
     char_span: [0, 1305]
     sentence_count: 4
     key_terms: [trump-traded-over-50-million-in-magnificent-7-stocks-last-quarter-loading-up-on-apple-and-google-and-selling-tesla-100000562, stocks, magnificent, finance, million, transactions, https, yahoo]
+    concepts: [trump-traded-over-50-million-in-magnificent-7-stocks-last-quarter-loading-up-on-apple-and-google-and-selling-tesla-100000562, stocks, magnificent, finance, million]
     token_count: 308
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1thqvqc/trump_traded_over_50_million_in_magnificent_7/"}]
   - id: "social-intelligence/reddit-deep/stocks/1thqvqc.md#c1"
-    char_span: [1320, 2916]
+    char_span: [1319, 2915]
     sentence_count: 5
     key_terms: [stocks, trump-stocks-nvidia-boeing, like, please, https, com, www, off-topic]
+    concepts: [stocks, trump-stocks-nvidia-boeing, please, https, off-topic]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/stocks/1thqvqc.md#c2"
-    char_span: [2918, 4907]
+    char_span: [2917, 4906]
     sentence_count: 13
     key_terms: [trades, right, thiagopuss3, like, inside, kamala, pelosi, tax-loss-harvesting]
+    concepts: [trades, thiagopuss3, right, inside, kamala]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1thqvqc.md#c3"
-    char_span: [4652, 5218]
+    char_span: [4651, 5217]
     sentence_count: 2
     key_terms: [johnbrownserection, groovysalamander, national-two2417, flip-flopping, shaggyshyper, thoroughly, americans, compuders]
     section: Comments
     token_count: 165
   - id: "social-intelligence/reddit-deep/stocks/1thqvqc.md#c4"
-    char_span: [5220, 6703]
+    char_span: [5219, 6702]
     sentence_count: 6
     key_terms: [sell, making, definitely, personally, president, purchase, himself, trading]
+    concepts: [making, definitely, personally, president, purchase]
     section: Comments
     token_count: 421
 ---

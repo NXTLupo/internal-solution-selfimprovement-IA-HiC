@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1964]
     sentence_count: 18
     key_terms: [productivity, in-person, like, meetings, glasses, meeting, always, laptop]
+    concepts: [productivity, in-person, meetings, glasses, meeting]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1sah46y/my_current_setup_for_inperson_meeting_notes/"}]
   - id: "social-intelligence/reddit-deep/productivity/1sah46y.md#c1"
     char_span: [1978, 3260]
     sentence_count: 10
     key_terms: [meeting, people, don, someone, paper, searequirement7749, zombienedflanders, bot]
+    concepts: [meeting, people, someone, paper]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1sah46y.md#c2"]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/productivity/1sah46y.md#c2"
     char_span: [3262, 5133]
     sentence_count: 14
     key_terms: [paper, use, something, lectures, meeting, similar, summary, "there's"]
+    concepts: [paper, something, lectures, meeting, similar]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1sah46y.md#c1"]
     section: Comments
     token_count: 466
 ---

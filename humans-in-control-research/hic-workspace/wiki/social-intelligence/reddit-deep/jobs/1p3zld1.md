@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 1936]
     sentence_count: 11
     key_terms: [experience, job, never, years, jobs, background, everything, insurance]
+    concepts: [experience, background, everything, never, years]
     token_count: 425
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1p3zld1/job_hired_me_with_no_experience_in_field_now_im/"}]
   - id: "social-intelligence/reddit-deep/jobs/1p3zld1.md#c1"
     char_span: [1950, 2760]
     sentence_count: 5
     key_terms: [internal, feeling, systems, front-photograph-542, lot, new, use, oliviapresteign]
+    concepts: [internal, feeling, systems]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/jobs/1p3zld1.md#c2"
     char_span: [2762, 4253]
     sentence_count: 12
     key_terms: [use, interview, priority, started, front-photograph-542, chose, fast, good]
+    concepts: [interview, priority, started, chose]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/jobs/1p3zld1.md#c3"
     char_span: [4256, 6387]
     sentence_count: 14
     key_terms: [questions, lostsailorlivefree, extremely, important, company, mentor, theoverzealousengie, notes]
+    concepts: [questions, lostsailorlivefree, extremely, important, company]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1p3zld1.md#c4"
     char_span: [6043, 6931]
     sentence_count: 11
     key_terms: [tasks, coworkers, glittering-lime-7049, ask, keep, nerve-wracking, communication, comfortable]
+    concepts: [tasks, coworkers]
     section: Comments
     token_count: 184
 ---

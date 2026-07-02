@@ -18,21 +18,28 @@ chunks:
     char_span: [0, 1193]
     sentence_count: 10
     key_terms: [students, problem, either, vent, professors, "didn't", reddit, yours]
+    concepts: [students, problem, either, professors, "didn't"]
+    related_chunks: ["articles/reddit-deep-r-professors/d5daeb73ed.md#c2"]
     token_count: 295
+    sources: [{"n":"Reddit Deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1snatls/venting_party/"}]
   - id: "articles/reddit-deep-r-professors/d5daeb73ed.md#c1"
     char_span: [1195, 3026]
     sentence_count: 21
     key_terms: [inability, get, time, problem, behavior, conditioning, because, manage]
+    concepts: [inability, problem, behavior, conditioning, because]
     token_count: 414
   - id: "articles/reddit-deep-r-professors/d5daeb73ed.md#c2"
     char_span: [3028, 5315]
     sentence_count: 22
     key_terms: [problem, people, get, want, students, years, stop, professors]
+    concepts: [problem, people, students, professors, years]
+    related_chunks: ["articles/reddit-deep-r-professors/d5daeb73ed.md#c0"]
     token_count: 509
   - id: "articles/reddit-deep-r-professors/d5daeb73ed.md#c3"
     char_span: [5317, 7376]
     sentence_count: 16
     key_terms: [elitist, students, being, "i'm", expectations, intellectual, face, "it's"]
+    concepts: [elitist, students, being, expectations, intellectual]
     token_count: 498
 ---
 # Venting Party

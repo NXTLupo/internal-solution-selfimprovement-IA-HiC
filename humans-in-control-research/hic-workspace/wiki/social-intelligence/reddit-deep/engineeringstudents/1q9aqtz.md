@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 468]
     sentence_count: 2
     key_terms: [engineeringstudents, comments, advice, specific-cantaloupe2, reddit-deep, internship, overnight, everyone]
+    concepts: [engineeringstudents, comments, advice]
     token_count: 113
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1q9aqtz/update_on_hard_time_finding_an_internship/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1q9aqtz.md#c1"
     char_span: [482, 2134]
     sentence_count: 9
     key_terms: [engineeringstudents, wiki, reddit, https, com, resume, engineering, get]
+    concepts: [engineeringstudents, reddit, https, resume, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1q9aqtz.md#c2"]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/engineeringstudents/1q9aqtz.md#c2"
     char_span: [2136, 4188]
     sentence_count: 13
     key_terms: [internship, engineering, resume, associates, going, fair, job, "bachelor's"]
+    concepts: [internship, engineering, associates, resume, going]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1q9aqtz.md#c1"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/engineeringstudents/1q9aqtz.md#c3"
     char_span: [4190, 5577]
     sentence_count: 5
     key_terms: [internships, resume, companies, freshman, mostly, chance-blacksmith524, particular-answer-74, just-here-for-vibes]
+    concepts: [internships, resume, companies, freshman, mostly]
     section: Comments
     token_count: 349
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 787]
     sentence_count: 5
     key_terms: [engineeringstudents, international, mechanical, cambridge, comments, imperial, students, lazyintroduction9269]
+    concepts: [engineeringstudents, international, mechanical, cambridge, comments]
     token_count: 175
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1s5zdga/what_is_the_career_prospects_for_mechanical/"}]
 ---
 # What is the career prospects for mechanical engineering / EEE for international students in the UK (particularly Cambridge, Imperial)?
 

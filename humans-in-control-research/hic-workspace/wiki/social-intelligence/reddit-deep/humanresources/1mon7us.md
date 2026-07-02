@@ -19,45 +19,56 @@ chunks:
     char_span: [0, 570]
     sentence_count: 5
     key_terms: [humanresources, comments, years, hrbp, quit, role, corporation, reddit-deep]
+    concepts: [humanresources, comments, years]
     token_count: 146
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1mon7us/quit_my_hrbp_role_ca/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1mon7us.md#c1"
     char_span: [572, 2604]
     sentence_count: 28
     key_terms: [months, peer, director, boss, loa, new, role, went]
+    concepts: [months, director, building, within, promoted]
     token_count: 468
   - id: "social-intelligence/reddit-deep/humanresources/1mon7us.md#c2"
     char_span: [2606, 3845]
     sentence_count: 16
     key_terms: [companies, generalist, applying, right, been, like, part, role]
+    concepts: [companies, generalist, applying, right]
     token_count: 271
   - id: "social-intelligence/reddit-deep/humanresources/1mon7us.md#c3"
     char_span: [3859, 4976]
     sentence_count: 12
     key_terms: [charliegct, workplace, health, mental, myself, toxic, under-appreciated, good]
+    concepts: [charliegct, workplace, health, mental, myself]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1mon7us.md#c4"]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/humanresources/1mon7us.md#c4"
     char_span: [4978, 6831]
     sentence_count: 19
     key_terms: [certification, health, mental, care, get, "it's", yourself, having]
+    concepts: [certification, health, mental, yourself, having]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1mon7us.md#c3"]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/humanresources/1mon7us.md#c5"
     char_span: [6833, 9049]
     sentence_count: 19
     key_terms: [network, getting, interviews, job, "you're", certification, going, tough]
+    concepts: [network, getting, interviews, certification, "you're"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1mon7us.md#c6"
     char_span: [8758, 10557]
     sentence_count: 20
     key_terms: ["it's", myself, time, "you're", work, realizing, helped, living]
+    concepts: [myself, "you're", realizing, helped, living]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/humanresources/1mon7us.md#c7"
     char_span: [10559, 12262]
     sentence_count: 22
     key_terms: [job, better, environment, absolutely, another, nothing, myself, best]
+    concepts: [better, environment, absolutely, another, nothing]
     section: Comments
     token_count: 425
 ---

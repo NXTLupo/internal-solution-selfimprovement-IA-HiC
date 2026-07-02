@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1050]
     sentence_count: 9
     key_terms: [internship, engineeringstudents, year, interviews, comments, student, advice, trying]
+    concepts: [engineeringstudents, internship, interviews, comments, student]
     token_count: 234
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1seyn7p/second_year_chem_eng_student_struggling_to_land/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1seyn7p.md#c1"
     char_span: [1064, 2119]
     sentence_count: 8
     key_terms: [take, experience, internship, resume, summer, kinda, thank, look]
+    concepts: [experience, internship, resume, summer, kinda]
     section: Comments
     token_count: 253
 ---

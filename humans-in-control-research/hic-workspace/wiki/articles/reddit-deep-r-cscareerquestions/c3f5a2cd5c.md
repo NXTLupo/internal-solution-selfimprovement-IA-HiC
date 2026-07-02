@@ -18,21 +18,30 @@ chunks:
     char_span: [0, 2154]
     sentence_count: 21
     key_terms: [onboarding, google, people, cscareerquestions, been, tech, industry, start]
+    concepts: [onboarding, cscareerquestions, google, people, industry]
+    related_chunks: ["articles/reddit-deep-r-cscareerquestions/c3f5a2cd5c.md#c1"]
     token_count: 505
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tjvni0/i_joined_google_and_im_really_disappointed/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/c3f5a2cd5c.md#c1"
     char_span: [2156, 4071]
     sentence_count: 17
     key_terms: [people, document, industry, another, because, working, broken, update]
+    concepts: [people, document, industry, another, because]
+    related_chunks: ["articles/reddit-deep-r-cscareerquestions/c3f5a2cd5c.md#c0"]
     token_count: 404
   - id: "articles/reddit-deep-r-cscareerquestions/c3f5a2cd5c.md#c2"
     char_span: [4073, 6275]
     sentence_count: 25
     key_terms: [like, experience, different, problem, maybe, been, companies, documents]
+    concepts: [experience, different, problem, maybe, companies]
+    related_chunks: ["articles/reddit-deep-r-cscareerquestions/c3f5a2cd5c.md#c3"]
     token_count: 477
   - id: "articles/reddit-deep-r-cscareerquestions/c3f5a2cd5c.md#c3"
     char_span: [6277, 8119]
     sentence_count: 14
     key_terms: [different, worked, experience, ago, time, everyone, paperhandsthedip, google]
+    concepts: [different, experience, worked, paperhandsthedip, everyone]
+    related_chunks: ["articles/reddit-deep-r-cscareerquestions/c3f5a2cd5c.md#c2"]
     token_count: 428
 ---
 # I joined Google and I’m really disappointed

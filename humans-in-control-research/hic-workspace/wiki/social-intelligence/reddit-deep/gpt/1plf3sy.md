@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 482]
     sentence_count: 6
     key_terms: [free, gpt, plan, comments, new, habitjolly6495, excessively, reddit-deep]
+    concepts: [comments]
     token_count: 132
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1plf3sy/new_gpt_free_plan/"}]
 ---
 # New GPT free plan
 

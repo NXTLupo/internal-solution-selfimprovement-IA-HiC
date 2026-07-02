@@ -20,22 +20,27 @@ chunks:
     char_span: [0, 2305]
     sentence_count: 20
     key_terms: [high-involvement, purchase, personalization, brand, meaningless, funnel, setup, ads]
+    concepts: [high-involvement, purchase, personalization, brand, meaningless]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/marketing","u":"https://www.reddit.com/r/marketing/comments/1r1oyxy/thoughts_on_meta_ads_for_highinvolvement_brands/"}]
   - id: "social-intelligence/reddit-deep/marketing/1r1oyxy.md#c1"
     char_span: [2307, 2808]
     sentence_count: 6
     key_terms: [brand, high-involvement, intentionally, perspectives, emotionally, strategies, customers, important]
+    concepts: [brand]
     token_count: 110
   - id: "social-intelligence/reddit-deep/marketing/1r1oyxy.md#c2"
-    char_span: [2823, 4828]
+    char_span: [2822, 4827]
     sentence_count: 14
     key_terms: [retargeting, looking-for-marketing-discussion-811236647760298024, probably, emerald, "i'm", ring, ruby, marketing]
+    concepts: [retargeting, probably, emerald, marketing, specific]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/marketing/1r1oyxy.md#c3"
-    char_span: [4830, 5735]
+    char_span: [4829, 5734]
     sentence_count: 7
     key_terms: [assisted, measurement, lag, purchase, blended, revenue, bigger, rather]
+    concepts: [assisted, measurement, purchase, blended, revenue]
     section: Comments
     token_count: 184
 ---

@@ -19,16 +19,22 @@ chunks:
     char_span: [0, 2145]
     sentence_count: 31
     key_terms: [college, friends, year, people, school, social, don, feel]
+    concepts: [college, friends, people, school, social]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lko2mf.md#c2"]
     token_count: 500
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lko2mf/too_young_for_the_college_experience/"}]
   - id: "social-intelligence/reddit-deep/college/1lko2mf.md#c1"
     char_span: [2147, 2557]
     sentence_count: 7
     key_terms: [people, don, feel, conversations, connection, apartment, bothering, interests]
+    concepts: [people]
     token_count: 93
   - id: "social-intelligence/reddit-deep/college/1lko2mf.md#c2"
     char_span: [2571, 3757]
     sentence_count: 11
     key_terms: [people, don, like, small, college, someone, friend, senior]
+    concepts: [people, small, college, someone, friend]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lko2mf.md#c0"]
     section: Comments
     token_count: 263
 ---

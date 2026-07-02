@@ -21,82 +21,97 @@ chunks:
     char_span: [0, 1687]
     sentence_count: 12
     key_terms: ["i'm", povertyfinance, comments, donating, finally, through, towards, credit]
+    concepts: [povertyfinance, comments, donating, finally, through]
     token_count: 408
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1msk4zj/well_fuck_me_deferred_from_donating_plasma_for_a/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c1"
     char_span: [1689, 3749]
     sentence_count: 18
     key_terms: ["don't", "i'm", want, because, going, never, get, got]
+    concepts: ["don't", because, going, never, something]
     token_count: 489
   - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c2"
     char_span: [3763, 5387]
     sentence_count: 16
     key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
+    concepts: [submitter, appropriate, advice, vents, emotional]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c3"
     char_span: [5389, 7331]
     sentence_count: 14
     key_terms: [already, rabies, "you're", years, though, early, least, wholeemployee6666]
+    concepts: [already, rabies, "you're", years, though]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c4"
     char_span: [7130, 7661]
     sentence_count: 8
     key_terms: [shots, like, shot, awhaleinawell, snoogoats4320, desensitized, additional, completely]
+    concepts: [shots]
     section: Comments
     token_count: 148
   - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c5"
     char_span: [7663, 9565]
     sentence_count: 22
     key_terms: [because, like, rabies, immunoglobulin, shots, hand, bit, cat]
+    concepts: [because, immunoglobulin, rabies, shots, around]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c6"
     char_span: [9567, 11068]
     sentence_count: 8
     key_terms: [dog, animal, salivary, nervous, records, glands, locate, rabies]
+    concepts: [animal, salivary, nervous, records, glands]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c7"
     char_span: [11070, 13343]
     sentence_count: 17
     key_terms: [experience, job, state, government, treatment, vaccine, years, got]
+    concepts: [experience, state, government, treatment, vaccine]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c8"
     char_span: [13075, 14334]
     sentence_count: 6
     key_terms: [experience, water, want, supposed, through, county, makes, waste]
+    concepts: [experience, water, supposed, through, county]
     section: Comments
     token_count: 300
   - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c9"
     char_span: [14336, 16027]
     sentence_count: 14
     key_terms: [jobs, state, check, anything, military, probably, county, having]
+    concepts: [state, check, anything, military, probably]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c10"
     char_span: [16029, 17886]
     sentence_count: 8
     key_terms: [yourself, county, environmental, point, look, government, something, people]
+    concepts: [yourself, environmental, county, government, point]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c11"
     char_span: [17888, 19104]
     sentence_count: 10
     key_terms: ["i'm", already, someone, making, people, "you've", "can't", doing]
+    concepts: [already, someone, making, people, "you've"]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c12"
     char_span: [19106, 20987]
     sentence_count: 17
     key_terms: [midnightmarmot, money, citrushyena, pay, counties, figures, trailer, decent]
+    concepts: [midnightmarmot, citrushyena, money, counties, figures]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c13"
     char_span: [20769, 21766]
     sentence_count: 8
     key_terms: [interesting-land-980, doing, miles, money, get, pay, sustainability, environmental]
+    concepts: [doing, miles, money]
     section: Comments
     token_count: 257
 ---

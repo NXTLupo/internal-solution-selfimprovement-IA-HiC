@@ -20,23 +20,31 @@ chunks:
     char_span: [0, 866]
     sentence_count: 6
     key_terms: [philanthropy, funders, trust, nonprofit, comments, helped, felt, "i'm"]
+    concepts: [philanthropy, funders, trust, nonprofit, comments]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1qyvx24.md#c1", "social-intelligence/reddit-deep/philanthropy/1qyvx24.md#c2"]
     token_count: 184
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1qyvx24/what_has_actually_helped_build_trust_between/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1qyvx24.md#c1"
-    char_span: [881, 2787]
+    char_span: [880, 2786]
     sentence_count: 10
     key_terms: [funders, trust, relationships, funding, build, cause, demonstrate, etc]
+    concepts: [funders, relationships, trust, funding, demonstrate]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1qyvx24.md#c0", "social-intelligence/reddit-deep/philanthropy/1qyvx24.md#c2"]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/philanthropy/1qyvx24.md#c2"
-    char_span: [2789, 5069]
+    char_span: [2788, 5068]
     sentence_count: 12
     key_terms: [trust, funders, nonprofits, ask, match-immediate, reports, openly, share]
+    concepts: [trust, funders, nonprofits, match-immediate, reports]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1qyvx24.md#c0", "social-intelligence/reddit-deep/philanthropy/1qyvx24.md#c1"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/philanthropy/1qyvx24.md#c3"
-    char_span: [5071, 5828]
+    char_span: [5070, 5827]
     sentence_count: 6
     key_terms: [story, attractive, overcoming, problems, happens, dream, trust, approachability]
+    concepts: [attractive, overcoming, story, problems, happens]
     section: Comments
     token_count: 153
 ---

@@ -17,10 +17,12 @@ research_goal: "Produce the definitive guide to personal investing in 2026 by an
 engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/personalfinance/1qjog4s.md#c0"
-    char_span: [0, 1057]
+    char_span: [0, 1056]
     sentence_count: 6
     key_terms: [account, service, personalfinance, distributed, sofi, want, autopilot, budgeting]
-    token_count: 267
+    concepts: [account, service, personalfinance, distributed, autopilot]
+    token_count: 266
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1qjog4s/iso_a_budgeting_appservice/"}]
 ---
 # ISO a budgeting app/service
 

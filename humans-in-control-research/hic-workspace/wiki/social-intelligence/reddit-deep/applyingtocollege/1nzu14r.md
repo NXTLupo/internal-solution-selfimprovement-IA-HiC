@@ -21,47 +21,61 @@ chunks:
     char_span: [0, 2068]
     sentence_count: 18
     key_terms: [hamilton, different, like, admission, something, applyingtocollege, "i'm", college]
+    concepts: [hamilton, different, applyingtocollege, admission, something]
     token_count: 442
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1nzu14r/colleges_advertising_on_reddit_an_update_and/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c1"
     char_span: [2082, 4037]
     sentence_count: 12
     key_terms: [marketing, hamilton, students, another, college, office, advertising, less]
+    concepts: [marketing, hamilton, students, another, college]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c6"]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c2"
     char_span: [4039, 5885]
     sentence_count: 15
     key_terms: [college, parents, students, maybe, internships, ads, get, colleges]
+    concepts: [college, parents, students, internships, maybe]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c3"]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c3"
     char_span: [5887, 7714]
     sentence_count: 10
     key_terms: [students, relationships, hamilton, college, aid, graduation, financial, graduate]
+    concepts: [students, relationships, hamilton, college, graduation]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c6"]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c4"
     char_span: [7716, 9927]
     sentence_count: 12
     key_terms: [emails, students, schools, school, colleges, hamilton, advice, dry-load-3649]
+    concepts: [emails, students, schools, school, colleges]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c5"
     char_span: [9620, 10832]
     sentence_count: 12
     key_terms: [like, emails, admissions, email, important, college, versus, personalized]
+    concepts: [admissions, emails, important, email, college]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c6"]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c6"
     char_span: [10834, 12452]
     sentence_count: 19
     key_terms: [college, snail, mail, real, academics, important, hamilton, students]
+    concepts: [college, snail, academics, important, hamilton]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c5"]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c7"
     char_span: [12454, 13396]
     sentence_count: 7
     key_terms: [learn, hamilton, schools, arts, here, talk, essaysplusmore, differentiate]
+    concepts: [learn, hamilton, schools]
     section: Comments
     token_count: 216
 ---

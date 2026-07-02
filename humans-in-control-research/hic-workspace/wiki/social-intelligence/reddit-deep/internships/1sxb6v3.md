@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 663]
     sentence_count: 6
     key_terms: [finance, internships, graduating, internship, recruiting, comments, offered, august]
+    concepts: [finance, internships, graduating, internship, recruiting]
     token_count: 149
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sxb6v3/offered_non_finance_internship_graduating_august/"}]
 ---
 # Offered non finance internship - graduating August
 

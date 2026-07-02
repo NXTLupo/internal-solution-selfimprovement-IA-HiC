@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 322]
     sentence_count: 2
     key_terms: [gradadmissions, comments, reddit-deep, statistics, career, impact, posted, reddit]
+    concepts: [gradadmissions, comments]
     token_count: 86
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1oka9sr/career_pivot_to_statistics_for_social_impact_does/"}]
 ---
 # Career pivot to statistics for social impact - does this grad school plan make sense?
 

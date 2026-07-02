@@ -20,22 +20,28 @@ chunks:
     char_span: [0, 2182]
     sentence_count: 17
     key_terms: [people, building, problem, learned, product, "didn't", months, entrepreneur]
+    concepts: [people, building, problem, learned, product]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1r7epfl.md#c3"]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1r7epfl/i_learned_more_about_my_customers_in_two_weeks/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1r7epfl.md#c1"
     char_span: [2184, 2288]
     sentence_count: 2
     key_terms: [investing, validate, serious, people, build, ideas, talk, time]
     token_count: 22
   - id: "social-intelligence/reddit-deep/entrepreneur/1r7epfl.md#c2"
-    char_span: [2303, 4615]
+    char_span: [2302, 4614]
     sentence_count: 15
     key_terms: [building, entrepreneur, please, conversations, genuinely, permanent, promotion, something]
+    concepts: [building, entrepreneur, please, conversations, genuinely]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/entrepreneur/1r7epfl.md#c3"
-    char_span: [4619, 6625]
+    char_span: [4618, 6624]
     sentence_count: 8
     key_terms: [build, like, people, building, outreach, convert, product, talking]
+    concepts: [build, people, building, outreach, convert]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1r7epfl.md#c0"]
     section: Comments
     token_count: 460
 ---

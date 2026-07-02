@@ -21,29 +21,39 @@ chunks:
     char_span: [0, 1155]
     sentence_count: 8
     key_terms: [college, because, parties, want, scared, apart, party, experience]
+    concepts: [college, because, parties, scared, apart]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nanr9z.md#c4"]
     token_count: 281
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1nanr9z/im_scared_to_go_to_college_parties/"}]
   - id: "social-intelligence/reddit-deep/college/1nanr9z.md#c1"
     char_span: [1169, 2749]
     sentence_count: 9
     key_terms: ["don't", group, want, friends, parties, leave, party, college]
+    concepts: ["don't", group, friends, parties, leave]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nanr9z.md#c2"]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/college/1nanr9z.md#c2"
     char_span: [2751, 4178]
     sentence_count: 8
     key_terms: [parties, "i've", experience, friends, friend, hosted, "don't", maybe]
+    concepts: [parties, experience, friends, friend, hosted]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nanr9z.md#c1"]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/college/1nanr9z.md#c3"
     char_span: [4180, 5939]
     sentence_count: 12
     key_terms: [party, "don't", drink, college, "you're", comfortable, interest, friends]
+    concepts: [party, "don't", drink, college, "you're"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/college/1nanr9z.md#c4"
     char_span: [5941, 7230]
     sentence_count: 12
     key_terms: [don, want, college, went, pressure, together, parties, people]
+    concepts: [college, pressure, together, parties, people]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nanr9z.md#c0"]
     section: Comments
     token_count: 323
 ---

@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1192]
     sentence_count: 10
     key_terms: [cold, b2b, services, calling, b2bmarketing, email, data, comments]
+    concepts: [services, calling, b2bmarketing, email, comments]
     token_count: 264
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1rrh1jw/b2b_founders_what_actually_works_better_for/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rrh1jw.md#c1"
-    char_span: [1207, 1899]
+    char_span: [1206, 1898]
     sentence_count: 4
     key_terms: [looking-for-marketing-discussion-811236647760298024, questions, discord, email, cold, automatically, automoderator, b2bmarketing]
+    concepts: [questions, discord, email]
     section: Comments
     token_count: 170
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rrh1jw.md#c2"
-    char_span: [1901, 3751]
+    char_span: [1900, 3750]
     sentence_count: 10
     key_terms: [email, outbound, "you're", independently, works, cold, outreach, reach]
+    concepts: [email, outbound, independently, "you're", works]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rrh1jw.md#c3"
-    char_span: [3753, 5357]
+    char_span: [3752, 5356]
     sentence_count: 12
     key_terms: [email, outreach, cold, linkedin, quality, calls, positioning, data]
+    concepts: [outreach, email, linkedin, quality, positioning]
     section: Comments
     token_count: 380
 ---

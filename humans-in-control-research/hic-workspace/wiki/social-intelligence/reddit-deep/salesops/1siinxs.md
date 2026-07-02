@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1845]
     sentence_count: 14
     key_terms: [data, "it's", clean, tab, list, comments, salesops, ensures]
+    concepts: [clean, comments, salesops, ensures, getting]
     token_count: 417
+    sources: [{"n":"reddit-deep: r/salesops","u":"https://www.reddit.com/r/SalesOps/comments/1siinxs/our_internal_hack_for_cleaning_trade_show_lead/"}]
   - id: "social-intelligence/reddit-deep/salesops/1siinxs.md#c1"
-    char_span: [1860, 3930]
+    char_span: [1859, 3929]
     sentence_count: 18
     key_terms: [enrichment, data, use, verification, email, leads, identifiers, spreadsheet]
+    concepts: [enrichment, verification, identifiers, spreadsheet, email]
     section: Comments
     token_count: 440
 ---

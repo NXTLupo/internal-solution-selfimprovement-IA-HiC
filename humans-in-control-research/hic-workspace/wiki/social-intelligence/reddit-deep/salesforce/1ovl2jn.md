@@ -8,29 +8,33 @@ title: "Get a ballpark idea of what freelancers might charge for these kinds of 
 author: "Designer_Net_4864"
 date: "2025-11-12T23:24:05.000Z"
 score: 0
-upvote_ratio: 0.13
+upvote_ratio: 0.2
 num_comments: 7
 flair: "help please"
-extracted_at: "2026-06-11T18:58:38.963Z"
+extracted_at: "2026-06-25T15:21:44.740Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Identify how peer large private universities without medical schools are implementing AI across advancement workflows—including fundraising, alumni relations, and donor communications—to define our own adoption roadmap that balances ethical guardrails, staff readiness, and ROI."
+engagement: "identify-how-peer-large-private-universities-without-medical"
 chunks:
   - id: "social-intelligence/reddit-deep/salesforce/1ovl2jn.md#c0"
     char_span: [0, 1822]
     sentence_count: 6
     key_terms: [case, salesforce, use, routing, service, cloud, einstein, recommendations]
+    concepts: [salesforce, routing, service, cloud, recommendations]
     token_count: 406
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1ovl2jn/get_a_ballpark_idea_of_what_freelancers_might/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1ovl2jn.md#c1"
-    char_span: [1837, 3078]
+    char_span: [1836, 3077]
     sentence_count: 9
     key_terms: [someone, enough, take, experience, client, factor, "you're", environmentaltap2413]
+    concepts: [someone, enough, experience, client, factor]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/salesforce/1ovl2jn.md#c2"
-    char_span: [3080, 3862]
+    char_span: [3079, 3861]
     sentence_count: 3
     key_terms: [de96-4797-85f5-63e3ee7c9b38, salesforce, https, appxlistingdetail, com, appexchange, gxrilkgvvnk, listingid]
+    concepts: [de96-4797-85f5-63e3ee7c9b38, salesforce, appxlistingdetail, https, appexchange]
     section: Comments
     token_count: 234
 ---
@@ -64,7 +68,7 @@ It could just use **standard Case Routing rules**, but AI might help interpret u
 
 ## Comments
 
-- **Selfuntitled** (4↑): AI slop
+- **Selfuntitled** (5↑): AI slop
 - **EnvironmentalTap2413** (2↑): I know you're looking for quick and easy answers, but the correct answer is "it depends".
 
 Any person or business cannot just charge the same amount as someone else. You have to factor in what it will cost you to do it, the risk factor of things going wrong, the chance that the client increases scope or changes their mind, etc.

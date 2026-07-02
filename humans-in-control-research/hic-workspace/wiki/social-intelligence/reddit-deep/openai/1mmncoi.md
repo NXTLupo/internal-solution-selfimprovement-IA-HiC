@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1694]
     sentence_count: 11
     key_terms: [conversation, like, specific, current, history, replies, out-of-context, conversations]
+    concepts: [conversation, specific, out-of-context, conversations, current]
     token_count: 373
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1mmncoi/chatgpt_is_ignoring_my_current_conversation_and/"}]
   - id: "social-intelligence/reddit-deep/openai/1mmncoi.md#c1"
     char_span: [1708, 2194]
     sentence_count: 4
     key_terms: [gpt, roblox, asi, game, okay, arkdevscantwipe, send-moobs-pls, shirochan404]
+    concepts: [roblox]
     section: Comments
     token_count: 150
 ---

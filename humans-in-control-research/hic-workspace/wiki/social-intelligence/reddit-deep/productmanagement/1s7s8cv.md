@@ -20,79 +20,101 @@ chunks:
     char_span: [0, 2330]
     sentence_count: 24
     key_terms: [data, product, common, struggling, reporting, productmanagement, model, comments]
+    concepts: [product, struggling, common, productmanagement, reporting]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1s7s8cv/struggling_as_junior_pm_for_database/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c1"
     char_span: [2332, 4939]
     sentence_count: 21
     key_terms: [requirements, user, stories, reports, column, everything, refinement, data]
+    concepts: [requirements, stories, reports, everything, refinement]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c7"]
     token_count: 510
   - id: "social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c2"
     char_span: [4941, 7060]
     sentence_count: 20
     key_terms: [technical, manager, experience, often, different, product, stakeholders, call]
+    concepts: [technical, manager, experience, different, often]
     token_count: 429
   - id: "social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c3"
     char_span: [7062, 9501]
     sentence_count: 23
     key_terms: [data, database, work, piece, architect, engineers, collaborative, often]
+    concepts: [database, architect, engineers, piece, collaborative]
     token_count: 510
   - id: "social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c4"
     char_span: [9503, 10231]
     sentence_count: 10
     key_terms: [engineers, data, sql, months, rajesh, given, train, write]
+    concepts: [engineers, months, rajesh, given, train]
     token_count: 158
   - id: "social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c5"
-    char_span: [10246, 12123]
+    char_span: [10245, 12122]
     sentence_count: 12
     key_terms: [high, manager, understand, product, project, effort, impact, stress]
+    concepts: [manager, understand, product, project, effort]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c8"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c6"
-    char_span: [12125, 12585]
+    char_span: [12124, 12584]
     sentence_count: 2
     key_terms: [like, c4zpv1ld53nb9dow, noplanstonight, generalized, n16of5jksoi, companies, questions, specific]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c7"
-    char_span: [12587, 14851]
+    char_span: [12586, 14850]
     sentence_count: 27
     key_terms: [product, success, data, like, reports, roadmap, requirements, engineering]
+    concepts: [product, success, reports, roadmap, requirements]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c1", "social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c10"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c8"
-    char_span: [14565, 16803]
+    char_span: [14564, 16802]
     sentence_count: 23
     key_terms: [need, work, product, project, stories, "don't", participate, data]
+    concepts: [product, project, stories, participate, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c5", "social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c9"
-    char_span: [16492, 17008]
+    char_span: [16491, 17007]
     sentence_count: 4
     key_terms: [user, stories, project, broken, piece, tasks, deliverable, delivering]
+    concepts: [stories, project, broken, piece, tasks]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c8"]
     section: Comments
     token_count: 105
   - id: "social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c10"
-    char_span: [17010, 19288]
+    char_span: [17009, 19287]
     sentence_count: 18
     key_terms: [data, product, stakeholders, get, pms, team, particularly, requirements]
+    concepts: [product, stakeholders, particularly, requirements, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c7", "social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c11"]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c11"
-    char_span: [19290, 21381]
+    char_span: [19289, 21380]
     sentence_count: 23
     key_terms: [product, data, stakeholders, months, year, because, don, role]
+    concepts: [product, stakeholders, months, because, refinement]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c10"]
     section: Comments
     token_count: 482
+    sources: [{"n":"4 years as a data pm, junior to senior, and I still don\u2019t know anything beyond b","u":""}]
   - id: "social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c12"
-    char_span: [21383, 23067]
+    char_span: [21382, 23066]
     sentence_count: 11
     key_terms: [stories, agree, data, feel, user, building, defined, working]
+    concepts: [stories, agree, building, defined, working]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/productmanagement/1s7s8cv.md#c13"
-    char_span: [23070, 23932]
+    char_span: [23069, 23931]
     sentence_count: 5
     key_terms: ["you're", consider, support, proper, safe-analysis-5804, sure, too, cobramullet]
+    concepts: ["you're", consider, support, proper]
     section: Comments
     token_count: 192
 ---

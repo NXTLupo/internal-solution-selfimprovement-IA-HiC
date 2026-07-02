@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 751]
     sentence_count: 5
     key_terms: [customerexperience, experience, comments, customer, longjumping-ad-6563, wordpress-related, implementing, initiatives]
+    concepts: [customerexperience, experience, comments, customer]
     token_count: 175
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1u26hil/i_would_love_to_know_about_ai_automation_in_cx/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1u26hil.md#c1"
-    char_span: [766, 2990]
+    char_span: [765, 2989]
     sentence_count: 24
     key_terms: [deflection, proactive, support, people, "it's", outreach, because, content]
+    concepts: [deflection, proactive, support, people, outreach]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1u26hil.md#c2"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/customerexperience/1u26hil.md#c2"
-    char_span: [2994, 4795]
+    char_span: [2993, 4794]
     sentence_count: 16
     key_terms: [customer, support, proactive, questions, chatbot, product, illustrious-smoke442, general-mission6960]
+    concepts: [customer, support, proactive, questions, chatbot]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1u26hil.md#c1"]
     section: Comments
     token_count: 396
 ---

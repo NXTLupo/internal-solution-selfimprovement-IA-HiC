@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 751]
     sentence_count: 5
     key_terms: [cscareerquestions, pick, comments, current, role, specialization, cybersecurity, development]
+    concepts: [cscareerquestions, comments, current]
     token_count: 180
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1p6gd6m/with_your_current_knowledge_if_you_had_the_chance/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p6gd6m.md#c1"
     char_span: [765, 2787]
     sentence_count: 17
     key_terms: [cloud, tonytheevil, network, devops, manage, neomalytrix, cicd, good]
+    concepts: [cloud, tonytheevil, network, devops, manage]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p6gd6m.md#c2"
     char_span: [2789, 4874]
     sentence_count: 13
     key_terms: [software, data, company, devops, development, management, networking, business]
+    concepts: [software, company, devops, development, management]
     section: Comments
     token_count: 504
 ---

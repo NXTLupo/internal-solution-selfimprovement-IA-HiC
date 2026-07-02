@@ -19,22 +19,27 @@ chunks:
     char_span: [0, 2082]
     sentence_count: 19
     key_terms: [years, applyingtocollege, bowdoin, going, ago, comments, fourteen, harvard]
+    concepts: [applyingtocollege, years, bowdoin, going, comments]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1ronr3i/indulge_me_a_bit_here_reflecting_on_14_years_ago/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ronr3i.md#c1"
     char_span: [2084, 3749]
     sentence_count: 21
     key_terms: [life, been, interesting, fourteen, being, build, years, find]
+    concepts: [interesting, fourteen, being, build, years]
     token_count: 364
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ronr3i.md#c2"
     char_span: [3763, 5345]
     sentence_count: 6
     key_terms: [harvard, that-isnt-john-harvard, the-3-lies-of-harvard, pretend-cupcake-5057, thank, perfect, person, summer]
+    concepts: [that-isnt-john-harvard, the-3-lies-of-harvard, pretend-cupcake-5057, harvard, thank]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ronr3i.md#c3"
     char_span: [5115, 5786]
     sentence_count: 5
     key_terms: [opportunities, successes, failures, mistakes, thank, time, wins, disappointment]
+    concepts: [opportunities, successes, failures, mistakes, thank]
     section: Comments
     token_count: 170
 ---

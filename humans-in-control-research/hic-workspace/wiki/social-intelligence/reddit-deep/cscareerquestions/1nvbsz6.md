@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1304]
     sentence_count: 13
     key_terms: [getting, cscareerquestions, career, engineering, interviews, companies, canadian, comments]
+    concepts: [getting, cscareerquestions, career, engineering, interviews]
     token_count: 298
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1nvbsz6/canada_no_growth_would_online_bs_in_software/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nvbsz6.md#c1"
     char_span: [1318, 3273]
     sentence_count: 12
     key_terms: [like, people, particularly, jwt, coherently, management, whatever, problem]
+    concepts: [particularly, people, coherently, management, whatever]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nvbsz6.md#c2"
     char_span: [3275, 5186]
     sentence_count: 14
     key_terms: [degree, engineering, idempotency, like, projects, openapi, postman, design]
+    concepts: [degree, engineering, idempotency, projects, openapi]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nvbsz6.md#c3"
     char_span: [5188, 7467]
     sentence_count: 23
     key_terms: [engineering, electrical, bachelor, canada, companies, germany, here, lol]
+    concepts: [engineering, electrical, bachelor, canada, companies]
     section: Comments
     token_count: 516
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nvbsz6.md#c4"
     char_span: [7469, 8424]
     sentence_count: 11
     key_terms: [get, deleted, education, software, degree, doing, hepennypacker1131, pixelphoenixforce]
+    concepts: [deleted, education, software, degree, doing]
     section: Comments
     token_count: 236
 ---

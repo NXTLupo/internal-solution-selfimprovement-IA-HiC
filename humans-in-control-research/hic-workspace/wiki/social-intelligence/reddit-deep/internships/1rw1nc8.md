@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1262]
     sentence_count: 8
     key_terms: [internship, abroad, internships, been, like, especially, personally, comments]
+    concepts: [internship, abroad, internships, especially, personally]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rw1nc8.md#c1"]
     token_count: 278
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rw1nc8/junior_econ_student_thinking_about_an_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1rw1nc8.md#c1"
     char_span: [1276, 2807]
     sentence_count: 12
     key_terms: [placement, internship, abroad, europe, legal, worth, asia, fee]
+    concepts: [placement, internship, abroad, europe, legal]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rw1nc8.md#c0"]
     section: Comments
     token_count: 315
 ---

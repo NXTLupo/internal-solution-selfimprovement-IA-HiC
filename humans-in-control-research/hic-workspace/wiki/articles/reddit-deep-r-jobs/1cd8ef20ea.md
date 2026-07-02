@@ -18,11 +18,16 @@ chunks:
     char_span: [0, 2043]
     sentence_count: 9
     key_terms: [tech, roles, jobs, entry, companies, referrals, applying, level]
+    concepts: [roles, companies, referrals, entry, applying]
+    related_chunks: ["articles/reddit-deep-r-jobs/1cd8ef20ea.md#c1"]
     token_count: 462
+    sources: [{"n":"Reddit Deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1s8hrtw/entry_level_tech_jobs/"}]
   - id: "articles/reddit-deep-r-jobs/1cd8ef20ea.md#c1"
     char_span: [2045, 3084]
     sentence_count: 5
     key_terms: [companies, people, entry, level, roles, tech, hour-two-3104, applications]
+    concepts: [companies, people, entry, level, roles]
+    related_chunks: ["articles/reddit-deep-r-jobs/1cd8ef20ea.md#c0"]
     token_count: 229
 ---
 # Entry level tech jobs

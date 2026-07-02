@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1282]
     sentence_count: 13
     key_terms: [switcharoo, fulfillmentbyamazon, path, report, information, com, comments, central]
+    concepts: [fulfillmentbyamazon, switcharoo, report, information, comments]
     token_count: 292
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1ryd3jy/what_is_the_correct_path_in_seller_central_to/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1ryd3jy.md#c1"
-    char_span: [1297, 2457]
+    char_span: [1296, 2456]
     sentence_count: 8
     key_terms: [fba, fulfillmentbyamazon, discord, case, discuss, orders, server, order]
+    concepts: [fulfillmentbyamazon, discord, discuss, orders, server]
     section: Comments
     token_count: 292
 ---

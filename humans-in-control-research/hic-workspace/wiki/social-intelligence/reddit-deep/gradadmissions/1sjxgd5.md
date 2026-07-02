@@ -21,40 +21,48 @@ chunks:
     char_span: [0, 1673]
     sentence_count: 9
     key_terms: [programs, funding, gradadmissions, grfp, comments, flat-out, rejected, crazy-potential-861]
+    concepts: [programs, gradadmissions, funding, comments, flat-out]
     token_count: 384
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1sjxgd5/got_into_nsf_grfp_but_virtually_no_programs/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c1"
     char_span: [1675, 3459]
     sentence_count: 10
     key_terms: [professors, admissions, experience, deadline, programs, faculty, "don't", offer]
+    concepts: [professors, admissions, experience, deadline, programs]
     token_count: 376
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c2"
     char_span: [3473, 4088]
     sentence_count: 6
     key_terms: [facilitate, yaphetsez, general, project, crazy-potential-861, like, admissions, overturned]
+    concepts: [facilitate, yaphetsez, general, project]
     section: Comments
     token_count: 157
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c3"
     char_span: [4090, 6089]
     sentence_count: 14
     key_terms: [email, got, potential, programs, options, sending, get, good]
+    concepts: [email, potential, programs, options, sending]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c4"
     char_span: [6091, 7932]
     sentence_count: 16
     key_terms: [phd, mcs, uiuc, students, applied, funding, program, interviewed]
+    concepts: [students, applied, funding, program, interviewed]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c5"
     char_span: [7934, 9025]
     sentence_count: 8
     key_terms: [phd, admission, significantly, applicants, publications, interest, research, faculty]
+    concepts: [admission, significantly, applicants, publications, interest]
     section: Comments
     token_count: 251
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c6"
     char_span: [9027, 10471]
     sentence_count: 16
     key_terms: [programs, crazy-potential-861, get, grfp, definitely, interested, research, neuroai]
+    concepts: [programs, crazy-potential-861, definitely, interested, research]
     section: Comments
     token_count: 375
 ---

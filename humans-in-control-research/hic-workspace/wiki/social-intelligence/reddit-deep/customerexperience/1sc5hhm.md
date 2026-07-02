@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 513]
     sentence_count: 5
     key_terms: [customerexperience, comments, customer, service, omnichannel, reddit-deep, automation, difference]
+    concepts: [customerexperience, comments, customer, service]
     token_count: 124
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1sc5hhm/whats_normally_included_in_a_cx_suiteplatform/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1sc5hhm.md#c1"
-    char_span: [528, 2649]
+    char_span: [527, 2648]
     sentence_count: 18
     key_terms: [usually, ticketing, orchestration, suite, tools, data, does, pick]
+    concepts: [usually, ticketing, orchestration, everything, experience]
     section: Comments
     token_count: 464
 ---

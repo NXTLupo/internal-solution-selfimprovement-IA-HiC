@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 461]
     sentence_count: 4
     key_terms: [information, internship, comments, co-op, like, neu, reddit-deep, experience]
+    concepts: [information, internship, comments, co-op]
     token_count: 120
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1spc8gi/name_your_coopinternship/"}]
   - id: "social-intelligence/reddit-deep/neu/1spc8gi.md#c1"
     char_span: [475, 1316]
     sentence_count: 8
     key_terms: [coop, major, been, nice, northeastern, communicate, development, employers]
+    concepts: [major]
     section: Comments
     token_count: 192
 ---

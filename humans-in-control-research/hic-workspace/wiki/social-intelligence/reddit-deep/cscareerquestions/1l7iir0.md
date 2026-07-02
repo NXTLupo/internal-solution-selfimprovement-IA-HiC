@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 876]
     sentence_count: 7
     key_terms: [cscareerquestions, internship, comments, nothing, advice, get, job, urbana-champaign]
+    concepts: [cscareerquestions, internship, comments, nothing, advice]
     token_count: 213
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1l7iir0/best_way_to_get_a_job_as_a_recent_cs_graduate/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l7iir0.md#c1"
     char_span: [890, 1930]
     sentence_count: 7
     key_terms: [lcywcnrh8okrf36sgo8h, explain, don, projects, courses, sharing, bullet, google]
+    concepts: [lcywcnrh8okrf36sgo8h, explain, projects, courses, sharing]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l7iir0.md#c2"
     char_span: [1932, 3325]
     sentence_count: 7
     key_terms: [school, uiuc, companies, resources, linkedin, projects, network, resume]
+    concepts: [school, companies, resources, linkedin, projects]
     section: Comments
     token_count: 342
 ---

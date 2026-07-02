@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1239]
     sentence_count: 10
     key_terms: [psychology, clinical, research, experience, gradadmissions, though, comments, dementia]
+    concepts: [psychology, clinical, research, experience, gradadmissions]
     token_count: 256
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1o7pgu3/is_it_worth_reapplying_to_grad_school_with/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1o7pgu3.md#c1"
     char_span: [1253, 1990]
     sentence_count: 3
     key_terms: [research, perspectives, worked, multidisciplinary, sop, frostluna11037, understanding, experiences]
+    concepts: [research, perspectives, worked]
     section: Comments
     token_count: 158
 ---

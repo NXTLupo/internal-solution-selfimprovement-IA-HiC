@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1872]
     sentence_count: 14
     key_terms: [wallstreetbets, market, reddit, https, long-term, comments, backlog, com]
+    concepts: [wallstreetbets, market, reddit, long-term, https]
     token_count: 485
+    sources: [{"n":"Reddit Deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1m8lrly/googl_yolo_the_dip_to_191_was_a_gift_from_the/"}]
   - id: "articles/reddit-deep-r-wallstreetbets/e57ca4aa0a.md#c1"
     char_span: [1874, 3020]
     sentence_count: 6
     key_terms: [wsb, calls, waymo, years, driverless, comments, discord, problem]
+    concepts: [calls, driverless, waymo, years, comments]
     token_count: 330
 ---
 # $GOOGL YOLO - The Dip to $191 was a Gift from the Volatility Gods

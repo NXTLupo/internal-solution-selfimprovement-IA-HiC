@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 289]
     sentence_count: 2
     key_terms: [comments, gemini, number, various-parfait-6477, phone, reddit-deep, changing, paranoid]
+    concepts: [comments, gemini, number, phone]
     token_count: 79
+    sources: [{"n":"reddit-deep: r/gemini","u":"https://www.reddit.com/r/Gemini/comments/1kytxag/scam_attempt/"}]
   - id: "social-intelligence/reddit-deep/gemini/1kytxag.md#c1"
     char_span: [303, 1194]
     sentence_count: 6
     key_terms: [email, gemini, phishing, mediocrewowtank, report, various-parfait-6477, got, too]
+    concepts: [email, gemini, mediocrewowtank, phishing, report]
     section: Comments
     token_count: 226
 ---

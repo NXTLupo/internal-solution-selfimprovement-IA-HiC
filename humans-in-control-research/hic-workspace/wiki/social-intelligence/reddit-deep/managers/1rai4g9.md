@@ -21,76 +21,92 @@ chunks:
     char_span: [0, 2100]
     sentence_count: 25
     key_terms: [time, hours, sick, day, put, asked, leave, manager]
+    concepts: [hours, asked, leave, manager, attitude]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1rai4g9.md#c1"]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1rai4g9/time_theft/"}]
   - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c1"
     char_span: [2102, 3552]
     sentence_count: 20
     key_terms: [time, manager, entering, supposed, blocked, hours, today, edit]
+    concepts: [manager, entering, supposed, blocked, hours]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1rai4g9.md#c0"]
     token_count: 337
   - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c2"
     char_span: [3566, 5260]
     sentence_count: 14
     key_terms: [employee, manager, conversation, time, especially, inevitably, companies, important]
+    concepts: [employee, manager, conversation, especially, inevitably]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c3"
     char_span: [5262, 7254]
     sentence_count: 20
     key_terms: [time, "can't", management, deleted, manager, couple, confident-version820, being]
+    concepts: ["can't", management, deleted, manager, couple]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c4"
     char_span: [7002, 8377]
     sentence_count: 12
     key_terms: ["you're", break, "can't", time, punches, working, sleepaltruistic2367, being]
+    concepts: ["you're", break, "can't", punches, working]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c5"
     char_span: [8379, 10393]
     sentence_count: 24
     key_terms: [manager, fired, been, boss, loop, tell, want, warning]
+    concepts: [manager, fired, warning, written, fuckup]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c6"
     char_span: [10395, 11207]
     sentence_count: 8
     key_terms: [deliberately, miscoding, attitude, category, depends, weeks, etc, like]
+    concepts: [deliberately, miscoding, attitude, category, depends]
     section: Comments
     token_count: 187
   - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c7"
     char_span: [11209, 12991]
     sentence_count: 17
     key_terms: [time, employee, disciplinary, boss, timesheets, instances, evidence, notified]
+    concepts: [employee, disciplinary, timesheets, instances, evidence]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c8"
     char_span: [12993, 14470]
     sentence_count: 11
     key_terms: [time, employee, stealing, theft, revengeoftheidiot, done, gone, pto]
+    concepts: [employee, stealing, theft]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c9"
     char_span: [14472, 16455]
     sentence_count: 20
     key_terms: [enforce, conversation, good, time, work, strongly, passive, others]
+    concepts: [enforce, conversation, strongly, passive, others]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c10"
     char_span: [16457, 18267]
     sentence_count: 9
     key_terms: [time, day, hours, days, handbook, salaried, noting, theft]
+    concepts: [hours, handbook, salaried, noting, theft]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c11"
     char_span: [18269, 20042]
     sentence_count: 11
     key_terms: [hours, time, get, step, elsewhere, employee, exempt, monday]
+    concepts: [hours, elsewhere, employee, exempt, monday]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c12"
     char_span: [20044, 21278]
     sentence_count: 10
     key_terms: [consequences, going, company, getting, manager, handle, people, doing]
+    concepts: [consequences, going, company, getting, manager]
     section: Comments
     token_count: 292
 ---

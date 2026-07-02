@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2133]
     sentence_count: 15
     key_terms: [branding, finance, careerguidance, advice, skills, right, lost, aesthetics]
+    concepts: [branding, careerguidance, finance, advice, skills]
     token_count: 457
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t5uz7y/23f_lost_after_family_loss_universityvisa_issues/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t5uz7y.md#c1"
-    char_span: [2148, 2619]
+    char_span: [2147, 2618]
     sentence_count: 6
     key_terms: [youtube, videos, start, good, cinnabunnibb, definitely, budgeting, freelance]
+    concepts: [youtube, videos, start]
     section: Comments
     token_count: 117
 ---

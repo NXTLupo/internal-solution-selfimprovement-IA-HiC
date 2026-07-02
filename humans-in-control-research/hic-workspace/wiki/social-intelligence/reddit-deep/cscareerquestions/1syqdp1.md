@@ -21,16 +21,22 @@ chunks:
     char_span: [0, 2339]
     sentence_count: 18
     key_terms: [development, career, frontend, role, cscareerquestions, gap, path, support]
+    concepts: [development, career, frontend, cscareerquestions, support]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1syqdp1.md#c1"]
     token_count: 483
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1syqdp1/facing_a_career_crossroads_after_an_8month_gap/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syqdp1.md#c1"
     char_span: [2341, 3111]
     sentence_count: 4
     key_terms: [development, whether, career, trying, role, cybersecurity, engineering, feasibility]
+    concepts: [development, whether, career, trying]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1syqdp1.md#c0"]
     token_count: 142
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syqdp1.md#c2"
     char_span: [3125, 4981]
     sentence_count: 16
     key_terms: [job, because, direction, sometimes, technical, whatever, support, people]
+    concepts: [because, direction, sometimes, technical, whatever]
     section: Comments
     token_count: 390
 ---

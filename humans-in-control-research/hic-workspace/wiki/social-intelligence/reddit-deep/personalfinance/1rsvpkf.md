@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2065]
     sentence_count: 15
     key_terms: [chargeback, credit, refund, document, official, note, damage, issued]
+    concepts: [chargeback, credit, refund, document, official]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1rsvpkf/budget_rent_a_car_issued_official_credit_note_for/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1rsvpkf.md#c1"
-    char_span: [2067, 2547]
+    char_span: [2067, 2546]
     sentence_count: 4
     key_terms: [personalfinance, visa, reddit, https, com, sub, wiki, www]
+    concepts: [personalfinance, reddit, https]
     section: Comments
     token_count: 127
 ---

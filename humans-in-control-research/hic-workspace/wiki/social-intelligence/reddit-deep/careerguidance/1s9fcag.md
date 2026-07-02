@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 347]
     sentence_count: 3
     key_terms: [careerguidance, comments, sympathymiddle6649, reddit-deep, motivate, outcomes, salaries, students]
+    concepts: [careerguidance, comments]
     token_count: 95
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1s9fcag/do_your_students_care_about_career_paths_and/"}]
 ---
 # Do your students care about career paths and salaries? Does showing real job outcomes motivate them to study?
 

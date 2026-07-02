@@ -21,117 +21,138 @@ chunks:
     char_span: [0, 2514]
     sentence_count: 19
     key_terms: [because, patient, artificial, physician, computer, medicine, diagnostic, physicians]
+    concepts: [because, patient, artificial, physician, computer]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1n0kgcg/i_work_in_healthcareai_is_garbage/"}]
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c1"
     char_span: [2516, 4676]
     sentence_count: 16
     key_terms: [technology, medicine, practice, diagnostic, mentioned, clinical, computer, minimal]
+    concepts: [technology, medicine, practice, diagnostic, mentioned]
     token_count: 433
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c2"
     char_span: [4678, 5717]
     sentence_count: 7
     key_terms: [medical, process, unfortunately, mortality, decision, anyone, errors, making]
+    concepts: [medical, unfortunately, process, mortality, decision]
     token_count: 216
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c3"
     char_span: [5731, 7124]
     sentence_count: 4
     key_terms: [com, use, writing, dash, post, says, paragraph, quillbot]
+    concepts: [writing, paragraph, quillbot, already, content]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c4"
     char_span: [7126, 8774]
     sentence_count: 6
     key_terms: [afd14502bfa2154f46d6d24d274cc78c27cfe0ac, tapestry, signals, written, fanfic, subtle, "isn't", creaturefeature16]
+    concepts: [tapestry, signals, written, fanfic, subtle]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c5"
     char_span: [8776, 10256]
     sentence_count: 15
     key_terms: [physician, "i'm", good, diagnosis, doctor, people, write, years]
+    concepts: [physician, diagnosis, doctor, people, write]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c6"
     char_span: [10258, 11409]
     sentence_count: 10
     key_terms: [doctor, already, competent, questions, radiology, doctors, quality, low]
+    concepts: [doctor, already, competent, questions, radiology]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c7"
     char_span: [11411, 13506]
     sentence_count: 16
     key_terms: [general, issues, practitioner, appointment, days, dizziness, pressure, symptoms]
+    concepts: [general, practitioner, issues, appointment, dizziness]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c8"
     char_span: [13508, 15564]
     sentence_count: 21
     key_terms: [workers, qualities, like, mds, sued, replacing, problems, because]
+    concepts: [workers, qualities, replacing, problems, because]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c9"
     char_span: [15566, 17594]
     sentence_count: 12
     key_terms: [guidelines, correct, proactively, "it's", something, charting, chatgpt, claude]
+    concepts: [guidelines, correct, proactively, something, charting]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c10"
     char_span: [17596, 19946]
     sentence_count: 11
     key_terms: [diagnosis, time, right, jefftickels, use, everything, providers, probably]
+    concepts: [diagnosis, jefftickels, everything, right, providers]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c11"
     char_span: [19949, 21926]
     sentence_count: 16
     key_terms: [text-to-speech, talking, diagnostics, like, use, checking, disagree, another]
+    concepts: [text-to-speech, talking, diagnostics, checking, disagree]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c12"
     char_span: [21929, 23927]
     sentence_count: 20
     key_terms: [like, working, radish, cardiologists, "it's", lots, technology, detection]
+    concepts: [cardiologists, working, radish, technology, detection]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c13"
     char_span: [23929, 25624]
     sentence_count: 13
     key_terms: [research, models, optimization, comparison, different, platform, projects, looking]
+    concepts: [research, optimization, models, comparison, different]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c14"
     char_span: [25626, 27839]
     sentence_count: 14
     key_terms: [data, because, chatgpt, without, great, "i'm", experience, reviewing]
+    concepts: [because, chatgpt, without, experience, great]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c15"
     char_span: [27841, 29554]
     sentence_count: 11
     key_terms: [people, uploading, exactly, product, promise, system, using, esophagusintubater]
+    concepts: [people, uploading, exactly, product, promise]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c16"
     char_span: [29557, 30678]
     sentence_count: 9
     key_terms: [intelligence, radiologists, human, calculator, experts, imaging, worked, esophagusintubater]
+    concepts: [intelligence, radiologists, calculator, human, experts]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c17"
     char_span: [30681, 32418]
     sentence_count: 19
     key_terms: [doctors, get, years, medicine, mistakes, average, chatgpt, problem]
+    concepts: [doctors, years, medicine, mistakes, average]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c18"
     char_span: [32421, 34063]
     sentence_count: 7
     key_terms: [clickf0rdick, "it's", potential, something, mistakes, tapestry, doctors, people]
+    concepts: [clickf0rdick, potential, something, mistakes, tapestry]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/artificial/1n0kgcg.md#c19"
     char_span: [34065, 34951]
     sentence_count: 7
     key_terms: [people, using, realizing, medical, videos, retrospective, development, summarizing]
+    concepts: [people, using, realizing, medical, videos]
     section: Comments
     token_count: 199
 ---

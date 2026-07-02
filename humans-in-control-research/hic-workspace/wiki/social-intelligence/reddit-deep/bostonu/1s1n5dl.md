@@ -20,28 +20,34 @@ chunks:
     char_span: [0, 1690]
     sentence_count: 7
     key_terms: [thats-selective-enforcement-bu-professors-mobilize-after-university-removes-pride-flags-during-spring-break, bu-faculty-concerned-about-campus-suppression-after-repeated-pride-flag-removal, https, boston-university-pride-flags-removed-sparks-outcry, university, com, www, administration]
+    concepts: [thats-selective-enforcement-bu-professors-mobilize-after-university-removes-pride-flags-during-spring-break, https, university, administration, dailyfreepress]
     token_count: 426
+    sources: [{"n":"reddit-deep: r/bostonu","u":"https://www.reddit.com/r/BostonU/comments/1s1n5dl/hang_a_sign_any_sign_at_bu/"}]
   - id: "social-intelligence/reddit-deep/bostonu/1s1n5dl.md#c1"
     char_span: [1695, 2527]
     sentence_count: 3
     key_terms: [standforcampusfreedom, terriercourage, alumni, petitions, https, org, sign, community]
+    concepts: [standforcampusfreedom, terriercourage, alumni, petitions, https]
     token_count: 197
   - id: "social-intelligence/reddit-deep/bostonu/1s1n5dl.md#c2"
-    char_span: [2542, 3133]
+    char_span: [2541, 3132]
     sentence_count: 6
     key_terms: [want, free, speech, louisvilleloudmouth, flags, truly, flag, particular]
+    concepts: [speech, flags, truly]
     section: Comments
     token_count: 143
   - id: "social-intelligence/reddit-deep/bostonu/1s1n5dl.md#c3"
-    char_span: [3135, 5291]
+    char_span: [3134, 5290]
     sentence_count: 24
     key_terms: [people, higher, flag, take, campus, groups, americanlymie, flags]
+    concepts: [people, higher, americanlymie, campus, groups]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/bostonu/1s1n5dl.md#c4"
-    char_span: [5073, 5786]
+    char_span: [5072, 5785]
     sentence_count: 4
     key_terms: [southern-hearing8904, study, impacts, nothing, far-cheesecake-9212, life, paraphrase, productive]
+    concepts: [southern-hearing8904, study, impacts, nothing]
     section: Comments
     token_count: 192
 ---

@@ -21,16 +21,22 @@ chunks:
     char_span: [0, 2065]
     sentence_count: 13
     key_terms: [business, finance, careerguidance, traditional, grow, experience, comments, scenario]
+    concepts: [business, careerguidance, finance, traditional, experience]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1pohk7i.md#c2"]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pohk7i/am_i_making_a_mistake_choosing_a_risky_growth/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1pohk7i.md#c1"
     char_span: [2067, 2725]
     sentence_count: 6
     key_terms: [people, pretty, like, disappointed, internships, perspective, traditional, accounting]
+    concepts: [people, pretty]
     token_count: 145
   - id: "social-intelligence/reddit-deep/careerguidance/1pohk7i.md#c2"
     char_span: [2739, 4061]
     sentence_count: 8
     key_terms: [traditional, finance, valuation, business, around, lower, offer, small]
+    concepts: [traditional, finance, valuation, business, around]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1pohk7i.md#c0"]
     section: Comments
     token_count: 292
 ---

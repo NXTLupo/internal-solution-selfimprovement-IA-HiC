@@ -14,60 +14,74 @@ chunks:
     char_span: [0, 999]
     sentence_count: 5
     key_terms: [framework, organizational, model, optimized, quality, service, level, gap]
+    concepts: [framework, organizational, model, optimized, quality]
     section: Canonical Foundations
     token_count: 193
   - id: "frameworks/gap-analysis.md#c1"
     char_span: [1031, 3706]
     sentence_count: 34
     key_terms: [process, dimension, processes, description, continuous, skill, workforce, employee]
+    concepts: [process, dimension, processes, description, continuous]
     section: The 8 Required Dimensions
     token_count: 507
   - id: "frameworks/gap-analysis.md#c2"
     char_span: [3708, 6209]
     sentence_count: 34
     key_terms: [data, quality, systems, customer, architecture, integration, operational, analytical]
+    concepts: [quality, systems, customer, architecture, integration]
     section: The 8 Required Dimensions
     token_count: 474
   - id: "frameworks/gap-analysis.md#c3"
     char_span: [6211, 8688]
     sentence_count: 30
     key_terms: [experience, customer, journey, behavioral, governance, defined, closed-loop, investment]
+    concepts: [experience, customer, behavioral, governance, journey]
+    related_chunks: ["frameworks/gap-analysis.md#c4"]
     section: The 8 Required Dimensions
     token_count: 456
   - id: "frameworks/gap-analysis.md#c4"
     char_span: [8690, 11092]
     sentence_count: 28
     key_terms: [customer, metrics, measurement, behavioral, centricity, culture, values, organization]
+    concepts: [customer, metrics, measurement, behavioral, centricity]
+    related_chunks: ["frameworks/gap-analysis.md#c3"]
     section: The 8 Required Dimensions
     token_count: 447
   - id: "frameworks/gap-analysis.md#c5"
     char_span: [11138, 13714]
     sentence_count: 10
     key_terms: [gap, service, customer, definition, diagnostic, difference, questions, expectations]
+    concepts: [service, customer, definition, diagnostic, difference]
     section: "Parasuraman's 5 Gaps of Service Quality"
     token_count: 445
   - id: "frameworks/gap-analysis.md#c6"
     char_span: [13755, 15801]
     sentence_count: 3
     key_terms: [gap, impact, current, target, state, dimension, typically, gaps]
+    concepts: [impact, current, target, dimension, typically]
+    related_chunks: ["frameworks/gap-analysis.md#c8"]
     section: Quality Gates and Scoring Protocol
     token_count: 411
   - id: "frameworks/gap-analysis.md#c7"
     char_span: [15803, 16592]
     sentence_count: 5
     key_terms: [months, transformational, deploy, effort, redesign, requires, impact, cross-functional]
+    concepts: [months, transformational, deploy, effort, redesign]
     section: Quality Gates and Scoring Protocol
     token_count: 160
   - id: "frameworks/gap-analysis.md#c8"
     char_span: [16612, 18048]
     sentence_count: 12
     key_terms: [without, level, dimension, target, organization, measurement, gap, root]
+    concepts: [without, dimension, level, organization, target]
+    related_chunks: ["frameworks/gap-analysis.md#c6"]
     section: Anti-Patterns
     token_count: 272
   - id: "frameworks/gap-analysis.md#c9"
     char_span: [18078, 19455]
     sentence_count: 14
     key_terms: [gap, gaps, anti-pattern, score, assumptions, dimensions, benchmark, framework]
+    concepts: [anti-pattern, assumptions, dimensions, score, benchmark]
     section: Generation Instructions
     token_count: 270
 ---

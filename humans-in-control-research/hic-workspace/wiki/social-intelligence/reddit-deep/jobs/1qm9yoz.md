@@ -21,71 +21,86 @@ chunks:
     char_span: [0, 879]
     sentence_count: 7
     key_terms: [want, honest, comments, company, money, counwovja0385skje, grow, "it's"]
+    concepts: [honest, comments, company, money]
     token_count: 233
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1qm9yoz/i_wish_you_could_just_be_honest_about_why_you/"}]
   - id: "social-intelligence/reddit-deep/jobs/1qm9yoz.md#c1"
     char_span: [893, 2725]
     sentence_count: 22
     key_terms: [friend, "doesn't", like, interviews, coworkers, questions, anything, outgoing]
+    concepts: [friend, "doesn't", interviews, coworkers, questions]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/jobs/1qm9yoz.md#c2"
     char_span: [2727, 4042]
     sentence_count: 14
     key_terms: ["don't", people, association, time, because, office, scared, being]
+    concepts: ["don't", people, association, because, office]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/jobs/1qm9yoz.md#c3"
     char_span: [4044, 6164]
     sentence_count: 10
     key_terms: [people, "it's", job, interview, anxiety, society, doctor, resume]
+    concepts: [people, interview, anxiety, society, doctor]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qm9yoz.md#c4"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/jobs/1qm9yoz.md#c4"
     char_span: [6167, 8130]
     sentence_count: 18
     key_terms: [pressure, "i'm", need, people, job, part, interviews, something]
+    concepts: [pressure, people, interviews, something, anxiety]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qm9yoz.md#c3"]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/jobs/1qm9yoz.md#c5"
     char_span: [8132, 9315]
     sentence_count: 5
     key_terms: [everyone, people, "that's", being, screw, fantasyborderline, jobs, ok-reward7639]
+    concepts: [everyone, people, "that's", being, screw]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/jobs/1qm9yoz.md#c6"
     char_span: [9317, 10701]
     sentence_count: 6
     key_terms: [apathetic, hiring, enthusiastic, best, like, completely, interview, reason]
+    concepts: [apathetic, enthusiastic, hiring, completely, interview]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/jobs/1qm9yoz.md#c7"
     char_span: [10704, 12547]
     sentence_count: 13
     key_terms: [someone, don, hire, candidates, apathetic, downvoted, because, excited]
+    concepts: [someone, candidates, apathetic, downvoted, because]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/jobs/1qm9yoz.md#c8"
     char_span: [12549, 14530]
     sentence_count: 13
     key_terms: [work, hiring, manager, someone, interviewer, team, want, companies]
+    concepts: [hiring, manager, someone, interviewer, companies]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/jobs/1qm9yoz.md#c9"
     char_span: [14532, 16309]
     sentence_count: 19
     key_terms: [company, "can't", "don't", job, like, candidates, companies, personnel]
+    concepts: [company, "can't", candidates, "don't", companies]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/jobs/1qm9yoz.md#c10"
     char_span: [16311, 18245]
     sentence_count: 11
     key_terms: [people, like, right, want, companies, charge, doing, maybe]
+    concepts: [people, right, companies, charge, doing]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/jobs/1qm9yoz.md#c11"
     char_span: [18247, 20158]
     sentence_count: 16
     key_terms: [jobs, like, paycheck, absolutely, honestly, clients, looking, having]
+    concepts: [paycheck, absolutely, honestly, clients, looking]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/jobs/1qm9yoz.md#c12"

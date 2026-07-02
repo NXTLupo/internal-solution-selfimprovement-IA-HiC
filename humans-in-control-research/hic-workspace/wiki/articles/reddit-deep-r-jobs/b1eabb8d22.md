@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1169]
     sentence_count: 8
     key_terms: [experience, warehouse, jobs, comments, reddit, clock, entry, loser]
+    concepts: [experience, warehouse, comments, reddit, clock]
     token_count: 322
+    sources: [{"n":"Reddit Deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1palrsy/what_if_any_jobs_are_there_for_introverts_with_no/"}]
 ---
 # What, if any, jobs are there for introverts with no skills or experience?
 

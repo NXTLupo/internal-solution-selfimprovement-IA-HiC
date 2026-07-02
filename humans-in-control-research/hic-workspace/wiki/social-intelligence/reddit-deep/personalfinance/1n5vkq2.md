@@ -21,64 +21,81 @@ chunks:
     char_span: [0, 2089]
     sentence_count: 17
     key_terms: [financial, comments, personalfinance, planner, dad, situation, "wouldn't", finally]
+    concepts: [financial, personalfinance, comments, planner, situation]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c16"]
     token_count: 459
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1n5vkq2/my_parents_are_fine_right/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c1"
     char_span: [2091, 3918]
     sentence_count: 15
     key_terms: [retire, did, "he's", need, attorney, planning, couple, friend]
+    concepts: [retire, attorney, planning, couple, friend]
     token_count: 404
   - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c2"
     char_span: [3932, 5965]
     sentence_count: 20
     key_terms: ["don't", maybe, "he's", continuing, definitely, self-worth, position, working]
+    concepts: ["don't", continuing, definitely, maybe, self-worth]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c3"
     char_span: [5968, 8242]
     sentence_count: 15
     key_terms: [finances, working, retire, investments, talk, time, work, cognitive]
+    concepts: [finances, working, retire, investments, cognitive]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c13"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c4"
     char_span: [7947, 9310]
     sentence_count: 11
     key_terms: [grandfather, everything, equipment, something, retired, energy, health, worked]
+    concepts: [grandfather, everything, equipment, something, retired]
     section: Comments
     token_count: 306
   - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c5"
     char_span: [9312, 10831]
     sentence_count: 9
     key_terms: [socalization, retirement, something, structure, decline, retired, people, peanutneedsexercise]
+    concepts: [socalization, retirement, something, structure, decline]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c6"
     char_span: [10833, 12341]
     sentence_count: 15
     key_terms: [people, uncle, communities, day, retirement, until, years, ago]
+    concepts: [people, communities, retirement, uncle, until]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c14"]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c7"
     char_span: [12343, 14110]
     sentence_count: 14
     key_terms: [retirement, set, understand, difficult, working, worried, age, ass]
+    concepts: [retirement, understand, difficult, working, worried]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c12"]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c8"
     char_span: [14112, 14943]
     sentence_count: 4
     key_terms: [retirement, spending, shift, years, down, slowdowntogodown, accumulating, comfortable]
+    concepts: [retirement, spending, shift, years]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c9"
     char_span: [14945, 17000]
     sentence_count: 17
     key_terms: [retirement, retired, able, sure, milestones, backwards, starting, anxiety]
+    concepts: [retirement, retired, milestones, backwards, starting]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c12"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c10"
     char_span: [16773, 17141]
     sentence_count: 3
     key_terms: [salary, set, decreasing, gtobiast13, retirement, transition, emotional, shifting]
+    concepts: [salary]
     section: Comments
     token_count: 91
   - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c11"
@@ -91,30 +108,39 @@ chunks:
     char_span: [17191, 19322]
     sentence_count: 16
     key_terms: [retired, working, money, years, financially, age, retirement, believe]
+    concepts: [retired, working, financially, money, retirement]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c7", "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c13"
     char_span: [19017, 21232]
     sentence_count: 11
     key_terms: [work, working, get, "he's", start, back, care, long]
+    concepts: [working, start, cognitive, janetvice, wrenskeet]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c14"
     char_span: [20900, 22148]
     sentence_count: 7
     key_terms: [retirement, like, work, without, people, retire, fully, money]
+    concepts: [retirement, without, people, retire, fully]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c6"]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c15"
     char_span: [22150, 23909]
     sentence_count: 14
     key_terms: [retirement, work, delivery, grocery, hobbies, husband, retired, retire]
+    concepts: [retirement, delivery, grocery, hobbies, husband]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c16"
     char_span: [23911, 25353]
     sentence_count: 11
     key_terms: [need, estate, planner, take, involved, medicaid, financial, planning]
+    concepts: [estate, planner, involved, medicaid, financial]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c0"]
     section: Comments
     token_count: 355
 ---

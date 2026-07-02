@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2167]
     sentence_count: 15
     key_terms: [help, want, everyone, strategy, customersuccess, library, conversation, been]
+    concepts: [customersuccess, everyone, strategy, library, conversation]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/customersuccess","u":"https://www.reddit.com/r/CustomerSuccess/comments/1sc9u0w/i_built_an_open_source_agentic_library_to_help_us/"}]
   - id: "social-intelligence/reddit-deep/customersuccess/1sc9u0w.md#c1"
-    char_span: [2169, 3984]
+    char_span: [2169, 3983]
     sentence_count: 17
     key_terms: [citizenjosh, customer-success-skills, people, github, get, sub, naturepeaked, https]
+    concepts: [customer-success-skills, citizenjosh, people, github, naturepeaked]
     section: Comments
     token_count: 456
 ---

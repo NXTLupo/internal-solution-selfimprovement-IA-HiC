@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1338]
     sentence_count: 13
     key_terms: [engineering, civil, engineeringstudents, automation, engineers, comments, student, worried]
+    concepts: [engineering, civil, engineeringstudents, automation, engineers]
     token_count: 284
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1ten23d/final_year_civil_engineering_student_worried/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ten23d.md#c1"
     char_span: [1352, 2026]
     sentence_count: 3
     key_terms: [studying, something, been, "i've", "it's", use, automatedbyali, efficiently]
+    concepts: [studying, something]
     section: Comments
     token_count: 154
 ---

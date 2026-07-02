@@ -20,48 +20,63 @@ chunks:
     char_span: [0, 2034]
     sentence_count: 10
     key_terms: [weekend, boston, events, week, through, garden, https, com]
+    concepts: [weekend, boston, events, through, garden]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/boston","u":"https://www.reddit.com/r/boston/comments/1sgqyv0/boston_events_worth_doing_this_weekend_firstever/"}]
   - id: "social-intelligence/reddit-deep/boston/1sgqyv0.md#c1"
     char_span: [2036, 3548]
     sentence_count: 7
     key_terms: [join-us-for-glowball-somervilles-most-illuminating-party-of-the-year-friday-april-10-2026, glow-in-the-dark, day, https, artsatthearmory, appreciation, free, org]
+    concepts: [glow-in-the-dark, artsatthearmory, https, appreciation, anti-gala]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1sgqyv0.md#c3"]
     token_count: 405
   - id: "social-intelligence/reddit-deep/boston/1sgqyv0.md#c2"
     char_span: [3550, 5157]
     sentence_count: 9
     key_terms: [free, https, vinodivino, arlington, www, events, com, love-loretta-s-vol-2-tickets]
+    concepts: [https, vinodivino, arlington, events, "loretta's"]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1sgqyv0.md#c4", "social-intelligence/reddit-deep/boston/1sgqyv0.md#c5"]
     token_count: 463
   - id: "social-intelligence/reddit-deep/boston/1sgqyv0.md#c3"
     char_span: [5159, 6891]
     sentence_count: 6
     key_terms: [join-us-for-glowball-somervilles-most-illuminating-party-of-the-year-friday-april-10-2026, https, glow-in-the-dark, ticketed, artsatthearmory, performance, com, org]
+    concepts: [glow-in-the-dark, https, ticketed, artsatthearmory, performance]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1sgqyv0.md#c1"]
     token_count: 492
   - id: "social-intelligence/reddit-deep/boston/1sgqyv0.md#c4"
     char_span: [6893, 8519]
     sentence_count: 7
     key_terms: [https, somerville, com, farmers, events, market, free, www]
+    concepts: [https, somerville, farmers, events, market]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1sgqyv0.md#c2", "social-intelligence/reddit-deep/boston/1sgqyv0.md#c5"]
     token_count: 445
   - id: "social-intelligence/reddit-deep/boston/1sgqyv0.md#c5"
     char_span: [8521, 10326]
     sentence_count: 9
     key_terms: [free, https, and-30s-scorpion-bar-social-w-desibabes-free, magnolias, magnolias-in-bloom-music-inspired-by-nature, thebostoncalendar, events, event]
+    concepts: [thebostoncalendar, magnolias, https, events, event]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1sgqyv0.md#c2", "social-intelligence/reddit-deep/boston/1sgqyv0.md#c4"]
     token_count: 499
   - id: "social-intelligence/reddit-deep/boston/1sgqyv0.md#c6"
-    char_span: [10341, 11857]
+    char_span: [10340, 11856]
     sentence_count: 11
     key_terms: [top-finger-4339, babypatato2023, free, athenaeum, brookline, saturday, thanks, back-to-back-to-back]
+    concepts: [top-finger-4339, babypatato2023, athenaeum, brookline, saturday]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/boston/1sgqyv0.md#c7"
-    char_span: [11859, 12570]
+    char_span: [11858, 12569]
     sentence_count: 8
     key_terms: [place, like, top-finger-4339, restaurants, aquitaine, available, recommend, something]
+    concepts: [place]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/boston/1sgqyv0.md#c8"
-    char_span: [12572, 14294]
+    char_span: [12571, 14293]
     sentence_count: 13
     key_terms: [boston, questions, experience, please, https, downtown, looking, similar]
+    concepts: [boston, questions, experience, please, https]
     section: Comments
     token_count: 407
 ---

@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 336]
     sentence_count: 2
     key_terms: [applyingtocollege, comments, tangerinekitchen2260, reddit-deep, admissions, "could've", biggest, college]
+    concepts: [applyingtocollege, comments]
     token_count: 89
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1si5fce/what_do_you_think_was_the_biggest_lesson_you/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1si5fce.md#c1"
     char_span: [350, 1590]
     sentence_count: 9
     key_terms: [school, tangerinekitchen2260, relevant-umpire6939, dream, spent, best, yourself, getting]
+    concepts: [tangerinekitchen2260, relevant-umpire6939, school, dream, spent]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1si5fce.md#c2"]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/applyingtocollege/1si5fce.md#c2"
     char_span: [1592, 3040]
     sentence_count: 5
     key_terms: [tangerinekitchen2260, plausiblesplendor15, applied, school, intelligent-web-8017, like, lot, low]
+    concepts: [tangerinekitchen2260, plausiblesplendor15, applied, school]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1si5fce.md#c1"]
     section: Comments
     token_count: 433
 ---

@@ -589,6 +589,11 @@ export function deClicheDeep<T>(value: T, key?: string): T {
 export function stripEmDashes(text: string): string {
     if (!text) return text;
     let cleaned = text;
+    // 0. HTML-entity forms (2026-07-02 live-defect fix: a #brief chat title shipped a literal
+    //    "&mdash;"). Normalize entities to the raw characters FIRST so every rule below
+    //    (range/compound/clause) applies uniformly. Entity forms cannot collide with ASCII
+    //    hyphens, so the never-touch-hyphen standing rule holds.
+    cleaned = cleaned.replace(/&mdash;|&#8212;|&#x2014;/gi, '—').replace(/&ndash;|&#8211;|&#x2013;/gi, '–');
     // 1. numeric range -> " to " (handles optional surrounding spaces)
     cleaned = cleaned.replace(/(\d)\s*[—–]\s*(\d)/g, '$1 to $2');
     // 2. compound (alphanumerics immediately touching the dash, no spaces) -> hyphen.
@@ -605,6 +610,26 @@ export function stripEmDashes(text: string): string {
     cleaned = cleaned.replace(/ ,/g, ',').replace(/,{2,}/g, ',');
     cleaned = cleaned.replace(/^\s*,\s*/, '').replace(/\s*,\s*$/, '');
     return cleaned;
+}
+
+// 2026-07-02 live-defect fix: provider-bucket / grounding-redirect domains are NOT sources.
+// A #journey artifact shipped "[vertexaisearch.cloud.google.com]" as its dominant citation
+// (Gemini's search-grounding redirect host, minted into article identity at ingest - fixed
+// upstream in _extract_pdf_impl) plus empty "[]" citations. Defense in depth: strip any
+// bracket citation whose content is a redirect host (or nothing), and drop redirect/empty
+// entries from sources/citations arrays. Real named citations ([Higher Ed Dive], [r/NEU])
+// pass untouched.
+export const PROVIDER_BUCKET_SOURCE_RE = /vertexaisearch\.cloud\.google\.com|grounding-api-redirect/i;
+const BRACKET_BUCKET_RE = /\s*\[\s*(?:[^\]]*(?:vertexaisearch\.cloud\.google\.com|grounding-api-redirect)[^\]]*)?\s*\]/gi;
+export function stripProviderBucketCitations(text: string): string {
+    if (!text) return text;
+    return text.replace(BRACKET_BUCKET_RE, '').replace(/ {2,}/g, ' ').replace(/\s+([,.;:])/g, '$1').trim();
+}
+export function filterSourceList<T>(arr: T[]): T[] {
+    return arr.filter((x: any) => {
+        const name = typeof x === 'string' ? x : String((x && (x.sourceName ?? x.source ?? x.n)) ?? '');
+        return name.trim().length > 0 && !PROVIDER_BUCKET_SOURCE_RE.test(name);
+    });
 }
 
 // 2026-05-27 - HARD emoji ban (repo-wide rule). Strip emoji / pictographic
@@ -628,6 +653,66 @@ export function stripEmoji(text: string): string {
 /** Combined hygiene: strip em-dashes AND emoji. Use at every text chokepoint. */
 export function stripFormatTells(text: string): string {
     return stripEmoji(stripEmDashes(text));
+}
+
+// ============================================================================
+// E2 (2026-07-02, artifact-total-elevation) - EDITORIAL ENFORCEMENT.
+// The SLIDE OUTPUT PROTOCOL already bans these shapes, and the 2026-07-02 live
+// deck proved prompt rules leak: "A living plan, not a PDF" (antithesis),
+// "open the door to quotes" (banned metaphor), and lowercase mid-sentence
+// fragments shipped as quotes. Deterministic enforcement lands here; the
+// checks/editorial_quality.py gate audits the deck level.
+// ============================================================================
+
+/** Antithesis TITLE rewrite: "A living plan, not a PDF" -> "A living plan".
+ *  Titles must assert the positive claim directly (protocol rule 4). Scoped to a
+ *  whole-field title shape so legitimate mid-prose negation is never touched. */
+const ANTITHESIS_TITLE_RE = /^(["“]?[A-Z][^,.:;]{2,90}?),\s+not\s+(?:just\s+|only\s+|merely\s+)?(?:a|an|the)?\s?[^,.:;]{2,60}[.]?(["”]?)$/;
+export function stripAntithesisTitle(text: string): string {
+    if (!text) return text;
+    const m = ANTITHESIS_TITLE_RE.exec(text.trim());
+    if (!m) return text;
+    return (m[1] + (m[2] || '')).trim();
+}
+
+/** Banned-metaphor substitutions verified shipping in live decks (CLAUDE.md metaphor ban).
+ *  Word-level, meaning-preserving swaps only - anything needing judgment stays with the gate. */
+const METAPHOR_SUBS: Array<[RegExp, string]> = [
+    [/\bopens the door to\b/gi, 'enables'],
+    [/\bopen the door to\b/gi, 'enable'],
+    [/\bopened the door to\b/gi, 'enabled'],
+    [/\bearns the right to\b/gi, 'qualifies for'],
+    [/\bearn the right to\b/gi, 'qualify for'],
+];
+export function applyMetaphorSubs(text: string): string {
+    if (!text) return text;
+    let out = text;
+    for (const [re, sub] of METAPHOR_SUBS) out = out.replace(re, sub);
+    return out;
+}
+
+/** Quote hygiene (Evidence-Label rule): a quote is a CLEAN COMPLETE sentence. A lowercase
+ *  mid-sentence fragment is either promoted (capitalized) when it reads as a full sentence,
+ *  or DROPPED so the renderer collapses the quote well - a fragment quote is worse than none. */
+export function sanitizeQuoteField(q: string): string {
+    if (!q) return q;
+    let t = q.trim().replace(/^\.{3}\s*/, '').replace(/^[…]\s*/, '');
+    const openQuote = /^["“]/.test(t) ? t[0] : '';
+    const body = openQuote ? t.slice(1) : t;
+    if (/^[a-z]/.test(body)) {
+        const words = body.split(/\s+/).filter(Boolean);
+        const endsSentence = /[.!?]["”]?$/.test(body);
+        // fragment tells: a gerund or conjunction start is a mid-sentence slice regardless of length
+        // ("installing fire detection and protection equipment." - live 2026-07-02 deck leak).
+        const first = (words[0] || '').toLowerCase();
+        const fragmentStart = /ing$/.test(first) || ['and', 'but', 'or', 'which', 'that', 'because', 'so', 'then', 'also'].includes(first);
+        if (words.length >= 6 && endsSentence && !fragmentStart) {
+            t = openQuote + body.charAt(0).toUpperCase() + body.slice(1);
+        } else {
+            return '';   // fragment - drop and let the layout collapse
+        }
+    }
+    return t;
 }
 
 // 2026-05-10 - PROCESS-REFERENCE REWRITES
@@ -703,6 +788,13 @@ const ARTIFACT_META_PHRASE_STRIPS: Array<[RegExp, string]> = [
     // "based on/according to the research/corpus/data, " prefix (bounded, no greedy .*)
     [/\b[Bb]ased on (?:the |our |this )?(?:research|analysis|data|evidence|findings|sources|corpus|review)[^,.<>]{0,40},\s*/gi, ''],
     [/\b[Aa]ccording to (?:the |our )?(?:research|analysis|data|evidence|findings|sources|corpus|report)[^,.<>]{0,40},\s*/gi, ''],
+    // W8 (2026-07-01, live #strategy leak "This strategy document defines the 2026 ... roadmap"):
+    // artifact self-reference opener - "This strategy document/roadmap/plan defines/outlines/presents ..."
+    // Strip the self-referential lead-in, keep the substance that follows (bounded, HTML-safe).
+    // Variant A: "... defines the X" -> "The X" (the common shape).
+    [/\b[Tt]his\s+(?:strategy\s+)?(?:document|strategy|roadmap|plan|assessment|deck|report|analysis|brief|artifact)\s+(?:defines?|outlines?|presents?|provides?|covers?|describes?|lays?\s+out|sets?\s+out|maps?\s+out|details?)\s+the\s+/g, 'The '],
+    // Variant B: no "the" after the verb -> drop just the self-referential lead-in.
+    [/\b[Tt]his\s+(?:strategy\s+)?(?:document|strategy|roadmap|plan|assessment|deck|report|analysis|brief|artifact)\s+(?:defines?|outlines?|presents?|provides?|covers?|describes?|lays?\s+out|sets?\s+out|maps?\s+out|details?)\s+/g, ''],
 ];
 
 /** HTML-safe meta/process-reference scrub for generated HTML artifacts. Safe to
@@ -711,6 +803,9 @@ export function scrubArtifactHtmlMeta(html: string): string {
     if (!html || typeof html !== 'string') return html;
     let out = html;
     for (const [re, sub] of ARTIFACT_META_PHRASE_STRIPS) out = out.replace(re, sub);
+    // W5 (2026-07-01): provider-bucket citations ("(Source: Gemini Focused Research)") are fabricated
+    // attribution - strip them on the HTML-artifact path too (previously only chat surfaces ran this).
+    out = stripModelNameAsSource(out);
     // Only fix space-before-punctuation that our deletions may have created;
     // never touch other whitespace (protects <pre>/code).
     return out.replace(/ +([.,;:])/g, '$1');
@@ -757,7 +852,12 @@ const CHAT_FENCE_META_STRIPS: Array<{ pattern: RegExp; replace: string }> = [
 // a fabricated source (the documented chat failure where a named document missed
 // retrieval and the model invented "(Source: Gemini)"). Strip it on ALL chat surfaces
 // (the fence path covered (gemini ...) but the plain-prose path did not).
-const MODEL_AS_SOURCE_RE = /[([]?\s*Source:\s*(?:gemini|gpt[\w.-]*|chatgpt|claude[\w.-]*|opus[\w.-]*|sonnet[\w.-]*|haiku[\w.-]*|fable[\w.-]*|deepseek[\w.-]*|openai|anthropic|the\s+model|this\s+model|the\s+ai|an?\s+ai(?:\s+model)?|llm)\s*[\])]?/gi;
+// W5 (2026-07-01, live #slides leak "(Source: Gemini Focused Research)" x36): the old pattern only
+// consumed the provider NAME, so a bucket label with a tail ("Gemini Focused Research") was left
+// half-stripped ("Focused Research)" survived). Two alternatives now:
+//   1. BRACKETED: consume the whole (...)/ [...] group including any tail after the provider name.
+//   2. BARE: consume the provider name plus a known bucket tail ("focused research", "deep research").
+const MODEL_AS_SOURCE_RE = /[([]\s*Sources?:\s*(?:gemini|gpt[\w.-]*|chatgpt|claude[\w.-]*|opus[\w.-]*|sonnet[\w.-]*|haiku[\w.-]*|fable[\w.-]*|deepseek[\w.-]*|openai|anthropic|vertex(?:\s*ai)?|the\s+model|this\s+model|the\s+ai|an?\s+ai(?:\s+model)?|llm)\b[^)\]]{0,80}[\])]|\bSources?:\s*(?:gemini|gpt[\w.-]*|chatgpt|claude[\w.-]*|opus[\w.-]*|sonnet[\w.-]*|haiku[\w.-]*|fable[\w.-]*|deepseek[\w.-]*|openai|anthropic|vertex(?:\s*ai)?|the\s+model|this\s+model|the\s+ai|an?\s+ai(?:\s+model)?|llm)\b(?:\s+(?:focused|deep|web)\s+(?:research|search))?/gi;
 
 export function stripModelNameAsSource(text: string): string {
     if (!text) return text;
@@ -1597,7 +1697,7 @@ export function detectOutputAntiPatterns(text: string, deliverableType: string):
 
 export interface PostProcessorIssue {
     slideNumber: number;
-    type: 'markdown' | 'citation' | 'meta-narration' | 'placeholder' | 'saas-cta' | 'topic-title' | 'visual-text';
+    type: 'markdown' | 'citation' | 'meta-narration' | 'placeholder' | 'saas-cta' | 'topic-title' | 'visual-text' | 'editorial';
     severity: 'critical' | 'high' | 'medium';
     field: string;
     detail: string;
@@ -1694,6 +1794,42 @@ export function postProcessSlides(
         s.speakerNotes = stripEmDashes(s.speakerNotes || '');
         s.quote = stripEmDashes(s.quote || '');
 
+        // 2026-07-02 - Provider-bucket citation scrub (grounding-redirect hosts + empty []).
+        {
+            const _srcBefore = Array.isArray(s.sources) ? s.sources.length : 0;
+            const _before = [s.title, ...(s.content || []), s.narrative || '', s.quote || ''].join('|');
+            s.title = stripProviderBucketCitations(s.title);
+            s.content = (s.content || []).map(stripProviderBucketCitations);
+            s.narrative = stripProviderBucketCitations(s.narrative || '');
+            s.speakerNotes = stripProviderBucketCitations(s.speakerNotes || '');
+            s.quote = stripProviderBucketCitations(s.quote || '');
+            if (Array.isArray(s.sources)) s.sources = filterSourceList(s.sources);
+            const _after = [s.title, ...(s.content || []), s.narrative || '', s.quote || ''].join('|');
+            const _srcDropped = _srcBefore - (Array.isArray(s.sources) ? s.sources.length : 0);
+            if (_after !== _before || _srcDropped > 0) {
+                issues.push({ slideNumber: sn, type: 'citation', severity: 'high', field: 'multiple', detail: `provider-bucket / empty bracket citation(s) stripped (grounding-redirect host is not a source)${_srcDropped > 0 ? `; ${_srcDropped} sources entr${_srcDropped === 1 ? 'y' : 'ies'} dropped` : ''}`, autoCorrected: true });
+            }
+        }
+
+        // --- E2 EDITORIAL ENFORCEMENT (2026-07-02) ---
+        // Antithesis titles + banned metaphors + fragment quotes: protocol rules that
+        // demonstrably leaked on the 2026-07-02 live deck, now deterministic.
+        {
+            const _t0 = s.title;
+            s.title = stripAntithesisTitle(applyMetaphorSubs(s.title));
+            if (s.title !== _t0) {
+                issues.push({ slideNumber: sn, type: 'editorial', severity: 'high', field: 'title', detail: `antithesis/metaphor rewritten: "${_t0.slice(0, 80)}" -> "${s.title.slice(0, 80)}"`, autoCorrected: true });
+            }
+            s.content = (s.content || []).map(applyMetaphorSubs);
+            s.narrative = applyMetaphorSubs(s.narrative || '');
+            s.speakerNotes = applyMetaphorSubs(s.speakerNotes || '');
+            const _q0 = s.quote || '';
+            s.quote = sanitizeQuoteField(applyMetaphorSubs(_q0));
+            if (_q0 && !s.quote) {
+                issues.push({ slideNumber: sn, type: 'editorial', severity: 'high', field: 'quote', detail: `fragment quote dropped (not a complete sentence): "${_q0.slice(0, 80)}"`, autoCorrected: true });
+            }
+        }
+
         // --- NESTED PAYLOAD SWEEP (2026-06-11) ---
         // The flat fields above are only half the surface: template payloads
         // (serviceBlueprint.stages[].painPoint, caseStudy.challenge, etc.)
@@ -1701,15 +1837,20 @@ export function postProcessSlides(
         // rendered blueprint AND the PPTX export. Walk every string in every
         // nested payload through the same citation + tells pipeline.
         {
-            const sanitizeStr = (t: string) => stripEmDashes(stripQAAnnotations(
+            const sanitizeStr = (t: string) => stripProviderBucketCitations(stripEmDashes(stripQAAnnotations(
                 resolveCitations(t, fileNames, chunkSourceMap)
                     .replace(/\s*\[CHUNK_\d+\]\s*/g, ' ').replace(/\s{2,}/g, ' ').trim()
-            ));
+            )));
             const deepSanitize = (v: any): any => {
                 if (typeof v === 'string') return sanitizeStr(v);
                 if (Array.isArray(v)) return v.map(deepSanitize);
                 if (v && typeof v === 'object') {
-                    for (const k of Object.keys(v)) v[k] = deepSanitize(v[k]);
+                    for (const k of Object.keys(v)) {
+                        // sources/citations arrays: drop provider-bucket + empty entries
+                        // (2026-07-02) BEFORE the per-string sanitize recursion.
+                        if ((k === 'sources' || k === 'citations') && Array.isArray(v[k])) v[k] = filterSourceList(v[k]);
+                        v[k] = deepSanitize(v[k]);
+                    }
                     return v;
                 }
                 return v;

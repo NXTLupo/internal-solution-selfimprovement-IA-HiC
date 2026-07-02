@@ -7,43 +7,48 @@ subreddit: "productmanagement"
 title: "Learning in Public: Is Traditional UI Dying as Agentic UX Rises?"
 author: "RespectSpiritual8135"
 date: "2025-12-04T21:31:14.000Z"
-score: 0
-upvote_ratio: 0.5
+score: 1
+upvote_ratio: 0.52
 num_comments: 22
 flair: "Learning Resources"
-extracted_at: "2026-06-18T13:35:35.652Z"
+extracted_at: "2026-06-24T22:14:23.450Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/productmanagement/1pech91.md#c0"
     char_span: [0, 1347]
     sentence_count: 4
     key_terms: [png, https, productmanagement, e3d929ce1ea675981e865bb1952894081cff45e0, preview, format, width, auto]
+    concepts: [productmanagement, https, preview, format, interfaces]
     token_count: 383
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1pech91/learning_in_public_is_traditional_ui_dying_as/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1pech91.md#c1"
-    char_span: [1362, 3510]
+    char_span: [1361, 3508]
     sentence_count: 15
     key_terms: [respectspiritual8135, preferences, traditional, based, conversational, conversation, good, interfaces]
+    concepts: [respectspiritual8135, preferences, traditional, based, conversational]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/productmanagement/1pech91.md#c2"
-    char_span: [3512, 5752]
+    char_span: [3510, 5750]
     sentence_count: 20
     key_terms: [users, like, content, right, tasks, wrong, suggestions, "it's"]
+    concepts: [users, content, suggestions, assistance, right]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/productmanagement/1pech91.md#c3"
-    char_span: [5754, 6766]
+    char_span: [5752, 6764]
     sentence_count: 5
     key_terms: [xmind, branches, template, letting, respectspiritual8135, https, share, app]
+    concepts: [xmind, branches, template, letting, https]
     section: Comments
     token_count: 262
 ---
 # Learning in Public: Is Traditional UI Dying as Agentic UX Rises?
 
 Source: [reddit-deep: r/productmanagement](https://www.reddit.com/r/ProductManagement/comments/1pech91/learning_in_public_is_traditional_ui_dying_as/)
-Posted by **RespectSpiritual8135** · **0↑** · **22 comments**
+Posted by **RespectSpiritual8135** · **1↑** · **22 comments**
 
 As a PM diving into AI, I'm seeing a huge shift from static tools to agentic systems for better CX, which really challenges our old UI stack. 
 
@@ -70,7 +75,7 @@ https://preview.redd.it/1fexuibh595g1.png?width=942&format=png&auto=webp&s=61f61
 
 ## Comments
 
-- **Common_North_5267** (10↑): a text block will never be a good ui for anything event based.
+- **Common_North_5267** (9↑): a text block will never be a good ui for anything event based.
   - **RespectSpiritual8135** (1↑): Agreed. Conversation interface is not effective for those event based/SOP type of workflow. That's where I think a generative UI/personalization works better
     - **RespectSpiritual8135** (1↑): instead of providing all the buttons as traditional saas, generating the UI/button based on user's case to guide their next step.
 - **Longjumping_Hawk_951** (2↑): Limited use. Many software systems/tools/platforms can't fully function on char bots or conversation based interfaces.

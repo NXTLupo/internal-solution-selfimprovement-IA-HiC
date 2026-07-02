@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1553]
     sentence_count: 17
     key_terms: [waterloo, work, anyone, suggestions, here, hour, side, kitchener]
+    concepts: [waterloo, anyone, suggestions, kitchener, comments]
     token_count: 368
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1rktld2/part_time_job_ideas/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1rktld2.md#c1"
     char_span: [1567, 3239]
     sentence_count: 13
     key_terms: [visible-essay9728, home, days, jobs, time, work, working, around]
+    concepts: [visible-essay9728, working, around, remote, night]
     section: Comments
     token_count: 450
 ---

@@ -20,9 +20,11 @@ chunks:
     char_span: [0, 2007]
     sentence_count: 1
     key_terms: [customerscore---ai-renewal-flow, renewal, acv, accounts, template, customersuccess, github, customerscore]
+    concepts: [customerscore---ai-renewal-flow, renewal, customersuccess, accounts, template]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/customersuccess","u":"https://www.reddit.com/r/CustomerSuccess/comments/1sabn2y/automated_our_renewal_workflow_by_acv_tier/"}]
   - id: "social-intelligence/reddit-deep/customersuccess/1sabn2y.md#c1"
-    char_span: [2022, 2535]
+    char_span: [2021, 2534]
     sentence_count: 4
     key_terms: [agentixlabs, automations, lightweight, underrated, generator, low-touch, reminders, templated]
     section: Comments

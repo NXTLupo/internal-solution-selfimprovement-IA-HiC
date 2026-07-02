@@ -20,64 +20,76 @@ chunks:
     char_span: [0, 2099]
     sentence_count: 21
     key_terms: [businessintelligence, "we've", "i'm", clients, years, "it's", year, corporate]
+    concepts: [businessintelligence, "we've", clients, years, corporate]
     token_count: 489
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1onovu3/8_years_running_a_business_intelligence/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1onovu3.md#c1"
     char_span: [2101, 3725]
     sentence_count: 21
     key_terms: [people, "doesn't", "we've", able, dashboard, already, anyone, enough]
+    concepts: [people, "doesn't", "we've", dashboard, already]
     token_count: 364
   - id: "social-intelligence/reddit-deep/businessintelligence/1onovu3.md#c2"
-    char_span: [3740, 4909]
+    char_span: [3739, 4908]
     sentence_count: 9
     key_terms: [client, "what's", fair-bookkeeper-1833, charge, month, end, engagement, clients]
+    concepts: [fair-bookkeeper-1833, client, "what's", charge, engagement]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/businessintelligence/1onovu3.md#c3"
-    char_span: [4911, 6759]
+    char_span: [4910, 6758]
     sentence_count: 18
     key_terms: [sql, use, hours, etl, work, night, data, like]
+    concepts: [hours, night, datawazo, doing, tools]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/businessintelligence/1onovu3.md#c4"
-    char_span: [6761, 8764]
+    char_span: [6760, 8763]
     sentence_count: 18
     key_terms: [exposure, lot, consultancy, business, linkedin, clients, tableau, been]
+    concepts: [exposure, consultancy, business, linkedin, clients]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/businessintelligence/1onovu3.md#c5"
-    char_span: [8766, 10821]
+    char_span: [8765, 10820]
     sentence_count: 18
     key_terms: [networking, data, systems, linkedin, events, professionals, been, "it's"]
+    concepts: [networking, systems, linkedin, professionals, events]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/businessintelligence/1onovu3.md#c6"
-    char_span: [10823, 12223]
+    char_span: [10822, 12222]
     sentence_count: 13
     key_terms: [dashboard, usually, client, right, help, resources, together, exactly]
+    concepts: [dashboard, usually, client, right, resources]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/businessintelligence/1onovu3.md#c7"
-    char_span: [12225, 14162]
+    char_span: [12224, 14161]
     sentence_count: 14
     key_terms: [data, webscraping, team, time, compliance, contract, company, people]
+    concepts: [webscraping, compliance, contract, company, people]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/businessintelligence/1onovu3.md#c8"
-    char_span: [14164, 15822]
+    char_span: [14163, 15821]
     sentence_count: 16
     key_terms: [dashboards, get, used, want, winning, answer, need, dashboard]
+    concepts: [dashboards, winning, answer, dashboard, datawazo]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/businessintelligence/1onovu3.md#c9"
-    char_span: [15824, 17910]
+    char_span: [15823, 17909]
     sentence_count: 17
     key_terms: [dashboard, issues, going, questions, insights, mainly, thanks, build]
+    concepts: [dashboard, issues, going, questions, insights]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/businessintelligence/1onovu3.md#c10"
-    char_span: [17912, 18767]
+    char_span: [17911, 18766]
     sentence_count: 8
     key_terms: [data, send, tableau, better, client, discoveries, strategize, analytics]
+    concepts: [tableau, better, client]
     section: Comments
     token_count: 176
 ---

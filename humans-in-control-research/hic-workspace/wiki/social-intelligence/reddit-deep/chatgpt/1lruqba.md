@@ -21,26 +21,36 @@ chunks:
     char_span: [0, 1940]
     sentence_count: 20
     key_terms: [chatgpt, use, comments, everyone, patients, observations, love, seen]
+    concepts: [chatgpt, comments, everyone, patients, observations]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lruqba.md#c1", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c4", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c13"]
     token_count: 474
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1lruqba/as_an_md_heres_my_100_honest_opinion_and/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c1"
     char_span: [1942, 3785]
     sentence_count: 23
     key_terms: [chatgpt, data, patients, hypothyroidism, doctor, sense, clinical, existing]
+    concepts: [chatgpt, patients, hypothyroidism, doctor, sense]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lruqba.md#c0", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c3", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c4", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c13", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c15"]
     token_count: 394
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c2"
     char_span: [3787, 5877]
     sentence_count: 23
     key_terms: [chatgpt, data, context, advice, unless, ask, baby, been]
+    concepts: [chatgpt, context, advice, unless, diabetic]
     token_count: 484
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c3"
     char_span: [5879, 7975]
     sentence_count: 33
     key_terms: [chatgpt, examination, put, mention, answer, doctor, hurt, completely]
+    concepts: [chatgpt, examination, mention, answer, doctor]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lruqba.md#c1", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c4"]
     token_count: 486
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c4"
     char_span: [7977, 9990]
     sentence_count: 21
     key_terms: [doctor, chatgpt, questions, integrate, time, patients, research, best]
+    concepts: [doctor, chatgpt, questions, integrate, patients]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lruqba.md#c0", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c1", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c3", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c13", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c15"]
     token_count: 452
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c5"
     char_span: [9992, 10270]
@@ -51,12 +61,14 @@ chunks:
     char_span: [10284, 12261]
     sentence_count: 16
     key_terms: [please, wounds, conversation, image, post, r-chatgpt-1050422060352024636, concerns, hospital]
+    concepts: [conversation, please, wounds, image, concerns]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c7"
     char_span: [12264, 14373]
     sentence_count: 17
     key_terms: [doctors, pain, peruvianheadshrinker, time, take, herniated, seriously, diazepam]
+    concepts: [doctors, peruvianheadshrinker, herniated, seriously, diazepam]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c8"
@@ -69,30 +81,39 @@ chunks:
     char_span: [14380, 15279]
     sentence_count: 11
     key_terms: [parents, friend, spiritual-courage-77, good, post, appreciative, conversation, appalachia]
+    concepts: [parents, friend]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c10"
     char_span: [15281, 17373]
     sentence_count: 17
     key_terms: [minutes, doctors, diagnostics, time, allergic, doctor, been, hospital]
+    concepts: [minutes, diagnostics, doctors, allergic, doctor]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lruqba.md#c11", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c12", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c15", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c17", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c22"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c11"
     char_span: [17130, 17877]
     sentence_count: 5
     key_terms: [minutes, always, doctor, visits, day, "i'm", practitioner, freakytapir]
+    concepts: [minutes, always, doctor, visits]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lruqba.md#c10", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c12"]
     section: Comments
     token_count: 187
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c12"
     char_span: [17879, 19661]
     sentence_count: 13
     key_terms: [minutes, appointment, doctor, appointments, australia, booking, doctors, patient]
+    concepts: [minutes, appointment, appointments, doctor, australia]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lruqba.md#c10", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c11"]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c13"
     char_span: [19663, 21590]
     sentence_count: 16
     key_terms: [put-easy, appointments, genuinely, patients, chatgpt, comment, history, usually]
+    concepts: [put-easy, appointments, genuinely, patients, chatgpt]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lruqba.md#c0", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c1", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c4"]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c14"
@@ -105,72 +126,89 @@ chunks:
     char_span: [21750, 23901]
     sentence_count: 23
     key_terms: [doctors, doctor, patients, funkysalamander1, medical, google, mentioning, something]
+    concepts: [doctors, doctor, funkysalamander1, patients, medical]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lruqba.md#c1", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c4", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c10", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c17", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c18"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c16"
     char_span: [23659, 24211]
     sentence_count: 4
     key_terms: [hearing, caused, funkysalamander1, notanelonfan2024, sudden-deafness, immediate, infection, regaining]
+    concepts: [hearing, caused]
     section: Comments
     token_count: 140
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c17"
     char_span: [24213, 26187]
     sentence_count: 18
     key_terms: [patients, doctors, doctor, "can't", hand, new, everything, experience]
+    concepts: [patients, doctors, doctor, "can't", everything]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lruqba.md#c1", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c4", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c10", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c15", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c18"]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c18"
     char_span: [26189, 28466]
     sentence_count: 23
     key_terms: [doctors, medical, chat, "i'm", companies, decisions, patients, position]
+    concepts: [doctors, medical, companies, decisions, patients]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lruqba.md#c15", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c17", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c22"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c19"
     char_span: [28468, 29681]
     sentence_count: 12
     key_terms: [medical, better, being, "can't", using, too, aphelionentity, unfortunately]
+    concepts: [medical, better, being, "can't", using]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c20"
     char_span: [29683, 31880]
     sentence_count: 25
     key_terms: [doctors, information, anxiety, healthcare, menopause, necessary, fatness, seeking]
+    concepts: [doctors, information, anxiety, healthcare, menopause]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c21"
     char_span: [31610, 31911]
     sentence_count: 3
     key_terms: [anxiety, tried, surprised--like, accusations, partially, clinical, comments, because]
+    concepts: [anxiety, tried]
     section: Comments
     token_count: 70
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c22"
     char_span: [31913, 34100]
     sentence_count: 14
     key_terms: [doctors, patients, minutes, aphelionentity, people, specialists, time, impacts]
+    concepts: [doctors, patients, minutes, aphelionentity, people]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lruqba.md#c10", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c15", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c17", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c18", "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c23"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c23"
     char_span: [34102, 36283]
     sentence_count: 17
     key_terms: [like, doctors, people, approach, because, handled, medical, nothing]
+    concepts: [doctors, people, approach, because, handled]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lruqba.md#c22"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c24"
     char_span: [36285, 37046]
     sentence_count: 10
     key_terms: [use, better, doing, input, professionally, burninatorrrr, incooperation, appointment]
+    concepts: [better, doing, input]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c25"
     char_span: [37048, 39339]
     sentence_count: 13
     key_terms: [because, clinicians, examples, medicine, chatgpt, picture, results, trained]
+    concepts: [because, clinicians, examples, medicine, chatgpt]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/chatgpt/1lruqba.md#c26"
     char_span: [39342, 40675]
     sentence_count: 18
     key_terms: [information, hospital, chatgpt, largely, patient, reason, video, futurepreparation]
+    concepts: [information, hospital, chatgpt, largely, patient]
     section: Comments
     token_count: 300
 ---

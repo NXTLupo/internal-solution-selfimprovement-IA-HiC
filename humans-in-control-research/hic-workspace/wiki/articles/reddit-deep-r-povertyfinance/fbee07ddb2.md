@@ -18,31 +18,43 @@ chunks:
     char_span: [0, 2208]
     sentence_count: 9
     key_terms: [college, children, parents, school, povertyfinance, taking, universities, loans]
+    concepts: [college, children, parents, school, povertyfinance]
+    related_chunks: ["articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c1"]
     token_count: 460
+    sources: [{"n":"Reddit Deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1lfgjm9/if_you_cant_afford_to_pay_for_your_childs_college/"}]
   - id: "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c1"
     char_span: [2210, 4729]
     sentence_count: 12
     key_terms: [school, high, enrollment, students, classes, college, dual, take]
+    concepts: [school, enrollment, students, classes, college]
+    related_chunks: ["articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c0", "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c2", "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c3"]
     token_count: 480
   - id: "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c2"
     char_span: [4731, 7143]
     sentence_count: 16
     key_terms: [college, university, students, universities, associates, community, live, tuition]
+    concepts: [college, university, students, universities, associates]
+    related_chunks: ["articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c1", "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c4"]
     token_count: 485
   - id: "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c3"
     char_span: [7145, 9551]
     sentence_count: 13
     key_terms: [college, year, tuition, scholarships, enrollment, child, classes, credit]
+    concepts: [college, scholarships, tuition, enrollment, child]
+    related_chunks: ["articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c1", "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c4"]
     token_count: 495
   - id: "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c4"
     char_span: [9553, 11645]
     sentence_count: 11
     key_terms: [tuition, reimburse, etc, research, college, universities, "it's", jobs]
+    concepts: [tuition, reimburse, research, college, universities]
+    related_chunks: ["articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c2", "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c3"]
     token_count: 477
   - id: "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c5"
     char_span: [11648, 12228]
     sentence_count: 5
     key_terms: [schools, kids, employees, states, objective-kangaroo-7, free, give, freecollegenow]
+    concepts: [schools, employees, states]
     token_count: 132
 ---
 # If you can’t afford to pay for your child’s college education, read this.

@@ -19,29 +19,38 @@ chunks:
     char_span: [0, 1285]
     sentence_count: 12
     key_terms: [purdue, applyingtocollege, csu, debt, colorado, comments, graduate, probably]
+    concepts: [applyingtocollege, purdue, colorado, comments, graduate]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sconc8.md#c4"]
     token_count: 291
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sconc8/purdue_vs_colorado_state_computer_scienceis_the/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sconc8.md#c1"
     char_span: [1299, 3463]
     sentence_count: 33
     key_terms: [purdue, debt, "it's", kid, dadwhoknowsthings, "i'm", friends, school]
+    concepts: [purdue, dadwhoknowsthings, opportunities, friends, school]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sconc8.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sconc8.md#c2"
     char_span: [3208, 5471]
     sentence_count: 25
     key_terms: [software, developers, because, career, embrace, saying, school, needs]
+    concepts: [software, developers, because, career, embrace]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sconc8.md#c3"
     char_span: [5249, 5800]
     sentence_count: 3
     key_terms: [programs, school, conscious-secret-775, grad, cameramost1765, ifinallyjoinec, assitantships, thislittlefig]
+    concepts: [programs, school]
     section: Comments
     token_count: 146
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sconc8.md#c4"
     char_span: [5802, 7925]
     sentence_count: 19
     key_terms: [csu, school, purdue, since, get, grad, employees, colorado]
+    concepts: [school, purdue, since, employees, colorado]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sconc8.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1sconc8.md#c1"]
     section: Comments
     token_count: 509
 ---

@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 1140]
     sentence_count: 6
     key_terms: [align, program, neu, currently, comments, total, more-bandicoot8016, cost]
+    concepts: [align, program, currently, comments, total]
     token_count: 291
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1m9eqw3/thinking_of_joining_neu_cs_align_as_a_career/"}]
   - id: "social-intelligence/reddit-deep/neu/1m9eqw3.md#c1"
     char_span: [1142, 2391]
     sentence_count: 12
     key_terms: [opportunities, co-op, background, return, given, offer, terms, international]
+    concepts: [opportunities, background, co-op, return, given]
     token_count: 305
   - id: "social-intelligence/reddit-deep/neu/1m9eqw3.md#c2"
     char_span: [2405, 3844]
     sentence_count: 8
     key_terms: [northeastern, tech, seattle, boston, international, companies, students, because]
+    concepts: [northeastern, international, seattle, boston, companies]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/neu/1m9eqw3.md#c3"
     char_span: [3846, 4819]
     sentence_count: 11
     key_terms: [australia, discounts, campuses, frontsatisfaction152, more-bandicoot8016, tech, mealdifficult207, unfortunately]
+    concepts: [australia, discounts, campuses]
     section: Comments
     token_count: 246
 ---

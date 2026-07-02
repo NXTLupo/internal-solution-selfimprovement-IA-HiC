@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 2057]
     sentence_count: 16
     key_terms: [rates, credit, reimbursement, wealthfront, pretty, union, personalfinance, achieve]
+    concepts: [rates, credit, reimbursement, wealthfront, pretty]
     token_count: 467
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1mdzmsl/leaving_alliant_credit_union_thoughts_on_these/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1mdzmsl.md#c1"
-    char_span: [2072, 3909]
+    char_span: [2071, 3908]
     sentence_count: 14
     key_terms: [treasury, fund, using, bouncyegg, "it's", emergency, pedantic, likely]
+    concepts: [treasury, bouncyegg, using, emergency, pedantic]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/personalfinance/1mdzmsl.md#c2"
-    char_span: [3911, 5975]
+    char_span: [3910, 5974]
     sentence_count: 21
     key_terms: [alliant, checking, reimbursement, zelle, atm, been, "i've", yeah]
+    concepts: [alliant, checking, reimbursement, zelle, accounts]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1mdzmsl.md#c4"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/personalfinance/1mdzmsl.md#c3"
-    char_span: [5977, 6861]
+    char_span: [5976, 6860]
     sentence_count: 11
     key_terms: [alliant, branch, local, used, anymore, deposit, without, schwab]
+    concepts: [alliant, branch, local, anymore, deposit]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/personalfinance/1mdzmsl.md#c4"
-    char_span: [6863, 8687]
+    char_span: [6862, 8686]
     sentence_count: 19
     key_terms: [alliant, card, cash, schwab, zdub77, away, "it's", checking]
+    concepts: [alliant, schwab, zdub77, checking, offering]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1mdzmsl.md#c2"]
     section: Comments
     token_count: 476
 ---

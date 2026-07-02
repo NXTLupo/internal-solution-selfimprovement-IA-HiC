@@ -21,53 +21,65 @@ chunks:
     char_span: [0, 1725]
     sentence_count: 22
     key_terms: [productivity, notes, decision, fatigue, folder, etc, work, structure]
+    concepts: [productivity, notes, decision, fatigue, folder]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1rip1z8.md#c2"]
     token_count: 406
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1rip1z8/help_with_building_a_second_brain_in_obsidian_for/"}]
   - id: "social-intelligence/reddit-deep/productivity/1rip1z8.md#c1"
     char_span: [1739, 3703]
     sentence_count: 13
     key_terms: [using, time, adventurous-hunter98, obsidian, turquoiseblues, needs, notes, start]
+    concepts: [adventurous-hunter98, using, obsidian, turquoiseblues, needs]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/productivity/1rip1z8.md#c2"
     char_span: [3705, 5754]
     sentence_count: 31
     key_terms: [decision, system, stuck, fatigue, overwhelm, structure, friction, organise]
+    concepts: [decision, system, stuck, fatigue, overwhelm]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1rip1z8.md#c0"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/productivity/1rip1z8.md#c3"
     char_span: [5756, 7427]
     sentence_count: 26
     key_terms: [system, obsidian, perfect, need, templates, creates, called, delete]
+    concepts: [system, obsidian, perfect, templates, creates]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/productivity/1rip1z8.md#c4"
     char_span: [7430, 9323]
     sentence_count: 15
     key_terms: [focus, day, want, base, etc, time, calendar, b2e2a58648e1847440af472bebe0253665fa3e6f]
+    concepts: [focus, calendar, getting, review, areas]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/productivity/1rip1z8.md#c5"
     char_span: [9325, 11336]
     sentence_count: 11
     key_terms: [obsidian, yourself, mail, folders, appointments, "don't", newsletters, need]
+    concepts: [obsidian, yourself, folders, appointments, newsletters]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/productivity/1rip1z8.md#c6"
     char_span: [11338, 12866]
     sentence_count: 2
     key_terms: [using, bb1166b4d343726f3bbd7cf160137d1906179698, learned, gamechanger, work, categories, backlinks, obsidian]
+    concepts: [using, learned, gamechanger, categories, backlinks]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/productivity/1rip1z8.md#c7"
     char_span: [12868, 14168]
     sentence_count: 9
     key_terms: [v-1986, preview, format, https, width, auto, jpeg, pjpg]
+    concepts: [v-1986, preview, format, https, width]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/productivity/1rip1z8.md#c8"
     char_span: [14170, 14405]
     sentence_count: 4
     key_terms: [obsidian, connecting, everything, notebooklm, outdated, solution, reflect, brains]
+    concepts: [obsidian]
     section: Comments
     token_count: 51
 ---

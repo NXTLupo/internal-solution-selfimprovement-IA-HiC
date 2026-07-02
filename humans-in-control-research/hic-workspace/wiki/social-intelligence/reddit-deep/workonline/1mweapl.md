@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1670]
     sentence_count: 11
     key_terms: [pgmainstreet, com, job, legitimate, workonline, comments, process, warning]
+    concepts: [pgmainstreet, legitimate, workonline, comments, process]
     token_count: 386
+    sources: [{"n":"reddit-deep: r/workonline","u":"https://www.reddit.com/r/WorkOnline/comments/1mweapl/scam_pgmainstreetcom_data_entry_job/"}]
 ---
 # SCAM: pgmainstreet.com data entry job
 

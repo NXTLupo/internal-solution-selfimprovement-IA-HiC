@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1041]
     sentence_count: 6
     key_terms: [engineering, engineeringstudents, role, internship, mechanical, analytics, business, comments]
+    concepts: [engineering, engineeringstudents, internship, mechanical, analytics]
     token_count: 218
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rjx3a5/is_a_strategy_analytics_internship_worth_it/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rjx3a5.md#c1"
     char_span: [1055, 1502]
     sentence_count: 1
     key_terms: [related, supply, chain, engineering, experience, internship, leadership, advantage]
+    concepts: [related, supply, chain]
     section: Comments
     token_count: 99
 ---

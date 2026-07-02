@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1362]
     sentence_count: 8
     key_terms: [beginner, frontend, program, boston, fall, on-campus, comments, current]
+    concepts: [beginner, frontend, program, boston, on-campus]
     token_count: 330
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1t1jbbn/khoury_mscs_boston_beginner_with_1yr_frontend_exp/"}]
   - id: "social-intelligence/reddit-deep/neu/1t1jbbn.md#c1"
     char_span: [1376, 1723]
     sentence_count: 1
     key_terms: [hard, concepts, theinhumaneme, worldexecute, incredibly, attention, consuming, on-campus]
+    concepts: [concepts]
     section: Comments
     token_count: 87
 ---

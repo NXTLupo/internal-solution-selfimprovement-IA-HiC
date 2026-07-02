@@ -20,22 +20,26 @@ chunks:
     char_span: [0, 2028]
     sentence_count: 12
     key_terms: [cold, like, firm, sales, been, comments, calling, capital]
+    concepts: [sales, comments, calling, capital, getting]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1s9khtv/canada_b2c_investment_sales_whats_working_for_you/"}]
   - id: "social-intelligence/reddit-deep/sales/1s9khtv.md#c1"
     char_span: [2030, 2463]
     sentence_count: 1
     key_terms: [like, manually, parallel, calling, curious, dialler, feeling, granted]
     token_count: 106
   - id: "social-intelligence/reddit-deep/sales/1s9khtv.md#c2"
-    char_span: [2478, 4742]
+    char_span: [2477, 4741]
     sentence_count: 5
     key_terms: [cold, people, firm, company, get, accredited, investors, something]
+    concepts: [people, company, accredited, investors, something]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/sales/1s9khtv.md#c3"
-    char_span: [4744, 6125]
+    char_span: [4743, 6124]
     sentence_count: 3
     key_terms: [like, linkedin, working, canada, calls, deals, never, back]
+    concepts: [linkedin, working, canada, calls, deals]
     section: Comments
     token_count: 321
 ---

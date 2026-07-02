@@ -20,15 +20,18 @@ chunks:
     char_span: [0, 2108]
     sentence_count: 15
     key_terms: [translating, manual, fulfillmentbyamazon, instructions, use, completely, defective, comments]
+    concepts: [fulfillmentbyamazon, translating, manual, instructions, completely]
     token_count: 450
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1renido/the_hidden_cost_of_cheap_ai_translations_for_eu/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1renido.md#c1"
-    char_span: [2123, 4416]
+    char_span: [2122, 4415]
     sentence_count: 9
     key_terms: [translator, fulfillmentbyamazon, technical, discord, check, supplements, terminology, translation]
+    concepts: [fulfillmentbyamazon, translator, technical, discord, supplements]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1renido.md#c2"
-    char_span: [4418, 4638]
+    char_span: [4417, 4637]
     sentence_count: 4
     key_terms: [instruction, translating, experience, thousands, speaking, hundred, premium, happen]
     section: Comments

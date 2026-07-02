@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1322]
     sentence_count: 11
     key_terms: [careerguidance, adaptability, "i'm", like, education, genuinely, comments, learning]
+    concepts: [careerguidance, adaptability, education, genuinely, comments]
     token_count: 278
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1lw8j8p/what_skills_do_you_think_are_truly_futureproofed/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1lw8j8p.md#c1"
     char_span: [1336, 3468]
     sentence_count: 18
     key_terms: [writing, skills, social, communicate, tech, meaningful, positions, problems]
+    concepts: [writing, skills, social, communicate, meaningful]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/careerguidance/1lw8j8p.md#c2"
     char_span: [3470, 5403]
     sentence_count: 12
     key_terms: [project, something, communication, competitive-cheek677, world, good, time, everything]
+    concepts: [project, something, communication, competitive-cheek677, everything]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/careerguidance/1lw8j8p.md#c3"
     char_span: [5405, 7022]
     sentence_count: 14
     key_terms: [people, future, therapist, skills, anything, industry, country, nursing]
+    concepts: [people, future, therapist, skills, anything]
     section: Comments
     token_count: 386
 ---

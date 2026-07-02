@@ -19,40 +19,48 @@ chunks:
     char_span: [0, 1076]
     sentence_count: 10
     key_terms: [cscareerquestions, comments, infantry, straight, school, going, loved, transitioned]
+    concepts: [cscareerquestions, comments, infantry, straight, school]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rmxnlx/i_really_dont_know_what_to_do_anymore/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmxnlx.md#c1"
     char_span: [1078, 2412]
     sentence_count: 13
     key_terms: [nothing, "i've", genuinely, something, thousands, "don't", been, code]
+    concepts: [nothing, genuinely, something, thousands, "don't"]
     token_count: 295
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmxnlx.md#c2"
     char_span: [2426, 4539]
     sentence_count: 16
     key_terms: [benefits, payments, like, eligible, deserve, always, degree, cantgrowneckbeardama]
+    concepts: [benefits, payments, eligible, deserve, always]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmxnlx.md#c3"
     char_span: [4541, 6032]
     sentence_count: 17
     key_terms: [people, school, internships, honestly, masters, apply, class, according-emu-8721]
+    concepts: [people, school, internships, honestly, masters]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmxnlx.md#c4"
     char_span: [6034, 7081]
     sentence_count: 11
     key_terms: [started, school, enjoy, got, went, contractors, development, educational]
+    concepts: [started, school, enjoy]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmxnlx.md#c5"
     char_span: [7083, 9147]
     sentence_count: 17
     key_terms: [keywords, resume, etc, like, linkedin, people, blog, here]
+    concepts: [keywords, resume, linkedin, people, interested]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmxnlx.md#c6"
     char_span: [9149, 9993]
     sentence_count: 6
     key_terms: [get, level, cert, professional, unemployment, anonymized, confidence, experience]
+    concepts: [level]
     section: Comments
     token_count: 195
 ---

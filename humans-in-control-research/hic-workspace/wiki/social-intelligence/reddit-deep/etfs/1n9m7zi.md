@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1351]
     sentence_count: 11
     key_terms: [individual, etfs, "i'm", doing, been, buy, roth, consistent]
+    concepts: [individual, consistent, doing, positions, comments]
     token_count: 313
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1n9m7zi/is_there_even_a_point/"}]
   - id: "social-intelligence/reddit-deep/etfs/1n9m7zi.md#c1"
-    char_span: [1366, 3369]
+    char_span: [1365, 3368]
     sentence_count: 12
     key_terms: [market, individual, money, account, stocks, "it's", accounts, specific]
+    concepts: [market, individual, money, account, stocks]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1n9m7zi.md#c3"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/etfs/1n9m7zi.md#c2"
-    char_span: [3371, 5324]
+    char_span: [3370, 5323]
     sentence_count: 17
     key_terms: [voo, shares, etfcentral, "it's", comment, reddit, stocks, https]
+    concepts: [etfcentral, shares, comment, reddit, stocks]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/etfs/1n9m7zi.md#c3"
-    char_span: [5327, 5784]
+    char_span: [5326, 5783]
     sentence_count: 2
     key_terms: [okacanthisitta8336, stocks, money, everything, hedgemoney, individual, "shouldn't", fidelity]
+    concepts: [okacanthisitta8336, stocks, money]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1n9m7zi.md#c1"]
     section: Comments
     token_count: 135
 ---

@@ -21,46 +21,57 @@ chunks:
     char_span: [0, 2380]
     sentence_count: 16
     key_terms: [been, student, several, given, askacademia, phd, supervisor, university]
+    concepts: [student, several, askacademia, given, supervisor]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1tnebap/cutting_ties_with_former_phd_supervisor/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c1"
     char_span: [2382, 2897]
     sentence_count: 4
     key_terms: [interested, colleague, email, feel, appreciated, situations, supervisor, academic]
+    concepts: [interested, colleague, email]
     token_count: 112
   - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c2"
     char_span: [2911, 3844]
     sentence_count: 10
     key_terms: [decline, direct, having, opposite-bonus-1413, plate, right, "it's", like]
+    concepts: [decline, direct, having, plate, right]
     section: Comments
     token_count: 256
   - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c3"
     char_span: [3846, 5951]
     sentence_count: 16
     key_terms: [advisor, external, letter, reason, comfortable, candidate, colleague, situation]
+    concepts: [advisor, external, letter, reason, comfortable]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c4"
     char_span: [5953, 7953]
     sentence_count: 6
     key_terms: [work, authorship, icmje, defining-the-role-of-authors-and-contributors, following, roles-and-responsibilities, criteria, students]
+    concepts: [authorship, icmje, following, criteria, students]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1tnebap.md#c5"]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c5"
     char_span: [7955, 10014]
     sentence_count: 5
     key_terms: [authorship, contributions, general, acquisition, criteria, editing, administrative, investigators]
+    concepts: [authorship, contributions, acquisition, general, criteria]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1tnebap.md#c4"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c6"
     char_span: [10016, 10902]
     sentence_count: 6
     key_terms: [authorship, supervisor, research, "don't", grant, oldengoldentree, administrative, departmental]
+    concepts: [authorship, supervisor, research, "don't", grant]
     section: Comments
     token_count: 184
   - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c7"
     char_span: [10904, 12499]
     sentence_count: 9
     key_terms: ["it's", supervisor, others, phd, required, because, author, common]
+    concepts: [supervisor, others, required, because, author]
     section: Comments
     token_count: 349
 ---

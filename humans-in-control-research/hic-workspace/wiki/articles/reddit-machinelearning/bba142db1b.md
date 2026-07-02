@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1757]
     sentence_count: 8
     key_terms: [neuralos, com, traditional, generative, entirely, machinelearning, fully, yuntiandeng]
+    concepts: [neuralos, traditional, generative, machinelearning, entirely]
     token_count: 400
+    sources: [{"n":"reddit: MachineLearning","u":"https://reddit.com/r/MachineLearning/comments/1m3v7ll/r_neuralos_a_generative_os_entirely_powered_by/"}]
 ---
 # [R] NeuralOS: a generative OS entirely powered by neural networks
 

@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1398]
     sentence_count: 24
     key_terms: [build, app, artificial, comments, computer, behind, custom, months]
+    concepts: [build, artificial, comments, computer, behind]
     token_count: 349
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1sozcus/ai_helped_me_build_a_custom_pc_and_4_apps_in_6/"}]
   - id: "social-intelligence/reddit-deep/artificial/1sozcus.md#c1"
     char_span: [1412, 3455]
     sentence_count: 23
     key_terms: ["it's", work, making, "can't", security, another, mistake, crunchygremlin]
+    concepts: [making, "can't", security, crunchygremlin, another]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/artificial/1sozcus.md#c2"
     char_span: [3459, 5697]
     sentence_count: 7
     key_terms: [build, like, start, help, automating, everything, building, changing]
+    concepts: [build, automating, everything, start, building]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/artificial/1sozcus.md#c3"
     char_span: [5702, 6272]
     sentence_count: 6
     key_terms: [inventory, nothing, tracker, fancy, app, part, experience, breakdown]
+    concepts: [inventory, nothing, tracker, fancy]
     section: Comments
     token_count: 131
 ---

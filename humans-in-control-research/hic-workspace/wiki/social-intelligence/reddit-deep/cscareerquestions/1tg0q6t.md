@@ -19,22 +19,30 @@ chunks:
     char_span: [0, 1799]
     sentence_count: 14
     key_terms: ["i've", cscareerquestions, unfortunately, verification, enjoy, engineering, programming, comments]
+    concepts: [cscareerquestions, unfortunately, verification, engineering, programming]
     token_count: 384
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tg0q6t/cs_career_path_advice_software_systems_engineering/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tg0q6t.md#c1"
     char_span: [1801, 2903]
     sentence_count: 12
     key_terms: [semester, systems, career, distributed, "i'm", compilers, school, seems]
+    concepts: [semester, systems, career, distributed, compilers]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tg0q6t.md#c3"]
     token_count: 236
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tg0q6t.md#c2"
     char_span: [2917, 3454]
     sentence_count: 1
     key_terms: [engineering, systems, formal, good, wild-ganache3061, infrastructure, verification, distributed]
+    concepts: [engineering, systems, formal]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tg0q6t.md#c3"]
     section: Comments
     token_count: 100
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tg0q6t.md#c3"
     char_span: [3459, 5541]
     sentence_count: 8
     key_terms: [systems, distributed, like, infrastructure, cloud, engineering, jobs, want]
+    concepts: [systems, distributed, infrastructure, engineering, cloud]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tg0q6t.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1tg0q6t.md#c2"]
     section: Comments
     token_count: 478
 ---

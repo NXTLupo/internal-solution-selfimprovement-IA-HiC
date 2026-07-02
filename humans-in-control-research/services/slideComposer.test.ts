@@ -47,9 +47,10 @@ describe('slideComposer (registry-driven, Method A)', () => {
         expect(composeSlide('does-not-exist', {}, 'nxt')).toBeNull();
     });
 
-    it('registers all 15 SLIDES archetypes', () => {
+    it('registers all 16 SLIDES archetypes (infographic-exhibit added 2026-07-02)', () => {
         expect(archetypeKeys().sort()).toEqual([
-            'agenda', 'aggregate-roadmap', 'block-quote', 'cover', 'evidence-table', 'numbered-themes',
+            'agenda', 'aggregate-roadmap', 'block-quote', 'cover', 'evidence-table',
+            'infographic-exhibit', 'numbered-themes',
             'org-model', 'problem-diptych', 'role-needs', 'role-recommendation', 'role-roadmap',
             'scene', 'section-divider', 'stat-row', 'thesis-interstitial',
         ]);
@@ -71,6 +72,7 @@ describe('slideComposer (registry-driven, Method A)', () => {
         'role-needs': { eyebrow: 'ADVANCEMENT · ANALYST', title: 'The analyst is the bottleneck', role: 'Analyst', challenges: [{ numeral: '01', heading: 'Context loss', body: 'Handoffs drop nuance.' }, { numeral: '02', heading: 'Tool sprawl', body: 'Five interfaces.' }, { numeral: '03', heading: 'Slow synthesis', body: 'Manual clustering.' }], persona: { needsLabel: 'PERSONA NEEDS', name: 'Mid-career analyst', needs: [{ kind: 'EXPERIENCE', body: 'One surface.' }, { kind: 'FUNCTIONAL', body: 'Searchable corpus.' }, { kind: 'PERSONAL', body: 'Credit for rigor.' }] } },
         'role-recommendation': { eyebrow: 'STRATEGIC RECOMMENDATION · ANALYST', title: 'Collapse the toolchain', role: 'Analyst', thesis: 'One workflow beats five tools.', actions: [{ numeral: '01', heading: 'Unify intake', body: 'Single ingest.' }, { numeral: '02', heading: 'Shared corpus', body: 'One source of truth.' }, { numeral: '03', heading: 'Composed output', body: 'Registry-driven.' }], impact: [{ label: 'REVENUE', headline: 'Faster cycles', body: 'More engagements.' }, { label: 'C-SAT', headline: 'Higher trust', body: 'Defensible decks.' }, { label: 'SERVICE NEEDS', headline: 'Less rework', body: 'No re-keying.' }] },
         'role-roadmap': { eyebrow: 'ROADMAP · ANALYST', title: 'Six months to one workflow', role: 'Analyst', phases: [{ label: 'PHASE 01 · MONTHS 1-2', name: 'Foundation', items: ['Ingest', 'Corpus'] }, { label: 'PHASE 02 · MONTHS 3-4', name: 'Synthesis', items: ['Themes', 'Evidence'] }, { label: 'PHASE 03 · MONTHS 5', name: 'Compose', items: ['Registry', 'Slides'] }, { label: 'PHASE 04 · MONTH 6', name: 'Launch', items: ['Ship', 'Measure'] }] },
+        'infographic-exhibit': { kicker: 'RISK PRIORITIZATION', title: 'Five moves take a farm from static plan to living coverage', exhibitImage: 'data:image/png;base64,AAAA', takeaway: { label: 'PATTERN', statement: 'The plan survives because review cadence is built into the product.' }, sourceLine: 'Source: client discussion notes' },
         'aggregate-roadmap': { eyebrow: 'PROGRAM ROADMAP', title: 'Every role on one timeline', horizons: ['FOUNDATION', 'ENGAGE', 'OPTIMIZE', 'LAUNCH · 2028'], roles: [{ name: 'Analysts', cells: ['Ingest', 'Cluster', 'Compose', 'Ship'] }, { name: 'Strategists', cells: ['Frame', 'Draft', 'Refine', 'Present'] }, { name: 'Ops', cells: ['Wire', 'Monitor', 'Tune', 'Scale'] }] },
     };
 

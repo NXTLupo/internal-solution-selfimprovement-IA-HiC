@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2157]
     sentence_count: 16
     key_terms: [technical, engineeringstudents, project, career, engineering, path, management, comments]
+    concepts: [technical, engineeringstudents, project, career, engineering]
     token_count: 455
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1m18sep/career_advice_engineering_student_in_it_feeling/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1m18sep.md#c1"
     char_span: [2159, 2538]
     sentence_count: 7
     key_terms: [takes, time, experiences, management, seriously, switching, technical, honestly]
+    concepts: [takes]
     token_count: 83
   - id: "social-intelligence/reddit-deep/engineeringstudents/1m18sep.md#c2"
     char_span: [2552, 3546]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    concepts: [engineeringstudents, please, reddit, https, automoderator]
     section: Comments
     token_count: 225
 ---

@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 2105]
     sentence_count: 16
     key_terms: [back, colombia, already, digitalnomad, being, kinda, come, days]
+    concepts: [colombia, already, digitalnomad, being, kinda]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1s8tst3.md#c1"]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1s8tst3/illegal_exit_colombia/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1s8tst3.md#c1"
     char_span: [2107, 3906]
     sentence_count: 12
     key_terms: [fine, colombia, problem, digitalnomad, days, trailtwist, scheduled, surgeries]
+    concepts: [colombia, problem, digitalnomad, trailtwist, scheduled]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1s8tst3.md#c0"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/digitalnomad/1s8tst3.md#c2"
     char_span: [3908, 5726]
     sentence_count: 11
     key_terms: [passport, fine, visa, immigration, overstaying, days, exemptions, illegally]
+    concepts: [passport, immigration, overstaying, exemptions, illegally]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/digitalnomad/1s8tst3.md#c3"
     char_span: [5728, 7627]
     sentence_count: 13
     key_terms: [immigration, being, "it's", because, actual, freaky, papaya, paying]
+    concepts: [immigration, being, because, actual, freaky]
     section: Comments
     token_count: 466
 ---

@@ -21,53 +21,63 @@ chunks:
     char_span: [0, 890]
     sentence_count: 8
     key_terms: [careerguidance, "i'm", job, currently, comments, salary, able, high]
+    concepts: [careerguidance, currently, comments, salary]
     token_count: 219
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rzpilq/how_were_you_able_to_land_a_high_salary_job_of/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rzpilq.md#c1"
     char_span: [904, 2897]
     sentence_count: 16
     key_terms: [employer, others, people, work, skills, skill, want, experience]
+    concepts: [employer, others, people, skills, experience]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/careerguidance/1rzpilq.md#c2"
     char_span: [2899, 5131]
     sentence_count: 17
     key_terms: [management, data, education, project, years, been, jobs, scientists]
+    concepts: [management, education, project, scientists, years]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/careerguidance/1rzpilq.md#c3"
     char_span: [5133, 7098]
     sentence_count: 23
     key_terms: [ask, making, don, job, experience, decision, company, started]
+    concepts: [making, experience, decision, company, started]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/careerguidance/1rzpilq.md#c4"
     char_span: [7100, 8091]
     sentence_count: 7
     key_terms: [personality, job, personable, coworkers, people, year, significantly, articulate]
+    concepts: [personality, personable, coworkers, people]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/careerguidance/1rzpilq.md#c5"
     char_span: [8093, 9661]
     sentence_count: 8
     key_terms: [everyone, replaceable, purchasing, been, keep, move, potential-ad1139, parkinglog7354]
+    concepts: [everyone, replaceable, purchasing]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/careerguidance/1rzpilq.md#c6"
     char_span: [9663, 11415]
     sentence_count: 9
     key_terms: [work, mulattocutie, sales, start, people, right, job, somewhere]
+    concepts: [mulattocutie, sales, start, people, right]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rzpilq.md#c7"
     char_span: [11156, 12106]
     sentence_count: 5
     key_terms: [nonprofit, degrees, postgraduate, job, because, giving, months, raise]
+    concepts: [nonprofit, degrees, postgraduate, because, giving]
     section: Comments
     token_count: 233
   - id: "social-intelligence/reddit-deep/careerguidance/1rzpilq.md#c8"
     char_span: [12108, 12502]
     sentence_count: 2
     key_terms: [nonprofit, pay, mulattocutie, programmatic, fundraising, background, for-profit, operations]
+    concepts: [nonprofit]
     section: Comments
     token_count: 99
 ---

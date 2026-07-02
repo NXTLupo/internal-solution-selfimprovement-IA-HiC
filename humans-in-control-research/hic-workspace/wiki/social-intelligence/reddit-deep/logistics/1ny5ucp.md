@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 1780]
     sentence_count: 14
     key_terms: [software, custom, significant, "it's", technology, advantage, customize, logistics]
+    concepts: [software, custom, significant, technology, advantage]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1ny5ucp.md#c4"]
     token_count: 393
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1ny5ucp/buying_and_building_custom/"}]
   - id: "social-intelligence/reddit-deep/logistics/1ny5ucp.md#c1"
-    char_span: [1795, 3899]
+    char_span: [1794, 3898]
     sentence_count: 18
     key_terms: [small, wms, medium, been, big, something, already, better]
+    concepts: [small, medium, something, already, better]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/logistics/1ny5ucp.md#c2"
-    char_span: [3901, 5924]
+    char_span: [3900, 5923]
     sentence_count: 15
     key_terms: [software, company, parent, years, building, industry, players, become]
+    concepts: [software, company, parent, years, building]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/logistics/1ny5ucp.md#c3"
-    char_span: [5928, 8113]
+    char_span: [5927, 8112]
     sentence_count: 18
     key_terms: [small, software, built, development, operations, companies, business, "doesn't"]
+    concepts: [small, software, development, built, operations]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/logistics/1ny5ucp.md#c4"
-    char_span: [8115, 10311]
+    char_span: [8114, 10310]
     sentence_count: 16
     key_terms: [custom, build, software, without, new, technology, logistics, reporting]
+    concepts: [custom, build, software, without, technology]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1ny5ucp.md#c0"]
     section: Comments
     token_count: 489
 ---

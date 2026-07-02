@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1682]
     sentence_count: 7
     key_terms: [gold, unemployment, dollar, government, anticipation, low, rate, rise]
+    concepts: [unemployment, government, dollar, anticipation, investing]
     token_count: 378
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1nnd9am/why_gold_is_about_to_take_a_stton_of_power_from/"},{"n":"Interesting video from Bravos Research https://www.youtube.com/watch?v=H_D5geZvf","u":""}]
   - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c1"
     char_span: [1696, 3872]
     sentence_count: 10
     key_terms: [money, "it's", since, printing, been, gfc, gold, price]
+    concepts: [money, printing, since, conclusions, covid--but]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c2"
@@ -38,30 +41,35 @@ chunks:
     char_span: [4121, 6052]
     sentence_count: 17
     key_terms: [dollars, gold, "it's", especially, hamburger, against, earning, nothing]
+    concepts: [dollars, especially, hamburger, against, earning]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c4"
     char_span: [5789, 6704]
     sentence_count: 6
     key_terms: [hyperinflation, inflation, dollars, like, phoenixpolaris, yeahbuddy5000, particularly, absolutely]
+    concepts: [hyperinflation, inflation, dollars]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c5"
     char_span: [6706, 7913]
     sentence_count: 6
     key_terms: [morgan-stanley-cio-favors-602020-portfolio-strategy-with-gold-inflation-hedge-2025-09-16, gold, inflation, markets, options, reuters, wealth, sillyalternative420]
+    concepts: [morgan-stanley-cio-favors-602020-portfolio-strategy-with-gold-inflation-hedge-2025-09-16, inflation, markets, options, reuters]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c6"
     char_span: [7915, 9806]
     sentence_count: 14
     key_terms: [gold, investment, inflation, value, price, speculation, considered, definition]
+    concepts: [investment, inflation, value, price, speculation]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c7"
     char_span: [9808, 10652]
     sentence_count: 7
     key_terms: [debt, assets, gold, hard, like, governments, substantial, conditions]
+    concepts: [assets]
     section: Comments
     token_count: 183
 ---

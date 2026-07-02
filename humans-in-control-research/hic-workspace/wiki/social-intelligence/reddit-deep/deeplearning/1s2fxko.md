@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1572]
     sentence_count: 13
     key_terms: [prompt, autoprompter, optimization, github, autoresearch, deeplearning, https, com]
+    concepts: [prompt, autoprompter, optimization, autoresearch, deeplearning]
     token_count: 320
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1s2fxko/promptfoo_autoresearch_autoprompter_autonomous/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1s2fxko.md#c1"
     char_span: [1586, 1989]
     sentence_count: 1
     key_terms: [synthetic, seeingwhatworks, distributions, autoresearch, optimization, bonniew1554, closed-loop, overfitting]
+    concepts: [synthetic]
     section: Comments
     token_count: 88
 ---

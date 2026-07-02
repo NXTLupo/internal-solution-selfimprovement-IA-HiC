@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 972]
     sentence_count: 5
     key_terms: [business, bcomm, bmgmt, long-term, comments, hiring, jobs, opportunities]
+    concepts: [business, bcomm, bmgmt, long-term, comments]
     token_count: 222
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1p8o7zo/careerrecruiting_question_bmgmt_vs_bcomm_for/"}]
 ---
 # Career/recruiting question: BMGMT vs BComm for long-term job options & US opportunities?
 

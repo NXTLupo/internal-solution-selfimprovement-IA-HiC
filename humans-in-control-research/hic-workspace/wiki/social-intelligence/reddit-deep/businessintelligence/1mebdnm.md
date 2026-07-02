@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 1989]
     sentence_count: 12
     key_terms: [department, manufacturing, months, businessintelligence, time, together, process, excel]
+    concepts: [department, manufacturing, businessintelligence, months, together]
     token_count: 422
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1mebdnm/from_aerospace_engineer_grad_to_data_analytics/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1mebdnm.md#c1"
     char_span: [1991, 4116]
     sentence_count: 15
     key_terms: [data, engineering, tools, python, cheap, open-source, lot, processing]
+    concepts: [engineering, tools, python, open-source, cheap]
     token_count: 461
   - id: "social-intelligence/reddit-deep/businessintelligence/1mebdnm.md#c2"
     char_span: [4118, 6462]
     sentence_count: 15
     key_terms: [industry, data, dashboards, understand, analytics, down, time, solutions]
+    concepts: [industry, dashboards, understand, analytics, solutions]
     token_count: 505
   - id: "social-intelligence/reddit-deep/businessintelligence/1mebdnm.md#c3"
     char_span: [6464, 6520]
@@ -37,15 +41,17 @@ chunks:
     key_terms: [questions, reading, welcome, thanks, along, lot]
     token_count: 12
   - id: "social-intelligence/reddit-deep/businessintelligence/1mebdnm.md#c4"
-    char_span: [6535, 8596]
+    char_span: [6534, 8595]
     sentence_count: 16
     key_terms: [something, industry, product, business-model-tree-michael-zadrave, thanks, like, zadrominus, building]
+    concepts: [something, industry, product, thanks, zadrominus]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/businessintelligence/1mebdnm.md#c5"
-    char_span: [8598, 9002]
+    char_span: [8597, 9001]
     sentence_count: 2
     key_terms: [moist-ad-4557, accessible, interested, processing, eliminate, catstats, headless, honesty]
+    concepts: [moist-ad-4557]
     section: Comments
     token_count: 128
 ---

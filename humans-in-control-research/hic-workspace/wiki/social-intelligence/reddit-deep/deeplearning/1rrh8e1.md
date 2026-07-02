@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 2236]
     sentence_count: 6
     key_terms: [agent, observability, complex, handling, across, architecture, deeplearning, interaction]
+    concepts: [observability, agent, complex, handling, architecture]
     token_count: 474
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1rrh8e1/architecture_discussion_observability_guardrail/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1rrh8e1.md#c1"
     char_span: [2250, 4434]
     sentence_count: 14
     key_terms: [agent, non-deterministic, nested, layer, model, neo4j, concurrency, multi-agent]
+    concepts: [non-deterministic, agent, nested, concurrency, multi-agent]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/deeplearning/1rrh8e1.md#c2"
     char_span: [4436, 5453]
     sentence_count: 7
     key_terms: [latency, real-time, scanning, inline, strict, level, makes, proxy]
+    concepts: [latency, real-time, scanning, inline, strict]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/deeplearning/1rrh8e1.md#c3"
     char_span: [5455, 7835]
     sentence_count: 10
     key_terms: [layer, api, embedding, latency, observability, horizontally, async, graph]
+    concepts: [layer, embedding, observability, latency, horizontally]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/deeplearning/1rrh8e1.md#c4"
     char_span: [7535, 8221]
     sentence_count: 5
     key_terms: [especially, embedding, guard, api, pii, non-negotiable, architectural, retroactively]
+    concepts: [especially, embedding, guard]
     section: Comments
     token_count: 145
 ---

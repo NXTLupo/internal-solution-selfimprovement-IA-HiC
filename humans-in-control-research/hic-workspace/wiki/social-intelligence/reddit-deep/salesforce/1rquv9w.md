@@ -20,9 +20,11 @@ chunks:
     char_span: [0, 1140]
     sentence_count: 7
     key_terms: [experience, salesforce, dark, mode, cloud, implemented, comments, anyone]
+    concepts: [experience, salesforce, implemented, cloud, comments]
     token_count: 246
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1rquv9w/is_true_dark_mode_possible_in_salesforce/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1rquv9w.md#c1"
-    char_span: [1155, 1665]
+    char_span: [1154, 1664]
     sentence_count: 3
     key_terms: [dark, mode, altruistic-trash6122, components, experience, mrdanmarks, salesforce, computer]
     section: Comments

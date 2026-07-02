@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 2148]
     sentence_count: 6
     key_terms: [model, known-origin, reference, organisms, residual, machinelearning, layers, method]
+    concepts: [model, known-origin, reference, organisms, machinelearning]
     token_count: 500
+    sources: [{"n":"Reddit Deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1sdieuq/r_reference_model_free_behavioral_discovery_of/"}]
   - id: "articles/reddit-deep-r-machinelearning/6b33ca4bff.md#c1"
     char_span: [2150, 4325]
     sentence_count: 2
     key_terms: [reference-free-behavioral-discovery, topics, model, bmarti44, rip-it-out-by-the-roots, https, com, rlhf]
+    concepts: [reference-free-behavioral-discovery, topics, rip-it-out-by-the-roots, bmarti44, model]
     token_count: 497
   - id: "articles/reddit-deep-r-machinelearning/6b33ca4bff.md#c2"
     char_span: [4327, 5580]
     sentence_count: 1
     key_terms: [layer, behaviors, different, something, auditing, behavior, planted, "lora's"]
+    concepts: [layer, behaviors, different, something, auditing]
     token_count: 249
 ---
 # [R] Reference model free behavioral discovery of AudiBench model organisms via Probe-Mediated Adaptive Auditing

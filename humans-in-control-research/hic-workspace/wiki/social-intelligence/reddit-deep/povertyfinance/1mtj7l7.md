@@ -21,40 +21,53 @@ chunks:
     char_span: [0, 2175]
     sentence_count: 22
     key_terms: [never, because, povertyfinance, bought, paid, poor, too, comments]
+    concepts: [never, povertyfinance, because, bought, comments]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c4"]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1mtj7l7/my_ex_grew_up_in_a_well_off_family_but_was_poor/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c1"
     char_span: [2177, 3291]
     sentence_count: 12
     key_terms: [struggling, people, rent, groceries, someone, going, like, pay]
+    concepts: [struggling, people, groceries, someone, going]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c16", "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c17"]
     token_count: 243
   - id: "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c2"
     char_span: [3305, 5492]
     sentence_count: 15
     key_terms: [get, hard, parents, money, ghosststorm, grow, "it's", like]
+    concepts: [parents, ghosststorm, money, financial, whatever]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c3"
     char_span: [5494, 7675]
     sentence_count: 21
     key_terms: [food, got, like, mom, because, parents, credit, "didn't"]
+    concepts: [because, parents, credit, "didn't", disability]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c4"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c4"
     char_span: [7678, 9740]
     sentence_count: 19
     key_terms: [never, credit, bil, everything, dopamine, because, parents, better]
+    concepts: [never, credit, everything, dopamine, because]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c0", "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c3"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c5"
     char_span: [9742, 11856]
     sentence_count: 21
     key_terms: [adhd, did, like, streaming, problems, services, together, alcohol]
+    concepts: [streaming, problems, services, together, alcohol]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c6"
     char_span: [11560, 12422]
     sentence_count: 6
     key_terms: [matter, people, smoked, "wasn't", historical-kick-9126, maybe, relationship, unannounced]
+    concepts: [matter, people, smoked, "wasn't", maybe]
     section: Comments
     token_count: 205
   - id: "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c7"
@@ -67,6 +80,8 @@ chunks:
     char_span: [12618, 14584]
     sentence_count: 11
     key_terms: [streaming, smoked, pay, weed, odorless, probably, services, versions]
+    concepts: [streaming, smoked, odorless, probably, services]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c9"
@@ -79,60 +94,72 @@ chunks:
     char_span: [14655, 16781]
     sentence_count: 23
     key_terms: [like, through, immigrants, "don't", convenience, buy, american, savings]
+    concepts: [through, immigrants, convenience, "don't", american]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c11"
     char_span: [16783, 18814]
     sentence_count: 12
     key_terms: [like, people, broke, money, years, astonishing, immigrants, together]
+    concepts: [people, astonishing, broke, immigrants, money]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c12"
     char_span: [18816, 20116]
     sentence_count: 6
     key_terms: [people, poor, class, middle, upper, "don't", laziness, spending]
+    concepts: [people, class, middle, upper, "don't"]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c13"
     char_span: [20118, 21841]
     sentence_count: 11
     key_terms: [money, sometimes, poverty, family, payday, people, class, loans]
+    concepts: [money, sometimes, poverty, family, payday]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c14"
     char_span: [21843, 24048]
     sentence_count: 16
     key_terms: [lottery, money, mil, poor, expensive, educated, thinking, tickets]
+    concepts: [lottery, money, expensive, educated, thinking]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c15"
     char_span: [24050, 26189]
     sentence_count: 16
     key_terms: [situation, poor, people, find, lottery, family, social, trying]
+    concepts: [situation, people, lottery, family, social]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c16"
     char_span: [26191, 27359]
     sentence_count: 13
     key_terms: [people, struggling, thinking, person, years, don, hard, like]
+    concepts: [people, struggling, thinking, person, years]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c1", "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c17"]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c17"
     char_span: [27361, 29545]
     sentence_count: 16
     key_terms: [struggling, people, drowning, poor, financially, like, time, choices]
+    concepts: [struggling, people, drowning, financially, choices]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c1", "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c16"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c18"
     char_span: [29278, 31362]
     sentence_count: 21
     key_terms: [eaten, like, middle-class, poor, paycheck, parents, gratification-delaying, paying]
+    concepts: [eaten, middle-class, paycheck, parents, paying]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1mtj7l7.md#c19"
     char_span: [31140, 31550]
     sentence_count: 5
     key_terms: [real, gratification-delaying, people, gamingthreadlurker, gullible-map-9731, life, interesting, commitment]
+    concepts: [people]
     section: Comments
     token_count: 105
 ---

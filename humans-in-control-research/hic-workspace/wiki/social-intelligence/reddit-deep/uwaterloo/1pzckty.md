@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 632]
     sentence_count: 4
     key_terms: [waterloo, student, experience, something, uwaterloo, comments, "what's", reddit-deep]
+    concepts: [waterloo, student, experience, something, uwaterloo]
     token_count: 153
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1pzckty/whats_something_you_wished_to_experience_more_as/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1pzckty.md#c1"
     char_span: [646, 2392]
     sentence_count: 15
     key_terms: [equipment, club, outside, people, grandparents, back, thetermguy, athletics]
+    concepts: [equipment, outside, grandparents, people, thetermguy]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/uwaterloo/1pzckty.md#c2"
     char_span: [2394, 3093]
     sentence_count: 5
     key_terms: [policy, club, gun, university, shooting, special, around, clubs]
+    concepts: [policy, university, shooting, special, around]
     section: Comments
     token_count: 168
 ---

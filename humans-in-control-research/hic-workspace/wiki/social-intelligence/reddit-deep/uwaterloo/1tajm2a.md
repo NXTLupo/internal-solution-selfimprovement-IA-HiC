@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1775]
     sentence_count: 14
     key_terms: [uwaterloo, co-op, waterlooworks, "don't", fees, jobs, pay, comments]
+    concepts: [uwaterloo, waterlooworks, co-op, "don't", comments]
     token_count: 440
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1tajm2a/waterlooworks_is_more_cooked_than_ever_before/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1tajm2a.md#c1"
     char_span: [1789, 3503]
     sentence_count: 4
     key_terms: [students, job, school, delicious-site-2855, potential-drag9761, jobs, anime2221, mentioned]
+    concepts: [students, delicious-site-2855, potential-drag9761, school, anime2221]
     section: Comments
     token_count: 446
 ---

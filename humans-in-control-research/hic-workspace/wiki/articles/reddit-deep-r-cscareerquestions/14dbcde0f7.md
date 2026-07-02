@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2168]
     sentence_count: 22
     key_terms: [software, new, cscareerquestions, bitter, person, experienced, life, like]
+    concepts: [software, cscareerquestions, bitter, person, experienced]
     token_count: 482
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1m4emsv/cs_will_forever_need_new_grads/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/14dbcde0f7.md#c1"
     char_span: [2170, 3060]
     sentence_count: 8
     key_terms: [bitter, job, interns, easier, get, life, new, pill]
+    concepts: [bitter, interns, easier]
     token_count: 214
 ---
 # CS will forever need new grads

@@ -19,22 +19,29 @@ chunks:
     char_span: [0, 2541]
     sentence_count: 16
     key_terms: [students, academic, financial, columbia, aid, asp, need-based, applyingtocollege]
+    concepts: [students, academic, financial, columbia, need-based]
     token_count: 478
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1r9i0eh/email_from_columbia_no_clue_what_it_means/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r9i0eh.md#c1"
     char_span: [2543, 3328]
     sentence_count: 3
     key_terms: [email, columbia, receiving, ugrad-asp, address, program, best, edu]
+    concepts: [email, columbia, receiving, ugrad-asp, address]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1r9i0eh.md#c2"]
     token_count: 159
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r9i0eh.md#c2"
     char_span: [3342, 5114]
     sentence_count: 7
     key_terms: [dramatic-simple2783, got, good, email, sign, columbia, anyone, like]
+    concepts: [dramatic-simple2783, email, columbia, anyone, thursday]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1r9i0eh.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r9i0eh.md#c3"
     char_span: [4870, 5130]
     sentence_count: 1
     key_terms: [people, email, got, rejected, waitlist, anyone, future, letter]
+    concepts: [people, email]
     section: Comments
     token_count: 69
 ---

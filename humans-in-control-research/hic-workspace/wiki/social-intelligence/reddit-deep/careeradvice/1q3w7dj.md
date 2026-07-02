@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 479]
     sentence_count: 3
     key_terms: [career, careeradvice, comments, switch, judgemental, reddit-deep, background, discussion]
+    concepts: [careeradvice, career, comments, switch]
     token_count: 130
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1q3w7dj/career_switch_into_mlai/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1q3w7dj.md#c1"
     char_span: [493, 2797]
     sentence_count: 16
     key_terms: [understanding, learning, science, technologies, tools, value, data, job]
+    concepts: [understanding, learning, science, technologies, tools]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/careeradvice/1q3w7dj.md#c2"
     char_span: [2799, 4127]
     sentence_count: 12
     key_terms: [banking, because, crowded, scratch, models, people, get, try]
+    concepts: [banking, because, crowded, scratch, models]
     section: Comments
     token_count: 312
 ---

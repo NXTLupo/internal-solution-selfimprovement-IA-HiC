@@ -21,47 +21,60 @@ chunks:
     char_span: [0, 878]
     sentence_count: 7
     key_terms: [careerguidance, comments, people, illustrious-word-979, being, years, told, institutional]
+    concepts: [careerguidance, comments, people, being, years]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c2", "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c6"]
     token_count: 214
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1s5znkv/is_anyone_else_in_their_40s_quietly_terrified/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c1"
     char_span: [892, 1993]
     sentence_count: 10
     key_terms: [development, people, entry, level, "it's", experience, embracing, getting]
+    concepts: [development, people, entry, experience, level]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c10"]
     section: Comments
     token_count: 237
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c2"
     char_span: [1996, 3933]
     sentence_count: 14
     key_terms: [illustrious-word-979, people, being, going, "i'm", told, too, want]
+    concepts: [illustrious-word-979, people, being, going, knowledge]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c0"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c3"
     char_span: [3935, 5816]
     sentence_count: 9
     key_terms: [ultimatechaos233, being, information, like, completely, inaccurate, something, everyone]
+    concepts: [ultimatechaos233, information, being, completely, inaccurate]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c4"
     char_span: [5818, 7547]
     sentence_count: 16
     key_terms: [everyone, due, jobs, need, efficient, monetary, because, economy]
+    concepts: [everyone, efficient, monetary, because, economy]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c5"
     char_span: [7549, 9636]
     sentence_count: 10
     key_terms: [right, people, poliosaurus3000, services, because, afford, making, going]
+    concepts: [right, people, poliosaurus3000, services, because]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c6"
     char_span: [9638, 11269]
     sentence_count: 11
     key_terms: [people, years, exactly, ageism, fetish, system, illustrious-word-979, point]
+    concepts: [people, years, exactly, ageism, fetish]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c0"]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c7"
     char_span: [11271, 13500]
     sentence_count: 13
     key_terms: [conflicted, training, prompts, asking, tinastep2000, like, understand, different]
+    concepts: [conflicted, training, prompts, tinastep2000, asking]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c8"
@@ -74,18 +87,22 @@ chunks:
     char_span: [13517, 15395]
     sentence_count: 13
     key_terms: [people, work, good, absolutely, debategate, understand, efficient, software]
+    concepts: [people, absolutely, debategate, understand, efficient]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c10"
     char_span: [15397, 16928]
     sentence_count: 9
     key_terms: [job, everyone, else, people, taking, point, work, experience]
+    concepts: [everyone, people, taking, experience, point]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c1"]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c11"
     char_span: [16930, 18148]
     sentence_count: 9
     key_terms: [fundamentals, pointing, anyone, people, illustrious-word-979, eased, years, etc]
+    concepts: [fundamentals, pointing, anyone, people, eased]
     section: Comments
     token_count: 290
 ---

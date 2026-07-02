@@ -19,10 +19,12 @@ content_hash: "fe8d5be82e2e5a8d"
 relevance_by_goal: {"46dec9599ad5":80}
 chunks:
   - id: "articles/reddit-deep-r-defi/bce4cdafb0.md#c0"
-    char_span: [0, 1422]
+    char_span: [0, 1421]
     sentence_count: 11
     key_terms: [self-custody, off-ramp, custodial, reddit, counterparty, stack, defi, comments]
-    token_count: 358
+    concepts: [self-custody, off-ramp, custodial, counterparty, reddit]
+    token_count: 357
+    sources: [{"n":"Reddit Deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1sa2sht/selfcustody_bank_offramp_in_2026_what_stack_is/"}]
 ---
 # Self-custody + bank off-ramp in 2026: what stack is actually working for you?
 

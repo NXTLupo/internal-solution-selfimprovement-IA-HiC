@@ -18,21 +18,26 @@ chunks:
     char_span: [0, 2022]
     sentence_count: 18
     key_terms: [applying, schools, applyingtocollege, state, like, yale, disclosure, december]
+    concepts: [applying, schools, applyingtocollege, disclosure, state]
     token_count: 504
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1msmk3v/it_actually_all_worked_out/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/bba5c908bf.md#c1"
     char_span: [2024, 3791]
     sentence_count: 20
     key_terms: [interview, "i'm", like, selected, stanford, college, acres, forty]
+    concepts: [interview, selected, stanford, college, scholarship]
     token_count: 385
   - id: "articles/reddit-deep-r-applyingtocollege/bba5c908bf.md#c2"
     char_span: [3793, 6069]
     sentence_count: 13
     key_terms: [engineering, college, biomedical, rejected, scholar, honors, neuroscience, scholarship]
+    concepts: [engineering, college, biomedical, rejected, scholar]
     token_count: 553
   - id: "articles/reddit-deep-r-applyingtocollege/bba5c908bf.md#c3"
     char_span: [6071, 7812]
     sentence_count: 11
     key_terms: [rejected, scholarship, day, research, didn, like, time, foundation]
+    concepts: [rejected, scholarship, research, foundation, questions]
     token_count: 427
 ---
 # It (Actually) All Worked Out.

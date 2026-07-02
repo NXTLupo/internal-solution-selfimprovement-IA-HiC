@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 1166]
     sentence_count: 13
     key_terms: [gradadmissions, professional, comments, graduate, program, degree, worked, dream]
+    concepts: [gradadmissions, professional, comments, graduate, program]
     token_count: 289
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1svh6xn/gpa_26_age_42_applied_1_accepted_1/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1svh6xn.md#c1"
-    char_span: [1181, 2876]
+    char_span: [1180, 2875]
     sentence_count: 15
     key_terms: [shesallwritey, life, congrats, accepted, similar, aircomprehensive997, place, thank]
+    concepts: [shesallwritey, congrats, accepted, similar, place]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1svh6xn.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1svh6xn.md#c2"
-    char_span: [2659, 4216]
+    char_span: [2658, 4215]
     sentence_count: 16
     key_terms: [shesallwritey, finishing, got, writingafter3378, year, experience, congrats, masters]
+    concepts: [shesallwritey, writingafter3378, finishing, experience, congrats]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1svh6xn.md#c1"]
     section: Comments
     token_count: 426
 ---

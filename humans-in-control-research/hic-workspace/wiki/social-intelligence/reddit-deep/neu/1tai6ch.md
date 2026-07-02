@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1376]
     sentence_count: 10
     key_terms: [northeastern, umass, year, campus, admitted, anything, comments, amherst]
+    concepts: [northeastern, umass, campus, admitted, anything]
     token_count: 339
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1tai6ch/umass_amherst_or_northeastern_for_cs/"}]
 ---
 # UMass Amherst or Northeastern for CS?
 

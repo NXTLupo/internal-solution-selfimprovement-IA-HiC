@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 609]
     sentence_count: 5
     key_terms: [cycle, uwaterloo, comments, students, system, co-op, new, waterlooworks]
+    concepts: [cycle, uwaterloo, comments, students, system]
     token_count: 156
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1q4bt9r/fall_2025_students_how_was_your_experience_with/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1q4bt9r.md#c1"
     char_span: [623, 1016]
     sentence_count: 1
     key_terms: [aaaaaaaaaaaaaauuuuuuuuuuuuuuuuuugggggggggggghhhhhhhhhhhhhhhhhhhhhhhhhhh, fengtai, dazedtoaster158, employed, believe, changed, earlier, instead]
+    concepts: [fengtai]
     section: Comments
     token_count: 139
 ---

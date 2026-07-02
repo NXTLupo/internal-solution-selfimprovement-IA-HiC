@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 897]
     sentence_count: 7
     key_terms: [email, scholarships, applyingtocollege, college, opportunities, application, applying, colleges]
+    concepts: [email, scholarships, applyingtocollege, opportunities, college]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mhlv1f.md#c1"]
     token_count: 187
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1mhlv1f/separate_email_for_college_application/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mhlv1f.md#c1"
     char_span: [911, 2565]
     sentence_count: 15
     key_terms: [college, email, account, professional, board, personal, low-agency2539, "you'll"]
+    concepts: [college, email, account, professional, board]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mhlv1f.md#c0"]
     section: Comments
     token_count: 377
 ---

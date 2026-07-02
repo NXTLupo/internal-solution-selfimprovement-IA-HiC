@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 747]
     sentence_count: 6
     key_terms: [careerguidance, javascript, wordpress, comments, career, focus, right, node]
+    concepts: [careerguidance, javascript, wordpress, comments, career]
     token_count: 191
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1n2d2qf/am_i_on_the_right_career_path_as_a_wordpress/"}]
 ---
 # Am I on the right career path as a WordPress designer learning JavaScript & Node.js?
 

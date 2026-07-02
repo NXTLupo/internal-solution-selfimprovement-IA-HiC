@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 687]
     sentence_count: 6
     key_terms: [healthinsurance, get, comments, hospital, health, group, hospitalized, reddit-deep]
+    concepts: [healthinsurance, comments, hospital, health, group]
     token_count: 175
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1u0khxg/us_health_group/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1u0khxg.md#c1"
-    char_span: [702, 2577]
+    char_span: [701, 2576]
     sentence_count: 6
     key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    concepts: [information, questions, following, please, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1u0khxg.md#c2"]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/healthinsurance/1u0khxg.md#c2"
-    char_span: [2579, 4436]
+    char_span: [2578, 4435]
     sentence_count: 12
     key_terms: [please, eob, contact, insurance, questions, subreddit, post, via]
+    concepts: [please, contact, insurance, questions, subreddit]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1u0khxg.md#c1"]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/healthinsurance/1u0khxg.md#c3"
-    char_span: [4438, 5549]
+    char_span: [4437, 5548]
     sentence_count: 10
     key_terms: [process, appeal, did, plan, insurance, hospital, nicotine, appeals]
+    concepts: [process, appeal, insurance, hospital, nicotine]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/healthinsurance/1u0khxg.md#c4"
-    char_span: [5551, 7716]
+    char_span: [5550, 7715]
     sentence_count: 26
     key_terms: [broker, insurance, recorded, signed, claim, days, don, held]
+    concepts: [insurance, broker, recorded, signed, claim]
     section: Comments
     token_count: 508
 ---

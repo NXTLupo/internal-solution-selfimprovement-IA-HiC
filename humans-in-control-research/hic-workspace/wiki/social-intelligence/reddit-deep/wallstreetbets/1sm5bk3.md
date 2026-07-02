@@ -20,41 +20,53 @@ chunks:
     char_span: [0, 1955]
     sentence_count: 5
     key_terms: [robinhood-stock-jumps-as-sec-scraps-25k-pattern-day-trader-rule-4615057, pattern, day, trader, investors, robinhood, accounts, wallstreetbets]
+    concepts: [pattern, trader, investors, robinhood, accounts]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1sm5bk3.md#c2"]
     token_count: 404
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1sm5bk3/robinhood_stock_jumps_as_sec_scraps_25k_pattern/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sm5bk3.md#c1"
-    char_span: [1970, 3838]
+    char_span: [1969, 3837]
     sentence_count: 12
     key_terms: [trade, day, people, savings, restrictions, away, life, gambling]
+    concepts: [trade, people, savings, restrictions, gambling]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sm5bk3.md#c2"
-    char_span: [3840, 4605]
+    char_span: [3839, 4604]
     sentence_count: 4
     key_terms: [margin, trade, maintenance, day, robinhood, accounts, visual-advantage1739, majesticcoconut1975]
+    concepts: [margin, maintenance, trade, robinhood, accounts]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1sm5bk3.md#c0"]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sm5bk3.md#c3"
-    char_span: [4607, 6144]
+    char_span: [4606, 6143]
     sentence_count: 6
     key_terms: [trades, index, wait, regulatory, accounts, "don't", funds, needs]
+    concepts: [trades, index, regulatory, accounts, "don't"]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sm5bk3.md#c4"
-    char_span: [6146, 7756]
+    char_span: [6145, 7755]
     sentence_count: 9
     key_terms: [income, rule, okbowls, losses, months, being, gains, taxes]
+    concepts: [income, okbowls, losses, months, being]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sm5bk3.md#c5"
-    char_span: [7758, 9184]
+    char_span: [7757, 9183]
     sentence_count: 11
     key_terms: [gains, losses, capital, carry, forward, deduct, income, offset]
+    concepts: [gains, losses, capital, carry, forward]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1sm5bk3.md#c6"]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sm5bk3.md#c6"
-    char_span: [9186, 9812]
+    char_span: [9185, 9811]
     sentence_count: 6
     key_terms: [capital, losses, offset, gains, means, local-animator8354, tax, forcenext3186]
+    concepts: [capital, losses, offset, gains, means]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1sm5bk3.md#c5"]
     section: Comments
     token_count: 174
 ---

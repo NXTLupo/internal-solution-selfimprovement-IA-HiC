@@ -21,53 +21,65 @@ chunks:
     char_span: [0, 1770]
     sentence_count: 6
     key_terms: [something, don, through, years, been, "i'm", want, work]
+    concepts: [something, through, completely, years, findapath]
     token_count: 452
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1mgz0y9/help_i_quit_tech_because_i_hated_it_now_im_30_and/"}]
   - id: "social-intelligence/reddit-deep/findapath/1mgz0y9.md#c1"
     char_span: [1784, 2731]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1mgz0y9.md#c2"
     char_span: [2734, 4744]
     sentence_count: 15
     key_terms: [turtlekryptonien, tech, work, industry, deleted, teacher, pretty, school]
+    concepts: [turtlekryptonien, industry, deleted, teacher, pretty]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1mgz0y9.md#c3"
     char_span: [4468, 4777]
     sentence_count: 2
     key_terms: [pretty, new, work, environment, investment, factoring, concrete, criteria]
+    concepts: [pretty]
     section: Comments
     token_count: 71
   - id: "social-intelligence/reddit-deep/findapath/1mgz0y9.md#c4"
     char_span: [4779, 6926]
     sentence_count: 25
     key_terms: [work, different, going, moved, get, got, "it's", meaningful]
+    concepts: [different, going, meaningful, moved, personally]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/findapath/1mgz0y9.md#c5"
     char_span: [6928, 8330]
     sentence_count: 20
     key_terms: [something, "i'm", "i've", job, co-workers, excited, people, "don't"]
+    concepts: [something, co-workers, excited, people, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1mgz0y9.md#c6"]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/findapath/1mgz0y9.md#c6"
     char_span: [8332, 10402]
     sentence_count: 21
     key_terms: [passion, want, something, already, "don't", find, hate, "it's"]
+    concepts: [passion, something, already, "don't", designs]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1mgz0y9.md#c5"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/findapath/1mgz0y9.md#c7"
     char_span: [10404, 12185]
     sentence_count: 19
     key_terms: [field, something, else, take, meaning, change, study, teams]
+    concepts: [something, field, meaning, change, study]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/findapath/1mgz0y9.md#c8"
     char_span: [12187, 13091]
     sentence_count: 4
     key_terms: [meaningful, lotsofcatsfi, pay, work, passion, expect, larger, cut]
+    concepts: [meaningful, lotsofcatsfi, passion, expect, larger]
     section: Comments
     token_count: 211
 ---

@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 835]
     sentence_count: 9
     key_terms: [wallstreetbets, contracts, comments, selling, month, been, construction, reddit-deep]
+    concepts: [wallstreetbets, contracts, comments, selling, month]
     token_count: 233
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1lcaehv/finally_profitable_after_8_years_and_losing_30k/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1lcaehv.md#c1"
     char_span: [849, 1865]
     sentence_count: 6
     key_terms: [mustang, wsb, maxsablosky, discord, https, total, years, buys]
+    concepts: [mustang, maxsablosky, discord, https, total]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/wallstreetbets/1lcaehv.md#c2"
     char_span: [1868, 2435]
     sentence_count: 3
     key_terms: [car, options, worth, panzerkomadant, sy3zok38867f1, sergealberta, depreciates, investments]
+    concepts: [options, worth]
     section: Comments
     token_count: 178
   - id: "social-intelligence/reddit-deep/wallstreetbets/1lcaehv.md#c3"
     char_span: [2437, 4254]
     sentence_count: 10
     key_terms: [car, mustang, money, taxes, value, profitable, probably, deleted]
+    concepts: [mustang, money, profitable, taxes, value]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1lcaehv.md#c4"
     char_span: [4068, 5423]
     sentence_count: 3
     key_terms: [month, mustang, people, mobile-brilliant-376, years, luzzi5luvmywatches, returnofwanksta567, croutonianemperor]
+    concepts: [month, mustang, people, years]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/wallstreetbets/1lcaehv.md#c5"
     char_span: [5425, 7101]
     sentence_count: 13
     key_terms: [day, profitable, scalping, strategy, isreal, strict, organicartichoke7298, lucky]
+    concepts: [profitable, scalping, strategy, isreal, strict]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/wallstreetbets/1lcaehv.md#c6"

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1814]
     sentence_count: 18
     key_terms: [experience, backend, careerguidance, offer, like, off-campus, placements, comments]
+    concepts: [experience, careerguidance, backend, off-campus, offer]
     token_count: 416
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pxrd8n/need_clarity_about_my_decision/"}]
 ---
 # Need clarity about my decision?
 

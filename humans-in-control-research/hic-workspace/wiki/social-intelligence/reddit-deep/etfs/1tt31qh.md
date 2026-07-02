@@ -20,34 +20,41 @@ chunks:
     char_span: [0, 2067]
     sentence_count: 18
     key_terms: [thematic, etfs, "i've", thesis, weights, infrastructure, basket, target]
+    concepts: [thematic, thesis, infrastructure, weights, hyperscalers]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1tt31qh/building_my_own_thesis_baskets_instead_of_buying/"}]
   - id: "social-intelligence/reddit-deep/etfs/1tt31qh.md#c1"
     char_span: [2069, 2491]
     sentence_count: 3
     key_terms: [attribution, performance, spreadsheet, per-basket, anyone, discipline, brokerage, questions]
+    concepts: [attribution, performance, spreadsheet, per-basket, anyone]
     token_count: 82
   - id: "social-intelligence/reddit-deep/etfs/1tt31qh.md#c2"
-    char_span: [2506, 2700]
+    char_span: [2505, 2699]
     sentence_count: 3
     key_terms: [emotional-breath-838, benefit, changes, ongoing, manage, myself, reason, given]
     section: Comments
     token_count: 54
   - id: "social-intelligence/reddit-deep/etfs/1tt31qh.md#c3"
-    char_span: [2702, 4860]
+    char_span: [2701, 4859]
     sentence_count: 18
     key_terms: [etf, new, companies, investing, something, almost, annual, coming]
+    concepts: [companies, investing, something, almost, annual]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1tt31qh.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/etfs/1tt31qh.md#c4"
-    char_span: [4613, 4930]
+    char_span: [4612, 4929]
     sentence_count: 2
     key_terms: [time, confident, maintain, together, account, perfect, product, returns]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/etfs/1tt31qh.md#c5"
-    char_span: [4932, 6820]
+    char_span: [4931, 6819]
     sentence_count: 8
     key_terms: [companies, own, interesting, etf, time, decisions, something, baskets]
+    concepts: [companies, interesting, decisions, something, baskets]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1tt31qh.md#c3"]
     section: Comments
     token_count: 467
 ---

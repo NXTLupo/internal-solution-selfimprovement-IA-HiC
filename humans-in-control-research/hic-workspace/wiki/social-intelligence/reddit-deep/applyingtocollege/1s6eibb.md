@@ -19,46 +19,55 @@ chunks:
     char_span: [0, 2100]
     sentence_count: 1
     key_terms: [legacy, applyingtocollege, got, multiple, parents, opportunities, ivies, comments]
+    concepts: [applyingtocollege, legacy, multiple, opportunities, parents]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1s6eibb/life_is_so_unfair/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s6eibb.md#c1"
     char_span: [2102, 3460]
     sentence_count: 1
     key_terms: [myself, get, legacy, ivy, results, lesson, being, didnt]
+    concepts: [myself, legacy, results, lesson, being]
     token_count: 330
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s6eibb.md#c2"
     char_span: [3474, 4712]
     sentence_count: 8
     key_terms: [kids, colleges, parents, shelter, school, weinerkittens, teach, intentional]
+    concepts: [colleges, weinerkittens, parents, shelter, school]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s6eibb.md#c3"
     char_span: [4714, 6726]
     sentence_count: 16
     key_terms: [help, kids, everyone, families, opportunities, food, different, published]
+    concepts: [everyone, families, opportunities, different, published]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s6eibb.md#c4"
     char_span: [6728, 8137]
     sentence_count: 9
     key_terms: [student, school, going, state, successful, matter, wide-palpitation945, doing]
+    concepts: [student, school, going, state, successful]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s6eibb.md#c5"
     char_span: [8140, 9472]
     sentence_count: 9
     key_terms: [doing, students, yourself, responsible-use-5644, legitimateminute251, academic-wall-2290, etc, like]
+    concepts: [doing, students, yourself]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s6eibb.md#c6"
     char_span: [9474, 10927]
     sentence_count: 14
     key_terms: [kid, like, want, because, college, let, explore, options]
+    concepts: [because, college, explore, options, passion]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s6eibb.md#c7"
     char_span: [10929, 12408]
     sentence_count: 9
     key_terms: [legacy, hard, ivy, because, people, person, school, worked]
+    concepts: [legacy, because, people, person, school]
     section: Comments
     token_count: 386
 ---

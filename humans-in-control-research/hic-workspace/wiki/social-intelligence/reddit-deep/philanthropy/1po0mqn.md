@@ -17,29 +17,40 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c0"
-    char_span: [0, 1684]
+    char_span: [0, 1683]
     sentence_count: 6
     key_terms: [philanthropy, specialist, data, operational, operations, donor, workflows, accuracy]
-    token_count: 330
+    concepts: [philanthropy, specialist, operational, operations, workflows]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c3"]
+    token_count: 329
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1po0mqn/job_philanthropy_operations_specialist_ymca_of/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c1"
-    char_span: [1686, 3143]
+    char_span: [1685, 3142]
     sentence_count: 2
     key_terms: [donor, data, accuracy, finance, across, philanthropy, portfolios, maintains]
+    concepts: [donor, accuracy, finance, philanthropy, across]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c2", "social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c3", "social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c4"]
     token_count: 273
   - id: "social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c2"
-    char_span: [3145, 4579]
+    char_span: [3144, 4578]
     sentence_count: 2
     key_terms: [donor, philanthropy, stewardship, director, touchpoints, data, workflows, provides]
+    concepts: [donor, philanthropy, stewardship, director, touchpoints]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c1", "social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c3", "social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c4"]
     token_count: 251
   - id: "social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c3"
-    char_span: [4581, 6893]
+    char_span: [4580, 6892]
     sentence_count: 3
     key_terms: [donor, accurate, philanthropy, operational, event, director, ensuring, data]
+    concepts: [donor, philanthropy, accurate, operational, director]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c0", "social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c1", "social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c2", "social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c4"]
     token_count: 394
   - id: "social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c4"
-    char_span: [6895, 9491]
+    char_span: [6894, 9490]
     sentence_count: 2
     key_terms: [data, donor, philanthropy, coordinates, integration, crm, standards, modernization]
+    concepts: [donor, philanthropy, coordinates, integration, standards]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c1", "social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c2", "social-intelligence/reddit-deep/philanthropy/1po0mqn.md#c3"]
     token_count: 459
 ---
 # Job: Philanthropy Operations Specialist, YMCA of Columbia Willamette, Portland, Oregon

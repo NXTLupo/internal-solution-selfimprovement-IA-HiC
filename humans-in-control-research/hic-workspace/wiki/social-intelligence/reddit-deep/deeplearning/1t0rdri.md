@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1595]
     sentence_count: 9
     key_terms: [synthetic, like, learning, classification, deeplearning, data, genuinley, comments]
+    concepts: [synthetic, learning, classification, deeplearning, genuinley]
     token_count: 387
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1t0rdri/i_have_been_finetuning_llama_31_8b_with_qlora_for/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1t0rdri.md#c1"
     char_span: [1609, 3916]
     sentence_count: 7
     key_terms: [synthetic, data, model, honestly, right, like, real, different]
+    concepts: [synthetic, model, honestly, right, different]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1t0rdri.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/deeplearning/1t0rdri.md#c2"
     char_span: [3610, 4261]
     sentence_count: 5
     key_terms: [synthetic, data, real, model, classification, distributions, stylistically, fine-tuning]
+    concepts: [synthetic, model]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1t0rdri.md#c1"]
     section: Comments
     token_count: 133
 ---

@@ -19,45 +19,58 @@ chunks:
     char_span: [0, 2179]
     sentence_count: 18
     key_terms: [stock, years, amazon, "i've", compensation, target, cscareerquestions, layoffs]
+    concepts: [stock, years, amazon, compensation, cscareerquestions]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c5"]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1or3gyj/my_experience_interviewing_in_2025_with_5_yoe/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c1"
     char_span: [2181, 4489]
     sentence_count: 23
     key_terms: [interviews, companies, interview, applications, leetcode, "would've", applied, hellointerview]
+    concepts: [interviews, companies, interview, applications, leetcode]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c3"]
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c2"
     char_span: [4491, 4809]
     sentence_count: 4
     key_terms: [offers, comp, extremely, interview, mid-level, accepted, sf-based, startups]
+    concepts: [offers]
     token_count: 77
   - id: "social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c3"
-    char_span: [4824, 6906]
+    char_span: [4823, 6905]
     sentence_count: 14
     key_terms: [interviews, phillythompson, "don't", interview, months, subscriptions, applications, level]
+    concepts: [interviews, phillythompson, interview, "don't", subscriptions]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c1"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c4"
-    char_span: [6908, 8537]
+    char_span: [6907, 8536]
     sentence_count: 12
     key_terms: [interview, subscription, design, content, hellointerview, system, interviewers, worth]
+    concepts: [interview, subscription, design, hellointerview, content]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c5"
-    char_span: [8539, 10273]
+    char_span: [8538, 10272]
     sentence_count: 11
     key_terms: [nflxengthrowaway, amazon, compensation, questions, getting, premium, maximumsupermarket80, desperatesouthpark]
+    concepts: [nflxengthrowaway, compensation, amazon, questions, getting]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c0"]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c6"
-    char_span: [10275, 12314]
+    char_span: [10274, 12313]
     sentence_count: 18
     key_terms: [did, long, offer, stack, tech, leetcode, interviewing, job]
+    concepts: [offer, stack, leetcode, interviewing, accepting]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c7"
-    char_span: [12316, 12986]
+    char_span: [12315, 12985]
     sentence_count: 5
     key_terms: [resume, resumes, "i've", lot, responsibilities, androidcat06, bulletpoints, descriptions]
+    concepts: [resume, resumes]
     section: Comments
     token_count: 156
 ---

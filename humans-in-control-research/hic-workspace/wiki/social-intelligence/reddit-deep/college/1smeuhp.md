@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 809]
     sentence_count: 6
     key_terms: [professors, comments, college, lifeguardsoggy2928, relationships, applications, interesting, reddit-deep]
+    concepts: [professors, comments, college]
     token_count: 193
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1smeuhp/how_to_build_rapport_with_professors_when/"}]
   - id: "social-intelligence/reddit-deep/college/1smeuhp.md#c1"
     char_span: [823, 3067]
     sentence_count: 16
     key_terms: [online, classes, in-person, person, learning, professors, great, essentially]
+    concepts: [online, classes, in-person, person, learning]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/college/1smeuhp.md#c2"
     char_span: [3069, 5228]
     sentence_count: 9
     key_terms: [questions, being, lifeguardsoggy2928, like, semester, people, professors, in-person]
+    concepts: [questions, being, lifeguardsoggy2928, semester, people]
+    related_chunks: ["social-intelligence/reddit-deep/college/1smeuhp.md#c5"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/college/1smeuhp.md#c3"
     char_span: [5230, 6955]
     sentence_count: 13
     key_terms: [instructors, relationships, online, faculty, connections, time, building, adjunct]
+    concepts: [instructors, relationships, online, faculty, connections]
+    related_chunks: ["social-intelligence/reddit-deep/college/1smeuhp.md#c4"]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/college/1smeuhp.md#c4"
     char_span: [6957, 9234]
     sentence_count: 13
     key_terms: [program, online, professors, reach, connections, questions, semester, faculty]
+    concepts: [program, professors, online, connections, reach]
+    related_chunks: ["social-intelligence/reddit-deep/college/1smeuhp.md#c3"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/college/1smeuhp.md#c5"
     char_span: [9236, 10231]
     sentence_count: 6
     key_terms: [professors, lifeguardsoggy2928, zoom, email, questions, sometimes, curious, sensitive-hope-4980]
+    concepts: [lifeguardsoggy2928, professors, email, questions, sometimes]
+    related_chunks: ["social-intelligence/reddit-deep/college/1smeuhp.md#c2"]
     section: Comments
     token_count: 252
 ---

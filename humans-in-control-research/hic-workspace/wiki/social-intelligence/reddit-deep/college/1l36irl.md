@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1217]
     sentence_count: 9
     key_terms: [criminal, college, law, school, justice, first-gen, student, attorney]
+    concepts: [criminal, college, school, justice, first-gen]
+    related_chunks: ["social-intelligence/reddit-deep/college/1l36irl.md#c1"]
     token_count: 268
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1l36irl/firstgen_college_student_starting_criminal/"}]
   - id: "social-intelligence/reddit-deep/college/1l36irl.md#c1"
     char_span: [1231, 2260]
     sentence_count: 11
     key_terms: [law, school, major, lsat, criminal, justice, top, philosophy]
+    concepts: [school, major, criminal, justice, philosophy]
+    related_chunks: ["social-intelligence/reddit-deep/college/1l36irl.md#c0"]
     section: Comments
     token_count: 251
 ---

@@ -21,28 +21,37 @@ chunks:
     char_span: [0, 1700]
     sentence_count: 9
     key_terms: [research, academia, astrophysics, askacademia, feel, time, struggling, situation]
+    concepts: [research, academia, astrophysics, askacademia, struggling]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1tbeihx.md#c2", "social-intelligence/reddit-deep/askacademia/1tbeihx.md#c4"]
     token_count: 383
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1tbeihx/what_are_signs_that_it_is_not_the_environment_but/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1tbeihx.md#c1"
     char_span: [1702, 2750]
     sentence_count: 7
     key_terms: [experience, medical, closer, idea, time, year, comfortable, environment]
+    concepts: [experience, medical, closer]
     token_count: 223
   - id: "social-intelligence/reddit-deep/askacademia/1tbeihx.md#c2"
     char_span: [2764, 5013]
     sentence_count: 18
     key_terms: [research, academia, time, thousandshardships, teaching, opportunities, did, job]
+    concepts: [research, academia, thousandshardships, teaching, opportunities]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1tbeihx.md#c0", "social-intelligence/reddit-deep/askacademia/1tbeihx.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1tbeihx.md#c3"
     char_span: [5015, 7343]
     sentence_count: 17
     key_terms: [experience, else, culture, "you're", astrophysics, organization, being, doing]
+    concepts: [experience, culture, astrophysics, organization, "you're"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/askacademia/1tbeihx.md#c4"
     char_span: [7346, 8930]
     sentence_count: 11
     key_terms: [academia, country, potential, previous, research, similar, better, sounds]
+    concepts: [academia, country, potential, previous, research]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1tbeihx.md#c0", "social-intelligence/reddit-deep/askacademia/1tbeihx.md#c2"]
     section: Comments
     token_count: 333
 ---

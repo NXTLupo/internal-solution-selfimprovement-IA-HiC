@@ -20,54 +20,70 @@ chunks:
     char_span: [0, 1997]
     sentence_count: 24
     key_terms: [roofing, industry, thats, roll-up, market, entrepreneur, ive, went]
+    concepts: [roofing, industry, thats, roll-up, entrepreneur]
     token_count: 478
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1s5rswx/buying_a_roofing_company_in_2026_100b_market_2x/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c1"
     char_span: [1999, 3743]
     sentence_count: 11
     key_terms: [revenue, roofing, sde, residential, ebitda, distribution, progressive, re-roofing]
+    concepts: [revenue, roofing, residential, ebitda, distribution]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c3", "social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c5"]
     token_count: 468
   - id: "social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c2"
     char_span: [3745, 5986]
     sentence_count: 13
     key_terms: [margin, commercial, gross, maintenance, relationships, capabilities, integration, multi-state]
+    concepts: [margin, commercial, gross, maintenance, relationships]
     token_count: 472
   - id: "social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c3"
     char_span: [5988, 8068]
     sentence_count: 23
     key_terms: [material, growth, revenue, roofing, competition, competitive, real, population]
+    concepts: [material, growth, revenue, roofing, competition]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c1"]
     token_count: 473
   - id: "social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c4"
     char_span: [8070, 9752]
     sentence_count: 11
     key_terms: [licensing, crew, maintenance, low, complexity, recurring, business, foremen]
+    concepts: [licensing, maintenance, complexity, recurring, business]
     token_count: 378
   - id: "social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c5"
     char_span: [9754, 10327]
     sentence_count: 10
     key_terms: [year, revenue, ebitda, cash, crm, flow, sde, capabilities]
+    concepts: [revenue, ebitda]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c1"]
     token_count: 178
   - id: "social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c6"
-    char_span: [10342, 11489]
+    char_span: [10341, 11488]
     sentence_count: 8
     key_terms: [entrepreneur, please, permanent, promotion, stickied, comment, thread, weekly]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c7"
-    char_span: [11491, 13915]
+    char_span: [11490, 13914]
     sentence_count: 18
     key_terms: [companies, roofing, insurance, people, pretty, good, marketing, company]
+    concepts: [companies, roofing, insurance, people, pretty]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c8"
-    char_span: [13637, 14632]
+    char_span: [13636, 14631]
     sentence_count: 6
     key_terms: [revenue, maintenance, contracts, project, service, thesis, rude-substance-3686, model]
+    concepts: [revenue, maintenance, contracts, project, service]
     section: Comments
     token_count: 241
   - id: "social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c9"
-    char_span: [14634, 15910]
+    char_span: [14633, 15909]
     sentence_count: 8
     key_terms: [companies, something, business, referral, roofing, execution-dependent, relationship-driven, looks]
+    concepts: [companies, something, business, referral, roofing]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c7"]
     section: Comments
     token_count: 252
 ---

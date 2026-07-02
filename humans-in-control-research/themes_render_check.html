@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" data-brand="nxt">
+<head>
+<meta charset="UTF-8">
+<title>Emerging themes - Global Insurance 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700;800&family=Archivo:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500;600;700;800&family=Lato:wght@300;400;500;600;700;800&family=Bebas+Neue:wght@300;400;500;600;700;800&family=Lora:wght@300;400;500;600;700;800&display=swap">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:#080808;overflow:hidden}
+#stage{position:absolute;width:1920px;height:1080px;background:#FFFFFF;font-family:'Archivo', sans-serif;color:#141414;transform-origin:top left}
+.rail{position:absolute;left:0;top:0;width:92px;height:100%;background:#0D0D0D}
+.dotmark{position:absolute;left:30px;top:990px;display:grid;grid-template-columns:repeat(3,12px);gap:6px}
+.dotmark span{width:12px;height:12px;background:#B8B800;display:block}
+.brandlogo{position:absolute;top:40px;right:80px;display:flex;align-items:center;gap:14px;height:34px;color:#141414}
+.brandlogo svg{display:block;height:34px;width:auto}
+/* Masthead wordmark uses the brand DISPLAY face (NXT = Saira Condensed SemiBold
+ * per Figma node 22:2; NU = Lato), hydrated via FONT_DISPLAY - NOT bodyFont.
+ * The 2026-06-13 Saira swap never reached this rule, so NXT mastheads rendered
+ * the wordmark in Archivo. displayFont===bodyFont for NU, so this is a no-op there. */
+.brandlogo .wm{font-family:'Saira Condensed', sans-serif;font-weight:600;font-size:26px;letter-spacing:1px;color:#141414;text-transform:uppercase}
+.canvas{position:absolute;left:172px;top:0;right:80px;bottom:96px;padding:58px 0 12px 0;display:flex;flex-direction:column;overflow:hidden}
+/* Chrome painted from the hydrated Figma type system (SCALE/WEIGHT/TYPO), not
+ * hardcoded - the 2026-06-14 typographic redesign. Kicker recedes to the label
+ * tier; the action title governs at SCALE.title; the takeaway band is the payoff
+ * line so it carries the TITLE weight (was 400, lighter than the h1 - audited). */
+.kicker{font-family:'IBM Plex Mono', monospace;font-size:17px;letter-spacing:4px;color:#00B7C3;text-transform:uppercase;margin-bottom:16px;font-weight:500}
+h1{font-family:'Archivo', sans-serif;font-weight:600;letter-spacing:-0.5px;font-size:46px;line-height:1.08;color:#141414;margin-bottom:24px;max-width:1400px}
+.metarow{font-family:'IBM Plex Mono', monospace;font-weight:500;font-size:17px;letter-spacing:1.5px;line-height:1.6;color:#73757A;text-transform:uppercase;margin-bottom:16px;white-space:pre-wrap}
+.hairline{height:1px;background:#DDDDD6;width:100%;margin-bottom:17px}
+.takeaway{position:absolute;left:172px;top:944px;width:1568px;min-height:96px;background:#B8B800;color:#0D0D0D;padding:28px 48px;font-family:'Archivo', sans-serif;font-weight:600;font-size:25px;line-height:1.4}
+.srcs{position:absolute;left:172px;right:80px;bottom:34px;font-family:'IBM Plex Mono', monospace;font-size:18px;letter-spacing:1.5px;color:#999999;border-top:2px solid #DDDDD6;padding-top:18px;text-transform:uppercase}
+/* 2026-06-05 - UNIVERSAL grid-overflow guards. Applies to every grid
+ * container + every direct grid-item across all 18 templates so a long
+ * unbreakable word or wide child element can't push the fr-track wider
+ * than its allotted share. Root cause: grid items default to
+ * min-width:auto / min-height:auto which lets content overflow the
+ * track. This single rule prevents the column-overlap class observed
+ * in the 2026-06-05 theme-spotlight.pptx export (primary column 7.88"
+ * wide colliding with the supporting column at 7.96"). Adding
+ * overflow:hidden + word-wrap as a belt-and-suspenders so even pathological
+ * content can't break out. Targets every grid container by class so it
+ * survives renderer additions; if a new template adds a new grid class,
+ * add the class to this list.
+ */
+.stats,.cols,.sup,.sa,.gcells,.phases,.pcols,.goals,.csgrid,.pgrid,.sbgrid,.amlayer,.fgrid,.corr{min-height:0}
+.stats>*,.cols>*,.sup>*,.sa>*,.gcells>*,.phases>*,.pcols>*,.goals>*,.csgrid>*,.pgrid>*,.sbgrid>*,.amlayer>*,.fgrid>*,.corr>*{min-width:0;overflow-wrap:break-word;word-wrap:break-word}
+/* Hard-clip ANY content that would render below the 1080 stage bottom.
+ * The exporter MEASURE script captures every text run regardless of
+ * whether it's inside the visible area; this rule ensures the DOM itself
+ * never renders below 1080 so the captured runs don't extend past slide
+ * boundaries. */
+#stage{overflow:hidden}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="rail"></div>
+  <div class="dotmark"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="brandlogo"><span class="wm">NXT HUMANS</span></div>
+  <div class="canvas">
+<div class="kicker">Emerging themes</div>
+<h1>Emerging themes - Global Insurance 2026</h1>
+<style>
+.tocols{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;flex:1;min-height:0;align-items:start}
+.toc{display:flex;flex-direction:column;gap:10px;min-width:0;overflow:hidden}
+.toc .thumb{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-radius:2px;border:1px solid #DDDDD6;background:#F5F5F0}
+.toc .num{font-family:'Saira Condensed', sans-serif;font-weight:600;font-size:46px;line-height:1;color:#141414}
+.toc .nm{font-family:'Archivo', sans-serif;font-weight:600;font-size:25px;line-height:1.1;letter-spacing:-0.3px;color:#141414}
+.toc .meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.toc .pill{font-family:'IBM Plex Mono', monospace;font-weight:600;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:4px 9px;border-radius:2px}
+.toc .pill.dom{background:#B8B800;color:#0D0D0D}
+.toc .pill.rec{background:#DDDDD6;color:#141414}
+.toc .mood{font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.5px;color:#73757A}
+.toc .ins{font-family:'Archivo', sans-serif;font-size:18px;line-height:1.5;color:#141414}
+.toc .q{font-family:'Archivo', sans-serif;font-size:18px;line-height:1.48;font-style:italic;color:#141414}
+.toc .src{font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#00B7C3}
+.toc .subs{display:flex;flex-wrap:wrap;gap:6px}
+.tochip{font-family:'IBM Plex Mono', monospace;font-size:11px;color:#141414;border:1px solid #DDDDD6;border-radius:2px;padding:3px 8px}
+.toc .ten{font-family:'Archivo', sans-serif;font-size:13px;line-height:1.4;color:#141414;border-left:2px solid #CC6644;padding-left:10px}
+.toband{margin-top:24px;background:#B8B800;color:#0D0D0D;padding:22px 40px;font-family:'Archivo', sans-serif;font-weight:600;font-size:24px;line-height:1.3}
+</style>
+<div class="tocols">
+
+  <div class="toc">
+    
+    <div class="num">01</div>
+    <div class="nm">Consumer openness to insurer AI nearly doubled in one year, but the support is conditional</div>
+    
+    <div class="ins">The Insurity 2026 AI in Insurance Report records consumer agreement that insurer AI is a good idea jumping from 20% in 2025 to 39% in 2026. Avoidance behavior eased in parallel: those less likely to b</div>
+    <div class="q">&ldquo;39% of consumers agree it is a good idea for their insurer to use AI to improve services; nearly double the 20% who expressed support in 2025 [articles/gemini-focused-research/d47f0a6b88.md#c0]&rdquo;</div>
+    <div class="src">Source: Synthesis of Insurity, Digital Insurance</div>
+    
+    
+  </div>
+  <div class="toc">
+    
+    <div class="num">02</div>
+    <div class="nm">Overall trust in insurer AI fell to 40% even as openness rose, exposing a transparency def</div>
+    
+    <div class="ins">The Smart Communications 2026 Customer Experience Benchmark shows overall customer trust in AI usage in insurance dropped from 46% in 2025 to 40% in 2026, with only 39% confident AI handles their info</div>
+    <div class="q">&ldquo;overall customer trust in AI usage in insurance actually dropped from 46% in 2025 to 40% in 2026. Only 39% of consumers feel confident that AI tools handle their information securely [articles/gemini-focused-research/d47&rdquo;</div>
+    <div class="src">Source: Synthesis of Insurity, Digital Insurance</div>
+    
+    
+  </div>
+  <div class="toc">
+    
+    <div class="num">03</div>
+    <div class="nm">Consumers welcome AI for transactional tasks but reject autonomous claim and policy decisi</div>
+    
+    <div class="ins">Insurity survey data shows comfort with AI clusters around assistance: 46% accept AI generating quotes, 39% tracking claims, 38% updating details. Comfort collapses when AI becomes an autonomous agent</div>
+    <div class="q">&ldquo;Only 22% of policyholders feel comfortable allowing AI to file an insurance claim on their behalf, and a mere 16% accept AI autonomously canceling or renewing their policies [articles/gemini-focused-research/d47f0a6b88.m&rdquo;</div>
+    <div class="src">Source: Synthesis of Insurity, Digital Insurance</div>
+    
+    
+  </div>
+  <div class="toc">
+    
+    <div class="num">04</div>
+    <div class="nm">Affordability pressure is pushing consumers toward cheaper, thinner coverage they later re</div>
+    
+    <div class="ins">Macroeconomic strain is reshaping coverage selection downward. An r/insurance practitioner warns that price-shopping for the absolute cheapest product yields cheap claims handling, and that desperate,</div>
+    <div class="q">&ldquo;If you are looking for the cheapest price, you will get the cheapest coverage! It&#39;s as simple as that [articles/reddit-deep-r-insurance/ae9a4bc429.md#c0]&rdquo;</div>
+    <div class="src">Source: Reddit Deep: r</div>
+    
+    
+  </div>
+</div>
+<div class="toband">Reconstructed from stored Theme[] to show the renderer styling.</div>
+  </div>
+
+
+</div>
+</body>
+</html>

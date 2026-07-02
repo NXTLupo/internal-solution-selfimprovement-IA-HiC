@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 780]
     sentence_count: 6
     key_terms: [experience, gradschool, comments, getting, area, keepinitreal6562, paraprofessional, disabilities]
+    concepts: [experience, gradschool, comments, getting]
     token_count: 180
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1sqielx/i_tried_getting_into_my_undergrad_uni_for_grad/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1sqielx.md#c1"
     char_span: [794, 2861]
     sentence_count: 10
     key_terms: [research, experience, because, degree, universities, sense, down, own]
+    concepts: [research, experience, because, universities, degree]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sqielx.md#c2"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/gradschool/1sqielx.md#c2"
     char_span: [2863, 5209]
     sentence_count: 12
     key_terms: [experience, undergrad, interdisciplinary, research, program, behavioral, programs, applied]
+    concepts: [experience, undergrad, interdisciplinary, research, program]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sqielx.md#c1", "social-intelligence/reddit-deep/gradschool/1sqielx.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1sqielx.md#c3"
     char_span: [4903, 6552]
     sentence_count: 13
     key_terms: [undergrad, professor, students, grad, university, program, school, requirements]
+    concepts: [undergrad, professor, students, university, program]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sqielx.md#c2"]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/gradschool/1sqielx.md#c4"
     char_span: [6554, 6908]
     sentence_count: 2
     key_terms: [gravitysrainbow1979, school, like, exclamation, everything, submission, empathize, instantly]
+    concepts: [gravitysrainbow1979, school]
     section: Comments
     token_count: 90
 ---

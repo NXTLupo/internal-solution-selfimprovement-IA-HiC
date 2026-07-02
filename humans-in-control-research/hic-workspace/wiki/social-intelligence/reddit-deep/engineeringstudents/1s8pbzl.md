@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 698]
     sentence_count: 5
     key_terms: [experience, engineeringstudents, comments, overthinking, reddit-deep, restaurants, florensic1, employers]
+    concepts: [engineeringstudents, experience, comments]
     token_count: 165
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1s8pbzl/am_i_overthinking_how_much_experience_you_need/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s8pbzl.md#c1"
     char_span: [712, 2183]
     sentence_count: 14
     key_terms: [freshman, experience, engineering, internships, get, like, year, vibrations]
+    concepts: [freshman, experience, engineering, internships, vibrations]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s8pbzl.md#c2"
     char_span: [2185, 4431]
     sentence_count: 13
     key_terms: [experience, because, "you're", hired, college, graduation, interviews, interview]
+    concepts: [experience, because, "you're", hired, college]
     section: Comments
     token_count: 462
 ---

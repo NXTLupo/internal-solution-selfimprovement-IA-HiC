@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 1376]
     sentence_count: 12
     key_terms: [students, exams, colleagues, professors, comments, homework, learning, pedagogy]
+    concepts: [students, exams, colleagues, professors, comments]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qoxjz2.md#c6"]
     token_count: 312
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1qoxjz2/am_i_behind_the_times_on_pedagogy_by_pushing_for/"}]
   - id: "social-intelligence/reddit-deep/professors/1qoxjz2.md#c1"
     char_span: [1390, 3312]
     sentence_count: 14
     key_terms: [work, students, times, class, colleague, submitted, homework, another]
+    concepts: [students, times, class, colleague, submitted]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/professors/1qoxjz2.md#c2"
     char_span: [3314, 5126]
     sentence_count: 10
     key_terms: [programming, grade, back, semester, paper-and-pencil, class, minglho, student]
+    concepts: [programming, paper-and-pencil, grade, semester, class]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/professors/1qoxjz2.md#c3"
     char_span: [5128, 6944]
     sentence_count: 13
     key_terms: [high-stakes, exams, assignments, low-stakes, tests, "i'm", literature, actively]
+    concepts: [high-stakes, exams, assignments, low-stakes, literature]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/professors/1qoxjz2.md#c4"
     char_span: [6946, 8697]
     sentence_count: 12
     key_terms: [students, grade, give, professional, problems, johnhectormcfarlane, learn, been]
+    concepts: [students, grade, professional, problems, learn]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/professors/1qoxjz2.md#c5"
     char_span: [8699, 9919]
     sentence_count: 8
     key_terms: [knowledge, why-critical-thinking-is-the-most-important-skill-in-your-life, body, critical, thinking, memorization, existing, having]
+    concepts: [knowledge, critical, thinking, memorization, existing]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/professors/1qoxjz2.md#c6"
     char_span: [9921, 11572]
     sentence_count: 10
     key_terms: [students, styles, critical-thinking-comes-from-knowledge-building, exams, quick, learners, learning, courses]
+    concepts: [students, styles, exams, quick, learners]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qoxjz2.md#c0"]
     section: Comments
     token_count: 384
 ---

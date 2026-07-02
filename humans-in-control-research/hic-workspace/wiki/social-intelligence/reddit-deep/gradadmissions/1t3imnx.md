@@ -21,21 +21,29 @@ chunks:
     char_span: [0, 1200]
     sentence_count: 6
     key_terms: [chemistry, deciding, program, gradadmissions, want, comments, continue, having]
+    concepts: [chemistry, deciding, gradadmissions, program, comments]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1t3imnx.md#c3"]
     token_count: 268
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1t3imnx/deciding_between_cambridge_and_tu_delft_for/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1t3imnx.md#c1"
     char_span: [1202, 2510]
     sentence_count: 3
     key_terms: [chemistry, learning, research, based, entirely, industry, degree, useful]
+    concepts: [chemistry, learning, research, based, entirely]
     token_count: 278
   - id: "social-intelligence/reddit-deep/gradadmissions/1t3imnx.md#c2"
     char_span: [2512, 3912]
     sentence_count: 7
     key_terms: [program, like, masters, degree, engineering, experiences, netherlands, cambridge]
+    concepts: [program, masters, degree, engineering, experiences]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1t3imnx.md#c3"]
     token_count: 303
   - id: "social-intelligence/reddit-deep/gradadmissions/1t3imnx.md#c3"
     char_span: [3926, 6143]
     sentence_count: 6
     key_terms: [engineering, degree, program, chemistry, chemical, masters, people, university]
+    concepts: [engineering, degree, program, chemistry, chemical]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1t3imnx.md#c0", "social-intelligence/reddit-deep/gradadmissions/1t3imnx.md#c2"]
     section: Comments
     token_count: 462
 ---

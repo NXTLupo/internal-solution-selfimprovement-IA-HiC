@@ -5,23 +5,18 @@ type: synthesis
 purpose: Phase 7 shadow-mode evidence for the consolidated validator. Compare against existing 5 validators before retiring them.
 chunks:
   - id: "synthesis/grounding-shadow-log.md#c0"
-    char_span: [30, 628]
-    sentence_count: 3
-    key_terms: [evidenced, hypothesis, benchmark, currently, ingestion, partially, evidence, maturity]
-    section: Current Benchmark Status
-    token_count: 135
+    char_span: [0, 1067]
+    sentence_count: 2
+    key_terms: [grounding-shadow-log, synthesis, evidence, section, confidence, validation, benchmark, evidenced]
+    concepts: [grounding-shadow-log, synthesis, evidence, section, confidence]
+    token_count: 273
   - id: "synthesis/grounding-shadow-log.md#c1"
-    char_span: [667, 1026]
-    sentence_count: 1
-    key_terms: [evidence, validation, evidenced, supported, digital-transformation, source, cx-maturity, confidence]
-    section: Validation Confidence Framework
-    token_count: 83
-  - id: "synthesis/grounding-shadow-log.md#c2"
-    char_span: [1080, 2184]
-    sentence_count: 1
-    key_terms: [maturity, adoption, failure, primary, transformation, source, organizations, progression]
-    section: Pending Evidence Categories Awaiting Ingestion
-    token_count: 215
+    char_span: [1098, 2836]
+    sentence_count: 3
+    key_terms: [evidence, benchmark, evidenced, digital-transformation, organizational, transformation, maturity, cx-maturity]
+    concepts: [evidence, benchmark, evidenced, digital-transformation, organizational]
+    section: Current Benchmark Status
+    token_count: 330
 ---
 
 ```yaml
@@ -52,18 +47,19 @@ chunks:
 
 ### Current Benchmark Status
 
-*   **Maturity Models Benchmark**: Currently marked as HYPOTHESIS. It requires the ingestion of primary sources (such as Gartner reports, Forrester CX Index data, and client assessments) to be upgraded to PARTIALLY EVIDENCED or EVIDENCED [evidence/cx-maturity.md].
-*   **Technology Adoption Benchmark**: Currently marked as HYPOTHESIS. It requires the ingestion of primary sources (such as McKinsey transformation studies, Gartner surveys, Deloitte/MIT digital maturity research, and client case studies) to be upgraded to PARTIALLY EVIDENCED or EVIDENCED [evidence/digital-transformation.md].
+*   **Maturity Models Benchmark**: The benchmark data is currently marked as HYPOTHESIS. It requires the ingestion of primary sources to verify evidence entries and upgrade the benchmark status to PARTIALLY EVIDENCED or EVIDENCED [evidence/cx-maturity.md].
+*   **Technology Adoption Benchmark**: The benchmark data is currently marked as HYPOTHESIS. It requires the ingestion of primary sources to verify evidence entries and upgrade the benchmark status to PARTIALLY EVIDENCED or EVIDENCED [evidence/digital-transformation.md].
 
 ---
 
 ### Validation Confidence Framework
 
-The validation framework defines confidence levels (including HYPOTHESIS, PARTIALLY EVIDENCED, and EVIDENCED) to categorize how well a finding is supported by source evidence [evidence/cx-maturity.md] [evidence/digital-transformation.md].
+The validation framework utilizes confidence levels—including HYPOTHESIS, PARTIALLY EVIDENCED, and EVIDENCED—to categorize how well a finding is supported by source evidence [evidence/cx-maturity.md] [evidence/digital-transformation.md].
 
 ---
 
 ### Pending Evidence Categories Awaiting Ingestion
 
-*   **CX Maturity**: Pending categories include organizational readiness, maturity assessment findings, progression patterns, and maturity-to-outcome correlations (such as maturity-to-revenue and employee structures) [evidence/cx-maturity.md].
-*   **Digital Transformation**: Pending categories include success/failure rates, adoption patterns, change management effectiveness, technology ROI, and organizational factors (such as culture, technology adoption, and change management) that predict transformation outcomes [evidence/digital-transformation.md].
+To transition benchmarks from HYPOTHESIS to EVIDENCED, primary source evidence must be ingested across several pending categories:
+
+*   **CX Maturity and Organizational Alignment**: Ingestion of

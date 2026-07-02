@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1016]
     sentence_count: 6
     key_terms: [experience, internship, cscareerquestions, "i'm", comments, graduate, planning, projects]
+    concepts: [experience, internship, cscareerquestions, comments, graduate]
     token_count: 224
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t8pvo7/cs_graduate_with_no_internshipworking_experience/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t8pvo7.md#c1"
     char_span: [1030, 1897]
     sentence_count: 4
     key_terms: [projects, experience, leetcode, romano16, zealousidealmanner34, apply, certs, dev]
+    concepts: [projects, experience, leetcode, romano16, apply]
     section: Comments
     token_count: 227
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t8pvo7.md#c2"
     char_span: [1899, 3719]
     sentence_count: 14
     key_terms: [experience, try, companies, interview, job, get, work, employers]
+    concepts: [experience, companies, interview, employers, portfolio]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t8pvo7.md#c3"
     char_span: [3721, 4881]
     sentence_count: 7
     key_terms: [get, applying, job, keep, anything, learning, average, working]
+    concepts: [applying, anything, learning, average, working]
     section: Comments
     token_count: 281
 ---

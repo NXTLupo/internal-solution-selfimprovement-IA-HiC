@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 2321]
     sentence_count: 14
     key_terms: [card, wise, debit, account, alipay, situation, physical, notification]
+    concepts: [debit, account, situation, alipay, physical]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1s2kryu.md#c1"]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1s2kryu/alipay_merchant_services_pte_ltd_tried_to_perform/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1s2kryu.md#c1"
-    char_span: [2323, 3019]
+    char_span: [2323, 3018]
     sentence_count: 5
     key_terms: [card, virtual, debit, wise, answered, physical, advised, thank]
+    concepts: [virtual, debit, answered, physical, advised]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1s2kryu.md#c0"]
     token_count: 153
 ---
 # AliPay Merchant Services Pte. Ltd tried to perform a debit card verification on my physical Wise card except I didn't do anything, how to proceed in this situation?

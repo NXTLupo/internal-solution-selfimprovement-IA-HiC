@@ -19,28 +19,34 @@ chunks:
     char_span: [0, 2314]
     sentence_count: 12
     key_terms: [week, wanted, work, information, internships, day, everything, executive]
+    concepts: [wanted, information, internships, everything, executive]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rl7tku/laid_off_during_first_week_for_being_distracting/"}]
   - id: "social-intelligence/reddit-deep/internships/1rl7tku.md#c1"
     char_span: [2316, 3572]
     sentence_count: 9
     key_terms: [environment, week, feedback, instead, entire, conversation, mistreatment, distracting]
+    concepts: [environment, feedback, instead, entire]
     token_count: 251
   - id: "social-intelligence/reddit-deep/internships/1rl7tku.md#c2"
-    char_span: [3587, 4546]
+    char_span: [3586, 4545]
     sentence_count: 6
     key_terms: [companies, bullet, dodged, appropriate-tutor587, sorry, name, secure-ad1363, monetization]
+    concepts: [companies, bullet, dodged, sorry]
     section: Comments
     token_count: 231
   - id: "social-intelligence/reddit-deep/internships/1rl7tku.md#c3"
-    char_span: [4548, 5829]
+    char_span: [4547, 5828]
     sentence_count: 7
     key_terms: [like, experience, seriously, something, because, better, engage, international-exam84]
+    concepts: [experience, seriously, something, because, better]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/internships/1rl7tku.md#c4"
-    char_span: [5831, 6833]
+    char_span: [5830, 6832]
     sentence_count: 11
     key_terms: [better, con-lime2, company, suited, sucks, twice, find, job]
+    concepts: [better, con-lime2, company, suited, sucks]
     section: Comments
     token_count: 249
 ---

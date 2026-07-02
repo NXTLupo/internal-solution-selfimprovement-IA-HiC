@@ -17,10 +17,12 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/bigdata/1pfcf3z.md#c0"
-    char_span: [0, 1067]
+    char_span: [0, 1066]
     sentence_count: 6
     key_terms: [processing, text, comments, workflow, bigdata, filings, data, sec]
-    token_count: 238
+    concepts: [processing, comments, workflow, bigdata, filings]
+    token_count: 237
+    sources: [{"n":"reddit-deep: r/bigdata","u":"https://www.reddit.com/r/bigdata/comments/1pfcf3z/efficiently_processing_thousands_of_sec_filings/"}]
 ---
 # Efficiently processing thousands of SEC filings into usable text data – best practices?
 

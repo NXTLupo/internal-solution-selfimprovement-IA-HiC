@@ -20,24 +20,31 @@ chunks:
     char_span: [0, 2079]
     sentence_count: 28
     key_terms: [current, sales, year, accounts, company, quota, due, role]
+    concepts: [current, sales, accounts, company, activities]
+    related_chunks: ["social-intelligence/reddit-deep/sales/1m2ftqa.md#c2"]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1m2ftqa/ride_out_acquisition_or_move_to_saas_fintech/"}]
   - id: "social-intelligence/reddit-deep/sales/1m2ftqa.md#c1"
     char_span: [2081, 4102]
     sentence_count: 24
     key_terms: [owner, involved, because, sales, worth, year, everything, industries]
+    concepts: [owner, involved, because, everything, industries]
     token_count: 460
   - id: "social-intelligence/reddit-deep/sales/1m2ftqa.md#c2"
     char_span: [4104, 5904]
     sentence_count: 14
     key_terms: [company, sales, hardware, owner, personal, training, current, million]
+    concepts: [company, sales, hardware, owner, personal]
+    related_chunks: ["social-intelligence/reddit-deep/sales/1m2ftqa.md#c0"]
     token_count: 374
   - id: "social-intelligence/reddit-deep/sales/1m2ftqa.md#c3"
     char_span: [5906, 7151]
     sentence_count: 13
     key_terms: [getting, looking, easily, base, days, don, role, saas]
+    concepts: [getting, looking, easily]
     token_count: 274
   - id: "social-intelligence/reddit-deep/sales/1m2ftqa.md#c4"
-    char_span: [7166, 7697]
+    char_span: [7165, 7696]
     sentence_count: 8
     key_terms: [take, too, acquisitions, acquisition, paul-towers, individual, a3exastos, certainly]
     section: Comments

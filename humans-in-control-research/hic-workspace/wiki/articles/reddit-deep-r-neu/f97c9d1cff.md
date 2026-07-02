@@ -19,14 +19,19 @@ content_hash: "9470da48e2f1a35d"
 relevance_by_goal: {"3d9ef8ee927f":35}
 chunks:
   - id: "articles/reddit-deep-r-neu/f97c9d1cff.md#c0"
-    char_span: [0, 2159]
+    char_span: [0, 2158]
     sentence_count: 19
     key_terms: [northeastern, prestigious, residential, year, boston, universities, being, competitive]
-    token_count: 458
+    concepts: [northeastern, prestigious, residential, universities, boston]
+    related_chunks: ["articles/reddit-deep-r-neu/f97c9d1cff.md#c1"]
+    token_count: 457
+    sources: [{"n":"[Reddit Deep: r/neu](articles/reddit-deep-r-neu/41382c5cea.md","u":""}]
   - id: "articles/reddit-deep-r-neu/f97c9d1cff.md#c1"
-    char_span: [2161, 3874]
+    char_span: [2160, 3873]
     sentence_count: 12
     key_terms: [program, northeastern, boston, graduating, barbcar, years, did, got]
+    concepts: [northeastern, program, graduating, boston, barbcar]
+    related_chunks: ["articles/reddit-deep-r-neu/f97c9d1cff.md#c0"]
     token_count: 399
 ---
 # To everyone who didn't get into Boston...

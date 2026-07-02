@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 922]
     sentence_count: 8
     key_terms: [research, college, comments, students, source, roles, done, get]
+    concepts: [research, college, comments, students, source]
     token_count: 199
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ocv9iv/how_do_you_get_research/"}]
   - id: "social-intelligence/reddit-deep/college/1ocv9iv.md#c1"
     char_span: [936, 3098]
     sentence_count: 16
     key_terms: [research, professors, doing, going, "you're", professor, process, usually]
+    concepts: [research, professors, doing, going, "you're"]
     section: Comments
     token_count: 456
 ---

@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 2137]
     sentence_count: 21
     key_terms: [cybersecurity, stack, full, "i'm", like, student, everything, cscareerquestions]
+    concepts: [cybersecurity, stack, student, everything, cscareerquestions]
     token_count: 495
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rpstdf/1st_year_cs_student_here_was_focused_on_full/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpstdf.md#c1"
     char_span: [2139, 2427]
     sentence_count: 5
@@ -29,6 +31,7 @@ chunks:
     char_span: [2441, 3323]
     sentence_count: 11
     key_terms: [vigilante, discipline, super, done, face, hard, "i'm", ocix]
+    concepts: [vigilante, discipline, super]
     section: Comments
     token_count: 240
 ---

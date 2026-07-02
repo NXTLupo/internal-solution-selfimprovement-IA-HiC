@@ -21,27 +21,33 @@ chunks:
     char_span: [0, 2236]
     sentence_count: 29
     key_terms: [clients, business, service, businesses, freelance, recurring, need, delivery]
+    concepts: [clients, business, service, businesses, freelance]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/freelance","u":"https://www.reddit.com/r/freelance/comments/1qtzknv/what_i_learned_running_a_specialized_service/"}]
   - id: "social-intelligence/reddit-deep/freelance/1qtzknv.md#c1"
     char_span: [2238, 4478]
     sentence_count: 33
     key_terms: [work, outreach, clients, getting, market, delivering, potential, revisions]
+    concepts: [outreach, clients, getting, market, delivering]
     token_count: 508
   - id: "social-intelligence/reddit-deep/freelance/1qtzknv.md#c2"
     char_span: [4480, 6025]
     sentence_count: 23
     key_terms: [new, skills, "that's", "don't", niche, price, get, work]
+    concepts: [skills, "that's", "don't", niche, price]
     token_count: 331
   - id: "social-intelligence/reddit-deep/freelance/1qtzknv.md#c3"
     char_span: [6039, 8033]
     sentence_count: 16
     key_terms: [work, clients, upwork, advertising, "i've", job, bertranddo, something]
+    concepts: [clients, upwork, advertising, bertranddo, something]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/freelance/1qtzknv.md#c4"
     char_span: [8035, 10207]
     sentence_count: 12
     key_terms: [work, bertranddo, bottom, people, bookkeeping, positioning, like, ones]
+    concepts: [bertranddo, bottom, people, bookkeeping, positioning]
     section: Comments
     token_count: 492
 ---

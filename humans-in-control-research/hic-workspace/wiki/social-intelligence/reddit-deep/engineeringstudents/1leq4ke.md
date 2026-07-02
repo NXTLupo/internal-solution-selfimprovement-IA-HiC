@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 1285]
     sentence_count: 13
     key_terms: ["you're", engineeringstudents, company, doing, unimportant, work, companies, "company's"]
+    concepts: ["you're", engineeringstudents, company, unimportant, doing]
     token_count: 278
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1leq4ke/stop_complaining_your_internship_for_not_doing/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c1"
     char_span: [1299, 3420]
     sentence_count: 15
     key_terms: [design, meaningful, complain, meetings, people, doing, like, work]
+    concepts: [meaningful, design, complain, meetings, people]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c3"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c2"
     char_span: [3422, 4204]
     sentence_count: 2
     key_terms: [engineeringstudents, grown, internship, bitching, college, people, kruegerfishbabeblade, fried-potato-diccs]
+    concepts: [engineeringstudents, grown, internship, bitching, college]
     section: Comments
     token_count: 214
   - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c3"
     char_span: [4206, 5593]
     sentence_count: 9
     key_terms: [meaningful, work, engineering, post, college, interns, design, intern]
+    concepts: [meaningful, engineering, college, interns, design]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c1"]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c4"
     char_span: [5595, 6955]
     sentence_count: 11
     key_terms: [business, project, approval, system, internship, meaningful, processes, together]
+    concepts: [business, project, approval, system, internship]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c5"
     char_span: [6957, 9148]
     sentence_count: 24
     key_terms: [don, like, work, prove, get, experience, internship, engineer]
+    concepts: [experience, internship, prove, engineer, because]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c6"
     char_span: [9150, 10518]
     sentence_count: 11
     key_terms: [people, time, work, internship, workshop, getting, working, better]
+    concepts: [people, internship, workshop, getting, working]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c7"
     char_span: [10521, 12350]
     sentence_count: 21
     key_terms: [useless, work, clearance, get, grateful, because, interns, intern]
+    concepts: [useless, clearance, grateful, because, interns]
     section: Comments
     token_count: 454
 ---

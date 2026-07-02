@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 243]
     sentence_count: 1
     key_terms: [comments, comparisonpowerful, genz, reddit-deep, posted, reddit, single, source]
+    concepts: [comments]
     token_count: 73
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1rdqd4y/perks_of_being_a_single_man/"}]
   - id: "social-intelligence/reddit-deep/genz/1rdqd4y.md#c1"
     char_span: [257, 1091]
     sentence_count: 4
     key_terms: [women, discord, single, kids, grass-deficiency, automatically, automoderator, coolandcringe]
+    concepts: [women, discord, single]
     section: Comments
     token_count: 209
   - id: "social-intelligence/reddit-deep/genz/1rdqd4y.md#c2"
     char_span: [1093, 2901]
     sentence_count: 8
     key_terms: [get, people, single, elderjavelin, men, situation, posting, promise]
+    concepts: [elderjavelin, people, single, situation, posting]
     section: Comments
     token_count: 447
 ---

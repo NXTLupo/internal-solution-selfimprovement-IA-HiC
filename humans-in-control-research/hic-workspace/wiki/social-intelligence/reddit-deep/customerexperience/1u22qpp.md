@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 2056]
     sentence_count: 15
     key_terms: [customer, chatbot, frustration, human, customerexperience, bot, user, completely]
+    concepts: [customer, frustration, chatbot, customerexperience, human]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1u22qpp.md#c1"]
     token_count: 416
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1u22qpp/if_a_customer_asks_to_speak_to_a_human_should_the/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1u22qpp.md#c1"
-    char_span: [2071, 4196]
+    char_span: [2070, 4195]
     sentence_count: 14
     key_terms: [human, customer, conversation, bot, talk, annoying, chriscutinha, requests]
+    concepts: [human, customer, conversation, annoying, chriscutinha]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1u22qpp.md#c0"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/customerexperience/1u22qpp.md#c2"
-    char_span: [4198, 6456]
+    char_span: [4197, 6455]
     sentence_count: 16
     key_terms: [transfer, bot, because, handoff, handle, human, means, frustration]
+    concepts: [transfer, because, handoff, handle, frustration]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/customerexperience/1u22qpp.md#c3"
-    char_span: [6458, 7389]
+    char_span: [6457, 7388]
     sentence_count: 4
     key_terms: [human, d16070ba-e21a-4251-805a-b030a7d7c11e, reviews, website, illustrious-smoke442, text, mid-cancellation, frustration]
+    concepts: [human, reviews, website]
     section: Comments
     token_count: 226
 ---

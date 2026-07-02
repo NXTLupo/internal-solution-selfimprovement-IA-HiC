@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1305]
     sentence_count: 9
     key_terms: ["master's", get, engineering, degree, engineeringstudents, internships, experience, comments]
+    concepts: ["master's", engineering, engineeringstudents, degree, internships]
     token_count: 297
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1llz8j3/is_a_masters_worth_it_for_a_mechanical/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1llz8j3.md#c1"
     char_span: [1319, 3502]
     sentence_count: 17
     key_terms: [engineeringstudents, masters, wiki, please, reddit, onlythephantomknows, https, com]
+    concepts: [engineeringstudents, masters, onlythephantomknows, please, reddit]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1llz8j3.md#c2"
     char_span: [3504, 5385]
     sentence_count: 15
     key_terms: [get, lead, masters, eggindatchin, being, worth, engineering, work]
+    concepts: [masters, eggindatchin, engineering, being, worth]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/engineeringstudents/1llz8j3.md#c3"
     char_span: [5387, 6456]
     sentence_count: 9
     key_terms: [pay, doublehexdrive, get, full-time, incorrect, employer, getting, masters]
+    concepts: [doublehexdrive, full-time, incorrect, employer, getting]
     section: Comments
     token_count: 259
 ---

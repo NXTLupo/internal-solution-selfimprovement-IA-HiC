@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1511]
     sentence_count: 12
     key_terms: [year, experience, internships, engineeringstudents, projects, engineering, internship, seriously]
+    concepts: [experience, engineeringstudents, internships, projects, engineering]
     token_count: 312
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1t4els0/when_should_engineering_students_seriously_start/"}]
 ---
 # When should engineering students seriously start preparing for internships?
 

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2195]
     sentence_count: 8
     key_terms: [like, cscareerquestions, new, reddit, dev, game, here, job]
+    concepts: [cscareerquestions, reddit, logging, systems, writing]
     token_count: 498
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1o485hp/in_the_dev_world_is_this_really_what_i_am_gonna/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/e8b416aaab.md#c1"
     char_span: [2197, 3103]
     sentence_count: 4
     key_terms: [call, describing, customer, immediatepainter9747, illustrious-age7342, vaporizers123reborn, sensitive-ear-3896, job]
+    concepts: [describing, customer]
     token_count: 235
 ---
 # In the dev world... is this really what I am gonna do until retired?

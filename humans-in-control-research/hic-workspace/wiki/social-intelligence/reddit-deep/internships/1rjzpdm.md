@@ -19,45 +19,58 @@ chunks:
     char_span: [0, 1554]
     sentence_count: 14
     key_terms: [internships, "i'm", "doesn't", problem, powerpoints, "it's", understand, comments]
+    concepts: [internships, "doesn't", problem, powerpoints, understand]
     token_count: 383
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rjzpdm/my_manager_made_me_cry_is_this_treatment_normal/"}]
   - id: "social-intelligence/reddit-deep/internships/1rjzpdm.md#c1"
     char_span: [1559, 3633]
     sentence_count: 16
     key_terms: [questions, back, "i'm", like, time, getting, manager, talking]
+    concepts: [questions, getting, manager, talking, frustrated]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rjzpdm.md#c3", "social-intelligence/reddit-deep/internships/1rjzpdm.md#c4"]
     token_count: 476
   - id: "social-intelligence/reddit-deep/internships/1rjzpdm.md#c2"
     char_span: [3635, 4517]
     sentence_count: 10
     key_terms: [job, semester, friends, manager, problem, behind, lack, left]
+    concepts: [semester, friends, manager, problem, behind]
     token_count: 193
   - id: "social-intelligence/reddit-deep/internships/1rjzpdm.md#c3"
-    char_span: [4532, 6306]
+    char_span: [4531, 6305]
     sentence_count: 18
     key_terms: [manager, material, get, understand, questions, through, intern, normal]
+    concepts: [manager, material, understand, questions, through]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rjzpdm.md#c1", "social-intelligence/reddit-deep/internships/1rjzpdm.md#c4", "social-intelligence/reddit-deep/internships/1rjzpdm.md#c5"]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/internships/1rjzpdm.md#c4"
-    char_span: [6308, 7414]
+    char_span: [6307, 7413]
     sentence_count: 10
     key_terms: [definitely, questions, probably, manager, asking, phone, lot, business-related]
+    concepts: [definitely, questions, probably, manager, asking]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rjzpdm.md#c1", "social-intelligence/reddit-deep/internships/1rjzpdm.md#c3"]
     section: Comments
     token_count: 237
   - id: "social-intelligence/reddit-deep/internships/1rjzpdm.md#c5"
-    char_span: [7416, 9689]
+    char_span: [7415, 9688]
     sentence_count: 20
     key_terms: [appreciate, "i'm", manager, understand, mistakes, company, "you're", approachable]
+    concepts: [appreciate, manager, understand, mistakes, company]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rjzpdm.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1rjzpdm.md#c6"
-    char_span: [9437, 11180]
+    char_span: [9436, 11179]
     sentence_count: 20
     key_terms: [lead, company, project, experience, something, sometimes, changing, director]
+    concepts: [company, project, experience, something, sometimes]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/internships/1rjzpdm.md#c7"
-    char_span: [11182, 11509]
+    char_span: [11181, 11508]
     sentence_count: 5
     key_terms: [learn, opportunities, irregularity, validation, treatment, feedback, yourself, explore]
+    concepts: [learn]
     section: Comments
     token_count: 71
 ---

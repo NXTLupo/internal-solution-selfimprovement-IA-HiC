@@ -20,40 +20,55 @@ chunks:
     char_span: [0, 2340]
     sentence_count: 30
     key_terms: [insurance, cheapest, coverage, responsibility, understand, pay, cannot, people]
+    concepts: [insurance, cheapest, coverage, responsibility, understand]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1t2rz9q.md#c1"]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1t2rz9q/if_you_dont_understand_insurance_stop_buying_it/"}]
   - id: "social-intelligence/reddit-deep/insurance/1t2rz9q.md#c1"
     char_span: [2342, 3200]
     sentence_count: 15
     key_terms: [insurance, ask, coverage, people, thats, take, recommendations, responsibility]
+    concepts: [insurance, coverage, people, thats]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1t2rz9q.md#c0", "social-intelligence/reddit-deep/insurance/1t2rz9q.md#c6"]
     token_count: 182
   - id: "social-intelligence/reddit-deep/insurance/1t2rz9q.md#c2"
-    char_span: [3215, 5377]
+    char_span: [3214, 5376]
     sentence_count: 19
     key_terms: [agents, policy, agent, primaryhighlight5617, best, commission, genuinely, adjuster]
+    concepts: [agents, policy, agent, primaryhighlight5617, commission]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1t2rz9q.md#c4", "social-intelligence/reddit-deep/insurance/1t2rz9q.md#c6"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/insurance/1t2rz9q.md#c3"
-    char_span: [5379, 7438]
+    char_span: [5378, 7437]
     sentence_count: 14
     key_terms: [thisismethisisalsome, agent, claim, "don't", never, put, use, agencies]
+    concepts: [thisismethisisalsome, agent, claim, "don't", never]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1t2rz9q.md#c4"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/insurance/1t2rz9q.md#c4"
-    char_span: [7443, 9620]
+    char_span: [7442, 9619]
     sentence_count: 15
     key_terms: [policy, agent, get, "don't", buy, read, understand, coverages]
+    concepts: [policy, agent, "don't", understand, coverages]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1t2rz9q.md#c2", "social-intelligence/reddit-deep/insurance/1t2rz9q.md#c3", "social-intelligence/reddit-deep/insurance/1t2rz9q.md#c6"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/insurance/1t2rz9q.md#c5"
-    char_span: [9622, 12079]
+    char_span: [9621, 12078]
     sentence_count: 16
     key_terms: [insurance, policy, personal, doctor, understanding, negotiating, especially, experience]
+    concepts: [insurance, policy, personal, understanding, doctor]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1t2rz9q.md#c6"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/insurance/1t2rz9q.md#c6"
-    char_span: [12081, 14057]
+    char_span: [12080, 14056]
     sentence_count: 14
     key_terms: [people, agent, insurance, get, like, policy, issue, independent]
+    concepts: [people, agent, insurance, policy, independent]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1t2rz9q.md#c1", "social-intelligence/reddit-deep/insurance/1t2rz9q.md#c2", "social-intelligence/reddit-deep/insurance/1t2rz9q.md#c4", "social-intelligence/reddit-deep/insurance/1t2rz9q.md#c5"]
     section: Comments
     token_count: 434
 ---

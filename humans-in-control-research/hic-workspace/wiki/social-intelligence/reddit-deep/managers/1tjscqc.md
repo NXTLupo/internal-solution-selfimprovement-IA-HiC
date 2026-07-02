@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 2050]
     sentence_count: 24
     key_terms: [people, automation, operations, tools, team, honestly, "they're", operational]
+    concepts: [people, automation, operations, tools, honestly]
     token_count: 405
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1tjscqc/as_a_manager_i_honestly_cant_tell_whether_ai/"}]
   - id: "social-intelligence/reddit-deep/managers/1tjscqc.md#c1"
     char_span: [2064, 4103]
     sentence_count: 5
     key_terms: [people, team, leadership, copilot, gains, power, users, using]
+    concepts: [people, leadership, copilot, gains, power]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/managers/1tjscqc.md#c2"
     char_span: [4105, 5195]
     sentence_count: 10
     key_terms: [people, get, less, headcount, automate, output, trying, "you're"]
+    concepts: [people, headcount, automate, output, trying]
     section: Comments
     token_count: 257
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 511]
     sentence_count: 3
     key_terms: [internship, cscareerquestions, currently, comments, summer, reddit-deep, clintms121, networking]
+    concepts: [internship, cscareerquestions, currently, comments, summer]
     token_count: 127
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ma9ip5/need_some_practical_advice_on_landing_a_cs/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ma9ip5.md#c1"
     char_span: [525, 2223]
     sentence_count: 12
     key_terms: [resume, apply, referrals, day, clintms121, companies, applying, linkedin]
+    concepts: [resume, referrals, apply, clintms121, companies]
     section: Comments
     token_count: 400
 ---

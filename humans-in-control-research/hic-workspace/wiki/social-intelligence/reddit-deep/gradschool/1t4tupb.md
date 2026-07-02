@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1910]
     sentence_count: 18
     key_terms: [cancer, take, years, gpa, pain, year, gradschool, diagnosis]
+    concepts: [cancer, gradschool, years, diagnosis, undergrad]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1t4tupb/getting_into_grad_school_with_292_gpa/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1t4tupb.md#c1"
     char_span: [1924, 3418]
     sentence_count: 10
     key_terms: [explaining, statement, personal, reyislokidoki, therainabaina, academics, affected, balance]
+    concepts: [explaining, statement, personal, reyislokidoki, therainabaina]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/gradschool/1t4tupb.md#c2"
     char_span: [3420, 5583]
     sentence_count: 15
     key_terms: [program, undergrad, personal, masters, school, applications, got, want]
+    concepts: [program, undergrad, personal, masters, applications]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1t4tupb.md#c3"
     char_span: [5320, 6232]
     sentence_count: 9
     key_terms: [got, gpa, masters, last, lot, year, jaizentheghost, undergraduate]
+    concepts: [masters]
     section: Comments
     token_count: 234
 ---

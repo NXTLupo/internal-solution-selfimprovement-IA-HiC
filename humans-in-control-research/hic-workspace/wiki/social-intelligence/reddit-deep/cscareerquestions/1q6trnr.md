@@ -21,13 +21,17 @@ chunks:
     char_span: [0, 976]
     sentence_count: 7
     key_terms: [software, cscareerquestions, easily, feel, get, "i'm", "i've", like]
+    concepts: [software, cscareerquestions, easily, comments, careers]
     token_count: 238
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1q6trnr/what_are_some_more_stable_alternate_jobscareers/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q6trnr.md#c1"
     char_span: [990, 3040]
     sentence_count: 14
     key_terms: [banking, banks, like, consulting, especially, companies, cultures, software]
+    concepts: [banking, banks, consulting, especially, companies]
     section: Comments
     token_count: 512
+    sources: [{"n":"I worked at both and that\u2019s kind of a shitshow with lesser paycheque then Big te","u":""}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q6trnr.md#c2"
     char_span: [2781, 3188]
     sentence_count: 7
@@ -38,36 +42,42 @@ chunks:
     char_span: [3192, 4383]
     sentence_count: 10
     key_terms: [been, feel, laid, swe, everyone, friends, getting, manager]
+    concepts: [everyone, friends, getting, manager, gotta]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q6trnr.md#c4"
     char_span: [4385, 6420]
     sentence_count: 9
     key_terms: [jobs, kellojelloo, hellointerview, years, good, nissepelle, mmahowald, resources]
+    concepts: [kellojelloo, hellointerview, nissepelle, years, mmahowald]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q6trnr.md#c5"
     char_span: [6155, 6643]
     sentence_count: 4
     key_terms: [hellointerview, construction, youtube, instictively, interviewed, anticipate, management, nissepelle]
+    concepts: [hellointerview, construction, youtube]
     section: Comments
     token_count: 120
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q6trnr.md#c6"
     char_span: [6645, 8412]
     sentence_count: 15
     key_terms: [construction, project, people, engineer, growing, hate, job, mushrooms]
+    concepts: [construction, project, people, engineer, growing]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q6trnr.md#c7"
     char_span: [8414, 9769]
     sentence_count: 10
     key_terms: [hiring, employees, getting, work, companies, massively, fulltime, deleted]
+    concepts: [hiring, employees, getting, companies, massively]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q6trnr.md#c8"
     char_span: [9771, 10907]
     sentence_count: 5
     key_terms: [contractors, healthcare, companies, contract, legitimate-turn4560, "don't", plans, critical-load-1452]
+    concepts: [contractors, healthcare, companies, contract, "don't"]
     section: Comments
     token_count: 258
 ---

@@ -19,23 +19,32 @@ chunks:
     char_span: [0, 842]
     sentence_count: 2
     key_terms: [program, comments, abroad, people, super, back, neu, opportunities]
+    concepts: [program, comments, abroad, people, super]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1rzdct7.md#c2"]
     token_count: 197
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rzdct7/is_it_actually_bad_coming_back_from_nuin/"}]
   - id: "social-intelligence/reddit-deep/neu/1rzdct7.md#c1"
     char_span: [856, 3002]
     sentence_count: 9
     key_terms: [nuin, friends, people, back, boston, campus, year, semester]
+    concepts: [friends, people, boston, campus, semester]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1rzdct7.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1rzdct7.md#c2"
     char_span: [2693, 4909]
     sentence_count: 12
     key_terms: [because, people, nuin, lot, spoiled, abroad, superthebean, complaining]
+    concepts: [because, people, spoiled, superthebean, abroad]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1rzdct7.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1rzdct7.md#c3"
     char_span: [4646, 5705]
     sentence_count: 7
     key_terms: [efficiencymotor5057, friends, boston, decision, someone, waiting, campus, altruistic-most-463]
+    concepts: [efficiencymotor5057, friends, boston, decision, someone]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1rzdct7.md#c1"]
     section: Comments
     token_count: 271
 ---

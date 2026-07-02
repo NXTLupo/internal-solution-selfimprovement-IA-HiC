@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 413]
     sentence_count: 2
     key_terms: [cscareerquestions, comments, advice, career, reddit-deep, "bachelor's", graduates, september]
+    concepts: [cscareerquestions, comments, advice, career]
     token_count: 113
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qgoyf9/career_advice/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qgoyf9.md#c1"
     char_span: [427, 2277]
     sentence_count: 8
     key_terms: [cheap-boysenberry112, people, eggs, put, work, passionate, interview, graduate]
+    concepts: [cheap-boysenberry112, people, passionate, interview, graduate]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qgoyf9.md#c2"
     char_span: [2279, 3336]
     sentence_count: 11
     key_terms: [internships, applications, leetcode, probably, projects, through, moment, fixed]
+    concepts: [internships, applications, leetcode, probably, projects]
     section: Comments
     token_count: 230
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qgoyf9.md#c3"
     char_span: [3338, 4616]
     sentence_count: 8
     key_terms: [leetcode, job, like, major, dont, choose, degree, bulky-negotiation345]
+    concepts: [leetcode, major, choose, degree, being]
     section: Comments
     token_count: 321
 ---

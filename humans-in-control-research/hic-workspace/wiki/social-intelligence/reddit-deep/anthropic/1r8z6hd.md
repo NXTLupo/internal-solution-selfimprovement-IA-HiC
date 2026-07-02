@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1398]
     sentence_count: 11
     key_terms: [claude, experience, godot, anthropic, code, like, game, something]
+    concepts: [claude, experience, anthropic, godot, something]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1r8z6hd.md#c1"]
     token_count: 313
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1r8z6hd/why_isnt_there_a_claude_codestyle_experience_in/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1r8z6hd.md#c1"
     char_span: [1412, 1916]
     sentence_count: 3
     key_terms: [vscode, code, "godot's", claude, kexnyc, godot, harjjotsinghh, gpt-oss-120b]
+    concepts: [vscode, "godot's", claude, kexnyc, godot]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1r8z6hd.md#c0"]
     section: Comments
     token_count: 161
 ---

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1055]
     sentence_count: 8
     key_terms: [like, college, money, technically, feel, paycheck, anyone, reddit]
+    concepts: [college, technically, money, paycheck, anyone]
     token_count: 235
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1ohgn4i/is_anyone_else_constantly_stressed_about_money/"}]
   - id: "articles/reddit-deep-r-college/fd6e9eac23.md#c1"
     char_span: [1057, 2897]
     sentence_count: 16
     key_terms: [money, experience, "i'm", like, always, because, relaxed, enough]
+    concepts: [experience, money, always, because, relaxed]
     token_count: 456
 ---
 # Is anyone else constantly stressed about money even when they technically have enough?

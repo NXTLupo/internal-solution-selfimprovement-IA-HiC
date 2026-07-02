@@ -19,64 +19,83 @@ chunks:
     char_span: [0, 2134]
     sentence_count: 10
     key_terms: [tech, employment, cscareerquestions, data, fred, million, series, ces6054150001]
+    concepts: [employment, cscareerquestions, ces6054150001, million, series]
     token_count: 497
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tjd30l/actual_data_on_the_current_state_of_the_tech_job/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c1"
     char_span: [2136, 3994]
     sentence_count: 18
     key_terms: [tech, employment, slump, worse, year, current, dot-com, history]
+    concepts: [employment, slump, worse, current, dot-com]
     token_count: 420
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c2"
     char_span: [4008, 6018]
     sentence_count: 12
     key_terms: [engineers, anymore, demand, salary, companies, don, tech, work]
+    concepts: [engineers, anymore, demand, salary, companies]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c3"
     char_span: [6020, 7831]
     sentence_count: 15
     key_terms: [software, going, through, people, engineering, significant, engineers, illustrious-pound266]
+    concepts: [software, going, through, people, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c5"]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c4"
     char_span: [7833, 10195]
     sentence_count: 18
     key_terms: [people, software, because, doing, years, engineers, get, getting]
+    concepts: [people, software, because, engineers, doing]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c7"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c5"
     char_span: [10197, 12470]
     sentence_count: 16
     key_terms: [software, engineering, demand, supply, india, development, traditional, "i've"]
+    concepts: [software, engineering, demand, supply, development]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c6", "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c8"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c6"
     char_span: [12473, 14820]
     sentence_count: 15
     key_terms: [software, development, industries, skill, world, professions, jobs, developers]
+    concepts: [software, development, industries, professions, developers]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c8"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c7"
     char_span: [14822, 16333]
     sentence_count: 10
     key_terms: [years, replace, like, time, engineers, recommend, software, society]
+    concepts: [years, replace, engineers, recommend, software]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c4"]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c8"
     char_span: [16335, 17783]
     sentence_count: 7
     key_terms: [software, development, interest, zombawombacomba, horrendously, years, protecting, president]
+    concepts: [software, development, zombawombacomba, interest, horrendously]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c6", "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c10"]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c9"
     char_span: [17785, 19342]
     sentence_count: 10
     key_terms: [people, applications, productivity, increasing, recession, thousands, because, though]
+    concepts: [applications, productivity, people, increasing, recession]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c10"
     char_span: [19344, 21369]
     sentence_count: 15
     key_terms: [interest, software, country, unfortunately, rates, years, job, davidbasil]
+    concepts: [interest, software, unfortunately, country, davidbasil]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c8"]
     section: Comments
     token_count: 500
 ---

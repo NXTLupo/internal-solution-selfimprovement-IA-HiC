@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 411]
     sentence_count: 3
     key_terms: [gradadmissions, comments, https, png, oozoxiv659eg1, reddit-deep, accepted, connect]
+    concepts: [gradadmissions, comments, https]
     token_count: 137
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qgwzyd/accepted_to_top_choice/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qgwzyd.md#c1"
     char_span: [425, 1548]
     sentence_count: 4
     key_terms: [congratulations, congrats, applied, argumentmysterious31, good, mind, too, normal-path-3451]
+    concepts: [congratulations, congrats, applied]
     section: Comments
     token_count: 378
 ---

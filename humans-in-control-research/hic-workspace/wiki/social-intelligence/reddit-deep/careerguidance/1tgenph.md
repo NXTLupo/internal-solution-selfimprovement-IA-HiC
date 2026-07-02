@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 490]
     sentence_count: 4
     key_terms: [careerguidance, comments, product, career, want, reddit-deep, thoughts, up-skill]
+    concepts: [careerguidance, comments, product, career]
     token_count: 137
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tgenph/i_am_a_product_analyst_working_for_35_years_in_a/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tgenph.md#c1"
     char_span: [504, 904]
     sentence_count: 1
     key_terms: [business, strategy, product, goals, meet, enrichmentors, visualization, candidates]
+    concepts: [business, strategy, product, goals]
     section: Comments
     token_count: 84
 ---

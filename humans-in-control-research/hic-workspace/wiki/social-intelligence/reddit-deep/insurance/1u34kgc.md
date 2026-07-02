@@ -20,28 +20,34 @@ chunks:
     char_span: [0, 1672]
     sentence_count: 11
     key_terms: [insurance, accident, rivian, values, value, evidence, trade-in, history]
+    concepts: [insurance, accident, rivian, values, value]
     token_count: 367
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1u34kgc/other_partys_insurance_lowballing_diminished/"}]
   - id: "social-intelligence/reddit-deep/insurance/1u34kgc.md#c1"
     char_span: [1674, 2970]
     sentence_count: 12
     key_terms: [appraiser, insurance, report, offer, independent, case, diminished, licensed]
+    concepts: [appraiser, insurance, report, independent, diminished]
     token_count: 273
   - id: "social-intelligence/reddit-deep/insurance/1u34kgc.md#c2"
-    char_span: [2985, 4242]
+    char_span: [2984, 4241]
     sentence_count: 11
     key_terms: [car, repair, difference, rawrreptar, reimbursed, accident, crash866, thousand]
+    concepts: [repair, difference, rawrreptar, reimbursed, accident]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/insurance/1u34kgc.md#c3"
-    char_span: [4244, 6038]
+    char_span: [4243, 6037]
     sentence_count: 13
     key_terms: [insurance, claims, small, employmentlaw, bitter, filled, get, take]
+    concepts: [insurance, claims, employmentlaw, small, bitter]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/insurance/1u34kgc.md#c4"
-    char_span: [6040, 6739]
+    char_span: [6039, 6738]
     sentence_count: 8
     key_terms: [insurance, nothing, considerations, websterspack, subrogation, department, appraiser, automatic]
+    concepts: [insurance, nothing]
     section: Comments
     token_count: 150
 ---

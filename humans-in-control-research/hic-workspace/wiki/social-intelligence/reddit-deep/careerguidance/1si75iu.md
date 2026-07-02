@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1964]
     sentence_count: 10
     key_terms: [physics, medical, careerguidance, environment, work, experience, internship, logistics]
+    concepts: [physics, careerguidance, medical, environment, experience]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1si75iu.md#c1"]
     token_count: 452
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1si75iu/any_advice_on_choosing_a_medical_career_for_that/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1si75iu.md#c1"
     char_span: [1966, 2598]
     sentence_count: 6
     key_terms: [medical, professions, physics, "i've", description, environment, respiratory, laboratory]
+    concepts: [medical, professions, physics]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1si75iu.md#c0"]
     token_count: 137
 ---
 # Any advice on choosing a medical career for that could utilize a bachelors in physics, experience in tech or logistics and works well for ADD?

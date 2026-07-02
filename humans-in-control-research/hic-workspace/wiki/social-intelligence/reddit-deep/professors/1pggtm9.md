@@ -21,23 +21,32 @@ chunks:
     char_span: [0, 1388]
     sentence_count: 13
     key_terms: [references, article, journal, exist, assignment, fabricated, professors, integrity]
+    concepts: [references, article, journal, assignment, exist]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1pggtm9.md#c1"]
     token_count: 324
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1pggtm9/student_denies_using_ai_but_had_5_fabricated/"}]
   - id: "social-intelligence/reddit-deep/professors/1pggtm9.md#c1"
     char_span: [1402, 2743]
     sentence_count: 12
     key_terms: [fake, references, integrity, assignment, fabricated, academic, problem, sources]
+    concepts: [references, integrity, assignment, fabricated, academic]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1pggtm9.md#c0", "social-intelligence/reddit-deep/professors/1pggtm9.md#c2", "social-intelligence/reddit-deep/professors/1pggtm9.md#c3"]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/professors/1pggtm9.md#c2"
     char_span: [2745, 4698]
     sentence_count: 14
     key_terms: [student, integrity, academic, prove, evidence, report, preponderance, time]
+    concepts: [student, integrity, academic, prove, evidence]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1pggtm9.md#c1", "social-intelligence/reddit-deep/professors/1pggtm9.md#c3"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/professors/1pggtm9.md#c3"
     char_span: [4700, 6121]
     sentence_count: 8
     key_terms: [integrity, office, academic, students, sources, excuse, "that's", mentalrestaurant1431]
+    concepts: [integrity, office, academic, students, sources]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1pggtm9.md#c1", "social-intelligence/reddit-deep/professors/1pggtm9.md#c2"]
     section: Comments
     token_count: 316
 ---

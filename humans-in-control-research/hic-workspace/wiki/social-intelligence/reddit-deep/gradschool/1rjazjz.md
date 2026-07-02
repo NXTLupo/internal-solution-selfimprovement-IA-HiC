@@ -21,34 +21,41 @@ chunks:
     char_span: [0, 2206]
     sentence_count: 12
     key_terms: [loans, federal, summer, students, grandfathered, private, program, department]
+    concepts: [loans, federal, summer, grandfathered, students]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rjazjz/selffunding_domestic_masters_students_you_need_to/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1rjazjz.md#c1"
     char_span: [2208, 3250]
     sentence_count: 7
     key_terms: [program, loan, unemployed, repayment, increase, interest, private, "you're"]
+    concepts: [program, unemployed, repayment, increase, interest]
     token_count: 220
   - id: "social-intelligence/reddit-deep/gradschool/1rjazjz.md#c2"
     char_span: [3264, 4969]
     sentence_count: 9
     key_terms: [school, grad, job, time, programs, phd, everything, predatory]
+    concepts: [school, programs, everything, predatory, "master's"]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/gradschool/1rjazjz.md#c3"
     char_span: [4971, 5460]
     sentence_count: 2
     key_terms: [schools, careful-while-7214, "i'm", less, imperialagent120, flexibility, attendance, difference]
+    concepts: [schools]
     section: Comments
     token_count: 120
   - id: "social-intelligence/reddit-deep/gradschool/1rjazjz.md#c4"
     char_span: [5462, 7322]
     sentence_count: 14
     key_terms: [grandfathered, program, aid, grad, june, financial, disburse, changes]
+    concepts: [grandfathered, program, financial, disburse, changes]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/gradschool/1rjazjz.md#c5"
     char_span: [7324, 8863]
     sentence_count: 12
     key_terms: [students, financial, loan, private, grad, law, like, options]
+    concepts: [students, financial, private, options, "they're"]
     section: Comments
     token_count: 356
 ---

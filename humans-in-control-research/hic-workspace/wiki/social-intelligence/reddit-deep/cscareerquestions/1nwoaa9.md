@@ -21,59 +21,80 @@ chunks:
     char_span: [0, 1048]
     sentence_count: 6
     key_terms: [experience, cscareerquestions, fake, get, here, background, companies, comments]
+    concepts: [experience, cscareerquestions, background, companies, comments]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c9"]
     token_count: 243
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1nwoaa9/who_here_has_run_into_those_companies_that_fake/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c1"
     char_span: [1062, 3277]
     sentence_count: 7
     key_terms: [companies, experience, consultancy, years, get, someone, consultancies, least]
+    concepts: [companies, experience, consultancy, years, consultancies]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c7", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c2"
     char_span: [3037, 4148]
     sentence_count: 10
     key_terms: [experience, years, references, companies, different, anyone, rarely, worked]
+    concepts: [experience, references, years, companies, different]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c9"]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c3"
     char_span: [4150, 5814]
     sentence_count: 13
     key_terms: [background, startups, companies, like, company, checks, contractor, experience]
+    concepts: [background, startups, companies, company, checks]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c9"]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c4"
     char_span: [5816, 7828]
     sentence_count: 10
     key_terms: [years, worked, going, india, consultancy, background, companies, because]
+    concepts: [years, worked, consultancy, background, going]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c7", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c8", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c9"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c5"
     char_span: [7830, 9522]
     sentence_count: 16
     key_terms: [company, background, companies, check, worked, job, different, however]
+    concepts: [background, company, companies, check, worked]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c7", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c8"]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c6"
     char_span: [9526, 11038]
     sentence_count: 10
     key_terms: [company, experience, fake, get, job, previous, problem, resumes]
+    concepts: [company, experience, previous, problem, resumes]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c8"]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c7"
     char_span: [11040, 13072]
     sentence_count: 11
     key_terms: [companies, consultancy, payroll, worked, interview, employer, people, "you're"]
+    concepts: [companies, consultancy, payroll, worked, interview]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c8"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c8"
     char_span: [13074, 15070]
     sentence_count: 9
     key_terms: [experience, legal, area, gray, company, worked, consultancy, contract]
+    concepts: [experience, legal, company, worked, consultancy]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c6", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c7"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c9"
     char_span: [15072, 16950]
     sentence_count: 23
     key_terms: [experience, outage, years, get, good, background, companies, company]
+    concepts: [experience, outage, background, years, companies]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c4"]
     section: Comments
     token_count: 461
 ---

@@ -20,53 +20,66 @@ chunks:
     char_span: [0, 1326]
     sentence_count: 11
     key_terms: [trustworthy, money, "i'm", personalfinance, information, like, want, something]
+    concepts: [trustworthy, money, personalfinance, information, something]
     token_count: 299
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1nl9kpg/is_rocket_money_trustworthy/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1nl9kpg.md#c1"
-    char_span: [1341, 2262]
+    char_span: [1340, 2261]
     sentence_count: 8
     key_terms: [rocketmoney, companies, "don't", trust, mint, rocketcompanies, our-companies, "rocketmoney's"]
+    concepts: [rocketmoney, companies, "don't", trust]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/personalfinance/1nl9kpg.md#c2"
-    char_span: [2264, 4271]
+    char_span: [2263, 4270]
     sentence_count: 16
     key_terms: [mint, since, tried, activestrategy1892, dismalmission7948, used, rocket, loved]
+    concepts: [activestrategy1892, dismalmission7948, since, tried, rocket]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1nl9kpg.md#c3"
-    char_span: [3990, 6222]
+    char_span: [3989, 6221]
     sentence_count: 22
     key_terms: [numbers, help, like, "don't", "it's", want, highlights, negative]
+    concepts: [numbers, "don't", highlights, negative, positive]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1nl9kpg.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1nl9kpg.md#c4"
-    char_span: [5953, 8101]
+    char_span: [5952, 8100]
     sentence_count: 20
     key_terms: [understand, like, subscriptions, money, been, lot, anything, finances]
+    concepts: [understand, subscriptions, money, anything, finances]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1nl9kpg.md#c5"
-    char_span: [7840, 9860]
+    char_span: [7839, 9859]
     sentence_count: 21
     key_terms: [card, account, bucks, email, money, like, contact, family]
+    concepts: [account, bucks, email, money, contact]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1nl9kpg.md#c6"
-    char_span: [9603, 11453]
+    char_span: [9602, 11452]
     sentence_count: 25
     key_terms: [need, years, want, "don't", month, home, week, numbers]
+    concepts: [years, "don't", month, numbers, months]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1nl9kpg.md#c3", "social-intelligence/reddit-deep/personalfinance/1nl9kpg.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1nl9kpg.md#c7"
-    char_span: [11193, 13049]
+    char_span: [11192, 13048]
     sentence_count: 16
     key_terms: [month, "it's", week, amount, months, information, rocketmoney, bank]
+    concepts: [month, amount, months, information, rocketmoney]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1nl9kpg.md#c6"]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/personalfinance/1nl9kpg.md#c8"
-    char_span: [13051, 13803]
+    char_span: [13050, 13802]
     sentence_count: 6
     key_terms: [listening, private, coffee, "don't", wants, worth, "it's", toys]
+    concepts: [listening, private, coffee, "don't", wants]
     section: Comments
     token_count: 200
 ---

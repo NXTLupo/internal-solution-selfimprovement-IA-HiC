@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2037]
     sentence_count: 12
     key_terms: [like, team, comments, financialcareers, instructions, makes, frustrating, situation]
+    concepts: [financialcareers, comments, instructions, frustrating, makes]
     token_count: 465
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1p9zqve/how_to_navigate_toxic_junior_employee/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1p9zqve.md#c1"
     char_span: [2039, 3790]
     sentence_count: 11
     key_terms: [get, attitude, promoted, taking, everything, anything, approach, managing]
+    concepts: [attitude, promoted, taking, everything, anything]
     token_count: 368
   - id: "social-intelligence/reddit-deep/financialcareers/1p9zqve.md#c2"
     char_span: [3792, 4458]
@@ -32,39 +35,45 @@ chunks:
     key_terms: [back, get, accomplishments, appreciated, grudgingly, accolades, advantage, overnight]
     token_count: 145
   - id: "social-intelligence/reddit-deep/financialcareers/1p9zqve.md#c3"
-    char_span: [4473, 6656]
+    char_span: [4472, 6655]
     sentence_count: 17
     key_terms: [expectations, good, financialcareers, discord, professionals, clear, level, boundaries]
+    concepts: [expectations, financialcareers, professionals, discord, boundaries]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/financialcareers/1p9zqve.md#c4"
-    char_span: [6658, 8860]
+    char_span: [6657, 8859]
     sentence_count: 12
     key_terms: [project, like, sometimes, people, senior, stakeholders, get, need]
+    concepts: [project, sometimes, stakeholders, people, senior]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/financialcareers/1p9zqve.md#c5"
-    char_span: [8862, 10792]
+    char_span: [8861, 10791]
     sentence_count: 14
     key_terms: [politics, people, doesn, level, etc, like, work, advice]
+    concepts: [politics, people, doesn, level, advice]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/financialcareers/1p9zqve.md#c6"
-    char_span: [10794, 12406]
+    char_span: [10793, 12405]
     sentence_count: 15
     key_terms: [like, become, apparently, better, manage, people, subtle, happy]
+    concepts: [become, apparently, better, manage, people]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/financialcareers/1p9zqve.md#c7"
-    char_span: [12408, 14551]
+    char_span: [12407, 14550]
     sentence_count: 19
     key_terms: [directly, managing, right, guy, work, because, review, successful-scheme608]
+    concepts: [directly, managing, right, because, review]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/financialcareers/1p9zqve.md#c8"
-    char_span: [14553, 16830]
+    char_span: [14552, 16829]
     sentence_count: 17
     key_terms: [let, people, right, track, perspective, good, like, time]
+    concepts: [people, perspective, right, track, ultimately]
     section: Comments
     token_count: 511
 ---

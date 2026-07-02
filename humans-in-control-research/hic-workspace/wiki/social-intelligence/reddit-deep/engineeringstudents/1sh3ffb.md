@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 843]
     sentence_count: 7
     key_terms: [engineeringstudents, comments, career, gave, get, want, opportunities, aeronautical]
+    concepts: [engineeringstudents, comments, career]
     token_count: 204
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sh3ffb/lehigh_northeastern_lafayette_union_or_villanova/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sh3ffb.md#c1"
     char_span: [857, 3023]
     sentence_count: 17
     key_terms: [engineeringstudents, wiki, engineering, lehigh, please, reddit, https, com]
+    concepts: [engineeringstudents, engineering, lehigh, please, reddit]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sh3ffb.md#c2"
     char_span: [3025, 4893]
     sentence_count: 13
     key_terms: [engineering, industry, defense, program, purdue, school, been, get]
+    concepts: [engineering, industry, defense, program, purdue]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sh3ffb.md#c3"
     char_span: [4895, 5819]
     sentence_count: 2
     key_terms: [engineering, experience, school, connections, moving, great, away, club]
+    concepts: [engineering, experience, school, connections, moving]
     section: Comments
     token_count: 208
 ---

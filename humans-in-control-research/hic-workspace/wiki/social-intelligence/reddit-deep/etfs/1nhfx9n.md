@@ -20,31 +20,42 @@ chunks:
     char_span: [0, 2034]
     sentence_count: 9
     key_terms: [etf, launches, fund, september, trackinsight, vistashares, https, com]
+    concepts: [launches, september, trackinsight, vistashares, https]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1nhfx9n.md#c1", "social-intelligence/reddit-deep/etfs/1nhfx9n.md#c2", "social-intelligence/reddit-deep/etfs/1nhfx9n.md#c3"]
     token_count: 497
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1nhfx9n/weekly_etf_industry_news_recap_september_8/"}]
   - id: "social-intelligence/reddit-deep/etfs/1nhfx9n.md#c1"
     char_span: [2036, 4179]
     sentence_count: 6
     key_terms: [trackinsight, etf, fund, https, com, www, launched, launches]
+    concepts: [trackinsight, https, launched, launches, cap-weighted]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1nhfx9n.md#c0", "social-intelligence/reddit-deep/etfs/1nhfx9n.md#c2", "social-intelligence/reddit-deep/etfs/1nhfx9n.md#c3"]
     token_count: 505
   - id: "social-intelligence/reddit-deep/etfs/1nhfx9n.md#c2"
     char_span: [4181, 6073]
     sentence_count: 7
     key_terms: [trackinsight, etf, fund, https, com, www, income, launches]
+    concepts: [trackinsight, https, income, launches, yieldmax]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1nhfx9n.md#c0", "social-intelligence/reddit-deep/etfs/1nhfx9n.md#c1", "social-intelligence/reddit-deep/etfs/1nhfx9n.md#c3"]
     token_count: 507
   - id: "social-intelligence/reddit-deep/etfs/1nhfx9n.md#c3"
     char_span: [6075, 7851]
     sentence_count: 7
     key_terms: [trackinsight, tradr, etf, etfs, daily, fund, https, com]
+    concepts: [trackinsight, tradr, daily, https, tracks]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1nhfx9n.md#c0", "social-intelligence/reddit-deep/etfs/1nhfx9n.md#c1", "social-intelligence/reddit-deep/etfs/1nhfx9n.md#c2"]
     token_count: 510
   - id: "social-intelligence/reddit-deep/etfs/1nhfx9n.md#c4"
     char_span: [7853, 10085]
     sentence_count: 14
     key_terms: [etf, vistashares, exposure, index, options, distribution, target, democratic]
+    concepts: [vistashares, exposure, distribution, index, options]
     token_count: 495
   - id: "social-intelligence/reddit-deep/etfs/1nhfx9n.md#c5"
-    char_span: [10087, 11235]
+    char_span: [10087, 11234]
     sentence_count: 7
     key_terms: [bnd, etfcentral, comment, reddit, https, com, www, etf]
+    concepts: [etfcentral, comment, reddit, https]
     section: Comments
     token_count: 293
 ---

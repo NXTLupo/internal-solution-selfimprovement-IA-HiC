@@ -21,22 +21,29 @@ chunks:
     char_span: [0, 2168]
     sentence_count: 1
     key_terms: [undergrad, got, school, ive, been, grad, applying, because]
+    concepts: [undergrad, school, applying, gradadmissions, because]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1tff5od/i_still_cant_believe_i_got_in/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1tff5od.md#c1"
     char_span: [2173, 2490]
     sentence_count: 1
     key_terms: [scared, background, everything, somewhere, excited, excites, reading, sitting]
+    concepts: [scared]
     token_count: 72
   - id: "social-intelligence/reddit-deep/gradadmissions/1tff5od.md#c2"
     char_span: [2504, 3694]
     sentence_count: 4
     key_terms: [thank, congratulations, myself, represents, totally, future, efficient-morning616, tasteprofessional560]
+    concepts: [congratulations, thank, myself, represents, totally]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1tff5od.md#c3"]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/gradadmissions/1tff5od.md#c3"
     char_span: [3696, 5289]
     sentence_count: 5
     key_terms: [fall, step, congratulations, school, thank, grad, like, daunting]
+    concepts: [congratulations, school, thank, daunting, applied]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1tff5od.md#c2"]
     section: Comments
     token_count: 416
 ---

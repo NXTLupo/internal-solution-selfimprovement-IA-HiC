@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1585]
     sentence_count: 13
     key_terms: [company, careerguidance, years, comments, learning, current, similar, advice]
+    concepts: [careerguidance, company, years, comments, learning]
     token_count: 371
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pi3kjf/need_career_advice_6_years_in_bde_good_salary_but/"}]
 ---
 # Need Career Advice: 6 Years in BDE, Good Salary but No Growth or Learning Left??
 

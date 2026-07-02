@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1329]
     sentence_count: 5
     key_terms: [did, internships, referrals, linkedin, network, successfully, engineering, engineers]
+    concepts: [internships, referrals, linkedin, network, successfully]
     token_count: 294
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t52dbe/how_do_engineering_students_actually_network_with/"}]
 ---
 # How do engineering students actually network with engineers for referrals?
 

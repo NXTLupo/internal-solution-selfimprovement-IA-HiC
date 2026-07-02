@@ -19,47 +19,56 @@ chunks:
     char_span: [0, 890]
     sentence_count: 7
     key_terms: [cscareerquestions, software, comments, landing, bottom, hopes, job, less]
+    concepts: [cscareerquestions, software, comments, landing, bottom]
     token_count: 208
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ou7qxx/race_to_the_bottom_for_employees/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ou7qxx.md#c1"
     char_span: [904, 2612]
     sentence_count: 20
     key_terms: [demand, supply, like, offshoring, grapegeek, positions, grinding, based]
+    concepts: [demand, supply, offshoring, grapegeek, positions]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ou7qxx.md#c2"
     char_span: [2614, 4360]
     sentence_count: 13
     key_terms: [offshoring, india, jobs, complain, having, poland, take, solution]
+    concepts: [offshoring, india, complain, having, poland]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ou7qxx.md#c3"
     char_span: [4362, 6216]
     sentence_count: 5
     key_terms: [graduates, people, internship, companies, against, because, compete, deleted]
+    concepts: [graduates, people, internship, companies, against]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ou7qxx.md#c4"
     char_span: [6218, 7848]
     sentence_count: 8
     key_terms: [money, don, like, enjoy, get, job, because, decent]
+    concepts: [money, enjoy, because, decent, people]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ou7qxx.md#c5"
     char_span: [7850, 9907]
     sentence_count: 16
     key_terms: [dramatically, professional, self, salaries, software, already, making, normal]
+    concepts: [dramatically, professional, salaries, software, already]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ou7qxx.md#c6"
     char_span: [9910, 11510]
     sentence_count: 11
     key_terms: [career, covid, time, landed, sounds, years, job, like]
+    concepts: [career, covid, landed, sounds, years]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ou7qxx.md#c7"
     char_span: [11512, 12996]
     sentence_count: 9
     key_terms: [workers, jobs, salary, expectations, get, all-time, inflated, salaries]
+    concepts: [workers, expectations, salary, all-time, inflated]
     section: Comments
     token_count: 353
 ---

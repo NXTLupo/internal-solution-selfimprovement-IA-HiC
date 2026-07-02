@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 1260]
     sentence_count: 11
     key_terms: [college, exactly, school, understanding, comments, benefit, coming, myself]
+    concepts: [college, understanding, exactly, school, comments]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rib9yh.md#c3"]
     token_count: 294
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1rib9yh/i_think_the_best_thing_ive_ever_done_for_myself/"}]
   - id: "social-intelligence/reddit-deep/college/1rib9yh.md#c1"
     char_span: [1274, 2569]
     sentence_count: 12
     key_terms: [kitchen-stick-6131, bachelor, everyone, honestly, student, school, age, high]
+    concepts: [kitchen-stick-6131, bachelor, everyone, honestly, student]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/college/1rib9yh.md#c2"
     char_span: [2571, 4028]
     sentence_count: 9
     key_terms: [back, old, year, experience, military, starting, because, younger]
+    concepts: [experience, military, starting, because, younger]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/college/1rib9yh.md#c3"
     char_span: [4030, 5618]
     sentence_count: 10
     key_terms: [school, high, college, trying, right, encouraged, experience, different]
+    concepts: [school, college, trying, encouraged, experience]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rib9yh.md#c0"]
     section: Comments
     token_count: 357
 ---

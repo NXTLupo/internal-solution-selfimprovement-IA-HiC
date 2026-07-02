@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1372]
     sentence_count: 9
     key_terms: [engineering, engineeringstudents, field, time, university, different, comments, everyone]
+    concepts: [engineering, engineeringstudents, field, university, different]
     token_count: 289
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1t9om0l/after_real_industry_and_student_experience_which/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t9om0l.md#c1"
     char_span: [1386, 3531]
     sentence_count: 16
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, posting, choose]
+    concepts: [engineeringstudents, please, reddit, https, posting]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t9om0l.md#c2"
     char_span: [3533, 4620]
     sentence_count: 11
     key_terms: [job, work, going, vary, aerospace, companies, personal, company]
+    concepts: [going, aerospace, companies, personal, company]
     section: Comments
     token_count: 236
 ---

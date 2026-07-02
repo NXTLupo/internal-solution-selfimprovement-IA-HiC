@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 798]
     sentence_count: 1
     key_terms: [cscareerquestions, comments, because, school, dumb, grad, gre, too]
+    concepts: [cscareerquestions, comments, because, school]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1n3vpyo.md#c2"]
     token_count: 202
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1n3vpyo/is_gre_required_for_pretty_much_every_cs_grad/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3vpyo.md#c1"
     char_span: [812, 2901]
     sentence_count: 16
     key_terms: [school, grad, job, market, required, fucked, papers, trying]
+    concepts: [school, market, required, thehardsphere, fucked]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3vpyo.md#c2"
     char_span: [2903, 4377]
     sentence_count: 13
     key_terms: [school, internships, grad, because, bentoboxtofu, get, gre, "master's"]
+    concepts: [school, internships, because, bentoboxtofu, "master's"]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1n3vpyo.md#c0"]
     section: Comments
     token_count: 367
 ---

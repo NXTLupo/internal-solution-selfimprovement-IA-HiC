@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1694]
     sentence_count: 13
     key_terms: [projects, careerguidance, growth, independently, integrations, pay, comments, guidance]
+    concepts: [projects, careerguidance, independently, integrations, growth]
     token_count: 402
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sfofpl/need_career_guidance_after_15_years_in_first_dev/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sfofpl.md#c1"
     char_span: [1708, 3531]
     sentence_count: 1
     key_terms: [projects, better, environment, don, need, explaining, companies, position]
+    concepts: [projects, better, environment, explaining, companies]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/careerguidance/1sfofpl.md#c2"
     char_span: [3533, 5067]
     sentence_count: 13
     key_terms: [certificate, environment, job, year, employer, realised, already, banking]
+    concepts: [certificate, environment, employer, realised, already]
     section: Comments
     token_count: 367
 ---

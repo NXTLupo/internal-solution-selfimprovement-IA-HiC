@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1130]
     sentence_count: 10
     key_terms: [vanguard, without, issue, never, bogleheads, situation, comments, customer]
+    concepts: [vanguard, without, bogleheads, issue, never]
     token_count: 239
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1q0isd6/vanguard_customer_service_any_tips/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1q0isd6.md#c1"
-    char_span: [1145, 2586]
+    char_span: [1144, 2585]
     sentence_count: 12
     key_terms: [customer, vanguard, problem, service, schwab, daemontargaryen2024, "don't", issue]
+    concepts: [customer, vanguard, problem, service, schwab]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/bogleheads/1q0isd6.md#c2"
-    char_span: [2588, 4673]
+    char_span: [2587, 4672]
     sentence_count: 22
     key_terms: [fidelity, vanguard, account, call, transfer, straightforward, shares, titled]
+    concepts: [fidelity, vanguard, account, straightforward, transfer]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1q0isd6.md#c3"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/bogleheads/1q0isd6.md#c3"
-    char_span: [4675, 6173]
+    char_span: [4674, 6172]
     sentence_count: 14
     key_terms: [vanguard, transaction-history-report, fidelity, get, accounts, account, transactions, transaction]
+    concepts: [vanguard, transaction-history-report, fidelity, accounts, account]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1q0isd6.md#c2"]
     section: Comments
     token_count: 337
 ---

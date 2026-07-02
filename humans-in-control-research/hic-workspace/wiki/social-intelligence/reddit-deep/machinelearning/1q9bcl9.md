@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1571]
     sentence_count: 5
     key_terms: [screen, vision, https, source, bullmeza, machinelearning, local, app]
+    concepts: [screen, vision, https, source, machinelearning]
     token_count: 394
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1q9bcl9/p_i_made_screen_vision_turn_any_confusing_ui_into/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1q9bcl9.md#c1"
     char_span: [1585, 2565]
     sentence_count: 4
     key_terms: [bullmeza, project, vision, agent, mindless-brainless, cool, goal, "it's"]
+    concepts: [bullmeza, project, vision, agent]
     section: Comments
     token_count: 269
 ---

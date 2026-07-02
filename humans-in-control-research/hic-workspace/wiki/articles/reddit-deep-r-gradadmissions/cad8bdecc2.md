@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1022]
     sentence_count: 8
     key_terms: [research, gradadmissions, paragraphs, comments, feedback, reddit, fun-concentrate2992, https]
+    concepts: [research, gradadmissions, paragraphs, comments, feedback]
     token_count: 268
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1p1csbd/requesting_feedback_what_are_the_weak_areas_in_my/"}]
 ---
 # Requesting feedback: What are the weak areas in my SOP for Biochemistry PhD?
 

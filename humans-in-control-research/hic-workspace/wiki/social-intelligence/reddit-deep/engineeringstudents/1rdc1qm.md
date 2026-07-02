@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 781]
     sentence_count: 5
     key_terms: [engineering, engineeringstudents, job, work, currently, comments, related, student]
+    concepts: [engineering, engineeringstudents, currently, comments, related]
     token_count: 186
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rdc1qm/is_there_a_side_hustlejob_you_can_work_related_to/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rdc1qm.md#c1"
     char_span: [795, 1892]
     sentence_count: 8
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    concepts: [engineeringstudents, reddit, https, resources, please]
     section: Comments
     token_count: 259
 ---

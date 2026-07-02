@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 1922]
     sentence_count: 15
     key_terms: [e-commerce, career, management, business, careerguidance, marketplace, like, comments]
+    concepts: [e-commerce, career, management, business, careerguidance]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rtsmyk.md#c1"]
     token_count: 434
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rtsmyk/title_25f_from_india_confused_about_career_path/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rtsmyk.md#c1"
     char_span: [1936, 3207]
     sentence_count: 12
     key_terms: [e-commerce, business, path, work, different, switching, continue, customer]
+    concepts: [e-commerce, business, different, switching, continue]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rtsmyk.md#c0"]
     section: Comments
     token_count: 261
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 897]
     sentence_count: 8
     key_terms: [program, northeastern, comments, students, boston, co-op, ece, fall]
+    concepts: [program, northeastern, comments, students, boston]
     token_count: 222
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1r7rzvy/fall_2026_ms_ece_at_northeastern_boston_how_is/"}]
   - id: "social-intelligence/reddit-deep/neu/1r7rzvy.md#c1"
     char_span: [911, 1438]
     sentence_count: 5
     key_terms: [got, different, legitimatecicada3276, "i'm", neu, concentration, particular, university]
+    concepts: [different]
     section: Comments
     token_count: 135
 ---

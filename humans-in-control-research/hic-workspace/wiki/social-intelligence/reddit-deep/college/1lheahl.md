@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1077]
     sentence_count: 5
     key_terms: [program, online, able, financial, situation, comments, college, housing]
+    concepts: [program, online, financial, situation, comments]
     token_count: 247
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lheahl/were_you_able_to_get_financial_aidstudent_loans/"}]
 ---
 # Were you able to get financial aid/student loans for housing?
 

@@ -19,10 +19,12 @@ content_hash: "faae4a55d3c2f0c9"
 relevance_by_goal: {"8e9ecc469395":45}
 chunks:
   - id: "articles/reddit-nonprofit/7acb5c71bf.md#c0"
-    char_span: [0, 1846]
+    char_span: [0, 1845]
     sentence_count: 6
     key_terms: [nonprofit, funder, words, boilerplate, information, "i'm", keep, own]
-    token_count: 411
+    concepts: [nonprofit, funder, boilerplate, information, words]
+    token_count: 410
+    sources: [{"n":"reddit: Nonprofit","u":"https://reddit.com/r/nonprofit/comments/1s8gviq/grant_writing_is_just_rewriting_the_same/"}]
 ---
 # Grant writing is just rewriting the same information 40 different ways and I'm losing my mind
 

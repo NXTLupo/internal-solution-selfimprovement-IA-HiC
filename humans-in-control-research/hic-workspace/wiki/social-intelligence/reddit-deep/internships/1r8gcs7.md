@@ -19,26 +19,34 @@ chunks:
     char_span: [0, 1768]
     sentence_count: 9
     key_terms: [internships, excel, python, engineering, entry-level, learn, sql, skills]
+    concepts: [internships, excel, python, engineering, entry-level]
     token_count: 451
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1r8gcs7/i_analyzed_53744_internships_entrylevel_jobs_to/"}]
   - id: "social-intelligence/reddit-deep/internships/1r8gcs7.md#c1"
     char_span: [1770, 3674]
     sentence_count: 10
     key_terms: [https, python, com, finance, automatetheboringstuff, learn, data, "it's"]
+    concepts: [https, python, automatetheboringstuff, finance, learn]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1r8gcs7.md#c2"]
     token_count: 471
   - id: "social-intelligence/reddit-deep/internships/1r8gcs7.md#c2"
     char_span: [3676, 5791]
     sentence_count: 12
     key_terms: [https, com, free, sql, learn, salesforce, figma, python]
+    concepts: [https, learn, salesforce, figma, python]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1r8gcs7.md#c1"]
     token_count: 501
   - id: "social-intelligence/reddit-deep/internships/1r8gcs7.md#c3"
     char_span: [5793, 6778]
     sentence_count: 4
     key_terms: [listings, infrastructure, skills, transformers, overthewire, pay, valuation, learning]
+    concepts: [listings, infrastructure, transformers, skills, overthewire]
     token_count: 280
   - id: "social-intelligence/reddit-deep/internships/1r8gcs7.md#c4"
     char_span: [6792, 7569]
     sentence_count: 4
     key_terms: [technical-machine-76, internshipdaily, skills-demand, analysis, insights, specific, skills, confident-pianist391]
+    concepts: [technical-machine-76, internshipdaily, skills-demand, analysis, insights]
     section: Comments
     token_count: 196
 ---

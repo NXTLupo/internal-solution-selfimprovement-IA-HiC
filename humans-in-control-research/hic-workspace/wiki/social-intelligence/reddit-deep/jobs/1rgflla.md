@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 2124]
     sentence_count: 19
     key_terms: [experience, internship, internships, level, years, advantage, year, graduate]
+    concepts: [experience, internship, internships, advantage, level]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rgflla.md#c1", "social-intelligence/reddit-deep/jobs/1rgflla.md#c2"]
     token_count: 472
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rgflla/do_you_think_internships_are_ruining_the_entry/"}]
   - id: "social-intelligence/reddit-deep/jobs/1rgflla.md#c1"
     char_span: [2138, 4272]
     sentence_count: 14
     key_terms: [internship, interns, internships, experience, entry, problem, actual, grads]
+    concepts: [internship, internships, interns, experience, entry]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rgflla.md#c0", "social-intelligence/reddit-deep/jobs/1rgflla.md#c2"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/jobs/1rgflla.md#c2"
     char_span: [4274, 5800]
     sentence_count: 11
     key_terms: [internship, experience, everyone, someone, level, done, companies, company]
+    concepts: [internship, experience, everyone, someone, level]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rgflla.md#c0", "social-intelligence/reddit-deep/jobs/1rgflla.md#c1"]
     section: Comments
     token_count: 326
 ---

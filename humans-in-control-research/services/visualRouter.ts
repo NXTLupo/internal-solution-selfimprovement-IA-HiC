@@ -28,24 +28,25 @@ import { hasAuthoredMeaning } from './vizSlot';
 import { resolveArtifactImages } from './artifactIllustrator';
 import { resolveArtifactIcons } from './artifactIconResolver';
 
-export type VisualBranch = 'diagram' | 'emotive' | 'icon' | 'none';
+// E4 (2026-07-02, artifact-total-elevation): the generative 'emotive' branch (memphis-iso diffusion)
+// is RETIRED. Its slots route to 'infographic' - the NATIVE lane (nxt_diagram_render infographic
+// families via /api/ai/diagram, chromeless slot shells): locked typography, token palette, real icon
+// glyphs, content built from the element's own data, text-in-image impossible by construction. Being
+// deterministic + native, it needs NO section-8 diffusion gate.
+export type VisualBranch = 'diagram' | 'infographic' | 'icon' | 'none';
 export interface VisualRoute { branch: VisualBranch; reason: string; }
 
-// ---- section-8 gate: the designer (generative) branch default for UNWIRED surfaces -----------
-// Default OFF per the plan. A human flips it on (after the brand-fidelity + anti-slop spikes) via
-// setDesignerBranchEnabled(true) or localStorage['hic.designer.branch']='on'. Wired surfaces
-// (registry wired:true, e.g. journey-map) are already approved and do not depend on this flag.
+// ---- section-8 gate: RETIRED with the diffusion branch (E4, 2026-07-02) -----------------------
+// The gate existed to hold the GENERATIVE (diffusion) branch off until brand-fidelity spikes passed.
+// The native infographic lane is deterministic + token-locked, so there is nothing to gate. The
+// functions remain as inert no-ops for one release (callers/tests may still import them).
 let _designerOverride: boolean | undefined;
+/** @deprecated section-8 gate retired 2026-07-02 (native infographic lane needs no diffusion gate). */
 export function setDesignerBranchEnabled(v: boolean | undefined): void { _designerOverride = v; }
+/** @deprecated always true post-E4; kept for one release for import compatibility. */
 export function isDesignerBranchEnabled(): boolean {
-    if (typeof _designerOverride === 'boolean') return _designerOverride;
-    try {
-        if (typeof localStorage !== 'undefined') {
-            const v = localStorage.getItem('hic.designer.branch');
-            if (v) return v === 'on' || v === 'true' || v === '1';
-        }
-    } catch { /* non-browser context */ }
-    return false; // GATED OFF by default (plan section 8: verify-before-default)
+    void _designerOverride;
+    return true;
 }
 
 export interface RouteSlotOpts {
@@ -65,26 +66,23 @@ export function routeSlot(o: RouteSlotOpts): VisualRoute {
     if (o.override === 'none') return { branch: 'none', reason: '#img=none (user suppressed slot art)' };
     if (o.override === 'diagram') return { branch: 'diagram', reason: '#img=diagram (forced deterministic viz)' };
     if (o.override === 'icon') return { branch: 'icon', reason: '#img=icon (forced tokenized glyph)' };
-    if (o.override === 'generate') return { branch: 'emotive', reason: '#img=generate (forced designer skill)' };
+    if (o.override === 'generate') return { branch: 'infographic', reason: '#img=generate (forced native infographic)' };
 
     // 2) Registry says image-free -> never generate.
     const spec = imageSpecFor(o.artifact);
     const mode = o.mode ?? spec?.mode;
     if (!mode || mode === 'none') return { branch: 'none', reason: `${o.artifact || 'slot'}: no registered slot / image-free` };
 
-    const enabled = typeof o.designerEnabled === 'boolean' ? o.designerEnabled : isDesignerBranchEnabled();
-    const gateEmotive = (reason: string): VisualRoute =>
-        (o.slotWired || enabled)
-            ? { branch: 'emotive', reason }
-            : { branch: 'none', reason: 'emotive slot but designer branch gated off (section 8); use #img=generate to force' };
-
-    // 3) The verified GOLD audit is the authoritative auto decision.
+    // 3) The verified GOLD audit is the authoritative auto decision. 'emotive' (legacy audit value)
+    //    and 'infographic' both route native - UNGATED (no diffusion risk; section-8 gate retired).
     const audit = o.branch ?? spec?.branch;
     if (audit) {
         if (audit === 'none') return { branch: 'none', reason: `${o.artifact}: registered image-free (audit)` };
         if (audit === 'icon') return { branch: 'icon', reason: `${o.artifact}: audit -> tokenized glyph (deterministic, $0)` };
         if (audit === 'chart') return { branch: 'diagram', reason: `${o.artifact}: audit -> content-true diagram (vizEngine)` };
-        if (audit === 'emotive') return gateEmotive(`${o.artifact}: audit -> emotive (designer skill)`);
+        if (audit === 'emotive' || audit === 'infographic') {
+            return { branch: 'infographic', reason: `${o.artifact}: audit -> native infographic (content-true, token-locked)` };
+        }
     }
 
     // 4) Heuristic fallback when the registry carries no audit branch.
@@ -92,7 +90,7 @@ export function routeSlot(o: RouteSlotOpts): VisualRoute {
         return { branch: 'diagram', reason: 'authored data on a single panel -> content-true diagram (vizEngine)' };
     }
     if (mode === 'glyph') return { branch: 'icon', reason: 'glyph slot -> tokenized icon' };
-    return gateEmotive('emotive slot (heuristic) -> designer skill');
+    return { branch: 'infographic', reason: 'conceptual slot (heuristic) -> native infographic' };
 }
 
 export interface ResolveRoutedOpts {
@@ -134,9 +132,9 @@ export async function resolveRoutedSlotImages(
             const n = resolveArtifactIcons(artifact, payload, brand, theme, opts.industry, opts.onLog);
             return { branch: 'icon', count: n, reason: route.reason };
         }
-        if (route.branch === 'emotive') {
+        if (route.branch === 'infographic') {
             const n = await resolveArtifactImages(artifact, payload, brand, theme, opts.onLog);
-            return { branch: 'emotive', count: n, reason: route.reason };
+            return { branch: 'infographic', count: n, reason: route.reason };
         }
         // diagram + none: no async carrier fill here (slide panels are handled at compose by attachViz).
         return { branch: route.branch, count: 0, reason: route.reason };

@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 909]
     sentence_count: 7
     key_terms: [number, comments, million, never, ordinary-fish-9791, dont, genz, guys]
+    concepts: [number, comments, million, never]
     token_count: 219
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1qd3yoa/what_is_your_retirement_number/"}]
   - id: "social-intelligence/reddit-deep/genz/1qd3yoa.md#c1"
     char_span: [923, 2571]
     sentence_count: 15
     key_terms: [get, hopefully, inflation, probably, discord, embarrassed-lab4446, coins, ordinary-fish-9791]
+    concepts: [hopefully, inflation, probably, discord, coins]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/genz/1qd3yoa.md#c2"
     char_span: [2573, 3134]
     sentence_count: 4
     key_terms: [cow, cattle, tangouniform2020, restaurants, eventually, operations, butchered, depending]
+    concepts: [cattle]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/genz/1qd3yoa.md#c3"
     char_span: [3136, 4699]
     sentence_count: 11
     key_terms: [like, youchasechickens, tarchival-sage, work, retirement, industry, retiring, another]
+    concepts: [youchasechickens, tarchival-sage, retirement, industry, retiring]
     section: Comments
     token_count: 433
 ---

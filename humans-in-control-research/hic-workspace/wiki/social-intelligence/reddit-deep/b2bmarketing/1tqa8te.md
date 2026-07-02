@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1721]
     sentence_count: 9
     key_terms: [campaigns, cold, open, deliverability, emails, volume, "you're", b2bmarketing]
+    concepts: [campaigns, deliverability, b2bmarketing, emails, volume]
     token_count: 411
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1tqa8te/sent_26m_cold_emails_in_2_weeks_heres_our_reply/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tqa8te.md#c1"
-    char_span: [1736, 3754]
+    char_span: [1735, 3753]
     sentence_count: 13
     key_terms: [hyperkeofficial, looking-for-marketing-discussion-811236647760298024, individual-willow-59, sending, volume, questions, contacts, messages]
+    concepts: [hyperkeofficial, individual-willow-59, sending, volume, questions]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tqa8te.md#c2"
-    char_span: [3758, 4871]
+    char_span: [3757, 4870]
     sentence_count: 9
     key_terms: [volume, personalisation, approach, "doesn't", numbers, quality, better, doing]
+    concepts: [volume, personalisation, approach, "doesn't", numbers]
     section: Comments
     token_count: 255
 ---

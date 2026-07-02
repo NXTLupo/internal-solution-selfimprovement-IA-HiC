@@ -17,10 +17,12 @@ research_goal: "Deliver a comprehensive 2026 outlook report on the global retail
 engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
 chunks:
   - id: "social-intelligence/reddit-deep/supplychain/1oneac6.md#c0"
-    char_span: [0, 2191]
+    char_span: [0, 2190]
     sentence_count: 15
     key_terms: [logistics, product, supply, activities, planning, distribution, chain, supplychain]
+    concepts: [logistics, product, activities, supply, planning]
     token_count: 409
+    sources: [{"n":"reddit-deep: r/supplychain","u":"https://www.reddit.com/r/supplychain/comments/1oneac6/career_prospects_operations/"}]
 ---
 # Career Prospects: Operations
 

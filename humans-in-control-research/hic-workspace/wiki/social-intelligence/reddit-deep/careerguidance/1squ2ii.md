@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 407]
     sentence_count: 3
     key_terms: [careerguidance, comments, job, long, too, reddit-deep, happening, underpaid]
+    concepts: [careerguidance, comments]
     token_count: 112
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1squ2ii/did_i_ruin_my_career_by_staying_too_long_at_my/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1squ2ii.md#c1"
     char_span: [421, 1899]
     sentence_count: 16
     key_terms: [job, title, new, stay, another, stayed, bump, ambitions]
+    concepts: [title, another, stayed, ambitions, position]
     section: Comments
     token_count: 371
 ---

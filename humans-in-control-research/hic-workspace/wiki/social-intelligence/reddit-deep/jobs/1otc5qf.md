@@ -21,83 +21,101 @@ chunks:
     char_span: [0, 1045]
     sentence_count: 10
     key_terms: [field, market, here, jobs, comments, teachers, always, region]
+    concepts: [field, market, comments, teachers, always]
     token_count: 253
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1otc5qf/what_careers_are_doing_fine_right_now/"}]
   - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c1"
     char_span: [1059, 3240]
     sentence_count: 12
     key_terms: [engineering, civil, projects, infrastructure, recruiters, landscape, proposal, project]
+    concepts: [engineering, civil, projects, infrastructure, recruiters]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c2"
     char_span: [3026, 3510]
     sentence_count: 5
     key_terms: [been, year, looking, "i've", infrastructure, interviewed, absolutely, recruiters]
+    concepts: [looking]
     section: Comments
     token_count: 119
   - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c3"
     char_span: [3512, 4524]
     sentence_count: 9
     key_terms: [deep-appearance-8543, accountant, definitely, state, been, bit, end, new]
+    concepts: [deep-appearance-8543, accountant, definitely, state]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1otc5qf.md#c4", "social-intelligence/reddit-deep/jobs/1otc5qf.md#c5"]
     section: Comments
     token_count: 255
   - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c4"
     char_span: [4526, 6773]
     sentence_count: 10
     key_terms: [definitely, construction, like, want, accountant, automation, divergence, offshoring]
+    concepts: [definitely, construction, accountant, automation, divergence]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1otc5qf.md#c3", "social-intelligence/reddit-deep/jobs/1otc5qf.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c5"
     char_span: [6555, 8391]
     sentence_count: 13
     key_terms: [years, accounting, definitely, job, accountant, experience, government, always]
+    concepts: [years, accounting, definitely, accountant, experience]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1otc5qf.md#c3", "social-intelligence/reddit-deep/jobs/1otc5qf.md#c4"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c6"
     char_span: [8393, 9258]
     sentence_count: 7
     key_terms: [started, grooming, konf323, mobile, dog, own, work, demiseofreality]
+    concepts: [started, grooming, konf323, mobile]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c7"
     char_span: [9260, 11251]
     sentence_count: 12
     key_terms: [insurance, doing, deleted, people, supply, "you're", area, commercial]
+    concepts: [insurance, doing, deleted, people, supply]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c8"
     char_span: [11039, 12508]
     sentence_count: 7
     key_terms: [insanity8016, dying, get, like, utilities, probably, demand, fairly]
+    concepts: [insanity8016, dying, utilities, probably, demand]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c9"
     char_span: [12510, 14687]
     sentence_count: 14
     key_terms: [job, administrative, work, experience, kiki-1983, company, bodies, ground]
+    concepts: [administrative, experience, kiki-1983, company, bodies]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c10"
     char_span: [14393, 16411]
     sentence_count: 23
     key_terms: [company, job, health, years, ehr, work, electronic, receivable]
+    concepts: [company, health, electronic, receivable, struggling]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c11"
     char_span: [16146, 18124]
     sentence_count: 20
     key_terms: [state, hard, job, tech, aireine, careful, always, being]
+    concepts: [state, aireine, careful, always, being]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c12"
     char_span: [17888, 18513]
     sentence_count: 4
     key_terms: [taken, economyoffice9000, good, long, mean, time, trueredditmartyr, troubleshoot]
+    concepts: [taken]
     section: Comments
     token_count: 168
   - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c13"
     char_span: [18516, 20143]
     sentence_count: 12
     key_terms: [nursing, lookmeuponsoundcloud, california, experience, jobs, level, weak, healthcare]
+    concepts: [nursing, lookmeuponsoundcloud, california, experience, healthcare]
     section: Comments
     token_count: 402
 ---

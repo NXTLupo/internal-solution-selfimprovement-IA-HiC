@@ -10,6 +10,7 @@ chunks:
     char_span: [0, 710]
     sentence_count: 2
     key_terms: [industries, sources, shared, articles, reddit-deep-r-careerguidance, reddit-digital-marketing, reddit-deep-r-investing, hic-theme-synthesis]
+    concepts: [industries, sources, reddit-deep-r-careerguidance, shared, articles]
     section: Cross-over verticals (shared sources) / Representative sources
     token_count: 210
 ---

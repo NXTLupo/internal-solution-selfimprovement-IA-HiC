@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 2296]
     sentence_count: 11
     key_terms: [computer, cst, associate, transfer, city, tech, program, science]
+    concepts: [computer, associate, transfer, program, science]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1od9vsc/repost_firstsemester_cs_student_at_city_tech/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1od9vsc.md#c1"
     char_span: [2298, 2716]
     sentence_count: 6
     key_terms: [better, cst, transferring, competitive, perspective, appreciate, especially, everything]
+    concepts: [better]
     token_count: 89
   - id: "social-intelligence/reddit-deep/cscareerquestions/1od9vsc.md#c2"
     char_span: [2730, 3177]
     sentence_count: 6
     key_terms: [understand, degree, years, difference, experience, mid-sized, rosenvine, something]
+    concepts: [understand, degree, years]
     section: Comments
     token_count: 97
 ---

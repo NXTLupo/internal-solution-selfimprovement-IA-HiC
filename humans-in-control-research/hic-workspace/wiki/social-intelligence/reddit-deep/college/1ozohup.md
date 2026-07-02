@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 521]
     sentence_count: 5
     key_terms: [college, time, comments, fulfill, career-related, opportunities, gxxdiegxxdie, reddit-deep]
+    concepts: [college, comments, fulfill]
     token_count: 134
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ozohup/what_do_you_do_to_fulfill_your_time_after_college/"}]
   - id: "social-intelligence/reddit-deep/college/1ozohup.md#c1"
     char_span: [535, 1758]
     sentence_count: 4
     key_terms: [something, real-ad1328, gets, college, masters, campbellkneecapsoup, powerful-phone-9458, stock-stress-4147]
+    concepts: [something, real-ad1328, college, masters]
     section: Comments
     token_count: 341
 ---

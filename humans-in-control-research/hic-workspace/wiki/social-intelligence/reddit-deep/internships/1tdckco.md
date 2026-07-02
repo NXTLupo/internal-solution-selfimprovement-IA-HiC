@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1470]
     sentence_count: 14
     key_terms: [internship, work, automotive, experience, environmental, manufacturing, offer, similar]
+    concepts: [internship, automotive, experience, environmental, manufacturing]
     token_count: 305
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tdckco/help_choosing_between_offers/"}]
   - id: "social-intelligence/reddit-deep/internships/1tdckco.md#c1"
     char_span: [1484, 2901]
     sentence_count: 5
     key_terms: [plant, culture, processing, food, working, impact, manufacturing, automotive]
+    concepts: [culture, plant, processing, manufacturing, working]
     section: Comments
     token_count: 312
 ---

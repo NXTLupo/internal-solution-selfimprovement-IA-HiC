@@ -20,27 +20,38 @@ chunks:
     char_span: [0, 2123]
     sentence_count: 28
     key_terms: [company, people, build, arr, ceo, team, comments, startups]
+    concepts: [company, people, build, comments, startups]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1t2zogs.md#c1"]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1t2zogs/ceo_running_400m_arr_told_me_ai_adoption_is/"}]
   - id: "social-intelligence/reddit-deep/startups/1t2zogs.md#c1"
     char_span: [2125, 4311]
     sentence_count: 31
     key_terms: [company, transition, already, people, engineering, code, anything, question]
+    concepts: [company, transition, already, people, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1t2zogs.md#c0", "social-intelligence/reddit-deep/startups/1t2zogs.md#c2"]
     token_count: 475
   - id: "social-intelligence/reddit-deep/startups/1t2zogs.md#c2"
     char_span: [4313, 6621]
     sentence_count: 24
     key_terms: [already, tools, companies, building, people, weekly, end-to-end, marketing]
+    concepts: [already, companies, tools, building, people]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1t2zogs.md#c1"]
     token_count: 496
   - id: "social-intelligence/reddit-deep/startups/1t2zogs.md#c3"
-    char_span: [6636, 8335]
+    char_span: [6635, 8334]
     sentence_count: 11
     key_terms: [team, experiments, week, because, framing, written, claude, months]
+    concepts: [experiments, because, framing, written, claude]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1t2zogs.md#c4"]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/startups/1t2zogs.md#c4"
-    char_span: [8337, 10499]
+    char_span: [8336, 10498]
     sentence_count: 18
     key_terms: [get, claude, experiments, week, bullshit, "doesn't", results, single]
+    concepts: [claude, experiments, bullshit, "doesn't", results]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1t2zogs.md#c3"]
     section: Comments
     token_count: 510
 ---

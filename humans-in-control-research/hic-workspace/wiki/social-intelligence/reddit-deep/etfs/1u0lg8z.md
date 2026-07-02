@@ -20,22 +20,29 @@ chunks:
     char_span: [0, 2584]
     sentence_count: 14
     key_terms: [infrastructure, water, growth, investment, important, exposure, requires, electrification]
+    concepts: [infrastructure, water, investment, growth, important]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1u0lg8z.md#c2"]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1u0lg8z/i_built_an_etf_watchlist_around_ai_energy/"}]
   - id: "social-intelligence/reddit-deep/etfs/1u0lg8z.md#c1"
     char_span: [2586, 4404]
     sentence_count: 13
     key_terms: [infrastructure, energy, long-term, semiconductors, estate, growth, market, cybersecurity]
+    concepts: [infrastructure, energy, long-term, semiconductors, cybersecurity]
     token_count: 364
   - id: "social-intelligence/reddit-deep/etfs/1u0lg8z.md#c2"
-    char_span: [4419, 5971]
+    char_span: [4418, 5970]
     sentence_count: 10
     key_terms: [water, investments, food, investment, because, biggest, profits, any-yogurtcloset-493]
+    concepts: [water, investments, investment, because, biggest]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1u0lg8z.md#c0"]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/etfs/1u0lg8z.md#c3"
-    char_span: [5973, 7438]
+    char_span: [5972, 7437]
     sentence_count: 8
     key_terms: [etfcentral, vti, reddit, https, com, www, comment, compare-etfs]
+    concepts: [etfcentral, reddit, https, comment, compare-etfs]
     section: Comments
     token_count: 400
 ---

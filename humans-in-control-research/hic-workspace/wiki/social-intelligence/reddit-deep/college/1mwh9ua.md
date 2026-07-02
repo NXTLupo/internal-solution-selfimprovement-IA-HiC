@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1309]
     sentence_count: 8
     key_terms: [death, another, college, content, course, comments, students, general]
+    concepts: [death, another, college, content, course]
     token_count: 275
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1mwh9ua/content_notice/"}]
   - id: "social-intelligence/reddit-deep/college/1mwh9ua.md#c1"
     char_span: [1323, 3098]
     sentence_count: 13
     key_terms: [students, violence, suicide, appropriately, being, gore, warn, professor]
+    concepts: [students, violence, appropriately, suicide, being]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/college/1mwh9ua.md#c2"
     char_span: [3100, 4152]
     sentence_count: 6
     key_terms: [violence, warnings, trigger, like, personal, against, animals, suicide]
+    concepts: [violence, warnings, trigger, personal, against]
     section: Comments
     token_count: 227
   - id: "social-intelligence/reddit-deep/college/1mwh9ua.md#c3"
     char_span: [4154, 6304]
     sentence_count: 11
     key_terms: [want, content, warning, "i'm", syllabus, warnings, because, someone]
+    concepts: [content, warning, syllabus, warnings, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mwh9ua.md#c4"
     char_span: [6034, 6324]
     sentence_count: 3
     key_terms: [chapter, exploring, generally, domestic, upcoming, violence, content, anyone]
+    concepts: [chapter]
     section: Comments
     token_count: 69
   - id: "social-intelligence/reddit-deep/college/1mwh9ua.md#c5"
@@ -56,12 +62,14 @@ chunks:
     char_span: [6617, 8866]
     sentence_count: 10
     key_terms: [syllabus, course, class, like, students, add, day, note]
+    concepts: [syllabus, course, class, students, mentioned]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/college/1mwh9ua.md#c7"
     char_span: [8868, 10553]
     sentence_count: 9
     key_terms: [certain, trigger, people, please, topics, understanding, real, material]
+    concepts: [understanding, certain, trigger, people, please]
     section: Comments
     token_count: 362
 ---

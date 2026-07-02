@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 1559]
     sentence_count: 18
     key_terms: [internships, career, saying, internship, resume, email, get, interview]
+    concepts: [internships, internship, career, saying, resume]
     token_count: 369
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rdub5h/unlucky_internship_hunt/"}]
   - id: "social-intelligence/reddit-deep/internships/1rdub5h.md#c1"
-    char_span: [1574, 3338]
+    char_span: [1573, 3337]
     sentence_count: 10
     key_terms: [applications, internship, around, summer, since, day, week, interviews]
+    concepts: [applications, internship, around, summer, interviews]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/internships/1rdub5h.md#c2"
-    char_span: [3340, 5366]
+    char_span: [3339, 5365]
     sentence_count: 13
     key_terms: [linkedin, day, people, internships, send, something, applying, recently]
+    concepts: [linkedin, people, internships, something, applying]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/internships/1rdub5h.md#c3"
-    char_span: [5368, 6223]
+    char_span: [5367, 6222]
     sentence_count: 9
     key_terms: [applying, applications, positions, consider, probably, chances, resume, apply]
+    concepts: [applying, applications, positions, consider, probably]
     section: Comments
     token_count: 178
   - id: "social-intelligence/reddit-deep/internships/1rdub5h.md#c4"
-    char_span: [6225, 7893]
+    char_span: [6224, 7892]
     sentence_count: 15
     key_terms: [no-opposite-4285, going, send, too, business, probably, another, looking]
+    concepts: [no-opposite-4285, going, business, probably, another]
     section: Comments
     token_count: 423
 ---

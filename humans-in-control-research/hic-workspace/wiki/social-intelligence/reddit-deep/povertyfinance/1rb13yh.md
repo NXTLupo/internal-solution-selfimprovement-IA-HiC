@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1948]
     sentence_count: 26
     key_terms: [months, month, debt, povertyfinance, toward, loans, left, paid]
+    concepts: [months, month, povertyfinance, toward, internship]
     token_count: 482
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1rb13yh/how_i_paid_off_16k_in_student_debt_in_10_months/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1rb13yh.md#c1"
     char_span: [1950, 2394]
     sentence_count: 8
@@ -31,18 +33,21 @@ chunks:
     char_span: [2408, 4347]
     sentence_count: 30
     key_terms: [money, debt, increase, focused, income, method, people, loans]
+    concepts: [money, increase, focused, income, method]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/povertyfinance/1rb13yh.md#c3"
     char_span: [4349, 6205]
     sentence_count: 9
     key_terms: [emergency, debt, fund, synocrat, paying, low, investment, something]
+    concepts: [emergency, synocrat, paying, investment, something]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1rb13yh.md#c4"
     char_span: [5993, 7294]
     sentence_count: 13
     key_terms: [expenses, easy-active-1546, car, keep, congrats, adorable-suspect-810, costs, month]
+    concepts: [expenses, easy-active-1546, congrats, costs, month]
     section: Comments
     token_count: 346
 ---

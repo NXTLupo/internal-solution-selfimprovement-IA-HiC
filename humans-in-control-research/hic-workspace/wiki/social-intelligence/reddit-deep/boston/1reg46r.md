@@ -20,52 +20,68 @@ chunks:
     char_span: [0, 1902]
     sentence_count: 6
     key_terms: [https, boston, chinese-new-year-chinatown-community-lion-dance-parade-cultural-village, weekend, www, night, year, comments]
+    concepts: [https, boston, weekend, night, comments]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1reg46r.md#c2", "social-intelligence/reddit-deep/boston/1reg46r.md#c3", "social-intelligence/reddit-deep/boston/1reg46r.md#c4", "social-intelligence/reddit-deep/boston/1reg46r.md#c7"]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/boston","u":"https://www.reddit.com/r/boston/comments/1reg46r/boston_events_worth_doing_this_weekend_a_ramadan/"}]
   - id: "social-intelligence/reddit-deep/boston/1reg46r.md#c1"
     char_span: [1904, 3701]
     sentence_count: 12
     key_terms: [https, downtown, www, winteractive, com, free, here, "it's"]
+    concepts: [https, downtown, winteractive, harvard, parking]
     token_count: 484
   - id: "social-intelligence/reddit-deep/boston/1reg46r.md#c2"
     char_span: [3703, 5484]
     sentence_count: 8
     key_terms: [boston, unforgettable-a-tribute-to-nat-king-cole-1, city, ramadan, black, https, night, celebration]
+    concepts: [boston, ramadan, celebration, black, https]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1reg46r.md#c0", "social-intelligence/reddit-deep/boston/1reg46r.md#c4", "social-intelligence/reddit-deep/boston/1reg46r.md#c7"]
     token_count: 448
   - id: "social-intelligence/reddit-deep/boston/1reg46r.md#c3"
     char_span: [5486, 7296]
     sentence_count: 11
     key_terms: [https, free-friday-wine-tastings-deluca-s-market--40, bugonia, history, friday, night, com, mfa]
+    concepts: [https, bugonia, history, friday, night]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1reg46r.md#c0", "social-intelligence/reddit-deep/boston/1reg46r.md#c4"]
     token_count: 496
   - id: "social-intelligence/reddit-deep/boston/1reg46r.md#c4"
     char_span: [7298, 9084]
     sentence_count: 9
     key_terms: [https, night, www, "boston's", femmefeteboston, boston, shoreleave-official-after-party, best]
+    concepts: [https, night, femmefeteboston, "boston's", boston]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1reg46r.md#c0", "social-intelligence/reddit-deep/boston/1reg46r.md#c2", "social-intelligence/reddit-deep/boston/1reg46r.md#c3", "social-intelligence/reddit-deep/boston/1reg46r.md#c7"]
     token_count: 513
   - id: "social-intelligence/reddit-deep/boston/1reg46r.md#c5"
     char_span: [9086, 10339]
     sentence_count: 6
     key_terms: [https, maple, clarinetist, org, cambridge, different, artists, concert]
+    concepts: [clarinetist, https, maple, cambridge, different]
     token_count: 335
   - id: "social-intelligence/reddit-deep/boston/1reg46r.md#c6"
-    char_span: [10354, 11518]
+    char_span: [10353, 11517]
     sentence_count: 8
     key_terms: [boston, top-finger-4339, helpful, people, please, many-cartoonist1916, https, ultimatequestion7]
+    concepts: [boston, top-finger-4339, helpful, people, please]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1reg46r.md#c7"]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/boston/1reg46r.md#c7"
-    char_span: [11520, 12455]
+    char_span: [11519, 12454]
     sentence_count: 6
     key_terms: [boston, questions, please, https, reddit, search, asked, com]
+    concepts: [questions, boston, please, https, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1reg46r.md#c0", "social-intelligence/reddit-deep/boston/1reg46r.md#c2", "social-intelligence/reddit-deep/boston/1reg46r.md#c4", "social-intelligence/reddit-deep/boston/1reg46r.md#c6"]
     section: Comments
     token_count: 222
   - id: "social-intelligence/reddit-deep/boston/1reg46r.md#c8"
-    char_span: [12457, 14390]
+    char_span: [12456, 14389]
     sentence_count: 34
     key_terms: [coffee, iced, dunks, wander, grab, get, beacon, garden]
+    concepts: [coffee, dunks, wander, beacon, garden]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/boston/1reg46r.md#c9"
-    char_span: [14392, 14571]
+    char_span: [14391, 14570]
     sentence_count: 2
     key_terms: [automatically, moderators, performed, questions, subreddit, concerns, compose, contact]
     section: Comments

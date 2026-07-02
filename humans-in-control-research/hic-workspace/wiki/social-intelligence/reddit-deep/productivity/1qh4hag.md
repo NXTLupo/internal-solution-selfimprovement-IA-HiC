@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 767]
     sentence_count: 8
     key_terms: [productivity, year, comments, systems, william45623, approaching, reddit-deep, distracted]
+    concepts: [productivity, comments, systems]
     token_count: 185
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1qh4hag/how_is_your_2026_going_so_far/"}]
   - id: "social-intelligence/reddit-deep/productivity/1qh4hag.md#c1"
     char_span: [781, 2469]
     sentence_count: 26
     key_terms: [year, routines, feeling, stopped, trying, feels, klutzylocation725, been]
+    concepts: [routines, feeling, stopped, trying, feels]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/productivity/1qh4hag.md#c2"
     char_span: [2471, 4587]
     sentence_count: 22
     key_terms: [new, watching, started, stopped, like, art, wish, year]
+    concepts: [watching, started, stopped, motivation, regarding]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/productivity/1qh4hag.md#c3"

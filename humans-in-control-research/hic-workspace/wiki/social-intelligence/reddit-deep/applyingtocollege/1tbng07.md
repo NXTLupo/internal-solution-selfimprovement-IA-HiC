@@ -21,59 +21,77 @@ chunks:
     char_span: [0, 2289]
     sentence_count: 17
     key_terms: [location, comments, college, applyingtocollege, consider, because, making, people]
+    concepts: [location, comments, college, applyingtocollege, consider]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c3"]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1tbng07/location_is_generally_more_important_than_prestige/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c1"
     char_span: [2303, 4135]
     sentence_count: 12
     key_terms: [location, opportunities, school, people, institutions, prestigious, internship, companies]
+    concepts: [opportunities, location, school, institutions, people]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c8"]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c2"
     char_span: [4137, 5498]
     sentence_count: 8
     key_terms: [graduate, programs, research, unfortunately, application, internships, recommender, important]
+    concepts: [graduate, programs, research, unfortunately, application]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c3"
     char_span: [5500, 7598]
     sentence_count: 12
     key_terms: [research, opportunities, fit, college, location, people, person, being]
+    concepts: [opportunities, research, college, location, people]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c1"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c4"
     char_span: [7600, 10040]
     sentence_count: 13
     key_terms: [zestyclose-smell4158, colleges, professors, research, teaching, independently, good, universities]
+    concepts: [zestyclose-smell4158, colleges, professors, independently, research]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c5"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c5"
     char_span: [10042, 11382]
     sentence_count: 7
     key_terms: [professors, teaching, research, students, course, availability, grad, attention]
+    concepts: [professors, teaching, research, students, availability]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c4"]
     section: Comments
     token_count: 253
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c6"
     char_span: [11384, 13568]
     sentence_count: 9
     key_terms: [location, school, rural, different, tkdcondor, prestige, college, happy]
+    concepts: [location, school, different, tkdcondor, rural]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c7"
     char_span: [13311, 13740]
     sentence_count: 2
     key_terms: [location, chose, application, prestigious, ironically, reputation, primarily, tkdcondor]
+    concepts: [location, chose]
     section: Comments
     token_count: 98
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c8"
     char_span: [13742, 15497]
     sentence_count: 12
     key_terms: [opportunities, grinnell, school, city, however, opinion, willing, campus]
+    concepts: [opportunities, grinnell, school, however, opinion]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c1"]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c9"
     char_span: [15499, 16996]
     sentence_count: 6
     key_terms: [connections, experience, careers, school, internships, located, zestyclose-smell4158, urban]
+    concepts: [connections, experience, careers, school, internships]
     section: Comments
     token_count: 363
 ---

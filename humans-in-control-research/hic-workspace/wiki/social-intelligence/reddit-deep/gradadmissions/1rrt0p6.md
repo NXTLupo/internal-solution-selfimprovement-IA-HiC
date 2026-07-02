@@ -16,10 +16,12 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1rrt0p6.md#c0"
-    char_span: [0, 2124]
+    char_span: [0, 2123]
     sentence_count: 14
     key_terms: [offer, conditional, gpa, requirement, admissions, equivalent, semester, gradadmissions]
+    concepts: [conditional, offer, requirement, admissions, equivalent]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rrt0p6/conditional_grad_school_offer_requires_35_gpa_but/"}]
 ---
 # Conditional grad school offer requires 3.5 GPA but I’ll likely finish with ~3.48 — how should I approach admissions?
 

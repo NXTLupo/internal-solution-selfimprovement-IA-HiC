@@ -19,47 +19,56 @@ chunks:
     char_span: [0, 2168]
     sentence_count: 20
     key_terms: [anymore, since, cscareerquestions, like, time, girlfriend, destroyed, comments]
+    concepts: [anymore, cscareerquestions, since, girlfriend, destroyed]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1opqxkh/im_washed/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opqxkh.md#c1"
     char_span: [2182, 4317]
     sentence_count: 22
     key_terms: [get, exercise, toddler, vitamin, better, enough, having, supplements]
+    concepts: [exercise, toddler, vitamin, better, enough]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opqxkh.md#c2"
     char_span: [4320, 5142]
     sentence_count: 7
     key_terms: ["i'm", health, mental, myself, best, job, infrastructure, reconnecting]
+    concepts: [health, mental, myself]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opqxkh.md#c3"
     char_span: [5144, 7170]
     sentence_count: 17
     key_terms: [stopdrinking, rexcovering, strength, someone, please, issue, cscareerquestions, hope]
+    concepts: [stopdrinking, rexcovering, strength, someone, please]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opqxkh.md#c4"
     char_span: [6960, 7833]
     sentence_count: 7
     key_terms: [something, probably, options, justleave-mealone, ok-process-2187, cucharamama, affordable, sonography]
+    concepts: [something, probably, options]
     section: Comments
     token_count: 229
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opqxkh.md#c5"
     char_span: [7835, 9832]
     sentence_count: 19
     key_terms: [something, pain, year, working, needed, bit, deal, gets]
+    concepts: [something, working, needed]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opqxkh.md#c6"
     char_span: [9834, 10763]
     sentence_count: 6
     key_terms: [program, decided, engineering, did, got, different, school, wanted]
+    concepts: [program, decided, engineering, different, school]
     section: Comments
     token_count: 194
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opqxkh.md#c7"
     char_span: [10765, 12158]
     sentence_count: 4
     key_terms: [therapy, desperatesouthpark, right, experience, "doesn't", someone, cheap, grind]
+    concepts: [therapy, desperatesouthpark, experience, right, "doesn't"]
     section: Comments
     token_count: 328
 ---

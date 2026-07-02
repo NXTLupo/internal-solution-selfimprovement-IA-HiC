@@ -2,6 +2,15 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+> **THE VISION (read FIRST, successors)**: HiC is an **objective-first, manifest-native, evidence-cited,
+> design-system-governed Artifact Factory for consulting intelligence augmentation** — every run emits a
+> durable **Artifact Intermediate Representation (AIR)**, not just a prompt result, and the eight Unified
+> Vision principles bind at NINE workflow phases. Before ANY non-trivial pipeline, retrieval, routing,
+> design-system, export, or self-improvement work, read: the **`hic-unified-vision`** skill
+> (`../.claude/skills/hic-unified-vision/SKILL.md`, the nine-phase contract + AIR backbone), the integrated
+> plan **[plans/hic-definitive-vision-and-100-percent-plan-v2-2026-07-01.md](plans/hic-definitive-vision-and-100-percent-plan-v2-2026-07-01.md)**,
+> and **[../.claude/UNIFIED_VISION.md](../.claude/UNIFIED_VISION.md)**. Name the phase(s) your change advances.
+
 > **Active work plans**: check [plans/](plans/) before starting any non-trivial work — dated files, most recent first. There is usually already a plan to extend rather than duplicate. (Historical handoff: [HANDOFF_2026_05_14_COST_AND_T4.md](HANDOFF_2026_05_14_COST_AND_T4.md) covers the 2026-05-14 cost/T4 iteration.)
 
 > **Read first**: the repo root [CLAUDE.md](../CLAUDE.md) (Docker platform topology, port map, cross-service context) and [.claude/CLAUDE.md](../.claude/CLAUDE.md) (NXT design system, citation protocol, 350+ banned phrases, consulting frameworks). This file covers only what is unique to `humans-in-control-research/`.

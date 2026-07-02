@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 452]
     sentence_count: 2
     key_terms: [gradschool, comments, school, skills, learn, biopharmaceutical, grad, "i'm"]
+    concepts: [gradschool, comments, school, skills, learn]
     token_count: 120
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1ltnd2f/useful_skills_to_learn_before_grad_school/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1ltnd2f.md#c1"
     char_span: [466, 2259]
     sentence_count: 12
     key_terms: [hazelstone37, suchageonerd, wish, everything, annotated, because, staples, writing]
+    concepts: [hazelstone37, suchageonerd, everything, annotated, because]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/gradschool/1ltnd2f.md#c2"
     char_span: [2261, 3648]
     sentence_count: 13
     key_terms: [school, reading, grad, time, superturtle48, fun, articles, practice]
+    concepts: [school, reading, superturtle48, articles, practice]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/gradschool/1ltnd2f.md#c3"
     char_span: [3650, 5362]
     sentence_count: 12
     key_terms: [deleted, upbeat-main5469, solid, statistical, good, committing, statistics, exercise]
+    concepts: [deleted, upbeat-main5469, statistical, committing, solid]
     section: Comments
     token_count: 405
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1350]
     sentence_count: 11
     key_terms: [chatgpt, going, run, comments, selling, money, data, "it's"]
+    concepts: [chatgpt, going, comments, selling, money]
     token_count: 348
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1opg68z/if_chatgpt_costs_nearly_a_million_per_day_to_run/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1opg68z.md#c1"
     char_span: [1364, 2355]
     sentence_count: 7
     key_terms: [please, conversation, image, post, r-chatgpt-1050422060352024636, concerns, chatgpt-shared-links-faq, chatgpt]
+    concepts: [conversation, please, image, concerns, chatgpt]
     section: Comments
     token_count: 255
 ---

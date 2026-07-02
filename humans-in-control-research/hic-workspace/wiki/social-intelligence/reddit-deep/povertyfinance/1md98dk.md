@@ -21,47 +21,62 @@ chunks:
     char_span: [0, 746]
     sentence_count: 12
     key_terms: [month, povertyfinance, people, money, comments, "don't", spend, live]
+    concepts: [month, povertyfinance, people, money, comments]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c1", "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c5"]
     token_count: 200
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1md98dk/wondering_how_people_live/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c1"
     char_span: [760, 2649]
     sentence_count: 9
     key_terms: [debt, repayment, money, month, budget, "that's", going, nettrack-37]
+    concepts: [repayment, money, month, budget, "that's"]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c0", "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c2", "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c4", "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c5", "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c7"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c2"
     char_span: [2651, 4868]
     sentence_count: 23
     key_terms: [budget, groceries, new, money, rent, getting, renewal, subscription]
+    concepts: [groceries, budget, money, getting, renewal]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c1", "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c4"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c3"
     char_span: [4870, 6882]
     sentence_count: 11
     key_terms: ["i'm", budget, something, because, neurodivergent, hyperfixation, "don't", like]
+    concepts: [budget, something, neurodivergent, hyperfixation, because]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c4"
     char_span: [6884, 9105]
     sentence_count: 13
     key_terms: [money, envelopes, credit, budget, cards, "don't", groceries, card]
+    concepts: [money, envelopes, credit, budget, groceries]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c1", "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c2"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c5"
     char_span: [9107, 11152]
     sentence_count: 26
     key_terms: [money, month, envelope, get, next, spending, "you're", like]
+    concepts: [money, envelope, month, spending, "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c0", "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c1"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c6"
     char_span: [11155, 13021]
     sentence_count: 20
     key_terms: [debt, albertqwe, extreme, month, did, lot, per, year]
+    concepts: [albertqwe, extreme, month, healthy, savings]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c7"
     char_span: [13023, 14117]
     sentence_count: 10
     key_terms: [month, debt, everything, budget, living, system, money, phone]
+    concepts: [everything, month, budget, living, system]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c1"]
     section: Comments
     token_count: 296
 ---

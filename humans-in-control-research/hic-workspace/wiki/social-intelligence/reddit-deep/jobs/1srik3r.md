@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 1265]
     sentence_count: 10
     key_terms: [generation, jobs, experience, comments, little, people, system, remarkable-sand-5059]
+    concepts: [generation, experience, comments, little, people]
     token_count: 286
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1srik3r/there_is_no_more_entry_level_jobs/"}]
   - id: "social-intelligence/reddit-deep/jobs/1srik3r.md#c1"
     char_span: [1279, 3269]
     sentence_count: 16
     key_terms: [car, work, mechanic, like, man, old, want, interested]
+    concepts: [mechanic, interested, mechanics, changing, around]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/jobs/1srik3r.md#c2"
     char_span: [3273, 4735]
     sentence_count: 6
     key_terms: [remarkable-sand-5059, experience, "you're", entry, issue, level, different, mechanic]
+    concepts: [remarkable-sand-5059, experience, "you're", entry, issue]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/jobs/1srik3r.md#c3"
     char_span: [4737, 5837]
     sentence_count: 7
     key_terms: [remarkable-sand-5059, work, problem, labor, today, using, free, quit]
+    concepts: [remarkable-sand-5059, problem, labor, today, using]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/jobs/1srik3r.md#c4"
     char_span: [5839, 7544]
     sentence_count: 13
     key_terms: [remarkable-sand-5059, free, "i'm", life, requiring, training, because, happens]
+    concepts: [remarkable-sand-5059, requiring, training, because, happens]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/jobs/1srik3r.md#c5"
     char_span: [7546, 9266]
     sentence_count: 13
     key_terms: [training, work, companies, free, like, "aren't", paying, get]
+    concepts: [training, companies, "aren't", paying, advantage]
     section: Comments
     token_count: 408
 ---

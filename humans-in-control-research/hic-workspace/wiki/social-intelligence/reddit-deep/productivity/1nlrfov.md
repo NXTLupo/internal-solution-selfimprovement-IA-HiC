@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1157]
     sentence_count: 9
     key_terms: [productivity, need, everything, comments, special-succotash688, crazy, stuck, been]
+    concepts: [productivity, everything, comments, crazy, stuck]
     token_count: 274
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1nlrfov/realized_i_am_stuck_in_the_productivity_trap/"}]
   - id: "social-intelligence/reddit-deep/productivity/1nlrfov.md#c1"
     char_span: [1171, 2306]
     sentence_count: 8
     key_terms: [productivity, new, myself, competitionitchy6170, inevitable-pen-6411, focus, month, abject-kitchen3198]
+    concepts: [productivity, myself, focus, month]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/productivity/1nlrfov.md#c2"
     char_span: [2308, 4203]
     sentence_count: 14
     key_terms: [productivity, tasks, day, need, subconscious, flow, instead, programmerfickle1469]
+    concepts: [productivity, tasks, subconscious, instead, "don't"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/productivity/1nlrfov.md#c3"
     char_span: [4205, 6363]
     sentence_count: 17
     key_terms: [like, because, productivity, pulandoagain, app, feel, list, need]
+    concepts: [because, productivity, pulandoagain, calendar, default]
     section: Comments
     token_count: 509
 ---

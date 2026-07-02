@@ -18,36 +18,47 @@ chunks:
     char_span: [0, 2451]
     sentence_count: 20
     key_terms: [training, model, texture, erm, distribution, directions, supervised, data]
+    concepts: [training, model, texture, distribution, directions]
+    related_chunks: ["articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c3", "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c4"]
     token_count: 515
+    sources: [{"n":"Reddit Deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1swsbca/we_proved_that_every_supervised_model_youve_ever/"}]
   - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c1"
     char_span: [2453, 4188]
     sentence_count: 14
     key_terms: [jacobian, erm, pgd, directions, representations, adversarial, tdi, robustness]
+    concepts: [jacobian, directions, representations, adversarial, robustness]
     token_count: 454
   - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c2"
     char_span: [4190, 6095]
     sentence_count: 8
     key_terms: [blind, ratio, spot, jacobian, nuisance, geometric-analysis-of-deep-learning, model, erm]
+    concepts: [blind, ratio, jacobian, nuisance, fine-tuned]
     token_count: 498
   - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c3"
     char_span: [6097, 7808]
     sentence_count: 15
     key_terms: [directions, preference, uniformly, across, correlations, distribution, adversarial, rlhf]
+    concepts: [directions, preference, uniformly, correlations, distribution]
+    related_chunks: ["articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c0"]
     token_count: 402
   - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c4"
     char_span: [7810, 9720]
     sentence_count: 10
     key_terms: [tdi, model, frobenius, jacobian, theorem, distribution, "it's", norm]
+    concepts: [frobenius, model, jacobian, theorem, distribution]
+    related_chunks: ["articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c0"]
     token_count: 509
   - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c5"
     char_span: [9722, 11536]
     sentence_count: 8
     key_terms: [picture, adversarial, learn, "it's", always, grass, fine-tuning, specific]
+    concepts: [adversarial, picture, learn, always, fine-tuning]
     token_count: 418
   - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c6"
     char_span: [11538, 12286]
     sentence_count: 5
     key_terms: [models, nightmarelogic420, generalisation, intraluminal, self-driving, taranpula39, confidence, end-to-end]
+    concepts: [models]
     token_count: 189
 ---
 # We proved that every supervised model you've ever trained has a geometric blind spot; and adversarial training makes it worse, not better

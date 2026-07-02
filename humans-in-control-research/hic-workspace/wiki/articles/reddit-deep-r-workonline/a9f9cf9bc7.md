@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1429]
     sentence_count: 11
     key_terms: [basic, get, clients, ratings, skills, short, small, tasks]
+    concepts: [basic, clients, ratings, skills, short]
     token_count: 338
+    sources: [{"n":"Reddit Deep: r/workonline","u":"https://www.reddit.com/r/WorkOnline/comments/1q5lf2l/beginner_coder_video_editor_can_i_start_getting/"}]
 ---
 # Beginner coder & video editor — can I start getting clients with basic skills?
 

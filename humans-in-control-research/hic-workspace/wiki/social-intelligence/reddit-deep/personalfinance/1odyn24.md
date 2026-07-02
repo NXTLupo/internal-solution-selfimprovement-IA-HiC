@@ -21,7 +21,10 @@ chunks:
     char_span: [0, 1688]
     sentence_count: 17
     key_terms: [living, year, personalfinance, egg, last, nest, time, retirement]
+    concepts: [living, personalfinance, retirement, comments, college]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1odyn24.md#c7"]
     token_count: 404
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1odyn24/i_lived_in_my_car_for_6_months_to_build_a_nest/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c1"
     char_span: [1690, 2425]
     sentence_count: 8
@@ -31,36 +34,45 @@ chunks:
     char_span: [2439, 4754]
     sentence_count: 19
     key_terms: [better, job, living, money, get, earning, career, grades]
+    concepts: [better, living, money, earning, career]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c3"
     char_span: [4756, 6950]
     sentence_count: 22
     key_terms: [car, get, living, school, place, roommates, cheapest, people]
+    concepts: [living, school, roommates, place, cheapest]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1odyn24.md#c6"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c4"
     char_span: [6952, 8844]
     sentence_count: 23
     key_terms: [sorrylilsis, need, finishing, finances, applaud, college, finding, months]
+    concepts: [sorrylilsis, finishing, finances, applaud, college]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c5"
     char_span: [8846, 10331]
     sentence_count: 10
     key_terms: [yourself, get, retirement, people, scholarships, right, help, job]
+    concepts: [yourself, retirement, scholarships, people, networking]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c6"
     char_span: [10334, 12520]
     sentence_count: 16
     key_terms: [job, time, living, school, full, yourself, working, part]
+    concepts: [living, school, yourself, working, finishing]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1odyn24.md#c3"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c7"
     char_span: [12522, 14426]
     sentence_count: 19
     key_terms: [work, "you're", get, like, lot, rent, year, retirement]
+    concepts: ["you're", retirement, investing, college, better]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1odyn24.md#c0"]
     section: Comments
     token_count: 461
 ---

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1963]
     sentence_count: 16
     key_terms: ["you're", engineeringstudents, work, meetings, company, interns, doing, unimportant]
+    concepts: ["you're", engineeringstudents, meetings, company, interns]
     token_count: 433
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1leq4ke/stop_complaining_your_internship_for_not_doing/"}]
   - id: "articles/reddit-deep-r-engineeringstudents/ad6f38d6bf.md#c1"
     char_span: [1966, 3438]
     sentence_count: 12
     key_terms: [complain, doing, like, completely, internship, meaningful, aircraft, fixtures]
+    concepts: [complain, completely, doing, internship, meaningful]
     token_count: 331
 ---
 # Stop complaining your internship for not doing something big

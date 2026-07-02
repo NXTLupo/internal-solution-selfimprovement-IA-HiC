@@ -20,46 +20,57 @@ chunks:
     char_span: [0, 1735]
     sentence_count: 2
     key_terms: [blackberry-target-of-unusually-large-options-trading-nysebb-2026-04-09, year, revenue, https, com, million, communications, instant-alerts]
+    concepts: [blackberry-target-of-unusually-large-options-trading-nysebb-2026-04-09, revenue, https, million, communications]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1surp1e.md#c1"]
     token_count: 459
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1surp1e/why_blackberry_bb_isnt_a_meme_stock_anymore/"}]
   - id: "social-intelligence/reddit-deep/stocks/1surp1e.md#c1"
     char_span: [1737, 3411]
     sentence_count: 5
     key_terms: [blackberry-forecasts-upbeat-quarterly-revenue-says-turnaround-complete-2026-04-09, black-berry-reports-fourth-quarter-and-full-fiscal-year-2026-na3inuqf5na8, defense, million, https, www, qnx, production]
+    concepts: [blackberry-forecasts-upbeat-quarterly-revenue-says-turnaround-complete-2026-04-09, black-berry-reports-fourth-quarter-and-full-fiscal-year-2026-na3inuqf5na8, defense, million, https]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1surp1e.md#c0"]
     token_count: 414
   - id: "social-intelligence/reddit-deep/stocks/1surp1e.md#c2"
-    char_span: [3426, 4714]
+    char_span: [3425, 4713]
     sentence_count: 4
     key_terms: [bought, days, lmao, instead, shakeandbakethatcake, totallycomputername, money, movie]
+    concepts: [bought, instead, money, movie]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/stocks/1surp1e.md#c3"
-    char_span: [4716, 6350]
+    char_span: [4715, 6349]
     sentence_count: 4
     key_terms: [blackberry, phones, because, great, movie, producing, market, drshitpostmdjdphdmba]
+    concepts: [blackberry, phones, because, great, movie]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/stocks/1surp1e.md#c4"
-    char_span: [6355, 8096]
+    char_span: [6354, 8095]
     sentence_count: 10
     key_terms: [cost, today, opportunity, long, sold, went, stocks, traditional-solid-43]
+    concepts: [opportunity, today, stocks, point, stock]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1surp1e.md#c5"
-    char_span: [7884, 8514]
+    char_span: [7883, 8513]
     sentence_count: 8
     key_terms: [back, company, cartmanphilosopher, "i'm", qnx, investaisavvy, mitzialbright, considering]
+    concepts: [company]
     section: Comments
     token_count: 160
   - id: "social-intelligence/reddit-deep/stocks/1surp1e.md#c6"
-    char_span: [8516, 10739]
+    char_span: [8515, 10738]
     sentence_count: 17
     key_terms: [nostalgia, social, "it's", consumer, already, around, institutional, story]
+    concepts: [nostalgia, social, consumer, institutional, already]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/stocks/1surp1e.md#c7"
-    char_span: [10741, 11455]
+    char_span: [10740, 11454]
     sentence_count: 6
     key_terms: [robot, smileclickmemories, bags, neuronaldiverv2, manufactures, protecting, companies, consumers]
+    concepts: [robot]
     section: Comments
     token_count: 178
 ---

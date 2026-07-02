@@ -19,59 +19,70 @@ chunks:
     char_span: [0, 1465]
     sentence_count: 13
     key_terms: [different, cscareerquestions, like, used, comments, totally, "don't", "it'll"]
+    concepts: [different, cscareerquestions, comments, totally, "don't"]
     token_count: 351
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1syef2t/cs_wont_die_itll_be_just_different_than_it_used/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c1"
     char_span: [1479, 3300]
     sentence_count: 16
     key_terms: [code, people, like, coding, nobody, gonna, knows, less]
+    concepts: [people, coding, nobody, gonna, knows]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c2"
     char_span: [3305, 5230]
     sentence_count: 10
     key_terms: [expensive, people, good, job, like, solarmist, becomes, better]
+    concepts: [expensive, people, solarmist, becomes, better]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c3"
     char_span: [5232, 7272]
     sentence_count: 13
     key_terms: [going, useful, tools, programmers, code, lot, everywhere, understand]
+    concepts: [going, useful, programmers, everywhere, tools]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c4"
     char_span: [7274, 9125]
     sentence_count: 14
     key_terms: [useful, expectations, codelinesnl, use, definitely, currently, inflated, already]
+    concepts: [expectations, useful, codelinesnl, definitely, currently]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c5"
     char_span: [9127, 11385]
     sentence_count: 23
     key_terms: [companies, going, code, because, senior, point, down, keep]
+    concepts: [companies, going, because, senior, developers]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c6"
     char_span: [11387, 13582]
     sentence_count: 24
     key_terms: [software, engineering, code, companies, "company's", engineers, problems, another]
+    concepts: [software, engineering, companies, "company's", engineers]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c7"
     char_span: [13585, 15488]
     sentence_count: 14
     key_terms: [equations, "i'm", mathematicians, roles, code, different, problems, writing]
+    concepts: [equations, mathematicians, roles, different, problems]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c8"
     char_span: [15490, 17466]
     sentence_count: 15
     key_terms: [code, programmers, developers, demand, strong, end, fact, developer]
+    concepts: [programmers, developers, demand, strong, developer]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c9"
     char_span: [17468, 18279]
     sentence_count: 4
     key_terms: [programming, writing, away, scratch, manual, field, code, like]
+    concepts: [programming, writing, scratch, manual, field]
     section: Comments
     token_count: 188
 ---

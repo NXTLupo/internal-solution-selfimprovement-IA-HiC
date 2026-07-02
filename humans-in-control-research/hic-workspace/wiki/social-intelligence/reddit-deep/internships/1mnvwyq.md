@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 942]
     sentence_count: 14
     key_terms: [internship, got, internships, nasa, comments, sweater, mewtwo, school]
+    concepts: [internship, internships, comments, sweater, mewtwo]
     token_count: 247
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1mnvwyq/i_just_got_my_second_nasa_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1mnvwyq.md#c1"
     char_span: [956, 2608]
     sentence_count: 15
     key_terms: [nasa, student, get, lot, time, internship, lspace, worked]
+    concepts: [student, internship, lspace, worked, quite]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/internships/1mnvwyq.md#c2"
     char_span: [2610, 4351]
     sentence_count: 11
     key_terms: [riaxuez, requirementnew9621, international, internships, get, nasa, students, twitter]
+    concepts: [riaxuez, requirementnew9621, international, internships, students]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1mnvwyq.md#c3"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/internships/1mnvwyq.md#c3"
     char_span: [4353, 5959]
     sentence_count: 11
     key_terms: [requirementnew9621, vegetablelazy7402, congratulations, riaxuez, mewtwo, women, sweater, people]
+    concepts: [requirementnew9621, vegetablelazy7402, congratulations, riaxuez, mewtwo]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1mnvwyq.md#c2"]
     section: Comments
     token_count: 491
 ---

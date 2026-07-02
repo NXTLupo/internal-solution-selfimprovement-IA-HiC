@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1016]
     sentence_count: 6
     key_terms: [engineering, engineeringstudents, clubs, comments, projects, being, doing, maybe]
+    concepts: [engineering, engineeringstudents, clubs, comments, projects]
     token_count: 219
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rte3qe/can_i_just_lie_about_being_in_clubs/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rte3qe.md#c1"
     char_span: [1030, 1837]
     sentence_count: 5
     key_terms: [engineeringstudents, wiki, reddit, https, com, please, automoderator, read]
+    concepts: [engineeringstudents, reddit, https, automoderator, please]
     section: Comments
     token_count: 184
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rte3qe.md#c2"
     char_span: [1839, 3768]
     sentence_count: 9
     key_terms: [club, job, please, interviewers, point, lie, interview, questions]
+    concepts: [interviewers, please, point, interview, questions]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rte3qe.md#c3"
@@ -42,24 +46,30 @@ chunks:
     char_span: [3895, 6132]
     sentence_count: 11
     key_terms: [projects, experience, technical, club, school, communication, interpersonal, professional]
+    concepts: [projects, experience, technical, communication, interpersonal]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rte3qe.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rte3qe.md#c5"
     char_span: [5819, 7974]
     sentence_count: 6
     key_terms: [projects, interview, involved, communication, don, team, experience, anything]
+    concepts: [projects, interview, involved, communication, experience]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rte3qe.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rte3qe.md#c6"
     char_span: [7729, 8295]
     sentence_count: 2
     key_terms: [projects, embarrassed-emu8131, build, sherbertquirky3789, supermarketfit2158, big, club, competitive]
+    concepts: [projects, build]
     section: Comments
     token_count: 156
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rte3qe.md#c7"
     char_span: [8297, 9188]
     sentence_count: 5
     key_terms: [good, project, something, boring, accomplishedanchovy, doing, club, did]
+    concepts: [project, something, boring, doing]
     section: Comments
     token_count: 200
 ---

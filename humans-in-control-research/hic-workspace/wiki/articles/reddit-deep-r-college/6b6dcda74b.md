@@ -18,16 +18,22 @@ chunks:
     char_span: [0, 2067]
     sentence_count: 11
     key_terms: [women, degree, get, men, news, hired, job, college]
+    concepts: [women, degree, hired, college, getting]
+    related_chunks: ["articles/reddit-deep-r-college/6b6dcda74b.md#c1"]
     token_count: 484
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1ms5vg1/more_women_are_being_hired_than_men_with_a_4_year/"}]
   - id: "articles/reddit-deep-r-college/6b6dcda74b.md#c1"
     char_span: [2069, 4249]
     sentence_count: 15
     key_terms: [college, women, like, either, healthcare, degree, men, want]
+    concepts: [college, women, healthcare, either, degree]
+    related_chunks: ["articles/reddit-deep-r-college/6b6dcda74b.md#c0"]
     token_count: 492
   - id: "articles/reddit-deep-r-college/6b6dcda74b.md#c2"
     char_span: [4251, 5053]
     sentence_count: 6
     key_terms: [men, traditionally, engineering, business, correct, market, women, job]
+    concepts: [traditionally, engineering, business, correct, market]
     token_count: 163
 ---
 # “More women are being hired than men with a 4- year degree”

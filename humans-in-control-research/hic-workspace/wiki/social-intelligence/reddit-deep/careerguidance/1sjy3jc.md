@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 1984]
     sentence_count: 13
     key_terms: [people, social, careerguidance, skills, connections, comments, linkedin, anxiety]
+    concepts: [people, social, careerguidance, skills, connections]
     token_count: 435
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sjy3jc/what_are_some_decentpaying_longterm_career_paths/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sjy3jc.md#c1"
     char_span: [1986, 3056]
     sentence_count: 8
     key_terms: [people, tech, something, decent, get, gpa, job, communicating]
+    concepts: [people, something, decent]
     token_count: 238
   - id: "social-intelligence/reddit-deep/careerguidance/1sjy3jc.md#c2"
     char_span: [3070, 4831]
     sentence_count: 12
     key_terms: [roles, technical, like, engineering, find, stability, back-end, because]
+    concepts: [technical, roles, engineering, stability, back-end]
     section: Comments
     token_count: 348
 ---

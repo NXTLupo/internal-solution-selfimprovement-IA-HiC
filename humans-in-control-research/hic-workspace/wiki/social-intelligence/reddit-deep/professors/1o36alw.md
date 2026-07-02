@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 2443]
     sentence_count: 18
     key_terms: [international, university, florida, campus, department, colleague, faculty, student]
+    concepts: [international, university, florida, department, campus]
     token_count: 495
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1o36alw/from_a_colleague_and_comrade_at_florida/"}]
   - id: "social-intelligence/reddit-deep/professors/1o36alw.md#c1"
     char_span: [2445, 2952]
     sentence_count: 5
     key_terms: [campus, state, feet, undergraduates, universities, legislature, organizers, regulation]
+    concepts: [campus, state]
     token_count: 101
   - id: "social-intelligence/reddit-deep/professors/1o36alw.md#c2"
     char_span: [2966, 4667]
     sentence_count: 11
     key_terms: [texas, get, name, time, sometimes, against, because, deleted]
+    concepts: [texas, sometimes, against, because, deleted]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/professors/1o36alw.md#c3"
     char_span: [4669, 6383]
     sentence_count: 7
     key_terms: [academic, freedom, speech, free, professors, university, horrible, syllabus]
+    concepts: [academic, freedom, speech, professors, university]
     section: Comments
     token_count: 424
 ---

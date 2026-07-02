@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1339]
     sentence_count: 10
     key_terms: [opportunities, experience, internship, paralegal, comments, starting, college, having]
+    concepts: [opportunities, experience, internship, paralegal, comments]
     token_count: 294
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1mnaoq9/how_are_people_getting_so_many_internship/"}]
   - id: "social-intelligence/reddit-deep/college/1mnaoq9.md#c1"
     char_span: [1353, 2845]
     sentence_count: 12
     key_terms: [student, events, landed, experiences, internships, experience, networking, companies]
+    concepts: [student, events, landed, experiences, internships]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/college/1mnaoq9.md#c2"
     char_span: [2847, 5059]
     sentence_count: 16
     key_terms: [internships, internship, college, jobs, don, paid, time, restaurant]
+    concepts: [internships, internship, college, restaurant, building]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/college/1mnaoq9.md#c3"
     char_span: [5061, 7372]
     sentence_count: 15
     key_terms: [legal, internships, network, people, opportunities, psychological, local, "attorney's"]
+    concepts: [internships, legal, opportunities, psychological, network]
     section: Comments
     token_count: 486
 ---

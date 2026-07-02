@@ -19,51 +19,61 @@ chunks:
     char_span: [0, 2009]
     sentence_count: 11
     key_terms: [cscareerquestions, auto-reject, work, comments, timeline, history, listed, random]
+    concepts: [cscareerquestions, auto-reject, comments, timeline, history]
     token_count: 452
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1mxg0g9/i_uncovered_a_scam_trying_to_hire_for_a_remote/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md#c1"
     char_span: [2011, 4516]
     sentence_count: 27
     key_terms: [asked, person, never, bullshit, been, studio, game, team]
+    concepts: [asked, person, bullshit, never, studio]
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md#c2"
     char_span: [4518, 6223]
     sentence_count: 13
     key_terms: [enough, remote, austin, name, companies, identity, metadata, possible]
+    concepts: [enough, remote, austin, companies, identity]
     token_count: 349
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md#c3"
-    char_span: [6238, 8186]
+    char_span: [6237, 8185]
     sentence_count: 12
     key_terms: [company, recruiters, fake, job, steal, info, companies, interview]
+    concepts: [company, recruiters, steal, companies, interview]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md#c4"
-    char_span: [8188, 9894]
+    char_span: [8187, 9893]
     sentence_count: 8
     key_terms: [background, "it's", check, location, garbage, minutes, talking, "they're"]
+    concepts: [background, check, location, garbage, minutes]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md#c5"
-    char_span: [9896, 11861]
+    char_span: [9895, 11860]
     sentence_count: 13
     key_terms: [questions, forsookcomparison, call, guy, answers, someone, expensivepost, sophisticated]
+    concepts: [forsookcomparison, questions, expensivepost, sophisticated, answers]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md#c6"
-    char_span: [11863, 13829]
+    char_span: [11862, 13828]
     sentence_count: 10
     key_terms: [shows, candidate, dangerousart7072, welding, interviewer, like, completely, equivalent]
+    concepts: [dangerousart7072, candidate, shows, welding, interviewer]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md#c7"
-    char_span: [13831, 15363]
+    char_span: [13830, 15362]
     sentence_count: 9
     key_terms: [job, people, sometimes, scripts, being, doing, since, early-surround7413]
+    concepts: [people, sometimes, scripts, being, doing]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md#c8"
-    char_span: [15365, 16584]
+    char_span: [15364, 16583]
     sentence_count: 11
     key_terms: [properly, targeted, getting, process, script, "wasn't", never, differentiation]
+    concepts: [properly, targeted, getting, process, script]
     section: Comments
     token_count: 245
 ---

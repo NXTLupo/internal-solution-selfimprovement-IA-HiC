@@ -21,82 +21,99 @@ chunks:
     char_span: [0, 1580]
     sentence_count: 12
     key_terms: [like, feel, months, in-office, comments, finally, process, back]
+    concepts: [months, in-office, comments, finally, process]
     token_count: 375
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1seshaq/im_finally_employed_after_6_months_but_i_feel/"}]
   - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c1"
     char_span: [1582, 2238]
     sentence_count: 4
     key_terms: [office, day, life, financially, flexibility, frustration, opportunity, sustainable]
+    concepts: [office]
     token_count: 139
   - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c2"
     char_span: [2252, 4294]
     sentence_count: 17
     key_terms: [work, don, "it's", needhelpmaxing, being, get, like, unemployed]
+    concepts: [needhelpmaxing, being, unemployed, always, better]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1seshaq.md#c10"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c3"
     char_span: [4073, 4419]
     sentence_count: 4
     key_terms: ["it's", always, "i've", writeronthemoon, personally, so-called, because, freedom]
+    concepts: [always]
     section: Comments
     token_count: 98
   - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c4"
     char_span: [4421, 6586]
     sentence_count: 20
     key_terms: [time, week, parents, days, life, work, especially, spending]
+    concepts: [parents, especially, spending, because, earning]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c5"
     char_span: [6588, 8644]
     sentence_count: 23
     key_terms: [sorry, loss, needhelpmaxing, feeling, purpose, going, lives, times]
+    concepts: [sorry, needhelpmaxing, feeling, purpose, going]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c6"
     char_span: [8382, 10586]
     sentence_count: 23
     key_terms: [life, work, businesses, employment, community, benefits, survival, balance]
+    concepts: [businesses, employment, community, benefits, survival]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c7"
     char_span: [10328, 11679]
     sentence_count: 12
     key_terms: [dy0nbrbua2v8q2b7j, balance, working, mamadaddy, google, https, share, care]
+    concepts: [dy0nbrbua2v8q2b7j, balance, working, mamadaddy, google]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c8"
     char_span: [11681, 13377]
     sentence_count: 13
     key_terms: [time, flexibility, get, job, work, taylorr713, understand, through]
+    concepts: [flexibility, taylorr713, understand, through, hoping]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c9"
     char_span: [13379, 15448]
     sentence_count: 19
     key_terms: [office, job, get, too, absolutely, teenagers, walking, myself]
+    concepts: [office, absolutely, teenagers, walking, myself]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c10"
     char_span: [15450, 17627]
     sentence_count: 25
     key_terms: [work, because, needhelpmaxing, perspective, get, hard, pay, role]
+    concepts: [needhelpmaxing, because, perspective, unemployed, anything]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1seshaq.md#c2"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c11"
     char_span: [17629, 19132]
     sentence_count: 11
     key_terms: [job, already, terms, come, always, months, myself, office]
+    concepts: [already, terms, always, months, myself]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c12"
     char_span: [19134, 21104]
     sentence_count: 16
     key_terms: ["i'm", like, life, because, commute, entire, people, makes]
+    concepts: [because, commute, entire, people, makes]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c13"
     char_span: [21106, 21748]
     sentence_count: 10
     key_terms: [live, thanks, life, work, needhelpmaxing, blackdahlia28, experiences, summarizing]
+    concepts: [thanks]
     section: Comments
     token_count: 164
 ---

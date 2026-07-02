@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1373]
     sentence_count: 11
     key_terms: [forward-1fd5e062-56fd-46f9-9086-ef927c7ab8cb, https, com, forward, codeongrass, integration, producthunt, api]
+    concepts: [forward-1fd5e062-56fd-46f9-9086-ef927c7ab8cb, https, forward, codeongrass, integration]
     token_count: 352
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1tvn2ly/launched_on_product_hunt_ai_agent_that_drafts_api/"}]
   - id: "social-intelligence/reddit-deep/saas/1tvn2ly.md#c1"
-    char_span: [1388, 1708]
+    char_span: [1387, 1707]
     sentence_count: 3
     key_terms: [existing, raunaq-at-bookshelf, architectural, boilerplate, integration, middleware, hexagonal, structure]
+    concepts: [existing]
     section: Comments
     token_count: 66
 ---

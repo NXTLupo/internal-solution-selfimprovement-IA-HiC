@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1215]
     sentence_count: 5
     key_terms: [rejected, applyingtocollege, stevens, school, technology, waitlisted, institute, comments]
+    concepts: [rejected, applyingtocollege, stevens, school, technology]
     token_count: 328
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rts90a/what_the_hell_am_i_doing_wrong/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rts90a.md#c1"
     char_span: [1229, 3121]
     sentence_count: 19
     key_terms: [people, decisions, get, posts, case, don, holy, surprising]
+    concepts: [people, decisions, posts, surprising, college]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rts90a.md#c2"
     char_span: [3123, 4146]
     sentence_count: 9
     key_terms: [admitted, reaches, rutgers, apply, state, full, ride, unc]
+    concepts: [admitted, reaches, rutgers, apply, state]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rts90a.md#c3"
     char_span: [4148, 5196]
     sentence_count: 7
     key_terms: [good, luck, uva, bucknell, optional, waitlist, apprehensivesignal55, environmentactive325]
+    concepts: [bucknell, optional, waitlist]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rts90a.md#c4"
     char_span: [5198, 6752]
     sentence_count: 11
     key_terms: [schools, colleges, school, good, luck, nap, yesterday, amazing]
+    concepts: [schools, colleges, school, yesterday, amazing]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rts90a.md#c5"
     char_span: [6754, 7434]
     sentence_count: 10
     key_terms: [competitive, admissions, safeties, schools, juniorreserve1560, jeonggukispretty, additional, appreciate]
+    concepts: [competitive, admissions, safeties, schools]
     section: Comments
     token_count: 181
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1444]
     sentence_count: 9
     key_terms: [prep, aphr, hrci, materials, official, humanresources, study, worth]
+    concepts: [materials, official, humanresources, study, worth]
     token_count: 365
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1t7a6ay/aphr_study_materials_hrci_prep_worth_it_ga/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1t7a6ay.md#c1"
     char_span: [1458, 3158]
     sentence_count: 18
     key_terms: [hrci, like, recommendations, itskitsuhun, ok-exam8271, aphr, especially, expensive]
+    concepts: [recommendations, itskitsuhun, ok-exam8271, especially, expensive]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/humanresources/1t7a6ay.md#c2"

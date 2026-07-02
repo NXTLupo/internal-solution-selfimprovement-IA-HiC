@@ -20,22 +20,27 @@ chunks:
     char_span: [0, 1908]
     sentence_count: 15
     key_terms: [logistics, need, orders, collectibles, month, order, fulfillment, "i'm"]
+    concepts: [logistics, collectibles, orders, fulfillment, month]
     token_count: 458
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1sefku2/looking_for_a_3pl_for_200320_ordersmonth_of/"}]
   - id: "social-intelligence/reddit-deep/logistics/1sefku2.md#c1"
     char_span: [1910, 2214]
     sentence_count: 4
     key_terms: [anyone, no-packing-slip, recommendations, lightweight, experience, firsthand, situation, possible]
+    concepts: [anyone]
     token_count: 62
   - id: "social-intelligence/reddit-deep/logistics/1sefku2.md#c2"
-    char_span: [2229, 4239]
+    char_span: [2228, 4238]
     sentence_count: 16
     key_terms: [poultrytechguy, box, warehouses, shipping, specific, already, inbound, matches]
+    concepts: [poultrytechguy, warehouses, shipping, specific, already]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/logistics/1sefku2.md#c3"
-    char_span: [4241, 6192]
+    char_span: [4240, 6191]
     sentence_count: 14
     key_terms: [fulfillment, help, salesinusa, receive, great, order, price, rates]
+    concepts: [fulfillment, salesinusa, receive, great, order]
     section: Comments
     token_count: 488
 ---

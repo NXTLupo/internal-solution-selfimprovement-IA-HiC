@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 296]
     sentence_count: 1
     key_terms: [careeradvice, comments, reddit-deep, automate, learned, posted, reddit, search]
+    concepts: [careeradvice, comments]
     token_count: 90
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1n0pl7e/automate_your_job_search_with_ai_what_we_built/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1n0pl7e.md#c1"
     char_span: [310, 844]
     sentence_count: 4

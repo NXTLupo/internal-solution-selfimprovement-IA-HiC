@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1336]
     sentence_count: 13
     key_terms: [cscareerquestions, decent, data, analytics, comments, doing, great, don]
+    concepts: [cscareerquestions, decent, analytics, comments, doing]
     token_count: 337
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1q4bw7g/i_dont_think_i_can_make_it_at_this_point_what/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q4bw7g.md#c1"
     char_span: [1350, 3388]
     sentence_count: 25
     key_terms: [companies, security, lack, people, "you'll", apply, jobs, candidate]
+    concepts: [companies, security, people, "you'll", apply]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q4bw7g.md#c2"
     char_span: [3390, 5222]
     sentence_count: 9
     key_terms: [demonstrate, informatics, ehh, management, something, everyone, actuary, health]
+    concepts: [demonstrate, informatics, management, something, everyone]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q4bw7g.md#c3"
     char_span: [5224, 6671]
     sentence_count: 17
     key_terms: [executives, tech, illustrious-pound266, high, security, market, great, job]
+    concepts: [executives, illustrious-pound266, security, market, great]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q4bw7g.md#c4"

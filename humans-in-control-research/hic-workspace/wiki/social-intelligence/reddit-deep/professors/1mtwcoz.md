@@ -19,94 +19,122 @@ chunks:
     char_span: [0, 1914]
     sentence_count: 13
     key_terms: [students, teaching, year, thinking, taking, covid, last, like]
+    concepts: [students, teaching, thinking, taking, covid]
     token_count: 424
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1mtwcoz/im_a_young_professor_who_is_thinking_of_becoming/"}]
   - id: "social-intelligence/reddit-deep/professors/1mtwcoz.md#c1"
     char_span: [1916, 3184]
     sentence_count: 2
     key_terms: [office, grade, hours, class, come, lectures, problem, random]
+    concepts: [office, grade, hours, class, lectures]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mtwcoz.md#c2", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c4", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c7", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c9", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c10"]
     token_count: 290
   - id: "social-intelligence/reddit-deep/professors/1mtwcoz.md#c2"
-    char_span: [3199, 5077]
+    char_span: [3198, 5076]
     sentence_count: 13
     key_terms: [office, hours, students, class, absolutely, anything, lectures, adjunct]
+    concepts: [office, hours, students, absolutely, class]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mtwcoz.md#c1", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c4", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c6", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c7", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c9"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/professors/1mtwcoz.md#c3"
-    char_span: [5079, 5347]
+    char_span: [5078, 5346]
     sentence_count: 3
     key_terms: [class, "don't", leave, complained, distracted, headphones, attention, distract]
+    concepts: [class, "don't", leave]
     section: Comments
     token_count: 67
   - id: "social-intelligence/reddit-deep/professors/1mtwcoz.md#c4"
-    char_span: [5349, 7662]
+    char_span: [5348, 7661]
     sentence_count: 11
     key_terms: [office, hours, grade, assignment, class, students, student, answer]
+    concepts: [office, hours, grade, assignment, class]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mtwcoz.md#c1", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c2", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c6", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c7", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1mtwcoz.md#c5"
-    char_span: [7388, 8012]
+    char_span: [7387, 8011]
     sentence_count: 8
     key_terms: [majoras-other-mask, cynicalcandycanes, give, pull, bluprofessor, definitely, headphones, complaint]
     section: Comments
     token_count: 158
   - id: "social-intelligence/reddit-deep/professors/1mtwcoz.md#c6"
-    char_span: [8014, 10299]
+    char_span: [8013, 10298]
     sentence_count: 16
     key_terms: [accommodation, "i've", assignment, headphones, class, use, students, get]
+    concepts: [accommodation, assignment, headphones, class, students]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mtwcoz.md#c2", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c4", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c8", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c9", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c11"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/professors/1mtwcoz.md#c7"
-    char_span: [10301, 12524]
+    char_span: [10300, 12523]
     sentence_count: 12
     key_terms: [students, office, use, hours, grade, problem, points, come]
+    concepts: [students, office, hours, grade, problem]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mtwcoz.md#c1", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c2", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c4", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c9", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c10"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/professors/1mtwcoz.md#c8"
-    char_span: [12526, 14701]
+    char_span: [12525, 14700]
     sentence_count: 15
     key_terms: [students, work, assignment, learning, student, "you're", both-razzmatazz-5243, doing]
+    concepts: [students, assignment, learning, student, "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mtwcoz.md#c6"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/professors/1mtwcoz.md#c9"
-    char_span: [14703, 17050]
+    char_span: [14702, 17049]
     sentence_count: 23
     key_terms: [students, get, class, complain, office, online, required, explain]
+    concepts: [students, class, complain, office, online]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mtwcoz.md#c1", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c2", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c4", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c6", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c7"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/professors/1mtwcoz.md#c10"
-    char_span: [17052, 17790]
+    char_span: [17051, 17789]
     sentence_count: 6
     key_terms: [office, hours, meet, grade, time, alternatives, phapalla101, encourage]
+    concepts: [office, hours, grade]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mtwcoz.md#c1", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c2", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c4", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c7", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c14"]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/professors/1mtwcoz.md#c11"
-    char_span: [17794, 19905]
+    char_span: [17793, 19904]
     sentence_count: 15
     key_terms: [class, students, questions, midterm, mathematics, need, suggestion, eliminate]
+    concepts: [class, students, questions, midterm, mathematics]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mtwcoz.md#c2", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c6", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c9", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c13", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c14"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/professors/1mtwcoz.md#c12"
-    char_span: [19907, 21437]
+    char_span: [19906, 21436]
     sentence_count: 9
     key_terms: [students, reason, give, hours, professors, make-ups, cheated, quizzes]
+    concepts: [students, reason, hours, professors, make-ups]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mtwcoz.md#c2", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c7"]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/professors/1mtwcoz.md#c13"
-    char_span: [21439, 23609]
+    char_span: [21438, 23608]
     sentence_count: 21
     key_terms: [students, problem, don, points, class, group, notes, assignments]
+    concepts: [students, problem, points, assignments, class]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mtwcoz.md#c2", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c6", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c7", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c9", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c11"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/professors/1mtwcoz.md#c14"
-    char_span: [23611, 25712]
+    char_span: [23610, 25711]
     sentence_count: 7
     key_terms: [grade, office, class, hours, got, want, questions, abso-mother-fucking-lutely]
+    concepts: [grade, office, class, hours, questions]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mtwcoz.md#c1", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c2", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c4", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c7", "social-intelligence/reddit-deep/professors/1mtwcoz.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1mtwcoz.md#c15"
-    char_span: [25439, 25718]
+    char_span: [25438, 25717]
     sentence_count: 1
     key_terms: [got, grading, policy, statistically, estimate, rounding, semester, standard]
+    concepts: [grading, policy]
     section: Comments
     token_count: 67
 ---

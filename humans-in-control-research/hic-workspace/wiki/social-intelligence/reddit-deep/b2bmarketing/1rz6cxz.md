@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1021]
     sentence_count: 5
     key_terms: [comments, posts, people, b2bmarketing, engagement, interested, farming, leads]
+    concepts: [comments, posts, b2bmarketing, people, engagement]
     token_count: 248
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1rz6cxz/how_i_hijack_engagement_farming_posts_on_x_to/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rz6cxz.md#c1"
-    char_span: [1036, 3117]
+    char_span: [1035, 3116]
     sentence_count: 18
     key_terms: [looking-for-marketing-discussion-811236647760298024, better, people, conversation, like, questions, already, discord]
+    concepts: [better, people, conversation, questions, already]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rz6cxz.md#c2"
-    char_span: [3121, 3657]
+    char_span: [3120, 3656]
     sentence_count: 3
     key_terms: ["you're", high, play, completely, engagement, algatesda, brilliant, desperate]
+    concepts: ["you're"]
     section: Comments
     token_count: 115
 ---

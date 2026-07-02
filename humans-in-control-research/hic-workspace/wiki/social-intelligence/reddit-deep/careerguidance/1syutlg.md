@@ -21,16 +21,22 @@ chunks:
     char_span: [0, 1883]
     sentence_count: 9
     key_terms: [experience, roles, engineer, hardware, design, systems, careerguidance, system]
+    concepts: [experience, engineer, hardware, roles, design]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1syutlg.md#c1"]
     token_count: 394
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1syutlg/urgent_career_advice_for_better_guidance_can/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1syutlg.md#c1"
     char_span: [1885, 3382]
     sentence_count: 3
     key_terms: [systems, design, experience, high-speed, power, signal, pcb, validation]
+    concepts: [systems, design, experience, high-speed, power]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1syutlg.md#c0"]
     token_count: 328
   - id: "social-intelligence/reddit-deep/careerguidance/1syutlg.md#c2"
     char_span: [3396, 4132]
     sentence_count: 5
     key_terms: [companies, experience, integrity, majorly, focus, power, miserablegold7921, side]
+    concepts: [companies, experience, integrity, majorly, focus]
     section: Comments
     token_count: 164
 ---

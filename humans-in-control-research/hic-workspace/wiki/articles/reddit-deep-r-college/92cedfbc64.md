@@ -18,16 +18,22 @@ chunks:
     char_span: [0, 1101]
     sentence_count: 11
     key_terms: [college, big, experience, university, school, community, illinois, stadium]
+    concepts: [college, experience, university, school, community]
+    related_chunks: ["articles/reddit-deep-r-college/92cedfbc64.md#c2"]
     token_count: 243
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1qwtp6d/budgeting_college_debt/"}]
   - id: "articles/reddit-deep-r-college/92cedfbc64.md#c1"
     char_span: [1103, 2600]
     sentence_count: 10
     key_terms: [sports, illinois, school, state, big, definitely, fantastic, culture]
+    concepts: [sports, illinois, school, definitely, state]
     token_count: 349
   - id: "articles/reddit-deep-r-college/92cedfbc64.md#c2"
     char_span: [2602, 4510]
     sentence_count: 10
     key_terms: [school, program, experience, big, attend, going, debt, "it's"]
+    concepts: [school, program, experience, attend, going]
+    related_chunks: ["articles/reddit-deep-r-college/92cedfbc64.md#c0"]
     token_count: 407
 ---
 # Budgeting college debt

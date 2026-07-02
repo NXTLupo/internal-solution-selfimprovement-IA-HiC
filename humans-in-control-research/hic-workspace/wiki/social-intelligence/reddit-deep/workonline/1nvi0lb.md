@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 2011]
     sentence_count: 4
     key_terms: [workonline, interview, comments, because, minutes, breath, called, person]
+    concepts: [workonline, interview, comments, because, minutes]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/workonline","u":"https://www.reddit.com/r/WorkOnline/comments/1nvi0lb/im_very_unsure_about_my_job_offer_from_concentrix/"}]
   - id: "social-intelligence/reddit-deep/workonline/1nvi0lb.md#c1"
     char_span: [2013, 4162]
     sentence_count: 17
     key_terms: ["it's", selling, job, everyone, "they're", pushy, get, like]
+    concepts: [selling, everyone, "they're", pushy, already]
     token_count: 491
   - id: "social-intelligence/reddit-deep/workonline/1nvi0lb.md#c2"
     char_span: [4176, 6048]
     sentence_count: 19
     key_terms: [concentrix, center, recommend, call, job, like, department, horrible]
+    concepts: [concentrix, center, recommend, department, horrible]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/workonline/1nvi0lb.md#c3"
     char_span: [6050, 7225]
     sentence_count: 9
     key_terms: [work, months, good, "i'm", concentrix, problems, regular-cheetah-7407, leave]
+    concepts: [months, concentrix, problems, leave, place]
     section: Comments
     token_count: 304
 ---

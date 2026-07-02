@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1732]
     sentence_count: 3
     key_terms: [json, png, value, overall, structured, https, benchmark, accuracy]
+    concepts: [value, overall, structured, benchmark, https]
     token_count: 475
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1syepnz/the_structured_output_benchmark_sob_validates/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1syepnz.md#c1"
     char_span: [1734, 2567]
     sentence_count: 3
     key_terms: [interfaze, introducing-structured-output-benchmark, https, structured-output-benchmark, leaderboards, blog, full, dataset]
+    concepts: [introducing-structured-output-benchmark, interfaze, structured-output-benchmark, https, leaderboards]
     token_count: 186
 ---
 # The Structured Output Benchmark (SOB) - validates both JSON parse and value accuracy [R]

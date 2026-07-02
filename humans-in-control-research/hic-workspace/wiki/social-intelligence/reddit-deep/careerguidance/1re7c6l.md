@@ -21,16 +21,22 @@ chunks:
     char_span: [0, 2337]
     sentence_count: 16
     key_terms: [corporate, teaching, time, increase, company, careerguidance, better, relationship]
+    concepts: [corporate, teaching, increase, careerguidance, company]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1re7c6l.md#c1"]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1re7c6l/corporate_to_teacher/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1re7c6l.md#c1"
     char_span: [2339, 4778]
     sentence_count: 14
     key_terms: [corporate, because, world, pay, teaching, company, year, additional]
+    concepts: [corporate, because, world, teaching, company]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1re7c6l.md#c0"]
     token_count: 500
   - id: "social-intelligence/reddit-deep/careerguidance/1re7c6l.md#c2"
     char_span: [4780, 5817]
     sentence_count: 8
     key_terms: [like, gradsimple, feels, trial, run, slamdunksrock1, thepandapear, experiment]
+    concepts: [gradsimple, feels, trial]
     section: Comments
     token_count: 239
 ---

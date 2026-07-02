@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 2273]
     sentence_count: 4
     key_terms: [data, discovery, cleaning, datascience, comments, impact, issues, system]
+    concepts: [discovery, cleaning, datascience, comments, investigation]
     token_count: 516
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1qxjifc/data_cleaning_survival_guide/"}]
   - id: "social-intelligence/reddit-deep/datascience/1qxjifc.md#c1"
     char_span: [2275, 2853]
     sentence_count: 3
     key_terms: [cleaning, document, data, keep, transformations, interpretation, documentation, assumptions]
+    concepts: [cleaning, document]
     token_count: 123
   - id: "social-intelligence/reddit-deep/datascience/1qxjifc.md#c2"
-    char_span: [2868, 3719]
+    char_span: [2867, 3718]
     sentence_count: 6
     key_terms: [data, projects, obvious, summerelectrical3642, lot, post, real, work]
+    concepts: [projects, obvious]
     section: Comments
     token_count: 202
 ---

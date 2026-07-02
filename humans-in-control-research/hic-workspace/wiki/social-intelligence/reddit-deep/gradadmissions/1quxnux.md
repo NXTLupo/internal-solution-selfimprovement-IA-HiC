@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1648]
     sentence_count: 10
     key_terms: [favorite, university, everyone, gradadmissions, place, love, comments, because]
+    concepts: [favorite, university, everyone, gradadmissions, place]
     token_count: 369
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1quxnux/got_acceptedinto_the_rejection_pile_at_my_top/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1quxnux.md#c1"
     char_span: [1662, 2826]
     sentence_count: 11
     key_terms: [flightofwonder, times, appreciate, jmeshelton, mindset, always, mysteriouspolicy4354, thank]
+    concepts: [flightofwonder, appreciate, jmeshelton, times, mindset]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1quxnux.md#c3"]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/gradadmissions/1quxnux.md#c2"
     char_span: [2828, 3996]
     sentence_count: 10
     key_terms: [flightofwonder, interview, places, moonbat1334, good, like, luck, bisensual]
+    concepts: [flightofwonder, interview, places, moonbat1334, bisensual]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/gradadmissions/1quxnux.md#c3"
     char_span: [3998, 5210]
     sentence_count: 8
     key_terms: [flightofwonder, best, thank, luck, too, appreciate, professor, programs]
+    concepts: [flightofwonder, appreciate, thank, professor, programs]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1quxnux.md#c1"]
     section: Comments
     token_count: 330
 ---

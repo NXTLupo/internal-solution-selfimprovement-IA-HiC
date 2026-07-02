@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2170]
     sentence_count: 21
     key_terms: [sap, apo, monitoring, career, years, careeradvice, team, comments]
+    concepts: [monitoring, career, years, careeradvice, comments]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1rr2krj/career_advice_needed_sap_bw_apo_what_next_ibp/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1rr2krj.md#c1"
     char_span: [2172, 2274]
     sentence_count: 1

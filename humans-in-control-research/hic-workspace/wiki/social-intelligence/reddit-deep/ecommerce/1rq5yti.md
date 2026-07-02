@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 479]
     sentence_count: 4
     key_terms: [ecommerce, comments, copilot, shopify, reddit-deep, redirecting, storefront, attempted]
+    concepts: [ecommerce, comments, copilot, shopify]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1rq5yti.md#c1"]
     token_count: 123
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1rq5yti/copilot_x_shopify/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1rq5yti.md#c1"
-    char_span: [494, 1608]
+    char_span: [493, 1607]
     sentence_count: 6
     key_terms: [checkout, copilot, shopify, storefront, product, commerce, agentic, enabled]
+    concepts: [checkout, copilot, shopify, storefront, product]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1rq5yti.md#c0"]
     section: Comments
     token_count: 232
 ---

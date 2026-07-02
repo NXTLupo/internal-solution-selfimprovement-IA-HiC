@@ -19,79 +19,102 @@ chunks:
     char_span: [0, 1566]
     sentence_count: 12
     key_terms: [rose, memory, machinelearning, low, benchmarks, optimizer, sometimes, comments]
+    concepts: [memory, machinelearning, benchmarks, optimizer, sometimes]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c12"]
     token_count: 379
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1sucjwp/new_optimizer_rose_low_vram_easy_to_use_great/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c1"
     char_span: [1568, 2375]
     sentence_count: 1
     key_terms: [epoch, acc, avg, loss, hyperparameters, default, rose, text]
+    concepts: [epoch]
     token_count: 393
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c2"
     char_span: [2377, 3447]
     sentence_count: 1
     key_terms: [epoch, acc, avg, loss, mnist, facebookresearch, hyperparameters, mannwhitneyu]
+    concepts: [epoch, mnist]
     token_count: 452
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c3"
     char_span: [3449, 4560]
     sentence_count: 2
     key_terms: [result, rose, adamw, momentum, openai, adam, sgd, parameter-golf]
+    concepts: [result, adamw, momentum, openai]
     token_count: 477
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c4"
     char_span: [4562, 4988]
     sentence_count: 6
     key_terms: [memory, performance, optimizers, parameters, extremely, optimizer, strengths, detailed]
+    concepts: [memory]
     token_count: 100
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c5"
     char_span: [4990, 6436]
     sentence_count: 1
     key_terms: [step, bytes, "false", size, serialized, submission, model, total]
+    concepts: [bytes, "false", serialized, submission, model]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c6", "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c8", "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c9"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c6"
     char_span: [6227, 6601]
     sentence_count: 1
     key_terms: [bytes, size, submission, total, int8, zlib, serialized, payload]
+    concepts: [bytes, submission, total]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c5", "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c8", "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c9"]
     token_count: 126
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c7"
     char_span: [6603, 6924]
     sentence_count: 1
     key_terms: [args, rose, stabilize, params, "false", none, weight]
+    concepts: [stabilize, params, "false"]
     token_count: 85
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c8"
     char_span: [6926, 8369]
     sentence_count: 1
     key_terms: [step, bytes, "false", size, serialized, submission, model, total]
+    concepts: [bytes, "false", serialized, submission, model]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c5", "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c6", "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c9"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c9"
     char_span: [8160, 8534]
     sentence_count: 1
     key_terms: [bytes, size, submission, total, int8, zlib, serialized, payload]
+    concepts: [bytes, submission, total]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c5", "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c6", "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c8"]
     token_count: 126
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c10"
     char_span: [8536, 9206]
     sentence_count: 6
     key_terms: [mean, optional, update, stablediffusion, centralization, equivalently, comparisons, non-leading]
+    concepts: [optional, update]
     token_count: 241
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c11"
     char_span: [9220, 11236]
     sentence_count: 15
     key_terms: [adamw, muon, performance, memory, difference, mnist, "it's", test]
+    concepts: [adamw, performance, difference, memory, mnist]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c12"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c12"
     char_span: [10942, 12211]
     sentence_count: 14
     key_terms: [optimizer, muon, adamw, parameters, matrices, memory, "i've", "it's"]
+    concepts: [optimizer, adamw, parameters, matrices, memory]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c0", "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c11"]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c13"
     char_span: [12213, 13391]
     sentence_count: 4
     key_terms: [optimizer, day, post, whether, paper, vibes, write, age]
+    concepts: [optimizer, whether, paper, vibes, write]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c14"
     char_span: [13393, 15128]
     sentence_count: 13
     key_terms: [people, work, "i'm", like, everything, optimizers, optimizer, seriously]
+    concepts: [people, everything, optimizers, optimizer, seriously]
     section: Comments
     token_count: 433
 ---

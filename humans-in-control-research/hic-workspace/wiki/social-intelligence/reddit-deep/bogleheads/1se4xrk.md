@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1069]
     sentence_count: 11
     key_terms: [target, bonds, bit, bogleheads, ascensus, comments, someone, younger]
+    concepts: [target, bogleheads, bonds, ascensus, comments]
     token_count: 272
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1se4xrk/45_years_old_for_my_i401k_do_target_date_for/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1se4xrk.md#c1"
-    char_span: [1084, 1782]
+    char_span: [1083, 1781]
     sentence_count: 5
     key_terms: [portfolio, having, return, stocks, "won't", years, bond, drop]
+    concepts: [portfolio, having, return, stocks, "won't"]
     section: Comments
     token_count: 169
 ---

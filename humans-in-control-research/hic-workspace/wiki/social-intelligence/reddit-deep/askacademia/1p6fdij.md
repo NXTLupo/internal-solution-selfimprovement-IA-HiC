@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1251]
     sentence_count: 12
     key_terms: [askacademia, corporate, different, academia, academic, comments, people, model]
+    concepts: [askacademia, corporate, different, academia, academic]
     token_count: 283
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1p6fdij/academia_vs_corporate_why_does_the_workload_feel/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c1"
     char_span: [1265, 3329]
     sentence_count: 17
     key_terms: [research, lab, organization, build, academics, corporate, academic, because]
+    concepts: [research, organization, build, academics, corporate]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c2"
     char_span: [3331, 5321]
     sentence_count: 10
     key_terms: [successful, lab, business, entrepreneur, being, small, like, mentorship]
+    concepts: [successful, business, entrepreneur, being, mentorship]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c3"
     char_span: [5323, 7123]
     sentence_count: 16
     key_terms: [need, someone, startup, presenting, long-term, strategy, "doesn't", experts]
+    concepts: [someone, startup, presenting, long-term, strategy]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c4"
     char_span: [7125, 9091]
     sentence_count: 12
     key_terms: [learn, academia, company, project, comparable, corporate, identify, research]
+    concepts: [learn, academia, company, project, comparable]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c5"
     char_span: [9093, 11096]
     sentence_count: 14
     key_terms: [good, difference, defined, people, been, less, experience, company]
+    concepts: [difference, defined, people, experience, company]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c6"
     char_span: [11098, 11595]
     sentence_count: 3
     key_terms: [different, pressure, takes, day, work, experience, percentage, understand]
+    concepts: [different, pressure, takes]
     section: Comments
     token_count: 100
 ---

@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1514]
     sentence_count: 13
     key_terms: [chatgpt, brockman, inauguration, subscription, last, cancelled, comments, feeling]
+    concepts: [chatgpt, brockman, inauguration, subscription, cancelled]
     token_count: 339
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1qno0ic/i_just_cancelled_my_chatgpt_pro_subscription/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1qno0ic.md#c1"
     char_span: [1528, 3315]
     sentence_count: 11
     key_terms: [companies, google, inauguration, gave, anthropic, mistral, claude, donate]
+    concepts: [companies, inauguration, google, anthropic, mistral]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/chatgpt/1qno0ic.md#c2"
     char_span: [3317, 4268]
     sentence_count: 5
     key_terms: [time, companies, admin, money, trump, vance, waterrresistant, corporations]
+    concepts: [companies, admin, money, trump, vance]
     section: Comments
     token_count: 247
   - id: "social-intelligence/reddit-deep/chatgpt/1qno0ic.md#c3"
     char_span: [4270, 6168]
     sentence_count: 18
     key_terms: [amazon, brainlate4108, cloud, everything, nextcloud, storage, office, big]
+    concepts: [brainlate4108, amazon, cloud, everything, nextcloud]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/chatgpt/1qno0ic.md#c4"
     char_span: [6170, 8030]
     sentence_count: 13
     key_terms: [trump-inauguration-donors-include-meta-amazon-target-delta-ford, openai-exec-becomes-top-trump-230342268, cringy, brainlate4108, point, ahr0chm6ly93d3cuz29vz2xllmnvbs8, companies, viable]
+    concepts: [brainlate4108, cringy, point, companies, viable]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1qno0ic.md#c5"
     char_span: [7865, 8695]
     sentence_count: 5
     key_terms: [openai-exec-becomes-top-trump-230342268, ahr0chm6ly93d3cuz29vz2xllmnvbs8, h2tzvhdismiqrv8ed8xkbxjjnqkg-, aqaaahoesof3wjwzh1oejws-, million, top, trilobyte-dev, endorsement]
+    concepts: [million]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/chatgpt/1qno0ic.md#c6"
     char_span: [8697, 10042]
     sentence_count: 6
     key_terms: [openai-president-greg-brockman-trump-super-pac, last, ai-artificial-intelligence, night, cook, tim, longtrailenjoyer, sunshineseattle]
+    concepts: [night]
     section: Comments
     token_count: 357
 ---

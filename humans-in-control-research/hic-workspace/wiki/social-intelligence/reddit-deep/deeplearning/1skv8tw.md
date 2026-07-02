@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1804]
     sentence_count: 16
     key_terms: [model, detection, injection, prompt, source, deeplearning, https, never]
+    concepts: [detection, injection, model, deeplearning, prompt]
     token_count: 445
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1skv8tw/we_built_a_pregeneration_llm_guardrail_that/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1skv8tw.md#c1"
     char_span: [1818, 4045]
     sentence_count: 16
     key_terms: [injection, turbulent-tap6723, residual, against, stream, benchmarks, prompt, supply]
+    concepts: [injection, turbulent-tap6723, residual, against, benchmarks]
     section: Comments
     token_count: 508
 ---

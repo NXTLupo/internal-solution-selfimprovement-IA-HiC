@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1521]
     sentence_count: 15
     key_terms: [interviews, job, comments, normally, question, reality, started, answer]
+    concepts: [interviews, comments, normally, question, reality]
     token_count: 369
+    sources: [{"n":"Reddit Deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1tbz2vv/reality_check_interviews_are_about_being_liked/"}]
   - id: "articles/reddit-deep-r-jobs/dd1abe7f43.md#c1"
     char_span: [1523, 2260]
     sentence_count: 12
     key_terms: [zwicker101, buzzwords, "you're", dirty, game, "i'm", too, want]
+    concepts: [zwicker101, buzzwords, "you're", dirty]
     token_count: 187
 ---
 # Reality Check: Interviews are about Being Liked, Not What You Know.

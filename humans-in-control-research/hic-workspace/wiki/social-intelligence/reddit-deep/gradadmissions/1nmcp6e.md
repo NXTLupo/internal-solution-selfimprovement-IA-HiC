@@ -21,21 +21,30 @@ chunks:
     char_span: [0, 2336]
     sentence_count: 18
     key_terms: [counseling, psychology, identity, gradadmissions, multicultural, psychologist, life, phd]
+    concepts: [counseling, psychology, identity, gradadmissions, multicultural]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1nmcp6e.md#c3"]
     token_count: 481
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1nmcp6e/sop_phd_counseling_psychology/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1nmcp6e.md#c1"
     char_span: [2338, 4741]
     sentence_count: 21
     key_terms: [confidential, black, research, project, qualitative, children, identity, projects]
+    concepts: [confidential, research, black, qualitative, project]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1nmcp6e.md#c2"]
     token_count: 439
   - id: "social-intelligence/reddit-deep/gradadmissions/1nmcp6e.md#c2"
     char_span: [4743, 7226]
     sentence_count: 21
     key_terms: [confidential, research, multicultural, communities, integration, background, immigrants, belonging]
+    concepts: [confidential, research, multicultural, communities, integration]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1nmcp6e.md#c1"]
     token_count: 460
   - id: "social-intelligence/reddit-deep/gradadmissions/1nmcp6e.md#c3"
     char_span: [7228, 9540]
     sentence_count: 16
     key_terms: [multicultural, counseling, cultural, training, coaching, practice, research, confidential]
+    concepts: [multicultural, counseling, cultural, training, coaching]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1nmcp6e.md#c0"]
     token_count: 407
 ---
 # SOP - PhD Counseling Psychology

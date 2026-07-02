@@ -21,53 +21,67 @@ chunks:
     char_span: [0, 1823]
     sentence_count: 16
     key_terms: [investing, financialindependence, brokerage, home, husband, month, prioritize, comments]
+    concepts: [investing, financialindependence, brokerage, husband, month]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c3"]
     token_count: 461
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1rm7elh/late_to_investing_should_i_buy_a_home_or_am_i_not/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c1"
     char_span: [1837, 3634]
     sentence_count: 9
     key_terms: ["you're", group, people, feel, building, invested, current, focused]
+    concepts: ["you're", group, people, building, invested]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c5"]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c2"
     char_span: [3636, 5470]
     sentence_count: 14
     key_terms: [retired, rental, pandachibaby, networth-percentile-calculator, home, specific, personalfinancedata, extra]
+    concepts: [retired, pandachibaby, rental, specific, extra]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c3"
     char_span: [5472, 7452]
     sentence_count: 35
     key_terms: [something, husband, brokerage, "you're", right, loan, low, max]
+    concepts: [something, husband, brokerage, "you're", aggressive]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c0", "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c5"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c4"
     char_span: [7454, 9389]
     sentence_count: 23
     key_terms: [emergency, comment, good, housing, months, stress, loose, money]
+    concepts: [emergency, comment, housing, months, stress]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c5"
     char_span: [9391, 11478]
     sentence_count: 24
     key_terms: ["you're", people, home, financial, husband, pandachibaby, money, need]
+    concepts: ["you're", people, financial, husband, pandachibaby]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c1", "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c3"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c6"
     char_span: [11480, 13683]
     sentence_count: 27
     key_terms: [income, month, right, something, "it's", pressure, "i'd", building]
+    concepts: [income, something, month, right, pressure]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c7"
     char_span: [13685, 15793]
     sentence_count: 23
     key_terms: [investment, home, loan, mortgage, edgeinformal8264, money, month, right]
+    concepts: [investment, edgeinformal8264, mortgage, money, month]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c8"
     char_span: [15795, 16296]
     sentence_count: 5
     key_terms: [appreciation, cashflow, negative, property, income, significantly, pandachibaby, subsidising]
+    concepts: [appreciation, cashflow, negative, property, income]
     section: Comments
     token_count: 106
 ---

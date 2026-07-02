@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1148]
     sentence_count: 12
     key_terms: [productivity, phone, distractions, distraction, switching, culprit, tracked, reddit]
+    concepts: [productivity, phone, distractions, distraction, switching]
     token_count: 263
+    sources: [{"n":"reddit: productivity","u":"https://reddit.com/r/productivity/comments/1nwpxac/i_tracked_every_distraction_i_had_for_7_days_here/"}]
 ---
 # I tracked every distraction I had for 7 days, here is what shocked me
 

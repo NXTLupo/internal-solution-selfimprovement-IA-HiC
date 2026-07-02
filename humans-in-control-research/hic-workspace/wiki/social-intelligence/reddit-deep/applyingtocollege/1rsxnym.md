@@ -21,53 +21,71 @@ chunks:
     char_span: [0, 1080]
     sentence_count: 4
     key_terms: [rankings, applyingtocollege, everyone, wants, news, colleges, comments, prestige]
+    concepts: [rankings, applyingtocollege, everyone, wants, colleges]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c6"]
     token_count: 212
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rsxnym/opinion_us_news_and_rankings_have_done/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c1"
     char_span: [1094, 2086]
     sentence_count: 9
     key_terms: [top, news, school, admit, back, sat, college, current]
+    concepts: [school, admit, college, current, schools]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c8"]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c2"
     char_span: [2088, 3612]
     sentence_count: 11
     key_terms: [rankings, because, school, information, matters, schools, chaunceythegardiner, like]
+    concepts: [rankings, because, school, information, matters]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c4"]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c3"
     char_span: [3614, 5007]
     sentence_count: 9
     key_terms: [applicants, admit, rate, business, like, attracts, colleges, prestige]
+    concepts: [applicants, admit, business, attracts, colleges]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c4"
     char_span: [5009, 7265]
     sentence_count: 33
     key_terms: [rankings, school, basketball, news, colleges, uchicago, harvard, always]
+    concepts: [rankings, school, basketball, colleges, uchicago]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c6"]
     section: Comments
     token_count: 519
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c5"
     char_span: [7267, 8510]
     sentence_count: 12
     key_terms: [colleges, justcommenting98765, rankings, closing, long, campuses, probably, regional]
+    concepts: [colleges, justcommenting98765, rankings, closing, campuses]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c6"]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c6"
     char_span: [8512, 10374]
     sentence_count: 14
     key_terms: [average-and-year-by-year-u-s-news-rankings-for-123-national-universities-2017-2024-big-changes, schools, colleges, like, prestige, rankings, breakbig6197, competition]
+    concepts: [schools, colleges, prestige, rankings, breakbig6197]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c7", "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c8"]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c7"
     char_span: [10376, 12051]
     sentence_count: 15
     key_terms: [schools, private, alumni, public, rankings, giving, rate, resources]
+    concepts: [schools, private, alumni, public, rankings]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c8"]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c8"
     char_span: [12053, 14218]
     sentence_count: 19
     key_terms: [schools, rankings, applied, college, disagree, factors, ranking, nature]
+    concepts: [schools, rankings, applied, college, disagree]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c7"]
     section: Comments
     token_count: 505
 ---

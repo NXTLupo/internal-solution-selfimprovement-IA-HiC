@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 977]
     sentence_count: 9
     key_terms: [internships, comments, future, afraid-necessary2163, love, work, opportunities, successfully]
+    concepts: [internships, comments, future]
     token_count: 237
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sb9btk/declining_offers_without_burning_bridges/"}]
   - id: "social-intelligence/reddit-deep/internships/1sb9btk.md#c1"
     char_span: [991, 2914]
     sentence_count: 7
     key_terms: [afraid-necessary2163, miserableoffice8266, company, studios, email, opportunity, cold, time]
+    concepts: [afraid-necessary2163, miserableoffice8266, company, studios, opportunity]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1sb9btk.md#c2"
     char_span: [2699, 2928]
     sentence_count: 1
     key_terms: [design, afraid-necessary2163, graduated, graduates, assuming, engineer, college, seniors]
+    concepts: [design]
     section: Comments
     token_count: 66
 ---

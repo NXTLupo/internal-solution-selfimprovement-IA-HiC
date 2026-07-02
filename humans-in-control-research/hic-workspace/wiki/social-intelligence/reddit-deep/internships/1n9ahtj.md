@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 974]
     sentence_count: 8
     key_terms: [internships, international, portfolio, comments, student, advice, important-pin-9315, reddit-deep]
+    concepts: [internships, international, portfolio, comments, student]
     token_count: 233
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1n9ahtj/advice_for_finding_a_uiux_internship_as_an/"}]
   - id: "social-intelligence/reddit-deep/internships/1n9ahtj.md#c1"
     char_span: [988, 1284]
     sentence_count: 2
     key_terms: [websites, silver-turnover1667, understanding, companies, functions, building, requests, settings]
+    concepts: [websites]
     section: Comments
     token_count: 70
 ---

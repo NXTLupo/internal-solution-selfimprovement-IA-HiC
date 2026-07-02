@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1507]
     sentence_count: 13
     key_terms: [biology, career, science, bioinformatics, fields, computational, opportunities, data]
+    concepts: [biology, career, bioinformatics, computational, opportunities]
     token_count: 338
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1rowxoo/biology_student_from_india_confused_about_career/"}]
   - id: "social-intelligence/reddit-deep/findapath/1rowxoo.md#c1"
     char_span: [1521, 2653]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    concepts: [thank, helpful, please, findapath, comments]
     section: Comments
     token_count: 248
 ---

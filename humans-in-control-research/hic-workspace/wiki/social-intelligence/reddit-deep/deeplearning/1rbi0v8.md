@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 1831]
     sentence_count: 9
     key_terms: [https, architectures, com, wise314, quantum-phi-validation, github, zenodo, barnicle-ai-systems]
+    concepts: [architectures, https, quantum-phi-validation, barnicle-ai-systems, wise314]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1rbi0v8.md#c3"]
     token_count: 479
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1rbi0v8/trainingfree_metric_predicts_neural_network/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1rbi0v8.md#c1"
     char_span: [1845, 3689]
     sentence_count: 13
     key_terms: [intrepid-water8672, code, patent, peer-reviewed, krismitka, preprints, psychosis, hammouse]
+    concepts: [intrepid-water8672, peer-reviewed, patent, krismitka, preprints]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/deeplearning/1rbi0v8.md#c2"
     char_span: [3691, 5340]
     sentence_count: 11
     key_terms: [intrepid-water8672, fidelity, entropy, across, neural, consistency, normalized, different]
+    concepts: [intrepid-water8672, fidelity, entropy, across, neural]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/deeplearning/1rbi0v8.md#c3"
     char_span: [5342, 7094]
     sentence_count: 19
     key_terms: ["don't", https, quantum-phi-validation, intrepid-water8672, stephenschneider, science, github, thermodynamic]
+    concepts: [quantum-phi-validation, "don't", https, intrepid-water8672, stephenschneider]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1rbi0v8.md#c0"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/deeplearning/1rbi0v8.md#c4"
     char_span: [7096, 8245]
     sentence_count: 9
     key_terms: [time, prediction, successful, degrade, wise314, quantum-phi-validation, future, github]
+    concepts: [prediction, successful, degrade, wise314, future]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/deeplearning/1rbi0v8.md#c5"
     char_span: [8247, 10345]
     sentence_count: 22
     key_terms: [degradation, threshold, warning, qubits, time, lead, snapshot, failure]
+    concepts: [degradation, threshold, warning, qubits, snapshot]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/deeplearning/1rbi0v8.md#c6"
@@ -62,6 +71,7 @@ chunks:
     char_span: [10389, 11073]
     sentence_count: 11
     key_terms: [error, determine, qubit, state, honest-debate-6863, mean, time, explorations]
+    concepts: [error, determine, qubit, state]
     section: Comments
     token_count: 164
 ---

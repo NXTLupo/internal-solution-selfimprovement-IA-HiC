@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 925]
     sentence_count: 7
     key_terms: [college, bag, dorm, dumb, shit, students, reddit, safely]
+    concepts: [college, students, reddit, safely, doing]
     token_count: 230
+    sources: [{"n":"reddit: college","u":"https://reddit.com/r/college/comments/1mhj4b8/building_an_do_dumb_shit_safely_bag_for_my_niece/"}]
 ---
 # Building an "Do dumb shit, safely" bag for my niece to keep in her dorm, what goes in it
 

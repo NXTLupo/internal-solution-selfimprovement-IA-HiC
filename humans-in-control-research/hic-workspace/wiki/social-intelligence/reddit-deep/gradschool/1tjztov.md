@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 963]
     sentence_count: 9
     key_terms: [person, gradschool, asterisk, comments, advisor, the-big-girl-daybook, paper, did]
+    concepts: [person, gradschool, asterisk, comments, advisor]
     token_count: 253
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tjztov/first_collab_paper_im_a_bit_jaded/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1tjztov.md#c1"
     char_span: [977, 1644]
     sentence_count: 8
     key_terms: [person, the-big-girl-daybook, means, internationality, corresponding, lemonprints, altogether, authorship]
+    concepts: [person, means]
     section: Comments
     token_count: 165
   - id: "social-intelligence/reddit-deep/gradschool/1tjztov.md#c2"
     char_span: [1646, 3803]
     sentence_count: 15
     key_terms: [paper, did, editing, authorship, research, lot, advisor, the-big-girl-daybook]
+    concepts: [paper, authorship, editing, research, the-big-girl-daybook]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1tjztov.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1tjztov.md#c3"
     char_span: [3529, 4017]
     sentence_count: 3
     key_terms: [author, co-first, authors, usually, equal, "it's", used, corresponding]
+    concepts: [author, co-first, authors, usually, equal]
     section: Comments
     token_count: 114
   - id: "social-intelligence/reddit-deep/gradschool/1tjztov.md#c4"
     char_span: [4019, 6008]
     sentence_count: 11
     key_terms: [final-authorship-agreement-supplement, authorship, author, research, the-big-girl-daybook, https, order, regulatory-affairs]
+    concepts: [final-authorship-agreement-supplement, authorship, author, research, the-big-girl-daybook]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1tjztov.md#c2"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/gradschool/1tjztov.md#c5"
     char_span: [6010, 6500]
     sentence_count: 2
     key_terms: [scorecard-for-determining-authorship, wp-content, scorecard-for-determining-, uploads, foreignadvantage5198, the-big-girl-daybook, https, tipec]
+    concepts: [wp-content, uploads, https, tipec]
     section: Comments
     token_count: 138
 ---

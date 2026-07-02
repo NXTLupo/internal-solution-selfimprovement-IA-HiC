@@ -19,10 +19,12 @@ content_hash: "a16309aa526cedc9"
 relevance_by_goal: {"8e9ecc469395":40}
 chunks:
   - id: "articles/reddit-nonprofit/cbdd61bcc5.md#c0"
-    char_span: [0, 744]
+    char_span: [0, 743]
     sentence_count: 11
     key_terms: [nonprofit, job, pivoted, reddit, money, comparison, previously, education]
-    token_count: 199
+    concepts: [nonprofit, pivoted, reddit, money]
+    token_count: 198
+    sources: [{"n":"reddit: Nonprofit","u":"https://reddit.com/r/nonprofit/comments/1q57cph/i_just_cant_do_it_anymore/"}]
 ---
 # I just can’t do it anymore…
 

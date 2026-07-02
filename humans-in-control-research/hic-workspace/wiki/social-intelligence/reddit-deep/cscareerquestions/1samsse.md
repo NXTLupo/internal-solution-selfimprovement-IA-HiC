@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 568]
     sentence_count: 6
     key_terms: [internship, cscareerquestions, graduate, school, grad, comments, reddit-deep, researccher]
+    concepts: [internship, cscareerquestions, graduate, school, comments]
     token_count: 146
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1samsse/internship_before_grad_school/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1samsse.md#c1"
     char_span: [582, 885]
     sentence_count: 2

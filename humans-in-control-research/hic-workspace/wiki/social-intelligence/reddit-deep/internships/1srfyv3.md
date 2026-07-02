@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1162]
     sentence_count: 10
     key_terms: [internship, internships, winter, like, comments, myself, summer, place]
+    concepts: [internship, internships, winter, comments, myself]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1srfyv3.md#c1"]
     token_count: 283
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1srfyv3/any_tips_for_getting_winter_2026_internships/"}]
   - id: "social-intelligence/reddit-deep/internships/1srfyv3.md#c1"
     char_span: [1176, 3044]
     sentence_count: 6
     key_terms: [s0urpatch1tv, internship, microsoft, campus, winter, did, looking, mostly]
+    concepts: [s0urpatch1tv, internship, microsoft, campus, winter]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1srfyv3.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1srfyv3.md#c2"
     char_span: [2799, 3310]
     sentence_count: 5
     key_terms: [internship, clear-comparison6114, like, tips, uni, extracurricular, s0urpatch1tv, activities]
+    concepts: [internship]
     section: Comments
     token_count: 128
 ---

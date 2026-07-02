@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 952]
     sentence_count: 5
     key_terms: [applyingtocollege, through, experience, comments, college, times, sell, administration]
+    concepts: [applyingtocollege, through, experience, comments, college]
     token_count: 221
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1n2mjdu/colleges_only_deliver_on_65_of_what_they_sell_to/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2mjdu.md#c1"
     char_span: [966, 2715]
     sentence_count: 11
     key_terms: [college, professors, university, kids, school, "you're", keybother7510, great]
+    concepts: [college, professors, university, keybother7510, school]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2mjdu.md#c2"
     char_span: [2717, 4257]
     sentence_count: 7
     key_terms: [accountcontent6734, ucadmissions, subreddit, something, academic, advisors, students, reddit]
+    concepts: [accountcontent6734, ucadmissions, subreddit, something, academic]
     section: Comments
     token_count: 377
 ---

@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1155]
     sentence_count: 11
     key_terms: [skills, etc, future, futureofwork, skill, restaurant, comments, degree]
+    concepts: [skills, futureofwork, future, restaurant, skill]
+    related_chunks: ["social-intelligence/reddit-deep/futureofwork/1tas80z.md#c1"]
     token_count: 283
+    sources: [{"n":"reddit-deep: r/futureofwork","u":"https://www.reddit.com/r/FutureOfWork/comments/1tas80z/what_is_skills_for_future_jobs/"}]
   - id: "social-intelligence/reddit-deep/futureofwork/1tas80z.md#c1"
     char_span: [1169, 3093]
     sentence_count: 11
     key_terms: [skills, something, skill, people, communication, certificates, zyrn4rhbdwm, need]
+    concepts: [skills, something, skill, communication, certificates]
+    related_chunks: ["social-intelligence/reddit-deep/futureofwork/1tas80z.md#c0"]
     section: Comments
     token_count: 436
 ---

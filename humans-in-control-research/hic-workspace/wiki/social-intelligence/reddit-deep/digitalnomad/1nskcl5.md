@@ -21,55 +21,66 @@ chunks:
     char_span: [0, 2018]
     sentence_count: 18
     key_terms: [tunis, "i'd", comments, digitalnomad, destination, trip, somewhere, expect]
+    concepts: [tunis, comments, digitalnomad, destination, somewhere]
     token_count: 458
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1nskcl5/trip_report_tunis_regrettably_one_tomiss/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c1"
     char_span: [2020, 4362]
     sentence_count: 21
     key_terms: [downtown, like, around, areas, disposal, guidance, coastal, streets]
+    concepts: [downtown, around, areas, disposal, guidance]
     token_count: 488
   - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c2"
     char_span: [4364, 6257]
     sentence_count: 16
     key_terms: [internet, feel, connection, sufficient, coworking, different, downtown, certain]
+    concepts: [internet, connection, sufficient, coworking, different]
     token_count: 384
   - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c3"
     char_span: [6259, 8581]
     sentence_count: 18
     key_terms: [food, "it's", restaurants, particularly, "don't", local, day, everywhere]
+    concepts: [restaurants, particularly, "don't", everywhere, local]
     token_count: 493
   - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c4"
     char_span: [8583, 10243]
     sentence_count: 10
     key_terms: [often, destination, generally, language, through, without, arabic, people]
+    concepts: [often, destination, generally, language, through]
     token_count: 350
   - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c5"
     char_span: [10257, 11119]
     sentence_count: 7
     key_terms: [protoplanetarynebula, issue, right, seems, tunis, "it's", read, too]
+    concepts: [issue, right, seems, tunis]
     section: Comments
     token_count: 222
   - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c6"
     char_span: [11121, 13044]
     sentence_count: 16
     key_terms: [useful, jonwillington, tunis, ichelures, slightly, tunisia, working, written]
+    concepts: [jonwillington, useful, tunis, ichelures, slightly]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c7"
     char_span: [13046, 15077]
     sentence_count: 15
     key_terms: [tunis, did, down, like, "wouldn't", several, tunisia, around]
+    concepts: [tunis, "wouldn't", several, tunisia, around]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c8"
     char_span: [15079, 17076]
     sentence_count: 19
     key_terms: [carthage, tunis, guy, country, thanks, ruins, did, like]
+    concepts: [carthage, tunis, country, thanks, ruins]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c9"
     char_span: [17078, 18382]
     sentence_count: 12
     key_terms: [dysfunctional, roman, thank, carthage, adf21a, tunis, jonwillington, mediterranean]
+    concepts: [dysfunctional, roman, thank, carthage, adf21a]
     section: Comments
     token_count: 322
 ---

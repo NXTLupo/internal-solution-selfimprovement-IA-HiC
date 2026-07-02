@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1813]
     sentence_count: 12
     key_terms: [pentest, report, vendor, boss, saas, soc2, year, comments]
+    concepts: [pentest, report, vendor, comments, findings]
     token_count: 421
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1txmq0c/soc2_pentest_vendor_recs_boss_wants_us_to_stop/"}]
   - id: "social-intelligence/reddit-deep/saas/1txmq0c.md#c1"
-    char_span: [1828, 3024]
+    char_span: [1827, 3023]
     sentence_count: 8
     key_terms: [soc, pentest, human, compliance, experience, automated, ghostlulz, focused]
+    concepts: [pentest, compliance, experience, human, automated]
     section: Comments
     token_count: 289
   - id: "social-intelligence/reddit-deep/saas/1txmq0c.md#c2"
-    char_span: [3026, 5080]
+    char_span: [3025, 5079]
     sentence_count: 14
     key_terms: [pentest, testing, pretty, scope, good, included, pentests, platform]
+    concepts: [pentest, testing, pretty, scope, included]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/saas/1txmq0c.md#c3"
-    char_span: [5084, 7116]
+    char_span: [5083, 7115]
     sentence_count: 13
     key_terms: [because, feels, etc, last, endpoints, pentester, security, auditor]
+    concepts: [because, feels, endpoints, pentester, security]
     section: Comments
     token_count: 487
 ---

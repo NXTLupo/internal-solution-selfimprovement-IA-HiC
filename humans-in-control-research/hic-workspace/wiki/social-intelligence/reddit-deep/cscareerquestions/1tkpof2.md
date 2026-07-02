@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1857]
     sentence_count: 10
     key_terms: [quant, trading, tech, graduate, trader, cscareerquestions, prop, london]
+    concepts: [quant, trading, graduate, cscareerquestions, trader]
     token_count: 410
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tkpof2/please_help_me_decide_between_trading_vs_quant/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tkpof2.md#c1"
-    char_span: [1872, 3588]
+    char_span: [1871, 3587]
     sentence_count: 12
     key_terms: [people, get, paperhandsthedip, network, weight, "you're", years, networking]
+    concepts: [people, paperhandsthedip, network, weight, "you're"]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tkpof2.md#c2"
-    char_span: [3590, 4990]
+    char_span: [3589, 4989]
     sentence_count: 9
     key_terms: [tech, finance, hedge, quant, back, fund, friends, happens]
+    concepts: [finance, hedge, quant, friends, happens]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tkpof2.md#c3"
-    char_span: [4992, 5987]
+    char_span: [4991, 5986]
     sentence_count: 1
     key_terms: [conversion, quant, good, interviewing, ugurcansoruc, recruiter, convert, perform]
+    concepts: [conversion, quant, interviewing, ugurcansoruc, recruiter]
     section: Comments
     token_count: 227
 ---

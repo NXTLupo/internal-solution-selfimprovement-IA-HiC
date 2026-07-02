@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1666]
     sentence_count: 21
     key_terms: [job, careerguidance, lady, new, situation, company, bother, demand]
+    concepts: [careerguidance, situation, company, bother, demand]
     token_count: 447
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qrhkys/end_of_career_guidance_should_i_seek_a_job/"}]
   - id: "articles/reddit-deep-r-careerguidance/acbb262fbb.md#c1"
     char_span: [1668, 3478]
     sentence_count: 26
     key_terms: [bermuda, islands, environment, kids, work, researched, residency, bahamas]
+    concepts: [bermuda, islands, environment, researched, residency]
     token_count: 445
   - id: "articles/reddit-deep-r-careerguidance/acbb262fbb.md#c2"
     char_span: [3480, 5105]
     sentence_count: 10
     key_terms: [investment, onlythephantomknows, spanish, probably, question, speaking, health, living]
+    concepts: [investment, onlythephantomknows, spanish, probably, question]
     token_count: 392
 ---
 # End of career guidance: SHOULD I seek a job?

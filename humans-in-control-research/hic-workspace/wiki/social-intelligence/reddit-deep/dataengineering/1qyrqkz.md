@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1051]
     sentence_count: 6
     key_terms: [data, warehouse, database, dataengineering, on-prem, source, presentation, replacement]
+    concepts: [warehouse, database, dataengineering, on-prem, presentation]
     token_count: 236
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1qyrqkz/data_warehouse_replacement/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1qyrqkz.md#c1"
-    char_span: [1066, 2037]
+    char_span: [1065, 2036]
     sentence_count: 7
     key_terms: [dataengineering, technology, resources, learning, cutting, moist-literature-763, community-submitted, data]
+    concepts: [dataengineering, technology, resources, learning, cutting]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/dataengineering/1qyrqkz.md#c2"
-    char_span: [2039, 4073]
+    char_span: [2038, 4072]
     sentence_count: 13
     key_terms: [data, constraints, performance, clickhouse, postgresql, reddtomato, technology, employees]
+    concepts: [constraints, performance, clickhouse, postgresql, reddtomato]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/dataengineering/1qyrqkz.md#c3"
-    char_span: [4075, 6489]
+    char_span: [4074, 6488]
     sentence_count: 19
     key_terms: [warehouse, data, development, sometimes, technical, engine, source, get]
+    concepts: [warehouse, development, sometimes, technical, engine]
     section: Comments
     token_count: 511
 ---

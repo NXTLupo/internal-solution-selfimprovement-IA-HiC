@@ -19,59 +19,75 @@ chunks:
     char_span: [0, 1922]
     sentence_count: 18
     key_terms: [school, prestige, state, applyingtocollege, "you're", institutions, going, prestigious]
+    concepts: [school, prestige, applyingtocollege, state, institutions]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c5"]
     token_count: 425
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1syn0w7/actual_hot_take_prestige_matters_and_its_okay_to/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c1"
     char_span: [1936, 2707]
     sentence_count: 6
     key_terms: [northwestern, stanford, harvard, someone, people, school, serenade-of-the-seas, duke]
+    concepts: [northwestern, stanford, harvard, someone, people]
     section: Comments
     token_count: 166
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c2"
     char_span: [2709, 4686]
     sentence_count: 12
     key_terms: [duke, crescentcrane, northwestern, hypsm, prestigious, like, different, prestige]
+    concepts: [crescentcrane, northwestern, prestigious, hypsm, different]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c3"
     char_span: [4398, 5132]
     sentence_count: 5
     key_terms: [prestigious, berkeley, obviously, people, other-number-4463, bro, ucla, chosenprince]
+    concepts: [prestigious, berkeley, obviously, people]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c4"
     char_span: [5134, 7275]
     sentence_count: 14
     key_terms: [school, schools, better, people, top, went, academic, intellectual]
+    concepts: [school, schools, better, people, academic]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c9"]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c5"
     char_span: [7278, 9209]
     sentence_count: 6
     key_terms: [prestige, schools, people, academic, school, whores, student, better]
+    concepts: [prestige, schools, people, academic, school]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c9"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c6"
     char_span: [9211, 10171]
     sentence_count: 4
     key_terms: [connections, school, university, kentucky, because, someone, people, good]
+    concepts: [connections, school, university, kentucky, because]
     section: Comments
     token_count: 201
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c7"
     char_span: [10173, 12269]
     sentence_count: 10
     key_terms: [like, being, state, "it's", eventually, thousands, applying, hundreds]
+    concepts: [being, eventually, state, thousands, applying]
     section: Comments
     token_count: 512
+    sources: [{"n":"I\u2019m old, seen a lot.","u":""}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c8"
     char_span: [12003, 13494]
     sentence_count: 11
     key_terms: [because, prestige, get, disaster, everyone, problem, someone, matter]
+    concepts: [because, prestige, disaster, everyone, problem]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c9"
     char_span: [13496, 14148]
     sentence_count: 6
     key_terms: [academically, talented, average, schools, people, turned, get, homogeneous]
+    concepts: [academically, talented, average, schools, people]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c5"]
     section: Comments
     token_count: 143
 ---

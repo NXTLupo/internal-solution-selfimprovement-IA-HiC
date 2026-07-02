@@ -21,59 +21,78 @@ chunks:
     char_span: [0, 1834]
     sentence_count: 17
     key_terms: [pto, performance, director, team, incentive, days, taken, day]
+    concepts: [performance, director, incentive, taken, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1pjxqc9.md#c6", "social-intelligence/reddit-deep/managers/1pjxqc9.md#c7"]
     token_count: 434
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1pjxqc9/pto_as_an_incentive/"}]
   - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c1"
     char_span: [1848, 3470]
     sentence_count: 17
     key_terms: [unlimited, pto, the-smoke-and-mirrors-of-unlimited-paid-time-off, time, probably, company, "it's", took]
+    concepts: [unlimited, probably, company, everyone, vacation]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1pjxqc9.md#c2"]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c2"
     char_span: [3472, 5467]
     sentence_count: 25
     key_terms: [unlimited, pto, time, company, take, work, advantage, liability]
+    concepts: [unlimited, company, advantage, liability, question]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1pjxqc9.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c3"
     char_span: [5469, 7493]
     sentence_count: 16
     key_terms: [unlimited, pto, right, performance, people, benefit, take, time]
+    concepts: [unlimited, right, performance, people, benefit]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1pjxqc9.md#c5", "social-intelligence/reddit-deep/managers/1pjxqc9.md#c6", "social-intelligence/reddit-deep/managers/1pjxqc9.md#c7"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c4"
     char_span: [7495, 8166]
     sentence_count: 4
     key_terms: [company, improve, policy, result, "that's", acceptance, employment, statements]
+    concepts: [company, improve, policy, result, "that's"]
     section: Comments
     token_count: 150
   - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c5"
     char_span: [8168, 9875]
     sentence_count: 11
     key_terms: [performance, like, unlimited, because, sounds, withholding, got, poor]
+    concepts: [performance, unlimited, because, sounds, withholding]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1pjxqc9.md#c3", "social-intelligence/reddit-deep/managers/1pjxqc9.md#c6", "social-intelligence/reddit-deep/managers/1pjxqc9.md#c7"]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c6"
     char_span: [9877, 12028]
     sentence_count: 23
     key_terms: [pto, unlimited, director, performance, business, employee, "she's", improvement]
+    concepts: [unlimited, director, performance, business, employee]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1pjxqc9.md#c0", "social-intelligence/reddit-deep/managers/1pjxqc9.md#c3", "social-intelligence/reddit-deep/managers/1pjxqc9.md#c5", "social-intelligence/reddit-deep/managers/1pjxqc9.md#c7", "social-intelligence/reddit-deep/managers/1pjxqc9.md#c8"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c7"
     char_span: [12030, 13903]
     sentence_count: 15
     key_terms: [pto, unlimited, days, nicolakirwan, expectation, performance, yrs, director]
+    concepts: [unlimited, nicolakirwan, expectation, performance, director]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1pjxqc9.md#c0", "social-intelligence/reddit-deep/managers/1pjxqc9.md#c3", "social-intelligence/reddit-deep/managers/1pjxqc9.md#c5", "social-intelligence/reddit-deep/managers/1pjxqc9.md#c6"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c8"
     char_span: [13905, 15249]
     sentence_count: 14
     key_terms: [employee, team, director, good, need, pto, members, member]
+    concepts: [employee, director, members, member]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1pjxqc9.md#c6"]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c9"
     char_span: [15251, 16215]
     sentence_count: 6
     key_terms: [like, employees, crafty-pomegranate19, regular-amoeba5455, don, pto, unproblematic, probableslob]
+    concepts: [employees]
     section: Comments
     token_count: 238
 ---

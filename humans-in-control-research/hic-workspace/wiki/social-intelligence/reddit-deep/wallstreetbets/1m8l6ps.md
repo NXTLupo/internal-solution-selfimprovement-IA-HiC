@@ -21,59 +21,73 @@ chunks:
     char_span: [0, 336]
     sentence_count: 1
     key_terms: [wallstreetbets, comments, https, png, qz69a51q1xef1, brilliantzen, reddit-deep, incoming]
+    concepts: [wallstreetbets, comments, https]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c1", "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c6"]
     token_count: 134
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1m8l6ps/amd_857k_yolo/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c1"
     char_span: [350, 1221]
     sentence_count: 1
     key_terms: [wallstreetbets, comments, reddit, https, com, www, total, submissions]
+    concepts: [wallstreetbets, comments, reddit, https, total]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c0", "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c6"]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c2"
     char_span: [1223, 2884]
     sentence_count: 3
     key_terms: [https, d7df9c2c51418a47f5d6b9de5a1096f0fa93529c, deleted, "that's", money, wsb, discord, preview]
+    concepts: [https, deleted, "that's", money, discord]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c3"
     char_span: [2886, 3503]
     sentence_count: 2
     key_terms: [c5b8dc31744b257da0af5be05b758add9a392c08, dcb4df5da838b69b583a4f2b6b1768cfd3ba49ef, preview, format, https, width, bearychristmas223, amd]
+    concepts: [preview, format, https, width]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c4"
     char_span: [3505, 5255]
     sentence_count: 31
     key_terms: [amd, intel, "they're", cheaper, buying, chips, money, "it's"]
+    concepts: [intel, "they're", cheaper, buying, chips]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c5"
     char_span: [5257, 6784]
     sentence_count: 31
     key_terms: [amd, market, nvda, gets, blackwell, cheaper, bigger, matter]
+    concepts: [market, blackwell, cheaper, bigger, matter]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c6"
     char_span: [6789, 8444]
     sentence_count: 13
     key_terms: [b69709ef0197a5a395e0b1158ade07705cb4b968, wallstreetbets, https, amd, comments, valhalla, willing, "nvda's"]
+    concepts: [wallstreetbets, https, comments, valhalla, willing]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c0", "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c1"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c7"
     char_span: [8446, 9439]
     sentence_count: 10
     key_terms: [companies, memory, shovel, terms, glitteringlock9791, amd, rack, infrastructures]
+    concepts: [companies, memory, shovel, terms]
     section: Comments
     token_count: 228
   - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c8"
     char_span: [9441, 11064]
     sentence_count: 15
     key_terms: [amd, electricity, products, competitive, deleted, thesis, agree, money]
+    concepts: [electricity, products, competitive, deleted, thesis]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c9"
     char_span: [11066, 12186]
     sentence_count: 9
     key_terms: [amd, nvidia, buy, inverse, parity, price, good, look]
+    concepts: [nvidia, inverse, parity, price]
     section: Comments
     token_count: 286
 ---

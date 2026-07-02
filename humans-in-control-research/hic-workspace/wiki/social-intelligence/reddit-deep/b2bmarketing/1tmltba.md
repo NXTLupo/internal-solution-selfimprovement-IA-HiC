@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 2321]
     sentence_count: 25
     key_terms: [sales, automation, marketing, qualified, demo, like, show, pipeline]
+    concepts: [sales, automation, marketing, qualified, pipeline]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1tmltba/why_b2b_demo_no_shows_are_killing_sales_pipeline/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tmltba.md#c1"
-    char_span: [2323, 3085]
+    char_span: [2323, 3084]
     sentence_count: 4
     key_terms: [looking-for-marketing-discussion-811236647760298024, discord, questions, automoderator, community, https, join, automatically]
+    concepts: [looking-for-marketing-discussion-811236647760298024, discord, questions, automoderator, community]
     section: Comments
     token_count: 178
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tmltba.md#c2"
-    char_span: [3088, 5376]
+    char_span: [3087, 5375]
     sentence_count: 13
     key_terms: [scoring, no-show, problem, someone, "they're", conversations, "i've", engagement]
+    concepts: [scoring, conversations, no-show, problem, someone]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tmltba.md#c3"
-    char_span: [5381, 7402]
+    char_span: [5380, 7401]
     sentence_count: 17
     key_terms: [like, no-shows, meeting, demo, marketing, dealing, instead, actual]
+    concepts: [no-shows, meeting, marketing, dealing, instead]
     section: Comments
     token_count: 425
 ---

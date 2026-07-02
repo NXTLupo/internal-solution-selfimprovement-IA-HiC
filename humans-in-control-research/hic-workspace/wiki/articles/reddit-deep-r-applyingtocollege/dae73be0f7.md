@@ -18,26 +18,34 @@ chunks:
     char_span: [0, 2307]
     sentence_count: 14
     key_terms: [specific, college, applyingtocollege, track, find, deadlines, reference, robotics]
+    concepts: [specific, college, applyingtocollege, track, deadlines]
     token_count: 491
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1r12d99/i_wish_i_knew_about_college_apps_that_nobody_told/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/dae73be0f7.md#c1"
     char_span: [2309, 4595]
     sentence_count: 19
     key_terms: [school, essay, applicants, "don't", write, professor, research, specific]
+    concepts: [school, essay, applicants, professor, "don't"]
+    related_chunks: ["articles/reddit-deep-r-applyingtocollege/dae73be0f7.md#c4"]
     token_count: 500
   - id: "articles/reddit-deep-r-applyingtocollege/dae73be0f7.md#c2"
     char_span: [4597, 6450]
     sentence_count: 7
     key_terms: [college-admission-essays-ive-heard-that-one-before, being, vibes, distinct, school, unique, seem, applicants]
+    concepts: [being, vibes, distinct, school, unique]
     token_count: 416
   - id: "articles/reddit-deep-r-applyingtocollege/dae73be0f7.md#c3"
     char_span: [6452, 8263]
     sentence_count: 11
     key_terms: [college, like, schools, school, ucla, admissions, particular, different]
+    concepts: [college, schools, school, admissions, particular]
     token_count: 390
   - id: "articles/reddit-deep-r-applyingtocollege/dae73be0f7.md#c4"
     char_span: [8265, 8981]
     sentence_count: 2
     key_terms: [school, show, professor, essays, environmentactive325, essay, put, some-rub9614]
+    concepts: [school, professor, essays, essay]
+    related_chunks: ["articles/reddit-deep-r-applyingtocollege/dae73be0f7.md#c1"]
     token_count: 152
 ---
 # I wish I knew about college apps that nobody told me (from a college student looking back)

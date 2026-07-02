@@ -7,55 +7,64 @@ subreddit: "dataengineering"
 title: "Should i use fivetran"
 author: "Advanced-Average-514"
 date: "2026-05-07T00:58:17.000Z"
-score: 10
-upvote_ratio: 0.79
-num_comments: 68
+score: 11
+upvote_ratio: 0.8
+num_comments: 70
 flair: "Discussion"
-extracted_at: "2026-06-11T18:58:17.199Z"
+extracted_at: "2026-06-29T14:40:47.212Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Define the 2026 \"state of the Art\" operational and technological benchmarks for \"The State of Data & Distribution in Asset Management\". Synthesize key developments across data infrastructure, distribution enablement, and AI governance frameworks to identify leading industry capabilities and compliance standards."
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
 chunks:
   - id: "social-intelligence/reddit-deep/dataengineering/1t5vlzc.md#c0"
     char_span: [0, 1245]
     sentence_count: 8
     key_terms: [fivetran, dataengineering, core, dbt, business, comments, airflow, running]
+    concepts: [fivetran, dataengineering, business, comments, airflow]
     token_count: 283
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1t5vlzc/should_i_use_fivetran/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1t5vlzc.md#c1"
-    char_span: [1260, 2928]
+    char_span: [1259, 2927]
     sentence_count: 18
     key_terms: [fivetran, data, unpredictability, sources, cost, sync, connectors, extraction]
+    concepts: [fivetran, unpredictability, sources, connectors, extraction]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/dataengineering/1t5vlzc.md#c2"
-    char_span: [2930, 4741]
+    char_span: [2929, 4740]
     sentence_count: 15
     key_terms: [fivetran, advanced-average-514, emotionalsupportdoll, task, data, like, need, runs]
+    concepts: [fivetran, advanced-average-514, emotionalsupportdoll, dependency, outages]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/dataengineering/1t5vlzc.md#c3"
-    char_span: [4743, 6655]
+    char_span: [4742, 6654]
     sentence_count: 12
     key_terms: [users, platform, etl, pipelines, technical, comments, fivetran, solution]
+    concepts: [users, platform, pipelines, technical, comments]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1t5vlzc.md#c4"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/dataengineering/1t5vlzc.md#c4"
-    char_span: [6657, 8317]
+    char_span: [6656, 8316]
     sentence_count: 12
     key_terms: [fivetran, platform, etl, pipelines, team, use, requirements, experience]
+    concepts: [fivetran, platform, pipelines, requirements, experience]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1t5vlzc.md#c3"]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/dataengineering/1t5vlzc.md#c5"
-    char_span: [8319, 9354]
+    char_span: [8318, 9353]
     sentence_count: 6
     key_terms: [month, like, rows, fivetran, spending, plugins, updates, claude]
+    concepts: [month, fivetran, spending, plugins, updates]
     section: Comments
     token_count: 259
 ---
 # Should i use fivetran
 
 Source: [reddit-deep: r/dataengineering](https://www.reddit.com/r/dataengineering/comments/1t5vlzc/should_i_use_fivetran/)
-Posted by **Advanced-Average-514** · **10↑** · **68 comments**
+Posted by **Advanced-Average-514** · **11↑** · **70 comments**
 
 Hey,
 
@@ -71,11 +80,11 @@ I have experimented a bit with google managed airflow in the past but have never
 
 ## Comments
 
-- **Typical_Priority3319** (38↑): The drawback is the price.
-  - **Top-Average412** (11↑): And the unpredictability. Fivetran is in an extraction phase and the only way to live up to baked in valuations is to squeeze customers.
-    - **Advanced-Average-514** (4↑): Curious how the unpredictability would manifest? As in changing pricing unexpectedly?
-    - **Eric-Fivetran** (3↑): I'm not sure what you mean by "extraction phase"? We're focusing more investment in core R&D around our connectors and reliability than at any point since I joined. Our price change early last year was largely to reduce prices.
-- **SeaYouLaterAllig8tor** (7↑): The hate for Fivetran is strong on this sub - be warned! 
+- **Typical_Priority3319** (37↑): The drawback is the price.
+  - **Top-Average412** (13↑): And the unpredictability. Fivetran is in an extraction phase and the only way to live up to baked in valuations is to squeeze customers.
+    - **Advanced-Average-514** (6↑): Curious how the unpredictability would manifest? As in changing pricing unexpectedly?
+    - **Eric-Fivetran** (4↑): I'm not sure what you mean by "extraction phase"? We're focusing more investment in core R&D around our connectors and reliability than at any point since I joined. Our price change early last year was largely to reduce prices.
+- **SeaYouLaterAllig8tor** (5↑): The hate for Fivetran is strong on this sub - be warned! 
 We use Fivetran and dbt for most of our data ingestion and transformation. The cost really takes off when you're ingesting sources at scale. I think that's people's main complaint. As you sync more and more data it gets much more expensive. That said, Fivetran is simple to sync data for most sources. It usually takes me 10 mins or less to sync data to a new source. It's a trade off, cost vs simplicity. At least... That's how I see it
   - **GreyHairedDWGuy** (2↑): I agree about the haters on this sub.  I find it a very useful solution that alleviates the requirement to build API pipelines to common sources like SFDC, Linkedin, GA and others.  It is simple to setup for most connectors.    
 

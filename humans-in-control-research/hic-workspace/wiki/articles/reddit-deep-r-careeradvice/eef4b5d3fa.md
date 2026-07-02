@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2165]
     sentence_count: 30
     key_terms: [career, careeradvice, engineering, experiences, felt, different, discover, startups]
+    concepts: [careeradvice, career, engineering, experiences, different]
     token_count: 503
+    sources: [{"n":"Reddit Deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1lh9jt6/what_i_learned_from_being_completely_lost_in_my/"}]
   - id: "articles/reddit-deep-r-careeradvice/eef4b5d3fa.md#c1"
     char_span: [2167, 4296]
     sentence_count: 22
     key_terms: [career, thank, understand, rather, taking, educationinformal376, point, reach]
+    concepts: [career, thank, understand, rather, taking]
     token_count: 510
 ---
 # What I learned from being completely lost in my career

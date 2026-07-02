@@ -20,41 +20,49 @@ chunks:
     char_span: [0, 2014]
     sentence_count: 3
     key_terms: [marketing, month, ads, like, similar, b2bmarketing, qualified, comments]
+    concepts: [marketing, month, similar, b2bmarketing, qualified]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1rqz2r5/i_built_a_25kmo_business_from_my_bedroom_with_0/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rqz2r5.md#c1"
     char_span: [2016, 4162]
     sentence_count: 2
     key_terms: [accounts, list, warmup, because, emails, people, email, cold]
+    concepts: [accounts, warmup, because, emails, people]
     token_count: 476
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rqz2r5.md#c2"
     char_span: [4164, 6464]
     sentence_count: 1
     key_terms: [apollo, clay, list, thats, data, tool, replies, doesnt]
+    concepts: [apollo, thats, replies, doesnt, check]
     token_count: 490
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rqz2r5.md#c3"
     char_span: [6466, 8827]
     sentence_count: 2
     key_terms: [calendly, inboxes, sending, notion, free, plan, everything, verifying]
+    concepts: [calendly, inboxes, sending, notion, everything]
     token_count: 518
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rqz2r5.md#c4"
     char_span: [8829, 10266]
     sentence_count: 1
     key_terms: [meetings, per, replies, roughly, month, tools, spreadsheet, campaign]
+    concepts: [meetings, replies, roughly, spreadsheet, month]
     token_count: 377
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rqz2r5.md#c5"
-    char_span: [10281, 11302]
+    char_span: [10280, 11301]
     sentence_count: 4
     key_terms: [looking-for-marketing-discussion-811236647760298024, less, post, questions, discord, selling, tools, programmatically]
+    concepts: [questions, discord, selling, tools]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rqz2r5.md#c6"
-    char_span: [11304, 13382]
+    char_span: [11303, 13381]
     sentence_count: 10
     key_terms: [like, message, reddit, right, tools, wrong, add, bro]
+    concepts: [message, reddit, right, tools, wrong]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rqz2r5.md#c7"
-    char_span: [13384, 13747]
+    char_span: [13383, 13746]
     sentence_count: 3
     key_terms: [acquisition, marketing, lifetime, pipeline, average, curious, product, selling]
     section: Comments

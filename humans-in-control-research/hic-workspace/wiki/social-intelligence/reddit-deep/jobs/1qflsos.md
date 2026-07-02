@@ -19,77 +19,91 @@ chunks:
     char_span: [0, 877]
     sentence_count: 5
     key_terms: [jobs, comments, anyone, market, people, parking-selection-27, seems, get]
+    concepts: [comments, anyone, market, people, seems]
     token_count: 204
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1qflsos/is_this_the_bleakest_the_job_market_has_ever/"}]
   - id: "social-intelligence/reddit-deep/jobs/1qflsos.md#c1"
     char_span: [891, 2847]
     sentence_count: 24
     key_terms: [too, job, fired, stealing, boss, management, business, charity]
+    concepts: [fired, stealing, management, business, charity]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/jobs/1qflsos.md#c2"
     char_span: [2849, 5104]
     sentence_count: 21
     key_terms: [government, job, market, anything, economy, back, businesses, experience]
+    concepts: [government, market, anything, economy, businesses]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/jobs/1qflsos.md#c3"
     char_span: [5106, 7310]
     sentence_count: 21
     key_terms: [deleted, departments, time, depression, government, trillion, economy, service]
+    concepts: [deleted, departments, depression, government, trillion]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qflsos.md#c4"
     char_span: [7012, 8774]
     sentence_count: 17
     key_terms: [being, companies, society, wealth, money, lot, generated, possible]
+    concepts: [being, companies, society, wealth, money]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/jobs/1qflsos.md#c5"
     char_span: [8776, 10351]
     sentence_count: 13
     key_terms: [jobs, new, creating, system, work, constantly, companies, economic]
+    concepts: [creating, system, constantly, companies, economic]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/jobs/1qflsos.md#c6"
     char_span: [10353, 12127]
     sentence_count: 4
     key_terms: [manmade, driven, people, economically, particularly, feels, instability, jobs]
+    concepts: [manmade, economically, particularly, driven, people]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/jobs/1qflsos.md#c7"
     char_span: [12129, 13032]
     sentence_count: 9
     key_terms: [economy, people, house, white, inclinationcompass, legislatively, catastrophic, unemployment]
+    concepts: [economy, people, house, white]
     section: Comments
     token_count: 218
   - id: "social-intelligence/reddit-deep/jobs/1qflsos.md#c8"
     char_span: [13034, 14941]
     sentence_count: 11
     key_terms: [depression, great, worse, inclinationcompass, because, badatexisting, been, economy]
+    concepts: [depression, great, inclinationcompass, worse, badatexisting]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qflsos.md#c9"
     char_span: [14744, 16723]
     sentence_count: 19
     key_terms: [blueberryno4669, back, don, people, overqualified, get, job, jobs]
+    concepts: [blueberryno4669, overqualified, people, rejection, something]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qflsos.md#c10"
     char_span: [16485, 17027]
     sentence_count: 6
     key_terms: [conditions, blueberryno4669, unfortunately, debilitating, considering, disability, government, impossible]
+    concepts: [conditions]
     section: Comments
     token_count: 117
   - id: "social-intelligence/reddit-deep/jobs/1qflsos.md#c11"
     char_span: [17029, 19084]
     sentence_count: 18
     key_terms: [job, jobs, fake, people, applications, least, "it's", legitimate]
+    concepts: [applications, people, least, legitimate, aroundm21]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/jobs/1qflsos.md#c12"
     char_span: [19086, 19308]
     sentence_count: 2
     key_terms: [london, squirrel8296, manipulate, terrible, because, created, outside, agenda]
+    concepts: [london]
     section: Comments
     token_count: 52
 ---

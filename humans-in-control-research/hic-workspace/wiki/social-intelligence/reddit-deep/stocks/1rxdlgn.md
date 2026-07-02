@@ -19,58 +19,71 @@ chunks:
     char_span: [0, 2223]
     sentence_count: 9
     key_terms: [shock, fed, current, time, price, today, immigration, conference]
+    concepts: [shock, current, immigration, conference, price]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1rxdlgn/watched_the_entire_fed_powell_press_conference/"}]
   - id: "social-intelligence/reddit-deep/stocks/1rxdlgn.md#c1"
     char_span: [2225, 3176]
     sentence_count: 3
     key_terms: [productivity, causing, economy, higher, years, been, fed, commendable]
+    concepts: [productivity, causing, economy, higher, years]
     token_count: 209
   - id: "social-intelligence/reddit-deep/stocks/1rxdlgn.md#c2"
     char_span: [3190, 4461]
     sentence_count: 7
     key_terms: [trump, going, everything, economy, nothing, fucked, people, powell]
+    concepts: [trump, everything, going, economy, nothing]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rxdlgn.md#c4"]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/stocks/1rxdlgn.md#c3"
     char_span: [4463, 5209]
     sentence_count: 4
     key_terms: [everything, alone, fluid-expert-4363, bros, left, iwubinvesting, macro-economy, deyachtifier]
+    concepts: [everything, alone]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/stocks/1rxdlgn.md#c4"
     char_span: [5211, 7064]
     sentence_count: 11
     key_terms: [trump, kamala, right, everything, democrats, economy, elected, exactly]
+    concepts: [trump, kamala, everything, right, democrats]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rxdlgn.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1rxdlgn.md#c5"
     char_span: [6835, 8609]
     sentence_count: 8
     key_terms: [tech, people, recession, low, market, years, been, job]
+    concepts: [people, recession, market, years, curious]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/stocks/1rxdlgn.md#c6"
     char_span: [8611, 10895]
     sentence_count: 26
     key_terms: [offshore, workers, access, build, years, "it's", databases, reporting]
+    concepts: [offshore, workers, access, build, years]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/stocks/1rxdlgn.md#c7"
     char_span: [10897, 12911]
     sentence_count: 12
     key_terms: [changed, alkaliphiles, "don't", low, inflation, thousands, hundreds, illegal]
+    concepts: [changed, alkaliphiles, "don't", inflation, thousands]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/stocks/1rxdlgn.md#c8"
     char_span: [12913, 14604]
     sentence_count: 9
     key_terms: [time, tariffs, prices, price, immediately, eventually, inflation, provided]
+    concepts: [tariffs, prices, immediately, eventually, price]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/stocks/1rxdlgn.md#c9"
     char_span: [14606, 15814]
     sentence_count: 7
     key_terms: [inflation, believe, concern, people, strong, effectadventurous764, money, "we're"]
+    concepts: [inflation, believe, concern, people, strong]
     section: Comments
     token_count: 337
 ---

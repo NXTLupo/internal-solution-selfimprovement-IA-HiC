@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 1842]
     sentence_count: 10
     key_terms: [internships, school, communication, "i've", getting, internship, political, worked]
+    concepts: [internships, school, communication, getting, internship]
     token_count: 416
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1segpeb/about_to_graduate_college_and_have_never/"}]
   - id: "social-intelligence/reddit-deep/internships/1segpeb.md#c1"
     char_span: [1844, 2567]
     sentence_count: 8
     key_terms: [entry-level, "i'm", internship, myself, roles, job, like, tech]
+    concepts: [entry-level, internship, myself, roles]
     token_count: 158
   - id: "social-intelligence/reddit-deep/internships/1segpeb.md#c2"
     char_span: [2581, 4290]
     sentence_count: 12
     key_terms: [get, year, masters, job, internship, bachelors, something, nexsyna]
+    concepts: [masters, internship, bachelors, something, nexsyna]
     section: Comments
     token_count: 411
 ---

@@ -19,47 +19,60 @@ chunks:
     char_span: [0, 1109]
     sentence_count: 6
     key_terms: [computational-social-science, computational, microsoft, cscareerquestions, comments, research, market, social]
+    concepts: [computational-social-science, computational, cscareerquestions, microsoft, comments]
     token_count: 260
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1nwcf21/market_is_even_worse_for_nonml_phds/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c1"
     char_span: [1123, 2621]
     sentence_count: 9
     key_terms: [social, computational, science, media, methods, etc, like, use]
+    concepts: [social, computational, science, media, methods]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c6", "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c7"]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c2"
     char_span: [2623, 4377]
     sentence_count: 11
     key_terms: [degree, degrees, colleges, computational, employment, scientific, university, programs]
+    concepts: [degree, degrees, colleges, computational, employment]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c3"
     char_span: [4379, 6597]
     sentence_count: 17
     key_terms: [data, science, skills, social, processing, statistics, job, resume]
+    concepts: [science, skills, processing, statistics, social]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c7"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c4"
     char_span: [6600, 8658]
     sentence_count: 14
     key_terms: [specialization, understanding, intelligence, publications, development, government, business, probably]
+    concepts: [specialization, understanding, intelligence, publications, development]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c5"
     char_span: [8661, 10932]
     sentence_count: 14
     key_terms: [companies, research, through, understanding, phd, sociology, soggyclue, industry]
+    concepts: [companies, research, understanding, through, sociology]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c6"
     char_span: [10934, 12650]
     sentence_count: 16
     key_terms: [computational, people, social, scientist, interdisciplinary, fields, good, work]
+    concepts: [computational, interdisciplinary, people, social, scientist]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c7"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c7"
     char_span: [12653, 14504]
     sentence_count: 10
     key_terms: [social, like, science, sounds, computational, kinda, jobs, computer]
+    concepts: [social, computational, science, sounds, kinda]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c6"]
     section: Comments
     token_count: 440
 ---

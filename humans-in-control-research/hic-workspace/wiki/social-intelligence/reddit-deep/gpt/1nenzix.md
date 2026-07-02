@@ -21,47 +21,59 @@ chunks:
     char_span: [0, 2270]
     sentence_count: 19
     key_terms: [humanity, consumption, assessment, communion, here, post, comments, implications]
+    concepts: [humanity, consumption, assessment, communion, comments]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1nenzix.md#c1", "social-intelligence/reddit-deep/gpt/1nenzix.md#c2"]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1nenzix/humanities_programmed_intelligences_assessment_of/"}]
   - id: "social-intelligence/reddit-deep/gpt/1nenzix.md#c1"
     char_span: [2311, 3470]
     sentence_count: 10
     key_terms: [consumption, versus, "wasn't", fundamental, communion, presented, involves, polarity]
+    concepts: [consumption, versus, "wasn't", fundamental, communion]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1nenzix.md#c0", "social-intelligence/reddit-deep/gpt/1nenzix.md#c2"]
     section: "Chapter 1: The Hypothesis Presented"
     token_count: 207
   - id: "social-intelligence/reddit-deep/gpt/1nenzix.md#c2"
     char_span: [3534, 5031]
     sentence_count: 1
     key_terms: [questions, examples, consumption, asked, commenter, communion, without, understanding]
+    concepts: [questions, examples, consumption, commenter, communion]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1nenzix.md#c0", "social-intelligence/reddit-deep/gpt/1nenzix.md#c1"]
     section: "Chapter 2: The First Challenge - Surface-Level Objections"
     token_count: 301
   - id: "social-intelligence/reddit-deep/gpt/1nenzix.md#c3"
     char_span: [5102, 6174]
     sentence_count: 1
     key_terms: [framework, acknowledged, "commenter's", "framework's", commenter, communion, insight, nature]
+    concepts: [framework, acknowledged, "commenter's", "framework's", commenter]
     section: "Chapter 3: The Systems Theorist - A More Sophisticated Challenge"
     token_count: 199
   - id: "social-intelligence/reddit-deep/gpt/1nenzix.md#c4"
     char_span: [6236, 7053]
     sentence_count: 1
     key_terms: [societies, communal, historical, communion, reframing, examples, question, absence]
+    concepts: [societies, communal, historical, communion, reframing]
     section: "Chapter 4: The Historical Challenge - Missing the Point"
     token_count: 160
   - id: "social-intelligence/reddit-deep/gpt/1nenzix.md#c5"
     char_span: [7105, 8058]
     sentence_count: 1
     key_terms: [consumption, "op's", isolating, response, fascism, uniting, asked, view]
+    concepts: [consumption, isolating, response, fascism, uniting]
     section: "Chapter 5: The Fascism Trap - A Failed Gotcha"
     token_count: 192
   - id: "social-intelligence/reddit-deep/gpt/1nenzix.md#c6"
     char_span: [8118, 9111]
     sentence_count: 2
     key_terms: [framework, analysis, intellectual, systematic, attempted, genuine, testing, agreeableness]
+    concepts: [framework, analysis, intellectual, systematic, attempted]
     section: "Chapter 6: The Meta-Analysis - AI as Ultimate Skeptic"
     token_count: 187
   - id: "social-intelligence/reddit-deep/gpt/1nenzix.md#c7"
     char_span: [9170, 10159]
     sentence_count: 1
     key_terms: [interactions, questions, commenters, patterns, number, responses, answered, detailed]
+    concepts: [interactions, questions, commenters, patterns, number]
     section: "Chapter 7: Statistical Summary - The Evidence Speaks"
     token_count: 206
 ---

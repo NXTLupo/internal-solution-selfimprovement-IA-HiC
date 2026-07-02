@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 948]
     sentence_count: 8
     key_terms: [trading, day, comments, wallstreetbets, contracts, portfolio, everyday, expiring]
+    concepts: [trading, comments, wallstreetbets, contracts, portfolio]
     token_count: 255
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1mbfxne/trading_same_day_expiring_contracts_using_my/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c1"
     char_span: [962, 1701]
     sentence_count: 5
     key_terms: [lose, wsb, red, discord, genius, https, total, contentsimple1275]
+    concepts: [discord, genius, https, total]
     section: Comments
     token_count: 247
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c2"
     char_span: [1703, 3326]
     sentence_count: 8
     key_terms: [leverage, deleted, million, success, enough, tryna, "you'd", georgesdantonsnose]
+    concepts: [leverage, deleted, million, success, enough]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c3"
     char_span: [3150, 4908]
     sentence_count: 11
     key_terms: [month, down, another, back, give, high, lol, spy]
+    concepts: [month, another, return, being, money]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c4"
@@ -50,30 +55,35 @@ chunks:
     char_span: [4990, 6325]
     sentence_count: 6
     key_terms: [return, inflation, better, market, "that's", terms, guy, last]
+    concepts: [return, inflation, better, market, "that's"]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c6"
     char_span: [6327, 6992]
     sentence_count: 5
     key_terms: [trading, toasterbath-survivor, until, jye4bcslymff1, professionals, thecinemagod, steamroller, garaunteed]
+    concepts: [trading, until]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c7"
     char_span: [6994, 8554]
     sentence_count: 8
     key_terms: [eventually, trade, spy, time, portfolio, congrats, success, entire]
+    concepts: [eventually, trade, portfolio, congrats, success]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c8"
     char_span: [8556, 10322]
     sentence_count: 18
     key_terms: [stop, loss, "there's", avatarofindifference, expertconsideration8, thebourbonoftruth, poem, spy]
+    concepts: ["there's"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c9"
     char_span: [10324, 11366]
     sentence_count: 5
     key_terms: [drain, right, day, down, god, wsb, banditcleaner2, czpiei13emff1]
+    concepts: [drain, right]
     section: Comments
     token_count: 308
 ---

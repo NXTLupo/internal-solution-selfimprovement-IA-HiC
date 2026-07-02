@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1138]
     sentence_count: 13
     key_terms: [international, phd, askacademia, comments, computer, country, student, funded]
+    concepts: [international, askacademia, comments, computer, country]
     token_count: 261
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1pynrm5/phd_in_saudi_vs_china_vs_tunisia/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1pynrm5.md#c1"
     char_span: [1152, 2560]
     sentence_count: 6
     key_terms: [research, preferential, universities, fraud, university, countries, academic, country]
+    concepts: [research, preferential, universities, fraud, university]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/askacademia/1pynrm5.md#c2"
     char_span: [2562, 4174]
     sentence_count: 11
     key_terms: [countries, international, opportunities, good, deleted, funding, thought, tunisia]
+    concepts: [countries, international, opportunities, deleted, funding]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/askacademia/1pynrm5.md#c3"
     char_span: [4176, 4784]
     sentence_count: 6
     key_terms: [environment, country, professional, conferences, encouraging, accessible, countries, exploring]
+    concepts: [environment, country]
     section: Comments
     token_count: 138
 ---

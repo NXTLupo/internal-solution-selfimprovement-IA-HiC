@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1493]
     sentence_count: 1
     key_terms: [bot, market, self-hosted, volume, cost, makers, flexibility, pump]
+    concepts: [market, self-hosted, volume, makers, flexibility]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1swk58e.md#c1"]
     token_count: 356
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1swk58e/cost_breakdown_selfhosted_volume_bot_vs_paying_a/"}]
   - id: "social-intelligence/reddit-deep/defi/1swk58e.md#c1"
-    char_span: [1508, 1998]
+    char_span: [1507, 1997]
     sentence_count: 4
     key_terms: [bot, self-hosted, ongoing, volume, maintenance, autohustle, breakdown, potential]
+    concepts: [self-hosted, ongoing, volume]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1swk58e.md#c0"]
     section: Comments
     token_count: 112
 ---

@@ -21,34 +21,41 @@ chunks:
     char_span: [0, 1945]
     sentence_count: 15
     key_terms: [men, college, going, young, job, school, home, like]
+    concepts: [college, going, young, school, anything]
     token_count: 448
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1s7tkiy/is_it_just_me_or_is_this_notion_that_young_men/"}]
   - id: "social-intelligence/reddit-deep/genz/1s7tkiy.md#c1"
     char_span: [1947, 2462]
     sentence_count: 6
     key_terms: [men, definitely, want, contributing, experience, supporting, education, lifestyle]
+    concepts: [definitely]
     token_count: 120
   - id: "social-intelligence/reddit-deep/genz/1s7tkiy.md#c2"
     char_span: [2476, 4647]
     sentence_count: 10
     key_terms: [men, doing, middle, accountability, rigged, women, past, take]
+    concepts: [doing, middle, accountability, rigged, women]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/genz/1s7tkiy.md#c3"
     char_span: [4649, 6534]
     sentence_count: 16
     key_terms: [men, being, women, "don't", game, "it's", like, rich]
+    concepts: [being, women, "don't", personally, withdrawn]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/genz/1s7tkiy.md#c4"
     char_span: [6536, 8823]
     sentence_count: 15
     key_terms: [get, job, years, dont, jobs, time, because, degree]
+    concepts: [years, because, degree, employment, overblown]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/genz/1s7tkiy.md#c5"
     char_span: [8825, 10121]
     sentence_count: 5
     key_terms: [men, impacted, lot, industries, dominated, overblown, economy, life]
+    concepts: [impacted, industries, dominated, overblown, economy]
     section: Comments
     token_count: 274
 ---

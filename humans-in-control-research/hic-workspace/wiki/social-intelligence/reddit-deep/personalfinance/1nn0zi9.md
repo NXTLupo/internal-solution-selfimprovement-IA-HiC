@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1123]
     sentence_count: 7
     key_terms: [card, month, debt, personalfinance, credit, car, pay, save]
+    concepts: [month, personalfinance, credit, comments, paycheck]
     token_count: 273
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1nn0zi9/should_i_sell_my_2016_corolla_to_pay_off_13000_in/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1nn0zi9.md#c1"
     char_span: [1137, 3035]
     sentence_count: 15
     key_terms: [car, live, public, transport, corolla, without, transportation, going]
+    concepts: [public, transport, transportation, corolla, without]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/personalfinance/1nn0zi9.md#c2"
     char_span: [3037, 4536]
     sentence_count: 10
     key_terms: [car, debt, need, credit, great, get, loan, transport]
+    concepts: [credit, great, transport, interest, personal]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/personalfinance/1nn0zi9.md#c3"
     char_span: [4538, 6516]
     sentence_count: 15
     key_terms: [car, transfer, without, pay, sell, absolutely, roommates, yoooedwin]
+    concepts: [transfer, without, absolutely, roommates, yoooedwin]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/personalfinance/1nn0zi9.md#c4"

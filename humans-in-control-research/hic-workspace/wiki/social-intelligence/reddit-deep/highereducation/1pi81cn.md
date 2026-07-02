@@ -19,41 +19,49 @@ chunks:
     char_span: [0, 1365]
     sentence_count: 10
     key_terms: [students, curriculum, highereducation, https, com, challenges, comments, burnout]
+    concepts: [students, curriculum, highereducation, challenges, https]
     token_count: 319
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1pi81cn/how_can_students_best_contribute_to_solving/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1pi81cn.md#c1"
     char_span: [1379, 3672]
     sentence_count: 33
     key_terms: [students, everything, "don't", college, skills, phone, "it's", need]
+    concepts: [students, everything, "don't", college, skills]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/highereducation/1pi81cn.md#c2"
     char_span: [3674, 5822]
     sentence_count: 20
     key_terms: [reach, audience, building, people, relationships, scale, conferences, newsletters]
+    concepts: [reach, audience, building, relationships, people]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/highereducation/1pi81cn.md#c3"
     char_span: [5824, 7622]
     sentence_count: 17
     key_terms: [looking, conferences, "i'm", seen, knowledge, audience, students, better]
+    concepts: [looking, conferences, knowledge, audience, students]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/highereducation/1pi81cn.md#c4"
     char_span: [7624, 10011]
     sentence_count: 19
     key_terms: [university, wisconsin, students, institutional, universities, interesting, long, chancellor]
+    concepts: [university, wisconsin, students, institutional, universities]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/highereducation/1pi81cn.md#c5"
     char_span: [10013, 12463]
     sentence_count: 15
     key_terms: [education, need, students, higher, people, learn, communities, university]
+    concepts: [education, students, higher, people, communities]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/highereducation/1pi81cn.md#c6"
     char_span: [12465, 13939]
     sentence_count: 7
     key_terms: [benefit, universities, koh-zlf9dwc, livestreams, good, learning, podcasts, students]
+    concepts: [benefit, universities, koh-zlf9dwc, livestreams, learning]
     section: Comments
     token_count: 330
 ---

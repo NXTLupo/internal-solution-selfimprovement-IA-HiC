@@ -20,21 +20,26 @@ chunks:
     char_span: [0, 2395]
     sentence_count: 6
     key_terms: [data, science, degree, certifications, scientists, decisions, scientist, salary]
+    concepts: [science, certifications, degree, scientists, decisions]
     token_count: 495
+    sources: [{"n":"reddit-deep: r/bigdata","u":"https://www.reddit.com/r/bigdata/comments/1pc1q3t/2026_data_scientist_salary_career_insights/"}]
   - id: "social-intelligence/reddit-deep/bigdata/1pc1q3t.md#c1"
     char_span: [2397, 4864]
     sentence_count: 3
     key_terms: [data, science, scientist, salary, skills, learning, career, business]
+    concepts: [science, scientist, salary, skills, learning]
     token_count: 522
   - id: "social-intelligence/reddit-deep/bigdata/1pc1q3t.md#c2"
     char_span: [4866, 6676]
     sentence_count: 6
     key_terms: [data, individuals, salary, experience, technology, cloud, learning, salaries]
+    concepts: [individuals, experience, technology, salary, cloud]
     token_count: 343
   - id: "social-intelligence/reddit-deep/bigdata/1pc1q3t.md#c3"
-    char_span: [6691, 7784]
+    char_span: [6690, 7783]
     sentence_count: 7
     key_terms: [databricks, impact, levels, adventurous-date9971, cost, data, fyi, path]
+    concepts: [databricks, impact, levels]
     section: Comments
     token_count: 272
 ---

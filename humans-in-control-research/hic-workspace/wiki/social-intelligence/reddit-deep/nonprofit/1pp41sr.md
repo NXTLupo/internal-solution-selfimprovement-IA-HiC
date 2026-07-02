@@ -20,22 +20,27 @@ chunks:
     char_span: [0, 1965]
     sentence_count: 10
     key_terms: [grant, advertising, subscribers, background, euthanasia, interested, volunteers, nonprofit]
+    concepts: [grant, advertising, subscribers, background, euthanasia]
     token_count: 412
+    sources: [{"n":"reddit-deep: r/nonprofit","u":"https://www.reddit.com/r/nonprofit/comments/1pp41sr/looking_for_tips_advice_and_stories_about/"}]
   - id: "social-intelligence/reddit-deep/nonprofit/1pp41sr.md#c1"
     char_span: [1967, 2521]
     sentence_count: 1
     key_terms: [campaigns, spend, occurring, monthly, dollar, real, grant-backed, cultivating]
+    concepts: [campaigns, spend, occurring, monthly, dollar]
     token_count: 111
   - id: "social-intelligence/reddit-deep/nonprofit/1pp41sr.md#c2"
-    char_span: [2536, 4499]
+    char_span: [2535, 4498]
     sentence_count: 23
     key_terms: [ads, inside-the-facebook-and-google-ad-spend-on-the-weed-and-euthanasia-referendums, nonprofit, google, get, issues, transparency, moderators]
+    concepts: [nonprofit, google, transparency, issues, moderators]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/nonprofit/1pp41sr.md#c3"
-    char_span: [4501, 6185]
+    char_span: [4500, 6184]
     sentence_count: 23
     key_terms: [getting, deactivated, "don't", ads, learned, outside, months, ago]
+    concepts: [getting, deactivated, "don't", learned, outside]
     section: Comments
     token_count: 404
 ---

@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1443]
     sentence_count: 13
     key_terms: [reserve, square, entrepreneur, essentially, zero, authority, customers, comments]
+    concepts: [reserve, square, entrepreneur, essentially, authority]
     token_count: 309
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1p1rqp9/square_withholding_20k_many_customers_zero/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1p1rqp9.md#c1"
-    char_span: [1458, 3208]
+    char_span: [1457, 3207]
     sentence_count: 11
     key_terms: [entrepreneur, please, permanent, promotion, stickied, account, comment, history]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/entrepreneur/1p1rqp9.md#c2"
-    char_span: [3210, 5342]
+    char_span: [3209, 5341]
     sentence_count: 14
     key_terms: [processors, business, another, payment, square, frustrating, processor, switching]
+    concepts: [processors, business, another, payment, square]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/entrepreneur/1p1rqp9.md#c3"
-    char_span: [5080, 5562]
+    char_span: [5079, 5561]
     sentence_count: 3
     key_terms: [processor, business, radicalcoach, coldheat90, definitely, ridiculous, important, merchant]
+    concepts: [processor, business]
     section: Comments
     token_count: 110
   - id: "social-intelligence/reddit-deep/entrepreneur/1p1rqp9.md#c4"
-    char_span: [5564, 6101]
+    char_span: [5563, 6100]
     sentence_count: 6
     key_terms: [history, get, chargeback, defending, elsewhere, processor, finished, specific]
+    concepts: [history]
     section: Comments
     token_count: 126
 ---

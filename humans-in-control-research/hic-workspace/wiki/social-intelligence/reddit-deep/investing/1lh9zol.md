@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 937]
     sentence_count: 9
     key_terms: [investing, trading, good, copy, like, management, automated, portfolio]
+    concepts: [investing, trading, management, automated, portfolio]
     token_count: 211
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1lh9zol/investing_crypto_in_portfolio_management/"}]
   - id: "social-intelligence/reddit-deep/investing/1lh9zol.md#c1"
     char_span: [951, 1848]
     sentence_count: 6
     key_terms: [bitcoin, buy, overthinking, hold, lovely7451, returns, "don't", month]
+    concepts: [bitcoin, overthinking, lovely7451, returns, "don't"]
     section: Comments
     token_count: 233
 ---

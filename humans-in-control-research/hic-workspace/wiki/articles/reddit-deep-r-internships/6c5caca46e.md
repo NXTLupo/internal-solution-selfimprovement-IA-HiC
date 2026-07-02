@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1449]
     sentence_count: 2
     key_terms: ["i'm", internships, reddit, genuinely, anything, comments, projects, whatever]
+    concepts: [internships, reddit, genuinely, anything, comments]
     token_count: 344
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t84uj5/genuinely_running_out_of_options_so_reddit_it_is/"}]
   - id: "articles/reddit-deep-r-internships/6c5caca46e.md#c1"
     char_span: [1451, 3388]
     sentence_count: 15
     key_terms: [people, get, because, engineering, internships, easy, "it's", work]
+    concepts: [people, because, engineering, internships, definitely]
     token_count: 451
   - id: "articles/reddit-deep-r-internships/6c5caca46e.md#c2"
     char_span: [3390, 4049]
     sentence_count: 2
     key_terms: [like, babies, people, build, caramelparking8382, get, jobs, need]
+    concepts: [babies, people, build]
     token_count: 150
 ---
 # genuinely running out of options so reddit it is

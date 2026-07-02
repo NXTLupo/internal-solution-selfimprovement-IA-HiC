@@ -19,34 +19,43 @@ chunks:
     char_span: [0, 1976]
     sentence_count: 15
     key_terms: [internships, enough, internship, been, feel, "i'm", comments, linkedin]
+    concepts: [internships, internship, enough, comments, linkedin]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1t1zwjd.md#c5"]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t1zwjd/i_give_up_on_internships/"}]
   - id: "social-intelligence/reddit-deep/internships/1t1zwjd.md#c1"
     char_span: [1978, 2349]
     sentence_count: 3
     key_terms: [summer, applications, bottled-up, currently, potential, somewhere, stressing, feelings]
+    concepts: [summer]
     token_count: 99
   - id: "social-intelligence/reddit-deep/internships/1t1zwjd.md#c2"
     char_span: [2363, 3587]
     sentence_count: 9
     key_terms: [companies, dialsoapbox, internships, students, company, apply, weeks, ago]
+    concepts: [companies, dialsoapbox, internships, students, company]
     section: Comments
     token_count: 280
   - id: "social-intelligence/reddit-deep/internships/1t1zwjd.md#c3"
     char_span: [3589, 5662]
     sentence_count: 16
     key_terms: [internship, "i'm", role, work, student, zettasyntax, grad, "couldn't"]
+    concepts: [internship, student, zettasyntax, "couldn't", everyone]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1t1zwjd.md#c4"
     char_span: [5431, 6673]
     sentence_count: 9
     key_terms: [friends, publicinvention, opportunities, internships, robertlread, "i'm", internship, yourself]
+    concepts: [friends, publicinvention, opportunities, internships, robertlread]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/internships/1t1zwjd.md#c5"
     char_span: [6675, 7998]
     sentence_count: 7
     key_terms: [iamanoob690, internship, internships, experience, sophomore, junior, resume, summer]
+    concepts: [iamanoob690, internship, internships, experience, sophomore]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1t1zwjd.md#c0"]
     section: Comments
     token_count: 346
 ---

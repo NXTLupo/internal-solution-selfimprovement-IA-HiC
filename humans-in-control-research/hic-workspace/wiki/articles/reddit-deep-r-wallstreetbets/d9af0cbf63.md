@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1678]
     sentence_count: 20
     key_terms: [silver, shiny, rock, calls, comments, wallstreetbets, ago, portfolio]
+    concepts: [silver, shiny, calls, comments, wallstreetbets]
     token_count: 457
+    sources: [{"n":"Reddit Deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1qbhv3i/im_in_my_silver_era/"}]
   - id: "articles/reddit-deep-r-wallstreetbets/d9af0cbf63.md#c1"
     char_span: [1680, 2518]
     sentence_count: 7
     key_terms: [buying, silver, everyone, discord, throwawaywhiteguy333, frostymarsupial1486, millenialismistical, last]
+    concepts: [buying, silver, everyone, discord]
     token_count: 241
 ---
 # I'm in my Silver Era

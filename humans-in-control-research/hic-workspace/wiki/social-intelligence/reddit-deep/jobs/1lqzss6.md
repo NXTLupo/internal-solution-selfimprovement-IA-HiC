@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2156]
     sentence_count: 24
     key_terms: [got, hired, questions, job, time, certifications, "didn't", month]
+    concepts: [questions, hired, certifications, "didn't", interviewer]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1lqzss6/i_got_hired/"}]
   - id: "social-intelligence/reddit-deep/jobs/1lqzss6.md#c1"
     char_span: [2158, 2590]
     sentence_count: 7
     key_terms: [lucky, get, stay, congratulations, unfortunately, opportunity, supportive, breathing]
+    concepts: [lucky]
     token_count: 94
   - id: "social-intelligence/reddit-deep/jobs/1lqzss6.md#c2"
     char_span: [2604, 3810]
     sentence_count: 10
     key_terms: [congratulations, congrats, thanks, bigabbreviations5546, imaginary-version10, fight, happy, phone]
+    concepts: [congratulations, congrats, thanks, fight, happy]
     section: Comments
     token_count: 350
 ---

@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 870]
     sentence_count: 4
     key_terms: [gradadmissions, admissions, comments, programs, school, grad, like, seem]
+    concepts: [gradadmissions, admissions, comments, programs, school]
     token_count: 193
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qakerh/whats_the_biggest_misconception_about_grad_school/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qakerh.md#c1"
     char_span: [884, 2657]
     sentence_count: 11
     key_terms: [people, program, top, work, prestige, schools, phd, academia]
+    concepts: [people, program, prestige, schools, academia]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/gradadmissions/1qakerh.md#c2"
     char_span: [2659, 4493]
     sentence_count: 10
     key_terms: [research, people, gurprofessional9534, academic, application, phd, admissions, potential]
+    concepts: [research, gurprofessional9534, people, academic, application]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/gradadmissions/1qakerh.md#c3"
     char_span: [4495, 6399]
     sentence_count: 12
     key_terms: [programs, faculty, professional, fit, help, committee, advisor, program]
+    concepts: [programs, faculty, professional, committee, advisor]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/gradadmissions/1qakerh.md#c4"
     char_span: [6401, 7270]
     sentence_count: 8
     key_terms: [department, stats, fit, get, program, makes, like, specifically]
+    concepts: [department, stats, program, makes]
     section: Comments
     token_count: 191
 ---

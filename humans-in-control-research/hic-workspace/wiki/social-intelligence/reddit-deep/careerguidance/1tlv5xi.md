@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 700]
     sentence_count: 7
     key_terms: [job, careerguidance, paying, comments, licence, higher, gaurd, get]
+    concepts: [careerguidance, paying, comments, licence, higher]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tlv5xi.md#c1"]
     token_count: 187
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tlv5xi/should_i_get_a_lower_paying_job_for_career/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tlv5xi.md#c1"
     char_span: [714, 1298]
     sentence_count: 4
     key_terms: [paying, job, higher, invest, set, billygrinrider, enforcement, interesting]
+    concepts: [paying, higher, invest]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tlv5xi.md#c0"]
     section: Comments
     token_count: 127
 ---

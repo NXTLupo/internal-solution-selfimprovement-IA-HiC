@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 595]
     sentence_count: 4
     key_terms: [gotten, international, internships, internship, comments, haven, love, popular-ad-3540]
+    concepts: [international, gotten, internships, internship, comments]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1t7rf4c.md#c1"]
     token_count: 148
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t7rf4c/any_international_students_whove_gotten_a_summer/"}]
   - id: "social-intelligence/reddit-deep/internships/1t7rf4c.md#c1"
     char_span: [609, 2139]
     sentence_count: 4
     key_terms: [popular-ad-3540, international, internship, student, crimsonrageyt, experience, networking, doommedd]
+    concepts: [popular-ad-3540, international, internship, crimsonrageyt, student]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1t7rf4c.md#c0"]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/internships/1t7rf4c.md#c2"
     char_span: [2141, 2685]
     sentence_count: 4
     key_terms: [draining, mentally, thought, bad, usa-job-hunt-swe, engineering, questioning, internship]
+    concepts: [draining, mentally, thought]
     section: Comments
     token_count: 145
 ---

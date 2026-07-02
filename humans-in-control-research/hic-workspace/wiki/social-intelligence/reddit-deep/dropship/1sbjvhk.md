@@ -20,22 +20,29 @@ chunks:
     char_span: [0, 2300]
     sentence_count: 24
     key_terms: [platforms, dropshipping, customers, dropship, amazon, tiktok, money, advertising]
+    concepts: [platforms, dropshipping, customers, dropship, amazon]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1sbjvhk/how_you_can_be_profitable_with_dropshipping_let/"}]
   - id: "social-intelligence/reddit-deep/dropship/1sbjvhk.md#c1"
     char_span: [2302, 3298]
     sentence_count: 19
     key_terms: [dropshipping, fees, operating, business, expenses, costs, subscriptions, compensation]
+    concepts: [dropshipping, operating, business, expenses, costs]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1sbjvhk.md#c2"]
     token_count: 272
   - id: "social-intelligence/reddit-deep/dropship/1sbjvhk.md#c2"
-    char_span: [3313, 5453]
+    char_span: [3312, 5452]
     sentence_count: 10
     key_terms: [business, model, dropshipping, order, cac, aliexpress, questions, dropship]
+    concepts: [business, model, dropshipping, aliexpress, order]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1sbjvhk.md#c1"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/dropship/1sbjvhk.md#c3"
-    char_span: [5455, 5828]
+    char_span: [5454, 5827]
     sentence_count: 1
     key_terms: [margins, fulfillment, wicher1414, otherwise, anything, category, murdered, shipping]
+    concepts: [margins]
     section: Comments
     token_count: 87
 ---

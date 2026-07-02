@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 926]
     sentence_count: 7
     key_terms: [business, agents, entrepreneur, "i'm", comments, "you're", small, solo]
+    concepts: [business, entrepreneur, agents, comments, "you're"]
     token_count: 202
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1qkwmdp/which_ai_agents_actually_work_well_for_solo/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1qkwmdp.md#c1"
-    char_span: [941, 1752]
+    char_span: [940, 1751]
     sentence_count: 4
     key_terms: [please, entrepreneur, permanent, promotion, stickied, comment, thread, weekly]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 184
   - id: "social-intelligence/reddit-deep/entrepreneur/1qkwmdp.md#c2"
-    char_span: [1755, 3480]
+    char_span: [1754, 3479]
     sentence_count: 10
     key_terms: [use, content, like, ones, time, everything, business, linkedin]
+    concepts: [content, everything, business, linkedin, outreach]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/entrepreneur/1qkwmdp.md#c3"
-    char_span: [3482, 5375]
+    char_span: [3481, 5374]
     sentence_count: 10
     key_terms: [sales, ads, something, seozilla, content, replies, writing, claude]
+    concepts: [sales, something, seozilla, content, replies]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/entrepreneur/1qkwmdp.md#c4"
-    char_span: [5377, 7259]
+    char_span: [5376, 7258]
     sentence_count: 16
     key_terms: [architectgbt, lead, looking, people, ads, generation, direct, google]
+    concepts: [architectgbt, looking, people, generation, direct]
     section: Comments
     token_count: 411
 ---

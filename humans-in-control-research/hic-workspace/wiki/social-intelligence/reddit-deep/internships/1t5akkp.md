@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1366]
     sentence_count: 8
     key_terms: [development, internships, business, analytics, sure, experience, internship, comments]
+    concepts: [development, internships, business, analytics, experience]
     token_count: 296
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t5akkp/first_year_bba_student_looking_for_business/"}]
   - id: "social-intelligence/reddit-deep/internships/1t5akkp.md#c1"
     char_span: [1380, 1991]
     sentence_count: 3
     key_terms: [internshipdaily, com, apply, financial-rich-273, sweet-frosting4839, city, reccomended, acceptence]
+    concepts: [internshipdaily, apply]
     section: Comments
     token_count: 143
 ---

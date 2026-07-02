@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1098]
     sentence_count: 9
     key_terms: [school, did, gradschool, comments, jealous, campus, being, face]
+    concepts: [school, gradschool, comments, jealous, campus]
     token_count: 264
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1miogk6/postgrad_school_blues/"}]
 ---
 # Post-Grad school blues
 

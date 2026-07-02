@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1145]
     sentence_count: 12
     key_terms: [careerguidance, comments, thought, advice, career, heard, major, maybe]
+    concepts: [careerguidance, comments, thought, advice, career]
     token_count: 268
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1til1sf/any_advice_on_what_career_path_a_19_yo_should/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1til1sf.md#c1"
-    char_span: [1160, 2725]
+    char_span: [1159, 2724]
     sentence_count: 6
     key_terms: [healthcare, research, medical, pharmaceutical, coordination, like, want, different]
+    concepts: [healthcare, research, pharmaceutical, medical, coordination]
     section: Comments
     token_count: 304
 ---

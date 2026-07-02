@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1887]
     sentence_count: 17
     key_terms: [interested, classes, gradadmissions, policy, since, years, engineering, gpa]
+    concepts: [interested, gradadmissions, classes, policy, engineering]
     token_count: 420
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1tdalms/low_undergrad_high_grad_gpa_plus_career_change/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1tdalms.md#c1"
     char_span: [1889, 3123]
     sentence_count: 15
     key_terms: [economics, advice, papers, cycle, gpa, low, next, auto-filtering]
+    concepts: [economics, advice, papers, cycle]
     token_count: 255
   - id: "social-intelligence/reddit-deep/gradadmissions/1tdalms.md#c2"
     char_span: [3137, 5168]
     sentence_count: 20
     key_terms: [programs, econ, math, advanced, grades, want, calculus, courses]
+    concepts: [programs, advanced, grades, calculus, courses]
     section: Comments
     token_count: 440
 ---

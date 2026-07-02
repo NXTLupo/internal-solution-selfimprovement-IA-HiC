@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1441]
     sentence_count: 14
     key_terms: [like, digitalmarketing, looking, corporate, models, reddit, sounds, brand]
+    concepts: [digitalmarketing, looking, corporate, models, reddit]
     token_count: 312
+    sources: [{"n":"reddit: digitalmarketing","u":"https://reddit.com/r/DigitalMarketing/comments/1rht6dc/we_are_officially_entering_the_era_of_the_dead/"}]
 ---
 # We are officially entering the era of the dead internet and marketing is the first victim
 

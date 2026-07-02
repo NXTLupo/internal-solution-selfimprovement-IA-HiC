@@ -19,11 +19,15 @@ chunks:
     char_span: [0, 1554]
     sentence_count: 15
     key_terms: [firstofhername, students, professor, mrs, please, call, part, tell]
+    concepts: [firstofhername, students, professor, please, professors]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qw11gf.md#c5", "social-intelligence/reddit-deep/professors/1qw11gf.md#c9", "social-intelligence/reddit-deep/professors/1qw11gf.md#c10"]
     token_count: 384
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1qw11gf/ive_stopped_saying_please_when_reminding_students/"}]
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c1"
     char_span: [1568, 3375]
     sentence_count: 11
     key_terms: [gittafirstofhername, hey, student, breaksformoose, been, sweetheart, "couldn't", laughing]
+    concepts: [gittafirstofhername, student, breaksformoose, sweetheart, "couldn't"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c2"
@@ -36,48 +40,60 @@ chunks:
     char_span: [4265, 5733]
     sentence_count: 8
     key_terms: [students, address, deroxal, explanation, questions, question, semester, someone]
+    concepts: [students, address, deroxal, explanation, questions]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c4"
     char_span: [5735, 7831]
     sentence_count: 16
     key_terms: [students, "don't", use, tried, high, politeness, argument, semester]
+    concepts: [students, "don't", politeness, tried, argument]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c5"
     char_span: [7556, 8555]
     sentence_count: 6
     key_terms: [professor, students, yourself, school, high, westhistorians, professional, specifically]
+    concepts: [professor, students, yourself, school]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qw11gf.md#c0", "social-intelligence/reddit-deep/professors/1qw11gf.md#c10"]
     section: Comments
     token_count: 231
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c6"
     char_span: [8557, 9527]
     sentence_count: 5
     key_terms: [women, call, honorifics, students, because, either, favors, gittafirstofhername]
+    concepts: [honorifics, women, students, because, either]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c7"
     char_span: [9529, 11582]
     sentence_count: 22
     key_terms: [disrespectful, whatever, trying, gittafirstofhername, mrs, called, doctor, "it's"]
+    concepts: [disrespectful, whatever, gittafirstofhername, trying, called]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qw11gf.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c8"
     char_span: [11289, 11760]
     sentence_count: 5
     key_terms: [usually, called, prof, equivalentno138, disrespectful, especially, pointedly, preferred]
+    concepts: [usually, called]
     section: Comments
     token_count: 113
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c9"
     char_span: [11762, 13706]
     sentence_count: 15
     key_terms: [mrs, name, professor, firstofhername, disrespectful, gittafirstofhername, "i'm", "it's"]
+    concepts: [firstofhername, professor, disrespectful, gittafirstofhername, difference]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qw11gf.md#c0", "social-intelligence/reddit-deep/professors/1qw11gf.md#c7"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c10"
     char_span: [13708, 15232]
     sentence_count: 9
     key_terms: [mrs, professor, students, semester, deleted, coming, electronic-shame9473, fabulously-unwealthy]
+    concepts: [professor, students, semester, deleted, coming]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qw11gf.md#c0", "social-intelligence/reddit-deep/professors/1qw11gf.md#c5"]
     section: Comments
     token_count: 396
 ---

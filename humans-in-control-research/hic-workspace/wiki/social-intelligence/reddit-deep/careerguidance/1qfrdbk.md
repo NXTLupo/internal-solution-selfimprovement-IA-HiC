@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1963]
     sentence_count: 14
     key_terms: [work, careerguidance, advice, career, skills, time, employment, management]
+    concepts: [careerguidance, advice, career, skills, employment]
     token_count: 416
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qfrdbk/seeking_career_guidance_and_direction_will_a_get/"}]
 ---
 # Seeking Career Guidance and Direction. Will a get learn from your experiences?
 

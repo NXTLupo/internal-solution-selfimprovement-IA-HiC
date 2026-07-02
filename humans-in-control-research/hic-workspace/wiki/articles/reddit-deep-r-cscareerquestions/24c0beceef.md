@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2229]
     sentence_count: 18
     key_terms: [company, engineering, cscareerquestions, ai-development, prompt, been, feel, like]
+    concepts: [engineering, company, cscareerquestions, ai-development, prompt]
     token_count: 483
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qvzqsd/company_shifting_toward_prompt_first_engineering/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/24c0beceef.md#c1"
     char_span: [2231, 4297]
     sentence_count: 13
     key_terms: [people, management, hoping, staff, consumption, day, already, running]
+    concepts: [people, management, hoping, consumption, staff]
     token_count: 458
 ---
 # Company shifting toward “Prompt first” engineering

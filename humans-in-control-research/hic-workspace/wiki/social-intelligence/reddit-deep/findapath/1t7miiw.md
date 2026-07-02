@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2201]
     sentence_count: 19
     key_terms: [residency, medical, comfortable, pay, substitute, findapath, graduated, physician]
+    concepts: [residency, medical, comfortable, substitute, findapath]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1t7miiw/almost_a_doctor_what_would_you_do_in_my_shoes/"}]
   - id: "social-intelligence/reddit-deep/findapath/1t7miiw.md#c1"
     char_span: [2203, 2505]
     sentence_count: 4
@@ -31,18 +33,21 @@ chunks:
     char_span: [2519, 3466]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1t7miiw.md#c3"
     char_span: [3469, 5070]
     sentence_count: 16
     key_terms: [take, loans, confusing, tutoring, company, student, school, braveheart117]
+    concepts: [confusing, loans, tutoring, braveheart117, company]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/findapath/1t7miiw.md#c4"
     char_span: [5072, 6883]
     sentence_count: 13
     key_terms: [going, probably, hire, like, medical, residencies, regardless, something]
+    concepts: [going, probably, medical, residencies, regardless]
     section: Comments
     token_count: 427
 ---

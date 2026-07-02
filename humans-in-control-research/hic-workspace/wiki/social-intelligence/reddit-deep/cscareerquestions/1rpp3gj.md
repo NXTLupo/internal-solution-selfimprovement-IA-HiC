@@ -21,28 +21,34 @@ chunks:
     char_span: [0, 2112]
     sentence_count: 19
     key_terms: [years, cscareerquestions, projects, career, build, development, electronics, been]
+    concepts: [cscareerquestions, years, projects, career, development]
     token_count: 465
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rpp3gj/looking_to_reenter_techdevelopment_after_a/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpp3gj.md#c1"
     char_span: [2114, 2877]
     sentence_count: 5
     key_terms: [realistically, industry, possible, preparation, background, motivation, rebuilding, understand]
+    concepts: [realistically, industry, possible]
     token_count: 176
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpp3gj.md#c2"
     char_span: [2891, 4867]
     sentence_count: 18
     key_terms: [experience, something, people, competing, honestly, possible, backend, course]
+    concepts: [experience, something, people, competing, honestly]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpp3gj.md#c3"
     char_span: [4869, 6829]
     sentence_count: 16
     key_terms: [backend, month, interview, projects, software, project, basics, prep]
+    concepts: [backend, interview, month, projects, software]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpp3gj.md#c4"
     char_span: [6831, 7497]
     sentence_count: 3
     key_terms: [learn, path, time, extraordinary, employment, impressive, innovation, otherwise]
+    concepts: [learn]
     section: Comments
     token_count: 144
 ---

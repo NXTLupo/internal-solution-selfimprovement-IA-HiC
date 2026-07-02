@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 2236]
     sentence_count: 25
     key_terms: [credit, payments, like, because, online, looks, feel, half]
+    concepts: [credit, payments, because, online, looks]
     token_count: 492
+    sources: [{"n":"Reddit Deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1pie39a/im_convinced_half_of_gen_z_looks_rich_online_but/"}]
   - id: "articles/reddit-deep-r-genz/a3f4fc94aa.md#c1"
     char_span: [2238, 4259]
     sentence_count: 13
     key_terms: [people, parents, social, media, important, article, because, boomers]
+    concepts: [people, parents, social, media, important]
     token_count: 462
   - id: "articles/reddit-deep-r-genz/a3f4fc94aa.md#c2"
     char_span: [4261, 5357]
     sentence_count: 6
     key_terms: [checking, buttons, savings, "you're", "i'm", entertainment, emergencies, exceptions]
+    concepts: [checking, buttons, savings, "you're"]
     token_count: 248
 ---
 # I’m convinced half of Gen Z looks rich online but is secretly drowning in BNPL debt

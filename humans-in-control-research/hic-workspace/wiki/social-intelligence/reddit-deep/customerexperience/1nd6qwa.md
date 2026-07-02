@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 985]
     sentence_count: 6
     key_terms: [customerexperience, pain, point, solve, comments, customer, support, brands]
+    concepts: [customerexperience, point, solve, comments, customer]
     token_count: 214
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1nd6qwa/whats_the_hardest_customer_pain_point_to_solve_at/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1nd6qwa.md#c1"
-    char_span: [1000, 2349]
+    char_span: [999, 2348]
     sentence_count: 9
     key_terms: [customer, experience, channels, feedback, surveys, customer-centricity, comes, been]
+    concepts: [customer, experience, channels, feedback, surveys]
     section: Comments
     token_count: 256
   - id: "social-intelligence/reddit-deep/customerexperience/1nd6qwa.md#c2"
-    char_span: [2351, 4060]
+    char_span: [2350, 4059]
     sentence_count: 4
     key_terms: [identifying-dissatisfied-customers-activity-7292995534053638144-9fip, acoaaaa7gmubauc6milubeojfjgafbznfqzqady, agents, linkedin, complex, queries, volume, https]
+    concepts: [identifying-dissatisfied-customers-activity-7292995534053638144-9fip, acoaaaa7gmubauc6milubeojfjgafbznfqzqady, agents, linkedin, complex]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/customerexperience/1nd6qwa.md#c3"
-    char_span: [4062, 6141]
+    char_span: [4061, 6140]
     sentence_count: 13
     key_terms: [personalization, customer, answer, feel, like, real, efficiency, attention]
+    concepts: [personalization, customer, answer, efficiency, attention]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/customerexperience/1nd6qwa.md#c4"
-    char_span: [6143, 7220]
+    char_span: [6142, 7219]
     sentence_count: 7
     key_terms: [human, experience, customers, efficient, context, teams, app, text]
+    concepts: [human, experience, customers, efficient, context]
     section: Comments
     token_count: 219
 ---

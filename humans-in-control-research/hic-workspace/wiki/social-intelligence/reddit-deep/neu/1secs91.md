@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1104]
     sentence_count: 8
     key_terms: [internship, coops, coop, summer, spring, northeastern, internships, best]
+    concepts: [internship, coops, summer, northeastern, spring]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1secs91.md#c2"]
     token_count: 251
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1secs91/best_coop_internship_structure_for_cs_to_land_big/"}]
   - id: "social-intelligence/reddit-deep/neu/1secs91.md#c1"
     char_span: [1118, 2918]
     sentence_count: 13
     key_terms: [internship, internships, co-op, mid, august, background-matter-87, projects, summer]
+    concepts: [internship, internships, background-matter-87, co-op, august]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/neu/1secs91.md#c2"
     char_span: [2921, 3358]
     sentence_count: 1
     key_terms: [internship, big, tech, summer, month, goldenorion99, internships, possible]
+    concepts: [internship, summer, month]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1secs91.md#c0"]
     section: Comments
     token_count: 112
 ---

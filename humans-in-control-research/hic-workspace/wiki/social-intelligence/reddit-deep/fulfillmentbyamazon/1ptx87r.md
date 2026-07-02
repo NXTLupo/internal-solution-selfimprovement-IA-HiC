@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1615]
     sentence_count: 14
     key_terms: [product, fulfillmentbyamazon, launch, understanding, observations, strategies, algorithm, "amazon's"]
+    concepts: [product, fulfillmentbyamazon, understanding, observations, launch]
     token_count: 339
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1ptx87r/understanding_amazons_algo_aka_blackhole/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1ptx87r.md#c1"
-    char_span: [1630, 3474]
+    char_span: [1629, 3473]
     sentence_count: 15
     key_terms: [fulfillmentbyamazon, top, spending, discord, listing, reviews, competitors, fba]
+    concepts: [fulfillmentbyamazon, spending, discord, listing, reviews]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1ptx87r.md#c2"
-    char_span: [3476, 4699]
+    char_span: [3475, 4698]
     sentence_count: 12
     key_terms: [reviews, because, pricing, lower, deal, done, vine, always]
+    concepts: [reviews, because, pricing, lower, always]
     section: Comments
     token_count: 300
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1ptx87r.md#c3"
-    char_span: [4701, 6598]
+    char_span: [4700, 6597]
     sentence_count: 10
     key_terms: [listing, signals, traffic, amazon, price, sales, asin, like]
+    concepts: [listing, signals, traffic, amazon, conversion]
     section: Comments
     token_count: 429
 ---

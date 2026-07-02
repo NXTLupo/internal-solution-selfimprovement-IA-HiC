@@ -21,65 +21,79 @@ chunks:
     char_span: [0, 1676]
     sentence_count: 17
     key_terms: [productivity, like, "don't", relationship, brain, use, everything, comments]
+    concepts: [productivity, "don't", relationship, brain, everything]
     token_count: 408
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1pur0jz/why_is_it_socially_acceptable_to_use_jiranotion/"}]
   - id: "social-intelligence/reddit-deep/productivity/1pur0jz.md#c1"
     char_span: [1690, 1962]
     sentence_count: 5
     key_terms: [tools, use, duckyreadsit, stigmatize, calendar, remember, yourself, romance]
+    concepts: [tools]
     section: Comments
     token_count: 71
   - id: "social-intelligence/reddit-deep/productivity/1pur0jz.md#c2"
     char_span: [1964, 4142]
     sentence_count: 17
     key_terms: [like, remember, something, journal, notes, need, different, anything]
+    concepts: [remember, something, journal, notes, different]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1pur0jz.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/productivity/1pur0jz.md#c3"
     char_span: [3856, 4715]
     sentence_count: 4
     key_terms: [down, like, software, journal, system, shuts, etc, everything]
+    concepts: [software, journal, system, shuts]
     section: Comments
     token_count: 197
   - id: "social-intelligence/reddit-deep/productivity/1pur0jz.md#c4"
     char_span: [4717, 6804]
     sentence_count: 8
     key_terms: [felt, like, relationship, remember, trying, app, did, too]
+    concepts: [relationship, remember, trying, screenshot, asshole]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/productivity/1pur0jz.md#c5"
     char_span: [6806, 9002]
     sentence_count: 13
     key_terms: [calendar, multiple, notification, right, app, been, "i've", screenshot]
+    concepts: [calendar, multiple, notification, right, screenshot]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/productivity/1pur0jz.md#c6"
     char_span: [9004, 10359]
     sentence_count: 14
     key_terms: [notes, list, organize, apple, app, "it's", kids, like]
+    concepts: [notes, organize, apple]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/productivity/1pur0jz.md#c7"
     char_span: [10361, 12266]
     sentence_count: 20
     key_terms: [use, information, important, app, remember, planner, automatically, phone]
+    concepts: [information, important, remember, automatically, planner]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/productivity/1pur0jz.md#c8"
     char_span: [12269, 13929]
     sentence_count: 6
     key_terms: [notes, write, like, use, details, reminders, something, calendar]
+    concepts: [notes, write, details, reminders, something]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1pur0jz.md#c2"]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/productivity/1pur0jz.md#c9"
     char_span: [13931, 15493]
     sentence_count: 10
     key_terms: [business, kirinlikethebeer, manage, use, personal, software, romance, google]
+    concepts: [kirinlikethebeer, business, manage, personal, software]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/productivity/1pur0jz.md#c10"
     char_span: [15495, 16498]
     sentence_count: 7
     key_terms: [use, everything, evernote, been, don, like, brainstorming, information]
+    concepts: [everything, evernote]
     section: Comments
     token_count: 221
 ---

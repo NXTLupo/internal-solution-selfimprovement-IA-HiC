@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1253]
     sentence_count: 9
     key_terms: [brand, interested, supplement, fulfillmentbyamazon, business, comments, struggle, amazon]
+    concepts: [brand, fulfillmentbyamazon, interested, supplement, business]
     token_count: 281
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1tbg27u/supplement_brand/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tbg27u.md#c1"
-    char_span: [1268, 3119]
+    char_span: [1267, 3118]
     sentence_count: 11
     key_terms: [like, fulfillmentbyamazon, discord, without, stealthagents, fba, marketing, goldmine]
+    concepts: [fulfillmentbyamazon, stealthagents, discord, without, marketing]
     section: Comments
     token_count: 425
 ---

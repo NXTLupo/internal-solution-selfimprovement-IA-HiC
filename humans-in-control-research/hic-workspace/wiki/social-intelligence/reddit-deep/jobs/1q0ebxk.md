@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1601]
     sentence_count: 11
     key_terms: [courses, mathematics, extremely, masters, learn, study, back, phd]
+    concepts: [mathematics, courses, extremely, masters, employable]
     token_count: 353
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1q0ebxk/requesting_advice_on_what_topics_to_learn_for_job/"}]
 ---
 # Requesting advice on what topics to learn for job opportunities...
 

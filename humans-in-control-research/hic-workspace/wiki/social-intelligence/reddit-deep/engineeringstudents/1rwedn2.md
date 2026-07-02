@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1751]
     sentence_count: 13
     key_terms: [co-op, financial, engineeringstudents, aid, engineering, full-time, comments, honestly]
+    concepts: [co-op, financial, engineeringstudents, engineering, full-time]
     token_count: 399
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rwedn2/i_might_lose_financial_aid_if_i_do_a_coop/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rwedn2.md#c1"
-    char_span: [1766, 3693]
+    char_span: [1765, 3692]
     sentence_count: 12
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    concepts: [engineeringstudents, please, reddit, https, automoderator]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rwedn2.md#c2"
-    char_span: [3695, 5371]
+    char_span: [3694, 5370]
     sentence_count: 9
     key_terms: [co-op, co-ops, school, glumsort7910, doesn, financial, semester, nothing]
+    concepts: [co-op, co-ops, glumsort7910, school, doesn]
     section: Comments
     token_count: 447
 ---

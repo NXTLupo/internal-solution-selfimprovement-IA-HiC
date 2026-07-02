@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 626]
     sentence_count: 7
     key_terms: [cscareerquestions, transition, comments, product, comp, role, sci, realistically]
+    concepts: [cscareerquestions, transition, comments, product]
     token_count: 158
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rlwiwp/advice_on_getting_first_role_as_career_changer/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rlwiwp.md#c1"
     char_span: [640, 2897]
     sentence_count: 13
     key_terms: [experience, "you're", like, already, going, technically, get, job]
+    concepts: [experience, "you're", already, technically, going]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rlwiwp.md#c2"
     char_span: [2899, 4048]
     sentence_count: 11
     key_terms: [product, engineering, targeting, technical, backend, resume, api, area]
+    concepts: [product, engineering, targeting, technical, backend]
     section: Comments
     token_count: 247
 ---

@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 2150]
     sentence_count: 17
     key_terms: [traffic, geo, visibility, referrals, like, almost, informational, opportunities]
+    concepts: [traffic, visibility, referrals, informational, opportunities]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1shc3or/geo_traffic_is_crushing_it_for_us/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1shc3or.md#c1"
-    char_span: [2165, 4244]
+    char_span: [2164, 4243]
     sentence_count: 12
     key_terms: [youtube, looking-for-marketing-discussion-811236647760298024, people, descriptions, doing, interesting, questions, articles]
+    concepts: [youtube, descriptions, people, interesting, doing]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/b2bmarketing/1shc3or.md#c2"
-    char_span: [4246, 6274]
+    char_span: [4245, 6273]
     sentence_count: 11
     key_terms: [company, discord, across, positioning, currently, platforms, channels, linkedin]
+    concepts: [company, discord, across, positioning, currently]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/b2bmarketing/1shc3or.md#c3"
-    char_span: [6276, 7959]
+    char_span: [6275, 7958]
     sentence_count: 10
     key_terms: [queries, chatgpt, threads, reddit, transcripts, need, citations, linkedin]
+    concepts: [queries, chatgpt, threads, reddit, transcripts]
     section: Comments
     token_count: 379
 ---

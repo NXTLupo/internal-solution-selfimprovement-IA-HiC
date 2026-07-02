@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 2137]
     sentence_count: 1
     key_terms: [transfers, defi, isn, cex, guesses, export, transactions, built]
+    concepts: [transfers, guesses, transactions, export, built]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1q2jqvo/cex_vs_defi_taxes_the_real_problem_isnt_tax_rules/"}]
   - id: "social-intelligence/reddit-deep/defi/1q2jqvo.md#c1"
-    char_span: [2152, 2847]
+    char_span: [2151, 2846]
     sentence_count: 2
     key_terms: [frozengrandmatetris, "don't", defi, cryptocurrency, calculations, subscription, transaction, asselfoley]
+    concepts: ["don't"]
     section: Comments
     token_count: 180
   - id: "social-intelligence/reddit-deep/defi/1q2jqvo.md#c2"
-    char_span: [2849, 4324]
+    char_span: [2848, 4323]
     sentence_count: 11
     key_terms: [wallet, defi, software, data, pulsechain, because, missing, import]
+    concepts: [wallet, software, pulsechain, because, missing]
     section: Comments
     token_count: 357
 ---

@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 2187]
     sentence_count: 17
     key_terms: [especially, applyingtocollege, year, semester, cost, fall, community, difficult]
+    concepts: [especially, applyingtocollege, semester, community, difficult]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1tjui6d/is_william_and_mary_worth_50kyear_as_an_instate/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjui6d.md#c1"
     char_span: [2201, 2383]
     sentence_count: 4
     key_terms: [state, grahal1968, talking, tuition, around, assume, loaded, fully]
+    concepts: [state]
     section: Comments
     token_count: 54
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjui6d.md#c2"
     char_span: [2385, 4083]
     sentence_count: 13
     key_terms: [in-state, sad-interaction-4622, school, universities, expensive, markvii88, transfer, cheaper]
+    concepts: [in-state, sad-interaction-4622, universities, school, expensive]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjui6d.md#c3"
     char_span: [4085, 6141]
     sentence_count: 14
     key_terms: [years, schools, school, debt, med, transfer, because, option]
+    concepts: [years, schools, school, transfer, because]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjui6d.md#c4"
     char_span: [6143, 6988]
     sentence_count: 5
     key_terms: [scholarships, schools, scholarship, definitely, virginia, options, money, got]
+    concepts: [scholarships, schools, scholarship, definitely, virginia]
     section: Comments
     token_count: 175
 ---

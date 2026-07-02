@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1341]
     sentence_count: 10
     key_terms: [supplychain, employees, comments, curious, layoffs, through, attack, reddit]
+    concepts: [supplychain, employees, comments, curious, layoffs]
     token_count: 342
+    sources: [{"n":"reddit-deep: r/supplychain","u":"https://www.reddit.com/r/supplychain/comments/1srn0ct/a_year_before_cdk_global_was_hit_by_ransomware_in/"}]
   - id: "social-intelligence/reddit-deep/supplychain/1srn0ct.md#c1"
-    char_span: [1356, 2743]
+    char_span: [1355, 2742]
     sentence_count: 15
     key_terms: [companies, interest, environment, bankrupt, layoffs, private, equity, personal-lack4170]
+    concepts: [companies, interest, environment, bankrupt, layoffs]
     section: Comments
     token_count: 320
 ---

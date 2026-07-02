@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 360]
     sentence_count: 1
     key_terms: [full-time, comments, jobs, international, applications, entry-level, reddit-deep, graduating]
+    concepts: [full-time, comments]
     token_count: 99
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1p1blam/roast_my_resume_150_fulltime_applications_0/"}]
   - id: "social-intelligence/reddit-deep/jobs/1p1blam.md#c1"
     char_span: [374, 1723]
     sentence_count: 12
     key_terms: [resume, information, projects, tailor, "you've", friendofthesubreddit, illustrious-act7104, being]
+    concepts: [resume, information, projects, tailor, "you've"]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/jobs/1p1blam.md#c2"
     char_span: [1725, 3597]
     sentence_count: 12
     key_terms: [need, sponsorship, graduate, cybersecurity, jobs, functions, feedback, security]
+    concepts: [sponsorship, graduate, cybersecurity, functions, feedback]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/jobs/1p1blam.md#c3"
     char_span: [3599, 5262]
     sentence_count: 8
     key_terms: [skills, soft, resume, international, like, important, level, thewhiterosequeen]
+    concepts: [skills, international, resume, important, level]
     section: Comments
     token_count: 380
 ---

@@ -19,22 +19,29 @@ chunks:
     char_span: [0, 2045]
     sentence_count: 25
     key_terms: [melvin, people, quite, rooms, room, year, underneath, bathrooms]
+    concepts: [melvin, people, quite, rooms, underneath]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1suvooa/melvin_hall_boston/"}]
   - id: "social-intelligence/reddit-deep/neu/1suvooa.md#c1"
     char_span: [2047, 2972]
     sentence_count: 11
     key_terms: [melvin, floor, gender, husky, card, residence, requires, people]
+    concepts: [melvin, floor, gender, husky, residence]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1suvooa.md#c2"]
     token_count: 222
   - id: "social-intelligence/reddit-deep/neu/1suvooa.md#c2"
     char_span: [2986, 4877]
     sentence_count: 13
     key_terms: [floor, melvin, loved, area, room, honestly, sitting, living]
+    concepts: [floor, melvin, loved, honestly, sitting]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1suvooa.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1suvooa.md#c3"
     char_span: [4627, 4904]
     sentence_count: 1
     key_terms: [staff, sequencestatic, maintenance, anything, cleaning, friends, sitting, always]
+    concepts: [staff]
     section: Comments
     token_count: 72
 ---

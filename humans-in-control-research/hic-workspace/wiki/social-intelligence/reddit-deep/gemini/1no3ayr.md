@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 604]
     sentence_count: 6
     key_terms: [referral, gemini, code, comments, days, thejakernator, reddit-deep, experience]
+    concepts: [referral, gemini, comments]
     token_count: 158
+    sources: [{"n":"reddit-deep: r/gemini","u":"https://www.reddit.com/r/Gemini/comments/1no3ayr/referral_code_worked_for_me/"}]
   - id: "social-intelligence/reddit-deep/gemini/1no3ayr.md#c1"
     char_span: [618, 1880]
     sentence_count: 14
     key_terms: [code, link, jscryptopia, days, get, questions, crypto, gemini]
+    concepts: [jscryptopia, questions, crypto, gemini, please]
     section: Comments
     token_count: 343
 ---

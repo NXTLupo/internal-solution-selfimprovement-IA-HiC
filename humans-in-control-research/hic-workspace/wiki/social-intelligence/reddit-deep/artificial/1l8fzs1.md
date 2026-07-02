@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1622]
     sentence_count: 8
     key_terms: [story, sproutingstories, engineering, interesting, "i've", artificial, challenges, character]
+    concepts: [sproutingstories, story, engineering, interesting, artificial]
     token_count: 324
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1l8fzs1/built_an_ai_story_generator_for_kids_and_worked/"}]
 ---
 # Built an AI story generator for kids and worked through challenges with prompt engineering and character consistency
 

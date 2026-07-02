@@ -21,53 +21,70 @@ chunks:
     char_span: [0, 950]
     sentence_count: 3
     key_terms: [openai, security-implications-apple-google-ai-foundation, google, distribution, comments, gemini, search, apple]
+    concepts: [openai, distribution, google, comments, gemini]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1qb79py.md#c5", "social-intelligence/reddit-deep/openai/1qb79py.md#c7"]
     token_count: 232
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1qb79py/its_official/"}]
   - id: "social-intelligence/reddit-deep/openai/1qb79py.md#c1"
     char_span: [964, 2627]
     sentence_count: 9
     key_terms: [siri, alexa, swancatwombat, right, day, play, thought, better]
+    concepts: [swancatwombat, alexa, right, thought, better]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/openai/1qb79py.md#c2"
     char_span: [2629, 3877]
     sentence_count: 20
     key_terms: [privacy, apple, siri, want, work, iphones, doesn, needs]
+    concepts: [privacy, apple, iphones, doesn, needs]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/openai/1qb79py.md#c3"
     char_span: [3879, 5262]
     sentence_count: 4
     key_terms: [apple, gemini, models, intelligence, use, important, because, google]
+    concepts: [apple, gemini, intelligence, models, important]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1qb79py.md#c4", "social-intelligence/reddit-deep/openai/1qb79py.md#c5"]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/openai/1qb79py.md#c4"
     char_span: [5264, 7353]
     sentence_count: 13
     key_terms: [apple, model, google, models, use, applications, going, image]
+    concepts: [apple, model, google, models, applications]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1qb79py.md#c3", "social-intelligence/reddit-deep/openai/1qb79py.md#c5", "social-intelligence/reddit-deep/openai/1qb79py.md#c6", "social-intelligence/reddit-deep/openai/1qb79py.md#c7"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/openai/1qb79py.md#c5"
     char_span: [7355, 9121]
     sentence_count: 14
     key_terms: [gemini, samsung-and-google-cloud-join-forces-to-bring-generative-ai-to-samsung-galaxy-s24-series, apple, google, servers, data, bartturner, features]
+    concepts: [gemini, apple, google, servers, bartturner]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1qb79py.md#c0", "social-intelligence/reddit-deep/openai/1qb79py.md#c3", "social-intelligence/reddit-deep/openai/1qb79py.md#c4", "social-intelligence/reddit-deep/openai/1qb79py.md#c6", "social-intelligence/reddit-deep/openai/1qb79py.md#c7"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/openai/1qb79py.md#c6"
     char_span: [9123, 10664]
     sentence_count: 8
     key_terms: [google, work, siri, use, reddit, timers, bright-internal-7393, apple]
+    concepts: [google, reddit, timers, apple, https]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1qb79py.md#c4", "social-intelligence/reddit-deep/openai/1qb79py.md#c5", "social-intelligence/reddit-deep/openai/1qb79py.md#c7"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/openai/1qb79py.md#c7"
     char_span: [10666, 12641]
     sentence_count: 13
     key_terms: [apple, employee, good, google, openai, model, secretive, thousands]
+    concepts: [apple, employee, google, openai, model]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1qb79py.md#c0", "social-intelligence/reddit-deep/openai/1qb79py.md#c4", "social-intelligence/reddit-deep/openai/1qb79py.md#c5", "social-intelligence/reddit-deep/openai/1qb79py.md#c6", "social-intelligence/reddit-deep/openai/1qb79py.md#c8"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/openai/1qb79py.md#c8"
     char_span: [12643, 14272]
     sentence_count: 6
     key_terms: [openai, companies, apple, often, horror-slice-7255, data, like, tech]
+    concepts: [openai, companies, apple, often]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1qb79py.md#c7"]
     section: Comments
     token_count: 424
 ---

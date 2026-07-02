@@ -19,47 +19,60 @@ chunks:
     char_span: [0, 2155]
     sentence_count: 24
     key_terms: [education, job, accessible, get, highereducation, people, disabilities, professional]
+    concepts: [education, accessible, highereducation, disabilities, professional]
     token_count: 475
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1r8avy8/feeling_hopeless_need_advice/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1r8avy8.md#c1"
     char_span: [2169, 3743]
     sentence_count: 14
     key_terms: [universities, disability, positions, good, position, like, look, different]
+    concepts: [universities, disability, positions, position, different]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/highereducation/1r8avy8.md#c2"
     char_span: [3745, 5392]
     sentence_count: 14
     key_terms: [higher, education, good, job, students, campus, people, regret]
+    concepts: [higher, education, students, campus, people]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1r8avy8.md#c7"]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/highereducation/1r8avy8.md#c3"
     char_span: [5395, 7572]
     sentence_count: 16
     key_terms: [students, search, https, search-jobs, disability, experience, university, applying]
+    concepts: [students, search, search-jobs, disability, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1r8avy8.md#c4"
     char_span: [7258, 9627]
     sentence_count: 21
     key_terms: [accessibility, experience, internship, get, college, search, requirements, ada]
+    concepts: [accessibility, experience, internship, college, requirements]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1r8avy8.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1r8avy8.md#c5"
     char_span: [9290, 9998]
     sentence_count: 6
     key_terms: [experience, internship, degree, been, job, observation, admissions, investment]
+    concepts: [experience, internship, degree]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1r8avy8.md#c4"]
     section: Comments
     token_count: 150
   - id: "social-intelligence/reddit-deep/highereducation/1r8avy8.md#c6"
     char_span: [10000, 10966]
     sentence_count: 10
     key_terms: [institutions, linkedin, jeffhpatterson, institution, looking, program, online, "you're"]
+    concepts: [institutions, linkedin, jeffhpatterson, institution, looking]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/highereducation/1r8avy8.md#c7"
     char_span: [10968, 12364]
     sentence_count: 17
     key_terms: [higher, accessibility, right, departments, "it's", education, always, campus]
+    concepts: [accessibility, higher, departments, right, education]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1r8avy8.md#c2"]
     section: Comments
     token_count: 312
 ---

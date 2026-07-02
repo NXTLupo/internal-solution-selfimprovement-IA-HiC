@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1246]
     sentence_count: 10
     key_terms: [call, data, businessintelligence, interaction, performance, dashboards, comments, customer]
+    concepts: [businessintelligence, interaction, performance, dashboards, comments]
     token_count: 263
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1pb96fm/what_call_center_software_setup_actually_gives/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1pb96fm.md#c1"
-    char_span: [1261, 2861]
+    char_span: [1260, 2860]
     sentence_count: 12
     key_terms: [data, interaction, been, call, platform, aircall, cleaner, reports]
+    concepts: [interaction, platform, aircall, cleaner, reports]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/businessintelligence/1pb96fm.md#c2"
-    char_span: [2863, 3590]
+    char_span: [2862, 3589]
     sentence_count: 5
     key_terms: [data, tools, time, event-level, ringcentral, aggregated, capability, challenges]
+    concepts: [tools]
     section: Comments
     token_count: 161
   - id: "social-intelligence/reddit-deep/businessintelligence/1pb96fm.md#c3"
-    char_span: [3592, 5823]
+    char_span: [3591, 5822]
     sentence_count: 17
     key_terms: [data, dni, dialpad, agent, sessionid, industry, pipeline, semantic]
+    concepts: [dialpad, agent, sessionid, industry, pipeline]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/businessintelligence/1pb96fm.md#c4"
-    char_span: [5527, 6175]
+    char_span: [5526, 6174]
     sentence_count: 8
     key_terms: [data, create, good, used, saddogowner27, performance, additional, dictionary]
+    concepts: [create]
     section: Comments
     token_count: 147
 ---

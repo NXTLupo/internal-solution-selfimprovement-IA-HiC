@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1305]
     sentence_count: 13
     key_terms: [job, never, got, full-time, comments, finally, myself, offer]
+    concepts: [never, full-time, comments, finally, myself]
     token_count: 329
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1mlw70e/finally_got_a_job_offer_never_give_up/"}]
   - id: "social-intelligence/reddit-deep/jobs/1mlw70e.md#c1"
     char_span: [1319, 2369]
     sentence_count: 6
     key_terms: [queasybee8221, too, standards, congrats, finding, requirementroyal8666, sense, familiar-range9014]
+    concepts: [queasybee8221, standards, congrats, finding, sense]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1mlw70e.md#c2"]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/jobs/1mlw70e.md#c2"
     char_span: [2371, 4076]
     sentence_count: 10
     key_terms: [queasybee8221, thank, job, congrats, been, nessa0707, facebook, nervous]
+    concepts: [queasybee8221, thank, congrats, nessa0707, facebook]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1mlw70e.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1mlw70e.md#c3"

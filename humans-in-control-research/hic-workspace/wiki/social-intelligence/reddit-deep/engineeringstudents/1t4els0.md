@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 953]
     sentence_count: 5
     key_terms: [engineeringstudents, year, projects, internships, experience, comments, students, firms]
+    concepts: [engineeringstudents, projects, internships, experience, comments]
     token_count: 195
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1t4els0/when_should_engineering_students_seriously_start/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t4els0.md#c1"
     char_span: [967, 1571]
     sentence_count: 8
     key_terms: [year, experience, harder, resume, summer, get, need, engineering]
+    concepts: [experience, harder, resume, summer]
     section: Comments
     token_count: 138
 ---

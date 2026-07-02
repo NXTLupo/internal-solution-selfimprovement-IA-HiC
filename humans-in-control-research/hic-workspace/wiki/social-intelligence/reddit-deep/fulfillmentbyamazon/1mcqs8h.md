@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 503]
     sentence_count: 2
     key_terms: [fulfillmentbyamazon, comments, ratings, seller, original-snow9764, reddit-deep, customer, dislikes]
+    concepts: [fulfillmentbyamazon, comments, ratings, seller]
     token_count: 124
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1mcqs8h/say_goodbye_to_100_positive_seller_ratings/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1mcqs8h.md#c1"
-    char_span: [518, 2246]
+    char_span: [517, 2245]
     sentence_count: 11
     key_terms: [feedback, fba, fulfillmentbyamazon, customers, customer, discord, ratings, seller]
+    concepts: [feedback, fulfillmentbyamazon, customers, customer, automatically]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1mcqs8h.md#c2"
-    char_span: [2248, 3758]
+    char_span: [2247, 3757]
     sentence_count: 14
     key_terms: [amazon, comment, sellers, customers, because, dispute, product, ratings]
+    concepts: [amazon, comment, sellers, customers, because]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1mcqs8h.md#c3"
-    char_span: [3760, 5409]
+    char_span: [3759, 5408]
     sentence_count: 14
     key_terms: [beautiful-night1485, feedback, support, seller, great, customer, sellers, "it's"]
+    concepts: [beautiful-night1485, feedback, support, seller, great]
     section: Comments
     token_count: 396
 ---

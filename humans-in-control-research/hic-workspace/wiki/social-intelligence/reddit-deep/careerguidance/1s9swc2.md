@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2210]
     sentence_count: 14
     key_terms: [interest, student, careerguidance, abroad, trying, visa, work, background]
+    concepts: [interest, careerguidance, student, abroad, trying]
     token_count: 482
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1s9swc2/what_should_i_do/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1s9swc2.md#c1"
     char_span: [2212, 3062]
     sentence_count: 8
     key_terms: [considering, countries, practical, relatives, portugal, student, people, permit]
+    concepts: [considering, countries, practical, relatives, portugal]
     token_count: 172
 ---
 # What should I do?

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 900]
     sentence_count: 7
     key_terms: [managers, hiring, remote, comments, team, reddit-deep, absolutely, copy-paste]
+    concepts: [managers, hiring, remote, comments]
     token_count: 207
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1owqfwq/why_is_hiring_a_remote_software_engineer_harder/"}]
   - id: "social-intelligence/reddit-deep/managers/1owqfwq.md#c1"
     char_span: [914, 2938]
     sentence_count: 14
     key_terms: [interview, always, either, remote, experience, companies, hiring, resume]
+    concepts: [interview, always, either, remote, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1owqfwq.md#c2"
@@ -38,6 +41,7 @@ chunks:
     char_span: [3079, 4411]
     sentence_count: 10
     key_terms: [people, remote, interviewing, job, time, interviews, skilled, answer]
+    concepts: [interviewing, people, remote, interviews, skilled]
     section: Comments
     token_count: 322
 ---

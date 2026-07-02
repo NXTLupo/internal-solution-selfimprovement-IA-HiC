@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1430]
     sentence_count: 11
     key_terms: [payments, cross-border, app, transfers, comments, stablecoin-powered, defi, love]
+    concepts: [payments, cross-border, transfers, comments]
     token_count: 315
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1qtot3b/why_are_crossborder_payments_still_slow_and/"}]
   - id: "social-intelligence/reddit-deep/defi/1qtot3b.md#c1"
-    char_span: [1445, 3246]
+    char_span: [1444, 3245]
     sentence_count: 11
     key_terms: [crypto, control, complicated, compliance, solution, already, because, country]
+    concepts: [crypto, control, complicated, compliance, solution]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/defi/1qtot3b.md#c2"
-    char_span: [3248, 4377]
+    char_span: [3247, 4376]
     sentence_count: 6
     key_terms: [removed, crypto, reddit, money, remittance, shortcuts, licenses, interesting-bag-5494]
+    concepts: [removed, crypto, reddit, money, remittance]
     section: Comments
     token_count: 260
 ---

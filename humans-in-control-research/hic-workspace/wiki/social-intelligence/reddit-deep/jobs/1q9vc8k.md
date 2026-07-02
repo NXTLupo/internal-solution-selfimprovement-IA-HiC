@@ -19,125 +19,156 @@ chunks:
     char_span: [0, 1230]
     sentence_count: 11
     key_terms: [companies, recession, opportunities, job, especially, comments, industry, however]
+    concepts: [companies, recession, opportunities, especially, comments]
     token_count: 260
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1q9vc8k/why_i_think_the_current_job_market_is_actually/"}]
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c1"
     char_span: [1244, 3149]
     sentence_count: 15
     key_terms: [businesses, market, people, opportunity, exit, business, interest, probably]
+    concepts: [businesses, market, people, opportunity, business]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1q9vc8k.md#c4", "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c22"]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c2"
     char_span: [3151, 4353]
     sentence_count: 12
     key_terms: [decline, insurance, building, stores, malls, small, like, old]
+    concepts: [decline, insurance, building, stores, malls]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c3"
     char_span: [4356, 6495]
     sentence_count: 16
     key_terms: [insurance, business, down, undeliveredmale, since, years, lot, equipment]
+    concepts: [insurance, business, undeliveredmale, since, years]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1q9vc8k.md#c4"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c4"
     char_span: [6497, 8013]
     sentence_count: 15
     key_terms: [businesses, small, "i'm", business, undeliveredmale, like, pharmacy, around]
+    concepts: [businesses, small, undeliveredmale, business, pharmacy]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1q9vc8k.md#c1", "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c3", "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c5"]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c5"
     char_span: [8015, 10061]
     sentence_count: 15
     key_terms: [undeliveredmale, books, maybe, fish, "it's", open, businesses, bookstore]
+    concepts: [undeliveredmale, books, businesses, maybe, bookstore]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1q9vc8k.md#c4"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c6"
     char_span: [10063, 12183]
     sentence_count: 16
     key_terms: [economically, independent, book, full, near, everything, companies, assets]
+    concepts: [economically, independent, everything, companies, assets]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1q9vc8k.md#c9"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c7"
     char_span: [12185, 14255]
     sentence_count: 13
     key_terms: [performance, depression, companies, services, already, economy, workers, working]
+    concepts: [performance, depression, companies, services, already]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c8"
     char_span: [14257, 16089]
     sentence_count: 11
     key_terms: [shows, policies, similar, trumps, until, existing-newt-7116, fantasyborderline, been]
+    concepts: [shows, policies, similar, trumps, until]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c9"
     char_span: [16091, 18319]
     sentence_count: 24
     key_terms: [like, everything, companies, nothing, inflation, running, someone, workers]
+    concepts: [everything, companies, nothing, inflation, running]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1q9vc8k.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c10"
     char_span: [18044, 19256]
     sentence_count: 8
     key_terms: [shitty, rns, hospital, demand, supply, doesn, least, like]
+    concepts: [shitty, hospital, demand, supply, doesn]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c11"
     char_span: [19258, 21418]
     sentence_count: 17
     key_terms: [hospitals, environment, like, pay, healthcare, unemployed, companies, economic]
+    concepts: [hospitals, environment, healthcare, unemployed, companies]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c12"
     char_span: [21161, 21532]
     sentence_count: 3
     key_terms: [revenue, paid, workinslave, collusion, companies, hospital, maintain, overhead]
+    concepts: [revenue]
     section: Comments
     token_count: 91
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c13"
     char_span: [21534, 22693]
     sentence_count: 6
     key_terms: [field, tech, graduated, "didn't", having, people, resume, years]
+    concepts: [field, graduated, "didn't", having, people]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c14"
     char_span: [22696, 24569]
     sentence_count: 19
     key_terms: [because, interview, industry, years, industries, redundant, nothing, process]
+    concepts: [because, interview, industry, industries, years]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c15"
     char_span: [24571, 26634]
     sentence_count: 16
     key_terms: [job, experience, ive, been, practically, tech, year, impressive]
+    concepts: [experience, practically, impressive, interviews, employed]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c16"
     char_span: [26636, 27482]
     sentence_count: 7
     key_terms: [recession, collapse, roughly, hiring, people, great, "it's", like]
+    concepts: [recession, collapse, roughly, hiring, people]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1q9vc8k.md#c20", "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c25"]
     section: Comments
     token_count: 226
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c17"
     char_span: [27484, 29168]
     sentence_count: 12
     key_terms: [because, record, experienced, work, experience, companies, graduated, investing]
+    concepts: [because, record, experienced, experience, companies]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1q9vc8k.md#c22"]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c18"
     char_span: [29171, 31213]
     sentence_count: 16
     key_terms: [companies, profits, making, been, jobs, percentage, building, hardware]
+    concepts: [companies, profits, making, percentage, building]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c19"
     char_span: [31215, 32317]
     sentence_count: 8
     key_terms: [administration, freezing, through, market, available-range-5341, doing, "true", corporations]
+    concepts: [administration, freezing, through, market, doing]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c20"
     char_span: [32319, 34334]
     sentence_count: 16
     key_terms: [people, posted, job, real, candidates, interview, hiring, market]
+    concepts: [people, posted, candidates, interview, hiring]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1q9vc8k.md#c16", "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c25"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c21"
@@ -150,30 +181,37 @@ chunks:
     char_span: [34735, 36663]
     sentence_count: 16
     key_terms: [people, worse, market, experience, because, recession, through, aweful]
+    concepts: [people, worse, experience, market, because]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1q9vc8k.md#c1", "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c17", "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c25"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c23"
     char_span: [36386, 37051]
     sentence_count: 6
     key_terms: [worse, relatively, problems, recovery, quickly, market, began, progressively]
+    concepts: [relatively, worse, problems, recovery, quickly]
     section: Comments
     token_count: 143
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c24"
     char_span: [37053, 38851]
     sentence_count: 15
     key_terms: [recession, debt, job, deficits, national, recovery, country, current]
+    concepts: [recession, deficits, national, recovery, country]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c25"
     char_span: [38853, 41139]
     sentence_count: 16
     key_terms: [people, jobs, hiring, applicants, recession, because, changes, today]
+    concepts: [people, applicants, hiring, recession, because]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1q9vc8k.md#c16", "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c20", "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c22"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c26"
     char_span: [40846, 41242]
     sentence_count: 4
     key_terms: [someone, job, sustainable, everything, experience, employers, recession, applying]
+    concepts: [someone]
     section: Comments
     token_count: 86
   - id: "social-intelligence/reddit-deep/jobs/1q9vc8k.md#c27"

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1298]
     sentence_count: 9
     key_terms: [sem, competition, internships, good, gpa, java, internship, currently]
+    concepts: [competition, internships, internship, currently, comments]
     token_count: 343
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1shj3uk/summer_internship_as_a_1st_year_vitian/"}]
   - id: "social-intelligence/reddit-deep/internships/1shj3uk.md#c1"
     char_span: [1312, 2399]
     sentence_count: 8
     key_terms: [help, research, internship, prachub, intern, summer, iit, prep]
+    concepts: [research, internship, prachub, intern, summer]
     section: Comments
     token_count: 263
 ---

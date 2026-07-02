@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1644]
     sentence_count: 17
     key_terms: [internship, recreation, major, support, direct, internships, work, experience]
+    concepts: [internship, recreation, major, support, direct]
     token_count: 363
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1snkfz0/juggling_two_offers_both_somewhat_unrelated_to_my/"}]
   - id: "social-intelligence/reddit-deep/internships/1snkfz0.md#c1"
     char_span: [1658, 2179]
     sentence_count: 2
     key_terms: [option, appropriate-tutor587, responsibility, experience, recreation, employers, political, something]
+    concepts: [option]
     section: Comments
     token_count: 113
 ---

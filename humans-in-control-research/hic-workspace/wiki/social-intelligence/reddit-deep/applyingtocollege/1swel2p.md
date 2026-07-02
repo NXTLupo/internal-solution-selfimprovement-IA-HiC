@@ -19,33 +19,40 @@ chunks:
     char_span: [0, 1900]
     sentence_count: 15
     key_terms: [yale, cold, weather, applyingtocollege, sick, crazy, engineering, comments]
+    concepts: [weather, applyingtocollege, engineering, crazy, comments]
     token_count: 441
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1swel2p/am_i_crazy_for_wanting_to_go_to_ut_over_yale/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swel2p.md#c1"
     char_span: [1902, 4144]
     sentence_count: 15
     key_terms: [opportunities, yale, felt, people, super, bdd, get, work]
+    concepts: [opportunities, people, definitely, super, immigrant]
     token_count: 502
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swel2p.md#c2"
     char_span: [4146, 4807]
     sentence_count: 7
     key_terms: [people, boola, years, representative, suggestions, difference, monetarily, understand]
+    concepts: [people, boola, years]
     token_count: 146
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swel2p.md#c3"
     char_span: [4821, 6742]
     sentence_count: 13
     key_terms: [validation, yale, get, "it's", genuinely, strangers, because, seeking]
+    concepts: [validation, genuinely, strangers, because, seeking]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swel2p.md#c4"
     char_span: [6744, 9033]
     sentence_count: 29
     key_terms: [experience, yale, undergraduates, research, campus, school, experiences, residential]
+    concepts: [experience, undergraduates, research, campus, school]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swel2p.md#c5"
     char_span: [9035, 10746]
     sentence_count: 15
     key_terms: [yale, different, already, believe, illness, people, united-hearing8582, down]
+    concepts: [different, already, believe, illness, people]
     section: Comments
     token_count: 404
 ---

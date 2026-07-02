@@ -20,47 +20,56 @@ chunks:
     char_span: [0, 1224]
     sentence_count: 11
     key_terms: [stocks, bogleheads, investing, comments, fidelity, vanguard, bonds, "don't"]
+    concepts: [stocks, bogleheads, investing, comments, fidelity]
     token_count: 301
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1o47oil/very_young_just_want_to_check_my_porfolio_is_good/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1o47oil.md#c1"
-    char_span: [1239, 3206]
+    char_span: [1238, 3205]
     sentence_count: 15
     key_terms: [taxable, funds, account, brokerages, generally, accounts, longshanksasaurs, income]
+    concepts: [taxable, funds, account, brokerages, longshanksasaurs]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/bogleheads/1o47oil.md#c2"
-    char_span: [3208, 5453]
+    char_span: [3207, 5452]
     sentence_count: 13
     key_terms: [funds, "you're", allocation, bonds, bond, "it's", performance, com]
+    concepts: [funds, allocation, "you're", bonds, performance]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/bogleheads/1o47oil.md#c3"
-    char_span: [5455, 6917]
+    char_span: [5454, 6916]
     sentence_count: 9
     key_terms: [consistently, businesses, something, become, income, market, months, stocks]
+    concepts: [consistently, businesses, something, become, income]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/bogleheads/1o47oil.md#c4"
-    char_span: [6919, 8938]
+    char_span: [6918, 8937]
     sentence_count: 18
     key_terms: [get, comfortable, stocks, better, months, going, buy, risk]
+    concepts: [comfortable, stocks, better, months, going]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/bogleheads/1o47oil.md#c5"
-    char_span: [8940, 10455]
+    char_span: [8939, 10454]
     sentence_count: 11
     key_terms: [comfortable, something, investing, accounts, against, onomatopoeiahadafarm, being, money]
+    concepts: [comfortable, something, investing, accounts, against]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/bogleheads/1o47oil.md#c6"
-    char_span: [10457, 12319]
+    char_span: [10456, 12318]
     sentence_count: 20
     key_terms: [retirement, want, markets, invest, market, bonds, down, understand]
+    concepts: [retirement, markets, invest, market, bonds]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/bogleheads/1o47oil.md#c7"
-    char_span: [12321, 13077]
+    char_span: [12320, 13076]
     sentence_count: 6
     key_terms: [something, traditional-eye-7230, new, eaglepizza512, international, dissapearing, allocation, eventually]
+    concepts: [something]
     section: Comments
     token_count: 179
 ---

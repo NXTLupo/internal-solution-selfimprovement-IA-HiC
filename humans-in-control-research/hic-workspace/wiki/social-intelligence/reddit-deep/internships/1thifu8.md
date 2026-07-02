@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 870]
     sentence_count: 9
     key_terms: [hirevue, nbcu, internships, year, marketing, comments, insight, consideration]
+    concepts: [hirevue, internships, marketing, comments, insight]
     token_count: 206
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1thifu8/nbcu_academic_year_internship_hirevue_interview/"}]
   - id: "social-intelligence/reddit-deep/internships/1thifu8.md#c1"
     char_span: [884, 2604]
     sentence_count: 12
     key_terms: [interviews, "it's", practice, specific, because, company, feeling, instead]
+    concepts: [interviews, practice, specific, because, company]
     section: Comments
     token_count: 349
 ---

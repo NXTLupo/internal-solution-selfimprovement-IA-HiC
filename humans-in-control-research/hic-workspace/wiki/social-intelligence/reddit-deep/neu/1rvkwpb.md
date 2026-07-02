@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1268]
     sentence_count: 12
     key_terms: [fall, nuworks, co-op, data, interview, comments, looking, student]
+    concepts: [nuworks, co-op, interview, comments, looking]
     token_count: 318
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rvkwpb/fall_2026_coop_search_checkin_50_apps_on_nuworks/"}]
   - id: "social-intelligence/reddit-deep/neu/1rvkwpb.md#c1"
     char_span: [1282, 2308]
     sentence_count: 11
     key_terms: [draweramazing6498, got, applying, interview, something, offer, "i'm", job]
+    concepts: [draweramazing6498, applying, interview, something, offer]
     section: Comments
     token_count: 284
 ---

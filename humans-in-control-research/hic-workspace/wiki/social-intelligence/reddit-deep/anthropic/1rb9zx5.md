@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 693]
     sentence_count: 6
     key_terms: [claude, desktop, app, anthropic, comments, windows, code, harjjotsinghh]
+    concepts: [claude, desktop, anthropic, comments, windows]
     token_count: 178
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1rb9zx5/how_to_connect_my_local_windows_claude_code_with/"}]
 ---
 # How to connect my local windows claude code with desktop app?
 

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 447]
     sentence_count: 3
     key_terms: [claude, context, cowork, window, anthropic, comments, usage, does]
+    concepts: [claude, context, cowork, window, anthropic]
     token_count: 110
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1sz47lw/claude_cowork_context_window_usage/"}]
 ---
 # Claude cowork context window usage
 

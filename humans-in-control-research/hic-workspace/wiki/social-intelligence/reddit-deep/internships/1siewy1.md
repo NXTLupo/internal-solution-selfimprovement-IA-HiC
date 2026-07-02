@@ -19,43 +19,56 @@ chunks:
     char_span: [0, 337]
     sentence_count: 3
     key_terms: [offer, internships, comments, finally, got, reddit-deep, background, meetings]
+    concepts: [internships, offer, comments, finally]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1siewy1.md#c4"]
     token_count: 93
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1siewy1/finally_got_the_summer_offer/"}]
   - id: "social-intelligence/reddit-deep/internships/1siewy1.md#c1"
     char_span: [339, 2634]
     sentence_count: 23
     key_terms: [school, get, year, got, interview, applying, freshman, company]
+    concepts: [school, interview, applying, freshman, company]
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1siewy1.md#c2"
     char_span: [2337, 4661]
     sentence_count: 31
     key_terms: [internship, summer, got, went, applied, offered, return, application]
+    concepts: [internship, summer, applied, offered, return]
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1siewy1.md#c3"
     char_span: [4371, 6429]
     sentence_count: 21
     key_terms: [get, internship, work, internships, call, interview, checking, because]
+    concepts: [internship, internships, interview, checking, because]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1siewy1.md#c6"]
     token_count: 458
   - id: "social-intelligence/reddit-deep/internships/1siewy1.md#c4"
     char_span: [6433, 6924]
     sentence_count: 1
     key_terms: [internships, finally, ghosted, landed, opportunities, competitive, eventually, graduation]
+    concepts: [internships, finally, ghosted, landed]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1siewy1.md#c0"]
     token_count: 104
   - id: "social-intelligence/reddit-deep/internships/1siewy1.md#c5"
     char_span: [6938, 7173]
     sentence_count: 2
     key_terms: [internships, necessary-pipe-5971, gpa, congratulations, jackadvises, fantastic, journey, great]
+    concepts: [internships]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/internships/1siewy1.md#c6"
     char_span: [7175, 9456]
     sentence_count: 26
     key_terms: [internship, got, year, congratulations, started, ago, did, half]
+    concepts: [internship, congratulations, started, interview, sophomore]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1siewy1.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1siewy1.md#c7"
     char_span: [9174, 11395]
     sentence_count: 23
     key_terms: [get, congratulations, apply, good, like, interviews, networking, questions]
+    concepts: [congratulations, apply, interviews, networking, questions]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1siewy1.md#c8"

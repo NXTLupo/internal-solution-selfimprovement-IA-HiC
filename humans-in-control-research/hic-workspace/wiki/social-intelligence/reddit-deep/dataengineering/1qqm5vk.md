@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 847]
     sentence_count: 13
     key_terms: [data, dataengineering, engineering, need, analytics, comments, career, salary]
+    concepts: [dataengineering, engineering, analytics, comments, career]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1qqm5vk.md#c2"]
     token_count: 219
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1qqm5vk/being_the_data_guy_need_career_advice/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1qqm5vk.md#c1"
-    char_span: [862, 2722]
+    char_span: [861, 2721]
     sentence_count: 13
     key_terms: [automate, data, business, dataengineering, get, job, list, resources]
+    concepts: [automate, dataengineering, business, resources, learning]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/dataengineering/1qqm5vk.md#c2"
-    char_span: [2724, 4664]
+    char_span: [2723, 4663]
     sentence_count: 12
     key_terms: [maybe, automate, data, "don't", engineering, analytics, instamarq, trending]
+    concepts: [automate, maybe, engineering, "don't", analytics]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1qqm5vk.md#c0"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/dataengineering/1qqm5vk.md#c3"
-    char_span: [4666, 6653]
+    char_span: [4665, 6652]
     sentence_count: 13
     key_terms: [repulsive-beyond6877, data, useful-bug9391, python, "you're", using, developer, already]
+    concepts: [repulsive-beyond6877, useful-bug9391, python, "you're", using]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/dataengineering/1qqm5vk.md#c4"
-    char_span: [6655, 8239]
+    char_span: [6654, 8238]
     sentence_count: 13
     key_terms: ["you're", like, paid, business, company, "they'll", better, immediate-pair-4290]
+    concepts: ["you're", business, company, "they'll", better]
     section: Comments
     token_count: 387
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1181]
     sentence_count: 13
     key_terms: [international, internship, did, engineeringstudents, job, students, engineering, university]
+    concepts: [international, internship, engineeringstudents, students, engineering]
     token_count: 246
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tdmmje/has_any_international_students_gotten_an/"}]
 ---
 # Has any international students gotten an engineering internship or job lately?
 

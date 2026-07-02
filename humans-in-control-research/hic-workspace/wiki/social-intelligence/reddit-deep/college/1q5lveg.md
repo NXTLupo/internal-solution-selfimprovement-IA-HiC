@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1224]
     sentence_count: 7
     key_terms: [college, career, highschool, people, going, been, year, automotive]
+    concepts: [college, highschool, career, people, automotive]
     token_count: 274
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1q5lveg/people_who_started_college_late_in_life_how_was/"}]
   - id: "social-intelligence/reddit-deep/college/1q5lveg.md#c1"
-    char_span: [1239, 2869]
+    char_span: [1238, 2868]
     sentence_count: 14
     key_terms: [education, "it's", different, students, because, attend, myself, school]
+    concepts: [education, different, students, because, attend]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/college/1q5lveg.md#c2"
-    char_span: [2871, 4745]
+    char_span: [2870, 4744]
     sentence_count: 17
     key_terms: [got, "i'm", columbia, students, school, engineering, perspective, back]
+    concepts: [columbia, students, school, engineering, perspective]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/college/1q5lveg.md#c3"
-    char_span: [4747, 6410]
+    char_span: [4746, 6409]
     sentence_count: 8
     key_terms: [experience, college, "don't", older, trade, old, went, community]
+    concepts: [experience, college, "don't", older, trade]
     section: Comments
     token_count: 408
 ---

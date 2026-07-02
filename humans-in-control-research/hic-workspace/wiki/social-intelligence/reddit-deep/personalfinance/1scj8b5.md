@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1428]
     sentence_count: 21
     key_terms: [wife, personalfinance, house, month, contributes, debt, help, year]
+    concepts: [personalfinance, contributes, house, month, comments]
     token_count: 394
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1scj8b5/sil_in_debt_how_do_we_help/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c1"
     char_span: [1442, 3109]
     sentence_count: 12
     key_terms: [get, help, mentioned, debt, spending, burneradvice2, track, financial]
+    concepts: [mentioned, spending, burneradvice2, track, financial]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c2"
     char_span: [3112, 5068]
     sentence_count: 12
     key_terms: [burneradvice2, "she's", debt, help, apresledepart, wife, contribute, retirement]
+    concepts: [burneradvice2, "she's", apresledepart, contribute, retirement]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c3"
@@ -44,36 +48,44 @@ chunks:
     char_span: [5223, 7083]
     sentence_count: 10
     key_terms: [help, provide, likely, money, rates, stay, thoughts, airing]
+    concepts: [provide, likely, money, rates, thoughts]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c5"
     char_span: [7087, 8901]
     sentence_count: 15
     key_terms: [wife, help, burneradvice2, month, financially, ask, something, literate]
+    concepts: [burneradvice2, financially, month, something, literate]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c6"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c6"
     char_span: [8903, 10799]
     sentence_count: 16
     key_terms: [month, wife, relationship, going, help, burneradvice2, discretionary, offer]
+    concepts: [relationship, month, going, burneradvice2, discretionary]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c5"]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c7"
     char_span: [10801, 12800]
     sentence_count: 17
     key_terms: [financial, help, sil, "don't", going, down, understand, different]
+    concepts: [financial, "don't", going, understand, different]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c8"
     char_span: [12802, 14802]
     sentence_count: 20
     key_terms: [help, like, plan, sister, going, money, right, let]
+    concepts: [sister, going, money, right, struggling]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c9"
     char_span: [14804, 16564]
     sentence_count: 15
     key_terms: [otherwise, debt, down, "she's", job, pay, alcohol, context]
+    concepts: [otherwise, "she's", alcohol, context, course]
     section: Comments
     token_count: 427
 ---

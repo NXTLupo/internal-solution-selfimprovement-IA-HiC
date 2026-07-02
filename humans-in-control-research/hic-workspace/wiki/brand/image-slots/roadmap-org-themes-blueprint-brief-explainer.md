@@ -1,9 +1,30 @@
 ---
+id: brand/image-slots/roadmap-org-themes-blueprint-brief-explainer.md
 title: Image Slots — roadmap / org / themes / service-blueprint / brief / explainer (NXT)
 type: brand
 updated: 2026-06-17
+chunks:
+  - id: "brand/image-slots/roadmap-org-themes-blueprint-brief-explainer.md#c0"
+    char_span: [0, 1751]
+    sentence_count: 4
+    key_terms: [concept, child, light, explainer, thumbnail, loop, recovery, anatomy]
+    concepts: [concept, explainer, thumbnail, child, light]
+    token_count: 461
+  - id: "brand/image-slots/roadmap-org-themes-blueprint-brief-explainer.md#c1"
+    char_span: [1795, 3740]
+    sentence_count: 15
+    key_terms: [image-free, thumbnail, matrix, dense, service-blueprint, parallel, content-complete, columns]
+    concepts: [image-free, thumbnail, matrix, service-blueprint, content-complete]
+    section: Deliberately left image-free (and why)
+    token_count: 458
+  - id: "brand/image-slots/roadmap-org-themes-blueprint-brief-explainer.md#c2"
+    char_span: [3751, 4140]
+    sentence_count: 1
+    key_terms: [touched, twin, automatically, slot-pattern, dashpattern, per-element, components, thumbnails]
+    concepts: [touched]
+    section: Notes
+    token_count: 101
 ---
-
 # Image Slots placed (NXT GOLD components)
 
 File `iSQhAVM7SI4QHAWB7y9C2z`. Slots are blank transparent FRAMEs nested INSIDE the archetype

@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1521]
     sentence_count: 12
     key_terms: [anymore, genuinely, disappearing, idea, jobs, like, healthcare, findapath]
+    concepts: [anymore, genuinely, disappearing, healthcare, findapath]
     token_count: 335
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1ldxlw3/no_careerpath_is_good_or_safe_anymore/"}]
   - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c1"
     char_span: [1535, 2482]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c2"
     char_span: [2485, 4567]
     sentence_count: 25
     key_terms: [work, plan, careers, finalfrankymw, being, truth, end, job]
+    concepts: [finalfrankymw, careers, being, truth, searching]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c3"
     char_span: [4343, 6012]
     sentence_count: 13
     key_terms: [get, people, don, job, like, work, excitementcapital290, admin]
+    concepts: [people, admin, often]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c4"
     char_span: [6014, 8053]
     sentence_count: 30
     key_terms: [emerging-jobs-created-by-artificial-intelligence-ai-in-2025, jobs, revolution, age, working, people, roboticsbiz, industries]
+    concepts: [emerging-jobs-created-by-artificial-intelligence-ai-in-2025, revolution, working, people, roboticsbiz]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c5"
     char_span: [8055, 9678]
     sentence_count: 16
     key_terms: [industries, jobs, workers, technologies, industrial, technology, standard, factory]
+    concepts: [industries, workers, technologies, industrial, technology]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c6"
     char_span: [9680, 10589]
     sentence_count: 7
     key_terms: [country, people, apply, bad, job, jobs, line, disintermediates]
+    concepts: [country, people, apply]
     section: Comments
     token_count: 206
 ---

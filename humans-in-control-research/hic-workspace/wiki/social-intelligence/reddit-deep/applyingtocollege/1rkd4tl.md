@@ -21,26 +21,34 @@ chunks:
     char_span: [0, 1488]
     sentence_count: 12
     key_terms: [school, applyingtocollege, best, take, schools, years, application, comments]
+    concepts: [applyingtocollege, school, schools, application, years]
     token_count: 360
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rkd4tl/what_looks_best_on_my_applicationwhat_will_set_me/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkd4tl.md#c1"
     char_span: [1490, 3881]
     sentence_count: 14
     key_terms: [year, school, college, something, club, unfortunately, years, fundraising]
+    concepts: [school, college, something, unfortunately, fundraising]
     token_count: 509
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkd4tl.md#c2"
     char_span: [3883, 6052]
     sentence_count: 11
     key_terms: [volunteer, school, year, outside, honors, summer, years, job]
+    concepts: [volunteer, school, outside, honors, summer]
     token_count: 490
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkd4tl.md#c3"
     char_span: [6054, 7972]
     sentence_count: 12
     key_terms: [honors, english, class, theology, anyway, since, take, required]
+    concepts: [honors, english, theology, class, anyway]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rkd4tl.md#c4"]
     token_count: 455
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkd4tl.md#c4"
     char_span: [7974, 8854]
     sentence_count: 6
     key_terms: [english, lit, challenge, writing, anyway, chance, grades, don]
+    concepts: [english, challenge, writing, anyway, chance]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rkd4tl.md#c3"]
     token_count: 205
 ---
 # What looks best on my application/what will set me up best for college based on my circumstances and goals, Honors English (Dual-Enrollment) or AP Literature?

@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 2188]
     sentence_count: 24
     key_terms: ["what's", new, model, artificial, automation, everything, incredible, dangerous]
+    concepts: ["what's", artificial, automation, everything, incredible]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1si5uiw/6_months_using_ai_for_actual_work_whats/"}]
   - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c1"
     char_span: [2190, 3543]
     sentence_count: 19
     key_terms: [without, understanding, tools, enough, honest, models, skill, using]
+    concepts: [without, understanding, tools, enough, honest]
     token_count: 288
   - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c2"
     char_span: [3557, 4636]
     sentence_count: 10
     key_terms: [honestly, honest, points, typical-education345, robmosesdidnthwrong, "it's", like, slop]
+    concepts: [honestly, honest, points]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c3"
     char_span: [4638, 6450]
     sentence_count: 8
     key_terms: [people, typical-education345, content, accept, great, words, get, need]
+    concepts: [people, typical-education345, content, accept, great]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1si5uiw.md#c5"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c4"
     char_span: [6452, 7140]
     sentence_count: 4
     key_terms: [typical-education345, robmosesdidnthwrong, one-elderberry-488, identifying, ai-written, tndrthrowy, hivesteel, low-value]
+    concepts: [typical-education345]
     section: Comments
     token_count: 204
   - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c5"
     char_span: [7145, 8719]
     sentence_count: 15
     key_terms: [typical-education345, legitimatepower, content, good, post, experience, written, capitaldiligent1676]
+    concepts: [typical-education345, legitimatepower, content, experience, written]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1si5uiw.md#c3"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c6"
     char_span: [8721, 9896]
     sentence_count: 10
     key_terms: [like, information, typical-education345, question, thinking, lateral, answer, myself]
+    concepts: [typical-education345, information, question, thinking, lateral]
     section: Comments
     token_count: 283
 ---

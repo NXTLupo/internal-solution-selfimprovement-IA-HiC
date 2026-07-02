@@ -18,6 +18,8 @@ import { validateSlideArtifact } from '../schemas/slideArtifact';
 import type { BrandHashtag } from './hashtagParser';
 import { analyzeText as analyzeTextOpenAI } from '../../services/openaiService';
 import { GoogleGenAI } from '@google/genai';
+// 2026-07-02 Designer-chat prompt caching: single-sourced marker + scrub from the router.
+import { HIC_CACHE_BREAK as SLIDESPEC_CACHE_BREAK, stripCacheMarkers } from '../../services/aiRouter';
 
 // 2026-05-05 - DeepSeek V4 Flash is the single-vendor primary.
 // 2026-06-12 - claude-opus-4-8 added: Designer-chat generation + revision
@@ -66,16 +68,30 @@ async function callModel(prompt: string, m: SlideSpecModel): Promise<string> {
     // max_tokens cap unverified for opus-4-8 - lower if the API 400s.
     if (m === 'claude-opus-4-8') {
         const { callAIWithRetry } = await import('../../services/aiRetryClient');
+        // 2026-07-02 caching: lift the stable prefix (schema + palette + layout guidance,
+        // marked by buildPrompt) into the system string; the proxy's marker split sets
+        // cache_control breakpoints and the tiny literal tail keeps the big block non-final.
+        let claudeSys = sys;
+        let userContent = prompt;
+        const brk = prompt.indexOf(SLIDESPEC_CACHE_BREAK);
+        if (brk > 0) {
+            claudeSys = sys + SLIDESPEC_CACHE_BREAK + prompt.slice(0, brk) + SLIDESPEC_CACHE_BREAK
+                + 'Apply the schema, palette, and layout guidance above to this generation.';
+            userContent = prompt.slice(brk + SLIDESPEC_CACHE_BREAK.length);
+        }
         // No `temperature`: opus-4-8 400s on it ("deprecated for this model").
         const data: any = await callAIWithRetry('anthropic', {
             model: id,
             max_tokens: MAX_TOKENS,
-            system: sys,
-            messages: [{ role: 'user', content: prompt }],
+            system: claudeSys,
+            messages: [{ role: 'user', content: userContent }],
         }, { label: `SlideSpec (Claude ${id})`, maxAttempts: 2 });
         const blocks = Array.isArray(data?.content) ? data.content : [];
         return blocks.map((b: any) => (typeof b?.text === 'string' ? b.text : '')).join('');
     }
+    // Non-Anthropic paths: the marker must never reach a model as literal text; Gemini's
+    // implicit caching keys on the stable-first prefix ordering buildPrompt guarantees.
+    prompt = stripCacheMarkers(prompt);
     // 2026-05-05 - DeepSeek V4 Flash is the primary path.
     if (m === 'deepseek-v4-flash') {
         const resp = await fetch('http://127.0.0.1:5012/api/ai/deepseek', {
@@ -266,6 +282,12 @@ fonts: Archivo SemiBold (titles), Archivo (body), IBM Plex Mono (kicker/eyebrow 
 
     // Per-kind guidance
     sections.push(`\n=== LAYOUT GUIDANCE ===` + perKindGuidance(args.kind));
+
+    // 2026-07-02 DESIGNER-CHAT PROMPT CACHING: everything ABOVE is stable per (kind, brand) -
+    // schema, palette, layout guidance. The Claude path lifts it into the system string where
+    // the proxy's marker split sets cache_control breakpoints; non-Anthropic callers strip the
+    // marker. Dynamic corpus / revision spec / user ask follow.
+    sections.push(SLIDESPEC_CACHE_BREAK);
 
     // Corpus
     if (args.corpus && args.corpus.length > 0) {

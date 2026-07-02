@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1610]
     sentence_count: 12
     key_terms: [enhancing-reasoning-small-language-models, https, model, matteosaponati, deeplearning, com, data, generator]
+    concepts: [enhancing-reasoning-small-language-models, https, model, matteosaponati, deeplearning]
     token_count: 418
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1t3oro6/can_synthetic_pretraining_improve_reasoning_in/"}]
 ---
 # Can synthetic pretraining improve reasoning in very small (<1B) models? Yes.
 

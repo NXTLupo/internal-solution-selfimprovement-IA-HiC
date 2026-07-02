@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 269]
     sentence_count: 1
     key_terms: [comments, waterloo, reddit-deep, happened, posted, reddit, source, https]
+    concepts: [comments, waterloo]
     token_count: 85
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1mouqzh/what_the_hell_happened_to_alam_at_that_uni/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1mouqzh.md#c1"
     char_span: [283, 2030]
     sentence_count: 17
     key_terms: [card, minimumrest7893, lyric, bigepidural, like, remember, teyhasfk, waterloo]
+    concepts: [minimumrest7893, bigepidural, lyric, remember, teyhasfk]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/waterloo/1mouqzh.md#c2"
     char_span: [2032, 3111]
     sentence_count: 3
     key_terms: [student, card, postgrad, punched, themanofstruggle, understanding, sarahstanley, unimaginable]
+    concepts: [student, postgrad, punched]
     section: Comments
     token_count: 301
 ---

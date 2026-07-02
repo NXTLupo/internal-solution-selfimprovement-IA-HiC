@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1565]
     sentence_count: 12
     key_terms: [applyingtocollege, college, colleges, comments, research, service, deeper, reddit]
+    concepts: [applyingtocollege, college, colleges, comments, research]
     token_count: 350
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1s4osob/colleges_dont_value_isef_anymore_i_guess_please_i/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/fef48c87ac.md#c1"
     char_span: [1567, 2581]
     sentence_count: 10
     key_terms: [puzzleheaded-tear283, encouragement, get, continue, stanford, forward, working, matter]
+    concepts: [puzzleheaded-tear283, encouragement, continue, stanford, forward]
     token_count: 233
 ---
 # Colleges don't value ISEF anymore I guess (please I just need to cope)

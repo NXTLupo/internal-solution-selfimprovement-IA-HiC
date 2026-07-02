@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1008]
     sentence_count: 6
     key_terms: [experience, technology, engineeringstudents, years, engineering, mechanical, graduated, post-grad]
+    concepts: [engineeringstudents, experience, technology, engineering, mechanical]
     token_count: 226
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tgnik6/4_years_of_experience_postgrad_for_engineering/"}]
 ---
 # 4 Years of Experience Post-Grad for Engineering Technology?
 

@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1408]
     sentence_count: 8
     key_terms: [engineeringstudents, comments, classes, redact, reddit, https, good, got]
+    concepts: [engineeringstudents, comments, classes, redact, reddit]
     token_count: 357
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1myu8f0/what_is_the_best_advice_you_could_give_to_a/"}]
   - id: "articles/reddit-deep-r-engineeringstudents/fa2a5ab13c.md#c1"
     char_span: [1410, 3296]
     sentence_count: 19
     key_terms: [recruiters, freshman, dont, engineering, job, did, get, give]
+    concepts: [recruiters, freshman, engineering, sophomores, companies]
     token_count: 398
   - id: "articles/reddit-deep-r-engineeringstudents/fa2a5ab13c.md#c2"
     char_span: [3298, 3906]
     sentence_count: 8
     key_terms: [time, classes, study, schedule, summer, take, discipline, management]
+    concepts: [classes, study, schedule, summer]
     token_count: 147
 ---
 # What is the best advice you could give to a freshman engineering student?

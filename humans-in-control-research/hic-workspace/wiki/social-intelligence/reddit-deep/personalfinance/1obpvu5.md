@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 706]
     sentence_count: 4
     key_terms: [personalfinance, looking, data, comments, simplifi, migrate, app, apps]
+    concepts: [personalfinance, looking, comments, simplifi, migrate]
     token_count: 160
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1obpvu5/self_hosted_personal_finance_app/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1obpvu5.md#c1"
-    char_span: [721, 2094]
+    char_span: [720, 2093]
     sentence_count: 12
     key_terms: [like, bigcapital, https, github, intuit, transaction, bank, data]
+    concepts: [bigcapital, https, github, intuit, transaction]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/personalfinance/1obpvu5.md#c2"
-    char_span: [2096, 4091]
+    char_span: [2095, 4090]
     sentence_count: 13
     key_terms: [simplefin, accounts, transactions, firefly, import, kash80, subscription, categories]
+    concepts: [simplefin, accounts, transactions, firefly, subscription]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1obpvu5.md#c3"
-    char_span: [3849, 4622]
+    char_span: [3848, 4621]
     sentence_count: 5
     key_terms: [investment, hosted, worth, look, self, recommendations, xxnerdatheartxx, empty-handed]
+    concepts: [investment, hosted, worth]
     section: Comments
     token_count: 189
   - id: "social-intelligence/reddit-deep/personalfinance/1obpvu5.md#c4"
-    char_span: [4624, 5003]
+    char_span: [4623, 5002]
     sentence_count: 2
     key_terms: [actual, budget, ynab, xxnerdatheartxx, actualbudget, categorizing, automating, incredibly]
+    concepts: [actual, budget]
     section: Comments
     token_count: 97
 ---

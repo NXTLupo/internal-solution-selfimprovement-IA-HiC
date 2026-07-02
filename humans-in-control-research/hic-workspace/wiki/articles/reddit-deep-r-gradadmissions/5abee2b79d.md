@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1630]
     sentence_count: 12
     key_terms: [program, gradadmissions, international, find, mim, stem, consulting, experience]
+    concepts: [program, gradadmissions, international, consulting, experience]
     token_count: 371
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1la2899/advices_for_cornell_mpa_vs_boston_university_mim/"}]
 ---
 # Advices For Cornell MPA VS Boston University MIM (Master in management)
 

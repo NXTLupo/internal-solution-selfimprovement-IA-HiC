@@ -2,69 +2,88 @@
 id: brand/proper-nouns.md
 chunks:
   - id: "brand/proper-nouns.md#c0"
-    char_span: [33, 1212]
+    char_span: [30, 1209]
     sentence_count: 1
     key_terms: [employer, donor, northeastern, aspiring, partner, program, roadmap, personalized]
+    concepts: [employer, donor, northeastern, aspiring, partner]
     section: Auto-extracted (2026-04-12)
     token_count: 273
   - id: "brand/proper-nouns.md#c1"
-    char_span: [1246, 2480]
+    char_span: [1243, 2477]
     sentence_count: 1
     key_terms: [university, address, student, comprehensive, technologist, employer, impact, international]
+    concepts: [university, address, student, comprehensive, technologist]
+    related_chunks: ["brand/proper-nouns.md#c2", "brand/proper-nouns.md#c3", "brand/proper-nouns.md#c4", "brand/proper-nouns.md#c7"]
     section: Auto-extracted (2026-04-13)
     token_count: 261
   - id: "brand/proper-nouns.md#c2"
-    char_span: [2514, 3968]
+    char_span: [2511, 3965]
     sentence_count: 1
     key_terms: [northeastern, university, student, advancement, leadership, establish, digital, roadmap]
+    concepts: [northeastern, university, student, advancement, leadership]
+    related_chunks: ["brand/proper-nouns.md#c1", "brand/proper-nouns.md#c3", "brand/proper-nouns.md#c6", "brand/proper-nouns.md#c8"]
     section: Auto-extracted (2026-04-13)
     token_count: 320
   - id: "brand/proper-nouns.md#c3"
-    char_span: [4002, 5628]
+    char_span: [3999, 5625]
     sentence_count: 1
     key_terms: [student, university, digital, faculty, dedicated, northeastern, donor, advancement]
+    concepts: [student, university, digital, faculty, dedicated]
+    related_chunks: ["brand/proper-nouns.md#c1", "brand/proper-nouns.md#c2", "brand/proper-nouns.md#c8"]
     section: Auto-extracted (2026-04-13)
     token_count: 375
   - id: "brand/proper-nouns.md#c4"
-    char_span: [5662, 6722]
+    char_span: [5659, 6719]
     sentence_count: 1
     key_terms: [comprehensive, experiential, student, readiness, explorer, policies, develop, digital]
+    concepts: [comprehensive, experiential, student, readiness, explorer]
+    related_chunks: ["brand/proper-nouns.md#c1"]
     section: Auto-extracted (2026-04-14)
     token_count: 240
   - id: "brand/proper-nouns.md#c5"
-    char_span: [6756, 7850]
+    char_span: [6753, 7847]
     sentence_count: 1
     key_terms: [personalized, impact, donor, policy, experienced, compliance, management, university]
+    concepts: [personalized, impact, donor, policy, experienced]
     section: Auto-extracted (2026-04-14)
     token_count: 239
   - id: "brand/proper-nouns.md#c6"
-    char_span: [7884, 9297]
+    char_span: [7881, 9294]
     sentence_count: 1
     key_terms: [northeastern, advancement, engagement, university, philanthropic, professional, corporate, dedicated]
+    concepts: [northeastern, advancement, engagement, university, philanthropic]
+    related_chunks: ["brand/proper-nouns.md#c2", "brand/proper-nouns.md#c8", "brand/proper-nouns.md#c10"]
     section: Auto-extracted (2026-04-14)
     token_count: 306
   - id: "brand/proper-nouns.md#c7"
-    char_span: [9331, 10588]
+    char_span: [9328, 10585]
     sentence_count: 1
     key_terms: [address, governance, strategic, alumnus, comprehensive, architecture, donor, solve]
+    concepts: [address, governance, strategic, comprehensive, alumnus]
+    related_chunks: ["brand/proper-nouns.md#c1"]
     section: Auto-extracted (2026-04-15)
     token_count: 283
   - id: "brand/proper-nouns.md#c8"
-    char_span: [10622, 11754]
+    char_span: [10619, 11751]
     sentence_count: 1
     key_terms: [problem, digital, advancement, university, learner, accessibility, comprehensive, northeastern]
+    concepts: [problem, advancement, digital, university, accessibility]
+    related_chunks: ["brand/proper-nouns.md#c2", "brand/proper-nouns.md#c3", "brand/proper-nouns.md#c6", "brand/proper-nouns.md#c10"]
     section: Auto-extracted (2026-04-15)
     token_count: 235
   - id: "brand/proper-nouns.md#c9"
-    char_span: [11788, 13152]
+    char_span: [11785, 13149]
     sentence_count: 1
     key_terms: [data, mills, alumna, alumni, strategic, allison, college, driven]
+    concepts: [mills, alumna, alumni, strategic, allison]
     section: Auto-extracted (2026-04-16)
     token_count: 330
   - id: "brand/proper-nouns.md#c10"
-    char_span: [13186, 14315]
+    char_span: [13183, 14312]
     sentence_count: 1
     key_terms: [advancement, address, digital, engagement, salesforce, alum, data, college]
+    concepts: [advancement, address, digital, engagement, salesforce]
+    related_chunks: ["brand/proper-nouns.md#c6", "brand/proper-nouns.md#c8"]
     section: Auto-extracted (2026-04-20)
     token_count: 254
 ---

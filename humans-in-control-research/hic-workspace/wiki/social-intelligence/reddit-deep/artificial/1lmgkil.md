@@ -21,26 +21,35 @@ chunks:
     char_span: [0, 357]
     sentence_count: 2
     key_terms: [artificial, comments, jmoneygraves, reddit-deep, committed, political, prompting, uncanny]
+    concepts: [artificial, comments]
     token_count: 94
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1lmgkil/grok_turned_on_elon_with_almost_no_prompting/"}]
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c1"
     char_span: [359, 3053]
     sentence_count: 12
     key_terms: [right-wing, violence, left-wing, extremists, incidents, political, data, extremist-related]
+    concepts: [right-wing, violence, left-wing, extremists, incidents]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1lmgkil.md#c3", "social-intelligence/reddit-deep/artificial/1lmgkil.md#c4", "social-intelligence/reddit-deep/artificial/1lmgkil.md#c6"]
     token_count: 501
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c2"
     char_span: [3055, 4117]
     sentence_count: 8
     key_terms: [musk, grok, model, political, violence, major, wrote, data]
+    concepts: [model, political, violence, major, wrote]
     token_count: 253
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c3"
     char_span: [4119, 6653]
     sentence_count: 13
     key_terms: [grok, like, violence, left-wing, right-wing, data, musk, csis]
+    concepts: [violence, left-wing, right-wing, incidents, knowledge]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1lmgkil.md#c1", "social-intelligence/reddit-deep/artificial/1lmgkil.md#c4", "social-intelligence/reddit-deep/artificial/1lmgkil.md#c6"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c4"
     char_span: [6334, 7308]
     sentence_count: 7
     key_terms: [musk, especially, right-wing, knowledge, violence, being, data, grok]
+    concepts: [especially, right-wing, knowledge, violence, being]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1lmgkil.md#c1", "social-intelligence/reddit-deep/artificial/1lmgkil.md#c3", "social-intelligence/reddit-deep/artificial/1lmgkil.md#c6"]
     token_count: 199
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c5"
     char_span: [7310, 7373]
@@ -51,52 +60,64 @@ chunks:
     char_span: [7375, 9738]
     sentence_count: 17
     key_terms: [data, left-wing, violence, like, users, grok, reflecting, right-wing]
+    concepts: [left-wing, violence, reflecting, right-wing, users]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1lmgkil.md#c1", "social-intelligence/reddit-deep/artificial/1lmgkil.md#c3", "social-intelligence/reddit-deep/artificial/1lmgkil.md#c4"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c7"
     char_span: [9457, 10147]
     sentence_count: 7
     key_terms: [data, evidence, new, protest-related, counterclaim, politically, underscores, hypothesis]
+    concepts: [evidence]
     token_count: 153
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c8"
     char_span: [10149, 12025]
     sentence_count: 11
     key_terms: [happened, interesting, grok, incoherent, situation, because, nothing, trained]
+    concepts: [happened, interesting, incoherent, situation, because]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1lmgkil.md#c14"]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c9"
     char_span: [12027, 12544]
     sentence_count: 1
     key_terms: [point, breaking, subject, specialization, foundational, intelligence, dissonance, cognitive]
+    concepts: [point, breaking, subject]
     section: Comments
     token_count: 100
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c10"
     char_span: [12546, 14796]
     sentence_count: 12
     key_terms: [machine, llm, enough, okdaikon9101, human, truth, information, get]
+    concepts: [machine, okdaikon9101, enough, information, human]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c11"
     char_span: [14458, 15869]
     sentence_count: 6
     key_terms: [don, incoherent, ideology, jackiechannelsurfer, given, human, model, right]
+    concepts: [incoherent, ideology, given, human, model]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c12"
     char_span: [15871, 17543]
     sentence_count: 8
     key_terms: [intersectionality, wing, understand, because, "don't", right, views, elon]
+    concepts: [intersectionality, understand, because, "don't", right]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c13"
     char_span: [17545, 18494]
     sentence_count: 2
     key_terms: [grok, redact, ivan8-forgotpassword, elon, like, musk, jmoneygraves, truth-seeker]
+    concepts: [redact]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c14"
     char_span: [18496, 19948]
     sentence_count: 3
     key_terms: [something, happened, because, clearly, thought, hatred, though, thats]
+    concepts: [something, happened, because, clearly, thought]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1lmgkil.md#c8"]
     section: Comments
     token_count: 380
 ---

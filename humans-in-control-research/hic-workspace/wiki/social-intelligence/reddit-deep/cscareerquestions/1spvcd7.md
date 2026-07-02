@@ -19,58 +19,75 @@ chunks:
     char_span: [0, 2213]
     sentence_count: 16
     key_terms: [project, manager, email, including, resources, cscareerquestions, been, "i've"]
+    concepts: [project, manager, cscareerquestions, responsibilities, including]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c2"]
     token_count: 472
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1spvcd7/i_successfully_delivered_a_high_profile_critical/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c1"
     char_span: [2215, 3225]
     sentence_count: 9
     key_terms: [help, project, asking, face, "i've", meet, set, orchestrated]
+    concepts: [project, asking]
     token_count: 220
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c2"
     char_span: [3239, 4860]
     sentence_count: 6
     key_terms: [work, complete, classic, manager, project, people, maleficentcherry7116, financial-grass6753]
+    concepts: [complete, classic, manager, project, people]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c0"]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c3"
     char_span: [4862, 6825]
     sentence_count: 14
     key_terms: [hours, maleficentcherry7116, "don't", start, agreement, burnout, company, "there's"]
+    concepts: [hours, maleficentcherry7116, "don't", start, agreement]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c4"
     char_span: [6827, 8997]
     sentence_count: 19
     key_terms: ["i'm", work, mentioned, asked, hours, project, working, pulled]
+    concepts: [mentioned, asked, hours, project, working]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c7"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c5"
     char_span: [8999, 10942]
     sentence_count: 9
     key_terms: [manager, going, "i'm", maleficentcherry7116, leaving, replied, good, work]
+    concepts: [manager, going, maleficentcherry7116, leaving, replied]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c9"]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c6"
     char_span: [10944, 13024]
     sentence_count: 16
     key_terms: [business, company, "you're", money, get, "it's", wife, confided]
+    concepts: [business, company, "you're", money, confided]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c7"
     char_span: [13026, 14922]
     sentence_count: 18
     key_terms: [working, hours, bonus, day, get, per, take, week]
+    concepts: [working, hours, bonus, company, austin]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c4"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c8"
     char_span: [14924, 16898]
     sentence_count: 14
     key_terms: [company, manager, immediately, unrealistic, job, contracts, employees, deadline]
+    concepts: [company, manager, immediately, unrealistic, contracts]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c9"
     char_span: [16900, 18900]
     sentence_count: 12
     key_terms: [maleficentcherry7116, work, manager, austin, salary, unfortunately, offer, like]
+    concepts: [maleficentcherry7116, unfortunately, manager, austin, salary]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c5"]
     section: Comments
     token_count: 461
 ---

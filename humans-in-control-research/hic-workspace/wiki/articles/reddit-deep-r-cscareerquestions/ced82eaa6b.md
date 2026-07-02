@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 2206]
     sentence_count: 13
     key_terms: [internship, questions, job, experience, get, cscareerquestions, because, summer]
+    concepts: [internship, questions, experience, cscareerquestions, because]
     token_count: 496
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t4489f/which_is_harder_first_internship_no_experience_or/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/ced82eaa6b.md#c1"
     char_span: [2208, 4439]
     sentence_count: 16
     key_terms: [internship, time, companies, "you're", thousands, openings, interns, gotten]
+    concepts: [internship, companies, "you're", thousands, openings]
     token_count: 482
   - id: "articles/reddit-deep-r-cscareerquestions/ced82eaa6b.md#c2"
     char_span: [4441, 5247]
     sentence_count: 8
     key_terms: [getting, internship, job, easier, internships, matter, return, offer]
+    concepts: [getting, internship, easier, internships, matter]
     token_count: 188
 ---
 # Which is harder: first internship (no experience) or first job

@@ -11,32 +11,37 @@ score: 5
 upvote_ratio: 0.65
 num_comments: 34
 flair: ""
-extracted_at: "2026-06-18T13:35:23.820Z"
+extracted_at: "2026-06-24T22:13:57.310Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1ncj9fk.md#c0"
     char_span: [0, 1736]
     sentence_count: 17
     key_terms: [time, something, bots, business, handle, small, diy, frustrated]
+    concepts: [something, business, handle, frustrated, small]
     token_count: 386
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1ncj9fk/at_my_wits_end_with_diy_bots_looking_for_an_ai/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1ncj9fk.md#c1"
-    char_span: [1751, 3980]
+    char_span: [1750, 3979]
     sentence_count: 15
     key_terms: [chatbot, people, "you're", need, leviathant, genuinely, automate, customer]
+    concepts: [chatbot, people, "you're", leviathant, genuinely]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/ecommerce/1ncj9fk.md#c2"
-    char_span: [3982, 5237]
+    char_span: [3981, 5236]
     sentence_count: 13
     key_terms: [get, want, customers, potential, business, chatbots, workload, criticalcentimeter]
+    concepts: [customers, potential, business, chatbots, workload]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/ecommerce/1ncj9fk.md#c3"
-    char_span: [5239, 6607]
+    char_span: [5238, 6606]
     sentence_count: 9
     key_terms: [questions, honestly, traditional-swan-130, tools, bot, diy, need, run]
+    concepts: [questions, honestly, tools]
     section: Comments
     token_count: 328
 ---
@@ -67,7 +72,7 @@ Let me know if something is out there!
 
 ## Comments
 
-- **Leviathant** (9↑): The biggest advocates of AI are the companies trying to sell you AI.
+- **Leviathant** (8↑): The biggest advocates of AI are the companies trying to sell you AI.
 
 Have you ever used a chatbot that made you think, "This has been a pretty good experience"? I haven't, but if you have, then go on LinkedIn and find someone at the company using the chatbot and ask them what they use.
 
@@ -79,7 +84,7 @@ But I still haven't come across a genuinely useful chatbot, despite all the hype
   - **SharonZJewelry** (1↑): Thank you! And no I have never used a chat bot and come away thinking “wow this really solved my problem and left me feeling certain that I’m working with a professional company”.
   - **llggll** (0↑): Ha ha love the healthy skepticism. I’m just hoping to find something genuinely practical that eases workload, not another maintenance nightmare.
     - **Leviathant** (3↑): And there are a lot of people who are going to be willing to tell you that their product does that, and they'll show you a demo that they can carefully walk through to make it look magical. And once you've signed that contract, you'll feed all your documentation and emails and whatever else into their word-mashing machine, and the chatbot will make nonsensical replies, and you're stuck with the bill.
-- **CriticalCentimeter** (5↑): you need to keep your flows very simple. More often than not, people get giddy and think they can automate every single thing a customer might need.
+- **CriticalCentimeter** (6↑): you need to keep your flows very simple. More often than not, people get giddy and think they can automate every single thing a customer might need.
 
 You can't.
 

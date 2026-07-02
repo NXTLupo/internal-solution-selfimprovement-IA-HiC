@@ -20,17 +20,24 @@ chunks:
     char_span: [0, 1642]
     sentence_count: 6
     key_terms: [experience, salesforce, company, multiple, cloud, users, companies, automatically]
+    concepts: [experience, salesforce, company, multiple, cloud]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1mwud1a.md#c1", "social-intelligence/reddit-deep/salesforce/1mwud1a.md#c2"]
     token_count: 361
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1mwud1a/need_advice_setting_up_sso_for_salesforce/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1mwud1a.md#c1"
-    char_span: [1657, 3656]
+    char_span: [1656, 3655]
     sentence_count: 13
     key_terms: [salesforce, company, experience, companies, provider, maybe, seems, articleview]
+    concepts: [salesforce, company, experience, companies, provider]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1mwud1a.md#c0", "social-intelligence/reddit-deep/salesforce/1mwud1a.md#c2"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/salesforce/1mwud1a.md#c2"
-    char_span: [3658, 5060]
+    char_span: [3657, 5059]
     sentence_count: 16
     key_terms: [salesforce, cognito, customer, solution, company, sharing, custom, like]
+    concepts: [salesforce, cognito, customer, solution, company]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1mwud1a.md#c0", "social-intelligence/reddit-deep/salesforce/1mwud1a.md#c1"]
     section: Comments
     token_count: 324
 ---

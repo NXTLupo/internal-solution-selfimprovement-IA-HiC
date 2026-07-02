@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1979]
     sentence_count: 12
     key_terms: [trying, "can't", customerexperience, agents, feel, like, understand, comments]
+    concepts: [trying, "can't", customerexperience, agents, understand]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1rdsjmo/rant_stop_trying_to_teach_ai_how_to_feel/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1rdsjmo.md#c1"
-    char_span: [1994, 3834]
+    char_span: [1993, 3833]
     sentence_count: 23
     key_terms: [agents, instead, call, empathy, policy, result, typing, cryrevolutionary7536]
+    concepts: [agents, instead, empathy, policy, result]
     section: Comments
     token_count: 375
 ---

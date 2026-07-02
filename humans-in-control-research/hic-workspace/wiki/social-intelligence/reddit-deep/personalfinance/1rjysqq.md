@@ -21,46 +21,55 @@ chunks:
     char_span: [0, 1679]
     sentence_count: 12
     key_terms: [month, monthly, debt, personalfinance, ago, insurance, comments, finances]
+    concepts: [month, monthly, personalfinance, insurance, comments]
     token_count: 437
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1rjysqq/spouse_died_at_age_40_need_advice_how_to_manage/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1rjysqq.md#c1"
     char_span: [1681, 2352]
     sentence_count: 5
     key_terms: [interest, loans, student, funds, best, appreciated, regardless, currently]
+    concepts: [interest, loans, student, funds]
     token_count: 160
   - id: "social-intelligence/reddit-deep/personalfinance/1rjysqq.md#c2"
     char_span: [2366, 4127]
     sentence_count: 17
     key_terms: [paying, too, anything, significantly, "don't", money, debt, down]
+    concepts: [paying, anything, significantly, "don't", money]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/personalfinance/1rjysqq.md#c3"
     char_span: [4129, 5960]
     sentence_count: 17
     key_terms: [big, law, return, firms, loans, investments, risk, gauranteed]
+    concepts: [return, investments, firms, gauranteed, loans]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/personalfinance/1rjysqq.md#c4"
     char_span: [5962, 7249]
     sentence_count: 6
     key_terms: [work, messem10, insurance, attorney, estate, months, policy, correct-mail-1942]
+    concepts: [messem10, insurance, attorney, estate, months]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/personalfinance/1rjysqq.md#c5"
     char_span: [7251, 9375]
     sentence_count: 19
     key_terms: [get, coverage, yourself, income, right, "i'm", keep, contact]
+    concepts: [coverage, yourself, income, right, contact]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/personalfinance/1rjysqq.md#c6"
     char_span: [9378, 11519]
     sentence_count: 18
     key_terms: [benefits, kids, money, survivor, sorry, forgiveness, free, loss]
+    concepts: [benefits, money, survivor, forgiveness, counseling]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/personalfinance/1rjysqq.md#c7"
     char_span: [11521, 12404]
     sentence_count: 9
     key_terms: [least, money, aguyandhiscat, comfortable, traditional, investment, operations, decisions]
+    concepts: [least, money]
     section: Comments
     token_count: 197
 ---

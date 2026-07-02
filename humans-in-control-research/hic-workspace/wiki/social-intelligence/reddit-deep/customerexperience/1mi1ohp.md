@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1233]
     sentence_count: 8
     key_terms: [human, customer, experience, customerexperience, automation, comments, support, handle]
+    concepts: [customer, human, customerexperience, experience, automation]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1mi1ohp.md#c1"]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1mi1ohp/is_ai_improving_or_hurting_the_customer/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1mi1ohp.md#c1"
-    char_span: [1248, 2751]
+    char_span: [1247, 2750]
     sentence_count: 13
     key_terms: [human, want, people, speed, real, experience, emotional, customer]
+    concepts: [human, people, experience, speed, emotional]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1mi1ohp.md#c0"]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/customerexperience/1mi1ohp.md#c2"
-    char_span: [2753, 4445]
+    char_span: [2752, 4444]
     sentence_count: 13
     key_terms: [customer, clients, support, agents, humans, "it's", experience, carefully]
+    concepts: [customer, clients, support, agents, humans]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/customerexperience/1mi1ohp.md#c3"
-    char_span: [4449, 6537]
+    char_span: [4448, 6536]
     sentence_count: 16
     key_terms: [human, humans, customers, bots, chat, because, resolve, using]
+    concepts: [human, humans, customers, because, resolve]
     section: Comments
     token_count: 437
 ---

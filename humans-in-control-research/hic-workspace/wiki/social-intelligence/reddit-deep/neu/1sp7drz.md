@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2130]
     sentence_count: 7
     key_terms: [northeastern, engineering, analytics, software, co-op, data, scranton, trying]
+    concepts: [northeastern, engineering, analytics, software, co-op]
     token_count: 486
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sp7drz/northeastern_data_analytics_60k_coop_vs_scranton/"}]
   - id: "social-intelligence/reddit-deep/neu/1sp7drz.md#c1"
     char_span: [2144, 2524]
     sentence_count: 3
     key_terms: [levzn, else, like, few-lawyer3707, gooseclimber, engineering, personally, analytics]
+    concepts: [levzn]
     section: Comments
     token_count: 108
 ---

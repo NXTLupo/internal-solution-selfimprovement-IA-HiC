@@ -19,40 +19,48 @@ chunks:
     char_span: [0, 1517]
     sentence_count: 13
     key_terms: [year, comments, careerguidance, unprofessional, party, positions, promotion, anyway]
+    concepts: [comments, careerguidance, unprofessional, party, positions]
     token_count: 338
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pgg3cm/is_it_unprofessional_to_skip_the_office_end_of/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1pgg3cm.md#c1"
     char_span: [1519, 2516]
     sentence_count: 10
     key_terms: [boss, new, everyone, office, "that's", get, "it's", job]
+    concepts: [everyone, office, "that's"]
     token_count: 229
   - id: "social-intelligence/reddit-deep/careerguidance/1pgg3cm.md#c2"
-    char_span: [2531, 2989]
+    char_span: [2530, 2988]
     sentence_count: 3
     key_terms: [paid-for-on-company-time, right, "it's", job, communicated, demotivated, overwhelmed, requirement]
+    concepts: [right]
     section: Comments
     token_count: 112
   - id: "social-intelligence/reddit-deep/careerguidance/1pgg3cm.md#c3"
-    char_span: [2991, 5005]
+    char_span: [2990, 5004]
     sentence_count: 13
     key_terms: [like, show, enough, corporate, promotion, function, probably, manager]
+    concepts: [enough, corporate, promotion, function, probably]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/careerguidance/1pgg3cm.md#c4"
-    char_span: [5007, 6565]
+    char_span: [5006, 6564]
     sentence_count: 14
     key_terms: [maleficentmousse7473, going, slownsteady1, bit, time, vindicated, promoting, little]
+    concepts: [maleficentmousse7473, going, slownsteady1, vindicated, promoting]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/careerguidance/1pgg3cm.md#c5"
-    char_span: [6567, 8432]
+    char_span: [6566, 8431]
     sentence_count: 13
     key_terms: [don, show, manager, minimal, opportunity, team, want, appearance]
+    concepts: [manager, minimal, opportunity, appearance, clearly]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/careerguidance/1pgg3cm.md#c6"
-    char_span: [8434, 9748]
+    char_span: [8433, 9747]
     sentence_count: 7
     key_terms: [paradoxicalirony99, get, unfortunately, company, manager, visible, office, check]
+    concepts: [paradoxicalirony99, unfortunately, company, manager, visible]
     section: Comments
     token_count: 338
 ---

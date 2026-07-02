@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 264]
     sentence_count: 1
     key_terms: [comments, genz, life, experiences, reddit-deep, experience, coworkers, posted]
+    concepts: [comments]
     token_count: 74
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1mrerv5/my_life_experience_vs_my_coworkers_life/"}]
   - id: "social-intelligence/reddit-deep/genz/1mrerv5.md#c1"
     char_span: [278, 2100]
     sentence_count: 12
     key_terms: [boomers, buy, gen, shit, discord, friends, around, worked]
+    concepts: [boomers, discord, friends, around, worked]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/genz/1mrerv5.md#c2"
     char_span: [2102, 3623]
     sentence_count: 8
     key_terms: [went, enough, living, doing, house, month, young, bad]
+    concepts: [enough, living, doing, house, month]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/genz/1mrerv5.md#c3"
     char_span: [3625, 5500]
     sentence_count: 11
     key_terms: [year, living, pay, wage, education, otherwise, standards, paycheck]
+    concepts: [living, education, otherwise, standards, paycheck]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/genz/1mrerv5.md#c4"
     char_span: [5502, 7265]
     sentence_count: 11
     key_terms: [approach, "can't", women, around, dating, "didn't", online, being]
+    concepts: [approach, "can't", women, around, dating]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/genz/1mrerv5.md#c5"
     char_span: [7267, 9011]
     sentence_count: 10
     key_terms: [college, jobs, something, seawardfriend, debt, pay, work, otherwise]
+    concepts: [college, something, seawardfriend, otherwise, minimum]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/genz/1mrerv5.md#c6"
     char_span: [9013, 9540]
     sentence_count: 3
     key_terms: [d95084660bee5689172da26bed5885a3ba777cf7, house, buy, gen, trauwdxrkcjf1, "couldn't", approve, boomers]
+    concepts: [house]
     section: Comments
     token_count: 169
 ---

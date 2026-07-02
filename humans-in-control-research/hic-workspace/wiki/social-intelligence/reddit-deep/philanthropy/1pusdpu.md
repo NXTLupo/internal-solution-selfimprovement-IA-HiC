@@ -17,19 +17,23 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1pusdpu.md#c0"
-    char_span: [0, 2622]
+    char_span: [0, 2621]
     sentence_count: 9
     key_terms: [research, philanthropy, foundation, coordinator, development, cmt, cmtrf, https]
-    token_count: 507
+    concepts: [research, philanthropy, foundation, coordinator, development]
+    token_count: 506
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1pusdpu/job_community_relations_and_research_coordinator/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1pusdpu.md#c1"
-    char_span: [2624, 5437]
+    char_span: [2623, 5436]
     sentence_count: 1
     key_terms: [prospect, research, donor, fundraising, experience, management, maintain, support]
+    concepts: [prospect, research, donor, fundraising, experience]
     token_count: 500
   - id: "social-intelligence/reddit-deep/philanthropy/1pusdpu.md#c2"
-    char_span: [5439, 5940]
+    char_span: [5438, 5939]
     sentence_count: 1
     key_terms: [per, linkedin, position, https, com, jobs, view, week]
+    concepts: [linkedin, position, https]
     token_count: 133
 ---
 # JOB: Community Relations and Research Coordinator, CMT Research Foundation

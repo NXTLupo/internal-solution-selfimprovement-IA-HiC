@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 802]
     sentence_count: 4
     key_terms: ["don't", "i'm", like, gradschool, statement, comments, personal, because]
+    concepts: ["don't", gradschool, statement, comments, personal]
     token_count: 189
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1p15zzz/writing_a_personal_statement_as_an_average/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1p15zzz.md#c1"
     char_span: [816, 3131]
     sentence_count: 13
     key_terms: [field, top, school, grades, unique, undergrad, passion, experiences]
+    concepts: [field, school, grades, unique, undergrad]
     section: Comments
     token_count: 512
 ---

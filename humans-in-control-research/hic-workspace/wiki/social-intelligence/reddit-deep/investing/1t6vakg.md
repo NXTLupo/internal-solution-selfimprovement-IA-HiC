@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 736]
     sentence_count: 6
     key_terms: [investing, down, year, comments, looking, options, payment, house]
+    concepts: [investing, comments, looking, options, payment]
     token_count: 184
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1t6vakg/looking_to_invest_my_down_payment_for_a_year/"}]
   - id: "social-intelligence/reddit-deep/investing/1t6vakg.md#c1"
     char_span: [750, 2234]
     sentence_count: 12
     key_terms: [ishares-us-government-source-income-information-stamped, tax, ishares, house, https, short, investments, com]
+    concepts: [ishares, investments, house, https, short]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/investing/1t6vakg.md#c2"
     char_span: [2236, 3918]
     sentence_count: 9
     key_terms: [hysa, sgov, market, year, money, state, down, liquidate]
+    concepts: [market, money, state, liquidate, interest]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1t6vakg.md#c6"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/investing/1t6vakg.md#c3"
     char_span: [3920, 5614]
     sentence_count: 6
     key_terms: [risk, reward, options, crypto, substantially, brohemoth06, put, different]
+    concepts: [reward, substantially, options, crypto, brohemoth06]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/investing/1t6vakg.md#c4"
     char_span: [5616, 7666]
     sentence_count: 20
     key_terms: [money, risk, higher, option, reward, "you're", going, yield]
+    concepts: [money, higher, option, reward, "you're"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1t6vakg.md#c5"
     char_span: [7420, 7762]
     sentence_count: 5
     key_terms: [money, cryptosiantraveler, guaranteed, extremely, anything, purchase, straight, becomes]
+    concepts: [money]
     section: Comments
     token_count: 84
   - id: "social-intelligence/reddit-deep/investing/1t6vakg.md#c6"
     char_span: [7766, 9721]
     sentence_count: 18
     key_terms: [money, market, "it's", home, need, something, accounts, purchase]
+    concepts: [money, market, something, accounts, purchase]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1t6vakg.md#c2"]
     section: Comments
     token_count: 479
 ---

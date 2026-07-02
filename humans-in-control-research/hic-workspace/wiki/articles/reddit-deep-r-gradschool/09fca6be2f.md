@@ -18,21 +18,26 @@ chunks:
     char_span: [0, 1986]
     sentence_count: 15
     key_terms: [university, undergrad, did, phd, masters, studied, big, school]
+    concepts: [university, undergrad, masters, studied, undergraduate]
     token_count: 464
+    sources: [{"n":"Reddit Deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1onb2p1/has_anyone_here_studied_in_a_good_undergraduate/"}]
   - id: "articles/reddit-deep-r-gradschool/09fca6be2f.md#c1"
     char_span: [1988, 4174]
     sentence_count: 25
     key_terms: [lot, faculty, department, prestige, opportunities, program, institution, research]
+    concepts: [department, faculty, opportunities, prestige, institution]
     token_count: 466
   - id: "articles/reddit-deep-r-gradschool/09fca6be2f.md#c2"
     char_span: [4176, 6434]
     sentence_count: 15
     key_terms: [research, school, world, time, biology, marine, field, known]
+    concepts: [research, school, world, biology, marine]
     token_count: 501
   - id: "articles/reddit-deep-r-gradschool/09fca6be2f.md#c3"
     char_span: [6436, 7628]
     sentence_count: 12
     key_terms: [school, undergrad, graduate, students, project, student, tuition, attend]
+    concepts: [school, undergrad, graduate, students, project]
     token_count: 266
 ---
 # Has anyone here studied in a good undergraduate university but then studied in a grad school not as reputable or renowned as the university you did your undergraduate on (can be both major-related or not)

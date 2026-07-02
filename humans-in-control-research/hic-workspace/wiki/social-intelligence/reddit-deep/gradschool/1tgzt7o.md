@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 296]
     sentence_count: 1
     key_terms: [gradschool, comments, randomjriekskdn, reddit-deep, admission, advisors, emailing, general]
+    concepts: [gradschool, comments]
     token_count: 82
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tgzt7o/help_with_emailing_phd_advisors_and_general_grad/"}]
 ---
 # Help with emailing PhD advisors and general grad school admission
 

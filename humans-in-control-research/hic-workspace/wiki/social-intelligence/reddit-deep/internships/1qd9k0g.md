@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 775]
     sentence_count: 6
     key_terms: [research, student, school, internships, high, experience, internship, comments]
+    concepts: [research, student, school, internships, experience]
     token_count: 177
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1qd9k0g/high_school_student_looking_for_a_research_or/"}]
   - id: "social-intelligence/reddit-deep/internships/1qd9k0g.md#c1"
     char_span: [789, 2166]
     sentence_count: 12
     key_terms: [guptaprateeek, opportunities, development, kshatralabs, contribute, business, market, high]
+    concepts: [guptaprateeek, opportunities, development, kshatralabs, contribute]
     section: Comments
     token_count: 313
 ---

@@ -17,14 +17,17 @@ research_goal: "Produce the definitive guide to personal investing in 2026 by an
 engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/fintech/1lb3jx2.md#c0"
-    char_span: [0, 1973]
+    char_span: [0, 1972]
     sentence_count: 6
     key_terms: [upstox, fintech, trading, mobile-first, platform, design, visual, trust]
-    token_count: 464
+    concepts: [upstox, mobile-first, fintech, trading, platform]
+    token_count: 463
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1lb3jx2/designing_a_mobilefirst_trading_platform_for/"}]
   - id: "social-intelligence/reddit-deep/fintech/1lb3jx2.md#c1"
-    char_span: [1975, 2581]
+    char_span: [1974, 2580]
     sentence_count: 2
     key_terms: [designing, platforms, clarity, trust, dramatically, mobile-first, personalized, high-stakes]
+    concepts: [designing, platforms, clarity, trust]
     token_count: 128
 ---
 # Designing a Mobile-First Trading Platform for Trust & Usability

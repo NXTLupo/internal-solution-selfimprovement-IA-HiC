@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1017]
     sentence_count: 6
     key_terms: [app, routes, northeastern, built, crime, comments, college, routing]
+    concepts: [northeastern, routes, built, crime, comments]
     token_count: 232
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rycj4q/free_safety_routing_app_using_bpd_crime_data/"}]
 ---
 # Free safety routing app using BPD crime data — built by a college student, looking for Northeastern feedback
 

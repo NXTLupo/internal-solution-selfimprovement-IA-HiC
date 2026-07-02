@@ -19,40 +19,48 @@ chunks:
     char_span: [0, 1710]
     sentence_count: 16
     key_terms: [faang, contract, cscareerquestions, job, role, engineer, company, right]
+    concepts: [contract, faang, cscareerquestions, engineer, company]
     token_count: 428
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rtjp4e/is_leaving_swe_for_77_raise_worth_it/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtjp4e.md#c1"
     char_span: [1712, 2244]
     sentence_count: 7
     key_terms: [looking, career, perspectives, experience, privileged, certainly, currently, different]
+    concepts: [looking, career]
     token_count: 122
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtjp4e.md#c2"
     char_span: [2258, 4218]
     sentence_count: 9
     key_terms: [job, valuable, better, skills, "you're", find, swe, term]
+    concepts: [valuable, better, skills, "you're", becoming]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtjp4e.md#c3"
     char_span: [4220, 5530]
     sentence_count: 3
     key_terms: [chatgpt, anything, fucking, haha, says, take, term, use]
+    concepts: [chatgpt, anything, fucking]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtjp4e.md#c4"
     char_span: [5532, 7302]
     sentence_count: 10
     key_terms: [trufajsivediet, research, chatgpt, working, written, difficult-cricket541, never, offer]
+    concepts: [trufajsivediet, research, chatgpt, working, written]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtjp4e.md#c5"
     char_span: [7307, 8977]
     sentence_count: 11
     key_terms: [contract, taxes, raise, dont, get, benefits, higher, likely]
+    concepts: [contract, taxes, raise, benefits, higher]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtjp4e.md#c6"
     char_span: [8979, 10620]
     sentence_count: 9
     key_terms: [contracting, development, offer, roles, like, companies, peligroso, contract]
+    concepts: [contracting, development, offer, roles, companies]
     section: Comments
     token_count: 389
 ---

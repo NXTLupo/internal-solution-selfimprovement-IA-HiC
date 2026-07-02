@@ -20,35 +20,44 @@ chunks:
     char_span: [0, 1733]
     sentence_count: 10
     key_terms: [business, role, financialcareers, banking, succeed, understanding, bank, new]
+    concepts: [business, financialcareers, understanding, banking, succeed]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1ri9zb1.md#c1"]
     token_count: 397
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1ri9zb1/question_re_prospecting_in_commercial_banking/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1ri9zb1.md#c1"
-    char_span: [1748, 3707]
+    char_span: [1747, 3706]
     sentence_count: 13
     key_terms: [business, financialcareers, discord, professionals, bank, full-time, questions, guessing]
+    concepts: [financialcareers, business, professionals, discord, full-time]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1ri9zb1.md#c0"]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/financialcareers/1ri9zb1.md#c2"
-    char_span: [3709, 5545]
+    char_span: [3708, 5544]
     sentence_count: 13
     key_terms: [dazzling-plum-1710, calling, calls, deals, get, like, companies, revenue]
+    concepts: [dazzling-plum-1710, calling, calls, deals, companies]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/financialcareers/1ri9zb1.md#c3"
-    char_span: [5547, 7511]
+    char_span: [5546, 7510]
     sentence_count: 16
     key_terms: [either, deals, want, commission, recommend, skillset, credit, medium]
+    concepts: [either, commission, deals, recommend, skillset]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/financialcareers/1ri9zb1.md#c4"
-    char_span: [7513, 9501]
+    char_span: [7512, 9500]
     sentence_count: 17
     key_terms: [understand, dazzling-plum-1710, conventional, ramp, year, business, months, period]
+    concepts: [dazzling-plum-1710, understand, conventional, business, months]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/financialcareers/1ri9zb1.md#c5"
-    char_span: [9503, 10941]
+    char_span: [9502, 10940]
     sentence_count: 12
     key_terms: [dazzling-plum-1710, cold-calling, like, need, new, year, businesses, commercial]
+    concepts: [dazzling-plum-1710, cold-calling, businesses, commercial, borrowers]
     section: Comments
     token_count: 345
 ---

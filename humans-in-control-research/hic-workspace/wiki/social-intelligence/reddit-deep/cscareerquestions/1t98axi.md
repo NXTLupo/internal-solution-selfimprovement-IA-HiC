@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1114]
     sentence_count: 12
     key_terms: [cscareerquestions, career, comments, honestly, planning, masters, advice, pursue]
+    concepts: [cscareerquestions, career, comments, honestly, planning]
     token_count: 253
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t98axi/i_need_some_career_advice/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t98axi.md#c1"
     char_span: [1128, 3216]
     sentence_count: 20
     key_terms: [learn, product, implementation, people, "you'll", great, engineering, interesting]
+    concepts: [learn, implementation, product, people, "you'll"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t98axi.md#c2"
     char_span: [3218, 5485]
     sentence_count: 14
     key_terms: [expert, people, https, lot, ffrdcs, organizations, india, isro]
+    concepts: [expert, people, https, organizations, ffrdcs]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t98axi.md#c3"
     char_span: [5487, 7765]
     sentence_count: 15
     key_terms: [without, going, plan, because, enough, code, get, hard]
+    concepts: [without, going, because, enough, foundation]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t98axi.md#c4"

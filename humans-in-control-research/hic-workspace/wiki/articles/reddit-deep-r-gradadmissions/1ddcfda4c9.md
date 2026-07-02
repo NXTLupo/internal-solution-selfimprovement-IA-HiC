@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1604]
     sentence_count: 27
     key_terms: [giving, update, gradadmissions, final, hard, work, incredibly, professors]
+    concepts: [giving, update, gradadmissions, final, incredibly]
     token_count: 369
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1smt4ya/2026_admissions_final_update/"}]
   - id: "articles/reddit-deep-r-gradadmissions/1ddcfda4c9.md#c1"
     char_span: [1606, 3566]
     sentence_count: 14
     key_terms: [like, nsf, projects, funded, astro, got, industry, career]
+    concepts: [projects, funded, astro, industry, career]
     token_count: 463
 ---
 # 2026 admissions final update

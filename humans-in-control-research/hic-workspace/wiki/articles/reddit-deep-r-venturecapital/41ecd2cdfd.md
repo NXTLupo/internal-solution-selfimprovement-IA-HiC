@@ -19,14 +19,17 @@ content_hash: "29d1844654c9c802"
 relevance_by_goal: {"7bbd4efaae7d":45}
 chunks:
   - id: "articles/reddit-deep-r-venturecapital/41ecd2cdfd.md#c0"
-    char_span: [0, 1984]
+    char_span: [0, 1983]
     sentence_count: 12
     key_terms: [software, companies, portfolio, capital, venturecapital, like, management, comments]
-    token_count: 467
+    concepts: [software, companies, portfolio, venturecapital, capital]
+    token_count: 466
+    sources: [{"n":"Reddit Deep: r/venturecapital","u":"https://www.reddit.com/r/venturecapital/comments/1mfgf7k/portfolio_monitoring_software/"}]
   - id: "articles/reddit-deep-r-venturecapital/41ecd2cdfd.md#c1"
-    char_span: [1986, 2358]
+    char_span: [1985, 2357]
     sentence_count: 1
     key_terms: [metrics, end, differentiation, differentiated, collection, valuations, companies, knowledge]
+    concepts: [metrics]
     token_count: 71
 ---
 # Portfolio monitoring software

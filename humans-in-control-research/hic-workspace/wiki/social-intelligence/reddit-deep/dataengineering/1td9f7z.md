@@ -20,40 +20,48 @@ chunks:
     char_span: [0, 1913]
     sentence_count: 16
     key_terms: [got, work, dataengineering, company, engineering, data, get, comments]
+    concepts: [dataengineering, company, engineering, comments, getting]
     token_count: 452
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1td9f7z/am_i_screwed_12_yoe_in_data_getting_interviews/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1td9f7z.md#c1"
     char_span: [1915, 2983]
     sentence_count: 11
     key_terms: [roles, "i'm", intermediate, "i've", actual, market, senior, strong]
+    concepts: [roles, intermediate, actual, market, senior]
     token_count: 229
   - id: "social-intelligence/reddit-deep/dataengineering/1td9f7z.md#c2"
-    char_span: [2998, 5234]
+    char_span: [2997, 5233]
     sentence_count: 22
     key_terms: [data, developer, database, job, like, experience, dba, applying]
+    concepts: [developer, database, experience, applying, interviewing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/dataengineering/1td9f7z.md#c3"
-    char_span: [4956, 5624]
+    char_span: [4955, 5623]
     sentence_count: 8
     key_terms: [interviewing, something, good, presentation, waterill4397, interviewed, definitely, government]
+    concepts: [interviewing, something]
     section: Comments
     token_count: 149
   - id: "social-intelligence/reddit-deep/dataengineering/1td9f7z.md#c4"
-    char_span: [5627, 7499]
+    char_span: [5626, 7498]
     sentence_count: 7
     key_terms: [industry, engineering, experience, interviews, like, someone, manufacturing, roles]
+    concepts: [industry, engineering, experience, interviews, manufacturing]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/dataengineering/1td9f7z.md#c5"
-    char_span: [7501, 9513]
+    char_span: [7500, 9512]
     sentence_count: 17
     key_terms: [market, canada, applications, companies, canadian, experience, struggling, different]
+    concepts: [market, canada, applications, companies, canadian]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/dataengineering/1td9f7z.md#c6"
-    char_span: [9515, 11345]
+    char_span: [9514, 11344]
     sentence_count: 15
     key_terms: [market, enough, interesting, ask, analytics, claude, mmilli, remote]
+    concepts: [market, enough, interesting, analytics, claude]
     section: Comments
     token_count: 446
 ---

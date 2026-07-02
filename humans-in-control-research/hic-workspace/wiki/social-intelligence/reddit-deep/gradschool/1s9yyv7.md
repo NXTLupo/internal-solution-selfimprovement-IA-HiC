@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 479]
     sentence_count: 3
     key_terms: [gradschool, comments, soon, consequences, reddit-deep, admissions, everything, currently]
+    concepts: [gradschool, comments]
     token_count: 115
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1s9yyv7/would_it_be_wrong_to_message_connect_with/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1s9yyv7.md#c1"
     char_span: [493, 2321]
     sentence_count: 9
     key_terms: [program, questions, students, "you're", admissions, start, year, pis]
+    concepts: [program, questions, students, admissions, "you're"]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/gradschool/1s9yyv7.md#c2"
     char_span: [2323, 3544]
     sentence_count: 11
     key_terms: [administrative, field, staff, fall, work, semester, summer, though]
+    concepts: [administrative, field, staff, semester, summer]
     section: Comments
     token_count: 279
 ---

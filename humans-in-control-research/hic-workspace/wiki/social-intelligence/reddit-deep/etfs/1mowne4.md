@@ -20,9 +20,11 @@ chunks:
     char_span: [0, 925]
     sentence_count: 4
     key_terms: [etfs, recommendations, beginner, comments, bit, tips, diversified, moritz-vnck]
+    concepts: [recommendations, beginner, comments]
     token_count: 219
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1mowne4/new_to_etfs_looking_for_beginner_tips_resources/"}]
   - id: "social-intelligence/reddit-deep/etfs/1mowne4.md#c1"
-    char_span: [940, 1187]
+    char_span: [939, 1186]
     sentence_count: 2
     key_terms: [look, boglehead, porfolio, rational, reminder, resource, account, deleted]
     section: Comments

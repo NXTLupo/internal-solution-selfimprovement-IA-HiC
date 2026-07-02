@@ -20,21 +20,25 @@ chunks:
     char_span: [0, 1122]
     sentence_count: 12
     key_terms: [dataengineering, analytics, analysts, comments, engineer, clear, does, feel]
+    concepts: [dataengineering, analytics, analysts, comments, engineer]
     token_count: 255
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1tjb8v1/where_do_you_draw_the_line_between_analytics/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1tjb8v1.md#c1"
-    char_span: [1137, 2540]
+    char_span: [1136, 2539]
     sentence_count: 9
     key_terms: [analysts, dbt, "don't", data, let, sql, work, everything]
+    concepts: [analysts, "don't", everything, semantic, analyst]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/dataengineering/1tjb8v1.md#c2"
-    char_span: [2542, 4820]
+    char_span: [2541, 4819]
     sentence_count: 15
     key_terms: [analysts, dbt, engineering, being, team, want, databases, software]
+    concepts: [analysts, engineering, being, databases, software]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/dataengineering/1tjb8v1.md#c3"
-    char_span: [4822, 5157]
+    char_span: [4821, 5156]
     sentence_count: 4
     key_terms: [bamboo-farm, nolemercy05, attributed, engineer, leverage, blurred, manager, natural]
     section: Comments

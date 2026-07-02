@@ -14,83 +14,105 @@ chunks:
     char_span: [0, 269]
     sentence_count: 4
     key_terms: [patterns, composition, layout, improvisation, deliverables, complete, freeform, multiple]
+    concepts: [patterns, composition, layout]
     token_count: 52
   - id: "brand/layout-patterns.md#c1"
     char_span: [301, 2064]
     sentence_count: 2
     key_terms: [var, column, nxt-muted, evidence, content, divider, split-, data]
+    concepts: [column, nxt-muted, evidence, content, divider]
+    related_chunks: ["brand/layout-patterns.md#c2", "brand/layout-patterns.md#c8"]
     section: "Pattern 1: The Split Panel"
     token_count: 476
   - id: "brand/layout-patterns.md#c2"
     char_span: [2066, 2410]
     sentence_count: 1
     key_terms: [evidence, column, pattern, body-length, screenshots, conclusion, paragraphs, contains]
+    concepts: [evidence, column, pattern]
+    related_chunks: ["brand/layout-patterns.md#c1"]
     section: "Pattern 1: The Split Panel"
     token_count: 79
   - id: "brand/layout-patterns.md#c3"
     char_span: [2447, 4136]
     sentence_count: 5
     key_terms: [var, letter-spacing, text-transform, center, font-headline, color, major, font-family]
+    concepts: [letter-spacing, text-transform, font-headline, center, font-family]
+    related_chunks: ["brand/layout-patterns.md#c5", "brand/layout-patterns.md#c9"]
     section: "Pattern 2: The Section Divider"
     token_count: 430
   - id: "brand/layout-patterns.md#c4"
     char_span: [4138, 4843]
     sentence_count: 6
     key_terms: [section, title, text, number, counterclockwise, highlighting, intentional, chartreuse]
+    concepts: [section, title, number]
     section: "Pattern 2: The Section Divider"
     token_count: 167
   - id: "brand/layout-patterns.md#c5"
     char_span: [4887, 6385]
     sentence_count: 4
     key_terms: [var, recommendation-, font-family, font-size, recommendations, text-transform, font-headline, margin-bottom]
+    concepts: [recommendation-, font-family, font-size, recommendations, text-transform]
+    related_chunks: ["brand/layout-patterns.md#c3", "brand/layout-patterns.md#c7", "brand/layout-patterns.md#c9"]
     section: "Pattern 3: The Recommendation Callout"
     token_count: 394
   - id: "brand/layout-patterns.md#c6"
     char_span: [6387, 7206]
     sentence_count: 4
     key_terms: [recommendation, headline, text, chartreuse, checkout, optional, maximum, flow]
+    concepts: [recommendation, headline, chartreuse, checkout, optional]
     section: "Pattern 3: The Recommendation Callout"
     token_count: 195
   - id: "brand/layout-patterns.md#c7"
     char_span: [7242, 8923]
     sentence_count: 2
     key_terms: [var, font-family, evidence-, font-size, quotes, color, font-body, data]
+    concepts: [font-family, evidence-, font-size, quotes, font-body]
+    related_chunks: ["brand/layout-patterns.md#c5", "brand/layout-patterns.md#c9"]
     section: "Pattern 4: The Evidence Block"
     token_count: 443
   - id: "brand/layout-patterns.md#c8"
     char_span: [8925, 9808]
     sentence_count: 5
     key_terms: [evidence, blocks, source, content, text-xs, border, italic, quotes]
+    concepts: [evidence, blocks, source, content, text-xs]
+    related_chunks: ["brand/layout-patterns.md#c1"]
     section: "Pattern 4: The Evidence Block"
     token_count: 212
   - id: "brand/layout-patterns.md#c9"
     char_span: [9842, 11555]
     sentence_count: 2
     key_terms: [var, font-family, font-size, letter-spacing, number, color, stat-, margin-top]
+    concepts: [font-family, font-size, letter-spacing, number, color]
+    related_chunks: ["brand/layout-patterns.md#c3", "brand/layout-patterns.md#c5", "brand/layout-patterns.md#c7", "brand/layout-patterns.md#c11"]
     section: "Pattern 5: The Stat Callout"
     token_count: 448
   - id: "brand/layout-patterns.md#c10"
     char_span: [11557, 12309]
     sentence_count: 5
     key_terms: [stat, callouts, number, left-aligned, descriptor, retention, increase, maximum]
+    concepts: [callouts, left-aligned, number, descriptor, retention]
     section: "Pattern 5: The Stat Callout"
     token_count: 202
   - id: "brand/layout-patterns.md#c11"
     char_span: [12342, 13861]
     sentence_count: 1
     key_terms: [var, grid-matrix, border-bottom, color, font-family, background, comparison, structured]
+    concepts: [grid-matrix, border-bottom, font-family, background, color]
+    related_chunks: ["brand/layout-patterns.md#c9"]
     section: "Pattern 6: The Grid Matrix"
     token_count: 394
   - id: "brand/layout-patterns.md#c12"
     char_span: [13863, 15007]
     sentence_count: 8
     key_terms: [columns, header, visual, row, separation, highlight, borders, content]
+    concepts: [columns, header, visual, separation, highlight]
     section: "Pattern 6: The Grid Matrix"
     token_count: 270
   - id: "brand/layout-patterns.md#c13"
     char_span: [15039, 16318]
     sentence_count: 8
     key_terms: [recommendation, evidence, patterns, panel, split, inside, appear, column]
+    concepts: [recommendation, evidence, patterns, panel, split]
     section: Pattern Composition Rules
     token_count: 272
 ---

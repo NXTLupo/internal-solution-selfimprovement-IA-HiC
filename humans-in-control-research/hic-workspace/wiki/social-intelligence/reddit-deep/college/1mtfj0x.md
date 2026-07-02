@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1994]
     sentence_count: 18
     key_terms: [college, been, feel, like, course, having, "don't", going]
+    concepts: [college, course, having, "don't", going]
     token_count: 467
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1mtfj0x/anxious_new_university_student/"}]
   - id: "social-intelligence/reddit-deep/college/1mtfj0x.md#c1"
     char_span: [2008, 2343]
     sentence_count: 3
@@ -30,18 +32,23 @@ chunks:
     char_span: [2345, 4391]
     sentence_count: 29
     key_terms: [voice, yourself, tell, already, friend, class, going, start]
+    concepts: [yourself, voice, already, friend, class]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mtfj0x.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mtfj0x.md#c3"
     char_span: [4110, 5234]
     sentence_count: 14
     key_terms: [voice, anxiety, louder, person, been, hard, less, work]
+    concepts: [voice, anxiety, louder, person]
     section: Comments
     token_count: 262
   - id: "social-intelligence/reddit-deep/college/1mtfj0x.md#c4"
     char_span: [5236, 6132]
     sentence_count: 10
     key_terms: [yourself, already, usually, proven, feel, labs, work, unmanageable]
+    concepts: [yourself, already, usually, proven]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mtfj0x.md#c2"]
     section: Comments
     token_count: 196
 ---

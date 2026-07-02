@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 750]
     sentence_count: 9
     key_terms: [internships, been, applying, internship, comments, advice, career, guys]
+    concepts: [internships, applying, internship, comments, advice]
     token_count: 182
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1s6lcqj/internships_advice_help_meng/"}]
   - id: "social-intelligence/reddit-deep/internships/1s6lcqj.md#c1"
-    char_span: [765, 2578]
+    char_span: [764, 2577]
     sentence_count: 5
     key_terms: [tracking, get, helps, something, tracker, working, applications, responses]
+    concepts: [tracking, something, helps, tracker, working]
     section: Comments
     token_count: 437
 ---

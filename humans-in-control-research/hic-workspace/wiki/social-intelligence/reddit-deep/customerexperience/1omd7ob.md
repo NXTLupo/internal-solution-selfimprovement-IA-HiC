@@ -17,10 +17,12 @@ research_goal: "Deliver a comprehensive 2026 outlook report on the global retail
 engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
 chunks:
   - id: "social-intelligence/reddit-deep/customerexperience/1omd7ob.md#c0"
-    char_span: [0, 384]
+    char_span: [0, 383]
     sentence_count: 1
     key_terms: [customerexperience, comments, mauricefitzg, reddit-deep, customerai, chatbots, customer, together]
+    concepts: [customerexperience, comments]
     token_count: 101
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1omd7ob/welcome_to_rcustomerai_lets_build_this_together/"}]
 ---
 # Welcome to r/CustomerAI — Let’s Build This Together
 

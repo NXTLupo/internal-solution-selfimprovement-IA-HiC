@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 320]
     sentence_count: 1
     key_terms: [gradadmissions, comments, reddit-deep, schools, posted, reddit, reject, source]
+    concepts: [gradadmissions, comments]
     token_count: 95
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1quysns/you_guys_cant_send_me_this_3_days_after_you/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1quysns.md#c1"
     char_span: [334, 1338]
     sentence_count: 6
     key_terms: [deleted, loser, better, funny, gays, like, lose, wait]
+    concepts: [deleted, loser, better, funny]
     section: Comments
     token_count: 266
   - id: "social-intelligence/reddit-deep/gradadmissions/1quysns.md#c2"
     char_span: [1340, 3097]
     sentence_count: 9
     key_terms: [school, email, loser, application, gay, especially, berkeley, students]
+    concepts: [school, application, email, especially, loser]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/gradadmissions/1quysns.md#c3"
     char_span: [3100, 3664]
     sentence_count: 5
     key_terms: [communication, sucks, dick, kick, unlikely-ad2660, application, humiliation, melliferraa]
+    concepts: [communication, sucks]
     section: Comments
     token_count: 135
 ---

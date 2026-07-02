@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 1469]
     sentence_count: 7
     key_terms: [reporting, dashboards, cashflow, businessintelligence, visibility, looking, accounting, everything]
+    concepts: [reporting, dashboards, cashflow, businessintelligence, visibility]
     token_count: 303
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1tjhnar/looking_for_a_uk_accounting_software_with/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1tjhnar.md#c1"
-    char_span: [1484, 3191]
+    char_span: [1483, 3190]
     sentence_count: 11
     key_terms: [accounting, reporting, dashboarding, spreadsheets, sirgreybush, data, odoo, dashboard]
+    concepts: [accounting, reporting, dashboarding, spreadsheets, sirgreybush]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1tjhnar.md#c2"]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/businessintelligence/1tjhnar.md#c2"
-    char_span: [3193, 4913]
+    char_span: [3192, 4912]
     sentence_count: 15
     key_terms: [operational, accounting, financial, reporting, layer, lightweight, data, dashboards]
+    concepts: [operational, accounting, financial, reporting, lightweight]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1tjhnar.md#c1"]
     section: Comments
     token_count: 340
 ---

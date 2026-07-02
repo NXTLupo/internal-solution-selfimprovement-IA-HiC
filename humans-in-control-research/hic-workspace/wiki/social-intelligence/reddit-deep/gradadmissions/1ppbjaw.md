@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2316]
     sentence_count: 17
     key_terms: [research, learning, phd, professor, like, publications, oxford, school]
+    concepts: [research, learning, professor, publications, oxford]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1ppbjaw/wanting_to_do_ml_phd_at_top_school_but_only_have/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1ppbjaw.md#c1"
     char_span: [2330, 2875]
     sentence_count: 4
     key_terms: [math, different, top, mathematician, publications, specifically, competitive, kawhandroid]
+    concepts: [different]
     section: Comments
     token_count: 115
 ---

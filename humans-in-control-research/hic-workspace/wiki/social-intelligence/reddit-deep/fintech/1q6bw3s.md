@@ -11,37 +11,37 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 5
 flair: ""
-extracted_at: "2026-06-11T18:57:30.597Z"
+extracted_at: "2026-06-29T14:40:03.054Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Define the 2026 \"state of the Art\" operational and technological benchmarks for \"The State of Data & Distribution in Asset Management\". Synthesize key developments across data infrastructure, distribution enablement, and AI governance frameworks to identify leading industry capabilities and compliance standards."
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
 chunks:
   - id: "social-intelligence/reddit-deep/fintech/1q6bw3s.md#c0"
     char_span: [0, 2288]
     sentence_count: 20
     key_terms: [banks, fraud, trust, competitive, intelligent, compliance, everything, advantage]
+    concepts: [banks, fraud, competitive, intelligent, compliance]
     token_count: 475
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1q6bw3s/predictions_for_banking_and_ai_in_2026/"}]
   - id: "social-intelligence/reddit-deep/fintech/1q6bw3s.md#c1"
     char_span: [2290, 4719]
     sentence_count: 23
     key_terms: [banks, banking, experiences, advantage, projected, open, billion, digital]
+    concepts: [banks, experiences, banking, advantage, projected]
     token_count: 487
   - id: "social-intelligence/reddit-deep/fintech/1q6bw3s.md#c2"
     char_span: [4721, 7233]
     sentence_count: 20
     key_terms: [banking, copilots, personalization, service, client, credit, commercial, customers]
+    concepts: [banking, personalization, copilots, service, client]
     token_count: 478
   - id: "social-intelligence/reddit-deep/fintech/1q6bw3s.md#c3"
-    char_span: [7235, 8214]
-    sentence_count: 8
-    key_terms: [intelligence, ai-driven, faster, growth, banks, move, interoperability, interconnected]
-    token_count: 175
-  - id: "social-intelligence/reddit-deep/fintech/1q6bw3s.md#c4"
-    char_span: [8229, 9483]
-    sentence_count: 9
-    key_terms: [interesting, year, monitoring, impossible-snow-9779, model, phase, human-in-the-loop, list]
-    section: Comments
-    token_count: 279
+    char_span: [7235, 8447]
+    sentence_count: 11
+    key_terms: [intelligence, ai-driven, faster, growth, impossible-snow-9779, banks, move, interoperability]
+    concepts: [intelligence, ai-driven, faster, growth, banks]
+    token_count: 236
+    sources: [{"n":"Backbase","u":""}]
 ---
 # Predictions for banking and AI in 2026
 
@@ -132,5 +132,3 @@ Source: Backbase
 
 - **Impossible-Snow-9779** (1↑): Thanks for sharing - I watched their webinar. Should be a really interesting year.
   - **TechBanker111** (1↑): Ah man, I missed that. There's probably a recording. Let me go have a look.
-- **biz4group123** (1↑): Good list, but it skips one critical layer: model risk and AI governance in production. In 2026, the bottleneck will not be use cases, it will be validating, monitoring, and explaining models at scale. Without continuous model monitoring, drift detection, auditability, and human-in-the-loop controls, enterprise AI will stall under regulatory and operational risk, regardless of platform maturity.
-- **DevinCampbell_** (1↑): I definitely agree that we’ve passed the "hype" phase and entered the "utility" phase of fintech AI. The most interesting shift I'm seeing this year isn't just back-end efficiency, but how AI is becoming a proactive partner for the end-user. Instead of just showing a list of transactions, platforms are starting to offer "financial intelligence" by predicting upcoming dips in cash flow or suggesting tax-saving moves before the year even ends. The banks and tools that prioritize this kind of explainable, actionable data are the ones that will actually win consumer trust in 2026.

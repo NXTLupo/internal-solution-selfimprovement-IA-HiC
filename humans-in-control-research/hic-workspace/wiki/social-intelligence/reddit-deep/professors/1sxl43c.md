@@ -19,34 +19,43 @@ chunks:
     char_span: [0, 2076]
     sentence_count: 6
     key_terms: [students-are-being-treated-like-guinea-pigs-inside-an-ai-powered-private-school, university, whats-the-point-of-school-when-ai-can-do-your-homework, professors, https, lectures, faculty, without]
+    concepts: [university, professors, https, lectures, faculty]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1sxl43c.md#c2"]
     token_count: 481
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1sxl43c/university_professors_disturbed_to_find_their/"}]
   - id: "social-intelligence/reddit-deep/professors/1sxl43c.md#c1"
     char_span: [2078, 2905]
     sentence_count: 3
     key_terms: [asu-atomic-ai-modules-arizona-state-university, learning, asu, https, instructure, www, management, atomic]
+    concepts: [asu-atomic-ai-modules-arizona-state-university, learning, instructure, https, management]
     token_count: 183
   - id: "social-intelligence/reddit-deep/professors/1sxl43c.md#c2"
     char_span: [2919, 4649]
     sentence_count: 19
     key_terms: [down, faculty, online, own, university, contract, material, content]
+    concepts: [faculty, online, university, contract, material]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1sxl43c.md#c0"]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/professors/1sxl43c.md#c3"
     char_span: [4651, 5209]
     sentence_count: 3
     key_terms: [need, better, collectorcardandcoin, thisunis20characters, helpful-orchid2710, like, ctenophorever, definitely]
+    concepts: [better]
     section: Comments
     token_count: 156
   - id: "social-intelligence/reddit-deep/professors/1sxl43c.md#c4"
     char_span: [5211, 7173]
     sentence_count: 9
     key_terms: [faculty, canvas, asu, own, case, "it's", credential, because]
+    concepts: [faculty, canvas, credential, because, create]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/professors/1sxl43c.md#c5"
     char_span: [7175, 7629]
     sentence_count: 5
     key_terms: [likeness, wow, fighterpilottim, shiny-mango624, simultaneously, universities, instruction, notmrchips]
+    concepts: [likeness]
     section: Comments
     token_count: 130
 ---

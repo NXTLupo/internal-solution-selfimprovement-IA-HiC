@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2291]
     sentence_count: 21
     key_terms: [cscareerquestions, expectations, sufficiently, diversified, friendships, like, everything, happiness]
+    concepts: [cscareerquestions, expectations, sufficiently, diversified, friendships]
     token_count: 493
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1pj9hj2/joined_microsoft_as_a_new_grad_and_im_miserable/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/6da2de6b9f.md#c1"
     char_span: [2293, 3315]
     sentence_count: 9
     key_terms: [work, describing, person, redact, needs, value, put, fulfillment]
+    concepts: [describing, person, redact, needs, value]
     token_count: 254
 ---
 # Joined Microsoft as a new grad and I’m miserable

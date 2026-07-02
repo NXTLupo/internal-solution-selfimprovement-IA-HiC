@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1242]
     sentence_count: 13
     key_terms: [college, internship, student, internships, look, comments, debating, advice]
+    concepts: [college, internship, student, internships, comments]
     token_count: 282
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t9tw8s/any_advice_for_a_college_student/"}]
   - id: "social-intelligence/reddit-deep/internships/1t9tw8s.md#c1"
     char_span: [1256, 2963]
     sentence_count: 16
     key_terms: [like, healthy-ad-423, cybersecurity, certs, internships, security, project, better]
+    concepts: [healthy-ad-423, cybersecurity, internships, certs, security]
     section: Comments
     token_count: 405
 ---

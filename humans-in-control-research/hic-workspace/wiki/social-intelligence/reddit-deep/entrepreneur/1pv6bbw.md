@@ -20,35 +20,45 @@ chunks:
     char_span: [0, 631]
     sentence_count: 4
     key_terms: [app, entrepreneur, comments, people, get, test, reddit-deep, suggestions]
+    concepts: [entrepreneur, comments, people]
     token_count: 146
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1pv6bbw/ask_starting_app_developers_how_do_you_get_people/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1pv6bbw.md#c1"
-    char_span: [646, 1453]
+    char_span: [645, 1452]
     sentence_count: 4
     key_terms: [please, entrepreneur, permanent, promotion, stickied, comment, thread, weekly]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/entrepreneur/1pv6bbw.md#c2"
-    char_span: [1456, 3548]
+    char_span: [1455, 3547]
     sentence_count: 11
     key_terms: [creators, more-information4422, moewinggod, app, get, try, people, approach]
+    concepts: [creators, more-information4422, moewinggod, people, approach]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1pv6bbw.md#c3"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/entrepreneur/1pv6bbw.md#c3"
-    char_span: [3553, 5771]
+    char_span: [3552, 5770]
     sentence_count: 7
     key_terms: [app, users, get, content, help, creators, people, user]
+    concepts: [users, content, creators, people, community]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1pv6bbw.md#c2", "social-intelligence/reddit-deep/entrepreneur/1pv6bbw.md#c4"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/entrepreneur/1pv6bbw.md#c4"
-    char_span: [5773, 7952]
+    char_span: [5772, 7951]
     sentence_count: 8
     key_terms: [platform, people, comparison, users, marketing, process, reddit, social]
+    concepts: [platform, comparison, people, marketing, users]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1pv6bbw.md#c3"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/entrepreneur/1pv6bbw.md#c5"
-    char_span: [7954, 8334]
+    char_span: [7953, 8333]
     sentence_count: 3
     key_terms: [trylaunch, https, directories, visibility, community, platforms, something, building]
+    concepts: [trylaunch, https]
     section: Comments
     token_count: 93
 ---

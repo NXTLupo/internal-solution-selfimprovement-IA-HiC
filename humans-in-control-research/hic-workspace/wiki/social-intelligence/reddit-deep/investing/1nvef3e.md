@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 854]
     sentence_count: 7
     key_terms: ["i'm", investing, comments, invest, money, since, entrepreneurs, investments]
+    concepts: [investing, comments, invest, money, since]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1nvef3e.md#c1"]
     token_count: 212
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1nvef3e/im_having_trouble_of_deciding_on_what_to_invest/"}]
   - id: "social-intelligence/reddit-deep/investing/1nvef3e.md#c1"
     char_span: [868, 2517]
     sentence_count: 11
     key_terms: [ira, roth, investing, etf, plasticbug, schedule, large, money]
+    concepts: [investing, plasticbug, schedule, large, money]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1nvef3e.md#c0"]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/investing/1nvef3e.md#c2"
     char_span: [2519, 4737]
     sentence_count: 23
     key_terms: [stocks, bonds, corporation, back, gold, long, time, government]
+    concepts: [stocks, bonds, corporation, government, companies]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/investing/1nvef3e.md#c3"
     char_span: [4739, 6824]
     sentence_count: 21
     key_terms: [crypto, stocks, "don't", like, cryptocurrencies, age, buy, etfs]
+    concepts: [crypto, stocks, cryptocurrencies, "don't", investing]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/investing/1nvef3e.md#c4"
     char_span: [6827, 8892]
     sentence_count: 21
     key_terms: [future, something, investing, get, take, want, impossible, amounts]
+    concepts: [something, future, investing, impossible, amounts]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/investing/1nvef3e.md#c5"
     char_span: [8894, 9319]
     sentence_count: 4
     key_terms: [start, yourself, roboinvesting, wholesomebob, disagreeing, investment, knowledge, passively]
+    concepts: [start, yourself]
     section: Comments
     token_count: 105
 ---

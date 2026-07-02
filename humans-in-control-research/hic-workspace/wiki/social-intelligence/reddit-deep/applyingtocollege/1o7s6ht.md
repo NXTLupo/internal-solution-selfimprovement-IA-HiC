@@ -21,35 +21,47 @@ chunks:
     char_span: [0, 1625]
     sentence_count: 14
     key_terms: [college, saved, applyingtocollege, don, finance, parents, year, genuinely]
+    concepts: [college, applyingtocollege, saved, finance, parents]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c8", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c9", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c10", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c11"]
     token_count: 391
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1o7s6ht/my_parents_have_5000_saved/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c1"
     char_span: [1639, 3001]
     sentence_count: 10
     key_terms: [scholarships, shakesensitive5873, parents, apply, competitive, scholarship, probably, getting]
+    concepts: [scholarships, shakesensitive5873, parents, competitive, scholarship]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c8"]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c2"
     char_span: [3003, 4983]
     sentence_count: 15
     key_terms: [parents, college, aid, high, savings, student, don, help]
+    concepts: [parents, college, savings, student, checking]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c8", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c9", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c10", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c11"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c3"
     char_span: [4986, 6901]
     sentence_count: 18
     key_terms: [parents, getting, "you'll", costs, loans, merit-based, scholarship, help]
+    concepts: [parents, getting, "you'll", merit-based, scholarship]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c1"]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c4"
     char_span: [6903, 7360]
     sentence_count: 6
     key_terms: [worked, loans, years, government, full-time, another, co-sign, college]
+    concepts: [worked, loans, years]
     section: Comments
     token_count: 124
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c5"
     char_span: [7362, 9302]
     sentence_count: 18
     key_terms: [transferred, community, ahomosapiensapien, went, college, experience, georgetown, berkeley]
+    concepts: [transferred, ahomosapiensapien, community, college, experience]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c6"
@@ -62,36 +74,48 @@ chunks:
     char_span: [9444, 11614]
     sentence_count: 13
     key_terms: [scholarships, college, get, schools, school, merit, community, aid]
+    concepts: [scholarships, college, schools, school, community]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c8", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c8"
     char_span: [11377, 12873]
     sentence_count: 14
     key_terms: [parents, scholarships, own, pay, another, college, country, elderberrycareful879]
+    concepts: [parents, scholarships, another, college, country]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c7", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c9"]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c9"
     char_span: [12875, 14820]
     sentence_count: 18
     key_terms: [college, school, get, parents, option, going, high, colleges]
+    concepts: [college, school, parents, option, going]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c7", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c8", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c10"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c10"
     char_span: [14822, 16886]
     sentence_count: 20
     key_terms: [parents, money, college, "don't", new, work, financial, children]
+    concepts: [parents, money, college, "don't", financial]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c8", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c9", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c11"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c11"
     char_span: [16888, 18811]
     sentence_count: 20
     key_terms: [money, college, parents, retirement, want, probably, trying, taxed]
+    concepts: [money, college, parents, retirement, probably]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c8", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c9", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c10"]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c12"
     char_span: [18813, 21159]
     sentence_count: 20
     key_terms: [parents, financial, someone, aid, college, applications, costs, "don't"]
+    concepts: [parents, financial, someone, college, applications]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c8", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c9", "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c10"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c13"

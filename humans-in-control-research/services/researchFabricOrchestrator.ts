@@ -800,13 +800,28 @@ export async function generateResearchPlan(
 
     // 6. Web Intelligence
     if (enabledCategories.webIntelligence?.urls?.length) {
-        for (const url of enabledCategories.webIntelligence.urls) {
+        for (const rawUrl of enabledCategories.webIntelligence.urls) {
+            // 2026-07-02 HARDENED (live incident): user-entered "Web Pages to Analyze" lines fed
+            // new URL() unvalidated - ONE scheme-less line ("example.com/report") threw and aborted
+            // the ENTIRE source-plan build, so collection died at plan time and the run proceeded on
+            // cached/upload corpus only (637 pack sources never fetched). Now: trim, auto-prefix
+            // https://, and skip invalid lines with a loud warning. One bad line never kills collection.
+            const trimmed = String(rawUrl || '').trim();
+            if (!trimmed) continue;
+            const candidate = /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+            let parsed: URL;
+            try {
+                parsed = new URL(candidate);
+            } catch {
+                console.warn(`[Orchestrator] skipping invalid "Web Pages to Analyze" line: "${trimmed.slice(0, 80)}" (not a URL) - collection continues`);
+                continue;
+            }
             sources.push({
                 id: `src_${id++}`,
                 type: 'data_api',
-                name: `Web Extract: ${new URL(url).hostname}`,
-                description: `Extract content from ${url}`,
-                query: url,
+                name: `Web Extract: ${parsed.hostname}`,
+                description: `Extract content from ${parsed.href}`,
+                query: parsed.href,
                 config: { connector: 'Jina Reader', limit: 1 },
                 estimatedCost: 0,
                 estimatedTimeSeconds: 5,

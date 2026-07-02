@@ -11,45 +11,51 @@ score: 59
 upvote_ratio: 0.93
 num_comments: 52
 flair: "Career Progression"
-extracted_at: "2026-06-11T18:58:14.065Z"
+extracted_at: "2026-06-29T14:40:16.483Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Define the 2026 \"state of the Art\" operational and technological benchmarks for \"The State of Data & Distribution in Asset Management\". Synthesize key developments across data infrastructure, distribution enablement, and AI governance frameworks to identify leading industry capabilities and compliance standards."
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
 chunks:
   - id: "social-intelligence/reddit-deep/financialcareers/1rzdu6h.md#c0"
     char_span: [0, 2250]
     sentence_count: 8
     key_terms: [investment, consulting, offers, years, week, financialcareers, analyst, finance]
+    concepts: [investment, consulting, offers, financialcareers, years]
     token_count: 524
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1rzdu6h/torn_between_two_job_offers_startup_fpa_125k_vs/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1rzdu6h.md#c1"
     char_span: [2252, 3392]
     sentence_count: 8
     key_terms: [culture, startup, work, day-to-day, option, going, under-experienced, cfa]
+    concepts: [culture, startup, day-to-day, option, going]
     token_count: 268
   - id: "social-intelligence/reddit-deep/financialcareers/1rzdu6h.md#c2"
-    char_span: [3407, 5122]
-    sentence_count: 11
-    key_terms: [financialcareers, discord, person, professionals, leveredchuck, full-time, banking, option]
+    char_span: [3406, 5091]
+    sentence_count: 8
+    key_terms: [like, financialcareers, handsomemcgruder, discord, professionals, leveredchuck, work, full-time]
+    concepts: [financialcareers, handsomemcgruder, professionals, discord, leveredchuck]
     section: Comments
-    token_count: 419
+    token_count: 436
   - id: "social-intelligence/reddit-deep/financialcareers/1rzdu6h.md#c3"
-    char_span: [5126, 6191]
-    sentence_count: 5
-    key_terms: [like, handsomemcgruder, option, flyxs, sweet, work, optionderivative, appreciate]
-    section: Comments
-    token_count: 288
-  - id: "social-intelligence/reddit-deep/financialcareers/1rzdu6h.md#c4"
-    char_span: [6193, 7423]
+    char_span: [5093, 6323]
     sentence_count: 8
     key_terms: [days, different, career, drills, option, internationalarm7614, fire, firm]
+    concepts: [different, career, drills, option]
     section: Comments
     token_count: 302
-  - id: "social-intelligence/reddit-deep/financialcareers/1rzdu6h.md#c5"
-    char_span: [7425, 8511]
-    sentence_count: 11
-    key_terms: [opportunities, job, future, thanks, helpfulfeedbackhere, flyxs, like, lot]
+  - id: "social-intelligence/reddit-deep/financialcareers/1rzdu6h.md#c4"
+    char_span: [6325, 8605]
+    sentence_count: 22
+    key_terms: [job, role, approved, opportunities, specifically, need, decision, enough]
+    concepts: [approved, opportunities, specifically, decision, enough]
     section: Comments
-    token_count: 247
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialcareers/1rzdu6h.md#c5"
+    char_span: [8607, 8679]
+    sentence_count: 1
+    key_terms: [firings, pretty, recent, banks, scary, look, take, yea]
+    section: Comments
+    token_count: 19
 ---
 # Torn between two job offers — startup FP&A ($125K) vs investment consulting (~$100K). Need outside perspective.
 
@@ -129,22 +135,12 @@ I keep going back and forth. What would you do?
 - **AutoModerator** (1↑): Consider joining the r/FinancialCareers official discord server using this [discord invite link](https://discord.gg/dgpTdUseQv). Our professionals here are looking to network and support each other as we all go through our career journey. We have full-time professionals from IB, PE, HF, Prop trading, Corporate Banking, Corp Dev, FP&A, and more. There are also students who are returning full-time Analysts after receiving return offers, as well as veterans who have transitioned into finance/banking after their military service.
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/FinancialCareers) if you have any questions or concerns.*
-- **LeveredChuck** (122↑): Take both. Use the unlimited PTO from B to work at A.
-  - **Flyxs** (27↑): Lever it up, genius
+- **LeveredChuck** (123↑): Take both. Use the unlimited PTO from B to work at A.
+  - **Flyxs** (26↑): Lever it up, genius
   - **EngineeringDry593** (1↑): I’m jealous i did not think of this reply 😂😂😂
     - **LeveredChuck** (4↑): It’s because you’re a better person than me
-- **Sweet-Inevitable-673** (61↑): You’re overweighting “exciting” and underweighting “how do I actually want my weeks to feel.” Your own list says WLB and in‑person culture are top, and Option B is basically built for that. Option A is a stretch role in a fundraising startup as the only FP&A person. That almost always means random fires, vague priorities, and the VP’s mood dictating your week. Great when you’re trying to sprint your way into a CFO track, not great if you already know you hate weekend creep.
-
-
-
-The equity isn’t real until an exit, and Series C clean energy is not a safe lottery ticket. The extra 25k can evaporate fast if you burn out or end up job hunting in 18 months.
-
-
-
-If you care about staying close to markets, do Option B, crush CFA L1/L2, and treat it as a 2–4 year platform. After that you can pivot to AM, FoF, or an LP seat with way more leverage and a clear resume story, without having lit your 20s on fire for a maybe.
-  - **Flyxs** (6↑): Sweet, appreciate your insight man! Been thinking over the two roles a lot and struggling to place one ahead of the other.
-- **optionderivative** (37↑): Option A sounds like shit. You have no idea how stressful fp&a is when the data is trash and the company is far from mature. You will work like an investment banker for not much more
-- **HandsomeMcGruder** (9↑): If it’s anything like the Series D where I’m currently working, you can count on cashing in those options some time in 2040
+- **optionderivative** (38↑): Option A sounds like shit. You have no idea how stressful fp&a is when the data is trash and the company is far from mature. You will work like an investment banker for not much more
+- **HandsomeMcGruder** (10↑): If it’s anything like the Series D where I’m currently working, you can count on cashing in those options some time in 2040
   - **Flyxs** (1↑): Sweet that fits my retirement timeline perfectly /s
 
 What’s your WLB like?
@@ -153,10 +149,10 @@ What’s your WLB like?
 
 You’ll work excessively, and you’ll be too worried about taking too many days off because you’re unsure how many is excessive.
   - **Flyxs** (5↑): Yeah don’t think that applies at Option B. My current firm has unlimited PTO and can’t take any during busy season but outside of that I was at 20 days. This firm definitely would let me take 20 days, that’s what they said is typical
-- **Jacrispybrisket** (5↑): I’m biased as I work in investment consulting but it is a totally different career trajectory and can turn lucrative. If you have goals of becoming a consultant, it can be an interesting job.
+- **Jacrispybrisket** (7↑): I’m biased as I work in investment consulting but it is a totally different career trajectory and can turn lucrative. If you have goals of becoming a consultant, it can be an interesting job.
 - **ebitdeeaye** (5↑): People need to realize that FP&A sucks ass. I came over from IB and end up disliking it equally, but for different reasons.
   - **wahtevur** (3↑): Go on
-- **InternationalArm7614** (6↑): I’ve done a version of option A. It was amazing for my career, but you should expect late nights, long weekend, and lots of last minute fire drills in a role like that. 
+- **InternationalArm7614** (7↑): I’ve done a version of option A. It was amazing for my career, but you should expect late nights, long weekend, and lots of last minute fire drills in a role like that. 
 
 It can really pay off big time, but you need to want to really build a function within a business and then execute quickly and successfully. That’s great the vp of finance will mentor you, but they will be in their own fire drills most of the time. 
 
@@ -164,3 +160,16 @@ You assume job A will provide virtually zero support, and have high expectations
   - **Flyxs** (1↑): Thanks man, appreciate the insights! Very helpful :)
 - **helpfulfeedbackhere** (6↑): Option B. More future growth opportunities and you will learn a lot. After this you can go into FP&A, M&A, Operations, and much more. At this stage of your career you need something like this. And those people that you meet there, you never know where they will be in the future and what opportunities and doors they will open up for you. It’s hard to get into this field so if you got in, give yourself that chance.
   - **Flyxs** (1↑): Thanks man, just wondering, are you referring specifically to investment consulting? A lot of the job is analyzing public equity markets and talking with fund managers on their investing strategies. Was curious because I feel like a transition to M&A post this job may not be the smoothest/easiest/natural progression compared to my current role in valuations.
+- **ViolinistDangerous71** (6↑): I mean this coming from someone at a front office BB role who is low key freaking out about AI—you NEED to find the job that requires you to critical think and make a decision.
+
+We have been approved for AI use recently, specifically a version that is by today standards quite dated, aka the security approved ones.
+
+Compliance, FP&A, aka all middle and back office , IB, S&T, ER, EVERYWHERE in the financial sector is going to be significantly downsized. Which is most a threat and an opportunity if you think about it.
+
+The second we in CIB is are approved for more powerful AI systems work is going to be cut in half and so are the analyst classes.
+
+I think the FP&A role would be great if you didn’t have valuation experience already—take the strategy, “lead to a decision-making” role. These “decision makers” are the only AI-proof jobs. I myself am looking for that exit.
+
+For anyone reading this not believing me, you have not used Claude in your free time. Do it. If you don’t think it works well enough you are not putting in good enough prompts, which is a skill you need to desperate learn and fast. Happy to chat more about this just respond below.
+
+**PS take a look at the recent firings of all the banks—yea pretty scary

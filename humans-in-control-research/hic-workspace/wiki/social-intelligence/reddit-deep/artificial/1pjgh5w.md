@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1975]
     sentence_count: 14
     key_terms: [hallucination, model, wrong, information, artificial, comments, language, people]
+    concepts: [hallucination, model, information, artificial, wrong]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1pjgh5w.md#c1"]
     token_count: 405
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1pjgh5w/what_ai_hallucination_actually_is_why_it_happens/"}]
   - id: "social-intelligence/reddit-deep/artificial/1pjgh5w.md#c1"
     char_span: [1977, 3783]
     sentence_count: 15
     key_terms: [hallucination, judgment, people, model, generation, structural, different, machines]
+    concepts: [hallucination, judgment, people, generation, model]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1pjgh5w.md#c0"]
     token_count: 326
   - id: "social-intelligence/reddit-deep/artificial/1pjgh5w.md#c2"
     char_span: [3797, 4046]
@@ -37,24 +42,28 @@ chunks:
     char_span: [4048, 6088]
     sentence_count: 10
     key_terms: [lost-bathroom-2060, human, good, here, question, shortcut, better, gemini]
+    concepts: [lost-bathroom-2060, human, question, shortcut, better]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1pjgh5w.md#c4"
     char_span: [5807, 7128]
     sentence_count: 8
     key_terms: [context, training, hallucinations, risk, enigmaofoz, structure, outside, depth]
+    concepts: [context, training, hallucinations, enigmaofoz, structure]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/artificial/1pjgh5w.md#c5"
     char_span: [7130, 8473]
     sentence_count: 14
     key_terms: [gemini, actor, article, answer, google, wife, provided, research]
+    concepts: [gemini, actor, article, answer, google]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/artificial/1pjgh5w.md#c6"
     char_span: [8475, 10566]
     sentence_count: 15
     key_terms: [gemini, california, farm, bierwagen, chatgpt, musickismagick, waters, deep-sea-4867]
+    concepts: [gemini, california, bierwagen, musickismagick, deep-sea-4867]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1pjgh5w.md#c7"
@@ -67,6 +76,7 @@ chunks:
     char_span: [10781, 12655]
     sentence_count: 13
     key_terms: [hallucination, like, reasoning, something, failures, survived, correct, diverge]
+    concepts: [hallucination, reasoning, something, failures, survived]
     section: Comments
     token_count: 424
 ---

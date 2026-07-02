@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 1386]
     sentence_count: 10
     key_terms: [difficult, town, partner, relationship, gradschool, accepted, comments, decision]
+    concepts: [difficult, partner, relationship, gradschool, accepted]
     token_count: 299
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rocy1k/really_difficult_decision_attend_grad_school_or/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c1"
     char_span: [1400, 2738]
     sentence_count: 11
     key_terms: [offer, relationship, prestigious, don, get, take, searches, yourself]
+    concepts: [offer, relationship, prestigious, searches, yourself]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c2"
     char_span: [2740, 3975]
     sentence_count: 9
     key_terms: [partner, phd, partners, program, support, health, mental, being]
+    concepts: [partner, partners, program, support, health]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c3"
     char_span: [3977, 5946]
     sentence_count: 14
     key_terms: [partner, school, together, like, willing, got, phd, sacrifice]
+    concepts: [partner, school, together, willing, sacrifice]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1rocy1k.md#c7"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c4"
     char_span: [5948, 7996]
     sentence_count: 13
     key_terms: [relationship, decision, clinton, hilary, school, pinkdictator, "don't", bill]
+    concepts: [relationship, decision, clinton, pinkdictator, hilary]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c5"
     char_span: [7998, 10035]
     sentence_count: 17
     key_terms: [relationship, like, years, marriage, school, professional, redditskippy, decision]
+    concepts: [relationship, years, marriage, professional, redditskippy]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c6"
     char_span: [9766, 10322]
     sentence_count: 4
     key_terms: [partner, opportunities, professional, difference, sacrifices, long-term, sometimes, approach]
+    concepts: [partner]
     section: Comments
     token_count: 140
   - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c7"
     char_span: [10324, 11279]
     sentence_count: 8
     key_terms: [long, together, school, away, grad, long-distance, relationship, definitely]
+    concepts: [together, school]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1rocy1k.md#c3"]
     section: Comments
     token_count: 212
 ---

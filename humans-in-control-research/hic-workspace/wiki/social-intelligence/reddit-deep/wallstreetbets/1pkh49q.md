@@ -21,43 +21,56 @@ chunks:
     char_span: [0, 2186]
     sentence_count: 11
     key_terms: [karman, launch, company, missile, wallstreetbets, little-known, hypersonics, krmn]
+    concepts: [karman, launch, company, missile, wallstreetbets]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c3", "social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c4"]
     token_count: 497
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1pkh49q/krmn_the_pickandshovel_space_play/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c1"
     char_span: [2188, 3982]
     sentence_count: 13
     key_terms: [company, numbers, yoy, revenue, growth, karman, double-digit, don]
+    concepts: [company, numbers, revenue, double-digit, growth]
     token_count: 494
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c2"
     char_span: [3984, 5780]
     sentence_count: 5
     key_terms: [karman-space-defense-reports-full-fiscal-year-2024-financial-results, krmn-the-pick-and-shovel-double-digit-growth-space-play-you-v0-dy38j9wc816g1, karman, https, png, defense, systems, businesswire]
+    concepts: [karman-space-defense-reports-full-fiscal-year-2024-financial-results, karman, https, defense, systems]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c3"]
     token_count: 486
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c3"
     char_span: [5782, 8244]
     sentence_count: 22
     key_terms: [missile, karman, defense, systems, strategic, revenue, launch, new]
+    concepts: [missile, karman, defense, systems, strategic]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c0", "social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c2"]
     token_count: 505
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c4"
     char_span: [8246, 10229]
     sentence_count: 14
     key_terms: [karman, launch, national-security, vulcan, payloads, rocket, commercial, components]
+    concepts: [karman, launch, national-security, vulcan, payloads]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c0"]
     token_count: 419
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c5"
     char_span: [10243, 11789]
     sentence_count: 15
     key_terms: [mln, consensus, guidance, factset, alfrescodog, comments, revenues, deleted]
+    concepts: [consensus, guidance, factset, alfrescodog, comments]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c6"
     char_span: [11791, 13408]
     sentence_count: 12
     key_terms: [alfrescodog, krmn, deleted, ipo, supplier, bought, july, part]
+    concepts: [alfrescodog, deleted, supplier, bought]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c7"
     char_span: [13410, 14996]
     sentence_count: 9
     key_terms: [krmn, alfrescodog, space, already, defense, related, spacex, sugarmagsjr]
+    concepts: [alfrescodog, space, already, defense, related]
     section: Comments
     token_count: 412
 ---

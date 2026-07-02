@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 953]
     sentence_count: 7
     key_terms: [account, access, back, bogleheads, comments, disabled, vanguard, reach]
+    concepts: [account, access, bogleheads, comments, disabled]
     token_count: 224
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1oqfg0p/vanguard_access_to_your_account_has_been_disabled/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1oqfg0p.md#c1"
-    char_span: [968, 2024]
+    char_span: [967, 2023]
     sentence_count: 13
     key_terms: [fraud, something, contact, alarmingconsequence, daemontargaryen2024, days, like, unfortunately]
+    concepts: [fraud, something, contact]
     section: Comments
     token_count: 247
   - id: "social-intelligence/reddit-deep/bogleheads/1oqfg0p.md#c2"
-    char_span: [2026, 4106]
+    char_span: [2025, 4105]
     sentence_count: 13
     key_terms: [account, interconventional, doing, brokerages, budrow21, lsp2005, access, report]
+    concepts: [account, interconventional, brokerages, doing, budrow21]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/bogleheads/1oqfg0p.md#c3"
-    char_span: [3845, 4854]
+    char_span: [3844, 4853]
     sentence_count: 5
     key_terms: [boringreddituserid, fraud, information, department, required, a1moose, legally, website]
+    concepts: [boringreddituserid, information, department, fraud, required]
     section: Comments
     token_count: 257
   - id: "social-intelligence/reddit-deep/bogleheads/1oqfg0p.md#c4"
-    char_span: [4856, 6852]
+    char_span: [4855, 6851]
     sentence_count: 18
     key_terms: [complaint, thelmanarcissus, finra, fraud, get, time, reasonable, something]
+    concepts: [complaint, thelmanarcissus, finra, fraud, reasonable]
     section: Comments
     token_count: 461
 ---

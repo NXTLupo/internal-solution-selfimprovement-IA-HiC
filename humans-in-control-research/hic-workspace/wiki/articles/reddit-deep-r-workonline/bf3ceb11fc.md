@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2610]
     sentence_count: 28
     key_terms: [supervisor, customer, training, trainer, calls, new, concentrix, experience]
+    concepts: [supervisor, customer, training, trainer, calls]
     token_count: 510
+    sources: [{"n":"Reddit Deep: r/workonline","u":"https://www.reddit.com/r/WorkOnline/comments/1r8t78r/worst_training_zero_support_my_concentrix/"}]
   - id: "articles/reddit-deep-r-workonline/bf3ceb11fc.md#c1"
     char_span: [2612, 3421]
     sentence_count: 9
     key_terms: [training, support, thanks, high-escalation, visitfrosty2959, bullydogsbest, acknowledge, considering]
+    concepts: [training, support, thanks]
     token_count: 181
 ---
 # Worst Training & Zero Support – My Concentrix Experience

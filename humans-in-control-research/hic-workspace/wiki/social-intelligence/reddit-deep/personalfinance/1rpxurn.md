@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2321]
     sentence_count: 15
     key_terms: [something, functionality, "i'm", account, transactions, budgeting, important, recurring]
+    concepts: [something, functionality, transactions, account, budgeting]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1rpxurn/im_looking_for_some_tracking_functionality_zero/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1rpxurn.md#c1"
-    char_span: [2323, 3601]
+    char_span: [2323, 3600]
     sentence_count: 8
     key_terms: [personalfinance, spreadsheet, budgeting, balance, look, cashflow, running, tools]
+    concepts: [personalfinance, spreadsheet, budgeting, balance, cashflow]
     section: Comments
     token_count: 302
 ---

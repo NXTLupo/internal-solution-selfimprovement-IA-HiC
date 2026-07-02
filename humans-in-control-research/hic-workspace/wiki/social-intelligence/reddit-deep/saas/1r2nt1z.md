@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1630]
     sentence_count: 5
     key_terms: [free, seo, platform, websites, content, aeo, year, automation]
+    concepts: [platform, websites, content, automation, competitor]
     token_count: 381
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1r2nt1z/built_an_seo_aeo_geo_automation_platform_giving/"}]
   - id: "social-intelligence/reddit-deep/saas/1r2nt1z.md#c1"
-    char_span: [1645, 3410]
+    char_span: [1644, 3409]
     sentence_count: 9
     key_terms: [mathematiciansure210, password, cancel, google, enter, login, free, account]
+    concepts: [mathematiciansure210, password, cancel, google, enter]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/saas/1r2nt1z.md#c2"
-    char_span: [3412, 4322]
+    char_span: [3411, 4321]
     sentence_count: 2
     key_terms: [mathematiciansure210, subscription, check, like, sent, fun-pirate192, indiannajobs, sixxtynoine]
+    concepts: [mathematiciansure210, subscription, check]
     section: Comments
     token_count: 257
 ---

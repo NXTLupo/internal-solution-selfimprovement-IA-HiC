@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 801]
     sentence_count: 6
     key_terms: [college, education, comments, mental, malaysiahemphill, self-education, environment, reddit-deep]
+    concepts: [college, education, comments, mental]
     token_count: 204
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1oltiom/i_wish_i_could_afford_college_on_my_own/"}]
   - id: "social-intelligence/reddit-deep/college/1oltiom.md#c1"
     char_span: [815, 2030]
     sentence_count: 12
     key_terms: [free, state, years, https, community, colleges, stanford, classes]
+    concepts: [state, years, https, community, colleges]
     section: Comments
     token_count: 317
 ---

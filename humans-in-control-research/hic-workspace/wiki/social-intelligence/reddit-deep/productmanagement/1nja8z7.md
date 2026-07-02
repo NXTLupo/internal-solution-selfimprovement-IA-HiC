@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 2168]
     sentence_count: 11
     key_terms: [governance, product, security, unstructured, enterprise, productmanagement, data, use]
+    concepts: [governance, product, security, unstructured, enterprise]
     token_count: 490
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1nja8z7/how_do_you_level_up_fast_on_ai/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1nja8z7.md#c1"
     char_span: [2170, 2430]
     sentence_count: 2
     key_terms: [requirements, especially, governance, artifacts, learnings, resources, templates, translate]
+    concepts: [requirements]
     token_count: 48
   - id: "social-intelligence/reddit-deep/productmanagement/1nja8z7.md#c2"
-    char_span: [2445, 4576]
+    char_span: [2444, 4575]
     sentence_count: 15
     key_terms: [data, governance, questions, get, legal, start, specialists, need]
+    concepts: [governance, questions, specialists, experience, legal]
     section: Comments
     token_count: 479
 ---

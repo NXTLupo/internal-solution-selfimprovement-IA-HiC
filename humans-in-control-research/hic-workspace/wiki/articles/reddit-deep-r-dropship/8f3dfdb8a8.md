@@ -19,14 +19,17 @@ content_hash: "e12685bc2ebe3216"
 relevance_by_goal: {"490684cfa204":30}
 chunks:
   - id: "articles/reddit-deep-r-dropship/8f3dfdb8a8.md#c0"
-    char_span: [0, 1573]
+    char_span: [0, 1572]
     sentence_count: 12
     key_terms: [dropship, dropshipping, time, comments, want, customers, approach, pjmg2020]
-    token_count: 374
+    concepts: [dropship, dropshipping, comments, customers, approach]
+    token_count: 373
+    sources: [{"n":"Reddit Deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1spnx0c/long_time_dropshipping/"}]
   - id: "articles/reddit-deep-r-dropship/8f3dfdb8a8.md#c1"
-    char_span: [1575, 2359]
+    char_span: [1574, 2358]
     sentence_count: 3
     key_terms: [store, long, collecting, customers, building, presence, email, been]
+    concepts: [collecting, store, customers, building, presence]
     token_count: 185
 ---
 # Long time dropshipping?

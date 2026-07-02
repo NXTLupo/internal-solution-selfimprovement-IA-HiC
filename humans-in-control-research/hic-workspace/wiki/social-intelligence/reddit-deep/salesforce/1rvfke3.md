@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1426]
     sentence_count: 3
     key_terms: [builder, field, changes, journey, record, case, "it's", new]
+    concepts: [builder, field, changes, journey, record]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1rvfke3.md#c1"]
     token_count: 328
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1rvfke3/question_regarding_journy_builder_in_marketing/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1rvfke3.md#c1"
-    char_span: [1441, 2233]
+    char_span: [1440, 2232]
     sentence_count: 4
     key_terms: [criteria, entry, journey, closed, changes, created, updated, record]
+    concepts: [criteria, entry, journey, closed, changes]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1rvfke3.md#c0"]
     section: Comments
     token_count: 184
 ---

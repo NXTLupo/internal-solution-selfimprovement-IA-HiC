@@ -20,63 +20,79 @@ chunks:
     char_span: [0, 1923]
     sentence_count: 13
     key_terms: [insurance, urgent, bill, care, get, pay, af534778363c5172119468e04c53fb0187049b31, healthinsurance]
+    concepts: [insurance, urgent, healthinsurance, ankle, deductible]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c8", "social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c9"]
     token_count: 486
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1ohh6i5/a_never_ending_300_bill_the_horror_of_trying_to/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c1"
     char_span: [1925, 3783]
     sentence_count: 24
     key_terms: [claim, visit, rep, call, minutes, urgent, information, care]
+    concepts: [claim, visit, minutes, urgent, information]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c8", "social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c9"]
     token_count: 432
   - id: "social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c2"
     char_span: [3785, 5437]
     sentence_count: 13
     key_terms: [encounter, right, initial, s93401a-sprain, unspecified, s93601a-unspecified, code, ligament]
+    concepts: [encounter, initial, right, s93401a-sprain, s93601a-unspecified]
     token_count: 368
   - id: "social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c3"
-    char_span: [5452, 6615]
+    char_span: [5451, 6614]
     sentence_count: 3
     key_terms: [please, solicitation, healthinsurance, reddit, https, com, post, www]
+    concepts: [please, solicitation, healthinsurance, reddit, https]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c4"
-    char_span: [6618, 7701]
+    char_span: [6617, 7700]
     sentence_count: 9
     key_terms: [coinsurance, eob, additional, deductible, diagnosis, emergency, charges, recent-tadpole-3232]
+    concepts: [coinsurance, additional, deductible, diagnosis, emergency]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c5"
-    char_span: [7703, 9748]
+    char_span: [7702, 9747]
     sentence_count: 16
     key_terms: [service, place, because, office, recent-tadpole-3232, visit, emergency, care]
+    concepts: [service, place, recent-tadpole-3232, because, office]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c6"
-    char_span: [9488, 10282]
+    char_span: [9487, 10281]
     sentence_count: 7
     key_terms: [recent-tadpole-3232, insurance, charge, copay, visit, x-ray, incomprehensible, lizziemac123]
+    concepts: [recent-tadpole-3232, insurance, charge, copay, visit]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c7"
-    char_span: [10284, 11606]
+    char_span: [10283, 11605]
     sentence_count: 9
     key_terms: [appeal, plan, claim, fluffybunny1812, problem, agency, denied, review]
+    concepts: [appeal, claim, fluffybunny1812, problem, agency]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c8"
-    char_span: [11609, 13127]
+    char_span: [11608, 13126]
     sentence_count: 7
     key_terms: [benefit, care, urgent, visit, deductible, clinic, office, claim]
+    concepts: [benefit, urgent, visit, deductible, clinic]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c0", "social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c1"]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c9"
-    char_span: [13129, 15174]
+    char_span: [13128, 15173]
     sentence_count: 12
     key_terms: [urgent, care, insurance, claim, diagnosis, medical-bill-trap, nytimes, office]
+    concepts: [urgent, insurance, claim, medical-bill-trap, diagnosis]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c0", "social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c1"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/healthinsurance/1ohh6i5.md#c10"
-    char_span: [15176, 16118]
+    char_span: [15175, 16117]
     sentence_count: 6
     key_terms: [deductible, department, explain, billed, visits, recent-tadpole-3232, get, year]
+    concepts: [deductible, department, explain, billed, visits]
     section: Comments
     token_count: 216
 ---

@@ -7,49 +7,67 @@ subreddit: "financialcareers"
 title: "Advice on Roles in Charlotte NC"
 author: "fdlock"
 date: "2025-12-18T17:20:09.000Z"
-score: 16
-upvote_ratio: 0.81
-num_comments: 42
+score: 17
+upvote_ratio: 0.84
+num_comments: 44
 flair: "Career Progression"
-extracted_at: "2026-06-11T18:58:14.078Z"
+extracted_at: "2026-06-29T14:40:16.486Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Define the 2026 \"state of the Art\" operational and technological benchmarks for \"The State of Data & Distribution in Asset Management\". Synthesize key developments across data infrastructure, distribution enablement, and AI governance frameworks to identify leading industry capabilities and compliance standards."
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
 chunks:
   - id: "social-intelligence/reddit-deep/financialcareers/1ppwg5k.md#c0"
     char_span: [0, 1348]
     sentence_count: 8
     key_terms: [roles, charlotte, financialcareers, relationship, comments, planning, anyone, london]
+    concepts: [financialcareers, charlotte, roles, relationship, comments]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1ppwg5k.md#c1"]
     token_count: 311
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1ppwg5k/advice_on_roles_in_charlotte_nc/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1ppwg5k.md#c1"
-    char_span: [1363, 3562]
+    char_span: [1362, 3561]
     sentence_count: 18
     key_terms: [banking, charlotte, cfa, financialcareers, discord, trading, professionals, banks]
+    concepts: [banking, charlotte, financialcareers, professionals, discord]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1ppwg5k.md#c0", "social-intelligence/reddit-deep/financialcareers/1ppwg5k.md#c4", "social-intelligence/reddit-deep/financialcareers/1ppwg5k.md#c5"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/financialcareers/1ppwg5k.md#c2"
-    char_span: [3564, 5820]
+    char_span: [3563, 5819]
     sentence_count: 22
     key_terms: [charlotte, office, like, nyc, consider, people, professional, bank]
+    concepts: [charlotte, office, consider, professional, people]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1ppwg5k.md#c5"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/financialcareers/1ppwg5k.md#c3"
-    char_span: [5822, 7801]
+    char_span: [5821, 7800]
     sentence_count: 18
     key_terms: [charlotte, private, equity, nyc, place, furthermore, business, bankers]
+    concepts: [charlotte, private, equity, furthermore, place]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/financialcareers/1ppwg5k.md#c4"
-    char_span: [7803, 9792]
-    sentence_count: 16
-    key_terms: [charlotte, banking, office, wells, finance, banks, front, nyc]
+    char_span: [7802, 8981]
+    sentence_count: 12
+    key_terms: [banking, charlotte, finance, banks, business, majority, office, people]
+    concepts: [banking, charlotte, finance, banks, business]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1ppwg5k.md#c1", "social-intelligence/reddit-deep/financialcareers/1ppwg5k.md#c5"]
     section: Comments
-    token_count: 487
+    token_count: 267
+  - id: "social-intelligence/reddit-deep/financialcareers/1ppwg5k.md#c5"
+    char_span: [8983, 10494]
+    sentence_count: 11
+    key_terms: [charlotte, get, presence, banking, looking, office, salary, hopelesspanthersfan]
+    concepts: [charlotte, presence, banking, looking, office]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1ppwg5k.md#c1", "social-intelligence/reddit-deep/financialcareers/1ppwg5k.md#c2", "social-intelligence/reddit-deep/financialcareers/1ppwg5k.md#c4"]
+    section: Comments
+    token_count: 391
 ---
 # Advice on Roles in Charlotte NC
 
 Source: [reddit-deep: r/financialcareers](https://www.reddit.com/r/FinancialCareers/comments/1ppwg5k/advice_on_roles_in_charlotte_nc/)
-Posted by **fdlock** · **16↑** · **42 comments**
+Posted by **fdlock** · **17↑** · **44 comments**
 
 I’m planning on moving to Charlotte NC from London, UK in C. 2 years mainly due to my American Wife wanting to move back home to be nearer her family. 
 
@@ -68,13 +86,13 @@ Thanks in advance!
 - **AutoModerator** (1↑): Consider joining the r/FinancialCareers official discord server using this [discord invite link](https://discord.gg/dgpTdUseQv). Our professionals here are looking to network and support each other as we all go through our career journey. We have full-time professionals from IB, PE, HF, Prop trading, Corporate Banking, Corp Dev, FP&A, and more. There are also students who are returning full-time Analysts after receiving return offers, as well as veterans who have transitioned into finance/banking after their military service.
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/FinancialCareers) if you have any questions or concerns.*
-- **finleet** (11↑): The CFA is pretty saturated now and since data is beautiful a great site to see is the CFA membership directory. Of the 190k CFA charter holders 84k are from the U.S. Narrowing it down further 12k are from ny, 2410 from Chicago and only 981 from charlotte. 
+- **finleet** (12↑): The CFA is pretty saturated now and since data is beautiful a great site to see is the CFA membership directory. Of the 190k CFA charter holders 84k are from the U.S. Narrowing it down further 12k are from ny, 2410 from Chicago and only 981 from charlotte. 
 
 With your specific background and Charlotte being heavily overweighted in banking I’d suggest looking into treasury roles. It’s niche, pays very well where you move up the ranks and instead of spending 3 years on the CFA you can look into the CTP. Wanted to offer you alternatives in case that was an option you hadn’t considered before. 
 
 Charlotte is a wonderful city with some great food so hope you enjoy the move.
-- **711SushiChef** (6↑): Probably lots of commercial banking work
-- **boroughthoughts** (3↑): I lived in Charlotte. I honestly think its the end of your current career. Many Banks do have a large presence in Charlotte. Especially Wells Fargo and Bank of America, but what is going there is the operations center for those companies not front office finance and especially not sales/trading. Like the type of jobs that are there would be risk management, audit, training level front office jobs, commercial banking etc. This is not where any work involving securities or trading is going to be centered. Definitely not investment banking, beyond some entry level training programs. Most of the banks that are going there are predominantly RETAIL banks.
+- **711SushiChef** (4↑): Probably lots of commercial banking work
+- **boroughthoughts** (1↑): I lived in Charlotte. I honestly think its the end of your current career. Many Banks do have a large presence in Charlotte. Especially Wells Fargo and Bank of America, but what is going there is the operations center for those companies not front office finance and especially not sales/trading. Like the type of jobs that are there would be risk management, audit, training level front office jobs, commercial banking etc. This is not where any work involving securities or trading is going to be centered. Definitely not investment banking, beyond some entry level training programs. Most of the banks that are going there are predominantly RETAIL banks.
 
 Mainly USAA, Truist, US Bank, Fifth Third, Regions all maintain presence there. Some foreign banks are moving some back office operations there like Toronto Dominion, MUFG, SMBC.
 
@@ -112,5 +130,11 @@ You strike me as quite junior in your career. Like probably less than two years 
 Also: reading through the comments here, I see a lot of discouraging things said about Charlotte. It’s a unique, southern city. The banking scene is what I would call average. There are a lot of boutique IBs and some small trading shops that are worth exploring but if you’re looking at BOA or wells it’ll most likely be a middle office role.
   - **[deleted]** (1↑): Most of BofA/WF presence in charlotte is BO/MO but their presence in charlotte is huge so there’s still a ton of front office roles at both. and they pay the same as NYC (which I think is ridiculous tbh)
   - **Thespace-cadet** (1↑): Pm sent
+  - **Used-Motor** (1↑): Are you genuinely happy doing what you do? I’m majoring in finance, I don’t know if I wanna work in a bank, sales or accounting. I honestly don’t know anything or any positions. How did you get to the level your at and what’s your salary
+    - **HopelessPanthersFan** (1↑): Yeah very happy with what I do. I solve pretty complex problems for very interesting companies, which scratches my intellectual curiosity itch
+
+Definitely had to jump around a decent amount to get where I am, but if I had to give advice it would be to stick at first company out of college for at least 3-5 years. It build credibility. But also know your worth 
+
+Salary is more than 150k, less than 200k
 - **sadvillain94** (1↑): Looking to get into BofA truist capital one commercial banking if any hiring managers are on here? I left Wells in March
 - **Wank3r88** (1↑): Also look at roles at TIAA/nuveen

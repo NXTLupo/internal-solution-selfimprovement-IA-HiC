@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 2102]
     sentence_count: 3
     key_terms: [rejection, applyingtocollege, rejected, writing, school, being, maybe, like]
+    concepts: [applyingtocollege, rejection, rejected, writing, school]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1pljyug/my_first_rejection_stanford/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c1"
     char_span: [2104, 3620]
     sentence_count: 5
     key_terms: [weeeeoooowwwweeeeoooowwweeeeoooowwweeeoooowww, college, essays, fun, group, best, like, possibilities]
+    concepts: [college, essays, group]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c2"
     char_span: [3622, 5397]
     sentence_count: 15
     key_terms: [got, yujimine, please, school, absolutely, yesterday, positive, laugh]
+    concepts: [yujimine, please, school, absolutely, yesterday]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c3"
@@ -42,18 +46,21 @@ chunks:
     char_span: [5626, 6206]
     sentence_count: 2
     key_terms: [school, end, choose, "you'll", "it's", too, "transferring's", appreciate]
+    concepts: [school, choose, "you'll"]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c5"
     char_span: [6208, 7863]
     sentence_count: 12
     key_terms: [yujimine, muhkteska, future-break-7395, rejected, bro, get, accomplish, university]
+    concepts: [yujimine, future-break-7395, muhkteska, rejected, accomplish]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c6"
     char_span: [7616, 9516]
     sentence_count: 6
     key_terms: [essays, like, rejected, application, put, applying, semester, stanford]
+    concepts: [essays, rejected, application, applying, semester]
     section: Comments
     token_count: 455
 ---

@@ -19,53 +19,70 @@ chunks:
     char_span: [0, 1247]
     sentence_count: 7
     key_terms: [professor, students, comments, college, lecture, order, rantingonstupidity, get]
+    concepts: [professor, students, comments, college, lecture]
     token_count: 278
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1t6vu1l/when_they_say_get_to_know_your_professor_how_the/"}]
   - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c1"
     char_span: [1261, 2718]
     sentence_count: 13
     key_terms: [professors, hours, office, relationships, students, "haven't", "don't", rantingonstupidity]
+    concepts: [professors, hours, office, relationships, students]
+    related_chunks: ["social-intelligence/reddit-deep/college/1t6vu1l.md#c2", "social-intelligence/reddit-deep/college/1t6vu1l.md#c6", "social-intelligence/reddit-deep/college/1t6vu1l.md#c8"]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c2"
     char_span: [2720, 4823]
     sentence_count: 18
     key_terms: [professor, office, philosophy, hours, doing, able, keep, like]
+    concepts: [professor, philosophy, office, hours, doing]
+    related_chunks: ["social-intelligence/reddit-deep/college/1t6vu1l.md#c1", "social-intelligence/reddit-deep/college/1t6vu1l.md#c6", "social-intelligence/reddit-deep/college/1t6vu1l.md#c8"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c3"
     char_span: [4825, 6269]
     sentence_count: 11
     key_terms: [class, material, doing, students, already, content, office, hours]
+    concepts: [class, material, doing, students, already]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c4"
     char_span: [6271, 8072]
     sentence_count: 15
     key_terms: [professors, rantingonstupidity, professor, "they're", manydoorsyes, being, get, late]
+    concepts: [professors, rantingonstupidity, professor, "they're", manydoorsyes]
+    related_chunks: ["social-intelligence/reddit-deep/college/1t6vu1l.md#c5"]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c5"
     char_span: [8074, 9470]
     sentence_count: 6
     key_terms: [professors, professor, easier, class, get, "i'm", something, classes]
+    concepts: [professors, professor, easier, class, something]
+    related_chunks: ["social-intelligence/reddit-deep/college/1t6vu1l.md#c4", "social-intelligence/reddit-deep/college/1t6vu1l.md#c7"]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c6"
     char_span: [9472, 10450]
     sentence_count: 13
     key_terms: [office, hours, like, questions, rantingonstupidity, ask, etc, yap]
+    concepts: [office, hours, questions]
+    related_chunks: ["social-intelligence/reddit-deep/college/1t6vu1l.md#c1", "social-intelligence/reddit-deep/college/1t6vu1l.md#c2", "social-intelligence/reddit-deep/college/1t6vu1l.md#c8"]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c7"
     char_span: [10452, 12389]
     sentence_count: 10
     key_terms: [professors, yourself, people, class, "don't", get, professor, questions]
+    concepts: [professors, yourself, people, class, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/college/1t6vu1l.md#c5", "social-intelligence/reddit-deep/college/1t6vu1l.md#c8"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c8"
     char_span: [12391, 13997]
     sentence_count: 15
     key_terms: [professors, hours, office, because, "don't", community, students, teaching]
+    concepts: [professors, hours, office, because, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/college/1t6vu1l.md#c1", "social-intelligence/reddit-deep/college/1t6vu1l.md#c2", "social-intelligence/reddit-deep/college/1t6vu1l.md#c6", "social-intelligence/reddit-deep/college/1t6vu1l.md#c7"]
     section: Comments
     token_count: 336
 ---

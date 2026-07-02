@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 941]
     sentence_count: 5
     key_terms: [internships, internship, advice, comments, projects, morocco, student, master]
+    concepts: [internships, internship, advice, comments, projects]
     token_count: 225
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rp0xmd/aiml_internship_advice_for_summer_2026_masters/"}]
 ---
 # AI/ML Internship – Advice for Summer 2026 (Master’s student)
 

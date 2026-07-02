@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 954]
     sentence_count: 10
     key_terms: [wallet, bitlock, comments, metamask, recently, anyone, built, https]
+    concepts: [wallet, bitlock, comments, metamask, recently]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1nxcfbi.md#c1"]
     token_count: 222
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1nxcfbi/anyone_using_bitlock_wallet/"}]
   - id: "social-intelligence/reddit-deep/defi/1nxcfbi.md#c1"
-    char_span: [969, 2361]
+    char_span: [968, 2360]
     sentence_count: 12
     key_terms: [bitlock, wallet, using, like, metamask, months, dependent-wafer1372, funds]
+    concepts: [bitlock, wallet, using, metamask, months]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1nxcfbi.md#c0"]
     section: Comments
     token_count: 367
 ---

@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 2126]
     sentence_count: 17
     key_terms: [generated, game, built, html, playable, prompts, through, first-person]
+    concepts: [generated, built, playable, prompts, through]
     token_count: 442
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1recjbv/i_built_a_fully_playable_fps_using_only_prompts/"}]
   - id: "social-intelligence/reddit-deep/artificial/1recjbv.md#c1"
     char_span: [2140, 4114]
     sentence_count: 16
     key_terms: [futuristocrat, programming, myuninhibitedself, html, computer, language, coding, pretty]
+    concepts: [futuristocrat, programming, myuninhibitedself, computer, language]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1recjbv.md#c2"
     char_span: [3879, 5071]
     sentence_count: 4
     key_terms: [futuristocrat, creation, floopm, ultra, code, cost, professionally, theagentledger]
+    concepts: [futuristocrat, creation, floopm, ultra]
     section: Comments
     token_count: 280
   - id: "social-intelligence/reddit-deep/artificial/1recjbv.md#c3"
@@ -44,12 +48,14 @@ chunks:
     char_span: [5221, 7335]
     sentence_count: 7
     key_terms: [limit, futuristocrat, game, code, theagentledger, lines, token, html]
+    concepts: [futuristocrat, limit, theagentledger, lines, token]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1recjbv.md#c5"
     char_span: [7050, 8051]
     sentence_count: 8
     key_terms: [game, bloodmosshunter, phone, something, physics, code, hard, html]
+    concepts: [bloodmosshunter, phone, something, physics]
     section: Comments
     token_count: 240
 ---

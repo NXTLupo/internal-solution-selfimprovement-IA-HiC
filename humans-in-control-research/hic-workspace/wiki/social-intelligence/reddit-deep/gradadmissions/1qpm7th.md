@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 672]
     sentence_count: 5
     key_terms: [gradadmissions, currently, comments, research, truly, lab, n-heterocycle, reddit-deep]
+    concepts: [gradadmissions, currently, comments, research, truly]
     token_count: 158
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qpm7th/grad_school_research/"}]
 ---
 # Grad school research
 

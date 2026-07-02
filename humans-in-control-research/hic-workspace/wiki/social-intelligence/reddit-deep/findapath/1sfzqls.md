@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1520]
     sentence_count: 15
     key_terms: [degree, findapath, something, anything, comments, because, college, getting]
+    concepts: [degree, findapath, something, anything, comments]
     token_count: 349
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1sfzqls/got_a_silly_degree_because_i_didnt_expect_to_be/"}]
   - id: "social-intelligence/reddit-deep/findapath/1sfzqls.md#c1"
     char_span: [1534, 3669]
     sentence_count: 15
     key_terms: [thank, everyone, helpful, advice, please, community, findapath, practical]
+    concepts: [thank, everyone, helpful, advice, please]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/findapath/1sfzqls.md#c2"
     char_span: [3671, 5338]
     sentence_count: 19
     key_terms: [get, example, wanted, local, healthcare, leveraged, positions, clinics]
+    concepts: [example, wanted, healthcare, local, leveraged]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/findapath/1sfzqls.md#c3"
     char_span: [5340, 6608]
     sentence_count: 15
     key_terms: [justrandom119, local, always, internetnavigator23, maybe, small, start, bar]
+    concepts: [justrandom119, local, always, maybe, small]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/findapath/1sfzqls.md#c4"
     char_span: [6610, 8622]
     sentence_count: 17
     key_terms: [because, nevada, justrandom119, bathroom, together, cheaper, getting, making]
+    concepts: [justrandom119, because, nevada, bathroom, together]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/findapath/1sfzqls.md#c5"

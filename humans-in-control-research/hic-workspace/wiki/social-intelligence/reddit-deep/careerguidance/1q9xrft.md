@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1992]
     sentence_count: 14
     key_terms: [careerguidance, enjoy, felt, accounting, automation, interested, designing, comments]
+    concepts: [careerguidance, accounting, automation, enjoy, interested]
     token_count: 474
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1q9xrft/18m_india_pcm_background_confused_between_tech/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1q9xrft.md#c1"
     char_span: [1994, 4483]
     sentence_count: 5
     key_terms: [leadership, people, power, long-term, don, want, impact, cybersecurity]
+    concepts: [leadership, people, power, long-term, cybersecurity]
     token_count: 508
   - id: "social-intelligence/reddit-deep/careerguidance/1q9xrft.md#c2"
     char_span: [4486, 4766]

@@ -21,46 +21,59 @@ chunks:
     char_span: [0, 1830]
     sentence_count: 15
     key_terms: ["i'm", undergrad, bosses, big, gre, tech, coursework, gradschool]
+    concepts: [undergrad, bosses, coursework, gradschool, different]
     token_count: 438
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1ppytgc/gre_not_accepted_anymore_so_how_can_i_balance_out/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c1"
     char_span: [1832, 2232]
     sentence_count: 3
     key_terms: ["don't", accept, prove, gre, demonstrate, dejected, material, mistakes]
+    concepts: ["don't", accept, prove]
     token_count: 93
   - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c2"
     char_span: [2246, 4228]
     sentence_count: 12
     key_terms: [experience, gpa, programs, research, program, schools, school, demonstrate]
+    concepts: [experience, programs, research, program, schools]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ppytgc.md#c3", "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c4", "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c7"]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c3"
     char_span: [4230, 5963]
     sentence_count: 12
     key_terms: [experience, statement, research, purpose, personal, get, sure, something]
+    concepts: [experience, statement, research, purpose, personal]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ppytgc.md#c2", "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c4"]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c4"
     char_span: [5965, 8150]
     sentence_count: 20
     key_terms: [research, good, program, don, experience, admitted, planning, probably]
+    concepts: [research, program, experience, admitted, planning]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ppytgc.md#c2", "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c3", "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c7"]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c5"
     char_span: [8152, 10105]
     sentence_count: 13
     key_terms: [c159cc55-b4ad-730f-9d45-7abfef0d8feb, experience, lowiqtrader, iamanairplaneiswear, gre, optional, program-info, standardized]
+    concepts: [c159cc55-b4ad-730f-9d45-7abfef0d8feb, experience, iamanairplaneiswear, lowiqtrader, optional]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c6"
     char_span: [9900, 10373]
     sentence_count: 4
     key_terms: [experience, ad-730f-9d45-7abfef0d8feb, relevant, never, gre, publications, lowiqtrader, difference]
+    concepts: [experience, relevant, never]
     section: Comments
     token_count: 137
   - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c7"
     char_span: [10375, 12667]
     sentence_count: 5
     key_terms: [program, research, people, get, programs, writing, good, sop]
+    concepts: [program, research, people, programs, writing]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ppytgc.md#c2", "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c4"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c8"

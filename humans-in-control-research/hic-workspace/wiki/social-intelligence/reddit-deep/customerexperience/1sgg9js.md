@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1405]
     sentence_count: 8
     key_terms: [orchestration, customer, experience, customerexperience, channels, across, ccaas, resolution]
+    concepts: [orchestration, customer, experience, customerexperience, channels]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1sgg9js.md#c1"]
     token_count: 289
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1sgg9js/is_customer_experience_orchestration_actually/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1sgg9js.md#c1"
-    char_span: [1420, 2799]
+    char_span: [1419, 2798]
     sentence_count: 11
     key_terms: [data, orchestration, customer, journey, clean, channels, because, usually]
+    concepts: [orchestration, customer, journey, clean, channels]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1sgg9js.md#c0"]
     section: Comments
     token_count: 279
 ---

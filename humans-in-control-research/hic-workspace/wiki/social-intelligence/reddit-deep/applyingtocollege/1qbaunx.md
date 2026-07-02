@@ -19,29 +19,38 @@ chunks:
     char_span: [0, 1000]
     sentence_count: 9
     key_terms: [williams, applyingtocollege, school, comments, decision, college, unlikely-but-possible, pre-professionalism]
+    concepts: [williams, applyingtocollege, school, comments, decision]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c3"]
     token_count: 237
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1qbaunx/did_i_make_a_mistake_in_my_college_choice/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c1"
     char_span: [1014, 2090]
     sentence_count: 9
     key_terms: [williams, school, financial, likely, people, going, etc, got]
+    concepts: [williams, school, financial, likely, people]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c3"]
     section: Comments
     token_count: 250
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c2"
     char_span: [2092, 4235]
     sentence_count: 26
     key_terms: [williams, architecture, heard, conversation, great, got, transfer, amazing]
+    concepts: [williams, architecture, heard, conversation, great]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c3"
     char_span: [4237, 6284]
     sentence_count: 14
     key_terms: [school, went, people, williams, hour-lab140, flamingoordinary2965, cambridge, because]
+    concepts: [school, people, williams, flamingoordinary2965, hour-lab140]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c1"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c4"
     char_span: [6286, 6888]
     sentence_count: 6
     key_terms: [thought, admirable-pie-7731, don, fit, yale, competitive, opportunity, recognition]
+    concepts: [thought]
     section: Comments
     token_count: 142
 ---

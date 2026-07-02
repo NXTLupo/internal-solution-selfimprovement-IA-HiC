@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1621]
     sentence_count: 13
     key_terms: [get, financial, like, financialcareers, files, hours, cfa, sure]
+    concepts: [financialcareers, financial, curriculum, files, hours]
     token_count: 375
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1revlea/will_i_see_much_upside_getting_cfa_if_already/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1revlea.md#c1"
-    char_span: [1636, 2682]
+    char_span: [1635, 2681]
     sentence_count: 6
     key_terms: [financialcareers, discord, professionals, full-time, banking, automatically, automoderator, transitioned]
+    concepts: [financialcareers, professionals, discord, full-time, banking]
     section: Comments
     token_count: 232
   - id: "social-intelligence/reddit-deep/financialcareers/1revlea.md#c2"
-    char_span: [2684, 4668]
+    char_span: [2683, 4667]
     sentence_count: 11
     key_terms: [something, cfa, get, role, johyongil, feasible, honestly, material]
+    concepts: [something, johyongil, feasible, honestly, material]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/financialcareers/1revlea.md#c3"
-    char_span: [4670, 6523]
+    char_span: [4669, 6522]
     sentence_count: 19
     key_terms: [like, miningtosavetheworld, cfa, want, access, get, need, already]
+    concepts: [miningtosavetheworld, access, already, careers, charter]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/financialcareers/1revlea.md#c4"
-    char_span: [6525, 7966]
+    char_span: [6524, 7965]
     sentence_count: 11
     key_terms: [good, performance, job, something, getting, degree, people, trying]
+    concepts: [performance, something, getting, degree, people]
     section: Comments
     token_count: 319
 ---

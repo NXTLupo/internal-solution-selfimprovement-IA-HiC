@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1239]
     sentence_count: 10
     key_terms: [e-commerce, problems, product, ecommerce, logistics, comments, delivery, pricing]
+    concepts: [e-commerce, problems, product, ecommerce, logistics]
     token_count: 283
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1nspklg/ai_in_ecommerce_solving_problems_customers_dont/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1nspklg.md#c1"
-    char_span: [1254, 3447]
+    char_span: [1253, 3446]
     sentence_count: 18
     key_terms: [discount, people, initiatives, "it's", use, duplicate, investors, platform]
+    concepts: [discount, people, initiatives, duplicate, investors]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/ecommerce/1nspklg.md#c2"
-    char_span: [3449, 5349]
+    char_span: [3448, 5348]
     sentence_count: 12
     key_terms: [people, greenbathmat57, "don't", developers, marketing, customer, better, enough]
+    concepts: [people, greenbathmat57, developers, "don't", marketing]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/ecommerce/1nspklg.md#c3"
-    char_span: [5351, 7503]
+    char_span: [5350, 7502]
     sentence_count: 12
     key_terms: [order, backend, rather, fulfillment, time, management, customers, marketing]
+    concepts: [order, backend, rather, fulfillment, management]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/ecommerce/1nspklg.md#c4"
-    char_span: [7505, 9141]
+    char_span: [7504, 9140]
     sentence_count: 14
     key_terms: [companies, able, generate, people, understand, leverage, however, money]
+    concepts: [companies, generate, people, understand, leverage]
     section: Comments
     token_count: 331
 ---

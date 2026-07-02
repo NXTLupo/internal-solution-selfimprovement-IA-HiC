@@ -19,16 +19,22 @@ chunks:
     char_span: [0, 1930]
     sentence_count: 19
     key_terms: [certificate, college, "you've", year, unless, participating, "i'm", lab]
+    concepts: [certificate, college, "you've", participating, unless]
     token_count: 444
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lsxgou/really_dont_know_what_to_do_in_college_2_years/"}]
   - id: "social-intelligence/reddit-deep/college/1lsxgou.md#c1"
     char_span: [1932, 4242]
     sentence_count: 29
     key_terms: [experience, organization, friends, been, "i'm", keep, lab, hardware]
+    concepts: [experience, organization, friends, hardware, because]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lsxgou.md#c2"]
     token_count: 506
   - id: "social-intelligence/reddit-deep/college/1lsxgou.md#c2"
     char_span: [4247, 5426]
     sentence_count: 15
     key_terms: ["don't", collaborate, hardware, organization, test, portfolio, progress, "there's"]
+    concepts: ["don't", collaborate, hardware, organization, portfolio]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lsxgou.md#c1"]
     token_count: 270
 ---
 # Really don't know what to do in college, 2 years remaining

@@ -20,29 +20,40 @@ chunks:
     char_span: [0, 1174]
     sentence_count: 7
     key_terms: [stewardship, emails, event, nonprofit, fundraising, been, marketing, comments]
+    concepts: [stewardship, emails, nonprofit, event, fundraising]
+    related_chunks: ["social-intelligence/reddit-deep/nonprofit/1nv1e6f.md#c1", "social-intelligence/reddit-deep/nonprofit/1nv1e6f.md#c2", "social-intelligence/reddit-deep/nonprofit/1nv1e6f.md#c4"]
     token_count: 259
+    sources: [{"n":"reddit-deep: r/nonprofit","u":"https://www.reddit.com/r/nonprofit/comments/1nv1e6f/event_emails_stewardship/"}]
   - id: "social-intelligence/reddit-deep/nonprofit/1nv1e6f.md#c1"
-    char_span: [1189, 3109]
+    char_span: [1188, 3108]
     sentence_count: 15
     key_terms: [stewardship, success, messages, event, "we're", specific, because, example]
+    concepts: [stewardship, success, messages, event, "we're"]
+    related_chunks: ["social-intelligence/reddit-deep/nonprofit/1nv1e6f.md#c0"]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/nonprofit/1nv1e6f.md#c2"
-    char_span: [3111, 5305]
+    char_span: [3110, 5304]
     sentence_count: 20
     key_terms: [emails, stewardship, donors, impact, kajinokage, donor, event, been]
+    concepts: [emails, stewardship, kajinokage, donors, impact]
+    related_chunks: ["social-intelligence/reddit-deep/nonprofit/1nv1e6f.md#c0", "social-intelligence/reddit-deep/nonprofit/1nv1e6f.md#c3", "social-intelligence/reddit-deep/nonprofit/1nv1e6f.md#c4"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/nonprofit/1nv1e6f.md#c3"
-    char_span: [5307, 6677]
+    char_span: [5306, 6676]
     sentence_count: 14
     key_terms: [stewardship, ask, cashmeresquirrel, donor, kajinokage, always, great, lower]
+    concepts: [stewardship, cashmeresquirrel, donor, kajinokage, always]
+    related_chunks: ["social-intelligence/reddit-deep/nonprofit/1nv1e6f.md#c2"]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/nonprofit/1nv1e6f.md#c4"
-    char_span: [6679, 8888]
+    char_span: [6678, 8887]
     sentence_count: 14
     key_terms: [stewardship, emails, donors, description, toastydantastic, segment, communications, "that's"]
+    concepts: [stewardship, emails, donors, description, toastydantastic]
+    related_chunks: ["social-intelligence/reddit-deep/nonprofit/1nv1e6f.md#c0", "social-intelligence/reddit-deep/nonprofit/1nv1e6f.md#c2"]
     section: Comments
     token_count: 482
 ---

@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1114]
     sentence_count: 7
     key_terms: [college, applyingtocollege, freshman, school, high, "i'm", professors, comments]
+    concepts: [college, applyingtocollege, freshman, school, professors]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1orig41.md#c1"]
     token_count: 254
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1orig41/lor_for_us_cs_freshman_application_college_or/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1orig41.md#c1"
     char_span: [1128, 2375]
     sentence_count: 6
     key_terms: [freshman, college, apply, graduating, research, already, started, option]
+    concepts: [freshman, college, apply, graduating, research]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1orig41.md#c0"]
     section: Comments
     token_count: 317
 ---

@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1092]
     sentence_count: 7
     key_terms: [chargeback, customers, ecommerce, comments, thinking, reduce, don, like]
+    concepts: [chargeback, customers, ecommerce, comments, thinking]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1p08huk.md#c1"]
     token_count: 241
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1p08huk/thinking_of_building_chargeback_prevention_into/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1p08huk.md#c1"
-    char_span: [1107, 2968]
+    char_span: [1106, 2967]
     sentence_count: 13
     key_terms: [chargeback, prevention, absolutely, customers, making, points, "what's", email]
+    concepts: [chargeback, prevention, absolutely, customers, making]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1p08huk.md#c0"]
     section: Comments
     token_count: 397
 ---

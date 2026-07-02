@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 897]
     sentence_count: 4
     key_terms: [opportunities, internships, science, data, internship, comments, looking, student]
+    concepts: [opportunities, internships, science, internship, comments]
     token_count: 206
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1s3eccz/looking_for_ml_data_science_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1s3eccz.md#c1"
     char_span: [911, 1112]
     sentence_count: 1
     key_terms: [okcranberry7013, interveiws, anything, getting, gunuine, looking, bubble, people]
+    concepts: [okcranberry7013]
     section: Comments
     token_count: 68
 ---

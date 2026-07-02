@@ -20,22 +20,27 @@ chunks:
     char_span: [0, 2291]
     sentence_count: 31
     key_terms: [system, getting, agency, campaigns, genuinely, comments, flagged, writing]
+    concepts: [system, getting, agency, campaigns, genuinely]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1sac12e/i_kept_optimizing_something_that_wasnt_the/"}]
   - id: "social-intelligence/reddit-deep/startups/1sac12e.md#c1"
     char_span: [2293, 3280]
     sentence_count: 16
     key_terms: [system, checking, problem, solving, "you're", doing, wrong, like]
+    concepts: [system, checking, problem, solving, "you're"]
     token_count: 207
   - id: "social-intelligence/reddit-deep/startups/1sac12e.md#c2"
-    char_span: [3295, 4920]
+    char_span: [3294, 4919]
     sentence_count: 3
     key_terms: [content, distribution, something, people, task-bounty, creation, problem, always]
+    concepts: [content, distribution, something, people, task-bounty]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/startups/1sac12e.md#c3"
-    char_span: [4922, 5550]
+    char_span: [4921, 5549]
     sentence_count: 5
     key_terms: [generated, content, anything, authenticity, collectively, individually, depressing, sudomatrix]
+    concepts: [generated, content, anything]
     section: Comments
     token_count: 142
 ---

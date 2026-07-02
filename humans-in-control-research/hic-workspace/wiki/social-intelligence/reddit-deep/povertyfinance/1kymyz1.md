@@ -21,17 +21,22 @@ chunks:
     char_span: [0, 742]
     sentence_count: 8
     key_terms: [currently, "i'm", povertyfinance, comments, phones, trying, phone, since]
+    concepts: [currently, povertyfinance, comments, phones, trying]
     token_count: 197
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1kymyz1/what_can_i_do/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c1"
     char_span: [756, 2628]
     sentence_count: 10
     key_terms: [watch, phone, unlimited, answer, calls, "don't", dumb, "it's"]
+    concepts: [watch, phone, unlimited, answer, calls]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c2"
     char_span: [2387, 4320]
     sentence_count: 10
     key_terms: [unlimited, month, like, phones, gsm, line, networks, outright]
+    concepts: [unlimited, month, phones, networks, outright]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c3"
@@ -44,48 +49,60 @@ chunks:
     char_span: [4596, 6321]
     sentence_count: 13
     key_terms: [phone, youtube, coverage, state, watch, commercials, like, probably]
+    concepts: [phone, youtube, coverage, commercials, state]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c5"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c5"
     char_span: [6323, 8235]
     sentence_count: 22
     key_terms: [phone, car, need, insurance, mint, youtube, mobile, take]
+    concepts: [phone, insurance, youtube, mobile, bluetooth]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c4", "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c7", "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c8"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c6"
     char_span: [8237, 10178]
     sentence_count: 16
     key_terms: [subscriptions, get, youtube, phones, car, free, something, prepaid]
+    concepts: [subscriptions, youtube, phones, something, prepaid]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c7"
     char_span: [10180, 11823]
     sentence_count: 19
     key_terms: [phone, insurance, cat, biggest, around, either, litter, seems]
+    concepts: [phone, insurance, biggest, around, either]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c5"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c8"
     char_span: [11825, 13672]
     sentence_count: 18
     key_terms: [mint, number, mobile, phone, bananavixen, data, unlimited, verizon]
+    concepts: [number, mobile, bananavixen, phone, unlimited]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c1", "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c5"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c9"
     char_span: [13674, 14737]
     sentence_count: 14
     key_terms: [phones, temporarily, car, income, payoff, "you're", bring, "can't"]
+    concepts: [phones, temporarily, income, payoff, "you're"]
     section: Comments
     token_count: 256
   - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c10"
     char_span: [14739, 16635]
     sentence_count: 18
     key_terms: [phone, get, pay, interest, payments, phones, buy, debt]
+    concepts: [phone, interest, payments, phones, account]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c11"
     char_span: [16637, 18049]
     sentence_count: 11
     key_terms: [extra, promotions, car, month, year, depending, watches, without]
+    concepts: [extra, promotions, month, depending, watches]
     section: Comments
     token_count: 378
 ---

@@ -20,26 +20,34 @@ chunks:
     char_span: [0, 2125]
     sentence_count: 16
     key_terms: [meta, spend, zuck, andromeda, ads, account, been, like]
+    concepts: [spend, andromeda, account, campaigns, marketing]
+    related_chunks: ["social-intelligence/reddit-deep/marketing/1o92ywe.md#c1"]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/marketing","u":"https://www.reddit.com/r/marketing/comments/1o92ywe/my_thoughts_on_metas_andromeda_and_how_to_succeed/"}]
   - id: "social-intelligence/reddit-deep/marketing/1o92ywe.md#c1"
     char_span: [2129, 4329]
     sentence_count: 17
     key_terms: [zuck, spend, customer, money, meta, account, doesn, "it's"]
+    concepts: [spend, customer, money, account, doesn]
+    related_chunks: ["social-intelligence/reddit-deep/marketing/1o92ywe.md#c0"]
     token_count: 482
   - id: "social-intelligence/reddit-deep/marketing/1o92ywe.md#c2"
     char_span: [4331, 5866]
     sentence_count: 11
     key_terms: [creatives, car, self-driving, point, zuck, creators, customer, driving]
+    concepts: [creatives, self-driving, point, creators, customer]
     token_count: 352
   - id: "social-intelligence/reddit-deep/marketing/1o92ywe.md#c3"
     char_span: [5868, 6731]
     sentence_count: 8
     key_terms: [creatives, changes, embrace, around, waymo, destination, diminishing, improvement]
+    concepts: [creatives, changes, embrace, around, waymo]
     token_count: 194
   - id: "social-intelligence/reddit-deep/marketing/1o92ywe.md#c4"
-    char_span: [6746, 7259]
+    char_span: [6745, 7258]
     sentence_count: 4
     key_terms: [quality, signals, traffic, better, unique, good, new, fundamentally]
+    concepts: [quality, signals, traffic, better, unique]
     section: Comments
     token_count: 126
 ---

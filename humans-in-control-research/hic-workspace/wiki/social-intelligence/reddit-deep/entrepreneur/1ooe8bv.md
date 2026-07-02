@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1354]
     sentence_count: 10
     key_terms: [business, entrepreneur, time, monitoring, operations, comments, helping, support]
+    concepts: [business, entrepreneur, monitoring, operations, comments]
     token_count: 274
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1ooe8bv/how_ai_agents_are_transforming_my_business/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1ooe8bv.md#c1"
-    char_span: [1369, 3609]
+    char_span: [1368, 3608]
     sentence_count: 20
     key_terms: ["we've", entrepreneur, please, agents, automatically, been, knowledge, permanent]
+    concepts: [entrepreneur, "we've", please, automatically, agents]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/entrepreneur/1ooe8bv.md#c2"
-    char_span: [3611, 6018]
+    char_span: [3610, 6017]
     sentence_count: 25
     key_terms: [repetitive, agentaileader, agents, categorization, people, "we've", data, "it's"]
+    concepts: [repetitive, agentaileader, agents, categorization, people]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/entrepreneur/1ooe8bv.md#c3"
-    char_span: [6020, 8008]
+    char_span: [6019, 8007]
     sentence_count: 8
     key_terms: [customer, complex, support, agentaileader, human, share, data, roi]
+    concepts: [customer, agentaileader, complex, support, automation]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/entrepreneur/1ooe8bv.md#c4"
-    char_span: [8010, 8819]
+    char_span: [8009, 8818]
     sentence_count: 6
     key_terms: [agentaileader, in-house, supply, chain, "it's", use, complications, game-changer]
+    concepts: [agentaileader, in-house, supply, chain]
     section: Comments
     token_count: 187
 ---

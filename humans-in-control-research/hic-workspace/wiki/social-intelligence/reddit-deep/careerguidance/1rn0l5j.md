@@ -21,53 +21,63 @@ chunks:
     char_span: [0, 1249]
     sentence_count: 12
     key_terms: [company, recently, careerguidance, quit, went, questions, comments, person]
+    concepts: [company, recently, careerguidance, questions, comments]
     token_count: 277
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rn0l5j/what_is_hr_actually_there_for/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rn0l5j.md#c1"
     char_span: [1263, 3423]
     sentence_count: 11
     key_terms: [manager, company, department, planning, strategy, employees, potential, position]
+    concepts: [manager, company, department, planning, strategy]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/careerguidance/1rn0l5j.md#c2"
     char_span: [3425, 5678]
     sentence_count: 13
     key_terms: [someone, manager, like, meetings, months, here, new, experience]
+    concepts: [someone, manager, meetings, months, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rn0l5j.md#c3"
     char_span: [5413, 5745]
     sentence_count: 3
     key_terms: [someone, emotionally, intentional, complain, another, dismiss, manager, meeting]
+    concepts: [someone]
     section: Comments
     token_count: 79
   - id: "social-intelligence/reddit-deep/careerguidance/1rn0l5j.md#c4"
     char_span: [5747, 7051]
     sentence_count: 7
     key_terms: [someone, opportunities, sometimes, because, company, global, subject-hedgehog6278, strikingmixture8172]
+    concepts: [opportunities, someone, sometimes, because, company]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/careerguidance/1rn0l5j.md#c5"
     char_span: [7053, 8944]
     sentence_count: 17
     key_terms: [management, senior, legal, retaliation, decisions, concern, illegal, manager]
+    concepts: [management, senior, retaliation, legal, decisions]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/careerguidance/1rn0l5j.md#c6"
     char_span: [8946, 10789]
     sentence_count: 17
     key_terms: [people, thats, been, turnover, "doesn't", manager, unhappy, policy]
+    concepts: [people, thats, turnover, "doesn't", manager]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/careerguidance/1rn0l5j.md#c7"
     char_span: [10791, 12649]
     sentence_count: 12
     key_terms: [company, through, organization, lawyer, discrimination, better, manage, resources]
+    concepts: [organization, company, through, lawyer, discrimination]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/careerguidance/1rn0l5j.md#c8"
     char_span: [12651, 13247]
     sentence_count: 6
     key_terms: [leadership, help, company, eatinggrapes69, organizations, explanation, management, employees]
+    concepts: [leadership, company]
     section: Comments
     token_count: 144
 ---

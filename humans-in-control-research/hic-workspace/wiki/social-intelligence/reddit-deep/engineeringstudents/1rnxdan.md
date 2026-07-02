@@ -21,41 +21,54 @@ chunks:
     char_span: [0, 1521]
     sentence_count: 13
     key_terms: [business, engineering, experience, engineeringstudents, definitely, mechanical, comments, majoring]
+    concepts: [business, engineering, engineeringstudents, experience, definitely]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c1", "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c4", "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c5"]
     token_count: 323
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rnxdan/18_year_old_senior_in_high_school_considering/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c1"
     char_span: [1535, 3779]
     sentence_count: 16
     key_terms: [engineeringstudents, engineering, wiki, please, reddit, electrical, https, com]
+    concepts: [engineeringstudents, engineering, electrical, please, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c0"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c2"
     char_span: [3781, 5900]
     sentence_count: 16
     key_terms: [engineering, basic, mechanical, business, ironicrobotics, trigonometric, forms, rules]
+    concepts: [engineering, basic, mechanical, business, ironicrobotics]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c4", "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c5"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c3"
     char_span: [5902, 7710]
     sentence_count: 15
     key_terms: [university, physics, writing, get, math, time, especially, practice]
+    concepts: [university, physics, writing, especially, practice]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c4"
     char_span: [7715, 9885]
     sentence_count: 12
     key_terms: [engineering, "it's", business, ok-zucchini-1126, license, career, states, years]
+    concepts: [engineering, ok-zucchini-1126, business, license, career]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c5"
     char_span: [9629, 11939]
     sentence_count: 40
     key_terms: [business, engineer, engineering, manager, own, experience, like, chemical]
+    concepts: [business, engineer, engineering, manager, experience]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c4"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c6"
     char_span: [11941, 12093]
     sentence_count: 1
     key_terms: [business, own, interested, mechanical, always, degree, random, major]
+    concepts: [business]
     section: Comments
     token_count: 33
 ---

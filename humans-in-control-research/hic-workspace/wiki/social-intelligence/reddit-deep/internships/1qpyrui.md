@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1175]
     sentence_count: 5
     key_terms: [internships, research, whether, year, comments, learning, applied, backend]
+    concepts: [internships, research, whether, comments, learning]
     token_count: 267
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1qpyrui/applied_to_50_plus_summer_internships_almost_no/"}]
   - id: "social-intelligence/reddit-deep/internships/1qpyrui.md#c1"
     char_span: [1189, 1971]
     sentence_count: 5
     key_terms: [appropriate-tutor587, applications, absurd, summer, apply, willing-shoe-5088, armadillotop2003, trashyzedmain]
+    concepts: [appropriate-tutor587, applications, absurd, summer, apply]
     section: Comments
     token_count: 239
 ---

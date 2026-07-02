@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1999]
     sentence_count: 10
     key_terms: [internal, user, enterprise, roles, productmanagement, new, growth, space]
+    concepts: [internal, enterprise, productmanagement, roles, growth]
     token_count: 399
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1ms0bz5/internal_enterprise_product_manager_seeking/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1ms0bz5.md#c1"
-    char_span: [2014, 4418]
+    char_span: [2013, 4417]
     sentence_count: 18
     key_terms: [user, inevitablethanks9278, decision, journey, always, acquisition, "i've", too]
+    concepts: [inevitablethanks9278, decision, journey, always, acquisition]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/productmanagement/1ms0bz5.md#c2"
-    char_span: [4131, 4507]
+    char_span: [4130, 4506]
     sentence_count: 4
     key_terms: [always, basics, constraints, compliance, strategies, mentioned, ourselves, platforms]
+    concepts: [always, basics]
     section: Comments
     token_count: 84
 ---

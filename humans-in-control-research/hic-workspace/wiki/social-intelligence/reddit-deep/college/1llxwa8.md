@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1022]
     sentence_count: 4
     key_terms: [residency, requirements, requirement, college, live, comments, students, schools]
+    concepts: [residency, requirements, requirement, college, comments]
+    related_chunks: ["social-intelligence/reddit-deep/college/1llxwa8.md#c1"]
     token_count: 223
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1llxwa8/residency_requirements_for_working_adults/"}]
   - id: "social-intelligence/reddit-deep/college/1llxwa8.md#c1"
     char_span: [1036, 1989]
     sentence_count: 7
     key_terms: [requirements, exception, residence, residency, colleges, location, require, always]
+    concepts: [requirements, exception, residence, residency, colleges]
+    related_chunks: ["social-intelligence/reddit-deep/college/1llxwa8.md#c0"]
     section: Comments
     token_count: 231
 ---

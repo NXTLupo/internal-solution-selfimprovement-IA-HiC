@@ -19,22 +19,27 @@ chunks:
     char_span: [0, 1053]
     sentence_count: 7
     key_terms: [exam, did, saying, date, lms, submission, comments, college]
+    concepts: [saying, submission, comments, college, "they're"]
     token_count: 255
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1mqud9q/school_is_saying_i_didnt_submit_my_final_exam_for/"}]
   - id: "social-intelligence/reddit-deep/college/1mqud9q.md#c1"
     char_span: [1055, 2775]
     sentence_count: 16
     key_terms: [submitted, exam, "i'm", specific, through, submit, feel, "i've"]
+    concepts: [submitted, specific, through, submit, technical]
     token_count: 403
   - id: "social-intelligence/reddit-deep/college/1mqud9q.md#c2"
     char_span: [2789, 4531]
     sentence_count: 12
     key_terms: [lms, submitted, name, canvas, either, school, specifically, says]
+    concepts: [submitted, specifically, canvas, either, school]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/college/1mqud9q.md#c3"
     char_span: [4534, 5810]
     sentence_count: 10
     key_terms: [lms, logs, submission, submitted, activity, "didn't", since, "won't"]
+    concepts: [submission, submitted, activity, "didn't", since]
     section: Comments
     token_count: 316
 ---

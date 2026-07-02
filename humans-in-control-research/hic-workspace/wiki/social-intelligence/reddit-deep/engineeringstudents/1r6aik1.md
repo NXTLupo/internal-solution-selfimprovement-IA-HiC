@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1283]
     sentence_count: 10
     key_terms: [engineeringstudents, engineering, comments, learning, looking, student, better, trying]
+    concepts: [engineeringstudents, engineering, comments, learning, looking]
     token_count: 264
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1r6aik1/beginner_engineering_student_looking_for/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6aik1.md#c1"
     char_span: [1297, 2347]
     sentence_count: 9
     key_terms: [experience, projects, arduino, degree, either, money, start, get]
+    concepts: [experience, projects, arduino, degree, either]
     section: Comments
     token_count: 244
 ---

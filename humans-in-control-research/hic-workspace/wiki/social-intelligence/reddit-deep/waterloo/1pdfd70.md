@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 370]
     sentence_count: 3
     key_terms: [comments, waterloo, necessarytasty6972, snow, contracting, reddit-deep, remembers, clearing]
+    concepts: [comments, waterloo]
     token_count: 100
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1pdfd70/if_anyone_remembers_snow_bros_and_their_snow/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1pdfd70.md#c1"
     char_span: [384, 2285]
     sentence_count: 16
     key_terms: [forsaken-witch461, pay, multiple, brother, review, paid, put, jaytreeman]
+    concepts: [forsaken-witch461, multiple, brother, review, jaytreeman]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/waterloo/1pdfd70.md#c2"
     char_span: [2287, 3846]
     sentence_count: 9
     key_terms: [v-general-labour-jobs, report, necessarytasty6972, company, workers-needed, kijiji, ignored, guelph]
+    concepts: [v-general-labour-jobs, necessarytasty6972, report, workers-needed, company]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/waterloo/1pdfd70.md#c3"
     char_span: [3848, 4759]
     sentence_count: 3
     key_terms: [eyjhy3rpb24ioiaidmlld19wb3n0iiwginbvc3qioia1mjc3nju2ntg0otu5oh0, cuuitxfgc4y3jtz2xrbyqscedvfj1pladeeeo8rw-uw, nextdoor, comment, cageqe-hryvkeefpxcmh, https, worried-force-1821, com]
+    concepts: [eyjhy3rpb24ioiaidmlld19wb3n0iiwginbvc3qioia1mjc3nju2ntg0otu5oh0, cuuitxfgc4y3jtz2xrbyqscedvfj1pladeeeo8rw-uw, nextdoor, comment, https]
     section: Comments
     token_count: 445
 ---

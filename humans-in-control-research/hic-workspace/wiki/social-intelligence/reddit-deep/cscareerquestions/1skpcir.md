@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 752]
     sentence_count: 6
     key_terms: [cscareerquestions, comments, company, defence, looking, seems, evil, like]
+    concepts: [cscareerquestions, comments, company, defence, looking]
     token_count: 178
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1skpcir/why_is_every_company_evil/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c1"
     char_span: [766, 2820]
     sentence_count: 15
     key_terms: [good, work, world, engineering, financial, problems, research, looking]
+    concepts: [engineering, world, financial, problems, research]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c2"
@@ -38,30 +41,35 @@ chunks:
     char_span: [2984, 4895]
     sentence_count: 10
     key_terms: [ethical, bad, pay, candidates, profitable, competing, qualities, something]
+    concepts: [ethical, candidates, profitable, competing, qualities]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c4"
     char_span: [4897, 7247]
     sentence_count: 15
     key_terms: [companies, medical, money, big, find, good, like, tech]
+    concepts: [companies, medical, money, instagram, anything]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c5"
     char_span: [7250, 9285]
     sentence_count: 16
     key_terms: [people, jobs, building, wide-pop6050, here, healthcare, understand, careers]
+    concepts: [people, building, wide-pop6050, healthcare, understand]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c6"
     char_span: [9287, 10578]
     sentence_count: 8
     key_terms: [capitalism, against, smith, lanaegleria, inventions, confusing, designed, original]
+    concepts: [capitalism, against, lanaegleria, inventions, smith]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c7"
     char_span: [10580, 12430]
     sentence_count: 14
     key_terms: [tech, companies, different, options, better, people, profit, system]
+    concepts: [companies, different, options, better, people]
     section: Comments
     token_count: 448
 ---

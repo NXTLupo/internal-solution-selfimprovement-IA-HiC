@@ -20,22 +20,29 @@ chunks:
     char_span: [0, 1882]
     sentence_count: 20
     key_terms: [delivery, tforce, ikea, window, attempt, rescheduled, following, call]
+    concepts: [delivery, tforce, window, rescheduled, attempt]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1psa9om.md#c1"]
     token_count: 442
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1psa9om/t_force_freight_is_garbage_do_not_use/"}]
   - id: "social-intelligence/reddit-deep/logistics/1psa9om.md#c1"
     char_span: [1884, 3189]
     sentence_count: 13
     key_terms: [tforce, delivery, com, sunday, tforcefreight, information, rescheduled, trustpilot]
+    concepts: [delivery, tforce, tforcefreight, sunday, information]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1psa9om.md#c0"]
     token_count: 308
   - id: "social-intelligence/reddit-deep/logistics/1psa9om.md#c2"
-    char_span: [3204, 5140]
+    char_span: [3203, 5139]
     sentence_count: 9
     key_terms: [logistics, "there's", get, carriers, cheaper, network, someone, t-force]
+    concepts: [logistics, "there's", carriers, cheaper, network]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/logistics/1psa9om.md#c3"
-    char_span: [5142, 7070]
+    char_span: [5141, 7069]
     sentence_count: 16
     key_terms: [around, deal, ltl, work, carriers, customer, probably, saturday]
+    concepts: [around, carriers, customer, probably, saturday]
     section: Comments
     token_count: 478
 ---

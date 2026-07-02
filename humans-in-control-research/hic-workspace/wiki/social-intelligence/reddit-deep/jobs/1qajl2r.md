@@ -21,95 +21,115 @@ chunks:
     char_span: [0, 538]
     sentence_count: 4
     key_terms: [jobs, comments, around, world, unfair-acadia6851, like, reddit-deep, businesses]
+    concepts: [comments, around, world]
     token_count: 136
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1qajl2r/are_job_markets_around_the_world_suffering_like/"}]
   - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c1"
     char_span: [552, 1275]
     sentence_count: 2
     key_terms: [vbryndis, ekvecpkgwz7tq, billionaires, transactions, dukeofgonzo, upthetruth1, immigrants, neepster44]
+    concepts: [vbryndis]
     section: Comments
     token_count: 209
   - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c2"
     char_span: [1277, 3014]
     sentence_count: 16
     key_terms: [california, job, london, doubleu2020, bad, happened, brexit, people]
+    concepts: [california, london, doubleu2020, happened, brexit]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c3"
     char_span: [3016, 5135]
     sentence_count: 9
     key_terms: [informational, interview, masters, better, single, perpetualmediocress, thenewwwguyreturns, back]
+    concepts: [informational, interview, masters, better, single]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c4"
     char_span: [5137, 7120]
     sentence_count: 11
     key_terms: [employment, job, majority-jobseekers-unable-to-get-long-term-work-despite-private-agencies, privatised, weeks, getting, service, people]
+    concepts: [employment, privatised, weeks, getting, service]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c5"
     char_span: [7122, 8018]
     sentence_count: 15
     key_terms: [bad, time, europe, bannedwith1milkarma, work, clarification, additional, employment]
+    concepts: [europe]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c6"
     char_span: [8020, 9565]
     sentence_count: 14
     key_terms: [america, unemployment, latin, job, better, market, deleted, europe]
+    concepts: [unemployment, america, latin, better, market]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c7"
     char_span: [9567, 10988]
     sentence_count: 9
     key_terms: [people, india, work, market, outsourcing, indian, holdencaulfieldsiud, being]
+    concepts: [people, india, market, outsourcing, indian]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qajl2r.md#c15"]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c8"
     char_span: [10990, 12245]
     sentence_count: 9
     key_terms: [jobs, country, countries, freshers, majority, booming, central, massive]
+    concepts: [country, countries, freshers, majority, booming]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c9"
     char_span: [12247, 14354]
     sentence_count: 14
     key_terms: [job, market, professionals, years, been, because, booming, ukraine]
+    concepts: [professionals, market, years, because, booming]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c10"
     char_span: [14092, 14699]
     sentence_count: 4
     key_terms: [english, undergrad, passport, glystopherscorpse003, apply, seasonedadmanager, allllright, reputable]
+    concepts: [english, undergrad, passport, apply]
     section: Comments
     token_count: 150
   - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c11"
     char_span: [14701, 16883]
     sentence_count: 15
     key_terms: [get, city, "it's", essentially, housing, people, japan, jet]
+    concepts: [essentially, housing, people, japan, anywhere]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c12"
     char_span: [16885, 19108]
     sentence_count: 16
     key_terms: [experience, going, countries, "it's", honestly, english, asia, definitely]
+    concepts: [experience, countries, going, honestly, english]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c13"
     char_span: [19110, 20710]
     sentence_count: 12
     key_terms: [school, experience, susanoo0, hagwon, korea, south, "i'm", like]
+    concepts: [experience, school, susanoo0, hagwon, korea]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c14"
     char_span: [20712, 21582]
     sentence_count: 4
     key_terms: [unemployment, spain, high, canada, people, glittering-mirror602, "don't", hence]
+    concepts: [unemployment, spain, canada, people, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qajl2r.md#c15"]
     section: Comments
     token_count: 250
   - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c15"
     char_span: [21584, 23506]
     sentence_count: 15
     key_terms: [people, canada, market, corporations, job, work, employment, workers]
+    concepts: [people, corporations, canada, market, employment]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qajl2r.md#c7", "social-intelligence/reddit-deep/jobs/1qajl2r.md#c14"]
     section: Comments
     token_count: 465
 ---

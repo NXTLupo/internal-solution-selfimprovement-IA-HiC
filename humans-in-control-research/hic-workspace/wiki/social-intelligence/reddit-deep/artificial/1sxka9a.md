@@ -21,65 +21,79 @@ chunks:
     char_span: [0, 1726]
     sentence_count: 8
     key_terms: [reddit, artificial, generation, dystopian, synthetic, collapse, comments, hardware]
+    concepts: [reddit, artificial, generation, dystopian, synthetic]
     token_count: 377
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1sxka9a/if_ai_is_about_to_get_10x_smarter_how_do_we/"}]
   - id: "social-intelligence/reddit-deep/artificial/1sxka9a.md#c1"
     char_span: [1740, 3447]
     sentence_count: 18
     key_terms: [months, investments, last, companies, internet, because, windows, better]
+    concepts: [months, investments, companies, internet, because]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1sxka9a.md#c4"]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/artificial/1sxka9a.md#c2"
     char_span: [3449, 4828]
     sentence_count: 12
     key_terms: [claude, diagrams, document, added, management, intervene, believe, company]
+    concepts: [claude, diagrams, document, added, management]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/artificial/1sxka9a.md#c3"
     char_span: [4830, 5993]
     sentence_count: 5
     key_terms: [synthetic, generated, mixes, music, conditiontall1719, use, work, availability]
+    concepts: [synthetic, generated, mixes, music]
     section: Comments
     token_count: 251
   - id: "social-intelligence/reddit-deep/artificial/1sxka9a.md#c4"
     char_span: [5996, 8378]
     sentence_count: 14
     key_terms: [because, models, companies, dangerous, vulnerabilities, better, products, progress]
+    concepts: [because, models, companies, dangerous, vulnerabilities]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1sxka9a.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1sxka9a.md#c5"
     char_span: [8102, 8650]
     sentence_count: 4
     key_terms: [better, tomorrowunable5060, ago, does, mean, sensationalist, significantly, demonstrable]
+    concepts: [better]
     section: Comments
     token_count: 132
   - id: "social-intelligence/reddit-deep/artificial/1sxka9a.md#c6"
     char_span: [8653, 10755]
     sentence_count: 12
     key_terms: [training, everything, data, trained, limits, get, llms, real]
+    concepts: [training, everything, trained, limits, completely]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/artificial/1sxka9a.md#c7"
     char_span: [10758, 12670]
     sentence_count: 14
     key_terms: [data, need, companies, expertise, generated, norwegian, language, training]
+    concepts: [companies, expertise, generated, norwegian, language]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/artificial/1sxka9a.md#c8"
     char_span: [12672, 13884]
     sentence_count: 8
     key_terms: [data, synthetic, models, human, model, collapse, "you're", greedy-produce-3040]
+    concepts: [synthetic, models, human, model, collapse]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/artificial/1sxka9a.md#c9"
     char_span: [13886, 15946]
     sentence_count: 9
     key_terms: [data, information, cooked, "don't", training, haberdasherhero, journalists, real]
+    concepts: [information, cooked, "don't", haberdasherhero, training]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/artificial/1sxka9a.md#c10"
     char_span: [15948, 16647]
     sentence_count: 1
     key_terms: [forums, explanationnormal339, haberdasherhero, operationally, socialization, d1rty5anche2, enigmaofoz, influenced]
+    concepts: [forums]
     section: Comments
     token_count: 172
 ---

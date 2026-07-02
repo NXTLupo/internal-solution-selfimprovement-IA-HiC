@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 925]
     sentence_count: 7
     key_terms: [phd, germany, askacademia, countries, currently, comments, doing, neuro]
+    concepts: [germany, askacademia, countries, currently, comments]
     token_count: 217
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1t9cv7p/neuro_phd_germany_vs_other_eu_countries/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1t9cv7p.md#c1"
     char_span: [939, 2220]
     sentence_count: 7
     key_terms: [phd, academia, publications, redditboy117, hard, determine, graduate, balance]
+    concepts: [academia, publications, redditboy117, determine, graduate]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/askacademia/1t9cv7p.md#c2"
     char_span: [2222, 3184]
     sentence_count: 6
     key_terms: [working-abrocoma4122, unemployment, immigration, phd, germany, suggest, right, get]
+    concepts: [working-abrocoma4122, unemployment, immigration, germany, suggest]
     section: Comments
     token_count: 242
 ---

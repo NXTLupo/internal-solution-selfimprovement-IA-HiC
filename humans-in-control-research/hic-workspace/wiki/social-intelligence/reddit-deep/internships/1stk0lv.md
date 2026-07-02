@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1014]
     sentence_count: 7
     key_terms: [internships, summer, nbcu, academic, comments, get, hey, tips]
+    concepts: [internships, summer, academic, comments]
     token_count: 243
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1stk0lv/nbcu_academic_year_internships/"}]
 ---
 # NBCU academic year internships
 

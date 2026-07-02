@@ -19,41 +19,51 @@ chunks:
     char_span: [0, 1068]
     sentence_count: 9
     key_terms: [neu, comments, question, worth, retrospectives, northeastern, considering, reddit-deep]
+    concepts: [comments, question, worth]
     token_count: 255
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1t0x9dz/recent_neu_grad_was_it_worth_it_honest_question/"}]
   - id: "social-intelligence/reddit-deep/neu/1t0x9dz.md#c1"
     char_span: [1082, 2820]
     sentence_count: 7
     key_terms: [co-op, like, neu, genuinely, graduated, honestly, million, "there's"]
+    concepts: [co-op, genuinely, graduated, honestly, million]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1t0x9dz.md#c2"]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/neu/1t0x9dz.md#c2"
     char_span: [2822, 4817]
     sentence_count: 15
     key_terms: [graduated, co-op, coop, advantage, full-time, wouldn, major, here]
+    concepts: [graduated, co-op, advantage, full-time, wouldn]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1t0x9dz.md#c1"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/neu/1t0x9dz.md#c3"
     char_span: [4819, 5602]
     sentence_count: 6
     key_terms: [school, clean, until, ratemyprofessor, nontraditional, border-coffee, refreshingly, departments]
+    concepts: [school, clean, until]
     section: Comments
     token_count: 179
   - id: "social-intelligence/reddit-deep/neu/1t0x9dz.md#c4"
     char_span: [5604, 7675]
     sentence_count: 14
     key_terms: [program, clinical, got, job, getting, northeastern, co-op, doctorate]
+    concepts: [program, clinical, getting, northeastern, co-op]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1t0x9dz.md#c5"
     char_span: [7434, 7977]
     sentence_count: 5
     key_terms: [co-op, because, been, job, engineering, experience, healthcare, unemployed]
+    concepts: [co-op, because]
     section: Comments
     token_count: 135
   - id: "social-intelligence/reddit-deep/neu/1t0x9dz.md#c6"
     char_span: [7979, 8805]
     sentence_count: 7
     key_terms: [opportunities, phd, zakattack1120, northeastern, absolutely, especially, experience, incredibly]
+    concepts: [opportunities]
     section: Comments
     token_count: 191
 ---

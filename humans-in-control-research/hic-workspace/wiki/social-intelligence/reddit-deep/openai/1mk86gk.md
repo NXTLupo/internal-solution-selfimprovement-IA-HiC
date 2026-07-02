@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 1121]
     sentence_count: 4
     key_terms: [context, comments, lesson, openai, gpt-5, study, book, "true"]
+    concepts: [context, comments, lesson, openai, gpt-5]
     token_count: 259
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1mk86gk/disappointed_gpt5_still_isnt_unlocking_the_true/"}]
   - id: "social-intelligence/reddit-deep/openai/1mk86gk.md#c1"
     char_span: [1135, 2219]
     sentence_count: 4
     key_terms: [gemini, better, krishnajeya, raffinesse, context, version, timeandspaceandme, open]
+    concepts: [gemini, better, krishnajeya, raffinesse, context]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mk86gk.md#c2", "social-intelligence/reddit-deep/openai/1mk86gk.md#c3"]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/openai/1mk86gk.md#c2"
     char_span: [2224, 4016]
     sentence_count: 13
     key_terms: [window, krishnajeya, gemini, compute, context, million, disappointed, least]
+    concepts: [window, krishnajeya, gemini, compute, context]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mk86gk.md#c1", "social-intelligence/reddit-deep/openai/1mk86gk.md#c3"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/openai/1mk86gk.md#c3"
     char_span: [4018, 5832]
     sentence_count: 12
     key_terms: [window, use, context, gemini, value, temperature, unsupported, thought]
+    concepts: [window, context, gemini, temperature, unsupported]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mk86gk.md#c1", "social-intelligence/reddit-deep/openai/1mk86gk.md#c2"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/openai/1mk86gk.md#c4"
     char_span: [5834, 6414]
     sentence_count: 4
     key_terms: [context, prayers, bible, time, fundamentally, comparable, different, otherwise]
+    concepts: [context, prayers, bible]
     section: Comments
     token_count: 133
 ---

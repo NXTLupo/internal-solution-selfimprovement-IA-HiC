@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1241]
     sentence_count: 4
     key_terms: [data, internships, science, currently, learning, machine, engineering, paid]
+    concepts: [internships, science, currently, learning, machine]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rvanty/looking_for_advice_on_finding_a_paid_data_science/"}]
   - id: "social-intelligence/reddit-deep/internships/1rvanty.md#c1"
     char_span: [1255, 1551]
     sentence_count: 1

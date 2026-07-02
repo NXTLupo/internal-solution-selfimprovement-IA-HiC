@@ -21,41 +21,55 @@ chunks:
     char_span: [0, 1288]
     sentence_count: 13
     key_terms: [responsibility, around, intelligence, artificial, comments, problem, systems, people]
+    concepts: [responsibility, intelligence, around, artificial, comments]
     token_count: 266
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1s8u4jm/what_if_the_real_ai_problem_is_not_intelligence/"}]
   - id: "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c1"
     char_span: [1302, 3547]
     sentence_count: 18
     key_terms: [responsibility, responsible, accountability, problem, systems, always, model, liability]
+    concepts: [responsibility, responsible, accountability, problem, systems]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1s8u4jm.md#c3", "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c4", "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c5", "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c6"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c2"
     char_span: [3549, 5821]
     sentence_count: 18
     key_terms: [responsibility, civil-interaction-76, human, alignment, important, becomes, without, decision]
+    concepts: [responsibility, civil-interaction-76, alignment, important, human]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1s8u4jm.md#c5", "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c6"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c3"
     char_span: [5823, 8147]
     sentence_count: 6
     key_terms: [responsibility, execution, agent, systems, boundary, responsible, question, infrastructure]
+    concepts: [responsibility, execution, systems, agent, boundary]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1s8u4jm.md#c1"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c4"
     char_span: [8149, 10491]
     sentence_count: 14
     key_terms: [responsibility, accountability, independent, architecture, ground, truth, something, own]
+    concepts: [responsibility, accountability, independent, architecture, ground]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1s8u4jm.md#c1", "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c5", "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c6"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c5"
     char_span: [10493, 12229]
     sentence_count: 10
     key_terms: [responsibility, accountability, civil-interaction-76, chain, responsible, data, visibility, decisions]
+    concepts: [responsibility, accountability, civil-interaction-76, responsible, chain]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1s8u4jm.md#c1", "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c2", "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c4", "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c6"]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c6"
     char_span: [12231, 14745]
     sentence_count: 13
     key_terms: [responsibility, accountability, governance, organisation, civil-interaction-76, something, founder-awesome, explain]
+    concepts: [responsibility, accountability, governance, organisation, civil-interaction-76]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1s8u4jm.md#c1", "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c2", "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c4", "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c5"]
     section: Comments
     token_count: 510
 ---

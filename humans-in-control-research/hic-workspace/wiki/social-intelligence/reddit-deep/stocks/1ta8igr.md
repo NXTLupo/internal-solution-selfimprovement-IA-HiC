@@ -21,107 +21,128 @@ chunks:
     char_span: [0, 2058]
     sentence_count: 8
     key_terms: [stocks, michael-burry-is-not-a-believer-for-any-stocks-going-parabolic-reduce-positions-almost-entirely, burry, investors, shorting, reduce, increasingly, environment]
+    concepts: [stocks, burry, investors, shorting, increasingly]
     token_count: 434
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1ta8igr/michael_burry_is_not_a_believer_for_any_stocks/"}]
   - id: "social-intelligence/reddit-deep/stocks/1ta8igr.md#c1"
     char_span: [2072, 3659]
     sentence_count: 9
     key_terms: [railed, shorting, getting, market, opened, shorts, hovercraftremarkable, bulbs]
+    concepts: [railed, shorting, getting, market, opened]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/stocks/1ta8igr.md#c2"
     char_span: [3661, 5025]
     sentence_count: 12
     key_terms: [market, people, good, expensive, justify, stocks, additionalactuator81, bears]
+    concepts: [market, people, expensive, justify, stocks]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/stocks/1ta8igr.md#c3"
     char_span: [5027, 6746]
     sentence_count: 8
     key_terms: [state-street-spdr-s-p-500-etf-trust, dividend-yield-history, market, priced, macrotrends, justified, billion, bitcoin]
+    concepts: [state-street-spdr-s-p-500-etf-trust, dividend-yield-history, market, priced, macrotrends]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/stocks/1ta8igr.md#c4"
     char_span: [6748, 7863]
     sentence_count: 5
     key_terms: [premium, korea, back, ftse, risk, ohgodthehorror95, considerations, thebeckofkevin]
+    concepts: [premium, korea]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/stocks/1ta8igr.md#c5"
     char_span: [7865, 9776]
     sentence_count: 8
     key_terms: [right, market, upset, time, recessions, predicted, another, "burry's"]
+    concepts: [right, market, recessions, upset, predicted]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1ta8igr.md#c11"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1ta8igr.md#c6"
     char_span: [9520, 9878]
     sentence_count: 3
     key_terms: [holders, upset, bag, dollar-doge-coins, bagholders, exuberance, irrational, deltatule]
+    concepts: [holders, upset]
     section: Comments
     token_count: 98
   - id: "social-intelligence/reddit-deep/stocks/1ta8igr.md#c7"
     char_span: [9880, 10764]
     sentence_count: 6
     key_terms: [reason, poking, responsibleclock9289, bag, etc, outperformed, appreciate, detachment]
+    concepts: [reason, poking]
     section: Comments
     token_count: 233
   - id: "social-intelligence/reddit-deep/stocks/1ta8igr.md#c8"
     char_span: [10766, 12044]
     sentence_count: 7
     key_terms: [significantbottle562, call, time, money, like, because, people, adventurous-head-512]
+    concepts: [significantbottle562, money, because, people, right]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/stocks/1ta8igr.md#c9"
     char_span: [12046, 13904]
     sentence_count: 10
     key_terms: ["he's", right, wrong, been, knowledge, publicity, investor, michael]
+    concepts: [right, wrong, knowledge, publicity, investor]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/stocks/1ta8igr.md#c10"
     char_span: [13906, 15677]
     sentence_count: 16
     key_terms: [crash, right, called, stock, did, got, correlated, remember]
+    concepts: [crash, right, called, correlated, stock]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/stocks/1ta8igr.md#c11"
     char_span: [15679, 17603]
     sentence_count: 10
     key_terms: [right, time, market, independent-fragrant, "you're", "don't", times, blah]
+    concepts: [right, market, independent-fragrant, "you're", "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1ta8igr.md#c5"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/stocks/1ta8igr.md#c12"
     char_span: [17605, 18760]
     sentence_count: 11
     key_terms: [been, eventually, matter, people, rhymes, saying, right, since]
+    concepts: [eventually, matter, people, rhymes, saying]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/stocks/1ta8igr.md#c13"
     char_span: [18762, 21048]
     sentence_count: 17
     key_terms: [crash, internet, liquiditycompass, future, google, technology, companies, economy]
+    concepts: [crash, liquiditycompass, internet, future, google]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/stocks/1ta8igr.md#c14"
     char_span: [21050, 22754]
     sentence_count: 6
     key_terms: [crash, coming, market, economy, liquidity, starting, realisticillusions82, means]
+    concepts: [crash, coming, market, economy, liquidity]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/stocks/1ta8igr.md#c15"
     char_span: [22756, 24270]
     sentence_count: 7
     key_terms: [companies, valuation, whatever, because, looking, markets, market, solid]
+    concepts: [companies, valuation, whatever, because, looking]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/stocks/1ta8igr.md#c16"
     char_span: [24272, 25837]
     sentence_count: 9
     key_terms: [increase, years, been, everything, crashes, started, buffet, buying]
+    concepts: [increase, everything, years, crashes, started]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/stocks/1ta8igr.md#c17"
     char_span: [25839, 26781]
     sentence_count: 6
     key_terms: [position, short, substantial, too, companies, mict3361, against, crash]
+    concepts: [position, substantial, short, companies, mict3361]
     section: Comments
     token_count: 227
 ---

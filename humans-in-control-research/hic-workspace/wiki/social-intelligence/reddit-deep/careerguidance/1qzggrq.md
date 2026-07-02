@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1609]
     sentence_count: 11
     key_terms: [ang, tourism, careerguidance, anong, path, operations, comments, student]
+    concepts: [tourism, careerguidance, anong, operations, comments]
     token_count: 421
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qzggrq/fresh_grad_tourism_former_working_student_need/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1qzggrq.md#c1"
     char_span: [1623, 2193]
     sentence_count: 1
     key_terms: [coordinator, skills, roles, since, emotionalgreen1330, administrative, unpredictable, transferable]
+    concepts: [coordinator, skills, roles, since]
     section: Comments
     token_count: 116
 ---

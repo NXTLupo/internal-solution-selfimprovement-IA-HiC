@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1564]
     sentence_count: 13
     key_terms: [career, university, corporate, careerguidance, advice, stable, job, jobs]
+    concepts: [university, career, corporate, careerguidance, advice]
     token_count: 340
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tiz89c/any_advice_on_choosing_a_stable_career_path_with/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tiz89c.md#c1"
-    char_span: [1579, 3067]
+    char_span: [1578, 3066]
     sentence_count: 7
     key_terms: [skills, internships, like, corporate, business, already, advice, people]
+    concepts: [skills, internships, corporate, business, already]
     section: Comments
     token_count: 307
 ---

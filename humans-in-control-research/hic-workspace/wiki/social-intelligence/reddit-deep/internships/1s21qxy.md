@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 1354]
     sentence_count: 9
     key_terms: [interview, internship, internships, tell, comments, position, students, anymore]
+    concepts: [interview, internship, internships, comments, position]
     token_count: 299
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1s21qxy/are_undergrads_not_taught_how_to_interview_anymore/"}]
   - id: "social-intelligence/reddit-deep/internships/1s21qxy.md#c1"
     char_span: [1368, 3646]
     sentence_count: 16
     key_terms: [colleges, graduation, interview, courses, advice, career, course, school]
+    concepts: [colleges, graduation, interview, courses, universities]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/internships/1s21qxy.md#c2"
     char_span: [3648, 5730]
     sentence_count: 11
     key_terms: [services, students, career, friendly-example-701, colleges, "didn't", interviewing, mock]
+    concepts: [services, students, friendly-example-701, career, colleges]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1s21qxy.md#c5"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/internships/1s21qxy.md#c3"
     char_span: [5732, 7763]
     sentence_count: 13
     key_terms: [school, university, taught, bigopossums, good, work, interviews, services]
+    concepts: [university, school, taught, bigopossums, interviews]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/internships/1s21qxy.md#c4"
     char_span: [7765, 8799]
     sentence_count: 13
     key_terms: [behaviours, interview, cultivated, managers, learned, hiring, years, socialisation]
+    concepts: [behaviours, interview, cultivated, managers, learned]
     section: Comments
     token_count: 197
   - id: "social-intelligence/reddit-deep/internships/1s21qxy.md#c5"
     char_span: [8801, 11031]
     sentence_count: 11
     key_terms: [career, interview, time, students, professionally, center, resume, don]
+    concepts: [career, interview, students, professionally, center]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1s21qxy.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1s21qxy.md#c6"
     char_span: [10736, 11540]
     sentence_count: 6
     key_terms: [interview, college, business, resume, sheepherdernext3196, class, far-emergency-6777, didn]
+    concepts: [interview, college, business, resume, class]
     section: Comments
     token_count: 193
 ---

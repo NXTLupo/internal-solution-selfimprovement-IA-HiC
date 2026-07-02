@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1494]
     sentence_count: 13
     key_terms: [organization, year, fundraising, love, concerned, nonprofit, comments, setting]
+    concepts: [organization, fundraising, concerned, nonprofit, comments]
     token_count: 351
+    sources: [{"n":"reddit-deep: r/nonprofit","u":"https://www.reddit.com/r/nonprofit/comments/1lfdk5s/goal_setting_and_realistic_expectations/"}]
   - id: "social-intelligence/reddit-deep/nonprofit/1lfdk5s.md#c1"
-    char_span: [1509, 2772]
+    char_span: [1508, 2771]
     sentence_count: 10
     key_terms: [sarcasticfundraiser, donors, organization, goals, layoffs, capital-meringue-164, going, short]
+    concepts: [sarcasticfundraiser, organization, donors, goals, layoffs]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/nonprofit/1lfdk5s.md#c2"
-    char_span: [2774, 3809]
+    char_span: [2773, 3808]
     sentence_count: 5
     key_terms: [show, effectiveness, fundraising, unexpected, retention, project, sarcasticfundraiser, donor]
+    concepts: [effectiveness, fundraising, unexpected, retention, project]
     section: Comments
     token_count: 223
 ---

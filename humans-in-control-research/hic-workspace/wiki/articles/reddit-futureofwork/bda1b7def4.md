@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 755]
     sentence_count: 6
     key_terms: [futureofwork, proficiency, ourselves, clients, reddit, own, transformation, productivity]
+    concepts: [futureofwork, proficiency, ourselves, clients, reddit]
     token_count: 161
+    sources: [{"n":"reddit: futureofwork","u":"https://reddit.com/r/FutureOfWork/comments/1s60vt3/advising_on_ai_while_still_figuring_it_out/"}]
 ---
 # Advising on AI while still figuring it out ourselves
 

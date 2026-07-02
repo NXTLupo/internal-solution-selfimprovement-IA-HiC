@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 960]
     sentence_count: 5
     key_terms: [gradschool, admission, comments, planning, prepare, attend, study, tests]
+    concepts: [gradschool, admission, comments, planning, prepare]
     token_count: 221
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tj71jd/planning_to_attend_a_grad_school_year_and_there/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1tj71jd.md#c1"
     char_span: [974, 1375]
     sentence_count: 1

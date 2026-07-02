@@ -18,31 +18,38 @@ chunks:
     char_span: [0, 2013]
     sentence_count: 9
     key_terms: [university, video, engineering, mechanical, gpa, phd, applied, florida]
+    concepts: [university, video, engineering, mechanical, gradadmissions]
     token_count: 487
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1q8fe68/how_i_got_into_a_mechanical_engineering_phd_with/"}]
   - id: "articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md#c1"
     char_span: [2015, 4341]
     sentence_count: 21
     key_terms: [get, because, school, information, interested, demanding, applying, invested]
+    concepts: [because, school, information, interested, demanding]
     token_count: 512
   - id: "articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md#c2"
     char_span: [4343, 6482]
     sentence_count: 17
     key_terms: [professor, years, degree, field, get, phd, possible, research]
+    concepts: [professor, years, degree, field, possible]
     token_count: 495
   - id: "articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md#c3"
     char_span: [6484, 7482]
     sentence_count: 6
     key_terms: [how-i-got-into-a-mechanical-engineering-phd-with-a-3-2-gpa-v0-x8s28hkaci8g1, fd090cf201fb6f8ff17ed3e11ef960d8560687bf, mech, preview, format, based, https, width]
+    concepts: [preview, format, based, https, width]
     token_count: 290
   - id: "articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md#c4"
     char_span: [7484, 9372]
     sentence_count: 25
     key_terms: [research, accepted, schools, experience, professor, undergrad, school, application]
+    concepts: [research, accepted, schools, experience, professor]
     token_count: 447
   - id: "articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md#c5"
     char_span: [9374, 10637]
     sentence_count: 9
     key_terms: [boskadoff, thank, university, professor, congrats, school, though, study]
+    concepts: [boskadoff, thank, university, professor, congrats]
     token_count: 317
 ---
 # how i got into a mechanical engineering PhD with a 3.2 gpa (and other suboptimal credentials)

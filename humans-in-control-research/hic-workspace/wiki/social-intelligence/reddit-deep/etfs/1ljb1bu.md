@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1075]
     sentence_count: 8
     key_terms: [etfs, long-term, portfolio, comments, growth, build, solid, tools]
+    concepts: [long-term, portfolio, comments, growth, build]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1ljb1bu/new_investor_best_tools_to_build_etf_portfolio/"}]
   - id: "social-intelligence/reddit-deep/etfs/1ljb1bu.md#c1"
-    char_span: [1090, 2144]
+    char_span: [1089, 2143]
     sentence_count: 7
     key_terms: [https, years, etf-portfolio-insights, testfol, trackinsight, better, inflation-adjusted, com]
+    concepts: [etf-portfolio-insights, https, years, testfol, trackinsight]
     section: Comments
     token_count: 275
 ---

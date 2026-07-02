@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 1242]
     sentence_count: 12
     key_terms: [co-op, course, drop, need, something, academic, approval, comments]
+    concepts: [co-op, course, something, academic, approval]
     token_count: 301
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1nkkto9/anyone_here_ever_reneged_on_a_coop/"}]
   - id: "social-intelligence/reddit-deep/neu/1nkkto9.md#c1"
     char_span: [1256, 2426]
     sentence_count: 9
     key_terms: [start, job, work, everyone, yourself, company, school, co-op]
+    concepts: [start, everyone, yourself, company, school]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/neu/1nkkto9.md#c2"
     char_span: [2428, 4552]
     sentence_count: 16
     key_terms: [school, co-op, "it's", offer, graduate, courses, feisty-salt377, unable]
+    concepts: [school, co-op, offer, graduate, feisty-salt377]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1nkkto9.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1nkkto9.md#c3"
     char_span: [4307, 4888]
     sentence_count: 6
     key_terms: [longjumpingcorgi813, co-op, offer, post, consideration, international, consequences, graduation]
+    concepts: [co-op, offer]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1nkkto9.md#c2"]
     section: Comments
     token_count: 139
 ---

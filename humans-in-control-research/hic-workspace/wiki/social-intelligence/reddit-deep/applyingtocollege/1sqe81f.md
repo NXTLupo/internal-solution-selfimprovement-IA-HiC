@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 756]
     sentence_count: 5
     key_terms: [applyingtocollege, considering, currently, comments, schools, please, abt, help]
+    concepts: [applyingtocollege, considering, currently, comments, schools]
     token_count: 201
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sqe81f/hi_guys_please_help_give_advice_in_choosing_uni/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sqe81f.md#c1"
     char_span: [770, 1630]
     sentence_count: 4
     key_terms: [columbia, science, saartemaster, degree, best, ivy, scpo, opportunities]
+    concepts: [columbia, science, saartemaster, degree]
     section: Comments
     token_count: 234
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sqe81f.md#c2"
     char_span: [1632, 3369]
     sentence_count: 6
     key_terms: [columbia, sciences, harvard, applyingtocollege, program, degree, universities, experience]
+    concepts: [columbia, sciences, harvard, applyingtocollege, program]
     section: Comments
     token_count: 479
 ---

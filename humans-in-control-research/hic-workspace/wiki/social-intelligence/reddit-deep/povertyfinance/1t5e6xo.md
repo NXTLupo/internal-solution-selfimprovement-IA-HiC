@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1388]
     sentence_count: 12
     key_terms: [assistance, povertyfinance, income, government, household, comments, programs, because]
+    concepts: [assistance, povertyfinance, income, government, household]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c1"]
     token_count: 309
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1t5e6xo/us_government_assistance_programs/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c1"
     char_span: [1402, 2724]
     sentence_count: 7
     key_terms: [disability, household, programs, income, cash, don, get, home]
+    concepts: [disability, household, programs, income]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c0"]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c2"
     char_span: [2726, 3926]
     sentence_count: 6
     key_terms: [banks, services, food, household, resources, benefits, without, sure]
+    concepts: [banks, services, household, resources, benefits]
     section: Comments
     token_count: 247
   - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c3"
     char_span: [3929, 6007]
     sentence_count: 18
     key_terms: [food, benefits, prepares, security, social, look, own, disability]
+    concepts: [benefits, prepares, security, social, disability]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c4"
@@ -50,12 +57,14 @@ chunks:
     char_span: [6030, 8128]
     sentence_count: 16
     key_terms: [food, work, retirement, own, beautiful, age, big, get]
+    concepts: [retirement, beautiful, benefits, disabled, medicaid]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c6"
     char_span: [8130, 9235]
     sentence_count: 8
     key_terms: [virginia, abbreviationsnew5220, help, medicaid, though, worker, lumpy-entertainer-75, going]
+    concepts: [virginia, abbreviationsnew5220, medicaid, though, worker]
     section: Comments
     token_count: 302
 ---

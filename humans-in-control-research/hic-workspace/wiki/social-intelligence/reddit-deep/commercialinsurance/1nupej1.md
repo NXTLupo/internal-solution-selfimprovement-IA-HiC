@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 637]
     sentence_count: 6
     key_terms: [commercialinsurance, comments, on-site, coi, certificate, reddit-deep, unneccesary, frequently]
+    concepts: [commercialinsurance, comments, on-site]
     token_count: 156
+    sources: [{"n":"reddit-deep: r/commercialinsurance","u":"https://www.reddit.com/r/commercialinsurance/comments/1nupej1/certificate_holder/"}]
   - id: "social-intelligence/reddit-deep/commercialinsurance/1nupej1.md#c1"
-    char_span: [652, 1945]
+    char_span: [651, 1944]
     sentence_count: 12
     key_terms: [process, purchasing, contract, limits, operations, approval, "don't", lacks]
+    concepts: [process, purchasing, contract, limits, operations]
     section: Comments
     token_count: 282
 ---

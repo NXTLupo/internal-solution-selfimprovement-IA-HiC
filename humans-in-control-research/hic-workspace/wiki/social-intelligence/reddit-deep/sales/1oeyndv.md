@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 1777]
     sentence_count: 17
     key_terms: [price, founding, product, deals, sales, been, audience, comments]
+    concepts: [price, founding, product, deals, sales]
     token_count: 434
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1oeyndv/founding_ae_but_the_icp_cant_afford_the_product/"}]
   - id: "social-intelligence/reddit-deep/sales/1oeyndv.md#c1"
-    char_span: [1792, 3558]
+    char_span: [1791, 3557]
     sentence_count: 16
     key_terms: [market, noprogrammer8083, be0ff15e8ffb935c9097fb788b1901b91bb2252c, potential, clients, selling, higher, significant-bill9405]
+    concepts: [market, noprogrammer8083, potential, clients, selling]
+    related_chunks: ["social-intelligence/reddit-deep/sales/1oeyndv.md#c3"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/sales/1oeyndv.md#c2"
-    char_span: [3560, 5318]
+    char_span: [3559, 5317]
     sentence_count: 13
     key_terms: [noprogrammer8083, because, like, need, solution, company, current, deleted]
+    concepts: [noprogrammer8083, because, solution, company, current]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/sales/1oeyndv.md#c3"
-    char_span: [5320, 7362]
+    char_span: [5319, 7361]
     sentence_count: 23
     key_terms: [another, market, noprogrammer8083, better, got, need, want, different]
+    concepts: [another, market, noprogrammer8083, better, different]
+    related_chunks: ["social-intelligence/reddit-deep/sales/1oeyndv.md#c1"]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/sales/1oeyndv.md#c4"
-    char_span: [7364, 7884]
+    char_span: [7363, 7883]
     sentence_count: 4
     key_terms: [opportunity, determine, product, market, total, incremental, altogether, represent]
+    concepts: [opportunity, determine, product, market, total]
     section: Comments
     token_count: 105
 ---

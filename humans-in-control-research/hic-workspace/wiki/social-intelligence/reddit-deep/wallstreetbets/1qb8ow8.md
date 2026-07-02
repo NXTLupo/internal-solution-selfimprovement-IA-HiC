@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 620]
     sentence_count: 6
     key_terms: [wallstreetbets, comments, regarded, calls, play, frontqueasy3156, reddit-deep, prediction]
+    concepts: [wallstreetbets, comments, regarded, calls]
     token_count: 164
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1qb8ow8/highly_regarded_play_in_progress/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qb8ow8.md#c1"
     char_span: [634, 1657]
     sentence_count: 4
     key_terms: [frontqueasy3156, account, powerfarta, discord, total, years, happy-champion1661, lmao]
+    concepts: [frontqueasy3156, account, powerfarta, discord, total]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qb8ow8.md#c2"
     char_span: [1659, 3301]
     sentence_count: 11
     key_terms: [frontqueasy3156, degree, post, something, starting, ntheijs, pretty, calls]
+    concepts: [frontqueasy3156, degree, something, starting, ntheijs]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qb8ow8.md#c3"

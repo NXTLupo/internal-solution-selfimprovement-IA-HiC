@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 713]
     sentence_count: 8
     key_terms: [company, help, workonline, comments, because, payment, find, scam]
+    concepts: [company, workonline, comments, because, payment]
     token_count: 164
+    sources: [{"n":"reddit-deep: r/workonline","u":"https://www.reddit.com/r/WorkOnline/comments/1pkscmb/help_is_residence_supply_a_scam/"}]
   - id: "social-intelligence/reddit-deep/workonline/1pkscmb.md#c1"
     char_span: [727, 1583]
     sentence_count: 1
     key_terms: [dooroom-brass-door-stops-hole-free-bathroom-door-stopper-heavy-duty-floor-wall-mount-bumper-non-magnetic-door-holder-catch, products, https, dooroom, com, www, residencesupply, pesu-door-stop]
+    concepts: [dooroom-brass-door-stops-hole-free-bathroom-door-stopper-heavy-duty-floor-wall-mount-bumper-non-magnetic-door-holder-catch, products, https, dooroom, residencesupply]
     section: Comments
     token_count: 217
 ---

@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 806]
     sentence_count: 7
     key_terms: [digitalnomad, want, comments, better, spend, realtruthnavigator, good, usd]
+    concepts: [digitalnomad, comments, better, spend]
     token_count: 198
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1q1kqkv/da_nang_vietnam_vs_tbilisi_georgia/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1q1kqkv.md#c1"
     char_span: [820, 2743]
     sentence_count: 24
     key_terms: [like, vietnam, sonderific3, budget, tblisi, need, experience, consider]
+    concepts: [sonderific3, vietnam, budget, tblisi, experience]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1q1kqkv.md#c4"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/digitalnomad/1q1kqkv.md#c2"
     char_span: [2745, 4476]
     sentence_count: 15
     key_terms: [vietnam, realtruthnavigator, anything, comfortable, nang, countries, georgia, tbilisi]
+    concepts: [vietnam, realtruthnavigator, anything, comfortable, countries]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/digitalnomad/1q1kqkv.md#c3"
     char_span: [4478, 6420]
     sentence_count: 15
     key_terms: [realtruthnavigator, zero, people, live, thailand, mainenacier, "it's", experience]
+    concepts: [realtruthnavigator, people, thailand, mainenacier, experience]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/digitalnomad/1q1kqkv.md#c4"
     char_span: [6422, 7651]
     sentence_count: 10
     key_terms: [budget, cost, nang, probably, because, georgia, vietnam, beneficial-koala-670]
+    concepts: [budget, probably, because, georgia, vietnam]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1q1kqkv.md#c1"]
     section: Comments
     token_count: 296
 ---

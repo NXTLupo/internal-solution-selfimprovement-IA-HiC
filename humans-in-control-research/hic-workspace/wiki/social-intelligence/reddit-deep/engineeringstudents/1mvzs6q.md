@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 654]
     sentence_count: 5
     key_terms: [engineering, engineeringstudents, opportunities, internships, interested, chemical, comments, nuclear]
+    concepts: [engineering, engineeringstudents, opportunities, internships, interested]
     token_count: 140
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1mvzs6q/any_good_internshipsopportunities_for_a_high/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1mvzs6q.md#c1"
     char_span: [668, 2182]
     sentence_count: 4
     key_terms: [engineeringstudents, https, wiki, reddit, com, adult, "it's", read]
+    concepts: [engineeringstudents, https, reddit, adult, resources]
     section: Comments
     token_count: 355
 ---

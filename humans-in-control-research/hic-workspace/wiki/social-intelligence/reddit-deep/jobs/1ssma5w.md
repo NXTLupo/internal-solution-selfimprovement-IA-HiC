@@ -19,41 +19,51 @@ chunks:
     char_span: [0, 1473]
     sentence_count: 13
     key_terms: [got, company, process, weeks, job, interview, comments, ghosted]
+    concepts: [company, process, weeks, interview, comments]
     token_count: 346
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1ssma5w/my_6_month_job_search_is_over/"}]
   - id: "social-intelligence/reddit-deep/jobs/1ssma5w.md#c1"
     char_span: [1487, 3678]
     sentence_count: 14
     key_terms: [jobs, hybridaaroncarroll, anything, arcfireemblem, job, applicants, "company's", directly]
+    concepts: [hybridaaroncarroll, anything, arcfireemblem, applicants, "company's"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1ssma5w.md#c2"
     char_span: [3445, 3801]
     sentence_count: 2
     key_terms: [sly-3, hybridaaroncarroll, arcfireemblem, wkizezvxs5mqg, probability, immediate, response, choices]
+    concepts: [sly-3]
     section: Comments
     token_count: 118
   - id: "social-intelligence/reddit-deep/jobs/1ssma5w.md#c3"
     char_span: [3803, 5836]
     sentence_count: 18
     key_terms: [remote, experience, interviews, roles, hybridaaroncarroll, applying, winning, resume]
+    concepts: [remote, hybridaaroncarroll, experience, interviews, roles]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1ssma5w.md#c4"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/jobs/1ssma5w.md#c4"
     char_span: [5838, 6812]
     sentence_count: 6
     key_terms: [roles, government, qualified, bunsnt, remote, hybridaaroncarroll, jobs, thepulloutmethod]
+    concepts: [roles, government, qualified, bunsnt, remote]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1ssma5w.md#c3"]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/jobs/1ssma5w.md#c5"
     char_span: [6814, 8541]
     sentence_count: 9
     key_terms: [hybridaaroncarroll, job, applications, days, grashasey, rejection, response, another]
+    concepts: [hybridaaroncarroll, applications, grashasey, rejection, response]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/jobs/1ssma5w.md#c6"
     char_span: [8543, 10031]
     sentence_count: 13
     key_terms: [hybridaaroncarroll, like, company, immediately, personality, difference, experience, around]
+    concepts: [hybridaaroncarroll, company, immediately, personality, difference]
     section: Comments
     token_count: 340
 ---

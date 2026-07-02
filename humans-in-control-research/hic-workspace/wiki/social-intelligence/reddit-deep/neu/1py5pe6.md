@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1630]
     sentence_count: 18
     key_terms: [instead, incomplete, because, classes, class, comments, graduate, chasing]
+    concepts: [instead, incomplete, because, classes, class]
     token_count: 397
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1py5pe6/10_mistakes_i_made_at_northeastern_so_you_can/"}]
   - id: "social-intelligence/reddit-deep/neu/1py5pe6.md#c1"
     char_span: [1644, 3363]
     sentence_count: 7
     key_terms: [business, stocktelephone11, liberal, degree, arts, interested, nothing, better]
+    concepts: [business, stocktelephone11, liberal, degree, interested]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/neu/1py5pe6.md#c2"
     char_span: [3365, 4556]
     sentence_count: 4
     key_terms: [incomplete, curious, advice, degree, worked, ok-impression-3082, grad, job]
+    concepts: [incomplete, curious, advice, degree, worked]
     section: Comments
     token_count: 330
 ---

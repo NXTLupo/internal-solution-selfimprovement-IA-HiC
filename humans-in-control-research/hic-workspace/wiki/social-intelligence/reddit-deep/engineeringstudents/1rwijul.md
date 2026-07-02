@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 1806]
     sentence_count: 12
     key_terms: [internships, engineeringstudents, connections, get, got, internship, interviews, comments]
+    concepts: [engineeringstudents, internships, connections, internship, interviews]
     token_count: 410
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rwijul/sick_of_being_unable_to_get_an_internship/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rwijul.md#c1"
-    char_span: [1821, 3566]
+    char_span: [1820, 3565]
     sentence_count: 20
     key_terms: [resume, probably, better, apply, cycle, space, white, job]
+    concepts: [resume, probably, better, apply, cycle]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rwijul.md#c2"
-    char_span: [3568, 5165]
+    char_span: [3567, 5164]
     sentence_count: 14
     key_terms: [resume, semiconductors, industry, semiconductor, experience, don, put, coursework]
+    concepts: [resume, semiconductors, semiconductor, industry, experience]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rwijul.md#c3"
-    char_span: [5167, 6380]
+    char_span: [5166, 6379]
     sentence_count: 9
     key_terms: [job, applying, nepotism, better, market, sucks, get, like]
+    concepts: [applying, nepotism, better, market, sucks]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rwijul.md#c4"
-    char_span: [6382, 8607]
+    char_span: [6381, 8606]
     sentence_count: 14
     key_terms: [research, engineering, internships, positions, did, get, differentlow4875, don]
+    concepts: [research, engineering, internships, differentlow4875, positions]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rwijul.md#c5"
-    char_span: [8609, 9946]
+    char_span: [8608, 9945]
     sentence_count: 10
     key_terms: [engineering, work, interview, industry, personal, students, anyone, doesn]
+    concepts: [engineering, interview, industry, personal, students]
     section: Comments
     token_count: 312
 ---

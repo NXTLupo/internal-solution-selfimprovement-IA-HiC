@@ -19,21 +19,29 @@ chunks:
     char_span: [0, 1872]
     sentence_count: 15
     key_terms: [justin, companions, canine, grace, https, years, independent, com]
+    concepts: [justin, companions, canine, independent, grace]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1sejxib.md#c1", "social-intelligence/reddit-deep/neu/1sejxib.md#c2"]
     token_count: 453
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sejxib/would_be_nice_to_see_a_sd_get_recognized_at_our/"}]
   - id: "social-intelligence/reddit-deep/neu/1sejxib.md#c1"
     char_span: [1874, 3890]
     sentence_count: 26
     key_terms: [justin, grace, together, diploma, mariani, version, seton, news]
+    concepts: [justin, grace, together, diploma, mariani]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1sejxib.md#c0", "social-intelligence/reddit-deep/neu/1sejxib.md#c2"]
     token_count: 427
   - id: "social-intelligence/reddit-deep/neu/1sejxib.md#c2"
     char_span: [3892, 5148]
     sentence_count: 9
     key_terms: [justin, version, years, grace, dog, ceremony, includes, standing]
+    concepts: [justin, version, years, grace, ceremony]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1sejxib.md#c0", "social-intelligence/reddit-deep/neu/1sejxib.md#c1"]
     token_count: 267
   - id: "social-intelligence/reddit-deep/neu/1sejxib.md#c3"
     char_span: [5162, 5709]
     sentence_count: 7
     key_terms: [border-coffee, bostonnu, service, tassel, heytherebobitsmerob, extra, gave, too]
+    concepts: [border-coffee, bostonnu, service, tassel, extra]
     section: Comments
     token_count: 150
 ---

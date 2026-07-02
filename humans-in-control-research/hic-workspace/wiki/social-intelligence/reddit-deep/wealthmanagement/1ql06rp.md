@@ -17,10 +17,12 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/wealthmanagement/1ql06rp.md#c0"
-    char_span: [0, 818]
+    char_span: [0, 817]
     sentence_count: 2
     key_terms: [how-kevin-newbert-closed-2-new-clients-and-1-8m-in-assets-using-finny, finny, wealthmanagement, clients, using, prospecting, management, comments]
-    token_count: 194
+    concepts: [wealthmanagement, finny, clients, prospecting, management]
+    token_count: 193
+    sources: [{"n":"reddit-deep: r/wealthmanagement","u":"https://www.reddit.com/r/wealthmanagement/comments/1ql06rp/using_ai_prospecting_tool_for_closing_new_wealth/"}]
 ---
 # Using AI Prospecting Tool for Closing New Wealth Management Clients - Finny
 

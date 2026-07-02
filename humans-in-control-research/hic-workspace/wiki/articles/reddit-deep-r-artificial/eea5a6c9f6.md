@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2260]
     sentence_count: 15
     key_terms: [code, ai-generated, reliable, production, human, "it's", testing, review]
+    concepts: [ai-generated, reliable, production, human, testing]
     token_count: 513
+    sources: [{"n":"Reddit Deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1l5pkcc/how_reliable_is_aigenerated_code_for_production/"}]
   - id: "articles/reddit-deep-r-artificial/eea5a6c9f6.md#c1"
     char_span: [2262, 3195]
     sentence_count: 10
     key_terms: [code, people, "don't", time, product, etc, good, astronomical]
+    concepts: [people, "don't", product]
     token_count: 198
 ---
 # How reliable is AI-generated code for production in 2025?

@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 913]
     sentence_count: 3
     key_terms: [engineering, engineeringstudents, opportunities, internship, aerospace, comments, research, presidentofwakanda]
+    concepts: [engineering, engineeringstudents, opportunities, internship, aerospace]
     token_count: 198
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tfsn57/senior_year_and_still_no_internship_how_cooked_am/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tfsn57.md#c1"
     char_span: [927, 2052]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    concepts: [engineeringstudents, please, reddit, https, automoderator]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tfsn57.md#c2"
     char_span: [2054, 4083]
     sentence_count: 12
     key_terms: [presidentofwakanda, job, resume, experience, internship, related, engineering, like]
+    concepts: [presidentofwakanda, experience, internship, resume, related]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tfsn57.md#c3"
     char_span: [4086, 4961]
     sentence_count: 4
     key_terms: [year, helped, senior, interviews, junior, resume, euphoric-analysis607, mathematicianno1202]
+    concepts: [helped, senior, interviews, junior, resume]
     section: Comments
     token_count: 212
 ---

@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 2038]
     sentence_count: 23
     key_terms: [working, day, work, guess, money, job, jobs, apparently]
+    concepts: [working, guess, money, apparently, graduated]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1lqonk4/am_i_being_fucked_over/"}]
   - id: "social-intelligence/reddit-deep/jobs/1lqonk4.md#c1"
     char_span: [2052, 3645]
     sentence_count: 8
     key_terms: [day, chocchipbananamuffin, meant, hour, per, europe, later, post]
+    concepts: [chocchipbananamuffin, meant, europe, later, commented]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/jobs/1lqonk4.md#c2"
     char_span: [3647, 5365]
     sentence_count: 15
     key_terms: [day, "you're", legal, like, take, okheat9987, getting, minimum]
+    concepts: ["you're", legal, okheat9987, getting, minimum]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/jobs/1lqonk4.md#c3"
     char_span: [5367, 7363]
     sentence_count: 18
     key_terms: [minimum, money, job, wage, melodic-hat-2875, day, work, reasonable]
+    concepts: [minimum, melodic-hat-2875, money, reasonable, yourself]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/jobs/1lqonk4.md#c4"
     char_span: [7365, 8815]
     sentence_count: 9
     key_terms: [people, significantly, pay, investing, anywhere, because, country, suggest]
+    concepts: [people, significantly, investing, anywhere, because]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/jobs/1lqonk4.md#c5"
     char_span: [8817, 10548]
     sentence_count: 14
     key_terms: [mongolia, age, day, here, jobs, life, assuming, monthly]
+    concepts: [mongolia, assuming, monthly, working, pretty]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/jobs/1lqonk4.md#c6"
     char_span: [10550, 11626]
     sentence_count: 13
     key_terms: [days, adjust, todaysthrowaway0110, far, job, uni, work, alternative]
+    concepts: [adjust]
     section: Comments
     token_count: 266
 ---

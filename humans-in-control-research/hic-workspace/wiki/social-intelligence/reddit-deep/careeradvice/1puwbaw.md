@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 250]
     sentence_count: 2
     key_terms: [careeradvice, comments, imaginary-potato4633, reddit-deep, developer, career, posted, reddit]
+    concepts: [careeradvice, comments]
     token_count: 79
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1puwbaw/is_ai_developer_a_good_career/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1puwbaw.md#c1"
     char_span: [264, 1545]
     sentence_count: 12
     key_terms: ["there's", career, research, "don't", developer, engineers, takeyouraxeandhack, ask]
+    concepts: ["there's", career, research, "don't", developer]
     section: Comments
     token_count: 313
 ---

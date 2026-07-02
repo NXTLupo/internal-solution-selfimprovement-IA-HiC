@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1868]
     sentence_count: 16
     key_terms: [research, interests, "i'm", gothenburg, interested, education, practical, academic]
+    concepts: [research, interests, gothenburg, interested, education]
     token_count: 408
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1pz0x5m/grad_school_decision_affordability_vs_research/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1pz0x5m.md#c1"
     char_span: [1882, 2296]
     sentence_count: 3

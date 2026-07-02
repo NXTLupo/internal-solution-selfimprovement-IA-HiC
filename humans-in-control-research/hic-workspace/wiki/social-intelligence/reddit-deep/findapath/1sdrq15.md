@@ -21,46 +21,55 @@ chunks:
     char_span: [0, 204]
     sentence_count: 1
     key_terms: [findapath, comments, fresh-section-5575, reddit-deep, posted, reddit, source, https]
+    concepts: [findapath, comments]
     token_count: 65
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1sdrq15/25_years_old_and_lost_job/"}]
   - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c1"
     char_span: [206, 2428]
     sentence_count: 25
     key_terms: [like, didn, getting, making, money, corporate, feel, love]
+    concepts: [getting, making, corporate, money, because]
     token_count: 483
   - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c2"
     char_span: [2442, 3982]
     sentence_count: 12
     key_terms: [thank, helpful, people, please, help, supportive, findapath, comments]
+    concepts: [thank, helpful, people, please, supportive]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c3"
     char_span: [3984, 5494]
     sentence_count: 11
     key_terms: [exist, good, especially, consider, honestly, monotony, toxicity, another]
+    concepts: [especially, exist, consider, honestly, monotony]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c4"
     char_span: [5496, 7392]
     sentence_count: 18
     key_terms: [because, workforce, volunteering, heart, job, lol, compassion, corporate]
+    concepts: [because, workforce, volunteering, compassion, heart]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c5"
     char_span: [7394, 9507]
     sentence_count: 29
     key_terms: [people, principles, back, nursing, similar, school, specifically, narcissists]
+    concepts: [people, principles, nursing, similar, specifically]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c6"
     char_span: [9509, 11530]
     sentence_count: 18
     key_terms: [because, organization, human, agapeflood, unemployed, resources, starting, manager]
+    concepts: [because, organization, agapeflood, human, unemployed]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c7"
     char_span: [11532, 12431]
     sentence_count: 6
     key_terms: [something, friends, totally, working, myself, remind, trying, fresh-section-5575]
+    concepts: [something, friends, totally, working, myself]
     section: Comments
     token_count: 211
 ---

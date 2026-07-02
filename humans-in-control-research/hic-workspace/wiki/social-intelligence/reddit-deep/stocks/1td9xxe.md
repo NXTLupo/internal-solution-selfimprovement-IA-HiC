@@ -21,101 +21,128 @@ chunks:
     char_span: [0, 795]
     sentence_count: 7
     key_terms: [money, stock, stocks, tech, companies, comments, coming, market]
+    concepts: [money, stock, stocks, companies, comments]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1td9xxe.md#c7", "social-intelligence/reddit-deep/stocks/1td9xxe.md#c9"]
     token_count: 189
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1td9xxe/where_is_all_the_money_in_the_us_stock_market/"}]
   - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c1"
     char_span: [809, 2821]
     sentence_count: 17
     key_terms: [market, better, invest, money, yield, cash, else, new]
+    concepts: [market, better, invest, money, yield]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1td9xxe.md#c8", "social-intelligence/reddit-deep/stocks/1td9xxe.md#c16"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c2"
     char_span: [2823, 4762]
     sentence_count: 18
     key_terms: [market, cap, markets, million, street, house, money, "it's"]
+    concepts: [market, markets, million, street, house]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c3"
     char_span: [4480, 4943]
     sentence_count: 9
     key_terms: [tank, because, markets, invest, been, "it's", government, companies]
+    concepts: [because, markets, invest]
     section: Comments
     token_count: 104
   - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c4"
     char_span: [4946, 5977]
     sentence_count: 14
     key_terms: [increase, international, value, perception, increased, equity, number, sp500]
+    concepts: [increase, international, perception, value, increased]
     section: Comments
     token_count: 231
   - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c5"
     char_span: [5979, 7550]
     sentence_count: 9
     key_terms: [funds, retirement, people, peanutbuttertoast4me, share, world, inclinationcompass, war]
+    concepts: [funds, retirement, people, share, world]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c6"
     char_span: [7552, 9014]
     sentence_count: 9
     key_terms: [money, funds, "it's", new, managers, sitting, sources, answer]
+    concepts: [money, funds, managers, sitting, sources]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c7"
     char_span: [9016, 11141]
     sentence_count: 13
     key_terms: [market, companies, capex, future, stock, money, price, tequilamigo]
+    concepts: [companies, market, capex, future, stock]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1td9xxe.md#c0", "social-intelligence/reddit-deep/stocks/1td9xxe.md#c8", "social-intelligence/reddit-deep/stocks/1td9xxe.md#c11"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c8"
     char_span: [10861, 11982]
     sentence_count: 7
     key_terms: [companies, tech, been, sentiment, sitting, invest, market, technical-war6853]
+    concepts: [companies, sentiment, sitting, invest, market]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1td9xxe.md#c1", "social-intelligence/reddit-deep/stocks/1td9xxe.md#c7"]
     section: Comments
     token_count: 250
   - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c9"
     char_span: [11984, 13797]
     sentence_count: 15
     key_terms: [money, value, hallucination, stock, "he's", use, investment, created]
+    concepts: [money, value, hallucination, investment, stock]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1td9xxe.md#c0"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c10"
     char_span: [13799, 14999]
     sentence_count: 15
     key_terms: [bonds, government, expenses, monetary, inflation, interest, lionrivr, private]
+    concepts: [bonds, government, expenses, monetary, inflation]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c11"
     char_span: [15001, 17001]
     sentence_count: 13
     key_terms: [people, years, stock, income, market, stocks, money, ago]
+    concepts: [people, years, stock, income, market]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1td9xxe.md#c7"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c12"
     char_span: [17003, 18801]
     sentence_count: 11
     key_terms: [inflation, administration, account, beat, current, savings, stocks, "you're"]
+    concepts: [inflation, administration, account, current, savings]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c13"
     char_span: [18803, 20716]
     sentence_count: 20
     key_terms: [company, last, money, days, invested, printing, struggle, across]
+    concepts: [company, money, invested, printing, struggle]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c14"
     char_span: [20718, 21634]
     sentence_count: 11
     key_terms: [decides, price, store, "it's", sell, without, stocks, "don't"]
+    concepts: [decides, price, store, without, stocks]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1td9xxe.md#c15"]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c15"
     char_span: [21636, 22883]
     sentence_count: 11
     key_terms: [price, paperhandsthedip, answer, market, stocks, been, "it's", volume]
+    concepts: [price, paperhandsthedip, answer, market, stocks]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1td9xxe.md#c14", "social-intelligence/reddit-deep/stocks/1td9xxe.md#c16"]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c16"
     char_span: [22885, 24729]
     sentence_count: 21
     key_terms: [price, market, last, trade, money, paperhandsthedip, without, makers]
+    concepts: [price, market, trade, paperhandsthedip, money]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1td9xxe.md#c1", "social-intelligence/reddit-deep/stocks/1td9xxe.md#c15"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c17"

@@ -21,53 +21,67 @@ chunks:
     char_span: [0, 1314]
     sentence_count: 5
     key_terms: [any-chance-the-fed-cuts-rates-this-year-is-evaporating-before-our-very-eyes-as-iran-tensions-raise-oil-prices-18978691, marketwatch, dailyinvestmentbrief, com, https, oil, investing, comments]
+    concepts: [dailyinvestmentbrief, marketwatch, https, investing, comments]
     token_count: 315
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1rhnsg1/iran_tensions_send_oil_soaring_fed_rate_cuts_now/"},{"n":"Read Full Article","u":"https://www.marketwatch.com/story/any-chance-the-fed-cuts-rates-this-year-is-evaporating-before-our-very-eyes-as-iran-tensions-raise-oil-prices-18978691"}]
   - id: "social-intelligence/reddit-deep/investing/1rhnsg1.md#c1"
     char_span: [1328, 3417]
     sentence_count: 11
     key_terms: [iran, strait, surrender, been, does, red, hormuz, monday]
+    concepts: [strait, surrender, hormuz, monday, commercial]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rhnsg1.md#c3"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/investing/1rhnsg1.md#c2"
     char_span: [3419, 5561]
     sentence_count: 14
     key_terms: [future, priced, conflict, spectrum, dragged, change, events, expect]
+    concepts: [future, priced, conflict, spectrum, dragged]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/investing/1rhnsg1.md#c3"
     char_span: [5563, 6542]
     sentence_count: 7
     key_terms: [insurance, whether, monday, strait, understanding, opportunity, companies, curiosity]
+    concepts: [insurance, whether, monday, strait]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rhnsg1.md#c1"]
     section: Comments
     token_count: 225
   - id: "social-intelligence/reddit-deep/investing/1rhnsg1.md#c4"
     char_span: [6544, 8432]
     sentence_count: 10
     key_terms: [tech, continue, market, cut, oil, neffaddict, private, likely]
+    concepts: [continue, market, neffaddict, private, likely]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rhnsg1.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1rhnsg1.md#c5"
     char_span: [8085, 9015]
     sentence_count: 6
     key_terms: [continue, stocks, international, european, private, no-understanding2406, going, "isn't"]
+    concepts: [continue, international, stocks, european, private]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rhnsg1.md#c4"]
     section: Comments
     token_count: 217
   - id: "social-intelligence/reddit-deep/investing/1rhnsg1.md#c6"
     char_span: [9017, 10836]
     sentence_count: 7
     key_terms: [cash, market, down, got, conflict, futures, holding, weekend]
+    concepts: [market, conflict, futures, holding, weekend]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/investing/1rhnsg1.md#c7"
     char_span: [10839, 11808]
     sentence_count: 8
     key_terms: [priced, oil, deleted, happen, improbablybetteratit, rocketlabbeatsspacex, going, gonna]
+    concepts: [priced, deleted, happen, going, gonna]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/investing/1rhnsg1.md#c8"
     char_span: [11810, 13091]
     sentence_count: 8
     key_terms: [markets, weekend, weekend-oil---us-crude, higher, prices, carlosdangerwashere, means, insertclichehereok]
+    concepts: [markets, weekend, higher, prices, means]
     section: Comments
     token_count: 353
 ---

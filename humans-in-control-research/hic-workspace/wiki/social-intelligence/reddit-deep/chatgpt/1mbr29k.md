@@ -21,94 +21,113 @@ chunks:
     char_span: [0, 1777]
     sentence_count: 2
     key_terms: [risk, replaced, postsecondary, clerks, being, jobs, analysts, teachers]
+    concepts: [postsecondary, replaced, clerks, being, representatives]
     token_count: 415
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1mbr29k/microsoft_released_a_study_that_lists_the_40_jobs/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c1"
     char_span: [1781, 3392]
     sentence_count: 1
     key_terms: [operators, workers, equipment, helpers, medical, maintenance, gas, assistants]
+    concepts: [operators, workers, equipment, helpers, medical]
     token_count: 380
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c2"
     char_span: [3406, 5165]
     sentence_count: 11
     key_terms: [please, conversation, image, post, r-chatgpt-1050422060352024636, documents, motorboat, concerns]
+    concepts: [conversation, please, image, documents, motorboat]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c3"
     char_span: [5167, 6760]
     sentence_count: 10
     key_terms: ["it's", jobs, because, "don't", take, ludicrous, already, believe]
+    concepts: [because, "don't", ludicrous, already, believe]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c4"
     char_span: [6762, 8637]
     sentence_count: 12
     key_terms: [occupations, new, capabilities, activities, work, research, "it's", time]
+    concepts: [occupations, capabilities, activities, research, important]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c5"]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c5"
     char_span: [8639, 10602]
     sentence_count: 12
     key_terms: [occupations, operators, switchboard, activities, automated, include, night, recoveringasshole0]
+    concepts: [occupations, operators, switchboard, activities, automated]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c4"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c6"
     char_span: [10604, 10901]
     sentence_count: 3
     key_terms: [labor, automation, functional, functions, intensive, unskilled, androids, chopping]
+    concepts: [labor]
     section: Comments
     token_count: 64
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c7"
     char_span: [10903, 13116]
     sentence_count: 14
     key_terms: [clean, list, probably, going, writing, anyone, dishes, enough]
+    concepts: [clean, probably, going, writing, anyone]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c8"
     char_span: [12805, 14577]
     sentence_count: 6
     key_terms: [sharklasers3000, author, list, replaced, c-suite, replace, writing, "ceo's"]
+    concepts: [sharklasers3000, author, replaced, c-suite, replace]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c9"
     char_span: [14325, 16303]
     sentence_count: 10
     key_terms: [archaeologists, history, historians, replacement, jobs, time, garbage, imagine]
+    concepts: [archaeologists, history, historians, replacement, garbage]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c10"
     char_span: [16082, 16953]
     sentence_count: 5
     key_terms: [mathematician, customer, replaced, history, people, pattern-matching, under-estimating, telemarketers]
+    concepts: [mathematician, customer, replaced, history, people]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c11"
     char_span: [16956, 18995]
     sentence_count: 1
     key_terms: [call, company, telemarketers, want, research, back, etc, part]
+    concepts: [company, telemarketers, research, questions, official]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c12"
     char_span: [18997, 20934]
     sentence_count: 14
     key_terms: [does, get, job, changed, company, someone, people, no-newspaper-7693]
+    concepts: [changed, company, someone, people]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c13"
     char_span: [20939, 22989]
     sentence_count: 15
     key_terms: [human, collar, blue, need, saw, precision, problems, surgical]
+    concepts: [human, collar, precision, problems, surgical]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c14"
     char_span: [22992, 24327]
     sentence_count: 12
     key_terms: [collar, blue, consumers, jobs, white, because, workers, market]
+    concepts: [collar, consumers, white, because, workers]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c15"
     char_span: [24329, 25958]
     sentence_count: 12
     key_terms: [collar, relativecareless2192, house, jobs, robots, white, years, away]
+    concepts: [collar, relativecareless2192, house, robots, eventually]
     section: Comments
     token_count: 415
 ---

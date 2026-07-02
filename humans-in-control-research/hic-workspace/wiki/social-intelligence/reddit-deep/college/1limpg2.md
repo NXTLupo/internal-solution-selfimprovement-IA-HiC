@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 563]
     sentence_count: 5
     key_terms: [services, career, office, comments, college, did, help, internships]
+    concepts: [services, career, office, comments, college]
     token_count: 144
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1limpg2/career_services_office/"}]
   - id: "social-intelligence/reddit-deep/college/1limpg2.md#c1"
-    char_span: [578, 1174]
+    char_span: [577, 1173]
     sentence_count: 7
     key_terms: [helped, readinginthestorm, didn, completely, graduating, professors, anything, pathways]
+    concepts: [helped]
     section: Comments
     token_count: 141
 ---

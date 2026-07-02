@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 2056]
     sentence_count: 18
     key_terms: [engineering, internships, doing, "don't", anymore, getting, student, "i'm"]
+    concepts: [engineering, internships, doing, "don't", anymore]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1pb9zbq.md#c1"]
     token_count: 478
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1pb9zbq/advice_for_internship_options_or_figuring_out/"}]
   - id: "social-intelligence/reddit-deep/internships/1pb9zbq.md#c1"
     char_span: [2058, 3563]
     sentence_count: 12
     key_terms: ["i'm", getting, people, engineering, programing, anymore, because, trying]
+    concepts: [getting, people, engineering, programing, anymore]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1pb9zbq.md#c0"]
     token_count: 329
 ---
 # Advice for internship options or figuring out what to do for college and future career options

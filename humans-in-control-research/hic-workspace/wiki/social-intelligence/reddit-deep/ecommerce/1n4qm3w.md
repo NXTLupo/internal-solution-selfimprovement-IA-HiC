@@ -20,35 +20,44 @@ chunks:
     char_span: [0, 1150]
     sentence_count: 9
     key_terms: [customers, ecommerce, comments, abandon, smaller, margin, rather, carts]
+    concepts: [customers, ecommerce, comments, abandon, smaller]
     token_count: 277
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1n4qm3w/would_you_rather_lose_a_sale_or_sell_at_a_smaller/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1n4qm3w.md#c1"
-    char_span: [1165, 3118]
+    char_span: [1164, 3117]
     sentence_count: 7
     key_terms: [miracleaayodele, discount, abandonment, never, customers, discounts, cart, training]
+    concepts: [miracleaayodele, discount, abandonment, customers, discounts]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1n4qm3w.md#c4"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/ecommerce/1n4qm3w.md#c2"
-    char_span: [3120, 3488]
+    char_span: [3119, 3487]
     sentence_count: 2
     key_terms: [sometimes, consistently, undercutting, competitors, discounting, positioning, customers, dangerous]
+    concepts: [sometimes]
     section: Comments
     token_count: 72
   - id: "social-intelligence/reddit-deep/ecommerce/1n4qm3w.md#c3"
-    char_span: [3490, 5631]
+    char_span: [3489, 5630]
     sentence_count: 10
     key_terms: [request, quote, different, miracleaayodele, people, villagehomef, offer, competitor]
+    concepts: [request, quote, different, miracleaayodele, villagehomef]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/ecommerce/1n4qm3w.md#c4"
-    char_span: [5633, 7814]
+    char_span: [5632, 7813]
     sentence_count: 13
     key_terms: [discount, offer, shipping, miracleaayodele, cart, free, abandoned, already]
+    concepts: [discount, offer, shipping, miracleaayodele, abandoned]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1n4qm3w.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1n4qm3w.md#c5"
-    char_span: [7547, 7836]
+    char_span: [7546, 7835]
     sentence_count: 3
     key_terms: [dealing, offer, time, miracleaayodele, low-ballers, available, customers, discount]
+    concepts: [dealing, offer]
     section: Comments
     token_count: 70
 ---

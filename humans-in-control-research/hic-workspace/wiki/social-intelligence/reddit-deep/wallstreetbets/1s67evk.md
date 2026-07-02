@@ -21,46 +21,57 @@ chunks:
     char_span: [0, 2148]
     sentence_count: 18
     key_terms: [already, going, wallstreetbets, production, countries, diplomacy, expensive, comments]
+    concepts: [already, going, wallstreetbets, production, countries]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1s67evk/control_the_control_the_universe_diplomacy/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1s67evk.md#c1"
     char_span: [2150, 2912]
     sentence_count: 6
     key_terms: [down, inflation, delta, slv, infrastracture, fundamentals, disconnect, overstated]
+    concepts: [inflation, delta]
     token_count: 189
   - id: "social-intelligence/reddit-deep/wallstreetbets/1s67evk.md#c2"
     char_span: [2926, 4229]
     sentence_count: 4
     key_terms: [years, tldr, oil, discord, total, fuk, too, wsb]
+    concepts: [years, discord, total]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/wallstreetbets/1s67evk.md#c3"
     char_span: [4231, 5783]
     sentence_count: 12
     key_terms: [going, oil, everything, ethanol, market, people, south-attorney-5209, leftoverofferings]
+    concepts: [everything, going, ethanol, market, people]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/wallstreetbets/1s67evk.md#c4"
     char_span: [5785, 7885]
     sentence_count: 17
     key_terms: [war, offline, infrastructure, people, facilities, different, inventory, sanctions]
+    concepts: [infrastructure, offline, people, facilities, different]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1s67evk.md#c5"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/wallstreetbets/1s67evk.md#c5"
     char_span: [7887, 8642]
     sentence_count: 4
     key_terms: [offline, facilities, damage, minor, days, hit, oil, port]
+    concepts: [offline, facilities, damage, minor]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1s67evk.md#c4"]
     section: Comments
     token_count: 158
   - id: "social-intelligence/reddit-deep/wallstreetbets/1s67evk.md#c6"
     char_span: [8644, 10446]
     sentence_count: 9
     key_terms: [oil, venezuela, infrastructure, casino, thesis, being, get, png]
+    concepts: [venezuela, infrastructure, casino, thesis, being]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1s67evk.md#c7"
     char_span: [10176, 11002]
     sentence_count: 4
     key_terms: [oil, buy, venezuelan, getting, energy, tinim9, long, sell]
+    concepts: [venezuelan, getting, energy, tinim9]
     section: Comments
     token_count: 219
 ---

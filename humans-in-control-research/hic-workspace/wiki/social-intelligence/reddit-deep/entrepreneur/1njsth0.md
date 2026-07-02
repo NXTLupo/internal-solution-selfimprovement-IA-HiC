@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 556]
     sentence_count: 6
     key_terms: [customers, entrepreneur, comments, trust, reddit-deep, automation, everything, onboarding]
+    concepts: [customers, entrepreneur, comments, trust]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1njsth0.md#c1"]
     token_count: 134
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1njsth0/would_you_trust_ai_to_handle_your_first_100/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1njsth0.md#c1"
-    char_span: [571, 2618]
+    char_span: [570, 2617]
     sentence_count: 10
     key_terms: [entrepreneur, please, building, customers, permanent, promotion, stickied, comment]
+    concepts: [entrepreneur, please, building, customers, permanent]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1njsth0.md#c0"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/entrepreneur/1njsth0.md#c2"
-    char_span: [2620, 3328]
+    char_span: [2619, 3327]
     sentence_count: 6
     key_terms: [customers, experience, automate, capable-raccoon-6371, willing-suspect3883, value, relationship, automating]
+    concepts: [customers, experience, automate, value]
     section: Comments
     token_count: 199
 ---

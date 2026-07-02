@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1428]
     sentence_count: 15
     key_terms: [zoho, support, kayako, currently, customerservice, mainly, experiences, resolution]
+    concepts: [support, kayako, currently, customerservice, mainly]
     token_count: 346
+    sources: [{"n":"reddit-deep: r/customerservice","u":"https://www.reddit.com/r/CustomerService/comments/1nkz5iy/from_kayako_to_zoho_is_it_a_good_idea/"}]
   - id: "social-intelligence/reddit-deep/customerservice/1nkz5iy.md#c1"
-    char_span: [1443, 2206]
+    char_span: [1442, 2205]
     sentence_count: 10
     key_terms: [zoho, checking, using, worth, been, budget-friendly, straightforward, main-itops77]
+    concepts: [checking, using, worth]
     section: Comments
     token_count: 193
 ---

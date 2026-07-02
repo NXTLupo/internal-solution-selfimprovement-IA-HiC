@@ -19,59 +19,70 @@ chunks:
     char_span: [0, 2108]
     sentence_count: 20
     key_terms: [father, louisiana, case, year, college, western, applyingtocollege, bme]
+    concepts: [father, louisiana, college, western, applyingtocollege]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sxrfko/how_to_convince_my_father_that_case_western_will/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sxrfko.md#c1"
     char_span: [2110, 3558]
     sentence_count: 10
     key_terms: [western, case, get, work, especially, university, thousands, graduate]
+    concepts: [western, especially, university, thousands, graduate]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sxrfko.md#c2"
     char_span: [3560, 5250]
     sentence_count: 21
     key_terms: [scholarships, outside, virilemongoose, money, internships, able, get, time]
+    concepts: [scholarships, virilemongoose, outside, internships, money]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sxrfko.md#c3"
     char_span: [5252, 6745]
     sentence_count: 23
     key_terms: [school, loans, bad, brand, name, absolutely, consider, because]
+    concepts: [school, loans, absolutely, brand, consider]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sxrfko.md#c4"
     char_span: [6747, 8294]
     sentence_count: 15
     key_terms: [school, because, force, air, cwru, dad, anywhere, private]
+    concepts: [school, because, force, anywhere, private]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sxrfko.md#c5"
     char_span: [8296, 9878]
     sentence_count: 13
     key_terms: [engineering, ooohoooooooo, lsu, math, want, applied, liking, comes]
+    concepts: [engineering, ooohoooooooo, applied, liking, comes]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sxrfko.md#c6"
     char_span: [9880, 10601]
     sentence_count: 2
     key_terms: [colleges, mediocre, students, average, college, drive, good, top]
+    concepts: [colleges, mediocre, students, average, college]
     section: Comments
     token_count: 165
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sxrfko.md#c7"
     char_span: [10603, 12722]
     sentence_count: 8
     key_terms: [understandingpursuit, salary, average, engineering, cleveland, louisiana, america, dontich]
+    concepts: [understandingpursuit, salary, engineering, average, cleveland]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sxrfko.md#c8"
     char_span: [12414, 13277]
     sentence_count: 7
     key_terms: [budget, aggravating-mind-657, pay, went, simpleserve9774, alternatively, independent, contribute]
+    concepts: [budget]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sxrfko.md#c9"
     char_span: [13279, 14666]
     sentence_count: 18
     key_terms: [money, school, lsu, focused, opinion, afford, person, state]
+    concepts: [money, school, focused, opinion, afford]
     section: Comments
     token_count: 324
 ---

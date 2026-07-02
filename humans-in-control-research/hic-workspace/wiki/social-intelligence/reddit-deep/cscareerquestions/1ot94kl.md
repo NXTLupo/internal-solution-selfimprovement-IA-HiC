@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 980]
     sentence_count: 5
     key_terms: [cscareerquestions, job, software, descriptions, engineering, something, comments, nothing]
+    concepts: [cscareerquestions, software, descriptions, engineering, something]
     token_count: 224
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ot94kl/career_advice_what_other_skills_andor/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ot94kl.md#c1"
     char_span: [994, 2479]
     sentence_count: 13
     key_terms: [job, knowing, "you'll", "you're", stack, tools, good, something]
+    concepts: [knowing, "you'll", "you're", stack, tools]
     section: Comments
     token_count: 326
 ---

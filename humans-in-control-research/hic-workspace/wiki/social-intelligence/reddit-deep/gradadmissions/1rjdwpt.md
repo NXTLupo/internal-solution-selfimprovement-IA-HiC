@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 1560]
     sentence_count: 10
     key_terms: [transcripts, official, bachelors, gradadmissions, "don't", application, add, completely]
+    concepts: [transcripts, official, bachelors, gradadmissions, application]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c4", "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c5"]
     token_count: 344
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rjdwpt/dont_add_universities_for_which_you_dont_have_the/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c1"
     char_span: [1574, 2840]
     sentence_count: 9
     key_terms: [understand, roseflowerpetals, velcrodynamite, school, therainbowconnection, hungryhippopotami12, found, thank]
+    concepts: [understand, roseflowerpetals, velcrodynamite, school, found]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c2"
     char_span: [2842, 5057]
     sentence_count: 18
     key_terms: [transcripts, email, explained, like, fine-lemon-4114, did, resistance, something]
+    concepts: [transcripts, email, explained, fine-lemon-4114, resistance]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c3"
     char_span: [5059, 6830]
     sentence_count: 12
     key_terms: [university, documentation, admissions, official, possible, emails, person, therainbowconnection]
+    concepts: [university, documentation, admissions, official, possible]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c5"]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c4"
     char_span: [6832, 8615]
     sentence_count: 10
     key_terms: [system, being, application, transcripts, here, something, calling, getting]
+    concepts: [system, application, transcripts, being, something]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c0", "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c5"]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c5"
     char_span: [8617, 10206]
     sentence_count: 8
     key_terms: [university, transcripts, like, something, official, country, school, being]
+    concepts: [university, transcripts, something, official, country]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c0", "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c3", "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c4"]
     section: Comments
     token_count: 328
 ---

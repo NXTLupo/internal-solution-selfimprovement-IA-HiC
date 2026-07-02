@@ -11,37 +11,43 @@ score: 0
 upvote_ratio: 0.25
 num_comments: 8
 flair: ""
-extracted_at: "2026-06-18T13:35:35.659Z"
+extracted_at: "2026-06-24T22:14:23.452Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/productmanagement/1mwbt5v.md#c0"
     char_span: [0, 2223]
     sentence_count: 13
     key_terms: [feels, competition, productmanagement, duolingo, learners, product, friend, quests]
+    concepts: [feels, competition, productmanagement, duolingo, learners]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1mwbt5v/duolingo_pm_feedback/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1mwbt5v.md#c1"
     char_span: [2225, 3775]
     sentence_count: 8
     key_terms: [duolingo, feature, infrastructural, courses, product, app, experience, employees]
+    concepts: [duolingo, feature, infrastructural, courses, product]
     token_count: 328
   - id: "social-intelligence/reddit-deep/productmanagement/1mwbt5v.md#c2"
-    char_span: [3790, 5916]
+    char_span: [3789, 5915]
     sentence_count: 17
     key_terms: [features, profile, social, like, feedback, learning, thinking, company]
+    concepts: [features, profile, social, feedback, learning]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/productmanagement/1mwbt5v.md#c3"
-    char_span: [5918, 7664]
+    char_span: [5917, 7663]
     sentence_count: 13
     key_terms: [duolingo, enough, user, learning, tradeoff, velocity, content, keeping]
+    concepts: [duolingo, enough, learning, tradeoff, velocity]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/productmanagement/1mwbt5v.md#c4"
-    char_span: [7666, 8964]
+    char_span: [7665, 8963]
     sentence_count: 10
     key_terms: [duolingo, additionally, year, engagement, business, language, learning, sounds]
+    concepts: [duolingo, additionally, engagement, business, language]
     section: Comments
     token_count: 284
 ---
@@ -125,7 +131,7 @@ It’s always hard to know whether limited feature velocity is intentional ruthl
 
 **6. Final Thoughts**  
 Your warnings about the “sticky but static” product rings true—and no one wants to be the “old Twitter without the Edit button.” The risk for Duolingo isn’t user loss—it’s user apathy, where the only thing keeping us coming back is streak FOMO and that ever-watchful owl. Here’s to hoping they make the leap from gamified language treadmill to a real, community-powered learning journey.
-- **0rthank** (7↑): Most people I know who use Duolingo do 1 lesson a day just to maintain their streak that they've been building for a year or two. Why? Just to avoid losing their progress.
+- **0rthank** (8↑): Most people I know who use Duolingo do 1 lesson a day just to maintain their streak that they've been building for a year or two. Why? Just to avoid losing their progress.
 
 Interestingly, nobody mentions their learning results, but rather how many days they have.
 

@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 458]
     sentence_count: 2
     key_terms: [applyingtocollege, applying, colleges, comments, career, reddit-deep, counselors, counselor]
+    concepts: [applyingtocollege, applying, colleges, comments, career]
     token_count: 116
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sk48qv/best_career_counselor_for_abroad_students/"}]
 ---
 # Best career counselor for abroad students applying to the usa colleges?
 

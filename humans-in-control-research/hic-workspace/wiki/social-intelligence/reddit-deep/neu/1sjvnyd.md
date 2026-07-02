@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 931]
     sentence_count: 8
     key_terms: [requirements, engineering, summer, comments, credits, general, session, nupath]
+    concepts: [requirements, engineering, summer, comments, credits]
     token_count: 222
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sjvnyd/will_i_be_able_to_succeed_as_a_civil_engineering/"}]
   - id: "social-intelligence/reddit-deep/neu/1sjvnyd.md#c1"
     char_span: [945, 2731]
     sentence_count: 10
     key_terms: [requirements, degree, classes, major, "it's", summer, northeastern, take]
+    concepts: [requirements, degree, classes, major, northeastern]
     section: Comments
     token_count: 397
 ---

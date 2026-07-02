@@ -19,10 +19,12 @@ content_hash: "ef35d5c3c87f05d2"
 relevance_by_goal: {"46dec9599ad5":35}
 chunks:
   - id: "articles/reddit-deep-r-personalfinance/ec5db34b0b.md#c0"
-    char_span: [0, 981]
+    char_span: [0, 980]
     sentence_count: 11
     key_terms: [plaid, personalfinance, account, bank, days, reconnect, comments, password]
-    token_count: 241
+    concepts: [personalfinance, plaid, account, reconnect, comments]
+    token_count: 240
+    sources: [{"n":"Reddit Deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1std1ok/plaid_is_being_a_nightmare/"}]
 ---
 # Plaid is being a nightmare!
 

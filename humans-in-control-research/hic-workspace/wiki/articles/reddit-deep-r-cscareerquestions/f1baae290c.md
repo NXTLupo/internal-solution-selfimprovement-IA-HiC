@@ -18,11 +18,16 @@ chunks:
     char_span: [0, 2287]
     sentence_count: 14
     key_terms: [company, experience, internship, students, work, internships, applicants, cscareerquestions]
+    concepts: [company, experience, internship, students, internships]
+    related_chunks: ["articles/reddit-deep-r-cscareerquestions/f1baae290c.md#c1"]
     token_count: 506
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1q35zag/internships_how_do_you_deal_with_students_who_lie/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/f1baae290c.md#c1"
     char_span: [2289, 3481]
     sentence_count: 8
     key_terms: [experience, eventually, internship, references, probably, comment, company, people]
+    concepts: [experience, eventually, internship, references, probably]
+    related_chunks: ["articles/reddit-deep-r-cscareerquestions/f1baae290c.md#c0"]
     token_count: 281
 ---
 # Internships: how do you deal with students who lie?

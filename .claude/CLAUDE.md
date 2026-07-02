@@ -21,7 +21,7 @@ eight principles bind at NINE end-to-end workflow phases — read the operationa
 pipeline, retrieval, routing, design-system, export, or self-improvement code:
 - **Skill `hic-unified-vision`** (`.claude/skills/hic-unified-vision/SKILL.md`) — the loadable nine-phase
   contract + the AIR backbone. INVOKE IT before non-trivial HiC work.
-- **`humans-in-control-research/plans/hic-definitive-vision-and-100-percent-plan-v2-2026-06-30.md`** — the
+- **`humans-in-control-research/plans/hic-definitive-vision-and-100-percent-plan-v2-2026-07-01.md`** — the
   integrated AIR-first 100% plan (WS-0 backbone, WS-A..WS-J, the seven-stage sequence, the critical evaluation
   of the expert review, and the owner-decision list). v1 (same name, no `-v2`) is the file:line audit record.
 The nine phases: (1) relevance = the user's objective, not source type; (2) collect from ALL packs + uploads +

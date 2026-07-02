@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 386]
     sentence_count: 1
     key_terms: [anthropic, comments, https, png, send, z43b63lp71vg1, reddit-deep, messages]
+    concepts: [anthropic, comments, https]
     token_count: 130
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1skpudx/claude_code_send_button_not_showing_does_cant/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1skpudx.md#c1"
     char_span: [400, 1149]
     sentence_count: 3
     key_terms: [enter, use, shortcuts, sometimes, press, png, bluuuuueeeeeee, eqnufquwc6vg1]
+    concepts: [enter, shortcuts, sometimes, press]
     section: Comments
     token_count: 235
 ---

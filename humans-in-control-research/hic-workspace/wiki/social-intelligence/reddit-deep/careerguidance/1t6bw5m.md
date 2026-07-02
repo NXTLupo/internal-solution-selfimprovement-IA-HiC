@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2251]
     sentence_count: 16
     key_terms: [government, administration, because, around, making, accounting, right, contract]
+    concepts: [government, administration, because, accounting, around]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t6bw5m/need_career_advice_stay_in_arts_administration_or/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bw5m.md#c1"
-    char_span: [2266, 2783]
+    char_span: [2265, 2782]
     sentence_count: 2
     key_terms: [snooradishes5272, winthroptwisp, hvac, properclock7298, recommendation, accounting, eventually, government]
+    concepts: [snooradishes5272, winthroptwisp]
     section: Comments
     token_count: 142
 ---

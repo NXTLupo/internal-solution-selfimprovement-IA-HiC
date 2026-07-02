@@ -20,22 +20,27 @@ chunks:
     char_span: [0, 2104]
     sentence_count: 17
     key_terms: [developers, agent, productmanagement, chatgpt, keynote, agents, coding, openai]
+    concepts: [developers, productmanagement, agent, chatgpt, keynote]
     token_count: 495
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1nzrfdo/openai_dev_day_keynote_summary/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1nzrfdo.md#c1"
     char_span: [2106, 2473]
     sentence_count: 4
     key_terms: [industry, directionally, integrating, enterprise, executing, execution, everyone, relative]
+    concepts: [industry]
     token_count: 74
   - id: "social-intelligence/reddit-deep/productmanagement/1nzrfdo.md#c2"
-    char_span: [2488, 4629]
+    char_span: [2487, 4628]
     sentence_count: 14
     key_terms: [thanks, agent, astronomy, agents, integrated, amohakam, critical, example]
+    concepts: [thanks, astronomy, agent, agents, integrated]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/productmanagement/1nzrfdo.md#c3"
-    char_span: [4631, 6312]
+    char_span: [4630, 6311]
     sentence_count: 15
     key_terms: [monetization, app, business, platform, booking, mention, through, did]
+    concepts: [monetization, business, platform, booking, mention]
     section: Comments
     token_count: 385
 ---

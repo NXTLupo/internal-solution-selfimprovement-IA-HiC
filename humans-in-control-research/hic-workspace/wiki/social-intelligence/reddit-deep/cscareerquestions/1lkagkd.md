@@ -21,41 +21,53 @@ chunks:
     char_span: [0, 801]
     sentence_count: 7
     key_terms: [company, cscareerquestions, interns, internships, positions, comments, normal, new]
+    concepts: [company, cscareerquestions, interns, internships, positions]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c2"]
     token_count: 189
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1lkagkd/is_it_normal_now_for_a_company_to_offshore_all_of/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c1"
     char_span: [815, 2054]
     sentence_count: 5
     key_terms: [internships, offshore, hire, company, interns, later, time, ynotbbrave]
+    concepts: [internships, offshore, company, interns, later]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c2"]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c2"
     char_span: [2058, 3882]
     sentence_count: 9
     key_terms: [india, usa, internships, hire, because, company, indians, canada]
+    concepts: [india, internships, because, company, indians]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c5"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c3"
     char_span: [3884, 6056]
     sentence_count: 16
     key_terms: [infosys, contracting, government, "can't", software, because, indian, random]
+    concepts: [contracting, infosys, government, "can't", software]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c4"
     char_span: [6058, 7693]
     sentence_count: 14
     key_terms: [crime, money, best, "there's", get, citadel, getting, always]
+    concepts: [crime, money, "there's", citadel, getting]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c5"
     char_span: [7695, 9733]
     sentence_count: 14
     key_terms: [companies, indians, because, fortune, does, keep, like, getting]
+    concepts: [companies, indians, because, fortune, getting]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c2"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c6"
     char_span: [9735, 11138]
     sentence_count: 5
     key_terms: [interests, goods, enjoy, bigshotbosh, cost, "it's", job, low]
+    concepts: [interests, goods, bigshotbosh, enjoy, expensive]
     section: Comments
     token_count: 375
 ---

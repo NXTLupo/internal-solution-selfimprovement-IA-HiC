@@ -21,28 +21,34 @@ chunks:
     char_span: [0, 2248]
     sentence_count: 15
     key_terms: [housing, relatively, northeast, pay, need, work, stipend, opportunities]
+    concepts: [housing, relatively, northeast, opportunities, stipend]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1oyx51p/need_help_deciding_between_internship_offers/"}]
   - id: "social-intelligence/reddit-deep/internships/1oyx51p.md#c1"
     char_span: [2250, 2933]
     sentence_count: 4
     key_terms: [tech, big, consulting, business, relevant, "i'm", work, specifically]
+    concepts: [consulting, business, relevant]
     token_count: 151
   - id: "social-intelligence/reddit-deep/internships/1oyx51p.md#c2"
     char_span: [2947, 5021]
     sentence_count: 16
     key_terms: [big, madeightpie, offers, transfer, congratulations, company, "don't", thank]
+    concepts: [madeightpie, offers, congratulations, transfer, company]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1oyx51p.md#c3"
     char_span: [4751, 6338]
     sentence_count: 7
     key_terms: [interned, madeightpie, interesting, work, internship, interviews, companies, congrats]
+    concepts: [interned, madeightpie, interesting, internship, interviews]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/internships/1oyx51p.md#c4"
     char_span: [6340, 7757]
     sentence_count: 14
     key_terms: [interviews, resume, beforehand, industry, specific, numbers, process, like]
+    concepts: [interviews, resume, beforehand, industry, specific]
     section: Comments
     token_count: 299
 ---

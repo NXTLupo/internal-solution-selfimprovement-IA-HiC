@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 963]
     sentence_count: 8
     key_terms: [cscareerquestions, developer, comments, graduate, advice, career, react, stack]
+    concepts: [cscareerquestions, developer, comments, graduate, advice]
     token_count: 249
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tfgucg/career_advice_needed_2026_cs_graduate_with_1_yoe/"}]
 ---
 # Career Advice Needed: 2026 CS Graduate with 1 YOE Full Stack Developer.
 

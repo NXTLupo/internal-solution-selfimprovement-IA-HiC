@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1234]
     sentence_count: 11
     key_terms: [internship, terrible, founder, build, internships, experience, including, technical]
+    concepts: [internship, terrible, founder, internships, build]
     token_count: 270
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1paq8xz/terrible_internship_experience_and_bad_feedback/"}]
   - id: "social-intelligence/reddit-deep/internships/1paq8xz.md#c1"
     char_span: [1248, 2095]
     sentence_count: 4
     key_terms: [pay, experience, someone, making, character-company-47, bots, ceruleangenesis, analytical]
+    concepts: [experience, someone, making]
     section: Comments
     token_count: 237
 ---

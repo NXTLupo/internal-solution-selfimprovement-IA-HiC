@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1739]
     sentence_count: 10
     key_terms: [business, engineering, like, master, something, comments, software, college]
+    concepts: [business, engineering, master, something, comments]
     token_count: 391
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ok2kp2/im_a_3rd_year_engineering_student_but_feel_lost/"}]
   - id: "social-intelligence/reddit-deep/college/1ok2kp2.md#c1"
     char_span: [1753, 3689]
     sentence_count: 12
     key_terms: [business, research, industry, degree, cheap-kaleidoscope91, good, "i've", want]
+    concepts: [business, research, industry, cheap-kaleidoscope91, degree]
     section: Comments
     token_count: 440
 ---

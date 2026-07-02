@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2278]
     sentence_count: 8
     key_terms: [sales, been, expansion, company, team, want, interview, recruiter]
+    concepts: [sales, expansion, company, interview, recruiter]
     token_count: 489
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1nbx9wm/need_help_vetting_a_new_opportunity/"}]
   - id: "social-intelligence/reddit-deep/sales/1nbx9wm.md#c1"
-    char_span: [2280, 4118]
+    char_span: [2280, 4117]
     sentence_count: 13
     key_terms: [asking, hiring, get, want, manager, dschilling88, back, quijotesko]
+    concepts: [asking, hiring, manager, dschilling88, quijotesko]
     section: Comments
     token_count: 419
 ---

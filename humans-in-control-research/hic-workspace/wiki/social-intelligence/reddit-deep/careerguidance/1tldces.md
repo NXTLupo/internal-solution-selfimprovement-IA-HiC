@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2019]
     sentence_count: 14
     key_terms: [career, like, jobs, careerguidance, degree, idea, take, positions]
+    concepts: [career, careerguidance, degree, positions, comments]
     token_count: 463
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tldces/i_have_no_idea_what_my_career_could_be_after_an/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tldces.md#c1"
     char_span: [2033, 3825]
     sentence_count: 13
     key_terms: [analyst, business, product, implementation, branch, roles, since, ops]
+    concepts: [analyst, business, implementation, product, branch]
     section: Comments
     token_count: 385
 ---

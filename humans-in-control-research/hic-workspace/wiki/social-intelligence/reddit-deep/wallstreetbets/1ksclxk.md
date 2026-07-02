@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1154]
     sentence_count: 7
     key_terms: [calls, googl, https, com, imgur, wallstreetbets, comments, million]
+    concepts: [calls, googl, https, imgur, wallstreetbets]
     token_count: 341
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1ksclxk/googl_calls_yolo_1_million_in_gains/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ksclxk.md#c1"
     char_span: [1168, 2656]
     sentence_count: 7
     key_terms: [money, step, wsb, small, percentage, fatc0bra1, capital, discord]
+    concepts: [money, percentage, small, fatc0bra1, capital]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ksclxk.md#c2"
     char_span: [2658, 4295]
     sentence_count: 9
     key_terms: [bought, trade, dip, yesterday, moopie45, comment, options, defiant-tailor-8979]
+    concepts: [bought, trade, yesterday, moopie45, comment]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ksclxk.md#c3"
     char_span: [4297, 5236]
     sentence_count: 3
     key_terms: [congrats, "didn't", google, today, swimming-tutor2729, jump, kmpitxhnkkitz, sensational]
+    concepts: [congrats, "didn't", google, today]
     section: Comments
     token_count: 271
 ---

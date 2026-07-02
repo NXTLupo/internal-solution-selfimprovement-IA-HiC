@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 780]
     sentence_count: 5
     key_terms: [school, gradschool, comments, deciding, cinnamontopography, did, grad, "i'm"]
+    concepts: [school, gradschool, comments, deciding]
     token_count: 189
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1lfl7fn/what_finally_tipped_the_scales_and_made_you/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1lfl7fn.md#c1"
     char_span: [794, 2793]
     sentence_count: 13
     key_terms: [cinnamontopography, undergrad, like, around, people, school, wanted, years]
+    concepts: [cinnamontopography, undergrad, around, people, school]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1lfl7fn.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1lfl7fn.md#c2"
     char_span: [2583, 3668]
     sentence_count: 6
     key_terms: [research, waited, position, country, getting, having, school, zooz00]
+    concepts: [research, waited, position, country, getting]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/gradschool/1lfl7fn.md#c3"
     char_span: [3670, 5589]
     sentence_count: 20
     key_terms: [degree, school, program, professional, back, job, life, promotion]
+    concepts: [degree, school, program, professional, promotion]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1lfl7fn.md#c4"]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/gradschool/1lfl7fn.md#c4"
     char_span: [5591, 7102]
     sentence_count: 13
     key_terms: [school, grad, jobs, paralegal, research, program, someone, family]
+    concepts: [school, paralegal, research, program, someone]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1lfl7fn.md#c3"]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/gradschool/1lfl7fn.md#c5"
     char_span: [7104, 8879]
     sentence_count: 13
     key_terms: [school, undergrad, back, years, went, graduate, article, classes]
+    concepts: [undergrad, school, years, graduate, article]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1lfl7fn.md#c1"]
     section: Comments
     token_count: 420
 ---

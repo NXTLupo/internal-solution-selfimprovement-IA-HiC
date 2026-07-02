@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 336]
     sentence_count: 1
     key_terms: [anthropic, comments, reddit-deep, crush-name, gdscript, assets, builds, claude]
+    concepts: [anthropic, comments]
     token_count: 94
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1rwbrg3/claude_code_now_builds_entire_games_from_a_single/"}]
 ---
 # Claude Code now builds entire games from a single prompt — GDScript, assets, and visual QA to find its own bugs
 

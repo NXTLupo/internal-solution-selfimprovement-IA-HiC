@@ -20,33 +20,44 @@ chunks:
     char_span: [0, 2333]
     sentence_count: 13
     key_terms: [support, customers, churn, conversations, leaders, sentiment, customersuccess, cancellation]
+    concepts: [support, customers, conversations, churn, leaders]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1modtrw.md#c1", "social-intelligence/reddit-deep/customersuccess/1modtrw.md#c2", "social-intelligence/reddit-deep/customersuccess/1modtrw.md#c4"]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/customersuccess","u":"https://www.reddit.com/r/CustomerSuccess/comments/1modtrw/lessons_from_interviewing_9_cs_leaders/"}]
   - id: "social-intelligence/reddit-deep/customersuccess/1modtrw.md#c1"
     char_span: [2335, 4340]
     sentence_count: 13
     key_terms: [like, prevention, customers, leaders, flows, cancellation, churn, "it's"]
+    concepts: [prevention, customers, leaders, flows, cancellation]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1modtrw.md#c0"]
     token_count: 412
   - id: "social-intelligence/reddit-deep/customersuccess/1modtrw.md#c2"
     char_span: [4342, 6339]
     sentence_count: 10
     key_terms: [early, support, cancellation, churn, flows, usage, stakeholder, like]
+    concepts: [early, support, cancellation, stakeholder, churn]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1modtrw.md#c0"]
     token_count: 436
   - id: "social-intelligence/reddit-deep/customersuccess/1modtrw.md#c3"
-    char_span: [6354, 8476]
+    char_span: [6353, 8475]
     sentence_count: 22
     key_terms: [actions, alert, work, enough, mammoth-evie, doesn, recommended, csm]
+    concepts: [actions, alert, mammoth-evie, enough, recommended]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/customersuccess/1modtrw.md#c4"
-    char_span: [8478, 10285]
+    char_span: [8477, 10284]
     sentence_count: 19
     key_terms: [results, customer, customers, measuring, churn, stay, business, tracking]
+    concepts: [results, customer, customers, measuring, churn]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1modtrw.md#c0"]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/customersuccess/1modtrw.md#c5"
-    char_span: [10287, 12432]
+    char_span: [10286, 12431]
     sentence_count: 15
     key_terms: [product, customer, companies, idea, business, using, saas, different]
+    concepts: [product, customer, companies, business, using]
     section: Comments
     token_count: 494
 ---

@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 540]
     sentence_count: 6
     key_terms: [semesters, take, gradschool, comments, classes, taking, coffeechangesthings, grad]
+    concepts: [semesters, gradschool, comments, classes, taking]
     token_count: 137
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1qpaabt/do_you_take_semesters_off/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1qpaabt.md#c1"
     char_span: [554, 2734]
     sentence_count: 14
     key_terms: [summer, grad, time, graduate, round-sense7935, funding, program, through]
+    concepts: [summer, round-sense7935, graduate, funding, program]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qpaabt.md#c2"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/gradschool/1qpaabt.md#c2"
     char_span: [2736, 4438]
     sentence_count: 10
     key_terms: [semesters, graduate, time, work, student, summer, grad, research]
+    concepts: [semesters, graduate, student, summer, research]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qpaabt.md#c1"]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/gradschool/1qpaabt.md#c3"
     char_span: [4440, 6381]
     sentence_count: 14
     key_terms: [year, research, work, hours, take, classes, years, time]
+    concepts: [research, hours, classes, years, expected]
     section: Comments
     token_count: 468
 ---

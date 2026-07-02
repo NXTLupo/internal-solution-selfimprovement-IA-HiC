@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 871]
     sentence_count: 9
     key_terms: [school, gradschool, full-time, comments, people, going, notes, paper]
+    concepts: [school, gradschool, full-time, comments, people]
     token_count: 212
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1lzl5sp/going_back_to_grad_school_after_10_years_how_do/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c1"
     char_span: [885, 1643]
     sentence_count: 10
     key_terms: [use, paper, pen, fashioned, notebook, version, google, notes]
+    concepts: [paper, fashioned, notebook, version, google]
     section: Comments
     token_count: 191
   - id: "social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c2"
     char_span: [1645, 3059]
     sentence_count: 9
     key_terms: [notability, subscription, ipad, got, notability-subscription-faq, uleebunny, discount, purchase]
+    concepts: [notability, subscription, uleebunny, discount, purchase]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c3"
     char_span: [3061, 4150]
     sentence_count: 11
     key_terms: [paper, pen, notes, years, use, always, laptop, screen]
+    concepts: [paper, notes, years, always, laptop]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c4"]
     section: Comments
     token_count: 282
   - id: "social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c4"
     char_span: [4152, 6330]
     sentence_count: 12
     key_terms: [notes, laptop, class, paper, pen, works, take, formulas]
+    concepts: [notes, laptop, class, paper, works]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c5"
     char_span: [6087, 6518]
     sentence_count: 4
     key_terms: [classes, slides, notes, pen, used, imjustaverage, memorization, downloaded]
+    concepts: [classes, slides, notes]
     section: Comments
     token_count: 106
 ---

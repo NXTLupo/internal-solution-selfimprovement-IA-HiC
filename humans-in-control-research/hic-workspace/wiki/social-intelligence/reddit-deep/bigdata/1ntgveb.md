@@ -20,9 +20,11 @@ chunks:
     char_span: [0, 952]
     sentence_count: 3
     key_terms: [ecosystem, data, leveraging, comments, bigdata, https, big, customer-centric]
+    concepts: [ecosystem, leveraging, comments, bigdata, https]
     token_count: 220
+    sources: [{"n":"reddit-deep: r/bigdata","u":"https://www.reddit.com/r/bigdata/comments/1ntgveb/leveraging_ai_and_big_data_to_boost_the_ev/"}]
   - id: "social-intelligence/reddit-deep/bigdata/1ntgveb.md#c1"
-    char_span: [967, 1613]
+    char_span: [966, 1612]
     sentence_count: 5
     key_terms: [data, real, interpolation, bottlenecks, engineering, integration, opportunity, conditions]
     section: Comments

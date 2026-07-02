@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1618]
     sentence_count: 12
     key_terms: [school, gradadmissions, credibility, hult, want, experience, academic, comments]
+    concepts: [school, gradadmissions, credibility, experience, academic]
     token_count: 339
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1o6jvo1/regret_choosing_hult_how_can_i_rebuild/"}]
 ---
 # Regret choosing Hult — how can I rebuild credibility for my career or grad school?
 

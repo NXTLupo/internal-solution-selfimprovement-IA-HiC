@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1988]
     sentence_count: 13
     key_terms: [training, role, work, year, highereducation, resources, academic, building]
+    concepts: [training, highereducation, resources, academic, building]
     token_count: 440
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1p38vqo/anyone_else_in_a_dedicated_stafffaculty_training/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1p38vqo.md#c1"
     char_span: [2002, 4286]
     sentence_count: 15
     key_terms: [training, get, like, articulate, developing, trainings, workflow, central]
+    concepts: [training, articulate, developing, trainings, workflow]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1p38vqo.md#c2"
     char_span: [4005, 5028]
     sentence_count: 9
     key_terms: [training, always, canvas, instructional, need, mandatory, something, focused]
+    concepts: [training, instructional, always, canvas, mandatory]
     section: Comments
     token_count: 219
 ---

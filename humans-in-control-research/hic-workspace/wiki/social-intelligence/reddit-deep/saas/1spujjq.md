@@ -20,51 +20,60 @@ chunks:
     char_span: [0, 1527]
     sentence_count: 22
     key_terms: [marketing, app, saas, comments, fitness, right, micro-influencers, hear]
+    concepts: [marketing, comments, fitness, right]
     token_count: 381
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1spujjq/build_it_and_they_will_come_was_a_lie_whats_the/"}]
   - id: "social-intelligence/reddit-deep/saas/1spujjq.md#c1"
-    char_span: [1542, 3228]
+    char_span: [1541, 3227]
     sentence_count: 14
     key_terms: [innovation, product, funnel, people, marketing, problem, traffic, myself]
+    concepts: [innovation, product, funnel, people, marketing]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/saas/1spujjq.md#c2"
-    char_span: [3230, 4793]
+    char_span: [3229, 4792]
     sentence_count: 13
     key_terms: [cost, athletes, business, generate, fitness, pricing, problem, serious]
+    concepts: [athletes, business, generate, fitness, pricing]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/saas/1spujjq.md#c3"
-    char_span: [4795, 7076]
+    char_span: [4794, 7075]
     sentence_count: 22
     key_terms: [app, limiter, netflix, whether, cant, does, mentioned, athletes]
+    concepts: [limiter, netflix, whether, mentioned, athletes]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/saas/1spujjq.md#c4"
-    char_span: [7078, 9449]
+    char_span: [7077, 9448]
     sentence_count: 20
     key_terms: [money, feedback, get, ads, hundred, someone, action, cheap]
+    concepts: [money, feedback, hundred, someone, action]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/saas/1spujjq.md#c5"
-    char_span: [9451, 11524]
+    char_span: [9450, 11523]
     sentence_count: 22
     key_terms: [meta, people, cheap, ads, ways, activated, seriously, feedback]
+    concepts: [people, cheap, activated, seriously, feedback]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/saas/1spujjq.md#c6"
-    char_span: [11526, 13662]
+    char_span: [11525, 13661]
     sentence_count: 16
     key_terms: [fitness, posts, micro-influencers, app, free, get, followers, anything]
+    concepts: [fitness, micro-influencers, posts, followers, anything]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/saas/1spujjq.md#c7"
-    char_span: [13666, 15614]
+    char_span: [13665, 15613]
     sentence_count: 28
     key_terms: [something, ads, like, owners, users, gym, fitness, problem]
+    concepts: [something, owners, users, fitness, problem]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/saas/1spujjq.md#c8"
-    char_span: [15616, 15880]
+    char_span: [15615, 15879]
     sentence_count: 4
     key_terms: [specifically, athletes, likewise, problem, advice, google, people, solves]
     section: Comments

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1612]
     sentence_count: 6
     key_terms: [branding, assets, chatgpt, character, marketers, comments, creating, mockups]
+    concepts: [branding, assets, chatgpt, character, marketers]
     token_count: 356
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1l28yzl/marketers_creatives_built_4_visual_assets_for_a/"}]
 ---
 # Marketers & Creatives: Built 4 Visual Assets for a Branding Project in One Day Using ChatGPT
 

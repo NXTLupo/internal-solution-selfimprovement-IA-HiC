@@ -21,41 +21,53 @@ chunks:
     char_span: [0, 2035]
     sentence_count: 11
     key_terms: [international, mscs, students, anymore, gradadmissions, market, people, don]
+    concepts: [international, students, gradadmissions, anymore, market]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c1", "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c3", "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c5"]
     token_count: 489
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1o1wyj9/banned_from_rmscs_for_sharing_my_honest/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c1"
     char_span: [2037, 3703]
     sentence_count: 6
     key_terms: [utm, students, season, international, share, mscs, gradpilot, comments]
+    concepts: [students, international, season, share, gradpilot]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c0", "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c3", "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c5"]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c2"
     char_span: [3705, 5475]
     sentence_count: 11
     key_terms: [countries, good, here, metronomyc, education, recommend, germany, getting]
+    concepts: [countries, metronomyc, education, recommend, germany]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c3"
     char_span: [5477, 7313]
     sentence_count: 8
     key_terms: [gradpilot, local, job, course, market, work, students, getting]
+    concepts: [gradpilot, local, course, market, students]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c0", "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c1"]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c4"
     char_span: [7315, 8262]
     sentence_count: 9
     key_terms: [degree, get, everyone, without, years, hard, "it's", traditional]
+    concepts: [degree, everyone, without, years]
     section: Comments
     token_count: 228
   - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c5"
     char_span: [8266, 10345]
     sentence_count: 15
     key_terms: [job, students, international, needs, right, luck, generation, sympathy]
+    concepts: [students, international, generation, needs, right]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c0", "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c1"]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c6"
     char_span: [10347, 11092]
     sentence_count: 5
     key_terms: [years, governmentok4147, iamthebananagod, internationals, international, such-mud-7276, everything, genuinely]
+    concepts: [years]
     section: Comments
     token_count: 194
 ---

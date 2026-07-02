@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 432]
     sentence_count: 3
     key_terms: [program, uwaterloo, comments, waterloo, coop, reddit-deep, intensive, daughter]
+    concepts: [program, uwaterloo, comments, waterloo]
     token_count: 113
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1s9orqo/waterloo_cs_coop_program/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1s9orqo.md#c1"
     char_span: [446, 1143]
     sentence_count: 5
     key_terms: [usually, days, break, terms, exam, week, work, thekoalafrommars]
+    concepts: [usually, break, terms]
     section: Comments
     token_count: 181
 ---

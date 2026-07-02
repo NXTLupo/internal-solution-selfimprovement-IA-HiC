@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 539]
     sentence_count: 3
     key_terms: [admission, gradadmissions, mailed, school, comments, letters, grad, reddit-deep]
+    concepts: [admission, gradadmissions, mailed, school, comments]
     token_count: 124
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rmxb31/do_grad_school_mail_physical_admission_letters/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rmxb31.md#c1"
-    char_span: [554, 1264]
+    char_span: [553, 1263]
     sentence_count: 4
     key_terms: [admissions, expecting, letter, though, fragrantbluebird8106, okphilosopher2053, mail, nice]
+    concepts: [admissions, expecting, letter, though]
     section: Comments
     token_count: 208
 ---

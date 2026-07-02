@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1833]
     sentence_count: 14
     key_terms: [undergrad, schools, gradadmissions, enough, universities, field, admissions, committees]
+    concepts: [undergrad, gradadmissions, schools, universities, enough]
     token_count: 388
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rj8xbf/how_to_cope_with_rejection/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rj8xbf.md#c1"
     char_span: [1847, 3665]
     sentence_count: 15
     key_terms: [applied, people, experience, decide, cycle, want, professors, rejected]
+    concepts: [applied, experience, people, decide, cycle]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/gradadmissions/1rj8xbf.md#c2"
     char_span: [3670, 5652]
     sentence_count: 14
     key_terms: [programs, physics, chemistry, application, advisors, research, program, apply]
+    concepts: [programs, physics, chemistry, application, advisors]
     section: Comments
     token_count: 423
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1214]
     sentence_count: 7
     key_terms: ["i'm", engineeringstudents, courses, side, comments, student, reddit, doing]
+    concepts: [engineeringstudents, courses, comments, student, reddit]
     token_count: 290
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tc84eh/engineer_student_in_need_of_some_advice/"}]
 ---
 # Engineer student in need of some advice 🧍‍♂️🙏
 

@@ -21,52 +21,64 @@ chunks:
     char_span: [0, 1954]
     sentence_count: 13
     key_terms: [told, accommodations, been, lab, phd, year, gradschool, questions]
+    concepts: [accommodations, gradschool, questions, comments, funding]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c7"]
     token_count: 458
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1s5tk2h/two_pis_told_me_im_not_worth_funding_how_bad_does/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c1"
     char_span: [1956, 3481]
     sentence_count: 11
     key_terms: [feeling, whether, been, tell, year, affected, position, already]
+    concepts: [feeling, whether, affected, position, already]
     token_count: 327
   - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c2"
     char_span: [3495, 5469]
     sentence_count: 14
     key_terms: [program, environment, work, yourself, because, staying, whether, option]
+    concepts: [environment, program, yourself, because, staying]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c3"
     char_span: [5471, 7223]
     sentence_count: 17
     key_terms: [likely, conversations, goals, lab, okay, feedback, progress, regular]
+    concepts: [conversations, likely, goals, feedback, progress]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c4"
     char_span: [7225, 9326]
     sentence_count: 21
     key_terms: [like, people, lab, side, absolutely, reactions, rotation, opinion]
+    concepts: [people, absolutely, reactions, rotation, opinion]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c5"
     char_span: [9328, 11400]
     sentence_count: 30
     key_terms: [people, unfortunately, understand, issues, disabilities, dont, lot, different]
+    concepts: [people, unfortunately, understand, disabilities, issues]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c6"
     char_span: [11402, 13095]
     sentence_count: 14
     key_terms: [implemented, ago, post, questions, semester, verbatim, changed, nothing]
+    concepts: [implemented, questions, semester, verbatim, changed]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c7"
     char_span: [13097, 15544]
     sentence_count: 24
     key_terms: [questions, last, comments, feedback, hundreds, received, account, advice]
+    concepts: [questions, comments, feedback, hundreds, received]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c0"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c8"
     char_span: [15546, 17847]
     sentence_count: 22
     key_terms: [change, hearing, administrators, "can't", going, toxic, behaviours, department]
+    concepts: [change, administrators, hearing, behaviours, "can't"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c9"

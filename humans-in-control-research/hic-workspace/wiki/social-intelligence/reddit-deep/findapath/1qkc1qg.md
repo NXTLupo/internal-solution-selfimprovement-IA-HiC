@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1502]
     sentence_count: 14
     key_terms: [like, feel, don, especially, findapath, comments, feeling, nothing]
+    concepts: [especially, findapath, comments, feeling, nothing]
     token_count: 346
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1qkc1qg/feels_like_my_life_is_ruined/"}]
   - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c1"
     char_span: [1516, 3713]
     sentence_count: 18
     key_terms: [thank, helpful, redgreenrevolt, please, community, findapath, comments, everyone]
+    concepts: [thank, redgreenrevolt, helpful, please, community]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c2"
     char_span: [3715, 5508]
     sentence_count: 20
     key_terms: [people, time, starting, school, right, stage, life, graduate]
+    concepts: [people, starting, school, right, stage]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c3"
     char_span: [5510, 6595]
     sentence_count: 10
     key_terms: [pivot, parents, change, being, big, keep, life, want]
+    concepts: [pivot, parents, change, being]
     section: Comments
     token_count: 248
   - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c4"
     char_span: [6597, 8432]
     sentence_count: 13
     key_terms: [nursing, realize, poopswordsrus, lpn, addiction, someone, health, mental]
+    concepts: [nursing, poopswordsrus, realize, addiction, someone]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c5"
     char_span: [8434, 9082]
     sentence_count: 10
     key_terms: [yourself, lot, connections, disposition, unavoidable, entangled, interests, sometimes]
+    concepts: [yourself]
     section: Comments
     token_count: 156
   - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c6"
     char_span: [9084, 11246]
     sentence_count: 10
     key_terms: [yourself, let, move, college, worked, live, volunteer, network]
+    concepts: [yourself, college, worked, volunteer, network]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c7"

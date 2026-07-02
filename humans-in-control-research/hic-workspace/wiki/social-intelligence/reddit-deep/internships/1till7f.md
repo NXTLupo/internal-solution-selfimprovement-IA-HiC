@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1881]
     sentence_count: 9
     key_terms: [work, startups, collegeone1210, early-stage, internships, team, interested, execution]
+    concepts: [startups, collegeone1210, early-stage, internships, interested]
     token_count: 391
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1till7f/finding_earlystage_startups_that_hire_ambitious/"}]
 ---
 # Finding early-stage startups that hire ambitious generalists?
 

@@ -19,53 +19,62 @@ chunks:
     char_span: [0, 803]
     sentence_count: 7
     key_terms: [people, findapath, comments, career, demand, strong, young, good]
+    concepts: [people, findapath, comments, career, demand]
     token_count: 191
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1r4k9wm/whats_a_good_career_path_for_young_people_that/"}]
   - id: "social-intelligence/reddit-deep/findapath/1r4k9wm.md#c1"
-    char_span: [818, 2984]
+    char_span: [817, 2983]
     sentence_count: 19
     key_terms: [thank, different, everyone, helpful, please, good, like, findapath]
+    concepts: [different, thank, everyone, helpful, please]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/findapath/1r4k9wm.md#c2"
-    char_span: [2988, 3383]
+    char_span: [2987, 3382]
     sentence_count: 3
     key_terms: [like, maximizing, protecting, guarantee, paperwork, becoming, drowning, weekends]
     section: Comments
     token_count: 88
   - id: "social-intelligence/reddit-deep/findapath/1r4k9wm.md#c3"
-    char_span: [3385, 5575]
+    char_span: [3384, 5574]
     sentence_count: 22
     key_terms: [work, money, established, feel, get, pays, time, critical]
+    concepts: [established, money, critical, sensible, thinking]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1r4k9wm.md#c4"
-    char_span: [5302, 6039]
+    char_span: [5301, 6038]
     sentence_count: 10
     key_terms: [water, maintenance, time, technician, whether, system, worker, great]
+    concepts: [maintenance, technician, water, whether, system]
     section: Comments
     token_count: 161
   - id: "social-intelligence/reddit-deep/findapath/1r4k9wm.md#c5"
-    char_span: [6041, 7456]
+    char_span: [6040, 7455]
     sentence_count: 12
     key_terms: [great, start, did, jobs, work, treatment, schedule, problem]
+    concepts: [great, start, treatment, schedule, problem]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/findapath/1r4k9wm.md#c6"
-    char_span: [7458, 9510]
+    char_span: [7457, 9509]
     sentence_count: 17
     key_terms: [people, doing, hospital, primary-bug-7353, right, time, compliance, financial]
+    concepts: [people, primary-bug-7353, doing, hospital, compliance]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1r4k9wm.md#c7"
-    char_span: [9215, 9816]
+    char_span: [9214, 9815]
     sentence_count: 4
     key_terms: [prior-actuator-8110, climb, good, physically, demanding, different, difficult, efficient]
+    concepts: [climb]
     section: Comments
     token_count: 142
   - id: "social-intelligence/reddit-deep/findapath/1r4k9wm.md#c8"
-    char_span: [9818, 11907]
+    char_span: [9817, 11906]
     sentence_count: 17
     key_terms: [career, school, least, engineering, interesting, take, medicine, medical]
+    concepts: [career, school, engineering, interesting, least]
     section: Comments
     token_count: 496
 ---

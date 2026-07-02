@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 682]
     sentence_count: 9
     key_terms: [aws, dataengineering, glue, comments, external, ingest, source, tools]
+    concepts: [dataengineering, comments, external, ingest, source]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1toa1hd.md#c1"]
     token_count: 166
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1toa1hd/suggest_aws_etl_tools/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1toa1hd.md#c1"
-    char_span: [697, 2287]
+    char_span: [696, 2286]
     sentence_count: 12
     key_terms: [api, airflow, aws, here, jobs, external, cluster, compute]
+    concepts: [airflow, external, cluster, compute, ingest]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1toa1hd.md#c0"]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/dataengineering/1toa1hd.md#c2"
-    char_span: [2289, 3749]
+    char_span: [2288, 3748]
     sentence_count: 8
     key_terms: [glue, salesforce, use, jobs, zendesk, python, specifically, incremental]
+    concepts: [salesforce, zendesk, specifically, python, incremental]
     section: Comments
     token_count: 346
 ---

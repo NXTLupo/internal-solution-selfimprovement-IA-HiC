@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1341]
     sentence_count: 16
     key_terms: [career, want, careerguidance, like, accountant, chartered, family, reddit]
+    concepts: [career, careerguidance, accountant, chartered, family]
     token_count: 313
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sudplu/career_path_while_family_planning_as_a_chartered/"}]
 ---
 # Career path while family planning as a Chartered Accountant with ambitions to be successful but feeling lost?
 

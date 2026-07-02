@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 855]
     sentence_count: 7
     key_terms: [careerguidance, career, path, economics, comments, finance, figure, doing]
+    concepts: [careerguidance, career, economics, comments, finance]
     token_count: 207
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1r2tgok/how_do_i_figure_out_my_career_path_as_an/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1r2tgok.md#c1"
     char_span: [869, 1880]
     sentence_count: 6
     key_terms: [like, something, finance, project, people, lanes, find, job]
+    concepts: [something, finance, project, people, lanes]
     section: Comments
     token_count: 217
 ---

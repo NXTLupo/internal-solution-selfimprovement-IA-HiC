@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1202]
     sentence_count: 6
     key_terms: [brown, jhu, considering, applyingtocollege, pay, full, comments, general]
+    concepts: [brown, considering, applyingtocollege, comments, general]
     token_count: 294
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sdbh99/brown_full_pay_or_jhu_22kyear_for_econ_major/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sdbh99.md#c1"
     char_span: [1216, 2368]
     sentence_count: 7
     key_terms: [jhu, brown, isn, interested, clearly, finance, parents, conscious-secret-775]
+    concepts: [brown, interested, clearly, finance, parents]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sdbh99.md#c2"
     char_span: [2370, 3861]
     sentence_count: 9
     key_terms: [school, brown, business, entry-level, lutzlover, positions, analyst, finance]
+    concepts: [school, brown, business, entry-level, lutzlover]
     section: Comments
     token_count: 378
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2003]
     sentence_count: 6
     key_terms: [because, something, povertyfinance, don, constantly, comments, already, budget]
+    concepts: [because, something, povertyfinance, constantly, comments]
     token_count: 455
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1sf7azs/just_feeing_so_discouraged_beaten_down_lately/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c1"
     char_span: [2005, 4313]
     sentence_count: 7
     key_terms: [day, like, always, people, though, don, hard, keep]
+    concepts: [always, people, though, because, chronic]
     token_count: 506
   - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c2"
     char_span: [4315, 4708]
@@ -36,30 +39,35 @@ chunks:
     char_span: [4722, 6346]
     sentence_count: 16
     key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
+    concepts: [submitter, appropriate, advice, vents, emotional]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c4"
     char_span: [6348, 8475]
     sentence_count: 10
     key_terms: [realize, obviousanon1, alone, thank, don, definitely, pattystr, myself]
+    concepts: [realize, obviousanon1, alone, definitely, thank]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c5"
     char_span: [8170, 8768]
     sentence_count: 4
     key_terms: [endometriosis, sending, health, sorry, life, completely, definitely, excellent]
+    concepts: [endometriosis, sending, health, sorry]
     section: Comments
     token_count: 137
   - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c6"
     char_span: [8772, 10916]
     sentence_count: 18
     key_terms: [month, help, living, food, "i'm", time, year, community]
+    concepts: [month, living, community, pantries, toughest]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c7"
     char_span: [10655, 11999]
     sentence_count: 11
     key_terms: [get, depression, struggling, grandpa, stories, through, wages, days]
+    concepts: [depression, struggling, grandpa, stories, through]
     section: Comments
     token_count: 314
 ---

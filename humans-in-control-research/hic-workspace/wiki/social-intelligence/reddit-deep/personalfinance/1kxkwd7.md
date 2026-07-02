@@ -21,41 +21,52 @@ chunks:
     char_span: [0, 1044]
     sentence_count: 8
     key_terms: [loans, personalfinance, collections, comments, getting, savings, cooked, credit]
+    concepts: [loans, personalfinance, collections, comments, getting]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c1", "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c3"]
     token_count: 284
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1kxkwd7/am_i_cooked_im_23_and_96k_in_debt/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c1"
     char_span: [1058, 3147]
     sentence_count: 15
     key_terms: [interest, comments, debt, pay, paying, loans, post, take]
+    concepts: [interest, comments, paying, loans, payments]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c0"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c2"
     char_span: [3149, 4139]
     sentence_count: 11
     key_terms: [car, payment, pay, payments, smallest, "don't", until, sell]
+    concepts: [payment, payments, smallest, "don't", until]
     section: Comments
     token_count: 241
   - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c3"
     char_span: [4141, 6008]
     sentence_count: 10
     key_terms: [collections, pay, get, home, need, rent, work, year]
+    concepts: [collections, balances, college, getting, nothing]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c0"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c4"
     char_span: [6010, 8052]
     sentence_count: 8
     key_terms: [yourself, little-bass0600, cooked, thank, get, good, positive, parents]
+    concepts: [little-bass0600, yourself, cooked, thank, positive]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c5"
     char_span: [7781, 8681]
     sentence_count: 3
     key_terms: [cooked, living, anuncomfortablepanda, puzzleheaded-heart29, keep, especially, self-aware, eliminate]
+    concepts: [cooked, living]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c6"
     char_span: [8683, 10434]
     sentence_count: 13
     key_terms: [mba, job, experience, debt, get, someone, resume, loans]
+    concepts: [experience, someone, resume, loans]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c7"
@@ -68,6 +79,7 @@ chunks:
     char_span: [11310, 12868]
     sentence_count: 12
     key_terms: [job, income, debt, like, mba, honestly, increase, costs]
+    concepts: [income, honestly, increase, costs, hobby]
     section: Comments
     token_count: 364
 ---

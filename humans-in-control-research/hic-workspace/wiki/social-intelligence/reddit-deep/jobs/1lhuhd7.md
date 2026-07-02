@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 295]
     sentence_count: 1
     key_terms: [comments, job, jobs, reddit-deep, traditional, christian, requests, company]
+    concepts: [comments]
     token_count: 81
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1lhuhd7/this_job_requests_traditional_christian_values/"}]
   - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c1"
     char_span: [309, 598]
     sentence_count: 1
@@ -32,36 +34,47 @@ chunks:
     char_span: [600, 1917]
     sentence_count: 3
     key_terms: [deleted, dismal-importance-15, clemontdechamfluery, carry, osha, simiansimulacrum, cyberentomology, refrigerators]
+    concepts: [deleted, carry]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c3"
     char_span: [1919, 3866]
     sentence_count: 15
     key_terms: [limit, pounds, etc, company, discrimination, people, requirement, "it's"]
+    concepts: [limit, pounds, discrimination, company, people]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lhuhd7.md#c4"]
     section: Comments
     token_count: 464
+    sources: [{"n":"I\u2019m a FedEx driver.","u":""}]
   - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c4"
     char_span: [3868, 5002]
     sentence_count: 4
     key_terms: [company, discrimination, deleted, redact, age, case, like, work]
+    concepts: [discrimination, company, deleted, redact]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lhuhd7.md#c3"]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c5"
     char_span: [5004, 6742]
     sentence_count: 8
     key_terms: [christ, power, because, moving, week, haunted, houses, people]
+    concepts: [christ, power, because, moving, haunted]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c6"
     char_span: [6745, 8688]
     sentence_count: 7
     key_terms: [christian, values, catholic, protestant, good, evangelical, traditional, per]
+    concepts: [christian, values, catholic, protestant, evangelical]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lhuhd7.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c7"
     char_span: [8405, 9381]
     sentence_count: 5
     key_terms: [denomination, evangelist, protestant, christian, values, cenosillicaphobiac, don, evangelical]
+    concepts: [denomination, evangelist, protestant, christian, values]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lhuhd7.md#c6"]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c8"
@@ -74,24 +87,31 @@ chunks:
     char_span: [9773, 11612]
     sentence_count: 9
     key_terms: [christian, lift, believe, matthew, version, people, samson, benchbeginning8086]
+    concepts: [christian, believe, matthew, version, people]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lhuhd7.md#c11", "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c12"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c10"
     char_span: [11398, 12018]
     sentence_count: 2
     key_terms: [muscle, rosqp9okxwna7qjzjc, badguybusters2020, chickenandwhiskey, elephantredcar91, inspector-say10, discrimination, ellipticalcow]
+    concepts: [muscle]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c11"
     char_span: [12020, 13958]
     sentence_count: 14
     key_terms: [people, christian, move, religious, business, whatever, deleted, parents]
+    concepts: [christian, people, religious, business, whatever]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lhuhd7.md#c9", "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c12"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c12"
     char_span: [13960, 15767]
     sentence_count: 17
     key_terms: [people, christian, alongside, business, everyone, working, always, worked]
+    concepts: [people, christian, alongside, business, everyone]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lhuhd7.md#c9", "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c11"]
     section: Comments
     token_count: 419
 ---

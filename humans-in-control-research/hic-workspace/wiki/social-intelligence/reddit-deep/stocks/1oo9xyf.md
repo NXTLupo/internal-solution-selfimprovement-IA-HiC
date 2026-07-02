@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 615]
     sentence_count: 3
     key_terms: [big-short-michael-burry-put-option-bet-palantir-nvidia-bubble-2025-11, stocks, burry, big, comments, palantir, against, markets]
+    concepts: [stocks, burry, comments, palantir, against]
     token_count: 161
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1oo9xyf/markets_stocks_big_short_michael_burry_bet/"}]
   - id: "social-intelligence/reddit-deep/stocks/1oo9xyf.md#c1"
     char_span: [629, 2419]
     sentence_count: 10
     key_terms: [utm, comment, people, https, share, com, scion-asset-management-llc, comments]
+    concepts: [comment, people, https, share, comments]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/stocks/1oo9xyf.md#c2"
     char_span: [2421, 4305]
     sentence_count: 15
     key_terms: [positions, against, options, definitively, hedge, long, article, bearish]
+    concepts: [positions, against, options, definitively, hedge]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/stocks/1oo9xyf.md#c3"
     char_span: [4307, 6078]
     sentence_count: 15
     key_terms: [million, value, bubble, approximately, burry, right, put, puts]
+    concepts: [million, value, approximately, bubble, burry]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/stocks/1oo9xyf.md#c4"
     char_span: [6081, 7253]
     sentence_count: 11
     key_terms: ["it's", bubble, hundreds, "doesn't", dollars, crypto, money, tesla]
+    concepts: [bubble, hundreds, "doesn't", dollars, crypto]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/stocks/1oo9xyf.md#c5"
     char_span: [7255, 8653]
     sentence_count: 7
     key_terms: [worth, puts, premium, expire, nvidia, people, specialist-neat4254, degen]
+    concepts: [worth, premium, expire, nvidia, people]
     section: Comments
     token_count: 418
 ---

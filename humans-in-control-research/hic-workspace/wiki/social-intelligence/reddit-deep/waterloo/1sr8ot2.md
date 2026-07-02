@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 388]
     sentence_count: 3
     key_terms: [waterloo, comments, reddit-deep, suggestions, kitchener, accepted, student, anyone]
+    concepts: [waterloo, comments]
     token_count: 107
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1sr8ot2/does_anyone_hire_or_can_refer_me_to_any_job_at/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1sr8ot2.md#c1"
     char_span: [402, 2094]
     sentence_count: 9
     key_terms: [key-banana302, sumknowbuddy, like, unemployment, jobs, work, government, uwaterloo]
+    concepts: [key-banana302, sumknowbuddy, unemployment, government, uwaterloo]
     section: Comments
     token_count: 480
 ---

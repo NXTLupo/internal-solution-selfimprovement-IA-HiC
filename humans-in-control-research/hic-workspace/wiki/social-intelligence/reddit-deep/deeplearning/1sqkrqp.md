@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1531]
     sentence_count: 3
     key_terms: [real-time, rtf, decoder, cpu, piper, onnx, vits, deeplearning]
+    concepts: [real-time, decoder, piper, deeplearning, audio]
     token_count: 460
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1sqkrqp/the_nonautoregressive_decoder_won_cpu_neural_tts/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1sqkrqp.md#c1"
     char_span: [1533, 3521]
     sentence_count: 8
     key_terms: [architecture, blog, gauravvij, frontier, variants, better, faster, github]
+    concepts: [architecture, gauravvij, frontier, variants, better]
     token_count: 431
 ---
 # The non-autoregressive decoder won CPU neural TTS - benchmarks across Piper, MeloTTS, Kokoro, Parler-TTS, XTTSv2

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1618]
     sentence_count: 21
     key_terms: [graduating, comm, job, yung, hunting, careerguidance, medyo, pwede]
+    concepts: [graduating, careerguidance, hunting, experience, medyo]
     token_count: 467
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tmh1ym/graduating_ba_comm_from_isue_pwede_po_ba_humingi/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tmh1ym.md#c1"
     char_span: [1632, 2900]
     sentence_count: 10
     key_terms: [here, sometimes, creative, design, technicianroyal9769, good, like, work]
+    concepts: [sometimes, creative, design]
     section: Comments
     token_count: 250
 ---

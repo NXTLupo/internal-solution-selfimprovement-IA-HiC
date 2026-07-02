@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1986]
     sentence_count: 13
     key_terms: [agents, history, persistent, state, semantic, context, memory, built]
+    concepts: [agents, history, persistent, state, semantic]
     token_count: 452
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1t83wrd/i_got_tired_of_the_api_bills_for_100k_context/"}]
   - id: "social-intelligence/reddit-deep/openai/1t83wrd.md#c1"
     char_span: [1988, 3658]
     sentence_count: 13
     key_terms: [architecture, community, tracking, project, memory, semvec, tokens, https]
+    concepts: [architecture, community, tracking, project, memory]
     token_count: 378
   - id: "social-intelligence/reddit-deep/openai/1t83wrd.md#c2"
     char_span: [3672, 5932]
     sentence_count: 12
     key_terms: [state, context, memory, debugging, scheitelpunk1337, updates, handle, vector]
+    concepts: [state, context, memory, scheitelpunk1337, debugging]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/openai/1t83wrd.md#c3"

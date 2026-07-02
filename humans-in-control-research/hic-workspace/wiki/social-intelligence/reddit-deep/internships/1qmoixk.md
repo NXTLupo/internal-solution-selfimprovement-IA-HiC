@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 1366]
     sentence_count: 4
     key_terms: [job, january, resume, right, internships, internship, everybody, comments]
+    concepts: [january, resume, internships, internship, right]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1qmoixk.md#c3"]
     token_count: 304
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1qmoixk/summer_internship_hunt/"}]
   - id: "social-intelligence/reddit-deep/internships/1qmoixk.md#c1"
     char_span: [1380, 3148]
     sentence_count: 10
     key_terms: [recruiter, email, recruiters, directors, got, ghosted, manager, get]
+    concepts: [recruiter, email, recruiters, directors, ghosted]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/internships/1qmoixk.md#c2"
     char_span: [3150, 4643]
     sentence_count: 9
     key_terms: [analytics, got, applications, data, good, applied, jdwjxia, better]
+    concepts: [analytics, applications, applied, jdwjxia, better]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/internships/1qmoixk.md#c3"
     char_span: [4645, 6786]
     sentence_count: 10
     key_terms: [new-carpenter-6300, internship, international, got, internships, opportunity, yourself, applied]
+    concepts: [new-carpenter-6300, internship, international, internships, opportunity]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1qmoixk.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1qmoixk.md#c4"

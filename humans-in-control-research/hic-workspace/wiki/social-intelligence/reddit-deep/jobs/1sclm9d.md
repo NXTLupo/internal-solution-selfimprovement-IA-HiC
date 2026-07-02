@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 967]
     sentence_count: 10
     key_terms: [job, "wendy's", hired, comments, tuesday, build, "don't", drive]
+    concepts: ["wendy's", hired, comments, tuesday, build]
     token_count: 247
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1sclm9d/just_got_hired_at_my_first_actual_full_time_job/"}]
   - id: "social-intelligence/reddit-deep/jobs/1sclm9d.md#c1"
     char_span: [981, 2657]
     sentence_count: 11
     key_terms: [rileyluvsventi, time, work, best, keep, thank, like, customers]
+    concepts: [rileyluvsventi, thank, customers, depends, minutes]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/jobs/1sclm9d.md#c2"
     char_span: [2659, 4483]
     sentence_count: 25
     key_terms: [time, get, promoted, rileyluvsventi, "don't", show, dependable, coworkers]
+    concepts: [promoted, rileyluvsventi, dependable, "don't", coworkers]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/jobs/1sclm9d.md#c3"
     char_span: [4485, 5834]
     sentence_count: 11
     key_terms: [job, use, seriously, somebody, people, safety, drama, heart]
+    concepts: [seriously, somebody, people, safety, drama]
     section: Comments
     token_count: 304
 ---

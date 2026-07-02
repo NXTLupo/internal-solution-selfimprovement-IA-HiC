@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1859]
     sentence_count: 11
     key_terms: [codegraphcontext, code, playground, github, graph, https, agents, relationships]
+    concepts: [codegraphcontext, playground, github, graph, https]
     token_count: 415
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1rp6x0f/codegraphcontext_an_mcp_server_that_indexes_local/"}]
 ---
 # CodeGraphContext (An MCP server that indexes local code into a graph database) now has a website playground for experiments
 

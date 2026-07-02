@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1466]
     sentence_count: 8
     key_terms: [time, employers, engineering, engineeringstudents, lockheed, waiting, major, speak]
+    concepts: [employers, engineering, engineeringstudents, lockheed, waiting]
     token_count: 321
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1ntpfb9/is_it_worth_talking_to_major_corporations_such_as/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ntpfb9.md#c1"
     char_span: [1480, 2807]
     sentence_count: 13
     key_terms: [companies, worth, want, getting, talking, advice, better, people]
+    concepts: [companies, worth, getting, talking, advice]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ntpfb9.md#c2"
     char_span: [2809, 4624]
     sentence_count: 11
     key_terms: [companies, recruiters, resumes, "they'll", through, end, pile, probably]
+    concepts: [companies, recruiters, resumes, "they'll", through]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ntpfb9.md#c3"
     char_span: [4626, 6597]
     sentence_count: 11
     key_terms: [online, apply, skysr70, career, "you're", application, networking, companies]
+    concepts: [online, apply, skysr70, career, "you're"]
     section: Comments
     token_count: 470
 ---

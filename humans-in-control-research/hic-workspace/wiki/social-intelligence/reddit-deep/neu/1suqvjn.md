@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1249]
     sentence_count: 6
     key_terms: [conversion, co-op, moderna, trying, early-career, gsk, experience, full-time]
+    concepts: [conversion, co-op, moderna, early-career, trying]
     token_count: 278
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1suqvjn/gsk_vs_moderna_coop_to_fulltime_conversion/"}]
   - id: "social-intelligence/reddit-deep/neu/1suqvjn.md#c1"
     char_span: [1263, 1812]
     sentence_count: 2
     key_terms: [co-op, time, moment, full, notcallipygian, consideration, international, hereboyfetch]
+    concepts: [co-op, moment]
     section: Comments
     token_count: 132
 ---

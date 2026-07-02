@@ -19,47 +19,61 @@ chunks:
     char_span: [0, 1017]
     sentence_count: 8
     key_terms: [school, applyingtocollege, scholarships, loans, gap, year, comments, private]
+    concepts: [applyingtocollege, school, scholarships, loans, comments]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c6"]
     token_count: 244
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1tjooqh/if_a_school_leaves_a_25k_yearly_gap_is_that/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c1"
     char_span: [1031, 2930]
     sentence_count: 16
     key_terms: [school, need, student, money, aid, need-based, markvii88, submitted]
+    concepts: [school, student, money, need-based, markvii88]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c2"
     char_span: [2932, 4880]
     sentence_count: 12
     key_terms: [aid, money, npc, skieurope12, percentage, janzith, package, thought]
+    concepts: [money, skieurope12, percentage, janzith, package]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c3"
     char_span: [4882, 5974]
     sentence_count: 6
     key_terms: [school, year, families, college, tuition, afford, number, paying]
+    concepts: [school, families, college, tuition, afford]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c5"]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c4"
     char_span: [5976, 8024]
     sentence_count: 14
     key_terms: [school, state, looking, schools, afford, scholarships, aid, expensive]
+    concepts: [school, state, looking, schools, scholarships]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c0"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c5"
     char_span: [8026, 8481]
     sentence_count: 4
     key_terms: [college, school, years, calculator, attending, colleges, consider, changes]
+    concepts: [college, school, years]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c3"]
     section: Comments
     token_count: 107
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c6"
     char_span: [8483, 10449]
     sentence_count: 11
     key_terms: [school, loans, interest, don, federal, want, year, subsidized]
+    concepts: [school, interest, loans, federal, subsidized]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c0"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c7"
     char_span: [10451, 11196]
     sentence_count: 8
     key_terms: [year, academic, already, profile, schools, application, scholarship, significant]
+    concepts: [academic, already, profile, schools]
     section: Comments
     token_count: 158
 ---

@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1368]
     sentence_count: 17
     key_terms: [chatgpt, openai, job, portfolio, comments, changed, support, hobby]
+    concepts: [chatgpt, openai, portfolio, comments, changed]
     token_count: 345
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1nsah8w/chatgpt_changed_my_life/"}]
   - id: "social-intelligence/reddit-deep/openai/1nsah8w.md#c1"
     char_span: [1382, 3056]
     sentence_count: 6
     key_terms: [engineer, right, job, bootcamp, believe, merningthemidniteoil, throwaway3847394739, posts]
+    concepts: [engineer, right, bootcamp, believe, posts]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1nsah8w.md#c2"
     char_span: [2829, 3529]
     sentence_count: 3
     key_terms: [engineer, small, studiousmaximus, development, dreeampixie, nontheless, programmer, aliassuck]
+    concepts: [engineer, small]
     section: Comments
     token_count: 201
   - id: "social-intelligence/reddit-deep/openai/1nsah8w.md#c3"
     char_span: [3537, 4319]
     sentence_count: 3
     key_terms: [engineer, fabricated, cause, friendly-view4122, job, like, myboyfriendisai, girlnumber20]
+    concepts: [engineer, fabricated, cause]
     section: Comments
     token_count: 227
   - id: "social-intelligence/reddit-deep/openai/1nsah8w.md#c4"
     char_span: [4321, 5686]
     sentence_count: 5
     key_terms: [love, through, helped, people, el-duderino-the-dude, never, ornery-ticket-2332, wastingmyyouthaway]
+    concepts: [through, helped, people, never]
     section: Comments
     token_count: 415
 ---

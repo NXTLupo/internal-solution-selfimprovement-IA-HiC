@@ -19,41 +19,53 @@ chunks:
     char_span: [0, 1144]
     sentence_count: 14
     key_terms: [sports, never, college, student, school, work, education, athletes]
+    concepts: [sports, never, college, student, school]
+    related_chunks: ["social-intelligence/reddit-deep/college/1o87jwh.md#c4"]
     token_count: 265
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1o87jwh/how_do_student_athletes_function/"}]
   - id: "social-intelligence/reddit-deep/college/1o87jwh.md#c1"
     char_span: [1158, 3392]
     sentence_count: 26
     key_terms: [work, get, easier, "don't", hours, help, time, students]
+    concepts: [easier, "don't", hours, students, askrecent6329]
+    related_chunks: ["social-intelligence/reddit-deep/college/1o87jwh.md#c6"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/college/1o87jwh.md#c2"
     char_span: [3394, 5514]
     sentence_count: 32
     key_terms: [time, work, study, keep, classes, study-techniques-backed-by-science, assignments, enough]
+    concepts: [study, classes, assignments, enough, trying]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/college/1o87jwh.md#c3"
     char_span: [5516, 6203]
     sentence_count: 8
     key_terms: [hours, athletes, going, get, instructions, melodypowers, princess5903, scholarship]
+    concepts: [hours, athletes, going]
     section: Comments
     token_count: 154
   - id: "social-intelligence/reddit-deep/college/1o87jwh.md#c4"
     char_span: [6205, 8295]
     sentence_count: 16
     key_terms: [work, time, schedule, college, season, soccer, sports, hours]
+    concepts: [schedule, college, season, soccer, sports]
+    related_chunks: ["social-intelligence/reddit-deep/college/1o87jwh.md#c0"]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/college/1o87jwh.md#c5"
     char_span: [8297, 9565]
     sentence_count: 14
     key_terms: [scholarships, work, school, athletic, allowed, curious, student, likely]
+    concepts: [scholarships, school, athletic, allowed, curious]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/college/1o87jwh.md#c6"
     char_span: [9567, 11572]
     sentence_count: 13
     key_terms: [definitely, week, hours, day, practice, because, easier, did]
+    concepts: [definitely, hours, practice, because, easier]
+    related_chunks: ["social-intelligence/reddit-deep/college/1o87jwh.md#c1"]
     section: Comments
     token_count: 471
 ---

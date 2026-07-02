@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1026]
     sentence_count: 8
     key_terms: [llms, machinelearning, https, shows, commands, comments, execute, output]
+    concepts: [machinelearning, https, shows, commands, comments]
     token_count: 262
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1ou77gn/r_unvalidated_trust_crossstage_vulnerabilities_in/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1ou77gn.md#c1"
     char_span: [1040, 3238]
     sentence_count: 20
     key_terms: [model, reasoning, patterns, shifts, don, like, evaluation, automated]
+    concepts: [reasoning, model, patterns, shifts, evaluation]
     section: Comments
     token_count: 443
 ---

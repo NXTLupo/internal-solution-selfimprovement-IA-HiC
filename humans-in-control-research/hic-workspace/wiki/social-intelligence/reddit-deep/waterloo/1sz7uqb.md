@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 784]
     sentence_count: 6
     key_terms: [waterloo, comments, student, point, "i'm", time, work, okchampion9592]
+    concepts: [waterloo, comments, student, point]
     token_count: 192
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1sz7uqb/struggling_uni_student_looking_for_remote_work/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1sz7uqb.md#c1"
     char_span: [798, 1141]
     sentence_count: 2
     key_terms: [wusa-student-life-centre-5-student-advocacy-support-2, job, finding-part-time-job-campus, https, future-students, missing-manual, applications, ilikestyx]
+    concepts: [https]
     section: Comments
     token_count: 100
 ---

@@ -20,65 +20,81 @@ chunks:
     char_span: [0, 1907]
     sentence_count: 6
     key_terms: [data, reporting, power, businessintelligence, anything, comments, finance, company]
+    concepts: [reporting, businessintelligence, power, anything, comments]
     token_count: 444
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1po3t0z/fractional_bi_guy_for_cfos_here_ama_about_fixing/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1po3t0z.md#c1"
-    char_span: [1922, 4190]
+    char_span: [1921, 4189]
     sentence_count: 14
     key_terms: [warehouse, power, query, dear-landscape2527, data, maintainability, usually, infrastructure]
+    concepts: [warehouse, power, query, dear-landscape2527, maintainability]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1po3t0z.md#c6", "social-intelligence/reddit-deep/businessintelligence/1po3t0z.md#c7", "social-intelligence/reddit-deep/businessintelligence/1po3t0z.md#c9"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/businessintelligence/1po3t0z.md#c2"
-    char_span: [4192, 6076]
+    char_span: [4191, 6075]
     sentence_count: 10
     key_terms: [finance, fractional, reporting, small, cfos, data, dashboards, because]
+    concepts: [finance, fractional, reporting, dashboards, small]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/businessintelligence/1po3t0z.md#c3"
-    char_span: [6078, 8304]
+    char_span: [6077, 8303]
     sentence_count: 12
     key_terms: [small, truth, client, single, source, model, complexity, everything]
+    concepts: [small, truth, client, single, source]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/businessintelligence/1po3t0z.md#c4"
-    char_span: [8306, 10672]
+    char_span: [8305, 10671]
     sentence_count: 21
     key_terms: [excel, need, build, database, project, quick, explained, reporting]
+    concepts: [excel, database, build, project, explained]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/businessintelligence/1po3t0z.md#c5"
-    char_span: [10676, 13067]
+    char_span: [10675, 13066]
     sentence_count: 26
     key_terms: [excel, data, without, "here's", source, build, maintenance, "it's"]
+    concepts: [excel, without, "here's", source, maintenance]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/businessintelligence/1po3t0z.md#c6"
-    char_span: [13071, 14840]
+    char_span: [13070, 14839]
     sentence_count: 14
     key_terms: [dear-landscape2527, happy, team, use, dashboard, warehouse, approach, answer]
+    concepts: [dear-landscape2527, happy, dashboard, warehouse, approach]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1po3t0z.md#c1"]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/businessintelligence/1po3t0z.md#c7"
-    char_span: [14842, 16777]
+    char_span: [14841, 16776]
     sentence_count: 9
     key_terms: [data, everything, warehouse, power, financial, reports, tableau, version]
+    concepts: [everything, warehouse, power, financial, reports]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1po3t0z.md#c1"]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/businessintelligence/1po3t0z.md#c8"
-    char_span: [16779, 18906]
+    char_span: [16778, 18905]
     sentence_count: 11
     key_terms: [source, system, model, data, like, change, here, need]
+    concepts: [source, system, model, change, especially]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/businessintelligence/1po3t0z.md#c9"
-    char_span: [18908, 21126]
+    char_span: [18907, 21125]
     sentence_count: 10
     key_terms: [power, small, dear-landscape2527, data, use, clients, interesting, like]
+    concepts: [power, dear-landscape2527, small, clients, interesting]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1po3t0z.md#c1"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/businessintelligence/1po3t0z.md#c10"
-    char_span: [21128, 23346]
+    char_span: [21127, 23345]
     sentence_count: 14
     key_terms: [get, business, numbers, architecture, power, data, don, everything]
+    concepts: [business, numbers, architecture, everything, industries]
     section: Comments
     token_count: 499
 ---

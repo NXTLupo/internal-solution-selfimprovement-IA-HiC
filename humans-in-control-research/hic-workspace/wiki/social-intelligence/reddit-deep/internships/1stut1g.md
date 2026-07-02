@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 1919]
     sentence_count: 15
     key_terms: [classmates, everything, knowing, started, seeing, engineering, internships, work]
+    concepts: [classmates, everything, knowing, started, seeing]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1stut1g/got_an_internship_outside_my_field_rant/"}]
   - id: "social-intelligence/reddit-deep/internships/1stut1g.md#c1"
     char_span: [1921, 2890]
     sentence_count: 10
     key_terms: [transition, seeing, cause, able, knew, conversations, additionally, construction]
+    concepts: [transition, seeing, cause]
     token_count: 212
   - id: "social-intelligence/reddit-deep/internships/1stut1g.md#c2"
     char_span: [2904, 3628]
     sentence_count: 4
     key_terms: [engineering, swigofravioli349, civil, been, transitioning, internships, connection, electrical]
+    concepts: [engineering, swigofravioli349, civil]
     section: Comments
     token_count: 201
 ---

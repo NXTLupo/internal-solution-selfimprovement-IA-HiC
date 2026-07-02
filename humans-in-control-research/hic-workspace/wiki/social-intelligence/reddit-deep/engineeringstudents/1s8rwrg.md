@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1559]
     sentence_count: 9
     key_terms: [management, engineeringstudents, scm, college, career, school, engineering, undergrads]
+    concepts: [engineeringstudents, management, college, career, school]
     token_count: 344
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1s8rwrg/is_anybody_taking_an_engineering_degree_for_a/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s8rwrg.md#c1"
     char_span: [1573, 3932]
     sentence_count: 15
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, scm, posting]
+    concepts: [engineeringstudents, please, reddit, https, posting]
     section: Comments
     token_count: 487
 ---

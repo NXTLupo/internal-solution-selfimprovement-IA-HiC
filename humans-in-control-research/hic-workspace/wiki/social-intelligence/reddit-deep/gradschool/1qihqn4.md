@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1172]
     sentence_count: 13
     key_terms: [school, classes, online, asynchronous, best, grad, gradschool, comments]
+    concepts: [school, classes, asynchronous, online, gradschool]
     token_count: 279
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1qihqn4/grad_school_100_online_your_experienceshow_to/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1qihqn4.md#c1"
     char_span: [1186, 2402]
     sentence_count: 11
     key_terms: [work, study, time, sometimes, library, spaces, hours, home]
+    concepts: [study, sometimes, library, spaces, hours]
     section: Comments
     token_count: 283
 ---

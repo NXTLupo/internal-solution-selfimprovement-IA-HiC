@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1229]
     sentence_count: 6
     key_terms: [internship, internships, remote, data, comments, projects, looking, science]
+    concepts: [internship, internships, remote, comments, projects]
     token_count: 266
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1l63pci/looking_for_advice_how_to_get_a_remote_internship/"}]
 ---
 # Looking for Advice: How to Get a Remote Internship in Data Science / AI / ML as a Student from India?
 

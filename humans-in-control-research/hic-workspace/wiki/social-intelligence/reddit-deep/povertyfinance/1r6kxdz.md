@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1176]
     sentence_count: 9
     key_terms: [unemployment, money, been, povertyfinance, time, comments, position, people]
+    concepts: [unemployment, money, povertyfinance, comments, position]
     token_count: 278
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1r6kxdz/pulling_money_out_of_my_retirement_as_a_last/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1r6kxdz.md#c1"
     char_span: [1190, 2814]
     sentence_count: 16
     key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
+    concepts: [submitter, appropriate, advice, vents, emotional]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/povertyfinance/1r6kxdz.md#c2"
     char_span: [2816, 3952]
     sentence_count: 11
     key_terms: [retirement, choice, crappy, fit-combination-6211, debt, job, shit, ton]
+    concepts: [retirement, choice, crappy]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/povertyfinance/1r6kxdz.md#c3"
     char_span: [3954, 5047]
     sentence_count: 5
     key_terms: ["i'm", trade, pell, spooky3264, situation, company, driving, grant]
+    concepts: [spooky3264, trade, situation, company, driving]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/povertyfinance/1r6kxdz.md#c4"
     char_span: [5049, 7131]
     sentence_count: 20
     key_terms: ["it's", people, "don't", jobs, apply, like, corporate, applying]
+    concepts: [people, "don't", apply, corporate, applying]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1r6kxdz.md#c5"
     char_span: [6906, 7410]
     sentence_count: 3
     key_terms: [skills, beepgoestheminivan, care, cash, earn, ill-entry-9707, miscellaneous, "children's"]
+    concepts: [skills]
     section: Comments
     token_count: 132
 ---

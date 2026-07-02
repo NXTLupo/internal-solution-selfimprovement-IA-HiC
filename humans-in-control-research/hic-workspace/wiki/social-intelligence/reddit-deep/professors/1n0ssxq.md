@@ -21,47 +21,59 @@ chunks:
     char_span: [0, 1036]
     sentence_count: 8
     key_terms: [computers, professors, university, comments, classes, budget, campus, needed]
+    concepts: [computers, professors, university, comments, classes]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1n0ssxq.md#c1"]
     token_count: 237
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1n0ssxq/guess_what_our_university_got_rid_of_this_semester/"}]
   - id: "social-intelligence/reddit-deep/professors/1n0ssxq.md#c1"
     char_span: [1050, 2930]
     sentence_count: 14
     key_terms: [computers, study, computer, work, university, deleted, faculty, problem]
+    concepts: [computers, study, computer, university, deleted]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1n0ssxq.md#c0", "social-intelligence/reddit-deep/professors/1n0ssxq.md#c3"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/professors/1n0ssxq.md#c2"
     char_span: [2932, 4393]
     sentence_count: 11
     key_terms: [lease, computers, software, already, laptops, leasing, network, redact]
+    concepts: [lease, computers, software, already, laptops]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/professors/1n0ssxq.md#c3"
     char_span: [4395, 5545]
     sentence_count: 4
     key_terms: [computers, anything, computer, personal, device, polish, "you'll", going]
+    concepts: [computers, anything, computer, personal, device]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1n0ssxq.md#c1"]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/professors/1n0ssxq.md#c4"
     char_span: [5547, 7436]
     sentence_count: 13
     key_terms: [computers, like, nervous, course, "that's", admin, lease, money]
+    concepts: [computers, nervous, course, "that's", admin]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/professors/1n0ssxq.md#c5"
     char_span: [7438, 8500]
     sentence_count: 3
     key_terms: [computers, probably, upgrade, being, going, staff, anotheranteater1, infrastructure]
+    concepts: [computers, probably, upgrade, being, going]
     section: Comments
     token_count: 251
   - id: "social-intelligence/reddit-deep/professors/1n0ssxq.md#c6"
     char_span: [8502, 10400]
     sentence_count: 10
     key_terms: [tweakingforjesus, office, recycling, trash, garbage, bins, jreymermaid, use]
+    concepts: [tweakingforjesus, recycling, office, trash, garbage]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1n0ssxq.md#c7"
     char_span: [10177, 10674]
     sentence_count: 3
     key_terms: [personal, devices, office, "don't", guess, hours, don, miskatonicmus3]
+    concepts: [personal, devices, office, "don't", guess]
     section: Comments
     token_count: 142
 ---

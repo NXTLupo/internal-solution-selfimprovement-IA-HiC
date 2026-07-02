@@ -21,29 +21,39 @@ chunks:
     char_span: [0, 1377]
     sentence_count: 5
     key_terms: [school, time, college, part, drop, full, "i'm", struggling]
+    concepts: [school, college, struggling, currently, comments]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ljulvg.md#c1"]
     token_count: 306
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ljulvg/any_college_students_currently_working_while/"}]
   - id: "social-intelligence/reddit-deep/college/1ljulvg.md#c1"
     char_span: [1391, 3257]
     sentence_count: 14
     key_terms: [semester, school, full, time, business, years, did, work]
+    concepts: [semester, school, business, years, currently]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ljulvg.md#c0"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/college/1ljulvg.md#c2"
     char_span: [3259, 5295]
     sentence_count: 12
     key_terms: [time, part, working, school, vegetable-lawyer3327, purple-pangolin2327, year, "you're"]
+    concepts: [working, vegetable-lawyer3327, purple-pangolin2327, school, "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ljulvg.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ljulvg.md#c3"
     char_span: [5024, 5685]
     sentence_count: 7
     key_terms: [school, "i'm", work, time, part, working, hours, able]
+    concepts: [school, working, hours]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ljulvg.md#c2"]
     section: Comments
     token_count: 172
   - id: "social-intelligence/reddit-deep/college/1ljulvg.md#c4"
     char_span: [5687, 6071]
     sentence_count: 4
     key_terms: [school, maybe, work, schedule, definitely, extremely, homework, classes]
+    concepts: [school, maybe, schedule]
     section: Comments
     token_count: 86
 ---

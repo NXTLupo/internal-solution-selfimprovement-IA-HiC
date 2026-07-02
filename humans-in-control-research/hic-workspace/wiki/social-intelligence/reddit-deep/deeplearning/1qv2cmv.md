@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1952]
     sentence_count: 4
     key_terms: [transformers, deeplearning, fine-tuning, https, manning, action, architecture, book]
+    concepts: [transformers, deeplearning, fine-tuning, https, manning]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1qv2cmv/new_book_from_manning_transformers_in_action/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1qv2cmv.md#c1"
     char_span: [1954, 3232]
     sentence_count: 11
     key_terms: [book, thanks, having, double-government-79, fabulous-possible758, scary-opportunity848, offer, thank]
+    concepts: [thanks, having, offer, thank]
     section: Comments
     token_count: 374
 ---

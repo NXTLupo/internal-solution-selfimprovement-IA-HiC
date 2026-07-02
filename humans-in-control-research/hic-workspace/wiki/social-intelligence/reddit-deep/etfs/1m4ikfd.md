@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 956]
     sentence_count: 7
     key_terms: [etfs, diversification, ucits, etf, comments, ishares, small, beginner-friendly]
+    concepts: [diversification, ucits, comments, ishares, small]
     token_count: 248
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1m4ikfd/just_switched_to_ibkr/"}]
   - id: "social-intelligence/reddit-deep/etfs/1m4ikfd.md#c1"
-    char_span: [971, 2740]
+    char_span: [970, 2739]
     sentence_count: 12
     key_terms: [fund, cap, small, vwce, "you're", https, world, msci]
+    concepts: [small, "you're", https, world, justetf]
     section: Comments
     token_count: 486
 ---

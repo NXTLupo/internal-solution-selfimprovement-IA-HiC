@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 645]
     sentence_count: 4
     key_terms: [account, gemini, help, withdrawal, comments, kindunderstanding615, fiat, instruction]
+    concepts: [account, gemini, withdrawal, comments]
     token_count: 158
+    sources: [{"n":"reddit-deep: r/gemini","u":"https://www.reddit.com/r/Gemini/comments/1np2tu0/urgent_help_with_fiat_withdrawal/"}]
   - id: "social-intelligence/reddit-deep/gemini/1np2tu0.md#c1"
     char_span: [659, 931]
     sentence_count: 1
     key_terms: [kindunderstanding615, attorneyadvice, fiat, thejakernator, gpayrupn7, referral, abarath, credit]
+    concepts: [kindunderstanding615, attorneyadvice]
     section: Comments
     token_count: 93
 ---

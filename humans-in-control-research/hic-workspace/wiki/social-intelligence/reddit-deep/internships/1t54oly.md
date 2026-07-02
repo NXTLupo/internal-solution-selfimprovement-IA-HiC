@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 864]
     sentence_count: 5
     key_terms: [marketing, overthinking, since, internships, strategist, expressed, comments, email]
+    concepts: [marketing, overthinking, internships, since, strategist]
     token_count: 192
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t54oly/am_i_overthinking_this/"}]
   - id: "social-intelligence/reddit-deep/internships/1t54oly.md#c1"
     char_span: [878, 1263]
     sentence_count: 1

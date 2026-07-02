@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1303]
     sentence_count: 13
     key_terms: [internships, because, summer, did, get, co-ops, don, comments]
+    concepts: [internships, because, summer, co-ops, comments]
     token_count: 337
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t28zed/congrats_to_the_2026_summer_interns_coops/"}]
   - id: "social-intelligence/reddit-deep/internships/1t28zed.md#c1"
     char_span: [1317, 3009]
     sentence_count: 4
     key_terms: [internship, major, back, something, applying, jpgirlyn, progress, projects]
+    concepts: [internship, major, something, applying, jpgirlyn]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/internships/1t28zed.md#c2"
     char_span: [3011, 5247]
     sentence_count: 15
     key_terms: [internship, companies, recruiters, oppositebasil2720, resume, apply, did, position]
+    concepts: [internship, companies, recruiters, oppositebasil2720, resume]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1t28zed.md#c3"
     char_span: [5249, 7015]
     sentence_count: 12
     key_terms: [internship, advice, get, got, like, experience, interview, position]
+    concepts: [internship, advice, experience, interview, position]
     section: Comments
     token_count: 403
 ---

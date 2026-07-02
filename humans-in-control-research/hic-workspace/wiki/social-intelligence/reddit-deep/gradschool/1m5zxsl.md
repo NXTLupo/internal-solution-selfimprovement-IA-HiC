@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 663]
     sentence_count: 6
     key_terms: [gradschool, comments, semester, student, advice, school, savings-variation701, grad]
+    concepts: [gradschool, comments, semester, student, advice]
     token_count: 157
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1m5zxsl/advice_for_a_first_gen_grad_student/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1m5zxsl.md#c1"
     char_span: [677, 1175]
     sentence_count: 4
     key_terms: [congratulations, congrats, writing, aidoniastan, technical, undergrad, academic, yourself]
+    concepts: [congratulations, congrats, writing]
     section: Comments
     token_count: 132
 ---

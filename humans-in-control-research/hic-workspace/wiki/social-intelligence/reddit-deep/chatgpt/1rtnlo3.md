@@ -21,27 +21,33 @@ chunks:
     char_span: [0, 2314]
     sentence_count: 17
     key_terms: [car, electricity, simply, autonomous, chatgpt, morning, service, future]
+    concepts: [electricity, autonomous, simply, chatgpt, morning]
     token_count: 486
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1rtnlo3/the_future_of_ai_in_our_everyday_lives_how_we/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1rtnlo3.md#c1"
     char_span: [2316, 4655]
     sentence_count: 22
     key_terms: [groceries, order, car, generate, simply, entertainment, units, game]
+    concepts: [groceries, order, generate, entertainment, simply]
     token_count: 466
   - id: "social-intelligence/reddit-deep/chatgpt/1rtnlo3.md#c2"
     char_span: [4657, 6717]
     sentence_count: 17
     key_terms: [work, people, services, economy, evolved, administrative, infrastructure, today]
+    concepts: [people, services, administrative, infrastructure, economy]
     token_count: 366
   - id: "social-intelligence/reddit-deep/chatgpt/1rtnlo3.md#c3"
     char_span: [6731, 8684]
     sentence_count: 14
     key_terms: [openai, please, conversation, image, post, r-chatgpt-1050422060352024636, character, subreddit]
+    concepts: [openai, conversation, please, image, character]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/chatgpt/1rtnlo3.md#c4"
     char_span: [8686, 8843]
     sentence_count: 1
     key_terms: [together, essentially, combine, objects, prompts, create, number, series]
+    concepts: [together]
     section: Comments
     token_count: 31
 ---

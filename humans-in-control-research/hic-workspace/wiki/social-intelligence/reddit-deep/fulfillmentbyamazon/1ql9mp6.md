@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1275]
     sentence_count: 8
     key_terms: [amazon, feedback, review, fulfillmentbyamazon, platforms, reward, e-commerce, compliant]
+    concepts: [amazon, feedback, fulfillmentbyamazon, review, platforms]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1ql9mp6.md#c1"]
     token_count: 279
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1ql9mp6/is_this_tool_compliant_with_amazon_and_other/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1ql9mp6.md#c1"
-    char_span: [1290, 3193]
+    char_span: [1289, 3192]
     sentence_count: 8
     key_terms: [amazon, review, accurate-explorer815, fulfillmentbyamazon, compliant, discord, product, fba]
+    concepts: [accurate-explorer815, fulfillmentbyamazon, amazon, review, compliant]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1ql9mp6.md#c0"]
     section: Comments
     token_count: 445
 ---

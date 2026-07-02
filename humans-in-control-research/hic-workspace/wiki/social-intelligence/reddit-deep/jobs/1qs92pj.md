@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 228]
     sentence_count: 1
     key_terms: [jobs, comments, substantial-baby-129, entry-level, reddit-deep, internship, posted, reddit]
+    concepts: [comments]
     token_count: 69
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1qs92pj/internshipentrylevel_jobs/"}]
 ---
 # Internship/entry-level jobs
 

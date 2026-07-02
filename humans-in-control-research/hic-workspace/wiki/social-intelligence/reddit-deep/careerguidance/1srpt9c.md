@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1136]
     sentence_count: 9
     key_terms: [careerguidance, pcb, comments, computer, guidance, interest, biotech, career]
+    concepts: [careerguidance, comments, computer, guidance, interest]
     token_count: 306
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1srpt9c/need_career_guidance_which_is_best_for_pcb_student/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1srpt9c.md#c1"
     char_span: [1150, 1800]
     sentence_count: 7
     key_terms: [easter-babe, feel, field, bioinformatics, thosecompanies, bioprenuers, definitely, eventually]
+    concepts: [easter-babe, field]
     section: Comments
     token_count: 164
 ---

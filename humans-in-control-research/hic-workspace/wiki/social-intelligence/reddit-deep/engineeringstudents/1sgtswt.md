@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 1809]
     sentence_count: 10
     key_terms: [algebra, linear, engineering, engineeringstudents, compute, degree, "don't", equations]
+    concepts: [algebra, linear, engineering, engineeringstudents, compute]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c4"]
     token_count: 397
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sgtswt/mostly_done_with_my_degree_was_linear_algebra/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c1"
     char_span: [1823, 3213]
     sentence_count: 7
     key_terms: [did, fea, functions, spherical, infinite, algebra, cosine, linear]
+    concepts: [functions, spherical, infinite, algebra, cosine]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c2"
     char_span: [3215, 5133]
     sentence_count: 10
     key_terms: [algebra, linear, calculus, require, vectors, matlab, basic, never]
+    concepts: [algebra, linear, calculus, require, vectors]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c4"]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c3"
     char_span: [5135, 5916]
     sentence_count: 5
     key_terms: [engineer, algebra, depends, working, design, linear, system, "that's"]
+    concepts: [engineer, algebra, depends, working, design]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c4"
     char_span: [5918, 7962]
     sentence_count: 8
     key_terms: [algebra, linear, necessary, need, calculus, "doesn't", count, doing]
+    concepts: [algebra, linear, necessary, calculus, "doesn't"]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c2"]
     section: Comments
     token_count: 478
 ---

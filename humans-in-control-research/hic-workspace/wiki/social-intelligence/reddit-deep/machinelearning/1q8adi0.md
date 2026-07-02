@@ -19,29 +19,38 @@ chunks:
     char_span: [0, 1537]
     sentence_count: 12
     key_terms: [thinkpad, machinelearning, macbook, gpu, comments, macbooks, switched, training]
+    concepts: [machinelearning, thinkpad, macbook, comments, macbooks]
     token_count: 357
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1q8adi0/d_ai_research_laptop_whats_your_setup/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1q8adi0.md#c1"
     char_span: [1551, 2811]
     sentence_count: 7
     key_terms: [laptop, server, macbook, remote, small, get, gpu, ssh]
+    concepts: [laptop, server, macbook, remote, small]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1q8adi0.md#c2", "social-intelligence/reddit-deep/machinelearning/1q8adi0.md#c3"]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/machinelearning/1q8adi0.md#c2"
     char_span: [2813, 4448]
     sentence_count: 7
     key_terms: [laptop, battery, macbook, angledluffa, life, factorio, friction, research]
+    concepts: [laptop, battery, macbook, angledluffa, factorio]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1q8adi0.md#c1", "social-intelligence/reddit-deep/machinelearning/1q8adi0.md#c3"]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/machinelearning/1q8adi0.md#c3"
     char_span: [4450, 6303]
     sentence_count: 14
     key_terms: [gpu, need, laptop, access, work, powerful, cluster, macbook]
+    concepts: [laptop, access, powerful, cluster, macbook]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1q8adi0.md#c1", "social-intelligence/reddit-deep/machinelearning/1q8adi0.md#c2"]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/machinelearning/1q8adi0.md#c4"
     char_span: [6305, 6786]
     sentence_count: 3
     key_terms: [carrying, cloud, gpu, semperputidus, comfortable, precision, accessed, anything]
+    concepts: [carrying, cloud]
     section: Comments
     token_count: 128
 ---

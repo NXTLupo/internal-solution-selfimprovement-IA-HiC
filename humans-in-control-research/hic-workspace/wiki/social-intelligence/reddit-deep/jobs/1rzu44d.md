@@ -19,40 +19,48 @@ chunks:
     char_span: [0, 1251]
     sentence_count: 9
     key_terms: [injury, jobs, comments, passion, field, since, love, chickenbean1101]
+    concepts: [injury, comments, passion, field, since]
     token_count: 284
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rzu44d/i_messed_up/"}]
   - id: "social-intelligence/reddit-deep/jobs/1rzu44d.md#c1"
     char_span: [1253, 2499]
     sentence_count: 15
     key_terms: [entry-level, don, logistics, seeking, myself, life, like, look]
+    concepts: [entry-level, logistics, seeking, myself]
     token_count: 288
   - id: "social-intelligence/reddit-deep/jobs/1rzu44d.md#c2"
     char_span: [2513, 4056]
     sentence_count: 18
     key_terms: [career, job, like, google, school, bachelors, postings, started]
+    concepts: [career, google, school, bachelors, postings]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/jobs/1rzu44d.md#c3"
     char_span: [4058, 4705]
     sentence_count: 6
     key_terms: [work, admissions, fucked, people, sure, dogsoverpeople26, career-dreamer, environment]
+    concepts: [admissions, fucked, people]
     section: Comments
     token_count: 165
   - id: "social-intelligence/reddit-deep/jobs/1rzu44d.md#c4"
     char_span: [4707, 6849]
     sentence_count: 20
     key_terms: [chickenbean1101, job, never, don, personally, benefits, training, myself]
+    concepts: [chickenbean1101, never, personally, benefits, training]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rzu44d.md#c5"
     char_span: [6555, 8045]
     sentence_count: 16
     key_terms: [job, like, because, people, productivity, passion, bosses, cared]
+    concepts: [because, productivity, people, passion, bosses]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/jobs/1rzu44d.md#c6"
     char_span: [8047, 9981]
     sentence_count: 20
     key_terms: [chickenbean1101, granted, passion, teacher, experiences, love, work, learned]
+    concepts: [chickenbean1101, granted, passion, teacher, experiences]
     section: Comments
     token_count: 462
 ---

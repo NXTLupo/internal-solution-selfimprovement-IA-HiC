@@ -19,24 +19,32 @@ content_hash: "f58dc4797817c276"
 relevance_by_goal: {"68c375ef0d4e":55}
 chunks:
   - id: "articles/reddit-deep-r-healthinsurance/e6be9df62e.md#c0"
-    char_span: [0, 2144]
+    char_span: [0, 2143]
     sentence_count: 19
     key_terms: [provider, insurance, company, claim, hospital, appeal, timely, bill]
-    token_count: 440
+    concepts: [provider, insurance, company, hospital, claim]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/e6be9df62e.md#c2", "articles/reddit-deep-r-healthinsurance/e6be9df62e.md#c3"]
+    token_count: 439
+    sources: [{"n":"Reddit Deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1rdy3v7/the_provider_is_billing_me_for_a_claim_that/"}]
   - id: "articles/reddit-deep-r-healthinsurance/e6be9df62e.md#c1"
-    char_span: [2146, 4431]
+    char_span: [2145, 4430]
     sentence_count: 7
     key_terms: [post, questions, information, please, eob, help, following, edit]
+    concepts: [questions, information, please, following, healthinsurance]
     token_count: 478
   - id: "articles/reddit-deep-r-healthinsurance/e6be9df62e.md#c2"
-    char_span: [4433, 6157]
+    char_span: [4432, 6156]
     sentence_count: 12
     key_terms: [insurance, contact, throwfarfaraway1818, subreddit, company, please, report, via]
+    concepts: [insurance, throwfarfaraway1818, contact, subreddit, company]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/e6be9df62e.md#c0"]
     token_count: 383
   - id: "articles/reddit-deep-r-healthinsurance/e6be9df62e.md#c3"
-    char_span: [6159, 7459]
+    char_span: [6158, 7458]
     sentence_count: 11
     key_terms: [insurance, debt, providers, contract, evidence, provider, remedies, company]
+    concepts: [insurance, providers, contract, evidence, provider]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/e6be9df62e.md#c0"]
     token_count: 279
 ---
 # The provider is billing me for a claim that denied due to timely filing

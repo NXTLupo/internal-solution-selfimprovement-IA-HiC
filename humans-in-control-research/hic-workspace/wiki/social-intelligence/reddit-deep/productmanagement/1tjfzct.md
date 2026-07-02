@@ -20,45 +20,53 @@ chunks:
     char_span: [0, 2369]
     sentence_count: 14
     key_terms: [product, area, teams, leadership, something, productmanagement, like, new]
+    concepts: [product, teams, leadership, productmanagement, something]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1tjfzct/is_this_level_of_pivoting_normal/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1tjfzct.md#c1"
     char_span: [2371, 4491]
     sentence_count: 15
     key_terms: [product, pivot, people, work, capabilities, last, initiative, leadership]
+    concepts: [product, pivot, people, capabilities, initiative]
     token_count: 436
   - id: "social-intelligence/reddit-deep/productmanagement/1tjfzct.md#c2"
     char_span: [4493, 5051]
     sentence_count: 3
     key_terms: [whether, organizational, environment, politically, eventually, priorities, struggling, calibrate]
+    concepts: [whether]
     token_count: 117
   - id: "social-intelligence/reddit-deep/productmanagement/1tjfzct.md#c3"
-    char_span: [5066, 7114]
+    char_span: [5065, 7113]
     sentence_count: 10
     key_terms: [fragrant-nothing3576, data, product, person, evp, like, salesforce, understand]
+    concepts: [fragrant-nothing3576, product, person, salesforce, understand]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/productmanagement/1tjfzct.md#c4"
-    char_span: [6866, 7174]
+    char_span: [6865, 7173]
     sentence_count: 2
     key_terms: [talk, initiatives, ultimately, agreeing, aligning, allergic, features, products]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/productmanagement/1tjfzct.md#c5"
-    char_span: [7176, 8721]
+    char_span: [7175, 8720]
     sentence_count: 11
     key_terms: [company, like, enterprise, exhausting, deliver, fragrant-nothing3576, heywhatsmynameagain, agree]
+    concepts: [company, enterprise, exhausting, deliver, agree]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/productmanagement/1tjfzct.md#c6"
-    char_span: [8723, 10308]
+    char_span: [8722, 10307]
     sentence_count: 8
     key_terms: [product, sort, priority, pivots, fragrant-nothing3576, data, evp, hard]
+    concepts: [product, priority, pivots]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/productmanagement/1tjfzct.md#c7"
-    char_span: [10310, 11643]
+    char_span: [10309, 11642]
     sentence_count: 13
     key_terms: ["it's", need, experience, yourself, product, section, bullet, fragrant-nothing3576]
+    concepts: [experience, yourself, product, section, bullet]
     section: Comments
     token_count: 315
 ---

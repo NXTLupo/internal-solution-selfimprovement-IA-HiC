@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1989]
     sentence_count: 12
     key_terms: [mathematics, get, math, engineering, management, want, masters, program]
+    concepts: [mathematics, engineering, management, masters, program]
     token_count: 452
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ntwytj/careermaster_advice/"}]
   - id: "social-intelligence/reddit-deep/college/1ntwytj.md#c1"
-    char_span: [2004, 3191]
+    char_span: [2003, 3190]
     sentence_count: 6
     key_terms: [degree, "master's", military, job, clearwaterrev, exit, look, year]
+    concepts: [degree, "master's", military, clearwaterrev, employment]
     section: Comments
     token_count: 271
 ---

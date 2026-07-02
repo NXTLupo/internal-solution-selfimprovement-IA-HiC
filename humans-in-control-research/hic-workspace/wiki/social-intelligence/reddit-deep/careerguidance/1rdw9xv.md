@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 1721]
     sentence_count: 14
     key_terms: [collar, blue, careerguidance, job, comments, critical, possible, thinking]
+    concepts: [collar, careerguidance, comments, critical, possible]
     token_count: 384
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rdw9xv/what_are_some_blue_collar_careers_for_someone/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rdw9xv.md#c1"
     char_span: [1735, 3832]
     sentence_count: 13
     key_terms: [good, brother, empties, garbage, drive, since, truck, wheatmonkey]
+    concepts: [brother, empties, garbage, wheatmonkey, drive]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/careerguidance/1rdw9xv.md#c2"
     char_span: [3834, 5626]
     sentence_count: 16
     key_terms: [something, get, autistic, jobs, like, cleaning, starting, working]
+    concepts: [something, autistic, cleaning, starting, working]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/careerguidance/1rdw9xv.md#c3"
     char_span: [5629, 7130]
     sentence_count: 8
     key_terms: [friends, works, experience, successful, carpenter, graphics, another, signage]
+    concepts: [friends, experience, successful, works, carpenter]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/careerguidance/1rdw9xv.md#c4"
     char_span: [7132, 9201]
     sentence_count: 16
     key_terms: [autistic, drywall, merciij, tested, job, sure, girlfriend, diagnosed]
+    concepts: [autistic, drywall, merciij, tested, girlfriend]
     section: Comments
     token_count: 512
 ---

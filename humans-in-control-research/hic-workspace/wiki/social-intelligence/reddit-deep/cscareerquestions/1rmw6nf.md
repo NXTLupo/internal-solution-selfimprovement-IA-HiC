@@ -19,53 +19,65 @@ chunks:
     char_span: [0, 1696]
     sentence_count: 13
     key_terms: [internship, cscareerquestions, manager, started, months, last, supervisor, reference]
+    concepts: [internship, cscareerquestions, manager, started, months]
     token_count: 381
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rmw6nf/got_fired_from_my_it_internship/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmw6nf.md#c1"
     char_span: [1710, 3476]
     sentence_count: 21
     key_terms: [months, people, late, employee, imagine, problem, warning, intern]
+    concepts: [months, people, employee, imagine, problem]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmw6nf.md#c2"
     char_span: [3478, 5509]
     sentence_count: 17
     key_terms: [time, early, something, work, check, "don't", get, "i've"]
+    concepts: [something, early, check, "don't", meetings]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rmw6nf.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmw6nf.md#c3"
     char_span: [5256, 5773]
     sentence_count: 5
     key_terms: [afternoon, something, check, hours, work, important, yesterday, meetings]
+    concepts: [afternoon, something, check, hours]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rmw6nf.md#c2"]
     section: Comments
     token_count: 129
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmw6nf.md#c4"
     char_span: [5775, 6733]
     sentence_count: 9
     key_terms: [work, minutes, especially, whatever, done, guys, hour, traditional]
+    concepts: [minutes, especially, whatever]
     section: Comments
     token_count: 230
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmw6nf.md#c5"
     char_span: [6735, 8418]
     sentence_count: 13
     key_terms: [zestyclose-buyer9648, months, experience, reflection, employer, happened, friends, better]
+    concepts: [zestyclose-buyer9648, months, experience, reflection, employer]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmw6nf.md#c6"
     char_span: [8420, 10062]
     sentence_count: 20
     key_terms: [like, people, reason, coworker, whatever, through, "don't", going]
+    concepts: [people, reason, coworker, whatever, through]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmw6nf.md#c7"
     char_span: [10064, 11497]
     sentence_count: 8
     key_terms: [time, personal, work, flexible, company, people, hour, important]
+    concepts: [personal, flexible, company, people, important]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmw6nf.md#c8"
     char_span: [11499, 12490]
     sentence_count: 12
     key_terms: [time, company, service, zestyclose-buyer9648, mebadneedmoneynow, next, site, cappuccinocodes]
+    concepts: [company, service]
     section: Comments
     token_count: 241
 ---

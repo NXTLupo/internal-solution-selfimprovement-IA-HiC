@@ -7,61 +7,69 @@ subreddit: "insurance"
 title: "Are there really tiers?"
 author: "clay_leviathan_412"
 date: "2026-02-05T14:36:50.000Z"
-score: 2
-upvote_ratio: 0.55
+score: 1
+upvote_ratio: 0.53
 num_comments: 46
 flair: "Home Insurance"
-extracted_at: "2026-06-17T19:26:46.481Z"
+extracted_at: "2026-07-01T23:31:33.484Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+research_goal: "Deliver a comprehensive 2026 risk and market analysis for the agricultural insurance industry and modern farmers, focusing on emerging property risks, macroeconomic factors, and technology adoption (specifically AI). Analyze how generational mindset shifts and behavioral trends dictate new insurance product coverage, marketing, and education strategies tailored to distinct farmer personas."
+engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
 chunks:
   - id: "social-intelligence/reddit-deep/insurance/1qwmx9w.md#c0"
     char_span: [0, 1434]
     sentence_count: 15
     key_terms: [companies, insurance, like, offer, farm, tier, nationwide, expensive]
+    concepts: [companies, insurance, nationwide, offer, expensive]
     token_count: 323
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1qwmx9w/are_there_really_tiers/"}]
   - id: "social-intelligence/reddit-deep/insurance/1qwmx9w.md#c1"
     char_span: [1449, 3261]
     sentence_count: 17
     key_terms: [erie, experiences, claims, allstate, service, fullofhopkinz, state, farm]
+    concepts: [experiences, claims, allstate, fullofhopkinz, service]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/insurance/1qwmx9w.md#c2"
     char_span: [3263, 5011]
     sentence_count: 6
     key_terms: [standard, carrier, high, worth, insurance, coverage, people, hnw]
+    concepts: [standard, carrier, insurance, worth, coverage]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/insurance/1qwmx9w.md#c3"
     char_span: [5015, 6302]
     sentence_count: 6
     key_terms: [claims, people, customers, carriers, figuring, efforts, focused, auto]
+    concepts: [claims, people, customers, carriers, figuring]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/insurance/1qwmx9w.md#c4"
     char_span: [6304, 8266]
     sentence_count: 10
     key_terms: [insurance, auto, geico, home, insurers, better, progressive, list]
+    concepts: [insurance, geico, insurers, better, progressive]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/insurance/1qwmx9w.md#c5"
     char_span: [8269, 10178]
     sentence_count: 14
     key_terms: [progressive, companies, absolutely, cincinnati, coverage, service, paying, approductions]
+    concepts: [progressive, companies, absolutely, cincinnati, coverage]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/insurance/1qwmx9w.md#c6"
     char_span: [10180, 11694]
     sentence_count: 16
     key_terms: [hanover, roof, claims, state, farm, like, servicing, agent]
+    concepts: [hanover, claims, state, servicing, agent]
     section: Comments
     token_count: 365
 ---
 # Are there really tiers?
 
 Source: [reddit-deep: r/insurance](https://www.reddit.com/r/Insurance/comments/1qwmx9w/are_there_really_tiers/)
-Posted by **clay_leviathan_412** · **2↑** · **46 comments**
+Posted by **clay_leviathan_412** · **1↑** · **46 comments**
 
 Is my insurance agent just full of shit? I emailed asking why his quote was so much more expensive than the quotes my lender found and his response (below) involved a weird tier thing I've never heard of. Is he correct and I should pay more for a "higher tier" company?
 
@@ -69,17 +77,17 @@ Agent: "That is the best option I found. There are other companies that could of
 
 ## Comments
 
-- **sephiroth3650** (17↑): While I disagree with who they are putting in each tier.....they are absolutely correct.  There are tiers, where some carriers are dogshit and terrible to deal with, and others provide superior service and are easier to deal with when making a claim.
+- **sephiroth3650** (18↑): While I disagree with who they are putting in each tier.....they are absolutely correct.  There are tiers, where some carriers are dogshit and terrible to deal with, and others provide superior service and are easier to deal with when making a claim.
 - **Fullofhopkinz** (13↑): This is basically true, yes. Some companies focus more on customer service and claims experiences and letting the premium be what it is. Others focus on sheer volume and lower premiums. All things equal, you will *probably* have a better claims experience with Erie, Cincinnati, or AAA than you would with State Farm or Allstate. It’s not quite that black and white but that’s the gist. If the difference in price is marginal, like one is $1,500 and one is $1,700, I’d go with an Erie or a Cincinnati. If the difference is $1,500 vs $3,000 I would probably save the money and bank on hopefully not having to use them. That’s just me though.
-  - **AnxiousVillage7095** (-4↑): Erie?! I would take state farm or allstate all day over Erie.
-    - **Hjs322** (7↑): Are you for real?? I wouldn’t use state farm or allstate for free
+  - **AnxiousVillage7095** (-2↑): Erie?! I would take state farm or allstate all day over Erie.
+    - **Hjs322** (6↑): Are you for real?? I wouldn’t use state farm or allstate for free
     - **PrizeWrap4430** (2↑): I had Erie for 15 years and had around 7 vehicle claims.  4 kids and wife each with a car.  4 of those claims were deer strikes.  I also used their roadside assistance 4 times.  Their service was always amazing. 
  I finally switched because my premium was just way too high.  Switched to Natiinwide and my auto policy was almost cut in half for the exact same coverage.
     - **Fullofhopkinz** (1↑): I wouldn’t. I had them for years and my experiences were always really good. But like I said it’s not completely black and white and experiences will vary.
-- **InternetDad** (37↑): Do a search on the sub, you'll see plenty of posts that support this. 
+- **InternetDad** (35↑): Do a search on the sub, you'll see plenty of posts that support this. 
 
 Not explicitly "tiered" but insurance companies have reputations for customer service, claims handling, and underwriting.  Amica and Chubb are absolutely going to be considered higher quality insurers than The General or Progressive.
-- **Outrageous_Ad_5843** (21↑): your agents tier lists are hilarious  
+- **Outrageous_Ad_5843** (23↑): your agents tier lists are hilarious  
 insurance for sure is tiered though
 
 i would tier them as 
@@ -88,8 +96,8 @@ HNW
 Standard  
 Non Standard
   - **MCXL** (1↑): No there's absolutely a room between high net worth and standard. A regional carrier or upmarket carrier is going to have way better claims handling than a just bog standard carrier but that does not necessarily make it a high net worth carrier.
-  - **clay_leviathan_412** (-8↑): Can you tell me more about what the differences are? I'm not high net worth, my house is worth $340k, but I'm concerned about coverage being dropped because my roof is old (~15 years)
-    - **adjusterjack** (14↑): Then it's time to replace your roof at your own cost. Insurers are cracking down on old roofs because homeowners wait until their roof is worn out enough for a breeze to blow away the shingles and then they expect the insurer to replace it. People are routinely getting dropped for old roofs.
+  - **clay_leviathan_412** (-9↑): Can you tell me more about what the differences are? I'm not high net worth, my house is worth $340k, but I'm concerned about coverage being dropped because my roof is old (~15 years)
+    - **adjusterjack** (16↑): Then it's time to replace your roof at your own cost. Insurers are cracking down on old roofs because homeowners wait until their roof is worn out enough for a breeze to blow away the shingles and then they expect the insurer to replace it. People are routinely getting dropped for old roofs.
     - **Outrageous_Ad_5843** (5↑): HNW costs more but you get more  
 coverages are ample, service is excellent
 
@@ -106,9 +114,9 @@ these are people who are too risky for standard carries to accept
 
 
 regardless of tiers, u need a new roof
-    - **insuranceguynyc** (1↑): Time to replace your roof - seriously.
+    - **insuranceguynyc** (2↑): Time to replace your roof - seriously.
 - **MayonnaiseFarm** (6↑): I handled claims for one of the ‘better’ carriers mentioned, we rarely hired claims people from outside the company as they like to train people from the ground up, we were taught to look for coverage in the policy (instead of looking to find exclusions). We insured many people from inside the insurance industry as we were known to pay claims promptly and fairly. I could go on, but suffice to say I am very particular about who I purchase my auto/home/excess policies from.
-- **MikeTheActuary** (8↑): Your agent isn't full of shit.  They're talking in jargon, and relying on some older assumptions.
+- **MikeTheActuary** (7↑): Your agent isn't full of shit.  They're talking in jargon, and relying on some older assumptions.
 
 An oversimplified and slightly outdated answer is that some insurers have traditionally focused their competitive efforts on the lowest risk customers, while other carriers, rather than trying to compete in that market, have focused their efforts and figuring out how to profit on somewhat higher risk customers.
 
@@ -118,7 +126,7 @@ It's an arguably outdated answer because new analytic techniques and increased c
   - **clay_leviathan_412** (-1↑): Does your answer change for home insurance vs auto insurance? I flaired the post as home insurance but a couple responses have assumed auto
     - **BeardedAgentMan** (4↑): Most of these carriers offer both and the answers fit either way
     - **MikeTheActuary** (1↑): Not really.   It makes a bigger difference in dollar terms for auto than home, and there's some contagion by virtue of insurers wanting customers that have more than one line of insurance with them.   That makes situations where an insurer might specialize in non-standard auto and preferred homeowners very, very unlikely.
-- **S_balmore** (8↑): There are different "tiers" (or insurance companies of varying desirability), but your Agent's list **isn't very accurate.**
+- **S_balmore** (6↑): There are different "tiers" (or insurance companies of varying desirability), but your Agent's list **isn't very accurate.**
 
 It's true that The General is a shitty insurance company, but there's nothing wrong with Progressive. The major insurance companies (Progressive, GEICO, State Farm, Allstate, etc) actually offer a wide range of tiers within themselves. A high-risk customer might be insured with *GEICO Indemnity*, while a better customer might be insured with *GEICO Preferred*. GEICO Indemnity is going to have higher rates and stricter rules.
 

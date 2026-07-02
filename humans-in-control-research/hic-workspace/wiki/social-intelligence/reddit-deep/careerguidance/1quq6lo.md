@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 2199]
     sentence_count: 21
     key_terms: ["don't", work, pharmacy, warehouse, want, working, careerguidance, decade]
+    concepts: ["don't", pharmacy, warehouse, careerguidance, working]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1quq6lo/what_should_i_do/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1quq6lo.md#c1"
     char_span: [2201, 2783]
     sentence_count: 5
     key_terms: ["i'm", recommendations, letters, medical, need, professionals, communicator, financially]
+    concepts: [recommendations, letters, medical]
     token_count: 123
   - id: "social-intelligence/reddit-deep/careerguidance/1quq6lo.md#c2"
     char_span: [2797, 5096]
     sentence_count: 18
     key_terms: [companies, training, management, roles, work, operations, corporate, warehouse]
+    concepts: [companies, training, management, roles, operations]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1quq6lo.md#c6"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/careerguidance/1quq6lo.md#c3"
     char_span: [5098, 6529]
     sentence_count: 12
     key_terms: [degree, worked, associates, corporate, bachelor, company, manager, supply]
+    concepts: [degree, worked, associates, corporate, bachelor]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/careerguidance/1quq6lo.md#c4"
     char_span: [6531, 8653]
     sentence_count: 24
     key_terms: [feelingseason6956, experience, logistics, look, industry, like, pay, optometry]
+    concepts: [feelingseason6956, experience, logistics, industry, optometry]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1quq6lo.md#c5"
     char_span: [8363, 9351]
     sentence_count: 10
     key_terms: [lower, state, job, pay, probably, slightly, starting, pension]
+    concepts: [lower, state, probably, slightly, starting]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/careerguidance/1quq6lo.md#c6"
     char_span: [9353, 11001]
     sentence_count: 15
     key_terms: [warehouse, management, training, company, experience, standards, use, supply]
+    concepts: [warehouse, management, training, company, experience]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1quq6lo.md#c2"]
     section: Comments
     token_count: 354
 ---

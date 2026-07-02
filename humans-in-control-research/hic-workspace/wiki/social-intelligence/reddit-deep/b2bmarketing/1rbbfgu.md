@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 868]
     sentence_count: 5
     key_terms: [b2bmarketing, high, generation, developer, comments, projects, services, attract]
+    concepts: [b2bmarketing, generation, developer, comments, projects]
     token_count: 186
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1rbbfgu/how_do_i_generate_high_quality_leads_for_my/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rbbfgu.md#c1"
-    char_span: [883, 2994]
+    char_span: [882, 2993]
     sentence_count: 15
     key_terms: [clients, looking-for-marketing-discussion-811236647760298024, high-ticket, dev, want, businesses, struggling, questions]
+    concepts: [high-ticket, clients, businesses, struggling, questions]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rbbfgu.md#c2"
-    char_span: [2996, 4771]
+    char_span: [2995, 4770]
     sentence_count: 13
     key_terms: [positioning, clients, agency, search, dev, generating, developer, referrals]
+    concepts: [positioning, clients, agency, search, generating]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rbbfgu.md#c3"
-    char_span: [4773, 6592]
+    char_span: [4772, 6591]
     sentence_count: 10
     key_terms: [problem, reddit, positioning, app, time, want, teardowns, building]
+    concepts: [problem, reddit, positioning, teardowns, building]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rbbfgu.md#c4"
-    char_span: [6594, 8550]
+    char_span: [6593, 8549]
     sentence_count: 14
     key_terms: [marketing, clients, flakytree1726, email, developer, referral, strategy, posting]
+    concepts: [marketing, flakytree1726, clients, email, developer]
     section: Comments
     token_count: 449
 ---

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2075]
     sentence_count: 19
     key_terms: [field, career, experience, economics, work, finance, careerguidance, certifications]
+    concepts: [field, career, experience, economics, careerguidance]
     token_count: 440
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tfxx4w/i_am_confused_about_finding_my_career_path_in/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tfxx4w.md#c1"
-    char_span: [2090, 2517]
+    char_span: [2089, 2516]
     sentence_count: 8
     key_terms: [drivers, degree, leagueaggravating595, nightmare, worthless, delivery, educated, everyone]
+    concepts: [drivers, degree]
     section: Comments
     token_count: 99
 ---

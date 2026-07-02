@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1106]
     sentence_count: 6
     key_terms: [college, llcs, year, comments, northeastern, inclusion, cultural, sciences]
+    concepts: [college, comments, northeastern, inclusion, cultural]
     token_count: 267
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1q3zjy8/llcs_northeastern_university_housing_advice_for/"}]
   - id: "social-intelligence/reddit-deep/neu/1q3zjy8.md#c1"
     char_span: [1120, 3141]
     sentence_count: 8
     key_terms: [llc, events, people, leaders, inclusion, pack, year, building]
+    concepts: [events, people, leaders, inclusion, building]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1q3zjy8.md#c2"
     char_span: [2891, 3532]
     sentence_count: 6
     key_terms: [llc, college, larger, majors, people, want, engineering, activities]
+    concepts: [college, larger, majors, people]
     section: Comments
     token_count: 155
 ---

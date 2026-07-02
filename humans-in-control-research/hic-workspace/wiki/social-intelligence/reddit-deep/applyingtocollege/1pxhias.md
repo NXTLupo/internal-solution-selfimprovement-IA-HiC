@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 1003]
     sentence_count: 6
     key_terms: [applyingtocollege, princeton, questions, columbia, comments, advice, essays, senior-chipmunk5567]
+    concepts: [applyingtocollege, princeton, questions, columbia, comments]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1pxhias.md#c2"]
     token_count: 242
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1pxhias/advice_from_princeton_columbia_admit/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pxhias.md#c1"
     char_span: [1017, 1819]
     sentence_count: 3
     key_terms: [wrote, columbia, mission, ecstatic-sandwich398, senior-chipmunk5567, applyingtocollege, automatically, automoderator]
+    concepts: [wrote, columbia, mission]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pxhias.md#c2"
     char_span: [1821, 3052]
     sentence_count: 10
     key_terms: [humorous, supplementals, princeton, statement, columbia, personal, country, writing]
+    concepts: [humorous, supplementals, princeton, statement, columbia]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1pxhias.md#c0"]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pxhias.md#c3"
     char_span: [3054, 4088]
     sentence_count: 6
     key_terms: [columbia, senior-chipmunk5567, writing, successful, essays, acceptable-bet4705, get, like]
+    concepts: [columbia, senior-chipmunk5567, writing, successful, essays]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1pxhias.md#c4"]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pxhias.md#c4"
     char_span: [4090, 6174]
     sentence_count: 10
     key_terms: [senior-chipmunk5567, specific, supplementals, did, essays, mentioned, professionaltakes, like]
+    concepts: [senior-chipmunk5567, supplementals, specific, essays, professionaltakes]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1pxhias.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pxhias.md#c5"
     char_span: [5901, 6634]
     sentence_count: 4
     key_terms: [scores, decided, submit, test, submitting, senior-chipmunk5567, consulting, incredible]
+    concepts: [scores, decided, submit, submitting]
     section: Comments
     token_count: 162
 ---

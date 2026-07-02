@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1753]
     sentence_count: 3
     key_terms: [wallet, because, marketplace, around, marketplaces, devs, web3, end-to-end]
+    concepts: [wallet, marketplace, because, marketplaces, around]
     token_count: 362
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1qq4izf/building_endtoend_web3_solutions_marketplaces_and/"}]
   - id: "social-intelligence/reddit-deep/defi/1qq4izf.md#c1"
-    char_span: [1768, 2554]
+    char_span: [1767, 2553]
     sentence_count: 2
     key_terms: [feels, fewer, users, like, lot, specifically, transaction, continuous]
+    concepts: [feels, fewer, users]
     section: Comments
     token_count: 165
 ---

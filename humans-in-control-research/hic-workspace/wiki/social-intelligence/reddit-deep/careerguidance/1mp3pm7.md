@@ -19,22 +19,29 @@ chunks:
     char_span: [0, 2195]
     sentence_count: 14
     key_terms: [law, ireland, international, path, career, regulation, tech, business]
+    concepts: [international, ireland, regulation, career, business]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1mp3pm7.md#c1"]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1mp3pm7/finalyear_law_business_student_spain_ireland/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1mp3pm7.md#c1"
     char_span: [2197, 4279]
     sentence_count: 11
     key_terms: [law, ireland, compliance, international, roles, legal, companies, tech]
+    concepts: [compliance, international, ireland, roles, companies]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1mp3pm7.md#c0"]
     token_count: 505
   - id: "social-intelligence/reddit-deep/careerguidance/1mp3pm7.md#c2"
     char_span: [4281, 6419]
     sentence_count: 14
     key_terms: [solicitor, law, "don't", etc, training, service, international, areas]
+    concepts: [solicitor, "don't", training, international, service]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1mp3pm7.md#c3"
     char_span: [6421, 8107]
     sentence_count: 14
     key_terms: [law, experience, get, italianirish99, qualifications, degree, firms, world]
+    concepts: [experience, italianirish99, qualifications, degree, firms]
     section: Comments
     token_count: 386
 ---

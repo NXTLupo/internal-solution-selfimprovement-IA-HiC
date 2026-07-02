@@ -14,42 +14,51 @@ chunks:
     char_span: [0, 2509]
     sentence_count: 7
     key_terms: [alternative, description, systems, vendor, recommendations, detection, inventory, criteria]
+    concepts: [alternative, description, recommendations, systems, detection]
+    related_chunks: ["anti-patterns/tech-audit.md#c4"]
     section: "AP-TECHAUDIT-01: Vendor Name Hallucination / AP-TECHAUDIT-02: Audit Without Inventory / AP-TECHAUDIT-03: Missing Shadow IT / AP-TECHAUDIT-04: No \"Do Nothing\" Cost Scenario"
     token_count: 505
   - id: "anti-patterns/tech-audit.md#c1"
     char_span: [2558, 3039]
     sentence_count: 3
     key_terms: [red, retirement, flagged, systems, review, keep, optimization, alternative]
+    concepts: [retirement, flagged, systems, review]
     section: "AP-TECHAUDIT-05: Green-Lighting Everything"
     token_count: 113
   - id: "anti-patterns/tech-audit.md#c2"
     char_span: [3090, 3656]
     sentence_count: 4
     key_terms: [utilization, salesforce, marketing, cloud, used, organization, alternative, description]
+    concepts: [utilization, salesforce, marketing, cloud]
     section: "AP-TECHAUDIT-06: Missing License Utilization"
     token_count: 114
   - id: "anti-patterns/tech-audit.md#c3"
     char_span: [3706, 4252]
     sentence_count: 1
     key_terms: [security, without, framework, generic, mapping, csf, nist, recommendations]
+    concepts: [security, without, framework, generic, mapping]
     section: "AP-TECHAUDIT-07: Security Without Framework"
     token_count: 137
   - id: "anti-patterns/tech-audit.md#c4"
     char_span: [4298, 4824]
     sentence_count: 3
     key_terms: [recommendations, alternative, without, team, microservices, conditional, considering, description]
+    concepts: [recommendations, alternative, without]
+    related_chunks: ["anti-patterns/tech-audit.md#c0"]
     section: "AP-TECHAUDIT-08: No Skills Gap Analysis"
     token_count: 110
   - id: "anti-patterns/tech-audit.md#c5"
     char_span: [4885, 5379]
     sentence_count: 2
     key_terms: [business, trends, recommendations, alternative, description, connection, generative, operations]
+    concepts: [business, trends]
     section: "AP-TECHAUDIT-09: Technology Without Business Alignment"
     token_count: 110
   - id: "anti-patterns/tech-audit.md#c6"
     char_span: [5429, 6006]
     sentence_count: 2
     key_terms: [dimensions, critical, equally, identical-length, approximately, superficially, architecture, alternative]
+    concepts: [dimensions, critical, equally]
     section: "AP-TECHAUDIT-10: Audit as Checkbox Exercise"
     token_count: 111
 ---

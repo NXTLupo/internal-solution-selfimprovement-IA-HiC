@@ -3551,6 +3551,30 @@ const App = () => {
         // chip starts at $0 for each new engagement. summarizeRun() at the
         // end of the prototype build emits the final tally to chat.
         resetCostMeter(`engagement: ${researchGoal.slice(0, 60)}`);
+        // CLEAN GROUNDING RULE (owner directive 2026-07-01): every NEW research run starts with a
+        // clean grounding slate. A DORMANT KL selection (leftover from a prior page load / prior
+        // engagement) is cleared server-side HERE, at run kickoff, so it can never hijack this run's
+        // retrieval (the r/healthinsurance takeover: 929 stale pointers filled 100% of every theme
+        // shard's budget on an agricultural-insurance run). Cached grounding enters a run ONLY by
+        // explicit user choice: a selection committed via Curate THIS session (not dormant - survives),
+        // or resuming a saved session (the restore path does not pass through this kickoff).
+        // Defense-in-depth: chunkRetrieval also goal-gates any dormant selection that slips through.
+        try {
+            const _selResp = await fetch('http://127.0.0.1:5012/api/user-selection/active');
+            if (_selResp.ok) {
+                const _sel = await _selResp.json();
+                const _hasContent = _sel && !!(_sel.social_subreddits?.length || _sel.article_sources?.length
+                    || _sel.source_archive_paths?.length || _sel.theme_cluster_ids?.length || _sel.engagement_slugs?.length);
+                if (_sel && _sel._uncommitted && _hasContent) {
+                    await fetch('http://127.0.0.1:5012/api/user-selection/active', { method: 'DELETE' });
+                    console.warn('[CleanGrounding] cleared DORMANT KL selection from a prior session at run kickoff - fresh runs start clean. Curate a Knowledge Library selection this session to include cached corpus deliberately.');
+                    setThinkingEvents(prev => [...prev, {
+                        type: 'PHASE',
+                        content: '[CLEAN GROUNDING] Cleared a leftover Knowledge Library selection from a prior session. This run grounds on freshly collected corpus; use Curate to include cached items deliberately.',
+                    }]);
+                }
+            }
+        } catch { /* fail-safe: the chunkRetrieval goal-gate still protects grounding */ }
         // 2026-05-11 - Reset session state for a fresh run. The new run gets
         // a new slug (derived from goal at save time); the auto-save guard
         // re-arms so the natural completion event will fire saveSession once.
@@ -5110,7 +5134,38 @@ const App = () => {
                     console.warn('[App] auto-reuse of cached corpus failed (non-fatal):', reuseErr?.message || reuseErr);
                 }
                 const _mergeUploads = [...uploadedCorpusItems, ..._blendCached, ..._autoCached];
-                const corpus = await mergeResultsToCorpus(executionResult, researchGoal, _mergeUploads);
+                // 2026-07-02 PACK-CORPUS ARCHIVAL FIX (live root cause, ALL industry packs):
+                // direct pack-source results (proxyResults) were flattened into a raw text blob
+                // below and NEVER entered mergeResultsToCorpus - so they skipped relevance
+                // scoring, enrichment, wiki archival, chunking, and the manifest. The Knowledge
+                // Library showed nothing for any pack engagement and pack articles were
+                // uncitable by pointer (phases 2+3 of the unified vision). Convert them to
+                // first-class sources here so the ONE pipeline dedups, scores, enriches,
+                // engagement-tags, and archives them like every other source.
+                const proxySources = (proxyResults || [])
+                    .filter((r: any) => Array.isArray(r.items) && r.items.length > 0)
+                    .map((r: any) => ({
+                        sourceId: r.sourceId || r.source,
+                        name: r.source || r.sourceId,
+                        type: 'pack-search',
+                        status: 'completed' as const,
+                        items: r.items.map((it: any, i: number) => ({
+                            id: it.id || `${r.sourceId || 'src'}_${i}`,
+                            title: it.title || '',
+                            content: it.content || it.text || '',
+                            url: it.url || '',
+                            date: it.date || it.publishedAt || undefined,
+                            sourceName: r.source || r.sourceId,
+                            credibilityTier: r.credibilityTier,
+                        })),
+                    }));
+                if (proxySources.length > 0) {
+                    const _pn = proxySources.reduce((s: number, x: any) => s + x.items.length, 0);
+                    console.log(`[Corpus] PACK-ARCHIVAL: routing ${proxySources.length} direct-search source(s) / ${_pn} item(s) through mergeResultsToCorpus (score -> enrich -> wiki archive -> manifest).`);
+                }
+                const corpus = await mergeResultsToCorpus(
+                    { ...executionResult, sources: [...executionResult.sources, ...proxySources] } as any,
+                    researchGoal, _mergeUploads);
 
                 // WS-F (2026-06-30): OBJECTIVE-SUPREMACY post-collection audit. Score how well the assembled
                 // corpus covers each decomposed sub-question of the objective, and surface HIGH-priority ones
@@ -5119,6 +5174,10 @@ const App = () => {
                 try {
                     const _sqs = (plan as any)?.sub_questions;
                     if (Array.isArray(_sqs) && _sqs.length > 0 && typeof _sqs[0]?.question === 'string' && corpus) {
+                        // W3 (2026-07-01): publish the plan's sub-questions for the AIR Objective Graph.
+                        // emitDeliverable reads this global (same idiom as __hicCurrentEngagementSlug) so
+                        // EVERY artifact's AIR carries decomposedQuestions + per-artifact coverage status.
+                        try { (window as any).__hicResearchPlanSubQuestions = _sqs; } catch { /* non-fatal */ }
                         const { auditSubQuestionCoverage } = await import('./services/researchPlanner');
                         const _audit = auditSubQuestionCoverage(corpus, _sqs);
                         console.info(`[App] WS-F sub-question coverage: ${Math.round(_audit.coverage * 100)}% of high+medium sub-questions covered; ${_audit.openHighPriority.length} high-priority still open`);
@@ -5133,23 +5192,10 @@ const App = () => {
                     console.warn('[App] sub-question coverage audit failed (non-fatal):', covErr?.message || covErr);
                 }
 
-                // Also merge proxy multi-search results
-                let proxyCorpus = '';
-                if (proxyResults.length > 0) {
-                    const sections: string[] = [];
-                    for (const r of proxyResults) {
-                        if (!r.items || r.items.length === 0) continue;
-                        sections.push(`\n=== SOURCE: ${r.source} (${r.items.length} items) ===\n`);
-                        for (const item of r.items) {
-                            sections.push(`--- ${item.title} ---`);
-                            if (item.url) sections.push(`URL: ${item.url}`);
-                            if (item.date) sections.push(`Date: ${item.date}`);
-                            sections.push(item.content || '');
-                            sections.push('');
-                        }
-                    }
-                    proxyCorpus = sections.join('\n');
-                }
+                // 2026-07-02 PACK-CORPUS ARCHIVAL FIX: the raw proxyCorpus text blob is RETIRED.
+                // Pack items now enter the corpus through mergeResultsToCorpus above (proxySources),
+                // so re-appending them here would double-count every pack item in the corpus text.
+                const proxyCorpus = '';
 
                 // Prepend uploaded-document text so the extracted client PDFs/DOCX/XLSX
                 // are a first-class part of the corpus every downstream stage sees

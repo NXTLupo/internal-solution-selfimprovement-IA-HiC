@@ -21,22 +21,29 @@ chunks:
     char_span: [0, 2188]
     sentence_count: 16
     key_terms: [graduate, time, institution, center, get, phd, student, gradadmissions]
+    concepts: [graduate, institution, center, gradadmissions, student]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rey9xg/what_is_it_like_to_be_a_phd_student_at_the_cuny/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rey9xg.md#c1"
     char_span: [2190, 3371]
     sentence_count: 1
     key_terms: [stipend, institutions, research, another, faculty, private, field, money]
+    concepts: [stipend, institutions, research, another, faculty]
     token_count: 264
   - id: "social-intelligence/reddit-deep/gradadmissions/1rey9xg.md#c2"
     char_span: [3385, 4744]
     sentence_count: 15
     key_terms: [program, history, generalsprinkles4306, grouchy-ostrich-5838, get, current, interview, students]
+    concepts: [program, generalsprinkles4306, grouchy-ostrich-5838, history, current]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rey9xg.md#c3"]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/gradadmissions/1rey9xg.md#c3"
     char_span: [4746, 6532]
     sentence_count: 15
     key_terms: [grouchy-ostrich-5838, program, cycle, happy, got, situation, received, better]
+    concepts: [grouchy-ostrich-5838, program, cycle, happy, situation]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rey9xg.md#c2"]
     section: Comments
     token_count: 455
 ---

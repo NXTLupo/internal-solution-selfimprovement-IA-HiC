@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1161]
     sentence_count: 14
     key_terms: [marketing, like, realistic, comments, client, using, video, end]
+    concepts: [marketing, realistic, comments, client, using]
     token_count: 289
+    sources: [{"n":"reddit-deep: r/marketing","u":"https://www.reddit.com/r/marketing/comments/1ljb2k2/too_much_ai_and_idk_how_to_say_it/"}]
   - id: "social-intelligence/reddit-deep/marketing/1ljb2k2.md#c1"
-    char_span: [1176, 2616]
+    char_span: [1175, 2615]
     sentence_count: 19
     key_terms: [right, creative, amplify, general, people, public, locksmithcomplete501, "it'll"]
+    concepts: [right, creative, amplify, general, people]
     section: Comments
     token_count: 378
 ---

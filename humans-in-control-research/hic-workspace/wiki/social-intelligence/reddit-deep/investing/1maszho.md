@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 831]
     sentence_count: 6
     key_terms: [free, investing, portfolio, comments, general, being, tools, data]
+    concepts: [investing, portfolio, comments, general, being]
     token_count: 186
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1maszho/any_good_ai_enabled_tools_for_portfolio_and_stock/"}]
   - id: "social-intelligence/reddit-deep/investing/1maszho.md#c1"
     char_span: [845, 2184]
     sentence_count: 10
     key_terms: [g-68bb1f3f309481919ef708236b4a4078-stock-market-intelligence-stocks-etf-crypto, competitive-play-660, worked, martin-life-learner, tools, using, gpt, like]
+    concepts: [competitive-play-660, worked, tools, using]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/investing/1maszho.md#c2"
     char_span: [2186, 3713]
     sentence_count: 8
     key_terms: [analysis, portfolio, inquisitor--nox, brokerbotics, chartlense, research, downtown-island1478, tools]
+    concepts: [analysis, portfolio, inquisitor--nox, brokerbotics, chartlense]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/investing/1maszho.md#c3"
     char_span: [3717, 5084]
     sentence_count: 8
     key_terms: [downtown-island1478, research, been, like, something, insights, amsflow, company]
+    concepts: [downtown-island1478, research, something, insights, amsflow]
     section: Comments
     token_count: 341
 ---

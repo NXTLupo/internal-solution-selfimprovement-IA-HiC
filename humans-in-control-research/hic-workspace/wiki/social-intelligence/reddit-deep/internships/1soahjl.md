@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1818]
     sentence_count: 19
     key_terms: [rejection, internships, don, get, anything, because, matter, feel]
+    concepts: [rejection, internships, anything, because, matter]
     token_count: 421
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1soahjl/im_fucked_i_cant_land_an_internship_no_matter_how/"}]
   - id: "social-intelligence/reddit-deep/internships/1soahjl.md#c1"
     char_span: [1832, 3795]
     sentence_count: 10
     key_terms: [internships, get, "i'm", friends, always, experience, networking, sophomore]
+    concepts: [internships, friends, always, experience, networking]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1soahjl.md#c2"
     char_span: [3531, 4516]
     sentence_count: 9
     key_terms: [opportunities, friends, people, person, "don't", maybe, razzmatazzlazy8967, etc]
+    concepts: [opportunities, friends, people, person, "don't"]
     section: Comments
     token_count: 245
 ---

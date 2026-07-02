@@ -21,43 +21,52 @@ chunks:
     char_span: [0, 2209]
     sentence_count: 6
     key_terms: [region, waterloo, community, future, redman, chair, transformational, transit]
+    concepts: [region, waterloo, community, future, redman]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1npazik/region_of_waterloo_2025_state_of_the_region/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1npazik.md#c1"
     char_span: [2211, 4516]
     sentence_count: 30
     key_terms: [vision, community, people, bold, indigenous, developed, education, uncertain]
+    concepts: [vision, community, people, indigenous, developed]
     token_count: 491
   - id: "social-intelligence/reddit-deep/waterloo/1npazik.md#c2"
     char_span: [4518, 6873]
     sentence_count: 35
     key_terms: [investment, childcare, projects, transformational, transit, access, vision, international]
+    concepts: [investment, transformational, childcare, projects, international]
     token_count: 503
   - id: "social-intelligence/reddit-deep/waterloo/1npazik.md#c3"
     char_span: [6875, 9204]
     sentence_count: 29
     key_terms: [aerospace, together, work, roundtable, aviation, economic, industry, waterloo]
+    concepts: [aerospace, together, roundtable, aviation, economic]
     token_count: 507
   - id: "social-intelligence/reddit-deep/waterloo/1npazik.md#c4"
     char_span: [9206, 10257]
     sentence_count: 15
     key_terms: [example, change, growth, vision, ready, ion, next, take]
+    concepts: [example, change, growth, vision, ready]
     token_count: 245
   - id: "social-intelligence/reddit-deep/waterloo/1npazik.md#c5"
     char_span: [10271, 11299]
     sentence_count: 4
     key_terms: [people, homelessness, apprehensivecrow4504, tragicallybrokenhip, great, point, water, wafflesorbust]
+    concepts: [homelessness, people, great, point, water]
     section: Comments
     token_count: 250
   - id: "social-intelligence/reddit-deep/waterloo/1npazik.md#c6"
     char_span: [11301, 13124]
     sentence_count: 11
     key_terms: [hospital, haljordan2424, new, want, pay, healthcare, unhappy, people]
+    concepts: [haljordan2424, hospital, healthcare, unhappy, people]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/waterloo/1npazik.md#c7"
     char_span: [13126, 13770]
     sentence_count: 8
     key_terms: [slogan, "can't", words, come, like, need, transformational, awkwardtalk5234]
+    concepts: [slogan, "can't", words]
     section: Comments
     token_count: 183
 ---

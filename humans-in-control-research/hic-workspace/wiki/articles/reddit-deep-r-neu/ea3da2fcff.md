@@ -19,27 +19,32 @@ content_hash: "c9faf4626d7ea76e"
 relevance_by_goal: {"3d9ef8ee927f":35}
 chunks:
   - id: "articles/reddit-deep-r-neu/ea3da2fcff.md#c0"
-    char_span: [0, 1793]
+    char_span: [0, 1792]
     sentence_count: 11
     key_terms: [northeastern, student, friendships, feeling, finding, organizations, guide, neu]
-    token_count: 382
+    concepts: [northeastern, student, friendships, organizations, feeling]
+    token_count: 381
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1q5832k/finding_your_pack_a_huskys_guide_to_building/"}]
   - id: "articles/reddit-deep-r-neu/ea3da2fcff.md#c1"
-    char_span: [1795, 4119]
+    char_span: [1794, 4118]
     sentence_count: 13
     key_terms: [student, club, association, find, professional, facilities, community, american]
+    concepts: [student, association, professional, facilities, community]
     token_count: 494
   - id: "articles/reddit-deep-r-neu/ea3da2fcff.md#c2"
-    char_span: [4121, 6484]
+    char_span: [4120, 6483]
     sentence_count: 19
     key_terms: [sports, club, team, center, basketball, intramural, fitness, people]
+    concepts: [sports, basketball, intramural, center, fitness]
     token_count: 511
   - id: "articles/reddit-deep-r-neu/ea3da2fcff.md#c3"
-    char_span: [6486, 8769]
+    char_span: [6485, 8768]
     sentence_count: 17
     key_terms: [hockey, husky, basketball, games, game, matthews, student, ticket]
+    concepts: [hockey, husky, basketball, games, matthews]
     token_count: 492
   - id: "articles/reddit-deep-r-neu/ea3da2fcff.md#c4"
-    char_span: [8771, 8978]
+    char_span: [8770, 8977]
     sentence_count: 2
     key_terms: [neu-modteam, especially, irritating, regarding, reinforce, comments, matthews, outdated]
     token_count: 45

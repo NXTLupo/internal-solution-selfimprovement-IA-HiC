@@ -16,10 +16,12 @@ extraction_method: "praw-deep"
 research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1qp4ilp.md#c0"
-    char_span: [0, 991]
+    char_span: [0, 990]
     sentence_count: 6
     key_terms: [internships, experience, glowlogics, solutions, comments, reddit, able-contact9097, professionally]
+    concepts: [internships, experience, glowlogics, solutions, comments]
     token_count: 211
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1qp4ilp/experience_as_a_employee_in_glowlogics_solutions/"}]
 ---
 # Experience as a employee in Glowlogics solutions
 

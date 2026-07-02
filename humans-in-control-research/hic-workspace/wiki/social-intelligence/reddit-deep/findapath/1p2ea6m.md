@@ -21,52 +21,64 @@ chunks:
     char_span: [0, 2206]
     sentence_count: 19
     key_terms: [never, sonic, years, like, findapath, comments, continue, honestly]
+    concepts: [never, sonic, years, findapath, comments]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1p2ea6m/starting_a_new_amazon_warehouse_job_after_2_years/"}]
   - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c1"
     char_span: [2208, 3454]
     sentence_count: 9
     key_terms: [being, youtube, build, back, job, life, old, volunteering]
+    concepts: [being, youtube, build]
     token_count: 273
   - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c2"
     char_span: [3468, 5761]
     sentence_count: 21
     key_terms: [help, thank, helpful, people, please, find, depression, findapath]
+    concepts: [thank, helpful, people, please, depression]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c3"
     char_span: [5763, 7351]
     sentence_count: 13
     key_terms: [advice, small, questions, something, better, making, people, point]
+    concepts: [advice, small, questions, something, better]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c4"
     char_span: [7353, 7956]
     sentence_count: 9
     key_terms: [going, best, too, correct-gur-7842, phantomdiclonius, plsfartinmyface, guidancecards, nanocurrency]
+    concepts: [going]
     section: Comments
     token_count: 176
   - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c5"
     char_span: [7958, 10128]
     sentence_count: 9
     key_terms: [program, appropriate-tutor587, thank, don, mba, business, phantomdiclonius, administration]
+    concepts: [program, appropriate-tutor587, phantomdiclonius, thank, business]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1p2ea6m.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c6"
     char_span: [9856, 11837]
     sentence_count: 11
     key_terms: [phantomdiclonius, flairpointsbot, thank, appropriate-tutor587, trickaccomplished200, confirming, good, provided]
+    concepts: [phantomdiclonius, flairpointsbot, appropriate-tutor587, thank, trickaccomplished200]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1p2ea6m.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c7"
     char_span: [11579, 12142]
     sentence_count: 5
     key_terms: [content-bicycle-7894, time, provided, awarded, helpful, advice, point, thank]
+    concepts: [content-bicycle-7894, provided, awarded, helpful, advice]
     section: Comments
     token_count: 160
   - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c8"
     char_span: [12144, 13164]
     sentence_count: 4
     key_terms: [meditate, journal, never, thank, able, been, like, phantomdiclonius]
+    concepts: [meditate, journal, never, thank]
     section: Comments
     token_count: 239
 ---

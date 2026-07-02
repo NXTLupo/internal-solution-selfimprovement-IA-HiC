@@ -21,65 +21,77 @@ chunks:
     char_span: [0, 1380]
     sentence_count: 14
     key_terms: [debt, currently, personalfinance, savings, financial, comments, vehicle, working]
+    concepts: [currently, personalfinance, savings, financial, comments]
     token_count: 339
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1psrd4q/i_am_currently_fighting_cancer_do_i_spend_most_of/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c1"
     char_span: [1394, 3494]
     sentence_count: 19
     key_terms: [personalfinance, debt, life, need, insurance, subreddit, bailouts, memories]
+    concepts: [personalfinance, insurance, subreddit, bailouts, memories]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c2"
     char_span: [3496, 5591]
     sentence_count: 14
     key_terms: [needs, time, finances, years, gone, problem, someone, therapy]
+    concepts: [needs, finances, years, problem, someone]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c3"
     char_span: [5593, 7722]
     sentence_count: 14
     key_terms: [debt, money, pay, memories, great, life, perhaps, student]
+    concepts: [money, memories, great, perhaps, student]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c4"
     char_span: [7724, 9657]
     sentence_count: 24
     key_terms: [trust, life, pay, estate, spendthrift, bankruptcy, hopefully, planning]
+    concepts: [trust, estate, spendthrift, bankruptcy, hopefully]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c5"
     char_span: [9659, 11611]
     sentence_count: 15
     key_terms: [money, years, left, absolutely, because, "there's", without, change]
+    concepts: [money, years, absolutely, because, "there's"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c6"
     char_span: [11613, 13042]
     sentence_count: 15
     key_terms: [memories, time, accumulate, diagnosis, traveling, cancer, great, happy]
+    concepts: [memories, accumulate, diagnosis, traveling, cancer]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c7"
     char_span: [13044, 13698]
     sentence_count: 5
     key_terms: [want, mortgage, lonely-somewhere-385, fear, life, like, live, bernedtendies]
+    concepts: [mortgage]
     section: Comments
     token_count: 177
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c8"
     char_span: [13700, 15654]
     sentence_count: 16
     key_terms: [get, house, someone, "she'll", able, wife, something, mortgage]
+    concepts: [house, someone, "she'll", something, mortgage]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c9"
     char_span: [15656, 16981]
     sentence_count: 10
     key_terms: [prognosis, divorce, doctors, working, cancer, travel, weeks, "i'd"]
+    concepts: [prognosis, divorce, doctors, working, cancer]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c10"
     char_span: [16985, 18271]
     sentence_count: 12
     key_terms: [stage, years, different, though, life, insurance, situation, doctors]
+    concepts: [different, stage, years, though, insurance]
     section: Comments
     token_count: 316
 ---

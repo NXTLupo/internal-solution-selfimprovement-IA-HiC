@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2074]
     sentence_count: 12
     key_terms: [cscareerquestions, saturated, people, comments, reddit, https, trend, com]
+    concepts: [cscareerquestions, saturated, people, comments, reddit]
     token_count: 500
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1m4dv4r/this_sub_4_years_ago_cs_jobs_will_never_be/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/7a93dc6dac.md#c1"
     char_span: [2076, 3064]
     sentence_count: 4
     key_terms: [because, "you're", "you've", right, "it's", keep, backtoworkedward, overcorrecting]
+    concepts: [because, "you're", "you've", right]
     token_count: 235
 ---
 # This sub 4 years ago: "CS jobs will never be saturated". Why did so many people here think it wasn't gonna be saturated?

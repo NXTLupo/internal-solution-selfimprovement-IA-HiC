@@ -21,45 +21,54 @@ chunks:
     char_span: [0, 1741]
     sentence_count: 15
     key_terms: [cost, america, family, health, digitalnomad, asia, here, too]
+    concepts: [america, digitalnomad, family, health, insurance]
     token_count: 397
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1risisp/how_often_do_you_visit_family_in_usa_im/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c1"
     char_span: [1743, 2837]
     sentence_count: 8
     key_terms: [like, parents, particularly, time, expensive, "can't", close, quite]
+    concepts: [parents, particularly, expensive, "can't", close]
     token_count: 247
   - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c2"
     char_span: [2839, 4353]
     sentence_count: 15
     key_terms: [asia, "it's", flight, hour, america, "i've", jet, lag]
+    concepts: [flight, america, situations, probably, country]
     token_count: 363
   - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c3"
     char_span: [4367, 6382]
     sentence_count: 16
     key_terms: [year, get, "i'd", twice, settingintentions, thanksgiving, time, conditions]
+    concepts: [settingintentions, twice, thanksgiving, conditions, relatives]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c4"
     char_span: [6384, 8269]
     sentence_count: 15
     key_terms: ["i'm", parents, years, bit, relationship, adult, like, realizing]
+    concepts: [parents, years, relationship, adult, realizing]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c5"
     char_span: [8271, 10352]
     sentence_count: 22
     key_terms: [parents, jetlag, settingintentions, least, money, visit, bobachonker, end]
+    concepts: [parents, jetlag, settingintentions, bobachonker, least]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c6"
     char_span: [10354, 12430]
     sentence_count: 21
     key_terms: [flight, hours, hour, business, because, class, sleep, get]
+    concepts: [flight, hours, business, because, class]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c7"
     char_span: [12432, 13791]
     sentence_count: 11
     key_terms: [settingintentions, asia, america, korea, maybe, considering, something, flights]
+    concepts: [settingintentions, america, considering, korea, maybe]
     section: Comments
     token_count: 332
 ---

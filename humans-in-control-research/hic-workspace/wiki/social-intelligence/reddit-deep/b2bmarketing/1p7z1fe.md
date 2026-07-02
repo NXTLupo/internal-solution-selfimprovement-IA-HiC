@@ -20,15 +20,18 @@ chunks:
     char_span: [0, 1247]
     sentence_count: 12
     key_terms: [engagement, get, comments, linkedin, author, b2bmarketing, posts, step]
+    concepts: [engagement, comments, linkedin, b2bmarketing, author]
     token_count: 296
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1p7z1fe/how_i_hijack_engagement_farming_posts_on_linkedin/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1p7z1fe.md#c1"
-    char_span: [1262, 3147]
+    char_span: [1261, 3146]
     sentence_count: 5
     key_terms: [ecstatic-tough6503, looking-for-marketing-discussion-811236647760298024, message, someone, people, survey, automoderator, virtualfavour]
+    concepts: [ecstatic-tough6503, automoderator, virtualfavour, message, someone]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/b2bmarketing/1p7z1fe.md#c2"
-    char_span: [3150, 3556]
+    char_span: [3149, 3555]
     sentence_count: 2
     key_terms: [ecstatic-tough6503, automatically, infinitehench, b2bmarketing, moderators, performed, questions, subreddit]
     section: Comments

@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 934]
     sentence_count: 8
     key_terms: [careerguidance, degree, opportunities, analytics, september, comments, starting, science]
+    concepts: [careerguidance, opportunities, degree, analytics, september]
     token_count: 218
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t4hrq2/i_am_starting_a_degree_in_data_science_analytics/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t4hrq2.md#c1"
     char_span: [948, 3362]
     sentence_count: 10
     key_terms: [data, good, building, focus, engineering, get, something, technical]
+    concepts: [building, engineering, focus, something, technical]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/careerguidance/1t4hrq2.md#c2"
     char_span: [3364, 4187]
     sentence_count: 7
     key_terms: [analytics, college, maybe, projs, start, communicate, competitive, connections]
+    concepts: [analytics, college, maybe, projs, start]
     section: Comments
     token_count: 166
 ---

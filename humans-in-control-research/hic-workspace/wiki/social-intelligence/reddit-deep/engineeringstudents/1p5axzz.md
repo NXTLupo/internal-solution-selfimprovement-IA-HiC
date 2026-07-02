@@ -21,41 +21,54 @@ chunks:
     char_span: [0, 1466]
     sentence_count: 8
     key_terms: [engineering, engineeringstudents, get, male, experience, isolating, meanwhile, comments]
+    concepts: [engineering, engineeringstudents, experience, isolating, meanwhile]
     token_count: 316
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1p5axzz/being_a_female_engineering_student_is_alienating/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c1"
     char_span: [1480, 3273]
     sentence_count: 14
     key_terms: [engineering, friends, women, computer, outside, people, school, girls]
+    concepts: [engineering, friends, women, computer, outside]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c3", "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c5"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c2"
     char_span: [3275, 3918]
     sentence_count: 3
     key_terms: [engineering, women, classes, strangedell123, unfortunately, netherlands, chemistry, clasisftw]
+    concepts: [engineering, women, classes]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c1", "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c3", "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c5"]
     section: Comments
     token_count: 161
   - id: "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c3"
     char_span: [3921, 5537]
     sentence_count: 20
     key_terms: [women, engineering, hang, mechanical, majority, probably, programs, deleted]
+    concepts: [engineering, women, mechanical, majority, probably]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c1", "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c5"]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c4"
     char_span: [5539, 6317]
     sentence_count: 8
     key_terms: [women, being, feel, get, like, acknowledged, appreciated, engineering]
+    concepts: [women, being]
     section: Comments
     token_count: 189
   - id: "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c5"
     char_span: [6319, 8559]
     sentence_count: 24
     key_terms: [engineering, women, friends, people, social, being, heard, students]
+    concepts: [engineering, women, friends, people, social]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c1", "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c3", "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c6"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c6"
     char_span: [8561, 9201]
     sentence_count: 6
     key_terms: [engineer, engineers, others, people, women, men, fuzzypluto86, differences]
+    concepts: [engineer, engineers, others, people, women]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c5"]
     section: Comments
     token_count: 148
 ---

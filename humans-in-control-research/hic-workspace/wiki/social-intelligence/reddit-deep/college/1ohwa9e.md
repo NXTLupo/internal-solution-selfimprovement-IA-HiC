@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1864]
     sentence_count: 14
     key_terms: [online, class, in-person, question, college, psych, been, does]
+    concepts: [online, in-person, class, question, college]
     token_count: 410
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ohwa9e/advice_on_forming_relationships_with_professors/"}]
   - id: "social-intelligence/reddit-deep/college/1ohwa9e.md#c1"
     char_span: [1878, 2851]
     sentence_count: 8
     key_terms: [doing, lab, research, phd, knewtoff, because, program, around]
+    concepts: [doing, research, knewtoff, because, program]
     section: Comments
     token_count: 236
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1692]
     sentence_count: 13
     key_terms: [students, uwaterloo, blogs, clout, don, community, preparing, comments]
+    concepts: [students, uwaterloo, blogs, clout, community]
     token_count: 379
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1pxf79b/clout_is_destroying_our_community/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1pxf79b.md#c1"
     char_span: [1706, 2221]
     sentence_count: 2
@@ -32,12 +34,14 @@ chunks:
     char_span: [2223, 4121]
     sentence_count: 7
     key_terms: [people, years, cali, like, tips, interested, jhtstreams, preparing]
+    concepts: [people, interested, jhtstreams, years, preparing]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/uwaterloo/1pxf79b.md#c3"
     char_span: [4123, 4813]
     sentence_count: 5
     key_terms: [people, useful, substantialresist864, blogs, doing, administration, realistically, influencers]
+    concepts: [people, useful, blogs, doing]
     section: Comments
     token_count: 136
 ---

@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1903]
     sentence_count: 15
     key_terms: [com, youtube, http, interviews, https, case, leetcode, learned]
+    concepts: [youtube, interviews, https, leetcode, learned]
     token_count: 438
+    sources: [{"n":"reddit: internships","u":"https://reddit.com/r/internships/comments/1ki4nyx/got_an_offer_today_still_cant_believe_it/"}]
 ---
 # Got an offer today, still can’t believe it!
 

@@ -19,75 +19,97 @@ chunks:
     char_span: [0, 1965]
     sentence_count: 19
     key_terms: [class, creative, students, student, writing, gen-ed, like, professors]
+    concepts: [class, creative, students, student, writing]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1reln2g.md#c1", "social-intelligence/reddit-deep/professors/1reln2g.md#c3", "social-intelligence/reddit-deep/professors/1reln2g.md#c7", "social-intelligence/reddit-deep/professors/1reln2g.md#c8", "social-intelligence/reddit-deep/professors/1reln2g.md#c9"]
     token_count: 443
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1reln2g/had_my_students_fill_out_a_midsemester_evaluation/"}]
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c1"
     char_span: [1967, 4352]
     sentence_count: 23
     key_terms: [conversations, "i've", "they're", particular, class, "i'm", creative, students]
+    concepts: [conversations, "they're", particular, class, creative]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1reln2g.md#c0"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c2"
     char_span: [4354, 5026]
     sentence_count: 8
     key_terms: [looking, thought, feel, like, room, powerpoints, engagement, especially]
+    concepts: [looking, thought]
     token_count: 152
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c3"
     char_span: [5040, 7075]
     sentence_count: 15
     key_terms: [students, student, "don't", evaluations, best, "didn't", anger, evals]
+    concepts: [students, student, evaluations, "don't", "didn't"]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1reln2g.md#c0", "social-intelligence/reddit-deep/professors/1reln2g.md#c7", "social-intelligence/reddit-deep/professors/1reln2g.md#c8", "social-intelligence/reddit-deep/professors/1reln2g.md#c9", "social-intelligence/reddit-deep/professors/1reln2g.md#c12"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c4"
     char_span: [7077, 8648]
     sentence_count: 13
     key_terms: [commendable, "it's", something, trolling, perhaps, online, person, "that's"]
+    concepts: [commendable, something, trolling, perhaps, online]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c5"
     char_span: [8650, 9804]
     sentence_count: 9
     key_terms: [anonymous, don, mid-semester, class, evals, feedback, students, change]
+    concepts: [anonymous, mid-semester, class, evals, feedback]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c6"
     char_span: [9806, 11449]
     sentence_count: 15
     key_terms: [like, kids, everything, students, parents, issues, brain, dead]
+    concepts: [everything, students, parents, issues, brain]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c7"
     char_span: [11451, 12862]
     sentence_count: 12
     key_terms: [student, suggestions, students, classes, substantial-dust5219, class, tears, years]
+    concepts: [student, suggestions, students, classes, class]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1reln2g.md#c0", "social-intelligence/reddit-deep/professors/1reln2g.md#c3", "social-intelligence/reddit-deep/professors/1reln2g.md#c8", "social-intelligence/reddit-deep/professors/1reln2g.md#c9", "social-intelligence/reddit-deep/professors/1reln2g.md#c12"]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c8"
     char_span: [12864, 14082]
     sentence_count: 12
     key_terms: ["didn't", class, lecturing, student, better, enough, "you'll", board]
+    concepts: ["didn't", class, lecturing, student, better]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1reln2g.md#c0", "social-intelligence/reddit-deep/professors/1reln2g.md#c3", "social-intelligence/reddit-deep/professors/1reln2g.md#c7", "social-intelligence/reddit-deep/professors/1reln2g.md#c9"]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c9"
     char_span: [14084, 16065]
     sentence_count: 18
     key_terms: [class, "i'm", students, bad, time, wonderful, example, student]
+    concepts: [class, students, wonderful, example, student]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1reln2g.md#c0", "social-intelligence/reddit-deep/professors/1reln2g.md#c3", "social-intelligence/reddit-deep/professors/1reln2g.md#c7", "social-intelligence/reddit-deep/professors/1reln2g.md#c8", "social-intelligence/reddit-deep/professors/1reln2g.md#c12"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c10"
     char_span: [16067, 17178]
     sentence_count: 9
     key_terms: [genuinely, comments, success, snarky, puzzleheaded-job2505, angry, class, worst]
+    concepts: [genuinely, comments, success, snarky, angry]
     section: Comments
     token_count: 237
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c11"
     char_span: [17180, 19355]
     sentence_count: 18
     key_terms: [class, writing, morning, doing, "hijacked-because-it's-hijackable", evaluations, completely, professor]
+    concepts: [class, writing, morning, evaluations, completely]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1reln2g.md#c0"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c12"
     char_span: [19357, 21148]
     sentence_count: 12
     key_terms: [students, self-administered, progress, student, class, point, conferences, evaluations]
+    concepts: [students, self-administered, progress, student, conferences]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1reln2g.md#c0", "social-intelligence/reddit-deep/professors/1reln2g.md#c3", "social-intelligence/reddit-deep/professors/1reln2g.md#c7", "social-intelligence/reddit-deep/professors/1reln2g.md#c9"]
     section: Comments
     token_count: 379
 ---

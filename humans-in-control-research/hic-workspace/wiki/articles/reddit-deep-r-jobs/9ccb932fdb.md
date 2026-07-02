@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1891]
     sentence_count: 22
     key_terms: [resume, experience, job, strawberrydewdrops3, interview, did, degree, entry]
+    concepts: [resume, experience, strawberrydewdrops3, interview, degree]
     token_count: 449
+    sources: [{"n":"Reddit Deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1ti2i12/rejected_for_an_entry_level_job/"}]
 ---
 # Rejected for an entry level job
 

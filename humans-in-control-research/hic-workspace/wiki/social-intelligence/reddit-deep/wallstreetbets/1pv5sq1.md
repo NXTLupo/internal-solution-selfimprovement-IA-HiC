@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 876]
     sentence_count: 14
     key_terms: [wallstreetbets, please, like, comments, market, smart, trade, don]
+    concepts: [wallstreetbets, please, comments, market, smart]
     token_count: 214
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1pv5sq1/merry_christmas_and_happy_new_year/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pv5sq1.md#c1"
     char_span: [890, 1350]
     sentence_count: 3
     key_terms: [right, christmas, discord, merry, total, years, wsb, submissions]
+    concepts: [right, christmas, discord, merry, total]
     section: Comments
     token_count: 165
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pv5sq1.md#c2"
     char_span: [1352, 2603]
     sentence_count: 6
     key_terms: [d78e3a05b4eb9114b4f9e746899a80ea36b18fad, preview, format, https, width, auto, jpeg, pjpg]
+    concepts: [preview, format, https, width, almost]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pv5sq1.md#c3"
     char_span: [2605, 4075]
     sentence_count: 6
     key_terms: [irresponsible, post, eventually, christmas, gambling, federal-restaurant51, dependent-goose8240, years]
+    concepts: [irresponsible, eventually, christmas, gambling, years]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pv5sq1.md#c4"
     char_span: [4077, 4756]
     sentence_count: 5
     key_terms: [pointy, gambler, aft3rcuri0sity, tkqlox8wja9g1, replaceable, cricket150, glibpuppet, cbrown146]
+    concepts: [pointy, gambler]
     section: Comments
     token_count: 244
 ---

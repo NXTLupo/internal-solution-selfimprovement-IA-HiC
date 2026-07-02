@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 779]
     sentence_count: 9
     key_terms: [cscareerquestions, got, comments, industry, anyone, degree, never, ago]
+    concepts: [cscareerquestions, comments, industry, anyone, degree]
     token_count: 201
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1o66pip/anyone_here_that_got_a_cs_degree_years_ago_but/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o66pip.md#c1"
     char_span: [793, 2697]
     sentence_count: 16
     key_terms: [companies, gooning, people, too, work, bball4294, openings, looking]
+    concepts: [companies, gooning, people, bball4294, openings]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o66pip.md#c2"
     char_span: [2699, 4495]
     sentence_count: 14
     key_terms: [logical-sun001, lol, don, everything, cleaning, computer, printers, cautious-school-2839]
+    concepts: [logical-sun001, everything, cleaning, computer, printers]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o66pip.md#c3"
     char_span: [4497, 6103]
     sentence_count: 10
     key_terms: [doing, money, does, live, doordash, reliable, friend, people]
+    concepts: [doing, money, doordash, reliable, friend]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o66pip.md#c4"
     char_span: [6105, 7263]
     sentence_count: 12
     key_terms: ["that's", engineers, everyone, company, months, senior, apps, get]
+    concepts: ["that's", engineers, everyone, company, months]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o66pip.md#c5"
     char_span: [7265, 9332]
     sentence_count: 17
     key_terms: [army, intelligence, clearance, job, "don't", leave, did, "it's"]
+    concepts: [intelligence, clearance, "don't", interested, leave]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o66pip.md#c6"
     char_span: [9077, 9916]
     sentence_count: 3
     key_terms: [since, like, working, passed, trying, state, "i'm", danniboy1989]
+    concepts: [since, working, passed, trying, state]
     section: Comments
     token_count: 218
 ---

@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 1684]
     sentence_count: 16
     key_terms: [questions, answer, managers, ceo, something, comments, language, research]
+    concepts: [questions, answer, managers, something, comments]
     token_count: 379
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1rtho66/ceo_taught_me_something_great_this_week/"}]
   - id: "social-intelligence/reddit-deep/managers/1rtho66.md#c1"
     char_span: [1698, 3796]
     sentence_count: 11
     key_terms: [learn, experience, alignment, important, questions, teachings, buzzword, "there's"]
+    concepts: [experience, learn, alignment, important, questions]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/managers/1rtho66.md#c2"
     char_span: [3798, 4634]
     sentence_count: 8
     key_terms: [like, different, answers, "that's", right, lot, believer2687, performative]
+    concepts: [different, answers, "that's", right]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/managers/1rtho66.md#c3"
     char_span: [4636, 6236]
     sentence_count: 11
     key_terms: [believer2687, supportive, managers, manager, process, sharing, trained, update]
+    concepts: [believer2687, supportive, managers, manager, process]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/managers/1rtho66.md#c4"
     char_span: [6238, 8263]
     sentence_count: 21
     key_terms: [information, because, "don't", direct, trying, irreplaceable, communicate, "i'm"]
+    concepts: [information, because, "don't", irreplaceable, direct]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1rtho66.md#c5"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/managers/1rtho66.md#c5"
     char_span: [8265, 10608]
     sentence_count: 18
     key_terms: [information, because, working, going, jccaclimber, ship, definitely, priorities]
+    concepts: [information, because, working, jccaclimber, definitely]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1rtho66.md#c4"]
     section: Comments
     token_count: 510
 ---

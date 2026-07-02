@@ -21,53 +21,65 @@ chunks:
     char_span: [0, 759]
     sentence_count: 7
     key_terms: [cscareerquestions, anesthetist, comments, engineer, husband, nurse, days, flatbootyhere]
+    concepts: [cscareerquestions, anesthetist, comments, engineer, husband]
     token_count: 199
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ntxvbt/my_husband_wants_to_leave_being_a_nurse/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c1"
     char_span: [773, 2572]
     sentence_count: 12
     key_terms: [job, desk, help, show, learned, market, "that's", "can't"]
+    concepts: [learned, market, "that's", "can't", right]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c2"
     char_span: [2574, 4756]
     sentence_count: 23
     key_terms: [value, software, developer, job, people, kind, like, developers]
+    concepts: [software, value, developer, people, developers]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c7"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c3"
     char_span: [4758, 6807]
     sentence_count: 11
     key_terms: [career, software, though, entry, years, development, find, unemployed]
+    concepts: [career, software, though, development, entry]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c4"
     char_span: [6809, 8812]
     sentence_count: 10
     key_terms: [get, job, working, like, probably, earning, years, year]
+    concepts: [working, probably, earning, years, positions]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c5"
     char_span: [8648, 10048]
     sentence_count: 10
     key_terms: ["it's", market, faang, maybe, nurse, "anesthesiologist's", get, "i'd"]
+    concepts: [market, faang, maybe, nurse]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c6"
     char_span: [10050, 11710]
     sentence_count: 16
     key_terms: [work, newprint, friends, working, salary, "wife's", crazy, hours]
+    concepts: [newprint, friends, working, salary, "wife's"]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c7"
     char_span: [11712, 13805]
     sentence_count: 13
     key_terms: [nurses, pay, work, software, people, close, definitely, engineers]
+    concepts: [nurses, software, people, close, definitely]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c2"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c8"
     char_span: [13807, 15834]
     sentence_count: 16
     key_terms: [take, financially, job, whatever, already, months, stripe, month]
+    concepts: [financially, whatever, already, months, stripe]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c9"
@@ -80,18 +92,21 @@ chunks:
     char_span: [16195, 18035]
     sentence_count: 11
     key_terms: [financial-independence-retire-early-fire, achieve, money, years, "he's", possible, blowing, making]
+    concepts: [achieve, money, years, possible, blowing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c11"
     char_span: [17826, 18919]
     sentence_count: 5
     key_terms: [deleted, years, bigrobcommunistdog, bad, cut, rare, yeah, ecethrowaway01]
+    concepts: [deleted, years]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c12"
     char_span: [18921, 20237]
     sentence_count: 8
     key_terms: [job, like, tech, week, healthcare, leaving, savings, better]
+    concepts: [healthcare, leaving, savings, better, people]
     section: Comments
     token_count: 317
 ---

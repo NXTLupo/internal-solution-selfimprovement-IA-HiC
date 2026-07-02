@@ -19,41 +19,49 @@ chunks:
     char_span: [0, 1942]
     sentence_count: 17
     key_terms: ["i'm", been, "i've", cscareerquestions, comments, going, tomorrow, manager]
+    concepts: [cscareerquestions, comments, going, tomorrow, manager]
     token_count: 460
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ss5q7f/im_quitting_tomorrow/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5q7f.md#c1"
     char_span: [1956, 3806]
     sentence_count: 9
     key_terms: [like, manager, something, stop, normal, "it's", treating, already]
+    concepts: [manager, something, normal, treating, already]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5q7f.md#c2"
     char_span: [3811, 5703]
     sentence_count: 14
     key_terms: [fire, coasting, company, nothing, handle, until, job, work]
+    concepts: [coasting, company, nothing, handle, until]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5q7f.md#c3"
     char_span: [5705, 6842]
     sentence_count: 9
     key_terms: [chubbyvegantravels, fire, micromanaged, relentlessly, unemployment, deployments, development, environment]
+    concepts: [chubbyvegantravels]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5q7f.md#c4"
     char_span: [6844, 8848]
     sentence_count: 20
     key_terms: [work, job, people, unemployment, "don't", state, look, because]
+    concepts: [unemployment, people, "don't", state, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5q7f.md#c5"
     char_span: [8611, 8902]
     sentence_count: 1
     key_terms: [unemployment, inspiration, fasterbrew, whootdat, collect, caring, enough, months]
+    concepts: [unemployment]
     section: Comments
     token_count: 79
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5q7f.md#c6"
     char_span: [8905, 10271]
     sentence_count: 11
     key_terms: [unemployment, getting, health, job, need, coasting, quitting, working]
+    concepts: [unemployment, getting, health, coasting, quitting]
     section: Comments
     token_count: 348
 ---

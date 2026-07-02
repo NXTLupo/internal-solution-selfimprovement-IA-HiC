@@ -19,19 +19,23 @@ content_hash: "e7b097a47333ae7a"
 relevance_by_goal: {"3d9ef8ee927f":40}
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/f19b5cde3d.md#c0"
-    char_span: [0, 2092]
+    char_span: [0, 2091]
     sentence_count: 17
     key_terms: [needs, cscareerquestions, role, applying, product, internships, "i'd", experience]
-    token_count: 489
+    concepts: [needs, cscareerquestions, applying, product, internships]
+    token_count: 488
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1nc4tl7/is_this_good_advice_for_a_recent_grad_who_didnt/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/f19b5cde3d.md#c1"
-    char_span: [2094, 4328]
+    char_span: [2093, 4327]
     sentence_count: 17
     key_terms: ["don't", applications, wide-pop6050, interview, job, projects, "that's", internships]
+    concepts: ["don't", applications, wide-pop6050, interview, projects]
     token_count: 505
   - id: "articles/reddit-deep-r-cscareerquestions/f19b5cde3d.md#c2"
-    char_span: [4330, 5602]
+    char_span: [4329, 5601]
     sentence_count: 13
     key_terms: [organized, ta9987z, degree, "don't", ready, low, unfortunately, applications]
+    concepts: [organized, ta9987z, degree, "don't", ready]
     token_count: 302
 ---
 # Is this good advice for a recent grad who didn't do internships?

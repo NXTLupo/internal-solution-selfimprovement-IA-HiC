@@ -21,39 +21,49 @@ chunks:
     char_span: [0, 345]
     sentence_count: 2
     key_terms: [chatgpt, comments, bangmypussy, reddit-deep, everything, forgetting, decisions, remembers]
+    concepts: [chatgpt, comments]
     token_count: 105
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1r1b3gl/i_got_tired_of_chatgpt_forgetting_everything_so_i/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1r1b3gl.md#c1"
     char_span: [347, 2396]
     sentence_count: 21
     key_terms: [memory, athena, claude, intelligence, drive, linux, permissions, remembers]
+    concepts: [memory, intelligence, athena, claude, permissions]
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1r1b3gl.md#c2"
     char_span: [2134, 3159]
     sentence_count: 12
     key_terms: [athena-public, winstonkoh87, something, adaptive, latency, github, openai, build]
+    concepts: [athena-public, winstonkoh87, something, adaptive, latency]
     token_count: 265
   - id: "social-intelligence/reddit-deep/chatgpt/1r1b3gl.md#c3"
     char_span: [3173, 3824]
     sentence_count: 4
     key_terms: [openai, conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, support]
+    concepts: [conversation, openai, image, discord, support]
     section: Comments
     token_count: 172
   - id: "social-intelligence/reddit-deep/chatgpt/1r1b3gl.md#c4"
     char_span: [3827, 5577]
     sentence_count: 8
     key_terms: [bangmypussy, because, context, good, "couldn't", username, thanks, environmental-cap979]
+    concepts: [bangmypussy, because, context, "couldn't", username]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1r1b3gl.md#c5"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/chatgpt/1r1b3gl.md#c5"
     char_span: [5579, 7116]
     sentence_count: 8
     key_terms: [bangmypussy, chat, work, because, ctotheg, memory, tokens, users]
+    concepts: [bangmypussy, because, ctotheg, memory, tokens]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1r1b3gl.md#c4"]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/chatgpt/1r1b3gl.md#c6"
     char_span: [7118, 7614]
     sentence_count: 4
     key_terms: [bangmypussy, winwunwon, chat, starroverride, compelling, experience, suspicious, rewritten]
+    concepts: [bangmypussy, winwunwon]
     section: Comments
     token_count: 148
 ---

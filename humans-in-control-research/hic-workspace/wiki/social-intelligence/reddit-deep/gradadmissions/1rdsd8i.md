@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1014]
     sentence_count: 5
     key_terms: [research, gradadmissions, school, summer, grad, experience, internship, attending]
+    concepts: [research, gradadmissions, school, summer, experience]
     token_count: 226
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rdsd8i/effect_of_summer_research_internship_on_grad/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rdsd8i.md#c1"
-    char_span: [1029, 2944]
+    char_span: [1028, 2943]
     sentence_count: 14
     key_terms: [great, research, physics, connections, work, biophysics, meaningful, princeton]
+    concepts: [great, research, physics, connections, biophysics]
     section: Comments
     token_count: 417
 ---

@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 790]
     sentence_count: 7
     key_terms: [bogleheads, retirement, providers, comments, funds, lordotnemicsan, considering, reddit-deep]
+    concepts: [bogleheads, retirement, providers, comments, funds]
     token_count: 200
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1pkjz2n/best_401k_providers/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1pkjz2n.md#c1"
-    char_span: [805, 1792]
+    char_span: [804, 1791]
     sentence_count: 9
     key_terms: [fidelity, grand-helicopter8768, brokerage, employeefiduciary, plan-pricing, management, https, com]
+    concepts: [fidelity, grand-helicopter8768, employeefiduciary, brokerage, plan-pricing]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/bogleheads/1pkjz2n.md#c2"
-    char_span: [1794, 3779]
+    char_span: [1793, 3778]
     sentence_count: 16
     key_terms: [company, large, fidelity, fee, companies, employees, good, employee]
+    concepts: [company, fidelity, large, companies, employees]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/bogleheads/1pkjz2n.md#c3"
-    char_span: [3781, 4888]
+    char_span: [3780, 4887]
     sentence_count: 10
     key_terms: [person, funds, per, myubiquity, business, vanguard, admin, small]
+    concepts: [person, funds, myubiquity, business, vanguard]
     section: Comments
     token_count: 280
 ---

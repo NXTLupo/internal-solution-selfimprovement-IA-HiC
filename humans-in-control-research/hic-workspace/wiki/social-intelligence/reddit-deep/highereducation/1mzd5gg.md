@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 1256]
     sentence_count: 12
     key_terms: [students, courses, student, enrolled, highereducation, thanks, undergraduate, class]
+    concepts: [students, courses, student, highereducation, enrolled]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1mzd5gg.md#c1"]
     token_count: 308
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1mzd5gg/new_to_higher_ed_teaching_structures/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1mzd5gg.md#c1"
     char_span: [1270, 2718]
     sentence_count: 8
     key_terms: [credit, class, per, institution, students, student, rate, department]
+    concepts: [credit, class, institution, students, student]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1mzd5gg.md#c0", "social-intelligence/reddit-deep/highereducation/1mzd5gg.md#c2"]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/highereducation/1mzd5gg.md#c2"
     char_span: [2722, 4181]
     sentence_count: 9
     key_terms: [class, students, credit, hour, per, anything, course, higher]
+    concepts: [class, students, credit, anything, course]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1mzd5gg.md#c1"]
     section: Comments
     token_count: 377
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2271]
     sentence_count: 16
     key_terms: [architecture, products, salesforce, companies, renewal-architecture-ebook, https, sales, www]
+    concepts: [architecture, products, renewal-architecture-ebook, salesforce, companies]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1notwok/the_5_stages_of_sales_architecture_for_revops/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1notwok.md#c1"
-    char_span: [2286, 3666]
+    char_span: [2285, 3665]
     sentence_count: 12
     key_terms: [manually, quotes, feeling-average4024, "don't", data, "it's", love, automatically]
+    concepts: [manually, quotes, "don't"]
     section: Comments
     token_count: 324
 ---

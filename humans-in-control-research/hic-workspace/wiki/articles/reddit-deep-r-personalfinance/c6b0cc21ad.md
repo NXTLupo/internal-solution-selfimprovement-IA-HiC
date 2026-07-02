@@ -19,14 +19,17 @@ content_hash: "cdc57c0542d20a0d"
 relevance_by_goal: {"46dec9599ad5":48}
 chunks:
   - id: "articles/reddit-deep-r-personalfinance/c6b0cc21ad.md#c0"
-    char_span: [0, 1903]
+    char_span: [0, 1902]
     sentence_count: 12
     key_terms: [account, marcus, external, capital, money, bank, transfer, personalfinance]
-    token_count: 443
+    concepts: [account, marcus, external, capital, money]
+    token_count: 442
+    sources: [{"n":"Reddit Deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1tnunvw/marcus_va_capone_hysa/"}]
   - id: "articles/reddit-deep-r-personalfinance/c6b0cc21ad.md#c1"
-    char_span: [1905, 2448]
+    char_span: [1904, 2447]
     sentence_count: 4
     key_terms: [money, trying, fuck, get, exaggerating, institution, cycyvibibi, government]
+    concepts: [money, trying]
     token_count: 126
 ---
 # Marcus va CapOne HYSA

@@ -11,44 +11,51 @@ score: 3
 upvote_ratio: 0.55
 num_comments: 32
 flair: "Shopify General Discussion"
-extracted_at: "2026-06-18T13:35:23.045Z"
+extracted_at: "2026-06-24T22:14:23.469Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/shopify/1ppyyxv.md#c0"
     char_span: [0, 2042]
     sentence_count: 4
     key_terms: [business, shopify, platform, limitations, support, forms, escalation, accounts]
+    concepts: [business, shopify, platform, limitations, support]
     token_count: 479
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1ppyyxv/why_is_sidekick_so_understanding_and_shopify_cant/"}]
   - id: "social-intelligence/reddit-deep/shopify/1ppyyxv.md#c1"
-    char_span: [2044, 3654]
+    char_span: [2044, 3653]
     sentence_count: 8
     key_terms: [sidekick, villagehomef, bot, work, community, platform, because, contact]
+    concepts: [sidekick, villagehomef, community, platform, because]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/shopify/1ppyyxv.md#c2"
-    char_span: [3656, 4796]
+    char_span: [3655, 4795]
     sentence_count: 8
     key_terms: [address, default, jagxtreme, "don't", bug, shipping, shopify, couple]
+    concepts: [address, default, jagxtreme, "don't", shipping]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/shopify/1ppyyxv.md#c3"
-    char_span: [4798, 6753]
+    char_span: [4797, 6752]
     sentence_count: 16
     key_terms: [address, human, fact, pay, billing, taking, "don't", order]
+    concepts: [address, human, billing, taking, accessible]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/shopify/1ppyyxv.md#c4"
-    char_span: [6755, 8549]
+    char_span: [6754, 8548]
     sentence_count: 11
     key_terms: [shopify, account, "it's", irrelevant, stores, store, thousands, url]
+    concepts: [shopify, account, irrelevant, stores, thousands]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/shopify/1ppyyxv.md#c5"
-    char_span: [8551, 9191]
+    char_span: [8550, 9190]
     sentence_count: 4
     key_terms: [platform, does, mouseybusiness, functionality, centerpiece, threatening, escalation, evaluation]
+    concepts: [platform]
     section: Comments
     token_count: 159
 ---
@@ -98,13 +105,13 @@ I just had a long 'conversation' with the AI chatbot about Shopify limitations a
 - **AutoModerator** (1↑): To keep this community relevant to the Shopify community, store reviews and external blog links will be removed. Users soliciting personal contact, sales, or services in any form will result in a permanent ban.
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/shopify) if you have any questions or concerns.*
-- **DjSpelk** (71↑): News at 10: AI systems agree with you because engagement is their primary function
-  - **IamMorphNZ** (20↑): What are you taking about? 
+- **DjSpelk** (74↑): News at 10: AI systems agree with you because engagement is their primary function
+  - **IamMorphNZ** (19↑): What are you taking about? 
 
 Sidekick tells me I'm a handsome young man with huge potential, just like my mum said????
     - **junkdumper** (1↑): Wait till you hear what the ladies say at the gentlemen's club.
-- **VillageHomeF** (30↑): this is an inexpensive ecommece platform with fairly robust tools.  it isn't going to do everything you want it to out the box.  you have to learn to work within the parameters of the system.  if not, find another platform.
-  - **LegitimateAd5334** (-4↑): I mean
+- **VillageHomeF** (29↑): this is an inexpensive ecommece platform with fairly robust tools.  it isn't going to do everything you want it to out the box.  you have to learn to work within the parameters of the system.  if not, find another platform.
+  - **LegitimateAd5334** (-5↑): I mean
 Fairly robust... Except for Sidekick.
 
 Idiot bot doesn't work and actively makes shit up
@@ -113,7 +120,7 @@ Idiot bot doesn't work and actively makes shit up
 
 here is an idea:  Don't Use Sidekick if you don't like it.  it is an option,  not mandatory
     - **JagXtreme** (-3↑): I’ve seen enough answers here on Reddit that are just plain wrong.
-    - **JagXtreme** (-2↑): It does. It recommended a couple of things only to find out that his recommendations do not work or the  proposed settings do not exist.
+    - **JagXtreme** (-4↑): It does. It recommended a couple of things only to find out that his recommendations do not work or the  proposed settings do not exist.
 But it is still helpful as you are not completely left to your own devices. Because when you Google stuff, a lot of nonsense comes up as well…
 - **Sergey9921** (13↑): How does creating customer accounts for newsletter signups pollute your database? It takes a couple of clicks to segment customers who have and haven't bought from you. What's the default address bug, I don't think I've ever had to enter an address manually for anyone?
   - **JagXtreme** (3↑): The 'Default' Address Bug of Shopify: My clients are small businesses and I run a gift shop. So their default address should be their company whilst the shipping address changes every time they enter an order. The bug is that shopify overwrites their default address with the last shipping address every time they place an order.
@@ -135,7 +142,7 @@ When I got to a human they refused to do anything if it wasn’t in the publicly
 I’m like “if the fix was in my control, Inwojld do it myself”. 
 
 I also told the chatbot later that they refused to help so it learns the people there DGAF.
-- **JagXtreme** (-4↑): I just learned that the Shopify AI chatbot is well aware of a fundamental flaw of ALL shopify Basic stores: You just use the url of a store and add "/account/register" to it and you land straight on an account creation page that the store owner has no way to disable.
+- **JagXtreme** (-5↑): I just learned that the Shopify AI chatbot is well aware of a fundamental flaw of ALL shopify Basic stores: You just use the url of a store and add "/account/register" to it and you land straight on an account creation page that the store owner has no way to disable.
 
 Here is what the chatbot told me when I pointed that out:
 
@@ -168,6 +175,6 @@ You've just discovered why your bot problem will never stop on this platform at 
 
 This should be the centerpiece of your escalation document - or your platform evaluation.
   - **Just_a_guy_345** (1↑): I don't know how the platform does it, but google recaptcha does backend scoring and there is no way a bot can pass it. Can't you just add this?
-  - **mouseybusiness** (0↑): Not sure why you’re getting downvoted.. this is a major issue for a lot of shopifiers…
-    - **JagXtreme** (-2↑): It is… but this is Reddit where you often find people who follow their lowest instincts in their primate brain. And it’s fun to them.
+  - **mouseybusiness** (1↑): Not sure why you’re getting downvoted.. this is a major issue for a lot of shopifiers…
+    - **JagXtreme** (-3↑): It is… but this is Reddit where you often find people who follow their lowest instincts in their primate brain. And it’s fun to them.
 To me this is life threatening as I depend on platforms and their functionality as a small startup.

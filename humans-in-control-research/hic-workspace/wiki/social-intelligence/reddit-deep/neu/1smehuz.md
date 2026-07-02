@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1062]
     sentence_count: 8
     key_terms: [campus, northeastern, engineering, boston, "i'm", oakland, university, comments]
+    concepts: [campus, northeastern, engineering, boston, oakland]
     token_count: 235
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1smehuz/need_help_deciding_colleges/"}]
 ---
 # Need Help Deciding Colleges
 

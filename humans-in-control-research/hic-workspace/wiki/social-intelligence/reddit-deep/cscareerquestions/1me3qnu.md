@@ -21,89 +21,113 @@ chunks:
     char_span: [0, 1559]
     sentence_count: 15
     key_terms: [job, people, cscareerquestions, applying, level, get, comments, clearly]
+    concepts: [people, cscareerquestions, applying, level, comments]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c4"]
     token_count: 362
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1me3qnu/the_apply_to_everything_even_if_youre_not/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c1"
     char_span: [1573, 3655]
     sentence_count: 20
     key_terms: [companies, sometimes, criteria, applications, candidates, ats, started, mostly]
+    concepts: [companies, sometimes, criteria, applications, candidates]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c2"
     char_span: [3657, 5710]
     sentence_count: 14
     key_terms: [experience, solution, applications, people, technologies, using, years, job]
+    concepts: [experience, solution, applications, technologies, people]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c6", "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c7"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c3"
     char_span: [5712, 7599]
     sentence_count: 18
     key_terms: [meet, "i've", requirements, apply, been, new, something, thousands]
+    concepts: [requirements, apply, something, thousands, yourself]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c4"
     char_span: [7601, 9497]
     sentence_count: 11
     key_terms: [something, ago, time, people, years, get, everything, applying]
+    concepts: [something, people, everything, years, applying]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c0"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c5"
     char_span: [9499, 11557]
     sentence_count: 13
     key_terms: [resume, companies, time, crafted, like, applying, hundreds, position]
+    concepts: [resume, companies, crafted, applying, hundreds]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c6"
     char_span: [11561, 13643]
     sentence_count: 9
     key_terms: [people, chili-lime-chihuahua, applicants, someone, applications, unqualified, get, work]
+    concepts: [people, chili-lime-chihuahua, applicants, someone, applications]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c2"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c7"
     char_span: [13646, 15670]
     sentence_count: 6
     key_terms: [qualified, looking, people, illustrious-pound266, experience, "don't", years, jobs]
+    concepts: [qualified, illustrious-pound266, looking, experience, people]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c2"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c8"
     char_span: [15672, 17178]
     sentence_count: 8
     key_terms: [lying, experience, need, "don't", companies, learning, people, entry]
+    concepts: [lying, experience, "don't", companies, learning]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c9"]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c9"
     char_span: [17180, 19364]
     sentence_count: 12
     key_terms: [experience, requirements, years, companies, pretty, significant, job, lie]
+    concepts: [experience, requirements, companies, years, pretty]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c8", "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c11"]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c10"
     char_span: [19366, 20609]
     sentence_count: 2
     key_terms: [exaggeration, sandwiches, linkedin, posting, points, desperate-till-9228, job, saw]
+    concepts: [exaggeration, sandwiches, linkedin, posting, points]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c11"
     char_span: [20611, 22735]
     sentence_count: 7
     key_terms: [experience, years, relevant, requirements, shit, tier, related, apply]
+    concepts: [experience, relevant, requirements, years, related]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c12"
     char_span: [22511, 22906]
     sentence_count: 5
     key_terms: [get, applying, apply, "don't", unqualified, completely, themselves, employers]
+    concepts: [applying, apply, "don't"]
     section: Comments
     token_count: 105
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c13"
     char_span: [22908, 24762]
     sentence_count: 17
     key_terms: ["i've", work, job, applying, applied, looking, working, making]
+    concepts: [applying, applied, looking, working, making]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c14"
     char_span: [24764, 25719]
     sentence_count: 10
     key_terms: [pay, office, back, job, remote, "i'd", hybrid, money]
+    concepts: [office, remote, hybrid, money]
     section: Comments
     token_count: 254
 ---

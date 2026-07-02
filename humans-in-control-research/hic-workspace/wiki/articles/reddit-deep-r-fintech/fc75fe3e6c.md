@@ -19,12 +19,14 @@ content_hash: "f3be598e9b2b4e06"
 relevance_by_goal: {"46dec9599ad5":45}
 chunks:
   - id: "articles/reddit-deep-r-fintech/fc75fe3e6c.md#c0"
-    char_span: [0, 2570]
+    char_span: [0, 2569]
     sentence_count: 28
     key_terms: [api, commercial, product, conversation, distribution, access, "you're", negotiate]
-    token_count: 512
+    concepts: [commercial, conversation, distribution, product, access]
+    token_count: 511
+    sources: [{"n":"Reddit Deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1sjo5ye/advice_to_gain_commercial_api_usage_agreement/"}]
   - id: "articles/reddit-deep-r-fintech/fc75fe3e6c.md#c1"
-    char_span: [2572, 2781]
+    char_span: [2571, 2780]
     sentence_count: 1
     key_terms: [free-sprinkles8236, infrastructure, conversation, integration, possible, separate, suggests, finance]
     token_count: 44

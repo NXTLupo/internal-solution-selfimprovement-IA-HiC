@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 820]
     sentence_count: 7
     key_terms: [co-op, like, interviews, comments, cooked, going, dont, give]
+    concepts: [co-op, interviews, comments, cooked, going]
     token_count: 215
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1t7thch/how_cooked_am_i_for_finding_a_coop/"}]
   - id: "social-intelligence/reddit-deep/neu/1t7thch.md#c1"
     char_span: [834, 1484]
     sentence_count: 4
     key_terms: [applying, illustrious-bat796, northeastern, conversion, especially, experience, interviews, interview]
+    concepts: [applying]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/neu/1t7thch.md#c2"
     char_span: [1486, 3372]
     sentence_count: 10
     key_terms: [resume, tryproper4664, asking, cv0031, people, apply, bunch, illustrious-bat796]
+    concepts: [tryproper4664, resume, asking, cv0031, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1t7thch.md#c3"
     char_span: [3062, 3935]
     sentence_count: 7
     key_terms: [advisor, resume, apply, garageagitated5201, gpa, ones, discouragement, tryproper4664]
+    concepts: [advisor, resume, apply]
     section: Comments
     token_count: 208
 ---

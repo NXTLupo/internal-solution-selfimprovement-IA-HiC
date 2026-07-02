@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 1672]
     sentence_count: 12
     key_terms: [friends, people, like, transferring, "everybody's", did, everybody, questions]
+    concepts: [friends, people, transferring, "everybody's", everybody]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1r3i7sq.md#c1"]
     token_count: 394
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1r3i7sq/accepted_into_nuin_questions_about_the_program/"}]
   - id: "social-intelligence/reddit-deep/neu/1r3i7sq.md#c1"
     char_span: [1686, 3492]
     sentence_count: 15
     key_terms: [friends, everyone, nuin, people, students, semester, close, back]
+    concepts: [friends, everyone, people, students, semester]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1r3i7sq.md#c0"]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/neu/1r3i7sq.md#c2"
     char_span: [3494, 5037]
     sentence_count: 16
     key_terms: [parties, frat, get, guy, year, freshmen, friends, big]
+    concepts: [parties, freshmen, friends, definitely, clubbing]
     section: Comments
     token_count: 379
 ---

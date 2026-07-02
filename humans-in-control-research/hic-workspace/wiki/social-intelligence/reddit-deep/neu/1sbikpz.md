@@ -19,35 +19,48 @@ chunks:
     char_span: [0, 1143]
     sentence_count: 7
     key_terms: [northeastern, courses, co-op, exchange, program, "northeastern's", years, take]
+    concepts: [northeastern, courses, co-op, exchange, "northeastern's"]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1sbikpz.md#c4"]
     token_count: 265
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sbikpz/northeastern_coop_question/"}]
   - id: "social-intelligence/reddit-deep/neu/1sbikpz.md#c1"
     char_span: [1157, 3019]
     sentence_count: 8
     key_terms: [summer, credits, classes, graduate, course, came, did, take]
+    concepts: [summer, credits, classes, graduate, course]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1sbikpz.md#c2", "social-intelligence/reddit-deep/neu/1sbikpz.md#c3", "social-intelligence/reddit-deep/neu/1sbikpz.md#c4", "social-intelligence/reddit-deep/neu/1sbikpz.md#c5"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/neu/1sbikpz.md#c2"
     char_span: [3021, 4954]
     sentence_count: 12
     key_terms: [summer, northeastern, classes, people, take, courses, requirements, graduating]
+    concepts: [summer, northeastern, classes, people, requirements]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1sbikpz.md#c1", "social-intelligence/reddit-deep/neu/1sbikpz.md#c4"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/neu/1sbikpz.md#c3"
     char_span: [4956, 6927]
     sentence_count: 16
     key_terms: [summer, credits, abroad, take, dialogue, graduate, semester, science]
+    concepts: [summer, credits, abroad, dialogue, graduate]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1sbikpz.md#c1", "social-intelligence/reddit-deep/neu/1sbikpz.md#c4", "social-intelligence/reddit-deep/neu/1sbikpz.md#c5"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/neu/1sbikpz.md#c4"
     char_span: [6929, 8953]
     sentence_count: 14
     key_terms: [summer, credits, worldintelligent7639, courses, ibs, class, able, northeastern]
+    concepts: [summer, credits, worldintelligent7639, courses, northeastern]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1sbikpz.md#c0", "social-intelligence/reddit-deep/neu/1sbikpz.md#c1", "social-intelligence/reddit-deep/neu/1sbikpz.md#c2", "social-intelligence/reddit-deep/neu/1sbikpz.md#c3", "social-intelligence/reddit-deep/neu/1sbikpz.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1sbikpz.md#c5"
     char_span: [8686, 10030]
     sentence_count: 9
     key_terms: [summer, credits, take, courses, able, ibs, graduate, classes]
+    concepts: [summer, credits, courses, graduate, big-horse-2807]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1sbikpz.md#c1", "social-intelligence/reddit-deep/neu/1sbikpz.md#c3", "social-intelligence/reddit-deep/neu/1sbikpz.md#c4"]
     section: Comments
     token_count: 338
 ---

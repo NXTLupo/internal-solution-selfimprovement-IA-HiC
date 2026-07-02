@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1207]
     sentence_count: 10
     key_terms: [cscareerquestions, masters, skills, age, here, bachelors, corporate, believes]
+    concepts: [cscareerquestions, masters, skills, bachelors, corporate]
     token_count: 289
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1msz73c/does_masters_seem_worth_it_in_the_coming_few/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1msz73c.md#c1"
     char_span: [1221, 1610]
     sentence_count: 3
     key_terms: [programming, underemployment, specialization, opportunities, considering, emptisense, subfields, graphics]
+    concepts: [programming]
     section: Comments
     token_count: 92
 ---

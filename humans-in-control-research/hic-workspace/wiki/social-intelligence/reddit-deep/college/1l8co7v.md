@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 581]
     sentence_count: 1
     key_terms: [choose, "don't", comments, college, minor, hand, year, intermediate]
+    concepts: [choose, "don't", comments, college, minor]
     token_count: 146
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1l8co7v/idk_which_minor_to_choose/"}]
   - id: "social-intelligence/reddit-deep/college/1l8co7v.md#c1"
     char_span: [595, 1269]
     sentence_count: 5
     key_terms: [literature, english, adventurous-level831, major, thousandshardships, international, research-wise, background]
+    concepts: [literature, english, major]
     section: Comments
     token_count: 147
 ---

@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1542]
     sentence_count: 11
     key_terms: [amd, stocks, growth, likely, conviction, high, risk, investing]
+    concepts: [stocks, conviction, growth, likely, investing]
     token_count: 446
+    sources: [{"n":"Reddit Deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1t29rry/amd_earnings_are_upon_us_what_can_we_expect/"}]
   - id: "articles/reddit-deep-r-investing/ad83bc1e2a.md#c1"
     char_span: [1544, 3018]
     sentence_count: 20
     key_terms: [probably, peloton, redistributed, redistribute, amd, own, portfolio, earnings]
+    concepts: [probably, redistributed, peloton, redistribute, portfolio]
     token_count: 397
   - id: "articles/reddit-deep-r-investing/ad83bc1e2a.md#c2"
     char_span: [3020, 4128]
     sentence_count: 11
     key_terms: [advice, significantly, puzzleheaded-fly-658, money, today, years, amd, less]
+    concepts: [significantly, advice, money, today, years]
     token_count: 264
 ---
 # AMD earnings are upon us, what can we expect?

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 430]
     sentence_count: 3
     key_terms: [applyingtocollege, comments, challenging, reddit-deep, skieurope12, admissions, psychology, important]
+    concepts: [applyingtocollege, comments]
     token_count: 109
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1ss8pjx/is_the_ap_capstone_program_important_for_college/"}]
 ---
 # Is the ap capstone program important for college admissions?
 

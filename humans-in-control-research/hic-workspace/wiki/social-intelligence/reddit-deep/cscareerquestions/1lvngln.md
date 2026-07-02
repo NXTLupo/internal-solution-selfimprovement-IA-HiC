@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2229]
     sentence_count: 18
     key_terms: [role, cscareerquestions, startup, remote, client-facing, feels, raise, been]
+    concepts: [cscareerquestions, client-facing, startup, remote, feels]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1lvngln/torn_between_two_job_paths_looking_for_career/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lvngln.md#c1"
     char_span: [2231, 2544]
     sentence_count: 3
@@ -31,6 +33,7 @@ chunks:
     char_span: [2558, 4250]
     sentence_count: 16
     key_terms: [startup, option, stability, flexible, startups, already, looking, growth]
+    concepts: [startup, option, stability, flexible, startups]
     section: Comments
     token_count: 370
 ---

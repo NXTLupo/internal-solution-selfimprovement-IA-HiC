@@ -20,22 +20,29 @@ chunks:
     char_span: [0, 2483]
     sentence_count: 24
     key_terms: [worked, subscription, code, data, get, real, completely, customers]
+    concepts: [subscription, worked, completely, customers, dashboard]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1qt6y5z/7_months_of_vibe_coding_a_saas_and_heres_what/"}]
   - id: "social-intelligence/reddit-deep/startups/1qt6y5z.md#c1"
     char_span: [2485, 3259]
     sentence_count: 5
     key_terms: [fundamentals, production, understand, learning, payment, "that'll", enough, using]
+    concepts: [fundamentals, production, understand, learning, payment]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1qt6y5z.md#c3"]
     token_count: 150
   - id: "social-intelligence/reddit-deep/startups/1qt6y5z.md#c2"
-    char_span: [3274, 4970]
+    char_span: [3273, 4969]
     sentence_count: 11
     key_terms: [here, everyone, iterate, product, tells, work, architect, anything]
+    concepts: [everyone, iterate, product, tells, architect]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/startups/1qt6y5z.md#c3"
-    char_span: [4972, 7069]
+    char_span: [4971, 7068]
     sentence_count: 15
     key_terms: [business, started, fundamentals, production, understand, learning, because, instead]
+    concepts: [business, started, fundamentals, production, understand]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1qt6y5z.md#c1"]
     section: Comments
     token_count: 463
 ---

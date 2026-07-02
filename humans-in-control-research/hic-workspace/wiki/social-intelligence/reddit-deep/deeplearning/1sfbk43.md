@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1786]
     sentence_count: 6
     key_terms: [systems, deeplearning, maths, probability, interested, dynamical, gatsby-bridging-programme, comments]
+    concepts: [systems, deeplearning, probability, interested, maths]
     token_count: 423
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1sfbk43/is_it_worth_learning_undergrad_maths_for/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1sfbk43.md#c1"
     char_span: [1800, 2041]
     sentence_count: 3
@@ -32,8 +34,10 @@ chunks:
     char_span: [2043, 4243]
     sentence_count: 7
     key_terms: [background, brilliant-nectarine8, maths, "i'm", math, "you're", understanding, level]
+    concepts: [background, brilliant-nectarine8, maths, understanding, "you're"]
     section: Comments
     token_count: 512
+    sources: [{"n":"I have a background in econometrics, and I helped my former housemate (who studi","u":""}]
   - id: "social-intelligence/reddit-deep/deeplearning/1sfbk43.md#c3"
     char_span: [3957, 4495]
     sentence_count: 3
@@ -44,12 +48,14 @@ chunks:
     char_span: [4497, 6214]
     sentence_count: 15
     key_terms: [masters, course, understanding, research, intersection, neuroscience, background, beneficial]
+    concepts: [understanding, masters, course, research, intersection]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/deeplearning/1sfbk43.md#c5"
     char_span: [6216, 7603]
     sentence_count: 10
     key_terms: [research, brilliant-nectarine8, fearless-elephant-81, gatsby, opportunity, estimated, course, online]
+    concepts: [research, brilliant-nectarine8, fearless-elephant-81, gatsby, opportunity]
     section: Comments
     token_count: 354
 ---

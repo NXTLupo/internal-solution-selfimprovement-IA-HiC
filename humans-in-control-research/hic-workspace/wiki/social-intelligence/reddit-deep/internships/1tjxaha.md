@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1435]
     sentence_count: 12
     key_terms: [internships, policy, internship, suggestions, background, compliance, governance, financial]
+    concepts: [internships, internship, policy, suggestions, background]
     token_count: 295
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tjxaha/suggestions_for_internship_paths/"}]
 ---
 # Suggestions for Internship Paths
 

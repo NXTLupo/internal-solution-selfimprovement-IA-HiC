@@ -17,37 +17,40 @@ research_goal: "Produce the definitive guide to personal investing in 2026 by an
 engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/stocks/1lzae9b.md#c0"
-    char_span: [0, 1986]
-    sentence_count: 7
-    key_terms: [tesla, xai, billion, musk, startup, shareholders, billionaire, comments]
-    token_count: 436
+    char_span: [0, 2186]
+    sentence_count: 8
+    key_terms: [tesla, xai, billion, musk, bloomberg, homepage-americas, startup, redacted-key]
+    concepts: [tesla, billion, homepage-americas, bloomberg, startup]
+    token_count: 507
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1lzae9b/musk_suggests_tesla_shareholders_will_vote_on_xai/"}]
   - id: "social-intelligence/reddit-deep/stocks/1lzae9b.md#c1"
-    char_span: [1988, 2266]
-    sentence_count: 1
-    key_terms: [mu***REDACTED-KEY***, homepage-americas, bloomberg, articles, https, com, news, srnd]
-    token_count: 89
-  - id: "social-intelligence/reddit-deep/stocks/1lzae9b.md#c2"
-    char_span: [2281, 3388]
+    char_span: [2200, 3307]
     sentence_count: 10
     key_terms: [ticker, steel, company, like, voaracious, deleted, shares, technicalinterest566]
+    concepts: [ticker, steel, company, voaracious, deleted]
     section: Comments
     token_count: 321
-  - id: "social-intelligence/reddit-deep/stocks/1lzae9b.md#c3"
-    char_span: [3390, 5362]
+  - id: "social-intelligence/reddit-deep/stocks/1lzae9b.md#c2"
+    char_span: [3309, 5281]
     sentence_count: 12
     key_terms: [tesla, xai, twitter, debt, farrisat, package, shareholders, did]
+    concepts: [tesla, twitter, farrisat, package, shareholders]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1lzae9b.md#c3"]
     section: Comments
     token_count: 513
-  - id: "social-intelligence/reddit-deep/stocks/1lzae9b.md#c4"
-    char_span: [5364, 7115]
+  - id: "social-intelligence/reddit-deep/stocks/1lzae9b.md#c3"
+    char_span: [5283, 7034]
     sentence_count: 15
     key_terms: [shareholders, xai-pressed-workers-install-surveillance-software-personal-laptops-2025-7, tesla, elon, xai, callmepyro, farrisat, leverage]
+    concepts: [shareholders, tesla, callmepyro, farrisat, leverage]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1lzae9b.md#c2"]
     section: Comments
     token_count: 460
-  - id: "social-intelligence/reddit-deep/stocks/1lzae9b.md#c5"
-    char_span: [7117, 9155]
+  - id: "social-intelligence/reddit-deep/stocks/1lzae9b.md#c4"
+    char_span: [7036, 9074]
     sentence_count: 19
     key_terms: [elon, "i'm", ride, successful, companies, liquidity, seriously, promises]
+    concepts: [successful, companies, liquidity, seriously, promises]
     section: Comments
     token_count: 496
 ---

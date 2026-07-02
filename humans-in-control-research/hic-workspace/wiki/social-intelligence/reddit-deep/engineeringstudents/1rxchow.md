@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 1204]
     sentence_count: 7
     key_terms: [engineering, internship, engineeringstudents, mechanical, operations, accepted, comments, utility]
+    concepts: [engineering, engineeringstudents, internship, mechanical, operations]
     token_count: 239
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rxchow/i_just_accepted_my_first_summer_mechanical/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxchow.md#c1"
     char_span: [1218, 2639]
     sentence_count: 22
     key_terms: [ask, work, everything, engineers, interest, ability, company, monkey]
+    concepts: [everything, engineers, interest, ability, company]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxchow.md#c2"
     char_span: [2641, 4981]
     sentence_count: 20
     key_terms: [use, company, "don't", work, probably, anyone, never, ask]
+    concepts: [company, "don't", probably, anyone, never]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxchow.md#c3"
     char_span: [4677, 5673]
     sentence_count: 11
     key_terms: [probably, use, database, outlook, profile, hours, photo, teams]
+    concepts: [probably, database, outlook, profile, hours]
     section: Comments
     token_count: 226
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxchow.md#c4"
     char_span: [5675, 6570]
     sentence_count: 7
     key_terms: [mentor, work, assigned, career, "don't", hard, seek, departments]
+    concepts: [mentor, assigned, career, "don't"]
     section: Comments
     token_count: 203
 ---

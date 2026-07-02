@@ -7,98 +7,127 @@ subreddit: "healthinsurance"
 title: "Need advice on how to proceed with new insurance co."
 author: "lvthomascrown123"
 date: "2026-03-22T07:30:46.000Z"
-score: 2
-upvote_ratio: 0.63
+score: 3
+upvote_ratio: 0.67
 num_comments: 31
 flair: "Plan Benefits"
-extracted_at: "2026-06-17T19:26:43.278Z"
+extracted_at: "2026-06-20T17:52:36.299Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c0"
     char_span: [0, 1761]
     sentence_count: 12
     key_terms: [psychiatrist, plan, insurance, ambetter, healthinsurance, network, health, month]
+    concepts: [psychiatrist, insurance, healthinsurance, ambetter, network]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c6", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c9", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c10"]
     token_count: 396
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1s0ffnl/need_advice_on_how_to_proceed_with_new_insurance/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c1"
     char_span: [1763, 3586]
     sentence_count: 11
     key_terms: [deductible, office, visit, paid, psychiatrist, co-pay, responsibility, health]
+    concepts: [deductible, office, psychiatrist, visit, co-pay]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c4", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c8", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c9", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c14"]
     token_count: 390
   - id: "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c2"
     char_span: [3588, 4593]
     sentence_count: 7
     key_terms: [referral, authorization, get, insurance, seemed, being, prior, spoke]
+    concepts: [referral, authorization, insurance, seemed, being]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c4", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c9"]
     token_count: 206
   - id: "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c3"
     char_span: [4595, 6763]
     sentence_count: 11
     key_terms: [authorization, ambetter, deductible, annual, never, get, someone, asked]
+    concepts: [authorization, ambetter, deductible, annual, never]
     token_count: 459
   - id: "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c4"
     char_span: [6765, 9143]
     sentence_count: 16
     key_terms: [insurance, authorization, company, office, visit, seems, required, visits]
+    concepts: [insurance, authorization, company, office, visit]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c1", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c2", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c8", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c9", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c10"]
     token_count: 511
   - id: "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c5"
-    char_span: [9158, 11035]
+    char_span: [9157, 11034]
     sentence_count: 6
     key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    concepts: [information, questions, following, please, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c6"]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c6"
-    char_span: [11037, 13247]
+    char_span: [11036, 13246]
     sentence_count: 13
     key_terms: [insurance, please, eob, contact, psychiatrist, information, questions, subreddit]
+    concepts: [insurance, please, psychiatrist, information, contact]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c0", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c5", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c9"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c7"
-    char_span: [13250, 14411]
+    char_span: [13249, 14410]
     sentence_count: 10
     key_terms: [specialist, referral, provider, primary, require, visit, care, in-network]
+    concepts: [specialist, referral, provider, primary, require]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c8"
-    char_span: [14413, 16543]
+    char_span: [14412, 16542]
     sentence_count: 16
     key_terms: [insurance, office, visit, charging, question, b6035031d695046e36ed4e54d845b292c9b44c02, doctors, responsibility]
+    concepts: [insurance, office, visit, charging, question]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c1", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c4", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c9"
-    char_span: [16404, 18546]
+    char_span: [16403, 18545]
     sentence_count: 13
     key_terms: [office, authorization, insurance, psychiatrist, prior, visit, get, ambetter]
+    concepts: [authorization, office, insurance, psychiatrist, lvthomascrown123]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c0", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c1", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c2", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c4", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c10"
-    char_span: [18263, 19535]
+    char_span: [18262, 19534]
     sentence_count: 11
     key_terms: [claim, ambetter, insurance, company, telling, amount, going, guess]
+    concepts: [claim, ambetter, insurance, company, telling]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c0", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c4", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c11", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c12"]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c11"
-    char_span: [19537, 20847]
+    char_span: [19536, 20846]
     sentence_count: 11
     key_terms: [claim, none, processing, ambetter, customer, "doesn't", service, website]
+    concepts: [claim, processing, ambetter, customer, "doesn't"]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c10", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c12"]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c12"
-    char_span: [20849, 22547]
+    char_span: [20848, 22546]
     sentence_count: 11
     key_terms: [processed, claim, ambetter, dd8e430bbd9ff2013d34f7722344c796dc129336, been, eob, finalized, question]
+    concepts: [processed, ambetter, claim, finalized, question]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c10", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c11"]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c13"
-    char_span: [22549, 24644]
+    char_span: [22548, 24643]
     sentence_count: 15
     key_terms: [behavioral, authorization, health, practitioner, need, pcp, psychiatrist, specialist]
+    concepts: [behavioral, authorization, health, practitioner, psychiatrist]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c9"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c14"
-    char_span: [24646, 26632]
+    char_span: [24645, 26632]
     sentence_count: 20
     key_terms: [deductible, lvthomascrown123, office, copay, month, coinsurance, footnote, getting]
+    concepts: [deductible, lvthomascrown123, office, coinsurance, copay]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c1", "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c9"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/healthinsurance/1s0ffnl.md#c15"
@@ -111,7 +140,7 @@ chunks:
 # Need advice on how to proceed with new insurance co.
 
 Source: [reddit-deep: r/healthinsurance](https://www.reddit.com/r/HealthInsurance/comments/1s0ffnl/need_advice_on_how_to_proceed_with_new_insurance/)
-Posted by **lvthomascrown123** · **2↑** · **31 comments**
+Posted by **lvthomascrown123** · **3↑** · **31 comments**
 
 Hi so I recently purchased health insurance with Ambetter by Silver Summit.  Prior to selecting the particular plan that I purchased, I made sure to verify that my longtime psychiatrist was in network under this plan because I need to see him once a month and that would obviously get very costly if he’s not in network.  Prior to recently getting insured, I saw my psychiatrist each and every month for the past six years and paid on my own dime.  I was able to verify that he is in fact in network for me under my Ambetter plan/policy.  I therefore went ahead and got health insurance through Ambetter and shortly thereafter made an appointment to see my psychiatrist for the month.  
 
@@ -169,7 +198,7 @@ Please also read the following information carefully to help others assist with 
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/HealthInsurance) if you have any questions or concerns.*
-- **Majestic-Entrance-16** (7↑): The person you spoke to in Member Services did not give correct information. 
+- **Majestic-Entrance-16** (8↑): The person you spoke to in Member Services did not give correct information. 
 
 
 1. Review the full Summary of Benefits and Coverage for this plan- this is where you can understand the details around the schedule of benefits you are referring to. This document would have been available before you enrolled in the plan. https://api.centene.com/SBC/2026/45142NV0010002-06.pdf
@@ -192,7 +221,7 @@ Bottom line, you need to work with your specialist’s billing office to make su
 2. And yes I absolutely confirmed with my psychiatrist that he is in network before I pulled the trigger on this plan. So there’s no question that he is in network in this case.  
 3. The visit in question to my psychiatrist office shows up on my account on ambetters website, with a corresponding claim number, so it was obviously ran by doctors office staff through my insurance.  The claim has now been processed, actually it says it was processed on March 11 even though that was eight days before the conversation I had with ins rep over the phone.  Here’s a screenshot. It won’t allow me to open the EOB (just redirects me back to the claims page), but for what it’s worth it does say in the screenshot that patient’s responsibility is zero dollars. I don’t know if that’s what the EOB says as well, but it seems like it should. If it does say zero for my responsibility, does the fact that I didn’t receive prior authorization before seeing the only doctor I have an ongoing relationship with and see every month for 6 years now mean that insurance won’t cover a penny of the cost of that visit?  I’m really trying to figure out how the doctor’s office ended up charging me $99.36 (or thereabouts) seeing how they submitted it through insurance.  When I used to pay as a cash customer my office visits were $150.  Which begs the question, how in the world did the doctors office come up with $99.36 as my cost for the visit, particularly seeing how the insurance company is saying I needed authorization prior to that visit and didn’t receive the same.  Wouldn’t that mean that insurance doesn’t pay any portion of the bill? In other words, if I am in fact responsible for 100% of that bill, and I was charged $99.36 by the doctors office, then the bill must’ve been $99.36, right? It’s hard to believe that doctor is  charging cash customers more than they are charging for claims run thru insurance.  Am I missing something?
     - **lvthomascrown123** (1↑): https://preview.redd.it/xap3zqw14oqg1.jpeg?width=1125&format=pjpg&auto=webp&s=b6035031d695046e36ed4e54d845b292c9b44c02
-- **Jump-Funny** (5↑): A referral and a prior authorization are two different things.  The prior authorization has nothing to do with the pcp and is the responsibility of the specialist’s office to obtain from the insurance.  If they told you that they accept your insurance and failed to get one, the EOB will show that and you owe nothing for that visit.   The plan clearly states that it’s required so the psychiatrist’s office needs to get one from Ambetter for your visits, this isn’t something you can get.   Also, the deductible and copays are included in that oop max, so once you’ve met that, you will not have any out of pocket.    You need to go look at that claim online again.  And make sure that the office has obtained a prior authorization for further treatment.
+- **Jump-Funny** (6↑): A referral and a prior authorization are two different things.  The prior authorization has nothing to do with the pcp and is the responsibility of the specialist’s office to obtain from the insurance.  If they told you that they accept your insurance and failed to get one, the EOB will show that and you owe nothing for that visit.   The plan clearly states that it’s required so the psychiatrist’s office needs to get one from Ambetter for your visits, this isn’t something you can get.   Also, the deductible and copays are included in that oop max, so once you’ve met that, you will not have any out of pocket.    You need to go look at that claim online again.  And make sure that the office has obtained a prior authorization for further treatment.
   - **lvthomascrown123** (1↑): When you say that the plan clearly states that an authorization was required before I could see my psychiatrist, where does it say that?
     - **lvthomascrown123** (2↑): And assuming that’s def the case, does the psychiatrist office’s  failure to obtain prior authorization before I saw him for an office visit as a newly insured of Ambetter, and his office’s subsequent collection of  about $99 from me for the cost of that visit (when it would have been free, or at most $10 but for his office’s failure to obtain authorization on my behalf), doesn’t that jump up and down and scream of unfairness?  
 It does to me.  And it makes it even more bizarre how they didn’t even mention a co-pay or try to collect any money from me whatsoever during my second visit to his office just the other day (during which I was having the phone call with the woman I spoke with from Ambetter).  These people are either incompetent or crooked, or both. I know it’s only 100 bucks but it’s the principle of it, need to know the best way to get my money back.  Telling the shrinks office to give it back is only going to result in them telling me it’s an issue between me and the insurance company.  And the insurance company is clearly gonna tell me that it’s an issue between me and the provider.  I hate being stuck in the middle of two groups who know less about this stuff (or who feign ignorance about this stuff) than I do.
@@ -217,7 +246,7 @@ From what I can see it looks like Ambetter may use that term in the same way. Th
 
 Carriers typically run EOB/check batches at least once per week, so it's odd that it would still be hanging out there. Are your policy payments current?
   - **Ralph1248** (1↑): It sounds like the rep does not know what she is talking about because the claim is still processing.
-- **Mystery8188** (5↑): It states you need prior authorization to see a behavioral health specialist.  It does not state you need a referral, so a PCP referral in and of itself is not required.  What's happening here is the specialist (psychiatrist) is punting getting the authorization to the PCP instead of doing it themselves.  Call them and tell them to get the authorization themselves.
+- **Mystery8188** (4↑): It states you need prior authorization to see a behavioral health specialist.  It does not state you need a referral, so a PCP referral in and of itself is not required.  What's happening here is the specialist (psychiatrist) is punting getting the authorization to the PCP instead of doing it themselves.  Call them and tell them to get the authorization themselves.
 
 Regarding the co-pay, this comes down to who is providing the behavioral health services.  If it is a behavioral health specialist (like a psychiatrist), there is no co-pay.   If it's a PCP or other practitioner that provides the behavioral health services, then it's a $10 office visit co-pay.
 
@@ -229,7 +258,7 @@ Having said all that, we really need to see the EOB to determine what happened. 
     - **Johnnyg150** (1↑): If the provider is INn, that should be covered at 100% then without Prior Authorization requirements or deductible.
 
 You should ask for the claim to be readjusted.
-- **Guilty-Committee9622** (0↑): Page 2 clearly states Behavioral Health needs a prior authorization.
+- **Guilty-Committee9622** (-1↑): Page 2 clearly states Behavioral Health needs a prior authorization.
 You highlighted the applicable footnote. 
 You called customer service sorry they weren't helpful, but its pretty clear. 
 Nope you're not getting your $100 back.  

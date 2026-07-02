@@ -20,31 +20,40 @@ chunks:
     char_span: [0, 2193]
     sentence_count: 21
     key_terms: [logistics, tariffs, trade, predictable, businesses, everything, liberation, logistics-pulse-by-fulfillyn]
+    concepts: [logistics, tariffs, trade, predictable, businesses]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1pzo65j.md#c5"]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1pzo65j/2025s_top_10_logistics_stories_that_changed/"}]
   - id: "social-intelligence/reddit-deep/logistics/1pzo65j.md#c1"
     char_span: [2195, 4207]
     sentence_count: 13
     key_terms: [alliance, reliability, gemini, billion, dsv, logistics-pulse-by-fulfillyn, logistics, leverage]
+    concepts: [alliance, reliability, gemini, billion, logistics]
     token_count: 469
   - id: "social-intelligence/reddit-deep/logistics/1pzo65j.md#c2"
     char_span: [4209, 6475]
     sentence_count: 14
     key_terms: [logistics-pulse-by-fulfillyn, customs, newsletter, duty-free, subscribe, american, industry, shippers]
+    concepts: [logistics-pulse-by-fulfillyn, customs, newsletter, duty-free, subscribe]
     token_count: 496
   - id: "social-intelligence/reddit-deep/logistics/1pzo65j.md#c3"
     char_span: [6477, 8916]
     sentence_count: 11
     key_terms: [logistics-pulse-by-fulfillyn, freight, january, enough, strike, down, shut, automation]
+    concepts: [logistics-pulse-by-fulfillyn, freight, january, enough, strike]
     token_count: 517
   - id: "social-intelligence/reddit-deep/logistics/1pzo65j.md#c4"
     char_span: [8918, 10249]
     sentence_count: 9
     key_terms: [last-mile, delivery, third-party, part, ups, usps, logistics, directly]
+    concepts: [last-mile, delivery, third-party, logistics, directly]
     token_count: 261
   - id: "social-intelligence/reddit-deep/logistics/1pzo65j.md#c5"
-    char_span: [10264, 10763]
+    char_span: [10263, 10762]
     sentence_count: 3
     key_terms: [businesses, tariffs, bad, idea, thespanishgerman, stealthagents, definitely, liberation]
+    concepts: [businesses, tariffs]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1pzo65j.md#c0"]
     section: Comments
     token_count: 123
 ---

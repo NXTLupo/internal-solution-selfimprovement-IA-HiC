@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 612]
     sentence_count: 4
     key_terms: [career, findapath, comments, been, akkkkkkkkll, recruitment, reddit-deep, operations]
+    concepts: [career, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1pecv7i.md#c1"]
     token_count: 156
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1pecv7i/recruiter_exploring_a_career_change_whats_the/"}]
   - id: "social-intelligence/reddit-deep/findapath/1pecv7i.md#c1"
     char_span: [626, 1758]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    concepts: [thank, helpful, please, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1pecv7i.md#c0"]
     section: Comments
     token_count: 248
 ---

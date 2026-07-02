@@ -21,29 +21,40 @@ chunks:
     char_span: [0, 838]
     sentence_count: 8
     key_terms: [interviews, interview, comments, managers, through, remote, space, plan]
+    concepts: [interviews, interview, comments, managers, through]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1o88xpd.md#c1", "social-intelligence/reddit-deep/managers/1o88xpd.md#c2", "social-intelligence/reddit-deep/managers/1o88xpd.md#c8"]
     token_count: 184
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1o88xpd/no_more_remote_interviews/"}]
   - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c1"
     char_span: [852, 2072]
     sentence_count: 9
     key_terms: [interviews, interview, seen, brainwavecc, common, flying, people, screen]
+    concepts: [interviews, interview, brainwavecc, common, flying]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1o88xpd.md#c0", "social-intelligence/reddit-deep/managers/1o88xpd.md#c2", "social-intelligence/reddit-deep/managers/1o88xpd.md#c8"]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c2"
     char_span: [2074, 4064]
     sentence_count: 14
     key_terms: [interview, people, guy, interviews, "we'll-reimburse-you-later", question, deleted, someone]
+    concepts: [interview, people, interviews, question, deleted]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1o88xpd.md#c0", "social-intelligence/reddit-deep/managers/1o88xpd.md#c1", "social-intelligence/reddit-deep/managers/1o88xpd.md#c3", "social-intelligence/reddit-deep/managers/1o88xpd.md#c8"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c3"
     char_span: [4066, 6159]
     sentence_count: 15
     key_terms: [interview, candidate, questions, question, praefectus27, use, disability, deleted]
+    concepts: [interview, candidate, questions, question, praefectus27]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1o88xpd.md#c2", "social-intelligence/reddit-deep/managers/1o88xpd.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c4"
     char_span: [5875, 7918]
     sentence_count: 16
     key_terms: [questions, interview, don, someone, hire, time, committee, protected]
+    concepts: [questions, interview, someone, committee, protected]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1o88xpd.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c5"
@@ -56,18 +67,22 @@ chunks:
     char_span: [7984, 8524]
     sentence_count: 6
     key_terms: [demonstrates, candidates, answer, get, use, secksualinnuendo, demonstrating, discussing]
+    concepts: [demonstrates, candidates, answer]
     section: Comments
     token_count: 127
   - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c7"
     char_span: [8526, 10557]
     sentence_count: 11
     key_terms: [don, "it's", people, dry-philosopher-2714, questions, kissingdaylight, interviewers, interviewee]
+    concepts: [dry-philosopher-2714, people, questions, kissingdaylight, interviewers]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c8"
     char_span: [10559, 12597]
     sentence_count: 14
     key_terms: [person, interviews, kubernetes, interview, pipelines, devops, images, people]
+    concepts: [interviews, kubernetes, person, interview, pipelines]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1o88xpd.md#c0", "social-intelligence/reddit-deep/managers/1o88xpd.md#c1", "social-intelligence/reddit-deep/managers/1o88xpd.md#c2"]
     section: Comments
     token_count: 468
 ---

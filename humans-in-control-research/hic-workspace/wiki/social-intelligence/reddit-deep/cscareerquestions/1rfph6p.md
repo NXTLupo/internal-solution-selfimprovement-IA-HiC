@@ -19,40 +19,50 @@ chunks:
     char_span: [0, 1827]
     sentence_count: 14
     key_terms: [struggling, since, cscareerquestions, got, layoff, been, "i've", work]
+    concepts: [struggling, cscareerquestions, since, layoff, automation]
     token_count: 433
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rfph6p/need_advice_struggling_after_mass_layoff_and/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rfph6p.md#c1"
     char_span: [1829, 2605]
     sentence_count: 7
     key_terms: [feel, "master's", "don't", field, comfortably, unmotivated, experience, meaningful]
+    concepts: ["master's", "don't", field]
     token_count: 171
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rfph6p.md#c2"
-    char_span: [2620, 3739]
+    char_span: [2619, 3738]
     sentence_count: 8
     key_terms: [rapidroastingham, jobs, engineer, already, summary, tester, foo-bar-nlogn-100, good]
+    concepts: [rapidroastingham, engineer, already, summary, tester]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rfph6p.md#c3"
-    char_span: [3741, 5677]
+    char_span: [3740, 5676]
     sentence_count: 11
     key_terms: [resume, "don't", development, experience, something, directly, against, summary]
+    concepts: [resume, development, "don't", experience, something]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rfph6p.md#c4"]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rfph6p.md#c4"
-    char_span: [5679, 7542]
+    char_span: [5678, 7541]
     sentence_count: 23
     key_terms: [work, "don't", important, been, resume, building, projects, problem]
+    concepts: [important, "don't", resume, building, projects]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rfph6p.md#c3"]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rfph6p.md#c5"
-    char_span: [7544, 8351]
+    char_span: [7543, 8350]
     sentence_count: 6
     key_terms: [something, getting, figure, like, soul, overwhelming, swe-oriented, essentially]
+    concepts: [something, getting, figure]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rfph6p.md#c6"
-    char_span: [8353, 9708]
+    char_span: [8352, 9707]
     sentence_count: 13
     key_terms: [cacahuatez, this-is-uncomfortable, amfonthewestcoast, help, "it's", job, lot, tcs]
+    concepts: [cacahuatez]
     section: Comments
     token_count: 357
 ---

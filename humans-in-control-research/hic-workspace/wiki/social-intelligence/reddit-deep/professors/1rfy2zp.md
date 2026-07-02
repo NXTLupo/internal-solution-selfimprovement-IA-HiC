@@ -21,58 +21,74 @@ chunks:
     char_span: [0, 1393]
     sentence_count: 8
     key_terms: [students, class, readings, lecture, reading, course, information, discussion]
+    concepts: [students, class, readings, lecture, reading]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rfy2zp.md#c1", "social-intelligence/reddit-deep/professors/1rfy2zp.md#c2", "social-intelligence/reddit-deep/professors/1rfy2zp.md#c3", "social-intelligence/reddit-deep/professors/1rfy2zp.md#c6"]
     token_count: 307
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1rfy2zp/students_not_reading_course_material/"}]
   - id: "social-intelligence/reddit-deep/professors/1rfy2zp.md#c1"
     char_span: [1395, 3298]
     sentence_count: 16
     key_terms: [book, reading, coincidentally, participation, class, teaching, chatgpt, better]
+    concepts: [coincidentally, participation, reading, class, teaching]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rfy2zp.md#c0", "social-intelligence/reddit-deep/professors/1rfy2zp.md#c6"]
     token_count: 402
   - id: "social-intelligence/reddit-deep/professors/1rfy2zp.md#c2"
     char_span: [3312, 5401]
     sentence_count: 20
     key_terms: [students, quiz, class, group, study, work, learning, grade]
+    concepts: [students, class, group, study, learning]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rfy2zp.md#c0", "social-intelligence/reddit-deep/professors/1rfy2zp.md#c3"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/professors/1rfy2zp.md#c3"
     char_span: [5403, 7241]
     sentence_count: 12
     key_terms: [students, get, time, question, student, class, group, like]
+    concepts: [students, question, student, assessment, class]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rfy2zp.md#c0", "social-intelligence/reddit-deep/professors/1rfy2zp.md#c2"]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/professors/1rfy2zp.md#c4"
     char_span: [7243, 9166]
     sentence_count: 25
     key_terms: [notes, reading, "don't", study, students, snowblindalbino, guides, deliverables]
+    concepts: [notes, reading, "don't", snowblindalbino, study]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/professors/1rfy2zp.md#c5"
     char_span: [9168, 11024]
     sentence_count: 14
     key_terms: [students, snowblindalbino, keep, finding, minutes, quizzes, reading, always]
+    concepts: [snowblindalbino, students, finding, minutes, quizzes]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/professors/1rfy2zp.md#c6"
     char_span: [11026, 12854]
     sentence_count: 12
     key_terms: [class, reading, started, anything, yourlurkingprof, been, assignment, discussion]
+    concepts: [class, reading, started, yourlurkingprof, anything]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rfy2zp.md#c0", "social-intelligence/reddit-deep/professors/1rfy2zp.md#c1"]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/professors/1rfy2zp.md#c7"
     char_span: [12856, 13888]
     sentence_count: 12
     key_terms: [class, read, assignment, explaining, something, comments, perusall, little]
+    concepts: [class, assignment, explaining, something, comments]
     section: Comments
     token_count: 228
   - id: "social-intelligence/reddit-deep/professors/1rfy2zp.md#c8"
     char_span: [13890, 15747]
     sentence_count: 16
     key_terms: [summary, class, "don't", short, discussion, everything, because, people]
+    concepts: [summary, class, discussion, "don't", everything]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/professors/1rfy2zp.md#c9"
     char_span: [15749, 17765]
     sentence_count: 17
     key_terms: [euphoric-addendum-69, students, covid, grade, get, in-class, perusall, readings]
+    concepts: [euphoric-addendum-69, students, covid, grade, in-class]
     section: Comments
     token_count: 478
 ---

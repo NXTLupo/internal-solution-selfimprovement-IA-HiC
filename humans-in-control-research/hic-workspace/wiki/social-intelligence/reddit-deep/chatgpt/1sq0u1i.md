@@ -21,41 +21,56 @@ chunks:
     char_span: [0, 1557]
     sentence_count: 17
     key_terms: [claude, chatgpt, better, people, carousels, like, automate, business]
+    concepts: [claude, chatgpt, better, people, carousels]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c1", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c2", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c3", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c4", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c5"]
     token_count: 385
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1sq0u1i/is_claude_actually_better_than_chatgpt_or_is_it/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c1"
     char_span: [1571, 3481]
     sentence_count: 14
     key_terms: [claude, gpt, "it's", chatgpt, quality, answer, openai, please]
+    concepts: [claude, chatgpt, quality, conversation, answer]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c0", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c2", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c4", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c6"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c2"
     char_span: [3483, 5500]
     sentence_count: 22
     key_terms: [claude, response, gemini, chatgpt, gpt, research, versions, couple]
+    concepts: [claude, response, gemini, chatgpt, research]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c0", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c1", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c4", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c3"
     char_span: [5227, 6314]
     sentence_count: 8
     key_terms: [claude, use, better, outrageous-cod-855, code, gpt, no-medicine1230, thejiggliestpug]
+    concepts: [claude, better]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c0", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c4", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c5"]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c4"
     char_span: [6316, 8261]
     sentence_count: 15
     key_terms: [chatgpt, claude, answers, instructions, better, using, limitations, processing]
+    concepts: [chatgpt, claude, instructions, answers, better]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c0", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c1", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c2", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c3", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c5"]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c5"
     char_span: [8266, 9444]
     sentence_count: 4
     key_terms: [cutiekilla, better, claude, great, model, sucks, like, new]
+    concepts: [cutiekilla, better, claude, great, model]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c0", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c3", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c4"]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c6"
     char_span: [9446, 11320]
     sentence_count: 13
     key_terms: [claude, chatgpt, something, use, codex, idea, perplexity, different]
+    concepts: [claude, chatgpt, something, codex, perplexity]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c0", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c1", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c2", "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c4"]
     section: Comments
     token_count: 425
 ---

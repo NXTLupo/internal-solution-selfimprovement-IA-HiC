@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 1757]
     sentence_count: 9
     key_terms: [thousands, catalog, customers, ecommerce, wholesale, checkout, pricing, shopify]
+    concepts: [thousands, catalog, customers, ecommerce, wholesale]
     token_count: 394
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1shnxgt/wix_vs_shopify_for_large_wholesale_catalog/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1shnxgt.md#c1"
-    char_span: [1772, 3886]
+    char_span: [1771, 3885]
     sentence_count: 13
     key_terms: [pricing, cart, building, customer, order, right, indiegogold, want]
+    concepts: [pricing, building, customer, indiegogold, order]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/ecommerce/1shnxgt.md#c2"
-    char_span: [3888, 5975]
+    char_span: [3887, 5974]
     sentence_count: 21
     key_terms: [product, data, because, pricing, system, transacting, erp, "it's"]
+    concepts: [product, because, pricing, system, transacting]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/ecommerce/1shnxgt.md#c3"
-    char_span: [5978, 8293]
+    char_span: [5977, 8292]
     sentence_count: 14
     key_terms: [shopify, search, better, skus, wix, checkout, products, catalog]
+    concepts: [shopify, search, better, checkout, products]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1shnxgt.md#c4"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/ecommerce/1shnxgt.md#c4"
-    char_span: [8295, 9993]
+    char_span: [8294, 9992]
     sentence_count: 16
     key_terms: [shopify, search, part, customer, imported, platform, catalog, chicken]
+    concepts: [shopify, search, customer, imported, platform]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1shnxgt.md#c3"]
     section: Comments
     token_count: 380
 ---

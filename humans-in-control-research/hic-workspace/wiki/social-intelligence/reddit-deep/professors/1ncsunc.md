@@ -21,83 +21,100 @@ chunks:
     char_span: [0, 811]
     sentence_count: 7
     key_terms: [texas-ams-president-fires-an-english-professor-after-removing-a-dean-and-a-department-head, am-dean-professor-removed-following-student-complaints-over-curriculum, https, com, reddit, post, www, professors]
+    concepts: [https, reddit, professors, comments]
     token_count: 222
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1ncsunc/sorry_new_post_this_is_nuts/"}]
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c1"
     char_span: [825, 3006]
     sentence_count: 21
     key_terms: [students, higher, college, uncertainty, like, families, prepared, deleted]
+    concepts: [students, higher, college, uncertainty, families]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ncsunc.md#c2"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c2"
     char_span: [3008, 5008]
     sentence_count: 13
     key_terms: [students, want, universities, feel, huge, "it's", education, political]
+    concepts: [students, universities, education, political, families]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ncsunc.md#c1"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c3"
     char_span: [5010, 6885]
     sentence_count: 16
     key_terms: [college, "it's", society, choice, because, becomes, believe, failure]
+    concepts: [college, society, choice, because, becomes]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c4"
     char_span: [6887, 8870]
     sentence_count: 10
     key_terms: [kikikididi, literature, endorsing, existence, talking, going, "children's", children]
+    concepts: [kikikididi, literature, endorsing, existence, talking]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c5"
     char_span: [8872, 10775]
     sentence_count: 12
     key_terms: [people, endorsing, agree, basic, facts, conclusions, seen, existence]
+    concepts: [endorsing, people, conclusions, agree, basic]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c6"
     char_span: [10780, 12482]
     sentence_count: 11
     key_terms: [an-update-from-president-mark-a-welsh-iii, course, charlesinrichmond, inconsistent, description, disagreeing, here, president]
+    concepts: [an-update-from-president-mark-a-welsh-iii, course, charlesinrichmond, inconsistent, description]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c7"
     char_span: [12484, 14491]
     sentence_count: 12
     key_terms: [student, gender, policy, department, chair, content, course, consequences]
+    concepts: [student, gender, department, policy, chair]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c8"
     char_span: [14493, 16048]
     sentence_count: 11
     key_terms: [legislator, content, course, issues, impression, literature, concerned, materials]
+    concepts: [legislator, content, course, issues, impression]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c9"
     char_span: [16051, 17084]
     sentence_count: 5
     key_terms: [class, absolutely, literature, children, syllabus, content, course, teach]
+    concepts: [absolutely, class, literature, children, syllabus]
     section: Comments
     token_count: 257
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c10"
     char_span: [17086, 19231]
     sentence_count: 16
     key_terms: [university, bright, chair, fired, information, dean, "i'm", instructor]
+    concepts: [university, bright, information, chair, fired]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c11"
     char_span: [19233, 20999]
     sentence_count: 9
     key_terms: [recommended-institutional-regulations-on-academic-freedom-and-tenure, government, situation, faculty, "that's", point, isn, lack]
+    concepts: [government, situation, faculty, "that's", point]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c12"
     char_span: [21001, 22711]
     sentence_count: 11
     key_terms: [speech, right, republicans, agitprop, believe, freedom, vicstolemylunchmoney, being]
+    concepts: [speech, republicans, right, agitprop, believe]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c13"
     char_span: [22713, 23686]
     sentence_count: 6
     key_terms: [charlesinrichmond, want, luncheroo, sessions, struggle, similar, life-education-8030, sadly]
+    concepts: [charlesinrichmond, luncheroo, sessions, struggle, similar]
     section: Comments
     token_count: 256
 ---

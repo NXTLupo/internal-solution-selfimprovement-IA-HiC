@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1072]
     sentence_count: 4
     key_terms: [careerguidance, suggestions, something, comments, careers, decent, day, good]
+    concepts: [careerguidance, suggestions, something, comments, careers]
     token_count: 241
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t6bmwn/what_careers_do_you_actually_recommend/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bmwn.md#c1"
     char_span: [1086, 2929]
     sentence_count: 10
     key_terms: [job, work, recession, get, proof, find, meaningful, difficult]
+    concepts: [recession, meaningful, proof, difficult, trades]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bmwn.md#c2"
     char_span: [2931, 4608]
     sentence_count: 15
     key_terms: [social, work, opportunities, coordination, good, lcsw, clinical, because]
+    concepts: [social, opportunities, coordination, clinical, because]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bmwn.md#c3"
     char_span: [4610, 6199]
     sentence_count: 8
     key_terms: [people, nursing, find, job, losing, stuck, years, feel]
+    concepts: [people, nursing, losing, stuck, years]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bmwn.md#c4"
     char_span: [6201, 8048]
     sentence_count: 14
     key_terms: [therapy, people, lot, work, rewarding, mountain, patience, sitting]
+    concepts: [therapy, people, rewarding, mountain, patience]
     section: Comments
     token_count: 420
 ---

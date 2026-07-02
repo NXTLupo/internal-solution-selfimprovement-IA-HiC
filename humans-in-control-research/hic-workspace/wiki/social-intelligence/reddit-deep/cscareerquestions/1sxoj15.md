@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 843]
     sentence_count: 7
     key_terms: [cscareerquestions, interested, recommend, comments, programs, chinese, masters, friend]
+    concepts: [cscareerquestions, interested, recommend, comments, programs]
     token_count: 194
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sxoj15/career_path_questions_for_chinese_student/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sxoj15.md#c1"
     char_span: [857, 1475]
     sentence_count: 3

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1736]
     sentence_count: 11
     key_terms: [mechatronics, skills, concentration, engineeringstudents, related, student, school, engineering]
+    concepts: [mechatronics, skills, concentration, engineeringstudents, related]
     token_count: 368
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tmc42t/which_skills_should_i_develop_to_land_a_job_in/"}]
 ---
 # Which Skills should I develop to Land a Job in Mechatronics as  Mechanical Engineering Student?
 

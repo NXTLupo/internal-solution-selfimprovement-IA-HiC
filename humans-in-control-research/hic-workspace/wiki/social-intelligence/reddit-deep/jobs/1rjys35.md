@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1702]
     sentence_count: 12
     key_terms: [internships, available, jobs, experience, because, looking, able, job]
+    concepts: [internships, available, experience, because, looking]
     token_count: 378
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rjys35/internships_only_available_for_students_need/"}]
   - id: "social-intelligence/reddit-deep/jobs/1rjys35.md#c1"
     char_span: [1716, 2026]
     sentence_count: 4

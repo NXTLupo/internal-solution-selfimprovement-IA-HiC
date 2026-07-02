@@ -19,89 +19,105 @@ chunks:
     char_span: [0, 1449]
     sentence_count: 2
     key_terms: [graduate, gradadmissions, comments, students, process, school, level, ready]
+    concepts: [graduate, gradadmissions, comments, students, process]
     token_count: 321
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rbyhya/can_i_be_honest/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c1"
-    char_span: [1464, 3732]
+    char_span: [1463, 3731]
     sentence_count: 20
     key_terms: [through, phd, getting, purpose, people, applications, being, going]
+    concepts: [through, getting, purpose, applications, people]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c2"
-    char_span: [3734, 4500]
+    char_span: [3733, 4499]
     sentence_count: 7
     key_terms: [lot, rejection, accepted, getting, handle, find, phd, time]
+    concepts: [rejection, accepted, getting, handle]
     section: Comments
     token_count: 160
   - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c3"
-    char_span: [4502, 6745]
+    char_span: [4501, 6744]
     sentence_count: 14
     key_terms: [accepted, article, because, school, distinguished, doesn, here, phd]
+    concepts: [accepted, distinguished, article, because, school]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c4"
-    char_span: [6747, 7831]
+    char_span: [6746, 7830]
     sentence_count: 6
     key_terms: ["it's", rejection, time, admissions, reflection, comment, being, skill]
+    concepts: [rejection, admissions, reflection, comment, being]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c5"
-    char_span: [7833, 9978]
+    char_span: [7832, 9977]
     sentence_count: 15
     key_terms: ["i'm", intentionally, independent, possible, mindset, totally, bigger, doing]
+    concepts: [intentionally, independent, possible, mindset, totally]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c6"
-    char_span: [9980, 10772]
+    char_span: [9979, 10771]
     sentence_count: 7
     key_terms: [people, grad, something, feeding, luxury, school, done, get]
+    concepts: [people, something, feeding, luxury, school]
     section: Comments
     token_count: 166
   - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c7"
-    char_span: [10774, 12894]
+    char_span: [10773, 12893]
     sentence_count: 7
     key_terms: [questions, find, research, intellectually, runyourluckxxx, assume, admissions, graduate]
+    concepts: [questions, research, intellectually, runyourluckxxx, assume]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c8"
-    char_span: [12580, 14689]
+    char_span: [12579, 14688]
     sentence_count: 15
     key_terms: [happy-hearing6671, call, website, admissions, graduate, parents, people, school]
+    concepts: [happy-hearing6671, website, admissions, graduate, parents]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c9"
-    char_span: [14414, 14748]
+    char_span: [14413, 14747]
     sentence_count: 3
     key_terms: [contact, old, insufferable, institution, employment, explicitly, sometimes, academic]
+    concepts: [contact]
     section: Comments
     token_count: 81
   - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c10"
-    char_span: [14750, 16597]
+    char_span: [14749, 16596]
     sentence_count: 9
     key_terms: [people, call, parents, embarrassing, "junior's", parent, close, never]
+    concepts: [people, parents, embarrassing, "junior's", parent]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c11"
-    char_span: [16599, 17754]
+    char_span: [16598, 17753]
     sentence_count: 7
     key_terms: [school, applying, student, website, lab, academically, hoppergirl85, instructions]
+    concepts: [school, applying, student, website]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c12"
-    char_span: [17756, 19908]
+    char_span: [17755, 19907]
     sentence_count: 14
     key_terms: [programs, better, people, particularly, application, here, breakdowns, stressful]
+    concepts: [programs, particularly, better, people, application]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c13"
-    char_span: [19910, 21202]
+    char_span: [19909, 21201]
     sentence_count: 11
     key_terms: [application, professors, available, potential, websites, cycle, aggressivemap2288, wannabegradstu]
+    concepts: [application, professors, available, potential, websites]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c14"
-    char_span: [21204, 23197]
+    char_span: [21203, 23196]
     sentence_count: 13
     key_terms: [questions, people, ask, "it's", process, without, asking, others]
+    concepts: [questions, people, process, without, asking]
     section: Comments
     token_count: 420
 ---

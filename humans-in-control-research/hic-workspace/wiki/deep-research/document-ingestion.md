@@ -14,36 +14,44 @@ chunks:
     char_span: [0, 1401]
     sentence_count: 4
     key_terms: [base64-decoded, application, text, documents, plain, fileupload, base64-encoded, string]
+    concepts: [base64-decoded, application, documents, plain, fileupload]
     section: Upload Interface
     token_count: 300
   - id: "deep-research/document-ingestion.md#c1"
     char_span: [1427, 2867]
     sentence_count: 6
     key_terms: [corpus, collecteddatafiles, files, research, data, enabled, intelligence, step]
+    concepts: [collecteddatafiles, corpus, research, intelligence, files]
     section: Corpus Construction
     token_count: 337
   - id: "deep-research/document-ingestion.md#c2"
     char_span: [2886, 3606]
     sentence_count: 1
     key_terms: [file, type, files, unsupported, filename, function, sent, identification]
+    concepts: [unsupported, files, filename, function]
     section: AI Ingestion
     token_count: 175
   - id: "deep-research/document-ingestion.md#c3"
     char_span: [3645, 4970]
     sentence_count: 12
     key_terms: [wiki, evidence, data, sources, user-uploaded, files, documents, extracted]
+    concepts: [evidence, user-uploaded, sources, files, documents]
+    related_chunks: ["deep-research/document-ingestion.md#c4"]
     section: How User Documents Feed the Wiki
     token_count: 288
   - id: "deep-research/document-ingestion.md#c4"
     char_span: [5013, 5946]
     sentence_count: 1
     key_terms: [tier, reports, evidence, current, primary, client, user-uploaded, transcripts]
+    concepts: [reports, evidence, user-uploaded, current, primary]
+    related_chunks: ["deep-research/document-ingestion.md#c3"]
     section: Evidence Quality from User Documents
     token_count: 192
   - id: "deep-research/document-ingestion.md#c5"
     char_span: [5969, 6410]
     sentence_count: 1
     key_terms: [documents, user, sources-registry, social-intelligence, connector-catalog, credibility-tiers, data, research-fabric]
+    concepts: [sources-registry, documents]
     section: Cross-References
     token_count: 97
 ---

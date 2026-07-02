@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 536]
     sentence_count: 4
     key_terms: [engineeringstudents, internship, questions, comments, effective-bit-8840, bsee, job, engineering]
+    concepts: [engineeringstudents, internship, questions, comments]
     token_count: 142
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1nwckc8/every_questions_in_my_head_right_now_about/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nwckc8.md#c1"
     char_span: [550, 1551]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    concepts: [engineeringstudents, please, reddit, https, automoderator]
     section: Comments
     token_count: 226
 ---

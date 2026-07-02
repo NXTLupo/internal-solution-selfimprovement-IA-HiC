@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 278]
     sentence_count: 1
     key_terms: [gradadmissions, comments, dentistimpossible859, application, reddit-deep, experience, posted, reddit]
+    concepts: [gradadmissions, comments]
     token_count: 73
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1sjznbj/a_wild_grad_school_application_experience/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjznbj.md#c1"
-    char_span: [293, 1540]
+    char_span: [292, 1539]
     sentence_count: 6
     key_terms: [dentistimpossible859, applications, application, ambitious-soil1229, seriousflight6885, half, interests, starting]
+    concepts: [dentistimpossible859, applications, application, ambitious-soil1229, seriousflight6885]
     section: Comments
     token_count: 296
 ---

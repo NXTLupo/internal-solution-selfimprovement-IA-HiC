@@ -19,83 +19,102 @@ chunks:
     char_span: [0, 1966]
     sentence_count: 16
     key_terms: [career, good, because, "doesn't", husband, careerguidance, data, comments]
+    concepts: [career, careerguidance, because, "doesn't", husband]
     token_count: 460
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qof56h/husband_chose_a_toodifficult_career_what_now/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1qof56h.md#c1"
-    char_span: [1981, 3426]
+    char_span: [1980, 3425]
     sentence_count: 10
     key_terms: [getting, "didn't", like, considered, definitely, correctly, evaluated, enough]
+    concepts: [getting, "didn't", considered, definitely, correctly]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/careerguidance/1qof56h.md#c2"
-    char_span: [3429, 5704]
+    char_span: [3428, 5703]
     sentence_count: 18
     key_terms: [work, diagnosed, evaluated, adhd, getting, career, feel, felt]
+    concepts: [diagnosed, evaluated, getting, career, medication]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1qof56h.md#c3"
-    char_span: [5445, 5989]
+    char_span: [5444, 5988]
     sentence_count: 4
     key_terms: [years, awkwardhabeshagirl, huge, took, neurodivergent, differently, adulthood, described]
+    concepts: [years]
     section: Comments
     token_count: 129
   - id: "social-intelligence/reddit-deep/careerguidance/1qof56h.md#c4"
-    char_span: [5991, 7818]
+    char_span: [5990, 7817]
     sentence_count: 15
     key_terms: [diagnosed, adhd, "didn't", inattentive, read, because, exactly, without]
+    concepts: [diagnosed, "didn't", inattentive, because, exactly]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/careerguidance/1qof56h.md#c5"
-    char_span: [7820, 9802]
+    char_span: [7819, 9801]
     sentence_count: 14
     key_terms: [diagnosed, adhd, stimulants, taking, like, work, something, ability]
+    concepts: [diagnosed, stimulants, taking, something, ability]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/careerguidance/1qof56h.md#c6"
-    char_span: [9805, 12061]
+    char_span: [9804, 12060]
     sentence_count: 15
     key_terms: [through, data, work, business, adhd, analytics, deadlines, analyst]
+    concepts: [through, business, analytics, deadlines, analyst]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qof56h.md#c9"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/careerguidance/1qof56h.md#c7"
-    char_span: [12063, 14057]
+    char_span: [12062, 14056]
     sentence_count: 12
     key_terms: [dyslexia, font, license, adults, helps, adhd, look, incredibly]
+    concepts: [dyslexia, license, adults, helps, incredibly]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/careerguidance/1qof56h.md#c8"
-    char_span: [14059, 14978]
+    char_span: [14058, 14977]
     sentence_count: 14
     key_terms: [years, like, depression, anxiety, worse, been, feel, head]
+    concepts: [depression, years, anxiety, worse]
     section: Comments
     token_count: 210
   - id: "social-intelligence/reddit-deep/careerguidance/1qof56h.md#c9"
-    char_span: [14980, 16605]
+    char_span: [14979, 16604]
     sentence_count: 11
     key_terms: [sales, understand, data, snoocats2825, like, work, analytics, through]
+    concepts: [sales, understand, snoocats2825, analytics, through]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qof56h.md#c6", "social-intelligence/reddit-deep/careerguidance/1qof56h.md#c11", "social-intelligence/reddit-deep/careerguidance/1qof56h.md#c12"]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/careerguidance/1qof56h.md#c10"
-    char_span: [16607, 18476]
+    char_span: [16606, 18475]
     sentence_count: 15
     key_terms: [data, field, needs, adhd, like, work, absolutely, analytics]
+    concepts: [absolutely, field, needs, analytics, together]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/careerguidance/1qof56h.md#c11"
-    char_span: [18478, 20368]
+    char_span: [18477, 20367]
     sentence_count: 13
     key_terms: [work, understand, data, people, easy, good, like, medication]
+    concepts: [understand, people, medication, analytics, because]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qof56h.md#c9", "social-intelligence/reddit-deep/careerguidance/1qof56h.md#c12"]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/careerguidance/1qof56h.md#c12"
-    char_span: [20370, 22149]
+    char_span: [20369, 22148]
     sentence_count: 14
     key_terms: [data, work, analytics, job, "can't", done, understand, "doesn't"]
+    concepts: [analytics, "can't", understand, "doesn't", process]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qof56h.md#c9", "social-intelligence/reddit-deep/careerguidance/1qof56h.md#c11"]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/careerguidance/1qof56h.md#c13"
-    char_span: [22151, 24062]
+    char_span: [22150, 24061]
     sentence_count: 19
     key_terms: [work, daughter, redditcaraccount, reading, since, like, meds, probably]
+    concepts: [redditcaraccount, daughter, reading, since, probably]
     section: Comments
     token_count: 466
 ---

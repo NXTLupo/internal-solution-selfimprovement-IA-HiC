@@ -20,29 +20,40 @@ chunks:
     char_span: [0, 1868]
     sentence_count: 13
     key_terms: [insurance, risk, internship, financial, northwestern, management, financialcareers, representative]
+    concepts: [insurance, internship, financial, northwestern, management]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1rmfz5j.md#c2", "social-intelligence/reddit-deep/financialcareers/1rmfz5j.md#c3", "social-intelligence/reddit-deep/financialcareers/1rmfz5j.md#c4"]
     token_count: 378
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1rmfz5j/should_i_take_the_northwestern_mutual_financial/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1rmfz5j.md#c1"
-    char_span: [1883, 3990]
+    char_span: [1882, 3989]
     sentence_count: 15
     key_terms: [internship, financialcareers, discord, manwnomelanin, professionals, week, full-time, banking]
+    concepts: [internship, financialcareers, manwnomelanin, professionals, discord]
     section: Comments
     token_count: 513
+    sources: [{"n":"i did it","u":""}]
   - id: "social-intelligence/reddit-deep/financialcareers/1rmfz5j.md#c2"
-    char_span: [3992, 5779]
+    char_span: [3991, 5778]
     sentence_count: 18
     key_terms: [internship, call, did, advisors, selling, commission, insurance, amount]
+    concepts: [internship, advisors, selling, commission, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1rmfz5j.md#c0", "social-intelligence/reddit-deep/financialcareers/1rmfz5j.md#c3"]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/financialcareers/1rmfz5j.md#c3"
-    char_span: [5781, 7884]
+    char_span: [5780, 7883]
     sentence_count: 17
     key_terms: [experience, internship, insurance, mundane-mention13, sales, good, licensing, something]
+    concepts: [experience, internship, mundane-mention13, insurance, sales]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1rmfz5j.md#c0", "social-intelligence/reddit-deep/financialcareers/1rmfz5j.md#c2"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/financialcareers/1rmfz5j.md#c4"
-    char_span: [7886, 9292]
+    char_span: [7885, 9291]
     sentence_count: 13
     key_terms: [financial, insurance, annuities, honestly, always, number, banks, sales]
+    concepts: [financial, insurance, annuities, honestly, always]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1rmfz5j.md#c0"]
     section: Comments
     token_count: 328
 ---

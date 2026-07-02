@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1824]
     sentence_count: 10
     key_terms: [program, professional, years, applying, industry, sciences, semester, lors]
+    concepts: [program, professional, years, applying, industry]
     token_count: 431
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1mi1kn8/grad_school_admission_chances/"}]
 ---
 # Grad School Admission Chances
 

@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 2075]
     sentence_count: 18
     key_terms: [college, school, time, anyone, engineering, comments, continue, honestly]
+    concepts: [college, school, anyone, engineering, comments]
     token_count: 461
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1le73jc/im_honestly_quite_scared_for_paying_for_life_once/"}]
   - id: "social-intelligence/reddit-deep/college/1le73jc.md#c1"
     char_span: [2089, 3948]
     sentence_count: 19
     key_terms: [school, money, years, "i'm", semester, going, back, went]
+    concepts: [school, money, years, semester, going]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/college/1le73jc.md#c2"
     char_span: [3950, 5924]
     sentence_count: 14
     key_terms: [full-time, work, classes, internships, semester, dode124, clearwaterrev, opportunity]
+    concepts: [full-time, classes, internships, semester, clearwaterrev]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/college/1le73jc.md#c3"
     char_span: [5926, 6158]
     sentence_count: 2
     key_terms: [interviews, time, applications, internship, full-time, seriously, complete, program]
+    concepts: [interviews]
     section: Comments
     token_count: 50
 ---

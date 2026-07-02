@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 2068]
     sentence_count: 11
     key_terms: [software, online, engineer, certifications, career, careeradvice, engineering, etc]
+    concepts: [software, online, engineer, certifications, careeradvice]
     token_count: 465
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1pbnkqn/how_to_protect_my_career_as_a_software_engineer/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1pbnkqn.md#c1"
     char_span: [2082, 3632]
     sentence_count: 12
     key_terms: [currently, job, timmyturnahp21, using, "i'm", want, companies, blocked]
+    concepts: [currently, timmyturnahp21, using, companies, blocked]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/careeradvice/1pbnkqn.md#c2"
     char_span: [3637, 5628]
     sentence_count: 11
     key_terms: [software, generated, something, end, amount, going, development, data]
+    concepts: [software, generated, something, amount, development]
     section: Comments
     token_count: 467
 ---

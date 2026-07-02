@@ -21,34 +21,43 @@ chunks:
     char_span: [0, 2201]
     sentence_count: 26
     key_terms: [business, productivity, development, years, personal, started, course, time]
+    concepts: [business, productivity, development, years, personal]
     token_count: 475
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1rsog6u/why_personal_development_becomes_frustrating/"}]
   - id: "social-intelligence/reddit-deep/productivity/1rsog6u.md#c1"
     char_span: [2203, 3280]
     sentence_count: 6
     key_terms: [work, because, advice, people, subconscious, strategy, change, system]
+    concepts: [because, subconscious, advice, people, strategy]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1rsog6u.md#c2"]
     token_count: 196
   - id: "social-intelligence/reddit-deep/productivity/1rsog6u.md#c2"
     char_span: [3294, 5623]
     sentence_count: 20
     key_terms: [inevitablesuccess44, naturally, something, work, because, people, cause, sense]
+    concepts: [inevitablesuccess44, naturally, something, because, people]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1rsog6u.md#c1"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/productivity/1rsog6u.md#c3"
     char_span: [5625, 7820]
     sentence_count: 11
     key_terms: [never, knowledge, independence, development, discipline, effective, financial, something]
+    concepts: [knowledge, never, independence, development, discipline]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/productivity/1rsog6u.md#c4"
     char_span: [7822, 9677]
     sentence_count: 15
     key_terms: [habits, like, business, identity, problem, started, asking, atomic]
+    concepts: [habits, business, identity, problem, started]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/productivity/1rsog6u.md#c5"
     char_span: [9679, 10583]
     sentence_count: 9
     key_terms: [work, learning, inevitablesuccess44, clearthinkinglab, productivity, development, interesting, everything]
+    concepts: [learning]
     section: Comments
     token_count: 209
 ---

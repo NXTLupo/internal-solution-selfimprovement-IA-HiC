@@ -21,47 +21,59 @@ chunks:
     char_span: [0, 1544]
     sentence_count: 14
     key_terms: [phd, been, "i'm", always, askacademia, grad, academia, comments]
+    concepts: [always, askacademia, academia, comments, stipends]
     token_count: 371
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1ma2mmz/phd_stipends_quality_of_life_and_effect_on_your/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c1"
     char_span: [1558, 3085]
     sentence_count: 11
     key_terms: [people, parents, kids, phd, undergrad, everyone, programs, students]
+    concepts: [people, parents, undergrad, everyone, programs]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c3", "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c5"]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c2"
     char_span: [3087, 4875]
     sentence_count: 15
     key_terms: [being, month, student, connectfroot, able, get, plus, save]
+    concepts: [being, month, student, connectfroot, statement]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c3"
     char_span: [4877, 6582]
     sentence_count: 13
     key_terms: [like, parents, loans, undergrad, stipend, student, educated-professional, people]
+    concepts: [parents, loans, undergrad, stipend, student]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c1"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c4"
     char_span: [6584, 8326]
     sentence_count: 13
     key_terms: [phd, stipend, working, never, starting, because, program, salary]
+    concepts: [stipend, working, never, starting, because]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c5"
     char_span: [8328, 10174]
     sentence_count: 13
     key_terms: [programs, stipend, people, places, school, years, "it's", looking]
+    concepts: [programs, stipend, people, places, school]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c1"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c6"
     char_span: [10176, 12090]
     sentence_count: 16
     key_terms: [school, grad, month, rent, hours, ect, insurance, however]
+    concepts: [school, month, hours, insurance, however]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c7"
     char_span: [12092, 13689]
     sentence_count: 13
     key_terms: [pensions, salaries, abroad, school, system, though, get, grad]
+    concepts: [pensions, salaries, abroad, school, system]
     section: Comments
     token_count: 379
 ---

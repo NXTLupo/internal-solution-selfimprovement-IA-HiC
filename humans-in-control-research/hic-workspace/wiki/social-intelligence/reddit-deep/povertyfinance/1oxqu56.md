@@ -21,59 +21,78 @@ chunks:
     char_span: [0, 2121]
     sentence_count: 16
     key_terms: [christmas, been, year, don, presents, because, povertyfinance, anyone]
+    concepts: [christmas, presents, povertyfinance, because, anyone]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c3", "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c6"]
     token_count: 483
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1oxqu56/ive_cancelled_christmas_is_anyone_else/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c1"
     char_span: [2135, 4188]
     sentence_count: 15
     key_terms: [local, christmas, kids, like, remember, nothing, wanted, organizations]
+    concepts: [local, christmas, remember, organizations, nothing]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c2"
     char_span: [4190, 5720]
     sentence_count: 7
     key_terms: [get, daughter, organization, year, christmas, teacher, sheetz, embarrassed-disk7582]
+    concepts: [daughter, organization, christmas, teacher, sheetz]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c8"]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c3"
     char_span: [5722, 7951]
     sentence_count: 13
     key_terms: [christmas, because, church, gifts, get, presents, family, kids]
+    concepts: [christmas, because, church, gifts, presents]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c0", "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c4", "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c6", "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c4"
     char_span: [7609, 9268]
     sentence_count: 15
     key_terms: [christmas, gifts, get, help, tell, year, something, another]
+    concepts: [christmas, gifts, something, another, please]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c3", "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c6", "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c9"]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c5"
     char_span: [9270, 10319]
     sentence_count: 10
     key_terms: [got, anything, cheezits, remember, because, snacks, brand, store]
+    concepts: [anything, cheezits, remember, because, snacks]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c6"
     char_span: [10321, 11509]
     sentence_count: 7
     key_terms: [something, presents, secret, santa, good, christmas, birthday, getting]
+    concepts: [something, presents, secret, santa, christmas]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c0", "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c3", "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c4", "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c9"]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c7"
     char_span: [11511, 12919]
     sentence_count: 18
     key_terms: [fun, presents, paper, wrapped, church, crappy, pretty, saving]
+    concepts: [presents, paper, wrapped, church, crappy]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c3"]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c8"
     char_span: [12921, 14471]
     sentence_count: 13
     key_terms: [christmas, being, right, year, important, daughter, honestly, spending]
+    concepts: [christmas, being, right, important, daughter]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c2", "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c9"]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c9"
     char_span: [14473, 16625]
     sentence_count: 22
     key_terms: [christmas, being, games, different, something, daughter, paycheck, selfish]
+    concepts: [christmas, being, games, different, something]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c4", "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c6", "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c8"]
     section: Comments
     token_count: 483
 ---

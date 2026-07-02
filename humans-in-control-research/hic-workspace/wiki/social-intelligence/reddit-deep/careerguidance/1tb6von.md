@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1115]
     sentence_count: 13
     key_terms: [want, careerguidance, don, anything, comments, myself, paths, like]
+    concepts: [careerguidance, anything, comments, myself, paths]
     token_count: 268
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tb6von/any_advice_for_someone_with_low_experience_a_few/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tb6von.md#c1"
-    char_span: [1130, 2364]
+    char_span: [1129, 2363]
     sentence_count: 9
     key_terms: [environmental, something, without, degree, people, skills, "you're", local]
+    concepts: [environmental, something, without, degree, people]
     section: Comments
     token_count: 246
 ---

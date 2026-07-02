@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 899]
     sentence_count: 7
     key_terms: [cscareerquestions, engineer, service, support, tech, electrical, comments, systems]
+    concepts: [cscareerquestions, engineer, service, support, electrical]
     token_count: 207
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1pxpvjp/is_tech_support_service_engineer_in_electrical/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pxpvjp.md#c1"
     char_span: [913, 2091]
     sentence_count: 5
     key_terms: [engineering, like, software, epicfail1994, "i'm", role, sure, manager]
+    concepts: [engineering, software, epicfail1994, manager, career]
     section: Comments
     token_count: 281
 ---

@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1044]
     sentence_count: 6
     key_terms: [team, member, frustrated, management, temporary, comments, managers, projects]
+    concepts: [member, frustrated, management, temporary, comments]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1t4pcdr.md#c1"]
     token_count: 235
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1t4pcdr/advice_needed_managing_frustrated_team_member/"}]
   - id: "social-intelligence/reddit-deep/managers/1t4pcdr.md#c1"
     char_span: [1058, 3304]
     sentence_count: 14
     key_terms: [team, temporary, establishmentlocal97, lead, member, management, director, lonely-world-981]
+    concepts: [temporary, establishmentlocal97, management, member, lonely-world-981]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1t4pcdr.md#c0"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/managers/1t4pcdr.md#c2"
     char_span: [3306, 5381]
     sentence_count: 12
     key_terms: [person, get, promoted, looking, manager, advocate, because, change]
+    concepts: [person, promoted, looking, manager, advocate]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/managers/1t4pcdr.md#c3"
     char_span: [5383, 7414]
     sentence_count: 14
     key_terms: [establishmentlocal97, sohaib-riaz-khan, communication, build, frustration, opportunity, transparent, here]
+    concepts: [establishmentlocal97, sohaib-riaz-khan, communication, frustration, opportunity]
     section: Comments
     token_count: 459
 ---

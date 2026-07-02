@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2302]
     sentence_count: 11
     key_terms: [engineering, science, data, berkeley, master, cmu, learning, software]
+    concepts: [engineering, science, berkeley, master, learning]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1ralmgr/cmu_vs_berkeley/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1ralmgr.md#c1"
     char_span: [2304, 4011]
     sentence_count: 10
     key_terms: [significantly, courses, engineering, gsi, program, career, school, technical]
+    concepts: [significantly, engineering, courses, program, career]
     token_count: 367
   - id: "social-intelligence/reddit-deep/gradadmissions/1ralmgr.md#c2"
     char_span: [4025, 4332]

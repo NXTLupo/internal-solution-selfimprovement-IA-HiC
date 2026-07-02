@@ -17,10 +17,12 @@ research_goal: "Generate a comprehensive product marketing report for NXT Humans
 engagement: "generate-a-comprehensive-product-marketing-report-for-nxt-hu"
 chunks:
   - id: "social-intelligence/reddit-deep/saas/1mk65is.md#c0"
-    char_span: [0, 1377]
+    char_span: [0, 1376]
     sentence_count: 11
     key_terms: [security, https, combinator-f25-ba, b1k-koru-activity-7358409705808891905-h, b1k-koru-activity-7358409705808891905-, application, com, saas]
-    token_count: 380
+    concepts: [security, https, combinator-f25-ba, application, comments]
+    token_count: 379
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1mk65is/ai_security_agent_living_inside_your_api_our_yc/"}]
 ---
 # AI Security Agent Living Inside Your API - Our YC Application
 

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1232]
     sentence_count: 9
     key_terms: [research, professional, internships, economics, political, year, science, proficiency]
+    concepts: [research, professional, internships, economics, political]
     token_count: 268
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t0pmh3/3rd_year_econpolsci_student_advice_on_internships/"}]
   - id: "social-intelligence/reddit-deep/internships/1t0pmh3.md#c1"
     char_span: [1246, 1607]
     sentence_count: 2
     key_terms: [internshipdaily, daily, sweet-frosting4839, com, day, reassurance, dante86966, definitely]
+    concepts: [internshipdaily, daily]
     section: Comments
     token_count: 91
 ---

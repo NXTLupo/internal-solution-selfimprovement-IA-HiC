@@ -19,59 +19,70 @@ chunks:
     char_span: [0, 2331]
     sentence_count: 15
     key_terms: [team, manual, jobs, outsourced, technical, comments, manager, trying]
+    concepts: [manual, outsourced, technical, comments, manager]
     token_count: 479
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1t5h1oh/company_wants_a_100page_manual_for_an_outsourced/"}]
   - id: "social-intelligence/reddit-deep/jobs/1t5h1oh.md#c1"
     char_span: [2345, 4094]
     sentence_count: 15
     key_terms: [team, late, stay, new, position, gaslighting, afford, manual]
+    concepts: [position, gaslighting, afford, manual, being]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/jobs/1t5h1oh.md#c2"
     char_span: [4096, 5120]
     sentence_count: 8
     key_terms: [boss, permanent, document, company, record, remind, libel, catchmeifyoucan09]
+    concepts: [permanent, document, company, record, remind]
     section: Comments
     token_count: 237
   - id: "social-intelligence/reddit-deep/jobs/1t5h1oh.md#c3"
     char_span: [5122, 6933]
     sentence_count: 13
     key_terms: [manual, corporation, outsourcing, work, independencemean8774, adeptinspection4868, therealmistersunday, right]
+    concepts: [manual, corporation, outsourcing, right]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/jobs/1t5h1oh.md#c4"
     char_span: [6935, 8794]
     sentence_count: 10
     key_terms: [weeks, notice, "that's", performance, courtesy, industry, already, review]
+    concepts: [weeks, notice, "that's", performance, courtesy]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/jobs/1t5h1oh.md#c5"
     char_span: [8796, 10516]
     sentence_count: 20
     key_terms: [stay, final, weeks, don, late, employment, laughable, previous]
+    concepts: [employment, final, weeks, laughable, previous]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/jobs/1t5h1oh.md#c6"
     char_span: [10518, 12445]
     sentence_count: 16
     key_terms: [immediately, let, employer, "doesn't", record, result, threat, basic]
+    concepts: [immediately, employer, "doesn't", record, result]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/jobs/1t5h1oh.md#c7"
     char_span: [12447, 13563]
     sentence_count: 4
     key_terms: [random, pages, binder, ill-mastodon-8692, hand, last, contributed, sierrastar7]
+    concepts: [random, pages, binder]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/jobs/1t5h1oh.md#c8"
     char_span: [13566, 14949]
     sentence_count: 8
     key_terms: [use, document, perfect, pages, ask, case, day, half]
+    concepts: [document, perfect, pages]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/jobs/1t5h1oh.md#c9"
     char_span: [14951, 16258]
     sentence_count: 14
     key_terms: [work, makes, boy, dull, jack, play, verification, pages]
+    concepts: [makes, verification, employment, pages]
     section: Comments
     token_count: 374
 ---

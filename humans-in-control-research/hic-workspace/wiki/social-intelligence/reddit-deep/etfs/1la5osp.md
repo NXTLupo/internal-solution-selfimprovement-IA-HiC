@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1835]
     sentence_count: 11
     key_terms: [shares, account, brokerage, through, opened, contributing, stock, "i'm"]
+    concepts: [shares, account, brokerage, through, contributing]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1la5osp.md#c1"]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1la5osp/would_love_some_direction_on_my_portfolio/"}]
   - id: "social-intelligence/reddit-deep/etfs/1la5osp.md#c1"
-    char_span: [1850, 3702]
+    char_span: [1849, 3701]
     sentence_count: 12
     key_terms: [shares, account, buying, share, like, whattheheckoo, fzrox, money]
+    concepts: [shares, account, buying, share, whattheheckoo]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1la5osp.md#c0"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/etfs/1la5osp.md#c2"
-    char_span: [3704, 5661]
+    char_span: [3703, 5660]
     sentence_count: 20
     key_terms: [schd, schg, dividend, target, being, fzrox, great, consolidate]
+    concepts: [dividend, target, consolidate, appreciate, being]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/etfs/1la5osp.md#c3"
-    char_span: [5663, 7639]
+    char_span: [5662, 7638]
     sentence_count: 17
     key_terms: [like, schd, expenses, buying, get, fractional, rebalance, earlier]
+    concepts: [expenses, buying, fractional, rebalance, earlier]
     section: Comments
     token_count: 511
 ---

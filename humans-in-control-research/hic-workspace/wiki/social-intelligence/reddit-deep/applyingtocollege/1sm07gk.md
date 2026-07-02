@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 2150]
     sentence_count: 12
     key_terms: [ucla, umich, applyingtocollege, data, opportunities, heard, conditional, perspective]
+    concepts: [umich, applyingtocollege, opportunities, conditional, perspective]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sm07gk.md#c2"]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sm07gk/torn_between_ucla_and_umich_for_econ_data_science/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sm07gk.md#c1"
     char_span: [2164, 3030]
     sentence_count: 8
     key_terms: [bballfan1183, college, thatswhaturmomsaid69, like, ucla, competitive, attendance, personally]
+    concepts: [bballfan1183, college]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sm07gk.md#c2"
     char_span: [3032, 5048]
     sentence_count: 8
     key_terms: [conditional, umich, ucla, college, detroit, logan, never, offer]
+    concepts: [conditional, umich, college, detroit, experience]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sm07gk.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sm07gk.md#c3"
     char_span: [4807, 6256]
     sentence_count: 2
     key_terms: [ucla, consulting, anything, honestly, michigan, already, overall, private]
+    concepts: [consulting, anything, honestly, michigan, already]
     section: Comments
     token_count: 345
 ---

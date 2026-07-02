@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1316]
     sentence_count: 12
     key_terms: [entrepreneur, "don't", email, automation, comments, gorgias, support, tickets]
+    concepts: [entrepreneur, automation, "don't", email, comments]
     token_count: 322
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1quwh6y/large_influx_of_email_support_tickets_all_for_the/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1quwh6y.md#c1"
-    char_span: [1331, 2723]
+    char_span: [1330, 2722]
     sentence_count: 7
     key_terms: [entrepreneur, please, permanent, promotion, stickied, comment, message, thread]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/entrepreneur/1quwh6y.md#c2"
-    char_span: [2725, 4944]
+    char_span: [2724, 4943]
     sentence_count: 12
     key_terms: [answers, automation, questions, set, emailing, tickets, handle, people]
+    concepts: [answers, automation, questions, emailing, tickets]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/entrepreneur/1quwh6y.md#c3"
-    char_span: [4946, 5290]
+    char_span: [4945, 5289]
     sentence_count: 4
     key_terms: [automation, "i'd", post-purchase, self-service, repetitive, customers, exhausted, remaining]
+    concepts: [automation]
     section: Comments
     token_count: 73
 ---

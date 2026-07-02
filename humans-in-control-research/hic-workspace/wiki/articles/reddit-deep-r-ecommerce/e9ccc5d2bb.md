@@ -19,34 +19,41 @@ content_hash: "e22c78a308774165"
 relevance_by_goal: {"490684cfa204":30}
 chunks:
   - id: "articles/reddit-deep-r-ecommerce/e9ccc5d2bb.md#c0"
-    char_span: [0, 475]
+    char_span: [0, 474]
     sentence_count: 2
     key_terms: [e-commerce, ecommerce, industry, reddit, recap, week, shopifreaks, newsletter]
-    token_count: 133
+    concepts: [e-commerce, ecommerce, industry, reddit, recap]
+    token_count: 132
+    sources: [{"n":"Reddit Deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1t3sx2g/ecommerce_industry_news_recap_week_of_may_4th_2026/"}]
   - id: "articles/reddit-deep-r-ecommerce/e9ccc5d2bb.md#c1"
-    char_span: [477, 2828]
+    char_span: [476, 2827]
     sentence_count: 6
     key_terms: [commerce, ebay, gamestop, offer, unsolicited, investment, anthropic, companies]
+    concepts: [commerce, gamestop, unsolicited, investment, offer]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/e9ccc5d2bb.md#c2"
-    char_span: [2556, 5037]
+    char_span: [2555, 5036]
     sentence_count: 11
     key_terms: [like, original, new, app, creators, licenses, merchant, payment]
+    concepts: [original, creators, licenses, merchant, payment]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/e9ccc5d2bb.md#c3"
-    char_span: [4740, 7385]
+    char_span: [4739, 7384]
     sentence_count: 9
     key_terms: [stripe, advertisers, ids, data, original, content, updated, cookie]
+    concepts: [stripe, advertisers, original, content, updated]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/e9ccc5d2bb.md#c4"
-    char_span: [7044, 9562]
+    char_span: [7043, 9561]
     sentence_count: 11
     key_terms: [tracking, "china's", china, leaving, altman, openai, manus, commission]
+    concepts: [tracking, "china's", china, leaving, altman]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/e9ccc5d2bb.md#c5"
-    char_span: [9257, 10201]
+    char_span: [9256, 10200]
     sentence_count: 3
     key_terms: [openai, altman, for-profit, brockman, museum, price, lead, musk]
+    concepts: [openai, altman, for-profit, brockman, museum]
     token_count: 209
 ---
 # E-commerce Industry News Recap 🔥 Week of May 4th, 2026

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1791]
     sentence_count: 13
     key_terms: [claude, app, apple, anthropic, caffeine, native, completely, management]
+    concepts: [claude, anthropic, apple, caffeine, native]
     token_count: 382
+    sources: [{"n":"Reddit Deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1skwgfl/i_used_claude_to_help_me_build_an_apple_watch_app/"}]
   - id: "articles/reddit-deep-r-anthropic/f8de7b0e1c.md#c1"
     char_span: [1793, 2807]
     sentence_count: 5
     key_terms: [caffeine, pythononrailz, pseudorep, sensitive, awesome, drink, great, app]
+    concepts: [caffeine, pythononrailz, pseudorep, sensitive, awesome]
     token_count: 264
 ---
 # I used Claude to help me build an Apple Watch app to track caffeine half life and it’s gotten 2,500 downloads and made $700 in revenue so far

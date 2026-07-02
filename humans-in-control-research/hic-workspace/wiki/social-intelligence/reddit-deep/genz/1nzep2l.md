@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1080]
     sentence_count: 9
     key_terms: [relationship, money, comments, partner, realize, alternative-log-6091, genz, hard]
+    concepts: [relationship, money, comments, partner, realize]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1nzep2l.md#c2"]
     token_count: 252
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1nzep2l/getting_older_made_me_realize_how_important_it_is/"}]
   - id: "social-intelligence/reddit-deep/genz/1nzep2l.md#c1"
     char_span: [1094, 2166]
     sentence_count: 8
     key_terms: [partner, discord, people, talks, hard, fatcockroach002, automatically, automoderator]
+    concepts: [partner, discord, people, talks]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/genz/1nzep2l.md#c2"
     char_span: [2168, 3800]
     sentence_count: 9
     key_terms: [money, partner, like, different, something, breakups, honestly, bonding]
+    concepts: [money, partner, different, something, breakups]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1nzep2l.md#c0"]
     section: Comments
     token_count: 384
 ---

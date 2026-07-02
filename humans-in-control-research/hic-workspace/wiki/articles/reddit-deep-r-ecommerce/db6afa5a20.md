@@ -19,10 +19,12 @@ content_hash: "b509c4e1e935501f"
 relevance_by_goal: {"490684cfa204":88}
 chunks:
   - id: "articles/reddit-deep-r-ecommerce/db6afa5a20.md#c0"
-    char_span: [0, 1543]
+    char_span: [0, 1542]
     sentence_count: 9
     key_terms: [checkout, copilot, shopify, storefront, commerce, agentic, enabled, product]
-    token_count: 335
+    concepts: [checkout, copilot, shopify, storefront, commerce]
+    token_count: 334
+    sources: [{"n":"Reddit Deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1rq5yti/copilot_x_shopify/"}]
 ---
 # Copilot x Shopify
 

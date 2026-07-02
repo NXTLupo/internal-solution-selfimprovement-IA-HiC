@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1312]
     sentence_count: 9
     key_terms: [work-from-home, career, findapath, comments, paths, roles, data, job]
+    concepts: [work-from-home, career, findapath, comments, paths]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1ooyoon.md#c1"]
     token_count: 295
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1ooyoon/i_took_up_a_niche_workfromhome_role_and_it/"}]
   - id: "social-intelligence/reddit-deep/findapath/1ooyoon.md#c1"
     char_span: [1326, 2594]
     sentence_count: 11
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    concepts: [thank, helpful, please, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1ooyoon.md#c0"]
     section: Comments
     token_count: 286
 ---

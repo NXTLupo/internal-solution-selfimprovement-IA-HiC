@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 726]
     sentence_count: 2
     key_terms: [major-changes-to-student-loan-borrowing-and-repayment-are-coming-heres-what-to-know, college, https, pbs, www, comments, newshour, federal]
+    concepts: [major-changes-to-student-loan-borrowing-and-repayment-are-coming-heres-what-to-know, college, https, comments, newshour]
     token_count: 207
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1qwsr5e/im_a_pbs_reporter_who_wrote_about_what_new/"}]
   - id: "social-intelligence/reddit-deep/college/1qwsr5e.md#c1"
     char_span: [740, 1444]
     sentence_count: 4
     key_terms: [going, able, year, sweetcosmicpope, grandfathered, land-grant, parentplus, university]
+    concepts: [going]
     section: Comments
     token_count: 158
 ---

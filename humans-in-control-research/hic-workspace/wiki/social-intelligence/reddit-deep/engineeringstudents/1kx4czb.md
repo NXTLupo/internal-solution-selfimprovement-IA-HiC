@@ -21,46 +21,55 @@ chunks:
     char_span: [0, 276]
     sentence_count: 1
     key_terms: [engineeringstudents, comments, sydneyybydney, reddit-deep, internship, please, posted, reddit]
+    concepts: [engineeringstudents, comments]
     token_count: 75
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1kx4czb/please_read_this_if_you_are_doing_an_internship/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c1"
     char_span: [278, 2570]
     sentence_count: 23
     key_terms: [don, feel, like, everyone, people, learn, internships, day]
+    concepts: [everyone, people, internships, delegating, experience]
     token_count: 496
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c2"
     char_span: [2584, 4822]
     sentence_count: 12
     key_terms: [engineering, actual, job, work, position, doing, interesting, don]
+    concepts: [engineering, actual, position, interesting, doing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c3"
     char_span: [4466, 6374]
     sentence_count: 14
     key_terms: [interesting, work, anything, down, company, always, worked, learn]
+    concepts: [interesting, anything, company, always, worked]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c4"
     char_span: [6376, 8277]
     sentence_count: 13
     key_terms: [questions, engineer, ask, new, internship, sometimes, question, asking]
+    concepts: [questions, engineer, internship, sometimes, question]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c5"
     char_span: [8279, 10509]
     sentence_count: 17
     key_terms: [explanation, seeing, been, technical, yesterday, assembly, because, storage]
+    concepts: [explanation, seeing, technical, yesterday, assembly]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c6"
     char_span: [10511, 12459]
     sentence_count: 11
     key_terms: [get, like, design, saying, work, experience, assembly, interns]
+    concepts: [design, saying, experience, assembly, interns]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c7"
     char_span: [12461, 14473]
     sentence_count: 13
     key_terms: [job, work, get, because, months, down, feel, like]
+    concepts: [because, months, internship, understand, graduate]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c8"
@@ -73,6 +82,7 @@ chunks:
     char_span: [14803, 16982]
     sentence_count: 14
     key_terms: [work, internship, hiring, engineers, tactic, hired, internships, get]
+    concepts: [internship, hiring, engineers, tactic, internships]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c10"

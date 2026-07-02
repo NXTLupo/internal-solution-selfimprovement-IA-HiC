@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 590]
     sentence_count: 3
     key_terms: [dataengineering, data, comments, pipeline, sources, "you've", "i'm", tool]
+    concepts: [dataengineering, comments, pipeline, sources, "you've"]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1lf5tkh.md#c2"]
     token_count: 139
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1lf5tkh/whats_the_best_data_pipeline_tool_youve_used/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1lf5tkh.md#c1"
-    char_span: [605, 2278]
+    char_span: [604, 2277]
     sentence_count: 8
     key_terms: [ingestion, orchestrator, airbyte, dagster, like, postgres, tracking, airflow]
+    concepts: [ingestion, orchestrator, airbyte, dagster, postgres]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/dataengineering/1lf5tkh.md#c2"
-    char_span: [2280, 3629]
+    char_span: [2279, 3628]
     sentence_count: 10
     key_terms: [data, fabric, notebooks, rest, pipeline, sources, use, tophaholic]
+    concepts: [fabric, notebooks, pipeline, sources, tophaholic]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1lf5tkh.md#c0"]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/dataengineering/1lf5tkh.md#c3"
-    char_span: [3631, 4737]
+    char_span: [3630, 4736]
     sentence_count: 6
     key_terms: [data, incremental, pipelines, pipeline, schema, classic-sherbert3244, works, like]
+    concepts: [incremental, pipelines, pipeline, schema, works]
     section: Comments
     token_count: 244
 ---

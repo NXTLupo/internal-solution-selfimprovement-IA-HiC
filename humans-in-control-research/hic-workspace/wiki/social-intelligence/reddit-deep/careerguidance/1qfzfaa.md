@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1146]
     sentence_count: 8
     key_terms: [careerguidance, comments, tracking, explore, student, career, paths, roles]
+    concepts: [careerguidance, comments, tracking, explore, student]
     token_count: 250
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qfzfaa/bca_student_who_loves_price_comparison_cost/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1qfzfaa.md#c1"
     char_span: [1160, 2244]
     sentence_count: 6
     key_terms: [analyst, pricing, roles, positions, entry-level, honestly, probably, bca]
+    concepts: [analyst, pricing, positions, roles, entry-level]
     section: Comments
     token_count: 213
 ---

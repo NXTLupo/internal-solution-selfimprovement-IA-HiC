@@ -17,10 +17,12 @@ research_goal: "Produce the definitive guide to personal investing in 2026 by an
 engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/vanguardinvestments/1rjyrms.md#c0"
-    char_span: [0, 859]
+    char_span: [0, 858]
     sentence_count: 9
     key_terms: [vanguardinvestments, find, comments, customer, receipts, receipt, service, through]
+    concepts: [vanguardinvestments, comments, customer, receipts, receipt]
     token_count: 217
+    sources: [{"n":"reddit-deep: r/vanguardinvestments","u":"https://www.reddit.com/r/VanguardInvestments/comments/1rjyrms/where_on_the_website_to_find_receipts_for/"}]
 ---
 # Where on the website to find receipts for gifts-in-kind?
 

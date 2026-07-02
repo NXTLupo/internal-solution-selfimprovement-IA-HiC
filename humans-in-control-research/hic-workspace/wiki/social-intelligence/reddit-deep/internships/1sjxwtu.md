@@ -19,16 +19,22 @@ chunks:
     char_span: [0, 1952]
     sentence_count: 7
     key_terms: [internship, summer, international, unpaid, usa, stipend, opportunities, scholarships]
+    concepts: [internship, summer, international, unpaid, opportunities]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1sjxwtu.md#c2"]
     token_count: 443
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sjxwtu/international_students_in_the_usa_with_previous/"}]
   - id: "social-intelligence/reddit-deep/internships/1sjxwtu.md#c1"
     char_span: [1954, 2382]
     sentence_count: 3
     key_terms: [international, students, advice, anyone, opportunities, scholatships, appreciated, expenses]
+    concepts: [international, students, advice, anyone]
     token_count: 90
   - id: "social-intelligence/reddit-deep/internships/1sjxwtu.md#c2"
     char_span: [2396, 3878]
     sentence_count: 21
     key_terms: [internship, research, school, summer, like, look, professors, understand]
+    concepts: [internship, research, school, summer, professors]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1sjxwtu.md#c0"]
     section: Comments
     token_count: 325
 ---

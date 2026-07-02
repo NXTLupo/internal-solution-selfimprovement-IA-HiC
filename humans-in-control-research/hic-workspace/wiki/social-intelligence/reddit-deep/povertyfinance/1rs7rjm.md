@@ -21,46 +21,55 @@ chunks:
     char_span: [0, 1891]
     sentence_count: 13
     key_terms: [job, povertyfinance, right, years, keep, pay, struggling, unemployed]
+    concepts: [povertyfinance, right, struggling, unemployed, years]
     token_count: 436
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1rs7rjm/unemployed_31m_zero_income_cant_get_a_real_job/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c1"
     char_span: [1893, 3712]
     sentence_count: 12
     key_terms: [pay, around, debt, another, credit, "can't", house, month]
+    concepts: [around, another, credit, "can't", house]
     token_count: 429
   - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c2"
     char_span: [3726, 5609]
     sentence_count: 18
     key_terms: [making, dui, good, got, year, another, because, driving]
+    concepts: [making, another, because, driving, mistake]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c3"
     char_span: [5611, 7609]
     sentence_count: 23
     key_terms: [need, place, job, money, rent, opportunity, car, don]
+    concepts: [place, money, opportunity, necessity, situation]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c4"
     char_span: [7611, 9924]
     sentence_count: 16
     key_terms: ["i'm", myself, debt, appreciate, definitely, hopefully, accident, spending]
+    concepts: [myself, appreciate, definitely, hopefully, accident]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c5"
     char_span: [9926, 11798]
     sentence_count: 18
     key_terms: [get, job, unconventional, conventional, yourself, points, skills, "you're"]
+    concepts: [unconventional, conventional, yourself, points, skills]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c6"
     char_span: [11800, 12863]
     sentence_count: 11
     key_terms: [back, car, life, happening, ownership, gig-work, because, "isn't"]
+    concepts: [happening, ownership, gig-work, because, "isn't"]
     section: Comments
     token_count: 229
   - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c7"
     char_span: [12865, 14549]
     sentence_count: 15
     key_terms: [get, months, work, important, somewhere, driving, income, places]
+    concepts: [months, important, somewhere, driving, income]
     section: Comments
     token_count: 405
 ---

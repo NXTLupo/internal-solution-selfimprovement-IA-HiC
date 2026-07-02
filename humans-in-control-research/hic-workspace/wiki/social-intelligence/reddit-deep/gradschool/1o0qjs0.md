@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1789]
     sentence_count: 13
     key_terms: [student, advice, environment, lab, completely, gradschool, situation, comments]
+    concepts: [student, advice, environment, completely, gradschool]
     token_count: 377
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1o0qjs0/looking_for_advice_on_bad_grad_student_situation/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1o0qjs0.md#c1"
     char_span: [1803, 3833]
     sentence_count: 11
     key_terms: [advisor, craiginatorr, award, transfer, autisticrocheter, cabbagemeister, hophippityhop, transferring]
+    concepts: [advisor, craiginatorr, autisticrocheter, award, transfer]
     section: Comments
     token_count: 509
 ---

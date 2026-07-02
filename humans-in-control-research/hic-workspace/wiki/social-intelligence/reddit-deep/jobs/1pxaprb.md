@@ -21,35 +21,45 @@ chunks:
     char_span: [0, 973]
     sentence_count: 8
     key_terms: [interview, car, told, comments, because, manager, remarkable-soil-2997, asked]
+    concepts: [interview, comments, because, manager, asked]
     token_count: 254
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1pxaprb/didnt_get_the_job_because_i_dont_have_a_car/"}]
   - id: "social-intelligence/reddit-deep/jobs/1pxaprb.md#c1"
     char_span: [987, 2894]
     sentence_count: 11
     key_terms: [transportation, reliable, car, mode, whatever32657, asked, ask, walk]
+    concepts: [transportation, reliable, whatever32657, asked, retail]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1pxaprb.md#c2", "social-intelligence/reddit-deep/jobs/1pxaprb.md#c4"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/jobs/1pxaprb.md#c2"
     char_span: [2896, 4369]
     sentence_count: 12
     key_terms: [reliable, transportation, car, uber, probably, asked, ask, etc]
+    concepts: [reliable, transportation, probably, asked]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1pxaprb.md#c1", "social-intelligence/reddit-deep/jobs/1pxaprb.md#c4"]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/jobs/1pxaprb.md#c3"
     char_span: [4371, 5732]
     sentence_count: 9
     key_terms: [reliable, close, car, get, minute, better-commission541, able, ask]
+    concepts: [reliable, close, minute]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/jobs/1pxaprb.md#c4"
     char_span: [5734, 7827]
     sentence_count: 14
     key_terms: [car, transportation, reliable, because, people, communities, winterbird, interview]
+    concepts: [transportation, reliable, because, people, communities]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1pxaprb.md#c1", "social-intelligence/reddit-deep/jobs/1pxaprb.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1pxaprb.md#c5"
     char_span: [7549, 7894]
     sentence_count: 5
     key_terms: [people, transportation, twominute920, humiliating, something, personal, reliable, requires]
+    concepts: [people]
     section: Comments
     token_count: 76
 ---

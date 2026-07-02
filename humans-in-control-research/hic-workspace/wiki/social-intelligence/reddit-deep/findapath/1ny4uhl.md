@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 2089]
     sentence_count: 21
     key_terms: [because, "i'm", life, college, degree, skills, "don't", job]
+    concepts: [because, college, degree, skills, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1ny4uhl.md#c1"]
     token_count: 451
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1ny4uhl/im_27_with_no_job_experience_and_college_degree/"}]
   - id: "social-intelligence/reddit-deep/findapath/1ny4uhl.md#c1"
     char_span: [2103, 4191]
     sentence_count: 15
     key_terms: [degree, thank, get, tyyyu555, college, helpful, please, help]
+    concepts: [degree, thank, tyyyu555, college, helpful]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1ny4uhl.md#c0"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/findapath/1ny4uhl.md#c2"
     char_span: [4193, 6170]
     sentence_count: 18
     key_terms: [get, college, don, suggest, innit-bruh1184, school, anywhere, degree]
+    concepts: [college, innit-bruh1184, suggest, school, anywhere]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1ny4uhl.md#c3"
     char_span: [5905, 6696]
     sentence_count: 10
     key_terms: [get, job, experience, college, money, ask, find, scholarships]
+    concepts: [experience, college, money]
     section: Comments
     token_count: 182
 ---

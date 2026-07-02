@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1411]
     sentence_count: 11
     key_terms: [performance, pips, despite, process, humanresources, expectations, part, management]
+    concepts: [performance, humanresources, despite, process, expectations]
     token_count: 327
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1pcng1f/managers_not_following_performance_management/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1pcng1f.md#c1"
     char_span: [1425, 3470]
     sentence_count: 22
     key_terms: [leadership, process, follow, credibility, like, themselves, different, mission]
+    concepts: [leadership, process, follow, credibility, themselves]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/humanresources/1pcng1f.md#c2"
     char_span: [3472, 4045]
     sentence_count: 6
     key_terms: [yourself, manager, transcription, consequences, conversation, escalations, defendable, escalating]
+    concepts: [yourself, manager]
     section: Comments
     token_count: 127
   - id: "social-intelligence/reddit-deep/humanresources/1pcng1f.md#c3"
     char_span: [4047, 6259]
     sentence_count: 19
     key_terms: [managers, pip, performance, been, culture, answer, asking, leadership]
+    concepts: [managers, performance, culture, answer, asking]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1pcng1f.md#c4"
     char_span: [5988, 6567]
     sentence_count: 4
     key_terms: [managers, problem, process, maybe, cruelhumor, difference, identified, addresses]
+    concepts: [managers, problem, process, maybe]
     section: Comments
     token_count: 129
   - id: "social-intelligence/reddit-deep/humanresources/1pcng1f.md#c5"
     char_span: [6569, 8702]
     sentence_count: 25
     key_terms: [pain, accountable, performance, feel, stop, understand, processes, deadline]
+    concepts: [accountable, performance, understand, processes, deadline]
     section: Comments
     token_count: 490
 ---

@@ -19,53 +19,67 @@ chunks:
     char_span: [0, 1844]
     sentence_count: 18
     key_terms: [school, applyingtocollege, "i've", like, nothing, applications, disappointed, been]
+    concepts: [applyingtocollege, school, nothing, applications, disappointed]
     token_count: 422
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1s8dzp6/ive_never_been_so_disappointed/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c1"
     char_span: [1858, 3923]
     sentence_count: 23
     key_terms: [financial, aid, parents, get, schools, out-of-state, endowments, benefits]
+    concepts: [financial, parents, schools, out-of-state, endowments]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c4"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c2"
     char_span: [3925, 6110]
     sentence_count: 19
     key_terms: [school, enough, kids, because, parents, income, state, understand]
+    concepts: [school, enough, because, parents, income]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c3"
     char_span: [6112, 7955]
     sentence_count: 11
     key_terms: [right, getting, opportunities, being, dumb, plan, schools, better]
+    concepts: [right, opportunities, getting, being, schools]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c4"
     char_span: [7957, 9537]
     sentence_count: 16
     key_terms: [harvard, parents, wealthy, family, financial, situation, yourself, believe]
+    concepts: [harvard, parents, wealthy, family, financial]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c1"]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c5"
     char_span: [9539, 11361]
     sentence_count: 17
     key_terms: [parents, tuition, got, paid, understand, athlete, average, despite]
+    concepts: [parents, tuition, understand, athlete, average]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c6"
     char_span: [11363, 13113]
     sentence_count: 18
     key_terms: [get, pay, school, professional, gonna, internships, best, grad]
+    concepts: [professional, school, internships, gonna, undergrad]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c7"
     char_span: [13115, 14866]
     sentence_count: 16
     key_terms: [college, school, going, aid, end, however, schools, feels]
+    concepts: [college, school, going, however, schools]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c8"]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c8"
     char_span: [14869, 15565]
     sentence_count: 10
     key_terms: [school, going, electrical-bed-7836, state, get, good, "i'm", work]
+    concepts: [school, going, state]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c7"]
     section: Comments
     token_count: 170
 ---

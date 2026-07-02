@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2029]
     sentence_count: 16
     key_terms: [discussion, something, college, chegg, post, unit, reply, week]
+    concepts: [discussion, something, college, chegg, reply]
     token_count: 465
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ldn1yg/should_i_say_something/"}]
 ---
 # Should I say something?
 

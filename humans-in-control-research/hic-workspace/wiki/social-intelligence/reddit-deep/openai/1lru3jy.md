@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 2209]
     sentence_count: 26
     key_terms: [engine, engineering, programming, language, linguistics, prompt, specific, thinking]
+    concepts: [engine, engineering, programming, language, linguistics]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1lru3jy.md#c1"]
     token_count: 486
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1lru3jy/prompt_engineering_context_engineering_protocol/"}]
   - id: "social-intelligence/reddit-deep/openai/1lru3jy.md#c1"
     char_span: [2223, 3834]
     sentence_count: 9
     key_terms: [bidwestern1056, language, instructions, programming, able, jdonavan, believe, natural]
+    concepts: [bidwestern1056, language, instructions, programming, jdonavan]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1lru3jy.md#c0"]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/openai/1lru3jy.md#c2"
     char_span: [3836, 4540]
     sentence_count: 3
     key_terms: [sql, anything, warmdragonfruit8783, get, theorysudden5996, consistently, axfmzlz9xxm, interesting]
+    concepts: [anything]
     section: Comments
     token_count: 172
 ---

@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 622]
     sentence_count: 4
     key_terms: [engineeringstudents, internship, accepted, comments, career, fair, appreciated, engineering]
+    concepts: [engineeringstudents, internship, accepted, comments, career]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qzuewt.md#c1"]
     token_count: 147
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qzuewt/what_to_do_at_a_career_fair_if_i_accepted_an/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qzuewt.md#c1"
     char_span: [636, 2769]
     sentence_count: 13
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, accepted, better]
+    concepts: [engineeringstudents, please, reddit, https, accepted]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qzuewt.md#c0"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qzuewt.md#c2"
     char_span: [2771, 4952]
     sentence_count: 13
     key_terms: [internship, good, getting, network, resume, professional, get, networking]
+    concepts: [internship, getting, network, professional, resume]
     section: Comments
     token_count: 491
 ---

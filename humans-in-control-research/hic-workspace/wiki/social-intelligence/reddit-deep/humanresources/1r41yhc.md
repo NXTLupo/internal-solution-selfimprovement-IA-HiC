@@ -21,47 +21,56 @@ chunks:
     char_span: [0, 628]
     sentence_count: 4
     key_terms: [humanresources, comments, people, saw, perspectives, reddit-deep, threatening, appreciate]
+    concepts: [humanresources, comments, people]
     token_count: 160
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1r41yhc/just_saw_a_harper_ai_hr_generalist_ad_am_i_being/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1r41yhc.md#c1"
     char_span: [642, 2184]
     sentence_count: 11
     key_terms: [ats, chatgpt, because, probate, job, increased, security, screwed]
+    concepts: [chatgpt, because, probate, increased, security]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/humanresources/1r41yhc.md#c2"
     char_span: [2188, 3877]
     sentence_count: 8
     key_terms: [benefits, lawsuits, terrible, company, service, worried, fantastic-hamster333, execs]
+    concepts: [benefits, lawsuits, terrible, company, service]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/humanresources/1r41yhc.md#c3"
     char_span: [3879, 5096]
     sentence_count: 5
     key_terms: [manufacturing, work, tangylittleblueberry, unusual--equipment, book, used, septemberlondon, lizwaits410]
+    concepts: [manufacturing]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/humanresources/1r41yhc.md#c4"
     char_span: [5098, 6953]
     sentence_count: 8
     key_terms: [harper, get, lol, rep, work, brawllikeabigfight20, going, mundane-jump-7546]
+    concepts: [harper, going]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1r41yhc.md#c5"
     char_span: [6728, 7236]
     sentence_count: 4
     key_terms: [insurance, namesarenteverything, compassionate, relationships, lonerchick, photoapple, programmed, chatbots]
+    concepts: [insurance]
     section: Comments
     token_count: 127
   - id: "social-intelligence/reddit-deep/humanresources/1r41yhc.md#c6"
     char_span: [7238, 9347]
     sentence_count: 12
     key_terms: [replace, human, get, leadership, because, answer, humans, people]
+    concepts: [replace, human, leadership, because, answer]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/humanresources/1r41yhc.md#c7"
     char_span: [9349, 10379]
     sentence_count: 6
     key_terms: [situation, passing, easier, back, let, erinmichaelyooo, richardrosenow, environment]
+    concepts: [situation, passing, easier]
     section: Comments
     token_count: 268
 ---

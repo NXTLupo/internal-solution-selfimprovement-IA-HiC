@@ -20,29 +20,40 @@ chunks:
     char_span: [0, 1333]
     sentence_count: 12
     key_terms: [automation, experience, customerexperience, customer, support, better, automated, improving]
+    concepts: [automation, experience, customerexperience, customer, support]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c1", "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c2", "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c3", "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c4"]
     token_count: 280
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1rynd3w/is_customer_experience_actually_getting_better_or/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c1"
-    char_span: [1348, 3909]
+    char_span: [1347, 3908]
     sentence_count: 20
     key_terms: [automation, experience, like, automated, human, customer, self-service, feels]
+    concepts: [automation, experience, automated, customer, human]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c0", "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c2", "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c3", "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c2"
-    char_span: [3911, 6194]
+    char_span: [3910, 6193]
     sentence_count: 24
     key_terms: [customer, automation, customers, experience, companies, journey, better, worse]
+    concepts: [customer, automation, customers, experience, companies]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c0", "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c1", "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c3", "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c4"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c3"
-    char_span: [6196, 8140]
+    char_span: [6195, 8139]
     sentence_count: 21
     key_terms: [automation, customer, journey, better, like, experience, companies, something]
+    concepts: [automation, customer, journey, better, experience]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c0", "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c1", "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c2", "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c4"]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c4"
-    char_span: [8142, 9318]
+    char_span: [8141, 9317]
     sentence_count: 4
     key_terms: [automation, customers, customer, designed, helpful, systems, around, somewhereselect8226]
+    concepts: [automation, customers, customer, designed, helpful]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c0", "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c1", "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c2", "social-intelligence/reddit-deep/customerexperience/1rynd3w.md#c3"]
     section: Comments
     token_count: 246
 ---

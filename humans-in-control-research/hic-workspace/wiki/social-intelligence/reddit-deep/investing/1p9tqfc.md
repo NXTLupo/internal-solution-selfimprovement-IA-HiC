@@ -21,34 +21,41 @@ chunks:
     char_span: [0, 1686]
     sentence_count: 5
     key_terms: [portfolio, term, stocks, investing, etfs, europe, low, conviction]
+    concepts: [portfolio, stocks, investing, europe, conviction]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1p9tqfc/advice_on_investing_strategy_multiple_etfs_to_add/"}]
   - id: "social-intelligence/reddit-deep/investing/1p9tqfc.md#c1"
     char_span: [1689, 3538]
     sentence_count: 16
     key_terms: [companies, etf, dividend, sector, above, etfs, like, want]
+    concepts: [companies, dividend, sector, above, exposure]
     token_count: 431
   - id: "social-intelligence/reddit-deep/investing/1p9tqfc.md#c2"
     char_span: [3552, 5620]
     sentence_count: 13
     key_terms: [growth, "don't", fund, progrieferhere, term, anything, probably, ideally]
+    concepts: [growth, "don't", progrieferhere, anything, probably]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/investing/1p9tqfc.md#c3"
     char_span: [5622, 7680]
     sentence_count: 22
     key_terms: ["i'm", something, less, term, personally, expecting, portfolio, continue]
+    concepts: [something, personally, expecting, portfolio, continue]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/investing/1p9tqfc.md#c4"
     char_span: [7682, 8959]
     sentence_count: 11
     key_terms: [diversification, good, playing, around, "you're", learn, lucky, get]
+    concepts: [diversification, playing, around, "you're", learn]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/investing/1p9tqfc.md#c5"
     char_span: [8961, 9734]
     sentence_count: 6
     key_terms: [diversification-protects-you-least, civolatility, selling, https, com, "i've", "it's", www]
+    concepts: [diversification-protects-you-least, civolatility, selling, https]
     section: Comments
     token_count: 210
 ---

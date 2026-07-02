@@ -19,35 +19,45 @@ chunks:
     char_span: [0, 1398]
     sentence_count: 11
     key_terms: [role, dream, job, incentives, genuinely, situation, comments, company]
+    concepts: [dream, incentives, genuinely, situation, comments]
     token_count: 327
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1tkl7c7/got_my_dream_job_then_my_actual_dream_job_called/"}]
   - id: "social-intelligence/reddit-deep/jobs/1tkl7c7.md#c1"
     char_span: [1412, 3334]
     sentence_count: 14
     key_terms: [get, "it's", personal, company, current, job, plaintrain, business]
+    concepts: [personal, company, current, plaintrain, business]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1tkl7c7.md#c4", "social-intelligence/reddit-deep/jobs/1tkl7c7.md#c5"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/jobs/1tkl7c7.md#c2"
     char_span: [3336, 4662]
     sentence_count: 13
     key_terms: [new, company, start, job, old, notice, weeks, ravensedgeleather]
+    concepts: [company, start, notice, weeks]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/jobs/1tkl7c7.md#c3"
     char_span: [4664, 6134]
     sentence_count: 11
     key_terms: [training, weeks, been, current, "you've", loveafterpornthrwawy, money, month]
+    concepts: [training, weeks, current, "you've", money]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/jobs/1tkl7c7.md#c4"
     char_span: [6136, 7897]
     sentence_count: 16
     key_terms: [hard, company, current, job, new, personal, another, leaving]
+    concepts: [company, current, personal, another, leaving]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1tkl7c7.md#c1", "social-intelligence/reddit-deep/jobs/1tkl7c7.md#c5"]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/jobs/1tkl7c7.md#c5"
     char_span: [7899, 9874]
     sentence_count: 19
     key_terms: [job, company, current, hard, left, take, another, because]
+    concepts: [company, current, another, because, leave]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1tkl7c7.md#c1", "social-intelligence/reddit-deep/jobs/1tkl7c7.md#c4"]
     section: Comments
     token_count: 508
 ---

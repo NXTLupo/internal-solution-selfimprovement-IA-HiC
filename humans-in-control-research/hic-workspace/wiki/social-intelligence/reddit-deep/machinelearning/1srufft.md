@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1265]
     sentence_count: 11
     key_terms: [diffusion, machinelearning, https, model, code, com, like, comments]
+    concepts: [diffusion, machinelearning, https, model, comments]
     token_count: 309
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1srufft/bulding_my_own_diffusion_language_model_from/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1srufft.md#c1"
     char_span: [1279, 2631]
     sentence_count: 10
     key_terms: [diffusion, pretty, idiot, like, grandiose, transport, optimal, technical-debate1303]
+    concepts: [diffusion, pretty, idiot, grandiose, transport]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/machinelearning/1srufft.md#c2"
     char_span: [2633, 3808]
     sentence_count: 6
     key_terms: [diffusion, transformer, discrete, because, family, models, pitter-patter-rain, "it's"]
+    concepts: [diffusion, transformer, discrete, because, family]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/machinelearning/1srufft.md#c3"
     char_span: [3810, 5983]
     sentence_count: 11
     key_terms: [diffusion, encrux615, did, project, similar, architecture, shakespeare, lot]
+    concepts: [diffusion, encrux615, project, similar, architecture]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/machinelearning/1srufft.md#c4"

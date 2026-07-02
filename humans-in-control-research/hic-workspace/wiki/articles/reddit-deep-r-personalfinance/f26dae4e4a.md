@@ -19,19 +19,23 @@ content_hash: "53c288c107a29880"
 relevance_by_goal: {"46dec9599ad5":48}
 chunks:
   - id: "articles/reddit-deep-r-personalfinance/f26dae4e4a.md#c0"
-    char_span: [0, 2074]
+    char_span: [0, 2073]
     sentence_count: 16
     key_terms: [insurance, life, money, benefit, individual, death, grow, "i'm"]
-    token_count: 473
+    concepts: [insurance, money, benefit, individual, death]
+    token_count: 472
+    sources: [{"n":"[Reddit Deep: r/personalfinance](articles/reddit-deep-r-personalfinance/f8ed2617","u":""}]
   - id: "articles/reddit-deep-r-personalfinance/f26dae4e4a.md#c1"
-    char_span: [2076, 4122]
+    char_span: [2075, 4121]
     sentence_count: 13
     key_terms: [insurance, life, "don't", ira, triscuitmeniscus, contributing, age, like]
+    concepts: [insurance, triscuitmeniscus, "don't", contributing, investment]
     token_count: 500
   - id: "articles/reddit-deep-r-personalfinance/f26dae4e4a.md#c2"
-    char_span: [4124, 4770]
+    char_span: [4123, 4769]
     sentence_count: 5
     key_terms: [insurance, paying, back, car, cost, got, hers, tellleather4967]
+    concepts: [insurance, paying]
     token_count: 165
 ---
 # I was sold on whole life insurance and now I regret it

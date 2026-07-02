@@ -19,45 +19,53 @@ chunks:
     char_span: [0, 2123]
     sentence_count: 23
     key_terms: [meta, internships, interviews, cscareerquestions, work, linkedin, product, grad]
+    concepts: [internships, interviews, cscareerquestions, linkedin, product]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tfzk5s/new_grad_at_meta_scared_of_layoffs_not_getting/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tfzk5s.md#c1"
-    char_span: [2138, 3874]
+    char_span: [2137, 3873]
     sentence_count: 11
     key_terms: [emergency, fund, "that's", life, time, everyone, expenses, possible]
+    concepts: [emergency, "that's", everyone, expenses, possible]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tfzk5s.md#c2"
-    char_span: [3876, 4635]
+    char_span: [3875, 4634]
     sentence_count: 3
     key_terms: [overkill, savings, partly, years, catstretchpics, dynamichunter, robotbaseball, timelessblur]
+    concepts: [overkill, savings, partly, years]
     section: Comments
     token_count: 196
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tfzk5s.md#c3"
-    char_span: [4637, 6382]
+    char_span: [4636, 6381]
     sentence_count: 11
     key_terms: [months, accounts, another, people, "don't", cash, completely, experience]
+    concepts: [months, accounts, another, people, completely]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tfzk5s.md#c4"
-    char_span: [6387, 8147]
+    char_span: [6386, 8146]
     sentence_count: 10
     key_terms: [applications, people, interviews, through, offers, faang, right, get]
+    concepts: [applications, interviews, people, through, offers]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tfzk5s.md#c5"
-    char_span: [8150, 10052]
+    char_span: [8149, 10051]
     sentence_count: 11
     key_terms: [positions, area, get, specialized, "it's", like, want, year]
+    concepts: [positions, specialized, experience, usually, likely]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tfzk5s.md#c6"
-    char_span: [10054, 12421]
+    char_span: [10053, 12420]
     sentence_count: 25
     key_terms: [keep, tech, external, industry, comment, layoffs, claude, impact]
+    concepts: [external, industry, comment, layoffs, claude]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tfzk5s.md#c7"
-    char_span: [12423, 12452]
+    char_span: [12422, 12451]
     sentence_count: 1
     key_terms: [comment, fresh, read]
     section: Comments

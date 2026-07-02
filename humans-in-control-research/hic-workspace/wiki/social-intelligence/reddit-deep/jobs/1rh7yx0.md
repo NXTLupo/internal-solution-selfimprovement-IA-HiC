@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1195]
     sentence_count: 1
     key_terms: [job, curriculum, monday, considering, comments, lesson, pretty, reason]
+    concepts: [curriculum, monday, considering, comments, lesson]
     token_count: 292
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rh7yx0/i_start_my_new_entrylevel_job_on_monday_and_im/"}]
   - id: "social-intelligence/reddit-deep/jobs/1rh7yx0.md#c1"
     char_span: [1209, 3115]
     sentence_count: 25
     key_terms: [day, new, yourself, mistakes, pressure, starting, working, always]
+    concepts: [yourself, mistakes, pressure, starting, working]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/jobs/1rh7yx0.md#c2"
     char_span: [3118, 4689]
     sentence_count: 21
     key_terms: [anxious, anxiety, thinking, training, yourself, student, matter, "you're"]
+    concepts: [anxious, anxiety, thinking, training, yourself]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/jobs/1rh7yx0.md#c3"
     char_span: [4691, 5899]
     sentence_count: 10
     key_terms: [school, principal, job, happened, incident, present, sufficient-arm3645, feel]
+    concepts: [school, principal, happened, incident, present]
     section: Comments
     token_count: 277
 ---

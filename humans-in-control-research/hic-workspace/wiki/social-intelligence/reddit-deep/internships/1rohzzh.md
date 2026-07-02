@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 901]
     sentence_count: 8
     key_terms: [internship, internships, experience, leadership, applying, comments, done, land]
+    concepts: [internship, internships, experience, leadership, applying]
     token_count: 206
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rohzzh/trying_to_land_an_internship_as_a_cs_major_need/"}]
 ---
 # Trying to land an Internship as a CS Major - Need tips (Has leadership skills and experience)
 

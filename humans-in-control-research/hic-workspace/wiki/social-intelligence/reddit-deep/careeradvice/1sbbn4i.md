@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 692]
     sentence_count: 6
     key_terms: [marketing, digital, careeradvice, comments, growing, career, field, modernwebmentor]
+    concepts: [marketing, digital, careeradvice, comments, growing]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1sbbn4i.md#c1"]
     token_count: 165
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1sbbn4i/is_digital_marketing_still_a_good_career_choice/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1sbbn4i.md#c1"
     char_span: [706, 2884]
     sentence_count: 12
     key_terms: [marketing, digital, tools, definitely, adjacent, requires, research, content]
+    concepts: [marketing, digital, definitely, tools, adjacent]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1sbbn4i.md#c0"]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/careeradvice/1sbbn4i.md#c2"
     char_span: [2886, 3225]
     sentence_count: 3
     key_terms: [marketing, haunting-clue7877, cut, department, experience, graduation, everyone, graphics]
+    concepts: [marketing]
     section: Comments
     token_count: 82
 ---

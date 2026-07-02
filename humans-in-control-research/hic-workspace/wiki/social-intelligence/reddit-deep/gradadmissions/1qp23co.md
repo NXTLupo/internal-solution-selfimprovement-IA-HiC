@@ -21,26 +21,32 @@ chunks:
     char_span: [0, 264]
     sentence_count: 1
     key_terms: [gradadmissions, comments, blackberry36, reddit-deep, management, "master's", looking, program]
+    concepts: [gradadmissions, comments]
     token_count: 72
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qp23co/looking_to_get_into_a_masters_program_for_sports/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qp23co.md#c1"
     char_span: [266, 2418]
     sentence_count: 19
     key_terms: [major, health, public, sports, gpa, classes, fsu, management]
+    concepts: [major, health, public, sports, classes]
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1qp23co.md#c2"
     char_span: [2158, 4348]
     sentence_count: 16
     key_terms: [experience, myself, sports, gpa, "i'm", helping, journey, program]
+    concepts: [experience, myself, sports, helping, journey]
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1qp23co.md#c3"
     char_span: [4060, 4602]
     sentence_count: 6
     key_terms: [along, use, want, fundamentals, connections, recognition, affordable, facility]
+    concepts: [along]
     token_count: 131
   - id: "social-intelligence/reddit-deep/gradadmissions/1qp23co.md#c4"
     char_span: [4604, 4998]
     sentence_count: 7
     key_terms: [thank, read, time, appreciate, commitment, absorbing, knowledge, shanagaes]
+    concepts: [thank]
     token_count: 88
 ---
 # Looking to get into a Master's Program for Sports Management

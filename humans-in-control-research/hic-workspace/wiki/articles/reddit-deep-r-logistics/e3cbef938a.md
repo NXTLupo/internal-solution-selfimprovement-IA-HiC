@@ -19,29 +19,35 @@ content_hash: "31dc42fb4f085866"
 relevance_by_goal: {"490684cfa204":35}
 chunks:
   - id: "articles/reddit-deep-r-logistics/e3cbef938a.md#c0"
-    char_span: [0, 2095]
+    char_span: [0, 2094]
     sentence_count: 23
     key_terms: [logistics, usps, week, fuel, postmaster, priority, general, steiner]
-    token_count: 473
+    concepts: [logistics, postmaster, priority, general, steiner]
+    token_count: 472
+    sources: [{"n":"Reddit Deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1s8re9u/catch_up_on_what_happened_this_week_in_logistics/"}]
   - id: "articles/reddit-deep-r-logistics/e3cbef938a.md#c1"
-    char_span: [2097, 4332]
+    char_span: [2096, 4331]
     sentence_count: 24
     key_terms: [amazon, companies, rural, years, delivery, storage, infrastructure, market]
+    concepts: [amazon, companies, rural, years, delivery]
     token_count: 472
   - id: "articles/reddit-deep-r-logistics/e3cbef938a.md#c2"
-    char_span: [4334, 6523]
+    char_span: [4333, 6522]
     sentence_count: 22
     key_terms: [facilities, cargo, million, trailer, theft, time, congress, freight]
+    concepts: [facilities, cargo, million, trailer, theft]
     token_count: 440
   - id: "articles/reddit-deep-r-logistics/e3cbef938a.md#c3"
-    char_span: [6525, 8672]
+    char_span: [6524, 8671]
     sentence_count: 18
     key_terms: [alliance, fedex, enforcement, surcharges, logistics-pulse-by-fulfillyn, australia, startrack, delivery]
+    concepts: [alliance, enforcement, fedex, surcharges, australia]
     token_count: 466
   - id: "articles/reddit-deep-r-logistics/e3cbef938a.md#c4"
-    char_span: [8674, 9490]
+    char_span: [8673, 9489]
     sentence_count: 5
     key_terms: [charlesholmes1, surcharges, thanks, thank, difficult-hope3521, fangda-weighbridge, friendly-cat-3776, fuel]
+    concepts: [charlesholmes1, surcharges, thanks, thank]
     token_count: 205
 ---
 # Catch up on what happened this week in Logistics: March 24-30

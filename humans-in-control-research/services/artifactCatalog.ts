@@ -6,7 +6,7 @@
  * if they disagree, fix the yaml). The omission guard is services/artifactCatalogCoverage.test.ts, which
  * asserts every ARTIFACT_TPL template id + every directive in corpusChatService resolves to a catalog entry.
  *
- * Plan: plans/hic-definitive-vision-and-100-percent-plan-v2-2026-06-30.md (WS-0).
+ * Plan: plans/hic-definitive-vision-and-100-percent-plan-v2-2026-07-01.md (WS-0).
  * Routing classes mirror aiRouter.artifactModelFor(): schema-bounded -> Flash; evidence/imagery/narrative ->
  * Gemini 3.1 Pro while OPUS_CAP_ACTIVE, Claude Opus 4.8 after. NEVER hardcode a model id here; the router owns
  * the model. This catalog owns the CONTRACT (tier, modality, editability, image-bearing), not the model id.

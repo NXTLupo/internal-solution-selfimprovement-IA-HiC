@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 2064]
     sentence_count: 28
     key_terms: [software, saas, users, customers, project, months, simple, entrepreneur]
+    concepts: [software, customers, users, project, entrepreneur]
     token_count: 470
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1mxmiqf/lessons_learned_from_30k_in_3_months/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1mxmiqf.md#c1"
-    char_span: [2079, 4080]
+    char_span: [2078, 4079]
     sentence_count: 16
     key_terms: [entrepreneur, please, products, problem, b2b, businesses, nickobicko, consumers]
+    concepts: [entrepreneur, please, products, problem, businesses]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/entrepreneur/1mxmiqf.md#c2"
-    char_span: [4082, 6334]
+    char_span: [4081, 6333]
     sentence_count: 37
     key_terms: [people, build, working, users, like, use, validation, community]
+    concepts: [people, build, working, users, validation]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/entrepreneur/1mxmiqf.md#c3"
-    char_span: [6336, 8092]
+    char_span: [6335, 8091]
     sentence_count: 11
     key_terms: [read, extensions, build, good, nickobicko, companies, customers, podcast]
+    concepts: [extensions, build, nickobicko, companies, customers]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1mxmiqf.md#c4"]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/entrepreneur/1mxmiqf.md#c4"
-    char_span: [8094, 9604]
+    char_span: [8093, 9603]
     sentence_count: 13
     key_terms: [churn, simplicity, companies, customers, growing, smaller, solving, since]
+    concepts: [churn, simplicity, companies, customers, growing]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1mxmiqf.md#c3"]
     section: Comments
     token_count: 321
 ---

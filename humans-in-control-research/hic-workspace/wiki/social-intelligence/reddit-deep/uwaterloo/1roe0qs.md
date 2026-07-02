@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 423]
     sentence_count: 3
     key_terms: [waterloo, uwaterloo, comments, program, co-op, econ, engineering, reddit-deep]
+    concepts: [waterloo, uwaterloo, comments, program, co-op]
     token_count: 109
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1roe0qs/waterloo_econ_students_how_is_the_coop_program/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1roe0qs.md#c1"
     char_span: [437, 2433]
     sentence_count: 12
     key_terms: [waterloo, econ, frontdevelopment652, "i'm", business, options, coop, data]
+    concepts: [waterloo, frontdevelopment652, business, options, experience]
     section: Comments
     token_count: 472
 ---

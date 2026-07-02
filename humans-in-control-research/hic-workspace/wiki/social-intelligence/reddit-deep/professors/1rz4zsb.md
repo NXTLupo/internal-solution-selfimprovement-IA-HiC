@@ -19,51 +19,70 @@ chunks:
     char_span: [0, 2241]
     sentence_count: 10
     key_terms: [students, student, professors, class, comments, international, understand, colleague]
+    concepts: [students, student, professors, class, comments]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rz4zsb.md#c2", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c4", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c6", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c7", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c8"]
     token_count: 464
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1rz4zsb/grad_students_behavior_escalating_beyond_language/"}]
   - id: "social-intelligence/reddit-deep/professors/1rz4zsb.md#c1"
     char_span: [2243, 4460]
     sentence_count: 8
     key_terms: [language, resources, students, something, behavior, clearly, center, class]
+    concepts: [language, resources, students, something, behavior]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rz4zsb.md#c2", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c3", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c4"]
     token_count: 439
   - id: "social-intelligence/reddit-deep/professors/1rz4zsb.md#c2"
     char_span: [4462, 5779]
     sentence_count: 6
     key_terms: [behavior, language, class, point, students, meeting, grad, want]
+    concepts: [behavior, language, class, point, students]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rz4zsb.md#c0", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c1", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c4"]
     token_count: 262
   - id: "social-intelligence/reddit-deep/professors/1rz4zsb.md#c3"
     char_span: [5793, 7625]
     sentence_count: 15
     key_terms: [student, behavior, interrupting, resources, happened, students, concern, meeting]
+    concepts: [student, behavior, interrupting, resources, happened]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rz4zsb.md#c1", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c4"]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/professors/1rz4zsb.md#c4"
     char_span: [7627, 9849]
     sentence_count: 20
     key_terms: [student, situation, something, behavior, students, another, meeting, suggest]
+    concepts: [student, situation, something, behavior, students]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rz4zsb.md#c0", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c1", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c2", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c3", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c6"]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/professors/1rz4zsb.md#c5"
     char_span: [9851, 11915]
     sentence_count: 14
     key_terms: [student, department, chair, expectations, performance, class, grad, behavior]
+    concepts: [student, department, expectations, chair, performance]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rz4zsb.md#c7"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/professors/1rz4zsb.md#c6"
     char_span: [11917, 14050]
     sentence_count: 12
     key_terms: [student, followintothenight, students, instructions, work, understand, behaviors, cultural]
+    concepts: [student, followintothenight, students, instructions, understand]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rz4zsb.md#c0", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c4", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c7", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c8"]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/professors/1rz4zsb.md#c7"
     char_span: [14052, 15649]
     sentence_count: 14
     key_terms: [students, cultural, student, chair, dean, good, definitely, colleague]
+    concepts: [students, cultural, student, chair, definitely]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rz4zsb.md#c0", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c4", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c5", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c6", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c8"]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/professors/1rz4zsb.md#c8"
     char_span: [15651, 17833]
     sentence_count: 11
     key_terms: [student, cultural, students, program, indian, organization, class, bangladeshi]
+    concepts: [student, cultural, students, program, organization]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rz4zsb.md#c0", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c4", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c6", "social-intelligence/reddit-deep/professors/1rz4zsb.md#c7"]
     section: Comments
     token_count: 484
 ---

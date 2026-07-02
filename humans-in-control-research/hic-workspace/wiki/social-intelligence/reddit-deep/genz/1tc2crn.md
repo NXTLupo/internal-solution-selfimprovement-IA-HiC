@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1217]
     sentence_count: 14
     key_terms: [life, boring, years, want, comments, standard, living, though]
+    concepts: [boring, years, comments, standard, living]
     token_count: 308
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1tc2crn/we_are_the_all_or_nothing_generation_and_i_think/"}]
   - id: "social-intelligence/reddit-deep/genz/1tc2crn.md#c1"
     char_span: [1231, 2910]
     sentence_count: 10
     key_terms: [reddit, broke, differently, good, "i'm", work, discord, nothing]
+    concepts: [reddit, differently, broke, discord, nothing]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/genz/1tc2crn.md#c2"
     char_span: [2912, 4424]
     sentence_count: 8
     key_terms: [provide, regular, get, jobs, ourselves, convince, yourself, because]
+    concepts: [provide, regular, ourselves, convince, yourself]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/genz/1tc2crn.md#c3"
     char_span: [4426, 5148]
     sentence_count: 5
     key_terms: [figurefour717, slow, probably, book, other-town1179, intentional, agreeeddd, planning]
+    concepts: [figurefour717, probably]
     section: Comments
     token_count: 195
 ---

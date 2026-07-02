@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1933]
     sentence_count: 21
     key_terms: [failed, biol, term, uwaterloo, comments, whatever, because, courses]
+    concepts: [failed, uwaterloo, comments, whatever, because]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1p10viz/ive_failed_every_1a_science_course_three_times_in/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1p10viz.md#c1"
     char_span: [1947, 3449]
     sentence_count: 9
     key_terms: [going, school, university, everyone, nothing, parents, either, truth]
+    concepts: [going, school, university, everyone, nothing]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/uwaterloo/1p10viz.md#c2"
     char_span: [3451, 4136]
     sentence_count: 4
     key_terms: [like, programs, imagine, options, science, maybe, labs, too]
+    concepts: [programs, imagine, options, science, maybe]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/uwaterloo/1p10viz.md#c3"
     char_span: [4138, 6196]
     sentence_count: 18
     key_terms: [help, courses, options, disability, advisors, semester, yourself, science]
+    concepts: [courses, options, disability, advisors, semester]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/uwaterloo/1p10viz.md#c4"
     char_span: [6198, 7968]
     sentence_count: 22
     key_terms: ["it's", university, support, failed, life, row, failures, classes]
+    concepts: [university, support, failed, failures, classes]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/uwaterloo/1p10viz.md#c5"
     char_span: [7970, 9319]
     sentence_count: 15
     key_terms: [disability, everything, because, through, couldn, mental, people, times]
+    concepts: [disability, everything, because, through, couldn]
     section: Comments
     token_count: 301
 ---

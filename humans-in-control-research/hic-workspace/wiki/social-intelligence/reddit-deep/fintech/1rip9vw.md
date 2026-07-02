@@ -11,16 +11,18 @@ score: 6
 upvote_ratio: 1
 num_comments: 1
 flair: ""
-extracted_at: "2026-06-11T18:57:30.596Z"
+extracted_at: "2026-06-20T17:51:57.714Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/fintech/1rip9vw.md#c0"
-    char_span: [0, 2538]
+    char_span: [0, 2537]
     sentence_count: 26
     key_terms: [infrastructure, fintech, digital-first, compliance, banks, distribution, abstraction, acquisition]
-    token_count: 513
+    concepts: [infrastructure, fintech, digital-first, compliance, banks]
+    token_count: 512
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1rip9vw/beyond_digitalfirst_banks_is_fintechs_real_power/"}]
 ---
 # Beyond Digital-First Banks: Is Fintech’s Real Power Shifting to Infrastructure?
 

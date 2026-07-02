@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1667]
     sentence_count: 10
     key_terms: [market, tech, cscareerquestions, future, ive, wondering, comments, probably]
+    concepts: [market, cscareerquestions, future, wondering, comments]
     token_count: 383
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sg6t04/future_career_advice/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/c9ea5df11d.md#c1"
     char_span: [1669, 3234]
     sentence_count: 7
     key_terms: [because, effectively, like, need, medicine, ideally, blah, keep]
+    concepts: [because, effectively, medicine, ideally]
     token_count: 356
 ---
 # Future career advice

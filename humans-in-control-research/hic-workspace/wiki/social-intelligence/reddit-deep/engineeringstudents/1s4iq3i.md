@@ -21,28 +21,34 @@ chunks:
     char_span: [0, 2466]
     sentence_count: 27
     key_terms: [physical, engineering, engineeringstudents, comments, architectures, environments, power, test]
+    concepts: [physical, engineering, engineeringstudents, comments, architectures]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1s4iq3i/to_the_students_worried_about_ai_a_3question_test/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s4iq3i.md#c1"
     char_span: [2468, 2963]
     sentence_count: 3
     key_terms: [how-to-build-a-career-that-ai-cant, substack, ranjeethsid, https, com, full, here, ios]
+    concepts: [how-to-build-a-career-that-ai-cant, substack, ranjeethsid, https]
     token_count: 139
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s4iq3i.md#c2"
     char_span: [2977, 4652]
     sentence_count: 10
     key_terms: [engineeringstudents, newsprofessional8065, wiki, https, com, please, reddit, automoderator]
+    concepts: [engineeringstudents, newsprofessional8065, https, please, reddit]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s4iq3i.md#c3"
     char_span: [4654, 6046]
     sentence_count: 11
     key_terms: [calculus, results, problem, google, pretty, "don't", been, cal]
+    concepts: [calculus, results, problem, google, pretty]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s4iq3i.md#c4"
     char_span: [6048, 7031]
     sentence_count: 6
     key_terms: [engineering, jesuslizardgoat, article, someone, claude, newsprofessional8065, interdisciplinary, certification]
+    concepts: [engineering, jesuslizardgoat, article, someone, claude]
     section: Comments
     token_count: 231
 ---

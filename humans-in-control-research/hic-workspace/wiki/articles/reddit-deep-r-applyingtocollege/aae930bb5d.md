@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 2189]
     sentence_count: 19
     key_terms: [international, college, school, community, applyingtocollege, parents, scholarships, universities]
+    concepts: [international, college, school, applyingtocollege, community]
     token_count: 499
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1soz8yw/im_lost_and_confused_about_going_to_college/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/aae930bb5d.md#c1"
     char_span: [2191, 4011]
     sentence_count: 17
     key_terms: [state, college-openings-update, administration, international, gpa, visa, interested, nacacnet]
+    concepts: [state, college-openings-update, administration, international, interested]
     token_count: 445
   - id: "articles/reddit-deep-r-applyingtocollege/aae930bb5d.md#c2"
     char_span: [4013, 4482]
     sentence_count: 5
     key_terms: [because, dream, been, don, subconscious, unrealistic, everything, incredibly]
+    concepts: [because, dream]
     token_count: 109
 ---
 # I’m lost and confused about going to college

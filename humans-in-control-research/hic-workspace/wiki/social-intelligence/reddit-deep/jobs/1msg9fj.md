@@ -21,34 +21,41 @@ chunks:
     char_span: [0, 2396]
     sentence_count: 25
     key_terms: [entry-level, companies, hire, job, especially, experience, industries, assigned]
+    concepts: [entry-level, companies, especially, experience, industries]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1msg9fj/dear_entrylevel_job_seeker/"}]
   - id: "social-intelligence/reddit-deep/jobs/1msg9fj.md#c1"
     char_span: [2398, 3562]
     sentence_count: 17
     key_terms: [learn, industry, better, struggles, climate, stand, don, role]
+    concepts: [learn, industry, better, struggles, climate]
     token_count: 263
   - id: "social-intelligence/reddit-deep/jobs/1msg9fj.md#c2"
     char_span: [3576, 5214]
     sentence_count: 10
     key_terms: [jobs, being, experienced, get, job, definitely, networking, hardcore]
+    concepts: [experienced, being, definitely, networking, hardcore]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/jobs/1msg9fj.md#c3"
     char_span: [5216, 6910]
     sentence_count: 9
     key_terms: [myself, people, introverted, been, keep, networking, always, events]
+    concepts: [myself, people, introverted, networking, always]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/jobs/1msg9fj.md#c4"
     char_span: [6912, 8738]
     sentence_count: 13
     key_terms: [businesses, "i'm", job, nothing, people, "don't", "it's", experience]
+    concepts: [businesses, nothing, people, "don't", experience]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/jobs/1msg9fj.md#c5"
     char_span: [8740, 10049]
     sentence_count: 9
     key_terms: [recommendation, applications, free, because, network, trusted, hiring, people]
+    concepts: [recommendation, applications, because, network, trusted]
     section: Comments
     token_count: 305
 ---

@@ -19,58 +19,72 @@ chunks:
     char_span: [0, 2041]
     sentence_count: 13
     key_terms: [department, professor, university, comments, position, students, school, uncomfortable]
+    concepts: [department, professor, university, comments, position]
     token_count: 438
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1rq2hsh/title_ix_failed_a_professor/"}]
   - id: "social-intelligence/reddit-deep/professors/1rq2hsh.md#c1"
     char_span: [2043, 3112]
     sentence_count: 9
     key_terms: [students, involved, recorded, student, title, whole, representative, consequence]
+    concepts: [students, involved, recorded, student, title]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rq2hsh.md#c2", "social-intelligence/reddit-deep/professors/1rq2hsh.md#c5"]
     token_count: 219
   - id: "social-intelligence/reddit-deep/professors/1rq2hsh.md#c2"
     char_span: [3126, 5219]
     sentence_count: 15
     key_terms: [student, students, investigation, faculty, title, complaint, sue, another]
+    concepts: [student, investigation, students, faculty, complaint]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rq2hsh.md#c1"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/professors/1rq2hsh.md#c3"
     char_span: [5221, 6650]
     sentence_count: 7
     key_terms: [students, lalochezia1, code, like, enough, severe, otherwise-mirror-738, honor]
+    concepts: [students, lalochezia1, enough, severe, honor]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/professors/1rq2hsh.md#c4"
     char_span: [6652, 8773]
     sentence_count: 12
     key_terms: [students, like, being, queer, complaints, disturbing, supervisor, faculty]
+    concepts: [students, being, complaints, disturbing, queer]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/professors/1rq2hsh.md#c5"
     char_span: [8775, 10983]
     sentence_count: 14
     key_terms: [students, title, thatcheekychick, another, fascism, student, knowledge-as-commodity, class]
+    concepts: [students, thatcheekychick, title, another, fascism]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rq2hsh.md#c1"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/professors/1rq2hsh.md#c6"
     char_span: [10985, 12639]
     sentence_count: 12
     key_terms: [professor, title, uncomfortable, "don't", "professor's", colleague, education, therefore]
+    concepts: [professor, title, uncomfortable, "professor's", "don't"]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/professors/1rq2hsh.md#c7"
     char_span: [12641, 13902]
     sentence_count: 6
     key_terms: [interactions, submitted, witnesses, acknowledgement, too-post-tenure, administrator, documentation, independently]
+    concepts: [interactions, submitted, witnesses]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/professors/1rq2hsh.md#c8"
     char_span: [13907, 16115]
     sentence_count: 12
     key_terms: [students, get, "i've", seen, office, "false", sue, addressed]
+    concepts: [students, office, "false", addressed, promotion]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1rq2hsh.md#c9"
     char_span: [15884, 16436]
     sentence_count: 3
     key_terms: ["it's", sue, students, gravitysrainbow1979, administrators, expectations, complaining, incredibly]
+    concepts: [students]
     section: Comments
     token_count: 130
 ---

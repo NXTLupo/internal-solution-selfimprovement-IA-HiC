@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 349]
     sentence_count: 1
     key_terms: [https, theaidigest, comments, village, agents, openai, org, metaknowing]
+    concepts: [theaidigest, https, comments, village, agents]
     token_count: 102
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1lg4rd6/4_ai_agents_planned_an_event_and_23_humans_showed/"}]
   - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c1"
     char_span: [363, 2311]
     sentence_count: 14
     key_terms: ["it's", people, body, comparable, generate, physical, current, "doesn't"]
+    concepts: [people, comparable, generate, physical, current]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c2"
     char_span: [2313, 4259]
     sentence_count: 10
     key_terms: [event, human, budget, venue, planning, b0dedaa5ab6b4ea7dd9289c92f6c4411b39e77e1, humans, coordination]
+    concepts: [event, human, budget, planning, venue]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1lg4rd6.md#c5"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c3"
     char_span: [4261, 5862]
     sentence_count: 11
     key_terms: [people, like, another, because, random, based, event, case]
+    concepts: [people, another, because, random, based]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c4"
     char_span: [5864, 7104]
     sentence_count: 11
     key_terms: [event, ready-performer-2937, representativeany573, flyer, "it's", lol, poor, task]
+    concepts: [event, flyer]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c5"
     char_span: [7106, 8866]
     sentence_count: 5
     key_terms: [human, like, calling, ai-organized, event, "it's", atcg-1, pretty]
+    concepts: [human, calling, ai-organized, event, atcg-1]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1lg4rd6.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c6"
     char_span: [8623, 8993]
     sentence_count: 3
     key_terms: [like, using, seen-short-film, hallucinated, unneccessary, automation, libraries, resources]
+    concepts: [using]
     section: Comments
     token_count: 91
 ---

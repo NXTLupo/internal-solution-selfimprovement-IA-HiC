@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 940]
     sentence_count: 10
     key_terms: [waterloo, headhunters, "i'm", comments, hiring, lately, sales, data]
+    concepts: [waterloo, headhunters, comments, hiring, lately]
     token_count: 235
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1rcutf3/anyone_know_any_decent_headhunters_or_companies/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1rcutf3.md#c1"
     char_span: [954, 2006]
     sentence_count: 9
     key_terms: [jobs, sales, data, b2709d6c-e6cf-4de6-b2b7-7812fd05256a, https, tech, mindbridge, companies]
+    concepts: [sales, https, mindbridge, companies, analyst]
     section: Comments
     token_count: 306
 ---

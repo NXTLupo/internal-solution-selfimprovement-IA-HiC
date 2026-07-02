@@ -20,16 +20,19 @@ chunks:
     char_span: [0, 2362]
     sentence_count: 17
     key_terms: [data, businessintelligence, postgresql, "we're", warehouse, app, been, here]
+    concepts: [businessintelligence, postgresql, warehouse, "we're", bigquery]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1tg3v0i/first_time_building_a_data_warehouse_going_with/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1tg3v0i.md#c1"
     char_span: [2364, 2736]
     sentence_count: 4
     key_terms: [like, experience, genuinely, scheduled, something, anything, headache, honestly]
     token_count: 81
   - id: "social-intelligence/reddit-deep/businessintelligence/1tg3v0i.md#c2"
-    char_span: [2751, 4417]
+    char_span: [2750, 4416]
     sentence_count: 14
     key_terms: [postgres, caching, layer, gcs, management, navigating, refreshes, warehouse]
+    concepts: [postgres, caching, layer, management, navigating]
     section: Comments
     token_count: 401
 ---

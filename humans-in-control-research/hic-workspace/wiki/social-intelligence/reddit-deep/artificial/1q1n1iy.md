@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 2519]
     sentence_count: 3
     key_terms: [including, illegal, uncensored, refusal, someone, violent, non-consensual, write]
+    concepts: [including, illegal, uncensored, non-consensual, refusal]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1q1n1iy/legality_of_100_uncensored_chatbot/"}]
   - id: "social-intelligence/reddit-deep/artificial/1q1n1iy.md#c1"
     char_span: [2533, 4119]
     sentence_count: 10
     key_terms: [people, png, internet, browser, censor, https, sued, web]
+    concepts: [people, internet, browser, censor, developers]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/artificial/1q1n1iy.md#c2"
     char_span: [4121, 6232]
     sentence_count: 17
     key_terms: [people, because, illegal, information, "don't", like, browser, use]
+    concepts: [people, because, information, illegal, "don't"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/artificial/1q1n1iy.md#c3"
     char_span: [6234, 8003]
     sentence_count: 12
     key_terms: [information, llm, choose, responsible, get, user, work, cardiology]
+    concepts: [information, choose, responsible, cardiology, "anyone's"]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/artificial/1q1n1iy.md#c4"
     char_span: [8005, 9883]
     sentence_count: 15
     key_terms: [aggressiveparty3355, information, instructions, wikipedia, argument, methamphetamine, believe, blocked]
+    concepts: [aggressiveparty3355, information, instructions, wikipedia, methamphetamine]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/artificial/1q1n1iy.md#c5"
     char_span: [9885, 12020]
     sentence_count: 17
     key_terms: ["it's", jurisdiction, illegal, offence, liability, criminal, company, person]
+    concepts: [jurisdiction, illegal, offence, liability, criminal]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1q1n1iy.md#c6"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/artificial/1q1n1iy.md#c6"
     char_span: [12022, 14030]
     sentence_count: 14
     key_terms: [illegal, law, attempt, myrddinemrys, liability, chatbot, deleted, obscene]
+    concepts: [illegal, attempt, myrddinemrys, liability, chatbot]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1q1n1iy.md#c5"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/artificial/1q1n1iy.md#c7"
     char_span: [14032, 14262]
     sentence_count: 2
     key_terms: [intelligent, low-temperature-6962, corresponding, guaranteed, prosecuted, actions, "doesn't", intent]
+    concepts: [intelligent]
     section: Comments
     token_count: 53
 ---

@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 638]
     sentence_count: 2
     key_terms: [packaging, important, comments, dropship, products, custom, rough-month-342, dropshipping]
+    concepts: [packaging, important, comments, dropship, products]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1qju7as.md#c1"]
     token_count: 144
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1qju7as/how_important_is_custom_packaging/"}]
   - id: "social-intelligence/reddit-deep/dropship/1qju7as.md#c1"
-    char_span: [653, 2152]
+    char_span: [652, 2151]
     sentence_count: 7
     key_terms: [packaging, custom, aliexpress, branding, dropship, products, themself, branded]
+    concepts: [packaging, custom, aliexpress, branding, dropship]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1qju7as.md#c0"]
     section: Comments
     token_count: 360
 ---

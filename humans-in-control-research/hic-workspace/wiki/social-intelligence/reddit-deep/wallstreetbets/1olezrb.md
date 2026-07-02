@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1060]
     sentence_count: 9
     key_terms: [wallstreetbets, meta, zuck, comments, tendies, yolo, optionsforlife, generational]
+    concepts: [wallstreetbets, comments, tendies]
     token_count: 299
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1olezrb/919k_meta_yolo_mark_haircut_zuckerberg_better/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1olezrb.md#c1"
     char_span: [1074, 1438]
     sentence_count: 2
     key_terms: [discord, https, total, weeks, wsb, biggiemoe01, submissions, karmacave]
+    concepts: [discord, https, total, weeks]
     section: Comments
     token_count: 131
   - id: "social-intelligence/reddit-deep/wallstreetbets/1olezrb.md#c2"
     char_span: [1440, 2806]
     sentence_count: 5
     key_terms: [meta, d61535f4898daf8f50c74825da418c376622282a, shares, no-kaleidoscope-2891, onespokeovertheline, informal-army-4512, got, buildwithvignesh]
+    concepts: [shares]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1olezrb.md#c3"
@@ -44,18 +48,21 @@ chunks:
     char_span: [2877, 4086]
     sentence_count: 9
     key_terms: [accounts, options, shares, doesn, gigantischemeteor, day, igeneralofdeath, backwardsville]
+    concepts: [accounts, options, shares, doesn]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/wallstreetbets/1olezrb.md#c5"
     char_span: [4088, 5693]
     sentence_count: 10
     key_terms: [meta, ac40f59c196d92cb261b3651107393689875c270, c2423c96bed783d363897d491d6f290de6762028, views, advertisers, hokguailo, preview, format]
+    concepts: [advertisers, views, hokguailo, preview, format]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/wallstreetbets/1olezrb.md#c6"
     char_span: [5695, 6236]
     sentence_count: 5
     key_terms: [never, drummercompetitive20, norcalathlete, kittylover-7, billionaire, anywhere, sometime, weeklies]
+    concepts: [never]
     section: Comments
     token_count: 149
 ---

@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 2090]
     sentence_count: 25
     key_terms: [supposed, because, feel, job, like, manufacturing, idea, comments]
+    concepts: [supposed, because, manufacturing, comments, college]
     token_count: 512
+    sources: [{"n":"Reddit Deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1r6tbsm/how_does_one_not_feel_like_a_total_failure_man/"}]
   - id: "articles/reddit-deep-r-genz/dfecd6d52f.md#c1"
     char_span: [2093, 3765]
     sentence_count: 12
     key_terms: [apartmentworried5692, far, feel, less, work, american, already, working]
+    concepts: [apartmentworried5692, american, already, working, giving]
     token_count: 411
   - id: "articles/reddit-deep-r-genz/dfecd6d52f.md#c2"
     char_span: [3767, 4491]
     sentence_count: 8
     key_terms: [dream, life, teaching, repair, enjoy, own, billionaires, essentially]
+    concepts: [dream, teaching, repair, enjoy]
     token_count: 168
 ---
 # How does one not feel like a total failure, man

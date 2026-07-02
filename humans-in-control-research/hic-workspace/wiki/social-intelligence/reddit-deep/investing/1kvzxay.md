@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 558]
     sentence_count: 3
     key_terms: [stocks, investing, industrial, comments, old, moodyhighway, reddit-deep, absolutely]
+    concepts: [stocks, investing, industrial, comments]
     token_count: 144
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1kvzxay/ive_got_called_old_fashion_for_investing_in/"}]
   - id: "social-intelligence/reddit-deep/investing/1kvzxay.md#c1"
     char_span: [572, 2634]
     sentence_count: 11
     key_terms: [companies, invest, aapl, boring, construction, tech, millions, charlie]
+    concepts: [companies, invest, construction, boring, millions]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1kvzxay.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1kvzxay.md#c2"
     char_span: [2421, 3569]
     sentence_count: 10
     key_terms: [money, company, companies, boring, value, "it's", investment, country]
+    concepts: [company, money, companies, boring, investment]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1kvzxay.md#c1"]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/investing/1kvzxay.md#c3"
     char_span: [3571, 4196]
     sentence_count: 3
     key_terms: [hold, buying, market, stocks, diversification, thegargageman, pinpointing, eventually]
+    concepts: [buying, market, stocks]
     section: Comments
     token_count: 149
 ---

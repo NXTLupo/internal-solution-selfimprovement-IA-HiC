@@ -20,50 +20,66 @@ chunks:
     char_span: [0, 1880]
     sentence_count: 14
     key_terms: [insurance, car, people, story, "i'm", everything, total-loss, anything]
+    concepts: [insurance, people, everything, story, total-loss]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1r54ncm.md#c4"]
     token_count: 417
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1r54ncm/story_time_how_to_save_your_older_car_from/"}]
   - id: "social-intelligence/reddit-deep/insurance/1r54ncm.md#c1"
     char_span: [1882, 3863]
     sentence_count: 15
     key_terms: [insurance, car, estimate, because, good, shop, valuation, examples]
+    concepts: [insurance, estimate, because, valuation, examples]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1r54ncm.md#c3", "social-intelligence/reddit-deep/insurance/1r54ncm.md#c7"]
     token_count: 427
   - id: "social-intelligence/reddit-deep/insurance/1r54ncm.md#c2"
     char_span: [3865, 6085]
     sentence_count: 18
     key_terms: [insurance, got, attorney, "wouldn't", company, check, point, file]
+    concepts: [insurance, attorney, "wouldn't", company, check]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1r54ncm.md#c3"]
     token_count: 499
   - id: "social-intelligence/reddit-deep/insurance/1r54ncm.md#c3"
     char_span: [6087, 7511]
     sentence_count: 11
     key_terms: [get, car, because, through, "you're", take, insurance, company]
+    concepts: [because, through, "you're", insurance, company]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1r54ncm.md#c1", "social-intelligence/reddit-deep/insurance/1r54ncm.md#c2", "social-intelligence/reddit-deep/insurance/1r54ncm.md#c7"]
     token_count: 310
   - id: "social-intelligence/reddit-deep/insurance/1r54ncm.md#c4"
-    char_span: [7526, 9112]
+    char_span: [7525, 9111]
     sentence_count: 9
     key_terms: [people, parts, auto, insurance, business, rimtrim, totaled, around]
+    concepts: [people, parts, insurance, business, rimtrim]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1r54ncm.md#c0"]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/insurance/1r54ncm.md#c5"
-    char_span: [9114, 9607]
+    char_span: [9113, 9606]
     sentence_count: 4
     key_terms: [car, wzc6yy01gqjg1, post-repair, valuemeal3, fantastic, nonsense, another, because]
     section: Comments
     token_count: 154
   - id: "social-intelligence/reddit-deep/insurance/1r54ncm.md#c6"
-    char_span: [9609, 11096]
+    char_span: [9608, 11095]
     sentence_count: 13
     key_terms: [state, value, car, insurance, contract, uncommon, "wouldn't", because]
+    concepts: [state, value, insurance, contract, uncommon]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1r54ncm.md#c7"]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/insurance/1r54ncm.md#c7"
-    char_span: [11098, 12719]
+    char_span: [11097, 12718]
     sentence_count: 10
     key_terms: [insurance, "didn't", did, contract, because, totaled, vehicle, easily]
+    concepts: [insurance, "didn't", contract, because, totaled]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1r54ncm.md#c1", "social-intelligence/reddit-deep/insurance/1r54ncm.md#c3", "social-intelligence/reddit-deep/insurance/1r54ncm.md#c6"]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/insurance/1r54ncm.md#c8"
-    char_span: [12721, 14450]
+    char_span: [12720, 14449]
     sentence_count: 14
     key_terms: ["they're", people, years, experience, situation, believe, limited, anyone]
+    concepts: ["they're", people, experience, years, situation]
     section: Comments
     token_count: 381
 ---

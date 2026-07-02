@@ -7,62 +7,73 @@ subreddit: "ecommerce"
 title: "E-commerce Industry News Recap 🔥 Week of Jan 26th, 2026"
 author: "adventurepaul"
 date: "2026-01-26T21:46:25.000Z"
-score: 14
-upvote_ratio: 0.94
+score: 13
+upvote_ratio: 0.89
 num_comments: 20
 flair: "📰 News"
-extracted_at: "2026-06-18T13:35:23.812Z"
+extracted_at: "2026-06-24T22:13:57.305Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1qnu2wp.md#c0"
     char_span: [0, 250]
     sentence_count: 1
     key_terms: [ecommerce, comments, adventurepaul, reddit-deep, e-commerce, industry, posted, reddit]
+    concepts: [ecommerce, comments]
     token_count: 81
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1qnu2wp/ecommerce_industry_news_recap_week_of_jan_26th/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1qnu2wp.md#c1"
     char_span: [252, 2449]
     sentence_count: 9
     key_terms: [shopify, tiktok, e-commerce, merchants, credit, cardholders, top, confirmed]
+    concepts: [shopify, e-commerce, tiktok, merchants, credit]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1qnu2wp.md#c3"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1qnu2wp.md#c2"
     char_span: [2180, 4565]
     sentence_count: 7
     key_terms: [tiktok, operations, changes, like, use, previously, minister, security]
+    concepts: [tiktok, operations, changes, previously, minister]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1qnu2wp.md#c3"
     char_span: [4257, 6760]
     sentence_count: 10
     key_terms: [tiktok, use, merchants, production-ready, harmony, sellers, service, shopify]
+    concepts: [tiktok, production-ready, merchants, drag-and-drop, harmony]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1qnu2wp.md#c1"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1qnu2wp.md#c4"
     char_span: [6480, 8974]
     sentence_count: 11
     key_terms: [bank, tiktok, brands, sales, agreement, new, affirm, agents]
+    concepts: [tiktok, brands, agreement, sales, specifically]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1qnu2wp.md#c5"
     char_span: [8653, 10252]
     sentence_count: 8
     key_terms: [shopify, mobile, ads, express, openai, advertisers, regarding, awarded]
+    concepts: [shopify, mobile, express, openai, advertisers]
     token_count: 317
   - id: "social-intelligence/reddit-deep/ecommerce/1qnu2wp.md#c6"
-    char_span: [10267, 11992]
+    char_span: [10266, 11991]
     sentence_count: 9
     key_terms: [comment, chatgpt, interesting, ecommerce, lululemon, leggings, someone, future]
+    concepts: [comment, chatgpt, interesting, ecommerce, lululemon]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/ecommerce/1qnu2wp.md#c7"
-    char_span: [11994, 12812]
+    char_span: [11993, 12811]
     sentence_count: 6
     key_terms: [tiktok, adventurepaul, amazon, weeks, "it's", news, week, automatically]
+    concepts: [tiktok, adventurepaul, amazon, weeks]
     section: Comments
     token_count: 223
 ---
 # E-commerce Industry News Recap 🔥 Week of Jan 26th, 2026
 
 Source: [reddit-deep: r/ecommerce](https://www.reddit.com/r/ecommerce/comments/1qnu2wp/ecommerce_industry_news_recap_week_of_jan_26th/)
-Posted by **adventurepaul** · **14↑** · **20 comments**
+Posted by **adventurepaul** · **13↑** · **20 comments**
 
 Hi r/ecommerce \- I'm Paul and I follow the e-commerce industry closely for my Shopifreaks E-commerce Newsletter. Every week for the past 5 years I've posted a summary recap of the week's top stories on this subreddit, which I cover in depth with sources in the full edition. Let's dive in to this week's top e-commerce news...
 ___
@@ -109,7 +120,7 @@ The tuberculosis thing at Amazon is genuinely concerning though - "non-contagiou
 
 What's interesting is that unlike Google's organic traffic to e-commerce, ChatGPT is monetizing that "free" layer too. It's an interesting move.
     - **Leviathant** (1↑): [I've seen the future](https://www.reddit.com/r/ecommerce/comments/1q39x3x/comment/nxjf941/?context=3) and it's hot garbage.
-- **Aradepo** (5↑): 5 years of weekly recaps is no joke. Thanks for doing the homework for the rest of us — looking forward to this week’s breakdown.
+- **Aradepo** (4↑): 5 years of weekly recaps is no joke. Thanks for doing the homework for the rest of us — looking forward to this week’s breakdown.
   - **AutoModerator** (2↑): Your comment has been removed on /r/ecommerce because you do not meet the user requirements to post or comment. You do not have enough comment karma (10) or account age (10 days).  Both conditions must be met.  Please read the sub rules at the top of our main page for full posting and commenting guidelines.
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ecommerce) if you have any questions or concerns.*

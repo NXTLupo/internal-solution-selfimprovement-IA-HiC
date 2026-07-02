@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 1954]
     sentence_count: 10
     key_terms: [engineers, code, engineering, coding, engineeringstudents, been, "i've", software]
+    concepts: [engineers, engineering, engineeringstudents, coding, software]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c6"]
     token_count: 440
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qvwzlz/being_able_to_code_is_still_a_godtier_skill_for/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c1"
     char_span: [1956, 3264]
     sentence_count: 8
     key_terms: [code, engineering, already, "doesn't", "you're", learn, job, like]
+    concepts: [engineering, already, "doesn't", "you're", learn]
     token_count: 274
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c2"
     char_span: [3278, 5225]
     sentence_count: 18
     key_terms: [coding, because, everything, snowsharkk, anything, struggle, concept, course]
+    concepts: [coding, because, everything, snowsharkk, anything]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c3"
     char_span: [5227, 6986]
     sentence_count: 10
     key_terms: [coding, "you'll", one-liners, lines, understating, unexplained, code, part]
+    concepts: [coding, one-liners, "you'll", lines, understating]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c4"
     char_span: [6988, 8964]
     sentence_count: 13
     key_terms: [logic, code, good, together, knowing, put, work, especially]
+    concepts: [logic, together, knowing, especially, functions]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c5"
     char_span: [8966, 10897]
     sentence_count: 13
     key_terms: [class, programming, work, because, engineering, like, definitely, aerospace]
+    concepts: [class, programming, because, engineering, definitely]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c6"
     char_span: [10899, 13092]
     sentence_count: 13
     key_terms: [coding, code, use, vibe, netninja, youtube, engineering, acceptable]
+    concepts: [coding, netninja, youtube, engineering, acceptable]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c0"]
     section: Comments
     token_count: 509
 ---

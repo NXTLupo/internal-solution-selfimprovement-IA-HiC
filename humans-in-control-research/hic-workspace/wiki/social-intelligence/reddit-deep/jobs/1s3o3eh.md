@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 969]
     sentence_count: 11
     key_terms: [work, don, jobs, decent, experience, comments, college, feeling]
+    concepts: [decent, experience, comments, college, feeling]
     token_count: 246
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1s3o3eh/how_to_get_a_decent_job_in_your_30s_when_you_have/"}]
   - id: "social-intelligence/reddit-deep/jobs/1s3o3eh.md#c1"
     char_span: [983, 2756]
     sentence_count: 20
     key_terms: [trades, work, experience, wage, anything, recommending, been, don]
+    concepts: [trades, experience, anything, recommending, everybody]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/jobs/1s3o3eh.md#c2"
     char_span: [2758, 4400]
     sentence_count: 18
     key_terms: [people, get, someone, trying, getting, degree, resume, doing]
+    concepts: [people, someone, trying, getting, degree]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/jobs/1s3o3eh.md#c3"
     char_span: [4402, 6016]
     sentence_count: 9
     key_terms: [employment, work, programs, getting, without, working, degree, skills]
+    concepts: [employment, programs, getting, without, working]
     section: Comments
     token_count: 387
 ---

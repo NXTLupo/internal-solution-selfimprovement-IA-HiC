@@ -19,54 +19,67 @@ chunks:
     char_span: [0, 2103]
     sentence_count: 19
     key_terms: [admissions, inside, personal, essay, college, applyingtocollege, years, idea]
+    concepts: [admissions, applyingtocollege, inside, personal, college]
     token_count: 466
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1m3xz7m/you_have_an_amazing_personal_essay_inside_you_my/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c1"
     char_span: [2105, 4385]
     sentence_count: 17
     key_terms: [bridges, essay, connection, build, like, students, college, friends]
+    concepts: [bridges, essay, connection, build, students]
     token_count: 511
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c2"
     char_span: [4387, 6085]
     sentence_count: 11
     key_terms: [essay, essays, school, helped, admissions, admitted, personal, because]
+    concepts: [essay, essays, school, helped, admissions]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c3"]
     token_count: 359
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c3"
     char_span: [6087, 7554]
     sentence_count: 7
     key_terms: [essay, reddit, admissions, https, com, college, essays, bluelightspcl]
+    concepts: [essay, admissions, reddit, https, bluelightspcl]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c2"]
     token_count: 372
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c4"
     char_span: [7556, 9175]
     sentence_count: 17
     key_terms: [essay, write, comfortable, down, jot, list, step, vergilx217]
+    concepts: [essay, write, comfortable, vergilx217, reference]
     token_count: 389
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c5"
     char_span: [9177, 10294]
     sentence_count: 6
     key_terms: [thisibelieve, org, www, https, challenge, obstacles, personal, thinking]
+    concepts: [thisibelieve, https, challenge, obstacles, personal]
     token_count: 254
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c6"
     char_span: [10308, 12363]
     sentence_count: 17
     key_terms: [advice, admissionsmom, "don't", get, "it's", because, dragons, always]
+    concepts: [admissionsmom, advice, "don't", because, dragons]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c7"
     char_span: [12365, 13128]
     sentence_count: 7
     key_terms: [essay, life, something, topic, die, live, non-standard, immediately]
+    concepts: [essay, something, topic]
     section: Comments
     token_count: 171
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c8"
     char_span: [13130, 15074]
     sentence_count: 10
     key_terms: [admissionsmom, values, cool-passion8922, beliefs, essays, resume, hero, talk]
+    concepts: [admissionsmom, values, cool-passion8922, beliefs, essays]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c9"
     char_span: [15076, 16379]
     sentence_count: 5
     key_terms: [admissionsmom, students, use, vocabulary, thesaurus, exactly, behind, start]
+    concepts: [admissionsmom, students, vocabulary, thesaurus, exactly]
     section: Comments
     token_count: 317
 ---

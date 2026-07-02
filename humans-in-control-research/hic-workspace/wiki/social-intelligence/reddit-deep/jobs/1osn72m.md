@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 755]
     sentence_count: 1
     key_terms: [learn, com, www, developer, comments, career, google, cloud]
+    concepts: [learn, developer, comments, career, google]
     token_count: 189
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1osn72m/need_career_advice_to_upgrade_from_mssql/"}]
 ---
 # Need career advice to upgrade from mssql developer for better opportunities
 

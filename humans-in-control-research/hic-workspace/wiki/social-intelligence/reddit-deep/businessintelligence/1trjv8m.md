@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 854]
     sentence_count: 2
     key_terms: [businessintelligence, dashboarding, tools, automation, reporting, comments, people, power]
+    concepts: [businessintelligence, dashboarding, automation, tools, reporting]
     token_count: 182
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1trjv8m/what_dashboardreporting_tools_are_people_happiest/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1trjv8m.md#c1"
-    char_span: [869, 2503]
+    char_span: [868, 2502]
     sentence_count: 15
     key_terms: [metabase, knime, power, data, database, tables, prem, postgresql]
+    concepts: [metabase, knime, power, database, tables]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/businessintelligence/1trjv8m.md#c2"
-    char_span: [2505, 4545]
+    char_span: [2504, 4544]
     sentence_count: 9
     key_terms: [data, marketing, reporting, end, together, powerbi, revenue, answer]
+    concepts: [marketing, reporting, together, powerbi, revenue]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/businessintelligence/1trjv8m.md#c3"
-    char_span: [4547, 5285]
+    char_span: [4546, 5284]
     sentence_count: 3
     key_terms: [databricks, stack, own-bathroom-9258, nullymammoth, deployments, established, integration, prototyping]
+    concepts: [databricks, stack]
     section: Comments
     token_count: 174
 ---

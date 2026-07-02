@@ -21,46 +21,57 @@ chunks:
     char_span: [0, 2147]
     sentence_count: 14
     key_terms: [engineering, internships, engineeringstudents, something, uncertainty, been, don, like]
+    concepts: [engineering, engineeringstudents, internships, something, uncertainty]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sw7uxd/is_going_into_engineering_even_worth_it_anymore/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c1"
     char_span: [2149, 3186]
     sentence_count: 8
     key_terms: [engineering, flexible, working, job, own, turn, environment, flexibility]
+    concepts: [engineering, flexible, working]
     token_count: 219
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c2"
     char_span: [3200, 3642]
     sentence_count: 3
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    concepts: [engineeringstudents, reddit, https, resources, index]
     section: Comments
     token_count: 108
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c3"
     char_span: [3644, 5750]
     sentence_count: 18
     key_terms: [engineering, successful, because, engineer, dentist, "doesn't", teaches, demand]
+    concepts: [engineering, successful, because, engineer, dentist]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c4"
     char_span: [5470, 6389]
     sentence_count: 12
     key_terms: [engineering, pay, dentist, harder, "you'll", "you're", certain-falcon-9802, like]
+    concepts: [engineering, dentist, harder, "you'll", "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c3"]
     section: Comments
     token_count: 243
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c5"
     char_span: [6391, 7929]
     sentence_count: 18
     key_terms: [years, company, couple, people, skills, certain-falcon-9802, civil, going]
+    concepts: [years, company, couple, people, skills]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c6"
     char_span: [7931, 9503]
     sentence_count: 13
     key_terms: [engineering, job, software, did, get, year, secondary, montreal]
+    concepts: [engineering, software, secondary, montreal, managed]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c7"
     char_span: [9505, 11827]
     sentence_count: 16
     key_terms: [engineering, job, good, french, people, connections, get, otherwise]
+    concepts: [engineering, french, people, connections, otherwise]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c8"

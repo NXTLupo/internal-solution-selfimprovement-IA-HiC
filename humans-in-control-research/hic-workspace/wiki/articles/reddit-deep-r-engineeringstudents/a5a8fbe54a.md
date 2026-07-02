@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1776]
     sentence_count: 10
     key_terms: [experience, creamprofessional641, engineeringstudents, manufacturer, engineering, mechanical, equipment, comments]
+    concepts: [experience, creamprofessional641, engineeringstudents, manufacturer, engineering]
     token_count: 405
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1pxuja5/decent_starting_salary_for_a_mechanical/"}]
   - id: "articles/reddit-deep-r-engineeringstudents/a5a8fbe54a.md#c1"
     char_span: [1778, 2707]
     sentence_count: 5
     key_terms: [page, fresh, grad, points, bassprobachelor, automatically, aurorafinem, internships]
+    concepts: [fresh, points]
     token_count: 225
 ---
 # Decent starting salary for a Mechanical Engineering student with my experience

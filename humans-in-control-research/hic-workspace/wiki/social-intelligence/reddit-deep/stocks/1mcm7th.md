@@ -20,52 +20,70 @@ chunks:
     char_span: [0, 2121]
     sentence_count: 14
     key_terms: [million, euros, spotify, billion, company, subscribers, loss, net]
+    concepts: [million, euros, spotify, billion, company]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mcm7th.md#c1"]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1mcm7th/spotify_drops_11_for_worst_day_in_two_years_on/"}]
   - id: "social-intelligence/reddit-deep/stocks/1mcm7th.md#c1"
     char_span: [2123, 3848]
     sentence_count: 13
     key_terms: [spotify-spot-stock-q2-2025-earnings, company, year, spotify, intelligence, music, artificial, audiobooks]
+    concepts: [spotify-spot-stock-q2-2025-earnings, company, spotify, intelligence, artificial]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mcm7th.md#c0"]
     token_count: 385
   - id: "social-intelligence/reddit-deep/stocks/1mcm7th.md#c2"
-    char_span: [3863, 5405]
+    char_span: [3862, 5404]
     sentence_count: 12
     key_terms: [spotify, ctrl, play, music, songs, royalty, shuffle, youtube]
+    concepts: [spotify, music, songs, royalty, shuffle]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mcm7th.md#c3", "social-intelligence/reddit-deep/stocks/1mcm7th.md#c4", "social-intelligence/reddit-deep/stocks/1mcm7th.md#c5", "social-intelligence/reddit-deep/stocks/1mcm7th.md#c6"]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/stocks/1mcm7th.md#c3"
-    char_span: [5407, 7307]
+    char_span: [5406, 7306]
     sentence_count: 12
     key_terms: [shuffle, horizontally, deleted, spotify, design, never, songs, actionplanetrobot]
+    concepts: [shuffle, horizontally, deleted, spotify, design]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mcm7th.md#c2"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/stocks/1mcm7th.md#c4"
-    char_span: [7309, 9292]
+    char_span: [7308, 9291]
     sentence_count: 8
     key_terms: [spotify, music, banditcleaner2, ticketmaster, priority, netflix, years, been]
+    concepts: [spotify, music, banditcleaner2, ticketmaster, priority]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mcm7th.md#c2", "social-intelligence/reddit-deep/stocks/1mcm7th.md#c5", "social-intelligence/reddit-deep/stocks/1mcm7th.md#c6", "social-intelligence/reddit-deep/stocks/1mcm7th.md#c7"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/stocks/1mcm7th.md#c5"
-    char_span: [9294, 11096]
+    char_span: [9293, 11095]
     sentence_count: 12
     key_terms: [youtube, spotify, music, premium, haven, abx, don, kbit]
+    concepts: [youtube, spotify, music, premium, haven]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mcm7th.md#c2", "social-intelligence/reddit-deep/stocks/1mcm7th.md#c4", "social-intelligence/reddit-deep/stocks/1mcm7th.md#c6"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/stocks/1mcm7th.md#c6"
-    char_span: [11098, 12632]
+    char_span: [11097, 12631]
     sentence_count: 7
     key_terms: [content, spotify, music, subscribers, abx, whatever, gizzard, owning]
+    concepts: [content, spotify, subscribers, music, whatever]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mcm7th.md#c2", "social-intelligence/reddit-deep/stocks/1mcm7th.md#c4", "social-intelligence/reddit-deep/stocks/1mcm7th.md#c5"]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/stocks/1mcm7th.md#c7"
-    char_span: [12634, 14763]
+    char_span: [12633, 14762]
     sentence_count: 5
     key_terms: [netflix, spotify, earnings, banditcleaner2, market, people, price, stock]
+    concepts: [netflix, spotify, earnings, banditcleaner2, market]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mcm7th.md#c4"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/stocks/1mcm7th.md#c8"
-    char_span: [14765, 16179]
+    char_span: [14764, 16178]
     sentence_count: 9
     key_terms: [growing, spotify, reddit, expectations, inverse, shuffle, guess, keep]
+    concepts: [growing, spotify, expectations, reddit, inverse]
     section: Comments
     token_count: 323
 ---

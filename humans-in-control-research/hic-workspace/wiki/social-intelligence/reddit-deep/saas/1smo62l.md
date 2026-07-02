@@ -20,33 +20,43 @@ chunks:
     char_span: [0, 2026]
     sentence_count: 20
     key_terms: [saas, level, churn, zero, companies, different, comments, customer]
+    concepts: [level, churn, companies, different, comments]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1smo62l/the_three_levels_of_ai_in_b2b_saas_or_how_to/"}]
   - id: "social-intelligence/reddit-deep/saas/1smo62l.md#c1"
     char_span: [2028, 4326]
     sentence_count: 19
     key_terms: [better, level, features, infrastructure, conversation, apps, like, want]
+    concepts: [better, level, features, infrastructure, conversation]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1smo62l.md#c3"]
     token_count: 483
   - id: "social-intelligence/reddit-deep/saas/1smo62l.md#c2"
     char_span: [4328, 4829]
     sentence_count: 1
     key_terms: [three-levels-of-adding-ai-to-your-saas, gigacatalyst, blog, thinking, https, com, look, interactive]
+    concepts: [three-levels-of-adding-ai-to-your-saas, gigacatalyst, thinking, https]
     token_count: 128
   - id: "social-intelligence/reddit-deep/saas/1smo62l.md#c3"
-    char_span: [4844, 5797]
+    char_span: [4843, 5796]
     sentence_count: 6
     key_terms: [like, namanyayg, pointless, gobblyglockityglockblargh, features, level, waste-mastodon2646, done]
+    concepts: [namanyayg, pointless, features, level]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1smo62l.md#c1", "social-intelligence/reddit-deep/saas/1smo62l.md#c4"]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/saas/1smo62l.md#c4"
-    char_span: [5799, 7737]
+    char_span: [5798, 7736]
     sentence_count: 9
     key_terms: [namanyayg, aggressive-sweet828, level, building, personalization, feature, teams, question]
+    concepts: [namanyayg, aggressive-sweet828, level, personalization, building]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1smo62l.md#c3"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/saas/1smo62l.md#c5"
-    char_span: [7742, 9283]
+    char_span: [7741, 9282]
     sentence_count: 10
     key_terms: [framework, customer, workflow, feature, happens, without, enough, simple]
+    concepts: [framework, customer, workflow, feature, happens]
     section: Comments
     token_count: 343
 ---

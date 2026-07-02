@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 718]
     sentence_count: 6
     key_terms: [analyze, investment, investing, portfolio, comments, anyone, people, tools]
+    concepts: [analyze, investment, investing, portfolio, comments]
     token_count: 165
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1rvlej9/do_any_of_you_use_ai_to_analyze_your_investment/"}]
   - id: "social-intelligence/reddit-deep/investing/1rvlej9.md#c1"
     char_span: [732, 1801]
     sentence_count: 4
     key_terms: [financial-swim-5884, halilural, look, foliofox, analyze, returns, "don't", fair]
+    concepts: [financial-swim-5884, halilural, foliofox, analyze, returns]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/investing/1rvlej9.md#c2"
     char_span: [1803, 3792]
     sentence_count: 13
     key_terms: [halilural, ok-introduction-1940, use, like, nvda, chatgpt, started, making]
+    concepts: [halilural, ok-introduction-1940, chatgpt, started, making]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1rvlej9.md#c3"
     char_span: [3542, 3950]
     sentence_count: 3
     key_terms: [engines, calculations, hallucinate, portfolios, volatility, danielraz, language, struggle]
+    concepts: [engines]
     section: Comments
     token_count: 94
   - id: "social-intelligence/reddit-deep/investing/1rvlej9.md#c4"
     char_span: [3952, 5946]
     sentence_count: 18
     key_terms: [different, use, answers, chatgpt, complex, machine, claude, gemini]
+    concepts: [different, answers, chatgpt, complex, machine]
     section: Comments
     token_count: 418
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 358]
     sentence_count: 3
     key_terms: [gradschool, comments, fun-web-5536, internships, reddit-deep, experience, direction, industry]
+    concepts: [gradschool, comments]
     token_count: 106
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1p2fe1c/should_i_do_a_music_industry_ma_at_ual_if_i_dont/"}]
 ---
 # Should I do a Music Industry MA at UAL if I don’t have much experience yet? Worried about timing + internships + career direction.
 

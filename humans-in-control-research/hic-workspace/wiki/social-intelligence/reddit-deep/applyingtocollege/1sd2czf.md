@@ -19,40 +19,48 @@ chunks:
     char_span: [0, 2082]
     sentence_count: 17
     key_terms: [physics, did, because, essays, applyingtocollege, olympiad, personality, ecs]
+    concepts: [physics, because, applyingtocollege, essays, olympiad]
     token_count: 486
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sd2czf/thought_i_did_everything_right_so_what_did_i_do/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sd2czf.md#c1"
     char_span: [2084, 4431]
     sentence_count: 21
     key_terms: [rejected, because, submitted, get, believe, thought, did, good]
+    concepts: [rejected, because, submitted, believe, thought]
     token_count: 507
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sd2czf.md#c2"
     char_span: [4433, 6346]
     sentence_count: 18
     key_terms: [get, school, year, executivewatch, "don't", state, outstanding, kid]
+    concepts: [school, executivewatch, outstanding, "don't", experience]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sd2czf.md#c3"
     char_span: [6348, 8377]
     sentence_count: 12
     key_terms: [schools, internationals, ask, need, acceptance, financial, admitted, students]
+    concepts: [schools, internationals, acceptance, financial, admitted]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sd2czf.md#c4"
     char_span: [8379, 9555]
     sentence_count: 12
     key_terms: [international, ivystrategic, personality, system, particular-pen-2072, remarkable-wind5825, round, like]
+    concepts: [international, ivystrategic, personality, system, round]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sd2czf.md#c5"
     char_span: [9557, 11034]
     sentence_count: 17
     key_terms: [get, wherever, "didn't", "i'm", t20, pursuing, forward, passion]
+    concepts: [wherever, "didn't", pursuing, forward, passion]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sd2czf.md#c6"
     char_span: [11036, 13354]
     sentence_count: 16
     key_terms: [outstanding, qualities, something, students, applications, applicants, consultant, admitting]
+    concepts: [outstanding, qualities, something, students, applications]
     section: Comments
     token_count: 500
 ---

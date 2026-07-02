@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1707]
     sentence_count: 15
     key_terms: [support, salesforce, customerexperience, "don't", integration, been, call, comments]
+    concepts: [support, customerexperience, salesforce, integration, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1txqima.md#c2"]
     token_count: 380
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1txqima/call_center_provider_with_good_support_and/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1txqima.md#c1"
-    char_span: [1722, 3160]
+    char_span: [1721, 3159]
     sentence_count: 7
     key_terms: [support, platform, quickly, become, integrations, experience, companies, workflows]
+    concepts: [support, platform, quickly, integrations, become]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/customerexperience/1txqima.md#c2"
-    char_span: [3162, 5262]
+    char_span: [3161, 5261]
     sentence_count: 8
     key_terms: [salesforce, browser, five9, integration, need, experience, extensions, softphones]
+    concepts: [salesforce, browser, integration, experience, extensions]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1txqima.md#c0"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/customerexperience/1txqima.md#c3"
-    char_span: [5266, 6223]
+    char_span: [5265, 6222]
     sentence_count: 6
     key_terms: [salesforce, build, "we're", call-summarization, chat-to-salesforce, ujet, apples-to-apples, non-negotiable]
+    concepts: [salesforce, build, "we're"]
     section: Comments
     token_count: 226
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 346]
     sentence_count: 2
     key_terms: [uwaterloo, comments, reddit-deep, possible, waterloo, program, regular, version]
+    concepts: [uwaterloo, comments]
     token_count: 96
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1tmugtz/i_got_it_into_waterloo_health_sci_for_the_regular/"}]
 ---
 # I got it into Waterloo health sci for the regular program, is it possible for me to switch into the co-op version?
 

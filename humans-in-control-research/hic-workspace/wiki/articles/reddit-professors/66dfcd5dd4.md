@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1204]
     sentence_count: 17
     key_terms: [absolutely, professors, comments, homework, semester, students, digital, course]
+    concepts: [absolutely, professors, comments, homework, semester]
     token_count: 293
+    sources: [{"n":"reddit: Professors","u":"https://reddit.com/r/Professors/comments/1le3dw2/i_went_old_school_this_semester_and_students/"}]
 ---
 # I went "old school" this semester and students absolutely loved it. Best course evaluations in 10+ years of teaching.
 

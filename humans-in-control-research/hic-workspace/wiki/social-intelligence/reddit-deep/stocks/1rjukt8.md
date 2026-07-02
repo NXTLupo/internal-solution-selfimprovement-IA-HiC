@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 2134]
     sentence_count: 11
     key_terms: [power, trump-tech-ai-data-center-electricity-price-pledge, generation, capacity, infrastructure, electricity, tech, microsoft]
+    concepts: [power, generation, capacity, infrastructure, electricity]
     token_count: 416
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1rjukt8/tomorrow_trump_meets_amazon_google_microsoft_meta/"}]
   - id: "social-intelligence/reddit-deep/stocks/1rjukt8.md#c1"
-    char_span: [2149, 2758]
+    char_span: [2148, 2757]
     sentence_count: 2
     key_terms: [stocks, off-topic, political, specific, removed, please, reddit, "you're"]
+    concepts: [stocks, off-topic, political, specific, removed]
     section: Comments
     token_count: 138
   - id: "social-intelligence/reddit-deep/stocks/1rjukt8.md#c2"
-    char_span: [2760, 4552]
+    char_span: [2759, 4551]
     sentence_count: 6
     key_terms: [machinegunchunk, comments, pdubbs87, discuss, sarcasm, people, smart, sensibleartichoke]
+    concepts: [machinegunchunk, comments, pdubbs87, discuss, sarcasm]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1rjukt8.md#c3"
-    char_span: [4345, 5975]
+    char_span: [4344, 5974]
     sentence_count: 7
     key_terms: [power, data, discuss, nuclear, "i'm", anything, centers, meeting]
+    concepts: [power, discuss, nuclear, anything, centers]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/stocks/1rjukt8.md#c4"
-    char_span: [5977, 7777]
+    char_span: [5976, 7776]
     sentence_count: 9
     key_terms: [accelerating-power-demand-from-data-centers-poised-to-boost-new-energy-technologies, power, interconnection, transmission, sustainable, term, bottleneck, deployable]
+    concepts: [interconnection, power, transmission, sustainable, bottleneck]
     section: Comments
     token_count: 408
 ---

@@ -20,33 +20,44 @@ chunks:
     char_span: [0, 1879]
     sentence_count: 5
     key_terms: [diagnosis, covered, mri, cigna, excluded, tmj, service, tmj-related]
+    concepts: [diagnosis, covered, excluded, cigna, tmj-related]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rb3f3b.md#c1"]
     token_count: 478
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1rb3f3b/need_help_in_navigating_cignas_mri_denial_for_tmj/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1rb3f3b.md#c1"
     char_span: [1881, 4165]
     sentence_count: 8
     key_terms: [cigna, diagnostic, treatment, covered, imaging, diagnosis, additional, exclusion]
+    concepts: [diagnostic, cigna, treatment, covered, imaging]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rb3f3b.md#c0"]
     token_count: 448
   - id: "social-intelligence/reddit-deep/healthinsurance/1rb3f3b.md#c2"
     char_span: [4167, 4767]
     sentence_count: 7
     key_terms: [self-funded, exclusion-interpretation, plan, administrator, documentation, adjudication, appreciate, exclusions]
+    concepts: [self-funded]
     token_count: 118
   - id: "social-intelligence/reddit-deep/healthinsurance/1rb3f3b.md#c3"
-    char_span: [4782, 6658]
+    char_span: [4781, 6657]
     sentence_count: 6
     key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    concepts: [information, questions, following, please, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rb3f3b.md#c4"]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/healthinsurance/1rb3f3b.md#c4"
-    char_span: [6660, 8863]
+    char_span: [6659, 8862]
     sentence_count: 13
     key_terms: [tmj, please, eob, contact, diagnosis, questions, subreddit, post]
+    concepts: [please, contact, diagnosis, questions, subreddit]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rb3f3b.md#c3"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/healthinsurance/1rb3f3b.md#c5"
-    char_span: [8865, 10792]
+    char_span: [8864, 10791]
     sentence_count: 19
     key_terms: [billing, hospital, doctor, code, plan, cigna, team, exclusion]
+    concepts: [billing, hospital, doctor, cigna, exclusion]
     section: Comments
     token_count: 445
 ---

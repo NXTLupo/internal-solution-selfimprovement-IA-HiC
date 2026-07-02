@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2364]
     sentence_count: 12
     key_terms: [group, poster, print, professor, american, protests, carving, college]
+    concepts: [group, poster, professor, print, american]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1sxqs3z/professor_altered_my_work_for_an_exhibit_without/"}]
   - id: "social-intelligence/reddit-deep/college/1sxqs3z.md#c1"
     char_span: [2366, 4002]
     sentence_count: 13
     key_terms: ["didn't", print, plan, because, believe, caption, quality, thought]
+    concepts: ["didn't", print, because, believe, caption]
     token_count: 356
   - id: "social-intelligence/reddit-deep/college/1sxqs3z.md#c2"
     char_span: [4016, 5696]
     sentence_count: 12
     key_terms: [sounds, especially, something, exhibit, frustrating, like, work, assignment]
+    concepts: [especially, sounds, something, exhibit, frustrating]
     section: Comments
     token_count: 375
 ---

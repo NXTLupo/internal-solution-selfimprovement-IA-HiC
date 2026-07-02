@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 580]
     sentence_count: 4
     key_terms: [play, investing, comments, energy, stocks, infrastructure, reddit-deep, automation]
+    concepts: [investing, comments, energy, stocks]
     token_count: 155
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1q9ie6q/24_give_me_stocks_for_an_ai_play_long_into_the/"}]
   - id: "social-intelligence/reddit-deep/investing/1q9ie6q.md#c1"
     char_span: [594, 2490]
     sentence_count: 20
     key_terms: [power, nuclear, electrical, data, grid, centers, deleted, infrastructure]
+    concepts: [power, nuclear, electrical, infrastructure, centers]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/investing/1q9ie6q.md#c2"
     char_span: [2492, 3320]
     sentence_count: 5
     key_terms: [plays, already, data, new, infrastructure, tradingtennish, installations, concentrated]
+    concepts: [plays, already]
     section: Comments
     token_count: 210
 ---

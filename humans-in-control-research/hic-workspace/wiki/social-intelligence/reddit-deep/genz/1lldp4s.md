@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 250]
     sentence_count: 3
     key_terms: [comments, genz, alphamassdebeta, reddit-deep, hobbies, "here's", posted, reddit]
+    concepts: [comments]
     token_count: 77
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1lldp4s/do_any_of_you_have_hobbies_heres_mine/"}]
   - id: "social-intelligence/reddit-deep/genz/1lldp4s.md#c1"
     char_span: [264, 1665]
     sentence_count: 5
     key_terms: [meaning, https, favorite, comment, cornell, discord, preview, format]
+    concepts: [meaning, https, favorite, comment, cornell]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/genz/1lldp4s.md#c2"
     char_span: [1667, 2784]
     sentence_count: 4
     key_terms: [alphamassdebeta, maserati, biturbo, deleted, someone, big-maintenance2544, live, sold]
+    concepts: [alphamassdebeta, maserati, biturbo, deleted, someone]
     section: Comments
     token_count: 359
 ---

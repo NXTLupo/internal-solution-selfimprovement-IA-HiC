@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2060]
     sentence_count: 12
     key_terms: ["i'm", learning, "i've", something, careerguidance, doing, loved, considering]
+    concepts: [learning, something, careerguidance, considering, doing]
     token_count: 460
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1oof0og/jobscareersfields_in_projectbased_research_and/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1oof0og.md#c1"
     char_span: [2062, 2446]
     sentence_count: 2
@@ -31,6 +33,7 @@ chunks:
     char_span: [2460, 3082]
     sentence_count: 6
     key_terms: [writing, learning, design, too, alternatively, communication, instructional, particularly]
+    concepts: [writing, learning, design]
     section: Comments
     token_count: 115
 ---

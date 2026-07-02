@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 715]
     sentence_count: 5
     key_terms: [dropshipping, want, customers, comments, dropship, always, client, like]
+    concepts: [dropshipping, customers, comments, dropship, always]
     token_count: 172
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1spnx0c/long_time_dropshipping/"}]
   - id: "social-intelligence/reddit-deep/dropship/1spnx0c.md#c1"
-    char_span: [730, 1654]
+    char_span: [729, 1653]
     sentence_count: 8
     key_terms: [approach, dropship, pjmg2020, nothing, profit, spam, time, flash-in-the-pan]
+    concepts: [approach, dropship, pjmg2020, nothing, profit]
     section: Comments
     token_count: 230
   - id: "social-intelligence/reddit-deep/dropship/1spnx0c.md#c2"
-    char_span: [1656, 3639]
+    char_span: [1655, 3638]
     sentence_count: 5
     key_terms: [customer, store, customers, building, strict-leg-883, better, ebay, long]
+    concepts: [customer, customers, store, building, strict-leg-883]
     section: Comments
     token_count: 466
 ---

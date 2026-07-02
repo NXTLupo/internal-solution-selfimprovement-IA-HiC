@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 941]
     sentence_count: 9
     key_terms: [cscareerquestions, question, dissertation, good, experience, comments, graduate, students]
+    concepts: [cscareerquestions, question, dissertation, experience, comments]
     token_count: 228
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rtsuea/what_do_you_guys_think_of_temporaryfreelance_work/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtsuea.md#c1"
     char_span: [955, 1388]
     sentence_count: 3
     key_terms: [freelance, thinking, "you're", forsookcomparison, phd, alternative, backgrounds, experience]
+    concepts: [freelance, thinking, "you're"]
     section: Comments
     token_count: 99
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtsuea.md#c2"
     char_span: [1390, 3238]
     sentence_count: 5
     key_terms: [a05f-4fc5-a7d3-ab56ccb48631, careercraft-launch, careercraft, keyword, myninja, https, super, apps]
+    concepts: [a05f-4fc5-a7d3-ab56ccb48631, careercraft-launch, careercraft, keyword, myninja]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtsuea.md#c3"

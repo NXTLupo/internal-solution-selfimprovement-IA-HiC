@@ -19,41 +19,49 @@ chunks:
     char_span: [0, 375]
     sentence_count: 3
     key_terms: [engineeringstudents, comments, carefulelderberry896, engineering, reddit-deep, first-year, something, students]
+    concepts: [engineeringstudents, comments]
     token_count: 89
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1nftydh/any_advice_for_firstyear_engineering_students/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nftydh.md#c1"
     char_span: [389, 1991]
     sentence_count: 11
     key_terms: [lecture, "that's", like, work, doing, until, assignments, job]
+    concepts: [lecture, "that's", assignments, doing, until]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nftydh.md#c2"
     char_span: [1993, 3099]
     sentence_count: 8
     key_terms: [people, don, time, lectures, classes, intern, slots, lot]
+    concepts: [people, lectures, classes, intern, slots]
     section: Comments
     token_count: 275
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nftydh.md#c3"
     char_span: [3101, 5146]
     sentence_count: 9
     key_terms: [chemistry, calculus, courses, organic, learning, mastery, school, differential]
+    concepts: [chemistry, calculus, courses, organic, learning]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nftydh.md#c4"
     char_span: [5148, 7318]
     sentence_count: 5
     key_terms: [differential, equations, equation, solve, tasks, integrate, find, symbolic]
+    concepts: [differential, equations, equation, integrate, differentiation]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nftydh.md#c5"
     char_span: [7097, 7900]
     sentence_count: 6
     key_terms: [hard, material, because, student, carefulelderberry896, worldtallestengineer, "isn't", learn]
+    concepts: [material, because, student, "isn't", learn]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nftydh.md#c6"
     char_span: [7903, 8615]
     sentence_count: 3
     key_terms: [https, com, youtube, playlist, tests, train, watch, thecrashcourse]
+    concepts: [https, youtube, playlist, tests, train]
     section: Comments
     token_count: 198
 ---

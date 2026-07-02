@@ -19,34 +19,41 @@ chunks:
     char_span: [0, 2353]
     sentence_count: 17
     key_terms: [negative, been, evaluations, academic, comments, student, tenured, review]
+    concepts: [negative, evaluations, academic, comments, student]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1t6byqy/first_negative_rmp_review/"}]
   - id: "social-intelligence/reddit-deep/professors/1t6byqy.md#c1"
     char_span: [2355, 2683]
     sentence_count: 4
     key_terms: [negative, appreciated, appropriate, experienced, colleagues, apologies, comments, students]
+    concepts: [negative]
     token_count: 68
   - id: "social-intelligence/reddit-deep/professors/1t6byqy.md#c2"
     char_span: [2697, 4625]
     sentence_count: 16
     key_terms: [thank, rmp, here, definitely, feeling, student, individualfabulous31, student-as-consumer]
+    concepts: [thank, definitely, feeling, student, great]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1t6byqy.md#c3"
     char_span: [4392, 5245]
     sentence_count: 6
     key_terms: [students, get, rmp, feedback, reviews, thank, write, away]
+    concepts: [students, feedback, reviews, thank, write]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/professors/1t6byqy.md#c4"
     char_span: [5247, 6573]
     sentence_count: 8
     key_terms: [evaluation, comments, institution, official, students, "i'm", like, read]
+    concepts: [evaluation, comments, institution, official, students]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/professors/1t6byqy.md#c5"
     char_span: [6575, 8490]
     sentence_count: 16
     key_terms: [semester, class, thank, evaluations, rmp, evaluation, students, respond]
+    concepts: [semester, evaluations, class, evaluation, thank]
     section: Comments
     token_count: 484
 ---

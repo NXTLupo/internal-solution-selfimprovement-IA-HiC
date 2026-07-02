@@ -19,12 +19,14 @@ content_hash: "2af6e0594f4ee8fe"
 relevance_by_goal: {"3d9ef8ee927f":35}
 chunks:
   - id: "articles/reddit-deep-r-neu/da55c6efad.md#c0"
-    char_span: [0, 2645]
+    char_span: [0, 2644]
     sentence_count: 6
     key_terms: [systems, business, opportunity, company, experience, operations, executive, operating]
-    token_count: 513
+    concepts: [systems, business, opportunity, company, experience]
+    token_count: 512
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1twj86c/hvac_systems_ai_intern_coop_opportunity/"}]
   - id: "articles/reddit-deep-r-neu/da55c6efad.md#c1"
-    char_span: [2647, 2784]
+    char_span: [2646, 2783]
     sentence_count: 1
     key_terms: [construction, automation, technology, transform, operates, company, excited, growing]
     token_count: 23

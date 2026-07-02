@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1912]
     sentence_count: 16
     key_terms: [want, "i'm", careerguidance, role, experience, assistant, education, comments]
+    concepts: [careerguidance, experience, assistant, education, comments]
     token_count: 442
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rdj1v8/how_to_learn_which_if_any_jobscareers_im/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rdj1v8.md#c1"
     char_span: [1926, 2704]
     sentence_count: 2
     key_terms: [experience, few-maintenance-7320, illustrious-tower951, roles, gap, get, latter-risk-7215, communication]
+    concepts: [experience, roles]
     section: Comments
     token_count: 178
 ---

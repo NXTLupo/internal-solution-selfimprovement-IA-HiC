@@ -21,89 +21,117 @@ chunks:
     char_span: [0, 1553]
     sentence_count: 11
     key_terms: [food, taipei, digitalnomad, nomad, destination, "i'm", diversity, something]
+    concepts: [digitalnomad, taipei, destination, nomad, diversity]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c12"]
     token_count: 359
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1l4xlwk/taipei_is_overrated_as_a_digital_nomad_destination/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c1"
     char_span: [1567, 3828]
     sentence_count: 20
     key_terms: [taiwanese, taiwan, fried, world, orderliness, food, love, countries]
+    concepts: [taiwanese, taiwan, orderliness, fried, world]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c2"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c2"
     char_span: [3830, 5334]
     sentence_count: 10
     key_terms: [food, taiwanese, taiwan, been, diversity, diverse, biased, cities]
+    concepts: [taiwanese, taiwan, diversity, diverse, biased]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c1"]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c3"
     char_span: [5336, 6989]
     sentence_count: 15
     key_terms: [store, taipei, bangkok, own, better, "didn't", liked, incredible]
+    concepts: [store, taipei, bangkok, better, "didn't"]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c4", "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c6", "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c7", "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c9"]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c4"
     char_span: [6992, 8499]
     sentence_count: 15
     key_terms: [taipei, better, people, like, less, something, tourists, bangkok]
+    concepts: [taipei, better, people, something, tourists]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c3", "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c6"]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c5"
     char_span: [8501, 10248]
     sentence_count: 15
     key_terms: [climbing, the-cities-with-the-most-green-space-around-the-world, amazing, quality, taipei, taiwan, small, here]
+    concepts: [climbing, amazing, quality, taipei, taiwan]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c9", "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c11", "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c13"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c6"
     char_span: [10250, 11730]
     sentence_count: 24
     key_terms: [better, food, taipei, everywhere, like, thailand, parks, bkk]
+    concepts: [better, everywhere, taipei, thailand, parks]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c3", "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c4", "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c9"]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c7"
     char_span: [11732, 13824]
     sentence_count: 16
     key_terms: [bangkok, taipei, enough, city, forget, onsens, don, like]
+    concepts: [bangkok, taipei, enough, forget, onsens]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c3", "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c9"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c8"
     char_span: [13826, 15897]
     sentence_count: 17
     key_terms: [taipei, completely, green, like, the-cities-with-the-most-green-space-around-the-world, space, food, japanese]
+    concepts: [taipei, completely, green, space, japanese]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c9"
     char_span: [15899, 17944]
     sentence_count: 16
     key_terms: [food, thailand, taipei, taiwan, bangkok, markets, night, like]
+    concepts: [thailand, taipei, taiwan, bangkok, markets]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c3", "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c5", "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c6", "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c7", "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c11"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c10"
     char_span: [17946, 20103]
     sentence_count: 23
     key_terms: [food, night, taiwanese, trap, mexican, outside, tourist, market]
+    concepts: [night, taiwanese, mexican, outside, tourist]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c11"
     char_span: [20105, 21674]
     sentence_count: 9
     key_terms: [taiwan, housing, taipei, excitement, whollacsek, according, expensive, canada]
+    concepts: [taiwan, housing, taipei, excitement, whollacsek]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c5", "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c9", "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c13"]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c12"
     char_span: [21676, 23513]
     sentence_count: 12
     key_terms: [digital, destination, taiwan, "it's", never, nomad, here, time]
+    concepts: [destination, digital, taiwan, never, nomad]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c0"]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c13"
     char_span: [23515, 25183]
     sentence_count: 11
     key_terms: [expensive, markets, taipei, taiwan, cheap, restaurants, like, thailand]
+    concepts: [expensive, markets, taipei, taiwan, restaurants]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c5", "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c9", "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c11"]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c14"
     char_span: [25185, 27103]
     sentence_count: 14
     key_terms: [japan, taiwan, fake, ability, better, speak, take, politeness]
+    concepts: [japan, taiwan, ability, better, politeness]
     section: Comments
     token_count: 432
 ---

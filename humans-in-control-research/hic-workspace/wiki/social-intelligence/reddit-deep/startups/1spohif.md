@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1521]
     sentence_count: 1
     key_terms: [validation, like, founders, people, calls, cold, comments, feedback]
+    concepts: [validation, founders, people, calls, comments]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1spohif.md#c1"]
     token_count: 331
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1spohif/founders_do_you_actually_cold_call_or_just_email/"}]
   - id: "social-intelligence/reddit-deep/startups/1spohif.md#c1"
-    char_span: [1536, 3853]
+    char_span: [1535, 3852]
     sentence_count: 10
     key_terms: [calls, validation, early, call, being, human, cold, discovery]
+    concepts: [calls, validation, early, being, human]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1spohif.md#c0"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/startups/1spohif.md#c2"
-    char_span: [3855, 5656]
+    char_span: [3854, 5655]
     sentence_count: 19
     key_terms: [need, problem, "i'd", reaching, specific, calling, without, actual]
+    concepts: [problem, reaching, specific, calling, without]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/startups/1spohif.md#c3"
-    char_span: [5660, 7879]
+    char_span: [5659, 7878]
     sentence_count: 20
     key_terms: ["it's", people, build, find, students, problem, product, "you're"]
+    concepts: [people, build, students, problem, product]
     section: Comments
     token_count: 496
 ---

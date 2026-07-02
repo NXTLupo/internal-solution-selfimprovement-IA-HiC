@@ -21,38 +21,51 @@ chunks:
     char_span: [0, 2402]
     sentence_count: 21
     key_terms: [waterloo, culture, hierarchy, co-op, work, self-worth, companies, employers]
+    concepts: [waterloo, culture, hierarchy, co-op, self-worth]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c4"]
     token_count: 497
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1tibkq1/what_waterloo_builds/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c1"
     char_span: [2404, 4994]
     sentence_count: 30
     key_terms: [students, person, city, company, compensation, combination, hour, name]
+    concepts: [students, person, company, compensation, combination]
     token_count: 475
   - id: "social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c2"
     char_span: [4996, 7618]
     sentence_count: 29
     key_terms: [students, does, people, being, companies, term, because, working]
+    concepts: [students, people, companies, being, because]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c3"]
     token_count: 498
   - id: "social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c3"
     char_span: [7620, 8362]
     sentence_count: 5
     key_terms: [students, seriously, because, co-op, spreadsheet, circulates, impossible, structural]
+    concepts: [students, seriously, because, co-op]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c2"]
     token_count: 143
   - id: "social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c4"
     char_span: [8376, 10213]
     sentence_count: 10
     key_terms: [people, culture, like, lot, tech, waterloo, myself, didyoutrainnecktoday]
+    concepts: [people, culture, waterloo, myself, ahead]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c0", "social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c5"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c5"
     char_span: [10215, 12408]
     sentence_count: 17
     key_terms: [people, culture, social, game, shit, highschool, popularity, genuinely]
+    concepts: [people, culture, social, highschool, popularity]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c4"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c6"
     char_span: [12410, 14438]
     sentence_count: 17
     key_terms: [somebody, placements, always, people, feel, personal, better, growth]
+    concepts: [somebody, placements, always, people, personal]
     section: Comments
     token_count: 455
 ---

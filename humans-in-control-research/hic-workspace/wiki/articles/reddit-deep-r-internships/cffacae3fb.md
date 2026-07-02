@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1896]
     sentence_count: 16
     key_terms: [internships, ama, career, ai-generated, attachments, like, internship, value-add]
+    concepts: [internships, ai-generated, career, attachments, internship]
     token_count: 424
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tbih39/i_run_a_vc_fund_and_reviewed_271_apps_for_our/"}]
   - id: "articles/reddit-deep-r-internships/cffacae3fb.md#c1"
     char_span: [1898, 3312]
     sentence_count: 8
     key_terms: [personality, non-traditional, unique, education, examples, specific, person, showed]
+    concepts: [personality, non-traditional, unique, education, examples]
     token_count: 331
 ---
 # I run a VC fund and reviewed 271 apps for our summer internship. AMA.

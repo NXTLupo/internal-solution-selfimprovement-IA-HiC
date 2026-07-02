@@ -19,17 +19,24 @@ chunks:
     char_span: [0, 847]
     sentence_count: 6
     key_terms: [college, community, comments, housing, weird, high, opportunities, proudpops1976]
+    concepts: [college, community, comments, housing, weird]
+    related_chunks: ["social-intelligence/reddit-deep/college/1q2lhm8.md#c1", "social-intelligence/reddit-deep/college/1q2lhm8.md#c2"]
     token_count: 191
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1q2lhm8/is_it_weird_to_goto_community_college_out_of_state/"}]
   - id: "social-intelligence/reddit-deep/college/1q2lhm8.md#c1"
-    char_span: [862, 2560]
+    char_span: [861, 2559]
     sentence_count: 7
     key_terms: [community, college, california, colleges, students, years, university, residency]
+    concepts: [community, college, california, colleges, students]
+    related_chunks: ["social-intelligence/reddit-deep/college/1q2lhm8.md#c0", "social-intelligence/reddit-deep/college/1q2lhm8.md#c2"]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/college/1q2lhm8.md#c2"
-    char_span: [2562, 4571]
+    char_span: [2561, 4570]
     sentence_count: 9
     key_terms: [community, college, california, state, lacc, because, laccd, university]
+    concepts: [community, college, california, state, because]
+    related_chunks: ["social-intelligence/reddit-deep/college/1q2lhm8.md#c0", "social-intelligence/reddit-deep/college/1q2lhm8.md#c1"]
     section: Comments
     token_count: 504
 ---

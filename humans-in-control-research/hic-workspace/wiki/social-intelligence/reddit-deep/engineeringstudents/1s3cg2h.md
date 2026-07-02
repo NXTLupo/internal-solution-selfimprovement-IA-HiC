@@ -21,29 +21,39 @@ chunks:
     char_span: [0, 1117]
     sentence_count: 11
     key_terms: [engineering, degree, bachelors, engineeringstudents, masters, without, photonics, comments]
+    concepts: [engineering, degree, bachelors, engineeringstudents, masters]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c1", "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c3", "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c4"]
     token_count: 243
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1s3cg2h/is_a_masters_in_an_engineering_discipline_without/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c1"
     char_span: [1131, 2350]
     sentence_count: 7
     key_terms: [masters, holoporcupine, engineering, background, good, experience, ashi4days, programs]
+    concepts: [masters, holoporcupine, engineering, background, experience]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c3", "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c4"]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c2"
     char_span: [2352, 3646]
     sentence_count: 9
     key_terms: [engineering, requirements, undergrad, classes, college, courses, degree, school]
+    concepts: [engineering, requirements, undergrad, classes, college]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c3"
     char_span: [3648, 5249]
     sentence_count: 12
     key_terms: [engineering, math, physics, familyrootsquest, masters, holoporcupine, "i'm", finishing]
+    concepts: [engineering, physics, familyrootsquest, holoporcupine, masters]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c1", "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c4"]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c4"
     char_span: [5251, 6873]
     sentence_count: 11
     key_terms: [engineering, masters, "i'm", physics, mechatronics, interested, projects, getting]
+    concepts: [engineering, masters, physics, mechatronics, interested]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c1", "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c3"]
     section: Comments
     token_count: 362
 ---

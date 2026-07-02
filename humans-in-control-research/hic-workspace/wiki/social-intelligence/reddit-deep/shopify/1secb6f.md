@@ -7,56 +7,64 @@ subreddit: "shopify"
 title: "This Week's Top E-commerce News Stories 💥 April 6th, 2026"
 author: "adventurepaul"
 date: "2026-04-06T21:32:49.000Z"
-score: 15
-upvote_ratio: 0.94
+score: 14
+upvote_ratio: 0.9
 num_comments: 12
 flair: "Shopify General Discussion"
-extracted_at: "2026-06-18T13:35:23.048Z"
+extracted_at: "2026-06-24T22:14:23.469Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/shopify/1secb6f.md#c0"
     char_span: [0, 844]
     sentence_count: 4
     key_terms: [shopify, e-commerce, reddit, https, com, news, www, comments]
+    concepts: [shopify, e-commerce, reddit, https, comments]
     token_count: 223
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1secb6f/this_weeks_top_ecommerce_news_stories_april_6th/"}]
   - id: "social-intelligence/reddit-deep/shopify/1secb6f.md#c1"
     char_span: [847, 3022]
     sentence_count: 9
     key_terms: [surcharge, wholesale, merchants, shopify, "organization's", third-party, fba, fuel]
+    concepts: [surcharge, wholesale, merchants, "organization's", shopify]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1secb6f.md#c2"
     char_span: [2739, 5260]
     sentence_count: 12
     key_terms: [tiktok, without, moratorium, cameo, countries, creators, through, "organization's"]
+    concepts: [tiktok, without, moratorium, countries, cameo]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1secb6f.md#c3"
     char_span: [4901, 7519]
     sentence_count: 11
     key_terms: [amazon, perplexity, injunction, comet, shopping, browser, "perplexity's", advertising]
+    concepts: [amazon, perplexity, injunction, comet, shopping]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1secb6f.md#c4"
     char_span: [7186, 9798]
     sentence_count: 14
     key_terms: [merchants, like, bitcoin, openai, itself, square, users, legislation]
+    concepts: [merchants, bitcoin, openai, itself, square]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1secb6f.md#c5"
     char_span: [9494, 10251]
     sentence_count: 5
     key_terms: [consumers, merchants, hispanic, likely, states, black, march, bnpl]
+    concepts: [consumers, merchants, hispanic, likely, states]
     token_count: 162
   - id: "social-intelligence/reddit-deep/shopify/1secb6f.md#c6"
-    char_span: [10266, 10933]
+    char_span: [10265, 10932]
     sentence_count: 10
     key_terms: [discount, features, rollouts, shopify, "don't", cool, sale, compare-at]
+    concepts: [discount, features, rollouts, shopify, "don't"]
     section: Comments
     token_count: 148
 ---
 # This Week's Top E-commerce News Stories 💥 April 6th, 2026
 
 Source: [reddit-deep: r/shopify](https://www.reddit.com/r/shopify/comments/1secb6f/this_weeks_top_ecommerce_news_stories_april_6th/)
-Posted by **adventurepaul** · **15↑** · **12 comments**
+Posted by **adventurepaul** · **14↑** · **12 comments**
 
 Hi [r/Shopify](https://www.reddit.com/r/Shopify/) \- I'm Paul and I follow the e-commerce industry closely for my Shopifreaks E-commerce Newsletter, which I've published weekly since 2021.
 

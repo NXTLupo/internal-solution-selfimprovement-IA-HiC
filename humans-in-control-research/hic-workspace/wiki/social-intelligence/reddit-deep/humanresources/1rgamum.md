@@ -19,35 +19,44 @@ chunks:
     char_span: [0, 851]
     sentence_count: 4
     key_terms: [humanresources, "i'm", interviews, comments, resume, reddit-deep, formatting, generalist]
+    concepts: [humanresources, interviews, comments, resume]
     token_count: 204
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1rgamum/na_really_struggling_to_land_interviews_is_it_my/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1rgamum.md#c1"
-    char_span: [866, 2054]
+    char_span: [865, 2053]
     sentence_count: 7
     key_terms: [people, job, lunch, roles, bold, get, hrg, like]
+    concepts: [people, lunch, roles]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/humanresources/1rgamum.md#c2"
-    char_span: [2056, 3894]
+    char_span: [2055, 3893]
     sentence_count: 18
     key_terms: [bullet, people, different, did, experience, formatting, jumpcity69, metrics]
+    concepts: [bullet, people, different, experience, formatting]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1rgamum.md#c5"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/humanresources/1rgamum.md#c3"
-    char_span: [3896, 5272]
+    char_span: [3895, 5271]
     sentence_count: 11
     key_terms: [job, probationary, considering, role, experience, applicant, already, current]
+    concepts: [probationary, considering, experience, applicant, already]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/humanresources/1rgamum.md#c4"
-    char_span: [5274, 7457]
+    char_span: [5273, 7456]
     sentence_count: 11
     key_terms: [role, generalist, someone, makes, like, ops, formatting, attention]
+    concepts: [generalist, someone, formatting, makes, attention]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/humanresources/1rgamum.md#c5"
-    char_span: [7459, 8570]
+    char_span: [7458, 8569]
     sentence_count: 9
     key_terms: [experience, current, hrbp, like, role, formatting, slowteal, bullets]
+    concepts: [experience, current, formatting, slowteal, bullets]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1rgamum.md#c2"]
     section: Comments
     token_count: 268
 ---

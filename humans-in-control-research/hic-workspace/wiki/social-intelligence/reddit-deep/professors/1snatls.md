@@ -19,73 +19,93 @@ chunks:
     char_span: [0, 1253]
     sentence_count: 10
     key_terms: [students, problem, either, vent, professors, comments, "didn't", yours]
+    concepts: [students, problem, either, professors, comments]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1snatls.md#c2"]
     token_count: 316
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1snatls/venting_party/"}]
   - id: "social-intelligence/reddit-deep/professors/1snatls.md#c1"
     char_span: [1255, 3086]
     sentence_count: 21
     key_terms: [inability, get, time, problem, behavior, conditioning, because, manage]
+    concepts: [inability, problem, behavior, conditioning, because]
     token_count: 414
   - id: "social-intelligence/reddit-deep/professors/1snatls.md#c2"
     char_span: [3088, 5233]
     sentence_count: 20
     key_terms: [problem, people, want, students, get, stop, professors, difficult]
+    concepts: [problem, people, students, professors, difficult]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1snatls.md#c0"]
     token_count: 471
   - id: "social-intelligence/reddit-deep/professors/1snatls.md#c3"
-    char_span: [5248, 5740]
+    char_span: [5247, 5739]
     sentence_count: 5
     key_terms: [elitist, timetimeclock, maintaining, reputation, skullybonk, recommend, standards, devolved]
+    concepts: [elitist]
     section: Comments
     token_count: 133
   - id: "social-intelligence/reddit-deep/professors/1snatls.md#c4"
-    char_span: [5742, 7769]
+    char_span: [5741, 7768]
     sentence_count: 16
     key_terms: [students, elitist, expectations, intellectual, being, "don't", face, "i'm"]
+    concepts: [students, elitist, expectations, intellectual, being]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1snatls.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1snatls.md#c5"
-    char_span: [7560, 8142]
+    char_span: [7559, 8141]
     sentence_count: 5
     key_terms: [because, college, technical-elk-9277, been, gutfounderedgal, frankrizzo319, compliment, respectful]
+    concepts: [because, college]
     section: Comments
     token_count: 148
   - id: "social-intelligence/reddit-deep/professors/1snatls.md#c6"
-    char_span: [8144, 8819]
+    char_span: [8143, 8818]
     sentence_count: 10
     key_terms: [because, class, don, gtfo, hard, flabbergasted, assignments, assignment]
+    concepts: [because, class]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1snatls.md#c10"]
     section: Comments
     token_count: 161
   - id: "social-intelligence/reddit-deep/professors/1snatls.md#c7"
-    char_span: [8821, 10671]
+    char_span: [8820, 10670]
     sentence_count: 12
     key_terms: [students, because, being, want, elitist, student, anyone, equity]
+    concepts: [students, because, being, elitist, student]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1snatls.md#c4", "social-intelligence/reddit-deep/professors/1snatls.md#c10", "social-intelligence/reddit-deep/professors/1snatls.md#c11"]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/professors/1snatls.md#c8"
-    char_span: [10673, 11663]
+    char_span: [10672, 11662]
     sentence_count: 12
     key_terms: [deadlines, students, headaches, multiple, years, get, hard, late]
+    concepts: [deadlines, students, headaches, multiple, years]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/professors/1snatls.md#c9"
-    char_span: [11665, 13679]
+    char_span: [11664, 13678]
     sentence_count: 19
     key_terms: [work, students, pennypatch2000, class, get, proactive, violation, semester]
+    concepts: [students, pennypatch2000, class, proactive, violation]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/professors/1snatls.md#c10"
-    char_span: [13684, 15767]
+    char_span: [13683, 15766]
     sentence_count: 13
     key_terms: [because, student, through, folder, class, step, completely, tutoring]
+    concepts: [because, student, through, folder, class]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1snatls.md#c6", "social-intelligence/reddit-deep/professors/1snatls.md#c7", "social-intelligence/reddit-deep/professors/1snatls.md#c11"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/professors/1snatls.md#c11"
-    char_span: [15770, 17766]
+    char_span: [15769, 17765]
     sentence_count: 20
     key_terms: [students, life-education-8030, give, too, definitely, because, student, cannot]
+    concepts: [students, life-education-8030, definitely, because, student]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1snatls.md#c7", "social-intelligence/reddit-deep/professors/1snatls.md#c10"]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/professors/1snatls.md#c12"
-    char_span: [17769, 17986]
+    char_span: [17768, 17985]
     sentence_count: 1
     key_terms: [experience, retirement, absolute, reminded, students, teaching, college, retired]
     section: Comments

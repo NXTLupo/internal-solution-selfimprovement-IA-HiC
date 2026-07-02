@@ -21,16 +21,22 @@ chunks:
     char_span: [0, 1919]
     sentence_count: 1
     key_terms: [colleges-and-universities, collegeconfidential, cornell-university, com, northeastern-university, http, talk, cornell]
+    concepts: [colleges-and-universities, collegeconfidential, cornell-university, northeastern-university, northeastern]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sx0hx5.md#c1"]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sx0hx5/northeastern_boston_honors_vs_cornell_for/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sx0hx5.md#c1"
     char_span: [1921, 2525]
     sentence_count: 1
     key_terms: [colleges-and-universities, collegeconfidential, northeastern, northeastern-university, cornell-university, com, http, talk]
+    concepts: [colleges-and-universities, collegeconfidential, northeastern]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sx0hx5.md#c0"]
     token_count: 164
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sx0hx5.md#c2"
     char_span: [2539, 3963]
     sentence_count: 10
     key_terms: [cornell, ownrequirement8689, northeastern, like, nyc, sure, better, change]
+    concepts: [cornell, ownrequirement8689, northeastern, better, change]
     section: Comments
     token_count: 362
 ---

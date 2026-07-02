@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1442]
     sentence_count: 7
     key_terms: [careerguidance, path, sure, comments, embedded, software, looking, science]
+    concepts: [careerguidance, comments, embedded, software, looking]
     token_count: 348
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pahre1/confused_22_cse_student_looking_for_guidance_on/"}]
 ---
 # Confused 2-2 CSE Student Looking for Guidance on Career Path: AI/ML, Embedded, or Software?
 

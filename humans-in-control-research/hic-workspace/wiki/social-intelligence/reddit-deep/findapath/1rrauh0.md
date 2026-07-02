@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1312]
     sentence_count: 12
     key_terms: [don, job, findapath, comments, besides, degree, people, twenty]
+    concepts: [findapath, comments, besides, degree, people]
     token_count: 323
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1rrauh0/ive_wasted_my_life_20m/"}]
   - id: "social-intelligence/reddit-deep/findapath/1rrauh0.md#c1"
     char_span: [1326, 3227]
     sentence_count: 20
     key_terms: [behind, thank, helpful, please, thebigcicero, help, findapath, comments]
+    concepts: [behind, thank, helpful, thebigcicero, please]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/findapath/1rrauh0.md#c2"
     char_span: [3229, 4377]
     sentence_count: 13
     key_terms: [people, taptheforwardassist, being, early, older, raspberryteakettle, need, thekenji2004]
+    concepts: [people, being, early, older]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/findapath/1rrauh0.md#c3"
     char_span: [4379, 5261]
     sentence_count: 13
     key_terms: [college, "you're", pitiful-quality1628, don, get, good, help, life]
+    concepts: [college, "you're"]
     section: Comments
     token_count: 228
   - id: "social-intelligence/reddit-deep/findapath/1rrauh0.md#c4"
     char_span: [5263, 6510]
     sentence_count: 17
     key_terms: [degree, college, "i'm", something, competitive-safe-452, years, like, want]
+    concepts: [degree, college, something, years]
     section: Comments
     token_count: 325
 ---

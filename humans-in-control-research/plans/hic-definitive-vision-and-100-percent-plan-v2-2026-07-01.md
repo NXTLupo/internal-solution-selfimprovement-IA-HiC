@@ -1,0 +1,532 @@
+# HiC Definitive Vision and 100% Plan — v2, AIR-first (2026-07-01)
+
+> Renamed from `...-v2-2026-06-30.md` to today's date on 2026-07-01; all 10 references (CLAUDE.md ×3, the
+> hic-unified-vision skill, the AIR schemas, artifact_catalog.yaml, artifactCatalog.ts, artifactAirService.ts,
+> and the v1 audit file) were updated in the same commit. `git log --follow` preserves history.
+
+> **2026-07-01 UPDATE (read PART IX first, successor):** D17 is RESOLVED and shipped — journeys /
+> architecture / mindmaps / blueprints now render as **full-bleed native GOLD exhibit images**
+> (HTML/CSS composed from brand tokens → headless Chromium in the proxy), wired end-to-end (inline
+> Analyst-Desk preview + edge-to-edge PPTX embed), which advances WS-H (phases 8-9). Four patterns
+> from the ECC repo were adopted into existing surfaces (injection guard, SkillOpt batch-curation,
+> pass^k determinism gate, instinct-schema clustering). Full detail + a fleshed-out vision reading is
+> in **PART IX** at the end of this file. Three commits on `self-improvement-ia-2026-05-29`, unpushed.
+
+This is the authoritative plan to bring Humans in Control (HiC) to 100% against the Unified Vision. It
+integrates an expert deep-research review (2026-06-30) into the nine-phase audit captured in v1
+(`hic-definitive-vision-and-100-percent-plan-2026-06-30.md`, which remains the file:line audit record). v2
+supersedes v1's workstream ordering. It is grounded in six live audits plus the 2026-06-29 live-run validation.
+
+The governing doctrines from `.claude/UNIFIED_VISION.md` are binding throughout: NO STOPGAPS EVER; CONVERGE /
+DELETE / GATE / SCHEDULE (do not build-new); Lego-brick Method A (compose from registered Figma bricks +
+tokens at generation time, never hardcode, the SPA never calls Figma live at runtime); quality-first (meet
+floors upstream, never relax a gate). Every gate hook below is built AFTER the feature it gates.
+
+---
+
+## REVISED THESIS
+
+HiC is an **objective-first, manifest-native, evidence-cited, design-system-governed Artifact Factory for
+consulting intelligence augmentation.** The central architectural move: every run produces a durable
+**Artifact Intermediate Representation (AIR)** plus a **Research Run Manifest**, not merely a prompt result, a
+deck, a Figma output, or a PPTX file. That AIR is the shared contract across ingestion, manifest-graph
+retrieval, the Analyst Desk, the Designer Desk, hashtag artifacts, model routing, Nano Banana imagery, Figma
+template filling, PPTX export, QA, and self-improvement. The nine phases of the Unified Vision are then
+implemented as enforceable contracts ON that backbone, not as nine independent patches.
+
+Why this changes the plan: my v1 began remediation at individual phase gaps (citation resolver, Designer
+anti-RAG, cached reuse, SkillOpt, routing, Figma imagery, PPTX). That is necessary but insufficient. Without a
+single run contract that all phases read and write, the nine fixes are local patches that drift apart. v2
+installs the contract first (WS-0), then implements the phases as contracts on it.
+
+This thesis does NOT abandon the manifest/anti-RAG commitment; it sharpens it. "Anti-RAG" in HiC means
+**objective-graph-and-manifest-first retrieval**, never opaque bulk-injection of raw nearest-neighbor chunks.
+Manifest candidate discovery comes first; a cross-encoder rerank may refine the candidate set only AFTER the
+manifest has seeded it; bulk corpus injection is forbidden unless the manifest is genuinely empty. See the
+"Critical evaluation" section for why this refinement is adopted and what the owner must ratify.
+
+---
+
+## THE FIVE ALWAYS-ON GRAPHS (the conceptual model AIR serializes)
+
+AIR is the per-run serialization of five typed graphs HiC already has in scattered form; the work is to
+CONVERGE them, not to build new stores.
+
+1. **Objective Graph** — decomposes the brief into goals, sub-questions (with priority + coverage status),
+   hypotheses, stakeholders, concepts, entities, and expected deliverables. (Today: `ObjectiveInterview.ts`,
+   `researchPlanner.ts` sub-questions. Gap: not persisted as a graph; no coverage status.)
+2. **Evidence Graph** — chunk-level provenance, per-type source lineage, claim links, concept/entity edges
+   across ALL corpora. (Today: `wiki_chunker` chunks + today's `sources:` + the manifest. Gap: flat, not a
+   graph; `sources:` written but not read at cite time.)
+3. **Artifact Graph** — declares every `#artifact`, its quality tier, evidence depth, modality, editability
+   requirement, and routing policy. (Today: `ARTIFACT_TPL`, `deliverableFrameworks.ts`. Gap: no per-artifact
+   evidence/editability/routing contract object.)
+4. **Design Graph** — gold pages, component + token bindings, image-slot intents, Code Connect mappings.
+   (Today: `registry.json`, `artifactImageSlots.ts`, `figma-node-map.md`, `figma-tokens.json`. Strong; gaps in
+   Phase 8 audit.)
+5. **Improvement Graph** — failures, evals, human corrections, approved harness changes, epoch lineage.
+   (Today: `epochOutcomeTracker.ts`, `goldenSetRunner.ts`, `learningEngine.ts`, `improvement-epochs.md`. Gap:
+   counter never increments, gate not in-path.)
+
+---
+
+## PART I — THE DEFINITIVE NINE-PHASE VISION (unchanged from v1, complete sentences)
+
+The nine-phase vision statements are authoritative and unchanged from v1 Part I and the `hic-unified-vision`
+skill: (1) relevance is the objective not the source type, breadth and depth serve the objective; (2) collect
+from ALL packs + ALL uploads + the cached second brain, auto-reused; (3) chunk with precise per-type
+provenance, `sources:` read at cite time; (4) the manifest is a concept graph that feeds retrieval; (5)
+anti-RAG (manifest-first) on themes + Analyst + Designer; (6) one routing authority for every #artifact, none
+omitted, by cost + quota + per-deliverable quality; (7) user-influenced AND auto-triggered self-improvement
+behind an in-path held-out gate; (8) every GOLD page componentized, tokenized, runtime-filled by Nano Banana;
+(9) every PPTX native and editable from every path. v2 adds the backbone that makes all nine enforceable.
+
+---
+
+## PART II — CURRENT STATE VS VISION
+
+The six-audit gap table is unchanged and authoritative in v1 Part II (file:line for every claim). Headline P0
+holes: cached-wiki auto-reuse missing (P2-collection); per-chunk `sources:` written but not read at cite time
+(P3); Designer Desk bypasses the manifest (P5 anti-RAG violation); self-improvement loop not closing (P7).
+P1: routing authority not yet adopted by `routedModelFor`/Designer/themes (P6); manifest graph is
+visualization-only (P4); `executive-brief 366:2` raw frame + 7 `wired:false` GOLD slots (P8); PPTX raster
+fallback survives (P9).
+
+---
+
+## PART III — THE INTEGRATED WORKSTREAMS (v2)
+
+### WS-0 (P0, NEW, FIRST) — Install the AIR + Run-Trace backbone (CONVERGENCE, not new-build)
+Create a canonical `ArtifactAIR` and `ResearchRunManifest`, schema-constrained (strict JSON schema / structured
+outputs), emitted for every research run and every hashtag artifact BEFORE any final prose, slide, HTML, image,
+or PPTX render. This CONVERGES today's scattered `GenerationReceipt`, epoch traces, `registry.json`, and
+manifest into one IR; it does not add a parallel store. The AIR carries: the Objective (with decomposed
+sub-questions + coverage status), the Evidence Ledger (typed `EvidencePointer[]` with per-type source lineage,
+objective score, sub-question ids, concepts, related chunks, provenance confidence), the insight hierarchy
+(SCQA/Rumelt), the artifact payload, a render plan (target modes, template candidates, image-slot decisions,
+density), the model trace (selected model, routing reason, cost estimate, quota state per step), and the
+quality report. Every renderer (Analyst, Designer, Figma spec, HTML, PPTX) consumes AIR; none renders from raw
+model prose. Deliverables: `schemas/artifact_air.schema.json`, `schemas/research_run_manifest.schema.json`,
+`config/artifact_catalog.yaml`, `services/artifactAirService.ts`, `services/runTraceService.ts`,
+`services/evidenceLedgerService.ts`. GATE: `air_schema_integrity` + `artifact_catalog_coverage` checks (every
+hashtag resolves through the catalog; every artifact writes `<runId>/artifacts/<artifactId>.air.json`; every
+model call writes a routing trace; every rendered deliverable links back to AIR + evidence ledger). OWNER
+SKILL: `hic-unified-vision` (add the AIR contract); new `air-contract` reference if needed.
+
+### WS-A (P0) — Citation provenance: read per-chunk `sources:` at render time (Phase 3)
+As v1 WS-A, now expressed against AIR: the Evidence Ledger's `EvidencePointer.sources[]` IS the per-type
+attribution, populated at ingest from grounding and READ at cite time. `citationPointerRegistry.resolveOne()`
+consults the chunk `sources:` (Tier 1) before page title (Tier 2) before path (Tier 3); add
+`extract_chunk_sources()` to `wiki_chunker.py`; converge the two citation formats onto the documented
+contract and delete the legacy `citationResolver.ts` format; validate `char_span` at resolve time with fuzzy
+re-match. ADD (from expert): a **claim-evidence compiler** so every paragraph compiles from a claim graph with
+a minimum support policy (`support_count >= 2`, `source_diversity >= 2`, `verifier_pass == true`); citations
+are first-class runtime objects in AIR, not post-processing. GATE: `citation_resolution` check fails any
+provider-bucket or single-false-primary attribution. OWNER SKILL: `manifest-chunk-retrieval`.
+
+### WS-B (P0) — Designer Desk anti-RAG via the shared retrieval function (Phase 5)
+Add `manifestChunkCorpus` to `chatToSlideSpec`/`chatToFreeform`; both desks AND theme extraction AND artifact
+generation call the SAME `retrieveManifestEvidence()` function (see WS-G); manifest evidence leads, bulk corpus
+is demoted to a fallback tail, the Designer model cites by pointer. GATE: `designer_manifest_grounding` fails a
+Designer artifact whose trace shows bulk injection with a non-empty manifest. OWNER SKILL:
+`manifest-chunk-retrieval` (names BOTH desks).
+
+### WS-C (P0) — Auto-reuse the second brain in collection (Phase 2)
+`loadCachedItemsByGoal(goal, maxAgeDays)` + by-name `hydrateTopCachedChunks(goal)` score cached chunks against
+the objective and fold qualifying chunks into `mergeResultsToCorpus` BEFORE dedup, under a distinct "Cached
+reuse" provenance; dedupe deep-research synthesis vs live sources by URL. GATE: `corpus_reuse_provenance`
+fails silent reuse (reuse must be logged + scored). OWNER SKILL: `research-planner`.
+
+### WS-D (P0) — Close the self-improvement loop; held-out gate in-path; gated evolution (Phase 7)
+Increment `jobs_since_last_epoch` on every completed deliverable; `GET /api/epochs/status` counts traces since
+the last ledger entry; build `epochGateService.applyEpochGate(baseline, candidate)` from `goldenSetRunner`
+discrimination + floor checks and call it IN-PATH in `learningEngine.runLearningPass()` and from the proposer
+via `POST /api/epochs/gate`; consume `trainSkill=true` feedback into the next SkillOpt set; schedule the
+proposer; retire low-effectiveness constraints on a cadence. ADOPT the expert's **gated-evolution** rule:
+auto-trigger may PROPOSE and EVALUATE; promotion is automatic ONLY for low-risk config/skill changes that pass
+the gate; material changes to routing, renderers, or connectors require human approval after the gate verdict.
+Every epoch writes a patch record + replayed benchmark + verdict. GATE: `epoch_gate_verdict` fails any
+promotion lacking a recorded held-out verdict. OWNER SKILL: `epoch-proposer`, `skillopt-validation-gate`.
+
+### WS-E (P1) — One routing authority, upgraded to an eval-backed policy engine (Phase 6)
+Route `corpusChatService.routedModelFor`, the Designer Desk, themes, `#proto`, `#slides`, image-prompt
+generation, and AIR generation through `aiRouter.artifactModelFor()`; delete the parallel
+`deliverableModelOverride` dispatch. UPGRADE the authority from a switchboard to a **policy engine** that scores
+eligible models by: per-artifact historical eval score, schema-strictness reliability, evidence faithfulness,
+visual-reasoning fit, live quota + provider health, latency fit, prompt-cache compatibility, and inverse cost;
+it returns the selected model, the alternatives, the cost estimate, the quota state, and the eval-snapshot id,
+all logged. Reserve frontier-priced models (Opus 4.8, GPT-5.5, Gemini 3.1 Pro) for synthesis/verification/final
+packaging; push decomposition/normalization/tagging/layout-planning/pack-assembly to cheaper tiers (Gemini 3.5
+Flash, GPT-5.4 mini). Encode the six bake-off-approved schema deliverables and the `persona-card → Pro` mandate.
+The Opus cap is ONE dated reversible flag with a 2026-07-01 revert checklist. CANONICAL MODEL IDS REMAIN
+HiC's: `gemini-3.1-pro-preview` / `gemini-3.5-flash` / `gemini-3.1-flash-image-preview`, `claude-opus-4-8`,
+`gpt-5.5` / `gpt-5.4-mini` (NOT the report's 2.5-era ids). GATE: a unit test enumerating every `ARTIFACT_TPL`
+directive + HTML/`#proto`/`#slides`/AIR paths proves each resolves through the authority (none omitted). OWNER:
+`aiRouter.ts` header + memory.
+
+### WS-F (P1) — Objective-supremacy ranking + breadth balance + sub-question coverage (Phase 1)
+Aggregate item relevance to the source level and surface it; run a post-collection sub-question coverage audit
+(`auditSubQuestionCoverage`) that writes coverage status into the AIR Objective Graph; multiply the packer
+ratio by sub-question priority so objective-aligned chunks survive the budget cut; add an optional
+breadth-balance mode that caps any source type from dominating BY VOLUME (a breadth instrument, never a
+relevance override). GATE: `source_diversity` reports sub-question coverage and flags uncovered high-priority
+sub-questions. OWNER SKILL: `research-planner`.
+
+### WS-G (split: schema P0, traversal P1) — Manifest concept graph as the shared retrieval substrate (Phase 4)
+PROMOTE the SCHEMA subset to P0 (it is the substrate WS-A/B/C/0 depend on): add `concepts:`, `related_chunks:`,
+`source_lineage:`, `objective_alignment:`, and `staleness_hash:` to the chunk/page frontmatter
+(`AGENTS.md` + `wiki_chunker`). Then P1: build `retrieveManifestEvidence()` (objective-seed rank → bounded
+concept-graph BFS → dedupe → cross-encoder rerank AFTER manifest seeding → top-k), and make it the SINGLE
+retrieval function for themes, Analyst, Designer, artifacts, and the eval evaluator; persist `related_insights`
+in `persistInsightAsChunk`; validate concept-edge referential integrity. GATE: `manifest_chunk_parity` extended
+to assert concept edges resolve. OWNER SKILL: `manifest-chunk-retrieval`, `mind-map-architect`.
+
+### WS-H (P1) — Every GOLD page: deliberate, componentized, slot-governed Nano Banana imagery (Phase 8)
+As v1 WS-H (componentize `executive-brief 366:2`; resolve the 7 `wired:false` slots; remove the
+registry-vs-code diagram contradiction; rebuild mindmap as a faithful twin; bind residual hardcoded hex). ADD
+the expert's **slot-governed (not prompt-governed) Nano Banana** rule: the `ImageSlotDecision` declares
+`mode` (none | brand_image | diagram | icon | data_viz | uploaded_asset), `modelTier`
+(`gemini-3.1-flash-image-preview` for volume vs the premium image tier for complex factual visuals vs
+`native_shape`), `promptSource` (AIR insight | evidence ledger | user prompt | deterministic icon map), and
+token bindings; the slot decides the model and constraints, the prompt only supplies content; every generated
+image carries prompt + model + slot id + artifact id + alt text + provenance. GATE: `figma_registry_parity`
+fails any GOLD node lacking either a wired runtime fill or an explicit `mode:'none'`. OWNER SKILL:
+`nxt-visual-renderer`, `designer`.
+
+### WS-I (P1) — PPTX as a first-class renderer from AIR, globally native (Phase 9)
+Treat PPTX as a renderer that consumes the SAME AIR + template manifest + brand tokens + image-slot registry
+as the preview, not a downstream export. Use a **placeholder-first compiler** bound to a locked layout
+registry with stable placeholder `idx` values (native text placeholders, native picture placeholders, charts,
+tables); remove the raster fallback in `gold_pptx_export.py` (emit native text + inherited chrome even on empty
+GEO); route the legacy `SlideCanvas` path to the gold renderer and deprecate `pptx.ts::exportSlideToPPTX`;
+remove the design-desk freeform raster fallback. GATE: `pptx_native` (proxy-side python-pptx) fails any
+full-slide picture-only slide or zero native text runs, on EVERY pptx path. OWNER SKILL: `nxt-humans-slides`,
+`export-render-verifier` subagent.
+
+### WS-J (P1, NEW) — MCP, connector, and tool governance
+Do not expose every connector/tool to every agent. Use **domain-specific tool packs** with signed descriptors,
+bounded capabilities, per-context tool budgets, and human-approval gates for write/publish/delete tools (e.g. a
+`figma_gold_audit` pack: read-only Figma tools, write/publish require approval). Figma MCP is **design-time
+only** (auditing, exporting manifests, component parity); the SPA NEVER calls Figma live at runtime; runtime
+generation uses the exported template manifest + token/component/image-slot registries. Every tool call writes
+to the run trace (objective, source pack, consent state, tool pack, output hash, downstream artifact ids); tool
+descriptors are untrusted unless signed and pinned. GATE: a tool-governance check in the unified gate. OWNER
+SKILL: new `mcp-tool-governance` reference; `mcp-service-bootstrap` (update).
+
+---
+
+## PART IV — ONE QUALITY GATE (CONVERGE the hook sprawl)
+
+Collapse the per-defect hooks into ONE `.claude/hooks/quality_gate.py` with independently-testable checks under
+`.claude/hooks/checks/`, invoked with scopes:
+
+```
+.claude/hooks/quality_gate.py
+  checks/
+    air_schema_integrity.py        artifact_catalog_coverage.py
+    citation_resolution.py         designer_manifest_grounding.py
+    corpus_reuse_provenance.py     source_diversity.py
+    epoch_gate_verdict.py          figma_registry_parity.py
+    pptx_native.py                 mcp_tool_governance.py
+```
+
+`python .claude/hooks/quality_gate.py --scope air --scope citations --scope designer-grounding
+--scope pptx-native sessions/$RUN_ID/artifacts/$ARTIFACT_ID.air.json`. Objective defects BLOCK (Stop);
+judgment calls produce review findings, not Stop failures. This reconciles deterministic enforcement with the
+"built after the feature, never a band-aid" rule. The existing ~50 validators are migrated into `checks/`
+incrementally as each workstream lands; no new hook gates an absent feature.
+
+---
+
+## PART V — THE SEVEN-STAGE SEQUENCE (revised)
+
+- **Stage 0 — Install the contract layer (WS-0).** AIR + run trace + evidence ledger + artifact catalog +
+  unified quality gate. Exit: every hashtag resolves through the catalog; every artifact writes `.air.json`;
+  every model call writes a routing trace; every rendered deliverable links back to AIR. PRECEDES WS-A..WS-I.
+- **Stage 1 — P0 credibility closure (WS-A, WS-B, WS-C, WS-D + WS-G schema subset in parallel).** Citations
+  resolve from per-chunk sources; Designer is manifest-first; cached reuse is visible/scored/deduped/traceable;
+  no epoch promotion without a gate verdict; manifest gains concepts/related_chunks/source_lineage/objective_alignment.
+- **Stage 2 — Retrieval + knowledge-graph completion (WS-G remainder + WS-F).** `retrieveManifestEvidence` is
+  the single retrieval function for themes/Analyst/Designer/artifacts/eval; dense rerank is subordinate to
+  manifest candidate discovery; every evidence block has pointer + quote + source lineage + objective score +
+  concept links; sub-question coverage is audited.
+- **Stage 3 — Artifact Factory migration (AIR-first rendering).** Migrate high-value artifacts first, hardest
+  path first: `#strategy` deck (exercises evidence, narrative, template selection, visuals, PPTX, exec QA),
+  then `#recommendations`, `#gap`, `#roadmap`, `#persona`, then the rest. Each produces AIR; the evidence gate
+  passes before rendering; the template selector picks from the manifest, not intuition; the renderer fills
+  named slots only; output has traceable evidence footnotes.
+- **Stage 4 — Routing convergence (WS-E).** Every model call routes through the eval-backed authority; the
+  per-artifact eval registry is populated; quota + health fold in; no hardcoded model ids outside the router +
+  provider config.
+- **Stage 5 — Figma GOLD + slot-governed Nano Banana (WS-H).** All GOLD pages are components or explicitly
+  excluded; all image slots token-bound with a runtime decision (wired or `mode:'none'`); Nano Banana prompts
+  built from AIR + evidence + slot constraints; diagrams explicitly native-shape or image, never ambiguous.
+- **Stage 6 — Native PPTX globally (WS-I).** Raster fallback removed; legacy paths deprecated; every pptx path
+  validated by `pptx_native`.
+- **Stage 7 — Governance, observability, gated SkillOpt (WS-J + WS-D hardening).** MCP tool packs + signed
+  descriptors; full run trace across ingestion → retrieval → generation → render → export → review; eval
+  dashboards by artifact type; SkillOpt consumes feedback + trace failures; constraints retire when stale.
+
+Each workstream ships build → `tsc --noEmit` → unit/gate test → Docker rebuild → browser smoke (console clean)
+→ output inspection before "done." HTTP 200 and a green build are not proof.
+
+---
+
+## PART VI — CRITICAL EVALUATION OF THE EXPERT REVIEW (accept / adapt / reject, with rationale)
+
+ACCEPTED AND INTEGRATED (the review was right and my v1 was weaker):
+- AIR + run-trace backbone as the spine (WS-0); the five typed graphs; AIR renders everything; promote manifest
+  schema to P0; collapse hooks into one gate; eval-backed router policy engine; slot-governed Nano Banana; PPTX
+  as a first-class renderer from AIR; gated-evolution self-improvement; modality-aware chunking + precise
+  locator contract; claim-evidence compiler with a minimum-support policy; MCP tool-pack governance (WS-J).
+
+ADAPTED (right direction, wrong specifics for HiC):
+- **Model IDs.** The report names Gemini 2.5 Pro/Flash, `gemini-3-pro-image`, and GPT-5.5/5.4 tiers. HiC's
+  VERIFIED canonical models are `gemini-3.1-pro-preview` / `gemini-3.5-flash` / `gemini-3.1-flash-image-preview`,
+  `claude-opus-4-8`, `gpt-5.5` / `gpt-5.4-mini`. I adopt the tiered-routing ARCHITECTURE (frontier for
+  synthesis/verification, cheap tiers for scale) but keep HiC's canonical ids. Routing through `aiRouter.ts`
+  remains mandatory; no hardcoded ids.
+- **Anti-RAG reframe.** Adopted as "objective-graph-and-manifest-first; cross-encoder rerank only AFTER manifest
+  seeding; bulk injection forbidden unless manifest empty." This is consistent with HiC's existing
+  `wiki-reranker`. FLAGGED FOR OWNER RATIFICATION because it refines an owner-emphatic doctrine (see Part VII).
+
+RECONSIDERED (owner challenged the initial reject 2026-06-30; revised objectively to the state of the art):
+- **Provider-native stateful orchestration (OpenAI Responses API / Gemini Interactions).** ADOPT THE
+  CAPABILITY, NOT THE COUPLING. The capabilities these surfaces represent — a stateful run object, a
+  server-managed tool loop, structured outputs, built-in search — ARE state of the art and are exactly what AIR
+  + run-trace formalize. The error would be coupling HiC's WHOLE orchestration to one vendor, because HiC is
+  multi-provider and its resilience model is cross-provider fallback (the report itself cites "no single
+  framework dominates"). DECISION: keep the proxy as the cross-provider chokepoint, and UPGRADE it to use each
+  provider's native stateful + structured-output + server-tool-loop features behind the abstraction (Responses
+  API for the OpenAI path, Interactions for the Gemini path, Anthropic's own), with AIR as the provider-agnostic
+  run object. This is an upgrade to the one chokepoint (converge), not a re-platform that forks it. Folded into
+  WS-0 (AIR run object) + WS-E (router/proxy upgrade).
+- **Embeddings / hosted ANN store.** ANTI-RAG MEANS ANTI-OPAQUE-BULK-INJECTION AND PRO-PROVENANCE, NOT
+  ANTI-EMBEDDING. The frontier (AgenticRAG, LLM-Wiki, RLM-on-KG) moves AWAY from flat embedding lookup as the
+  PRIMARY retrieval — which agrees with the manifest-first doctrine — but uses dense embeddings as ONE SIGNAL in
+  hybrid retrieval (dense + sparse + graph → fuse → cross-encoder rerank), which is state of the art. DECISION:
+  embeddings (and even a hosted ANN store) are PERMITTED as a provenance-carrying signal inside manifest-first
+  hybrid retrieval, on the strict condition that every vector carries its manifest pointer + source lineage so
+  results dereference to cited chunks; they are subordinate to objective + manifest seeding. FORBIDDEN:
+  provenance-free bulk injection of raw nearest-neighbor chunks. Folded into WS-G `retrieveManifestEvidence`
+  (dense is a candidate-generation signal feeding the manifest-seeded set, then rerank). This sharpens the
+  anti-RAG doctrine; it does not abandon it.
+
+NOTHING REMAINS FULLY REJECTED. The two items above moved from "reject" to "adopt with provenance/abstraction
+discipline" after objective reconsideration.
+
+### AIR enforcement is RAMPED, not flag-day (owner decision 2 resolved)
+AIR-as-hard-gate is adopted, but enforced per artifact path in two steps to avoid a breaking switch: each path
+first runs AIR in SHADOW mode (emit AIR, log any "rendered without valid AIR" as a violation, do NOT block),
+then flips to BLOCKING the moment that path emits AIR cleanly and is verified. By the end of Stage 3 every
+artifact path is blocking. The `air_schema_integrity` check supports both modes via a per-path flag.
+
+### Gated-evolution approvals reuse existing gates; NO new approval UI (owner decision 3 resolved)
+Material changes (routing / renderer / connector CODE) ride the EXISTING commit-approval gate (the standing
+no-commit-without-approval rule + `precheck_commit_approval.py`): the epoch proposes a patch record + held-out
+verdict, and it lands only when the owner approves the commit. Low-risk config/skill changes auto-promote
+BEHIND the held-out gate + `skillopt-validation-gate`, logged to `improvement-epochs.md`. No new approval UI is
+required. OPTIONAL polish (not required, later): a READ-ONLY in-SPA "self-improvement log" panel showing recent
+auto-promotions + pending proposals for visibility.
+
+---
+
+## PART VII — OWNER DECISIONS (resolved 2026-06-30)
+
+1. **Anti-RAG refinement — RATIFIED.** Operational definition: objective-graph-and-manifest-first; cross-encoder
+   rerank only AFTER manifest candidate discovery; embeddings/hosted-ANN permitted as a PROVENANCE-CARRYING
+   signal subordinate to manifest seeding; bulk injection of raw nearest-neighbors forbidden unless the manifest
+   is empty. Anti-RAG = anti-opaque-bulk-injection + pro-provenance, NOT anti-embedding.
+2. **AIR as a hard gate — CONFIRMED, RAMPED.** Blocking once Stage 0 lands, enforced per path via shadow → block
+   (see Part VI). All paths blocking by end of Stage 3.
+3. **Gated-evolution autonomy — CONFIRMED.** Material (routing/renderer/connector) changes require owner approval
+   via the existing commit-approval gate; low-risk config/skill changes auto-promote behind the held-out gate +
+   `skillopt-validation-gate`. No new approval UI. Optional read-only improvement-log panel later.
+4. **Sequencing — CONFIRMED: Stage 0 (WS-0) first**, because every P0 fix becomes cleaner and testable once it
+   writes to AIR, and WS-0 begins by enumerating the FULL artifact catalog so no hashtag is omitted from the
+   outset. Provider-native orchestration upgrade folds into WS-0/WS-E; embeddings-as-signal folds into WS-G.
+
+## PART VIII — OMISSION-PROOFING (so no workstream is dropped across sessions)
+1. WS-0 starts by writing `config/artifact_catalog.yaml` enumerating EVERY hashtag (the full set in this plan),
+   so completeness is enforced from the first commit, not discovered late.
+2. Every workstream below carries explicit EXIT CRITERIA; a workstream is "done" only when its feature ships AND
+   its gate check exists AND its test passes (build → tsc → gate test → Docker rebuild → browser smoke → output).
+3. A persistent task list (TaskCreate) mirrors WS-0..WS-J with dependencies; any future session reads it to see
+   exactly what remains. A coverage check (`artifact_catalog_coverage` in the unified gate) fails if any artifact
+   path lacks an AIR emission or a routing-authority resolution, so silent omission is caught mechanically.
+
+### DEFERRED LEDGER — stragglers that MUST NOT get lost (each has a tracked task)
+Every item deferred out of a landed workstream is recorded here AND as a persistent task (survives sessions).
+A deferral is legitimate only if it appears in BOTH places with a reason and a trigger. Nothing is "a scoped
+follow" on a verbal promise alone.
+
+| # | Deferred item | From | Reason it was deferred (not reckless) | Trigger to do it | Task |
+|---|---|---|---|---|---|
+| D1 | Converge citation formats; retire legacy `citationResolver` [CHUNK_XXX] | WS-A | It is LIVE via `App.tsx:3355` (generation path); deleting now breaks generation | Stage 3 AIR migration, when artifacts assemble citations from the AIR evidence ledger | #13 |
+| D2 | Bridge 16 doc-level `resolved_sources` pages into page-level (Tier-2) resolution | WS-A | Immediate live win separate from the per-chunk READ path; touches catalog/registration | Next, before/with WS-C (attribution surfacing) | #14 |
+| D3 | Populate per-chunk `sources:` on real pages | WS-A | READ path is proven; the WRITE (6/30 forward-fix) is uncommitted + only fires on fresh grounded writes | After commit + proxy rebuild + one live deep-research run | #15 |
+| D4 | Commit today's uncommitted work (6/30 + WS-0 + WS-A); rebuild `research-generator`; browser smoke | all | Standing rule: no commit without owner approval; build/test/commit order | Owner approval | #16 |
+| D5 | Claim-evidence compiler generator wiring | WS-A | Types/policy live (WS-0 evidenceLedgerService); wiring belongs where claims assemble from the ledger | Stage 3 AIR migration | #8 |
+| D6 | Provider-native stateful orchestration upgrade (Responses/Interactions behind the proxy) | v2 reconsider | Capability-adopt, not re-platform; belongs with routing convergence | Stage 4 | #9 |
+| D7 | 2026-07-01 Opus-cap revert (flip OPUS_CAP_ACTIVE=false + revert checklist) | routing | Calendar-gated on the Anthropic cap lifting | 2026-07-01 | #9 |
+| D8 | corpus_reuse_provenance gate (fail silent cached reuse) | WS-C | Runtime enforcement needs the ResearchRunManifest corpus.sources provenance, not emitted yet | When ResearchRunManifest is emitted (Stage 3) | #17 |
+| D9 | Deep-research synthesis vs live-source URL dedup | WS-C | Merge authority already dedupes by urlKey; the finer grounding-URL dedup is a smaller follow | With WS-G retrieval work / Stage 2 | #18 |
+| D10 | OS-level auto-fire schedule of the (propose-only) epoch-proposer | WS-D | Propose-only mechanism + review UI are built + verified; the cadence trigger is an environment-specific OS registration (mirror skillopt-weekly.xml), can't be verified to fire from here | When the owner registers the scheduled task | #19 |
+| D11 | slide-deck path AIR emission via corpusChatService (real ledger) | Stage-3 | DONE 2026-06-30 (ec0cd5b0d) - closed | closed | #20 |
+| D12 | flip air_schema_integrity shadow→blocking per artifact path | Stage-3 | Ramped design: flip only after a path emits a clean AIR on a LIVE generation run; needs real LLM runs to validate | After a live #strategy/#gap/#journey/#personas run validates clean | #21 |
+| D13 | WS-E upgrade: eval-backed router POLICY engine + provider-native orchestration | WS-E | Convergence onto artifactModelFor DONE; the policy-engine (score by eval-history/quota/health) needs an eval registry, and provider-native orchestration (Responses/Interactions behind the proxy) is a large proxy change | Build the eval registry first, then the scoring engine; provider-native is optional per Part VI | #22 |
+| D15 | WS-I behavior changes: remove raster fallback + deprecate legacy SlideCanvas pptxgenjs path | WS-I | Native VALIDATION landed (validate_pptx_native flags rasterized/blank decks at export); removing the raster fallback in gold_pptx_export + deprecating the legacy path CHANGE export behavior and need a real .pptx export to verify they don't break | After a real deck export confirms native-only output, remove the fallback + legacy path | #24 |
+| D16 | WS-H Figma-authoring: componentize executive-brief 366:2, wire 7 slots, mindmap twin, bind hardcoded hex | WS-H | Code-side parity gate already exists (figmaRegistryParity.test.ts); the remainder is LIVE Figma MCP authoring + renderer-twin + live-render verification, not code-only | Live Figma MCP session | #25 |
+| D17 | ~~OWNER DECISION: journeys/arch/mindmaps = Nano-Banana image vs native shapes~~ RESOLVED 2026-07-01 (9fdc7652f + 511ee1665): owner chose a THIRD option — **native-render to a full-bleed IMAGE** (HTML/CSS→Chromium), best of both. Wired inline + PPTX. See PART IX. | WS-H | closed | closed | #26 |
+
+RULE: when a workstream lands, any item it does not fully complete gets a row here + a task in the SAME commit
+that marks the workstream done. A reviewer checks this ledger against the task list; a mismatch is a process bug.
+
+### Workstream completion checklist (update as each lands)
+- [x] WS-0 AIR + run-trace backbone + artifact catalog + unified quality gate (Stage 0) — CONTRACT LAYER LANDED 2026-06-30: services/artifactCatalog.ts (26 ids, authoritative) + config/artifact_catalog.yaml; schemas/artifact_air.schema.json + research_run_manifest.schema.json; services/{evidenceLedgerService,artifactAirService,runTraceService}.ts; .claude/hooks/quality_gate.py + checks/{air_schema_integrity,artifact_catalog_coverage}.py; proxy POST /api/air/write. VERIFIED: tsc 0; vitest 11/11 (services/artifactCatalogCoverage.test.ts omission guard + services/artifactAir.test.ts); gate live shadow=pass, blocking-pointer=exit2, uncatalogued=exit2; proxy ast.parse OK. PENDING: proxy endpoint live-confirm on the Docker rebuild; renderers EMIT AIR in Stage 3 (by design).
+- [x] WS-A citation provenance read at cite time + claim-evidence compiler (Stage 1) — LANDED 2026-06-30: per-chunk `sources:` now parsed by BOTH resolvers (wiki_chunker.extract_chunk_spans + extract_chunk_sources; wikiPointerResolver._parseChunksFrontmatter + ResolvedChunk.sources), registered at the assembleChunkCorpus chokepoint (registerResolvedChunkSources), and resolved Tier-1 in citationPointerRegistry.resolveOne (real source > page title > prettify; multi-source -> honest "Synthesis of A, B, C"). Stale char_span guard drops mis-sliced spans (no wrong-cite). New checks/citation_resolution.py gate (provider-bucket / false-primary / leaked-pointer). VERIFIED: tsc 0; full suite 416/416; gate dirty=exit2 clean=exit0; LIVE end-to-end proof against :5012 (synthetic page -> resolveChunks parsed sources -> resolved "(Source: Higher Ed Dive)", proxy-container Python parse confirmed). DEFERRED (documented, not reckless): citationResolver.ts format convergence/deletion (it is LIVE via App.tsx:3355 legacy [CHUNK_XXX] path). DATA GAP: 0 real pages carry per-chunk `sources:` yet (only the 6/30 forward-fix on fresh grounded writes populates it); WS-A makes the READ path correct + ready. Claim-evidence compiler types/policy live (evidenceLedgerService, WS-0); generator wiring rides Stage 3.
+- [x] WS-B Designer Desk manifest-first + output pointer resolution (Stage 1) — LANDED 2026-06-30. RECONCILIATION: the six-audit claim "Designer bypasses the manifest / bulk corpus" was INCOMPLETE — it judged by the `corpus: string` signature and missed the caller. DesignDeskChat.buildPromptCorpusGrounded (lines 259-282) was ALREADY manifest-first (pickChunksForPrompt+resolveChunks+assembleChunkCorpus, LEADS with "PRIMARY EVIDENCE (cite by pointer)", bulk demoted to tail, both gen+revision paths). The REAL gap: Designer OUTPUT never ran resolveManifestPointers, so model-cited [path#cN] pointers LEAKED and WS-A real-source attribution never surfaced. FIX: resolveManifestPointers now runs on chatToFreeform output (freeform HTML body) + chatToSlideSpec output (title + spec.objects[].text); + regression guard design-desk/designerAntiRag.test.ts (4 source-level asserts). VERIFIED: tsc 0; full suite 420/420; mechanism proven via WS-A live test (registered chunk pointer -> real source) composed with the wiring. POST-REBUILD SMOKE (same class as WS-A data gap): live Designer generation confirming model-emitted pointers resolve to real sources in the SPA. citation_resolution gate already catches any leak.
+- [x] WS-C cached second-brain auto-reuse in collection (Stage 1) — LANDED 2026-06-30. VERIFIED audit was correct here (unlike WS-B): _blendCached was MANUAL Knowledge Library only; scoreGoalSimilarity existed but was never used for fresh-corpus auto-reuse. FIX: new wikiCacheLoader.loadCachedItemsByGoal (scans the 94 sources/ archives, scores each vs the objective via scoreGoalSimilarity, returns top matches as source:'cached' DataSourceItems with cachedProvenance{path,goalSimilarity}); App.tsx folds them into _mergeUploads BEFORE dedup (merge authority collapses fresh dups into cached canonicals), logged + surfaced as a thinking event (never silent), bounded (maxItems 8), fail-safe. VERIFIED: tsc 0; full suite 423/423; LIVE proof against :5012 (goal match -> cached items w/ provenance; gibberish -> []); permanent guard services/cachedReuse.test.ts. SCOPE: archive-level reuse now; per-chunk/manifest-graph reuse is WS-G (Stage 2). POST-REBUILD SMOKE: a fresh SPA run auto-reusing. Gate (corpus_reuse_provenance) + deep-research-URL dedup deferred -> ledger D8/D9.
+- [x] WS-D self-improvement loop: propose-only + in-UI review (Stage 1) — LANDED 2026-06-30. RECONCILIATION (3rd audit overstatement): the loop was ~90% ALREADY built — held-out gate logic (goldenSetRunner.runGate+compareReports), disk-authoritative counter (/api/epochs/status proxy:15831), outcome tracker (/api/epochs/{id}/outcome), feedback->SkillOpt (build-training-set.py folds train_skill=true), skill-patch gate (learningEngine, test-locked). Audit claims "counter never increments / gate not in-path / feedback not consumed / loop not closing" were WRONG. OWNER DECISION (2026-06-30): PROPOSE-ONLY + in-UI review. BUILT: proxy /api/epochs/proposals (list/create/review) backed by epoch-proposals.json; services/epochProposals.ts; components/EpochProposalsPanel.tsx (approve/reject); App.tsx mount + trigger; epoch-proposer skill made PROPOSE-ONLY (writes gated proposal, NEVER auto-applies; low_risk vs material risk_class; material rides commit-approval). VERIFIED: tsc 0; full suite 426/426; LIVE round-trip against :5012 (create->pending, approve->approved, pending drains); guard services/epochProposals.test.ts. DEFERRED: OS-level auto-fire schedule of the proposer -> ledger D10. POST-REBUILD SMOKE: the ◆ epochs panel renders in the SPA.
+- [x] WS-G(schema) manifest concept-graph frontmatter (Stage 1) — LANDED 2026-06-30. Added `concepts` (coarser than key_terms: >=2 mentions, len>=5) + `related_chunks` (intra-doc concept adjacency, chunks sharing >=2 concepts) to chunk frontmatter: wiki_chunker `_concept_extract` + chunk_for_manifest + `_serialize_chunks_yaml` + `extract_chunk_spans` parse; TS twin `wikiPointerResolver._parseChunksFrontmatter` + `ResolvedChunk.concepts/relatedChunks`; documented in AGENTS.md "Chunk Frontmatter Contract". RECONCILED: source_lineage = WS-A's `sources:` (no duplication); objective_alignment belongs to RETRIEVAL time (WS-F), not chunk time. VERIFIED: tsc 0; full suite 429/429; Python round-trip (extract+serialize+parse+chunk_for_manifest) in the proxy container; LIVE TS resolveChunks surfaced concepts+relatedChunks; guard services/conceptGraph.test.ts. DATA-LAG: existing pages gain the fields only on re-chunk/new writes (same class as WS-A). Concept-graph TRAVERSAL retrieval that USES these fields is WS-G(traversal), Stage 2 (task #7).
+- [~] WS-G(traversal) concept-graph seeding in the shared retrieval fn (Stage 2) — WS-G(traversal) LANDED 2026-06-30. RECONCILED: the "single retrieveManifestEvidence function" ALREADY EXISTS as pickChunksForPrompt (themes/Analyst/Designer/artifacts all reach it via buildManifestCorpusForGoal) - so this ENHANCES it (converge), does not build a parallel. Added concept-graph seeding: a chunk 1-hop concept-adjacent (via related_chunks) to a keyword-MATCHED chunk is admitted at CONCEPT_ADJ_SCORE (below matches, above dropped) so the concept graph FEEDS retrieval, then MMR refines. VERIFIED: tsc 0; suite 430/430; guard in conceptGraph.test.ts. DATA-LAG: needs re-chunked pages carrying related_chunks (WS-G-schema). WS-F (objective-supremacy ranking + sub-question coverage) is the remaining half of this line - IN PROGRESS next.
+- [x] WS-F objective-supremacy: sub-question coverage audit (Stage 2) — LANDED 2026-06-30. Added deterministic `auditSubQuestionCoverage(corpusText, subQuestions)` (researchPlanner.ts): scores salient-term presence per sub-question -> covered(>=60%)/partial/uncovered, surfaces HIGH-priority under-covered ones (the objective-supremacy alarm). Wired post-collection in App.tsx (shape-guarded) -> logs + a [COVERAGE] thinking event recommending a targeted follow-up BEFORE generation. VERIFIED: tsc 0; full suite 434/434; BEHAVIORAL unit test subQuestionCoverage.test.ts (4, real asserts - not source-regex; pure fn needs no proxy). RECONCILED: breadth/source-type balance ALREADY exists (pickChunksForPrompt SOCIAL_MAX_FRAC 40% auto-cap); source-level relevance aggregation logging + writing coverage into the AIR Objective Graph ride Stage 3 (AIR migration).
+- [x] Stage 3 AIR emission across ALL 3 artifact paths — 2026-06-30 (flip shadow->blocking = D12, live-gated). BEACHHEAD then FULL emission: AIR emission wired into the UNIVERSAL emitDeliverable wrapper (opt-in `air` step: buildAir + validateAir(SHADOW, non-blocking) + writeAir, fire-and-forget) - the single chokepoint every artifact flows through (converge, not per-artifact rewire). First real consumer: the strategy/HTML-artifact path (CorpusChatPanel) opts in. VERIFIED: tsc 0; full suite 436/436; buildAir/validateAir/writeAir each already live-proven (WS-0); guard in artifactAir.test.ts. REMAINING (multi-increment): opt the other artifact paths into `air`; populate REAL EvidencePointer ledgers (from resolveChunks, not empty); flip air_schema_integrity shadow->blocking per path once each emits clean; live smoke of a real #strategy generation writing its AIR.
+- [x] WS-E routing CONVERGENCE (Stage 4) — LANDED 2026-06-30. deliverableModelOverride now delegates to the ONE authority aiRouter.artifactModelFor; the parallel DELIVERABLE_MODEL_TIER map + ARTIFACT_DEFAULT_DURING_CAP const in corpusChatService are DELETED (no duplicate routing brain). routedModelFor + the panel spinner already route through it. VERIFIED: tsc 0; full suite 439/439; opusCapConvergence.test.ts updated to guard the convergence (duplicate gone + delegation present). REMAINING (D13): the eval-backed POLICY engine (score by eval-history/quota/health) + optional provider-native orchestration - larger follow-ons needing an eval registry.
+- [~] WS-H GOLD componentization + slot-governed Nano Banana (Stage 5) — ASSESSED 2026-06-30; **D17 SHIPPED 2026-07-01**. Code-side largely wired (phase-8 LIVE Figma audit; figmaRegistryParity.test.ts guards parity + no-hardcode + no-masquerade). **D17 RESOLVED (2026-07-01, 9fdc7652f + 511ee1665):** journeys/arch/mindmaps/blueprints now render as full-bleed NATIVE GOLD exhibit IMAGES — `proxy/nxt_diagram_render.py` composes the GOLD exhibit as real HTML/CSS from brand tokens (rail + chartreuse dot-mark, IBM Plex Mono cyan kicker, Archivo title, hairline, chartreuse takeaway band) at 1280×720 (exact 16:9), rasterized by the proxy's headless Chromium; served on the SAME `/api/ai/diagram` contract (image-gen kept only as a Chromium-unavailable fallback). Real NXT icons: 104 tag-indexed glyphs extracted from `services/iconLibrary.ts` (Figma Icons 796:2) → `hic-workspace/design-system/icon-glyphs.json`, concept-matched per node. Wired end-to-end: `services/diagramSpec.ts::buildDiagramSpec` maps the slide's full data → spec; `slideToStageHtml.fullBleedImageDoc` renders it wall-to-wall (object-fit:cover, zero stretch); gen-time useEffect attaches it for inline preview; export pre-pass embeds it in PPTX. Every diagram string runs through the proxy anti-slop chokepoint. This advances phases 8 (componentized/token-bound/runtime-filled) AND 9 (PPTX-native picture). REMAINING: (D16) LIVE Figma MCP authoring — componentize executive-brief 366:2 + NU twin, wire the ~7 `wired:false` slots' renderer twins, bind residual hardcoded hex (the mindmap "612:2 twin" is now moot for the diagram-image path but still applies to any in-deck native mindmap). PENDING owner live test of `#slide #journey`/`#arch`/`mindmap` in the Analyst Desk (SPA rebuilt).
+- [x] WS-I PPTX native-export VALIDATION (Stage 6) — LANDED 2026-06-30. gold_pptx_export.validate_pptx_native flags full-slide picture-only (rasterized) slides + zero-native-text-run decks; called at both export entry points (html_to_editable_pptx + html_list_to_editable_pptx), logs a NON-NATIVE warning + returns a `native` report. VERIFIED: py syntax; container test (native text box -> native:true; full-slide picture -> native:false + flagged); module imports clean (added the missing `logger`). RECONCILED (phase-9 audit): export is already ~95% native via the gold pipeline; this adds the missing validation gate. REMAINING (D15): the behavior CHANGES - remove the raster fallback in gold_pptx_export + deprecate the legacy SlideCanvas pptxgenjs path - need a real .pptx export to verify safely.
+- [x] WS-J MCP tool-pack governance CONTRACT + gate (Stage 7) — LANDED 2026-06-30. config/mcp-tool-packs.json defines domain-specific packs (figma_gold_audit design-time-only + read-only; wiki_retrieval read-only, write DENIED; connectors_read) with allowed/denied/approval-gated tools + per-context budgets + signature slots. .claude/hooks/checks/mcp_tool_governance.py validates a run's AIR.toolTrace against them (unknown pack / denied tool / unapproved write / budget-exceed -> block); registered as the `mcp-governance` gate scope. VERIFIED: config parses; py syntax; gate live (denied->exit2, allowed/empty->exit0). REMAINING (D14): RUNTIME enforcement - agents/services record toolPack on every tool call so the gate bites; SPA-never-calls-Figma-live is doctrine.
+
+---
+
+## PART IX — 2026-07-01 SESSION UPDATE (D17 diagrams shipped, ECC adoptions, fleshed-out vision)
+
+Successor: this part is the most current ground truth. Read it before touching diagram rendering, the
+SkillOpt loop, the benchmark, or the proxy ingestion path. Three commits landed on
+`self-improvement-ia-2026-05-29` (unpushed): `9fdc7652f` (diagram engine), `511ee1665` (full-loop wiring),
+`32cfeeaf8` (ECC adoptions).
+
+### IX.1 — D17: diagrams are now NATIVE-RENDER-TO-FULL-BLEED-IMAGE (phases 8 + 9)
+
+The owner adjudicated D17 by choosing a **third option** neither the registry directive (Nano-Banana image)
+nor the code default (in-deck native shapes) captured, and it is the correct one:
+
+> Journeys, architecture maps, mindmaps and blueprints render as a single **full-bleed 16:9 exhibit
+> IMAGE**, but that image is **composed as real HTML/CSS from the brand tokens and rasterized by headless
+> Chromium** — not generated by a diffusion image model.
+
+WHY this is right, and the lesson to carry forward: a diffusion image model (Nano-Banana / Gemini image)
+cannot hold **consistent, elegant typography** or **100%-accurate text** at diagram density. We iterated it
+~10 times (v1→v10); it produced competent-but-template infographics with wrapping drift, partial icons,
+duplicated/garbled cells, and leaked style/instruction words ("IBM Plex Mono MONOSPACE", "#73757A", "BLANK").
+That ceiling is intrinsic to the tool, not the prompt. Native HTML/CSS → Chromium gives locked typography,
+byte-accurate corpus text, real vector icons, and a designed exhibit — while STILL emitting one 16:9 picture
+that embeds in PPTX as a native placeholder (both the image at 2560×1440 and the stage at 1920×1080 / the
+slide at 1280×720 are exact 16:9, so `object-fit:cover` fills edge-to-edge with zero stretch or crop).
+
+**Architecture (files + contract):**
+- `proxy/nxt_diagram_render.py` (NEW) — the renderer. `diagram_html(spec, pal)` composes the GOLD exhibit
+  shell (`_shell`: 56px rail + 3×3 chartreuse dot-mark, IBM Plex Mono cyan kicker, Archivo bold action
+  title, hairline, chartreuse `band_text` takeaway band) + a per-type body: journey/blueprint = full matrix
+  (`_journey_body`: TIMELINE phase cards with KPI chips + CRITICAL flags, PAIN POINTS row on wash-warn,
+  OPPORTUNITY row on wash-cool, VOICE-OF-CUSTOMER pull-quote row, one ACTOR-LANE row per lane, PERSONAS
+  speech-bubble row, empty cells stay empty); architecture = tier tree with downward flow connectors + node
+  type-chips + descriptions (`_arch_body`); mindmap = radial hub + branch icons + up to 3 strategic
+  sub-points per branch (`_mind_body`). `render_diagram_png(spec, pal)` writes the HTML to a temp file and
+  screenshots the `.exhibit` element with Playwright Chromium at device_scale_factor 2. Brand TTFs are
+  @font-face-embedded by absolute file:// path (`_font_face_css`; Archivo, Saira Condensed, IBM Plex Mono).
+- `proxy/app.py::_brand_diagram` — swapped to call the native renderer first (threaded via asyncio.to_thread
+  because Playwright's sync API can't run in the event loop); image-gen (`_diagram_prompt` → Gemini) is kept
+  ONLY as the fallback when Chromium is unavailable. Same `/api/ai/diagram` contract, same content-hash cache
+  (`_diagram_id` keys on spec + brand + canvas + `_DIAGRAM_STYLE_VERSION`), same served URL. `_diagram_palette`
+  was widened to carry the full GOLD token set + brand fonts. `_dq` (every quoted diagram string) routes
+  through `_scrub_diag_text` — the anti-slop chokepoint (`_clean_text` + em-dash/emoji ban + `_SLOP_SUBS`).
+- Real NXT icons: `icon-glyphs.json` (NEW, in `hic-workspace/design-system/`) holds 104 tag-indexed glyphs
+  extracted from `services/iconLibrary.ts` (the composite-icon engine, Figma Icons 796:2). The renderer
+  concept-matches each phase/node/branch title to the best glyph by tag/word overlap. Never hand-draw icons.
+- SPA wiring: `services/diagramSpec.ts` (NEW) — `buildDiagramSpec(slide)` maps a slide's FULL native data
+  (`JourneyMapData` / `ArchitectureMapData` / mindmap) to the proxy spec, every dimension, nothing hardcoded;
+  `fetchDiagramImage` returns the cached PNG (fail-open). `slideToStageHtml.ts` — `fullBleedImageDoc` + an
+  early return render a diagram slide WALL-TO-WALL (no double GOLD chrome; the native matrix stays as the
+  no-image fallback). `CorpusChatPanel.tsx` — a gen-time `useEffect` attaches the image so it shows inline in
+  the Analyst Desk (SlideCanvas's primary preview path is the `slideDataToStageHtml` iframe, so no web.tsx
+  change was needed); the export pre-pass calls `buildDiagramSpec` + embeds the same cached image in PPTX.
+  `SlideCanvas.tsx` — `diagramImage` typed on `SlideData`. `slideDiagramBody.test.ts` — reversed the
+  2026-06-27 "flat-image retired" assertion per this owner call (matrix by default; image when attached).
+
+**Gotchas (each cost real iterations — do not relearn them):**
+1. The cache keys on spec + `_DIAGRAM_STYLE_VERSION`, NOT on prompt/renderer TEXT. After ANY change to
+   `nxt_diagram_render.py` you MUST bump `_DIAGRAM_STYLE_VERSION` in `app.py` or you reuse the stale image.
+2. The proxy mounts `hic-workspace` at `/hic-workspace` in-container, not `../hic-workspace` relative to the
+   code — dual-path any file load (see the `icon-glyphs.json` loader).
+3. In `_shell` the palette local is `pal`, not `p`; an f-string `{p['..']}` typo silently threw at runtime and
+   fell back to IMAGE-GEN (which then produced the leaked-hex "#73757A" garbled output). Tell-tale: native PNG
+   is ~100-300KB, image-gen is ~600KB+; and `grep` the proxy log for `native render error`.
+4. Diagram data models are SHALLOWER than the journey's 8 dimensions — architecture (`layers` + `flowSummary`)
+   and mindmap (`root.children`) will render thin unless generation populates node `type`/`description` and
+   branch sub-points. The renderer surfaces them when present (type-chips, sub-bullets, flowSummary→band).
+
+**Still open on D17:** owner live test of `#slide #journey` / `#slide #arch` / `#slide mindmap` in the Analyst
+Desk (SPA is rebuilt). D16 (LIVE Figma MCP componentization of executive-brief 366:2 + the ~7 unwired slot
+twins + residual hardcoded-hex binding) is unchanged and still pending a Figma MCP session.
+
+### IX.2 — ECC pattern adoptions (self-improvement + safety hardening)
+
+Analyzed `github.com/affaan-m/ECC` (MIT, a multi-harness agent-tooling bundle; ~90% SWE/growth tooling
+irrelevant to HiC). Adopted four PATTERNS into existing surfaces (converge, never import files):
+1. **Prompt-injection hardening** (`proxy/app.py`) — `_scrub_outbound_payload` (the one outbound AI chokepoint)
+   now also strips invisible injection vectors (zero-width, bidi overrides, tag chars) from every model
+   payload; `_neutralize_untrusted_text` runs at ingest (parse-upload text + PDF/vision) and LOGS hard
+   directive patterns without deleting (they may be legitimately quoted in a research article). Closes the
+   untrusted-fetched/uploaded-content hole that ~200 external articles + client PDFs opened.
+2. **SkillOpt batch curation** — check 8 added to `skillopt-validation-gate` (SKILL.md + agent.md; now
+   8-check): checks 1-7 audit one proposal, check 8 audits the whole batch and HARD-BLOCKS cross-proposal
+   contradictions + within-batch duplicates, SOFT/HUMAN-REVIEWs over-generated batches. "Prefer a small
+   accurate set over a bulk/duplicated/contradictory one." Directly hardens the Improvement Graph against the
+   ungated-drift risk.
+3. **pass^k determinism gate** (`scripts/benchmark.mjs`) — new DETERMINISM phase + `passPowK()`. pass^k (ALL k
+   runs agree) is the strict sibling of pass@k (one succeeds) and is the correct shape for the standing rule
+   "same corpus + goal → identical theme/persona/deck identity". Scores `eval/determinism-runs.json` for free
+   if present, else emits an opt-in LIVE probe (no forced spend). pass^3 must = 100%.
+4. **Instinct schema + /evolve clustering** (`proxy/skillopt_trajectory_miner.py`) — each proposal is stamped
+   with the ECC instinct schema (confidence = f(severity, attribution breadth), trigger, domain, source_repo)
+   and `cluster_instincts()` consolidates fragmented same-(domain,trigger) proposals into one confidence-ranked
+   proposal (unioned attribution, preserved member summaries) BEFORE the gate — so the gate receives a small
+   coherent batch, which is exactly what check 8 rewards.
+
+### IX.3 — A fleshed-out reading of the Unified Vision (for the successor)
+
+Having implemented across the pipeline, the vision resolves into a few load-bearing intuitions that the
+nine phases and five graphs only imply:
+
+- **AIR is the spine, but the DESIGN GRAPH is where "consulting-grade" is won or lost.** Phases 1-7 make the
+  content correct and grounded; phase 8-9 (the Design Graph → rendered artifact → editable PPTX) is where the
+  user actually judges quality, and it is the least forgiving. The D17 work is really a Design-Graph lesson:
+  the design system is the authority, and the safest way to honor it is to COMPOSE FROM TOKENS + COMPONENTS
+  and render deterministically — never to ask a generative model to reproduce the brand. When a rendering
+  choice trades determinism for "magic," the brand loses. Prefer native composition; use generative imagery
+  only for genuinely illustrative, non-typographic surfaces.
+- **"Anti-RAG" is really "provenance-first, objective-first."** Every phase reduces to: what does the OBJECTIVE
+  need, and can every claim name its SOURCE. The manifest/concept-graph is the mechanism; provenance carried
+  end-to-end (chunk `sources:` → retrieval → AIR evidence ledger → citation → the exhibit's SOURCE lines) is
+  the goal. A feature that cannot name its evidence is not done.
+- **Convergence is the real work; building is the easy part.** Nearly every workstream this program landed was
+  a CONVERGENCE onto an existing function (one routing authority, one retrieval fn, one AIR wrapper, one
+  outbound scrub, one diagram contract), not a new system. The failure mode HiC keeps hitting is PARALLEL
+  brains that drift (the deleted DELIVERABLE_MODEL_TIER; the two diagram exporters; the stub vs full spec
+  builder). When you find two things that do the same job, the task is to delete one, not to add a third.
+- **Self-improvement is only net-positive behind a gate, and the gate must reason about the BATCH, not just
+  the edit.** The ECC batch-curation adoption made explicit what the Improvement Graph always needed: a small
+  set of accurate, non-contradictory, well-attributed instincts beats volume. Confidence + attribution +
+  clustering upstream, batch-coherence + anti-regression at the gate — that is the whole loop.
+- **The doctrines are not decoration.** NO STOPGAPS, quality-first (fix upstream, never relax a gate),
+  gate-after-feature, determinism-first, and "look at Figma / read the code, never assume" each prevented a
+  specific real regression this program. Treat them as invariants, and when tempted to violate one "just this
+  once," that is precisely the moment the invariant is doing its job.
+
+### IX.4 — Immediate next steps (successor pick-up)
+1. Owner live test of the three diagram combos in the Analyst Desk; fix any inline/PPTX gap on top.
+2. Push the three commits to the `selfimprovement` remote (NEVER the NXT-Humans origin) when the owner approves.
+3. D16 (Figma MCP componentization) and D10 (OS-level epoch-proposer schedule) remain the only open non-code
+   deferrals; D13 (eval-backed router policy engine) is the largest remaining code follow-on.
+4. Consider wiring `eval/determinism-runs.json` from a real k=3 run so the pass^k gate becomes live-scored.

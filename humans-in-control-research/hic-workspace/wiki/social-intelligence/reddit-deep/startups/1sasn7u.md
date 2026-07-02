@@ -20,26 +20,32 @@ chunks:
     char_span: [0, 2104]
     sentence_count: 13
     key_terms: [tier, everything, month, website, digital, businesses, plus, presence]
+    concepts: [everything, month, website, digital, businesses]
     token_count: 490
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1sasn7u/i_will_not_promote_good_idea/"}]
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c1"
     char_span: [2106, 3832]
     sentence_count: 7
     key_terms: [yearly, clients, revenue, starting, profit, level, month, avg]
+    concepts: [yearly, clients, revenue, starting, profit]
     token_count: 483
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c2"
     char_span: [3834, 5770]
     sentence_count: 8
     key_terms: [sites, site, review, status, yearly, level, pick, tier]
+    concepts: [sites, review, status, yearly, level]
     token_count: 511
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c3"
     char_span: [5772, 7791]
     sentence_count: 20
     key_terms: [month, call, cold, client, level, get, high, name]
+    concepts: [month, client, level, schoolers, structure]
     token_count: 499
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c4"
     char_span: [7793, 10088]
     sentence_count: 8
     key_terms: [level, monthly, designer, template, performance, google, month, hub]
+    concepts: [level, monthly, designer, template, performance]
     token_count: 529
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c5"
     char_span: [10090, 10213]
@@ -47,39 +53,45 @@ chunks:
     key_terms: [overcomplicating, realistic, schoolers, structure, designer, logical, model, high]
     token_count: 27
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c6"
-    char_span: [10228, 12580]
+    char_span: [10227, 12579]
     sentence_count: 14
     key_terms: [business, churn, presence, reviews, website, google, "you're", immediate]
+    concepts: [business, churn, presence, reviews, website]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c7"
-    char_span: [12582, 14308]
+    char_span: [12581, 14307]
     sentence_count: 15
     key_terms: ["you're", whole, name, business, change, enough, google, someoneinsignificant]
+    concepts: ["you're", whole, business, change, enough]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c8"
-    char_span: [14310, 16474]
+    char_span: [14309, 16473]
     sentence_count: 11
     key_terms: [business, services, customers, websites, already, "don't", like, need]
+    concepts: [business, services, customers, websites, already]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c9"
-    char_span: [16476, 18527]
+    char_span: [16475, 18526]
     sentence_count: 12
     key_terms: [businesses, small, business, offering, problems, like, customers, developer]
+    concepts: [businesses, business, small, offering, problems]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c10"
-    char_span: [18529, 20361]
+    char_span: [18528, 20360]
     sentence_count: 21
     key_terms: [because, roofers, "don't", local, businesses, "brother's", impulsive, ranking]
+    concepts: [because, roofers, businesses, "don't", local]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c11"
-    char_span: [20365, 21773]
+    char_span: [20364, 21772]
     sentence_count: 9
     key_terms: [get, high, business, cyclical, talent, cheap, friendofevergreens, hire]
+    concepts: [business, cyclical, talent, cheap]
     section: Comments
     token_count: 351
 ---

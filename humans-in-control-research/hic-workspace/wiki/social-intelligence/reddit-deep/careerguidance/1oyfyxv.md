@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1193]
     sentence_count: 9
     key_terms: [development, careerguidance, learn, stack, freelancing, full, web, comments]
+    concepts: [development, careerguidance, freelancing, learn, stack]
     token_count: 290
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1oyfyxv/should_i_learn_aiml_or_full_stack_web_development/"}]
 ---
 # Should I learn AI/ML or Full Stack Web Development at 15? Need career advice.
 

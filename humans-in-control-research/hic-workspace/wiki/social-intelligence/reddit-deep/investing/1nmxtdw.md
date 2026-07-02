@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 838]
     sentence_count: 7
     key_terms: [stocks, investing, "i'm", comments, consider, started, buying, oklo]
+    concepts: [stocks, investing, comments, consider, started]
     token_count: 210
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1nmxtdw/im_up_518_on_one_of_my_stocks/"}]
   - id: "social-intelligence/reddit-deep/investing/1nmxtdw.md#c1"
     char_span: [852, 2638]
     sentence_count: 16
     key_terms: [company, take, yourself, another, believe, depends, kicking, revenue]
+    concepts: [company, yourself, another, believe, depends]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/investing/1nmxtdw.md#c2"
     char_span: [2640, 4281]
     sentence_count: 12
     key_terms: [bought, share, years, next, take, deleted, friends, course]
+    concepts: [bought, share, years, deleted, friends]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/investing/1nmxtdw.md#c3"
     char_span: [4283, 5545]
     sentence_count: 12
     key_terms: [sell, stocks, speculative, get, principle, "wouldn't", company, selling]
+    concepts: [stocks, speculative, principle, "wouldn't", company]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/investing/1nmxtdw.md#c4"
     char_span: [5547, 7439]
     sentence_count: 15
     key_terms: [environmentcareful71, total, pay, year, portfolio, changed, company, million]
+    concepts: [environmentcareful71, total, portfolio, changed, company]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1nmxtdw.md#c5"
     char_span: [7203, 7547]
     sentence_count: 3
     key_terms: [credit, limit, comfortable, remaining, strategy, capital, however, hoping]
+    concepts: [credit, limit]
     section: Comments
     token_count: 96
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 903]
     sentence_count: 8
     key_terms: [careerguidance, advice, start, comments, projects, college, skills, "don't"]
+    concepts: [careerguidance, advice, start, comments, projects]
     token_count: 228
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t0xmgc/i_want_to_learn_some_job_ready_skills_but_dont/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t0xmgc.md#c1"
     char_span: [917, 2457]
     sentence_count: 17
     key_terms: [laptop, starting, "don't", phone, everything, learning, projects, browser]
+    concepts: [laptop, starting, "don't", everything, phone]
     section: Comments
     token_count: 335
 ---

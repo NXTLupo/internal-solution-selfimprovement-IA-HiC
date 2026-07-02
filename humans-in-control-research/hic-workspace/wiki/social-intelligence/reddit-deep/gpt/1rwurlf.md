@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2059]
     sentence_count: 2
     key_terms: [chatgpt, less, wrong, coding, starts, debugging, txt, router]
+    concepts: [chatgpt, wrong, coding, starts, debugging]
     token_count: 480
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1rwurlf/chatgpt_got_a_lot_less_frustrating_for_me_after_i/"}]
   - id: "social-intelligence/reddit-deep/gpt/1rwurlf.md#c1"
     char_span: [2061, 3976]
     sentence_count: 1
     key_terms: [point, did, workflows, txt, wfgy-ai-problem-map-troubleshooting-atlas, earlier, entry, wrong]
+    concepts: [point, workflows, earlier, entry, problemmap]
     token_count: 481
 ---
 # ChatGPT got a lot less frustrating for me after I forced one routing step first

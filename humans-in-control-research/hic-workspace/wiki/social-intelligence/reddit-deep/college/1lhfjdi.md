@@ -19,29 +19,37 @@ chunks:
     char_span: [0, 943]
     sentence_count: 9
     key_terms: [college, comments, because, feeling, school, didn, feel, jobs]
+    concepts: [college, comments, because, feeling, school]
     token_count: 226
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lhfjdi/feeling_discouraged_because_i_didnt_go_to_a_top/"}]
   - id: "social-intelligence/reddit-deep/college/1lhfjdi.md#c1"
-    char_span: [958, 2802]
+    char_span: [957, 2801]
     sentence_count: 19
     key_terms: [school, oregon, people, state, went, university, matters, schools]
+    concepts: [school, oregon, people, state, university]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lhfjdi.md#c2"]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/college/1lhfjdi.md#c2"
-    char_span: [2804, 3637]
+    char_span: [2803, 3636]
     sentence_count: 10
     key_terms: [university, people, sufficient-pen8406, best, job, name, went, connections]
+    concepts: [university, people]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lhfjdi.md#c1"]
     section: Comments
     token_count: 210
   - id: "social-intelligence/reddit-deep/college/1lhfjdi.md#c3"
-    char_span: [3639, 4991]
+    char_span: [3638, 4990]
     sentence_count: 16
     key_terms: [school, internship, comparing, getting, masters, signal-incident-5147, field, known]
+    concepts: [school, internship, comparing, getting, masters]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/college/1lhfjdi.md#c4"
-    char_span: [4993, 6550]
+    char_span: [4992, 6549]
     sentence_count: 9
     key_terms: [school, better, got, sometimes, probably, company, schools, league]
+    concepts: [school, better, sometimes, probably, company]
     section: Comments
     token_count: 357
 ---

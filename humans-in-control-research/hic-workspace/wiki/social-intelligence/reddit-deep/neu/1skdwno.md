@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 696]
     sentence_count: 8
     key_terms: [program, networking, comments, students, co-op, playful-rice-4063, neu, extracurricular]
+    concepts: [program, networking, comments, students, co-op]
     token_count: 170
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1skdwno/ms_cs_coop_participation_networking/"}]
 ---
 # MS CS (co-op participation, networking)
 

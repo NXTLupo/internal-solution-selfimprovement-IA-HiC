@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1576]
     sentence_count: 8
     key_terms: [months, something, creative, learn, experience, corporate, findapath, ai-proof]
+    concepts: [months, something, creative, experience, learn]
     token_count: 378
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1ouat07/whats_an_aiproof_career_path_i_can_start_learning/"}]
   - id: "social-intelligence/reddit-deep/findapath/1ouat07.md#c1"
     char_span: [1590, 3032]
     sentence_count: 11
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    concepts: [thank, helpful, please, findapath, comments]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/findapath/1ouat07.md#c2"
     char_span: [3034, 4515]
     sentence_count: 9
     key_terms: [downtown-doubt4353, work, deleted, almost, couldn, market, months, sudden-pineapple-793]
+    concepts: [downtown-doubt4353, deleted, almost, couldn, market]
     section: Comments
     token_count: 384
 ---

@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 924]
     sentence_count: 7
     key_terms: [career, looking, experience, findapath, comments, advice, people, trying]
+    concepts: [career, looking, experience, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1t3r2ga.md#c1"]
     token_count: 217
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1t3r2ga/20m_feeling_lost_on_career_path_looking_for/"}]
   - id: "social-intelligence/reddit-deep/findapath/1t3r2ga.md#c1"
-    char_span: [939, 2330]
+    char_span: [938, 2329]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, support]
+    concepts: [thank, helpful, please, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1t3r2ga.md#c0"]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/findapath/1t3r2ga.md#c2"
-    char_span: [2332, 3553]
+    char_span: [2331, 3552]
     sentence_count: 7
     key_terms: [inoscopepuppies, get, jobs, healthcare, college, specialistraisin2680, hot-criticism8353, job]
+    concepts: [inoscopepuppies, healthcare, college]
     section: Comments
     token_count: 292
 ---

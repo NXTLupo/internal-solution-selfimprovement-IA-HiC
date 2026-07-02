@@ -20,34 +20,41 @@ chunks:
     char_span: [0, 1976]
     sentence_count: 20
     key_terms: [sales, pipeline, colleague, knew, like, salesfloor, comments, morning]
+    concepts: [sales, pipeline, colleague, salesfloor, comments]
     token_count: 481
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1pgx6go/sales_revenge_stories/"}]
   - id: "social-intelligence/reddit-deep/sales/1pgx6go.md#c1"
     char_span: [1978, 2368]
     sentence_count: 3
     key_terms: [story, salesfloor, different, "anyone's", needless, targeted, unfairly, another]
+    concepts: [story]
     token_count: 84
   - id: "social-intelligence/reddit-deep/sales/1pgx6go.md#c2"
-    char_span: [2383, 3539]
+    char_span: [2382, 3538]
     sentence_count: 7
     key_terms: [boss, manufacturing, sales, operations, forklifts, company, upstairs-appeal6257, truth]
+    concepts: [manufacturing, operations, sales, forklifts, company]
     section: Comments
     token_count: 289
   - id: "social-intelligence/reddit-deep/sales/1pgx6go.md#c3"
-    char_span: [3541, 5535]
+    char_span: [3540, 5534]
     sentence_count: 19
     key_terms: [because, company, implementation, later, sales, conference, customers, chasing]
+    concepts: [implementation, because, company, conference, later]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/sales/1pgx6go.md#c4"
-    char_span: [5537, 6999]
+    char_span: [5536, 6998]
     sentence_count: 9
     key_terms: [hydrangeamacrophylla, deals, year, commission, pipeline, friend, build, doing]
+    concepts: [hydrangeamacrophylla, commission, deals, pipeline, friend]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/sales/1pgx6go.md#c5"
-    char_span: [7001, 8405]
+    char_span: [7000, 8404]
     sentence_count: 16
     key_terms: [management, years, territory, call, team, time, company, manager]
+    concepts: [management, territory, years, company, manager]
     section: Comments
     token_count: 332
 ---

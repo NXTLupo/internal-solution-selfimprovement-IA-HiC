@@ -19,59 +19,75 @@ chunks:
     char_span: [0, 1066]
     sentence_count: 8
     key_terms: [like, college, comments, thinking, skills, feels, maybe, gen]
+    concepts: [college, comments, thinking, skills, feels]
     token_count: 234
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1njo0g8/why_do_so_many_students_dislike_the_gen_ed/"}]
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c1"
     char_span: [1080, 3247]
     sentence_count: 16
     key_terms: [class, accounting, people, because, "it's", classes, requirements, found]
+    concepts: [accounting, class, people, because, classes]
+    related_chunks: ["social-intelligence/reddit-deep/college/1njo0g8.md#c2", "social-intelligence/reddit-deep/college/1njo0g8.md#c3", "social-intelligence/reddit-deep/college/1njo0g8.md#c4", "social-intelligence/reddit-deep/college/1njo0g8.md#c7"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c2"
     char_span: [3249, 5414]
     sentence_count: 15
     key_terms: [classes, class, didn, education, sciences, because, people, pretty]
+    concepts: [classes, class, education, sciences, because]
+    related_chunks: ["social-intelligence/reddit-deep/college/1njo0g8.md#c1", "social-intelligence/reddit-deep/college/1njo0g8.md#c3", "social-intelligence/reddit-deep/college/1njo0g8.md#c4", "social-intelligence/reddit-deep/college/1njo0g8.md#c7"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c3"
     char_span: [5416, 6681]
     sentence_count: 9
     key_terms: [because, classes, college, school, minor, get, hate, thankfully]
+    concepts: [because, classes, college, school, minor]
+    related_chunks: ["social-intelligence/reddit-deep/college/1njo0g8.md#c1", "social-intelligence/reddit-deep/college/1njo0g8.md#c2", "social-intelligence/reddit-deep/college/1njo0g8.md#c4"]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c4"
     char_span: [6683, 8374]
     sentence_count: 13
     key_terms: [classes, students, unnecessary, take, interested, because, college, state]
+    concepts: [classes, students, unnecessary, interested, because]
+    related_chunks: ["social-intelligence/reddit-deep/college/1njo0g8.md#c1", "social-intelligence/reddit-deep/college/1njo0g8.md#c2", "social-intelligence/reddit-deep/college/1njo0g8.md#c3"]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c5"
     char_span: [8376, 9377]
     sentence_count: 4
     key_terms: [years, subjects, classes, courses, degree, school, study, any-conference-701]
+    concepts: [years, subjects, classes, courses, degree]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c6"
     char_span: [9379, 10803]
     sentence_count: 10
     key_terms: [college, history, good, quality, gen, education, question, courses]
+    concepts: [college, history, quality, education, question]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c7"
     char_span: [10805, 13109]
     sentence_count: 6
     key_terms: [people, education, like, because, understanding, switzerland, eds, gen]
+    concepts: [people, education, understanding, because, switzerland]
+    related_chunks: ["social-intelligence/reddit-deep/college/1njo0g8.md#c1", "social-intelligence/reddit-deep/college/1njo0g8.md#c2"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c8"
     char_span: [13111, 15156]
     sentence_count: 19
     key_terms: [like, experience, math, because, though, kinda, feel, gen]
+    concepts: [experience, because, though, kinda, community]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c9"
     char_span: [15159, 15520]
     sentence_count: 1
     key_terms: [point, fundamental, education, specialization, interesting, university, electives, everyone]
+    concepts: [fundamental, point, education]
     section: Comments
     token_count: 72
 ---

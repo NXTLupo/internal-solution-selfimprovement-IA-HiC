@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1621]
     sentence_count: 15
     key_terms: [job, careerguidance, career, jobs, applying, seekers, "here's", reddit]
+    concepts: [careerguidance, career, applying, seekers, "here's"]
     token_count: 364
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sxnrj2/job_search_hacks_from_a_career_coach_that/"}]
   - id: "articles/reddit-deep-r-careerguidance/6f8b2a2cbb.md#c1"
     char_span: [1623, 2534]
     sentence_count: 1
     key_terms: [sunflowerwellnesshtx, top, posting, substantial-car5791, job, plus, applications, responsible]
+    concepts: [sunflowerwellnesshtx, posting]
     token_count: 216
 ---
 # Job search hacks from a career coach (that actually work) ?

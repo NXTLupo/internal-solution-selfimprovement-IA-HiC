@@ -21,71 +21,89 @@ chunks:
     char_span: [0, 2235]
     sentence_count: 1
     key_terms: [people, passionate, issue, applyingtocollege, apps, extracurricular, college, project]
+    concepts: [passionate, applyingtocollege, people, extracurricular, issue]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c3"]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1skjjgp/hot_take_theres_nothing_wrong_with_doing_it_just/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c1"
     char_span: [2249, 4259]
     sentence_count: 8
     key_terms: [passion, passionate, right, because, applications, genuinely, detracts, research]
+    concepts: [passion, passionate, right, because, applications]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c2"]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c2"
     char_span: [4261, 5766]
     sentence_count: 11
     key_terms: [passion, because, like, applicants, college, deserve, always, better]
+    concepts: [passion, because, applicants, college, deserve]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c9"]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c3"
     char_span: [5768, 7594]
     sentence_count: 10
     key_terms: [college, people, admissions, passionate, sageplusorbs, eightethans, apps, club]
+    concepts: [college, admissions, passionate, people, sageplusorbs]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c0"]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c4"
     char_span: [7596, 9508]
     sentence_count: 6
     key_terms: [because, "don't", nonprofit, students, actions, college, learned, started]
+    concepts: [because, "don't", nonprofit, students, actions]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c5"
     char_span: [9510, 11349]
     sentence_count: 16
     key_terms: [disingenuous, superficial, because, "can't", honestly, person, "you're", puzzleheadedsize7304]
+    concepts: [disingenuous, superficial, because, "can't", honestly]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c6"
     char_span: [11351, 11823]
     sentence_count: 5
     key_terms: ["don't", superficial, interview, job, disingenuous, application, "shouldn't", position]
+    concepts: [superficial, "don't", interview]
     section: Comments
     token_count: 113
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c7"
     char_span: [11825, 14113]
     sentence_count: 16
     key_terms: [passionate, something, try, "you're", willingness, find, fine, like]
+    concepts: [passionate, something, "you're", willingness, colleges]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c8"
     char_span: [13809, 14185]
     sentence_count: 1
     key_terms: [year, clubs, like, activities, sophomore, favorite, freshman, possibly]
+    concepts: [clubs]
     section: Comments
     token_count: 81
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c9"
     char_span: [14188, 15978]
     sentence_count: 5
     key_terms: [doing, like, freshman, college, passion, strange, people, school]
+    concepts: [doing, freshman, college, passion, strange]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c2"]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c10"
     char_span: [15980, 17948]
     sentence_count: 15
     key_terms: [students, applications, did, "he's", requirements, college, elected, martial]
+    concepts: [students, applications, requirements, college, elected]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c11"
     char_span: [17950, 18426]
     sentence_count: 4
     key_terms: [doing, something, anything, externally, meaningful, motivation, motivated, problem]
+    concepts: [doing, something, anything]
     section: Comments
     token_count: 114
 ---

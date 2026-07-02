@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 333]
     sentence_count: 1
     key_terms: [applyingtocollege, comments, application, reddit-deep, breakdowns, colleges, college, process]
+    concepts: [applyingtocollege, comments]
     token_count: 89
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1o96ckm/the_college_application_process_sucks/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o96ckm.md#c1"
     char_span: [347, 2503]
     sentence_count: 14
     key_terms: [colleges, year, people, years, gap, get, thehappytalent, "don't"]
+    concepts: [colleges, people, years, thehappytalent, interesting]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o96ckm.md#c2"
     char_span: [2505, 4536]
     sentence_count: 18
     key_terms: [colleges, acceptance, deadlines, safeties, targets, like, list, rate]
+    concepts: [colleges, acceptance, deadlines, safeties, targets]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o96ckm.md#c3"

@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1828]
     sentence_count: 24
     key_terms: [careerguidance, school, competitive, considering, back, job, like, professor]
+    concepts: [careerguidance, school, competitive, considering, professor]
     token_count: 439
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tgay9x/feeling_very_lost_29_making_115k_a_year_in_a/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tgay9x.md#c1"
     char_span: [1842, 2984]
     sentence_count: 10
     key_terms: [okaytouseatwork, people, need, comparing, yourself, denver, income, ilikesquirrrels1990]
+    concepts: [okaytouseatwork, people, comparing, yourself, denver]
     section: Comments
     token_count: 300
   - id: "social-intelligence/reddit-deep/careerguidance/1tgay9x.md#c2"
     char_span: [2986, 4481]
     sentence_count: 19
     key_terms: [job, high, pay, yrs, need, expensive, average, denver]
+    concepts: [expensive, average, denver, saved, today]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/careerguidance/1tgay9x.md#c3"
     char_span: [4483, 6532]
     sentence_count: 14
     key_terms: [ilikesquirrrels1990, research, job, get, already, example, making, tiktok]
+    concepts: [ilikesquirrrels1990, research, already, example, making]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1tgay9x.md#c4"
@@ -50,6 +55,7 @@ chunks:
     char_span: [6628, 8051]
     sentence_count: 13
     key_terms: [school, professional, admission, starting, family, ilikesquirrrels1990, great, years]
+    concepts: [professional, school, admission, starting, family]
     section: Comments
     token_count: 344
 ---

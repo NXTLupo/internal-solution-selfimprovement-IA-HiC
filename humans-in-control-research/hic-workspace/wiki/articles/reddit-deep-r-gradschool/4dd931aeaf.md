@@ -18,16 +18,22 @@ chunks:
     char_span: [0, 716]
     sentence_count: 7
     key_terms: [school, important, grad, experience, gradschool, reddit, spirit, interviews]
+    concepts: [important, school, experience, gradschool, reddit]
+    related_chunks: ["articles/reddit-deep-r-gradschool/4dd931aeaf.md#c2"]
     token_count: 165
+    sources: [{"n":"Reddit Deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1qiamay/how_important_has_school_spirit_been_to_your/"}]
   - id: "articles/reddit-deep-r-gradschool/4dd931aeaf.md#c1"
     char_span: [718, 2313]
     sentence_count: 12
     key_terms: [school, institution, campus, events, spirit, graduate, going, felt]
+    concepts: [school, institution, campus, events, spirit]
     token_count: 359
   - id: "articles/reddit-deep-r-gradschool/4dd931aeaf.md#c2"
     char_span: [2315, 3026]
     sentence_count: 5
     key_terms: [school, important, undergrad, football, grad, somuchsunrayzzz, school-spirit, significantly]
+    concepts: [school, important, undergrad, football]
+    related_chunks: ["articles/reddit-deep-r-gradschool/4dd931aeaf.md#c0"]
     token_count: 171
 ---
 # How important has "school spirit" been to your experience in grad school?

@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 462]
     sentence_count: 2
     key_terms: [applyingtocollege, comments, college, apply, back, senior-ant-6565, consequence, reddit-deep]
+    concepts: [applyingtocollege, comments, college, apply]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1p5crzr.md#c1"]
     token_count: 119
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1p5crzr/can_you_apply_to_community_college_and_back_out/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p5crzr.md#c1"
     char_span: [476, 1152]
     sentence_count: 6
     key_terms: [college, community, apply, sad-animator6846, consequences, application, absolutely, acceptance]
+    concepts: [college, community, apply]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1p5crzr.md#c0"]
     section: Comments
     token_count: 150
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p5crzr.md#c2"
     char_span: [1154, 2685]
     sentence_count: 13
     key_terms: [apply, school, submitting, high, like, deadlines, paperwork, college]
+    concepts: [apply, submitting, school, deadlines, paperwork]
     section: Comments
     token_count: 363
 ---

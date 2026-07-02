@@ -21,23 +21,31 @@ chunks:
     char_span: [0, 1354]
     sentence_count: 8
     key_terms: [department, job, admissions, highereducation, administrative, heavy, comments, position]
+    concepts: [department, admissions, highereducation, administrative, heavy]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1l42ovh.md#c2"]
     token_count: 293
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1l42ovh/two_job_offers_and_i_dont_know_which_one_to_choose/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1l42ovh.md#c1"
     char_span: [1368, 2068]
     sentence_count: 6
     key_terms: [admissions, coordinator, project, good, brittleheartwarm, transferrable, comfortable, leadership]
+    concepts: [admissions, coordinator, project]
     section: Comments
     token_count: 168
   - id: "social-intelligence/reddit-deep/highereducation/1l42ovh.md#c2"
     char_span: [2070, 3875]
     sentence_count: 12
     key_terms: [admissions, job, graduate, brittleheartwarm, applications, heart, department, leadership]
+    concepts: [admissions, brittleheartwarm, graduate, applications, department]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1l42ovh.md#c0", "social-intelligence/reddit-deep/highereducation/1l42ovh.md#c3"]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/highereducation/1l42ovh.md#c3"
     char_span: [3877, 5596]
     sentence_count: 10
     key_terms: [admissions, higher, like, brittleheartwarm, greengardentarot, certificate, want, positions]
+    concepts: [admissions, higher, brittleheartwarm, greengardentarot, certificate]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1l42ovh.md#c2"]
     section: Comments
     token_count: 424
 ---

@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1198]
     sentence_count: 7
     key_terms: [michigan, been, don, direction, findapath, comments, feeling, working]
+    concepts: [michigan, direction, findapath, comments, feeling]
     token_count: 307
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1ou3d6k/im_18_from_michigan_working_full_time_at_a_pizza/"}]
   - id: "social-intelligence/reddit-deep/findapath/1ou3d6k.md#c1"
     char_span: [1212, 3326]
     sentence_count: 23
     key_terms: [thank, community, good, military, helpful, please, findapath, comments]
+    concepts: [community, thank, military, helpful, please]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/findapath/1ou3d6k.md#c2"
     char_span: [3328, 5109]
     sentence_count: 11
     key_terms: [yourself, development, join, something, learning, military, teaching, whatever]
+    concepts: [yourself, development, something, learning, military]
     section: Comments
     token_count: 427
 ---

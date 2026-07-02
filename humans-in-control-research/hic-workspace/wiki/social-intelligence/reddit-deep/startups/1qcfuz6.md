@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1762]
     sentence_count: 1
     key_terms: [app, "i'm", comments, product, users, "it's", want, retention]
+    concepts: [comments, product, users, retention, technical]
     token_count: 427
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1qcfuz6/my_cto_left_im_not_technical_what_do_i_do_i_will/"}]
   - id: "social-intelligence/reddit-deep/startups/1qcfuz6.md#c1"
-    char_span: [1777, 3780]
+    char_span: [1776, 3779]
     sentence_count: 14
     key_terms: [technical, cto, coding, money, vibe, problems, claude, using]
+    concepts: [technical, coding, money, problems, claude]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/startups/1qcfuz6.md#c2"
-    char_span: [3782, 4889]
+    char_span: [3781, 4888]
     sentence_count: 9
     key_terms: [cto, genuinely, problems, illustrious-key-9228, fix, left, tech, backflipbail]
+    concepts: [genuinely, problems]
     section: Comments
     token_count: 292
 ---

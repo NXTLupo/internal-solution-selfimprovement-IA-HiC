@@ -19,29 +19,37 @@ chunks:
     char_span: [0, 1020]
     sentence_count: 10
     key_terms: [internships, luck, hear, role, comments, everyone, stories, worked]
+    concepts: [internships, comments, everyone, stories, worked]
     token_count: 235
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1pulcck/did_luck_play_a_role_in_your_internship_offer/"}]
   - id: "social-intelligence/reddit-deep/internships/1pulcck.md#c1"
     char_span: [1034, 2457]
     sentence_count: 12
     key_terms: [got, later, rashar-denk, interview, designer, everyone, company, opened]
+    concepts: [rashar-denk, later, interview, designer, everyone]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/internships/1pulcck.md#c2"
     char_span: [2459, 4617]
     sentence_count: 9
     key_terms: [handshake, recruiter, company, team, uni, definitely, internship, congrats]
+    concepts: [handshake, recruiter, company, definitely, internship]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1pulcck.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1pulcck.md#c3"
     char_span: [4317, 5808]
     sentence_count: 9
     key_terms: [intern, zacce, interviewed, luck, team, internship, companies, database]
+    concepts: [intern, interviewed, internship, zacce, companies]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/internships/1pulcck.md#c4"
     char_span: [5810, 7336]
     sentence_count: 13
     key_terms: [interview, luck, role, efforts, doing, internship, recruiter, question]
+    concepts: [interview, efforts, doing, internship, recruiter]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1pulcck.md#c2"]
     section: Comments
     token_count: 359
 ---

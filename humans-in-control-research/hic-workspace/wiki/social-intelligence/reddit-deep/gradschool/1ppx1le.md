@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1050]
     sentence_count: 11
     key_terms: [deadline, school, funding, respond, application, gradschool, references, reference]
+    concepts: [deadline, school, funding, respond, application]
     token_count: 222
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1ppx1le/submitted_my_grad_school_application_by_the/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1ppx1le.md#c1"
     char_span: [1064, 1310]
     sentence_count: 2

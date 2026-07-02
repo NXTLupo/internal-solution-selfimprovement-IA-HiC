@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1063]
     sentence_count: 6
     key_terms: [artificial-intelligence-development-company-in-dubai, artificial, development, intelligent, brew, code, labs, comments]
+    concepts: [artificial, development, intelligent, comments, leading]
     token_count: 256
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1opc2eu/dubais_ai_boom_why_code_brew_labs_is_emerging_as/"}]
 ---
 # Dubai’s AI Boom: Why Code Brew Labs Is Emerging as a Top AI App Development Company
 

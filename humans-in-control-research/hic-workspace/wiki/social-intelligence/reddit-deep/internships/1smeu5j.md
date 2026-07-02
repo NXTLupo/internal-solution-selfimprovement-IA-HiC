@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1593]
     sentence_count: 7
     key_terms: [internships, internship, "don't", get, comments, done, "i'm", callback]
+    concepts: [internships, internship, "don't", comments, callback]
     token_count: 367
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1smeu5j/just_tired_at_this_point/"}]
   - id: "social-intelligence/reddit-deep/internships/1smeu5j.md#c1"
     char_span: [1607, 3335]
     sentence_count: 10
     key_terms: [resume, companies, interview, company, getting, through, offers, skills]
+    concepts: [resume, companies, interview, company, getting]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/internships/1smeu5j.md#c2"
     char_span: [3337, 5400]
     sentence_count: 15
     key_terms: [applications, send, everything, "college's", situation, something, similar, front-research-1288]
+    concepts: [applications, everything, "college's", situation, something]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/internships/1smeu5j.md#c3"
     char_span: [5402, 6283]
     sentence_count: 9
     key_terms: [people, something, nothing, months, adventurousadvisor80, understanding, applications, nepternship]
+    concepts: [people, something, nothing, months]
     section: Comments
     token_count: 214
 ---

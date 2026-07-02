@@ -19,44 +19,56 @@ chunks:
     char_span: [0, 1402]
     sentence_count: 4
     key_terms: [offer, cscareerquestions, "it's", canadian, canada, big, rsus, tech]
+    concepts: [cscareerquestions, offer, canadian, canada, in-person]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c1"]
     token_count: 355
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1lawdo8/which_new_grad_offer_to_take_entrylevel_swe_us/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c1"
     char_span: [1404, 3444]
     sentence_count: 9
     key_terms: [company, canada, startup, "i'm", tech, canadian, career, growth]
+    concepts: [company, canada, startup, canadian, compensation]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c6"]
     token_count: 476
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c2"
-    char_span: [3459, 5352]
+    char_span: [3458, 5351]
     sentence_count: 14
     key_terms: [big, tech, startup, surelynotlikethis, company, heytherehellogoodbye, experience, stability]
+    concepts: [surelynotlikethis, startup, heytherehellogoodbye, company, experience]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c3"
-    char_span: [5131, 5607]
+    char_span: [5130, 5606]
     sentence_count: 2
     key_terms: [company, heytherehellogoodbye, tech, congratulations, almoschfamous, mile-high-guy, first-hire, different]
+    concepts: [company]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c4"
-    char_span: [5609, 7339]
+    char_span: [5608, 7338]
     sentence_count: 19
     key_terms: [tech, big, startup, lead, new, engineer, grad, take]
+    concepts: [startup, engineer, companies, position, looking]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c5"
-    char_span: [7341, 9289]
+    char_span: [7340, 9288]
     sentence_count: 14
     key_terms: [tech, big, hawaii, socal, years, howzlife17, companies, almost]
+    concepts: [hawaii, howzlife17, socal, years, companies]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c6"
-    char_span: [9291, 11429]
+    char_span: [9290, 11428]
     sentence_count: 13
     key_terms: [engineers, company, startup, equity, going, giving, recruiters, engineer]
+    concepts: [engineers, company, startup, equity, going]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c2"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c7"
-    char_span: [11431, 11591]
+    char_span: [11430, 11590]
     sentence_count: 2
     key_terms: [researchers, company, fuckton, job-hop, google, paying, poach, years]
     section: Comments

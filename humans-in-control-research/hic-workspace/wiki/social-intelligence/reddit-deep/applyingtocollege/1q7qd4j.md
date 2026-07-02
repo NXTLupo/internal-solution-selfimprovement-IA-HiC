@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 612]
     sentence_count: 5
     key_terms: [applyingtocollege, pre-college, comments, offer, participating, reddit-deep, coursework, available]
+    concepts: [applyingtocollege, pre-college, comments, offer]
     token_count: 154
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1q7qd4j/are_there_any_precollege_programs_available_for/"}]
 ---
 # Are there any pre-college programs available for graduated HS students?
 

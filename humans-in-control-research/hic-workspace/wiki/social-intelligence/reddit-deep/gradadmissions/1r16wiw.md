@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 501]
     sentence_count: 3
     key_terms: [gradadmissions, statistics, comments, school, "i'm", uiuc, international, reddit-deep]
+    concepts: [gradadmissions, statistics, comments, school]
     token_count: 142
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1r16wiw/my_first_admit_uiuc_ms_statistics_fall_2026/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1r16wiw.md#c1"
     char_span: [515, 1923]
     sentence_count: 10
     key_terms: [congrats, congratulations, thank, department, applied, connect, program, emotional-hour1238]
+    concepts: [congratulations, congrats, thank, department, applied]
     section: Comments
     token_count: 454
 ---

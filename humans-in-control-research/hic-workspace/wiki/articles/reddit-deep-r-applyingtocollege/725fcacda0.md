@@ -18,16 +18,22 @@ chunks:
     char_span: [0, 2184]
     sentence_count: 15
     key_terms: [college, people, university, something, applyingtocollege, going, prestigious, top]
+    concepts: [college, university, applyingtocollege, people, something]
+    related_chunks: ["articles/reddit-deep-r-applyingtocollege/725fcacda0.md#c2"]
     token_count: 487
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1m5b1hx/prestige_culture_has_become_too_much/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/725fcacda0.md#c1"
     char_span: [2186, 4008]
     sentence_count: 13
     key_terms: [kids, law, candidates, university, business, graduate, parents, school]
+    concepts: [candidates, university, business, graduate, parents]
     token_count: 402
   - id: "articles/reddit-deep-r-applyingtocollege/725fcacda0.md#c2"
     char_span: [4010, 6198]
     sentence_count: 12
     key_terms: [attended, college, schools, colleagues, university, students, friends, attend]
+    concepts: [attended, college, schools, colleagues, university]
+    related_chunks: ["articles/reddit-deep-r-applyingtocollege/725fcacda0.md#c0"]
     token_count: 445
 ---
 # Prestige culture has become too much

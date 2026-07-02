@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 413]
     sentence_count: 1
     key_terms: [humanresources, comments, everyone, original-pomelo6241, guide, hospitality, reddit-deep, underpaying]
+    concepts: [humanresources, comments, everyone, guide]
     token_count: 106
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1sqtdsg/aihr_salary_guide_na/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1sqtdsg.md#c1"
-    char_span: [428, 1586]
+    char_span: [427, 1585]
     sentence_count: 6
     key_terms: [programs, certain, emarialartayu, specifically, roles, top, generalist, companies]
+    concepts: [programs, emarialartayu, certain, specifically, generalist]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/humanresources/1sqtdsg.md#c2"
-    char_span: [1588, 3198]
+    char_span: [1587, 3197]
     sentence_count: 9
     key_terms: [hrbp, comp, lol, definitely, generalist, different, getting, kduuduuhellahigh0711]
+    concepts: [definitely, generalist, different, getting]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/humanresources/1sqtdsg.md#c3"
-    char_span: [3200, 4723]
+    char_span: [3199, 4722]
     sentence_count: 9
     key_terms: [hrbp, ranges, right, don, industry, double, chart, level]
+    concepts: [ranges, right, industry, double, chart]
     section: Comments
     token_count: 410
 ---

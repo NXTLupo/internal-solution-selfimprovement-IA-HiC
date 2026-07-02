@@ -17,14 +17,19 @@ research_goal: "Produce the definitive guide to personal investing in 2026 by an
 engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/personalfinance/1s3n7cj.md#c0"
-    char_span: [0, 1392]
+    char_span: [0, 1391]
     sentence_count: 6
     key_terms: [attack, bin, personalfinance, debitcard, card, wise, number, creditcard]
-    token_count: 329
+    concepts: [attack, personalfinance, debitcard, creditcard, number]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1s3n7cj.md#c1"]
+    token_count: 328
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1s3n7cj/4_tips_to_reduce_the_opportunity_of_a_bin_attack/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1s3n7cj.md#c1"
-    char_span: [1394, 3657]
+    char_span: [1393, 3656]
     sentence_count: 12
     key_terms: [debitcard, creditcard, issuer, use, bank, pay, physical, account]
+    concepts: [debitcard, creditcard, issuer, physical, account]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1s3n7cj.md#c0"]
     token_count: 479
 ---
 # 4 tips to reduce the opportunity of a BIN attack occuring on your debitcard or creditcard after my experience being a victim of it on my Wise debit card

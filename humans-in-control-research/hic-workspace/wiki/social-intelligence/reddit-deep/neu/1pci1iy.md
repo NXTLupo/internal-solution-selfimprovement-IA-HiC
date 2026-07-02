@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1289]
     sentence_count: 8
     key_terms: [digital, co-op, communications, creation, content, videography, media, college]
+    concepts: [digital, communications, creation, co-op, videography]
     token_count: 278
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1pci1iy/still_looking_for_a_coop/"}]
 ---
 # Still Looking for a Co-op?
 

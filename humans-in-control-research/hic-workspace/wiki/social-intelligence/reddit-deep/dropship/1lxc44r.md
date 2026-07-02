@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1953]
     sentence_count: 22
     key_terms: [don, people, amazon, ebay, cheaper, sales, buy, days]
+    concepts: [people, amazon, cheaper, sales, something]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1lxc44r/how_i_2xd_my_ebay_dropshipping_sales_in_7_days/"}]
   - id: "social-intelligence/reddit-deep/dropship/1lxc44r.md#c1"
-    char_span: [1968, 3236]
+    char_span: [1967, 3235]
     sentence_count: 4
     key_terms: [ebay, dropshippers, look, emotional-buy-3848, dropship, business, profit, right]
+    concepts: [dropshippers, emotional-buy-3848, dropship, business, profit]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/dropship/1lxc44r.md#c2"
-    char_span: [3239, 4953]
+    char_span: [3238, 4952]
     sentence_count: 7
     key_terms: [emotional-buy-3848, amazon, ebay, questions, get, software, profit, hookednsocal]
+    concepts: [emotional-buy-3848, amazon, questions, software, hookednsocal]
     section: Comments
     token_count: 465
 ---

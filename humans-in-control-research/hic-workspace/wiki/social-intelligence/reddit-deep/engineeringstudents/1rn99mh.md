@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1376]
     sentence_count: 11
     key_terms: [learning, projects, python, engineeringstudents, project, dsa, javascript, placements]
+    concepts: [learning, projects, python, engineeringstudents, project]
     token_count: 306
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rn99mh/a_second_year_cse_student_learning_python_dsa_who/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rn99mh.md#c1"
     char_span: [1390, 2392]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    concepts: [engineeringstudents, please, reddit, https, automoderator]
     section: Comments
     token_count: 226
 ---

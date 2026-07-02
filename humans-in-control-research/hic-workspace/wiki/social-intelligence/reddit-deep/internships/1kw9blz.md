@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1129]
     sentence_count: 7
     key_terms: [finance, internship, development, internships, business, corporate, financial, unrelated]
+    concepts: [finance, internship, development, internships, business]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1kw9blz.md#c1"]
     token_count: 230
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1kw9blz/should_i_take_a_business_development_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1kw9blz.md#c1"
     char_span: [1143, 1733]
     sentence_count: 3
     key_terms: [internship, business, bigger, good, unfortunately, corporations, experiences, expertise]
+    concepts: [internship, business, bigger]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1kw9blz.md#c0"]
     section: Comments
     token_count: 148
 ---

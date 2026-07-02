@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1472]
     sentence_count: 3
     key_terms: [nomad, bali, digital, looking, people, digitalnomad, month, experiences]
+    concepts: [nomad, digital, looking, digitalnomad, people]
     token_count: 361
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1pxig8o/medell\u00edn_vs_bali_as_a_first_digital_nomad_base/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1pxig8o.md#c1"
     char_span: [1486, 3307]
     sentence_count: 24
     key_terms: [bali, place, good, drugged, got, want, negatives, everyone]
+    concepts: [place, drugged, negatives, everyone, happened]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/digitalnomad/1pxig8o.md#c2"
     char_span: [3309, 4833]
     sentence_count: 23
     key_terms: [bali, want, better, been, get, take, advantage, working]
+    concepts: [better, advantage, working, chiang, "don't"]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/digitalnomad/1pxig8o.md#c3"
     char_span: [4835, 6625]
     sentence_count: 32
     key_terms: [worse, medellin, spiritno2533, people, death, going, city, time]
+    concepts: [medellin, spiritno2533, worse, people, death]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/digitalnomad/1pxig8o.md#c4"
     char_span: [6627, 7439]
     sentence_count: 9
     key_terms: [better, bali, medellin, chatgpt, spanish, speak, openwidecomeinside, stay]
+    concepts: [better, medellin, chatgpt, spanish, speak]
     section: Comments
     token_count: 218
 ---

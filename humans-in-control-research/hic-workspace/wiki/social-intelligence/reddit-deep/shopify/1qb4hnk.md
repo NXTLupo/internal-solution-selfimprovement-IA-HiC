@@ -20,31 +20,38 @@ chunks:
     char_span: [0, 796]
     sentence_count: 3
     key_terms: [shopify, e-commerce, reddit, https, com, news, www, comments]
+    concepts: [shopify, e-commerce, reddit, https, comments]
     token_count: 213
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1qb4hnk/this_weeks_top_ecommerce_news_stories_jan_12th/"}]
   - id: "social-intelligence/reddit-deep/shopify/1qb4hnk.md#c1"
     char_span: [798, 3323]
     sentence_count: 12
     key_terms: [agentic, commerce, google, products, shopify, merchants, questions, protocol]
+    concepts: [agentic, commerce, google, products, shopify]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1qb4hnk.md#c2"
     char_span: [3000, 5792]
     sentence_count: 11
     key_terms: [product, checkout, commerce, designed, shopping, agentic, copilot, customers]
+    concepts: [product, checkout, commerce, designed, shopping]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1qb4hnk.md#c3"
     char_span: [5463, 7975]
     sentence_count: 15
     key_terms: [models, amazon, commission, "amazon's", agentic, around, plans, like]
+    concepts: [models, amazon, commission, "amazon's", agentic]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1qb4hnk.md#c4"
     char_span: [7653, 10247]
     sentence_count: 11
     key_terms: [products, openai, healthcare, platforms, binding, amazon, consumers, providers]
+    concepts: [products, healthcare, openai, platforms, binding]
     token_count: 490
   - id: "social-intelligence/reddit-deep/shopify/1qb4hnk.md#c5"
-    char_span: [10262, 10680]
+    char_span: [10261, 10679]
     sentence_count: 3
     key_terms: [community, contact, shopify, automatically, automoderator, moderators, soliciting, performed]
+    concepts: [community, contact, shopify]
     section: Comments
     token_count: 90
 ---

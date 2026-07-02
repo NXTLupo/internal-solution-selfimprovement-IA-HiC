@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 345]
     sentence_count: 2
     key_terms: [ca17b8d8e5098c4a652b5903f74cca59ec16ef7c, anthropic, comments, https, png, runzt61xxphg1, reddit-deep, sudo1385]
+    concepts: [anthropic, comments, https]
     token_count: 136
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1qwt4q2/claude_code_opus_46_1m_context_is_a_go/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1qwt4q2.md#c1"
     char_span: [359, 1325]
     sentence_count: 5
     key_terms: [narrow-belt-5030, claude-code, anthropics, sudo1385, github, issues, myself, paying]
+    concepts: [narrow-belt-5030, claude-code, anthropics, sudo1385, github]
     section: Comments
     token_count: 298
 ---

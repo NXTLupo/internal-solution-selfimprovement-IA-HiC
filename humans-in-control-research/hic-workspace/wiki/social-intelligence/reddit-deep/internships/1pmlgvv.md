@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1437]
     sentence_count: 5
     key_terms: [internships, internship, opportunity, office, management, structured, comments, exposure]
+    concepts: [internships, internship, opportunity, office, management]
     token_count: 314
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1pmlgvv/informal_internship_opportunity_advice_for_future/"}]
   - id: "social-intelligence/reddit-deep/internships/1pmlgvv.md#c1"
-    char_span: [1452, 2858]
+    char_span: [1451, 2857]
     sentence_count: 9
     key_terms: [knockoffpatrick, worth, confident, discussed, payment, apprehensive-farm-58, being, doing]
+    concepts: [knockoffpatrick, worth, confident, discussed, payment]
     section: Comments
     token_count: 319
 ---

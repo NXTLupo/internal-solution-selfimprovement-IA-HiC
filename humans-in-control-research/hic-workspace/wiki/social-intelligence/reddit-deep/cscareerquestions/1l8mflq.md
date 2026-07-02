@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 756]
     sentence_count: 7
     key_terms: [cscareerquestions, career, comments, computer, research, science, change, field]
+    concepts: [cscareerquestions, career, comments, computer, research]
     token_count: 172
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1l8mflq/too_old_for_career_change_into_cs/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8mflq.md#c1"
     char_span: [770, 2984]
     sentence_count: 11
     key_terms: [problem, math, willing, going, get, "it's", practice, someone]
+    concepts: [problem, willing, going, practice, someone]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8mflq.md#c2"
     char_span: [2986, 4042]
     sentence_count: 7
     key_terms: [because, move, nothing, hard, new, newchameleon, application, california]
+    concepts: [because, nothing]
     section: Comments
     token_count: 257
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8mflq.md#c3"
     char_span: [4044, 5884]
     sentence_count: 14
     key_terms: [degree, get, try, difficult, probably, because, started, through]
+    concepts: [degree, difficult, probably, because, started]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l8mflq.md#c4"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8mflq.md#c4"
     char_span: [5888, 6734]
     sentence_count: 6
     key_terms: [company, get, good, internship, probably, degree, lucky, bit]
+    concepts: [company, internship, probably, degree, lucky]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l8mflq.md#c3"]
     section: Comments
     token_count: 191
 ---

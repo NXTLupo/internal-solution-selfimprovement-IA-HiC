@@ -19,28 +19,36 @@ chunks:
     char_span: [0, 1852]
     sentence_count: 1
     key_terms: [smith, college, applyingtocollege, people, got, choosing, comments, nwestern]
+    concepts: [smith, college, applyingtocollege, people, choosing]
     token_count: 452
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sjm1lr/getting_made_fun_of_for_choosing_smith_help/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sjm1lr.md#c1"
     char_span: [1854, 2567]
     sentence_count: 1
     key_terms: [smith, because, excited, reason, everyone, amazing, upset, high]
+    concepts: [smith, because, excited, reason, everyone]
     token_count: 169
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sjm1lr.md#c2"
     char_span: [2581, 4571]
     sentence_count: 13
     key_terms: [smith, amazing, haters, school, people, ok-nature2087, consortium, graduated]
+    concepts: [smith, amazing, haters, school, ok-nature2087]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sjm1lr.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sjm1lr.md#c3"
     char_span: [4333, 4940]
     sentence_count: 1
     key_terms: [education, access, part, ok-nature2087, borzoidaddy, incredible, threatened, "bigotry's"]
+    concepts: [education, access]
     section: Comments
     token_count: 146
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sjm1lr.md#c4"
     char_span: [4942, 6829]
     sentence_count: 19
     key_terms: [smith, school, great, friends, congratulated, got, like, says]
+    concepts: [smith, school, great, congratulated, friends]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sjm1lr.md#c2"]
     section: Comments
     token_count: 473
 ---

@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2105]
     sentence_count: 23
     key_terms: [gpt, text, last, like, guidelines, immediate, perfectly, comments]
+    concepts: [guidelines, immediate, perfectly, comments, generate]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1t7qykv/have_the_guidelines_changed_recently_because_i/"}]
   - id: "social-intelligence/reddit-deep/gpt/1t7qykv.md#c1"
     char_span: [2107, 4376]
     sentence_count: 20
     key_terms: [brand, image, generation, model, parameter, context, exact, input]
+    concepts: [brand, image, generation, parameter, model]
     token_count: 440
   - id: "social-intelligence/reddit-deep/gpt/1t7qykv.md#c2"
     char_span: [4378, 6814]
     sentence_count: 22
     key_terms: [prompt, image, relationships, layer, model, rules, understands, lot]
+    concepts: [prompt, image, relationships, understands, layer]
     token_count: 476
   - id: "social-intelligence/reddit-deep/gpt/1t7qykv.md#c3"
     char_span: [6828, 6942]

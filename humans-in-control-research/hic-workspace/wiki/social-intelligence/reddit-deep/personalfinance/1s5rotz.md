@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 1289]
     sentence_count: 11
     key_terms: [personalfinance, taxable, tax-advantaged, cash, "i'm", comments, paycheck, account]
+    concepts: [personalfinance, tax-advantaged, taxable, comments, paycheck]
     token_count: 326
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1s5rotz/i_have_41k_in_a_hysa_and_im_starting_to_think_im/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c1"
     char_span: [1303, 2359]
     sentence_count: 7
     key_terms: [comments, post, already, number, "you're", hsa, move, next]
+    concepts: [comments, already, number, "you're"]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c2"
     char_span: [2361, 4137]
     sentence_count: 13
     key_terms: [housing, market, investment, buy, buying, saving, house, years]
+    concepts: [housing, investment, market, buying, saving]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c3"
     char_span: [4139, 5801]
     sentence_count: 12
     key_terms: [nothing, easily, market, place, time, spending, housing, rough-importance-822]
+    concepts: [nothing, easily, market, place, spending]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c4"
     char_span: [5803, 7784]
     sentence_count: 18
     key_terms: [help, parents, financial, feel, spending, discretionary, money, etc]
+    concepts: [parents, financial, spending, discretionary, money]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c6"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c5"
     char_span: [7786, 9773]
     sentence_count: 12
     key_terms: ["it's", spending, savings, "you're", historically, money, max, definitely]
+    concepts: [spending, savings, historically, "you're", definitely]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c6"
     char_span: [9775, 10727]
     sentence_count: 10
     key_terms: [parents, bills, going, live, spending, living, paying, "that's"]
+    concepts: [parents, bills, going, spending, living]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c4"]
     section: Comments
     token_count: 231
 ---

@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 2007]
     sentence_count: 16
     key_terms: [claude, chat, "i've", chats, usage, long, ago, something]
+    concepts: [claude, chats, usage, something, comments]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1rhj71v.md#c1", "social-intelligence/reddit-deep/openai/1rhj71v.md#c10"]
     token_count: 484
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1rhj71v/things_you_might_want_to_know_if_moving_to_claude/"}]
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c1"
     char_span: [2009, 4358]
     sentence_count: 22
     key_terms: [claude, job, memory, something, chatgpt, details, asked, been]
+    concepts: [claude, memory, something, chatgpt, details]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1rhj71v.md#c0", "social-intelligence/reddit-deep/openai/1rhj71v.md#c3"]
     token_count: 506
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c2"
     char_span: [4372, 4592]
@@ -37,48 +42,62 @@ chunks:
     char_span: [4594, 6352]
     sentence_count: 8
     key_terms: [memory, incognito, chatgpt, accidentally, access, "that's", kindly-present-4867, lease]
+    concepts: [memory, incognito, chatgpt, accidentally, access]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1rhj71v.md#c1", "social-intelligence/reddit-deep/openai/1rhj71v.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c4"
     char_span: [6071, 6641]
     sentence_count: 4
     key_terms: [incognito, memory, wish, optimismneeded, superb-ad3821, preferences, complaint, mentioned]
+    concepts: [incognito, memory]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1rhj71v.md#c3"]
     section: Comments
     token_count: 135
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c5"
     char_span: [6643, 8544]
     sentence_count: 15
     key_terms: [claude, claudehomies, better, because, project, going, chat, good]
+    concepts: [claude, claudehomies, better, because, project]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1rhj71v.md#c7", "social-intelligence/reddit-deep/openai/1rhj71v.md#c10"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c6"
     char_span: [8546, 10123]
     sentence_count: 2
     key_terms: [https, comments, claudehomies, sneakpeekbot, reddit, com, claude, redd]
+    concepts: [https, comments, claudehomies, sneakpeekbot, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1rhj71v.md#c10"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c7"
     char_span: [10125, 11965]
     sentence_count: 15
     key_terms: [claude, limits, claudehomies, limit, tier, free, hit, account]
+    concepts: [claude, limits, claudehomies, limit, account]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1rhj71v.md#c5", "social-intelligence/reddit-deep/openai/1rhj71v.md#c10"]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c8"
     char_span: [11967, 13730]
     sentence_count: 10
     key_terms: [like, "i've", went, work, claude, enough, feels, right]
+    concepts: [claude, enough, feels, right]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c9"
     char_span: [13732, 15655]
     sentence_count: 14
     key_terms: [spreadsheet, reference, like, project, chat, use, approach, switched]
+    concepts: [spreadsheet, reference, project, approach, switched]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c10"
     char_span: [15657, 17332]
     sentence_count: 10
     key_terms: [claudehomies, claude, limits, usage, reddit, https, terms, com]
+    concepts: [claudehomies, claude, limits, usage, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1rhj71v.md#c0", "social-intelligence/reddit-deep/openai/1rhj71v.md#c5", "social-intelligence/reddit-deep/openai/1rhj71v.md#c6", "social-intelligence/reddit-deep/openai/1rhj71v.md#c7"]
     section: Comments
     token_count: 426
 ---

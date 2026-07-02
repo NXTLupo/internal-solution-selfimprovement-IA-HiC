@@ -21,46 +21,55 @@ chunks:
     char_span: [0, 2038]
     sentence_count: 22
     key_terms: [fire, financialindependence, worth, been, healthcare, retirement, currently, goalposts]
+    concepts: [financialindependence, healthcare, retirement, worth, currently]
     token_count: 481
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1qrasca/moving_goalposts_and_future_anxiety/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1qrasca.md#c1"
     char_span: [2040, 2560]
     sentence_count: 6
     key_terms: [without, back, successfully, personality, boundaries, eventually, quiet-quit, tendencies]
+    concepts: [without]
     token_count: 111
   - id: "social-intelligence/reddit-deep/financialindependence/1qrasca.md#c2"
     char_span: [2574, 4425]
     sentence_count: 10
     key_terms: [husband, number, fire, people, "that's", don, wealthy, without]
+    concepts: [husband, number, people, "that's", wealthy]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/financialindependence/1qrasca.md#c3"
     char_span: [4427, 6155]
     sentence_count: 11
     key_terms: [life, lentils, perfect, figure, losing, costs, maybe, changed]
+    concepts: [lentils, perfect, figure, losing, costs]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/financialindependence/1qrasca.md#c4"
     char_span: [6157, 8161]
     sentence_count: 16
     key_terms: [like, "don't", get, "it's", inflation, because, numbers, working]
+    concepts: ["don't", inflation, because, numbers, working]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/financialindependence/1qrasca.md#c5"
     char_span: [8163, 10425]
     sentence_count: 16
     key_terms: [healthcare, spend, one-mastodon-1063, spending, years, swr, subsidies, therapist]
+    concepts: [healthcare, one-mastodon-1063, spend, spending, years]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1qrasca.md#c6"
     char_span: [10427, 12420]
     sentence_count: 14
     key_terms: [get, economy, flight, flat, lay, business, premium, international]
+    concepts: [economy, flight, business, international, unfortunately]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/financialindependence/1qrasca.md#c7"
     char_span: [12422, 14119]
     sentence_count: 17
     key_terms: [inflation, salary, "i'm", job, invested, started, worried, around]
+    concepts: [inflation, salary, invested, started, worried]
     section: Comments
     token_count: 441
 ---

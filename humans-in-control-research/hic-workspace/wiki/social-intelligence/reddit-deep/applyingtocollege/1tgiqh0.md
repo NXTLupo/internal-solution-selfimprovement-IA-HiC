@@ -19,32 +19,41 @@ chunks:
     char_span: [0, 2359]
     sentence_count: 9
     key_terms: [chipping-away-assessing-and-addressing-the-labor-market-gap-facing-the-u-s-semiconductor-industry, archived-building-us-semiconductor-workforce-january-2025-update, engineering, https, semiconductors, global-semiconductor-talent-shortage, www, semiconductor]
+    concepts: [chipping-away-assessing-and-addressing-the-labor-market-gap-facing-the-u-s-semiconductor-industry, archived-building-us-semiconductor-workforce-january-2025-update, engineering, global-semiconductor-talent-shortage, semiconductors]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1tgiqh0/i_think_many_international_undergrads_are_looking/"},{"n":"\\* Semiconductor Industry Association:","u":""}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tgiqh0.md#c1"
     char_span: [2361, 4429]
     sentence_count: 9
     key_terms: [research, engineering, professors, undergraduates, industry, students, faculty, universities]
+    concepts: [research, engineering, professors, undergraduates, industry]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tgiqh0.md#c2"]
     token_count: 443
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tgiqh0.md#c2"
     char_span: [4431, 6707]
     sentence_count: 6
     key_terms: [the-impact-of-cooperative-education-internships-on-full-time-employment-salaries-of-students-in-computing-sciences, research, universities, engineering, https, faculty, participation, semiconductor]
+    concepts: [the-impact-of-cooperative-education-internships-on-full-time-employment-salaries-of-students-in-computing-sciences, research, universities, engineering, https]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tgiqh0.md#c1"]
     token_count: 507
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tgiqh0.md#c3"
     char_span: [6709, 7034]
     sentence_count: 2
     key_terms: [practical, industry-connected, undergraduate, engineering, internships, absolutely, experience, mentorship]
+    concepts: [practical]
     token_count: 75
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tgiqh0.md#c4"
     char_span: [7048, 9032]
     sentence_count: 10
     key_terms: [admissions, creative-rhubarb-777, applyingtocollege, list, automoderator, undergraduate, scholargrade, engineering]
+    concepts: [admissions, creative-rhubarb-777, applyingtocollege, automoderator, undergraduate]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tgiqh0.md#c5"
     char_span: [9035, 9884]
     sentence_count: 3
     key_terms: [need, colleges, drive, applyingtocollege, part, murky-peanut1390, no-republic-7876, bot-sleuth-bot]
+    concepts: [colleges, drive]
     section: Comments
     token_count: 226
 ---

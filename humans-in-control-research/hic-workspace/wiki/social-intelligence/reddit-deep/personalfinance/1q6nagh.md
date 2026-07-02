@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 1487]
     sentence_count: 11
     key_terms: [payment, account, pay, system, bill, personalfinance, checking, comments]
+    concepts: [payment, account, system, personalfinance, checking]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1q6nagh.md#c1"]
     token_count: 336
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1q6nagh/cant_make_payment_for_bank_of_america_credit_card/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1q6nagh.md#c1"
-    char_span: [1502, 3462]
+    char_span: [1501, 3461]
     sentence_count: 10
     key_terms: [account, pay, credit, personalfinance, checking, bill, cards, number]
+    concepts: [account, credit, personalfinance, checking, cards]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1q6nagh.md#c0"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/personalfinance/1q6nagh.md#c2"
-    char_span: [3464, 4399]
+    char_span: [3463, 4398]
     sentence_count: 10
     key_terms: [card, boa, different, payment, reached, someone, number, system]
+    concepts: [different, payment, reached, someone, number]
     section: Comments
     token_count: 231
 ---

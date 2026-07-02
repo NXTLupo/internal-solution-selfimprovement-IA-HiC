@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 2102]
     sentence_count: 24
     key_terms: [customerexperience, customer, strategy, support, reach, chat, time, questions]
+    concepts: [customerexperience, customer, strategy, support, reach]
     token_count: 434
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1nilfgm/what_does_a_good_customer_support_strategy/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1nilfgm.md#c1"
-    char_span: [2117, 4272]
+    char_span: [2116, 4271]
     sentence_count: 14
     key_terms: [voice, channels, feedback, strategy, context, journey, support, bot]
+    concepts: [voice, channels, feedback, strategy, context]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/customerexperience/1nilfgm.md#c2"
-    char_span: [4274, 6519]
+    char_span: [4273, 6518]
     sentence_count: 17
     key_terms: [customer, automation, customers, never, pihappiness, here, like, experience]
+    concepts: [customer, automation, customers, pihappiness, experience]
     section: Comments
     token_count: 495
 ---

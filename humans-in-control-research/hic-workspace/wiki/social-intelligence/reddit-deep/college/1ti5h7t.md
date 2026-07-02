@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 937]
     sentence_count: 1
     key_terms: [college, people, genuinely, comments, friends, without, expect, random]
+    concepts: [college, people, genuinely, comments, friends]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ti5h7t.md#c1"]
     token_count: 198
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ti5h7t/i_genuinely_didnt_expect_college_to_feel_this/"}]
   - id: "social-intelligence/reddit-deep/college/1ti5h7t.md#c1"
     char_span: [951, 2406]
     sentence_count: 12
     key_terms: [people, social, years, yourself, college, friends, desperatereality4584, sheepherdernext3196]
+    concepts: [people, social, years, yourself, college]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ti5h7t.md#c0"]
     section: Comments
     token_count: 352
 ---

@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 516]
     sentence_count: 4
     key_terms: [comments, actuary, resume, live-community8753, reddit-deep, internship, candidate, screening]
+    concepts: [comments, actuary, resume]
     token_count: 132
+    sources: [{"n":"reddit-deep: r/actuary","u":"https://www.reddit.com/r/actuary/comments/1t6nwgh/resume_helpadvice/"}]
   - id: "social-intelligence/reddit-deep/actuary/1t6nwgh.md#c1"
-    char_span: [531, 2066]
+    char_span: [530, 2065]
     sentence_count: 16
     key_terms: [wafflespancakeslove, exams, live-community8753, intermediate, right, get, top, another]
+    concepts: [wafflespancakeslove, live-community8753, exams, intermediate, right]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/actuary/1t6nwgh.md#c2"
-    char_span: [2068, 3932]
+    char_span: [2067, 3931]
     sentence_count: 7
     key_terms: [python, skills, demonstrate, data, sql, actuarial, something, technical]
+    concepts: [python, skills, demonstrate, actuarial, something]
     section: Comments
     token_count: 426
 ---

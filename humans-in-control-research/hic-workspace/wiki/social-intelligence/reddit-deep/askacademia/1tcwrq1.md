@@ -21,40 +21,48 @@ chunks:
     char_span: [0, 2175]
     sentence_count: 14
     key_terms: [field, school, department, worldwide, here, phd, top-20, accomplished]
+    concepts: [field, school, department, worldwide, accomplished]
     token_count: 484
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1tcwrq1/i_cant_stop_focusing_on_rankings_and_prestige/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c1"
     char_span: [2177, 4245]
     sentence_count: 17
     key_terms: ["i'm", get, here, phd, "can't", positions, because, program]
+    concepts: ["can't", positions, because, program, schools]
     token_count: 475
   - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c2"
     char_span: [4259, 5354]
     sentence_count: 8
     key_terms: [prestige, connections, unbecoming, obsession, getting, started, matter, school]
+    concepts: [prestige, connections, unbecoming, obsession, getting]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c3"
     char_span: [5356, 6957]
     sentence_count: 8
     key_terms: ["i'm", prestigious, ability, believe, schools, people, swordfishresident256, quite]
+    concepts: [prestigious, ability, believe, schools, people]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c4"
     char_span: [6959, 8970]
     sentence_count: 12
     key_terms: [university, school, phd, top, important, resources, oxbridge, advisor]
+    concepts: [university, school, important, resources, oxbridge]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c5"
     char_span: [8973, 10424]
     sentence_count: 8
     key_terms: [placement, program, "that's", connections, important, rankings, because, ranking]
+    concepts: [placement, program, "that's", connections, important]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c6"
     char_span: [10426, 12032]
     sentence_count: 13
     key_terms: [prestige, top, university, position, sciences, program, schools, better]
+    concepts: [prestige, university, position, sciences, program]
     section: Comments
     token_count: 381
 ---

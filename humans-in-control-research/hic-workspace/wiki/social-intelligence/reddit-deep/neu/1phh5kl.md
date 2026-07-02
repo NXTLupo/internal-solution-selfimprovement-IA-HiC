@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 904]
     sentence_count: 5
     key_terms: [northeastern, assistant, neu, students, built, northeastern-university-chatbot, university, questions]
+    concepts: [northeastern, assistant, students, built, university]
     token_count: 236
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1phh5kl/struggling_to_find_neu_info_i_built_a_free_247_ai/"}]
   - id: "social-intelligence/reddit-deep/neu/1phh5kl.md#c1"
     char_span: [918, 1181]
     sentence_count: 1

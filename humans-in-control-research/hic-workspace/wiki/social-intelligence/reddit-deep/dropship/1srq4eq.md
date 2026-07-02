@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 1075]
     sentence_count: 6
     key_terms: [work, comments, dropship, product, hiring, people, puzzleheadedmetal746, admin]
+    concepts: [comments, dropship, product, hiring, people]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1srq4eq.md#c1"]
     token_count: 251
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1srq4eq/at_what_point_during_the_growth_stage_should_i/"}]
   - id: "social-intelligence/reddit-deep/dropship/1srq4eq.md#c1"
-    char_span: [1090, 2336]
+    char_span: [1089, 2335]
     sentence_count: 9
     key_terms: [hiring, admin, store, repetitive, dropship, looking, please, help]
+    concepts: [hiring, admin, repetitive, store, dropship]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1srq4eq.md#c0"]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/dropship/1srq4eq.md#c2"
-    char_span: [2341, 3437]
+    char_span: [2340, 3436]
     sentence_count: 5
     key_terms: ["you're", admin, stealthagents, consistently, concentrate, development, assistants, boundaries]
+    concepts: ["you're", admin]
     section: Comments
     token_count: 232
 ---

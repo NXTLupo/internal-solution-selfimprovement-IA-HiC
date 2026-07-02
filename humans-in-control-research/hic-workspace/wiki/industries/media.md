@@ -10,6 +10,7 @@ chunks:
     char_span: [0, 709]
     sentence_count: 2
     key_terms: [industries, sources, shared, articles, reddit-deep-r-internships, reddit-digital-marketing, reddit-deep-r-stocks, media]
+    concepts: [industries, sources, shared, articles, media]
     section: Cross-over verticals (shared sources) / Representative sources
     token_count: 203
 ---

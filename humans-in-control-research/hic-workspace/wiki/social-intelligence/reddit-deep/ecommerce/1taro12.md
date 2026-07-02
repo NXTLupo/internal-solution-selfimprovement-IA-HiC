@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 2048]
     sentence_count: 15
     key_terms: [minus, "i've", ecommerce, something, comments, requests, instead, morning]
+    concepts: [minus, ecommerce, something, comments, requests]
     token_count: 467
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1taro12/ive_been_using_claude_code_for_the_past_month_to/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1taro12.md#c1"
-    char_span: [2063, 4016]
+    char_span: [2062, 4015]
     sentence_count: 14
     key_terms: [intelligent-fox2082, too, shopify, prices, no-seesaw4444, admin, app, apps]
+    concepts: [intelligent-fox2082, no-seesaw4444, shopify, prices, admin]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/ecommerce/1taro12.md#c2"
-    char_span: [4018, 5771]
+    char_span: [4017, 5770]
     sentence_count: 13
     key_terms: [wrote, app, work, shopify, "there's", centraldesk, timekeeping, "i've"]
+    concepts: [wrote, shopify, "there's", centraldesk, timekeeping]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/ecommerce/1taro12.md#c3"
-    char_span: [5775, 7393]
+    char_span: [5774, 7392]
     sentence_count: 8
     key_terms: [subscription, app, "it's", investment, automated, software, "that's", graceonajourney1611]
+    concepts: [subscription, investment, automated, software, "that's"]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/ecommerce/1taro12.md#c4"
-    char_span: [7397, 8735]
+    char_span: [7396, 8734]
     sentence_count: 9
     key_terms: [claude, maintenance, like, created, shopify, custom, graceonajourney1611, daily]
+    concepts: [claude, maintenance, created, shopify, custom]
     section: Comments
     token_count: 339
 ---

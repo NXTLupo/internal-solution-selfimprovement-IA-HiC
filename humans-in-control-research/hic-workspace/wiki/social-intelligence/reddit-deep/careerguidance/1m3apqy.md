@@ -19,52 +19,62 @@ chunks:
     char_span: [0, 1938]
     sentence_count: 19
     key_terms: [learning, country, college, careerguidance, good, lead, pay, want]
+    concepts: [learning, country, careerguidance, college, currently]
     token_count: 457
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1m3apqy/18f_bad_high_school_grades_cant_afford_college/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c1"
     char_span: [1940, 2698]
     sentence_count: 10
     key_terms: [something, remote, don, real, work, cybersecurity, independence, connections]
+    concepts: [something, remote]
     token_count: 158
   - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c2"
     char_span: [2712, 4601]
     sentence_count: 11
     key_terms: [education, get, country, studying, online, cassiuswright, certificate, hospitality]
+    concepts: [education, country, studying, cassiuswright, online]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c3"
     char_span: [4603, 6791]
     sentence_count: 12
     key_terms: [studying, exams, hard, enough, exam, different, properly, students]
+    concepts: [studying, exams, enough, different, properly]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c4"
     char_span: [6793, 9161]
     sentence_count: 11
     key_terms: [mental, conditions, diagnosis, like, self-diagnosing, health, perspective, good]
+    concepts: [conditions, mental, diagnosis, self-diagnosing, health]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c5"
     char_span: [9163, 11390]
     sentence_count: 13
     key_terms: [cybersecurity, projects, free, get, certificate, following, isc2, courses]
+    concepts: [cybersecurity, projects, certificate, following, courses]
     section: Comments
     token_count: 514
   - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c6"
     char_span: [11392, 11893]
     sentence_count: 5
     key_terms: [support, customer, start, cybersecurity, jobspresso, adventure, attendant, languages]
+    concepts: [support, customer, start]
     section: Comments
     token_count: 115
   - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c7"
     char_span: [11895, 13828]
     sentence_count: 13
     key_terms: [always, did, get, "it's", marketing, security, finance, crimes]
+    concepts: [always, marketing, security, finance, crimes]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c8"
     char_span: [13830, 15137]
     sentence_count: 7
     key_terms: [country, month, free, life, usd, bunchitabonita, lifeinthesc, everything]
+    concepts: [country, month]
     section: Comments
     token_count: 326
 ---

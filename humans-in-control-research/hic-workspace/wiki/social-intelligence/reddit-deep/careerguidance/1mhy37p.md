@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1277]
     sentence_count: 8
     key_terms: [management, careerguidance, generalist, applying, comments, advice, degree, months]
+    concepts: [management, careerguidance, generalist, applying, comments]
     token_count: 302
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1mhy37p/laid_off_7_months_ago_have_a_masters_degree_and/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1mhy37p.md#c1"
     char_span: [1291, 3112]
     sentence_count: 20
     key_terms: [management, experience, industry, refrigeratorlonely26, degree, store, did, old]
+    concepts: [management, experience, industry, refrigeratorlonely26, degree]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1mhy37p.md#c2"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/careerguidance/1mhy37p.md#c2"
     char_span: [3114, 4788]
     sentence_count: 19
     key_terms: [management, advicenotasked4, project, hours, panda, get, like, pmp]
+    concepts: [management, advicenotasked4, project, experience, hours]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1mhy37p.md#c1"]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/careerguidance/1mhy37p.md#c3"
     char_span: [4790, 6190]
     sentence_count: 12
     key_terms: [experience, roles, manager, people, co-ordinator, development, role, assistant]
+    concepts: [experience, roles, manager, co-ordinator, people]
     section: Comments
     token_count: 329
 ---

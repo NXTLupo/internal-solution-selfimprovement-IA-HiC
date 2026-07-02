@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 1536]
     sentence_count: 10
     key_terms: [admissions, consultant, people, school, apply, consultants, did, grad]
+    concepts: [admissions, consultant, people, school, consultants]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1m9ayea.md#c2"]
     token_count: 358
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1m9ayea/is_it_more_common_for_us_residents_to_selfapply/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1m9ayea.md#c1"
     char_span: [1550, 2542]
     sentence_count: 7
     key_terms: [deleted, heard, never, programs, anyone, redact, post, real]
+    concepts: [deleted, heard, never, programs, anyone]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1m9ayea.md#c2"]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/gradschool/1m9ayea.md#c2"
     char_span: [2544, 4466]
     sentence_count: 17
     key_terms: [heard, consultant, something, get, grad, programs, school, never]
+    concepts: [heard, consultant, something, programs, school]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1m9ayea.md#c0", "social-intelligence/reddit-deep/gradschool/1m9ayea.md#c1"]
     section: Comments
     token_count: 472
 ---

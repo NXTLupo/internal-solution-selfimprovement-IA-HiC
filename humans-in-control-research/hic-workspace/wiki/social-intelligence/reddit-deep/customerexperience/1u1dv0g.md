@@ -20,47 +20,60 @@ chunks:
     char_span: [0, 2294]
     sentence_count: 22
     key_terms: [workflow, contact, customerexperience, ai-first, customer, chatbot, issues, claim]
+    concepts: [workflow, contact, customerexperience, ai-first, customer]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1u1dv0g/aifirst_contact_centers_are_not_chatbot_projects/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1u1dv0g.md#c1"
-    char_span: [2309, 4609]
+    char_span: [2308, 4608]
     sentence_count: 15
     key_terms: [workflow, context, agent, question, handoff, whether, conversational, claim]
+    concepts: [workflow, context, agent, question, conversational]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1u1dv0g.md#c2"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/customerexperience/1u1dv0g.md#c2"
-    char_span: [4611, 7042]
+    char_span: [4610, 7041]
     sentence_count: 20
     key_terms: [whether, workflow, automation, agent, issue, customer, chatbot, orchestration]
+    concepts: [whether, workflow, automation, agent, issue]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1u1dv0g.md#c1"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/customerexperience/1u1dv0g.md#c3"
-    char_span: [7044, 9419]
+    char_span: [7043, 9418]
     sentence_count: 21
     key_terms: [access, workflow, systems, conversations, orchestration, human, right, write]
+    concepts: [access, workflow, conversations, orchestration, systems]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/customerexperience/1u1dv0g.md#c4"
-    char_span: [9421, 11374]
+    char_span: [9420, 11373]
     sentence_count: 17
     key_terms: [workflow, bot, trigger, human, bad, interface, sentiment, workflows]
+    concepts: [workflow, trigger, human, interface, sentiment]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/customerexperience/1u1dv0g.md#c5"
-    char_span: [11376, 13254]
+    char_span: [11375, 13253]
     sentence_count: 18
     key_terms: [agent, conversation, test, handoff, human, interesting, get, customer]
+    concepts: [conversation, agent, handoff, interesting, human]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1u1dv0g.md#c7"]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/customerexperience/1u1dv0g.md#c6"
-    char_span: [13256, 15663]
+    char_span: [13255, 15662]
     sentence_count: 17
     key_terms: [human, customer, part, context, whether, interactions, agent, emotionally]
+    concepts: [human, customer, context, whether, interactions]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/customerexperience/1u1dv0g.md#c7"
-    char_span: [15665, 17245]
+    char_span: [15664, 17244]
     sentence_count: 16
     key_terms: [resolution, handoff, happens, agents, text-ai-customer-service-live-chat, conversation, real, time]
+    concepts: [resolution, handoff, happens, conversation, agents]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1u1dv0g.md#c5"]
     section: Comments
     token_count: 348
 ---

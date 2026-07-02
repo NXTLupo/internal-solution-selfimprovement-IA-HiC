@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1500]
     sentence_count: 12
     key_terms: [productivity, energy, wasn, something, comments, optimize, instead, started]
+    concepts: [productivity, energy, something, comments, optimize]
     token_count: 334
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1pp2r6v/i_realized_productivity_wasnt_my_problem_energy/"}]
   - id: "social-intelligence/reddit-deep/productivity/1pp2r6v.md#c1"
     char_span: [1514, 1911]
     sentence_count: 1
@@ -32,6 +34,7 @@ chunks:
     char_span: [1913, 3965]
     sentence_count: 11
     key_terms: [energy, spoons, productive, tasks, "i'll", time, spoonfuls, analogy]
+    concepts: [energy, productive, spoons, tasks, spoonfuls]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/productivity/1pp2r6v.md#c3"
@@ -44,6 +47,7 @@ chunks:
     char_span: [4176, 5803]
     sentence_count: 10
     key_terms: [energy, get, coins, "i'm", lot, listening, instead, systems]
+    concepts: [energy, coins, listening, instead, systems]
     section: Comments
     token_count: 397
 ---

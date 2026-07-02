@@ -19,41 +19,51 @@ chunks:
     char_span: [0, 2095]
     sentence_count: 26
     key_terms: [higher, work, people, get, job, highereducation, cannot, never]
+    concepts: [higher, people, highereducation, cannot, never]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1r0dhyj/are_highered_careers_worth_it_anymore/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1r0dhyj.md#c1"
     char_span: [2097, 4076]
     sentence_count: 11
     key_terms: [higher, century, education, corporation, description, like, economics, product]
+    concepts: [higher, century, education, corporation, description]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1r0dhyj.md#c3"]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/highereducation/1r0dhyj.md#c2"
     char_span: [4080, 5852]
     sentence_count: 15
     key_terms: [retirement, college, "that's", universities, going, kids, benefits, children]
+    concepts: [retirement, college, universities, "that's", going]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/highereducation/1r0dhyj.md#c3"
     char_span: [5854, 6660]
     sentence_count: 11
     key_terms: [education, someone, higher, spouse, helpful-passenger-12, life, significantly, determining]
+    concepts: [education, someone, higher, spouse]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1r0dhyj.md#c1"]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/highereducation/1r0dhyj.md#c4"
     char_span: [6662, 8556]
     sentence_count: 15
     key_terms: [work, remote, foreignlibrary424, time, theatregeeke, job, like, getting]
+    concepts: [remote, foreignlibrary424, theatregeeke, getting, working]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/highereducation/1r0dhyj.md#c5"
     char_span: [8558, 10482]
     sentence_count: 19
     key_terms: [foreignlibrary424, raise, work, raises, years, job, supervisor, soulless]
+    concepts: [foreignlibrary424, raise, raises, supervisor, years]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1r0dhyj.md#c6"
     char_span: [10261, 12376]
     sentence_count: 22
     key_terms: [higher, work, going, back, best, don, understand, corporate]
+    concepts: [higher, going, understand, corporate, recently]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1r0dhyj.md#c7"

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 660]
     sentence_count: 6
     key_terms: [gradschool, comments, research, looking, people, school, grad, conversation]
+    concepts: [gradschool, comments, research, looking, people]
     token_count: 150
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1nvfovu/for_people_going_into_research_after_grad_school/"}]
 ---
 # For people going into research after grad school, how do your finances look?
 

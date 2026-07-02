@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 999]
     sentence_count: 6
     key_terms: [payments, fintech, cross-border, providers, business, comments, client, people]
+    concepts: [payments, fintech, cross-border, providers, business]
     token_count: 210
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1sxe0a0/what_are_people_using_for_crossborder_client/"}]
   - id: "social-intelligence/reddit-deep/fintech/1sxe0a0.md#c1"
-    char_span: [1014, 1513]
+    char_span: [1013, 1512]
     sentence_count: 3
     key_terms: [payment, rails, rates, automatically, reliability, stablecoins, complexity, exorbitant]
+    concepts: [payment, rails, rates]
     section: Comments
     token_count: 116
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 954]
     sentence_count: 8
     key_terms: [accents, productivity, tools, understand, comments, meetings, issue, help]
+    concepts: [productivity, accents, tools, understand, comments]
     token_count: 203
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1r7wzf5/any_tools_that_actually_help_understand_accents/"}]
   - id: "social-intelligence/reddit-deep/productivity/1r7wzf5.md#c1"
     char_span: [968, 2536]
     sentence_count: 11
     key_terms: [accent, understanding, krisp, try, meetings, accents, meeting, indian]
+    concepts: [accent, understanding, krisp, meetings, accents]
     section: Comments
     token_count: 356
 ---

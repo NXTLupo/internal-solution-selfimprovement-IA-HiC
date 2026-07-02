@@ -19,14 +19,19 @@ content_hash: "747a918bc04ad446"
 relevance_by_goal: {"46dec9599ad5":80}
 chunks:
   - id: "articles/reddit-deep-r-stocks/cdaf1d908f.md#c0"
-    char_span: [0, 2018]
+    char_span: [0, 2017]
     sentence_count: 11
     key_terms: [people, stocks, because, buying, completely, market, complacency, dip]
-    token_count: 457
+    concepts: [people, stocks, because, completely, buying]
+    related_chunks: ["articles/reddit-deep-r-stocks/cdaf1d908f.md#c1"]
+    token_count: 456
+    sources: [{"n":"[Reddit Deep: r/stocks](articles/reddit-deep-r-stocks/6e317a8fd8.md","u":""}]
   - id: "articles/reddit-deep-r-stocks/cdaf1d908f.md#c1"
-    char_span: [2020, 3544]
+    char_span: [2019, 3543]
     sentence_count: 14
     key_terms: [market, stocks, cash, last, take, trillions, sitting, people]
+    concepts: [market, stocks, trillions, sitting, people]
+    related_chunks: ["articles/reddit-deep-r-stocks/cdaf1d908f.md#c0"]
     token_count: 372
 ---
 # People are not ready for a Crash

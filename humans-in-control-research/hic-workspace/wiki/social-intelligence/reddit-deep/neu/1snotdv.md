@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 643]
     sentence_count: 8
     key_terms: [comments, co-op, temporarytaste1288, big, like, move, neu, year]
+    concepts: [comments, co-op]
     token_count: 177
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1snotdv/should_i_move_to_sf_for_3rd_coop/"}]
   - id: "social-intelligence/reddit-deep/neu/1snotdv.md#c1"
     char_span: [657, 1867]
     sentence_count: 8
     key_terms: [redact, co-op, work, months, social, being, moved, never]
+    concepts: [redact, co-op, months, social, being]
     section: Comments
     token_count: 321
 ---

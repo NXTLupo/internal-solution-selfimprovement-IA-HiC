@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 2048]
     sentence_count: 12
     key_terms: [college, semester, sap, school, classes, transferring, issue, late]
+    concepts: [college, semester, school, classes, transferring]
+    related_chunks: ["social-intelligence/reddit-deep/college/1q5jncc.md#c1"]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1q5jncc/title_sap_issue_discovered_too_late_daughter_now/"}]
   - id: "social-intelligence/reddit-deep/college/1q5jncc.md#c1"
     char_span: [2062, 3907]
     sentence_count: 13
     key_terms: [fall, classes, enrolled, college, spring, sap, semester, appeal]
+    concepts: [classes, enrolled, college, spring, semester]
+    related_chunks: ["social-intelligence/reddit-deep/college/1q5jncc.md#c0"]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/college/1q5jncc.md#c2"
     char_span: [3909, 5878]
     sentence_count: 8
     key_terms: [classes, transfer, community, grades, transcripts, open, sap, semester]
+    concepts: [classes, transfer, community, grades, transcripts]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/college/1q5jncc.md#c3"
     char_span: [5880, 6601]
     sentence_count: 5
     key_terms: [college, life, thought, iamdefinitelynotcat, great, truly, world, end]
+    concepts: [college, thought, great, truly, world]
     section: Comments
     token_count: 184
 ---

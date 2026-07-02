@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1854]
     sentence_count: 5
     key_terms: [careerguidance, please, study, "bachelor's", currently, position, another, college]
+    concepts: [careerguidance, please, "bachelor's", study, currently]
     token_count: 424
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sdluvf/im_a_25_year_old_male_in_dire_need_of_help_stuck/"}]
   - id: "articles/reddit-deep-r-careerguidance/3e6be36ddd.md#c1"
     char_span: [1856, 4205]
     sentence_count: 20
     key_terms: [information, experience, like, business, analyst, degree, "you're", roles]
+    concepts: [information, experience, business, analyst, degree]
     token_count: 482
   - id: "articles/reddit-deep-r-careerguidance/3e6be36ddd.md#c2"
     char_span: [4210, 4630]
     sentence_count: 2
     key_terms: [gaming, companies, tech, perspective, background, experience, understand, approach]
+    concepts: [gaming, companies]
     token_count: 77
 ---
 # I'm a 25 year old male in dire need of help stuck in comfort zone, with a bachelor's degree , dead end job , with no clear career path ahead , is there a way out?

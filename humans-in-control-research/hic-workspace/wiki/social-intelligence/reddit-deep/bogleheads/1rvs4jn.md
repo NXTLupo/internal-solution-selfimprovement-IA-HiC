@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1172]
     sentence_count: 8
     key_terms: [corebridge, funds, accounts, bogleheads, comments, parents, retired, posted]
+    concepts: [corebridge, funds, accounts, bogleheads, comments]
     token_count: 276
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1rvs4jn/retired_parents_corebridge_403b_accounts/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1rvs4jn.md#c1"
-    char_span: [1187, 3054]
+    char_span: [1186, 3053]
     sentence_count: 18
     key_terms: [get, process, extrapineapple2, form, corebridge, understand, fidelity, question]
+    concepts: [process, extrapineapple2, corebridge, understand, fidelity]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/bogleheads/1rvs4jn.md#c2"
-    char_span: [3056, 3370]
+    char_span: [3055, 3369]
     sentence_count: 7
     key_terms: [alternatives, something, finding, better, chance, worse, determine, pros-cons]
+    concepts: [alternatives, something, finding, better, chance]
     section: Comments
     token_count: 73
 ---

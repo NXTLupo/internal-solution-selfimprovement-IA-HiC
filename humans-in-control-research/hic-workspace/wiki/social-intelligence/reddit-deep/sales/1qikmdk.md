@@ -20,28 +20,38 @@ chunks:
     char_span: [0, 2211]
     sentence_count: 15
     key_terms: [career, sales, financial, been, time, advisor, family, didn]
+    concepts: [career, financial, sales, advisor, family]
+    related_chunks: ["social-intelligence/reddit-deep/sales/1qikmdk.md#c4"]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1qikmdk/worth_exploring_a_career_as_a_financial_advisor/"}]
   - id: "social-intelligence/reddit-deep/sales/1qikmdk.md#c1"
     char_span: [2213, 3564]
     sentence_count: 16
     key_terms: [financial, scenarios, advisors, required, looking, people, period, case]
+    concepts: [financial, scenarios, advisors, required, looking]
+    related_chunks: ["social-intelligence/reddit-deep/sales/1qikmdk.md#c2", "social-intelligence/reddit-deep/sales/1qikmdk.md#c4"]
     token_count: 304
   - id: "social-intelligence/reddit-deep/sales/1qikmdk.md#c2"
-    char_span: [3579, 5542]
+    char_span: [3578, 5541]
     sentence_count: 15
     key_terms: [years, year, dangerdanthepantless, advisors, sell, financial, insurance, question]
+    concepts: [years, dangerdanthepantless, advisors, financial, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/sales/1qikmdk.md#c1", "social-intelligence/reddit-deep/sales/1qikmdk.md#c4"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/sales/1qikmdk.md#c3"
-    char_span: [5544, 7809]
+    char_span: [5543, 7808]
     sentence_count: 20
     key_terms: [people, industry, network, someone, prospecting, been, like, town]
+    concepts: [people, industry, network, someone, prospecting]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/sales/1qikmdk.md#c4"
-    char_span: [7811, 9518]
+    char_span: [7810, 9517]
     sentence_count: 12
     key_terms: [financial, industry, advisors, everyone, advisor, through, flashy-bandicoot889, years]
+    concepts: [financial, industry, advisors, everyone, advisor]
+    related_chunks: ["social-intelligence/reddit-deep/sales/1qikmdk.md#c0", "social-intelligence/reddit-deep/sales/1qikmdk.md#c1", "social-intelligence/reddit-deep/sales/1qikmdk.md#c2"]
     section: Comments
     token_count: 387
 ---

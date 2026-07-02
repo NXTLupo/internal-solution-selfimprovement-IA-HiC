@@ -19,34 +19,43 @@ chunks:
     char_span: [0, 1898]
     sentence_count: 1
     key_terms: [mit, "it's", applyingtocollege, school, significant, comments, distance, expected]
+    concepts: [applyingtocollege, school, significant, comments, distance]
     token_count: 453
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1su0n0q/state_flagship_vs_mit/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1su0n0q.md#c1"
     char_span: [1900, 3624]
     sentence_count: 2
     key_terms: [experience, immediately, "i'm", "i've", mit, want, especially, students]
+    concepts: [experience, immediately, especially, students, "wasn't"]
     token_count: 374
   - id: "social-intelligence/reddit-deep/applyingtocollege/1su0n0q.md#c2"
     char_span: [3638, 5385]
     sentence_count: 11
     key_terms: [mit, salary, differential, engineering, robby777777, good, year, graduates]
+    concepts: [salary, differential, engineering, robby777777, graduates]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/applyingtocollege/1su0n0q.md#c3"
     char_span: [5387, 6572]
     sentence_count: 6
     key_terms: [mit, opportunities, reincarnatedbiscuits, year, everyone, easily, great, cross-registration]
+    concepts: [opportunities, reincarnatedbiscuits, everyone, easily, great]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/applyingtocollege/1su0n0q.md#c4"
     char_span: [6574, 8664]
     sentence_count: 4
     key_terms: [mit, money, scholarships, get, mitadmissions, gonna, probably, question]
+    concepts: [money, scholarships, mitadmissions, gonna, probably]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1su0n0q.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1su0n0q.md#c5"
     char_span: [8390, 9633]
     sentence_count: 12
     key_terms: [mit, money, environment, probably, college, parents, people, formal-research4531]
+    concepts: [environment, money, probably, college, parents]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1su0n0q.md#c4"]
     section: Comments
     token_count: 288
 ---

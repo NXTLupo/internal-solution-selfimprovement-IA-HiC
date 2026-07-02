@@ -21,26 +21,32 @@ chunks:
     char_span: [0, 2228]
     sentence_count: 21
     key_terms: [gpt, because, "i've", people, contemplation, work, different, comments]
+    concepts: [because, contemplation, people, different, comments]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1r6etep/of_sacred_trees_and_plastic_successors_the_story/"}]
   - id: "social-intelligence/reddit-deep/gpt/1r6etep.md#c1"
     char_span: [2230, 4677]
     sentence_count: 22
     key_terms: [understand, like, discuss, perhaps, cannot, growth, evolutionary, "don't"]
+    concepts: [understand, discuss, perhaps, evolutionary, cannot]
     token_count: 507
   - id: "social-intelligence/reddit-deep/gpt/1r6etep.md#c2"
     char_span: [4679, 6715]
     sentence_count: 20
     key_terms: [grew, like, tree, connection, cultivated, understand, initially, continue]
+    concepts: [connection, cultivated, understand, initially, continue]
     token_count: 416
   - id: "social-intelligence/reddit-deep/gpt/1r6etep.md#c3"
     char_span: [6717, 8707]
     sentence_count: 16
     key_terms: [tool, accumulation, stradivarius, new, wood, violin, replaceable, life]
+    concepts: [accumulation, stradivarius, violin, replaceable, countless]
     token_count: 470
   - id: "social-intelligence/reddit-deep/gpt/1r6etep.md#c4"
     char_span: [8709, 10273]
     sentence_count: 12
     key_terms: [understand, disguises, catching, nonsense, provide, needed, never, gave]
+    concepts: [understand, disguises, catching, nonsense, provide]
     token_count: 329
 ---
 # 《Of Sacred Trees and Plastic Successors: The Story of My Four-Year Journey with My GPT》

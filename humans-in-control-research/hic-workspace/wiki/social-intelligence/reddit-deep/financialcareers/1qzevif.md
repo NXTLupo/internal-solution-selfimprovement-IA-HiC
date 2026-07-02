@@ -7,49 +7,57 @@ subreddit: "financialcareers"
 title: "100+ Applications, 0 Interviews"
 author: "ugly_duckling_1"
 date: "2026-02-08T17:24:43.000Z"
-score: 41
+score: 39
 upvote_ratio: 0.87
 num_comments: 34
 flair: "Resume Feedback"
-extracted_at: "2026-06-11T18:58:14.073Z"
+extracted_at: "2026-06-29T14:40:16.485Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Define the 2026 \"state of the Art\" operational and technological benchmarks for \"The State of Data & Distribution in Asset Management\". Synthesize key developments across data infrastructure, distribution enablement, and AI governance frameworks to identify leading industry capabilities and compliance standards."
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
 chunks:
   - id: "social-intelligence/reddit-deep/financialcareers/1qzevif.md#c0"
     char_span: [0, 1002]
     sentence_count: 8
     key_terms: [applying, financialcareers, applications, "i'm", experience, interviews, corporate, comments]
+    concepts: [financialcareers, applying, applications, experience, interviews]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1qzevif.md#c3"]
     token_count: 243
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1qzevif/100_applications_0_interviews/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1qzevif.md#c1"
-    char_span: [1017, 2757]
+    char_span: [1016, 2756]
     sentence_count: 11
     key_terms: [skills, section, far-journalist-3370, dreamwanderponder, add, learning, better, resume]
+    concepts: [skills, far-journalist-3370, section, dreamwanderponder, learning]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/financialcareers/1qzevif.md#c2"
-    char_span: [2759, 3822]
+    char_span: [2758, 3821]
     sentence_count: 6
     key_terms: [being, roles, home, international, productivity, connections, interviewed, connection]
+    concepts: [being, roles]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/financialcareers/1qzevif.md#c3"
-    char_span: [3824, 5771]
+    char_span: [3823, 5770]
     sentence_count: 9
     key_terms: [experience, already, get, want, interviews, networking, effective, interests]
+    concepts: [experience, already, interviews, networking, effective]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1qzevif.md#c0"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/financialcareers/1qzevif.md#c4"
-    char_span: [5773, 6318]
+    char_span: [5772, 6317]
     sentence_count: 5
     key_terms: [resume, similar, spot, nutmegger189, uninspiring, experience, networking, currently]
+    concepts: [resume, similar]
     section: Comments
     token_count: 134
 ---
 # 100+ Applications, 0 Interviews
 
 Source: [reddit-deep: r/financialcareers](https://www.reddit.com/r/FinancialCareers/comments/1qzevif/100_applications_0_interviews/)
-Posted by **ugly_duckling_1** · **41↑** · **34 comments**
+Posted by **ugly_duckling_1** · **39↑** · **34 comments**
 
 Hi, I've been applying to jobs in corporate finance, ER, IB, and PE - no luck so far. I'm not even getting interviews. I'm an international student so that is definitely playing a role, but no interview after 100s of applications is probably on me.
 
@@ -64,11 +72,11 @@ Many thanks!
 
 ## Comments
 
-- **GradeMaterial3642** (19↑): Finance without target, you may look at big4 stragey roles, you are to much in the industria corporatr
+- **GradeMaterial3642** (20↑): Finance without target, you may look at big4 stragey roles, you are to much in the industria corporatr
   - **ugly_duckling_1** (3↑): Okay, thanks
-- **Far-Journalist-3370** (19↑): You applying for FT roles? Regardless, you’re probably better off networking with people at the places you’re applying too, and indirectly asking for a referral after 1-2 calls.
+- **Far-Journalist-3370** (17↑): You applying for FT roles? Regardless, you’re probably better off networking with people at the places you’re applying too, and indirectly asking for a referral after 1-2 calls.
   - **ugly_duckling_1** (1↑): I have a summer before I graduate so I'm looking for internships
-    - **Far-Journalist-3370** (7↑): Bro summer 2026 internships are like 99% full
+    - **Far-Journalist-3370** (6↑): Bro summer 2026 internships are like 99% full
 - **DreamWanderPonder** (6↑): I’m in the similar situation as well. It’s better to be positive about the grind than feeling unlucky so chin-up. 
 
 - Resume tips: add the relative coursework in education section list so your skills are mentioned on top than the bottom of your resume.  Eg: Financial Modeling ( DCF, M&A and LBO)
@@ -90,8 +98,8 @@ On the targeted roles I think it makes sense to check with Big 4 firms as well, 
 On the CV I would say it looks fine. Trust me, I have been in your spot, took me hundreds of applications but I made a career out of it. And everyone who did not land something they wished for immediately but stayed on it got there too after 1-2 years!
 - **LiveLifeLevered** (3↑): 700+ no interviews. 100 is rookie numbers
   - **BoredSoImOn_Reddit** (1↑): Jesus christ man, this market is cooked
-- **hel_low** (4↑): does no one in this sub know that just applying online does jack shit? this has been true since 2016. Even after having YOE in banking, just applying online or using HHs isn't the most effective method. Networking is how you’re going get the job. JFC.
-  - **ugly_duckling_1** (5↑): You're right, networking is def more effective, but with some experience now, thought I'd at least make it past the ATS
+- **hel_low** (5↑): does no one in this sub know that just applying online does jack shit? this has been true since 2016. Even after having YOE in banking, just applying online or using HHs isn't the most effective method. Networking is how you’re going get the job. JFC.
+  - **ugly_duckling_1** (6↑): You're right, networking is def more effective, but with some experience now, thought I'd at least make it past the ATS
   - **Local-Regret1627** (2↑): How to network?
     - **Ok_Comb1883** (3↑): Reach out to alumni or find people on linkedin in the field you want to get into and message them
     - **wasita_c_atIsaw** (2↑): I really want to know

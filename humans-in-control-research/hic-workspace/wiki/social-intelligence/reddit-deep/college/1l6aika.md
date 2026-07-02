@@ -21,53 +21,66 @@ chunks:
     char_span: [0, 2098]
     sentence_count: 26
     key_terms: [college, mom, comments, working, get, abandoning, everyone, context]
+    concepts: [college, comments, working, abandoning, everyone]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1l6aika/anybody_elses_parents_abandoning_them/"}]
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c1"
     char_span: [2112, 4228]
     sentence_count: 24
     key_terms: [always, feel, home, look, mom, want, year, because]
+    concepts: [always, because, college, parents, breaks]
+    related_chunks: ["social-intelligence/reddit-deep/college/1l6aika.md#c7"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c2"
     char_span: [4230, 6061]
     sentence_count: 20
     key_terms: [mom, figure, moving, life, next, abandoning, apartment, apologize]
+    concepts: [figure, moving, abandoning, apartment, apologize]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c3"
     char_span: [6063, 6887]
     sentence_count: 8
     key_terms: [home, stay, college, break, campus, drive, far, long]
+    concepts: [college, break, campus, drive]
     section: Comments
     token_count: 192
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c4"
     char_span: [6889, 8884]
     sentence_count: 27
     key_terms: [like, mom, support, seems, away, lot, situation, abandon]
+    concepts: [support, seems, situation, abandon, because]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c5"
     char_span: [8886, 9784]
     sentence_count: 13
     key_terms: [school, get, gotta, too, grandparents, friendships, assistance, prioritize]
+    concepts: [school, gotta]
     section: Comments
     token_count: 194
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c6"
     char_span: [9786, 11636]
     sentence_count: 20
     key_terms: [better, people, get, training, college, qualify, job, something]
+    concepts: [better, people, training, college, qualify]
+    related_chunks: ["social-intelligence/reddit-deep/college/1l6aika.md#c7"]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c7"
     char_span: [11638, 13112]
     sentence_count: 15
     key_terms: [going, college, big, deal, because, advice, people, caringismyfirstname]
+    concepts: [going, college, because, advice, people]
+    related_chunks: ["social-intelligence/reddit-deep/college/1l6aika.md#c1", "social-intelligence/reddit-deep/college/1l6aika.md#c6"]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c8"
     char_span: [13114, 15341]
     sentence_count: 21
     key_terms: [renting, relationship, back, don, get, let, love, apartment]
+    concepts: [renting, relationship, apartment, important, unsettled]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c9"

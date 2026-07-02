@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1999]
     sentence_count: 30
     key_terms: [don, loans, degree, school, bill, let, gradschool, stormalynn]
+    concepts: [loans, degree, school, gradschool, stormalynn]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1m13vps.md#c3"]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1m13vps/the_big_beautiful_bill/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1m13vps.md#c1"
     char_span: [2013, 2395]
     sentence_count: 2
     key_terms: [studentloanprofessor, bbb-passes, https, years, com, loan, www, additional]
+    concepts: [studentloanprofessor, bbb-passes, https, years]
     section: Comments
     token_count: 107
   - id: "social-intelligence/reddit-deep/gradschool/1m13vps.md#c2"
     char_span: [2397, 4456]
     sentence_count: 20
     key_terms: [students, scholarships, based, youzernayme, got, situation, current, nasfaa]
+    concepts: [students, scholarships, youzernayme, based, situation]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/gradschool/1m13vps.md#c3"
     char_span: [4458, 6536]
     sentence_count: 14
     key_terms: [loans, private, stormalynn, student, johnapple42, everyone, students, option]
+    concepts: [private, loans, stormalynn, student, johnapple42]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1m13vps.md#c0"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/gradschool/1m13vps.md#c4"
     char_span: [6538, 7594]
     sentence_count: 11
     key_terms: [graduate, because, program, afford, failed, paced, been, debt]
+    concepts: [graduate, because, program, afford, failed]
     section: Comments
     token_count: 251
 ---

@@ -16,60 +16,75 @@ chunks:
     char_span: [0, 925]
     sentence_count: 5
     key_terms: [research, social, services, backend, integration, data, mesh, collection]
+    concepts: [research, social, services, backend, integration]
+    related_chunks: ["social-intelligence/cx-mesh.md#c5", "social-intelligence/cx-mesh.md#c6"]
     section: Architecture
     token_count: 188
   - id: "social-intelligence/cx-mesh.md#c1"
     char_span: [954, 2879]
     sentence_count: 4
     key_terms: [count, parameters, reddit, jobid, collect, returns, socialcollectionconfig, source]
+    concepts: [count, parameters, reddit, socialcollectionconfig, jobid]
     section: Social Data Collection
     token_count: 469
+    sources: [{"n":"\"reddit\"`","u":""},{"n":"\"trustpilot\"`","u":""},{"n":"\"playstore\"`","u":""},{"n":"'reddit' | 'trustpilot' | 'playstore';","u":""}]
   - id: "social-intelligence/cx-mesh.md#c2"
     char_span: [2905, 3790]
     sentence_count: 2
     key_terms: [string, subreddit, relevant, research, communities, researchfabricorchestrator, subredditrecommendation, estimatedengagement]
+    concepts: [string, subreddit, relevant, research, communities]
     section: Subreddit Discovery
     token_count: 187
   - id: "social-intelligence/cx-mesh.md#c3"
     char_span: [3837, 5218]
     sentence_count: 5
     key_terms: [subreddit, analysis, journey, returns, posts, api, data, rag]
+    concepts: [subreddit, analysis, journey, returns, posts]
     section: Integration with Social Research Backend
     token_count: 345
   - id: "social-intelligence/cx-mesh.md#c4"
     char_span: [5250, 5691]
     sentence_count: 2
     key_terms: [servicestatus, string, checkservicehealth, typescript, available, endpoints, interface, operation]
+    concepts: [servicestatus, string]
     section: Service Health Monitoring
     token_count: 98
   - id: "social-intelligence/cx-mesh.md#c5"
     char_span: [5741, 6676]
     sentence_count: 8
     key_terms: [social, evidence, nodes, tier, research, credibility, data, community]
+    concepts: [social, evidence, nodes, research, credibility]
+    related_chunks: ["social-intelligence/cx-mesh.md#c0", "social-intelligence/cx-mesh.md#c6", "social-intelligence/cx-mesh.md#c8"]
     section: How CX Mesh Data Enters the Research Corpus
     token_count: 181
   - id: "social-intelligence/cx-mesh.md#c6"
     char_span: [6715, 7403]
     sentence_count: 1
     key_terms: [social, competitive, research, users, authentically, intelligence, ambivalence, communities]
+    concepts: [social, competitive, research, users]
+    related_chunks: ["social-intelligence/cx-mesh.md#c0", "social-intelligence/cx-mesh.md#c5"]
     section: Voice of Customer (VoC) Patterns
     token_count: 118
   - id: "social-intelligence/cx-mesh.md#c7"
     char_span: [7432, 8225]
     sentence_count: 3
     key_terms: [connector, forums, channels, social, datasourceconnectors, credibilitytier, machinelearning, social-relevant]
+    concepts: [connector, forums, channels, social]
     section: Data Source Connectors
     token_count: 177
   - id: "social-intelligence/cx-mesh.md#c8"
     char_span: [8254, 9060]
     sentence_count: 1
     key_terms: [wiki, evidence, trustpilot, playstore, subreddit, social, themes, pages]
+    concepts: [evidence, trustpilot, playstore, subreddit, social]
+    related_chunks: ["social-intelligence/cx-mesh.md#c5"]
     section: Wiki Integration Rules
     token_count: 158
   - id: "social-intelligence/cx-mesh.md#c9"
     char_span: [9083, 9567]
     sentence_count: 1
     key_terms: [social-intelligence, sources-registry, competitive, frameworks, analysis, social, sentiment-pipeline, connector-catalog]
+    concepts: [social-intelligence, sources-registry, competitive, frameworks, analysis]
     section: Cross-References
     token_count: 104
 ---

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1388]
     sentence_count: 9
     key_terms: [market, record, last, correction, industries, composite, investing, markets]
+    concepts: [market, record, correction, industries, composite]
     token_count: 338
+    sources: [{"n":"Reddit Deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1s5g9vv/dow_jones_nasdaq_composite_close_in_10_correction/"}]
   - id: "articles/reddit-deep-r-investing/c2b6dbfe9d.md#c1"
     char_span: [1390, 3150]
     sentence_count: 6
     key_terms: [currently, down, topped, get, "it's", shicken684, markets, numbers]
+    concepts: [currently, topped, shicken684, markets, numbers]
     token_count: 465
 ---
 # Dow Jones & NASDAQ Composite close in -10% correction territory

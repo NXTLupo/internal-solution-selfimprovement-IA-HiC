@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1175]
     sentence_count: 8
     key_terms: [program, applyingtocollege, experiences, university, westcliff, clinical, comments, corona]
+    concepts: [program, applyingtocollege, experiences, university, westcliff]
     token_count: 283
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1t2zlvy/curious_about_westcliff_university_bsn_program/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t2zlvy.md#c1"
     char_span: [1189, 1436]
     sentence_count: 2

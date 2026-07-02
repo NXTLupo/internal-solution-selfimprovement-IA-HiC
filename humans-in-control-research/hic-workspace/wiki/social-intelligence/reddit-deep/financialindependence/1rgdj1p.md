@@ -21,76 +21,93 @@ chunks:
     char_span: [0, 1563]
     sentence_count: 16
     key_terms: [financialindependence, reddit, https, years, com, www, work, financially]
+    concepts: [financialindependence, reddit, https, years, financially]
     token_count: 419
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1rgdj1p/3_year_update_put_in_my_notice_33_with_family_of/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1rgdj1p.md#c1"
     char_span: [1565, 3415]
     sentence_count: 18
     key_terms: [year, spending, stepped, years, away, kids, new, investable]
+    concepts: [spending, stepped, investable, sabbatical, years]
     token_count: 481
   - id: "social-intelligence/reddit-deep/financialindependence/1rgdj1p.md#c2"
     char_span: [3417, 4732]
     sentence_count: 8
     key_terms: [probably, spending, family, location, couple, desire, frugal, return]
+    concepts: [probably, spending, family, location, couple]
     token_count: 306
   - id: "social-intelligence/reddit-deep/financialindependence/1rgdj1p.md#c3"
     char_span: [4734, 6489]
     sentence_count: 11
     key_terms: [work, family, enjoy, land, want, community, vacation, process]
+    concepts: [family, enjoy, community, vacation, process]
     token_count: 394
   - id: "social-intelligence/reddit-deep/financialindependence/1rgdj1p.md#c4"
     char_span: [6491, 7508]
     sentence_count: 8
     key_terms: [base, offers, ended, been, ownership, previous, salary, firms]
+    concepts: [offers, ended, ownership, previous, salary]
     token_count: 238
   - id: "social-intelligence/reddit-deep/financialindependence/1rgdj1p.md#c5"
     char_span: [7510, 9528]
     sentence_count: 15
     key_terms: [year, roth, rental, years, premiums, contributions, money, taxes]
+    concepts: [rental, years, premiums, contributions, money]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rgdj1p.md#c6"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1rgdj1p.md#c6"
     char_span: [9273, 9660]
     sentence_count: 6
     key_terms: [rental, years, subdividing, something, treehouse, november, vacation, because]
+    concepts: [rental, years]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rgdj1p.md#c5"]
     token_count: 92
   - id: "social-intelligence/reddit-deep/financialindependence/1rgdj1p.md#c7"
     char_span: [9662, 10298]
     sentence_count: 1
     key_terms: [including, marathon, soccer, built, large, accomplishments, backpacking, nightstands]
+    concepts: [including, marathon, soccer, built, large]
     token_count: 141
   - id: "social-intelligence/reddit-deep/financialindependence/1rgdj1p.md#c8"
     char_span: [10312, 12057]
     sentence_count: 12
     key_terms: [retirement, posts, spending-higher-than-expected, decision, because, reality, wouldnt, having]
+    concepts: [retirement, posts, decision, because, reality]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/financialindependence/1rgdj1p.md#c9"
     char_span: [12059, 13315]
     sentence_count: 8
     key_terms: [house, someone, get, rent, time, misunderstood, outdoorfire38, interesting]
+    concepts: [house, someone]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/financialindependence/1rgdj1p.md#c10"
     char_span: [13320, 14913]
     sentence_count: 10
     key_terms: [coordination, get, boundaries, looking, ill-consideration892, civil, early, lunch]
+    concepts: [coordination, boundaries, looking, civil, early]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/financialindependence/1rgdj1p.md#c11"
     char_span: [14915, 16775]
     sentence_count: 15
     key_terms: [insurance, being, been, car, kids, activities, conversion, expensive]
+    concepts: [insurance, activities, being, conversion, expensive]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/financialindependence/1rgdj1p.md#c12"
     char_span: [16777, 17439]
     sentence_count: 4
     key_terms: [taxes, mini-retirement, outdoorfire38, conversions, information, traditional, definitely, increasing]
+    concepts: [taxes]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/financialindependence/1rgdj1p.md#c13"
     char_span: [17441, 19054]
     sentence_count: 14
     key_terms: [roth, ladder, work, different, partially, prospects, probably, because]
+    concepts: [ladder, different, partially, prospects, probably]
     section: Comments
     token_count: 368
 ---

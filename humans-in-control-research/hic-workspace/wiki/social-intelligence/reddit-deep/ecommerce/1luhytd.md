@@ -20,17 +20,24 @@ chunks:
     char_span: [0, 873]
     sentence_count: 6
     key_terms: [support, user, ecommerce, comments, tickets, handle, been, best]
+    concepts: [support, ecommerce, comments, tickets, handle]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1luhytd.md#c1", "social-intelligence/reddit-deep/ecommerce/1luhytd.md#c2"]
     token_count: 196
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1luhytd/best_customer_chat_it_tools_in_2025/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1luhytd.md#c1"
-    char_span: [888, 3109]
+    char_span: [887, 3108]
     sentence_count: 19
     key_terms: [support, ticket, been, replies, tickets, without, volume, satisfaction]
+    concepts: [support, ticket, replies, tickets, without]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1luhytd.md#c0", "social-intelligence/reddit-deep/ecommerce/1luhytd.md#c2"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/ecommerce/1luhytd.md#c2"
-    char_span: [3111, 5131]
+    char_span: [3110, 5130]
     sentence_count: 12
     key_terms: [support, tickets, "you're", boei, help, expensive, questions, whatever]
+    concepts: [support, tickets, "you're", expensive, questions]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1luhytd.md#c0", "social-intelligence/reddit-deep/ecommerce/1luhytd.md#c1"]
     section: Comments
     token_count: 440
 ---

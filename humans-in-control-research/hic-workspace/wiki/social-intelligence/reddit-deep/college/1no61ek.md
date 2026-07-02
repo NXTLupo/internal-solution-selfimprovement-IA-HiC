@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 694]
     sentence_count: 5
     key_terms: [college, year, comments, going, dizzystanza1327, arrangements, perspectives, information]
+    concepts: [college, comments, going]
     token_count: 162
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1no61ek/what_were_you_unprepared_for_going_into_your/"}]
   - id: "social-intelligence/reddit-deep/college/1no61ek.md#c1"
     char_span: [708, 1729]
     sentence_count: 5
     key_terms: [classes, college, people, school, being, class, going, eat]
+    concepts: [classes, college, people, school, being]
+    related_chunks: ["social-intelligence/reddit-deep/college/1no61ek.md#c2"]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/college/1no61ek.md#c2"
     char_span: [1734, 3846]
     sentence_count: 14
     key_terms: [get, being, class, work, semester, outside, school, high]
+    concepts: [being, class, semester, outside, school]
+    related_chunks: ["social-intelligence/reddit-deep/college/1no61ek.md#c1"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/college/1no61ek.md#c3"
     char_span: [3848, 4112]
     sentence_count: 5
     key_terms: [emails, check, notifications, opportunities, professional, reminders, deadline, everyday]
+    concepts: [emails, check]
     section: Comments
     token_count: 52
 ---

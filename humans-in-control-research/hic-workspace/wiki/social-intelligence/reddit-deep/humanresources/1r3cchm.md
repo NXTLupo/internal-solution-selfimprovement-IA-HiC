@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1936]
     sentence_count: 17
     key_terms: [exam, shrm, test, practice, humanresources, passed, night, last]
+    concepts: [practice, humanresources, passed, background, night]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1r3cchm.md#c1"]
     token_count: 466
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1r3cchm/passed_shrmscp_today_with_minimal_prep_ma/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1r3cchm.md#c1"
     char_span: [1950, 3723]
     sentence_count: 17
     key_terms: [pocket, exam, questions, prep, passed, lot, time, took]
+    concepts: [pocket, questions, passed, background, vellowitty]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1r3cchm.md#c0"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/humanresources/1r3cchm.md#c2"
     char_span: [3725, 5375]
     sentence_count: 11
     key_terms: [soxpatsbruinscelts, taskfinancial5922, shrm, passed, certification, exam, sphr, studying]
+    concepts: [soxpatsbruinscelts, taskfinancial5922, certification, passed, studying]
     section: Comments
     token_count: 459
 ---

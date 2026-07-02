@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 511]
     sentence_count: 3
     key_terms: [cscareerquestions, comments, seems, like, successfully, datanurse47, programming, reddit-deep]
+    concepts: [cscareerquestions, comments, seems]
     token_count: 131
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1oky2ph/those_who_develop_chips_etc_what_was_your_career/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oky2ph.md#c1"
     char_span: [525, 2646]
     sentence_count: 11
     key_terms: [engineering, stayed, did, computer, hardware, masters, identity525601, people]
+    concepts: [engineering, stayed, computer, hardware, identity525601]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1oky2ph.md#c2"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oky2ph.md#c2"
     char_span: [2648, 4672]
     sentence_count: 11
     key_terms: [equal-suggestion3182, computer, engineering, hardware, chip, design, area, synthesize]
+    concepts: [equal-suggestion3182, computer, engineering, hardware, design]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1oky2ph.md#c1"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oky2ph.md#c3"
     char_span: [4674, 5340]
     sentence_count: 4
     key_terms: [company, internship, design, firm-designer8863, chip, job, microcontrollers, optimization]
+    concepts: [company, internship, design]
     section: Comments
     token_count: 144
 ---

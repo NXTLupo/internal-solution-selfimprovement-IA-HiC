@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1450]
     sentence_count: 11
     key_terms: [data, experience, internships, comments, looking, anyone, gain, help]
+    concepts: [experience, internships, comments, looking, anyone]
     token_count: 309
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1okrs7d/student_seeking_entrylevel_data_job_or_internship/"}]
 ---
 # Student Seeking Entry-Level Data Job or Internship for Hands-On Experience
 

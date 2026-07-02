@@ -20,26 +20,34 @@ chunks:
     char_span: [0, 2261]
     sentence_count: 8
     key_terms: [starbucks, baristas, newton, striking, line, workers, united, support]
+    concepts: [starbucks, baristas, newton, striking, workers]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1pj8xpf.md#c3"]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/boston","u":"https://www.reddit.com/r/boston/comments/1pj8xpf/cross_the_finish_line_not_the_picket_line_newton/"}]
   - id: "social-intelligence/reddit-deep/boston/1pj8xpf.md#c1"
     char_span: [2263, 4547]
     sentence_count: 12
     key_terms: [starbucks, customers, wait, starbucks-touts-turnaround-with-revenue-jump-despite-profit-plunge, times, niccol, write, baristas]
+    concepts: [starbucks, customers, times, niccol, write]
     token_count: 493
   - id: "social-intelligence/reddit-deep/boston/1pj8xpf.md#c2"
     char_span: [4549, 6343]
     sentence_count: 9
     key_terms: [starbucks-workers-in-davis-square-join-sbwu-company-closes-store-one-week-later, starbucks-closing-stores-at-least-20-in-mass-on-the-chopping-block-heres-where, https, starbucks-office-near-brian-niccol-newport-beach-2025-7, compensation, com, executive, starbucks]
+    concepts: [https, compensation, executive, starbucks, paywatch]
     token_count: 474
   - id: "social-intelligence/reddit-deep/boston/1pj8xpf.md#c3"
     char_span: [6345, 8446]
     sentence_count: 9
     key_terms: [workers, starbucks, mayor-adams-dcwp-38-million-settlement-starbucks-largest-worker-protection, dsa, strike, united, event, union]
+    concepts: [workers, starbucks, strike, united, event]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1pj8xpf.md#c0"]
     token_count: 461
   - id: "social-intelligence/reddit-deep/boston/1pj8xpf.md#c4"
-    char_span: [8448, 9097]
+    char_span: [8448, 9096]
     sentence_count: 3
     key_terms: [strike, https, mattewolfinger, portfolio-site, contributing, millionaires, northeastern, journalist]
+    concepts: [strike, https]
     token_count: 157
 ---
 # Cross the Finish Line, Not the Picket Line - Newton Runs 5k to Support Striking Starbucks Baristas | DSA's Working Mass

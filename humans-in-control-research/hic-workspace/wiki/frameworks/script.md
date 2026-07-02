@@ -14,72 +14,90 @@ chunks:
     char_span: [0, 391]
     sentence_count: 3
     key_terms: [script, conversational, anti-patterns, authoritative, specification, deliverable, methodology, components]
+    concepts: [script, conversational]
     section: Purpose
     token_count: 64
   - id: "frameworks/script.md#c1"
     char_span: [417, 3004]
     sentence_count: 13
     key_terms: [conversation, design, business, language, system, user, persona, conversations]
+    concepts: [conversation, design, business, language, system]
+    related_chunks: ["frameworks/script.md#c2", "frameworks/script.md#c5"]
     section: Canonical Framework
     token_count: 505
   - id: "frameworks/script.md#c2"
     char_span: [3006, 3840]
     sentence_count: 7
     key_terms: [violation, maxim, system, conversation, information, responses, provide, acknowledging]
+    concepts: [violation, maxim, conversation, system, information]
+    related_chunks: ["frameworks/script.md#c1", "frameworks/script.md#c5", "frameworks/script.md#c9"]
     section: Canonical Framework
     token_count: 177
   - id: "frameworks/script.md#c3"
     char_span: [3880, 6035]
     sentence_count: 7
     key_terms: [intent, utterances, component, plans, suggested, greeting, training, actions]
+    concepts: [intent, utterances, component, plans, suggested]
     section: Required Components (12 Elements)
     token_count: 472
   - id: "frameworks/script.md#c4"
     char_span: [6037, 8248]
     sentence_count: 5
     key_terms: [confirmation, plan, slot, system, family, slots, explicit, required]
+    concepts: [confirmation, system, family, slots, explicit]
+    related_chunks: ["frameworks/script.md#c5"]
     section: Required Components (12 Elements)
     token_count: 509
   - id: "frameworks/script.md#c5"
     char_span: [8250, 10649]
     sentence_count: 10
     key_terms: [system, plan, escalation, context, confirmation, conversation, component, tier]
+    concepts: [system, escalation, confirmation, conversation, context]
+    related_chunks: ["frameworks/script.md#c1", "frameworks/script.md#c2", "frameworks/script.md#c4", "frameworks/script.md#c6", "frameworks/script.md#c9"]
     section: Required Components (12 Elements)
     token_count: 511
   - id: "frameworks/script.md#c6"
     char_span: [10651, 13047]
     sentence_count: 6
     key_terms: [transfer, escalation, component, closing, context, number, system, confirmation]
+    concepts: [transfer, escalation, component, closing, context]
+    related_chunks: ["frameworks/script.md#c5"]
     section: Required Components (12 Elements)
     token_count: 485
   - id: "frameworks/script.md#c7"
     char_span: [13049, 14275]
     sentence_count: 1
     key_terms: [question, persona, never, tone, completion, always, survey, level]
+    concepts: [question, persona, completion, never, always]
     section: Required Components (12 Elements)
     token_count: 275
   - id: "frameworks/script.md#c8"
     char_span: [14295, 16392]
     sentence_count: 8
     key_terms: [target, escalation, percentage, conversations, rate, definitions, threshold, resolved]
+    concepts: [target, escalation, percentage, conversations, definitions]
     section: Quality Gates
     token_count: 440
   - id: "frameworks/script.md#c9"
     char_span: [16412, 18447]
     sentence_count: 21
     key_terms: [information, confirmation, user, conversation, without, across, system, turn]
+    concepts: [information, confirmation, conversation, without, across]
+    related_chunks: ["frameworks/script.md#c2", "frameworks/script.md#c5"]
     section: Anti-Patterns
     token_count: 399
   - id: "frameworks/script.md#c10"
     char_span: [18477, 20463]
     sentence_count: 10
     key_terms: [conversational, define, escalation, dialogue, persona, error, flows, information]
+    concepts: [conversational, escalation, define, dialogue, persona]
     section: Generation Instructions
     token_count: 387
   - id: "frameworks/script.md#c11"
     char_span: [20486, 20869]
     sentence_count: 1
     key_terms: [frameworks, persona, script, brand, industry-specific, conversational, anti-patterns, communication]
+    concepts: [frameworks, persona, script, brand]
     section: Cross-References
     token_count: 72
 ---

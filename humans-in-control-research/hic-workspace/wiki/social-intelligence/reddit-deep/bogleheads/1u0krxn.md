@@ -20,23 +20,31 @@ chunks:
     char_span: [0, 892]
     sentence_count: 7
     key_terms: [accounts, bogleheads, inherited, comments, merrill, move, year, tortoisecandy3]
+    concepts: [accounts, bogleheads, inherited, comments, merrill]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1u0krxn.md#c3"]
     token_count: 207
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1u0krxn/where_to_move_inherited_investments/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1u0krxn.md#c1"
-    char_span: [907, 3040]
+    char_span: [906, 3039]
     sentence_count: 19
     key_terms: [fidelity, bogleheads, fidelityinvestments, https, www, good, org, wiki]
+    concepts: [fidelity, bogleheads, fidelityinvestments, https, employees]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/bogleheads/1u0krxn.md#c2"
-    char_span: [3042, 4581]
+    char_span: [3041, 4580]
     sentence_count: 17
     key_terms: [funds, fidelity, transfer, merrill, tortoisecandy3, "it's", like, brokerage]
+    concepts: [funds, fidelity, transfer, tortoisecandy3, merrill]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1u0krxn.md#c3"]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/bogleheads/1u0krxn.md#c3"
-    char_span: [4583, 6444]
+    char_span: [4582, 6443]
     sentence_count: 17
     key_terms: [tortoisecandy3, "it's", accounts, merrill, ongoldenwaves, thank, too, retirement]
+    concepts: [tortoisecandy3, accounts, ongoldenwaves, merrill, retirement]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1u0krxn.md#c0", "social-intelligence/reddit-deep/bogleheads/1u0krxn.md#c2"]
     section: Comments
     token_count: 478
 ---

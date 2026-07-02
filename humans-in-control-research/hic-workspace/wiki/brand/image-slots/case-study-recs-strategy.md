@@ -1,9 +1,36 @@
 ---
+id: brand/image-slots/case-study-recs-strategy.md
 title: Image Slots — case-study / recommendations / strategy
 type: brand
 updated: 2026-06-17
+chunks:
+  - id: "brand/image-slots/case-study-recs-strategy.md#c0"
+    char_span: [0, 1709]
+    sentence_count: 3
+    key_terms: [strategy, thumbnail, light, recommendations, answer, slots, nxt, components]
+    concepts: [strategy, thumbnail, light, recommendations, answer]
+    token_count: 472
+  - id: "brand/image-slots/case-study-recs-strategy.md#c1"
+    char_span: [1730, 2606]
+    sentence_count: 8
+    key_terms: [column, takeaway, dashed-cyan, band, stripped, verified, implementation-sequence, placed]
+    concepts: [column, takeaway, dashed-cyan, stripped, verified]
+    section: Treatment notes
+    token_count: 232
+  - id: "brand/image-slots/case-study-recs-strategy.md#c2"
+    char_span: [2651, 4498]
+    sentence_count: 11
+    key_terms: [case-study, row, comparison, content-complete, takeaway, band, recommendations, collision-free]
+    concepts: [case-study, content-complete, comparison, takeaway, recommendations]
+    section: Deliberately left image-free (and why)
+    token_count: 512
+  - id: "brand/image-slots/case-study-recs-strategy.md#c3"
+    char_span: [4253, 4789]
+    sentence_count: 6
+    key_terms: [band, twin, content-complete, export-substrate, supporting-image, coherent-action, recommendations, collision-free]
+    section: Deliberately left image-free (and why)
+    token_count: 144
 ---
-
 # Image Slots — case-study (184:159), recommendations (66:2), strategy (148:159)
 
 Blank `img-slot` placeholders placed into NXT GOLD components for the `illustrator` agent to

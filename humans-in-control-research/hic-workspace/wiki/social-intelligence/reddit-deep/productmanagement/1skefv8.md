@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1428]
     sentence_count: 8
     key_terms: [productmanagement, data, getting, comments, feedback, justification-building, better, users]
+    concepts: [productmanagement, getting, comments, feedback, better]
     token_count: 341
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1skefv8/getting_prototypes_into_users_hands/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1skefv8.md#c1"
-    char_span: [1443, 2364]
+    char_span: [1442, 2363]
     sentence_count: 7
     key_terms: [simple, reach, store, title, users, mvp, poc, post]
+    concepts: [simple, reach, store, title, users]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/productmanagement/1skefv8.md#c2"
-    char_span: [2367, 4652]
+    char_span: [2366, 4651]
     sentence_count: 12
     key_terms: [research, feedback, problem, users, like, products, solution, because]
+    concepts: [research, feedback, problem, users, products]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/productmanagement/1skefv8.md#c3"
-    char_span: [4654, 6576]
+    char_span: [4653, 6575]
     sentence_count: 17
     key_terms: [customers, pilot, get, getting, product, georgeharter, new, business]
+    concepts: [customers, pilot, getting, product, georgeharter]
     section: Comments
     token_count: 427
 ---

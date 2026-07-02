@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 588]
     sentence_count: 5
     key_terms: [get, job, college, want, comments, because, school, good]
+    concepts: [college, comments, because, school]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ntw8nx.md#c2"]
     token_count: 147
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ntw8nx/should_i_get_first_job_during_first_year_of/"}]
   - id: "social-intelligence/reddit-deep/college/1ntw8nx.md#c1"
     char_span: [602, 2703]
     sentence_count: 12
     key_terms: [job, sure, get, semester, work, experience, recommend, students]
+    concepts: [semester, experience, recommend, students, classes]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ntw8nx.md#c2"
     char_span: [2420, 4456]
     sentence_count: 16
     key_terms: [work, plenty, club, time, year, college, working, others]
+    concepts: [plenty, college, working, others, school]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ntw8nx.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ntw8nx.md#c3"
     char_span: [4238, 4773]
     sentence_count: 5
     key_terms: [detectivenarrow, online, curatorofyourdreams, did, job, year, highschool, advantage]
+    concepts: [detectivenarrow, online]
     section: Comments
     token_count: 150
 ---

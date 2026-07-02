@@ -19,45 +19,56 @@ chunks:
     char_span: [0, 2009]
     sentence_count: 14
     key_terms: ["i'm", engineering, year, college, applyingtocollege, classes, school, taking]
+    concepts: [engineering, college, applyingtocollege, classes, school]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rncsyq/mit_is_my_dream_school_i_need_advice/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c1"
     char_span: [2011, 4129]
     sentence_count: 21
     key_terms: [branch, school, elementary, spark, resources, schoolers, "i'm", want]
+    concepts: [branch, school, elementary, resources, schoolers]
     token_count: 456
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c2"
     char_span: [4131, 4684]
     sentence_count: 4
     key_terms: ["i'm", because, like, "that's", main, extracurriculars, valedictorians, competitions]
+    concepts: [because, "that's"]
     token_count: 139
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c3"
     char_span: [4698, 6848]
     sentence_count: 15
     key_terms: [classes, molly-farag, better, hours, right, mit, time, work]
+    concepts: [molly-farag, classes, better, hours, right]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c4"
     char_span: [6616, 8621]
     sentence_count: 19
     key_terms: [classes, time, work, experience, hours, week, homework, students]
+    concepts: [classes, experience, hours, homework, students]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c3"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c5"
     char_span: [8623, 10597]
     sentence_count: 13
     key_terms: [essays, schools, aerospace, applyingtocollege, wiki, reddit, collegeessays, mitadmissions]
+    concepts: [essays, schools, applyingtocollege, aerospace, collegeessays]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c6"
     char_span: [10599, 11751]
     sentence_count: 9
     key_terms: [sat, awards, international, application, get, got, olympiad, automaticamoeba6897]
+    concepts: [international, awards, application, olympiad, later]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c7"
     char_span: [11753, 13089]
     sentence_count: 7
     key_terms: [score, take, year, knowledge, obviously, because, courses, school]
+    concepts: [score, knowledge, obviously, because, courses]
     section: Comments
     token_count: 304
 ---

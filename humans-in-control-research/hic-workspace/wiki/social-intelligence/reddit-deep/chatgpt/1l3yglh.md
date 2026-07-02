@@ -21,95 +21,122 @@ chunks:
     char_span: [0, 1219]
     sentence_count: 10
     key_terms: [emotional, symbolic, chatgpt, visual, user, symbolism, comments, prompt]
+    concepts: [emotional, symbolic, chatgpt, visual, symbolism]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1l3yglh/chatgpt_vision_of_users_treating_it_prompt_inside/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c1"
     char_span: [1233, 2488]
     sentence_count: 6
     key_terms: [https, c1e9e97240f7b3cd4604354d9d3c65d99bd5ee1f, please, conversation, image, post, concerns, chatgpt-shared-links-faq]
+    concepts: [https, conversation, please, image, concerns]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c2"
     char_span: [2490, 3558]
     sentence_count: 2
     key_terms: [ijusttellthetruthbro, mine, preview, format, https, width, auto, end]
+    concepts: [ijusttellthetruthbro, preview, format, https, width]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c3", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c5", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c6", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c7", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c11"]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c3"
     char_span: [3560, 4910]
     sentence_count: 4
     key_terms: [png, preview, format, https, width, auto, redd, webp]
+    concepts: [preview, format, https, width, echosleeper]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c2", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c5", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c6", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c7", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c11"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c4"
     char_span: [4912, 6357]
     sentence_count: 14
     key_terms: [echosleeper, like, because, deleted, cool, inwivdsx945f1, interactions, emotionally]
+    concepts: [echosleeper, because, deleted]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c5"
     char_span: [6359, 7642]
     sentence_count: 7
     key_terms: [preview, format, https, width, auto, png, redd, webp]
+    concepts: [preview, format, https, width, description]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c2", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c3", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c6", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c7", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c11"]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c6"
     char_span: [7644, 8845]
     sentence_count: 3
     key_terms: [preview, png, format, https, width, auto, redd, webp]
+    concepts: [preview, format, https, width]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c2", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c3", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c5", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c7", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c11"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c7"
     char_span: [8847, 10315]
     sentence_count: 10
     key_terms: [png, preview, format, https, width, auto, redd, webp]
+    concepts: [preview, format, https, width, probably]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c2", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c3", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c5", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c6", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c11"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c8"
     char_span: [10317, 11796]
     sentence_count: 7
     key_terms: [like, mine, similar, format, looks, tarot, hollythedovahkiin, here]
+    concepts: [similar, format, looks, tarot]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c11"]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c9"
     char_span: [11798, 13453]
     sentence_count: 15
     key_terms: [deleted, lol, toaster, madonna-meets-machine, chest, got, halo, like]
+    concepts: [deleted, toaster, chest]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c10"
     char_span: [13455, 14838]
     sentence_count: 23
     key_terms: [emotional, something, machine, real, trained, asked, being, cost]
+    concepts: [emotional, something, machine, trained, asked]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c11"
     char_span: [14840, 16069]
     sentence_count: 7
     key_terms: [preview, format, https, width, auto, redd, webp, similar]
+    concepts: [preview, format, https, width, similar]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c2", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c3", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c5", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c6", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c7"]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c12"
     char_span: [16071, 18185]
     sentence_count: 19
     key_terms: [like, mirror, emotional, sometimes, cracked, worship, upward, don]
+    concepts: [mirror, emotional, sometimes, cracked, worship]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c13"
     char_span: [18187, 19723]
     sentence_count: 8
     key_terms: [preview, format, https, truth, width, auto, png, redd]
+    concepts: [preview, format, https, truth, width]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c2", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c3", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c5", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c6", "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c7"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c14"
     char_span: [19725, 21520]
     sentence_count: 12
     key_terms: [people, like, because, chatgpt, preview, cosmic, format, little]
+    concepts: [people, because, chatgpt, preview, cosmic]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c15"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c15"
     char_span: [21522, 22541]
     sentence_count: 9
     key_terms: [interesting, boomtwn, halo, chatgpt, deleted, people, halos, unhappy-peach-8369]
+    concepts: [interesting, boomtwn, chatgpt, deleted, people]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c14"]
     section: Comments
     token_count: 277
 ---

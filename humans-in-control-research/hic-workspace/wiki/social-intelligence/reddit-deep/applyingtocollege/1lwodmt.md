@@ -21,52 +21,67 @@ chunks:
     char_span: [0, 2324]
     sentence_count: 17
     key_terms: [engineering, michigan, business, because, program, applyingtocollege, half, probably]
+    concepts: [engineering, michigan, business, because, program]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c4"]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1lwodmt/michigan_just_announced_ed_engineeringbusiness/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c1"
     char_span: [2326, 2847]
     sentence_count: 4
     key_terms: [specifically, admissions, interdisciplinary, mega-strategic, conversation, bellweather, interesting, business]
+    concepts: [specifically, admissions]
     token_count: 105
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c2"
     char_span: [2861, 4943]
     sentence_count: 13
     key_terms: [schools, applying, agricultural, people, sentenceicy8629, competitive, majors, state]
+    concepts: [schools, agricultural, applying, sentenceicy8629, people]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c3"
     char_span: [4945, 6853]
     sentence_count: 12
     key_terms: [ibe, program, different-regret1439, umich, purdue, major, engineering, coe]
+    concepts: [different-regret1439, program, umich, purdue, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c4"
     char_span: [6578, 7400]
     sentence_count: 8
     key_terms: [honors, program, apply, major, engineering, ibe, business, different-regret1439]
+    concepts: [honors, program, engineering, apply, major]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c3"]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c5"
     char_span: [7402, 8894]
     sentence_count: 11
     key_terms: [option, complaints, virginians, deadline, uvadeanj, virginia, schools, sharing]
+    concepts: [option, complaints, virginians, deadline, uvadeanj]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c6"
     char_span: [8896, 10408]
     sentence_count: 11
     key_terms: [michigan, guess, mega-strategic, doing, stem, ucs, decision, probably]
+    concepts: [michigan, guess, mega-strategic, doing, decision]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c7"
     char_span: [10410, 12407]
     sentence_count: 3
     key_terms: [schools, umich, get, different-regret1439, applicants, michigan, going, want]
+    concepts: [schools, umich, different-regret1439, applicants, michigan]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c8"
     char_span: [12114, 12608]
     sentence_count: 3
     key_terms: [schools, applicants, michigan, above, mcneiladmissions, non-michigan, otherwise, selective]
+    concepts: [schools, applicants, michigan, above]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c7"]
     section: Comments
     token_count: 115
 ---

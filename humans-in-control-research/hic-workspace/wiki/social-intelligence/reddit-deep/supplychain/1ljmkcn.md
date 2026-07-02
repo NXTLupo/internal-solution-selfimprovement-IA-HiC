@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1450]
     sentence_count: 13
     key_terms: [team, manufacturing, supplychain, visibility, materials, requested, something, transport]
+    concepts: [manufacturing, supplychain, visibility, materials, requested]
     token_count: 302
+    sources: [{"n":"reddit-deep: r/supplychain","u":"https://www.reddit.com/r/supplychain/comments/1ljmkcn/helped_a_manufacturing_team_fix_transport/"}]
   - id: "social-intelligence/reddit-deep/supplychain/1ljmkcn.md#c1"
-    char_span: [1465, 2392]
+    char_span: [1464, 2391]
     sentence_count: 12
     key_terms: [standalone, dispatch, updates, you2234, complete-button-8276, ended, didn, task]
+    concepts: [standalone, dispatch, updates, you2234, ended]
     section: Comments
     token_count: 217
 ---

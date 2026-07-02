@@ -20,43 +20,54 @@ chunks:
     char_span: [0, 1855]
     sentence_count: 16
     key_terms: [cold, because, tool, b2bmarketing, email, using, constantly, everything]
+    concepts: [because, b2bmarketing, constantly, email, everything]
     token_count: 422
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1scbsy1/my_full_tool_stack_for_cold_calling_and_cold/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1scbsy1.md#c1"
     char_span: [1857, 4131]
     sentence_count: 22
     key_terms: [smartlead, instantly, placement, inboxes, lemlist, sending, month, woodpecker]
+    concepts: [smartlead, instantly, placement, inboxes, lemlist]
     token_count: 488
   - id: "social-intelligence/reddit-deep/b2bmarketing/1scbsy1.md#c2"
     char_span: [4133, 6229]
     sentence_count: 26
     key_terms: [apollo, data, used, verification, rocketreach, accurate, zoominfo, millionverifier]
+    concepts: [apollo, verification, rocketreach, millionverifier, accurate]
     token_count: 457
   - id: "social-intelligence/reddit-deep/b2bmarketing/1scbsy1.md#c3"
     char_span: [6231, 8372]
     sentence_count: 27
     key_terms: [numbers, orum, parallel, calling, dialer, month, ive, use]
+    concepts: [numbers, parallel, calling, dialer, month]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1scbsy1.md#c4"]
     token_count: 472
   - id: "social-intelligence/reddit-deep/b2bmarketing/1scbsy1.md#c4"
     char_span: [8374, 10258]
     sentence_count: 23
     key_terms: [crm, spam, use, another, calling, numbers, fathom, option]
+    concepts: [another, calling, numbers, fathom, option]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1scbsy1.md#c3"]
     token_count: 380
   - id: "social-intelligence/reddit-deep/b2bmarketing/1scbsy1.md#c5"
-    char_span: [10273, 12357]
+    char_span: [10272, 12356]
     sentence_count: 16
     key_terms: [looking-for-marketing-discussion-811236647760298024, apollo, teams, questions, discord, through, lists, stack]
+    concepts: [apollo, teams, questions, discord, through]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/b2bmarketing/1scbsy1.md#c6"
-    char_span: [12359, 14731]
+    char_span: [12358, 14730]
     sentence_count: 20
     key_terms: [number, people, calling, simple, email, tools, campaign, outreach]
+    concepts: [number, people, calling, simple, email]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/b2bmarketing/1scbsy1.md#c7"
-    char_span: [14735, 15928]
+    char_span: [14734, 15927]
     sentence_count: 11
     key_terms: [stack, problem, part, calling, matters, quality, people, volume]
+    concepts: [stack, problem, calling, matters, quality]
     section: Comments
     token_count: 255
 ---

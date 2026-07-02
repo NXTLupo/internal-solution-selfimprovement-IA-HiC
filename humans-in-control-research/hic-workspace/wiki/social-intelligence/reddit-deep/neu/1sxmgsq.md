@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1497]
     sentence_count: 2
     key_terms: [northeastern, "i'm", considering, neu, expensive, comments, pre-law, around]
+    concepts: [northeastern, considering, expensive, comments, pre-law]
     token_count: 340
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sxmgsq/northeastern_worth_it/"}]
   - id: "social-intelligence/reddit-deep/neu/1sxmgsq.md#c1"
     char_span: [1511, 2637]
     sentence_count: 10
     key_terms: [experience, school, work, neu, law, take, internship, international-emu-74]
+    concepts: [experience, school, internship]
     section: Comments
     token_count: 265
 ---

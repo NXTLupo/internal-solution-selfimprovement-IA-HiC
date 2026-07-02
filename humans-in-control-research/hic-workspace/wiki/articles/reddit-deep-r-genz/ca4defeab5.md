@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1914]
     sentence_count: 14
     key_terms: [nobody, school, teach, genz, comments, contract, marriage, property]
+    concepts: [nobody, school, teach, comments, contract]
     token_count: 428
+    sources: [{"n":"Reddit Deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1rmnudk/why_does_nobody_teach_you_the_actual_legal_side/"}]
   - id: "articles/reddit-deep-r-genz/ca4defeab5.md#c1"
     char_span: [1916, 2675]
     sentence_count: 5
     key_terms: [school, too, teaching, alegbra, because, people, apartmentworried5692, yeah]
+    concepts: [school, teaching, alegbra, because, people]
     token_count: 192
 ---
 # Why does nobody teach you the actual legal side of marriage in school?

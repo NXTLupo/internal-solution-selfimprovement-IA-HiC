@@ -20,53 +20,63 @@ chunks:
     char_span: [0, 1680]
     sentence_count: 2
     key_terms: [people, customerexperience, comments, customer, instead, spreadsheets, tools, completely]
+    concepts: [customerexperience, people, comments, customer, instead]
     token_count: 334
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1u22uku/what_tools_actually_help_improve_customer/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1u22uku.md#c1"
-    char_span: [1695, 3891]
+    char_span: [1694, 3890]
     sentence_count: 18
     key_terms: [customer, customers, support, chriscutinha, tools, something, need, journey]
+    concepts: [customer, customers, chriscutinha, support, something]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/customerexperience/1u22uku.md#c2"
-    char_span: [3893, 5293]
+    char_span: [3892, 5292]
     sentence_count: 5
     key_terms: [tools, "it's", need, onboarding, customer, process, making, zeruch]
+    concepts: [onboarding, tools, customer, process, making]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/customerexperience/1u22uku.md#c3"
-    char_span: [5295, 7166]
+    char_span: [5294, 7165]
     sentence_count: 7
     key_terms: [something, product, "you're", need, onboarding, responses, feedback, possible]
+    concepts: [something, product, "you're", onboarding, responses]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/customerexperience/1u22uku.md#c4"
-    char_span: [7168, 9356]
+    char_span: [7167, 9355]
     sentence_count: 13
     key_terms: [like, "that's", theme, paste-your-tickets-into-an-llm, data, continuous, exactly, meaning]
+    concepts: ["that's", continuous, theme, exactly, meaning]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/customerexperience/1u22uku.md#c5"
-    char_span: [9358, 11547]
+    char_span: [9357, 11546]
     sentence_count: 13
     key_terms: [taxonomy, reviews, structure, "it's", feedback, exactly, themes, month]
+    concepts: [taxonomy, reviews, structure, feedback, exactly]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/customerexperience/1u22uku.md#c6"
-    char_span: [11549, 13854]
+    char_span: [11548, 13853]
     sentence_count: 16
     key_terms: [help, feedback, already, lagging, build, churn, real, enterprise]
+    concepts: [feedback, already, lagging, build, churn]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/customerexperience/1u22uku.md#c7"
-    char_span: [13856, 15792]
+    char_span: [13855, 15791]
     sentence_count: 5
     key_terms: [here, anything, analytics, customer, pitched, problem, of-your-conversations, almost]
+    concepts: [anything, analytics, customer, pitched, problem]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/customerexperience/1u22uku.md#c8"
-    char_span: [15796, 16415]
+    char_span: [15795, 16414]
     sentence_count: 1
     key_terms: [helpdesk, surveys, lot, turtzy-rafeeq38, spreadsheet, automating, in-product, management]
+    concepts: [helpdesk, surveys]
     section: Comments
     token_count: 136
 ---

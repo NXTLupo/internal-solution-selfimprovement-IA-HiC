@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 1219]
     sentence_count: 11
     key_terms: [nobody, comments, marriage, property, legally, school, longjumping-elk-2934, legal]
+    concepts: [nobody, comments, marriage, property, legally]
     token_count: 273
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1rmnudk/why_does_nobody_teach_you_the_actual_legal_side/"}]
   - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c1"
     char_span: [1233, 1992]
     sentence_count: 4
     key_terms: [discord, unique-assumption619, algebra-level, automatically, automoderator, explicitly, foundation, moderators]
+    concepts: [discord]
     section: Comments
     token_count: 187
   - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c2"
     char_span: [1994, 4006]
     sentence_count: 11
     key_terms: [school, people, learn, because, assume, elbigcheddar, lot, too]
+    concepts: [school, people, learn, because, elbigcheddar]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1rmnudk.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c3"
     char_span: [3773, 4161]
     sentence_count: 2
     key_terms: ["it's", yourself, because, schools, learn, teach, job, other-other-user]
+    concepts: [yourself, because, schools, learn, teach]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1rmnudk.md#c2"]
     section: Comments
     token_count: 102
   - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c4"
     char_span: [4163, 4410]
     sentence_count: 1
     key_terms: ["doesn't", school, taught, teach, huh, yeah, critical, problems]
+    concepts: ["doesn't", school, taught, teach]
     section: Comments
     token_count: 53
   - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c5"
     char_span: [4412, 6720]
     sentence_count: 15
     key_terms: [people, divorce, everything, community, marriage, property, through, "didn't"]
+    concepts: [people, divorce, everything, community, marriage]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c6"
     char_span: [6454, 6903]
     sentence_count: 3
     key_terms: [finances, people, additional-tax-5562, heard, non-wealthy, everything, understand, ambitions]
+    concepts: [finances, people, heard]
     section: Comments
     token_count: 109
 ---

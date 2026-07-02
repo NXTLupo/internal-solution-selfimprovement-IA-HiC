@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 1347]
     sentence_count: 11
     key_terms: [cscareerquestions, recently, school, been, high, comments, relative, classes]
+    concepts: [cscareerquestions, recently, school, comments, relative]
     token_count: 300
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tmtmu7/autistic_high_school_grad_relative_of_mine/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tmtmu7.md#c1"
     char_span: [1361, 3375]
     sentence_count: 15
     key_terms: [skills, something, good, software, asking, maybe, job, interested]
+    concepts: [skills, something, software, asking, interested]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tmtmu7.md#c2"
     char_span: [3378, 5663]
     sentence_count: 17
     key_terms: [people, technical, because, skills, professionals, candidates, autistic, function]
+    concepts: [people, technical, professionals, because, skills]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tmtmu7.md#c3"
     char_span: [5665, 7717]
     sentence_count: 15
     key_terms: [goldenshackles, "i'm", little, being, awkwardly, interest, spectrum, better]
+    concepts: [goldenshackles, little, being, awkwardly, interest]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tmtmu7.md#c4"
     char_span: [7719, 10032]
     sentence_count: 15
     key_terms: [interest, durable, parents, through, coding, too, nurturing, flywheel]
+    concepts: [interest, durable, parents, through, coding]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tmtmu7.md#c5"
     char_span: [10034, 12401]
     sentence_count: 19
     key_terms: [people, successful, autistic, software, connect, career, communication, independently]
+    concepts: [people, successful, autistic, software, communication]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tmtmu7.md#c6"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tmtmu7.md#c6"
     char_span: [12403, 13166]
     sentence_count: 9
     key_terms: [people, understand, autistic, places, accommodating, architecture, intuitively, programmers]
+    concepts: [people, understand, autistic, places]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tmtmu7.md#c5"]
     section: Comments
     token_count: 159
 ---

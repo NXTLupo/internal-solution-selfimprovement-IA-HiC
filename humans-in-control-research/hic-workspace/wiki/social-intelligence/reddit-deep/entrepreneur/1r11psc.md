@@ -20,39 +20,49 @@ chunks:
     char_span: [0, 1552]
     sentence_count: 18
     key_terms: [restaurant, entrepreneur, codes, something, comments, project, through, almost]
+    concepts: [restaurant, entrepreneur, codes, something, comments]
     token_count: 338
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1r11psc/side_project_born_from_a_rickroll_prank_is_making/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1r11psc.md#c1"
     char_span: [1554, 4016]
     sentence_count: 31
     key_terms: [codes, business, people, friends, review, cards, vcard, "i'm"]
+    concepts: [business, codes, people, friends, review]
     token_count: 496
   - id: "social-intelligence/reddit-deep/entrepreneur/1r11psc.md#c2"
     char_span: [4018, 4611]
     sentence_count: 7
     key_terms: [network, service, anyone, making, sell, appreciate, crossroads, especially]
+    concepts: [network, service, anyone, making]
     token_count: 124
   - id: "social-intelligence/reddit-deep/entrepreneur/1r11psc.md#c3"
-    char_span: [4626, 6736]
+    char_span: [4625, 6735]
     sentence_count: 15
     key_terms: [museum, entrepreneur, please, teslacoilzz, permanent, promotion, stickied, already]
+    concepts: [museum, entrepreneur, please, teslacoilzz, permanent]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/entrepreneur/1r11psc.md#c4"
-    char_span: [6741, 8578]
+    char_span: [6740, 8577]
     sentence_count: 23
     key_terms: [referral, code, send, customers, generator, business, hosting, privacy]
+    concepts: [referral, customers, generator, business, hosting]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1r11psc.md#c6"]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/entrepreneur/1r11psc.md#c5"
-    char_span: [8580, 10569]
+    char_span: [8579, 10568]
     sentence_count: 5
     key_terms: [want, probably, museums, sweatyengineer, interesting, tool, companies, honestly]
+    concepts: [probably, sweatyengineer, museums, interesting, companies]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/entrepreneur/1r11psc.md#c6"
-    char_span: [10571, 12224]
+    char_span: [10570, 12223]
     sentence_count: 8
     key_terms: [teslacoilzz, got, like, beginning, customers, generator, services, review]
+    concepts: [teslacoilzz, beginning, customers, generator, services]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1r11psc.md#c4"]
     section: Comments
     token_count: 377
 ---

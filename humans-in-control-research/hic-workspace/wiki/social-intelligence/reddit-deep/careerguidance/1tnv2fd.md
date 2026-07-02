@@ -21,27 +21,33 @@ chunks:
     char_span: [0, 2169]
     sentence_count: 21
     key_terms: ["you're", careerguidance, good, workplaces, decisions, genuinely, comments, earlier]
+    concepts: ["you're", careerguidance, workplaces, decisions, genuinely]
     token_count: 484
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tnv2fd/wish_i_knew_how_to_spot_toxic_workplace_signs/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tnv2fd.md#c1"
     char_span: [2171, 4129]
     sentence_count: 15
     key_terms: [something, situation, conversations, books, real, feedback, learning, dealing]
+    concepts: [something, situation, conversations, books, feedback]
     token_count: 396
   - id: "social-intelligence/reddit-deep/careerguidance/1tnv2fd.md#c2"
     char_span: [4131, 5220]
     sentence_count: 12
     key_terms: [career, good, genuinely, therapist, earlier, people, trying, "you've"]
+    concepts: [career, genuinely, therapist, earlier, people]
     token_count: 226
   - id: "social-intelligence/reddit-deep/careerguidance/1tnv2fd.md#c3"
     char_span: [5234, 7293]
     sentence_count: 17
     key_terms: [performance, people, job, get, "it's", life, work, negative]
+    concepts: [performance, people, negative, randomly, struggle]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/careerguidance/1tnv2fd.md#c4"
     char_span: [7295, 8497]
     sentence_count: 10
     key_terms: [toxic, scheduled, helpful, someone, "didn't", giving, books, thank]
+    concepts: [toxic, scheduled, helpful, someone, "didn't"]
     section: Comments
     token_count: 285
 ---

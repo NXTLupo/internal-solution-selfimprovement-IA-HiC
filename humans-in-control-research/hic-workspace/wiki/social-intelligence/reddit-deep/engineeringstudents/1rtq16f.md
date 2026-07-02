@@ -21,47 +21,61 @@ chunks:
     char_span: [0, 1443]
     sentence_count: 9
     key_terms: [engineering, like, because, engineeringstudents, calculus, degree, differential, "i'm"]
+    concepts: [engineering, engineeringstudents, because, calculus, differential]
     token_count: 317
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rtq16f/anyone_else_here_getting_a_second_bachelors/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c1"
     char_span: [1457, 3630]
     sentence_count: 19
     key_terms: [engineering, degree, experience, justareddituser202, back, design, manufacturing, cad]
+    concepts: [engineering, degree, justareddituser202, experience, manufacturing]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c2"
     char_span: [3317, 4590]
     sentence_count: 10
     key_terms: ["bachelor's", students, degree, restrictions, engineering, science, school, back]
+    concepts: ["bachelor's", students, restrictions, degree, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c1", "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c3", "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c5", "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c6"]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c3"
     char_span: [4592, 6248]
     sentence_count: 13
     key_terms: ["i'm", engineering, privatetopics54492, get, schools, "bachelor's", transcript, college]
+    concepts: [engineering, privatetopics54492, schools, "bachelor's", transcript]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c5", "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c6"]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c4"
     char_span: [6250, 7404]
     sentence_count: 8
     key_terms: [schools, internship, bachelors, electriccrabs, experience, getting, looking, degree]
+    concepts: [schools, internship, bachelors, electriccrabs, experience]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c5"
     char_span: [7406, 9579]
     sentence_count: 12
     key_terms: [engineering, masters, "bachelor's", back, bachelor, classes, degree, doing]
+    concepts: [engineering, "bachelor's", masters, bachelor, classes]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c3", "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c6"
     char_span: [9283, 10008]
     sentence_count: 4
     key_terms: ["bachelor's", engineering, get, year, capstone, masters, fluff, intro]
+    concepts: ["bachelor's", engineering, capstone, masters, fluff]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c3", "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c5"]
     section: Comments
     token_count: 157
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c7"
     char_span: [10010, 11145]
     sentence_count: 6
     key_terms: [algebra, disastrous-pin-1617, college, years, trig, experience, technician, professor]
+    concepts: [disastrous-pin-1617, algebra, college, experience, technician]
     section: Comments
     token_count: 267
 ---

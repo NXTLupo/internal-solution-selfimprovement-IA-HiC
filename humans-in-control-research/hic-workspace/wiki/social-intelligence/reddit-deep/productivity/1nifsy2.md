@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1028]
     sentence_count: 17
     key_terms: [productivity, time, comments, screen, system, point, day, like]
+    concepts: [productivity, comments, screen, system, point]
     token_count: 253
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1nifsy2/stop_polishing_your_system_do_the_work/"}]
   - id: "social-intelligence/reddit-deep/productivity/1nifsy2.md#c1"
     char_span: [1042, 3016]
     sentence_count: 16
     key_terms: [list, pick, remember, get, re-writing, deserving, important, another]
+    concepts: [remember, re-writing, deserving, important, another]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/productivity/1nifsy2.md#c2"
     char_span: [3018, 4284]
     sentence_count: 10
     key_terms: [need, work, everything, because, complex, process, create, needed]
+    concepts: [everything, because, complex, process, create]
     section: Comments
     token_count: 315
 ---

@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1372]
     sentence_count: 16
     key_terms: [meeting, comments, advice, here, gradschool, probably, program, trouble]
+    concepts: [meeting, comments, advice, gradschool, probably]
     token_count: 325
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1t1czx5/take_the_advice_in_here_with_a_grain_of_salt/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1t1czx5.md#c1"
     char_span: [1386, 3566]
     sentence_count: 20
     key_terms: [field, "don't", dress, work, whatever, wearing, "that's", professional]
+    concepts: [field, "don't", dress, whatever, wearing]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/gradschool/1t1czx5.md#c2"
     char_span: [3568, 5795]
     sentence_count: 17
     key_terms: [people, "i'm", program, school, don, like, time, "true"]
+    concepts: [people, program, school, experience, policies]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1t1czx5.md#c3"
     char_span: [5515, 5970]
     sentence_count: 5
     key_terms: [people, life, intentionally, communicate, deferential, gatekeepers, mods-begone, discourage]
+    concepts: [people]
     section: Comments
     token_count: 102
   - id: "social-intelligence/reddit-deep/gradschool/1t1czx5.md#c4"
     char_span: [5972, 7012]
     sentence_count: 6
     key_terms: [maybe, here, decides, done, grad, yeah, consequences, expectations]
+    concepts: [maybe, decides]
     section: Comments
     token_count: 236
 ---

@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1629]
     sentence_count: 20
     key_terms: [committee, list, gradadmissions, accept, applications, saw, evaluated, something]
+    concepts: [committee, gradadmissions, applications, accept, evaluated]
     token_count: 371
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qeyeei/my_committee_finished_making_the_accept_list/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qeyeei.md#c1"
     char_span: [1643, 3706]
     sentence_count: 17
     key_terms: [applicants, international, applications, no-force7947, sad, admissions, department, particular]
+    concepts: [applicants, international, applications, no-force7947, admissions]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/gradadmissions/1qeyeei.md#c2"
     char_span: [3708, 5760]
     sentence_count: 16
     key_terms: [year, thanks, "can't", thank, post, send, too, applicants]
+    concepts: [thanks, applicants, "can't", definitely, thank]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/gradadmissions/1qeyeei.md#c3"
     char_span: [5762, 6929]
     sentence_count: 12
     key_terms: [admit, helps, thank, waves, content-hotel9252, dept, does, pick]
+    concepts: [admit, helps, thank, waves]
     section: Comments
     token_count: 280
   - id: "social-intelligence/reddit-deep/gradadmissions/1qeyeei.md#c4"
     char_span: [6931, 8648]
     sentence_count: 27
     key_terms: [product, common, like, part, committee, something, threads, member]
+    concepts: [product, common, committee, something, threads]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/gradadmissions/1qeyeei.md#c5"
     char_span: [8650, 10696]
     sentence_count: 21
     key_terms: [thank, like, response, helpful, application, been, professor, respond]
+    concepts: [thank, response, helpful, application, professor]
     section: Comments
     token_count: 468
 ---

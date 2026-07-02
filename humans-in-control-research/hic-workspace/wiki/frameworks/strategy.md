@@ -14,84 +14,106 @@ chunks:
     char_span: [0, 931]
     sentence_count: 9
     key_terms: [strategy, specification, win, diagnosis, coherent, provides, "rumelt's", playing]
+    concepts: [strategy, specification, diagnosis, coherent, provides]
     section: Canonical Framework
     token_count: 183
   - id: "frameworks/strategy.md#c1"
     char_span: [958, 3567]
     sentence_count: 11
     key_terms: [diagnosis, policy, challenge, guiding, example, problem, customer, channel]
+    concepts: [diagnosis, policy, challenge, guiding, example]
+    related_chunks: ["frameworks/strategy.md#c2"]
     section: "Rumelt's Kernel Test"
     token_count: 479
   - id: "frameworks/strategy.md#c2"
     char_span: [3569, 4180]
     sentence_count: 4
     key_terms: [actions, coherent, guiding, action, policy, commitments, coordinated, reinforcing]
+    concepts: [actions, coherent, guiding, action, policy]
+    related_chunks: ["frameworks/strategy.md#c1"]
     section: "Rumelt's Kernel Test"
     token_count: 120
   - id: "frameworks/strategy.md#c3"
     char_span: [4226, 6682]
     sentence_count: 24
     key_terms: [strategy, without, challenge, document, actions, detection, strategic, sentence]
+    concepts: [strategy, without, challenge, document, actions]
+    related_chunks: ["frameworks/strategy.md#c10", "frameworks/strategy.md#c11", "frameworks/strategy.md#c12"]
     section: "Rumelt's Four Hallmarks of BAD Strategy"
     token_count: 478
   - id: "frameworks/strategy.md#c4"
     char_span: [6684, 7430]
     sentence_count: 9
     key_terms: [objectives, challenge, address, diagnosed, resources, strategy, simultaneously, contradictory]
+    concepts: [objectives, challenge, address, diagnosed, resources]
     section: "Rumelt's Four Hallmarks of BAD Strategy"
     token_count: 128
   - id: "frameworks/strategy.md#c5"
     char_span: [7459, 10084]
     sentence_count: 12
     key_terms: [organization, section, customer, strategic, state, assessment, current, mission]
+    concepts: [organization, section, customer, strategic, state]
+    related_chunks: ["frameworks/strategy.md#c6"]
     section: Required Sections (15)
     token_count: 503
   - id: "frameworks/strategy.md#c6"
     char_span: [10086, 12182]
     sentence_count: 6
     key_terms: [strategic, initiatives, pillar, pillars, section, initiative, outcome-oriented, outcome]
+    concepts: [strategic, initiatives, pillar, pillars, section]
+    related_chunks: ["frameworks/strategy.md#c5"]
     section: Required Sections (15)
     token_count: 461
   - id: "frameworks/strategy.md#c7"
     char_span: [12184, 14678]
     sentence_count: 15
     key_terms: [investment, rate, months, cumulative, perception, phase, metrics, implementation]
+    concepts: [investment, cumulative, perception, months, phase]
     section: Required Sections (15)
     token_count: 501
   - id: "frameworks/strategy.md#c8"
     char_span: [14680, 17215]
     sentence_count: 8
     key_terms: [communication, changes, strategy, section, plan, resistance, change, risks]
+    concepts: [communication, changes, strategy, resistance, section]
     section: Required Sections (15)
     token_count: 514
   - id: "frameworks/strategy.md#c9"
     char_span: [17217, 18636]
     sentence_count: 8
     key_terms: [organization, technology, strategy, quick, wins, experience, customer, emerging]
+    concepts: [organization, technology, strategy, experience, quick]
     section: Required Sections (15)
     token_count: 277
   - id: "frameworks/strategy.md#c10"
     char_span: [18680, 20824]
     sentence_count: 16
     key_terms: [strategy, detection, fix, strategic, document, trade-offs, without, "organization's"]
+    concepts: [strategy, detection, strategic, document, trade-offs]
+    related_chunks: ["frameworks/strategy.md#c3", "frameworks/strategy.md#c12"]
     section: Anti-Patterns (Generation Must Avoid)
     token_count: 443
   - id: "frameworks/strategy.md#c11"
     char_span: [20844, 22273]
     sentence_count: 1
     key_terms: [strategy, review, test, validation, challenge, checklist, diagnosis, narrative]
+    concepts: [strategy, review, validation, challenge, checklist]
+    related_chunks: ["frameworks/strategy.md#c3"]
     section: Quality Gates
     token_count: 324
   - id: "frameworks/strategy.md#c12"
     char_span: [22303, 24778]
     sentence_count: 20
     key_terms: [strategy, without, strategic, cannot, kernel, experience, management, challenge]
+    concepts: [strategy, without, strategic, cannot, kernel]
+    related_chunks: ["frameworks/strategy.md#c3", "frameworks/strategy.md#c10"]
     section: Generation Instructions
     token_count: 509
   - id: "frameworks/strategy.md#c13"
     char_span: [24801, 25401]
     sentence_count: 1
     key_terms: [frameworks, framework, strategy, anti-patterns, architecture, benchmarks, roadmap, current-to-target]
+    concepts: [frameworks, framework, strategy, anti-patterns, architecture]
     section: Cross-References
     token_count: 120
 ---

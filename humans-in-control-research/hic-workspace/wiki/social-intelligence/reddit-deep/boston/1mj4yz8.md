@@ -20,36 +20,50 @@ chunks:
     char_span: [0, 1765]
     sentence_count: 2
     key_terms: [https, boston, com, www, events, comments, frank-hatch-free-first-thursday-8, event]
+    concepts: [https, boston, events, comments, event]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1mj4yz8.md#c1", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c2", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c3", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c4", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c5"]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/boston","u":"https://www.reddit.com/r/boston/comments/1mj4yz8/things_to_do_in_boston_this_weekend_august_7th/"}]
   - id: "social-intelligence/reddit-deep/boston/1mj4yz8.md#c1"
     char_span: [1767, 3404]
     sentence_count: 3
     key_terms: [https, yokbma-somergloom-3-day-festival-pass-7th-aug-deep-cuts-crystal-ballroom-at-somerville-theater-medford-tickets, tom-brady-statue-unveiling-ceremony-in-patriot-place-plaza-prior-to-washington-commanders-preseason-game, www, events, new-england-patriots-vs-washington-commanders, org, patriots]
+    concepts: [https, events, patriots, performance, commanders]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1mj4yz8.md#c0", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c2", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c3", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c4"]
     token_count: 495
   - id: "social-intelligence/reddit-deep/boston/1mj4yz8.md#c2"
     char_span: [3406, 5000]
     sentence_count: 2
     key_terms: [https, com, events, one-fall-tired-radio-cape-crush-blame-it-on-whitman-8th-aug-deep-cuts-medford-tickets, www, new-england-revolution-vs-dc-united, detail, we-own-the-day-bgcb-alumni-market]
+    concepts: [https, events, detail, event, alumni]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1mj4yz8.md#c0", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c1", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c3", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c4"]
     token_count: 489
   - id: "social-intelligence/reddit-deep/boston/1mj4yz8.md#c3"
     char_span: [5002, 6596]
     sentence_count: 1
     key_terms: [https, com, www, livenation, events, paradise-rock-club-presented-by-citizens-events, venue, citizens-house-of-blues-boston-events]
+    concepts: [https, livenation, events, venue, music]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1mj4yz8.md#c0", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c1", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c2", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c4"]
     token_count: 499
   - id: "social-intelligence/reddit-deep/boston/1mj4yz8.md#c4"
     char_span: [6598, 8486]
     sentence_count: 2
     key_terms: [https, an-evening-with-changes-in-latitudes-americas-premier-jimmy-buffett-tribute-show, l8exqx-paper-lady-skorts-the-croaks-9th-aug-deep-cuts-medford-tickets, www, patriots-training-camp-presented-by-mgb-08-10-25, festival, silents-please-padlocked-with-live-score, boston]
+    concepts: [https, festival, boston, events, departments]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1mj4yz8.md#c0", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c1", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c2", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c3", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c5"]
     token_count: 514
   - id: "social-intelligence/reddit-deep/boston/1mj4yz8.md#c5"
     char_span: [8488, 10248]
     sentence_count: 2
     key_terms: [https, com, weekend, www, avm6v2-aversed-alukah-ingrate-10th-aug-deep-cuts-medford-tickets, boston, laughboston, brighton-music-hall-presented-by-citizens-events]
+    concepts: [https, weekend, boston, laughboston, calendar]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1mj4yz8.md#c0", "social-intelligence/reddit-deep/boston/1mj4yz8.md#c4"]
     token_count: 502
   - id: "social-intelligence/reddit-deep/boston/1mj4yz8.md#c6"
-    char_span: [10263, 11261]
+    char_span: [10262, 11260]
     sentence_count: 4
     key_terms: [https, are-you-ready-for-the-olde-towne, com, saturday, walkingcitytrail, substack, viewform, somervilleartscouncil]
+    concepts: [are-you-ready-for-the-olde-towne, https, walkingcitytrail, saturday, substack]
     section: Comments
     token_count: 344
 ---

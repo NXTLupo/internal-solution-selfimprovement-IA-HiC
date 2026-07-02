@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 721]
     sentence_count: 5
     key_terms: [applyingtocollege, gpa, college, courses, comments, weighted, course, school]
+    concepts: [applyingtocollege, college, courses, comments, weighted]
     token_count: 199
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rlh6iz/does_a_weighted_gpa_of_5255_add_value_to_college/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rlh6iz.md#c1"
     char_span: [735, 1796]
     sentence_count: 5
     key_terms: [gpa, medium-ad-7305, classes, college, getting, schools, system, overambition3448]
+    concepts: [medium-ad-7305, classes, college, getting, schools]
     section: Comments
     token_count: 294
 ---

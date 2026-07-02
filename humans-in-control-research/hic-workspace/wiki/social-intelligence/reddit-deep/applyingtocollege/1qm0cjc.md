@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1750]
     sentence_count: 18
     key_terms: [extracurriculars, applyingtocollege, college, applications, along, math, currently, comments]
+    concepts: [extracurriculars, applyingtocollege, college, applications, along]
     token_count: 418
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1qm0cjc/am_i_cooked_for_college_applications/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qm0cjc.md#c1"
     char_span: [1764, 2337]
     sentence_count: 3
     key_terms: [essays, applyingtocollege, wiki, reddit, collegeessays, https, com, www]
+    concepts: [essays, applyingtocollege, collegeessays, reddit, https]
     section: Comments
     token_count: 150
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qm0cjc.md#c2"
     char_span: [2339, 4408]
     sentence_count: 17
     key_terms: [colleges, engineering, "it's", students, music, application, interesting, activities]
+    concepts: [colleges, engineering, students, application, interesting]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qm0cjc.md#c3"
     char_span: [4410, 6789]
     sentence_count: 20
     key_terms: [engineering, activity, commitment, stem, interest, "you're", application, requirement]
+    concepts: [engineering, activity, commitment, interest, "you're"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qm0cjc.md#c4"
     char_span: [6791, 9204]
     sentence_count: 22
     key_terms: [music, schools, different, interdisciplinary, want, programs, georgia, universities]
+    concepts: [music, schools, interdisciplinary, different, programs]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qm0cjc.md#c5"
     char_span: [9206, 9858]
     sentence_count: 6
     key_terms: [opportunities, support, school, consistently, experiences, personally, community, endeavors]
+    concepts: [opportunities, support, school]
     section: Comments
     token_count: 142
 ---

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1749]
     sentence_count: 7
     key_terms: [neu, students, co-op, employer, international, specifically, ece, automation]
+    concepts: [students, co-op, employer, international, specifically]
     token_count: 400
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1t9rbp8/how_strong_is_neu_coopemployer_access_for_ms/"}]
   - id: "social-intelligence/reddit-deep/neu/1t9rbp8.md#c1"
     char_span: [1763, 2085]
     sentence_count: 5
     key_terms: [mostly, seems, area, pharmaceutical, purpleskies789, industries, undergrads, proximity]
+    concepts: [mostly, seems]
     section: Comments
     token_count: 80
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 268]
     sentence_count: 1
     key_terms: [anthropic, comments, coreyblake9000, reddit-deep, context, claude, cowork, posted]
+    concepts: [anthropic, comments]
     token_count: 84
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1rx99dh/claude_cowork_just_got_the_1m_context_window/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1rx99dh.md#c1"
     char_span: [282, 2111]
     sentence_count: 13
     key_terms: [context, claude, window, cowork, like, compacting, previous, suddenly]
+    concepts: [context, claude, window, cowork, compacting]
     section: Comments
     token_count: 414
 ---

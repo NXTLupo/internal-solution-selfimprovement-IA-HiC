@@ -21,71 +21,92 @@ chunks:
     char_span: [0, 1374]
     sentence_count: 13
     key_terms: [technical, personality, cscareerquestions, skills, comments, thoughts, because, being]
+    concepts: [technical, personality, cscareerquestions, skills, comments]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c11"]
     token_count: 299
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1nigqsw/technical_skill_can_be_easily_taught_personality/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c1"
     char_span: [1388, 3596]
     sentence_count: 17
     key_terms: [personality, attitude, "it's", company, skills, experience, leadership, coachable]
+    concepts: [personality, attitude, company, experience, skills]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c5"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c2"
     char_span: [3598, 5148]
     sentence_count: 10
     key_terms: [personality, employees, company, people, want, leadership, thetarquin, qualities]
+    concepts: [personality, employees, company, people, leadership]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c7", "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c9"]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c3"
     char_span: [5150, 7093]
     sentence_count: 15
     key_terms: ["it's", learning, someone, people, skills, coach, hard, like]
+    concepts: [learning, someone, people, skills, coach]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c4"
     char_span: [7095, 9228]
     sentence_count: 10
     key_terms: [being, someone, down, work, engineers, everyone, overseas, company]
+    concepts: [being, someone, engineers, everyone, overseas]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c5"
     char_span: [9230, 11061]
     sentence_count: 9
     key_terms: [skills, personality, technical, skill, communication, "don't", communicate, anyone]
+    concepts: [skills, personality, technical, skill, communication]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c11"]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c6"
     char_span: [11063, 13135]
     sentence_count: 5
     key_terms: [autism, advice-and-guidance, draining, suppress, topics, traits, expectations, personality]
+    concepts: [advice-and-guidance, autism, draining, suppress, expectations]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c7"
     char_span: [13137, 15342]
     sentence_count: 20
     key_terms: [personality, "it's", autistic, recommendation, normal, people, being, like]
+    concepts: [personality, autistic, recommendation, normal, people]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c9"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c8"
     char_span: [15344, 17127]
     sentence_count: 10
     key_terms: [emotional, people, therapy, being, "don't", elon, behavioral, cognitive]
+    concepts: [emotional, people, therapy, behavioral, being]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c9"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c9"
     char_span: [17129, 19279]
     sentence_count: 12
     key_terms: [people, being, coworkers, work, "you're", personality, "it's", mean]
+    concepts: [people, coworkers, being, "you're", personality]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c7", "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c8"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c10"
     char_span: [19281, 20344]
     sentence_count: 9
     key_terms: [adhd, people, struggles, barrier, autism, plenty, social, like]
+    concepts: [people, struggles, barrier, autism, plenty]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c11"
     char_span: [20346, 21843]
     sentence_count: 18
     key_terms: [technical, like, skills, teach, netflix, autism, people, social]
+    concepts: [technical, skills, teach, netflix, autism]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c5"]
     section: Comments
     token_count: 320
 ---

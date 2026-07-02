@@ -19,47 +19,59 @@ chunks:
     char_span: [0, 1190]
     sentence_count: 12
     key_terms: [careerguidance, comments, doubling, career, salary, worth, years, away]
+    concepts: [careerguidance, comments, doubling, career, salary]
     token_count: 316
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qx2e1i/doubling_my_salary_150k_to_300k_but_requires_me/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c1"
     char_span: [1204, 2409]
     sentence_count: 9
     key_terms: [years, school, med, neglected, together, careers, anyway, either]
+    concepts: [years, school, neglected, together, careers]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c2"]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c2"
     char_span: [2411, 4451]
     sentence_count: 12
     key_terms: [years, school, like, time, work, long-distance, crazy, hours]
+    concepts: [years, school, long-distance, crazy, hours]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c1", "social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c3"
     char_span: [4176, 4466]
     sentence_count: 1
     key_terms: [probably, anyway, crazy, hours, perspective, resentful, grinding, honestly]
+    concepts: [probably, anyway, crazy, hours]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c2"]
     section: Comments
     token_count: 67
   - id: "social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c4"
     char_span: [4471, 6236]
     sentence_count: 13
     key_terms: [relationship, school, want, retirement, different, telling, either, people]
+    concepts: [relationship, school, retirement, different, telling]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c5"
     char_span: [6238, 7041]
     sentence_count: 5
     key_terms: [early, sub, no-garlic-4713, okcomputer1996, rockerlitter, tunesoft7119, hawthorne3d, tankorsmash]
+    concepts: [early]
     section: Comments
     token_count: 250
   - id: "social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c6"
     char_span: [7043, 8663]
     sentence_count: 15
     key_terms: [fiance, weekend, fezcabdriver, pay, spot, motorcycle, residency, because]
+    concepts: [fiance, weekend, fezcabdriver, motorcycle, residency]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c7"
     char_span: [8665, 9398]
     sentence_count: 9
     key_terms: [residency, personal-cucumber-63, "true", overestimating, chocomcchunky, selectcattle, specialties, helicopter]
+    concepts: [residency]
     section: Comments
     token_count: 191
 ---

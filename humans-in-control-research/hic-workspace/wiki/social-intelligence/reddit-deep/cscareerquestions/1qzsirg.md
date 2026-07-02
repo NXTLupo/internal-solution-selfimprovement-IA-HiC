@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1258]
     sentence_count: 11
     key_terms: [interviews, experience, prior, cscareerquestions, mscs, completed, undergrad, comments]
+    concepts: [interviews, experience, cscareerquestions, prior, completed]
     token_count: 298
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qzsirg/how_hard_is_it_to_career_pivot_into_tech_straight/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qzsirg.md#c1"
     char_span: [1272, 3215]
     sentence_count: 23
     key_terms: [engineering, like, therealbigback91, couple, years, get, tech, interviews]
+    concepts: [engineering, therealbigback91, couple, interviews, years]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qzsirg.md#c2"
     char_span: [3217, 3967]
     sentence_count: 7
     key_terms: [internship, offer, full, get, time, risingsun1964, connections, experience]
+    concepts: [internship, offer]
     section: Comments
     token_count: 190
 ---

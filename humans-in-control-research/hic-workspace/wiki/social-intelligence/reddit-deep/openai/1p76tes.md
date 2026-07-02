@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1866]
     sentence_count: 9
     key_terms: [safety, script, high-context, model, safety-mismatch-in-large-context, reasoning, comments, delusion]
+    concepts: [safety, high-context, script, model, reasoning]
     token_count: 443
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1p76tes/safety_mismatch_in_large_context_windows_when/"}]
   - id: "social-intelligence/reddit-deep/openai/1p76tes.md#c1"
     char_span: [1880, 2152]
     sentence_count: 1

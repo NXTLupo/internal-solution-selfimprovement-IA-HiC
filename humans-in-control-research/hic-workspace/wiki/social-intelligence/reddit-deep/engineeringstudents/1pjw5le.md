@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 2066]
     sentence_count: 20
     key_terms: [don, classes, engineering, engineeringstudents, feels, feeling, overwhelmed, did]
+    concepts: [engineering, engineeringstudents, classes, feels, feeling]
     token_count: 455
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1pjw5le/overwhelmed_2nd_year_engineering_student_is_this/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pjw5le.md#c1"
     char_span: [2080, 2914]
     sentence_count: 12
     key_terms: ["it's", because, school, get, hard, like, take, time]
+    concepts: [because, school]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pjw5le.md#c2"
     char_span: [2916, 5108]
     sentence_count: 21
     key_terms: [get, engineering, being, crusherdestroyer90, time, everyone, stubborn, classes]
+    concepts: [engineering, crusherdestroyer90, being, everyone, stubborn]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pjw5le.md#c3"
     char_span: [4834, 7039]
     sentence_count: 18
     key_terms: [too, year, student, class, engineering, practice, friends, similar]
+    concepts: [student, engineering, class, practice, friends]
     section: Comments
     token_count: 507
 ---

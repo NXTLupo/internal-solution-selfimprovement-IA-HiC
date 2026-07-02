@@ -20,34 +20,47 @@ chunks:
     char_span: [0, 1534]
     sentence_count: 14
     key_terms: [companies, "nvidia's", etfs, comments, exposure, driving, million, orders]
+    concepts: [companies, "nvidia's", comments, exposure, driving]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1rxv9on.md#c5"]
     token_count: 377
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1rxv9on/most_china_tech_etfs_give_you_zero_exposure_to/"}]
   - id: "social-intelligence/reddit-deep/etfs/1rxv9on.md#c1"
     char_span: [1538, 2820]
     sentence_count: 10
     key_terms: [internet, infrastructure, manufacturing, china, tech, companies, hardware, holdings]
+    concepts: [internet, infrastructure, manufacturing, china, companies]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1rxv9on.md#c2", "social-intelligence/reddit-deep/etfs/1rxv9on.md#c5"]
     token_count: 269
   - id: "social-intelligence/reddit-deep/etfs/1rxv9on.md#c2"
-    char_span: [2835, 4250]
+    char_span: [2834, 4249]
     sentence_count: 11
     key_terms: [electronic-buyer-468, china, companies, outside, market, public, remind, stocks]
+    concepts: [electronic-buyer-468, china, companies, outside, market]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1rxv9on.md#c1", "social-intelligence/reddit-deep/etfs/1rxv9on.md#c5"]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/etfs/1rxv9on.md#c3"
-    char_span: [4252, 5008]
+    char_span: [4251, 5007]
     sentence_count: 1
     key_terms: [remindmebot, message, reddit, com, delete, https, www, compose]
+    concepts: [remindmebot, message, reddit, delete, https]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1rxv9on.md#c4"]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/etfs/1rxv9on.md#c4"
-    char_span: [5010, 6668]
+    char_span: [5009, 6667]
     sentence_count: 11
     key_terms: [remindmebot, message, reddit, https, com, kstr, www, compose]
+    concepts: [remindmebot, message, reddit, https, compose]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1rxv9on.md#c3"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/etfs/1rxv9on.md#c5"
-    char_span: [6670, 7453]
+    char_span: [6669, 7452]
     sentence_count: 4
     key_terms: [exposure, https, com, companies, ishares-msci-china-a-etf, semiconductor-related, norecommendation4163, china]
+    concepts: [exposure, https, companies, china]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1rxv9on.md#c0", "social-intelligence/reddit-deep/etfs/1rxv9on.md#c1", "social-intelligence/reddit-deep/etfs/1rxv9on.md#c2"]
     section: Comments
     token_count: 202
 ---

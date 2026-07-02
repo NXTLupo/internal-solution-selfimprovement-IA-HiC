@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1339]
     sentence_count: 8
     key_terms: [data, skills, science, careerguidance, career, interested, relatively, analysis]
+    concepts: [skills, careerguidance, science, career, interested]
     token_count: 295
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sslnkw/class_12_student_which_career_paths_are/"}]
 ---
 # Class 12 student - which career paths are relatively safe from AI and Interested in data science but unsure ?
 

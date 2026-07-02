@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "hic-artifact-air-2026-06-30",
   "title": "ArtifactAIR",
-  "description": "The canonical Artifact Intermediate Representation emitted for every HiC run/artifact before any render. WS-0 backbone. See plans/hic-definitive-vision-and-100-percent-plan-v2-2026-06-30.md and services/artifactAirService.ts (authoritative TS type).",
+  "description": "The canonical Artifact Intermediate Representation emitted for every HiC run/artifact before any render. WS-0 backbone. See plans/hic-definitive-vision-and-100-percent-plan-v2-2026-07-01.md and services/artifactAirService.ts (authoritative TS type).",
   "type": "object",
   "required": ["airVersion", "runId", "artifactId", "artifactType", "trigger", "objective", "evidenceLedger", "renderPlan", "modelTrace"],
   "additionalProperties": true,

@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1027]
     sentence_count: 10
     key_terms: [debt, povertyfinance, hard, comments, matter, feels, too, try]
+    concepts: [povertyfinance, comments, matter, feels]
     token_count: 251
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1lsasgc/drowning_in_debt_no_matter_how_hard_i_try/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1lsasgc.md#c1"
     char_span: [1041, 2665]
     sentence_count: 16
     key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
+    concepts: [submitter, appropriate, advice, vents, emotional]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/povertyfinance/1lsasgc.md#c2"
     char_span: [2667, 4668]
     sentence_count: 12
     key_terms: [libra-love, something, like, pay, hardship, skf22424, hard, assistance]
+    concepts: [libra-love, something, hardship, skf22424, assistance]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1lsasgc.md#c3"
@@ -44,18 +48,21 @@ chunks:
     char_span: [4752, 6614]
     sentence_count: 18
     key_terms: [advice, money, get, people, vent, problems, realized, skf22424]
+    concepts: [advice, money, people, problems, realized]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/povertyfinance/1lsasgc.md#c5"
     char_span: [6616, 7982]
     sentence_count: 14
     key_terms: [debt, don, paying, because, savings, started, group, hours]
+    concepts: [paying, because, savings, started, group]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/povertyfinance/1lsasgc.md#c6"
     char_span: [7984, 9897]
     sentence_count: 23
     key_terms: [jazzlikeskill5225, luck, budget, money, auto, bill, good, paid]
+    concepts: [jazzlikeskill5225, budget, bankruptcy, money, mortgage]
     section: Comments
     token_count: 479
 ---

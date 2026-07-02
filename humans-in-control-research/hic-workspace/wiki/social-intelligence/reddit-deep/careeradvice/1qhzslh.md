@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1781]
     sentence_count: 11
     key_terms: [something, career, careeradvice, work, technical, comments, already, because]
+    concepts: [something, careeradvice, career, technical, comments]
     token_count: 400
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1qhzslh/i_didnt_plan_a_career_shift_into_ai_it_kind_of/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1qhzslh.md#c1"
     char_span: [1795, 2197]
     sentence_count: 3
     key_terms: [linkedin, people, reddit, perspectives, workshopping, absolutely, community, different]
+    concepts: [linkedin, people, reddit]
     section: Comments
     token_count: 92
 ---

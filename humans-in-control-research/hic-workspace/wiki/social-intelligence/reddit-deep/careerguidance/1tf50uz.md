@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1230]
     sentence_count: 8
     key_terms: [possible, careerguidance, "i'm", job, comments, nursing, aware, money]
+    concepts: [possible, careerguidance, comments, nursing, aware]
     token_count: 273
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tf50uz/career_suggestions_if_only_pay_and_job_market_are/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tf50uz.md#c1"
     char_span: [1244, 3271]
     sentence_count: 18
     key_terms: [nursing, pay, twinb-theniceone, rushing, people, nurse, right, years]
+    concepts: [nursing, twinb-theniceone, rushing, people, anesthesia]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tf50uz.md#c2"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1tf50uz.md#c2"
     char_span: [3273, 5630]
     sentence_count: 15
     key_terms: [nursing, software, people, because, market, years, overnight, shortage]
+    concepts: [nursing, software, people, because, market]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tf50uz.md#c1"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/careerguidance/1tf50uz.md#c3"
     char_span: [5632, 7109]
     sentence_count: 4
     key_terms: [nursing, overtime, classes, regular, without, doctor, insane, nurses]
+    concepts: [nursing, overtime, classes, regular, without]
     section: Comments
     token_count: 348
 ---

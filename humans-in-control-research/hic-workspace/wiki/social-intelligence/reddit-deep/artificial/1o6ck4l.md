@@ -21,67 +21,80 @@ chunks:
     char_span: [0, 2172]
     sentence_count: 16
     key_terms: [creatures, creature, artificial, light, real, machine, afraid, turned]
+    concepts: [creatures, creature, artificial, light, machine]
     token_count: 497
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1o6ck4l/anthropic_cofounder_admits_he_is_now_deeply/"}]
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c1"
     char_span: [2174, 4587]
     sentence_count: 26
     key_terms: [technology, journalist, years, around, people, worked, world, datacenters]
+    concepts: [technology, journalist, years, around, people]
     token_count: 501
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c2"
     char_span: [4589, 6797]
     sentence_count: 21
     key_terms: [technology, something, hammer, system, grow, awareness, powerful, believe]
+    concepts: [technology, something, hammer, system, awareness]
     token_count: 474
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c3"
     char_span: [6799, 8558]
     sentence_count: 21
     key_terms: [get, systems, conditioning, appropriate, complicated, absolutely, technology, billions]
+    concepts: [systems, conditioning, appropriate, complicated, absolutely]
     token_count: 383
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c4"
     char_span: [8560, 10393]
     sentence_count: 15
     key_terms: [boat, systems, itself, finishing, training, barrel, course, reward]
+    concepts: [systems, itself, finishing, training, barrel]
     token_count: 393
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c5"
     char_span: [10407, 11631]
     sentence_count: 6
     key_terms: [ignorant, already, confident-touch-6547, hands, money, hey, nuke, ones]
+    concepts: [ignorant, already, hands, money]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c6"
     char_span: [11633, 13438]
     sentence_count: 14
     key_terms: [day, "it's", people, non-technical, ago, use, bizarromax, blockchain]
+    concepts: [non-technical, people, bizarromax, blockchain, technical]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c7"
     char_span: [13440, 14806]
     sentence_count: 9
     key_terms: [sentience, something, people, person, wrong, anthropomorphizing, been, png]
+    concepts: [sentience, something, people, person, wrong]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c8"
     char_span: [14808, 16306]
     sentence_count: 14
     key_terms: [code, technology, seriously, speed, jack, man, buttstuffingt0n, wolfeheartgames]
+    concepts: [technology, seriously, speed]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c9"
     char_span: [16309, 18330]
     sentence_count: 12
     key_terms: [people, mandoman61, "he's", marketing, advanced, strategy, concern, pretend]
+    concepts: [people, mandoman61, marketing, advanced, strategy]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c10"
     char_span: [18332, 19407]
     sentence_count: 5
     key_terms: [e7cd33cf342f680473753ed0d8938315fe48c05a, chat, discuss, ended, get, png, stop, infinitereign88]
+    concepts: [discuss, ended]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c11"
     char_span: [19409, 21028]
     sentence_count: 13
     key_terms: [illustriousworld823, maybe, people, best, want, awareness, guesses, systems]
+    concepts: [illustriousworld823, maybe, people, awareness, guesses]
     section: Comments
     token_count: 404
 ---

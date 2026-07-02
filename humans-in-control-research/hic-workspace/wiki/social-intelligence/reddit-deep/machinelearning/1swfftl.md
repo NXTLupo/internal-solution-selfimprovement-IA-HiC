@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2264]
     sentence_count: 13
     key_terms: [decoding, speculative, draft, methods, implementation, proposer, shreyansh26, speculative-decoding]
+    concepts: [decoding, speculative, draft, methods, implementation]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1swfftl/speculative_decoding_implementations_eagle3/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1swfftl.md#c1"
     char_span: [2278, 3170]
     sentence_count: 6
     key_terms: [implementation, been, like, east-muffin-6472, architectures, thedailyspank, wise-dust8070, interesting]
+    concepts: [implementation]
     section: Comments
     token_count: 202
 ---

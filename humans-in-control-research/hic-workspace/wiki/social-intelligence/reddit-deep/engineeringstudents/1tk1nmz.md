@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1070]
     sentence_count: 8
     key_terms: [hardware, engineeringstudents, computer, student, systems, acceleration, engineering, internships]
+    concepts: [hardware, engineeringstudents, computer, student, systems]
     token_count: 218
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tk1nmz/brazilian_computer_engineering_student_looking/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tk1nmz.md#c1"
     char_span: [1084, 2087]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    concepts: [engineeringstudents, please, reddit, https, automoderator]
     section: Comments
     token_count: 225
 ---

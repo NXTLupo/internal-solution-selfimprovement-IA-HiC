@@ -19,34 +19,44 @@ chunks:
     char_span: [0, 1490]
     sentence_count: 16
     key_terms: [college, loans, support, "don't", financial, semester, "that's", got]
+    concepts: [college, loans, support, financial, "don't"]
     token_count: 363
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1nn6k6l/in_college_without_much_financial_support_what/"}]
   - id: "social-intelligence/reddit-deep/college/1nn6k6l.md#c1"
     char_span: [1492, 2183]
     sentence_count: 9
     key_terms: [getting, "don't", get, "i'd", like, side, certificate, comfortable]
+    concepts: [getting, "don't"]
     token_count: 154
   - id: "social-intelligence/reddit-deep/college/1nn6k6l.md#c2"
     char_span: [2197, 4311]
     sentence_count: 19
     key_terms: [career, like, want, recommend, job, scholarships, goals, down]
+    concepts: [career, recommend, scholarships, goals, interested]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/college/1nn6k6l.md#c3"
     char_span: [4315, 6447]
     sentence_count: 14
     key_terms: [fresh-awareness9819, degrees, army, college, getting, redditpersonn1, scholarships, "don't"]
+    concepts: [fresh-awareness9819, degrees, redditpersonn1, college, getting]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nn6k6l.md#c4", "social-intelligence/reddit-deep/college/1nn6k6l.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1nn6k6l.md#c4"
     char_span: [6154, 7047]
     sentence_count: 5
     key_terms: [investment, college, redditpersonn1, unfortunately, referring, degrees, facts, too]
+    concepts: [investment, redditpersonn1, unfortunately, college, referring]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nn6k6l.md#c3"]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/college/1nn6k6l.md#c5"
     char_span: [7049, 9252]
     sentence_count: 17
     key_terms: [degree, psychology, occupational-projections-and-characteristics, college, degrees, scholarships, loans, start]
+    concepts: [psychology, degree, college, degrees, scholarships]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nn6k6l.md#c3"]
     section: Comments
     token_count: 480
 ---

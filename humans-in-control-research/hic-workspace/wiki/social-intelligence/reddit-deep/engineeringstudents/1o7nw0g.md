@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2189]
     sentence_count: 10
     key_terms: [product, testing, design, "i'm", development, engineering, engineeringstudents, position]
+    concepts: [product, testing, design, development, engineering]
     token_count: 430
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1o7nw0g/is_a_product_testing_engineering_internship_worth/"}]
 ---
 # Is a Product Testing Engineering internship worth it for someone looking more into design and development?
 

@@ -20,35 +20,45 @@ chunks:
     char_span: [0, 2353]
     sentence_count: 16
     key_terms: [new, social, realistic, feed, like, network, growth, launch]
+    concepts: [social, realistic, network, growth, launch]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1pdyd1e/is_it_still_realistic_to_launch_a_new_social/"}]
   - id: "social-intelligence/reddit-deep/startups/1pdyd1e.md#c1"
-    char_span: [2368, 4322]
+    char_span: [2367, 4321]
     sentence_count: 23
     key_terms: [experience, aleksandrmovchan, like, social, new, fundamentally, user-centric, algorithm]
+    concepts: [aleksandrmovchan, experience, social, fundamentally, user-centric]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1pdyd1e.md#c2"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/startups/1pdyd1e.md#c2"
-    char_span: [4324, 6541]
+    char_span: [4323, 6540]
     sentence_count: 11
     key_terms: [people, social, reputation, like, facebook, aleksandrmovchan, network, through]
+    concepts: [reputation, people, social, aleksandrmovchan, facebook]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1pdyd1e.md#c1", "social-intelligence/reddit-deep/startups/1pdyd1e.md#c3"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/startups/1pdyd1e.md#c3"
-    char_span: [6543, 8603]
+    char_span: [6542, 8602]
     sentence_count: 14
     key_terms: [aleksandrmovchan, people, work, users, value, communities, something, platform]
+    concepts: [aleksandrmovchan, people, users, communities, value]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1pdyd1e.md#c2", "social-intelligence/reddit-deep/startups/1pdyd1e.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/startups/1pdyd1e.md#c4"
-    char_span: [8340, 8685]
+    char_span: [8339, 8684]
     sentence_count: 2
     key_terms: [new, humbletalk1489, meaningfully, overwhelming, co-opting, introduce, something, building]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/startups/1pdyd1e.md#c5"
-    char_span: [8687, 9980]
+    char_span: [8686, 9979]
     sentence_count: 11
     key_terms: [network, enough, matter, people, unusual-ability-2208, value, don, new]
+    concepts: [network, enough, matter, people, value]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1pdyd1e.md#c3"]
     section: Comments
     token_count: 286
 ---

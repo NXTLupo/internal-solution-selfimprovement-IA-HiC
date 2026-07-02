@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1345]
     sentence_count: 10
     key_terms: [getting, program, years, less, gradschool, bachelors, reddit, cost]
+    concepts: [getting, program, gradschool, years, bachelors]
     token_count: 317
+    sources: [{"n":"Reddit Deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1sch2ov/is_grad_school_right_out_of_a_bachelors_worth_it/"}]
   - id: "articles/reddit-deep-r-gradschool/dc3cae04ff.md#c1"
     char_span: [1347, 3139]
     sentence_count: 14
     key_terms: [work, masters, years, field, need, time, graduated, programs]
+    concepts: [masters, years, field, graduated, programs]
     token_count: 412
   - id: "articles/reddit-deep-r-gradschool/dc3cae04ff.md#c2"
     char_span: [3141, 4007]
     sentence_count: 5
     key_terms: [working, get, experience, straight, masters, school, years, grad]
+    concepts: [working, experience, straight, masters, school]
     token_count: 216
 ---
 # Is grad school right out of a bachelors worth it?

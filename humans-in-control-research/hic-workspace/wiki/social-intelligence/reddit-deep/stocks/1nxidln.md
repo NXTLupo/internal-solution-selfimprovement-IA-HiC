@@ -21,76 +21,100 @@ chunks:
     char_span: [0, 1984]
     sentence_count: 17
     key_terms: [reddit, google, pricing, drop, free, chatgpt, content, access]
+    concepts: [reddit, google, pricing, chatgpt, content]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nxidln.md#c1", "social-intelligence/reddit-deep/stocks/1nxidln.md#c3", "social-intelligence/reddit-deep/stocks/1nxidln.md#c8"]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1nxidln/reddit_rddt_everyones_missing_what_actually/"}]
   - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c1"
     char_span: [1986, 4006]
     sentence_count: 22
     key_terms: [reddit, google, revenue, negotiations, competition, eliminated, catalysts, earnings]
+    concepts: [reddit, google, revenue, negotiations, competition]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nxidln.md#c0", "social-intelligence/reddit-deep/stocks/1nxidln.md#c3", "social-intelligence/reddit-deep/stocks/1nxidln.md#c6", "social-intelligence/reddit-deep/stocks/1nxidln.md#c8"]
     token_count: 469
   - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c2"
     char_span: [4020, 4664]
     sentence_count: 10
     key_terms: [potential, better, chunk, ratio, room, usd, use, notoriousjmo]
+    concepts: [potential, better, chunk, ratio]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c3"
     char_span: [4666, 6579]
     sentence_count: 16
     key_terms: [reddit, use, google, people, lot, real, instagram, daughter]
+    concepts: [reddit, google, people, instagram, daughter]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nxidln.md#c0", "social-intelligence/reddit-deep/stocks/1nxidln.md#c1", "social-intelligence/reddit-deep/stocks/1nxidln.md#c8", "social-intelligence/reddit-deep/stocks/1nxidln.md#c10"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c4"
     char_span: [6320, 8106]
     sentence_count: 11
     key_terms: [reddit, get, republicans, commenting, answers, scholar, through, answer]
+    concepts: [reddit, republicans, commenting, answers, scholar]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c5"
     char_span: [8108, 9781]
     sentence_count: 8
     key_terms: [reddit, dip, exactly, shares, ok-seaworthiness3874, outlandishnessdry365, super, bots]
+    concepts: [reddit, exactly, shares, super]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nxidln.md#c12"]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c6"
     char_span: [9783, 11729]
     sentence_count: 11
     key_terms: [revenue, reddit, like, iiiiiiiiiateeyes, future, don, year, dependent]
+    concepts: [revenue, reddit, iiiiiiiiiateeyes, future, dependent]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nxidln.md#c1"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c7"
     char_span: [11731, 13476]
     sentence_count: 12
     key_terms: [search, deal, reddit, licensing, glitteringflounder46, real-time, scraping, openai]
+    concepts: [search, licensing, reddit, glitteringflounder46, real-time]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nxidln.md#c8"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c8"
     char_span: [13478, 15668]
     sentence_count: 19
     key_terms: [reddit, data, google, openai, ads, been, like, licensing]
+    concepts: [reddit, google, openai, licensing, plausible]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nxidln.md#c0", "social-intelligence/reddit-deep/stocks/1nxidln.md#c1", "social-intelligence/reddit-deep/stocks/1nxidln.md#c3", "social-intelligence/reddit-deep/stocks/1nxidln.md#c7"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c9"
     char_span: [15670, 16924]
     sentence_count: 16
     key_terms: [people, info, twitter, maybe, quite, users, use, deleteaftermeat]
+    concepts: [people, twitter, maybe, quite, users]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nxidln.md#c10"]
     section: Comments
     token_count: 296
   - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c10"
     char_span: [16926, 18687]
     sentence_count: 17
     key_terms: [twitter, reddit, people, discussions, elon, here, "it's", news]
+    concepts: [twitter, reddit, people, discussions, anything]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nxidln.md#c3", "social-intelligence/reddit-deep/stocks/1nxidln.md#c9", "social-intelligence/reddit-deep/stocks/1nxidln.md#c12"]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c11"
     char_span: [18689, 20308]
     sentence_count: 16
     key_terms: [valuation, growth, forward, like, competitor, earnings, instead, future]
+    concepts: [valuation, growth, forward, competitor, earnings]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c12"
     char_span: [20310, 21450]
     sentence_count: 10
     key_terms: [meta, reddit, shares, overreaction, twitter, bought, outlandishnessdry365, like]
+    concepts: [overreaction, reddit, shares, twitter, bought]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nxidln.md#c5", "social-intelligence/reddit-deep/stocks/1nxidln.md#c10"]
     section: Comments
     token_count: 335
 ---

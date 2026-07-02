@@ -21,83 +21,98 @@ chunks:
     char_span: [0, 1127]
     sentence_count: 8
     key_terms: [like, time, emergency, comments, job, jobs, strong-leg-3487, immediately]
+    concepts: [emergency, comments]
     token_count: 256
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1mbf6iu/my_bosss_reaction_when_i_didnt_immediately_accept/"}]
   - id: "social-intelligence/reddit-deep/jobs/1mbf6iu.md#c1"
     char_span: [1141, 2667]
     sentence_count: 15
     key_terms: [something, illegal, boss, like, clock-out, mandatory, daughter, meeting]
+    concepts: [something, illegal, clock-out, mandatory, daughter]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/jobs/1mbf6iu.md#c2"
     char_span: [2669, 3850]
     sentence_count: 8
     key_terms: [time, need, money, rent, employees, part-time, meeting, someone]
+    concepts: [money, employees, part-time, meeting, someone]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/jobs/1mbf6iu.md#c3"
     char_span: [3852, 5455]
     sentence_count: 13
     key_terms: [saturday, shake, part-timers, air, "mcdonald's", understood, employees, paycheck]
+    concepts: [saturday, part-timers, "mcdonald's", shake, understood]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/jobs/1mbf6iu.md#c4"
     char_span: [5457, 7205]
     sentence_count: 12
     key_terms: [employee, time, company, meeting, illegal, worked, work, employees]
+    concepts: [employee, company, meeting, illegal, worked]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/jobs/1mbf6iu.md#c5"
     char_span: [7207, 8574]
     sentence_count: 14
     key_terms: [employers-steal-billions-from-workers-paychecks-each-year, lunch, get, required, meeting, work, stealing, bought]
+    concepts: [lunch, required, meeting, stealing, bought]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/jobs/1mbf6iu.md#c6"
     char_span: [8577, 10428]
     sentence_count: 16
     key_terms: [meeting, c-suite, clocked, people, clock, later, got, everyone]
+    concepts: [meeting, c-suite, clocked, people, clock]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/jobs/1mbf6iu.md#c7"
     char_span: [10430, 12282]
     sentence_count: 16
     key_terms: [boss, day, overtime, xsmp, department, management, because, starred]
+    concepts: [overtime, department, management, because, starred]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/jobs/1mbf6iu.md#c8"
     char_span: [12284, 13154]
     sentence_count: 8
     key_terms: [time, work, hours, plus, minutes, double, travel, salute-major-echidna]
+    concepts: [hours, minutes, double, travel]
     section: Comments
     token_count: 229
   - id: "social-intelligence/reddit-deep/jobs/1mbf6iu.md#c9"
     char_span: [13156, 14412]
     sentence_count: 9
     key_terms: [overtime, half, hourly, gonna, hours, money, moist-pickle-2736, don]
+    concepts: [overtime, hourly, gonna, hours, money]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/jobs/1mbf6iu.md#c10"
     char_span: [14414, 15701]
     sentence_count: 11
     key_terms: [work, overtime, extra, deduction, problem, survive, untaxed, people]
+    concepts: [overtime, extra, deduction, problem, survive]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/jobs/1mbf6iu.md#c11"
     char_span: [15703, 17674]
     sentence_count: 19
     key_terms: [work, live, supposed, chronically, retirement, paycheck, already, problem]
+    concepts: [supposed, chronically, retirement, paycheck, already]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/jobs/1mbf6iu.md#c12"
     char_span: [17677, 19504]
     sentence_count: 20
     key_terms: [manager, like, "don't", "i'll", "it's", work, project, support]
+    concepts: [manager, "don't", project, support, cannot]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/jobs/1mbf6iu.md#c13"
     char_span: [19506, 20329]
     sentence_count: 5
     key_terms: [phone, someone, please, later, store, palmspringsflorida, head, differently]
+    concepts: [phone, someone, please, later, store]
     section: Comments
     token_count: 219
 ---

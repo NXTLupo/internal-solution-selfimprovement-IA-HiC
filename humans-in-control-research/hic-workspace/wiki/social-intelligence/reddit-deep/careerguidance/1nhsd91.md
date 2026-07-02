@@ -21,47 +21,56 @@ chunks:
     char_span: [0, 1262]
     sentence_count: 14
     key_terms: [did, path, careerguidance, career, feel, comments, figure, early]
+    concepts: [careerguidance, career, comments, figure, early]
     token_count: 321
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1nhsd91/lost_in_my_early_20show_did_you_figure_out_your/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1nhsd91.md#c1"
     char_span: [1276, 2457]
     sentence_count: 11
     key_terms: [young, emotionalanalyst1855, "don't", ok-development4027, rubmynippleplease, kids, sure, descriptions]
+    concepts: [young, "don't"]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/careerguidance/1nhsd91.md#c2"
     char_span: [2459, 3869]
     sentence_count: 10
     key_terms: [career, want, because, passion, years, don, job, work]
+    concepts: [career, because, passion, years, drafting]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/careerguidance/1nhsd91.md#c3"
     char_span: [3871, 5313]
     sentence_count: 9
     key_terms: [college, nursing, career, life, completely, stability, submitted, "didn't"]
+    concepts: [college, nursing, career, completely, stability]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/careerguidance/1nhsd91.md#c4"
     char_span: [5315, 7143]
     sentence_count: 11
     key_terms: [job, personal, ended, life, "didn't", "i'm", jobs, like]
+    concepts: [personal, ended, "didn't", fulfilling, probably]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/careerguidance/1nhsd91.md#c5"
     char_span: [7145, 8022]
     sentence_count: 12
     key_terms: [position, field, different, company, pivot, role, responsibilities, wonderone4320]
+    concepts: [position, field, different, company, pivot]
     section: Comments
     token_count: 210
   - id: "social-intelligence/reddit-deep/careerguidance/1nhsd91.md#c6"
     char_span: [8024, 10137]
     sentence_count: 14
     key_terms: [job, figure, "don't", until, jobs, something, because, degrees]
+    concepts: [figure, "don't", until, something, because]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1nhsd91.md#c7"
     char_span: [10139, 11821]
     sentence_count: 9
     key_terms: [job, life, like, want, people, feel, "it's", quit]
+    concepts: [people, completely, something, dislike, through]
     section: Comments
     token_count: 408
 ---

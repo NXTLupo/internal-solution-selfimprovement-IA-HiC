@@ -21,46 +21,55 @@ chunks:
     char_span: [0, 1864]
     sentence_count: 18
     key_terms: [because, denied, school, graduate, application, been, department, gradschool]
+    concepts: [because, denied, school, graduate, application]
     token_count: 414
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1qjgfev/denied_from_grad_school_any_hope_ever/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1qjgfev.md#c1"
     char_span: [1866, 2380]
     sentence_count: 4
     key_terms: [years, experience, because, did, like, admissions, qualified, academic]
+    concepts: [experience, years, because]
     token_count: 121
   - id: "social-intelligence/reddit-deep/gradschool/1qjgfev.md#c2"
     char_span: [2394, 3926]
     sentence_count: 16
     key_terms: [certification, publications, plan, work, community, anything, graduate, relevant]
+    concepts: [certification, publications, community, anything, graduate]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/gradschool/1qjgfev.md#c3"
     char_span: [3928, 6141]
     sentence_count: 23
     key_terms: [program, accepted, applied, great, ehimherenow, challenges, community, completed]
+    concepts: [program, accepted, applied, ehimherenow, challenges]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1qjgfev.md#c4"
     char_span: [5849, 7180]
     sentence_count: 9
     key_terms: [got, time, challenges, academic, through, until, years, get]
+    concepts: [challenges, academic, through, until, years]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/gradschool/1qjgfev.md#c5"
     char_span: [7182, 9304]
     sentence_count: 16
     key_terms: [major, time, graduate, program, higher, engineering, gpa, struggled]
+    concepts: [major, graduate, program, higher, engineering]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/gradschool/1qjgfev.md#c6"
     char_span: [9306, 11597]
     sentence_count: 16
     key_terms: [programs, school, get, knowledge, undergrad, got, grad, want]
+    concepts: [programs, school, knowledge, undergrad, applied]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1qjgfev.md#c7"
     char_span: [11599, 13831]
     sentence_count: 13
     key_terms: [research, grad, school, got, publications, field, years, get]
+    concepts: [research, school, publications, field, years]
     section: Comments
     token_count: 492
 ---

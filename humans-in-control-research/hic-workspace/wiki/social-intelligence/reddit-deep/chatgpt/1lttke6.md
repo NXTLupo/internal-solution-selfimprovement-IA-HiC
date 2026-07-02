@@ -21,85 +21,104 @@ chunks:
     char_span: [0, 2164]
     sentence_count: 19
     key_terms: [marketing, prompts, strategy, thinking, chatgpt, prompt, big, comments]
+    concepts: [marketing, prompts, strategy, thinking, chatgpt]
     token_count: 497
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1lttke6/confession_im_a_senior_marketer_at_a_fortune_500/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c1"
     char_span: [2166, 4104]
     sentence_count: 14
     key_terms: [business, use, intermediate, assumptions, data, structured, audience, beginner]
+    concepts: [business, intermediate, assumptions, structured, audience]
     token_count: 432
   - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c2"
     char_span: [4106, 5873]
     sentence_count: 21
     key_terms: [favour, archetypes, awareness, psychographics, levels, market, brand, temperature]
+    concepts: [archetypes, favour, awareness, psychographics, levels]
     token_count: 451
   - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c3"
     char_span: [5875, 8030]
     sentence_count: 9
     key_terms: [using, emotional, emphasise, business, logic, identity, product, value]
+    concepts: [using, emotional, emphasise, business, logic]
     token_count: 506
   - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c4"
     char_span: [8032, 9163]
     sentence_count: 11
     key_terms: [competitors, axis, competitor, simplicity, variation, primary, product, format]
+    concepts: [competitors, competitor, simplicity, variation, primary]
     token_count: 314
   - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c5"
     char_span: [9177, 11164]
     sentence_count: 16
     key_terms: [prompt, data, post, accurate, chatgpt, please, conversation, image]
+    concepts: [prompt, accurate, chatgpt, conversation, please]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lttke6.md#c14"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c6"
     char_span: [11166, 13263]
     sentence_count: 11
     key_terms: [kbartman, data, prompt, get, particular, estimates, mentioned, research]
+    concepts: [kbartman, prompt, particular, estimates, mentioned]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lttke6.md#c14"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c7"
     char_span: [12965, 13736]
     sentence_count: 10
     key_terms: [thinking, partner, always, capital-raspberry860, trust, use, hallucination, proofreading]
+    concepts: [thinking, partner, always, trust]
     section: Comments
     token_count: 172
   - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c8"
     char_span: [13738, 15708]
     sentence_count: 18
     key_terms: [acanthopterygiicool5, solution, prospect, market, people, prompt, within, logic]
+    concepts: [acanthopterygiicool5, solution, prospect, market, people]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c9"
     char_span: [15710, 17127]
     sentence_count: 14
     key_terms: [correspondence, chatgpt, deleted, use, already, written, custom, armypuzzleheaded7532]
+    concepts: [correspondence, chatgpt, deleted, already, written]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c10"
     char_span: [17129, 19351]
     sentence_count: 11
     key_terms: [use, build, potential, identify, scraping, prompts, helps, ideas]
+    concepts: [build, potential, identify, scraping, prompts]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c11"
     char_span: [19353, 21174]
     sentence_count: 14
     key_terms: [data, jobs, use, persona, segment, closed, "that's", print]
+    concepts: [persona, segment, closed, "that's", print]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c12"
     char_span: [21176, 23017]
     sentence_count: 9
     key_terms: ["it's", change, prompt, going, write, did, get, jobs]
+    concepts: [change, prompt, going, write, research]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c13"
     char_span: [23019, 24615]
     sentence_count: 9
     key_terms: [https, b83a-4119-9e79-1850c94061d3, github, druce, com, data, mcp, prompts]
+    concepts: [b83a-4119-9e79-1850c94061d3, https, github, druce, prompts]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c14"
     char_span: [24617, 26441]
     sentence_count: 10
     key_terms: [prompt, prompts, single, conversation, use, kbartman, multiple, possible]
+    concepts: [prompt, prompts, conversation, single, kbartman]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lttke6.md#c5", "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c6"]
     section: Comments
     token_count: 429
 ---

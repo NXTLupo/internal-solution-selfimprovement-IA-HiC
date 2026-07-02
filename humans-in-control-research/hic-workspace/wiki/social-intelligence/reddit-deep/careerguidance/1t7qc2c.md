@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1038]
     sentence_count: 6
     key_terms: [careerguidance, compensated, comments, been, feel, grow, job, love]
+    concepts: [careerguidance, compensated, comments]
     token_count: 246
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t7qc2c/at_what_point_do_you_leave_a_job_you_love_for/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t7qc2c.md#c1"
     char_span: [1052, 3131]
     sentence_count: 22
     key_terms: [management, "i'm", job, work, longer, senior, new, team]
+    concepts: [management, longer, senior, struggling, mangement]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/careerguidance/1t7qc2c.md#c2"
     char_span: [3133, 4675]
     sentence_count: 21
     key_terms: [work, incredibly, biscuitinflight, sales, base, paid, "wouldn't", amazing]
+    concepts: [incredibly, biscuitinflight, sales, "wouldn't", amazing]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/careerguidance/1t7qc2c.md#c3"
     char_span: [4677, 6833]
     sentence_count: 24
     key_terms: [pay, work, job, life, like, "you're", dirtycoldtaco, raise]
+    concepts: [dirtycoldtaco, "you're", raise, currently, "doesn't"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1t7qc2c.md#c4"
     char_span: [6543, 7435]
     sentence_count: 9
     key_terms: [job, staying, regret, years, good, pay, plus, chefboyarde90]
+    concepts: [staying, regret, years]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/careerguidance/1t7qc2c.md#c5"

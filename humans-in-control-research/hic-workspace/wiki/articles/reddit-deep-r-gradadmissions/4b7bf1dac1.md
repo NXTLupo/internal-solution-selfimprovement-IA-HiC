@@ -18,31 +18,40 @@ chunks:
     char_span: [0, 1884]
     sentence_count: 21
     key_terms: [university, everything, programs, gradadmissions, scholarships, feel, like, professors]
+    concepts: [university, everything, programs, gradadmissions, scholarships]
     token_count: 398
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1thx612/nothing_more_than_average/"}]
   - id: "articles/reddit-deep-r-gradadmissions/4b7bf1dac1.md#c1"
     char_span: [1886, 3622]
     sentence_count: 9
     key_terms: ["i'm", "don't", because, afford, school, scholarships, help, own]
+    concepts: ["don't", because, scholarships, afford, school]
     token_count: 376
   - id: "articles/reddit-deep-r-gradadmissions/4b7bf1dac1.md#c2"
     char_span: [3624, 5698]
     sentence_count: 29
     key_terms: ["i'm", students, like, program, better, trying, opportunities, phd]
+    concepts: [students, opportunities, program, better, trying]
+    related_chunks: ["articles/reddit-deep-r-gradadmissions/4b7bf1dac1.md#c3"]
     token_count: 462
   - id: "articles/reddit-deep-r-gradadmissions/4b7bf1dac1.md#c3"
     char_span: [5700, 6413]
     sentence_count: 5
     key_terms: [better, especially, resources, criteria, students, "didn't", school, independentstatus377]
+    concepts: [better, especially, resources, criteria, students]
+    related_chunks: ["articles/reddit-deep-r-gradadmissions/4b7bf1dac1.md#c2"]
     token_count: 152
   - id: "articles/reddit-deep-r-gradadmissions/4b7bf1dac1.md#c4"
     char_span: [6415, 8822]
     sentence_count: 23
     key_terms: [interview, interviews, applications, students, "didn't", "isn't", did, let]
+    concepts: [interview, interviews, applications, students, "didn't"]
     token_count: 512
   - id: "articles/reddit-deep-r-gradadmissions/4b7bf1dac1.md#c5"
     char_span: [8497, 10035]
     sentence_count: 15
     key_terms: [minute-cockroach440, jealous, hard, "it's", work, experience, applying, students]
+    concepts: [minute-cockroach440, jealous, experience, applying, students]
     token_count: 341
 ---
 # Nothing more than average.

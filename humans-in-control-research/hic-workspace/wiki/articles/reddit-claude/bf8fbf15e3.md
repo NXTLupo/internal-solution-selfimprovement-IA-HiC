@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 841]
     sentence_count: 10
     key_terms: [model, absolutely, problems, schedule, claude, reddit, month, today]
+    concepts: [model, absolutely, problems, schedule, claude]
     token_count: 216
+    sources: [{"n":"reddit: claude","u":"https://reddit.com/r/claude/comments/1sk36n3/there_is_absolutely_no_way_this_is_the_same_opus/"}]
 ---
 # There is absolutely no way this is the same Opus 4.6 from a month ago
 

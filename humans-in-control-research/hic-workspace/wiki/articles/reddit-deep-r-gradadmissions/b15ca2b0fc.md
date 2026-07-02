@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1079]
     sentence_count: 6
     key_terms: [apostacix, masters, gradadmissions, applying, comments, intern, marine, reddit]
+    concepts: [apostacix, gradadmissions, masters, applying, comments]
     token_count: 302
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1r65k2m/was_about_to_go_to_sleep_haha/"}]
 ---
 # Was about to go to sleep haha
 

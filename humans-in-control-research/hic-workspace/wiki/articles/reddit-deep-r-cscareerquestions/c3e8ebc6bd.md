@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1884]
     sentence_count: 12
     key_terms: [been, "i've", interviews, cscareerquestions, data, "i'm", job, find]
+    concepts: [interviews, cscareerquestions, struggling, full-time, awkward]
     token_count: 413
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1puwtmr/21m_cs_data_science_major_unable_to_find_fulltime/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/c3e8ebc6bd.md#c1"
     char_span: [1886, 3879]
     sentence_count: 18
     key_terms: ["i'm", "don't", "i've", people, clear, right, like, christmas]
+    concepts: ["don't", people, clear, right, christmas]
     token_count: 459
   - id: "articles/reddit-deep-r-cscareerquestions/c3e8ebc6bd.md#c2"
     char_span: [3881, 5888]
     sentence_count: 12
     key_terms: [leetcode, like, something, projects, coding, chili-lime-chihuahua, responsible-elk-1939, "don't"]
+    concepts: [leetcode, something, projects, coding, "don't"]
     token_count: 470
 ---
 # 21M, CS + Data Science major unable to find full-time job, even in the NYC metro area. Am I doomed?

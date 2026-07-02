@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 836]
     sentence_count: 3
     key_terms: [college-students-now-get-12-months-of-microsoft-365-premium-and-linkedin-premium-career-on-us, microsoft, internships, https, microsoft-365-linkedin-premium-free-students, www, comments, linkedin]
+    concepts: [microsoft, internships, https, comments, linkedin]
     token_count: 206
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1qelam2/resource_you_do_need_edu_email_microsoft/"}]
   - id: "social-intelligence/reddit-deep/internships/1qelam2.md#c1"
     char_span: [850, 2231]
     sentence_count: 8
     key_terms: [linkedin, premium, email, got, activated, days, spycommander13, invite]
+    concepts: [linkedin, premium, email, activated, spycommander13]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1qelam2.md#c2"]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/internships/1qelam2.md#c2"
     char_span: [2233, 4324]
     sentence_count: 11
     key_terms: [premium, linkedin, email, edu, account, subscription, championshipcute6440, personal]
+    concepts: [premium, linkedin, subscription, championshipcute6440, email]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1qelam2.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1qelam2.md#c3"
     char_span: [4071, 5740]
     sentence_count: 6
     key_terms: [deepfreezedisease, received, account, deleted, student, email, did, get]
+    concepts: [deepfreezedisease, received, account, deleted, student]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1qelam2.md#c4"
     char_span: [5551, 5872]
     sentence_count: 4
     key_terms: [student, figure, necessary-pipe-5971, issue, did, snoochipmunks534, mynameistimon, stolenapollo]
+    concepts: [student, figure, issue]
     section: Comments
     token_count: 99
 ---

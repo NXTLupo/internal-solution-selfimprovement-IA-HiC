@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1706]
     sentence_count: 15
     key_terms: [internships, comments, everyone, brandywinechemicalworks, company, career, reddit, brandywinechemworks]
+    concepts: [internships, comments, everyone, company, career]
     token_count: 383
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sh5eb6/internships_available_no_previous_experience/"}]
   - id: "social-intelligence/reddit-deep/internships/1sh5eb6.md#c1"
     char_span: [1720, 2335]
     sentence_count: 1
     key_terms: [interested, brandywinechemworks, objective-forever-65, accomplished-2021, teddyboiroosevelt, misteriosshadow, anonymousboch, weirdspecies9]
+    concepts: [interested, brandywinechemworks]
     section: Comments
     token_count: 221
 ---

@@ -18,16 +18,22 @@ chunks:
     char_span: [0, 2002]
     sentence_count: 16
     key_terms: [worth, stress, college, applyingtocollege, want, younger, health, get]
+    concepts: [worth, stress, college, applyingtocollege, younger]
+    related_chunks: ["articles/reddit-deep-r-applyingtocollege/e51a1bebcc.md#c2"]
     token_count: 478
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1tk8v94/to_younger_students_from_an_ivy_admit_the_stress/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/e51a1bebcc.md#c1"
     char_span: [2005, 4157]
     sentence_count: 14
     key_terms: [health, don, get, yourself, college, school, competitive, too]
+    concepts: [health, yourself, college, school, competitive]
     token_count: 480
   - id: "articles/reddit-deep-r-applyingtocollege/e51a1bebcc.md#c2"
     char_span: [4159, 5544]
     sentence_count: 16
     key_terms: [stress, health, "there's", people, worth, ivy, yourself, getting]
+    concepts: [stress, health, "there's", people, worth]
+    related_chunks: ["articles/reddit-deep-r-applyingtocollege/e51a1bebcc.md#c0"]
     token_count: 311
 ---
 # To younger students, from an ivy admit- the stress is not worth it

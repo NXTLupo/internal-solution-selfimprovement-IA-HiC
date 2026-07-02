@@ -21,36 +21,49 @@ chunks:
     char_span: [0, 1779]
     sentence_count: 9
     key_terms: [https, kitchener, apr, waterloo, grandriverbuzz, intro-to-printmaking-workshop-series, printmaking, art]
+    concepts: [https, kitchener, waterloo, grandriverbuzz, printmaking]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c2", "social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c3", "social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c4", "social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c5"]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1sh3xx5/local_events_this_weekend/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c1"
     char_span: [1781, 3059]
     sentence_count: 5
     key_terms: [musical-bingo-i-love-the-90s-vol-1-6, https, beautifully, bachata, mandala, lesson, dance, music]
+    concepts: [beautifully, https, bachata, mandala, lesson]
     token_count: 417
   - id: "social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c2"
     char_span: [3061, 4614]
     sentence_count: 7
     key_terms: [nick-bordman-live-at-the-lancaster-smokehouse-tickets-1985112022497, soup-dumpling-xiao-long-bao-making-class-tickets-1980435420655, https, waterloo, empowered-learners-bone-health-101-free, lmt-connection-thursday-soul-series, www, eventbrite]
+    concepts: [https, waterloo, eventbrite, dumplings, including]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c0", "social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c3", "social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c5"]
     token_count: 418
   - id: "social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c3"
     char_span: [4616, 6204]
     sentence_count: 3
     key_terms: [https, www, two-asians-one-mic-stand-up-comedy-tour-2026-tickets-1979642787869, chris-alcantara-clark-terry-bob-brookmeyer-tribute, eventbrite, sip-stretch-rose-reset-tickets-1984639650620, com, waterloo]
+    concepts: [https, eventbrite, waterloo, opera, kitchener]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c0", "social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c2", "social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c4", "social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c5"]
     token_count: 462
   - id: "social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c4"
     char_span: [6206, 7785]
     sentence_count: 6
     key_terms: [signs-of-spring-guided-nature-walk-at-huron-natura, foreign-journey-the-best-of-foreigner-and-journey, https, kitchener, nature, friday-night-dance-party-at-evo-2, maple, com]
+    concepts: [kitchener, https, nature, maple, festival]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c0", "social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c3"]
     token_count: 415
   - id: "social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c5"
     char_span: [7787, 9414]
     sentence_count: 5
     key_terms: [the-ponytail-academy-workshop-beers-braids-tickets-1983633804106, workshop, pruning-trees-and-shrubs-workshop-tickets-1983206840045, uptown, eventbrite, https, waterloo, claytime-tickets-1979743521165]
+    concepts: [workshop, eventbrite, uptown, https, waterloo]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c0", "social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c2", "social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c3"]
     token_count: 411
   - id: "social-intelligence/reddit-deep/waterloo/1sh3xx5.md#c6"
     char_span: [9416, 10205]
     sentence_count: 3
     key_terms: [iwy2xjawqqwjxlehrua2flbqixmabicmlketfjz1p3t0dnutq4zujjnhpyc3j0ywzhchbfawqqmjiymdm5mtc4odiwmdg5mgabhqz2q2vooy5lemei3i-, evo-kitchen-bar-presents-naughty-trivia-3, april11th-tri-cityspringdoubleheader, tri-city-roller-derby, roller, trivia, derby, https]
+    concepts: [roller, trivia, derby, https]
     token_count: 306
 ---
 # Local events this weekend!

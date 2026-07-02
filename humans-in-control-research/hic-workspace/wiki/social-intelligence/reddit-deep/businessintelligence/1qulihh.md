@@ -20,39 +20,46 @@ chunks:
     char_span: [0, 2295]
     sentence_count: 25
     key_terms: [want, clients, dashboard, building, businessintelligence, dashboards, "i'm", numbers]
+    concepts: [clients, dashboard, building, businessintelligence, dashboards]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1qulihh/anyone_else_seeing_fewer_dashboard_requests_this/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1qulihh.md#c1"
-    char_span: [2297, 4055]
+    char_span: [2297, 4054]
     sentence_count: 11
     key_terms: [data, dashboard, question, tableau, little, others, people, report]
+    concepts: [dashboard, question, tableau, little, others]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/businessintelligence/1qulihh.md#c2"
-    char_span: [4057, 5872]
+    char_span: [4056, 5871]
     sentence_count: 23
     key_terms: [business, dashboard, get, reporting, walia664, running, sdhilip, actual]
+    concepts: [business, dashboard, reporting, walia664, running]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/businessintelligence/1qulihh.md#c3"
-    char_span: [5874, 6715]
+    char_span: [5873, 6714]
     sentence_count: 5
     key_terms: [time, businesses, giving, waste, data, don, extrapolate, jaxjags2100]
+    concepts: [businesses, giving, waste]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/businessintelligence/1qulihh.md#c4"
-    char_span: [6717, 8754]
+    char_span: [6716, 8753]
     sentence_count: 23
     key_terms: [dashboards, reports, need, want, access, better, people, apps]
+    concepts: [dashboards, reports, access, better, people]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/businessintelligence/1qulihh.md#c5"
-    char_span: [8756, 10917]
+    char_span: [8755, 10916]
     sentence_count: 12
     key_terms: [dashboards, numbers, automated, want, whatsapp, email, screenshots, like]
+    concepts: [dashboards, numbers, automated, whatsapp, screenshots]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/businessintelligence/1qulihh.md#c6"
-    char_span: [10919, 11546]
+    char_span: [10918, 11545]
     sentence_count: 7
     key_terms: [less, like, automatically, lepopnoisette, exploration, remembering, dashboards, day-to-day]
     section: Comments

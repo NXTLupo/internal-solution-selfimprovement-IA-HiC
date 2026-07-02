@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1336]
     sentence_count: 9
     key_terms: [samples, times, lab, work, management, findapath, situation, comments]
+    concepts: [samples, management, times, findapath, situation]
     token_count: 295
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1szkfhh/lost_in_my_lab_work_career_path/"}]
   - id: "social-intelligence/reddit-deep/findapath/1szkfhh.md#c1"
     char_span: [1350, 2482]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    concepts: [thank, helpful, please, findapath, comments]
     section: Comments
     token_count: 248
 ---

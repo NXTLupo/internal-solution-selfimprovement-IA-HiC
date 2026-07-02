@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 466]
     sentence_count: 1
     key_terms: [codegraphcontext, artificial, comments, https, desperate-ad-9679, city, reddit-deep, assistants]
+    concepts: [codegraphcontext, artificial, comments, https]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1rqzcfj.md#c1"]
     token_count: 113
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1rqzcfj/city_simulator_for_codegraphcontext_an_mcp_server/"}]
   - id: "social-intelligence/reddit-deep/artificial/1rqzcfj.md#c1"
     char_span: [548, 2187]
     sentence_count: 4
     key_terms: [codegraphcontext, https, mcp, github, infrastructure, graph, code, adoption]
+    concepts: [codegraphcontext, https, github, infrastructure, graph]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1rqzcfj.md#c0"]
     section: CodeGraphContext- the go to solution for code indexing now got 2k stars🎉🎉...
     token_count: 399
   - id: "social-intelligence/reddit-deep/artificial/1rqzcfj.md#c2"

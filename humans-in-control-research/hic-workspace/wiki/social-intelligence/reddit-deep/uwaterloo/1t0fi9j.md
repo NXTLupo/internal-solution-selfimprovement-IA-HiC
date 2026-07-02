@@ -21,27 +21,33 @@ chunks:
     char_span: [0, 1720]
     sentence_count: 11
     key_terms: [wusa, president, advocacy, happening, outspoken, uwaterloo, comments, meetings]
+    concepts: [president, advocacy, happening, outspoken, uwaterloo]
     token_count: 381
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1t0fi9j/my_final_wusa_message_update_on_bomber/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c1"
     char_span: [1722, 3968]
     sentence_count: 16
     key_terms: [university, student, government, advocacy, administration, osap, governance, installed]
+    concepts: [university, student, government, advocacy, administration]
     token_count: 432
   - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c2"
     char_span: [3970, 4947]
     sentence_count: 8
     key_terms: [year, change, work, students, because, issues, reason, within]
+    concepts: [change, students, because, issues, reason]
     token_count: 202
   - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c3"
     char_span: [4961, 6937]
     sentence_count: 12
     key_terms: [bar, services, food, wusa, bomber, equipment, reopening, run]
+    concepts: [services, bomber, equipment, reopening, confirmation]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c4"
     char_span: [6939, 9093]
     sentence_count: 15
     key_terms: [university, agreement, services, negotiations, food, slow, began, bar]
+    concepts: [university, agreement, services, negotiations, began]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c5"
@@ -54,12 +60,14 @@ chunks:
     char_span: [9605, 11512]
     sentence_count: 11
     key_terms: [robotguy0207, got, theduckaboveall, thank, wusa, year, appreciate, everything]
+    concepts: [robotguy0207, theduckaboveall, appreciate, everything, thank]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c7"
     char_span: [11280, 12564]
     sentence_count: 9
     key_terms: [https, uwaterloo, campus-wellness, please, dynh-i-need-talk-someone-right-now, urgent-help-and-emergency-contacts, text, moderators]
+    concepts: [uwaterloo, campus-wellness, https, please, moderators]
     section: Comments
     token_count: 338
 ---

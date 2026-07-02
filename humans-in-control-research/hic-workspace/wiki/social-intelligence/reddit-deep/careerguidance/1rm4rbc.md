@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1026]
     sentence_count: 6
     key_terms: [school, careerguidance, experience, comments, options, don, gpa, law]
+    concepts: [school, careerguidance, experience, comments, options]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rm4rbc/im_a_political_science_prelaw_major_and_econ/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rm4rbc.md#c1"
     char_span: [1040, 3442]
     sentence_count: 27
     key_terms: [learn, experience, job, grades, "you're", dont, lack, confidence]
+    concepts: [learn, experience, grades, "you're", confidence]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/careerguidance/1rm4rbc.md#c2"
     char_span: [3444, 5483]
     sentence_count: 15
     key_terms: [like, passionate, work, politics, degree, good, law, want]
+    concepts: [passionate, politics, degree, political, because]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/careerguidance/1rm4rbc.md#c3"
     char_span: [5485, 7804]
     sentence_count: 16
     key_terms: ["you're", understaffed, volunteering, "it's", everything, stabilizer, something, learning]
+    concepts: [understaffed, volunteering, "you're", everything, stabilizer]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/careerguidance/1rm4rbc.md#c4"
     char_span: [7809, 9455]
     sentence_count: 7
     key_terms: [successful-escape-74, need, people, since, different, getting, perfect, become]
+    concepts: [successful-escape-74, people, since, different, getting]
     section: Comments
     token_count: 330
 ---

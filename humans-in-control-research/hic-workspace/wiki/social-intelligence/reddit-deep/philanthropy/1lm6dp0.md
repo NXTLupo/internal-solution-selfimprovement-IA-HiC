@@ -20,22 +20,27 @@ chunks:
     char_span: [0, 1752]
     sentence_count: 9
     key_terms: [giving, public-society, dafs, benefit, charitable, fidelity, billion, philanthropy]
+    concepts: [giving, public-society, benefit, charitable, fidelity]
     token_count: 463
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1lm6dp0/have_you_talked_with_your_donors_about_their_dafs/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1lm6dp0.md#c1"
     char_span: [1754, 2389]
     sentence_count: 4
     key_terms: [donors, gifts, dafs, good, half, giving-doldrum, affiliates, encourages]
+    concepts: [donors, gifts]
     token_count: 139
   - id: "social-intelligence/reddit-deep/philanthropy/1lm6dp0.md#c2"
-    char_span: [2404, 4557]
+    char_span: [2403, 4556]
     sentence_count: 17
     key_terms: [foundations, community, philanthropy, funds, dafs, charitable, management, non-liquid]
+    concepts: [foundations, community, philanthropy, charitable, funds]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/philanthropy/1lm6dp0.md#c3"
-    char_span: [4559, 5900]
+    char_span: [4558, 5899]
     sentence_count: 9
     key_terms: [agree, charitable, nonprofits, because, cassandraofthelakes, cause, lenoxhillpartners, able]
+    concepts: [agree, charitable, nonprofits, because, cause]
     section: Comments
     token_count: 281
 ---

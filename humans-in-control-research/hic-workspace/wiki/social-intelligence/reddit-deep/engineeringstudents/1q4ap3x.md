@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 306]
     sentence_count: 2
     key_terms: [engineeringstudents, comments, engineering, reddit-deep, academic, current, student, advice]
+    concepts: [engineeringstudents, comments]
     token_count: 82
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1q4ap3x/engineering_student_21f_current_academiccareer/"}]
 ---
 # engineering student (21f) current academic/career advice?
 

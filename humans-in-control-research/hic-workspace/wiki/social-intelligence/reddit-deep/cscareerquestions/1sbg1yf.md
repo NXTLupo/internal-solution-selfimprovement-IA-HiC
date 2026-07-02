@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 1263]
     sentence_count: 10
     key_terms: [cooked, cscareerquestions, myself, grad, like, new, comments, setting]
+    concepts: [cooked, cscareerquestions, myself, comments, setting]
     token_count: 300
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sbg1yf/new_grad_am_i_setting_myself_up_for_failure/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbg1yf.md#c1"
     char_span: [1277, 3024]
     sentence_count: 11
     key_terms: [guineverefira, code, job, industry, career, cooked, write, definitely]
+    concepts: [guineverefira, industry, career, cooked, definitely]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbg1yf.md#c2"
     char_span: [3026, 5111]
     sentence_count: 11
     key_terms: [code, time, use, work, claude, guineverefira, "don't", "it's"]
+    concepts: [guineverefira, claude, "don't", getting, without]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbg1yf.md#c3"
     char_span: [5113, 7009]
     sentence_count: 18
     key_terms: [decisions, code, design, junior, good, industry, already, juniors]
+    concepts: [decisions, design, junior, industry, already]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbg1yf.md#c4"
     char_span: [7011, 8925]
     sentence_count: 9
     key_terms: [implementation, feature, strangeanswers, guineverefira, understanding, work, developers, unionized]
+    concepts: [implementation, strangeanswers, guineverefira, understanding, feature]
     section: Comments
     token_count: 443
 ---

@@ -21,35 +21,48 @@ chunks:
     char_span: [0, 1167]
     sentence_count: 7
     key_terms: [immediately, school, undergrad, back, did, get, pay, gradschool]
+    concepts: [immediately, school, undergrad, gradschool, comments]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1l2mxey.md#c2", "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c3", "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c5"]
     token_count: 278
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1l2mxey/did_you_go_to_grad_school_immediately_after/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c1"
     char_span: [1181, 3160]
     sentence_count: 16
     key_terms: [didn, masters, phd, went, deleted, wanted, right, bit]
+    concepts: [masters, deleted, wanted, experience, right]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1l2mxey.md#c2"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c2"
     char_span: [3162, 4543]
     sentence_count: 10
     key_terms: [school, work, masters, experience, undergrad, straight, burned, paying]
+    concepts: [school, masters, experience, undergrad, straight]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1l2mxey.md#c0", "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c1", "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c3", "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c5"]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c3"
     char_span: [4545, 6514]
     sentence_count: 14
     key_terms: [undergrad, back, school, years, immediately, did, teagana999, deferring]
+    concepts: [undergrad, school, immediately, teagana999, years]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1l2mxey.md#c0", "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c2", "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c4", "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c4"
     char_span: [6273, 7063]
     sentence_count: 6
     key_terms: [undergrad, college, working, dysthymicmanufacture, years, feel, xpadawanryan, university]
+    concepts: [undergrad, college, working, years]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1l2mxey.md#c3"]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c5"
     char_span: [7065, 8438]
     sentence_count: 9
     key_terms: [undergrad, "master's", school, grad, directly, people, life, phd]
+    concepts: [undergrad, "master's", school, directly, people]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1l2mxey.md#c0", "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c2", "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c3"]
     section: Comments
     token_count: 316
 ---

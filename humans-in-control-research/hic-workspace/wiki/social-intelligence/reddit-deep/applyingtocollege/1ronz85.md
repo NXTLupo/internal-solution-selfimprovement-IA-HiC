@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 326]
     sentence_count: 2
     key_terms: [applyingtocollege, comments, west-albatross-707, international, internships, reddit-deep, programs, students]
+    concepts: [applyingtocollege, comments]
     token_count: 83
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1ronz85/any_free_programsinternships_international/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ronz85.md#c1"
     char_span: [340, 1628]
     sentence_count: 6
     key_terms: [international, admissions, colleges, timelybodybuilder637, drive, applyingtocollege, bot, get]
+    concepts: [international, admissions, colleges, drive]
     section: Comments
     token_count: 306
 ---

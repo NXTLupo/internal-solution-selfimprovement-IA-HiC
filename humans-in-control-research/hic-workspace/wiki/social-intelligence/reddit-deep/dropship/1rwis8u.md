@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1038]
     sentence_count: 1
     key_terms: [fulfillment, aliexpress, comments, dropship, doing, going, beegodropdropship, been]
+    concepts: [fulfillment, aliexpress, comments, dropship, doing]
     token_count: 240
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1rwis8u/those_of_you_who_switched_from_aliexpress_to_a/"}]
   - id: "social-intelligence/reddit-deep/dropship/1rwis8u.md#c1"
-    char_span: [1053, 3081]
+    char_span: [1052, 3080]
     sentence_count: 4
     key_terms: [fulfillment, beegodropdropship, delivery, variance, unpredictability, consistent, customers, switching]
+    concepts: [fulfillment, beegodropdropship, unpredictability, delivery, variance]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/dropship/1rwis8u.md#c2"
-    char_span: [3083, 5327]
+    char_span: [3082, 5326]
     sentence_count: 5
     key_terms: [orders, inventory, beegodropdropship, domestic, problem, routing, better, refund]
+    concepts: [inventory, orders, beegodropdropship, domestic, problem]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/dropship/1rwis8u.md#c3"
-    char_span: [5329, 5753]
+    char_span: [5328, 5752]
     sentence_count: 1
     key_terms: [never, beegodropdropship, data, chargeback, aftership, exporting, something, honestly]
+    concepts: [never]
     section: Comments
     token_count: 99
 ---

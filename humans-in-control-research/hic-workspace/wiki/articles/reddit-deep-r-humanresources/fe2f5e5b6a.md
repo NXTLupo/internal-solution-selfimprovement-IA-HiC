@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2021]
     sentence_count: 16
     key_terms: [humanresources, book, program, post, work, leadership, management, psychology]
+    concepts: [humanresources, program, leadership, management, psychology]
     token_count: 480
+    sources: [{"n":"Reddit Deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1srzhql/best_book_for_new_hr_professional_na/"}]
 ---
 # Best Book for New HR Professional [N/A]
 

@@ -20,33 +20,41 @@ chunks:
     char_span: [0, 1004]
     sentence_count: 8
     key_terms: [linkedin, conversations, opportunities, b2bmarketing, comments, c-suite, responsible-today570, sales-qualified]
+    concepts: [linkedin, conversations, opportunities, b2bmarketing, comments]
     token_count: 198
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1tstruh/switched_linkedin_targeting_from_csuite_to/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tstruh.md#c1"
-    char_span: [1019, 3206]
+    char_span: [1018, 3205]
     sentence_count: 9
     key_terms: [champion, like, looking-for-marketing-discussion-811236647760298024, questions, without, qualification, works, influencers]
+    concepts: [champion, questions, qualification, without, influencers]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tstruh.md#c2"
-    char_span: [3208, 3995]
+    char_span: [3207, 3994]
     sentence_count: 7
     key_terms: [content, brand, valuable, c-suite, control, get, vid, environments]
+    concepts: [content, brand, valuable, c-suite, control]
     section: Comments
     token_count: 162
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tstruh.md#c3"
-    char_span: [3997, 6075]
+    char_span: [3996, 6074]
     sentence_count: 11
     key_terms: [responsible-today570, managers, because, content, budget, buying, reply, conversion]
+    concepts: [responsible-today570, managers, because, content, budget]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1tstruh.md#c4"]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tstruh.md#c4"
-    char_span: [6077, 8589]
+    char_span: [6076, 8588]
     sentence_count: 11
     key_terms: [responsible-today570, conversations, because, budget, real, managers, manager-level, activities]
+    concepts: [responsible-today570, conversations, because, budget, managers]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1tstruh.md#c3"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tstruh.md#c5"
-    char_span: [8594, 8836]
+    char_span: [8593, 8835]
     sentence_count: 1
     key_terms: [acceptance, approaches, connection, introduced, qualified, economic, managers, momentum]
     section: Comments

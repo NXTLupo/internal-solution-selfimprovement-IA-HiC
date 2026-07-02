@@ -21,47 +21,63 @@ chunks:
     char_span: [0, 1478]
     sentence_count: 13
     key_terms: [module, course, students, years, date, professors, comments, policy]
+    concepts: [module, course, students, professors, years]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1su2odb.md#c4", "social-intelligence/reddit-deep/professors/1su2odb.md#c5", "social-intelligence/reddit-deep/professors/1su2odb.md#c6", "social-intelligence/reddit-deep/professors/1su2odb.md#c7"]
     token_count: 333
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1su2odb/something_is_wrong_with_the_course_i_cant_do_my/"}]
   - id: "social-intelligence/reddit-deep/professors/1su2odb.md#c1"
     char_span: [1492, 2731]
     sentence_count: 8
     key_terms: [flexibility, generalization, enough, k-12, warricd28, become, back, beg]
+    concepts: [flexibility, generalization, enough, warricd28, become]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/professors/1su2odb.md#c2"
     char_span: [2733, 3611]
     sentence_count: 8
     key_terms: [syllabus, unlimited, attempts, students, get, open, quiz, couldn]
+    concepts: [syllabus, unlimited, attempts, students, couldn]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1su2odb.md#c4"]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/professors/1su2odb.md#c3"
     char_span: [3613, 4721]
     sentence_count: 8
     key_terms: [syllabus, quiz, course, grade, question, credit, life-education-8030, extra]
+    concepts: [syllabus, course, grade, question, credit]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1su2odb.md#c4"]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/professors/1su2odb.md#c4"
     char_span: [4723, 6629]
     sentence_count: 13
     key_terms: [syllabus, something, students, quiz, course, module, instructions, "don't"]
+    concepts: [syllabus, something, students, instructions, course]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1su2odb.md#c0", "social-intelligence/reddit-deep/professors/1su2odb.md#c2", "social-intelligence/reddit-deep/professors/1su2odb.md#c3", "social-intelligence/reddit-deep/professors/1su2odb.md#c5"]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/professors/1su2odb.md#c5"
     char_span: [6631, 7269]
     sentence_count: 5
     key_terms: [calendar, course, students, content, open, read, show, announcements]
+    concepts: [calendar, course, students, content]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1su2odb.md#c0", "social-intelligence/reddit-deep/professors/1su2odb.md#c4", "social-intelligence/reddit-deep/professors/1su2odb.md#c6"]
     section: Comments
     token_count: 137
   - id: "social-intelligence/reddit-deep/professors/1su2odb.md#c6"
     char_span: [7271, 9456]
     sentence_count: 18
     key_terms: [course, assignments, content, open, module, leave, assignment, something]
+    concepts: [course, assignments, content, module, assignment]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1su2odb.md#c0", "social-intelligence/reddit-deep/professors/1su2odb.md#c5", "social-intelligence/reddit-deep/professors/1su2odb.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1su2odb.md#c7"
     char_span: [9161, 11004]
     sentence_count: 9
     key_terms: [students, class, module, assignments, does, work, student, usually]
+    concepts: [students, class, module, assignments, student]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1su2odb.md#c0", "social-intelligence/reddit-deep/professors/1su2odb.md#c6"]
     section: Comments
     token_count: 446
 ---

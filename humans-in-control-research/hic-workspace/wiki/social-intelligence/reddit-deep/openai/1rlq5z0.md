@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 301]
     sentence_count: 1
     key_terms: [openai, comments, reddit-deep, newyork99, built-in, computer, launches, context]
+    concepts: [openai, comments]
     token_count: 91
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1rlq5z0/openai_launches_gpt54_with_builtin_computer_use/"}]
 ---
 # OpenAI Launches GPT-5.4 With Built-In Computer Use and 1 Million Token Context Window
 

@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 939]
     sentence_count: 10
     key_terms: [someone, careerguidance, offer, comments, ordering, separate, meeting, younger]
+    concepts: [careerguidance, someone, offer, comments, ordering]
     token_count: 219
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1nf5jvt/what_is_the_correct_drink_ordering_etiquette_when/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1nf5jvt.md#c1"
     char_span: [953, 2719]
     sentence_count: 9
     key_terms: [always, coffee, assume, treat, get, like, pay, personally]
+    concepts: [always, coffee, assume, personally, treat]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1nf5jvt.md#c2"
     char_span: [2467, 3063]
     sentence_count: 5
     key_terms: [like, waiting, coffee, having, feels, order, pay, want]
+    concepts: [waiting, coffee, having, feels, order]
     section: Comments
     token_count: 153
   - id: "social-intelligence/reddit-deep/careerguidance/1nf5jvt.md#c3"
     char_span: [3065, 4791]
     sentence_count: 16
     key_terms: [pay, person, coffee, "don't", opportunity, get, "it's", pays]
+    concepts: [person, coffee, opportunity, "don't", someone]
     section: Comments
     token_count: 448
 ---

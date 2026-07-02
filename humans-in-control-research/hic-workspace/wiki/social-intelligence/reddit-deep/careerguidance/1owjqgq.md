@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 555]
     sentence_count: 3
     key_terms: [careerguidance, new, comments, engineer, career, paths, careerfocusmind, ai-assisted]
+    concepts: [careerguidance, comments, engineer, career, paths]
     token_count: 131
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1owjqgq/what_career_paths_do_you_think_colleges_should_be/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1owjqgq.md#c1"
     char_span: [569, 1767]
     sentence_count: 12
     key_terms: [careerfocusmind, college, outrageous-guava1881, replace, post, account, trade, won]
+    concepts: [careerfocusmind, outrageous-guava1881, college, replace, account]
     section: Comments
     token_count: 289
 ---

@@ -20,23 +20,32 @@ chunks:
     char_span: [0, 1296]
     sentence_count: 9
     key_terms: [vanguard, fidelity, bogleheads, experience, incredibly, positions, comments, customer]
+    concepts: [vanguard, fidelity, bogleheads, experience, incredibly]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1s4vz3l.md#c1", "social-intelligence/reddit-deep/bogleheads/1s4vz3l.md#c2"]
     token_count: 279
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1s4vz3l/vanguard_websitecustomer_support/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1s4vz3l.md#c1"
-    char_span: [1311, 3584]
+    char_span: [1310, 3583]
     sentence_count: 19
     key_terms: [fidelity, vanguard, site, account, inefficient, "i've", "it's", view]
+    concepts: [fidelity, vanguard, account, inefficient, community]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1s4vz3l.md#c0", "social-intelligence/reddit-deep/bogleheads/1s4vz3l.md#c2"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/bogleheads/1s4vz3l.md#c2"
-    char_span: [3586, 5309]
+    char_span: [3585, 5308]
     sentence_count: 17
     key_terms: [vanguard, fidelity, site, personally, "vanguard's", accounts, account, support]
+    concepts: [vanguard, fidelity, personally, "vanguard's", accounts]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1s4vz3l.md#c0", "social-intelligence/reddit-deep/bogleheads/1s4vz3l.md#c1", "social-intelligence/reddit-deep/bogleheads/1s4vz3l.md#c3"]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/bogleheads/1s4vz3l.md#c3"
-    char_span: [5311, 6732]
+    char_span: [5310, 6731]
     sentence_count: 15
     key_terms: [vanguard, different, queencomfort637, verification, accounts, everyone, fidelity, company]
+    concepts: [vanguard, different, queencomfort637, verification, accounts]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1s4vz3l.md#c2"]
     section: Comments
     token_count: 329
 ---

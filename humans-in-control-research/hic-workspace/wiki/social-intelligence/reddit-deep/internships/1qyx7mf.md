@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1441]
     sentence_count: 9
     key_terms: [internships, international, business, freshman, advice, analytics, comments, freshmen]
+    concepts: [internships, international, business, freshman, advice]
     token_count: 302
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1qyx7mf/international_freshman_in_nyc_struggling_to_land/"}]
   - id: "social-intelligence/reddit-deep/internships/1qyx7mf.md#c1"
     char_span: [1455, 1919]
     sentence_count: 5
     key_terms: [looking, university, kind, post, content-cash3836, administrative, iphone1234789, specifically]
+    concepts: [looking, university]
     section: Comments
     token_count: 116
 ---

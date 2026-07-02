@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1919]
     sentence_count: 22
     key_terms: [market, job, audio, careerguidance, change, cyber, comments, musician]
+    concepts: [market, audio, careerguidance, change, cyber]
     token_count: 459
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1slwfrm/worth_making_a_career_change_in_this_job_market/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1slwfrm.md#c1"
     char_span: [1933, 2608]
     sentence_count: 5
     key_terms: [question, perfect, waiting, whether, change, timing, sea-photograph-4515, never]
+    concepts: [question, perfect, waiting, whether, change]
     section: Comments
     token_count: 154
 ---

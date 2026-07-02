@@ -21,47 +21,60 @@ chunks:
     char_span: [0, 427]
     sentence_count: 2
     key_terms: [comments, chatgpt, ads, instructions, reddit-deep, unsubscribe, xaljiemxhaj, correctly]
+    concepts: [comments, chatgpt]
     token_count: 121
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1qf1g7c/then_theyll_test_it_for_all_paid_users_or_try_to/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c1"
     char_span: [441, 1289]
     sentence_count: 6
     key_terms: [please, conversation, image, post, r-chatgpt-1050422060352024636, concerns, chatgpt-shared-links-faq, chatgpt]
+    concepts: [conversation, please, image, concerns, chatgpt]
     section: Comments
     token_count: 222
   - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c2"
     char_span: [1291, 3000]
     sentence_count: 11
     key_terms: [users, information, ads, user, advertisers, targeted, micro-targeting, openai]
+    concepts: [information, users, advertisers, micro-targeting, targeted]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c3", "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c4"]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c3"
     char_span: [3002, 4911]
     sentence_count: 15
     key_terms: [ads, advertisers, targeted, being, money, surveillance, doing, data]
+    concepts: [advertisers, targeted, being, money, surveillance]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c2"]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c4"
     char_span: [4914, 6276]
     sentence_count: 10
     key_terms: [advertisers, information, "don't", superintelligence, people, going, ads, sell]
+    concepts: [advertisers, information, superintelligence, "don't", people]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c2", "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c5"]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c5"
     char_span: [6278, 8576]
     sentence_count: 23
     key_terms: [data, advertisers, sell, ads, algorithms, individual, "don't", level]
+    concepts: [advertisers, algorithms, individual, regulations, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c4"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c6"
     char_span: [8578, 8769]
     sentence_count: 3
     key_terms: [money, conversations, personally, influence, highest, accept, answer, bidder]
+    concepts: [money]
     section: Comments
     token_count: 42
   - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c7"
     char_span: [8771, 10558]
     sentence_count: 11
     key_terms: [ads, like, pay, xaljiemxhaj, free, less, mean, want]
+    concepts: [xaljiemxhaj, embedded, already, chatgpt, deleted]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c8"

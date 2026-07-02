@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 920]
     sentence_count: 8
     key_terms: [highereducation, recommendations, role, comments, higher, mostly, cross-collaboration, interpretation]
+    concepts: [highereducation, recommendations, comments, higher, mostly]
     token_count: 201
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1p4tn6a/career_transition_recommendations/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1p4tn6a.md#c1"
     char_span: [934, 2658]
     sentence_count: 11
     key_terms: [grant, student, facing, financial, director, roles, aid, want]
+    concepts: [grant, student, facing, financial, director]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1p4tn6a.md#c2"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/highereducation/1p4tn6a.md#c2"
     char_span: [2660, 4161]
     sentence_count: 5
     key_terms: [how-to-switch-careers-at-any-age-start-a-new-job-in-your-30s-40s-or-50s, student, data, skills, compliance, enrollment, financial, retention]
+    concepts: [student, skills, compliance, enrollment, financial]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1p4tn6a.md#c1"]
     section: Comments
     token_count: 347
 ---

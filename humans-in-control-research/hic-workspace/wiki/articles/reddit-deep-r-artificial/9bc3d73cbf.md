@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2072]
     sentence_count: 21
     key_terms: [claude, workflow, thinking, engineering, model, anthropic, amd, code]
+    concepts: [claude, workflow, thinking, engineering, anthropic]
     token_count: 453
+    sources: [{"n":"Reddit Deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1sjgytc/claude_cannot_be_trusted_to_perform_complex/"}]
   - id: "articles/reddit-deep-r-artificial/9bc3d73cbf.md#c1"
     char_span: [2074, 3580]
     sentence_count: 11
     key_terms: [infinite-pheonix, expensive, providing, increase, insight, service, models, tokens]
+    concepts: [infinite-pheonix, expensive, providing, increase, insight]
     token_count: 324
 ---
 # Claude cannot be trusted to perform complex engineering tasks

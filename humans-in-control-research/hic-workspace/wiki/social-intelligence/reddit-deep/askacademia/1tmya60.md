@@ -21,26 +21,32 @@ chunks:
     char_span: [0, 1615]
     sentence_count: 15
     key_terms: [comments, nepotism, joined, loren, askacademia, lab, department, evolution]
+    concepts: [comments, nepotism, joined, askacademia, department]
     token_count: 351
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1tmya60/prestige_by_proxy_in_science_the_nasa_georgia/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1tmya60.md#c1"
     char_span: [1617, 3283]
     sentence_count: 16
     key_terms: [brooke, loren, meeting, mother, lab, became, conversation, long]
+    concepts: [brooke, loren, meeting, mother, conversation]
     token_count: 332
   - id: "social-intelligence/reddit-deep/askacademia/1tmya60.md#c2"
     char_span: [3285, 5547]
     sentence_count: 21
     key_terms: [brooke, publication, mit, published, belcher, journal, lab, scientific]
+    concepts: [brooke, publication, published, belcher, journal]
     token_count: 441
   - id: "social-intelligence/reddit-deep/askacademia/1tmya60.md#c3"
     char_span: [5549, 6602]
     sentence_count: 8
     key_terms: [important, science, nasa, nepotism, question, postdoc, whether, truth]
+    concepts: [important, science, nepotism, question, postdoc]
     token_count: 200
   - id: "social-intelligence/reddit-deep/askacademia/1tmya60.md#c4"
     char_span: [6616, 7464]
     sentence_count: 7
     key_terms: [gamecat89, someone, hoping, mycologistlower5247, read, economistwithad, arist0geiton, productivity]
+    concepts: [gamecat89, someone, hoping]
     section: Comments
     token_count: 239
 ---

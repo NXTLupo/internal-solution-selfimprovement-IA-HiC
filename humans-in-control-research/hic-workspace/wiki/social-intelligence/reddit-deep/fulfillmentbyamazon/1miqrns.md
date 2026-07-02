@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 2317]
     sentence_count: 14
     key_terms: [cahoot, fulfillment, experience, fulfillmentbyamazon, relationship, legal, complaints, inventory]
+    concepts: [cahoot, fulfillment, experience, fulfillmentbyamazon, relationship]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1miqrns/warning_to_other_sellers_our_experience_getting/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1miqrns.md#c1"
-    char_span: [2332, 4249]
+    char_span: [2331, 4248]
     sentence_count: 15
     key_terms: [fulfillmentbyamazon, discord, easterncoaster, amazonpuncher, fba, good, like, own]
+    concepts: [fulfillmentbyamazon, easterncoaster, amazonpuncher, discord, syddakid32]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1miqrns.md#c2"
-    char_span: [4251, 5404]
+    char_span: [4250, 5403]
     sentence_count: 11
     key_terms: [experience, week, amazon, buried, house, read, tied, amazonpuncher]
+    concepts: [experience, amazon, buried, house]
     section: Comments
     token_count: 302
 ---

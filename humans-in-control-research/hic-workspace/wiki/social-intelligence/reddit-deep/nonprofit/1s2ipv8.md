@@ -11,26 +11,30 @@ score: 10
 upvote_ratio: 0.92
 num_comments: 8
 flair: "employment and career"
-extracted_at: "2026-06-10T18:04:10.233Z"
+extracted_at: "2026-06-25T15:21:48.089Z"
 extraction_method: "praw-deep"
-research_goal: "Identify emerging trends in higher education related ONLY to fundraising, advancement, and donations in 2026. Include social media posts, academic articles, RSS News, government data, and uploaded documents related to Donation, Advancement, and Fundraising, to provide a robust set of comprehensive, strategic recommendations and a roadmap for higher education universities in 2026\n"
-engagement: "identify-emerging-trends-in-higher-education-related-only-to"
+research_goal: "Identify how peer large private universities without medical schools are implementing AI across advancement workflows—including fundraising, alumni relations, and donor communications—to define our own adoption roadmap that balances ethical guardrails, staff readiness, and ROI."
+engagement: "identify-how-peer-large-private-universities-without-medical"
 chunks:
   - id: "social-intelligence/reddit-deep/nonprofit/1s2ipv8.md#c0"
     char_span: [0, 1144]
     sentence_count: 9
     key_terms: [interview, nonprofit, position, development, associate, questions, comments, later]
+    concepts: [interview, nonprofit, position, development, associate]
     token_count: 242
+    sources: [{"n":"reddit-deep: r/nonprofit","u":"https://www.reddit.com/r/nonprofit/comments/1s2ipv8/interview_for_development_associate_position/"}]
   - id: "social-intelligence/reddit-deep/nonprofit/1s2ipv8.md#c1"
-    char_span: [1159, 2638]
+    char_span: [1158, 2637]
     sentence_count: 11
     key_terms: [donor, donors, events, people, communication, role, questions, prepared]
+    concepts: [donor, communication, donors, events, people]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/nonprofit/1s2ipv8.md#c2"
-    char_span: [2640, 4531]
+    char_span: [2639, 4530]
     sentence_count: 15
     key_terms: [passion, income, work, important, organized, questions, slightly, achieve]
+    concepts: [passion, income, important, organized, questions]
     section: Comments
     token_count: 420
 ---
@@ -58,10 +62,10 @@ Thanks!
 
 ## Comments
 
-- **Kumaran8077** (14↑): For this kind of role, be ready to talk about organization, communication, and attention to detail they care a lot about reliability. You’ll likely get questions around handling donor data, managing multiple tasks, and supporting events.
+- **Kumaran8077** (16↑): For this kind of role, be ready to talk about organization, communication, and attention to detail they care a lot about reliability. You’ll likely get questions around handling donor data, managing multiple tasks, and supporting events.
 Also, ask them how they measure success in the role and what their donor communication process looks like it shows you’re thinking practically.
 - **Right-Potential-2945** (11↑): Be prepared to explain why the org’s mission is important to you.
-- **44035** (7↑): >donor pipeline management, events for donors, stewardship, and foundation board support.
+- **44035** (5↑): >donor pipeline management, events for donors, stewardship, and foundation board support.
 
 I worked for decades in fundraising, including at hospitals. People who are successful in this job are usually extroverted and comfortable/smooth dealing with wealthy people. The more you can project confidence and poise, the better. (Yes I know that's true of all job interviews, but there's a certain type of person who can hobnob with donors and hold their own.) 
 

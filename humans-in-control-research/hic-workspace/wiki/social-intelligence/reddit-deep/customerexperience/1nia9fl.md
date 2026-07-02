@@ -17,19 +17,27 @@ research_goal: "Deliver a comprehensive 2026 outlook report on the global retail
 engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
 chunks:
   - id: "social-intelligence/reddit-deep/customerexperience/1nia9fl.md#c0"
-    char_span: [0, 1726]
+    char_span: [0, 1725]
     sentence_count: 4
     key_terms: [bpo, india, outsourcing, industry, maxicus, customerexperience, companies, top]
-    token_count: 413
+    concepts: [outsourcing, india, industry, maxicus, customerexperience]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1nia9fl.md#c1", "social-intelligence/reddit-deep/customerexperience/1nia9fl.md#c2"]
+    token_count: 412
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1nia9fl/top_bpo_in_india_2025/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1nia9fl.md#c1"
-    char_span: [1728, 3863]
+    char_span: [1727, 3862]
     sentence_count: 1
     key_terms: [outsourcing, maxicus, video, commerce, support, unified, solutions, industry-specific]
+    concepts: [outsourcing, maxicus, commerce, video, support]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1nia9fl.md#c0", "social-intelligence/reddit-deep/customerexperience/1nia9fl.md#c2"]
     token_count: 467
+    sources: [{"n":"TimeDoctor, TimeChamp, BusinessOutreach","u":""}]
   - id: "social-intelligence/reddit-deep/customerexperience/1nia9fl.md#c2"
-    char_span: [3865, 5046]
+    char_span: [3864, 5045]
     sentence_count: 2
     key_terms: [maxicus, engagement, india, video, commerce, conversions, outsourcing, bpo]
+    concepts: [maxicus, engagement, india, video, commerce]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1nia9fl.md#c0", "social-intelligence/reddit-deep/customerexperience/1nia9fl.md#c1"]
     token_count: 274
 ---
 # Top BPO in India 2025

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 656]
     sentence_count: 5
     key_terms: [gradadmissions, rejection, comments, posted, intelligenttank2993, unfortunately, application, reddit-deep]
+    concepts: [gradadmissions, rejection, comments, posted]
     token_count: 159
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qyvrw0/cold_email_soft_rejection/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c1"
     char_span: [670, 786]
     sentence_count: 2
@@ -32,36 +34,44 @@ chunks:
     char_span: [788, 2954]
     sentence_count: 11
     key_terms: [application, intelligenttank2993, rejection, good, opening, psych, "it's", soft]
+    concepts: [application, intelligenttank2993, rejection, opening, psych]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c3"
     char_span: [2703, 4913]
     sentence_count: 18
     key_terms: [application, intelligenttank2993, rejection, right, experiences, like, feedback, funding]
+    concepts: [application, intelligenttank2993, rejection, experiences, right]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c4"
     char_span: [4661, 5560]
     sentence_count: 7
     key_terms: [intelligenttank2993, time, age, disappointed, dismissed, obviously, rejection, anything]
+    concepts: [intelligenttank2993]
     section: Comments
     token_count: 218
   - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c5"
     char_span: [5562, 5908]
     sentence_count: 4
     key_terms: [international, student, dedication, discipline, problems, studying, forward, hearing]
+    concepts: [international, student]
     section: Comments
     token_count: 74
   - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c6"
     char_span: [5910, 7962]
     sentence_count: 13
     key_terms: [email, coriander1998, program, intelligenttank2993, dev, applied, focused, offelautumn]
+    concepts: [email, coriander1998, intelligenttank2993, program, applied]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c7"
     char_span: [7699, 8137]
     sentence_count: 2
     key_terms: [got, gaooo777, reach, prospective, previously, rejections, themselves, phxnights]
+    concepts: [gaooo777, reach]
     section: Comments
     token_count: 113
 ---

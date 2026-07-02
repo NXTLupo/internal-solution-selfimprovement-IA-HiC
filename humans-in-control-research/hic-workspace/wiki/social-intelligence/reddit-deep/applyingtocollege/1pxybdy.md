@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 857]
     sentence_count: 7
     key_terms: [national, applyingtocollege, international, accelerated, comments, college, student, common]
+    concepts: [national, applyingtocollege, international, accelerated, comments]
     token_count: 192
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1pxybdy/common_app_course_level_international_student/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pxybdy.md#c1"
     char_span: [871, 1820]
     sentence_count: 6
     key_terms: [circumstances, international, admissions, colleges, safeapprehensive8427, drive, applyingtocollege, bot]
+    concepts: [circumstances, international, admissions, colleges, drive]
     section: Comments
     token_count: 222
 ---

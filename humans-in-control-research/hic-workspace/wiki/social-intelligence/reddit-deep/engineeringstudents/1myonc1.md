@@ -21,83 +21,100 @@ chunks:
     char_span: [0, 1411]
     sentence_count: 12
     key_terms: [engineering, engineeringstudents, like, opportunities, did, comments, engineer, started]
+    concepts: [engineering, engineeringstudents, opportunities, comments, engineer]
     token_count: 314
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1myonc1/whats_the_harsh_reality_of_studying_engineering/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c1"
     char_span: [1425, 3418]
     sentence_count: 16
     key_terms: [teaching, like, engineering, get, "i'm", anything, lectures, deleted]
+    concepts: [teaching, engineering, anything, lectures, deleted]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c2"
     char_span: [3420, 4553]
     sentence_count: 20
     key_terms: ["he's", "it's", probably, teaching, nothing, looks, like, problem]
+    concepts: [probably, teaching, nothing, looks, problem]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c3"
     char_span: [4555, 5897]
     sentence_count: 11
     key_terms: [classes, different, time, professors, "shouldn't", multiple, waiting, decide]
+    concepts: [classes, different, professors, "shouldn't", multiple]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c4"]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c4"
     char_span: [5899, 8021]
     sentence_count: 13
     key_terms: [school, classes, professors, schedule, semester, taught, best, get]
+    concepts: [school, classes, professors, schedule, semester]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c3"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c5"
     char_span: [8023, 10247]
     sentence_count: 13
     key_terms: [class, answers, classes, prof, homework, because, easier, never]
+    concepts: [class, answers, classes, homework, because]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c6"
     char_span: [10249, 11605]
     sentence_count: 11
     key_terms: [job, university, getting, physics, prereqs, realize, enough, school]
+    concepts: [university, getting, physics, prereqs, realize]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c7"
     char_span: [11607, 13464]
     sentence_count: 14
     key_terms: [get, courses, problem, school, young, answers, doing, chip]
+    concepts: [courses, problem, school, young, answers]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c8"
     char_span: [13466, 15474]
     sentence_count: 24
     key_terms: [work, shock, maintenance, back, big, got, job, real]
+    concepts: [maintenance, everything, shock, solutions, engineer]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c9"
     char_span: [15476, 17648]
     sentence_count: 25
     key_terms: [job, expected, everything, next, thinking, working, going, years]
+    concepts: [expected, everything, thinking, working, going]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c10"
     char_span: [17650, 19329]
     sentence_count: 31
     key_terms: [job, people, boss, crap, top, different, contract, grade]
+    concepts: [people, different, contract, grade, house]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c11"
     char_span: [19331, 21448]
     sentence_count: 24
     key_terms: [plant, increase, going, years, contracting, job, new, pay]
+    concepts: [plant, increase, contracting, going, years]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c12"
     char_span: [21450, 23087]
     sentence_count: 13
     key_terms: [excel, day, corporate, loyalty, better, redact, being, weeks]
+    concepts: [excel, corporate, loyalty, better, redact]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c13"
     char_span: [23089, 23799]
     sentence_count: 7
     key_terms: [math, crazy, no-specialist-4059, like, use, year, considering, engineering]
+    concepts: [crazy]
     section: Comments
     token_count: 173
 ---

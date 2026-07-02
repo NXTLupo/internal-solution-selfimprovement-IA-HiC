@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1900]
     sentence_count: 3
     key_terms: [structured, prompt, specificity, chain-of-thought, analysis, format, tables, deeplearning]
+    concepts: [structured, prompt, specificity, chain-of-thought, analysis]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1s10mkw/structured_6band_json_prompts_beat_chainofthought/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1s10mkw.md#c1"
     char_span: [1902, 2345]
     sentence_count: 3
     key_terms: [https, paper, doi, spec, reconstruction, peer-reviewed, reproducible, mdalexandre]
+    concepts: [https, paper]
     token_count: 111
   - id: "social-intelligence/reddit-deep/deeplearning/1s10mkw.md#c2"
     char_span: [2359, 4525]
     sentence_count: 18
     key_terms: [model, real, format, method, tasks, json, like, test]
+    concepts: [model, format, method, benchmarks, interviews]
     section: Comments
     token_count: 503
 ---

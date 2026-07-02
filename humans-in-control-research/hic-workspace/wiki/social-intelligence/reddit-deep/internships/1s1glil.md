@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1368]
     sentence_count: 5
     key_terms: [internships, internship, developer, software, students, remote, skills, engineering]
+    concepts: [internships, internship, developer, software, students]
     token_count: 290
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1s1glil/software_developer_internship_opportunity/"}]
   - id: "social-intelligence/reddit-deep/internships/1s1glil.md#c1"
     char_span: [1382, 2337]
     sentence_count: 9
     key_terms: [usually, intern-to-hire, independently, jemeshunt1003, understanding, specifically, description, environment]
+    concepts: [usually]
     section: Comments
     token_count: 204
 ---

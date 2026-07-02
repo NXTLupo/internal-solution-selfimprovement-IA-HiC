@@ -8,6 +8,7 @@ chunks:
     char_span: [0, 1397]
     sentence_count: 9
     key_terms: [mono, archivo, tokens, touchpoints, chat, ibm, nxt, plex]
+    concepts: [archivo, tokens, touchpoints, frontstage, blueprint]
     section: Figma exemplars (source of truth) / Anatomy / Construction rule (1-to-1 PPTX)
     token_count: 375
 ---

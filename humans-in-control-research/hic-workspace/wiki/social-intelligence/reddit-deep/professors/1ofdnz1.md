@@ -19,47 +19,56 @@ chunks:
     char_span: [0, 1358]
     sentence_count: 13
     key_terms: [students, asynchronous, work, professors, university, requiring, comments, policies]
+    concepts: [students, asynchronous, professors, university, requiring]
     token_count: 315
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1ofdnz1/asynchronous_rant/"}]
   - id: "social-intelligence/reddit-deep/professors/1ofdnz1.md#c1"
-    char_span: [1373, 2859]
+    char_span: [1372, 2858]
     sentence_count: 14
     key_terms: [people, education, feel, "he's", "it's", rage, work, completely]
+    concepts: [people, education, completely, pedagogy, classes]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/professors/1ofdnz1.md#c2"
-    char_span: [2861, 4908]
+    char_span: [2860, 4907]
     sentence_count: 16
     key_terms: [assignments, slides, equilibrium, "it's", research, grading, improve, lecture]
+    concepts: [assignments, slides, equilibrium, research, grading]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1ofdnz1.md#c3"
-    char_span: [4687, 6862]
+    char_span: [4686, 6861]
     sentence_count: 11
     key_terms: [writing, iceniqueen69, asynchronously, teach, video, assessments, assignment, interview]
+    concepts: [iceniqueen69, writing, asynchronously, assessments, assignment]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1ofdnz1.md#c4"
-    char_span: [6561, 6954]
+    char_span: [6560, 6953]
     sentence_count: 2
     key_terms: [everything, writing, face-to-face, disciplines, rethinking, snootycat, creative, semester]
+    concepts: [everything, writing]
     section: Comments
     token_count: 86
   - id: "social-intelligence/reddit-deep/professors/1ofdnz1.md#c5"
-    char_span: [6956, 9034]
+    char_span: [6955, 9033]
     sentence_count: 23
     key_terms: [students, admin, standards, check, cash, higher, school, too]
+    concepts: [students, admin, standards, check, higher]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/professors/1ofdnz1.md#c6"
-    char_span: [9036, 11201]
+    char_span: [9035, 11200]
     sentence_count: 16
     key_terms: [like, assignments, teaching, student, administrators, teach, job, keep]
+    concepts: [assignments, teaching, administrators, student, complained]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/professors/1ofdnz1.md#c7"
-    char_span: [11203, 12281]
+    char_span: [11202, 12280]
     sentence_count: 9
     key_terms: [discussion, discussions, above, board, encountered, anything, minimum, program]
+    concepts: [discussion, discussions, encountered, above, board]
     section: Comments
     token_count: 227
 ---

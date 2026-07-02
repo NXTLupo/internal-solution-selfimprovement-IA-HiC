@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1024]
     sentence_count: 9
     key_terms: [been, college, comments, classes, anyone, taking, background-push-2448, haven]
+    concepts: [college, comments, classes, anyone, taking]
     token_count: 248
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lmxvxp/students_who_lost_a_parent_during_college_any/"}]
   - id: "social-intelligence/reddit-deep/college/1lmxvxp.md#c1"
     char_span: [1038, 2700]
     sentence_count: 16
     key_terms: [background-push-2448, sorry, lost, sleepybear647, dad, semester, college, people]
+    concepts: [background-push-2448, sorry, sleepybear647, semester, college]
     section: Comments
     token_count: 421
 ---

@@ -17,34 +17,45 @@ research_goal: "Generate a comprehensive product marketing report for NXT Humans
 engagement: "generate-a-comprehensive-product-marketing-report-for-nxt-hu"
 chunks:
   - id: "social-intelligence/reddit-deep/customerexperience/1stos7q.md#c0"
-    char_span: [0, 1530]
+    char_span: [0, 1529]
     sentence_count: 10
     key_terms: [experiencia, encuestas, las, para, una, customerexperience, encuesta, cliente]
-    token_count: 400
+    concepts: [experiencia, encuestas, customerexperience, encuesta, cliente]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1stos7q.md#c1", "social-intelligence/reddit-deep/customerexperience/1stos7q.md#c2", "social-intelligence/reddit-deep/customerexperience/1stos7q.md#c3"]
+    token_count: 399
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1stos7q/encuesta_de_experiencia_6_claves_para_su_dise\u00f1o/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1stos7q.md#c1"
-    char_span: [1532, 3186]
+    char_span: [1531, 3185]
     sentence_count: 14
     key_terms: [experiencia, por, que, encuesta, cliente, una, objetivos, los]
+    concepts: [experiencia, encuesta, cliente, objetivos, pregunta]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1stos7q.md#c0", "social-intelligence/reddit-deep/customerexperience/1stos7q.md#c2", "social-intelligence/reddit-deep/customerexperience/1stos7q.md#c3"]
     token_count: 436
   - id: "social-intelligence/reddit-deep/customerexperience/1stos7q.md#c2"
-    char_span: [3188, 5181]
+    char_span: [3187, 5180]
     sentence_count: 14
     key_terms: [que, con, clientes, encuesta, estudio, interacciones, los, una]
+    concepts: [clientes, encuesta, estudio, interacciones, experiencia]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1stos7q.md#c0", "social-intelligence/reddit-deep/customerexperience/1stos7q.md#c1", "social-intelligence/reddit-deep/customerexperience/1stos7q.md#c3"]
     token_count: 480
   - id: "social-intelligence/reddit-deep/customerexperience/1stos7q.md#c3"
-    char_span: [5183, 7032]
+    char_span: [5182, 7031]
     sentence_count: 10
     key_terms: [canales, que, una, para, encuesta, impulsar, donde, experiencia]
+    concepts: [canales, encuesta, impulsar, experiencia, donde]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1stos7q.md#c0", "social-intelligence/reddit-deep/customerexperience/1stos7q.md#c1", "social-intelligence/reddit-deep/customerexperience/1stos7q.md#c2"]
     token_count: 448
   - id: "social-intelligence/reddit-deep/customerexperience/1stos7q.md#c4"
-    char_span: [7034, 9150]
+    char_span: [7033, 9149]
     sentence_count: 14
     key_terms: [con, que, los, por, mayor, para, estudios, costo]
+    concepts: [mayor, estudios, encuestas, necesario, costo]
     token_count: 495
   - id: "social-intelligence/reddit-deep/customerexperience/1stos7q.md#c5"
-    char_span: [9152, 10257]
+    char_span: [9151, 10256]
     sentence_count: 8
     key_terms: [por, respuestas, preguntas, que, como, con, ivr, para]
+    concepts: [respuestas, preguntas, encuestas, puede]
     token_count: 279
 ---
 # Encuesta de Experiencia: 6 claves para su diseño

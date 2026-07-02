@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2184]
     sentence_count: 17
     key_terms: [software, like, working, years, knowledge, careerguidance, follow, areas]
+    concepts: [software, working, knowledge, years, careerguidance]
     token_count: 490
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1q1ndw2/what_career_path_can_i_follow_as_an_it_student_in/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1q1ndw2.md#c1"
     char_span: [2198, 3973]
     sentence_count: 12
     key_terms: [software, career, cybersecurity, architecture, roles, since, data, automation]
+    concepts: [software, cybersecurity, architecture, career, automation]
     section: Comments
     token_count: 357
 ---

@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 1119]
     sentence_count: 14
     key_terms: [feel, nothing, money, traditional, findapath, interests, comments, career]
+    concepts: [nothing, traditional, money, findapath, interests]
     token_count: 265
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1l1mtmj/why_am_i_so_bad_at_career_and_money_nothing/"}]
   - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c1"
     char_span: [1133, 3281]
     sentence_count: 21
     key_terms: [thank, equipment, helpful, better, please, money, community, findapath]
+    concepts: [equipment, thank, helpful, better, please]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c2"
     char_span: [3283, 4423]
     sentence_count: 9
     key_terms: [soupofthe90z, don, something, been, grow, job, loud, love]
+    concepts: [soupofthe90z, something]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c3"
     char_span: [4425, 6388]
     sentence_count: 21
     key_terms: [good, job, here, like, time, something, anything, trying]
+    concepts: [something, anything, trying, found, going]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1l1mtmj.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c4"
     char_span: [6142, 8176]
     sentence_count: 25
     key_terms: [too, career, yourself, measurementno652, own-gain-789, bad, day, job]
+    concepts: [career, measurementno652, yourself, own-gain-789, privilege]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c5"
     char_span: [7929, 9768]
     sentence_count: 22
     key_terms: [feel, been, own-gain-789, job, like, man, something, anything]
+    concepts: [own-gain-789, something, anything, around, losing]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1l1mtmj.md#c3"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c6"
     char_span: [9770, 9964]
     sentence_count: 2
     key_terms: [point, breaking, collapse, everyone, allowed, created, sustain, decent]
+    concepts: [point]
     section: Comments
     token_count: 44
   - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c7"
     char_span: [9966, 12180]
     sentence_count: 14
     key_terms: [life, work, outside, career, money, financially, been, retirement]
+    concepts: [outside, career, money, financially, retirement]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c8"
@@ -74,12 +85,14 @@ chunks:
     char_span: [12222, 13692]
     sentence_count: 10
     key_terms: [agreeable-status-461, calling, wanted, world, "i'll", experience, different, something]
+    concepts: [agreeable-status-461, calling, wanted, experience, world]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c10"
     char_span: [13694, 14911]
     sentence_count: 15
     key_terms: [chat, planner, manifestation, creating, interest, selling, helped, manifestationportal]
+    concepts: [manifestation, planner, creating, interest, selling]
     section: Comments
     token_count: 285
 ---

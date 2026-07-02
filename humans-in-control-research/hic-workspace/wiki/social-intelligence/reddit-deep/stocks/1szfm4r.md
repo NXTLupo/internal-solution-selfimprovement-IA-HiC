@@ -20,7 +20,9 @@ chunks:
     char_span: [0, 272]
     sentence_count: 3
     key_terms: [comments, stocks, introducing, reddit-deep, fidelity, posted, reddit, source]
+    concepts: [comments, stocks]
     token_count: 85
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1szfm4r/fidelity_is_introducing_100_etf_fees_on_120_etfs/"}]
   - id: "social-intelligence/reddit-deep/stocks/1szfm4r.md#c1"
     char_span: [274, 1230]
     sentence_count: 1
@@ -37,27 +39,30 @@ chunks:
     key_terms: [fee, etfs, transactions, uneconomical, large-index, affecting, generally, primarily]
     token_count: 77
   - id: "social-intelligence/reddit-deep/stocks/1szfm4r.md#c4"
-    char_span: [1762, 2598]
+    char_span: [1761, 2597]
     sentence_count: 6
     key_terms: [buy, alphabetical, sell, strategy, order, trade, like, own]
+    concepts: [alphabetical, strategy, order, trade]
     section: Comments
     token_count: 247
   - id: "social-intelligence/reddit-deep/stocks/1szfm4r.md#c5"
-    char_span: [2600, 3545]
+    char_span: [2599, 3544]
     sentence_count: 1
     key_terms: [aapw, aapy, acvf, adiv, amdw, amzp, amzw, aotg]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1szfm4r.md#c6"
-    char_span: [3431, 4923]
+    char_span: [3430, 4922]
     sentence_count: 5
     key_terms: [worth, long, dividends, dividend, fidelity, xgempler, fast-economist3645, etfs]
+    concepts: [worth, dividends, dividend, fidelity, xgempler]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1szfm4r.md#c7"
-    char_span: [4659, 6259]
+    char_span: [4658, 6258]
     sentence_count: 12
     key_terms: [different, surprised, surprises, affectionate-panic-1, seeyoulaterinawhile, maybe, big-dragonfly2482, fee]
+    concepts: [different, surprised, surprises, maybe]
     section: Comments
     token_count: 403
 ---

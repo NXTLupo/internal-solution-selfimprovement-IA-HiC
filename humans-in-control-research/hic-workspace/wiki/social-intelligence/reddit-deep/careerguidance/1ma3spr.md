@@ -19,80 +19,97 @@ chunks:
     char_span: [0, 1288]
     sentence_count: 10
     key_terms: [careerguidance, experience, comments, offers, people, saying, school, jobs]
+    concepts: [careerguidance, experience, comments, offers, people]
     token_count: 303
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1ma3spr/is_anyone_else_surprised_how_hard_it_is_for_even/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c1"
     char_span: [1290, 3127]
     sentence_count: 12
     key_terms: [like, schools, fields, especially, engineers, graduates, happening, expected]
+    concepts: [schools, fields, especially, engineers, graduates]
     token_count: 384
   - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c2"
     char_span: [3129, 5166]
     sentence_count: 18
     key_terms: [universities, graduates, like, students, traditional, arts, humanities, digital]
+    concepts: [universities, graduates, students, traditional, humanities]
     token_count: 397
   - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c3"
     char_span: [5168, 6493]
     sentence_count: 16
     key_terms: [schools, different, people, school, does, else, here, international]
+    concepts: [schools, different, people, school]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c8"]
     token_count: 273
   - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c4"
     char_span: [6507, 7811]
     sentence_count: 15
     key_terms: [experience, oceanbreeze871, get, high, hire, like, companies, training]
+    concepts: [experience, oceanbreeze871, companies, training, someone]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c5"
     char_span: [7813, 9534]
     sentence_count: 9
     key_terms: [going, level, good, new, generation, corporate, positions, problem]
+    concepts: [generation, going, level, corporate, positions]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c6"
     char_span: [9536, 11585]
     sentence_count: 11
     key_terms: [market, job, problem, "don't", entry, level, take, experience]
+    concepts: [market, problem, "don't", entry, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c7"
     char_span: [11346, 13598]
     sentence_count: 19
     key_terms: [col, degree, salary, school, areas, young, high, jobs]
+    concepts: [degree, salary, school, areas, protection]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c8"
     char_span: [13600, 15397]
     sentence_count: 6
     key_terms: [schools, get, people, school, normalization, connections, job, top]
+    concepts: [schools, normalization, people, school, connections]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c3"]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c9"
     char_span: [15399, 17597]
     sentence_count: 18
     key_terms: [like, new, salaries, because, abroad, market, people, job]
+    concepts: [salaries, because, abroad, market, people]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c10"
     char_span: [17599, 19307]
     sentence_count: 18
     key_terms: [income, money, generally, careers, college, entry, capital, reality]
+    concepts: [income, generally, money, careers, college]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c11"
     char_span: [19309, 20583]
     sentence_count: 11
     key_terms: [people, high, jedgarnaut, figures, little, salary, entry, right]
+    concepts: [people, jedgarnaut, figures, little, salary]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c12"
     char_span: [20585, 21595]
     sentence_count: 10
     key_terms: [universities, don, get, job, general-director401, guys, throwaway133731, expectations]
+    concepts: [universities]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c13"
     char_span: [21597, 22905]
     sentence_count: 8
     key_terms: [struggling, companies, deleted, foreign, harvard, parents, workers, "can't"]
+    concepts: [struggling, companies, deleted, foreign, harvard]
     section: Comments
     token_count: 325
 ---

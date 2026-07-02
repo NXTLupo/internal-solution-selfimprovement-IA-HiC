@@ -7,61 +7,68 @@ subreddit: "financialcareers"
 title: "Do I have any chance in finance? Can't land any internship, just got rejected from ubs also."
 author: "Fit_Kangaroo8520"
 date: "2026-03-06T00:59:52.000Z"
-score: 42
-upvote_ratio: 0.91
-num_comments: 92
+score: 43
+upvote_ratio: 0.92
+num_comments: 94
 flair: "Resume Feedback"
-extracted_at: "2026-06-11T18:58:14.064Z"
+extracted_at: "2026-06-29T14:40:16.481Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Define the 2026 \"state of the Art\" operational and technological benchmarks for \"The State of Data & Distribution in Asset Management\". Synthesize key developments across data infrastructure, distribution enablement, and AI governance frameworks to identify leading industry capabilities and compliance standards."
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
 chunks:
   - id: "social-intelligence/reddit-deep/financialcareers/1rlzme9.md#c0"
     char_span: [0, 372]
     sentence_count: 3
     key_terms: [financialcareers, comments, reddit-deep, highschool, internship, "could've", rejected, finance]
+    concepts: [financialcareers, comments]
     token_count: 103
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1rlzme9/do_i_have_any_chance_in_finance_cant_land_any/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1rlzme9.md#c1"
-    char_span: [387, 1098]
+    char_span: [386, 1097]
     sentence_count: 7
     key_terms: [finance, "doesn't", "you're", "it's", want, work, finance-related, accomplished]
+    concepts: [finance, "doesn't", "you're"]
     section: Comments
     token_count: 157
   - id: "social-intelligence/reddit-deep/financialcareers/1rlzme9.md#c2"
-    char_span: [1100, 3131]
+    char_span: [1099, 3130]
     sentence_count: 20
     key_terms: [networking, event, connect, network, earthwarrior, get, experience, internship]
+    concepts: [networking, event, connect, network, earthwarrior]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/financialcareers/1rlzme9.md#c3"
-    char_span: [3134, 4384]
+    char_span: [3133, 4383]
     sentence_count: 7
     key_terms: [finance, experience, position, resume, search, "you'll", bright-employee-6736, chat]
+    concepts: [finance, experience, position, resume, search]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/financialcareers/1rlzme9.md#c4"
-    char_span: [4389, 6203]
+    char_span: [4388, 6273]
     sentence_count: 7
-    key_terms: [finance, program, rutgers, good, internship, successful, bsandson, jack3217]
+    key_terms: [finance, program, rutgers, internship, successful, graduate, jack3217, network]
+    concepts: [finance, program, rutgers, internship, successful]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1rlzme9.md#c5"
-    char_span: [6036, 6617]
-    sentence_count: 5
-    key_terms: [different, lebron, maybe, luck, imcheesychicken, mindtoxiccry21, championships, widowedlamp]
+    char_span: [5991, 6893]
+    sentence_count: 6
+    key_terms: [internship, different, lebron, maybe, luck, imcheesychicken, mindtoxiccry21, championships]
+    concepts: [internship, different, lebron, maybe]
     section: Comments
-    token_count: 188
+    token_count: 262
 ---
 # Do I have any chance in finance? Can't land any internship, just got rejected from ubs also.
 
 Source: [reddit-deep: r/financialcareers](https://www.reddit.com/r/FinancialCareers/comments/1rlzme9/do_i_have_any_chance_in_finance_cant_land_any/)
-Posted by **Fit_Kangaroo8520** · **42↑** · **92 comments**
+Posted by **Fit_Kangaroo8520** · **43↑** · **94 comments**
 
 Wish I tried in highschool that way i could've went to some top uni
 
 ## Comments
 
-- **earthwarrior** (32↑): I went to Rutgers and now work in PE. There's still time, but it's not going to be easy. You needed to have a finance internship by now, paid or unpaid, for the best odds. You're accomplished in sales and business development, but your experience doesn't indicate proficiency in modeling or other finance-related analytical skills.
+- **earthwarrior** (30↑): I went to Rutgers and now work in PE. There's still time, but it's not going to be easy. You needed to have a finance internship by now, paid or unpaid, for the best odds. You're accomplished in sales and business development, but your experience doesn't indicate proficiency in modeling or other finance-related analytical skills.
 
 Also, your post indicates you're applying to "finance" jobs broadly, but didn't settle on 1-2 areas of finance you want to work in. As someone who conducted interviews in the past, it's obvious when a candidate just wants a job and doesn't have a genuine interest in the role. Figure out what exactly what you want to do and craft your story around it.
 
@@ -89,8 +96,10 @@ your resume is all over the place so hiring managers will wonder if you will sud
 
   
 also how do you even remote work in Singapore. a manager at that.
-- **DON_KAJOTE_927** (26↑): Wait, is this your real name?
-  - **Fit_Kangaroo8520** (18↑): No haha thought it would be obvious that it's a placeholder
+  - **DeronD7** (1↑): I also needed to have a finance internship by now, but I got rejected from every single one I applied to. I graduate from Rutgers in December, and I feel so screwed lol
+    - **earthwarrior** (1↑): What have you been doing, on a weekly basis, to network?
+- **DON_KAJOTE_927** (27↑): Wait, is this your real name?
+  - **Fit_Kangaroo8520** (16↑): No haha thought it would be obvious that it's a placeholder
     - **DON_KAJOTE_927** (4↑): It is, but it threw me the fuck off🤣💀
 - **drvucc** (6↑): Try playing for the lakers
 - **oshameme** (4↑): Better resume than me and I went to rutgers. I know plenty of people who have started a successful career from here. Just gotta put in the effort to network

@@ -21,94 +21,123 @@ chunks:
     char_span: [0, 1932]
     sentence_count: 10
     key_terms: [wusa, elections, https, experience, a287bc7029e2de7f5ec820f59b4323461494b279, ama, ask, find]
+    concepts: [elections, https, experience, candidates, candidate]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c1"]
     token_count: 471
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1qngq42/wusa_2026_general_elections_candidate_ama/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c1"
     char_span: [1934, 3211]
     sentence_count: 4
     key_terms: [candidate, senate, director, https, board-of-directors, gullibleenergy7707, professionalsword, arts]
+    concepts: [candidate, director, senate, https]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c0"]
     token_count: 351
   - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c2"
     char_span: [3225, 4981]
     sentence_count: 13
     key_terms: [campus, student, experience, residence, waterloohorizon, incredible, passionate, concert]
+    concepts: [campus, student, experience, residence, waterloohorizon]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c4", "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c5", "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c6", "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c10"]
     section: Comments
     token_count: 361
+    sources: [{"n":"I\u2019ve been to an insane number of them in the past three years).","u":""}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c3"
     char_span: [4983, 7415]
     sentence_count: 15
     key_terms: [students, student, prices, food, want, program, service, whether]
+    concepts: [students, student, prices, program, service]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c4"
     char_span: [7417, 9621]
     sentence_count: 18
     key_terms: [food, wusa, experience, currently, service, campus, enough, bank]
+    concepts: [experience, currently, service, campus, enough]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c2", "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c5"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c5"
     char_span: [9623, 11478]
     sentence_count: 14
     key_terms: [food, efficiency, campus, advocating, experience, solutions, creative, oriented]
+    concepts: [efficiency, campus, advocating, experience, solutions]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c2", "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c4"]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c6"
     char_span: [11480, 13784]
     sentence_count: 11
     key_terms: [services, campus, food, year, strategy, student, need, plan]
+    concepts: [services, campus, strategy, student, commercial]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c2", "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c9"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c7"
     char_span: [13786, 15623]
     sentence_count: 14
     key_terms: [operational, wusa, account, societies, board, lines, society, budget]
+    concepts: [operational, account, societies, board, lines]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c8"
     char_span: [15625, 17906]
     sentence_count: 16
     key_terms: [accessibility, events, clubs, wusa, help, student, accessible, disabled]
+    concepts: [accessibility, events, clubs, student, accessible]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c9"
     char_span: [17908, 20301]
     sentence_count: 16
     key_terms: [campus, accessability, services, students, events, point, life, accessible]
+    concepts: [campus, accessability, services, students, events]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c6"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c10"
     char_span: [20303, 22292]
     sentence_count: 8
     key_terms: [waterloohorizon, student, platform, website, https, coop, fee, wusa]
+    concepts: [waterloohorizon, student, platform, website, https]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c2", "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c12"]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c11"
     char_span: [22294, 23849]
     sentence_count: 12
     key_terms: ["i'm", running, answer, colour, senate, decisions, favourite, votekenzy]
+    concepts: [running, answer, colour, senate, decisions]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c12"
     char_span: [23851, 26040]
     sentence_count: 6
     key_terms: [https, com, www, kenzy, instagram, student, proposals, too]
+    concepts: [https, instagram, kenzy, student, proposals]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c10"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c13"
     char_span: [26044, 28466]
     sentence_count: 16
     key_terms: [undergraduate, senators, senate, motions, faculty, senator, students, waterloohorizon]
+    concepts: [undergraduate, senators, senate, motions, faculty]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c15"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c14"
     char_span: [28468, 30705]
     sentence_count: 13
     key_terms: [board, advocate, students, against, engaged, higher, able, been]
+    concepts: [advocate, students, board, against, engaged]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c15"
     char_span: [30707, 32080]
     sentence_count: 14
     key_terms: [senate, representatives, faculty, constitution, undergrad, senators, discuss, meeting]
+    concepts: [senate, representatives, faculty, constitution, undergrad]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c13"]
     section: Comments
     token_count: 289
 ---

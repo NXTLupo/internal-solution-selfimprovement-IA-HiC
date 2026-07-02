@@ -19,24 +19,31 @@ content_hash: "d4d4215688175274"
 relevance_by_goal: {"7bbd4efaae7d":35}
 chunks:
   - id: "articles/reddit-deep-r-salesforce/6dca73b4db.md#c0"
-    char_span: [0, 2370]
+    char_span: [0, 2369]
     sentence_count: 17
     key_terms: [opportunity, product, salesforce, revenue, object, amount, enablement, member]
-    token_count: 506
+    concepts: [opportunity, salesforce, product, revenue, object]
+    related_chunks: ["articles/reddit-deep-r-salesforce/6dca73b4db.md#c1"]
+    token_count: 505
+    sources: [{"n":"Reddit Deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1sga21j/opportunity_object_assumes_youre_bring_in_money/"}]
   - id: "articles/reddit-deep-r-salesforce/6dca73b4db.md#c1"
-    char_span: [2372, 4878]
+    char_span: [2371, 4877]
     sentence_count: 16
     key_terms: [data, opportunity, management, object, processes, "it's", account, certain]
+    concepts: [opportunity, management, object, processes, account]
+    related_chunks: ["articles/reddit-deep-r-salesforce/6dca73b4db.md#c0"]
     token_count: 510
   - id: "articles/reddit-deep-r-salesforce/6dca73b4db.md#c2"
-    char_span: [4881, 7347]
+    char_span: [4880, 7346]
     sentence_count: 23
     key_terms: [product, products, opportunities, use, transactions, institution, revenue, member]
+    concepts: [product, opportunities, products, transactions, institution]
     token_count: 477
   - id: "articles/reddit-deep-r-salesforce/6dca73b4db.md#c3"
-    char_span: [7349, 7914]
+    char_span: [7348, 7913]
     sentence_count: 6
     key_terms: [opportunity, process, amount, based, sales, davecfranco, forecasting, performance]
+    concepts: [opportunity, process, amount, based, sales]
     token_count: 120
 ---
 # Opportunity object assumes you're bring in money... What do you do when you're not?

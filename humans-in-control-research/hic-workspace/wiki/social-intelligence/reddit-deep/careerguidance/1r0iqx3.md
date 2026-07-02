@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 754]
     sentence_count: 7
     key_terms: [accounting, looking, careerguidance, get, comments, careers, switch, start]
+    concepts: [accounting, careerguidance, looking, comments, careers]
     token_count: 183
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1r0iqx3/looking_to_switch_careers_and_need_guidance_on/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1r0iqx3.md#c1"
     char_span: [768, 1359]
     sentence_count: 3
     key_terms: [quickbooks, work, certification, accounting, especially, filmskeez, worthless, continue]
+    concepts: [quickbooks]
     section: Comments
     token_count: 139
 ---

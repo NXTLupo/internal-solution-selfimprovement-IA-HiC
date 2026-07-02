@@ -19,52 +19,64 @@ chunks:
     char_span: [0, 2063]
     sentence_count: 20
     key_terms: [interview, nonprofit, job, company, despite, nothing, offered, get]
+    concepts: [interview, nonprofit, company, despite, nothing]
     token_count: 448
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1qwfg3j/cant_find_a_job_after_graduating/"}]
   - id: "social-intelligence/reddit-deep/findapath/1qwfg3j.md#c1"
     char_span: [2065, 3545]
     sentence_count: 19
     key_terms: [experience, anything, network, work, rewarding, resorted, actual, please]
+    concepts: [experience, anything, network, rewarding, resorted]
     token_count: 342
   - id: "social-intelligence/reddit-deep/findapath/1qwfg3j.md#c2"
-    char_span: [3560, 5796]
+    char_span: [3559, 5795]
     sentence_count: 19
     key_terms: [thank, helpful, please, roles, operations, findapath, comments, everyone]
+    concepts: [thank, helpful, please, operations, roles]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/findapath/1qwfg3j.md#c3"
-    char_span: [5798, 7721]
+    char_span: [5797, 7720]
     sentence_count: 17
     key_terms: [government, healthcare, anything, consider, options, change, choice, school]
+    concepts: [government, healthcare, anything, consider, options]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/findapath/1qwfg3j.md#c4"
-    char_span: [7723, 9048]
+    char_span: [7722, 9047]
     sentence_count: 11
     key_terms: [nonprofit, right, work, experience, nonprofits, history, wokeup2, degree]
+    concepts: [nonprofit, experience, nonprofits, right, history]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/findapath/1qwfg3j.md#c5"
-    char_span: [9050, 10179]
+    char_span: [9049, 10178]
     sentence_count: 8
     key_terms: [anthropology, nonprofits, museums, provide, people, places, level, live]
+    concepts: [anthropology, nonprofits, museums, provide, people]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/findapath/1qwfg3j.md#c6"
-    char_span: [10181, 12266]
+    char_span: [10180, 12265]
     sentence_count: 19
     key_terms: [experience, sector, private, people, pienercleaner, years, used, california]
+    concepts: [experience, sector, pienercleaner, private, people]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1qwfg3j.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1qwfg3j.md#c7"
-    char_span: [11989, 13437]
+    char_span: [11988, 13436]
     sentence_count: 13
     key_terms: [private, sector, degree, thank, years, considering, considered, experience]
+    concepts: [private, sector, degree, considering, considered]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1qwfg3j.md#c6"]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/findapath/1qwfg3j.md#c8"
-    char_span: [13439, 15313]
+    char_span: [13438, 15312]
     sentence_count: 8
     key_terms: [degree, teaching, master, appropriate-tutor587, experience, get, assistantship, internship]
+    concepts: [degree, teaching, appropriate-tutor587, experience, master]
     section: Comments
     token_count: 460
 ---

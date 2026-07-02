@@ -21,57 +21,68 @@ chunks:
     char_span: [0, 2050]
     sentence_count: 17
     key_terms: [financialindependence, around, worth, time, trying, felt, like, net]
+    concepts: [financialindependence, around, worth, trying, anything]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1ssoc8m/12_year_update_married_couple_in_our_40s_200k_to/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c1"
     char_span: [2052, 3868]
     sentence_count: 13
     key_terms: [retirement, vanguard, cash, market, bonds, total, accounts, roughly]
+    concepts: [retirement, vanguard, market, bonds, total]
     token_count: 479
   - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c2"
     char_span: [3870, 5406]
     sentence_count: 9
     key_terms: [mortgage, home, like, accounts, happened, financialindependence, assets, behind]
+    concepts: [mortgage, accounts, happened, assets, behind]
     token_count: 404
   - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c3"
     char_span: [5420, 7012]
     sentence_count: 14
     key_terms: [windfall, crypto, did, original, another, market, saving, month]
+    concepts: [windfall, crypto, original, another, market]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c4"
     char_span: [7015, 8675]
     sentence_count: 15
     key_terms: [congratulations, income, ding, good, investing, crypto, month, right]
+    concepts: [congratulations, income, investing, crypto, month]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c5"
     char_span: [8677, 10657]
     sentence_count: 19
     key_terms: [get, without, accounts, greatest, windfall, million, people, retire]
+    concepts: [without, accounts, greatest, windfall, million]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c6"
     char_span: [10659, 11754]
     sentence_count: 8
     key_terms: [accomplished, worth, poggendorff, invested, probably, windfall, mid30scouple, acknowledge]
+    concepts: [accomplished, poggendorff, worth, invested, probably]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c7"
     char_span: [11757, 13612]
     sentence_count: 11
     key_terms: [mid30scouple, windfall, years, intertubeluber, crypto, steaknotcake, everything, brokerage]
+    concepts: [mid30scouple, windfall, years, intertubeluber, steaknotcake]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c8"
     char_span: [13406, 13899]
     sentence_count: 2
     key_terms: [hereforthistoo, mid30scouple, share, fireformynapalmera, benefits, congrats, funsoup4, investor]
+    concepts: [hereforthistoo, mid30scouple, share]
     section: Comments
     token_count: 160
   - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c9"
     char_span: [13902, 14437]
     sentence_count: 5
     key_terms: [years, having, work, mid30scouple, accumulated, difficult, investing, uncertain]
+    concepts: [years, having]
     section: Comments
     token_count: 125
 ---

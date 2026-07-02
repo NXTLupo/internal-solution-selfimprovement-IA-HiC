@@ -19,35 +19,44 @@ chunks:
     char_span: [0, 1037]
     sentence_count: 3
     key_terms: [experience, jobs, rejection, comments, degree, guess, get, job]
+    concepts: [experience, rejection, comments, degree, guess]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1phswfs.md#c3"]
     token_count: 251
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1phswfs/nobody_is_hiring_me_i_have_no_experience_how_do_i/"}]
   - id: "social-intelligence/reddit-deep/jobs/1phswfs.md#c1"
     char_span: [1051, 3137]
     sentence_count: 13
     key_terms: [job, experience, market, candidate, company, getting, degree, others]
+    concepts: [experience, market, candidate, company, getting]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/jobs/1phswfs.md#c2"
     char_span: [3139, 3513]
     sentence_count: 3
     key_terms: [job, interviews, "i've", applications, non-profit, recuriters, including, legitmate]
+    concepts: [interviews]
     section: Comments
     token_count: 88
   - id: "social-intelligence/reddit-deep/jobs/1phswfs.md#c3"
     char_span: [3515, 5330]
     sentence_count: 8
     key_terms: [experience, implementno2626, get, "you're", hard, job, because, degree]
+    concepts: [experience, implementno2626, "you're", because, degree]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1phswfs.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1phswfs.md#c4"
     char_span: [5084, 5987]
     sentence_count: 5
     key_terms: [get, mattinsatx, training, degree, apply, certs, lifeguarddry1277, corporation]
+    concepts: [mattinsatx, training, degree, apply, certs]
     section: Comments
     token_count: 234
   - id: "social-intelligence/reddit-deep/jobs/1phswfs.md#c5"
     char_span: [5989, 7458]
     sentence_count: 20
     key_terms: [resume, did, help, like, supposed, college, section, interesting-side-38]
+    concepts: [resume, supposed, college, section, tried]
     section: Comments
     token_count: 328
 ---

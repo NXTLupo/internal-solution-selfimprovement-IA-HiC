@@ -21,29 +21,39 @@ chunks:
     char_span: [0, 1046]
     sentence_count: 8
     key_terms: [accommodations, issues, "i'm", gradschool, comments, being, does, hide]
+    concepts: [accommodations, issues, gradschool, comments, being]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ri1xpm.md#c3"]
     token_count: 235
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1ri1xpm/need_accommodations_and_feeling_lost/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1ri1xpm.md#c1"
     char_span: [1060, 3271]
     sentence_count: 22
     key_terms: [accommodations, disability, specialist, different, meeting, office, knowingcynic, easy]
+    concepts: [accommodations, disability, specialist, different, meeting]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ri1xpm.md#c2"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/gradschool/1ri1xpm.md#c2"
     char_span: [3273, 5560]
     sentence_count: 14
     key_terms: [accommodations, disability, experience, hope, talk, reasonable, available, paperwork]
+    concepts: [accommodations, disability, experience, reasonable, available]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ri1xpm.md#c1"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/gradschool/1ri1xpm.md#c3"
     char_span: [5563, 7452]
     sentence_count: 16
     key_terms: [accommodations, being, getting, please, able, need, benefits, employer]
+    concepts: [accommodations, being, getting, please, benefits]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ri1xpm.md#c0"]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/gradschool/1ri1xpm.md#c4"
     char_span: [7454, 8614]
     sentence_count: 7
     key_terms: [redact, deleted, expectations, encouraging, workplace, possibly, privacy, follow]
+    concepts: [redact, deleted, expectations, encouraging, workplace]
     section: Comments
     token_count: 255
 ---

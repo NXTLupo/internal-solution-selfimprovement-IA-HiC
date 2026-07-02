@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1081]
     sentence_count: 10
     key_terms: [tasks, here, week, replacing, comments, happened, chatgpt, emails]
+    concepts: [tasks, replacing, comments, happened, chatgpt]
     token_count: 286
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1l2gbz9/i_tried_replacing_myself_with_ai_for_a_week_heres/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1l2gbz9.md#c1"
     char_span: [1095, 2789]
     sentence_count: 12
     key_terms: [post, chatgpt, deleted, please, conversation, image, blah, cyrillite]
+    concepts: [chatgpt, deleted, conversation, please, image]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/chatgpt/1l2gbz9.md#c2"
     char_span: [2791, 4204]
     sentence_count: 6
     key_terms: [using, chatgpt, reddit, something, calling, written, going, hours]
+    concepts: [using, chatgpt, reddit, something, calling]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/chatgpt/1l2gbz9.md#c3"
     char_span: [4207, 5892]
     sentence_count: 10
     key_terms: [instructions, replaceable, quickbooks, previous, call, automated, drafting, yourself]
+    concepts: [instructions, replaceable, quickbooks, previous, automated]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/chatgpt/1l2gbz9.md#c4"

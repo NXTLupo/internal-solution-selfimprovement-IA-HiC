@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 2254]
     sentence_count: 35
     key_terms: [interesting, review, careeradvice, genuinely, comments, staffing, agency, people]
+    concepts: [interesting, careeradvice, review, genuinely, comments]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1s2plnv/off_boarded_after_4_weeks_for_a_job_i_moved/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1s2plnv.md#c1"
     char_span: [2268, 4129]
     sentence_count: 13
     key_terms: [agency, unappreciated-genius, start, like, shift, day, did, time]
+    concepts: [unappreciated-genius, agency, start, shift, grocery]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/careeradvice/1s2plnv.md#c2"
     char_span: [4131, 5870]
     sentence_count: 9
     key_terms: [information, "i'm", need, contractor, annoyance, anything, manager, someone]
+    concepts: [information, contractor, annoyance, anything, manager]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/careeradvice/1s2plnv.md#c3"
     char_span: [5872, 7299]
     sentence_count: 9
     key_terms: [unappreciated-genius, always, delivery, training, hiring, people, environmentalside576, false-contribution13]
+    concepts: [unappreciated-genius, always, delivery, training, hiring]
     section: Comments
     token_count: 362
 ---

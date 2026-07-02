@@ -8,71 +8,87 @@ title: "Lemonade Car Insurance Experience"
 author: "Local_Screen_003"
 date: "2025-11-16T13:43:57.000Z"
 score: 12
-upvote_ratio: 0.73
+upvote_ratio: 0.72
 num_comments: 57
 flair: ""
-extracted_at: "2026-06-17T19:26:46.482Z"
+extracted_at: "2026-06-20T17:52:10.521Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/insurance/1oym2on.md#c0"
     char_span: [0, 2279]
     sentence_count: 31
     key_terms: [insurance, bait-and-switch, because, charged, problem, device, miles, base]
+    concepts: [insurance, bait-and-switch, because, charged, problem]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1oym2on/lemonade_car_insurance_experience/"}]
   - id: "social-intelligence/reddit-deep/insurance/1oym2on.md#c1"
-    char_span: [2294, 3105]
+    char_span: [2293, 3104]
     sentence_count: 10
     key_terms: [don, understand, coverage, lemonade, problems, seem, advertising, complaining]
+    concepts: [understand, coverage, lemonade, problems]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1oym2on.md#c8"]
     section: Comments
     token_count: 189
   - id: "social-intelligence/reddit-deep/insurance/1oym2on.md#c2"
-    char_span: [3107, 5040]
-    sentence_count: 19
-    key_terms: [per, insurance, premium, drive, month, year, anything, lemonade]
+    char_span: [3106, 5073]
+    sentence_count: 20
+    key_terms: [per, insurance, lemonade, premium, drive, car, anything, getting]
+    concepts: [insurance, lemonade, premium, drive, anything]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1oym2on.md#c6", "social-intelligence/reddit-deep/insurance/1oym2on.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/insurance/1oym2on.md#c3"
-    char_span: [4805, 5386]
+    char_span: [4805, 5212]
     sentence_count: 3
-    key_terms: [lemonade, repair, car, shop, slavetoshopping, hustlexxxman, mynameisajax, encountered]
+    key_terms: [lemonade, repair, car, shop, slavetoshopping, mynameisajax, encountered, everything]
+    concepts: [lemonade, repair]
     section: Comments
-    token_count: 165
+    token_count: 104
   - id: "social-intelligence/reddit-deep/insurance/1oym2on.md#c4"
-    char_span: [5388, 7292]
+    char_span: [5214, 7118]
     sentence_count: 22
     key_terms: [driving, drive, traffic, car, possible, through, means, night]
+    concepts: [driving, drive, traffic, possible, through]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/insurance/1oym2on.md#c5"
-    char_span: [7294, 9234]
+    char_span: [7120, 9060]
     sentence_count: 20
     key_terms: [insurance, cancelation, month, car, ding, commuting, accident, probably]
+    concepts: [insurance, cancelation, month, commuting, accident]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1oym2on.md#c6"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/insurance/1oym2on.md#c6"
-    char_span: [9236, 11033]
+    char_span: [9062, 10859]
     sentence_count: 11
     key_terms: [lemonade, month, years, cancelation, app, usaa, insurance, switched]
+    concepts: [lemonade, month, years, cancelation, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1oym2on.md#c2", "social-intelligence/reddit-deep/insurance/1oym2on.md#c5", "social-intelligence/reddit-deep/insurance/1oym2on.md#c8"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/insurance/1oym2on.md#c7"
-    char_span: [11035, 11375]
+    char_span: [10861, 11201]
     sentence_count: 2
     key_terms: [lemonade, entity, ltd, israel-based, relationship, affiliated, associated, subsidiary]
+    concepts: [lemonade, entity]
     section: Comments
     token_count: 82
   - id: "social-intelligence/reddit-deep/insurance/1oym2on.md#c8"
-    char_span: [11377, 13412]
+    char_span: [11203, 13238]
     sentence_count: 18
     key_terms: [lemonade, coverage, insurance, full, rate, vehicle, miles, month]
+    concepts: [lemonade, coverage, insurance, vehicle, miles]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1oym2on.md#c1", "social-intelligence/reddit-deep/insurance/1oym2on.md#c2", "social-intelligence/reddit-deep/insurance/1oym2on.md#c6"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/insurance/1oym2on.md#c9"
-    char_span: [13414, 15102]
+    char_span: [13240, 14928]
     sentence_count: 19
     key_terms: [address, been, car, dollars, hundred, people, objective-cost-8522, doing]
+    concepts: [address, dollars, hundred, people, doing]
     section: Comments
     token_count: 380
 ---
@@ -97,7 +113,7 @@ I will be reporting a detailed report of my situation to the dept of insurance. 
 
 ## Comments
 
-- **key2616** (45↑): For the record, I feel disgusting defending Lemonade. They tried to be a disrupter and evolved into a kind of low end tech carrier. 
+- **key2616** (44↑): For the record, I feel disgusting defending Lemonade. They tried to be a disrupter and evolved into a kind of low end tech carrier. 
 
 But - I don’t see how a quote is a bait and switch. Are you sure you aren’t the victim of carefully worded advertising? Problem 1 seems to be that you don’t like how their payment plans work. And that’s not criminal or even unethical. 
 
@@ -106,13 +122,12 @@ Problems 2 and 3 seem to be that you don’t understand how they do Auto coverag
 There are lots of insurers that don’t require tracking, and you’re not obligated to do business with Lemonade. But you’re complaining about things that don’t seem to be real problems if you understand their model. 
 
 Now I need a shower.
-  - **BillK01** (13↑): I feel the same as you and now I need a shower too after reading that!  Thanks a lot! 😂
-    - **90403scompany** (9↑): Showers for everybody!
+  - **BillK01** (14↑): I feel the same as you and now I need a shower too after reading that!  Thanks a lot! 😂
+    - **90403scompany** (11↑): Showers for everybody!
   - **Own_Original_1770** (1↑): Dude, you’re so wrong. It’s a pure clickbait. Just try getting an insurance quote from them, you’ll never figure out the actual rate, nor do they mention anything on the screen. Such disgusting practice.
     - **key2616** (1↑): I think you're agreeing with me.
   - **Mindless_Figure4574** (1↑): I had to drive to another hospital, because they one closes to me did not have the facilities to perform Angioplasty. It was a 3 hour drive 1 way. After all said and done, all the trips to the grocery store and getting gas, plus any other driving that needed to be done, The pay per mile added up to $189. In addition to the premium. When I enquired about this, even a serious medical conflicting will not give any sort of discount! When I asked about turn off the tracker, I was told they would fine me 150 miles PER DAY until it is turned back on (this amounts to $22.50 per day). I am shopping for a new car insurance company now. I made the mistake of trying this out and I can honestly say it SUCKS and I will never recommend Lemonade to anyone.
   - **Mindless_Figure4574** (1↑): Lemonade sucks period! I drive 10 miles 1 way to get to work. Round trip costing $3. Multiply that by 5. $15 per week. That is $60 per month. $720 per year for usage  to get to and from work. This does not include going out to eat, going to the grocery store or anything else and it does not include the premium! Is someone paid the "premium" of $100 per month, it ends up being over $2000 a year. The most stupidly expensive car insurance I have ever encountered.
-    - **HustlexXxMan** (1↑): Actually that’s not bad, I’m currently with Allstate paying $320 a month, do the math for a year lol I’d love to have my annual be around 2k 🤣🤣🤣
 - **SlaveToShopping** (3↑): As an autobody shop that gets the occasional Lemonade repair claim I can tell you that they cover everything ok but they are S L O W. Your car will be in the shop for 3-4 weeks for a 7-10 day repair. They are very slow to respond and approve.
 - **MyNameIsAjax** (2↑): I have lemonade but will be moving elsewhere.  
 

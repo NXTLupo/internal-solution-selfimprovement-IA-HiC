@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1122]
     sentence_count: 10
     key_terms: [like, spending, personalfinance, comments, doing, "don't", app, bit]
+    concepts: [personalfinance, spending, comments, doing, "don't"]
     token_count: 265
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1o9d7zc/which_budgeting_app_is_the_most_helpful/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1o9d7zc.md#c1"
-    char_span: [1137, 2370]
+    char_span: [1136, 2369]
     sentence_count: 10
     key_terms: [trial, like, monarch, aliceinmtn17, works, thanks, worth, "i'll"]
+    concepts: [trial, monarch, aliceinmtn17, works, thanks]
     section: Comments
     token_count: 332
 ---

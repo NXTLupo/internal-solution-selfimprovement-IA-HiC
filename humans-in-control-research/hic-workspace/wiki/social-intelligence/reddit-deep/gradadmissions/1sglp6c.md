@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 586]
     sentence_count: 4
     key_terms: [programs, gradadmissions, international, columbia, comments, outcomes, career, expect]
+    concepts: [programs, gradadmissions, international, columbia, comments]
     token_count: 146
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1sglp6c/is_mitcolumbia_msred_worth_the_100k_tuition/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1sglp6c.md#c1"
     char_span: [600, 995]
     sentence_count: 4

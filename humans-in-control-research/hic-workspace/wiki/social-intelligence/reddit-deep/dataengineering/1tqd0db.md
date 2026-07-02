@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 2135]
     sentence_count: 14
     key_terms: [datahub, pipeline, like, something, dataengineering, output, descriptions, field]
+    concepts: [datahub, pipeline, something, dataengineering, descriptions]
     token_count: 463
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1tqd0db/help_with_old_scala_pipeline_integration_with/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1tqd0db.md#c1"
     char_span: [2137, 3946]
     sentence_count: 19
     key_terms: [metadata, datahub, started, been, code, here, "i'm", "it's"]
+    concepts: [metadata, datahub, started, direction, everybody]
     token_count: 390
   - id: "social-intelligence/reddit-deep/dataengineering/1tqd0db.md#c2"
-    char_span: [3961, 5423]
+    char_span: [3960, 5422]
     sentence_count: 9
     key_terms: [learning, find, dataengineering, resources, sometimes, metadata, because, classes]
+    concepts: [learning, dataengineering, resources, sometimes, metadata]
     section: Comments
     token_count: 336
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 592]
     sentence_count: 5
     key_terms: [versatile, careerguidance, psychology, comments, because, anyone, "i'm", lost]
+    concepts: [versatile, careerguidance, psychology, comments, because]
     token_count: 141
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t2fin2/versatile_career_path_problems_in_bs_psychology/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t2fin2.md#c1"
     char_span: [606, 1600]
     sentence_count: 7

@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1303]
     sentence_count: 6
     key_terms: [university, civility, columbia, highereducation, prospective, schoolhouse, admissions, political]
+    concepts: [university, highereducation, civility, columbia, prospective]
     token_count: 255
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1mqd1b0/columbia_university_will_screen_prospective/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1mqd1b0.md#c1"
     char_span: [1317, 2651]
     sentence_count: 11
     key_terms: [already, chaosrainbow23, school, patricksaurus, donating, effort, lol, paid]
+    concepts: [chaosrainbow23, patricksaurus, already, school, donating]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/highereducation/1mqd1b0.md#c2"
     char_span: [2653, 3594]
     sentence_count: 5
     key_terms: [someone, spewing, reallyredrubyrabbit, scarletteclipse1982, like, sin, capricancerous, fundamentalist]
+    concepts: [someone, spewing]
     section: Comments
     token_count: 246
 ---

@@ -21,47 +21,56 @@ chunks:
     char_span: [0, 967]
     sentence_count: 9
     key_terms: [cscareerquestions, "i'm", comments, software, bubble, appropriate-try-7626, blah, "i'll"]
+    concepts: [cscareerquestions, comments, software, bubble]
     token_count: 248
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1py49dg/lets_assume_the_ai_bubble_pops_what_can_i_do_to/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c1"
     char_span: [981, 3003]
     sentence_count: 10
     key_terms: [yourfriendlyreminder, emergency, fund, like, internship, something, prepared, already]
+    concepts: [yourfriendlyreminder, emergency, internship, something, prepared]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c2"
     char_span: [3005, 4960]
     sentence_count: 10
     key_terms: [years, jobs, tech, everything, companies, different, framework, paycheck]
+    concepts: [everything, years, companies, different, framework]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c3"
     char_span: [4962, 7078]
     sentence_count: 14
     key_terms: [working, bubble, field, knows, "won't", certainly, engineers, probably]
+    concepts: [working, bubble, field, knows, "won't"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c4"
     char_span: [7080, 9365]
     sentence_count: 12
     key_terms: [economy, emergency, debt, fund, risk, bubble, building, consider]
+    concepts: [economy, emergency, bubble, building, consider]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c5"
     char_span: [9367, 11177]
     sentence_count: 12
     key_terms: [capital, massive, economy, "isn't", data, american, billions, directly]
+    concepts: [capital, massive, economy, "isn't", american]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c6"
     char_span: [11179, 12422]
     sentence_count: 8
     key_terms: [going, market, interest, cutting, always, money, rates, fed]
+    concepts: [going, market, interest, cutting, always]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c7"
     char_span: [12424, 14412]
     sentence_count: 10
     key_terms: [bubble, market, stock, significant, bankruptcy, microsoft, everyone, popping]
+    concepts: [bubble, market, significant, bankruptcy, stock]
     section: Comments
     token_count: 484
 ---

@@ -19,23 +19,31 @@ chunks:
     char_span: [0, 1755]
     sentence_count: 19
     key_terms: [didn, because, graduation, don, walk, college, friends, did]
+    concepts: [because, graduation, college, friends, graduating]
+    related_chunks: ["social-intelligence/reddit-deep/college/1p4cckv.md#c3"]
     token_count: 422
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1p4cckv/should_i_skip_walking_at_graduation/"}]
   - id: "social-intelligence/reddit-deep/college/1p4cckv.md#c1"
     char_span: [1769, 3430]
     sentence_count: 16
     key_terms: ["don't", students, family, moment, feel, graduation, benefit, faculty]
+    concepts: ["don't", students, family, moment, graduation]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/college/1p4cckv.md#c2"
     char_span: [3432, 4210]
     sentence_count: 8
     key_terms: [graduation, celebrate, walking, photos, clientsuccessful9504, plan, take, walk]
+    concepts: [graduation, celebrate, walking, photos]
+    related_chunks: ["social-intelligence/reddit-deep/college/1p4cckv.md#c3"]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/college/1p4cckv.md#c3"
     char_span: [4212, 6141]
     sentence_count: 12
     key_terms: [walk, graduation, college, day, celebrate, something, friends, family]
+    concepts: [graduation, college, celebrate, something, friends]
+    related_chunks: ["social-intelligence/reddit-deep/college/1p4cckv.md#c0", "social-intelligence/reddit-deep/college/1p4cckv.md#c2"]
     section: Comments
     token_count: 458
 ---

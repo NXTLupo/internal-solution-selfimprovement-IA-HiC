@@ -20,26 +20,36 @@ chunks:
     char_span: [0, 2218]
     sentence_count: 15
     key_terms: [alibaba, sourceready, importyeti, sourcing, manufacturer, years, supplychain, been]
+    concepts: [alibaba, sourceready, importyeti, sourcing, manufacturer]
+    related_chunks: ["social-intelligence/reddit-deep/supplychain/1sb3jg1.md#c2", "social-intelligence/reddit-deep/supplychain/1sb3jg1.md#c3"]
     token_count: 484
+    sources: [{"n":"reddit-deep: r/supplychain","u":"https://www.reddit.com/r/supplychain/comments/1sb3jg1/6_months_using_sourceready_for_sourcing_after/"}]
   - id: "social-intelligence/reddit-deep/supplychain/1sb3jg1.md#c1"
     char_span: [2220, 4159]
     sentence_count: 18
     key_terms: [supplier, compliance, importyeti, factories, responses, suppliers, analysis, shipment]
+    concepts: [supplier, compliance, importyeti, factories, responses]
+    related_chunks: ["social-intelligence/reddit-deep/supplychain/1sb3jg1.md#c2"]
     token_count: 387
   - id: "social-intelligence/reddit-deep/supplychain/1sb3jg1.md#c2"
     char_span: [4161, 6493]
     sentence_count: 18
     key_terms: [sourceready, communication, alibaba, importyeti, supplier, data, "it's", especially]
+    concepts: [sourceready, communication, alibaba, importyeti, supplier]
+    related_chunks: ["social-intelligence/reddit-deep/supplychain/1sb3jg1.md#c0", "social-intelligence/reddit-deep/supplychain/1sb3jg1.md#c1"]
     token_count: 476
   - id: "social-intelligence/reddit-deep/supplychain/1sb3jg1.md#c3"
     char_span: [6495, 8320]
     sentence_count: 14
     key_terms: [sourceready, suppliers, "you're", sourcing, orders, agent, small, "it's"]
+    concepts: [sourceready, suppliers, "you're", sourcing, orders]
+    related_chunks: ["social-intelligence/reddit-deep/supplychain/1sb3jg1.md#c0"]
     token_count: 363
   - id: "social-intelligence/reddit-deep/supplychain/1sb3jg1.md#c4"
-    char_span: [8335, 9417]
+    char_span: [8334, 9416]
     sentence_count: 4
     key_terms: [credits, "you're", admirable-lecture220, moq, diversification, higher-quality, certification, conversation]
+    concepts: [credits, "you're"]
     section: Comments
     token_count: 211
 ---

@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 2028]
     sentence_count: 15
     key_terms: [learning, feel, engineering, something, like, embedded, careerguidance, career]
+    concepts: [learning, engineering, something, embedded, careerguidance]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rlqva5.md#c1"]
     token_count: 443
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rlqva5/how_should_a_3rd_year_ece_student_decide_a_career/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rlqva5.md#c1"
     char_span: [2030, 2775]
     sentence_count: 8
     key_terms: [something, embedded, ece, opportunities, realistically, competition, internships, background]
+    concepts: [something, embedded]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rlqva5.md#c0"]
     token_count: 158
 ---
 # How should a 3rd year ECE student decide a career oriented path??

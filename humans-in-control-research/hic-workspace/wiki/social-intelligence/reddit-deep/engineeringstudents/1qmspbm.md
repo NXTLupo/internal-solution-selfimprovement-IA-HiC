@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1043]
     sentence_count: 6
     key_terms: [engineering, engineeringstudents, advice, construction, internships, "i'm", internship, mechanical]
+    concepts: [engineering, engineeringstudents, construction, advice, internships]
     token_count: 235
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qmspbm/mechanical_engineering_internshipcareer_advice/"}]
 ---
 # Mechanical Engineering Internship/Career Advice
 

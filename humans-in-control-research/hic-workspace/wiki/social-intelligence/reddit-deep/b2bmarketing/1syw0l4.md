@@ -20,27 +20,33 @@ chunks:
     char_span: [0, 1875]
     sentence_count: 1
     key_terms: [marketing, b2bmarketing, doing, month, b2b, like, paid, want]
+    concepts: [marketing, b2bmarketing, doing, month, comments]
     token_count: 458
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1syw0l4/how_i_actually_got_to_20kmonth_doing_b2b/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1syw0l4.md#c1"
     char_span: [1877, 3773]
     sentence_count: 1
     key_terms: [work, month, minimum, cold, post, retainers, business, linkedin]
+    concepts: [month, minimum, retainers, business, linkedin]
     token_count: 442
   - id: "social-intelligence/reddit-deep/b2bmarketing/1syw0l4.md#c2"
     char_span: [3775, 6119]
     sentence_count: 2
     key_terms: [clients, communities, marketing, groups, pay, campaign, founder, numbers]
+    concepts: [clients, communities, marketing, groups, campaign]
     token_count: 509
   - id: "social-intelligence/reddit-deep/b2bmarketing/1syw0l4.md#c3"
-    char_span: [6134, 8256]
+    char_span: [6133, 8255]
     sentence_count: 16
     key_terms: [looking-for-marketing-discussion-811236647760298024, real, questions, outreach, switched, discord, quality, working]
+    concepts: [questions, outreach, switched, discord, quality]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/b2bmarketing/1syw0l4.md#c4"
-    char_span: [8258, 9573]
+    char_span: [8257, 9572]
     sentence_count: 14
     key_terms: [directors, emotional-ad-5897, clients, revenue, write, marketing, targeting, founders]
+    concepts: [emotional-ad-5897, directors, clients, revenue, write]
     section: Comments
     token_count: 308
 ---

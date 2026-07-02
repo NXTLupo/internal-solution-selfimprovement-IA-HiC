@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1021]
     sentence_count: 8
     key_terms: [getting, opportunities, internships, internship, applying, comments, already, please]
+    concepts: [opportunities, getting, internships, internship, applying]
     token_count: 247
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tfeywy/is_finding_an_internship_hard_in_2026/"}]
   - id: "social-intelligence/reddit-deep/internships/1tfeywy.md#c1"
     char_span: [1035, 2602]
     sentence_count: 10
     key_terms: [applied, lafjiaflpnifhglhjcolidljogmbigco, application, competitive, need, internship, sponsoring, extremely]
+    concepts: [applied, application, competitive, internship, sponsoring]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/internships/1tfeywy.md#c2"
     char_span: [2604, 3951]
     sentence_count: 6
     key_terms: [smaller, programs, startups, interns, through, offers, do-or-die-do-or-die, international]
+    concepts: [smaller, programs, startups, interns, through]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/internships/1tfeywy.md#c3"
     char_span: [3953, 5788]
     sentence_count: 11
     key_terms: [apply, assessments, international, corporations, specifically, lafjiaflpnifhglhjcolidljogmbigco, roles, com]
+    concepts: [apply, assessments, international, corporations, specifically]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/internships/1tfeywy.md#c4"
     char_span: [5790, 6226]
     sentence_count: 1
     key_terms: [startups, great, high, pay, risk, side, opportunities, internship]
+    concepts: [startups, great]
     section: Comments
     token_count: 95
 ---

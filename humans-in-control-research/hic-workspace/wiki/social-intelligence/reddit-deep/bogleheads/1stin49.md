@@ -20,47 +20,60 @@ chunks:
     char_span: [0, 1015]
     sentence_count: 7
     key_terms: [account, brokerage, etrade, fidelity, offer, tdf, bogleheads, comments]
+    concepts: [account, brokerage, etrade, fidelity, bogleheads]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1stin49.md#c1", "social-intelligence/reddit-deep/bogleheads/1stin49.md#c3", "social-intelligence/reddit-deep/bogleheads/1stin49.md#c6"]
     token_count: 270
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1stin49/with_1m_to_invest_which_brokerage_account/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1stin49.md#c1"
-    char_span: [1030, 2563]
+    char_span: [1029, 2562]
     sentence_count: 9
     key_terms: [fidelity, fidelityinvestments, good, fidelitycrypto, https, auto, free, www]
+    concepts: [fidelity, fidelityinvestments, fidelitycrypto, bogleheads, https]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1stin49.md#c0"]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/bogleheads/1stin49.md#c2"
-    char_span: [2565, 3812]
+    char_span: [2564, 3811]
     sentence_count: 9
     key_terms: [fidelity, guarantee, transfer, becomes, million, active, allows, amount]
+    concepts: [fidelity, guarantee, transfer, becomes, million]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/bogleheads/1stin49.md#c3"
-    char_span: [3814, 5874]
+    char_span: [3813, 5873]
     sentence_count: 17
     key_terms: [vanguard, fidelity, account, wildpasstekarra, pretty, contribution, blink182-73, don]
+    concepts: [vanguard, fidelity, account, wildpasstekarra, contribution]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1stin49.md#c0", "social-intelligence/reddit-deep/bogleheads/1stin49.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/bogleheads/1stin49.md#c4"
-    char_span: [5608, 6236]
+    char_span: [5607, 6235]
     sentence_count: 5
     key_terms: [vanguard, website, clunky, app, simultaneously, increasingly, chillnshill, experience]
+    concepts: [vanguard, website, clunky]
     section: Comments
     token_count: 150
   - id: "social-intelligence/reddit-deep/bogleheads/1stin49.md#c5"
-    char_span: [6238, 7222]
+    char_span: [6237, 7221]
     sentence_count: 7
     key_terms: [like, categories, everything, fidelity, merrill, credit, etrade, others]
+    concepts: [categories, everything, fidelity, merrill, credit]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/bogleheads/1stin49.md#c6"
-    char_span: [7224, 9261]
+    char_span: [7223, 9260]
     sentence_count: 18
     key_terms: [fidelity, vanguard, vacant-cage-fence, wildpasstekarra, account, better, don, need]
+    concepts: [fidelity, vanguard, vacant-cage-fence, wildpasstekarra, account]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1stin49.md#c0", "social-intelligence/reddit-deep/bogleheads/1stin49.md#c3"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/bogleheads/1stin49.md#c7"
-    char_span: [9263, 10161]
+    char_span: [9262, 10160]
     sentence_count: 3
     key_terms: [volatility, extended, market, bonds, stock, part, spy, wildpasstekarra]
+    concepts: [volatility, extended, market, bonds, stock]
     section: Comments
     token_count: 258
 ---

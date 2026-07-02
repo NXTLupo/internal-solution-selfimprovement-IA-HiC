@@ -19,17 +19,20 @@ chunks:
     char_span: [0, 1742]
     sentence_count: 2
     key_terms: ["i'm", because, "it's", college, having, though, money, academic]
+    concepts: [because, college, having, though, money]
     token_count: 404
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ldfre9/how_to_make_peace_that_i_cant_have_much_as_a_very/"}]
   - id: "social-intelligence/reddit-deep/college/1ldfre9.md#c1"
-    char_span: [1757, 2285]
+    char_span: [1756, 2284]
     sentence_count: 4
     key_terms: [etc, exoticregister7761, get, life, various-maybe, internships, personable, feelings]
     section: Comments
     token_count: 131
   - id: "social-intelligence/reddit-deep/college/1ldfre9.md#c2"
-    char_span: [2287, 4157]
+    char_span: [2286, 4156]
     sentence_count: 11
     key_terms: [funding, summer, going, internships, life, year, everything, validation]
+    concepts: [funding, summer, internships, everything, going]
     section: Comments
     token_count: 434
 ---

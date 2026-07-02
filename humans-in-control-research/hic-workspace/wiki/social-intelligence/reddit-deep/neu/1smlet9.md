@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1709]
     sentence_count: 9
     key_terms: [lost, something, post, thelostandhound, northeastern, hound, https, items]
+    concepts: [something, thelostandhound, northeastern, hound, https]
     token_count: 392
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1smlet9/we_built_lost_hound_to_you_find_your_lost_items/"}]
   - id: "social-intelligence/reddit-deep/neu/1smlet9.md#c1"
     char_span: [1723, 2352]
     sentence_count: 5

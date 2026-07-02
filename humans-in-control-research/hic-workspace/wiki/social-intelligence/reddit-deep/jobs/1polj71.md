@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 259]
     sentence_count: 1
     key_terms: [comments, jobs, entry-level, reddit-deep, breaking, majano57, process, hiring]
+    concepts: [comments]
     token_count: 72
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1polj71/the_entrylevel_hiring_process_is_breaking_down/"}]
   - id: "social-intelligence/reddit-deep/jobs/1polj71.md#c1"
     char_span: [273, 510]
     sentence_count: 2
@@ -30,36 +32,42 @@ chunks:
     char_span: [512, 2475]
     sentence_count: 16
     key_terms: [paralegal, work, people, "you're", "can't", years, background, experience]
+    concepts: [paralegal, people, "you're", background, "can't"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1polj71.md#c3"
     char_span: [2246, 2751]
     sentence_count: 2
     key_terms: [experience, ab4739ejfriend749205, years, work, counterintuitive, crazycatlady331, hypocritical, fjaoaoaoao]
+    concepts: [experience, years]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/jobs/1polj71.md#c4"
     char_span: [2753, 3949]
     sentence_count: 6
     key_terms: ["it's", someone, career, people, zealousideal-fox365, shame, kink, like]
+    concepts: [someone, career, people, shame]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/jobs/1polj71.md#c5"
     char_span: [3952, 5806]
     sentence_count: 11
     key_terms: [job, trying, recruiters, recruiter, connected, something, hiring, person]
+    concepts: [recruiters, trying, recruiter, connected, something]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/jobs/1polj71.md#c6"
     char_span: [5808, 8051]
     sentence_count: 15
     key_terms: [recruiters, because, having, successaffectionate1, years, companies, people, person]
+    concepts: [recruiters, successaffectionate1, because, having, companies]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/jobs/1polj71.md#c7"
     char_span: [8053, 8892]
     sentence_count: 5
     key_terms: [population, education, masters, percent, degree, having, successaffectionate1, years]
+    concepts: [population, education, masters, percent, degree]
     section: Comments
     token_count: 205
 ---

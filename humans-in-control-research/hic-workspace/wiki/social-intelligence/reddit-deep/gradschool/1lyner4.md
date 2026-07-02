@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 248]
     sentence_count: 2
     key_terms: [gradschool, comments, internships, reddit-deep, saksheeeee, students, posted, reddit]
+    concepts: [gradschool, comments]
     token_count: 74
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1lyner4/dsml_internships_for_grad_students/"}]
 ---
 # DS/ML internships for grad students?
 

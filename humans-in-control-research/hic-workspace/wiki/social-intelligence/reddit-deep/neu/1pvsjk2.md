@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 1436]
     sentence_count: 13
     key_terms: [back, applicable, experience, comments, anyone, skills, doing, offer]
+    concepts: [applicable, experience, comments, anyone, skills]
     token_count: 332
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1pvsjk2/should_i_back_out_of_my_coop/"}]
   - id: "social-intelligence/reddit-deep/neu/1pvsjk2.md#c1"
     char_span: [1450, 2598]
     sentence_count: 9
     key_terms: [coop, program, co-op, advisor, nuworks, point, get, talk]
+    concepts: [program, co-op, advisor, nuworks, point]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/neu/1pvsjk2.md#c2"
     char_span: [2600, 4103]
     sentence_count: 6
     key_terms: [coop, future, goals, like, co-op, worth, aligning, honestly]
+    concepts: [future, goals, co-op, worth, aligning]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/neu/1pvsjk2.md#c3"
     char_span: [4105, 5696]
     sentence_count: 14
     key_terms: [experience, different, wanted, coop, completely, learning, advisor, through]
+    concepts: [experience, different, wanted, completely, learning]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/neu/1pvsjk2.md#c4"
     char_span: [5698, 7715]
     sentence_count: 17
     key_terms: [co-op, like, shot-equal1148, don, time, want, experience, negatives]
+    concepts: [co-op, shot-equal1148, experience, negatives, supposed]
     section: Comments
     token_count: 478
 ---

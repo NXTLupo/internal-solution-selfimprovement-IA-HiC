@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1050]
     sentence_count: 8
     key_terms: [college, get, comments, enjoy, back, dont, dorm, find]
+    concepts: [college, comments, enjoy]
     token_count: 255
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1rfa26o/how_to_just_enjoy_college_more/"}]
   - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c1"
     char_span: [1064, 2262]
     sentence_count: 12
     key_terms: [college, aceyaceyacey, get, job, already, reasons, seeing, leave]
+    concepts: [college, aceyaceyacey, already, reasons, seeing]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c2"
     char_span: [2264, 4344]
     sentence_count: 7
     key_terms: [trhlaslecna, been, leagues, better, assignments, semester, skipping, classes]
+    concepts: [trhlaslecna, leagues, better, assignments, semester]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c3"
@@ -44,18 +48,23 @@ chunks:
     char_span: [4347, 6042]
     sentence_count: 14
     key_terms: [school, semester, friends, grades, time, college, "it's", too]
+    concepts: [school, semester, friends, grades, college]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rfa26o.md#c5"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c5"
     char_span: [6045, 8442]
     sentence_count: 14
     key_terms: [school, college, commuter, harder, feel, connection, counseling, eventually]
+    concepts: [school, college, commuter, harder, connection]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rfa26o.md#c4"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c6"
     char_span: [8444, 9330]
     sentence_count: 9
     key_terms: [activities, doing, social, enjoying, college, ideally, people, "that's"]
+    concepts: [activities, doing, social, enjoying, college]
     section: Comments
     token_count: 198
 ---

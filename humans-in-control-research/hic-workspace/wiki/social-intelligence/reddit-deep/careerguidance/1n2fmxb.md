@@ -19,41 +19,49 @@ chunks:
     char_span: [0, 980]
     sentence_count: 7
     key_terms: [careerguidance, did, job, something, comments, instanceobjective203, start, years]
+    concepts: [careerguidance, something, comments, start, years]
     token_count: 241
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1n2fmxb/how_do_you_know_when_its_time_to_leave_your_first/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1n2fmxb.md#c1"
     char_span: [994, 3056]
     sentence_count: 19
     key_terms: [start, alarmedfirefighter14, experience, like, career, market, undervalued, get]
+    concepts: [alarmedfirefighter14, start, experience, career, market]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/careerguidance/1n2fmxb.md#c2"
     char_span: [3058, 4870]
     sentence_count: 26
     key_terms: [statement, new, routine, work, persuasive, described, followed, question]
+    concepts: [statement, routine, persuasive, described, followed]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/careerguidance/1n2fmxb.md#c3"
     char_span: [4872, 6244]
     sentence_count: 14
     key_terms: [work, routine, job, time, getting, new, something, yourself]
+    concepts: [routine, getting, something, yourself, afford]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/careerguidance/1n2fmxb.md#c4"
     char_span: [6246, 8039]
     sentence_count: 14
     key_terms: [employed, job, years, candidate, likely, raises, get, jobs]
+    concepts: [employed, candidate, years, likely, raises]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/careerguidance/1n2fmxb.md#c5"
     char_span: [8041, 9968]
     sentence_count: 15
     key_terms: [opportunities, job, like, time, growing, environment, back, "it's"]
+    concepts: [opportunities, growing, environment, something, internal]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/careerguidance/1n2fmxb.md#c6"
     char_span: [9970, 10723]
     sentence_count: 3
     key_terms: [information, time, limited, always, choice, best, future-vision, hugenutzzz]
+    concepts: [information, limited, always, choice]
     section: Comments
     token_count: 179
 ---

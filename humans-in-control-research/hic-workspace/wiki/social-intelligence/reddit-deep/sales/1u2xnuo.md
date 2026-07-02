@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1699]
     sentence_count: 16
     key_terms: [sales, people, professional, switchboards, like, marketing, situation, targeting]
+    concepts: [sales, professional, switchboards, people, marketing]
     token_count: 382
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1u2xnuo/working_for_a_small_business/"}]
   - id: "social-intelligence/reddit-deep/sales/1u2xnuo.md#c1"
-    char_span: [1714, 3295]
+    char_span: [1713, 3294]
     sentence_count: 8
     key_terms: ["you're", find, customers, yourself, motion, affectionate-town695, makes, beginning-ad-2762]
+    concepts: ["you're", customers, yourself, motion, makes]
     section: Comments
     token_count: 393
 ---

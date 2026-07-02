@@ -19,29 +19,36 @@ chunks:
     char_span: [0, 1607]
     sentence_count: 11
     key_terms: [jobs, hiring, people, grads, cscareerquestions, new, looking, career]
+    concepts: [cscareerquestions, hiring, people, grads, looking]
     token_count: 400
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1savw4i/about_to_be_a_fresh_grad_what_on_earth_do_i_do/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1savw4i.md#c1"
-    char_span: [1622, 3581]
+    char_span: [1621, 3580]
     sentence_count: 8
     key_terms: [aristhemage, application, get, government, linkedin, degree, any-presentation-679, ireallylikethemdogs]
+    concepts: [aristhemage, application, government, linkedin, degree]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1savw4i.md#c2"
-    char_span: [3315, 4124]
+    char_span: [3314, 4123]
     sentence_count: 6
     key_terms: [network, ireallylikethemdogs, lazycatrocks, considering, algorithms, assumption, especially, experience]
+    concepts: [network]
     section: Comments
     token_count: 192
   - id: "social-intelligence/reddit-deep/cscareerquestions/1savw4i.md#c3"
-    char_span: [4126, 6245]
+    char_span: [4125, 6244]
     sentence_count: 18
     key_terms: [people, connections, job, get, idontevenknowwhats, something, come, need]
+    concepts: [people, connections, idontevenknowwhats, something, projects]
     section: Comments
     token_count: 484
+    sources: [{"n":"am a bootcamp grad with a BS in history, working on contracts for my own LLC.","u":""}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1savw4i.md#c4"
-    char_span: [6247, 7788]
+    char_span: [6246, 7787]
     sentence_count: 8
     key_terms: [time, internships, experience, full, resume, year, internship, pipelines]
+    concepts: [internships, experience, resume, internship, pipelines]
     section: Comments
     token_count: 378
 ---

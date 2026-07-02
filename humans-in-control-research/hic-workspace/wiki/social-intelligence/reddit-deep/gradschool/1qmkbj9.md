@@ -21,23 +21,31 @@ chunks:
     char_span: [0, 1017]
     sentence_count: 10
     key_terms: [reading, novel, gradschool, comments, started, don, like, time]
+    concepts: [reading, gradschool, novel, comments, started]
     token_count: 237
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1qmkbj9/does_anyone_else_no_longer_have_the_mental_energy/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1qmkbj9.md#c1"
     char_span: [1031, 2501]
     sentence_count: 9
     key_terms: [library, audiobooks, through, novels, card, got, reading, access]
+    concepts: [audiobooks, library, through, novels, reading]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qmkbj9.md#c2", "social-intelligence/reddit-deep/gradschool/1qmkbj9.md#c3"]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/gradschool/1qmkbj9.md#c2"
     char_span: [2503, 4583]
     sentence_count: 14
     key_terms: [school, read, reading, couldn, novels, books, work, favorite]
+    concepts: [school, reading, couldn, novels, books]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qmkbj9.md#c1", "social-intelligence/reddit-deep/gradschool/1qmkbj9.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1qmkbj9.md#c3"
     char_span: [4364, 5681]
     sentence_count: 8
     key_terms: [school, time, reading, read, work, novels, relax, grad]
+    concepts: [school, reading, novels, relax]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qmkbj9.md#c1", "social-intelligence/reddit-deep/gradschool/1qmkbj9.md#c2"]
     section: Comments
     token_count: 331
 ---

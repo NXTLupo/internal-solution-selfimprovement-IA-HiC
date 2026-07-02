@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 324]
     sentence_count: 2
     key_terms: [careerguidance, comments, reddit-deep, highschool, commerce, ankoku1, student, career]
+    concepts: [careerguidance, comments]
     token_count: 91
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1saezoe/as_a_highschool_student_who_wants_get_into_the/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1saezoe.md#c1"
     char_span: [338, 1186]
     sentence_count: 9
     key_terms: [skills, job, accounting, economics, help, look, reccomending, thepandapear]
+    concepts: [skills, accounting, economics]
     section: Comments
     token_count: 188
 ---

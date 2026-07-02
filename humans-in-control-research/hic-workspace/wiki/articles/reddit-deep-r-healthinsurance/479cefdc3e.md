@@ -19,29 +19,37 @@ content_hash: "6c7d9b170ed5d905"
 relevance_by_goal: {"68c375ef0d4e":70}
 chunks:
   - id: "articles/reddit-deep-r-healthinsurance/479cefdc3e.md#c0"
-    char_span: [0, 1862]
+    char_span: [0, 1861]
     sentence_count: 13
     key_terms: [insurance, urgent, bill, care, get, pay, af534778363c5172119468e04c53fb0187049b31, healthinsurance]
-    token_count: 466
+    concepts: [insurance, urgent, healthinsurance, ankle, deductible]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/479cefdc3e.md#c3"]
+    token_count: 465
+    sources: [{"n":"Reddit Deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1ohh6i5/a_never_ending_300_bill_the_horror_of_trying_to/"}]
   - id: "articles/reddit-deep-r-healthinsurance/479cefdc3e.md#c1"
-    char_span: [1864, 3722]
+    char_span: [1863, 3721]
     sentence_count: 24
     key_terms: [claim, visit, rep, call, minutes, urgent, information, care]
+    concepts: [claim, visit, minutes, urgent, information]
     token_count: 432
   - id: "articles/reddit-deep-r-healthinsurance/479cefdc3e.md#c2"
-    char_span: [3724, 5830]
+    char_span: [3723, 5829]
     sentence_count: 14
     key_terms: [encounter, right, initial, s93401a-sprain, unspecified, s93601a-unspecified, code, ligament]
+    concepts: [encounter, initial, right, s93401a-sprain, s93601a-unspecified]
     token_count: 476
   - id: "articles/reddit-deep-r-healthinsurance/479cefdc3e.md#c3"
-    char_span: [5832, 7614]
+    char_span: [5831, 7613]
     sentence_count: 10
     key_terms: [eob, solicitation, insurance, healthinsurance, please, coinsurance, additional, deductible]
+    concepts: [solicitation, insurance, healthinsurance, please, coinsurance]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/479cefdc3e.md#c0"]
     token_count: 420
   - id: "articles/reddit-deep-r-healthinsurance/479cefdc3e.md#c4"
-    char_span: [7616, 9366]
+    char_span: [7615, 9365]
     sentence_count: 14
     key_terms: [service, place, because, emergency, care, code, e0f6701203d5248afd08e36870c22e5ea36ae972, office]
+    concepts: [service, place, because, emergency, office]
     token_count: 433
 ---
 # A never ending $300 bill.. the horror of trying to get insurance to cover anything

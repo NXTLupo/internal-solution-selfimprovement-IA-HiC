@@ -20,28 +20,34 @@ chunks:
     char_span: [0, 1914]
     sentence_count: 12
     key_terms: [financialcareers, internships, work, year, analytical, experience, corporate, predicted]
+    concepts: [financialcareers, internships, analytical, experience, corporate]
     token_count: 414
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1twkc2e/lse_mathsecon_predicted_first_class_honours_no/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1twkc2e.md#c1"
     char_span: [1916, 3186]
     sentence_count: 11
     key_terms: [appreciate, internship, realistic, something, looking, build, firms, roles]
+    concepts: [appreciate, internship, realistic, something, looking]
     token_count: 271
   - id: "social-intelligence/reddit-deep/financialcareers/1twkc2e.md#c2"
-    char_span: [3201, 4524]
+    char_span: [3200, 4523]
     sentence_count: 8
     key_terms: [financialcareers, discord, professionals, full-time, consider, banking, chronic, finance]
+    concepts: [financialcareers, professionals, discord, full-time, consider]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/financialcareers/1twkc2e.md#c3"
-    char_span: [4526, 6622]
+    char_span: [4525, 6621]
     sentence_count: 13
     key_terms: [quant, get, risk, internships, good, chronic, markets, better]
+    concepts: [quant, internships, chronic, markets, better]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/financialcareers/1twkc2e.md#c4"
-    char_span: [6624, 8092]
+    char_span: [6623, 8091]
     sentence_count: 9
     key_terms: [python-3-programming, specializations, applying, coursera, research, banking, edition, private]
+    concepts: [python-3-programming, specializations, applying, coursera, research]
     section: Comments
     token_count: 365
 ---

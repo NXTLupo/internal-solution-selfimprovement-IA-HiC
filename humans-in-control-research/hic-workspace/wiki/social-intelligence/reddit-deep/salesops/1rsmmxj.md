@@ -17,10 +17,12 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/salesops/1rsmmxj.md#c0"
-    char_span: [0, 1465]
+    char_span: [0, 1464]
     sentence_count: 8
     key_terms: [catch, validation, cons, pros, emailawesome, operational, comments, creating]
-    token_count: 303
+    concepts: [catch, validation, emailawesome, operational, comments]
+    token_count: 302
+    sources: [{"n":"reddit-deep: r/salesops","u":"https://www.reddit.com/r/SalesOps/comments/1rsmmxj/bounce_rate_drift_is_creating_operational_noise/"}]
 ---
 # Bounce rate drift is creating operational noise. What validator and catch all policy would you enforce?
 

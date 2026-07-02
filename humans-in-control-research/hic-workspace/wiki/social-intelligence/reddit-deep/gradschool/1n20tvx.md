@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1004]
     sentence_count: 12
     key_terms: [gradschool, comments, feedback, defense, proud, time, work, bakedveldtland]
+    concepts: [gradschool, comments, feedback, defense, proud]
     token_count: 270
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1n20tvx/you_guys_i_passed_my_defense/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1n20tvx.md#c1"
     char_span: [1018, 2533]
     sentence_count: 16
     key_terms: [congratulations, bakedveldtland, deleted, thank, working, intelligent-basil600, happy, "i'm"]
+    concepts: [congratulations, bakedveldtland, deleted, thank, working]
     section: Comments
     token_count: 452
 ---

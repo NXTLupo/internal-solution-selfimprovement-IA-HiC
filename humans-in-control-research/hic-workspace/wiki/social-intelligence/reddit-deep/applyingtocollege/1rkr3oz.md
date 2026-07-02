@@ -21,16 +21,22 @@ chunks:
     char_span: [0, 2418]
     sentence_count: 17
     key_terms: [schools, honestly, application, submitted, applyingtocollege, late, year, college]
+    concepts: [schools, honestly, application, applyingtocollege, submitted]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rkr3oz.md#c1"]
     token_count: 518
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rkr3oz/senior_who_hasnt_submitted_any_college/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkr3oz.md#c1"
     char_span: [2420, 2957]
     sentence_count: 4
     key_terms: [application, schools, here, late, successfully, experiences, admissions, appreciate]
+    concepts: [application, schools]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rkr3oz.md#c0"]
     token_count: 113
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkr3oz.md#c2"
     char_span: [2971, 3785]
     sentence_count: 4
     key_terms: [supplement, couple, tho, yucky-yummy-6767, ok-ganache6369, nonetheless, scholarship, applicants]
+    concepts: [supplement, couple]
     section: Comments
     token_count: 193
 ---

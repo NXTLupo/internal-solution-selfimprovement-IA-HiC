@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2075]
     sentence_count: 17
     key_terms: [donate, employees, "it's", highereducation, because, donors, higher, money]
+    concepts: [donate, employees, highereducation, because, donors]
     token_count: 490
+    sources: [{"n":"Reddit Deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1s3ldr1/day_of_giving/"},{"n":"Going on 25 years in higher ed and have collaborated with Advancement offices a ","u":""}]
   - id: "articles/reddit-deep-r-highereducation/0acb8fe5f3.md#c1"
     char_span: [2077, 3239]
     sentence_count: 8
     key_terms: [employees, asked, staff, not-for-profit, inappropriate, "institution's", organizations, participation]
+    concepts: [employees, asked, staff]
     token_count: 248
 ---
 # Day of giving?

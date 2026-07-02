@@ -19,19 +19,25 @@ content_hash: "c3aade3995b5ea48"
 relevance_by_goal: {"68c375ef0d4e":62}
 chunks:
   - id: "articles/reddit-deep-r-healthinsurance/acf9ed3d14.md#c0"
-    char_span: [0, 2319]
+    char_span: [0, 2318]
     sentence_count: 15
     key_terms: [insurance, information, clinic, health, mayo, scan, healthinsurance, reached]
-    token_count: 498
+    concepts: [insurance, information, clinic, health, healthinsurance]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/acf9ed3d14.md#c1"]
+    token_count: 497
+    sources: [{"n":"Reddit Deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1nto4x3/claim_retroactively_denied/"}]
   - id: "articles/reddit-deep-r-healthinsurance/acf9ed3d14.md#c1"
-    char_span: [2321, 4039]
+    char_span: [2320, 4038]
     sentence_count: 10
     key_terms: [department, healthinsurance, solicitation, please, insurance, questions, billing, reddit]
+    concepts: [department, healthinsurance, solicitation, please, insurance]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/acf9ed3d14.md#c0"]
     token_count: 388
   - id: "articles/reddit-deep-r-healthinsurance/acf9ed3d14.md#c2"
-    char_span: [4041, 4958]
+    char_span: [4040, 4957]
     sentence_count: 7
     key_terms: [mayo, experience, tangodream, insurance, kirpants, patient, clinic, needed]
+    concepts: [experience, tangodream, insurance, kirpants, patient]
     token_count: 215
 ---
 # Claim Retroactively Denied

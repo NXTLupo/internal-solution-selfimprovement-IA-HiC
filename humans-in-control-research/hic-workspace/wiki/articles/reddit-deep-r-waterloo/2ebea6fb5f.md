@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1735]
     sentence_count: 13
     key_terms: [waterloo, toronto, moving, cearrach, truck, kms, generally, comments]
+    concepts: [waterloo, toronto, moving, cearrach, truck]
     token_count: 436
+    sources: [{"n":"Reddit Deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1mbkgg0/best_moving_method_from_waterloo_to_toronto/"}]
 ---
 # Best moving method from Waterloo to Toronto
 

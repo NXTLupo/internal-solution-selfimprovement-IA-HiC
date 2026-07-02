@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1457]
     sentence_count: 8
     key_terms: [projects, helping, assignments, struggling, understand, comments, students, college]
+    concepts: [projects, helping, assignments, struggling, understand]
     token_count: 316
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lgwvs8/how_i_started_helping_other_students_with_coding/"}]
 ---
 # How I started helping other students with coding projects & assignments
 

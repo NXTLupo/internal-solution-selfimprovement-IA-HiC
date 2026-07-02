@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 894]
     sentence_count: 8
     key_terms: [calling, cold, marketing, comments, company, service, person, sales]
+    concepts: [calling, marketing, comments, company, service]
     token_count: 208
+    sources: [{"n":"reddit-deep: r/marketing","u":"https://www.reddit.com/r/marketing/comments/1ljbpsn/ai_cold_calling/"}]
   - id: "social-intelligence/reddit-deep/marketing/1ljbpsn.md#c1"
-    char_span: [909, 2208]
+    char_span: [908, 2207]
     sentence_count: 7
     key_terms: [looking-for-marketing-discussion-811236647760298024, asked, call, marketing, jhkayejr, discord, https, phone]
+    concepts: [asked, marketing, jhkayejr, discord, https]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/marketing/1ljbpsn.md#c2"
-    char_span: [2210, 4685]
+    char_span: [2209, 4684]
     sentence_count: 18
     key_terms: [construction, sales, calling, requirements, technical, project, working, b2b]
+    concepts: [construction, calling, sales, requirements, technical]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/marketing/1ljbpsn.md#c3"
-    char_span: [4687, 6815]
+    char_span: [4686, 6814]
     sentence_count: 17
     key_terms: [construction, something, quality, touch, voice, call, concerns, calling]
+    concepts: [construction, something, quality, touch, voice]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/marketing/1ljbpsn.md#c4"
-    char_span: [6817, 7129]
+    char_span: [6816, 7128]
     sentence_count: 2
     key_terms: [outreach, sales, order-takers, meetings, pipeline, closing, raidrew, having]
+    concepts: [outreach, sales]
     section: Comments
     token_count: 77
 ---

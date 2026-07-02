@@ -19,59 +19,76 @@ chunks:
     char_span: [0, 1298]
     sentence_count: 10
     key_terms: [cscareerquestions, project, "i've", comments, projects, working, coding, trying]
+    concepts: [cscareerquestions, project, comments, projects, working]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c7", "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c8"]
     token_count: 283
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1l9at8r/is_it_just_me_or_is_coding_amateur_projects/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c1"
-    char_span: [1313, 2896]
+    char_span: [1312, 2895]
     sentence_count: 8
     key_terms: [projects, hobby, big, business, software, tech, learn, work]
+    concepts: [projects, hobby, business, software, learn]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c2"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c2"
-    char_span: [2898, 5043]
+    char_span: [2897, 5042]
     sentence_count: 16
     key_terms: [projects, hobby, learn, big, tech, part, language, people]
+    concepts: [projects, hobby, learn, language, people]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c1"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c3"
-    char_span: [5045, 6828]
+    char_span: [5044, 6827]
     sentence_count: 10
     key_terms: [big, tech, like, working, part, another, people, being]
+    concepts: [working, another, people, immediately, being]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c4"
-    char_span: [6830, 8957]
+    char_span: [6829, 8956]
     sentence_count: 14
     key_terms: [experience, ship, cargo, big, get, "it's", need, microsoft]
+    concepts: [experience, cargo, microsoft, anything, another]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c5"
-    char_span: [8959, 10772]
+    char_span: [8958, 10771]
     sentence_count: 6
     key_terms: [project, like, projects, big, "i'm", real, decision, internal]
+    concepts: [project, projects, decision, internal, making]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c0"]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c6"
-    char_span: [10774, 12877]
+    char_span: [10773, 12876]
     sentence_count: 8
     key_terms: [project, personal, real, requirements, scale, business, testing, people]
+    concepts: [project, personal, requirements, scale, business]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c7"
-    char_span: [12879, 14054]
+    char_span: [12878, 14053]
     sentence_count: 4
     key_terms: [cscareerquestions, comments, web3xcss, comment, reddit, https, share, web3x]
+    concepts: [cscareerquestions, comments, web3xcss, comment, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c0"]
     section: Comments
     token_count: 306
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c8"
-    char_span: [14056, 16106]
+    char_span: [14055, 16105]
     sentence_count: 13
     key_terms: [experience, like, enterprise, projects, working, hobby, different, building]
+    concepts: [experience, enterprise, projects, working, justtryintolearn]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c0"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c9"
-    char_span: [16108, 16377]
+    char_span: [16107, 16376]
     sentence_count: 3
     key_terms: [tooling, used, experience, internship, engineers, advanced, octocode, overkill]
+    concepts: [tooling]
     section: Comments
     token_count: 69
 ---

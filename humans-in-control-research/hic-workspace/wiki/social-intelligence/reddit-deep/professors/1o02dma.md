@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 1368]
     sentence_count: 11
     key_terms: [people, professors, questions, american, comments, classes, wouldn, class]
+    concepts: [professors, people, questions, american, comments]
     token_count: 313
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1o02dma/people_trolling_for_woke_content/"}]
   - id: "social-intelligence/reddit-deep/professors/1o02dma.md#c1"
     char_span: [1382, 2717]
     sentence_count: 9
     key_terms: [reviewernumberthree, teach, texas, quietlikesnow, anthropology, services, worried, life-education-8030]
+    concepts: [reviewernumberthree, teach, texas, quietlikesnow, anthropology]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1o02dma.md#c2"]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/professors/1o02dma.md#c2"
     char_span: [2719, 4256]
     sentence_count: 11
     key_terms: [quietlikesnow, teach, agitators, something, nonsense, cringe, helpful-passenger-12, kinds]
+    concepts: [quietlikesnow, teach, agitators, something, nonsense]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1o02dma.md#c1"]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/professors/1o02dma.md#c3"
     char_span: [4258, 6322]
     sentence_count: 12
     key_terms: [students, attendance, enrolled, people, quietlikesnow, class, list, take]
+    concepts: [students, attendance, enrolled, people, quietlikesnow]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1o02dma.md#c4"
     char_span: [6045, 6983]
     sentence_count: 5
     key_terms: [people, genetics, chromosomal, chromosomes, variation, accurate, fired, "isn't"]
+    concepts: [people, genetics, chromosomal, chromosomes, variation]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/professors/1o02dma.md#c5"
     char_span: [6985, 8740]
     sentence_count: 8
     key_terms: [contractual, institution, get, like, mean, agreement, "doesn't", setting]
+    concepts: [contractual, institution, agreement, "doesn't", setting]
     section: Comments
     token_count: 440
 ---

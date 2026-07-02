@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1374]
     sentence_count: 12
     key_terms: [publications, professors, gradadmissions, gra, experience, throughout, realistic, applying]
+    concepts: [publications, professors, gradadmissions, experience, throughout]
     token_count: 316
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1slp4vs/how_realistic_is_a_gra_for_an_ms_student_with/"}]
 ---
 # How realistic is a GRA for an MS student with strong hands-on experience but no publications?
 

@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 446]
     sentence_count: 2
     key_terms: [work, cscareerquestions, experience, comments, company, foreign, free, youtoometootoo]
+    concepts: [cscareerquestions, experience, comments, company, foreign]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sg2jvm.md#c1"]
     token_count: 112
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sg2jvm/unemployed_junior_engineersnew_grads_would_you/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg2jvm.md#c1"
     char_span: [460, 2301]
     sentence_count: 13
     key_terms: [work, free, job, experience, reboog711, projects, company, fucking]
+    concepts: [experience, reboog711, projects, company, fucking]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sg2jvm.md#c0"]
     section: Comments
     token_count: 466
 ---

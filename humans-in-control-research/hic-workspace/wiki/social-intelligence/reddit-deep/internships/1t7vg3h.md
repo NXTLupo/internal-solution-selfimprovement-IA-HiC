@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 757]
     sentence_count: 6
     key_terms: [internship, internships, comments, exposure, industry, stipend, atleos, better]
+    concepts: [internship, internships, comments, exposure, industry]
     token_count: 186
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t7vg3h/which_internship_would_be_better_for_an_ece/"}]
   - id: "social-intelligence/reddit-deep/internships/1t7vg3h.md#c1"
     char_span: [771, 1255]
     sentence_count: 1
     key_terms: [isro, roles, core, name, interviewers, electronics, catsdayout, difference]
+    concepts: [roles]
     section: Comments
     token_count: 125
 ---

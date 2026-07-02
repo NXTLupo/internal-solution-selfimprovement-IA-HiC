@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1165]
     sentence_count: 8
     key_terms: [studying, humanresources, little, exam, experience, comments, employer, shrm-cp]
+    concepts: [studying, humanresources, little, experience, comments]
     token_count: 272
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1rglb3v/employer_wants_me_to_get_shrmcp_very_little_hr/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1rglb3v.md#c1"
     char_span: [1179, 2371]
     sentence_count: 10
     key_terms: [questions, get, shrm, used, consistent, experience, hrstudypro, learning]
+    concepts: [questions, consistent, experience, hrstudypro, learning]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/humanresources/1rglb3v.md#c2"
@@ -38,12 +41,14 @@ chunks:
     char_span: [3421, 5320]
     sentence_count: 11
     key_terms: [mometrix, recruiting, passed, sense, shrm, definitely, experience, generalist]
+    concepts: [mometrix, recruiting, passed, definitely, experience]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/humanresources/1rglb3v.md#c4"
     char_span: [5322, 6186]
     sentence_count: 6
     key_terms: [shrm, experience, no-suggestion-9433, lms, certification, understanding, unfortunately, vanillax2018]
+    concepts: [experience]
     section: Comments
     token_count: 202
 ---

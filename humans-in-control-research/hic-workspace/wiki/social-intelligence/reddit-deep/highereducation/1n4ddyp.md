@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1574]
     sentence_count: 11
     key_terms: [costs, indirect, billion, higher-education, highereducation, university, accounted, comments]
+    concepts: [costs, indirect, billion, higher-education, highereducation]
     token_count: 351
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1n4ddyp/the_state_of_indirect_costs_in_higher_education/"}]
 ---
 # The state of indirect costs in higher education
 

@@ -21,43 +21,57 @@ chunks:
     char_span: [0, 1241]
     sentence_count: 12
     key_terms: [presentation, like, didn, gradschool, professor, comments, else, room]
+    concepts: [presentation, gradschool, professor, comments]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1kqewdj.md#c5"]
     token_count: 273
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1kqewdj/is_being_mocked_during_presentations_common_in/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1kqewdj.md#c1"
     char_span: [1255, 2783]
     sentence_count: 15
     key_terms: [professor, ask, hear, feedback, students, grilled, reading, repeat]
+    concepts: [professor, feedback, students, grilled, reading]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1kqewdj.md#c2"]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/gradschool/1kqewdj.md#c2"
     char_span: [2785, 4874]
     sentence_count: 18
     key_terms: [professor, questions, students, mocking, asking, ask, "i'm", question]
+    concepts: [professor, questions, students, mocking, asking]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1kqewdj.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1kqewdj.md#c3"
     char_span: [4595, 5595]
     sentence_count: 11
     key_terms: [something, people, overcome, front, point, "i'm", decoherentdoc, assumptions]
+    concepts: [something, people, overcome, front, point]
     section: Comments
     token_count: 230
   - id: "social-intelligence/reddit-deep/gradschool/1kqewdj.md#c4"
     char_span: [5597, 7803]
     sentence_count: 17
     key_terms: [presentation, disability, standing, presentations, interpreting, right, weird, "professor's"]
+    concepts: [presentation, disability, standing, presentations, interpreting]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1kqewdj.md#c5"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/gradschool/1kqewdj.md#c5"
     char_span: [7805, 10157]
     sentence_count: 17
     key_terms: [presentation, professor, thought, disability, discussion, experience, important, stressful]
+    concepts: [presentation, professor, thought, disability, discussion]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1kqewdj.md#c0", "social-intelligence/reddit-deep/gradschool/1kqewdj.md#c4"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/gradschool/1kqewdj.md#c6"
     char_span: [10159, 12298]
     sentence_count: 15
     key_terms: [presentation, people, habit, unconscious, stop, work, okmain3645, presenting]
+    concepts: [presentation, people, unconscious, habit, okmain3645]
     section: Comments
     token_count: 481
+    sources: [{"n":"I do this sometimes","u":""}]
   - id: "social-intelligence/reddit-deep/gradschool/1kqewdj.md#c7"
     char_span: [12300, 12592]
     sentence_count: 3

@@ -19,22 +19,27 @@ chunks:
     char_span: [0, 2253]
     sentence_count: 2
     key_terms: [northeastern, college, looking, "i'm", "it's", attended, parents, schools]
+    concepts: [northeastern, college, looking, attended, parents]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1suqqe6/northeastern_for_a_poli_sciprelaw/"}]
   - id: "social-intelligence/reddit-deep/neu/1suqqe6.md#c1"
     char_span: [2255, 3676]
     sentence_count: 1
     key_terms: ["i'm", career, little, everything, "it's", strong, northeastern, high]
+    concepts: [career, everything, little, northeastern, strong]
     token_count: 305
   - id: "social-intelligence/reddit-deep/neu/1suqqe6.md#c2"
     char_span: [3690, 5964]
     sentence_count: 16
     key_terms: [here, college, quality, instructors, time, challenges, especially, professors]
+    concepts: [college, quality, instructors, challenges, especially]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1suqqe6.md#c3"
     char_span: [5674, 6223]
     sentence_count: 3
     key_terms: [yourself, curious-actuary5981, ahead, peers, find, good, continuousivy, northeastern]
+    concepts: [yourself, ahead, peers]
     section: Comments
     token_count: 133
 ---

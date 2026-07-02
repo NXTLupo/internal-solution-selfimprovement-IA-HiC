@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 2021]
     sentence_count: 14
     key_terms: [portfolio, etf, vanguard, investing, income, shares, goals, index]
+    concepts: [portfolio, vanguard, investing, income, shares]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1n32vqy/hi_freshly_starting_investing_into_stocks_i_need/"}]
   - id: "social-intelligence/reddit-deep/investing/1n32vqy.md#c1"
     char_span: [2023, 2426]
     sentence_count: 1
     key_terms: [etf, portfolio, draft, jepi, qqq, schd, vaf, vgs]
+    concepts: [portfolio, draft]
     token_count: 187
   - id: "social-intelligence/reddit-deep/investing/1n32vqy.md#c2"
     char_span: [2440, 4440]
     sentence_count: 23
     key_terms: [growth, stocks, buy, high, stick, get, need, voo]
+    concepts: [growth, stocks, australian, individual, stick]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/investing/1n32vqy.md#c3"
     char_span: [4442, 5344]
     sentence_count: 5
     key_terms: [market, beat, portfolio, quoting, returns, risk, year, timeconsuming]
+    concepts: [market, portfolio, quoting, returns]
     section: Comments
     token_count: 222
 ---

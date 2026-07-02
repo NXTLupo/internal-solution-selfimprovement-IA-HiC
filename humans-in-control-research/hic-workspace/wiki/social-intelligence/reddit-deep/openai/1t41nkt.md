@@ -21,53 +21,70 @@ chunks:
     char_span: [0, 488]
     sentence_count: 3
     key_terms: [game, interests, comments, create, openai, like, realmelonbread, electronics]
+    concepts: [interests, comments, create, openai]
     token_count: 130
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1t41nkt/get_chatgpt_to_create_a_game_based_on_your/"}]
   - id: "social-intelligence/reddit-deep/openai/1t41nkt.md#c1"
     char_span: [502, 1436]
     sentence_count: 5
     key_terms: [b23a4a100cfb1e6db9ffbb38792f029f8c10c45c, preview, format, https, width, auto, jpeg, pjpg]
+    concepts: [preview, format, https, width]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1t41nkt.md#c2", "social-intelligence/reddit-deep/openai/1t41nkt.md#c4", "social-intelligence/reddit-deep/openai/1t41nkt.md#c5", "social-intelligence/reddit-deep/openai/1t41nkt.md#c6", "social-intelligence/reddit-deep/openai/1t41nkt.md#c7"]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/openai/1t41nkt.md#c2"
     char_span: [1441, 2682]
     sentence_count: 5
     key_terms: [got, otacon7000, preview, reminds, format, though, enoughconcentrate897, https]
+    concepts: [otacon7000, preview, reminds, format, though]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1t41nkt.md#c1", "social-intelligence/reddit-deep/openai/1t41nkt.md#c4", "social-intelligence/reddit-deep/openai/1t41nkt.md#c5", "social-intelligence/reddit-deep/openai/1t41nkt.md#c6", "social-intelligence/reddit-deep/openai/1t41nkt.md#c7"]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/openai/1t41nkt.md#c3"
     char_span: [2684, 4494]
     sentence_count: 10
     key_terms: [almost, gucci-adidas-double-hat-release-date-price, b2c1237d53c5d38b94971e233e45e82d68550014, echoesofsolenya, https, etc, character, graphics]
+    concepts: [almost, echoesofsolenya, https, character, graphics]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/openai/1t41nkt.md#c4"
     char_span: [4496, 5669]
     sentence_count: 3
     key_terms: [noncommongoodsense, png, de4280df5feefa448d30eacd26bfc762895fe322, preview, realmelonbread, format, https, width]
+    concepts: [noncommongoodsense, realmelonbread, preview, format, https]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1t41nkt.md#c1", "social-intelligence/reddit-deep/openai/1t41nkt.md#c2", "social-intelligence/reddit-deep/openai/1t41nkt.md#c5", "social-intelligence/reddit-deep/openai/1t41nkt.md#c6", "social-intelligence/reddit-deep/openai/1t41nkt.md#c7"]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/openai/1t41nkt.md#c5"
     char_span: [5672, 6821]
     sentence_count: 4
     key_terms: [preview, format, https, width, auto, redd, webp, png]
+    concepts: [preview, format, https, width, s1n0d3utscht3k]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1t41nkt.md#c1", "social-intelligence/reddit-deep/openai/1t41nkt.md#c2", "social-intelligence/reddit-deep/openai/1t41nkt.md#c4", "social-intelligence/reddit-deep/openai/1t41nkt.md#c6", "social-intelligence/reddit-deep/openai/1t41nkt.md#c7"]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/openai/1t41nkt.md#c6"
     char_span: [6823, 7932]
     sentence_count: 2
     key_terms: [preview, format, https, width, auto, redd, webp, a286e2ea5486bcd68c9091b2f5016eeedee98ada]
+    concepts: [preview, format, https, width, s1n0d3utscht3k]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1t41nkt.md#c1", "social-intelligence/reddit-deep/openai/1t41nkt.md#c2", "social-intelligence/reddit-deep/openai/1t41nkt.md#c4", "social-intelligence/reddit-deep/openai/1t41nkt.md#c5", "social-intelligence/reddit-deep/openai/1t41nkt.md#c7"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/openai/1t41nkt.md#c7"
     char_span: [7934, 8842]
     sentence_count: 1
     key_terms: [png, detached-attachment, a1ebec75046e752ef7c9d1a213da4aa318c5a7e6, ee30056f36b13c87c421d53d96cf0e9ccc3b81e3, preview, format, https, width]
+    concepts: [detached-attachment, preview, format, https, width]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1t41nkt.md#c1", "social-intelligence/reddit-deep/openai/1t41nkt.md#c2", "social-intelligence/reddit-deep/openai/1t41nkt.md#c4", "social-intelligence/reddit-deep/openai/1t41nkt.md#c5", "social-intelligence/reddit-deep/openai/1t41nkt.md#c6"]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/openai/1t41nkt.md#c8"
     char_span: [8844, 10225]
     sentence_count: 11
     key_terms: [preview, format, https, width, auto, redd, webp, a987753ea029f1b44ae9caec7e3a3a9ba7c2fe14]
+    concepts: [preview, format, https, width, interesting]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1t41nkt.md#c1", "social-intelligence/reddit-deep/openai/1t41nkt.md#c2", "social-intelligence/reddit-deep/openai/1t41nkt.md#c4", "social-intelligence/reddit-deep/openai/1t41nkt.md#c5", "social-intelligence/reddit-deep/openai/1t41nkt.md#c6"]
     section: Comments
     token_count: 498
 ---

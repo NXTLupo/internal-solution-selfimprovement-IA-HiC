@@ -20,22 +20,29 @@ chunks:
     char_span: [0, 2158]
     sentence_count: 6
     key_terms: [browser, vanguard, com, login, application, trust, data, page]
+    concepts: [browser, vanguard, application, login, trust]
+    related_chunks: ["social-intelligence/reddit-deep/vanguardinvestments/1pbk1hp.md#c1"]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/vanguardinvestments","u":"https://www.reddit.com/r/VanguardInvestments/comments/1pbk1hp/how_to_reset_from_trusting_browser_without/"}]
   - id: "social-intelligence/reddit-deep/vanguardinvestments/1pbk1hp.md#c1"
     char_span: [2160, 2824]
     sentence_count: 6
     key_terms: [browser, app, data, vanguard, cookie, com, shopping-cart, associated]
+    concepts: [browser, vanguard, cookie]
+    related_chunks: ["social-intelligence/reddit-deep/vanguardinvestments/1pbk1hp.md#c0"]
     token_count: 149
   - id: "social-intelligence/reddit-deep/vanguardinvestments/1pbk1hp.md#c2"
-    char_span: [2839, 4715]
+    char_span: [2838, 4714]
     sentence_count: 5
     key_terms: [credentials, address, different, browser, combination, trust, get, side]
+    concepts: [credentials, address, different, combination, browser]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/vanguardinvestments/1pbk1hp.md#c3"
-    char_span: [4717, 6226]
+    char_span: [4716, 6225]
     sentence_count: 11
     key_terms: [browser, profile, user-agent, https, app, primarily, wikipedia, guessing]
+    concepts: [browser, profile, user-agent, https, primarily]
     section: Comments
     token_count: 346
 ---

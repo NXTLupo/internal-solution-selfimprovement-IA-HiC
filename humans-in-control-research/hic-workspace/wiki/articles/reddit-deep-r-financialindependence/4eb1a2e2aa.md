@@ -18,36 +18,44 @@ chunks:
     char_span: [0, 516]
     sentence_count: 4
     key_terms: [financialindependence, reddit, comments, update, https, since, com, www]
+    concepts: [financialindependence, reddit, comments, update, https]
     token_count: 147
+    sources: [{"n":"Reddit Deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1o35dfg/year_update_after_1m_laid_off/"}]
   - id: "articles/reddit-deep-r-financialindependence/4eb1a2e2aa.md#c1"
     char_span: [518, 2568]
     sentence_count: 20
     key_terms: [went, snowboarding, did, got, job, back, been, feel]
+    concepts: [snowboarding, sweetgreen, insurance, severance, happier]
     token_count: 512
   - id: "articles/reddit-deep-r-financialindependence/4eb1a2e2aa.md#c2"
     char_span: [2257, 3743]
     sentence_count: 9
     key_terms: [because, current, interesting, feel, like, live, work, decided]
+    concepts: [because, current, interesting, decided, happier]
     token_count: 354
   - id: "articles/reddit-deep-r-financialindependence/4eb1a2e2aa.md#c3"
     char_span: [3748, 4852]
     sentence_count: 1
     key_terms: [history, breakdown, employer, income, faang, match, last, new]
+    concepts: [history, breakdown, employer, income, faang]
     token_count: 450
   - id: "articles/reddit-deep-r-financialindependence/4eb1a2e2aa.md#c4"
     char_span: [4854, 5802]
     sentence_count: 1
     key_terms: [employer, match, tax, spreadsheets, rollover, sharing, google, https]
+    concepts: [employer, match, spreadsheets, rollover, sharing]
     token_count: 447
   - id: "articles/reddit-deep-r-financialindependence/4eb1a2e2aa.md#c5"
     char_span: [5804, 7918]
     sentence_count: 18
     key_terms: [points, individual, year, stocks, being, hotel, understand, winkahpack]
+    concepts: [individual, points, stocks, being, hotel]
     token_count: 501
   - id: "articles/reddit-deep-r-financialindependence/4eb1a2e2aa.md#c6"
     char_span: [7920, 8292]
     sentence_count: 2
     key_terms: [points, spend, confident-income, user-no-relation, depreciating, manufactured, accumulate, transfers]
+    concepts: [points, spend]
     token_count: 84
 ---
 # Year Update after $1M: Laid Off

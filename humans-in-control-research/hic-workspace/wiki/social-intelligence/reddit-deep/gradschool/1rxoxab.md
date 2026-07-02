@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1765]
     sentence_count: 16
     key_terms: ["i'm", school, year, applying, graduate, applications, "i've", gradschool]
+    concepts: [school, applying, graduate, applications, gradschool]
     token_count: 401
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rxoxab/i_give_up/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1rxoxab.md#c1"
     char_span: [1779, 2770]
     sentence_count: 9
     key_terms: [masters, programs, phd, doctoral-level, applied, joint, best, particularly]
+    concepts: [masters, programs, doctoral-level, applied, joint]
     section: Comments
     token_count: 247
   - id: "social-intelligence/reddit-deep/gradschool/1rxoxab.md#c2"
     char_span: [2772, 5052]
     sentence_count: 20
     key_terms: [want, application, school, get, work, faculty, passion, through]
+    concepts: [application, school, faculty, passion, through]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/gradschool/1rxoxab.md#c3"
     char_span: [5054, 6311]
     sentence_count: 11
     key_terms: [experience, job, take, gradschool, difficult, something, people, school]
+    concepts: [experience, gradschool, difficult, something, people]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/gradschool/1rxoxab.md#c4"
     char_span: [6313, 8426]
     sentence_count: 7
     key_terms: [because, mother, people, guy, feedback, research, yourself, through]
+    concepts: [because, mother, people, feedback, research]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1rxoxab.md#c5"
     char_span: [8169, 8928]
     sentence_count: 8
     key_terms: [feedback, programs, spring, money, start, don, give, time]
+    concepts: [feedback, programs, spring, money, start]
     section: Comments
     token_count: 188
   - id: "social-intelligence/reddit-deep/gradschool/1rxoxab.md#c6"
     char_span: [8930, 9917]
     sentence_count: 14
     key_terms: [don, school, zess41, back, been, feel, life, phd]
+    concepts: [school, zess41]
     section: Comments
     token_count: 230
 ---

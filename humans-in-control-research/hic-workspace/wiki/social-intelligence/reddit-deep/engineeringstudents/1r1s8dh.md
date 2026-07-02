@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1175]
     sentence_count: 10
     key_terms: [engineering, engineeringstudents, year, scholarships, best, employers, comments, careers]
+    concepts: [engineering, engineeringstudents, scholarships, employers, comments]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1r1s8dh/getting_known_knowledge_and_potential_future/"}]
 ---
 # Getting known, knowledge and potential future careers for Sydney Engineering - Year 12 Student
 

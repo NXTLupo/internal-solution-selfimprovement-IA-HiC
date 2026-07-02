@@ -19,19 +19,23 @@ content_hash: "eae210b79cfad701"
 relevance_by_goal: {"8e9ecc469395":55}
 chunks:
   - id: "articles/reddit-deep-r-nonprofit/fe0b3fca02.md#c0"
-    char_span: [0, 1440]
+    char_span: [0, 1439]
     sentence_count: 13
     key_terms: [organization, year, fundraising, love, concerned, nonprofit, setting, reddit]
-    token_count: 333
+    concepts: [organization, fundraising, concerned, nonprofit, setting]
+    token_count: 332
+    sources: [{"n":"Reddit Deep: r/nonprofit","u":"https://www.reddit.com/r/nonprofit/comments/1lfdk5s/goal_setting_and_realistic_expectations/"}]
   - id: "articles/reddit-deep-r-nonprofit/fe0b3fca02.md#c1"
-    char_span: [1442, 2685]
+    char_span: [1441, 2684]
     sentence_count: 10
     key_terms: [sarcasticfundraiser, donors, organization, goals, layoffs, capital-meringue-164, going, short]
+    concepts: [sarcasticfundraiser, organization, donors, goals, layoffs]
     token_count: 304
   - id: "articles/reddit-deep-r-nonprofit/fe0b3fca02.md#c2"
-    char_span: [2687, 3696]
+    char_span: [2686, 3695]
     sentence_count: 5
     key_terms: [show, effectiveness, fundraising, unexpected, retention, project, sarcasticfundraiser, donor]
+    concepts: [effectiveness, fundraising, unexpected, retention, project]
     token_count: 211
 ---
 # Goal setting and realistic expectations

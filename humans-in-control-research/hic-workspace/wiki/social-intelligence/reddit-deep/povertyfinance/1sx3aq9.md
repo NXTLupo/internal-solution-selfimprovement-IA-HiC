@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 786]
     sentence_count: 4
     key_terms: [povertyfinance, enough, comments, budget, money, bulk, buy, reddit-deep]
+    concepts: [povertyfinance, enough, comments, budget, money]
     token_count: 188
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1sx3aq9/what_are_the_most_realistic_tips_for_saving_money/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx3aq9.md#c1"
     char_span: [800, 2621]
     sentence_count: 9
     key_terms: [store, too, coupons, grocery, walmart, online, pickup, doing]
+    concepts: [store, coupons, grocery, walmart, online]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx3aq9.md#c2"
     char_span: [2623, 3849]
     sentence_count: 9
     key_terms: [grocery, use, everything, finishing, lentils, thousandbucketsofh20, meals, pasta]
+    concepts: [grocery, everything, finishing, lentils, meals]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx3aq9.md#c3"
     char_span: [3851, 5075]
     sentence_count: 9
     key_terms: [beans, ingredients, fried, stock, meal, rice, sale, show]
+    concepts: [beans, ingredients, fried, stock]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx3aq9.md#c4"
     char_span: [5077, 6484]
     sentence_count: 15
     key_terms: [lentils, stores, get, nutritious, different, filling, grocery, peruse]
+    concepts: [lentils, stores, nutritious, different, filling]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx3aq9.md#c5"
     char_span: [6486, 7401]
     sentence_count: 13
     key_terms: [bulk, always, month, buy, buying, choose, times, able]
+    concepts: [always, month, buying, choose, times]
     section: Comments
     token_count: 237
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx3aq9.md#c6"
     char_span: [7404, 9354]
     sentence_count: 18
     key_terms: [butter, "it's", cheese, potatoes, top, tillamook, little, good]
+    concepts: [butter, cheese, potatoes, tillamook, little]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx3aq9.md#c7"
@@ -68,12 +76,14 @@ chunks:
     char_span: [9847, 11756]
     sentence_count: 21
     key_terms: [chicken, meals, ham, like, get, rice, potatoes, dollars]
+    concepts: [chicken, meals, potatoes, dollars, pasta]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx3aq9.md#c9"
     char_span: [11758, 12557]
     sentence_count: 6
     key_terms: [ham, protein, sources, meals, split, get, huge, less]
+    concepts: [protein, sources, meals, split]
     section: Comments
     token_count: 207
 ---

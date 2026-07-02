@@ -19,50 +19,62 @@ chunks:
     char_span: [0, 1718]
     sentence_count: 8
     key_terms: [financialindependence, investments, equity, retirement, comments, years, cash, path]
+    concepts: [financialindependence, investments, equity, retirement, comments]
     token_count: 516
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1mx6xt1/15_years_to_25m_a_retrospective/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c1"
     char_span: [1720, 3434]
     sentence_count: 14
     key_terms: [allocation, funds, contributions, accounts, possible, assets, market, target]
+    concepts: [allocation, contributions, funds, accounts, possible]
     token_count: 397
   - id: "social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c2"
     char_span: [3436, 5490]
     sentence_count: 21
     key_terms: [interest, estate, commercial, class, money, real, started, foundational]
+    concepts: [interest, commercial, estate, class, money]
     token_count: 448
   - id: "social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c3"
     char_span: [5492, 7668]
     sentence_count: 20
     key_terms: [wifey, job, purchase, player, did, mode, shoutout, brought]
+    concepts: [wifey, purchase, player, shoutout, brought]
     token_count: 502
   - id: "social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c4"
     char_span: [7670, 8914]
     sentence_count: 9
     key_terms: [job, total, betagobbler, comp, year, miserable, towards, thanks]
+    concepts: [betagobbler, total, miserable, towards, thanks]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c5"
     char_span: [8916, 10390]
     sentence_count: 14
     key_terms: [betagobbler, years, household, lifestyle, expenses, assets, retire, great]
+    concepts: [betagobbler, years, household, lifestyle, expenses]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c7"]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c6"
     char_span: [10392, 11630]
     sentence_count: 11
     key_terms: [expenses, similar, income, pretty, elegant-resident6802, "don't", undercover-wizard, kids]
+    concepts: [expenses, similar, income, pretty, "don't"]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c7"
     char_span: [11632, 13521]
     sentence_count: 10
     key_terms: [betagobbler, retirement, comment, years, cash, investable, thinking, financialindependence]
+    concepts: [betagobbler, retirement, comment, investable, years]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c5"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c8"
     char_span: [13523, 14555]
     sentence_count: 6
     key_terms: [redact, deleted, earlyriser928, betagobbler, home, like, post, anonymized]
+    concepts: [redact, earlyriser928, deleted, betagobbler, anonymized]
     section: Comments
     token_count: 273
 ---

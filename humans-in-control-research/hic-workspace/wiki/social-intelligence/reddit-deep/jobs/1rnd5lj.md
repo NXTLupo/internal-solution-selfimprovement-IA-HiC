@@ -21,71 +21,91 @@ chunks:
     char_span: [0, 1472]
     sentence_count: 15
     key_terms: [job, "i'm", feel, been, "i've", jobs, like, comments]
+    concepts: [comments, because, company, degree, doing]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rnd5lj.md#c10"]
     token_count: 347
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rnd5lj/corporate_greed_at_its_finest/"}]
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c1"
     char_span: [1486, 3363]
     sentence_count: 14
     key_terms: [pay, company, raise, everyone, increase, kdav0823, possible, little]
+    concepts: [company, raise, everyone, increase, kdav0823]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rnd5lj.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c2"
     char_span: [3124, 3845]
     sentence_count: 8
     key_terms: [employee, company, ok-wolverine-4223, been, gets, pay, pool, endpotential3659]
+    concepts: [employee, company]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c3"
     char_span: [3847, 5860]
     sentence_count: 11
     key_terms: [minimal, income, raises, raise, times, comfortable, cap, give]
+    concepts: [minimal, income, raises, comfortable, raise]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rnd5lj.md#c4", "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c5", "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c6"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c4"
     char_span: [5862, 7883]
     sentence_count: 12
     key_terms: [hour, today, rich, wage, minimal, enough, income, taxes]
+    concepts: [today, minimal, enough, income, taxes]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rnd5lj.md#c3"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c5"
     char_span: [7885, 9803]
     sentence_count: 13
     key_terms: [raise, raises, year, get, around, pretty, cost, jobs]
+    concepts: [raise, raises, around, pretty, companies]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rnd5lj.md#c3", "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c6"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c6"
     char_span: [9805, 10775]
     sentence_count: 7
     key_terms: [company, raises, companies, years, raise, promotion, generous, bonuses]
+    concepts: [company, raises, companies, years, raise]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rnd5lj.md#c1", "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c3", "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c5"]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c7"
     char_span: [10777, 12244]
     sentence_count: 7
     key_terms: [inflation, consumer-prices-up-2-4-percent-over-the-year-ended-january-2026, year, per, people, background-radish-63, organichistorian2576, willing-vegetable629]
+    concepts: [inflation, people, "don't"]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c8"
     char_span: [12246, 13811]
     sentence_count: 11
     key_terms: [got, year, raise, any-mathematician946, thats, day, does, job]
+    concepts: [raise, thats]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c9"
     char_span: [13813, 15239]
     sentence_count: 7
     key_terms: [standard, inflation, deleted, year, percentage, generous, company, percent]
+    concepts: [standard, inflation, deleted, percentage, generous]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c10"
     char_span: [15241, 17192]
     sentence_count: 10
     key_terms: [job, good, get, field, raise, told, saturated, because]
+    concepts: [field, raise, saturated, because, degree]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rnd5lj.md#c0"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c11"
     char_span: [17194, 19468]
     sentence_count: 17
     key_terms: [degree, business, job, degrees, english, because, useless, writing]
+    concepts: [degree, business, degrees, english, cybersecurity]
     section: Comments
     token_count: 512
 ---

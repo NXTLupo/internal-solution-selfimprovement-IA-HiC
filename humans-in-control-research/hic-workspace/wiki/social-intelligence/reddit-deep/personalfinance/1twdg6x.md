@@ -8,23 +8,28 @@ title: "Best Bank/Credit Union for joint account"
 author: "NoDrop8503"
 date: "2026-06-04T04:46:39.000Z"
 score: 0
-upvote_ratio: 0.33
+upvote_ratio: 0.43
 num_comments: 6
 flair: "Saving"
-extracted_at: "2026-06-11T15:26:16.544Z"
+extracted_at: "2026-06-26T21:51:56.938Z"
 extraction_method: "praw-deep"
-research_goal: "Produce the definitive guide to personal investing in 2026 by analyzing the current state of the fintech and financial industries. Evaluate retail investor behaviors, emerging asset classes, and platform shifts using 2026 market news, industry reports, and social media trends to identify actionable investment strategies and market opportunities."
-engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
+research_goal: "Identify and analyze the top five consumer finance trends for 2026 across retail banking, fintech, and consumer lending, delivering a prioritized trend matrix that details key drivers, shifting consumer behaviors, and technological adoption."
+engagement: "identify-and-analyze-the-top-five-consumer-finance-trends-fo"
 chunks:
   - id: "social-intelligence/reddit-deep/personalfinance/1twdg6x.md#c0"
     char_span: [0, 1325]
     sentence_count: 9
     key_terms: [account, service, new, customer, personalfinance, credit, joint, bill]
+    concepts: [account, service, personalfinance, customer, credit]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1twdg6x.md#c1"]
     token_count: 286
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1twdg6x/best_bankcredit_union_for_joint_account/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1twdg6x.md#c1"
-    char_span: [1340, 3038]
+    char_span: [1339, 3037]
     sentence_count: 12
     key_terms: [account, accounts, customer, service, access, credit, person, joint]
+    concepts: [account, accounts, customer, service, access]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1twdg6x.md#c0"]
     section: Comments
     token_count: 385
 ---
@@ -51,7 +56,7 @@ Look forward to your insight and feedback!
 
 ## Comments
 
-- **Major_Bag3934** (5↑): If customer service is your biggest concern, I'd seriously consider a credit union over the major banks. Better support, fewer fees, and many offer separate online access for joint account holders. 
+- **Major_Bag3934** (7↑): If customer service is your biggest concern, I'd seriously consider a credit union over the major banks. Better support, fewer fees, and many offer separate online access for joint account holders. 
 
 Patelco and SF Fire CU might be worth a look if you're in the Bay Area.
   - **NoDrop8503** (1↑): Our recent experience with taking time off work to go to the bank in person and receive zero resolution is part of the customer service bit. thank you for the feedback !

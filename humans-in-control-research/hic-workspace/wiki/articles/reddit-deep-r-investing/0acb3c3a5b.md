@@ -19,10 +19,12 @@ content_hash: "1d1f341472f4f068"
 relevance_by_goal: {"7bbd4efaae7d":30}
 chunks:
   - id: "articles/reddit-deep-r-investing/0acb3c3a5b.md#c0"
-    char_span: [0, 1708]
+    char_span: [0, 1707]
     sentence_count: 14
     key_terms: [bitcoin, investing, returns, trading, buy, good, overthinking, "don't"]
-    token_count: 400
+    concepts: [bitcoin, investing, returns, trading, overthinking]
+    token_count: 399
+    sources: [{"n":"[Reddit Deep: r/investing](articles/reddit-deep-r-investing/8057b35b0f.md","u":""}]
 ---
 # Investing crypto in portfolio management platforms a good idea?
 

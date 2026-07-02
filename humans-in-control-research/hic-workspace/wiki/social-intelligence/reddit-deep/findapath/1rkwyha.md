@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 324]
     sentence_count: 2
     key_terms: [findapath, comments, ok-definition-1922, reddit-deep, experience, immigrant, recommend, year-old]
+    concepts: [findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1rkwyha.md#c1"]
     token_count: 92
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1rkwyha/what_career_would_you_recommend_for_a_30yearold/"}]
   - id: "social-intelligence/reddit-deep/findapath/1rkwyha.md#c1"
     char_span: [338, 1470]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    concepts: [thank, helpful, please, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1rkwyha.md#c0"]
     section: Comments
     token_count: 248
 ---

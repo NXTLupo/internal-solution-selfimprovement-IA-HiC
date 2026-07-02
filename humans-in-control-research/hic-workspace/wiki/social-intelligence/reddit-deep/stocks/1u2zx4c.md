@@ -20,42 +20,49 @@ chunks:
     char_span: [0, 1976]
     sentence_count: 20
     key_terms: [users, snap, scale, billion, daily, active, almost, user]
+    concepts: [users, scale, billion, daily, active]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1u2zx4c/snapchat_is_probably_the_most_undervalued_tech/"}]
   - id: "social-intelligence/reddit-deep/stocks/1u2zx4c.md#c1"
     char_span: [1978, 4300]
     sentence_count: 25
     key_terms: [revenue, snap, penetration, positive, snapchat, users, base, cash]
+    concepts: [revenue, penetration, positive, snapchat, meaningful]
     token_count: 514
   - id: "social-intelligence/reddit-deep/stocks/1u2zx4c.md#c2"
     char_span: [4302, 6584]
     sentence_count: 22
     key_terms: [snap, specs, revenue, market, meta, consumer, platform, upside]
+    concepts: [specs, revenue, market, consumer, platform]
     token_count: 482
   - id: "social-intelligence/reddit-deep/stocks/1u2zx4c.md#c3"
     char_span: [6586, 6966]
     sentence_count: 4
     key_terms: [position, advice, hold, snap, recommendation, significant, completely, disclosure]
+    concepts: [position, advice]
     token_count: 83
   - id: "social-intelligence/reddit-deep/stocks/1u2zx4c.md#c4"
-    char_span: [6981, 7336]
+    char_span: [6980, 7335]
     sentence_count: 2
     key_terms: [slop, acceptable-friend-92, killerkeemstart123, thedonfulio, count-to-3, everything, represents, authentic]
     section: Comments
     token_count: 116
   - id: "social-intelligence/reddit-deep/stocks/1u2zx4c.md#c5"
-    char_span: [7338, 8910]
+    char_span: [7337, 8909]
     sentence_count: 13
     key_terms: [million, acceptable-friend-92, something, positive, ebitda, compensation, based, cash]
+    concepts: [acceptable-friend-92, million, something, positive, compensation]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/stocks/1u2zx4c.md#c6"
-    char_span: [8912, 10390]
+    char_span: [8911, 10389]
     sentence_count: 12
     key_terms: [app, acceptable-friend-92, garbage, using, i30swimmer, management, rehoboam, company]
+    concepts: [acceptable-friend-92, garbage, i30swimmer, management, using]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/stocks/1u2zx4c.md#c7"
-    char_span: [10392, 10940]
+    char_span: [10391, 10939]
     sentence_count: 5
     key_terms: [acceptable-friend-92, unhappy-language-912, cardiologistill7271, acquisition, completely, experience, management, sidelines]
     section: Comments

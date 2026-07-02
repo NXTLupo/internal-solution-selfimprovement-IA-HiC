@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 991]
     sentence_count: 6
     key_terms: [international, engineering, scholarship, neu, mechanical, comments, congrats, honors]
+    concepts: [international, engineering, scholarship, mechanical, comments]
     token_count: 267
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qpygk3/got_into_northeastern_applied_ea/"}]
 ---
 # got into northeastern!!! applied EA
 

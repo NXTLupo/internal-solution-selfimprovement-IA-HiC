@@ -21,38 +21,48 @@ chunks:
     char_span: [0, 1550]
     sentence_count: 1
     key_terms: [gradadmissions, comments, reddit, https, com, www, honestly, school]
+    concepts: [gradadmissions, comments, reddit, https, honestly]
     token_count: 374
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1sjnd0j/details_on_my_low_gpa_acceptance/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c1"
     char_span: [1552, 3147]
     sentence_count: 1
     key_terms: [lab, saw, work, completely, everything, masters, running, asked]
+    concepts: [completely, everything, masters, running, asked]
     token_count: 358
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c2"
     char_span: [3149, 5251]
     sentence_count: 3
     key_terms: [get, show, little, publications, care, didn, don, real]
+    concepts: [publications, little, applicant, something, statement]
     token_count: 463
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c3"
     char_span: [5253, 5662]
     sentence_count: 1
     key_terms: [don, yourself, need, everything, different, everyone, positive, thinking]
+    concepts: [yourself]
     token_count: 89
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c4"
     char_span: [5676, 6619]
     sentence_count: 5
     key_terms: [feel, gpa, undergrad, never, super, thank, glitteringpeaches, been]
+    concepts: [undergrad, never, super, thank]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c5"]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c5"
     char_span: [6621, 8634]
     sentence_count: 15
     key_terms: [undergrad, did, got, phd, thank, get, gpa, like]
+    concepts: [undergrad, thank, accepted, programs, faculty]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c6"
     char_span: [8359, 9143]
     sentence_count: 7
     key_terms: [completely, support, been, gpa, hope, phd, year, inspectornaive2]
+    concepts: [completely, support]
     section: Comments
     token_count: 189
 ---

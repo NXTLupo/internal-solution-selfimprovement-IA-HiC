@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 419]
     sentence_count: 3
     key_terms: [jobs, comments, reddit-deep, experience, employers, pressures, struggles, economic]
+    concepts: [comments]
     token_count: 108
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1qd7y2f/boomers_are_staying_in_the_job_market_as_gen_z/"}]
   - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c1"
     char_span: [433, 704]
     sentence_count: 2
@@ -32,18 +34,21 @@ chunks:
     char_span: [706, 2404]
     sentence_count: 15
     key_terms: [security, single, social, age, job, work, retirement, countries]
+    concepts: [security, single, social, retirement, countries]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c3"
     char_span: [2406, 3563]
     sentence_count: 10
     key_terms: [years, through, psychologicalad6389, don, full, time, prettyadagio4210, ahxce3zksevsg]
+    concepts: [years, through]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c4"
     char_span: [3565, 5296]
     sentence_count: 12
     key_terms: [boomer, "didn't", "don't", retirement, boomers, parents, working, anyseaworthiness6472]
+    concepts: [boomer, "didn't", "don't", retirement, boomers]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c5"
@@ -56,24 +61,30 @@ chunks:
     char_span: [5644, 7672]
     sentence_count: 13
     key_terms: [people, companies, entrepreneurial, problem, opportunities, healthcare, available, because]
+    concepts: [people, companies, entrepreneurial, opportunities, problem]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c7"
     char_span: [7674, 9815]
     sentence_count: 19
     key_terms: [been, people, complaints, job, "i've", businesses, experience, graduates]
+    concepts: [complaints, people, businesses, experience, graduates]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qd7y2f.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c8"
     char_span: [9492, 9920]
     sentence_count: 4
     key_terms: [complaints, graduates, fewer, complaining, difference, experience, employers, pressures]
+    concepts: [complaints, graduates, fewer]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qd7y2f.md#c7"]
     section: Comments
     token_count: 90
   - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c9"
     char_span: [9922, 10360]
     sentence_count: 2
     key_terms: [lower, non-pensioneers, overqualified, rerorerox42, experience, interviews, ironically, supplement]
+    concepts: [lower]
     section: Comments
     token_count: 96
 ---

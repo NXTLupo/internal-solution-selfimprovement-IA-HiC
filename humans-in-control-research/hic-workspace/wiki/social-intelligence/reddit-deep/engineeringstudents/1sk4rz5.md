@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 842]
     sentence_count: 2
     key_terms: [engineeringstudents, opportunities, engineering, "i'm", own, aerospace, comments, studying]
+    concepts: [engineeringstudents, opportunities, engineering, aerospace, comments]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1sk4rz5.md#c1"]
     token_count: 194
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sk4rz5/doubts_and_opportunities_as_a_student_studying_in/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sk4rz5.md#c1"
     char_span: [856, 2801]
     sentence_count: 17
     key_terms: [aerospace, engineering, work, country, chepetronix317, going, don, residency]
+    concepts: [aerospace, engineering, chepetronix317, country, going]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1sk4rz5.md#c0"]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sk4rz5.md#c2"
     char_span: [2803, 3581]
     sentence_count: 7
     key_terms: [study, countries, security, america, further, france, school, learn]
+    concepts: [study, countries, security, america, further]
     section: Comments
     token_count: 172
 ---

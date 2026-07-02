@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1093]
     sentence_count: 10
     key_terms: [waterloo, toronto, comments, downtown, closer, moving, been, days]
+    concepts: [waterloo, toronto, comments, downtown, closer]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1nd1a1a.md#c3"]
     token_count: 272
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1nd1a1a/living_in_waterloo_and_working_in_downtown_toronto/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1nd1a1a.md#c1"
     char_span: [1107, 2652]
     sentence_count: 15
     key_terms: [train, move, time, week, commute, closer, days, did]
+    concepts: [train, commute, closer, honestly, better]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/waterloo/1nd1a1a.md#c2"
     char_span: [2654, 4107]
     sentence_count: 9
     key_terms: [family, took, work, decision, vehicle, bigger, closer, paycut]
+    concepts: [family, decision, vehicle, bigger, closer]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/waterloo/1nd1a1a.md#c3"
     char_span: [4109, 5849]
     sentence_count: 16
     key_terms: [toronto, living, work, waterloo, snooradishes9685, "it's", week, expensive]
+    concepts: [toronto, living, snooradishes9685, waterloo, expensive]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1nd1a1a.md#c0"]
     section: Comments
     token_count: 456
 ---

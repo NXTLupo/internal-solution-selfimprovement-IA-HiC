@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 1775]
     sentence_count: 10
     key_terms: [school, grad, astrophysics, princeton, undergrad, misunderstanding, prospective, admissions]
+    concepts: [school, astrophysics, misunderstanding, princeton, undergrad]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c2", "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c3"]
     token_count: 375
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1sq2i8h/prospective_undergrad_misunderstanding_grad/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c1"
     char_span: [1789, 2083]
     sentence_count: 3
     key_terms: [top, schools, list, name, errorlessquaak, differences, significant, astronomy]
+    concepts: [schools]
     section: Comments
     token_count: 64
   - id: "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c2"
     char_span: [2085, 4460]
     sentence_count: 16
     key_terms: [undergrad, research, school, schools, students, grad, competitive, excellent]
+    concepts: [undergrad, research, school, schools, students]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c0", "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c3", "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c5"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c3"
     char_span: [4462, 6000]
     sentence_count: 11
     key_terms: [school, research, institution, best, grad, work, undergrad, programs]
+    concepts: [research, school, institution, undergrad, programs]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c0", "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c2"]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c4"
     char_span: [6002, 8157]
     sentence_count: 14
     key_terms: [programs, program, grad, caliber, astrophysics, astronomy, specific, getting]
+    concepts: [programs, program, astrophysics, caliber, astronomy]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c5"
     char_span: [8159, 9102]
     sentence_count: 8
     key_terms: [students, schools, undergrad, "you're", best, "there's", gap, grad]
+    concepts: [students, schools, undergrad, "you're", "there's"]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c2"]
     section: Comments
     token_count: 187
 ---

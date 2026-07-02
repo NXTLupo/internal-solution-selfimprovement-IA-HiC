@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1287]
     sentence_count: 5
     key_terms: [product, dev, everything, customers, comments, customer, founders, investor]
+    concepts: [product, everything, customers, comments, customer]
     token_count: 282
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1qmfnp0/i_will_not_promote_solo_founders_juggling/"}]
   - id: "social-intelligence/reddit-deep/startups/1qmfnp0.md#c1"
-    char_span: [1302, 3098]
+    char_span: [1301, 3097]
     sentence_count: 13
     key_terms: [because, project, startup, instructions, get, contacts, everyday, founders]
+    concepts: [because, project, startup, instructions, contacts]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/startups/1qmfnp0.md#c2"
-    char_span: [3100, 5443]
+    char_span: [3099, 5442]
     sentence_count: 26
     key_terms: [slack, customer, notion, weekly, different, team, term, dev]
+    concepts: [customer, slack, notion, weekly, different]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/startups/1qmfnp0.md#c3"
-    char_span: [5445, 7483]
+    char_span: [5444, 7482]
     sentence_count: 17
     key_terms: [context, week, fearless-plenty-7368, like, maintained, building, decision, perfect]
+    concepts: [context, fearless-plenty-7368, maintained, building, decision]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/startups/1qmfnp0.md#c4"
-    char_span: [7485, 8633]
+    char_span: [7484, 8632]
     sentence_count: 5
     key_terms: [personal, management, including, notion, no-professional-1092, "don't", takes, costheparacetemol]
+    concepts: [personal, management, including, notion, "don't"]
     section: Comments
     token_count: 277
 ---

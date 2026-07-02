@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 503]
     sentence_count: 4
     key_terms: [cscareerquestions, internship, developer, comments, through, summer, seo, tech]
+    concepts: [cscareerquestions, internship, developer, comments, through]
     token_count: 127
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sh7etp/seo_tech_developer_vs_summer_internship/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sh7etp.md#c1"
     char_span: [517, 744]
     sentence_count: 1
     key_terms: [comments, csmajors, reddit, https, com, www, payapya, anyone]
+    concepts: [comments, csmajors, reddit, https]
     section: Comments
     token_count: 82
 ---

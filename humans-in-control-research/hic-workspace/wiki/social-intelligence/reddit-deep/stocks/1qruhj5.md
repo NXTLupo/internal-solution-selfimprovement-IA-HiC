@@ -20,27 +20,33 @@ chunks:
     char_span: [0, 2125]
     sentence_count: 4
     key_terms: [friday, interest, intervention, appointment, rate, yen, comments, treasury]
+    concepts: [friday, interest, intervention, appointment, comments]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1qruhj5/macro_crisis_the_panic_at_the_disco_thesolution/"}]
   - id: "social-intelligence/reddit-deep/stocks/1qruhj5.md#c1"
     char_span: [2127, 4399]
     sentence_count: 15
     key_terms: [however, yen, usd, economic, japanese, institutions, risk, diplomatic]
+    concepts: [however, economic, japanese, institutions, diplomatic]
     token_count: 481
   - id: "social-intelligence/reddit-deep/stocks/1qruhj5.md#c2"
     char_span: [4401, 5079]
     sentence_count: 3
     key_terms: [carry, short, trade, cash, yen, strengthening, institutions, liquidation]
+    concepts: [carry, short, trade]
     token_count: 135
   - id: "social-intelligence/reddit-deep/stocks/1qruhj5.md#c3"
-    char_span: [5094, 6788]
+    char_span: [5093, 6787]
     sentence_count: 13
     key_terms: [icamesawabstained, board, rates, governors, because, cannot, people, educational-tone2074]
+    concepts: [icamesawabstained, board, rates, governors, because]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/stocks/1qruhj5.md#c4"
-    char_span: [6791, 7871]
+    char_span: [6790, 7870]
     sentence_count: 8
     key_terms: [boj-set-hold-rates-steady-election-yield-spike-cloud-outlook-2026-01-22, tokyo-cpi-inflation-falls-to-near-4year-low-in-jan-4231440, investing, downtown-rabbit-6637, economic-indicators, https, world, traditionalmango58]
+    concepts: [investing, https, world]
     section: Comments
     token_count: 278
 ---

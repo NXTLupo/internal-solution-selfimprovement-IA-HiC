@@ -8,47 +8,56 @@ title: "Aetna Mounjaro Obesity"
 author: "Foreign-Platform5751"
 date: "2026-04-18T13:42:39.000Z"
 score: 0
-upvote_ratio: 0.38
+upvote_ratio: 0.25
 num_comments: 16
 flair: "Prescription Drug Benefits"
-extracted_at: "2026-06-17T19:26:43.289Z"
+extracted_at: "2026-06-20T17:52:36.319Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/healthinsurance/1soxzvc.md#c0"
     char_span: [0, 1390]
     sentence_count: 18
     key_terms: [mounjaro, healthinsurance, however, authorization, since, etc, july, successful]
+    concepts: [mounjaro, healthinsurance, authorization, however, since]
     token_count: 357
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1soxzvc/aetna_mounjaro_obesity/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1soxzvc.md#c1"
-    char_span: [1405, 3286]
+    char_span: [1404, 3285]
     sentence_count: 6
     key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    concepts: [information, questions, following, please, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1soxzvc.md#c2"]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/healthinsurance/1soxzvc.md#c2"
-    char_span: [3288, 5301]
+    char_span: [3287, 5300]
     sentence_count: 10
     key_terms: [please, specialty, eob, contact, questions, subreddit, list, post]
+    concepts: [please, specialty, contact, questions, subreddit]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1soxzvc.md#c1"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/healthinsurance/1soxzvc.md#c3"
-    char_span: [5303, 6048]
+    char_span: [5302, 6047]
     sentence_count: 6
     key_terms: [zepbound, changes, wegovy, price, list, novo, my-cat-cant-cat, lucky-ducky-99]
+    concepts: [zepbound, changes, wegovy, price]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/healthinsurance/1soxzvc.md#c4"
-    char_span: [6050, 7870]
+    char_span: [6049, 7869]
     sentence_count: 11
     key_terms: [insurance, coverage, changes, rebates, explaining, important, specific, covered]
+    concepts: [insurance, coverage, changes, rebates, explaining]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/healthinsurance/1soxzvc.md#c5"
-    char_span: [7872, 9013]
+    char_span: [7871, 9012]
     sentence_count: 10
     key_terms: [plan, benefits, plans, number, online, haven, call, drugpatentwatch]
+    concepts: [benefits, plans, number, online, haven]
     section: Comments
     token_count: 262
 ---
@@ -106,7 +115,7 @@ I’m sure that any list price changes will be matched by cuts to rebates. I’d
 - **CallingYouForMoney** (6↑): Just because executives use it, doesn’t mean they are going to pay the same as you. I’ve seen many companies have a ‘C-Suite’ package and regular employee package.
   - **ImaginationNo9487** (2↑): THIS. Happens much more than people know. I set up tiered coverage for employer groups on a regular basis.
 - **katsrad** (2↑): Have you called the insurance company or pharmacy benefit manager to verify new benefits? I have worked on the insurance side actually doing the keying part of the renewal and knowing in April for a July 1 renewal might be early.
-  - **Business-Title8503** (3↑): It will most likely be too early HOWEVER, if they are not switching PBMs and coverage is just rolling over as of 7/1, I 100% promise you, coverage for GLP-1 drugs have already been discussed adnauseam. OP if the coverage was to change as of 7/1, you’d most likely be receiving a letter towards beginning or middle of May. It’s important to know as well that Mounjaro is strictly for a diabetes indication and Zepbound for the obesity diagnosis, if there’s any changes, that’s the change I would personally expect. It’s also important on how your PA is approved. The specific language I mean.
+  - **Business-Title8503** (4↑): It will most likely be too early HOWEVER, if they are not switching PBMs and coverage is just rolling over as of 7/1, I 100% promise you, coverage for GLP-1 drugs have already been discussed adnauseam. OP if the coverage was to change as of 7/1, you’d most likely be receiving a letter towards beginning or middle of May. It’s important to know as well that Mounjaro is strictly for a diabetes indication and Zepbound for the obesity diagnosis, if there’s any changes, that’s the change I would personally expect. It’s also important on how your PA is approved. The specific language I mean.
     - **The_Moofia** (3↑): This 💯. I nurse am so tired of explaining to patients that their insurance plan changes annually so what used to be covered from previous year might not be covered this year - it all varies on their plans and they would have received a letter from the insurance plan(many due they just toss it out or never opened it) explaining any changes.
 
 Also correct I have not seen a health plan covered Monjuaro for weight loss only Diabetes. But again maybe I just haven’t come across that many plans with our pt demographics.

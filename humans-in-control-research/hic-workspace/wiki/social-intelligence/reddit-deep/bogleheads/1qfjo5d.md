@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 839]
     sentence_count: 8
     key_terms: [performance, bogleheads, calculate, comments, vanguard, weighted, getting, dollar]
+    concepts: [performance, bogleheads, calculate, comments, vanguard]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1qfjo5d.md#c1"]
     token_count: 178
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1qfjo5d/still_annoyed_that_vanguard_stopped_calculating/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1qfjo5d.md#c1"
-    char_span: [854, 2905]
+    char_span: [853, 2904]
     sentence_count: 12
     key_terms: [performance, margin, vanguard, accounts, account, irr, personal, dollar-weighted]
+    concepts: [performance, margin, vanguard, accounts, account]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1qfjo5d.md#c0"]
     section: Comments
     token_count: 487
 ---

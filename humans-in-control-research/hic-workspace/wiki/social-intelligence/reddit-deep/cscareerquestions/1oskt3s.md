@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 673]
     sentence_count: 8
     key_terms: [cscareerquestions, start, internships, experience, applying, comments, personal, semester]
+    concepts: [cscareerquestions, internships, experience, start, applying]
     token_count: 151
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1oskt3s/about_to_start_school_for_cs_but_have_personal/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oskt3s.md#c1"
     char_span: [687, 1626]
     sentence_count: 5
     key_terms: [luunnn, thanks, "you're", start, good, "it's", use, weak]
+    concepts: [luunnn, thanks, "you're", start]
     section: Comments
     token_count: 213
 ---

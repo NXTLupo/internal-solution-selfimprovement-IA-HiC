@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1701]
     sentence_count: 6
     key_terms: [spatially-grounded, text, machinelearning, dataset, verification, flash, https, model]
+    concepts: [spatially-grounded, machinelearning, dataset, verification, ocr-focused]
     token_count: 412
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1sqdrqg/sgocr_a_spatiallygrounded_ocrfocused_pipeline_v1/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1sqdrqg.md#c1"
     char_span: [1703, 2541]
     sentence_count: 5
     key_terms: [looking, process, hyperparameter-searchy, less, loop, human-grounded, autoresearch, bootstrapped]
+    concepts: [looking, process]
     token_count: 170
 ---
 # SGOCR: A Spatially-Grounded OCR-focused Pipeline & V1 Dataset [P]

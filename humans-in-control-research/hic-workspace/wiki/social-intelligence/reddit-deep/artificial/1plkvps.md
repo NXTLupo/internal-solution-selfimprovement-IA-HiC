@@ -21,34 +21,41 @@ chunks:
     char_span: [0, 1781]
     sentence_count: 37
     key_terms: ["that's", takes, knowledge, time, work, artificial, different, workflows]
+    concepts: ["that's", knowledge, takes, artificial, different]
     token_count: 412
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1plkvps/whitecollar_layoffs_are_coming_at_a_scale_weve/"}]
   - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c1"
     char_span: [1783, 3653]
     sentence_count: 35
     key_terms: [next, "couldn't", people, saying, years, "i'm", safe, happening]
+    concepts: ["couldn't", people, saying, years, happening]
     token_count: 429
   - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c2"
     char_span: [3667, 5482]
     sentence_count: 19
     key_terms: [job, krazyboi, because, forever, talking, longer, market, get]
+    concepts: [krazyboi, because, forever, talking, longer]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c3"
     char_span: [5484, 6017]
     sentence_count: 5
     key_terms: [coders, college, better, coding, information, unprotected, notgalgon, sensitive]
+    concepts: [coders, college, better, coding]
     section: Comments
     token_count: 115
   - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c4"
     char_span: [6019, 8046]
     sentence_count: 19
     key_terms: [ijdelheidijdelheden, maybe, right, extrapolate, does, work, meaningful, knowledge]
+    concepts: [ijdelheidijdelheden, extrapolate, maybe, meaningful, right]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c5"
     char_span: [7788, 9948]
     sentence_count: 16
     key_terms: [taking, meaningful, trash, art, tax, work, dishwasher, arguably]
+    concepts: [meaningful, taking, trash, dishwasher, arguably]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c6"
@@ -61,6 +68,7 @@ chunks:
     char_span: [10210, 12441]
     sentence_count: 17
     key_terms: [knowledge, internet, products, number, jobs, increase, going, labor]
+    concepts: [knowledge, internet, products, number, increase]
     section: Comments
     token_count: 481
 ---

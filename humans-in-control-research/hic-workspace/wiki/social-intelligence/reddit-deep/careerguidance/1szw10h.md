@@ -21,16 +21,22 @@ chunks:
     char_span: [0, 2491]
     sentence_count: 11
     key_terms: [manufacturing, engineering, projects, working, environments, work, learning, careerguidance]
+    concepts: [manufacturing, engineering, projects, environments, working]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1szw10h.md#c1"]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1szw10h/22m_uk_engineering_career_crossroads_adhd/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1szw10h.md#c1"
     char_span: [2493, 4869]
     sentence_count: 14
     key_terms: [degree, manufacturing, engineering, something, advanced, because, company, place]
+    concepts: [degree, manufacturing, engineering, something, advanced]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1szw10h.md#c0"]
     token_count: 445
   - id: "social-intelligence/reddit-deep/careerguidance/1szw10h.md#c2"
     char_span: [4871, 7102]
     sentence_count: 7
     key_terms: [experience, corporate, stability, career, opportunities, engineering, adhd, direction]
+    concepts: [experience, corporate, stability, opportunities, career]
     token_count: 436
 ---
 # 22M UK — Engineering career crossroads, ADHD, multiple opportunities, anybody have advice what direction to take my life?

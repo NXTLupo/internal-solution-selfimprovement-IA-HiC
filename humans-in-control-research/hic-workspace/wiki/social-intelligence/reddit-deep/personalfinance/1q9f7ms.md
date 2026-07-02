@@ -21,43 +21,52 @@ chunks:
     char_span: [0, 1721]
     sentence_count: 3
     key_terms: [savings, pay, account, funds, net, personalfinance, budget, contribution]
+    concepts: [savings, account, funds, personalfinance, contribution]
     token_count: 464
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1q9f7ms/budget_assist_points_of_concern_debt_savings_long/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c1"
     char_span: [1725, 3498]
     sentence_count: 7
     key_terms: [bills, monthly, per, category, paycheck, spending, grocery, total]
+    concepts: [bills, monthly, category, paycheck, spending]
     token_count: 504
   - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c2"
     char_span: [3502, 4993]
     sentence_count: 2
     key_terms: [paycheck, savings, fund, per, buffer, roth, recommendations, tattoo]
+    concepts: [paycheck, savings, buffer, recommendations, tattoo]
     token_count: 470
   - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c3"
     char_span: [4997, 6753]
     sentence_count: 10
     key_terms: [credit, care, irs, savings, card, get, checking, payments]
+    concepts: [credit, savings, checking, payments, current]
     token_count: 400
   - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c4"
     char_span: [6757, 7516]
     sentence_count: 8
     key_terms: [tattoo, "don't", total, over-budgeted, additionally, technically, ballparked, compensate]
+    concepts: [tattoo, "don't", total]
     token_count: 183
   - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c5"
     char_span: [7530, 9707]
     sentence_count: 16
     key_terms: [budget, roth, savings, fund, "it's", expenses, minimum, anticipating]
+    concepts: [budget, savings, expenses, minimum, anticipating]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c6"
     char_span: [9709, 11739]
     sentence_count: 16
     key_terms: [personalfinance, job, pay, experience, budgeting, currently, potential, something]
+    concepts: [personalfinance, experience, budgeting, currently, potential]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c7"
     char_span: [11742, 12546]
     sentence_count: 8
     key_terms: [housing, costs, area, down, math, yeah, downpayment, potentially]
+    concepts: [housing, costs]
     section: Comments
     token_count: 180
 ---

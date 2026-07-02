@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2173]
     sentence_count: 15
     key_terms: [engineeringstudents, reddit, wiki, https, com, biosensing, www, project]
+    concepts: [engineeringstudents, reddit, https, biosensing, automoderator]
     token_count: 495
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qcx9p0/dilemma_over_opportunities_engineering_student/"}]
   - id: "articles/reddit-deep-r-engineeringstudents/be6ab895bb.md#c1"
     char_span: [2175, 4007]
     sentence_count: 14
     key_terms: [project, research, automation, orangetothefourth, projects, mentor, potentially, ieee]
+    concepts: [project, research, automation, orangetothefourth, projects]
     token_count: 375
 ---
 # Dilemma over opportunities - engineering student

@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1319]
     sentence_count: 9
     key_terms: [because, career, major, path, findapath, semesters, comments, transfer]
+    concepts: [because, career, major, findapath, semesters]
     token_count: 293
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1pwtnri/transfer_student_reconsidering_career_path_and/"}]
   - id: "social-intelligence/reddit-deep/findapath/1pwtnri.md#c1"
     char_span: [1333, 3489]
     sentence_count: 15
     key_terms: [thank, helpful, people, please, major, findapath, comments, everyone]
+    concepts: [thank, helpful, people, please, major]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/findapath/1pwtnri.md#c2"
     char_span: [3491, 4784]
     sentence_count: 11
     key_terms: [good, teachers, yourself, friends, relief, "don't", sense, state]
+    concepts: [teachers, yourself, friends, relief, "don't"]
     section: Comments
     token_count: 285
 ---

@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 547]
     sentence_count: 3
     key_terms: [businessintelligence, comments, data, job, specifically, reddit-deep, analytics, pipelines]
+    concepts: [businessintelligence, comments]
     token_count: 135
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1npl9r8/cv_advice/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1npl9r8.md#c1"
-    char_span: [562, 2431]
+    char_span: [561, 2430]
     sentence_count: 13
     key_terms: [value, liquorishsunfish, data, joke, work, recently, kimball, kimmel]
+    concepts: [liquorishsunfish, value, recently, kimball, kimmel]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/businessintelligence/1npl9r8.md#c2"
-    char_span: [2433, 3979]
+    char_span: [2432, 3978]
     sentence_count: 15
     key_terms: [point, data, dashboards, experience, something, section, impact, junior]
+    concepts: [dashboards, experience, point, something, section]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/businessintelligence/1npl9r8.md#c3"
-    char_span: [3981, 5099]
+    char_span: [3980, 5098]
     sentence_count: 8
     key_terms: [nuttallergy, kind, like, experience, suspicious-pizza-548, doing, tasks, tools]
+    concepts: [nuttallergy, experience, doing, tasks, tools]
     section: Comments
     token_count: 286
 ---

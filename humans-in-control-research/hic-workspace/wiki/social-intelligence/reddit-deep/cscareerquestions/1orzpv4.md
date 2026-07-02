@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1143]
     sentence_count: 9
     key_terms: [cscareerquestions, advancement, specialize, developer, important, comments, software, specific]
+    concepts: [cscareerquestions, advancement, specialize, developer, important]
     token_count: 239
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1orzpv4/how_important_is_it_to_specialize_in_a_specific/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1orzpv4.md#c1"
     char_span: [1157, 3082]
     sentence_count: 18
     key_terms: [stack, tech, "don't", companies, senior, thegodzilla25, overindexing, depth]
+    concepts: [stack, companies, "don't", thegodzilla25, overindexing]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/cscareerquestions/1orzpv4.md#c2"
     char_span: [3084, 5371]
     sentence_count: 20
     key_terms: [specialist, generalist, people, backend, knowing, being, doesn, bar]
+    concepts: [specialist, generalist, people, backend, knowing]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1orzpv4.md#c3"
     char_span: [5373, 6459]
     sentence_count: 9
     key_terms: [well-rounded, specialization, specialized, supposed, valuable, doing, makes, job]
+    concepts: [well-rounded, specialization, specialized, supposed, valuable]
     section: Comments
     token_count: 226
 ---

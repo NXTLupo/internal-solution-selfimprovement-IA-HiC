@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1443]
     sentence_count: 5
     key_terms: [transactions, personalfinance, bills, recurring, synchrony, comments, allows, source]
+    concepts: [transactions, personalfinance, bills, recurring, synchrony]
     token_count: 324
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1sil8wb/best_rocket_money_replacement/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1sil8wb.md#c1"
-    char_span: [1458, 2261]
+    char_span: [1457, 2260]
     sentence_count: 3
     key_terms: [quicken-simplifi-subscription-questions, synchrony, simplifi, android, quicken, support, issue, plaid]
+    concepts: [synchrony, simplifi, android, quicken, support]
     section: Comments
     token_count: 222
 ---

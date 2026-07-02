@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2125]
     sentence_count: 17
     key_terms: [data, roles, internship, cscareerquestions, advice, pivot, swe, top]
+    concepts: [roles, internship, cscareerquestions, advice, graduating]
     token_count: 499
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1prxzkn/seeking_careerinternship_advice/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/fe881b2faa.md#c1"
     char_span: [2127, 2614]
     sentence_count: 2
     key_terms: [required, because, d1g1tald0lph1n, competition, everything, experience, understand, difficult]
+    concepts: [required, because]
     token_count: 105
 ---
 # Seeking career/internship advice

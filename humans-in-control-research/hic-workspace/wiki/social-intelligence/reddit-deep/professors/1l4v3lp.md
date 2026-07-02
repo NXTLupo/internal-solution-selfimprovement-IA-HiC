@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 2199]
     sentence_count: 14
     key_terms: [exam, items, year, argument, administration, exams, curriculum, professors]
+    concepts: [items, argument, administration, curriculum, exams]
     token_count: 495
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1l4v3lp/our_exams_are_no_longer_intended_to_measure/"}]
   - id: "social-intelligence/reddit-deep/professors/1l4v3lp.md#c1"
     char_span: [2201, 2574]
     sentence_count: 2
     key_terms: [changes, administration, upper, harmful, admin, understanding, implementing, implemented]
+    concepts: [administration, changes, upper, harmful, admin]
     token_count: 69
   - id: "social-intelligence/reddit-deep/professors/1l4v3lp.md#c2"
     char_span: [2588, 4459]
     sentence_count: 9
     key_terms: [fleemfleemfleemfleem, dumber, decision, admin, level, okmuq-nsq0m, worthless, getting]
+    concepts: [fleemfleemfleemfleem, dumber, decision, okmuq-nsq0m, admin]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1l4v3lp.md#c3"
@@ -41,48 +45,58 @@ chunks:
     char_span: [4494, 6766]
     sentence_count: 13
     key_terms: [faculty, perform, product, deans, aristocrats, goal-posts, efficient, scholarrx]
+    concepts: [faculty, perform, product, aristocrats, deans]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/professors/1l4v3lp.md#c5"
     char_span: [6768, 9128]
     sentence_count: 10
     key_terms: [target, distribution, assessments, job, perform, having, people, incompetence]
+    concepts: [target, distribution, assessments, perform, incompetence]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/professors/1l4v3lp.md#c6"
     char_span: [9131, 11489]
     sentence_count: 12
     key_terms: [assessment, performance, quality, "they're", distribution, modification, assessments, too]
+    concepts: [assessment, performance, quality, "they're", distribution]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/professors/1l4v3lp.md#c7"
     char_span: [11491, 13690]
     sentence_count: 9
     key_terms: [questions, performers, challenging, misleading, question, correct, like, top]
+    concepts: [questions, performers, challenging, misleading, question]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1l4v3lp.md#c8"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/professors/1l4v3lp.md#c8"
     char_span: [13692, 15735]
     sentence_count: 12
     key_terms: [question, students, discriminating, questions, get, discrimination, easy, scores]
+    concepts: [question, students, discriminating, questions, discrimination]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1l4v3lp.md#c7"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/professors/1l4v3lp.md#c9"
     char_span: [15737, 17721]
     sentence_count: 12
     key_terms: [questions, analysis, course, tests, bad, exam, business, multiple]
+    concepts: [questions, analysis, course, tests, business]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/professors/1l4v3lp.md#c10"
     char_span: [17723, 19585]
     sentence_count: 6
     key_terms: [students, material, justlooking98765, whether, professorjam, right, pass, question]
+    concepts: [students, justlooking98765, material, whether, professorjam]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/professors/1l4v3lp.md#c11"
     char_span: [19587, 19912]
     sentence_count: 4
     key_terms: [joking, please, fleemfleemfleemfleem, soap, blankenstaff, accountant, facilities, bathrooms]
+    concepts: [joking, please]
     section: Comments
     token_count: 90
 ---

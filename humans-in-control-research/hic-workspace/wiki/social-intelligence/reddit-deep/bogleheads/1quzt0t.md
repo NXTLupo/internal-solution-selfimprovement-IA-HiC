@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 702]
     sentence_count: 1
     key_terms: [account, vanguard, bogleheads, ascensus, comments, fidelity, drippingthighs, reddit-deep]
+    concepts: [account, vanguard, bogleheads, ascensus, comments]
     token_count: 180
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1quzt0t/i_never_made_an_account_when_vanguard_sold_to/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1quzt0t.md#c1"
-    char_span: [717, 1924]
+    char_span: [716, 1923]
     sentence_count: 6
     key_terms: [account, https, login, com, daemontargaryen2024, state, vanguardplan, participant]
+    concepts: [account, https, login, daemontargaryen2024, state]
     section: Comments
     token_count: 314
 ---

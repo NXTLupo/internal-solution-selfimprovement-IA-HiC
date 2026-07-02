@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1195]
     sentence_count: 7
     key_terms: ["i'm", money, college, parents, bad, feel, job, comments]
+    concepts: [money, college, parents, comments, spending]
+    related_chunks: ["social-intelligence/reddit-deep/college/1n5eqkg.md#c2"]
     token_count: 294
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1n5eqkg/i_feel_so_bad_spending_money/"}]
   - id: "social-intelligence/reddit-deep/college/1n5eqkg.md#c1"
     char_span: [1209, 2943]
     sentence_count: 18
     key_terms: [expensive, get, like, parents, back, pay, potatoes, working]
+    concepts: [expensive, parents, potatoes, working, canned]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/college/1n5eqkg.md#c2"
     char_span: [2945, 4273]
     sentence_count: 15
     key_terms: [parents, job, get, like, anything, highlightfickle7290, otherwise-ruin-7808, happy]
+    concepts: [parents, anything, happy, money]
+    related_chunks: ["social-intelligence/reddit-deep/college/1n5eqkg.md#c0"]
     section: Comments
     token_count: 330
 ---

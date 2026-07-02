@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 919]
     sentence_count: 6
     key_terms: [customer, validate, agencies, comments, founders, startups, methods, product]
+    concepts: [customer, validate, agencies, comments, founders]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tq06ma.md#c1"]
     token_count: 200
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1tq06ma/methods_to_validate_your_product_customers_i_will/"}]
   - id: "social-intelligence/reddit-deep/startups/1tq06ma.md#c1"
-    char_span: [934, 2426]
+    char_span: [933, 2425]
     sentence_count: 9
     key_terms: [agencies, founders, different, product, ask, customer, probably, profile]
+    concepts: [agencies, founders, different, product, customer]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tq06ma.md#c0"]
     section: Comments
     token_count: 331
 ---

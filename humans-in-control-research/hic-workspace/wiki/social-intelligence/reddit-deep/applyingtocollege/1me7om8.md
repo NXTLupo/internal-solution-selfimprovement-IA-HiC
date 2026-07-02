@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1001]
     sentence_count: 7
     key_terms: [fanfiction, wrote, applyingtocollege, got, admission, comments, officers, college]
+    concepts: [fanfiction, wrote, applyingtocollege, admission, comments]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1me7om8/i_got_into_a_t5_schools_by_writing_naruto/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1me7om8.md#c1"
     char_span: [1015, 2052]
     sentence_count: 1
     key_terms: [internationalgap2326, wrote, get, committeeeuphoric255, melodic-signature-45, south-highlight-1630, "don't", harry]
+    concepts: [internationalgap2326, wrote, "don't", harry]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/applyingtocollege/1me7om8.md#c2"
     char_span: [2054, 3104]
     sentence_count: 4
     key_terms: [writing, similar, fanfic, school, unique, apprehensive-mix4383, flamingoordinary2965, essay]
+    concepts: [writing, similar, fanfic, school, unique]
     section: Comments
     token_count: 304
 ---

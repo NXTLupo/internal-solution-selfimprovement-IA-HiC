@@ -20,47 +20,59 @@ chunks:
     char_span: [0, 2184]
     sentence_count: 25
     key_terms: [marketing, "i'm", boss, sales, team, looking, leads, "we're"]
+    concepts: [marketing, sales, looking, influencers, leads]
+    related_chunks: ["social-intelligence/reddit-deep/marketing/1p6g7zh.md#c2"]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/marketing","u":"https://www.reddit.com/r/marketing/comments/1p6g7zh/lack_of_marketing_strategy_contributing_to_my/"}]
   - id: "social-intelligence/reddit-deep/marketing/1p6g7zh.md#c1"
-    char_span: [2199, 4296]
+    char_span: [2198, 4295]
     sentence_count: 30
     key_terms: [strategy, marketing, "you're", people, issues, right, value, positioning]
+    concepts: [strategy, marketing, "you're", people, issues]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/marketing/1p6g7zh.md#c2"
-    char_span: [4298, 6750]
+    char_span: [4297, 6749]
     sentence_count: 35
     key_terms: [leads, sales, tours, time, feedback, buyers, people, doing]
+    concepts: [leads, sales, tours, feedback, buyers]
+    related_chunks: ["social-intelligence/reddit-deep/marketing/1p6g7zh.md#c0", "social-intelligence/reddit-deep/marketing/1p6g7zh.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/marketing/1p6g7zh.md#c3"
-    char_span: [6413, 7130]
+    char_span: [6412, 7129]
     sentence_count: 8
     key_terms: [leadership, updates, writing, helps, sales, sends, team, tour]
+    concepts: [leadership, updates, writing, helps, sales]
     section: Comments
     token_count: 157
   - id: "social-intelligence/reddit-deep/marketing/1p6g7zh.md#c4"
-    char_span: [7132, 8077]
+    char_span: [7131, 8076]
     sentence_count: 11
     key_terms: [demographic, lead, content, parking, problem, closed, phone, "we're"]
+    concepts: [demographic, content, parking, problem, closed]
     section: Comments
     token_count: 208
   - id: "social-intelligence/reddit-deep/marketing/1p6g7zh.md#c5"
-    char_span: [8079, 10061]
+    char_span: [8078, 10060]
     sentence_count: 18
     key_terms: [people, sales, feedback, down, "i'm", job, like, variation]
+    concepts: [people, sales, feedback, variation, anything]
+    related_chunks: ["social-intelligence/reddit-deep/marketing/1p6g7zh.md#c2"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/marketing/1p6g7zh.md#c6"
-    char_span: [10063, 12116]
+    char_span: [10062, 12115]
     sentence_count: 18
     key_terms: [people, "that's", converting, need, specific, listing, statistical, mentioned]
+    concepts: [people, "that's", converting, specific, listing]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/marketing/1p6g7zh.md#c7"
-    char_span: [12118, 13219]
+    char_span: [12117, 13218]
     sentence_count: 10
     key_terms: [problem, proposition, find, ghosted, pricing, create, sales, start]
+    concepts: [problem, proposition, ghosted, pricing, create]
     section: Comments
     token_count: 265
 ---

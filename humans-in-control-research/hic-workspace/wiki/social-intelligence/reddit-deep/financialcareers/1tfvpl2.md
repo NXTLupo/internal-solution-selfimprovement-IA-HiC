@@ -20,22 +20,29 @@ chunks:
     char_span: [0, 2142]
     sentence_count: 8
     key_terms: [investment, team, strong, management, fund, new, financialcareers, responsibilities]
+    concepts: [investment, management, strong, financialcareers, responsibilities]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1tfvpl2.md#c2"]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1tfvpl2/1_yoe_in_pe_fund_operations_should_i_move_to_a/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1tfvpl2.md#c1"
     char_span: [2144, 2728]
     sentence_count: 3
     key_terms: [investment, platform, stability, smaller, career, brand, early, institutional]
+    concepts: [investment, platform, stability, smaller, career]
     token_count: 126
   - id: "social-intelligence/reddit-deep/financialcareers/1tfvpl2.md#c2"
-    char_span: [2743, 4734]
+    char_span: [2742, 4733]
     sentence_count: 13
     key_terms: [investment, office, financialcareers, brainer, discord, professionals, opportunity, back]
+    concepts: [investment, office, financialcareers, professionals, brainer]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1tfvpl2.md#c0"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/financialcareers/1tfvpl2.md#c3"
-    char_span: [4736, 5716]
+    char_span: [4735, 5715]
     sentence_count: 3
     key_terms: [current, clearandpure, job, company, getting, office, lot, time]
+    concepts: [current, clearandpure, company, getting, office]
     section: Comments
     token_count: 234
 ---

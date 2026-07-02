@@ -21,52 +21,70 @@ chunks:
     char_span: [0, 2242]
     sentence_count: 17
     key_terms: [project, thesis, student, advisor, participating, askacademia, publication, phd]
+    concepts: [project, thesis, student, advisor, participating]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1qpljsc.md#c3", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c4", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c5", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c7", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c8"]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1qpljsc/advisor_informed_me_that_another_student_will_be/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c1"
     char_span: [2244, 2947]
     sentence_count: 8
     key_terms: [research, anyone, undergraduates, opportunities, appreciated, encountered, definitely, experience]
+    concepts: [research, anyone]
     token_count: 147
   - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c2"
     char_span: [2961, 4803]
     sentence_count: 14
     key_terms: [project, supervisor, phd, absolutely, defensive, something, because, nothing]
+    concepts: [project, supervisor, absolutely, defensive, something]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1qpljsc.md#c4", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c7"]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c3"
     char_span: [4805, 7073]
     sentence_count: 10
     key_terms: [student, work, project, students, phd, advisor, masters, continue]
+    concepts: [student, project, students, advisor, masters]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1qpljsc.md#c0", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c4", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c5", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c7"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c4"
     char_span: [7075, 8745]
     sentence_count: 11
     key_terms: [student, something, work, considering, project, advice, likely, bajablastfromthepast]
+    concepts: [student, something, considering, project, advice]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1qpljsc.md#c0", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c2", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c3", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c5", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c7"]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c5"
     char_span: [8747, 10359]
     sentence_count: 10
     key_terms: [thesis, advisor, project, bajablastfromthepast, student, phd, work, projects]
+    concepts: [thesis, bajablastfromthepast, advisor, project, student]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1qpljsc.md#c0", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c3", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c4", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c6", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c7"]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c6"
     char_span: [10361, 12109]
     sentence_count: 10
     key_terms: [bajablastfromthepast, absolutely, collaborative, work, advisor, meeting, asking, person]
+    concepts: [bajablastfromthepast, absolutely, collaborative, advisor, meeting]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1qpljsc.md#c5"]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c7"
     char_span: [12111, 14337]
     sentence_count: 12
     key_terms: [work, student, phd, project, thesis, get, something, continue]
+    concepts: [student, project, thesis, something, continue]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1qpljsc.md#c0", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c2", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c3", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c4", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c5"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c8"
     char_span: [14339, 15528]
     sentence_count: 12
     key_terms: [project, graduating, defense, thesis, bajablastfromthepast, going, understanding, dissertation]
+    concepts: [project, graduating, defense, thesis, going]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1qpljsc.md#c0", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c5", "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c7"]
     section: Comments
     token_count: 270
 ---

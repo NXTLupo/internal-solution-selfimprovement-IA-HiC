@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2363]
     sentence_count: 12
     key_terms: [interviewer, finance, try, learned, conversational, internships, role, internship]
+    concepts: [interviewer, finance, conversational, learned, internships]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1qjtqy2/secured_a_finance_internship_here_are_some_things/"}]
   - id: "social-intelligence/reddit-deep/internships/1qjtqy2.md#c1"
     char_span: [2365, 3369]
     sentence_count: 8
     key_terms: [congrats, appreciate, advice, "that's", alarmed-efficiency92, imaginationhopeful94, manufacturerkind7009, zestyclose-swing-329]
+    concepts: [congrats, appreciate, advice, "that's", thank]
     section: Comments
     token_count: 269
 ---

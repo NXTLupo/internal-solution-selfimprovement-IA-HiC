@@ -17,10 +17,12 @@ research_goal: "Deliver a comprehensive 2026 outlook report on the global retail
 engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
 chunks:
   - id: "social-intelligence/reddit-deep/startups/1tlk9ar.md#c0"
-    char_span: [0, 1928]
+    char_span: [0, 1927]
     sentence_count: 11
     key_terms: [users, guidance, looking, product, revenue, moonlighting, month, regulations]
-    token_count: 412
+    concepts: [users, guidance, looking, product, revenue]
+    token_count: 411
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1tlk9ar/looking_for_guidance_or_cfo_i_will_not_promote/"}]
 ---
 # Looking for Guidance or CFO [ I will not promote]
 

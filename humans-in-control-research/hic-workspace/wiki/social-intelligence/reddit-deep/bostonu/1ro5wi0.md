@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1028]
     sentence_count: 6
     key_terms: [bureaucracy, current, body, comments, bostonu, however, someone, student]
+    concepts: [bureaucracy, current, comments, bostonu, however]
     token_count: 238
+    sources: [{"n":"reddit-deep: r/bostonu","u":"https://www.reddit.com/r/BostonU/comments/1ro5wi0/bureaucracy/"}]
   - id: "social-intelligence/reddit-deep/bostonu/1ro5wi0.md#c1"
-    char_span: [1043, 3226]
+    char_span: [1042, 3225]
     sentence_count: 16
     key_terms: [admissions, college, people, stiiwalker, students, institution, book, like]
+    concepts: [admissions, college, stiiwalker, people, students]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/bostonu/1ro5wi0.md#c2"
-    char_span: [2885, 4176]
+    char_span: [2884, 4175]
     sentence_count: 8
     key_terms: [locke-demosthenes101, money, institution, experience, college, change, enough, people]
+    concepts: [locke-demosthenes101, institution, experience, money, college]
     section: Comments
     token_count: 313
 ---

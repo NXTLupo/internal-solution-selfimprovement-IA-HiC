@@ -20,29 +20,38 @@ chunks:
     char_span: [0, 1839]
     sentence_count: 13
     key_terms: [transaction, account, vanguard, vanguardinvestments, chase, days, processing, brokerage]
+    concepts: [transaction, account, vanguard, vanguardinvestments, chase]
+    related_chunks: ["social-intelligence/reddit-deep/vanguardinvestments/1q37xdq.md#c2", "social-intelligence/reddit-deep/vanguardinvestments/1q37xdq.md#c4"]
     token_count: 376
+    sources: [{"n":"reddit-deep: r/vanguardinvestments","u":"https://www.reddit.com/r/VanguardInvestments/comments/1q37xdq/duplicate_transaction_from_banking_account_to/"}]
   - id: "social-intelligence/reddit-deep/vanguardinvestments/1q37xdq.md#c1"
-    char_span: [1854, 2171]
+    char_span: [1853, 2170]
     sentence_count: 2
     key_terms: [today, time, autoinvest, processed, vanguards, happened, calling, holiday]
+    concepts: [today]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/vanguardinvestments/1q37xdq.md#c2"
-    char_span: [2173, 4339]
+    char_span: [2172, 4338]
     sentence_count: 15
     key_terms: [account, vanguard, email, issue, money, bank, funds, transaction]
+    concepts: [account, vanguard, email, issue, money]
+    related_chunks: ["social-intelligence/reddit-deep/vanguardinvestments/1q37xdq.md#c0", "social-intelligence/reddit-deep/vanguardinvestments/1q37xdq.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/vanguardinvestments/1q37xdq.md#c3"
-    char_span: [4109, 4423]
+    char_span: [4108, 4422]
     sentence_count: 2
     key_terms: [email, frustrating, management, stating, telling, around, called, spoke]
+    concepts: [email]
     section: Comments
     token_count: 85
   - id: "social-intelligence/reddit-deep/vanguardinvestments/1q37xdq.md#c4"
-    char_span: [4425, 6592]
+    char_span: [4424, 6591]
     sentence_count: 19
     key_terms: [vanguard, representative, within, account, experiencing, user1239991, bank, days]
+    concepts: [vanguard, representative, within, account, experiencing]
+    related_chunks: ["social-intelligence/reddit-deep/vanguardinvestments/1q37xdq.md#c0", "social-intelligence/reddit-deep/vanguardinvestments/1q37xdq.md#c2"]
     section: Comments
     token_count: 493
 ---

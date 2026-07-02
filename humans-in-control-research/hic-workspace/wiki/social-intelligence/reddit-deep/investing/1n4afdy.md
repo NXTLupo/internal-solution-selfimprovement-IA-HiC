@@ -21,53 +21,65 @@ chunks:
     char_span: [0, 883]
     sentence_count: 12
     key_terms: [buy, investing, long-term, something, comments, invest, rental, wealth]
+    concepts: [investing, long-term, something, comments, invest]
     token_count: 216
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1n4afdy/inherit_500k_do_you_buy_a_rental_invest_more_in/"}]
   - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c1"
     char_span: [897, 2421]
     sentence_count: 12
     key_terms: [management, years, company, rental, house, never, selling, tenants]
+    concepts: [management, years, company, rental, house]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c2"
     char_span: [2423, 3599]
     sentence_count: 11
     key_terms: [live, property, passive, people, fragrant-aide-3174, possible-trip-5299, got, like]
+    concepts: [property, passive, people]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1n4afdy.md#c4"]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c3"
     char_span: [3601, 5368]
     sentence_count: 11
     key_terms: [passive, income, house, job, background, activity, credit, enough]
+    concepts: [passive, income, background, house, activity]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c4"
     char_span: [5370, 7446]
     sentence_count: 13
     key_terms: [people, work, passive, takes, stocks, complaining, maintenance, btc]
+    concepts: [people, passive, takes, stocks, complaining]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1n4afdy.md#c2"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c5"
     char_span: [7448, 8976]
     sentence_count: 14
     key_terms: [income, rental, year, people, maintenance, breakeven, interest, property]
+    concepts: [income, rental, people, maintenance, breakeven]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c6"
     char_span: [8978, 10166]
     sentence_count: 11
     key_terms: [people, did, voo, want, received, growth, money, years]
+    concepts: [people, received, growth, money, years]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c7"
     char_span: [10168, 11110]
     sentence_count: 6
     key_terms: [years, inheritance, returns, "that's", stalkaturnedtyper, lot, need, put]
+    concepts: [inheritance, years, returns, "that's"]
     section: Comments
     token_count: 252
   - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c8"
     char_span: [11112, 12798]
     sentence_count: 15
     key_terms: [estate, stocks, like, real, dumpitdog, property, requires, liquid]
+    concepts: [estate, stocks, dumpitdog, property, requires]
     section: Comments
     token_count: 433
 ---

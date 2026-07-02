@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2022]
     sentence_count: 15
     key_terms: [uiuc, nyu, math, applyingtocollege, better, quant, internships, nyc]
+    concepts: [applyingtocollege, better, internships, internship, quant]
     token_count: 488
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sowguz/choosing_between_nyu_and_uiuc_for_math_cs/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/eab302a4ed.md#c1"
     char_span: [2024, 3052]
     sentence_count: 15
     key_terms: [courant, nyu, undergrad, applied, "that's", math, phd, want]
+    concepts: [courant, undergrad, applied, "that's", different]
     token_count: 259
 ---
 # Choosing Between NYU and UIUC for Math & CS?

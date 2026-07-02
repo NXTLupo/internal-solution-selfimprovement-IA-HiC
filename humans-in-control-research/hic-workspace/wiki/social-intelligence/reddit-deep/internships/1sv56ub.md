@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2097]
     sentence_count: 5
     key_terms: [growth, reddit, internship, ownership, work, founder, remote, certificate]
+    concepts: [growth, internship, reddit, ownership, founder]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sv56ub/hiring_growth_executive_intern_remote_paid/"}]
   - id: "social-intelligence/reddit-deep/internships/1sv56ub.md#c1"
     char_span: [2111, 2405]
     sentence_count: 2
     key_terms: [interested, serious-gap234, okbluejay3743, wazirkazim78, hamesloth, further, process, carry]
+    concepts: [interested]
     section: Comments
     token_count: 100
 ---

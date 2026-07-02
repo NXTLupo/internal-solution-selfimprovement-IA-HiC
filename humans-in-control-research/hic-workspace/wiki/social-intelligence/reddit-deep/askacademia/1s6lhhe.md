@@ -21,28 +21,34 @@ chunks:
     char_span: [0, 2315]
     sentence_count: 19
     key_terms: [whether, experience, asked, teaching, university, research, faculty, transferable]
+    concepts: [experience, whether, teaching, asked, university]
     token_count: 482
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1s6lhhe/is_this_kind_of_behavior_during_a_faculty_campus/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1s6lhhe.md#c1"
     char_span: [2317, 3257]
     sentence_count: 9
     key_terms: [bothering, something, trying, conversations, interactions, experienced, interaction, interpreted]
+    concepts: [bothering, something, trying]
     token_count: 183
   - id: "social-intelligence/reddit-deep/askacademia/1s6lhhe.md#c2"
     char_span: [3271, 5078]
     sentence_count: 16
     key_terms: [lynxacceptable1490, experienced, candidate, committee, something, honestly, research, campus]
+    concepts: [lynxacceptable1490, experienced, candidate, committee, something]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/askacademia/1s6lhhe.md#c3"
     char_span: [5080, 6415]
     sentence_count: 10
     key_terms: [unprofessional, people, search, committee, different, probably, nothing, chair]
+    concepts: [unprofessional, people, search, committee, different]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/askacademia/1s6lhhe.md#c4"
     char_span: [6417, 8191]
     sentence_count: 15
     key_terms: [person, get, want, department, academia, prepositionstrander, being, chair]
+    concepts: [person, department, academia, being, chair]
     section: Comments
     token_count: 421
 ---

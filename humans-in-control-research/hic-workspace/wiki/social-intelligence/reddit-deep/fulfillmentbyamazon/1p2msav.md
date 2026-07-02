@@ -20,45 +20,60 @@ chunks:
     char_span: [0, 1884]
     sentence_count: 15
     key_terms: [amazon, fulfillmentbyamazon, remember, appeal, seller, authorization, suspended, comments]
+    concepts: [amazon, fulfillmentbyamazon, remember, authorization, appeal]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c3"]
     token_count: 435
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1p2msav/flip_side_of_the_coin_why_some_amazon_sellers/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c1"
     char_span: [1886, 3978]
     sentence_count: 23
     key_terms: [suspended, amazon, account, because, seller, inventory, completely, different]
+    concepts: [suspended, amazon, account, because, seller]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c2", "social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c3", "social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c4", "social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c7"]
     token_count: 437
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c2"
     char_span: [3980, 4559]
     sentence_count: 6
     key_terms: [amazon, sellers, operations, because, mistake, like, disposable, e-commerce]
+    concepts: [amazon, sellers, operations, because, mistake]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c1"]
     token_count: 118
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c3"
-    char_span: [4574, 6412]
+    char_span: [4573, 6411]
     sentence_count: 15
     key_terms: [amazon, fulfillmentbyamazon, account, discord, product, advertising, fba, discuss]
+    concepts: [amazon, fulfillmentbyamazon, account, discord, product]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c0", "social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c1", "social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c4"]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c4"
-    char_span: [6414, 8227]
+    char_span: [6413, 8226]
     sentence_count: 14
     key_terms: [amazon, account, no-detective-4026, easterncoaster, health, reason, businesses, product]
+    concepts: [amazon, account, no-detective-4026, easterncoaster, health]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c1", "social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c3"]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c5"
-    char_span: [8229, 10351]
+    char_span: [8228, 10350]
     sentence_count: 22
     key_terms: [amazon, different, course, "don't", worth, gabeincal, products, image]
+    concepts: [amazon, different, course, "don't", worth]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c6"
-    char_span: [10353, 12549]
+    char_span: [10352, 12548]
     sentence_count: 17
     key_terms: [brand, products, "you're", business, amazon, registered, no-detective-4026, seller]
+    concepts: [brand, products, "you're", business, registered]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c7"
-    char_span: [12273, 12569]
+    char_span: [12272, 12568]
     sentence_count: 2
     key_terms: [amazon, seller, blackcoffee17, somewhere, anything, cheapest, because, company]
+    concepts: [amazon, seller]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1p2msav.md#c1"]
     section: Comments
     token_count: 68
 ---

@@ -17,14 +17,19 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/salesops/1tc9x6x.md#c0"
-    char_span: [0, 1827]
+    char_span: [0, 1826]
     sentence_count: 6
     key_terms: [non-selling, sales, latest, https, keywords, linkedin, com, time]
-    token_count: 492
+    concepts: [non-selling, sales, latest, keywords, linkedin]
+    related_chunks: ["social-intelligence/reddit-deep/salesops/1tc9x6x.md#c1"]
+    token_count: 491
+    sources: [{"n":"reddit-deep: r/salesops","u":"https://www.reddit.com/r/SalesOps/comments/1tc9x6x/15_years_of_sales_is_spending_70_time_doing/"}]
   - id: "social-intelligence/reddit-deep/salesops/1tc9x6x.md#c1"
-    char_span: [1831, 2585]
+    char_span: [1830, 2584]
     sentence_count: 3
     key_terms: [keywords, linkedin, results, origin, search, https, sales, com]
+    concepts: [keywords, linkedin, results, origin, search]
+    related_chunks: ["social-intelligence/reddit-deep/salesops/1tc9x6x.md#c0"]
     token_count: 184
 ---
 # 15 Years of "Sales is spending 70% time doing non-selling activities!"

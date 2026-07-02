@@ -20,29 +20,38 @@ chunks:
     char_span: [0, 1317]
     sentence_count: 9
     key_terms: [experience, customerexperience, replies, faster, customers, improving, summaries, comments]
+    concepts: [customerexperience, experience, replies, faster, customers]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1sdoxje.md#c1", "social-intelligence/reddit-deep/customerexperience/1sdoxje.md#c3"]
     token_count: 262
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1sdoxje/is_ai_actually_improving_customer_experience_or/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1sdoxje.md#c1"
-    char_span: [1332, 3702]
+    char_span: [1331, 3701]
     sentence_count: 20
     key_terms: [resolution, experience, faster, teams, improving, real, metrics, seeing]
+    concepts: [resolution, experience, faster, improving, teams]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1sdoxje.md#c0"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/customerexperience/1sdoxje.md#c2"
-    char_span: [3704, 5953]
+    char_span: [3703, 5952]
     sentence_count: 23
     key_terms: [interaction, frustration, resolution, real, different, honestly, question, because]
+    concepts: [interaction, frustration, resolution, different, honestly]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/customerexperience/1sdoxje.md#c3"
-    char_span: [5955, 8366]
+    char_span: [5954, 8365]
     sentence_count: 21
     key_terms: [faster, customers, themselves, answering, improves, helping, resolve, agents]
+    concepts: [faster, customers, themselves, answering, improves]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1sdoxje.md#c0"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/customerexperience/1sdoxje.md#c4"
-    char_span: [8368, 9226]
+    char_span: [8367, 9225]
     sentence_count: 8
     key_terms: [faster, instead, signals, interactions, apologizing, resolution, root-cause, currently]
+    concepts: [faster, instead, signals]
     section: Comments
     token_count: 176
 ---

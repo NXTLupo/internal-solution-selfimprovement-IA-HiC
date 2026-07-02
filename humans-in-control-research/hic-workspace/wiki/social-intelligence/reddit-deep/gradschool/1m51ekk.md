@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 484]
     sentence_count: 2
     key_terms: [grad, gradschool, resources, comments, helped, communication, bagofdicksss, instructors]
+    concepts: [gradschool, resources, comments, helped]
     token_count: 108
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1m51ekk/top_resources_as_a_grad_student/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1m51ekk.md#c1"
     char_span: [498, 2371]
     sentence_count: 13
     key_terms: [similar, ipad, especially, everything, goodnotes, meetings, organize, readings]
+    concepts: [similar, especially, everything, goodnotes, meetings]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/gradschool/1m51ekk.md#c2"
     char_span: [2373, 4340]
     sentence_count: 19
     key_terms: ["don't", communication, get, like, time, use, especially, experiment]
+    concepts: ["don't", communication, especially, experiment, deadlines]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/gradschool/1m51ekk.md#c3"
     char_span: [4342, 5874]
     sentence_count: 10
     key_terms: [textbooks, digital, zotero, bagofdicksss, done, need, howtobegeo, google]
+    concepts: [textbooks, digital, bagofdicksss, zotero, howtobegeo]
     section: Comments
     token_count: 382
 ---

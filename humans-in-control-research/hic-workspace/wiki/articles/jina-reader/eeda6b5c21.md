@@ -18,16 +18,23 @@ chunks:
     char_span: [0, 2184]
     sentence_count: 2
     key_terms: [northwestern, president, https, edu, www, about-the-office, index, html]
+    concepts: [northwestern, president, https, about-the-office, index]
+    related_chunks: ["articles/jina-reader/eeda6b5c21.md#c1", "articles/jina-reader/eeda6b5c21.md#c2"]
     token_count: 511
+    sources: [{"n":"Jina Reader","u":"https://www.northwestern.edu/president/"}]
   - id: "articles/jina-reader/eeda6b5c21.md#c1"
     char_span: [2186, 3625]
     sentence_count: 2
     key_terms: [northwestern, president, https, edu, www, index, html, about-the-office]
+    concepts: [northwestern, president, https, index, about-the-office]
+    related_chunks: ["articles/jina-reader/eeda6b5c21.md#c0", "articles/jina-reader/eeda6b5c21.md#c2"]
     token_count: 346
   - id: "articles/jina-reader/eeda6b5c21.md#c2"
     char_span: [3649, 5498]
     sentence_count: 4
     key_terms: [northwestern, https, www, edu, university, northwesternu, com, report]
+    concepts: [northwestern, https, university, northwesternu, accessibility]
+    related_chunks: ["articles/jina-reader/eeda6b5c21.md#c0", "articles/jina-reader/eeda6b5c21.md#c1"]
     section: About Henry Bienen
     token_count: 426
 ---

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1107]
     sentence_count: 10
     key_terms: [internship, internships, winter, like, myself, reddit, summer, place]
+    concepts: [internship, internships, winter, myself, reddit]
     token_count: 263
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1srfyv3/any_tips_for_getting_winter_2026_internships/"}]
   - id: "articles/reddit-deep-r-internships/198abefc8c.md#c1"
     char_span: [1109, 2190]
     sentence_count: 3
     key_terms: [s0urpatch1tv, winter, looking, mostly, remote, cottonshirtwithstain, brand, roles]
+    concepts: [s0urpatch1tv, winter, looking, mostly, remote]
     token_count: 276
 ---
 # Any tips for getting Winter 2026 internships After My Summer Internship?

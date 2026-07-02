@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1567]
     sentence_count: 13
     key_terms: [interview, questions, question, internships, interviewed, got, internship, recruiting]
+    concepts: [interview, questions, question, internships, interviewed]
     token_count: 350
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rdybm9/the_person_who_got_my_dream_internship_knew_the/"}]
   - id: "social-intelligence/reddit-deep/internships/1rdybm9.md#c1"
     char_span: [1581, 3263]
     sentence_count: 4
     key_terms: [glassdoor, questions, tell, interviewiqs, meet, company, someone, online]
+    concepts: [glassdoor, questions, interviewiqs, company, someone]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/internships/1rdybm9.md#c2"
     char_span: [3266, 4932]
     sentence_count: 3
     key_terms: [got, unfair, right, good, "i'm", job, graduated, position]
+    concepts: [unfair, right, graduated, position, because]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/internships/1rdybm9.md#c3"
     char_span: [4934, 5451]
     sentence_count: 2
     key_terms: [candidates, prepare, foreign-archer2331, fire, qualification, connecting, employees, important]
+    concepts: [candidates, prepare]
     section: Comments
     token_count: 123
 ---

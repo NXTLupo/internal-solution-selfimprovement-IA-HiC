@@ -21,22 +21,29 @@ chunks:
     char_span: [0, 2460]
     sentence_count: 14
     key_terms: [model, graph, document, new, architecture, deeplearning, hierarchical, prediction]
+    concepts: [model, document, architecture, deeplearning, hierarchical]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1rmbbf3.md#c3"]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1rmbbf3/we_invented_a_new_ml_architecture_to_oneshot/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1rmbbf3.md#c1"
     char_span: [2462, 3534]
     sentence_count: 6
     key_terms: [kanon-2-enricher, regulatory, including, technical, analysis, isaacus, graph, https]
+    concepts: [kanon-2-enricher, regulatory, including, technical, analysis]
     token_count: 211
   - id: "social-intelligence/reddit-deep/deeplearning/1rmbbf3.md#c2"
     char_span: [3548, 4704]
     sentence_count: 12
     key_terms: [features, legal, paris, citations, implies, france, cases, edges]
+    concepts: [features, legal, paris, citations, implies]
     section: Comments
     token_count: 248
   - id: "social-intelligence/reddit-deep/deeplearning/1rmbbf3.md#c3"
     char_span: [4706, 5924]
     sentence_count: 10
     key_terms: [model, ontology, source, hierarchical, work, venpuravi, learning, closed]
+    concepts: [model, ontology, hierarchical, source, venpuravi]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1rmbbf3.md#c0"]
     section: Comments
     token_count: 296
 ---

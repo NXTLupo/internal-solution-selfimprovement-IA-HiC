@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 2175]
     sentence_count: 4
     key_terms: [customer, want, theme, challenges, processes, customersuccess, product, scale]
+    concepts: [customer, challenges, theme, processes, customersuccess]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/customersuccess","u":"https://www.reddit.com/r/CustomerSuccess/comments/1lowrr1/cx_challenges/"}]
   - id: "social-intelligence/reddit-deep/customersuccess/1lowrr1.md#c1"
     char_span: [2177, 2483]
     sentence_count: 1
     key_terms: [transparent, trackable, conversations, interactions, performance, customers, frontline, untracked]
+    concepts: [transparent, trackable]
     token_count: 71
   - id: "social-intelligence/reddit-deep/customersuccess/1lowrr1.md#c2"
-    char_span: [2498, 3726]
+    char_span: [2497, 3725]
     sentence_count: 13
     key_terms: [use, tools, engineering, firstmate, product, quicker, clueso, ensure]
+    concepts: [tools, engineering, firstmate, product, quicker]
     section: Comments
     token_count: 293
 ---

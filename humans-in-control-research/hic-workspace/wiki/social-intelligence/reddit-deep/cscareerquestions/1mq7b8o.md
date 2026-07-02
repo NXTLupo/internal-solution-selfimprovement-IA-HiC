@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 810]
     sentence_count: 4
     key_terms: [cscareerquestions, career, facilitation, opportunity, audience, comments, speaking, session]
+    concepts: [cscareerquestions, facilitation, career, opportunity, audience]
     token_count: 180
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1mq7b8o/how_to_maximize_a_guest_facilitation_opportunity/"}]
 ---
 # How to Maximize a Guest Facilitation Opportunity for Career Growth in Tech?
 

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 707]
     sentence_count: 5
     key_terms: [investing, agentic, comments, spicychickendeluxe, path, fundamentally, receptionist, information]
+    concepts: [investing, agentic, comments]
     token_count: 176
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1n7vjq8/agentic_ai_smallmidcap_stocks_to_invest_in/"}]
 ---
 # Agentic AI Small/Mid-Cap Stocks To Invest In?
 

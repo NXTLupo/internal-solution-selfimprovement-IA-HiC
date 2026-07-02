@@ -20,65 +20,77 @@ chunks:
     char_span: [0, 1879]
     sentence_count: 8
     key_terms: [code, ibm, language, cobol, anthropic, mainframe, claude, modernization]
+    concepts: [language, cobol, anthropic, mainframe, modernization]
     token_count: 421
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1rcte79/ibm_sinks_as_anthropic_positions_claude_code_as/"}]
   - id: "social-intelligence/reddit-deep/stocks/1rcte79.md#c1"
-    char_span: [1894, 3781]
+    char_span: [1893, 3780]
     sentence_count: 6
     key_terms: [salesforce, anthropic, gtm, challenged, marketing, upstarts, company, "they're"]
+    concepts: [salesforce, anthropic, challenged, marketing, upstarts]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/stocks/1rcte79.md#c2"
-    char_span: [3783, 5268]
+    char_span: [3782, 5267]
     sentence_count: 13
     key_terms: [code, software, plan, copilot, develop, prompt, amazing-jury-6886, hardware-oriented]
+    concepts: [software, copilot, develop, prompt]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/stocks/1rcte79.md#c3"
-    char_span: [5270, 7083]
+    char_span: [5269, 7082]
     sentence_count: 8
     key_terms: [supposed, outages, kill, better, months, because, amazon, no-understanding2406]
+    concepts: [supposed, outages, better, months, because]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/stocks/1rcte79.md#c4"
-    char_span: [7085, 9090]
+    char_span: [7084, 9089]
     sentence_count: 11
     key_terms: [tools, transaction, mainframe, specific, account, already, certain, company]
+    concepts: [transaction, tools, mainframe, specific, account]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/stocks/1rcte79.md#c5"
-    char_span: [9092, 10536]
+    char_span: [9091, 10535]
     sentence_count: 13
     key_terms: ["i'm", ding, developers, something, "wouldn't", people, code, like]
+    concepts: [developers, something, "wouldn't", people]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/stocks/1rcte79.md#c6"
-    char_span: [10538, 12471]
+    char_span: [10537, 12470]
     sentence_count: 14
     key_terms: [supposed, kill, market, governments, like, "cobol's", people, audacesfortunajuvat]
+    concepts: [supposed, market, governments, "cobol's", people]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/stocks/1rcte79.md#c7"
-    char_span: [12473, 14303]
+    char_span: [12472, 14302]
     sentence_count: 13
     key_terms: [far, cobol, government, mistakes, expert, market, lines, day]
+    concepts: [cobol, government, mistakes, expert, market]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/stocks/1rcte79.md#c8"
-    char_span: [14305, 16097]
+    char_span: [14304, 16096]
     sentence_count: 7
     key_terms: [claude, code, government, because, weekend, coding, intern, take]
+    concepts: [claude, government, because, weekend, coding]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/stocks/1rcte79.md#c9"
-    char_span: [16099, 18126]
+    char_span: [16098, 18125]
     sentence_count: 13
     key_terms: [market, brazilian-options, business, microsoft, red, because, google, office]
+    concepts: [brazilian-options, market, business, microsoft, because]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/stocks/1rcte79.md#c10"
-    char_span: [18128, 20071]
+    char_span: [18127, 20070]
     sentence_count: 15
     key_terms: [critical, fucking, believe, firings, rewrite, market, morons, "don't"]
+    concepts: [critical, fucking, believe, firings, rewrite]
     section: Comments
     token_count: 508
 ---

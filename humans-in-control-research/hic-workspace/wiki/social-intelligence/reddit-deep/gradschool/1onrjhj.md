@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 995]
     sentence_count: 8
     key_terms: [internships, graduation, looking, date, grad, "i'm", gradschool, comments]
+    concepts: [internships, graduation, looking, gradschool, comments]
     token_count: 222
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1onrjhj/how_to_apply_to_a_summer_internship_as_a_grad/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1onrjhj.md#c1"
     char_span: [1009, 1686]
     sentence_count: 6
     key_terms: [internships, country, student, across, better, summer, apply, find]
+    concepts: [internships, country, student, across, better]
     section: Comments
     token_count: 150
 ---

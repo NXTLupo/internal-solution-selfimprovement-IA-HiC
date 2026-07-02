@@ -21,40 +21,48 @@ chunks:
     char_span: [0, 2042]
     sentence_count: 14
     key_terms: [students, gpa, information, applicants, inflation, gpas, gradadmissions, school]
+    concepts: [students, information, applicants, inflation, gradadmissions]
     token_count: 480
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1siiqdq/gpa_inflation_is_destroying_useful_information/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c1"
     char_span: [2047, 2967]
     sentence_count: 6
     key_terms: [programs, lawschooladmissions, comments, responses, masters, schools, social, research-oriented]
+    concepts: [programs, lawschooladmissions, comments, responses, masters]
     token_count: 212
   - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c2"
     char_span: [2981, 4973]
     sentence_count: 16
     key_terms: [student, grading, gpa, programs, faintedheart, grade, get, hard]
+    concepts: [student, grading, programs, faintedheart, grade]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c3"
     char_span: [4975, 6639]
     sentence_count: 6
     key_terms: [like, students, grad, experience, themselves, research, failure, school]
+    concepts: [students, experience, themselves, research, failure]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c4"
     char_span: [6641, 8631]
     sentence_count: 14
     key_terms: [gpa, essays, factor, applicants, instructions, application, admissions, individual]
+    concepts: [applicants, essays, factor, instructions, application]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c5"
     char_span: [8633, 10265]
     sentence_count: 10
     key_terms: [get, gpa, programs, jewishtigerpup, international, grade, grad, applicants]
+    concepts: [programs, jewishtigerpup, international, applicants, committees]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c6"
     char_span: [10267, 11760]
     sentence_count: 11
     key_terms: [research, school, class, grade, means, gpa, proyects, because]
+    concepts: [research, school, class, grade, means]
     section: Comments
     token_count: 383
 ---

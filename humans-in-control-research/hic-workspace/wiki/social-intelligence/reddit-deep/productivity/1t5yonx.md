@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2062]
     sentence_count: 23
     key_terms: [follow, gmail, been, like, ups, use, snoozed, labels]
+    concepts: [follow, gmail, snoozed, productivity, labels]
     token_count: 479
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1t5yonx/gmail_managing_follow_ups_better/"}]
   - id: "social-intelligence/reddit-deep/productivity/1t5yonx.md#c1"
     char_span: [2076, 3844]
     sentence_count: 15
     key_terms: [drafts, gmail, inbox, email, response, immediately, needs, need]
+    concepts: [drafts, gmail, inbox, response, email]
     section: Comments
     token_count: 441
 ---

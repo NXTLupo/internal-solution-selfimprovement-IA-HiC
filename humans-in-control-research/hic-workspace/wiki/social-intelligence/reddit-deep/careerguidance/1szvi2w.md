@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1289]
     sentence_count: 10
     key_terms: [work, longjumping-put9422, job, working, careerguidance, remediation, restoration, comments]
+    concepts: [longjumping-put9422, careerguidance, working, remediation, restoration]
     token_count: 330
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1szvi2w/need_help_with_career_adviceworking_2_jobs/"}]
 ---
 # Need help with career advice/working 2 jobs?
 

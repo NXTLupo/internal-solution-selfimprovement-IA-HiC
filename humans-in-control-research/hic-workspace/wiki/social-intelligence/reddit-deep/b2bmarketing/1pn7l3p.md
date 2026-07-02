@@ -20,29 +20,39 @@ chunks:
     char_span: [0, 920]
     sentence_count: 9
     key_terms: [social, media, b2bmarketing, "i'm", icps, saas, comments, generate]
+    concepts: [social, media, b2bmarketing, comments, generate]
     token_count: 224
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1pn7l3p/is_that_social_media_helps_to_generate_leads_for/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1pn7l3p.md#c1"
-    char_span: [935, 2581]
+    char_span: [934, 2580]
     sentence_count: 14
     key_terms: [content, looking-for-marketing-discussion-811236647760298024, b2b, saas, signups, social, engagement, instagram]
+    concepts: [content, signups, social, engagement, instagram]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1pn7l3p.md#c2", "social-intelligence/reddit-deep/b2bmarketing/1pn7l3p.md#c3", "social-intelligence/reddit-deep/b2bmarketing/1pn7l3p.md#c4"]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/b2bmarketing/1pn7l3p.md#c2"
-    char_span: [2583, 4688]
+    char_span: [2582, 4687]
     sentence_count: 14
     key_terms: [major-agent4462, social, linkedin, content, confusiondull2183, got, media, posts]
+    concepts: [major-agent4462, social, linkedin, content, confusiondull2183]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1pn7l3p.md#c1", "social-intelligence/reddit-deep/b2bmarketing/1pn7l3p.md#c3", "social-intelligence/reddit-deep/b2bmarketing/1pn7l3p.md#c4"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/b2bmarketing/1pn7l3p.md#c3"
-    char_span: [4690, 6972]
+    char_span: [4689, 6971]
     sentence_count: 27
     key_terms: [content, linkedin, social, instagram, major-agent4462, project, funnel, videos]
+    concepts: [content, linkedin, social, instagram, major-agent4462]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1pn7l3p.md#c1", "social-intelligence/reddit-deep/b2bmarketing/1pn7l3p.md#c2", "social-intelligence/reddit-deep/b2bmarketing/1pn7l3p.md#c4"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/b2bmarketing/1pn7l3p.md#c4"
-    char_span: [6976, 8480]
+    char_span: [6975, 8479]
     sentence_count: 12
     key_terms: [content, engagement, linkedin, page, posts, "company's", major-agent4462, profile]
+    concepts: [content, engagement, linkedin, "company's", major-agent4462]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1pn7l3p.md#c1", "social-intelligence/reddit-deep/b2bmarketing/1pn7l3p.md#c2", "social-intelligence/reddit-deep/b2bmarketing/1pn7l3p.md#c3"]
     section: Comments
     token_count: 331
 ---

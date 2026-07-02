@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1796]
     sentence_count: 23
     key_terms: [years, back, hard, jobs, findapath, comments, because, always]
+    concepts: [years, findapath, comments, because, always]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1tdxm1h.md#c1"]
     token_count: 439
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1tdxm1h/34_and_no_idea_what_im_doing/"}]
   - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c1"
     char_span: [1810, 3534]
     sentence_count: 12
     key_terms: [thank, helpful, please, here, findapath, comments, everyone, guidance]
+    concepts: [thank, helpful, please, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1tdxm1h.md#c0"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c2"
     char_span: [3536, 4279]
     sentence_count: 7
     key_terms: [distributionrare5409, build, local, thank, winningthegame100, superslugsister, flairpointsbot, certification]
+    concepts: [build, local, thank]
     section: Comments
     token_count: 181
   - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c3"
     char_span: [4281, 6369]
     sentence_count: 19
     key_terms: [superslugsister, trading, management, wastewater, look, good, like, already]
+    concepts: [superslugsister, trading, management, wastewater, already]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c4"
@@ -50,12 +57,14 @@ chunks:
     char_span: [6463, 8423]
     sentence_count: 14
     key_terms: [bls, look, use, want, different, interest, opiates, always]
+    concepts: [different, interest, opiates, always, hiring]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c6"
     char_span: [8425, 10711]
     sentence_count: 28
     key_terms: [business, people, like, work, yourself, scholarships, niche, own]
+    concepts: [business, people, yourself, scholarships, industrial]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c7"

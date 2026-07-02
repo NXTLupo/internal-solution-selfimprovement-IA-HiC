@@ -20,16 +20,19 @@ chunks:
     char_span: [0, 2058]
     sentence_count: 22
     key_terms: [time, because, morning, block, dan, "i'm", saas, monitoring]
+    concepts: [because, morning, block, monitoring, collapses]
     token_count: 495
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1rr3wnl/im_3_years_old_and_just_sold_my_saas_for_12b/"}]
   - id: "social-intelligence/reddit-deep/saas/1rr3wnl.md#c1"
     char_span: [2060, 2400]
     sentence_count: 4
     key_terms: ["i'm", fingerpainting, diversifying, gapfinderai, successful, questions, founders, guidance]
     token_count: 85
   - id: "social-intelligence/reddit-deep/saas/1rr3wnl.md#c2"
-    char_span: [2415, 3945]
+    char_span: [2414, 3944]
     sentence_count: 6
     key_terms: [like, que, wooooooooooooooooooooooooooow, reddit, tintin, funny, juice, thank]
+    concepts: [reddit, tintin, funny, juice, thank]
     section: Comments
     token_count: 500
 ---

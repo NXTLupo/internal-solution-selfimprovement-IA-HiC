@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 602]
     sentence_count: 8
     key_terms: [nursing, careerguidance, comments, better, career, sensitive-end3943, bpt, bsc]
+    concepts: [careerguidance, nursing, comments, better, career]
     token_count: 160
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1smamcd/i_have_just_completed_my_12th_with_pcb_i_couldnt/"}]
 ---
 # I have just completed my 12th with PCB. I couldn't clear NEET. I am confused about my career options and looking for guidance. I am currently considering BSc Nursing and BPT. My questions: Which course has better career scope? Job opportunities and salary in India? Which is better long-term? Any adv
 

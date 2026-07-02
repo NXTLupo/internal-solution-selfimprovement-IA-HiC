@@ -21,34 +21,43 @@ chunks:
     char_span: [0, 2067]
     sentence_count: 18
     key_terms: [freelance, hours, work, comments, contract, creative, guidance, monthly]
+    concepts: [freelance, hours, comments, contract, creative]
+    related_chunks: ["social-intelligence/reddit-deep/freelance/1p3d2yp.md#c3"]
     token_count: 474
+    sources: [{"n":"reddit-deep: r/freelance","u":"https://www.reddit.com/r/freelance/comments/1p3d2yp/struggling_to_tell_whats_normal_vs_being/"}]
   - id: "social-intelligence/reddit-deep/freelance/1p3d2yp.md#c1"
     char_span: [2069, 4159]
     sentence_count: 19
     key_terms: [work, like, don, time, creative, because, design, normal]
+    concepts: [creative, because, expectations, relationship, design]
     token_count: 449
   - id: "social-intelligence/reddit-deep/freelance/1p3d2yp.md#c2"
     char_span: [4173, 6312]
     sentence_count: 16
     key_terms: [new, looking, afford, hours, negotiation, partnership, "i'd", time]
+    concepts: [looking, afford, negotiation, partnership, appreciate]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/freelance/1p3d2yp.md#c3"
     char_span: [6314, 8404]
     sentence_count: 16
     key_terms: [hours, something, contract, wants, rate, time, everything, mentorship]
+    concepts: [hours, something, contract, everything, mentorship]
+    related_chunks: ["social-intelligence/reddit-deep/freelance/1p3d2yp.md#c0"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/freelance/1p3d2yp.md#c4"
     char_span: [8406, 10181]
     sentence_count: 13
     key_terms: [time, client, hours, learn, set, boundaries, especially, business]
+    concepts: [client, boundaries, especially, hours, learn]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/freelance/1p3d2yp.md#c5"
     char_span: [10183, 11128]
     sentence_count: 6
     key_terms: [com, freelance-rate-calculator, freelancehourlyrate, creative, director, better, http, lancecalc]
+    concepts: [freelance-rate-calculator, freelancehourlyrate, creative, director, better]
     section: Comments
     token_count: 228
 ---

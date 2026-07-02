@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 2115]
     sentence_count: 14
     key_terms: [chatgpt, content, competitors, design, email, rank, option, topics]
+    concepts: [competitors, chatgpt, content, design, email]
     token_count: 483
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1lx2iwr/this_is_how_i_achieved_90_of_traffic_from_chatgpt/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1lx2iwr.md#c1"
-    char_span: [2130, 4216]
+    char_span: [2129, 4215]
     sentence_count: 13
     key_terms: [entrepreneur, please, rankzero, bing, permanent, promotion, stickied, chatgpt]
+    concepts: [entrepreneur, please, rankzero, permanent, promotion]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/entrepreneur/1lx2iwr.md#c2"
-    char_span: [4218, 5695]
+    char_span: [4217, 5694]
     sentence_count: 9
     key_terms: [llms, seo, producing, responses, content, getting, sources, working]
+    concepts: [producing, responses, content, getting, sources]
     section: Comments
     token_count: 380
 ---

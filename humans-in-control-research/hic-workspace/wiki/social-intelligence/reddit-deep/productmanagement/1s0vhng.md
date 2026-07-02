@@ -7,49 +7,58 @@ subreddit: "productmanagement"
 title: "Manual Setup for Product Management with AI(and looking for feedback)"
 author: "Real-Improvement-222"
 date: "2026-03-22T19:55:03.000Z"
-score: 102
+score: 106
 upvote_ratio: 0.88
 num_comments: 35
 flair: ""
-extracted_at: "2026-06-18T13:35:35.638Z"
+extracted_at: "2026-06-24T22:14:23.449Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/productmanagement/1s0vhng.md#c0"
     char_span: [0, 1045]
     sentence_count: 8
     key_terms: [productmanagement, context, product, interviews, building, comments, feedback, workflow]
+    concepts: [productmanagement, context, product, interviews, building]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1s0vhng.md#c3", "social-intelligence/reddit-deep/productmanagement/1s0vhng.md#c4"]
     token_count: 221
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1s0vhng/manual_setup_for_product_management_with_aiand/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1s0vhng.md#c1"
-    char_span: [1060, 1875]
+    char_span: [1059, 1874]
     sentence_count: 7
     key_terms: [real-improvement-222, influencer, claude, typos, goingoffroading, circlejerking, seamencaptain, visualization]
+    concepts: [real-improvement-222, influencer, claude, typos]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/productmanagement/1s0vhng.md#c2"
-    char_span: [1877, 4047]
+    char_span: [1876, 4046]
     sentence_count: 5
     key_terms: [product, fishermantiny8224, customer, model, structuring, data, knowledge, building]
+    concepts: [product, fishermantiny8224, customer, structuring, model]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/productmanagement/1s0vhng.md#c3"
-    char_span: [3743, 4821]
+    char_span: [3742, 4820]
     sentence_count: 8
     key_terms: [product, strategy, context, documented, knowledge, model, wrong, does]
+    concepts: [product, strategy, context, documented, knowledge]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1s0vhng.md#c0", "social-intelligence/reddit-deep/productmanagement/1s0vhng.md#c4"]
     section: Comments
     token_count: 231
   - id: "social-intelligence/reddit-deep/productmanagement/1s0vhng.md#c4"
-    char_span: [4823, 5618]
+    char_span: [4822, 5617]
     sentence_count: 7
     key_terms: [real-improvement-222, product, context, looking, user-research-final-v2, like, everything, management]
+    concepts: [real-improvement-222, product, context, looking]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1s0vhng.md#c0", "social-intelligence/reddit-deep/productmanagement/1s0vhng.md#c3"]
     section: Comments
     token_count: 204
 ---
 # Manual Setup for Product Management with AI(and looking for feedback)
 
 Source: [reddit-deep: r/productmanagement](https://www.reddit.com/r/ProductManagement/comments/1s0vhng/manual_setup_for_product_management_with_aiand/)
-Posted by **Real-Improvement-222** · **102↑** · **35 comments**
+Posted by **Real-Improvement-222** · **106↑** · **35 comments**
 
 Over the past 12 months I moved almost all my PM work into GitHub repos and Markdown files. Discovery, scoping, prototyping - running through a chat window or terminal. The unlock was maintaining a structured **context folder** per product: codebase, interviews, analytics, docs - all in one place, connected to live sources.
 
@@ -61,11 +70,11 @@ Would love feedback, opinions, pushback. Is this a workflow you recognize? What 
 
 ## Comments
 
-- **GoingOffRoading** (20↑): Did Claude make this for you?
-  - **SeaMenCaptain** (11↑): Ton of typos, so likely
+- **GoingOffRoading** (19↑): Did Claude make this for you?
+  - **SeaMenCaptain** (12↑): Ton of typos, so likely
     - **Real-Improvement-222** (-2↑): sorry for typos
-  - **sonJokes** (4↑): protip, ask Claude to generate a webpage as the visualization instead of an image. Especially with text-heavy views.
-- **cobramullet** (17↑): Belongs on LinkedIn.
+  - **sonJokes** (3↑): protip, ask Claude to generate a webpage as the visualization instead of an image. Especially with text-heavy views.
+- **cobramullet** (18↑): Belongs on LinkedIn.
 - **Aware_Cricket3032** (5↑): No, I just connect to a notion space or a repo and run with it. Most of the folders you have are repetitive. What’s “Review Findings” vs “Reviews”?
 
 Do you have the users, usage, etc to support all this? Your company is an AI influencer generator that is bottom of the search page. 

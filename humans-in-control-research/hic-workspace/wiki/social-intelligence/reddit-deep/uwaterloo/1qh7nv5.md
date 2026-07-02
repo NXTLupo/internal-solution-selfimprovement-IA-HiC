@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1238]
     sentence_count: 13
     key_terms: [organization, comments, students, group, uwaterloo, starting, thinking, members]
+    concepts: [organization, comments, students, group, uwaterloo]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1qh7nv5/thinking_of_starting_an_incel_student_association/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1qh7nv5.md#c1"
     char_span: [1252, 2991]
     sentence_count: 12
     key_terms: [utharc, deleted, "i'm", cybered-ca, getting, nothing, "you're", original-jackfruit12]
+    concepts: [utharc, deleted, cybered-ca, getting, nothing]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/uwaterloo/1qh7nv5.md#c2"
     char_span: [2993, 3271]
     sentence_count: 1
     key_terms: [https, youtu, mqpbka5tdg2vumq4, wajp0mwn7g25wnfj, lg5v6cs6yri, mrvol-f4, skipped, mrvol-]
+    concepts: [mqpbka5tdg2vumq4, wajp0mwn7g25wnfj, https, youtu, lg5v6cs6yri]
     section: Comments
     token_count: 130
 ---

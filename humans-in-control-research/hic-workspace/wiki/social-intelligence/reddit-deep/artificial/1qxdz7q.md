@@ -21,28 +21,36 @@ chunks:
     char_span: [0, 1564]
     sentence_count: 9
     key_terms: [opus, pricing, gpt-5, gemini, model, gap, artificial, anthropic]
+    concepts: [pricing, gpt-5, gemini, artificial, model]
     token_count: 473
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1qxdz7q/anthropic_and_openai_released_flagship_models_27/"}]
   - id: "social-intelligence/reddit-deep/artificial/1qxdz7q.md#c1"
     char_span: [1566, 2221]
     sentence_count: 8
     key_terms: [context, getting, pricing, writing, claude, gpt-5, opus, claude-opus-4-6]
+    concepts: [context, getting, pricing, writing, claude]
     token_count: 162
   - id: "social-intelligence/reddit-deep/artificial/1qxdz7q.md#c2"
     char_span: [2235, 4364]
     sentence_count: 12
     key_terms: [models, use, model, real, because, "don't", cost, own]
+    concepts: [models, model, because, "don't", different]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1qxdz7q.md#c3"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/artificial/1qxdz7q.md#c3"
     char_span: [4366, 6171]
     sentence_count: 10
     key_terms: ["don't", model, believe, happens, writing, models, openai, "that's"]
+    concepts: ["don't", model, believe, happens, writing]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1qxdz7q.md#c2"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/artificial/1qxdz7q.md#c4"
     char_span: [6173, 7019]
     sentence_count: 7
     key_terms: [use, production, reasoning, terminal, routing, codex, model, needle-in-haystack]
+    concepts: [production, reasoning, terminal, routing, codex]
     section: Comments
     token_count: 184
 ---

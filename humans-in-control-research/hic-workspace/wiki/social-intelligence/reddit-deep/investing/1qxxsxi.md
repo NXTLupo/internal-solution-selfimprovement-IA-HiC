@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 712]
     sentence_count: 5
     key_terms: [investors, stock, market, investing, ownership, comments, nations, rather]
+    concepts: [investors, stock, market, investing, ownership]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1qxxsxi.md#c3"]
     token_count: 154
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1qxxsxi/would_the_majority_of_investors_across_all/"}]
   - id: "social-intelligence/reddit-deep/investing/1qxxsxi.md#c1"
     char_span: [726, 2493]
     sentence_count: 26
     key_terms: [estate, real, countries, easier, easy, business, deleted, having]
+    concepts: [estate, countries, easier, business, deleted]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/investing/1qxxsxi.md#c2"
     char_span: [2495, 4426]
     sentence_count: 16
     key_terms: [estate, real, returns, stocks, wealth, did, here, tax]
+    concepts: [estate, returns, stocks, wealth, benefits]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/investing/1qxxsxi.md#c3"
     char_span: [4428, 6216]
     sentence_count: 12
     key_terms: [investing, percent, being, stock, inflation, portfolio, business, probably]
+    concepts: [investing, percent, being, stock, inflation]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1qxxsxi.md#c0"]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/investing/1qxxsxi.md#c4"
     char_span: [6218, 7079]
     sentence_count: 2
     key_terms: [don, invest, property, gamble, put, paperhandsthedip, prolapsejerky, preservation]
+    concepts: [invest, property, gamble]
     section: Comments
     token_count: 233
 ---

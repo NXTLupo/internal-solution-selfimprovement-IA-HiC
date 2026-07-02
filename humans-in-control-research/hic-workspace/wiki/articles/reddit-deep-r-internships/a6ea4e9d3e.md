@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2042]
     sentence_count: 5
     key_terms: [growth, reddit, internship, ownership, work, founder, remote, certificate]
+    concepts: [growth, reddit, internship, ownership, founder]
     token_count: 468
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sv56ub/hiring_growth_executive_intern_remote_paid/"}]
   - id: "articles/reddit-deep-r-internships/a6ea4e9d3e.md#c1"
     char_span: [2044, 2316]
     sentence_count: 2
     key_terms: [interested, serious-gap234, okbluejay3743, wazirkazim78, hamesloth, comments, further, process]
+    concepts: [interested]
     token_count: 85
 ---
 # [HIRING] Growth Executive Intern Remote | Paid Internship (India)

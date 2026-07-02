@@ -19,22 +19,31 @@ chunks:
     char_span: [0, 1193]
     sentence_count: 9
     key_terms: [corporate, careerguidance, work, attendant, comments, company, flight, hours]
+    concepts: [corporate, careerguidance, attendant, comments, company]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1pds0rv.md#c1", "social-intelligence/reddit-deep/careerguidance/1pds0rv.md#c2", "social-intelligence/reddit-deep/careerguidance/1pds0rv.md#c3"]
     token_count: 288
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pds0rv/150k_corporate_job_or_flight_attendant_role/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1pds0rv.md#c1"
     char_span: [1195, 3351]
     sentence_count: 15
     key_terms: ["i'm", role, job, company, delta, back, "i'd", "it's"]
+    concepts: [company, delta, corporate, education, sometimes]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1pds0rv.md#c0"]
     token_count: 487
   - id: "social-intelligence/reddit-deep/careerguidance/1pds0rv.md#c2"
     char_span: [3353, 5310]
     sentence_count: 13
     key_terms: [attendant, job, flight, corporate, change, international, days, get]
+    concepts: [attendant, flight, corporate, international, change]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1pds0rv.md#c0", "social-intelligence/reddit-deep/careerguidance/1pds0rv.md#c3"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/careerguidance/1pds0rv.md#c3"
     char_span: [5312, 7254]
     sentence_count: 14
     key_terms: [job, corporate, take, yea, attendant, accepted, probably, already]
+    concepts: [corporate, attendant, accepted, probably, already]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1pds0rv.md#c0", "social-intelligence/reddit-deep/careerguidance/1pds0rv.md#c2"]
     section: Comments
     token_count: 500
 ---

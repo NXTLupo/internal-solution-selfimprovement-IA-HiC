@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1331]
     sentence_count: 5
     key_terms: [journal, global, education, higher, publication, scholarly, highereducation, international]
+    concepts: [journal, global, education, higher, publication]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1mjduu4/journal_of_global_higher_education/"}]
 ---
 # Journal of Global Higher Education
 

@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 855]
     sentence_count: 6
     key_terms: [productivity, comments, learned, system, brain, comes, abhisshekdhama, reddit-deep]
+    concepts: [productivity, comments, learned, system, brain]
     token_count: 204
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1p2szqh/how_do_you_prevent_your_brain_from_dumping/"}]
   - id: "social-intelligence/reddit-deep/productivity/1p2szqh.md#c1"
     char_span: [869, 2601]
     sentence_count: 15
     key_terms: [abhisshekdhama, use, repetition, concepts, practice, solution, learned, retain]
+    concepts: [abhisshekdhama, repetition, concepts, practice, solution]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/productivity/1p2szqh.md#c2"
     char_span: [2603, 4436]
     sentence_count: 12
     key_terms: [use, people, understanding, information, journal, process, sounds, brain]
+    concepts: [understanding, people, information, journal, process]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/productivity/1p2szqh.md#c3"
     char_span: [4438, 6672]
     sentence_count: 12
     key_terms: [information, components, phase, skill, concepts, neurological, knowledge, understandable]
+    concepts: [information, components, concepts, neurological, phase]
     section: Comments
     token_count: 473
 ---

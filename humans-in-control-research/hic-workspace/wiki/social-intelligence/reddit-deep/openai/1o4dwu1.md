@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 297]
     sentence_count: 2
     key_terms: [comments, openai, reddit-deep, xinthedark, gpt-5-pro, prompts, models, posted]
+    concepts: [comments, openai]
     token_count: 87
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1o4dwu1/i_have_some_spare_api_usage_so_feel_free_to_post/"}]
 ---
 # I have some spare API usage, so feel free to post some prompts for gpt-5-pro below!
 

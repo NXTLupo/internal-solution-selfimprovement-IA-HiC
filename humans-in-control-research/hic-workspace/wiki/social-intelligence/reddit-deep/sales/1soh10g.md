@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1077]
     sentence_count: 11
     key_terms: [company, sales, here, career, "i'm", comments, "doesn't", direct]
+    concepts: [company, sales, career, comments, "doesn't"]
+    related_chunks: ["social-intelligence/reddit-deep/sales/1soh10g.md#c1"]
     token_count: 267
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1soh10g/employer_doesnt_know_where_my_career_is_going/"}]
   - id: "social-intelligence/reddit-deep/sales/1soh10g.md#c1"
-    char_span: [1092, 2033]
+    char_span: [1091, 2032]
     sentence_count: 9
     key_terms: [career, help, want, company, expect, making, manage, scared-middle-7923]
+    concepts: [career, company, expect, making, manage]
+    related_chunks: ["social-intelligence/reddit-deep/sales/1soh10g.md#c0"]
     section: Comments
     token_count: 246
 ---

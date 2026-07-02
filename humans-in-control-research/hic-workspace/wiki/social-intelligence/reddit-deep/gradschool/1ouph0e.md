@@ -21,69 +21,89 @@ chunks:
     char_span: [0, 1754]
     sentence_count: 17
     key_terms: [advisor, phd, prospective, "i've", want, year, gradschool, situation]
+    concepts: [advisor, prospective, gradschool, situation, comments]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ouph0e.md#c2"]
     token_count: 397
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1ouph0e/debating_between_filing_a_harassment_case_against/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c1"
     char_span: [1756, 4182]
     sentence_count: 19
     key_terms: [advisor, funding, health, issues, told, because, time, director]
+    concepts: [advisor, funding, health, issues, because]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ouph0e.md#c4"]
     token_count: 501
   - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c2"
     char_span: [4184, 6365]
     sentence_count: 24
     key_terms: [advisor, "it's", situation, "i'm", new, everything, harassment, university]
+    concepts: [advisor, situation, everything, harassment, university]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ouph0e.md#c0"]
     token_count: 470
   - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c3"
     char_span: [6379, 7808]
     sentence_count: 12
     key_terms: [funding, legal, experiences, grad, programs, unlikely, advisor, against]
+    concepts: [funding, experiences, legal, programs, unlikely]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c4"
     char_span: [7810, 10032]
     sentence_count: 16
     key_terms: [students, advisor, union, help, new, because, program, student]
+    concepts: [students, advisor, union, because, program]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ouph0e.md#c1", "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c11"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c5"
     char_span: [10034, 11548]
     sentence_count: 19
     key_terms: [accommodations, reasonable, documentation, protection, official, students, advisor, believe]
+    concepts: [accommodations, reasonable, documentation, protection, official]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c6"
     char_span: [11550, 13893]
     sentence_count: 17
     key_terms: [disability, accommodations, students, disabled, rilkehaydensuche, advisor, another, discrimination]
+    concepts: [disability, accommodations, students, disabled, rilkehaydensuche]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c7"
     char_span: [13895, 15747]
     sentence_count: 13
     key_terms: [advisor, help, graduate, research, student, don, professors, disabled]
+    concepts: [advisor, graduate, research, student, professors]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ouph0e.md#c9"]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c8"
     char_span: [15749, 17779]
     sentence_count: 20
     key_terms: [funding, requirement, next, situation, advisors, semester, minimal, suggest]
+    concepts: [funding, requirement, situation, advisors, semester]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c9"
     char_span: [17781, 18946]
     sentence_count: 16
     key_terms: [complaint, graduate, advisor, through, formal, state, union, away]
+    concepts: [complaint, graduate, advisor, through, formal]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ouph0e.md#c7"]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c10"
     char_span: [18948, 21060]
     sentence_count: 15
     key_terms: [yelling, shouting, tone, people, "they're", volume, folks, "isn't"]
+    concepts: [yelling, shouting, people, "they're", volume]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c11"
     char_span: [21062, 22478]
     sentence_count: 20
     key_terms: [rep, students, meeting, union, prof, harassment, measures, speaking]
+    concepts: [students, meeting, harassment, union, measures]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ouph0e.md#c4"]
     section: Comments
     token_count: 308
 ---

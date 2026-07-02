@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1092]
     sentence_count: 9
     key_terms: [advice, comments, project, summer, taking, right, guys, neu]
+    concepts: [advice, comments, project, summer, taking]
     token_count: 292
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1kvabm3/coop_advice_for_incoming_2nd_year/"}]
   - id: "social-intelligence/reddit-deep/neu/1kvabm3.md#c1"
     char_span: [1106, 1566]
     sentence_count: 4

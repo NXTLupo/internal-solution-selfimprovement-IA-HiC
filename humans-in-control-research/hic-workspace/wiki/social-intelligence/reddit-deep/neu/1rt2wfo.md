@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 962]
     sentence_count: 9
     key_terms: [major, law, school, neu, comments, security, finance, demand]
+    concepts: [major, school, comments, security, finance]
     token_count: 252
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rt2wfo/best_major_for_law_school_pleaseeee_helppp/"}]
   - id: "social-intelligence/reddit-deep/neu/1rt2wfo.md#c1"
     char_span: [976, 2018]
     sentence_count: 9
     key_terms: [something, interested, easier, class, study, seem, fun-theory9697, recommendation]
+    concepts: [something, interested, easier, class, study]
     section: Comments
     token_count: 236
 ---

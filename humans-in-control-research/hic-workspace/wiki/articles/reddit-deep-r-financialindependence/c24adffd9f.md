@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1903]
     sentence_count: 14
     key_terms: [financialindependence, retirement, age, live, relative, future, small, traditional]
+    concepts: [financialindependence, retirement, relative, future, traditional]
     token_count: 452
+    sources: [{"n":"Reddit Deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1ln2us9/relative_is_retirement_age_but_needs_to_live_on/"}]
   - id: "articles/reddit-deep-r-financialindependence/c24adffd9f.md#c1"
     char_span: [1905, 3216]
     sentence_count: 11
     key_terms: [retire, retirement, deeterfly, situation, anything, tracygee, ability, working]
+    concepts: [retire, retirement, deeterfly, situation, anything]
     token_count: 327
 ---
 # Relative is retirement age but needs to live on income from $250k cash. No other assets, no home. What to do?

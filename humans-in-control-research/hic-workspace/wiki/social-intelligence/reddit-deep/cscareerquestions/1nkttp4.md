@@ -19,53 +19,66 @@ chunks:
     char_span: [0, 1720]
     sentence_count: 10
     key_terms: [social, skills, cscareerquestions, comments, practice, introverted, networking, language]
+    concepts: [social, skills, cscareerquestions, comments, practice]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c5"]
     token_count: 374
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1nkttp4/nobody_tells_you_this_but_social_skills_are/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c1"
     char_span: [1734, 3763]
     sentence_count: 12
     key_terms: [people, vocabulary, book, common, failedgradadmissions, basics, names, etiquette]
+    concepts: [people, vocabulary, failedgradadmissions, common, basics]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c2"
     char_span: [3765, 5758]
     sentence_count: 7
     key_terms: [deleted, people, personality, food, actionable, mentioned, manners, service]
+    concepts: [deleted, people, personality, actionable, mentioned]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c3"
     char_span: [5760, 7477]
     sentence_count: 9
     key_terms: [skills, something, ask, awkward, mentor, social, lot, mentioned]
+    concepts: [skills, something, awkward, mentor, social]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c5"]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c4"
     char_span: [7479, 9609]
     sentence_count: 15
     key_terms: [introverted, social, extroverted, people, training, because, reddit, skills]
+    concepts: [introverted, social, extroverted, people, training]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c5"
     char_span: [9611, 11364]
     sentence_count: 12
     key_terms: [skills, social, engineering, talking, smooth, good, like, concepts]
+    concepts: [skills, social, engineering, talking, smooth]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c3"]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c6"
     char_span: [11366, 13383]
     sentence_count: 13
     key_terms: [people, skills, different, presentations, good, like, environments, intelligence]
+    concepts: [people, different, skills, presentations, environments]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c7"
     char_span: [13385, 15097]
     sentence_count: 9
     key_terms: [acordeonphx, people, post, rayzorium, something, talking, anyone, course]
+    concepts: [acordeonphx, people, rayzorium, something, talking]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c8"
     char_span: [15100, 16622]
     sentence_count: 7
     key_terms: [conversation, person, did, far, connection, question, because, choose]
+    concepts: [conversation, person, connection, question, because]
     section: Comments
     token_count: 364
 ---

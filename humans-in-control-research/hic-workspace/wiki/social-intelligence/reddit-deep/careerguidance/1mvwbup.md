@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1377]
     sentence_count: 10
     key_terms: [job, company, careerguidance, doing, engineering, day, work, comments]
+    concepts: [careerguidance, company, engineering, doing, comments]
     token_count: 327
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1mvwbup/65_years_into_my_engineering_career_making_77000/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1mvwbup.md#c1"
     char_span: [1391, 3417]
     sentence_count: 21
     key_terms: [doing, start, job, work, yourself, responsibility, self-medicate, years]
+    concepts: [doing, start, yourself, responsibility, self-medicate]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1mvwbup.md#c2"
     char_span: [3419, 5470]
     sentence_count: 29
     key_terms: [get, find, company, money, got, job, impression, protection]
+    concepts: [company, impression, money, protection, different]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/careerguidance/1mvwbup.md#c3"
     char_span: [5472, 7493]
     sentence_count: 23
     key_terms: [employees, private, equity, get, easy, facilities, management, company]
+    concepts: [employees, private, equity, facilities, management]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/careerguidance/1mvwbup.md#c4"
     char_span: [7495, 9664]
     sentence_count: 18
     key_terms: [been, employees, time, get, like, engineers, contract, process]
+    concepts: [employees, engineers, contract, process, similar]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/careerguidance/1mvwbup.md#c5"
     char_span: [9666, 11054]
     sentence_count: 15
     key_terms: [project, management, experience, manufacturing, engineering, mentioned, company, higher]
+    concepts: [management, project, experience, manufacturing, engineering]
     section: Comments
     token_count: 286
 ---

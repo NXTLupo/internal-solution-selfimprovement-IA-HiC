@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1600]
     sentence_count: 11
     key_terms: [acknowledgment, letters, letter, nonprofit, receive, personalized, donor, approach]
+    concepts: [acknowledgment, letters, letter, nonprofit, receive]
     token_count: 303
+    sources: [{"n":"reddit-deep: r/nonprofit","u":"https://www.reddit.com/r/nonprofit/comments/1txpdjs/acknowledgment_letter_advice/"}]
   - id: "social-intelligence/reddit-deep/nonprofit/1txpdjs.md#c1"
-    char_span: [1615, 3539]
+    char_span: [1614, 3538]
     sentence_count: 14
     key_terms: [letter, donation, acknowledgements, relationships, personalized, boilerplate, "i'd", director]
+    concepts: [letter, acknowledgements, donation, relationships, personalized]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/nonprofit/1txpdjs.md#c2"
-    char_span: [3541, 5546]
+    char_span: [3540, 5545]
     sentence_count: 15
     key_terms: ["don't", gift, personal, donors, letter, recognition, something, comment]
+    concepts: ["don't", personal, donors, letter, recognition]
     section: Comments
     token_count: 446
 ---

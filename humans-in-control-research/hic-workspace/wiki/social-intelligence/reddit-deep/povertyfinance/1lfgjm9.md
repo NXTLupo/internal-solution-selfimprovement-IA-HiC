@@ -21,21 +21,30 @@ chunks:
     char_span: [0, 2273]
     sentence_count: 9
     key_terms: [college, children, parents, school, povertyfinance, taking, universities, loans]
+    concepts: [college, children, parents, school, povertyfinance]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c1", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c8", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c9"]
     token_count: 481
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1lfgjm9/if_you_cant_afford_to_pay_for_your_childs_college/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c1"
     char_span: [2275, 4794]
     sentence_count: 12
     key_terms: [school, high, enrollment, students, classes, college, dual, take]
+    concepts: [school, enrollment, students, classes, college]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c0", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c2", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c3", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c7", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c8"]
     token_count: 480
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c2"
     char_span: [4796, 7208]
     sentence_count: 16
     key_terms: [college, university, students, universities, associates, community, live, tuition]
+    concepts: [college, university, students, universities, associates]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c1", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c5", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c8"]
     token_count: 485
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c3"
     char_span: [7210, 9616]
     sentence_count: 13
     key_terms: [college, year, tuition, scholarships, enrollment, child, classes, credit]
+    concepts: [college, scholarships, tuition, enrollment, child]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c1", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c5", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c7", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c8", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c10"]
     token_count: 495
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c4"
     char_span: [9618, 10117]
@@ -46,48 +55,62 @@ chunks:
     char_span: [10131, 12029]
     sentence_count: 13
     key_terms: [tuition, reimburse, jobs, work, research, college, universities, etc]
+    concepts: [tuition, reimburse, research, college, universities]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c2", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c3"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c6"
     char_span: [12031, 13101]
     sentence_count: 7
     key_terms: [get, free, programs, through, degree, states, years, year]
+    concepts: [programs, through, degree, states, years]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c7"
     char_span: [13103, 15298]
     sentence_count: 12
     key_terms: [enrollment, dual, school, take, tuition, online, institutions, rural]
+    concepts: [enrollment, school, tuition, institutions, online]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c1", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c3", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c11"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c8"
     char_span: [15059, 16781]
     sentence_count: 14
     key_terms: [children, students, college, clep-college-credit-policy-search, dual, enrollment, programs, schools]
+    concepts: [children, students, college, enrollment, programs]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c0", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c1", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c2", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c3", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c10"]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c9"
     char_span: [16783, 18399]
     sentence_count: 12
     key_terms: [exams, community, clep, got, college, school, thesecondlead, absolutely]
+    concepts: [community, exams, thesecondlead, college, school]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c0", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c1"]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c10"
     char_span: [18401, 20164]
     sentence_count: 14
     key_terms: [college, people, child, money, differently, dumb, kid, tax]
+    concepts: [college, people, differently, child, enrollment]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c1", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c3", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c8"]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c11"
     char_span: [20166, 22094]
     sentence_count: 13
     key_terms: [tuition, dual, enrollment, credit, state, different, math, students]
+    concepts: [enrollment, tuition, credit, different, state]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c3", "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c7"]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c12"
     char_span: [22096, 22599]
     sentence_count: 5
     key_terms: [school, glittering-gur5513, nyu, scholarships, prestigious, technically, additional, admissions]
+    concepts: [school]
     section: Comments
     token_count: 113
 ---

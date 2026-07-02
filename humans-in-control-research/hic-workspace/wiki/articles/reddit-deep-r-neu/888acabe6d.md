@@ -19,10 +19,12 @@ content_hash: "ea06fa28b6584523"
 relevance_by_goal: {"3d9ef8ee927f":45}
 chunks:
   - id: "articles/reddit-deep-r-neu/888acabe6d.md#c0"
-    char_span: [0, 818]
+    char_span: [0, 817]
     sentence_count: 7
     key_terms: [withdraw, applications, co-op, comments, option, reddit, update, means]
-    token_count: 204
+    concepts: [withdraw, applications, co-op, comments, option]
+    token_count: 203
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rkg7sz/coop/"}]
 ---
 # Co-op
 

@@ -10,6 +10,7 @@ chunks:
     char_span: [0, 764]
     sentence_count: 2
     key_terms: [industries, reddit-deep-r-careerguidance, sources, shared, articles, reddit-deep-r-applyingtocollege, government, reddit-deep-r-gradschool]
+    concepts: [reddit-deep-r-careerguidance, industries, sources, shared, articles]
     section: Cross-over verticals (shared sources) / Representative sources
     token_count: 214
 ---

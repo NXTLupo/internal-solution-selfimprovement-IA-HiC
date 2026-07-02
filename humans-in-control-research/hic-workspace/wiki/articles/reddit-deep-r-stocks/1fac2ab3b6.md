@@ -18,11 +18,16 @@ chunks:
     char_span: [0, 1686]
     sentence_count: 17
     key_terms: [market, stock, money, cash, stocks, tech, companies, comments]
+    concepts: [market, stock, money, stocks, companies]
+    related_chunks: ["articles/reddit-deep-r-stocks/1fac2ab3b6.md#c1"]
     token_count: 388
+    sources: [{"n":"Reddit Deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1td9xxe/where_is_all_the_money_in_the_us_stock_market/"}]
   - id: "articles/reddit-deep-r-stocks/1fac2ab3b6.md#c1"
     char_span: [1688, 3464]
     sentence_count: 14
     key_terms: [market, money, million, street, house, yield, cap, investment]
+    concepts: [market, money, million, street, house]
+    related_chunks: ["articles/reddit-deep-r-stocks/1fac2ab3b6.md#c0"]
     token_count: 441
 ---
 # Where is all the money in the US stock market coming from?

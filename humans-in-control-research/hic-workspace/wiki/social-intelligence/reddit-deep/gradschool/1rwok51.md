@@ -21,28 +21,34 @@ chunks:
     char_span: [0, 1924]
     sentence_count: 11
     key_terms: [school, good, high, grades, like, want, gradschool, extremely]
+    concepts: [school, grades, gradschool, extremely, comments]
     token_count: 442
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rwok51/should_i_leave_my_job_that_is_extremely_high/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1rwok51.md#c1"
     char_span: [1926, 2506]
     sentence_count: 3
     key_terms: [want, degree, comfortable, compromised, absolutely, hopefully, undergrad, "couldn't"]
+    concepts: [degree]
     token_count: 128
   - id: "social-intelligence/reddit-deep/gradschool/1rwok51.md#c2"
     char_span: [2520, 4509]
     sentence_count: 21
     key_terms: [research, get, job, masters, paying, experience, opportunities, high]
+    concepts: [research, masters, experience, paying, opportunities]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/gradschool/1rwok51.md#c3"
     char_span: [4514, 6430]
     sentence_count: 17
     key_terms: [get, job, degree, school, grad, per, because, pkr]
+    concepts: [degree, school, because, absolutely, experience]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/gradschool/1rwok51.md#c4"
     char_span: [6432, 7734]
     sentence_count: 17
     key_terms: [publication, "you're", work, get, job, time, experience, academia]
+    concepts: [publication, "you're", experience, academia, already]
     section: Comments
     token_count: 321
 ---

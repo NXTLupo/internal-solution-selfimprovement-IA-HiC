@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 843]
     sentence_count: 5
     key_terms: [personalfinance, got, financial, comments, classes, avoid, debt, time]
+    concepts: [personalfinance, financial, comments, classes, avoid]
     token_count: 201
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1nrvesf/what_are_the_essential_ways_to_avoid_debt_as_a/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1nrvesf.md#c1"
     char_span: [857, 2109]
     sentence_count: 12
     key_terms: [car, "it's", buying, cars, buy, cash, fine, save]
+    concepts: [buying]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/personalfinance/1nrvesf.md#c2"
     char_span: [2111, 3609]
     sentence_count: 15
     key_terms: [car, people, cars, paycheck, buy, get, new, insurance]
+    concepts: [people, paycheck, insurance, situation, means]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/personalfinance/1nrvesf.md#c3"
     char_span: [3612, 5570]
     sentence_count: 18
     key_terms: [don, maintenance, buy, pay, credit, expensive, car, cars]
+    concepts: [maintenance, credit, expensive, afford, cards]
     section: Comments
     token_count: 491
 ---

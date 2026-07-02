@@ -19,35 +19,44 @@ chunks:
     char_span: [0, 916]
     sentence_count: 12
     key_terms: [college, become, seems, study, good, want, comments, useless]
+    concepts: [college, become, seems, study, comments]
     token_count: 228
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1l9yk6w/every_career_seems_bad_to_me/"}]
   - id: "social-intelligence/reddit-deep/college/1l9yk6w.md#c1"
     char_span: [930, 3059]
     sentence_count: 13
     key_terms: [college, classes, field, undecided, fields, competitive, don, like]
+    concepts: [college, classes, undecided, field, fields]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/college/1l9yk6w.md#c2"
     char_span: [3061, 4791]
     sentence_count: 7
     key_terms: [college, get, years, time, people, job, year, spending]
+    concepts: [college, years, people, spending, because]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/college/1l9yk6w.md#c3"
     char_span: [4793, 5866]
     sentence_count: 5
     key_terms: [path, career, degree, professor, believe, college, become, having]
+    concepts: [career, degree, professor, believe, college]
+    related_chunks: ["social-intelligence/reddit-deep/college/1l9yk6w.md#c4"]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/college/1l9yk6w.md#c4"
     char_span: [5868, 8072]
     sentence_count: 17
     key_terms: [degree, college, business, engineering, job, time, figure, people]
+    concepts: [degree, college, business, engineering, figure]
+    related_chunks: ["social-intelligence/reddit-deep/college/1l9yk6w.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1l9yk6w.md#c5"
     char_span: [7785, 8489]
     sentence_count: 6
     key_terms: [community, something, college, options, bit, less, life, tiny-vampcat6678]
+    concepts: [community, something, college, options]
     section: Comments
     token_count: 169
 ---

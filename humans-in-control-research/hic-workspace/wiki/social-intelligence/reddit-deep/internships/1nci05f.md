@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 1408]
     sentence_count: 14
     key_terms: [friend, permission, company, office, internships, boss, left, told]
+    concepts: [friend, permission, company, office, internships]
     token_count: 369
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1nci05f/unpaid_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1nci05f.md#c1"
     char_span: [1422, 3353]
     sentence_count: 7
     key_terms: [altruistic-long-698, unpaid, internship, ill-necessary-6138, resume, internships, big, time]
+    concepts: [altruistic-long-698, unpaid, internship, ill-necessary-6138, resume]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1nci05f.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1nci05f.md#c2"
     char_span: [3142, 5051]
     sentence_count: 7
     key_terms: [altruistic-long-698, unpaid, ill-necessary-6138, working, gopalkanade, internships, internship, matters]
+    concepts: [altruistic-long-698, unpaid, ill-necessary-6138, working, gopalkanade]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1nci05f.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1nci05f.md#c3"
     char_span: [4827, 6339]
     sentence_count: 16
     key_terms: [altruistic-long-698, experience, nothing769, engineers, something, probably, because, getting]
+    concepts: [altruistic-long-698, experience, nothing769, engineers, something]
     section: Comments
     token_count: 375
 ---

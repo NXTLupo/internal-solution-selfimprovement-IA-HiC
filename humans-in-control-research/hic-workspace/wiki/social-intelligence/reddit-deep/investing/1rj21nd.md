@@ -20,17 +20,24 @@ chunks:
     char_span: [0, 1679]
     sentence_count: 19
     key_terms: [trading, com, inconsistencies, orders, public, limit, order, price]
+    concepts: [trading, inconsistencies, orders, public, limitations]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rj21nd.md#c2"]
     token_count: 358
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1rj21nd/publiccom_trading_limitations_are_strange/"}]
   - id: "social-intelligence/reddit-deep/investing/1rj21nd.md#c1"
-    char_span: [1694, 3561]
+    char_span: [1693, 3560]
     sentence_count: 11
     key_terms: [public, money, "i'm", real, jaykali, options, fills, day]
+    concepts: [public, money, jaykali, options, fills]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rj21nd.md#c2"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/investing/1rj21nd.md#c2"
-    char_span: [3563, 5207]
+    char_span: [3562, 5206]
     sentence_count: 9
     key_terms: [stock, margin, options, trading, public, day, pay, sell]
+    concepts: [stock, margin, options, trading, public]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rj21nd.md#c0", "social-intelligence/reddit-deep/investing/1rj21nd.md#c1"]
     section: Comments
     token_count: 370
 ---

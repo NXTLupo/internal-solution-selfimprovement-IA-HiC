@@ -21,88 +21,104 @@ chunks:
     char_span: [0, 2064]
     sentence_count: 19
     key_terms: [cscareerquestions, "it's", "doesn't", consciousness, going, agi, goes, llms]
+    concepts: [cscareerquestions, consciousness, "doesn't", businesses, going]
     token_count: 472
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t1ordr/future_of_software_developers/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1ordr.md#c1"
     char_span: [2066, 3008]
     sentence_count: 10
     key_terms: [programmers, agi, training, without, cost, hype, advancements, predicition]
+    concepts: [programmers, training, without]
     token_count: 212
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1ordr.md#c2"
     char_span: [3022, 4922]
     sentence_count: 20
     key_terms: [claude, experience, code, years, development, team, building, faster]
+    concepts: [claude, experience, development, years, building]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1ordr.md#c3"
     char_span: [4924, 6763]
     sentence_count: 15
     key_terms: ["it's", code, replacing, time, quality, claude, simple, speed]
+    concepts: [replacing, quality, claude, simple, speed]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1ordr.md#c4"
     char_span: [6765, 8389]
     sentence_count: 13
     key_terms: [people, absolutely, learning, projects, training, because, company, develop]
+    concepts: [people, absolutely, learning, projects, training]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1ordr.md#c5"
     char_span: [8391, 10455]
     sentence_count: 15
     key_terms: [prs, massive, review, senior, functionality, using, dev, copilot]
+    concepts: [massive, functionality, review, senior, using]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1ordr.md#c6"
     char_span: [10458, 12336]
     sentence_count: 16
     key_terms: [agi, quinqueis-giyph-i728, marketers, llms, started, intelligence, matrix-based, "it's"]
+    concepts: [quinqueis-giyph-i728, marketers, started, intelligence, matrix-based]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1ordr.md#c7"
     char_span: [12338, 13954]
     sentence_count: 10
     key_terms: [process, memory, quinqueis-giyph-i728, agi, anything, thought, take, text]
+    concepts: [process, quinqueis-giyph-i728, memory, anything, thought]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1ordr.md#c8"
     char_span: [13956, 15849]
     sentence_count: 11
     key_terms: [software, devs, company, need, headcount, business, changing, engineer]
+    concepts: [software, company, headcount, business, changing]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1ordr.md#c9"
     char_span: [15851, 17768]
     sentence_count: 9
     key_terms: [point, code, slop, people, time, extremely, prompting, industry]
+    concepts: [point, people, extremely, prompting, industry]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1ordr.md#c10"
     char_span: [17770, 19893]
     sentence_count: 10
     key_terms: [output, input, cheaper, sonnet, companies, engineers, expensive, getting]
+    concepts: [output, input, cheaper, sonnet, companies]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1ordr.md#c11"
     char_span: [19895, 21394]
     sentence_count: 13
     key_terms: [software, companies, someone, demand, productivity, build, saas, engineers]
+    concepts: [software, companies, someone, productivity, demand]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1ordr.md#c12"
     char_span: [21396, 23227]
     sentence_count: 17
     key_terms: [juniors, seniors, junior, don, engineer, lead, need, work]
+    concepts: [juniors, seniors, junior, engineer, engineers]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1ordr.md#c13"
     char_span: [23229, 25097]
     sentence_count: 14
     key_terms: [seniors, today, years, already, degree, denial, people, the-reincarnated-one]
+    concepts: [seniors, today, years, already, degree]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1ordr.md#c14"
     char_span: [25102, 26301]
     sentence_count: 6
     key_terms: [computers, writing, coding, people, barrepresentative653, going, like, need]
+    concepts: [computers, writing, coding, people, going]
     section: Comments
     token_count: 301
 ---

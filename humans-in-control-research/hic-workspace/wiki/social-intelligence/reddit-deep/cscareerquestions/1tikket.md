@@ -19,93 +19,112 @@ chunks:
     char_span: [0, 2500]
     sentence_count: 11
     key_terms: [company, customers, businesses, cscareerquestions, platform, velocity, greater, future]
+    concepts: [company, customers, businesses, cscareerquestions, platform]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tikket/intuit_announces_17_layoffs/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tikket.md#c1"
     char_span: [2502, 5105]
     sentence_count: 13
     key_terms: [reducing, organization, accelerate, roles, structure, impact, streamlining, teams]
+    concepts: [reducing, organization, accelerate, structure, roles]
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tikket.md#c2"
     char_span: [5107, 7573]
     sentence_count: 14
     key_terms: [support, intuit, transition, customers, employees, immigration, leaving, receive]
+    concepts: [support, intuit, transition, customers, employees]
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tikket.md#c3"
     char_span: [7587, 9537]
     sentence_count: 12
     key_terms: [existing, lobbied, irs, themselves, business, coworker, company, intuit]
+    concepts: [existing, lobbied, themselves, business, coworker]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tikket.md#c4"
     char_span: [9539, 10611]
     sentence_count: 7
     key_terms: [intuit-ceo-sasan-goodarzi-turbotax-irs-quickbooks-ai-software-decoder-interview, turbotax, quickbooks, https, nilay, com, good, used]
+    concepts: [turbotax, quickbooks, https, nilay]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tikket.md#c5"
     char_span: [10613, 12392]
     sentence_count: 8
     key_terms: [freetaxusa, turbotax, tax, profitable-corporations-paid-zero-income-tax-in-2025, taxes, income, system, "it's"]
+    concepts: [freetaxusa, turbotax, taxes, income, system]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tikket.md#c6"
     char_span: [12394, 13869]
     sentence_count: 12
     key_terms: [richest, countries, country, technological, "don't", government, healthcare, something]
+    concepts: [richest, countries, technological, country, "don't"]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tikket.md#c7"
     char_span: [13871, 15179]
     sentence_count: 9
     key_terms: [free, "don't", https, etc, congress, because, version, filers]
+    concepts: ["don't", https, congress, because, version]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tikket.md#c8"
     char_span: [15181, 16574]
     sentence_count: 4
     key_terms: [your-taxes-were-designed-to-suck, free, corporate, thousands, probably, laying, people, successful-reason403]
+    concepts: [corporate, thousands, probably, laying, people]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tikket.md#c9"
     char_span: [16576, 17355]
     sentence_count: 4
     key_terms: [velocity, street, sound, "we're", instructionno3616, like, wall, cheezzy4ever]
+    concepts: [velocity, street, sound, "we're"]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tikket.md#c10"
     char_span: [17357, 19291]
     sentence_count: 11
     key_terms: [months, charge, least, lol, severance, because, layoffs, package]
+    concepts: [months, charge, least, severance, because]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tikket.md#c12"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tikket.md#c11"
     char_span: [18998, 19325]
     sentence_count: 4
     key_terms: [charge, lawyer, move, immediately, negotiation, offending, severance, dropping]
+    concepts: [charge, lawyer]
     section: Comments
     token_count: 70
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tikket.md#c12"
     char_span: [19327, 21545]
     sentence_count: 12
     key_terms: [eeoc, because, severance, charge, information, get, like, part]
+    concepts: [because, severance, charge, information, settlement]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tikket.md#c10"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tikket.md#c13"
     char_span: [21547, 23093]
     sentence_count: 12
     key_terms: [like, tax, state, free, completely, freetaxusa, situations, filings]
+    concepts: [completely, freetaxusa, situations, state, filings]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tikket.md#c14"
     char_span: [23095, 24932]
     sentence_count: 11
     key_terms: [momentum, company, "i'm", leadership, employee, meeting, intuit, laying]
+    concepts: [momentum, company, leadership, employee, meeting]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tikket.md#c15"
     char_span: [24934, 26587]
     sentence_count: 12
     key_terms: [company, enough, oliviapotato, doing, years, been, "it's", shit]
+    concepts: [company, oliviapotato, enough, doing, performing]
     section: Comments
     token_count: 448
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1068]
     sentence_count: 10
     key_terms: [careerguidance, interested, comments, career, collar, people, switch, point]
+    concepts: [careerguidance, interested, comments, career, collar]
     token_count: 249
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tljv1j/people_who_went_to_college_and_worked_in_a_white/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tljv1j.md#c1"
     char_span: [1082, 2357]
     sentence_count: 6
     key_terms: [electronics, work, instead, started, talking, repair, small, years]
+    concepts: [electronics, instead, started, talking, repair]
     section: Comments
     token_count: 243
 ---

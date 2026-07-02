@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1834]
     sentence_count: 10
     key_terms: [cybersecurity, concentration, cscareerquestions, help, computer, learning, science, certifications]
+    concepts: [cybersecurity, concentration, cscareerquestions, computer, learning]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mnqmyg.md#c2"]
     token_count: 396
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1mnqmyg/need_advice_with_degree_path_in_cs/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mnqmyg.md#c1"
     char_span: [1848, 4056]
     sentence_count: 19
     key_terms: [internship, "you're", "don't", graduate, without, people, fundamentals, learn]
+    concepts: [internship, "you're", graduate, "don't", without]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mnqmyg.md#c2"
     char_span: [4058, 6278]
     sentence_count: 19
     key_terms: [cybersecurity, help, job, mentorship, placement, concentration, internships, graduation]
+    concepts: [cybersecurity, mentorship, placement, concentration, internships]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mnqmyg.md#c0"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mnqmyg.md#c3"
     char_span: [6280, 6777]
     sentence_count: 3
     key_terms: [developer, cybersecurity, tuition, degree, certs, offer, optimization, transferring]
+    concepts: [developer, cybersecurity, tuition, degree, certs]
     section: Comments
     token_count: 101
 ---

@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 1271]
     sentence_count: 16
     key_terms: [been, careerguidance, sales, years, comments, employed, advice, doing]
+    concepts: [careerguidance, sales, years, comments, employed]
     token_count: 325
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rdu0vd/any_advice_for_excheffood_sales_on_new_career_path/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rdu0vd.md#c1"
-    char_span: [1286, 3655]
+    char_span: [1285, 3654]
     sentence_count: 3
     key_terms: [maintenance, building, facilities, chef, manufacturers, engineer, roles, sales]
+    concepts: [maintenance, building, facilities, manufacturers, engineer]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rdu0vd.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rdu0vd.md#c2"
-    char_span: [3392, 4105]
+    char_span: [3391, 4104]
     sentence_count: 1
     key_terms: [locally, network, indeed, manufacturers, chefs, super, maintenance, def]
+    concepts: [manufacturers, locally, network, indeed, maintenance]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rdu0vd.md#c1"]
     section: Comments
     token_count: 170
 ---

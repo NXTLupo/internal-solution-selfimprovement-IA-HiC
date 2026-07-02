@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1547]
     sentence_count: 14
     key_terms: [finally, wallstreetbets, calls, short-dated, been, like, comments, honestly]
+    concepts: [wallstreetbets, finally, short-dated, calls, comments]
     token_count: 382
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1t5mpce/23_year_old_turns_10k_into_100k_in_1_year/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t5mpce.md#c1"
     char_span: [1561, 2443]
     sentence_count: 6
     key_terms: [buy, year, discord, million, slowly, total, years, dude]
+    concepts: [discord, million, slowly, total, years]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t5mpce.md#c2"
     char_span: [2445, 4030]
     sentence_count: 7
     key_terms: [rollercoaster, year, investment, strength, selling, electronic-worry4077, being, right]
+    concepts: [rollercoaster, investment, strength, selling, being]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t5mpce.md#c3"
@@ -44,6 +48,7 @@ chunks:
     char_span: [4294, 5579]
     sentence_count: 10
     key_terms: [bubble, year, congrats, realized, account, compute, "there's", enough]
+    concepts: [bubble, congrats, realized, account, compute]
     section: Comments
     token_count: 413
 ---

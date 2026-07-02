@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 690]
     sentence_count: 5
     key_terms: [college, applyingtocollege, program, experiences, technician, robertson, comments, pharmacy]
+    concepts: [college, applyingtocollege, program, experiences, technician]
     token_count: 160
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rcrcbx/anybody_went_to_robertson_college_in_calgary_for/"}]
 ---
 # Anybody went to Robertson College in Calgary for the Pharmacy Technician program? Please share your experiences
 

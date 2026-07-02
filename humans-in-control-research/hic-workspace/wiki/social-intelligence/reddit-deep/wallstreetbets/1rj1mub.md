@@ -21,42 +21,53 @@ chunks:
     char_span: [0, 1609]
     sentence_count: 8
     key_terms: [influencer, wallstreetbets, post, comments, "tiktok's", biggest, "there's", dumped]
+    concepts: [influencer, wallstreetbets, comments, "tiktok's", biggest]
     token_count: 407
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1rj1mub/the_china_hustle_20_how_tiktoks_biggest/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rj1mub.md#c1"
     char_span: [1611, 3410]
     sentence_count: 4
     key_terms: [https, com, fundcertify-cpa, company, statements, financial, facebook, linkedin]
+    concepts: [https, fundcertify-cpa, company, statements, financial]
     token_count: 453
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rj1mub.md#c2"
     char_span: [3412, 5393]
     sentence_count: 10
     key_terms: [tiktok-influencer-khaby-lame-ai-avatar-deported-trump-creator-economy-975-million-deal, tiktok-star-khaby-lame-signs-975-million-deal-to-monetize-global-fan-base, tiktoker-khaby-lame-975-million-deal-riding-on-falling-stock-2026-2, https, price, com, bloomberg, offering]
+    concepts: [https, price, bloomberg, offering, article]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1rj1mub.md#c5"]
     token_count: 485
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rj1mub.md#c3"
     char_span: [5395, 7429]
     sentence_count: 7
     key_terms: [how-a-tiny-hong-kong-firm-grew-bigger-than-goldman-then-began-to-plunge, ex-ubs-banker-s-parents-bought-into-china-ipos-he-helped-arrange, https, underwriters, book, american, e25240d7cfd79e105472e322f82cafd59efa1400, "hkd's"]
+    concepts: [underwriters, https, american, "hkd's", regulation]
     token_count: 511
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rj1mub.md#c4"
     char_span: [7431, 8978]
     sentence_count: 8
     key_terms: [influencer, prospectus, company, sparkle, crypto, events, within, brain]
+    concepts: [influencer, prospectus, company, sparkle, crypto]
     token_count: 417
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rj1mub.md#c5"
     char_span: [8980, 10295]
     sentence_count: 5
     key_terms: [haliey-welch-aka-hawk-tuah-tries-to-explain-herself, https, achieve, article, massive, "there's", reach, scams]
+    concepts: [https, achieve, article, massive, "there's"]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1rj1mub.md#c2"]
     token_count: 343
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rj1mub.md#c6"
     char_span: [10309, 12110]
     sentence_count: 5
     key_terms: [next, mithyyyy, investigative, didn, "i'm", discord, writing, begin]
+    concepts: [mithyyyy, investigative, discord, writing, begin]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rj1mub.md#c7"
     char_span: [12112, 13681]
     sentence_count: 5
     key_terms: [people, followers, lowest-common-denominator, fucking, someone, videos, theykeepbanningmebro, "isn't"]
+    concepts: [people, followers, fucking, someone, videos]
     section: Comments
     token_count: 416
 ---

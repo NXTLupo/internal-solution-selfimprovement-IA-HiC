@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1240]
     sentence_count: 7
     key_terms: [phd, admissions, committee, gradadmissions, group, independent, acceptance, mentioning]
+    concepts: [admissions, committee, gradadmissions, independent, acceptance]
     token_count: 262
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qh9q6h/what_are_some_other_career_paths_if_one_doesnt/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qh9q6h.md#c1"
     char_span: [1254, 3431]
     sentence_count: 15
     key_terms: [phd, research, "don't", independent, lead, want, phds, because]
+    concepts: [research, independent, "don't", because, project]
     section: Comments
     token_count: 472
 ---

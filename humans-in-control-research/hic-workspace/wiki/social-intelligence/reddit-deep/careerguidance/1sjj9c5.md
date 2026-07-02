@@ -19,52 +19,62 @@ chunks:
     char_span: [0, 1968]
     sentence_count: 11
     key_terms: [feel, working, careerguidance, always, sales, don, like, work]
+    concepts: [careerguidance, working, always, sales, impactful]
     token_count: 465
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sjj9c5/is_it_normal_to_feel_burnt_out_so_often_is_this/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sjj9c5.md#c1"
     char_span: [1970, 2755]
     sentence_count: 8
     key_terms: [job, physics, career, big, part, time, want, appreciated]
+    concepts: [physics, career]
     token_count: 184
   - id: "social-intelligence/reddit-deep/careerguidance/1sjj9c5.md#c2"
     char_span: [2769, 3629]
     sentence_count: 6
     key_terms: [affectionate-pin5205, prior-soil, having, no-seaworthiness969, right, job, life, like]
+    concepts: [affectionate-pin5205, prior-soil, having, right]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/careerguidance/1sjj9c5.md#c3"
     char_span: [3631, 5708]
     sentence_count: 21
     key_terms: [always, take, work, job, avoid, overperform, get, life]
+    concepts: [always, overperform, avoid, yourself, another]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/careerguidance/1sjj9c5.md#c4"
     char_span: [5710, 7574]
     sentence_count: 22
     key_terms: [job, manager, never, "i'm", jobs, work, supported, charity]
+    concepts: [manager, never, supported, charity, "they're"]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/careerguidance/1sjj9c5.md#c5"
     char_span: [7576, 9792]
     sentence_count: 15
     key_terms: [people, own, want, work, management, billable, garbage, suspect]
+    concepts: [people, management, billable, garbage, suspect]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1sjj9c5.md#c6"
     char_span: [9794, 11178]
     sentence_count: 10
     key_terms: [work, correct, created, towards, called, myself, affectionate-pin5205, being]
+    concepts: [correct, created, towards, called, myself]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/careerguidance/1sjj9c5.md#c7"
     char_span: [11180, 13427]
     sentence_count: 18
     key_terms: [find, teaching, because, burnout, always, job, efficiency, honeymoon]
+    concepts: [teaching, because, burnout, always, efficiency]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/careerguidance/1sjj9c5.md#c8"
     char_span: [13429, 14220]
     sentence_count: 8
     key_terms: [work, economic, yourself, service, people, public, values, organization]
+    concepts: [economic, yourself, service, people, public]
     section: Comments
     token_count: 163
 ---

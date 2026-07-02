@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 723]
     sentence_count: 4
     key_terms: [different, gold, investing, long-term, comments, anyone, crypto, stocks]
+    concepts: [different, investing, long-term, comments, anyone]
     token_count: 182
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1pdga22/has_anyone_here_tested_a_3_pillar_longterm/"}]
   - id: "social-intelligence/reddit-deep/investing/1pdga22.md#c1"
     char_span: [737, 2385]
     sentence_count: 10
     key_terms: [qqq, gld, buy, sell, dec-24, trade, market, etfs]
+    concepts: [dec-24, trade, market, portfolio, close]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1pdga22.md#c2"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/investing/1pdga22.md#c2"
     char_span: [2387, 3796]
     sentence_count: 1
     key_terms: [sell, buy, qqq, tlt, dec-24, trade, gld, apr-25]
+    concepts: [dec-24, trade, apr-25, sep-25, close]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1pdga22.md#c1"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/investing/1pdga22.md#c3"
     char_span: [3798, 4175]
     sentence_count: 1
     key_terms: [buy, qqq, sep-25, sell, tlt, apr-25]
+    concepts: [sep-25]
     section: Comments
     token_count: 150
 ---

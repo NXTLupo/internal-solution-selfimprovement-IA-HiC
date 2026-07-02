@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2056]
     sentence_count: 9
     key_terms: [automation, uipath, automations, rpa, years, cscareerquestions, data, next]
+    concepts: [automation, uipath, automations, cscareerquestions, years]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ocfdrb/need_career_advice_25_years_in_rpa_uipath_ibm/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ocfdrb.md#c1"
     char_span: [2058, 2255]
     sentence_count: 2

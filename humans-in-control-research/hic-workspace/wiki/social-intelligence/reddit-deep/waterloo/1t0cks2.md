@@ -21,36 +21,51 @@ chunks:
     char_span: [0, 1990]
     sentence_count: 10
     key_terms: [https, something, walks, waterloo, faulty-towers-the-dining-experience-2026, weekend, grandriverbuzz, tricon]
+    concepts: [https, something, walks, waterloo, grandriverbuzz]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1t0cks2.md#c3", "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c6"]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1t0cks2/local_events_this_weekend/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c1"
     char_span: [1992, 3572]
     sentence_count: 8
     key_terms: [cambridge, https, draytonentertainmentyouthacademy, "false", celebration, com, musical-bingo-classic-rock-9, cambridge-potters-market]
+    concepts: [cambridge, https, celebration, "false", musical]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1t0cks2.md#c5"]
     token_count: 433
   - id: "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c2"
     char_span: [3574, 5500]
     sentence_count: 11
     key_terms: [https, annual-kw-trivia-challenge-tickets-1984491165497, mood-yellow-grand-opening-tickets-1984595078303, com, vibes, performance, eventbrite, kitchener]
+    concepts: [https, performance, eventbrite, vibes, kitchener]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1t0cks2.md#c3", "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c4", "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c5"]
     token_count: 477
   - id: "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c3"
     char_span: [5502, 7316]
     sentence_count: 2
     key_terms: [run-2-you-the-bryan-adams-experience-with-somethings-always-flying-at-evo-tickets-1985939585761, https, kws-official-cinco-de-mayo-party-tickets-1987841123311, alternative, night, new-vibes-jazz-quartet-with-jerzy-kaplanek-2, kitchener, com]
+    concepts: [https, alternative, kitchener, night, waterloo]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1t0cks2.md#c0", "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c2", "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c4", "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c6"]
     token_count: 505
   - id: "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c4"
     char_span: [7318, 9120]
     sentence_count: 8
     key_terms: [day, kitchener, spring, https, electronics, favourite, hundreds, mandalas]
+    concepts: [kitchener, spring, electronics, https, favourite]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1t0cks2.md#c2", "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c3"]
     token_count: 450
   - id: "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c5"
     char_span: [9122, 10204]
     sentence_count: 3
     key_terms: [comedy-night-at-counterpoint-brewing-company-tickets-1987631594605, cambridge-centre-for-the-arts-gallery-opening-rece, headshots-scoops-networking-tickets-1987733375033, https, ever-pending, www, eventbrite, networking]
+    concepts: [https, ever-pending, eventbrite, networking, cambridge]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1t0cks2.md#c1", "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c2"]
     token_count: 281
   - id: "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c6"
     char_span: [10218, 11499]
     sentence_count: 9
     key_terms: [fragrant-divide240, come-what-may-spring-2026, https, mixologyacappella, waterloo, com, neoengel, awesome]
+    concepts: [fragrant-divide240, come-what-may-spring-2026, mixologyacappella, https, waterloo]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1t0cks2.md#c0", "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c3"]
     section: Comments
     token_count: 395
 ---

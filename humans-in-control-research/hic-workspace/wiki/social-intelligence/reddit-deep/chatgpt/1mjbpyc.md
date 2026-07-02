@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 674]
     sentence_count: 5
     key_terms: [save, chatgpt, comments, dollar, money, gold, want, callmejimmilton]
+    concepts: [chatgpt, comments, dollar, money]
     token_count: 176
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1mjbpyc/to_help_me_save_money_i_had_chatgpt_start/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1mjbpyc.md#c1"
     char_span: [688, 1843]
     sentence_count: 6
     key_terms: [https, a67df99152969d796f9f11b204d9826f971f9f51, callmejimmilton, please, conversation, image, post, r-chatgpt-1050422060352024636]
+    concepts: [callmejimmilton, https, conversation, please, image]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1mjbpyc.md#c3"]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/chatgpt/1mjbpyc.md#c2"
     char_span: [1845, 2572]
     sentence_count: 2
     key_terms: [street-inevitable358, worth-reputation3450, https, like, dp0q5rdq4ghf1, hudsonatheart, u4b1wjrfhipww, amplepostage]
+    concepts: [https]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/chatgpt/1mjbpyc.md#c3"
     char_span: [2574, 3857]
     sentence_count: 7
     key_terms: [bank, a1dce0e12ca09ba3cf40047f07a76735c680e1d9, c7a3a75c8fc85e13284810261c337676b5d81501, callmejimmilton, preview, format, https, width]
+    concepts: [callmejimmilton, preview, format, https, width]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1mjbpyc.md#c1"]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/chatgpt/1mjbpyc.md#c4"
     char_span: [3859, 5326]
     sentence_count: 7
     key_terms: [gold, f583246cd8b1daa2dc38b3db64e4fcaaca9378bf, callmejimmilton, thepoormassager, years, "it's", put, poptarts]
+    concepts: [callmejimmilton, thepoormassager, years, poptarts, flavor]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/chatgpt/1mjbpyc.md#c5"
     char_span: [5328, 6348]
     sentence_count: 5
     key_terms: [image, gold, economicaljacket, b4d586075d99eaeb203857b2b083e99da40e7e7f, fe44e9ab67b88ef91f5edf655d945b9d1fbd9515, coin, represents, generate]
+    concepts: [economicaljacket, image, represents, generate, paycheck]
     section: Comments
     token_count: 339
 ---

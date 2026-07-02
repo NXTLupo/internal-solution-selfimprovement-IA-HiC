@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 712]
     sentence_count: 5
     key_terms: [gradadmissions, comments, everyone, grateful, excellent-carob6982, years, best, post]
+    concepts: [gradadmissions, comments, everyone, grateful, years]
     token_count: 200
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rs8kbo/so_insanely_grateful_ugpa_26/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rs8kbo.md#c1"
     char_span: [726, 1605]
     sentence_count: 6
     key_terms: [excellent-carob6982, congratulations, thank, stanford, amazing, school, any-construction-789, aggravatingad2992]
+    concepts: [excellent-carob6982, congratulations, thank, stanford, amazing]
     section: Comments
     token_count: 280
 ---

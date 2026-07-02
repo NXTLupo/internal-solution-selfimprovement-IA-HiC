@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 385]
     sentence_count: 2
     key_terms: [northeastern, https, comments, facts, neu, png, opportunities, sf74u7219lug1]
+    concepts: [northeastern, https, comments, facts]
     token_count: 129
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sinr9r/coops_opportunities_count/"}]
   - id: "social-intelligence/reddit-deep/neu/1sinr9r.md#c1"
     char_span: [399, 992]
     sentence_count: 2
     key_terms: [icameearly, "don't", khvi1, adsubstantial3900, coop, cps, brainwashing, misselling]
+    concepts: [icameearly, "don't", khvi1]
     section: Comments
     token_count: 181
 ---

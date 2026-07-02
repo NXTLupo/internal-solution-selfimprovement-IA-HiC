@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 674]
     sentence_count: 7
     key_terms: [chatgpt, please, save, comments, disabled, created, memory, openai]
+    concepts: [chatgpt, please, comments, disabled, created]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1oaq10y.md#c1"]
     token_count: 167
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1oaq10y/please_help_chatgpt_says_it_can_not_save_into/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1oaq10y.md#c1"
     char_span: [688, 1980]
     sentence_count: 8
     key_terms: [please, concerns, chatgpt, message, automatically, automoderator, conversation, image]
+    concepts: [please, concerns, automatically, automoderator, chatgpt]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1oaq10y.md#c0"]
     section: Comments
     token_count: 320
 ---

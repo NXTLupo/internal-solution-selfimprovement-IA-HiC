@@ -20,35 +20,42 @@ chunks:
     char_span: [0, 1011]
     sentence_count: 8
     key_terms: [shipping, parts, air, logistics, comments, engine, heavy, day]
+    concepts: [shipping, parts, logistics, comments, engine]
     token_count: 232
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1q7kdm7/air_shipping_heavy_engine_parts_is_it_worth_the/"}]
   - id: "social-intelligence/reddit-deep/logistics/1q7kdm7.md#c1"
-    char_span: [1026, 1318]
+    char_span: [1025, 1317]
     sentence_count: 6
     key_terms: [forwarder, likely, parcel, day, information, tarbender2, surprised, anything]
+    concepts: [forwarder, likely, parcel]
     section: Comments
     token_count: 72
   - id: "social-intelligence/reddit-deep/logistics/1q7kdm7.md#c2"
-    char_span: [1321, 3331]
+    char_span: [1320, 3330]
     sentence_count: 12
     key_terms: [freight, air, time, destination, days, supplier, revenue, local]
+    concepts: [freight, destination, supplier, revenue, everything]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/logistics/1q7kdm7.md#c3"
-    char_span: [3333, 4577]
+    char_span: [3332, 4576]
     sentence_count: 8
     key_terms: [freight, deferred, day, palletized, flight, international, b2b, gets]
+    concepts: [freight, deferred, palletized, international, flight]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/logistics/1q7kdm7.md#c4"
-    char_span: [4579, 6037]
+    char_span: [4578, 6036]
     sentence_count: 6
     key_terms: [get, jazzlike-side-2331, air, since, brokerage, delivery, already, freight]
+    concepts: [jazzlike-side-2331, since, brokerage, delivery, already]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/logistics/1q7kdm7.md#c5"
-    char_span: [6039, 6769]
+    char_span: [6038, 6768]
     sentence_count: 6
     key_terms: [forwarder, shipping, heavy, worth, disappointing, stealthagents, experiences, customers]
+    concepts: [forwarder, shipping, heavy, worth]
     section: Comments
     token_count: 160
 ---

@@ -16,14 +16,17 @@ extraction_method: "praw-deep"
 research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1tgkg79.md#c0"
-    char_span: [0, 1842]
+    char_span: [0, 1841]
     sentence_count: 4
     key_terms: [interview, job, careerguidance, years, appointment, management, different, comments]
-    token_count: 416
+    concepts: [interview, careerguidance, appointment, management, years]
+    token_count: 415
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tgkg79/25_yo_feeling_lost_and_unsure_of_how_to_proceed/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tgkg79.md#c1"
-    char_span: [1844, 3845]
+    char_span: [1843, 3844]
     sentence_count: 7
     key_terms: [enough, been, going, feel, lost, role, experience, management]
+    concepts: [enough, experience, going, management, important]
     token_count: 444
 ---
 # 25 y/o, feeling lost and unsure of how to proceed with my career & job search - should I go back to college?

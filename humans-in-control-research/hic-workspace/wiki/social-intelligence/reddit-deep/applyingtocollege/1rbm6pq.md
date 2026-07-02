@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 968]
     sentence_count: 10
     key_terms: [applyingtocollege, safeties, comments, college, looking, program, safety, upstairs-amount882]
+    concepts: [applyingtocollege, safeties, comments, college, looking]
     token_count: 240
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rbm6pq/help_me_find_some_safeties/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbm6pq.md#c1"
     char_span: [982, 2881]
     sentence_count: 18
     key_terms: [college, mizzou, salty-artist-1643, emerson, liberal, program, boston, safety]
+    concepts: [college, mizzou, salty-artist-1643, emerson, liberal]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbm6pq.md#c2"
     char_span: [2883, 4552]
     sentence_count: 15
     key_terms: [upstairs-amount882, state, safety, maybe, applicant, creative, domestic, lawrence]
+    concepts: [upstairs-amount882, state, safety, maybe, applicant]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbm6pq.md#c3"
     char_span: [4554, 6048]
     sentence_count: 13
     key_terms: [math, curriculum, core, like, college, damagedzebra, because, diverse]
+    concepts: [curriculum, college, damagedzebra, because, diverse]
     section: Comments
     token_count: 336
 ---

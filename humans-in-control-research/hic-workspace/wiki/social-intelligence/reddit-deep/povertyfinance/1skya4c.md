@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1870]
     sentence_count: 16
     key_terms: [povertyfinance, home, rent, struggling, comments, country, month, right]
+    concepts: [povertyfinance, struggling, comments, country, month]
     token_count: 458
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1skya4c/i_got_a_job_and_its_making_me_broke/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1skya4c.md#c1"
     char_span: [1884, 3892]
     sentence_count: 14
     key_terms: [like, norcalnostalgic, airline, get, home, rent, room, work]
+    concepts: [norcalnostalgic, airline, stipend, looked, found]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/povertyfinance/1skya4c.md#c2"
     char_span: [3897, 4277]
     sentence_count: 3
     key_terms: [airport, significantly, arrangements, attendants, rideshare, roommates, situation, bleeding]
+    concepts: [airport]
     section: Comments
     token_count: 79
   - id: "social-intelligence/reddit-deep/povertyfinance/1skya4c.md#c3"
     char_span: [4282, 6437]
     sentence_count: 20
     key_terms: [home, month, shelf-stable, get, like, absolutely, schedule, sitting]
+    concepts: [month, shelf-stable, absolutely, schedule, sitting]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1skya4c.md#c4"
     char_span: [6196, 8216]
     sentence_count: 18
     key_terms: [something, sitting, online, weeks, days, money, month, home]
+    concepts: [something, sitting, online, weeks, money]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1skya4c.md#c5"
     char_span: [7998, 10106]
     sentence_count: 18
     key_terms: [flight, check, month, look, expense, helpful, nearby, people]
+    concepts: [flight, check, month, expense, helpful]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1skya4c.md#c6"
@@ -62,12 +69,14 @@ chunks:
     char_span: [10132, 11848]
     sentence_count: 14
     key_terms: [live, airport, notthatplatypus, food, near, airlines, chicago, around]
+    concepts: [airport, notthatplatypus, airlines, chicago, around]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/povertyfinance/1skya4c.md#c8"
     char_span: [11851, 12585]
     sentence_count: 6
     key_terms: [airline, below, get, wing, squirrelno3046, international, unfortunately, competition]
+    concepts: [airline, below]
     section: Comments
     token_count: 181
 ---

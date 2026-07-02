@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1042]
     sentence_count: 10
     key_terms: [sales, prospecting, comments, outbound, hubspot, anyway, client, tools]
+    concepts: [sales, prospecting, comments, outbound, hubspot]
     token_count: 244
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1o0i8lw/best_automation_for_prospecting/"}]
   - id: "social-intelligence/reddit-deep/sales/1o0i8lw.md#c1"
-    char_span: [1057, 2189]
+    char_span: [1056, 2188]
     sentence_count: 11
     key_terms: [apollo, sequences, outreach, roleplay, profile, session, person, putgroundbreaking379]
+    concepts: [apollo, sequences, outreach, roleplay, profile]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/sales/1o0i8lw.md#c2"
-    char_span: [2191, 3928]
+    char_span: [2190, 3927]
     sentence_count: 10
     key_terms: [clay, like, get, expensive, automate, deleted, without, custom]
+    concepts: [expensive, automate, deleted, without, custom]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/sales/1o0i8lw.md#c3"
-    char_span: [3930, 5033]
+    char_span: [3929, 5032]
     sentence_count: 12
     key_terms: [month, instantly, mailboxes, sequences, salesnav, personalization-powered, domain, emails]
+    concepts: [month, instantly, mailboxes, sequences, salesnav]
     section: Comments
     token_count: 250
 ---

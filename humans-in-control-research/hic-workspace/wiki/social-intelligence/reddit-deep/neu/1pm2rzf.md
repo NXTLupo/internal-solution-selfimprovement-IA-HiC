@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1051]
     sentence_count: 3
     key_terms: [northeastern, questions, appreciated, considering, been, easy, experience, comments]
+    concepts: [northeastern, questions, appreciated, considering, experience]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1pm2rzf.md#c1"]
     token_count: 237
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1pm2rzf/questions_regarding_northeastern/"}]
   - id: "social-intelligence/reddit-deep/neu/1pm2rzf.md#c1"
     char_span: [1065, 3391]
     sentence_count: 1
     key_terms: [northeastern, experience, co-op, friends, professors, college, universities, life]
+    concepts: [northeastern, experience, co-op, friends, professors]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1pm2rzf.md#c0"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/neu/1pm2rzf.md#c2"
     char_span: [3393, 3900]
     sentence_count: 1
     key_terms: [business, please, communications, especially, highschool, passionate, unweighted, education]
+    concepts: [business, please]
     section: Comments
     token_count: 112
 ---

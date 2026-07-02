@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 928]
     sentence_count: 5
     key_terms: [development, internships, web, internship, comments, improve, student, skills]
+    concepts: [development, internships, internship, comments, improve]
     token_count: 217
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t44vbf/looking_for_web_development_internship_2nd_year/"}]
   - id: "social-intelligence/reddit-deep/internships/1t44vbf.md#c1"
     char_span: [942, 1548]
     sentence_count: 1
     key_terms: [strangecommunity7193, apply, sweet-frosting4839, internshipdaily, explaining, greenhouse, fullstack, anything]
+    concepts: [strangecommunity7193, apply]
     section: Comments
     token_count: 153
 ---

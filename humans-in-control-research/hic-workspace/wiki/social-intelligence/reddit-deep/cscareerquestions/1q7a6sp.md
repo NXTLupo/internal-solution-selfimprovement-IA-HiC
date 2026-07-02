@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1449]
     sentence_count: 10
     key_terms: [biology, cscareerquestions, job, time, studying, programming, get, too]
+    concepts: [biology, cscareerquestions, studying, programming, experience]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1q7a6sp.md#c2"]
     token_count: 331
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1q7a6sp/any_hope_at_all_for_an_biology_student_too_find_a/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q7a6sp.md#c1"
     char_span: [1463, 2783]
     sentence_count: 7
     key_terms: [work, degree, professional, biology, school, wanted, field, years]
+    concepts: [professional, degree, biology, school, wanted]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q7a6sp.md#c2"
     char_span: [2785, 4821]
     sentence_count: 13
     key_terms: [tipadditional4625, get, work, programming, job, impossible, projects, studying]
+    concepts: [tipadditional4625, programming, impossible, projects, studying]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1q7a6sp.md#c0"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q7a6sp.md#c3"
     char_span: [4823, 5901]
     sentence_count: 5
     key_terms: [lab, recommend, projects, start, cscareerquestions, tipadditional4625, find, get]
+    concepts: [recommend, projects, start]
     section: Comments
     token_count: 261
 ---

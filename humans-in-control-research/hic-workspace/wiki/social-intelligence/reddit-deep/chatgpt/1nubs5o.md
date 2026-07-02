@@ -21,36 +21,44 @@ chunks:
     char_span: [0, 912]
     sentence_count: 8
     key_terms: [chatgpt, result, gpt4o, comments, model, user, circumstances, instructions]
+    concepts: [chatgpt, result, gpt4o, comments, model]
     token_count: 254
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1nubs5o/i_prompted_gpt4o_and_gpt41_to_show_what_model_it/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1nubs5o.md#c1"
     char_span: [918, 3476]
     sentence_count: 16
     key_terms: [assistant, conversation, roleplay, includes, instructions, self-harm, user, ideation]
+    concepts: [assistant, conversation, roleplay, includes, instructions]
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1nubs5o.md#c2"
     char_span: [3136, 4401]
     sentence_count: 4
     key_terms: [dangerous, dissatisfaction, ideals, teen, activities, assistant, consuming, reinforce]
+    concepts: [dangerous, dissatisfaction, ideals, activities, assistant]
     token_count: 252
   - id: "social-intelligence/reddit-deep/chatgpt/1nubs5o.md#c3"
     char_span: [4407, 6547]
     sentence_count: 11
     key_terms: [code, use, canmore, information, components, react, textdoc, canvas]
+    concepts: [information, canmore, components, react, conversations]
     token_count: 491
   - id: "social-intelligence/reddit-deep/chatgpt/1nubs5o.md#c4"
     char_span: [6553, 8701]
     sentence_count: 9
     key_terms: [string, message, pattern, search, replacement, parts, idx, tool]
+    concepts: [string, message, pattern, search, replacement]
     token_count: 486
   - id: "social-intelligence/reddit-deep/chatgpt/1nubs5o.md#c5"
     char_span: [8707, 10375]
     sentence_count: 6
     key_terms: [queries, user, question, management, marketing, gdp, customer, france]
+    concepts: [queries, question, management, marketing, customer]
     token_count: 361
   - id: "social-intelligence/reddit-deep/chatgpt/1nubs5o.md#c6"
     char_span: [10389, 12018]
     sentence_count: 13
     key_terms: [chatgpt, prompt, melos555, openai, please, conversation, image, lumora4ever]
+    concepts: [chatgpt, prompt, melos555, conversation, openai]
     section: Comments
     token_count: 454
 ---

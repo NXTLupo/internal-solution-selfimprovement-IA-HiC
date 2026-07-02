@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 700]
     sentence_count: 3
     key_terms: [self-service, customerservice, ticket, comments, support, tools, "i'm", implemented]
+    concepts: [self-service, customerservice, ticket, comments, support]
+    related_chunks: ["social-intelligence/reddit-deep/customerservice/1tno72o.md#c1"]
     token_count: 176
+    sources: [{"n":"reddit-deep: r/customerservice","u":"https://www.reddit.com/r/CustomerService/comments/1tno72o/how_much_does_a_how_do_i_do_x_support_ticket/"}]
   - id: "social-intelligence/reddit-deep/customerservice/1tno72o.md#c1"
-    char_span: [715, 2796]
+    char_span: [714, 2795]
     sentence_count: 16
     key_terms: [cost, time, support, ticket, calls, phone, look, deflection]
+    concepts: [support, ticket, calls, deflection, phone]
+    related_chunks: ["social-intelligence/reddit-deep/customerservice/1tno72o.md#c0"]
     section: Comments
     token_count: 487
 ---

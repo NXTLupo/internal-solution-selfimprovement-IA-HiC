@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 916]
     sentence_count: 5
     key_terms: [engineeringstudents, comments, through, passed, senior, works, gpa, heat]
+    concepts: [engineeringstudents, comments, through, passed, senior]
     token_count: 226
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tkz79s/it_all_works_out/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tkz79s.md#c1"
     char_span: [930, 2753]
     sentence_count: 14
     key_terms: [engineeringstudents, nice, wiki, please, reddit, applications, https, information]
+    concepts: [engineeringstudents, applications, please, reddit, information]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tkz79s.md#c2"
     char_span: [2755, 3596]
     sentence_count: 7
     key_terms: [sonofdesun, companies, different, rainx5000, transfer, applied, excited, "that's"]
+    concepts: [sonofdesun, companies, different, rainx5000, transfer]
     section: Comments
     token_count: 227
 ---

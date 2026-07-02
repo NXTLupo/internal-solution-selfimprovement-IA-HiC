@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1540]
     sentence_count: 12
     key_terms: [job, jobs, developer, comments, learned, career, expect, growth]
+    concepts: [developer, comments, learned, career, expect]
     token_count: 339
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rr3z6u/stuck_between_job_security_and_career_growth_as_a/"}]
   - id: "social-intelligence/reddit-deep/jobs/1rr3z6u.md#c1"
     char_span: [1554, 3369]
     sentence_count: 12
     key_terms: [years, brainwavecc, financially, opportunity, stay, time, anything, sahand96]
+    concepts: [brainwavecc, financially, opportunity, years, anything]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/jobs/1rr3z6u.md#c2"
     char_span: [3371, 5194]
     sentence_count: 16
     key_terms: [growth, market, job, new, months, notice, anything, risk]
+    concepts: [growth, market, months, notice, anything]
     section: Comments
     token_count: 426
 ---

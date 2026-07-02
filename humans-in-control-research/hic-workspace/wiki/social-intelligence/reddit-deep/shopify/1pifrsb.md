@@ -20,21 +20,26 @@ chunks:
     char_span: [0, 2385]
     sentence_count: 7
     key_terms: [brands, tariff, tiktok, tools, ads, e-commerce, newsletter, operators]
+    concepts: [brands, tariff, tiktok, e-commerce, newsletter]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1pifrsb/weekly_newsletter_for_ecomm_operators_december_9th/"}]
   - id: "social-intelligence/reddit-deep/shopify/1pifrsb.md#c1"
     char_span: [2387, 4815]
     sentence_count: 5
     key_terms: [keep, momentum, shopify, sellers, amazon, sparky, trubar, eti]
+    concepts: [momentum, shopify, sellers, amazon, sparky]
     token_count: 511
   - id: "social-intelligence/reddit-deep/shopify/1pifrsb.md#c2"
     char_span: [4817, 5619]
     sentence_count: 2
     key_terms: [marketing, handbag, visuals, brands, ads, real, vugc, ai-generated]
+    concepts: [marketing, handbag, visuals, brands]
     token_count: 159
   - id: "social-intelligence/reddit-deep/shopify/1pifrsb.md#c3"
-    char_span: [5634, 6696]
+    char_span: [5633, 6695]
     sentence_count: 5
     key_terms: [zombie, irrational, phenomenon, community, formation, contact, culture, shopify]
+    concepts: [zombie, irrational, phenomenon, community, formation]
     section: Comments
     token_count: 211
 ---

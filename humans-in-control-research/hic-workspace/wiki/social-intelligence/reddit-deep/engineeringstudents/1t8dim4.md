@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1756]
     sentence_count: 11
     key_terms: [precalc, engineering, engineeringstudents, pretty, guys, professor, comments, algebra]
+    concepts: [precalc, engineering, engineeringstudents, pretty, professor]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1t8dim4.md#c2"]
     token_count: 414
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1t8dim4/should_i_take_precalculus_in_the_fall/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t8dim4.md#c1"
     char_span: [1770, 3436]
     sentence_count: 11
     key_terms: [engineeringstudents, wiki, please, reddit, next-explanation321, https, com, automoderator]
+    concepts: [engineeringstudents, next-explanation321, please, reddit, https]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t8dim4.md#c2"
     char_span: [3438, 4799]
     sentence_count: 11
     key_terms: ["that's", discipline, algebra, precalc, engineering, time, different, college]
+    concepts: [discipline, "that's", algebra, precalc, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1t8dim4.md#c0"]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t8dim4.md#c3"
     char_span: [4801, 6614]
     sentence_count: 12
     key_terms: [algebra, college, next-explanation321, doing, semester, precalc, summer, sithlord73991]
+    concepts: [algebra, college, next-explanation321, doing, semester]
     section: Comments
     token_count: 452
 ---

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2289]
     sentence_count: 15
     key_terms: [math, degree, engineering, "you'll", engineeringstudents, remember, courses, later]
+    concepts: [degree, engineering, engineeringstudents, "you'll", remember]
     token_count: 502
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1r3i4nl/to_senior_and_junior_engineering_students_do_you/"}]
   - id: "articles/reddit-deep-r-engineeringstudents/5d48dedf4f.md#c1"
     char_span: [2291, 3224]
     sentence_count: 4
     key_terms: [calc, specific, methods, engineering, math, classes, courses, diffeq]
+    concepts: [specific, methods, engineering, classes, courses]
     token_count: 211
 ---
 # To senior and junior engineering students, do you remember the math you learned at the start of the degree?

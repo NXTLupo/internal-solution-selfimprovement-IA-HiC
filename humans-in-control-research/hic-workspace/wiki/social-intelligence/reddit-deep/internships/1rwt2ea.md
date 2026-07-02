@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2126]
     sentence_count: 1
     key_terms: [co-op, fall, "i'm", like, company, internships, internship, "it's"]
+    concepts: [co-op, internships, company, internship, related]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rwt2ea/summer_internship_vs_fall_coop/"}]
   - id: "social-intelligence/reddit-deep/internships/1rwt2ea.md#c1"
     char_span: [2140, 3124]
     sentence_count: 8
     key_terms: [experience, co-op, yamfickle3694, good, longer, months, summer, sushilover56]
+    concepts: [experience, co-op, yamfickle3694, longer, months]
     section: Comments
     token_count: 260
 ---

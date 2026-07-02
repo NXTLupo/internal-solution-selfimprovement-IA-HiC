@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 1572]
     sentence_count: 7
     key_terms: [schools, environmental, "i'm", applyingtocollege, policy, considering, suggestions, appreciate]
+    concepts: [schools, environmental, applyingtocollege, policy, considering]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md#c1"]
     token_count: 392
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1pswn1s/college_list_advice/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md#c1"
     char_span: [1586, 3788]
     sentence_count: 13
     key_terms: [environmental, impressive-tie-7385, schools, program, great, pygmyowl1, selective, studies]
+    concepts: [environmental, impressive-tie-7385, schools, program, pygmyowl1]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md#c2"
     char_span: [3493, 4724]
     sentence_count: 7
     key_terms: [environmental, school, impressive-tie-7385, science, connections, esf, want, definitely]
+    concepts: [environmental, impressive-tie-7385, school, science, connections]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md#c1"]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md#c3"
     char_span: [4726, 6146]
     sentence_count: 6
     key_terms: [university, impressive-tie-7385, lacs, ucs, policy, umaine, supplements, list]
+    concepts: [impressive-tie-7385, university, policy, umaine, supplements]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md#c4"
     char_span: [6148, 7086]
     sentence_count: 6
     key_terms: [impressive-tie-7385, wisconsin, sfdc2017, applied, abroad, policy, safety, school]
+    concepts: [impressive-tie-7385, wisconsin, sfdc2017, applied, abroad]
     section: Comments
     token_count: 244
 ---

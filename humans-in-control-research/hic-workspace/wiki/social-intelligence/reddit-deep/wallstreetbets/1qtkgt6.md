@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1449]
     sentence_count: 9
     key_terms: [exhaustion, sndk, comments, wallstreetbets, puts, rsi, short-term, parabolic]
+    concepts: [exhaustion, comments, wallstreetbets, short-term, parabolic]
     token_count: 414
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1qtkgt6/sndk_mu_momentum_exhaustion/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qtkgt6.md#c1"
     char_span: [1463, 1893]
     sentence_count: 1
     key_terms: [reasoning, higher, hit, "op's", rsi, sndk, ai-moderator, restrictions]
+    concepts: [reasoning, higher]
     section: Comments
     token_count: 145
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qtkgt6.md#c2"
     char_span: [1895, 3434]
     sentence_count: 7
     key_terms: [jordanpeterson9, sndk, next, daxtaslapp, crayons, market, nvidia, aggravating-buy-1695]
+    concepts: [jordanpeterson9, daxtaslapp, crayons, market, nvidia]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qtkgt6.md#c3"
     char_span: [3219, 3913]
     sentence_count: 5
     key_terms: [market, stocks, run, massaoogway69420, jordanpeterson9, mricedcafemocha, orchestrated, bottleneck]
+    concepts: [market, stocks]
     section: Comments
     token_count: 191
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qtkgt6.md#c4"
     char_span: [3915, 5596]
     sentence_count: 14
     key_terms: [companies, being, infrastructure, openai, application, investments, back, llm]
+    concepts: [companies, being, infrastructure, openai, application]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qtkgt6.md#c5"
     char_span: [5598, 7016]
     sentence_count: 9
     key_terms: [infrastructure, productivity, power, investments, gen, bottleneck, multiple, market]
+    concepts: [infrastructure, productivity, investments, bottleneck, power]
     section: Comments
     token_count: 314
 ---

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1623]
     sentence_count: 15
     key_terms: [careerguidance, early-career, feel, job, like, role, work, boundaries]
+    concepts: [careerguidance, early-career, boundaries, completely, comments]
     token_count: 384
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sev4y8/is_this_just_earlycareer_burnout_or_is_it_time_to/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sev4y8.md#c1"
     char_span: [1637, 3386]
     sentence_count: 11
     key_terms: [job, everything, "that's", "you're", "i'd", like, boundaries, normal]
+    concepts: [everything, "that's", "you're", boundaries, normal]
     section: Comments
     token_count: 368
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 355]
     sentence_count: 3
     key_terms: [personalfinance, comments, reddit-deep, budgeting, improving, stressful, disagree, opinions]
+    concepts: [personalfinance, comments]
     token_count: 90
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1rs9ma8/improving_spending_and_saving_habits_should_feel/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1rs9ma8.md#c1"
     char_span: [369, 1890]
     sentence_count: 7
     key_terms: [personalfinance, budgeting, better, habits, automatically, little, feels, tools]
+    concepts: [personalfinance, budgeting, automatically, better, habits]
     section: Comments
     token_count: 374
 ---

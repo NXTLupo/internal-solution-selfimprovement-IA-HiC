@@ -19,27 +19,32 @@ chunks:
     char_span: [0, 1428]
     sentence_count: 10
     key_terms: [something, tech, careerguidance, career, roles, experience, healthcare, long-term]
+    concepts: [something, careerguidance, career, experience, healthcare]
     token_count: 316
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rl1tk6/25_year_old_trying_to_figure_out_my_career_path/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rl1tk6.md#c1"
-    char_span: [1443, 3705]
+    char_span: [1442, 3704]
     sentence_count: 20
     key_terms: [people, tech, structured, opportunities, day, good, mri, work]
+    concepts: [people, structured, opportunities, healthcare, tagomago22]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/careerguidance/1rl1tk6.md#c2"
-    char_span: [3707, 5064]
+    char_span: [3706, 5063]
     sentence_count: 10
     key_terms: [consulting, management, product, people, pivot, path, tech, bachelor]
+    concepts: [consulting, management, product, people, pivot]
     section: Comments
     token_count: 298
   - id: "social-intelligence/reddit-deep/careerguidance/1rl1tk6.md#c3"
-    char_span: [5066, 7000]
+    char_span: [5065, 6999]
     sentence_count: 21
     key_terms: [like, tech, usually, healthcare, sales, radiology, years, pay]
+    concepts: [usually, healthcare, radiology, sales, years]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/careerguidance/1rl1tk6.md#c4"
-    char_span: [7002, 7253]
+    char_span: [7001, 7252]
     sentence_count: 2
     key_terms: [experiences, gradsimple, interviews, newsletter, different, insights, college, helpful]
     section: Comments

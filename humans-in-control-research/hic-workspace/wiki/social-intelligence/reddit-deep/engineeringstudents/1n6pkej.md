@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1760]
     sentence_count: 7
     key_terms: [year, projects, engineering, internships, aeronautical, engineeringstudents, skills, like]
+    concepts: [projects, engineering, internships, aeronautical, engineeringstudents]
     token_count: 422
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1n6pkej/roadmap_for_1st_year_aeronautical_engineering/"}]
 ---
 # Roadmap for 1st year Aeronautical Engineering student – Skills, Projects & Internships?
 

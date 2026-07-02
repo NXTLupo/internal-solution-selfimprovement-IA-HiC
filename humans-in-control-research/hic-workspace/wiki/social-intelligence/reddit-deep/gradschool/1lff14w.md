@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1053]
     sentence_count: 6
     key_terms: [school, graduate, gradschool, comments, going, been, year, communications]
+    concepts: [school, graduate, gradschool, comments, going]
     token_count: 239
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1lff14w/considering_going_to_grad_school_one_year_post/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1lff14w.md#c1"
     char_span: [1067, 2486]
     sentence_count: 11
     key_terms: [journalism, like, fields, turpentinei, vandymarine, marketing, starting, gurprofessional9534]
+    concepts: [journalism, fields, turpentinei, vandymarine, marketing]
     section: Comments
     token_count: 340
 ---

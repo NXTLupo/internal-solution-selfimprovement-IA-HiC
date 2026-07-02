@@ -20,21 +20,28 @@ chunks:
     char_span: [0, 1962]
     sentence_count: 10
     key_terms: [companies, data, tier, engineering, tiers, expectations, datascience, move]
+    concepts: [companies, engineering, tiers, expectations, datascience]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1ng1xk3.md#c2"]
     token_count: 464
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1ng1xk3/the_three_tiers_of_data_engineering_pay_and_how/"}]
   - id: "social-intelligence/reddit-deep/datascience/1ng1xk3.md#c1"
     char_span: [1964, 3862]
     sentence_count: 6
     key_terms: [cost, data, tier, per, trade-offs, contracts, ingestion, incident]
+    concepts: [trade-offs, contracts, ingestion, incident, security]
     token_count: 445
   - id: "social-intelligence/reddit-deep/datascience/1ng1xk3.md#c2"
     char_span: [3864, 5867]
     sentence_count: 10
     key_terms: [data, tiers, tier, engineering, cost, pipeline, salaries, software]
+    concepts: [tiers, engineering, pipeline, salaries, software]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1ng1xk3.md#c0"]
     token_count: 488
   - id: "social-intelligence/reddit-deep/datascience/1ng1xk3.md#c3"
-    char_span: [5869, 7071]
+    char_span: [5869, 7070]
     sentence_count: 6
     key_terms: [software-engineering-salaries-in-the-netherlands-and-europe, tier, pragmaticengineer, reliability, breakdown, biggest, stories, professional-big4420]
+    concepts: [software-engineering-salaries-in-the-netherlands-and-europe, pragmaticengineer, reliability, breakdown, biggest]
     section: Comments
     token_count: 284
 ---

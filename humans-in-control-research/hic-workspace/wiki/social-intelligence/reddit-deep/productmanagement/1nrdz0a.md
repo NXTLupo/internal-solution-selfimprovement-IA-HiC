@@ -20,27 +20,32 @@ chunks:
     char_span: [0, 1299]
     sentence_count: 6
     key_terms: [the-end-of-the-user-interface-31a787c3ae94, productmanagement, https, comments, uxplanet, product, kingghidorahs2ndhead, "i'd"]
+    concepts: [the-end-of-the-user-interface-31a787c3ae94, productmanagement, https, comments, uxplanet]
     token_count: 304
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1nrdz0a/the_end_of_the_user_interface_on_a_scale_of_web30/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1nrdz0a.md#c1"
-    char_span: [1314, 3349]
+    char_span: [1313, 3348]
     sentence_count: 11
     key_terms: [going, dertagestrinker, audaciousmonk, like, user, interact, products, comment]
+    concepts: [dertagestrinker, going, audaciousmonk, interact, products]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/productmanagement/1nrdz0a.md#c2"
-    char_span: [3351, 4858]
+    char_span: [3350, 4857]
     sentence_count: 7
     key_terms: [dead, physical, ago, etc, lot, climate, product, exists]
+    concepts: [physical, climate, product, exists, agile]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/productmanagement/1nrdz0a.md#c3"
-    char_span: [4860, 6995]
+    char_span: [4859, 6994]
     sentence_count: 16
     key_terms: [want, interface, users, chat, agents, people, scroll, sense]
+    concepts: [interface, users, agents, people, scroll]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/productmanagement/1nrdz0a.md#c4"
-    char_span: [6997, 7260]
+    char_span: [6996, 7259]
     sentence_count: 2
     key_terms: [chat, yeezyforsheezie, generative, interfaces, evolution, interface, customer, embedded]
     section: Comments

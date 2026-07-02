@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1969]
     sentence_count: 10
     key_terms: [nebius, cloud, billion, revenue, nebius-reports-higher-quarterly-capex-110405106, https, com, analysts]
+    concepts: [nebius, cloud, billion, revenue, https]
     token_count: 433
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1tbx1dz/ai_cloud_firm_nebius_reports_near_eightfold/"}]
   - id: "social-intelligence/reddit-deep/stocks/1tbx1dz.md#c1"
-    char_span: [1984, 3397]
+    char_span: [1983, 3396]
     sentence_count: 9
     key_terms: [shares, bubble, longjumping-hat7564, burry, close, wild-bathroom-9502, down, "i'm"]
+    concepts: [shares, bubble, burry, close]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/stocks/1tbx1dz.md#c2"
-    char_span: [3399, 4945]
+    char_span: [3398, 4944]
     sentence_count: 7
     key_terms: [corrections, longjumping-hat7564, everyone, crash, "it's", earnings, because, holding]
+    concepts: [corrections, longjumping-hat7564, everyone, crash, earnings]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/stocks/1tbx1dz.md#c3"
-    char_span: [4947, 6086]
+    char_span: [4946, 6085]
     sentence_count: 7
     key_terms: [believe, company, bubble, paypal, people, gnetc, slows, accidental-genius]
+    concepts: [believe, company, bubble, paypal, people]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/stocks/1tbx1dz.md#c4"
-    char_span: [6088, 6973]
+    char_span: [6087, 6972]
     sentence_count: 6
     key_terms: [company, short, responsiblead6719, crwv, okeffective8588, fack-the-suits, gandalftron, ill-cow4735]
+    concepts: [company, short]
     section: Comments
     token_count: 297
 ---

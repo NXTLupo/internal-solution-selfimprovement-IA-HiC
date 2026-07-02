@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1202]
     sentence_count: 6
     key_terms: [gradadmissions, comments, control, funding, strong, nervous-animator-663, post, show]
+    concepts: [gradadmissions, comments, control, funding, strong]
     token_count: 272
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1n2l7cf/followup_on_grad_school_admission_post_biomedical/"}]
 ---
 # Follow-up on Grad School Admission Post (Biomedical Sciences)
 

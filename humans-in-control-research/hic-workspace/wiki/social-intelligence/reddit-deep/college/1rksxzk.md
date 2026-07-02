@@ -19,35 +19,46 @@ chunks:
     char_span: [0, 1283]
     sentence_count: 12
     key_terms: [credits, school, short, experience, graduation, comments, semester, college]
+    concepts: [credits, school, experience, graduation, short]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rksxzk.md#c3"]
     token_count: 304
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1rksxzk/25_credits_short_of_graduation_final_semester/"}]
   - id: "social-intelligence/reddit-deep/college/1rksxzk.md#c1"
     char_span: [1297, 2476]
     sentence_count: 8
     key_terms: [work, option, full, time, amarbummer, semester, classes, credits]
+    concepts: [option, amarbummer, semester, classes, credits]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rksxzk.md#c3", "social-intelligence/reddit-deep/college/1rksxzk.md#c4"]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/college/1rksxzk.md#c2"
     char_span: [2478, 3482]
     sentence_count: 8
     key_terms: [credit, clep, english, modernstates, composition, exam, "haven't", course]
+    concepts: [credit, english, modernstates, composition, "haven't"]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/college/1rksxzk.md#c3"
     char_span: [3484, 5543]
     sentence_count: 20
     key_terms: [credits, school, classes, accept, check, class, clep, semester]
+    concepts: [credits, school, classes, accept, check]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rksxzk.md#c0", "social-intelligence/reddit-deep/college/1rksxzk.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1rksxzk.md#c4"
     char_span: [5278, 5722]
     sentence_count: 4
     key_terms: [credits, semester, empirepie499, weekly-ad353, lalalanari, academics, learning, overview]
+    concepts: [credits, semester]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rksxzk.md#c1"]
     section: Comments
     token_count: 128
   - id: "social-intelligence/reddit-deep/college/1rksxzk.md#c5"
     char_span: [5724, 6166]
     sentence_count: 1
     key_terms: [credit, "you've", letterheadclassic306, independent, definitely, department, everywhere, experience]
+    concepts: [credit, "you've"]
     section: Comments
     token_count: 90
 ---

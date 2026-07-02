@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 651]
     sentence_count: 6
     key_terms: [minor, engineering, comments, graduate, co-ops, additional-spring27, years, neu]
+    concepts: [engineering, minor, comments, graduate, co-ops]
     token_count: 160
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1s69uen/can_i_do_a_minor_and_coops_and_still_graduate_in/"}]
   - id: "social-intelligence/reddit-deep/neu/1s69uen.md#c1"
     char_span: [665, 2318]
     sentence_count: 4
     key_terms: [minor, summer, year, classes, class, credits, orangeelectric, co-ops]
+    concepts: [minor, summer, classes, class, orangeelectric]
     section: Comments
     token_count: 426
 ---

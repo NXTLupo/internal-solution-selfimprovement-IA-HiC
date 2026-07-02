@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1118]
     sentence_count: 8
     key_terms: [account, personalfinance, banking, investment, accounts, comments, managed, market]
+    concepts: [account, personalfinance, banking, investment, accounts]
     token_count: 235
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1szzds2/moving_from_private_banking_to_self_managed_need/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1szzds2.md#c1"
-    char_span: [1133, 3230]
+    char_span: [1132, 3229]
     sentence_count: 16
     key_terms: [fidelity, hsa, funds, like, institutions, schwab, account, dollars]
+    concepts: [fidelity, institutions, funds, schwab, account]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1szzds2.md#c3"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/personalfinance/1szzds2.md#c2"
-    char_span: [3232, 3851]
+    char_span: [3231, 3850]
     sentence_count: 3
     key_terms: [transfer, banking, pnc, comparable, experience, initiated, merlin242, overdraft]
+    concepts: [transfer, banking]
     section: Comments
     token_count: 154
   - id: "social-intelligence/reddit-deep/personalfinance/1szzds2.md#c3"
-    char_span: [3853, 5788]
+    char_span: [3852, 5787]
     sentence_count: 17
     key_terms: [fidelity, schwab, need, pnc, bank, like, commerce, performance]
+    concepts: [fidelity, schwab, commerce, performance, reasons]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1szzds2.md#c1"]
     section: Comments
     token_count: 473
 ---

@@ -18,57 +18,78 @@ chunks:
     char_span: [0, 1398]
     sentence_count: 1
     key_terms: [purdue, https, edu, www, president, admissions, apply, visit]
+    concepts: [purdue, https, president, admissions, apply]
+    related_chunks: ["articles/jina-reader/eaa4e1a9f6.md#c1", "articles/jina-reader/eaa4e1a9f6.md#c2", "articles/jina-reader/eaa4e1a9f6.md#c3", "articles/jina-reader/eaa4e1a9f6.md#c4", "articles/jina-reader/eaa4e1a9f6.md#c5"]
     token_count: 419
+    sources: [{"n":"Jina Reader","u":"https://www.purdue.edu/president/"}]
   - id: "articles/jina-reader/eaa4e1a9f6.md#c1"
     char_span: [1400, 3011]
     sentence_count: 1
     key_terms: [purdue, https, edu, www, php, index, research, academics]
+    concepts: [purdue, https, index, research, academics]
+    related_chunks: ["articles/jina-reader/eaa4e1a9f6.md#c0", "articles/jina-reader/eaa4e1a9f6.md#c2", "articles/jina-reader/eaa4e1a9f6.md#c3", "articles/jina-reader/eaa4e1a9f6.md#c4", "articles/jina-reader/eaa4e1a9f6.md#c5"]
     token_count: 483
   - id: "articles/jina-reader/eaa4e1a9f6.md#c2"
     char_span: [3013, 4621]
     sentence_count: 2
     key_terms: [president, purdue, https, edu, www, chiang, mung, lorem]
+    concepts: [president, purdue, https, chiang, lorem]
+    related_chunks: ["articles/jina-reader/eaa4e1a9f6.md#c0", "articles/jina-reader/eaa4e1a9f6.md#c1", "articles/jina-reader/eaa4e1a9f6.md#c3", "articles/jina-reader/eaa4e1a9f6.md#c4", "articles/jina-reader/eaa4e1a9f6.md#c5"]
     token_count: 437
   - id: "articles/jina-reader/eaa4e1a9f6.md#c3"
     char_span: [4648, 4919]
     sentence_count: 1
     key_terms: [president, messages, purdue, strategic-initiatives-storyline, https, edu, www, presidential]
+    concepts: [president, messages, purdue, https]
+    related_chunks: ["articles/jina-reader/eaa4e1a9f6.md#c0", "articles/jina-reader/eaa4e1a9f6.md#c1", "articles/jina-reader/eaa4e1a9f6.md#c2", "articles/jina-reader/eaa4e1a9f6.md#c4", "articles/jina-reader/eaa4e1a9f6.md#c5"]
     section: Presidential Messages
     token_count: 65
   - id: "articles/jina-reader/eaa4e1a9f6.md#c4"
     char_span: [4947, 5338]
     sentence_count: 1
     key_terms: [purdue, president, initiatives, presidential-lecture-series, strategic-initiatives, https, edu, key]
+    concepts: [purdue, president, initiatives, https]
+    related_chunks: ["articles/jina-reader/eaa4e1a9f6.md#c0", "articles/jina-reader/eaa4e1a9f6.md#c1", "articles/jina-reader/eaa4e1a9f6.md#c2", "articles/jina-reader/eaa4e1a9f6.md#c3", "articles/jina-reader/eaa4e1a9f6.md#c5"]
     section: Strategic Initiatives
     token_count: 90
   - id: "articles/jina-reader/eaa4e1a9f6.md#c5"
     char_span: [5372, 7123]
     sentence_count: 1
     key_terms: [purdue, https, edu, www, purdue-and-google-public-sector-partner-to-scale-ai-integration-and-accelerate-education-and-research-across-the-institution, purdue-celebrates-its-contributions-to-the-american-dream-as-nation-turns-250, purdue-president-3-alumni-elected-to-national-academy-of-engineering, president]
+    concepts: [purdue, https, president, newsroom, presidential]
+    related_chunks: ["articles/jina-reader/eaa4e1a9f6.md#c0", "articles/jina-reader/eaa4e1a9f6.md#c1", "articles/jina-reader/eaa4e1a9f6.md#c2", "articles/jina-reader/eaa4e1a9f6.md#c3", "articles/jina-reader/eaa4e1a9f6.md#c4"]
     section: Presidential Lecture Series / Top News / CAMPUS
     token_count: 455
   - id: "articles/jina-reader/eaa4e1a9f6.md#c6"
     char_span: [7143, 7441]
     sentence_count: 1
     key_terms: [https, purdue, office, boilerconnect, brightspace, com, edu, mypurdue]
+    concepts: [https, purdue, boilerconnect, office, brightspace]
+    related_chunks: ["articles/jina-reader/eaa4e1a9f6.md#c0", "articles/jina-reader/eaa4e1a9f6.md#c1", "articles/jina-reader/eaa4e1a9f6.md#c2", "articles/jina-reader/eaa4e1a9f6.md#c3", "articles/jina-reader/eaa4e1a9f6.md#c4"]
     section: COMMUNICATION
     token_count: 99
   - id: "articles/jina-reader/eaa4e1a9f6.md#c7"
     char_span: [7459, 7858]
     sentence_count: 1
     key_terms: [purdue, https, edu, www, construction, tuition, events, physicalfacilities]
+    concepts: [purdue, https, construction, tuition, events]
+    related_chunks: ["articles/jina-reader/eaa4e1a9f6.md#c0", "articles/jina-reader/eaa4e1a9f6.md#c1", "articles/jina-reader/eaa4e1a9f6.md#c2", "articles/jina-reader/eaa4e1a9f6.md#c3", "articles/jina-reader/eaa4e1a9f6.md#c4"]
     section: Information
     token_count: 120
   - id: "articles/jina-reader/eaa4e1a9f6.md#c8"
     char_span: [7871, 8222]
     sentence_count: 1
     key_terms: [purdue, https, edu, www, hotline, ethics, police, statistics-policies]
+    concepts: [purdue, https, hotline, ethics, police]
+    related_chunks: ["articles/jina-reader/eaa4e1a9f6.md#c0", "articles/jina-reader/eaa4e1a9f6.md#c1", "articles/jina-reader/eaa4e1a9f6.md#c2", "articles/jina-reader/eaa4e1a9f6.md#c3", "articles/jina-reader/eaa4e1a9f6.md#c4"]
     section: PEOPLE
     token_count: 108
   - id: "articles/jina-reader/eaa4e1a9f6.md#c9"
     char_span: [8236, 9782]
     sentence_count: 2
     key_terms: [purdue, https, www, edu, com, university, php, lifeatpurdue]
+    concepts: [purdue, https, university, lifeatpurdue, purdueuniversity]
+    related_chunks: ["articles/jina-reader/eaa4e1a9f6.md#c0", "articles/jina-reader/eaa4e1a9f6.md#c1", "articles/jina-reader/eaa4e1a9f6.md#c2", "articles/jina-reader/eaa4e1a9f6.md#c3", "articles/jina-reader/eaa4e1a9f6.md#c4"]
     section: Address
     token_count: 457
 ---

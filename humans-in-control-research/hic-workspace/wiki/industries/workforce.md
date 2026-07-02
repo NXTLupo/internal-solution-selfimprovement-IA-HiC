@@ -10,6 +10,7 @@ chunks:
     char_span: [0, 738]
     sentence_count: 2
     key_terms: [reddit-careerguidance, industries, sources, shared, articles, workforce, auto-generated, education]
+    concepts: [reddit-careerguidance, industries, sources, shared, articles]
     section: Cross-over verticals (shared sources) / Representative sources
     token_count: 204
 ---

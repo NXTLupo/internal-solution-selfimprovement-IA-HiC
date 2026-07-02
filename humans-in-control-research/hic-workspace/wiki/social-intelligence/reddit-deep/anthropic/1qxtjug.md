@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 300]
     sentence_count: 1
     key_terms: [anthropic, comments, claude, reddit-deep, hackathon, dataexec, credits, virtual]
+    concepts: [anthropic, comments, claude]
     token_count: 92
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1qxtjug/built_with_opus_46_a_claude_code_virtual/"}]
 ---
 # Built with Opus 4.6: a Claude Code virtual hackathon - win $100k in Claude API credits
 

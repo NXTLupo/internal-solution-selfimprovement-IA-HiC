@@ -20,34 +20,41 @@ chunks:
     char_span: [0, 2203]
     sentence_count: 22
     key_terms: [like, b2bmarketing, built, test, marketing, something, comments, linkedin]
+    concepts: [b2bmarketing, built, marketing, something, comments]
     token_count: 489
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1taahru/im_kinda_lost_with_b2b_channels_and_where_to_find/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1taahru.md#c1"
     char_span: [2205, 3660]
     sentence_count: 21
     key_terms: [especially, people, linkedin, don, understand, something, events, b2b]
+    concepts: [especially, people, linkedin, understand, something]
     token_count: 322
   - id: "social-intelligence/reddit-deep/b2bmarketing/1taahru.md#c2"
-    char_span: [3675, 4700]
+    char_span: [3674, 4699]
     sentence_count: 7
     key_terms: [looking-for-marketing-discussion-811236647760298024, lassieboy, marketing, questions, situation, discord, additional-score2681, ads]
+    concepts: [lassieboy, marketing, questions, situation, discord]
     section: Comments
     token_count: 257
   - id: "social-intelligence/reddit-deep/b2bmarketing/1taahru.md#c3"
-    char_span: [4702, 6506]
+    char_span: [4701, 6505]
     sentence_count: 17
     key_terms: [results, everything, linkedin, outreach, specific, better, events, g3nayy]
+    concepts: [results, everything, linkedin, outreach, specific]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/b2bmarketing/1taahru.md#c4"
-    char_span: [6508, 8589]
+    char_span: [6507, 8588]
     sentence_count: 17
     key_terms: [ads, google, real, b2b, strategy, funnel, conversation, situation]
+    concepts: [google, strategy, conversation, funnel, situation]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/b2bmarketing/1taahru.md#c5"
-    char_span: [8591, 10717]
+    char_span: [8590, 10716]
     sentence_count: 23
     key_terms: [case, especially, ads, studies, budget, g3nayy, signal, small]
+    concepts: [especially, studies, budget, g3nayy, signal]
     section: Comments
     token_count: 506
 ---

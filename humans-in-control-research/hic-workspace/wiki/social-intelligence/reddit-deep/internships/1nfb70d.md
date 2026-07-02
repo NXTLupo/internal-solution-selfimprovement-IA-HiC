@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 923]
     sentence_count: 6
     key_terms: [finance, spring, https, weeks, engineering, internships, work, experience]
+    concepts: [finance, spring, engineering, internships, experience]
     token_count: 207
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1nfb70d/is_relevant_work_experience_a_necessary_for/"}]
   - id: "social-intelligence/reddit-deep/internships/1nfb70d.md#c1"
     char_span: [937, 1444]
     sentence_count: 3
     key_terms: [finance, makes, lot, wr3eckerlxix, engineering, wondering, probably, students]
+    concepts: [finance, makes]
     section: Comments
     token_count: 141
 ---

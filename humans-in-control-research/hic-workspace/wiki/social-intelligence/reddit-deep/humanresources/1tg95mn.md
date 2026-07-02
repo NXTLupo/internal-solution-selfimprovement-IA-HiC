@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 958]
     sentence_count: 6
     key_terms: [certification, been, humanresources, comments, little, opportunities, consistently, organization]
+    concepts: [certification, humanresources, comments, little]
     token_count: 206
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1tg95mn/hr_certification_united_states/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1tg95mn.md#c1"
     char_span: [972, 3151]
     sentence_count: 18
     key_terms: ["you're", strategically, prove, cert, post, sphr, work, somewhere]
+    concepts: ["you're", strategically, prove, somewhere, probably]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/humanresources/1tg95mn.md#c2"

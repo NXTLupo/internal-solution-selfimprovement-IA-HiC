@@ -19,47 +19,56 @@ chunks:
     char_span: [0, 1007]
     sentence_count: 7
     key_terms: [cscareerquestions, yourself, "i'm", want, comments, industry, career, mudane]
+    concepts: [cscareerquestions, yourself, comments, industry, career]
     token_count: 241
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sqe4oc/people_whove_transitioned_from_a_cs_career_to_a/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqe4oc.md#c1"
     char_span: [1021, 2381]
     sentence_count: 7
     key_terms: [government, software, special, skills, entrypuzzleheaded670, admin, get, job]
+    concepts: [government, software, special, skills, admin]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqe4oc.md#c2"
     char_span: [2383, 4518]
     sentence_count: 11
     key_terms: [people, work, software, essentially, god, developer, probably, another]
+    concepts: [people, software, essentially, developer, probably]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqe4oc.md#c3"
     char_span: [4520, 6634]
     sentence_count: 14
     key_terms: [software, like, development, "don't", tech, different, petroleum, something]
+    concepts: [software, development, "don't", different, petroleum]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqe4oc.md#c4"
     char_span: [6636, 8724]
     sentence_count: 16
     key_terms: [software, design, crashes, caused, max, boeing, system, aeronautical]
+    concepts: [software, design, crashes, caused, aeronautical]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqe4oc.md#c5"
     char_span: [8726, 10661]
     sentence_count: 13
     key_terms: [business, mundane, support, transitioned, learned, management, attendant, require]
+    concepts: [business, transitioned, mundane, support, learned]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqe4oc.md#c6"
     char_span: [10663, 12574]
     sentence_count: 16
     key_terms: [legal, understanding, job, pay, supported, problems, ability, support]
+    concepts: [legal, understanding, supported, problems, ability]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqe4oc.md#c7"
     char_span: [12576, 12904]
     sentence_count: 4
     key_terms: [jobs, harder, pineapplelemur, everything, surprise, whatever, finding, getting]
+    concepts: [harder]
     section: Comments
     token_count: 84
 ---

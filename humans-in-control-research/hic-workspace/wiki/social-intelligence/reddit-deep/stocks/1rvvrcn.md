@@ -20,55 +20,68 @@ chunks:
     char_span: [0, 1629]
     sentence_count: 14
     key_terms: [presentation, investor, share, comments, watched, shares, lucid, day]
+    concepts: [presentation, investor, share, comments, watched]
     token_count: 399
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1rvvrcn/watched_lucid_investor_presentation_and_left_with/"}]
   - id: "social-intelligence/reddit-deep/stocks/1rvvrcn.md#c1"
     char_span: [1631, 3921]
     sentence_count: 10
     key_terms: [gravity, efficiency, technology, costs, currently, autonomy, vehicles, midsize]
+    concepts: [gravity, efficiency, technology, currently, costs]
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1rvvrcn.md#c2"
     char_span: [3601, 5803]
     sentence_count: 7
     key_terms: [autonomy, aiming, currently, planning, vehicles, future, lower, lucid]
+    concepts: [autonomy, aiming, currently, planning, vehicles]
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1rvvrcn.md#c3"
     char_span: [5532, 7729]
     sentence_count: 18
     key_terms: [positive, cost, gravity, decade, plan, software, battery, midsize]
+    concepts: [positive, gravity, decade, software, battery]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rvvrcn.md#c4"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1rvvrcn.md#c4"
     char_span: [7432, 8744]
     sentence_count: 13
     key_terms: [software, cars, autonomy, gravity, stay, arabia, around, going]
+    concepts: [software, autonomy, gravity, arabia, around]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rvvrcn.md#c3"]
     token_count: 303
   - id: "social-intelligence/reddit-deep/stocks/1rvvrcn.md#c5"
-    char_span: [8759, 10232]
+    char_span: [8758, 10231]
     sentence_count: 14
     key_terms: [reidmrdotcom, civil-quilt495, saudis, already, thanks, lucid, owned, stock]
+    concepts: [reidmrdotcom, civil-quilt495, saudis, already, thanks]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/stocks/1rvvrcn.md#c6"
-    char_span: [10234, 11891]
+    char_span: [10233, 11890]
     sentence_count: 12
     key_terms: [profitability, gross, ramping, information, positive, question, because, getting]
+    concepts: [profitability, gross, ramping, information, positive]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/stocks/1rvvrcn.md#c7"
-    char_span: [11893, 14033]
+    char_span: [11892, 14032]
     sentence_count: 18
     key_terms: [lucid, like, tesla, years, something, been, big, good]
+    concepts: [lucid, something, tesla, years, production]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1rvvrcn.md#c8"
-    char_span: [13794, 14249]
+    char_span: [13793, 14248]
     sentence_count: 6
     key_terms: [like, knows, years, "it's", reidmrdotcom, bagholder, something, avoided]
+    concepts: [knows, years]
     section: Comments
     token_count: 121
   - id: "social-intelligence/reddit-deep/stocks/1rvvrcn.md#c9"
-    char_span: [14251, 15807]
+    char_span: [14250, 15806]
     sentence_count: 13
     key_terms: [reidmrdotcom, point, position, short, "i'll", "i'm", amcorbust2021, shareholders]
+    concepts: [reidmrdotcom, point, position, short]
     section: Comments
     token_count: 371
 ---

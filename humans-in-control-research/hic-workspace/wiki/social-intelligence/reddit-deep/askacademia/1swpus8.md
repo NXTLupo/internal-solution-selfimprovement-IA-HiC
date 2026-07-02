@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1466]
     sentence_count: 12
     key_terms: [university, field, phd, overall, ranking, askacademia, "i'm", too]
+    concepts: [university, field, overall, ranking, askacademia]
     token_count: 349
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1swpus8/is_it_worth_to_move_from_an_r1_high_rank/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1swpus8.md#c1"
     char_span: [1480, 2811]
     sentence_count: 10
     key_terms: [program, academia, want, matters, reputation, prestige, popstarkirbys, ranking]
+    concepts: [program, academia, matters, reputation, prestige]
     section: Comments
     token_count: 339
 ---

@@ -20,41 +20,54 @@ chunks:
     char_span: [0, 951]
     sentence_count: 7
     key_terms: [vanguard, bogleheads, brokerage, interface, comments, customer, fidelity, account]
+    concepts: [vanguard, bogleheads, brokerage, interface, comments]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1tjtl6h.md#c2"]
     token_count: 212
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1tjtl6h/vanguards_user_interface_mobile_app_is_atrocious/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1tjtl6h.md#c1"
-    char_span: [966, 2032]
+    char_span: [965, 2031]
     sentence_count: 5
     key_terms: [everything, difficult, passive, that-establishment24, psychologicalad1862, doing, part, too]
+    concepts: [everything, difficult, passive, doing]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/bogleheads/1tjtl6h.md#c2"
-    char_span: [2034, 3705]
+    char_span: [2033, 3704]
     sentence_count: 12
     key_terms: [vanguard, issue, interface, accounts, balances, fidelity, browser, "doesn't"]
+    concepts: [vanguard, issue, interface, accounts, balances]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1tjtl6h.md#c0"]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/bogleheads/1tjtl6h.md#c3"
-    char_span: [3707, 4190]
+    char_span: [3706, 4189]
     sentence_count: 2
     key_terms: [transfers, recurring, fidelity, vanguard, app, remembering, difficulty, everything]
+    concepts: [transfers, recurring, fidelity, vanguard]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1tjtl6h.md#c4", "social-intelligence/reddit-deep/bogleheads/1tjtl6h.md#c6"]
     section: Comments
     token_count: 99
   - id: "social-intelligence/reddit-deep/bogleheads/1tjtl6h.md#c4"
-    char_span: [4192, 6117]
+    char_span: [4191, 6116]
     sentence_count: 6
     key_terms: [fidelity, netbenefits, vanguard, utm, comment, place, market, share]
+    concepts: [fidelity, netbenefits, vanguard, comment, place]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1tjtl6h.md#c3", "social-intelligence/reddit-deep/bogleheads/1tjtl6h.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/bogleheads/1tjtl6h.md#c5"
-    char_span: [5934, 6157]
+    char_span: [5933, 6156]
     sentence_count: 1
     key_terms: [utm, web3xcss, share, web3x, bogleheads, comments, comment, ondl4bw]
+    concepts: [web3xcss, share, web3x]
     section: Comments
     token_count: 75
   - id: "social-intelligence/reddit-deep/bogleheads/1tjtl6h.md#c6"
-    char_span: [6162, 7740]
+    char_span: [6161, 7739]
     sentence_count: 8
     key_terms: [treasurydirect, vanguard, find, fine, like, tubaleiter, fidelity, direct]
+    concepts: [treasurydirect, vanguard, tubaleiter, fidelity, direct]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1tjtl6h.md#c3", "social-intelligence/reddit-deep/bogleheads/1tjtl6h.md#c4"]
     section: Comments
     token_count: 430
 ---

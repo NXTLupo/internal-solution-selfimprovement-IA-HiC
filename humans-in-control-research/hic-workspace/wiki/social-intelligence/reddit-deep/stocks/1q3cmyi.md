@@ -21,46 +21,55 @@ chunks:
     char_span: [0, 2229]
     sentence_count: 18
     key_terms: [interesting, trump, gold, oil, through, stocks, china, potentially]
+    concepts: [interesting, trump, through, stocks, potentially]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1q3cmyi/what_does_trump_really_want_with_venezuela_here/"}]
   - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c1"
     char_span: [2231, 2545]
     sentence_count: 3
     key_terms: [believe, etfs, investments, personally, something, although, anything, probably]
+    concepts: [believe]
     token_count: 64
   - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c2"
     char_span: [2559, 3168]
     sentence_count: 2
     key_terms: [stocks, off-topic, political, specific, removed, please, reddit, "you're"]
+    concepts: [stocks, off-topic, political, specific, removed]
     section: Comments
     token_count: 138
   - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c3"
     char_span: [3170, 4700]
     sentence_count: 6
     key_terms: [nike, maduro, monday, captured, stocks, calls, extension-pick8310, thiglebeaglemingle]
+    concepts: [maduro, monday, captured, stocks, calls]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c4"
     char_span: [4702, 6199]
     sentence_count: 7
     key_terms: [perspective, expensive, bananas, always, banana, financialaccess8343, amazing-jury-6886, "i'm"]
+    concepts: [perspective, expensive, bananas, always, banana]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c5"
     char_span: [6202, 8101]
     sentence_count: 11
     key_terms: [venezuelas-resource-paradox-critical-minerals-oil-and-the-price-of-mismanagement, china, minerals, defense, stocks, investornews, oil, venezuela]
+    concepts: [china, minerals, defense, investornews, stocks]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c6"
     char_span: [8103, 8902]
     sentence_count: 6
     key_terms: [absolutely, chevron, fields, valero, longjumpingjoke2700, drill, get, risk]
+    concepts: [absolutely, chevron, fields, valero, drill]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c7"
     char_span: [8904, 10728]
     sentence_count: 13
     key_terms: [oil, ding, venezuela, reserves, company, control, brics, going]
+    concepts: [venezuela, reserves, company, control, brics]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c8"
@@ -73,30 +82,35 @@ chunks:
     char_span: [10731, 11270]
     sentence_count: 3
     key_terms: [oil, money, term, compensated, contracted, economical, difficult, expensive]
+    concepts: [money]
     section: Comments
     token_count: 117
   - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c10"
     char_span: [11272, 13175]
     sentence_count: 14
     key_terms: [oil, like, refineries, venezuelan, venezuela, process, refined, diesel]
+    concepts: [refineries, venezuelan, venezuela, process, refined]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c11"
     char_span: [13177, 14799]
     sentence_count: 9
     key_terms: [venezuela, china, gold, oil, russia, supply, gravescd, probably]
+    concepts: [venezuela, china, russia, supply, gravescd]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c12"
     char_span: [14801, 16917]
     sentence_count: 15
     key_terms: [injuryindependent287, china, anything, people, economically, never, trump, american]
+    concepts: [injuryindependent287, china, anything, economically, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c13"
     char_span: [16660, 17710]
     sentence_count: 8
     key_terms: [trump, russia, point, mixedprophet, opportunity, absolutely, narcissism, attempted]
+    concepts: [trump, russia, point]
     section: Comments
     token_count: 261
 ---

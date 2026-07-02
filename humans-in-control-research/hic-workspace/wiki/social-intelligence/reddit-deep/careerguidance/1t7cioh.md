@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1792]
     sentence_count: 13
     key_terms: [server, careerguidance, networking, home, security, certifications, career, professional]
+    concepts: [careerguidance, server, networking, security, certifications]
     token_count: 415
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t7cioh/college_student_is_my_cert_path_net_and_server/"}]
 ---
 # College student: Is my cert path (Net+ and Server+) solid for a Sec/Net career?
 

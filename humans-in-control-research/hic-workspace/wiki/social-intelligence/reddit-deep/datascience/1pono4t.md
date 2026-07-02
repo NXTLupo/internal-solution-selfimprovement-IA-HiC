@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 227]
     sentence_count: 1
     key_terms: [datascience, comments, reddit-deep, requesting, feedback, nasibulh, posted, reddit]
+    concepts: [datascience, comments]
     token_count: 66
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1pono4t/requesting_some_feedback/"}]
   - id: "social-intelligence/reddit-deep/datascience/1pono4t.md#c1"
-    char_span: [242, 2328]
+    char_span: [241, 2327]
     sentence_count: 19
     key_terms: ["you're", skills, business, problems, mention, better, unless, emphasise]
+    concepts: ["you're", skills, business, problems, mention]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/datascience/1pono4t.md#c2"
-    char_span: [2330, 4378]
+    char_span: [2329, 4377]
     sentence_count: 14
     key_terms: [cert, job, position, degrees, project, information, clicketrie, experience]
+    concepts: [position, degrees, project, information, clicketrie]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/datascience/1pono4t.md#c3"
-    char_span: [4381, 4924]
+    char_span: [4380, 4923]
     sentence_count: 2
     key_terms: [nasibulh, originalpromotion687, concentrating, proficiency, definitely, positions, ommitted, replaced]
+    concepts: [nasibulh]
     section: Comments
     token_count: 146
 ---

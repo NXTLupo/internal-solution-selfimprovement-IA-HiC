@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1234]
     sentence_count: 8
     key_terms: [power, databricks, data, "i'm", engineer, dataengineering, want, pipelines]
+    concepts: [power, databricks, dataengineering, engineer, pipelines]
     token_count: 291
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1lcprv1/im_data_engineer_but_doing_power_bi/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1lcprv1.md#c1"
-    char_span: [1249, 3212]
+    char_span: [1248, 3211]
     sentence_count: 7
     key_terms: [data, "you'll", visualisation, working, learning, dataengineering, "don't", right]
+    concepts: ["you'll", visualisation, working, dataengineering, learning]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/dataengineering/1lcprv1.md#c2"
-    char_span: [3214, 4945]
+    char_span: [3213, 4944]
     sentence_count: 7
     key_terms: [data, business, stakeholders, power, tools, dashboard, lifecycle, engineer]
+    concepts: [business, stakeholders, power, tools, dashboard]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/dataengineering/1lcprv1.md#c3"
-    char_span: [4947, 6785]
+    char_span: [4946, 6784]
     sentence_count: 15
     key_terms: [data, power, right, "i'd", analysts, doing, job, want]
+    concepts: [power, right, analysts, dashboards, doing]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/dataengineering/1lcprv1.md#c4"
-    char_span: [6787, 7715]
+    char_span: [6786, 7714]
     sentence_count: 6
     key_terms: [perspective, technical, skills, get, engineering, interesting, opportunity, everything]
+    concepts: [perspective, technical, skills]
     section: Comments
     token_count: 206
 ---

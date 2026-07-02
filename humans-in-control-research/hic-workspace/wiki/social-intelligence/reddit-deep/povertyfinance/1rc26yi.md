@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1646]
     sentence_count: 15
     key_terms: [mom, pay, povertyfinance, com, set, currently, comments, finally]
+    concepts: [povertyfinance, currently, comments, finally, forward]
     token_count: 440
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1rc26yi/debt_freenow_what/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1rc26yi.md#c1"
     char_span: [1660, 3444]
     sentence_count: 14
     key_terms: [savings, emmieh1287, populardata3890, capitalad4933, cover, retirement, emergency, included]
+    concepts: [savings, emmieh1287, populardata3890, capitalad4933, cover]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/povertyfinance/1rc26yi.md#c2"
     char_span: [3446, 4732]
     sentence_count: 7
     key_terms: [paying, emergency, fund, expenses, future, others, etc, food]
+    concepts: [paying, emergency, expenses, future, others]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/povertyfinance/1rc26yi.md#c3"
     char_span: [4734, 6599]
     sentence_count: 17
     key_terms: [roth, months, emergency, fund, build, money, ira, put]
+    concepts: [emergency, months, build, money, account]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/povertyfinance/1rc26yi.md#c4"
     char_span: [6601, 8126]
     sentence_count: 10
     key_terms: [get, https, furniture, streaming, cheaper, qualify, making, screamingwhisper1720]
+    concepts: [https, furniture, streaming, cheaper, qualify]
     section: Comments
     token_count: 390
 ---

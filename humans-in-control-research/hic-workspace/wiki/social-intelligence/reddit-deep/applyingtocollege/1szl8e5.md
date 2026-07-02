@@ -19,27 +19,35 @@ chunks:
     char_span: [0, 2081]
     sentence_count: 11
     key_terms: [stanford, social, applyingtocollege, "i'm", less, schools, school, "i'd"]
+    concepts: [stanford, applyingtocollege, social, schools, school]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1szl8e5/stanford_vs_mit_last_minute_very_split_unsure/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1szl8e5.md#c1"
     char_span: [2083, 4209]
     sentence_count: 9
     key_terms: [culture, stanford, mit, sure, either, intellectual, admin, years]
+    concepts: [culture, stanford, intellectual, either, scholarship]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1szl8e5.md#c4"]
     token_count: 464
   - id: "social-intelligence/reddit-deep/applyingtocollege/1szl8e5.md#c2"
     char_span: [4211, 4957]
     sentence_count: 5
     key_terms: ["i'm", taking, scholarship, afraid, perspectives, flexibility, high-paying, confidence]
+    concepts: [taking, scholarship, afraid]
     token_count: 162
   - id: "social-intelligence/reddit-deep/applyingtocollege/1szl8e5.md#c3"
     char_span: [4971, 5826]
     sentence_count: 5
     key_terms: [stanford, commitment, potential, dod, mit, rice, entrepreneurship, underestimate]
+    concepts: [stanford, commitment, potential]
     section: Comments
     token_count: 216
   - id: "social-intelligence/reddit-deep/applyingtocollege/1szl8e5.md#c4"
     char_span: [5828, 7517]
     sentence_count: 6
     key_terms: [financial, mit, aid, sure, stanford, lawsuit, scholarship, "i'm"]
+    concepts: [financial, stanford, lawsuit, scholarship, admissions]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1szl8e5.md#c1"]
     section: Comments
     token_count: 447
 ---

@@ -19,17 +19,22 @@ chunks:
     char_span: [0, 2189]
     sentence_count: 16
     key_terms: [insurance, life, money, benefit, individual, death, grow, "i'm"]
+    concepts: [insurance, money, benefit, individual, death]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1mxm96x/i_was_sold_on_whole_life_insurance_and_now_i/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1mxm96x.md#c1"
     char_span: [2203, 3480]
     sentence_count: 9
     key_terms: [insurance, life, contributing, ira, accounts, coverage, probably, account]
+    concepts: [insurance, contributing, accounts, coverage, probably]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/personalfinance/1mxm96x.md#c2"
     char_span: [3482, 5344]
     sentence_count: 10
     key_terms: [insurance, paying, whole, "it's", life, term, investment, account]
+    concepts: [insurance, paying, investment, whole, account]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1mxm96x.md#c7"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/personalfinance/1mxm96x.md#c3"
@@ -42,36 +47,44 @@ chunks:
     char_span: [5873, 7654]
     sentence_count: 11
     key_terms: ["i'm", get, year, parents, cancel, accumulation, going, commission]
+    concepts: [parents, accumulation, cancel, commission, going]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/personalfinance/1mxm96x.md#c5"
     char_span: [7656, 9610]
     sentence_count: 16
     key_terms: [expenses, final, financial, insurance, college, tuition, good, paid]
+    concepts: [expenses, financial, insurance, final, college]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1mxm96x.md#c11"]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/personalfinance/1mxm96x.md#c6"
     char_span: [9612, 10513]
     sentence_count: 10
     key_terms: [fiduciary, financial, whether, advice, "don't", vul, huntfishinvest88, andydannypickle]
+    concepts: [fiduciary, financial, whether, advice, "don't"]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/personalfinance/1mxm96x.md#c7"
     char_span: [10515, 12548]
     sentence_count: 14
     key_terms: [insurance, life, policy, huntfishinvest88, estate, whole, "it's", scam]
+    concepts: [insurance, policy, huntfishinvest88, estate, investment]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1mxm96x.md#c2"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/personalfinance/1mxm96x.md#c8"
     char_span: [12552, 12620]
     sentence_count: 1
     key_terms: [learned, lesson, tomorrow, better, today]
+    concepts: [learned, lesson]
     section: Comments
     token_count: 13
   - id: "social-intelligence/reddit-deep/personalfinance/1mxm96x.md#c9"
     char_span: [12624, 14698]
     sentence_count: 12
     key_terms: [good, guy, recommendations, life, parents, based, taken, investments]
+    concepts: [recommendations, parents, investments, based, taken]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1mxm96x.md#c10"
@@ -84,12 +97,15 @@ chunks:
     char_span: [14818, 16879]
     sentence_count: 11
     key_terms: [like, insurance, something, don, get, fidelity, vanguard, fee]
+    concepts: [insurance, something, fidelity, vanguard, financial]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1mxm96x.md#c5"]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/personalfinance/1mxm96x.md#c12"
     char_span: [16881, 18337]
     sentence_count: 9
     key_terms: [personalfinance, policy, get, against, benefit, corp, free, tax]
+    concepts: [personalfinance, policy, against, benefit]
     section: Comments
     token_count: 336
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 735]
     sentence_count: 7
     key_terms: [careerguidance, job, comments, florida, degree, sales, find, get]
+    concepts: [careerguidance, comments, florida, degree, sales]
     token_count: 179
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tabx9d/how_do_i_find_a_career_in_the_florida_job_market/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tabx9d.md#c1"
     char_span: [749, 1435]
     sentence_count: 4
     key_terms: [communications, miami, broadboots, reasonable, marketing, political, distance, driving]
+    concepts: [communications, broadboots, miami, reasonable, marketing]
     section: Comments
     token_count: 153
 ---

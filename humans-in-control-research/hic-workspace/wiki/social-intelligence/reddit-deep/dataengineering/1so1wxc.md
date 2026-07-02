@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1631]
     sentence_count: 14
     key_terms: [logic, procedures, dataengineering, because, stored, implemented, business, comments]
+    concepts: [logic, procedures, dataengineering, because, stored]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1so1wxc.md#c3"]
     token_count: 359
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1so1wxc/everything_where_i_work_is_giant_stored_procedures/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1so1wxc.md#c1"
-    char_span: [1646, 3610]
+    char_span: [1645, 3609]
     sentence_count: 16
     key_terms: [logic, procs, good, time, identical, customer, privacy, version]
+    concepts: [logic, procs, identical, customer, privacy]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/dataengineering/1so1wxc.md#c2"
-    char_span: [3612, 5668]
+    char_span: [3611, 5667]
     sentence_count: 18
     key_terms: [data, "it's", integration, procedure, database, logic, day, did]
+    concepts: [integration, procedure, database, generation, logic]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/dataengineering/1so1wxc.md#c3"
-    char_span: [5670, 6301]
+    char_span: [5669, 6300]
     sentence_count: 3
     key_terms: [work, procedures, functions, stored, use, yada, architecture, brownbearpdx]
+    concepts: [procedures, functions, stored]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1so1wxc.md#c0"]
     section: Comments
     token_count: 176
 ---

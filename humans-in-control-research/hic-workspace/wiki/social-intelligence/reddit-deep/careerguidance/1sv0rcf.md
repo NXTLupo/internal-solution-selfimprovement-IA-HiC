@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2103]
     sentence_count: 21
     key_terms: [internship, careerguidance, career, been, want, behavioral, everything, incredibly]
+    concepts: [internship, careerguidance, career, behavioral, everything]
     token_count: 461
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sv0rcf/would_it_be_bad_to_submit_a_2_weeks_notice/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sv0rcf.md#c1"
     char_span: [2105, 3859]
     sentence_count: 17
     key_terms: [internship, part-time, want, unprofessional, opportunity, don, work, commitment]
+    concepts: [internship, part-time, unprofessional, opportunity, commitment]
     token_count: 364
 ---
 # Would it be bad to submit a 2 weeks notice?

@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 1030]
     sentence_count: 9
     key_terms: [grad, time, school, class, gradschool, comments, choices, program]
+    concepts: [school, class, gradschool, comments, choices]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1teevie.md#c1"]
     token_count: 255
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1teevie/what_time_do_you_guys_schedule_your_grad_classes/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1teevie.md#c1"
     char_span: [1044, 2430]
     sentence_count: 12
     key_terms: [classes, semester, class, choices, morning, didn, time, scheduled]
+    concepts: [classes, semester, class, choices, morning]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1teevie.md#c0", "social-intelligence/reddit-deep/gradschool/1teevie.md#c2"]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/gradschool/1teevie.md#c2"
     char_span: [2432, 3776]
     sentence_count: 8
     key_terms: [time, class, day, classes, evening, choice, early, get]
+    concepts: [class, classes, evening, choice, early]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1teevie.md#c1"]
     section: Comments
     token_count: 371
 ---

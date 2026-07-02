@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1847]
     sentence_count: 15
     key_terms: [day, isitnerfed, code, quality, august, claude, openai, next]
+    concepts: [isitnerfed, quality, august, claude, openai]
     token_count: 461
+    sources: [{"n":"Reddit Deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1ndj2wx/the_ai_nerf_is_real/"}]
   - id: "articles/reddit-deep-r-openai/e1ab923faa.md#c1"
     char_span: [1849, 2952]
     sentence_count: 7
     key_terms: [ambientocclusion, guardrails, response, already, imagine, latency, purple, black]
+    concepts: [ambientocclusion, guardrails, response, already, imagine]
     token_count: 259
 ---
 # The AI Nerf Is Real

@@ -21,53 +21,63 @@ chunks:
     char_span: [0, 1677]
     sentence_count: 15
     key_terms: [learning, another, careerguidance, break, job, take, want, comments]
+    concepts: [learning, careerguidance, another, break, comments]
     token_count: 409
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1nbkov2/ceo_just_told_me_to_look_for_another_jobwhat_to_do/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1nbkov2.md#c1"
     char_span: [1691, 3844]
     sentence_count: 19
     key_terms: [job, voluntarily, domain, upskilling, time, yourself, always, next]
+    concepts: [voluntarily, upskilling, domain, yourself, always]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1nbkov2.md#c2"
     char_span: [3521, 3925]
     sentence_count: 4
     key_terms: [always, job, accomplishments, interviewing, linkedin, surround, yourself, applies]
+    concepts: [always]
     section: Comments
     token_count: 84
   - id: "social-intelligence/reddit-deep/careerguidance/1nbkov2.md#c3"
     char_span: [3927, 5187]
     sentence_count: 12
     key_terms: [people, yourself, getting, started, "aren't", buying, right, sales]
+    concepts: [people, yourself, getting, started, "aren't"]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/careerguidance/1nbkov2.md#c4"
     char_span: [5189, 6915]
     sentence_count: 13
     key_terms: [business, data, analyst, background, companies, gathering, technical, engineer]
+    concepts: [business, analyst, background, companies, gathering]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/careerguidance/1nbkov2.md#c5"
     char_span: [6917, 8204]
     sentence_count: 5
     key_terms: [experience, "i'm", work, absolutely, because, oracle, trying, "you'll"]
+    concepts: [experience, absolutely, because, oracle, trying]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/careerguidance/1nbkov2.md#c6"
     char_span: [8206, 9572]
     sentence_count: 12
     key_terms: [get, feels, job, situation, business, company, dreams, going]
+    concepts: [feels, situation, business, company, dreams]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/careerguidance/1nbkov2.md#c7"
     char_span: [9574, 11407]
     sentence_count: 13
     key_terms: [start, looking, star-gazer-007, revops, ceo, data, job, look]
+    concepts: [start, star-gazer-007, looking, revops, experience]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/careerguidance/1nbkov2.md#c8"
     char_span: [11409, 12993]
     sentence_count: 18
     key_terms: [pivot, tech, get, yourself, company, moment, code, data]
+    concepts: [pivot, yourself, company, moment]
     section: Comments
     token_count: 377
 ---

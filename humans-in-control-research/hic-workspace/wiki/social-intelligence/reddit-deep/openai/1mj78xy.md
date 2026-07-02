@@ -21,53 +21,66 @@ chunks:
     char_span: [0, 827]
     sentence_count: 3
     key_terms: [context, window, comments, problem, openai, gpt-5, disappointed, satisfactory]
+    concepts: [context, window, comments, problem, openai]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mj78xy.md#c7"]
     token_count: 204
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1mj78xy/just_a_reminder_that_the_context_window_in/"}]
   - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c1"
     char_span: [841, 2898]
     sentence_count: 12
     key_terms: [context, performance, larger, uniformly, use, gemini, models, window]
+    concepts: [context, performance, larger, uniformly, gemini]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c2"
     char_span: [2900, 3477]
     sentence_count: 3
     key_terms: [context, thatnorthernhag, comprehension, experimental, experience, limitation, important, productif]
+    concepts: [context]
     section: Comments
     token_count: 151
   - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c3"
     char_span: [3479, 5042]
     sentence_count: 13
     key_terms: [context, conversation, perfectly, perfect, better, humans, recall, "don't"]
+    concepts: [context, conversation, perfectly, perfect, better]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c4"
     char_span: [5044, 7143]
     sentence_count: 9
     key_terms: [context, scripts, large, code, max, documents, multiple, remember]
+    concepts: [context, scripts, large, documents, multiple]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c5"
     char_span: [7145, 8723]
     sentence_count: 8
     key_terms: [context, use, krishnajeya, api, perplexity, questions, chatbot, people]
+    concepts: [context, krishnajeya, perplexity, questions, chatbot]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c6"
     char_span: [8725, 10169]
     sentence_count: 5
     key_terms: [context, pro, lines, users, chat, gpt, because, claude]
+    concepts: [context, lines, users, because, claude]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mj78xy.md#c7"]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c7"
     char_span: [10171, 11872]
     sentence_count: 6
     key_terms: [context, users, free, studio, window, get, plus, pro]
+    concepts: [context, users, studio, window, solarka45]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mj78xy.md#c0", "social-intelligence/reddit-deep/openai/1mj78xy.md#c6"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c8"
     char_span: [11874, 12480]
     sentence_count: 3
     key_terms: [models, definitely, glokzdnb, context, source, guess, open, complications]
+    concepts: [models, definitely, glokzdnb, context, source]
     section: Comments
     token_count: 162
 ---

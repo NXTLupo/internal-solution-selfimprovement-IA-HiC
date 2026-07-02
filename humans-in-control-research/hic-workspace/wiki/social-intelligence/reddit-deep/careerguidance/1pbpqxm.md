@@ -21,22 +21,30 @@ chunks:
     char_span: [0, 1997]
     sentence_count: 15
     key_terms: [law, school, barista, college, enjoyed, careerguidance, did, feel]
+    concepts: [school, careerguidance, barista, college, enjoyed]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pbpqxm/what_can_i_do_after_law_school_besides_law/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1pbpqxm.md#c1"
     char_span: [1999, 4157]
     sentence_count: 16
     key_terms: [law, job, work, plaintiff-side, office, school, bar, exam]
+    concepts: [plaintiff-side, office, school, working, enough]
     token_count: 489
   - id: "social-intelligence/reddit-deep/careerguidance/1pbpqxm.md#c2"
     char_span: [4171, 6329]
     sentence_count: 18
     key_terms: [law, legal, compliance, management, licensing, work, research, without]
+    concepts: [legal, compliance, management, licensing, research]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1pbpqxm.md#c3"]
     section: Comments
     token_count: 511
+    sources: [{"n":"worked for a multi billion dollar licensing company","u":""}]
   - id: "social-intelligence/reddit-deep/careerguidance/1pbpqxm.md#c3"
     char_span: [6331, 8121]
     sentence_count: 14
     key_terms: [research, law, school, sales, get, time, want, compliance]
+    concepts: [research, school, compliance, especially, sales]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1pbpqxm.md#c2"]
     section: Comments
     token_count: 408
 ---

@@ -21,16 +21,21 @@ chunks:
     char_span: [0, 1885]
     sentence_count: 9
     key_terms: [digitalnomad, taiwan, comments, here, living, digital, reddit, based]
+    concepts: [digitalnomad, taiwan, comments, living, digital]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c4"]
     token_count: 477
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1qh3ny6/my_definitive_review_of_taiwan_as_a_digital_nomad/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c1"
     char_span: [1887, 4279]
     sentence_count: 20
     key_terms: [food, taiwan, chinese, people, extremely, taiwanese, cuisines, culture]
+    concepts: [taiwan, chinese, people, extremely, taiwanese]
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c2"
     char_span: [3954, 6205]
     sentence_count: 17
     key_terms: [taiwan, tourist, infrastructure, destination, food, like, developed, extremely]
+    concepts: [taiwan, infrastructure, tourist, destination, developed]
     token_count: 473
   - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c3"
     char_span: [6207, 6221]
@@ -41,34 +46,42 @@ chunks:
     char_span: [6223, 8646]
     sentence_count: 19
     key_terms: [living, taipei, taiwan, accommodation, like, affordable, especially, depending]
+    concepts: [living, taipei, accommodation, taiwan, affordable]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c0", "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c8"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c5"
     char_span: [8325, 10252]
     sentence_count: 12
     key_terms: [taiwan, pedestrian, mountains, although, dynamic, variety, areas, comes]
+    concepts: [taiwan, pedestrian, mountains, although, dynamic]
     token_count: 400
   - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c6"
     char_span: [10266, 11568]
     sentence_count: 4
     key_terms: [ok-sherbert-3807, vibrantadder, year, steingar, months, never, theastroidiscoming, hungariannastyboy]
+    concepts: [ok-sherbert-3807, vibrantadder, steingar, months, never]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c7"
     char_span: [11570, 13230]
     sentence_count: 15
     key_terms: [been, wifi, available, regarding, steingar, details, speeds, taiwan]
+    concepts: [available, regarding, steingar, details, speeds]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c8"
     char_span: [13232, 15217]
     sentence_count: 19
     key_terms: [taipei, steingar, taiwan, culture, mention, cables, hidden, review]
+    concepts: [taipei, steingar, taiwan, culture, mention]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c4"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c9"
     char_span: [15219, 16778]
     sentence_count: 13
     key_terms: [expensive, tokyo, compared, probably, cheaper, vietnam, enough, income]
+    concepts: [expensive, tokyo, compared, probably, cheaper]
     section: Comments
     token_count: 382
 ---

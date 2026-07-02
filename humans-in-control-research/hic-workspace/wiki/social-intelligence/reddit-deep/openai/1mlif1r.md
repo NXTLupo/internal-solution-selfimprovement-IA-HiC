@@ -21,41 +21,54 @@ chunks:
     char_span: [0, 1106]
     sentence_count: 11
     key_terms: [context, openai, available, paying, window, plus, comments, halved]
+    concepts: [context, openai, available, paying, window]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mlif1r.md#c12"]
     token_count: 264
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1mlif1r/openai_has_halved_paying_users_context_windows/"}]
   - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c1"
     char_span: [1120, 2924]
     sentence_count: 13
     key_terms: [context, gemini, tokens, conversation, like, pro, sometimes, google]
+    concepts: [context, gemini, conversation, tokens, sometimes]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mlif1r.md#c2", "social-intelligence/reddit-deep/openai/1mlif1r.md#c13"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c2"
     char_span: [2926, 4579]
     sentence_count: 9
     key_terms: [pro, context, better, gemini, flash, model, different, commands]
+    concepts: [context, better, gemini, flash, model]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mlif1r.md#c1", "social-intelligence/reddit-deep/openai/1mlif1r.md#c11", "social-intelligence/reddit-deep/openai/1mlif1r.md#c13"]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c3"
     char_span: [4582, 6059]
     sentence_count: 5
     key_terms: [use, thinking, models, model, question, select, level, betterprophet5585]
+    concepts: [thinking, models, model, question, select]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mlif1r.md#c5"]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c4"
     char_span: [6061, 7492]
     sentence_count: 6
     key_terms: [unsubscribed, back, anthropic, yesterday, google, usefulmasterpiece261, model, betterprophet5585]
+    concepts: [unsubscribed, anthropic, yesterday, google, model]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c5"
     char_span: [7494, 9008]
     sentence_count: 11
     key_terms: [thinking, likely, select, going, usage, statistics, reasoning, majority]
+    concepts: [thinking, likely, select, going, statistics]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mlif1r.md#c3"]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c6"
     char_span: [9011, 11026]
     sentence_count: 8
     key_terms: [experience, openai, expectations, apple, "don't", gpt, like, want]
+    concepts: [experience, expectations, openai, apple, consistent]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c7"
@@ -68,54 +81,67 @@ chunks:
     char_span: [11142, 11889]
     sentence_count: 4
     key_terms: [facing, public, "you're", overlydelicioustea, away, cost, sbenfsonwffif, hemorrhaging]
+    concepts: [facing, public, "you're"]
     section: Comments
     token_count: 188
   - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c9"
     char_span: [11891, 13676]
     sentence_count: 17
     key_terms: [need, try, perplexity, business, started, create, nearly, college-throwaway87]
+    concepts: [perplexity, business, started, create, nearly]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c10"
     char_span: [13678, 14118]
     sentence_count: 4
     key_terms: [plus, enterprise, compute, context, discourage, eventually, crippling, inference]
+    concepts: [enterprise, compute, context]
     section: Comments
     token_count: 90
   - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c11"
     char_span: [14120, 16071]
     sentence_count: 8
     key_terms: [context, deleted, cptcaramack, million, better, models, tokens, cause]
+    concepts: [context, deleted, cptcaramack, million, better]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mlif1r.md#c2", "social-intelligence/reddit-deep/openai/1mlif1r.md#c12"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c12"
     char_span: [15869, 16687]
     sentence_count: 4
     key_terms: [context, cptcaramack, people, window, does, "i'm", lot, fourlastthings]
+    concepts: [context, cptcaramack, people, window]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mlif1r.md#c0", "social-intelligence/reddit-deep/openai/1mlif1r.md#c11"]
     section: Comments
     token_count: 225
   - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c13"
     char_span: [16689, 19148]
     sentence_count: 19
     key_terms: [gemini, context, architecture, massive, tokens, like, multimodal, processing]
+    concepts: [gemini, architecture, context, massive, tokens]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mlif1r.md#c1", "social-intelligence/reddit-deep/openai/1mlif1r.md#c2", "social-intelligence/reddit-deep/openai/1mlif1r.md#c15"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c14"
     char_span: [19150, 19488]
     sentence_count: 3
     key_terms: [long, gemini, deceitfulillusion, pro, nevertheless, chapters, thinking, thoughts]
+    concepts: [gemini]
     section: Comments
     token_count: 92
   - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c15"
     char_span: [19490, 21403]
     sentence_count: 8
     key_terms: [gemini, deleted, competition, claude, sbenfsonwffif, architecture, cptcaramack, pro]
+    concepts: [gemini, competition, deleted, sbenfsonwffif, architecture]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mlif1r.md#c13"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c16"
     char_span: [21139, 22423]
     sentence_count: 7
     key_terms: [x-ray, like, need, use, cautionary, analyze, chatgpt, gemini]
+    concepts: [x-ray, cautionary, analyze, chatgpt, gemini]
     section: Comments
     token_count: 327
 ---

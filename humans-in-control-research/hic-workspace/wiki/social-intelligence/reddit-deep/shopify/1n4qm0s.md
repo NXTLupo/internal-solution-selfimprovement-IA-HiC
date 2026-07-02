@@ -20,27 +20,31 @@ chunks:
     char_span: [0, 1174]
     sentence_count: 9
     key_terms: [customers, negotiate, comments, abandon, shopify, owners, prices, carts]
+    concepts: [customers, negotiate, comments, abandon, shopify]
     token_count: 274
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1n4qm0s/store_owners_have_you_tried_letting_customers/"}]
   - id: "social-intelligence/reddit-deep/shopify/1n4qm0s.md#c1"
-    char_span: [1189, 3129]
+    char_span: [1188, 3128]
     sentence_count: 9
     key_terms: [industry, anything, able, get, community, customers, something, contact]
+    concepts: [industry, anything, community, customers, something]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/shopify/1n4qm0s.md#c2"
-    char_span: [3131, 3578]
+    char_span: [3130, 3577]
     sentence_count: 3
     key_terms: [miracleaayodele, datatenzing, matterhorn1, encourages, likelihood, recommend, something, approach]
     section: Comments
     token_count: 114
   - id: "social-intelligence/reddit-deep/shopify/1n4qm0s.md#c3"
-    char_span: [3580, 5517]
+    char_span: [3579, 5516]
     sentence_count: 7
     key_terms: [miracleaayodele, grayeagleleather, discount, people, brand, shopify, someone, willing]
+    concepts: [miracleaayodele, grayeagleleather, discount, people, brand]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1n4qm0s.md#c4"
-    char_span: [5283, 5597]
+    char_span: [5282, 5596]
     sentence_count: 2
     key_terms: [grayeagleleather, pythonbashman, completely, customers, negotiate, cleaning, inflated, slippery]
     section: Comments

@@ -21,34 +21,44 @@ chunks:
     char_span: [0, 1522]
     sentence_count: 11
     key_terms: [credit, already, people, like, advice, trying, comments, finance]
+    concepts: [credit, already, people, advice, trying]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1o8dhix.md#c1", "social-intelligence/reddit-deep/genz/1o8dhix.md#c2"]
     token_count: 350
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1o8dhix/why_does_every_piece_of_financial_advice_assume/"}]
   - id: "social-intelligence/reddit-deep/genz/1o8dhix.md#c1"
     char_span: [1524, 2574]
     sentence_count: 10
     key_terms: [credit, people, money, been, card, like, lot, applications]
+    concepts: [credit, people, money]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1o8dhix.md#c0", "social-intelligence/reddit-deep/genz/1o8dhix.md#c2"]
     token_count: 222
   - id: "social-intelligence/reddit-deep/genz/1o8dhix.md#c2"
     char_span: [2588, 3878]
     sentence_count: 12
     key_terms: [money, advice, people, like, financial, personal, spending, discord]
+    concepts: [money, advice, people, financial, personal]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1o8dhix.md#c0", "social-intelligence/reddit-deep/genz/1o8dhix.md#c1"]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/genz/1o8dhix.md#c3"
     char_span: [3880, 4780]
     sentence_count: 4
     key_terms: [financial, building, problems, ramsey, steps, baby, dave, rent]
+    concepts: [financial, building, problems, ramsey, steps]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/genz/1o8dhix.md#c4"
     char_span: [4782, 6866]
     sentence_count: 9
     key_terms: [operations, money, because, order, debt, spending, already, advice]
+    concepts: [operations, money, because, order, spending]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/genz/1o8dhix.md#c5"
     char_span: [6868, 7564]
     sentence_count: 3
     key_terms: [afmboorfh9f-cd6mthlia0vgr1citcmtgntsbvhwl4zkk0acpazvn2zp, dave-ramsey-7-baby-steps, because, content, getting, methods, poverty, ramseysolutions]
+    concepts: [because, content, getting, methods, poverty]
     section: Comments
     token_count: 187
 ---

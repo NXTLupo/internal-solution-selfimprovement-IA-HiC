@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1014]
     sentence_count: 8
     key_terms: [internships, weeks, interview, comments, response, company, however, usually]
+    concepts: [internships, weeks, interview, comments, response]
     token_count: 250
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sygq12/very_urgent_advice_needed/"}]
   - id: "social-intelligence/reddit-deep/internships/1sygq12.md#c1"
     char_span: [1028, 1745]
     sentence_count: 3
     key_terms: [interviewed, longjumping-idea-866, old-requirement-7817, get, updates, hope, internships, responsive]
+    concepts: [longjumping-idea-866, old-requirement-7817, interviewed, updates]
     section: Comments
     token_count: 222
 ---

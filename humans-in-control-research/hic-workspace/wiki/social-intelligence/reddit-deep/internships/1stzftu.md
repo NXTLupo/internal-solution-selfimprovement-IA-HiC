@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 722]
     sentence_count: 4
     key_terms: [research, startup, internships, experience, internship, comments, robotics, company]
+    concepts: [research, startup, internships, experience, internship]
     token_count: 167
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1stzftu/startup_internship_vs_research/"}]
   - id: "social-intelligence/reddit-deep/internships/1stzftu.md#c1"
     char_span: [736, 1512]
     sentence_count: 8
     key_terms: [research, program, appropriate-tutor587, insti, hour, per, take, year]
+    concepts: [research, program, insti]
     section: Comments
     token_count: 230
 ---

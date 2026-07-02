@@ -21,40 +21,48 @@ chunks:
     char_span: [0, 2208]
     sentence_count: 24
     key_terms: [financial, "i'm", povertyfinance, month, been, get, "i've", sad]
+    concepts: [financial, povertyfinance, month, comments, missteps]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1lelk5t/we_were_doing_so_well/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c1"
     char_span: [2210, 3837]
     sentence_count: 19
     key_terms: [games, discussed, been, long-term, playing, phone, slept, trust]
+    concepts: [games, discussed, long-term, playing, phone]
     token_count: 355
   - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c2"
     char_span: [3851, 5475]
     sentence_count: 16
     key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
+    concepts: [submitter, appropriate, advice, vents, emotional]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c3"
     char_span: [5477, 7422]
     sentence_count: 13
     key_terms: [better, games, like, gambling, packs, game, characters, crystals]
+    concepts: [better, games, gambling, characters, packs]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c4"
     char_span: [7424, 8914]
     sentence_count: 16
     key_terms: [get, been, "i've", without, budget, future, little, wanted]
+    concepts: [without, budget, future, little, wanted]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c5"
     char_span: [8916, 11063]
     sentence_count: 21
     key_terms: [like, relationship, "it'll", month, gets, hope, sell, building]
+    concepts: [relationship, "it'll", month, building, response]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c6"
     char_span: [11065, 12987]
     sentence_count: 23
     key_terms: [account, available, payment, continuously, games, money, main, purchases]
+    concepts: [account, available, payment, continuously, games]
     section: Comments
     token_count: 451
 ---

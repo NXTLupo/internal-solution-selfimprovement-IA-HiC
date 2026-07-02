@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 1012]
     sentence_count: 9
     key_terms: [customerexperience, tools, automation, experience, strategies, comments, customer, support]
+    concepts: [customerexperience, automation, experience, strategies, tools]
     token_count: 225
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1ltmzkf/what_tools_or_strategies_have_actually_improved/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1ltmzkf.md#c1"
-    char_span: [1027, 3255]
+    char_span: [1026, 3254]
     sentence_count: 20
     key_terms: [right, feedback, been, using, team, tool, odd-courage, resolution]
+    concepts: [feedback, right, using, odd-courage, resolution]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/customerexperience/1ltmzkf.md#c2"
-    char_span: [3257, 4614]
+    char_span: [3256, 4613]
     sentence_count: 12
     key_terms: [support, product, customers, responses, feedback, people, simple, themes]
+    concepts: [support, product, customers, responses, feedback]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1ltmzkf.md#c3"]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/customerexperience/1ltmzkf.md#c3"
-    char_span: [4616, 6965]
+    char_span: [4615, 6964]
     sentence_count: 16
     key_terms: [customers, feedback, issues, satisfaction, empowerment, loop, use, everything]
+    concepts: [customers, feedback, satisfaction, issues, empowerment]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1ltmzkf.md#c2"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/customerexperience/1ltmzkf.md#c4"
-    char_span: [6967, 7700]
+    char_span: [6966, 7699]
     sentence_count: 4
     key_terms: [why-loyalty-engagement-will-define-the-future-of-work-and-customer-experience, feedback, alldigitalrewards, cross-functional, conversations, prioritizing, relationship, addressing]
+    concepts: [feedback]
     section: Comments
     token_count: 151
 ---

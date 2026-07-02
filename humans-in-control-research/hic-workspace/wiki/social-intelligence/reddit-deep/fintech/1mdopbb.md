@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1816]
     sentence_count: 17
     key_terms: [verification, fintech, kyc, "we're", need, compliance, different, comments]
+    concepts: [verification, fintech, compliance, "we're", different]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1mdopbb.md#c2"]
     token_count: 407
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1mdopbb/anyone_else_drowning_in_kyc_compliance_hell_need/"}]
   - id: "social-intelligence/reddit-deep/fintech/1mdopbb.md#c1"
-    char_span: [1831, 3697]
+    char_span: [1830, 3696]
     sentence_count: 14
     key_terms: [compliance, jeff3rymurphy, plaid, complyone, focused, check, kyc, fractional]
+    concepts: [compliance, jeff3rymurphy, complyone, plaid, focused]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/fintech/1mdopbb.md#c2"
-    char_span: [3699, 6006]
+    char_span: [3698, 6005]
     sentence_count: 20
     key_terms: [expensive, kyc, verification, automation, compliance, different, clients, curious]
+    concepts: [expensive, verification, automation, compliance, different]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1mdopbb.md#c0"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/fintech/1mdopbb.md#c3"
-    char_span: [6008, 6976]
+    char_span: [6007, 6975]
     sentence_count: 7
     key_terms: [kyc, providers, platform, former-historian-599, does, lot, afterthought, darkknightto]
+    concepts: [providers, platform]
     section: Comments
     token_count: 217
 ---

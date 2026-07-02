@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1001]
     sentence_count: 9
     key_terms: [education, professor, reference, college, ask, comments, position, school]
+    concepts: [education, professor, reference, college, comments]
+    related_chunks: ["social-intelligence/reddit-deep/college/1stl7lz.md#c1"]
     token_count: 229
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1stl7lz/would_it_be_proper_to_ask_my_professor_to_be_a/"}]
   - id: "social-intelligence/reddit-deep/college/1stl7lz.md#c1"
     char_span: [1015, 2932]
     sentence_count: 8
     key_terms: [reference, professor, ask, good, professors, willing, "they'd", write]
+    concepts: [reference, professor, professors, willing, "they'd"]
+    related_chunks: ["social-intelligence/reddit-deep/college/1stl7lz.md#c0"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/college/1stl7lz.md#c2"
     char_span: [2934, 3954]
     sentence_count: 4
     key_terms: [request, totally, ask, give, good, got, job, jobs]
+    concepts: [request, totally]
     section: Comments
     token_count: 221
 ---

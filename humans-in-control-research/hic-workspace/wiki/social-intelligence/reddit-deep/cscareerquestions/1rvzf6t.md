@@ -19,34 +19,43 @@ chunks:
     char_span: [0, 2182]
     sentence_count: 30
     key_terms: [interviews, negotiate, cscareerquestions, getting, did, time, graduated, comments]
+    concepts: [interviews, cscareerquestions, negotiate, getting, graduated]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rvzf6t.md#c2"]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rvzf6t/i_graduated_cs_in_2022_and_applied_to_1800_jobs/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rvzf6t.md#c1"
     char_span: [2186, 2807]
     sentence_count: 7
     key_terms: [interviews, nerves, people, experimented, differently, practicing, interview, knowledge]
+    concepts: [interviews, nerves, people]
     token_count: 124
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rvzf6t.md#c2"
-    char_span: [2822, 4997]
+    char_span: [2821, 4996]
     sentence_count: 15
     key_terms: [market, interviews, different, "i'm", negotiate, something, nerves, offers]
+    concepts: [interviews, market, different, negotiate, something]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rvzf6t.md#c0"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rvzf6t.md#c3"
-    char_span: [4999, 6985]
+    char_span: [4998, 6984]
     sentence_count: 9
     key_terms: [my-ten-rules-for-negotiating-a-job-offer, resume, negotiations, ats, like, experience, interviews, anything]
+    concepts: [my-ten-rules-for-negotiating-a-job-offer, resume, negotiations, experience, interviews]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rvzf6t.md#c4"
-    char_span: [7065, 8906]
+    char_span: [7064, 8905]
     sentence_count: 12
     key_terms: [date, experience, rendercv, description, start, end, "it's", list]
+    concepts: [experience, rendercv, description, start, company]
     section: "Your contact info (if you're applying to local jobs, put in your address)"
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rvzf6t.md#c5"
-    char_span: [8908, 9810]
+    char_span: [8907, 9809]
     sentence_count: 5
     key_terms: [comfortable, behavioral, answers, using, get, like, prep, dreamyrosebreeze]
+    concepts: [comfortable, behavioral, answers, using]
     section: "Your contact info (if you're applying to local jobs, put in your address)"
     token_count: 194
 ---

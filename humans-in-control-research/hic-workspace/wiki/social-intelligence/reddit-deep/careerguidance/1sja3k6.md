@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1786]
     sentence_count: 13
     key_terms: [product, careerguidance, "i'm", job, work, e-commerce, everything, industries]
+    concepts: [careerguidance, product, e-commerce, everything, industries]
     token_count: 397
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sja3k6/career_guidance_in_this_horrible_competitve_job/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sja3k6.md#c1"
     char_span: [1800, 3235]
     sentence_count: 7
     key_terms: [business-focused, people, roles, description, definitely, companies, directly, reaching]
+    concepts: [business-focused, people, description, definitely, roles]
     section: Comments
     token_count: 292
 ---

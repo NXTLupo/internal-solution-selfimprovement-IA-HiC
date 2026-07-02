@@ -19,69 +19,87 @@ chunks:
     char_span: [0, 1929]
     sentence_count: 26
     key_terms: [never, did, get, good, use, advantages, findapath, comments]
+    concepts: [never, advantages, findapath, comments, supposed]
     token_count: 464
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1px5bbc/anyone_else_realize_way_too_late_that_they_had/"}]
   - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c1"
     char_span: [1931, 4128]
     sentence_count: 34
     key_terms: [never, job, because, college, friends, parents, connections, didn]
+    concepts: [never, because, college, friends, parents]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1px5bbc.md#c7", "social-intelligence/reddit-deep/findapath/1px5bbc.md#c9"]
     token_count: 493
   - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c2"
     char_span: [4130, 6298]
     sentence_count: 32
     key_terms: [nothing, school, realization, parents, always, helped, myself, taught]
+    concepts: [nothing, school, realization, parents, always]
     token_count: 474
   - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c3"
-    char_span: [6313, 7260]
+    char_span: [6312, 7259]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c4"
-    char_span: [7263, 9115]
+    char_span: [7262, 9114]
     sentence_count: 15
     key_terms: [school, like, too, absolutely, different, sometimes, choices, similar]
+    concepts: [school, absolutely, different, sometimes, choices]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c5"
-    char_span: [9117, 10717]
+    char_span: [9116, 10716]
     sentence_count: 11
     key_terms: [school, career, state, counseling, journalism, nothing, degree, smart]
+    concepts: [school, career, counseling, journalism, state]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1px5bbc.md#c11"]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c6"
-    char_span: [10719, 12250]
+    char_span: [10718, 12249]
     sentence_count: 11
     key_terms: [financial, school, better, relate, comfortable-bread249, ended, kind, lot]
+    concepts: [financial, school, better, relate, ended]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c7"
-    char_span: [12252, 14078]
+    char_span: [12251, 14077]
     sentence_count: 16
     key_terms: [college, mom, loans, never, grooveman15, dad, parents, typical]
+    concepts: [college, grooveman15, loans, never, parents]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1px5bbc.md#c1", "social-intelligence/reddit-deep/findapath/1px5bbc.md#c9"]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c8"
-    char_span: [14080, 15487]
+    char_span: [14079, 15486]
     sentence_count: 10
     key_terms: [own, supportive, response, because, library, loving, being, blind]
+    concepts: [supportive, response, because, library, loving]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c9"
-    char_span: [15489, 17194]
+    char_span: [15488, 17193]
     sentence_count: 8
     key_terms: [like, connections, grooveman15, ve-done-everything-differently, use, guidance, parents, mid-thirties-i-should]
+    concepts: [connections, grooveman15, guidance, parents, never]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1px5bbc.md#c1", "social-intelligence/reddit-deep/findapath/1px5bbc.md#c7"]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c10"
-    char_span: [17196, 18766]
+    char_span: [17195, 18765]
     sentence_count: 14
     key_terms: [helped, grooveman15, realization, been, past, crippling, thinking, therapy]
+    concepts: [helped, grooveman15, realization, crippling, thinking]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c11"
-    char_span: [18768, 19444]
+    char_span: [18767, 19443]
     sentence_count: 3
     key_terms: [school, career, field, job, late, life, too, wish]
+    concepts: [school, career, field]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1px5bbc.md#c5"]
     section: Comments
     token_count: 167
 ---

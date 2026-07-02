@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 248]
     sentence_count: 1
     key_terms: [gradadmissions, comments, molassesmindless4363, reddit-deep, advice, career, posted, reddit]
+    concepts: [gradadmissions, comments]
     token_count: 77
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rwz4n6/grad_school_career_advice/"}]
 ---
 # Grad School / Career Advice
 

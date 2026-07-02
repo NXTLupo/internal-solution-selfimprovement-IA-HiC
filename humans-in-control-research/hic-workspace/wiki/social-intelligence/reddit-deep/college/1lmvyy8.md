@@ -19,7 +19,10 @@ chunks:
     char_span: [0, 1939]
     sentence_count: 21
     key_terms: [school, college, lot, high, education, back, "i'm", "don't"]
+    concepts: [school, college, education, "don't", knowledge]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lmvyy8.md#c2", "social-intelligence/reddit-deep/college/1lmvyy8.md#c4"]
     token_count: 458
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lmvyy8/not_sure_how_i_should_advance_my_education/"}]
   - id: "social-intelligence/reddit-deep/college/1lmvyy8.md#c1"
     char_span: [1953, 2093]
     sentence_count: 1
@@ -30,18 +33,23 @@ chunks:
     char_span: [2095, 4386]
     sentence_count: 18
     key_terms: [college, high, test, school, major, ged, get, take]
+    concepts: [college, school, major, community, knowledge]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lmvyy8.md#c0", "social-intelligence/reddit-deep/college/1lmvyy8.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1lmvyy8.md#c3"
     char_span: [4074, 5565]
     sentence_count: 11
     key_terms: [college, like, sub, situation, required, schedule, courses, school]
+    concepts: [college, situation, required, schedule, courses]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/college/1lmvyy8.md#c4"
     char_span: [5567, 7473]
     sentence_count: 17
     key_terms: [college, community, help, extracurricular, school, good, high, like]
+    concepts: [college, community, extracurricular, school, activities]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lmvyy8.md#c0", "social-intelligence/reddit-deep/college/1lmvyy8.md#c2"]
     section: Comments
     token_count: 438
 ---

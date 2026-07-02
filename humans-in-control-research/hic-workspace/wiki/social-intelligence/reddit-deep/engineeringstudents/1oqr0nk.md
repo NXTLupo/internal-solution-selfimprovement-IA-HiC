@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1042]
     sentence_count: 4
     key_terms: [engineeringstudents, learning, engineering, comments, college, coding, "you're", like]
+    concepts: [engineeringstudents, learning, engineering, comments, college]
     token_count: 224
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1oqr0nk/is_it_just_me_or_was_engineering_way_more_about/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1oqr0nk.md#c1"
     char_span: [1056, 1910]
     sentence_count: 5
     key_terms: [coding, engineering, code, representativebit736, documentation, happybaby00, takeonefish, absolutely]
+    concepts: [coding, engineering]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/engineeringstudents/1oqr0nk.md#c2"
     char_span: [1912, 3993]
     sentence_count: 8
     key_terms: [because, course, points, knowledge, quickly, subject, years, get]
+    concepts: [because, course, points, knowledge, quickly]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1oqr0nk.md#c3"
     char_span: [3696, 4346]
     sentence_count: 5
     key_terms: [people, world, automatically, conclusions, engineering, chemistry, companies, competent]
+    concepts: [people, world]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/engineeringstudents/1oqr0nk.md#c4"
     char_span: [4348, 6253]
     sentence_count: 12
     key_terms: [time, engineering, years, systematic, schooling, trainable, indicate, learning]
+    concepts: [engineering, systematic, years, schooling, trainable]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/engineeringstudents/1oqr0nk.md#c5"
     char_span: [6255, 7430]
     sentence_count: 14
     key_terms: [learn, better, ok-examination6200, gpa, "i'm", job, pass, want]
+    concepts: [learn, better]
     section: Comments
     token_count: 280
 ---

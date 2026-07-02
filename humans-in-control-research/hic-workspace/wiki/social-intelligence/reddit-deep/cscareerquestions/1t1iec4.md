@@ -19,41 +19,49 @@ chunks:
     char_span: [0, 1122]
     sentence_count: 10
     key_terms: ["i'm", cscareerquestions, majors, comments, company, working, cousin, sunday]
+    concepts: [cscareerquestions, majors, comments, company, working]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t1iec4/im_so_glad_im_in_cs_is_it_really_that_bad_for/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1iec4.md#c1"
     char_span: [1136, 2858]
     sentence_count: 11
     key_terms: [business, like, pay, tech, majors, specialized, jobs, marketing]
+    concepts: [business, majors, specialized, marketing, together]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1iec4.md#c2"
     char_span: [2860, 4963]
     sentence_count: 16
     key_terms: [swe, getting, different, like, big-touch-9293, did, building, thinking]
+    concepts: [getting, different, big-touch-9293, building, thinking]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1iec4.md#c3"
     char_span: [4712, 5140]
     sentence_count: 5
     key_terms: [engineering, opened, accomplishedworth266, approached, eventually, mentorship, computer, majority]
+    concepts: [engineering, opened]
     section: Comments
     token_count: 111
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1iec4.md#c4"
     char_span: [5142, 5791]
     sentence_count: 9
     key_terms: [industry, company, accomplishedworth266, roles, week, wlb, interesting, performance]
+    concepts: [industry, company, roles]
     section: Comments
     token_count: 157
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1iec4.md#c5"
     char_span: [5793, 7622]
     sentence_count: 12
     key_terms: [making, sunsgettinreallow, engr1590, years, long, year, community, interview]
+    concepts: [making, sunsgettinreallow, engr1590, years, community]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1iec4.md#c6"
     char_span: [7388, 8057]
     sentence_count: 6
     key_terms: [cream, own-reference9056, good, look, ones, top, companies, coworkers]
+    concepts: [cream]
     section: Comments
     token_count: 175
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t1iec4.md#c7"

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 394]
     sentence_count: 1
     key_terms: [personalfinance, comments, post, investments-any, variationno4602, appreciated, reddit-deep, retirement]
+    concepts: [personalfinance, comments]
     token_count: 96
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1peq5tc/as_advised_from_my_previous_post_getting_my/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1peq5tc.md#c1"
     char_span: [408, 1627]
     sentence_count: 4
     key_terms: [personalfinance, retirement, portfolio, thejontorrweno, fund, wiki, down, easy]
+    concepts: [personalfinance, retirement, portfolio, thejontorrweno]
     section: Comments
     token_count: 301
 ---

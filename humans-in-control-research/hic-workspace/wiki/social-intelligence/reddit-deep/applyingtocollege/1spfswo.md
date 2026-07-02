@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 975]
     sentence_count: 7
     key_terms: [applyingtocollege, school, absolutely, comments, applied, "i'm", like, awittlebirby]
+    concepts: [applyingtocollege, school, absolutely, comments, applied]
     token_count: 226
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1spfswo/cmus_terrible_reputation/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spfswo.md#c1"
     char_span: [989, 2587]
     sentence_count: 15
     key_terms: [cmu, school, point, comment, georgia, anyone, hairs, world]
+    concepts: [school, point, comment, georgia, anyone]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spfswo.md#c2"
     char_span: [2589, 3369]
     sentence_count: 3
     key_terms: [masters, schools, icy-statement8434, lot, top, harryandmaria, institution, misinformed]
+    concepts: [masters, schools]
     section: Comments
     token_count: 188
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spfswo.md#c3"
     char_span: [3371, 5382]
     sentence_count: 16
     key_terms: [cmu, school, ranked, like, schools, "i'm", time, cutthroat]
+    concepts: [school, ranked, schools, cutthroat, something]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spfswo.md#c4"
     char_span: [5384, 6249]
     sentence_count: 5
     key_terms: [school, explodingchickenwing, mysterious-art8838, time, assignments, definitely, sumoman435, primarily]
+    concepts: [school]
     section: Comments
     token_count: 209
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spfswo.md#c5"
     char_span: [6251, 7733]
     sentence_count: 6
     key_terms: [prestige, cmu, competitive, finance, wharton, people, institutional, stern]
+    concepts: [prestige, competitive, institutional, finance, wharton]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spfswo.md#c6"
     char_span: [7735, 8469]
     sentence_count: 5
     key_terms: [cmu, school, turing, "it's", scs, edamamelaes, fsudad2021, boyfriend]
+    concepts: [school, turing]
     section: Comments
     token_count: 216
 ---

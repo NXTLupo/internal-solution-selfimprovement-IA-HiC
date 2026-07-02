@@ -16,10 +16,12 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1tbpmh0.md#c0"
-    char_span: [0, 344]
+    char_span: [0, 343]
     sentence_count: 2
     key_terms: [careerguidance, comments, engineer, curiousafari, reddit-deep, electrical, confused, advice]
-    token_count: 97
+    concepts: [careerguidance, comments, engineer]
+    token_count: 96
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tbpmh0/26m_electrical_engineer_confused_between_mepbim/"}]
 ---
 # 26M Electrical Engineer confused between MEP/BIM vs Sales Engineer vs other paths need honest career advice?
 

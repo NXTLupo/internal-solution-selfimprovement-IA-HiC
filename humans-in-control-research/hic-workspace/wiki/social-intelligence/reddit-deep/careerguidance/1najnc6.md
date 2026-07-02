@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1786]
     sentence_count: 19
     key_terms: [school, career, back, kids, working, careerguidance, suggestions, get]
+    concepts: [school, career, careerguidance, working, suggestions]
     token_count: 428
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1najnc6/jobs_paying_30hr/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1najnc6.md#c1"
     char_span: [1800, 2660]
     sentence_count: 6
     key_terms: [maintenance, industrial, someone, ihatechoosngusername, fan, good, hits, shit]
+    concepts: [maintenance, industrial, someone]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/careerguidance/1najnc6.md#c2"
     char_span: [2662, 4191]
     sentence_count: 13
     key_terms: [runningsquirrels, girlgangx3, assistant, community, positions, adjuster, probably, timeline]
+    concepts: [runningsquirrels, girlgangx3, assistant, community, positions]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/careerguidance/1najnc6.md#c3"
     char_span: [4194, 5664]
     sentence_count: 16
     key_terms: [don, good, become, degree, cna, pay, meepoclock, training]
+    concepts: [become, degree, meepoclock, training, needles]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/careerguidance/1najnc6.md#c4"
     char_span: [5666, 6233]
     sentence_count: 4
     key_terms: [pay, management, nursing, brand, good, mynameishuman42, greta-garbage, advancement]
+    concepts: [management, nursing, brand]
     section: Comments
     token_count: 157
 ---

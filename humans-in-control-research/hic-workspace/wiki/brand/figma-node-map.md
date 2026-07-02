@@ -5,124 +5,450 @@ type: brand
 updated: 2026-06-11
 chunks:
   - id: "brand/figma-node-map.md#c0"
-    char_span: [0, 428]
-    sentence_count: 3
-    key_terms: [design-system, figma, frame, gold, node, byte-faithful, design-tokens, hic-workspace]
-    token_count: 108
+    char_span: [0, 979]
+    sentence_count: 5
+    key_terms: [design-system, registry, byte-faithful, componentized, figma, component, pre-componentization, below]
+    concepts: [design-system, registry, byte-faithful, componentized, figma]
+    related_chunks: ["brand/figma-node-map.md#c17"]
+    token_count: 257
   - id: "brand/figma-node-map.md#c1"
-    char_span: [480, 2109]
+    char_span: [1061, 2246]
+    sentence_count: 9
+    key_terms: [family, visualization-patterns-by-industry, brand, nxt, var, contract, takeaway, visualization-families]
+    concepts: [family, brand, contract, takeaway, accent]
+    section: "COMPONENT REGISTRY (2026-06-16, LIVE — single file `iSQhAVM7SI4QHAWB7y9C2z`)"
+    token_count: 317
+  - id: "brand/figma-node-map.md#c2"
+    char_span: [2248, 3814]
+    sentence_count: 4
+    key_terms: [components, viz, family, figma, live, nxt, exemplars, industry]
+    concepts: [components, family, figma, exemplars, industry]
+    section: "COMPONENT REGISTRY (2026-06-16, LIVE — single file `iSQhAVM7SI4QHAWB7y9C2z`)"
+    token_count: 462
+  - id: "brand/figma-node-map.md#c3"
+    char_span: [3816, 4634]
+    sentence_count: 1
+    key_terms: [brand, nxt, collection, masthead, is-nxt, tokens, color, is-nu]
+    concepts: [brand, collection, masthead, is-nxt, tokens]
+    related_chunks: ["brand/figma-node-map.md#c12", "brand/figma-node-map.md#c46"]
+    section: "COMPONENT REGISTRY (2026-06-16, LIVE — single file `iSQhAVM7SI4QHAWB7y9C2z`)"
+    token_count: 274
+  - id: "brand/figma-node-map.md#c4"
+    char_span: [4636, 6078]
+    sentence_count: 1
+    key_terms: [slidetostagehtml, tsx, web, base, detail, matrix, theme-index, component]
+    concepts: [slidetostagehtml, detail, matrix, theme-index, component]
+    section: "COMPONENT REGISTRY (2026-06-16, LIVE — single file `iSQhAVM7SI4QHAWB7y9C2z`)"
+    token_count: 512
+  - id: "brand/figma-node-map.md#c5"
+    char_span: [5880, 7273]
+    sentence_count: 1
+    key_terms: [slidetostagehtml, tsx, web, dense, competitive, base, renderexecutivebrief, executivebriefslide]
+    concepts: [slidetostagehtml, dense, competitive]
+    section: "COMPONENT REGISTRY (2026-06-16, LIVE — single file `iSQhAVM7SI4QHAWB7y9C2z`)"
+    token_count: 512
+  - id: "brand/figma-node-map.md#c6"
+    char_span: [7126, 7866]
+    sentence_count: 1
+    key_terms: [slidetostagehtml, tsx, web, journey-phase-spotlight, aggregate-roadmap, block-quote-dense, mode, numbered-themes]
+    concepts: [slidetostagehtml]
+    section: "COMPONENT REGISTRY (2026-06-16, LIVE — single file `iSQhAVM7SI4QHAWB7y9C2z`)"
+    token_count: 249
+  - id: "brand/figma-node-map.md#c7"
+    char_span: [7868, 9659]
+    sentence_count: 6
+    key_terms: [frame, component, masthead, literal-hex, hero, mcp, structural, correctly]
+    concepts: [frame, component, masthead, literal-hex, structural]
+    section: "COMPONENT REGISTRY (2026-06-16, LIVE — single file `iSQhAVM7SI4QHAWB7y9C2z`)"
+    token_count: 512
+  - id: "brand/figma-node-map.md#c8"
+    char_span: [9445, 9836]
+    sentence_count: 1
+    key_terms: [literal-hex, setboundvariableforstroke, borders, "won't", cyan, raw, maturity-track, left-borders]
+    concepts: [literal-hex, borders, "won't"]
+    section: "COMPONENT REGISTRY (2026-06-16, LIVE — single file `iSQhAVM7SI4QHAWB7y9C2z`)"
+    token_count: 128
+  - id: "brand/figma-node-map.md#c9"
+    char_span: [9838, 11077]
+    sentence_count: 6
+    key_terms: [page, manifest, wiki, re-chunks, reconcile, re-chunk, targeted, chunker]
+    concepts: [manifest, re-chunks, reconcile, re-chunk, targeted]
+    section: "COMPONENT REGISTRY (2026-06-16, LIVE — single file `iSQhAVM7SI4QHAWB7y9C2z`)"
+    token_count: 345
+  - id: "brand/figma-node-map.md#c10"
+    char_span: [11183, 12812]
     sentence_count: 4
     key_terms: [font, nxt, executive-brief, figma-tokens, tokens, gold, mono, slidetostagehtml]
-    section: "NXT Humans file (key `iSQhAVM7SI4QHAWB7y9C2z`)"
-    token_count: 512
-  - id: "brand/figma-node-map.md#c2"
-    char_span: [1907, 2561]
-    sentence_count: 1
-    key_terms: [slidetostagehtml, rendercasestudy, casestudyslide, four-block, gold, variant, case-study-nxt, evidence-stack]
-    section: "NXT Humans file (key `iSQhAVM7SI4QHAWB7y9C2z`)"
-    token_count: 205
-  - id: "brand/figma-node-map.md#c3"
-    char_span: [2616, 4232]
-    sentence_count: 4
-    key_terms: [font, gold, executive-brief, figma-tokens, slidetostagehtml, single-typeface, tokens, case-study-nu]
-    section: "Northeastern file (key `z2v9Pvhg23hlljEitPBdAt`)"
-    token_count: 512
-  - id: "brand/figma-node-map.md#c4"
-    char_span: [4043, 5139]
-    sentence_count: 3
-    key_terms: [slidetostagehtml, rendercasestudy, org, four-block, gold, casestudyslide, evidence-stack, tsx]
-    section: "Northeastern file (key `z2v9Pvhg23hlljEitPBdAt`)"
-    token_count: 311
-  - id: "brand/figma-node-map.md#c5"
-    char_span: [5183, 6807]
-    sentence_count: 5
-    key_terms: [proto, ai-chat, nxt, archetypes, prototype, feedback, overlays, patterns]
-    section: "#proto component library (2026-06-13)"
-    token_count: 460
-  - id: "brand/figma-node-map.md#c6"
-    char_span: [6834, 7137]
-    sentence_count: 2
-    key_terms: [variablecollectionid, setboundvariableforpaint, isqhavm7si4qhawb7y9c2z, z2v9pvhg23hlljeitpbdat, file, collections, meaningful, variables]
-    section: Variable collections
-    token_count: 91
-  - id: "brand/figma-node-map.md#c7"
-    char_span: [7160, 7865]
-    sentence_count: 6
-    key_terms: [design-system, brand, gold, services, assembledesignsystem, gold-visual-language, figma, token]
-    section: Refresh protocol
-    token_count: 195
-  - id: "brand/figma-node-map.md#c8"
-    char_span: [7905, 9158]
-    sentence_count: 3
-    key_terms: [page, case-study, gold, frames, zappos, pre-existing, pages, nxt]
-    section: Page locations (2026-06-10 reorg)
-    token_count: 408
-  - id: "brand/figma-node-map.md#c9"
-    char_span: [9211, 10763]
-    sentence_count: 5
-    key_terms: [gold, page, journey, auto-layout, service-blueprint, new, row, takeaway]
-    section: "NU uplift build log (2026-06-10, goal session)"
-    token_count: 512
-  - id: "brand/figma-node-map.md#c10"
-    char_span: [10531, 12238]
-    sentence_count: 4
-    key_terms: [frame, new, page, themes, gold, column, quote, verbatim]
-    section: "NU uplift build log (2026-06-10, goal session)"
+    concepts: [executive-brief, figma-tokens, tokens, slidetostagehtml, archivo]
+    related_chunks: ["brand/figma-node-map.md#c13"]
+    section: "NXT Humans file (key `iSQhAVM7SI4QHAWB7y9C2z`) — HISTORICAL (pre-component IDs; see registry above)"
     token_count: 512
   - id: "brand/figma-node-map.md#c11"
-    char_span: [12066, 13862]
+    char_span: [12610, 13264]
+    sentence_count: 1
+    key_terms: [slidetostagehtml, rendercasestudy, casestudyslide, four-block, gold, variant, case-study-nxt, evidence-stack]
+    concepts: [slidetostagehtml, rendercasestudy, casestudyslide, four-block, case-study-nxt]
+    related_chunks: ["brand/figma-node-map.md#c14", "brand/figma-node-map.md#c36", "brand/figma-node-map.md#c37"]
+    section: "NXT Humans file (key `iSQhAVM7SI4QHAWB7y9C2z`) — HISTORICAL (pre-component IDs; see registry above)"
+    token_count: 205
+  - id: "brand/figma-node-map.md#c12"
+    char_span: [13319, 14117]
     sentence_count: 5
-    key_terms: [phase, new, detail, design-system, panel, pptx, prd, case-study]
+    key_terms: [mode, brand, file, nxt, collection, generation, component, history]
+    concepts: [brand, collection, generation, component, history]
+    related_chunks: ["brand/figma-node-map.md#c3", "brand/figma-node-map.md#c46"]
+    section: "Northeastern file (key `z2v9Pvhg23hlljEitPBdAt`)"
+    token_count: 233
+  - id: "brand/figma-node-map.md#c13"
+    char_span: [14119, 15735]
+    sentence_count: 4
+    key_terms: [font, gold, executive-brief, figma-tokens, slidetostagehtml, single-typeface, tokens, case-study-nu]
+    concepts: [executive-brief, figma-tokens, slidetostagehtml, single-typeface, case-study-nu]
+    related_chunks: ["brand/figma-node-map.md#c10"]
+    section: "Northeastern file (key `z2v9Pvhg23hlljEitPBdAt`)"
+    token_count: 512
+  - id: "brand/figma-node-map.md#c14"
+    char_span: [15546, 16642]
+    sentence_count: 3
+    key_terms: [slidetostagehtml, rendercasestudy, org, four-block, gold, casestudyslide, evidence-stack, tsx]
+    concepts: [slidetostagehtml, rendercasestudy, four-block, casestudyslide, evidence-stack]
+    related_chunks: ["brand/figma-node-map.md#c11", "brand/figma-node-map.md#c36", "brand/figma-node-map.md#c37"]
+    section: "Northeastern file (key `z2v9Pvhg23hlljEitPBdAt`)"
+    token_count: 311
+  - id: "brand/figma-node-map.md#c15"
+    char_span: [16686, 18421]
+    sentence_count: 6
+    key_terms: [proto, archetypes, components, nxt, prototype, feedback, overlays, patterns]
+    concepts: [proto, archetypes, components, prototype, feedback]
+    section: "#proto component library (2026-06-13)"
+    token_count: 490
+  - id: "brand/figma-node-map.md#c16"
+    char_span: [18448, 18751]
+    sentence_count: 2
+    key_terms: [variablecollectionid, setboundvariableforpaint, isqhavm7si4qhawb7y9c2z, z2v9pvhg23hlljeitpbdat, file, collections, meaningful, variables]
+    concepts: [variablecollectionid]
+    section: Variable collections
+    token_count: 91
+  - id: "brand/figma-node-map.md#c17"
+    char_span: [18774, 19479]
+    sentence_count: 6
+    key_terms: [design-system, brand, gold, services, assembledesignsystem, gold-visual-language, figma, token]
+    concepts: [design-system, brand, services, figma, token]
+    related_chunks: ["brand/figma-node-map.md#c0", "brand/figma-node-map.md#c42"]
+    section: Refresh protocol
+    token_count: 195
+  - id: "brand/figma-node-map.md#c18"
+    char_span: [19519, 20772]
+    sentence_count: 3
+    key_terms: [page, case-study, gold, frames, zappos, pre-existing, pages, nxt]
+    concepts: [case-study, pre-existing, frames, zappos, four-block]
+    related_chunks: ["brand/figma-node-map.md#c37"]
+    section: Page locations (2026-06-10 reorg)
+    token_count: 408
+  - id: "brand/figma-node-map.md#c19"
+    char_span: [20825, 22377]
+    sentence_count: 5
+    key_terms: [gold, page, journey, auto-layout, service-blueprint, new, row, takeaway]
+    concepts: [auto-layout, journey, service-blueprint, takeaway, column]
     section: "NU uplift build log (2026-06-10, goal session)"
     token_count: 512
-  - id: "brand/figma-node-map.md#c12"
-    char_span: [13642, 15226]
+  - id: "brand/figma-node-map.md#c20"
+    char_span: [22145, 23852]
+    sentence_count: 4
+    key_terms: [frame, new, page, themes, gold, column, quote, verbatim]
+    concepts: [frame, themes, column, quote, verbatim]
+    related_chunks: ["brand/figma-node-map.md#c25"]
+    section: "NU uplift build log (2026-06-10, goal session)"
+    token_count: 512
+  - id: "brand/figma-node-map.md#c21"
+    char_span: [23680, 25476]
+    sentence_count: 5
+    key_terms: [phase, new, detail, design-system, panel, pptx, prd, case-study]
+    concepts: [phase, design-system, detail, case-study, milestones]
+    related_chunks: ["brand/figma-node-map.md#c45"]
+    section: "NU uplift build log (2026-06-10, goal session)"
+    token_count: 512
+  - id: "brand/figma-node-map.md#c22"
+    char_span: [25256, 26840]
     sentence_count: 6
     key_terms: [page, chartreuse, nxt, variable-bound, nu-uplift-figma-pptx-loop-2026-06-10, stages, cyan, blueprint]
+    concepts: [chartreuse, variable-bound, stages, blueprint, substrate]
     section: "NU uplift build log (2026-06-10, goal session)"
     token_count: 486
-  - id: "brand/figma-node-map.md#c13"
-    char_span: [15268, 16699]
+  - id: "brand/figma-node-map.md#c23"
+    char_span: [26882, 28313]
     sentence_count: 6
     key_terms: [insight, gold, recommendation, dense, frame, band, nxt, page]
+    concepts: [insight, recommendation, dense, frame, evidence]
     section: DENSE-LAYOUT PROGRAM W1 (2026-06-11)
     token_count: 405
-  - id: "brand/figma-node-map.md#c14"
-    char_span: [16701, 18267]
+  - id: "brand/figma-node-map.md#c24"
+    char_span: [28315, 29881]
     sentence_count: 7
     key_terms: [page, gold, dense, exemplars, nxt, hairline, takeaway, anatomy]
+    concepts: [exemplars, dense, hairline, takeaway, anatomy]
     section: DENSE-LAYOUT PROGRAM W1 (2026-06-11)
     token_count: 446
-  - id: "brand/figma-node-map.md#c15"
-    char_span: [18269, 19364]
+  - id: "brand/figma-node-map.md#c25"
+    char_span: [29883, 30978]
     sentence_count: 5
     key_terms: [phase, page, accent, column, bottom-pinned, quote, nxt, behaviors]
+    concepts: [phase, bottom-pinned, accent, column, quote]
+    related_chunks: ["brand/figma-node-map.md#c20", "brand/figma-node-map.md#c40"]
     section: DENSE-LAYOUT PROGRAM W1 (2026-06-11)
     token_count: 311
-  - id: "brand/figma-node-map.md#c16"
-    char_span: [19366, 20788]
+  - id: "brand/figma-node-map.md#c26"
+    char_span: [30980, 32402]
     sentence_count: 11
     key_terms: [accent, number, source, themes, dense, competitive, theme-index, gold]
+    concepts: [accent, number, source, themes, competitive]
     section: DENSE-LAYOUT PROGRAM W1 (2026-06-11)
     token_count: 378
-  - id: "brand/figma-node-map.md#c17"
-    char_span: [20844, 22045]
+  - id: "brand/figma-node-map.md#c27"
+    char_span: [32479, 34219]
+    sentence_count: 8
+    key_terms: [illustrator, brand, image, slot, ground, region, agent-guide-find-image-references, light]
+    concepts: [illustrator, brand, image, ground, region]
+    section: IMAGE-SLOT REGISTRY (2026-06-17) — for the illustrator image-gen agent
+    token_count: 441
+  - id: "brand/figma-node-map.md#c28"
+    char_span: [34221, 35889]
+    sentence_count: 3
+    key_terms: [panel, thesis-interstitial, right, vertical, section-divider, corner, visual, image]
+    concepts: [panel, thesis-interstitial, right, section-divider, vertical]
+    section: IMAGE-SLOT REGISTRY (2026-06-17) — for the illustrator image-gen agent
+    token_count: 468
+  - id: "brand/figma-node-map.md#c29"
+    char_span: [35891, 36921]
+    sentence_count: 5
+    key_terms: [matrix, creative-director, content-complete, image, stat-row, verified, layouts, role-recommendation]
+    concepts: [creative-director, matrix, content-complete, image, stat-row]
+    section: IMAGE-SLOT REGISTRY (2026-06-17) — for the illustrator image-gen agent
+    token_count: 279
+  - id: "brand/figma-node-map.md#c30"
+    char_span: [36923, 38575]
+    sentence_count: 7
+    key_terms: [thumbnail, phase, row, slidetostagehtml, journey, services, aligned, export]
+    concepts: [thumbnail, phase, slidetostagehtml, journey, services]
+    related_chunks: ["brand/figma-node-map.md#c40"]
+    section: IMAGE-SLOT REGISTRY (2026-06-17) — for the illustrator image-gen agent
+    token_count: 476
+  - id: "brand/figma-node-map.md#c31"
+    char_span: [38577, 40121]
+    sentence_count: 9
+    key_terms: [figma, payload, journeymap, generated, persona, renders, stages, string]
+    concepts: [figma, payload, journeymap, generated, "deliverable's"]
+    section: IMAGE-SLOT REGISTRY (2026-06-17) — for the illustrator image-gen agent
+    token_count: 364
+  - id: "brand/figma-node-map.md#c32"
+    char_span: [40123, 41937]
+    sentence_count: 9
+    key_terms: [persona, artifactimageslots, reverted, carrier, persona-card, dense, competitive, twin]
+    concepts: [persona, artifactimageslots, reverted, carrier, persona-card]
+    section: IMAGE-SLOT REGISTRY (2026-06-17) — for the illustrator image-gen agent
+    token_count: 485
+  - id: "brand/figma-node-map.md#c33"
+    char_span: [41991, 44022]
+    sentence_count: 6
+    key_terms: [thumbs, image-slots, no-image, brand, deliverable, wiki, panel, slots]
+    concepts: [image-slots, thumbs, no-image, deliverable, brand]
+    section: "IMAGE-SLOT ROLLOUT (sub-agent batch, 2026-06-17)"
+    token_count: 512
+  - id: "brand/figma-node-map.md#c34"
+    char_span: [43744, 45038]
+    sentence_count: 7
+    key_terms: [deliverable, via, image, twins, explainer, manifest, no-image, re-chunk]
+    concepts: [deliverable, image, twins, explainer, manifest]
+    section: "IMAGE-SLOT ROLLOUT (sub-agent batch, 2026-06-17)"
+    token_count: 310
+  - id: "brand/figma-node-map.md#c35"
+    char_span: [45156, 45863]
+    sentence_count: 4
+    key_terms: [scene, slots, portrait, flat-illustrative, icon, "recommendation's", recommendations, user-ratified]
+    concepts: [scene, slots, portrait]
+    section: "PER-ELEMENT EMOTIVE SLOTS — case-study + recommendation (USER OVERRIDE 2026-06-28, \"scenes only where they fit\")"
+    token_count: 168
+  - id: "brand/figma-node-map.md#c36"
+    char_span: [45865, 47425]
+    sentence_count: 1
+    key_terms: [four-block, slidetostagehtml, recommendationslide, non-dense, brand-image-slot, recommendation, detail, radius]
+    concepts: [slidetostagehtml, four-block, recommendationslide, brand-image-slot, non-dense]
+    related_chunks: ["brand/figma-node-map.md#c11", "brand/figma-node-map.md#c14", "brand/figma-node-map.md#c37"]
+    section: "PER-ELEMENT EMOTIVE SLOTS — case-study + recommendation (USER OVERRIDE 2026-06-28, \"scenes only where they fit\")"
+    token_count: 460
+  - id: "brand/figma-node-map.md#c37"
+    char_span: [47427, 49179]
+    sentence_count: 4
+    key_terms: [case-study, recommendation, four-block, slidetostagehtml, panel, image-free, panelimage, manifest]
+    concepts: [recommendation, case-study, four-block, slidetostagehtml, image-free]
+    related_chunks: ["brand/figma-node-map.md#c11", "brand/figma-node-map.md#c14", "brand/figma-node-map.md#c18", "brand/figma-node-map.md#c36"]
+    section: "PER-ELEMENT EMOTIVE SLOTS — case-study + recommendation (USER OVERRIDE 2026-06-28, \"scenes only where they fit\")"
+    token_count: 448
+  - id: "brand/figma-node-map.md#c38"
+    char_span: [49235, 50436]
     sentence_count: 5
     key_terms: [role-recommendation, aggregate-roadmap, numbered-themes, section-divider, evidence-table, slides, role-roadmap, block-quote]
+    concepts: [role-recommendation, aggregate-roadmap, numbered-themes, section-divider, evidence-table]
     section: "SLIDES SYSTEM PAGES (2026-06-11, NU_Giving uplift)"
     token_count: 410
-  - id: "brand/figma-node-map.md#c18"
-    char_span: [22047, 22887]
+  - id: "brand/figma-node-map.md#c39"
+    char_span: [50438, 51278]
     sentence_count: 3
     key_terms: [variant, slide-system, nxt, sectiondividerfullbleed, competitivematrixdata, render, slide, recommendationdata]
+    concepts: [variant, slide-system, render, slide]
     section: "SLIDES SYSTEM PAGES (2026-06-11, NU_Giving uplift)"
     token_count: 235
-  - id: "brand/figma-node-map.md#c19"
-    char_span: [22934, 23859]
+  - id: "brand/figma-node-map.md#c40"
+    char_span: [51325, 52250]
     sentence_count: 3
     key_terms: [journey, gold, accent, matrix, phase, nxt, row, journey-map-in-table-anatomy]
+    concepts: [journey, accent, matrix, phase, in-table]
+    related_chunks: ["brand/figma-node-map.md#c25", "brand/figma-node-map.md#c30"]
     section: JOURNEY IN-TABLE REDESIGN (2026-06-12)
     token_count: 293
+  - id: "brand/figma-node-map.md#c41"
+    char_span: [52318, 52960]
+    sentence_count: 4
+    key_terms: [nxt, brand, mode, createcomponentfromnode, never, set, text, pixel-identical]
+    concepts: [brand, never]
+    section: "COMPONENTIZED DESIGN SYSTEM + MODES (2026-06-15, in progress)"
+    token_count: 158
+  - id: "brand/figma-node-map.md#c42"
+    char_span: [52962, 54838]
+    sentence_count: 9
+    key_terms: [runtime, brand, nxt, mode, dense, figma, proxy, spa]
+    concepts: [runtime, brand, dense, figma, proxy]
+    related_chunks: ["brand/figma-node-map.md#c17"]
+    section: "COMPONENTIZED DESIGN SYSTEM + MODES (2026-06-15, in progress)"
+    token_count: 512
+  - id: "brand/figma-node-map.md#c43"
+    char_span: [54630, 55110]
+    sentence_count: 5
+    key_terms: [figma-tokens, json, library, runtime, isqhavm7si4qhawb7y9c2z, design, canon, figma]
+    concepts: [figma-tokens, library, runtime, design, canon]
+    section: "COMPONENTIZED DESIGN SYSTEM + MODES (2026-06-15, in progress)"
+    token_count: 131
+  - id: "brand/figma-node-map.md#c44"
+    char_span: [55112, 56739]
+    sentence_count: 6
+    key_terms: [brand, grid, nxt, columns, content, gutter, componentized, bound]
+    concepts: [brand, componentized, columns, content, gutter]
+    section: "COMPONENTIZED DESIGN SYSTEM + MODES (2026-06-15, in progress)"
+    token_count: 512
+  - id: "brand/figma-node-map.md#c45"
+    char_span: [56497, 57716]
+    sentence_count: 4
+    key_terms: [color, detail, case, text, case-study, on-accent, wash-cool, wash-warn]
+    concepts: [color, detail, case-study, on-accent, wash-cool]
+    related_chunks: ["brand/figma-node-map.md#c21"]
+    section: "COMPONENTIZED DESIGN SYSTEM + MODES (2026-06-15, in progress)"
+    token_count: 417
+  - id: "brand/figma-node-map.md#c46"
+    char_span: [57718, 58517]
+    sentence_count: 7
+    key_terms: [file, nxt, component, separate, isqhavm7si4qhawb7y9c2z, z2v9pvhg23hlljeitpbdat, themes, tokens]
+    concepts: [component, separate, themes, tokens, brand]
+    related_chunks: ["brand/figma-node-map.md#c3", "brand/figma-node-map.md#c12"]
+    section: "COMPONENTIZED DESIGN SYSTEM + MODES (2026-06-15, in progress)"
+    token_count: 231
+  - id: "brand/figma-node-map.md#c47"
+    char_span: [58519, 60513]
+    sentence_count: 6
+    key_terms: [nxt, pages, done, components, brand, logo, monogram, verified]
+    concepts: [components, pages, brand, monogram, verified]
+    section: "COMPONENTIZED DESIGN SYSTEM + MODES (2026-06-15, in progress)"
+    token_count: 512
+  - id: "brand/figma-node-map.md#c48"
+    char_span: [60307, 60823]
+    sentence_count: 3
+    key_terms: [architecture, nxt, color, accent-bright, nu-as-a-mode, subscription, accent-pale, single-file]
+    concepts: [architecture, color]
+    section: "COMPONENTIZED DESIGN SYSTEM + MODES (2026-06-15, in progress)"
+    token_count: 148
+  - id: "brand/figma-node-map.md#c49"
+    char_span: [60906, 62227]
+    sentence_count: 3
+    key_terms: [section-divider, branch, services, diagram, isqhavm7si4qhawb7y9c2z, imagebranchbyartifact, visual, panel]
+    concepts: [section-divider, branch, services, diagram, visual]
+    section: "VISUAL BRANCH AUDIT + ICON LIBRARY (2026-06-26, verified against live Figma)"
+    token_count: 361
+  - id: "brand/figma-node-map.md#c50"
+    char_span: [62229, 63272]
+    sentence_count: 7
+    key_terms: [icons, design-system, node, components, manifest, content, accent, mirror]
+    concepts: [icons, design-system, components, manifest, content]
+    section: "VISUAL BRANCH AUDIT + ICON LIBRARY (2026-06-26, verified against live Figma)"
+    token_count: 263
+  - id: "brand/figma-node-map.md#c51"
+    char_span: [63371, 63633]
+    sentence_count: 2
+    key_terms: [vizfamilies, container, bounds, branch, image, artifactimageslots, fit, mirrored]
+    concepts: [vizfamilies, container, bounds, branch, image]
+    section: "PER-CONTAINER IMAGE AUDIT (2026-06-27, live Figma — every GOLD page + every #slides variant)"
+    token_count: 65
+  - id: "brand/figma-node-map.md#c52"
+    char_span: [63635, 65112]
+    sentence_count: 6
+    key_terms: [component, added, glyph, meta-themes, per-pattern, fit, slot, contain]
+    concepts: [component, meta-themes, per-pattern, added, glyph]
+    section: "PER-CONTAINER IMAGE AUDIT (2026-06-27, live Figma — every GOLD page + every #slides variant)"
+    token_count: 502
+  - id: "brand/figma-node-map.md#c53"
+    char_span: [65114, 65927]
+    sentence_count: 3
+    key_terms: [portrait, rendermetathemeshtml, rendermindmaphtml, allowedfamilies, container-sized, selectvizfamily, renderer-paint, cover-cropped]
+    concepts: [portrait]
+    section: "PER-CONTAINER IMAGE AUDIT (2026-06-27, live Figma — every GOLD page + every #slides variant)"
+    token_count: 190
+  - id: "brand/figma-node-map.md#c54"
+    char_span: [66010, 67712]
+    sentence_count: 5
+    key_terms: [theme, brand-image-slot, per-element, decorative, component, thumbnail, overview, per-card]
+    concepts: [theme, brand-image-slot, per-element, decorative, component]
+    section: "THEMES OVERVIEW — PER-CARD STRATEGIC SLOTS (2026-06-27, live Figma relayout)"
+    token_count: 512
+  - id: "brand/figma-node-map.md#c55"
+    char_span: [67477, 68782]
+    sentence_count: 6
+    key_terms: [per-theme, themeimages, themethumb, twin, services, painted, themes, themecluster]
+    concepts: [per-theme, themeimages, themethumb, services, painted]
+    section: "THEMES OVERVIEW — PER-CARD STRATEGIC SLOTS (2026-06-27, live Figma relayout)"
+    token_count: 343
+  - id: "brand/figma-node-map.md#c56"
+    char_span: [68784, 69631]
+    sentence_count: 2
+    key_terms: [override, emotive, slides, owner, personas-overview, icon, owner-ratified, single-persona]
+    concepts: [override, emotive, slides, owner]
+    section: "THEMES OVERVIEW — PER-CARD STRATEGIC SLOTS (2026-06-27, live Figma relayout)"
+    token_count: 197
+  - id: "brand/figma-node-map.md#c57"
+    char_span: [69738, 71372]
+    sentence_count: 3
+    key_terms: [slidecomposer, columns, local, empty, block-quote, columnicons, radius-base, icon]
+    concepts: [slidecomposer, columns, local, block-quote, columnicons]
+    section: "#slides CONTENT ARCHETYPES — SCENES-WHERE-THEY-FIT (USER OVERRIDE 2026-06-28, live-Figma room audit)"
+    token_count: 472
+  - id: "brand/figma-node-map.md#c58"
+    char_span: [71374, 72397]
+    sentence_count: 3
+    key_terms: [body, columns, room, packed, role-recommendation, phase, aggregate-roadmap, card]
+    concepts: [columns, packed, phase]
+    section: "#slides CONTENT ARCHETYPES — SCENES-WHERE-THEY-FIT (USER OVERRIDE 2026-06-28, live-Figma room audit)"
+    token_count: 275
+  - id: "brand/figma-node-map.md#c59"
+    char_span: [72399, 73763]
+    sentence_count: 4
+    key_terms: [block-quote, org-model, composer, slides, added, image, composerpayload, carrier]
+    concepts: [block-quote, org-model, composer, slides, added]
+    section: "#slides CONTENT ARCHETYPES — SCENES-WHERE-THEY-FIT (USER OVERRIDE 2026-06-28, live-Figma room audit)"
+    token_count: 323
+  - id: "brand/figma-node-map.md#c60"
+    char_span: [73765, 74602]
+    sentence_count: 3
+    key_terms: [assertions, mode-flip, manifest, passing, present, figmaregistryparity, nxt, slidetostagehtml]
+    concepts: [assertions, mode-flip, manifest, passing, present]
+    section: "#slides CONTENT ARCHETYPES — SCENES-WHERE-THEY-FIT (USER OVERRIDE 2026-06-28, live-Figma room audit)"
+    token_count: 215
 ---
 # Figma Node Map
 

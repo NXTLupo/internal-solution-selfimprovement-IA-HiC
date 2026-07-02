@@ -17,10 +17,12 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/dataengineering/1rbjw48.md#c0"
-    char_span: [0, 2323]
+    char_span: [0, 2322]
     sentence_count: 13
     key_terms: [tools, plotono, webmcp-technical-architecture, agents, webmcp, https, pipeline, com]
-    token_count: 502
+    concepts: [webmcp-technical-architecture, plotono, tools, agents, webmcp]
+    token_count: 501
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1rbjw48/we_integrated_webmcp_new_browser_standard_from/"}]
 ---
 # We integrated WebMCP (new browser standard from Google/Microsoft) across our data pipeline and BI platform. Here's what we learned architecturally
 

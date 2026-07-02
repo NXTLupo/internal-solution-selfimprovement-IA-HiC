@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 603]
     sentence_count: 6
     key_terms: [gradadmissions, comments, graduate, canada, ieat5orangeseveryday, time, usa, reddit-deep]
+    concepts: [gradadmissions, comments, graduate, canada]
     token_count: 166
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1tguuco/timing_for_emailing_pi_for_canada_usa_and_eu_as_a/"}]
 ---
 # Timing for Emailing PI for Canada, USA, and EU as a Prospect Graduate Student
 

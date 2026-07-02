@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1286]
     sentence_count: 4
     key_terms: [employment, uwaterloo, co-operative-education, employment-statistics, co-op, stats, longer, https]
+    concepts: [employment, uwaterloo, co-operative-education, employment-statistics, co-op]
     token_count: 299
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1t2zajr/coop_stats_no_longer_updated_daily/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1t2zajr.md#c1"
     char_span: [1300, 2989]
     sentence_count: 5
     key_terms: [accelerate, employment, potentialphotograph, after-cod-3047, power, rates, stats, removed]
+    concepts: [potentialphotograph, accelerate, employment, after-cod-3047, power]
     section: Comments
     token_count: 458
 ---

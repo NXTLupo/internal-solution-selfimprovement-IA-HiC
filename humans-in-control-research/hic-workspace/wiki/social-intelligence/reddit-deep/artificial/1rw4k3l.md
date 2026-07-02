@@ -21,101 +21,123 @@ chunks:
     char_span: [0, 1418]
     sentence_count: 12
     key_terms: [intelligence, code, "it's", artificial, automating, automated, replacing, comments]
+    concepts: [intelligence, artificial, automating, automated, replacing]
     token_count: 326
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1rw4k3l/are_we_cooked/"}]
   - id: "social-intelligence/reddit-deep/artificial/1rw4k3l.md#c1"
     char_span: [1432, 3718]
     sentence_count: 14
     key_terms: [andrew-yang-former-presidential-candidate-artifical-intelligence-job-apocalypse-white-collar-cuts-prediction-universal-basic-income, been, people, year, recently, company, consolidation, roles]
+    concepts: [people, recently, consolidation, company, pessimistic]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1rw4k3l.md#c2"
     char_span: [3720, 5156]
     sentence_count: 10
     key_terms: [people, until, doge-layoffs-job-cuts-report, research, solution, image, long, tech]
+    concepts: [people, until, research, solution, image]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/artificial/1rw4k3l.md#c3"
     char_span: [5158, 6322]
     sentence_count: 9
     key_terms: [people, shovel, work, backhoe, dollars, million, drones, throw]
+    concepts: [people, shovel, backhoe, dollars, million]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/artificial/1rw4k3l.md#c4"
     char_span: [6324, 8171]
     sentence_count: 18
     key_terms: [humans, time, absolutely, difference, discussion, backhoe, company, better]
+    concepts: [humans, absolutely, difference, discussion, backhoe]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/artificial/1rw4k3l.md#c5"
     char_span: [8173, 10391]
     sentence_count: 12
     key_terms: [intelligence, capital, doing, satisfaction, boilerplate, work, developers, correctly]
+    concepts: [intelligence, capital, doing, satisfaction, boilerplate]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/artificial/1rw4k3l.md#c6"
     char_span: [10393, 12599]
     sentence_count: 22
     key_terms: [backhoe, ditch, small, individuals, jobs, business, digging, farmer]
+    concepts: [backhoe, individuals, ditch, small, business]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1rw4k3l.md#c7"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/artificial/1rw4k3l.md#c7"
     char_span: [12601, 14276]
     sentence_count: 14
     key_terms: [backhoe, experience, less, simply, ditch, different, analogy, diggers]
+    concepts: [backhoe, experience, simply, ditch, different]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1rw4k3l.md#c6"]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/artificial/1rw4k3l.md#c8"
     char_span: [14278, 16134]
     sentence_count: 11
     key_terms: [people, refrigerators, capabilities, ice, year, discussion, fancy, nophilosopher1284]
+    concepts: [people, refrigerators, capabilities, discussion, fancy]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/artificial/1rw4k3l.md#c9"
     char_span: [16136, 18198]
     sentence_count: 13
     key_terms: [models, like, years, cost, new, capable, humans, chips]
+    concepts: [models, years, capable, humans, chips]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/artificial/1rw4k3l.md#c10"
     char_span: [18200, 20190]
     sentence_count: 18
     key_terms: [intellectual, "can't", years, ceo, "it's", developers, replacing, activity]
+    concepts: [intellectual, "can't", developers, years, replacing]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/artificial/1rw4k3l.md#c11"
     char_span: [20192, 22345]
     sentence_count: 17
     key_terms: [getting, change, "you're", least, years, job, honestly, always]
+    concepts: [getting, change, "you're", least, years]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/artificial/1rw4k3l.md#c12"
     char_span: [22347, 23596]
     sentence_count: 12
     key_terms: ["you're", entry, accountants, software, neatmathematician126, "don't", point, fine]
+    concepts: ["you're", accountants, entry, software, "don't"]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/artificial/1rw4k3l.md#c13"
     char_span: [23598, 25592]
     sentence_count: 24
     key_terms: [ideas, game, advice, design, get, good, "i'm", time]
+    concepts: [ideas, advice, design, developer, medicine]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/artificial/1rw4k3l.md#c14"
     char_span: [25594, 27979]
     sentence_count: 21
     key_terms: [companies, jobs, aeyrtonsenna, human, internships, like, long, classmates]
+    concepts: [companies, aeyrtonsenna, internships, classmates, human]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1rw4k3l.md#c15"
     char_span: [27666, 29107]
     sentence_count: 10
     key_terms: [connection, people, human, etc, communication, lukehardiman, because, windows]
+    concepts: [connection, people, human, communication, lukehardiman]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1rw4k3l.md#c16"]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/artificial/1rw4k3l.md#c16"
     char_span: [29109, 30835]
     sentence_count: 17
     key_terms: [people, connection, human, like, used, example, access, canyon]
+    concepts: [people, connection, human, example, access]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1rw4k3l.md#c15"]
     section: Comments
     token_count: 380
 ---

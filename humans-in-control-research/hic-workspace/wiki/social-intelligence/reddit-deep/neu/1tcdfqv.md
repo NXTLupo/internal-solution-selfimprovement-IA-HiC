@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1047]
     sentence_count: 10
     key_terms: [search, applications, co-op, keep, comments, cos, "i've", "it's"]
+    concepts: [applications, search, co-op, comments]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1tcdfqv/catastrophic_coop_search/"}]
   - id: "social-intelligence/reddit-deep/neu/1tcdfqv.md#c1"
     char_span: [1061, 3183]
     sentence_count: 17
     key_terms: [experience, market, applications, coop, job, applying, opportunity, get]
+    concepts: [experience, market, applications, applying, opportunity]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1tcdfqv.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1tcdfqv.md#c2"
     char_span: [2917, 4783]
     sentence_count: 16
     key_terms: [applying, applications, got, jobs, experience, positions, already, whining]
+    concepts: [applying, applications, experience, positions, already]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1tcdfqv.md#c1"]
     section: Comments
     token_count: 475
 ---

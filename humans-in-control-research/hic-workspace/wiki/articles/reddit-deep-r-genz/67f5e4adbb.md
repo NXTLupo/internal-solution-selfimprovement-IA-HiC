@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 2056]
     sentence_count: 18
     key_terms: [crypto, coin, meme, because, value, generations, genz, new]
+    concepts: [crypto, because, generations, generation, value]
     token_count: 446
+    sources: [{"n":"Reddit Deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1niwyz8/spx6900_a_financialized_protest_for_genz/"}]
   - id: "articles/reddit-deep-r-genz/67f5e4adbb.md#c1"
     char_span: [2058, 3853]
     sentence_count: 16
     key_terms: [spx6900, financial, dissatisfaction, stopped, occupy, street, system, wall]
+    concepts: [spx6900, financial, dissatisfaction, stopped, occupy]
     token_count: 419
   - id: "articles/reddit-deep-r-genz/67f5e4adbb.md#c2"
     char_span: [3855, 4554]
     sentence_count: 1
     key_terms: [pull, rug, future-bet4783, because, simple-designer-4121, lol, cs81jh434mpf1, investigate]
+    concepts: [future-bet4783, because]
     token_count: 217
 ---
 # SPX6900: A financialized protest for GenZ

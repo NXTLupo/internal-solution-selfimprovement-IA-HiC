@@ -21,16 +21,23 @@ chunks:
     char_span: [0, 2186]
     sentence_count: 18
     key_terms: [transcript, summary, validator, gpt, uploaded, case, dialogue, respond]
+    concepts: [transcript, summary, validator, uploaded, dialogue]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1nsuyaj.md#c1", "social-intelligence/reddit-deep/gpt/1nsuyaj.md#c2"]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1nsuyaj/chat_gpt_custom_gpt_hallucination_issues/"}]
   - id: "social-intelligence/reddit-deep/gpt/1nsuyaj.md#c1"
     char_span: [2188, 4364]
     sentence_count: 4
     key_terms: [case, transcript, line, validator, taxonomy, section, blank, headers]
+    concepts: [transcript, validator, taxonomy, section, blank]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1nsuyaj.md#c0", "social-intelligence/reddit-deep/gpt/1nsuyaj.md#c2"]
     token_count: 504
   - id: "social-intelligence/reddit-deep/gpt/1nsuyaj.md#c2"
     char_span: [4366, 4893]
     sentence_count: 6
     key_terms: [transcript, validator, output, names, never, case, file, unreadable]
+    concepts: [transcript, validator, output, names, never]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1nsuyaj.md#c0", "social-intelligence/reddit-deep/gpt/1nsuyaj.md#c1"]
     token_count: 124
 ---
 # Chat GPT Custom GPT hallucination issues

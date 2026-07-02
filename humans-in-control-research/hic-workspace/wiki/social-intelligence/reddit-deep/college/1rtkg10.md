@@ -19,34 +19,45 @@ chunks:
     char_span: [0, 1708]
     sentence_count: 8
     key_terms: ["it's", wondering, keep, like, college, "i'm", family, get]
+    concepts: [wondering, college, family, everything, experience]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rtkg10.md#c3", "social-intelligence/reddit-deep/college/1rtkg10.md#c4", "social-intelligence/reddit-deep/college/1rtkg10.md#c5"]
     token_count: 407
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1rtkg10/my_college_is_great_but_it_makes_me_sad_that_its/"}]
   - id: "social-intelligence/reddit-deep/college/1rtkg10.md#c1"
     char_span: [1710, 2739]
     sentence_count: 6
     key_terms: [like, "don't", family, get, "it's", "they're", change, people]
+    concepts: ["don't", family, "they're", change, people]
     token_count: 251
   - id: "social-intelligence/reddit-deep/college/1rtkg10.md#c2"
     char_span: [2753, 4062]
     sentence_count: 11
     key_terms: [independent, learn, want, elsewhere, anyways, because, "they're", working]
+    concepts: [independent, learn, elsewhere, anyways, because]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/college/1rtkg10.md#c3"
     char_span: [4064, 5294]
     sentence_count: 7
     key_terms: [college, own, experience, hometown, country, friends, school, doing]
+    concepts: [college, experience, hometown, country, friends]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rtkg10.md#c0", "social-intelligence/reddit-deep/college/1rtkg10.md#c4", "social-intelligence/reddit-deep/college/1rtkg10.md#c5"]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/college/1rtkg10.md#c4"
     char_span: [5296, 7253]
     sentence_count: 19
     key_terms: [college, experience, having, school, years, university, otherwise, married]
+    concepts: [college, experience, having, school, university]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rtkg10.md#c0", "social-intelligence/reddit-deep/college/1rtkg10.md#c3", "social-intelligence/reddit-deep/college/1rtkg10.md#c5"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/college/1rtkg10.md#c5"
     char_span: [7255, 8862]
     sentence_count: 7
     key_terms: [experience, friends, family, away, university, hometown, transfer, living]
+    concepts: [experience, friends, family, university, hometown]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rtkg10.md#c0", "social-intelligence/reddit-deep/college/1rtkg10.md#c3", "social-intelligence/reddit-deep/college/1rtkg10.md#c4"]
     section: Comments
     token_count: 377
 ---

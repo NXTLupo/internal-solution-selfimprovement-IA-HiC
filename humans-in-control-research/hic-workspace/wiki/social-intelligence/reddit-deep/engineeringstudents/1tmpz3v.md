@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1543]
     sentence_count: 14
     key_terms: [engineeringstudents, interested, comments, college, advice, anyone, enough, school]
+    concepts: [engineeringstudents, interested, comments, college, advice]
     token_count: 355
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tmpz3v/does_anyone_know_how_well_being_a_student/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tmpz3v.md#c1"
     char_span: [1557, 3646]
     sentence_count: 16
     key_terms: [material, job, internship, learning, extracurriculars, project, internships, good]
+    concepts: [material, internship, extracurriculars, learning, project]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tmpz3v.md#c2"
     char_span: [3648, 5918]
     sentence_count: 18
     key_terms: [design, work, changes, engineering, like, safety, school, issue]
+    concepts: [design, engineering, changes, safety, school]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1tmpz3v.md#c3"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tmpz3v.md#c3"
     char_span: [5920, 6930]
     sentence_count: 12
     key_terms: [change, design, safety, issue, engineer, caused, enjoy, later]
+    concepts: [change, design, safety, issue, engineer]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1tmpz3v.md#c2"]
     section: Comments
     token_count: 233
 ---

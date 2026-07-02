@@ -20,23 +20,31 @@ chunks:
     char_span: [0, 776]
     sentence_count: 7
     key_terms: [fulfillmentbyamazon, product, comments, returned, amazon, alwaysworkin, reddit-deep, continuing]
+    concepts: [fulfillmentbyamazon, product, comments, returned, amazon]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1pb47vo.md#c1"]
     token_count: 179
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1pb47vo/customer_purchased_and_returned_my_product_8/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1pb47vo.md#c1"
-    char_span: [791, 3003]
+    char_span: [790, 3002]
     sentence_count: 11
     key_terms: [amazon, customer, contact, returns, return, fulfillmentbyamazon, case, directly]
+    concepts: [amazon, customer, fulfillmentbyamazon, contact, returns]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1pb47vo.md#c0", "social-intelligence/reddit-deep/fulfillmentbyamazon/1pb47vo.md#c2"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1pb47vo.md#c2"
-    char_span: [3005, 5018]
+    char_span: [3004, 5017]
     sentence_count: 19
     key_terms: [amazon, returns, policy, get, customer, damaged, abuse, krizzle2778]
+    concepts: [amazon, returns, policy, customer, damaged]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1pb47vo.md#c1"]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1pb47vo.md#c3"
-    char_span: [5020, 5604]
+    char_span: [5019, 5603]
     sentence_count: 1
     key_terms: [amazon, report, like, commoncents1, information, everything, experience, robertw477]
+    concepts: [amazon, report]
     section: Comments
     token_count: 138
 ---

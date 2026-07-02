@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 934]
     sentence_count: 3
     key_terms: [mainframe, project, career, careerguidance, choose, extraction, existing, another]
+    concepts: [mainframe, project, career, careerguidance, choose]
     token_count: 211
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1thkoja/help_me_how_to_choose_career_path_based_on/"}]
 ---
 # Help me how to choose career path based on experience ?
 

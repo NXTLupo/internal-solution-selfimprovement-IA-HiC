@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1302]
     sentence_count: 16
     key_terms: [research, school, gradadmissions, experience, volunteer, comments, masters, advice]
+    concepts: [research, school, gradadmissions, experience, volunteer]
     token_count: 320
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rdisi4/advice_for_an_older_wannabe_student_how_to_get/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rdisi4.md#c1"
     char_span: [1316, 3288]
     sentence_count: 14
     key_terms: [psych, counseling, clinical, forensic, research, work, school, psyd]
+    concepts: [psych, counseling, clinical, forensic, research]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/gradadmissions/1rdisi4.md#c2"
     char_span: [3290, 4774]
     sentence_count: 20
     key_terms: [day, "i'm", "you're", look, use, doctorate, payments, amounts]
+    concepts: ["you're", doctorate, payments, amounts, paying]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/gradadmissions/1rdisi4.md#c3"
     char_span: [4776, 5408]
     sentence_count: 7
     key_terms: [home, options, "i'm", phd, want, work, responsibilities, alternatives]
+    concepts: [options]
     section: Comments
     token_count: 154
 ---

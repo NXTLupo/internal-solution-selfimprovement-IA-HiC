@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1326]
     sentence_count: 9
     key_terms: [salary, developer, year, fresher, careerguidance, offer, help, job]
+    concepts: [salary, developer, careerguidance, fresher, offer]
     token_count: 313
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rsfhs0/first_developer_job_offer_but_condition_seem/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rsfhs0.md#c1"
     char_span: [1340, 1833]
     sentence_count: 5
     key_terms: [employment, techytish, contract, cheap, noooo000oooo00, nevertheless, jameswjrose, terminating]
+    concepts: [employment, techytish, contract, cheap]
     section: Comments
     token_count: 132
 ---

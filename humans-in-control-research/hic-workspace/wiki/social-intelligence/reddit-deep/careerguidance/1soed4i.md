@@ -21,65 +21,80 @@ chunks:
     char_span: [0, 670]
     sentence_count: 6
     key_terms: [careerguidance, future, want, comments, makes, sense, reddit-deep, direction]
+    concepts: [careerguidance, future, comments, makes, sense]
     token_count: 166
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1soed4i/which_path_actually_makes_sense_for_the_future/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c1"
     char_span: [684, 1935]
     sentence_count: 9
     key_terms: [engineering, people, treatment, water, saturated, industry, starting, getting]
+    concepts: [engineering, people, treatment, water, saturated]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c2"
     char_span: [1937, 3517]
     sentence_count: 12
     key_terms: [stable, going, engineering, interests, nothing, career, "you're", money]
+    concepts: [stable, engineering, going, interests, nothing]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c3"
     char_span: [3519, 4290]
     sentence_count: 7
     key_terms: [money, life, become, above, prettypuff405, collaborate, flexibility, bogleheads]
+    concepts: [money, become, above]
     section: Comments
     token_count: 191
   - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c4"
     char_span: [4292, 6389]
     sentence_count: 11
     key_terms: [get, experience, degree, skills, something, job, because, trades]
+    concepts: [experience, degree, skills, something, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c5"
     char_span: [6156, 6500]
     sentence_count: 2
     key_terms: [going, consultants, relatively, successful, understand, starting, already, because]
+    concepts: [going]
     section: Comments
     token_count: 89
   - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c6"
     char_span: [6504, 7307]
     sentence_count: 5
     key_terms: [because, medical, market, people, value, job, lot, safe]
+    concepts: [because, medical, market, people, value]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c7"
     char_span: [7312, 9371]
     sentence_count: 16
     key_terms: [people, work, school, trades, unrealistic, mechanics, working, degree]
+    concepts: [people, school, trades, unrealistic, mechanics]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1soed4i.md#c8", "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c9"]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c8"
     char_span: [9373, 10887]
     sentence_count: 13
     key_terms: [people, ago, bad, work, year, completely, heating, school]
+    concepts: [people, completely, heating, school, ticket]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1soed4i.md#c7"]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c9"
     char_span: [10889, 12483]
     sentence_count: 11
     key_terms: [people, trades, construction, aren, new, skills, worked, adventurous-depth984]
+    concepts: [people, trades, construction, skills, worked]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1soed4i.md#c7"]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c10"
     char_span: [12485, 13008]
     sentence_count: 3
     key_terms: [phonytoughcraybrave, going, inaccessible, environment, nakano-star, assembling, controlled, diagnosing]
+    concepts: [going]
     section: Comments
     token_count: 120
 ---

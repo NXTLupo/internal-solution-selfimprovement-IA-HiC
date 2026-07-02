@@ -20,47 +20,58 @@ chunks:
     char_span: [0, 1241]
     sentence_count: 14
     key_terms: [insurance, health, healthinsurance, company, income, increases, comments, explain]
+    concepts: [insurance, health, healthinsurance, company, income]
     token_count: 294
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1pkaaej/please_explain_it_like_im_a_child_health/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1pkaaej.md#c1"
-    char_span: [1256, 3614]
+    char_span: [1255, 3613]
     sentence_count: 8
     key_terms: [post, please, information, questions, following, eob, edit, help]
+    concepts: [please, information, questions, following, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1pkaaej.md#c2"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/healthinsurance/1pkaaej.md#c2"
-    char_span: [3616, 5596]
+    char_span: [3615, 5595]
     sentence_count: 16
     key_terms: [healthinsurance, contact, subreddit, via, please, reddit, report, https]
+    concepts: [healthinsurance, contact, subreddit, please, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1pkaaej.md#c1"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/healthinsurance/1pkaaej.md#c3"
-    char_span: [5598, 7506]
+    char_span: [5597, 7505]
     sentence_count: 19
     key_terms: [subsidies, d975492a4fb43da8595e305d8197ef41579f62b0, subsidy, year, healthcare, insurance, enhanced, figlozzi]
+    concepts: [subsidies, subsidy, healthcare, insurance, enhanced]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1pkaaej.md#c4"
-    char_span: [7223, 8684]
+    char_span: [7222, 8683]
     sentence_count: 12
     key_terms: [husband, family, wife, situation, loosely, related, subsidy, income]
+    concepts: [husband, family, situation, loosely, related]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/healthinsurance/1pkaaej.md#c5"
-    char_span: [8686, 10774]
+    char_span: [8685, 10773]
     sentence_count: 20
     key_terms: [subsidies, credits, squishyfeet4, exchange, forward, premium, renewed, better]
+    concepts: [subsidies, credits, squishyfeet4, exchange, forward]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/healthinsurance/1pkaaej.md#c6"
-    char_span: [10776, 12726]
+    char_span: [10775, 12725]
     sentence_count: 11
     key_terms: [calculator-aca-enhanced-premium-tax-credit, busy-sheepherder-138, subsidies, interactive, care, get, typo, medicare]
+    concepts: [calculator-aca-enhanced-premium-tax-credit, busy-sheepherder-138, subsidies, interactive, medicare]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/healthinsurance/1pkaaej.md#c7"
-    char_span: [12728, 13874]
+    char_span: [12727, 13873]
     sentence_count: 15
     key_terms: [pocket, healthcare, because, savings, almost, cost, usd, year]
+    concepts: [pocket, healthcare, because, savings, almost]
     section: Comments
     token_count: 274
 ---

@@ -4,7 +4,7 @@
 # exists in corpusChatService ARTIFACT_TPL / the directive map without a catalog entry).
 # routingClass mirrors aiRouter.artifactModelFor(): schema_flash -> gemini-3.5-flash; evidence_pro ->
 # gemini-3.1-pro-preview (while OPUS_CAP_ACTIVE) / claude-opus-4-8 (after). NEVER hardcode a model id here.
-# Plan: plans/hic-definitive-vision-and-100-percent-plan-v2-2026-06-30.md
+# Plan: plans/hic-definitive-vision-and-100-percent-plan-v2-2026-07-01.md
 
 version: hic-artifact-catalog-2026-06-30
 authoritative_source: services/artifactCatalog.ts

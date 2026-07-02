@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 329]
     sentence_count: 2
     key_terms: [humanresources, comments, resume, wavelessbeats, reddit-deep, generalist, something, getting]
+    concepts: [humanresources, comments, resume]
     token_count: 89
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1l8yxy6/resume_review_for_hr_generalist_roles_dmv_va/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1l8yxy6.md#c1"
-    char_span: [344, 2265]
+    char_span: [343, 2264]
     sentence_count: 14
     key_terms: [experience, bullet, wavelessbeats, roles, consolidate, job, page, read]
+    concepts: [experience, wavelessbeats, bullet, consolidate, roles]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/humanresources/1l8yxy6.md#c2"
-    char_span: [2267, 4458]
+    char_span: [2266, 4457]
     sentence_count: 25
     key_terms: [experience, "don't", mentioned, summary, job, need, already, section]
+    concepts: [experience, "don't", mentioned, summary, already]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/humanresources/1l8yxy6.md#c3"
-    char_span: [4460, 5409]
+    char_span: [4459, 5408]
     sentence_count: 17
     key_terms: [resume, section, summary, skills, legitimate-limit-540, june, page, substantially]
+    concepts: [resume, section, summary, skills]
     section: Comments
     token_count: 268
 ---

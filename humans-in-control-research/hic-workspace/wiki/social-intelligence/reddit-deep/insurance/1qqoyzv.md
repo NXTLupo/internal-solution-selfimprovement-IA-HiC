@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 906]
     sentence_count: 12
     key_terms: [insurance, car, accident, comments, question, process, money, title]
+    concepts: [insurance, accident, comments, question, process]
     token_count: 208
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1qqoyzv/sue_for_unpaid_damages_question/"}]
   - id: "social-intelligence/reddit-deep/insurance/1qqoyzv.md#c1"
-    char_span: [921, 2877]
+    char_span: [920, 2876]
     sentence_count: 18
     key_terms: [release, insurance, driver, demanbmore, being, admissible, evidence, judgment]
+    concepts: [release, insurance, demanbmore, driver, admissible]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/insurance/1qqoyzv.md#c2"
-    char_span: [2879, 4721]
+    char_span: [2878, 4720]
     sentence_count: 12
     key_terms: [limit, policy, damoney0, ronburgundy2000, release, vehicle, officialuser, definitely]
+    concepts: [limit, policy, ronburgundy2000, damoney0, release]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qqoyzv.md#c4"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/insurance/1qqoyzv.md#c3"
-    char_span: [4723, 5767]
+    char_span: [4722, 5766]
     sentence_count: 10
     key_terms: [probably, property, damage, underinsured, need, difference, accident, attorney]
+    concepts: [probably, property, underinsured, damage, difference]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/insurance/1qqoyzv.md#c4"
-    char_span: [5769, 7571]
+    char_span: [5768, 7570]
     sentence_count: 16
     key_terms: [insurance, vehicle, damage, limit, damoney0, property, "didn't", limits]
+    concepts: [insurance, vehicle, damage, limit, damoney0]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qqoyzv.md#c2"]
     section: Comments
     token_count: 448
 ---

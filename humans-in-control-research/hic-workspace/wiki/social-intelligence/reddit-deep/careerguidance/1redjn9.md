@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 871]
     sentence_count: 2
     key_terms: [skills, mumbai, marketing, bba, collage, careerguidance, nimms, internships]
+    concepts: [skills, mumbai, marketing, careerguidance, collage]
     token_count: 227
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1redjn9/what_skills_to_focus_on_collage_life_as_bba_mba/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1redjn9.md#c1"
     char_span: [885, 1719]
     sentence_count: 2
     key_terms: [marketing, ads, internship, analytics, facebook, manager, google, skills]
+    concepts: [marketing, internship, analytics, facebook, manager]
     section: Comments
     token_count: 197
 ---

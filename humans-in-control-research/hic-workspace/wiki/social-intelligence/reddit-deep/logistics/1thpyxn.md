@@ -20,31 +20,38 @@ chunks:
     char_span: [0, 2231]
     sentence_count: 28
     key_terms: [brokers, carrier, logistics, court, freight, supreme, "it's", montgomery]
+    concepts: [brokers, carrier, logistics, court, freight]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1thpyxn/catch_up_on_what_happened_this_week_in_logistics/"}]
   - id: "social-intelligence/reddit-deep/logistics/1thpyxn.md#c1"
     char_span: [2233, 4257]
     sentence_count: 17
     key_terms: [million, uniuni, billion, company, canadian, delivery, current, process]
+    concepts: [million, uniuni, billion, company, canadian]
     token_count: 459
   - id: "social-intelligence/reddit-deep/logistics/1thpyxn.md#c2"
     char_span: [4259, 6563]
     sentence_count: 24
     key_terms: [became, trucks, around, maaden, chain, truck, port, rail]
+    concepts: [became, trucks, around, maaden, chain]
     token_count: 494
   - id: "social-intelligence/reddit-deep/logistics/1thpyxn.md#c3"
     char_span: [6565, 9025]
     sentence_count: 27
     key_terms: [paperwork, importer, refunds, refund, down, corridor, payments, received]
+    concepts: [paperwork, importer, refunds, refund, corridor]
     token_count: 510
   - id: "social-intelligence/reddit-deep/logistics/1thpyxn.md#c4"
     char_span: [9027, 10258]
     sentence_count: 7
     key_terms: [delivery, fulfilment, instacart, logistics, amazon, "isn't", http, fulfilmentcrowd]
+    concepts: [delivery, fulfilment, instacart, logistics, amazon]
     token_count: 295
   - id: "social-intelligence/reddit-deep/logistics/1thpyxn.md#c5"
-    char_span: [10273, 11036]
+    char_span: [10272, 11035]
     sentence_count: 7
     key_terms: [hormuz, hits, meliodasssssama, france-benelux, consolidating, truckerverse, acquisition, netherlands]
+    concepts: [hormuz]
     section: Comments
     token_count: 177
 ---

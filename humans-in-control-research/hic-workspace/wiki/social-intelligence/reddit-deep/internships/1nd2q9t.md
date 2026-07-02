@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 672]
     sentence_count: 6
     key_terms: [internships, comments, contract, mistake, offer, sent, disappointment, reddit-deep]
+    concepts: [internships, comments, contract, mistake, offer]
     token_count: 169
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1nd2q9t/got_sent_a_return_offer_by_mistake_lmao/"}]
   - id: "social-intelligence/reddit-deep/internships/1nd2q9t.md#c1"
     char_span: [686, 2505]
     sentence_count: 6
     key_terms: [offer, sufficient-onion4785, return, realneilpeart, want, anything, letter, person]
+    concepts: [offer, sufficient-onion4785, realneilpeart, return, anything]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1nd2q9t.md#c2"
     char_span: [2323, 2963]
     sentence_count: 3
     key_terms: [contract, already, signed, purple-measurement47, inspiringpineapple, pushyladynjina, international, jamesbibarnes]
+    concepts: [contract, already, signed]
     section: Comments
     token_count: 172
   - id: "social-intelligence/reddit-deep/internships/1nd2q9t.md#c3"
     char_span: [2965, 4401]
     sentence_count: 8
     key_terms: [employment, offer, application, offers, people, reason, practical-anything66, given]
+    concepts: [employment, offer, application, offers, people]
     section: Comments
     token_count: 357
 ---

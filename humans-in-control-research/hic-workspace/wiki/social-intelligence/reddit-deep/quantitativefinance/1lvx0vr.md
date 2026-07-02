@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2436]
     sentence_count: 15
     key_terms: [finance, quantitative, engineering, quantitativefinance, project, trading, transitioning, intersection]
+    concepts: [finance, quantitative, engineering, quantitativefinance, transitioning]
     token_count: 472
+    sources: [{"n":"reddit-deep: r/quantitativefinance","u":"https://www.reddit.com/r/QuantitativeFinance/comments/1lvx0vr/ai_engineering_student_transitioning_into_quant/"}]
   - id: "social-intelligence/reddit-deep/quantitativefinance/1lvx0vr.md#c1"
-    char_span: [2451, 2750]
+    char_span: [2450, 2749]
     sentence_count: 1
     key_terms: [chatgpt, naqiiii, input, paste, copy, here, professionals, tracksoggy]
+    concepts: [chatgpt, naqiiii, input, paste]
     section: Comments
     token_count: 95
 ---

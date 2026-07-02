@@ -19,22 +19,31 @@ chunks:
     char_span: [0, 2059]
     sentence_count: 16
     key_terms: [school, college, diploma, high, information, transcripts, education, actual]
+    concepts: [school, college, diploma, information, transcripts]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nrv6ek.md#c1", "social-intelligence/reddit-deep/college/1nrv6ek.md#c2", "social-intelligence/reddit-deep/college/1nrv6ek.md#c3"]
     token_count: 436
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1nrv6ek/ged_vs_adult_high_school_diploma_for_attending/"}]
   - id: "social-intelligence/reddit-deep/college/1nrv6ek.md#c1"
     char_span: [2061, 2750]
     sentence_count: 7
     key_terms: [college, career, school, ged, take, work, appreciate, community]
+    concepts: [college, career, school]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nrv6ek.md#c0", "social-intelligence/reddit-deep/college/1nrv6ek.md#c2", "social-intelligence/reddit-deep/college/1nrv6ek.md#c3"]
     token_count: 167
   - id: "social-intelligence/reddit-deep/college/1nrv6ek.md#c2"
     char_span: [2764, 4600]
     sentence_count: 16
     key_terms: [ged, get, through, community, college, dropped, school, got]
+    concepts: [through, community, college, dropped, school]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nrv6ek.md#c0", "social-intelligence/reddit-deep/college/1nrv6ek.md#c1", "social-intelligence/reddit-deep/college/1nrv6ek.md#c3"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/college/1nrv6ek.md#c3"
     char_span: [4602, 6230]
     sentence_count: 15
     key_terms: [school, high, college, ged, through, get, accredited, partially]
+    concepts: [school, college, through, accredited, partially]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nrv6ek.md#c0", "social-intelligence/reddit-deep/college/1nrv6ek.md#c1", "social-intelligence/reddit-deep/college/1nrv6ek.md#c2"]
     section: Comments
     token_count: 411
 ---

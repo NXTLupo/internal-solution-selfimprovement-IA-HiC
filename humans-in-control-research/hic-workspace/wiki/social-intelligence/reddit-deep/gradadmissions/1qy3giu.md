@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 293]
     sentence_count: 3
     key_terms: [gradadmissions, accepted, comments, mit, reddit-deep, acceptance, rejection, yesterday]
+    concepts: [gradadmissions, accepted, comments]
     token_count: 80
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qy3giu/accepted_to_mit/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qy3giu.md#c1"
     char_span: [307, 2206]
     sentence_count: 15
     key_terms: [congrats, acceptance, curious, no-test6484, unambiguous, applicants, celebrate, top-tier]
+    concepts: [congrats, acceptance, curious, no-test6484, unambiguous]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1qy3giu.md#c2"
     char_span: [2208, 3442]
     sentence_count: 12
     key_terms: [england, perspective, boston, new, congrats, godrishuniverse, real, awesome]
+    concepts: [perspective, england, boston, godrishuniverse, congrats]
     section: Comments
     token_count: 352
 ---

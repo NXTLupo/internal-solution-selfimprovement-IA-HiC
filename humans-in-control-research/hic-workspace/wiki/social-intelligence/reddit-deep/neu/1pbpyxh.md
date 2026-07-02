@@ -20,21 +20,26 @@ chunks:
     char_span: [0, 1849]
     sentence_count: 8
     key_terms: [course, nuin, cultures, global, experience, semester, students, student]
+    concepts: [course, cultures, experience, global, semester]
     token_count: 425
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1pbpyxh/do_not_take_global_learning_experience_course/"}]
   - id: "social-intelligence/reddit-deep/neu/1pbpyxh.md#c1"
     char_span: [1851, 4405]
     sentence_count: 20
     key_terms: [course, assignments, weeks, professor, relevant, students, include, writing]
+    concepts: [course, assignments, professor, weeks, relevant]
     token_count: 506
   - id: "social-intelligence/reddit-deep/neu/1pbpyxh.md#c2"
     char_span: [4407, 6958]
     sentence_count: 19
     key_terms: [project, course, students, final, team, country, cohort, collaborative]
+    concepts: [project, course, students, final, collaborative]
     token_count: 511
   - id: "social-intelligence/reddit-deep/neu/1pbpyxh.md#c3"
-    char_span: [6960, 7423]
+    char_span: [6960, 7422]
     sentence_count: 2
     key_terms: [course, stocktelephone11, global-issue, requirement, discussion, everything, experience, one-credit]
+    concepts: [course]
     section: Comments
     token_count: 107
 ---

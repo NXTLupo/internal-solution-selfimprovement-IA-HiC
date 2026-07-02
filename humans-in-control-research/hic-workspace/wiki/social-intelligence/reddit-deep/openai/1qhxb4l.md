@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1492]
     sentence_count: 12
     key_terms: [performance, previously, context, away, window, laggy, comments, happens]
+    concepts: [performance, previously, context, window, laggy]
     token_count: 320
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1qhxb4l/chatgpt_in_browser_performance_dropoff_not/"}]
   - id: "social-intelligence/reddit-deep/openai/1qhxb4l.md#c1"
     char_span: [1506, 1819]
     sentence_count: 3
     key_terms: [chatgpt, rsyncmyhomiedrive, lightsession, ryanmonroe82, appreciate, difference, expecting, extension]
+    concepts: [chatgpt]
     section: Comments
     token_count: 88
 ---

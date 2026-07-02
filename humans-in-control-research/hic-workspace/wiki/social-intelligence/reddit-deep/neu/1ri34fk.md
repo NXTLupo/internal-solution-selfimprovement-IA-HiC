@@ -19,28 +19,37 @@ chunks:
     char_span: [0, 2154]
     sentence_count: 1
     key_terms: [name, preferred, legal, necessary, changed, profile, correspondence, system]
+    concepts: [preferred, legal, necessary, correspondence, changed]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1ri34fk.md#c1", "social-intelligence/reddit-deep/neu/1ri34fk.md#c3"]
     token_count: 456
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1ri34fk/note_for_any_trans_students_considering_working/"}]
   - id: "social-intelligence/reddit-deep/neu/1ri34fk.md#c1"
     char_span: [2156, 3840]
     sentence_count: 1
     key_terms: [name, legal, system, documentation, publicized, preferred, promised, display]
+    concepts: [legal, system, documentation, publicized, preferred]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1ri34fk.md#c0", "social-intelligence/reddit-deep/neu/1ri34fk.md#c3"]
     token_count: 361
   - id: "social-intelligence/reddit-deep/neu/1ri34fk.md#c2"
     char_span: [3854, 6069]
     sentence_count: 5
     key_terms: [government, identity, legal, get, "it's", name, different, rguiry913]
+    concepts: [government, identity, legal, different, rguiry913]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1ri34fk.md#c3"
     char_span: [5797, 8067]
     sentence_count: 7
     key_terms: [name, good-information-383, legal, get, "it's", parents, been, "i'm"]
+    concepts: [good-information-383, legal, parents, preferred, changed]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1ri34fk.md#c0", "social-intelligence/reddit-deep/neu/1ri34fk.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1ri34fk.md#c4"
     char_span: [7770, 8682]
     sentence_count: 3
     key_terms: [agency, good-information-383, co-op, fully, job, sexwithpaws69, appropriate, transgender]
+    concepts: [agency, co-op, fully]
     section: Comments
     token_count: 220
 ---

@@ -19,14 +19,17 @@ content_hash: "e07a408e808d1e65"
 relevance_by_goal: {"46dec9599ad5":45}
 chunks:
   - id: "articles/reddit-deep-r-bogleheads/2faeeea4f4.md#c0"
-    char_span: [0, 1921]
+    char_span: [0, 1920]
     sentence_count: 14
     key_terms: [performance, vanguard, accounts, account, margin, calculate, personal, weighted]
-    token_count: 390
+    concepts: [performance, vanguard, accounts, account, margin]
+    token_count: 389
+    sources: [{"n":"Reddit Deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1qfjo5d/still_annoyed_that_vanguard_stopped_calculating/"}]
   - id: "articles/reddit-deep-r-bogleheads/2faeeea4f4.md#c1"
-    char_span: [1923, 2795]
+    char_span: [1922, 2794]
     sentence_count: 5
     key_terms: [performance, bogleheads, comments, hobokes, without, margin, reddit, https]
+    concepts: [performance, bogleheads, comments, hobokes, without]
     token_count: 233
 ---
 # Still annoyed that Vanguard stopped calculating performance.

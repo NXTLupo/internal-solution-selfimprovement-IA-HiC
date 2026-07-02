@@ -16,10 +16,12 @@ extraction_method: "praw-deep"
 research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1tgql0d.md#c0"
-    char_span: [0, 1162]
+    char_span: [0, 1161]
     sentence_count: 1
     key_terms: [lernx, internship, internships, comments, freshers, apply, performance-based, responsibilities]
-    token_count: 310
+    concepts: [lernx, internship, internships, comments, freshers]
+    token_count: 309
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tgql0d/lernx_hr_internship_available/"}]
 ---
 # Lernx - HR Internship available
 

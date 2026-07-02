@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1292]
     sentence_count: 9
     key_terms: [interview, internship, internships, tell, position, students, anymore, program]
+    concepts: [interview, internship, internships, position, students]
     token_count: 277
+    sources: [{"n":"reddit: internships","u":"https://reddit.com/r/internships/comments/1s21qxy/are_undergrads_not_taught_how_to_interview_anymore/"}]
 ---
 # Are undergrads not taught how to interview anymore?
 

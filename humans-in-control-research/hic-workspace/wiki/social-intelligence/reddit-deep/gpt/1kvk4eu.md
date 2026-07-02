@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 2204]
     sentence_count: 14
     key_terms: [gpt, customer, support, visuals, emails, used, recruiting, collected]
+    concepts: [customer, support, visuals, emails, recruiting]
     token_count: 480
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1kvk4eu/openai_just_revealed_how_real_companies_use_gpt/"}]
   - id: "social-intelligence/reddit-deep/gpt/1kvk4eu.md#c1"
     char_span: [2206, 3122]
     sentence_count: 5
     key_terms: [tasks, work, file, full, pdf, personalization, support-heavy, productivity]
+    concepts: [tasks]
     token_count: 227
   - id: "social-intelligence/reddit-deep/gpt/1kvk4eu.md#c2"
     char_span: [3136, 4871]
     sentence_count: 13
     key_terms: [fine-tuning, model, gpt, source, like, weights, architecture, ok-layer741]
+    concepts: [fine-tuning, model, source, weights, architecture]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/gpt/1kvk4eu.md#c3"
     char_span: [4873, 5260]
     sentence_count: 2
     key_terms: [https, gpt-4o-fine-tuning, fine-tuning, openai, arxiv, index, physical-golf4247, abs]
+    concepts: [gpt-4o-fine-tuning, https, fine-tuning, openai, arxiv]
     section: Comments
     token_count: 128
 ---

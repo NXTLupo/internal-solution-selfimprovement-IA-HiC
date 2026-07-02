@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 431]
     sentence_count: 3
     key_terms: [engineeringstudents, comments, seddikiadam14, applications, reddit-deep, candidates, internship, unbeatable]
+    concepts: [engineeringstudents, comments]
     token_count: 112
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1s36ica/hahaha_internship_civil_engineer_3rd_year/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s36ica.md#c1"
     char_span: [445, 2180]
     sentence_count: 13
     key_terms: [engineeringstudents, wiki, please, reddit, https, major, engineering, com]
+    concepts: [engineeringstudents, please, reddit, engineering, https]
     section: Comments
     token_count: 434
 ---

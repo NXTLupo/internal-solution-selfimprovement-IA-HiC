@@ -16,11 +16,14 @@ chunks:
     char_span: [0, 1332]
     sentence_count: 6
     key_terms: [feature, machinelearning, because, production, dashboard, openai, reddit, trying]
+    concepts: [feature, machinelearning, because, production, dashboard]
     token_count: 277
+    sources: [{"n":"Reddit Deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1t4mzm3/production_ai_very_different_from_the_demos_d/"}]
   - id: "articles/reddit-deep-r-machinelearning/cc7ffd60fa.md#c1"
     char_span: [1334, 3183]
     sentence_count: 11
     key_terms: [task, workflow, decide, architecture, orchestrator, agent, model, challenge]
+    concepts: [workflow, architecture, orchestrator, decide, agent]
     token_count: 423
 ---
 # Production AI very different from the demos [D]

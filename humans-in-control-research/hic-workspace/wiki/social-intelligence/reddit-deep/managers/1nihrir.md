@@ -21,41 +21,52 @@ chunks:
     char_span: [0, 1870]
     sentence_count: 18
     key_terms: [anything, "can't", backstabber, boss, emma, help, team, everything]
+    concepts: [anything, backstabber, "can't", everything, comments]
     token_count: 456
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1nihrir/new_hire_is_a_lying_backstabber_and_i_cant_do/"}]
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c1"
     char_span: [1884, 3542]
     sentence_count: 13
     key_terms: [conversation, everything, email, document, meetings, manager, meeting, imaginary-ambition55]
+    concepts: [conversation, everything, email, document, meetings]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1nihrir.md#c2"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c2"
     char_span: [3544, 5712]
     sentence_count: 19
     key_terms: [something, meetings, everything, document, yourself, direct, record, equivalent-roll-3321]
+    concepts: [something, meetings, everything, document, yourself]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1nihrir.md#c1", "social-intelligence/reddit-deep/managers/1nihrir.md#c3"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c3"
     char_span: [5714, 7463]
     sentence_count: 18
     key_terms: [boss, topic, send, everything, something, employee, feedback, question]
+    concepts: [everything, topic, something, employee, feedback]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1nihrir.md#c2"]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c4"
     char_span: [7465, 8600]
     sentence_count: 11
     key_terms: [take, because, cancer, palpitationmuted9816, like, yep, originalsimulant, vacheradioactif]
+    concepts: [because, cancer]
     section: Comments
     token_count: 276
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c5"
     char_span: [8602, 10668]
     sentence_count: 18
     key_terms: [everyone, doing, did, "it's", like, understand, continue, meeting]
+    concepts: [everyone, doing, understand, continue, meeting]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c6"
     char_span: [10418, 11407]
     sentence_count: 9
     key_terms: [mentorship, directly, objective-ganache114, need, new, "op's", expectations, replacement]
+    concepts: [mentorship, directly]
     section: Comments
     token_count: 234
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c7"
@@ -68,72 +79,86 @@ chunks:
     char_span: [11659, 13823]
     sentence_count: 15
     key_terms: [training, boss, issues, "i'm", direct, person, "you're", issue]
+    concepts: [training, issues, direct, person, "you're"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c9"
     char_span: [13553, 14004]
     sentence_count: 4
     key_terms: [location, person, teams, lutschiputschi, subordinate, connection, colleague, situation]
+    concepts: [location, person, teams]
     section: Comments
     token_count: 103
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c10"
     char_span: [14007, 16058]
     sentence_count: 20
     key_terms: [anything, told, company, luckily, always, behind, eggplantcomplex3731, "don't"]
+    concepts: [anything, company, luckily, always, behind]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c11"
     char_span: [16060, 17697]
     sentence_count: 15
     key_terms: [get, tell, behavior, document, bingle-cowabungle, boss, deal, fire]
+    concepts: [behavior, document]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c12"
     char_span: [17699, 19877]
     sentence_count: 21
     key_terms: [boss, listen, back, fire, team, want, papertrail, probation]
+    concepts: [listen, papertrail, probation, realised, culture]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c13"
     char_span: [19879, 21098]
     sentence_count: 6
     key_terms: [discussion, chief, categories, manager, present, snake, face, says]
+    concepts: [discussion, chief, categories, manager, present]
     section: Comments
     token_count: 274
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c14"
     char_span: [21100, 22331]
     sentence_count: 10
     key_terms: [unprofessional, people, behavior, at-will, company, better, mission-library-7499, fire]
+    concepts: [unprofessional, people, behavior, at-will, company]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c15"
     char_span: [22333, 23953]
     sentence_count: 8
     key_terms: [manager, lachrymarumlibertas, middle, project, reports, direct, manage, "that's"]
+    concepts: [manager, lachrymarumlibertas, middle, project, reports]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1nihrir.md#c16"]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c16"
     char_span: [23956, 25675]
     sentence_count: 6
     key_terms: [manager, boss, middle, people, lachrymarumlibertas, direct, reports, person]
+    concepts: [manager, lachrymarumlibertas, middle, people, direct]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1nihrir.md#c15"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c17"
     char_span: [25677, 27677]
     sentence_count: 17
     key_terms: [direct, reports, backroundagain, lunch, boss, behaviours, employees, declined]
+    concepts: [direct, backroundagain, reports, behaviours, lunch]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c18"
     char_span: [27679, 29809]
     sentence_count: 20
     key_terms: [honest, boss, feel, get, direct, "don't", help, "it's"]
+    concepts: [honest, direct, "don't", understand, different]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c19"
     char_span: [29811, 31377]
     sentence_count: 16
     key_terms: ["you're", "she's", leadership, healthier, responses, because, dynamic, learned]
+    concepts: ["you're", leadership, "she's", healthier, responses]
     section: Comments
     token_count: 348
 ---

@@ -19,34 +19,43 @@ chunks:
     char_span: [0, 2071]
     sentence_count: 14
     key_terms: [class, course, time, advanced, college, community, checking, comments]
+    concepts: [class, course, advanced, college, community]
     token_count: 480
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1qm0wa8/canshould_i_ask_for_a_stipend_for_an_informal/"}]
   - id: "social-intelligence/reddit-deep/college/1qm0wa8.md#c1"
     char_span: [2073, 3768]
     sentence_count: 17
     key_terms: [payment, class, don, learning, student, being, "i'm", like]
+    concepts: [payment, class, learning, student, being]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qm0wa8.md#c5"]
     token_count: 378
   - id: "social-intelligence/reddit-deep/college/1qm0wa8.md#c2"
-    char_span: [3783, 5556]
+    char_span: [3782, 5555]
     sentence_count: 13
     key_terms: [money, pay, per, semester, "can't", like, definitely, position]
+    concepts: [money, semester, "can't", definitely, position]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/college/1qm0wa8.md#c3"
-    char_span: [5558, 6758]
+    char_span: [5557, 6757]
     sentence_count: 6
     key_terms: [oksecretary1231, stipend, undergraduate, graduate, "there's", "you're", being, extra]
+    concepts: [oksecretary1231, undergraduate, stipend, graduate, "there's"]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/college/1qm0wa8.md#c4"
-    char_span: [6760, 7806]
+    char_span: [6759, 7805]
     sentence_count: 5
     key_terms: [school, education, records, institutional, ferpa, consultants, pii, volunteers]
+    concepts: [school, education, records, institutional, consultants]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/college/1qm0wa8.md#c5"
-    char_span: [7808, 9242]
+    char_span: [7807, 9241]
     sentence_count: 12
     key_terms: [student, class, university, bachelors, professor, degrees, unpaid, fragrantdifficulty68]
+    concepts: [student, class, university, bachelors, professor]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qm0wa8.md#c1"]
     section: Comments
     token_count: 330
 ---

@@ -20,22 +20,27 @@ chunks:
     char_span: [0, 1826]
     sentence_count: 12
     key_terms: [tfsa, rrsp, xeqt, growth, funds, "i'm", keep, investing]
+    concepts: [growth, funds, investing, portfolio, comments]
     token_count: 514
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1sdjruu/best_tfsa_rrsp_combo_for_a_36_yr_old_looking_for/"}]
   - id: "social-intelligence/reddit-deep/etfs/1sdjruu.md#c1"
     char_span: [1828, 2578]
     sentence_count: 10
     key_terms: [considering, different, strategy, avge, rrsp, xeqt, overthinking, appreciated]
+    concepts: [considering, different, strategy]
     token_count: 192
   - id: "social-intelligence/reddit-deep/etfs/1sdjruu.md#c2"
-    char_span: [2593, 3711]
+    char_span: [2592, 3710]
     sentence_count: 6
     key_terms: [etfcentral, voo, reddit, https, com, www, comment, portfolio]
+    concepts: [etfcentral, reddit, https, comment, portfolio]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/etfs/1sdjruu.md#c3"
-    char_span: [3713, 4610]
+    char_span: [3712, 4609]
     sentence_count: 9
     key_terms: [a74c61c00f8315b62dffc6053f8ed208452a52e3, hugheston987, "it's", portfolio, current, looked, climateoutrageous757, looks]
+    concepts: [hugheston987, portfolio, current, looked, looks]
     section: Comments
     token_count: 248
 ---

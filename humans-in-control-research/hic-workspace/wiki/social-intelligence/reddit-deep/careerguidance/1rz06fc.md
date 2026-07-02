@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 737]
     sentence_count: 5
     key_terms: [marketing, been, careerguidance, job, like, comments, creative, career]
+    concepts: [marketing, careerguidance, comments, creative, career]
     token_count: 186
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rz06fc/what_career_should_i_switch_to_from_marketing_if/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rz06fc.md#c1"
     char_span: [751, 1050]
     sentence_count: 1
     key_terms: [analytics, temporarytrifle290, data, background, candidates, marketing, learning, combine]
+    concepts: [analytics]
     section: Comments
     token_count: 75
 ---

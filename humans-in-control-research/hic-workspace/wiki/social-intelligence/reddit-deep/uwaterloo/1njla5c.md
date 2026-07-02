@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 2025]
     sentence_count: 10
     key_terms: [blacklist, candidates, uwaterloo, salaries, co-operative-education, experience, https, mod]
+    concepts: [blacklist, candidates, uwaterloo, co-operative-education, salaries]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1njla5c/waterlooworks_megathread_winter_2026/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1njla5c.md#c1"
     char_span: [2039, 3842]
     sentence_count: 4
     key_terms: [playstation, shoddy-preparation11, throwaway6996696969, woninshot, got, adeptdegree9962, assessments, com]
+    concepts: [playstation, shoddy-preparation11, throwaway6996696969, woninshot, adeptdegree9962]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/uwaterloo/1njla5c.md#c2"
     char_span: [3645, 4004]
     sentence_count: 1
     key_terms: [anyone, shoddy-preparation11, back, hear, howardwang0315, serenelmuss314, beetlekicker, assessments]
+    concepts: [anyone]
     section: Comments
     token_count: 118
 ---

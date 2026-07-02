@@ -21,51 +21,61 @@ chunks:
     char_span: [0, 1557]
     sentence_count: 14
     key_terms: [like, years, never, feel, findapath, comments, version, around]
+    concepts: [years, never, findapath, comments, version]
     token_count: 370
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1m36uys/i_am_25_years_old_and_i_feel_like_i_failed_at_my/"}]
   - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c1"
     char_span: [1559, 3824]
     sentence_count: 21
     key_terms: [want, photography, automation, confidence, ambitions, emergency, martial, streams]
+    concepts: [photography, automation, confidence, ambitions, emergency]
     token_count: 465
   - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c2"
     char_span: [3828, 4435]
     sentence_count: 6
     key_terms: [discipline, afraid, work, accountability, relentless, structure, willpower, ambition]
+    concepts: [discipline, afraid]
     token_count: 137
   - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c3"
     char_span: [4449, 6094]
     sentence_count: 13
     key_terms: [thank, helpful, please, administered, adhd, findapath, comments, everyone]
+    concepts: [thank, helpful, administered, please, findapath]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c4"
     char_span: [6096, 7628]
     sentence_count: 16
     key_terms: [yourself, proud, debt, changing, remember, future, subject-situation272, focus]
+    concepts: [yourself, proud, changing, remember, future]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c5"
     char_span: [7630, 9592]
     sentence_count: 29
     key_terms: [get, start, work, sleep, recommend, job, better, credit]
+    concepts: [start, recommend, sleep, better, credit]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c6"
     char_span: [9594, 11495]
     sentence_count: 16
     key_terms: [money, student, going, start, attention, account, working, anyway]
+    concepts: [money, student, going, start, attention]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c7"
     char_span: [11497, 13098]
     sentence_count: 14
     key_terms: [field, skill, felt, life, accounting, something, decision, another]
+    concepts: [accounting, field, skill, something, decision]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c8"
     char_span: [13100, 13779]
     sentence_count: 7
     key_terms: [focus, salt-technology-9702, get, good, plan, hypercritical, distractions, everything]
+    concepts: [focus]
     section: Comments
     token_count: 163
 ---

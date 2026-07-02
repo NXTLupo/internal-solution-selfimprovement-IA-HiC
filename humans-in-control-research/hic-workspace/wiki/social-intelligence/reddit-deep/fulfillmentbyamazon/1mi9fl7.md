@@ -20,34 +20,46 @@ chunks:
     char_span: [0, 1952]
     sentence_count: 13
     key_terms: [amazon, website, fulfillmentbyamazon, new, products, sales, advertising, time]
+    concepts: [amazon, fulfillmentbyamazon, website, products, advertising]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1mi9fl7.md#c1", "social-intelligence/reddit-deep/fulfillmentbyamazon/1mi9fl7.md#c2", "social-intelligence/reddit-deep/fulfillmentbyamazon/1mi9fl7.md#c4"]
     token_count: 483
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1mi9fl7/a_quick_update_on_my_move_away_from_amazon/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1mi9fl7.md#c1"
     char_span: [1954, 3965]
     sentence_count: 13
     key_terms: [amazon, website, sales, customers, product, reviews, please, customer]
+    concepts: [amazon, website, customers, sales, product]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1mi9fl7.md#c0", "social-intelligence/reddit-deep/fulfillmentbyamazon/1mi9fl7.md#c4"]
     token_count: 470
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1mi9fl7.md#c2"
-    char_span: [3980, 5728]
+    char_span: [3979, 5727]
     sentence_count: 10
     key_terms: [amazon, competitors, fulfillmentbyamazon, discord, fba, time, redirects, threecans]
+    concepts: [amazon, competitors, fulfillmentbyamazon, discord, redirects]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1mi9fl7.md#c0"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1mi9fl7.md#c3"
-    char_span: [5730, 7598]
+    char_span: [5729, 7597]
     sentence_count: 19
     key_terms: [amazon, platform, patsabre12, business, dumpster, thousand, figures, hundred]
+    concepts: [amazon, platform, patsabre12, business, dumpster]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1mi9fl7.md#c4"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1mi9fl7.md#c4"
-    char_span: [7600, 9774]
+    char_span: [7599, 9773]
     sentence_count: 18
     key_terms: [website, amazon, been, platform, products, around, yeeeeeeeeeessssssir, issue]
+    concepts: [website, amazon, platform, products, around]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1mi9fl7.md#c0", "social-intelligence/reddit-deep/fulfillmentbyamazon/1mi9fl7.md#c1", "social-intelligence/reddit-deep/fulfillmentbyamazon/1mi9fl7.md#c3"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1mi9fl7.md#c5"
-    char_span: [9776, 10734]
+    char_span: [9775, 10733]
     sentence_count: 8
     key_terms: [amazon, year, million, revenue, apples, people, worth, dont]
+    concepts: [amazon, million, revenue, apples, people]
     section: Comments
     token_count: 234
 ---

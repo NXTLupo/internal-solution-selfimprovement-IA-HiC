@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1459]
     sentence_count: 9
     key_terms: [analytics, bcom, like, mba, careerguidance, people, cybersecurity, immediately]
+    concepts: [analytics, careerguidance, cybersecurity, people, immediately]
     token_count: 318
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1thou91/bcom_graduate_confused_about_career_path_mba_job/"}]
 ---
 # BCom graduate confused about career path – MBA, job, or skill courses?
 

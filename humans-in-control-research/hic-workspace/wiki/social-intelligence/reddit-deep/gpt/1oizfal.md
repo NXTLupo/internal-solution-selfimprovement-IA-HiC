@@ -21,26 +21,32 @@ chunks:
     char_span: [0, 1824]
     sentence_count: 10
     key_terms: [user, safety, policies, question, circumstance, task, work, clarifying]
+    concepts: [safety, policies, question, circumstance, clarifying]
     token_count: 401
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1oizfal/chatgpt_alpha_model_external_access_reserved_gate/"}]
   - id: "social-intelligence/reddit-deep/gpt/1oizfal.md#c1"
     char_span: [1826, 3647]
     sentence_count: 12
     key_terms: ["don't", user, unless, style, conversation, tools, keep, use]
+    concepts: ["don't", unless, conversation, style, tools]
     token_count: 368
   - id: "social-intelligence/reddit-deep/gpt/1oizfal.md#c2"
     char_span: [3649, 6058]
     sentence_count: 21
     key_terms: [check, use, answer, arithmetic, attention, test, web, language]
+    concepts: [check, arithmetic, answer, attention, language]
     token_count: 478
   - id: "social-intelligence/reddit-deep/gpt/1oizfal.md#c3"
     char_span: [6060, 8491]
     sentence_count: 21
     key_terms: [oververbosity, ideas, theories, particularly, user, thinking, message, always]
+    concepts: [oververbosity, theories, particularly, ideas, thinking]
     token_count: 457
   - id: "social-intelligence/reddit-deep/gpt/1oizfal.md#c4"
     char_span: [8493, 10261]
     sentence_count: 14
     key_terms: [user, question, phrases, user-requested, follow, personality, end, artifacts]
+    concepts: [question, user-requested, phrases, follow, personality]
     token_count: 356
 ---
 # chatgpt_alpha_model_external_ access_reserved_gate_13 system instructions

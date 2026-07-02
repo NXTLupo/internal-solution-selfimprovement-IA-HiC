@@ -20,15 +20,18 @@ chunks:
     char_span: [0, 1751]
     sentence_count: 12
     key_terms: [like, able, day, personalfinance, consolidation, bills, month, need]
+    concepts: [personalfinance, consolidation, bills, month, financial]
     token_count: 392
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1rel6pa/i_need_some_type_of_budgeting_help/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1rel6pa.md#c1"
-    char_span: [1766, 3840]
+    char_span: [1765, 3839]
     sentence_count: 18
     key_terms: [unlucky-clock5230, been, ynab, track, app, get, need, time]
+    concepts: [unlucky-clock5230, track, different, insayne72, expenses]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/personalfinance/1rel6pa.md#c2"
-    char_span: [3842, 4508]
+    char_span: [3841, 4507]
     sentence_count: 3
     key_terms: [free, look, run, alwayslookingout, personalcapital, moneyflowguyy, simplifimoney, uncomplicated]
     section: Comments

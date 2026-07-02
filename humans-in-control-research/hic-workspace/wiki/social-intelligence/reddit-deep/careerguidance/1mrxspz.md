@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1390]
     sentence_count: 8
     key_terms: [current, like, careerguidance, opportunity, feel, aerospace, choosing, comments]
+    concepts: [current, careerguidance, opportunity, aerospace, choosing]
     token_count: 319
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1mrxspz/should_i_accept_counter_offer_after_presenting/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c1"
     char_span: [1404, 3029]
     sentence_count: 13
     key_terms: [respect, answer, place, stay, question, new, want, counter]
+    concepts: [respect, answer, place, question, counter]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c2"
     char_span: [3031, 5370]
     sentence_count: 12
     key_terms: [commute, current, systems, family, years, good, job, life]
+    concepts: [commute, current, systems, family, years]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c3"
     char_span: [5372, 6472]
     sentence_count: 8
     key_terms: [anything, decision, future, raises, value, did, pay, year]
+    concepts: [anything, decision, future, raises, value]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c4"
     char_span: [6474, 7819]
     sentence_count: 11
     key_terms: [higher, offer, new, increase, current, sense, hcol, rent]
+    concepts: [higher, offer, increase, current, sense]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c5"
     char_span: [7821, 9777]
     sentence_count: 13
     key_terms: [offer, company, keep, because, counter, years, job, aerospace]
+    concepts: [offer, company, because, counter, years]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c6"
     char_span: [9779, 10766]
     sentence_count: 7
     key_terms: [professional, current, asking, career, enjoy, looking-to-improve, good, "it's"]
+    concepts: [professional, current, asking, career, enjoy]
     section: Comments
     token_count: 229
 ---

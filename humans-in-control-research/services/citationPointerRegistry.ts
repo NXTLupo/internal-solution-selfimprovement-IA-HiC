@@ -175,6 +175,30 @@ export function resolveManifestPointers(text: string): string {
         .replace(/\s+([.,;:])/g, '$1');
 }
 
+/** W1 (2026-07-01, scorecard gap "64% pointers unsourced"): expose the full attribution ladder for ONE
+ *  pointer so the AIR evidence ledger (evidenceLedgerService.resolvedChunkToEvidence) can fall back to the
+ *  SAME page-level attribution the render path uses. Most "unsourced" pointers are social/Reddit or upload
+ *  pages whose REAL attribution is the page title ("Reddit Deep: r/waterloo") or the doc-level
+ *  resolved_sources — per-chunk `sources:` is legitimately absent there. One attribution authority
+ *  (this registry), consumed by BOTH cite-time resolution and the evidence ledger (converge, no fork). */
+export interface ChunkAttribution {
+    /** Tier 1: per-chunk real sources (frontmatter `sources:`). */
+    chunkSources: string[];
+    /** Tier 1.5: the page's doc-level resolved_sources (real synthesized sources). */
+    pageResolvedSources: string[];
+    /** Tier 2: the page-level registered sourceTitle (manifest catalog). */
+    pageTitle: string | null;
+}
+export function lookupChunkAttribution(pointer: string): ChunkAttribution {
+    const clean = String(pointer || '').trim();
+    const pagePath = clean.replace(/#c\d+$/i, '').trim();
+    return {
+        chunkSources: _chunkSources.get(clean) || [],
+        pageResolvedSources: _pageResolvedSources.get(pagePath) || [],
+        pageTitle: _pointerSources.get(pagePath) || null,
+    };
+}
+
 /** Test/diagnostic surface. */
 export function pointerRegistrySize(): number { return _pointerSources.size; }
 export function chunkSourceRegistrySize(): number { return _chunkSources.size; }

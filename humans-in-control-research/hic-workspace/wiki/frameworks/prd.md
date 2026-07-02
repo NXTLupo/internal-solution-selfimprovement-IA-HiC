@@ -14,60 +14,75 @@ chunks:
     char_span: [0, 959]
     sentence_count: 7
     key_terms: [specification, requirements, empowered, framework, problem, product, amazon, cagan]
+    concepts: [specification, requirements, empowered, framework, problem]
+    related_chunks: ["frameworks/prd.md#c6"]
     section: Canonical Framework
     token_count: 184
   - id: "frameworks/prd.md#c1"
     char_span: [988, 3244]
     sentence_count: 16
     key_terms: [problem, user, section, story, criteria, stories, acceptance, statement]
+    concepts: [problem, section, criteria, story, stories]
     section: Required Sections (16)
     token_count: 471
   - id: "frameworks/prd.md#c2"
     char_span: [3246, 5754]
     sentence_count: 13
     key_terms: [metrics, requirements, guardrail, personas, requirement, data, research, primary]
+    concepts: [metrics, requirements, guardrail, personas, requirement]
+    related_chunks: ["frameworks/prd.md#c7"]
     section: Required Sections (16)
     token_count: 506
   - id: "frameworks/prd.md#c3"
     char_span: [5756, 8386]
     sentence_count: 15
     key_terms: [data, requirements, section, delivery, risk, constraints, technical, feature]
+    concepts: [requirements, section, delivery, constraints, technical]
+    related_chunks: ["frameworks/prd.md#c7"]
     section: Required Sections (16)
     token_count: 514
   - id: "frameworks/prd.md#c4"
     char_span: [8388, 10173]
     sentence_count: 15
     key_terms: [scope, section, confidence, prd, questions, progressively, assumptions, development]
+    concepts: [scope, confidence, section, questions, progressively]
     section: Required Sections (16)
     token_count: 378
   - id: "frameworks/prd.md#c5"
     char_span: [10204, 11418]
     sentence_count: 6
     key_terms: [rice, impact, reach, time, confidence, defined, product, require]
+    concepts: [impact, confidence, reach, defined, product]
     section: Prioritization Framework
     token_count: 294
   - id: "frameworks/prd.md#c6"
     char_span: [11462, 13059]
     sentence_count: 13
     key_terms: [detection, requirements, fix, user, feature, problem, prd, statement]
+    concepts: [detection, requirements, feature, problem, statement]
+    related_chunks: ["frameworks/prd.md#c0"]
     section: Anti-Patterns (Generation Must Avoid)
     token_count: 322
   - id: "frameworks/prd.md#c7"
     char_span: [13079, 14218]
     sentence_count: 1
     key_terms: [metrics, section, completeness, requirements, priority, timeline, defined, review]
+    concepts: [metrics, completeness, section, requirements, priority]
+    related_chunks: ["frameworks/prd.md#c2", "frameworks/prd.md#c3"]
     section: Quality Gates
     token_count: 267
   - id: "frameworks/prd.md#c8"
     char_span: [14248, 16241]
     sentence_count: 12
     key_terms: [prd, write, data, release, define, anti-patterns, build, team]
+    concepts: [write, anti-patterns, release, define, build]
     section: Generation Instructions
     token_count: 406
   - id: "frameworks/prd.md#c9"
     char_span: [16264, 16763]
     sentence_count: 1
     key_terms: [frameworks, anti-patterns, architecture, prds, framework, strategic, strategy, defines]
+    concepts: [frameworks, anti-patterns, architecture, framework, strategic]
     section: Cross-References
     token_count: 101
 ---

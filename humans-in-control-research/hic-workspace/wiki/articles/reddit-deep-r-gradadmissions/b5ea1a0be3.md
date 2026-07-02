@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1307]
     sentence_count: 10
     key_terms: [business, "i'm", recommend, gradadmissions, doing, years, job, comments]
+    concepts: [business, recommend, gradadmissions, doing, years]
     token_count: 304
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qk4d4v/which_majorscareer_paths_would_you_recommend_a/"}]
 ---
 # Which Majors/Career paths would you recommend a business grad to pursue?
 

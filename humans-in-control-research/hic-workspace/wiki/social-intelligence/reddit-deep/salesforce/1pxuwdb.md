@@ -20,41 +20,55 @@ chunks:
     char_span: [0, 1612]
     sentence_count: 5
     key_terms: [clients, comments, solo, working, salesforce, question, find, selling]
+    concepts: [clients, comments, working, salesforce, question]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1pxuwdb.md#c2"]
     token_count: 378
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1pxuwdb/help_me_answer_the_question_how_do_i_find_clients/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1pxuwdb.md#c1"
-    char_span: [1627, 3668]
+    char_span: [1626, 3667]
     sentence_count: 25
     key_terms: [salesforce, book, skills, thanks, davethengvet, great, ideal, additional]
+    concepts: [salesforce, davethengvet, skills, thanks, additional]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1pxuwdb.md#c4"]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/salesforce/1pxuwdb.md#c2"
-    char_span: [3670, 5932]
+    char_span: [3669, 5931]
     sentence_count: 17
     key_terms: [clients, need, credibility, try, salesforce, efficient, another, mindset]
+    concepts: [clients, credibility, salesforce, efficient, another]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1pxuwdb.md#c0"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/salesforce/1pxuwdb.md#c3"
-    char_span: [5934, 8179]
+    char_span: [5933, 8178]
     sentence_count: 16
     key_terms: [salesforce, industry, client, like, sell, solutions, something, templates]
+    concepts: [salesforce, industry, client, solutions, something]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/salesforce/1pxuwdb.md#c4"
-    char_span: [8181, 10181]
+    char_span: [8180, 10180]
     sentence_count: 12
     key_terms: [book, thanks, davethengvet, advertising, ads, osrsgillan, marketing, problem]
+    concepts: [davethengvet, thanks, advertising, osrsgillan, marketing]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1pxuwdb.md#c1"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/salesforce/1pxuwdb.md#c5"
-    char_span: [10183, 11171]
+    char_span: [10182, 11170]
     sentence_count: 1
     key_terms: [message, com, remindmebot, reddit, www, delete, https, compose]
+    concepts: [message, remindmebot, reddit, delete, https]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1pxuwdb.md#c6"]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/salesforce/1pxuwdb.md#c6"
-    char_span: [11173, 12114]
+    char_span: [11172, 12113]
     sentence_count: 3
     key_terms: [remindmebot, message, reddit, https, pokemon-master-red, com, www, compose]
+    concepts: [remindmebot, message, pokemon-master-red, reddit, https]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1pxuwdb.md#c5"]
     section: Comments
     token_count: 313
 ---

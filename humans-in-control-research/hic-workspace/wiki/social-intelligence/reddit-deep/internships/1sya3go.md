@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 488]
     sentence_count: 3
     key_terms: [internships, comments, nyc, rowentire8894, undergraduate, reddit-deep, internship, accepting]
+    concepts: [internships, comments]
     token_count: 118
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sya3go/last_minute_internships_in_nyc_as_a_first_year/"}]
   - id: "social-intelligence/reddit-deep/internships/1sya3go.md#c1"
     char_span: [502, 1612]
     sentence_count: 3
     key_terms: [maybe, "you're", interested, internship, competing, "that's", check, youre]
+    concepts: [maybe, "you're", interested, internship, competing]
     section: Comments
     token_count: 266
 ---

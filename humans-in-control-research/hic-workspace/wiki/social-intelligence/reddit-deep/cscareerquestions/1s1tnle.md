@@ -19,51 +19,60 @@ chunks:
     char_span: [0, 1111]
     sentence_count: 9
     key_terms: [cscareerquestions, computer, science, future, comments, studying, waiting, around]
+    concepts: [cscareerquestions, computer, science, future, comments]
     token_count: 254
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1s1tnle/is_computer_science_really_that_good_of_a_market/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md#c1"
-    char_span: [1126, 2852]
+    char_span: [1125, 2851]
     sentence_count: 13
     key_terms: [years, experience, "there's", having, single, engineering, ago, been]
+    concepts: [years, experience, "there's", having, single]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md#c2"
-    char_span: [2854, 3956]
+    char_span: [2853, 3955]
     sentence_count: 4
     key_terms: [https, job, college-labor-market, failedgradadmissions, right, outcomes-by-major, able, ago]
+    concepts: [https, right]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md#c3"
-    char_span: [3958, 5724]
+    char_span: [3957, 5723]
     sentence_count: 13
     key_terms: [interviews, "i'm", get, job, time, recruiters, because, juniors]
+    concepts: [interviews, recruiters, because, juniors, moment]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md#c4"
-    char_span: [5726, 8093]
+    char_span: [5725, 8092]
     sentence_count: 12
     key_terms: [deliberate, practice, people, skills, great, programming, time, passionate]
+    concepts: [deliberate, practice, people, skills, programming]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md#c5"
-    char_span: [8095, 10460]
+    char_span: [8094, 10459]
     sentence_count: 19
     key_terms: [field, find, get, "you're", "don't", engineering, "i'm", like]
+    concepts: [field, "you're", engineering, "don't", invariants]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md#c6"
-    char_span: [10462, 12606]
+    char_span: [10461, 12605]
     sentence_count: 21
     key_terms: [year, people, job, last, college, country, like, love]
+    concepts: [people, college, country, english, since]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md#c7"
-    char_span: [12608, 14225]
+    char_span: [12607, 14224]
     sentence_count: 12
     key_terms: [job, people, study, comp, get, sci, better, degree]
+    concepts: [people, study, better, degree, subset]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md#c8"
-    char_span: [14227, 14892]
+    char_span: [14226, 14891]
     sentence_count: 4
     key_terms: [pressureavailable615, devs, end, integration, components, full-stack, companies, expertise]
     section: Comments

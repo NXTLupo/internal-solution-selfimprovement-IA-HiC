@@ -19,86 +19,105 @@ chunks:
     char_span: [0, 1706]
     sentence_count: 16
     key_terms: [job, work, findapath, insurance, comments, attacks, station, panic]
+    concepts: [findapath, insurance, comments, attacks, station]
     token_count: 402
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1sj2kag/i_got_the_tech_career_i_studied_for_now_all_i_can/"}]
   - id: "social-intelligence/reddit-deep/findapath/1sj2kag.md#c1"
     char_span: [1708, 3782]
     sentence_count: 24
     key_terms: [job, "don't", work, because, doing, care, "i'm", "it's"]
+    concepts: ["don't", because, doing, corporate, deadlines]
     token_count: 463
   - id: "social-intelligence/reddit-deep/findapath/1sj2kag.md#c2"
     char_span: [3784, 5933]
     sentence_count: 26
     key_terms: [corner, store, "i'm", people, guess, like, need, alienated]
+    concepts: [corner, store, people, guess, alienated]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1sj2kag.md#c5"]
     token_count: 453
   - id: "social-intelligence/reddit-deep/findapath/1sj2kag.md#c3"
     char_span: [5935, 6428]
     sentence_count: 8
     key_terms: [certs, world, get, "i've", appreciated, perspective, interested, currently]
+    concepts: [certs, world]
     token_count: 108
   - id: "social-intelligence/reddit-deep/findapath/1sj2kag.md#c4"
-    char_span: [6443, 7390]
+    char_span: [6442, 7389]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1sj2kag.md#c5"
-    char_span: [7393, 9282]
+    char_span: [7392, 9281]
     sentence_count: 13
     key_terms: [store, people, time, community, business, running, actual, corner]
+    concepts: [store, people, community, business, running]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1sj2kag.md#c2"]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/findapath/1sj2kag.md#c6"
-    char_span: [9284, 10217]
+    char_span: [9283, 10216]
     sentence_count: 10
     key_terms: [like, francisco, because, dream, cats, good, san, collectively]
+    concepts: [francisco, because, dream]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/findapath/1sj2kag.md#c7"
-    char_span: [10219, 11805]
+    char_span: [10218, 11804]
     sentence_count: 12
     key_terms: [like, pivot, being, sound, super, total, day, jobs]
+    concepts: [pivot, being, sound, super, total]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/findapath/1sj2kag.md#c8"
-    char_span: [11807, 14048]
+    char_span: [11806, 14047]
     sentence_count: 16
     key_terms: [library, tech, like, world, job, nonprofit, something, undergrad]
+    concepts: [library, world, nonprofit, something, undergrad]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1sj2kag.md#c9"
-    char_span: [13741, 14182]
+    char_span: [13740, 14181]
     sentence_count: 4
     key_terms: [transportation, connection, one-on-one, apartment, connected, employers, immediate, sometimes]
     section: Comments
     token_count: 91
   - id: "social-intelligence/reddit-deep/findapath/1sj2kag.md#c10"
-    char_span: [14184, 16554]
+    char_span: [14183, 16553]
     sentence_count: 24
     key_terms: [planning, urban, students, academic, teaching, working, job, love]
+    concepts: [planning, urban, students, academic, teaching]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/findapath/1sj2kag.md#c11"
-    char_span: [16556, 18708]
+    char_span: [16555, 18707]
     sentence_count: 24
     key_terms: [people, job, too, time, work, bookstore, another, because]
+    concepts: [people, bookstore, another, because, working]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1sj2kag.md#c13"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/findapath/1sj2kag.md#c12"
-    char_span: [18710, 20819]
+    char_span: [18709, 20818]
     sentence_count: 22
     key_terms: [get, give, job, won, work, dream, until, world]
+    concepts: [dream, until, world, beautiful, struggle]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/findapath/1sj2kag.md#c13"
-    char_span: [20821, 23209]
+    char_span: [20820, 23208]
     sentence_count: 24
     key_terms: [like, because, parents, understand, family, people, "don't", "i'm"]
+    concepts: [because, parents, understand, family, people]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1sj2kag.md#c11"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/findapath/1sj2kag.md#c14"
-    char_span: [23211, 25092]
+    char_span: [23210, 25091]
     sentence_count: 12
     key_terms: [social, development, work, subsidised, community, emergency, rewarding, software]
+    concepts: [social, development, subsidised, community, emergency]
     section: Comments
     token_count: 408
 ---

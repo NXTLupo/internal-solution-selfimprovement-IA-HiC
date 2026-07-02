@@ -19,14 +19,17 @@ content_hash: "1b27cc97992066d4"
 relevance_by_goal: {"8e9ecc469395":45}
 chunks:
   - id: "articles/reddit-deep-r-philanthropy/501e7badee.md#c0"
-    char_span: [0, 2097]
+    char_span: [0, 2096]
     sentence_count: 12
     key_terms: [dafs, philanthropyproject, philanthropy, nonprofits, https, grantwriter-speaks, because, donors]
-    token_count: 471
+    concepts: [philanthropyproject, philanthropy, grantwriter-speaks, nonprofits, https]
+    token_count: 470
+    sources: [{"n":"Reddit Deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1q6iwfc/dafs_a_grantwriter_speaks_her_mind/"}]
   - id: "articles/reddit-deep-r-philanthropy/501e7badee.md#c1"
-    char_span: [2099, 2521]
+    char_span: [2098, 2520]
     sentence_count: 6
     key_terms: [donors, salt-association6876, organizations, directives, ultimately, diligence, important, comments]
+    concepts: [donors]
     token_count: 90
 ---
 # DAFs: A Grantwriter Speaks Her Mind

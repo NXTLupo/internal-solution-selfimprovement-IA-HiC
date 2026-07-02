@@ -19,34 +19,40 @@ chunks:
     char_span: [0, 2298]
     sentence_count: 21
     key_terms: [cscareerquestions, projects, studying, because, enjoy, did, year, everything]
+    concepts: [cscareerquestions, projects, studying, because, enjoy]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qweuys/i_dont_enjoy_cs_anymore/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qweuys.md#c1"
     char_span: [2300, 2641]
     sentence_count: 2
     key_terms: [engineering, overworking, analytical, interests, something, temporary, business, comments]
     token_count: 67
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qweuys.md#c2"
-    char_span: [2656, 4852]
+    char_span: [2655, 4851]
     sentence_count: 21
     key_terms: [customer, "don't", grind, right, get, knowledge, positions, because]
+    concepts: [customer, "don't", grind, right, knowledge]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qweuys.md#c3"
-    char_span: [4854, 6385]
+    char_span: [4853, 6384]
     sentence_count: 10
     key_terms: [don, job, working, good, like, honestly, qrcode23, coding]
+    concepts: [working, honestly, qrcode23, coding]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qweuys.md#c4"
-    char_span: [6388, 8140]
+    char_span: [6387, 8139]
     sentence_count: 9
     key_terms: ["it's", job, going, applying, nothing, through, couple, little]
+    concepts: [going, applying, nothing, through, couple]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qweuys.md#c5"
-    char_span: [8144, 9997]
+    char_span: [8143, 9996]
     sentence_count: 16
     key_terms: [people, roles, shakesr12, feelings, getting, without, wanted, money]
+    concepts: [people, roles, shakesr12, feelings, getting]
     section: Comments
     token_count: 468
 ---

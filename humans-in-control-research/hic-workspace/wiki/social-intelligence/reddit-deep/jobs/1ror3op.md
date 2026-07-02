@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1851]
     sentence_count: 18
     key_terms: ["i'm", job, people, trying, been, "i've", jobs, work]
+    concepts: [people, trying, comments, classes, without]
     token_count: 437
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1ror3op/im_stuck_in_this_period_in_my_life_and_im_trying/"}]
   - id: "social-intelligence/reddit-deep/jobs/1ror3op.md#c1"
     char_span: [1865, 3115]
     sentence_count: 12
     key_terms: [get, job, experience, "doesn't", "don't", start, study, thank]
+    concepts: [experience, "doesn't", "don't", start, study]
     section: Comments
     token_count: 322
 ---

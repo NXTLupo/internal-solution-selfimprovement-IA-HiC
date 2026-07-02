@@ -21,34 +21,43 @@ chunks:
     char_span: [0, 2097]
     sentence_count: 20
     key_terms: [parents, unc, wake, school, applyingtocollege, hill, forest, going]
+    concepts: [parents, applyingtocollege, school, forest, scholarship]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md#c1"]
     token_count: 482
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1skcb5m/i_cant_choose_a_college/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md#c1"
     char_span: [2099, 2786]
     sentence_count: 6
     key_terms: [wake, tour, unc, parents, chapel, hill, forest, aid]
+    concepts: [parents, chapel, forest]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md#c0"]
     token_count: 168
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md#c2"
     char_span: [2800, 4809]
     sentence_count: 22
     key_terms: [wake, unc, student, life, decision, people, school, greek]
+    concepts: [student, decision, people, school, interacting]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md#c3"
     char_span: [4811, 6431]
     sentence_count: 14
     key_terms: [smaller, campus, chapel, hill, unc, experience, yourself, college]
+    concepts: [smaller, campus, chapel, experience, yourself]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md#c4"
     char_span: [6433, 8108]
     sentence_count: 11
     key_terms: [wake, schools, drive, probably, chapel, hill, unc, student]
+    concepts: [schools, drive, probably, chapel, student]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md#c5"
     char_span: [8110, 9396]
     sentence_count: 9
     key_terms: [school, conservatives, like, college, better, preppy, makes, visit]
+    concepts: [conservatives, school, college, better, preppy]
     section: Comments
     token_count: 325
 ---

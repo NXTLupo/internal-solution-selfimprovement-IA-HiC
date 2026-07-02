@@ -19,14 +19,17 @@ content_hash: "8737c95a7144774b"
 relevance_by_goal: {"8e9ecc469395":55}
 chunks:
   - id: "articles/reddit-deep-r-nonprofit/fe46d1cefd.md#c0"
-    char_span: [0, 2260]
+    char_span: [0, 2259]
     sentence_count: 18
     key_terms: [acknowledgment, letter, letters, nonprofit, director, receive, simple, personalized]
-    token_count: 448
+    concepts: [acknowledgment, letter, letters, nonprofit, director]
+    token_count: 447
+    sources: [{"n":"Reddit Deep: r/nonprofit","u":"https://www.reddit.com/r/nonprofit/comments/1txpdjs/acknowledgment_letter_advice/"}]
   - id: "articles/reddit-deep-r-nonprofit/fe46d1cefd.md#c1"
-    char_span: [2262, 3624]
+    char_span: [2261, 3623]
     sentence_count: 8
     key_terms: [letter, personalized, "don't", boilerplate, donors, strategyancient6770, care, get]
+    concepts: [letter, personalized, boilerplate, "don't", donors]
     token_count: 313
 ---
 # Acknowledgment Letter Advice

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 306]
     sentence_count: 2
     key_terms: [gradschool, comments, randomlebaneseperson, reddit-deep, recommend, business, career, majors]
+    concepts: [gradschool, comments]
     token_count: 86
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1q4mxsi/which_majorscareer_paths_would_you_recommend_a/"}]
 ---
 # Which Majors/Career paths would you recommend a business grad to pursue?
 

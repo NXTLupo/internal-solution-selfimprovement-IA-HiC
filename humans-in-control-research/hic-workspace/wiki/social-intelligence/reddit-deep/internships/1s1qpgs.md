@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1475]
     sentence_count: 12
     key_terms: [interviews, networking, interview, solutions, team, infrastructure, nvidia, internships]
+    concepts: [interviews, networking, interview, solutions, infrastructure]
     token_count: 312
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1s1qpgs/nvidia_solutions_architect_intern_interview/"}]
   - id: "social-intelligence/reddit-deep/internships/1s1qpgs.md#c1"
-    char_span: [1490, 1764]
+    char_span: [1489, 1763]
     sentence_count: 2
     key_terms: [routineother9503, experience, excitingsurprise8817, work, internship, interviews, noticed, likely]
+    concepts: [routineother9503, experience]
     section: Comments
     token_count: 74
 ---

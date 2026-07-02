@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 1918]
     sentence_count: 13
     key_terms: [internships, comments, company, reddit, https, com, week, www]
+    concepts: [internships, comments, company, reddit, https]
     token_count: 475
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1snoeas/update_offer_deadline_tomorrow_vs_fortune_100/"}]
   - id: "social-intelligence/reddit-deep/internships/1snoeas.md#c1"
     char_span: [1920, 4222]
     sentence_count: 23
     key_terms: [company, interview, director, supervisor, interviewers, "don't", end, internship]
+    concepts: [company, interview, director, supervisor, interviewers]
     token_count: 458
   - id: "social-intelligence/reddit-deep/internships/1snoeas.md#c2"
-    char_span: [4237, 5313]
+    char_span: [4236, 5312]
     sentence_count: 4
     key_terms: [offer, company, experience, future, renege, resume, appropriate-tutor587, best]
+    concepts: [offer, company, experience, future, renege]
     section: Comments
     token_count: 279
 ---

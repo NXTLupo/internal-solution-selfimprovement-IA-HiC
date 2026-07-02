@@ -21,53 +21,63 @@ chunks:
     char_span: [0, 1380]
     sentence_count: 12
     key_terms: [comments, difficulties, gradschool, including, leaving, program, grad, read]
+    concepts: [comments, difficulties, gradschool, including, leaving]
     token_count: 294
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1kvljeh/are_they_fr/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1kvljeh.md#c1"
     char_span: [1394, 3117]
     sentence_count: 14
     key_terms: [read, luckyricochet, introduction, works, conclusions, book, conclusion, understand]
+    concepts: [luckyricochet, introduction, conclusions, conclusion, understand]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/gradschool/1kvljeh.md#c2"
     char_span: [3119, 4732]
     sentence_count: 13
     key_terms: [read, papers, use, something, excerpts, article, reading, "there's"]
+    concepts: [papers, something, excerpts, article, reading]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/gradschool/1kvljeh.md#c3"
     char_span: [4734, 6716]
     sentence_count: 15
     key_terms: [montymolesimp, week, reading, themarshmallowfairy, hours, weeks, per, semester]
+    concepts: [montymolesimp, themarshmallowfairy, reading, hours, weeks]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1kvljeh.md#c4"
     char_span: [6496, 6732]
     sentence_count: 1
     key_terms: [thank, get, montymolesimp, abstract, reading, points, learn, major]
+    concepts: [thank]
     section: Comments
     token_count: 70
   - id: "social-intelligence/reddit-deep/gradschool/1kvljeh.md#c5"
     char_span: [6734, 8889]
     sentence_count: 21
     key_terms: [undergrad, class, get, time, graduate, school, expectation, mods-begone]
+    concepts: [undergrad, class, graduate, school, expectation]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1kvljeh.md#c6"
     char_span: [8618, 10227]
     sentence_count: 15
     key_terms: [readings, assignments, school, get, degree, passionate, undergrad, complete]
+    concepts: [readings, assignments, school, degree, passionate]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/gradschool/1kvljeh.md#c7"
     char_span: [10229, 12490]
     sentence_count: 16
     key_terms: [grad, school, like, course, people, everything, doing, genuinely]
+    concepts: [school, everything, course, people, genuinely]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1kvljeh.md#c8"
     char_span: [12216, 13246]
     sentence_count: 5
     key_terms: [undergrad, readings, quickly, started, digest, doing, good, extracurriculars]
+    concepts: [undergrad, readings, quickly, started, digest]
     section: Comments
     token_count: 254
 ---

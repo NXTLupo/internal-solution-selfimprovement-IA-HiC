@@ -20,31 +20,38 @@ chunks:
     char_span: [0, 2150]
     sentence_count: 25
     key_terms: [logistics, below, since, inflation, sentiment, gas, consumer, prices]
+    concepts: [logistics, inflation, sentiment, below, since]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1sy3fdf/catch_up_on_what_happened_this_week_in_logistics/"}]
   - id: "social-intelligence/reddit-deep/logistics/1sy3fdf.md#c1"
     char_span: [2152, 3998]
     sentence_count: 11
     key_terms: [workers, against, company, letters, rollins, pest-control, "ftc's", noncompetes]
+    concepts: [workers, against, company, letters, rollins]
     token_count: 375
   - id: "social-intelligence/reddit-deep/logistics/1sy3fdf.md#c2"
     char_span: [4000, 6543]
     sentence_count: 22
     key_terms: [package, noncompetes, sales, customer, network, whether, workers, across]
+    concepts: [noncompetes, package, sales, customer, relationships]
     token_count: 485
   - id: "social-intelligence/reddit-deep/logistics/1sy3fdf.md#c3"
     char_span: [6545, 8800]
     sentence_count: 14
     key_terms: [delivery, descartes, warehouse, tracking, million, driver, "honeywell's", performance]
+    concepts: [delivery, descartes, warehouse, tracking, million]
     token_count: 456
   - id: "social-intelligence/reddit-deep/logistics/1sy3fdf.md#c4"
     char_span: [8802, 10260]
     sentence_count: 11
     key_terms: [production, china, tesla, california, designed, electric, roughly, public]
+    concepts: [production, california, china, tesla, designed]
     token_count: 310
   - id: "social-intelligence/reddit-deep/logistics/1sy3fdf.md#c5"
-    char_span: [10275, 11019]
+    char_span: [10274, 11018]
     sentence_count: 5
     key_terms: [charlesholmes1, stealthagents, no-requirement-7355, interesting, appreciate, definitely, especially, experience]
+    concepts: [charlesholmes1, stealthagents]
     section: Comments
     token_count: 198
 ---

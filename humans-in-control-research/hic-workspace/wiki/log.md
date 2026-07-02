@@ -5,428 +5,962 @@ chunks:
     char_span: [0, 918]
     sentence_count: 2
     key_terms: [pages, ingest, benchmark, operation, evidence, created, source, brand]
+    concepts: [pages, ingest, benchmark, operation, evidence]
     section: "[2026-04-10] bootstrap | Wiki Architecture Initialization"
     token_count: 190
   - id: "log.md#c1"
     char_span: [972, 2246]
     sentence_count: 2
     key_terms: [wiki, hic-workspace, integration, frameworks, getenhancedframeworkprompt, evidence, services, prompts]
+    concepts: [hic-workspace, integration, frameworks, evidence, services]
     section: "[2026-04-10] bootstrap | Wiki Bootstrap Complete"
     token_count: 326
   - id: "log.md#c2"
     char_span: [2318, 3930]
     sentence_count: 1
     key_terms: [social-intelligence, research, methodologies, sources-registry, deep-research, wiki, social, architecture]
+    concepts: [social-intelligence, research, methodologies, sources-registry, deep-research]
     section: "[2026-04-10] bootstrap | Data Source & Research Intelligence Layer"
     token_count: 361
   - id: "log.md#c3"
     char_span: [3982, 6631]
     sentence_count: 1
     key_terms: [constraints, score, recommendations, date, personas, sources, themes, comprehensive]
+    concepts: [constraints, recommendations, score, personas, sources]
+    related_chunks: ["log.md#c4", "log.md#c5", "log.md#c6", "log.md#c7", "log.md#c8"]
     section: "[2026-04-12] verify | Deployment verification / [2026-04-12] generate | Quality score: recommendations / [2026-04-12] generate | Quality score: recommendations / [2026-04-12] generate | Create a comprehensive strategy and roadmap of tactics for Northeastern Universi / [2026-04-12] ingest | Engagement memory: create-a-comprehensive-strategy-and-roadmap-of-tac / [2026-04-13] generate | Quality score: recommendations / [2026-04-13] generate | Quality score: recommendations / [2026-04-13] generate | Create a comprehensive strategy and roadmap of tactics for Northeastern Universi / [2026-04-13] ingest | Engagement memory: create-a-comprehensive-strategy-and-roadmap-of-tac / [2026-04-13] generate | Quality score: recommendations / [2026-04-13] generate | Quality score: recommendations / [2026-04-13] generate | Create a comprehensive strategy and roadmap of tactics for Northeastern Universi / [2026-04-13] ingest | Engagement memory: create-a-comprehensive-strategy-and-roadmap-of-tac / [2026-04-13] generate | Quality score: journey_map / [2026-04-13] generate | Quality score: tech_architecture / [2026-04-13] generate | Quality score: prd / [2026-04-13] generate | Quality score: roadmap / [2026-04-13] generate | Quality score: recommendations"
     token_count: 501
+    sources: [{"n":"147","u":""}]
   - id: "log.md#c4"
     char_span: [6691, 9100]
     sentence_count: 1
     key_terms: [constraints, score, date, recommendations, personas, sources, themes, comprehensive]
+    concepts: [constraints, score, recommendations, personas, sources]
+    related_chunks: ["log.md#c3", "log.md#c5", "log.md#c6", "log.md#c7", "log.md#c8"]
     section: "[2026-04-13] generate | Quality score: gap_analysis / [2026-04-13] generate | Quality score: tech_audit / [2026-04-13] generate | Quality score: competitive_analysis / [2026-04-13] generate | Create a comprehensive strategy and roadmap of tactics for Northeastern Universi / [2026-04-13] ingest | Engagement memory: create-a-comprehensive-strategy-and-roadmap-of-tac / [2026-04-13] generate | Quality score: journey_map / [2026-04-13] generate | Quality score: tech_architecture / [2026-04-13] generate | Quality score: prd / [2026-04-13] generate | Quality score: roadmap / [2026-04-13] generate | Quality score: recommendations / [2026-04-13] generate | Quality score: gap_analysis / [2026-04-13] generate | Quality score: tech_audit / [2026-04-13] generate | Quality score: competitive_analysis / [2026-04-14] generate | Quality score: journey_map / [2026-04-14] generate | Quality score: journey_map / [2026-04-14] generate | Quality score: tech_architecture / [2026-04-14] generate | Quality score: prd / [2026-04-14] generate | Quality score: roadmap / [2026-04-14] generate | Quality score: recommendations / [2026-04-14] generate | Quality score: gap_analysis"
     token_count: 509
+    sources: [{"n":"147","u":""}]
   - id: "log.md#c5"
     char_span: [9158, 11584]
     sentence_count: 1
     key_terms: [constraints, score, date, recommendations, personas, sources, themes, comprehensive]
+    concepts: [constraints, score, recommendations, personas, sources]
+    related_chunks: ["log.md#c3", "log.md#c4", "log.md#c6", "log.md#c7", "log.md#c8"]
     section: "[2026-04-14] generate | Quality score: tech_audit / [2026-04-14] generate | Quality score: competitive_analysis / [2026-04-14] generate | Create a comprehensive strategy and roadmap of tactics for Northeastern Universi / [2026-04-14] ingest | Engagement memory: create-a-comprehensive-strategy-and-roadmap-of-tac / [2026-04-14] generate | Quality score: journey_map / [2026-04-14] generate | Quality score: tech_architecture / [2026-04-14] generate | Quality score: prd / [2026-04-14] generate | Quality score: roadmap / [2026-04-14] generate | Quality score: recommendations / [2026-04-14] generate | Quality score: gap_analysis / [2026-04-14] generate | Quality score: tech_audit / [2026-04-14] generate | Quality score: competitive_analysis / [2026-04-14] generate | Create a comprehensive strategy and roadmap of tactics for Northeastern Universi / [2026-04-14] ingest | Engagement memory: create-a-comprehensive-strategy-and-roadmap-of-tac / [2026-04-14] generate | Quality score: journey_map / [2026-04-14] generate | Quality score: journey_map / [2026-04-14] generate | Quality score: tech_architecture / [2026-04-14] generate | Quality score: prd"
     token_count: 490
+    sources: [{"n":"147","u":""}]
   - id: "log.md#c6"
     char_span: [11639, 14052]
     sentence_count: 1
     key_terms: [constraints, score, date, recommendations, personas, sources, themes, comprehensive]
+    concepts: [constraints, score, recommendations, personas, sources]
+    related_chunks: ["log.md#c3", "log.md#c4", "log.md#c5", "log.md#c7", "log.md#c8"]
     section: "[2026-04-14] generate | Quality score: roadmap / [2026-04-14] generate | Quality score: recommendations / [2026-04-14] generate | Quality score: gap_analysis / [2026-04-14] generate | Quality score: tech_audit / [2026-04-14] generate | Quality score: competitive_analysis / [2026-04-14] generate | Quality score: journey_map / [2026-04-14] generate | Quality score: tech_architecture / [2026-04-14] generate | Quality score: prd / [2026-04-14] generate | Quality score: roadmap / [2026-04-14] generate | Quality score: recommendations / [2026-04-14] generate | Quality score: gap_analysis / [2026-04-14] generate | Quality score: tech_audit / [2026-04-14] generate | Quality score: competitive_analysis / [2026-04-14] generate | Create a comprehensive strategy and roadmap of tactics for Northeastern Universi / [2026-04-14] ingest | Engagement memory: create-a-comprehensive-strategy-and-roadmap-of-tac / [2026-04-15] generate | Quality score: journey_map / [2026-04-15] generate | Quality score: tech_architecture / [2026-04-15] generate | Quality score: prd / [2026-04-15] generate | Quality score: roadmap / [2026-04-15] generate | Quality score: recommendations"
     token_count: 509
+    sources: [{"n":"147","u":""}]
   - id: "log.md#c7"
     char_span: [14112, 16737]
     sentence_count: 1
     key_terms: [constraints, score, date, recommendations, personas, sources, themes, comprehensive]
+    concepts: [constraints, score, recommendations, personas, sources]
+    related_chunks: ["log.md#c3", "log.md#c4", "log.md#c5", "log.md#c6", "log.md#c8"]
     section: "[2026-04-15] generate | Quality score: gap_analysis / [2026-04-15] generate | Quality score: tech_audit / [2026-04-15] generate | Quality score: competitive_analysis / [2026-04-15] learn | Anti-pattern: User consistently addeds \"Updated Slide 12: layout\" / [2026-04-15] generate | Create a comprehensive strategy and roadmap of tactics for Northeastern Universi / [2026-04-15] learn | Anti-pattern: User consistently correcteds \"source_curation\" / [2026-04-15] ingest | Engagement memory: create-a-comprehensive-strategy-and-roadmap-of-tac / [2026-04-15] generate | Quality score: journey_map / [2026-04-15] generate | Quality score: tech_architecture / [2026-04-15] generate | Quality score: prd / [2026-04-15] generate | Quality score: roadmap / [2026-04-15] generate | Quality score: recommendations / [2026-04-15] generate | Quality score: gap_analysis / [2026-04-15] generate | Quality score: tech_audit / [2026-04-15] generate | Quality score: competitive_analysis / [2026-04-15] generate | Create a comprehensive strategy and roadmap of tactics for Northeastern Universi / [2026-04-15] ingest | Engagement memory: create-a-comprehensive-strategy-and-roadmap-of-tac / [2026-04-15] generate | Quality score: journey_map / [2026-04-15] generate | Quality score: tech_architecture"
     token_count: 502
+    sources: [{"n":"147","u":""}]
   - id: "log.md#c8"
     char_span: [16788, 19082]
     sentence_count: 1
     key_terms: [constraints, score, date]
+    concepts: [constraints, score]
+    related_chunks: ["log.md#c3", "log.md#c4", "log.md#c5", "log.md#c6", "log.md#c7"]
     section: "[2026-04-15] generate | Quality score: prd / [2026-04-15] generate | Quality score: roadmap / [2026-04-15] generate | Quality score: recommendations / [2026-04-15] generate | Quality score: gap_analysis / [2026-04-15] generate | Quality score: tech_audit / [2026-04-15] generate | Quality score: competitive_analysis / [2026-04-16] generate | Quality score: journey_map / [2026-04-16] generate | Quality score: tech_architecture / [2026-04-16] generate | Quality score: prd / [2026-04-16] generate | Quality score: roadmap / [2026-04-16] generate | Quality score: recommendations / [2026-04-16] generate | Quality score: gap_analysis / [2026-04-16] generate | Quality score: tech_audit / [2026-04-16] generate | Quality score: competitive_analysis / [2026-04-16] generate | Quality score: journey_map / [2026-04-16] generate | Quality score: tech_architecture / [2026-04-16] generate | Quality score: journey_map / [2026-04-16] generate | Quality score: tech_architecture / [2026-04-16] generate | Quality score: journey_map / [2026-04-16] generate | Quality score: tech_architecture / [2026-04-16] generate | Quality score: prd"
     token_count: 504
   - id: "log.md#c9"
     char_span: [19137, 21545]
     sentence_count: 1
     key_terms: [constraints, score, date, recommendations, personas, sources, themes, comprehensive]
+    concepts: [constraints, score, recommendations, personas, sources]
+    related_chunks: ["log.md#c3", "log.md#c4", "log.md#c5", "log.md#c6", "log.md#c7"]
     section: "[2026-04-16] generate | Quality score: roadmap / [2026-04-16] generate | Quality score: recommendations / [2026-04-16] generate | Quality score: gap_analysis / [2026-04-16] generate | Quality score: tech_audit / [2026-04-16] generate | Quality score: competitive_analysis / [2026-04-16] generate | Quality score: journey_map / [2026-04-16] generate | Quality score: tech_architecture / [2026-04-16] generate | Quality score: prd / [2026-04-16] generate | Quality score: roadmap / [2026-04-16] generate | Quality score: recommendations / [2026-04-16] generate | Quality score: gap_analysis / [2026-04-16] generate | Quality score: tech_audit / [2026-04-16] generate | Quality score: competitive_analysis / [2026-04-16] generate | Create a comprehensive strategy and roadmap of tactics for Northeastern Universi / [2026-04-16] ingest | Engagement memory: create-a-comprehensive-strategy-and-roadmap-of-tac / [2026-04-16] generate | Quality score: journey_map / [2026-04-18] generate | Quality score: journey_map / [2026-04-18] generate | Quality score: tech_architecture / [2026-04-18] generate | Quality score: prd / [2026-04-18] generate | Quality score: roadmap"
     token_count: 509
+    sources: [{"n":"147","u":""}]
   - id: "log.md#c10"
     char_span: [21603, 23834]
     sentence_count: 1
     key_terms: [constraints, score, date, recommendations, personas, sources, themes, evidence]
+    concepts: [constraints, score, recommendations, personas, sources]
+    related_chunks: ["log.md#c3", "log.md#c4", "log.md#c5", "log.md#c6", "log.md#c7"]
     section: "[2026-04-18] generate | Quality score: tech_audit / [2026-04-20] generate | Quality score: tech_architecture / [2026-04-20] generate | Quality score: prd / [2026-04-20] generate | Quality score: roadmap / [2026-04-20] generate | Quality score: tech_audit / [2026-04-20] generate | ROLE You are an elite market research analyst embedded with a University's Advan / [2026-04-20] ingest | Engagement memory: role-you-are-an-elite-market-research-analyst-embe / [2026-04-21] generate | Quality score: tech_architecture / [2026-04-21] generate | Quality score: prd / [2026-04-21] generate | Quality score: roadmap / [2026-04-21] generate | Quality score: tech_audit / [2026-04-21] generate | Identify named university case studies from 2025 and 2026, specifically related / [2026-04-21] ingest | Engagement memory: identify-named-university-case-studies-from-2025-a / [2026-05-22] session | AI Analyst session started / [2026-05-22] lint | Wiki health check (run lint_1779451882694)"
     token_count: 484
+    sources: [{"n":"187","u":""},{"n":"169","u":""}]
   - id: "log.md#c11"
     char_span: [23890, 25719]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15", "log.md#c16"]
     section: "[2026-05-22] session | AI Analyst session started / [2026-05-22] learn | Learning pass learn_1779452217553 / [2026-05-22] learn | Learning pass learn_1779452272488 / [2026-05-22] session | AI Analyst session started / [2026-05-22] session | AI Analyst session started / [2026-05-22] learn | Learning pass learn_1779453164057 / [2026-05-22] compile | Wiki compile run compile_1779453211760 / [2026-05-22] session | AI Analyst session started / [2026-05-22] session | AI Analyst session started"
     token_count: 511
   - id: "log.md#c12"
     char_span: [25777, 27456]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c13", "log.md#c14", "log.md#c15", "log.md#c16"]
     section: "[2026-05-22] session | AI Analyst session started"
     token_count: 495
   - id: "log.md#c13"
     char_span: [27514, 29196]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c14", "log.md#c15", "log.md#c16"]
     section: "[2026-05-22] session | AI Analyst session started / [2026-05-22] lint | Wiki health check (run lint_1779483915780)"
     token_count: 493
   - id: "log.md#c14"
     char_span: [29252, 30936]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, warnings, like]
+    concepts: [applewebkit, mozilla, windows, warnings, gecko]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c15", "log.md#c16"]
     section: "[2026-05-22] session | AI Analyst session started / [2026-05-22] lint | Wiki health check (run lint_1779484520733) / [2026-05-22] session | AI Analyst session started / [2026-05-22] lint | Wiki health check (run lint_1779484766801) / [2026-05-22] session | AI Analyst session started / [2026-05-22] session | AI Analyst session started / [2026-05-22] lint | Wiki health check (run lint_1779485050523) / [2026-05-22] session | AI Analyst session started / [2026-05-22] lint | Wiki health check (run lint_1779485195485)"
     token_count: 487
   - id: "log.md#c15"
     char_span: [30992, 32630]
     sentence_count: 1
     key_terms: [applewebkit, warnings, mozilla, windows, errors, gecko, khtml, win64]
+    concepts: [applewebkit, warnings, mozilla, windows, errors]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c16"]
     section: "[2026-05-22] session | AI Analyst session started / [2026-05-22] lint | Wiki health check (run lint_1779487126904) / [2026-05-22] session | AI Analyst session started / [2026-05-22] lint | Wiki health check (run lint_1779492130503) / [2026-05-22] compile | Wiki compile run compile_1779493401234 / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779494960891) / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779495300115)"
     token_count: 459
   - id: "log.md#c16"
     char_span: [32686, 34377]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, warnings, like]
+    concepts: [applewebkit, mozilla, windows, warnings, gecko]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779496079035) / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779502677639) / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779503338648) / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779504171468) / [2026-05-23] session | AI Analyst session started"
     token_count: 495
   - id: "log.md#c17"
     char_span: [34435, 36126]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, warnings, like]
+    concepts: [applewebkit, mozilla, windows, warnings, gecko]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779531981906) / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779532367504) / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779532578112) / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779532635491) / [2026-05-23] session | AI Analyst session started"
     token_count: 495
   - id: "log.md#c18"
     char_span: [36197, 37884]
     sentence_count: 1
     key_terms: [warnings, applewebkit, errors, info, mozilla, windows, gecko, khtml]
+    concepts: [warnings, applewebkit, errors, mozilla, windows]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-05-23] lint | Wiki health check (run lint_1779536990524) / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779537382340) / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779537428822) / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779537889169) / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779538488891)"
     token_count: 495
   - id: "log.md#c19"
     char_span: [37952, 39702]
     sentence_count: 1
     key_terms: [none, clusters, rejected, applied, queued, applewebkit, warnings, mozilla]
+    concepts: [clusters, rejected, applied, queued]
+    related_chunks: ["log.md#c20", "log.md#c23", "log.md#c31", "log.md#c34", "log.md#c46"]
     section: "[2026-05-23] compile | Wiki compile run compile_1779539093665 / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779547456721) / [2026-05-23] compile | Wiki compile run compile_1779548615769 / [2026-05-23] learn | Learning pass learn_1779553974488 / [2026-05-23] learn | Learning pass learn_1779553976206 / [2026-05-23] learn | Learning pass learn_1779553978614 / [2026-05-23] learn | Learning pass learn_1779554016175 / [2026-05-23] learn | Learning pass learn_1779554314639"
     token_count: 465
   - id: "log.md#c20"
     char_span: [39765, 41402]
     sentence_count: 1
     key_terms: [none, clusters, rejected, applied, queued, applewebkit, warnings, mozilla]
+    concepts: [clusters, rejected, applied, queued, applewebkit]
+    related_chunks: ["log.md#c19", "log.md#c23", "log.md#c31", "log.md#c34", "log.md#c46"]
     section: "[2026-05-23] learn | Learning pass learn_1779554316243 / [2026-05-23] learn | Learning pass learn_1779554571448 / [2026-05-23] learn | Learning pass learn_1779554575258 / [2026-05-23] learn | Learning pass learn_1779554643296 / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779560423687) / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779560594692)"
     token_count: 464
   - id: "log.md#c21"
     char_span: [41458, 43108]
     sentence_count: 1
     key_terms: [applewebkit, warnings, mozilla, windows, errors, gecko, khtml, win64]
+    concepts: [applewebkit, warnings, mozilla, windows, errors]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779560784650) / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779561962039) / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779562111223) / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779564852185) / [2026-05-23] compile | Wiki compile run compile_1779566130869"
     token_count: 465
   - id: "log.md#c22"
     char_span: [43166, 44811]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779566514002) / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779566629376) / [2026-05-23] compile | Wiki compile run compile_1779567869700 / [2026-05-23] session | AI Analyst session started / [2026-05-23] lint | Wiki health check (run lint_1779572012896) / [2026-05-24] session | AI Analyst session started / [2026-05-24] session | AI Analyst session started"
     token_count: 465
   - id: "log.md#c23"
     char_span: [44882, 46756]
     sentence_count: 1
     key_terms: [none, clusters, rejected, applied, queued, warnings, errors, info]
+    concepts: [clusters, rejected, applied, queued]
+    related_chunks: ["log.md#c19", "log.md#c20", "log.md#c31", "log.md#c34", "log.md#c46"]
     section: "[2026-05-24] lint | Wiki health check (run lint_1779631201122) / [2026-05-24] learn | Learning pass learn_1779631935960 / [2026-05-24] learn | Learning pass learn_1779631948261 / [2026-05-24] learn | Learning pass learn_1779632021855 / [2026-05-24] compile | Wiki compile run compile_1779632037164 / [2026-05-24] learn | Learning pass learn_1779632086429 / [2026-05-24] learn | Learning pass learn_1779632794059 / [2026-05-24] learn | Learning pass learn_1779632795127 / [2026-05-24] learn | Learning pass learn_1779632833440"
     token_count: 507
   - id: "log.md#c24"
     char_span: [46814, 48457]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-05-24] session | AI Analyst session started / [2026-05-24] lint | Wiki health check (run lint_1779640565091) / [2026-05-24] session | AI Analyst session started / [2026-05-24] lint | Wiki health check (run lint_1779641857266) / [2026-05-25] session | AI Analyst session started / [2026-05-25] session | AI Analyst session started / [2026-05-25] lint | Wiki health check (run lint_1779713423945) / [2026-05-25] compile | Wiki compile run compile_1779714483826 / [2026-05-25] session | AI Analyst session started"
     token_count: 465
   - id: "log.md#c25"
     char_span: [48515, 50289]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-05-25] session | AI Analyst session started / [2026-05-25] compile | Wiki compile run compile_1779724503062 / [2026-05-25] session | AI Analyst session started / [2026-05-25] compile | Wiki compile run compile_1779734191664 / [2026-05-25] session | AI Analyst session started / [2026-05-25] session | AI Analyst session started / [2026-05-25] session | AI Analyst session started / [2026-05-25] session | AI Analyst session started / [2026-05-26] session | AI Analyst session started"
     token_count: 490
   - id: "log.md#c26"
     char_span: [50347, 52036]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-05-26] session | AI Analyst session started / [2026-05-26] lint | Wiki health check (run lint_1779796848236)"
     token_count: 495
   - id: "log.md#c27"
     char_span: [52092, 53795]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, warnings, like]
+    concepts: [applewebkit, mozilla, windows, warnings, gecko]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-05-26] session | AI Analyst session started / [2026-05-26] lint | Wiki health check (run lint_1779797439851) / [2026-05-26] session | AI Analyst session started / [2026-05-26] lint | Wiki health check (run lint_1779797683914) / [2026-05-26] session | AI Analyst session started / [2026-05-26] lint | Wiki health check (run lint_1779797734867) / [2026-05-26] session | AI Analyst session started / [2026-05-26] lint | Wiki health check (run lint_1779798077454) / [2026-05-26] session | AI Analyst session started"
     token_count: 495
   - id: "log.md#c28"
     char_span: [53866, 55652]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-05-26] lint | Wiki health check (run lint_1779799085675) / [2026-05-26] session | AI Analyst session started / [2026-05-26] lint | Wiki health check (run lint_1779799551025) / [2026-05-26] compile | Wiki compile run compile_1779800355851 / [2026-05-26] session | AI Analyst session started / [2026-05-26] lint | Wiki health check (run lint_1779802100697) / [2026-05-26] session | AI Analyst session started / [2026-05-26] session | AI Analyst session started / [2026-05-26] compile | Wiki compile run compile_1779806241851 / [2026-05-26] session | AI Analyst session started"
     token_count: 494
   - id: "log.md#c29"
     char_span: [55710, 57304]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, none, gecko, khtml, win64, like]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-05-26] session | AI Analyst session started / [2026-05-26] learn | Learning pass learn_1779825179412 / [2026-05-26] learn | Learning pass learn_1779825177903 / [2026-05-26] learn | Learning pass learn_1779825210839 / [2026-05-26] session | AI Analyst session started / [2026-05-26] session | AI Analyst session started"
     token_count: 458
   - id: "log.md#c30"
     char_span: [57362, 59041]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-05-26] session | AI Analyst session started / [2026-05-27] session | AI Analyst session started / [2026-05-27] session | AI Analyst session started / [2026-05-27] session | AI Analyst session started / [2026-05-27] session | AI Analyst session started / [2026-05-27] session | AI Analyst session started / [2026-05-27] session | AI Analyst session started"
     token_count: 495
   - id: "log.md#c31"
     char_span: [59099, 60730]
     sentence_count: 1
     key_terms: [none, applewebkit, clusters, rejected, applied, mozilla, windows, queued]
+    concepts: [applewebkit, clusters, rejected, applied, mozilla]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-05-27] session | AI Analyst session started / [2026-05-27] learn | Learning pass learn_1779902455983 / [2026-05-27] learn | Learning pass learn_1779902457046 / [2026-05-27] learn | Learning pass learn_1779902458081 / [2026-05-27] learn | Learning pass learn_1779902480750"
     token_count: 464
   - id: "log.md#c32"
     char_span: [60788, 62418]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-05-27] session | AI Analyst session started / [2026-05-28] session | AI Analyst session started / [2026-05-28] session | AI Analyst session started / [2026-05-28] compile | Wiki compile run compile_1779929608160 / [2026-05-28] session | AI Analyst session started / [2026-05-28] session | AI Analyst session started"
     token_count: 465
   - id: "log.md#c33"
     char_span: [62476, 64155]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-05-28] session | AI Analyst session started / [2026-05-29] session | AI Analyst session started / [2026-05-29] session | AI Analyst session started / [2026-05-29] session | AI Analyst session started / [2026-05-29] session | AI Analyst session started / [2026-05-29] session | AI Analyst session started / [2026-05-29] session | AI Analyst session started / [2026-05-29] session | AI Analyst session started / [2026-05-29] session | AI Analyst session started"
     token_count: 495
   - id: "log.md#c34"
     char_span: [64213, 66087]
     sentence_count: 1
     key_terms: [none, clusters, rejected, applied, queued, applewebkit, mozilla, windows]
+    concepts: [clusters, rejected, applied, queued, applewebkit]
+    related_chunks: ["log.md#c19", "log.md#c20", "log.md#c23", "log.md#c31", "log.md#c46"]
     section: "[2026-05-29] session | AI Analyst session started / [2026-05-29] compile | Wiki compile run compile_1780086573531 / [2026-05-29] session | AI Analyst session started / [2026-05-29] learn | Learning pass learn_1780090488858 / [2026-05-29] learn | Learning pass learn_1780090490186 / [2026-05-29] learn | Learning pass learn_1780090491265 / [2026-05-29] learn | Learning pass learn_1780090566171 / [2026-05-29] learn | Learning pass learn_1780090568387 / [2026-05-29] learn | Learning pass learn_1780090679288"
     token_count: 509
   - id: "log.md#c35"
     char_span: [66145, 67975]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-05-29] session | AI Analyst session started / [2026-05-29] compile | Wiki compile run compile_1780095293748 / [2026-05-30] session | AI Analyst session started / [2026-05-30] compile | Wiki compile run compile_1780167059510 / [2026-05-31] session | AI Analyst session started"
     token_count: 506
   - id: "log.md#c36"
     char_span: [68033, 69742]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-05-31] session | AI Analyst session started / [2026-05-31] compile | Wiki compile run compile_1780264425171 / [2026-05-31] session | AI Analyst session started / [2026-05-31] compile | Wiki compile run compile_1780270672496 / [2026-06-01] session | AI Analyst session started / [2026-06-01] session | AI Analyst session started / [2026-06-01] session | AI Analyst session started / [2026-06-01] learn | Learning pass learn_1780286124906 / [2026-06-01] learn | Learning pass learn_1780286126872"
     token_count: 463
   - id: "log.md#c37"
     char_span: [69805, 71494]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-01] learn | Learning pass learn_1780286155651 / [2026-06-01] session | AI Analyst session started / [2026-06-01] session | AI Analyst session started / [2026-06-01] session | AI Analyst session started / [2026-06-01] session | AI Analyst session started / [2026-06-01] session | AI Analyst session started / [2026-06-01] session | AI Analyst session started / [2026-06-01] compile | Wiki compile run compile_1780331385016 / [2026-06-01] session | AI Analyst session started"
     token_count: 479
   - id: "log.md#c38"
     char_span: [71552, 73384]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-01] session | AI Analyst session started / [2026-06-01] compile | Wiki compile run compile_1780339906526 / [2026-06-01] session | AI Analyst session started / [2026-06-01] session | AI Analyst session started / [2026-06-02] session | AI Analyst session started / [2026-06-02] lint | Wiki health check (run lint_1780417860121) / [2026-06-02] session | AI Analyst session started / [2026-06-02] session | AI Analyst session started / [2026-06-02] session | AI Analyst session started / [2026-06-02] compile | Wiki compile run compile_1780421069554"
     token_count: 504
   - id: "log.md#c39"
     char_span: [73454, 75272]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-02] compile | Wiki compile run compile_1780422692591 / [2026-06-02] session | AI Analyst session started / [2026-06-02] session | AI Analyst session started / [2026-06-02] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started / [2026-06-03] compile | Wiki compile run compile_1780448234583 / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started"
     token_count: 506
   - id: "log.md#c40"
     char_span: [75330, 76988]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-03] session | AI Analyst session started / [2026-06-03] compile | Wiki compile run compile_1780453573681 / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started"
     token_count: 473
   - id: "log.md#c41"
     char_span: [77046, 78877]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-03] session | AI Analyst session started / [2026-06-03] compile | Wiki compile run compile_1780456450204 / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started / [2026-06-03] compile | Wiki compile run compile_1780489397817 / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started"
     token_count: 506
   - id: "log.md#c42"
     char_span: [78935, 80597]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-03] session | AI Analyst session started / [2026-06-03] compile | Wiki compile run compile_1780500922129 / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started"
     token_count: 473
   - id: "log.md#c43"
     char_span: [80656, 82495]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-03] session | AI Analyst session started / [2026-06-03] compile | Wiki compile run compile_1780504683296 / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started / [2026-06-03] session | AI Analyst session started / [2026-06-03] compile | Wiki compile run compile_1780507665806 / [2026-06-03] session | AI Analyst session started"
     token_count: 506
   - id: "log.md#c44"
     char_span: [82554, 84220]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-03] session | AI Analyst session started / [2026-06-03] compile | Wiki compile run compile_1780514462960 / [2026-06-05] session | AI Analyst session started / [2026-06-05] session | AI Analyst session started"
     token_count: 473
   - id: "log.md#c45"
     char_span: [84279, 85966]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-05] session | AI Analyst session started"
     token_count: 495
   - id: "log.md#c46"
     char_span: [86030, 87871]
     sentence_count: 1
     key_terms: [none, clusters, rejected, applied, queued, applewebkit, mozilla, windows]
+    concepts: [clusters, rejected, applied, queued, applewebkit]
+    related_chunks: ["log.md#c19", "log.md#c20", "log.md#c23", "log.md#c31", "log.md#c34"]
     section: "[2026-06-05] learn | Learning pass learn_1780675827134 / [2026-06-05] learn | Learning pass learn_1780675828609 / [2026-06-05] learn | Learning pass learn_1780675867297 / [2026-06-05] learn | Learning pass learn_1780676179956 / [2026-06-05] learn | Learning pass learn_1780676182394 / [2026-06-05] session | AI Analyst session started / [2026-06-05] session | AI Analyst session started / [2026-06-05] compile | Wiki compile run compile_1780680030381 / [2026-06-05] session | AI Analyst session started"
     token_count: 503
   - id: "log.md#c47"
     char_span: [87930, 89597]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-05] session | AI Analyst session started / [2026-06-05] compile | Wiki compile run compile_1780685914187 / [2026-06-05] session | AI Analyst session started"
     token_count: 473
   - id: "log.md#c48"
     char_span: [89656, 91322]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-05] session | AI Analyst session started / [2026-06-05] compile | Wiki compile run compile_1780687474956 / [2026-06-05] session | AI Analyst session started / [2026-06-05] session | AI Analyst session started / [2026-06-05] session | AI Analyst session started / [2026-06-05] session | AI Analyst session started / [2026-06-05] session | AI Analyst session started / [2026-06-05] session | AI Analyst session started"
     token_count: 473
   - id: "log.md#c49"
     char_span: [91381, 93068]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-05] session | AI Analyst session started / [2026-06-06] session | AI Analyst session started / [2026-06-06] session | AI Analyst session started / [2026-06-06] session | AI Analyst session started / [2026-06-06] session | AI Analyst session started / [2026-06-06] session | AI Analyst session started / [2026-06-06] session | AI Analyst session started / [2026-06-06] session | AI Analyst session started / [2026-06-06] session | AI Analyst session started"
     token_count: 495
   - id: "log.md#c50"
     char_span: [93127, 94793]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-06] session | AI Analyst session started / [2026-06-06] compile | Wiki compile run compile_1780706385237 / [2026-06-06] session | AI Analyst session started / [2026-06-06] session | AI Analyst session started / [2026-06-06] session | AI Analyst session started / [2026-06-06] session | AI Analyst session started / [2026-06-06] session | AI Analyst session started"
     token_count: 473
   - id: "log.md#c51"
     char_span: [94852, 96734]
     sentence_count: 1
     key_terms: [none, clusters, rejected, applied, queued, applewebkit, mozilla, windows]
+    concepts: [clusters, rejected, applied, queued, applewebkit]
+    related_chunks: ["log.md#c19", "log.md#c20", "log.md#c23", "log.md#c31", "log.md#c34"]
     section: "[2026-06-06] session | AI Analyst session started / [2026-06-06] learn | Learning pass learn_1780751443446 / [2026-06-06] learn | Learning pass learn_1780751445829 / [2026-06-06] learn | Learning pass learn_1780751488267 / [2026-06-06] compile | Wiki compile run compile_1780751557478 / [2026-06-06] learn | Learning pass learn_1780751736328 / [2026-06-06] learn | Learning pass learn_1780751735146 / [2026-06-06] learn | Learning pass learn_1780751807655"
     token_count: 509
   - id: "log.md#c52"
     char_span: [96793, 98632]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-06] session | AI Analyst session started / [2026-06-06] compile | Wiki compile run compile_1780764234831 / [2026-06-06] session | AI Analyst session started / [2026-06-06] session | AI Analyst session started / [2026-06-06] session | AI Analyst session started / [2026-06-06] compile | Wiki compile run compile_1780768237628 / [2026-06-06] session | AI Analyst session started"
     token_count: 506
   - id: "log.md#c53"
     char_span: [98691, 100378]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-06] session | AI Analyst session started"
     token_count: 495
   - id: "log.md#c54"
     char_span: [100437, 102124]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-06] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started"
     token_count: 495
   - id: "log.md#c55"
     char_span: [102183, 104004]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780791742347 / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780799046408 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780799595847 / [2026-06-07] session | AI Analyst session started"
     token_count: 484
   - id: "log.md#c56"
     char_span: [104063, 105902]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780800437299 / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780801331178"
     token_count: 506
   - id: "log.md#c57"
     char_span: [105961, 107759]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780801813699 / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780803009128 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780803995423 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780804717583"
     token_count: 462
   - id: "log.md#c58"
     char_span: [107818, 109637]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780808490239 / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780809308127 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780809940160 / [2026-06-07] session | AI Analyst session started"
     token_count: 484
   - id: "log.md#c59"
     char_span: [109696, 111514]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780815170533 / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780843828697 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780846780355"
     token_count: 484
   - id: "log.md#c60"
     char_span: [111573, 113545]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780847133841 / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780848995999 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780852462937 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780854857134 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780862269872"
     token_count: 495
   - id: "log.md#c61"
     char_span: [113604, 115574]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780868238426 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780868964037 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780869464450 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780878571980 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780882788703 / [2026-06-08] session | AI Analyst session started"
     token_count: 495
   - id: "log.md#c62"
     char_span: [115645, 117452]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-08] compile | Wiki compile run compile_1780884639876 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780888970457 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780892801427 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started"
     token_count: 484
   - id: "log.md#c63"
     char_span: [117523, 119331]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-08] compile | Wiki compile run compile_1780924870398 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780926882185 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780927878251"
     token_count: 484
   - id: "log.md#c64"
     char_span: [119390, 121360]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780929040648 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780929706568 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780929961263 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780930654819 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780931753518 / [2026-06-08] session | AI Analyst session started"
     token_count: 495
   - id: "log.md#c65"
     char_span: [121431, 123391]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-08] compile | Wiki compile run compile_1780937702851 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780938242045 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780939403998 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780939811179 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780942648193 / [2026-06-08] session | AI Analyst session started"
     token_count: 495
   - id: "log.md#c66"
     char_span: [123450, 125268]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780943922885 / [2026-06-08] compile | Wiki compile run compile_1780945659487 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780947568649 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started"
     token_count: 484
   - id: "log.md#c67"
     char_span: [125327, 127166]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780953543120 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780958246854 / [2026-06-08] session | AI Analyst session started"
     token_count: 506
   - id: "log.md#c68"
     char_span: [127237, 129195]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-08] compile | Wiki compile run compile_1780960955549 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780962128304 / [2026-06-08] session | AI Analyst session started / [2026-06-09] session | AI Analyst session started / [2026-06-09] compile | Wiki compile run compile_1780964353572 / [2026-06-09] session | AI Analyst session started / [2026-06-09] compile | Wiki compile run compile_1780968269421 / [2026-06-09] session | AI Analyst session started / [2026-06-09] compile | Wiki compile run compile_1780973197014"
     token_count: 495
   - id: "log.md#c69"
     char_span: [129254, 131051]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
     section: "[2026-06-09] session | AI Analyst session started / [2026-06-09] compile | Wiki compile run compile_1780975903467 / [2026-06-09] session | AI Analyst session started / [2026-06-09] compile | Wiki compile run compile_1780977593574 / [2026-06-09] session | AI Analyst session started / [2026-06-09] compile | Wiki compile run compile_1781012801711 / [2026-06-09] session | AI Analyst session started / [2026-06-09] session | AI Analyst session started / [2026-06-09] compile | Wiki compile run compile_1781017273836 / [2026-06-09] session | AI Analyst session started"
     token_count: 462
   - id: "log.md#c70"
-    char_span: [131110, 132001]
+    char_span: [131110, 132929]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
-    section: "[2026-06-09] session | AI Analyst session started / [2026-06-09] compile | Wiki compile run compile_1781020298306 / [2026-06-09] session | AI Analyst session started / [2026-06-09] lint | Wiki health check (run lint_1781023127791) / [2026-06-09] session | AI Analyst session started"
-    token_count: 251
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-09] session | AI Analyst session started / [2026-06-09] compile | Wiki compile run compile_1781020298306 / [2026-06-09] session | AI Analyst session started / [2026-06-09] lint | Wiki health check (run lint_1781023127791) / [2026-06-09] session | AI Analyst session started / [2026-06-10] session | AI Analyst session started / [2026-06-10] compile | Wiki compile run compile_1781059473816 / [2026-06-10] compile | Wiki compile run compile_1781060339653 / [2026-06-10] session | AI Analyst session started / [2026-06-10] session | AI Analyst session started"
+    token_count: 482
+  - id: "log.md#c71"
+    char_span: [132988, 134827]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-10] session | AI Analyst session started / [2026-06-10] compile | Wiki compile run compile_1781105033196 / [2026-06-10] session | AI Analyst session started / [2026-06-10] session | AI Analyst session started / [2026-06-10] session | AI Analyst session started / [2026-06-10] session | AI Analyst session started / [2026-06-10] compile | Wiki compile run compile_1781115445211"
+    token_count: 506
+  - id: "log.md#c72"
+    char_span: [134898, 136856]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-10] compile | Wiki compile run compile_1781115528058 / [2026-06-10] session | AI Analyst session started / [2026-06-10] compile | Wiki compile run compile_1781116797455 / [2026-06-10] session | AI Analyst session started / [2026-06-10] compile | Wiki compile run compile_1781117370172 / [2026-06-10] session | AI Analyst session started / [2026-06-10] compile | Wiki compile run compile_1781117557177 / [2026-06-10] session | AI Analyst session started / [2026-06-10] session | AI Analyst session started / [2026-06-10] compile | Wiki compile run compile_1781120205056 / [2026-06-11] session | AI Analyst session started"
+    token_count: 495
+  - id: "log.md#c73"
+    char_span: [136927, 138754]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-11] compile | Wiki compile run compile_1781141229995 / [2026-06-11] session | AI Analyst session started / [2026-06-11] session | AI Analyst session started / [2026-06-11] session | AI Analyst session started / [2026-06-11] session | AI Analyst session started / [2026-06-11] compile | Wiki compile run compile_1781149486204 / [2026-06-11] session | AI Analyst session started / [2026-06-11] session | AI Analyst session started / [2026-06-11] session | AI Analyst session started / [2026-06-11] session | AI Analyst session started"
+    token_count: 506
+  - id: "log.md#c74"
+    char_span: [138825, 140762]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, "true", gecko, khtml, win64, like]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-11] compile | Wiki compile run compile_1781154376455 / [2026-06-11] compile | Wiki compile run compile_1781155065912 / [2026-06-11] session | AI Analyst session started / [2026-06-11] session | AI Analyst session started / [2026-06-11] session | AI Analyst session started / [2026-06-11] compile | Wiki compile run compile_1781190097716 / [2026-06-11] session | AI Analyst session started / [2026-06-11] session | AI Analyst session started / [2026-06-11] compile | Wiki compile run compile_1781190953592 / [2026-06-11] compile | Wiki compile run compile_1781192102236 / [2026-06-11] compile | Wiki compile run compile_1781196355447"
+    token_count: 473
+  - id: "log.md#c75"
+    char_span: [140821, 142660]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-11] session | AI Analyst session started / [2026-06-11] compile | Wiki compile run compile_1781200221495 / [2026-06-11] session | AI Analyst session started / [2026-06-11] session | AI Analyst session started / [2026-06-11] compile | Wiki compile run compile_1781203359347 / [2026-06-11] session | AI Analyst session started / [2026-06-11] session | AI Analyst session started / [2026-06-11] session | AI Analyst session started / [2026-06-12] session | AI Analyst session started / [2026-06-12] session | AI Analyst session started"
+    token_count: 506
+  - id: "log.md#c76"
+    char_span: [142719, 144537]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-12] session | AI Analyst session started / [2026-06-12] compile | Wiki compile run compile_1781234035883 / [2026-06-12] session | AI Analyst session started / [2026-06-12] session | AI Analyst session started / [2026-06-12] compile | Wiki compile run compile_1781269691024 / [2026-06-12] session | AI Analyst session started / [2026-06-12] compile | Wiki compile run compile_1781270100155 / [2026-06-12] session | AI Analyst session started / [2026-06-12] session | AI Analyst session started / [2026-06-12] session | AI Analyst session started"
+    token_count: 484
+  - id: "log.md#c77"
+    char_span: [144596, 146408]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, deck-narrative-composer, like]
+    concepts: [applewebkit, mozilla, windows, deck-narrative-composer, gecko]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-12] session | AI Analyst session started / [2026-06-12] compile | Wiki compile run compile_1781288259194 / [2026-06-12] learn | Learning pass learn_1781288733504 / [2026-06-12] learn | Learning pass learn_1781288841442 / [2026-06-12] learn | Learning pass learn_1781289026381"
+    token_count: 501
+  - id: "log.md#c78"
+    char_span: [146472, 146657]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, clusters, rejected, applied, queued, none]
+    section: "[2026-06-12] learn | Learning pass learn_1781289039686"
+    token_count: 66
+  - id: "log.md#c79"
+    char_span: [146728, 148547]
+    sentence_count: 1
+    key_terms: [applewebkit, deck-narrative-composer, mozilla, windows, gecko, khtml, win64, like]
+    concepts: [deck-narrative-composer, applewebkit, mozilla, windows, gecko]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-12] compile | Wiki compile run compile_1781290015204 / [2026-06-12] session | AI Analyst session started / [2026-06-12] learn | Learning pass learn_1781292073390 / [2026-06-12] learn | Learning pass learn_1781292075409 / [2026-06-12] learn | Learning pass learn_1781292121838 / [2026-06-12] session | AI Analyst session started / [2026-06-12] session | AI Analyst session started / [2026-06-12] session | AI Analyst session started / [2026-06-12] session | AI Analyst session started"
+    token_count: 506
+  - id: "log.md#c80"
+    char_span: [148618, 150445]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-12] compile | Wiki compile run compile_1781298900237 / [2026-06-12] compile | Wiki compile run compile_1781301169584 / [2026-06-13] session | AI Analyst session started / [2026-06-13] session | AI Analyst session started / [2026-06-13] session | AI Analyst session started / [2026-06-13] session | AI Analyst session started / [2026-06-14] session | AI Analyst session started / [2026-06-14] session | AI Analyst session started / [2026-06-14] session | AI Analyst session started / [2026-06-14] session | AI Analyst session started"
+    token_count: 506
+  - id: "log.md#c81"
+    char_span: [150504, 152343]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-14] session | AI Analyst session started / [2026-06-14] compile | Wiki compile run compile_1781451060370 / [2026-06-14] session | AI Analyst session started / [2026-06-14] session | AI Analyst session started / [2026-06-14] session | AI Analyst session started / [2026-06-14] session | AI Analyst session started / [2026-06-14] session | AI Analyst session started / [2026-06-14] compile | Wiki compile run compile_1781461070185 / [2026-06-14] session | AI Analyst session started"
+    token_count: 506
+  - id: "log.md#c82"
+    char_span: [152402, 154089]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-14] session | AI Analyst session started"
+    token_count: 495
+  - id: "log.md#c83"
+    char_span: [154148, 155835]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-14] session | AI Analyst session started / [2026-06-15] session | AI Analyst session started / [2026-06-15] session | AI Analyst session started / [2026-06-15] session | AI Analyst session started / [2026-06-15] session | AI Analyst session started / [2026-06-15] session | AI Analyst session started / [2026-06-15] session | AI Analyst session started / [2026-06-15] session | AI Analyst session started"
+    token_count: 495
+  - id: "log.md#c84"
+    char_span: [155906, 157704]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, applewebkit, mozilla, windows, gecko, khtml, win64, like]
+    concepts: [deck-narrative-composer, applewebkit, mozilla, windows, gecko]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-15] compile | Wiki compile run compile_1781550868753 / [2026-06-15] session | AI Analyst session started / [2026-06-15] learn | Learning pass learn_1781555440346 / [2026-06-15] learn | Learning pass learn_1781555441544 / [2026-06-15] learn | Learning pass learn_1781555517453 / [2026-06-16] session | AI Analyst session started / [2026-06-16] session | AI Analyst session started / [2026-06-16] compile | Wiki compile run compile_1781571671564 / [2026-06-16] session | AI Analyst session started"
+    token_count: 484
+  - id: "log.md#c85"
+    char_span: [157763, 159581]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-16] session | AI Analyst session started / [2026-06-16] compile | Wiki compile run compile_1781581365916 / [2026-06-16] session | AI Analyst session started / [2026-06-16] compile | Wiki compile run compile_1781582181718 / [2026-06-16] session | AI Analyst session started / [2026-06-16] session | AI Analyst session started / [2026-06-16] compile | Wiki compile run compile_1781623770005 / [2026-06-16] session | AI Analyst session started"
+    token_count: 484
+  - id: "log.md#c86"
+    char_span: [159653, 161329]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-16] lint | Wiki health check (run lint_1781628146105) / [2026-06-16] session | AI Analyst session started / [2026-06-16] session | AI Analyst session started / [2026-06-16] session | AI Analyst session started / [2026-06-16] session | AI Analyst session started / [2026-06-16] session | AI Analyst session started / [2026-06-16] session | AI Analyst session started / [2026-06-16] session | AI Analyst session started / [2026-06-16] session | AI Analyst session started"
+    token_count: 493
+  - id: "log.md#c87"
+    char_span: [161388, 163156]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, clusters, rejected, applied, queued, none, applewebkit, mozilla]
+    concepts: [deck-narrative-composer, clusters, rejected, applied, queued]
+    related_chunks: ["log.md#c19", "log.md#c20", "log.md#c23", "log.md#c31", "log.md#c34"]
+    section: "[2026-06-16] session | AI Analyst session started / [2026-06-16] learn | Learning pass learn_1781633311593 / [2026-06-16] learn | Learning pass learn_1781633310528 / [2026-06-16] learn | Learning pass learn_1781633344024 / [2026-06-16] learn | Learning pass learn_1781636695680 / [2026-06-16] learn | Learning pass learn_1781636696495 / [2026-06-16] session | AI Analyst session started / [2026-06-16] session | AI Analyst session started"
+    token_count: 495
+  - id: "log.md#c88"
+    char_span: [163215, 164902]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-16] session | AI Analyst session started / [2026-06-17] session | AI Analyst session started / [2026-06-17] session | AI Analyst session started / [2026-06-17] session | AI Analyst session started / [2026-06-17] session | AI Analyst session started / [2026-06-17] session | AI Analyst session started / [2026-06-17] session | AI Analyst session started / [2026-06-17] session | AI Analyst session started"
+    token_count: 495
+  - id: "log.md#c89"
+    char_span: [164961, 166619]
+    sentence_count: 1
+    key_terms: [applewebkit, deck-narrative-composer, mozilla, windows, gecko, khtml, win64, like]
+    concepts: [deck-narrative-composer, applewebkit, mozilla, windows, gecko]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-17] session | AI Analyst session started / [2026-06-17] learn | Learning pass learn_1781700799237 / [2026-06-17] learn | Learning pass learn_1781700800403 / [2026-06-17] learn | Learning pass learn_1781700868431 / [2026-06-17] session | AI Analyst session started / [2026-06-17] session | AI Analyst session started / [2026-06-17] session | AI Analyst session started"
+    token_count: 473
+  - id: "log.md#c90"
+    char_span: [166683, 166868]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, clusters, rejected, applied, queued, none]
+    section: "[2026-06-17] learn | Learning pass learn_1781709283849"
+    token_count: 66
+  - id: "log.md#c91"
+    char_span: [166932, 167117]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, clusters, rejected, applied, queued, none]
+    section: "[2026-06-17] learn | Learning pass learn_1781709284621"
+    token_count: 66
+  - id: "log.md#c92"
+    char_span: [167181, 167366]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, clusters, rejected, applied, queued, none]
+    section: "[2026-06-17] learn | Learning pass learn_1781709416462"
+    token_count: 66
+  - id: "log.md#c93"
+    char_span: [167425, 169193]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, clusters, rejected, applied, queued, none, applewebkit, mozilla]
+    concepts: [deck-narrative-composer, clusters, rejected, applied, queued]
+    related_chunks: ["log.md#c19", "log.md#c20", "log.md#c23", "log.md#c31", "log.md#c34"]
+    section: "[2026-06-17] session | AI Analyst session started / [2026-06-17] learn | Learning pass learn_1781711799609 / [2026-06-17] learn | Learning pass learn_1781711803368 / [2026-06-17] learn | Learning pass learn_1781711842969 / [2026-06-17] learn | Learning pass learn_1781712144186 / [2026-06-17] learn | Learning pass learn_1781712143311"
+    token_count: 495
+  - id: "log.md#c94"
+    char_span: [169257, 169442]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, clusters, rejected, applied, queued, none]
+    section: "[2026-06-17] learn | Learning pass learn_1781712225506"
+    token_count: 66
+  - id: "log.md#c95"
+    char_span: [169501, 171104]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-17] session | AI Analyst session started / [2026-06-17] learn | Learning pass learn_1781721221409 / [2026-06-17] learn | Learning pass learn_1781721220418"
+    token_count: 462
+  - id: "log.md#c96"
+    char_span: [171168, 171353]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, clusters, rejected, applied, queued, none]
+    section: "[2026-06-17] learn | Learning pass learn_1781721266628"
+    token_count: 66
+  - id: "log.md#c97"
+    char_span: [171412, 173230]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-17] session | AI Analyst session started / [2026-06-17] compile | Wiki compile run compile_1781723676698 / [2026-06-17] compile | Wiki compile run compile_1781724724702 / [2026-06-17] session | AI Analyst session started / [2026-06-17] compile | Wiki compile run compile_1781727895591 / [2026-06-17] session | AI Analyst session started / [2026-06-17] session | AI Analyst session started / [2026-06-18] session | AI Analyst session started"
+    token_count: 484
+  - id: "log.md#c98"
+    char_span: [173301, 175307]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, clusters, rejected, applied, queued, none, "true", applewebkit]
+    concepts: [deck-narrative-composer, clusters, rejected, applied, queued]
+    related_chunks: ["log.md#c19", "log.md#c20", "log.md#c23", "log.md#c31", "log.md#c34"]
+    section: "[2026-06-18] compile | Wiki compile run compile_1781760721548 / [2026-06-18] session | AI Analyst session started / [2026-06-18] compile | Wiki compile run compile_1781788160674 / [2026-06-18] compile | Wiki compile run compile_1781790294656 / [2026-06-18] session | AI Analyst session started / [2026-06-18] compile | Wiki compile run compile_1781795758612 / [2026-06-18] learn | Learning pass learn_1781797310250 / [2026-06-18] learn | Learning pass learn_1781797575187 / [2026-06-18] learn | Learning pass learn_1781797580555 / [2026-06-18] learn | Learning pass learn_1781799632272"
+    token_count: 506
+  - id: "log.md#c99"
+    char_span: [175371, 175556]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, clusters, rejected, applied, queued, none]
+    section: "[2026-06-18] learn | Learning pass learn_1781799631540"
+    token_count: 66
+  - id: "log.md#c100"
+    char_span: [175620, 175805]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, clusters, rejected, applied, queued, none]
+    section: "[2026-06-18] learn | Learning pass learn_1781799686555"
+    token_count: 66
+  - id: "log.md#c101"
+    char_span: [175869, 176054]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, clusters, rejected, applied, queued, none]
+    section: "[2026-06-18] learn | Learning pass learn_1781802042314"
+    token_count: 66
+  - id: "log.md#c102"
+    char_span: [176118, 176303]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, clusters, rejected, applied, queued, none]
+    section: "[2026-06-18] learn | Learning pass learn_1781802041360"
+    token_count: 66
+  - id: "log.md#c103"
+    char_span: [176367, 176552]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, clusters, rejected, applied, queued, none]
+    section: "[2026-06-18] learn | Learning pass learn_1781802135570"
+    token_count: 66
+  - id: "log.md#c104"
+    char_span: [176623, 178277]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-18] compile | Wiki compile run compile_1781807051718 / [2026-06-18] session | AI Analyst session started / [2026-06-18] session | AI Analyst session started / [2026-06-18] session | AI Analyst session started / [2026-06-18] session | AI Analyst session started / [2026-06-18] session | AI Analyst session started / [2026-06-18] session | AI Analyst session started / [2026-06-18] session | AI Analyst session started / [2026-06-18] session | AI Analyst session started"
+    token_count: 473
+  - id: "log.md#c105"
+    char_span: [178336, 180002]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-18] session | AI Analyst session started / [2026-06-19] session | AI Analyst session started / [2026-06-19] session | AI Analyst session started / [2026-06-19] session | AI Analyst session started / [2026-06-19] session | AI Analyst session started / [2026-06-19] session | AI Analyst session started / [2026-06-20] session | AI Analyst session started / [2026-06-20] session | AI Analyst session started / [2026-06-20] compile | Wiki compile run compile_1781978206210"
+    token_count: 473
+  - id: "log.md#c106"
+    char_span: [180061, 181893]
+    sentence_count: 1
+    key_terms: [applewebkit, deck-narrative-composer, mozilla, windows, gecko, khtml, win64, like]
+    concepts: [deck-narrative-composer, applewebkit, mozilla, windows, gecko]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-22] session | AI Analyst session started / [2026-06-22] learn | Learning pass learn_1782161287726 / [2026-06-22] learn | Learning pass learn_1782161320707 / [2026-06-22] learn | Learning pass learn_1782161286707 / [2026-06-22] compile | Wiki compile run compile_1782161765289"
+    token_count: 506
+  - id: "log.md#c107"
+    char_span: [181952, 183620]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-22] session | AI Analyst session started / [2026-06-22] compile | Wiki compile run compile_1782165080723 / [2026-06-23] session | AI Analyst session started / [2026-06-23] session | AI Analyst session started / [2026-06-23] lint | Wiki health check (run lint_1782233757979) / [2026-06-23] session | AI Analyst session started / [2026-06-23] session | AI Analyst session started / [2026-06-23] session | AI Analyst session started / [2026-06-23] session | AI Analyst session started"
+    token_count: 471
+  - id: "log.md#c108"
+    char_span: [183684, 183869]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, clusters, rejected, applied, queued, none]
+    section: "[2026-06-23] learn | Learning pass learn_1782244080717"
+    token_count: 66
+  - id: "log.md#c109"
+    char_span: [183933, 184118]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, clusters, rejected, applied, queued, none]
+    section: "[2026-06-23] learn | Learning pass learn_1782244091081"
+    token_count: 66
+  - id: "log.md#c110"
+    char_span: [184182, 184367]
+    sentence_count: 1
+    key_terms: [deck-narrative-composer, clusters, rejected, applied, queued, none]
+    section: "[2026-06-23] learn | Learning pass learn_1782244145326"
+    token_count: 66
+  - id: "log.md#c111"
+    char_span: [184426, 186257]
+    sentence_count: 1
+    key_terms: [applewebkit, deck-narrative-composer, mozilla, windows, gecko, khtml, win64, like]
+    concepts: [deck-narrative-composer, applewebkit, mozilla, windows, gecko]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-23] session | AI Analyst session started / [2026-06-23] compile | Wiki compile run compile_1782246897194 / [2026-06-23] learn | Learning pass learn_1782248716128 / [2026-06-23] learn | Learning pass learn_1782248717683 / [2026-06-23] learn | Learning pass learn_1782248773896 / [2026-06-23] session | AI Analyst session started / [2026-06-23] session | AI Analyst session started / [2026-06-23] session | AI Analyst session started"
+    token_count: 506
+  - id: "log.md#c112"
+    char_span: [186316, 188003]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-23] session | AI Analyst session started"
+    token_count: 495
+  - id: "log.md#c113"
+    char_span: [188062, 189901]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-24] session | AI Analyst session started / [2026-06-24] compile | Wiki compile run compile_1782310562951 / [2026-06-24] session | AI Analyst session started / [2026-06-24] session | AI Analyst session started / [2026-06-24] compile | Wiki compile run compile_1782326928326 / [2026-06-24] session | AI Analyst session started / [2026-06-24] session | AI Analyst session started / [2026-06-24] session | AI Analyst session started"
+    token_count: 506
+  - id: "log.md#c114"
+    char_span: [189960, 191800]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-24] session | AI Analyst session started / [2026-06-24] compile | Wiki compile run compile_1782339434645 / [2026-06-24] session | AI Analyst session started / [2026-06-25] session | AI Analyst session started / [2026-06-25] session | AI Analyst session started / [2026-06-25] compile | Wiki compile run compile_1782401070728 / [2026-06-25] session | AI Analyst session started / [2026-06-25] session | AI Analyst session started / [2026-06-25] session | AI Analyst session started / [2026-06-25] session | AI Analyst session started"
+    token_count: 506
+  - id: "log.md#c115"
+    char_span: [191859, 193546]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-26] session | AI Analyst session started"
+    token_count: 495
+  - id: "log.md#c116"
+    char_span: [193605, 195271]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-26] session | AI Analyst session started / [2026-06-26] compile | Wiki compile run compile_1782511421884 / [2026-06-27] session | AI Analyst session started / [2026-06-27] session | AI Analyst session started / [2026-06-27] session | AI Analyst session started / [2026-06-27] session | AI Analyst session started / [2026-06-27] session | AI Analyst session started / [2026-06-27] session | AI Analyst session started / [2026-06-27] session | AI Analyst session started"
+    token_count: 473
+  - id: "log.md#c117"
+    char_span: [195330, 197017]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-28] session | AI Analyst session started"
+    token_count: 495
+  - id: "log.md#c118"
+    char_span: [197076, 198763]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-28] session | AI Analyst session started / [2026-06-29] session | AI Analyst session started"
+    token_count: 495
+  - id: "log.md#c119"
+    char_span: [198822, 200488]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-29] session | AI Analyst session started / [2026-06-29] compile | Wiki compile run compile_1782744240713 / [2026-06-29] session | AI Analyst session started / [2026-06-29] session | AI Analyst session started / [2026-06-29] session | AI Analyst session started / [2026-06-29] session | AI Analyst session started"
+    token_count: 473
+  - id: "log.md#c120"
+    char_span: [200547, 202213]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-29] session | AI Analyst session started / [2026-06-30] compile | Wiki compile run compile_1782832783541 / [2026-06-30] session | AI Analyst session started / [2026-06-30] session | AI Analyst session started / [2026-06-30] session | AI Analyst session started / [2026-06-30] session | AI Analyst session started"
+    token_count: 473
+  - id: "log.md#c121"
+    char_span: [202272, 203961]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-06-30] session | AI Analyst session started / [2026-07-01] session | AI Analyst session started / [2026-07-01] lint | Wiki health check (run lint_1782872162955) / [2026-07-01] session | AI Analyst session started / [2026-07-01] session | AI Analyst session started / [2026-07-01] session | AI Analyst session started / [2026-07-01] session | AI Analyst session started / [2026-07-01] session | AI Analyst session started / [2026-07-01] session | AI Analyst session started"
+    token_count: 493
+  - id: "log.md#c122"
+    char_span: [204020, 204349]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    concepts: [applewebkit, mozilla, windows, gecko, khtml]
+    related_chunks: ["log.md#c11", "log.md#c12", "log.md#c13", "log.md#c14", "log.md#c15"]
+    section: "[2026-07-01] session | AI Analyst session started"
+    token_count: 110
 ---
 # Humans in Control -- Wiki Operations Log
 
@@ -6943,3 +7477,1017 @@ chunks:
 ## [2026-06-19] session | AI Analyst session started
   - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
   - started_at: 2026-06-19T02:24:27.366Z
+
+
+
+## [2026-06-20] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-20T17:41:29.927Z
+
+
+
+## [2026-06-20] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-20T17:42:02.001Z
+
+
+
+## [2026-06-20] compile | Wiki compile run compile_1781978206210
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 73718
+
+
+
+## [2026-06-22] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-22T16:31:47.138Z
+
+
+
+## [2026-06-22] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-22T16:36:26.480Z
+
+
+
+## [2026-06-22] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-22T17:51:20.606Z
+
+
+
+## [2026-06-22] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-22T20:29:06.605Z
+
+
+
+## [2026-06-22] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-22T20:31:19.440Z
+
+
+
+## [2026-06-22] learn | Learning pass learn_1782161287726
+  - clusters: 9
+  - applied: 3
+  - queued: 3
+  - rejected: 3
+  - skills_touched: deck-narrative-composer
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 83914
+
+
+
+## [2026-06-22] learn | Learning pass learn_1782161320707
+  - clusters: 9
+  - applied: 3
+  - queued: 3
+  - rejected: 3
+  - skills_touched: deck-narrative-composer
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 67728
+
+
+
+## [2026-06-22] learn | Learning pass learn_1782161286707
+  - clusters: 9
+  - applied: 3
+  - queued: 3
+  - rejected: 3
+  - skills_touched: deck-narrative-composer
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 102155
+
+
+
+## [2026-06-22] compile | Wiki compile run compile_1782161765289
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 66956
+
+
+
+## [2026-06-22] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-22T21:28:29.759Z
+
+
+
+## [2026-06-22] compile | Wiki compile run compile_1782165080723
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 61946
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T16:18:58.744Z
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T16:55:57.706Z
+
+
+
+## [2026-06-23] lint | Wiki health check (run lint_1782233757979)
+- pages_scanned: 256
+- total_findings: 448
+- errors: 0
+- warnings: 345
+- info: 103
+- duration_ms: 22919
+- next_due: 2026-06-30
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T17:56:59.900Z
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T18:22:26.885Z
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T19:24:36.285Z
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T19:28:53.038Z
+
+
+
+## [2026-06-23] learn | Learning pass learn_1782244080717
+  - clusters: 9
+  - applied: 3
+  - queued: 3
+  - rejected: 3
+  - skills_touched: deck-narrative-composer
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 33267
+
+
+
+## [2026-06-23] learn | Learning pass learn_1782244091081
+  - clusters: 9
+  - applied: 3
+  - queued: 3
+  - rejected: 3
+  - skills_touched: deck-narrative-composer
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 34080
+
+
+
+## [2026-06-23] learn | Learning pass learn_1782244145326
+  - clusters: 9
+  - applied: 3
+  - queued: 3
+  - rejected: 3
+  - skills_touched: deck-narrative-composer
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 38255
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T20:16:41.207Z
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T20:20:49.614Z
+
+
+
+## [2026-06-23] compile | Wiki compile run compile_1782246897194
+  - synthesis_regenerated: 3
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 73323
+
+
+
+## [2026-06-23] learn | Learning pass learn_1782248716128
+  - clusters: 9
+  - applied: 3
+  - queued: 3
+  - rejected: 3
+  - skills_touched: deck-narrative-composer
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 33506
+
+
+
+## [2026-06-23] learn | Learning pass learn_1782248717683
+  - clusters: 9
+  - applied: 3
+  - queued: 3
+  - rejected: 3
+  - skills_touched: deck-narrative-composer
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 33066
+
+
+
+## [2026-06-23] learn | Learning pass learn_1782248773896
+  - clusters: 9
+  - applied: 3
+  - queued: 3
+  - rejected: 3
+  - skills_touched: deck-narrative-composer
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 33590
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T21:07:59.498Z
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T21:10:37.493Z
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T22:21:29.290Z
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T22:35:55.915Z
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T22:40:34.156Z
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T22:50:51.200Z
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T23:07:02.295Z
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T23:16:13.935Z
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T23:23:02.893Z
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T23:36:09.434Z
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T23:46:46.895Z
+
+
+
+## [2026-06-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-23T23:57:27.394Z
+
+
+
+## [2026-06-24] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-24T00:02:20.320Z
+
+
+
+## [2026-06-24] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-24T02:40:35.217Z
+
+
+
+## [2026-06-24] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-24T02:41:07.162Z
+
+
+
+## [2026-06-24] compile | Wiki compile run compile_1782310562951
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 69696
+
+
+
+## [2026-06-24] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-24T17:47:43.344Z
+
+
+
+## [2026-06-24] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-24T18:30:49.021Z
+
+
+
+## [2026-06-24] compile | Wiki compile run compile_1782326928326
+  - synthesis_regenerated: 3
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 68866
+
+
+
+## [2026-06-24] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-24T20:12:20.757Z
+
+
+
+## [2026-06-24] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-24T20:48:43.605Z
+
+
+
+## [2026-06-24] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-24T21:10:06.867Z
+
+
+
+## [2026-06-24] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-24T21:56:17.825Z
+
+
+
+## [2026-06-24] compile | Wiki compile run compile_1782339434645
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 70781
+
+
+
+## [2026-06-24] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-24T22:48:32.664Z
+
+
+
+## [2026-06-25] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-25T14:59:08.657Z
+
+
+
+## [2026-06-25] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-25T15:05:20.972Z
+
+
+
+## [2026-06-25] compile | Wiki compile run compile_1782401070728
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 112454
+
+
+
+## [2026-06-25] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-25T16:15:54.628Z
+
+
+
+## [2026-06-25] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-25T16:31:43.021Z
+
+
+
+## [2026-06-25] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-25T16:56:59.202Z
+
+
+
+## [2026-06-25] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-25T21:41:18.277Z
+
+
+
+## [2026-06-26] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-26T05:49:42.811Z
+
+
+
+## [2026-06-26] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-26T16:20:05.164Z
+
+
+
+## [2026-06-26] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-26T16:52:41.165Z
+
+
+
+## [2026-06-26] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-26T16:53:45.967Z
+
+
+
+## [2026-06-26] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-26T17:03:09.629Z
+
+
+
+## [2026-06-26] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-26T18:06:30.427Z
+
+
+
+## [2026-06-26] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-26T19:43:47.059Z
+
+
+
+## [2026-06-26] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-26T21:47:09.245Z
+
+
+
+## [2026-06-26] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-26T21:56:49.400Z
+
+
+
+## [2026-06-26] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-26T22:02:52.471Z
+
+
+
+## [2026-06-26] compile | Wiki compile run compile_1782511421884
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 70593
+
+
+
+## [2026-06-27] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-27T00:18:13.393Z
+
+
+
+## [2026-06-27] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-27T01:07:53.156Z
+
+
+
+## [2026-06-27] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-27T01:26:59.965Z
+
+
+
+## [2026-06-27] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-27T01:50:14.338Z
+
+
+
+## [2026-06-27] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-27T16:33:02.401Z
+
+
+
+## [2026-06-27] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-27T16:48:39.507Z
+
+
+
+## [2026-06-27] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-27T17:18:02.549Z
+
+
+
+## [2026-06-28] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-28T02:38:44.572Z
+
+
+
+## [2026-06-28] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-28T04:28:10.521Z
+
+
+
+## [2026-06-28] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-28T05:48:15.668Z
+
+
+
+## [2026-06-28] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-28T06:04:29.626Z
+
+
+
+## [2026-06-28] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-28T14:16:34.136Z
+
+
+
+## [2026-06-28] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-28T14:38:51.298Z
+
+
+
+## [2026-06-28] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-28T15:18:38.327Z
+
+
+
+## [2026-06-28] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-28T15:36:40.147Z
+
+
+
+## [2026-06-28] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-28T15:44:19.818Z
+
+
+
+## [2026-06-28] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-28T16:00:55.957Z
+
+
+
+## [2026-06-28] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-28T16:33:31.924Z
+
+
+
+## [2026-06-28] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-28T18:04:57.395Z
+
+
+
+## [2026-06-28] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-28T23:43:50.894Z
+
+
+
+## [2026-06-28] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-28T23:43:54.049Z
+
+
+
+## [2026-06-28] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-28T23:44:12.086Z
+
+
+
+## [2026-06-28] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-28T23:44:45.515Z
+
+
+
+## [2026-06-28] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-28T23:56:45.148Z
+
+
+
+## [2026-06-29] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-29T00:16:26.307Z
+
+
+
+## [2026-06-29] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-29T02:48:46.305Z
+
+
+
+## [2026-06-29] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-29T11:30:18.828Z
+
+
+
+## [2026-06-29] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-29T12:25:23.697Z
+
+
+
+## [2026-06-29] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-29T14:26:22.452Z
+
+
+
+## [2026-06-29] compile | Wiki compile run compile_1782744240713
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 80734
+
+
+
+## [2026-06-29] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-29T15:46:29.655Z
+
+
+
+## [2026-06-29] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-29T16:49:59.351Z
+
+
+
+## [2026-06-29] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-29T17:02:31.751Z
+
+
+
+## [2026-06-29] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-29T19:35:49.651Z
+
+
+
+## [2026-06-29] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-29T21:34:09.841Z
+
+
+
+## [2026-06-29] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-29T22:28:03.645Z
+
+
+
+## [2026-06-29] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-29T23:25:20.588Z
+
+
+
+## [2026-06-29] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-29T23:35:31.068Z
+
+
+
+## [2026-06-30] compile | Wiki compile run compile_1782832783541
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 66065
+
+
+
+## [2026-06-30] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-30T15:39:22.489Z
+
+
+
+## [2026-06-30] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-30T15:53:00.954Z
+
+
+
+## [2026-06-30] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-30T16:12:19.326Z
+
+
+
+## [2026-06-30] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-30T16:21:33.600Z
+
+
+
+## [2026-06-30] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-30T16:21:36.572Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T02:16:00.537Z
+
+
+
+## [2026-07-01] lint | Wiki health check (run lint_1782872162955)
+- pages_scanned: 271
+- total_findings: 476
+- errors: 0
+- warnings: 372
+- info: 104
+- duration_ms: 23801
+- next_due: 2026-07-08
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T05:16:54.660Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T11:54:58.073Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T12:04:24.127Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T12:10:38.553Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T12:23:33.227Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T12:46:44.217Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T13:02:44.283Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T13:31:51.893Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T13:55:17.534Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T14:23:37.456Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T14:33:02.118Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T15:36:05.843Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T15:52:32.139Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T15:55:00.766Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T16:20:28.887Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T16:39:00.361Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T18:21:40.750Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T18:55:13.196Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T21:19:47.292Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T22:34:05.259Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T22:36:02.219Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T23:05:37.044Z
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T23:08:10.596Z
+
+
+
+## [2026-07-01] compile | Wiki compile run compile_1782948876683
+  - synthesis_regenerated: 4
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 84391
+
+
+
+## [2026-07-01] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-01T23:45:25.311Z
+
+
+
+## [2026-07-02] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-02T00:15:14.457Z
+
+
+
+## [2026-07-02] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-02T00:16:11.997Z
+
+
+
+## [2026-07-02] compile | Wiki compile run compile_1782951831919
+  - synthesis_regenerated: 4
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 67311
+
+
+
+## [2026-07-02] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-02T01:49:08.789Z
+
+
+
+## [2026-07-02] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-02T03:53:49.988Z
+
+
+
+## [2026-07-02] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-02T08:07:54.580Z
+
+
+
+## [2026-07-02] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-02T08:35:06.368Z
+
+
+
+## [2026-07-02] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-02T13:26:14.669Z
+
+
+
+## [2026-07-02] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-02T15:04:16.336Z
+
+
+
+## [2026-07-02] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-02T15:28:54.340Z

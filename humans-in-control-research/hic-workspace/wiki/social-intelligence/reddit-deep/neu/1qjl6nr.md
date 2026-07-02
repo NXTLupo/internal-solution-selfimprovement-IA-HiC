@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1829]
     sentence_count: 8
     key_terms: [professors, courses, gpa, grading, northeastern, experiences, especially, experience]
+    concepts: [professors, courses, grading, northeastern, experiences]
     token_count: 417
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qjl6nr/ms_cs_at_northeastern_professors_grading/"}]
   - id: "social-intelligence/reddit-deep/neu/1qjl6nr.md#c1"
     char_span: [1843, 3913]
     sentence_count: 23
     key_terms: [course, "it's", take, courses, prof, took, another, prerequisite]
+    concepts: [course, courses, another, prerequisite, "don't"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/neu/1qjl6nr.md#c2"
     char_span: [3915, 4155]
     sentence_count: 3
     key_terms: [curve, "don't", garageagitated5201, professors, probably, overall, grades, people]
+    concepts: [curve, "don't"]
     section: Comments
     token_count: 60
 ---

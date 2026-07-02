@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1779]
     sentence_count: 10
     key_terms: [engineeringstudents, years, advice, applications, appreciated, employment, experience, interview]
+    concepts: [engineeringstudents, years, applications, advice, appreciated]
     token_count: 425
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1st1ozi/applied_to_99_summer_student_internships_so_far/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1st1ozi.md#c1"
     char_span: [1793, 3914]
     sentence_count: 13
     key_terms: [engineeringstudents, experience, wiki, reddit, resume, brilliant-wash-3040, https, com]
+    concepts: [engineeringstudents, experience, brilliant-wash-3040, reddit, resume]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/engineeringstudents/1st1ozi.md#c2"
     char_span: [3916, 4940]
     sentence_count: 8
     key_terms: [market, targeting, managers, country, strings, better, direct, bullyxldisrespector]
+    concepts: [market, targeting, managers, country, strings]
     section: Comments
     token_count: 253
 ---

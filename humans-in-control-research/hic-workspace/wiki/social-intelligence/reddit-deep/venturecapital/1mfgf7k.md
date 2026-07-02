@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 871]
     sentence_count: 5
     key_terms: [companies, portfolio, venturecapital, like, comments, features, software, capital]
+    concepts: [companies, portfolio, venturecapital, comments, features]
     token_count: 193
+    sources: [{"n":"reddit-deep: r/venturecapital","u":"https://www.reddit.com/r/venturecapital/comments/1mfgf7k/portfolio_monitoring_software/"}]
   - id: "social-intelligence/reddit-deep/venturecapital/1mfgf7k.md#c1"
-    char_span: [886, 2103]
+    char_span: [885, 2102]
     sentence_count: 8
     key_terms: [software, management, venture, market, office, carnivalcarnivore, back, upscalehipster]
+    concepts: [software, management, venture, market, office]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/venturecapital/1mfgf7k.md#c2"
-    char_span: [2105, 4390]
+    char_span: [2104, 4389]
     sentence_count: 15
     key_terms: [capital, portfolio, invested, industry, tracking, numbers, call, tvpi]
+    concepts: [capital, portfolio, invested, industry, tracking]
     section: Comments
     token_count: 504
 ---

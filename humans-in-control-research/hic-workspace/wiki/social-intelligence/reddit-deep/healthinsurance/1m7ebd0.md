@@ -20,70 +20,89 @@ chunks:
     char_span: [0, 2326]
     sentence_count: 21
     key_terms: [been, medication, insurance, healthinsurance, denied, significant, injections, comments]
+    concepts: [medication, insurance, healthinsurance, denied, significant]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c2"]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1m7ebd0/my_significant_others_daily_injections_were_denied/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c1"
     char_span: [2328, 2891]
     sentence_count: 4
     key_terms: [documentation, provider, "don't", "i've", significant, activities, diligently, medication]
+    concepts: [documentation, provider, "don't"]
     token_count: 122
   - id: "social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c2"
-    char_span: [2906, 4904]
+    char_span: [2905, 4903]
     sentence_count: 9
     key_terms: [please, healthinsurance, insurance, solicitation, questions, reddit, https, information]
+    concepts: [please, healthinsurance, insurance, solicitation, questions]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c0"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c3"
-    char_span: [4906, 6463]
+    char_span: [4905, 6462]
     sentence_count: 12
     key_terms: [something, coverage, appeal, patients, provider, submit, trying, being]
+    concepts: [something, coverage, appeal, patients, provider]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c4", "social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c10"]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c4"
-    char_span: [6465, 8740]
+    char_span: [6464, 8739]
     sentence_count: 22
     key_terms: [denial, provide, appeal, exception, provider, letter, manufacturer, okmiddle4948]
+    concepts: [denial, provide, appeal, exception, provider]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c5"
-    char_span: [8443, 8879]
+    char_span: [8442, 8878]
     sentence_count: 4
     key_terms: [appeal, manufacturer, drug, assistance, lettell101, defnitely, insurance, internal]
+    concepts: [manufacturer, appeal]
     section: Comments
     token_count: 99
   - id: "social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c6"
-    char_span: [8881, 9165]
+    char_span: [8880, 9164]
     sentence_count: 2
     key_terms: [keep, considered, employment, negatively, roadblocks, expensive, company, forward]
     section: Comments
     token_count: 60
   - id: "social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c7"
-    char_span: [9167, 11568]
+    char_span: [9166, 11567]
     sentence_count: 18
     key_terms: [employer, appeal, drug, contact, doctor, submitted, been, patient]
+    concepts: [employer, appeal, contact, doctor, submitted]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c8"
-    char_span: [11282, 11711]
+    char_span: [11281, 11710]
     sentence_count: 3
     key_terms: [employer, paying, self-funded, insurance, company, claims, administrative, medication]
+    concepts: [employer, paying, self-funded, insurance, company]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c11"]
     section: Comments
     token_count: 92
   - id: "social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c9"
-    char_span: [11714, 12940]
+    char_span: [11713, 12939]
     sentence_count: 8
     key_terms: [exceptions, funded, manufacturer, plans, employer, cannot, fully, plan]
+    concepts: [exceptions, funded, manufacturer, plans, employer]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c10"
-    char_span: [12942, 15096]
+    char_span: [12941, 15095]
     sentence_count: 18
     key_terms: [insurance, appeal, necessity, patients, months, eligibility, treatment, approved]
+    concepts: [insurance, appeal, necessity, patients, months]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c3"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c11"
-    char_span: [15098, 17312]
+    char_span: [15097, 17311]
     sentence_count: 15
     key_terms: [insurance, documentation, company, therapy, gammagard, already, classicrock40, continuation]
+    concepts: [insurance, documentation, company, therapy, gammagard]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1m7ebd0.md#c8"]
     section: Comments
     token_count: 488
 ---

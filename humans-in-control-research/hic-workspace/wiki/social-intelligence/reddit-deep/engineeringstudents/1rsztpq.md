@@ -21,53 +21,70 @@ chunks:
     char_span: [0, 1384]
     sentence_count: 5
     key_terms: [mechatronics, mechanical, engineeringstudents, salary, civil, allowances, currently, engineers]
+    concepts: [mechatronics, engineeringstudents, mechanical, salary, allowances]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c6"]
     token_count: 307
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rsztpq/civil_mechanical_or_mechatronics_help_me_choose/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c1"
     char_span: [1398, 3459]
     sentence_count: 18
     key_terms: [civil, lot, getting, hot, per, want, discipline, mechanical]
+    concepts: [civil, getting, discipline, mechanical, engineers]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c5", "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c6"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c2"
     char_span: [3461, 4551]
     sentence_count: 9
     key_terms: [definitely, backwards, instead, school, "that's", becominganastronaut, start, area]
+    concepts: [definitely, backwards, instead, school, "that's"]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c3"
     char_span: [4553, 6617]
     sentence_count: 14
     key_terms: [engineer, engineering, lawyer, pay, year, hours, hard, unlimited]
+    concepts: [engineer, engineering, lawyer, hours, unlimited]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c4"
     char_span: [6348, 7762]
     sentence_count: 10
     key_terms: [financial, engineering, because, passion, illogical, argument, interest, medicine]
+    concepts: [financial, engineering, because, passion, illogical]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c8"]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c5"
     char_span: [7764, 9612]
     sentence_count: 15
     key_terms: [engineer, structural, civil, mechanical, engineering, leadership, analysis, industry]
+    concepts: [engineer, structural, civil, mechanical, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c1", "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c3", "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c6"]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c6"
     char_span: [9615, 11792]
     sentence_count: 16
     key_terms: [mechanical, life, mechatronics, civil, paycheck, bigger, opportunities, engineering]
+    concepts: [mechanical, mechatronics, civil, paycheck, opportunities]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c1", "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c5"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c7"
     char_span: [11794, 12318]
     sentence_count: 5
     key_terms: [money, engineering, "i'm", job, senior-dog-9735, considering, everything, passionate]
+    concepts: [engineering, money]
     section: Comments
     token_count: 122
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c8"
     char_span: [12320, 14034]
     sentence_count: 8
     key_terms: [engineering, question, financial, passion, thinking, because, "doesn't", matter]
+    concepts: [engineering, question, financial, passion, thinking]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c4"]
     section: Comments
     token_count: 394
 ---

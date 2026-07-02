@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1424]
     sentence_count: 17
     key_terms: [careerguidance, right, feel, completely, direction, comments, advice, single]
+    concepts: [careerguidance, completely, right, direction, comments]
     token_count: 339
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1lt1xfn/2_years_3000_applications_not_a_single_job_i_feel/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1lt1xfn.md#c1"
     char_span: [1438, 1534]
     sentence_count: 1
@@ -32,24 +34,30 @@ chunks:
     char_span: [1536, 3605]
     sentence_count: 15
     key_terms: [job, get, someone, people, applications, like, work, experience]
+    concepts: [someone, applications, people, experience, interviews]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1lt1xfn.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1lt1xfn.md#c3"
     char_span: [3372, 4097]
     sentence_count: 8
     key_terms: [feedback, someone, back, get, give, hard, applications, carolinepoh]
+    concepts: [feedback, someone]
     section: Comments
     token_count: 179
   - id: "social-intelligence/reddit-deep/careerguidance/1lt1xfn.md#c4"
     char_span: [4099, 6256]
     sentence_count: 24
     key_terms: [job, resume, experience, get, work, applications, sure, interviews]
+    concepts: [resume, experience, applications, interviews, questions]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1lt1xfn.md#c2"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/careerguidance/1lt1xfn.md#c5"
     char_span: [6258, 7525]
     sentence_count: 9
     key_terms: [feedback, better, work, candidates, recruiters, portfolio, getting, instead]
+    concepts: [feedback, better, candidates, recruiters, portfolio]
     section: Comments
     token_count: 305
 ---

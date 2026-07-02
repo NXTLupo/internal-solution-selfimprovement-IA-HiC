@@ -17,54 +17,69 @@ research_goal: "Produce the definitive guide to personal investing in 2026 by an
 engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/stocks/1tc9lka.md#c0"
-    char_span: [0, 1876]
-    sentence_count: 12
-    key_terms: [samsung-***REDACTED-KEY***, samsung, memory, stocks, https, hynix, korea, bloomberg]
-    token_count: 427
+    char_span: [0, 2252]
+    sentence_count: 15
+    key_terms: [samsung, memory, profit, margins, stocks, conventional, https, hynix]
+    concepts: [samsung, memory, profit, margins, conventional]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1tc9lka.md#c3"]
+    token_count: 506
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1tc9lka/samsung_and_sk_hynix_still_look_like_bargains/"}]
   - id: "social-intelligence/reddit-deep/stocks/1tc9lka.md#c1"
-    char_span: [1878, 4215]
-    sentence_count: 18
-    key_terms: [memory, cycle, margins, demand, market, supply, production, contracts]
-    token_count: 480
+    char_span: [2254, 4720]
+    sentence_count: 20
+    key_terms: [cycle, demand, global, market, memory, hynix, contracts, different]
+    concepts: [cycle, demand, global, market, memory]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1tc9lka.md#c6"]
+    token_count: 496
   - id: "social-intelligence/reddit-deep/stocks/1tc9lka.md#c2"
-    char_span: [4217, 5320]
-    sentence_count: 7
-    key_terms: [investors, global, likely, memory, price, back, dram, concentration]
-    token_count: 217
+    char_span: [4722, 5282]
+    sentence_count: 2
+    key_terms: [investors, likely, record-high, eventually, management, positivity, strategist, companies]
+    concepts: [investors, likely]
+    token_count: 111
   - id: "social-intelligence/reddit-deep/stocks/1tc9lka.md#c3"
-    char_span: [5335, 5997]
+    char_span: [5296, 5919]
     sentence_count: 7
-    key_terms: [***REDACTED-KEY***, daddybeatsmehelp, samsung, memory, hynix, get, stressisnotgood, significantly]
+    key_terms: [daddybeatsmehelp, samsung, memory, hynix, get, stressisnotgood, significantly, asia-pacific]
+    concepts: [daddybeatsmehelp, samsung, memory, hynix]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1tc9lka.md#c0", "social-intelligence/reddit-deep/stocks/1tc9lka.md#c7"]
     section: Comments
-    token_count: 196
+    token_count: 181
   - id: "social-intelligence/reddit-deep/stocks/1tc9lka.md#c4"
-    char_span: [5999, 7707]
+    char_span: [5921, 7629]
     sentence_count: 5
     key_terms: [exchange, hynix, leveraged, buy, korea, interactive, directly, brokers]
+    concepts: [exchange, leveraged, hynix, interactive, korea]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1tc9lka.md#c5"
-    char_span: [7491, 7758]
+    char_span: [7413, 7680]
     sentence_count: 2
     key_terms: [korea, waiting4reccession, dram, brockdiggles, discount, imports, pounded, soooooo]
+    concepts: [korea]
     section: Comments
     token_count: 82
   - id: "social-intelligence/reddit-deep/stocks/1tc9lka.md#c6"
-    char_span: [7760, 9620]
+    char_span: [7682, 9542]
     sentence_count: 5
     key_terms: [dram, spot, memory, "it's", nand, top, falling, through]
+    concepts: [memory, falling, through, coming, market]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1tc9lka.md#c1"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/stocks/1tc9lka.md#c7"
-    char_span: [9622, 11070]
+    char_span: [9544, 10992]
     sentence_count: 6
     key_terms: [samsung, government, cycle, hynix, companies, position, price, stock]
+    concepts: [samsung, government, cycle, hynix, companies]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1tc9lka.md#c3"]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/stocks/1tc9lka.md#c8"
-    char_span: [11072, 12955]
+    char_span: [10994, 12877]
     sentence_count: 4
     key_terms: [discount, korean, tax, taxes, been, tech, property, estate]
+    concepts: [discount, korean, taxes, property, estate]
     section: Comments
     token_count: 436
 ---

@@ -19,29 +19,37 @@ chunks:
     char_span: [0, 1729]
     sentence_count: 10
     key_terms: ["i've", international, co-op, get, interviews, anything, applying, comments]
+    concepts: [international, co-op, interviews, anything, applying]
     token_count: 389
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1thn15i/ready_to_give_up_on_coop/"}]
   - id: "social-intelligence/reddit-deep/neu/1thn15i.md#c1"
     char_span: [1743, 3634]
     sentence_count: 17
     key_terms: [internships, spring, co-op, complete, position, summer, alternatively, good]
+    concepts: [internships, spring, co-op, complete, position]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/neu/1thn15i.md#c2"
     char_span: [3636, 5678]
     sentence_count: 22
     key_terms: [program, ambulance, kids, students, like, internship, ackman747, marketing]
+    concepts: [program, ambulance, students, internship, ackman747]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/neu/1thn15i.md#c3"
     char_span: [5680, 7971]
     sentence_count: 20
     key_terms: [year, co-op, northeastern, co-ops, instead, student, doesn, worth]
+    concepts: [northeastern, co-op, co-ops, instead, student]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1thn15i.md#c4"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/neu/1thn15i.md#c4"
     char_span: [7973, 9769]
     sentence_count: 12
     key_terms: [co-op, guaranteed, co-ops, students, school, roles, student, job]
+    concepts: [guaranteed, co-op, co-ops, students, school]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1thn15i.md#c3"]
     section: Comments
     token_count: 393
 ---

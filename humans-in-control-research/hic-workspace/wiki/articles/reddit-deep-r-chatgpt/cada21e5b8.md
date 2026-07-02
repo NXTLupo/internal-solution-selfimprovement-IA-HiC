@@ -18,21 +18,26 @@ chunks:
     char_span: [0, 1938]
     sentence_count: 13
     key_terms: [chatgpt, custody, full, years, back, lawyer, time, testament]
+    concepts: [chatgpt, custody, years, lawyer, testament]
     token_count: 441
+    sources: [{"n":"Reddit Deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1ovafq9/i_won_full_custody_with_no_lawyer_thanks_to/"}]
   - id: "articles/reddit-deep-r-chatgpt/cada21e5b8.md#c1"
     char_span: [1940, 4227]
     sentence_count: 18
     key_terms: [comments, believe, chatgpt, mother, circumstances, court, been, case]
+    concepts: [comments, circumstances, believe, chatgpt, mother]
     token_count: 488
   - id: "articles/reddit-deep-r-chatgpt/cada21e5b8.md#c2"
     char_span: [4229, 5593]
     sentence_count: 10
     key_terms: [lawyer, please, conversation, image, post, r-chatgpt-1050422060352024636, attorneys, concerns]
+    concepts: [conversation, lawyer, please, image, attorneys]
     token_count: 336
   - id: "articles/reddit-deep-r-chatgpt/cada21e5b8.md#c3"
     char_span: [5595, 7466]
     sentence_count: 18
     key_terms: [research, chatgpt, clients, better, gemini, deep, hallucinations, bad]
+    concepts: [research, chatgpt, clients, better, gemini]
     token_count: 440
 ---
 # I Won Full Custody With No Lawyer Thanks to ChatGPT.

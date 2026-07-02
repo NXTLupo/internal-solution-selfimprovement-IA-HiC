@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 768]
     sentence_count: 4
     key_terms: [cscareerquestions, useful, resources, comments, career, skills, books, non-programming]
+    concepts: [cscareerquestions, useful, resources, comments, career]
     token_count: 172
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1mpjckf/any_resource_book_recommendations_for/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mpjckf.md#c1"
     char_span: [782, 2487]
     sentence_count: 11
     key_terms: [software, requirements, stakeholders, objectives, part, difficult, notpepus, wiegers]
+    concepts: [software, requirements, stakeholders, objectives, difficult]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mpjckf.md#c2"
     char_span: [2489, 3186]
     sentence_count: 5
     key_terms: [good, engineer, software, brooks, skills, being, fred, soft]
+    concepts: [engineer, software, brooks, skills, being]
     section: Comments
     token_count: 168
 ---

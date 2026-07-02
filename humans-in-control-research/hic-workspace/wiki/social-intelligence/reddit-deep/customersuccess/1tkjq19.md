@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2168]
     sentence_count: 26
     key_terms: [expansion, agent, data, conversation, customersuccess, doesn, accounts, adoption]
+    concepts: [expansion, conversation, agent, customersuccess, doesn]
     token_count: 479
+    sources: [{"n":"reddit-deep: r/customersuccess","u":"https://www.reddit.com/r/CustomerSuccess/comments/1tkjq19/most_cs_teams_are_debating_the_wrong_variable_in/"}]
   - id: "social-intelligence/reddit-deep/customersuccess/1tkjq19.md#c1"
-    char_span: [2183, 2924]
+    char_span: [2182, 2923]
     sentence_count: 5
     key_terms: [signals, right, time, accounts, automate, context, investigating, stealthagents]
+    concepts: [signals, right, accounts, automate, context]
     section: Comments
     token_count: 160
 ---

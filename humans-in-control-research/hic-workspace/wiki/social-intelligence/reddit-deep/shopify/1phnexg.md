@@ -20,36 +20,46 @@ chunks:
     char_span: [0, 772]
     sentence_count: 4
     key_terms: [shopify, e-commerce, news, comments, stories, recaps, "week's", weekly]
+    concepts: [shopify, e-commerce, comments, stories, recaps]
     token_count: 200
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1phnexg/this_weeks_top_ecommerce_news_stories_dec_8th_2025/"}]
   - id: "social-intelligence/reddit-deep/shopify/1phnexg.md#c1"
     char_span: [774, 3224]
     sentence_count: 15
     key_terms: [shopify, outage, mode, been, google, users, traditional, bfcm]
+    concepts: [shopify, outage, google, traditional, users]
     token_count: 504
   - id: "social-intelligence/reddit-deep/shopify/1phnexg.md#c2"
     char_span: [3226, 5206]
     sentence_count: 8
     key_terms: [according, yoy, chatgpt, increase, cyber, increased, merchants, monday]
+    concepts: [according, chatgpt, increase, increased, merchants]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1phnexg.md#c3"
     char_span: [4930, 7452]
     sentence_count: 16
     key_terms: [amazon, delivery, service, revenue, postal, new, use, usps]
+    concepts: [amazon, delivery, service, revenue, postal]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1phnexg.md#c4"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1phnexg.md#c4"
     char_span: [7121, 9733]
     sentence_count: 9
     key_terms: [amazon, local, delivery, company, report, school, governments, deliveries]
+    concepts: [amazon, local, delivery, company, report]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1phnexg.md#c3"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1phnexg.md#c5"
     char_span: [9371, 10250]
     sentence_count: 3
     key_terms: [strike, union, post, rotating, strikes, workers, canada, postal]
+    concepts: [strike, union, rotating, strikes, workers]
     token_count: 178
   - id: "social-intelligence/reddit-deep/shopify/1phnexg.md#c6"
-    char_span: [10265, 11039]
+    char_span: [10264, 11038]
     sentence_count: 4
     key_terms: [shopify, community, chatgpt, contact, been, ohmygoditsojuicy, adventurepaul, automatically]
+    concepts: [shopify, community, chatgpt, contact]
     section: Comments
     token_count: 175
 ---

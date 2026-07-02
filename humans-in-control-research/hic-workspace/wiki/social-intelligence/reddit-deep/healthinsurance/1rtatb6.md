@@ -20,47 +20,63 @@ chunks:
     char_span: [0, 1708]
     sentence_count: 14
     key_terms: [panic, healthinsurance, attack, heart, coveramerica-gold-insurance, following, insurance, terrified]
+    concepts: [healthinsurance, panic, attack, heart, following]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c1", "social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c4", "social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c5", "social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c7"]
     token_count: 409
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1rtatb6/denied_11000_er_claim_for_panic_disorder_when_i/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c1"
-    char_span: [1723, 3604]
+    char_span: [1722, 3603]
     sentence_count: 6
     key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    concepts: [information, questions, following, please, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c0", "social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c2"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c2"
-    char_span: [3606, 5788]
+    char_span: [3605, 5787]
     sentence_count: 12
     key_terms: [insurance, please, eob, contact, questions, subreddit, post, via]
+    concepts: [insurance, please, contact, questions, subreddit]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c1", "social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c3"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c3"
-    char_span: [5790, 7301]
+    char_span: [5789, 7300]
     sentence_count: 13
     key_terms: [appeal, insurance, contact, appeals, instructions, notes, care, department]
+    concepts: [appeal, insurance, contact, appeals, instructions]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c2"]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c4"
-    char_span: [7303, 9046]
+    char_span: [7302, 9045]
     sentence_count: 17
     key_terms: [panic, symptoms, disorder, diagnosis, attack, doctor, mental, stroke]
+    concepts: [panic, symptoms, disorder, diagnosis, attack]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c0", "social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c5"]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c5"
-    char_span: [9049, 10922]
+    char_span: [9048, 10921]
     sentence_count: 16
     key_terms: [heart, panic, health, mental, disorder, because, opiate, term]
+    concepts: [heart, panic, health, mental, disorder]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c0", "social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c4"]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c6"
-    char_span: [10925, 12719]
+    char_span: [10924, 12718]
     sentence_count: 12
     key_terms: [canada, documentation, showmenemelda, error, insurance, judgement, canadian, coding]
+    concepts: [documentation, showmenemelda, canada, error, insurance]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c7"
-    char_span: [12721, 13616]
+    char_span: [12720, 13615]
     sentence_count: 5
     key_terms: [heart, test, troponin, attack, high-sensitivity, circumstances, professionals, bankruptcy]
+    concepts: [heart, troponin, attack]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rtatb6.md#c0"]
     section: Comments
     token_count: 219
 ---

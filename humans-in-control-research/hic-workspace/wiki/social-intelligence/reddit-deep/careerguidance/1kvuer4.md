@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2098]
     sentence_count: 18
     key_terms: [forensic, science, currently, guidance, careerguidance, abroad, career, skills]
+    concepts: [forensic, science, currently, guidance, careerguidance]
     token_count: 459
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1kvuer4/guidance_for_a_career_as_a_crime_scene/"}]
 ---
 # Guidance for a Career as a Crime Scene Investigator Abroad – ISC Grade 11 Student from India. Can someone help?
 

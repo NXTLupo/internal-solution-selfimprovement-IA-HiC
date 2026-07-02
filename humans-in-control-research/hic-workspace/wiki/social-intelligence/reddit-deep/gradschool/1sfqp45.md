@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1582]
     sentence_count: 13
     key_terms: [degree, "master's", program, fully-funded, friend, pursue, offer, opportunity]
+    concepts: [degree, "master's", fully-funded, program, friend]
     token_count: 356
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1sfqp45/giving_up_a_fullyfunded_2yr_masters_degree_midway/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1sfqp45.md#c1"
     char_span: [1596, 3037]
     sentence_count: 9
     key_terms: [international, like, applicants, education, reaching, shithole, "wouldn't", degree]
+    concepts: [international, applicants, education, reaching, shithole]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/gradschool/1sfqp45.md#c2"
     char_span: [3039, 4847]
     sentence_count: 8
     key_terms: [masters, programs, program, one-year, student, school, situation, american]
+    concepts: [masters, programs, program, one-year, student]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sfqp45.md#c3"]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/gradschool/1sfqp45.md#c3"
     char_span: [4849, 6108]
     sentence_count: 7
     key_terms: [masters, year, programs, general, degree, people, super, value]
+    concepts: [masters, programs, general, degree, people]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sfqp45.md#c2"]
     section: Comments
     token_count: 297
 ---

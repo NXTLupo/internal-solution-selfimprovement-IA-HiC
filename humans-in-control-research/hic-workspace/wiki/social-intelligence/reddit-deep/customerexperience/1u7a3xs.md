@@ -17,14 +17,17 @@ research_goal: "Deliver a comprehensive 2026 outlook report on the global retail
 engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
 chunks:
   - id: "social-intelligence/reddit-deep/customerexperience/1u7a3xs.md#c0"
-    char_span: [0, 2320]
+    char_span: [0, 2319]
     sentence_count: 16
     key_terms: [button, whatsapp, support, customerexperience, operational, meta, absolutely, completely]
-    token_count: 470
+    concepts: [button, whatsapp, support, customerexperience, operational]
+    token_count: 469
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1u7a3xs/waking_up_to_a_restricted_company_whatsapp_number/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1u7a3xs.md#c1"
-    char_span: [2322, 3459]
+    char_span: [2321, 3458]
     sentence_count: 12
     key_terms: [whatsapp, "you're", line, official, becomes, channel, massive, someone]
+    concepts: [whatsapp, "you're", official, becomes, channel]
     token_count: 222
 ---
 # Waking up to a restricted company WhatsApp number is an absolute nightmare

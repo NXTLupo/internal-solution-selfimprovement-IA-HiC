@@ -19,41 +19,53 @@ chunks:
     char_span: [0, 1954]
     sentence_count: 26
     key_terms: [been, everything, rejections, understand, applyingtocollege, feel, school, "don't"]
+    concepts: [everything, rejections, understand, applyingtocollege, school]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s3ro1n.md#c3"]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1s3ro1n/im_just_in_shock/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s3ro1n.md#c1"
     char_span: [1968, 3980]
     sentence_count: 17
     key_terms: [school, work, schools, ua8mysandwitch, going, got, discipline, rejections]
+    concepts: [school, ua8mysandwitch, schools, discipline, going]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s3ro1n.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1s3ro1n.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s3ro1n.md#c2"
     char_span: [3669, 5653]
     sentence_count: 10
     key_terms: [schools, school, same-cap7233, feel, get, everyone, tomorrow, similar]
+    concepts: [schools, same-cap7233, school, everyone, tomorrow]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s3ro1n.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1s3ro1n.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s3ro1n.md#c3"
     char_span: [5406, 7559]
     sentence_count: 14
     key_terms: [schools, city, illustrious-dig-3118, rejected, school, sorry, else, like]
+    concepts: [schools, illustrious-dig-3118, rejected, school, everything]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s3ro1n.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1s3ro1n.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1s3ro1n.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s3ro1n.md#c4"
     char_span: [7234, 7782]
     sentence_count: 4
     key_terms: [rejections, schools, full-pay, ispiltthepoison, northeastern, northwestern, questbridge, candidates]
+    concepts: [rejections, schools, full-pay]
     section: Comments
     token_count: 127
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s3ro1n.md#c5"
     char_span: [7784, 8789]
     sentence_count: 9
     key_terms: [waitlist, got, total-childhood-4069, asked, aid, hear, tips, ispiltthepoison]
+    concepts: [waitlist, asked]
     section: Comments
     token_count: 252
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s3ro1n.md#c6"
     char_span: [8792, 10589]
     sentence_count: 12
     key_terms: [because, anything, applied, common, app, back, been, rejections]
+    concepts: [because, anything, applied, common, rejections]
     section: Comments
     token_count: 425
 ---

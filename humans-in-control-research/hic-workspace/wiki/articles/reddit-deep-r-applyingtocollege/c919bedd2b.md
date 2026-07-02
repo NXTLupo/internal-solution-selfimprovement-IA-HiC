@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1851]
     sentence_count: 9
     key_terms: [people, essays, reddit, applyingtocollege, someone, scholargrade, post, comments]
+    concepts: [people, applyingtocollege, essays, reddit, someone]
     token_count: 461
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1mcaccy/psa_people_can_and_will_lie_on_reddit_shocker/"}]
 ---
 # PSA: people can and will lie on Reddit (shocker!!!)
 

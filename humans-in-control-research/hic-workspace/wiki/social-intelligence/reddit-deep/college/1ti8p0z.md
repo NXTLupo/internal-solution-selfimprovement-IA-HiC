@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 611]
     sentence_count: 3
     key_terms: [college, graduation, colleges, comments, students, degree, increasingly, institutions]
+    concepts: [college, graduation, colleges, comments, students]
     token_count: 145
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ti8p0z/degree_in_three_why_more_colleges_are_speeding_up/"}]
   - id: "social-intelligence/reddit-deep/college/1ti8p0z.md#c1"
     char_span: [625, 2632]
     sentence_count: 12
     key_terms: [engineering, understand, semester, because, degree, semesters, computer, required]
+    concepts: [engineering, understand, semester, because, degree]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/college/1ti8p0z.md#c2"
     char_span: [2634, 4701]
     sentence_count: 13
     key_terms: [people, education, "can't", credits, definitely, higher, specifically, well-rounded]
+    concepts: [education, people, "can't", credits, definitely]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/college/1ti8p0z.md#c3"
     char_span: [4703, 5838]
     sentence_count: 7
     key_terms: [colleges, shorter, student, degree, adapt, howdoievenenglish, help, certifications]
+    concepts: [colleges, shorter, student, degree, adapt]
     section: Comments
     token_count: 249
 ---

@@ -20,35 +20,44 @@ chunks:
     char_span: [0, 1406]
     sentence_count: 11
     key_terms: [building, businessintelligence, tools, like, time, experiences, feel, dashboards]
+    concepts: [building, businessintelligence, tools, experiences, dashboards]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1olml4a.md#c4"]
     token_count: 303
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1olml4a/which_part_of_dashboard_building_takes_up_most_of/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1olml4a.md#c1"
-    char_span: [1421, 3497]
+    char_span: [1420, 3496]
     sentence_count: 22
     key_terms: [data, tableau, requirements, stakeholders, based, build, etc, set]
+    concepts: [tableau, requirements, stakeholders, automation, based]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/businessintelligence/1olml4a.md#c2"
-    char_span: [3499, 5562]
+    char_span: [3498, 5561]
     sentence_count: 16
     key_terms: [feedback, use, scope, back, keep, users, easy, experience]
+    concepts: [feedback, scope, experience, users, objective]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/businessintelligence/1olml4a.md#c3"
-    char_span: [5564, 7833]
+    char_span: [5563, 7832]
     sentence_count: 16
     key_terms: [data, questions, making, functionality, right, users, analytics, analysts]
+    concepts: [questions, functionality, making, right, users]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/businessintelligence/1olml4a.md#c4"
-    char_span: [7835, 10098]
+    char_span: [7834, 10097]
     sentence_count: 17
     key_terms: [like, time, building, requirements, logic, takes, tools, bit]
+    concepts: [building, requirements, logic, takes, tools]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1olml4a.md#c0"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/businessintelligence/1olml4a.md#c5"
-    char_span: [10100, 11305]
+    char_span: [10099, 11304]
     sentence_count: 6
     key_terms: [data, model, users, want, controls, general, graphs, report]
+    concepts: [model, users, controls, general, graphs]
     section: Comments
     token_count: 278
 ---

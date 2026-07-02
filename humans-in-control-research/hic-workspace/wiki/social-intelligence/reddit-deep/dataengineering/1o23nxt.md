@@ -20,71 +20,84 @@ chunks:
     char_span: [0, 1979]
     sentence_count: 12
     key_terms: [data, business, case, dataengineering, conversation, engineering, ask, cdc]
+    concepts: [business, dataengineering, conversation, engineering, real-time]
     token_count: 462
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1o23nxt/im_sick_of_the_misconceptions_that_laymen_have/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1o23nxt.md#c1"
-    char_span: [1994, 3297]
+    char_span: [1993, 3296]
     sentence_count: 7
     key_terms: [real-time, millisecond, handling, almost, revolutionary-two457, start, mean, sure]
+    concepts: [real-time, millisecond, handling, almost, start]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/dataengineering/1o23nxt.md#c2"
-    char_span: [3299, 5102]
+    char_span: [3298, 5101]
     sentence_count: 15
     key_terms: [real-time, real, time, realtime, data, day, like, want]
+    concepts: [real-time, realtime, expensive, sometimes, minutes]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/dataengineering/1o23nxt.md#c3"
-    char_span: [5104, 7153]
+    char_span: [5103, 7152]
     sentence_count: 13
     key_terms: [going, engineering, millisecond, understand, engineers, real-time, handling, without]
+    concepts: [engineering, millisecond, going, understand, engineers]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/dataengineering/1o23nxt.md#c4"
-    char_span: [7155, 9229]
+    char_span: [7154, 9228]
     sentence_count: 13
     key_terms: [functional-data-engineering-a-modern-paradigm-for-batch-data-processing-2327ec32c42a, able, being, cdc, case, data, time, want]
+    concepts: [being, rebuild, agree, given, real-time]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/dataengineering/1o23nxt.md#c5"
-    char_span: [9231, 11381]
+    char_span: [9230, 11380]
     sentence_count: 17
     key_terms: [data, sure, need, asking, requirements, "don't", excel, ask]
+    concepts: [requirements, asking, "don't", excel, skateboard]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/dataengineering/1o23nxt.md#c6"
-    char_span: [11383, 12820]
+    char_span: [11382, 12819]
     sentence_count: 9
     key_terms: [approach, possible, ask, lot, need, "doesn't", involve, built]
+    concepts: [approach, possible, "doesn't", involve, pessimistic]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/dataengineering/1o23nxt.md#c7"
-    char_span: [12822, 14793]
+    char_span: [12821, 14792]
     sentence_count: 16
     key_terms: [possible, promised, client, impossible, something, data, conversations, like]
+    concepts: [possible, promised, impossible, client, something]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/dataengineering/1o23nxt.md#c8"
-    char_span: [14795, 17072]
+    char_span: [14794, 17071]
     sentence_count: 11
     key_terms: [data, times, distributed, replication, need, customer, universe, already]
+    concepts: [distributed, replication, times, customer, universe]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/dataengineering/1o23nxt.md#c9"
-    char_span: [17074, 19326]
+    char_span: [17073, 19325]
     sentence_count: 18
     key_terms: [cdc, experience, business, database, changes, tables, configuration, build]
+    concepts: [experience, business, database, configuration, changes]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/dataengineering/1o23nxt.md#c10"
-    char_span: [19328, 21563]
+    char_span: [19327, 21562]
     sentence_count: 22
     key_terms: [cdc, database, debezium, straightforward, records, major, nightmarish, replication]
+    concepts: [straightforward, database, debezium, records, nightmarish]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/dataengineering/1o23nxt.md#c11"
-    char_span: [21565, 23064]
+    char_span: [21564, 23063]
     sentence_count: 13
     key_terms: [tables, database, isolation, cdc, relatively, crazy, "we're", get]
+    concepts: [tables, database, isolation, relatively, crazy]
     section: Comments
     token_count: 344
 ---

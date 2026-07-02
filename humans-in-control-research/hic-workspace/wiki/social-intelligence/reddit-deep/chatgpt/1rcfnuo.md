@@ -21,53 +21,63 @@ chunks:
     char_span: [0, 274]
     sentence_count: 2
     key_terms: [chatgpt, comments, reddit, reddit-deep, talking, agents, posted, source]
+    concepts: [chatgpt, comments, reddit]
     token_count: 82
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1rcfnuo/is_reddit_just_chatgpt_agents_talking_to_each/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1rcfnuo.md#c1"
     char_span: [288, 1514]
     sentence_count: 5
     key_terms: [mmph, r-chatgpt-1050422060352024636, excellent, language, discord, "that's", right, withoutreason1729]
+    concepts: [excellent, language, discord, "that's", right]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/chatgpt/1rcfnuo.md#c2"
     char_span: [1516, 2375]
     sentence_count: 3
     key_terms: [rare, violentinbredpelican, anythingeastern3964, right, ensiferum888, intelligence, ctrl-alt-j, xtrendence]
+    concepts: [right]
     section: Comments
     token_count: 243
   - id: "social-intelligence/reddit-deep/chatgpt/1rcfnuo.md#c3"
     char_span: [2377, 3779]
     sentence_count: 8
     key_terms: [people, "it's", rule, "you're", "that's", "don't", bros, rare]
+    concepts: [people, "you're", "that's", "don't"]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/chatgpt/1rcfnuo.md#c4"
     char_span: [3781, 5774]
     sentence_count: 17
     key_terms: [alone, billions, take, everything, emotions, universe, feeling, breath]
+    concepts: [alone, billions, everything, emotions, universe]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/chatgpt/1rcfnuo.md#c5"
     char_span: [5777, 7668]
     sentence_count: 11
     key_terms: [human, like, comments, ingredrients, being, write, concerning, nonsense]
+    concepts: [human, comments, ingredrients, being, concerning]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/chatgpt/1rcfnuo.md#c6"
     char_span: [7670, 9562]
     sentence_count: 10
     key_terms: [human, probably, spelling, grammar, ingredients, give, "wouldn't", prompts]
+    concepts: [human, probably, spelling, grammar, ingredients]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/chatgpt/1rcfnuo.md#c7"
     char_span: [9564, 10631]
     sentence_count: 3
     key_terms: [jebediahlongnutsiii, dswimanator, absolutely, comments, doubling, pretty, "you're", bestplanetsidegamer]
+    concepts: [jebediahlongnutsiii, dswimanator, absolutely, comments, doubling]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/chatgpt/1rcfnuo.md#c8"
     char_span: [10633, 11432]
     sentence_count: 1
     key_terms: [pitiful-assistance-1, people, recipe, human, thelegendtwoseven, joke, marsflameishere, opisfuckingdumb]
+    concepts: [pitiful-assistance-1, people, recipe, human]
     section: Comments
     token_count: 228
 ---

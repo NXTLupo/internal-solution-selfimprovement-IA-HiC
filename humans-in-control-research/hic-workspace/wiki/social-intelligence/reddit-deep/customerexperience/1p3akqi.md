@@ -20,47 +20,58 @@ chunks:
     char_span: [0, 1333]
     sentence_count: 9
     key_terms: [customerexperience, right, here, want, comments, agentic, problem, working]
+    concepts: [customerexperience, right, comments, agentic, problem]
     token_count: 302
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1p3akqi/whats_the_right_way_to_use_ai_in_cx/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1p3akqi.md#c1"
-    char_span: [1348, 3477]
+    char_span: [1347, 3476]
     sentence_count: 16
     key_terms: ["it's", customers, team, transformation, people, teams, day, new]
+    concepts: [customers, transformation, people, individual, teams]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/customerexperience/1p3akqi.md#c2"
-    char_span: [3479, 5758]
+    char_span: [3478, 5757]
     sentence_count: 14
     key_terms: [journey, data, work, friction, ujet-cx, teams, come, management]
+    concepts: [journey, friction, ujet-cx, management, teams]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1p3akqi.md#c6"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/customerexperience/1p3akqi.md#c3"
-    char_span: [5760, 8082]
+    char_span: [5759, 8081]
     sentence_count: 16
     key_terms: [customers, main, loyalty, quickly, teams, b2b, especially, experience]
+    concepts: [customers, loyalty, quickly, especially, experience]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/customerexperience/1p3akqi.md#c4"
-    char_span: [8084, 10163]
+    char_span: [8083, 10162]
     sentence_count: 12
     key_terms: [product, signals, its-always-sonny, teams, interesting, preventable, building, contacts]
+    concepts: [product, signals, its-always-sonny, interesting, preventable]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/customerexperience/1p3akqi.md#c5"
-    char_span: [10165, 11660]
+    char_span: [10164, 11659]
     sentence_count: 13
     key_terms: [customers, insights, upstream, cryrevolutionary7536, great, place, queue, teams]
+    concepts: [customers, insights, upstream, great, place]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/customerexperience/1p3akqi.md#c6"
-    char_span: [11662, 13571]
+    char_span: [11661, 13570]
     sentence_count: 9
     key_terms: [teams, appropriate-lab-1356, com, real, insights, ujet-cx, automation, everything]
+    concepts: [appropriate-lab-1356, teams, insights, ujet-cx, automation]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1p3akqi.md#c2"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/customerexperience/1p3akqi.md#c7"
-    char_span: [13573, 14092]
+    char_span: [13572, 14091]
     sentence_count: 6
     key_terms: [dissatisfaction, always, something, sentry, since, satisfaction, engineering, background]
+    concepts: [dissatisfaction, always, something, sentry, since]
     section: Comments
     token_count: 109
 ---

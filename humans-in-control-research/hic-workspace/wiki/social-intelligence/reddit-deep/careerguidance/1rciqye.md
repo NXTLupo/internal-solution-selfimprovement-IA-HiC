@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 579]
     sentence_count: 4
     key_terms: [careerguidance, comments, prize-teaching5519, non-negotiables, established, reddit-deep, compromise, experience]
+    concepts: [careerguidance, comments]
     token_count: 146
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rciqye/to_those_with_established_careers_what_are_your/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c1"
     char_span: [593, 2608]
     sentence_count: 22
     key_terms: [job, experience, non-negotiables, work, pay, non-negotiable, career, travel]
+    concepts: [experience, non-negotiables, non-negotiable, professional, career]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c2"
     char_span: [2610, 4528]
     sentence_count: 12
     key_terms: [match, years, objective-sky7312, like, pto, year, vesting, good]
+    concepts: [objective-sky7312, match, years, vesting, employees]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c3"
     char_span: [4264, 5052]
     sentence_count: 5
     key_terms: [consider, company, nedflanders304, match, good, because, best, outstanding]
+    concepts: [consider, nedflanders304, company, match, because]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c4"
@@ -50,12 +55,14 @@ chunks:
     char_span: [5352, 7448]
     sentence_count: 9
     key_terms: [non-negotiables, job, either, years, don, like, lot, companies]
+    concepts: [non-negotiables, either, years, companies, benefits]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c6"
     char_span: [7450, 8557]
     sentence_count: 11
     key_terms: [job, travel, step, work, because, title, wrong, get]
+    concepts: [travel, because, title, wrong]
     section: Comments
     token_count: 251
 ---

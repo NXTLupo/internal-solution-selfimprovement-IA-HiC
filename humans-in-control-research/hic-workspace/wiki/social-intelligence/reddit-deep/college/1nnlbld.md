@@ -20,35 +20,45 @@ chunks:
     char_span: [0, 1436]
     sentence_count: 17
     key_terms: [college, class, classmates, experience, different, comments, hanging, project]
+    concepts: [college, class, classmates, experience, different]
     token_count: 313
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1nnlbld/i_was_a_campus_hermit_until_my_senior_year_and_it/"}]
   - id: "social-intelligence/reddit-deep/college/1nnlbld.md#c1"
     char_span: [1450, 3444]
     sentence_count: 18
     key_terms: [friends, did, group, professor, got, ddhhvahg, presentation, page]
+    concepts: [friends, professor, group, ddhhvahg, presentation]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/college/1nnlbld.md#c2"
     char_span: [3446, 5549]
     sentence_count: 15
     key_terms: [people, college, friends, time, opportunities, "i'm", because, classes]
+    concepts: [people, college, friends, opportunities, because]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nnlbld.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1nnlbld.md#c3"
     char_span: [5551, 7655]
     sentence_count: 23
     key_terms: ["don't", "i'm", person, shiroganelove, people, trying, tried, good]
+    concepts: ["don't", person, shiroganelove, people, trying]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nnlbld.md#c4"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/college/1nnlbld.md#c4"
     char_span: [7657, 9885]
     sentence_count: 16
     key_terms: [people, "don't", "i've", "it's", because, others, years, like]
+    concepts: [people, "don't", because, others, years]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nnlbld.md#c2", "social-intelligence/reddit-deep/college/1nnlbld.md#c3"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/college/1nnlbld.md#c5"
     char_span: [9887, 10593]
     sentence_count: 7
     key_terms: [remember, never, epicgameslauncher, life, smartymarty1234, professional, development, geographic]
+    concepts: [remember, never]
     section: Comments
     token_count: 160
 ---

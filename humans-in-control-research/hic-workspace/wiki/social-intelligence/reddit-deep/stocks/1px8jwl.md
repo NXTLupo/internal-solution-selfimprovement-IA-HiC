@@ -20,62 +20,80 @@ chunks:
     char_span: [0, 2285]
     sentence_count: 17
     key_terms: [silver, price, shanghai, exchange, getting, buyers, comex, money]
+    concepts: [silver, price, shanghai, exchange, getting]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1px8jwl.md#c1", "social-intelligence/reddit-deep/stocks/1px8jwl.md#c4"]
     token_count: 490
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1px8jwl/a_lot_of_the_takes_on_silver_miners_and_silver/"}]
   - id: "social-intelligence/reddit-deep/stocks/1px8jwl.md#c1"
     char_span: [2287, 3443]
     sentence_count: 12
     key_terms: [silver, hyperinflation, spread, price, gold, year, argentina, massive]
+    concepts: [silver, hyperinflation, spread, price, argentina]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1px8jwl.md#c0"]
     token_count: 252
   - id: "social-intelligence/reddit-deep/stocks/1px8jwl.md#c2"
     char_span: [3445, 5368]
     sentence_count: 18
     key_terms: [silver, physical, happening, get, miners, china, commodities, exchange]
+    concepts: [silver, physical, happening, miners, commodities]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1px8jwl.md#c8"]
     token_count: 421
   - id: "social-intelligence/reddit-deep/stocks/1px8jwl.md#c3"
     char_span: [5370, 5754]
     sentence_count: 5
     key_terms: [oil, crisis, gold, beginning, venezuela, invading, clearly, current]
+    concepts: [crisis]
     token_count: 93
   - id: "social-intelligence/reddit-deep/stocks/1px8jwl.md#c4"
-    char_span: [5769, 6606]
+    char_span: [5768, 6605]
     sentence_count: 10
     key_terms: [price, disparity, transport, shanghai, bars, deepvaluediver, monster213213, whipitreelgud]
+    concepts: [price, disparity, transport, shanghai]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1px8jwl.md#c0"]
     section: Comments
     token_count: 253
   - id: "social-intelligence/reddit-deep/stocks/1px8jwl.md#c5"
-    char_span: [6608, 8460]
+    char_span: [6607, 8459]
     sentence_count: 9
     key_terms: [shipping, vat, physical, tariffs, deepvaluediver, costs, transport, chinese]
+    concepts: [shipping, physical, deepvaluediver, tariffs, costs]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/stocks/1px8jwl.md#c6"
-    char_span: [8462, 8709]
+    char_span: [8461, 8708]
     sentence_count: 2
     key_terms: [gps, international, optimistic, extremely, anything, cheapest, envelope, industry]
     section: Comments
     token_count: 59
   - id: "social-intelligence/reddit-deep/stocks/1px8jwl.md#c7"
-    char_span: [8711, 10655]
+    char_span: [8710, 10654]
     sentence_count: 20
     key_terms: [samecategory546, silver, gold, sell, take, top, sometimes, accurate]
+    concepts: [samecategory546, silver, sometimes, accurate, cayoloco]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1px8jwl.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1px8jwl.md#c8"
-    char_span: [10417, 11080]
+    char_span: [10416, 11079]
     sentence_count: 7
     key_terms: [available, robinhood, miners, silver, keep, sell, tievisible3422, beautifully]
+    concepts: [available, robinhood, miners, silver]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1px8jwl.md#c2"]
     section: Comments
     token_count: 179
   - id: "social-intelligence/reddit-deep/stocks/1px8jwl.md#c9"
-    char_span: [11083, 12478]
+    char_span: [11082, 12477]
     sentence_count: 12
     key_terms: [silver, fortuna, samecategory546, hycroft, mining, sprott, currently, physical]
+    concepts: [silver, fortuna, samecategory546, hycroft, mining]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1px8jwl.md#c7"]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/stocks/1px8jwl.md#c10"
-    char_span: [12480, 13289]
+    char_span: [12479, 13288]
     sentence_count: 2
     key_terms: [long, morgan, silver, raisedeyebrow4891, been, samecategory546, manipulating, questionable]
+    concepts: [morgan, silver]
     section: Comments
     token_count: 195
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 505]
     sentence_count: 1
     key_terms: [comments, private, health, llc, neu, pre, northeastern, appreciated]
+    concepts: [comments, private, health]
     token_count: 125
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rm2jrz/first_year_dorming/"}]
   - id: "social-intelligence/reddit-deep/neu/1rm2jrz.md#c1"
     char_span: [519, 2501]
     sentence_count: 2
     key_terms: [buildings, private, triples, melvin, speare, takamishroud, like, llcs]
+    concepts: [buildings, private, triples, takamishroud, melvin]
     section: Comments
     token_count: 505
 ---

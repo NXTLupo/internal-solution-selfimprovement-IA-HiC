@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 448]
     sentence_count: 2
     key_terms: [anthropic, comments, windows, claude, code, brentyoungphoto, reddit-deep, computer]
+    concepts: [anthropic, comments, windows, claude]
     token_count: 122
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1rooob1/for_my_windows_peeps_how_are_you_running_claude/"}]
 ---
 # for my windows peeps how are you running claude code?
 

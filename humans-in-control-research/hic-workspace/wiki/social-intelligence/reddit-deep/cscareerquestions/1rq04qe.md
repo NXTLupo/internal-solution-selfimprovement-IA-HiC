@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 1006]
     sentence_count: 8
     key_terms: [cscareerquestions, months, internships, bit, interview, comments, take, tech]
+    concepts: [cscareerquestions, months, internships, interview, comments]
     token_count: 255
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rq04qe/new_grad_no_internships_am_i_being_too_greedy/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq04qe.md#c1"
     char_span: [1020, 2692]
     sentence_count: 14
     key_terms: ["it's", interview, working, take, especially, experience, unemployed, career]
+    concepts: [interview, working, especially, experience, unemployed]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq04qe.md#c2"
     char_span: [2694, 4263]
     sentence_count: 7
     key_terms: [interviews, job, take, office, offer, get, interview, applying]
+    concepts: [interviews, office, offer, interview, applying]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rq04qe.md#c3"]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq04qe.md#c3"
     char_span: [4265, 6067]
     sentence_count: 12
     key_terms: [interviews, take, resume, "you're", howholdpencil, job, interview, momentum]
+    concepts: [interviews, howholdpencil, resume, "you're", interview]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rq04qe.md#c2"]
     section: Comments
     token_count: 441
 ---

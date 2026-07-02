@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 612]
     sentence_count: 6
     key_terms: [betterment, ira, bogleheads, comments, contributions, joaquinpluma, reddit-deep, brokerage]
+    concepts: [betterment, bogleheads, comments]
     token_count: 161
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1soi38b/betterment_vs_other_options_or_should_i_stay_still/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1soi38b.md#c1"
-    char_span: [627, 1074]
+    char_span: [626, 1073]
     sentence_count: 3
     key_terms: [betterment, fidelity, vanguard, joaquinpluma, roboadvisor, difference, harvesting, varathien]
+    concepts: [betterment, fidelity, vanguard]
     section: Comments
     token_count: 119
 ---

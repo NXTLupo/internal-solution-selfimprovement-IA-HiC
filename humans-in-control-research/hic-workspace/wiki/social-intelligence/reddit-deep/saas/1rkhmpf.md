@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1801]
     sentence_count: 7
     key_terms: [saas, enterprise, comments, specifically, injections, founders, recorder, clients]
+    concepts: [enterprise, comments, specifically, injections, founders]
     token_count: 427
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1rkhmpf/enterprise_clients_kept_blocking_our_ai_saas_over/"}]
   - id: "social-intelligence/reddit-deep/saas/1rkhmpf.md#c1"
-    char_span: [1816, 4127]
+    char_span: [1815, 4126]
     sentence_count: 15
     key_terms: [latency, local, tracking, network, custom, openai, code, zero]
+    concepts: [latency, local, tracking, network, custom]
     section: Comments
     token_count: 513
 ---

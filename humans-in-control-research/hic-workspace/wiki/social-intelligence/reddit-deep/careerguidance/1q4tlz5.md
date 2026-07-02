@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1568]
     sentence_count: 14
     key_terms: [design, research, careerguidance, career, engineering, here, interests, comments]
+    concepts: [design, research, careerguidance, career, engineering]
     token_count: 340
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1q4tlz5/final_year_engineering_student_here_how_do_i/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1q4tlz5.md#c1"
     char_span: [1582, 2181]
     sentence_count: 8
     key_terms: [research, "i'm", skills, worldly-flight4233, "it's", like, tbh, communication]
+    concepts: [research, skills]
     section: Comments
     token_count: 140
 ---

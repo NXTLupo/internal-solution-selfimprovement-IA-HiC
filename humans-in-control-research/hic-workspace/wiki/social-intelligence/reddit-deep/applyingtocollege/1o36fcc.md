@@ -21,7 +21,10 @@ chunks:
     char_span: [0, 2035]
     sentence_count: 14
     key_terms: [class, student, admissions, college, grade, officers, applyingtocollege, daughter]
+    concepts: [admissions, student, class, college, officers]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c9"]
     token_count: 462
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1o36fcc/can_admissions_officers_tell_if_a_student_took_a/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c1"
     char_span: [2040, 2327]
     sentence_count: 4
@@ -31,72 +34,93 @@ chunks:
     char_span: [2341, 4489]
     sentence_count: 18
     key_terms: [school, class, grades, middle, child, accelerated, frustrating, math]
+    concepts: [school, class, grades, middle, accelerated]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c12", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c13"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c3"
     char_span: [4491, 6489]
     sentence_count: 16
     key_terms: [college, school, classes, high, son, transcript, math, program]
+    concepts: [college, school, classes, transcript, program]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c8", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c10", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c11", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c13"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c4"
     char_span: [6491, 8833]
     sentence_count: 24
     key_terms: [daughter, college, kids, school, "it's", class, application, high]
+    concepts: [daughter, college, school, application, admissions]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c3"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c5"
     char_span: [8835, 10552]
     sentence_count: 11
     key_terms: [kids, rankings, too, classes, parents, "don't", high, admissions]
+    concepts: [rankings, classes, parents, admissions, "don't"]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c6"
     char_span: [10554, 12765]
     sentence_count: 15
     key_terms: [aid, financial, merit, colleges, scholarships, need, families, majority]
+    concepts: [financial, merit, colleges, scholarships, families]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c7"
     char_span: [12767, 14982]
     sentence_count: 18
     key_terms: [grade, parents, grades, "daughter's", choices, student, "there's", school]
+    concepts: [grade, parents, "daughter's", grades, choices]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c8"
     char_span: [14984, 17119]
     sentence_count: 12
     key_terms: [school, high, transcript, classes, grade, student, class, works]
+    concepts: [school, transcript, classes, grade, student]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c10", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c11", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c13"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c9"
     char_span: [17121, 19215]
     sentence_count: 14
     key_terms: [calculus, advanced, students, admissions, take, class, college, grade]
+    concepts: [calculus, advanced, students, admissions, class]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c0"]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c10"
     char_span: [19217, 20802]
     sentence_count: 13
     key_terms: [school, high, calculus, math, classes, grades, multivariable, achievements]
+    concepts: [school, calculus, multivariable, classes, achievements]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c8", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c11", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c13"]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c11"
     char_span: [20804, 22587]
     sentence_count: 7
     key_terms: [classes, math, take, school, courses, ability, requirements, grade]
+    concepts: [classes, school, courses, ability, requirements]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c8", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c10", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c13"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c12"
     char_span: [22589, 24546]
     sentence_count: 14
     key_terms: [school, high, prescribed, class, math, material, algebra, classes]
+    concepts: [school, prescribed, class, material, algebra]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c2"]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c13"
     char_span: [24548, 26107]
     sentence_count: 12
     key_terms: [school, grade, high, classes, middle, transcript, fulfilled, pre-ninth]
+    concepts: [school, grade, classes, middle, transcript]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c8", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c10", "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c11"]
     section: Comments
     token_count: 385
 ---

@@ -20,40 +20,54 @@ chunks:
     char_span: [0, 2078]
     sentence_count: 11
     key_terms: [subscription, order, free, walmart, like, shipping, personalfinance, minimum]
+    concepts: [subscription, order, walmart, personalfinance, shipping]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1shntr9.md#c2", "social-intelligence/reddit-deep/personalfinance/1shntr9.md#c3"]
     token_count: 463
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1shntr9/walmart_subscription_or_free_account/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1shntr9.md#c1"
     char_span: [2080, 2483]
     sentence_count: 3
     key_terms: [usually, big, considered, sufficient, delivered, groceries, sometimes, delivery]
+    concepts: [usually]
     token_count: 92
   - id: "social-intelligence/reddit-deep/personalfinance/1shntr9.md#c2"
-    char_span: [2498, 3949]
+    char_span: [2497, 3948]
     sentence_count: 12
     key_terms: [subscription, shipping, money, store, save, time, year, service]
+    concepts: [subscription, shipping, money, store, service]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1shntr9.md#c0"]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/personalfinance/1shntr9.md#c3"
-    char_span: [3951, 5332]
+    char_span: [3950, 5331]
     sentence_count: 10
     key_terms: [okboysenberry6768, saturday, shipping, paying, walmart, afford, income, wouldn]
+    concepts: [okboysenberry6768, saturday, shipping, paying, walmart]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1shntr9.md#c0"]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/personalfinance/1shntr9.md#c4"
-    char_span: [5334, 6939]
+    char_span: [5333, 6938]
     sentence_count: 12
     key_terms: [house, month, insurance, free, delivery, walmart, car, like]
+    concepts: [insurance, house, month, delivery, walmart]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1shntr9.md#c5"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/personalfinance/1shntr9.md#c5"
-    char_span: [6942, 8306]
+    char_span: [6941, 8305]
     sentence_count: 11
     key_terms: [delivery, car, walmart, kroger, membership, benefits, produce, budget]
+    concepts: [delivery, walmart, kroger, membership, benefits]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1shntr9.md#c4", "social-intelligence/reddit-deep/personalfinance/1shntr9.md#c6"]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/personalfinance/1shntr9.md#c6"
-    char_span: [8308, 9329]
+    char_span: [8307, 9328]
     sentence_count: 5
     key_terms: [delivery, orders, walmartplus, aarp, less, per, membership, benefits]
+    concepts: [delivery, orders, walmartplus, membership, benefits]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1shntr9.md#c5"]
     section: Comments
     token_count: 262
 ---

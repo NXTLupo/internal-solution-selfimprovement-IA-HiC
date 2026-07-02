@@ -21,58 +21,74 @@ chunks:
     char_span: [0, 1962]
     sentence_count: 22
     key_terms: [microsoft, already, openai, azure, stock, down, comments, earnings]
+    concepts: [microsoft, already, openai, azure, stock]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1shvm71.md#c3"]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1shvm71/microsoft_msft_is_down_31_from_its_ath/"}]
   - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c1"
     char_span: [1964, 2406]
     sentence_count: 9
     key_terms: [earnings, target, price, cut, end, sentiments, consensus, estimate]
+    concepts: [earnings, target, price]
     token_count: 116
   - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c2"
     char_span: [2420, 4316]
     sentence_count: 7
     key_terms: [sub, buy, always, google, doomposting, good, something, everyone]
+    concepts: [always, google, doomposting, something, everyone]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1shvm71.md#c6", "social-intelligence/reddit-deep/stocks/1shvm71.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c3"
     char_span: [4041, 5958]
     sentence_count: 8
     key_terms: [microsoft, openai, kanguhrus, cromwest, always, offset, being, lavishnessless4356]
+    concepts: [microsoft, openai, kanguhrus, cromwest, always]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1shvm71.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c4"
     char_span: [5699, 6263]
     sentence_count: 3
     key_terms: [copilot, claude, movingtoseattlesoon, bing, therealjerseytom, therealdealguy, unfortunately, everything]
+    concepts: [copilot, claude]
     section: Comments
     token_count: 148
   - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c5"
     char_span: [6265, 8021]
     sentence_count: 11
     key_terms: [anthropic, msft, claude, krazynukz, realized, bought, buying, google]
+    concepts: [anthropic, claude, krazynukz, realized, bought]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c6"
     char_span: [7792, 9742]
     sentence_count: 10
     key_terms: [google, office, challenger, microsoft, something, pivoting, similar, france]
+    concepts: [google, office, challenger, microsoft, something]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1shvm71.md#c2", "social-intelligence/reddit-deep/stocks/1shvm71.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c7"
     char_span: [9508, 11318]
     sentence_count: 10
     key_terms: ["it's", like, microsoft, something, looking, france, google, office]
+    concepts: [microsoft, something, looking, france, google]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1shvm71.md#c2", "social-intelligence/reddit-deep/stocks/1shvm71.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c8"
     char_span: [11108, 12888]
     sentence_count: 9
     key_terms: [account, msft, consider, savings, too, portfolio, forget, prestigious-craft251]
+    concepts: [account, consider, savings, portfolio, forget]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c9"
     char_span: [12695, 13307]
     sentence_count: 6
     key_terms: [talking, google, prestigious-craft251, basic, cost, load, weedinthekoolaid, camxthexman3]
+    concepts: [talking, google, basic]
     section: Comments
     token_count: 211
 ---

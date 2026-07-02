@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1399]
     sentence_count: 9
     key_terms: [design, engineering, verification, career, engineeringstudents, software, advice, opportunities]
+    concepts: [design, engineering, verification, engineeringstudents, career]
     token_count: 283
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tdnkpy/career_advice_chip_design_verification_or/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tdnkpy.md#c1"
     char_span: [1413, 1736]
     sentence_count: 5
     key_terms: [roles, competitive, engineering, degree, computer, embedded, graduate, insanely]
+    concepts: [competitive, engineering, roles, degree]
     section: Comments
     token_count: 68
 ---

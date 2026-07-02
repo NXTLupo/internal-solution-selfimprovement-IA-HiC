@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 405]
     sentence_count: 2
     key_terms: [gradadmissions, comments, https, no-chemistry-3354, biochemistry, reddit-deep, requesting, feedback]
+    concepts: [gradadmissions, comments, https]
     token_count: 130
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1p1csbd/requesting_feedback_what_are_the_weak_areas_in_my/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1p1csbd.md#c1"
     char_span: [419, 1086]
     sentence_count: 7
     key_terms: [research, paragraphs, fun-concentrate2992, no-chemistry-3354, get, like, main, want]
+    concepts: [research, paragraphs]
     section: Comments
     token_count: 161
 ---

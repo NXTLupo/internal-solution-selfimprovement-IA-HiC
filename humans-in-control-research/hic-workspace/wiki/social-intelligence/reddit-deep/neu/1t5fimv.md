@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 445]
     sentence_count: 1
     key_terms: [school, gpa, business, comments, "i'm", neu, ok-criticism4214, reddit-deep]
+    concepts: [school, business, comments]
     token_count: 125
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1t5fimv/business_school_gpa/"}]
   - id: "social-intelligence/reddit-deep/neu/1t5fimv.md#c1"
     char_span: [459, 1371]
     sentence_count: 5
     key_terms: [co-ops, fine, top, something, business, slow-employment8774, co-op, get]
+    concepts: [co-ops, something, business, co-op]
     section: Comments
     token_count: 275
 ---

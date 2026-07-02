@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1470]
     sentence_count: 11
     key_terms: [data, sap, process, manual, businessintelligence, snowflake, ariba, power]
+    concepts: [businessintelligence, process, manual, snowflake, ariba]
     token_count: 296
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1rrpvse/automated_sap_data_extraction_into_snowflake_for/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1rrpvse.md#c1"
-    char_span: [1485, 3150]
+    char_span: [1484, 3149]
     sentence_count: 11
     key_terms: [data, snowflake, sap, replication, exports, modules, around, azure]
+    concepts: [snowflake, replication, exports, modules, around]
     section: Comments
     token_count: 383
 ---

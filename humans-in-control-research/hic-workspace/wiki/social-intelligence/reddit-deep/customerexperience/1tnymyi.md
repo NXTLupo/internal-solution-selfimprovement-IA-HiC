@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 884]
     sentence_count: 4
     key_terms: [customerexperience, csat, co-pilot, comments, copilot, agent, tools, real]
+    concepts: [customerexperience, co-pilot, comments, copilot, agent]
     token_count: 213
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1tnymyi/cx_professionals_which_real_time_ai_agent_copilot/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1tnymyi.md#c1"
-    char_span: [899, 2210]
+    char_span: [898, 2209]
     sentence_count: 13
     key_terms: [tickets, copilot, different, because, context, needs-troubleshooting, answer, agent]
+    concepts: [tickets, copilot, different, because, context]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1tnymyi.md#c2"]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/customerexperience/1tnymyi.md#c2"
-    char_span: [2212, 4612]
+    char_span: [2211, 4611]
     sentence_count: 12
     key_terms: [context, copilot, usually, agents, copilots, post-interaction, because, generic]
+    concepts: [context, copilot, usually, agents, post-interaction]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1tnymyi.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/customerexperience/1tnymyi.md#c3"
-    char_span: [4614, 5344]
+    char_span: [4613, 5343]
     sentence_count: 2
     key_terms: [generation, cognitive, response, agents, market, moving, toward, load]
+    concepts: [generation, cognitive, response, agents, market]
     section: Comments
     token_count: 160
   - id: "social-intelligence/reddit-deep/customerexperience/1tnymyi.md#c4"
-    char_span: [5346, 7044]
+    char_span: [5345, 7043]
     sentence_count: 9
     key_terms: [end, sidd, agent, fully, teams, tools, "it's", real]
+    concepts: [agent, fully, teams, tools, ecosystem]
     section: Comments
     token_count: 381
 ---

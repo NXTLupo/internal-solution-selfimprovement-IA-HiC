@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1419]
     sentence_count: 5
     key_terms: [careeradvice, job, like, automation, comments, myself, reddit, mobile-temperature36]
+    concepts: [careeradvice, automation, comments, myself, reddit]
     token_count: 344
+    sources: [{"n":"Reddit Deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1rf3sx3/how_are_you_protecting_your_career_from_ai/"}]
 ---
 # How are you protecting your career from AI automation?
 

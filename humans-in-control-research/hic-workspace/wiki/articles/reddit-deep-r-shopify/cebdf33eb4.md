@@ -19,10 +19,12 @@ content_hash: "3b489956221a844a"
 relevance_by_goal: {"490684cfa204":45}
 chunks:
   - id: "articles/reddit-deep-r-shopify/cebdf33eb4.md#c0"
-    char_span: [0, 2026]
+    char_span: [0, 2025]
     sentence_count: 17
     key_terms: [shopify, tariffs, northernhang, steel, queenkrool, backpacks, community, comments]
-    token_count: 484
+    concepts: [shopify, tariffs, northernhang, queenkrool, steel]
+    token_count: 483
+    sources: [{"n":"Reddit Deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1p9tbte/did_i_miss_a_new_usa_tariff_rule_based_in_and/"}]
 ---
 # Did I miss a new USA tariff rule? Based in and products made in Canada.
 

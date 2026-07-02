@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1754]
     sentence_count: 10
     key_terms: [data, integration, healthcare, dataengineering, project, working, https, com]
+    concepts: [integration, healthcare, dataengineering, project, working]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1n4emel.md#c1"]
     token_count: 408
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1n4emel/hl7_data_integration_pipeline/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1n4emel.md#c1"
-    char_span: [1769, 3105]
+    char_span: [1768, 3104]
     sentence_count: 10
     key_terms: [fhir, mappings, dataengineering, something, project, https, odd-government8896, appdgarsgl09yvjfj]
+    concepts: [dataengineering, mappings, something, project, https]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1n4emel.md#c0"]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/dataengineering/1n4emel.md#c2"
-    char_span: [3107, 5222]
+    char_span: [3106, 5221]
     sentence_count: 21
     key_terms: [data, mapping, field, synthea, "you're", demonstrating, implementing, edi]
+    concepts: [mapping, field, demonstrating, synthea, implementing]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/dataengineering/1n4emel.md#c3"
-    char_span: [5224, 5786]
+    char_span: [5223, 5785]
     sentence_count: 7
     key_terms: [data, healthcare, tieaccomplished7039, demonstrate, information, everything, understand, engineers]
+    concepts: [healthcare]
     section: Comments
     token_count: 123
 ---

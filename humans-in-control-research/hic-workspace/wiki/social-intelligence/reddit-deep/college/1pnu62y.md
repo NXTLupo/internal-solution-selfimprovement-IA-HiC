@@ -21,23 +21,31 @@ chunks:
     char_span: [0, 1476]
     sentence_count: 3
     key_terms: [professors, "i'm", college, network, being, weird, composition, "i've"]
+    concepts: [professors, college, network, composition, being]
     token_count: 322
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1pnu62y/how_to_network_with_professors_without_being_weird/"}]
   - id: "social-intelligence/reddit-deep/college/1pnu62y.md#c1"
     char_span: [1490, 3459]
     sentence_count: 15
     key_terms: [office, class, hours, related, ask, talk, introduce, professor]
+    concepts: [office, class, hours, related, introduce]
+    related_chunks: ["social-intelligence/reddit-deep/college/1pnu62y.md#c2"]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/college/1pnu62y.md#c2"
     char_span: [3461, 5560]
     sentence_count: 22
     key_terms: [class, recommendation, office, professors, hours, touch, remember, students]
+    concepts: [recommendation, class, professors, office, hours]
+    related_chunks: ["social-intelligence/reddit-deep/college/1pnu62y.md#c1", "social-intelligence/reddit-deep/college/1pnu62y.md#c3"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/college/1pnu62y.md#c3"
     char_span: [5565, 7913]
     sentence_count: 19
     key_terms: [recommendation, professors, class, research, students, related, doing, write]
+    concepts: [recommendation, professors, class, research, students]
+    related_chunks: ["social-intelligence/reddit-deep/college/1pnu62y.md#c2"]
     section: Comments
     token_count: 482
 ---

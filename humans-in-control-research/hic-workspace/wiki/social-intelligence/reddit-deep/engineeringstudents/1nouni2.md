@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1107]
     sentence_count: 7
     key_terms: [systems, power, engineeringstudents, graduate, student, experience, internship, companies]
+    concepts: [systems, power, engineeringstudents, graduate, student]
     token_count: 249
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1nouni2/how_do_i_get_a_co_op_in_power_systems_as_a/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nouni2.md#c1"
     char_span: [1121, 1757]
     sentence_count: 4
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    concepts: [engineeringstudents, reddit, https, resources, please]
     section: Comments
     token_count: 150
 ---

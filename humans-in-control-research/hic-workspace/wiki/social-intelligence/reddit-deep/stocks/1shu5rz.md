@@ -21,70 +21,87 @@ chunks:
     char_span: [0, 2042]
     sentence_count: 16
     key_terms: [wall-street-builds-new-tool-to-bet-against-private-credit-bdf8bafa, credit, private, companies, banks, https, index, loans]
+    concepts: [wall-street-builds-new-tool-to-bet-against-private-credit-bdf8bafa, credit, private, companies, banks]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1shu5rz.md#c2"]
     token_count: 497
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1shu5rz/wall_st_is_building_a_shorting_machine_for/"}]
   - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c1"
     char_span: [2044, 2702]
     sentence_count: 6
     key_terms: [market, going, negotiations, ceasefire, financial, following, obviously, cautious]
+    concepts: [market, going]
     token_count: 145
   - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c2"
     char_span: [2716, 4660]
     sentence_count: 9
     key_terms: [credit, companies, bathtub, private, software, robbie, funds, loans]
+    concepts: [companies, credit, bathtub, private, software]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1shu5rz.md#c0"]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c3"
     char_span: [4662, 5056]
     sentence_count: 2
     key_terms: [financial, banks, funds, shadow-banking, investments, contagion, contracts, deutsche]
+    concepts: [financial, banks, funds]
     section: Comments
     token_count: 74
   - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c4"
     char_span: [5058, 6937]
     sentence_count: 11
     key_terms: [remindme, days, companies, financial, maybe, because, looking, putting]
+    concepts: [remindme, companies, financial, maybe, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c5"
     char_span: [6779, 8389]
     sentence_count: 4
     key_terms: [margot, robbie, bathtub, "you're", pristinediscount3208, itstartedwithaqueef, nicknamesrforlosers, loans]
+    concepts: [margot, robbie, bathtub, "you're", loans]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c6"
     char_span: [8391, 9176]
     sentence_count: 7
     key_terms: [market, banks, decline, bank, down, "true", deliberately, tastisqueeze]
+    concepts: [market, banks, decline]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1shu5rz.md#c8"]
     section: Comments
     token_count: 176
   - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c7"
     char_span: [9178, 10544]
     sentence_count: 7
     key_terms: [credit, paycheck, claims, pristine-square-1126, icarusflyingwings, aig, bad, lot]
+    concepts: [credit, paycheck, claims]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c8"
     char_span: [10546, 12162]
     sentence_count: 10
     key_terms: [market, banks, get, sell, year, insurance, because, equity]
+    concepts: [market, banks, insurance, because, equity]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1shu5rz.md#c6"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c9"
     char_span: [12164, 12725]
     sentence_count: 6
     key_terms: [index, banks, fees, own, specifically, yield-hungry, investment, profitable]
+    concepts: [index, banks]
     section: Comments
     token_count: 124
   - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c10"
     char_span: [12727, 14622]
     sentence_count: 11
     key_terms: ["it's", financial, building, realized, finally, people, crazy-inspection-778, short]
+    concepts: [financial, building, realized, finally, people]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c11"
     char_span: [14624, 15308]
     sentence_count: 8
     key_terms: [because, buy, ohgodthehorror95, irreparablely, consequences, alternative, compliments, devastating]
+    concepts: [because]
     section: Comments
     token_count: 154
 ---

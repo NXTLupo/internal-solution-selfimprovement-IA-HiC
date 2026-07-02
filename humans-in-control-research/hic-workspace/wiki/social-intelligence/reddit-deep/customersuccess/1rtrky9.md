@@ -20,46 +20,61 @@ chunks:
     char_span: [0, 2329]
     sentence_count: 15
     key_terms: [churn, agency, customersuccess, "i'm", saas, companies, customers, expensive]
+    concepts: [churn, agency, customersuccess, companies, customers]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c4", "social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c5", "social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c6"]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/customersuccess","u":"https://www.reddit.com/r/CustomerSuccess/comments/1rtrky9/i_want_to_launch_a_churn_reduction_agency_for_b2b/"}]
   - id: "social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c1"
     char_span: [2331, 4426]
     sentence_count: 13
     key_terms: [churn, performance, genuinely, guarantee, "i'm", retainer, month, does]
+    concepts: [churn, performance, genuinely, guarantee, retainer]
     token_count: 509
   - id: "social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c2"
-    char_span: [4441, 5799]
+    char_span: [4440, 5798]
     sentence_count: 9
     key_terms: [churn, growth, size, arr, naturally, problems, couldn, tough]
+    concepts: [churn, growth, naturally, problems, couldn]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c3"
-    char_span: [5801, 7664]
+    char_span: [5800, 7663]
     sentence_count: 5
     key_terms: [churn, data, like, onboarding, existing, already, product, client]
+    concepts: [churn, onboarding, existing, already, product]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c7"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c4"
-    char_span: [7666, 9734]
+    char_span: [7665, 9733]
     sentence_count: 10
     key_terms: ["it's", churn, issue, companies, fix, customer, usually, easier]
+    concepts: [companies, churn, issue, customer, usually]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c0", "social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c5", "social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c6"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c5"
-    char_span: [9736, 11593]
+    char_span: [9735, 11592]
     sentence_count: 20
     key_terms: [churn, companies, client, value, idea, different, quantify, thoughts]
+    concepts: [churn, companies, client, value, different]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c0", "social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c4", "social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c6"]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c6"
-    char_span: [11595, 13950]
+    char_span: [11594, 13949]
     sentence_count: 27
     key_terms: [churn, companies, retention, control, process, consideration, firms, procurement]
+    concepts: [churn, companies, retention, consideration, control]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c0", "social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c4", "social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c5", "social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c7"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c7"
-    char_span: [13952, 16268]
+    char_span: [13951, 16267]
     sentence_count: 25
     key_terms: [churn, product, trying, changes, retention, because, sales, preventable]
+    concepts: [churn, product, trying, changes, retention]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c3", "social-intelligence/reddit-deep/customersuccess/1rtrky9.md#c6"]
     section: Comments
     token_count: 481
 ---

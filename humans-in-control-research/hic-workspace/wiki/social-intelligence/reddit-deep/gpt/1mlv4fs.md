@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1252]
     sentence_count: 12
     key_terms: [gpt-5, gpt-4o, benchmarks, emotional, comments, mostly, using, been]
+    concepts: [gpt-5, gpt-4o, benchmarks, emotional, comments]
     token_count: 307
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1mlv4fs/what_do_you_think_about_the_benchmarks_gpt5_vs/"}]
   - id: "social-intelligence/reddit-deep/gpt/1mlv4fs.md#c1"
     char_span: [1266, 3022]
     sentence_count: 20
     key_terms: [better, grok, information, gpt5, implementation, instructions, using, complicated]
+    concepts: [better, information, implementation, instructions, complicated]
     section: Comments
     token_count: 439
 ---

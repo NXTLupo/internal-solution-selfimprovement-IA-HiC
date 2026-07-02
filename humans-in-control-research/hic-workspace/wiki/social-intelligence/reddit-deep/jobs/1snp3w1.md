@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 357]
     sentence_count: 2
     key_terms: [jobs, comments, completepurification, entry, level, reddit-deep, experience, seriously]
+    concepts: [comments, entry, level]
     token_count: 95
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1snp3w1/seriously_where_and_how_do_people_actually_find/"}]
   - id: "social-intelligence/reddit-deep/jobs/1snp3w1.md#c1"
     char_span: [371, 2184]
     sentence_count: 12
     key_terms: [experience, significant-theme253, years, get, education, agencies, degree, office]
+    concepts: [experience, significant-theme253, years, education, agencies]
     section: Comments
     token_count: 496
 ---

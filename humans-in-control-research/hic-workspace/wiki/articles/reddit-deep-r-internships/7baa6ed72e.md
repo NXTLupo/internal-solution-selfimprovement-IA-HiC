@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2203]
     sentence_count: 2
     key_terms: [co-op, internships, experience, internship, "i'm", applying, graduate, friends]
+    concepts: [internships, co-op, experience, internship, applying]
     token_count: 501
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1ragjku/doubts_about_coop/"}]
   - id: "articles/reddit-deep-r-internships/7baa6ed72e.md#c1"
     char_span: [2205, 2455]
     sentence_count: 3
     key_terms: [experiences, graduation, congrats, graduate, semester, students, through, apart]
+    concepts: [experiences]
     token_count: 62
 ---
 # doubts about co-op

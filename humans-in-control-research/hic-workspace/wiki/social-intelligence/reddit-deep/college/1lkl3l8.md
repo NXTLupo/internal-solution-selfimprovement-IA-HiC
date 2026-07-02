@@ -21,17 +21,22 @@ chunks:
     char_span: [0, 1086]
     sentence_count: 5
     key_terms: [college, dont, find, anything, comments, dropping, already, advice]
+    concepts: [college, anything, comments, dropping, already]
     token_count: 260
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lkl3l8/dropping_out/"}]
   - id: "social-intelligence/reddit-deep/college/1lkl3l8.md#c1"
     char_span: [1100, 2505]
     sentence_count: 6
     key_terms: [semesters, major, like, change, rather, time, graduate, advisor]
+    concepts: [semesters, major, change, rather, graduate]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/college/1lkl3l8.md#c2"
     char_span: [2507, 4659]
     sentence_count: 11
     key_terms: [college, want, classes, get, degree, major, definitely, something]
+    concepts: [college, classes, degree, definitely, major]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lkl3l8.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1lkl3l8.md#c3"
@@ -44,6 +49,8 @@ chunks:
     char_span: [4662, 6725]
     sentence_count: 9
     key_terms: [college, classes, being, point, like, currently, political, anything]
+    concepts: [college, classes, being, point, currently]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lkl3l8.md#c2"]
     section: Comments
     token_count: 463
 ---

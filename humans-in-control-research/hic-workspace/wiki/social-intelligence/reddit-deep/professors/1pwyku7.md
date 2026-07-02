@@ -19,35 +19,44 @@ chunks:
     char_span: [0, 1150]
     sentence_count: 8
     key_terms: [students, discomfort, professors, comments, course, policy, damageeducational475, self-expression]
+    concepts: [students, discomfort, professors, comments, course]
     token_count: 248
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1pwyku7/oh_socrates_what_have_we_done/"}]
   - id: "social-intelligence/reddit-deep/professors/1pwyku7.md#c1"
-    char_span: [1165, 3118]
+    char_span: [1164, 3117]
     sentence_count: 9
     key_terms: [damageeducational475, students, consequences, student, educational, discussion, evaluation, reality]
+    concepts: [damageeducational475, students, consequences, student, educational]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1pwyku7.md#c2"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/professors/1pwyku7.md#c2"
-    char_span: [3120, 4903]
+    char_span: [3119, 4902]
     sentence_count: 14
     key_terms: [damageeducational475, student, says, professor, students, teachers, "they're", rather]
+    concepts: [damageeducational475, student, professor, students, teachers]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1pwyku7.md#c1"]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/professors/1pwyku7.md#c3"
-    char_span: [4905, 5982]
+    char_span: [4904, 5981]
     sentence_count: 6
     key_terms: [b37b7d7ebd829f597a420ad87ea022261ced0280, complaint, student, appeal, damageeducational475, png, self-awareness, kpxzt0dzjr9g1]
+    concepts: [complaint, student, appeal]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/professors/1pwyku7.md#c4"
-    char_span: [5984, 7515]
+    char_span: [5983, 7514]
     sentence_count: 10
     key_terms: [student, interaction, take, damageeducational475, "can't", check, grad, knowledge-worker]
+    concepts: [student, interaction, "can't", check]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/professors/1pwyku7.md#c5"
-    char_span: [7518, 9433]
+    char_span: [7517, 9432]
     sentence_count: 8
     key_terms: [damageeducational475, dunning-krueger, valerietheprof, effect, questionnaire, becoming, opposite, students]
+    concepts: [damageeducational475, dunning-krueger, valerietheprof, questionnaire, effect]
     section: Comments
     token_count: 484
 ---

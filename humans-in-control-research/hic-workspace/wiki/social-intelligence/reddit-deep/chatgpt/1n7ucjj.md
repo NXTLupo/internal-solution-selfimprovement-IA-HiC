@@ -21,75 +21,91 @@ chunks:
     char_span: [0, 1862]
     sentence_count: 20
     key_terms: [motion, cases, court, filed, opposing, chatgpt, counsel, "didn't"]
+    concepts: [motion, cases, court, filed, opposing]
     token_count: 417
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1n7ucjj/opposing_counsel_just_filed_a_chatgpt/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c1"
     char_span: [1864, 3753]
     sentence_count: 18
     key_terms: [relieved, hearing, motion, brief, edit, astounded, analysis, attorney]
+    concepts: [relieved, hearing, motion, brief, astounded]
     token_count: 426
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c2"
     char_span: [3755, 5337]
     sentence_count: 12
     key_terms: [hearing, court, associate, case, october, "false", did, law]
+    concepts: [hearing, associate, court, october, california]
     token_count: 366
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c3"
     char_span: [5351, 5933]
     sentence_count: 5
     key_terms: [conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, openai, please]
+    concepts: [conversation, image, discord, openai, please]
     section: Comments
     token_count: 154
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c4"
     char_span: [5936, 7423]
     sentence_count: 6
     key_terms: [please, update, remindme, chatgpt, nwmimms, been, rupertthecactus, automatically]
+    concepts: [please, update, remindme, chatgpt, nwmimms]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c5"
     char_span: [7425, 8785]
     sentence_count: 8
     key_terms: [irreconcilable, differences, client, basis, "he's", chatgpt, good, says]
+    concepts: [irreconcilable, differences, client, basis, chatgpt]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c6"]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c6"
     char_span: [8787, 10317]
     sentence_count: 7
     key_terms: [like, client, withdraw, chatgpt, sounds, mercurialmadnessman, cases, makes]
+    concepts: [client, withdraw, chatgpt, sounds, cases]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c5", "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c14"]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c7"
     char_span: [10319, 12215]
     sentence_count: 9
     key_terms: [court-rejects-monetary-sanctions-for-ai-generated-fake-cases-citing-lawyers-tragic-personal-circumstances, illegal, jurisdiction, like, attorney, counsel, otherwisealbatross14, basis]
+    concepts: [illegal, jurisdiction, attorney, counsel, basis]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c8"
     char_span: [12217, 14519]
     sentence_count: 11
     key_terms: [filings, lawyer, lawyers, license, motion, judge, law, courthouse]
+    concepts: [filings, lawyer, lawyers, license, motion]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c9"
     char_span: [14521, 16269]
     sentence_count: 10
     key_terms: [writing, hallucinate, "it's", own, introduced, university, meanwhile, required]
+    concepts: [writing, hallucinate, introduced, university, meanwhile]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c10"
     char_span: [16271, 17376]
     sentence_count: 6
     key_terms: [information, assignment, like, site, archaeological, hallucinations, autumn1eaves, embarrassing]
+    concepts: [information, assignment]
     section: Comments
     token_count: 274
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c11"
     char_span: [17378, 19089]
     sentence_count: 11
     key_terms: [people, like, completely, understand, realizing, because, chatgpt, without]
+    concepts: [people, completely, understand, realizing, because]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c12"
     char_span: [19091, 21150]
     sentence_count: 18
     key_terms: [attorneys, chatgpt, filed, page, text, time, citations, numbers]
+    concepts: [attorneys, chatgpt, filed, citations, numbers]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c13"
@@ -102,6 +118,8 @@ chunks:
     char_span: [22317, 24199]
     sentence_count: 6
     key_terms: [letter, motion, notifications, withdraw, chatgpt, dismiss, getting, lawyers]
+    concepts: [notifications, letter, motion, withdraw, chatgpt]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c15"
@@ -114,6 +132,7 @@ chunks:
     char_span: [24362, 24691]
     sentence_count: 1
     key_terms: [julie, judge, jiveturkey927, hallucinated, julianne, pleading, putting, setting]
+    concepts: [julie, judge]
     section: Comments
     token_count: 95
 ---

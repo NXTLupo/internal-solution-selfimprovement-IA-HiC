@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1449]
     sentence_count: 13
     key_terms: [private, aliexpress, better, agent, shipping, products, reliable, faster]
+    concepts: [private, aliexpress, better, shipping, agent]
     token_count: 307
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1n5g0tu/why_private_agent_works_better_than_aliexpress/"}]
   - id: "social-intelligence/reddit-deep/dropship/1n5g0tu.md#c1"
-    char_span: [1464, 2160]
+    char_span: [1463, 2159]
     sentence_count: 5
     key_terms: [randallchou, dropship, private, agents, please, help, spam, grouchy-eye-1981]
+    concepts: [randallchou, dropship, private, agents, please]
     section: Comments
     token_count: 200
 ---

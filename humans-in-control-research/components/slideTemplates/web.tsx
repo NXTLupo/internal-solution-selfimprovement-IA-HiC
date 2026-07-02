@@ -1810,8 +1810,15 @@ export const ExecutiveBriefSlide: React.FC<{ title: string; data: ExecutiveBrief
     const kickerLabel = variant === 'explainer' ? 'EXPLAINER' : variant === 'report' ? 'REPORT' : 'BRIEF';
     const kicker = `${kickerLabel} · ${(data.subject || 'EXECUTIVE SUMMARY').toUpperCase()}`;
     const meta = sources.length ? `Sources: ${sources.slice(0, 3).join(' · ')}` : undefined;
-    const cols = sections.length <= 2 ? 1 : 2;
     const stepped = variant === 'explainer';
+    // E3 density-adaptive anatomy (2026-07-02, twin of slideToStageHtml renderExecutiveBrief):
+    // evidence-or-collapse - quoted sections render as full cards (auto-height, quote flows after
+    // the body, never pinned across dead space); quote-less sections collapse into a compact
+    // SIGNALS strip; an exhibitImage (registry executive-brief visual slot) fills remaining space.
+    const quoted = stepped ? sections : sections.filter(s => s?.evidence?.quote);
+    const bare = stepped ? [] : sections.filter(s => !s?.evidence?.quote);
+    const cols = quoted.length <= 2 ? Math.max(1, quoted.length) : 2;
+    const exhibitImage = typeof (data as any).exhibitImage === 'string' ? (data as any).exhibitImage.trim() : '';
     return (
         <GoldFrame brand={brand} kicker={kicker} title={title} meta={meta} takeaway={data.keyInsight}>
             <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', gap: 8, fontFamily: bodyF }}>
@@ -1822,24 +1829,44 @@ export const ExecutiveBriefSlide: React.FC<{ title: string; data: ExecutiveBrief
                         <span style={{ fontFamily: mono, fontSize: webPx(SCALE.label), letterSpacing: '1px', textTransform: 'uppercase', color: hex(T.GREY) }}>{truncate(data.hero.label, 70)}</span>
                     </div>
                 )}
-                {/* section cards */}
-                <div style={{ flex: 1, minHeight: 0, display: 'grid', gridTemplateColumns: `repeat(${cols}, 1fr)`, gap: 8 }}>
-                    {sections.map((s, i) => (
-                        <div key={`sec-${i}`} style={{ background: hex(T.PANEL), border: `1px solid ${hex(T.HAIRLINE)}`, padding: '8px 11px', display: 'flex', flexDirection: 'column', gap: 4, overflow: 'hidden' }}>
-                            <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
-                                {stepped && <span style={{ fontFamily: mono, fontWeight: 700, fontSize: webPx(SCALE.caption), color: hex(T.CHARTREUSE) }}>{String(i + 1).padStart(2, '0')}</span>}
-                                <div style={{ fontFamily: titleF, fontWeight: isNu ? 500 : 600, fontSize: webPx(SCALE.body), lineHeight: 1.15, color: hex(T.INK) }}>{truncate(s.heading, 64)}</div>
-                            </div>
-                            <div style={{ fontFamily: bodyF, fontSize: webPx(SCALE.label), lineHeight: 1.42, color: hex(T.INK), overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 4, WebkitBoxOrient: 'vertical' }}>{truncate(s.body, 220)}</div>
-                            {s.evidence?.quote && (
-                                <div style={{ marginTop: 'auto', borderLeft: `2px solid ${hex(T.ACCENT_COOL)}`, paddingLeft: 6 }}>
-                                    <div style={{ fontFamily: titleF, fontStyle: isNu ? 'italic' : 'normal', fontSize: webPx(SCALE.label), lineHeight: 1.35, color: hex(T.INK) }}>{`“${truncate(s.evidence.quote, 130)}”`}</div>
-                                    <div style={{ fontFamily: mono, fontSize: webPx(SCALE.label), letterSpacing: '0.4px', color: hex(T.ACCENT_COOL), textTransform: 'uppercase', marginTop: 1 }}>{truncate(s.evidence.source, 40)}</div>
+                {/* quoted section cards - hug content, no stretched dead space */}
+                {quoted.length > 0 && (
+                    <div style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, 1fr)`, gridAutoRows: 'min-content', alignContent: 'start', gap: 8 }}>
+                        {quoted.map((s, i) => (
+                            <div key={`sec-${i}`} style={{ background: hex(T.PANEL), border: `1px solid ${hex(T.HAIRLINE)}`, padding: '8px 11px', display: 'flex', flexDirection: 'column', gap: 4, overflow: 'hidden' }}>
+                                <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
+                                    {stepped && <span style={{ fontFamily: mono, fontWeight: 700, fontSize: webPx(SCALE.caption), color: hex(T.CHARTREUSE) }}>{String(i + 1).padStart(2, '0')}</span>}
+                                    <div style={{ fontFamily: titleF, fontWeight: isNu ? 500 : 600, fontSize: webPx(SCALE.body), lineHeight: 1.15, color: hex(T.INK) }}>{truncate(s.heading, 64)}</div>
                                 </div>
-                            )}
-                        </div>
-                    ))}
-                </div>
+                                <div style={{ fontFamily: bodyF, fontSize: webPx(SCALE.label), lineHeight: 1.42, color: hex(T.INK), overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 4, WebkitBoxOrient: 'vertical' }}>{truncate(s.body, 220)}</div>
+                                {s.evidence?.quote && (
+                                    <div style={{ marginTop: 6, borderLeft: `2px solid ${hex(T.ACCENT_COOL)}`, paddingLeft: 6 }}>
+                                        <div style={{ fontFamily: titleF, fontStyle: isNu ? 'italic' : 'normal', fontSize: webPx(SCALE.label), lineHeight: 1.35, color: hex(T.INK) }}>{`“${truncate(s.evidence.quote, 130)}”`}</div>
+                                        <div style={{ fontFamily: mono, fontSize: webPx(SCALE.label), letterSpacing: '0.4px', color: hex(T.ACCENT_COOL), textTransform: 'uppercase', marginTop: 1 }}>{truncate(s.evidence.source, 40)}</div>
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                )}
+                {/* SIGNALS strip - quote-less sections collapse here (no empty quote wells) */}
+                {bare.length > 0 && (
+                    <div style={{ background: hex(T.PANEL), border: `1px solid ${hex(T.HAIRLINE)}`, borderLeft: `3px solid ${hex(T.CHARTREUSE)}`, padding: '6px 11px' }}>
+                        <div style={{ fontFamily: mono, fontWeight: 700, fontSize: webPx(SCALE.label), letterSpacing: '1.5px', textTransform: 'uppercase', color: hex(T.GREY), marginBottom: 3 }}>Signals</div>
+                        {bare.map((s, i) => (
+                            <div key={`sig-${i}`} style={{ display: 'flex', alignItems: 'baseline', gap: 8, padding: '2px 0', borderTop: i > 0 ? `1px solid ${hex(T.HAIRLINE)}` : 'none' }}>
+                                <span style={{ fontFamily: titleF, fontWeight: isNu ? 500 : 600, fontSize: webPx(SCALE.label), color: hex(T.INK), whiteSpace: 'nowrap' }}>{truncate(s.heading, 48)}</span>
+                                <span style={{ fontFamily: bodyF, fontSize: webPx(SCALE.label), lineHeight: 1.4, color: hex(T.INK) }}>{truncate(s.body, 170)}</span>
+                            </div>
+                        ))}
+                    </div>
+                )}
+                {/* VISUAL exhibit slot - native infographic composed from the sections' own data */}
+                {exhibitImage && (
+                    <div style={{ flex: 1, minHeight: 0, display: 'flex', background: hex(T.PANEL), border: `1px solid ${hex(T.HAIRLINE)}` }}>
+                        <img src={exhibitImage} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                    </div>
+                )}
                 {/* GOTCHAS strip (explainer only) */}
                 {gotchas.length > 0 && (
                     <div style={{ background: hex(T.WASH_WARN), borderLeft: `3px solid ${hex(T.ACCENT_WARN)}`, padding: '6px 11px' }}>
@@ -2275,6 +2302,42 @@ export const PrdFeatureSlide: React.FC<{ title: string; data: PrdFeatureData; so
     const prioAccent = (p: string) => p === 'must' ? 'var(--nu-red-600)' : 'var(--ink-700)';
     const single = allFeatures.length === 1 ? allFeatures[0] : null;
     const isDeep = !!(single && (single.technicalDetails || single.problemSolved || single.stakeholders || (Array.isArray(single.evidence) && single.evidence.length > 0)));
+
+    // 2026-07-02 (#prd depth uplift, canon 607:4): FR/NFR/OOS requirements ledger - three hugging
+    // columns with colored top rules + mono ID cells; twin of slideToStageHtml renderPrdRequirements.
+    // Rules resolve from the SAME token set the GoldFrame twins hydrate (resolveT), never literals.
+    const req = (data as any)?.requirements;
+    if (req && (Array.isArray(req.functional) || Array.isArray(req.nonFunctional) || Array.isArray(req.outOfScope))) {
+        const RT = resolveT(brand);
+        const col = (label: string, rule: string, rows: Array<{ id: string; text: string }>) => (
+            <div key={label} style={{ display: 'flex', flexDirection: 'column', background: hex(RT.PANEL), padding: '0 12px 10px', borderTop: `3px solid ${rule}` }}>
+                <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 600, fontSize: webPx(SCALE.label), letterSpacing: '.16em', textTransform: 'uppercase', color: 'var(--fg-muted)', padding: '9px 0 6px' }}>{label}</div>
+                {(rows || []).slice(0, 6).map((r, ri) => (
+                    <div key={ri} style={{ display: 'grid', gridTemplateColumns: '34px 1fr', gap: 8, alignItems: 'start', padding: '6px 0', borderTop: `1px solid ${hex(RT.HAIRLINE)}` }}>
+                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.label), letterSpacing: '.06em', color: hex(RT.ACCENT_COOL), fontWeight: 600, paddingTop: 1 }}>{r.id}</span>
+                        <p style={{ fontSize: webPx(SCALE.caption), lineHeight: 1.42, color: 'var(--fg-default)', margin: 0 }}>{r.text}</p>
+                    </div>
+                ))}
+            </div>
+        );
+        return (
+            <div className="nu-artifact-stage nu-artifact-stage--slide" data-brand={brand || 'nu'}
+                 style={{ height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                <header className="art-masthead" style={{ paddingBottom: 10 }}>
+                    <div className="art-masthead__center" style={{ flex: 1, minWidth: 0 }}>
+                        <div className="art-masthead__kicker">PRD · Requirements and boundaries</div>
+                        <h1 className="art-masthead__title">{title}</h1>
+                    </div>
+                </header>
+                <div style={{ flex: 1, padding: '0 28px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 14, alignContent: 'start', minHeight: 0, overflow: 'hidden' }}>
+                    {col('Functional', hex(RT.ACCENT_COOL), req.functional || [])}
+                    {col('Non-functional', hex(RT.INK), req.nonFunctional || [])}
+                    {col('Out of scope', hex(RT.ACCENT_WARN), req.outOfScope || [])}
+                </div>
+                <SourceFooter sources={sources} brand={brand} />
+            </div>
+        );
+    }
 
     if (isDeep && single) {
         const f = single;

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1249]
     sentence_count: 9
     key_terms: [product, productmanagement, comments, refining, looking, someone, enjoys, experimentation]
+    concepts: [product, productmanagement, comments, refining, looking]
     token_count: 256
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1powui5/looking_for_someone_who_enjoys_refining_a_product/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1powui5.md#c1"
-    char_span: [1264, 3237]
+    char_span: [1263, 3236]
     sentence_count: 13
     key_terms: [people, users, like, products, sounds, "who've", "you're", diary]
+    concepts: [people, users, products, sounds, "who've"]
     section: Comments
     token_count: 430
 ---

@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1210]
     sentence_count: 4
     key_terms: [social, artificial, models, like, comments, network, aifeed, follow]
+    concepts: [social, artificial, models, comments, network]
     token_count: 276
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1qkqyqe/i_built_a_social_network_where_only_ai_can_post/"}]
   - id: "social-intelligence/reddit-deep/artificial/1qkqyqe.md#c1"
     char_span: [1224, 2915]
     sentence_count: 13
     key_terms: ["don't", anything, produce, seem, collectively, data, progress, gung-ho]
+    concepts: ["don't", anything, produce, collectively, progress]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/artificial/1qkqyqe.md#c2"
     char_span: [2917, 4679]
     sentence_count: 11
     key_terms: [data, sounds, heat, like, work, islands, odballl, ladder]
+    concepts: [sounds, islands, odballl, ladder, models]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/artificial/1qkqyqe.md#c3"
     char_span: [4681, 6270]
     sentence_count: 10
     key_terms: [linkedin, around, circle-jerk, interesting, absolutely, celebrates, recursive, anything]
+    concepts: [linkedin, around, circle-jerk, interesting, absolutely]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/artificial/1qkqyqe.md#c4"
     char_span: [6272, 7358]
     sentence_count: 7
     key_terms: [interested, people, "you're", posts, dms, user, redheadsignal, participate]
+    concepts: [interested, people, "you're", posts]
     section: Comments
     token_count: 300
 ---

@@ -20,22 +20,29 @@ chunks:
     char_span: [0, 2056]
     sentence_count: 20
     key_terms: [analytics, met, work, gigs, "i'm", weekend, online, data]
+    concepts: [analytics, weekend, online, questions, comments]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/bostonu","u":"https://www.reddit.com/r/BostonU/comments/1nu27nl/new_grad_student_online_boston_met/"}]
   - id: "social-intelligence/reddit-deep/bostonu/1nu27nl.md#c1"
     char_span: [2058, 3218]
     sentence_count: 19
     key_terms: [semester, classes, week, degree, hours, labs, adjust, handle]
+    concepts: [semester, classes, degree, hours, adjust]
+    related_chunks: ["social-intelligence/reddit-deep/bostonu/1nu27nl.md#c2"]
     token_count: 286
   - id: "social-intelligence/reddit-deep/bostonu/1nu27nl.md#c2"
-    char_span: [3233, 5209]
+    char_span: [3232, 5208]
     sentence_count: 20
     key_terms: [classes, week, semester, hours, labs, per, degree, "i'm"]
+    concepts: [classes, semester, hours, degree, material]
+    related_chunks: ["social-intelligence/reddit-deep/bostonu/1nu27nl.md#c1"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/bostonu/1nu27nl.md#c3"
-    char_span: [5211, 6990]
+    char_span: [5210, 6989]
     sentence_count: 17
     key_terms: [class, dates, good, calendar, schedule, macbook, live, use]
+    concepts: [class, dates, calendar, schedule, macbook]
     section: Comments
     token_count: 403
 ---

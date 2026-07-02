@@ -19,44 +19,53 @@ chunks:
     char_span: [0, 1830]
     sentence_count: 15
     key_terms: [applying, applyingtocollege, schools, state, like, disclosure, comments, learning]
+    concepts: [applying, applyingtocollege, schools, disclosure, state]
     token_count: 456
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1msmk3v/it_actually_all_worked_out/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c1"
     char_span: [1832, 3848]
     sentence_count: 23
     key_terms: [interview, stanford, "i'm", like, selected, college, acres, forty]
+    concepts: [interview, stanford, selected, college, scholarship]
     token_count: 452
   - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c2"
     char_span: [3850, 6126]
     sentence_count: 13
     key_terms: [engineering, college, biomedical, rejected, scholar, honors, neuroscience, scholarship]
+    concepts: [engineering, college, biomedical, rejected, scholar]
     token_count: 553
   - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c3"
     char_span: [6128, 6848]
     sentence_count: 4
     key_terms: [rejected, scholarship, research, foundation, questions, summer, like, time]
+    concepts: [rejected, scholarship, research, foundation, questions]
     token_count: 160
   - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c4"
     char_span: [6862, 7504]
     sentence_count: 4
     key_terms: [colleges, spending, day, electro9005, especially, applicant, admitted, applying]
+    concepts: [colleges, spending]
     section: Comments
     token_count: 164
   - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c5"
     char_span: [7506, 9450]
     sentence_count: 12
     key_terms: [honors, engineering, school, stats, took, work, enrollment, averages]
+    concepts: [honors, engineering, school, enrollment, stats]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c6"
     char_span: [9455, 10303]
     sentence_count: 6
     key_terms: [colleges, amazing, schools, since, potsie-wonder-9185, philosophybelyin, semifinalist, standardized]
+    concepts: [colleges, amazing, schools, since]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c7"
     char_span: [10305, 11645]
     sentence_count: 10
     key_terms: [thank, did, congrats, littlerabbit8348, school, ecs, gpa, take]
+    concepts: [littlerabbit8348, thank, congrats, school, stanford]
     section: Comments
     token_count: 413
 ---

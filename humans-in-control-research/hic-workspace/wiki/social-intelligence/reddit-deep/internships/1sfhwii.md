@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 1251]
     sentence_count: 12
     key_terms: [internship, internships, summer, "i'm", "i've", experience, part-time, comments]
+    concepts: [internship, internships, summer, experience, part-time]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1sfhwii.md#c1"]
     token_count: 302
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sfhwii/would_you_travel_an_hour_each_way_for_18h_20hweek/"}]
   - id: "social-intelligence/reddit-deep/internships/1sfhwii.md#c1"
     char_span: [1265, 2731]
     sentence_count: 9
     key_terms: [internship, months, summer, been, everything, experience, appropriate-tutor587, no-independence-1605]
+    concepts: [internship, months, summer, everything, experience]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1sfhwii.md#c0"]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/internships/1sfhwii.md#c2"
     char_span: [2733, 3491]
     sentence_count: 3
     key_terms: [internship, worried, gas, "it's", paid, take, idkwhatiwant23, key-volume6496]
+    concepts: [internship, worried]
     section: Comments
     token_count: 188
 ---

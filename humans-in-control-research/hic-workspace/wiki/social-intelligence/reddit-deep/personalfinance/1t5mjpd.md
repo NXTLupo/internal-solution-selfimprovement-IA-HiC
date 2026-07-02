@@ -21,59 +21,74 @@ chunks:
     char_span: [0, 1422]
     sentence_count: 9
     key_terms: [truck, account, buy, new, personalfinance, enough, investment, investing]
+    concepts: [truck, account, personalfinance, enough, investment]
     token_count: 329
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1t5mjpd/saved_enough_to_outright_buy_a_truck_for_40k_in/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c1"
     char_span: [1436, 2880]
     sentence_count: 11
     key_terms: [new, truck, years, cost, depreciation, worth, selling, long]
+    concepts: [truck, depreciation, years, worth, selling]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c2"
     char_span: [2882, 3745]
     sentence_count: 4
     key_terms: [used, "you're", new, choice, saying, car, significantly, below-market]
+    concepts: ["you're", choice, saying]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c3"
     char_span: [3747, 5072]
     sentence_count: 10
     key_terms: [truck, car, instead, usually, price, get, keep, long]
+    concepts: [truck, instead, usually, price, vehicles]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c4"
     char_span: [5074, 6265]
     sentence_count: 5
     key_terms: [fleetadmiralcrunch, interest, money, cash, pay, predefined, because, finance]
+    concepts: [fleetadmiralcrunch, interest, money, predefined, because]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c5", "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c9"]
     section: Comments
     token_count: 298
   - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c5"
     char_span: [6267, 8200]
     sentence_count: 11
     key_terms: [truck, interest, pay, money, finance, buy, math, invested]
+    concepts: [truck, interest, money, finance, invested]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c4", "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c8", "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c6"
     char_span: [7946, 8678]
     sentence_count: 7
     key_terms: [pay, interest, investments, likely, therendevouswithfish, later, taxes, buy]
+    concepts: [interest, investments, likely, later, taxes]
     section: Comments
     token_count: 175
   - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c7"
     char_span: [8681, 10357]
     sentence_count: 4
     key_terms: [want, market, debt, awful, great, maybe, spend, put]
+    concepts: [market, awful, great, maybe, spend]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c8"
     char_span: [10359, 12397]
     sentence_count: 17
     key_terms: [truck, investments, money, get, trailer, times, car, need]
+    concepts: [investments, truck, money, trailer, times]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c5"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c9"
     char_span: [12399, 13089]
     sentence_count: 8
     key_terms: [money, financing, cash, interest, dealers, pay, flyinhawaiian58, ricofalltrades]
+    concepts: [financing, money, interest, dealers]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c4", "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c5"]
     section: Comments
     token_count: 161
 ---

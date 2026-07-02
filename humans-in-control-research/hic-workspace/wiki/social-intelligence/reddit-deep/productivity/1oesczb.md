@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2159]
     sentence_count: 28
     key_terms: [worked, finally, routine, productivity, week, year, journaling, meditation]
+    concepts: [worked, finally, routine, productivity, journaling]
     token_count: 514
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1oesczb/my_routine_that_finally_worked/"}]
   - id: "social-intelligence/reddit-deep/productivity/1oesczb.md#c1"
     char_span: [2161, 4104]
     sentence_count: 31
     key_terms: [don, like, week, improved, started, calmer, person, slower]
+    concepts: [improved, started, calmer, person, slower]
     token_count: 505
   - id: "social-intelligence/reddit-deep/productivity/1oesczb.md#c2"
     char_span: [4106, 4499]
@@ -36,6 +39,7 @@ chunks:
     char_span: [4513, 6624]
     sentence_count: 11
     key_terms: [routine, something, like, time, breakfast, important, indydiddy, consider]
+    concepts: [routine, something, breakfast, important, indydiddy]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/productivity/1oesczb.md#c4"
@@ -48,6 +52,7 @@ chunks:
     char_span: [6652, 7546]
     sentence_count: 9
     key_terms: [inspiring, morning, respect, routine, entertainerstatus910, calm-lavishness5918, notifications, unfortunately]
+    concepts: [inspiring, morning, respect, routine]
     section: Comments
     token_count: 243
 ---

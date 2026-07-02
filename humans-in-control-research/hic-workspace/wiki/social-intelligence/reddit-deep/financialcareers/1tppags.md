@@ -20,35 +20,41 @@ chunks:
     char_span: [0, 845]
     sentence_count: 6
     key_terms: [management, financialcareers, sleeves, wealth, work, comments, private, worried]
+    concepts: [management, financialcareers, sleeves, wealth, comments]
     token_count: 194
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1tppags/tattoos_in_private_wealth_management/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1tppags.md#c1"
-    char_span: [860, 1417]
+    char_span: [859, 1416]
     sentence_count: 4
     key_terms: [discord, professionals, full-time, banking, financialcareers, automoderator, transitioned, dgptduseqv]
+    concepts: [professionals, discord, full-time, banking]
     section: Comments
     token_count: 119
   - id: "social-intelligence/reddit-deep/financialcareers/1tppags.md#c2"
-    char_span: [1419, 3501]
+    char_span: [1418, 3500]
     sentence_count: 19
     key_terms: [clients, conservative, maybe, automatically, old, work, boomers, serving]
+    concepts: [clients, conservative, maybe, automatically, boomers]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1tppags.md#c3"
-    char_span: [3272, 3657]
+    char_span: [3271, 3656]
     sentence_count: 6
     key_terms: [zestyclose-tart6745, notwallst, negative, practice, year-old, another, opinion, promise]
     section: Comments
     token_count: 109
   - id: "social-intelligence/reddit-deep/financialcareers/1tppags.md#c4"
-    char_span: [3659, 5818]
+    char_span: [3658, 5817]
     sentence_count: 18
     key_terms: [clients, tattoos, client, people, meeting, sleeves, relationships, cherfull124]
+    concepts: [clients, tattoos, client, people, relationships]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/financialcareers/1tppags.md#c5"
-    char_span: [5820, 6037]
+    char_span: [5819, 6036]
     sentence_count: 2
     key_terms: [clients, younger, get, conservative, because, quarter, started, wearing]
+    concepts: [clients, younger]
     section: Comments
     token_count: 42
 ---

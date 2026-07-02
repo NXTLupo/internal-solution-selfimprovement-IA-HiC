@@ -20,27 +20,34 @@ chunks:
     char_span: [0, 752]
     sentence_count: 10
     key_terms: [people, e-commerce, discussion, ecommerce, comments, here, open, integrations]
+    concepts: [e-commerce, people, discussion, ecommerce, comments]
     token_count: 195
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1o8tmf7/ecommerce_ai/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1o8tmf7.md#c1"
-    char_span: [767, 2691]
+    char_span: [766, 2690]
     sentence_count: 16
     key_terms: [order, customer, recommendations, comm100, repetitive, questions, amounts, chatbot]
+    concepts: [order, recommendations, customer, comm100, repetitive]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1o8tmf7.md#c2"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/ecommerce/1o8tmf7.md#c2"
-    char_span: [2693, 4113]
+    char_span: [2692, 4112]
     sentence_count: 12
     key_terms: [customers, oms, updates, order, chatbot, comm100, service, shopify]
+    concepts: [customers, updates, order, chatbot, comm100]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1o8tmf7.md#c1"]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/ecommerce/1o8tmf7.md#c3"
-    char_span: [4115, 6364]
+    char_span: [4114, 6363]
     sentence_count: 11
     key_terms: [customer, questions, conversation, tools, been, skin, want, answering]
+    concepts: [customer, questions, conversation, tools, answering]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/ecommerce/1o8tmf7.md#c4"
-    char_span: [6369, 6574]
+    char_span: [6368, 6573]
     sentence_count: 2
     key_terms: [background, generated, optimizes, something, against, testing, variant, always]
     section: Comments

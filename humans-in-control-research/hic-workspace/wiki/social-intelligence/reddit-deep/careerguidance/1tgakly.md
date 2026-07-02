@@ -19,58 +19,73 @@ chunks:
     char_span: [0, 2273]
     sentence_count: 17
     key_terms: [background, psychology, stability, careerguidance, tech, engineering, biomedical, nursing]
+    concepts: [background, psychology, careerguidance, stability, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tgakly.md#c2"]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tgakly/mid30s_career_pivot_hospitality_music_tech/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c1"
     char_span: [2275, 2846]
     sentence_count: 3
     key_terms: [opportunities-education-training, right, troubleshooting, certifications, transferable, alternative, experiences, recommended]
+    concepts: [right]
     token_count: 116
   - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c2"
     char_span: [2860, 5345]
     sentence_count: 17
     key_terms: [degree, background, psychology, positions, friends, medical, legitimately, work]
+    concepts: [degree, background, psychology, positions, friends]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tgakly.md#c0"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c3"
     char_span: [5347, 7564]
     sentence_count: 15
     key_terms: [biomedical, engineering, technician, user303909, thank, myself, seems, job]
+    concepts: [biomedical, engineering, technician, user303909, thank]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tgakly.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c4"
     char_span: [7329, 7750]
     sentence_count: 4
     key_terms: [taking, engineering, user303909, different, counter, melting, reminds, started]
+    concepts: [taking]
     section: Comments
     token_count: 105
   - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c5"
     char_span: [7752, 8673]
     sentence_count: 5
     key_terms: [job, degree, though, field, psych, whole-praline-5937, get, tech]
+    concepts: [degree, though, field, psych]
     section: Comments
     token_count: 235
   - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c6"
     char_span: [8675, 10198]
     sentence_count: 8
     key_terms: [engineering, audio, understanding, etc, user303909, software, general, product]
+    concepts: [engineering, audio, understanding, user303909, software]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tgakly.md#c3"]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c7"
     char_span: [10200, 12282]
     sentence_count: 15
     key_terms: [nursing, engineering, bio, med, something, sometimes, degrees, getting]
+    concepts: [nursing, engineering, something, sometimes, degrees]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c8"
     char_span: [12284, 12535]
     sentence_count: 2
     key_terms: [technology, companies, different, vigilance, clinical, medicine, pharmaco, several]
+    concepts: [technology]
     section: Comments
     token_count: 56
   - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c9"
     char_span: [12537, 14722]
     sentence_count: 14
     key_terms: [engineering, degree, bme, medical, "you're", dry-base7274, good, appreciate]
+    concepts: [engineering, degree, medical, dry-base7274, "you're"]
     section: Comments
     token_count: 488
 ---

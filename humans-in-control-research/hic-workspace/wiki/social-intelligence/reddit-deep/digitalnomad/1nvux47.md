@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 995]
     sentence_count: 7
     key_terms: [software, digitalnomad, nomad, comments, engineer, digital, income, frenchbulldognipple]
+    concepts: [software, digitalnomad, nomad, comments, engineer]
     token_count: 238
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1nvux47/i_became_a_software_engineer_just_to_be_a_nomad/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1nvux47.md#c1"
     char_span: [1009, 3162]
     sentence_count: 16
     key_terms: [own, remote, understand, something, business, folks, high, impossible]
+    concepts: [understand, remote, something, business, folks]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/digitalnomad/1nvux47.md#c2"
     char_span: [3164, 4311]
     sentence_count: 10
     key_terms: [work, companies, "doesn't", possible, company, doing, small, care]
+    concepts: [companies, "doesn't", possible, company, doing]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/digitalnomad/1nvux47.md#c3"
     char_span: [4313, 6184]
     sentence_count: 14
     key_terms: [frenchbulldognipple, looking, philippines, own, work, projects, product, online]
+    concepts: [frenchbulldognipple, looking, philippines, projects, product]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/digitalnomad/1nvux47.md#c4"
     char_span: [6186, 7762]
     sentence_count: 17
     key_terms: [good, job, riverleebythesea, did, time, year, cruise, travel]
+    concepts: [riverleebythesea, cruise, travel, happy, today]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/digitalnomad/1nvux47.md#c5"
     char_span: [7764, 8619]
     sentence_count: 9
     key_terms: [believe, willowparticular3678, frenchbulldognipple, dying, don, good, hard, job]
+    concepts: [believe, dying]
     section: Comments
     token_count: 229
 ---

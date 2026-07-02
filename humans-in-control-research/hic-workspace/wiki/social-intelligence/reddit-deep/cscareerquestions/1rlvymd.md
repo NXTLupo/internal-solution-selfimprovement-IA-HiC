@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 416]
     sentence_count: 2
     key_terms: [cscareerquestions, experience, comments, nationaluniofficial, job, opportunities, internships, reddit-deep]
+    concepts: [cscareerquestions, experience, comments]
     token_count: 94
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rlvymd/how_important_was_your_internship_experience_in/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rlvymd.md#c1"
     char_span: [430, 1378]
     sentence_count: 4
     key_terms: [internships, internship, hiring, illustrioushead7878, got, job, densetension3468, apprenticeships]
+    concepts: [internships, internship, hiring]
     section: Comments
     token_count: 225
 ---

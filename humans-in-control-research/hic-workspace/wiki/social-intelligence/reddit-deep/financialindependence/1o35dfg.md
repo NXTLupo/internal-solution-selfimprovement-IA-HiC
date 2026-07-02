@@ -21,55 +21,66 @@ chunks:
     char_span: [0, 570]
     sentence_count: 4
     key_terms: [financialindependence, reddit, comments, posted, update, https, since, com]
+    concepts: [financialindependence, reddit, comments, posted, update]
     token_count: 166
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1o35dfg/year_update_after_1m_laid_off/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c1"
     char_span: [572, 2622]
     sentence_count: 20
     key_terms: [went, snowboarding, did, got, job, back, been, feel]
+    concepts: [snowboarding, sweetgreen, insurance, severance, happier]
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c2"
     char_span: [2311, 3797]
     sentence_count: 9
     key_terms: [because, current, interesting, feel, like, live, work, decided]
+    concepts: [because, current, interesting, decided, happier]
     token_count: 354
   - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c3"
     char_span: [3802, 4906]
     sentence_count: 1
     key_terms: [history, breakdown, employer, income, faang, match, last, new]
+    concepts: [history, breakdown, employer, income, faang]
     token_count: 450
   - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c4"
     char_span: [4908, 5856]
     sentence_count: 1
     key_terms: [employer, match, tax, spreadsheets, rollover, sharing, google, https]
+    concepts: [employer, match, spreadsheets, rollover, sharing]
     token_count: 447
   - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c5"
     char_span: [5870, 7145]
     sentence_count: 12
     key_terms: [individual, points, stocks, understand, winkahpack, investing, strategy, selling]
+    concepts: [individual, points, stocks, understand, winkahpack]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c6"
     char_span: [7147, 9193]
     sentence_count: 13
     key_terms: [points, too, benefits, invested, jsir1999, flight, schwab, travel]
+    concepts: [points, benefits, invested, jsir1999, flight]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c7"
     char_span: [9195, 10946]
     sentence_count: 9
     key_terms: [stock, beneficiary, coast-fire, percentile, previous, massive, income, stocks]
+    concepts: [beneficiary, coast-fire, percentile, stock, previous]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c8"
     char_span: [10948, 12133]
     sentence_count: 15
     key_terms: [roth, years, happy, back, ira, job, tech, backdoor]
+    concepts: [years, happy, backdoor, balance, current]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c9"
     char_span: [12135, 13928]
     sentence_count: 20
     key_terms: [no-reaction-9364, funds, individual, expenses, adopted, example, living, stocks]
+    concepts: [no-reaction-9364, funds, individual, expenses, adopted]
     section: Comments
     token_count: 443
 ---

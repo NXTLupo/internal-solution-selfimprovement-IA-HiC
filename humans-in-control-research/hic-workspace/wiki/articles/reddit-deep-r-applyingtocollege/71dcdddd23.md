@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2338]
     sentence_count: 22
     key_terms: [application, college, applicants, applyingtocollege, specific, essays, essay, stand]
+    concepts: [application, college, applicants, applyingtocollege, specific]
     token_count: 481
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1r0gcpc/what_qualities_do_you_think_make_a_strong_college/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/71dcdddd23.md#c1"
     char_span: [2340, 3316]
     sentence_count: 9
     key_terms: [teacher, activities, important, realistic, safeties, "there's", strong, write]
+    concepts: [teacher, activities, important, realistic, safeties]
     token_count: 211
 ---
 # What qualities do you think make a strong college application stand out?

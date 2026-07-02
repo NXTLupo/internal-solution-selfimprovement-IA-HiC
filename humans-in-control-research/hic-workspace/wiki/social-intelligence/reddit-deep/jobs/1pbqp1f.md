@@ -21,21 +21,30 @@ chunks:
     char_span: [0, 2591]
     sentence_count: 9
     key_terms: [program, communication, client, relationship, development, experience, management, education]
+    concepts: [program, communication, client, relationship, development]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1pbqp1f.md#c3"]
     token_count: 483
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1pbqp1f/cv_cover_letter_advicetips_im_applying_for/"}]
   - id: "social-intelligence/reddit-deep/jobs/1pbqp1f.md#c1"
     char_span: [2593, 5462]
     sentence_count: 1
     key_terms: [partners, program, youth, maintain, leadership, communication, support, participant]
+    concepts: [partners, program, youth, maintain, leadership]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1pbqp1f.md#c2"]
     token_count: 504
   - id: "social-intelligence/reddit-deep/jobs/1pbqp1f.md#c2"
     char_span: [5464, 8326]
     sentence_count: 7
     key_terms: [community, supported, partners, international, program, convention, youth, volunteer]
+    concepts: [community, supported, international, partners, program]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1pbqp1f.md#c1"]
     token_count: 522
   - id: "social-intelligence/reddit-deep/jobs/1pbqp1f.md#c3"
     char_span: [8330, 9589]
     sentence_count: 10
     key_terms: [partners, communication, development, opportunity, sme, work, workforce, internal]
+    concepts: [partners, communication, development, opportunity, workforce]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1pbqp1f.md#c0"]
     token_count: 203
 ---
 # CV/ Cover Letter advice/tips. I'm applying for several jobs and any suggestions are appreciated. Copy and pasted so formatting is weird.

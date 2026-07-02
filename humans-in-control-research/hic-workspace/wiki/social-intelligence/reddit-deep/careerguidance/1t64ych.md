@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 1029]
     sentence_count: 7
     key_terms: [contract, job, careerguidance, government, comments, working, career, taking]
+    concepts: [contract, careerguidance, government, comments, working]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t64ych.md#c1"]
     token_count: 237
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t64ych/career_advice_stay_in_bank_or_join_government_job/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t64ych.md#c1"
     char_span: [1043, 2124]
     sentence_count: 9
     key_terms: [government, contract, work, mortgage, leave, often, bank, cons]
+    concepts: [government, contract, mortgage, leave, often]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t64ych.md#c0", "social-intelligence/reddit-deep/careerguidance/1t64ych.md#c2"]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/careerguidance/1t64ych.md#c2"
     char_span: [2126, 3497]
     sentence_count: 8
     key_terms: [years, government, headcount, increase, mortgage, question, newborn, better]
+    concepts: [government, years, headcount, increase, mortgage]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t64ych.md#c1"]
     section: Comments
     token_count: 295
 ---

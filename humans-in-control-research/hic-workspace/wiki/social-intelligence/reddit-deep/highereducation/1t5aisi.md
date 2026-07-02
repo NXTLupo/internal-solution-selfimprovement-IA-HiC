@@ -19,21 +19,28 @@ chunks:
     char_span: [0, 2419]
     sentence_count: 10
     key_terms: [instructure, institutions, education, shinyhunters, data, hackers, universities, individual]
+    concepts: [instructure, institutions, education, shinyhunters, universities]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1t5aisi.md#c1"]
     token_count: 480
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1t5aisi/pay_or_leak_hackers_target_instructure_nearly/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1t5aisi.md#c1"
     char_span: [2421, 4579]
     sentence_count: 8
     key_terms: [instructure, shinyhunters, ransomware, leak, real, students, conversations, proud]
+    concepts: [instructure, shinyhunters, ransomware, students, conversations]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1t5aisi.md#c0"]
     token_count: 431
   - id: "social-intelligence/reddit-deep/highereducation/1t5aisi.md#c2"
     char_span: [4581, 6674]
     sentence_count: 10
     key_terms: [information, data, canvas, targets, breach, institutions, instructure, university]
+    concepts: [information, canvas, targets, institutions, breach]
     token_count: 385
   - id: "social-intelligence/reddit-deep/highereducation/1t5aisi.md#c3"
     char_span: [6688, 8272]
     sentence_count: 2
     key_terms: [contained, systems, finals, mission-garbage-9651, point, get, real, communications]
+    concepts: [contained, systems, finals, point]
     section: Comments
     token_count: 406
 ---

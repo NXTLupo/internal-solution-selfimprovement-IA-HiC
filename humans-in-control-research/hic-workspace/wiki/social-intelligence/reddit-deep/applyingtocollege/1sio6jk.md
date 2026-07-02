@@ -19,7 +19,10 @@ chunks:
     char_span: [0, 2268]
     sentence_count: 15
     key_terms: [emory, opportunities, harvard, applyingtocollege, yale, like, want, university]
+    concepts: [emory, opportunities, harvard, applyingtocollege, university]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c3"]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sio6jk/choosing_between_emory_university_vs_yaleharvard/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c1"
     char_span: [2270, 2477]
     sentence_count: 4
@@ -29,48 +32,59 @@ chunks:
     char_span: [2491, 4312]
     sentence_count: 18
     key_terms: [loans, yale, emory, take, people, ride, student, borrow]
+    concepts: [loans, emory, people, student, borrow]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c3"
     char_span: [4314, 6298]
     sentence_count: 25
     key_terms: [school, emory, medical, opportunities, undergraduate, scholarship, law, like]
+    concepts: [school, emory, opportunities, undergraduate, medical]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c6"]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c4"
     char_span: [6300, 8425]
     sentence_count: 10
     key_terms: [yale, emory, get, med, schools, thousands, like, school]
+    concepts: [emory, schools, thousands, school, times]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c5"
     char_span: [8163, 10193]
     sentence_count: 13
     key_terms: [yale, premed, emory, grade, financial, inflation, year, making]
+    concepts: [premed, emory, financial, inflation, grade]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c6"
     char_span: [9885, 11453]
     sentence_count: 10
     key_terms: [princeton, school, yale, premed, difference, medical, longjumpingpage7797, emory]
+    concepts: [princeton, school, premed, difference, medical]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c3"]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c7"
     char_span: [11455, 12351]
     sentence_count: 6
     key_terms: [friend, got, research, another, school, did, gpa, opportunities]
+    concepts: [friend, research, another, school]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c8"
     char_span: [12353, 14544]
     sentence_count: 17
     key_terms: [debt, yale, harvard, league, ivy, pre-law, pre-med, school]
+    concepts: [harvard, league, pre-law, pre-med, school]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c9"
     char_span: [14216, 14570]
     sentence_count: 4
     key_terms: [debt, harvard, yale, unparalleled, overwhelmed, additional, afterwards, hospitals]
+    concepts: [harvard]
     section: Comments
     token_count: 73
 ---

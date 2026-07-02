@@ -20,23 +20,31 @@ chunks:
     char_span: [0, 375]
     sentence_count: 2
     key_terms: [customerservice, comments, agile-reputation-525, reddit-deep, assistant, automatic, customer, instant]
+    concepts: [customerservice, comments]
     token_count: 102
+    sources: [{"n":"reddit-deep: r/customerservice","u":"https://www.reddit.com/r/CustomerService/comments/1t0ifkq/id_rather_wait_37_days_to_hear_from_a_real_human/"}]
   - id: "social-intelligence/reddit-deep/customerservice/1t0ifkq.md#c1"
-    char_span: [390, 1617]
+    char_span: [389, 1616]
     sentence_count: 8
     key_terms: [get, because, people, human, through, hello, press, start]
+    concepts: [because, people, human, through, hello]
+    related_chunks: ["social-intelligence/reddit-deep/customerservice/1t0ifkq.md#c2", "social-intelligence/reddit-deep/customerservice/1t0ifkq.md#c3"]
     section: Comments
     token_count: 300
   - id: "social-intelligence/reddit-deep/customerservice/1t0ifkq.md#c2"
-    char_span: [1619, 2711]
+    char_span: [1618, 2710]
     sentence_count: 5
     key_terms: [wait, complain, people, pretty, human, get, like, next]
+    concepts: [complain, people, pretty, human]
+    related_chunks: ["social-intelligence/reddit-deep/customerservice/1t0ifkq.md#c1", "social-intelligence/reddit-deep/customerservice/1t0ifkq.md#c3"]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/customerservice/1t0ifkq.md#c3"
-    char_span: [2713, 3918]
+    char_span: [2712, 3917]
     sentence_count: 3
     key_terms: [complaints, people, chainsawsoundingfart, human, quick, hate, "i'll", wait]
+    concepts: [complaints, people, human, quick]
+    related_chunks: ["social-intelligence/reddit-deep/customerservice/1t0ifkq.md#c1", "social-intelligence/reddit-deep/customerservice/1t0ifkq.md#c2"]
     section: Comments
     token_count: 272
 ---

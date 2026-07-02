@@ -19,41 +19,51 @@ chunks:
     char_span: [0, 2148]
     sentence_count: 15
     key_terms: [school, curriculum, princeton, applyingtocollege, research, though, "i'll", "i'm"]
+    concepts: [school, curriculum, applyingtocollege, princeton, research]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rucb55.md#c6"]
     token_count: 474
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rucb55/mit_or_caltech_or_princeton_both_full_rides/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rucb55.md#c1"
     char_span: [2162, 3436]
     sentence_count: 10
     key_terms: [princeton, colleges-where-the-most-alumni-donate, the-short-list-college, https, schools, best-colleges, mit, education]
+    concepts: [princeton, colleges-where-the-most-alumni-donate, the-short-list-college, https, best-colleges]
     section: Comments
     token_count: 298
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rucb55.md#c2"
     char_span: [3441, 4739]
     sentence_count: 10
     key_terms: [caltech, stanford, school, definitely, mentioned, princeton, liberal, schools]
+    concepts: [caltech, stanford, school, definitely, mentioned]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rucb55.md#c3"
     char_span: [4741, 6924]
     sentence_count: 10
     key_terms: [princeton, mit, opportunities, people, courses, asian, best, grad]
+    concepts: [princeton, opportunities, people, courses, asian]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rucb55.md#c4"
     char_span: [6667, 8764]
     sentence_count: 20
     key_terms: [mit, harvard, cross, register, princeton, get, caltech, routinefix9863]
+    concepts: [harvard, register, cross, princeton, routinefix9863]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rucb55.md#c5"
     char_span: [8546, 10089]
     sentence_count: 1
     key_terms: [princeton, international, mit, community, freshman, students, caltech, funding]
+    concepts: [princeton, international, community, freshman, students]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rucb55.md#c6"
     char_span: [10091, 12067]
     sentence_count: 15
     key_terms: [experience, princeton, mit, character-beat2247, consider, research, easier, engineering]
+    concepts: [experience, princeton, character-beat2247, consider, research]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rucb55.md#c0"]
     section: Comments
     token_count: 446
 ---

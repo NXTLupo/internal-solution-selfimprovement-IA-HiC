@@ -19,49 +19,63 @@ chunks:
     char_span: [0, 2284]
     sentence_count: 21
     key_terms: [resume, applying, job, getting, interviews, engineeringstudents, engineeringresumes, materials]
+    concepts: [resume, applying, engineeringstudents, getting, engineeringresumes]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qi55xz/my_engineering_internship_and_entrylevel_job/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c1"
     char_span: [2286, 4450]
     sentence_count: 28
     key_terms: [job, linkedin, indeed, resume, application, everything, applying, "you're"]
+    concepts: [linkedin, indeed, resume, application, everything]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c6"]
     token_count: 465
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c2"
     char_span: [4452, 6741]
     sentence_count: 18
     key_terms: [job, company, fair, companies, work, interest, applications, ask]
+    concepts: [company, companies, interest, applications, connection]
     token_count: 485
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c3"
     char_span: [6743, 7896]
     sentence_count: 12
     key_terms: [presenting, business, practice, specific, casual, google, clean, "don't"]
+    concepts: [presenting, business, practice, specific, casual]
     token_count: 265
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c4"
     char_span: [7898, 10232]
     sentence_count: 32
     key_terms: [resume, people, employees, want, already, applied, conversation, cover]
+    concepts: [resume, people, employees, already, applied]
     token_count: 514
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c5"
-    char_span: [10234, 12450]
+    char_span: [10234, 12449]
     sentence_count: 14
     key_terms: [people, interviews, offer, different, start-ups, applications, got, job]
+    concepts: [interviews, people, different, start-ups, offer]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c6"
-    char_span: [12452, 14105]
+    char_span: [12451, 14104]
     sentence_count: 11
     key_terms: [application, resume, asked, cover, find, letters, resumes, through]
+    concepts: [application, resume, asked, cover, letters]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c1"]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c7"
-    char_span: [14107, 16180]
+    char_span: [14106, 16179]
     sentence_count: 18
     key_terms: [school, applications, internships, job, applicants, especially, undergrad, honestly]
+    concepts: [applications, school, internships, applicants, especially]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c8"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c8"
-    char_span: [16182, 18331]
+    char_span: [16181, 18330]
     sentence_count: 17
     key_terms: [lazydictionary, right, shirt, internships, don, job, especially, something]
+    concepts: [lazydictionary, internships, especially, right, shirt]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c7"]
     section: Comments
     token_count: 500
 ---

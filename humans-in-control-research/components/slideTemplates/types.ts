@@ -458,6 +458,10 @@ export interface ExecutiveBriefData {
     gotchas?: string[];
     /** Takeaway band - the one conclusion the brief/explainer/report proves. */
     keyInsight?: string;
+    /** E3 2026-07-02 visual slot (registry executive-brief, carrier exhibitImage): a native
+     *  infographic panel composed from the sections' own data (url/dataUri). Absent -> the
+     *  exhibit band collapses; both twins never render an empty well. */
+    exhibitImage?: string;
 }
 
 // === ORG CHART (#org - GOLD reporting-tier matrix, 2026-06-13) ===
@@ -598,16 +602,35 @@ export interface PrdFeatureData {
         name: string;
         priority: 'must' | 'should' | 'could' | 'wont';
         userStory: string;
+        /** Given/When/Then complete sentences (2026-07-02 depth uplift; canon 607:2
+         *  ACCEPTANCE checklists). Plain assertions are legacy; the protocol now
+         *  demands the Given/When/Then shape. */
         acceptanceCriteria: string[];
         technicalDetails?: string;
         problemSolved?: string;
         stakeholders?: string;
+        /** US-N identifier (canon 607:2 column heads). Optional; renderer derives US-<i+1> when absent. */
+        storyId?: string;
+        /** One observable success signal for THIS story (qualitative unless a number rides in a cited quote). */
+        successMetric?: string;
+        /** Persona + gap this story traces to, e.g. "THE REPEATER - routing gap" (canon TRACES line). */
+        traces?: string;
         evidence?: Array<{
             text: string;
             source: string;
             attribution?: string;
         }>;
     }>;
+    /** REQUIREMENTS LEDGER (2026-07-02 depth uplift; canon 607:4 "03 requirements").
+     *  When present the slide renders as the three-column FR/NFR/OOS table (functional,
+     *  cyan rule / non-functional, ink rule / out of scope, rust rule) with mono ID cells.
+     *  Rows hug content; both twins + the native PPTX geometry walker render it as real
+     *  text runs and rules, never a raster. */
+    requirements?: {
+        functional: Array<{ id: string; text: string }>;
+        nonFunctional: Array<{ id: string; text: string }>;
+        outOfScope: Array<{ id: string; text: string }>;
+    };
     /** Per-feature tokenized emblem data-URIs, index-aligned to features (icon branch,
      *  registry prd-feature carrier). Populated by the runtime icon resolver; both
      *  renderer twins paint it on each feature card header. */

@@ -20,33 +20,39 @@ chunks:
     char_span: [0, 1875]
     sentence_count: 16
     key_terms: [small, agent, build, underserved, help, solo, want, open-claw]
+    concepts: [small, underserved, agent, build, open-claw]
     token_count: 482
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1rl2et2/i_asked_an_openclaw_agent_to_find_a_b2b/"}]
   - id: "social-intelligence/reddit-deep/startups/1rl2et2.md#c1"
-    char_span: [1877, 2228]
+    char_span: [1877, 2227]
     sentence_count: 1
     key_terms: [someone, build, else, everything, delivered, execution, suuraitah, wondering]
+    concepts: [someone, build]
     section: Comments
     token_count: 85
   - id: "social-intelligence/reddit-deep/startups/1rl2et2.md#c2"
-    char_span: [2230, 4284]
+    char_span: [2229, 4283]
     sentence_count: 8
     key_terms: [merchanf, maintain, costs, thank, like, tool, responses, glaster]
+    concepts: [merchanf, maintain, costs, thank, responses]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/startups/1rl2et2.md#c3"
-    char_span: [4022, 4489]
+    char_span: [4021, 4488]
     sentence_count: 2
     key_terms: [successful-garden316, urbox, tool, stevezedfounder, describing, salesforce, anything, merchanf]
+    concepts: [urbox]
     section: Comments
     token_count: 121
   - id: "social-intelligence/reddit-deep/startups/1rl2et2.md#c4"
-    char_span: [4491, 6433]
+    char_span: [4490, 6432]
     sentence_count: 34
     key_terms: [build, want, users, need, talk, difference, companies, customers]
+    concepts: [build, difference, users, companies, customers]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/startups/1rl2et2.md#c5"
-    char_span: [6435, 7097]
+    char_span: [6434, 7096]
     sentence_count: 6
     key_terms: [differentiator, understanding, subscription, compelling, helpmonks, feedback, solution, thenitai]
     section: Comments

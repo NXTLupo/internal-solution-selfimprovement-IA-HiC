@@ -14,84 +14,102 @@ chunks:
     char_span: [0, 824]
     sentence_count: 4
     key_terms: [case-study, thick-evidence-all-drop, defects, visual, study, case, page, wiki]
+    concepts: [case-study, defects, visual, study]
     section: Purpose
     token_count: 160
   - id: "frameworks/case-study.md#c1"
     char_span: [850, 3288]
     sentence_count: 7
     key_terms: [subject, specific, institution, problem, precedent, named, mechanism, evidence]
+    concepts: [subject, specific, institution, problem, precedent]
+    related_chunks: ["frameworks/case-study.md#c2"]
     section: Canonical Framework
     token_count: 498
   - id: "frameworks/case-study.md#c2"
     char_span: [3328, 5276]
     sentence_count: 8
     key_terms: [section, subject, investment, university, problem, chars, named, subjectmeta]
+    concepts: [investment, section, subject, university, problem]
+    related_chunks: ["frameworks/case-study.md#c1"]
     section: Required Sections (10 Components)
     token_count: 454
   - id: "frameworks/case-study.md#c3"
     char_span: [5278, 7065]
     sentence_count: 6
     key_terms: [value, label, supportingmetrics, chars, student, keymetric, section, single]
+    concepts: [value, supportingmetrics, label, chars, student]
+    related_chunks: ["frameworks/case-study.md#c7"]
     section: Required Sections (10 Components)
     token_count: 430
   - id: "frameworks/case-study.md#c4"
     char_span: [7067, 8454]
     sentence_count: 4
     key_terms: [attribution, preparation, first-year, mechanism, readiness, sentence, section, stating]
+    concepts: [attribution, preparation, first-year, mechanism, readiness]
     section: Required Sections (10 Components)
     token_count: 290
   - id: "frameworks/case-study.md#c5"
     char_span: [8495, 9242]
     sentence_count: 1
     key_terms: [case, sources, studies, subject, slidepostprocessor, cross-examination, gate, persona-quote]
+    concepts: [sources, studies, subject]
     section: Evidence Density Floor (mandatory)
     token_count: 169
   - id: "frameworks/case-study.md#c6"
     char_span: [9300, 10105]
     sentence_count: 2
     key_terms: [implication, lesson, challenge, approach, labels, allowed, outcome, section]
+    concepts: [implication, lesson, challenge, approach, labels]
     section: Section-Label Vocabulary (Visual Defect Prevention)
     token_count: 240
   - id: "frameworks/case-study.md#c7"
     char_span: [10141, 10646]
     sentence_count: 1
     key_terms: [pullquote, supportingmetrics, keymetric, claude, label, value, attribution, implication]
+    concepts: [supportingmetrics, pullquote, keymetric, claude, label]
+    related_chunks: ["frameworks/case-study.md#c3"]
     section: Content Budgets (hard limits)
     token_count: 153
   - id: "frameworks/case-study.md#c8"
     char_span: [10682, 11167]
     sentence_count: 5
     key_terms: [brand, claude, tokens, nu-design-gallery, nxt, annotations, case-study, regardless]
+    concepts: [brand, claude, tokens]
     section: Brand Application (NU vs NXT)
     token_count: 124
   - id: "frameworks/case-study.md#c9"
     char_span: [11230, 12466]
     sentence_count: 8
     key_terms: [auto-rejected, title, keymetric, research, section, subject, supportingmetrics, data]
+    concepts: [auto-rejected, title, keymetric, research, section]
     section: "Anti-Patterns (auto-rejected by `slidePostProcessor.ts`)"
     token_count: 317
   - id: "frameworks/case-study.md#c10"
     char_span: [12510, 13442]
     sentence_count: 1
     key_terms: [generation, sources, above, multi-case-study, recommendations, evidencebasis, action-title, editor-only]
+    concepts: [generation, sources, above]
     section: Quality Gates Active for Case Studies
     token_count: 224
   - id: "frameworks/case-study.md#c11"
     char_span: [13471, 14204]
     sentence_count: 1
     key_terms: [case, studies, recommendation, precedent, evidence, "strategy-author's", use, single-source]
+    concepts: [recommendation, studies, precedent, evidence]
     section: When to use Case Study
     token_count: 142
   - id: "frameworks/case-study.md#c12"
     char_span: [14234, 15066]
     sentence_count: 1
     key_terms: [skill, case-study, studies, case, experience-prototype-composer, provides, quantification-architect, recommendation-architect]
+    concepts: [skill, case-study, studies, provides, title]
     section: Composition with Skills
     token_count: 202
   - id: "frameworks/case-study.md#c13"
     char_span: [15105, 15600]
     sentence_count: 1
     key_terms: [case-study, added, new, wiki, synthesis, generation-failures, page, export-failures]
+    concepts: [case-study, added, synthesis]
     section: When This Page Should Be Updated
     token_count: 119
 ---

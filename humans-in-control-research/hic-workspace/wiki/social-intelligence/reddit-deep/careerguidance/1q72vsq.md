@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2224]
     sentence_count: 13
     key_terms: [experience, communication, work, without, background, cat, profile, careerguidance]
+    concepts: [experience, communication, without, background, careerguidance]
     token_count: 484
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1q72vsq/need_serious_career_advice_and_guidance_feeling/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1q72vsq.md#c1"
     char_span: [2226, 3516]
     sentence_count: 6
     key_terms: [career, india, background, long-term, stability, academia, decision, guidance]
+    concepts: [career, background, india, long-term, stability]
     token_count: 239
 ---
 # Need serious career advice and guidance . Feeling stuck and confused . Can anyone guide ?

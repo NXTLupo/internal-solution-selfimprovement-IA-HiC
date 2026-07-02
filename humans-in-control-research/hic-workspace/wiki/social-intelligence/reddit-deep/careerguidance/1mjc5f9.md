@@ -21,52 +21,62 @@ chunks:
     char_span: [0, 1823]
     sentence_count: 30
     key_terms: [job, "i'm", per, year, careerguidance, people, work, business]
+    concepts: [careerguidance, people, business, comments, projects]
     token_count: 473
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1mjc5f9/would_you_leave_a_job_thats_paying_140000_per/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c1"
     char_span: [1825, 2968]
     sentence_count: 15
     key_terms: [appreciate, time, expand, resume, being, "don't", edit, game]
+    concepts: [appreciate, expand, resume, being, "don't"]
     token_count: 272
   - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c2"
     char_span: [2982, 4331]
     sentence_count: 11
     key_terms: [job, growth, take, everyone, personal, hiring, future-accountant-70, early-judgment-2895]
+    concepts: [growth, everyone, personal, hiring, grown]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c3"
     char_span: [4333, 6053]
     sentence_count: 14
     key_terms: [work, job, growth, company, feeling, nothing, maleficent-syrup9881, scotchtapeconnosieur]
+    concepts: [growth, company, feeling, nothing, leave]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c4"
     char_span: [6055, 6984]
     sentence_count: 6
     key_terms: [job, growth, "you're", start, years, run, work, experiencing]
+    concepts: [growth, "you're", start, years]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c5"
     char_span: [6986, 8985]
     sentence_count: 11
     key_terms: [similar, potentially, job, work, hours, challenging, been, time]
+    concepts: [potentially, similar, challenging, hours, leaving]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c6"
     char_span: [8987, 9911]
     sentence_count: 8
     key_terms: [job, leave, future-accountant-70, acceptablesuit9328, xxomegasupremexx, unrealistic, conditions, redundancy]
+    concepts: [leave]
     section: Comments
     token_count: 243
   - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c7"
     char_span: [9913, 11787]
     sentence_count: 17
     key_terms: [roles, job, time, clients, making, "you're", doing, paced]
+    concepts: [roles, clients, making, "you're", doing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c8"
     char_span: [11516, 12674]
     sentence_count: 10
     key_terms: [doing, day, job, work, because, feeling, vermicellifresh1620, years]
+    concepts: [doing, because, feeling, years]
     section: Comments
     token_count: 287
 ---

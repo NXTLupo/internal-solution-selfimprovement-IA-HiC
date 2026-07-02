@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 509]
     sentence_count: 4
     key_terms: [internships, working, hsbc, placement, comments, offer, hong, kong]
+    concepts: [internships, working, placement, comments, offer]
     token_count: 131
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sl1me2/hsbc_working_placement/"}]
   - id: "social-intelligence/reddit-deep/internships/1sl1me2.md#c1"
     char_span: [523, 2149]
     sentence_count: 6
     key_terms: [sure, congrats, thanks, authorization, here, hey, visa, work]
+    concepts: [congrats, authorization, thanks, internship, thunblazin]
     section: Comments
     token_count: 481
 ---

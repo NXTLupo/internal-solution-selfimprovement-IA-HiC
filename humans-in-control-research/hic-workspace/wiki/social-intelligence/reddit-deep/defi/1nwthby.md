@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 890]
     sentence_count: 6
     key_terms: [defi, comments, finally, making, feel, like, smartcontractkid, intimidating]
+    concepts: [comments, finally, making]
     token_count: 207
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1nwthby/defi_is_finally_starting_to_feel_different/"}]
   - id: "social-intelligence/reddit-deep/defi/1nwthby.md#c1"
-    char_span: [905, 2749]
+    char_span: [904, 2748]
     sentence_count: 15
     key_terms: [use, coinbase, base, aave, network, wallet, using, eth]
+    concepts: [coinbase, network, wallet, experience, using]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/defi/1nwthby.md#c2"
-    char_span: [2752, 4832]
+    char_span: [2751, 4831]
     sentence_count: 15
     key_terms: [defi, smartcontractkid, like, cardiologisthead150, one-click, crypto, wallet, approvals]
+    concepts: [smartcontractkid, cardiologisthead150, one-click, crypto, wallet]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/defi/1nwthby.md#c3"
-    char_span: [4537, 4973]
+    char_span: [4536, 4972]
     sentence_count: 5
     key_terms: [gasless, feel, like, game-changers, abstractions, improvements, intimidating, transactions]
+    concepts: [gasless]
     section: Comments
     token_count: 100
   - id: "social-intelligence/reddit-deep/defi/1nwthby.md#c4"
-    char_span: [4975, 6718]
+    char_span: [4974, 6717]
     sentence_count: 12
     key_terms: [one-click, making, profitability, defi, gas, financial, problem, clicks]
+    concepts: [one-click, profitability, making, financial, problem]
     section: Comments
     token_count: 438
 ---

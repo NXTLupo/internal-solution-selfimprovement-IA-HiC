@@ -19,31 +19,38 @@ chunks:
     char_span: [0, 906]
     sentence_count: 6
     key_terms: [cscareerquestions, eventually, comments, figured, coding, senior, hit, life]
+    concepts: [cscareerquestions, eventually, comments, figured, coding]
     token_count: 219
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t37wpz/is_500k_a_realistic_goal_to_hit_eventually/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t37wpz.md#c1"
     char_span: [920, 2685]
     sentence_count: 8
     key_terms: [internships, hard, hit, like, tech, work, levels, senior]
+    concepts: [internships, levels, senior, sought, summer]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t37wpz.md#c2"
     char_span: [2687, 3849]
     sentence_count: 8
     key_terms: [average, making, compensation, "don't", salaries, likely, get, jobs]
+    concepts: [average, compensation, making, "don't", salaries]
     section: Comments
     token_count: 276
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t37wpz.md#c3"
     char_span: [3851, 5704]
     sentence_count: 12
     key_terms: [alinroc, talking, warningsignals, career, comfortable, "it's", top, cyprovix]
+    concepts: [warningsignals, alinroc, talking, career, comfortable]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t37wpz.md#c4"
     char_span: [5706, 6673]
     sentence_count: 9
     key_terms: [eventually, percentile, income-percentile-calculator, adderall, income, income-percent-bot, "i'll", "i'm"]
+    concepts: [eventually, percentile, adderall, income]
     section: Comments
     token_count: 263
+    sources: [{"n":"income percentile calculator","u":"https://wealthvieu.com/income-percentile-calculator/"}]
 ---
 # Is 500k a realistic goal to hit eventually?
 

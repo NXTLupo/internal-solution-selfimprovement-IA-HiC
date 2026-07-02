@@ -21,47 +21,56 @@ chunks:
     char_span: [0, 1494]
     sentence_count: 11
     key_terms: [like, gold, year, investing, comments, through, tradfi, banks]
+    concepts: [investing, comments, through, tradfi, banks]
     token_count: 333
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1qkutlg/gold_just_broke_4900_does_this_feel_different_to/"}]
   - id: "social-intelligence/reddit-deep/investing/1qkutlg.md#c1"
     char_span: [1508, 3574]
     sentence_count: 12
     key_terms: [gold, dollar, scenario, reserve, banks, bonds, down, less]
+    concepts: [dollar, scenario, reserve, banks, bonds]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/investing/1qkutlg.md#c2"
     char_span: [3577, 5737]
     sentence_count: 17
     key_terms: [gold, dollar, china, looks, means, republicans, like, increasing]
+    concepts: [dollar, republicans, china, increasing, looks]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/investing/1qkutlg.md#c3"
     char_span: [5740, 7475]
     sentence_count: 10
     key_terms: [dollar, gold, collapse, people, narrative, assuming, increase, another]
+    concepts: [dollar, collapse, people, narrative, assuming]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/investing/1qkutlg.md#c4"
     char_span: [7477, 9451]
     sentence_count: 9
     key_terms: [tax, dollar, currency, long, yada, washington, everyone, printing]
+    concepts: [dollar, currency, washington, everyone, printing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1qkutlg.md#c5"
     char_span: [9216, 11176]
     sentence_count: 13
     key_terms: [gold, tax, stability, market, investors, something, quickly, adventurous-guava374]
+    concepts: [stability, market, investors, something, quickly]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1qkutlg.md#c6"
     char_span: [10944, 11348]
     sentence_count: 3
     key_terms: [federal, reserve, adventurous-guava374, fed, automoderator, appropriate, initialisms, amendment]
+    concepts: [federal, reserve]
     section: Comments
     token_count: 105
   - id: "social-intelligence/reddit-deep/investing/1qkutlg.md#c7"
     char_span: [11350, 12101]
     sentence_count: 4
     key_terms: [bought, going, gold, year, psychologically, automatically, allocations, effectively]
+    concepts: [bought, going]
     section: Comments
     token_count: 186
 ---

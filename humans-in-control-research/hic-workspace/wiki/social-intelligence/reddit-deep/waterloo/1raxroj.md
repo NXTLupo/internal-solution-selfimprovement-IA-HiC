@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1122]
     sentence_count: 11
     key_terms: [waterloo, anyone, healthcare, kitchener, comments, ontario, service, more-competition-946]
+    concepts: [waterloo, anyone, healthcare, kitchener, comments]
     token_count: 268
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1raxroj/is_anyone_else_struggling_to_find_a_job_in/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1raxroj.md#c1"
     char_span: [1136, 3021]
     sentence_count: 16
     key_terms: [oldschoolawesome, summer, right, jobs, definitely, experience, lifeguards, cambridge]
+    concepts: [oldschoolawesome, summer, definitely, experience, lifeguards]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/waterloo/1raxroj.md#c2"
     char_span: [3023, 3973]
     sentence_count: 12
     key_terms: [work, hundreds, more-competition-946, right, back, smarttea1138, afrocuban68, completely]
+    concepts: [hundreds, right]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/waterloo/1raxroj.md#c3"
     char_span: [3975, 5411]
     sentence_count: 11
     key_terms: [catering, season, cubetimeframe, pickmembers, university, wedding, always, summer]
+    concepts: [catering, cubetimeframe, season, pickmembers, university]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/waterloo/1raxroj.md#c4"
     char_span: [5415, 7090]
     sentence_count: 11
     key_terms: [degree, years, job, year, opportunity, applicants, university, program]
+    concepts: [degree, years, opportunity, applicants, university]
     section: Comments
     token_count: 401
 ---

@@ -21,23 +21,31 @@ chunks:
     char_span: [0, 948]
     sentence_count: 8
     key_terms: [like, college, university, comments, commute, school, guess, makes]
+    concepts: [college, university, comments, commute, school]
     token_count: 231
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1msft02/anyone_who_commutes_feeling_depressed_like_me/"}]
   - id: "social-intelligence/reddit-deep/college/1msft02.md#c1"
     char_span: [962, 2539]
     sentence_count: 11
     key_terms: [involved, campus, friends, deleted, started, events, school, clubs]
+    concepts: [involved, campus, friends, deleted, started]
+    related_chunks: ["social-intelligence/reddit-deep/college/1msft02.md#c3"]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/college/1msft02.md#c2"
     char_span: [2541, 4694]
     sentence_count: 30
     key_terms: [campus, home, try, commuter, classes, college, around, clubs]
+    concepts: [campus, commuter, classes, college, around]
+    related_chunks: ["social-intelligence/reddit-deep/college/1msft02.md#c3"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/college/1msft02.md#c3"
     char_span: [4696, 6432]
     sentence_count: 19
     key_terms: [college, campus, involved, friends, living, fun, get, like]
+    concepts: [college, campus, involved, friends, living]
+    related_chunks: ["social-intelligence/reddit-deep/college/1msft02.md#c1", "social-intelligence/reddit-deep/college/1msft02.md#c2"]
     section: Comments
     token_count: 391
 ---

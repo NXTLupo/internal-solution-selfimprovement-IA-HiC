@@ -19,17 +19,22 @@ content_hash: "086e0ec3d3e32591"
 relevance_by_goal: {"46dec9599ad5":92}
 chunks:
   - id: "articles/reddit-deep-r-personalfinance/bd4dd13dad.md#c0"
-    char_span: [0, 1979]
+    char_span: [0, 1978]
     sentence_count: 14
     key_terms: [fidelity, vanguard, investing, long-term, index, etfs, through, funds]
-    token_count: 438
+    concepts: [fidelity, vanguard, investing, long-term, index]
+    related_chunks: ["articles/reddit-deep-r-personalfinance/bd4dd13dad.md#c1"]
+    token_count: 437
+    sources: [{"n":"Reddit Deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1lo08a3/why_does_everyone_recommend_fidelity_as_a_broker/"}]
   - id: "articles/reddit-deep-r-personalfinance/bd4dd13dad.md#c1"
-    char_span: [1981, 4001]
+    char_span: [1980, 4000]
     sentence_count: 16
     key_terms: [account, beneficiaries, fidelity, vanguard, interchangeable, fxaix, overthinking, etf]
+    concepts: [beneficiaries, account, fidelity, vanguard, interchangeable]
+    related_chunks: ["articles/reddit-deep-r-personalfinance/bd4dd13dad.md#c0"]
     token_count: 484
   - id: "articles/reddit-deep-r-personalfinance/bd4dd13dad.md#c2"
-    char_span: [4003, 4153]
+    char_span: [4002, 4152]
     sentence_count: 1
     key_terms: [fidelity, hometown, offices, usually, "you're", visit, call, hold]
     token_count: 36

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 845]
     sentence_count: 7
     key_terms: [internships, accounting, internship, finance, india, practical, comments, student]
+    concepts: [internships, accounting, internship, finance, india]
     token_count: 198
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1q4klvv/accounting_finance_internship_baf_student_seeking/"}]
 ---
 # Accounting / Finance Internship – BAF Student Seeking Opportunity (India / UAE).
 

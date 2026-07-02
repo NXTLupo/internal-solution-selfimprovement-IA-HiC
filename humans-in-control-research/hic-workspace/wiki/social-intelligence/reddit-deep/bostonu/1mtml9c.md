@@ -20,41 +20,50 @@ chunks:
     char_span: [0, 821]
     sentence_count: 4
     key_terms: [comments, students, bostonu, housing, student, welcome, information, reddit-deep]
+    concepts: [comments, students, bostonu, housing, student]
     token_count: 193
+    sources: [{"n":"reddit-deep: r/bostonu","u":"https://www.reddit.com/r/BostonU/comments/1mtml9c/incoming_student_guide_advice_tips_and_information/"}]
   - id: "social-intelligence/reddit-deep/bostonu/1mtml9c.md#c1"
     char_span: [823, 2645]
     sentence_count: 7
     key_terms: [https, www, edu, college-packing-list, furniture, policies, parentsprogram, people]
+    concepts: [https, college-packing-list, furniture, policies, parentsprogram]
     token_count: 452
   - id: "social-intelligence/reddit-deep/bostonu/1mtml9c.md#c2"
     char_span: [2647, 4478]
     sentence_count: 13
     key_terms: [people, clubs, study, friends, terriercentral, campus, going, good]
+    concepts: [people, clubs, study, terriercentral, friends]
     token_count: 429
   - id: "social-intelligence/reddit-deep/bostonu/1mtml9c.md#c3"
     char_span: [4480, 5229]
     sentence_count: 3
     key_terms: [https, edu, download, classes, grubhub-campus-dining, dining, app, www]
+    concepts: [https, download, classes, dining]
     token_count: 189
   - id: "social-intelligence/reddit-deep/bostonu/1mtml9c.md#c4"
     char_span: [5231, 6899]
     sentence_count: 4
     key_terms: [class, "that's", going, per, hours, week, classroom, checking]
+    concepts: [class, "that's", going, hours, classroom]
     token_count: 399
   - id: "social-intelligence/reddit-deep/bostonu/1mtml9c.md#c5"
     char_span: [6901, 8796]
     sentence_count: 7
     key_terms: [vehicle, free, get, confusing, discounts, art-memberships-discounts, library, several]
+    concepts: [vehicle, confusing, discounts, library, several]
     token_count: 459
   - id: "social-intelligence/reddit-deep/bostonu/1mtml9c.md#c6"
     char_span: [8798, 9429]
     sentence_count: 5
     key_terms: [discord, https, uzzktu9ewr, questions, comments, incoming, students, connections]
+    concepts: [discord, https, uzzktu9ewr, questions, comments]
     token_count: 158
   - id: "social-intelligence/reddit-deep/bostonu/1mtml9c.md#c7"
-    char_span: [9444, 11111]
+    char_span: [9443, 11110]
     sentence_count: 10
     key_terms: [buowo, screamingfurbie, classes, people, find, category, ftwaiver, midterms]
+    concepts: [buowo, screamingfurbie, classes, people, category]
     section: Comments
     token_count: 459
 ---

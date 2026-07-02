@@ -21,22 +21,29 @@ chunks:
     char_span: [0, 2168]
     sentence_count: 10
     key_terms: [helpful, informative, assistant, questions, comments, friendly, maintain, response]
+    concepts: [helpful, informative, assistant, questions, comments]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1oegm0h/nailing_down_4o_behaviour/"}]
   - id: "social-intelligence/reddit-deep/gpt/1oegm0h.md#c1"
     char_span: [2170, 4515]
     sentence_count: 12
     key_terms: [unless, user, avoid, use, language, response, overly, occasionally]
+    concepts: [unless, avoid, language, response, occasionally]
     token_count: 486
   - id: "social-intelligence/reddit-deep/gpt/1oegm0h.md#c2"
     char_span: [4517, 6474]
     sentence_count: 8
     key_terms: [prompt, chats, good, addition, "doesn't", recent, system, being]
+    concepts: [prompt, chats, addition, "doesn't", recent]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1oegm0h.md#c3"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/gpt/1oegm0h.md#c3"
     char_span: [6476, 7995]
     sentence_count: 9
     key_terms: [prompt, chats, personality, almost, trying, "you're", maybe, chat]
+    concepts: [prompt, personality, chats, almost, trying]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1oegm0h.md#c2"]
     section: Comments
     token_count: 374
 ---

@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1103]
     sentence_count: 5
     key_terms: [assigned, single, information, word, gradschool, different, realizing, articles]
+    concepts: [assigned, single, information, gradschool, different]
     token_count: 239
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1nayztk/how_to_stay_on_top_of_readings_without_reading/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1nayztk.md#c1"
     char_span: [1117, 3264]
     sentence_count: 20
     key_terms: [read, reading, paragraph, paper, chapter, section, understand, full]
+    concepts: [reading, paragraph, paper, chapter, section]
     section: Comments
     token_count: 517
   - id: "social-intelligence/reddit-deep/gradschool/1nayztk.md#c2"
     char_span: [3266, 5183]
     sentence_count: 20
     key_terms: [conclusion, summarize, points, need, read, discussion, readings, research]
+    concepts: [conclusion, summarize, points, discussion, readings]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/gradschool/1nayztk.md#c3"
     char_span: [5185, 7137]
     sentence_count: 10
     key_terms: [text, reading, questions, argument, get, paragraphs, "text's", thesis]
+    concepts: [reading, questions, argument, paragraphs, "text's"]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/gradschool/1nayztk.md#c4"
     char_span: [7139, 9072]
     sentence_count: 14
     key_terms: [reading, read, found, pages, book, conclusion, different, highlight]
+    concepts: [reading, conclusion, found, pages, different]
     section: Comments
     token_count: 418
 ---

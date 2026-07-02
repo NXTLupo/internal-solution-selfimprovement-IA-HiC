@@ -21,11 +21,15 @@ chunks:
     char_span: [0, 1154]
     sentence_count: 4
     key_terms: [applyingtocollege, got, people, school, good, kids, comments, everyone]
+    concepts: [applyingtocollege, people, school, comments, everyone]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c4"]
     token_count: 272
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1qy5yzo/im_having_the_worst_college_decisions_experience/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c1"
     char_span: [1168, 3254]
     sentence_count: 14
     key_terms: [school, schools, happy, immature, amazing, sorry, snarchetype, good]
+    concepts: [school, schools, happy, immature, amazing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c2"
@@ -38,24 +42,29 @@ chunks:
     char_span: [3395, 4242]
     sentence_count: 5
     key_terms: [difference, lottery, simply, lot, packing-tape-man, applications, standardized, universities]
+    concepts: [difference, lottery, simply]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c4"
     char_span: [4244, 6459]
     sentence_count: 25
     key_terms: [school, ohio, college, people, opportunities, large, state, competitive]
+    concepts: [school, opportunities, college, people, competitive]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c5"
     char_span: [6196, 6550]
     sentence_count: 4
     key_terms: [competitive, super, environment, grasshopper, colleges, position, snobbery, yourself]
+    concepts: [competitive, super]
     section: Comments
     token_count: 86
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c6"
     char_span: [6552, 7104]
     sentence_count: 5
     key_terms: [top, students, schools, dontchuckitup, runnykinepity, insufferable, challenging, classmates]
+    concepts: [students, schools]
     section: Comments
     token_count: 136
 ---

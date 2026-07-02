@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 1739]
     sentence_count: 9
     key_terms: [emergency, job, husband, money, fund, expenses, personalfinance, year]
+    concepts: [emergency, husband, money, personalfinance, expenses]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1skmu57.md#c6", "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c7", "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c8"]
     token_count: 391
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1skmu57/how_much_of_an_emergency_fund_is_too_much/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c1"
     char_span: [1753, 3715]
     sentence_count: 12
     key_terms: [emergency, fund, years, job, find, jobs, work, deersindal]
+    concepts: [emergency, years, deersindal, government, position]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1skmu57.md#c6"]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c2"
     char_span: [3717, 5177]
     sentence_count: 9
     key_terms: [income, emergency, job, investments, fund, loss, plan, household]
+    concepts: [income, emergency, investments, household, necessary]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c3"
     char_span: [5179, 6244]
     sentence_count: 4
     key_terms: [job, year, easily, being, case, get, "it's", like]
+    concepts: [easily, being]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c4"
     char_span: [6246, 8333]
     sentence_count: 15
     key_terms: [contribute, years, aggressively, money, iras, year, investing, expenses]
+    concepts: [contribute, years, aggressively, money, investing]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1skmu57.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c5"
@@ -56,30 +65,39 @@ chunks:
     char_span: [8340, 10377]
     sentence_count: 17
     key_terms: [job, year, years, emergency, jobs, husband, without, people]
+    concepts: [emergency, years, husband, without, unreasonable]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1skmu57.md#c0", "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c1"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c7"
     char_span: [10379, 12243]
     sentence_count: 13
     key_terms: [emergency, fund, happiness, expenses, factor, year, considered, finances]
+    concepts: [emergency, happiness, expenses, factor, considered]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1skmu57.md#c0", "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c8"]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c8"
     char_span: [12245, 13652]
     sentence_count: 15
     key_terms: [emergency, employment, expenses, probably, monthly, "that's", forgo, money]
+    concepts: [emergency, employment, expenses, probably, monthly]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1skmu57.md#c0", "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c7"]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c9"
     char_span: [13654, 15420]
     sentence_count: 14
     key_terms: [roth, ira, contribute, contributions, money, take, difference, volatility]
+    concepts: [contribute, contributions, difference, money, volatility]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1skmu57.md#c4"]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c10"
     char_span: [15423, 15985]
     sentence_count: 4
     key_terms: [backdoor, roth, sportsballburner, digmonsdrill, investments, nickelmedia, compromise, something]
+    concepts: [backdoor]
     section: Comments
     token_count: 146
 ---

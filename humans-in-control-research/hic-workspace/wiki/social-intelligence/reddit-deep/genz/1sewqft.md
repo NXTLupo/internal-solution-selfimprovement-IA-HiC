@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1875]
     sentence_count: 14
     key_terms: [food, people, money, save, definitely, especially, expensive, comments]
+    concepts: [people, definitely, especially, money, expensive]
     token_count: 444
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1sewqft/psa_save_money_and_cook_from_home/"}]
   - id: "social-intelligence/reddit-deep/genz/1sewqft.md#c1"
     char_span: [1889, 2730]
     sentence_count: 5
     key_terms: [throwaway2026z, discord, please, bratwithfreckles, followtheleads, automatically, automoderator, alextricity]
+    concepts: [throwaway2026z, discord, please]
     section: Comments
     token_count: 235
   - id: "social-intelligence/reddit-deep/genz/1sewqft.md#c2"
     char_span: [2732, 3651]
     sentence_count: 5
     key_terms: [recipes, something, posting, entire, cook, good, "it's", life]
+    concepts: [recipes, something, posting, entire]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/genz/1sewqft.md#c3"
     char_span: [3653, 5588]
     sentence_count: 12
     key_terms: [food, learning, bizarrealex, bell, cook, fast, look, taco]
+    concepts: [learning, bizarrealex, ckamp121, flowers, looking]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1sewqft.md#c4"
     char_span: [5297, 6196]
     sentence_count: 8
     key_terms: [week, saving, money, spend, eat, life, pleasseeeeeee, flammableice]
+    concepts: [saving, money, spend]
     section: Comments
     token_count: 233
 ---

@@ -21,35 +21,47 @@ chunks:
     char_span: [0, 1251]
     sentence_count: 14
     key_terms: [class, professors, comments, semester, starting, teaching, visual, email]
+    concepts: [class, professors, comments, semester, starting]
     token_count: 278
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1mawjgr/ai_emails_starting_already/"}]
   - id: "social-intelligence/reddit-deep/professors/1mawjgr.md#c1"
     char_span: [1265, 3377]
     sentence_count: 6
     key_terms: [learning, stubborn-myth-learning-styles-state-teacher-license-prep-materials-debunked-theory, styles, different, textbook, reading, teacher, course]
+    concepts: [learning, styles, different, textbook, reading]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mawjgr.md#c2", "social-intelligence/reddit-deep/professors/1mawjgr.md#c4"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/professors/1mawjgr.md#c2"
     char_span: [3380, 5231]
     sentence_count: 6
     key_terms: [learning, styles, like, especially, debunked, students, article, visual]
+    concepts: [learning, styles, especially, debunked, students]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mawjgr.md#c1", "social-intelligence/reddit-deep/professors/1mawjgr.md#c3", "social-intelligence/reddit-deep/professors/1mawjgr.md#c4", "social-intelligence/reddit-deep/professors/1mawjgr.md#c5"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/professors/1mawjgr.md#c3"
     char_span: [5233, 7805]
     sentence_count: 16
     key_terms: [learning, students, information, disabilities, modalities, styles, the-myth-of-learning-styles, multiple]
+    concepts: [learning, students, information, disabilities, the-myth-of-learning-styles]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mawjgr.md#c2", "social-intelligence/reddit-deep/professors/1mawjgr.md#c5"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/professors/1mawjgr.md#c4"
     char_span: [7807, 9850]
     sentence_count: 16
     key_terms: [learning, course, class, consideration, styles, email, design, taken]
+    concepts: [learning, course, consideration, class, styles]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mawjgr.md#c1", "social-intelligence/reddit-deep/professors/1mawjgr.md#c2"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/professors/1mawjgr.md#c5"
     char_span: [9852, 12110]
     sentence_count: 15
     key_terms: [parents, learning, life-education-8030, students, teacher, styles, though, assignments]
+    concepts: [parents, learning, life-education-8030, students, teacher]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mawjgr.md#c2", "social-intelligence/reddit-deep/professors/1mawjgr.md#c3"]
     section: Comments
     token_count: 484
 ---

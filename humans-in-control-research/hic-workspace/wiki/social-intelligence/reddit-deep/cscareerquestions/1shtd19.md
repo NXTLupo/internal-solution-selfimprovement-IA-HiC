@@ -19,59 +19,74 @@ chunks:
     char_span: [0, 1445]
     sentence_count: 10
     key_terms: [college, cscareerquestions, working, never, didn, comments, projects, thought]
+    concepts: [college, cscareerquestions, working, never, comments]
     token_count: 356
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1shtd19/i_hate_cs/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c1"
     char_span: [1459, 3481]
     sentence_count: 17
     key_terms: [middle, class, learn, ways, reliable, anyone, easier, income]
+    concepts: [middle, class, learn, reliable, anyone]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c2"
     char_span: [3483, 5449]
     sentence_count: 10
     key_terms: [internships, internship, without, job, "don't", point, time, work]
+    concepts: [internships, internship, without, "don't", graduating]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c6", "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c7"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c3"
     char_span: [5451, 7262]
     sentence_count: 10
     key_terms: [internships, internship, interview, time, been, "it's", like, work]
+    concepts: [internships, internship, interview, experience, semester]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c6", "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c7"]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c4"
     char_span: [7264, 9017]
     sentence_count: 14
     key_terms: [experience, someone, time, enough, lower-class, convince, history, around]
+    concepts: [experience, someone, enough, lower-class, convince]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c5"
     char_span: [9019, 11156]
     sentence_count: 11
     key_terms: [fundamentals, specialization, get, college, never, engineering, did, everything]
+    concepts: [fundamentals, specialization, college, engineering, everything]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c6"
     char_span: [11158, 13100]
     sentence_count: 17
     key_terms: [internship, job, lol, year, major, internships, did, didn]
+    concepts: [internship, internships, major, searching, situation]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c7"
     char_span: [12860, 13726]
     sentence_count: 6
     key_terms: [internships, internship, "it's", jobs, work, icedragonsoul, harutsukihrk, competition]
+    concepts: [internships, internship]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c6"]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c8"
     char_span: [13728, 16032]
     sentence_count: 22
     key_terms: [interviews, "it's", something, openings, friends, looking, webpage, driven]
+    concepts: [interviews, something, openings, friends, looking]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c9"
     char_span: [16034, 16901]
     sentence_count: 11
     key_terms: [someone, else, talk, european, comes, "don't", reservoirpenguin, conversation]
+    concepts: [someone, european, comes, "don't"]
     section: Comments
     token_count: 190
 ---

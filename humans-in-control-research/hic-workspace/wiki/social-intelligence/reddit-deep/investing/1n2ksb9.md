@@ -20,17 +20,24 @@ chunks:
     char_span: [0, 923]
     sentence_count: 8
     key_terms: [margin, investing, robinhood, better, ibkr, comments, account, overall]
+    concepts: [margin, investing, robinhood, better, comments]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1n2ksb9.md#c1", "social-intelligence/reddit-deep/investing/1n2ksb9.md#c2"]
     token_count: 221
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1n2ksb9/robinhood_or_ibkr_pro_for_margin_investing/"}]
   - id: "social-intelligence/reddit-deep/investing/1n2ksb9.md#c1"
-    char_span: [938, 2206]
+    char_span: [937, 2205]
     sentence_count: 10
     key_terms: [margin, ibkr, rate, rates, robinhood, better, account, blended]
+    concepts: [margin, rates, robinhood, better, account]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1n2ksb9.md#c0", "social-intelligence/reddit-deep/investing/1n2ksb9.md#c2"]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/investing/1n2ksb9.md#c2"
-    char_span: [2208, 3753]
+    char_span: [2207, 3752]
     sentence_count: 13
     key_terms: [margin, robinhood, blended, rates, ibkr, like, rate, fidelity]
+    concepts: [margin, robinhood, blended, rates, fidelity]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1n2ksb9.md#c0", "social-intelligence/reddit-deep/investing/1n2ksb9.md#c1"]
     section: Comments
     token_count: 392
 ---

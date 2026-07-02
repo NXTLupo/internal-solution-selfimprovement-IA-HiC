@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 655]
     sentence_count: 5
     key_terms: [common-payment9984, emeraldmeetsauburn, like, congratulations, profile, gradadmissions, "bro's", comments]
+    concepts: [common-payment9984, emeraldmeetsauburn, congratulations, gradadmissions, profile]
     token_count: 201
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rlb46k/i_got_in/"}]
 ---
 # I got in!!!
 

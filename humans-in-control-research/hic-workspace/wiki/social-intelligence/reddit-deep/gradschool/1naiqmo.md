@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1161]
     sentence_count: 7
     key_terms: [applications, internships, internship, gradschool, graduation, applying, comments, school]
+    concepts: [applications, internships, internship, gradschool, graduation]
     token_count: 243
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1naiqmo/applying_to_internships_for_the_summer_before/"}]
 ---
 # Applying to Internships for the Summer before Grad School
 

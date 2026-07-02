@@ -21,46 +21,59 @@ chunks:
     char_span: [0, 1955]
     sentence_count: 11
     key_terms: [people, don, humanresources, stereotypes, get, like, try, recruiting]
+    concepts: [people, humanresources, stereotypes, recruiting, companies]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1stim9y/being_honest_have_any_of_you_felt_like_you_werent/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c1"
     char_span: [1957, 3157]
     sentence_count: 9
     key_terms: [people, experience, like, because, maybe, feel, height, though]
+    concepts: [experience, people, because, maybe, height]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1stim9y.md#c3", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c5", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c7"]
     token_count: 276
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c2"
     char_span: [3171, 4826]
     sentence_count: 14
     key_terms: [men, working, shorter, people, worked, "i've", role, labourers]
+    concepts: [working, shorter, people, worked, labourers]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c3"
     char_span: [4829, 6509]
     sentence_count: 16
     key_terms: [people, because, don, like, anything, advice, height, being]
+    concepts: [people, because, anything, advice, height]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1stim9y.md#c1", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c5", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c7"]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c4"
     char_span: [6511, 8574]
     sentence_count: 18
     key_terms: [work, person, seriously, worked, taken, teams, get, meet]
+    concepts: [person, seriously, worked, taken, teams]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c5"
     char_span: [8342, 9602]
     sentence_count: 9
     key_terms: [height, because, always, people, strategyancient6770, being, advertisingkey1675, hard]
+    concepts: [height, because, always, people, being]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1stim9y.md#c1", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c3", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c7"]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c6"
     char_span: [9604, 11874]
     sentence_count: 28
     key_terms: [company, understanding, experience, believe, reasons, ideas, tried, get]
+    concepts: [company, understanding, experience, believe, reasons]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c7"
     char_span: [11876, 14035]
     sentence_count: 17
     key_terms: [people, height, "i'm", like, maybe, did, "it's", internship]
+    concepts: [people, height, internship, maybe, seriously]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1stim9y.md#c1", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c3", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c5"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c8"

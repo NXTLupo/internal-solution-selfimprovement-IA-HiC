@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1089]
     sentence_count: 11
     key_terms: [data, science, careerguidance, don, like, comments, teaching, teacher]
+    concepts: [careerguidance, science, comments, teaching, teacher]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1ncqmn2.md#c1"]
     token_count: 268
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1ncqmn2/scared_about_career_path_data_science_student/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1ncqmn2.md#c1"
     char_span: [1103, 2209]
     sentence_count: 9
     key_terms: [teaching, science, coding, maths, data, work, advantage, portfolio]
+    concepts: [teaching, science, coding, maths, advantage]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1ncqmn2.md#c0"]
     section: Comments
     token_count: 229
 ---

@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1205]
     sentence_count: 7
     key_terms: [cscareerquestions, did, becoming, comments, engineer, product, career, theobstacleistheway3]
+    concepts: [cscareerquestions, becoming, comments, engineer, product]
     token_count: 283
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sgviob/cs_grads_who_ended_up_not_becoming_an_engineer/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sgviob.md#c1"
     char_span: [1219, 3106]
     sentence_count: 13
     key_terms: [theobstacleistheway3, tech, software, grads, sales, snowcroc, tree8282, selling]
+    concepts: [theobstacleistheway3, software, grads, sales, snowcroc]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sgviob.md#c2"
     char_span: [3108, 5014]
     sentence_count: 16
     key_terms: [starting, like, companies, sdet, people, pivots, roles, get]
+    concepts: [starting, companies, people, pivots, roles]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sgviob.md#c3"
     char_span: [5016, 6634]
     sentence_count: 13
     key_terms: [get, patent, cyber, traditional, went, college, become, supply]
+    concepts: [patent, traditional, cyber, college, become]
     section: Comments
     token_count: 384
 ---

@@ -31,7 +31,7 @@ import { validateSlide } from '../services/slideValidator';
 // balance + 9-rung repair ladder) before falling back to per-array salvage.
 // Static import (over async dynamic import) lets the sync parseSlideBlocks /
 // parseDeliverableBlocks callbacks use these helpers without a refactor.
-import { tryRepairJson, salvageJsonArray, artifactModelFor } from '../services/aiRouter';
+import { tryRepairJson, salvageJsonArray, artifactModelFor, chooseArtifactModel } from '../services/aiRouter';
 import DynamicPromptChips from './DynamicPromptChips';
 // --- Feedback (self-improvement loop, Phase 2, 2026-05-22) ---
 import FeedbackWidget from './FeedbackWidget';
@@ -2522,6 +2522,7 @@ const ProductBriefCard: React.FC<{ brief: ProductBriefForCard; idx: number; onAp
                 {brief.ai_capabilities && <span>{brief.ai_capabilities.length} AI FLOWS</span>}
                 {brief.seed_data?.primary_entities && <span>{brief.seed_data.primary_entities.reduce((n, e) => n + (e.target_count || 0), 0)} SEED RECORDS</span>}
                 {brief.visual_direction?.image_gen_opportunities && brief.visual_direction.image_gen_opportunities.length > 0 && <span>{brief.visual_direction.image_gen_opportunities.length} IMAGEN PROMPTS</span>}
+                {(brief as any).prd_candidate?.features?.length > 0 && <span>{(brief as any).prd_candidate.features.length} PRD FEATURES</span>}
             </div>
             <div style={{ display: 'flex', borderTop: '1px solid #E5E5E5' }}>
                 <button
@@ -2559,6 +2560,36 @@ const ProductBriefCard: React.FC<{ brief: ProductBriefForCard; idx: number; onAp
                     )}
                     {brief.demonstrated_moment && (
                         <Section title="DEMONSTRATED MOMENT"><div>{brief.demonstrated_moment}</div></Section>
+                    )}
+                    {/* E6 PRD-IN-BRIEF (2026-07-02): the detailed PRD contained within the brief the
+                        prototype utilizes - shown here for approval before BUILD THIS hands it to
+                        Stage 2 (features -> screens) + Stage 5 (acceptance-criteria audit). */}
+                    {(brief as any).prd_candidate?.features?.length > 0 && (
+                        <Section title={`PRD (${(brief as any).prd_candidate.features.length} FEATURES)`}>
+                            {(brief as any).prd_candidate.features.map((f: any, i: number) => (
+                                <div key={i} style={{ marginBottom: 8, paddingBottom: 8, borderBottom: '1px solid #F0F0F0' }}>
+                                    <div style={{ fontWeight: 700, marginBottom: 2 }}>
+                                        {i + 1}. {f.name}
+                                        <span style={{ marginLeft: 8, fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 1, textTransform: 'uppercase', color: f.priority === 'must' ? '#0D0D0D' : '#737373', background: f.priority === 'must' ? '#EAEA00' : '#F0F0F0', padding: '1px 6px' }}>{f.priority}</span>
+                                    </div>
+                                    {f.description && <div style={{ color: '#525252', fontSize: 11, marginBottom: 2 }}>{f.description}</div>}
+                                    {Array.isArray(f.acceptanceCriteria) && f.acceptanceCriteria.length > 0 && (
+                                        <ul style={{ margin: '2px 0 0', paddingLeft: 18, color: '#525252', fontSize: 11 }}>
+                                            {f.acceptanceCriteria.map((a: string, j: number) => <li key={j}>{a}</li>)}
+                                        </ul>
+                                    )}
+                                    {Array.isArray(f.citations) && f.citations.length > 0 && <div style={{ color: '#737373', fontSize: 10, marginTop: 2 }}>Sources: {f.citations.join(' · ')}</div>}
+                                </div>
+                            ))}
+                            {Array.isArray((brief as any).prd_candidate.success_metrics) && (brief as any).prd_candidate.success_metrics.length > 0 && (
+                                <div style={{ marginTop: 4 }}>
+                                    <div style={{ fontSize: 10, color: '#737373', fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase', marginBottom: 2 }}>Success metrics</div>
+                                    {(brief as any).prd_candidate.success_metrics.map((m: any, i: number) => (
+                                        <div key={i} style={{ color: '#525252', fontSize: 11 }}>{m.metric}: {m.baseline} → {m.target}{m.guardrail ? ` (guardrail: ${m.guardrail})` : ''}</div>
+                                    ))}
+                                </div>
+                            )}
+                        </Section>
                     )}
                     {brief.use_cases && brief.use_cases.length > 0 && (
                         <Section title={`USE CASES (${brief.use_cases.length})`}>
@@ -5360,9 +5391,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     console.warn(`[${directive.generator}] loadGenerationContext injection skipped (non-fatal):`, e?.message || e);
                 }
 
+                // E1 (2026-07-02): cache-aligned - the two SKILL.md blocks (~41KB) are STABLE across every
+                // engagement; the marker makes them an Anthropic cache breakpoint at the proxy.
+                const { HIC_CACHE_BREAK: _cacheBreak } = await import('../services/aiRouter');
                 const systemPrompt = [
                     vsResp ? vsResp + '\n\n---\n\n' : '',
                     htmlResp ? htmlResp + '\n\n---\n\n' : '',
+                    (vsResp || htmlResp) ? _cacheBreak : '',
                     genContextBlock ? genContextBlock + '\n\n---\n\n' : '',
                     `You are composing a ${firstHit.label} HTML artifact for HiC. Apply verbalized-sampling at the primary layer for this directive (see directive-specific instructions in the user message). Use NXT brand tokens (or NU when brand=${directive.brand}). Honor the FRAMEWORK SPECIFICATION and ANTI-PATTERNS above. Compose the artifact body. The /view endpoint will inject the wrapper.`,
                 ].join('');
@@ -5393,7 +5428,10 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 // burned an HTTP 400 on every HTML deliverable during the Opus cap
                 // before the chain fell back. Now: schema kinds -> Flash, evidence/
                 // narrative -> Gemini 3.1 Pro (capped) / Opus (after). Auto-restores.
-                const _artModel = artifactModelFor(_htmlKind);
+                // W2 (2026-07-01): use the FULL routing decision (model + reason + alternatives) so the AIR
+                // modelTrace records WHY this model, not just which. artifactModelFor stays the id shorthand.
+                const _artDecision = chooseArtifactModel(_htmlKind);
+                const _artModel = _artDecision.selectedModel;
                 // 2026-05-31 - generation as a reusable closure so we can run a
                 // DEPTH-FLOOR expand retry (the #whitepaper/#report path was a
                 // single shallow pass; this gives it the same depth discipline as
@@ -5446,6 +5484,8 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                             objective: ((getContext ? getContext() : context)?.researchGoal) || '',
                             resolvedChunks: _airChunks,   // Stage-3: REAL evidence ledger from the grounding chunks
                             buildPayload: (_r, t) => ({ kind: _htmlKind, html: t }),
+                            // W2: the routing decision (model + scored reason + alternatives) rides into modelTrace.
+                            routing: { model: _artModel, reason: _artDecision.reason },
                         },
                     });
                     const text = _emit.result.text;
@@ -5482,10 +5522,28 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 }
                 if (htmlBody.length < 100) throw new Error('Model returned empty/short HTML body');
 
-                // Derive a slug + title. Title = first <h1> if present, else first 80 chars of topic.
+                // Derive a slug + title. Title = first <h1> if present, else the topic.
+                // 2026-07-02 live-defect fix: the old hard .slice(0,120) cut mid-word
+                // ("...lenders price smallh") and stripTags never decoded entities, so a
+                // literal "&mdash;" shipped in the chat reply. Titles now decode entities,
+                // obey the em-dash ban (stripEmDashes), and truncate at a word boundary.
                 const h1Match = htmlBody.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+                const { stripEmDashes } = await import('../services/slidePostProcessor');
                 const stripTags = (s: string) => s.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-                const title = h1Match ? stripTags(h1Match[1]).slice(0, 120) : (directive.topic || `${directive.generator} artifact`).slice(0, 80);
+                const decodeEntities = (s: string) => s
+                    .replace(/&amp;/gi, '&').replace(/&nbsp;/gi, ' ')
+                    .replace(/&quot;|&ldquo;|&rdquo;|&#822[01];/gi, '"')
+                    .replace(/&#39;|&apos;|&lsquo;|&rsquo;|&#821[67];/gi, "'")
+                    .replace(/&hellip;|&#8230;/gi, '...');
+                const tidyTitle = (raw: string, max: number) => {
+                    let t = stripEmDashes(decodeEntities(stripTags(raw))).replace(/\s+/g, ' ').trim();
+                    if (t.length > max) {
+                        const cutAt = t.slice(0, max + 1).lastIndexOf(' ');
+                        t = t.slice(0, cutAt > max * 0.6 ? cutAt : max).replace(/[\s,;:.]+$/, '').trim();
+                    }
+                    return t;
+                };
+                const title = h1Match ? tidyTitle(h1Match[1], 120) : tidyTitle(directive.topic || `${directive.generator} artifact`, 80);
 
                 const saved = await saveArtifact({
                     title,
@@ -6759,6 +6817,8 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                                     trigger: tag === 'blueprint' ? '#blueprint' : '#journey',
                                     objective: ((getContext ? getContext() : context)?.researchGoal) || '',
                                     buildPayload: (r) => (r && typeof r === 'object' && 'data' in r ? (r as any).data : r),
+                                    // W2: JM service runs the Analyst-Desk-selected model server-side; record it + why.
+                                    routing: { model: selectedModel, reason: 'Analyst-Desk selection via journey-mapper service (server-side generation)' },
                                 },
                                 emit: async () => {
                                     const resp = await fetch('http://127.0.0.1:5012/api/journey-map/generate', {
@@ -7296,6 +7356,9 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                         'persona-card': 'persona', 'competitive-matrix': 'matrix', 'prd-feature': 'prdFeature',
                         'journey-map': 'journeyMap', 'timeline': 'timeline', 'theme-cluster': 'themeCluster',
                         'recommendation': 'recommendation',
+                        // E3 2026-07-02: the brief page's full-width exhibit slot (registry executive-brief,
+                        // carrier exhibitImage) - native infographic composed from the sections' own data.
+                        'executive-brief': 'executiveBrief',
                         // USER OVERRIDE 2026-06-28 (scenes-where-they-fit): case-study panel emotive.
                         // The chat path emits :::slide template=case-study; its payload subfield is caseStudy.
                         'case-study': 'caseStudy',
@@ -7305,6 +7368,10 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                         // carrier write THERE (panelImage for block-quote; columnIcons[] for org-model).
                         'slides:block-quote': 'composerPayload',
                         'slides:org-model': 'composerPayload',
+                        // 2026-07-02 #slides infographic uplift: the deck-native data-visual
+                        // archetype; the native lane composes the panel from the payload's own
+                        // structured fields and writes composerPayload.exhibitImage.
+                        'slides:infographic-exhibit': 'composerPayload',
                         // 2026-06-29: the full-bleed interstitial archetypes carry an emotive
                         // hero panel (registry slides:cover/section-divider/thesis-interstitial,
                         // carrier heroImage, wired). The composer reads composerPayload.heroImage

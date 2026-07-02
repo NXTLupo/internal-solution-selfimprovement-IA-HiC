@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 316]
     sentence_count: 1
     key_terms: [comments, openai, fictionlive, reddit-deep, context, ihtfphd, numbers, posted]
+    concepts: [comments, openai]
     token_count: 97
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1ml23qo/gpt5_on_api_is_the_best_at_long_context/"}]
 ---
 # GPT-5 on API is the best at long context
 

@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 2315]
     sentence_count: 6
     key_terms: [internship, role, graduation, interview, part-time, next, location, career]
+    concepts: [internship, graduation, interview, part-time, location]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1mux1nv/looking_for_career_advice_drop_internship_delay/"}]
   - id: "social-intelligence/reddit-deep/internships/1mux1nv.md#c1"
     char_span: [2317, 2663]
     sentence_count: 2

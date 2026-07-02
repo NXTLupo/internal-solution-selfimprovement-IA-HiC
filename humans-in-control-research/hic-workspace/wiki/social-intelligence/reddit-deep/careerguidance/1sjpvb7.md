@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1682]
     sentence_count: 11
     key_terms: [something, completely, currently, careerguidance, design, job, comments, creative]
+    concepts: [something, completely, currently, careerguidance, design]
     token_count: 374
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sjpvb7/advice_on_what_career_path_to_take/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sjpvb7.md#c1"
-    char_span: [1697, 2464]
+    char_span: [1696, 2463]
     sentence_count: 7
     key_terms: [creative, chuggingtabascosauce, "it's", try, administrative, directionless, thepandapear, illustrator]
+    concepts: [creative]
     section: Comments
     token_count: 167
 ---

@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1785]
     sentence_count: 14
     key_terms: [race, experience, black, interview, put, resume, didn, comments]
+    concepts: [experience, interview, black, resume, comments]
     token_count: 424
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1r2fjin/got_1_interview_in_the_past_9_months_changed_my/"}]
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c1"
     char_span: [1799, 2730]
     sentence_count: 7
     key_terms: [papi, dominican, work, fluid-librarian-3546, black, crazycatlady4life, congratulations, newscreenneeded]
+    concepts: [dominican, black]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c2"
     char_span: [2732, 4486]
     sentence_count: 14
     key_terms: [disability, day, get, left, leg, papi, delta632, resident-strategy560]
+    concepts: [disability, delta632, looks, tired]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c3"
     char_span: [4159, 6427]
     sentence_count: 15
     key_terms: [disability, because, something, get, like, happening, another, getting]
+    concepts: [disability, because, something, happening, another]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c4"
@@ -48,54 +53,63 @@ chunks:
     char_span: [6525, 8680]
     sentence_count: 23
     key_terms: [responses, letter, people, applications, like, name, masculine, screening]
+    concepts: [responses, applications, letter, people, masculine]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c6"
     char_span: [8682, 10212]
     sentence_count: 16
     key_terms: [name, businesses, federal, course, female, people, black, "we're"]
+    concepts: [businesses, federal, course, female, people]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c7"
     char_span: [10214, 11978]
     sentence_count: 13
     key_terms: [black, veteran, crime, president, because, however, racist, internal-delivery504]
+    concepts: [black, veteran, crime, president, because]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c8"
     char_span: [11980, 14074]
     sentence_count: 18
     key_terms: [information, company, somesamples, never, getting, candidates, illegal, someone]
+    concepts: [information, somesamples, company, never, getting]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c9"
     char_span: [14076, 15891]
     sentence_count: 12
     key_terms: [resumes, black, never, here, different, applying, getting, started]
+    concepts: [resumes, black, never, different, applying]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c10"
     char_span: [15893, 17558]
     sentence_count: 7
     key_terms: [name, last, human-amoeba1640, interviews, linkedin, instead, resume, electrical-opening-9]
+    concepts: [human-amoeba1640, interviews, linkedin, instead, resume]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c11"
     char_span: [17560, 18404]
     sentence_count: 5
     key_terms: [name, resume-bias-study-white-names-black-names, last, biblical, resume, efficient-rain-7942, super, man]
+    concepts: [biblical, resume, super]
     section: Comments
     token_count: 237
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c12"
     char_span: [18406, 20360]
     sentence_count: 13
     key_terms: [name, names, majority, someone, fucked, likely, antique-blueberry-13, impressive-mode-2594]
+    concepts: [names, majority, someone, fucked, likely]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c13"
     char_span: [20362, 21329]
     sentence_count: 5
     key_terms: [being, white, don, usually, people, get, hear, race]
+    concepts: [being, white, usually, people]
     section: Comments
     token_count: 249
 ---

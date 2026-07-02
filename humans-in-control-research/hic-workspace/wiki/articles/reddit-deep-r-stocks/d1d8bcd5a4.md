@@ -19,25 +19,24 @@ content_hash: "fd539c4a77eacd00"
 relevance_by_goal: {"46dec9599ad5":78}
 chunks:
   - id: "articles/reddit-deep-r-stocks/d1d8bcd5a4.md#c0"
-    char_span: [0, 2065]
-    sentence_count: 4
-    key_terms: [friday, interest, intervention, appointment, rate, yen, treasury, crisis]
-    token_count: 468
+    char_span: [0, 2302]
+    sentence_count: 5
+    key_terms: [friday, yen, interest, intervention, needs, appointment, rate, resistance]
+    concepts: [friday, interest, intervention, appointment, needs]
+    token_count: 514
+    sources: [{"n":"Reddit Deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1qruhj5/macro_crisis_the_panic_at_the_disco_thesolution/"}]
   - id: "articles/reddit-deep-r-stocks/d1d8bcd5a4.md#c1"
-    char_span: [2067, 4339]
+    char_span: [2304, 4610]
     sentence_count: 15
-    key_terms: [however, yen, usd, economic, japanese, institutions, risk, diplomatic]
-    token_count: 481
+    key_terms: [yen, japanese, however, usd, economic, institutions, cash, risk]
+    concepts: [japanese, however, economic, institutions, diplomatic]
+    token_count: 488
   - id: "articles/reddit-deep-r-stocks/d1d8bcd5a4.md#c2"
-    char_span: [4341, 6447]
-    sentence_count: 13
-    key_terms: [board, rates, governors, because, cannot, people, educational-tone2074, carry]
-    token_count: 496
-  - id: "articles/reddit-deep-r-stocks/d1d8bcd5a4.md#c3"
-    char_span: [6449, 6626]
-    sentence_count: 2
-    key_terms: [appointments, commodities, investments, government, companies, american, changes, affect]
-    token_count: 35
+    char_span: [4612, 6625]
+    sentence_count: 14
+    key_terms: [board, rates, governors, because, cannot, people, educational-tone2074, favor]
+    concepts: [board, rates, governors, because, cannot]
+    token_count: 477
 ---
 # Macro Crisis, The Panic (at the disco), The...Solution? $USD, $YEN, crypto, GOLD (and precious metals $SLV, etc)
 

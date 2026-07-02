@@ -20,17 +20,24 @@ chunks:
     char_span: [0, 885]
     sentence_count: 6
     key_terms: [customerexperience, resolved, comments, customer, ticket, bot, does, differentiate]
+    concepts: [customerexperience, resolved, comments, customer, ticket]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1qwkbr7.md#c1", "social-intelligence/reddit-deep/customerexperience/1qwkbr7.md#c2"]
     token_count: 190
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1qwkbr7/how_do_you_differentiate_between_reporting_ai/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1qwkbr7.md#c1"
-    char_span: [900, 3289]
+    char_span: [899, 3288]
     sentence_count: 20
     key_terms: [resolution, resolved, intent, customer, contact, deflected, problem, silence]
+    concepts: [resolution, resolved, intent, customer, contact]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1qwkbr7.md#c0", "social-intelligence/reddit-deep/customerexperience/1qwkbr7.md#c2"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/customerexperience/1qwkbr7.md#c2"
-    char_span: [3291, 4907]
+    char_span: [3290, 4906]
     sentence_count: 16
     key_terms: [resolved, customer, did, "it's", deflected, something, depends, refund]
+    concepts: [resolved, customer, deflected, something, depends]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1qwkbr7.md#c0", "social-intelligence/reddit-deep/customerexperience/1qwkbr7.md#c1"]
     section: Comments
     token_count: 360
 ---

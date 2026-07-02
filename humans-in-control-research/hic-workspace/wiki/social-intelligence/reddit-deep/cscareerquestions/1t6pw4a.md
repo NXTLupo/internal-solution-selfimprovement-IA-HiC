@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 678]
     sentence_count: 6
     key_terms: [cscareerquestions, feel, lost, comments, setup, grad, job, new]
+    concepts: [cscareerquestions, comments, setup]
     token_count: 169
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t6pw4a/new_grad_job_but_feel_lost/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t6pw4a.md#c1"
     char_span: [692, 2176]
     sentence_count: 8
     key_terms: ["you're", comfortable, environment, experience, yesterday, feeling, working, months]
+    concepts: ["you're", comfortable, environment, experience, yesterday]
     section: Comments
     token_count: 358
 ---

@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 2064]
     sentence_count: 13
     key_terms: [mag, bubble, narrative, goog, wallstreetbets, growth, generational, opportunity]
+    concepts: [bubble, narrative, wallstreetbets, generational, growth]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1onk7x3/why_the_bubble_narrative_is_a_generational_goog/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c1"
     char_span: [2067, 2972]
     sentence_count: 6
     key_terms: [google, business, control, absurd, bubble, world, need, show]
+    concepts: [google, business, control, absurd, bubble]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c4"]
     token_count: 220
   - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c2"
     char_span: [2986, 3537]
     sentence_count: 4
     key_terms: [total, discord, https, wsb, dru-p-wiener, submissions, karmacave, visualmod]
+    concepts: [total, discord, https]
     section: Comments
     token_count: 173
   - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c3"
     char_span: [3539, 5312]
     sentence_count: 15
     key_terms: [like, take, conviction, bubble, people, profit, calls, enter]
+    concepts: [conviction, bubble, people, profit, calls]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c4"
     char_span: [5314, 7016]
     sentence_count: 12
     key_terms: [kylenothumbs319, bubble, google, going, crashes, recover, shares, plays]
+    concepts: [kylenothumbs319, bubble, google, going, crashes]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c1"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c5"
     char_span: [7018, 8731]
     sentence_count: 10
     key_terms: [google, data, seanpuppy, crawling, already, llm, use, web]
+    concepts: [google, seanpuppy, crawling, already, archiving]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c6"
     char_span: [8733, 10373]
     sentence_count: 7
     key_terms: [trentcoolyak, bubble, buying, opportunity, data, sell, position, selling]
+    concepts: [trentcoolyak, bubble, buying, opportunity, position]
     section: Comments
     token_count: 481
 ---

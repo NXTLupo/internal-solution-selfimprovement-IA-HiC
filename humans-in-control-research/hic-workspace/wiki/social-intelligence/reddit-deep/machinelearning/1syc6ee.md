@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 772]
     sentence_count: 3
     key_terms: [machinelearning, rorschach, comments, standard, llms, administering, comprehensive, human-related]
+    concepts: [machinelearning, rorschach, comments, standard]
     token_count: 201
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1syc6ee/what_is_the_scientific_value_of_administering_the/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1syc6ee.md#c1"
     char_span: [774, 2965]
     sentence_count: 11
     key_terms: [iwy2xjawrd27dlehrua2flbqixmqbzcnrjbmfwcf9pzbaymjiwmzkxnzg4mjawodkyaaee-wkkp6fkzrmaaunvtn6bjknoligcftgu0-clfs6cc49kz1gcr6ccdcariwa, data, training, contamination, methodological, models, psychological, scientific]
+    concepts: [contamination, training, methodological, psychological, models]
     token_count: 512
   - id: "social-intelligence/reddit-deep/machinelearning/1syc6ee.md#c2"
     char_span: [2867, 3153]
@@ -36,12 +39,14 @@ chunks:
     char_span: [3167, 4779]
     sentence_count: 9
     key_terms: [rorschach, value, scientific, c840-83e8-9749-aea5f1bc96fc, generate, lipflip, "there's", researchrelevant9083]
+    concepts: [rorschach, scientific, value, generate, lipflip]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/machinelearning/1syc6ee.md#c4"
     char_span: [4781, 5562]
     sentence_count: 2
     key_terms: [rorschach, answers, ambiguity, inkblots, evident, full-sprinkles-2653, whole, idea]
+    concepts: [rorschach, answers, ambiguity, inkblots, evident]
     section: Comments
     token_count: 186
 ---

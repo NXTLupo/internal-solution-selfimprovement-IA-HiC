@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1601]
     sentence_count: 10
     key_terms: [biomedical, engineering, biotech, program, master, loans, data, gradschool]
+    concepts: [biomedical, engineering, biotech, program, master]
     token_count: 362
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rq2w3m/would_it_be_worth_taking_a_60k_loan_for_a_masters/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1rq2w3m.md#c1"
     char_span: [1615, 3195]
     sentence_count: 11
     key_terms: [masters, engineering, debt, employment, hjohns23, programs, hopkins, allamericanbreakfast]
+    concepts: [masters, engineering, employment, hjohns23, programs]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/gradschool/1rq2w3m.md#c2"
     char_span: [3197, 4706]
     sentence_count: 7
     key_terms: [michigan-engineering-student-salary-information, salary, masters-biomedical-engineering-ay24, career, engin, https, umich, methodology]
+    concepts: [michigan-engineering-student-salary-information, salary, career, methodology, engin]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/gradschool/1rq2w3m.md#c3"
     char_span: [4708, 6569]
     sentence_count: 12
     key_terms: [masters, phd, seeking, grad, graduates, sometimes, program, student]
+    concepts: [masters, seeking, graduates, sometimes, program]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/gradschool/1rq2w3m.md#c4"

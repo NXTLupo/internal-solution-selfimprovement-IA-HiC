@@ -20,26 +20,32 @@ chunks:
     char_span: [0, 2089]
     sentence_count: 17
     key_terms: [logistics, delivery, amazon, three-hour, cities, fulfillment, like, week]
+    concepts: [logistics, delivery, amazon, three-hour, cities]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1s2jslo/catch_up_on_what_happened_this_week_in_logistics/"}]
   - id: "social-intelligence/reddit-deep/logistics/1s2jslo.md#c1"
     char_span: [2091, 4249]
     sentence_count: 17
     key_terms: [general, average, cargo, ace, cbp, processing, insurance, clients]
+    concepts: [general, average, cargo, processing, insurance]
     token_count: 441
   - id: "social-intelligence/reddit-deep/logistics/1s2jslo.md#c2"
     char_span: [4251, 6633]
     sentence_count: 17
     key_terms: [logistics, usps, services, billion, redwood, rural, stamp, loss]
+    concepts: [logistics, services, billion, redwood, deliveries]
     token_count: 478
   - id: "social-intelligence/reddit-deep/logistics/1s2jslo.md#c3"
     char_span: [6635, 7592]
     sentence_count: 7
     key_terms: [logistics-pulse-by-fulfillyn, allstates, last-mile, tradeshow, elitexpo, worth, diversification, chicago-based]
+    concepts: [allstates, last-mile, tradeshow, elitexpo, worth]
     token_count: 221
   - id: "social-intelligence/reddit-deep/logistics/1s2jslo.md#c4"
-    char_span: [7607, 8297]
+    char_span: [7606, 8296]
     sentence_count: 5
     key_terms: [commerce, existingchannel5779, quick, help, last, stealthagents, injunctions, interesting]
+    concepts: [commerce, quick]
     section: Comments
     token_count: 161
 ---

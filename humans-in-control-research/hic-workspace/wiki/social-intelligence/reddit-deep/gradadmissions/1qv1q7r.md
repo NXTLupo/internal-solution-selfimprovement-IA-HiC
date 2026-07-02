@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 713]
     sentence_count: 4
     key_terms: [schools, gradadmissions, internship, comments, research, summer, offer, grad]
+    concepts: [schools, gradadmissions, internship, comments, research]
     token_count: 166
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qv1q7r/got_a_dream_summer_research_internship_offer_is/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qv1q7r.md#c1"
-    char_span: [728, 1130]
+    char_span: [727, 1129]
     sentence_count: 5
     key_terms: [internship, serious-poet-1710, don, caramel-economy, prestigious, articulate, achieve, student]
+    concepts: [internship]
     section: Comments
     token_count: 106
 ---

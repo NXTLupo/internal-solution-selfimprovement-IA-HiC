@@ -19,41 +19,53 @@ chunks:
     char_span: [0, 879]
     sentence_count: 8
     key_terms: [cscareerquestions, comments, college, career, people, accomplishedcake3009, years, over-competition]
+    concepts: [cscareerquestions, comments, college, career, people]
     token_count: 213
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tevl9q/if_i_take_cs_courses_now_ill_be_finished_in_about/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c1"
     char_span: [893, 3052]
     sentence_count: 19
     key_terms: [work, industry, always, people, being, laid, like, mortgage]
+    concepts: [industry, always, people, being, mortgage]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c2"
     char_span: [3056, 5051]
     sentence_count: 9
     key_terms: [family, income, money, laid, need, genuinely, because, housing]
+    concepts: [family, income, money, genuinely, because]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c3"
     char_span: [4747, 5392]
     sentence_count: 5
     key_terms: [genuinely, prepare, enough, money, timelysuccess7537, don, time, comfortably]
+    concepts: [genuinely, prepare, enough, money]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c2"]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c4"
     char_span: [5394, 6915]
     sentence_count: 14
     key_terms: [get, students, opportunities, smart, year, university, doubleprecipation99, being]
+    concepts: [students, opportunities, smart, university, being]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c5"
     char_span: [6917, 8275]
     sentence_count: 10
     key_terms: [engineering, software, "you're", engineer, "it's", something, college, degrees]
+    concepts: [engineering, software, "you're", engineer, something]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c6"]
     section: Comments
     token_count: 300
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c6"
     char_span: [8278, 9279]
     sentence_count: 10
     key_terms: [engineering, "you're", good, emphasis, boring, degree, brilliant-meat-4426, point]
+    concepts: [engineering, "you're", emphasis, boring, degree]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c5"]
     section: Comments
     token_count: 248
 ---

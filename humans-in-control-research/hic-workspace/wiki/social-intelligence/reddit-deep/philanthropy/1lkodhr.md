@@ -20,70 +20,87 @@ chunks:
     char_span: [0, 1615]
     sentence_count: 7
     key_terms: [giving, daf, dafs, comments, increase, philanthropy, donations, nonprofit]
+    concepts: [giving, comments, increase, philanthropy, donations]
     token_count: 400
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1lkodhr/donoradvised_funds_dafs_are_not_nonprofits_friends/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1lkodhr.md#c1"
     char_span: [1617, 3488]
     sentence_count: 10
     key_terms: [daf, donors, donation, account, holders, revenue, from-storehouses-to-streams-a-hopeful, major]
+    concepts: [donors, donation, account, holders, revenue]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1lkodhr.md#c6"]
     token_count: 434
   - id: "social-intelligence/reddit-deep/philanthropy/1lkodhr.md#c2"
-    char_span: [3503, 4592]
+    char_span: [3502, 4591]
     sentence_count: 9
     key_terms: [daf, charity, consistently, give, charities, donations, money, dafs]
+    concepts: [charity, consistently, charities, donations, money]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/philanthropy/1lkodhr.md#c3"
-    char_span: [4594, 6428]
+    char_span: [4593, 6427]
     sentence_count: 13
     key_terms: [daf, sponsor, nonprofits, different, directly, donating, requests, numbers]
+    concepts: [sponsor, nonprofits, different, directly, donating]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/philanthropy/1lkodhr.md#c4"
-    char_span: [6430, 8444]
+    char_span: [6429, 8443]
     sentence_count: 12
     key_terms: [dafs, donors, nonprofits, lenoxhillpartners, daf, giving, donor, money]
+    concepts: [nonprofits, donors, lenoxhillpartners, giving, "nonprofit's"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/philanthropy/1lkodhr.md#c5"
-    char_span: [8446, 10452]
+    char_span: [8445, 10451]
     sentence_count: 12
     key_terms: [daf, org, donor, dafs, holders, nonprofits, http, charitynavigator]
+    concepts: [donor, holders, nonprofits, charitynavigator, "that's"]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1lkodhr.md#c6", "social-intelligence/reddit-deep/philanthropy/1lkodhr.md#c7"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/philanthropy/1lkodhr.md#c6"
-    char_span: [10454, 12171]
+    char_span: [10453, 12170]
     sentence_count: 17
     key_terms: [daf, dafs, nonprofits, nonprofit, donor, donation, holders, savings]
+    concepts: [nonprofits, nonprofit, donor, donation, holders]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1lkodhr.md#c1", "social-intelligence/reddit-deep/philanthropy/1lkodhr.md#c5"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/philanthropy/1lkodhr.md#c7"
-    char_span: [12173, 13899]
+    char_span: [12172, 13898]
     sentence_count: 17
     key_terms: [daf, org, donor, pay, forward, giving, payout, "that's"]
+    concepts: [donor, forward, giving, payout, "that's"]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1lkodhr.md#c5"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/philanthropy/1lkodhr.md#c8"
-    char_span: [13901, 15882]
+    char_span: [13900, 15881]
     sentence_count: 16
     key_terms: [daf, dafs, tax, charitable, technology, anonymous, financial, regulated]
+    concepts: [charitable, technology, anonymous, financial, regulated]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/philanthropy/1lkodhr.md#c9"
-    char_span: [15884, 17027]
+    char_span: [15883, 17026]
     sentence_count: 8
     key_terms: [daf, sponsor, product, investment, financial, oversight, billions, donors]
+    concepts: [sponsor, product, investment, financial, oversight]
     section: Comments
     token_count: 247
   - id: "social-intelligence/reddit-deep/philanthropy/1lkodhr.md#c10"
-    char_span: [17029, 18945]
+    char_span: [17028, 18944]
     sentence_count: 14
     key_terms: [daf, dafs, grant, financial, endowed, payout, institutions, resources]
+    concepts: [financial, grant, endowed, institutions, payout]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/philanthropy/1lkodhr.md#c11"
-    char_span: [18947, 19949]
+    char_span: [18946, 19948]
     sentence_count: 7
     key_terms: [company, institution, firm, name, part, financial, larger, longjumpingfocus8805]
+    concepts: [company, institution, financial, larger, often]
     section: Comments
     token_count: 197
 ---

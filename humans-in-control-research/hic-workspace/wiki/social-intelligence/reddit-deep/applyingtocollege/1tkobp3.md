@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1635]
     sentence_count: 12
     key_terms: [school, people, applyingtocollege, college, ivy, comments, doesn, hypsm]
+    concepts: [school, applyingtocollege, people, college, comments]
     token_count: 374
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1tkobp3/you_dont_need_to_go_to_an_ivy/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tkobp3.md#c1"
     char_span: [1649, 3341]
     sentence_count: 4
     key_terms: [school, ivy, uiuc, went, senior-dog-9735, state, half, mill]
+    concepts: [school, senior-dog-9735, acceptance, state, example]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tkobp3.md#c3"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tkobp3.md#c2"
     char_span: [3343, 4709]
     sentence_count: 8
     key_terms: [acceptance, cornell, rate, undergraduate-admissions, applications, university-factbook, https, edu]
+    concepts: [acceptance, cornell, undergraduate-admissions, applications, university-factbook]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tkobp3.md#c3"
     char_span: [4711, 5853]
     sentence_count: 10
     key_terms: [school, state, uiuc, students, cornell, picked, connectionscatergory, right]
+    concepts: [school, state, students, cornell, picked]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tkobp3.md#c1"]
     section: Comments
     token_count: 286
 ---

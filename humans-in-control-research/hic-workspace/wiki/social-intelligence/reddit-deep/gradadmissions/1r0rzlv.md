@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1374]
     sentence_count: 1
     key_terms: [undergrad, masters, something, gradadmissions, school, grad, like, want]
+    concepts: [undergrad, masters, something, gradadmissions, school]
     token_count: 309
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1r0rzlv/help_deciding_grad_school_path/"}]
 ---
 # help deciding grad school path
 

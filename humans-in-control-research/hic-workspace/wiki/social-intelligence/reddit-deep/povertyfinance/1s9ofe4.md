@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 1871]
     sentence_count: 13
     key_terms: [because, povertyfinance, like, sometimes, comments, feeling, check, going]
+    concepts: [povertyfinance, because, sometimes, comments, feeling]
     token_count: 404
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1s9ofe4/staying_sane_when_you_literally_have_zero_dollars/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c1"
     char_span: [1885, 3928]
     sentence_count: 13
     key_terms: [friends, "don't", want, been, good, hang, something, watching]
+    concepts: [friends, "don't", something, watching, because]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c2"
     char_span: [3717, 4334]
     sentence_count: 4
     key_terms: [friends, littleredreadinghood, got, appreciated, embarrassed, inexpensive, margaritas, situations]
+    concepts: [friends]
     section: Comments
     token_count: 157
   - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c3"
     char_span: [4336, 6299]
     sentence_count: 14
     key_terms: [library, friend, want, bottle, afternoon, company, friends, dinner]
+    concepts: [library, friend, bottle, afternoon, company]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c4"
     char_span: [6301, 6748]
     sentence_count: 5
     key_terms: ["didn't", like, everything, understand, financial, situation, feelings, charity]
+    concepts: ["didn't"]
     section: Comments
     token_count: 100
   - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c5"
     char_span: [6750, 8954]
     sentence_count: 13
     key_terms: [free, events, local, neighborhood, trivia, "there's", social, "that's"]
+    concepts: [events, neighborhood, local, trivia, "there's"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c6"
     char_span: [8655, 10285]
     sentence_count: 10
     key_terms: [free, through, check, local, love, feeling, library, someone]
+    concepts: [through, check, local, feeling, library]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c7"
     char_span: [10287, 12220]
     sentence_count: 13
     key_terms: [free, "it's", friends, around, broke, libraries, something, events]
+    concepts: [friends, around, broke, libraries, something]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c1"]
     section: Comments
     token_count: 462
 ---

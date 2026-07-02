@@ -18,21 +18,26 @@ chunks:
     char_span: [0, 1526]
     sentence_count: 10
     key_terms: [chatgpt, grade, today, assignment, professors, generated, sometimes, submitted]
+    concepts: [chatgpt, assignment, grade, professors, today]
     token_count: 337
+    sources: [{"n":"Reddit Deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1pn83r0/an_open_letter_to_my_students/"}]
   - id: "articles/reddit-deep-r-professors/7b0cbccbfc.md#c1"
     char_span: [1528, 4083]
     sentence_count: 20
     key_terms: [education, uneducated, person, life, educated, skills, college, sophisticated]
+    concepts: [education, uneducated, person, educated, skills]
     token_count: 484
   - id: "articles/reddit-deep-r-professors/7b0cbccbfc.md#c2"
     char_span: [4085, 5788]
     sentence_count: 14
     key_terms: [opportunity, yourself, opportunities, learn, translation, sacrifices, education, important]
+    concepts: [opportunity, yourself, opportunities, translation, learn]
     token_count: 315
   - id: "articles/reddit-deep-r-professors/7b0cbccbfc.md#c3"
     char_span: [5790, 7151]
     sentence_count: 10
     key_terms: [popstarkirbys, read, section, did, assignment, student, good, need]
+    concepts: [popstarkirbys, section, assignment, student]
     token_count: 360
 ---
 # An Open Letter to my Students

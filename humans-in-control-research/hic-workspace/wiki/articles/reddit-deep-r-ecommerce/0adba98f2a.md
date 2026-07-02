@@ -19,39 +19,47 @@ content_hash: "f190326386381fdc"
 relevance_by_goal: {"490684cfa204":30}
 chunks:
   - id: "articles/reddit-deep-r-ecommerce/0adba98f2a.md#c0"
-    char_span: [0, 198]
+    char_span: [0, 197]
     sentence_count: 1
     key_terms: [ecommerce, reddit, e-commerce, comments, industry, source, https, recap]
-    token_count: 64
+    concepts: [ecommerce, reddit]
+    token_count: 63
+    sources: [{"n":"Reddit Deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1rpao93/ecommerce_industry_news_recap_week_of_mar_9th_2026/"}]
   - id: "articles/reddit-deep-r-ecommerce/0adba98f2a.md#c1"
-    char_span: [200, 2671]
+    char_span: [199, 2670]
     sentence_count: 15
     key_terms: [e-commerce, recommendations, checkout, meta, shopping, million, inside, postal]
+    concepts: [e-commerce, recommendations, checkout, shopping, million]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/0adba98f2a.md#c2"
-    char_span: [2341, 4832]
+    char_span: [2340, 4831]
     sentence_count: 13
     key_terms: [amazon, information, according, ads, meta, websites, chatbot, sources]
+    concepts: [amazon, information, according, websites, chatbot]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/0adba98f2a.md#c3"
-    char_span: [4506, 7209]
+    char_span: [4505, 7208]
     sentence_count: 13
     key_terms: [google, anthropic, app, third-party, purchases, fees, own, billing]
+    concepts: [google, anthropic, third-party, purchases, billing]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/0adba98f2a.md#c4"
-    char_span: [6888, 9582]
+    char_span: [6887, 9581]
     sentence_count: 8
     key_terms: [product, "google's", app, google, store, "apple's", billing, sweeney]
+    concepts: [product, "google's", google, store, infrastructure]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/0adba98f2a.md#c5"
-    char_span: [9243, 10200]
+    char_span: [9242, 10199]
     sentence_count: 4
     key_terms: [feature, product, wondery, giving, models, stripe, token, usage]
+    concepts: [feature, product, wondery, giving, models]
     token_count: 191
   - id: "articles/reddit-deep-r-ecommerce/0adba98f2a.md#c6"
-    char_span: [10202, 11449]
+    char_span: [10201, 11448]
     sentence_count: 11
     key_terms: [openai, get, everyone, platform, chatgpt, google, idea, recommendation]
+    concepts: [openai, everyone, platform, chatgpt, google]
     token_count: 277
 ---
 # E-commerce Industry News Recap 🔥 Week of Mar 9th, 2026

@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1189]
     sentence_count: 9
     key_terms: [humanresources, work, onboarding, recommend, comments, months, ordinary-drummer-780, does]
+    concepts: [humanresources, onboarding, recommend, comments, months]
     token_count: 275
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1sadb0l/what_onboarding_platform_do_you_recommend_thailand/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1sadb0l.md#c1"
     char_span: [1203, 2898]
     sentence_count: 11
     key_terms: [interactive, confluence, jira, employee, sites, use, work, checklists]
+    concepts: [interactive, confluence, employee, checklists, onboarding]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/humanresources/1sadb0l.md#c2"
     char_span: [2900, 5012]
     sentence_count: 13
     key_terms: [automatically, ordinary-drummer-780, subreddit, location, please, moderators, onboarding, performed]
+    concepts: [automatically, ordinary-drummer-780, subreddit, location, please]
     section: Comments
     token_count: 507
 ---

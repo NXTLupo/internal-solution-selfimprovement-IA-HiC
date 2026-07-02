@@ -20,27 +20,32 @@ chunks:
     char_span: [0, 1259]
     sentence_count: 10
     key_terms: [data, dataengineering, organisations, mcp, understand, analytics, warehouse, comments]
+    concepts: [dataengineering, organisations, understand, analytics, warehouse]
     token_count: 257
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1tpzxyw/llm_analytics_in_enterprises/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1tpzxyw.md#c1"
-    char_span: [1274, 3447]
+    char_span: [1273, 3446]
     sentence_count: 19
     key_terms: [evals, budget, llm, usually, agent, llms, run, baseline]
+    concepts: [evals, budget, usually, agent, baseline]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/dataengineering/1tpzxyw.md#c2"
-    char_span: [3449, 5938]
+    char_span: [3448, 5937]
     sentence_count: 11
     key_terms: [business, because, start, data, risk, set, resolution, analytics]
+    concepts: [business, because, start, resolution, analytics]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/dataengineering/1tpzxyw.md#c3"
-    char_span: [5940, 8336]
+    char_span: [5939, 8335]
     sentence_count: 12
     key_terms: [data, definitions, framework, get, need, people, build, right]
+    concepts: [definitions, framework, people, spreadsheet, build]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/dataengineering/1tpzxyw.md#c4"
-    char_span: [8338, 8482]
+    char_span: [8337, 8481]
     sentence_count: 2
     key_terms: [foundation, repeatable, accuracy, freaking, insights, believe, magic, shiny]
     section: Comments

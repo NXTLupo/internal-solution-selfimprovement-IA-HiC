@@ -21,29 +21,36 @@ chunks:
     char_span: [0, 269]
     sentence_count: 1
     key_terms: [chatgpt, comments, severalseat2176, reddit-deep, available, posted, reddit, source]
+    concepts: [chatgpt, comments]
     token_count: 88
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1mk5xku/gpt_5_in_chatgpt_is_available_for_free_tier/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c1"
     char_span: [283, 1310]
     sentence_count: 6
     key_terms: [please, conversation, image, post, r-chatgpt-1050422060352024636, concerns, chatgpt-shared-links-faq, chatgpt]
+    concepts: [conversation, please, image, concerns, chatgpt]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c2"
     char_span: [1312, 2779]
     sentence_count: 8
     key_terms: [technology, different, limited, preview, format, https, using, width]
+    concepts: [technology, different, limited, preview, format]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c7"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c3"
     char_span: [2781, 4458]
     sentence_count: 6
     key_terms: [cd43c6f15e9585a7f0b054b2c78cf6e82681c309, emoji, laughing, whatever, because, product, competitive-buyer386, means]
+    concepts: [emoji, laughing, whatever, because, product]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c4"
     char_span: [4255, 4702]
     sentence_count: 2
     key_terms: [chatgpt4o, competitive-buyer386, present-breakfast700, dowjonesjr12, magnanimous, available, "could've", honestly]
+    concepts: [chatgpt4o]
     section: Comments
     token_count: 148
   - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c5"
@@ -56,30 +63,36 @@ chunks:
     char_span: [4913, 6402]
     sentence_count: 9
     key_terms: [rolling, critical-weird-3391, model, civilized-engineer, cloudsasw1tnesses, ask, "i'm", next]
+    concepts: [rolling, model]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c7"
     char_span: [6407, 7710]
     sentence_count: 5
     key_terms: [using, gpt, fdffad23ca322fa46c883945d3d80940ca1374fb, ask, chatgpt, preview, button, format]
+    concepts: [using, chatgpt, preview, button, format]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c2"]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c8"
     char_span: [7712, 8503]
     sentence_count: 3
     key_terms: [gpt-5, scrotalultrasound, tfkyt0lrypxf2u5z, conversations, blue-circle, flashcards, livestream, multimodal]
+    concepts: [gpt-5]
     section: Comments
     token_count: 234
   - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c9"
     char_span: [8505, 10199]
     sentence_count: 6
     key_terms: [interesting-fox4064, conversations, app, available, ekkobelli, probably, created, french]
+    concepts: [interesting-fox4064, conversations, available, ekkobelli, probably]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c10"
     char_span: [10018, 11221]
     sentence_count: 4
     key_terms: [krabbypattycereal, "don't", missing, version, "you're", advantagetechnical86, pro, sam]
+    concepts: [krabbypattycereal, "don't", missing, version, "you're"]
     section: Comments
     token_count: 380
 ---

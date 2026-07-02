@@ -10,6 +10,8 @@
  * source lineage. Bulk injection of un-pointered nearest-neighbors is forbidden.
  */
 
+import { lookupChunkAttribution } from './citationPointerRegistry';
+
 export type EvidenceSourceType = 'upload' | 'web' | 'cached_wiki' | 'deep_research' | 'connector' | 'social';
 
 export interface EvidenceSource {
@@ -118,6 +120,10 @@ export interface ResolvedChunkLike {
     sources?: Array<{ n: string; u: string }>;
     concepts?: string[];
     relatedChunks?: string[];
+    /** W6 (2026-07-01): the retrieval-time relevance of this chunk to the research objective (0-100),
+     *  attached by buildManifestCorpusForGoal from pickChunksForPrompt's ranking. Flows into
+     *  EvidencePointer.objectiveScore so the AIR carries objective alignment per pointer. */
+    retrievalScore?: number;
 }
 
 /** STRAGGLER D3/#15 forward-fix (2026-07-01): recover named sources from a chunk's INLINE "Source:" line
@@ -176,8 +182,27 @@ export function extractInlineSources(text: string): EvidenceSource[] {
     return out;
 }
 
-/** Map one resolved chunk to an EvidencePointer. objectiveScore defaults to 0 (retrieval-time score is
- *  wired in WS-F/AIR-objective work); provenanceConfidence reflects whether per-chunk sources were present. */
+/** W1 (2026-07-01): classify a wiki path into an EvidenceSourceType so page-level fallback attribution
+ *  carries an honest type (a Reddit page is 'social', a client upload is 'upload', a deep-research
+ *  synthesis is 'deep_research'), matching the per-type provenance rule (phase 3). */
+export function sourceTypeForPath(wikiPath: string): EvidenceSourceType {
+    const p = (wikiPath || '').toLowerCase();
+    if (/reddit|social-intelligence|hackernews|hacker-news|bluesky|lobsters|mastodon/.test(p)) return 'social';
+    if (/client-uploads|uploads[-/]/.test(p)) return 'upload';
+    if (/gemini|deep-research|focused-research/.test(p)) return 'deep_research';
+    if (/^synthesis\/|\/synthesis\//.test(p)) return 'cached_wiki';
+    return 'web';
+}
+
+/** Map one resolved chunk to an EvidencePointer. objectiveScore comes from the chunk's retrieval-time
+ *  score when present (W6). provenanceConfidence reflects the attribution tier that supplied the sources.
+ *  ATTRIBUTION LADDER (W1, mirrors citationPointerRegistry.resolveOne so ledger and render agree):
+ *    1. per-chunk structured `sources:` frontmatter                        (0.85)
+ *    2. inline "Source:" line recovered from the chunk body                (0.6)
+ *    3. page-level doc `resolved_sources:` (real synthesized sources)      (0.55)
+ *    4. page-level registered sourceTitle, e.g. "Reddit Deep: r/waterloo"  (0.5)
+ *  Tier 3/4 close the "64% pointers unsourced" scorecard gap: social/upload pages carry their real
+ *  attribution at PAGE level by design; an empty sources[] there was a ledger-mapping gap, not a data gap. */
 export function resolvedChunkToEvidence(chunk: ResolvedChunkLike, objectiveScore = 0): EvidencePointer {
     const id = chunk.id || '';
     const hashIdx = id.indexOf('#');
@@ -194,15 +219,33 @@ export function resolvedChunkToEvidence(chunk: ResolvedChunkLike, objectiveScore
         .filter(s => s.sourceName);
     // D3/#15 forward-fix: when the manifest chunk has no structured sources, recover them from the inline
     // "Source:" line in the body. Fallback only - structured manifest sources always win.
-    const sources = structured.length ? structured : extractInlineSources(chunk.text || '');
-    const provenanceConfidence = structured.length ? 0.85 : (sources.length ? 0.6 : 0.4);
+    let sources = structured.length ? structured : extractInlineSources(chunk.text || '');
+    let provenanceConfidence = structured.length ? 0.85 : (sources.length ? 0.6 : 0.4);
+    // W1 tiers 3/4: page-level attribution via the ONE registry the render path already uses.
+    if (!sources.length) {
+        try {
+            const attr = lookupChunkAttribution(id);
+            const pageType = sourceTypeForPath(wikiPath);
+            if (attr.pageResolvedSources.length) {
+                sources = attr.pageResolvedSources
+                    .filter(n => !isJunkSourceName(n))
+                    .slice(0, 6)
+                    .map(n => ({ sourceId: `page-resolved:${wikiPath}:${n.toLowerCase()}`, sourceType: 'deep_research' as EvidenceSourceType, sourceName: n, attributionLabel: n }));
+                if (sources.length) provenanceConfidence = 0.55;
+            }
+            if (!sources.length && attr.pageTitle && !isJunkSourceName(attr.pageTitle)) {
+                sources = [{ sourceId: `page-title:${wikiPath}`, sourceType: pageType, sourceName: attr.pageTitle, attributionLabel: attr.pageTitle }];
+                provenanceConfidence = 0.5;
+            }
+        } catch { /* registry unavailable - pointer stays unsourced and the gate reports it */ }
+    }
     return {
         pointer: id,
         wikiPath,
         chunkId,
         quote: (chunk.text || '').slice(0, 400),
         sources,
-        objectiveScore,
+        objectiveScore: Number.isFinite(chunk.retrievalScore) ? Math.max(0, Math.min(100, chunk.retrievalScore as number)) : objectiveScore,
         subQuestionIds: [],
         concepts: chunk.concepts || [],
         relatedChunks: chunk.relatedChunks || [],

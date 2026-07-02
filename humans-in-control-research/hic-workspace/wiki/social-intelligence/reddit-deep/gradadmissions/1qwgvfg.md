@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 546]
     sentence_count: 6
     key_terms: [gradadmissions, comments, reasonable-pen8762, gpa, application, interviewed, reddit-deep, department]
+    concepts: [gradadmissions, comments]
     token_count: 143
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qwgvfg/is_this_an_admit/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qwgvfg.md#c1"
     char_span: [560, 2454]
     sentence_count: 10
     key_terms: [professor, offer, congratulations, because, school, department, graduate, chances]
+    concepts: [professor, congratulations, offer, because, school]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/gradadmissions/1qwgvfg.md#c2"
     char_span: [2456, 3031]
     sentence_count: 5
     key_terms: [university, jazzlike-promise-153, congratulations, ursusmaritimus2, recommendation, darkerspirit, application, centralized]
+    concepts: [university]
     section: Comments
     token_count: 138
 ---

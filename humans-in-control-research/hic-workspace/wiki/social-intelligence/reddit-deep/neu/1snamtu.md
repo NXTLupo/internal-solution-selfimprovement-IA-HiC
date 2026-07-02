@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 579]
     sentence_count: 3
     key_terms: [college, northeastern, professional, university, comments, studies, cps, neu]
+    concepts: [college, northeastern, professional, university, comments]
     token_count: 127
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1snamtu/cps_admissions/"}]
   - id: "social-intelligence/reddit-deep/neu/1snamtu.md#c1"
     char_span: [593, 1393]
     sentence_count: 6
     key_terms: [professional, degree, mobile-finding-3779, time, wateryphoenix750, instructional, international, professionals]
+    concepts: [professional, degree]
     section: Comments
     token_count: 169
 ---

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1311]
     sentence_count: 10
     key_terms: [without, careerguidance, becoming, comments, honestly, "there's", anyone, career]
+    concepts: [without, careerguidance, becoming, comments, honestly]
     token_count: 282
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1r69u75/has_anyone_successfully_monetized_skills_outside/"}]
   - id: "articles/reddit-deep-r-careerguidance/14b2ec6fea.md#c1"
     char_span: [1316, 2570]
     sentence_count: 9
     key_terms: [without, everything, narrow-employee-824, small, years, formysaiquestions, ago, down]
+    concepts: [without, everything, small, years]
     token_count: 258
 ---
 # Has anyone successfully monetized skills outside their main career without it becoming another job?

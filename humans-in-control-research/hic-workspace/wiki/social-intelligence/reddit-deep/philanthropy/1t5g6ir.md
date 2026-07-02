@@ -17,10 +17,12 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1t5g6ir.md#c0"
-    char_span: [0, 1043]
+    char_span: [0, 1042]
     sentence_count: 5
     key_terms: [philanthropy, register, calnonprofits, qwfz6e5ckcqce, https, foundations, reforming, business]
+    concepts: [philanthropy, register, calnonprofits, qwfz6e5ckcqce, foundations]
     token_count: 262
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1t5g6ir/webinars_on_reforming_philanthropy_register_now/"}]
 ---
 # Webinars on reforming philanthropy -- register now!
 

@@ -21,52 +21,68 @@ chunks:
     char_span: [0, 2500]
     sentence_count: 24
     key_terms: [tech, workers, companies, engineers, software, source, themselves, open]
+    concepts: [workers, companies, engineers, software, source]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1mhskcg.md#c2", "social-intelligence/reddit-deep/genz/1mhskcg.md#c3", "social-intelligence/reddit-deep/genz/1mhskcg.md#c4", "social-intelligence/reddit-deep/genz/1mhskcg.md#c5", "social-intelligence/reddit-deep/genz/1mhskcg.md#c6"]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1mhskcg/no_woman_ever_cucked_tech_bros_the_way_tech/"}]
   - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c1"
     char_span: [2503, 3069]
     sentence_count: 10
     key_terms: [resource, special, like, humiliating, copy-paste, demanding, affected, engineer]
+    concepts: [resource, special]
     token_count: 131
   - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c2"
     char_span: [3083, 4808]
     sentence_count: 10
     key_terms: [source, open, open-source, companies, tech, membership, software, discord]
+    concepts: [source, open-source, companies, membership, software]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1mhskcg.md#c0"]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c3"
     char_span: [4810, 6711]
     sentence_count: 15
     key_terms: [people, industry, software, humans, engineers, experience, understand, companies]
+    concepts: [people, industry, software, humans, engineers]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1mhskcg.md#c0", "social-intelligence/reddit-deep/genz/1mhskcg.md#c4", "social-intelligence/reddit-deep/genz/1mhskcg.md#c6"]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c4"
     char_span: [6713, 8042]
     sentence_count: 12
     key_terms: [engineers, software, developers, replace, level, get, current, course]
+    concepts: [engineers, software, developers, replace, level]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1mhskcg.md#c0", "social-intelligence/reddit-deep/genz/1mhskcg.md#c3", "social-intelligence/reddit-deep/genz/1mhskcg.md#c6"]
     section: Comments
     token_count: 296
   - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c5"
     char_span: [8044, 10154]
     sentence_count: 12
     key_terms: [junior, "that's", companies, engineers, "i'm", "it's", due, work]
+    concepts: [junior, "that's", companies, engineers, employees]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1mhskcg.md#c0"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c6"
     char_span: [10156, 11493]
     sentence_count: 7
     key_terms: [people, engineers, replacing, engineer, software, less, draftsman, replace]
+    concepts: [people, engineers, replacing, engineer, software]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1mhskcg.md#c0", "social-intelligence/reddit-deep/genz/1mhskcg.md#c3", "social-intelligence/reddit-deep/genz/1mhskcg.md#c4"]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c7"
     char_span: [11495, 13506]
     sentence_count: 9
     key_terms: [tech, companies, because, cutting, indians, nothing, always, stupid]
+    concepts: [companies, because, cutting, indians, nothing]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c8"
     char_span: [13508, 13769]
     sentence_count: 3
     key_terms: [interest, rates, specifically, unprofitable, speculative, investment, companies, billions]
+    concepts: [interest, rates]
     section: Comments
     token_count: 56
 ---

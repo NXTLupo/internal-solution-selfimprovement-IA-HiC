@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1124]
     sentence_count: 13
     key_terms: [sales, worthless, comments, watching, because, wrong, deal, here]
+    concepts: [sales, worthless, comments, watching, because]
     token_count: 267
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1pe3ti7/just_closed_my_first_million_dollar_deal/"}]
   - id: "social-intelligence/reddit-deep/sales/1pe3ti7.md#c1"
-    char_span: [1139, 2104]
+    char_span: [1138, 2103]
     sentence_count: 4
     key_terms: [sales, commission, equipment, miepmiau, friends, every-incident7659, vangelisbizgrowth, deal]
+    concepts: [sales, commission, equipment, miepmiau, friends]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/sales/1pe3ti7.md#c2"
-    char_span: [2106, 3588]
+    char_span: [2105, 3587]
     sentence_count: 6
     key_terms: [commission, celebration, dangerdanthepantless, tightnectarine6499, ok-instruction830, eyes, like, shut]
+    concepts: [commission, celebration]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/sales/1pe3ti7.md#c3"
-    char_span: [3590, 4551]
+    char_span: [3589, 4550]
     sentence_count: 8
     key_terms: [fake-smiley-i-wish-you-wouldnt-shine, people, financial, congrats, services, moneygenoutsummit, deal, post]
+    concepts: [people, financial, congrats, services]
     section: Comments
     token_count: 269
 ---

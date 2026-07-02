@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 794]
     sentence_count: 7
     key_terms: [week, long-term, portfolio, something, comments, years, etfs, tfsa]
+    concepts: [long-term, portfolio, something, comments, years]
     token_count: 224
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1obdnzo/i_am_30_is_this_a_good_longterm_10_years_tfsa/"}]
   - id: "social-intelligence/reddit-deep/etfs/1obdnzo.md#c1"
-    char_span: [809, 1904]
+    char_span: [808, 1903]
     sentence_count: 8
     key_terms: [qqq, etfcentral, comment, reddit, https, com, www, compare-etfs]
+    concepts: [etfcentral, comment, reddit, https, compare-etfs]
     section: Comments
     token_count: 311
 ---

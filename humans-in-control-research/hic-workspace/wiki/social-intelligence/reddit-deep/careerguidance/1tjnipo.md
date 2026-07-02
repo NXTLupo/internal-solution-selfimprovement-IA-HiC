@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 541]
     sentence_count: 4
     key_terms: [careerguidance, opportunities, role, comments, growth, doomed-life, reddit-deep, experience]
+    concepts: [careerguidance, opportunities, comments, growth]
     token_count: 131
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tjnipo/career_growth_opportunities_for_ssa_role/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tjnipo.md#c1"
     char_span: [555, 1854]
     sentence_count: 11
     key_terms: [company, associate, manager, people, sales, outside, support, help]
+    concepts: [company, associate, manager, people, sales]
     section: Comments
     token_count: 288
 ---

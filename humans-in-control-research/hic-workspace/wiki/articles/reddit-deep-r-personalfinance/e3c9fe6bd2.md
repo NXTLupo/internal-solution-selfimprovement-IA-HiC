@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 2048]
     sentence_count: 6
     key_terms: [personal, personalfinance, unfortunately, cards, debt, rest, anything, looking]
+    concepts: [personalfinance, personal, unfortunately, cards, anything]
     token_count: 478
+    sources: [{"n":"Reddit Deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1rig38n/im_24_years_old_in_50k_debt_making_42000year/"}]
   - id: "articles/reddit-deep-r-personalfinance/e3c9fe6bd2.md#c1"
     char_span: [2050, 4143]
     sentence_count: 14
     key_terms: [car, cheaper, "don't", going, money, find, get, rent]
+    concepts: [cheaper, "don't", going, money, behind]
     token_count: 486
   - id: "articles/reddit-deep-r-personalfinance/e3c9fe6bd2.md#c2"
     char_span: [4145, 5665]
     sentence_count: 10
     key_terms: [learning, learn, learned, excuse, money, back, been, hard]
+    concepts: [learning, learn, learned, excuse, money]
     token_count: 367
 ---
 # I’m 24 years old in 50k debt making 42,000/year. where do i start fixing this?

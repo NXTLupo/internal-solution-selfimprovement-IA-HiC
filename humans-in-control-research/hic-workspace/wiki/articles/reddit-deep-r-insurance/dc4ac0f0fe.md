@@ -19,19 +19,23 @@ content_hash: "7ed8229d922dd630"
 relevance_by_goal: {"68c375ef0d4e":85}
 chunks:
   - id: "articles/reddit-deep-r-insurance/dc4ac0f0fe.md#c0"
-    char_span: [0, 1428]
+    char_span: [0, 1427]
     sentence_count: 10
     key_terms: [insurance, home, state, been, farm, "i'm", customers, comments]
-    token_count: 338
+    concepts: [insurance, state, customers, comments, customer]
+    token_count: 337
+    sources: [{"n":"Reddit Deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1n6jfoy/home_insurance_shocker/"}]
   - id: "articles/reddit-deep-r-insurance/dc4ac0f0fe.md#c1"
-    char_span: [1430, 3288]
+    char_span: [1429, 3287]
     sentence_count: 14
     key_terms: [insurance, year, companies, shop, time, rising, costs, expected]
+    concepts: [insurance, companies, rising, costs, expected]
     token_count: 422
   - id: "articles/reddit-deep-r-insurance/dc4ac0f0fe.md#c2"
-    char_span: [3290, 3860]
+    char_span: [3289, 3859]
     sentence_count: 4
     key_terms: [year, reduce, maybe, throwawayoregon81, demographic, independent, exposures, generated]
+    concepts: [reduce, maybe]
     token_count: 129
 ---
 # Home Insurance Shocker

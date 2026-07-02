@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1343]
     sentence_count: 10
     key_terms: [aliexpress, packaging, agent, feels, like, logistics, comments, starting]
+    concepts: [aliexpress, packaging, agent, feels, logistics]
     token_count: 297
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1rf85ak/store_finally_picking_up_10_ordersday_but/"}]
   - id: "social-intelligence/reddit-deep/logistics/1rf85ak.md#c1"
-    char_span: [1358, 2616]
+    char_span: [1357, 2615]
     sentence_count: 7
     key_terms: [packaging, delivery, shipping, agents, custom, orders, stress, agent]
+    concepts: [packaging, delivery, shipping, agents, custom]
     section: Comments
     token_count: 277
 ---

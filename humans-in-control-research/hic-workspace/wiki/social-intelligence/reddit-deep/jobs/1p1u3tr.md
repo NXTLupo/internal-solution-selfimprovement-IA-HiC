@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1920]
     sentence_count: 20
     key_terms: [like, programming, don, feel, jobs, apps, job, programmer]
+    concepts: [programming, programmer, databases, comments, creating]
     token_count: 445
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1p1u3tr/i_feel_lost_with_my_career_as_a_programmer_and/"}]
   - id: "social-intelligence/reddit-deep/jobs/1p1u3tr.md#c1"
     char_span: [1922, 3238]
     sentence_count: 15
     key_terms: [don, experience, like, co-op, feel, want, internship, because]
+    concepts: [experience, co-op, internship, because, program]
     token_count: 298
 ---
 # I feel lost with my career as a programmer and don’t know where I fit

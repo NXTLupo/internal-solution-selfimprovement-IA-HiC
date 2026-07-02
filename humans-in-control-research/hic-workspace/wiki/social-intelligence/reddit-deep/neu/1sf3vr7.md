@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 651]
     sentence_count: 3
     key_terms: [semesters, tuition, years, comments, total, adsubstantial3900, neu, international]
+    concepts: [semesters, tuition, years, comments, total]
     token_count: 166
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sf3vr7/is_tuition_for_undergraduate_study_only_six/"}]
   - id: "social-intelligence/reddit-deep/neu/1sf3vr7.md#c1"
     char_span: [665, 2281]
     sentence_count: 7
     key_terms: [undergraduate-co-op-process, credits, northeastern, summer, semesters, scholarships, https, years]
+    concepts: [undergraduate-co-op-process, northeastern, credits, summer, semesters]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1sf3vr7.md#c2"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/neu/1sf3vr7.md#c2"
     char_span: [2283, 3805]
     sentence_count: 6
     key_terms: [requirements, classes, credits, summer, adsubstantial3900, semester, crashanicoot, semesters]
+    concepts: [requirements, classes, credits, adsubstantial3900, summer]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1sf3vr7.md#c1"]
     section: Comments
     token_count: 407
 ---

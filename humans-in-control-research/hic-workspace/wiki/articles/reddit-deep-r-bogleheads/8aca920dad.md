@@ -19,10 +19,12 @@ content_hash: "8df511ddb48c0383"
 relevance_by_goal: {"46dec9599ad5":55}
 chunks:
   - id: "articles/reddit-deep-r-bogleheads/8aca920dad.md#c0"
-    char_span: [0, 1935]
+    char_span: [0, 1934]
     sentence_count: 10
     key_terms: ["i'm", etfs, fees, already, reduced, charge, transactions, https]
-    token_count: 492
+    concepts: [already, reduced, transactions, charge, transaction]
+    token_count: 491
+    sources: [{"n":"Reddit Deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1sejdhf/considering_jpmc_for_reduced_loan_rate/"}]
 ---
 # Considering JPMC for reduced loan rate
 

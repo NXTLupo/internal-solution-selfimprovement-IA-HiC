@@ -7,55 +7,55 @@ subreddit: "dataengineering"
 title: "Cheapest possible full analytics stack?"
 author: "tomtombow"
 date: "2026-05-20T17:27:38.000Z"
-score: 24
-upvote_ratio: 0.87
-num_comments: 42
+score: 23
+upvote_ratio: 0.85
+num_comments: 44
 flair: "Discussion"
-extracted_at: "2026-06-11T18:58:17.205Z"
+extracted_at: "2026-06-29T14:40:47.215Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Define the 2026 \"state of the Art\" operational and technological benchmarks for \"The State of Data & Distribution in Asset Management\". Synthesize key developments across data infrastructure, distribution enablement, and AI governance frameworks to identify leading industry capabilities and compliance standards."
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
 chunks:
   - id: "social-intelligence/reddit-deep/dataengineering/1tislkl.md#c0"
     char_span: [0, 1570]
     sentence_count: 11
     key_terms: [data, analytics, dataengineering, company, warehouses, business, cheapest, comments]
+    concepts: [analytics, dataengineering, company, warehouses, business]
     token_count: 342
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1tislkl/cheapest_possible_full_analytics_stack/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1tislkl.md#c1"
-    char_span: [1585, 3406]
+    char_span: [1584, 3405]
     sentence_count: 16
     key_terms: [airflow, duckdb, postgres, saltedappleandcorn, data, use, prefect, like]
+    concepts: [airflow, duckdb, postgres, saltedappleandcorn, prefect]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/dataengineering/1tislkl.md#c2"
-    char_span: [3408, 5514]
+    char_span: [3407, 5513]
     sentence_count: 19
     key_terms: [iceberg, warehouse, migrate, entire, fabric, close, data, like]
+    concepts: [iceberg, warehouse, migrate, entire, fabric]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/dataengineering/1tislkl.md#c3"
-    char_span: [5516, 7618]
+    char_span: [5515, 7713]
     sentence_count: 24
-    key_terms: [data, azure, going, using, adaptable, warehouse, database, prestodb]
+    key_terms: [data, azure, going, using, maintenance, cost, adaptable, warehouse]
+    concepts: [maintenance, azure, going, using, adaptable]
     section: Comments
-    token_count: 488
+    token_count: 512
   - id: "social-intelligence/reddit-deep/dataengineering/1tislkl.md#c4"
-    char_span: [7620, 9714]
-    sentence_count: 16
-    key_terms: [data, already, simple, everything, companies, ecommerce, microsoft, platform]
+    char_span: [7715, 9362]
+    sentence_count: 14
+    key_terms: [already, microsoft, company, powerbi, client, simple, wanted, uncertainschrodinger]
+    concepts: [already, microsoft, company, powerbi, client]
     section: Comments
-    token_count: 471
-  - id: "social-intelligence/reddit-deep/dataengineering/1tislkl.md#c5"
-    char_span: [9716, 11519]
-    sentence_count: 11
-    key_terms: [cloud, data, google, business, platform, storage, studio, orchestration]
-    section: Comments
-    token_count: 357
+    token_count: 372
 ---
 # Cheapest possible full analytics stack?
 
 Source: [reddit-deep: r/dataengineering](https://www.reddit.com/r/dataengineering/comments/1tislkl/cheapest_possible_full_analytics_stack/)
-Posted by **tomtombow** · **24↑** · **42 comments**
+Posted by **tomtombow** · **23↑** · **44 comments**
 
 Hello! I am a relatively experieced a analytics engineer and I kind of have an idea of the price range of the architecture i am suggesting, but i want to know your take!
 
@@ -73,18 +73,18 @@ PS: i now see this question could seem like i am looking to buy tooling. i am no
 
 ## Comments
 
-- **dereckgcc** (14↑): I’d say prefect/airflow, Postgres and Superset in a cloud VM.
+- **dereckgcc** (15↑): I’d say prefect/airflow, Postgres and Superset in a cloud VM.
   - **tomtombow** (3↑): where does the cleaning happen? inside prefect? so pure ETL? I see some value in storing raw data and then running a transformation pipeline like dbt...
     - **dereckgcc** (2↑): Maybe Garage S3? To store the raw data
     - **Equivalent_Effect_93** (2↑): At that amount of data postgres should be good, run elt, just land it in and then run stored proc on the orchestrator (airflow, prefect, dagster) to do the cleaned and serving tables. And if postgres is having trouble, you can always play with columnar extension. If it's still not performing, object storage with iceberg, use duck db as the query engine.
 - **saltedappleandcorn** (12↑): duckdb on ECS tasks via step functions. No fixed costs. Very cheap. Surprisingly fast
-- **magoju** (14↑): DuckDB + Airflow running on AKS/EKS or whatever cloud provider you have. That’s it.
-  - **Outrageous_Let5743** (6↑): Does duckdb work? Cause you can only have one connection at the time because of file locking.
-    - **hornyforsavings** (12↑): You can run DuckDB as a server now with the new quack extension. No locking
+- **magoju** (15↑): DuckDB + Airflow running on AKS/EKS or whatever cloud provider you have. That’s it.
+  - **Outrageous_Let5743** (5↑): Does duckdb work? Cause you can only have one connection at the time because of file locking.
+    - **hornyforsavings** (14↑): You can run DuckDB as a server now with the new quack extension. No locking
     - **dangerbird2** (2↑): Duck lake is shockingly easy to set up. Just use need a Postgres database for the catalog and either file or s3 storage. And it installs itself on the fly with a duckdb \`attach\` statement
   - **tomtombow** (3↑): Isn't airflow overkill for this setup? we use airflow on composer at work and the cheapest is like 300$ per month... For 5/6 api pulls and 1/2 dbt runs per day this feels like a lot...
-    - **saltedappleandcorn** (9↑): Yeah. We use duckdb on ECS tasks via step functions in prod for our data lake. Very cheap
-    - **NotDoingSoGreatToday** (5↑): Yeah literally no reason to suggest EKS or airflow lol
+    - **saltedappleandcorn** (8↑): Yeah. We use duckdb on ECS tasks via step functions in prod for our data lake. Very cheap
+    - **NotDoingSoGreatToday** (4↑): Yeah literally no reason to suggest EKS or airflow lol
 
 Cron and ec2
 - **Omar_88** (3↑): You could probably run the entire thing close to free as possible.
@@ -112,7 +112,8 @@ Assuming it’s a new business it’s likely not going to include enough data fo
 
 I’m by no means poopooing your idea. I believe we are still going with glacier but I have no idea why. So I thought I’d ask here since you brought it up. :)
 - **Holiday_Hat_8605** (1↑): You can checkout Open Source Presto for querying data: [https://prestodb.io/](https://prestodb.io/)
-- **Mordalfus** (-4↑): A company like this is probably in Microsoft already.  That means you're using Azure. 
+- **Fit_Lawfulness6224** (1↑): Are you optimizing for lowest monthly cost or least maintenance?
+- **Mordalfus** (-5↑): A company like this is probably in Microsoft already.  That means you're using Azure. 
 
 Azure SQL Database with 2x vCores starts about $400/month.  It's the managed cloud offering so backups and such are handled for you.  The management overhead is minimal and you can easily scale it up as your database grows. 
 
@@ -125,36 +126,9 @@ Reporting is PowerBI.  If your employees have E5 Microsoft licenses, then they a
 I know this works because it's what I built three years ago at my company. We have since scaled way up, but that's still the core of the platform.  Being based on SQL Server, this setup looks understandable to old hands but is flexible and modern.
 
 PS: Accessory services include vNets, Key Vault, blob storage. The company may already have these, so they may or may not be needed.
-  - **tomtombow** (5↑): so 400 baseline, + Data Factory + Power BI (E5 gives explorer permissions but you still need some licences for development iirc)... That sounds crazy expensive for such a simple stack, and also very "interface-first"... 
+  - **tomtombow** (3↑): so 400 baseline, + Data Factory + Power BI (E5 gives explorer permissions but you still need some licences for development iirc)... That sounds crazy expensive for such a simple stack, and also very "interface-first"... 
 
 Even with the "already in Microsoft" assumption, I would be very weary going that route...
 - **uncertainschrodinger** (0↑): I just did a very similar stack a few weeks ago for an ecommerce client. The client wanted something very simple and cheap that they can maintain themselves, so instead of stitching different tools together, we set up bruin to handle the data ingestion, transformation, and orchestration.
 
 At first they wanted to run everything on an EC2 instance but then decided to go with bruin cloud, the free tier will cover the costs for almost a few months and then after than maybe $15-20 per month.
-- **dknconsultau** (0↑): My hot take is that companies like this usually only have one proper data person, so they end up doing everything: architecture, data engineering, analytics, dashboards… and fixing the odd printer lol.
-
-To keep things simple, I’d pick one cloud platform and mostly use the tools inside that ecosystem. For these kinds of requests, GCP is often the best entry point, especially for ecommerce companies in the $5–10m range.
-
-It works well with Google Sheets (which ecommerce teams love), you get basic BI capability with Looker Studio/Data Studio, and BigQuery gives you a fast path into a reasonably enterprise-grade cloud data warehouse. You also get solid IAM/security controls plus enough orchestration and scheduling tools inside GCP to get started without overengineering things.
-
-Another advantage is the API flexibility. If the company uses some lesser-known SaaS platform, you can usually build lightweight integrations fairly easily.
-
-If you really want to simplify the ELT side, just use Fivetran. Yes, it costs money, but for a one-person data team, reducing maintenance overhead is often worth it. You can always evolve and upgrade the stack later as the business grows.
-
-One thing I’d strongly recommend is including cost modelling in the exec presentation. Leadership needs to understand that cloud analytics is a “pay-to-play” model. Bad queries, poor dashboard design, and always-on infrastructure can create unexpected costs very quickly. You don’t want the first cloud bill causing sticker shock.
-
-* Google Workspace — Business productivity suite
-* Gmail — Business email platform
-* Google Drive — Cloud file storage and CSV landing zone
-* Google Sheets — Operational reporting and manual data input
-* GCP — Core cloud platform
-* BigQuery — Cloud data warehouse
-* Looker Studio — BI dashboards and reporting
-* Fivetran — ELT/ETL data ingestion
-* dbt Core — Data transformation and modelling
-* Cloud Storage — Raw file and backup storage
-* Cloud Scheduler — Job scheduling and orchestration
-* Cloud Run — Serverless compute for scripts and integrations
-* IAM — Security and access management
-* GitHub — Version control and code repository
-* Monitoring & Billing Alerts — Cost control and operational monitoring

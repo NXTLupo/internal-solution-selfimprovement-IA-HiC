@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1975]
     sentence_count: 15
     key_terms: [math, class, college, degree, school, keep, like, currently]
+    concepts: [class, college, degree, school, currently]
     token_count: 458
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1nhbtuh/i_cannot_complete_my_math_course_and_i_think_it/"}]
   - id: "articles/reddit-deep-r-college/7a7fafbcd5.md#c1"
     char_span: [1977, 3832]
     sentence_count: 13
     key_terms: [formulas, math, problems, rather, unfortunately, solve, need, take]
+    concepts: [formulas, problems, unfortunately, rather, repeatedly]
     token_count: 416
   - id: "articles/reddit-deep-r-college/7a7fafbcd5.md#c2"
     char_span: [3834, 4608]
     sentence_count: 4
     key_terms: [through, formal, years, get, math, notsobrooklynnn, therealmiridion, accommodations]
+    concepts: [through, formal, years]
     token_count: 189
 ---
 # I cannot complete my math course, and I think it might cost me my degree along with 4 years of school

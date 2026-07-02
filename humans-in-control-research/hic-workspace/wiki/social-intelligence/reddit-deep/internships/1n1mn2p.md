@@ -19,29 +19,39 @@ chunks:
     char_span: [0, 939]
     sentence_count: 5
     key_terms: [certificate, internships, need, comments, because, please, illustriousoffer745, tears]
+    concepts: [certificate, internships, comments, because, please]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1n1mn2p.md#c1", "social-intelligence/reddit-deep/internships/1n1mn2p.md#c3"]
     token_count: 222
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1n1mn2p/i_just_need_a_certificate_please_help_me_im_in/"}]
   - id: "social-intelligence/reddit-deep/internships/1n1mn2p.md#c1"
     char_span: [953, 2984]
     sentence_count: 11
     key_terms: [certificate, internship, internships, extern, passagestrict6432, job, forage, school]
+    concepts: [certificate, internship, internships, extern, passagestrict6432]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1n1mn2p.md#c0", "social-intelligence/reddit-deep/internships/1n1mn2p.md#c3"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/internships/1n1mn2p.md#c2"
     char_span: [2986, 3376]
     sentence_count: 1
     key_terms: [positions, posts, less, try, competitive, connections, searching, somewhere]
+    concepts: [positions, posts]
     section: Comments
     token_count: 73
   - id: "social-intelligence/reddit-deep/internships/1n1mn2p.md#c3"
     char_span: [3378, 5097]
     sentence_count: 4
     key_terms: [illustriousoffer745, internship, no-assumption-5341, try, please, certificate, internships, ask]
+    concepts: [illustriousoffer745, internship, no-assumption-5341, please, certificate]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1n1mn2p.md#c0", "social-intelligence/reddit-deep/internships/1n1mn2p.md#c1", "social-intelligence/reddit-deep/internships/1n1mn2p.md#c4"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/internships/1n1mn2p.md#c4"
     char_span: [5099, 6159]
     sentence_count: 4
     key_terms: [experience, internship, illustriousoffer745, baathsaab, without, certificate, job, applying]
+    concepts: [illustriousoffer745, experience, internship, baathsaab, without]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1n1mn2p.md#c3"]
     section: Comments
     token_count: 296
 ---

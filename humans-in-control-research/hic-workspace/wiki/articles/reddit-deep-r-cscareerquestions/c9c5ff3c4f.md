@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1738]
     sentence_count: 10
     key_terms: [cscareerquestions, want, yourself, "don't", "i'm", job, government, comments]
+    concepts: [cscareerquestions, yourself, "don't", government, comments]
     token_count: 389
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sqe4oc/people_whove_transitioned_from_a_cs_career_to_a/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/c9c5ff3c4f.md#c1"
     char_span: [1741, 2413]
     sentence_count: 4
     key_terms: [developer, software, special, nullpointerjunkie, god, like, look, step]
+    concepts: [developer, software, special]
     token_count: 176
 ---
 # People who've transitioned from a CS career to a mudane job, how did you pitch yourself?

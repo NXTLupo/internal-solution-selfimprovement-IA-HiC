@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 516]
     sentence_count: 2
     key_terms: [internships, comments, reddit, get, seacomfort5279, reddit-deep, experience, freelanced]
+    concepts: [internships, comments, reddit]
     token_count: 133
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sboa7f/how_do_i_get_internships/"}]
   - id: "social-intelligence/reddit-deep/internships/1sboa7f.md#c1"
     char_span: [530, 2298]
     sentence_count: 11
     key_terms: [seacomfort5279, apply, portfolio, linkedin, design, thank, internships, get]
+    concepts: [seacomfort5279, portfolio, apply, linkedin, design]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/internships/1sboa7f.md#c2"
     char_span: [2300, 3143]
     sentence_count: 3
     key_terms: [seacomfort5279, thank, consideration, "i'll", companies, freshman, bro, take]
+    concepts: [seacomfort5279, thank, consideration, companies, freshman]
     section: Comments
     token_count: 237
 ---

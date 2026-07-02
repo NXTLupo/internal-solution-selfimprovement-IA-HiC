@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 338]
     sentence_count: 1
     key_terms: [anthropic, comments, github-style, reddit-deep, assistant, generates, heatmaps, tokenmap]
+    concepts: [anthropic, comments]
     token_count: 97
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1spmsw9/i_built_tokenmap_a_cli_tool_that_generates/"}]
 ---
 # I built Tokenmap: A CLI tool that generates GitHub-style heatmaps for your AI code assistant usage (Claude, Cursor, etc.)
 

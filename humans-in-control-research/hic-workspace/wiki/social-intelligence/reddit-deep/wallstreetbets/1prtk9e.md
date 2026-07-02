@@ -21,33 +21,40 @@ chunks:
     char_span: [0, 2374]
     sentence_count: 13
     key_terms: [customers, been, large, currently, pct, wallstreetbets, term, officially]
+    concepts: [customers, currently, large, wallstreetbets, officially]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1prtk9e/pct_120k_yolo_ive_been_early_before/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1prtk9e.md#c1"
     char_span: [2376, 4284]
     sentence_count: 14
     key_terms: [sustainability, company, ironton, companies, future, board, operational, potentially]
+    concepts: [sustainability, company, ironton, companies, future]
     token_count: 410
   - id: "social-intelligence/reddit-deep/wallstreetbets/1prtk9e.md#c2"
     char_span: [4286, 5178]
     sentence_count: 6
     key_terms: [company, shares, volume, spacs, best, low, old, regulatory]
+    concepts: [company, shares, volume, spacs]
     token_count: 217
   - id: "social-intelligence/reddit-deep/wallstreetbets/1prtk9e.md#c3"
     char_span: [5192, 5442]
     sentence_count: 1
     key_terms: [total, years, submissions, visualmod, comments, previous, account, report]
+    concepts: [total, years]
     section: Comments
     token_count: 98
   - id: "social-intelligence/reddit-deep/wallstreetbets/1prtk9e.md#c4"
     char_span: [5444, 6811]
     sentence_count: 9
     key_terms: [drseuss1020, pct, questions, discord, https, got, long, open]
+    concepts: [drseuss1020, questions, discord, https]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/wallstreetbets/1prtk9e.md#c5"
     char_span: [6813, 8257]
     sentence_count: 13
     key_terms: [drseuss1020, too, d159fc3e189dba09cdb55fab67927ac7a5875c3a, money, preview, format, myself, zealousidealship3215]
+    concepts: [drseuss1020, money, preview, format, myself]
     section: Comments
     token_count: 485
 ---

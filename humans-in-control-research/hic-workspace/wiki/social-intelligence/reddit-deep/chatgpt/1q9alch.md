@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 324]
     sentence_count: 2
     key_terms: [chatgpt, comments, ihateredditors111111, reddit-deep, nothing, openai, posted, reddit]
+    concepts: [chatgpt, comments]
     token_count: 98
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1q9alch/why_do_i_feel_like_chatgpt_for_the_last_year_has/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1q9alch.md#c1"
     char_span: [338, 1412]
     sentence_count: 7
     key_terms: [ihateredditors111111, bc9d87f6e7251d1e3f9385c657c7d6b25d8b8f74, chatgpt, please, conversation, https, image, post]
+    concepts: [ihateredditors111111, chatgpt, conversation, please, https]
     section: Comments
     token_count: 317
 ---

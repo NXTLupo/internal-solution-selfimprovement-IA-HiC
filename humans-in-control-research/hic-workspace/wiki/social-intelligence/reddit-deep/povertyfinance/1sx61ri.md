@@ -21,34 +21,41 @@ chunks:
     char_span: [0, 2413]
     sentence_count: 16
     key_terms: [event, money, savings, financial, milestone, povertyfinance, amount, credit]
+    concepts: [event, money, savings, financial, milestone]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1sx61ri/financial_support_vs_financial_deception/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx61ri.md#c1"
     char_span: [2415, 3812]
     sentence_count: 11
     key_terms: [budget, relationship, accepting, advantage, situation, hesitant, expense, someone]
+    concepts: [relationship, budget, accepting, advantage, situation]
     token_count: 283
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx61ri.md#c2"
     char_span: [3826, 6005]
     sentence_count: 22
     key_terms: [people, afford, sacrifice, badtastingparsnip, need, little, information, definition]
+    concepts: [people, afford, badtastingparsnip, sacrifice, little]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx61ri.md#c3"
     char_span: [6007, 8154]
     sentence_count: 16
     key_terms: [money, sharing, "don't", badtastingparsnip, too, because, afford, differently]
+    concepts: [money, sharing, badtastingparsnip, "don't", because]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx61ri.md#c4"
     char_span: [8156, 10348]
     sentence_count: 19
     key_terms: [credit, emergency, spending, discretionary, someone, something, card, because]
+    concepts: [emergency, credit, discretionary, spending, someone]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx61ri.md#c5"
     char_span: [10350, 12065]
     sentence_count: 14
     key_terms: [credit, like, willing, use, want, specific, paying, people]
+    concepts: [credit, willing, specific, paying, people]
     section: Comments
     token_count: 385
 ---

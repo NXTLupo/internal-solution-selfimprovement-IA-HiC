@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1456]
     sentence_count: 7
     key_terms: [data, engineer, dataengineering, management, technical, comments, company, coding]
+    concepts: [dataengineering, engineer, management, technical, comments]
     token_count: 326
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1qi7quj/spending_70_of_my_time_not_codingbuilding_is_this/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1qi7quj.md#c1"
-    char_span: [1471, 2852]
+    char_span: [1470, 2851]
     sentence_count: 5
     key_terms: [working, responsibility, corporations, big, day, less, red, tape]
+    concepts: [working, responsibility, corporations, experience, ndhoosier]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/dataengineering/1qi7quj.md#c2"
-    char_span: [2854, 4945]
+    char_span: [2853, 4944]
     sentence_count: 16
     key_terms: [company, work, normal, "that's", environments, large, done, "i'm"]
+    concepts: [company, environments, normal, "that's", large]
     section: Comments
     token_count: 493
 ---

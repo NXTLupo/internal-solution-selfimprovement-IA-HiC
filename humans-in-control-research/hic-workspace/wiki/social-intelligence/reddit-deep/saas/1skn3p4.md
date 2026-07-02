@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1643]
     sentence_count: 11
     key_terms: [saas, security, like, tool, comments, missing, checks, making]
+    concepts: [security, comments, missing, checks, making]
     token_count: 380
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1skn3p4/would_you_guys_pay_for_a_tool_that_checks_your/"}]
   - id: "social-intelligence/reddit-deep/saas/1skn3p4.md#c1"
-    char_span: [1658, 3589]
+    char_span: [1657, 3588]
     sentence_count: 8
     key_terms: [aggressive-sweet828, security, ifstatementequalsai, link, pay, definitely, external, timeouts]
+    concepts: [aggressive-sweet828, security, ifstatementequalsai, definitely, external]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/saas/1skn3p4.md#c2"
-    char_span: [3591, 5185]
+    char_span: [3590, 5184]
     sentence_count: 9
     key_terms: [outsource, msch0108, security, already, product, cyber, sense, tells]
+    concepts: [outsource, msch0108, security, already, product]
     section: Comments
     token_count: 396
 ---

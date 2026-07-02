@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 1578]
     sentence_count: 18
     key_terms: [years, job, cscareerquestions, get, like, dev, got, time]
+    concepts: [years, cscareerquestions, experience, absolute, bragging]
     token_count: 405
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sbw3zl/anyone_mad_people_that_got_big_tech_jobs_in_2015/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbw3zl.md#c1"
     char_span: [1592, 3588]
     sentence_count: 17
     key_terms: [skills, lanky-ad4698, engineering, get, job, post, soft, beforehand]
+    concepts: [skills, lanky-ad4698, engineering, beforehand, building]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbw3zl.md#c2"
     char_span: [3591, 5362]
     sentence_count: 20
     key_terms: [people, job, entitled, personal, projects, nothing, internship, graduated]
+    concepts: [people, entitled, personal, projects, nothing]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbw3zl.md#c3"
     char_span: [5364, 6416]
     sentence_count: 9
     key_terms: [job, market, period, like, industry, "they're", "today's", acting]
+    concepts: [market, period, industry, "they're", "today's"]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbw3zl.md#c4"
     char_span: [6418, 7552]
     sentence_count: 13
     key_terms: [years, tech, big, get, job, working, resume, "i'm"]
+    concepts: [years, working, resume]
     section: Comments
     token_count: 306
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbw3zl.md#c5"
     char_span: [7554, 8292]
     sentence_count: 6
     key_terms: [years, heydavan, started, "i'm", rollercoaster, lanky-ad4698, complaining, dankumemer]
+    concepts: [years, heydavan, started]
     section: Comments
     token_count: 210
 ---

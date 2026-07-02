@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1015]
     sentence_count: 3
     key_terms: [course, msds, advice, coe, neu, comments, students, courses]
+    concepts: [course, advice, comments, students, courses]
     token_count: 261
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1tep36o/looking_to_connect_with_seniors_for_course_coop/"}]
   - id: "social-intelligence/reddit-deep/neu/1tep36o.md#c1"
     char_span: [1029, 1562]
     sentence_count: 2
     key_terms: [subjects, science, data, illhistorian4891, fundamentals, prerequisite, combination, engineering]
+    concepts: [subjects, science]
     section: Comments
     token_count: 120
 ---

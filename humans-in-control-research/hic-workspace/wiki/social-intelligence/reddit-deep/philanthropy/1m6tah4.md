@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1975]
     sentence_count: 13
     key_terms: [projects, https, research, fund, philanthropy, catalyzernd, shared, catalyst-supabase]
+    concepts: [projects, research, philanthropy, https, catalyzernd]
     token_count: 465
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1m6tah4/reducing_timetofunding_for_research_would_you/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1m6tah4.md#c1"
-    char_span: [1990, 2483]
+    char_span: [1989, 2482]
     sentence_count: 3
     key_terms: [like, wdog1o, cademoorefoundation, https, tally, research-based, application, catalyzernd]
+    concepts: [wdog1o, https, tally]
     section: Comments
     token_count: 128
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1605]
     sentence_count: 10
     key_terms: [received, onboarding, offer, confused, zorvyn, sent, comments, concerns]
+    concepts: [received, onboarding, offer, confused, zorvyn]
     token_count: 353
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1sj9oes/confused_about_zorvyn_got_offer_letter_hr_replied/"}]
   - id: "social-intelligence/reddit-deep/jobs/1sj9oes.md#c1"
     char_span: [1619, 3442]
     sentence_count: 12
     key_terms: [bengaluru-techie-calls-out-hiring-scam-after-spotting-fake-employee-profiles-dont-waste-your-time-101775650579679-amp, interview, details, check, scams, bank, fake, job]
+    concepts: [interview, details, check, scams, account]
     section: Comments
     token_count: 510
 ---

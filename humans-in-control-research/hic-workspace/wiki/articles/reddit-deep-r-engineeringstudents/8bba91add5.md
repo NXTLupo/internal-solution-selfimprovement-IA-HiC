@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1234]
     sentence_count: 10
     key_terms: [startup, experience, investment, engineeringstudents, wanted, engineering, comments, platform]
+    concepts: [engineeringstudents, startup, experience, investment, wanted]
     token_count: 282
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1m7qkfy/any_engineering_students_looking_for/"}]
 ---
 # Any Engineering Students Looking For Internships/Experience?
 

@@ -20,50 +20,66 @@ chunks:
     char_span: [0, 2276]
     sentence_count: 19
     key_terms: [salesforce, clients, journey, right, years, independent, help, interested]
+    concepts: [salesforce, clients, journey, independent, interested]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1m4tivn.md#c2", "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c5", "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c6"]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1m4tivn/5_lessons_from_5_years_of_independent_salesforce/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c1"
     char_span: [2278, 4714]
     sentence_count: 23
     key_terms: [clients, help, selling, asking, client, lesson, people, build]
+    concepts: [clients, selling, asking, client, lesson]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1m4tivn.md#c2"]
     token_count: 513
   - id: "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c2"
     char_span: [4716, 7137]
     sentence_count: 25
     key_terms: [client, clients, salesforce, needed, always, mvrk, relationship, flexibility]
+    concepts: [client, clients, salesforce, needed, always]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1m4tivn.md#c0", "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c1", "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c3", "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c5", "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c6"]
     token_count: 493
   - id: "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c3"
     char_span: [7139, 8670]
     sentence_count: 16
     key_terms: [clients, always, solopreneur, work, statement, contract, designed, control]
+    concepts: [clients, always, solopreneur, statement, contract]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1m4tivn.md#c2"]
     token_count: 326
   - id: "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c4"
-    char_span: [8685, 10777]
+    char_span: [8684, 10776]
     sentence_count: 20
     key_terms: [client, year, work, network, "don't", did, last, time]
+    concepts: [client, network, "don't", reputation, expertise]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c5"
-    char_span: [10779, 12913]
+    char_span: [10778, 12912]
     sentence_count: 23
     key_terms: [excellence, salesforce, aes, clients, quality, dilfaikadmi, big, work]
+    concepts: [excellence, salesforce, clients, quality, dilfaikadmi]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1m4tivn.md#c0", "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c2", "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c6"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c6"
-    char_span: [12915, 14606]
+    char_span: [12914, 14605]
     sentence_count: 15
     key_terms: [project, "i'm", need, consultant, salesforce, practice, clients, reason]
+    concepts: [project, consultant, salesforce, practice, clients]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1m4tivn.md#c0", "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c2", "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c5"]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c7"
-    char_span: [14611, 16901]
+    char_span: [14610, 16900]
     sentence_count: 20
     key_terms: [organization, salesforce, niche, core, thanks, manufacturing, understanding, architecture]
+    concepts: [organization, salesforce, niche, manufacturing, understanding]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/salesforce/1m4tivn.md#c8"
-    char_span: [16903, 17416]
+    char_span: [16902, 17415]
     sentence_count: 4
     key_terms: [thanks, directionlast2550, differentiated, integrations, independent, interesting, refreshing, struggles]
+    concepts: [thanks]
     section: Comments
     token_count: 115
 ---

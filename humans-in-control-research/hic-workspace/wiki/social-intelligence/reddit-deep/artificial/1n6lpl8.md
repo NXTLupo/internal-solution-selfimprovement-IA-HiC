@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 1972]
     sentence_count: 8
     key_terms: [qoder, https, software, com, codebase, real, coding, reddit]
+    concepts: [qoder, https, software, codebase, coding]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1n6lpl8/ama_with_qoder_team_an_agentic_coding_platform/"}]
   - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c1"
     char_span: [1974, 2978]
     sentence_count: 6
     key_terms: [qoder, here, anything, building, everyone, ask, drop, line]
+    concepts: [qoder, anything, building, everyone]
     token_count: 243
   - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c2"
     char_span: [2992, 5371]
     sentence_count: 12
     key_terms: [documentation, understanding, code, development, qoder, awareness, repo, wiki]
+    concepts: [documentation, understanding, development, awareness, qoder]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c3"
     char_span: [5373, 7488]
     sentence_count: 17
     key_terms: [terminal, execution, command, background, qoder, tools, session, coding]
+    concepts: [terminal, execution, command, background, qoder]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1n6lpl8.md#c4"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c4"
     char_span: [7490, 9387]
     sentence_count: 14
     key_terms: [terminal, issues, qoder, wrong, user, feedback, context, rocket]
+    concepts: [terminal, issues, qoder, wrong, feedback]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1n6lpl8.md#c3"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c5"
     char_span: [9389, 10829]
     sentence_count: 7
     key_terms: [code, architecture, qoder, quest, full, finish, plans, tools]
+    concepts: [architecture, qoder, quest, finish, plans]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c6"
     char_span: [10831, 13293]
     sentence_count: 10
     key_terms: [code, qoder, service, features, security, preview, privacy, cloud]
+    concepts: [qoder, service, features, security, preview]
     section: Comments
     token_count: 512
 ---

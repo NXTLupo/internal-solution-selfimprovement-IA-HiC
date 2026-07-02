@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1509]
     sentence_count: 12
     key_terms: [school, years, time, graduate, career, going, full, experience]
+    concepts: [school, years, graduate, career, experience]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sfv60j.md#c1"]
     token_count: 367
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1sfv60j/is_34_too_old_for_graduate_school_if_you_started/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1sfv60j.md#c1"
     char_span: [1523, 3403]
     sentence_count: 15
     key_terms: [time, entertainerfree9654, "i'm", school, going, old, pass, graduate]
+    concepts: [entertainerfree9654, school, going, graduate, because]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sfv60j.md#c0"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/gradschool/1sfv60j.md#c2"
     char_span: [3405, 4781]
     sentence_count: 10
     key_terms: [school, congrats, "direct-from-my-master's", program, working, cohort, years, realistic-age9085]
+    concepts: [school, congrats, program, working, cohort]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/gradschool/1sfv60j.md#c3"
     char_span: [4783, 6664]
     sentence_count: 11
     key_terms: [phd, started, finished, programs, backoutside1, done, "i've", work]
+    concepts: [started, finished, programs, backoutside1, undergrad]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/gradschool/1sfv60j.md#c4"
     char_span: [6666, 8429]
     sentence_count: 14
     key_terms: [phd, work, school, often, time, research, started, being]
+    concepts: [school, often, research, started, being]
     section: Comments
     token_count: 426
 ---

@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1002]
     sentence_count: 6
     key_terms: [comments, europe, opportunities, did, operations, findapath, germany, career]
+    concepts: [comments, opportunities, europe, operations, findapath]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1pe6hf3.md#c1"]
     token_count: 239
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1pe6hf3/indians_working_in_europe_except_germany_what/"}]
   - id: "social-intelligence/reddit-deep/findapath/1pe6hf3.md#c1"
     char_span: [1016, 2333]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    concepts: [thank, helpful, please, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1pe6hf3.md#c0"]
     section: Comments
     token_count: 299
 ---

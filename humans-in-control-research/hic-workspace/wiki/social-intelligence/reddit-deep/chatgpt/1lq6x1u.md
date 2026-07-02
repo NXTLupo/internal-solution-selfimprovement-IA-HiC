@@ -21,31 +21,40 @@ chunks:
     char_span: [0, 2240]
     sentence_count: 11
     key_terms: [consciousness, transformer, techno-mysticism, conscious, architecture, like, comments, implying]
+    concepts: [consciousness, transformer, techno-mysticism, conscious, architecture]
     token_count: 478
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1lq6x1u/if_you_believe_in_nonbiological_consciousness_for/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1lq6x1u.md#c1"
     char_span: [2242, 4598]
     sentence_count: 19
     key_terms: [reality, phenomenology, perception, model, perceive, system, label, means]
+    concepts: [phenomenology, reality, perception, model, perceive]
     token_count: 465
   - id: "social-intelligence/reddit-deep/chatgpt/1lq6x1u.md#c2"
     char_span: [4600, 7199]
     sentence_count: 10
     key_terms: [model, knowledge, new, self-schema, training, chatgpt, through, consciousness]
+    concepts: [model, knowledge, self-schema, training, consciousness]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lq6x1u.md#c3"]
     token_count: 506
   - id: "social-intelligence/reddit-deep/chatgpt/1lq6x1u.md#c3"
     char_span: [7201, 9522]
     sentence_count: 14
     key_terms: [model, something, self, because, moment, consciousness, conversations, architecture]
+    concepts: [model, something, consciousness, conversations, because]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lq6x1u.md#c2"]
     token_count: 464
   - id: "social-intelligence/reddit-deep/chatgpt/1lq6x1u.md#c4"
     char_span: [9524, 10354]
     sentence_count: 13
     key_terms: ["doesn't", better, safety, don, soul, self-negation, introductory, paradoxical]
+    concepts: ["doesn't", better, safety]
     token_count: 188
   - id: "social-intelligence/reddit-deep/chatgpt/1lq6x1u.md#c5"
     char_span: [10368, 11513]
     sentence_count: 8
     key_terms: [throwra-1995mf, please, consciousness, conversation, image, post, r-chatgpt-1050422060352024636, concerns]
+    concepts: [throwra-1995mf, consciousness, conversation, please, image]
     section: Comments
     token_count: 287
 ---

@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1958]
     sentence_count: 15
     key_terms: [careers, careerguidance, career, did, something, comments, possible, already]
+    concepts: [careerguidance, careers, career, something, comments]
     token_count: 441
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t5cx6l/do_people_actually_rebuild_their_careers_in_their/"}]
 ---
 # Do people actually rebuild their careers in their 30s, or do most just learn to live with the path they chose?
 

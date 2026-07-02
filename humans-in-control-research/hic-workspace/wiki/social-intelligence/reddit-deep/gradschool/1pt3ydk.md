@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 701]
     sentence_count: 5
     key_terms: [year, gradschool, resources, scholarly, comments, writing, thesis, hangrydicappucino]
+    concepts: [gradschool, resources, scholarly, comments, writing]
     token_count: 159
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1pt3ydk/grad_school_researchers_what_are_some_of_your/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1pt3ydk.md#c1"
     char_span: [715, 958]
     sentence_count: 2
     key_terms: [writing, dissertation, hangrydicappucino, "belcher's", misandrya, articles, "bolker's", thankyou]
+    concepts: [writing, dissertation]
     section: Comments
     token_count: 68
 ---

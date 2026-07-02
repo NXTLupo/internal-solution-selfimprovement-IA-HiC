@@ -21,53 +21,67 @@ chunks:
     char_span: [0, 1448]
     sentence_count: 10
     key_terms: [counselor, college, private, affordable, applyingtocollege, selective, comments, guidance]
+    concepts: [counselor, college, private, affordable, applyingtocollege]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c1"]
     token_count: 333
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1nz8a9d/should_i_hire_a_private_college_counselor_looking/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c1"
     char_span: [1462, 1861]
     sentence_count: 4
     key_terms: [consultant, college, private, "didn't", discussion, seriously, anything, consider]
+    concepts: [consultant, college, private, "didn't"]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c0"]
     section: Comments
     token_count: 84
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c2"
     char_span: [1863, 4122]
     sentence_count: 18
     key_terms: [college, consultants, students, get, guidance, student, information, help]
+    concepts: [college, consultants, students, guidance, student]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c3"
     char_span: [3849, 5309]
     sentence_count: 7
     key_terms: [consultants, college, trainers, athletes, athletic, students, student, gold]
+    concepts: [consultants, college, trainers, athletes, athletic]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c2"]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c4"
     char_span: [5311, 7033]
     sentence_count: 21
     key_terms: [counselor, help, themselves, avoid, value, hire, athletes, results]
+    concepts: [counselor, themselves, avoid, value, athletes]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c5"
     char_span: [7035, 8877]
     sentence_count: 24
     key_terms: [school, major, year, counselor, something, opinion, profile, working]
+    concepts: [school, major, counselor, something, opinion]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c6"
     char_span: [8879, 11222]
     sentence_count: 17
     key_terms: [counselor, schools, different, help, take, international, year, admissions]
+    concepts: [counselor, schools, different, international, admissions]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c7"
     char_span: [10915, 11506]
     sentence_count: 6
     key_terms: [college, katharinekatekate, work, opportunities, contractors, independent, admissions, counseling]
+    concepts: [college]
     section: Comments
     token_count: 135
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c8"
     char_span: [11508, 13200]
     sentence_count: 22
     key_terms: [students, counselor, don, someone, admitted, familiar, guidance, probably]
+    concepts: [students, counselor, someone, admitted, familiar]
     section: Comments
     token_count: 400
 ---

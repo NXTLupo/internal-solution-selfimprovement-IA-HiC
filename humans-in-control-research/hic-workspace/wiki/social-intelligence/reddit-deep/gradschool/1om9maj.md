@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1877]
     sentence_count: 14
     key_terms: [school, kinda, state, get, like, gradschool, leadership, something]
+    concepts: [school, gradschool, kinda, leadership, state]
     token_count: 458
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1om9maj/36_gpa_in_junior_year_am_i_screwed_if_i_want_to/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1om9maj.md#c1"
     char_span: [1891, 3424]
     sentence_count: 13
     key_terms: [university, applying, school, research, masters, people, grad, want]
+    concepts: [university, applying, school, research, masters]
     section: Comments
     token_count: 327
 ---

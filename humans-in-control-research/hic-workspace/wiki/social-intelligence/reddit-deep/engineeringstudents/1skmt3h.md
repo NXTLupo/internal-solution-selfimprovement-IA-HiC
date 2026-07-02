@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 797]
     sentence_count: 5
     key_terms: [experience, engineeringstudents, becoming, engineer, directional, currently, comments, drilling]
+    concepts: [engineeringstudents, experience, becoming, engineer, directional]
     token_count: 170
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1skmt3h/will_field_experience_help_or_hinder_my_chances/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1skmt3h.md#c1"
     char_span: [811, 2377]
     sentence_count: 7
     key_terms: [experience, degree, level, advantage, companies, engineer, getting, engineering]
+    concepts: [experience, degree, advantage, companies, level]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/engineeringstudents/1skmt3h.md#c2"
     char_span: [2379, 3981]
     sentence_count: 11
     key_terms: [assumptions, experience, textbook, "you'll", "you're", world, real, learning]
+    concepts: [assumptions, experience, textbook, "you'll", "you're"]
     section: Comments
     token_count: 339
 ---

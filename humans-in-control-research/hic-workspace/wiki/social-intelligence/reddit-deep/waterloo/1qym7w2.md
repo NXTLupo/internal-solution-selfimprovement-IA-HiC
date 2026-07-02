@@ -21,37 +21,45 @@ chunks:
     char_span: [0, 2187]
     sentence_count: 27
     key_terms: [community, parents, people, music, story, been, "i've", too]
+    concepts: [community, parents, people, incredibly, music]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1qym7w2/letter_to_lehmanns_survivor/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1qym7w2.md#c1"
     char_span: [2189, 4367]
     sentence_count: 38
     key_terms: [years, became, life, "couldn't", "didn't", abuse, flashbacks, anxiety]
+    concepts: [years, became, "couldn't", "didn't", abuse]
     token_count: 478
   - id: "social-intelligence/reddit-deep/waterloo/1qym7w2.md#c2"
     char_span: [4369, 5819]
     sentence_count: 18
     key_terms: [trauma, safety, ourselves, need, new, yourself, complex, version]
+    concepts: [trauma, safety, ourselves, yourself, complex]
     token_count: 313
   - id: "social-intelligence/reddit-deep/waterloo/1qym7w2.md#c3"
     char_span: [5821, 8023]
     sentence_count: 27
     key_terms: [something, teachers, institutions, abuse, music, young, highly, relationships]
+    concepts: [something, teachers, institutions, abuse, music]
     token_count: 441
   - id: "social-intelligence/reddit-deep/waterloo/1qym7w2.md#c4"
     char_span: [8025, 9006]
     sentence_count: 12
     key_terms: [victory, journey, decide, time, experienced, fellowship, conquered, hopefully]
+    concepts: [victory, journey, decide]
     token_count: 238
   - id: "social-intelligence/reddit-deep/waterloo/1qym7w2.md#c5"
     char_span: [9020, 11152]
     sentence_count: 11
     key_terms: [teachers, teacher, consent, opinions-only, realistically, professional, trust, age]
+    concepts: [teachers, teacher, opinions-only, realistically, consent]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/waterloo/1qym7w2.md#c6"
     char_span: [11154, 11993]
     sentence_count: 13
     key_terms: [teacher, touch, demonstrate, kid, "doesn't", checks, "i'm", communicate]
+    concepts: [teacher, demonstrate, touch, "doesn't", checks]
     section: Comments
     token_count: 180
 ---

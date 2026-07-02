@@ -21,47 +21,63 @@ chunks:
     char_span: [0, 1215]
     sentence_count: 11
     key_terms: [office, classroom, comments, students, culture, perspectives, attendance, engagement]
+    concepts: [office, classroom, comments, students, culture]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1soxtky.md#c3", "social-intelligence/reddit-deep/professors/1soxtky.md#c6"]
     token_count: 269
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1soxtky/what_are_some_small_things_you_do_that_you_have/"}]
   - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c1"
     char_span: [1229, 1805]
     sentence_count: 7
     key_terms: [office, hours, information, attending, timetable, adjacent, computer, corridor]
+    concepts: [office, hours]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1soxtky.md#c2", "social-intelligence/reddit-deep/professors/1soxtky.md#c3", "social-intelligence/reddit-deep/professors/1soxtky.md#c4", "social-intelligence/reddit-deep/professors/1soxtky.md#c6", "social-intelligence/reddit-deep/professors/1soxtky.md#c7"]
     section: Comments
     token_count: 138
   - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c2"
     char_span: [1807, 3510]
     sentence_count: 8
     key_terms: [office, hours, classes, wannabehazmattech, traditional, week, work, attendance]
+    concepts: [office, hours, classes, wannabehazmattech, traditional]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1soxtky.md#c1", "social-intelligence/reddit-deep/professors/1soxtky.md#c3", "social-intelligence/reddit-deep/professors/1soxtky.md#c4", "social-intelligence/reddit-deep/professors/1soxtky.md#c6", "social-intelligence/reddit-deep/professors/1soxtky.md#c7"]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c3"
     char_span: [3512, 5450]
     sentence_count: 12
     key_terms: [students, wannabehazmattech, office, hours, come, help, like, math]
+    concepts: [wannabehazmattech, students, office, hours, questions]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1soxtky.md#c0", "social-intelligence/reddit-deep/professors/1soxtky.md#c1", "social-intelligence/reddit-deep/professors/1soxtky.md#c2", "social-intelligence/reddit-deep/professors/1soxtky.md#c4", "social-intelligence/reddit-deep/professors/1soxtky.md#c6"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c4"
     char_span: [5452, 7057]
     sentence_count: 13
     key_terms: [come, office, wannabehazmattech, don, class, hours, work, research]
+    concepts: [office, wannabehazmattech, class, hours, research]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1soxtky.md#c1", "social-intelligence/reddit-deep/professors/1soxtky.md#c2", "social-intelligence/reddit-deep/professors/1soxtky.md#c3", "social-intelligence/reddit-deep/professors/1soxtky.md#c6", "social-intelligence/reddit-deep/professors/1soxtky.md#c7"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c5"
     char_span: [7059, 7942]
     sentence_count: 13
     key_terms: [students, beyond, additional, areas, wannabehazmattech, year, controversial, institution]
+    concepts: [students, beyond, additional, areas]
     section: Comments
     token_count: 208
   - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c6"
     char_span: [7944, 9263]
     sentence_count: 10
     key_terms: [wannabehazmattech, students, office, hours, understand, scroll, mylifeisprettyplain, email]
+    concepts: [wannabehazmattech, students, office, hours, understand]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1soxtky.md#c0", "social-intelligence/reddit-deep/professors/1soxtky.md#c1", "social-intelligence/reddit-deep/professors/1soxtky.md#c2", "social-intelligence/reddit-deep/professors/1soxtky.md#c3", "social-intelligence/reddit-deep/professors/1soxtky.md#c4"]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c7"
     char_span: [9265, 10683]
     sentence_count: 8
     key_terms: [office, adventureontherocks, hours, tried, different, students, because, person]
+    concepts: [adventureontherocks, office, different, hours, tried]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1soxtky.md#c1", "social-intelligence/reddit-deep/professors/1soxtky.md#c2", "social-intelligence/reddit-deep/professors/1soxtky.md#c3", "social-intelligence/reddit-deep/professors/1soxtky.md#c4", "social-intelligence/reddit-deep/professors/1soxtky.md#c6"]
     section: Comments
     token_count: 350
 ---

@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 504]
     sentence_count: 4
     key_terms: [povertyfinance, childcare, comments, thebudgetdeveloper, reddit-deep, applicable, households, different]
+    concepts: [povertyfinance, childcare, comments]
     token_count: 121
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1nnosit/how_much_do_you_all_spend_on_childcare_each_month/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1nnosit.md#c1"
     char_span: [518, 2408]
     sentence_count: 10
     key_terms: [month, assistance, daycare, paying, child, kid, because, mamaknowsbest2]
+    concepts: [month, assistance, daycare, paying, child]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1nnosit.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1nnosit.md#c2"
     char_span: [2236, 2696]
     sentence_count: 2
     key_terms: [month, child, decent-flamingo289, universalchildcare, days, per, week, appointments]
+    concepts: [month, child]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1nnosit.md#c1"]
     section: Comments
     token_count: 151
   - id: "social-intelligence/reddit-deep/povertyfinance/1nnosit.md#c3"
     char_span: [2698, 3526]
     sentence_count: 6
     key_terms: [hours, free, amount, nursery, month, pay, government, childcare]
+    concepts: [hours, amount, nursery, government, month]
     section: Comments
     token_count: 215
 ---

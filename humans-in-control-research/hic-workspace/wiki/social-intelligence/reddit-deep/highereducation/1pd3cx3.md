@@ -19,38 +19,49 @@ chunks:
     char_span: [0, 2076]
     sentence_count: 6
     key_terms: [fulnecky, psychology, religious, response, highereducation, article, assignment, university]
+    concepts: [fulnecky, psychology, religious, highereducation, response]
     token_count: 435
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1pd3cx3/religious_zealot_shocked_when_belief_isnt_a_proxy/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c1"
     char_span: [2078, 4649]
     sentence_count: 13
     key_terms: [article, assignment, university, reaction, students, instructor, findings, fulnecky]
+    concepts: [article, assignment, university, reaction, students]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c4", "social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c6"]
     token_count: 494
   - id: "social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c2"
     char_span: [4651, 6960]
     sentence_count: 10
     key_terms: [fulnecky, wrote, academic, process, student, paper, concerning, professors]
+    concepts: [fulnecky, wrote, academic, process, student]
     token_count: 451
   - id: "social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c3"
     char_span: [6962, 7876]
     sentence_count: 4
     key_terms: [law, assignment, instructor, professor, bluesky, college, wrote, constitutional]
+    concepts: [assignment, instructor, professor, bluesky, college]
     token_count: 185
   - id: "social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c4"
     char_span: [7890, 10137]
     sentence_count: 10
     key_terms: [article, whether, evidence, response, students, student, paper, assignment]
+    concepts: [article, whether, evidence, response, students]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c1"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c5"
     char_span: [10139, 11694]
     sentence_count: 13
     key_terms: [article, student, grade, personal, actual, prompt, using, done]
+    concepts: [article, student, grade, personal, actual]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c6"
     char_span: [11696, 12694]
     sentence_count: 7
     key_terms: [assignment, article, designed, teasing, "didn't", description, incorrectly, technically]
+    concepts: [assignment, article, designed, teasing, "didn't"]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c1"]
     section: Comments
     token_count: 222
 ---

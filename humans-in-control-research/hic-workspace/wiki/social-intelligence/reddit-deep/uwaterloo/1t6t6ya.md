@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 841]
     sentence_count: 5
     key_terms: [programs, recommend, uwaterloo, comments, students, waterloo, current, program]
+    concepts: [programs, recommend, uwaterloo, comments, students]
     token_count: 190
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1t6t6ya/which_laptop_do_any_current_waterloo_students_in/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1t6t6ya.md#c1"
     char_span: [855, 2863]
     sentence_count: 12
     key_terms: [refurbished-excellent-asus-vivobook-s-15-oled-15-6-copilot-pc-laptop-cool-silver-snapdragon-x-plus-16gb-ram-512gb-ssd, laptop, refurbished, ram, macbook, coding, eng, fine]
+    concepts: [laptop, refurbished, macbook, coding, snapdragon]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/uwaterloo/1t6t6ya.md#c2"
     char_span: [2865, 4878]
     sentence_count: 10
     key_terms: [uwaterloo, automoderator, moderators, message, please, admissions, questions, quality]
+    concepts: [automoderator, uwaterloo, moderators, message, admissions]
     section: Comments
     token_count: 497
 ---

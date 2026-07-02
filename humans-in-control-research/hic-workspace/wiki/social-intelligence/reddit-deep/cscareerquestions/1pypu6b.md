@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 1297]
     sentence_count: 10
     key_terms: [feel, been, cscareerquestions, career, others, "i'm", "i've", like]
+    concepts: [cscareerquestions, career, others, comments, growing]
     token_count: 313
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1pypu6b/what_jobs_do_people_do_after_software_engineering/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pypu6b.md#c1"
     char_span: [1311, 3355]
     sentence_count: 14
     key_terms: [years, contract, defense, truck, guaranteed, bengalfan, companies, contracts]
+    concepts: [years, contract, defense, guaranteed, truck]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pypu6b.md#c2"
     char_span: [3047, 4513]
     sentence_count: 11
     key_terms: [don, government, transition, software, defense, working, common, people]
+    concepts: [government, transition, software, defense, working]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pypu6b.md#c3"
     char_span: [4515, 6425]
     sentence_count: 16
     key_terms: [development, skills, been, feel, manager, "you're", like, career]
+    concepts: [development, skills, manager, "you're", career]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pypu6b.md#c4"
     char_span: [6427, 8595]
     sentence_count: 12
     key_terms: [different, people, skills, role, managers, software, roles, engineering]
+    concepts: [different, people, skills, managers, software]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pypu6b.md#c5"
     char_span: [8597, 8893]
     sentence_count: 2
     key_terms: ["that's", new, olddev-jobhunt, additional, management, direction, learning, moving]
+    concepts: ["that's"]
     section: Comments
     token_count: 77
 ---

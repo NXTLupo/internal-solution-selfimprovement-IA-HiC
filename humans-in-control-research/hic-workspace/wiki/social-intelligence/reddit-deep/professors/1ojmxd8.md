@@ -19,39 +19,47 @@ chunks:
     char_span: [0, 1912]
     sentence_count: 17
     key_terms: [computer, "didn't", word, articles, class, save, time, professors]
+    concepts: [computer, "didn't", articles, class, professors]
     token_count: 428
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1ojmxd8/i_had_students_write_a_paper_in_a_computer_lab/"}]
   - id: "social-intelligence/reddit-deep/professors/1ojmxd8.md#c1"
     char_span: [1914, 4138]
     sentence_count: 33
     key_terms: [students, paper, wanted, student, asked, questions, "didn't", hour]
+    concepts: [students, paper, wanted, student, questions]
     token_count: 474
   - id: "social-intelligence/reddit-deep/professors/1ojmxd8.md#c2"
     char_span: [4140, 4544]
     sentence_count: 5
     key_terms: [never, experiences, comparing, semesters, glancing, polished, previous, sciences]
+    concepts: [never]
     token_count: 88
   - id: "social-intelligence/reddit-deep/professors/1ojmxd8.md#c3"
-    char_span: [4559, 6357]
+    char_span: [4558, 6356]
     sentence_count: 12
     key_terms: ["didn't", did, help, valuable, through, paper, differently, informative]
+    concepts: ["didn't", valuable, through, differently, informative]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/professors/1ojmxd8.md#c4"
-    char_span: [6362, 8154]
+    char_span: [6361, 8153]
     sentence_count: 14
     key_terms: [writing, did, write, students, school, short, years, been]
+    concepts: [writing, write, students, school, department]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/professors/1ojmxd8.md#c5"
-    char_span: [8156, 9711]
+    char_span: [8155, 9710]
     sentence_count: 11
     key_terms: [class, deleted, writing, better, essays, great, paper, write]
+    concepts: [class, deleted, writing, better, essays]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/professors/1ojmxd8.md#c6"
-    char_span: [9713, 10578]
+    char_span: [9712, 10577]
     sentence_count: 5
     key_terms: [class, megxennial, charming-barnacle-15, doing, hours, day, part, handwriting]
+    concepts: [class, megxennial, doing, hours]
     section: Comments
     token_count: 222
 ---

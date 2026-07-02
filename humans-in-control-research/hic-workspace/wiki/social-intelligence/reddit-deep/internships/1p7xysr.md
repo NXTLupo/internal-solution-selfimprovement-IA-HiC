@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 1290]
     sentence_count: 15
     key_terms: [internships, externship, getting, extern, good, questions, comments, platform]
+    concepts: [internships, externship, getting, extern, questions]
     token_count: 304
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1p7xysr/doubts_about_extern_platform_and_externships/"}]
   - id: "social-intelligence/reddit-deep/internships/1p7xysr.md#c1"
     char_span: [1304, 3358]
     sentence_count: 3
     key_terms: [experience, students, programs, platform, resume, unpaid, professional, cpt]
+    concepts: [experience, students, programs, platform, professional]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1p7xysr.md#c2"]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/internships/1p7xysr.md#c2"
     char_span: [3360, 5267]
     sentence_count: 5
     key_terms: [externships, meetings, students, professional, thanksgiving, hello, interesting, like]
+    concepts: [externships, meetings, students, professional, thanksgiving]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1p7xysr.md#c1"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/internships/1p7xysr.md#c3"
     char_span: [5269, 7163]
     sentence_count: 11
     key_terms: [projects, proof, verified, externship, like, work, project, certificates]
+    concepts: [projects, verified, proof, externship, project]
     section: Comments
     token_count: 419
 ---

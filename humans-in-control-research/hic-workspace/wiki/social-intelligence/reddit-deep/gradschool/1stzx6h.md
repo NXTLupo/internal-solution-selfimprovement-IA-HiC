@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1845]
     sentence_count: 22
     key_terms: [phd, funding, financial, makes, canada, gradschool, comments, supposed]
+    concepts: [funding, financial, makes, canada, gradschool]
     token_count: 417
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1stzx6h/i_am_deeply_frustrated_with_phd_funding_in_canada/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1stzx6h.md#c1"
     char_span: [1859, 3767]
     sentence_count: 9
     key_terms: [canada, substantially, years, phd, research, because, getting, working]
+    concepts: [canada, substantially, years, research, because]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/gradschool/1stzx6h.md#c2"
     char_span: [3769, 4638]
     sentence_count: 7
     key_terms: [tuition, stipends, people, school, correct-shine-1692, lot, work, thealexanderpach]
+    concepts: [tuition, stipends, people, school]
     section: Comments
     token_count: 237
 ---

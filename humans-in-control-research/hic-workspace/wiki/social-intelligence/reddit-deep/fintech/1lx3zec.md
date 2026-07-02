@@ -17,10 +17,12 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/fintech/1lx3zec.md#c0"
-    char_span: [0, 363]
+    char_span: [0, 362]
     sentence_count: 2
     key_terms: [comments, fintech, client, risknarrative, reditguy2020, reddit-deep, collection, experience]
-    token_count: 106
+    concepts: [comments, fintech, client]
+    token_count: 105
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1lx3zec/lexisnexis_risknarrative/"}]
 ---
 # LexisNexis RiskNarrative
 

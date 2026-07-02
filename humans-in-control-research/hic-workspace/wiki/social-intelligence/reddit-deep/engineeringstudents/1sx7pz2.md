@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1288]
     sentence_count: 1
     key_terms: [engineeringstudents, gpa, time, comments, engineer, because, finding, degree]
+    concepts: [engineeringstudents, comments, engineer, because, finding]
     token_count: 303
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sx7pz2/how_much_does_gpa_matter_as_an_engineer_when/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sx7pz2.md#c1"
     char_span: [1302, 1783]
     sentence_count: 5
     key_terms: [differentiate, gpa, matters, job, engineering, irrelevant, themselves, employers]
+    concepts: [differentiate, matters]
     section: Comments
     token_count: 104
 ---

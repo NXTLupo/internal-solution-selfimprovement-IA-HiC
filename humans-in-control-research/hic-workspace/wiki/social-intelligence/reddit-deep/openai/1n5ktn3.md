@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2039]
     sentence_count: 19
     key_terms: [like, commands, security, vispheration, https, open-source, here, assistant]
+    concepts: [commands, security, vispheration, open-source, https]
     token_count: 462
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1n5ktn3/i_built_a_securityfocused_opensource_ai_coding/"}]
 ---
 # I built a security-focused, open-source AI coding assistant for the terminal (GPT-CLI) and wanted to share.
 

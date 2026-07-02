@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 339]
     sentence_count: 3
     key_terms: [comments, spending, saving, gen-z, genz, illustration, reddit-deep, points]
+    concepts: [comments, spending, saving, gen-z]
     token_count: 93
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1pwagjl/is_genz_spending_or_saving/"}]
   - id: "social-intelligence/reddit-deep/genz/1pwagjl.md#c1"
     char_span: [353, 1894]
     sentence_count: 6
     key_terms: [money, dependent, majority, discord, savings, little, trying, chemical-village-211]
+    concepts: [money, dependent, majority, discord, savings]
     section: Comments
     token_count: 427
 ---

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1790]
     sentence_count: 21
     key_terms: [hospital, blood, povertyfinance, okay, took, anything, paycheck, already]
+    concepts: [hospital, blood, povertyfinance, anything, paycheck]
     token_count: 426
+    sources: [{"n":"Reddit Deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1r7hahx/daughter_in_the_hospital_i_dont_know_how_we_will/"}]
   - id: "articles/reddit-deep-r-povertyfinance/be7a8c7e9b.md#c1"
     char_span: [1792, 3104]
     sentence_count: 10
     key_terms: [hospital, qualify, assistance, hopefully, negotiate, medicaid, medical, credit]
+    concepts: [hospital, qualify, assistance, hopefully, negotiate]
     token_count: 302
 ---
 # Daughter in the hospital I don’t know how we will get it paid for

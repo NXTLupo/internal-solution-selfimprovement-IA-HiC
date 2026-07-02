@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1777]
     sentence_count: 2
     key_terms: [better, personalfinance, payment, pretty, school, saxophones, comments, monthly]
+    concepts: [better, personalfinance, payment, pretty, school]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1snhphs/young_adult_needs_budgeting_advice/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1snhphs.md#c1"
     char_span: [1779, 2436]
     sentence_count: 1
     key_terms: [retirement, accruals, driving, idk, like, affordable, everything, personal]
+    concepts: [retirement, accruals, driving]
     token_count: 167
 ---
 # young adult needs budgeting advice

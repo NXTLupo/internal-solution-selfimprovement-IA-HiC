@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 370]
     sentence_count: 3
     key_terms: [engineeringstudents, comments, reddit, solidride5853, engineering, reddit-deep, experience, internship]
+    concepts: [engineeringstudents, comments, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1r4vbaq.md#c1"]
     token_count: 93
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1r4vbaq/posting_here_because_our_reddit_is_like_almost/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r4vbaq.md#c1"
     char_span: [384, 1018]
     sentence_count: 4
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    concepts: [engineeringstudents, reddit, https, resources, please]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1r4vbaq.md#c0"]
     section: Comments
     token_count: 149
 ---

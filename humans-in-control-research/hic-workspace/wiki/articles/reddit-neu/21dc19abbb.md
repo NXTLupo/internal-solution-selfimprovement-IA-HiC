@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2192]
     sentence_count: 19
     key_terms: [northeastern, prestigious, residential, year, boston, universities, being, competitive]
+    concepts: [northeastern, prestigious, residential, universities, boston]
     token_count: 468
+    sources: [{"n":"reddit: NEU","u":"https://reddit.com/r/NEU/comments/1qq8uqh/to_everyone_who_didnt_get_into_boston/"}]
 ---
 # To everyone who didn't get into Boston...
 

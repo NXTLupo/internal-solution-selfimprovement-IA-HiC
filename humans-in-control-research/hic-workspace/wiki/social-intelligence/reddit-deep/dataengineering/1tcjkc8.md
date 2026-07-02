@@ -20,29 +20,38 @@ chunks:
     char_span: [0, 953]
     sentence_count: 7
     key_terms: ["i'm", dataengineering, comments, progress, through, learn, "it's", lot]
+    concepts: [dataengineering, comments, progress, through, learn]
     token_count: 229
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1tcjkc8/how_did_you_guys_learn_cicd_and_iac/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1tcjkc8.md#c1"
-    char_span: [968, 2924]
+    char_span: [967, 2923]
     sentence_count: 21
     key_terms: [terraform, deploy, devops, "don't", aws, something, looking, someone]
+    concepts: [terraform, deploy, devops, "don't", something]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1tcjkc8.md#c2", "social-intelligence/reddit-deep/dataengineering/1tcjkc8.md#c4"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/dataengineering/1tcjkc8.md#c2"
-    char_span: [2927, 4976]
+    char_span: [2926, 4975]
     sentence_count: 15
     key_terms: [deployments, razzmatazzliving1323, terraform, company, deploy, devops, teams, team]
+    concepts: [deployments, razzmatazzliving1323, terraform, company, deploy]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1tcjkc8.md#c1"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/dataengineering/1tcjkc8.md#c3"
-    char_span: [4978, 6481]
+    char_span: [4977, 6480]
     sentence_count: 8
     key_terms: [try, background, experience, something, iterate, through, uncertainschrodinger, apply]
+    concepts: [background, experience, something, iterate, through]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/dataengineering/1tcjkc8.md#c4"
-    char_span: [6486, 7504]
+    char_span: [6485, 7503]
     sentence_count: 11
     key_terms: [get, good, something, doing, "don't", day, goes, lot]
+    concepts: [something, doing, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1tcjkc8.md#c1"]
     section: Comments
     token_count: 255
 ---

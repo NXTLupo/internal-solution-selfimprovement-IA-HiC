@@ -21,47 +21,61 @@ chunks:
     char_span: [0, 906]
     sentence_count: 5
     key_terms: [humanresources, skills, talent, performance, evaluation, leadership, management, comments]
+    concepts: [humanresources, skills, talent, performance, evaluation]
     token_count: 185
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1ow6wai/why_is_talent_managment_na_treated_like_it_is/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c1"
     char_span: [920, 2796]
     sentence_count: 17
     key_terms: [talent, management, business, deliverables, development, succession, academic, working]
+    concepts: [talent, management, business, deliverables, development]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1ow6wai.md#c2", "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c3", "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c4", "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c7"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c2"
     char_span: [2798, 3949]
     sentence_count: 9
     key_terms: [development, team, described, business, function, because, overlap, thought]
+    concepts: [development, described, business, function, because]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1ow6wai.md#c1"]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c3"
     char_span: [3951, 6279]
     sentence_count: 19
     key_terms: [business, management, talent, people, generally, approach, solution, hrbps]
+    concepts: [business, management, talent, people, generally]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1ow6wai.md#c1", "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c4", "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c7"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c4"
     char_span: [6281, 7708]
     sentence_count: 14
     key_terms: [different, talent, "it's", job, management, business, thought, check]
+    concepts: [different, talent, management, business, thought]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1ow6wai.md#c1", "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c3", "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c7"]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c5"
     char_span: [7710, 10097]
     sentence_count: 19
     key_terms: [work, performance, consulting, "there's", "that's", consultants, academics, corporate]
+    concepts: [performance, consulting, "there's", "that's", consultants]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c6"
     char_span: [9787, 11059]
     sentence_count: 13
     key_terms: [sales, want, work, overall-possible-936, issue, don, conversations, anchorbend42]
+    concepts: [sales, issue]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c7"
     char_span: [11063, 12901]
     sentence_count: 22
     key_terms: [management, talent, conversations, managers, because, knowing, performance, like]
+    concepts: [management, conversations, talent, managers, because]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1ow6wai.md#c1", "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c3", "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c4"]
     section: Comments
     token_count: 377
 ---

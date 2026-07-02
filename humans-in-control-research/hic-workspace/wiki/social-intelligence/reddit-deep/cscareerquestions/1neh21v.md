@@ -19,47 +19,58 @@ chunks:
     char_span: [0, 1896]
     sentence_count: 22
     key_terms: [cscareerquestions, been, get, good, job, applying, nothing, work]
+    concepts: [cscareerquestions, applying, nothing, experience, positions]
     token_count: 440
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1neh21v/this_job_market_is_destroying_my_sense_of_self/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1neh21v.md#c1"
     char_span: [1910, 3744]
     sentence_count: 16
     key_terms: [everyone, experience, "it's", market, people, "don't", outsourcing, lot]
+    concepts: [everyone, experience, market, people, outsourcing]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/cscareerquestions/1neh21v.md#c2"
     char_span: [3748, 5966]
     sentence_count: 17
     key_terms: [companies, something, looking, without, "don't", "it's", like, workforce]
+    concepts: [companies, something, looking, without, "don't"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1neh21v.md#c3"
     char_span: [5968, 6869]
     sentence_count: 12
     key_terms: [get, having, roles, engineering, interviewer, "i'm", "i've", interviews]
+    concepts: [having, engineering, interviewer, interviews, roles]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/cscareerquestions/1neh21v.md#c4"
     char_span: [6871, 8539]
     sentence_count: 11
     key_terms: [close, degree, mathematical, experience, hundreds, sciences, because, gakl887]
+    concepts: [close, degree, mathematical, experience, hundreds]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/cscareerquestions/1neh21v.md#c5"
     char_span: [8541, 10547]
     sentence_count: 11
     key_terms: [company, juniors, offers, team, tech, replacing, degree, faster]
+    concepts: [company, juniors, offers, replacing, degree]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1neh21v.md#c6"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1neh21v.md#c6"
     char_span: [10549, 12227]
     sentence_count: 17
     key_terms: [replacing, projects, juniors, replace, barely, simple, "isn't", "it's"]
+    concepts: [replacing, projects, juniors, replace, barely]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1neh21v.md#c5"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/cscareerquestions/1neh21v.md#c7"
     char_span: [12229, 13589]
     sentence_count: 12
     key_terms: [years, looking, better, "you're", brief-translator1370, born-pressure-2802, got, "i've"]
+    concepts: [years, looking, better, "you're"]
     section: Comments
     token_count: 342
 ---

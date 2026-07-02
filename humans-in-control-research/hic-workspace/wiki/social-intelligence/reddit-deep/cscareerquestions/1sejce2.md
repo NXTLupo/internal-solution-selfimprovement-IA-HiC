@@ -19,59 +19,76 @@ chunks:
     char_span: [0, 1286]
     sentence_count: 11
     key_terms: [music, cscareerquestions, work, doing, idea, promising, comments, related]
+    concepts: [music, cscareerquestions, doing, promising, comments]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c5"]
     token_count: 312
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sejce2/is_mixing_cs_and_music_a_worthwhile_idea/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c1"
-    char_span: [1301, 3201]
+    char_span: [1300, 3200]
     sentence_count: 14
     key_terms: [music, industry, companies, communications, career, ended, did, don]
+    concepts: [music, industry, companies, communications, career]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c2"
-    char_span: [3203, 5320]
+    char_span: [3202, 5319]
     sentence_count: 13
     key_terms: [music, degree, major, learning, general, double, audio, get]
+    concepts: [music, degree, major, learning, general]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c8"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c3"
-    char_span: [5322, 7144]
+    char_span: [5321, 7143]
     sentence_count: 10
     key_terms: [music, degree, classes, major, projects, double, performance, production]
+    concepts: [music, degree, classes, major, projects]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c8"]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c4"
-    char_span: [7146, 9442]
+    char_span: [7145, 9441]
     sentence_count: 17
     key_terms: [music, like, landing, degree, applications, requirements, niche, idea]
+    concepts: [music, landing, applications, requirements, degree]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c8"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c5"
-    char_span: [9444, 11426]
+    char_span: [9443, 11425]
     sentence_count: 19
     key_terms: [music, doing, rerouchoes, candidate, interview, portfolio, software, another]
+    concepts: [music, doing, rerouchoes, candidate, interview]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c0"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c6"
-    char_span: [11428, 12921]
+    char_span: [11427, 12920]
     sentence_count: 11
     key_terms: [music, passion, work, paycheck, software, always, degree, paying]
+    concepts: [music, passion, paycheck, software, always]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c7"
-    char_span: [12923, 14087]
+    char_span: [12922, 14086]
     sentence_count: 7
     key_terms: [music, friend, majors, "i'm", tech, aforementioned, conversation, myinstrument]
+    concepts: [music, friend, majors]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c8"
-    char_span: [14089, 16219]
+    char_span: [14088, 16218]
     sentence_count: 12
     key_terms: [music, degree, time, major, course, worth, performance, "wouldn't"]
+    concepts: [music, degree, major, course, performance]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c4"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c9"
-    char_span: [16221, 16851]
+    char_span: [16220, 16850]
     sentence_count: 4
     key_terms: [play, especially, groups, like, immediately, affiliated, reasonably, bandmates]
+    concepts: [especially, groups]
     section: Comments
     token_count: 141
 ---

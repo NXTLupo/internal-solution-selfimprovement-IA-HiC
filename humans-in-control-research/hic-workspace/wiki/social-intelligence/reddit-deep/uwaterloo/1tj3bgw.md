@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 926]
     sentence_count: 7
     key_terms: [co-op, comments, uwaterloo, students, waterloo, current, program, student]
+    concepts: [co-op, comments, uwaterloo, students, waterloo]
     token_count: 219
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1tj3bgw/waterloo_meng_ece_coop_or_mdsai_coop_any_current/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1tj3bgw.md#c1"
     char_span: [940, 2160]
     sentence_count: 6
     key_terms: [admissions, uwaterloo, branding, automoderator, mdsai, data, moderators, relevant]
+    concepts: [admissions, uwaterloo, branding, automoderator, mdsai]
     section: Comments
     token_count: 286
 ---

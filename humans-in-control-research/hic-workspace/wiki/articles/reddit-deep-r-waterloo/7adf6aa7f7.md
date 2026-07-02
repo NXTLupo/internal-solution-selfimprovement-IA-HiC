@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1460]
     sentence_count: 16
     key_terms: [available, good, waterloo, realtor, immediately, comments, housing, schools]
+    concepts: [available, waterloo, realtor, immediately, comments]
     token_count: 341
+    sources: [{"n":"Reddit Deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1ky9nxm/housing_advice/"}]
   - id: "articles/reddit-deep-r-waterloo/7adf6aa7f7.md#c1"
     char_span: [1462, 3118]
     sentence_count: 18
     key_terms: [laurelwood, realtor, schools, great, sageme-2020, immediate, shopping, suggest]
+    concepts: [laurelwood, realtor, schools, sageme-2020, great]
     token_count: 402
 ---
 # Housing advice

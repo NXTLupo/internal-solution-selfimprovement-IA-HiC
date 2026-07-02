@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1084]
     sentence_count: 9
     key_terms: [sdk, comments, covering, licenses, networks, answers, offramp, widgets]
+    concepts: [comments, covering, licenses, networks, answers]
     token_count: 266
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1sgxnzb/spritz_offramp_sdk_guide_what_it_is_how_it_works/"}]
   - id: "social-intelligence/reddit-deep/defi/1sgxnzb.md#c1"
-    char_span: [1099, 1989]
+    char_span: [1098, 1988]
     sentence_count: 5
     key_terms: [compliance, transfers, international, regulatory, payout, speeds, based, next-business-day]
+    concepts: [compliance, transfers, international, regulatory, payout]
     section: Comments
     token_count: 177
 ---

@@ -21,59 +21,78 @@ chunks:
     char_span: [0, 1513]
     sentence_count: 14
     key_terms: [compliance, legal, careerguidance, certification, field, experience, operations, regulators]
+    concepts: [compliance, legal, careerguidance, certification, experience]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c1", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c3", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c4", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c5", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c6"]
     token_count: 341
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1p9ozzt/3045_and_feeling_stuck_compliance_might_actually/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c1"
     char_span: [1527, 3765]
     sentence_count: 16
     key_terms: [compliance, experience, financial, healthcare, legal, different, general, information]
+    concepts: [compliance, experience, financial, healthcare, different]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c0", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c3", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c4", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c5", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c6"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c2"
     char_span: [3767, 5651]
     sentence_count: 15
     key_terms: [compliance, mitigation, risk, work, management, regulatory, strategies, transition]
+    concepts: [compliance, mitigation, management, regulatory, strategies]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c6", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c7"]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c3"
     char_span: [5653, 7975]
     sentence_count: 23
     key_terms: [work, experience, remote, compliance, fully, career, "you're", professional]
+    concepts: [experience, remote, compliance, fully, professional]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c0", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c1", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c4", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c5", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c6"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c4"
     char_span: [7977, 10292]
     sentence_count: 24
     key_terms: [compliance, work, customer, yourself, requirements, "it's", experience, management]
+    concepts: [compliance, customer, yourself, requirements, experience]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c0", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c1", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c3", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c5", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c6"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c5"
     char_span: [10295, 12270]
     sentence_count: 13
     key_terms: [critical-brain2841, experience, points, worth, years, cams, compliance, different]
+    concepts: [critical-brain2841, experience, points, compliance, worth]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c0", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c1", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c3", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c4", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c6"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c6"
     char_span: [12272, 14367]
     sentence_count: 15
     key_terms: [compliance, management, experience, critical-brain2841, dookudonuts, risk, interests, adjacent]
+    concepts: [compliance, management, critical-brain2841, experience, dookudonuts]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c0", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c1", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c2", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c3", "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c4"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c7"
     char_span: [14369, 16303]
     sentence_count: 20
     key_terms: [compliance, regulatory, get, industry, policy, regulations, fintech, willing]
+    concepts: [compliance, regulatory, industry, policy, regulations]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c2"]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c8"
     char_span: [16305, 18081]
     sentence_count: 19
     key_terms: [banks, aml, pay, requirements, crypto, fintechs, analyst, company]
+    concepts: [banks, requirements, crypto, fintechs, analyst]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c9"
     char_span: [18083, 18581]
     sentence_count: 3
     key_terms: [compliance, senior, level, competitive, considering, department, originally, positions]
+    concepts: [compliance, senior, level]
     section: Comments
     token_count: 114
 ---

@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 423]
     sentence_count: 1
     key_terms: [applyingtocollege, comments, classroomhopeful648, mit, reddit-deep, breakdown, applying, stanford]
+    concepts: [applyingtocollege, comments]
     token_count: 121
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1mpfevp/is_a_900_sat_good_enough_for_mit/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mpfevp.md#c1"
     char_span: [437, 1608]
     sentence_count: 13
     key_terms: [school, scores, score, college, common, submit, data, high]
+    concepts: [school, scores, score, college, common]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mpfevp.md#c2"
     char_span: [1610, 3268]
     sentence_count: 7
     key_terms: [classroomhopeful648, probably, mit, oklahoma, because, kansas, pretty, being]
+    concepts: [classroomhopeful648, probably, oklahoma, because, kansas]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mpfevp.md#c3"
     char_span: [3270, 4059]
     sentence_count: 1
     key_terms: [classroomhopeful648, score, toomanyheys, execution, deleted, harvard, charm, reach]
+    concepts: [classroomhopeful648, toomanyheys, score, execution, deleted]
     section: Comments
     token_count: 241
 ---

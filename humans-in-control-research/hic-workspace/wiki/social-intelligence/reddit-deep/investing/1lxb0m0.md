@@ -21,65 +21,80 @@ chunks:
     char_span: [0, 1463]
     sentence_count: 17
     key_terms: [stock, advice, nvidia, investing, "i'm", sell, "i've", portfolio]
+    concepts: [stock, advice, nvidia, investing, portfolio]
     token_count: 359
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1lxb0m0/advice_for_what_to_do_with_my_nvidia_stock/"}]
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c1"
     char_span: [1477, 3071]
     sentence_count: 16
     key_terms: [nvidia, want, quarter, regular, decide, person, index, maybe]
+    concepts: [nvidia, quarter, regular, decide, person]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c2"
     char_span: [3073, 5129]
     sentence_count: 19
     key_terms: [strategy, rookiemistake101, tax, goldman, use, explain, problem, taxable]
+    concepts: [strategy, rookiemistake101, goldman, explain, problem]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c3"
     char_span: [5131, 5360]
     sentence_count: 1
     key_terms: [apple, costless, increase, sideline, strategy, against, another, client]
+    concepts: [apple]
     section: Comments
     token_count: 53
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c4"
     char_span: [5362, 7465]
     sentence_count: 16
     key_terms: [rookiemistake101, gains, need, pay, situation, expenses, similar, advice]
+    concepts: [rookiemistake101, gains, situation, expenses, similar]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1lxb0m0.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c5"
     char_span: [7250, 7828]
     sentence_count: 6
     key_terms: [rookiemistake101, companies, godssilliestgoose22, gains, need, undergraduate, considering, fascinated]
+    concepts: [rookiemistake101, companies, gains]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1lxb0m0.md#c4", "social-intelligence/reddit-deep/investing/1lxb0m0.md#c8"]
     section: Comments
     token_count: 155
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c6"
     char_span: [7830, 9376]
     sentence_count: 12
     key_terms: [capital, germany, gains, sell, calculate, question, company, deleted]
+    concepts: [capital, germany, gains, calculate, question]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c7"
     char_span: [9378, 10456]
     sentence_count: 9
     key_terms: [nvidia, market, "it's", monopolies, regulator, already, prior, gpu]
+    concepts: [nvidia, market, monopolies, regulator, already]
     section: Comments
     token_count: 248
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c8"
     char_span: [10458, 12460]
     sentence_count: 16
     key_terms: [nvidia, tax, gains, niit, sell, companies, ethiopia, because]
+    concepts: [nvidia, gains, companies, ethiopia, because]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1lxb0m0.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c9"
     char_span: [12259, 13994]
     sentence_count: 7
     key_terms: [mrtouchngo, selling, stock, get, covered, income, nvidia, stocks]
+    concepts: [mrtouchngo, selling, stock, covered, income]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c10"
     char_span: [13738, 15605]
     sentence_count: 14
     key_terms: [stock, ira, stocks, uncompensated, roth, brokerage, situation, something]
+    concepts: [stock, uncompensated, stocks, brokerage, situation]
     section: Comments
     token_count: 470
 ---

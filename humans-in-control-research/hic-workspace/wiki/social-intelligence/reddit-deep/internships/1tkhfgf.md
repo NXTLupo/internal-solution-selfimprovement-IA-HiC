@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 659]
     sentence_count: 1
     key_terms: [social, internships, opportunity, comments, performance-based, work, recommendation, organization]
+    concepts: [social, internships, opportunity, comments]
     token_count: 174
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tkhfgf/social_work_internship_opportunity/"}]
 ---
 # 🌟 Social Work Internship Opportunity 🌟
 

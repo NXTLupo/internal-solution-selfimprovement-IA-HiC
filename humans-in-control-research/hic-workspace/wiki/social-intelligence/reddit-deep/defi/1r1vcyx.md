@@ -17,10 +17,12 @@ research_goal: "Produce the definitive guide to personal investing in 2026 by an
 engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/defi/1r1vcyx.md#c0"
-    char_span: [0, 1066]
+    char_span: [0, 1065]
     sentence_count: 6
     key_terms: [cex, dex, volume, comments, anymore, product, trading, "what's"]
-    token_count: 262
+    concepts: [volume, comments, anymore, product, trading]
+    token_count: 261
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1r1vcyx/dex_spot_volume_has_consistently_outpaced_cex_for/"}]
 ---
 # DEX spot volume has consistently outpaced CEX for 3 months now - the shift actually happened
 

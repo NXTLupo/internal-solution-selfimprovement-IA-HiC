@@ -19,10 +19,12 @@ content_hash: "6f88610071773f19"
 relevance_by_goal: {"46dec9599ad5":60}
 chunks:
   - id: "articles/reddit-deep-r-etfs/fee4b4bc3f.md#c0"
-    char_span: [0, 672]
+    char_span: [0, 671]
     sentence_count: 6
     key_terms: [split, etf, fractional, comments, reason, reddit, shares, stocks]
-    token_count: 195
+    concepts: [split, fractional, comments, reason, reddit]
+    token_count: 194
+    sources: [{"n":"Reddit Deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1srql0q/vo_etf_split/"}]
 ---
 # VO ETF SPLIT
 

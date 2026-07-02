@@ -19,14 +19,17 @@ content_hash: "c04159001c79b082"
 relevance_by_goal: {"490684cfa204":75}
 chunks:
   - id: "articles/reddit-deep-r-ecommerce/4cef5c5e2f.md#c0"
-    char_span: [0, 2174]
+    char_span: [0, 2173]
     sentence_count: 23
     key_terms: [business, running, ecommerce, orders, trying, feels, like, customers]
-    token_count: 461
+    concepts: [business, running, ecommerce, orders, trying]
+    token_count: 460
+    sources: [{"n":"Reddit Deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1tqdrhc/running_a_small_ecommerce_business_right_now/"}]
   - id: "articles/reddit-deep-r-ecommerce/4cef5c5e2f.md#c1"
-    char_span: [2176, 3835]
+    char_span: [2175, 3834]
     sentence_count: 20
     key_terms: [business, e-commerce, party-card-7747, bookkeeping, opening-rhubarb-8309, underestimated, small, fees]
+    concepts: [business, e-commerce, party-card-7747, opening-rhubarb-8309, bookkeeping]
     token_count: 401
 ---
 # Running a small ecommerce business right now feels way heavier than it looks

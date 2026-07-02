@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 476]
     sentence_count: 5
     key_terms: [careerguidance, "i'm", comments, guidance, want, reddit-deep, psychology, completed]
+    concepts: [careerguidance, comments, guidance]
     token_count: 131
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1lb9drn/im_a_25_years_old_student_currently_pursuing_ma/"}]
 ---
 # I'm a 25 years old student currently pursuing MA in psychology have completed BSc in ZBC and BEd . I'm seeking career guidance I'm in grave need to secure a job . I want to prepare for UP tgt biology and want help . Can anyone provide guidance?
 

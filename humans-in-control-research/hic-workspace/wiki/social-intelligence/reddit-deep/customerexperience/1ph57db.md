@@ -20,9 +20,11 @@ chunks:
     char_span: [0, 1298]
     sentence_count: 7
     key_terms: [ccaas, customerexperience, feature, underrated, overrated, platforms, comments, features]
+    concepts: [ccaas, customerexperience, feature, underrated, overrated]
     token_count: 287
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1ph57db/whats_the_most_overrated_and_underrated_feature/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1ph57db.md#c1"
-    char_span: [1313, 1653]
+    char_span: [1312, 1652]
     sentence_count: 4
     key_terms: [fewestablishment2696, transcription, ai-generated, integrations, interactions, deployment, seamlessly, underrated]
     section: Comments

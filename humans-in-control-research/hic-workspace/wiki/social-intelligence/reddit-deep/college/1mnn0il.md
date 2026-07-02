@@ -19,23 +19,29 @@ chunks:
     char_span: [0, 1676]
     sentence_count: 12
     key_terms: [college, get, industry, getting, school, field, going, years]
+    concepts: [college, industry, getting, school, field]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mnn0il.md#c12"]
     token_count: 396
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1mnn0il/starting_college_in_your_40s/"}]
   - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c1"
     char_span: [1690, 3862]
     sentence_count: 27
     key_terms: [ges, "you're", least, maybe, get, like, interested, colleges]
+    concepts: ["you're", interested, least, maybe, colleges]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c2"
     char_span: [3864, 5900]
     sentence_count: 19
     key_terms: [learning, like, weirdos, challenging, love, professors, successful, sometimes]
+    concepts: [learning, weirdos, challenging, professors, successful]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c3"
     char_span: [5902, 8063]
     sentence_count: 19
     key_terms: [because, school, knowledge, take, got, here, phd, successful]
+    concepts: [because, school, knowledge, successful, something]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c4"
@@ -48,36 +54,43 @@ chunks:
     char_span: [8098, 10229]
     sentence_count: 23
     key_terms: [learn, cute-meringue2314, time, pharmacy, student, school, back, adventure]
+    concepts: [cute-meringue2314, learn, pharmacy, student, school]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c6"
     char_span: [10024, 10609]
     sentence_count: 4
     key_terms: [school, cute-meringue2314, like, disrespecting, orchestration, inferiority, performance, photography]
+    concepts: [school]
     section: Comments
     token_count: 141
   - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c7"
     char_span: [10611, 12822]
     sentence_count: 21
     key_terms: [already, because, student, assignments, exceptional, traditional, here, like]
+    concepts: [already, because, student, assignments, exceptional]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c8"
     char_span: [12824, 14660]
     sentence_count: 14
     key_terms: [been, classes, toddler, working, career, matter, mostly, school]
+    concepts: [classes, toddler, working, career, matter]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c9"
     char_span: [14662, 15123]
     sentence_count: 4
     key_terms: [something, like, new, possibilities, combination, associates, attention, challenge]
+    concepts: [something]
     section: Comments
     token_count: 97
   - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c10"
     char_span: [15125, 17292]
     sentence_count: 18
     key_terms: [programs, aprilbeingsocial, classes, college, sawkeereemo, community, already, degrees]
+    concepts: [aprilbeingsocial, programs, classes, college, sawkeereemo]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mnn0il.md#c12"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c11"
@@ -90,6 +103,8 @@ chunks:
     char_span: [17353, 18918]
     sentence_count: 20
     key_terms: [college, school, sawkeereemo, work, different, collar, spring, years]
+    concepts: [college, school, sawkeereemo, different, collar]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mnn0il.md#c0", "social-intelligence/reddit-deep/college/1mnn0il.md#c10"]
     section: Comments
     token_count: 383
 ---

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2353]
     sentence_count: 15
     key_terms: [companies, entry, level, papers, automation, jobs, tier, research]
+    concepts: [companies, entry, level, automation, papers]
     token_count: 495
+    sources: [{"n":"Reddit Deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1p1095k/companies_started_cutting_entry_level_hiring_in/"}]
   - id: "articles/reddit-deep-r-jobs/ee5edf20ac.md#c1"
     char_span: [2355, 3717]
     sentence_count: 6
     key_terms: [companies, research, development, big, tech, government, deleted, redact]
+    concepts: [companies, research, development, government, deleted]
     token_count: 317
 ---
 # Companies started cutting entry level hiring in early 2023 and the timing is suspicious

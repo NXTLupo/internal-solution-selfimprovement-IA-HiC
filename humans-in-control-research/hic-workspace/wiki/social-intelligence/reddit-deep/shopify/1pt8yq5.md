@@ -20,36 +20,44 @@ chunks:
     char_span: [0, 721]
     sentence_count: 3
     key_terms: [shopify, e-commerce, news, comments, recaps, weekly, adventurepaul, reddit-deep]
+    concepts: [shopify, e-commerce, comments, recaps, weekly]
     token_count: 188
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1pt8yq5/this_weeks_top_ecommerce_news_stories_dec_22nd/"}]
   - id: "social-intelligence/reddit-deep/shopify/1pt8yq5.md#c1"
     char_span: [723, 2983]
     sentence_count: 11
     key_terms: [app, shopify, tiktok, investors, new, product, banks, owned]
+    concepts: [shopify, tiktok, investors, product, banks]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1pt8yq5.md#c2"
     char_span: [2630, 4790]
     sentence_count: 11
     key_terms: [meta, company, paypal, financial, links, posts, users, subscribers]
+    concepts: [company, paypal, financial, subscribers, links]
     token_count: 420
   - id: "social-intelligence/reddit-deep/shopify/1pt8yq5.md#c3"
     char_span: [4792, 7392]
     sentence_count: 12
     key_terms: [amazon, lawsuit, apple, instacart, resellers, products, company, facing]
+    concepts: [amazon, lawsuit, instacart, resellers, apple]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1pt8yq5.md#c4"
     char_span: [7012, 9679]
     sentence_count: 13
     key_terms: [twitter, operation, data, meta, information, third-party, california, customers]
+    concepts: [twitter, operation, information, third-party, california]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1pt8yq5.md#c5"
     char_span: [9354, 10247]
     sentence_count: 4
     key_terms: [tiktok, data, grindr, information, orientation, protection, appsflyer, utilized]
+    concepts: [tiktok, grindr, information, orientation, protection]
     token_count: 177
   - id: "social-intelligence/reddit-deep/shopify/1pt8yq5.md#c6"
-    char_span: [10262, 11188]
+    char_span: [10261, 11187]
     sentence_count: 6
     key_terms: [shopify, community, subreddit, contact, automatically, automoderator, unnecessary, e-commerce]
+    concepts: [shopify, community, subreddit, contact]
     section: Comments
     token_count: 208
 ---

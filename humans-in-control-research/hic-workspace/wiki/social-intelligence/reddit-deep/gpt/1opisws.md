@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1312]
     sentence_count: 8
     key_terms: [gpt, write, responds, thinking, man, comments, recently, usually]
+    concepts: [write, responds, thinking, comments, recently]
     token_count: 318
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1opisws/gpt_become_awfully_filtered_recently/"}]
   - id: "social-intelligence/reddit-deep/gpt/1opisws.md#c1"
     char_span: [1326, 2840]
     sentence_count: 8
     key_terms: [like, deepseek, https, imgur, com, grok, bljjdfk, suggest]
+    concepts: [deepseek, https, imgur, bljjdfk, suggest]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1opisws.md#c2"]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/gpt/1opisws.md#c2"
     char_span: [2842, 4622]
     sentence_count: 14
     key_terms: [like, https, com, ywjywpr, imgur, re-generating, re-generated, use]
+    concepts: [https, ywjywpr, imgur, re-generating, re-generated]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1opisws.md#c1"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/gpt/1opisws.md#c3"

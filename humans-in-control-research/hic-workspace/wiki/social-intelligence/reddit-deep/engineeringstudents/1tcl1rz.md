@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 374]
     sentence_count: 1
     key_terms: [engineeringstudents, comments, computer-related, engineering, reddit-deep, struggles, options, overall]
+    concepts: [engineeringstudents, comments]
     token_count: 92
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tcl1rz/need_advice_on_engineering_computerrelated_degree/"}]
 ---
 # Need advice on engineering / computer-related degree options for a student who scores well overall but struggles with Maths
 

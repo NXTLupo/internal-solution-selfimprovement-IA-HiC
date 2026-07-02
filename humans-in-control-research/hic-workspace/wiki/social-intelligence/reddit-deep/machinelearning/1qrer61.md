@@ -21,51 +21,65 @@ chunks:
     char_span: [0, 1933]
     sentence_count: 11
     key_terms: ["i'm", function, machinelearning, custom, post-training, framework, comments, support]
+    concepts: [machinelearning, function, post-training, custom, framework]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1qrer61.md#c7"]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1qrer61/d_what_framework_do_you_use_for_rl_posttraining/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1qrer61.md#c1"
     char_span: [1935, 3948]
     sentence_count: 12
     key_terms: [issues, github, https, com, like, "i'd", "i'm", verl]
+    concepts: [issues, github, https, familiar, openrlhf]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1qrer61.md#c2"]
     token_count: 489
   - id: "social-intelligence/reddit-deep/machinelearning/1qrer61.md#c2"
     char_span: [3950, 4409]
     sentence_count: 3
     key_terms: [possible, slime, github, sglang, https, thudm, using, com]
+    concepts: [possible, slime, github, sglang, https]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1qrer61.md#c1"]
     token_count: 123
   - id: "social-intelligence/reddit-deep/machinelearning/1qrer61.md#c3"
     char_span: [4423, 6535]
     sentence_count: 14
     key_terms: [framework, verl, training, around, end, trade-off, openrlhf, sharding]
+    concepts: [framework, training, around, trade-off, openrlhf]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/machinelearning/1qrer61.md#c4"
     char_span: [6537, 8001]
     sentence_count: 13
     key_terms: [model, please, help, "i'm", used, question, training, improve]
+    concepts: [model, please, question, training, improve]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/machinelearning/1qrer61.md#c5"
     char_span: [8003, 9991]
     sentence_count: 16
     key_terms: [reinforcement-learning-full-pipeline, unsloth, reinforcedknowledge, use, always, calisweetleaf, "don't", simpo]
+    concepts: [reinforcement-learning-full-pipeline, reinforcedknowledge, unsloth, calisweetleaf, always]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/machinelearning/1qrer61.md#c6"
     char_span: [9722, 11045]
     sentence_count: 10
     key_terms: [environments, reinforcedknowledge, appreciate, interacts, function, custom, based, fully]
+    concepts: [environments, reinforcedknowledge, appreciate, interacts, function]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/machinelearning/1qrer61.md#c7"
     char_span: [11047, 12732]
     sentence_count: 14
     key_terms: [like, "it's", verl, slime, using, frameworks, framework, function]
+    concepts: [frameworks, slime, using, framework, function]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1qrer61.md#c0"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/machinelearning/1qrer61.md#c8"
     char_span: [12734, 13577]
     sentence_count: 8
     key_terms: [though, thanks, reinforcedknowledge, check, mind, rlyx, try, straightforward]
+    concepts: [though, thanks, check]
     section: Comments
     token_count: 195
 ---

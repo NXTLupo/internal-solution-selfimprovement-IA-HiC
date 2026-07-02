@@ -20,23 +20,31 @@ chunks:
     char_span: [0, 876]
     sentence_count: 6
     key_terms: [comments, reviews, review, fulfillmentbyamazon, competitors, bombing, listing, sellers]
+    concepts: [comments, fulfillmentbyamazon, reviews, review, competitors]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1u2ftyo.md#c2", "social-intelligence/reddit-deep/fulfillmentbyamazon/1u2ftyo.md#c3"]
     token_count: 200
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1u2ftyo/how_to_know_if_reviews_are_legit/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1u2ftyo.md#c1"
-    char_span: [891, 1369]
+    char_span: [890, 1368]
     sentence_count: 3
     key_terms: [discord, fba, discuss, server, fulfillmentbyamazon, join, automoderator, optimization]
+    concepts: [discord, discuss, server]
     section: Comments
     token_count: 119
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1u2ftyo.md#c2"
-    char_span: [1372, 3485]
+    char_span: [1371, 3484]
     sentence_count: 14
     key_terms: [reviews, purchase, review, product, automatically, brand, flashynomad, buy]
+    concepts: [reviews, purchase, review, automatically, product]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1u2ftyo.md#c0", "social-intelligence/reddit-deep/fulfillmentbyamazon/1u2ftyo.md#c3"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1u2ftyo.md#c3"
-    char_span: [3487, 5100]
+    char_span: [3486, 5099]
     sentence_count: 12
     key_terms: [reviews, review, amazon, report, hijacker, verified, rating, everything]
+    concepts: [reviews, review, amazon, report, hijacker]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1u2ftyo.md#c0", "social-intelligence/reddit-deep/fulfillmentbyamazon/1u2ftyo.md#c2"]
     section: Comments
     token_count: 344
 ---

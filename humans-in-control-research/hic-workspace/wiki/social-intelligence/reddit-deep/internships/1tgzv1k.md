@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1117]
     sentence_count: 8
     key_terms: [students, internships, experience, practical, universities, feel, confidence, understand]
+    concepts: [students, internships, experience, practical, universities]
     token_count: 218
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tgzv1k/are_universities_teaching_enough_practical_skills/"}]
   - id: "social-intelligence/reddit-deep/internships/1tgzv1k.md#c1"
     char_span: [1131, 1444]
     sentence_count: 1

@@ -19,14 +19,17 @@ content_hash: "45339697e4525092"
 relevance_by_goal: {"490684cfa204":70}
 chunks:
   - id: "articles/reddit-deep-r-ecommerce/b8cfbdda1d.md#c0"
-    char_span: [0, 1924]
+    char_span: [0, 1923]
     sentence_count: 20
     key_terms: [like, meta, amazon, tiktok, distraction, bar, bars, cac]
-    token_count: 487
+    concepts: [amazon, tiktok, distraction, ecommerce, marketing]
+    token_count: 486
+    sources: [{"n":"Reddit Deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1qopq1r/tik_tok_shop_or_meta_also_is_amazon_a_distraction/"}]
   - id: "articles/reddit-deep-r-ecommerce/b8cfbdda1d.md#c1"
-    char_span: [1929, 3338]
+    char_span: [1928, 3337]
     sentence_count: 14
     key_terms: [skyeathletes, agency, amazon, anyway, enough, yourself, shopify, "you'll"]
+    concepts: [skyeathletes, agency, amazon, anyway, enough]
     token_count: 361
 ---
 # Tik Tok Shop or Meta (also is amazon a distraction right now?)

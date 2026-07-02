@@ -20,52 +20,67 @@ chunks:
     char_span: [0, 2293]
     sentence_count: 22
     key_terms: [agentforce, salesforce, problems, business, asking, comments, remember, client]
+    concepts: [agentforce, salesforce, problems, business, asking]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c1", "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c2", "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c6", "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c7"]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1sxxxx3/where_are_all_the_agentforce_success_stories/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c1"
     char_span: [2295, 3200]
     sentence_count: 5
     key_terms: [salesforce, stories, agentforce, https, customer-stories, r8xopvfd9notqv, iba71wvz9uc, like]
+    concepts: [salesforce, stories, agentforce, customer-stories, https]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c0", "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c2", "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c6", "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c7"]
     token_count: 239
   - id: "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c2"
-    char_span: [3215, 4938]
+    char_span: [3214, 4937]
     sentence_count: 21
     key_terms: [salesforce, too, unpopularcrayon, does, new, use, agentforce, blockchain]
+    concepts: [salesforce, unpopularcrayon, agentforce, blockchain, technology]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c0", "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c1", "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c6", "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c7"]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c3"
-    char_span: [4940, 7196]
+    char_span: [4939, 7195]
     sentence_count: 22
     key_terms: [agent, burnt, knowledge, questions, ask, people, base, "it's"]
+    concepts: [agent, knowledge, questions, burnt, people]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c4"
-    char_span: [7198, 9228]
+    char_span: [7197, 9227]
     sentence_count: 19
     key_terms: [escalation, agent, dashboard, used, topics, being, click, topic]
+    concepts: [escalation, dashboard, agent, topics, engagements]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c5"
-    char_span: [9230, 10391]
+    char_span: [9229, 10390]
     sentence_count: 9
     key_terms: [capabilities, agentforce, mindcompetitive6475, going, sure, re-engineering, curmudgeon160, promotional]
+    concepts: [capabilities, agentforce, going]
     section: Comments
     token_count: 280
   - id: "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c6"
-    char_span: [10393, 12189]
+    char_span: [10392, 12188]
     sentence_count: 10
     key_terms: [agentforce, implementation, good, salesforce, company, pandora, stories, success]
+    concepts: [agentforce, implementation, salesforce, company, pandora]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c0", "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c1", "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c2", "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c7"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c7"
-    char_span: [12191, 13505]
+    char_span: [12190, 13504]
     sentence_count: 5
     key_terms: [salesforce-completes-acquisition-of-informatica, agentforce, salesforce, blueprint, success, enough, build, feels]
+    concepts: [agentforce, salesforce, blueprint, success, enough]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c0", "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c1", "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c2", "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c6"]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/salesforce/1sxxxx3.md#c8"
-    char_span: [13507, 14484]
+    char_span: [13506, 14483]
     sentence_count: 5
     key_terms: [unity-environmental-university, down, feel, spitfish, shoved, therealmichaelbluth, being, staff]
+    concepts: [spitfish, shoved, being, staff]
     section: Comments
     token_count: 238
 ---

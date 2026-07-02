@@ -20,22 +20,29 @@ chunks:
     char_span: [0, 2141]
     sentence_count: 26
     key_terms: [start, product, testimonials, website, people, b2bmarketing, testimonial, take]
+    concepts: [testimonials, start, product, website, b2bmarketing]
     token_count: 514
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1sowv16/an_exact_playbook_on_how_to_grow_a_b2b_company/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sowv16.md#c1"
     char_span: [2143, 4012]
     sentence_count: 15
     key_terms: [email, month, customers, buy, industry, meetings, friends, cold]
+    concepts: [email, customers, month, industry, meetings]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1sowv16.md#c3"]
     token_count: 448
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sowv16.md#c2"
-    char_span: [4027, 5476]
+    char_span: [4026, 5475]
     sentence_count: 12
     key_terms: [looking-for-marketing-discussion-811236647760298024, email, personalised, founder-led, cold, questions, discord, domain]
+    concepts: [email, personalised, founder-led, questions, discord]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sowv16.md#c3"
-    char_span: [5480, 7255]
+    char_span: [5479, 7254]
     sentence_count: 12
     key_terms: [cold, email, customers, meetings, already, instead, quality, social]
+    concepts: [email, customers, meetings, already, instead]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1sowv16.md#c1"]
     section: Comments
     token_count: 441
 ---

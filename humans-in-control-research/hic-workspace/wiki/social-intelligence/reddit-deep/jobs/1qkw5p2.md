@@ -19,58 +19,69 @@ chunks:
     char_span: [0, 1867]
     sentence_count: 15
     key_terms: [experience, entry, level, been, coworker, office, underemployed, high]
+    concepts: [experience, entry, level, coworker, underemployed]
     token_count: 416
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1qkw5p2/are_most_millenials_and_gen_z_underemployed/"}]
   - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c1"
     char_span: [1869, 4153]
     sentence_count: 14
     key_terms: [years, work, get, jobs, underemployment, school, experiences, high]
+    concepts: [years, underemployment, school, experiences, experience]
     token_count: 482
   - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c2"
     char_span: [4167, 5796]
     sentence_count: 10
     key_terms: [bakery, degree, engineering, get, sepsis, emergency-march-911, thats, years]
+    concepts: [bakery, degree, engineering, sepsis, thats]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c3"
     char_span: [5798, 7466]
     sentence_count: 11
     key_terms: [people, positions, because, science, degree, duties, remarkable-sand-5059, never]
+    concepts: [people, positions, because, science, degree]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c4"
     char_span: [7468, 8909]
     sentence_count: 13
     key_terms: [been, down, "i'm", making, years, sharkieshadooontt, high, job]
+    concepts: [making, years]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c5"
     char_span: [8912, 10213]
     sentence_count: 4
     key_terms: [biotech, marketing, been, since, time, company, five0clocksomewhere, going]
+    concepts: [biotech, marketing, since, company, going]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c6"
     char_span: [10215, 12201]
     sentence_count: 12
     key_terms: [civilian-labor-force-participation-rate, unemployed, "i'm", jobs, overseas, people, underemployed, industries]
+    concepts: [civilian-labor-force-participation-rate, unemployed, overseas, underemployed, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c7"
     char_span: [11936, 12762]
     sentence_count: 14
     key_terms: [years, unemployed, worked, field, ago, job, last, thegoldenchad]
+    concepts: [unemployed, years, worked, field]
     section: Comments
     token_count: 201
   - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c8"
     char_span: [12764, 14085]
     sentence_count: 9
     key_terms: [degrees, around, millennials, genz, like, "bachelor's", graduated, degree]
+    concepts: [degrees, around, millennials, "bachelor's", graduated]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c9"
     char_span: [14088, 15096]
     sentence_count: 8
     key_terms: [like, millennial, working, never, right, boat, did, end]
+    concepts: [millennial, working, never, right]
     section: Comments
     token_count: 233
 ---

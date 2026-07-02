@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1489]
     sentence_count: 13
     key_terms: [careerguidance, good, job, want, counseling, experience, pittsburgh, business]
+    concepts: [careerguidance, counseling, experience, pittsburgh, business]
     token_count: 362
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rzq2ik/i_am_wanting_to_change_career_paths_any_advice/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rzq2ik.md#c1"
-    char_span: [1504, 3158]
+    char_span: [1503, 3157]
     sentence_count: 11
     key_terms: [management, look, project, administration, certifications, degree, roles, experience]
+    concepts: [management, administration, certifications, project, degree]
     section: Comments
     token_count: 335
 ---

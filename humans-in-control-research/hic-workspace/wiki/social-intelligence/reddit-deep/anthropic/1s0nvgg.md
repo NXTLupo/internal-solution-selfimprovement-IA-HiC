@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 373]
     sentence_count: 1
     key_terms: [anthropic, comments, quality, no-loss3366, reddit-deep, regressions, legitimate, prompting]
+    concepts: [anthropic, comments, quality]
     token_count: 103
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1s0nvgg/claude_code_and_opus_quality_regressions_are_a/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1s0nvgg.md#c1"
     char_span: [387, 1500]
     sentence_count: 7
     key_terms: [regression, benchmark, codebase, hearsay, noticed, config, alarm, "false"]
+    concepts: [regression, benchmark, codebase, hearsay, noticed]
     section: Comments
     token_count: 235
 ---

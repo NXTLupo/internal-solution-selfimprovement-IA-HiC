@@ -18,31 +18,38 @@ chunks:
     char_span: [0, 2403]
     sentence_count: 26
     key_terms: [resume, applying, job, getting, interviews, engineeringstudents, engineeringresumes, materials]
+    concepts: [resume, applying, engineeringstudents, getting, engineeringresumes]
     token_count: 513
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qi55xz/my_engineering_internship_and_entrylevel_job/"}]
   - id: "articles/reddit-deep-r-engineeringstudents/e87dfabfec.md#c1"
     char_span: [2405, 4392]
     sentence_count: 23
     key_terms: [job, linkedin, indeed, resume, application, everything, applying, "you're"]
+    concepts: [linkedin, indeed, resume, application, everything]
     token_count: 423
   - id: "articles/reddit-deep-r-engineeringstudents/e87dfabfec.md#c2"
     char_span: [4394, 6683]
     sentence_count: 18
     key_terms: [job, company, fair, companies, work, interest, applications, ask]
+    concepts: [company, companies, interest, applications, connection]
     token_count: 485
   - id: "articles/reddit-deep-r-engineeringstudents/e87dfabfec.md#c3"
     char_span: [6685, 7838]
     sentence_count: 12
     key_terms: [presenting, business, practice, specific, casual, google, clean, "don't"]
+    concepts: [presenting, business, practice, specific, casual]
     token_count: 265
   - id: "articles/reddit-deep-r-engineeringstudents/e87dfabfec.md#c4"
     char_span: [7840, 10174]
     sentence_count: 32
     key_terms: [resume, people, employees, want, already, applied, conversation, cover]
+    concepts: [resume, people, employees, already, applied]
     token_count: 514
   - id: "articles/reddit-deep-r-engineeringstudents/e87dfabfec.md#c5"
     char_span: [10176, 12258]
     sentence_count: 13
     key_terms: [people, interviews, offer, different, start-ups, got, led, lot]
+    concepts: [interviews, people, different, start-ups, offer]
     token_count: 477
 ---
 # My engineering internship and entry-level job application guide. Stop mass applying into the void.

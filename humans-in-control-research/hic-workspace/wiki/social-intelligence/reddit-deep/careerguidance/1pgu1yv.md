@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1895]
     sentence_count: 15
     key_terms: [honestly, been, "i've", job, editing, careerguidance, career, get]
+    concepts: [honestly, careerguidance, editing, career, successful]
     token_count: 444
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pgu1yv/can_anyone_suggest_a_career_path_for_a_student/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1pgu1yv.md#c1"
     char_span: [1909, 4037]
     sentence_count: 17
     key_terms: [content, publishing, marketing, because, writing, something, editing, english]
+    concepts: [content, publishing, marketing, because, writing]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/careerguidance/1pgu1yv.md#c2"
     char_span: [4039, 4383]
     sentence_count: 6
     key_terms: [get, experience, want, certificates, freelanced, including, initially, marketing]
+    concepts: [experience]
     section: Comments
     token_count: 80
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 417]
     sentence_count: 1
     key_terms: [applyingtocollege, comments, courses, reddit-deep, olympiads, colleges, language, country]
+    concepts: [applyingtocollege, comments, courses]
     token_count: 113
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sj7skl/whats_the_courses_we_need_to_learn_to_apply_for/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sj7skl.md#c1"
     char_span: [431, 1340]
     sentence_count: 8
     key_terms: [sat, require, years, necessary, research, schools, school, glad-entrepreneur764]
+    concepts: [require, years, necessary, research, schools]
     section: Comments
     token_count: 229
 ---

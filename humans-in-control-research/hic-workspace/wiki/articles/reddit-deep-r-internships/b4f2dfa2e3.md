@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1910]
     sentence_count: 12
     key_terms: [internships, email, rates, reply, open, emails, students, words]
+    concepts: [internships, email, rates, reply, emails]
     token_count: 514
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tcri9x/we_analysed_6337_cold_emails_students_sent_for/"}]
   - id: "articles/reddit-deep-r-internships/b4f2dfa2e3.md#c1"
     char_span: [1912, 4071]
     sentence_count: 13
     key_terms: [vandan-karakasia, cold-email-data-study-students-2026, email, giphy, methodology, gif, like, internship]
+    concepts: [vandan-karakasia, methodology, email, giphy, internship]
     token_count: 511
 ---
 # We analysed 6,337 cold emails students sent for internships. Here's what works in 2026

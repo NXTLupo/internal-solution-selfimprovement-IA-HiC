@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1802]
     sentence_count: 21
     key_terms: [cgpa, cscareerquestions, projects, wrong, internships, full-stack, internship, understand]
+    concepts: [cscareerquestions, projects, internships, full-stack, internship]
     token_count: 452
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1stbo7s/i_had_a_research_internship_that_flew_me_abroad/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/cda1ba9acb.md#c1"
     char_span: [1804, 4079]
     sentence_count: 33
     key_terms: [ceo, loudly, months, office, "he'd", like, employee, startup]
+    concepts: [loudly, months, office, employee, startup]
     token_count: 505
   - id: "articles/reddit-deep-r-cscareerquestions/cda1ba9acb.md#c2"
     char_span: [4081, 6250]
     sentence_count: 40
     key_terms: [lpa, company, witch, recognition, allocation, interview, building, engineer]
+    concepts: [company, recognition, allocation, witch, interview]
     token_count: 483
   - id: "articles/reddit-deep-r-cscareerquestions/cda1ba9acb.md#c3"
     char_span: [6252, 7767]

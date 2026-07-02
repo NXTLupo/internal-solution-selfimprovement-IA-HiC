@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 728]
     sentence_count: 7
     key_terms: [working, comments, office, genz, hate, cool-cat-199, reddit-deep, personally]
+    concepts: [working, comments, office]
     token_count: 190
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1qv7hxw/why_are_we_so_burnt_out_would_you_go_to_this/"}]
   - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c1"
     char_span: [742, 1418]
     sentence_count: 3
     key_terms: [sinuheminem, discord, affectionate-nose176, month, rent, automatically, automoderator, cool-cat-199]
+    concepts: [sinuheminem, discord, month]
     section: Comments
     token_count: 205
   - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c2"
     char_span: [1420, 3093]
     sentence_count: 6
     key_terms: [someone, sinuheminem, replies, psu632, dull-geologist-8204, ass, did, home]
+    concepts: [someone, sinuheminem, replies, psu632]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c3"
@@ -44,36 +48,42 @@ chunks:
     char_span: [3236, 4438]
     sentence_count: 6
     key_terms: [clanofcoolkids, months, resume, month, right, gap, like, rent]
+    concepts: [clanofcoolkids, months, resume, month, right]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c5"
     char_span: [4440, 5904]
     sentence_count: 7
     key_terms: [wendysdrivethru, work, hour, spanish, resume, shots, bird, lmao]
+    concepts: [wendysdrivethru, spanish, resume, shots]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c6"
     char_span: [5906, 6953]
     sentence_count: 7
     key_terms: [malaysia, around, price, currencies, exploited, average, getting, point]
+    concepts: [malaysia, around, currencies, price, exploited]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c7"
     char_span: [6955, 8916]
     sentence_count: 9
     key_terms: [lower, people, exploitation, apartment, malaysia, working, dimethicone-silicate, below]
+    concepts: [lower, exploitation, people, apartment, malaysia]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c8"
     char_span: [8918, 10754]
     sentence_count: 9
     key_terms: [genx, average, boomers, people, person, stereotypical, millennials, bar]
+    concepts: [stereotypical, average, boomers, people, person]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c9"
     char_span: [10756, 12551]
     sentence_count: 15
     key_terms: [the-king-of-cartoons, boomers, savings, working, coming, homes, whatever, hours]
+    concepts: [the-king-of-cartoons, boomers, savings, working, coming]
     section: Comments
     token_count: 453
 ---

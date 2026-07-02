@@ -21,53 +21,69 @@ chunks:
     char_span: [0, 1632]
     sentence_count: 19
     key_terms: [retirement, mom, personalfinance, does, groceries, comments, property, savings]
+    concepts: [retirement, personalfinance, groceries, comments, property]
     token_count: 388
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1qbuzzy/parent_with_no_retirement_savings_at_58_years_old/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c1"
     char_span: [1646, 2726]
     sentence_count: 10
     key_terms: [pension, school, benefits, security, paying, social, district, search]
+    concepts: [pension, school, benefits, security, paying]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c2"]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c2"
     char_span: [2728, 4125]
     sentence_count: 8
     key_terms: [pension, retirement, benefits, benefit, company, hidden, hoping, public]
+    concepts: [pension, retirement, benefits, benefit, company]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c1", "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c4", "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c7"]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c3"
     char_span: [4127, 5867]
     sentence_count: 8
     key_terms: [state, pensions, benefits, staff, years, age, assistants, divorced]
+    concepts: [state, pensions, benefits, assistants, staff]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c4"
     char_span: [5869, 7344]
     sentence_count: 9
     key_terms: [deductions, "doesn't", start, stub, retirement, benefit, impact, record]
+    concepts: [deductions, "doesn't", retirement, start, benefit]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c2", "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c7"]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c5"
     char_span: [7346, 8249]
     sentence_count: 6
     key_terms: [mom, security, better, please, social, care, pay, aetherbune150]
+    concepts: [security, better, please, social]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c6", "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c7"]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c6"
     char_span: [8252, 9670]
     sentence_count: 15
     key_terms: [doesn, security, social, mom, finances, physical, pension, future]
+    concepts: [doesn, security, social, finances, physical]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c5", "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c7"]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c7"
     char_span: [9672, 12033]
     sentence_count: 16
     key_terms: [security, social, married, benefit, retirement, benefits, pension, spousal]
+    concepts: [security, social, married, benefit, retirement]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c2", "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c4", "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c5", "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c6"]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c8"
     char_span: [12035, 13317]
     sentence_count: 11
     key_terms: [everything, income, death, tends, lot, step, took, wife]
+    concepts: [everything, income, death, tends]
     section: Comments
     token_count: 279
 ---

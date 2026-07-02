@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1968]
     sentence_count: 15
     key_terms: [internships, available, jobs, experience, because, looking, able, job]
+    concepts: [internships, available, experience, because, looking]
     token_count: 424
+    sources: [{"n":"Reddit Deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rjys35/internships_only_available_for_students_need/"}]
 ---
 # Internships only available for students. Need experience for entry level jobs.
 

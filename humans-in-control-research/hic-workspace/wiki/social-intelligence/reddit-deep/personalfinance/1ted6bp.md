@@ -21,52 +21,67 @@ chunks:
     char_span: [0, 1873]
     sentence_count: 10
     key_terms: [husband, savings, hysa, personalfinance, lending, marcus, years, financially]
+    concepts: [husband, savings, personalfinance, lending, marcus]
     token_count: 516
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1ted6bp/financially_illiterate_80yearold_dad_needs_help/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c1"
     char_span: [1875, 2910]
     sentence_count: 11
     key_terms: [insurance, years, get, savings, trying, approximately, contributing, accelerate]
+    concepts: [insurance, years, savings, trying]
     token_count: 254
   - id: "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c2"
     char_span: [2924, 3963]
     sentence_count: 18
     key_terms: [kcpilot17, unedgeumacated, currently, savings, enjoy, leave, money, thank]
+    concepts: [kcpilot17, unedgeumacated, currently, savings, enjoy]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c3"
     char_span: [3965, 5621]
     sentence_count: 15
     key_terms: [support, parents, disability, family, security, because, college, "doesn't"]
+    concepts: [support, parents, disability, family, security]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c4"]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c4"
     char_span: [5623, 7368]
     sentence_count: 11
     key_terms: [support, security, social, "don't", financial, "husband's", insurance, expenses]
+    concepts: [support, security, social, "don't", financial]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c3"]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c5"
     char_span: [7370, 9217]
     sentence_count: 13
     key_terms: [benefit, get, bank, checking, minimum, parents, spousal, unedgeumacated]
+    concepts: [benefit, checking, unedgeumacated, minimum, parents]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c6", "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c8"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c6"
     char_span: [9220, 10712]
     sentence_count: 11
     key_terms: [insurance, expenses, unedgeumacated, house, life, checking, property, account]
+    concepts: [insurance, expenses, unedgeumacated, house, checking]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c5", "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c8"]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c7"
     char_span: [10714, 12444]
     sentence_count: 16
     key_terms: [account, bank, parents, like, expenses, davinh4, monthly, entertainersuper8933]
+    concepts: [account, parents, expenses, davinh4, monthly]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c8"
     char_span: [12446, 14217]
     sentence_count: 13
     key_terms: [lawyer, financial, insurance, guy, parents, unedgeumacated, specializes, like]
+    concepts: [lawyer, financial, insurance, parents, unedgeumacated]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c5", "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c6"]
     section: Comments
     token_count: 419
 ---

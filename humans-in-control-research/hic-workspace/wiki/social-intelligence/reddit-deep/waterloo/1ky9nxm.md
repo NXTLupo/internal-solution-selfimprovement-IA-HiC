@@ -21,53 +21,69 @@ chunks:
     char_span: [0, 658]
     sentence_count: 7
     key_terms: [waterloo, comments, housing, new, neighborhoods, neighborhood, reddit-deep, sageme-2020]
+    concepts: [waterloo, comments, housing]
     token_count: 164
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1ky9nxm/housing_advice/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c1"
     char_span: [672, 2622]
     sentence_count: 21
     key_terms: [realtor, available, good, suggest, laurelwood, schools, description, immediately]
+    concepts: [realtor, available, suggest, laurelwood, schools]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c2"
     char_span: [2624, 4189]
     sentence_count: 12
     key_terms: [schools, school, sageme-2020, waterloo, funding, receive, walking, areas]
+    concepts: [schools, school, sageme-2020, waterloo, funding]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c5"]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c3"
     char_span: [4191, 6572]
     sentence_count: 16
     key_terms: [school, kids, children, board, ratings, schools, neighbourhoods, enough]
+    concepts: [school, children, board, neighbourhoods, neighbourhood]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c4", "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c4"
     char_span: [6281, 6689]
     sentence_count: 2
     key_terms: [children, school, disadvantages, neighbourhood, experiencing, environment, advantages, community]
+    concepts: [children, school]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c3"]
     section: Comments
     token_count: 88
   - id: "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c5"
     char_span: [6691, 8364]
     sentence_count: 13
     key_terms: [schools, school, kids, french, immersion, ratings, neighbourhoods, public]
+    concepts: [schools, school, french, immersion, neighbourhoods]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c2", "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c3"]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c6"
     char_span: [8367, 9802]
     sentence_count: 15
     key_terms: [neighborhood, school, agent, elizabeth, recommend, process, months, allen]
+    concepts: [neighborhood, school, agent, elizabeth, recommend]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c8"]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c7"
     char_span: [9805, 11955]
     sentence_count: 18
     key_terms: [waterloo, community, kitchener, neighbourhood, centres, public, school, area]
+    concepts: [waterloo, community, kitchener, neighbourhood, centres]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c8"
     char_span: [11957, 14120]
     sentence_count: 16
     key_terms: [recommend, waterloo, looking, theyre, neighborhood, live, work, management]
+    concepts: [recommend, waterloo, looking, neighborhood, theyre]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c6"]
     section: Comments
     token_count: 500
 ---

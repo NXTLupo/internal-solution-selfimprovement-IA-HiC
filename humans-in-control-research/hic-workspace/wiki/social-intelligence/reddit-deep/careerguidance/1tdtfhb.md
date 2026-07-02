@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1164]
     sentence_count: 11
     key_terms: [switching, careerguidance, career, years, experience, comments, confused, growth]
+    concepts: [switching, careerguidance, career, experience, years]
     token_count: 274
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tdtfhb/title_15_years_into_my_career_at_an_mnc_confused/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tdtfhb.md#c1"
     char_span: [1178, 2263]
     sentence_count: 3
     key_terms: [expertwinter2709, got, pretty, depth, deep, good, sure, tech]
+    concepts: [expertwinter2709, pretty, depth]
     section: Comments
     token_count: 252
 ---

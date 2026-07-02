@@ -18,21 +18,26 @@ chunks:
     char_span: [0, 2093]
     sentence_count: 18
     key_terms: [college, applyingtocollege, school, significantly, get, love, benefits, comments]
+    concepts: [college, applyingtocollege, significantly, school, benefits]
     token_count: 483
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1ncpte2/benefits_of_going_to_a_college_with_a_higher/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/4f2cb2fed0.md#c1"
     char_span: [2095, 3286]
     sentence_count: 9
     key_terms: [school, experience, especially, selective, "you're", point, years, penguinpumpkin1701]
+    concepts: [school, experience, especially, selective, "you're"]
     token_count: 277
   - id: "articles/reddit-deep-r-applyingtocollege/4f2cb2fed0.md#c2"
     char_span: [3288, 5127]
     sentence_count: 14
     key_terms: [undergraduate, students, school, graduate, universities, grade, top, colleges]
+    concepts: [undergraduate, students, school, graduate, universities]
     token_count: 412
   - id: "articles/reddit-deep-r-applyingtocollege/4f2cb2fed0.md#c3"
     char_span: [5129, 5963]
     sentence_count: 5
     key_terms: [ivy, grad, flagship, random, state, university, colleges, person]
+    concepts: [flagship, random, state, university, colleges]
     token_count: 176
 ---
 # benefits of going to a college with a higher acceptance rate

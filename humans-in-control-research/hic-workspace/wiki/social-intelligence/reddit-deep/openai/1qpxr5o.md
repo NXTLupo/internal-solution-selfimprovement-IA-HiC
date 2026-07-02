@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 1862]
     sentence_count: 17
     key_terms: [like, get, instead, people, feels, comments, memory, openai]
+    concepts: [instead, people, feels, comments, memory]
     token_count: 447
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1qpxr5o/gpt52_feels_less_like_a_tool_and_more_like_a/"}]
   - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c1"
     char_span: [1866, 2626]
     sentence_count: 6
     key_terms: [doesn, feels, trust, like, pseudo-emotional, overprotective, hallucinates, apparently]
+    concepts: [doesn, feels, trust]
     token_count: 167
   - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c2"
     char_span: [2640, 3610]
     sentence_count: 9
     key_terms: [gaslighting, abuser, chatgpt, gemini, proof, lieutenant-columbo, org, time]
+    concepts: [gaslighting, abuser, chatgpt, gemini, proof]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c3"
     char_span: [3612, 5256]
     sentence_count: 16
     key_terms: [claude, "don't", "it's", like, because, problem, agree, medium-theme-4611]
+    concepts: [claude, "don't", because, problem, agree]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1qpxr5o.md#c4"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c4"
     char_span: [5258, 6141]
     sentence_count: 7
     key_terms: [being, jailbroken, because, better, "don't", care, like, encabulatorturbo]
+    concepts: [being, jailbroken, because, better, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1qpxr5o.md#c3"]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c5"
     char_span: [6143, 7989]
     sentence_count: 13
     key_terms: [code, line, changes, assist, works, app, web, explain]
+    concepts: [changes, assist, works, explain, footgun]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c6"
     char_span: [7991, 9853]
     sentence_count: 11
     key_terms: [explanation, been, like, arguing, change, myself, safety, switch]
+    concepts: [explanation, arguing, change, myself, safety]
     section: Comments
     token_count: 437
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 298]
     sentence_count: 2
     key_terms: [careerguidance, comments, cultural-lead-3965, reddit-deep, posted, reddit, source, https]
+    concepts: [careerguidance, comments]
     token_count: 90
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t8zpm8/which_skill_should_i_learn_or_which_job_should_i/"}]
 ---
 # Which skill should I learn or which job should I do now?
 

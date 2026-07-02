@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1525]
     sentence_count: 9
     key_terms: [export, contracts, invoicing, workspace, invoices, recommended, need, freelance]
+    concepts: [export, contracts, invoicing, workspace, invoices]
     token_count: 382
+    sources: [{"n":"reddit-deep: r/freelance","u":"https://www.reddit.com/r/freelance/comments/1rh8naj/psa_fiverr_workspace_andco_shuts_down_march_1/"}]
   - id: "social-intelligence/reddit-deep/freelance/1rh8naj.md#c1"
     char_span: [1539, 3564]
     sentence_count: 13
     key_terms: [workspace, features, because, subscription, moxie, price, crm, considered]
+    concepts: [workspace, features, subscription, because, moxie]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/freelance/1rh8naj.md#c2"
     char_span: [3566, 4987]
     sentence_count: 13
     key_terms: [invoicing, good, instead, records, export-to-two-places, using, been, "i've"]
+    concepts: [invoicing, instead, records, using]
     section: Comments
     token_count: 318
 ---

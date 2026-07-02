@@ -17,10 +17,12 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1syweo1.md#c0"
-    char_span: [0, 1738]
+    char_span: [0, 1737]
     sentence_count: 6
     key_terms: [philanthropy, insidephilanthropy, https, com, www, inside, billionaires, big]
-    token_count: 407
+    concepts: [philanthropy, insidephilanthropy, https, billionaires, inside]
+    token_count: 406
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1syweo1/latest_headlines_from_inside_philanthropy/"}]
 ---
 # Latest headlines from Inside Philanthropy
 

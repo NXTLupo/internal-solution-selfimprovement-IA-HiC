@@ -19,63 +19,79 @@ chunks:
     char_span: [0, 2314]
     sentence_count: 19
     key_terms: [probabilistic, cscareerquestions, because, infinit, skills, architecture, "developer's", developers]
+    concepts: [probabilistic, cscareerquestions, because, infinit, architecture]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c2"]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rq2wng/just_relax_ai_wont_replace_you/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c1"
     char_span: [2316, 4234]
     sentence_count: 16
     key_terms: [deterministic, probabilistic, control, "it's", import, "developer's", visibility, currently]
+    concepts: [deterministic, probabilistic, control, import, "developer's"]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c7"]
     token_count: 420
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c2"
     char_span: [4236, 5288]
     sentence_count: 6
     key_terms: [logic, because, engineers, always, architecture, new, playground, hardware]
+    concepts: [because, logic, engineers, architecture, always]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c0"]
     token_count: 212
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c3"
     char_span: [5302, 7298]
     sentence_count: 7
     key_terms: [because, chatgpt, hiring, senior, engineering, new, completely, companies]
+    concepts: [because, chatgpt, hiring, senior, engineering]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c4"
     char_span: [7300, 8491]
     sentence_count: 8
     key_terms: [job, like, everyone, jamming, laying, string, original-poet1825, else]
+    concepts: [everyone, jamming, laying, string]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c5"
     char_span: [8494, 10470]
     sentence_count: 13
     key_terms: [work, people, deterministic, bottlenecked, productivity, programmers, code, understand]
+    concepts: [deterministic, bottlenecked, productivity, people, programmers]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c6"
     char_span: [10472, 12826]
     sentence_count: 14
     key_terms: [quantum, deterministic, because, black, box, human, macroscopic, observation]
+    concepts: [quantum, deterministic, because, black, macroscopic]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c7"
     char_span: [12828, 15073]
     sentence_count: 17
     key_terms: [probabilistic, deterministic, companies, "it's", system, need, subsystem, entirely]
+    concepts: [probabilistic, deterministic, companies, system, subsystem]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c1"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c8"
     char_span: [15075, 17167]
     sentence_count: 10
     key_terms: [probability, "that's", engineers, correct, probabilistic, never, job, executives]
+    concepts: [probability, "that's", engineers, probabilistic, correct]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c9"
     char_span: [17169, 19074]
     sentence_count: 9
     key_terms: [expected, increase, replace, output, hyperaeolian, dev, decrease, possible]
+    concepts: [expected, increase, replace, hyperaeolian, output]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c10"
     char_span: [19076, 20642]
     sentence_count: 15
     key_terms: [need, developers, industries, production, demands, tractor, demand, farmer]
+    concepts: [developers, industries, production, demands, tractor]
     section: Comments
     token_count: 339
 ---

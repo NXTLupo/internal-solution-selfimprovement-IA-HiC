@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1514]
     sentence_count: 14
     key_terms: [career, like, path, cscareerquestions, software, "don't", struggling, something]
+    concepts: [career, cscareerquestions, software, "don't", struggling]
     token_count: 344
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1l88ehx/need_help_finding_a_career_path_for_my_future_cs/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l88ehx.md#c1"
     char_span: [1528, 3326]
     sentence_count: 14
     key_terms: [job, different, work, gardening-gnome, enough, time, projects, manager]
+    concepts: [different, gardening-gnome, enough, projects, manager]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l88ehx.md#c2"
     char_span: [3331, 4286]
     sentence_count: 5
     key_terms: [like, embedded, software, engineering, something, controls, illustrious-pound266, among]
+    concepts: [embedded, software, engineering, something, controls]
     section: Comments
     token_count: 233
 ---

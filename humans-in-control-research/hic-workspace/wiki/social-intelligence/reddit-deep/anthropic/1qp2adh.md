@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 609]
     sentence_count: 6
     key_terms: [awesome, claude, anthropic, reference, comments, https, humor, phone]
+    concepts: [awesome, claude, anthropic, reference, comments]
     token_count: 155
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1qp2adh/claude_code_on_phone_api_key_humor/"}]
 ---
 # Claude Code on phone - API key - humor
 

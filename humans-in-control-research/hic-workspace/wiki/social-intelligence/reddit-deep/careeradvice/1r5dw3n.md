@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1658]
     sentence_count: 15
     key_terms: ["i'm", career, careeradvice, jobs, background, generation, something, comments]
+    concepts: [careeradvice, career, background, generation, something]
     token_count: 433
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1r5dw3n/advice_for_an_18yearold_lost_on_career_low_grades/"}]
 ---
 # Advice for an 18-Year-Old Lost on Career: Low Grades, Self-Doubt, AI Fears—Open to Anything!
 

@@ -21,45 +21,56 @@ chunks:
     char_span: [0, 1810]
     sentence_count: 14
     key_terms: [city, forest, digitalnomad, empty, skyscrapers, apartments, "malaysia's", comments]
+    concepts: [forest, digitalnomad, skyscrapers, apartments, empty]
     token_count: 462
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1kvwuqs/how_to_turn_malaysias_100b_ghost_city_into_a/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c1"
     char_span: [1812, 3883]
     sentence_count: 21
     key_terms: [apartments, digital, living, prices, phase, city, real, singapore]
+    concepts: [apartments, digital, living, prices, phase]
     token_count: 437
   - id: "social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c2"
     char_span: [3885, 5769]
     sentence_count: 17
     key_terms: [month, singapore, country, project, nomads, considering, government, malaysian]
+    concepts: [singapore, month, country, project, nomads]
     token_count: 373
   - id: "social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c3"
     char_span: [5783, 7432]
     sentence_count: 8
     key_terms: [suitable-junket-744, chatgpt, deleted, post, language, pangram, locals, native]
+    concepts: [suitable-junket-744, chatgpt, deleted, language, pangram]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c4"
     char_span: [7434, 9222]
     sentence_count: 18
     key_terms: [people, cheap, restaurants, "it's", singapore, already, "there's", forest]
+    concepts: [people, restaurants, cheap, singapore, already]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c5"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c5"
     char_span: [9224, 11149]
     sentence_count: 17
     key_terms: [like, "it's", apartment, machinationstudio, city, colambler, singapore, already]
+    concepts: [machinationstudio, apartment, colambler, singapore, already]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c4"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c6"
     char_span: [11151, 12952]
     sentence_count: 13
     key_terms: [digital, nearly-2000-digital-nomad-applicants-approved, nomads, malaysia, nomad, buildings, exactly, thestar]
+    concepts: [digital, nearly-2000-digital-nomad-applicants-approved, nomads, malaysia, nomad]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c7"
     char_span: [12954, 15011]
     sentence_count: 15
     key_terms: [singapore, city, maybe, place, trust, immigration, checkpoint, certainly]
+    concepts: [singapore, immigration, checkpoint, maybe, place]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c8"

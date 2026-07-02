@@ -19,22 +19,29 @@ chunks:
     char_span: [0, 2268]
     sentence_count: 20
     key_terms: [college, film, classes, career, design, school, sophomore, art]
+    concepts: [college, classes, career, design, school]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lhs9kh.md#c3"]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lhs9kh/no_idea_what_career_to_pursue_what_should_i_do/"}]
   - id: "social-intelligence/reddit-deep/college/1lhs9kh.md#c1"
     char_span: [2270, 4111]
     sentence_count: 13
     key_terms: [don, graphic, career, major, debt, anything, decided, design]
+    concepts: [graphic, career, major, anything, decided]
     token_count: 416
   - id: "social-intelligence/reddit-deep/college/1lhs9kh.md#c2"
     char_span: [4125, 5935]
     sentence_count: 10
     key_terms: [yourself, maybe, creative, answers, quite, seems, experiences, practical]
+    concepts: [yourself, maybe, creative, answers, experiences]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/college/1lhs9kh.md#c3"
     char_span: [5937, 8031]
     sentence_count: 18
     key_terms: [art, design, school, job, graphic, favor, don, find]
+    concepts: [design, school, graphic, appreciate, favor]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lhs9kh.md#c0"]
     section: Comments
     token_count: 476
 ---

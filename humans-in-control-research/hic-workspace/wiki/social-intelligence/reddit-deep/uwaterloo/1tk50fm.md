@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 823]
     sentence_count: 1
     key_terms: [help, uwaterloo, workplace, comments, courses, writing, actual, scientistupbeat9060]
+    concepts: [uwaterloo, workplace, comments, courses, writing]
     token_count: 195
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1tk50fm/what_is_the_point_of_pd_courses/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1tk50fm.md#c1"
     char_span: [837, 2326]
     sentence_count: 5
     key_terms: [course, agentindependent306, scientistupbeat9060, meaningless, enrolled, students, courses, objective-style1994]
+    concepts: [course, agentindependent306, scientistupbeat9060, meaningless, enrolled]
     section: Comments
     token_count: 414
 ---

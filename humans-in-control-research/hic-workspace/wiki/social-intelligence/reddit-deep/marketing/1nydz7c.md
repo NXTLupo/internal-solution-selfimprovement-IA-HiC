@@ -20,21 +20,26 @@ chunks:
     char_span: [0, 2318]
     sentence_count: 17
     key_terms: ["i've", marketing, customer, everyone, opposite, service, brands, making]
+    concepts: [marketing, customer, everyone, opposite, service]
     token_count: 497
+    sources: [{"n":"reddit-deep: r/marketing","u":"https://www.reddit.com/r/marketing/comments/1nydz7c/seeing_success_doing_the_opposite_of_everyone_else/"}]
   - id: "social-intelligence/reddit-deep/marketing/1nydz7c.md#c1"
     char_span: [2320, 4585]
     sentence_count: 26
     key_terms: [email, emails, brand, group, "i'd", engaged, people, free]
+    concepts: [email, emails, brand, group, engaged]
     token_count: 499
   - id: "social-intelligence/reddit-deep/marketing/1nydz7c.md#c2"
     char_span: [4587, 6261]
     sentence_count: 15
     key_terms: [sales, organic, email, shipping, subject, coming, "can't", like]
+    concepts: [sales, organic, email, shipping, subject]
     token_count: 371
   - id: "social-intelligence/reddit-deep/marketing/1nydz7c.md#c3"
-    char_span: [6276, 6638]
+    char_span: [6275, 6637]
     sentence_count: 4
     key_terms: [contrarian, competitive, adamyamada, community, companies, incorrect, institute, linkedin]
+    concepts: [contrarian]
     section: Comments
     token_count: 92
 ---

@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1391]
     sentence_count: 6
     key_terms: [feature, machinelearning, because, production, dashboard, comments, openai, trying]
+    concepts: [feature, machinelearning, because, production, dashboard]
     token_count: 297
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1t4mzm3/production_ai_very_different_from_the_demos_d/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1t4mzm3.md#c1"
     char_span: [1405, 3115]
     sentence_count: 10
     key_terms: [task, decide, architecture, orchestrator, agent, model, challenge, because]
+    concepts: [architecture, orchestrator, decide, agent, model]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/machinelearning/1t4mzm3.md#c2"
     char_span: [3117, 4101]
     sentence_count: 6
     key_terms: [feature, data, workflow, costs, token, usage, api, like]
+    concepts: [feature, workflow, costs, token, usage]
     section: Comments
     token_count: 214
   - id: "social-intelligence/reddit-deep/machinelearning/1t4mzm3.md#c3"
     char_span: [4103, 6083]
     sentence_count: 12
     key_terms: [attribution, requests, emergency, cost, outbound, though, going, term]
+    concepts: [attribution, requests, emergency, outbound, though]
     section: Comments
     token_count: 418
 ---

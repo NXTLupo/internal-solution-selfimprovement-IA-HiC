@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 343]
     sentence_count: 2
     key_terms: [engineeringstudents, comments, robotics, career, key-outside9076, reddit-deep, first-year, specialize]
+    concepts: [engineeringstudents, comments, robotics, career]
     token_count: 90
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sq68lz/robotics_career_advice_firstyear_robotics_student/"}]
 ---
 # [Robotics / Career Advice] First-year robotics student – how to specialize an plan my career?
 

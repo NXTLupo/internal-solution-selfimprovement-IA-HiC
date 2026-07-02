@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 810]
     sentence_count: 5
     key_terms: [gpa, gradadmissions, take, york, admissions, comments, account, schools]
+    concepts: [gradadmissions, admissions, comments, account, schools]
     token_count: 196
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qo32dm/do_grad_schools_take_your_undergrad_university/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qo32dm.md#c1"
-    char_span: [825, 2723]
+    char_span: [824, 2722]
     sentence_count: 5
     key_terms: [applying, research, canada, school, within, "you're", gpa, rejected]
+    concepts: [applying, research, canada, school, within]
     section: Comments
     token_count: 495
 ---

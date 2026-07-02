@@ -19,14 +19,17 @@ content_hash: "fcaae2aa2145f72c"
 relevance_by_goal: {"490684cfa204":30}
 chunks:
   - id: "articles/reddit-deep-r-dropship/cdac812bd3.md#c0"
-    char_span: [0, 1231]
+    char_span: [0, 1230]
     sentence_count: 11
     key_terms: [dropship, comments, private, niche, supplier, message, reddit, seller]
-    token_count: 297
+    concepts: [dropship, comments, private, niche, supplier]
+    token_count: 296
+    sources: [{"n":"Reddit Deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1rw28a3/how_did_you_find_your_supplier/"}]
   - id: "articles/reddit-deep-r-dropship/cdac812bd3.md#c1"
-    char_span: [1233, 2795]
+    char_span: [1232, 2794]
     sentence_count: 12
     key_terms: [directly, dropshipping, "it's", aliexpress, suppliers, wholesale, shipping, sourcing]
+    concepts: [directly, dropshipping, aliexpress, suppliers, wholesale]
     token_count: 361
 ---
 # How did you find your supplier?

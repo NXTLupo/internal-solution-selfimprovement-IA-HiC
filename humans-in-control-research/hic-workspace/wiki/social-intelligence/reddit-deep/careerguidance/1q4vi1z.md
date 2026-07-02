@@ -19,25 +19,35 @@ chunks:
     char_span: [0, 1883]
     sentence_count: 16
     key_terms: [engineering, degree, electrical, "i'm", classes, college, careerguidance, school]
+    concepts: [engineering, electrical, degree, careerguidance, classes]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1q4vi1z.md#c2"]
     token_count: 438
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1q4vi1z/is_it_realistic_for_a_26yo_to_start_school_for_an/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1q4vi1z.md#c1"
     char_span: [1897, 3679]
     sentence_count: 15
     key_terms: [degree, years, few-painting-8096, get, life, probably, masters, advice]
+    concepts: [degree, few-painting-8096, years, probably, masters]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1q4vi1z.md#c3"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/careerguidance/1q4vi1z.md#c2"
     char_span: [3681, 5578]
     sentence_count: 25
     key_terms: [electrical, degree, want, time, start, engineering, work, replaced]
+    concepts: [electrical, degree, engineering, start, replaced]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1q4vi1z.md#c0"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/careerguidance/1q4vi1z.md#c3"
     char_span: [5580, 6272]
     sentence_count: 5
     key_terms: [degree, loans, years, less, bunchitabonita, experience, indentured, outsourced]
+    concepts: [degree, loans, years]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1q4vi1z.md#c1"]
     section: Comments
     token_count: 173
+    sources: [{"n":"guy with a computer science degree and 35 years of experience wondering if he's ","u":""}]
 ---
 # Is it realistic for a 26yo to start school for an engineering degree?
 

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1670]
     sentence_count: 16
     key_terms: ["i'm", switch, support, careerguidance, certifications, background, currently, comments]
+    concepts: [switch, careerguidance, certifications, support, background]
     token_count: 392
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1re89xg/currently_in_a_support_role_want_to_switch/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1re89xg.md#c1"
-    char_span: [1685, 2604]
+    char_span: [1684, 2603]
     sentence_count: 9
     key_terms: [foundation, projects, already, cloud, aws, data, want, long-collar4087]
+    concepts: [foundation, projects, already, cloud]
     section: Comments
     token_count: 174
 ---

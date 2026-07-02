@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1009]
     sentence_count: 9
     key_terms: [cscareerquestions, job, comments, industry, ropefuel, number, reddit, gloomy-pineapple1729]
+    concepts: [cscareerquestions, comments, industry, ropefuel, number]
     token_count: 256
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tka3y4/hopefuel_copefuel_ropefuel_which_one_should_i/"}]
 ---
 # Hopefuel? Copefuel? Ropefuel? Which one should I choose in response to the modern day tech job market?
 

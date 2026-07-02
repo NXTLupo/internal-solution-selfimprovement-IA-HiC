@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1613]
     sentence_count: 11
     key_terms: [edward, jones, vanguard, ira, vtsax, bogleheads, comments, fidelity]
+    concepts: [edward, vanguard, jones, bogleheads, vtsax]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1oolw12.md#c1"]
     token_count: 370
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1oolw12/thinking_of_moving_my_edward_jones_ira_to/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1oolw12.md#c1"
-    char_span: [1628, 3336]
+    char_span: [1627, 3335]
     sentence_count: 12
     key_terms: [international, fund, funds, vanguard, vtiax, vtsax, fidelity, edward]
+    concepts: [international, funds, vanguard, vtiax, vtsax]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1oolw12.md#c0"]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/bogleheads/1oolw12.md#c2"
-    char_span: [3338, 5023]
+    char_span: [3337, 5022]
     sentence_count: 12
     key_terms: [vanguard, transfer, like, money, date, good, everything, questions]
+    concepts: [vanguard, transfer, everything, money, questions]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/bogleheads/1oolw12.md#c3"
-    char_span: [5025, 7056]
+    char_span: [5024, 7055]
     sentence_count: 14
     key_terms: [transfer, remote-minimum-9544, roth, backdoor, options, contributions, traditional, ira]
+    concepts: [transfer, remote-minimum-9544, backdoor, contributions, options]
     section: Comments
     token_count: 504
 ---

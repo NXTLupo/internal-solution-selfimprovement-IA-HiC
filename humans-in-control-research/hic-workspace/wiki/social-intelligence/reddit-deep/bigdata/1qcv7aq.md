@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1179]
     sentence_count: 5
     key_terms: [data, db2, replication, here, databricks, analytics, platforms, bigquery]
+    concepts: [replication, databricks, analytics, platforms, bigquery]
     token_count: 277
+    sources: [{"n":"reddit-deep: r/bigdata","u":"https://www.reddit.com/r/bigdata/comments/1qcv7aq/moving_ibm_db2_data_into_databricks_or_bigquery/"}]
   - id: "social-intelligence/reddit-deep/bigdata/1qcv7aq.md#c1"
-    char_span: [1194, 3376]
+    char_span: [1193, 3375]
     sentence_count: 10
     key_terms: [operational, correctness, teams, emergency-file-952, real, failures, usually, reconciliation]
+    concepts: [operational, correctness, emergency-file-952, teams, failures]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/bigdata/1qcv7aq.md#c2"
-    char_span: [3378, 4477]
+    char_span: [3377, 4476]
     sentence_count: 2
     key_terms: [governance, management, data, recovery, logging, visibility, sensitive, coverage]
+    concepts: [governance, management, recovery, logging, visibility]
     section: Comments
     token_count: 217
 ---

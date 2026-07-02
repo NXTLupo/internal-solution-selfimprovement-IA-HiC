@@ -20,31 +20,38 @@ chunks:
     char_span: [0, 1546]
     sentence_count: 11
     key_terms: [logistics, amazon, week, ltl, comments, trailers, less-than-truckload, agree]
+    concepts: [logistics, amazon, comments, trailers, agree]
     token_count: 364
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1u7iema/catch_up_on_what_happened_this_week_in_logistics/"}]
   - id: "social-intelligence/reddit-deep/logistics/1u7iema.md#c1"
     char_span: [1548, 3888]
     sentence_count: 18
     key_terms: [ltl, "it's", carrier, freight, network, amazon, carriers, terminal]
+    concepts: [carrier, freight, network, amazon, carriers]
     token_count: 506
   - id: "social-intelligence/reddit-deep/logistics/1u7iema.md#c2"
     char_span: [3890, 6225]
     sentence_count: 28
     key_terms: [because, rates, licenses, recovery, drivers, freight, rising, trucks]
+    concepts: [because, rates, licenses, recovery, drivers]
     token_count: 497
   - id: "social-intelligence/reddit-deep/logistics/1u7iema.md#c3"
     char_span: [6227, 8185]
     sentence_count: 16
     key_terms: [company, demand, driver, mexico, trucks, driverless, bottling-plant-to-storage, autonomy]
+    concepts: [company, demand, driver, mexico, trucks]
     token_count: 416
   - id: "social-intelligence/reddit-deep/logistics/1u7iema.md#c4"
     char_span: [8187, 10258]
     sentence_count: 12
     key_terms: [july, cross-border, set, investment, agreement, countries, humanoids, robotics]
+    concepts: [cross-border, investment, agreement, countries, humanoids]
     token_count: 448
   - id: "social-intelligence/reddit-deep/logistics/1u7iema.md#c5"
-    char_span: [10273, 11012]
+    char_span: [10272, 11011]
     sentence_count: 1
     key_terms: [charlesholmes1, amazon, top-carpenter6209, infrastructure, appreciate, completely, eventually, breakdown]
+    concepts: [charlesholmes1, amazon]
     section: Comments
     token_count: 201
 ---

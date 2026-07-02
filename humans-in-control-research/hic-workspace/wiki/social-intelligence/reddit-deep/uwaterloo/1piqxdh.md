@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 2222]
     sentence_count: 10
     key_terms: [work, evaluation, co-op, toxic, overtime, physical, waterlooworks, environment]
+    concepts: [evaluation, co-op, toxic, overtime, physical]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1piqxdh/toxic_coop_experience_in_china/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1piqxdh.md#c1"
     char_span: [2236, 4077]
     sentence_count: 13
     key_terms: [working, xgwang66, expectations, china, issue, keep, ehhthing, advisor]
+    concepts: [working, xgwang66, expectations, china, issue]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1piqxdh.md#c2"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/uwaterloo/1piqxdh.md#c2"
     char_span: [4079, 5559]
     sentence_count: 5
     key_terms: [china, job, like, advisor, working, normal, xgwang66, reached]
+    concepts: [china, advisor, working, normal, xgwang66]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1piqxdh.md#c1"]
     section: Comments
     token_count: 384
 ---

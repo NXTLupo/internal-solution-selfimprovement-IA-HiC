@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1832]
     sentence_count: 18
     key_terms: [job, jobs, people, opportunities, "i'm", did, get, generation]
+    concepts: [people, opportunities, generation, unemployed, employers]
     token_count: 418
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1orzh0c/too_little_jobs_opportunities_for_too_many_people/"}]
   - id: "social-intelligence/reddit-deep/jobs/1orzh0c.md#c1"
     char_span: [1846, 3856]
     sentence_count: 23
     key_terms: [jobs, everything, industries, companies, replaced, entire, specialized, eco]
+    concepts: [everything, industries, companies, replaced, entire]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/jobs/1orzh0c.md#c2"
     char_span: [3858, 5993]
     sentence_count: 20
     key_terms: [people, country, applications, game, jobs, work, population, control]
+    concepts: [people, country, applications, population, control]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/jobs/1orzh0c.md#c3"
     char_span: [5996, 7297]
     sentence_count: 14
     key_terms: [people, somehow, "there's", everywhere, starting, being, waterwaterwaterrr, app]
+    concepts: [people, somehow, "there's", everywhere, starting]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/jobs/1orzh0c.md#c4"
     char_span: [7299, 9008]
     sentence_count: 12
     key_terms: [someone, years, childof1970, job, companies, invest, people, still-sheepherder322]
+    concepts: [someone, childof1970, years, companies, invest]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/jobs/1orzh0c.md#c5"
     char_span: [9010, 10887]
     sentence_count: 15
     key_terms: [companies, because, company, raise, job, recruiter, hopping, loyalty]
+    concepts: [companies, because, company, raise, recruiter]
     section: Comments
     token_count: 454
 ---

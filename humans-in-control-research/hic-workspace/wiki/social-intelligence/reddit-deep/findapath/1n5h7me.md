@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 644]
     sentence_count: 4
     key_terms: [experience, findapath, comments, medicine, science, coding, "isn't", years]
+    concepts: [experience, findapath, comments, medicine, science]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1n5h7me.md#c1"]
     token_count: 174
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1n5h7me/want_a_career_that_makes_decent_money_but_isnt/"}]
   - id: "social-intelligence/reddit-deep/findapath/1n5h7me.md#c1"
     char_span: [658, 2615]
     sentence_count: 14
     key_terms: [thank, helpful, please, experience, findapath, comments, everyone, guidance]
+    concepts: [thank, helpful, please, experience, findapath]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1n5h7me.md#c0"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/findapath/1n5h7me.md#c2"
     char_span: [2617, 4739]
     sentence_count: 22
     key_terms: [degree, want, "don't", find, life, like, time, financial]
+    concepts: [degree, "don't", financial, something, yourself]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/findapath/1n5h7me.md#c3"
     char_span: [4741, 6849]
     sentence_count: 20
     key_terms: [planning, sales, urban, years, noguarantee3961, stability, military, working]
+    concepts: [planning, noguarantee3961, sales, urban, years]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1n5h7me.md#c4"
     char_span: [6555, 6897]
     sentence_count: 6
     key_terms: [stability, going, sales, effectively, especially, beginning, recommend, semblance]
+    concepts: [stability, going, sales]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/findapath/1n5h7me.md#c5"
     char_span: [6902, 8349]
     sentence_count: 12
     key_terms: [parents, life, decisions, military, bodies, combat, force, kinds]
+    concepts: [parents, decisions, military, bodies, combat]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/findapath/1n5h7me.md#c6"
     char_span: [8351, 10350]
     sentence_count: 14
     key_terms: [yourself, parents, sales, art, life, like, college, history]
+    concepts: [yourself, parents, sales, college, history]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/findapath/1n5h7me.md#c7"

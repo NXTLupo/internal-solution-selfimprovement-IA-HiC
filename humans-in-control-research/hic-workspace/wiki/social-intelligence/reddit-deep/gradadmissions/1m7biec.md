@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 252]
     sentence_count: 1
     key_terms: [gradadmissions, comments, reddit-deep, finance, please, posted, reddit, source]
+    concepts: [gradadmissions, comments]
     token_count: 76
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1m7biec/please_roast_my_cv_for_finance/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1m7biec.md#c1"
     char_span: [266, 1008]
     sentence_count: 8
     key_terms: [masters, remove, internships, projects, project, bullet, grades, bulky-strawberry-110]
+    concepts: [masters, remove, internships, projects, project]
     section: Comments
     token_count: 170
 ---

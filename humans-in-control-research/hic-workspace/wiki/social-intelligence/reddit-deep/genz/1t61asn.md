@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 615]
     sentence_count: 5
     key_terms: [comments, money, genz, like, time, reddit-deep, addiction, dopamine]
+    concepts: [comments, money]
     token_count: 161
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1t61asn/how_do_i_stop_spending_all_of_my_money/"}]
   - id: "social-intelligence/reddit-deep/genz/1t61asn.md#c1"
     char_span: [629, 758]
     sentence_count: 1
     key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
+    concepts: [discord]
     section: Comments
     token_count: 41
   - id: "social-intelligence/reddit-deep/genz/1t61asn.md#c2"
     char_span: [761, 2770]
     sentence_count: 11
     key_terms: [account, savings, bills, checking, automatically, pay, year, attractive]
+    concepts: [account, savings, bills, checking, automatically]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1t61asn.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1t61asn.md#c3"
     char_span: [2524, 3867]
     sentence_count: 10
     key_terms: [savings, account, money, homeless, yungskeltal, put, checking, people]
+    concepts: [savings, account, money, homeless, yungskeltal]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1t61asn.md#c2"]
     section: Comments
     token_count: 345
 ---

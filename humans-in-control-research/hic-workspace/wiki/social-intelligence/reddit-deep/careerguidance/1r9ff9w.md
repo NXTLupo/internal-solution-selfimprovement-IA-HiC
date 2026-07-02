@@ -19,59 +19,72 @@ chunks:
     char_span: [0, 1804]
     sentence_count: 20
     key_terms: [decisions, careerguidance, advice, career, people, granddaughter, ask, experience]
+    concepts: [decisions, careerguidance, granddaughter, advice, career]
     token_count: 390
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1r9ff9w/my_granddaughter_said_my_career_advice_is_old/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1r9ff9w.md#c1"
     char_span: [1818, 2929]
     sentence_count: 11
     key_terms: [ask, opinion, advice, woodit, non-confrontational, best, door, give]
+    concepts: [opinion, advice, woodit]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/careerguidance/1r9ff9w.md#c2"
     char_span: [2931, 4969]
     sentence_count: 14
     key_terms: [something, sometimes, advice, learn, tell, everything, already, family]
+    concepts: [something, sometimes, advice, everything, learn]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/careerguidance/1r9ff9w.md#c3"
     char_span: [4974, 6931]
     sentence_count: 15
     key_terms: [understand, ideas, "it's", use, unspoken, stories, pretty, being]
+    concepts: [understand, ideas, unspoken, stories, pretty]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/careerguidance/1r9ff9w.md#c4"
     char_span: [6933, 8357]
     sentence_count: 12
     key_terms: [advice, language, current, apply, changed, company, culture, better]
+    concepts: [advice, language, current, apply, changed]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1r9ff9w.md#c9"]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/careerguidance/1r9ff9w.md#c5"
     char_span: [8359, 9834]
     sentence_count: 10
     key_terms: [chatgpt, pretty, good, far-bodybuilder-6783, mindless-brief-1348, using, greatscottcreates, guy]
+    concepts: [chatgpt, pretty, using]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/careerguidance/1r9ff9w.md#c6"
     char_span: [9836, 11164]
     sentence_count: 8
     key_terms: ["it's", responses, people, governmentopening254, skipintothesweetshop, "don't", right, uniqueusername649]
+    concepts: [responses, people, "don't", right]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/careerguidance/1r9ff9w.md#c7"
     char_span: [11166, 12210]
     sentence_count: 8
     key_terms: [noo-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o--o-o, someone, advice, giving, doesn, takeyouraxeandhack, worldly-talk-7978, "it's"]
+    concepts: [someone, advice, giving, doesn]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/careerguidance/1r9ff9w.md#c8"
     char_span: [12212, 12983]
     sentence_count: 5
     key_terms: [advice, revolutionary-pair-2, noregretceptthatone, greatscottcreates, don, man, argumentative, grandparent]
+    concepts: [advice]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/careerguidance/1r9ff9w.md#c9"
     char_span: [12985, 14481]
     sentence_count: 11
     key_terms: [experience, advice, like, hazwaste, multiple, current, people, exchangestandard6957]
+    concepts: [experience, advice, hazwaste, multiple, current]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1r9ff9w.md#c4"]
     section: Comments
     token_count: 381
 ---

@@ -19,47 +19,60 @@ chunks:
     char_span: [0, 1884]
     sentence_count: 16
     key_terms: [corporate, sometimes, too, people, learn, like, careerguidance, communication]
+    concepts: [corporate, sometimes, people, learn, careerguidance]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c2", "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c3", "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c5"]
     token_count: 426
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tkrucz/i_realized_im_not_made_for_corporate_life_how_do/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c1"
     char_span: [1898, 3231]
     sentence_count: 13
     key_terms: ["let's", working, across, circle, touch, back, base, need]
+    concepts: ["let's", working, across, circle, touch]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c2"
     char_span: [3234, 5373]
     sentence_count: 12
     key_terms: [corporate, perspective, people, makes, important, optimize, further, working]
+    concepts: [corporate, perspective, people, makes, important]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c0", "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c3"
     char_span: [5051, 5869]
     sentence_count: 8
     key_terms: [corporate, lingo, language, better, people, simple, talk, kitchen-law-3674]
+    concepts: [corporate, lingo, language, better, people]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c0", "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c2"]
     section: Comments
     token_count: 168
   - id: "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c4"
     char_span: [5871, 7418]
     sentence_count: 13
     key_terms: [everyone, playing, jargon, people, reason, best, don, like]
+    concepts: [everyone, playing, jargon, people, reason]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c5"
     char_span: [7420, 9329]
     sentence_count: 10
     key_terms: [get, aligned, easier, don, corporate, sometimes, concise, people]
+    concepts: [aligned, easier, corporate, sometimes, concise]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c0"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c6"
     char_span: [9331, 11010]
     sentence_count: 11
     key_terms: [language, company, leave, like, english, looking, behind, cringe]
+    concepts: [language, company, leave, english, looking]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c7"
     char_span: [11012, 12380]
     sentence_count: 12
     key_terms: [use, better, else, work, aligning, getting, coming, jargon]
+    concepts: [better, aligning, getting, coming, jargon]
     section: Comments
     token_count: 349
 ---

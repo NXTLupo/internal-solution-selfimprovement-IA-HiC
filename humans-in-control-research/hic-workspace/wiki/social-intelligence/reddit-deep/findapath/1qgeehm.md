@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1977]
     sentence_count: 4
     key_terms: [limited, retail, interpersonal, years, job, background, associate, difficult]
+    concepts: [interpersonal, limited, retail, background, years]
     token_count: 427
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1qgeehm/help_finding_a_career_path_for_my_66yearold_mom/"}]
   - id: "social-intelligence/reddit-deep/findapath/1qgeehm.md#c1"
-    char_span: [1992, 4131]
+    char_span: [1991, 4130]
     sentence_count: 15
     key_terms: [thank, helpful, please, cafeteria, findapath, insurance, comments, customer]
+    concepts: [thank, helpful, please, cafeteria, findapath]
     section: Comments
     token_count: 458
 ---

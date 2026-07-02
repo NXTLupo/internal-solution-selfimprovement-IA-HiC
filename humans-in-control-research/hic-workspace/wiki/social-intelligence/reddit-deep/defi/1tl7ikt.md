@@ -20,17 +20,24 @@ chunks:
     char_span: [0, 1998]
     sentence_count: 9
     key_terms: [remittance, stablecoin, infrastructure, systems, defi, payment, crypto, interesting]
+    concepts: [infrastructure, remittance, stablecoin, systems, payment]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1tl7ikt.md#c1", "social-intelligence/reddit-deep/defi/1tl7ikt.md#c2"]
     token_count: 389
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1tl7ikt/why_stablecoin_remittance_could_become_defis/"}]
   - id: "social-intelligence/reddit-deep/defi/1tl7ikt.md#c1"
-    char_span: [2013, 4552]
+    char_span: [2012, 4551]
     sentence_count: 16
     key_terms: [remittance, stablecoin, people, compliance, care, support, infrastructure, conversation]
+    concepts: [remittance, stablecoin, compliance, people, infrastructure]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1tl7ikt.md#c0", "social-intelligence/reddit-deep/defi/1tl7ikt.md#c2"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/defi/1tl7ikt.md#c2"
-    char_span: [4554, 6495]
+    char_span: [4553, 6494]
     sentence_count: 13
     key_terms: [infrastructure, calm-professional103, compliance, stablecoin, already, wallet, remittance, payments]
+    concepts: [infrastructure, calm-professional103, compliance, stablecoin, already]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1tl7ikt.md#c0", "social-intelligence/reddit-deep/defi/1tl7ikt.md#c1"]
     section: Comments
     token_count: 422
 ---

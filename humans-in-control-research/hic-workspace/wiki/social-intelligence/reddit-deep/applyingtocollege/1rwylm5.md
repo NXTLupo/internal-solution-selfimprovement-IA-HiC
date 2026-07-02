@@ -21,65 +21,84 @@ chunks:
     char_span: [0, 1532]
     sentence_count: 1
     key_terms: [school, extremely, applyingtocollege, accepted, parents, afford, harvey, mudd]
+    concepts: [applyingtocollege, school, extremely, accepted, parents]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c1"]
     token_count: 348
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rwylm5/accepted_to_dream_school_cant_afford/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c1"
     char_span: [1546, 3560]
     sentence_count: 14
     key_terms: [kid, schools, pay, school, kids, financial, subreddit, accepted]
+    concepts: [schools, school, financial, subreddit, accepted]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c0"]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c2"
     char_span: [3562, 5666]
     sentence_count: 14
     key_terms: [parents, aid, merit, find, get, npc, acceptance, affordable]
+    concepts: [parents, acceptance, affordable, merit, schools]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c6"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c3"
     char_span: [5668, 6489]
     sentence_count: 6
     key_terms: [offer, per, college, better, environmentactive325, like, pay, year]
+    concepts: [offer, college, better]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c4"
     char_span: [6491, 8011]
     sentence_count: 12
     key_terms: [cal, poly, engineering, options, experience, aerospace, college, looking]
+    concepts: [engineering, options, experience, aerospace, college]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c5"
     char_span: [8013, 9921]
     sentence_count: 18
     key_terms: [mudd, excellent, through, degree, engineering, cal, poly, especially]
+    concepts: [excellent, through, degree, engineering, especially]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c6"
     char_span: [9923, 12042]
     sentence_count: 24
     key_terms: [schools, college, unfortunately, good, jobs, kid, affordable, graduate]
+    concepts: [schools, unfortunately, college, affordable, graduate]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c2"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c7"
     char_span: [12044, 13070]
     sentence_count: 13
     key_terms: [college, california, harvey, don, got, let, mudd, preferences]
+    concepts: [college, california, harvey]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c8"]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c8"
     char_span: [13072, 15151]
     sentence_count: 17
     key_terms: [school, harvey, mudd, california, package, claremont, financial, college]
+    concepts: [school, harvey, california, package, claremont]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c7", "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c9"
     char_span: [14876, 16308]
     sentence_count: 13
     key_terms: [school, got, like, money, perfect, talking, harvey, people]
+    concepts: [school, money, perfect, talking, harvey]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c8"]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c10"
     char_span: [16310, 17157]
     sentence_count: 7
     key_terms: [get, work, choices, schools, got, opportunities, therugwarrior, assignments]
+    concepts: [choices, schools]
     section: Comments
     token_count: 192
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 452]
     sentence_count: 2
     key_terms: [philanthropy, wondering, comments, donors, "i'm", reddit-deep, bombarding, first-time]
+    concepts: [philanthropy, wondering, comments, donors]
     token_count: 120
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1q7yqni/whats_your_next_step_after_yearend_camapign/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1q7yqni.md#c1"
-    char_span: [467, 828]
+    char_span: [466, 827]
     sentence_count: 3
     key_terms: [relationship, volunteering, building, opportunities, first-time, jcravens42, financial, volunteer]
+    concepts: [relationship, volunteering, building]
     section: Comments
     token_count: 76
 ---

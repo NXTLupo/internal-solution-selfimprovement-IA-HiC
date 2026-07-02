@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1458]
     sentence_count: 12
     key_terms: [exams, actuarial, cscareerquestions, like, software, actuary, seeking, advice]
+    concepts: [exams, cscareerquestions, actuarial, software, actuary]
     token_count: 347
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1l3yxdm/6_months_unemployed_and_seeking_advice_on_what_to/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/caa117c9ea.md#c1"
     char_span: [1460, 2571]
     sentence_count: 6
     key_terms: [average, masters, new, deleted, grad, job, experience, sometimes]
+    concepts: [average, masters, deleted, experience, sometimes]
     token_count: 267
 ---
 # 6 months unemployed and seeking advice on what to do: Is a career in CS still worth pursuing this day and age?

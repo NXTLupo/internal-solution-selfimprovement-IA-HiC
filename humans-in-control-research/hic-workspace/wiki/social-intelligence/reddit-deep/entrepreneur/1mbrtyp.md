@@ -20,59 +20,70 @@ chunks:
     char_span: [0, 611]
     sentence_count: 3
     key_terms: [marketing, entrepreneur, comments, customer, month, spent, get, expectations]
+    concepts: [marketing, entrepreneur, comments, customer, month]
     token_count: 158
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1mbrtyp/spent_5000_on_marketing_to_get_my_first_17month/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1mbrtyp.md#c1"
-    char_span: [627, 1383]
+    char_span: [626, 1382]
     sentence_count: 5
     key_terms: [product, days, working, since, users, years, form, "i'm"]
+    concepts: [product, working, since, users, years]
     section: Backstory
     token_count: 182
   - id: "social-intelligence/reddit-deep/entrepreneur/1mbrtyp.md#c2"
-    char_span: [1410, 3759]
+    char_span: [1409, 3758]
     sentence_count: 20
     key_terms: [product, authority, domain, free, landing, traffic, backlinks, launch]
+    concepts: [product, authority, domain, landing, traffic]
     section: My Marketing Journey
     token_count: 507
   - id: "social-intelligence/reddit-deep/entrepreneur/1mbrtyp.md#c3"
-    char_span: [3761, 5158]
+    char_span: [3760, 5157]
     sentence_count: 7
     key_terms: [campaigns, keywords, ads, form, countries, launching, marketing, decided]
+    concepts: [campaigns, keywords, countries, launching, marketing]
     section: My Marketing Journey
     token_count: 316
   - id: "social-intelligence/reddit-deep/entrepreneur/1mbrtyp.md#c4"
-    char_span: [5160, 7435]
+    char_span: [5159, 7434]
     sentence_count: 14
     key_terms: [campaigns, google, product, use, "don't", optimize, started, budget]
+    concepts: [campaigns, google, product, optimize, "don't"]
     section: My Marketing Journey
     token_count: 492
   - id: "social-intelligence/reddit-deep/entrepreneur/1mbrtyp.md#c5"
-    char_span: [7437, 9757]
+    char_span: [7436, 9756]
     sentence_count: 21
     key_terms: [ads, campaign, meta, setup, another, product, traffic, proper]
+    concepts: [campaign, setup, understanding, another, product]
     section: My Marketing Journey
     token_count: 503
   - id: "social-intelligence/reddit-deep/entrepreneur/1mbrtyp.md#c6"
-    char_span: [9759, 10297]
+    char_span: [9758, 10296]
     sentence_count: 5
     key_terms: [lsn, "don't", like, use, automations, effectively, advantages, connection]
+    concepts: ["don't"]
     section: My Marketing Journey
     token_count: 122
   - id: "social-intelligence/reddit-deep/entrepreneur/1mbrtyp.md#c7"
-    char_span: [10312, 12124]
+    char_span: [10311, 12123]
     sentence_count: 16
     key_terms: [entrepreneur, please, permanent, promotion, stickied, comment, organic, mentor]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/entrepreneur/1mbrtyp.md#c8"
-    char_span: [12127, 14140]
+    char_span: [12126, 14139]
     sentence_count: 13
     key_terms: [customer, product, influencers, marketplace, ads, like, profitable, affiliate]
+    concepts: [customer, product, influencers, marketplace, profitable]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/entrepreneur/1mbrtyp.md#c9"
-    char_span: [13801, 15178]
+    char_span: [13800, 15177]
     sentence_count: 13
     key_terms: [product, marketing, better, community, content, develop, blogs, media]
+    concepts: [product, marketing, better, community, content]
     section: Comments
     token_count: 307
 ---

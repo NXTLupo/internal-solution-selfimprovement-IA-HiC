@@ -19,40 +19,50 @@ chunks:
     char_span: [0, 2206]
     sentence_count: 12
     key_terms: ["don't", years, generated, cscareerquestions, code, data, new, quality]
+    concepts: [cscareerquestions, generated, "don't", years, quality]
     token_count: 495
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rkwoc4/if_predictions_are_right_and_the_vast_majority_of/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rkwoc4.md#c1"
     char_span: [2208, 2988]
     sentence_count: 5
     key_terms: [experience, coding, enough, people, hours, get, good, like]
+    concepts: [experience, coding, enough, people, hours]
     token_count: 167
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rkwoc4.md#c2"
     char_span: [3002, 4628]
     sentence_count: 9
     key_terms: [code, data, companies, wikipedia, already, "they're", models, primary-walrus-5623]
+    concepts: [companies, wikipedia, already, "they're", models]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rkwoc4.md#c3"]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rkwoc4.md#c3"
     char_span: [4630, 6677]
     sentence_count: 10
     key_terms: [better, get, models, opus, trying, data, good, like]
+    concepts: [better, models, trying, generated, already]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rkwoc4.md#c2"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rkwoc4.md#c4"
     char_span: [6679, 7984]
     sentence_count: 12
     key_terms: [code, better, issues, architecture, good, experience, consider, changes]
+    concepts: [better, architecture, issues, experience, consider]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rkwoc4.md#c5"
     char_span: [7986, 9934]
     sentence_count: 15
     key_terms: [code, training, crap, data, good, because, "that's", works]
+    concepts: [training, because, "that's", works, "doesn't"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rkwoc4.md#c6"
     char_span: [9936, 11912]
     sentence_count: 11
     key_terms: [filtering, data, good, model, training, writing, "it's", difference]
+    concepts: [filtering, model, training, writing, difference]
     section: Comments
     token_count: 441
 ---

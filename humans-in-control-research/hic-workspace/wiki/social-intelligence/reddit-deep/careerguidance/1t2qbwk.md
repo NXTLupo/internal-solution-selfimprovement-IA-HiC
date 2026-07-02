@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 730]
     sentence_count: 6
     key_terms: [careerguidance, job, comments, shake, steps, caregiverextra1170, new, nervousness]
+    concepts: [careerguidance, comments, shake, steps]
     token_count: 188
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t2qbwk/how_do_you_shake_the_under_confidence_out_of_your/"}]
 ---
 # How do you shake the under confidence out of your system and start new or shift completely to a new career in a terrible job market?
 

@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 676]
     sentence_count: 5
     key_terms: [cscareerquestions, comments, getting, reddit-deep, experience, optimistic, recruiters, struggling]
+    concepts: [cscareerquestions, comments, getting]
     token_count: 164
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rfovos/my_experience_with_a_degree_from_a_good_cs_school/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rfovos.md#c1"
     char_span: [690, 2061]
     sentence_count: 4
     key_terms: [big, tech, resume, worse, bro, experience, backend, posters]
+    concepts: [resume, experience, worse, backend, posters]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rfovos.md#c2"
     char_span: [2063, 3907]
     sentence_count: 12
     key_terms: [big, tech, school, connections, top, family, get, like]
+    concepts: [school, connections, family, everybody, country]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rfovos.md#c3"
     char_span: [3909, 5046]
     sentence_count: 5
     key_terms: [assumptions, "i'm", "i've", experience, engineer, brand, here, land]
+    concepts: [assumptions, experience, engineer, brand]
     section: Comments
     token_count: 285
 ---

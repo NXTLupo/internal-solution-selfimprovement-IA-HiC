@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 336]
     sentence_count: 2
     key_terms: [careeradvice, comments, ai-generated, halfdeadlock, reddit-deep, playwright, assigned, learning]
+    concepts: [careeradvice, comments]
     token_count: 97
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1qzhwol/backend_net_dev_6_yrs_assigned_to_aigenerated/"}]
 ---
 # Backend .NET dev (6+ yrs) assigned to AI-generated Playwright + React tests – good learning or career risk?
 

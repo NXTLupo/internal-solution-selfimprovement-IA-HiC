@@ -19,22 +19,31 @@ chunks:
     char_span: [0, 1673]
     sentence_count: 2
     key_terms: [smith, better, especially, applyingtocollege, prestige, somewhat, schools, great]
+    concepts: [smith, especially, applyingtocollege, better, prestige]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sisefp.md#c2"]
     token_count: 381
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sisefp/help_better_prestige_vs_better_fit/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sisefp.md#c1"
     char_span: [1675, 3060]
     sentence_count: 1
     key_terms: [smith, wes, like, myself, school, strong, psych, feel]
+    concepts: [smith, myself, school, strong, psych]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sisefp.md#c2"]
     token_count: 305
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sisefp.md#c2"
     char_span: [3074, 4751]
     sentence_count: 15
     key_terms: [smith, thank, wesleyan, school, pick, prestige, mopijy, trust]
+    concepts: [smith, wesleyan, thank, school, prestige]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sisefp.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1sisefp.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1sisefp.md#c3"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sisefp.md#c3"
     char_span: [4753, 6146]
     sentence_count: 7
     key_terms: [smith, thank, schools, prestigious, top-feeders-phd-programs, people, school, technical-macaron705]
+    concepts: [smith, thank, schools, prestigious, people]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sisefp.md#c2"]
     section: Comments
     token_count: 399
 ---

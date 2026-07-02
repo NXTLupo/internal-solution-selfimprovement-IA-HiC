@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 910]
     sentence_count: 7
     key_terms: [iscte, gradadmissions, international, comments, studies, decide, honest, lisbon]
+    concepts: [iscte, gradadmissions, international, comments, studies]
     token_count: 205
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1sm3sh3/masters_in_developmental_studies/"}]
 ---
 # Master's in developmental studies
 

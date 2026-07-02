@@ -21,53 +21,63 @@ chunks:
     char_span: [0, 1338]
     sentence_count: 8
     key_terms: [gradschool, comments, procrastinating, presentation, paper, get, conference, started]
+    concepts: [gradschool, procrastinating, comments, presentation, conference]
     token_count: 318
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1osovhy/physically_cannot_bring_myself_to_write/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1osovhy.md#c1"
     char_span: [1352, 3497]
     sentence_count: 22
     key_terms: [advice, better, playful-influence894, someone, uncomfortable, psychiatrist, adhd, been]
+    concepts: [playful-influence894, advice, better, uncomfortable, someone]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1osovhy.md#c2"
     char_span: [3200, 3505]
     sentence_count: 3
     key_terms: [severe, suggested, medicate, research, anxiety, someone, writing, action]
+    concepts: [severe]
     section: Comments
     token_count: 66
   - id: "social-intelligence/reddit-deep/gradschool/1osovhy.md#c3"
     char_span: [3507, 4038]
     sentence_count: 5
     key_terms: [write, minutes, comic, sans, scientifically, apparently, jumpstart, sometimes]
+    concepts: [write, minutes, comic]
     section: Comments
     token_count: 120
   - id: "social-intelligence/reddit-deep/gradschool/1osovhy.md#c4"
     char_span: [4040, 6075]
     sentence_count: 10
     key_terms: [procrastination, writing, start, comic, data, like, sans, jesileighs]
+    concepts: [procrastination, writing, start, comic, jesileighs]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/gradschool/1osovhy.md#c5"
     char_span: [6077, 8141]
     sentence_count: 14
     key_terms: [minutes, timer, working, accountability, presentation, set, stop, work]
+    concepts: [minutes, timer, accountability, working, presentation]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/gradschool/1osovhy.md#c6"
     char_span: [8143, 10305]
     sentence_count: 25
     key_terms: [work, like, edit, page, beginning, projects, smaller, through]
+    concepts: [beginning, projects, smaller, through, better]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/gradschool/1osovhy.md#c7"
     char_span: [10307, 12344]
     sentence_count: 13
     key_terms: [paper, practice, slides, write, exhausted, research, prepare, begin]
+    concepts: [paper, practice, slides, exhausted, write]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/gradschool/1osovhy.md#c8"
     char_span: [12346, 13223]
     sentence_count: 10
     key_terms: [get, plan, adderall, break, done, "it's", take, task]
+    concepts: [adderall, break]
     section: Comments
     token_count: 213
 ---

@@ -20,28 +20,37 @@ chunks:
     char_span: [0, 2058]
     sentence_count: 15
     key_terms: [business, cleaning, looking, advice, facilities, microbial, entrepreneur, clean]
+    concepts: [business, cleaning, looking, facilities, advice]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1qpelg9.md#c1"]
     token_count: 473
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1qpelg9/looking_for_advice/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1qpelg9.md#c1"
     char_span: [2060, 3157]
     sentence_count: 12
     key_terms: [facilities, model, business, like, businesses, nothing, service, around]
+    concepts: [facilities, model, business, businesses, nothing]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1qpelg9.md#c0", "social-intelligence/reddit-deep/entrepreneur/1qpelg9.md#c3"]
     token_count: 245
   - id: "social-intelligence/reddit-deep/entrepreneur/1qpelg9.md#c2"
-    char_span: [3172, 4895]
+    char_span: [3171, 4894]
     sentence_count: 10
     key_terms: [entrepreneur, please, permanent, promotion, business, cleaners, stickied, comment]
+    concepts: [entrepreneur, please, permanent, promotion, business]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/entrepreneur/1qpelg9.md#c3"
-    char_span: [4897, 6394]
+    char_span: [4896, 6393]
     sentence_count: 10
     key_terms: [businesses, optimisticbychoice, audit, advantage, business, daycare, service, working]
+    concepts: [optimisticbychoice, businesses, audit, advantage, business]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1qpelg9.md#c1"]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/entrepreneur/1qpelg9.md#c4"
-    char_span: [6396, 7197]
+    char_span: [6395, 7196]
     sentence_count: 10
     key_terms: [thinking, owners, expectations, verification, interesting, in-person, insurance, liability]
+    concepts: [thinking, owners]
     section: Comments
     token_count: 198
 ---

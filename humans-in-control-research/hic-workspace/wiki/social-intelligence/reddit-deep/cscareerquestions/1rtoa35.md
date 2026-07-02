@@ -19,83 +19,102 @@ chunks:
     char_span: [0, 2164]
     sentence_count: 17
     key_terms: [tech, layoffs, eventually, companies, cscareerquestions, keep, infrastructure, leave]
+    concepts: [layoffs, eventually, cscareerquestions, companies, infrastructure]
     token_count: 484
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rtoa35/why_now_is_not_the_time_to_leave_tech/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtoa35.md#c1"
     char_span: [2178, 4025]
     sentence_count: 15
     key_terms: [headwinds, economic, companies, members, project, board, group, like]
+    concepts: [headwinds, economic, companies, members, project]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rtoa35.md#c2"]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtoa35.md#c2"
     char_span: [4027, 5874]
     sentence_count: 8
     key_terms: [ok-leopard-9917, group, companies, replacing, economic, having, infra, power]
+    concepts: [ok-leopard-9917, group, companies, replacing, economic]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rtoa35.md#c1"]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtoa35.md#c3"
     char_span: [5876, 7775]
     sentence_count: 16
     key_terms: ["it's", jobs, right, essentially, need, remember, "that's", inevitable-waltz-889]
+    concepts: [essentially, right, remember, "that's", needs]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtoa35.md#c4"
     char_span: [7777, 8513]
     sentence_count: 5
     key_terms: [tech, want, work, backup, people, bet, farm, job]
+    concepts: [backup, people]
     section: Comments
     token_count: 175
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtoa35.md#c5"
     char_span: [8515, 10253]
     sentence_count: 12
     key_terms: [applications, worse, job, like, work, experience, interviews, recruiters]
+    concepts: [applications, experience, interviews, recruiters, worse]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtoa35.md#c6"
     char_span: [10255, 12161]
     sentence_count: 10
     key_terms: [right, forsookcomparison, zirp, interest, recovery, rates, doom, around]
+    concepts: [forsookcomparison, right, interest, recovery, rates]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtoa35.md#c7"
     char_span: [12163, 14056]
     sentence_count: 9
     key_terms: [practicallyperfcet, because, century, manufacturing, years, meritocracy, got, guy]
+    concepts: [practicallyperfcet, manufacturing, because, century, meritocracy]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtoa35.md#c8"
     char_span: [14058, 15598]
     sentence_count: 14
     key_terms: [work, companies, decision, getting, manager, actual, upbeat-mushroom-2207, pandasareprettycool]
+    concepts: [companies, decision, getting, manager, actual]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtoa35.md#c9"
     char_span: [15600, 17700]
     sentence_count: 15
     key_terms: [engineers, replace, jobs, efficiency, management, plateauing, hirings, improve]
+    concepts: [engineers, replace, efficiency, management, plateauing]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rtoa35.md#c10"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtoa35.md#c10"
     char_span: [17476, 18855]
     sentence_count: 12
     key_terms: [models, look, plateauing, engineers, plateaued, anything, happened, plateau]
+    concepts: [models, plateauing, engineers, plateaued, anything]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rtoa35.md#c9"]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtoa35.md#c11"
     char_span: [18857, 20729]
     sentence_count: 11
     key_terms: [going, engineers, probably, centers, systems, "there's", written, always]
+    concepts: [going, engineers, probably, centers, systems]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtoa35.md#c12"
     char_span: [20731, 22230]
     sentence_count: 11
     key_terms: [people, little, breadfruitnaive6261, the-original-spuggy, gully, learn, point, years]
+    concepts: [people, little, gully, learn, point]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtoa35.md#c13"
     char_span: [22232, 23242]
     sentence_count: 10
     key_terms: [getting, leave, tech, replaced, smaller, people, use, allknowinguser]
+    concepts: [getting, leave, replaced, smaller, people]
     section: Comments
     token_count: 239
 ---

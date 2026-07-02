@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 483]
     sentence_count: 5
     key_terms: [applyingtocollege, application, comments, process, focus, international, reddit-deep, experience]
+    concepts: [applyingtocollege, application, comments, process, focus]
     token_count: 120
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1r9ablq/what_are_the_core_areas_you_need_to_focus_on_in/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r9ablq.md#c1"
     char_span: [497, 2728]
     sentence_count: 13
     key_terms: [international, schools, undergrads, internationals, student, school, acceptance, story]
+    concepts: [international, schools, undergrads, internationals, student]
     section: Comments
     token_count: 509
 ---

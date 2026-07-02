@@ -20,28 +20,34 @@ chunks:
     char_span: [0, 1984]
     sentence_count: 4
     key_terms: [entrepreneur, understand, problem, better, emails, "don't", reply, solve]
+    concepts: [entrepreneur, understand, problem, better, emails]
     token_count: 470
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1tklau9/free_paid_users_wont_reply_emails_its_either_my/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1tklau9.md#c1"
     char_span: [1986, 2618]
     sentence_count: 2
     key_terms: ["i'm", feedback, entrepreneurship, reply-with-email, over-the-moon, critically, interested, depressed]
+    concepts: [feedback]
     token_count: 144
   - id: "social-intelligence/reddit-deep/entrepreneur/1tklau9.md#c2"
-    char_span: [2633, 4566]
+    char_span: [2632, 4565]
     sentence_count: 12
     key_terms: [entrepreneur, please, gas, like, want, complain, station, people]
+    concepts: [entrepreneur, please, complain, station, wambamtimtam]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/entrepreneur/1tklau9.md#c3"
-    char_span: [4568, 6639]
+    char_span: [4567, 6638]
     sentence_count: 23
     key_terms: [feedback, reply, look, question, services, feature, message, problem]
+    concepts: [feedback, reply, question, services, feature]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/entrepreneur/1tklau9.md#c4"
-    char_span: [6643, 8122]
+    char_span: [6642, 8121]
     sentence_count: 13
     key_terms: [call, ask, feedback, offering, product, working, unpaid, did]
+    concepts: [feedback, offering, product, working, unpaid]
     section: Comments
     token_count: 369
 ---

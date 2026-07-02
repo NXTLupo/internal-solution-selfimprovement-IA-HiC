@@ -21,41 +21,53 @@ chunks:
     char_span: [0, 2119]
     sentence_count: 14
     key_terms: [job, master, experience, degree, years, because, parents, careerguidance]
+    concepts: [master, experience, degree, years, careerguidance]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c2"]
     token_count: 471
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pt2q9v/parents_want_me_to_turn_down_a_fulltime_job_to/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c1"
     char_span: [2133, 3880]
     sentence_count: 12
     key_terms: [masters, pay, semester, doing, job, time, experience, company]
+    concepts: [masters, semester, doing, experience, company]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c2", "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c6"]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c2"
     char_span: [3882, 4771]
     sentence_count: 7
     key_terms: [experience, masters, degree, expirence, almost, prestigious-cake3557, get, job]
+    concepts: [experience, masters, degree, expirence, almost]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c0", "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c1"]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c3"
     char_span: [4773, 6826]
     sentence_count: 15
     key_terms: [experience, positions, networking, work, degrees, job, strictlyonerous, masters]
+    concepts: [experience, positions, networking, degrees, strictlyonerous]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c4"
     char_span: [6829, 8899]
     sentence_count: 17
     key_terms: [parents, management, going, blazingnailsmcgee, career, want, absolutely, american]
+    concepts: [parents, management, blazingnailsmcgee, going, career]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c5"
     char_span: [8901, 10443]
     sentence_count: 21
     key_terms: [decisions, better, absolutely, experience, parents, advice, answer, master]
+    concepts: [decisions, better, absolutely, experience, parents]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c6"
     char_span: [10445, 11083]
     sentence_count: 6
     key_terms: [masters, class, job, take, company, taking, back, get]
+    concepts: [masters, class, company, taking]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c1"]
     section: Comments
     token_count: 164
 ---

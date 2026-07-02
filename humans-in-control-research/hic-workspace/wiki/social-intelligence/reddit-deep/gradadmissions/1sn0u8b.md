@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 294]
     sentence_count: 2
     key_terms: [gradadmissions, motivation, comments, letter, reddit-deep, heptadd264, university, assesment]
+    concepts: [gradadmissions, motivation, comments, letter]
     token_count: 83
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1sn0u8b/motivation_letter_assesment/"}]
 ---
 # Motivation Letter assesment
 

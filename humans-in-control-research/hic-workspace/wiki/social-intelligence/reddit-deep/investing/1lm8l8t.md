@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 787]
     sentence_count: 10
     key_terms: [taxes, invest, everything, high-yield, investing, comments, account, "doesn't"]
+    concepts: [taxes, invest, everything, high-yield, investing]
     token_count: 205
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1lm8l8t/what_can_i_invest_in_the_doesnt_involve_me_paying/"}]
   - id: "social-intelligence/reddit-deep/investing/1lm8l8t.md#c1"
     char_span: [801, 1480]
     sentence_count: 3
     key_terms: [lab-gone-wrong, income, understood, brackets, consistentregion6184, never, gain, "i've"]
+    concepts: [lab-gone-wrong, income, understood, brackets, never]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/investing/1lm8l8t.md#c2"
     char_span: [1482, 3010]
     sentence_count: 11
     key_terms: [taxes, pay, people, tax, investment, taxable, income, wealth]
+    concepts: [taxes, people, investment, taxable, income]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/investing/1lm8l8t.md#c3"
     char_span: [3012, 4538]
     sentence_count: 11
     key_terms: [tax, longjumping-ice1171, income, advantage, municipal, albeit, around, yields]
+    concepts: [longjumping-ice1171, income, advantage, municipal, albeit]
     section: Comments
     token_count: 401
 ---

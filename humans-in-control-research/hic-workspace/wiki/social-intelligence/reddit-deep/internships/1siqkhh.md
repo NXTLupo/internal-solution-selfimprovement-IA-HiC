@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1154]
     sentence_count: 7
     key_terms: [internships, experience, asked, environment, internship, currently, interview, technical]
+    concepts: [internships, experience, environment, asked, internship]
     token_count: 261
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1siqkhh/should_i_take_a_lowquality_internship_just_for/"}]
   - id: "social-intelligence/reddit-deep/internships/1siqkhh.md#c1"
     char_span: [1168, 2604]
     sentence_count: 5
     key_terms: ["don't", ropeemotional0910, resume, interesting, traddev26, guidance, honestly, n8jjq1dj]
+    concepts: [ropeemotional0910, "don't", resume, interesting, traddev26]
     section: Comments
     token_count: 380
 ---

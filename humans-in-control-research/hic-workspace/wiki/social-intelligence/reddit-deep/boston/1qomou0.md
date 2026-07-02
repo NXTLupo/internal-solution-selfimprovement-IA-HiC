@@ -20,83 +20,109 @@ chunks:
     char_span: [0, 1509]
     sentence_count: 3
     key_terms: [ice-out-of-everywhere-national-shutdown-massachusetts-protests-dates-locations, boston, ice, https, massachusetts, metrowestdailynews, c945ee7a71fe91c057bcc31e5143e3f7276b869f, e6d8ce8904ae6689e5a3004eda3a5642a4171cee]
+    concepts: [ice-out-of-everywhere-national-shutdown-massachusetts-protests-dates-locations, boston, massachusetts, https, metrowestdailynews]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1qomou0.md#c5", "social-intelligence/reddit-deep/boston/1qomou0.md#c7", "social-intelligence/reddit-deep/boston/1qomou0.md#c12", "social-intelligence/reddit-deep/boston/1qomou0.md#c13"]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/boston","u":"https://www.reddit.com/r/boston/comments/1qomou0/1272613026_ice_sightings_around_boston/"}]
   - id: "social-intelligence/reddit-deep/boston/1qomou0.md#c1"
     char_span: [1511, 3069]
     sentence_count: 3
     key_terms: [ice, january, massachusetts, agents, bellingham, sightings, ave, png]
+    concepts: [january, massachusetts, bellingham, agents, sightings]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1qomou0.md#c7"]
     token_count: 498
   - id: "social-intelligence/reddit-deep/boston/1qomou0.md#c2"
     char_span: [3071, 4657]
     sentence_count: 7
     key_terms: [ice, january, somerville, https, vehicle, reddit, worcester, arrested]
+    concepts: [january, somerville, https, vehicle, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1qomou0.md#c12", "social-intelligence/reddit-deep/boston/1qomou0.md#c13"]
     token_count: 502
   - id: "social-intelligence/reddit-deep/boston/1qomou0.md#c3"
     char_span: [4659, 5371]
     sentence_count: 4
     key_terms: [ice, portland, black, unconfirmed, escalating, changing, tactics, plates]
+    concepts: [portland, unconfirmed, black, escalating, changing]
     token_count: 206
   - id: "social-intelligence/reddit-deep/boston/1qomou0.md#c4"
     char_span: [5373, 7411]
     sentence_count: 7
     key_terms: [organizations, ice, agents, app58ahrwrfctrvog, use, shrhjhxaomeptkbh, trying, https]
+    concepts: [organizations, agents, app58ahrwrfctrvog, shrhjhxaomeptkbh, trying]
     token_count: 511
   - id: "social-intelligence/reddit-deep/boston/1qomou0.md#c5"
     char_span: [7413, 9265]
     sentence_count: 6
     key_terms: [whistles, ice, https, awesome, boston, distributed, community, subreddit]
+    concepts: [whistles, https, awesome, boston, distributed]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1qomou0.md#c0", "social-intelligence/reddit-deep/boston/1qomou0.md#c12", "social-intelligence/reddit-deep/boston/1qomou0.md#c13"]
     token_count: 491
   - id: "social-intelligence/reddit-deep/boston/1qomou0.md#c6"
     char_span: [9267, 10490]
     sentence_count: 2
     key_terms: [preview, format, https, width, auto, jpg, pjpg, redd]
+    concepts: [preview, format, https, width, report]
     token_count: 438
   - id: "social-intelligence/reddit-deep/boston/1qomou0.md#c7"
-    char_span: [10505, 11560]
+    char_span: [10504, 11559]
     sentence_count: 3
     key_terms: [boston, massachusetts, protest, january, melrose, indivisible, ice, via]
+    concepts: [boston, massachusetts, protest, january, melrose]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1qomou0.md#c0", "social-intelligence/reddit-deep/boston/1qomou0.md#c1", "social-intelligence/reddit-deep/boston/1qomou0.md#c12"]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/boston/1qomou0.md#c8"
-    char_span: [11562, 12341]
+    char_span: [11561, 12340]
     sentence_count: 1
     key_terms: [brookline, protest, street, ice, cochituate, saturdays, saturday, harvard]
+    concepts: [brookline, protest, street, cochituate, saturdays]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/boston/1qomou0.md#c9"
-    char_span: [12343, 14597]
+    char_span: [12342, 14596]
     sentence_count: 9
     key_terms: [number, facility, contact, deleted, please, local, need, immigrants]
+    concepts: [number, facility, contact, deleted, please]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1qomou0.md#c10"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/boston/1qomou0.md#c10"
-    char_span: [14315, 15727]
+    char_span: [14314, 15726]
     sentence_count: 8
     key_terms: [bulanlsahdcfdxhi, number, https, cxktbqbugia, luce-massachusetts-whistle, deleted, people, honest-caregiver8938]
+    concepts: [bulanlsahdcfdxhi, number, cxktbqbugia, https, deleted]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1qomou0.md#c9"]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/boston/1qomou0.md#c11"
-    char_span: [15730, 16468]
+    char_span: [15729, 16467]
     sentence_count: 5
     key_terms: [drive, nbkelley, google, https, folders, number, honest-caregiver8938, remix]
+    concepts: [drive, nbkelley, google, https, folders]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/boston/1qomou0.md#c12"
-    char_span: [16473, 17905]
+    char_span: [16472, 17904]
     sentence_count: 5
     key_terms: [honest-caregiver8938, ice, cebb56c4343fb10859f7f4ac230c9056bc3aeca9, https, comments, january, boston, natick]
+    concepts: [honest-caregiver8938, https, comments, january, boston]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1qomou0.md#c0", "social-intelligence/reddit-deep/boston/1qomou0.md#c2", "social-intelligence/reddit-deep/boston/1qomou0.md#c5", "social-intelligence/reddit-deep/boston/1qomou0.md#c7", "social-intelligence/reddit-deep/boston/1qomou0.md#c13"]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/boston/1qomou0.md#c13"
-    char_span: [17907, 19193]
+    char_span: [17906, 19192]
     sentence_count: 5
     key_terms: [comments, reddit, https, boston, com, www, maine, ice]
+    concepts: [comments, reddit, https, boston, maine]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1qomou0.md#c0", "social-intelligence/reddit-deep/boston/1qomou0.md#c2", "social-intelligence/reddit-deep/boston/1qomou0.md#c5", "social-intelligence/reddit-deep/boston/1qomou0.md#c12", "social-intelligence/reddit-deep/boston/1qomou0.md#c14"]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/boston/1qomou0.md#c14"
-    char_span: [19195, 20207]
+    char_span: [19194, 20206]
     sentence_count: 3
     key_terms: [honest-caregiver8938, comments, animals, stuffed, boston, reddit, https, car]
+    concepts: [honest-caregiver8938, comments, animals, stuffed, boston]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1qomou0.md#c12", "social-intelligence/reddit-deep/boston/1qomou0.md#c13"]
     section: Comments
     token_count: 298
 ---

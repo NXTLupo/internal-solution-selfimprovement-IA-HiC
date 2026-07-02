@@ -21,89 +21,109 @@ chunks:
     char_span: [0, 2044]
     sentence_count: 22
     key_terms: [jobs, market, point, years, cscareerquestions, job, "hasn't", worse]
+    concepts: [market, cscareerquestions, point, years, "hasn't"]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c7", "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c12"]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ncpim0/its_been_almost_4_years_of_horrible_job_market_at/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c1"
     char_span: [2058, 3989]
     sentence_count: 17
     key_terms: [market, coming, back, get, lol, completely, industries, pre-covid]
+    concepts: [market, coming, completely, industries, pre-covid]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c2"
     char_span: [3991, 5761]
     sentence_count: 23
     key_terms: [market, industry, boom, "it's", new, anything, remember, dot-com]
+    concepts: [market, industry, anything, remember, dot-com]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c3"
     char_span: [5763, 7541]
     sentence_count: 13
     key_terms: [market, like, new, experience, understand, cyclical, company, always]
+    concepts: [market, experience, understand, cyclical, company]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c4"
     char_span: [7544, 9243]
     sentence_count: 11
     key_terms: [people, get, terrible, outlook, "wasn't", groceryremarkable272, early-surround7413, watergoesdownhill]
+    concepts: [people, terrible, outlook, "wasn't"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c5"
     char_span: [9245, 10873]
     sentence_count: 10
     key_terms: [years, hiring, months, amazon, whatssenguntoagoblin, odd-government8896, laid, sub]
+    concepts: [years, hiring, months, amazon]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c6"
     char_span: [10876, 12623]
     sentence_count: 11
     key_terms: [summer, internship, fall, offer, internships, like, went, multiple]
+    concepts: [internship, summer, internships, offer, multiple]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c7"
     char_span: [12625, 14787]
     sentence_count: 17
     key_terms: [years, been, "it's", interest, started, market, pretty, going]
+    concepts: [years, interest, started, market, pretty]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c8", "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c12"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c8"
     char_span: [14789, 16089]
     sentence_count: 6
     key_terms: [layoffs, started, years, coffeesippingbastard, awesomeoverwhelming, field, money, "we're"]
+    concepts: [layoffs, started, years, field, money]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c7"]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c9"
     char_span: [16091, 16702]
     sentence_count: 6
     key_terms: [cyclical, illustrious-pound266, occasionalgoodtakes, early-surround7413, double-whammy, manufacturing, fundamental, recession]
+    concepts: [cyclical]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c10"
     char_span: [16704, 18646]
     sentence_count: 10
     key_terms: [coffeesippingbastard, hoping, retail, "that's", manufacturing, good, job, assumption]
+    concepts: [coffeesippingbastard, manufacturing, hoping, retail, "that's"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c11"
     char_span: [18648, 20791]
     sentence_count: 15
     key_terms: [companies, labor, immigration, whoppermaltmilkballs, foreign, problem, hiring, "it's"]
+    concepts: [companies, labor, whoppermaltmilkballs, immigration, foreign]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c12"
     char_span: [20793, 21762]
     sentence_count: 9
     key_terms: [started, market, stands, point, legitimate-mostlet, down, kind, like]
+    concepts: [started, market, stands, point]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c7"]
     section: Comments
     token_count: 250
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c13"
     char_span: [21764, 23082]
     sentence_count: 8
     key_terms: [cycle, everything, economic, probably, ukrokit2, because, deleted, managed]
+    concepts: [cycle, everything, economic, probably, ukrokit2]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c14"
     char_span: [23084, 24942]
     sentence_count: 11
     key_terms: [carelesspackage1982, "it's", people, been, own, candidates, companies, qualified]
+    concepts: [carelesspackage1982, people, candidates, companies, qualified]
     section: Comments
     token_count: 450
 ---

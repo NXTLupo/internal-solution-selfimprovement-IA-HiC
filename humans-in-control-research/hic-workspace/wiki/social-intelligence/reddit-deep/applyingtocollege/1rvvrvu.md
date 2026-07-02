@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1934]
     sentence_count: 3
     key_terms: [sophomore, applyingtocollege, year, college, program, questbridge, comments, scholars]
+    concepts: [applyingtocollege, sophomore, college, program, questbridge]
     token_count: 471
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rvvrvu/should_i_apply_to_questbridge_college_prep/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rvvrvu.md#c1"
     char_span: [1936, 2256]
     sentence_count: 4
     key_terms: [year, junior, coursework, confident, strongest, concerns, algebra, biggest]
+    concepts: [junior]
     token_count: 84
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rvvrvu.md#c2"
     char_span: [2270, 2832]
     sentence_count: 7
     key_terms: [competitive, questbridge, optional, applied, rare-frosting-3514, got, sat, test]
+    concepts: [competitive, questbridge, optional, applied]
     section: Comments
     token_count: 142
 ---

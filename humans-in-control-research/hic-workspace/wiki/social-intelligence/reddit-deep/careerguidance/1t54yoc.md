@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 825]
     sentence_count: 8
     key_terms: [careerguidance, feel, consuming, comments, passion, career, paying, groundbreakingsky791]
+    concepts: [careerguidance, consuming, comments, passion, career]
     token_count: 212
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t54yoc/career_path_advice/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t54yoc.md#c1"
     char_span: [839, 2438]
     sentence_count: 12
     key_terms: [people, psychology, marketing, "you're", work, creativity, interest, research]
+    concepts: [psychology, people, marketing, "you're", creativity]
     section: Comments
     token_count: 320
 ---

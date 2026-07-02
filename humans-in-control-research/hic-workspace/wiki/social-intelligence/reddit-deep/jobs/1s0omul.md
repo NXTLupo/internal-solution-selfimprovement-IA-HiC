@@ -21,41 +21,52 @@ chunks:
     char_span: [0, 673]
     sentence_count: 9
     key_terms: [get, job, jobs, comments, simple, conversationempty301, "can't", "don't"]
+    concepts: [comments, simple, "can't", "don't"]
     token_count: 167
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1s0omul/cant_get_any_sort_of_job/"}]
   - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c1"
     char_span: [687, 2641]
     sentence_count: 11
     key_terms: [exotic-cod4011, experience, like, marriott, hotels, been, got, job]
+    concepts: [exotic-cod4011, experience, marriott, hotels, corporate]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c2"
     char_span: [2643, 4749]
     sentence_count: 15
     key_terms: [someone, desk, role, position, manager, "they're", hiring, people]
+    concepts: [someone, position, manager, "they're", hiring]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c3"
     char_span: [4751, 6623]
     sentence_count: 12
     key_terms: [worked, job, better, advertising, work, industry, internet, because]
+    concepts: [worked, better, advertising, industry, internet]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c4"
     char_span: [6625, 7493]
     sentence_count: 11
     key_terms: [job, experience, probably, people, conversationempty301, thewhiterosequeen, show, overqualified]
+    concepts: [experience, probably, people]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1s0omul.md#c6"]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c5"
     char_span: [7495, 9503]
     sentence_count: 16
     key_terms: [looking, experience, job, years, mysterious-job-5252, front, hotel, someone]
+    concepts: [looking, experience, years, mysterious-job-5252, front]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1s0omul.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c6"
     char_span: [9224, 10758]
     sentence_count: 13
     key_terms: [experience, people, front, application, get, assistant, interview, training]
+    concepts: [experience, people, application, front, assistant]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1s0omul.md#c4", "social-intelligence/reddit-deep/jobs/1s0omul.md#c5"]
     section: Comments
     token_count: 335
 ---

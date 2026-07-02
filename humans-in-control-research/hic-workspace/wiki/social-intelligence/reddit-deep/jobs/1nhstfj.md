@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 601]
     sentence_count: 4
     key_terms: [development, "i'm", job, management, knowledge, actively, comments, learning]
+    concepts: [development, management, knowledge, actively, comments]
     token_count: 145
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1nhstfj/job_into_learning_and_development_or_knowledge/"}]
 ---
 # Job into Learning and Development or Knowledge Management
 

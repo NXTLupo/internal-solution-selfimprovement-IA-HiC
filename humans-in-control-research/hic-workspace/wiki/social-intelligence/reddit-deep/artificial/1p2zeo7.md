@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 280]
     sentence_count: 2
     key_terms: [artificial, comments, image, captain-price, reddit-deep, determine, generated, whether]
+    concepts: [artificial, comments, image]
     token_count: 77
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1p2zeo7/gemini_can_determine_whether_an_image_was/"}]
   - id: "social-intelligence/reddit-deep/artificial/1p2zeo7.md#c1"
     char_span: [294, 842]
     sentence_count: 3
     key_terms: [generated, detect, content, google, images, itself, picklecomet9, amphiitrion]
+    concepts: [generated, detect, content, google, images]
     section: Comments
     token_count: 128
 ---

@@ -20,34 +20,43 @@ chunks:
     char_span: [0, 2276]
     sentence_count: 28
     key_terms: [salesforce, integrations, build, cost, per, saas, team, breakdown]
+    concepts: [salesforce, integrations, build, breakdown, companies]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1tkmgtx/ycs_jared_friedman_says_salesforce_is_attackable/"}]
   - id: "social-intelligence/reddit-deep/saas/1tkmgtx.md#c1"
     char_span: [2280, 2587]
     sentence_count: 3
     key_terms: [worth, opportunity, enterprise, mid-market, companies, discussed, surprised, switching]
+    concepts: [worth]
     token_count: 68
   - id: "social-intelligence/reddit-deep/saas/1tkmgtx.md#c2"
-    char_span: [2602, 4619]
+    char_span: [2601, 4618]
     sentence_count: 9
     key_terms: [get, salesforce, fields, enterprises, able, breaking, customer, jcdc-flo]
+    concepts: [salesforce, fields, enterprises, breaking, customer]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/saas/1tkmgtx.md#c3"
-    char_span: [4621, 6848]
+    char_span: [4620, 6847]
     sentence_count: 10
     key_terms: [want, integration, custom, based, data, etc, support, fields]
+    concepts: [integration, custom, based, support, fields]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/saas/1tkmgtx.md#c4"
-    char_span: [6850, 8414]
+    char_span: [6849, 8413]
     sentence_count: 14
     key_terms: [salesforce, sales, development, need, technology, startups, already, solving]
+    concepts: [salesforce, sales, development, technology, startups]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1tkmgtx.md#c5"]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/saas/1tkmgtx.md#c5"
-    char_span: [8416, 10091]
+    char_span: [8415, 10090]
     sentence_count: 4
     key_terms: [salesforce, already, custom, sales, small, business, database, research]
+    concepts: [salesforce, already, custom, sales, small]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1tkmgtx.md#c4"]
     section: Comments
     token_count: 394
 ---

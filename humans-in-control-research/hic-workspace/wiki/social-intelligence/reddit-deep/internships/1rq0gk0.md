@@ -19,16 +19,19 @@ chunks:
     char_span: [0, 2070]
     sentence_count: 9
     key_terms: [automated, internships, full-stack, pipeline, backend, docker, cloud, using]
+    concepts: [automated, internships, full-stack, pipeline, backend]
     token_count: 448
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rq0gk0/guys_im_available_for_internships_thanks/"}]
   - id: "social-intelligence/reddit-deep/internships/1rq0gk0.md#c1"
     char_span: [2072, 2375]
     sentence_count: 1
     key_terms: [javascript, postgresql, typescript, websockets, databases, framework, languages, firebase]
     token_count: 88
   - id: "social-intelligence/reddit-deep/internships/1rq0gk0.md#c2"
-    char_span: [2390, 3633]
+    char_span: [2389, 3632]
     sentence_count: 5
     key_terms: [i-invincible, thanks, giphy, patient-buddy3697, gif, available, single, additionalbother3384]
+    concepts: [i-invincible, patient-buddy3697, thanks, giphy, available]
     section: Comments
     token_count: 499
 ---

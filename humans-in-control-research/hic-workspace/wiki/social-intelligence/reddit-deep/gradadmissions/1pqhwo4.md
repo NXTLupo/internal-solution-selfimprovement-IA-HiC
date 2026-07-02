@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 312]
     sentence_count: 2
     key_terms: [gradadmissions, comments, help, sop, assetofstoic, reddit-deep, welcomed, advices]
+    concepts: [gradadmissions, comments]
     token_count: 88
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1pqhwo4/help_me_with_ms_finance_sop/"}]
 ---
 # Help me with Ms finance SOP
 

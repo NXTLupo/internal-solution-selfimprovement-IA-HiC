@@ -20,35 +20,44 @@ chunks:
     char_span: [0, 1492]
     sentence_count: 11
     key_terms: [businessintelligence, recommendations, hubspot, person, data, reporting, comments, external]
+    concepts: [businessintelligence, recommendations, hubspot, person, reporting]
     token_count: 320
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1le8ytz/bi_tool_recommendations_for_a_40_person_startup/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1le8ytz.md#c1"
-    char_span: [1507, 3494]
+    char_span: [1506, 3493]
     sentence_count: 17
     key_terms: [data, database, project, cloud, operational, etl, team, developers]
+    concepts: [database, project, operational, cloud, developers]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/businessintelligence/1le8ytz.md#c2"
-    char_span: [3496, 5645]
+    char_span: [3495, 5644]
     sentence_count: 11
     key_terms: [data, warehouse, layer, technical, because, choice, either, quick]
+    concepts: [warehouse, layer, technical, because, choice]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/businessintelligence/1le8ytz.md#c3"
-    char_span: [5648, 7534]
+    char_span: [5647, 7533]
     sentence_count: 17
     key_terms: [data, business, aspirationsunbound, snowflake, warehouse, warehousing, does, need]
+    concepts: [business, aspirationsunbound, snowflake, warehouse, warehousing]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1le8ytz.md#c4"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/businessintelligence/1le8ytz.md#c4"
-    char_span: [7536, 9149]
+    char_span: [7535, 9148]
     sentence_count: 11
     key_terms: [snowflake, warehouse, data, using, domo, sql, complexity, fivetran]
+    concepts: [snowflake, warehouse, complexity, using, fivetran]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1le8ytz.md#c3"]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/businessintelligence/1le8ytz.md#c5"
-    char_span: [9151, 10434]
+    char_span: [9150, 10433]
     sentence_count: 12
     key_terms: [visualization, tableau, capabilities, engineering, domo, need, metabase, sqlmesh]
+    concepts: [visualization, tableau, capabilities, engineering, metabase]
     section: Comments
     token_count: 286
 ---

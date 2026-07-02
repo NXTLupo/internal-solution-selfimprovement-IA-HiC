@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1694]
     sentence_count: 10
     key_terms: [chemical, year, engineeringstudents, engineering, successful, currently, comments, engineer]
+    concepts: [chemical, engineeringstudents, engineering, successful, currently]
     token_count: 393
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1ns96zy/3rd_year_chemical_engineering_student_seeking/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ns96zy.md#c1"
     char_span: [1708, 2704]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    concepts: [engineeringstudents, please, reddit, https, automoderator]
     section: Comments
     token_count: 224
 ---

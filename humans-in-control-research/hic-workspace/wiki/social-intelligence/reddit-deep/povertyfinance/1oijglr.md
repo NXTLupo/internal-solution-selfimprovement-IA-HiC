@@ -21,53 +21,68 @@ chunks:
     char_span: [0, 1433]
     sentence_count: 11
     key_terms: [year, poor, povertyfinance, income, girlfriend, comments, dollars, around]
+    concepts: [povertyfinance, income, girlfriend, comments, dollars]
     token_count: 386
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1oijglr/i_find_it_strange_how_many_people_who_grew_up/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c1"
     char_span: [1447, 3415]
     sentence_count: 16
     key_terms: [money, "i'm", opposite, people, spend, good, something, poverty]
+    concepts: [money, opposite, people, spend, something]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c3", "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c4", "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c5"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c2"
     char_span: [3417, 5513]
     sentence_count: 9
     key_terms: [money, house, lottery, going, buy, poor, meatloaf, mortgage]
+    concepts: [money, house, lottery, going, meatloaf]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c3"
     char_span: [5515, 7092]
     sentence_count: 14
     key_terms: [money, women, judged, spend, clothing, mindset, enjoy, going]
+    concepts: [money, women, judged, spend, clothing]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c1", "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c5"]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c4"
     char_span: [7094, 8391]
     sentence_count: 8
     key_terms: [people, something, feel, save, learning, professorghost-x, budget, essential]
+    concepts: [people, professorghost-x, something, learning, budget]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c1"]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c5"
     char_span: [8393, 10434]
     sentence_count: 17
     key_terms: [spend, money, professorghost-x, because, anything, poverty, "it's", time]
+    concepts: [spend, money, professorghost-x, because, anything]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c1", "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c3", "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c7"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c6"
     char_span: [10436, 12568]
     sentence_count: 15
     key_terms: [money, like, having, currency, housing, income, people, saving]
+    concepts: [money, having, currency, housing, income]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c7"
     char_span: [12570, 14058]
     sentence_count: 9
     key_terms: [money, time, girlfriend, anything, being, never, justanotherday1977, onions-make-me-cry]
+    concepts: [money, girlfriend, anything, being, never]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c5"]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c8"
     char_span: [14060, 14725]
     sentence_count: 4
     key_terms: [money, marriage, account, dating, person, "you're", house, turquoisestar]
+    concepts: [money, marriage, account, dating, person]
     section: Comments
     token_count: 154
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1175]
     sentence_count: 8
     key_terms: [novaheadshot, models, deeplearning, professional, https, specialized, com, www]
+    concepts: [novaheadshot, deeplearning, professional, models, specialized]
     token_count: 238
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1rssp6y/why_do_specialized_ai_portrait_systems_outperform/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1rssp6y.md#c1"
     char_span: [1189, 2118]
     sentence_count: 1
     key_terms: [reddit, https, com, www, entrepreneurs, headshots, artificialntelligence, chatgptpromptgenius]
+    concepts: [reddit, https, entrepreneurs, headshots]
     section: Comments
     token_count: 288
 ---

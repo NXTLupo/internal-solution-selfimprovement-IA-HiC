@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2392]
     sentence_count: 16
     key_terms: [college, people, trade, tradesmen, skilled, careerguidance, degree, trades]
+    concepts: [college, people, tradesmen, trade, careerguidance]
     token_count: 502
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1thvdbp/skilled_trades_vs_college_what_is_your_opinion/"}]
   - id: "articles/reddit-deep-r-careerguidance/1ecb5ac5d6.md#c1"
     char_span: [2394, 4154]
     sentence_count: 12
     key_terms: [company, people, trades, human, point, jmclondon97, need, guaranteed]
+    concepts: [company, people, trades, jmclondon97, guaranteed]
     token_count: 409
 ---
 # Skilled trades vs college. What is your opinion?

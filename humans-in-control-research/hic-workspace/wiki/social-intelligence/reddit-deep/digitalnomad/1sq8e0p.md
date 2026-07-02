@@ -21,28 +21,36 @@ chunks:
     char_span: [0, 2277]
     sentence_count: 19
     key_terms: [upwork, nomads, multiple, account, country, digitalnomad, partnership, permanently]
+    concepts: [upwork, nomads, multiple, account, country]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md#c1"]
     token_count: 480
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1sq8e0p/upworks_march_2026_partnership_with_incognia_is/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md#c1"
     char_span: [2281, 3706]
     sentence_count: 17
     key_terms: [country, upwork, registered, complaint, platform, reversed, account, clients]
+    concepts: [country, upwork, registered, complaint, platform]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md#c0"]
     token_count: 291
   - id: "social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md#c2"
     char_span: [3720, 5667]
     sentence_count: 15
     key_terms: [i-earned-447k-on-upwork-with-a-perfect-record-their-ai-system-permanently-banned-me-619cf9b2007a, upwork, get, clients, belikenative, lipmichal, situation, becomes]
+    concepts: [i-earned-447k-on-upwork-with-a-perfect-record-their-ai-system-permanently-banned-me-619cf9b2007a, upwork, clients, belikenative, lipmichal]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md#c3"
     char_span: [5669, 7169]
     sentence_count: 15
     key_terms: [back, transactions, upwork, improper, satisfactionextra911, nomad, get, work]
+    concepts: [transactions, upwork, improper, nomad]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md#c4"
     char_span: [7171, 9032]
     sentence_count: 9
     key_terms: [com, deel, platform, banned, demonazraeli, swiftfoxtrot, verification, freelancers]
+    concepts: [platform, demonazraeli, swiftfoxtrot, verification, banned]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md#c5"

@@ -18,23 +18,28 @@ chunks:
     char_span: [0, 541]
     sentence_count: 3
     key_terms: [alphaevolve, machinelearning, implementation, "deepmind's", openevolve, reddit, source, system]
+    concepts: [alphaevolve, machinelearning, implementation, "deepmind's", openevolve]
     token_count: 125
+    sources: [{"n":"Reddit Deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1kr9w8l/p_openevolve_open_source_implementation_of/"}]
   - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c1"
     char_span: [566, 1143]
     sentence_count: 3
     key_terms: [programs, using, program, code, llms, modifications, context-rich, continuously]
+    concepts: [programs, using, program]
     section: What is OpenEvolve?
     token_count: 111
   - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c2"
     char_span: [1172, 1522]
     sentence_count: 1
     key_terms: [gemini-flash-2, works, openai-compatible, multi-objective, checkpointing, optimization, distributed, engineering]
+    concepts: [gemini-flash-2, works]
     section: What makes it special?
     token_count: 84
   - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c3"
     char_span: [1565, 2267]
     sentence_count: 3
     key_terms: [optimization, evolved, arrangements, mathematical, minimization, successfully, alphaevolve, constrained]
+    concepts: [optimization, evolved]
     section: "We replicated AlphaEvolve's results!"
     token_count: 131
   - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c4"
@@ -47,12 +52,14 @@ chunks:
     char_span: [2633, 4752]
     sentence_count: 10
     key_terms: [openevolve, github, codelion, https, examples, com, packing, optimization]
+    concepts: [openevolve, github, codelion, https, examples]
     section: "Try it yourself!"
     token_count: 503
   - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c6"
     char_span: [4754, 5898]
     sentence_count: 9
     key_terms: [crossover, traditional, evaluation, operators, mutation, project, never, own]
+    concepts: [crossover, traditional, evaluation, operators, mutation]
     section: "Try it yourself!"
     token_count: 229
 ---

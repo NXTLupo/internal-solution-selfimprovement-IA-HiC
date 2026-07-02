@@ -21,53 +21,69 @@ chunks:
     char_span: [0, 2066]
     sentence_count: 17
     key_terms: [like, credit, money, people, financially, been, flex, comments]
+    concepts: [credit, money, people, financially, comments]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1noeb6p.md#c5"]
     token_count: 477
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1noeb6p/gen_z_flex_culture_is_ruining_us_financially/"}]
   - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c1"
     char_span: [2080, 4007]
     sentence_count: 7
     key_terms: [people, cars, month, debt, lifestyle, cheapest, deleted, discord]
+    concepts: [people, month, lifestyle, cheapest, deleted]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c2"
     char_span: [4017, 6533]
     sentence_count: 15
     key_terms: [consumption, status, marx, capitalism, social, production, sake, someone]
+    concepts: [consumption, status, capitalism, production, social]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1noeb6p.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c3"
     char_span: [6149, 6587]
     sentence_count: 3
     key_terms: [consumption, capitalism, critique, marx, authoritarian, explanatory, governments, prescribing]
+    concepts: [consumption, capitalism, critique]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1noeb6p.md#c2"]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c4"
     char_span: [6589, 7479]
     sentence_count: 5
     key_terms: [someone, propaganda, communism, communist, parroting, economic, spectrum, system]
+    concepts: [someone, propaganda, communism, communist, parroting]
     section: Comments
     token_count: 205
   - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c5"
     char_span: [7481, 9510]
     sentence_count: 16
     key_terms: [like, gen, income, people, money, capitalism, successful, investing]
+    concepts: [income, people, capitalism, money, successful]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1noeb6p.md#c0", "social-intelligence/reddit-deep/genz/1noeb6p.md#c7", "social-intelligence/reddit-deep/genz/1noeb6p.md#c8"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c6"
     char_span: [9512, 11408]
     sentence_count: 14
     key_terms: [chocolate, bar, picture, people, "it's", talking, point, whole]
+    concepts: [chocolate, picture, people, talking, overpriced]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c7"
     char_span: [11410, 13294]
     sentence_count: 15
     key_terms: ["don't", people, instagram, anything, rich, successful, afford, couldn]
+    concepts: ["don't", instagram, people, anything, successful]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1noeb6p.md#c5"]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c8"
     char_span: [13296, 14859]
     sentence_count: 10
     key_terms: [people, income, sustainable, thinking, because, certain, feeling, thought]
+    concepts: [people, income, sustainable, thinking, because]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1noeb6p.md#c5"]
     section: Comments
     token_count: 336
 ---

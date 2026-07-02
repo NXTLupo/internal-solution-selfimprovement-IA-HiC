@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 1942]
     sentence_count: 10
     key_terms: [anycubic, months, ticket, cover, failures, customerservice, melting, printer]
+    concepts: [anycubic, months, ticket, cover, customerservice]
     token_count: 483
+    sources: [{"n":"reddit-deep: r/customerservice","u":"https://www.reddit.com/r/CustomerService/comments/1ogqrob/very_disappointed_with_anycubic_support_5/"}]
   - id: "social-intelligence/reddit-deep/customerservice/1ogqrob.md#c1"
     char_span: [1944, 2501]
     sentence_count: 4
     key_terms: [support, experiences, anycubic, like, appreciated, instability, suggestions, assistance]
+    concepts: [support, experiences, anycubic]
     token_count: 111
   - id: "social-intelligence/reddit-deep/customerservice/1ogqrob.md#c2"
-    char_span: [2516, 3471]
+    char_span: [2515, 3470]
     sentence_count: 7
     key_terms: [warranty, melting, cover, time, hairy-guide6497, acknowledge, frustration, ladyhavoc97]
+    concepts: [warranty, melting, cover]
     section: Comments
     token_count: 233
 ---

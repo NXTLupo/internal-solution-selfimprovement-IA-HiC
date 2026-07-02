@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 233]
     sentence_count: 2
     key_terms: [comments, genz, reddit-deep, soalone34, issues, posted, reddit, source]
+    concepts: [comments]
     token_count: 71
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1tbjtdl/how_will_gen_z_solve_these_issues/"}]
   - id: "social-intelligence/reddit-deep/genz/1tbjtdl.md#c1"
     char_span: [247, 376]
     sentence_count: 1
     key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
+    concepts: [discord]
     section: Comments
     token_count: 41
   - id: "social-intelligence/reddit-deep/genz/1tbjtdl.md#c2"
     char_span: [379, 2210]
     sentence_count: 9
     key_terms: [gen, talador12, boomers, better, fixing, people, alpha, chill]
+    concepts: [talador12, boomers, better, fixing, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1tbjtdl.md#c3"
     char_span: [1970, 2509]
     sentence_count: 4
     key_terms: [individual, because, people, anchorbaby97, alternative, recommended, ticcingabby, everything]
+    concepts: [individual, because, people]
     section: Comments
     token_count: 138
   - id: "social-intelligence/reddit-deep/genz/1tbjtdl.md#c4"
     char_span: [2511, 4323]
     sentence_count: 10
     key_terms: [success, food, less, businesses, supporting, consider, mcdonald, products]
+    concepts: [success, businesses, supporting, consider, mcdonald]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/genz/1tbjtdl.md#c5"
     char_span: [4325, 5918]
     sentence_count: 8
     key_terms: [day, got, generation, perhaps, hours, run, save, progressivism]
+    concepts: [generation, perhaps, hours]
     section: Comments
     token_count: 331
 ---

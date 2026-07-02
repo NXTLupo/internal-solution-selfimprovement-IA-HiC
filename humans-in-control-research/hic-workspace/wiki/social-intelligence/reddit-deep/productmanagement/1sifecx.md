@@ -8,39 +8,47 @@ title: "Update on Product Driven Development (Experiment - transformation) /3"
 author: "Independent_Pitch598"
 date: "2026-04-11T10:24:49.000Z"
 score: 13
-upvote_ratio: 0.76
+upvote_ratio: 0.74
 num_comments: 24
 flair: ""
-extracted_at: "2026-06-14T15:28:02.844Z"
+extracted_at: "2026-06-24T22:14:23.450Z"
 extraction_method: "praw-deep"
-research_goal: "Generate a comprehensive product marketing report for NXT Humans' 'Intelligence Augmentation' CX suite, synthesizing its core value proposition, technical features, client benefits, and deployment options based on the provided source documents and transcripts."
-engagement: "generate-a-comprehensive-product-marketing-report-for-nxt-hu"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/productmanagement/1sifecx.md#c0"
     char_span: [0, 1978]
     sentence_count: 4
     key_terms: [productmanagement, comments, sprints, new, experiment, reddit, https, com]
+    concepts: [productmanagement, comments, experiment, sprints, reddit]
     token_count: 520
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1sifecx/update_on_product_driven_development_experiment/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1sifecx.md#c1"
     char_span: [1980, 4155]
     sentence_count: 6
     key_terms: [agents, product, agent, however, developer, attached, anyone, review]
+    concepts: [agents, product, agent, however, developer]
     token_count: 482
   - id: "social-intelligence/reddit-deep/productmanagement/1sifecx.md#c2"
     char_span: [4157, 5646]
     sentence_count: 13
     key_terms: [build, issues, interesting, dev, developer, building, everyone, company]
+    concepts: [build, issues, interesting, developer, building]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1sifecx.md#c4"]
     token_count: 325
   - id: "social-intelligence/reddit-deep/productmanagement/1sifecx.md#c3"
-    char_span: [5661, 7624]
+    char_span: [5660, 7623]
     sentence_count: 14
     key_terms: [code, review, quality, measuring, metrics, release, agents, core]
+    concepts: [review, quality, measuring, metrics, release]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/productmanagement/1sifecx.md#c4"
-    char_span: [7626, 8802]
+    char_span: [7625, 8801]
     sentence_count: 7
     key_terms: [building, interesting, code, approach, feature, request, review, solid-aardvark-4590]
+    concepts: [building, interesting, approach, feature, request]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1sifecx.md#c2"]
     section: Comments
     token_count: 301
 ---

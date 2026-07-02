@@ -9,6 +9,7 @@ chunks:
     char_span: [0, 1685]
     sentence_count: 9
     key_terms: [recommendation, inversion, recommendations, second-order, model, skill, stakeholder, ask]
+    concepts: [recommendation, inversion, recommendations, second-order, stakeholder]
     section: Core question stems Munger asks / How HiC applies inversion / When NOT to apply inversion / Composes with
     token_count: 321
 ---

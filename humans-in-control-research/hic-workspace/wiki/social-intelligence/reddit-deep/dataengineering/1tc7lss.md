@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1608]
     sentence_count: 3
     key_terms: [offer, month, dataengineering, already, probationary, data, per, insurance]
+    concepts: [offer, dataengineering, month, already, probationary]
     token_count: 393
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1tc7lss/i_have_two_offers_right_now_and_i_want_to_know/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1tc7lss.md#c1"
-    char_span: [1623, 3450]
+    char_span: [1622, 3449]
     sentence_count: 10
     key_terms: [candid-cup4159, cloud, engineer, per, month, unlikely-loss5616, data, administrator]
+    concepts: [candid-cup4159, cloud, engineer, unlikely-loss5616, month]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/dataengineering/1tc7lss.md#c2"
-    char_span: [3205, 3614]
+    char_span: [3204, 3613]
     sentence_count: 4
     key_terms: [question, workhardplayhardder, did, forsaken-gas-92, preparation, experience, pipelines, building]
+    concepts: [question]
     section: Comments
     token_count: 105
   - id: "social-intelligence/reddit-deep/dataengineering/1tc7lss.md#c3"
-    char_span: [3616, 5138]
+    char_span: [3615, 5137]
     sentence_count: 8
     key_terms: [offer, side, experience, pipelines, deciding, company, culture, agency]
+    concepts: [experience, offer, pipelines, deciding, company]
     section: Comments
     token_count: 360
 ---

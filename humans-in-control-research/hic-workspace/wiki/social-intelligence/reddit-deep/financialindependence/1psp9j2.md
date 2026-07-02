@@ -21,61 +21,73 @@ chunks:
     char_span: [0, 1921]
     sentence_count: 12
     key_terms: [financialindependence, original, btc, post, fire, comments, majority, around]
+    concepts: [financialindependence, original, comments, majority, around]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1psp9j2/fire_with_17mil_when_the_majority_is_in_bitcoin_1/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c1"
     char_span: [1923, 3815]
     sentence_count: 11
     key_terms: [job, person, applications, unemployment, jobs, like, term, positions]
+    concepts: [applications, unemployment, person, positions, recruiter]
     token_count: 398
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c2"
     char_span: [3817, 6208]
     sentence_count: 19
     key_terms: [interview, "i'd", feeling, better, being, trips, searching, been]
+    concepts: [interview, feeling, better, searching, being]
     token_count: 493
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c3"
     char_span: [6210, 8311]
     sentence_count: 14
     key_terms: ["i'm", like, time, working, myself, feel, job, months]
+    concepts: [working, myself, months, continuing, productive]
     token_count: 463
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c4"
     char_span: [8313, 10123]
     sentence_count: 14
     key_terms: [cash, sell, btc, year, enough, years, time, number]
+    concepts: [enough, years, number, december, because]
     token_count: 423
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c5"
     char_span: [10137, 11307]
     sentence_count: 5
     key_terms: [year, stock, yield, did, job, working, crypto, bond]
+    concepts: [stock, yield, working, crypto]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c6"
     char_span: [11310, 13086]
     sentence_count: 13
     key_terms: [year, gains, capital, btc, subtract, federal, limit, "i'm"]
+    concepts: [gains, capital, subtract, federal, limit]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c7"
     char_span: [13088, 14981]
     sentence_count: 11
     key_terms: [btc, crypto, basis, cost, plan, sell, year, "wouldn't"]
+    concepts: [crypto, basis, "wouldn't", correct, asset]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c8"
     char_span: [14984, 16600]
     sentence_count: 12
     key_terms: [delicious-plastic-44, btc, "i'm", sell, playing, crypto, though, bonds]
+    concepts: [delicious-plastic-44, playing, crypto, though, bonds]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c9"
     char_span: [16602, 17956]
     sentence_count: 7
     key_terms: [gains, sell, tax, year, years, "i'm", advisable, creating]
+    concepts: [gains, years, advisable, creating, multiple]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c10"
     char_span: [17958, 19861]
     sentence_count: 13
     key_terms: [bitcoin, henfruiteater, advice, overexposed, btc, cash, year, bitcoinmd]
+    concepts: [bitcoin, henfruiteater, advice, overexposed, bitcoinmd]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c11"
@@ -88,12 +100,14 @@ chunks:
     char_span: [20261, 22124]
     sentence_count: 19
     key_terms: [property, house, insurance, utilities, like, expenses, car, paid]
+    concepts: [property, insurance, utilities, house, expenses]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c13"
     char_span: [22126, 23975]
     sentence_count: 9
     key_terms: [year, insurance, half, budget, eventually, unexpected, continue, coverage]
+    concepts: [insurance, budget, eventually, unexpected, continue]
     section: Comments
     token_count: 474
 ---

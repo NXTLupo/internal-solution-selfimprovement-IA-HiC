@@ -20,31 +20,38 @@ chunks:
     char_span: [0, 2351]
     sentence_count: 23
     key_terms: [logistics, uber, returns, return, retailers, delivery, courier, customers]
+    concepts: [logistics, returns, return, retailers, delivery]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1ss0sbv/catch_up_on_what_happened_this_week_in_logistics/"}]
   - id: "social-intelligence/reddit-deep/logistics/1ss0sbv.md#c1"
     char_span: [2353, 4708]
     sentence_count: 35
     key_terms: [usps, costs, cost, year, delivery, already, volume, rural]
+    concepts: [costs, delivery, already, volume, retirement]
     token_count: 481
   - id: "social-intelligence/reddit-deep/logistics/1ss0sbv.md#c2"
     char_span: [4710, 6758]
     sentence_count: 22
     key_terms: [qvc, time, built, bankruptcy, audience, business, company, cable]
+    concepts: [bankruptcy, built, audience, business, company]
     token_count: 424
   - id: "social-intelligence/reddit-deep/logistics/1ss0sbv.md#c3"
     char_span: [6760, 8811]
     sentence_count: 11
     key_terms: [fulfillment, instaleap, relationships, automation, retailer, nearly, retail, international]
+    concepts: [fulfillment, instaleap, relationships, automation, retailer]
     token_count: 402
   - id: "social-intelligence/reddit-deep/logistics/1ss0sbv.md#c4"
     char_span: [8813, 10259]
     sentence_count: 17
     key_terms: [amazon, everything, paperwork, warehouse, yesterday, billion, customs, storage]
+    concepts: [amazon, everything, paperwork, warehouse, yesterday]
     token_count: 310
   - id: "social-intelligence/reddit-deep/logistics/1ss0sbv.md#c5"
-    char_span: [10274, 11229]
+    char_span: [10273, 11228]
     sentence_count: 4
     key_terms: [truckerverse, drivers, parking, nobody, system, legal, side, tricky-mud2773]
+    concepts: [truckerverse, drivers, parking, nobody, system]
     section: Comments
     token_count: 221
 ---

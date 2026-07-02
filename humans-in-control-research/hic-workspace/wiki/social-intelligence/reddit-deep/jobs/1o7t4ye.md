@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 1170]
     sentence_count: 14
     key_terms: [disheartening, bad, comments, clients, respond, civilsupermarket3359, fired, job]
+    concepts: [disheartening, comments, clients, respond, fired]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1o7t4ye.md#c4"]
     token_count: 294
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1o7t4ye/i_was_fired_and_i_dont_know_how_to_respond/"}]
   - id: "social-intelligence/reddit-deep/jobs/1o7t4ye.md#c1"
     char_span: [1184, 2825]
     sentence_count: 17
     key_terms: [background, reference, respond, check, ask, person, worked, civilsupermarket3359]
+    concepts: [background, reference, respond, check, person]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/jobs/1o7t4ye.md#c2"
     char_span: [2827, 4652]
     sentence_count: 8
     key_terms: [jobs, text, comments, ignore, places, thank, years, ambitious-boat8165]
+    concepts: [comments, ignore, places, thank, years]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/jobs/1o7t4ye.md#c3"
     char_span: [4654, 6621]
     sentence_count: 21
     key_terms: [unemployment, jaded, like, business, trying, work, comments, negative]
+    concepts: [unemployment, jaded, business, trying, comments]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/jobs/1o7t4ye.md#c4"
     char_span: [6623, 7779]
     sentence_count: 8
     key_terms: [job, getting, respond, "you're", head-contribution679, live-juggernaut-221, "don't", fired]
+    concepts: [getting, respond, "you're", "don't", fired]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1o7t4ye.md#c0"]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/jobs/1o7t4ye.md#c5"
     char_span: [7781, 9632]
     sentence_count: 13
     key_terms: [manipulative, fired, like, text, civilsupermarket3359, check, drive, leave]
+    concepts: [manipulative, fired, check, drive, leave]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/jobs/1o7t4ye.md#c6"
     char_span: [9634, 11384]
     sentence_count: 10
     key_terms: [christian, performance, feedback, positive, received, deliver, until, job]
+    concepts: [christian, performance, feedback, positive, received]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/jobs/1o7t4ye.md#c7"
     char_span: [11386, 13228]
     sentence_count: 14
     key_terms: [communicate, performance, job, text, want, work, beautiful, religious]
+    concepts: [communicate, performance, beautiful, religious, brother]
     section: Comments
     token_count: 470
 ---

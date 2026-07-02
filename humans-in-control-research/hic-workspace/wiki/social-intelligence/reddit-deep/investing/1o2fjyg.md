@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 1217]
     sentence_count: 6
     key_terms: [market, crash, investing, invest, month, eventually, comments, bubble]
+    concepts: [market, investing, crash, invest, eventually]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1o2fjyg.md#c1", "social-intelligence/reddit-deep/investing/1o2fjyg.md#c2"]
     token_count: 285
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1o2fjyg/would_a_market_crash_after_a_hypothetical_ai/"}]
   - id: "social-intelligence/reddit-deep/investing/1o2fjyg.md#c1"
     char_span: [1231, 3272]
     sentence_count: 17
     key_terms: [market, invest, money, "i'm", saving, confusing, investing, floatingostrichs]
+    concepts: [market, invest, money, saving, floatingostrichs]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1o2fjyg.md#c0"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/investing/1o2fjyg.md#c2"
     char_span: [3274, 5310]
     sentence_count: 18
     key_terms: [recover, market, burst, com, dot, time, investing, business]
+    concepts: [recover, market, burst, investing, business]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1o2fjyg.md#c0"]
     section: Comments
     token_count: 500
 ---

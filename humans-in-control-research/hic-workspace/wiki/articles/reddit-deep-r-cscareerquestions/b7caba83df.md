@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2061]
     sentence_count: 19
     key_terms: [company, work, backend, years, currently, cscareerquestions, database, engineer]
+    concepts: [company, backend, cscareerquestions, currently, years]
     token_count: 486
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1p0wz9w/backend_software_engineer_in_oil_and_gas_long/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/b7caba83df.md#c1"
     char_span: [2063, 3837]
     sentence_count: 11
     key_terms: [live, unless, comfortably, potentially, city, mcol, pay, retirement]
+    concepts: [unless, comfortably, potentially, retirement, because]
     token_count: 435
 ---
 # Backend software engineer in oil and gas, long term career advice needed

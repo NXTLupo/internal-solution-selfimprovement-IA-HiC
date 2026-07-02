@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1860]
     sentence_count: 15
     key_terms: [bogleheads, "i'm", hosting, https, fees, here, need, wiki]
+    concepts: [bogleheads, hosting, compliance, https, comments]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1obqe6d.md#c2"]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1obqe6d/401k_hosting/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1obqe6d.md#c1"
-    char_span: [1875, 3608]
+    char_span: [1874, 3607]
     sentence_count: 6
     key_terms: [company, custodian, vanguard, through, sample-fee-comparisons, employeefiduciary, plan, directly]
+    concepts: [company, custodian, sample-fee-comparisons, vanguard, through]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/bogleheads/1obqe6d.md#c2"
-    char_span: [3610, 4892]
+    char_span: [3609, 4891]
     sentence_count: 7
     key_terms: [bogleheads, forum, https, custodian, employeefiduciary, www, new, department]
+    concepts: [bogleheads, employeefiduciary, custodian, forum, https]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1obqe6d.md#c0"]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/bogleheads/1obqe6d.md#c3"
-    char_span: [4894, 6217]
+    char_span: [4893, 6216]
     sentence_count: 8
     key_terms: [payroll-integration, employeefiduciary, getting, humblequest22, townfront5969, information, direct, number]
+    concepts: [payroll-integration, employeefiduciary, humblequest22, townfront5969, getting]
     section: Comments
     token_count: 342
 ---

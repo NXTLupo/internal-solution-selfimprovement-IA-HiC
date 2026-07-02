@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1367]
     sentence_count: 9
     key_terms: [corporate, network, careerguidance, shortlisted, admissions, marketing, referrals, comments]
+    concepts: [corporate, careerguidance, network, shortlisted, admissions]
     token_count: 324
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pkky9b/career_advice_needed2_yrs_marketingadmissions_3/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1pkky9b.md#c1"
     char_span: [1381, 1706]
     sentence_count: 3

@@ -20,20 +20,24 @@ chunks:
     char_span: [0, 2415]
     sentence_count: 15
     key_terms: [salesforce, sales, revops, automated, platforms, workflows, data, team]
+    concepts: [salesforce, sales, revops, automated, platforms]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/salesops","u":"https://www.reddit.com/r/SalesOps/comments/1ss5aom/we_evaluated_5_platforms_for_sales_team/"}]
   - id: "social-intelligence/reddit-deep/salesops/1ss5aom.md#c1"
     char_span: [2417, 4553]
     sentence_count: 14
     key_terms: [prospecting, data, capture, limitations, automation, salesforce, sales, strengths]
+    concepts: [prospecting, limitations, capture, automation, salesforce]
     token_count: 434
   - id: "social-intelligence/reddit-deep/salesops/1ss5aom.md#c2"
-    char_span: [4568, 6972]
+    char_span: [4567, 6971]
     sentence_count: 12
     key_terms: [salesforce, layer, enrichment, data, because, without, zapier, orchestration]
+    concepts: [salesforce, layer, enrichment, orchestration, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/salesops/1ss5aom.md#c3"
-    char_span: [6974, 7118]
+    char_span: [6973, 7117]
     sentence_count: 1
     key_terms: [combination, enrichment, sequencing, overhead, scoring, enginy, having, revops]
     section: Comments

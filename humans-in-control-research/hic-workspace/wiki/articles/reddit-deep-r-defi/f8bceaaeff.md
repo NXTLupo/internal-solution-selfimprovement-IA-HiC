@@ -19,14 +19,17 @@ content_hash: "32014d6c31d7ef85"
 relevance_by_goal: {"46dec9599ad5":30}
 chunks:
   - id: "articles/reddit-deep-r-defi/f8bceaaeff.md#c0"
-    char_span: [0, 2472]
+    char_span: [0, 2471]
     sentence_count: 8
     key_terms: [platform, defi, token, solana, through, crypto, guides, tokens]
-    token_count: 522
+    concepts: [platform, token, solana, through, crypto]
+    token_count: 521
+    sources: [{"n":"Reddit Deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1qcqo7x/looking_for_testers_communitydriven_defi_platform/"}]
   - id: "articles/reddit-deep-r-defi/f8bceaaeff.md#c1"
-    char_span: [2474, 3735]
+    char_span: [2473, 3734]
     sentence_count: 4
     key_terms: [required, community, feedback, platform, testing, crypto, wallet, beta]
+    concepts: [required, community, feedback, platform, testing]
     token_count: 294
 ---
 # Looking for testers: Community-driven DeFi platform on Solana (Closed Beta)

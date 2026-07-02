@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 944]
     sentence_count: 2
     key_terms: [global, international, introduction, pols, american, comments, class, neu]
+    concepts: [international, introduction, global, american, comments]
     token_count: 249
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rczzn2/advice_on_the_nu_accelerate_class_offering/"}]
   - id: "social-intelligence/reddit-deep/neu/1rczzn2.md#c1"
     char_span: [958, 2794]
     sentence_count: 10
     key_terms: [classes, intro, took, american, english, session, summer, taking]
+    concepts: [classes, intro, american, english, session]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/neu/1rczzn2.md#c2"
     char_span: [2796, 4762]
     sentence_count: 21
     key_terms: [classes, take, requirements, work, class, don, easy, like]
+    concepts: [classes, requirements, class, buildings, probably]
     section: Comments
     token_count: 463
 ---

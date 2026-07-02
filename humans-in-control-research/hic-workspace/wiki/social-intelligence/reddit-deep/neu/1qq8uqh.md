@@ -19,35 +19,46 @@ chunks:
     char_span: [0, 2256]
     sentence_count: 19
     key_terms: [northeastern, prestigious, residential, year, boston, universities, being, competitive]
+    concepts: [northeastern, prestigious, residential, universities, boston]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1qq8uqh.md#c3"]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qq8uqh/to_everyone_who_didnt_get_into_boston/"}]
   - id: "social-intelligence/reddit-deep/neu/1qq8uqh.md#c1"
     char_span: [2270, 2567]
     sentence_count: 2
     key_terms: [students, boston, northeastern, competitive, intentional, extremely, logistics, admitted]
+    concepts: [students, boston]
     section: Comments
     token_count: 63
   - id: "social-intelligence/reddit-deep/neu/1qq8uqh.md#c2"
     char_span: [2569, 4529]
     sentence_count: 12
     key_terms: [program, boston, experience, graduating, years, got, nuin, abroad]
+    concepts: [program, experience, graduating, boston, years]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1qq8uqh.md#c5"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/neu/1qq8uqh.md#c3"
     char_span: [4531, 5830]
     sentence_count: 6
     key_terms: [boston, london, northeastern, college, student, change, people, frankdrebinonreddit]
+    concepts: [boston, london, northeastern, college, student]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1qq8uqh.md#c0"]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/neu/1qq8uqh.md#c4"
     char_span: [5832, 7441]
     sentence_count: 12
     key_terms: [people, "you're", time, honestly, helpful, abroad, always, frontsatisfaction152]
+    concepts: [people, "you're", honestly, helpful, abroad]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/neu/1qq8uqh.md#c5"
     char_span: [7443, 8204]
     sentence_count: 5
     key_terms: [money, nervous-hair-2107, experience, years, def, soppierfob24, non-college, tomofboston]
+    concepts: [nervous-hair-2107, money, experience, years]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1qq8uqh.md#c2"]
     section: Comments
     token_count: 224
 ---

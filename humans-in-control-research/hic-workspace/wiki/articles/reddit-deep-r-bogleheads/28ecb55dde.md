@@ -19,24 +19,32 @@ content_hash: "fd09cd55627300fc"
 relevance_by_goal: {"46dec9599ad5":70}
 chunks:
   - id: "articles/reddit-deep-r-bogleheads/28ecb55dde.md#c0"
-    char_span: [0, 1349]
+    char_span: [0, 1348]
     sentence_count: 17
     key_terms: [vanguard, like, fidelity, jpmorgan, reddit, bogleheads, comments, schwab]
-    token_count: 326
+    concepts: [vanguard, fidelity, jpmorgan, reddit, bogleheads]
+    related_chunks: ["articles/reddit-deep-r-bogleheads/28ecb55dde.md#c2"]
+    token_count: 325
+    sources: [{"n":"Reddit Deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1lksgb1/vanguard_vs_schwab_vs_fidelity_where_to_park/"}]
   - id: "articles/reddit-deep-r-bogleheads/28ecb55dde.md#c1"
-    char_span: [1351, 3019]
+    char_span: [1350, 3018]
     sentence_count: 14
     key_terms: [brokerage, brother, bad, experience, something, account, because, advice]
+    concepts: [brokerage, brother, experience, something, account]
+    related_chunks: ["articles/reddit-deep-r-bogleheads/28ecb55dde.md#c2"]
     token_count: 359
   - id: "articles/reddit-deep-r-bogleheads/28ecb55dde.md#c2"
-    char_span: [3021, 5204]
+    char_span: [3020, 5203]
     sentence_count: 17
     key_terms: [fidelity, schwab, account, brokerage, like, use, vanguard, service]
+    concepts: [fidelity, schwab, account, brokerage, vanguard]
+    related_chunks: ["articles/reddit-deep-r-bogleheads/28ecb55dde.md#c0", "articles/reddit-deep-r-bogleheads/28ecb55dde.md#c1"]
     token_count: 495
   - id: "articles/reddit-deep-r-bogleheads/28ecb55dde.md#c3"
-    char_span: [5206, 6397]
+    char_span: [5205, 6396]
     sentence_count: 11
     key_terms: [interest, funds, sweep, "schwab's", did, high, ablestrategist, functioning]
+    concepts: [interest, funds, sweep, "schwab's"]
     token_count: 276
 ---
 # Vanguard vs Schwab vs Fidelity - where to park $

@@ -18,16 +18,22 @@ chunks:
     char_span: [0, 2019]
     sentence_count: 11
     key_terms: [stanford, social, applyingtocollege, "i'm", less, schools, school, "i'd"]
+    concepts: [stanford, applyingtocollege, social, schools, school]
     token_count: 467
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1szl8e5/stanford_vs_mit_last_minute_very_split_unsure/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/df0b4cbb43.md#c1"
     char_span: [2021, 4147]
     sentence_count: 9
     key_terms: [culture, stanford, mit, sure, either, intellectual, admin, years]
+    concepts: [culture, stanford, intellectual, either, scholarship]
+    related_chunks: ["articles/reddit-deep-r-applyingtocollege/df0b4cbb43.md#c2"]
     token_count: 464
   - id: "articles/reddit-deep-r-applyingtocollege/df0b4cbb43.md#c2"
     char_span: [4149, 6163]
     sentence_count: 11
     key_terms: [stanford, scholarship, "i'm", taking, dod, commitment, potential, deeptech]
+    concepts: [stanford, scholarship, taking, commitment, potential]
+    related_chunks: ["articles/reddit-deep-r-applyingtocollege/df0b4cbb43.md#c1"]
     token_count: 481
 ---
 # Stanford vs. MIT (last minute, very split) + unsure whether to accept DOD scholarship

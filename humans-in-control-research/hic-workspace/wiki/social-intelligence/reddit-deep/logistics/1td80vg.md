@@ -17,10 +17,12 @@ research_goal: "Deliver a comprehensive 2026 outlook report on the global retail
 engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
 chunks:
   - id: "social-intelligence/reddit-deep/logistics/1td80vg.md#c0"
-    char_span: [0, 482]
+    char_span: [0, 481]
     sentence_count: 4
     key_terms: [able-ad8334, logistics, comments, days, gofo, reddit-deep, delivery, tomorrow]
+    concepts: [able-ad8334, logistics, comments]
     token_count: 142
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1td80vg/gly_express_china_package_cleared_customs_import/"}]
 ---
 # GLY express china package cleared customs import but 4 days ago but last mile delivery service, GOFO, has yet to receive it. How long does it usually take?
 

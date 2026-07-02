@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 859]
     sentence_count: 8
     key_terms: [undergraduate, research, gradadmissions, comments, planning, history, energy, thesis]
+    concepts: [undergraduate, research, gradadmissions, comments, planning]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1nto1r9.md#c2"]
     token_count: 198
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1nto1r9/how_much_undergraduate_research_should_a_person/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1nto1r9.md#c1"
     char_span: [873, 2406]
     sentence_count: 11
     key_terms: [year, history, thesis, undergraduate, applications, american, research, getting]
+    concepts: [undergraduate, history, applications, thesis, american]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1nto1r9.md#c2"]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/gradadmissions/1nto1r9.md#c2"
     char_span: [2408, 4860]
     sentence_count: 8
     key_terms: [important, american, research, yourself, undergraduate, history, start, journal]
+    concepts: [important, undergraduate, american, research, yourself]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1nto1r9.md#c0", "social-intelligence/reddit-deep/gradadmissions/1nto1r9.md#c1"]
     section: Comments
     token_count: 502
 ---

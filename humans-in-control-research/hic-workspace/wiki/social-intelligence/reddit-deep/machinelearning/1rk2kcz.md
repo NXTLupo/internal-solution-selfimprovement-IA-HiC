@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 1883]
     sentence_count: 18
     key_terms: [training, rlvr, sft, reasoning, performance, gsm8k, data, machinelearning]
+    concepts: [training, reasoning, performance, gsm8k, machinelearning]
     token_count: 424
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1rk2kcz/p_i_trained_qwen2515b_with_rlvr_grpo_vs_sft_and/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1rk2kcz.md#c1"
     char_span: [1885, 2900]
     sentence_count: 2
     key_terms: [rlvr-vs-sft-qwen2, rtx, jayminban, gsm8k, checkpoints, https, grpo, project]
+    concepts: [rlvr-vs-sft-qwen2, jayminban, gsm8k, checkpoints, https]
     token_count: 388
   - id: "social-intelligence/reddit-deep/machinelearning/1rk2kcz.md#c2"
     char_span: [2914, 5238]
     sentence_count: 10
     key_terms: [entropy, runs, bonus, model, did, training, curious, dataset]
+    concepts: [entropy, bonus, model, training, curious]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/machinelearning/1rk2kcz.md#c3"
     char_span: [5240, 7647]
     sentence_count: 13
     key_terms: [sft, model, reasoning, rlvr, different, patterns, scales, improvement]
+    concepts: [model, reasoning, different, patterns, scales]
     section: Comments
     token_count: 502
 ---

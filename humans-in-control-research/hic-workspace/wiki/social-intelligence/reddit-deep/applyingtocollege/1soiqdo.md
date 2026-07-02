@@ -21,23 +21,31 @@ chunks:
     char_span: [0, 1445]
     sentence_count: 11
     key_terms: [school, umich, applyingtocollege, in-state, pharmacy, state, get, want]
+    concepts: [school, applyingtocollege, umich, in-state, pharmacy]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soiqdo.md#c2"]
     token_count: 357
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1soiqdo/should_i_give_up_my_dream_school_for_a_cheap_in/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soiqdo.md#c1"
     char_span: [1459, 3524]
     sentence_count: 18
     key_terms: [years, debt, lot, college, school, "you'll", least, like]
+    concepts: [years, college, school, "you'll", admissions]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soiqdo.md#c2"
     char_span: [3526, 5372]
     sentence_count: 14
     key_terms: [school, state, umich, get, want, education, in-state, pharmacy]
+    concepts: [school, state, umich, education, in-state]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soiqdo.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1soiqdo.md#c3"]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soiqdo.md#c3"
     char_span: [5374, 6815]
     sentence_count: 10
     key_terms: [school, state, pharmacist, mph, people, imaginary-sherbet370, busy-particular5119, maybe]
+    concepts: [school, state, pharmacist, people, maybe]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soiqdo.md#c2"]
     section: Comments
     token_count: 357
 ---

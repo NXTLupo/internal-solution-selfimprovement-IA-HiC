@@ -17,10 +17,12 @@ research_goal: "Deliver a comprehensive 2026 outlook report on the global retail
 engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
 chunks:
   - id: "social-intelligence/reddit-deep/customerexperience/1tjl3a1.md#c0"
-    char_span: [0, 1961]
+    char_span: [0, 1960]
     sentence_count: 10
     key_terms: [support, operations, customerexperience, shift, like, customers, comments, decision]
-    token_count: 397
+    concepts: [support, customerexperience, operations, shift, customers]
+    token_count: 396
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1tjl3a1/the_biggest_mistake_in_modern_support_putting_up/"}]
 ---
 # The biggest mistake in modern support: putting up a wall instead of actually solving the customer's problem
 

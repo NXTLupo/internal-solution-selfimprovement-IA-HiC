@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1596]
     sentence_count: 14
     key_terms: [want, something, looking, science, careerguidance, currently, undergrad, business]
+    concepts: [something, careerguidance, looking, science, currently]
     token_count: 358
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1s6axhq/anyone_have_any_career_guidance_advice/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1s6axhq.md#c1"
     char_span: [1610, 2846]
     sentence_count: 7
     key_terms: [consulting, business, commerce, product, science, degree, queens, get]
+    concepts: [consulting, business, commerce, product, science]
     section: Comments
     token_count: 290
 ---

@@ -20,32 +20,41 @@ chunks:
     char_span: [0, 1342]
     sentence_count: 4
     key_terms: [productmanagement, integration, comments, notion, tests, definition-of-done, debt, doc]
+    concepts: [productmanagement, integration, comments, notion, tests]
     token_count: 343
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1ldqd6f/technical_debtdocumentation_for_startups/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1ldqd6f.md#c1"
     char_span: [1344, 2533]
     sentence_count: 7
     key_terms: [documentation, testing, tools, help, recommendations, off-the-shelf, integration, lightweight]
+    concepts: [documentation, testing, tools]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1ldqd6f.md#c2"]
     token_count: 288
   - id: "social-intelligence/reddit-deep/productmanagement/1ldqd6f.md#c2"
-    char_span: [2548, 3538]
+    char_span: [2547, 3537]
     sentence_count: 4
     key_terms: [because, documentation, features, startup, testing, mindless-compote-352, test, complicated]
+    concepts: [documentation, because, features, startup, testing]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1ldqd6f.md#c1", "social-intelligence/reddit-deep/productmanagement/1ldqd6f.md#c3"]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/productmanagement/1ldqd6f.md#c3"
-    char_span: [3543, 5489]
+    char_span: [3542, 5488]
     sentence_count: 13
     key_terms: [documentation, unit, trade-offs, perfect, startup, "don't", tests, engineering]
+    concepts: [documentation, trade-offs, perfect, startup, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1ldqd6f.md#c2"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/productmanagement/1ldqd6f.md#c4"
-    char_span: [5491, 7279]
+    char_span: [5490, 7278]
     sentence_count: 12
     key_terms: ["it's", warning, feature, build, time, experiment, important, something]
+    concepts: [warning, feature, build, experiment, important]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/productmanagement/1ldqd6f.md#c5"
-    char_span: [7281, 7771]
+    char_span: [7280, 7770]
     sentence_count: 4
     key_terms: [observability, immediately, internship, production, extremely, important, questions, rmend8194]
     section: Comments

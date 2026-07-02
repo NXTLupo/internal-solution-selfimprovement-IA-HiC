@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1121]
     sentence_count: 11
     key_terms: [household, app, personalfinance, shared, splitting, comments, tracking, single]
+    concepts: [household, personalfinance, shared, splitting, comments]
     token_count: 270
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1q2ornz/shared_expense_tracking_app_for_a_household_that/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1q2ornz.md#c1"
-    char_span: [1136, 2551]
+    char_span: [1135, 2550]
     sentence_count: 11
     key_terms: [use, budgeting, expenses, household, regular, month, app, goodbudget]
+    concepts: [budgeting, expenses, household, regular, goodbudget]
     section: Comments
     token_count: 356
 ---

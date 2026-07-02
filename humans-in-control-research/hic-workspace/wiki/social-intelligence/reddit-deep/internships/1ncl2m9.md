@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 588]
     sentence_count: 3
     key_terms: [internships, international, hyderabad, comments, abroad, india, find, tacoman9112012]
+    concepts: [internships, international, hyderabad, comments, abroad]
     token_count: 137
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1ncl2m9/international_internships_from_india/"}]
   - id: "social-intelligence/reddit-deep/internships/1ncl2m9.md#c1"
     char_span: [602, 1671]
     sentence_count: 4
     key_terms: [tacoman9112012, interested, hyderabad, details, share, agentfinancial3464, frequent-action620, "i'm"]
+    concepts: [tacoman9112012, interested, hyderabad, details, share]
     section: Comments
     token_count: 376
 ---

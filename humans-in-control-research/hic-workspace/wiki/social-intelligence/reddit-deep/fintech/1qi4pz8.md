@@ -11,30 +11,39 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 1
 flair: ""
-extracted_at: "2026-06-11T18:57:30.598Z"
+extracted_at: "2026-06-26T21:51:45.873Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Identify and analyze the top five consumer finance trends for 2026 across retail banking, fintech, and consumer lending, delivering a prioritized trend matrix that details key drivers, shifting consumer behaviors, and technological adoption."
+engagement: "identify-and-analyze-the-top-five-consumer-finance-trends-fo"
 chunks:
   - id: "social-intelligence/reddit-deep/fintech/1qi4pz8.md#c0"
-    char_span: [0, 2511]
+    char_span: [0, 2510]
     sentence_count: 20
     key_terms: [finance, embedded, financial, inclusion, india, already, credit, insurance]
-    token_count: 497
+    concepts: [finance, embedded, financial, inclusion, india]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1qi4pz8.md#c1", "social-intelligence/reddit-deep/fintech/1qi4pz8.md#c2", "social-intelligence/reddit-deep/fintech/1qi4pz8.md#c3"]
+    token_count: 496
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1qi4pz8/embedded_finance_finance_that_meets_people_where/"}]
   - id: "social-intelligence/reddit-deep/fintech/1qi4pz8.md#c1"
-    char_span: [2513, 5118]
+    char_span: [2512, 5117]
     sentence_count: 31
     key_terms: [embedded, inclusion, finance, users, first-time, financial, credit, people]
+    concepts: [embedded, inclusion, finance, users, first-time]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1qi4pz8.md#c0", "social-intelligence/reddit-deep/fintech/1qi4pz8.md#c2", "social-intelligence/reddit-deep/fintech/1qi4pz8.md#c3"]
     token_count: 497
   - id: "social-intelligence/reddit-deep/fintech/1qi4pz8.md#c2"
-    char_span: [5120, 7806]
+    char_span: [5119, 7805]
     sentence_count: 17
     key_terms: [embedded, credit, existing, apps, finance, financial, insurance, users]
+    concepts: [embedded, credit, existing, finance, financial]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1qi4pz8.md#c0", "social-intelligence/reddit-deep/fintech/1qi4pz8.md#c1", "social-intelligence/reddit-deep/fintech/1qi4pz8.md#c3"]
     token_count: 516
   - id: "social-intelligence/reddit-deep/fintech/1qi4pz8.md#c3"
-    char_span: [7808, 10269]
+    char_span: [7807, 10268]
     sentence_count: 16
     key_terms: [embedded, data, finance, regulatory, inclusion, consent, without, india]
+    concepts: [embedded, regulatory, finance, inclusion, consent]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1qi4pz8.md#c0", "social-intelligence/reddit-deep/fintech/1qi4pz8.md#c1", "social-intelligence/reddit-deep/fintech/1qi4pz8.md#c2"]
     token_count: 480
 ---
 # Embedded Finance - Finance That Meets People Where Life Already Happens

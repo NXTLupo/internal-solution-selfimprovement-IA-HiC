@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1795]
     sentence_count: 11
     key_terms: [career, been, benefits, change, years, days, "i've", week]
+    concepts: [career, benefits, change, fixed-term, years]
     token_count: 415
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1r7igav/accept_new_job_opportunity_or_change_careers/"}]
 ---
 # Accept new job opportunity or change careers
 

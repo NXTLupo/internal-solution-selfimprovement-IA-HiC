@@ -21,83 +21,100 @@ chunks:
     char_span: [0, 1014]
     sentence_count: 7
     key_terms: [happy, feel, people, comments, question, better, worse, genz]
+    concepts: [happy, people, comments, question, better]
     token_count: 246
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1qieyv6/a_year_in_us_gen_z_who_voted_for_trump_are_you/"}]
   - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c1"
     char_span: [1028, 2666]
     sentence_count: 11
     key_terms: [immigration, policies, unhappy, ignorance, prejudice, discord, "they're", people]
+    concepts: [immigration, policies, unhappy, ignorance, prejudice]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c2"
     char_span: [2668, 4039]
     sentence_count: 8
     key_terms: [trump, happen, worse, children, country, missing, kamala, voted]
+    concepts: [trump, happen, worse, children, country]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c3"
     char_span: [4041, 5501]
     sentence_count: 9
     key_terms: [american, america, because, citizen, cooking, fucking, appropriate-food1757, technical-dentist-84]
+    concepts: [american, america, because, citizen, cooking]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c4"
     char_span: [5503, 6244]
     sentence_count: 11
     key_terms: [people, harris, pantry, food, "it's", like, free-range-human, gaslighting]
+    concepts: [people, harris, pantry]
     section: Comments
     token_count: 170
   - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c5"
     char_span: [6246, 8416]
     sentence_count: 13
     key_terms: [doing, economy, people, yeah, absolutely, narrative, political, counter]
+    concepts: [doing, economy, people, absolutely, narrative]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c6"
     char_span: [8418, 9307]
     sentence_count: 7
     key_terms: [like, people, sides, anymore, sound, lot, intellectualy, bagodeadcats]
+    concepts: [people, sides, anymore, sound]
     section: Comments
     token_count: 216
   - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c7"
     char_span: [9310, 11309]
     sentence_count: 11
     key_terms: [people, doge, podcast, generations, don, propaganda, expected, outside]
+    concepts: [people, podcast, generations, propaganda, expected]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c8"
     char_span: [11311, 13291]
     sentence_count: 17
     key_terms: [trump, happy, voter, ice, elections, activity, because, support]
+    concepts: [trump, happy, voter, elections, activity]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c9"
     char_span: [13293, 14157]
     sentence_count: 4
     key_terms: [trump, greenland, behavior, believe, fucking, guilty, pissed, saying]
+    concepts: [trump, greenland, behavior, believe, fucking]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1qieyv6.md#c10"]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c10"
     char_span: [14159, 16094]
     sentence_count: 9
     key_terms: [angry, trump, rage, greenland, anything, people, pretty, regret]
+    concepts: [angry, trump, greenland, anything, people]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1qieyv6.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c11"
     char_span: [15831, 17860]
     sentence_count: 13
     key_terms: [janeofkish, rage, republican, because, problem, remorse, "they're", people]
+    concepts: [janeofkish, republican, because, problem, remorse]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c12"
     char_span: [17604, 18907]
     sentence_count: 6
     key_terms: [unstoppablechicken, people, reddit, wanted, alexandrthetolerable, makearakisgreenagain, rnwyhousescitycloudz, group]
+    concepts: [unstoppablechicken, people, reddit, wanted, group]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c13"
     char_span: [18909, 20760]
     sentence_count: 16
     key_terms: [downvoted, here, opinion, people, "we're", bots, sub, posting]
+    concepts: [downvoted, opinion, people, "we're", posting]
     section: Comments
     token_count: 468
 ---

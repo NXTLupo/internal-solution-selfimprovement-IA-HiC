@@ -19,39 +19,47 @@ chunks:
     char_span: [0, 2228]
     sentence_count: 15
     key_terms: [faculty, liberal, adviser, chapter, student, professor, highereducation, members]
+    concepts: [faculty, liberal, adviser, chapter, student]
     token_count: 482
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1ntegdi/what_i_learned_as_a_liberal_faculty_adviser_for_a/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1ntegdi.md#c1"
     char_span: [2230, 4587]
     sentence_count: 20
     key_terms: [chapter, president, students, organization, presidents, political, business, possible]
+    concepts: [chapter, president, students, organization, presidents]
     token_count: 472
   - id: "social-intelligence/reddit-deep/highereducation/1ntegdi.md#c2"
     char_span: [4589, 5942]
     sentence_count: 13
     key_terms: [terminations, kirk, comments, willing, across, people, cases, been]
+    concepts: [terminations, comments, willing, across, people]
     token_count: 258
   - id: "social-intelligence/reddit-deep/highereducation/1ntegdi.md#c3"
     char_span: [5956, 7065]
     sentence_count: 10
     key_terms: [conveniently, liberals, address, against, calling, author, doesn, tpusa]
+    concepts: [conveniently, liberals, address, against, calling]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/highereducation/1ntegdi.md#c4"
     char_span: [7067, 8374]
     sentence_count: 6
     key_terms: [liberals, charlie-kirk-turning-point-usa-liberal, surprised, opinion, results, like, belatedgreeting, loselyconscious]
+    concepts: [liberals, surprised, opinion, results]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/highereducation/1ntegdi.md#c5"
     char_span: [8376, 9859]
     sentence_count: 8
     key_terms: [unprofessional, free, "it's", different, politics, somebody, against, public]
+    concepts: [unprofessional, different, politics, somebody, against]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/highereducation/1ntegdi.md#c6"
     char_span: [9861, 12126]
     sentence_count: 18
     key_terms: [conservative, because, students, liberal, viewpoints, education, anything, opposing]
+    concepts: [conservative, because, students, liberal, viewpoints]
     section: Comments
     token_count: 472
 ---

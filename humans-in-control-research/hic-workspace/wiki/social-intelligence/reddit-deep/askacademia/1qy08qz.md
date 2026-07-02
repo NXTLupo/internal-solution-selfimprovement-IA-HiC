@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1673]
     sentence_count: 12
     key_terms: [university, missouri-rolla, "dad's", paper, askacademia, mcdonnell, aircraft, comments]
+    concepts: [university, missouri-rolla, askacademia, "dad's", paper]
     token_count: 385
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1qy08qz/can_someone_help_me_find_dads_research_paper/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1qy08qz.md#c1"
     char_span: [1687, 3500]
     sentence_count: 12
     key_terms: [been, digitized, nasa, https, library, paper, collections, "it's"]
+    concepts: [digitized, https, library, collections, paper]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/askacademia/1qy08qz.md#c2"
     char_span: [3502, 4660]
     sentence_count: 9
     key_terms: [librarian, searching, bowen, engineering, journals, library, states, kindofcrazyscientist]
+    concepts: [librarian, searching, engineering, bowen, journals]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/askacademia/1qy08qz.md#c3"
     char_span: [4662, 6345]
     sentence_count: 15
     key_terms: [bowen, university, nothing, public, institutions, good, nasa, ntrs]
+    concepts: [bowen, university, nothing, institutions, public]
     section: Comments
     token_count: 409
 ---

@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 833]
     sentence_count: 3
     key_terms: [salesforce, marketing-cloud-it-developer-slash-software-engineer, cloud, senior-slash-lead-salesforce-engineer, https, engineering, com, marketing]
+    concepts: [salesforce, cloud, engineering, https, marketing]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1ocp8so.md#c1"]
     token_count: 202
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1ocp8so/open_engineering_roles/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1ocp8so.md#c1"
-    char_span: [848, 2878]
+    char_span: [847, 2877]
     sentence_count: 8
     key_terms: [salesforce, technical, architect, experience, cloud, cta, salesforce-technical-architect-salaries-, company]
+    concepts: [salesforce, technical, architect, experience, cloud]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1ocp8so.md#c0"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/salesforce/1ocp8so.md#c2"
-    char_span: [2880, 3810]
+    char_span: [2879, 3809]
     sentence_count: 8
     key_terms: [salesforce, reported, relative-help-2529, uwmqiztcixb4mowx20, pidortheredditor, expectations, algorithmic, commitment]
+    concepts: [salesforce, reported]
     section: Comments
     token_count: 248
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1048]
     sentence_count: 5
     key_terms: [capital, marcus, personalfinance, online-only, transfers, comments, goldman, people]
+    concepts: [capital, marcus, personalfinance, online-only, transfers]
     token_count: 253
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1tnunvw/marcus_va_capone_hysa/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1tnunvw.md#c1"
-    char_span: [1063, 2505]
+    char_span: [1062, 2504]
     sentence_count: 12
     key_terms: [account, money, transfer, bank, external, trying, move, absolutely]
+    concepts: [account, money, transfer, external, trying]
     section: Comments
     token_count: 339
 ---

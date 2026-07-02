@@ -20,47 +20,58 @@ chunks:
     char_span: [0, 2342]
     sentence_count: 26
     key_terms: [traders, real, strategy, market, rules, share, predictable, big]
+    concepts: [traders, strategy, market, predictable, management]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mai78i.md#c6"]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1mai78i/why_profitable_traders_dont_share_their/"}]
   - id: "social-intelligence/reddit-deep/stocks/1mai78i.md#c1"
-    char_span: [2357, 3522]
+    char_span: [2356, 3521]
     sentence_count: 9
     key_terms: [reddit, next, inversing, inverse, looking, posting, recruit, hedgie]
+    concepts: [reddit, inversing, inverse, looking, posting]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/stocks/1mai78i.md#c2"
-    char_span: [3524, 5390]
+    char_span: [3523, 5389]
     sentence_count: 5
     key_terms: [market, share, big, don, experience, profitable, strategies, strategy]
+    concepts: [market, share, experience, profitable, strategies]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1mai78i.md#c3"
-    char_span: [5180, 5640]
+    char_span: [5179, 5639]
     sentence_count: 2
     key_terms: [profitable, anonymoustimewaster, don, financial, genuinely, accounts, because, blowing]
+    concepts: [profitable]
     section: Comments
     token_count: 117
   - id: "social-intelligence/reddit-deep/stocks/1mai78i.md#c4"
-    char_span: [5642, 7142]
+    char_span: [5641, 7141]
     sentence_count: 11
     key_terms: [because, money, job, knowledge, something, explain, advice, enough]
+    concepts: [because, money, knowledge, something, explain]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/stocks/1mai78i.md#c5"
-    char_span: [7144, 8785]
+    char_span: [7143, 8784]
     sentence_count: 8
     key_terms: [profitable, answer, minutes, someone, thought, market, simple, particular-macaron35]
+    concepts: [profitable, answer, minutes, someone, thought]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/stocks/1mai78i.md#c6"
-    char_span: [8787, 10957]
+    char_span: [8786, 10956]
     sentence_count: 25
     key_terms: [emotional, position, strategy, nothing, market, people, lose, because]
+    concepts: [emotional, position, strategy, nothing, market]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mai78i.md#c0"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/stocks/1mai78i.md#c7"
-    char_span: [10959, 12881]
+    char_span: [10958, 12880]
     sentence_count: 15
     key_terms: [fortestingprpsses, always, research, realize, someone, crayon, easily, follow]
+    concepts: [fortestingprpsses, always, research, realize, someone]
     section: Comments
     token_count: 453
 ---

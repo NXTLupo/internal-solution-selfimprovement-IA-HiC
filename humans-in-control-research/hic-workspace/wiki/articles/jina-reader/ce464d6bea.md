@@ -18,29 +18,40 @@ chunks:
     char_span: [0, 490]
     sentence_count: 3
     key_terms: [northeastern, president, https, edu, content, university, joseph, source]
+    concepts: [northeastern, president, https, content, university]
+    related_chunks: ["articles/jina-reader/ce464d6bea.md#c1", "articles/jina-reader/ce464d6bea.md#c2", "articles/jina-reader/ce464d6bea.md#c3", "articles/jina-reader/ce464d6bea.md#c4"]
     token_count: 132
+    sources: [{"n":"Jina Reader","u":"https://president.northeastern.edu/"}]
   - id: "articles/jina-reader/ce464d6bea.md#c1"
     char_span: [560, 2244]
     sentence_count: 1
     key_terms: [northeastern, president, https, edu, messages-writings, wp-content, image, category]
+    concepts: [northeastern, president, https, messages-writings, wp-content]
+    related_chunks: ["articles/jina-reader/ce464d6bea.md#c0", "articles/jina-reader/ce464d6bea.md#c2", "articles/jina-reader/ce464d6bea.md#c3", "articles/jina-reader/ce464d6bea.md#c4"]
     section: "[President Joseph E. Aoun](https://president.northeastern.edu/)"
     token_count: 484
   - id: "articles/jina-reader/ce464d6bea.md#c2"
     char_span: [2246, 3561]
     sentence_count: 2
     key_terms: [northeastern, https, president, edu, com, www, how-ai-changes-science-and-how-it-doesnt, students-ai-proof-career-tips-ba96fd38]
+    concepts: [northeastern, president, https, contact, robot-proof]
+    related_chunks: ["articles/jina-reader/ce464d6bea.md#c0", "articles/jina-reader/ce464d6bea.md#c1", "articles/jina-reader/ce464d6bea.md#c3", "articles/jina-reader/ce464d6bea.md#c4"]
     section: "[President Joseph E. Aoun](https://president.northeastern.edu/)"
     token_count: 384
   - id: "articles/jina-reader/ce464d6bea.md#c3"
     char_span: [3591, 5713]
     sentence_count: 4
     key_terms: [northeastern, president, education, https, edu, aoun, global, higher]
+    concepts: [northeastern, president, education, https, global]
+    related_chunks: ["articles/jina-reader/ce464d6bea.md#c0", "articles/jina-reader/ce464d6bea.md#c1", "articles/jina-reader/ce464d6bea.md#c2", "articles/jina-reader/ce464d6bea.md#c4"]
     section: Presidential Priorities
     token_count: 441
   - id: "articles/jina-reader/ce464d6bea.md#c4"
     char_span: [5715, 7085]
     sentence_count: 1
     key_terms: [northeastern, https, edu, www, com, president, northeasternu, burlington]
+    concepts: [northeastern, https, president, northeasternu, burlington]
+    related_chunks: ["articles/jina-reader/ce464d6bea.md#c0", "articles/jina-reader/ce464d6bea.md#c1", "articles/jina-reader/ce464d6bea.md#c2", "articles/jina-reader/ce464d6bea.md#c3"]
     section: Presidential Priorities
     token_count: 393
 ---

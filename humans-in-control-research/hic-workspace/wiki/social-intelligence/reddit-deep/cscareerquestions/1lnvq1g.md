@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 669]
     sentence_count: 6
     key_terms: [cscareerquestions, stack, job, comments, good, land, tech, neuromancer1337]
+    concepts: [cscareerquestions, stack, comments]
     token_count: 164
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1lnvq1g/whats_a_good_tech_stack_in_this_market_to_learn/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lnvq1g.md#c1"
     char_span: [683, 2236]
     sentence_count: 13
     key_terms: [skills, "can't", communication, pass, tech, screen, interview, soft]
+    concepts: [skills, "can't", communication, screen, interview]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lnvq1g.md#c2"
     char_span: [2238, 4243]
     sentence_count: 11
     key_terms: [experience, get, jobs, live, people, skills, scale, probably]
+    concepts: [experience, people, skills, scale, probably]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lnvq1g.md#c3"
     char_span: [4022, 5362]
     sentence_count: 7
     key_terms: [learn, stack, java, framework, agentic, london, comfortable-insect-7, spare-locksmith-2162]
+    concepts: [learn, stack, framework, agentic, london]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lnvq1g.md#c4"
     char_span: [5364, 5957]
     sentence_count: 4
     key_terms: [python, trainingvegetable949, justjustinintime, development, developing, enterprise, companies, protyping]
+    concepts: [python]
     section: Comments
     token_count: 164
 ---

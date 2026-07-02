@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 726]
     sentence_count: 3
     key_terms: [fucking, experience, entry, job, comments, school, level, high]
+    concepts: [fucking, experience, entry, comments, school]
     token_count: 186
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1tk14bm/overqualified_for_entry/"}]
   - id: "social-intelligence/reddit-deep/jobs/1tk14bm.md#c1"
     char_span: [740, 2658]
     sentence_count: 11
     key_terms: [job, better, being, roles, back, experience, different, something]
+    concepts: [better, being, experience, roles, different]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/jobs/1tk14bm.md#c2"
     char_span: [2660, 4015]
     sentence_count: 9
     key_terms: [thanks, bro, job, experience, something, denied, unhappy-homework-812, best]
+    concepts: [thanks, experience, something, denied]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/jobs/1tk14bm.md#c3"
     char_span: [4017, 5355]
     sentence_count: 9
     key_terms: [resume, back, work, working, complete-cricket-351, end, tech, yeah]
+    concepts: [resume, working]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/jobs/1tk14bm.md#c4"
     char_span: [5357, 6550]
     sentence_count: 12
     key_terms: [care, kid, adult, job, research, specific, capable, younger]
+    concepts: [adult, research, specific, capable, younger]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/jobs/1tk14bm.md#c5"
     char_span: [6552, 7504]
     sentence_count: 9
     key_terms: [job, candidates, "you're", miserable-western292, bad, bro, did, cknowledgement]
+    concepts: [candidates, "you're"]
     section: Comments
     token_count: 223
 ---

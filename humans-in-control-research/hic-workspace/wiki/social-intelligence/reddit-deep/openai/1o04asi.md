@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1277]
     sentence_count: 7
     key_terms: [chatgpt, developers, agentkit, openai, apps, sdk, comments, softwaredeliveryops]
+    concepts: [chatgpt, developers, agentkit, openai, comments]
     token_count: 299
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1o04asi/openai_just_redefined_the_dev_stack_chatgpt_apps/"}]
   - id: "social-intelligence/reddit-deep/openai/1o04asi.md#c1"
     char_span: [1291, 1598]
     sentence_count: 3
     key_terms: [openai, news, monetization, adept-type, glamoutfit, indication, amessuo19, digests]
+    concepts: [openai]
     section: Comments
     token_count: 94
 ---

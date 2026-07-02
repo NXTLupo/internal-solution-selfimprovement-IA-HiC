@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1402]
     sentence_count: 16
     key_terms: [like, english, careerguidance, career, need, comments, guidance, earning]
+    concepts: [careerguidance, english, career, comments, guidance]
     token_count: 330
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t9u4ra/22_years_old_ba_english_graduate_no_job_no/"}]
 ---
 # 22 Years Old, BA English Graduate, No Job, No Direction — Need Genuine Career Advice 2. Feeling Like a Failure After BA English Honours — What Should I Do Next? 3. Arts Student Feeling Lost in Life — Need Guidance From Experienced People 4. I’m 22 and Still Not Earning Anything — Need Career A
 

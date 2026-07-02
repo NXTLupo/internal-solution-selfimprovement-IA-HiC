@@ -19,56 +19,69 @@ chunks:
     char_span: [0, 2238]
     sentence_count: 15
     key_terms: [amazon, infrastructure, billion, company, equity, microsoft, back, "they're"]
+    concepts: [amazon, infrastructure, billion, company, equity]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rdiinm.md#c1"]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1rdiinm/amazon_microsoft_and_google_are_systematically/"}]
   - id: "social-intelligence/reddit-deep/stocks/1rdiinm.md#c1"
     char_span: [2240, 4220]
     sentence_count: 7
     key_terms: [billion, cisco, back, equity, companies, microsoft, infrastructure, getting]
+    concepts: [billion, cisco, equity, infrastructure, companies]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rdiinm.md#c0"]
     token_count: 517
   - id: "social-intelligence/reddit-deep/stocks/1rdiinm.md#c2"
     char_span: [4222, 6457]
     sentence_count: 3
     key_terms: [infrastructure, google, cost, extract, china, efficiency, companies, microsoft]
+    concepts: [infrastructure, google, extract, china, efficiency]
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1rdiinm.md#c3"
     char_span: [6459, 7024]
     sentence_count: 6
     key_terms: [company, own, tell, collectively, dismissals, documented, investment, financing]
+    concepts: [company]
     token_count: 127
   - id: "social-intelligence/reddit-deep/stocks/1rdiinm.md#c4"
     char_span: [7038, 8599]
     sentence_count: 13
     key_terms: [cost, amazon, cloud, zero, provide, basis, aws, big]
+    concepts: [amazon, cloud, provide, basis, conspiracy]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/stocks/1rdiinm.md#c5"
     char_span: [8601, 10851]
     sentence_count: 8
     key_terms: [spending, compute, infrastructure, demand, stock, zero, investment, anthropic]
+    concepts: [spending, infrastructure, compute, demand, investment]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/stocks/1rdiinm.md#c6"
     char_span: [10853, 13030]
     sentence_count: 24
     key_terms: [demand, datacenters, disruptors, "wouldn't", "doesn't", amazon, enough, equity]
+    concepts: [demand, datacenters, disruptors, "wouldn't", "doesn't"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/stocks/1rdiinm.md#c7"
     char_span: [13032, 14325]
     sentence_count: 10
     key_terms: [prem, expensive, gamblingpharmastocks, chips, cloud, hesitantinvestor0, plan, too]
+    concepts: [expensive, chips, cloud]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/stocks/1rdiinm.md#c8"
     char_span: [14327, 16125]
     sentence_count: 14
     key_terms: [hesitantinvestor0, agree, companies, something, obsolete, "there's", beyond, thesis]
+    concepts: [hesitantinvestor0, agree, companies, something, obsolete]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/stocks/1rdiinm.md#c9"
     char_span: [16127, 17410]
     sentence_count: 4
     key_terms: [burnercommenter, slop, provided, format, comfortable-copy-700, echidnamedical8375, back, cool]
+    concepts: [burnercommenter, provided, format]
     section: Comments
     token_count: 337
 ---

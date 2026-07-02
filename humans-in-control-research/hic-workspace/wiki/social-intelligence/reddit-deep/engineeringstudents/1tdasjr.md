@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 733]
     sentence_count: 5
     key_terms: [engineeringstudents, internship, comments, student, school, sensitive-low-4359, high, engineering]
+    concepts: [engineeringstudents, internship, comments, student, school]
     token_count: 179
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tdasjr/any_advice_on_getting_an_internship_in_slc_as_a/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tdasjr.md#c1"
     char_span: [747, 1089]
     sentence_count: 1
     key_terms: [internship, deluusonialbadger, integrators, programmers, integrator, undergrad, research, biotech]
+    concepts: [internship]
     section: Comments
     token_count: 81
 ---

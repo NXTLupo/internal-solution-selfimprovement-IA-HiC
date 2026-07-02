@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 464]
     sentence_count: 5
     key_terms: [internships, experience, interview, wondering, comments, anyone, fewcombination5329, bmw]
+    concepts: [internships, experience, interview, wondering, comments]
     token_count: 113
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1qnxfeo/bmw_interview_tipsinternship_experience/"}]
   - id: "social-intelligence/reddit-deep/internships/1qnxfeo.md#c1"
     char_span: [478, 1136]
     sentence_count: 4
     key_terms: [favorite, otherpressure3111, ask, job, role, internapp-sigma, behaviorals, interviewer]
+    concepts: [favorite]
     section: Comments
     token_count: 154
 ---

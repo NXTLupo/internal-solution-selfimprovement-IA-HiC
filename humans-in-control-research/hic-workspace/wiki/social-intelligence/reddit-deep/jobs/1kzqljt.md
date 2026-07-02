@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1974]
     sentence_count: 19
     key_terms: [today, don, anything, comments, personal, already, anxiety, needed]
+    concepts: [today, anything, comments, personal, already]
     token_count: 459
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1kzqljt/i_quit_today_walked_out_after_2_years_of_anxiety/"}]
   - id: "social-intelligence/reddit-deep/jobs/1kzqljt.md#c1"
     char_span: [1976, 2353]
     sentence_count: 5
@@ -31,24 +33,28 @@ chunks:
     char_span: [2367, 4323]
     sentence_count: 28
     key_terms: [enough, good, proud, thefuntruck, hold, work, mentally, yourself]
+    concepts: [enough, thefuntruck, proud, mentally, yourself]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/jobs/1kzqljt.md#c3"
     char_span: [4325, 6182]
     sentence_count: 24
     key_terms: [get, new, hannahmayberry, thefuntruck, job, life, paycheck, people]
+    concepts: [hannahmayberry, thefuntruck, paycheck, people, money]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1kzqljt.md#c4"
     char_span: [5954, 6779]
     sentence_count: 9
     key_terms: [like, hannahmayberry, back, anxiety, "karma's", bitch, anxious-slip-8955, get]
+    concepts: [hannahmayberry, anxiety, "karma's", bitch]
     section: Comments
     token_count: 209
   - id: "social-intelligence/reddit-deep/jobs/1kzqljt.md#c5"
     char_span: [6781, 7286]
     sentence_count: 4
     key_terms: [people, familiar-range9014, pumpupthevaluum, thefuntruck, ridiculous, shittiest, congrats, leashing]
+    concepts: [people]
     section: Comments
     token_count: 151
 ---

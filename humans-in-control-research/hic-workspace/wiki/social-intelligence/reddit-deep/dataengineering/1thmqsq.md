@@ -20,58 +20,72 @@ chunks:
     char_span: [0, 2319]
     sentence_count: 12
     key_terms: [sql, testing, data, test, pipeline, dataengineering, against, duckdb]
+    concepts: [testing, dataengineering, pipeline, against, duckdb]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1thmqsq/sqlbuild_a_typed_testfirst_sql_pipeline_framework/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1thmqsq.md#c1"
     char_span: [2321, 2590]
     sentence_count: 1
     key_terms: [sqlbuild, github, waffle-shop, chio-labs, https, com, sqb, integrations]
+    concepts: [sqlbuild, github, waffle-shop, chio-labs, https]
     token_count: 77
   - id: "social-intelligence/reddit-deep/dataengineering/1thmqsq.md#c2"
-    char_span: [2605, 2833]
+    char_span: [2604, 2832]
     sentence_count: 1
     key_terms: [marathon664, answered, kvlonge, opinion, project, sqlmesh, answer, anyone]
     section: Comments
     token_count: 64
   - id: "social-intelligence/reddit-deep/dataengineering/1thmqsq.md#c3"
-    char_span: [2835, 5221]
+    char_span: [2834, 5220]
     sentence_count: 9
     key_terms: [sqlmesh, state, framework, test, quite, dbt, sql, following]
+    concepts: [sqlmesh, framework, state, quite, following]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1thmqsq.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/dataengineering/1thmqsq.md#c4"
-    char_span: [4895, 6662]
+    char_span: [4894, 6661]
     sentence_count: 9
     key_terms: [sqlmesh, oss, integration, cloud, did, dagster, tobiko, time]
+    concepts: [sqlmesh, integration, cloud, dagster, tobiko]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1thmqsq.md#c6"]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/dataengineering/1thmqsq.md#c5"
-    char_span: [6664, 8578]
+    char_span: [6663, 8577]
     sentence_count: 15
     key_terms: [sqlmesh, state, did, lets, like, vdes, work, postgres]
+    concepts: [sqlmesh, state, postgres, changes, objects]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1thmqsq.md#c3"]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/dataengineering/1thmqsq.md#c6"
-    char_span: [8580, 10507]
+    char_span: [8579, 10506]
     sentence_count: 17
     key_terms: [sqlmesh, dagster, without, making, "don't", seems, integration, been]
+    concepts: [sqlmesh, dagster, without, making, integration]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1thmqsq.md#c4"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/dataengineering/1thmqsq.md#c7"
-    char_span: [10509, 12411]
+    char_span: [10508, 12410]
     sentence_count: 14
     key_terms: [data, representative, testcontainers, great, mssql, raw, customers, pipelines]
+    concepts: [representative, testcontainers, great, mssql, customers]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/dataengineering/1thmqsq.md#c8"
-    char_span: [12413, 13999]
+    char_span: [12412, 13998]
     sentence_count: 4
     key_terms: [select, join, completed, coherent, scenario, sqlbuild, fixture, inputs]
+    concepts: [select, completed, coherent, scenario, sqlbuild]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/dataengineering/1thmqsq.md#c9"
-    char_span: [14001, 15430]
+    char_span: [14000, 15429]
     sentence_count: 10
     key_terms: [environments, sqlmesh, mradjunctpanda, "don't", environment, sampling, fixture, targets]
+    concepts: [environments, mradjunctpanda, sqlmesh, environment, "don't"]
     section: Comments
     token_count: 339
 ---

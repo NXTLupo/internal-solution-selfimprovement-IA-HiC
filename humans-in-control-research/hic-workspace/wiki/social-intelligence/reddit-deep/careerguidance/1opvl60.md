@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1216]
     sentence_count: 7
     key_terms: [pega, careerguidance, future-proof, cloud, mid-career, comments, learning, balance]
+    concepts: [careerguidance, future-proof, cloud, mid-career, comments]
     token_count: 285
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1opvl60/midcareer_tech_lead_pega_15_years_what_should_i/"}]
 ---
 # Mid-career tech lead (Pega, 15 years) — what should I learn next to stay relevant and create impact?
 

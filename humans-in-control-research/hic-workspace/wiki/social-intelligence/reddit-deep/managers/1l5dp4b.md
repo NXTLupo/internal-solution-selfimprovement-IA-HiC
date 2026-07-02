@@ -21,54 +21,67 @@ chunks:
     char_span: [0, 1692]
     sentence_count: 27
     key_terms: [someone, back, comments, managers, remember, because, missing, around]
+    concepts: [someone, comments, managers, remember, because]
     token_count: 461
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1l5dp4b/the_modern_office_day/"}]
   - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c1"
     char_span: [1694, 3646]
     sentence_count: 33
     key_terms: [everyone, dashboard, meeting, expectations, aren, says, everything, leadership]
+    concepts: [everyone, dashboard, meeting, expectations, everything]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1l5dp4b.md#c3"]
     token_count: 497
   - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c2"
     char_span: [3648, 5511]
     sentence_count: 32
     key_terms: [meeting, try, slide, call, granola, minutes, through, emails]
+    concepts: [meeting, slide, granola, minutes, through]
     token_count: 492
   - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c3"
     char_span: [5513, 7330]
     sentence_count: 37
     key_terms: [meeting, doc, don, something, everyone, nothing, someone, version]
+    concepts: [meeting, something, everyone, nothing, someone]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1l5dp4b.md#c1"]
     token_count: 482
   - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c4"
     char_span: [7332, 9124]
     sentence_count: 36
     key_terms: [tomorrow, someone, don, like, already, dinner, laptop, close]
+    concepts: [tomorrow, someone, already, dinner, laptop]
     token_count: 494
   - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c5"
     char_span: [9126, 9983]
     sentence_count: 13
     key_terms: [satire, greg, like, return-to-office, announcements, suspiciously, dashboards, mid-shower]
+    concepts: [satire]
     token_count: 198
   - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c6"
     char_span: [9997, 11732]
     sentence_count: 11
     key_terms: [politicus-8080, meetings, like, accurate, journal, itself, people, beneficial-walrus680]
+    concepts: [politicus-8080, meetings, accurate, journal, itself]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c7"
     char_span: [11734, 12357]
     sentence_count: 5
     key_terms: [scheduling, gutters, people, stop, "rorschach's", assistant, recurring, attendee]
+    concepts: [scheduling, gutters, people]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c8"
     char_span: [12359, 13717]
     sentence_count: 13
     key_terms: [royal-finding-3886, loss, ticket, sorry, thank, through, closed, hour]
+    concepts: [royal-finding-3886, ticket, sorry, thank, through]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c9"
     char_span: [13719, 15668]
     sentence_count: 11
     key_terms: [politicus-8080, beekeeper, corporate, everyone, progress, because, nothing, guess]
+    concepts: [politicus-8080, beekeeper, corporate, everyone, progress]
     section: Comments
     token_count: 470
 ---

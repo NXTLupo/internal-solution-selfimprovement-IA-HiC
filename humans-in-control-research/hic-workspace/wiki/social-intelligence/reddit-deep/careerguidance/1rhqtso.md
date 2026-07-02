@@ -19,65 +19,80 @@ chunks:
     char_span: [0, 847]
     sentence_count: 7
     key_terms: [college, careerguidance, school, comments, students, entry, level, right]
+    concepts: [college, careerguidance, school, comments, students]
     token_count: 200
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rhqtso/why_are_students_pushed_to_pursue_professional/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rhqtso.md#c1"
     char_span: [861, 2543]
     sentence_count: 9
     key_terms: [years, school, scholarships, challenging, gap, "it's", bachelors, something]
+    concepts: [years, scholarships, school, challenging, bachelors]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/careerguidance/1rhqtso.md#c2"
     char_span: [2545, 4402]
     sentence_count: 7
     key_terms: [degree, major, makes, years, interesting, back, hard, job]
+    concepts: [degree, major, interesting, makes, years]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/careerguidance/1rhqtso.md#c3"
     char_span: [4404, 5971]
     sentence_count: 12
     key_terms: [working, want, physics, games, help, "it's", job, decide]
+    concepts: [working, physics, games, decide, degree]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/careerguidance/1rhqtso.md#c4"
     char_span: [5973, 7978]
     sentence_count: 14
     key_terms: [jobs, school, being, find, high, time, justame13, depends]
+    concepts: [school, being, justame13, depends, factory]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/careerguidance/1rhqtso.md#c5"
     char_span: [7980, 8177]
     sentence_count: 2
     key_terms: [people, because, scratch, working, living, school, wanted, avoid]
+    concepts: [people]
     section: Comments
     token_count: 43
   - id: "social-intelligence/reddit-deep/careerguidance/1rhqtso.md#c6"
     char_span: [8179, 10440]
     sentence_count: 14
     key_terms: [jobs, construction, get, college, friend, entry, level, years]
+    concepts: [construction, college, friend, entry, experience]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rhqtso.md#c7", "social-intelligence/reddit-deep/careerguidance/1rhqtso.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rhqtso.md#c7"
     char_span: [10213, 10722]
     sentence_count: 4
     key_terms: [experience, college, years, categorypresent5135, get, job, work, triforcebae]
+    concepts: [experience, college, years]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rhqtso.md#c6", "social-intelligence/reddit-deep/careerguidance/1rhqtso.md#c8"]
     section: Comments
     token_count: 138
   - id: "social-intelligence/reddit-deep/careerguidance/1rhqtso.md#c8"
     char_span: [10724, 12385]
     sentence_count: 12
     key_terms: [college, experience, work, career, people, get, time, won]
+    concepts: [college, experience, career, people, specific]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rhqtso.md#c6", "social-intelligence/reddit-deep/careerguidance/1rhqtso.md#c7"]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/careerguidance/1rhqtso.md#c9"
     char_span: [12387, 13827]
     sentence_count: 12
     key_terms: [kids, college, grades, good, like, important, mediocre, subjects]
+    concepts: [college, grades, important, mediocre, subjects]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/careerguidance/1rhqtso.md#c10"
     char_span: [13830, 14817]
     sentence_count: 12
     key_terms: [years, construction, right, job, government, increase, college, friends]
+    concepts: [years, construction, government, right, increase]
     section: Comments
     token_count: 233
 ---

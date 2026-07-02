@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1954]
     sentence_count: 4
     key_terms: [years, findapath, "i'm", like, another, studies, behind, myself]
+    concepts: [years, findapath, another, studies, behind]
     token_count: 452
+    sources: [{"n":"Reddit Deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1te05ng/i_feel_like_ive_wasted_my_life_at_24/"}]
   - id: "articles/reddit-deep-r-findapath/c6a7bb20ef.md#c1"
     char_span: [1956, 3795]
     sentence_count: 17
     key_terms: [therapist, life, thank, helpful, please, klistellacca, "he's", help]
+    concepts: [therapist, thank, helpful, klistellacca, please]
     token_count: 413
   - id: "articles/reddit-deep-r-findapath/c6a7bb20ef.md#c2"
     char_span: [3797, 5141]
     sentence_count: 15
     key_terms: [life, good, work, through, working, people, lukasgoestoamygdala, buddy]
+    concepts: [through, working, people, buddy, means]
     token_count: 320
 ---
 # i feel like i've wasted my life at 24

@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1434]
     sentence_count: 10
     key_terms: [like, people, use, co-op, city, good, something, building]
+    concepts: [people, co-op, something, building, comments]
     token_count: 335
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1q9urg4/would_you_use_an_app_to_find_other_students_on/"}]
 ---
 # Would you use an app to find other students on co-op?
 

@@ -20,46 +20,57 @@ chunks:
     char_span: [0, 1950]
     sentence_count: 24
     key_terms: [delve, compliance, encryption, spent, entrepreneur, audit, aws, consultant]
+    concepts: [delve, compliance, encryption, spent, entrepreneur]
     token_count: 489
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1lvzfpm/i_tracked_every_dollar_spent_getting_soc2/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1lvzfpm.md#c1"
     char_span: [1952, 2774]
     sentence_count: 12
     key_terms: [compliance, answers, minutes, actual, audit, "don't", slack, got]
+    concepts: [compliance, answers, minutes, actual, audit]
     token_count: 177
   - id: "social-intelligence/reddit-deep/entrepreneur/1lvzfpm.md#c2"
-    char_span: [2789, 4909]
+    char_span: [2788, 4908]
     sentence_count: 13
     key_terms: [entrepreneur, please, apprehensivetruth729, need, automatically, work, everything, permanent]
+    concepts: [entrepreneur, apprehensivetruth729, please, automatically, everything]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/entrepreneur/1lvzfpm.md#c3"
-    char_span: [4911, 6466]
+    char_span: [4910, 6465]
     sentence_count: 18
     key_terms: [platform, delve, audit, certificate, get, companies, platforms, auditor]
+    concepts: [platform, delve, certificate, audit, companies]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1lvzfpm.md#c6"]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/entrepreneur/1lvzfpm.md#c4"
-    char_span: [6468, 8673]
+    char_span: [6467, 8672]
     sentence_count: 18
     key_terms: [delve, infrastructure, get, humadroid, because, someone, pretty, thanks]
+    concepts: [delve, infrastructure, humadroid, because, someone]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/entrepreneur/1lvzfpm.md#c5"
-    char_span: [8675, 10758]
+    char_span: [8674, 10757]
     sentence_count: 22
     key_terms: [soc, audit, "i've", auditor, bundle, saying, test, automated]
+    concepts: [audit, auditor, bundle, saying, automated]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/entrepreneur/1lvzfpm.md#c6"
-    char_span: [10760, 12814]
+    char_span: [10759, 12813]
     sentence_count: 15
     key_terms: [audit, soc, apprehensivetruth729, type, price, time, companies, extremely]
+    concepts: [audit, apprehensivetruth729, price, companies, extremely]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1lvzfpm.md#c3"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/entrepreneur/1lvzfpm.md#c7"
-    char_span: [12816, 13246]
+    char_span: [12815, 13245]
     sentence_count: 3
     key_terms: [careful-one-3953, "don't", share, get, obviously, promotion, solutions, external]
+    concepts: [careful-one-3953, "don't", share]
     section: Comments
     token_count: 128
 ---

@@ -20,42 +20,56 @@ chunks:
     char_span: [0, 1990]
     sentence_count: 9
     key_terms: [service, gaming, nvidia, people, through, passes, requirements, game]
+    concepts: [service, gaming, nvidia, people, through]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rlzbsd.md#c3", "social-intelligence/reddit-deep/stocks/1rlzbsd.md#c4"]
     token_count: 458
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1rlzbsd/people_are_liking_nvidia_for_the_wrong_reasons/"}]
   - id: "social-intelligence/reddit-deep/stocks/1rlzbsd.md#c1"
     char_span: [1992, 4285]
     sentence_count: 16
     key_terms: [steam-machine-could-be-nearly-impossible-to-buy-at-launch-after-steam-deck-sells-out, gaming, effect, significantly, steampowered, https, essentially, com]
+    concepts: [gaming, effect, significantly, steampowered, essentially]
     token_count: 505
   - id: "social-intelligence/reddit-deep/stocks/1rlzbsd.md#c2"
     char_span: [4287, 5189]
     sentence_count: 7
     key_terms: [gaming, expanding, because, geforce, markets, rapidly, games, business-66739966]
+    concepts: [gaming, expanding, because, geforce, markets]
     token_count: 196
   - id: "social-intelligence/reddit-deep/stocks/1rlzbsd.md#c3"
     char_span: [5193, 7242]
     sentence_count: 15
     key_terms: [microsoft, cloud, gaming, xbox, nvidia, https, microsoft-and-nvidia-announce-expansive-new-gaming-deal, service]
+    concepts: [microsoft, cloud, gaming, nvidia, https]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rlzbsd.md#c0", "social-intelligence/reddit-deep/stocks/1rlzbsd.md#c6"]
     token_count: 445
   - id: "social-intelligence/reddit-deep/stocks/1rlzbsd.md#c4"
     char_span: [7244, 9701]
     sentence_count: 16
     key_terms: [stadia, gaming, people, business, existing, platform, starlink, geforce]
+    concepts: [stadia, gaming, people, business, existing]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rlzbsd.md#c0"]
     token_count: 502
   - id: "social-intelligence/reddit-deep/stocks/1rlzbsd.md#c5"
     char_span: [9703, 10270]
     sentence_count: 4
     key_terms: [hours, month, subscription, performance, equivalent, personally, although, anything]
+    concepts: [hours, month]
     token_count: 120
   - id: "social-intelligence/reddit-deep/stocks/1rlzbsd.md#c6"
-    char_span: [10285, 11297]
+    char_span: [10284, 11296]
     sentence_count: 4
     key_terms: [race2prosperity, gaming, game, like, clark1785, latency, cloud, feels]
+    concepts: [race2prosperity, gaming, clark1785, latency, cloud]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rlzbsd.md#c3", "social-intelligence/reddit-deep/stocks/1rlzbsd.md#c7"]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/stocks/1rlzbsd.md#c7"
-    char_span: [11299, 13366]
+    char_span: [11298, 13365]
     sentence_count: 12
     key_terms: [gaming, race2prosperity, bundles, mobile, prices, cloud, games, "it's"]
+    concepts: [gaming, race2prosperity, bundles, mobile, prices]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rlzbsd.md#c6"]
     section: Comments
     token_count: 492
 ---

@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1148]
     sentence_count: 9
     key_terms: [human, customerexperience, customer, comments, service, cryrevolutionary7536, recommendations, personalized]
+    concepts: [customerexperience, human, customer, comments, service]
     token_count: 234
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1mep2dn/how_is_ai_changing_customer_experience_and_is_it/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1mep2dn.md#c1"
-    char_span: [1163, 3077]
+    char_span: [1162, 3076]
     sentence_count: 14
     key_terms: [genuinely, concerning, business, customer, helpful, service, larger, necessary-clock5240]
+    concepts: [genuinely, concerning, business, customer, helpful]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/customerexperience/1mep2dn.md#c2"
-    char_span: [3079, 4526]
+    char_span: [3078, 4525]
     sentence_count: 17
     key_terms: [people, feel, getting, support, speed, taste, isn, like]
+    concepts: [people, getting, support, speed, taste]
     section: Comments
     token_count: 318
 ---

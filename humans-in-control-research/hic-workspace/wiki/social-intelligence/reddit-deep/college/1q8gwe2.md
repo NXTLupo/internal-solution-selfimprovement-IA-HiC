@@ -19,47 +19,59 @@ chunks:
     char_span: [0, 1163]
     sentence_count: 9
     key_terms: [class, questions, college, "it's", accounting, engagement, classroom, professor]
+    concepts: [class, questions, college, accounting, engagement]
     token_count: 276
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1q8gwe2/has_classroom_engagement_always_been_so_bad_or_is/"}]
   - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c1"
     char_span: [1177, 3294]
     sentence_count: 18
     key_terms: [students, student, participate, class, years, bad, been, discussion]
+    concepts: [students, participate, student, class, discussion]
+    related_chunks: ["social-intelligence/reddit-deep/college/1q8gwe2.md#c2", "social-intelligence/reddit-deep/college/1q8gwe2.md#c6"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c2"
     char_span: [3296, 5546]
     sentence_count: 20
     key_terms: ["it's", participate, feel, students, school, class, high, like]
+    concepts: [participate, students, school, class, completely]
+    related_chunks: ["social-intelligence/reddit-deep/college/1q8gwe2.md#c1", "social-intelligence/reddit-deep/college/1q8gwe2.md#c6"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c3"
     char_span: [5548, 6830]
     sentence_count: 14
     key_terms: ["i'm", "don't", ask, questions, students, talking, answer, human]
+    concepts: ["don't", questions, students, talking, answer]
     section: Comments
     token_count: 300
   - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c4"
     char_span: [6832, 9166]
     sentence_count: 15
     key_terms: [majors, classes, english, eds, gen, get, stem, skills]
+    concepts: [majors, classes, english, infinitead212, skills]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c5"
     char_span: [9168, 10149]
     sentence_count: 3
     key_terms: [classes, like, definitely, frequently, percentage, students, because, get]
+    concepts: [classes, definitely, frequently, percentage, students]
     section: Comments
     token_count: 228
   - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c6"
     char_span: [10151, 12233]
     sentence_count: 14
     key_terms: [class, professor, students, communications, completely, learning, semester, college]
+    concepts: [class, professor, students, communications, completely]
+    related_chunks: ["social-intelligence/reddit-deep/college/1q8gwe2.md#c1", "social-intelligence/reddit-deep/college/1q8gwe2.md#c2"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c7"
     char_span: [12235, 12492]
     sentence_count: 3
     key_terms: [least, completely, understand, something, everyone, pressure, question, readings]
+    concepts: [least]
     section: Comments
     token_count: 53
 ---

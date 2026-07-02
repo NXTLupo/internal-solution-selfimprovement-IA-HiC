@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1038]
     sentence_count: 7
     key_terms: [internship, internshipprogram, program, https, japan, internships, experience, comments]
+    concepts: [internship, internshipprogram, program, internships, experience]
     token_count: 242
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1llnpk2/meti_japan_internship_program_2025/"}]
   - id: "social-intelligence/reddit-deep/internships/1llnpk2.md#c1"
     char_span: [1052, 2655]
     sentence_count: 2
     key_terms: [odd-indication-8237, connect, too, applied, deleted, mail, contest, receive]
+    concepts: [odd-indication-8237, connect, applied, deleted, contest]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1llnpk2.md#c2"
     char_span: [2440, 4548]
     sentence_count: 4
     key_terms: [enrollment, letter, form, provide, university, odd-indication-8237, got, interview]
+    concepts: [enrollment, letter, odd-indication-8237, provide, university]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1llnpk2.md#c3"
     char_span: [4316, 4566]
     sentence_count: 1
     key_terms: [anyone, update, ineedtoselectaname, acceptance, rejection, accepted, received, updates]
+    concepts: [anyone, update]
     section: Comments
     token_count: 73
 ---

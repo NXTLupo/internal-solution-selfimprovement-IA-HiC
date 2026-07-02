@@ -21,82 +21,108 @@ chunks:
     char_span: [0, 2070]
     sentence_count: 23
     key_terms: [conversation, chatgpt, something, chat, work, happened, month, seems]
+    concepts: [conversation, chatgpt, something, happened, month]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c12"]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1qpj4ax/warning_to_chatgpt_users/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c1"
     char_span: [2072, 3515]
     sentence_count: 14
     key_terms: [orphaned, projects, update, conversation, accessible, happened, chatgpt, memory]
+    concepts: [orphaned, projects, conversation, update, accessible]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c4"]
     token_count: 327
   - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c2"
     char_span: [3529, 4647]
     sentence_count: 7
     key_terms: [openai, please, conversation, image, post, r-chatgpt-1050422060352024636, subreddit, concerns]
+    concepts: [conversation, openai, please, image, subreddit]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c3"
     char_span: [4649, 5820]
     sentence_count: 9
     key_terms: [chat, projects, longer, performance, gpt, contextual, create, reasonablespinach717]
+    concepts: [projects, longer, performance, contextual, create]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c6"]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c4"
     char_span: [5822, 8128]
     sentence_count: 14
     key_terms: [chat, "it's", projects, threads, tokens, conversation, organization, model]
+    concepts: [projects, threads, conversation, organization, tokens]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c1", "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c5"
     char_span: [7789, 9352]
     sentence_count: 10
     key_terms: [tokens, convo, model, chat, multiple, projects, browser, project]
+    concepts: [tokens, convo, model, multiple, projects]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c4"]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c6"
     char_span: [9354, 10102]
     sentence_count: 5
     key_terms: [project, page, data, previous, chatgpt, create, longer, months]
+    concepts: [project, previous, chatgpt, create, longer]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c3"]
     section: Comments
     token_count: 185
   - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c7"
     char_span: [10104, 12167]
     sentence_count: 10
     key_terms: [project, memory, thread, chat, messages, chats, pages, start]
+    concepts: [project, memory, thread, messages, chats]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c8", "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c11"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c8"
     char_span: [12169, 13409]
     sentence_count: 6
     key_terms: [project, chat, chats, memory, files, astrozombieinvader, desperate-poem7526, like]
+    concepts: [project, chats, memory, files]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c7"]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c9"
     char_span: [13411, 14380]
     sentence_count: 8
     key_terms: [top, ms221988, illustrious-bid-2598, jazzlikeproject6274, bunkersmasher, peasantking, difference, especially]
+    concepts: [ms221988]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c10"
     char_span: [14382, 16565]
     sentence_count: 20
     key_terms: [chat, context, long, chats, window, nodes, run, time]
+    concepts: [context, chats, window, everything, incredibly]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c11"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c11"
     char_span: [16567, 17479]
     sentence_count: 8
     key_terms: [thread, flag, ms221988, chatgpt, context, chats, data, "i'm"]
+    concepts: [thread, ms221988, chatgpt, context, chats]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c7", "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c10", "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c12"]
     section: Comments
     token_count: 237
   - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c12"
     char_span: [17481, 19595]
     sentence_count: 13
     key_terms: [conversation, important, anything, chatgpt, thread, chats, monacbfpcobmaoijgepedjklkpknponk, want]
+    concepts: [conversation, important, anything, chatgpt, thread]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c0", "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c11"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c13"
     char_span: [19597, 20312]
     sentence_count: 2
     key_terms: [api, pricing, around, people, temporarykangaroo387, users, kind, wild]
+    concepts: [pricing, around, people, users]
     section: Comments
     token_count: 161
 ---

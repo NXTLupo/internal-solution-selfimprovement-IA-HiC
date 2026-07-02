@@ -19,28 +19,38 @@ chunks:
     char_span: [0, 2017]
     sentence_count: 5
     key_terms: [berkeley, recruiting, applyingtocollege, year, internships, want, especially, meaningful]
+    concepts: [berkeley, recruiting, applyingtocollege, internships, especially]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c4"]
     token_count: 483
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1skoo03/berkeley_cs_cdss_vs_gt_cs_worth_30k_more/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c1"
     char_span: [2019, 3694]
     sentence_count: 8
     key_terms: [berkeley, culture, recruiting, people, especially, justify, access, choose]
+    concepts: [berkeley, culture, recruiting, people, especially]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c3"]
     token_count: 368
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c2"
     char_span: [3708, 5541]
     sentence_count: 10
     key_terms: [berkeley, steaker144449, quant, peak, difference, research, looking, rsha256]
+    concepts: [berkeley, steaker144449, difference, quant, research]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c3"
     char_span: [5543, 7376]
     sentence_count: 9
     key_terms: [berkeley, engineering, oriented, around, people, quant, less, deflation]
+    concepts: [berkeley, engineering, oriented, around, people]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c1"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c4"
     char_span: [7378, 8581]
     sentence_count: 12
     key_terms: [berkeley, ok-store-2788, internships, definitely, consider, prachub, quality, campus]
+    concepts: [berkeley, ok-store-2788, internships, definitely, consider]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c0"]
     section: Comments
     token_count: 280
 ---

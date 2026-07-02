@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1731]
     sentence_count: 7
     key_terms: [leadership, school, applyingtocollege, sci, college, applications, club, econ]
+    concepts: [leadership, school, applyingtocollege, college, applications]
     token_count: 412
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1tjcyp0/club_leaderships_in_high_school_affecting_college/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjcyp0.md#c1"
     char_span: [1745, 3679]
     sentence_count: 17
     key_terms: [leadership, club, like, lot, opportunities, volunteering, "i'd", lots]
+    concepts: [leadership, opportunities, volunteering, colleges, schools]
     section: Comments
     token_count: 467
 ---

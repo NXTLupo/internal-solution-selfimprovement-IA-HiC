@@ -21,34 +21,43 @@ chunks:
     char_span: [0, 1772]
     sentence_count: 16
     key_terms: [get, northeastern, "you're", class, delta, "don't", major, life]
+    concepts: [northeastern, "you're", class, delta, "don't"]
     token_count: 435
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1pzul5l/10_tips_for_succeeding_at_northeastern/"}]
   - id: "social-intelligence/reddit-deep/neu/1pzul5l.md#c1"
     char_span: [1774, 2882]
     sentence_count: 13
     key_terms: [abroad, accept, study, feel, get, like, experience, something]
+    concepts: [abroad, accept, experience, study, something]
     token_count: 243
   - id: "social-intelligence/reddit-deep/neu/1pzul5l.md#c2"
     char_span: [2896, 4380]
     sentence_count: 8
     key_terms: [classes, class, drop, like, students, advice, better, school]
+    concepts: [classes, class, students, advice, better]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/neu/1pzul5l.md#c3"
     char_span: [4382, 6696]
     sentence_count: 18
     key_terms: [friends, greek, life, because, does, being, co-op, "isn't"]
+    concepts: [friends, greek, because, objectively, being]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1pzul5l.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1pzul5l.md#c4"
     char_span: [6406, 6718]
     sentence_count: 3
     key_terms: [friends, because, become, grungusmalungus, collectively, socializing, instantly, brothers]
+    concepts: [friends, because, become]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1pzul5l.md#c3"]
     section: Comments
     token_count: 68
   - id: "social-intelligence/reddit-deep/neu/1pzul5l.md#c5"
     char_span: [6720, 7669]
     sentence_count: 5
     key_terms: [getting, people, odd-possibility-6233, greek, point, share, wholewonderful9478, delt]
+    concepts: [getting, people, greek, point, share]
     section: Comments
     token_count: 259
 ---

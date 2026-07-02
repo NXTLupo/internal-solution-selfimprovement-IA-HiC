@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 834]
     sentence_count: 6
     key_terms: [businessintelligence, recommendations, actionable, comments, insights, clients, presentations, consultants]
+    concepts: [businessintelligence, recommendations, actionable, comments, insights]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1lovi03.md#c1"]
     token_count: 175
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1lovi03/bi_consultants_how_do_you_deliver_actionable/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1lovi03.md#c1"
-    char_span: [849, 3190]
+    char_span: [848, 3189]
     sentence_count: 22
     key_terms: [actionable, business, insights, like, operations, people, kpis, time]
+    concepts: [actionable, business, insights, operations, people]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1lovi03.md#c0"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/businessintelligence/1lovi03.md#c2"
-    char_span: [3192, 4690]
+    char_span: [3191, 4689]
     sentence_count: 12
     key_terms: [business, knowledge, analyst, limited, always, multidisciplinary, feel, work]
+    concepts: [business, knowledge, analyst, limited, always]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/businessintelligence/1lovi03.md#c3"
-    char_span: [4692, 6622]
+    char_span: [4691, 6621]
     sentence_count: 16
     key_terms: [dashboard, better, opportunities, data, dashboards, explaining, gators1992, different]
+    concepts: [dashboard, opportunities, better, dashboards, explaining]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/businessintelligence/1lovi03.md#c4"
-    char_span: [6624, 7133]
+    char_span: [6623, 7132]
     sentence_count: 4
     key_terms: [dashboards, domo, thr04w4yfinance, automatically, availability, highlighting, observations, predictions]
+    concepts: [dashboards]
     section: Comments
     token_count: 107
 ---

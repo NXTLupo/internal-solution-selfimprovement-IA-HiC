@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1580]
     sentence_count: 11
     key_terms: [internship, internships, comments, computer, please, email, hours, need]
+    concepts: [internship, internships, comments, computer, please]
     token_count: 354
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rdwhcv/is_this_legit/"}]
   - id: "social-intelligence/reddit-deep/internships/1rdwhcv.md#c1"
     char_span: [1594, 3577]
     sentence_count: 10
     key_terms: [applied, internship, exerciseoutside8409, probably, unpaid, last-stick406, media, got]
+    concepts: [exerciseoutside8409, applied, internship, probably, last-stick406]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1rdwhcv.md#c2"
     char_span: [3290, 4556]
     sentence_count: 2
     key_terms: [company, called, dakdan, applied, because, founder, someone, website]
+    concepts: [company, called, dakdan, applied, because]
     section: Comments
     token_count: 287
 ---

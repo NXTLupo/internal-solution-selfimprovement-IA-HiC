@@ -21,23 +21,32 @@ chunks:
     char_span: [0, 1257]
     sentence_count: 7
     key_terms: [working, "i'm", college, online, available, classes, school, requirements]
+    concepts: [working, college, online, available, classes]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rixyyd.md#c1", "social-intelligence/reddit-deep/college/1rixyyd.md#c2", "social-intelligence/reddit-deep/college/1rixyyd.md#c3"]
     token_count: 280
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1rixyyd/working_while_going_to_school_and_scheduling/"}]
   - id: "social-intelligence/reddit-deep/college/1rixyyd.md#c1"
     char_span: [1271, 3139]
     sentence_count: 12
     key_terms: [job, time, classes, "it's", transfer, afford, school, full]
+    concepts: [classes, transfer, afford, school, available]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rixyyd.md#c0", "social-intelligence/reddit-deep/college/1rixyyd.md#c2"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/college/1rixyyd.md#c2"
     char_span: [3141, 5233]
     sentence_count: 13
     key_terms: [classes, working, time, credits, school, different, like, advisor]
+    concepts: [classes, working, credits, school, different]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rixyyd.md#c0", "social-intelligence/reddit-deep/college/1rixyyd.md#c1"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/college/1rixyyd.md#c3"
     char_span: [5235, 7255]
     sentence_count: 19
     key_terms: [classes, community, schedule, online, work, something, semester, transfer]
+    concepts: [classes, community, schedule, online, something]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rixyyd.md#c0"]
     section: Comments
     token_count: 438
 ---

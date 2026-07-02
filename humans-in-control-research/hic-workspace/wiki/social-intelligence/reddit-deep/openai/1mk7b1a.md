@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 286]
     sentence_count: 4
     key_terms: [comments, openai, consciousstupid, reddit-deep, posted, reddit, source, "that's"]
+    concepts: [comments, openai]
     token_count: 90
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1mk7b1a/i_think_thats_all_for_today_folks_there_you_go/"}]
   - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c1"
     char_span: [300, 352]
     sentence_count: 1
@@ -32,72 +34,86 @@ chunks:
     char_span: [354, 2043]
     sentence_count: 8
     key_terms: [stannis, better, season, chatgpt, deleted, fair-lingonberry-268, final, worse]
+    concepts: [stannis, better, season, chatgpt, deleted]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c3"
     char_span: [1834, 2098]
     sentence_count: 4
     key_terms: [better, gpt6, presentation, recognition, meanwhile, analyze, falling, outputs]
+    concepts: [better]
     section: Comments
     token_count: 73
   - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c4"
     char_span: [2100, 3491]
     sentence_count: 11
     key_terms: [scottdellinger, got, toerevolutionary1111, codex, app, "it's", read, yeah]
+    concepts: [scottdellinger, codex]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c5"
     char_span: [3493, 4834]
     sentence_count: 7
     key_terms: [everyone, dumdub, consistent-ad-7455, otherwise-step4836, timeandspaceandme, insubstantial, nomadicnerdxd, disappointed]
+    concepts: [everyone, dumdub]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c6"
     char_span: [4836, 5509]
     sentence_count: 8
     key_terms: [ebbexternal3544, expected, alright, chat, far, gpt, yeah, iammayberryjam]
+    concepts: [ebbexternal3544, expected, alright]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c7"
     char_span: [5512, 7496]
     sentence_count: 7
     key_terms: [people, summary, wolfram, caseypatrickdriscoll, horny4theenvironment, purple-atmosphere-18, image, typeiicivilization]
+    concepts: [people, summary, wolfram, image]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c8"
     char_span: [7498, 9566]
     sentence_count: 18
     key_terms: [factor, wow, through, inspiration, able, feel, like, chatbot]
+    concepts: [factor, through, inspiration, chatbot, prompt]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c9"
     char_span: [9568, 11506]
     sentence_count: 17
     key_terms: [people, chat, casual, conversation, like, because, context, openai]
+    concepts: [people, conversation, casual, because, context]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c10"
     char_span: [11508, 13480]
     sentence_count: 14
     key_terms: ["it's", because, through, "aren't", companionship, relationship, form, time]
+    concepts: [companionship, because, through, relationship, "aren't"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c11"
     char_span: [13482, 15525]
     sentence_count: 14
     key_terms: [like, average, chatbot, person, singularity, artificial, probably, chatgpt]
+    concepts: [average, chatbot, person, singularity, artificial]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c12"
     char_span: [15527, 16961]
     sentence_count: 10
     key_terms: ["it's", case, subgroup, issues, people, foxaffectionate5092, "don't", going]
+    concepts: [subgroup, issues, people, "don't", going]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mk7b1a.md#c13"]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c13"
     char_span: [16963, 18017]
     sentence_count: 4
     key_terms: [consumers, people, "don't", carefully-crafted, immersive-matthew, been, "it's", disillusionment]
+    concepts: [consumers, people, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mk7b1a.md#c12"]
     section: Comments
     token_count: 256
 ---

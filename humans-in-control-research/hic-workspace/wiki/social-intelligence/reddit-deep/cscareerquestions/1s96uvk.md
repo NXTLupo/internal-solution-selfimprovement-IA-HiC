@@ -19,47 +19,59 @@ chunks:
     char_span: [0, 1576]
     sentence_count: 15
     key_terms: [internships, cscareerquestions, because, too, applying, comments, helping, summer]
+    concepts: [internships, cscareerquestions, because, applying, comments]
     token_count: 370
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1s96uvk/how_cooked_am_i_cs_student_no_internships_rotting/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s96uvk.md#c1"
-    char_span: [1591, 3437]
+    char_span: [1590, 3436]
     sentence_count: 16
     key_terms: [get, building, build, people, internships, shit, time, interest]
+    concepts: [building, build, people, internships, interest]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1s96uvk.md#c4"]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s96uvk.md#c2"
-    char_span: [3439, 5175]
+    char_span: [3438, 5174]
     sentence_count: 14
     key_terms: [internship, fail, projects, project, bla, get, got, different]
+    concepts: [internship, projects, project, different, interview]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s96uvk.md#c3"
-    char_span: [5177, 7237]
+    char_span: [5176, 7236]
     sentence_count: 18
     key_terms: [internships, cooked, "you're", companies, chance, cycle, "don't", considering]
+    concepts: [internships, cooked, "you're", companies, chance]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s96uvk.md#c4"
-    char_span: [7242, 9249]
+    char_span: [7241, 9248]
     sentence_count: 14
     key_terms: [something, build, internships, get, want, work, prospects, projects]
+    concepts: [something, internships, build, prospects, projects]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1s96uvk.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1s96uvk.md#c6"]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s96uvk.md#c5"
-    char_span: [9251, 10989]
+    char_span: [9250, 10988]
     sentence_count: 5
     key_terms: [internships, career, interviews, sectionlive4152, resume, gotta, got, jobs]
+    concepts: [internships, interviews, career, sectionlive4152, resume]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s96uvk.md#c6"
-    char_span: [10991, 12961]
+    char_span: [10990, 12960]
     sentence_count: 18
     key_terms: [similarintern923, games, projects, time, something, get, good, work]
+    concepts: [similarintern923, projects, games, armadillotop2003, something]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1s96uvk.md#c4"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s96uvk.md#c7"
-    char_span: [12964, 14688]
+    char_span: [12963, 14687]
     sentence_count: 13
     key_terms: [league, idontevenknowwhats, get, like, armadillotop2003, classes, patchywhiskers, better]
+    concepts: [idontevenknowwhats, league, armadillotop2003, patchywhiskers, classes]
     section: Comments
     token_count: 434
 ---

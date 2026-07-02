@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 2194]
     sentence_count: 24
     key_terms: [internships, summer, experience, recruiting, week, asking, get, job]
+    concepts: [internships, experience, recruiting, summer, asking]
     token_count: 466
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1svcn7e/its_april_and_you_still_dont_have_a_summer/"}]
   - id: "social-intelligence/reddit-deep/internships/1svcn7e.md#c1"
-    char_span: [2209, 4136]
+    char_span: [2208, 4135]
     sentence_count: 12
     key_terms: [resume, connection, recruiters, through, asking, career, job, recruiter]
+    concepts: [connection, recruiters, resume, through, asking]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/internships/1svcn7e.md#c2"
-    char_span: [4140, 5862]
+    char_span: [4139, 5861]
     sentence_count: 17
     key_terms: [internships, people, networking, resume, something, college, events, doing]
+    concepts: [internships, networking, people, resume, something]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/internships/1svcn7e.md#c3"
-    char_span: [5865, 7401]
+    char_span: [5864, 7400]
     sentence_count: 13
     key_terms: [interviews, "you're", international, "i'm", responses, believe, market, rounds]
+    concepts: [interviews, international, "you're", responses, believe]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/internships/1svcn7e.md#c4"
-    char_span: [7403, 8343]
+    char_span: [7402, 8342]
     sentence_count: 6
     key_terms: [internship, tried, profilehot8214, demonstrating, conversation, thecasepick, institutes, interviews]
+    concepts: [internship, tried]
     section: Comments
     token_count: 209
 ---

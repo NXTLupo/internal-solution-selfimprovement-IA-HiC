@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 2158]
     sentence_count: 22
     key_terms: [ring, insurance, policy, like, briteco, stone, replacement, safe]
+    concepts: [insurance, policy, briteco, replacement, stone]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tyehi4.md#c2"]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1tyehi4/a_positive_story_about_briteco_jewelry_insurance/"}]
   - id: "social-intelligence/reddit-deep/insurance/1tyehi4.md#c1"
-    char_span: [2160, 3177]
+    char_span: [2160, 3176]
     sentence_count: 9
     key_terms: [satisfactory, everything, experience, insurance, stories, people, cut, good]
+    concepts: [satisfactory, everything, experience, insurance, stories]
     section: Comments
     token_count: 233
   - id: "social-intelligence/reddit-deep/insurance/1tyehi4.md#c2"
-    char_span: [3179, 5406]
+    char_span: [3178, 5405]
     sentence_count: 9
     key_terms: [ring, capresesalad3636, insurance, briteco, jewelry, people, often, posts]
+    concepts: [capresesalad3636, insurance, briteco, jewelry, people]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tyehi4.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/insurance/1tyehi4.md#c3"
-    char_span: [5167, 6474]
+    char_span: [5166, 6473]
     sentence_count: 8
     key_terms: [insurance, ring, statistically, deductible, understand, insuring, briteco, jewelry]
+    concepts: [insurance, statistically, deductible, understand, insuring]
     section: Comments
     token_count: 303
 ---

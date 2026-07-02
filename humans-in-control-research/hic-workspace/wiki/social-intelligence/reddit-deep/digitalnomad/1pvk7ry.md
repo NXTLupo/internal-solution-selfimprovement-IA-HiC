@@ -21,52 +21,64 @@ chunks:
     char_span: [0, 1753]
     sentence_count: 16
     key_terms: [hostel, digitalnomad, comments, people, reddit, month, new, digital]
+    concepts: [hostel, digitalnomad, comments, people, reddit]
     token_count: 429
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1pvk7ry/living_in_a_hostel_as_a_digital_nomad_one_month_in/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1pvk7ry.md#c1"
     char_span: [1755, 2916]
     sentence_count: 13
     key_terms: [don, work, personal, control, focused, routine, though, far]
+    concepts: [personal, control, focused, routine, though]
     token_count: 249
   - id: "social-intelligence/reddit-deep/digitalnomad/1pvk7ry.md#c2"
     char_span: [2930, 4927]
     sentence_count: 20
     key_terms: [people, working, communal, connect, areas, solo, talkative, travelers]
+    concepts: [people, working, communal, connect, areas]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/digitalnomad/1pvk7ry.md#c3"
     char_span: [4929, 5731]
     sentence_count: 5
     key_terms: [questions, working, hostel, captainobvious110, excessive-pooping, leadingbridge2456, fun, like]
+    concepts: [questions, working, hostel]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/digitalnomad/1pvk7ry.md#c4"
     char_span: [5736, 7725]
     sentence_count: 14
     key_terms: [being, work, hostels, hostel, too, tolerance, control, leaving]
+    concepts: [being, hostels, hostel, tolerance, control]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1pvk7ry.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1pvk7ry.md#c5"
     char_span: [7509, 8314]
     sentence_count: 7
     key_terms: [months, place, setup, bar, exam, room, well-furnished, matehualastop]
+    concepts: [months, place, setup]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/digitalnomad/1pvk7ry.md#c6"
     char_span: [8316, 10257]
     sentence_count: 14
     key_terms: [like, hostels, hostel, living, "that's", month, environment, long-term]
+    concepts: [hostels, hostel, living, "that's", environment]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1pvk7ry.md#c4"]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/digitalnomad/1pvk7ry.md#c7"
     char_span: [10259, 12097]
     sentence_count: 16
     key_terms: [people, questions, conversations, city, planning, country, explore, showing]
+    concepts: [people, questions, conversations, planning, country]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/digitalnomad/1pvk7ry.md#c8"
     char_span: [12101, 13087]
     sentence_count: 7
     key_terms: [hostel, trying, single-constant9518, chile, like, next, tranquilitics, overthinking]
+    concepts: [hostel, trying, chile]
     section: Comments
     token_count: 267
 ---

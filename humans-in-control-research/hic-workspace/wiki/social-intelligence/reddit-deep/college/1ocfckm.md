@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2076]
     sentence_count: 18
     key_terms: [phd, something, research, degree, prevention, "master's", college, public]
+    concepts: [something, research, prevention, degree, "master's"]
     token_count: 456
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ocfckm/graduating_with_my_masters_degree_but_now/"}]
   - id: "social-intelligence/reddit-deep/college/1ocfckm.md#c1"
     char_span: [2078, 2909]
     sentence_count: 7
     key_terms: [opportunity, degree, educational, thought, done, get, phd, "university's"]
+    concepts: [opportunity, degree, educational, thought]
     token_count: 175
   - id: "social-intelligence/reddit-deep/college/1ocfckm.md#c2"
     char_span: [2923, 3354]
     sentence_count: 4
     key_terms: [years, undergrad, school, worked, jobs, opportunities, professors, claisen33]
+    concepts: [years, undergrad, school, worked]
     section: Comments
     token_count: 110
 ---

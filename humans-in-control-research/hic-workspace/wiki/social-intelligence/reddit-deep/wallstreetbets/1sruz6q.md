@@ -21,45 +21,58 @@ chunks:
     char_span: [0, 2156]
     sentence_count: 8
     key_terms: [intel, tsmc, latest, currently, fab, wallstreetbets, tools, marketshare]
+    concepts: [intel, latest, currently, wallstreetbets, marketshare]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1sruz6q/intel_dd_earnings_play_crash/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c1"
     char_span: [2158, 4360]
     sentence_count: 14
     key_terms: [intel, "it's", furthermore, companies, cpus, earnings, market, being]
+    concepts: [intel, furthermore, companies, earnings, market]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c5", "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c7"]
     token_count: 472
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c2"
     char_span: [4362, 4710]
     sentence_count: 3
     key_terms: [intel, profitability, economically, questionable, especially, irrational, financial, expiring]
+    concepts: [intel]
     token_count: 79
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c3"
     char_span: [4724, 6358]
     sentence_count: 11
     key_terms: [intel, build, oracle, chips, deals, circular, discord, project]
+    concepts: [intel, build, oracle, chips, deals]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c4"
     char_span: [6360, 8389]
     sentence_count: 16
     key_terms: [company, super-activity-4675, crash, intel, appletrees2, companies, training, capital]
+    concepts: [super-activity-4675, company, appletrees2, crash, intel]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c5"
     char_span: [8391, 9329]
     sentence_count: 9
     key_terms: [intel, earnings, already, people, china, buy, oil, gorginhanson]
+    concepts: [intel, earnings, already, people, china]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c1", "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c6", "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c7"]
     section: Comments
     token_count: 232
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c6"
     char_span: [9331, 11360]
     sentence_count: 14
     key_terms: [intel, national, security, already, going, goodboxclub, lol, company]
+    concepts: [intel, national, security, already, goodboxclub]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c5"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c7"
     char_span: [11365, 13283]
     sentence_count: 12
     key_terms: [intel, years, earnings, been, time, precision, "hasn't", newtembarrassed8722]
+    concepts: [intel, years, earnings, precision, "hasn't"]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c1", "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c5"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c8"

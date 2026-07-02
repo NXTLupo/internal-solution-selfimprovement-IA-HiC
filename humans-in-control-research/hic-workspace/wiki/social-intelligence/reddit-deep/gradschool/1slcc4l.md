@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2049]
     sentence_count: 9
     key_terms: [preprint, fully-funded, bioinformatics, school, international, discouraging, value, scholarship]
+    concepts: [preprint, fully-funded, bioinformatics, international, discouraging]
     token_count: 450
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1slcc4l/need_advice_should_i_publish_a_preprint_for_my/"}]
 ---
 # Need advice: Should I publish a preprint for my dry-lab FYP? Lecturers are discouraging, and I need portfolio value for fully-funded grad school.
 

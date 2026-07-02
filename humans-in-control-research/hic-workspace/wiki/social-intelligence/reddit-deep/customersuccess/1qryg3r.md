@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 2421]
     sentence_count: 13
     key_terms: [support, investment, role, community, customersuccess, members, success, events]
+    concepts: [investment, support, community, customersuccess, opportunities]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/customersuccess","u":"https://www.reddit.com/r/CustomerSuccess/comments/1qryg3r/moving_from_support_to_success/"}]
   - id: "social-intelligence/reddit-deep/customersuccess/1qryg3r.md#c1"
-    char_span: [2436, 4740]
+    char_span: [2435, 4739]
     sentence_count: 17
     key_terms: [clients, company, like, role, accounts, customer, success, support]
+    concepts: [clients, company, accounts, customer, success]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1qryg3r.md#c3"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/customersuccess/1qryg3r.md#c2"
-    char_span: [4742, 5834]
+    char_span: [4741, 5833]
     sentence_count: 8
     key_terms: [approach, problems, support, "that's", got, responsibilities, opportunities, relationships]
+    concepts: [approach, problems, support, "that's"]
     section: Comments
     token_count: 218
   - id: "social-intelligence/reddit-deep/customersuccess/1qryg3r.md#c3"
-    char_span: [5836, 7647]
+    char_span: [5835, 7646]
     sentence_count: 9
     key_terms: [success, support, experience, customer, little, expectation-setting, lean, role]
+    concepts: [success, support, experience, customer, little]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1qryg3r.md#c1"]
     section: Comments
     token_count: 393
 ---

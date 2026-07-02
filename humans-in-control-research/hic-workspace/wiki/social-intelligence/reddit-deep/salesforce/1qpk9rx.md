@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 2328]
     sentence_count: 14
     key_terms: [salesforce, business, banking, admin, corporate, knowledge, strong, transition]
+    concepts: [salesforce, business, banking, admin, corporate]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qpk9rx.md#c2"]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1qpk9rx/from_corporate_banking_to_salesforce_realistic/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1qpk9rx.md#c1"
-    char_span: [2343, 4784]
+    char_span: [2342, 4783]
     sentence_count: 15
     key_terms: [industry, salesforce, experience, ncino, platform, understanding, package, cloud]
+    concepts: [industry, salesforce, experience, understanding, platform]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/salesforce/1qpk9rx.md#c2"
-    char_span: [4787, 5937]
+    char_span: [4786, 5936]
     sentence_count: 8
     key_terms: [salesforce, financial, services, role, transition, youreaveragedentist, admin, cloud]
+    concepts: [salesforce, financial, services, transition, admin]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qpk9rx.md#c0"]
     section: Comments
     token_count: 253
 ---

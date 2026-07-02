@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 1488]
     sentence_count: 17
     key_terms: [careerguidance, fired, work, comments, tomorrow, company, getting, right]
+    concepts: [careerguidance, fired, comments, tomorrow, company]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c2"]
     token_count: 351
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sfyv29/getting_fired_over_a_big_mistake_what_do_i_do/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c1"
     char_span: [1502, 3431]
     sentence_count: 20
     key_terms: [mistake, mistakes, making, happen, professional, like, something, djfromnl]
+    concepts: [mistake, mistakes, making, professional, happen]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c2"
     char_span: [3433, 5213]
     sentence_count: 9
     key_terms: [negligent, tell, company, situation, tomorrow, happens, mistake, stress]
+    concepts: [negligent, company, situation, tomorrow, happens]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c0"]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c3"
     char_span: [5215, 6581]
     sentence_count: 9
     key_terms: [better, fired, training, hearing, mistake, please, sounds, cold-management-2168]
+    concepts: [better, fired, training, hearing, mistake]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c4"
     char_span: [6583, 8806]
     sentence_count: 19
     key_terms: [righteousaffair999, good, because, company, happen, people, maybe, intoxicated]
+    concepts: [righteousaffair999, because, company, happen, people]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c5"
     char_span: [8808, 11009]
     sentence_count: 20
     key_terms: [better, different, get, job, something, strengths, happened, mistakes]
+    concepts: [better, different, something, strengths, happened]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c6"
     char_span: [11011, 12696]
     sentence_count: 22
     key_terms: [because, better, pretty, burnedlaser, job, ended, right, young]
+    concepts: [because, better, pretty, burnedlaser, ended]
     section: Comments
     token_count: 434
 ---

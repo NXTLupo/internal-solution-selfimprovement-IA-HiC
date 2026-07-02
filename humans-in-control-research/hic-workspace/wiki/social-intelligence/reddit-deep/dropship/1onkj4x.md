@@ -20,41 +20,53 @@ chunks:
     char_span: [0, 1159]
     sentence_count: 10
     key_terms: [tracking, job, like, different, comments, customer, dropship, everyone]
+    concepts: [tracking, different, comments, customer, dropship]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1onkj4x.md#c1", "social-intelligence/reddit-deep/dropship/1onkj4x.md#c4"]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1onkj4x/how_are_you_all_actually_handling_the_where_is_my/"}]
   - id: "social-intelligence/reddit-deep/dropship/1onkj4x.md#c1"
-    char_span: [1174, 3321]
+    char_span: [1173, 3320]
     sentence_count: 14
     key_terms: [tracking, order, eta, dropship, automatically, automates, shopify, "there's"]
+    concepts: [tracking, order, dropship, automatically, automates]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1onkj4x.md#c0", "social-intelligence/reddit-deep/dropship/1onkj4x.md#c4", "social-intelligence/reddit-deep/dropship/1onkj4x.md#c5"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/dropship/1onkj4x.md#c2"
-    char_span: [3323, 5386]
+    char_span: [3322, 5385]
     sentence_count: 17
     key_terms: [system, customers, proactive, customer, heads-up, automation, "customer's", question]
+    concepts: [system, customers, proactive, customer, heads-up]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/dropship/1onkj4x.md#c3"
-    char_span: [5125, 5863]
+    char_span: [5124, 5862]
     sentence_count: 6
     key_terms: [villagehomef, chaos, different, business, orders, kind, satisfaction, high-volume]
+    concepts: [villagehomef, chaos, different, business, orders]
     section: Comments
     token_count: 185
   - id: "social-intelligence/reddit-deep/dropship/1onkj4x.md#c4"
-    char_span: [5865, 8163]
+    char_span: [5864, 8162]
     sentence_count: 18
     key_terms: [tracking, order, processing, customer, delivery, perfect, trackingnumber, email]
+    concepts: [tracking, order, processing, customer, delivery]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1onkj4x.md#c0", "social-intelligence/reddit-deep/dropship/1onkj4x.md#c1", "social-intelligence/reddit-deep/dropship/1onkj4x.md#c5"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/dropship/1onkj4x.md#c5"
-    char_span: [8165, 10398]
+    char_span: [8164, 10397]
     sentence_count: 22
     key_terms: [tracking, delivery, like, shopify, order, estimated, updates, emails]
+    concepts: [tracking, delivery, shopify, estimated, order]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1onkj4x.md#c1", "social-intelligence/reddit-deep/dropship/1onkj4x.md#c4"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/dropship/1onkj4x.md#c6"
-    char_span: [10400, 12269]
+    char_span: [10399, 12268]
     sentence_count: 20
     key_terms: [automation, helpdesk, system, like, exceptions, shopify, handle, manage]
+    concepts: [automation, helpdesk, system, exceptions, shopify]
     section: Comments
     token_count: 455
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 229]
     sentence_count: 1
     key_terms: [deeplearning, comments, reddit-deep, posted, reddit, sector, source, https]
+    concepts: [deeplearning, comments]
     token_count: 74
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1syjm07/jobs_in_aiml_sector/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1syjm07.md#c1"
     char_span: [243, 1832]
     sentence_count: 13
     key_terms: [like, projects, pubblications, pubblication, look, researcher, project, change]
+    concepts: [projects, pubblications, pubblication, researcher, project]
     section: Comments
     token_count: 395
 ---

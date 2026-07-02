@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1713]
     sentence_count: 15
     key_terms: [investing, daily, etfs, monthly, weekly, etf, wondering, comments]
+    concepts: [investing, daily, monthly, weekly, wondering]
     token_count: 374
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1twt4rb/daily_etf_investing_vs_weeklymonthly_am_i/"}]
   - id: "social-intelligence/reddit-deep/etfs/1twt4rb.md#c1"
-    char_span: [1728, 3214]
+    char_span: [1727, 3213]
     sentence_count: 12
     key_terms: [market, investing, psychologicalmap9839, better, invest, timing, weekly, fetus-wearing-a-suit]
+    concepts: [market, investing, psychologicalmap9839, better, invest]
     section: Comments
     token_count: 401
 ---

@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 740]
     sentence_count: 14
     key_terms: [thousands, comments, chatgpt, real, subscriptions, productivity, transmission, reddit-deep]
+    concepts: [thousands, comments, chatgpt]
     token_count: 172
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1qi3dwt/whats_the_most_money_ai_has_saved_you_in_one_real/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1qi3dwt.md#c1"
     char_span: [754, 2047]
     sentence_count: 8
     key_terms: [openai, please, conversation, image, obd2, post, r-chatgpt-1050422060352024636, passenger]
+    concepts: [conversation, openai, please, image, passenger]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/chatgpt/1qi3dwt.md#c2"
     char_span: [2049, 2908]
     sentence_count: 2
     key_terms: [car, port, specific, inside, cabin, like, told, cheeseburger]
+    concepts: [specific, inside, cabin]
     section: Comments
     token_count: 218
   - id: "social-intelligence/reddit-deep/chatgpt/1qi3dwt.md#c3"
     char_span: [2910, 4984]
     sentence_count: 11
     key_terms: [car, did, numerous-cup1863, tdeliev, letter, professional, told, processing]
+    concepts: [numerous-cup1863, tdeliev, professional, letter, processing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1qi3dwt.md#c4"

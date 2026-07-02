@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1822]
     sentence_count: 13
     key_terms: [project, background, business, analyst, product, careerguidance, advice, devops]
+    concepts: [project, background, business, careerguidance, analyst]
     token_count: 393
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t9vxws/career_advice_needed_need_guidance_on_how_to_up/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t9vxws.md#c1"
     char_span: [1836, 3481]
     sentence_count: 12
     key_terms: [technical, product, devops, sql, learning, python, help, automation]
+    concepts: [technical, product, devops, learning, python]
     section: Comments
     token_count: 331
 ---

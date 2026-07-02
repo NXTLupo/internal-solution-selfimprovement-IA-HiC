@@ -20,39 +20,46 @@ chunks:
     char_span: [0, 2047]
     sentence_count: 19
     key_terms: [embedded, tableau, businessintelligence, experience, power, clients, "i've", "it's"]
+    concepts: [embedded, businessintelligence, tableau, experience, power]
     token_count: 461
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1sttnor/who_is_doing_embedded_analytics_right_heres_what/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1sttnor.md#c1"
     char_span: [2049, 4440]
     sentence_count: 19
     key_terms: [pricing, research, embedded, user, annually, multi-tenancy, users, deployments]
+    concepts: [pricing, research, embedded, annually, multi-tenancy]
     token_count: 485
   - id: "social-intelligence/reddit-deep/businessintelligence/1sttnor.md#c2"
     char_span: [4442, 6049]
     sentence_count: 12
     key_terms: [predictability, model, domo, connector, embedding, customer, reported, research]
+    concepts: [predictability, model, connector, embedding, customer]
     token_count: 337
   - id: "social-intelligence/reddit-deep/businessintelligence/1sttnor.md#c3"
-    char_span: [6064, 8233]
+    char_span: [6063, 8232]
     sentence_count: 26
     key_terms: [embedded-analytics, holistics, tableau, enough, data, qlik, analytics, framework]
+    concepts: [embedded-analytics, holistics, tableau, enough, analytics]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/businessintelligence/1sttnor.md#c4"
-    char_span: [8235, 8361]
+    char_span: [8234, 8360]
     sentence_count: 1
     key_terms: [performancevoptimise, expensive, always, caveat, direct, means, query, give]
     section: Comments
     token_count: 27
   - id: "social-intelligence/reddit-deep/businessintelligence/1sttnor.md#c5"
-    char_span: [8363, 10200]
+    char_span: [8362, 10199]
     sentence_count: 8
     key_terms: [talktomenerdy, check, sigma, been, "i'm", "it's", holistics, semaphor]
+    concepts: [talktomenerdy, check, sigma, holistics, semaphor]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/businessintelligence/1sttnor.md#c6"
-    char_span: [9963, 10992]
+    char_span: [9962, 10991]
     sentence_count: 7
     key_terms: [sigma, dashboards, quote, got, like, sea-garden7836, automatically, architecture]
+    concepts: [dashboards, sigma, quote]
     section: Comments
     token_count: 256
 ---

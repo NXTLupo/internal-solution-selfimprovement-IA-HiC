@@ -17,10 +17,12 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/bigdata/1obe0j0.md#c0"
-    char_span: [0, 598]
+    char_span: [0, 597]
     sentence_count: 5
     key_terms: [comments, customer, datasets, bigdata, vacuum, delta, spark, fitimportance606]
-    token_count: 136
+    concepts: [comments, customer, datasets, bigdata, vacuum]
+    token_count: 135
+    sources: [{"n":"reddit-deep: r/bigdata","u":"https://www.reddit.com/r/bigdata/comments/1obe0j0/lakehouse_architecture_with_spark_and_delta_for/"}]
 ---
 # Lakehouse architecture with Spark and Delta for multi TB datasets
 

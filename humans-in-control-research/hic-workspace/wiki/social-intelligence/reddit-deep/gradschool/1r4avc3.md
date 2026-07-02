@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 1335]
     sentence_count: 12
     key_terms: [another, looking, groups, grad, gradschool, comments, graduate, roommate]
+    concepts: [another, looking, groups, gradschool, comments]
     token_count: 310
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1r4avc3/graduate_housing_woes/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1r4avc3.md#c1"
     char_span: [1349, 2804]
     sentence_count: 10
     key_terms: [dirtrepresentative9, couple, apartments, "couldn't", students, housing, program, stipend]
+    concepts: [dirtrepresentative9, couple, apartments, "couldn't", students]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/gradschool/1r4avc3.md#c2"
     char_span: [2806, 4127]
     sentence_count: 10
     key_terms: [partner, point, car, expensive, living, saying, school, bronx]
+    concepts: [partner, point, expensive, living, saying]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/gradschool/1r4avc3.md#c3"
     char_span: [4129, 6277]
     sentence_count: 15
     key_terms: [housing, throwaway172892930, grad, unrealistically, fordham, around, living, bronx]
+    concepts: [housing, throwaway172892930, unrealistically, fordham, around]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1r4avc3.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1r4avc3.md#c4"
     char_span: [6001, 7420]
     sentence_count: 7
     key_terms: [housing, married, people, right, get, live, marriage, cheaper]
+    concepts: [housing, married, people, right, marriage]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/gradschool/1r4avc3.md#c5"
     char_span: [7422, 9436]
     sentence_count: 15
     key_terms: [housing, fordham, queens, school, streeteasy, university, position, another]
+    concepts: [housing, fordham, queens, school, streeteasy]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1r4avc3.md#c3"]
     section: Comments
     token_count: 483
 ---

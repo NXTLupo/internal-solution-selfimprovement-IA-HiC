@@ -21,34 +21,45 @@ chunks:
     char_span: [0, 2006]
     sentence_count: 15
     key_terms: [school, uva, clemson, full, applyingtocollege, want, neuroscience, financially]
+    concepts: [school, clemson, applyingtocollege, neuroscience, financially]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c3"]
     token_count: 489
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sx5lku/uva_full_pay_v_clemson_full_ride_also_unc_and_wl/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c1"
     char_span: [2008, 4079]
     sentence_count: 4
     key_terms: [school, get, med, scholarship, major, difficult, cons, college]
+    concepts: [school, scholarship, difficult, major, college]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c2"]
     token_count: 435
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c2"
     char_span: [4093, 6072]
     sentence_count: 10
     key_terms: [medical, school, college, student, campus, home, like, university]
+    concepts: [medical, school, college, student, campus]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c1"]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c3"
     char_span: [6074, 7554]
     sentence_count: 11
     key_terms: [clemson, national, school, perspective, get, "it's", scholars, students]
+    concepts: [clemson, national, school, perspective, scholars]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c0"]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c4"
     char_span: [7556, 9379]
     sentence_count: 16
     key_terms: [clemson, class, a-self-imposed-exile-independents-at-wl, get, gpa, unc, students, college]
+    concepts: [clemson, class, students, college, honors]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c5"
     char_span: [9381, 11168]
     sentence_count: 9
     key_terms: [clemson, https, meet-the-scholars, national-scholars, web, archive, full, biological]
+    concepts: [clemson, meet-the-scholars, national-scholars, https, archive]
     section: Comments
     token_count: 428
 ---

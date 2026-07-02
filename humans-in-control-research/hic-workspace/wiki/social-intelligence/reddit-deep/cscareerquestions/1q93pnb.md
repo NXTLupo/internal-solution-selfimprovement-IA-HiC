@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1288]
     sentence_count: 11
     key_terms: [cscareerquestions, projects, certifications, internships, don, community, comments, college]
+    concepts: [cscareerquestions, projects, certifications, internships, community]
     token_count: 304
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1q93pnb/community_college_cs_student_looking_for_advice/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q93pnb.md#c1"
     char_span: [1302, 1848]
     sentence_count: 6
     key_terms: [projects, support, apply, certs, roles, don, swe, marcablefluke]
+    concepts: [projects, support, apply, certs, roles]
     section: Comments
     token_count: 137
 ---

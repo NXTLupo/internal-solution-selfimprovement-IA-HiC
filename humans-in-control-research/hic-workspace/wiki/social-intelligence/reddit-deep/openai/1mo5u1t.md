@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 296]
     sentence_count: 1
     key_terms: [comments, openai, obvithrowaway34434, reddit-deep, confirmed, thinking, context, posted]
+    concepts: [comments, openai]
     token_count: 90
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1mo5u1t/gpt5_thinking_is_confirmed_to_have_196k_context/"}]
   - id: "social-intelligence/reddit-deep/openai/1mo5u1t.md#c1"
     char_span: [310, 932]
     sentence_count: 4
     key_terms: [tokens, model, capabilities, angelfirela, aggresive, mescallan, paperzach, reasoning]
+    concepts: [tokens, model]
     section: Comments
     token_count: 168
   - id: "social-intelligence/reddit-deep/openai/1mo5u1t.md#c2"
     char_span: [934, 2734]
     sentence_count: 9
     key_terms: [context, tokens, reasoning, prompts, conversation, input, model, like]
+    concepts: [context, tokens, reasoning, prompts, conversation]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/openai/1mo5u1t.md#c3"
     char_span: [2736, 4100]
     sentence_count: 8
     key_terms: [queries, query, reasoning, messages, thinking, context, blank, been]
+    concepts: [queries, query, reasoning, messages, thinking]
     section: Comments
     token_count: 372
 ---

@@ -20,33 +20,41 @@ chunks:
     char_span: [0, 1646]
     sentence_count: 23
     key_terms: [software, revenue, like, enterprise, customers, comments, engineer, platform]
+    concepts: [software, revenue, enterprise, customers, comments]
     token_count: 366
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1r4jfia/gtlb_is_criminally_undervalued/"}]
   - id: "social-intelligence/reddit-deep/stocks/1r4jfia.md#c1"
-    char_span: [1661, 3171]
+    char_span: [1660, 3170]
     sentence_count: 11
     key_terms: [github, enterprise, possible-pirate9097, gitlab, believe, growth, market, "don't"]
+    concepts: [github, enterprise, possible-pirate9097, gitlab, believe]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/stocks/1r4jfia.md#c2"
-    char_span: [3173, 5306]
+    char_span: [3172, 5305]
     sentence_count: 15
     key_terms: [gitlab, dap, "it's", companies, high, company, "isn't", stock]
+    concepts: [gitlab, companies, company, everything, "isn't"]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1r4jfia.md#c4"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/stocks/1r4jfia.md#c3"
-    char_span: [5308, 6903]
+    char_span: [5307, 6902]
     sentence_count: 11
     key_terms: [dap, vision, being, price, "it's", especially, investors, realistic]
+    concepts: [vision, being, especially, price, investors]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/stocks/1r4jfia.md#c4"
-    char_span: [6905, 8676]
+    char_span: [6904, 8675]
     sentence_count: 18
     key_terms: [code, gitlab, company, having, margin, good, developers, somewhere]
+    concepts: [gitlab, company, having, margin, developers]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1r4jfia.md#c2"]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/stocks/1r4jfia.md#c5"
-    char_span: [8678, 9076]
+    char_span: [8677, 9075]
     sentence_count: 3
     key_terms: [djskeets15, generating, ritholtz76, companies, expensive, software, yourself, "doesn't"]
     section: Comments

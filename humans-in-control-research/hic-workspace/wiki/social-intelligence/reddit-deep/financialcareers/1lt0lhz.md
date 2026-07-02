@@ -20,41 +20,49 @@ chunks:
     char_span: [0, 428]
     sentence_count: 2
     key_terms: [financialcareers, comments, thank, chaddinki99, reddit-deep, everyone, previous, reworked]
+    concepts: [financialcareers, comments, thank]
     token_count: 121
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1lt0lhz/25_yr_old_man_trying_to_break_in_finance_pt2/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1lt0lhz.md#c1"
-    char_span: [443, 2048]
+    char_span: [442, 2047]
     sentence_count: 13
     key_terms: [get, program, years, cfa, experience, candidate, linkedin, network]
+    concepts: [program, experience, years, candidate, linkedin]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/financialcareers/1lt0lhz.md#c2"
-    char_span: [2050, 3328]
+    char_span: [2049, 3327]
     sentence_count: 11
     key_terms: [deleted, nochillmonkey, level, cfa, candidate, reference, process, exam]
+    concepts: [nochillmonkey, deleted, level, candidate, reference]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/financialcareers/1lt0lhz.md#c3"
-    char_span: [3330, 5411]
+    char_span: [3329, 5410]
     sentence_count: 12
     key_terms: [job, interests, bullets, bullet, certificates, description, information, cfa]
+    concepts: [interests, bullets, certificates, bullet, description]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1lt0lhz.md#c4"
-    char_span: [5146, 5761]
+    char_span: [5145, 5760]
     sentence_count: 2
     key_terms: [bullet, resume, cfa, sure, smoothtraderr, gonzopunchi, information, nonetheless]
+    concepts: [bullet, resume]
     section: Comments
     token_count: 159
   - id: "social-intelligence/reddit-deep/financialcareers/1lt0lhz.md#c5"
-    char_span: [5764, 7893]
+    char_span: [5763, 7892]
     sentence_count: 23
     key_terms: [finance, banking, fix, unless, roles, experience, recruiters, brutally]
+    concepts: [finance, banking, unless, experience, recruiters]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/financialcareers/1lt0lhz.md#c6"
-    char_span: [7895, 8329]
+    char_span: [7894, 8328]
     sentence_count: 10
     key_terms: [finance, distractions, transactions, chaddinki99, experience, specialize, valuations, analysis]
+    concepts: [finance]
     section: Comments
     token_count: 106
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 474]
     sentence_count: 4
     key_terms: [careerguidance, managerial, comments, job, role, work, reddit-deep, delegates]
+    concepts: [careerguidance, managerial, comments]
     token_count: 123
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rnbu4n/person_at_work_hired_to_do_an_entry_level_job/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rnbu4n.md#c1"
     char_span: [488, 1062]
     sentence_count: 3
     key_terms: [taboverspaces, work, perform, middle-management, less, accordingly, management, recognized]
+    concepts: [taboverspaces, perform]
     section: Comments
     token_count: 135
 ---

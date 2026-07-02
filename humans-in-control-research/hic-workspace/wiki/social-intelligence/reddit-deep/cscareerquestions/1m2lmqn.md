@@ -19,41 +19,49 @@ chunks:
     char_span: [0, 1579]
     sentence_count: 14
     key_terms: [school, swe, success, cscareerquestions, research, never, law, comments]
+    concepts: [school, success, cscareerquestions, research, never]
     token_count: 394
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1m2lmqn/ditching_swe_and_going_to_law_school/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c1"
     char_span: [1593, 3019]
     sentence_count: 8
     key_terms: [swe, school, "don't", law, work, because, giving, illustrious-pound266]
+    concepts: [school, "don't", because, giving, money]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c2"
     char_span: [3021, 4762]
     sentence_count: 8
     key_terms: [whathaveicontinued, jobs, embedded, either, engineering, "it's", swe, consulting]
+    concepts: [whathaveicontinued, embedded, either, engineering, consulting]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c3"
     char_span: [4764, 7039]
     sentence_count: 15
     key_terms: ["you're", roles, like, swe, skills, citizenship, jobs, engineers]
+    concepts: ["you're", roles, skills, citizenship, engineers]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c4"
     char_span: [7041, 8518]
     sentence_count: 9
     key_terms: [people, money, sub, passionate, passion, selling, always, become]
+    concepts: [people, money, passionate, passion, selling]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c5"
     char_span: [8520, 9929]
     sentence_count: 16
     key_terms: [engineer, mentalextensi0n, job, software, school, managementmedical138, maybe, areamaleficent4593]
+    concepts: [mentalextensi0n, engineer, software, school, maybe]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c6"
     char_span: [9931, 10950]
     sentence_count: 1
     key_terms: [applicants, school, good, law, killesau, areamaleficent4593, best, last]
+    concepts: [applicants, school, killesau]
     section: Comments
     token_count: 280
 ---

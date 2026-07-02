@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 354]
     sentence_count: 3
     key_terms: [cscareerquestions, comments, new, desperately, reddit-deep, looking, advice, posted]
+    concepts: [cscareerquestions, comments]
     token_count: 103
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1q9pfbl/to_those_who_are_new_grads_and_land_a_new_job_how/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q9pfbl.md#c1"
     char_span: [368, 2130]
     sentence_count: 14
     key_terms: [dababolical, different, positions, grad, new, anything, programs, apply]
+    concepts: [dababolical, different, positions, anything, programs]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q9pfbl.md#c2"
     char_span: [2132, 3852]
     sentence_count: 14
     key_terms: [experience, job, applied, did, get, year, interviews, recruiter]
+    concepts: [experience, applied, interviews, recruiter, applying]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q9pfbl.md#c3"
     char_span: [3854, 5974]
     sentence_count: 19
     key_terms: [going, medicine, engineering, "don't", "i'm", jobs, here, law]
+    concepts: [medicine, going, engineering, "don't", genuinely]
     section: Comments
     token_count: 478
 ---

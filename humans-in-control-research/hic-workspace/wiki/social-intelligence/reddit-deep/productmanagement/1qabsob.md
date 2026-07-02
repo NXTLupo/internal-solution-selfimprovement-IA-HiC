@@ -20,22 +20,26 @@ chunks:
     char_span: [0, 2221]
     sentence_count: 17
     key_terms: [screens, structure, productmanagement, idea, product, flows, api, data]
+    concepts: [screens, productmanagement, structure, product, flows]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1qabsob/i_am_actually_losing_sleep_over_this_ai_just/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1qabsob.md#c1"
     char_span: [2223, 2717]
     sentence_count: 3
     key_terms: [documentation, stakeholders, discussions, prototype, something, structure, abstract, artifact]
     token_count: 104
   - id: "social-intelligence/reddit-deep/productmanagement/1qabsob.md#c2"
-    char_span: [2732, 4483]
+    char_span: [2731, 4482]
     sentence_count: 14
     key_terms: [prototype, discovery, problem, use, discussion, explicitly, prototypes, direction]
+    concepts: [prototype, discovery, problem, discussion, explicitly]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/productmanagement/1qabsob.md#c3"
-    char_span: [4485, 6102]
+    char_span: [4484, 6101]
     sentence_count: 9
     key_terms: [like, prototype, building, friction, possible, workflow, product, rapidly]
+    concepts: [prototype, building, friction, possible, workflow]
     section: Comments
     token_count: 349
 ---

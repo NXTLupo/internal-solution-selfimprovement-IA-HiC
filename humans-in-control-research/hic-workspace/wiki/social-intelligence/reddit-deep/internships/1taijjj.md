@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1637]
     sentence_count: 13
     key_terms: [internship, internships, part-time, stay, firm, fmcg, got, different]
+    concepts: [internship, internships, part-time, different, something]
     token_count: 369
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1taijjj/stuck_deciding_whether_to_stay_at_after/"}]
   - id: "social-intelligence/reddit-deep/internships/1taijjj.md#c1"
     char_span: [1651, 2123]
     sentence_count: 4
     key_terms: [next, guaranteed, summer, appropriate-tutor587, hereisouttasight, internships, considered, graduation]
+    concepts: [guaranteed, summer]
     section: Comments
     token_count: 111
 ---

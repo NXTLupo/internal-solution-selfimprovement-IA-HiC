@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 709]
     sentence_count: 8
     key_terms: [wallstreetbets, robinhood, comments, tried, buy, day, put, jingles-hidden]
+    concepts: [wallstreetbets, robinhood, comments, tried]
     token_count: 200
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1u2dysm/robinhood_sucks/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1u2dysm.md#c1"
-    char_span: [724, 2494]
+    char_span: [723, 2493]
     sentence_count: 10
     key_terms: [options, money, expiration, index, like, ndx, qqq, instead]
+    concepts: [options, money, expiration, index, instead]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/wallstreetbets/1u2dysm.md#c2"
-    char_span: [2496, 4360]
+    char_span: [2495, 4359]
     sentence_count: 9
     key_terms: [day, options, schwab, cash, fees, use, robinhood, account]
+    concepts: [options, schwab, robinhood, account, settled]
     section: Comments
     token_count: 499
 ---

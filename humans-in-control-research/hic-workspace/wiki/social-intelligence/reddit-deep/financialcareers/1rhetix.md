@@ -11,50 +11,60 @@ score: 135
 upvote_ratio: 0.94
 num_comments: 92
 flair: "Profession Insights"
-extracted_at: "2026-06-11T18:58:14.064Z"
+extracted_at: "2026-06-29T14:40:16.481Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Define the 2026 \"state of the Art\" operational and technological benchmarks for \"The State of Data & Distribution in Asset Management\". Synthesize key developments across data infrastructure, distribution enablement, and AI governance frameworks to identify leading industry capabilities and compliance standards."
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
 chunks:
   - id: "social-intelligence/reddit-deep/financialcareers/1rhetix.md#c0"
     char_span: [0, 1437]
     sentence_count: 13
     key_terms: [management, wealth, probably, financialcareers, "i'm", associates, portfolio, business]
+    concepts: [management, wealth, financialcareers, probably, associates]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1rhetix.md#c2"]
     token_count: 340
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1rhetix/tired_of_wealth_management_sell_portfolio/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1rhetix.md#c1"
-    char_span: [1452, 2009]
+    char_span: [1451, 2008]
     sentence_count: 4
     key_terms: [discord, professionals, full-time, banking, financialcareers, automoderator, transitioned, dgptduseqv]
+    concepts: [professionals, discord, full-time, banking]
     section: Comments
     token_count: 119
   - id: "social-intelligence/reddit-deep/financialcareers/1rhetix.md#c2"
-    char_span: [2011, 3983]
+    char_span: [2010, 3981]
     sentence_count: 14
     key_terms: [wealth, management, stressful, get, questions, canadian, advisor, finance]
+    concepts: [wealth, management, stressful, questions, canadian]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1rhetix.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1rhetix.md#c3"
-    char_span: [3699, 4884]
+    char_span: [3697, 4882]
     sentence_count: 5
     key_terms: [industry, moneymma, finance, revenue, common, weird, book, post]
+    concepts: [industry, moneymma, finance, revenue, common]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/financialcareers/1rhetix.md#c4"
-    char_span: [4886, 6919]
+    char_span: [4884, 6917]
     sentence_count: 13
     key_terms: [seems, bomberr17, peterwhitefanclub, firm, bought, firms, like, business]
+    concepts: [peterwhitefanclub, bomberr17, seems, bought, firms]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1rhetix.md#c5"
-    char_span: [6647, 8116]
+    char_span: [6645, 8114]
     sentence_count: 12
     key_terms: [firm, bomberr17, like, book, year, associates, "there's", younger]
+    concepts: [bomberr17, associates, "there's", younger, allow]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/financialcareers/1rhetix.md#c6"
-    char_span: [8118, 8542]
+    char_span: [8116, 8540]
     sentence_count: 5
     key_terms: [associates, "wouldn't", guess, book, mine, pay, clarification, technically]
+    concepts: [associates, "wouldn't", guess]
     section: Comments
     token_count: 92
 ---
@@ -78,29 +88,29 @@ What do you guys think?
 - **AutoModerator** (1↑): Consider joining the r/FinancialCareers official discord server using this [discord invite link](https://discord.gg/dgpTdUseQv). Our professionals here are looking to network and support each other as we all go through our career journey. We have full-time professionals from IB, PE, HF, Prop trading, Corporate Banking, Corp Dev, FP&A, and more. There are also students who are returning full-time Analysts after receiving return offers, as well as veterans who have transitioned into finance/banking after their military service.
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/FinancialCareers) if you have any questions or concerns.*
-- **InterestingDude66246** (194↑): wait a minute you’re going to get 8.5 million (cash money) for exiting wealth management? at 35?  what the fuck. also what firm is this
-  - **Bomberr17** (82↑): It's a Canadian firm but won't disclose more without outing myself. But yes, they will pay 5X my ARB which would roughly be $8.5M. Might actually be more cause apparently the insurance revenue counts too.
-    - **BobbyBarz** (63↑): Seems like a pretty sweet payout to retire at 35 lol
+- **InterestingDude66246** (196↑): wait a minute you’re going to get 8.5 million (cash money) for exiting wealth management? at 35?  what the fuck. also what firm is this
+  - **Bomberr17** (83↑): It's a Canadian firm but won't disclose more without outing myself. But yes, they will pay 5X my ARB which would roughly be $8.5M. Might actually be more cause apparently the insurance revenue counts too.
+    - **BobbyBarz** (62↑): Seems like a pretty sweet payout to retire at 35 lol
     - **AltInLongIsland** (59↑): If you can get anywhere close to 5x sell immediately lmao
-    - **Dependent-Cry-7540** (11↑): Look at that, I just started in Wealth in a Canadian bank too.
+    - **Dependent-Cry-7540** (8↑): Look at that, I just started in Wealth in a Canadian bank too.
     - **DragonfruitInside312** (5↑): ARB? I assume you're with IG Wealth then?
     - **CT_Legacy** (2↑): 4-5x is the standard. Alternatively you can scale down, hire others, or segregate to only wealth management and cut the other stressful work out of it. One thing I've never heard a successfull advisor ever say WM was stressful. At your level it should mainly be client meetings for the top 33% of the book and the lower clients get a jr advisor. Start insourcing and delegating stressful tasks to others. Or you sell out and do something else for the next 20 years.
     - **jas3ck_w0lf** (1↑): Cannacord Genuity
     - **Kooky-Cupcake-749** (1↑): Hey can I dm you some questions about wealth management? I'm a soon to be university student and I've been trying to get more information about the job. I also live in Canada!
-  - **Appropriate_Ebb_8792** (11↑): There’s several parts of finance and operating that pays out just as much or better than you think. That’s why I keep telling people to network as much as possible across each industry. It’s also not fair that Finance has this weird fucking culture where you have to decide you want to do LBOs at 3.
+  - **Appropriate_Ebb_8792** (12↑): There’s several parts of finance and operating that pays out just as much or better than you think. That’s why I keep telling people to network as much as possible across each industry. It’s also not fair that Finance has this weird fucking culture where you have to decide you want to do LBOs at 3.
 - **Moneymma** (92↑): The larping in this sub is unreal lol
-  - **Wildwilly54** (32↑): He might be full of shit, but this is a very common payout in that business.
-    - **Moneymma** (43↑): I work in the industry, I’m well aware of payouts. This post felt weird and he said he took over a book and was asking about getting licensed a year ago in a prior post.
+  - **Wildwilly54** (30↑): He might be full of shit, but this is a very common payout in that business.
+    - **Moneymma** (47↑): I work in the industry, I’m well aware of payouts. This post felt weird and he said he took over a book and was asking about getting licensed a year ago in a prior post.
     - **hawaiianbarrels** (12↑): 5x GROSS  revenue is a extremely high and is not by any means a standard industry buyout
-    - **PoopyisSmelly** (6↑): Not in the US its not.  I am seeing 2-3x revenue if you are lucky, never in my career have I heard of 5x.
+    - **PoopyisSmelly** (7↑): Not in the US its not.  I am seeing 2-3x revenue if you are lucky, never in my career have I heard of 5x.
   - **JamesSt-Patrick** (1↑): This is very very common in Canadian wealth management
-- **optionderivative** (17↑): Dude that’s a big book at 35… I think you’d be crazy to sell and do anything else from a monetary perspective alone.
+- **optionderivative** (16↑): Dude that’s a big book at 35… I think you’d be crazy to sell and do anything else from a monetary perspective alone.
 
 Edit: literally nobody else in here understands the WM game, and hasn’t held a series 63-66 or 7 license
   - **AssetAccumulator** (1↑): I read this sub to try and learn as on not an FA, only a CSA on a franchised PWM team but still have 7 and 66.
 - **peterwhitefanclub** (13↑): This 5X revenue deal is crazy, basically anyone in this business should be spending as hard as they can to get a decent portfolio size to make revenue on, even if they aren’t making that much profit along the way
   - **Bomberr17** (5↑): I thought it was common knowledge thats how much some firms or advisors will pay for. My firm wants to retain its assets so they pay top dollar 5X to keep it. I believe typical payouts is usually in the 2-3X. I paid 2.7X initially in the beginning when I took over.
-    - **peterwhitefanclub** (6↑): Isn’t everyone just going to try to buy assets from other firms and move them over to yours? I get why they’d want to do this as a strategy but the arb play seems obvious here - is this causing them to grow a bunch in this way?
+    - **peterwhitefanclub** (7↑): Isn’t everyone just going to try to buy assets from other firms and move them over to yours? I get why they’d want to do this as a strategy but the arb play seems obvious here - is this causing them to grow a bunch in this way?
 - **oulixeuss** (5↑): Cash out and enjoy your life
   - **Bomberr17** (4↑): I'm pretty much going to lean towards doing that. There's always that little devil in the back saying it's bad move however.
 - **Floating_Orb8** (4↑): Do you still owe on when you bought the book last year? Seems weird to buy and then sell right away. Most firms would devalue the business as well due to multiple transitions and risk of client loss. What is your comp? Seems you bought it to change what you were doing before and yet again don’t seem happy. Seems like you should explore some things personally before next step. Congrats though so far on the info given, sounds like you’ve bought yourself a good life.

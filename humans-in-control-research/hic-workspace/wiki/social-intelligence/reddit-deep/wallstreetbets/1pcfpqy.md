@@ -21,51 +21,61 @@ chunks:
     char_span: [0, 2162]
     sentence_count: 11
     key_terms: [storage, snap, users, wallstreetbets, mainly, like, investment, comments]
+    concepts: [storage, users, wallstreetbets, mainly, investment]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1pcfpqy/snap_will_be_a_2026_standout/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c1"
     char_span: [2164, 4660]
     sentence_count: 17
     key_terms: [snap, recently, capital, management, sponsored, billions, hardware, positive]
+    concepts: [recently, capital, management, sponsored, billions]
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c2"
     char_span: [4662, 5391]
     sentence_count: 5
     key_terms: [million, don, monetization, advertising, stock-based, conclusion, especially, management]
+    concepts: [million]
     token_count: 162
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c3"
     char_span: [5405, 6616]
     sentence_count: 5
     key_terms: [retarded, chix, content, discord, accomplished-exit822, https, total, bad]
+    concepts: [retarded, content, discord, https, total]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c4"
     char_span: [6618, 8532]
     sentence_count: 30
     key_terms: [success, profits, looked, significantly, "don't", going, teams, good]
+    concepts: [success, significantly, profits, looked, "don't"]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c5"
     char_span: [8534, 10567]
     sentence_count: 20
     key_terms: [companies, users, been, company, "haven't", invest, vision, "don't"]
+    concepts: [companies, users, company, "haven't", invest]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c6"
     char_span: [10569, 12415]
     sentence_count: 17
     key_terms: [accomplished-exit822, revenue, regardo-8907, subscription, read, snap, increasing, addressed]
+    concepts: [accomplished-exit822, revenue, regardo-8907, subscription, increasing]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c7"
     char_span: [12417, 12979]
     sentence_count: 3
     key_terms: [revenue, india, hospitalizedzombie, mill, comparison, regardless, something, earnings]
+    concepts: [revenue, india]
     section: Comments
     token_count: 147
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c8"
     char_span: [12981, 14896]
     sentence_count: 7
     key_terms: [accomplished-exit822, apple, mediocredesigner88, gen, snap, get, life, set]
+    concepts: [accomplished-exit822, mediocredesigner88, apple, iphones, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c9"

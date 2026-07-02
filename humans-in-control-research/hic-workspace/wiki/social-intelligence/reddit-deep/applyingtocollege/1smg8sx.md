@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1931]
     sentence_count: 20
     key_terms: [programs, school, applyingtocollege, academic, science, competitions, been, math]
+    concepts: [programs, applyingtocollege, school, academic, science]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1smg8sx/advice_on_admissions_and_college_programs/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1smg8sx.md#c1"
     char_span: [1935, 2769]
     sentence_count: 7
     key_terms: [anything, because, school, state, late, too, accountability, information]
+    concepts: [anything, because, school, state]
     token_count: 184
 ---
 # Advice on admissions and college programs

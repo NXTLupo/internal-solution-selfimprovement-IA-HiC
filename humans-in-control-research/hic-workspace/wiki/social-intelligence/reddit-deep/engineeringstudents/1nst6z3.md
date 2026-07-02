@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1167]
     sentence_count: 8
     key_terms: [engineering, electrical, engineeringstudents, currently, graduates, comments, students, advice]
+    concepts: [engineering, electrical, engineeringstudents, currently, graduates]
     token_count: 250
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1nst6z3/considering_electrical_engineering_as_a_career/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nst6z3.md#c1"
     char_span: [1181, 3318]
     sentence_count: 36
     key_terms: [engineering, degree, though, crazy, been, classes, college, comfortable]
+    concepts: [engineering, degree, though, crazy, classes]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nst6z3.md#c2"
     char_span: [3320, 4620]
     sentence_count: 17
     key_terms: [power, electricity, connection, graduate, industry, physics, degree, except]
+    concepts: [power, electricity, connection, graduate, industry]
     section: Comments
     token_count: 274
 ---

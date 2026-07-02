@@ -19,53 +19,63 @@ chunks:
     char_span: [0, 1266]
     sentence_count: 8
     key_terms: [cscareerquestions, applications, programming, back, population, comments, industry, around]
+    concepts: [cscareerquestions, applications, programming, population, comments]
     token_count: 298
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1p1sxmw/those_who_got_laid_off_within_the_last_2_years/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1sxmw.md#c1"
     char_span: [1280, 3245]
     sentence_count: 15
     key_terms: [aerospace, business-hamster-105, get, engineering, swe, companies, program, asking]
+    concepts: [aerospace, business-hamster-105, engineering, companies, program]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1sxmw.md#c2"
     char_span: [3248, 5025]
     sentence_count: 18
     key_terms: [years, jobs, technology, new, experience, software, heisenbergscertainty, daily]
+    concepts: [years, technology, experience, software, daily]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1sxmw.md#c3"
     char_span: [5027, 6761]
     sentence_count: 12
     key_terms: [working, accounting, years, business, trying, job, like, own]
+    concepts: [working, accounting, years, business, trying]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1sxmw.md#c4"
     char_span: [6763, 8379]
     sentence_count: 10
     key_terms: [service, resume, customer, yoe, degree, hedgiehuntergme, finance, coding]
+    concepts: [service, resume, customer, degree, hedgiehuntergme]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1sxmw.md#c5"
     char_span: [8381, 10229]
     sentence_count: 15
     key_terms: [get, don, got, try, another, getting, around, better]
+    concepts: [another, getting, around, better, career]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1sxmw.md#c6"
     char_span: [10231, 12311]
     sentence_count: 10
     key_terms: [processing, mineral, wesxdz, residency, people, school, source, unless]
+    concepts: [processing, mineral, wesxdz, residency, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1sxmw.md#c7"
     char_span: [12065, 13942]
     sentence_count: 9
     key_terms: [experience, comments, common, people, denominators, here, job, work]
+    concepts: [experience, comments, denominators, common, people]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1sxmw.md#c8"
     char_span: [13945, 15306]
     sentence_count: 12
     key_terms: [chili-lime-chihuahua, employed, career, unemployment, times, here, lot, opinions]
+    concepts: [chili-lime-chihuahua, employed, unemployment, career, times]
     section: Comments
     token_count: 328
 ---

@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 2179]
     sentence_count: 19
     key_terms: [college, essay, classes, year, because, professor, failed, passed]
+    concepts: [college, classes, essay, because, professor]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lirc9x/i_think_im_going_to_fail_my_first_year_of_college/"}]
   - id: "social-intelligence/reddit-deep/college/1lirc9x.md#c1"
     char_span: [2193, 4209]
     sentence_count: 19
     key_terms: [professor, school, different, degree, class, anxiety, college, english]
+    concepts: [professor, school, different, degree, class]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/college/1lirc9x.md#c2"
     char_span: [4211, 5903]
     sentence_count: 7
     key_terms: [professor, boss, mean, take, something, connotes, synonyms, courses]
+    concepts: [professor, something, connotes, synonyms, courses]
     section: Comments
     token_count: 400
 ---

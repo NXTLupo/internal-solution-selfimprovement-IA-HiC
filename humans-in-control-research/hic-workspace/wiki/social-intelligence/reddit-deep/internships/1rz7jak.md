@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 578]
     sentence_count: 2
     key_terms: [return, internship, chance, internships, comments, career, high, low]
+    concepts: [internship, return, chance, internships, comments]
     token_count: 134
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rz7jak/low_return_chance_but_better_growth_internship_vs/"}]
   - id: "social-intelligence/reddit-deep/internships/1rz7jak.md#c1"
     char_span: [592, 1017]
     sentence_count: 6

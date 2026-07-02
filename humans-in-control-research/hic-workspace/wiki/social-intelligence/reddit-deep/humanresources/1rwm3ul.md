@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 552]
     sentence_count: 4
     key_terms: [humanresources, comments, senior, study, years, hrbp, need, sphr]
+    concepts: [humanresources, comments, senior, study, years]
     token_count: 149
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1rwm3ul/current_senior_hrbp_do_i_need_to_study_for_sphr_ca/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1rwm3ul.md#c1"
     char_span: [566, 2678]
     sentence_count: 19
     key_terms: [study, prep, practice, problem, answer, got, pass, experience]
+    concepts: [study, practice, problem, answer, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1rwm3ul.md#c2"
     char_span: [2439, 3593]
     sentence_count: 12
     key_terms: [post, practice, cantaloupepublic2539, consistent-sun-4360, tests, book, case, hrci]
+    concepts: [practice, tests]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/humanresources/1rwm3ul.md#c3"
     char_span: [3595, 4444]
     sentence_count: 7
     key_terms: [longjumpingarcher628, level, workflowsidechat, differentiator, humanresources, automatically, certification, nice-to-have]
+    concepts: [level]
     section: Comments
     token_count: 188
 ---

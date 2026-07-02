@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 646]
     sentence_count: 5
     key_terms: [internships, koramangala, comments, students, startup, coffee, environmentalcar2781, paid]
+    concepts: [internships, koramangala, comments, students, startup]
     token_count: 166
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1spzp7p/paid_internship_in_koramangala_for_students_who/"}]
 ---
 # Paid internship in Koramangala for students who want actual startup experience (not fetch coffee)
 

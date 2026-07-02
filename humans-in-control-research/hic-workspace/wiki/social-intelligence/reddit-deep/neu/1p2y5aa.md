@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 1661]
     sentence_count: 14
     key_terms: ["i'm", neu, considering, want, academically, here, http, experience]
+    concepts: [considering, academically, experience, situation, comments]
     token_count: 411
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1p2y5aa/considering_transfering_from_neu_any_advcie_helps/"}]
   - id: "social-intelligence/reddit-deep/neu/1p2y5aa.md#c1"
     char_span: [1675, 2329]
     sentence_count: 3
     key_terms: [somewhere, freshman, minor, vegetabletitle6726, understandable, academically, everywhere, understand]
+    concepts: [somewhere, freshman, minor]
     section: Comments
     token_count: 155
   - id: "social-intelligence/reddit-deep/neu/1p2y5aa.md#c2"
     char_span: [2332, 4398]
     sentence_count: 13
     key_terms: [library, transferred, study, here, transfer, people, sussybananas, don]
+    concepts: [transferred, library, study, transfer, sussybananas]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1p2y5aa.md#c3"
     char_span: [4131, 4705]
     sentence_count: 5
     key_terms: [leaving, advice, stocktelephone11, recommendations, northeastern, transferring, considering, acceptance]
+    concepts: [leaving, advice]
     section: Comments
     token_count: 127
   - id: "social-intelligence/reddit-deep/neu/1p2y5aa.md#c4"
     char_span: [4707, 5146]
     sentence_count: 2
     key_terms: [boston, mentioned, schools, no-expression7574, best, headquarter, csrankings, percentage]
+    concepts: [boston, mentioned, schools]
     section: Comments
     token_count: 111
 ---

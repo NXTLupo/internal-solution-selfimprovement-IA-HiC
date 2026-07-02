@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 492]
     sentence_count: 2
     key_terms: [engineeringstudents, recommend, comments, subjects, start, engineering, reddit-deep, engineer]
+    concepts: [engineeringstudents, recommend, comments, subjects, start]
     token_count: 110
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1semoup/from_what_should_i_start_learning_engineering_as/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1semoup.md#c1"
     char_span: [506, 2595]
     sentence_count: 11
     key_terms: [engineeringstudents, wiki, please, reddit, https, calc, com, calculus]
+    concepts: [engineeringstudents, please, reddit, https, calculus]
     section: Comments
     token_count: 473
 ---

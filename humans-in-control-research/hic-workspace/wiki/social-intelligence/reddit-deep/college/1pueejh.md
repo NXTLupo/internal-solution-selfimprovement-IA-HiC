@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 631]
     sentence_count: 6
     key_terms: [college, professional, internship, comments, requires, credit, richbeautiful5156, don]
+    concepts: [college, professional, internship, comments, requires]
     token_count: 138
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1pueejh/professional_internship_requires_academic_credit/"}]
   - id: "social-intelligence/reddit-deep/college/1pueejh.md#c1"
     char_span: [645, 1620]
     sentence_count: 5
     key_terms: [advisor, internships, either, randomacademaniac, head, international, chocokissses, independent]
+    concepts: [advisor, internships, either]
     section: Comments
     token_count: 241
 ---

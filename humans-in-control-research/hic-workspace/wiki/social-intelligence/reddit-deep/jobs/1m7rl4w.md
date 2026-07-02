@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 380]
     sentence_count: 3
     key_terms: [jobs, comments, officialbcurrington, appreciated, reddit-deep, therapist, medicine, physical]
+    concepts: [comments]
     token_count: 98
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1m7rl4w/entry_level_job_for_college_medicine_student/"}]
 ---
 # Entry level Job for college medicine student?
 

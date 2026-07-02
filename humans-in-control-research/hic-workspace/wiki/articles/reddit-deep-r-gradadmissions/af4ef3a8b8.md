@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1910]
     sentence_count: 16
     key_terms: [want, because, gradadmissions, neuroscience, sop, facilities, lfreddit23, paragraph]
+    concepts: [gradadmissions, because, neuroscience, facilities, lfreddit23]
     token_count: 466
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1ralva3/can_someone_review_my_sop_first_time_writing_it/"}]
   - id: "articles/reddit-deep-r-gradadmissions/af4ef3a8b8.md#c1"
     char_span: [1912, 3261]
     sentence_count: 12
     key_terms: [program, experience, experiences, paragraph, interest, relevant, include, degree]
+    concepts: [experience, program, experiences, paragraph, interest]
     token_count: 273
 ---
 # Can someone review my SOP. First time writing it. It will be really helpful to get some feedback..

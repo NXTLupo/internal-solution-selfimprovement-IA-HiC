@@ -21,22 +21,30 @@ chunks:
     char_span: [0, 2146]
     sentence_count: 9
     key_terms: [experience, opportunities, institution, gradadmissions, good, "i'm", lab, phd]
+    concepts: [experience, opportunities, institution, gradadmissions, interested]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1monai0.md#c1"]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1monai0/postbacc_options/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1monai0.md#c1"
     char_span: [2148, 4079]
     sentence_count: 5
     key_terms: [institution, area, expensive, less, industry, amazing, opportunities, good]
+    concepts: [institution, expensive, industry, opportunities, amazing]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1monai0.md#c0", "social-intelligence/reddit-deep/gradadmissions/1monai0.md#c2"]
     token_count: 440
   - id: "social-intelligence/reddit-deep/gradadmissions/1monai0.md#c2"
     char_span: [4093, 6254]
     sentence_count: 14
     key_terms: [lab, students, institution, nih, definitely, especially, expensive, getting]
+    concepts: [students, institution, definitely, especially, expensive]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1monai0.md#c1"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/gradadmissions/1monai0.md#c3"
     char_span: [6256, 7056]
     sentence_count: 8
     key_terms: [like, program, boston, lab, well-structured, stereoisomer, universities, institution]
+    concepts: [program, boston]
     section: Comments
     token_count: 199
 ---

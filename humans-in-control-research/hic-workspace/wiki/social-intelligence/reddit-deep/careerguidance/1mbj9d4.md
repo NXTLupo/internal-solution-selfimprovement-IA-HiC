@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2060]
     sentence_count: 13
     key_terms: [business, financial, careerguidance, data, comments, recently, strategy, student]
+    concepts: [business, financial, careerguidance, comments, recently]
     token_count: 450
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1mbj9d4/how_can_i_build_a_successful_career_path_toward/"}]
 ---
 # How can I build a successful career path toward financial freedom and wealth as a business student? What core skills should I focus on and where should I start?
 

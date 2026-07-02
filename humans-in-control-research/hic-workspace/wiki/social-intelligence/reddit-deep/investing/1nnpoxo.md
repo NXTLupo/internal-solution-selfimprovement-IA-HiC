@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 2081]
     sentence_count: 18
     key_terms: [investing, invest, companies, money, day, tsmc, comments, continue]
+    concepts: [investing, invest, companies, money, comments]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1nnpoxo.md#c1"]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1nnpoxo/is_ai_the_future_of_the_stock_market_and/"}]
   - id: "social-intelligence/reddit-deep/investing/1nnpoxo.md#c1"
     char_span: [2095, 3075]
     sentence_count: 4
     key_terms: [investing, infrastructure, investing-technological-revolutions, companies, "you're", financial-respond-37, justbrowsinandvibin, right]
+    concepts: [investing, infrastructure, companies, "you're", right]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1nnpoxo.md#c0"]
     section: Comments
     token_count: 248
 ---

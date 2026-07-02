@@ -21,23 +21,31 @@ chunks:
     char_span: [0, 1228]
     sentence_count: 11
     key_terms: [oakland, students, northeastern, classes, internships, available, comments, freshman]
+    concepts: [oakland, students, northeastern, classes, internships]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1rdwrug.md#c1", "social-intelligence/reddit-deep/neu/1rdwrug.md#c2"]
     token_count: 265
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rdwrug/cs_at_northeastern_oakland_honest_takes/"}]
   - id: "social-intelligence/reddit-deep/neu/1rdwrug.md#c1"
     char_span: [1242, 3290]
     sentence_count: 13
     key_terms: [oakland, https, students, faculty, espertus, neu-pdi, undergraduate-professional-practicum, campus]
+    concepts: [oakland, students, https, faculty, espertus]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1rdwrug.md#c0", "social-intelligence/reddit-deep/neu/1rdwrug.md#c2"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/neu/1rdwrug.md#c2"
     char_span: [3292, 5249]
     sentence_count: 12
     key_terms: [teaching, professor, year, northeastern, faculty, oakland, tenured, khoury]
+    concepts: [teaching, professor, northeastern, faculty, oakland]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1rdwrug.md#c0", "social-intelligence/reddit-deep/neu/1rdwrug.md#c1"]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/neu/1rdwrug.md#c3"
     char_span: [5251, 6104]
     sentence_count: 7
     key_terms: [internship, oakland, huge, neu, knowledgeable, opportunities, overwhelming, experience]
+    concepts: [internship, oakland]
     section: Comments
     token_count: 205
 ---

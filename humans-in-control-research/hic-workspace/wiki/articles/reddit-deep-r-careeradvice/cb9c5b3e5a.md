@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1197]
     sentence_count: 9
     key_terms: [learning, career, skills, careeradvice, assumptions, new, changes, people]
+    concepts: [learning, career, careeradvice, skills, assumptions]
     token_count: 265
+    sources: [{"n":"Reddit Deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1qj055z/i_used_to_think_career_shifts_were_about_learning/"}]
   - id: "articles/reddit-deep-r-careeradvice/cb9c5b3e5a.md#c1"
     char_span: [1199, 2170]
     sentence_count: 5
     key_terms: [chatgpt, writing, style, different, posting, bullet, pretty, pitiful-implement610]
+    concepts: [chatgpt, writing, style, different, posting]
     token_count: 254
 ---
 # I used to think career shifts were about learning new skills. I’m not so sure anymore.

@@ -18,21 +18,28 @@ chunks:
     char_span: [0, 1904]
     sentence_count: 15
     key_terms: [people, chatgpt, openai, reddit, use, artificial, attachment, concerning]
+    concepts: [people, chatgpt, openai, reddit, artificial]
     token_count: 430
+    sources: [{"n":"Reddit Deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1mlwunz/the_chatgpt_5_backlash_is_concerning/"}]
   - id: "articles/reddit-deep-r-artificial/f2feafe8c3.md#c1"
     char_span: [1906, 4302]
     sentence_count: 20
     key_terms: [people, something, companionship, never, like, connection, situations, understand]
+    concepts: [people, something, companionship, connection, never]
+    related_chunks: ["articles/reddit-deep-r-artificial/f2feafe8c3.md#c2"]
     token_count: 501
   - id: "articles/reddit-deep-r-artificial/f2feafe8c3.md#c2"
     char_span: [4304, 6340]
     sentence_count: 11
     key_terms: [people, companionship, back, get, completely, companion, different, critique]
+    concepts: [people, companionship, completely, companion, different]
+    related_chunks: ["articles/reddit-deep-r-artificial/f2feafe8c3.md#c1"]
     token_count: 460
   - id: "articles/reddit-deep-r-artificial/f2feafe8c3.md#c3"
     char_span: [6342, 7926]
     sentence_count: 12
     key_terms: [work, listen, information, been, gpt, something, annoyed, changes]
+    concepts: [listen, information, something, annoyed, changes]
     token_count: 381
 ---
 # The ChatGPT 5 Backlash Is Concerning.

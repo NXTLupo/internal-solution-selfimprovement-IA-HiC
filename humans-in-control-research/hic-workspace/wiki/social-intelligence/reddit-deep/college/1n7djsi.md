@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1752]
     sentence_count: 9
     key_terms: [graduation, school, college, need, struggling, comments, graduate, without]
+    concepts: [graduation, school, college, struggling, comments]
     token_count: 409
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1n7djsi/should_i_walk_at_graduation/"}]
   - id: "social-intelligence/reddit-deep/college/1n7djsi.md#c1"
     char_span: [1766, 3490]
     sentence_count: 16
     key_terms: [walk, because, grandparents, life, own, emotional, events, little]
+    concepts: [because, grandparents, emotional, events, little]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/college/1n7djsi.md#c2"

@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 2019]
     sentence_count: 11
     key_terms: [trump-meet-tech-giants-energy-pledge-ahead-midterms-2026-03-04, infrastructure, energy, around, pledge, hyperscalers, today, electricity]
+    concepts: [infrastructure, energy, hyperscalers, around, pledge]
     token_count: 411
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1rkozkd/3pm_et_today_trump_to_meet_microsoft_amazon/"}]
   - id: "social-intelligence/reddit-deep/stocks/1rkozkd.md#c1"
-    char_span: [2034, 3946]
+    char_span: [2033, 3945]
     sentence_count: 9
     key_terms: [stocks, main-character9515, please, free, post, off-topic, political, specific]
+    concepts: [stocks, main-character9515, please, off-topic, political]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/stocks/1rkozkd.md#c2"
-    char_span: [3950, 5237]
+    char_span: [3949, 5236]
     sentence_count: 10
     key_terms: [power, republicans, viable, going, googl, trump, need, shit]
+    concepts: [power, republicans, viable, going, googl]
     section: Comments
     token_count: 354
 ---

@@ -21,41 +21,53 @@ chunks:
     char_span: [0, 499]
     sentence_count: 5
     key_terms: [voice, chatgpt, experience, comments, mode, artemgetman, reddit-deep, constantly]
+    concepts: [voice, chatgpt, experience, comments]
     token_count: 127
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1pi3gdl/heavy_voice_mode_users_do_you_actually_like/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c1"
     char_span: [513, 2394]
     sentence_count: 19
     key_terms: [chatgpt, pause, please, conversation, image, until, post, r-chatgpt-1050422060352024636]
+    concepts: [chatgpt, pause, conversation, please, image]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c2"
     char_span: [2396, 3385]
     sentence_count: 10
     key_terms: [voice, use, artemgetman, mode, time, without, sounds, like]
+    concepts: [voice, artemgetman, without, sounds]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c3", "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c4", "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c5"]
     section: Comments
     token_count: 256
   - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c3"
     char_span: [3387, 5338]
     sentence_count: 13
     key_terms: [voice, artemgetman, daily, avm, use, like, ultrababyvegeta, used]
+    concepts: [voice, artemgetman, daily, ultrababyvegeta, interrupt]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c2", "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c4", "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c4"
     char_span: [5092, 6371]
     sentence_count: 13
     key_terms: [use, voice, fit-glass-2030, artemgetman, annoying, useless, sounds, going]
+    concepts: [voice, fit-glass-2030, artemgetman, annoying, useless]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c2", "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c3", "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c5"]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c5"
     char_span: [6373, 8291]
     sentence_count: 16
     key_terms: [use, voice, voice-to-text, artemgetman, mode, because, brainstorming, daily]
+    concepts: [voice, voice-to-text, artemgetman, brainstorming, because]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c2", "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c3", "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c4"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c6"
     char_span: [8295, 9607]
     sentence_count: 6
     key_terms: [use, voice, feature, problem, conversation, like, time, something]
+    concepts: [voice, feature, problem, conversation, something]
     section: Comments
     token_count: 294
 ---

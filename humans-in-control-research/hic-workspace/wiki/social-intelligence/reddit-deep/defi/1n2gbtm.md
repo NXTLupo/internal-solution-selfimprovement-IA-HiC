@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 824]
     sentence_count: 7
     key_terms: [defi, comments, flows, swaps, seem, smartcontractkid, experimenting, compromising]
+    concepts: [comments, flows, swaps]
     token_count: 185
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1n2gbtm/why_do_crosschain_swaps_still_feel_so_complicated/"}]
   - id: "social-intelligence/reddit-deep/defi/1n2gbtm.md#c1"
-    char_span: [839, 2902]
+    char_span: [838, 2901]
     sentence_count: 14
     key_terms: [smartcontractkid, supertransaction, biconomy, jumper, api, use, gasless, smooth]
+    concepts: [smartcontractkid, supertransaction, biconomy, jumper, gasless]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/defi/1n2gbtm.md#c2"
-    char_span: [2633, 3064]
+    char_span: [2632, 3063]
     sentence_count: 3
     key_terms: [background, biconomy, smartcontractkid, supertransaction, interesting, complexity, definitely, experience]
+    concepts: [background, biconomy]
     section: Comments
     token_count: 105
   - id: "social-intelligence/reddit-deep/defi/1n2gbtm.md#c3"
-    char_span: [3066, 3942]
+    char_span: [3065, 3941]
     sentence_count: 7
     key_terms: [like, easier, making, residentenergy9883, profitablecheetah, care, "it's", less]
+    concepts: [easier, making]
     section: Comments
     token_count: 232
 ---

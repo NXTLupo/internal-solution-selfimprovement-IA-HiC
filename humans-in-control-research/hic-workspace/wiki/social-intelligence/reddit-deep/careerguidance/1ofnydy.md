@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 622]
     sentence_count: 8
     key_terms: [careerguidance, start, comments, guidance, student, career, gullible-winter-8787, law]
+    concepts: [careerguidance, start, comments, guidance, student]
     token_count: 157
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1ofnydy/from_law_student_to_career_in_ir_need_guidance/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1ofnydy.md#c1"
     char_span: [636, 1576]
     sentence_count: 7
     key_terms: [domain, international, get, research, pursue, region, law, professionals]
+    concepts: [domain, international, research, pursue, region]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1ofnydy.md#c2"]
     section: Comments
     token_count: 190
   - id: "social-intelligence/reddit-deep/careerguidance/1ofnydy.md#c2"
     char_span: [1578, 3946]
     sentence_count: 18
     key_terms: [like, domain, knowledge, international, internships, research, counterterrorism, opportunities]
+    concepts: [knowledge, domain, international, internships, counterterrorism]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1ofnydy.md#c1"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/careerguidance/1ofnydy.md#c3"
     char_span: [3948, 5932]
     sentence_count: 20
     key_terms: [organisations, international, opportunities, india, law, skills, consultant, government]
+    concepts: [organisations, international, opportunities, india, skills]
     section: Comments
     token_count: 399
 ---

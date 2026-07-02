@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 693]
     sentence_count: 4
     key_terms: [careerguidance, career, publishing, comments, guidance, starting, uk-based, change]
+    concepts: [careerguidance, career, publishing, comments, guidance]
     token_count: 167
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rj9ege/career_change_mid40s_any_ukbased_resources_for/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rj9ege.md#c1"
     char_span: [707, 2011]
     sentence_count: 1
     key_terms: [experience, companies, discrimination, publishing, freelance, graduates, services, smaller]
+    concepts: [experience, companies, discrimination, publishing, freelance]
     section: Comments
     token_count: 247
 ---

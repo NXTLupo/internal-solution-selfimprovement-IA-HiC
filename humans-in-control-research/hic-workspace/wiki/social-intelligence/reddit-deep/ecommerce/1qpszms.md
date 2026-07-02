@@ -20,17 +20,24 @@ chunks:
     char_span: [0, 1400]
     sentence_count: 1
     key_terms: [ecommerce, products, like, comments, chatbot, someone, support, tickets]
+    concepts: [ecommerce, products, comments, chatbot, someone]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1qpszms.md#c2"]
     token_count: 315
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1qpszms/why_do_all_chatbots_just_do_faq_stuff_and_not/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1qpszms.md#c1"
-    char_span: [1415, 3591]
+    char_span: [1414, 3590]
     sentence_count: 17
     key_terms: [bots, chatbots, chatbot, support, define, people, stores, back]
+    concepts: [chatbots, chatbot, support, define, people]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1qpszms.md#c2"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/ecommerce/1qpszms.md#c2"
-    char_span: [3593, 5646]
+    char_span: [3592, 5645]
     sentence_count: 15
     key_terms: [product, chatbot, bot, like, products, support, "you're", based]
+    concepts: [product, chatbot, products, support, "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1qpszms.md#c0", "social-intelligence/reddit-deep/ecommerce/1qpszms.md#c1"]
     section: Comments
     token_count: 419
 ---

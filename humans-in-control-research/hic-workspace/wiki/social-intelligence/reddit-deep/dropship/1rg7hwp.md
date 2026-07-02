@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1195]
     sentence_count: 12
     key_terms: [dropship, items, month, comments, seasonal, upfront, came, sell]
+    concepts: [dropship, items, month, comments, seasonal]
     token_count: 291
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1rg7hwp/heres_how_i_hit_my_first_1kmonth_income/"}]
   - id: "social-intelligence/reddit-deep/dropship/1rg7hwp.md#c1"
-    char_span: [1210, 2641]
+    char_span: [1209, 2640]
     sentence_count: 8
     key_terms: [household, business, dropship, shipping, erosmac, label, order, small]
+    concepts: [household, business, dropship, shipping, erosmac]
     section: Comments
     token_count: 370
 ---

@@ -20,22 +20,29 @@ chunks:
     char_span: [0, 2021]
     sentence_count: 5
     key_terms: [dashboard, activation, businessintelligence, dashboards, engagement, expansion, retention, saas]
+    concepts: [dashboard, activation, businessintelligence, dashboards, engagement]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1sd71xe/we_replaced_5_siloed_saas_dashboards_with_one/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1sd71xe.md#c1"
     char_span: [2023, 2559]
     sentence_count: 5
     key_terms: [architecture, activation, underlying, marketing, product, model, traffic-to-signup, data]
+    concepts: [architecture, activation, underlying, marketing, product]
     token_count: 105
   - id: "social-intelligence/reddit-deep/businessintelligence/1sd71xe.md#c2"
-    char_span: [2574, 3728]
+    char_span: [2573, 3727]
     sentence_count: 6
     key_terms: [activation, metric, scorecard, adapt, model, stage, like, per]
+    concepts: [activation, metric, scorecard, adapt, model]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1sd71xe.md#c3"]
     section: Comments
     token_count: 282
   - id: "social-intelligence/reddit-deep/businessintelligence/1sd71xe.md#c3"
-    char_span: [3732, 4833]
+    char_span: [3731, 4832]
     sentence_count: 5
     key_terms: [activation, reddit, scorecard, feedback, because, pulse, rates, stage]
+    concepts: [activation, reddit, scorecard, feedback, because]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1sd71xe.md#c2"]
     section: Comments
     token_count: 257
 ---

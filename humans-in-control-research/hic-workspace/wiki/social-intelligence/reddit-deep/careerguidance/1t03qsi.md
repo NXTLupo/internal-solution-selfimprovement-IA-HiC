@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1215]
     sentence_count: 13
     key_terms: [corporate, don, careerguidance, times, want, graduated, comments, forever]
+    concepts: [corporate, careerguidance, times, graduated, comments]
     token_count: 310
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t03qsi/graduated_15_years_ago_dont_want_to_work_a/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t03qsi.md#c1"
     char_span: [1229, 3286]
     sentence_count: 18
     key_terms: [passion, step, discover, help, look, experience, personal, yourself]
+    concepts: [passion, discover, experience, personal, yourself]
     section: Comments
     token_count: 459
 ---

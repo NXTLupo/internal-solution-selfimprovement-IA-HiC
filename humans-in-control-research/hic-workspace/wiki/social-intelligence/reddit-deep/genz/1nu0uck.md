@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1022]
     sentence_count: 10
     key_terms: [money, comments, college, dear-performance-394, cause, feel, genz, job]
+    concepts: [money, comments, college, cause]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1nu0uck/how_are_yall_doing_in_life_rn_specifically_in/"}]
   - id: "social-intelligence/reddit-deep/genz/1nu0uck.md#c1"
     char_span: [1036, 2439]
     sentence_count: 15
     key_terms: [debt, get, "i'll", "i'm", pay, graduation, discord, parents]
+    concepts: [graduation, discord, parents, living, "don't"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/genz/1nu0uck.md#c2"
     char_span: [2441, 3641]
     sentence_count: 13
     key_terms: [glaceausmartwater20, masters, requirements, doing, different, undergrad, honestly, require]
+    concepts: [glaceausmartwater20, masters, requirements, doing, different]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/genz/1nu0uck.md#c3"
     char_span: [3643, 5428]
     sentence_count: 16
     key_terms: [though, months, grandmother, job, dementia, jared187, military, living]
+    concepts: [though, months, grandmother, dementia, jared187]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/genz/1nu0uck.md#c4"

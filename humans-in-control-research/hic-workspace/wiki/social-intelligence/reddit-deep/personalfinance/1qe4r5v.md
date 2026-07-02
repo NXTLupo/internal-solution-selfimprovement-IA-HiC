@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1141]
     sentence_count: 8
     key_terms: [monthly, budget, comments, personalfinance, transaction, "i'm", money, month]
+    concepts: [monthly, budget, personalfinance, comments, transaction]
     token_count: 255
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1qe4r5v/advice_on_implementing_nonmonthly_costs_into_a/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1qe4r5v.md#c1"
-    char_span: [1156, 2914]
+    char_span: [1155, 2913]
     sentence_count: 16
     key_terms: [category, categories, account, expense, budget, create, using, "you're"]
+    concepts: [category, categories, account, expense, budget]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/personalfinance/1qe4r5v.md#c2"
-    char_span: [2916, 4775]
+    char_span: [2915, 4774]
     sentence_count: 11
     key_terms: [account, funds, paycheck, escrow, non-monthly, pay, insurance, checking]
+    concepts: [account, funds, paycheck, escrow, non-monthly]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/personalfinance/1qe4r5v.md#c3"
-    char_span: [4777, 5815]
+    char_span: [4776, 5814]
     sentence_count: 6
     key_terms: [bill, amount, looks, fund, like, account, sinking, e-fund]
+    concepts: [amount, looks, account, sinking, e-fund]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/personalfinance/1qe4r5v.md#c4"
-    char_span: [5817, 7950]
+    char_span: [5816, 7949]
     sentence_count: 17
     key_terms: [cushion, bills, month, groceries, hysa, checking, "don't", track]
+    concepts: [cushion, groceries, bills, month, checking]
     section: Comments
     token_count: 471
 ---

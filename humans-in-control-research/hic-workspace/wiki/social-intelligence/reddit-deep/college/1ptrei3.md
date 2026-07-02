@@ -19,21 +19,27 @@ chunks:
     char_span: [0, 765]
     sentence_count: 3
     key_terms: [college, honors, gpa, comments, matter, search, latin, laude]
+    concepts: [college, honors, comments, matter, search]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ptrei3.md#c1"]
     token_count: 192
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ptrei3/are_latin_honors_important/"}]
   - id: "social-intelligence/reddit-deep/college/1ptrei3.md#c1"
-    char_span: [780, 2789]
+    char_span: [779, 2788]
     sentence_count: 20
     key_terms: [latin, honors, school, college, otterlyoddityy, matter, laude, cum]
+    concepts: [latin, honors, school, otterlyoddityy, college]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ptrei3.md#c0"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/college/1ptrei3.md#c2"
-    char_span: [2791, 4644]
+    char_span: [2790, 4643]
     sentence_count: 18
     key_terms: [laude, summa, cum, matter, school, magna, competitive, entry-level]
+    concepts: [laude, summa, matter, school, competitive]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/college/1ptrei3.md#c3"
-    char_span: [4646, 4934]
+    char_span: [4645, 4933]
     sentence_count: 2
     key_terms: [randomacademaniac, interesting, experience, achieving, full-time, college, matters, career]
     section: Comments

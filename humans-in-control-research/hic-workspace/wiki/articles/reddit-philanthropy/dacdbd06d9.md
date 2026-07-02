@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1006]
     sentence_count: 3
     key_terms: [gates-foundation-budgets-9-billion-job-cuts-what-it-means-for-philanthropy, foundation, philanthropy, https, com, billion, fortune, reddit]
+    concepts: [gates-foundation-budgets-9-billion-job-cuts-what-it-means-for-philanthropy, foundation, philanthropy, https, billion]
     token_count: 243
+    sources: [{"n":"reddit: Philanthropy","u":"https://reddit.com/r/Philanthropy/comments/1qnz6v4/gates_foundation_plans_to_give_away_9_billion_in/"}]
 ---
 # Gates Foundation plans to give away $9 billion in 2026 to prepare for the 2045 closure while slashing hundreds of jobs
 

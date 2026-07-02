@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 1742]
     sentence_count: 17
     key_terms: [school, college, high, get, "i'm", community, comments, honestly]
+    concepts: [school, college, community, comments, honestly]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1l8sqvx.md#c1", "social-intelligence/reddit-deep/genz/1l8sqvx.md#c2"]
     token_count: 423
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1l8sqvx/finishing_college_at_29_and_wife_just_started_at/"}]
   - id: "social-intelligence/reddit-deep/genz/1l8sqvx.md#c1"
     char_span: [1756, 3662]
     sentence_count: 10
     key_terms: [like, been, school, business, computer, honestly, discord, getting]
+    concepts: [school, business, computer, honestly, discord]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1l8sqvx.md#c0"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/genz/1l8sqvx.md#c2"
     char_span: [3664, 5618]
     sentence_count: 8
     key_terms: [university, college, degree, community, phaustiantheodicy, love, music, opportunity]
+    concepts: [university, college, degree, phaustiantheodicy, community]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1l8sqvx.md#c0"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/genz/1l8sqvx.md#c3"
     char_span: [5620, 7235]
     sentence_count: 11
     key_terms: [college, better, graduate, debt, good, everyone, getting, masters]
+    concepts: [college, better, graduate, everyone, getting]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/genz/1l8sqvx.md#c4"
     char_span: [7237, 7808]
     sentence_count: 4
     key_terms: [faithlessnesscute204, college, masters, years, tarchival-sage, corporate, desperate, compared]
+    concepts: [faithlessnesscute204, college, masters, years]
     section: Comments
     token_count: 169
 ---

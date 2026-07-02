@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 761]
     sentence_count: 4
     key_terms: [interview, interested, comments, co-op, job, neu, engineering, invitations]
+    concepts: [interview, interested, comments, co-op]
     token_count: 183
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1s2uta9/coop_interview_for_job_i_dont_want/"}]
   - id: "social-intelligence/reddit-deep/neu/1s2uta9.md#c1"
     char_span: [775, 2121]
     sentence_count: 8
     key_terms: [interview, position, never, don, get, good, take, commitment]
+    concepts: [interview, position, commitment, experience, never]
     section: Comments
     token_count: 350
 ---

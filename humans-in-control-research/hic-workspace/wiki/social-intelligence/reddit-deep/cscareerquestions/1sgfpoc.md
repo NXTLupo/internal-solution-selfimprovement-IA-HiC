@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1084]
     sentence_count: 7
     key_terms: [internship, major, cscareerquestions, always, able, comments, security, google]
+    concepts: [internship, cscareerquestions, major, always, comments]
     token_count: 259
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sgfpoc/will_having_google_se_internship_outweigh_being/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sgfpoc.md#c1"
     char_span: [1098, 2638]
     sentence_count: 9
     key_terms: [degree, experience, google, major, internships, background, internship, companies]
+    concepts: [degree, experience, google, internships, background]
     section: Comments
     token_count: 345
 ---

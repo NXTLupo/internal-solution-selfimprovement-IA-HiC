@@ -7,121 +7,147 @@ subreddit: "productmanagement"
 title: "A perspective from hiring Growth & Product Managers this year in B2B SaaS. (Perspective from the Company)"
 author: "Excellent-Basket-825"
 date: "2025-07-07T10:17:56.000Z"
-score: 131
+score: 130
 upvote_ratio: 0.99
 num_comments: 51
 flair: ""
-extracted_at: "2026-06-18T13:35:35.644Z"
+extracted_at: "2026-06-24T22:14:23.450Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c0"
     char_span: [0, 2083]
     sentence_count: 12
     key_terms: [product, people, perspective, growth, candidates, management, productmanagement, right]
+    concepts: [product, people, perspective, candidates, management]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c1"]
     token_count: 445
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1ltqiel/a_perspective_from_hiring_growth_product_managers/"},{"n":"**","u":""}]
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c1"
     char_span: [2085, 3431]
     sentence_count: 10
     key_terms: [manager, product, management, leader, metrics, hiring, candidates, managing]
+    concepts: [manager, product, management, leader, metrics]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c0"]
     token_count: 285
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c2"
     char_span: [3433, 5401]
     sentence_count: 12
     key_terms: [candidates, companies, positions, applications, "cv's", impossible, candidate, position]
+    concepts: [candidates, companies, positions, applications, impossible]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c12"]
     token_count: 439
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c3"
     char_span: [5403, 7191]
     sentence_count: 11
     key_terms: [growth, product, companies, less, like, team, onboarding, attribute]
+    concepts: [growth, product, companies, onboarding, attribute]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c9", "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c12"]
     token_count: 373
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c4"
     char_span: [7193, 7980]
     sentence_count: 6
     key_terms: [try, because, "don't", assignments, perspective, resounding, companies, emphasize]
+    concepts: [because, "don't"]
     token_count: 170
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c5"
     char_span: [7982, 10295]
     sentence_count: 16
     key_terms: ["don't", "doesn't", personality, "it's", job, like, especially, describe]
+    concepts: ["don't", "doesn't", personality, especially, describe]
     token_count: 512
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c6"
     char_span: [10034, 10329]
     sentence_count: 2
     key_terms: [excited, passion, "you're", something, products, conjure, manager, project]
+    concepts: [excited, passion, "you're"]
     token_count: 71
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c7"
-    char_span: [10344, 11990]
+    char_span: [10343, 11989]
     sentence_count: 12
     key_terms: [interview, hiring, strategic, question, round, interviews, because, hurting]
+    concepts: [interview, hiring, strategic, question, interviews]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c8"
-    char_span: [11992, 13785]
+    char_span: [11991, 13784]
     sentence_count: 9
     key_terms: [excellent-basket-825, "i'm", pms, candidates, interviews, candidate, problem, harder]
+    concepts: [excellent-basket-825, candidates, interviews, candidate, problem]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c9"
-    char_span: [13787, 15834]
+    char_span: [13786, 15833]
     sentence_count: 11
     key_terms: [growth, onboarding, marketing, b2b, product, product-led, like, work]
+    concepts: [growth, onboarding, marketing, product, product-led]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c3", "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c17"]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c10"
-    char_span: [15836, 18103]
+    char_span: [15835, 18102]
     sentence_count: 15
     key_terms: [companies, specialisation, people, experience, smaller, start, years, experienced]
+    concepts: [specialisation, companies, experience, people, smaller]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c11"
-    char_span: [18105, 19798]
+    char_span: [18104, 19798]
     sentence_count: 10
     key_terms: [places, like, personality, question, comment, company, example, product]
+    concepts: [places, personality, question, comment, company]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c12"
     char_span: [19800, 21867]
     sentence_count: 16
     key_terms: [applications, companies, growth, successfully, roles, personality, filtering, because]
+    concepts: [applications, companies, successfully, growth, personality]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c2", "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c3", "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c17"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c13"
     char_span: [21869, 24004]
     sentence_count: 22
     key_terms: [growth, pms, agree, revenue, people, experienced, role, completely]
+    concepts: [growth, agree, revenue, people, experienced]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c14"
     char_span: [24006, 26137]
     sentence_count: 21
     key_terms: [candidates, interview, workflows, good, company, skills, communication, great]
+    concepts: [candidates, interview, workflows, communication, company]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c15"
     char_span: [26139, 28350]
     sentence_count: 16
     key_terms: [office, people, resume, applications, conversation, perspective, been, encouraged]
+    concepts: [applications, conversation, office, people, resume]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c16"
     char_span: [28352, 29932]
     sentence_count: 15
     key_terms: [local, connection, great, drop, back, call, applicants, position]
+    concepts: [local, connection, great, applicants, position]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c17"
     char_span: [29934, 30849]
     sentence_count: 6
     key_terms: [applications, marketing, growth, brand, "i'm", lady, transferring, everywhere]
+    concepts: [applications, marketing, growth, brand]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c9", "social-intelligence/reddit-deep/productmanagement/1ltqiel.md#c12"]
     section: Comments
     token_count: 226
 ---
 # A perspective from hiring Growth & Product Managers this year in B2B SaaS. (Perspective from the Company)
 
 Source: [reddit-deep: r/productmanagement](https://www.reddit.com/r/ProductManagement/comments/1ltqiel/a_perspective_from_hiring_growth_product_managers/)
-Posted by **Excellent-Basket-825** · **131↑** · **51 comments**
+Posted by **Excellent-Basket-825** · **130↑** · **51 comments**
 
 I've heard quite a few people reinforce the narrative that there are not enough product manager jobs and that you're competing for the same positions with way too many people, and that this seems to be the main issue right now, and that companies can lowball you and have an easy time finding candidates.
 
@@ -188,14 +214,14 @@ The following bullet points are a bit all over the place, but I'm brain vomiting
 
 ## Comments
 
-- **HanzJWermhat** (36↑): Thank you for the insight but some of this is insane. Yes PM tends to be a high/higher salary but the hoops you gotta go through these days just to get rejected on some minor assumption of misalignment is out of control. When I got hired 3 years ago it wasn’t like this at all. 
+- **HanzJWermhat** (37↑): Thank you for the insight but some of this is insane. Yes PM tends to be a high/higher salary but the hoops you gotta go through these days just to get rejected on some minor assumption of misalignment is out of control. When I got hired 3 years ago it wasn’t like this at all. 
 
 For the most part anyone who can backup what they say on their CV and if their CV has the experience they can execute the role just fine.
 
 Companies are being obscenely picky and it’s hurting them cause they aren’t really making better decisions and hurting the labor market because others feel stuck with no mobility. 
 
 I know this is more a macro economics thing but the hiring process is definitely broken
-  - **fartsmello_anthony** (17↑): Yeah, this is the way it feels for me.  Recently I went through a 2nd round of interviews with a company.  The 2nd round was team interviews (Designer, developer, another PM). Including the interview with the hiring manager I really felt like I crushed 3 out of 4 (I'd give myself a 7-9 out of 10, with the hiring manage interview being a 9.  Probably my best performance in an interview in a while)
+  - **fartsmello_anthony** (14↑): Yeah, this is the way it feels for me.  Recently I went through a 2nd round of interviews with a company.  The 2nd round was team interviews (Designer, developer, another PM). Including the interview with the hiring manager I really felt like I crushed 3 out of 4 (I'd give myself a 7-9 out of 10, with the hiring manage interview being a 9.  Probably my best performance in an interview in a while)
 
 The 4th interview was with a PM I would have to collaborate with and I messed up the answer to one of the questions.  The question he had asked was assessing my strategic ability and I knew immediately I had messed up with my answer.
 
@@ -204,9 +230,9 @@ I did not get past the 2nd round and I was given the feedback that "I did not ex
 It's maddening because the hiring manager passed me on a similar strategic question where I had answered the question much better.
 
 With most of the interviews I've done over the past year it feels like I have to PERFECTLY keep 10 plates spinning and if I bobble one, I'm out.
-  - **lab-gone-wrong** (6↑): Thank you. OP is snorting some serious copium suggesting the problem is candidate quality. Companies want to pay $0 for a candidate who is already a successful entrepreneur to run their ChatGPT wrapper AI project into a $1B run rate.
+  - **lab-gone-wrong** (8↑): Thank you. OP is snorting some serious copium suggesting the problem is candidate quality. Companies want to pay $0 for a candidate who is already a successful entrepreneur to run their ChatGPT wrapper AI project into a $1B run rate.
   - **AddictedtoPM** (2↑): 3 years ago wasn't a typical market either, it skewed the other direction.
-  - **Excellent-Basket-825** (2↑): It is insane, and it sucks yeah. The thing I'm worried about now is that I might also overlook great candidates in the sea of spam applications that are harder and harder to figure out.
+  - **Excellent-Basket-825** (3↑): It is insane, and it sucks yeah. The thing I'm worried about now is that I might also overlook great candidates in the sea of spam applications that are harder and harder to figure out.
 
 I don't think though that it is about being picky. It took me 4 months intense recruiting interviews to staff a Group PM, and last year all in all over 10 month to find a commercial CPO for a scale up. Maybe I am picky, but I also realize how complex the challenges are.
 
@@ -221,7 +247,7 @@ I have some general ideas around my question I am going to ask, but would love t
 \- What’s your approach to giving tough feedback to your report?
 
 thanks beforehand :)
-- **HustlinInTheHall** (18↑): This is your (and everyone's) problem right here:
+- **HustlinInTheHall** (17↑): This is your (and everyone's) problem right here:
 
 * **Specialization.** In general, we're looking for specialists or people who want to specialize in Growth Functions (Payment, Onboarding or Packaging etc., Positioning) or more Specialized Product Management roles like subcategories in AI. This has to do with the fact that classical Marketing is completely unhinged right now and works less and less.
    * For most companies, the game is to shift the focus on what they can control. Think of it this way: the better your product is making a first impression (slick onboarding, growth), the easier it is for Marketing to sell it. A ton of companies still suck at this and realize it right now. That's why they double down on product-led growth to make their numbers
@@ -257,7 +283,7 @@ I do have a link to my personal website, which at this point I start to think it
 Another dumb question, could you have an attractive example on the talk, and who should I aim at?
 e.g. aiming at the hirer directly: what I believe in product management and how it helped my products in previous roles,
 Or aiming at the general public: selling my hobby product I made myself to the public.
-  - **kbol** (9↑): As someone who cares deeply about culture fit at future companies, I intentionally have a ~designed~ resume, where I add a lot of color and design elements. The places I want to work will usually comment on how much they liked it ( ✅ a person reviewed my resume, ✅ they care about individuality, ✅ we have shared design taste), and presumably I'm getting filtered out of the places where that's seen as unprofessional. 
+  - **kbol** (10↑): As someone who cares deeply about culture fit at future companies, I intentionally have a ~designed~ resume, where I add a lot of color and design elements. The places I want to work will usually comment on how much they liked it ( ✅ a person reviewed my resume, ✅ they care about individuality, ✅ we have shared design taste), and presumably I'm getting filtered out of the places where that's seen as unprofessional. 
 
 I also have at least 1 bullet per company on _cultural_ impact I had there, like "stood up a diversity in tech ERG" or "voted best dancer at the company retreat" or "took a coffee cupping class". Similarly to above, the places I'm not interested in working at might not think those are the best use of limited space, but the places I do want to be at can & often do comment on how much they liked those / ask me more about one of those specific line items / give those equal weight as my "increased metric XX%" items.
 

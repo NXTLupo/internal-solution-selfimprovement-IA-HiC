@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 2340]
     sentence_count: 19
     key_terms: [architecture, neurips, like, research, generated, code, function, machinelearning]
+    concepts: [architecture, neurips, research, generated, machinelearning]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1pkrc6c/d_gpt_confidently_generated_a_fake_neurips/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1pkrc6c.md#c1"
     char_span: [2342, 2551]
     sentence_count: 2
@@ -29,24 +31,28 @@ chunks:
     char_span: [2565, 4594]
     sentence_count: 9
     key_terms: [understand, agi, information, code, definition, research, "doesn't", useful]
+    concepts: [understand, information, definition, research, "doesn't"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/machinelearning/1pkrc6c.md#c3"
     char_span: [4596, 5955]
     sentence_count: 8
     key_terms: [paper, training, gemini, search, information, because, details, cannot]
+    concepts: [paper, training, gemini, search, information]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/machinelearning/1pkrc6c.md#c4"
     char_span: [5957, 7275]
     sentence_count: 5
     key_terms: [arxiv, https, abs, org, fabricated, whether, better, models]
+    concepts: [arxiv, fabricated, https, whether, better]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/machinelearning/1pkrc6c.md#c5"
     char_span: [7277, 8393]
     sentence_count: 8
     key_terms: [web, cascade, feature, exists, search, "that's", few-pomegranate4369, model]
+    concepts: [cascade, feature, exists, search, "that's"]
     section: Comments
     token_count: 281
 ---

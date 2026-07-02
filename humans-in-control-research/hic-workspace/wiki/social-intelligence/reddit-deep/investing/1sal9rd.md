@@ -21,65 +21,83 @@ chunks:
     char_span: [0, 1215]
     sentence_count: 7
     key_terms: [nasdaq, spacex, index, company, manipulation, elon, structural, investing]
+    concepts: [nasdaq, spacex, index, company, manipulation]
     token_count: 298
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1sal9rd/michael_burry_flags_structural_manipulation_risk/"}]
   - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c1"
     char_span: [1240, 1951]
     sentence_count: 3
     key_terms: [nasdaq, changes, public, float, nasdaq-100, february, company, trading]
+    concepts: [nasdaq, changes, public, float, nasdaq-100]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1sal9rd.md#c8"]
     section: What Nasdaq changed
     token_count: 178
   - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c2"
     char_span: [1995, 2627]
     sentence_count: 4
     key_terms: [shares, artificially, available, company, public, means, small, actually-available]
+    concepts: [shares, artificially, available, company, public]
     section: What “float” means in normal language
     token_count: 126
   - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c3"
     char_span: [2655, 3780]
     sentence_count: 5
     key_terms: [index, stock, investors, price, get, nasdaq-100, company, concern]
+    concepts: [investors, index, stock, nasdaq-100, price]
     section: Why this is a problem
     token_count: 246
   - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c4"
     char_span: [3818, 4170]
     sentence_count: 2
     key_terms: [people, guaranteed, nasdaq-100, retirement, discovery, investors, workplace, accounts]
+    concepts: [people]
     section: Why ordinary people should care
     token_count: 77
   - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c5"
     char_span: [4184, 4858]
     sentence_count: 1
     key_terms: [elon-musks-spacex-weighs-nasdaq-listing-after-seeking-early-index-entry-sources-2026-03-10, new-nasdaq-rules-include-fast-entry-new-listings-benchmark-index-2026-03-30, https, com, nasdaq-concludes-public-consultation-nasdaq-100-indexr, reuters, nasdaq, pdf]
+    concepts: [https, reuters, nasdaq, nasdaqomx, business]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1sal9rd.md#c7", "social-intelligence/reddit-deep/investing/1sal9rd.md#c8"]
     section: Sources
     token_count: 194
   - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c6"
     char_span: [4873, 6165]
     sentence_count: 5
     key_terms: [ftse-russell-seeks-feedback-fastentry-rule-us-equity-indexes-ahead-mega-ipos-2026-02-18, because, index, want, indices, right, ipo, vti]
+    concepts: [because, index, indices, right]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c7"
     char_span: [6167, 8195]
     sentence_count: 9
     key_terms: [https, www, tips, com, p-weighs-rule-changes-speed-195942921, nasdaq, people, org]
+    concepts: [https, nasdaq, people, propublica, regulators]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1sal9rd.md#c5", "social-intelligence/reddit-deep/investing/1sal9rd.md#c8"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c8"
     char_span: [8197, 9881]
     sentence_count: 7
     key_terms: [elon-musks-spacex-weighs-nasdaq-listing-after-seeking-early-index-entry-sources-2026-03-10, new-nasdaq-rules-include-fast-entry-new-listings-benchmark-index-2026-03-30, https, com, nasdaq-concludes-public-consultation-nasdaq-100-indexr, changes, reuters, nasdaq]
+    concepts: [https, changes, reuters, nasdaq, nasdaq-100]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1sal9rd.md#c1", "social-intelligence/reddit-deep/investing/1sal9rd.md#c5", "social-intelligence/reddit-deep/investing/1sal9rd.md#c7"]
     section: Comments
     token_count: 398
+    sources: [{"n":"- Reuters on the finalized rule changes: https://www.reuters.com/business/new-na","u":""}]
   - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c9"
     char_span: [9883, 10497]
     sentence_count: 3
     key_terms: [concern, overitallofittoo, moldyjellybean, wallstreetbets, investment, nasdaq-100, retirement, discovery]
+    concepts: [concern]
     section: Comments
     token_count: 160
   - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c10"
     char_span: [10499, 12501]
     sentence_count: 9
     key_terms: [people, burry, become, forced, helpful-inspector958, infinitepressure4793, being, saved]
+    concepts: [people, burry, become, forced, being]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1sal9rd.md#c12"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c11"
@@ -92,18 +110,22 @@ chunks:
     char_span: [12579, 14272]
     sentence_count: 14
     key_terms: [want, investing, fighting, market, people, burry, fight, left]
+    concepts: [investing, fighting, market, people, burry]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1sal9rd.md#c10"]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c13"
     char_span: [14274, 16274]
     sentence_count: 12
     key_terms: [rules, vtsax, crsp, indexes, buying, market, index, find]
+    concepts: [rules, vtsax, indexes, buying, market]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c14"
     char_span: [16276, 18089]
     sentence_count: 13
     key_terms: [fund, managers, index, stole, stealing, grifter, follow, market]
+    concepts: [managers, index, stole, stealing, grifter]
     section: Comments
     token_count: 470
 ---

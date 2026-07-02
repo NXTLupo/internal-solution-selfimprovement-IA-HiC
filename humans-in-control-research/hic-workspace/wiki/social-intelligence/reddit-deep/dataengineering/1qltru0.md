@@ -20,46 +20,57 @@ chunks:
     char_span: [0, 2107]
     sentence_count: 24
     key_terms: ["i'm", sure, dataengineering, job, comments, courses, looking, overall]
+    concepts: [dataengineering, comments, courses, looking, overall]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1qltru0/is_there_more_to_de_than_this_are_their_jobs_out/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1qltru0.md#c1"
     char_span: [2109, 3402]
     sentence_count: 11
     key_terms: [been, something, humanity, related, others, loved, feel, "i've"]
+    concepts: [something, humanity, related, others, loved]
     token_count: 288
   - id: "social-intelligence/reddit-deep/dataengineering/1qltru0.md#c2"
-    char_span: [3417, 5520]
+    char_span: [3416, 5519]
     sentence_count: 19
     key_terms: [data, dataengineering, doctorquinlan, engineering, sustainable, transition, companies, different]
+    concepts: [dataengineering, doctorquinlan, engineering, sustainable, transition]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/dataengineering/1qltru0.md#c3"
-    char_span: [5522, 7006]
+    char_span: [5521, 7005]
     sentence_count: 13
     key_terms: [program, stats, good, applied, masters, online, single, "don't"]
+    concepts: [program, stats, applied, masters, online]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/dataengineering/1qltru0.md#c4"
-    char_span: [7008, 9130]
+    char_span: [7007, 9129]
     sentence_count: 26
     key_terms: [maybe, get, work, consulting, healthcare, doctorquinlan, maintenance, data]
+    concepts: [maybe, consulting, healthcare, doctorquinlan, maintenance]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/dataengineering/1qltru0.md#c5"
-    char_span: [9132, 11205]
+    char_span: [9131, 11204]
     sentence_count: 17
     key_terms: [time, use, company, support, matter, people, wisely, chrisgarzon19]
+    concepts: [chrisgarzon19, company, support, matter, people]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1qltru0.md#c6"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/dataengineering/1qltru0.md#c6"
-    char_span: [11207, 12736]
+    char_span: [11206, 12735]
     sentence_count: 14
     key_terms: [companies, been, company, matter, work, experience, resources, learning]
+    concepts: [companies, company, matter, experience, resources]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1qltru0.md#c5"]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/dataengineering/1qltru0.md#c7"
-    char_span: [12738, 14209]
+    char_span: [12737, 14208]
     sentence_count: 6
     key_terms: [work, places, search, values, right, down, dataengineering, automatically]
+    concepts: [places, search, values, right]
     section: Comments
     token_count: 322
 ---

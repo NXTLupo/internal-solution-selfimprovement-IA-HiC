@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1293]
     sentence_count: 9
     key_terms: [internships, opportunity, need, paid, experience, internship, genuinely, comments]
+    concepts: [internships, opportunity, experience, internship, genuinely]
     token_count: 284
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t70gff/desperately_looking_for_a_paid_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1t70gff.md#c1"
     char_span: [1307, 1596]
     sentence_count: 1

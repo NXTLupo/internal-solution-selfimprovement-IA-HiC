@@ -19,10 +19,12 @@ content_hash: "b42afac6b0e591f4"
 relevance_by_goal: {"8e9ecc469395":35}
 chunks:
   - id: "articles/reddit-deep-r-philanthropy/ac74b5beb1.md#c0"
-    char_span: [0, 1382]
+    char_span: [0, 1381]
     sentence_count: 9
     key_terms: [accounting, nonprofits, fund, funds, why-nonprofits-need-fund-accounting-software, philanthropy, restricted, nonprofit]
-    token_count: 276
+    concepts: [accounting, nonprofits, funds, philanthropy, restricted]
+    token_count: 275
+    sources: [{"n":"Reddit Deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1nqyc8h/why_is_fund_accounting_essential_for_nonprofits/"}]
 ---
 # Why is fund accounting essential for nonprofits?
 

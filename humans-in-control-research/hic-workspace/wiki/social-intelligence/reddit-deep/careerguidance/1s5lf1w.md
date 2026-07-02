@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1456]
     sentence_count: 8
     key_terms: [careerguidance, government, financial, long-term, practical, comments, creation, faceless]
+    concepts: [careerguidance, government, financial, long-term, practical]
     token_count: 282
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1s5lf1w/what_factors_should_someone_consider_when/"}]
 ---
 # What factors should someone consider when deciding whether to leave a stable government job to pursue long-term skill development like learning Chinese versus short-term income opportunities such as faceless content creation?
 

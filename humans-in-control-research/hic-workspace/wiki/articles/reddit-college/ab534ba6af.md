@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1514]
     sentence_count: 30
     key_terms: [students, here, time, college, increase, midsems, without, papers]
+    concepts: [students, college, increase, midsems, without]
     token_count: 373
+    sources: [{"n":"reddit: college","u":"https://reddit.com/r/college/comments/1oll9cb/prof_nearly_made_me_tear_up_in_class/"}]
 ---
 # Prof nearly made me tear up in class
 

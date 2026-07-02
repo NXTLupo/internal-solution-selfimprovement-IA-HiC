@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1564]
     sentence_count: 10
     key_terms: [agents, productmanagement, like, team, time, different, building, comments]
+    concepts: [agents, productmanagement, different, building, comments]
     token_count: 346
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1rfzqb1/are_we_all_just_building_the_same_safety_features/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1rfzqb1.md#c1"
-    char_span: [1579, 3808]
+    char_span: [1578, 3807]
     sentence_count: 11
     key_terms: [work, teams, ambitious-hope3868, engineers, pingponq, feature, usually, agents]
+    concepts: [teams, ambitious-hope3868, engineers, pingponq, feature]
     section: Comments
     token_count: 506
 ---

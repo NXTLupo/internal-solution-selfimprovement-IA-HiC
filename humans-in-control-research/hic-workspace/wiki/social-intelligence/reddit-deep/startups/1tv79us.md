@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 1191]
     sentence_count: 6
     key_terms: [security, handling, startups, cybersecurity, been, comments, "you're", educational-bit-6813]
+    concepts: [security, handling, startups, cybersecurity, comments]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tv79us.md#c2"]
     token_count: 267
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1tv79us/how_are_startups_actually_handling_cybersecurity/"}]
   - id: "social-intelligence/reddit-deep/startups/1tv79us.md#c1"
-    char_span: [1206, 3262]
+    char_span: [1205, 3261]
     sentence_count: 4
     key_terms: [people, early, gonna, wiz, work, customers, password, security]
+    concepts: [people, early, gonna, customers, password]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/startups/1tv79us.md#c2"
-    char_span: [3264, 5099]
+    char_span: [3263, 5098]
     sentence_count: 18
     key_terms: [security, probably, startups, completely, customers, different, engineers, customer]
+    concepts: [security, probably, startups, completely, customers]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tv79us.md#c0"]
     section: Comments
     token_count: 402
 ---

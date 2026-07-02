@@ -20,35 +20,44 @@ chunks:
     char_span: [0, 1477]
     sentence_count: 15
     key_terms: [customer, startup, success, been, customersuccess, years, leadership, playbooks]
+    concepts: [customer, startup, success, customersuccess, leadership]
     token_count: 324
+    sources: [{"n":"reddit-deep: r/customersuccess","u":"https://www.reddit.com/r/CustomerSuccess/comments/1oouu84/new_head_of_customer_success_at_a_startup/"}]
   - id: "social-intelligence/reddit-deep/customersuccess/1oouu84.md#c1"
-    char_span: [1492, 3681]
+    char_span: [1491, 3680]
     sentence_count: 22
     key_terms: [customers, customer, health, everything, onboarding, playbooks, processes, thecscafe]
+    concepts: [customers, customer, health, everything, onboarding]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1oouu84.md#c2"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/customersuccess/1oouu84.md#c2"
-    char_span: [3683, 5781]
+    char_span: [3682, 5780]
     sentence_count: 19
     key_terms: [data, everything, customers, like, customer, google, early, start]
+    concepts: [everything, customers, customer, google, early]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1oouu84.md#c1"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/customersuccess/1oouu84.md#c3"
-    char_span: [5783, 8081]
+    char_span: [5782, 8080]
     sentence_count: 10
     key_terms: [team, "you're", been, context, ask, new, role, too]
+    concepts: ["you're", context, customers, processes, possible]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/customersuccess/1oouu84.md#c4"
-    char_span: [7805, 8395]
+    char_span: [7804, 8394]
     sentence_count: 5
     key_terms: ["you're", cobbled-together, efficiencies, deliberate, describing, prioritize, position, "wouldn't"]
+    concepts: ["you're"]
     section: Comments
     token_count: 145
   - id: "social-intelligence/reddit-deep/customersuccess/1oouu84.md#c5"
-    char_span: [8397, 9147]
+    char_span: [8396, 9146]
     sentence_count: 10
     key_terms: [establish, customer, issues, pretty, lot, sure, convoinsights, understanding]
+    concepts: [establish, customer, issues, pretty]
     section: Comments
     token_count: 158
 ---

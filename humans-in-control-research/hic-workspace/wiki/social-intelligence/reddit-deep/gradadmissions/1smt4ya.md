@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1657]
     sentence_count: 27
     key_terms: [giving, update, gradadmissions, final, hard, work, incredibly, professors]
+    concepts: [giving, update, gradadmissions, final, incredibly]
     token_count: 386
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1smt4ya/2026_admissions_final_update/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1smt4ya.md#c1"
     char_span: [1671, 3353]
     sentence_count: 10
     key_terms: [like, nsf, projects, funded, astro, got, moment, cycle]
+    concepts: [projects, funded, astro, moment, cycle]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/gradadmissions/1smt4ya.md#c2"
     char_span: [3355, 4326]
     sentence_count: 9
     key_terms: [masters, neoliberalsocialist, maybe, feel, give, good, salty-war-9354, heartbreaking]
+    concepts: [masters, maybe]
     section: Comments
     token_count: 242
 ---

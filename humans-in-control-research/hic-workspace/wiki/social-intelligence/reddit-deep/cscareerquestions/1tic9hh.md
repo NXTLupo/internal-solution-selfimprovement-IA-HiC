@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2061]
     sentence_count: 19
     key_terms: [tech, skills, on-campus, cscareerquestions, looking, advice, paths, cgpa]
+    concepts: [cscareerquestions, skills, on-campus, looking, advice]
     token_count: 477
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tic9hh/cs_major_with_a_65_gpa_and_no_skills_stay_in_tech/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tic9hh.md#c1"
-    char_span: [2076, 3837]
+    char_span: [2075, 3836]
     sentence_count: 10
     key_terms: [experience, stupid, sourceawkward, get, "it's", projects, campus, doing]
+    concepts: [experience, sourceawkward, stupid, projects, campus]
     section: Comments
     token_count: 476
 ---

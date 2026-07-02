@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1466]
     sentence_count: 10
     key_terms: [university, careerguidance, career, paths, "i'm", economics, comments, college]
+    concepts: [university, careerguidance, career, paths, economics]
     token_count: 333
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qsqq8d/18m_transfer_student_what_highvalue_skills_or/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1qsqq8d.md#c1"
     char_span: [1480, 2426]
     sentence_count: 7
     key_terms: [skills, business, consider, learning, coding, "you're", maybe, sales]
+    concepts: [skills, business, consider, learning, coding]
     section: Comments
     token_count: 196
 ---

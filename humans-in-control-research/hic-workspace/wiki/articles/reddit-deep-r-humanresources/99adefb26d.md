@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1409]
     sentence_count: 9
     key_terms: [people, humanresources, travel, singapore, comments, continue, involve, reddit]
+    concepts: [people, humanresources, travel, singapore, comments]
     token_count: 327
+    sources: [{"n":"Reddit Deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1sy25uq/jobs_in_hr_that_involve_travel_na/"}]
   - id: "articles/reddit-deep-r-humanresources/99adefb26d.md#c1"
     char_span: [1411, 2124]
     sentence_count: 6
     key_terms: [travel, campus, i-am-pepesilvia89, like, work, anuradhachitfund, responsibilities, international]
+    concepts: [travel, campus]
     token_count: 193
 ---
 # Jobs in HR that involve travel? [N/A]

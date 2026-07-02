@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1445]
     sentence_count: 14
     key_terms: [cscareerquestions, remote, async, teams, work, comments, office, quick]
+    concepts: [cscareerquestions, remote, async, teams, comments]
     token_count: 349
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1slftx7/advice_remote_work_in_cs_teams_sounds_perfect/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slftx7.md#c1"
     char_span: [1459, 2330]
     sentence_count: 4
     key_terms: [doing, work, looking, "you're", "don't", crazypirranhha, quantumpencil, advantageous]
+    concepts: [doing, looking, "you're", "don't"]
     section: Comments
     token_count: 229
 ---

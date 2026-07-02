@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2074]
     sentence_count: 16
     key_terms: [orders, day, problem, scaling, issues, agent, brand, wrong]
+    concepts: [orders, problem, scaling, issues, fulfillment]
     token_count: 477
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1snupdj/how_we_helped_a_brand_go_from_20_to_100_ordersday/"}]
   - id: "social-intelligence/reddit-deep/dropship/1snupdj.md#c1"
-    char_span: [2089, 3484]
+    char_span: [2088, 3483]
     sentence_count: 5
     key_terms: [agent, like, something, dropship, sounds, winter-astronomer-36, store, industry-specific]
+    concepts: [agent, something, dropship, sounds, store]
     section: Comments
     token_count: 305
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 816]
     sentence_count: 4
     key_terms: [biomedical, working, careerguidance, manufacturing, comments, develop, skills, chips]
+    concepts: [biomedical, careerguidance, manufacturing, working, comments]
     token_count: 199
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sj2gx5/people_working_in_semiconductior_chips/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sj2gx5.md#c1"
     char_span: [830, 2173]
     sentence_count: 8
     key_terms: [research, engineering, experience, projects, getting, work, assistantships, semiconductor]
+    concepts: [research, engineering, experience, projects, getting]
     section: Comments
     token_count: 252
 ---

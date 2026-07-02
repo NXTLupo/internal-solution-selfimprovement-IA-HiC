@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1373]
     sentence_count: 10
     key_terms: [productivity, successfully, unit, assistant, producing, comments, examples, startups]
+    concepts: [productivity, successfully, assistant, producing, comments]
     token_count: 307
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1tgrtbz/i_will_not_promote_anyone_here_successfully_used/"}]
   - id: "social-intelligence/reddit-deep/startups/1tgrtbz.md#c1"
-    char_span: [1388, 3337]
+    char_span: [1387, 3336]
     sentence_count: 7
     key_terms: [productivity, ecstatic-minute-411, search, "that's", chaoticgoodj, "it's", unit, alexsicart]
+    concepts: [productivity, ecstatic-minute-411, chaoticgoodj, search, "that's"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/startups/1tgrtbz.md#c2"
-    char_span: [3339, 5641]
+    char_span: [3338, 5640]
     sentence_count: 23
     key_terms: [human, needs, outreach, knowing, review, "it's", something, research]
+    concepts: [human, needs, outreach, knowing, review]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/startups/1tgrtbz.md#c3"
-    char_span: [5643, 6458]
+    char_span: [5642, 6457]
     sentence_count: 1
     key_terms: [sales, replace, calls, using, api, call, pre, essentially]
+    concepts: [sales, replace, calls, using]
     section: Comments
     token_count: 172
 ---

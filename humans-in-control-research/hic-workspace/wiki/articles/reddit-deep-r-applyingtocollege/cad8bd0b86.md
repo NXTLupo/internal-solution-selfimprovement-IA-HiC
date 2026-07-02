@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2215]
     sentence_count: 10
     key_terms: [school, people, texas, medical, like, schools, great, applyingtocollege]
+    concepts: [school, people, medical, texas, schools]
     token_count: 483
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sz79z5/why_do_more_people_not_apply_to_rice/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/cad8bd0b86.md#c1"
     char_span: [2217, 2682]
     sentence_count: 4
     key_terms: [columbia, much-strawberry-7750, particularly, zoinkability, elaborate, jamjam125, reputable, avoiding]
+    concepts: [columbia]
     token_count: 120
 ---
 # Why do more people not apply to Rice?

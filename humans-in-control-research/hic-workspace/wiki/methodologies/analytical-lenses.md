@@ -14,65 +14,81 @@ chunks:
     char_span: [0, 567]
     sentence_count: 4
     key_terms: [lens, analytical, persona, analyticallensservice, domain-specific, configurations, recommendation, instruction]
+    concepts: [analytical, persona]
     token_count: 94
+    sources: [{"n":"`services/analyticalLensService.ts`","u":""}]
   - id: "methodologies/analytical-lenses.md#c1"
     char_span: [598, 1584]
     sentence_count: 6
     key_terms: [fields, extension, domain-specific, journey, persona, prompt, stages, specialized]
+    concepts: [fields, extension, domain-specific, journey, persona]
+    related_chunks: ["methodologies/analytical-lenses.md#c8"]
     section: How Lenses Shape Analysis
     token_count: 180
   - id: "methodologies/analytical-lenses.md#c2"
     char_span: [1618, 2101]
     sentence_count: 4
     key_terms: [persona, none, domain-specific, recommendations, consideration, constraints, exploratory, specialized]
+    concepts: [persona]
     section: "Lens 1: General CX Research"
     token_count: 93
   - id: "methodologies/analytical-lenses.md#c3"
     char_span: [2141, 3419]
     sentence_count: 1
     key_terms: [stewardship, donor, engagement, prospect, select, solicitation, acquisition, cultivation]
+    concepts: [stewardship, donor, engagement, prospect, solicitation]
     section: "Lens 2: Fundraising & Advancement"
     token_count: 274
   - id: "methodologies/analytical-lenses.md#c4"
     char_span: [3462, 4577]
     sentence_count: 1
     key_terms: [learning, experiential, career, free-form, readiness, academic, student, development]
+    concepts: [learning, experiential, career, free-form, readiness]
     section: "Lens 3: Student & Learner Experience"
     token_count: 225
   - id: "methodologies/analytical-lenses.md#c5"
     char_span: [4616, 5663]
     sentence_count: 1
     key_terms: [accessibility, integration, onboarding, usage, adoption, feature, mobile, performance]
+    concepts: [accessibility, integration, onboarding, usage, adoption]
+    related_chunks: ["methodologies/analytical-lenses.md#c6"]
     section: "Lens 4: Digital Product & Mobile"
     token_count: 217
   - id: "methodologies/analytical-lenses.md#c6"
     char_span: [5699, 6755]
     sentence_count: 1
     key_terms: [management, adoption, change, system, integration, user, department, governance]
+    concepts: [management, adoption, change, system, integration]
+    related_chunks: ["methodologies/analytical-lenses.md#c5"]
     section: "Lens 5: Enterprise Technology"
     token_count: 218
   - id: "methodologies/analytical-lenses.md#c7"
     char_span: [6786, 7272]
     sentence_count: 4
     key_terms: [phase, user-defined, extensions, research, domains, journey, persona, stages]
+    concepts: [phase, user-defined, extensions, research, domains]
     section: "Lens 6: Custom Framework"
     token_count: 103
   - id: "methodologies/analytical-lenses.md#c8"
     char_span: [7300, 7988]
     sentence_count: 5
     key_terms: [returns, lens, extension, getlenspersonaextensions, journey, persona, fields, prompt]
+    concepts: [returns, extension, journey, persona, fields]
+    related_chunks: ["methodologies/analytical-lenses.md#c1"]
     section: Service API Functions
     token_count: 128
   - id: "methodologies/analytical-lenses.md#c9"
     char_span: [8032, 8837]
     sentence_count: 1
     key_terms: [lens, categories, generation, persona, stage, theme, domain-appropriate, domain-specific]
+    concepts: [categories, generation, persona, stage, theme]
     section: Lens Propagation Through the Pipeline
     token_count: 143
   - id: "methodologies/analytical-lenses.md#c10"
     char_span: [8866, 9274]
     sentence_count: 1
     key_terms: [wiki, frameworks, evidence, lens, cross-references, domain-specific, research-fabric, methodologies]
+    concepts: [frameworks, evidence]
     section: Wiki Integration Rules
     token_count: 95
 ---

@@ -19,31 +19,42 @@ chunks:
     char_span: [0, 2093]
     sentence_count: 10
     key_terms: [waitlist, schools, part, info, amherst, called, people, commenting]
+    concepts: [waitlist, schools, amherst, commenting, applyingtocollege]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1tiyhbq/pt_2_i_called_35_schools_abt_their_waitlists/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c1"
     char_span: [2095, 4097]
     sentence_count: 17
     key_terms: [students, waitlist, called, take, people, rolling, taken, duke]
+    concepts: [students, waitlist, called, people, rolling]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c4"]
     token_count: 456
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c2"
     char_span: [4099, 6364]
     sentence_count: 24
     key_terms: [waitlist, called, decisions, people, rolling, basis, specific, admissions]
+    concepts: [waitlist, called, decisions, people, rolling]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c4"]
     token_count: 510
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c3"
     char_span: [6366, 8309]
     sentence_count: 17
     key_terms: [waitlist, called, admissions, continued, columbia, specific, william, last]
+    concepts: [waitlist, called, admissions, continued, columbia]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c4"]
     token_count: 439
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c4"
     char_span: [8311, 10252]
     sentence_count: 20
     key_terms: [waitlist, students, admissions, called, acceptances, decisions, engineering, swarthmore]
+    concepts: [waitlist, students, admissions, called, acceptances]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c3"]
     token_count: 435
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c5"
     char_span: [10266, 11929]
     sentence_count: 12
     key_terms: [thank, waitlist, did, got, hoping, turned, consistent-alarm3496, zealousideal-dig-594]
+    concepts: [thank, waitlist, hoping, turned, phone]
     section: Comments
     token_count: 471
 ---

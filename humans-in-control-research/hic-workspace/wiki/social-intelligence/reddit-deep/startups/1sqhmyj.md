@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1798]
     sentence_count: 12
     key_terms: [enough, customers, dev, solo, support, saas, year, something]
+    concepts: [enough, customers, support, something, building]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1sqhmyj.md#c3"]
     token_count: 421
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1sqhmyj/solo_dev_saas_at_200300year_worth_it_or_just_a/"}]
   - id: "social-intelligence/reddit-deep/startups/1sqhmyj.md#c1"
-    char_span: [1813, 3622]
+    char_span: [1812, 3621]
     sentence_count: 16
     key_terms: [get, projects, whether, failed, essentially, customers, failure, project]
+    concepts: [projects, whether, failed, essentially, customers]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/startups/1sqhmyj.md#c2"
-    char_span: [3627, 5169]
+    char_span: [3626, 5168]
     sentence_count: 11
     key_terms: ["don't", price, get, willing, finish, people, deal, own]
+    concepts: ["don't", price, willing, finish, people]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/startups/1sqhmyj.md#c3"
-    char_span: [5171, 6524]
+    char_span: [5170, 6523]
     sentence_count: 11
     key_terms: [customers, marketing, building, paying, far, fun, get, real]
+    concepts: [customers, marketing, building, paying]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1sqhmyj.md#c0"]
     section: Comments
     token_count: 340
 ---

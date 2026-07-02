@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 285]
     sentence_count: 1
     key_terms: [comments, practical-welder2302, jobs, need, reddit-deep, internship, developer, full-time]
+    concepts: [comments]
     token_count: 82
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1tlluq8/need_internship_fulltime_job_as_software/"}]
 ---
 # Need Internship / Full-Time Job as Software Developer — Need Guidance
 

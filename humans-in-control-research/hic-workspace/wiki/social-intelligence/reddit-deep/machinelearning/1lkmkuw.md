@@ -21,45 +21,54 @@ chunks:
     char_span: [0, 2001]
     sentence_count: 6
     key_terms: [people, machinelearning, project, around, experienced, implemented, sycophantic, "i've"]
+    concepts: [people, machinelearning, project, around, experienced]
     token_count: 421
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1lkmkuw/d_alarming_amount_of_schizoid_people_being/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c1"
     char_span: [2004, 4552]
     sentence_count: 6
     key_terms: [people, personality, ideas, llm, chatbots, research, schizoid, world]
+    concepts: [people, personality, ideas, chatbots, research]
     token_count: 495
   - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c2"
     char_span: [4555, 4945]
     sentence_count: 2
     key_terms: [spelling, "i've", inconsistent, generations, implemented, potentially, completely, effective]
+    concepts: [spelling]
     token_count: 69
   - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c3"
     char_span: [4959, 7055]
     sentence_count: 11
     key_terms: [people, delusions, chatgpt, "i'm", not-so-super-intelligent, beliefs, "they've", working]
+    concepts: [people, delusions, chatgpt, beliefs, "they've"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c4"
     char_span: [7057, 8850]
     sentence_count: 13
     key_terms: [themselves, ask, get, chatgpt, summary, instance, whatever, "wouldn't"]
+    concepts: [themselves, chatgpt, summary, instance, whatever]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c5"
     char_span: [8852, 10726]
     sentence_count: 6
     key_terms: [being, bit, pedantry, people, kind, like, schizoid, thinking]
+    concepts: [being, pedantry, people, schizoid, thinking]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c6"
     char_span: [10729, 11899]
     sentence_count: 5
     key_terms: [llm, foundation, suggested, prompts, smarter, model, normal-context6877, data]
+    concepts: [foundation, suggested, prompts, smarter, model]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c7"
     char_span: [11902, 13384]
     sentence_count: 9
     key_terms: [chatgpt-mental-health-crises, system, subs, futurism, schizoid, claims, person, https]
+    concepts: [chatgpt-mental-health-crises, system, futurism, schizoid, claims]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c8"
@@ -72,6 +81,7 @@ chunks:
     char_span: [14131, 15650]
     sentence_count: 4
     key_terms: [people, religious, godisawomaniser, chatgpt-ai-chatbots-conspiracies, https, completely, themselves, themachinetookshape]
+    concepts: [people, religious, godisawomaniser, completely, https]
     section: Comments
     token_count: 382
 ---

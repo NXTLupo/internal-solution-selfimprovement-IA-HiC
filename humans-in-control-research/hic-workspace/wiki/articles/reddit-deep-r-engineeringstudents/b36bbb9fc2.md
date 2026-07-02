@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1727]
     sentence_count: 10
     key_terms: [already, "i'm", engineeringstudents, "i'd", "it's", masters, school, undergrad]
+    concepts: [already, engineeringstudents, masters, school, undergrad]
     token_count: 417
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rezt4p/grad_schoolcareer_question/"}]
   - id: "articles/reddit-deep-r-engineeringstudents/b36bbb9fc2.md#c1"
     char_span: [1729, 3654]
     sentence_count: 16
     key_terms: [being, doing, "i'm", program, school, opportunity, grad, lot]
+    concepts: [being, doing, program, school, opportunity]
     token_count: 456
 ---
 # grad school/career question

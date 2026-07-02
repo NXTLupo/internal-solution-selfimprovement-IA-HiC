@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 1011]
     sentence_count: 9
     key_terms: [cscareerquestions, don, comments, getting, break, point, able, care]
+    concepts: [cscareerquestions, comments, getting, break, point]
     token_count: 259
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1pcn8c2/should_i_give_up_on_trying_to_break_in_to_the/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pcn8c2.md#c1"
     char_span: [1025, 2180]
     sentence_count: 8
     key_terms: [person, interviewing, "i'm", better, software-adjacent, "i'd", try, knowledgeable]
+    concepts: [interviewing, person, better]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pcn8c2.md#c2"
     char_span: [2182, 3754]
     sentence_count: 6
     key_terms: [job, manager, jobs, try, year, graduated, financial-flower8480, bro]
+    concepts: [manager, graduated]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pcn8c2.md#c3"
     char_span: [3756, 5717]
     sentence_count: 19
     key_terms: [got, job, time, people, school, did, fall, full]
+    concepts: [people, school, celebrate, backend, started]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pcn8c2.md#c4"
     char_span: [5721, 7398]
     sentence_count: 16
     key_terms: [companies, applications, background, starting, "they're", anyone, hiring, resume]
+    concepts: [companies, applications, background, starting, "they're"]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pcn8c2.md#c5"
     char_span: [7400, 8701]
     sentence_count: 6
     key_terms: [experience, need, sitting, internships, job, difficult, employers, something]
+    concepts: [experience, sitting, internships, difficult, employers]
     section: Comments
     token_count: 297
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 407]
     sentence_count: 1
     key_terms: [anthropic, comments, claude, reddit, herebedragoons77, reddit-deep, crustacean, mentioning]
+    concepts: [anthropic, comments, claude, reddit]
     token_count: 111
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1qs4cy9/openclaws_prompts_and_skills_that_you_can_run_in/"}]
 ---
 # OpenClaw's prompts and skills that you can run in Claude Code
 

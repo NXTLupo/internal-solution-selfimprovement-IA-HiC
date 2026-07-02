@@ -21,46 +21,58 @@ chunks:
     char_span: [0, 2122]
     sentence_count: 4
     key_terms: [rule, level, new, students, funding, masters, million, right]
+    concepts: [level, students, funding, masters, million]
     token_count: 518
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1n9rw1b/heads_up_for_academics_in_the_us_dhs_is_proposing/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c1"
     char_span: [2124, 2582]
     sentence_count: 2
     key_terms: [million, per, estimate, annual, extra, cost, new, rule]
+    concepts: [million, estimate, annual, extra]
     token_count: 111
   - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c2"
     char_span: [2596, 4559]
     sentence_count: 10
     key_terms: [spring, sevis, activity, programs, specific, students, applied, program]
+    concepts: [spring, sevis, activity, programs, specific]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c3"
     char_span: [4561, 6656]
     sentence_count: 21
     key_terms: [activity, dept, program, advisor, university, halfway, premise, regards]
+    concepts: [activity, program, advisor, university, halfway]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c4"]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c4"
     char_span: [6658, 9061]
     sentence_count: 22
     key_terms: [university, advisor, program, institution, different, activity, dept, departments]
+    concepts: [university, advisor, program, institution, different]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c3", "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c5"
     char_span: [9063, 11269]
     sentence_count: 18
     key_terms: [student, different, graduate, activity, students, classes, passing, attend]
+    concepts: [student, different, graduate, activity, students]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c6"
     char_span: [11271, 13630]
     sentence_count: 17
     key_terms: [different, like, university, college, course, people, international, educational]
+    concepts: [different, university, international, college, course]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c4"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c7"
     char_span: [13632, 14524]
     sentence_count: 8
     key_terms: [rights, basic, international, equilibrium, astounding, blackstone, inequality, americans]
+    concepts: [rights, basic]
     section: Comments
     token_count: 190
 ---

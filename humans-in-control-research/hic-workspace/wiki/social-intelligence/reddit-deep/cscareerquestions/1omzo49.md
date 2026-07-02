@@ -21,119 +21,146 @@ chunks:
     char_span: [0, 1397]
     sentence_count: 15
     key_terms: [months, cscareerquestions, former, job, bartender, emergency, comments, around]
+    concepts: [cscareerquestions, months, former, bartender, emergency]
     token_count: 332
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1omzo49/my_laidoff_4_yoe_former_microsoft_swe_cs_umich/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c1"
     char_span: [1411, 3138]
     sentence_count: 15
     key_terms: [job, jobs, like, time, always, around, people, retail]
+    concepts: [always, around, people, retail, money]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c7"]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c2"
     char_span: [3140, 5015]
     sentence_count: 16
     key_terms: [job, jobs, working, time, interviews, industry, energy, appropriate-tap7860]
+    concepts: [working, interviews, industry, energy, gotta]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c3"
     char_span: [5017, 7036]
     sentence_count: 18
     key_terms: [back, mkvalor, worried, market, did, pay, time, different]
+    concepts: [mkvalor, worried, market, different, silicon]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c4"
     char_span: [7038, 9070]
     sentence_count: 15
     key_terms: [coding, context, better, code, depression, enterprise, experience, interviews]
+    concepts: [coding, context, better, depression, enterprise]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c5"
     char_span: [9072, 10449]
     sentence_count: 12
     key_terms: [context, architecture, back, lot, everywhere, attrition, downturn, economic]
+    concepts: [context, architecture, everywhere, attrition, downturn]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c6"
     char_span: [10451, 12446]
     sentence_count: 9
     key_terms: [emergency, accountant, fund, unemployment, severance, called, months, crazy]
+    concepts: [emergency, accountant, unemployment, severance, called]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c7"
     char_span: [12448, 14303]
     sentence_count: 15
     key_terms: [job, nice, money, get, year, easily, people, salary]
+    concepts: [money, easily, people, salary, investment]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c1"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c8"
     char_span: [14305, 15502]
     sentence_count: 9
     key_terms: [especially, retirement, microsoft, income, postdeletedbyreddit, money, forsookcomparison, "it's"]
+    concepts: [especially, retirement, microsoft, income, money]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c9"
     char_span: [15504, 17228]
     sentence_count: 16
     key_terms: [emergency, fund, get, job, relocate, savings, through, working]
+    concepts: [emergency, relocate, savings, through, working]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c10"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c10"
     char_span: [17230, 17759]
     sentence_count: 4
     key_terms: [fund, emergency, savings, people, programmersaresexy, debilitating, dustingibson, rebuilding]
+    concepts: [emergency, savings, people]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c9"]
     section: Comments
     token_count: 120
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c11"
     char_span: [17761, 19785]
     sentence_count: 19
     key_terms: [getting, experience, car, job, life, lot, thousands, probably]
+    concepts: [getting, experience, thousands, probably, family]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c12"
     char_span: [19539, 20382]
     sentence_count: 5
     key_terms: [time, ok-neighborhood2109, maybe, dev, job, citizenofnauvis, know-it-all, experience]
+    concepts: [maybe]
     section: Comments
     token_count: 222
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c13"
     char_span: [20384, 21199]
     sentence_count: 4
     key_terms: [bartender, bartending, learn, high, need, containerdesk, competitive, hospitality]
+    concepts: [bartender, bartending, learn]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c14"]
     section: Comments
     token_count: 188
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c14"
     char_span: [21201, 23035]
     sentence_count: 14
     key_terms: [experience, bartending, troll, hard, "it's", job, zero, bartender]
+    concepts: [experience, bartending, troll, bartender, couple]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c13"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c15"
     char_span: [23037, 24046]
     sentence_count: 9
     key_terms: [experience, bar, lived, maybe, years, jobs, canisdirusarctos, shadowfox1987]
+    concepts: [experience, lived, maybe, years]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c16"
     char_span: [24049, 26035]
     sentence_count: 18
     key_terms: [teaching, postdeletedbyreddit, job, considering, lot, "didn't", mostly, school]
+    concepts: [teaching, postdeletedbyreddit, considering, "didn't", mostly]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c17"
     char_span: [26037, 27932]
     sentence_count: 20
     key_terms: [teach, looking, others, weeks, job, sometimes, meetings, "there's"]
+    concepts: [teach, looking, others, weeks, sometimes]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c18"
     char_span: [27934, 29698]
     sentence_count: 10
     key_terms: [like, job, yoe, get, nah, too, interviews, something]
+    concepts: [interviews, something, applying, either, small]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/cscareerquestions/1omzo49.md#c19"
     char_span: [29700, 30449]
     sentence_count: 4
     key_terms: [experience, big, "it's", tech, being, seems, fundamentally, stylefree3085]
+    concepts: [experience, being, seems]
     section: Comments
     token_count: 162
 ---

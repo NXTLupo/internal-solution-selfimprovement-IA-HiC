@@ -19,51 +19,65 @@ chunks:
     char_span: [0, 2033]
     sentence_count: 20
     key_terms: [college, assignments, readings, advice, hours, professors, worksheets, comments]
+    concepts: [college, assignments, readings, advice, hours]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lo9qxl.md#c3"]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lo9qxl/the_only_piece_of_advice_you_need_to_succeed_in/"}]
   - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c1"
     char_span: [2035, 3935]
     sentence_count: 19
     key_terms: [time, work, people, get, next, something, drinking, everyone]
+    concepts: [people, something, drinking, everyone, recovery]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lo9qxl.md#c4"]
     token_count: 432
   - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c2"
     char_span: [3937, 4824]
     sentence_count: 9
     key_terms: [etc, get, syllabus, written, times, edit, sure, tell]
+    concepts: [syllabus, written, times]
     token_count: 205
   - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c3"
     char_span: [4838, 6818]
     sentence_count: 11
     key_terms: [writing, center, assignments, resources, college, sweetcosmicpope, advice, going]
+    concepts: [writing, center, assignments, resources, college]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lo9qxl.md#c0"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c4"
     char_span: [6820, 8768]
     sentence_count: 16
     key_terms: [good, alcohol, feel, kind, got, "he's", professors, different]
+    concepts: [alcohol, professors, different, something, drinking]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lo9qxl.md#c1"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c5"
     char_span: [8770, 10466]
     sentence_count: 15
     key_terms: [profs, calc, going, hours, professor, majority, original, teaching]
+    concepts: [profs, going, hours, professor, majority]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c6"
     char_span: [10468, 12459]
     sentence_count: 23
     key_terms: [material, mean, class, freshman, been, lectures, exam, prof]
+    concepts: [material, freshman, class, lectures, everything]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c7"
     char_span: [12462, 14583]
     sentence_count: 13
     key_terms: [optional, something, classes, dancesquared, great, smart, don, time]
+    concepts: [optional, something, classes, dancesquared, great]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c8"
     char_span: [14585, 15069]
     sentence_count: 2
     key_terms: [problems, students, feel, instructor, understand, confident, emphasize, professor]
+    concepts: [problems, students]
     section: Comments
     token_count: 115
 ---

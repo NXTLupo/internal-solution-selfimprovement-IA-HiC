@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1189]
     sentence_count: 4
     key_terms: [nepal, funding, international, organizations, philanthropy, political, comments, guidance]
+    concepts: [nepal, international, organizations, funding, philanthropy]
     token_count: 247
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1opwsfq/seeking_guidance_on_nonpolitical_international/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1opwsfq.md#c1"
-    char_span: [1204, 3313]
+    char_span: [1203, 3312]
     sentence_count: 12
     key_terms: [donors, donor, fundraising, need, compliance, foundation, education, reporting]
+    concepts: [donors, fundraising, compliance, donor, foundation]
     section: Comments
     token_count: 457
 ---

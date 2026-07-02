@@ -20,47 +20,60 @@ chunks:
     char_span: [0, 2025]
     sentence_count: 18
     key_terms: [provider, insurance, company, claim, hospital, appeal, timely, bill]
+    concepts: [provider, insurance, company, hospital, claim]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rdy3v7.md#c2", "social-intelligence/reddit-deep/healthinsurance/1rdy3v7.md#c3", "social-intelligence/reddit-deep/healthinsurance/1rdy3v7.md#c7"]
     token_count: 422
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1rdy3v7/the_provider_is_billing_me_for_a_claim_that/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1rdy3v7.md#c1"
-    char_span: [2040, 4482]
+    char_span: [2039, 4481]
     sentence_count: 8
     key_terms: [post, information, questions, please, following, eob, help, edit]
+    concepts: [information, questions, please, following, healthinsurance]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1rdy3v7.md#c2"
-    char_span: [4484, 6235]
+    char_span: [4483, 6234]
     sentence_count: 12
     key_terms: [insurance, contact, throwfarfaraway1818, subreddit, company, please, report, via]
+    concepts: [insurance, throwfarfaraway1818, contact, subreddit, company]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rdy3v7.md#c0"]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/healthinsurance/1rdy3v7.md#c3"
-    char_span: [6237, 8543]
+    char_span: [6236, 8542]
     sentence_count: 19
     key_terms: [insurance, contract, provider, responsible, debt, ebsa, providers, evidence]
+    concepts: [insurance, contract, provider, responsible, providers]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rdy3v7.md#c0", "social-intelligence/reddit-deep/healthinsurance/1rdy3v7.md#c7"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/healthinsurance/1rdy3v7.md#c4"
-    char_span: [8545, 10175]
+    char_span: [8544, 10174]
     sentence_count: 6
     key_terms: [plans, laws-and-regulations, maintained, state, ebsa, agencies, erisa, https]
+    concepts: [plans, laws-and-regulations, maintained, state, agencies]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/healthinsurance/1rdy3v7.md#c5"
-    char_span: [10177, 11415]
+    char_span: [10176, 11414]
     sentence_count: 6
     key_terms: [employer, erisa, benefits, laws-and-regulations, state, insurance, ebsa, receive]
+    concepts: [employer, benefits, erisa, laws-and-regulations, insurance]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/healthinsurance/1rdy3v7.md#c6"
-    char_span: [11417, 13672]
+    char_span: [11416, 13671]
     sentence_count: 15
     key_terms: [health, commercial, plans, aca, debt, luck, federal, collections]
+    concepts: [health, commercial, plans, federal, collections]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1rdy3v7.md#c7"
-    char_span: [13341, 14568]
+    char_span: [13340, 14567]
     sentence_count: 11
     key_terms: [insurance, provider, claims, understanding, bill, got, commercial, balance]
+    concepts: [insurance, provider, understanding, claims, commercial]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rdy3v7.md#c0", "social-intelligence/reddit-deep/healthinsurance/1rdy3v7.md#c3"]
     section: Comments
     token_count: 269
 ---

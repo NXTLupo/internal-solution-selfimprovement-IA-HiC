@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 2057]
     sentence_count: 13
     key_terms: [service, support, purifier, warranty, customerservice, documents, responses, technical]
+    concepts: [service, support, purifier, warranty, customerservice]
+    related_chunks: ["social-intelligence/reddit-deep/customerservice/1to1bc7.md#c1"]
     token_count: 398
+    sources: [{"n":"reddit-deep: r/customerservice","u":"https://www.reddit.com/r/CustomerService/comments/1to1bc7/urban_company_native_ro_purifier_its_not_free/"}]
   - id: "social-intelligence/reddit-deep/customerservice/1to1bc7.md#c1"
-    char_span: [2072, 3336]
+    char_span: [2071, 3335]
     sentence_count: 11
     key_terms: [warranty, twisted, pipe, purifier, covered, like, documents, customer]
+    concepts: [warranty, twisted, purifier, covered, documents]
+    related_chunks: ["social-intelligence/reddit-deep/customerservice/1to1bc7.md#c0"]
     section: Comments
     token_count: 282
   - id: "social-intelligence/reddit-deep/customerservice/1to1bc7.md#c2"
-    char_span: [3339, 5047]
+    char_span: [3338, 5046]
     sentence_count: 16
     key_terms: [issue, purchase, mistake, person, policy, paniccompetitive4971, raise, chat]
+    concepts: [issue, purchase, mistake, person, policy]
     section: Comments
     token_count: 403
 ---

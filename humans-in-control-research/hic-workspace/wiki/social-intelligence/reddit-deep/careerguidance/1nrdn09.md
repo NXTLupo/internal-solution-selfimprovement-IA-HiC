@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1012]
     sentence_count: 12
     key_terms: [careerguidance, career, job, comments, like, new, strategy-focused, communication]
+    concepts: [careerguidance, career, comments]
     token_count: 251
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1nrdn09/ai_ate_my_job_do_you_have_any_ideas_for_a_new/"}]
 ---
 # AI ate my job. Do you have any ideas for a new strategy-focused career?
 

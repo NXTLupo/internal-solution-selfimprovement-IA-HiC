@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1233]
     sentence_count: 7
     key_terms: [everything, applyingtocollege, feel, like, genuinely, anything, comments, hopeless]
+    concepts: [everything, applyingtocollege, genuinely, anything, comments]
     token_count: 282
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1n2zbiu/having_depression_and_college_applications_is_the/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2zbiu.md#c1"
     char_span: [1247, 2667]
     sentence_count: 17
     key_terms: [college, community, focusing, yourself, better, health, listen, mental]
+    concepts: [college, community, focusing, yourself, better]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2zbiu.md#c2"
     char_span: [2669, 4314]
     sentence_count: 12
     key_terms: [applyingtocollege, essays, help, wiki, please, reddit, collegeessays, psychiatrist]
+    concepts: [applyingtocollege, essays, collegeessays, psychiatrist, please]
     section: Comments
     token_count: 414
 ---

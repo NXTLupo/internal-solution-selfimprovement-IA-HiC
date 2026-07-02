@@ -20,74 +20,95 @@ chunks:
     char_span: [0, 1999]
     sentence_count: 14
     key_terms: [insurance, anthem, birth, hospital, healthinsurance, because, pediatrician, child]
+    concepts: [insurance, anthem, birth, healthinsurance, hospital]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c10"]
     token_count: 439
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1rgswmv/colorado_newborn_mandate_confusion/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c1"
     char_span: [2001, 3189]
     sentence_count: 8
     key_terms: [insurance, birthday-rule-costs-colorado-couple-hospital-birth, birthday, enrolled, policy, official, mandate, newborn]
+    concepts: [insurance, birthday, enrolled, policy, official]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c2", "social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c9"]
     token_count: 247
   - id: "social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c2"
     char_span: [3191, 5549]
     sentence_count: 15
     key_terms: [policy, insurance, coverage, never, state, birthday, anthem, kaiser]
+    concepts: [policy, insurance, coverage, never, state]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c1", "social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c11"]
     token_count: 492
   - id: "social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c3"
     char_span: [5551, 5836]
     sentence_count: 3
     key_terms: ["isn't", interpretation, wormdentist, happening, regulator, something, everyone, hesitant]
+    concepts: ["isn't"]
     token_count: 63
   - id: "social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c4"
-    char_span: [5851, 8291]
+    char_span: [5850, 8290]
     sentence_count: 8
     key_terms: [post, information, questions, please, following, eob, help, edit]
+    concepts: [information, questions, please, following, healthinsurance]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c5"
-    char_span: [8293, 9732]
+    char_span: [8292, 9731]
     sentence_count: 7
     key_terms: [rules, contact, subreddit, please, report, coordination, https, law]
+    concepts: [rules, contact, subreddit, coordination, please]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c6"
-    char_span: [9734, 11260]
+    char_span: [9733, 11259]
     sentence_count: 9
     key_terms: [plan, law, through, state, birthday, newborn, policy, coordination]
+    concepts: [through, state, birthday, newborn, coordination]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c9"]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c7"
-    char_span: [11262, 13271]
+    char_span: [11261, 13270]
     sentence_count: 10
     key_terms: [newborn, colorado, coverage, covered, anthem, unique, plans, dad]
+    concepts: [newborn, colorado, coverage, covered, anthem]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c9"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c8"
-    char_span: [13273, 13488]
+    char_span: [13272, 13487]
     sentence_count: 2
     key_terms: [sincerely, translate, anything, calendar, coverage, compels, decided, through]
     section: Comments
     token_count: 49
   - id: "social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c9"
-    char_span: [13490, 15696]
+    char_span: [13489, 15695]
     sentence_count: 15
     key_terms: [insurance, birthday, covered, newborn, baby, "it's", policies, because]
+    concepts: [insurance, birthday, covered, newborn, policies]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c1", "social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c6", "social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c10"
-    char_span: [15400, 17036]
+    char_span: [15399, 17035]
     sentence_count: 12
     key_terms: [insurance, information, "partner's", "it's", anything, hospital, birth, been]
+    concepts: [insurance, information, "partner's", anything, hospital]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c0"]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c11"
-    char_span: [17040, 19136]
+    char_span: [17039, 19135]
     sentence_count: 14
     key_terms: [because, insurance, plan, interesting-blood105, claim, uhc, coverage, husband]
+    concepts: [because, insurance, interesting-blood105, claim, coverage]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c2"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/healthinsurance/1rgswmv.md#c12"
-    char_span: [19138, 19882]
+    char_span: [19137, 19881]
     sentence_count: 7
     key_terms: [insurance, resolved, interesting-blood105, uhc, understanding, communicate, coordinator, frustrating]
+    concepts: [insurance, resolved]
     section: Comments
     token_count: 162
 ---

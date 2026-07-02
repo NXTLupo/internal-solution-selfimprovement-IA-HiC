@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1932]
     sentence_count: 9
     key_terms: [python, data, models, deeplearning, different, comments, language, learning]
+    concepts: [python, deeplearning, models, different, comments]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1rjggh8/learn_python_usually_means_very_different_things/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1rjggh8.md#c1"
     char_span: [1934, 2514]
     sentence_count: 3
     key_terms: [statistical, did, fwg3tlmrirmg1, probabilistic, statsmodels, approached, statistics, practical]
+    concepts: [statistical]
     token_count: 170
   - id: "social-intelligence/reddit-deep/deeplearning/1rjggh8.md#c2"
     char_span: [2528, 4049]
     sentence_count: 5
     key_terms: [pl-f5kyfvrciuzh3w5kqm4equp9ijllhp4, suspiciousbrain6027, playlist, siogixv8lstee9q, python, learn, post, downvoting]
+    concepts: [pl-f5kyfvrciuzh3w5kqm4equp9ijllhp4, suspiciousbrain6027, siogixv8lstee9q, playlist, python]
     section: Comments
     token_count: 447
 ---

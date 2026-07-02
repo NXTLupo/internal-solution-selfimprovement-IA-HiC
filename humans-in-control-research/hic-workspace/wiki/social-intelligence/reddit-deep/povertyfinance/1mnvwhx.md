@@ -21,46 +21,57 @@ chunks:
     char_span: [0, 1268]
     sentence_count: 9
     key_terms: [debt, medical, hospital, povertyfinance, ignore, comments, reported, minimum]
+    concepts: [medical, hospital, povertyfinance, ignore, comments]
     token_count: 299
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1mnvwhx/should_i_ignore_medical_debt/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md#c1"
     char_span: [1271, 2515]
     sentence_count: 9
     key_terms: [started, advice, years, limitations, hopefully, nursing, statute, thank]
+    concepts: [started, advice, limitations, years, hopefully]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md#c3"]
     token_count: 285
   - id: "social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md#c2"
     char_span: [2529, 4168]
     sentence_count: 14
     key_terms: [debt, governor-hochul-signs-legislation-protect-patients-medical-debt, medical, collect, garnishments, wages, "i'm", pay]
+    concepts: [medical, collect, garnishments, pizza-boyz, wages]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md#c3"
     char_span: [4170, 5044]
     sentence_count: 5
     key_terms: [years, limitations, debt, visits, seen, inconveniences, reactivehelium, consequences]
+    concepts: [years, limitations, visits]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md#c1"]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md#c4"
     char_span: [5046, 6588]
     sentence_count: 12
     key_terms: [balance, medical, right, years, collections, debt, paid, pay]
+    concepts: [balance, medical, collections, right, years]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md#c5"
     char_span: [6590, 8408]
     sentence_count: 9
     key_terms: [debt, hospital, collections, bills, paying, going, bill, collection]
+    concepts: [hospital, collections, bills, paying, collection]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md#c6"
     char_span: [8410, 10406]
     sentence_count: 15
     key_terms: [credit, debt, get, likely, report, assistance, collection, agencies]
+    concepts: [credit, likely, report, assistance, collection]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md#c7"
     char_span: [10408, 11202]
     sentence_count: 4
     key_terms: [questions, medical, legal, popularprompt2892, saw, work, attorney-client, clarification]
+    concepts: [questions, medical, legal]
     section: Comments
     token_count: 185
 ---

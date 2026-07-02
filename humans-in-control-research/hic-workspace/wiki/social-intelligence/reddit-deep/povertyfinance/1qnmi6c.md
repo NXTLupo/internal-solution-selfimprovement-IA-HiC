@@ -21,51 +21,61 @@ chunks:
     char_span: [0, 1736]
     sentence_count: 12
     key_terms: [povertyfinance, live, work, comments, income, living, online, people]
+    concepts: [povertyfinance, comments, income, living, online]
     token_count: 421
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1qnmi6c/i_dont_see_a_way_out_anymore/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md#c1"
     char_span: [1738, 3840]
     sentence_count: 14
     key_terms: [students, house, pay, having, whilst, open, room, completely]
+    concepts: [students, house, having, whilst, completely]
     token_count: 463
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md#c2"
     char_span: [3842, 6036]
     sentence_count: 21
     key_terms: [ive, afford, cant, don, rejected, applied, get, interview]
+    concepts: [afford, rejected, applied, interview, homeless]
     token_count: 502
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md#c3"
     char_span: [6050, 8064]
     sentence_count: 24
     key_terms: [get, isn, people, offer, back, dog, job, transport]
+    concepts: [people, offer, transport, embassy, living]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md#c4"
     char_span: [8066, 8982]
     sentence_count: 8
     key_terms: [situation, because, obvious, people, summer, case, dont, work]
+    concepts: [situation, because, obvious, people, summer]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md#c5"
     char_span: [8984, 11035]
     sentence_count: 30
     key_terms: [work, service, certification, find, help, need, situation, something]
+    concepts: [certification, service, situation, something, planning]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md#c6"
     char_span: [11037, 12080]
     sentence_count: 6
     key_terms: [nyc-restaurants-use-zoom-cashiers-from-philippines, redfluttermao, work, option, https, accommodations, di2w578mvrfg1, neighbouring]
+    concepts: [redfluttermao, option, https]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md#c7"
     char_span: [12083, 14140]
     sentence_count: 15
     key_terms: [exchange, work, thank, english, working, immediate, somewhere, volunteer]
+    concepts: [exchange, thank, english, working, immediate]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md#c8"
     char_span: [13862, 14267]
     sentence_count: 4
     key_terms: [school, offer, dog, let, housekeeper, restaurant, translater, caretaker]
+    concepts: [school, offer]
     section: Comments
     token_count: 92
 ---

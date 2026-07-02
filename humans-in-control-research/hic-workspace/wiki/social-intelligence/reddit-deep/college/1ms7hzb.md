@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 538]
     sentence_count: 3
     key_terms: [college, comments, looking, package, care, inspiration, reddit-deep, accounting]
+    concepts: [college, comments, looking, package]
     token_count: 130
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ms7hzb/adult_college_student_care_package/"}]
   - id: "social-intelligence/reddit-deep/college/1ms7hzb.md#c1"
     char_span: [552, 2415]
     sentence_count: 10
     key_terms: [motivational, pens, notes, paper, like, note, headphones, jpsartre99]
+    concepts: [motivational, headphones, jpsartre99, notes, paper]
     section: Comments
     token_count: 461
 ---

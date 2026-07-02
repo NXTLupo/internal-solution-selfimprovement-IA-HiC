@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 2205]
     sentence_count: 13
     key_terms: [interview, sales, job, experience, zoom, entry, level, didn]
+    concepts: [interview, sales, experience, entry, level]
     token_count: 490
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1th2ma2/finally_hit_my_breaking_point/"}]
   - id: "social-intelligence/reddit-deep/jobs/1th2ma2.md#c1"
     char_span: [2207, 2946]
     sentence_count: 5
     key_terms: [did, hiring, inappropriate, interrogation, opportunity, completely, considered, especially]
+    concepts: [hiring]
     section: Comments
     token_count: 168
   - id: "social-intelligence/reddit-deep/jobs/1th2ma2.md#c2"
     char_span: [2948, 4554]
     sentence_count: 9
     key_terms: [job, like, questions, probably, because, anyway, glittering-entry2911, going]
+    concepts: [questions, probably, because, anyway, going]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/jobs/1th2ma2.md#c3"
     char_span: [4556, 5187]
     sentence_count: 7
     key_terms: [interviews, time, personality, last, diagnosis-t43612, definitely, alongside, consuming]
+    concepts: [interviews, personality]
     section: Comments
     token_count: 142
 ---

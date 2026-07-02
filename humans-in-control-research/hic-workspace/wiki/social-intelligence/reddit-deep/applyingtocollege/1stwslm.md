@@ -19,46 +19,58 @@ chunks:
     char_span: [0, 2316]
     sentence_count: 12
     key_terms: [school, carolina, duke, south, "i'm", state, applyingtocollege, "i've"]
+    concepts: [school, carolina, south, applyingtocollege, state]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1stwslm.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1stwslm.md#c4"]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1stwslm/full_pay_at_t10_vs_full_ride_to_state_school/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stwslm.md#c1"
     char_span: [2318, 2759]
     sentence_count: 3
     key_terms: [decision, making, duke, "i've", usc, opportunities, shortsighted, appreciated]
+    concepts: [decision, making]
     token_count: 96
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stwslm.md#c2"
     char_span: [2773, 4681]
     sentence_count: 10
     key_terms: [school, law, prestigious, undergrad, state, duke, want, practice]
+    concepts: [school, prestigious, undergrad, state, practice]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1stwslm.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1stwslm.md#c4"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stwslm.md#c3"
     char_span: [4683, 6567]
     sentence_count: 17
     key_terms: [school, law, great, top, year, floundered, getting, league]
+    concepts: [school, floundered, great, getting, league]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stwslm.md#c4"
     char_span: [6328, 8293]
     sentence_count: 14
     key_terms: [school, law, undergrad, carolina, state, south, grad, flagship]
+    concepts: [school, undergrad, carolina, state, south]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1stwslm.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1stwslm.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stwslm.md#c5"
     char_span: [8020, 8607]
     sentence_count: 3
     key_terms: [school, law, paying, independent-tart608, loans, "won't", flexibility, prestigious]
+    concepts: [school, paying, loans, "won't"]
     section: Comments
     token_count: 130
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stwslm.md#c6"
     char_span: [8609, 10496]
     sentence_count: 8
     key_terms: [school, business, law, duke, international, money, uofsc, application]
+    concepts: [school, business, international, application, interested]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stwslm.md#c7"
     char_span: [10498, 10859]
     sentence_count: 2
     key_terms: [duke, "you'll", "you're", best, chaosmushroom86, hastduetwas, acceptance, admissions]
+    concepts: ["you'll", "you're"]
     section: Comments
     token_count: 104
 ---

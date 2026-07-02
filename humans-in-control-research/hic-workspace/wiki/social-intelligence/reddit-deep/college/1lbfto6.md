@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1888]
     sentence_count: 17
     key_terms: [science, years, college, data, computer, data-scientists, master, https]
+    concepts: [science, years, college, data-scientists, computer]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lbfto6/master_in_computer_science_2_years_or_master_in/"}]
   - id: "social-intelligence/reddit-deep/college/1lbfto6.md#c1"
     char_span: [1902, 2314]
     sentence_count: 1
     key_terms: [deleted, redact, ill-map-1024, anonymized, continue, hospital, shocking, applied]
+    concepts: [deleted, redact]
     section: Comments
     token_count: 109
 ---

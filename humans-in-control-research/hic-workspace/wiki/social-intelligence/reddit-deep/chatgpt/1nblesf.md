@@ -21,39 +21,51 @@ chunks:
     char_span: [0, 2000]
     sentence_count: 24
     key_terms: [chatgpt, conversation, accessibility, intelligence, agi, like, comments, general]
+    concepts: [chatgpt, conversation, accessibility, intelligence, comments]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1nblesf.md#c1", "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c16"]
     token_count: 451
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1nblesf/remember_when_chatgpt_could_just_talk_thats_gone/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c1"
     char_span: [2002, 4189]
     sentence_count: 22
     key_terms: [conversation, chatgpt, access, agi, accessible, enterprise, anything, building]
+    concepts: [conversation, chatgpt, access, accessible, enterprise]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1nblesf.md#c0", "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c16"]
     token_count: 431
   - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c2"
     char_span: [4191, 5688]
     sentence_count: 13
     key_terms: [gatekeeping, harassment, argument, control, exactly, people, "you're", post]
+    concepts: [gatekeeping, harassment, argument, control, exactly]
     token_count: 301
   - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c3"
     char_span: [5702, 6339]
     sentence_count: 4
     key_terms: [comments, serious, tag, interstellarsofu, automatically, automoderator, appropriate, cooperation]
+    concepts: [comments, serious]
     section: Comments
     token_count: 155
   - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c4"
     char_span: [6341, 7810]
     sentence_count: 9
     key_terms: [use, people, entrepreneurbehavior, gpt-5, did, gpt, here, "it's"]
+    concepts: [people, gpt-5]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c5"
     char_span: [7813, 8777]
     sentence_count: 8
     key_terms: [translate, language, english, people, low, because, chatgpt, opinion]
+    concepts: [translate, language, english, people, because]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1nblesf.md#c6"]
     section: Comments
     token_count: 247
   - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c6"
     char_span: [8779, 10811]
     sentence_count: 19
     key_terms: [because, writing, language, opinion, speak, definitely, unpopular, thoughts]
+    concepts: [because, writing, language, opinion, definitely]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1nblesf.md#c5"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c7"
@@ -66,60 +78,73 @@ chunks:
     char_span: [11074, 13065]
     sentence_count: 10
     key_terms: [chatgpt, entire, post, written, sometimes, everyone, comment, writing]
+    concepts: [chatgpt, entire, written, sometimes, everyone]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c9"
     char_span: [12806, 13511]
     sentence_count: 4
     key_terms: [freely, lumiplayergames, entrepreneur, adjumpy4594, dissonance, technology, cognitive, companies]
+    concepts: [freely]
     section: Comments
     token_count: 175
   - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c10"
     char_span: [13513, 15468]
     sentence_count: 9
     key_terms: [like, openai, architecture, never, performance, agi, because, started]
+    concepts: [architecture, openai, performance, never, because]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c11"
     char_span: [15470, 17162]
     sentence_count: 13
     key_terms: [because, "aren't", exact, observations, using, hate, extremely, something]
+    concepts: [because, "aren't", exact, observations, using]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c12"
     char_span: [17165, 17879]
     sentence_count: 9
     key_terms: [gave, back, rows, wanted, asked, csv, fuck, give]
+    concepts: [wanted, asked]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c13"
     char_span: [17881, 19920]
     sentence_count: 15
     key_terms: [like, "it's", chatgpt, better, seems, users, using, profitable]
+    concepts: [chatgpt, better, profitable, seems, users]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1nblesf.md#c16", "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c17"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c14"
     char_span: [19922, 20373]
     sentence_count: 2
     key_terms: [creative, fuck, less, text, happyghosst, repetition, creatives, customer]
+    concepts: [creative]
     section: Comments
     token_count: 158
   - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c15"
     char_span: [20375, 21734]
     sentence_count: 6
     key_terms: [creative, writing, gpt-4o, been, rewritten, competitive-dot-3333, being, gpt-5]
+    concepts: [creative, writing, gpt-4o, rewritten, being]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c16"
     char_span: [21736, 23754]
     sentence_count: 26
     key_terms: [chatgpt, without, model, better, conversation, brain, using, post]
+    concepts: [chatgpt, without, model, conversation, better]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1nblesf.md#c0", "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c1", "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c13"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c17"
     char_span: [23756, 24463]
     sentence_count: 4
     key_terms: [chatgpt, use, dialogue, brain, users, work, maybemarmelade, differentiate]
+    concepts: [chatgpt, dialogue, brain, users]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1nblesf.md#c13"]
     section: Comments
     token_count: 164
 ---

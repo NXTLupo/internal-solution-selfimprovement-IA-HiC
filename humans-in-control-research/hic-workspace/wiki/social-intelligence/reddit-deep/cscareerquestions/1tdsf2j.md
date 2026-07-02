@@ -21,77 +21,91 @@ chunks:
     char_span: [0, 1135]
     sentence_count: 8
     key_terms: [cscareerquestions, already, people, programming, like, completely, comments, years]
+    concepts: [cscareerquestions, already, people, programming, completely]
     token_count: 256
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tdsf2j/do_you_guys_honestly_think_its_still_worth/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c1"
     char_span: [1149, 3064]
     sentence_count: 10
     key_terms: [safe, career, going, doomers, overhyped, "it's", job, automate]
+    concepts: [career, going, doomers, overhyped, automate]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c2"
     char_span: [3066, 4382]
     sentence_count: 10
     key_terms: [coding, all-in, figure, reddit, retort, "that's", trying, "don't"]
+    concepts: [coding, all-in, figure, reddit, retort]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c3"
     char_span: [4384, 6457]
     sentence_count: 11
     key_terms: [already, trash, grinding, doctors, being, like, "doctor's", replaced]
+    concepts: [already, trash, grinding, doctors, being]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c4"
     char_span: [6224, 7287]
     sentence_count: 5
     key_terms: [replaced, jobs, collar, manual, people, pivot, white, effective-bee-7004]
+    concepts: [replaced, collar, manual, people, pivot]
     section: Comments
     token_count: 262
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c5"
     char_span: [7289, 8610]
     sentence_count: 10
     key_terms: [engineering, people, safe, workforce, computer, scenario, outside, collar]
+    concepts: [engineering, people, workforce, computer, scenario]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c6"
     char_span: [8612, 9759]
     sentence_count: 12
     key_terms: [job, anymore, alternativeechidna39, loved, years, chef, code, part]
+    concepts: [anymore, loved, years]
     section: Comments
     token_count: 289
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c7"
     char_span: [9761, 11616]
     sentence_count: 14
     key_terms: [career, work, years, like, experience, coding, people, state]
+    concepts: [career, experience, years, coding, people]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c8"
     char_span: [11618, 13868]
     sentence_count: 16
     key_terms: [robotics, because, right, like, engineer, honestly, physical, software]
+    concepts: [robotics, because, right, engineer, honestly]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c9"
     char_span: [13870, 16146]
     sentence_count: 18
     key_terms: [data, problem, systems, apart, video, code, don, llm]
+    concepts: [problem, systems, apart, interfaces, video]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c10"
     char_span: [16148, 17059]
     sentence_count: 6
     key_terms: [going, get, working, hard, lot, past, tech, opportunities]
+    concepts: [going, working]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c11"
     char_span: [17061, 18458]
     sentence_count: 6
     key_terms: [dev, web, programmer, software, indian, moldat, pressureavailable615, sudden-scientist7330]
+    concepts: [programmer, software, indian, moldat, month]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c12"
     char_span: [18460, 19412]
     sentence_count: 7
     key_terms: [software, companies, engineer, layoffs, vasileios13, developers, programmer, products]
+    concepts: [software, companies, engineer, layoffs, vasileios13]
     section: Comments
     token_count: 214
 ---

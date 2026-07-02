@@ -19,40 +19,50 @@ chunks:
     char_span: [0, 1757]
     sentence_count: 10
     key_terms: [yale, cmu, applyingtocollege, schools, school, lot, technical, berkeley]
+    concepts: [applyingtocollege, schools, school, technical, berkeley]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1su4wj7.md#c6"]
     token_count: 396
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1su4wj7/choosing_between_yale_and_carnegie_mellon_for_cs/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1su4wj7.md#c1"
     char_span: [1759, 2554]
     sentence_count: 4
     key_terms: [research, pretty, opportunities, yale, resources, school, interdisciplinary, "i'm"]
+    concepts: [research, opportunities, pretty, resources, school]
     token_count: 167
   - id: "social-intelligence/reddit-deep/applyingtocollege/1su4wj7.md#c2"
     char_span: [2568, 4184]
     sentence_count: 10
     key_terms: [yale, top-colleges-high-paying-careers-finance-tech-consulting-d1c22601, yale-make-historic-investment-engineering-lower-hillhouse-avenue, wall-street-journals-2025-best-colleges-in-america, yale-announces-150-million-support-leadership-ai, https, cmu, news]
+    concepts: [https, salaries, stronger, career, grads]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/applyingtocollege/1su4wj7.md#c3"
     char_span: [4186, 6144]
     sentence_count: 10
     key_terms: [mit, salary, top-colleges-high-paying-jobs-software-5ce461f8, scorecard, top, yale, college, cmu]
+    concepts: [salary, scorecard, college, technical, colleges]
     section: Comments
     token_count: 516
   - id: "social-intelligence/reddit-deep/applyingtocollege/1su4wj7.md#c4"
     char_span: [6146, 8377]
     sentence_count: 14
     key_terms: [yale, interdisciplinary, cmu, lost-source-830, program, tradeoffs, doctoral, graduate]
+    concepts: [interdisciplinary, lost-source-830, program, tradeoffs, doctoral]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/applyingtocollege/1su4wj7.md#c5"
     char_span: [8379, 9859]
     sentence_count: 6
     key_terms: [phd, yale, cmu, because, technical, better, career, people]
+    concepts: [because, technical, better, career, people]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/applyingtocollege/1su4wj7.md#c6"
     char_span: [9861, 11936]
     sentence_count: 6
     key_terms: [yale, cmu, phd, berkeley, probably, research, want, princeton]
+    concepts: [berkeley, probably, research, princeton, technical]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1su4wj7.md#c0"]
     section: Comments
     token_count: 504
 ---

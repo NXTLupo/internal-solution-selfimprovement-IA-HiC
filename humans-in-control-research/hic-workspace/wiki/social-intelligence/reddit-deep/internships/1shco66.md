@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1091]
     sentence_count: 6
     key_terms: [resume, internships, template, right, experience, interviews, comments, projects]
+    concepts: [resume, internships, template, experience, interviews]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1shco66.md#c1"]
     token_count: 250
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1shco66/junior_cs_student_with_zero_internshipsprojects/"}]
   - id: "social-intelligence/reddit-deep/internships/1shco66.md#c1"
     char_span: [1105, 2195]
     sentence_count: 2
     key_terms: [revorian, resume, free, like, experience, projects, people, simple]
+    concepts: [revorian, resume, experience, projects, people]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1shco66.md#c0"]
     section: Comments
     token_count: 280
 ---

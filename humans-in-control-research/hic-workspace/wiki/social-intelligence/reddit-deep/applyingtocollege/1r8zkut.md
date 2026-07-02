@@ -21,65 +21,81 @@ chunks:
     char_span: [0, 1541]
     sentence_count: 19
     key_terms: [college, school, saved, applyingtocollege, etc, community, comments, decision]
+    concepts: [college, school, saved, applyingtocollege, community]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c7"]
     token_count: 372
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1r8zkut/college_debt/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c1"
     char_span: [1555, 3893]
     sentence_count: 17
     key_terms: [student, loan, monthly, similar, professionals, consequences, decision, salaries]
+    concepts: [student, professionals, monthly, similar, consequences]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c2"
     char_span: [3895, 5766]
     sentence_count: 18
     key_terms: [loans, study, summer, gap, kid, need, work, financial]
+    concepts: [loans, study, summer, financial, business]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c3"
     char_span: [5768, 7917]
     sentence_count: 12
     key_terms: [debt, high, schools, work, college, finance, worth, year]
+    concepts: [schools, college, finance, accredited, successful]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c4"
     char_span: [7645, 8426]
     sentence_count: 3
     key_terms: [debt, high, understand, years, don, onecraftybird, miraculously, eventually]
+    concepts: [understand, years]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c5"
     char_span: [8428, 10303]
     sentence_count: 15
     key_terms: [school, professors, debt, college, choice, small, developing, already]
+    concepts: [school, professors, college, choice, developing]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c7"]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c6"
     char_span: [10305, 11715]
     sentence_count: 12
     key_terms: [years, debt, student, school, child, loans, interest, cosign]
+    concepts: [years, student, school, child, loans]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c7"
     char_span: [11717, 14055]
     sentence_count: 13
     key_terms: [loan, college, school, option, get, look, year, accredited]
+    concepts: [college, school, option, accredited, freshman]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c8"
     char_span: [13677, 14503]
     sentence_count: 7
     key_terms: [faculty, accredited, experience, research, teaching, schools, field, focus]
+    concepts: [faculty, accredited, experience, research, teaching]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c9"
     char_span: [14505, 16338]
     sentence_count: 14
     key_terms: [month, semester, having, making, school, loans, determine, daughter]
+    concepts: [month, semester, having, making, school]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c10"
     char_span: [16340, 17167]
     sentence_count: 11
     key_terms: [graduated, ashland, watermelonrindpickle, loved, small, christopher, recommended, substantial]
+    concepts: [graduated, ashland, loved, small]
     section: Comments
     token_count: 191
 ---

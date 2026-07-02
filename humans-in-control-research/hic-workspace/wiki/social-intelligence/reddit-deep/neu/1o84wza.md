@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1420]
     sentence_count: 6
     key_terms: ["we're", looking, double, housing, sublets, advice, neu, experience]
+    concepts: ["we're", looking, double, housing, sublets]
     token_count: 336
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1o84wza/advice_on_finding_double_sublets/"}]
   - id: "social-intelligence/reddit-deep/neu/1o84wza.md#c1"
     char_span: [1434, 1843]
     sentence_count: 2
     key_terms: [double, redditor82536, solicitation, especially, facebook, jdsmagic, probably, whatever]
+    concepts: [double]
     section: Comments
     token_count: 107
 ---

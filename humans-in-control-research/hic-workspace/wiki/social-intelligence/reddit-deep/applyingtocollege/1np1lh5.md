@@ -21,44 +21,55 @@ chunks:
     char_span: [0, 1931]
     sentence_count: 4
     key_terms: [taking, applyingtocollege, calc, high, course, school, essentially, bad]
+    concepts: [applyingtocollege, taking, course, school, essentially]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1np1lh5/how_bad_is_a_bad_gpa_when_it_comes_to_college/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c1"
     char_span: [1933, 3914]
     sentence_count: 13
     key_terms: [year, classes, teacher, academically, years, landscaping, calc, currently]
+    concepts: [classes, teacher, academically, landscaping, years]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c2"]
     token_count: 460
   - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c2"
     char_span: [3916, 5618]
     sentence_count: 10
     key_terms: [landscaping, years, year, basic, time, everything, business, "natty's"]
+    concepts: [landscaping, years, basic, everything, business]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c1"]
     token_count: 412
   - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c3"
     char_span: [5620, 7035]
     sentence_count: 8
     key_terms: [like, somewhat, school, application, applying, business, frankly, schools]
+    concepts: [somewhat, school, application, applying, business]
     token_count: 318
   - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c4"
     char_span: [7049, 8140]
     sentence_count: 7
     key_terms: [applyingtocollege, essays, wiki, reddit, collegeessays, https, com, good]
+    concepts: [applyingtocollege, essays, collegeessays, reddit, https]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c5"
     char_span: [8142, 10195]
     sentence_count: 15
     key_terms: [gpa, weighted, classes, school, unweighted, list, accepted, schools]
+    concepts: [weighted, classes, unweighted, school, accepted]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c6"
     char_span: [10197, 12122]
     sentence_count: 18
     key_terms: [like, school, core, get, good, gpa, flagship, courses]
+    concepts: [school, flagship, courses, matter, great]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c7"
     char_span: [12124, 13200]
     sentence_count: 4
     key_terms: [wanted, jvaloir-7261, finalist, college, frankly, apps, good, sure]
+    concepts: [jvaloir-7261, wanted, finalist, college, frankly]
     section: Comments
     token_count: 295
 ---

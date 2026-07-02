@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 2075]
     sentence_count: 14
     key_terms: [reviews, legitimate, ai-generated, amazon, review, suspicious, fulfillmentbyamazon, like]
+    concepts: [reviews, legitimate, ai-generated, fulfillmentbyamazon, suspicious]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1tc30ks.md#c1"]
     token_count: 428
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1tc30ks/is_anyone_else_seeing_suspicious_aigenerated/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tc30ks.md#c1"
-    char_span: [2090, 3529]
+    char_span: [2089, 3528]
     sentence_count: 9
     key_terms: [review, fulfillmentbyamazon, discord, reviews, fba, generated, discuss, server]
+    concepts: [review, fulfillmentbyamazon, discord, reviews, generated]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1tc30ks.md#c0"]
     section: Comments
     token_count: 344
 ---

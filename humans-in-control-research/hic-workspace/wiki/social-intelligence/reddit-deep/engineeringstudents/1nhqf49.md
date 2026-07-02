@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 467]
     sentence_count: 5
     key_terms: [engineeringstudents, comments, curious, career, royal-jelly1026, post-graduate, engineering, internships]
+    concepts: [engineeringstudents, comments, curious, career]
     token_count: 114
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1nhqf49/people_who_did_engineering_as_a_second_degree_how/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nhqf49.md#c1"
     char_span: [481, 2542]
     sentence_count: 23
     key_terms: [engineering, degree, skills, language, started, translation, did, get]
+    concepts: [engineering, degree, skills, language, started]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nhqf49.md#c2"

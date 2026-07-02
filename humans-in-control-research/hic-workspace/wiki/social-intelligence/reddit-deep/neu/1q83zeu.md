@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 778]
     sentence_count: 6
     key_terms: [opportunities, northeastern, full-time, comments, science, admit, co-op, pure-equipment8795]
+    concepts: [opportunities, northeastern, full-time, comments, science]
     token_count: 200
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1q83zeu/got_admit_to_ms_in_data_science_at_northeastern/"}]
 ---
 # Got admit to MS in Data Science at Northeastern – how are co-op & full-time opportunities?
 

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 352]
     sentence_count: 2
     key_terms: [engineeringstudents, comments, nothingbutfacts7890, alternative, engineering, reddit-deep, experience, internship]
+    concepts: [engineeringstudents, comments]
     token_count: 88
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1m8k3rz/is_weilding_experience_a_good_alternative_for_an/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1m8k3rz.md#c1"
     char_span: [366, 1006]
     sentence_count: 4
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    concepts: [engineeringstudents, reddit, https, resources, please]
     section: Comments
     token_count: 150
 ---

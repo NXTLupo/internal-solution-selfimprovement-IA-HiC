@@ -20,22 +20,27 @@ chunks:
     char_span: [0, 1970]
     sentence_count: 13
     key_terms: [college, like, having, exercise, because, science, degree, school]
+    concepts: [college, having, exercise, because, science]
     token_count: 452
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ncd2d4/im_a_junior_thinking_about_changing_my_degree/"}]
   - id: "social-intelligence/reddit-deep/college/1ncd2d4.md#c1"
     char_span: [1972, 3090]
     sentence_count: 15
     key_terms: [major, like, want, probably, classes, finally, work, recommendation]
+    concepts: [major, probably, classes, finally]
     token_count: 254
   - id: "social-intelligence/reddit-deep/college/1ncd2d4.md#c2"
     char_span: [3104, 5035]
     sentence_count: 9
     key_terms: [caregiverless4525, change, thank, connections, did, good, time, decision]
+    concepts: [caregiverless4525, change, connections, thank, decision]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/college/1ncd2d4.md#c3"
     char_span: [5037, 7307]
     sentence_count: 18
     key_terms: [finance, want, business, work, major, right, year, definitely]
+    concepts: [finance, business, definitely, internship, major]
     section: Comments
     token_count: 502
 ---

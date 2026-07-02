@@ -20,58 +20,72 @@ chunks:
     char_span: [0, 2254]
     sentence_count: 21
     key_terms: [like, healthinsurance, health, email, wrong, didn, insurance, benefits]
+    concepts: [healthinsurance, health, email, wrong, insurance]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1ovsngb/my_employer_fired_me_after_i_challenged_them_of/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1ovsngb.md#c1"
     char_span: [2256, 3667]
     sentence_count: 15
     key_terms: [manager, through, months, asked, cobra, wrong, misclassification, want]
+    concepts: [manager, through, months, asked, cobra]
     token_count: 298
   - id: "social-intelligence/reddit-deep/healthinsurance/1ovsngb.md#c2"
-    char_span: [3682, 5722]
+    char_span: [3681, 5721]
     sentence_count: 8
     key_terms: [please, post, questions, information, following, eob, healthinsurance, been]
+    concepts: [please, questions, information, following, healthinsurance]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/healthinsurance/1ovsngb.md#c3"
-    char_span: [5724, 6220]
+    char_span: [5723, 6219]
     sentence_count: 3
     key_terms: [contact, report, via, subreddit, attempts, someone, please, conversations]
+    concepts: [contact, report, subreddit, attempts, someone]
     section: Comments
     token_count: 109
   - id: "social-intelligence/reddit-deep/healthinsurance/1ovsngb.md#c4"
-    char_span: [6223, 8038]
+    char_span: [6222, 8037]
     sentence_count: 15
     key_terms: [aca, insurance, cobra, plan, bob49877, coverage, medicaid, cheaper]
+    concepts: [insurance, cobra, bob49877, coverage, medicaid]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1ovsngb.md#c7"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/healthinsurance/1ovsngb.md#c5"
-    char_span: [8040, 8791]
+    char_span: [8039, 8790]
     sentence_count: 5
     key_terms: [employee, contractor, benefits, longer, offer, work, classification, technically]
+    concepts: [employee, contractor, benefits, longer, offer]
     section: Comments
     token_count: 168
   - id: "social-intelligence/reddit-deep/healthinsurance/1ovsngb.md#c6"
-    char_span: [8793, 10524]
+    char_span: [8792, 10523]
     sentence_count: 16
     key_terms: [plan, getting, did, contractor, coverage, handling, payments, health]
+    concepts: [getting, contractor, coverage, handling, payments]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/healthinsurance/1ovsngb.md#c7"
-    char_span: [10526, 12536]
+    char_span: [10525, 12535]
     sentence_count: 13
     key_terms: [shutdown, trying, cobra, insurance, coverage, terrible, minimum, asking]
+    concepts: [shutdown, trying, cobra, insurance, coverage]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1ovsngb.md#c4", "social-intelligence/reddit-deep/healthinsurance/1ovsngb.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1ovsngb.md#c8"
-    char_span: [12296, 13104]
+    char_span: [12295, 13103]
     sentence_count: 3
     key_terms: [benefits, insurance, trying, been, g00dandplenty, consistently, definitely, everything]
+    concepts: [benefits, insurance, trying]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1ovsngb.md#c7"]
     section: Comments
     token_count: 198
   - id: "social-intelligence/reddit-deep/healthinsurance/1ovsngb.md#c9"
-    char_span: [13106, 14004]
+    char_span: [13105, 14003]
     sentence_count: 16
     key_terms: [using, insurance, wasn, categorized, absolutely, everything, hawkwood76, impossible]
+    concepts: [using, insurance]
     section: Comments
     token_count: 204
 ---

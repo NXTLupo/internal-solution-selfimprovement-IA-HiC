@@ -19,17 +19,24 @@ chunks:
     char_span: [0, 1871]
     sentence_count: 13
     key_terms: [georgetown, cross, holy, applyingtocollege, opportunities, down, comments, semester]
+    concepts: [georgetown, cross, applyingtocollege, opportunities, comments]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tfz7a8.md#c2"]
     token_count: 416
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1tfz7a8/holy_cross_vs_georgetown/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tfz7a8.md#c1"
     char_span: [1885, 3655]
     sentence_count: 16
     key_terms: [school, georgetown, admission, graduate, want, interested, different, cross]
+    concepts: [school, georgetown, admission, graduate, interested]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tfz7a8.md#c2"]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tfz7a8.md#c2"
     char_span: [3657, 5688]
     sentence_count: 9
     key_terms: [georgetown, opportunities, school, comprehensivebig7667, debt, law, semester, alaaa88]
+    concepts: [georgetown, opportunities, comprehensivebig7667, school, semester]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tfz7a8.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1tfz7a8.md#c1"]
     section: Comments
     token_count: 490
 ---

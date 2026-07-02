@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1292]
     sentence_count: 6
     key_terms: [ai-beats-out-crypto-gold-investments-family-offices-jp-morgan-survey, crypto, offices, investments, family, gold, survey, geopolitics]
+    concepts: [crypto, investments, offices, family, survey]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1qumae8.md#c1"]
     token_count: 297
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1qumae8/ai_beats_out_crypto_gold_investments_for_family/"}]
   - id: "social-intelligence/reddit-deep/investing/1qumae8.md#c1"
     char_span: [1306, 3335]
     sentence_count: 13
     key_terms: [family, offices, crypto, growth, ocampo-mark, risk, drawdown, capital]
+    concepts: [family, offices, crypto, growth, ocampo-mark]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1qumae8.md#c0"]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/investing/1qumae8.md#c2"
     char_span: [3337, 4768]
     sentence_count: 4
     key_terms: [looking, investment, elpresidentedeljunta, since, fear, pero, time, diversification]
+    concepts: [looking, investment, since]
     section: Comments
     token_count: 327
 ---

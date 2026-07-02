@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1320]
     sentence_count: 13
     key_terms: [gradschool, undergrad, comments, accidentallyclingy, debt, high, horrifically, advertising]
+    concepts: [gradschool, undergrad, comments]
     token_count: 314
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tj3uqn/is_it_realisticpossible_for_me_to_apply_for_an_ma/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1tj3uqn.md#c1"
     char_span: [1334, 3470]
     sentence_count: 15
     key_terms: [degree, want, help, working, career, plenty, academically, pivot]
+    concepts: [degree, working, academically, career, plenty]
     section: Comments
     token_count: 473
 ---

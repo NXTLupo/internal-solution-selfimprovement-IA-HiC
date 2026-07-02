@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1141]
     sentence_count: 8
     key_terms: [friends, enjoyable, comments, thinking, cheated, maybe, back, genz]
+    concepts: [friends, enjoyable, comments, thinking, cheated]
     token_count: 282
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1rr8vab/is_it_normal_to_not_want_to_date_anyone/"}]
   - id: "social-intelligence/reddit-deep/genz/1rr8vab.md#c1"
     char_span: [1155, 2956]
     sentence_count: 11
     key_terms: [happy, "it's", anyone, amandwivedi98, relationship, "don't", want, attraction]
+    concepts: [happy, amandwivedi98, relationship, anyone, attraction]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/genz/1rr8vab.md#c2"
     char_span: [2958, 5004]
     sentence_count: 18
     key_terms: [someone, dating, people, going, "i'm", time, women, get]
+    concepts: [someone, dating, people, going, women]
     section: Comments
     token_count: 470
 ---

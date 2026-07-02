@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 2253]
     sentence_count: 13
     key_terms: [decoding, speculative, draft, methods, implementation, proposer, shreyansh26, speculative-decoding]
+    concepts: [decoding, speculative, draft, methods, implementation]
     token_count: 489
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1swfgk7/speculative_decoding_implementations_eagle3/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1swfgk7.md#c1"
     char_span: [2267, 4108]
     sentence_count: 9
     key_terms: [acceptance, batch, cost, eagle-3, draft, speculation, head, verifier]
+    concepts: [acceptance, batch, eagle-3, draft, speculation]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/deeplearning/1swfgk7.md#c2"
     char_span: [4110, 4825]
     sentence_count: 6
     key_terms: [attention, small, workload-specific, spec, flashattention, tree-attention, summarization, from-scratch]
+    concepts: [attention, small]
     section: Comments
     token_count: 157
 ---

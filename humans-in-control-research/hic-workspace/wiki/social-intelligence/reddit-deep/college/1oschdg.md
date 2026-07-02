@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 1219]
     sentence_count: 12
     key_terms: [college, like, feel, semester, community, comments, against, anymore]
+    concepts: [college, semester, community, comments, against]
+    related_chunks: ["social-intelligence/reddit-deep/college/1oschdg.md#c2", "social-intelligence/reddit-deep/college/1oschdg.md#c4", "social-intelligence/reddit-deep/college/1oschdg.md#c5"]
     token_count: 296
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1oschdg/not_feeling_college_anymore/"}]
   - id: "social-intelligence/reddit-deep/college/1oschdg.md#c1"
     char_span: [1233, 1681]
     sentence_count: 3
     key_terms: [transfer, almightypicklegod, year, orlandofren, ultimately, community, thinking, wherever]
+    concepts: [transfer]
     section: Comments
     token_count: 113
   - id: "social-intelligence/reddit-deep/college/1oschdg.md#c2"
     char_span: [1683, 3826]
     sentence_count: 21
     key_terms: [college, students, did, because, too, community, problem, schools]
+    concepts: [college, students, because, community, problem]
+    related_chunks: ["social-intelligence/reddit-deep/college/1oschdg.md#c0", "social-intelligence/reddit-deep/college/1oschdg.md#c4", "social-intelligence/reddit-deep/college/1oschdg.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1oschdg.md#c3"
@@ -42,24 +48,30 @@ chunks:
     char_span: [3873, 5709]
     sentence_count: 14
     key_terms: [college, community, tuition, universities, hard, year, typically, yourself]
+    concepts: [college, community, tuition, universities, typically]
+    related_chunks: ["social-intelligence/reddit-deep/college/1oschdg.md#c0", "social-intelligence/reddit-deep/college/1oschdg.md#c2", "social-intelligence/reddit-deep/college/1oschdg.md#c5"]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/college/1oschdg.md#c5"
     char_span: [5711, 7837]
     sentence_count: 23
     key_terms: [college, community, back, "don't", right, service, "you're", money]
+    concepts: [college, community, "don't", right, service]
+    related_chunks: ["social-intelligence/reddit-deep/college/1oschdg.md#c0", "social-intelligence/reddit-deep/college/1oschdg.md#c2", "social-intelligence/reddit-deep/college/1oschdg.md#c4"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/college/1oschdg.md#c6"
     char_span: [7839, 9400]
     sentence_count: 12
     key_terms: [community, education, get, colleges, degree, scholarships, "don't", need]
+    concepts: [community, education, colleges, scholarships, degree]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/college/1oschdg.md#c7"
     char_span: [9402, 10364]
     sentence_count: 8
     key_terms: [credits, transcripts, get, transcript, school, "you're", apply, like]
+    concepts: [credits, transcripts, transcript, school, "you're"]
     section: Comments
     token_count: 227
 ---

@@ -19,14 +19,17 @@ content_hash: "5cb17a4c043e9068"
 relevance_by_goal: {"3d9ef8ee927f":70}
 chunks:
   - id: "articles/reddit-deep-r-internships/68fbf0deb5.md#c0"
-    char_span: [0, 1858]
+    char_span: [0, 1857]
     sentence_count: 12
     key_terms: [email, rates, reply, open, internships, emails, students, words]
-    token_count: 502
+    concepts: [email, rates, reply, internships, emails]
+    token_count: 501
+    sources: [{"n":"[Reddit Deep: r/internships](articles/reddit-deep-r-internships/b4f2dfa2e3.md","u":""}]
   - id: "articles/reddit-deep-r-internships/68fbf0deb5.md#c1"
-    char_span: [1860, 4019]
+    char_span: [1859, 4018]
     sentence_count: 13
     key_terms: [vandan-karakasia, cold-email-data-study-students-2026, email, giphy, methodology, gif, like, internship]
+    concepts: [vandan-karakasia, methodology, email, giphy, internship]
     token_count: 511
 ---
 # We analysed 6,337 cold emails students sent for internships. Here's what works in 2026

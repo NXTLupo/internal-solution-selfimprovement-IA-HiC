@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1934]
     sentence_count: 13
     key_terms: [video, frosted, glass, unfrost, visibility, managers, meetings, presence]
+    concepts: [frosted, video, glass, unfrost, visibility]
     token_count: 441
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1pdxd4c/managing_remote_teams_could_virtual_frosted_glass/"}]
   - id: "social-intelligence/reddit-deep/managers/1pdxd4c.md#c1"
     char_span: [1948, 2750]
     sentence_count: 8
     key_terms: [off-camera, penalising, deleted, others, people, unable, disability, experience]
+    concepts: [off-camera, penalising, deleted, others, people]
     section: Comments
     token_count: 189
 ---

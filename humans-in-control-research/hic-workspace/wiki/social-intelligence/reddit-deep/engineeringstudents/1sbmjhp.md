@@ -19,29 +19,37 @@ chunks:
     char_span: [0, 1674]
     sentence_count: 5
     key_terms: [calculus, engineeringstudents, math, school, high, interested, comments, academy]
+    concepts: [calculus, engineeringstudents, school, interested, comments]
     token_count: 371
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sbmjhp/26_yo_afraid_of_calculus/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sbmjhp.md#c1"
-    char_span: [1689, 2759]
+    char_span: [1688, 2758]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    concepts: [engineeringstudents, please, reddit, https, automoderator]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sbmjhp.md#c2"
-    char_span: [2761, 4347]
+    char_span: [2760, 4346]
     sentence_count: 13
     key_terms: [calculus, algebra, lildillweed, trig, calc, community, college, through]
+    concepts: [calculus, algebra, lildillweed, community, college]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1sbmjhp.md#c4"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sbmjhp.md#c3"
-    char_span: [4349, 6089]
+    char_span: [4348, 6088]
     sentence_count: 14
     key_terms: [leonard, lildillweed, professors, calc, developed, professor, recommend, calculus]
+    concepts: [lildillweed, leonard, professors, developed, professor]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sbmjhp.md#c4"
-    char_span: [6091, 7321]
+    char_span: [6090, 7320]
     sentence_count: 11
     key_terms: [algebra, audio, watch, lildillweed, work, definitely, recommend, academy]
+    concepts: [algebra, lildillweed, audio, definitely, watch]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1sbmjhp.md#c2"]
     section: Comments
     token_count: 297
 ---

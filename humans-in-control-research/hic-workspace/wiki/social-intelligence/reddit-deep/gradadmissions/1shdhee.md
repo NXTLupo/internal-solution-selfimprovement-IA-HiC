@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 506]
     sentence_count: 3
     key_terms: [computer, science, gradadmissions, development, comments, graduate, zookeepergamelazy589, game]
+    concepts: [computer, gradadmissions, science, development, comments]
     token_count: 118
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1shdhee/graduate_school_usc_ms_in_computer_science_game/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1shdhee.md#c1"
     char_span: [520, 1752]
     sentence_count: 6
     key_terms: [games, game, sure, usc, design, conscious-secret-775, like, need]
+    concepts: [games, design]
     section: Comments
     token_count: 323
 ---

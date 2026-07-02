@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1838]
     sentence_count: 16
     key_terms: [time, job, "don't", like, "wendy's", rileyluvsventi, hired, best]
+    concepts: ["don't", rileyluvsventi, "wendy's", experience, hired]
     token_count: 465
+    sources: [{"n":"Reddit Deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1sclm9d/just_got_hired_at_my_first_actual_full_time_job/"}]
   - id: "articles/reddit-deep-r-jobs/dba6bb7e88.md#c1"
     char_span: [1840, 2439]
     sentence_count: 3
     key_terms: [rileyluvsventi, work, people, thank, keep, discouraging, everything, customers]
+    concepts: [rileyluvsventi, people, thank]
     token_count: 161
 ---
 # Just got hired at my first actual full time job. It's just Wendy's, but to build that experience, I'll take it. Any tips while I wait til Tuesday to start?

@@ -11,43 +11,50 @@ score: 22
 upvote_ratio: 0.87
 num_comments: 16
 flair: "Shopify General Discussion"
-extracted_at: "2026-06-18T13:35:23.038Z"
+extracted_at: "2026-06-24T22:14:23.468Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/shopify/1sxb1ni.md#c0"
     char_span: [0, 923]
     sentence_count: 4
     key_terms: [shopify, e-commerce, reddit, https, com, news, www, comments]
+    concepts: [shopify, e-commerce, reddit, https, comments]
     token_count: 245
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1sxb1ni/this_weeks_top_ecommerce_news_stories_april_27th/"}]
   - id: "social-intelligence/reddit-deep/shopify/1sxb1ni.md#c1"
     char_span: [925, 3447]
     sentence_count: 7
     key_terms: [amazon, manufacturer, prices, items, products, sellers, walmart, stores]
+    concepts: [amazon, manufacturer, prices, items, products]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1sxb1ni.md#c2"
     char_span: [3143, 5538]
     sentence_count: 9
     key_terms: [card, plan, uber, company, years, bigcommerce, ebay, merchants]
+    concepts: [company, bigcommerce, years, merchants, streaming]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1sxb1ni.md#c3"
     char_span: [5195, 7781]
     sentence_count: 11
     key_terms: [rezolve, shareholders, "commerce's", board, chinese, shares, plan, tech]
+    concepts: [shareholders, rezolve, "commerce's", board, chinese]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1sxb1ni.md#c4"
     char_span: [7442, 10018]
     sentence_count: 9
     key_terms: [like, searches, companies, shopping, council, amazon, automatically, increasingly]
+    concepts: [searches, companies, shopping, automatically, council]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1sxb1ni.md#c5"
     char_span: [9698, 10253]
     sentence_count: 2
     key_terms: [management, program, use, increasingly, prescription, fulfillment, contextual, integrates]
+    concepts: [management, program]
     token_count: 105
   - id: "social-intelligence/reddit-deep/shopify/1sxb1ni.md#c6"
-    char_span: [10268, 10707]
+    char_span: [10267, 10706]
     sentence_count: 4
     key_terms: [week, elevatorleft6634, consolidated, curiosity, long-term, changing, industry, merchant]
     section: Comments

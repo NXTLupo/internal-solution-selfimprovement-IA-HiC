@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 680]
     sentence_count: 6
     key_terms: [careerguidance, comments, anybody, "doesn't", working, satisfaction, reddit-deep, fulfilling]
+    concepts: [careerguidance, comments, anybody, "doesn't", working]
     token_count: 176
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1r5bbjq/anybody_have_advice_on_a_fulfilling_career_path/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1r5bbjq.md#c1"
-    char_span: [695, 1848]
+    char_span: [694, 1847]
     sentence_count: 11
     key_terms: [experience, get, home, "i'm", remodeling, opposed, though, field]
+    concepts: [experience, remodeling, opposed, though, field]
     section: Comments
     token_count: 312
 ---

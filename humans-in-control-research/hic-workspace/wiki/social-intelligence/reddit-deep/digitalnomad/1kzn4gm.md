@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1265]
     sentence_count: 13
     key_terms: [digital, digitalnomad, nomad, spain, asia, been, freelance, residency]
+    concepts: [digital, digitalnomad, nomad, spain, freelance]
     token_count: 306
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1kzn4gm/need_advice_digital_nomad_life_in_se_asia_vs/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1kzn4gm.md#c1"
     char_span: [1279, 2897]
     sentence_count: 13
     key_terms: [spain, study, years, "it's", studying, enough, count, sofialo4]
+    concepts: [spain, study, years, studying, enough]
     section: Comments
     token_count: 443
 ---

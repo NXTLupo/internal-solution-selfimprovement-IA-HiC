@@ -19,40 +19,48 @@ chunks:
     char_span: [0, 2175]
     sentence_count: 6
     key_terms: [employment, percent, jobs, effect, coder, estimates, cscareerquestions, job]
+    concepts: [employment, percent, cscareerquestions, effect, estimates]
     token_count: 495
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sld4le/new_economic_study_from_lse_shows_ai_has_led_to/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c1"
     char_span: [2177, 3829]
     sentence_count: 10
     key_terms: [occupations, displaced, jobs, demand, productivity, swes, automation, aggregate]
+    concepts: [occupations, displaced, productivity, demand, automation]
     token_count: 327
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c2"
     char_span: [3843, 5784]
     sentence_count: 5
     key_terms: [jobs, eliminated, economy, lambdawaves, here, read, interpret, evidence]
+    concepts: [eliminated, economy, lambdawaves, interpret, evidence]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c3"
     char_span: [5786, 6016]
     sentence_count: 1
     key_terms: [occupations, jobs, good, occupational, well-matched, possibly, average, matches]
+    concepts: [occupations]
     section: Comments
     token_count: 49
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c4"
     char_span: [6018, 8259]
     sentence_count: 11
     key_terms: [jobs, coder, been, "it's", like, engineers, because, chatgpt]
+    concepts: [coder, engineers, because, chatgpt, economy]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c5"
     char_span: [7954, 8942]
     sentence_count: 1
     key_terms: [like, architecture, seeing, maybe, "we're", mediocre-pizza-guy, data, jobs]
+    concepts: [architecture, seeing, maybe, "we're"]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c6"
     char_span: [8944, 11135]
     sentence_count: 10
     key_terms: [quantumpencil, non-technical, right, "it's", everywhere, employees, clueless, codebase]
+    concepts: [quantumpencil, non-technical, everywhere, right, employees]
     section: Comments
     token_count: 510
 ---

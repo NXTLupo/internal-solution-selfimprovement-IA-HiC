@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 2010]
     sentence_count: 14
     key_terms: [undergrad, programs, school, phd, experience, gradschool, comments, research]
+    concepts: [undergrad, programs, school, experience, gradschool]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1runf61.md#c1", "social-intelligence/reddit-deep/gradschool/1runf61.md#c4"]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1runf61/ms_first_or_keep_trying_for_phd/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1runf61.md#c1"
     char_span: [2024, 4178]
     sentence_count: 15
     key_terms: [masters, phd, because, want, beneficial, experience, undergrad, anything]
+    concepts: [masters, because, beneficial, experience, undergrad]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1runf61.md#c0", "social-intelligence/reddit-deep/gradschool/1runf61.md#c2", "social-intelligence/reddit-deep/gradschool/1runf61.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1runf61.md#c2"
     char_span: [4180, 5816]
     sentence_count: 13
     key_terms: [phd, age, masters, people, specifically, get, msc, admissions]
+    concepts: [masters, specifically, people, admissions, undergrad]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1runf61.md#c1"]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/gradschool/1runf61.md#c3"
     char_span: [5818, 7138]
     sentence_count: 8
     key_terms: [ducksarewildbruh, funding, experience, resource, straight, students, wildlife, natural]
+    concepts: [ducksarewildbruh, funding, experience, resource, straight]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/gradschool/1runf61.md#c4"
     char_span: [7140, 9133]
     sentence_count: 18
     key_terms: [phd, programs, masters, thank, lol, experience, kianaanaik, graduate]
+    concepts: [programs, masters, experience, kianaanaik, thank]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1runf61.md#c0", "social-intelligence/reddit-deep/gradschool/1runf61.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1runf61.md#c5"
     char_span: [8845, 9564]
     sentence_count: 6
     key_terms: [masters, year, double, old, part, time, concentration, discriminate]
+    concepts: [masters, double]
     section: Comments
     token_count: 168
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 462]
     sentence_count: 2
     key_terms: [gradadmissions, comments, program, angelsuperstar101, like, kindergarten, certificate, development]
+    concepts: [gradadmissions, comments, program]
     token_count: 109
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1t26euj/uncc_child_and_family_development_birth_through/"}]
 ---
 # UNCC: Child and Family Development: Birth through Kindergarten, Graduate Certificate – Online experiences
 

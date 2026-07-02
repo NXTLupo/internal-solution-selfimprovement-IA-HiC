@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 673]
     sentence_count: 8
     key_terms: [registration, neu, comments, feedback, banner, appreciated, reddit-deep, collecting]
+    concepts: [registration, comments, feedback, banner]
     token_count: 167
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rlnvt4/what_do_you_think_about_the_neu_course/"}]
 ---
 # ...What do YOU think about the NEU Course Registration website, Banner?? Please let us know by filling out this 5 min survey!!
 

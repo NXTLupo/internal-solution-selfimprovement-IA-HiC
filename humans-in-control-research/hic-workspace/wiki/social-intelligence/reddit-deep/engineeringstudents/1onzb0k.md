@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 822]
     sentence_count: 7
     key_terms: [engineeringstudents, get, last, test, year, yesterday, comments, results]
+    concepts: [engineeringstudents, yesterday, comments, results, anyone]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1onzb0k.md#c2"]
     token_count: 204
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1onzb0k/anyone_gave_the_ril_get_2026_test_yesterday_how/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1onzb0k.md#c1"
     char_span: [836, 1638]
     sentence_count: 5
     key_terms: [engineeringstudents, wiki, reddit, https, com, please, automoderator, read]
+    concepts: [engineeringstudents, reddit, https, automoderator, please]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/engineeringstudents/1onzb0k.md#c2"
     char_span: [1640, 3355]
     sentence_count: 6
     key_terms: [got, shortlisted, mail, interview, received, results, anyone, please]
+    concepts: [shortlisted, interview, received, results, anyone]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1onzb0k.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1onzb0k.md#c3"
     char_span: [3131, 3725]
     sentence_count: 4
     key_terms: [received, unstop, update, shows, get, adorablecat6521, participate, shortlisted]
+    concepts: [received, unstop, update, shows]
     section: Comments
     token_count: 184
 ---

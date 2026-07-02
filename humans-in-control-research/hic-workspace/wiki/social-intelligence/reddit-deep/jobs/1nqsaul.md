@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 1736]
     sentence_count: 13
     key_terms: [applications, months, job, jobs, life, comments, hopeless, toughest]
+    concepts: [applications, months, comments, hopeless, toughest]
     token_count: 421
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1nqsaul/finally_landed_a_job_after_10_months_and_1000/"}]
   - id: "social-intelligence/reddit-deep/jobs/1nqsaul.md#c1"
     char_span: [1738, 3898]
     sentence_count: 14
     key_terms: [unemployment, stay, thankful, friends, through, "don't", going, did]
+    concepts: [unemployment, thankful, friends, through, "don't"]
     token_count: 489
   - id: "social-intelligence/reddit-deep/jobs/1nqsaul.md#c2"
     char_span: [3902, 5613]
     sentence_count: 11
     key_terms: [employers, linkedin, applications, question, serious, issues, people, tough-boysenberry324]
+    concepts: [employers, linkedin, applications, question, serious]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/jobs/1nqsaul.md#c3"
     char_span: [5615, 6958]
     sentence_count: 8
     key_terms: [interviews, y-do-i-still-listen, did, congratulations, presentation, work, background, experience]
+    concepts: [y-do-i-still-listen, interviews, congratulations, presentation, background]
     section: Comments
     token_count: 370
 ---

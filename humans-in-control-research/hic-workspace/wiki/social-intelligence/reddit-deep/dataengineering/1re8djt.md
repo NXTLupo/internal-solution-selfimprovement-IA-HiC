@@ -20,47 +20,59 @@ chunks:
     char_span: [0, 993]
     sentence_count: 8
     key_terms: [clickhouse, dataengineering, connector, bigquery, comments, company, source, data]
+    concepts: [clickhouse, dataengineering, connector, bigquery, comments]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1re8djt.md#c3", "social-intelligence/reddit-deep/dataengineering/1re8djt.md#c7"]
     token_count: 212
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1re8djt/is_clickhouse_a_good_choice/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1re8djt.md#c1"
-    char_span: [1008, 3243]
+    char_span: [1007, 3242]
     sentence_count: 13
     key_terms: [join, primary, engine, types, left, used, different, columnar]
+    concepts: [primary, engine, types, different, columnar]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/dataengineering/1re8djt.md#c2"
-    char_span: [3245, 5317]
+    char_span: [3244, 5316]
     sentence_count: 3
     key_terms: ["it's", updates, being, data, easy, need, use, clickhouse]
+    concepts: [updates, being, clickhouse, preferred, queries]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/dataengineering/1re8djt.md#c3"
-    char_span: [5319, 7156]
+    char_span: [5318, 7155]
     sentence_count: 8
     key_terms: [clickhouse, postgresql, replacingmergetree, dbt, using, data, like, use]
+    concepts: [clickhouse, postgresql, replacingmergetree, using, bigquery]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1re8djt.md#c0", "social-intelligence/reddit-deep/dataengineering/1re8djt.md#c7"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/dataengineering/1re8djt.md#c4"
-    char_span: [7158, 7487]
+    char_span: [7157, 7486]
     sentence_count: 3
     key_terms: [updates, warehouse, lightweight, clickhouse, "shouldn't", postgres, handles, painful]
+    concepts: [updates, warehouse]
     section: Comments
     token_count: 72
   - id: "social-intelligence/reddit-deep/dataengineering/1re8djt.md#c5"
-    char_span: [7489, 9450]
+    char_span: [7488, 9449]
     sentence_count: 11
     key_terms: [clickhouse, cdc, managed, creative-skin9554, postgres, defiant-farm7910, "don't", data]
+    concepts: [clickhouse, managed, creative-skin9554, defiant-farm7910, postgres]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/dataengineering/1re8djt.md#c6"
-    char_span: [9220, 9534]
+    char_span: [9219, 9533]
     sentence_count: 2
     key_terms: [clickhouse, replacingmergetree, mergetree-family, table-engines, frequency, launched, recently, seamless]
+    concepts: [clickhouse]
     section: Comments
     token_count: 87
   - id: "social-intelligence/reddit-deep/dataengineering/1re8djt.md#c7"
-    char_span: [9536, 11497]
+    char_span: [9535, 11496]
     sentence_count: 10
     key_terms: [data, clickhouse, using, integration, like, need, "true", bigquery]
+    concepts: [clickhouse, integration, using, bigquery, capture]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1re8djt.md#c0", "social-intelligence/reddit-deep/dataengineering/1re8djt.md#c3"]
     section: Comments
     token_count: 454
 ---

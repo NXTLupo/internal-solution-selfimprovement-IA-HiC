@@ -20,17 +20,24 @@ chunks:
     char_span: [0, 695]
     sentence_count: 5
     key_terms: [etc, get, voo, bogleheads, comments, vanguard, funds, index]
+    concepts: [bogleheads, comments, vanguard, funds, index]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1tr4ffw.md#c1", "social-intelligence/reddit-deep/bogleheads/1tr4ffw.md#c2"]
     token_count: 172
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1tr4ffw/why_are_vanguard_index_funds_more_frequently/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1tr4ffw.md#c1"
-    char_span: [710, 2731]
+    char_span: [709, 2730]
     sentence_count: 17
     key_terms: [vanguard, fidelity, etfs, funds, brokerage, without, mutual, people]
+    concepts: [vanguard, fidelity, brokerage, funds, without]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1tr4ffw.md#c0", "social-intelligence/reddit-deep/bogleheads/1tr4ffw.md#c2"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/bogleheads/1tr4ffw.md#c2"
-    char_span: [2733, 4443]
+    char_span: [2732, 4442]
     sentence_count: 15
     key_terms: [fidelity, vanguard, buy, funds, fund, something, because, similar]
+    concepts: [fidelity, vanguard, funds, something, because]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1tr4ffw.md#c0", "social-intelligence/reddit-deep/bogleheads/1tr4ffw.md#c1"]
     section: Comments
     token_count: 458
 ---

@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 2057]
     sentence_count: 15
     key_terms: [prenups, because, everything, girlfriend, article, parents, else, "it's"]
+    concepts: [prenups, because, everything, girlfriend, article]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1qqdhkt.md#c1"]
     token_count: 447
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1qqdhkt/read_this_prenup_article_and_sent_it_to_my/"}]
   - id: "social-intelligence/reddit-deep/genz/1qqdhkt.md#c1"
     char_span: [2071, 3522]
     sentence_count: 9
     key_terms: [girlfriend, "i'm", different, article, because, brought, discord, student]
+    concepts: [girlfriend, different, article, because, brought]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1qqdhkt.md#c0"]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/genz/1qqdhkt.md#c2"
     char_span: [3524, 5500]
     sentence_count: 9
     key_terms: [prenups, assets, prenup, considering, good, sometimes, setting, "there's"]
+    concepts: [prenups, assets, prenup, considering, sometimes]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/genz/1qqdhkt.md#c3"
     char_span: [5502, 7390]
     sentence_count: 10
     key_terms: [prenup, get, like, marriage, "you're", certificate, something, stability]
+    concepts: [prenup, marriage, "you're", certificate, something]
     section: Comments
     token_count: 472
 ---

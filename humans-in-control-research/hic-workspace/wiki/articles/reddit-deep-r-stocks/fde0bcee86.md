@@ -18,31 +18,38 @@ chunks:
     char_span: [0, 1781]
     sentence_count: 13
     key_terms: [debt, trillion, maturities, because, saying, money, gold, isn]
+    concepts: [trillion, maturities, because, saying, money]
     token_count: 440
+    sources: [{"n":"Reddit Deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1p66jaq/gold_may_have_the_strongest_bull_case_in_modern/"}]
   - id: "articles/reddit-deep-r-stocks/fde0bcee86.md#c1"
     char_span: [1783, 3713]
     sentence_count: 12
     key_terms: [interest, debt, trillion, dollars, payments, budget, term, military]
+    concepts: [interest, trillion, dollars, payments, budget]
     token_count: 431
   - id: "articles/reddit-deep-r-stocks/fde0bcee86.md#c2"
     char_span: [3715, 5202]
     sentence_count: 14
     key_terms: [tmt-in-the-rear-view-how-did-our-2025-themes-pan-out, market, financial, inflation, debt, happens, barclays, interest]
+    concepts: [market, financial, inflation, happens, barclays]
     token_count: 335
   - id: "articles/reddit-deep-r-stocks/fde0bcee86.md#c3"
     char_span: [5204, 7390]
     sentence_count: 15
     key_terms: [bubble, inflation, anyways, cost, real, companies, measuring, official]
+    concepts: [inflation, bubble, anyways, companies, measuring]
     token_count: 483
   - id: "articles/reddit-deep-r-stocks/fde0bcee86.md#c4"
     char_span: [7392, 9671]
     sentence_count: 16
     key_terms: [gold, country, taiwan, everything, stated, inflationary, time, financial]
+    concepts: [country, everything, taiwan, inflationary, stated]
     token_count: 499
   - id: "articles/reddit-deep-r-stocks/fde0bcee86.md#c5"
     char_span: [9673, 11542]
     sentence_count: 12
     key_terms: [higher, gold, energy, love, berkshire, horses, likely, silver]
+    concepts: [higher, energy, berkshire, horses, likely]
     token_count: 454
 ---
 # Gold may have the strongest bull case in modern history

@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 504]
     sentence_count: 3
     key_terms: [cscareerquestions, comments, like, sillycookies7, compensation, reddit-deep, experience, interviews]
+    concepts: [cscareerquestions, comments]
     token_count: 133
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rpe2ks/hows_the_job_market_5_experience_above_only_no/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpe2ks.md#c1"
     char_span: [518, 2888]
     sentence_count: 23
     key_terms: [software, engineering, "didn't", needed, people, significant, less, engineers]
+    concepts: [software, engineering, "didn't", needed, people]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpe2ks.md#c2"
     char_span: [2890, 4865]
     sentence_count: 18
     key_terms: [hybrid, job, yoe, company, silicon, remote, valley, isospeedrix]
+    concepts: [hybrid, company, silicon, remote, valley]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpe2ks.md#c3"
     char_span: [4867, 6347]
     sentence_count: 12
     key_terms: [firmware, roles, experience, knowledge, dialysis, machines, medical, resume]
+    concepts: [firmware, experience, roles, knowledge, dialysis]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpe2ks.md#c4"
     char_span: [6349, 7597]
     sentence_count: 7
     key_terms: [recruiters, yoe, notyourmom132, roles, constantly, emailing, resume, senior]
+    concepts: [recruiters, notyourmom132, constantly, roles, emailing]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpe2ks.md#c5"
     char_span: [7599, 8729]
     sentence_count: 6
     key_terms: [itxchnology, got, yoe, recruiters, interview, recruiter, another, faang]
+    concepts: [itxchnology, recruiters, interview, recruiter, another]
     section: Comments
     token_count: 310
 ---

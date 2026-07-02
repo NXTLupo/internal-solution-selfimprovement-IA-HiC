@@ -21,23 +21,32 @@ chunks:
     char_span: [0, 1398]
     sentence_count: 19
     key_terms: [college, networking, people, comments, linkedin, network, effort, often]
+    concepts: [college, networking, people, comments, linkedin]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lsb1sp.md#c1", "social-intelligence/reddit-deep/college/1lsb1sp.md#c2", "social-intelligence/reddit-deep/college/1lsb1sp.md#c3"]
     token_count: 313
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lsb1sp/how_exactly_do_i_network_as_a_college_student/"}]
   - id: "social-intelligence/reddit-deep/college/1lsb1sp.md#c1"
     char_span: [1412, 3457]
     sentence_count: 11
     key_terms: [people, networking, conversation, having, linkedin, like, talk, describe]
+    concepts: [people, networking, conversation, having, linkedin]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lsb1sp.md#c0", "social-intelligence/reddit-deep/college/1lsb1sp.md#c2", "social-intelligence/reddit-deep/college/1lsb1sp.md#c3"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/college/1lsb1sp.md#c2"
     char_span: [3459, 5326]
     sentence_count: 12
     key_terms: [people, help, job, linkedin, college, add, new, classmates]
+    concepts: [people, linkedin, college, classmates, especially]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lsb1sp.md#c0", "social-intelligence/reddit-deep/college/1lsb1sp.md#c1"]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/college/1lsb1sp.md#c3"
     char_span: [5328, 7016]
     sentence_count: 13
     key_terms: [people, networking, clubs, field, major, club, get, help]
+    concepts: [people, networking, clubs, field, major]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lsb1sp.md#c0", "social-intelligence/reddit-deep/college/1lsb1sp.md#c1"]
     section: Comments
     token_count: 374
 ---

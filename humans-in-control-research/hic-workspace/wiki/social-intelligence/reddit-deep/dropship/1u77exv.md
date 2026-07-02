@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 2138]
     sentence_count: 16
     key_terms: [dropshipping, ebay, shopify, "you're", people, buyer, "don't", spend]
+    concepts: [dropshipping, shopify, "you're", people, buyer]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1u77exv/two_years_on_ebay_dropshipping_the_case_for/"}]
   - id: "social-intelligence/reddit-deep/dropship/1u77exv.md#c1"
-    char_span: [2153, 4186]
+    char_span: [2152, 4185]
     sentence_count: 12
     key_terms: [ebay, business, avariciousascent, feeling-elk4188, shopify, questions, dropship, shipping]
+    concepts: [avariciousascent, feeling-elk4188, business, shopify, questions]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/dropship/1u77exv.md#c2"
-    char_span: [4188, 5921]
+    char_span: [4187, 5920]
     sentence_count: 9
     key_terms: [through, website, amazon, ebay, own, aliexpress, automation, directly]
+    concepts: [through, website, amazon, aliexpress, automation]
     section: Comments
     token_count: 445
 ---

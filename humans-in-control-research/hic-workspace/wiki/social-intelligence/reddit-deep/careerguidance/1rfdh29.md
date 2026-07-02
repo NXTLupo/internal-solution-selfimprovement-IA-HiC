@@ -19,65 +19,79 @@ chunks:
     char_span: [0, 1196]
     sentence_count: 21
     key_terms: [careerguidance, years, tech, anything, comments, careers, fucking, scared]
+    concepts: [careerguidance, years, anything, comments, careers]
     token_count: 307
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rfdh29/im_so_fucking_scared_what_careers_are_in_high/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rfdh29.md#c1"
-    char_span: [1211, 3009]
+    char_span: [1210, 3008]
     sentence_count: 16
     key_terms: [degree, got, tech, management, analyst, people, check, field]
+    concepts: [degree, management, analyst, people, check]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rfdh29.md#c7"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/careerguidance/1rfdh29.md#c2"
-    char_span: [3011, 5067]
+    char_span: [3010, 5066]
     sentence_count: 16
     key_terms: [degree, got, specialized, job, time, brother, college, company]
+    concepts: [degree, specialized, brother, college, company]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/careerguidance/1rfdh29.md#c3"
-    char_span: [5069, 6268]
+    char_span: [5068, 6267]
     sentence_count: 9
     key_terms: [degree, job, "you're", working, field, probably, fields, going]
+    concepts: [degree, "you're", working, field, probably]
     section: Comments
     token_count: 282
   - id: "social-intelligence/reddit-deep/careerguidance/1rfdh29.md#c4"
-    char_span: [6273, 8320]
+    char_span: [6272, 8319]
     sentence_count: 9
     key_terms: [experience, skills, overqualified, enough-meal6894, "don't", learn, job, employers]
+    concepts: [experience, skills, overqualified, enough-meal6894, "don't"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rfdh29.md#c5"
-    char_span: [8022, 8441]
+    char_span: [8021, 8440]
     sentence_count: 2
     key_terms: [experience, associate, quality, field, best, annalyticall, requirements, landonloco]
+    concepts: [experience, associate, quality, field]
     section: Comments
     token_count: 101
   - id: "social-intelligence/reddit-deep/careerguidance/1rfdh29.md#c6"
-    char_span: [8443, 10439]
+    char_span: [8442, 10438]
     sentence_count: 31
     key_terms: [want, job, security, degree, find, good, anything, everyone]
+    concepts: [security, degree, anything, everyone, interesting]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/careerguidance/1rfdh29.md#c7"
-    char_span: [10441, 12076]
+    char_span: [10440, 12075]
     sentence_count: 14
     key_terms: [experience, management, zauspiciousapricot, project, degree, big, too, consulting]
+    concepts: [zauspiciousapricot, experience, management, project, degree]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rfdh29.md#c1"]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/careerguidance/1rfdh29.md#c8"
-    char_span: [12078, 14141]
+    char_span: [12077, 14140]
     sentence_count: 16
     key_terms: [roles, sales, tech, already, getting, get, look, experience]
+    concepts: [roles, sales, already, getting, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rfdh29.md#c9"
-    char_span: [13907, 15783]
+    char_span: [13906, 15782]
     sentence_count: 15
     key_terms: [enough-meal6894, worried, job, jobs, want, considered, interested, longevity]
+    concepts: [enough-meal6894, worried, considered, interested, longevity]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/careerguidance/1rfdh29.md#c10"
-    char_span: [15785, 16230]
+    char_span: [15784, 16229]
     sentence_count: 4
     key_terms: [sylerxen, thedecisionarchitect, buffalochicken22, consistency, fulfilling, internship, successful, anything]
+    concepts: [sylerxen]
     section: Comments
     token_count: 128
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1282]
     sentence_count: 7
     key_terms: [cscareerquestions, career, considering, cse, background, experience, comments, banking]
+    concepts: [cscareerquestions, career, considering, background, experience]
     token_count: 321
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1slwlun/need_career_advice_2025_cse_grad_tried_mern_aids/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slwlun.md#c1"
     char_span: [1296, 1557]
     sentence_count: 4

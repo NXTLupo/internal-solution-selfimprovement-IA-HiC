@@ -21,77 +21,94 @@ chunks:
     char_span: [0, 1313]
     sentence_count: 7
     key_terms: [human, kill, artificial, developed, approval, comments, database, talking]
+    concepts: [artificial, human, developed, approval, comments]
     token_count: 281
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1mml6bf/how_is_everyone_barely_talking_about_this_i_get/"}]
   - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c1"
     char_span: [1327, 3526]
     sentence_count: 9
     key_terms: [value, values, casualties, systems, peppercruncher, being, "it's", autonomous]
+    concepts: [value, casualties, values, peppercruncher, systems]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c2"
     char_span: [3528, 5449]
     sentence_count: 10
     key_terms: [israel-is-using-an-ai-system-to-find-targets-in-gaza-experts-say-its-just-the-st, points, doing, mean, real, islamists, remember, israel]
+    concepts: [points, doing, islamists, remember, israel]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c3"
     char_span: [5451, 7002]
     sentence_count: 5
     key_terms: [art, "it's", generators, industries, customers, original, training, artists]
+    concepts: [generators, industries, customers, original, training]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c4"
     char_span: [7004, 9199]
     sentence_count: 10
     key_terms: [art, people, already, "don't", concerned, different, scenario, towards]
+    concepts: [people, already, "don't", concerned, different]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1mml6bf.md#c10"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c5"
     char_span: [9202, 10437]
     sentence_count: 2
     key_terms: [questions-and-answers-israeli-militarys-use-digital-tools-gaza, https, israel-using-ai-systems-to-plan-deadly-military-operations, israel-gaza-ai-database-hamas-airstrikes, post, www, targets, add]
+    concepts: [https, targets]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c6"
     char_span: [10439, 12404]
     sentence_count: 14
     key_terms: [people, authenticity, use, wikipedia, conflict, citizen, underground-socialism, easily]
+    concepts: [authenticity, people, wikipedia, conflict, citizen]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c7"
     char_span: [12407, 14066]
     sentence_count: 10
     key_terms: [targeted, war, civilians, military, sources, strikes, random, "you've"]
+    concepts: [targeted, civilians, military, sources, strikes]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c8"
     char_span: [14069, 15914]
     sentence_count: 9
     key_terms: [people, like, inevitable, terrorists, database, scenario, against, imagine]
+    concepts: [people, inevitable, terrorists, database, scenario]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c9"
     char_span: [15916, 17715]
     sentence_count: 9
     key_terms: [palantir, discourse, anti-ai, systems, consequences, like, real, tech]
+    concepts: [palantir, discourse, anti-ai, systems, consequences]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c10"
     char_span: [17721, 19892]
     sentence_count: 25
     key_terms: [people, etc, long, look, time, already, consequences, malevolent]
+    concepts: [people, already, consequences, malevolent, creators]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1mml6bf.md#c4"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c11"
     char_span: [19895, 21942]
     sentence_count: 10
     key_terms: [human, seconds, invest, "don't", want, target, life, time]
+    concepts: [human, seconds, invest, "don't", target]
     section: Comments
     token_count: 493
+    sources: [{"n":"\"I would invest 20 seconds for each target at this stage, and do dozens of them ","u":""}]
   - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c12"
     char_span: [21944, 23436]
     sentence_count: 7
     key_terms: [bombing, targets, system, casualties, analysts, civilian, previous, because]
+    concepts: [bombing, targets, system, casualties, analysts]
     section: Comments
     token_count: 313
 ---

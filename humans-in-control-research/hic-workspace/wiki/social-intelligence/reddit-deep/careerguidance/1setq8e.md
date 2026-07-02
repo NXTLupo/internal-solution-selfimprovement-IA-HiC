@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 2126]
     sentence_count: 7
     key_terms: [business, job, company, careerguidance, stores, distribution, family-owned, brand]
+    concepts: [business, careerguidance, company, distribution, family-owned]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1setq8e/what_is_the_best_career_path_for_me_first_us_job/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1setq8e.md#c1"
     char_span: [2128, 2844]
     sentence_count: 6
     key_terms: [never, employers, worked, job, professionals, appreciated, challenging, specialized]
+    concepts: [never, employers, worked]
     token_count: 151
   - id: "social-intelligence/reddit-deep/careerguidance/1setq8e.md#c2"
     char_span: [2858, 4197]
     sentence_count: 6
     key_terms: [background, experience, companies, looking, advice, roles, solid, did]
+    concepts: [background, experience, companies, looking, advice]
     section: Comments
     token_count: 255
 ---

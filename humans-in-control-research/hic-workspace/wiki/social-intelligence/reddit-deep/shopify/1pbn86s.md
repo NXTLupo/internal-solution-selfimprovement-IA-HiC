@@ -20,36 +20,44 @@ chunks:
     char_span: [0, 721]
     sentence_count: 3
     key_terms: [shopify, e-commerce, news, comments, recaps, weekly, adventurepaul, reddit-deep]
+    concepts: [shopify, e-commerce, comments, recaps, weekly]
     token_count: 187
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1pbn86s/this_weeks_top_ecommerce_news_stories_dec_1sts/"}]
   - id: "social-intelligence/reddit-deep/shopify/1pbn86s.md#c1"
     char_span: [723, 3043]
     sentence_count: 7
     key_terms: [chatgpt, shopping, feature, ads, openai, research, questions, app]
+    concepts: [chatgpt, shopping, feature, openai, research]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1pbn86s.md#c2"
     char_span: [2721, 5316]
     sentence_count: 12
     key_terms: [perplexity, administration, shopping, tiktok, demanding, sponsored, answers, walmart]
+    concepts: [perplexity, administration, shopping, tiktok, demanding]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1pbn86s.md#c3"
     char_span: [5011, 7567]
     sentence_count: 8
     key_terms: [amazon, company, employees, against, numbers, friday, letter, productivity]
+    concepts: [amazon, company, employees, against, numbers]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1pbn86s.md#c4"
     char_span: [7290, 9717]
     sentence_count: 10
     key_terms: [year, numbers, online, sales, projected, shopify, friday, black]
+    concepts: [numbers, online, projected, sales, shopify]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1pbn86s.md#c5"
     char_span: [9361, 10247]
     sentence_count: 4
     key_terms: [visibility, labels, etsy, november, platform, shipping, sellers, through]
+    concepts: [visibility, labels, november, platform, shipping]
     token_count: 161
   - id: "social-intelligence/reddit-deep/shopify/1pbn86s.md#c6"
-    char_span: [10262, 11658]
+    char_span: [10261, 11657]
     sentence_count: 12
     key_terms: [shopify, orders, adventurepaul, community, merchants, backend, contact, ongoing]
+    concepts: [shopify, adventurepaul, orders, community, merchants]
     section: Comments
     token_count: 326
 ---

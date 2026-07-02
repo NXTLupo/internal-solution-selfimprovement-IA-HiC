@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 644]
     sentence_count: 4
     key_terms: [engineeringstudents, comments, public-hamster-9224, gym, time, work, engineering, reddit-deep]
+    concepts: [engineeringstudents, comments]
     token_count: 154
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rci0e7/how_do_you_guys_make_time_for_other_things/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rci0e7.md#c1"
     char_span: [658, 2275]
     sentence_count: 11
     key_terms: [life, conversations, relationship, engineering, heppernaut, important, struggles, schedule]
+    concepts: [conversations, relationship, engineering, heppernaut, important]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rci0e7.md#c2"
     char_span: [2277, 4054]
     sentence_count: 11
     key_terms: [work, finish, idea, like, "didn't", assignment, something, complete]
+    concepts: [finish, "didn't", assignment, something, complete]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rci0e7.md#c3"
     char_span: [4056, 6168]
     sentence_count: 22
     key_terms: [time, work, life, engineering, absolutely, hours, straight-tower8776, full]
+    concepts: [engineering, straight-tower8776, absolutely, hours, majors]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rci0e7.md#c4"
     char_span: [6170, 8146]
     sentence_count: 21
     key_terms: [time, school, hours, sleep, job, life, everything, sometimes]
+    concepts: [school, everything, hours, sleep, sometimes]
     section: Comments
     token_count: 489
 ---

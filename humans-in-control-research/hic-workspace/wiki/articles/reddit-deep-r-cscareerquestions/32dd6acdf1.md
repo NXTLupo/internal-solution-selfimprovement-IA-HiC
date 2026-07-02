@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1961]
     sentence_count: 29
     key_terms: [like, work, cscareerquestions, role, everything, comments, employed, backend]
+    concepts: [cscareerquestions, everything, comments, employed, backend]
     token_count: 434
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1lcxe9a/5_months_into_corporate_life_and_im_genuinely/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/32dd6acdf1.md#c1"
     char_span: [1963, 3289]
     sentence_count: 7
     key_terms: [definitely, company, altertableusernames, get, give, want, work, yetmorespacedust]
+    concepts: [definitely, company]
     token_count: 323
 ---
 # 5 months into corporate life and I’m genuinely exhausted.

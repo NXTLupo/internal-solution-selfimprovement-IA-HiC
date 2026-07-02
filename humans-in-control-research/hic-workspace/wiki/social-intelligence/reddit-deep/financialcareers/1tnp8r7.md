@@ -20,28 +20,36 @@ chunks:
     char_span: [0, 1512]
     sentence_count: 9
     key_terms: [got, financialcareers, area, experience, internship, comments, because, process]
+    concepts: [financialcareers, experience, internship, comments, because]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1tnp8r7.md#c2"]
     token_count: 356
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1tnp8r7/summer_internship_fail/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1tnp8r7.md#c1"
     char_span: [1514, 2877]
     sentence_count: 8
     key_terms: [sales, area, because, process, stanley, thought, morgan, myself]
+    concepts: [sales, because, process, stanley, thought]
     token_count: 307
   - id: "social-intelligence/reddit-deep/financialcareers/1tnp8r7.md#c2"
-    char_span: [2892, 4823]
+    char_span: [2891, 4822]
     sentence_count: 10
     key_terms: [financialcareers, discord, professionals, personality, keep, experience, full-time, interests]
+    concepts: [financialcareers, professionals, discord, personality, experience]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1tnp8r7.md#c0"]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/financialcareers/1tnp8r7.md#c3"
-    char_span: [4825, 6609]
+    char_span: [4824, 6608]
     sentence_count: 12
     key_terms: [because, afraidblacksmith2483, management, swimming-share8440, feel, like, accept, wealth]
+    concepts: [because, afraidblacksmith2483, swimming-share8440, management, accept]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/financialcareers/1tnp8r7.md#c4"
-    char_span: [6611, 8209]
+    char_span: [6610, 8208]
     sentence_count: 16
     key_terms: [explain, learn, derivatives, especially, financial, genuinely, products, because]
+    concepts: [explain, derivatives, especially, learn, financial]
     section: Comments
     token_count: 364
 ---

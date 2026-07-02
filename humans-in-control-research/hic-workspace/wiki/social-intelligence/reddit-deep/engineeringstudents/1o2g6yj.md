@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 741]
     sentence_count: 5
     key_terms: [engineeringstudents, internship, something, comments, engineering-specific, propulsion-oriented, got, "i'm"]
+    concepts: [engineeringstudents, internship, something, comments]
     token_count: 175
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1o2g6yj/finally_got_an_internship_as_a_sophomore/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1o2g6yj.md#c1"
     char_span: [755, 1442]
     sentence_count: 4
     key_terms: [work, experience, something, learn, appropriatetwo9038, "it's", r0ck3tsc13nc3, dramatically]
+    concepts: [experience, something, learn]
     section: Comments
     token_count: 162
 ---

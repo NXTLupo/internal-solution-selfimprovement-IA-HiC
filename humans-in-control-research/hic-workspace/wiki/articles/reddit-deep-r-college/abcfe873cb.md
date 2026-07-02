@@ -18,16 +18,22 @@ chunks:
     char_span: [0, 2078]
     sentence_count: 15
     key_terms: [college, "i'm", community, "i'd", probably, tuition, able, help]
+    concepts: [college, community, probably, tuition, committed]
+    related_chunks: ["articles/reddit-deep-r-college/abcfe873cb.md#c1"]
     token_count: 469
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1lcn1og/is_community_college_the_better_option/"}]
   - id: "articles/reddit-deep-r-college/abcfe873cb.md#c1"
     char_span: [2080, 3852]
     sentence_count: 11
     key_terms: [college, community, get, having, loans, years, time, education]
+    concepts: [college, community, having, loans, years]
+    related_chunks: ["articles/reddit-deep-r-college/abcfe873cb.md#c0"]
     token_count: 397
   - id: "articles/reddit-deep-r-college/abcfe873cb.md#c2"
     char_span: [3854, 5725]
     sentence_count: 17
     key_terms: [transfer, college, school, internships, experience, community, semester, students]
+    concepts: [transfer, college, school, internships, experience]
     token_count: 428
 ---
 # Is community college the better option?

@@ -19,7 +19,10 @@ chunks:
     char_span: [0, 2243]
     sentence_count: 18
     key_terms: [engineering, schools, school, top, applyingtocollege, state, nationally, business]
+    concepts: [engineering, schools, school, applyingtocollege, nationally]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c7"]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1nwy3d9/how_to_pick_a_school_for_engineering_if_youre_not/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c1"
     char_span: [2245, 2424]
     sentence_count: 2
@@ -29,42 +32,54 @@ chunks:
     char_span: [2438, 4645]
     sentence_count: 13
     key_terms: [engineering, major, schools, school, get, theeclecticgamer, "that's", apply]
+    concepts: [engineering, major, schools, school, theeclecticgamer]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c3"
     char_span: [4342, 6350]
     sentence_count: 18
     key_terms: [engineering, school, tangouniform977, college, purdue, business, because, covered]
+    concepts: [engineering, school, tangouniform977, college, purdue]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c7"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c4"
     char_span: [6352, 8341]
     sentence_count: 13
     key_terms: [engineering, state, colleges-and-departments, including, business, liberal, chapel, school]
+    concepts: [engineering, state, colleges-and-departments, including, business]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c5"
     char_span: [8344, 10640]
     sentence_count: 14
     key_terms: [engineering, program, need, cornell, student, eurydice227, aid, year]
+    concepts: [engineering, program, cornell, student, eurydice227]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c6"
     char_span: [10368, 11475]
     sentence_count: 8
     key_terms: [engineering, programs, cornell, ranking, student, colby-bates-bowdoin, aid, arts]
+    concepts: [engineering, programs, cornell, ranking, student]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c7"]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c7"
     char_span: [11477, 13837]
     sentence_count: 12
     key_terms: [engineering, programs, schools, school, because, degree, top, admissions]
+    concepts: [engineering, programs, schools, school, because]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c6"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c8"
     char_span: [13839, 15147]
     sentence_count: 8
     key_terms: [programs, institution, classmates, dartmouth, year, students, abroad, affiliate]
+    concepts: [programs, institution, classmates, dartmouth, students]
     section: Comments
     token_count: 281
 ---

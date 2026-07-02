@@ -16,10 +16,12 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1tgzs36.md#c0"
-    char_span: [0, 1850]
+    char_span: [0, 1849]
     sentence_count: 11
     key_terms: [school, phd, gradadmissions, health, issues, back, reference, comments]
-    token_count: 406
+    concepts: [school, gradadmissions, health, issues, reference]
+    token_count: 405
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1tgzs36/help_with_emailing_phd_advisors_and_general_grad/"}]
 ---
 # Help with emailing PhD advisors and general grad school admission
 

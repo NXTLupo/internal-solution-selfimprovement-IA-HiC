@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1955]
     sentence_count: 12
     key_terms: [engineering, resumes, job, resume, engineeringstudents, "it's", land, possible]
+    concepts: [engineering, resumes, resume, engineeringstudents, accomplishments]
     token_count: 417
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tkquw7/there_is_some_hope_its_still_possible_to_find_an/"}]
 ---
 # There is some hope, it's still possible to find an entry level engineering job in 2026 (even without experience)
 

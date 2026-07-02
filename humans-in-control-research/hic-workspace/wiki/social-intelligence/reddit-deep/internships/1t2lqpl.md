@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1813]
     sentence_count: 17
     key_terms: [internships, internship, anything, pretty, day, first-year, comments, everyone]
+    concepts: [internships, internship, anything, pretty, first-year]
     token_count: 391
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t2lqpl/starting_my_first_internship_soon_any_advice/"}]
   - id: "social-intelligence/reddit-deep/internships/1t2lqpl.md#c1"
     char_span: [1827, 3585]
     sentence_count: 11
     key_terms: [pathacceptable3119, best, like, luck, team, good, time, prachub]
+    concepts: [pathacceptable3119, prachub, "you're", thank]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/internships/1t2lqpl.md#c2"
     char_span: [3587, 4513]
     sentence_count: 2
     key_terms: [already, pathacceptable3119, intellectual, internships, opportunity, confidence, definitely, describing]
+    concepts: [already]
     section: Comments
     token_count: 222
 ---

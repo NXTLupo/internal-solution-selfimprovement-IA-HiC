@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 742]
     sentence_count: 6
     key_terms: [careerguidance, electrical, industrial, comments, career, paths, best, hvac]
+    concepts: [careerguidance, electrical, industrial, comments, career]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1suwbjx.md#c1"]
     token_count: 175
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1suwbjx/technical_career_path_jobs_and_programs/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1suwbjx.md#c1"
     char_span: [756, 1513]
     sentence_count: 1
     key_terms: [controls, work, automation, electrical, industrial, companies, systems, hvac]
+    concepts: [controls, automation, electrical, industrial, companies]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1suwbjx.md#c0"]
     section: Comments
     token_count: 150
 ---

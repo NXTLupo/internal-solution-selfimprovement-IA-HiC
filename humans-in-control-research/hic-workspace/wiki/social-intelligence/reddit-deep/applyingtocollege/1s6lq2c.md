@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 733]
     sentence_count: 6
     key_terms: [applyingtocollege, comments, criminal, justice, stick, wanna, love, reddit-deep]
+    concepts: [applyingtocollege, comments, criminal, justice, stick]
     token_count: 182
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1s6lq2c/careermajor_incoming_college_student/"}]
 ---
 # Career/Major incoming college student
 

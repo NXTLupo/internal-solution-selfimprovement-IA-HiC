@@ -21,53 +21,63 @@ chunks:
     char_span: [0, 985]
     sentence_count: 8
     key_terms: [school, time, full, expenses, afford, living, gradschool, comments]
+    concepts: [school, expenses, afford, living, gradschool]
     token_count: 226
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rehk0y/how_do_you_afford_this/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1rehk0y.md#c1"
     char_span: [999, 3154]
     sentence_count: 24
     key_terms: [phd, funding, time, research, full, school, money, grad]
+    concepts: [funding, research, school, money, professor]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/gradschool/1rehk0y.md#c2"
     char_span: [3156, 4353]
     sentence_count: 12
     key_terms: [funded, program, scholarship, get, assistant, "master's", stipend, degree]
+    concepts: [funded, program, scholarship, assistant, "master's"]
     section: Comments
     token_count: 280
   - id: "social-intelligence/reddit-deep/gradschool/1rehk0y.md#c3"
     char_span: [4355, 6080]
     sentence_count: 11
     key_terms: [humanities, month, halfeatenpie, observation, probably, because, general, looking]
+    concepts: [humanities, month, halfeatenpie, observation, probably]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/gradschool/1rehk0y.md#c4"
     char_span: [6082, 6818]
     sentence_count: 7
     key_terms: [scholarships, additional, brought, relief, gave, grad, like, vegetables]
+    concepts: [scholarships, additional, brought, relief]
     section: Comments
     token_count: 162
   - id: "social-intelligence/reddit-deep/gradschool/1rehk0y.md#c5"
     char_span: [6820, 8801]
     sentence_count: 7
     key_terms: [time, school, job, paid, alarmedcicada256, pay, phd, full-time]
+    concepts: [school, alarmedcicada256, full-time, "master's", benefit]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/gradschool/1rehk0y.md#c6"
     char_span: [8803, 10579]
     sentence_count: 10
     key_terms: [tuition, people, university, everyone, getting, methods, program, either]
+    concepts: [tuition, people, university, everyone, getting]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/gradschool/1rehk0y.md#c7"
     char_span: [10581, 12397]
     sentence_count: 12
     key_terms: [work, funded, worked, loans, years, life, lot, time]
+    concepts: [funded, worked, loans, years, full-time]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/gradschool/1rehk0y.md#c8"
     char_span: [12399, 13001]
     sentence_count: 5
     key_terms: [loans, usually, amount, school, get, comfortably, engineering, completely]
+    concepts: [loans, usually, amount, school]
     section: Comments
     token_count: 126
 ---

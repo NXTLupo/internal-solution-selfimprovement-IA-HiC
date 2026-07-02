@@ -21,34 +21,43 @@ chunks:
     char_span: [0, 2369]
     sentence_count: 11
     key_terms: [research, "i'm", relevant, effectively, trying, looking, review, understanding]
+    concepts: [research, relevant, effectively, trying, understanding]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1sisymd.md#c4"]
     token_count: 489
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1sisymd/looking_for_research_advice/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1sisymd.md#c1"
     char_span: [2371, 3301]
     sentence_count: 4
     key_terms: ["i'm", like, read, research, article, through, been, feel]
+    concepts: [research, article, through]
     token_count: 192
   - id: "social-intelligence/reddit-deep/askacademia/1sisymd.md#c2"
     char_span: [3315, 5315]
     sentence_count: 10
     key_terms: [get, research, find, asked, "i'd", phd, tell, training]
+    concepts: [research, asked, training, apprenticeship, businessperson]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/askacademia/1sisymd.md#c3"
     char_span: [5318, 7537]
     sentence_count: 11
     key_terms: [research, "i'm", reading, wonderful-courage-51, doing, learn, topic, like]
+    concepts: [research, reading, wonderful-courage-51, doing, learn]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/askacademia/1sisymd.md#c4"
     char_span: [7539, 9776]
     sentence_count: 13
     key_terms: [professors, research, "don't", relevant, people, "i've", talk, want]
+    concepts: [professors, research, "don't", relevant, people]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1sisymd.md#c0"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/askacademia/1sisymd.md#c5"
     char_span: [9780, 10630]
     sentence_count: 1
     key_terms: [papers, read, reading, like, new, stop, parkityparkpark, comprehension]
+    concepts: [papers, reading]
     section: Comments
     token_count: 178
 ---

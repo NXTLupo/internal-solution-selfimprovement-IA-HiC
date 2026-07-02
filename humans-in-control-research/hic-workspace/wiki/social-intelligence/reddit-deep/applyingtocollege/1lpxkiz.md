@@ -21,58 +21,73 @@ chunks:
     char_span: [0, 1444]
     sentence_count: 7
     key_terms: [college, applyingtocollege, get, success, education, comments, everyone, getting]
+    concepts: [college, applyingtocollege, success, education, comments]
     token_count: 345
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1lpxkiz/dont_get_it/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c1"
     char_span: [1446, 2521]
     sentence_count: 7
     key_terms: [college, decide, extraordinary, life, want, obsession, confused, yourself]
+    concepts: [college, decide, extraordinary, obsession, confused]
     token_count: 242
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c2"
     char_span: [2535, 3311]
     sentence_count: 7
     key_terms: [believing, guarantee, college, point, state, "won't", life, post]
+    concepts: [believing, guarantee, college, point, state]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c5"]
     section: Comments
     token_count: 198
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c3"
     char_span: [3313, 5337]
     sentence_count: 10
     key_terms: [schools, chocolategamer279, prestige, income, middle, lower, get, top]
+    concepts: [schools, chocolategamer279, prestige, income, middle]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c4"
     char_span: [5097, 6730]
     sentence_count: 10
     key_terms: [harvard, person, prestige, finance, school, odd-requirement-8134, agree, going]
+    concepts: [harvard, person, prestige, finance, school]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c5"
     char_span: [6732, 8180]
     sentence_count: 12
     key_terms: [get, state, flagships, grad, college, best, pay, flagship]
+    concepts: [flagships, state, college, flagship, league]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c2"]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c6"
     char_span: [8182, 9730]
     sentence_count: 8
     key_terms: [people, advantage, career, end, "it's", like, want, something]
+    concepts: [people, advantage, career, something, earnings]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c7"
     char_span: [9732, 11544]
     sentence_count: 6
     key_terms: [effects, network, school, like, colleges, flagship, private, engineering]
+    concepts: [effects, network, school, colleges, flagship]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c9"]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c8"
     char_span: [11546, 13514]
     sentence_count: 7
     key_terms: [people, deleted, enough, money, difference, average, afford, paying]
+    concepts: [people, deleted, enough, difference, money]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c9"
     char_span: [13516, 15773]
     sentence_count: 16
     key_terms: [college, selective, colleges, options, school, being, "won't", good]
+    concepts: [college, selective, colleges, options, school]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c7"]
     section: Comments
     token_count: 470
 ---

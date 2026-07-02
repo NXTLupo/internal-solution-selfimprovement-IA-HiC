@@ -16,16 +16,20 @@ chunks:
     char_span: [0, 1961]
     sentence_count: 8
     key_terms: [cuda, local, silicon, apple, workstation, experience, learning, machinelearning]
+    concepts: [local, silicon, apple, workstation, experience]
     token_count: 508
+    sources: [{"n":"Reddit Deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1qcn4bp/d_cuda_workstation_vs_apple_silicon_for_ml_llms/"}]
   - id: "articles/reddit-deep-r-machinelearning/e0adeab66a.md#c1"
     char_span: [1963, 3649]
     sentence_count: 17
     key_terms: [hobby, projects, "don't", portfolio, leetcode, project, contribution, work]
+    concepts: [projects, hobby, portfolio, "don't", leetcode]
     token_count: 376
   - id: "articles/reddit-deep-r-machinelearning/e0adeab66a.md#c2"
     char_span: [3651, 4656]
     sentence_count: 5
     key_terms: [work, faang, get, experience, projects, relevant, nothing, trying]
+    concepts: [experience, faang, projects, relevant, nothing]
     token_count: 233
 ---
 # [D] CUDA Workstation vs Apple Silicon for ML / LLMs

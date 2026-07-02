@@ -21,41 +21,53 @@ chunks:
     char_span: [0, 1739]
     sentence_count: 15
     key_terms: [financialindependence, wife, years, done, healthcare, comments, straight, already]
+    concepts: [financialindependence, healthcare, years, comments, straight]
     token_count: 459
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1of2jqf/carpenter_ready_to_hang_it_up_am_i_ready_give_it/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c1"
     char_span: [1753, 2863]
     sentence_count: 6
     key_terms: [change, going, knows, helion16, lifetime, question, pension, people]
+    concepts: [change, going, knows, helion16, lifetime]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c2"
     char_span: [2865, 4905]
     sentence_count: 14
     key_terms: [pension, living, month, cost, don, life, live, sure]
+    concepts: [pension, living, month, retirement, being]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c3", "social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c3"
     char_span: [4678, 5838]
     sentence_count: 7
     key_terms: [month, expenses, investments, anything, pension, retire, remarkable-proof-566, never]
+    concepts: [month, expenses, investments, anything, pension]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c2", "social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c4", "social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c5"]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c4"
     char_span: [5840, 7526]
     sentence_count: 10
     key_terms: [expenses, pension, "you're", retirement, replace, whether, thewaterisboiling10, like]
+    concepts: [expenses, pension, "you're", retirement, replace]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c2", "social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c3"]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c5"
     char_span: [7529, 9522]
     sentence_count: 18
     key_terms: [work, pension, investments, like, want, noright2bedepressed, cover, "won't"]
+    concepts: [pension, investments, cover, "won't"]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c3"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c6"
     char_span: [9524, 10093]
     sentence_count: 7
     key_terms: [expenses, year, non-carpenters, deductibles, applicable, healthcare, accounted, carpenter]
+    concepts: [expenses]
     section: Comments
     token_count: 142
 ---

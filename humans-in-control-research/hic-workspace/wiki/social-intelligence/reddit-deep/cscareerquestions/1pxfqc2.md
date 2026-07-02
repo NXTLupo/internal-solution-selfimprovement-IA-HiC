@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1720]
     sentence_count: 2
     key_terms: [years, gym, bench, cscareerquestions, get, similar, press, correlation]
+    concepts: [years, cscareerquestions, bench, similar, correlation]
     token_count: 380
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1pxfqc2/cs_career_can_be_thought_of_as_going_to_the_gym/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pxfqc2.md#c1"
     char_span: [1734, 3825]
     sentence_count: 9
     key_terms: [mediocre-ebb9862, people, engineers, like, disposepriority, figures, making, flair]
+    concepts: [mediocre-ebb9862, people, engineers, disposepriority, figures]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pxfqc2.md#c2"
     char_span: [3827, 5954]
     sentence_count: 13
     key_terms: [years, experience, figures, experienced, reference, "i've", luck, seen]
+    concepts: [experience, years, experienced, figures, reference]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pxfqc2.md#c3"
     char_span: [5956, 7026]
     sentence_count: 4
     key_terms: [several, people, guess, heavy, right, good, none, team]
+    concepts: [several, people, guess, heavy, right]
     section: Comments
     token_count: 268
 ---

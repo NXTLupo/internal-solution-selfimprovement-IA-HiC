@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 1611]
     sentence_count: 12
     key_terms: [applying, schools, applyingtocollege, like, fulfilled, comments, research, nothing]
+    concepts: [applying, schools, applyingtocollege, fulfilled, comments]
     token_count: 385
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1qg5mkx/t20s_ivies_does_anyone_even_know_why_people_are/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qg5mkx.md#c1"
     char_span: [1625, 3728]
     sentence_count: 10
     key_terms: [specific, major, student, readingbudget4091, want, software, grade, top]
+    concepts: [specific, major, student, readingbudget4091, software]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qg5mkx.md#c2"
     char_span: [3730, 5109]
     sentence_count: 10
     key_terms: [engineering, preparation, students, finance, people, undergraduate, mathematics, outstanding]
+    concepts: [engineering, preparation, students, undergraduate, finance]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qg5mkx.md#c3"
     char_span: [5111, 7029]
     sentence_count: 14
     key_terms: [like, top, people, secrerofficeninja, students, college, brand, get]
+    concepts: [people, secrerofficeninja, students, college, brand]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qg5mkx.md#c4"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qg5mkx.md#c4"
     char_span: [7031, 8553]
     sentence_count: 16
     key_terms: ["it's", top, college, people, penn, candidates, recruiting, "you're"]
+    concepts: [college, people, candidates, recruiting, "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qg5mkx.md#c3"]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qg5mkx.md#c5"
     char_span: [8555, 10660]
     sentence_count: 15
     key_terms: [school, people, inevitable-cow-8489, dartmouth, applying, executivewatch, like, different]
+    concepts: [school, people, inevitable-cow-8489, dartmouth, applying]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qg5mkx.md#c6"
     char_span: [10662, 12693]
     sentence_count: 14
     key_terms: [prestige, like, because, oneextent3940, universities, being, often, irrational]
+    concepts: [prestige, because, oneextent3940, universities, being]
     section: Comments
     token_count: 435
 ---

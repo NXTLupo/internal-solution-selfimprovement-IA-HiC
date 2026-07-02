@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1693]
     sentence_count: 9
     key_terms: [nonprofit, donor, small, relations, larger, transitioning, development, did]
+    concepts: [nonprofit, relations, donor, small, transitioning]
     token_count: 373
+    sources: [{"n":"reddit-deep: r/nonprofit","u":"https://www.reddit.com/r/nonprofit/comments/1r41oih/advice_for_transitioning_from_a_small_nonprofit/"}]
   - id: "social-intelligence/reddit-deep/nonprofit/1r41oih.md#c1"
-    char_span: [1708, 3513]
+    char_span: [1707, 3512]
     sentence_count: 13
     key_terms: [projects, work, higher, get, time, used, nonprofit, nothing]
+    concepts: [projects, higher, nonprofit, nothing, expect]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/nonprofit/1r41oih.md#c2"
-    char_span: [3515, 4995]
+    char_span: [3514, 4994]
     sentence_count: 9
     key_terms: ["i'm", understand, larger-org-sophistication, learning, current, small-org-scrappiness, career, scatterbrainedseeker]
+    concepts: [understand, learning, current, career]
     section: Comments
     token_count: 367
 ---

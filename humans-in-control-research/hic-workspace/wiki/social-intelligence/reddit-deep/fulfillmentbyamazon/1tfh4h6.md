@@ -20,29 +20,39 @@ chunks:
     char_span: [0, 1968]
     sentence_count: 12
     key_terms: [apparel, fulfillmentbyamazon, genuinely, operators, returns, running, mbz2xvm7ls9wgxanqcp5wzw31x3wk8h5teuew, people]
+    concepts: [fulfillmentbyamazon, apparel, genuinely, operators, returns]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1tfh4h6.md#c1"]
     token_count: 452
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1tfh4h6/apparel_sellers_on_fba_when_do_returns_actually/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tfh4h6.md#c1"
-    char_span: [1983, 3945]
+    char_span: [1982, 3944]
     sentence_count: 17
     key_terms: [returns, return, fulfillmentbyamazon, discord, captain-matt89, fba, discuss, amazon]
+    concepts: [fulfillmentbyamazon, returns, return, captain-matt89, discord]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1tfh4h6.md#c0", "social-intelligence/reddit-deep/fulfillmentbyamazon/1tfh4h6.md#c3"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tfh4h6.md#c2"
-    char_span: [3947, 4718]
+    char_span: [3946, 4717]
     sentence_count: 6
     key_terms: [returns, roughly, amazon, buying, sizing, directleadership7279, kinda, instructional]
+    concepts: [returns, roughly, amazon, buying, sizing]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1tfh4h6.md#c3"]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tfh4h6.md#c3"
-    char_span: [4720, 6855]
+    char_span: [4719, 6854]
     sentence_count: 10
     key_terms: [returns, data, return, sizing, directleadership7279, bracket, deliberate, currently]
+    concepts: [returns, directleadership7279, return, sizing, bracket]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1tfh4h6.md#c1", "social-intelligence/reddit-deep/fulfillmentbyamazon/1tfh4h6.md#c2"]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tfh4h6.md#c4"
-    char_span: [6857, 7720]
+    char_span: [6856, 7719]
     sentence_count: 6
     key_terms: [fit, returns, charts, people, reduce, directleadership7279, acanthaceaebig2242, lot]
+    concepts: [returns, charts, people, reduce]
     section: Comments
     token_count: 192
 ---

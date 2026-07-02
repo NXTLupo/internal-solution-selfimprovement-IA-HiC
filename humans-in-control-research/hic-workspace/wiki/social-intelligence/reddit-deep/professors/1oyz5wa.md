@@ -21,40 +21,51 @@ chunks:
     char_span: [0, 1836]
     sentence_count: 9
     key_terms: [frequently-asked-questions-about-the-one-big-beautiful-bill-act, reconciliation-advocacy-center, accountability, eligibility, advocacy-resources, financial, students, policy-advocacy]
+    concepts: [frequently-asked-questions-about-the-one-big-beautiful-bill-act, reconciliation-advocacy-center, accountability, eligibility, advocacy-resources]
     token_count: 429
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1oyz5wa/fyi_for_us_faculty_new_2026_accountability/"}]
   - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c1"
     char_span: [1838, 3406]
     sentence_count: 10
     key_terms: [median, students, against, compared, graduate, career, income, institution]
+    concepts: [median, students, against, compared, graduate]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1oyz5wa.md#c2"]
     token_count: 312
   - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c2"
     char_span: [3420, 5675]
     sentence_count: 16
     key_terms: [school, programs, years, graduate, students, like, careers, salary]
+    concepts: [programs, school, years, graduate, students]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1oyz5wa.md#c1", "social-intelligence/reddit-deep/professors/1oyz5wa.md#c6"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c3"
     char_span: [5677, 7300]
     sentence_count: 8
     key_terms: [public, service, graduates, college, higher, nope, education, students]
+    concepts: [public, service, graduates, college, higher]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c4"
     char_span: [7302, 9118]
     sentence_count: 6
     key_terms: [institution, department, collegescorecard, professional, baronhousen, development, data, changes]
+    concepts: [institution, department, collegescorecard, professional, baronhousen]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c5"
     char_span: [9120, 11338]
     sentence_count: 18
     key_terms: [graduates, years, community, education, hospitals, college, florida, program]
+    concepts: [graduates, years, community, education, hospitals]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c6"
     char_span: [11340, 13161]
     sentence_count: 17
     key_terms: [year, years, different, graduate, programs, finally, people, learn]
+    concepts: [years, different, graduate, programs, finally]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1oyz5wa.md#c2"]
     section: Comments
     token_count: 427
 ---

@@ -20,35 +20,46 @@ chunks:
     char_span: [0, 2116]
     sentence_count: 22
     key_terms: [employer, insurance, since, enrollment, healthinsurance, options, premium, through]
+    concepts: [employer, insurance, since, enrollment, healthinsurance]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1s20ucg/paying_1300_for_health_insurance_and_dont_know_why/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1s20ucg.md#c1"
-    char_span: [2131, 4003]
+    char_span: [2130, 4002]
     sentence_count: 6
     key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    concepts: [information, questions, following, please, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1s20ucg.md#c2"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/healthinsurance/1s20ucg.md#c2"
-    char_span: [4005, 6161]
+    char_span: [4004, 6160]
     sentence_count: 13
     key_terms: [please, eob, contact, premium, questions, subreddit, post, via]
+    concepts: [please, contact, premium, questions, subreddit]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1s20ucg.md#c1"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/healthinsurance/1s20ucg.md#c3"
-    char_span: [6163, 8472]
+    char_span: [6162, 8471]
     sentence_count: 21
     key_terms: [plan, enrollment, error, wrong, deduction, ask, misunderstanding, administrative]
+    concepts: [enrollment, misunderstanding, deduction, error, wrong]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1s20ucg.md#c4"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/healthinsurance/1s20ucg.md#c4"
-    char_span: [8474, 9662]
+    char_span: [8473, 9661]
     sentence_count: 5
     key_terms: [enrollment, wrong, tier, correct, chance, coverage, employer, error]
+    concepts: [enrollment, wrong, correct, chance, coverage]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1s20ucg.md#c3"]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/healthinsurance/1s20ucg.md#c5"
-    char_span: [9664, 10981]
+    char_span: [9663, 10980]
     sentence_count: 9
     key_terms: [high, premium, deductible, cost, lowest, pay, plan, insurance]
+    concepts: [premium, deductible, lowest, insurance, anything]
     section: Comments
     token_count: 322
 ---

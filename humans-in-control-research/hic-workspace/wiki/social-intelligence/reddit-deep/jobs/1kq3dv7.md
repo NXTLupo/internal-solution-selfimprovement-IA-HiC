@@ -21,53 +21,63 @@ chunks:
     char_span: [0, 813]
     sentence_count: 7
     key_terms: [jobs, comments, here, "it's", like, internationally, strawberry2828, outsourcing]
+    concepts: [comments]
     token_count: 187
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1kq3dv7/why_is_nobody_talking_about_how_many_entry_level/"}]
   - id: "social-intelligence/reddit-deep/jobs/1kq3dv7.md#c1"
     char_span: [827, 2929]
     sentence_count: 9
     key_terms: [jobs, people, imhereforthemeta, entry, money, outsourcing, incredibly, americans]
+    concepts: [people, imhereforthemeta, outsourcing, entry, incredibly]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1kq3dv7.md#c2"
     char_span: [2670, 3889]
     sentence_count: 6
     key_terms: [jobs, qualifications, paying, customer, getting, service, ok-neighborhood2109, entry]
+    concepts: [qualifications, paying, customer, getting, service]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/jobs/1kq3dv7.md#c3"
     char_span: [3891, 4327]
     sentence_count: 5
     key_terms: [people, stay, dave10293847, dishwashers, addiction, ambition, customer, pathetic]
+    concepts: [people]
     section: Comments
     token_count: 103
   - id: "social-intelligence/reddit-deep/jobs/1kq3dv7.md#c4"
     char_span: [4329, 6379]
     sentence_count: 16
     key_terms: [youburyitidigitup, charming-ebb-1981, field, outsourcing, jobs, eventually, outsourced, someone]
+    concepts: [youburyitidigitup, charming-ebb-1981, outsourcing, eventually, field]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1kq3dv7.md#c5"
     char_span: [6120, 6660]
     sentence_count: 4
     key_terms: [longer, grant, money, youburyitidigitup, contracted, developers, eventually, profitable]
+    concepts: [longer, grant, money]
     section: Comments
     token_count: 118
   - id: "social-intelligence/reddit-deep/jobs/1kq3dv7.md#c6"
     char_span: [6662, 7876]
     sentence_count: 11
     key_terms: [dancedifferent3029, people, unemployment, jobs, because, looking, count, don]
+    concepts: [dancedifferent3029, unemployment, people, because, looking]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/jobs/1kq3dv7.md#c7"
     char_span: [7878, 10086]
     sentence_count: 8
     key_terms: [workers, foreign, charming-ebb-1981, jobs, because, companies, away, aren]
+    concepts: [workers, foreign, charming-ebb-1981, because, companies]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1kq3dv7.md#c8"
     char_span: [9776, 10259]
     sentence_count: 2
     key_terms: [american, jobs, neuroticknight, consolidated, backgrounds, capitalism, solidarity, corporate]
+    concepts: [american]
     section: Comments
     token_count: 98
 ---

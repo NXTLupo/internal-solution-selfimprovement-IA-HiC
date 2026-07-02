@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1340]
     sentence_count: 12
     key_terms: [early, internships, internship, interview, comments, decision, directly, aligned]
+    concepts: [internships, early, internship, interview, comments]
     token_count: 292
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sgdd36/early_career_dilemma/"}]
   - id: "social-intelligence/reddit-deep/internships/1sgdd36.md#c1"
     char_span: [1354, 1953]
     sentence_count: 1

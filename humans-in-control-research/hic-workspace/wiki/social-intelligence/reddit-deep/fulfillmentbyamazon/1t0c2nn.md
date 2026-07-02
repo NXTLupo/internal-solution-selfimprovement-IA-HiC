@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1262]
     sentence_count: 11
     key_terms: [item, customer, amazon, fulfillment, fulfillmentbyamazon, different, comments, happened]
+    concepts: [customer, amazon, fulfillment, fulfillmentbyamazon, different]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1t0c2nn.md#c1"]
     token_count: 290
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1t0c2nn/has_anyone_run_into_an_fba_issue_of_amazon/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1t0c2nn.md#c1"
-    char_span: [1277, 2612]
+    char_span: [1276, 2611]
     sentence_count: 12
     key_terms: [fulfillmentbyamazon, discord, fba, info, item, warehouse, customer, address]
+    concepts: [fulfillmentbyamazon, discord, warehouse, customer, address]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1t0c2nn.md#c0"]
     section: Comments
     token_count: 327
 ---

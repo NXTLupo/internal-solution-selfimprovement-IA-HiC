@@ -21,51 +21,65 @@ chunks:
     char_span: [0, 2156]
     sentence_count: 13
     key_terms: [americans-arent-drinking-anymore-alcohol-203502637, alcohol, volume, according, drinking, wallstreetbets, molson, constellation]
+    concepts: [americans-arent-drinking-anymore-alcohol-203502637, alcohol, volume, according, drinking]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c1"]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1myhxdw/alcohol_consumption_hits_85year_low_molson_coors/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c1"
     char_span: [2158, 4333]
     sentence_count: 18
     key_terms: [alcohol, tobacco, according, americans, january, cancer, report, monti]
+    concepts: [alcohol, tobacco, according, americans, january]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c0"]
     token_count: 451
   - id: "social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c2"
     char_span: [4335, 5241]
     sentence_count: 8
     key_terms: [alcohol, consumption, drinks, levels, survey, drink, years, down]
+    concepts: [alcohol, consumption, drinks, levels, survey]
     token_count: 215
   - id: "social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c3"
     char_span: [5255, 5465]
     sentence_count: 1
     key_terms: [months, total, submissions, visualmod, comments, previous, account, report]
+    concepts: [months, total]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c4"
     char_span: [5467, 7232]
     sentence_count: 7
     key_terms: [beer, area, pack, deleted, prices, here, wsb, discord]
+    concepts: [deleted, prices, discord, gallon, liquor]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c5"
     char_span: [6979, 8023]
     sentence_count: 3
     key_terms: [apple, juice, deleted, cancer, gallon, leomelettedufrommage, coors, great]
+    concepts: [apple, juice, deleted, cancer, gallon]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c4"]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c6"
     char_span: [8025, 9439]
     sentence_count: 6
     key_terms: [cancer, water, drinking, commercial-honey-227, quirky-plantain-2080, reachin4thosegrapes, hope, "it's"]
+    concepts: [cancer, water, drinking]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c7"
     char_span: [9441, 10815]
     sentence_count: 8
     key_terms: [litres, goon, alcohol, deleted, "don't", games, vapes, video]
+    concepts: [litres, alcohol, deleted, "don't", games]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c8"
     char_span: [10817, 12653]
     sentence_count: 19
     key_terms: [drinks, drink, days, older, generations, did, drinking, deleted]
+    concepts: [drinks, drink, generations, older, drinking]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c9"
@@ -78,6 +92,7 @@ chunks:
     char_span: [13044, 14507]
     sentence_count: 7
     key_terms: [social, drink, gen, everything, activity, getting, blamed, few-needleworker4391]
+    concepts: [social, drink, everything, activity, getting]
     section: Comments
     token_count: 428
 ---

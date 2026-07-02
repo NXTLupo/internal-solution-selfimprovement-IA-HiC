@@ -1,0 +1,290 @@
+---
+id: social-intelligence/reddit-deep/healthit/1r4ir7k.md
+url: "https://www.reddit.com/r/healthIT/comments/1r4ir7k/when_a_family_member_died_from_delayed_treatment/"
+kind: "social-post"
+source: "reddit-deep: r/healthit"
+subreddit: "healthit"
+title: "When a family member died from delayed treatment, I started mapping 131 tensions of “AI in healthcare”"
+author: "Scary-Aioli1713"
+date: "2026-02-14T11:52:07.000Z"
+score: 0
+upvote_ratio: 0.31
+num_comments: 8
+flair: ""
+extracted_at: "2026-06-22T20:50:35.576Z"
+extraction_method: "praw-deep"
+research_goal: "Deliver a comprehensive strategic assessment of the \"State of the Healthcare and Life Sciences Industry in 2026 as it relates to AI Adoption for Providers, Consumers, Caregivers, and Payers,\" analyzing key adoption drivers, barriers, and high-impact use cases for each cohort."
+engagement: "deliver-a-comprehensive-strategic-assessment-of-the-state-of"
+chunks:
+  - id: "social-intelligence/reddit-deep/healthit/1r4ir7k.md#c0"
+    char_span: [0, 2198]
+    sentence_count: 14
+    key_terms: [optimize, tension, doctor, family, member, system, time, healthcare]
+    concepts: [optimize, tension, doctor, family, member]
+    token_count: 512
+    sources: [{"n":"reddit-deep: r/healthit","u":"https://www.reddit.com/r/healthIT/comments/1r4ir7k/when_a_family_member_died_from_delayed_treatment/"}]
+  - id: "social-intelligence/reddit-deep/healthit/1r4ir7k.md#c1"
+    char_span: [2200, 4238]
+    sentence_count: 8
+    key_terms: [healthcare, tension, self-improvement, multi-agent, don, already, another, changes]
+    concepts: [healthcare, tension, self-improvement, multi-agent, already]
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/healthit/1r4ir7k.md#c2"
+    char_span: [4240, 5176]
+    sentence_count: 5
+    key_terms: [tensionuniverse, eventhorizon, https, onestardao, github, readme, blob, com]
+    concepts: [tensionuniverse, eventhorizon, https, onestardao, github]
+    token_count: 252
+  - id: "social-intelligence/reddit-deep/healthit/1r4ir7k.md#c3"
+    char_span: [5190, 7155]
+    sentence_count: 2
+    key_terms: [healthcare, tensions, problems, systems, health, index, items, like]
+    concepts: [healthcare, tensions, problems, systems, health]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/healthit/1r4ir7k.md#c4"
+    char_span: [7157, 9305]
+    sentence_count: 17
+    key_terms: [healthcare, like, here, lot, list, anything, examples, honestly]
+    concepts: [healthcare, anything, examples, honestly, thinking]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/healthit/1r4ir7k.md#c5"
+    char_span: [9307, 10929]
+    sentence_count: 2
+    key_terms: [right, time, optimize, trying, does, kpi, providers, situation]
+    concepts: [right, optimize, trying, providers, situation]
+    section: Comments
+    token_count: 387
+---
+# When a family member died from delayed treatment, I started mapping 131 tensions of “AI in healthcare”
+
+Source: [reddit-deep: r/healthit](https://www.reddit.com/r/healthIT/comments/1r4ir7k/when_a_family_member_died_from_delayed_treatment/)
+Posted by **Scary-Aioli1713** · **0↑** · **8 comments**
+
+A few years ago, I watched a close family member die because treatment kept getting delayed.
+
+He had cancer. The chemo dose needed very careful adjustment and lab checks before starting. But the ward was short-staffed. There was no nurse free to do blood draws. The main doctor had meetings and clinic. Even the backup doctor who agreed to help could not find time.
+
+So we went from “liver and kidney function still ok”  
+→ to “labs slowly getting worse, complications showing up”  
+→ by the time the drug finally went in, his body was already too weak.  
+The medicine that was supposed to help basically arrived too late.
+
+I don’t think any single doctor “didn’t care”.  
+What killed him was the tension inside the system.
+
+That’s why I started to ask a more brutal question:
+
+>
+
+I ended up spending more than a year turning those questions into a 131-item problem list.  
+For “AI × healthcare”, a few items matter the most for me:
+
+**Q121 – incentive tension (what we say we optimize vs what we actually optimize)**
+
+Hospitals, governments, vendors all say:  
+“we want better outcomes, no missed golden windows”.
+
+But in practice, AI is often used to optimize:
+
+* throughput
+* cost
+* KPI dashboards
+
+So Q121 is basically:
+
+>
+
+In my family member’s case, nobody was tracking:  
+“how many hours did the system quietly eat between ‘we know the drug is needed’ and ‘first dose actually goes in’?”
+
+If AI only makes the wrong objective run faster,  
+it doesn’t save lives – it just **efficiently delivers people to the same bad end.**
+
+**Q124 – eval / oversight tension (nice metrics vs real risk surface)**
+
+We are very good at producing pretty metrics:
+
+* AUROC, accuracy, etc.
+* average wait time
+* average length of stay
+
+But the truly lethal stuff often lives in the tails:
+
+* a small cluster of patients with huge delays
+* specific groups the system gradually pushes to the margins
+
+Q124 asks:
+
+>
+
+If we don’t, “AI in healthcare” can easily become a new way to generate **fake comfort**.
+
+**Q120 – value of information tension (lots of data vs very little that changes decisions)**
+
+In practice we have:
+
+* EHR pages and pages long
+* lab reports everywhere
+* AI-generated summaries that can also be very verbose
+
+But what a clinician really needs is often just:
+
+* how the key labs changed over the last few visits
+* what is most likely to kill this person first
+* what happens if we delay another day
+
+Q120 is asking:
+
+>
+
+If that number is low, then AI is not reducing cognitive load.  
+It is just adding more noise on top of already overloaded teams.
+
+**Q130 – OOD + hallucination / grounding tension (the model doesn’t know, but still talks with confidence)**
+
+In healthcare this is obviously dangerous:
+
+* rare cancers
+* multi-morbid patients
+* weird drug interactions with almost no training data coverage
+
+Q130 is basically:
+
+>
+
+A “good” medical AI for me is not just more accurate on benchmarks.  
+It is **faster on routine cases and slower / more humble on weird ones.**
+
+**Q125 / Q126 – multi-agent + self-improvement tension (AI as one agent inside the care system)**
+
+Healthcare is already a multi-agent system:
+
+* doctors
+* nurses
+* pharmacists
+* case managers
+* admins
+* insurance
+
+When you drop AI into this, you’re adding another agent.
+
+Then questions like these become very real:
+
+* Whose assistant is it?
+* Who is allowed to override whom?
+* If the AI changes its own strategies over time (some kind of self-improvement), who defines its objective function?
+
+In my family’s story, if an AI comes in,  
+I don’t want it to be “one more thing the doctor has to babysit”.  
+I want it to:
+
+* continuously track “who is about to be pushed past their golden window”
+* turn that into a clear tension score
+* and shout, in effect: “this patient cannot be delayed any more”.
+
+I don’t believe any single framework “solves healthcare”.  
+But I do think we need to name these tensions clearly before we celebrate “AI in hospitals”.
+
+That’s what my 131-item list tries to do:  
+each item is written as plain text with a clear tension definition and a small stress-test recipe,  
+so any team can paste it into their own LLM and make it score their setup.
+
+It doesn’t bring my family member back.  
+But if we don’t face these tensions directly,  
+I’m afraid we’ll just create more cases like his,  
+hidden behind nicer dashboards and faster workflows.
+
+Here is a list of many other questions; feel free to discuss them if you're interested.  
+[https://github.com/onestardao/WFGY/blob/main/TensionUniverse/EventHorizon/README.md](https://github.com/onestardao/WFGY/blob/main/TensionUniverse/EventHorizon/README.md)
+
+English is not my first language, and I used AI to help translate and structure this post.  
+If something is unclear, I’m happy to clarify.
+
+https://preview.redd.it/rmsfiga68gjg1.png?width=1536&format=png&auto=webp&s=686d4846bfdcb9f3740b343e2eafae694c1d9be7
+
+## Comments
+
+- **DreadPirateGriswold** (4↑): As someone who works in healthcare informatics, your list of 131 tensions of AI in healthcare are examples of very good thinking.
+  - **Scary-Aioli1713** (0↑): thanks a lot for reading and for the kind words about the thinking.
+
+you are right, the Event Horizon page i linked is more like “overview + design notes”.  
+if you come there looking for a clean list of “131 tensions”, it’s pretty easy to get lost.
+
+right now the 131 items live in two places:
+
+1. **full TXT pack (the one used in the demo)** this file has all Q001–Q131 with their formal wording, tension structure and stress test instructions: → [WFGY-3.0 Singularity Demo · TXT pack]()
+2. **a small “131 problems index” repo** if you just want to quickly scan the whole scope or jump straight into the AI items, this is much clearer: → [WFGY · 131 S-Class Problems (navigation index)]()
+
+about the “131 tensions of AI in healthcare” phrase:  
+i didn’t create a separate list only for medicine.  
+it’s the same 131 S-class problems, but i project them onto healthcare systems and workflows.
+
+if you open the index repo, the closest regions for health / clinical work are roughly:
+
+* **Q081–Q100 · Brain & Earth Systems** – things like aging, neurodegenerative disease, pandemic risk (e.g. Q075, Q087, Q100)
+* **Q101–Q131 · AI, Society & Advanced Systems** – especially Q120–Q124, Q127, Q130. those are the ones i reuse most for “AI in healthcare” (triage, decision support, documentation, safety flags, etc.).
+
+most of the “tensions in AI+healthcare” i talk about are just combinations of these items, rewritten in more clinical / health IT language.
+
+if it’s useful, i can also put together a small “minimal subset for health IT” that maps concrete workflows like:
+
+* triage and scheduling
+* when a test is worth doing (information value)
+* AI suggestion vs physician responsibility
+* OOD / rare disease / low-resource hospital cases
+
+to specific Q numbers in the pack.
+
+english is not my first language, so i used AI a bit to help with wording.  
+but if anything feels unclear i’d really like to hear and fix it.
+    - **DreadPirateGriswold** (3↑): If you actually built a list like that — 131 real tensions, grounded in AI-in-healthcare and tied to concrete situations like the one you described around your relative — that could be seriously valuable.
+
+Right now a lot of writing in this space stays abstract. What would make yours stand out is being explicit:
+- here’s the problem
+- here’s what people instinctively do (and shouldn’t) and try to have AI do. 
+- here’s what should be done with AI instead
+
+The world of healthcare desperately needs practical guidance with the use of AI because nobody in that field is really thinking practically like that, especially when it comes from both theory and lived experience. You could openly frame it as: principles informed by existing sources plus lessons learned firsthand.
+
+At the moment you’re kind of assuming clinicians will translate the philosophy into practice on their own — most won’t. They’re busy and they think in cases, not frameworks. Same goes for most healthcare informaticists.  They're trying to make sense of everything that needs to be done with data on a regular basis for everyday life in healthcare. 
+
+I was excited to see your examples that show really deep thinking into what AI should and should not be used for when applied to Healthcare.  I see a lot of really well-known presenters from the world of healthcare and do a lot of reading of published material.  And I can honestly say I've never seen anything like this.  Bits and pieces of it and a few comments here and there yes touch on it.  But I really hope you can put a list like that together and publish it. 
+
+The examples you included were actually the strongest part of the post. Expanding the list with more of those would make it far more impactful. Honestly, I’d encourage you to keep going with it.
+- **Unlucky-Pool1228** (0↑): I get where you're coming from, but a lot of this is just chasing the wrong kpi's. There's nothing wrong with using AI to optimize the right kpi's.
+
+It also sounds like your personal experience isn't related to AI at all, and is due to a lack of resources. More AI might actually have helped your situation by freeing up more time for providers to care for your loved one.
+  - **Scary-Aioli1713** (1↑): thank you for the reply – i think we actually agree on a big part of this.  
+“chasing the wrong kpi’s” is exactly the kind of thing i’m worried about too.
+
+i’m not against using AI to optimize the **right** kpi’s.  
+the hard part, at least from how i see it, is that “right” is not obvious in real life,  
+and often not directly measurable.  
+that’s why i talk about alignment and tension between what we *say* we optimize and what the system really ends up pushing.
+
+you’re also right that my personal story does not involve AI directly.  
+it was a classic “not enough staff, not enough time” situation.  
+i’m not trying to say “AI caused this”.  
+what i’m trying to say is:
+
+>
+
+i also agree that, in a good setup,  
+more AI could free up time and let providers spend more attention on patients.  
+i actually *hope* that can happen.  
+the question for me is:
+
+* does the freed time really go back to patient care,
+* or does it just turn into new quotas and new kpi’s?
+
+that’s no longer a pure “tech” question, it’s incentives, workflow design and responsibility.
+
+so i’m not saying “don’t use AI in healthcare”.  
+i’m trying to make the tensions explicit:  
+when AI genuinely helps optimize the *right* things,  
+and when it just helps us run the same bad logic faster.
+
+really appreciate you pushing on this point –  
+it gives me a chance to state that more clearly.

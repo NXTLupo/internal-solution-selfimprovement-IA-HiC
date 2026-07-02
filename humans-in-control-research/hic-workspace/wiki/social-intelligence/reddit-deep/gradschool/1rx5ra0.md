@@ -21,46 +21,55 @@ chunks:
     char_span: [0, 1777]
     sentence_count: 15
     key_terms: [because, get, "i'm", symptoms, school, away, "i've", too]
+    concepts: [because, symptoms, school, gradschool, difficult]
     token_count: 396
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rx5ra0/does_anyone_have_experience_handling/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1rx5ra0.md#c1"
     char_span: [1781, 3908]
     sentence_count: 17
     key_terms: ["i'm", advisor, getting, having, health, "don't", "i've", specialist]
+    concepts: [advisor, getting, having, health, "don't"]
     token_count: 459
   - id: "social-intelligence/reddit-deep/gradschool/1rx5ra0.md#c2"
     char_span: [3922, 5236]
     sentence_count: 14
     key_terms: [symptoms, supervisor, specialists, absence, getting, big-blacksmith-2722, leave, lupus]
+    concepts: [symptoms, supervisor, specialists, absence, getting]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/gradschool/1rx5ra0.md#c3"
     char_span: [5238, 7477]
     sentence_count: 21
     key_terms: [diagnosis, get, preliminary, symptoms, advisor, appointment, explaining, specialist]
+    concepts: [diagnosis, preliminary, symptoms, advisor, appointment]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1rx5ra0.md#c4"
     char_span: [7152, 9299]
     sentence_count: 23
     key_terms: [department, through, illnesses, year, advisor, because, health, chair]
+    concepts: [department, through, illnesses, advisor, because]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/gradschool/1rx5ra0.md#c5"
     char_span: [9301, 10987]
     sentence_count: 16
     key_terms: [advisor, disability, accommodations, protections, sometimes, advisors, channels, disabled]
+    concepts: [advisor, disability, accommodations, protections, sometimes]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/gradschool/1rx5ra0.md#c6"
     char_span: [10989, 12009]
     sentence_count: 5
     key_terms: [accommodations, school, going, sorry, sicklecelldiseased, keep, phd, documentation]
+    concepts: [accommodations, school, going, sorry]
     section: Comments
     token_count: 233
   - id: "social-intelligence/reddit-deep/gradschool/1rx5ra0.md#c7"
     char_span: [12011, 13502]
     sentence_count: 11
     key_terms: [especially, university, accommodations, communicate, "i'm", need, department, something]
+    concepts: [especially, university, accommodations, communicate, department]
     section: Comments
     token_count: 317
 ---

@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 2298]
     sentence_count: 6
     key_terms: [internship, role, interview, part-time, cscareerquestions, location, career, return]
+    concepts: [internship, cscareerquestions, interview, part-time, location]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1muwufx/looking_for_advice_on_internshipcareer_decisions/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1muwufx.md#c1"
     char_span: [2300, 2335]
     sentence_count: 1

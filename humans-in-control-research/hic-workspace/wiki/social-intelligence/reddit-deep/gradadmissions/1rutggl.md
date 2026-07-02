@@ -21,45 +21,57 @@ chunks:
     char_span: [0, 2471]
     sentence_count: 25
     key_terms: [admissions, programs, letters, application, lab, phd, research, gradadmissions]
+    concepts: [admissions, programs, application, letters, research]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c5", "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c6"]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rutggl/thoughts_on_getting_into_elite_phd_programs/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c1"
     char_span: [2473, 5037]
     sentence_count: 20
     key_terms: [letter, research, statement, work, specific, because, faculty, ideally]
+    concepts: [letter, research, statement, specific, because]
     token_count: 498
   - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c2"
     char_span: [5039, 6653]
     sentence_count: 23
     key_terms: [information, people, "you're", recruiting, outcomes, students, faculty, around]
+    concepts: [information, people, "you're", recruiting, outcomes]
     token_count: 326
   - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c3"
     char_span: [6667, 7400]
     sentence_count: 3
     key_terms: [zestyclose-tax2939, got, princeton, harvard, telling, phone, get, application]
+    concepts: [zestyclose-tax2939, princeton, harvard, telling, phone]
     section: Comments
     token_count: 191
   - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c4"
     char_span: [7402, 8978]
     sentence_count: 13
     key_terms: [year, mit, arkansas, looking, professor, students, faculty, expert]
+    concepts: [arkansas, looking, professor, students, faculty]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c5"
     char_span: [8980, 10625]
     sentence_count: 8
     key_terms: [research, experience, programs, year, applying, being, undergrad, engineer]
+    concepts: [research, experience, programs, applying, being]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c0", "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c6"]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c6"
     char_span: [10627, 12467]
     sentence_count: 16
     key_terms: [good, phd, programs, research, letters, long, experience, looking]
+    concepts: [programs, research, letters, experience, looking]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c0", "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c5"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c7"
     char_span: [12469, 13060]
     sentence_count: 5
     key_terms: [experience, program, "didn't", get, appreciated, prestigious, applicants, especially]
+    concepts: [experience, program, "didn't"]
     section: Comments
     token_count: 125
 ---

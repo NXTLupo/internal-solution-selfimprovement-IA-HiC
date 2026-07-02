@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1849]
     sentence_count: 13
     key_terms: [claude, app, apple, anthropic, caffeine, native, completely, management]
+    concepts: [claude, anthropic, apple, caffeine, native]
     token_count: 400
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1skwgfl/i_used_claude_to_help_me_build_an_apple_watch_app/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1skwgfl.md#c1"
     char_span: [1863, 3760]
     sentence_count: 8
     key_terms: [pythononrailz, app, caffeine, lot, time, pseudorep, sensitive, awesome]
+    concepts: [pythononrailz, caffeine, pseudorep, sensitive, awesome]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/anthropic/1skwgfl.md#c2"
     char_span: [3762, 5032]
     sentence_count: 12
     key_terms: [app, took, business, store, like, llc, submission, building]
+    concepts: [business, store, submission, building, address]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/anthropic/1skwgfl.md#c3"
     char_span: [5034, 6827]
     sentence_count: 12
     key_terms: [pythononrailz, energy, reddit, apple, app, free, background, marketing]
+    concepts: [pythononrailz, energy, reddit, apple, background]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/anthropic/1skwgfl.md#c4"
     char_span: [6829, 8748]
     sentence_count: 16
     key_terms: [pythononrailz, app, jason-griffin, swift, lemonades, marketing, software, spamming]
+    concepts: [pythononrailz, jason-griffin, swift, lemonades, marketing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/anthropic/1skwgfl.md#c5"
     char_span: [8439, 8874]
     sentence_count: 5
     key_terms: [codebase, swift, help, maintainable, professional, engineering, instantiate, programmer]
+    concepts: [codebase, swift]
     section: Comments
     token_count: 92
 ---

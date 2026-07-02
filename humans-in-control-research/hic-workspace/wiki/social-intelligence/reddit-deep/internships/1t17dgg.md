@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2011]
     sentence_count: 21
     key_terms: [experience, "i'm", professional, internships, everything, comments, nothing, market]
+    concepts: [experience, professional, internships, everything, comments]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t17dgg/please_keep_trying_im_with_you/"}]
   - id: "social-intelligence/reddit-deep/internships/1t17dgg.md#c1"
-    char_span: [2013, 3836]
+    char_span: [2013, 3835]
     sentence_count: 22
     key_terms: [give, job, people, good, land, work, yourself, chance]
+    concepts: [people, yourself, chance, enough, saying]
     token_count: 433
 ---
 # Please keep trying, I'm with you.

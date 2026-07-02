@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1386]
     sentence_count: 16
     key_terms: ["doesn't", comments, dropship, shipping, tracking, because, button, fixing]
+    concepts: ["doesn't", comments, dropship, shipping, tracking]
     token_count: 341
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1ryr5jr/your_store_looks_great_too_bad_your_shipping_is_a/"}]
   - id: "social-intelligence/reddit-deep/dropship/1ryr5jr.md#c1"
-    char_span: [1401, 3433]
+    char_span: [1400, 3432]
     sentence_count: 10
     key_terms: [day, fulfillment, aliexpress, orders, days, chargeback, platforms, suppliers]
+    concepts: [fulfillment, aliexpress, orders, chargeback, platforms]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/dropship/1ryr5jr.md#c2"
-    char_span: [3435, 3616]
+    char_span: [3434, 3615]
     sentence_count: 1
     key_terms: [because, customers, processor, recognize, accounts, emailing, shipping, ghosted]
+    concepts: [because]
     section: Comments
     token_count: 34
 ---

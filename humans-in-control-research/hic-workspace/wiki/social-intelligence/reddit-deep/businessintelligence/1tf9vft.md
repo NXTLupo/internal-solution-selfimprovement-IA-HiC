@@ -20,34 +20,42 @@ chunks:
     char_span: [0, 2408]
     sentence_count: 16
     key_terms: [data, work, compensation, businessintelligence, dashboard, business, valuable, company]
+    concepts: [compensation, businessintelligence, dashboard, business, valuable]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1tf9vft/how_can_a_bi_analyst_become_more_valuable_to_the/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1tf9vft.md#c1"
     char_span: [2410, 2576]
     sentence_count: 2
     key_terms: [genuinely, managed, seeking, similar, advice, partly, people, sounds]
     token_count: 37
   - id: "social-intelligence/reddit-deep/businessintelligence/1tf9vft.md#c2"
-    char_span: [2591, 4972]
+    char_span: [2590, 4971]
     sentence_count: 17
     key_terms: [understanding, business, value, decisions, strategic, revenue, answer, organization]
+    concepts: [understanding, business, decisions, strategic, value]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1tf9vft.md#c5"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/businessintelligence/1tf9vft.md#c3"
-    char_span: [4974, 7160]
+    char_span: [4973, 7159]
     sentence_count: 30
     key_terms: [customers, business, album, data, dont, get, keep, like]
+    concepts: [customers, business, album, learning, relevant]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/businessintelligence/1tf9vft.md#c4"
-    char_span: [7162, 9497]
+    char_span: [7161, 9496]
     sentence_count: 19
     key_terms: [data, want, insights, engineering, need, work, dashboards, understand]
+    concepts: [insights, engineering, dashboards, understand, strategy]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/businessintelligence/1tf9vft.md#c5"
-    char_span: [9499, 11265]
+    char_span: [9498, 11264]
     sentence_count: 15
     key_terms: [possible, sales, value, data, decisions, usually, answer, beneficial-panda-640]
+    concepts: [possible, sales, value, decisions, usually]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1tf9vft.md#c2"]
     section: Comments
     token_count: 383
 ---

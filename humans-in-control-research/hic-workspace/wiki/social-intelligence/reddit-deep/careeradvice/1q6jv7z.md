@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 669]
     sentence_count: 5
     key_terms: [growth, careeradvice, executive, comments, career, reddit-deep, experience, fulfilling]
+    concepts: [careeradvice, growth, executive, comments, career]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1q6jv7z.md#c2"]
     token_count: 178
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1q6jv7z/should_i_quit_my_growth_executive_career_at_22_to/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1q6jv7z.md#c1"
     char_span: [683, 2053]
     sentence_count: 10
     key_terms: [software, development, programming, been, ones, experience, guaranteed, technology]
+    concepts: [software, development, programming, experience, guaranteed]
     section: Comments
     token_count: 336
+    sources: [{"n":"me, with 30+ years of experience in the software technology field.","u":""}]
   - id: "social-intelligence/reddit-deep/careeradvice/1q6jv7z.md#c2"
     char_span: [2055, 2753]
     sentence_count: 7
     key_terms: [executive, growth, former-wolverine8859, limp-plantain3824, luckyfritzbear, own-theory1962, subscribers, influencer]
+    concepts: [executive, growth]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1q6jv7z.md#c0"]
     section: Comments
     token_count: 186
 ---

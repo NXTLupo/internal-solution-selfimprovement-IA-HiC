@@ -8,6 +8,7 @@ chunks:
     char_span: [0, 1615]
     sentence_count: 11
     key_terms: [mono, nxt, archivo, evidence-stack, tokens, before-after, chat, ibm]
+    concepts: [evidence-stack, archivo, before-after, tokens, case-study]
     section: Figma exemplars (source of truth) / Anatomy / Construction rule (1-to-1 PPTX)
     token_count: 466
 ---

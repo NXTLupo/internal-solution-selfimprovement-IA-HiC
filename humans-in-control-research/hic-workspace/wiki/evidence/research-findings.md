@@ -12,354 +12,470 @@ chunks:
     char_span: [0, 2544]
     sentence_count: 10
     key_terms: [student, citations, priority, research, across, status, privacy-preserving, privacy]
+    concepts: [student, citations, priority, research, privacy-preserving]
+    related_chunks: ["evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c5", "evidence/research-findings.md#c7", "evidence/research-findings.md#c10"]
     section: "Research Run: 2026-04-12 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 447
   - id: "evidence/research-findings.md#c1"
     char_span: [2546, 5004]
     sentence_count: 9
     key_terms: [citations, priority, significant, status, donor, learning, cost-efficiency, digital]
+    concepts: [citations, priority, significant, status, cost-efficiency]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c2", "evidence/research-findings.md#c5", "evidence/research-findings.md#c10", "evidence/research-findings.md#c11"]
     section: "Research Run: 2026-04-12 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 438
   - id: "evidence/research-findings.md#c2"
     char_span: [5006, 7572]
     sentence_count: 10
     key_terms: [student, learning, citations, co-op, priority, institutional, experiential, northeastern]
+    concepts: [student, learning, citations, institutional, priority]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c3", "evidence/research-findings.md#c5", "evidence/research-findings.md#c7"]
     section: "Research Run: 2026-04-12 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 457
   - id: "evidence/research-findings.md#c3"
     char_span: [7574, 10136]
     sentence_count: 9
     key_terms: [learning, competitive, digital, citations, outcomes, priority, institutional, roadmap]
+    concepts: [learning, competitive, digital, citations, institutional]
+    related_chunks: ["evidence/research-findings.md#c2", "evidence/research-findings.md#c8", "evidence/research-findings.md#c9", "evidence/research-findings.md#c12", "evidence/research-findings.md#c13"]
     section: "Research Run: 2026-04-12 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 431
   - id: "evidence/research-findings.md#c4"
     char_span: [10138, 11537]
     sentence_count: 7
     key_terms: [co-op, infrastructure, interoperable, information, logistical, citations, academic, planning]
+    concepts: [co-op, infrastructure, interoperable, information, logistical]
+    related_chunks: ["evidence/research-findings.md#c15"]
     section: "Research Run: 2026-04-12 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 228
   - id: "evidence/research-findings.md#c5"
     char_span: [11632, 14369]
     sentence_count: 9
     key_terms: [advancement, citations, priority, cybersecurity, opportunities, digital, northeastern, development]
+    concepts: [advancement, citations, cybersecurity, opportunities, priority]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c10", "evidence/research-findings.md#c13"]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 481
   - id: "evidence/research-findings.md#c6"
     char_span: [14371, 17220]
     sentence_count: 12
     key_terms: [student, students, retention, co-op, support, citations, success, fundraising]
+    concepts: [student, students, retention, co-op, support]
+    related_chunks: ["evidence/research-findings.md#c7", "evidence/research-findings.md#c11", "evidence/research-findings.md#c15", "evidence/research-findings.md#c17", "evidence/research-findings.md#c18"]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 487
   - id: "evidence/research-findings.md#c7"
     char_span: [17222, 20031]
     sentence_count: 11
     key_terms: [international, student, citations, support, northeastern, status, enterprise, innovation]
+    concepts: [international, student, citations, northeastern, support]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c2", "evidence/research-findings.md#c6", "evidence/research-findings.md#c10", "evidence/research-findings.md#c11"]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 481
   - id: "evidence/research-findings.md#c8"
     char_span: [20033, 22804]
     sentence_count: 10
     key_terms: [co-op, university, "northeastern's", competitive, citations, digital, advancement, status]
+    concepts: [co-op, "northeastern's", university, competitive, citations]
+    related_chunks: ["evidence/research-findings.md#c3", "evidence/research-findings.md#c12", "evidence/research-findings.md#c14", "evidence/research-findings.md#c17", "evidence/research-findings.md#c22"]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 490
   - id: "evidence/research-findings.md#c9"
     char_span: [22806, 24367]
     sentence_count: 6
     key_terms: [digital, workforce, learning, experiential, advancement, initiatives, significant, stakeholder]
+    concepts: [digital, workforce, learning, experiential, advancement]
+    related_chunks: ["evidence/research-findings.md#c3", "evidence/research-findings.md#c12", "evidence/research-findings.md#c18", "evidence/research-findings.md#c19", "evidence/research-findings.md#c20"]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 285
   - id: "evidence/research-findings.md#c10"
     char_span: [24462, 27198]
     sentence_count: 8
     key_terms: [student, northeastern, citations, priority, digital, support, personalized, status]
+    concepts: [student, northeastern, citations, priority, personalized]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c5", "evidence/research-findings.md#c7"]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 480
   - id: "evidence/research-findings.md#c11"
     char_span: [27200, 29876]
     sentence_count: 10
     key_terms: [student, citations, students, support, status, fostering, priority, impact]
+    concepts: [student, citations, students, support, status]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c6", "evidence/research-findings.md#c7"]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 482
   - id: "evidence/research-findings.md#c12"
     char_span: [29878, 32583]
     sentence_count: 9
     key_terms: [engagement, learning, experiential, citations, relations, "northeastern's", priority, experiences]
+    concepts: [engagement, experiential, learning, "northeastern's", citations]
+    related_chunks: ["evidence/research-findings.md#c2", "evidence/research-findings.md#c3", "evidence/research-findings.md#c8", "evidence/research-findings.md#c9", "evidence/research-findings.md#c13"]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 470
   - id: "evidence/research-findings.md#c13"
     char_span: [32585, 35386]
     sentence_count: 8
     key_terms: [comprehensive, student, citations, learning, priority, experiential, development, skills]
+    concepts: [comprehensive, student, citations, learning, priority]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c3", "evidence/research-findings.md#c5"]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 486
   - id: "evidence/research-findings.md#c14"
     char_span: [35481, 38405]
     sentence_count: 12
     key_terms: [education, international, co-op, citations, federal, student, higher, status]
+    concepts: [international, education, co-op, citations, federal]
+    related_chunks: ["evidence/research-findings.md#c7", "evidence/research-findings.md#c8", "evidence/research-findings.md#c29", "evidence/research-findings.md#c30", "evidence/research-findings.md#c45"]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 504
   - id: "evidence/research-findings.md#c15"
     char_span: [38407, 40726]
     sentence_count: 9
     key_terms: [co-op, employment, infrastructure, student, institutions, investment, citations, strategic]
+    concepts: [co-op, employment, infrastructure, institutions, student]
+    related_chunks: ["evidence/research-findings.md#c4", "evidence/research-findings.md#c6", "evidence/research-findings.md#c16", "evidence/research-findings.md#c29", "evidence/research-findings.md#c30"]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 396
   - id: "evidence/research-findings.md#c16"
     char_span: [40728, 43065]
     sentence_count: 8
     key_terms: [institutions, enrollment, funding, student, citations, like, external, holistic]
+    concepts: [institutions, enrollment, funding, student, citations]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c2", "evidence/research-findings.md#c7", "evidence/research-findings.md#c10", "evidence/research-findings.md#c11"]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 391
   - id: "evidence/research-findings.md#c17"
     char_span: [43067, 45456]
     sentence_count: 8
     key_terms: [support, engagement, experience, co-op, "northeastern's", faculty, student, competitive]
+    concepts: [engagement, experience, support, "northeastern's", co-op]
+    related_chunks: ["evidence/research-findings.md#c6", "evidence/research-findings.md#c8", "evidence/research-findings.md#c12"]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 414
   - id: "evidence/research-findings.md#c18"
     char_span: [45458, 47796]
     sentence_count: 8
     key_terms: [students, experiential, co-op, learning, advancement, citations, effective, strategic]
+    concepts: [experiential, students, learning, co-op, advancement]
+    related_chunks: ["evidence/research-findings.md#c6", "evidence/research-findings.md#c9", "evidence/research-findings.md#c12", "evidence/research-findings.md#c19", "evidence/research-findings.md#c25"]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 396
   - id: "evidence/research-findings.md#c19"
     char_span: [47891, 50455]
     sentence_count: 9
     key_terms: [learning, experiential, status, student, citations, co-op, comprehensive, international]
+    concepts: [learning, experiential, status, student, citations]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c3", "evidence/research-findings.md#c7"]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 439
   - id: "evidence/research-findings.md#c20"
     char_span: [50457, 53073]
     sentence_count: 10
     key_terms: [advancement, digital, initiatives, citations, priority, strategy, institutional, philanthropic]
+    concepts: [advancement, digital, initiatives, citations, institutional]
+    related_chunks: ["evidence/research-findings.md#c2", "evidence/research-findings.md#c3", "evidence/research-findings.md#c5", "evidence/research-findings.md#c9", "evidence/research-findings.md#c24"]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 445
   - id: "evidence/research-findings.md#c21"
     char_span: [53075, 55752]
     sentence_count: 11
     key_terms: [student, readiness, experiential, northeastern, citations, employer, learning, priority]
+    concepts: [student, readiness, experiential, northeastern, citations]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c2", "evidence/research-findings.md#c7", "evidence/research-findings.md#c10", "evidence/research-findings.md#c11"]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 464
   - id: "evidence/research-findings.md#c22"
     char_span: [55754, 58498]
     sentence_count: 9
     key_terms: [data, governance, structured, citations, strategic, implementation, "northeastern's", priority]
+    concepts: [governance, structured, implementation, "northeastern's", citations]
+    related_chunks: ["evidence/research-findings.md#c8", "evidence/research-findings.md#c12", "evidence/research-findings.md#c24", "evidence/research-findings.md#c27", "evidence/research-findings.md#c49"]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 469
   - id: "evidence/research-findings.md#c23"
     char_span: [58593, 61346]
     sentence_count: 10
     key_terms: [experiential, policy, status, citations, learning, priority, comprehensive, clr]
+    concepts: [experiential, citations, policy, status, comprehensive]
+    related_chunks: ["evidence/research-findings.md#c1", "evidence/research-findings.md#c11", "evidence/research-findings.md#c12", "evidence/research-findings.md#c13", "evidence/research-findings.md#c19"]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 489
   - id: "evidence/research-findings.md#c24"
     char_span: [61348, 64325]
     sentence_count: 10
     key_terms: [student, citations, "northeastern's", priority, data, digital, advancement, status]
+    concepts: [student, "northeastern's", citations, priority, advancement]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c5", "evidence/research-findings.md#c7"]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 502
   - id: "evidence/research-findings.md#c25"
     char_span: [64327, 67299]
     sentence_count: 9
     key_terms: [student, learning, experiential, clr, citations, priority, initiatives, stakeholder]
+    concepts: [student, experiential, learning, citations, priority]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c3", "evidence/research-findings.md#c5"]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 515
   - id: "evidence/research-findings.md#c26"
     char_span: [67301, 69662]
     sentence_count: 8
     key_terms: [skills, outcomes, competitiveness, learning, partnerships, co-op, citations, employers]
+    concepts: [skills, outcomes, competitiveness, learning, partnerships]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 389
   - id: "evidence/research-findings.md#c27"
     char_span: [69664, 71858]
     sentence_count: 8
     key_terms: [data, project, governance, management, pilot, citations, clr, priority]
+    concepts: [project, governance, management, citations, pilot]
+    related_chunks: ["evidence/research-findings.md#c22"]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 395
   - id: "evidence/research-findings.md#c28"
     char_span: [71953, 74678]
     sentence_count: 10
     key_terms: [university, citations, priority, students, student, status, academic, funding]
+    concepts: [university, citations, priority, students, student]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c5", "evidence/research-findings.md#c6"]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 481
   - id: "evidence/research-findings.md#c29"
     char_span: [74680, 76927]
     sentence_count: 8
     key_terms: [student, students, co-op, citations, financial, inclusive, priority, campus]
+    concepts: [student, students, co-op, citations, financial]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c2", "evidence/research-findings.md#c6", "evidence/research-findings.md#c7", "evidence/research-findings.md#c8"]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 411
   - id: "evidence/research-findings.md#c30"
     char_span: [76929, 79322]
     sentence_count: 10
     key_terms: [students, co-op, market, student, needs, citations, priority, regional]
+    concepts: [students, co-op, market, student, citations]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c2", "evidence/research-findings.md#c6", "evidence/research-findings.md#c7", "evidence/research-findings.md#c8"]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 415
   - id: "evidence/research-findings.md#c31"
     char_span: [79324, 82137]
     sentence_count: 10
     key_terms: [social, citations, priority, advancement, application, fundraising, status, data]
+    concepts: [citations, social, priority, advancement, application]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c5", "evidence/research-findings.md#c10"]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 483
   - id: "evidence/research-findings.md#c32"
     char_span: [82139, 85042]
     sentence_count: 14
     key_terms: [student, alumni, digital, engagement, citations, priority, students, status]
+    concepts: [student, alumni, digital, engagement, citations]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c2", "evidence/research-findings.md#c3", "evidence/research-findings.md#c7", "evidence/research-findings.md#c10"]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 499
   - id: "evidence/research-findings.md#c33"
     char_span: [85044, 87237]
     sentence_count: 8
     key_terms: [students, status, citations, cross-functional, student, alumni, participation, experiential]
+    concepts: [students, status, cross-functional, citations, participation]
+    related_chunks: ["evidence/research-findings.md#c1", "evidence/research-findings.md#c11", "evidence/research-findings.md#c19", "evidence/research-findings.md#c23", "evidence/research-findings.md#c28"]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 394
   - id: "evidence/research-findings.md#c34"
     char_span: [87332, 90341]
     sentence_count: 9
     key_terms: [student, learning, experiential, international, governance, status, citations, co-op]
+    concepts: [student, learning, experiential, international, governance]
+    related_chunks: ["evidence/research-findings.md#c2", "evidence/research-findings.md#c7", "evidence/research-findings.md#c9", "evidence/research-findings.md#c12", "evidence/research-findings.md#c13"]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 504
   - id: "evidence/research-findings.md#c35"
     char_span: [90343, 92917]
     sentence_count: 7
     key_terms: [financial, alumni, giving, status, donor, citations, academic, priority]
+    concepts: [financial, alumni, giving, status, citations]
+    related_chunks: ["evidence/research-findings.md#c1", "evidence/research-findings.md#c11", "evidence/research-findings.md#c19", "evidence/research-findings.md#c23", "evidence/research-findings.md#c29"]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 445
   - id: "evidence/research-findings.md#c36"
     char_span: [92919, 95462]
     sentence_count: 7
     key_terms: [student, learning, comprehensive, institutional, initiatives, perceptions, alumni, citations]
+    concepts: [student, learning, comprehensive, institutional, initiatives]
+    related_chunks: ["evidence/research-findings.md#c2", "evidence/research-findings.md#c3", "evidence/research-findings.md#c13", "evidence/research-findings.md#c19", "evidence/research-findings.md#c20"]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 428
   - id: "evidence/research-findings.md#c37"
     char_span: [95464, 98120]
     sentence_count: 8
     key_terms: [comprehensive, student, advancement, career, co-op, citations, readiness, reporting]
+    concepts: [comprehensive, advancement, student, career, citations]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c2", "evidence/research-findings.md#c5", "evidence/research-findings.md#c7", "evidence/research-findings.md#c10"]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 442
   - id: "evidence/research-findings.md#c38"
     char_span: [98122, 99713]
     sentence_count: 5
     key_terms: [operational, planned, giving, communication, pilot, scaffolding, small-scale, citations]
+    concepts: [operational, communication, planned, giving, scaffolding]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 273
   - id: "evidence/research-findings.md#c39"
     char_span: [99808, 102472]
     sentence_count: 9
     key_terms: [citations, priority, digital, status, learning, accessibility, student, experiential]
+    concepts: [citations, priority, digital, status, accessibility]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c3", "evidence/research-findings.md#c5"]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 466
   - id: "evidence/research-findings.md#c40"
     char_span: [102474, 104971]
     sentence_count: 8
     key_terms: [citations, priority, status, donor, advancement, higher, co-op, education]
+    concepts: [citations, priority, status, donor, advancement]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c5", "evidence/research-findings.md#c10"]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 453
   - id: "evidence/research-findings.md#c41"
     char_span: [104973, 107500]
     sentence_count: 5
     key_terms: [citations, student, status, comprehensive, experiential, competitive, confidence, co-op]
+    concepts: [citations, student, status, comprehensive, experiential]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c7", "evidence/research-findings.md#c10"]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 453
   - id: "evidence/research-findings.md#c42"
     char_span: [107502, 108544]
     sentence_count: 4
     key_terms: [comprehensive, multi-faceted, advancement, development, evaluation, structured, citations, discovery]
+    concepts: [comprehensive, multi-faceted, advancement, development, evaluation]
+    related_chunks: ["evidence/research-findings.md#c37"]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 188
   - id: "evidence/research-findings.md#c43"
     char_span: [108639, 111303]
     sentence_count: 7
     key_terms: [citations, status, data, northeastern, advancement, priority, strategy, transformative]
+    concepts: [citations, status, northeastern, advancement, priority]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c5", "evidence/research-findings.md#c7"]
     section: "Research Run: 2026-04-16 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 496
   - id: "evidence/research-findings.md#c44"
     char_span: [111305, 113565]
     sentence_count: 7
     key_terms: [donors, citations, insights, advancement, credibility, status, donor, frontline]
+    concepts: [citations, donors, insights, advancement, credibility]
+    related_chunks: ["evidence/research-findings.md#c5", "evidence/research-findings.md#c20", "evidence/research-findings.md#c24", "evidence/research-findings.md#c31", "evidence/research-findings.md#c37"]
     section: "Research Run: 2026-04-16 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 436
   - id: "evidence/research-findings.md#c45"
     char_span: [113567, 116412]
     sentence_count: 7
     key_terms: [co-op, citations, institutional, northeastern, status, academic, success, development]
+    concepts: [institutional, citations, co-op, northeastern, status]
+    related_chunks: ["evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c3", "evidence/research-findings.md#c7", "evidence/research-findings.md#c8"]
     section: "Research Run: 2026-04-16 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 506
   - id: "evidence/research-findings.md#c46"
     char_span: [116414, 118640]
     sentence_count: 5
     key_terms: [alumni, citations, communication, data, stewardship, status, engagement, management]
+    concepts: [citations, alumni, communication, stewardship, engagement]
+    related_chunks: ["evidence/research-findings.md#c12", "evidence/research-findings.md#c32", "evidence/research-findings.md#c35", "evidence/research-findings.md#c48", "evidence/research-findings.md#c50"]
     section: "Research Run: 2026-04-16 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 397
   - id: "evidence/research-findings.md#c47"
     char_span: [118735, 121308]
     sentence_count: 8
     key_terms: [data, fundraising, citations, infrastructure, priority, philanthropic, advancement, status]
+    concepts: [fundraising, infrastructure, citations, philanthropic, priority]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c5", "evidence/research-findings.md#c10"]
     section: "Research Run: 2026-04-20 — ROLE You are an elite market research analyst embedded with"
     token_count: 461
   - id: "evidence/research-findings.md#c48"
     char_span: [121310, 123309]
     sentence_count: 7
     key_terms: [reporting, alumni, engagement, analytics, citations, priority, status, opportunities]
+    concepts: [reporting, engagement, alumni, analytics, citations]
+    related_chunks: ["evidence/research-findings.md#c12", "evidence/research-findings.md#c32", "evidence/research-findings.md#c35", "evidence/research-findings.md#c46", "evidence/research-findings.md#c50"]
     section: "Research Run: 2026-04-20 — ROLE You are an elite market research analyst embedded with"
     token_count: 377
   - id: "evidence/research-findings.md#c49"
     char_span: [123311, 125326]
     sentence_count: 8
     key_terms: [donors, "northeastern's", retention, citations, data, priority, status, high-capacity]
+    concepts: [donors, "northeastern's", retention, citations, priority]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c5", "evidence/research-findings.md#c8"]
     section: "Research Run: 2026-04-20 — ROLE You are an elite market research analyst embedded with"
     token_count: 399
   - id: "evidence/research-findings.md#c50"
     char_span: [125328, 128062]
     sentence_count: 8
     key_terms: [northeastern, fundraising, alumni, citations, resources, priority, college, status]
+    concepts: [northeastern, fundraising, citations, resources, alumni]
+    related_chunks: ["evidence/research-findings.md#c7", "evidence/research-findings.md#c10", "evidence/research-findings.md#c21", "evidence/research-findings.md#c32", "evidence/research-findings.md#c35"]
     section: "Research Run: 2026-04-20 — ROLE You are an elite market research analyst embedded with"
     token_count: 484
   - id: "evidence/research-findings.md#c51"
     char_span: [128064, 130845]
     sentence_count: 9
     key_terms: [data, advancement, "northeastern's", citations, reporting, priority, status, critical]
+    concepts: [advancement, "northeastern's", citations, reporting, priority]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c5", "evidence/research-findings.md#c8"]
     section: "Research Run: 2026-04-20 — ROLE You are an elite market research analyst embedded with"
     token_count: 488
   - id: "evidence/research-findings.md#c52"
     char_span: [130940, 133408]
     sentence_count: 7
     key_terms: [digital, citations, priority, status, universities, fundraising, across, giving]
+    concepts: [digital, citations, priority, status, universities]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c3", "evidence/research-findings.md#c5"]
     section: "Research Run: 2026-04-21 — Identify named university case studies from 2025 and 2026, s"
     token_count: 483
   - id: "evidence/research-findings.md#c53"
     char_span: [133410, 135734]
     sentence_count: 8
     key_terms: [donors, citations, priority, giving, status, recurring, engagement, donor]
+    concepts: [donors, citations, priority, recurring, giving]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c5", "evidence/research-findings.md#c10"]
     section: "Research Run: 2026-04-21 — Identify named university case studies from 2025 and 2026, s"
     token_count: 437
   - id: "evidence/research-findings.md#c54"
     char_span: [135736, 138322]
     sentence_count: 7
     key_terms: [citations, priority, status, fundraising, campaign, institutional, data, alumni]
+    concepts: [citations, priority, status, fundraising, institutional]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c3", "evidence/research-findings.md#c5"]
     section: "Research Run: 2026-04-21 — Identify named university case studies from 2025 and 2026, s"
     token_count: 499
   - id: "evidence/research-findings.md#c55"
     char_span: [138324, 140644]
     sentence_count: 6
     key_terms: [citations, advancement, digital, status, transparency, endowments, engagement, technology]
+    concepts: [citations, advancement, digital, status, transparency]
+    related_chunks: ["evidence/research-findings.md#c1", "evidence/research-findings.md#c3", "evidence/research-findings.md#c5", "evidence/research-findings.md#c9", "evidence/research-findings.md#c11"]
     section: "Research Run: 2026-04-21 — Identify named university case studies from 2025 and 2026, s"
     token_count: 440
   - id: "evidence/research-findings.md#c56"
     char_span: [140646, 143037]
     sentence_count: 7
     key_terms: [digital, citations, advancement, status, social, technology, donor, matching]
+    concepts: [digital, citations, advancement, status, technology]
+    related_chunks: ["evidence/research-findings.md#c1", "evidence/research-findings.md#c3", "evidence/research-findings.md#c5", "evidence/research-findings.md#c9", "evidence/research-findings.md#c11"]
     section: "Research Run: 2026-04-21 — Identify named university case studies from 2025 and 2026, s"
     token_count: 458
   - id: "evidence/research-findings.md#c57"
     char_span: [143039, 145277]
     sentence_count: 6
     key_terms: [citations, priority, daf, data, status, campaign, gifts, giving]
+    concepts: [citations, priority, status, campaign, gifts]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c5", "evidence/research-findings.md#c10"]
     section: "Research Run: 2026-04-21 — Identify named university case studies from 2025 and 2026, s"
     token_count: 442
   - id: "evidence/research-findings.md#c58"
     char_span: [145279, 146560]
     sentence_count: 4
     key_terms: [fundraising, deductions, endowments, citations, tax, priority, through, status]
+    concepts: [fundraising, deductions, endowments, citations, priority]
+    related_chunks: ["evidence/research-findings.md#c0", "evidence/research-findings.md#c1", "evidence/research-findings.md#c2", "evidence/research-findings.md#c5", "evidence/research-findings.md#c10"]
     section: "Research Run: 2026-04-21 — Identify named university case studies from 2025 and 2026, s"
     token_count: 260
 ---

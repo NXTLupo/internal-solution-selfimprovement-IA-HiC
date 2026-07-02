@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 984]
     sentence_count: 10
     key_terms: [techforgood, gdpr, building, feedback, partner, reddit, draft, rooms]
+    concepts: [techforgood, building, feedback, partner, reddit]
     token_count: 241
+    sources: [{"n":"reddit: techforgood","u":"https://reddit.com/r/techforgood/comments/1raow1i/feedback_request_gdprsafe_partner_rooms_for/"}]
 ---
 # Feedback request: GDPR‑safe ‘partner rooms’ for nonprofits – worth building?
 

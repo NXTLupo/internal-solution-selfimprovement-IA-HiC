@@ -19,106 +19,137 @@ chunks:
     char_span: [0, 2154]
     sentence_count: 9
     key_terms: [engineer, jobs, platforms, cscareerquestions, data, skills, capabilities, job]
+    concepts: [engineer, cscareerquestions, platforms, capabilities, skills]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1s8lgwr/i_analyzed_11k_available_dev_jobs_to_find_out/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c1"
     char_span: [2156, 3198]
     sentence_count: 10
     key_terms: [python, skills, roles, engineering, available, platforms, looking, prompt]
+    concepts: [python, skills, engineering, roles, available]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c15"]
     token_count: 219
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c2"
     char_span: [3225, 4391]
     sentence_count: 1
     key_terms: [language, framework, database, protocol, cloud, api, container, devops]
+    concepts: [language, framework, database, protocol, cloud]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c6", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c7"]
     section: Top 30 Skills Overall
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c3"
     char_span: [4222, 4559]
     sentence_count: 1
     key_terms: [framework, language, tensorflow, operating, database, angular, concept, message]
+    concepts: [framework, language]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c6", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c8"]
     section: Top 30 Skills Overall
     token_count: 144
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c4"
     char_span: [4561, 5651]
     sentence_count: 1
     key_terms: [framework, container, cloud, language, jobs, engineer, kubernetes, category]
+    concepts: [framework, container, language, cloud, engineer]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c6", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c7"]
     section: Top 30 Skills Overall / Top 10 Skills per Role Family
     token_count: 445
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c5"
     char_span: [5653, 6670]
     sentence_count: 1
     key_terms: [language, container, framework, jobs, kubernetes, typescript, developer, category]
+    concepts: [language, container, framework, kubernetes, typescript]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c6", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c8"]
     section: Top 10 Skills per Role Family
     token_count: 409
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c6"
     char_span: [6672, 7699]
     sentence_count: 1
     key_terms: [language, framework, developer, jobs, protocol, api, javascript, typescript]
+    concepts: [language, framework, developer, protocol, javascript]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c8"]
     section: Top 10 Skills per Role Family
     token_count: 414
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c7"
     char_span: [7701, 8738]
     sentence_count: 1
     key_terms: [language, architecture, jobs, devops, ci-cd, cloud, container, developer]
+    concepts: [language, architecture, devops, ci-cd, cloud]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c8"]
     section: Top 10 Skills per Role Family
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c8"
     char_span: [8740, 9708]
     sentence_count: 1
     key_terms: [language, framework, jobs, cloud, category, database, engineer, devops]
+    concepts: [language, framework, cloud, category, database]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c6"]
     section: Top 10 Skills per Role Family
     token_count: 426
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c9"
     char_span: [9710, 10299]
     sentence_count: 1
     key_terms: [knowledge, domain, framework, language, learning, concept, jobs, rank]
+    concepts: [knowledge, domain, framework, language, learning]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c6"]
     section: Top 10 Skills per Role Family
     token_count: 227
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c10"
     char_span: [10314, 12283]
     sentence_count: 10
     key_terms: [people, apps, mobile, coincidence, data, post, comments, compared]
+    concepts: [people, mobile, coincidence, comments, compared]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c11"
     char_span: [12285, 13606]
     sentence_count: 10
     key_terms: [mobile, going, devs, web, companies, typically, engineer, frontend]
+    concepts: [mobile, going, companies, typically, engineer]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c12"
     char_span: [13608, 15682]
     sentence_count: 14
     key_terms: [experience, learn, "can't", stack, developer, importantsquirrel, day, dev]
+    concepts: [experience, learn, importantsquirrel, developer, "can't"]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c13"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c13"
     char_span: [15420, 16607]
     sentence_count: 6
     key_terms: [experience, recruiters, importantsquirrel, engineering, typescript, different, languages, enough]
+    concepts: [experience, recruiters, importantsquirrel, engineering, typescript]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c12"]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c14"
     char_span: [16609, 17964]
     sentence_count: 7
     key_terms: [obolli, itcareerquestions, here, helpful, dominating, papayon10, because, people]
+    concepts: [itcareerquestions, obolli, helpful, dominating, papayon10]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c15"
     char_span: [17966, 19834]
     sentence_count: 12
     key_terms: [roles, available, widely, "it's", java, confluent, surprised, language]
+    concepts: [available, roles, widely, confluent, surprised]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c1"]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c16"
     char_span: [19836, 21925]
     sentence_count: 15
     key_terms: [jobs, roles, here, companies, net, tech, butt-fucker-9000, don]
+    concepts: [roles, butt-fucker-9000, companies, enterprise, principal]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s8lgwr.md#c17"
     char_span: [21927, 23136]
     sentence_count: 8
     key_terms: [net, architectures, cloud, used, companies, support, python, strong]
+    concepts: [architectures, cloud, companies, support, python]
     section: Comments
     token_count: 271
 ---

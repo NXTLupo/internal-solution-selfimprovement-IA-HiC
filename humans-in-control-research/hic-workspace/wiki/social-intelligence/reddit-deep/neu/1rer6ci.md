@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 435]
     sentence_count: 1
     key_terms: [application, comments, co-op, https, neu, hot-nothing-4424, jjp3sgmkpplg1, experiential]
+    concepts: [application, comments, co-op, https]
     token_count: 140
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rer6ci/application_surge_caused_by_coop/"}]
 ---
 # application surge caused by co-op
 

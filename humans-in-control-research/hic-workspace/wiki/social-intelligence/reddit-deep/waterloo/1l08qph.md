@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1380]
     sentence_count: 3
     key_terms: [juice, waterloo, someone, juicer, home, comments, veggies, fruits]
+    concepts: [juice, waterloo, someone, juicer, comments]
     token_count: 359
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1l08qph/odd_job_in_waterloo_helping_me_make_juice/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1l08qph.md#c1"
     char_span: [1394, 2587]
     sentence_count: 4
     key_terms: [deleted, help, juicers, minimum, pristine-version2069, curiouscoderspace, like, live]
+    concepts: [deleted, juicers, minimum]
     section: Comments
     token_count: 351
 ---

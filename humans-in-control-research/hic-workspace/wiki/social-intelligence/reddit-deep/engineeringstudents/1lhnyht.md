@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 845]
     sentence_count: 7
     key_terms: [engineeringstudents, internship, full-time, comments, advice, google, hiring, lower]
+    concepts: [engineeringstudents, internship, full-time, comments, advice]
     token_count: 185
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1lhnyht/a_google_engineers_advice_to_computer_science/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lhnyht.md#c1"
     char_span: [859, 1649]
     sentence_count: 4
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    concepts: [engineeringstudents, reddit, https, resources, please]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lhnyht.md#c2"
     char_span: [1651, 3676]
     sentence_count: 9
     key_terms: [hard, work, themselves, convince, nepotism, referral, because, "doesn't"]
+    concepts: [themselves, convince, nepotism, referral, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lhnyht.md#c3"
@@ -44,6 +48,7 @@ chunks:
     char_span: [3829, 5302]
     sentence_count: 13
     key_terms: [get, likely, stevemcwonder, door, like, internship, graduate, certain]
+    concepts: [stevemcwonder, likely, internship, graduate, certain]
     section: Comments
     token_count: 354
 ---

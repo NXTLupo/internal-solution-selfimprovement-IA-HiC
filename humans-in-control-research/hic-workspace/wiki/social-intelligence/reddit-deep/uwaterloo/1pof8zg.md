@@ -21,23 +21,31 @@ chunks:
     char_span: [0, 713]
     sentence_count: 8
     key_terms: [waterloo, social, uwaterloo, comments, campus, people, easy-suggestion8327, reddit-deep]
+    concepts: [waterloo, social, uwaterloo, comments, campus]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1pof8zg.md#c2", "social-intelligence/reddit-deep/uwaterloo/1pof8zg.md#c3"]
     token_count: 177
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1pof8zg/is_waterloo_really_that_depressing_as_people_say/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1pof8zg.md#c1"
     char_span: [727, 2718]
     sentence_count: 13
     key_terms: [people, socialize, questionableparadigm, fun, like, time, school, "it's"]
+    concepts: [people, socialize, questionableparadigm, school, tamedcolon]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/uwaterloo/1pof8zg.md#c2"
     char_span: [2720, 4906]
     sentence_count: 16
     key_terms: [campus, students, people, get, social, "it's", reputation, targetting]
+    concepts: [campus, students, people, social, reputation]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1pof8zg.md#c0"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/uwaterloo/1pof8zg.md#c3"
     char_span: [4908, 5525]
     sentence_count: 5
     key_terms: [campus, waterloo, pretty, ion, self-contained, architecture, connections, utilitarian]
+    concepts: [campus, waterloo, pretty]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1pof8zg.md#c0"]
     section: Comments
     token_count: 130
 ---

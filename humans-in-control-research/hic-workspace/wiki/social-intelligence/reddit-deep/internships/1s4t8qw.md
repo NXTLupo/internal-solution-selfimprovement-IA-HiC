@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2258]
     sentence_count: 3
     key_terms: [development, understanding, business, banking, client, financial, bfsi, support]
+    concepts: [development, understanding, business, banking, financial]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1s4t8qw/job_title_business_development_manager_bfsi/"}]
   - id: "social-intelligence/reddit-deep/internships/1s4t8qw.md#c1"
     char_span: [2260, 3909]
     sentence_count: 1
     key_terms: [ability, client, coordination, interactions, financial, solutions, learning, skills]
+    concepts: [ability, coordination, interactions, client, financial]
     token_count: 443
 ---
 # Job Title: Business Development Manager – BFSI & Technology Solutions (Fresher)

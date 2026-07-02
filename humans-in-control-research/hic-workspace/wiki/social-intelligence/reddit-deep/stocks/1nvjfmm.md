@@ -21,47 +21,63 @@ chunks:
     char_span: [0, 1087]
     sentence_count: 3
     key_terms: [reddit-stock-falls-for-second-day-as-references-to-its-content-in-chatgpt-responses-plummet-135203534, reddit, chatgpt, content, cited, https, com, responses]
+    concepts: [reddit-stock-falls-for-second-day-as-references-to-its-content-in-chatgpt-responses-plummet-135203534, reddit, chatgpt, content, cited]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nvjfmm.md#c3", "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c5"]
     token_count: 280
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1nvjfmm/reddit_stock_sinks_12_as_chatgpt_references_to/"}]
   - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c1"
     char_span: [1101, 2596]
     sentence_count: 6
     key_terms: [reddit, probably, x-has-highest-rate-of-misinformation-as-a-news-sou, misinformation, openai, random, conclusions, company]
+    concepts: [reddit, probably, misinformation, openai, random]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nvjfmm.md#c2"]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c2"
     char_span: [2598, 4183]
     sentence_count: 8
     key_terms: [reddit, misinformation, thesefuckingaccounts, deadinternettheory, anotherthroneaway, laughinggaster666, bot, etc]
+    concepts: [reddit, misinformation]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nvjfmm.md#c1"]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c3"
     char_span: [4185, 6025]
     sentence_count: 9
     key_terms: [chatgpt, generated, comments, iiiiiiiiiateeyes, content, posts, like, articles]
+    concepts: [chatgpt, iiiiiiiiiateeyes, generated, comments, content]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nvjfmm.md#c0"]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c4"
     char_span: [6027, 7872]
     sentence_count: 9
     key_terms: [reddit, citations, bought, dropping, because, dropped, support, likely]
+    concepts: [reddit, citations, bought, dropping, because]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nvjfmm.md#c6"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c5"
     char_span: [7874, 10023]
     sentence_count: 11
     key_terms: [reddit, chat, gpt, want, kind, town, username, chatgpt]
+    concepts: [reddit, username, chatgpt, example, reddits]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nvjfmm.md#c0"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c6"
     char_span: [10025, 12084]
     sentence_count: 16
     key_terms: [reddit, get, information, unbiased, because, "there's", gwillhunting, guess]
+    concepts: [reddit, information, unbiased, because, "there's"]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nvjfmm.md#c4"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c7"
     char_span: [12086, 12515]
     sentence_count: 2
     key_terms: [reddit, answers, few-chemist-3463, conversation, considering, keywording, statement, anything]
+    concepts: [reddit, answers]
     section: Comments
     token_count: 94
 ---

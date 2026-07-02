@@ -11,20 +11,23 @@ score: 1
 upvote_ratio: 0.67
 num_comments: 10
 flair: "help please"
-extracted_at: "2026-06-11T18:58:38.960Z"
+extracted_at: "2026-06-23T20:32:01.769Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Analyze case studies of private equity firms and holding companies (such as Medforth) that build repeatable AI capabilities once and scale them across higher education portfolio companies. Deliver an operational playbook detailing the shared-service models, governance frameworks, and deployment strategies used to scale AI across admissions workflows, student communications, and enrollment operations to accelerate long enrollment cycles."
+engagement: "analyze-case-studies-of-private-equity-firms-and-holding-com"
 chunks:
   - id: "social-intelligence/reddit-deep/salesforce/1rffwbr.md#c0"
     char_span: [0, 1700]
     sentence_count: 9
     key_terms: [salesforce, solution, netherlands, role, comments, engineer, advice, strong]
+    concepts: [salesforce, solution, netherlands, comments, engineer]
     token_count: 359
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1rffwbr/seeking_advice_hire_at_salesforce_netherlands_for/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1rffwbr.md#c1"
-    char_span: [1715, 3285]
+    char_span: [1714, 3284]
     sentence_count: 12
     key_terms: [experience, salesforce, dutch, the-hoffmeister, office, mandatory, position, "doesn't"]
+    concepts: [experience, salesforce, dutch, the-hoffmeister, office]
     section: Comments
     token_count: 389
 ---

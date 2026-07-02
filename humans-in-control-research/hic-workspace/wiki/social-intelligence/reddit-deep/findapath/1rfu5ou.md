@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 329]
     sentence_count: 2
     key_terms: [findapath, comments, professional, reddit-deep, compliance, realistic, customs, explore]
+    concepts: [findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1rfu5ou.md#c1"]
     token_count: 84
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1rfu5ou/mexican_customs_compliance_professional_wanting/"}]
   - id: "social-intelligence/reddit-deep/findapath/1rfu5ou.md#c1"
     char_span: [343, 1653]
     sentence_count: 10
     key_terms: [thank, helpful, please, here, findapath, comments, everyone, guidance]
+    concepts: [thank, helpful, please, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1rfu5ou.md#c0"]
     section: Comments
     token_count: 294
 ---

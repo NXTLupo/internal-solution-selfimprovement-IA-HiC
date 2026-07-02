@@ -21,41 +21,55 @@ chunks:
     char_span: [0, 2412]
     sentence_count: 18
     key_terms: [masters, industry, program, phd, academia, programs, skills, specifically]
+    concepts: [masters, industry, program, academia, programs]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1p5lseh.md#c6"]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1p5lseh/when_are_masters_degrees_worth_it_if_ever/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1p5lseh.md#c1"
     char_span: [2414, 4085]
     sentence_count: 8
     key_terms: [phd, masters, profpathcambridge, "master's", significant, get, absolutely, experience]
+    concepts: [masters, profpathcambridge, "master's", significant, absolutely]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/askacademia/1p5lseh.md#c2"
     char_span: [4087, 5972]
     sentence_count: 13
     key_terms: [phd, masters, research, msc, master, courses, honours, degree]
+    concepts: [masters, research, master, courses, honours]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1p5lseh.md#c4", "social-intelligence/reddit-deep/askacademia/1p5lseh.md#c5"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/askacademia/1p5lseh.md#c3"
     char_span: [5974, 7970]
     sentence_count: 15
     key_terms: [universities, because, phd, "master's", programs, degree, publications, institution]
+    concepts: [universities, because, "master's", programs, publications]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1p5lseh.md#c5"]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/askacademia/1p5lseh.md#c4"
     char_span: [7972, 9691]
     sentence_count: 14
     key_terms: [graduate, students, research, masters, department, money, student, paying]
+    concepts: [graduate, students, research, department, masters]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1p5lseh.md#c2"]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/askacademia/1p5lseh.md#c5"
     char_span: [9693, 11279]
     sentence_count: 13
     key_terms: [phd, degree, master, publications, programs, research, biology, college]
+    concepts: [publications, degree, master, programs, research]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1p5lseh.md#c2", "social-intelligence/reddit-deep/askacademia/1p5lseh.md#c3"]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/askacademia/1p5lseh.md#c6"
     char_span: [11281, 12070]
     sentence_count: 8
     key_terms: [management, business, industry, finance, masters, program, field, pivot]
+    concepts: [management, business, industry, finance, masters]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1p5lseh.md#c0"]
     section: Comments
     token_count: 183
 ---

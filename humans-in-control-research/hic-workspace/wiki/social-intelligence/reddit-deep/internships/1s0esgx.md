@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1377]
     sentence_count: 6
     key_terms: [internships, internship, companies, cmu, opportunities, comments, referral, software]
+    concepts: [internships, internship, companies, opportunities, comments]
     token_count: 313
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1s0esgx/advice_for_cmu_grad_student_seeking/"}]
 ---
 # Advice for CMU grad student seeking ML/Data/Software internships at Google/Meta/OpenAI
 

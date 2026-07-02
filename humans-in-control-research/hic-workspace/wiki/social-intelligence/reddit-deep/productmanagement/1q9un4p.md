@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 828]
     sentence_count: 6
     key_terms: [recommendations, productmanagement, app, flow, real, comments, homepage, chatgpt]
+    concepts: [recommendations, productmanagement, comments, homepage, chatgpt]
     token_count: 196
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1q9un4p/can_a_chatgpt_agent_analyze_my_web_app_flow_and/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1q9un4p.md#c1"
-    char_span: [843, 2622]
+    char_span: [842, 2621]
     sentence_count: 16
     key_terms: [users, "don't", user, reach, "it's", real, feedback, validate]
+    concepts: [users, "don't", reach, feedback, validate]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/productmanagement/1q9un4p.md#c2"
-    char_span: [2624, 4350]
+    char_span: [2623, 4349]
     sentence_count: 14
     key_terms: [give, user, feedback, chrome, claude, based, etc, web]
+    concepts: [feedback, chrome, claude, based, behavior]
     section: Comments
     token_count: 410
 ---

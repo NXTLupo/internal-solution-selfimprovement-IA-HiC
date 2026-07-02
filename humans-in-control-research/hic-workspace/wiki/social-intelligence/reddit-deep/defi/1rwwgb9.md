@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1375]
     sentence_count: 11
     key_terms: [wallet, defi, wallets, crypto, funds, store, comments, multiple]
+    concepts: [wallet, wallets, crypto, funds, store]
     token_count: 302
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1rwwgb9/whats_the_safest_way_to_store_crypto_after_recent/"}]
   - id: "social-intelligence/reddit-deep/defi/1rwwgb9.md#c1"
-    char_span: [1390, 3590]
+    char_span: [1389, 3589]
     sentence_count: 15
     key_terms: [wallet, connected, use, testing, acceptablejacket3947, imaginary-box8650, exposed, wallets]
+    concepts: [wallet, connected, acceptablejacket3947, testing, imaginary-box8650]
     section: Comments
     token_count: 494
 ---

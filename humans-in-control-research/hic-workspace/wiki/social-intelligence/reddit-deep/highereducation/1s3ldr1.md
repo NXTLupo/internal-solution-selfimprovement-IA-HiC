@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 617]
     sentence_count: 7
     key_terms: [highereducation, university, comments, asking, giving, money, day, reddit-deep]
+    concepts: [highereducation, university, comments, asking, giving]
     token_count: 151
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1s3ldr1/day_of_giving/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1s3ldr1.md#c1"
     char_span: [631, 2425]
     sentence_count: 12
     key_terms: [donate, employees, "it's", because, donors, fundraising, soliciting, donations]
+    concepts: [employees, donate, because, donors, fundraising]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1s3ldr1.md#c4"]
     section: Comments
     token_count: 429
+    sources: [{"n":"Going on 25 years in higher ed and have collaborated with Advancement offices a ","u":""}]
   - id: "social-intelligence/reddit-deep/highereducation/1s3ldr1.md#c2"
     char_span: [2427, 3637]
     sentence_count: 9
     key_terms: [staff, give, employees, mundanehuckleberry58, asked, hard, pay, work]
+    concepts: [staff, employees, asked]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/highereducation/1s3ldr1.md#c3"
     char_span: [3639, 5291]
     sentence_count: 9
     key_terms: [giving, participation, staff, pay, enough, tmsdnr, helpful-passenger-12, money]
+    concepts: [participation, giving, staff, enough, tmsdnr]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/highereducation/1s3ldr1.md#c4"
     char_span: [5293, 6655]
     sentence_count: 8
     key_terms: [year, fundraisers, end, time, thinking, donate, donors, imaginarycatdreams]
+    concepts: [fundraisers, thinking, donate, donors]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1s3ldr1.md#c1"]
     section: Comments
     token_count: 347
 ---

@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1409]
     sentence_count: 11
     key_terms: [biosensing, engineeringstudents, project, opportunity, got, ops, comments, imposter]
+    concepts: [engineeringstudents, biosensing, project, opportunity, comments]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qcx9p0.md#c1"]
     token_count: 328
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qcx9p0/dilemma_over_opportunities_engineering_student/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qcx9p0.md#c1"
     char_span: [1423, 3660]
     sentence_count: 15
     key_terms: [engineeringstudents, project, wiki, automation, please, reddit, https, orangetothefourth]
+    concepts: [engineeringstudents, project, automation, orangetothefourth, please]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qcx9p0.md#c0"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qcx9p0.md#c2"
     char_span: [3663, 4087]
     sentence_count: 3
     key_terms: [research, project, opportunities, explanation, potentially, progression, internship, understood]
+    concepts: [research, project]
     section: Comments
     token_count: 79
 ---

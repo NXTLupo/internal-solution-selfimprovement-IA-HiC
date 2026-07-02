@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 626]
     sentence_count: 4
     key_terms: [wallstreetbets, losing, big, comments, regards, loyal, stay, reddit-deep]
+    concepts: [wallstreetbets, losing, comments, regards, loyal]
     token_count: 163
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1n20rhy/stay_loyal_fellow_regards/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1n20rhy.md#c1"
     char_span: [640, 1737]
     sentence_count: 1
     key_terms: [millionaire, wsb, account, robboost330, post, bankrupt, discord, https]
+    concepts: [millionaire, account, robboost330, bankrupt, discord]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/wallstreetbets/1n20rhy.md#c2"
     char_span: [1739, 3076]
     sentence_count: 10
     key_terms: [trade, account, like, someone, ihaveterriblefriends, time-initiative-7769, start, cash]
+    concepts: [trade, account, someone, start]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/wallstreetbets/1n20rhy.md#c3"
     char_span: [3079, 4651]
     sentence_count: 6
     key_terms: [balls, calls, something, bufonia1, million, preview, always, muted-woodpecker-469]
+    concepts: [balls, calls, something, bufonia1, million]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1n20rhy.md#c4"
     char_span: [4512, 5975]
     sentence_count: 7
     key_terms: [format, width, robboost330, auto, pjpg, webp, pending, preview]
+    concepts: [format, robboost330, width, pending, preview]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1n20rhy.md#c5"
     char_span: [5728, 6060]
     sentence_count: 4
     key_terms: [pending, timburgessthis, understand, investing, combined, entirety, winning, buying]
+    concepts: [pending]
     section: Comments
     token_count: 90
 ---

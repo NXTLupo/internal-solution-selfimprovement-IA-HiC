@@ -7,47 +7,53 @@ subreddit: "ecommerce"
 title: "Alternatives to A/B testing for low volume"
 author: "TFDangerzone2017"
 date: "2026-03-31T23:15:48.000Z"
-score: 3
-upvote_ratio: 0.8
+score: 2
+upvote_ratio: 0.67
 num_comments: 9
 flair: "📢 Marketing"
-extracted_at: "2026-06-18T13:35:23.819Z"
+extracted_at: "2026-06-24T22:13:57.309Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1s93fzj.md#c0"
     char_span: [0, 1980]
     sentence_count: 11
     key_terms: [testing, sessions, conversions, orders, monthly, answer, ecommerce, comments]
+    concepts: [testing, sessions, conversions, orders, monthly]
     token_count: 467
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1s93fzj/alternatives_to_ab_testing_for_low_volume/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1s93fzj.md#c1"
     char_span: [1982, 4427]
     sentence_count: 26
     key_terms: [customer, research, traffic, store, find, like, testing, qualitative]
+    concepts: [customer, research, traffic, store, testing]
     token_count: 493
   - id: "social-intelligence/reddit-deep/ecommerce/1s93fzj.md#c2"
     char_span: [4429, 5742]
     sentence_count: 11
     key_terms: [creative, testing, customers, something, removed, deeper, "you've", going]
+    concepts: [creative, testing, customers, something, removed]
     token_count: 273
   - id: "social-intelligence/reddit-deep/ecommerce/1s93fzj.md#c3"
-    char_span: [5757, 7739]
+    char_span: [5756, 7738]
     sentence_count: 8
     key_terms: [like, traffic, button, significance, small, add, recordings, checkout]
+    concepts: [traffic, significance, button, recordings, small]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/ecommerce/1s93fzj.md#c4"
-    char_span: [7741, 9906]
+    char_span: [7740, 9905]
     sentence_count: 22
     key_terms: [qualitative, questions, button, scale, smart, add-to-cart, rate, follow-up]
+    concepts: [qualitative, questions, button, add-to-cart, scale]
     section: Comments
     token_count: 449
 ---
 # Alternatives to A/B testing for low volume
 
 Source: [reddit-deep: r/ecommerce](https://www.reddit.com/r/ecommerce/comments/1s93fzj/alternatives_to_ab_testing_for_low_volume/)
-Posted by **TFDangerzone2017** · **3↑** · **9 comments**
+Posted by **TFDangerzone2017** · **2↑** · **9 comments**
 
 Just a note at the start of this post - the first part is very much a "me talking about me" story, but it quickly turns into specific research-based learnings (that are hopefully useful).
 

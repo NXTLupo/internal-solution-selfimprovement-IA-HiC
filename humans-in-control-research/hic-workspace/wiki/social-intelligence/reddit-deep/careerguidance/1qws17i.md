@@ -19,34 +19,41 @@ chunks:
     char_span: [0, 2015]
     sentence_count: 25
     key_terms: [manager, being, "i'm", work, careerguidance, leadership, promotion, comments]
+    concepts: [manager, being, careerguidance, leadership, promotion]
     token_count: 495
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qws17i/turned_down_a_promotion_because_it_was_30_more/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1qws17i.md#c1"
     char_span: [2017, 3505]
     sentence_count: 18
     key_terms: ["i'm", money, did, time, manager, "they're", become, career]
+    concepts: [money, manager, "they're", become, career]
     token_count: 327
   - id: "social-intelligence/reddit-deep/careerguidance/1qws17i.md#c2"
     char_span: [3519, 5468]
     sentence_count: 12
     key_terms: [raise, need, work, adjustment, negotiate, annual, enough, living]
+    concepts: [adjustment, raise, negotiate, annual, enough]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/careerguidance/1qws17i.md#c3"
     char_span: [5470, 6678]
     sentence_count: 12
     key_terms: [hours, became, idontthinkimabot101, never, night, raise, super, formysaiquestions]
+    concepts: [hours, became, never, night, raise]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/careerguidance/1qws17i.md#c4"
     char_span: [6680, 8403]
     sentence_count: 12
     key_terms: [senior, analyst, raise, years, job, kind, experience, loblaws]
+    concepts: [senior, analyst, experience, raise, years]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/careerguidance/1qws17i.md#c5"
     char_span: [8405, 10172]
     sentence_count: 11
     key_terms: [money, motivate, kundaliniredneck, analyst, work, promotion, refused, doing]
+    concepts: [money, kundaliniredneck, motivate, analyst, promotion]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1qws17i.md#c6"
@@ -59,30 +66,35 @@ chunks:
     char_span: [10207, 10606]
     sentence_count: 2
     key_terms: [hours, meeting, extra, week, responsibilities, additional, difference, audacious]
+    concepts: [hours, meeting, extra]
     section: Comments
     token_count: 99
   - id: "social-intelligence/reddit-deep/careerguidance/1qws17i.md#c8"
     char_span: [10608, 12539]
     sentence_count: 9
     key_terms: [looking, likely, "don't", replacement, team, aggressive, comments, because]
+    concepts: [looking, likely, replacement, aggressive, "don't"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1qws17i.md#c9"
     char_span: [12360, 13050]
     sentence_count: 3
     key_terms: [get, someone, looking, the-keystone-hoya, job, dragoncelt25, truegritsrat, aggressive]
+    concepts: [someone, looking]
     section: Comments
     token_count: 198
   - id: "social-intelligence/reddit-deep/careerguidance/1qws17i.md#c10"
     char_span: [13052, 14563]
     sentence_count: 8
     key_terms: [job, new, take, additional, "doesn't", outside, happen, resume]
+    concepts: [additional, "doesn't", outside, happen, resume]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/careerguidance/1qws17i.md#c11"
     char_span: [14565, 16382]
     sentence_count: 18
     key_terms: [company, something, people, management, decision, manager, better, middle]
+    concepts: [company, something, people, management, decision]
     section: Comments
     token_count: 468
 ---

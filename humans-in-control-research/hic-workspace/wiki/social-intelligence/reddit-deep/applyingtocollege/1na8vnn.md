@@ -19,51 +19,68 @@ chunks:
     char_span: [0, 1905]
     sentence_count: 7
     key_terms: [professors, research, high, students, school, schoolers, comments, doing]
+    concepts: [professors, research, students, schoolers, school]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c7"]
     token_count: 427
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1na8vnn/high_schoolers_doing_research_from_the/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c1"
     char_span: [1907, 3610]
     sentence_count: 17
     key_terms: [lab, kids, work, research, students, school, high, university]
+    concepts: [research, students, school, university, involved]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c7"]
     token_count: 394
   - id: "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c2"
     char_span: [3612, 5594]
     sentence_count: 20
     key_terms: [school, high, lab, experience, time, work, students, college]
+    concepts: [school, experience, students, college, undergrads]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c7"]
     token_count: 446
   - id: "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c3"
     char_span: [5608, 7381]
     sentence_count: 11
     key_terms: [research, student, high, school, lotsofgrading, best, grad, professor]
+    concepts: [research, student, school, lotsofgrading, professor]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c7"]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c4"
     char_span: [7383, 8228]
     sentence_count: 8
     key_terms: [cee, research, anyone, reddit, hellothereimericcc, bakedandhalfawake, isef, run]
+    concepts: [research, anyone, reddit]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c5"
     char_span: [8230, 10308]
     sentence_count: 10
     key_terms: [research, university, professor, high, interested, involved, robotics, college]
+    concepts: [research, university, professor, interested, involved]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c3"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c6"
     char_span: [10310, 12635]
     sentence_count: 17
     key_terms: [work, undergrad, research, high, did, kids, postdoc, through]
+    concepts: [undergrad, research, postdoc, through, connections]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c7"
     char_span: [12336, 14573]
     sentence_count: 13
     key_terms: [research, college, school, high, kids, applications, lab, laboratory]
+    concepts: [research, college, school, applications, laboratory]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c8"
     char_span: [14228, 15310]
     sentence_count: 11
     key_terms: [applications, days, kids, researcher, research, college, cancer, group]
+    concepts: [applications, researcher, research, college, cancer]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1na8vnn.md#c7"]
     section: Comments
     token_count: 231
 ---

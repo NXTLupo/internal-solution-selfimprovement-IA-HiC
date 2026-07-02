@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 774]
     sentence_count: 6
     key_terms: [because, college, full-time, comments, student, campus, "i'm", move]
+    concepts: [because, college, full-time, comments, student]
     token_count: 180
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1n5rij2/how_do_people_in_my_situation_save_money_while/"}]
   - id: "social-intelligence/reddit-deep/college/1n5rij2.md#c1"
     char_span: [788, 2260]
     sentence_count: 9
     key_terms: [ancientnoise1757, applied, parents, doing, fafsa, room, semester, college]
+    concepts: [ancientnoise1757, applied, parents, doing, fafsa]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/college/1n5rij2.md#c2"
     char_span: [2262, 3176]
     sentence_count: 10
     key_terms: [work, "didn't", though, radiant-pianist-3596, back, did, duty, got]
+    concepts: ["didn't", though]
     section: Comments
     token_count: 228
   - id: "social-intelligence/reddit-deep/college/1n5rij2.md#c3"
     char_span: [3178, 5123]
     sentence_count: 14
     key_terms: [work, school, doing, shifts, car, hrs, semester, campus]
+    concepts: [school, doing, shifts, semester, campus]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1n5rij2.md#c4"
     char_span: [4880, 5521]
     sentence_count: 6
     key_terms: [car, college, parents, paying, people, coachinteresting7125, lot, rent]
+    concepts: [college, parents, paying, people]
     section: Comments
     token_count: 160
   - id: "social-intelligence/reddit-deep/college/1n5rij2.md#c5"
     char_span: [5523, 7031]
     sentence_count: 14
     key_terms: [campus, maintenancelazy, parents, living, maybe, tuition, common, family]
+    concepts: [campus, maintenancelazy, parents, living, maybe]
     section: Comments
     token_count: 360
 ---

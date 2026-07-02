@@ -19,28 +19,38 @@ chunks:
     char_span: [0, 2042]
     sentence_count: 4
     key_terms: [resume, cscareerquestions, unemployment, reads, job, new, tech, comments]
+    concepts: [cscareerquestions, resume, unemployment, reads, comments]
     token_count: 471
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1skmvz0/new_cs_grads_are_walking_into_the_worst_entry/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skmvz0.md#c1"
     char_span: [2044, 4408]
     sentence_count: 6
     key_terms: [ones, projects, include, sending, format, applications, built, behavioral]
+    concepts: [projects, include, sending, applications, format]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1skmvz0.md#c2"]
     token_count: 476
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skmvz0.md#c2"
     char_span: [4422, 5908]
     sentence_count: 7
     key_terms: [projects, advice, skills, job, include, project, hiring, market]
+    concepts: [projects, advice, skills, include, project]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1skmvz0.md#c1"]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skmvz0.md#c3"
     char_span: [5910, 8022]
     sentence_count: 10
     key_terms: ["you're", "it's", because, someone, hiring, applications, ones, applying]
+    concepts: ["you're", because, someone, applications, hiring]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1skmvz0.md#c4"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skmvz0.md#c4"
     char_span: [8024, 10052]
     sentence_count: 17
     key_terms: [network, because, someone, people, "don't", lot, specifically, job]
+    concepts: [network, because, someone, people, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1skmvz0.md#c3"]
     section: Comments
     token_count: 453
 ---

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 431]
     sentence_count: 3
     key_terms: [engineeringstudents, comments, engineering, reddit-deep, experience, internship, mechanical, gopi-hue]
+    concepts: [engineeringstudents, comments]
     token_count: 120
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1thnhw4/how_can_i_find_a_internship_as_a_first_year_dont/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1thnhw4.md#c1"
     char_span: [445, 1828]
     sentence_count: 8
     key_terms: [engineering, local, adoormarkedpirate420, internship, start, employees, internships, mean]
+    concepts: [engineering, adoormarkedpirate420, local, internship, employees]
     section: Comments
     token_count: 314
 ---

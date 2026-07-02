@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1389]
     sentence_count: 2
     key_terms: [wallstreetbets, comments, options, https, reddit, shares, thanks, didnt]
+    concepts: [wallstreetbets, comments, options, https, reddit]
     token_count: 395
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1te3rcd/first_day_trade_since_covid_why_notthanks_fig/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1te3rcd.md#c1"
     char_span: [1403, 1607]
     sentence_count: 1
     key_terms: [total, year, submissions, visualmod, comments, previous, account, report]
+    concepts: [total]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/wallstreetbets/1te3rcd.md#c2"
     char_span: [1609, 3238]
     sentence_count: 7
     key_terms: [degenerate, posts, years, day, wsb, discord, bought, people]
+    concepts: [degenerate, posts, years, discord, bought]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/wallstreetbets/1te3rcd.md#c3"
     char_span: [3240, 4606]
     sentence_count: 6
     key_terms: [grouchy-donkey-8609, options, shares, good, panicapprehensive16, figma, ligma, money]
+    concepts: [grouchy-donkey-8609, options, shares, figma, ligma]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/wallstreetbets/1te3rcd.md#c4"

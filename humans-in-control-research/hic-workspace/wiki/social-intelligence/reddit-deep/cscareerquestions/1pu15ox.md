@@ -21,28 +21,34 @@ chunks:
     char_span: [0, 2207]
     sentence_count: 13
     key_terms: [math, programming, cscareerquestions, majoring, theory, proficient, analysis, comments]
+    concepts: [programming, cscareerquestions, majoring, theory, proficient]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1pu15ox/how_much_do_majors_matter_in_the_cs_job_market/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pu15ox.md#c1"
     char_span: [2209, 2734]
     sentence_count: 4
     key_terms: [math, majoring, projects, jobs, keep, swe, consideration, programming]
+    concepts: [majoring, projects]
     token_count: 113
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pu15ox.md#c2"
     char_span: [2748, 4470]
     sentence_count: 9
     key_terms: [enough, major, math, bluerosesarefake, double, minor, like, recruiters]
+    concepts: [enough, bluerosesarefake, major, double, minor]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pu15ox.md#c3"
     char_span: [4472, 6059]
     sentence_count: 9
     key_terms: [good, math, physics, majors, programmer, knowledge, getting, having]
+    concepts: [physics, majors, programmer, knowledge, getting]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pu15ox.md#c4"
     char_span: [6061, 8217]
     sentence_count: 9
     key_terms: [math, majors, never-trust-a-programmer-who-says-he-knows-c, quantitative, engineering, good, mit, cartoons]
+    concepts: [majors, quantitative, engineering, cartoons, applied]
     section: Comments
     token_count: 498
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 675]
     sentence_count: 4
     key_terms: [internships, comments, company, adventurousbat1517, pharmaceutical, cybersecurity, opportunities, experiences]
+    concepts: [internships, comments, company]
     token_count: 162
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1reyig8/it_internships/"}]
   - id: "social-intelligence/reddit-deep/internships/1reyig8.md#c1"
     char_span: [689, 1752]
     sentence_count: 4
     key_terms: [insurance, medical, common, prestigious-hour-215, adventurousbat1517, bank, oil, pharmaceuticals]
+    concepts: [insurance, medical, common]
     section: Comments
     token_count: 250
 ---

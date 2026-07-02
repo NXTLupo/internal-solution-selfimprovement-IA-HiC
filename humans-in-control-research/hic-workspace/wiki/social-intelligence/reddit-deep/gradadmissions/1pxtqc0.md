@@ -21,40 +21,48 @@ chunks:
     char_span: [0, 1888]
     sentence_count: 5
     key_terms: [master, software, gradadmissions, career, realistically, uncertainty, feel, graduation]
+    concepts: [master, software, gradadmissions, realistically, career]
     token_count: 459
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1pxtqc0/25m_cs_graduate_from_india_confused_about_career/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c1"
     char_span: [1890, 2282]
     sentence_count: 7
     key_terms: [whether, realistically, alternative, india-based, appreciate, experience, countries, pursuing]
+    concepts: [whether]
     token_count: 95
   - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c2"
     char_span: [2296, 3961]
     sentence_count: 7
     key_terms: [india, curiousvoyagerrr, master, internships, everyone, deleted, focused, masters]
+    concepts: [india, curiousvoyagerrr, master, internships, everyone]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c3"
     char_span: [3963, 6058]
     sentence_count: 14
     key_terms: [get, usa, faang, like, talented, deleted, enough, people]
+    concepts: [faang, talented, deleted, professional, enough]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c4"
     char_span: [5783, 7410]
     sentence_count: 11
     key_terms: ["master's", experience, masters, eduvouchersofficial, doing, india, years, job]
+    concepts: ["master's", experience, masters, doing, india]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c5"
     char_span: [7412, 8799]
     sentence_count: 10
     key_terms: [chances, master, get, job, current, dear-enthusiasm-9766, level, years]
+    concepts: [chances, master, current, level, years]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c6"
     char_span: [8801, 9891]
     sentence_count: 7
     key_terms: [dear-enthusiasm-9766, getting, university, please, paper, gpa, top, work]
+    concepts: [dear-enthusiasm-9766, getting, university, please, paper]
     section: Comments
     token_count: 256
 ---

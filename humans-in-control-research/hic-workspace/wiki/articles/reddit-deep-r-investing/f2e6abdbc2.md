@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1398]
     sentence_count: 9
     key_terms: [analyze, halilural, portfolio, look, returns, use, allocation, investment]
+    concepts: [analyze, halilural, portfolio, returns, allocation]
     token_count: 358
+    sources: [{"n":"Reddit Deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1rvlej9/do_any_of_you_use_ai_to_analyze_your_investment/"}]
 ---
 # Do any of you use AI to analyze your investment portfolio?
 

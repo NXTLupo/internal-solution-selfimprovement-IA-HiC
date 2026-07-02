@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 856]
     sentence_count: 5
     key_terms: [college, time, achievements, community, comments, finding, reddit, full]
+    concepts: [college, achievements, community, comments, finding]
     token_count: 205
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1q28761/for_mature_students_how_are_you_finding_the_time/"}]
   - id: "articles/reddit-deep-r-college/df79c9fba2.md#c1"
     char_span: [858, 2544]
     sentence_count: 11
     key_terms: [old, non-traditional, scholarships, try, work, experience, laughing, students]
+    concepts: [non-traditional, scholarships, experience, laughing, students]
     token_count: 409
 ---
 # For mature students, how are you finding the time to do things outside of school and work

@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 512]
     sentence_count: 7
     key_terms: [careerguidance, comments, career, cybersecurity, opportunity, poojasuthar, reddit-deep, difficulty]
+    concepts: [careerguidance, comments, career]
     token_count: 135
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tbsrkw/which_career_path_is_better_for_bsc_csit_students/"}]
 ---
 # Which career path is better for bsc csit students currently in second year?
 

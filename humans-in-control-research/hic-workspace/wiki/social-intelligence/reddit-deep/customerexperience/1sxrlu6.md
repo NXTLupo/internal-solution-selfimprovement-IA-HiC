@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1465]
     sentence_count: 8
     key_terms: [faster, customerexperience, support, get, experience, improving, comments, customer]
+    concepts: [customerexperience, faster, support, experience, improving]
     token_count: 313
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1sxrlu6/is_ai_actually_improving_customer_experience_or/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1sxrlu6.md#c1"
-    char_span: [1480, 3790]
+    char_span: [1479, 3789]
     sentence_count: 15
     key_terms: [automation, recognitionfit8333, contact, replies, issue, engineering, been, customers]
+    concepts: [recognitionfit8333, automation, contact, replies, engineering]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/customerexperience/1sxrlu6.md#c2"
-    char_span: [3792, 5089]
+    char_span: [3791, 5088]
     sentence_count: 9
     key_terms: [replies, faster, ticket, fix, user, anycarrot5783, effectiveness, surface-level]
+    concepts: [replies, faster, ticket]
     section: Comments
     token_count: 276
   - id: "social-intelligence/reddit-deep/customerexperience/1sxrlu6.md#c3"
-    char_span: [5091, 6940]
+    char_span: [5090, 6939]
     sentence_count: 12
     key_terms: [customer, issues, teams, real, experience, individual, repetitive, automate]
+    concepts: [customer, issues, experience, individual, repetitive]
     section: Comments
     token_count: 390
 ---

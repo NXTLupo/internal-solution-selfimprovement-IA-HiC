@@ -21,31 +21,38 @@ chunks:
     char_span: [0, 1922]
     sentence_count: 21
     key_terms: [phd, accepted, applied, careerguidance, abroad, mathematics, comments, industry]
+    concepts: [accepted, careerguidance, applied, abroad, mathematics]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pobnme/long_post_accepted_a_phd_at_29_vs_moving_to/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1pobnme.md#c1"
     char_span: [1924, 4018]
     sentence_count: 19
     key_terms: [research, realistically, phd, scientist, like, competitive, sure, want]
+    concepts: [realistically, research, scientist, competitive, especially]
     token_count: 445
   - id: "social-intelligence/reddit-deep/careerguidance/1pobnme.md#c2"
     char_span: [4020, 6484]
     sentence_count: 23
     key_terms: [immediately, interesting, option, move, another, germany, switzerland, healthcare]
+    concepts: [immediately, interesting, option, another, germany]
     token_count: 479
   - id: "social-intelligence/reddit-deep/careerguidance/1pobnme.md#c3"
     char_span: [6486, 7715]
     sentence_count: 9
     key_terms: [phd, because, going, switzerland, currently, germany, choice, mental]
+    concepts: [because, switzerland, going, currently, germany]
     token_count: 246
   - id: "social-intelligence/reddit-deep/careerguidance/1pobnme.md#c4"
     char_span: [7717, 10120]
     sentence_count: 21
     key_terms: [phd, want, decision, years, withdrawing, possible, rational, because]
+    concepts: [decision, withdrawing, years, possible, rational]
     token_count: 504
   - id: "social-intelligence/reddit-deep/careerguidance/1pobnme.md#c5"
     char_span: [10122, 11271]
     sentence_count: 12
     key_terms: [phd, years, mammothdull6020, germany, depressed, specially, harder, having]
+    concepts: [mammothdull6020, years, germany, depressed, specially]
     section: Comments
     token_count: 287
 ---

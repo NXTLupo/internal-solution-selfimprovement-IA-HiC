@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 2154]
     sentence_count: 16
     key_terms: [across, context, claude, shared, https, code, sessions, memory]
+    concepts: [across, context, claude, shared, https]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1qet10k.md#c2"]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1qet10k/how_do_teams_manage_shared_context_on_claude_code/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1qet10k.md#c1"
     char_span: [2168, 3787]
     sentence_count: 12
     key_terms: [context, chunkhound, burning, deleted, through, claude, demand, notion]
+    concepts: [context, chunkhound, burning, deleted, through]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/anthropic/1qet10k.md#c2"
     char_span: [3789, 4568]
     sentence_count: 6
     key_terms: [markdown, claude, folder, shared, file, mutationobserver, documentation, local-first]
+    concepts: [markdown, claude, folder, shared]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1qet10k.md#c0"]
     section: Comments
     token_count: 156
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1351]
     sentence_count: 8
     key_terms: [careeradvice, early, been, different, building, comments, advice, skills]
+    concepts: [careeradvice, early, different, building, comments]
     token_count: 303
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1t10rxz/confused_about_where_to_focus_early_in_my_career/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1t10rxz.md#c1"
     char_span: [1365, 1740]
     sentence_count: 3
     key_terms: [projects, small, experimentation, consistent, direction, gradually, pressure, becomes]
+    concepts: [projects, small]
     section: Comments
     token_count: 85
 ---

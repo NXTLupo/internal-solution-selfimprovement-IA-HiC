@@ -19,17 +19,24 @@ chunks:
     char_span: [0, 746]
     sentence_count: 7
     key_terms: [housing, neu, comments, facebook, boston, sublet, traditionallake3608, co-op]
+    concepts: [housing, comments, facebook, boston, sublet]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1orrryn.md#c2"]
     token_count: 190
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1orrryn/how_do_students_sublet_at_northeastern/"}]
   - id: "social-intelligence/reddit-deep/neu/1orrryn.md#c1"
     char_span: [760, 2347]
     sentence_count: 7
     key_terms: [housing, getting, traditionallake3608, https, reddit, www, facebook, mcm998]
+    concepts: [housing, traditionallake3608, getting, https, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1orrryn.md#c2"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/neu/1orrryn.md#c2"
     char_span: [2349, 4231]
     sentence_count: 6
     key_terms: [sublet, traditionallake3608, instagram, guy, housing, boston, post, apartment]
+    concepts: [sublet, traditionallake3608, instagram, housing, boston]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1orrryn.md#c0", "social-intelligence/reddit-deep/neu/1orrryn.md#c1"]
     section: Comments
     token_count: 475
 ---

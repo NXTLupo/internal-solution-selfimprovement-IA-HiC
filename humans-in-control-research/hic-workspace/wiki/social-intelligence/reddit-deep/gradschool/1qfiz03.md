@@ -21,41 +21,54 @@ chunks:
     char_span: [0, 1523]
     sentence_count: 7
     key_terms: [projects, program, group, already, established, gradschool, undergrad, comments]
+    concepts: [projects, program, group, already, established]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qfiz03.md#c1", "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c3", "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c4", "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c5"]
     token_count: 333
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1qfiz03/any_other_folks_who_are_well_established_in_their/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c1"
     char_span: [1537, 3775]
     sentence_count: 11
     key_terms: [projects, doing, students, individual, group, already, masters, point]
+    concepts: [projects, students, doing, individual, group]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qfiz03.md#c0", "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c3", "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c4", "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c5"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c2"
     char_span: [3778, 4533]
     sentence_count: 6
     key_terms: [opportunity, professor, without, people, person, "it's", like, conversation]
+    concepts: [opportunity, professor, without, people, person]
     section: Comments
     token_count: 149
   - id: "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c3"
     char_span: [4536, 6497]
     sentence_count: 10
     key_terms: [group, projects, work, professors, anything, assigned, project, myself]
+    concepts: [group, projects, professors, anything, assigned]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qfiz03.md#c0", "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c1", "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c4", "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c4"
     char_span: [6286, 6932]
     sentence_count: 4
     key_terms: [get, everyone, projects, answer, worked, group, understandably, academically]
+    concepts: [everyone, projects, answer, worked, group]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qfiz03.md#c0", "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c1", "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c3", "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c5"]
     section: Comments
     token_count: 161
   - id: "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c5"
     char_span: [6934, 8554]
     sentence_count: 10
     key_terms: [group, work, folks, like, individual, sometimes, projects, smoother]
+    concepts: [group, folks, individual, sometimes, projects]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qfiz03.md#c0", "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c1", "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c3", "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c4"]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c6"
     char_span: [8556, 10595]
     sentence_count: 7
     key_terms: [school, because, work, project, different, applying, teamwork, muddied]
+    concepts: [school, because, project, different, applying]
     section: Comments
     token_count: 424
 ---

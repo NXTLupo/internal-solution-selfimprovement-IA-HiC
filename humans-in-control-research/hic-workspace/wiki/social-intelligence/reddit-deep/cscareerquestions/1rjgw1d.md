@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 490]
     sentence_count: 6
     key_terms: [cscareerquestions, comments, project, internships, reddit-deep, experience, graduated, brother]
+    concepts: [cscareerquestions, comments, project]
     token_count: 133
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rjgw1d/brother_graduated_college_9_months_ago_hes_living/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rjgw1d.md#c1"
     char_span: [504, 2005]
     sentence_count: 8
     key_terms: [known-tourist-6102, market, job, something, company, project, working, cooked]
+    concepts: [known-tourist-6102, market, something, company, project]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rjgw1d.md#c2"
     char_span: [2007, 4040]
     sentence_count: 16
     key_terms: [resume, projects, jobs, job, project, applications, "can't", unemployed]
+    concepts: [resume, projects, project, applications, "can't"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rjgw1d.md#c3"
     char_span: [4042, 5904]
     sentence_count: 13
     key_terms: [resume, technology, possible, brother, technically, put, definitely, projects]
+    concepts: [resume, technology, possible, brother, technically]
     section: Comments
     token_count: 430
 ---

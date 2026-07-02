@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 685]
     sentence_count: 4
     key_terms: [college, working, time, comments, walmart, thereshaminthepci, full, live]
+    concepts: [college, working, comments, walmart]
     token_count: 169
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1m47ktn/where_are_you_working_to_live_on_your_own/"}]
   - id: "social-intelligence/reddit-deep/college/1m47ktn.md#c1"
     char_span: [699, 2719]
     sentence_count: 12
     key_terms: [scholarships, katekat0974, too, always, amazon, school, international, aid]
+    concepts: [scholarships, katekat0974, international, always, amazon]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1m47ktn.md#c2"
     char_span: [2487, 3545]
     sentence_count: 12
     key_terms: [job, tips, decent, jersey, office, pretty, shifts, major]
+    concepts: [decent, jersey, office, pretty, shifts]
     section: Comments
     token_count: 274
   - id: "social-intelligence/reddit-deep/college/1m47ktn.md#c3"
     char_span: [3547, 4960]
     sentence_count: 10
     key_terms: [college, student, job, apartment, looking, tuition, making, offer]
+    concepts: [college, student, apartment, looking, tuition]
     section: Comments
     token_count: 345
 ---

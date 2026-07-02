@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 810]
     sentence_count: 6
     key_terms: [something, comments, reliable, clunky, solana, com, defi, fees]
+    concepts: [something, comments, reliable, clunky, solana]
     token_count: 207
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1rasye9/reliable_crosschain_dex_youve_used_lately/"}]
   - id: "social-intelligence/reddit-deep/defi/1rasye9.md#c1"
-    char_span: [825, 1621]
+    char_span: [824, 1620]
     sentence_count: 2
     key_terms: [superswap, cheapest, debridge, usdc, mrbaseder, use, future-goose7, thecryptodong]
+    concepts: [superswap, cheapest, debridge, mrbaseder]
     section: Comments
     token_count: 218
 ---

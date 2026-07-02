@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1013]
     sentence_count: 10
     key_terms: [nervous, nvidia, investing, comments, retired, having, reddit, shares]
+    concepts: [nervous, nvidia, investing, comments, retired]
     token_count: 239
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1o5hji1/retired_this_week_what_to_do_with_my_nvidia/"}]
   - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c1"
     char_span: [1027, 3179]
     sentence_count: 12
     key_terms: [order, price, filled, "you're", going, limit, stop, tax]
+    concepts: [order, price, filled, "you're", correction]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c2"
     char_span: [3181, 5125]
     sentence_count: 13
     key_terms: [nvidia, apple, bonds, world, nzproduce, equities, position, research]
+    concepts: [nvidia, apple, bonds, world, nzproduce]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c3"
     char_span: [5127, 7138]
     sentence_count: 14
     key_terms: [nvidia, portfolio, probably, international, premium-2025-8-31-money-metals, retirement, bubble, number]
+    concepts: [nvidia, portfolio, probably, international, retirement]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c4"
@@ -50,42 +55,51 @@ chunks:
     char_span: [7568, 9645]
     sentence_count: 19
     key_terms: [diversification, apple, get, companies, financing, circular, probably, others]
+    concepts: [diversification, apple, companies, financing, circular]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c6"
     char_span: [9371, 10714]
     sentence_count: 11
     key_terms: ["don't", income, tax, account, however, years, immediate-you-9372, get]
+    concepts: ["don't", income, account, however, years]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1o5hji1.md#c10"]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c7"
     char_span: [10716, 12562]
     sentence_count: 20
     key_terms: [tax, dividend, like, sell, retirement, dividends, something, advisor]
+    concepts: [dividend, retirement, dividends, something, advisor]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c8"
     char_span: [12564, 14699]
     sentence_count: 20
     key_terms: [options, good, stocks, comfortable, don, contractor, something, consider]
+    concepts: [options, stocks, comfortable, contractor, something]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c9"
     char_span: [14701, 15458]
     sentence_count: 7
     key_terms: [ongoing, nvidia, paying, been, maid, rebalancing, investment, management]
+    concepts: [ongoing, nvidia, paying]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c10"
     char_span: [15460, 17313]
     sentence_count: 17
     key_terms: [year, advisor, paying, funds, years, tax, too, account]
+    concepts: [advisor, paying, funds, years, account]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1o5hji1.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c11"
     char_span: [17059, 17706]
     sentence_count: 5
     key_terms: [premiums, advisor, opinion, nearing60andhappy, professional, pupulewailua, skyrocketing, medicare]
+    concepts: [premiums, advisor, opinion]
     section: Comments
     token_count: 164
 ---

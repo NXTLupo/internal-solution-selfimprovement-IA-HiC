@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1775]
     sentence_count: 14
     key_terms: [looking, writing, skills, communication, student, careerguidance, background, experience]
+    concepts: [looking, writing, skills, communication, careerguidance]
     token_count: 382
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tlb71m/advice_needed_4th_prof_pharmd_student_looking_for/"}]
 ---
 # [Advice Needed] 4th Prof PharmD student looking for part-time work. Strong communication & writing skills what are my options and how do I start?
 

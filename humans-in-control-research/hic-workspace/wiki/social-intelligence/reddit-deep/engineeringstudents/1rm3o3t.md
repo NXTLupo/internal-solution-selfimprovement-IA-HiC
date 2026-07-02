@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1414]
     sentence_count: 12
     key_terms: [engineeringstudents, like, year, projects, experience, companies, comments, learning]
+    concepts: [engineeringstudents, projects, experience, companies, comments]
     token_count: 321
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rm3o3t/advice_for_coop_and_experience/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rm3o3t.md#c1"
     char_span: [1428, 3374]
     sentence_count: 18
     key_terms: [resume, write, software, yourself, resumes, learn, lab, something]
+    concepts: [resume, write, software, yourself, resumes]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rm3o3t.md#c2"
     char_span: [3376, 3979]
     sentence_count: 7
     key_terms: [companies, months, co-op, understanding, establishing, application, competitors, recommended]
+    concepts: [companies, months, co-op]
     section: Comments
     token_count: 124
 ---

@@ -14,60 +14,79 @@ chunks:
     char_span: [0, 797]
     sentence_count: 5
     key_terms: [architecture, well-architected, specification, technology, framework, provides, model, togaf]
+    concepts: [architecture, well-architected, specification, technology, framework]
+    related_chunks: ["frameworks/architecture.md#c3", "frameworks/architecture.md#c6", "frameworks/architecture.md#c8", "frameworks/architecture.md#c9"]
     section: Canonical Framework
     token_count: 138
   - id: "frameworks/architecture.md#c1"
     char_span: [826, 3353]
     sentence_count: 19
     key_terms: [architecture, section, state, business, capabilities, technical, cost, debt]
+    concepts: [architecture, section, state, business, capabilities]
+    related_chunks: ["frameworks/architecture.md#c3", "frameworks/architecture.md#c8"]
     section: Required Sections (20)
     token_count: 508
   - id: "frameworks/architecture.md#c2"
     char_span: [3355, 5811]
     sentence_count: 16
     key_terms: [data, section, management, container, integration, address, level, architecture]
+    concepts: [management, section, container, integration, address]
+    related_chunks: ["frameworks/architecture.md#c5"]
     section: Required Sections (20)
     token_count: 476
   - id: "frameworks/architecture.md#c3"
     char_span: [5813, 8298]
     sentence_count: 15
     key_terms: [architecture, section, technology, deployment, adrs, availability, state, measurement]
+    concepts: [architecture, section, technology, deployment, availability]
+    related_chunks: ["frameworks/architecture.md#c0", "frameworks/architecture.md#c1", "frameworks/architecture.md#c6", "frameworks/architecture.md#c8"]
     section: Required Sections (20)
     token_count: 491
   - id: "frameworks/architecture.md#c4"
     char_span: [8300, 9535]
     sentence_count: 6
     key_terms: [architecture, risks, migration, risk, strategy, organizational, probability, governance]
+    concepts: [architecture, migration, risks, strategy, organizational]
+    related_chunks: ["frameworks/architecture.md#c9"]
     section: Required Sections (20)
     token_count: 241
   - id: "frameworks/architecture.md#c5"
     char_span: [9581, 11500]
     sentence_count: 11
     key_terms: [architecture, integration, address, define, personalization, real-time, management, data]
+    concepts: [architecture, integration, address, personalization, real-time]
+    related_chunks: ["frameworks/architecture.md#c2"]
     section: CX-Specific Architecture Considerations
     token_count: 334
   - id: "frameworks/architecture.md#c6"
     char_span: [11544, 13011]
     sentence_count: 8
     key_terms: [architecture, security, everything, technology, rationale, components, generated, reference]
+    concepts: [architecture, security, everything, technology, rationale]
+    related_chunks: ["frameworks/architecture.md#c0", "frameworks/architecture.md#c3", "frameworks/architecture.md#c8"]
     section: Anti-Patterns (Generation Must Avoid)
     token_count: 239
   - id: "frameworks/architecture.md#c7"
     char_span: [13031, 14042]
     sentence_count: 1
     key_terms: [minimum, section, adr, checklist, decisions, migration, contains, register]
+    concepts: [minimum, section, checklist, decisions, migration]
     section: Quality Gates
     token_count: 232
   - id: "frameworks/architecture.md#c8"
     char_span: [14072, 15539]
     sentence_count: 4
     key_terms: [architecture, technology, solutions, business, decision, document, warrants, address]
+    concepts: [architecture, technology, solutions, business, decision]
+    related_chunks: ["frameworks/architecture.md#c0", "frameworks/architecture.md#c1", "frameworks/architecture.md#c3", "frameworks/architecture.md#c6"]
     section: Generation Instructions
     token_count: 295
   - id: "frameworks/architecture.md#c9"
     char_span: [15562, 15942]
     sentence_count: 1
     key_terms: [architecture, frameworks, anti-patterns, framework, strategy, architectures, requirements, evaluating]
+    concepts: [architecture, frameworks, anti-patterns, framework, strategy]
+    related_chunks: ["frameworks/architecture.md#c0", "frameworks/architecture.md#c4"]
     section: Cross-References
     token_count: 72
 ---

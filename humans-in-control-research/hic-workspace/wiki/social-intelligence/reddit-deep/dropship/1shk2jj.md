@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 2148]
     sentence_count: 30
     key_terms: [store, people, customers, ads, like, sales, too, everything]
+    concepts: [store, people, customers, everything, sales]
     token_count: 478
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1shk2jj/why_your_shopify_store_isnt_converting_and_how_to/"}]
   - id: "social-intelligence/reddit-deep/dropship/1shk2jj.md#c1"
     char_span: [2150, 3338]
     sentence_count: 17
     key_terms: [conversion, customers, payment, website, brand, clear, right, store]
+    concepts: [conversion, customers, payment, website, brand]
     token_count: 239
   - id: "social-intelligence/reddit-deep/dropship/1shk2jj.md#c2"
-    char_span: [3353, 4039]
+    char_span: [3352, 4038]
     sentence_count: 2
     key_terms: [dropship, store, spam, self-promotion, automatically, automoderator, sashamirae17, crotrustify]
+    concepts: [dropship, store]
     section: Comments
     token_count: 173
 ---

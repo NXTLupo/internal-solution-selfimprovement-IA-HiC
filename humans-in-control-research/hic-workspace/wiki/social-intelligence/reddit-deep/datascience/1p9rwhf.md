@@ -20,23 +20,32 @@ chunks:
     char_span: [0, 605]
     sentence_count: 5
     key_terms: [datascience, shap, used, selection, comments, feature, gain, recommendations]
+    concepts: [datascience, selection, comments, feature]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1p9rwhf.md#c1"]
     token_count: 139
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1p9rwhf/shap_or_lgbm_gain_for_feature_selection/"}]
   - id: "social-intelligence/reddit-deep/datascience/1p9rwhf.md#c1"
-    char_span: [620, 2834]
+    char_span: [619, 2833]
     sentence_count: 14
     key_terms: [features, feature, selection, shap-algorithm-for-feature-selecion, models, dependencies, model, gain]
+    concepts: [features, feature, selection, dependencies, models]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1p9rwhf.md#c0", "social-intelligence/reddit-deep/datascience/1p9rwhf.md#c2"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/datascience/1p9rwhf.md#c2"
-    char_span: [2836, 5042]
+    char_span: [2835, 5041]
     sentence_count: 10
     key_terms: [features, importance, different, models, using, selection, variables, data]
+    concepts: [features, importance, different, models, selection]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1p9rwhf.md#c1", "social-intelligence/reddit-deep/datascience/1p9rwhf.md#c3"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/datascience/1p9rwhf.md#c3"
-    char_span: [5044, 5841]
+    char_span: [5043, 5840]
     sentence_count: 6
     key_terms: [importance, features, gain, shap, time, perpetualbooster, hyperparameter, interactions]
+    concepts: [importance, features]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1p9rwhf.md#c2"]
     section: Comments
     token_count: 177
 ---

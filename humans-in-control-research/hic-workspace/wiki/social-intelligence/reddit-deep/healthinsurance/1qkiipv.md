@@ -20,41 +20,51 @@ chunks:
     char_span: [0, 1089]
     sentence_count: 10
     key_terms: [anthem, lab, oon, healthinsurance, representative, doctor, npi, ppo]
+    concepts: [anthem, healthinsurance, representative, doctor, in-network]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1qkiipv/anthem_ppo_charging_1200_for_innetwork_labs/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1qkiipv.md#c1"
-    char_span: [1104, 3458]
+    char_span: [1103, 3457]
     sentence_count: 8
     key_terms: [post, please, information, questions, following, eob, edit, help]
+    concepts: [please, information, questions, following, healthinsurance]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/healthinsurance/1qkiipv.md#c2"
-    char_span: [3460, 3956]
+    char_span: [3459, 3955]
     sentence_count: 3
     key_terms: [contact, report, via, subreddit, attempts, someone, please, conversations]
+    concepts: [contact, report, subreddit, attempts, someone]
     section: Comments
     token_count: 109
   - id: "social-intelligence/reddit-deep/healthinsurance/1qkiipv.md#c3"
-    char_span: [3959, 5880]
+    char_span: [3958, 5879]
     sentence_count: 15
     key_terms: [bcbs, lab, pay, local, negotiate, cash, network, physician]
+    concepts: [negotiate, local, network, physician, processed]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1qkiipv.md#c4"]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/healthinsurance/1qkiipv.md#c4"
-    char_span: [5883, 7858]
+    char_span: [5882, 7857]
     sentence_count: 24
     key_terms: [lab, claim, cross, blue, file, network, local, ppo]
+    concepts: [claim, cross, network, local, learned]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1qkiipv.md#c3"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/healthinsurance/1qkiipv.md#c5"
-    char_span: [7861, 9934]
+    char_span: [7860, 9933]
     sentence_count: 16
     key_terms: [insurance, different, employer, control, surgery, anthem, cover, quest]
+    concepts: [insurance, different, employer, control, surgery]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1qkiipv.md#c6"
-    char_span: [9690, 10651]
+    char_span: [9689, 10650]
     sentence_count: 9
     key_terms: [lab, pay, contract, "they've", appeal, been, bill, don]
+    concepts: [contract, "they've", appeal]
     section: Comments
     token_count: 232
 ---

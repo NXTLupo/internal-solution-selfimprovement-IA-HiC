@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 785]
     sentence_count: 6
     key_terms: [gradadmissions, international, comments, schools, school, etc, extracurriculars, development]
+    concepts: [gradadmissions, international, comments, schools, school]
     token_count: 184
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qv9f5a/what_should_i_focus_on_for_international_grad/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qv9f5a.md#c1"
-    char_span: [800, 2799]
+    char_span: [799, 2798]
     sentence_count: 4
     key_terms: [journal, international, michigan, politics, egzjahjvbwuybggaeeuyotihcaeqiripatibcdqxotjqmgo3qaiasaia, programs, research, affairs]
+    concepts: [journal, international, michigan, politics, programs]
     section: Comments
     token_count: 504
 ---

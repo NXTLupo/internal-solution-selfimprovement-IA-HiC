@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 349]
     sentence_count: 2
     key_terms: [college, comments, wild-purple5517, reddit-deep, experience, languages, compared, language]
+    concepts: [college, comments]
     token_count: 92
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lyv1j4/for_those_who_learned_a_language_in_college_what/"}]
   - id: "social-intelligence/reddit-deep/college/1lyv1j4.md#c1"
     char_span: [363, 1721]
     sentence_count: 14
     key_terms: [high, people, school, class, words, lot, akamduckie, classroom]
+    concepts: [people, school, akamduckie, class, words]
     section: Comments
     token_count: 300
 ---

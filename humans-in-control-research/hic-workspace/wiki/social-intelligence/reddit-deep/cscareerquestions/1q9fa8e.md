@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 996]
     sentence_count: 6
     key_terms: [cscareerquestions, internships, experience, freelance, comments, projects, stronger, working]
+    concepts: [cscareerquestions, internships, experience, freelance, comments]
     token_count: 233
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1q9fa8e/new_grad_with_no_internships_but_freelance/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q9fa8e.md#c1"
     char_span: [1010, 2901]
     sentence_count: 8
     key_terms: [job, applying, resume, apply, start, different, like, actual]
+    concepts: [applying, resume, different, apply, start]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q9fa8e.md#c2"
     char_span: [2903, 3499]
     sentence_count: 6
     key_terms: [closer, blind-leading-blind, like, marathonmarathon, realistically, possibility, graduation, full-time]
+    concepts: [closer]
     section: Comments
     token_count: 158
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 364]
     sentence_count: 4
     key_terms: [neu, comments, finance, program, priorityround7809, opportunities, prospective, reddit-deep]
+    concepts: [comments, finance, program]
     token_count: 96
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sqim19/finance_program/"}]
 ---
 # Finance program
 

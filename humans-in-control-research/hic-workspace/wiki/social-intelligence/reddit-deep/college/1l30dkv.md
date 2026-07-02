@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2093]
     sentence_count: 20
     key_terms: [month, sleep, spending, alone, share, scholarship, dorm, get]
+    concepts: [month, sleep, spending, scholarship, alone]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1l30dkv/is_it_worth_spending_3x_more_to_live_alone_to/"}]
   - id: "social-intelligence/reddit-deep/college/1l30dkv.md#c1"
     char_span: [2107, 3457]
     sentence_count: 11
     key_terms: [education, college, stocks, invest, extra, money, investing, donate]
+    concepts: [education, college, stocks, invest, extra]
     section: Comments
     token_count: 349
 ---

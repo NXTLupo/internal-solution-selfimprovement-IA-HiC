@@ -14,48 +14,56 @@ chunks:
     char_span: [0, 2743]
     sentence_count: 11
     key_terms: [slide, slides, points, recommendation, alternative, description, bullet, rather]
+    concepts: [slide, slides, recommendation, points, alternative]
     section: "AP-DECK-001: Topic Titles Instead of Action Titles / AP-DECK-002: Buried Lead / AP-DECK-003: Death by Bullets"
     token_count: 507
   - id: "anti-patterns/deck.md#c1"
     char_span: [2779, 3661]
     sentence_count: 4
     key_terms: [slides, situation-complication-resolution, narrative, previous, sections, section, titles, story]
+    concepts: [slides, narrative, previous, sections, section]
     section: "AP-DECK-004: No Narrative Arc"
     token_count: 161
   - id: "anti-patterns/deck.md#c2"
     char_span: [3691, 4482]
     sentence_count: 2
     key_terms: [pie, charts, chart, visualization, data, segments, showing, value]
+    concepts: [charts, chart, visualization, segments, showing]
     section: "AP-DECK-005: Pie Charts"
     token_count: 170
   - id: "anti-patterns/deck.md#c3"
     char_span: [4520, 5311]
     sentence_count: 3
     key_terms: [adoption, digital, "slide's", visual, stock, informational, presentation, professional]
+    concepts: [adoption, digital, "slide's", visual, stock]
     section: "AP-DECK-006: Decorative Visuals"
     token_count: 151
   - id: "anti-patterns/deck.md#c4"
     char_span: [5354, 6115]
     sentence_count: 2
     key_terms: [without, source, market, statistics, global, reach, distinguishing, best-in-class]
+    concepts: [without, source, market, statistics, global]
     section: "AP-DECK-007: Missing Sources on Data"
     token_count: 170
   - id: "anti-patterns/deck.md#c5"
     char_span: [6150, 7004]
     sentence_count: 2
     key_terms: [categories, example, segments, overlap, rules, discriminating, exhaustiveness, professionals]
+    concepts: [categories, example, segments, overlap, rules]
     section: "AP-DECK-008: MECE Violations"
     token_count: 164
   - id: "anti-patterns/deck.md#c6"
     char_span: [7042, 7952]
     sentence_count: 3
     key_terms: [data, recommendation, recommended, response, support, action, cause, chart]
+    concepts: [recommendation, recommended, response, support, action]
     section: "AP-DECK-009: \"So What?\" Failure"
     token_count: 180
   - id: "anti-patterns/deck.md#c7"
     char_span: [7992, 8949]
     sentence_count: 5
     key_terms: [structure, deck, question, strategic, includes, sections, sequence, specific]
+    concepts: [structure, question, strategic, includes, sections]
     section: "AP-DECK-010: Template-Driven Deck"
     token_count: 168
 ---

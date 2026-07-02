@@ -20,21 +20,25 @@ chunks:
     char_span: [0, 1231]
     sentence_count: 10
     key_terms: [data, leadership, accounts, comments, salesops, obvious, model, rates]
+    concepts: [leadership, accounts, comments, salesops, obvious]
     token_count: 274
+    sources: [{"n":"reddit-deep: r/salesops","u":"https://www.reddit.com/r/SalesOps/comments/1sfsv2u/how_are_you_proving_the_actual_cost_of_bad_crm/"}]
   - id: "social-intelligence/reddit-deep/salesops/1sfsv2u.md#c1"
-    char_span: [1246, 1814]
+    char_span: [1245, 1813]
     sentence_count: 3
     key_terms: [problems, kooltilldend, commenting, leadership, hammering, snoo37813, interest, company]
+    concepts: [problems]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/salesops/1sfsv2u.md#c2"
-    char_span: [1816, 4220]
+    char_span: [1815, 4219]
     sentence_count: 9
     key_terms: [data, aloware-zoom-transcript-agent-case-study, lost, opportunities, sales, value, conversion, fragmented]
+    concepts: [aloware-zoom-transcript-agent-case-study, opportunities, conversion, fragmented, leadership]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/salesops/1sfsv2u.md#c3"
-    char_span: [3877, 4642]
+    char_span: [3876, 4641]
     sentence_count: 9
     key_terms: [data, bad, bolted-together, opportunities, conversation, prospecting, conversion, integrated]
     section: Comments

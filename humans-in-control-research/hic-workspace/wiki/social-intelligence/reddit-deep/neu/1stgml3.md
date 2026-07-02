@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 341]
     sentence_count: 3
     key_terms: [comments, research, co-op, adsubstantial3900, neu, undergraduate, reddit-deep, substitute]
+    concepts: [comments, research, co-op]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1stgml3.md#c1"]
     token_count: 96
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1stgml3/can_you_substitute_coop_with_research/"}]
   - id: "social-intelligence/reddit-deep/neu/1stgml3.md#c1"
     char_span: [355, 828]
     sentence_count: 3
     key_terms: [research, co-ops, though, promptresponsible123, co-op, "isn't", rubyjunerocket, requirements]
+    concepts: [research, co-ops, though, co-op, "isn't"]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1stgml3.md#c0"]
     section: Comments
     token_count: 119
 ---

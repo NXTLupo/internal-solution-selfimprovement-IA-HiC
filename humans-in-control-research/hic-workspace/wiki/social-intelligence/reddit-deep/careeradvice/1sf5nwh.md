@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2053]
     sentence_count: 13
     key_terms: [don, want, career, remote, careeradvice, work, background, consulting]
+    concepts: [careeradvice, career, remote, background, consulting]
     token_count: 470
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1sf5nwh/anyone_else_realize_theyre_getting_successful_at/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1sf5nwh.md#c1"
     char_span: [2055, 2335]
     sentence_count: 2
@@ -31,18 +33,21 @@ chunks:
     char_span: [2349, 4263]
     sentence_count: 9
     key_terms: [work, brown-seadog, like, outcomes, cross-functional, harder, get, kind]
+    concepts: [brown-seadog, cross-functional, outcomes, harder, background]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/careeradvice/1sf5nwh.md#c3"
     char_span: [4265, 5995]
     sentence_count: 14
     key_terms: [brown-seadog, remote, sydneypoopmanager, find, role, courage, trying, fully]
+    concepts: [brown-seadog, remote, sydneypoopmanager, courage, trying]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/careeradvice/1sf5nwh.md#c4"
     char_span: [5997, 6662]
     sentence_count: 5
     key_terms: [brown-seadog, did, starting, lol, quit, yeah, invisiblegreene, honeyedquiet]
+    concepts: [brown-seadog, starting]
     section: Comments
     token_count: 172
 ---

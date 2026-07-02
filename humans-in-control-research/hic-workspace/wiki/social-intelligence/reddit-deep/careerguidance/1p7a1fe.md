@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2325]
     sentence_count: 18
     key_terms: [international, legal, law, slovak, work, working, careerguidance, french]
+    concepts: [international, legal, slovak, careerguidance, working]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1p7a1fe/how_can_i_move_forward_and_break_into/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1p7a1fe.md#c1"
     char_span: [2327, 3072]
     sentence_count: 6
     key_terms: [situation, slovakia, opportunities, possibilities, appreciated, challenging, environment, perspective]
+    concepts: [situation, slovakia]
     token_count: 146
 ---
 # How can I move forward and break into international NGOs/organisations? Or make a career shift?

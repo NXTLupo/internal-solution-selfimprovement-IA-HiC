@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1790]
     sentence_count: 12
     key_terms: [month, debt, povertyfinance, credit, don, need, accounts, comments]
+    concepts: [month, povertyfinance, credit, accounts, comments]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1pdab6x/struggling_to_stay_afloat_debt_piling_up_mortgage/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c1"
     char_span: [1792, 1897]
     sentence_count: 2
@@ -31,36 +33,44 @@ chunks:
     char_span: [1911, 3935]
     sentence_count: 21
     key_terms: [car, "you'll", debt, pay, everything, important, cheaper, enough]
+    concepts: ["you'll", everything, important, cheaper, enough]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c3"
     char_span: [3937, 5805]
     sentence_count: 13
     key_terms: ["it's", "you're", big, hard, help, bankruptcy, yourself, already]
+    concepts: ["you're", bankruptcy, yourself, already, "there's"]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c4"
     char_span: [5807, 7051]
     sentence_count: 7
     key_terms: ["don't", month, get, too, bankruptcy, questions, "it's", look]
+    concepts: [bankruptcy, "don't", month, questions]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c5"
     char_span: [7053, 9531]
     sentence_count: 27
     key_terms: [hardship, payments, repayment, debt, minimums, because, credit, cash]
+    concepts: [hardship, payments, repayment, minimums, because]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c6"
     char_span: [9183, 11129]
     sentence_count: 14
     key_terms: [dmp, pay, credit, state, love-the-classics, get, need, new]
+    concepts: [credit, love-the-classics, state, repayment, hardship]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c5"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c7"
     char_span: [11131, 12921]
     sentence_count: 19
     key_terms: [bankruptcy, consider, mortgage, cut, debt, essentials, expenses, interest]
+    concepts: [bankruptcy, consider, mortgage, essentials, expenses]
     section: Comments
     token_count: 385
 ---

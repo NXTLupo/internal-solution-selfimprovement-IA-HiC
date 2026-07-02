@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1905]
     sentence_count: 14
     key_terms: [year, degree, gap, photography, bachelor, people, trying, "i'm"]
+    concepts: [degree, photography, bachelor, people, trying]
     token_count: 455
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1sl9pua/gap_year_after_my_bachelors_degree/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1sl9pua.md#c1"
     char_span: [1919, 3977]
     sentence_count: 18
     key_terms: [want, gap, year, professional, unforgivenzy, years, undergrad, because]
+    concepts: [professional, unforgivenzy, undergrad, years, because]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sl9pua.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1sl9pua.md#c2"
     char_span: [3754, 5864]
     sentence_count: 11
     key_terms: [experience, want, work, unforgivenzy, year, people, school, going]
+    concepts: [experience, unforgivenzy, people, school, going]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1sl9pua.md#c3"
     char_span: [5550, 6814]
     sentence_count: 9
     key_terms: [working, people, field, world, because, degree, little, versus]
+    concepts: [working, people, field, world, because]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/gradschool/1sl9pua.md#c4"
     char_span: [6816, 8669]
     sentence_count: 22
     key_terms: [time, year, gap, too, because, young, did, like]
+    concepts: [because, young, rejected, unforgivenzy, always]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sl9pua.md#c1"]
     section: Comments
     token_count: 468
 ---

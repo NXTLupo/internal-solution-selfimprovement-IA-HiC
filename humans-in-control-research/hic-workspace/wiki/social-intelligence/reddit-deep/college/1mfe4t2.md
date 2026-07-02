@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1010]
     sentence_count: 10
     key_terms: [college, year, comments, anyone, soggy-inspector-2851, going, able, age]
+    concepts: [college, comments, anyone, going]
     token_count: 251
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1mfe4t2/going_to_college_after_3_year_gap/"}]
   - id: "social-intelligence/reddit-deep/college/1mfe4t2.md#c1"
     char_span: [1024, 2932]
     sentence_count: 25
     key_terms: [college, classes, friends, started, people, cares, get, lifelong]
+    concepts: [college, classes, friends, started, people]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mfe4t2.md#c2"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/college/1mfe4t2.md#c2"
     char_span: [2934, 4113]
     sentence_count: 11
     key_terms: [people, soggy-inspector-2851, age, college, friends, though, years, back]
+    concepts: [soggy-inspector-2851, people, college, friends, though]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mfe4t2.md#c1"]
     section: Comments
     token_count: 315
 ---

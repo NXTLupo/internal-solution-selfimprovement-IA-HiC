@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 2050]
     sentence_count: 9
     key_terms: [industries, gcc, jobs, career, background, long-term, com, finance]
+    concepts: [industries, background, career, long-term, careerguidance]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tbrh8z/career_guidance_for_mba_ttm_graduate_saudigcc_jobs/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tbrh8z.md#c1"
     char_span: [2064, 2335]
     sentence_count: 1

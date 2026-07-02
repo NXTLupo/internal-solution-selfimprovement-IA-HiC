@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 1889]
     sentence_count: 12
     key_terms: [bananas, foster, care, banana, league, philanthropy, distributed, ball]
+    concepts: [bananas, foster, philanthropy, banana, league]
     token_count: 423
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1oystug/official_charity_of_savannah_bananas_baseball/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1oystug.md#c1"
     char_span: [1891, 2558]
     sentence_count: 3
     key_terms: [the-official-charity-of-the-savannah-bananas-has-a-hard-time-explaining-how-its-money-is-spent, outgoing, assistance, defector, another, foster, https, com]
+    concepts: [the-official-charity-of-the-savannah-bananas-has-a-hard-time-explaining-how-its-money-is-spent, outgoing, assistance, defector, another]
     token_count: 160
   - id: "social-intelligence/reddit-deep/philanthropy/1oystug.md#c2"
-    char_span: [2573, 4291]
+    char_span: [2572, 4290]
     sentence_count: 15
     key_terms: [mission, lot, need, charitable, salaries, dollars, growing, started]
+    concepts: [mission, charitable, salaries, dollars, growing]
     section: Comments
     token_count: 425
 ---

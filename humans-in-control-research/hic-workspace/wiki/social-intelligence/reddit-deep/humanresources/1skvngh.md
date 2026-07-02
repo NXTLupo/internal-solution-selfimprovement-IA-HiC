@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1115]
     sentence_count: 10
     key_terms: [information, humanresources, background, personnel, comments, director, cleared, through]
+    concepts: [information, humanresources, background, personnel, comments]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1skvngh.md#c2"]
     token_count: 247
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1skvngh/hr_guidance_child_labor_pa/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1skvngh.md#c1"
     char_span: [1129, 2786]
     sentence_count: 16
     key_terms: [risk, something, director, job, personnel, anything, mitigate, company]
+    concepts: [something, director, personnel, anything, mitigate]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/humanresources/1skvngh.md#c2"
     char_span: [2788, 4914]
     sentence_count: 22
     key_terms: [information, going, boss, "it's", kid, post, requirement, here]
+    concepts: [information, going, requirement, background, subreddit]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1skvngh.md#c0"]
     section: Comments
     token_count: 498
 ---

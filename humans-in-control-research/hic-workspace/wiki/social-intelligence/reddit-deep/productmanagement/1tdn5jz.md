@@ -20,41 +20,53 @@ chunks:
     char_span: [0, 1796]
     sentence_count: 17
     key_terms: [codebase, product, tools, understand, productmanagement, like, pms, implementation]
+    concepts: [codebase, product, tools, understand, productmanagement]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1tdn5jz.md#c1"]
     token_count: 378
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1tdn5jz/should_pms_have_codebase_access_now_that_ai/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1tdn5jz.md#c1"
-    char_span: [1811, 3782]
+    char_span: [1810, 3781]
     sentence_count: 23
     key_terms: [product, understand, something, manager, answer, understanding, makes, engineers]
+    concepts: [product, understand, something, understanding, manager]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1tdn5jz.md#c0"]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/productmanagement/1tdn5jz.md#c2"
-    char_span: [3784, 5721]
+    char_span: [3783, 5720]
     sentence_count: 13
     key_terms: [engineers, code, access, questions, understanding, help, use, approach]
+    concepts: [engineers, access, questions, understanding, approach]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1tdn5jz.md#c3"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/productmanagement/1tdn5jz.md#c3"
-    char_span: [5723, 7701]
+    char_span: [5722, 7700]
     sentence_count: 11
     key_terms: [question, code, access, engineers, internal, reading, support, answer]
+    concepts: [question, access, engineers, internal, reading]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1tdn5jz.md#c2"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/productmanagement/1tdn5jz.md#c4"
-    char_span: [7703, 9143]
+    char_span: [7702, 9142]
     sentence_count: 6
     key_terms: [code, access, etc, "it's", depends, large, small, tests]
+    concepts: [access, depends, large, small, tests]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/productmanagement/1tdn5jz.md#c5"
-    char_span: [9145, 11292]
+    char_span: [9144, 11291]
     sentence_count: 18
     key_terms: [access, code, read, team, existing, product, without, having]
+    concepts: [access, existing, product, without, requirements]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/productmanagement/1tdn5jz.md#c6"
-    char_span: [11294, 11890]
+    char_span: [11293, 11889]
     sentence_count: 6
     key_terms: [build, need, prototypes, allow, check, safe, relatively, compliant]
+    concepts: [build, prototypes, allow, check]
     section: Comments
     token_count: 134
 ---

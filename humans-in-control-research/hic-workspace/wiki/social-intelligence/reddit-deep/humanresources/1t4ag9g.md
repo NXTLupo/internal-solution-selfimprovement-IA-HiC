@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2048]
     sentence_count: 22
     key_terms: [test, shrm, questions, humanresources, passed, phr, everything, irrelevant]
+    concepts: [questions, humanresources, passed, everything, irrelevant]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1t4ag9g/i_passed_shrm_na/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1t4ag9g.md#c1"
     char_span: [2050, 2555]
     sentence_count: 8
     key_terms: [shrm, knowledge, situational-aligned, ready, situational, understand, long-term, questions]
+    concepts: [knowledge, ready]
     token_count: 116
   - id: "social-intelligence/reddit-deep/humanresources/1t4ag9g.md#c2"
     char_span: [2569, 3142]
     sentence_count: 2
     key_terms: [test, prometrics, congrats, center, inevitable-west-9032, helps, greedy-canary-5807, congratulations]
+    concepts: [prometrics, congrats, center, helps]
     section: Comments
     token_count: 182
 ---

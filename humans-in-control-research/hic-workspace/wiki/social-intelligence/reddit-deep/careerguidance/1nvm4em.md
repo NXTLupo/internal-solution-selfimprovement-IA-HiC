@@ -19,53 +19,63 @@ chunks:
     char_span: [0, 1223]
     sentence_count: 6
     key_terms: [earlier, careerguidance, career, something, comments, learned, interesting-club7045, years]
+    concepts: [careerguidance, earlier, career, something, comments]
     token_count: 273
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1nvm4em/whats_something_you_wish_youd_learned_earlier_in/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1nvm4em.md#c1"
     char_span: [1237, 3067]
     sentence_count: 12
     key_terms: [likeable, career, people, early, proactively, didn, faster, being]
+    concepts: [likeable, career, people, proactively, early]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/careerguidance/1nvm4em.md#c2"
     char_span: [3069, 4317]
     sentence_count: 12
     key_terms: [people, "don't", work, something, coworker, asking, beyond, being]
+    concepts: [people, "don't", something, coworker, asking]
     section: Comments
     token_count: 298
   - id: "social-intelligence/reddit-deep/careerguidance/1nvm4em.md#c3"
     char_span: [4319, 6257]
     sentence_count: 19
     key_terms: [employer, always, did, job, pchopsammies, get, pay, time]
+    concepts: [employer, always, pchopsammies, leadership, company]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/careerguidance/1nvm4em.md#c4"
     char_span: [6259, 7322]
     sentence_count: 8
     key_terms: [company, "i've", team, helped, raise, find, lot, work]
+    concepts: [company, helped, raise]
     section: Comments
     token_count: 233
   - id: "social-intelligence/reddit-deep/careerguidance/1nvm4em.md#c5"
     char_span: [7324, 9361]
     sentence_count: 9
     key_terms: [etc, job, work, "don't", advancement, environment, time, promotions]
+    concepts: [advancement, environment, "don't", promotions, certainly]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/careerguidance/1nvm4em.md#c6"
     char_span: [9363, 11196]
     sentence_count: 20
     key_terms: [get, job, umeboshiplumpaste, skills, opportunities, being, "i'm", company]
+    concepts: [umeboshiplumpaste, opportunities, skills, being, company]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/careerguidance/1nvm4em.md#c7"
     char_span: [11200, 12747]
     sentence_count: 18
     key_terms: ["i'm", work, friends, friend, boundaries, relationship, never, appropriate]
+    concepts: [friends, boundaries, friend, relationship, appropriate]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/careerguidance/1nvm4em.md#c8"
     char_span: [12749, 14832]
     sentence_count: 14
     key_terms: [company, family, "you're", going, real, boundaries, competence, working]
+    concepts: [company, family, "you're", boundaries, competence]
     section: Comments
     token_count: 490
 ---

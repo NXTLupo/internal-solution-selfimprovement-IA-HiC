@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1011]
     sentence_count: 5
     key_terms: [engineeringstudents, students, career, engineering, like, university, wisconsin, comments]
+    concepts: [engineeringstudents, students, career, engineering, university]
     token_count: 214
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rzfs1m/what_does_a_typical_career_path_look_like_for/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rzfs1m.md#c1"
     char_span: [1025, 1265]
     sentence_count: 4

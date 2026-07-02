@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1206]
     sentence_count: 11
     key_terms: [mainframe, technical, careerguidance, service-based, role, long-term, comments, staying]
+    concepts: [mainframe, technical, careerguidance, service-based, long-term]
     token_count: 287
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t1ms4x/need_advice_for_switching_early_am_i_limiting_my/"}]
 ---
 # Need Advice for Switching Early - Am I Limiting My Career by Staying in Mainframe?
 

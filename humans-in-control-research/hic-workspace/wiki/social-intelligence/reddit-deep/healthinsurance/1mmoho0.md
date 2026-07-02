@@ -20,46 +20,59 @@ chunks:
     char_span: [0, 2245]
     sentence_count: 23
     key_terms: [geneticist, cancer, comments, posted, insurance, healthinsurance, already, testing]
+    concepts: [geneticist, cancer, comments, posted, insurance]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1mmoho0/uhc_denying_medically_necessary_cancer_genetics/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1mmoho0.md#c1"
     char_span: [2247, 3583]
     sentence_count: 8
     key_terms: [information, geneticist, relevant, whole-exome-and-whole-genome-sequencing, month, aware, comm-medical-drug, lab]
+    concepts: [information, geneticist, relevant, month, aware]
     token_count: 283
   - id: "social-intelligence/reddit-deep/healthinsurance/1mmoho0.md#c2"
-    char_span: [3598, 5458]
+    char_span: [3597, 5457]
     sentence_count: 10
     key_terms: [please, healthinsurance, insurance, solicitation, questions, reddit, https, com]
+    concepts: [please, healthinsurance, insurance, solicitation, questions]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/healthinsurance/1mmoho0.md#c3"
-    char_span: [5460, 7551]
+    char_span: [5459, 7550]
     sentence_count: 17
     key_terms: [screening, testing, ultrasound, mammogram, get, high, mri, used]
+    concepts: [screening, testing, ultrasound, mammogram, typically]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/healthinsurance/1mmoho0.md#c4"
-    char_span: [7553, 9289]
+    char_span: [7552, 9288]
     sentence_count: 14
     key_terms: [testing, brca, network, cancer, life-ad7974, lab, mrd, pay]
+    concepts: [testing, network, cancer, life-ad7974, mutations]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1mmoho0.md#c7"]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/healthinsurance/1mmoho0.md#c5"
-    char_span: [9291, 10875]
+    char_span: [9290, 10874]
     sentence_count: 9
     key_terms: [bucklekitty, genetic, breast, cancer, lynch, like, companies, insurance]
+    concepts: [bucklekitty, genetic, breast, cancer, lynch]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1mmoho0.md#c6", "social-intelligence/reddit-deep/healthinsurance/1mmoho0.md#c7"]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/healthinsurance/1mmoho0.md#c6"
-    char_span: [10877, 12747]
+    char_span: [10876, 12746]
     sentence_count: 14
     key_terms: [questions, breast, cancer, lynch, don, year, oncologist, insurance]
+    concepts: [questions, breast, cancer, lynch, oncologist]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1mmoho0.md#c5"]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/healthinsurance/1mmoho0.md#c7"
-    char_span: [12749, 13858]
+    char_span: [12748, 13857]
     sentence_count: 11
     key_terms: [cancer, bucklekitty, genetic, testing, genome, though, colon, cindysandjuliesmom]
+    concepts: [cancer, bucklekitty, genetic, testing, genome]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1mmoho0.md#c4", "social-intelligence/reddit-deep/healthinsurance/1mmoho0.md#c5"]
     section: Comments
     token_count: 279
 ---

@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1796]
     sentence_count: 17
     key_terms: ["i'm", degree, povertyfinance, never, average, poverty, realize, success]
+    concepts: [degree, povertyfinance, never, average, poverty]
     token_count: 426
+    sources: [{"n":"Reddit Deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1rs26i2/im_25_poor_and_dont_want_to_keep_going/"}]
   - id: "articles/reddit-deep-r-povertyfinance/d6cff9cc8c.md#c1"
     char_span: [1798, 3890]
     sentence_count: 22
     key_terms: [need, people, money, appropriate, give, "i'm", vent, submitter]
+    concepts: [people, appropriate, money, submitter, because]
     token_count: 484
   - id: "articles/reddit-deep-r-povertyfinance/d6cff9cc8c.md#c2"
     char_span: [3892, 5881]
     sentence_count: 16
     key_terms: [gotten, please, work, emotional, submitter, offering, message, started]
+    concepts: [gotten, please, emotional, submitter, offering]
     token_count: 455
 ---
 # I'm 25, poor, and don't want to keep going.

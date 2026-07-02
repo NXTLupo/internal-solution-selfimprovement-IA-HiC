@@ -21,40 +21,48 @@ chunks:
     char_span: [0, 2193]
     sentence_count: 1
     key_terms: [therapist, low, work, client-facing, roles, assessments, sensitivity, good]
+    concepts: [therapist, client-facing, assessments, sensitivity, roles]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1n1v0rn/figuring_it_out_career_path_exploration_as_a_25f/"}]
   - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c1"
     char_span: [2195, 4220]
     sentence_count: 7
     key_terms: [research, planning, recommendations, empathy, intelligence, being, discomfort, psychology]
+    concepts: [research, recommendations, planning, empathy, intelligence]
     token_count: 416
   - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c2"
     char_span: [4234, 5968]
     sentence_count: 14
     key_terms: [thank, helpful, please, pattymayo8701, introverted, help, findapath, comments]
+    concepts: [thank, pattymayo8701, helpful, please, introverted]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c3"
     char_span: [5970, 7231]
     sentence_count: 6
     key_terms: [revolutionwooden5638, compliance, healthcare, documentation, etc, work, management, probably]
+    concepts: [revolutionwooden5638, compliance, healthcare, documentation, management]
     section: Comments
     token_count: 266
   - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c4"
     char_span: [7233, 8842]
     sentence_count: 12
     key_terms: [amazing, pivoted, fullupfinish, assurance, something, sometimes, quality, performancecrazy514]
+    concepts: [amazing, pivoted, fullupfinish, assurance, something]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c5"
     char_span: [8844, 9900]
     sentence_count: 8
     key_terms: [something, like, worth, job, effort, performancecrazy514, being, doing]
+    concepts: [something, worth, effort, being, doing]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c6"
     char_span: [9902, 12168]
     sentence_count: 13
     key_terms: [specialist, roles, talent, organisational, development, good, job, assessment]
+    concepts: [specialist, roles, talent, organisational, development]
     section: Comments
     token_count: 499
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 911]
     sentence_count: 10
     key_terms: [marketing, career, skills, careeradvice, today, comments, content, restart]
+    concepts: [marketing, careeradvice, career, skills, today]
     token_count: 202
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1oxkvqw/if_you_had_to_restart_your_marketing_career_today/"}]
 ---
 # If you had to restart your marketing career today, what 5 skills would you learn first and why?
 

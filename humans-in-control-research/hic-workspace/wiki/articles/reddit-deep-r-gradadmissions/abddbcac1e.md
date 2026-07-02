@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1829]
     sentence_count: 17
     key_terms: [interested, classes, gradadmissions, policy, since, years, engineering, gpa]
+    concepts: [interested, gradadmissions, classes, policy, engineering]
     token_count: 401
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1tdalms/low_undergrad_high_grad_gpa_plus_career_change/"}]
   - id: "articles/reddit-deep-r-gradadmissions/abddbcac1e.md#c1"
     char_span: [1831, 3960]
     sentence_count: 24
     key_terms: [programs, undergraduate, gpa, next, statistics, economics, technical, advanced]
+    concepts: [programs, undergraduate, statistics, economics, technical]
     token_count: 438
   - id: "articles/reddit-deep-r-gradadmissions/abddbcac1e.md#c2"
     char_span: [3962, 5090]
     sentence_count: 11
     key_terms: [math, grades, econ, advanced, analysis, calculus, algebra, courses]
+    concepts: [grades, advanced, analysis, calculus, algebra]
     token_count: 252
 ---
 # Low Undergrad, High Grad GPA plus Career Change - Poli Sci Econ Rejections

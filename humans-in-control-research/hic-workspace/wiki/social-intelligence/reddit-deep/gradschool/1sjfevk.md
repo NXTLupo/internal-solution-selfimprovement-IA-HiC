@@ -21,53 +21,63 @@ chunks:
     char_span: [0, 1065]
     sentence_count: 7
     key_terms: [get, gradschool, comments, afloat, school, hacks, best, don]
+    concepts: [gradschool, comments, afloat, school, hacks]
     token_count: 277
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1sjfevk/give_me_your_best_grad_school_hacks_in_terms_of/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1sjfevk.md#c1"
     char_span: [1079, 2489]
     sentence_count: 14
     key_terms: [students, work, appearance, majority, actual, treat, day, don]
+    concepts: [students, appearance, majority, actual, treat]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/gradschool/1sjfevk.md#c2"
     char_span: [2491, 4884]
     sentence_count: 21
     key_terms: [advisors, outside, draft, classmates, department, formatting, prospectus, coworkers]
+    concepts: [advisors, outside, classmates, department, draft]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/gradschool/1sjfevk.md#c3"
     char_span: [4889, 5595]
     sentence_count: 5
     key_terms: [christmas, lights, like, everything, cautious-candy1221, home, apocalyptic, neighbors]
+    concepts: [christmas, lights, everything]
     section: Comments
     token_count: 155
   - id: "social-intelligence/reddit-deep/gradschool/1sjfevk.md#c4"
     char_span: [5597, 7686]
     sentence_count: 16
     key_terms: [work, people, hobbies, school, taking, day, time, helpful]
+    concepts: [people, hobbies, school, taking, helpful]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/gradschool/1sjfevk.md#c5"
     char_span: [7688, 9459]
     sentence_count: 16
     key_terms: [yourself, phd, something, rainbows, sunshine, general, letting, writing]
+    concepts: [yourself, something, rainbows, sunshine, general]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/gradschool/1sjfevk.md#c6"
     char_span: [9461, 11086]
     sentence_count: 21
     key_terms: [schedule, point, life, everything, myself, social, stress, grade]
+    concepts: [schedule, everything, point, myself, social]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/gradschool/1sjfevk.md#c7"
     char_span: [11088, 11880]
     sentence_count: 6
     key_terms: [semester, baths, klutzy-amount-1265, done, like, play, took, work]
+    concepts: [semester, baths]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/gradschool/1sjfevk.md#c8"
     char_span: [11882, 13674]
     sentence_count: 13
     key_terms: [aspect, social, get, in-person, vegan19, little, people, grad]
+    concepts: [aspect, social, in-person, vegan19, little]
     section: Comments
     token_count: 421
 ---

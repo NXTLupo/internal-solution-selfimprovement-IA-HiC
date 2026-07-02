@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2058]
     sentence_count: 20
     key_terms: [careerguidance, trying, bachelor, comments, current, started, advice, almost]
+    concepts: [careerguidance, trying, bachelor, comments, current]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1ssute2/im_almost_22_and_feel_lost_about_my_career_path/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1ssute2.md#c1"
-    char_span: [2073, 3922]
+    char_span: [2072, 3921]
     sentence_count: 14
     key_terms: [interviews, frontend, applications, stack, feel, look, plus, hackathons]
+    concepts: [interviews, frontend, applications, hackathons, stack]
     section: Comments
     token_count: 404
 ---

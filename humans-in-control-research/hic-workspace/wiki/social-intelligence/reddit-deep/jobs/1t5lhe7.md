@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 417]
     sentence_count: 2
     key_terms: [comments, never, jobs, bluecomments, homeschooled, particularly, reddit-deep, socialzied]
+    concepts: [comments, never]
     token_count: 107
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1t5lhe7/is_there_an_easy_way_to_get_hired_for_a_job_if/"}]
   - id: "social-intelligence/reddit-deep/jobs/1t5lhe7.md#c1"
     char_span: [431, 996]
     sentence_count: 5
     key_terms: [trades, sudden-usual-5140, work, bulkytiger8706, veximmortalis, bluecomments, scav-stalker, interaction]
+    concepts: [trades]
     section: Comments
     token_count: 157
 ---

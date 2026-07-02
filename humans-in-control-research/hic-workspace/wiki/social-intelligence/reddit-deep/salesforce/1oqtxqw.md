@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 690]
     sentence_count: 5
     key_terms: [fsc, salesforce, comments, far-dragonfruit-7985, cloud, understanding, integration, reddit-deep]
+    concepts: [salesforce, comments, cloud]
     token_count: 171
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1oqtxqw/how_is_salesforce_financial_service_cloud_fsc_as/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1oqtxqw.md#c1"
-    char_span: [705, 2066]
+    char_span: [704, 2065]
     sentence_count: 12
     key_terms: [fsc, sales, cloud, too, service, moos14, far-dragonfruit-7985, add]
+    concepts: [sales, cloud, service, moos14]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/salesforce/1oqtxqw.md#c2"
-    char_span: [2068, 2999]
+    char_span: [2067, 2998]
     sentence_count: 9
     key_terms: [difference, familiar, sales, get, good, like, use, outside-dig-9461]
+    concepts: [difference, familiar, sales]
     section: Comments
     token_count: 197
 ---

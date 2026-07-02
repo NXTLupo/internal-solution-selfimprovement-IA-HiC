@@ -20,47 +20,61 @@ chunks:
     char_span: [0, 1770]
     sentence_count: 9
     key_terms: [score, item, probability, categorical, datascience, information, day, historical]
+    concepts: [score, probability, categorical, datascience, information]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1ptpoe1.md#c1"]
     token_count: 399
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1ptpoe1/nonstationary_categorical_data/"}]
   - id: "social-intelligence/reddit-deep/datascience/1ptpoe1.md#c1"
-    char_span: [1785, 3475]
+    char_span: [1784, 3474]
     sentence_count: 10
     key_terms: [information, probability, throwawayforgainz99, available, time, feature, outcome, items]
+    concepts: [information, probability, throwawayforgainz99, available, feature]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1ptpoe1.md#c0", "social-intelligence/reddit-deep/datascience/1ptpoe1.md#c5"]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/datascience/1ptpoe1.md#c2"
-    char_span: [3477, 5747]
+    char_span: [3476, 5746]
     sentence_count: 21
     key_terms: [time, probability, success, features, observations, ranking, change, environmental]
+    concepts: [probability, success, observations, features, ranking]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1ptpoe1.md#c3"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/datascience/1ptpoe1.md#c3"
-    char_span: [5750, 8314]
+    char_span: [5749, 8313]
     sentence_count: 17
     key_terms: [observations, probability, compressed, features, patterns, representation, better, predictive]
+    concepts: [observations, probability, compressed, features, patterns]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1ptpoe1.md#c2"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/datascience/1ptpoe1.md#c4"
-    char_span: [8316, 8693]
+    char_span: [8315, 8692]
     sentence_count: 3
     key_terms: [models, hierarchical, strategy, autorregresive, constrained, clustering, currently, knowledge]
+    concepts: [hierarchical, models, strategy]
     section: Comments
     token_count: 75
   - id: "social-intelligence/reddit-deep/datascience/1ptpoe1.md#c5"
-    char_span: [8695, 11035]
+    char_span: [8694, 11034]
     sentence_count: 9
     key_terms: [information, features, day, always, predicting, model, available, item]
+    concepts: [information, features, predicting, always, available]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1ptpoe1.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/datascience/1ptpoe1.md#c6"
-    char_span: [10678, 11385]
+    char_span: [10677, 11384]
     sentence_count: 6
     key_terms: [information, learning, training, known, rank, categoricalset, classification, completeness]
+    concepts: [information, learning, training, known]
     section: Comments
     token_count: 130
   - id: "social-intelligence/reddit-deep/datascience/1ptpoe1.md#c7"
-    char_span: [11387, 12619]
+    char_span: [11386, 12618]
     sentence_count: 7
     key_terms: [problem, horizon, knowledge, training, bandit, isnt, overcomplicated, autoregressive]
+    concepts: [problem, horizon, knowledge, training, bandit]
     section: Comments
     token_count: 252
 ---

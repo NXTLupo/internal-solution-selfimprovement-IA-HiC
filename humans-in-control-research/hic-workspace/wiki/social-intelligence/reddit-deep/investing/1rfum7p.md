@@ -20,22 +20,27 @@ chunks:
     char_span: [0, 1496]
     sentence_count: 11
     key_terms: [investing, wyfi, centers, data, voo, comments, current, looking]
+    concepts: [investing, centers, comments, current, looking]
     token_count: 393
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1rfum7p/thoughts_on_my_current_portfolio_voo_nvda_amzn/"}]
   - id: "social-intelligence/reddit-deep/investing/1rfum7p.md#c1"
     char_span: [1498, 3685]
     sentence_count: 10
     key_terms: [power, interactions, electricity, through, across, development, like, smr]
+    concepts: [interactions, power, electricity, through, across]
     token_count: 428
   - id: "social-intelligence/reddit-deep/investing/1rfum7p.md#c2"
-    char_span: [3700, 4792]
+    char_span: [3699, 4791]
     sentence_count: 10
     key_terms: [power, like, reactor, someone, considerable, "wouldn't", decent, demand]
+    concepts: [power, reactor, someone, considerable, "wouldn't"]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/investing/1rfum7p.md#c3"
-    char_span: [4794, 5826]
+    char_span: [4793, 5825]
     sentence_count: 9
     key_terms: [oklo, smr, justanunknownauthor, rolls, royce, years, top, gold-whole1009]
+    concepts: [rolls, royce, years]
     section: Comments
     token_count: 259
 ---

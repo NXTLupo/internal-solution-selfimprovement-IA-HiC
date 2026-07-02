@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 989]
     sentence_count: 6
     key_terms: [college, accounting, internship, networking, comments, decided, conclusiontrick3667, major]
+    concepts: [college, accounting, internship, networking, comments]
     token_count: 230
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1qevr4j/is_it_worth_switching_to_business_accountingeven/"}]
   - id: "social-intelligence/reddit-deep/college/1qevr4j.md#c1"
     char_span: [1003, 2439]
     sentence_count: 12
     key_terms: [accounting, degree, "you'll", internships, experience, internship, university, graduate]
+    concepts: [accounting, degree, "you'll", internships, experience]
     section: Comments
     token_count: 308
 ---

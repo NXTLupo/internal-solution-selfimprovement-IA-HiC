@@ -19,53 +19,63 @@ chunks:
     char_span: [0, 1315]
     sentence_count: 13
     key_terms: [feel, job, careerguidance, don, completely, something, comments, creative]
+    concepts: [careerguidance, completely, something, comments, creative]
     token_count: 324
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1lipx1c/30_no_degree_65kyr_hate_my_job_recently/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1lipx1c.md#c1"
-    char_span: [1330, 2207]
+    char_span: [1329, 2206]
     sentence_count: 7
     key_terms: [hours, something, year, unbelievable, compensated, engineering, definitely, restaurant]
+    concepts: [hours, something]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/careerguidance/1lipx1c.md#c2"
-    char_span: [2209, 4216]
+    char_span: [2208, 4215]
     sentence_count: 14
     key_terms: [job, "i've", "it's", poverty, fulfillment, hate, tech, companies]
+    concepts: [poverty, fulfillment, companies, survive, degree]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1lipx1c.md#c3"
-    char_span: [4004, 6062]
+    char_span: [4003, 6061]
     sentence_count: 15
     key_terms: [tech, life, work, "i've", something, skills, wellthisisawkward86, month]
+    concepts: [something, skills, month]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1lipx1c.md#c4"
-    char_span: [5790, 7049]
+    char_span: [5789, 7048]
     sentence_count: 8
     key_terms: [kids, don, life, flavorsaid, introvert, probably, people, few-operation6602]
+    concepts: [flavorsaid, introvert, probably, people]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/careerguidance/1lipx1c.md#c5"
-    char_span: [7051, 9104]
+    char_span: [7050, 9103]
     sentence_count: 15
     key_terms: [insurance, life, degree, few-operation6602, college, people, necessarily, good]
+    concepts: [insurance, degree, few-operation6602, college, people]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/careerguidance/1lipx1c.md#c6"
-    char_span: [9106, 10099]
+    char_span: [9105, 10098]
     sentence_count: 7
     key_terms: [healthcare, degree, great, job, jobs, currently, require, always]
+    concepts: [healthcare, degree, great, currently, require]
     section: Comments
     token_count: 229
   - id: "social-intelligence/reddit-deep/careerguidance/1lipx1c.md#c7"
-    char_span: [10101, 12308]
+    char_span: [10100, 12307]
     sentence_count: 15
     key_terms: [scottyfullstack, job, lot, need, something, deleted, support, better]
+    concepts: [scottyfullstack, something, deleted, support, better]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1lipx1c.md#c8"
-    char_span: [12032, 12634]
+    char_span: [12031, 12633]
     sentence_count: 9
     key_terms: [support, dissatisfaction, scottyfullstack, relationships, application, flufnstuf69, performance, networking]
+    concepts: [support]
     section: Comments
     token_count: 140
 ---

@@ -21,32 +21,43 @@ chunks:
     char_span: [0, 1991]
     sentence_count: 17
     key_terms: [path, market, wallstreetbets, comments, pathetic, robotics, getting, cathie]
+    concepts: [market, wallstreetbets, comments, pathetic, robotics]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c4"]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1o18pxg/30k_yolo_on_uipath_the_path_to_generational_wealth/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c1"
     char_span: [1993, 3905]
     sentence_count: 10
     key_terms: [partnerships, path, png, earnings, f59af1605fcf421a3264968abe2ef0eef65d4ecd, options, market, poised]
+    concepts: [partnerships, earnings, options, expectations, market]
     token_count: 499
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c2"
     char_span: [3907, 5532]
     sentence_count: 5
     key_terms: [png, preview, format, https, width, auto, redd, webp]
+    concepts: [preview, format, https, width, shares]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c3"]
     token_count: 471
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c3"
     char_span: [5534, 6182]
     sentence_count: 4
     key_terms: [png, preview, format, calls, https, width, auto, redd]
+    concepts: [preview, format, calls, https, width]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c2"]
     token_count: 218
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c4"
     char_span: [6196, 6738]
     sentence_count: 1
     key_terms: [wallstreetbets, comments, reddit, https, com, www, total, years]
+    concepts: [wallstreetbets, comments, reddit, https, total]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c0"]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c5"
     char_span: [6740, 8482]
     sentence_count: 10
     key_terms: [kuliyayoi, nonetimeaccount, wsb, company, discord, support, shares, https]
+    concepts: [kuliyayoi, nonetimeaccount, company, discord, support]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c6"
@@ -59,12 +70,14 @@ chunks:
     char_span: [8610, 9438]
     sentence_count: 1
     key_terms: [apu823, path, sunnyt21, suspicious-pick3722, watch, agentorange001, chefboyrd-92, iannoyyou101]
+    concepts: [apu823, sunnyt21, watch]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c8"
     char_span: [9440, 10730]
     sentence_count: 10
     key_terms: [calls, let, company, shares, poopbucketchallenge, been, did, huge]
+    concepts: [calls, company, shares]
     section: Comments
     token_count: 356
 ---

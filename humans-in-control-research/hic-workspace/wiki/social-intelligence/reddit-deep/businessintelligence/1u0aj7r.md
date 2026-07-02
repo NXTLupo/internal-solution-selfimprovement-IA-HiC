@@ -17,10 +17,12 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/businessintelligence/1u0aj7r.md#c0"
-    char_span: [0, 1592]
+    char_span: [0, 1591]
     sentence_count: 11
     key_terms: [data, businessintelligence, analytics, questions, role, business, intelligence, interview]
-    token_count: 329
+    concepts: [businessintelligence, analytics, questions, business, intelligence]
+    token_count: 328
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1u0aj7r/help_needed_for_preparing_for_the_interview/"}]
 ---
 # Help needed for preparing for the interview.
 

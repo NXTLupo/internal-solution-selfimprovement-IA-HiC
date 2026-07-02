@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1362]
     sentence_count: 10
     key_terms: [communications, job, distance, driving, florida, careerguidance, degree, within]
+    concepts: [communications, distance, careerguidance, driving, florida]
     token_count: 303
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tabx9d/how_do_i_find_a_career_in_the_florida_job_market/"}]
 ---
 # How do I find a career in the Florida job market?
 

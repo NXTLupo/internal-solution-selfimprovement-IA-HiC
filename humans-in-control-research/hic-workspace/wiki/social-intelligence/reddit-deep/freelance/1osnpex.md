@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 1770]
     sentence_count: 18
     key_terms: [freelance, finances, money, comments, invoices, started, habits, later]
+    concepts: [freelance, finances, money, comments, invoices]
+    related_chunks: ["social-intelligence/reddit-deep/freelance/1osnpex.md#c2"]
     token_count: 417
+    sources: [{"n":"reddit-deep: r/freelance","u":"https://www.reddit.com/r/freelance/comments/1osnpex/how_do_you_keep_your_freelance_finances_in_order/"}]
   - id: "social-intelligence/reddit-deep/freelance/1osnpex.md#c1"
     char_span: [1784, 2574]
     sentence_count: 7
     key_terms: [day, business, invoices, transfer, account, salary, month, needs]
+    concepts: [business, invoices, transfer, account, salary]
+    related_chunks: ["social-intelligence/reddit-deep/freelance/1osnpex.md#c2"]
     section: Comments
     token_count: 185
   - id: "social-intelligence/reddit-deep/freelance/1osnpex.md#c2"
     char_span: [2576, 4129]
     sentence_count: 12
     key_terms: [account, freelance, invoices, income, end, pay, use, everything]
+    concepts: [account, freelance, invoices, income, everything]
+    related_chunks: ["social-intelligence/reddit-deep/freelance/1osnpex.md#c0", "social-intelligence/reddit-deep/freelance/1osnpex.md#c1"]
     section: Comments
     token_count: 372
 ---

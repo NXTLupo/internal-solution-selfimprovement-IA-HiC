@@ -19,22 +19,27 @@ chunks:
     char_span: [0, 1935]
     sentence_count: 14
     key_terms: [through, classes, college, going, care, like, academic, comments]
+    concepts: [through, classes, college, going, academic]
     token_count: 461
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1oi6if8/stuck_and_would_like_advice/"}]
   - id: "social-intelligence/reddit-deep/college/1oi6if8.md#c1"
     char_span: [1937, 3063]
     sentence_count: 14
     key_terms: [advisor, degree, like, business, because, screwed, school, didn]
+    concepts: [advisor, degree, business, because, screwed]
     token_count: 256
   - id: "social-intelligence/reddit-deep/college/1oi6if8.md#c2"
-    char_span: [3078, 5151]
+    char_span: [3077, 5150]
     sentence_count: 15
     key_terms: [get, degree, school, "you're", going, something, path, business]
+    concepts: [degree, school, "you're", something, going]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/college/1oi6if8.md#c3"
-    char_span: [5154, 6255]
+    char_span: [5153, 6254]
     sentence_count: 10
     key_terms: [university, undergrad, transfer, applied, credits, grades, people, school]
+    concepts: [university, undergrad, transfer, applied, credits]
     section: Comments
     token_count: 259
 ---

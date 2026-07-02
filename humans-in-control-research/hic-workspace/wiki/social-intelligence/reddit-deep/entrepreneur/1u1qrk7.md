@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 834]
     sentence_count: 3
     key_terms: [entrepreneur, voice, translation, real-time, comments, accessibility, conversations, developments]
+    concepts: [entrepreneur, translation, voice, real-time, comments]
     token_count: 172
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1u1qrk7/how_voice_ai_is_redefining_interaction/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1u1qrk7.md#c1"
-    char_span: [849, 1662]
+    char_span: [848, 1661]
     sentence_count: 4
     key_terms: [please, entrepreneur, permanent, promotion, stickied, comment, thread, weekly]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/entrepreneur/1u1qrk7.md#c2"
-    char_span: [1665, 3460]
+    char_span: [1664, 3459]
     sentence_count: 13
     key_terms: [support, implementations, anymore, people, voice, real, customer, simple]
+    concepts: [support, implementations, anymore, people, voice]
     section: Comments
     token_count: 396
 ---

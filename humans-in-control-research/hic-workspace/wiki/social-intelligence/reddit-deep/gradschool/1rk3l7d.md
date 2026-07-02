@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 229]
     sentence_count: 1
     key_terms: [gradschool, comments, glitteringdoughnut61, reddit-deep, research, posted, reddit, school]
+    concepts: [gradschool, comments]
     token_count: 71
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rk3l7d/grad_school_research/"}]
 ---
 # Grad School -Research
 

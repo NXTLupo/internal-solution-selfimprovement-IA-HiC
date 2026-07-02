@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 622]
     sentence_count: 3
     key_terms: [profit, sell, comments, dropship, margins, product, around, frontintention666]
+    concepts: [profit, comments, dropship, margins, product]
     token_count: 162
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1nta4ja/what_is_your_target_profit_margin_per_product/"}]
   - id: "social-intelligence/reddit-deep/dropship/1nta4ja.md#c1"
-    char_span: [637, 2305]
+    char_span: [636, 2304]
     sentence_count: 6
     key_terms: [aliexpress, https, youtu, suppliers, product, dsers, cost, dropship]
+    concepts: [aliexpress, https, youtu, suppliers, product]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/dropship/1nta4ja.md#c2"
-    char_span: [2307, 3848]
+    char_span: [2306, 3847]
     sentence_count: 8
     key_terms: [price, duelingonberry296, try, costs, aov, cost, operating, increase]
+    concepts: [duelingonberry296, price, costs, operating, increase]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/dropship/1nta4ja.md#c3"
-    char_span: [3850, 5251]
+    char_span: [3849, 5250]
     sentence_count: 8
     key_terms: [net, margin, profit, because, around, markup, fluffy-celebration16, ijuststudyenglishere]
+    concepts: [margin, profit, because, around, markup]
     section: Comments
     token_count: 370
 ---

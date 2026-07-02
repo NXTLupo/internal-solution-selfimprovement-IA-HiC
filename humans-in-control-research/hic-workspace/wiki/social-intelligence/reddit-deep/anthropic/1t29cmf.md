@@ -21,47 +21,60 @@ chunks:
     char_span: [0, 959]
     sentence_count: 6
     key_terms: [claude, code, https, use, wsl2, powershell, anthropic, switching]
+    concepts: [claude, https, powershell, anthropic, switching]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1t29cmf.md#c2", "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c3", "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c5"]
     token_count: 245
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1t29cmf/to_all_my_claude_code_win11_bois_do_you_all_use/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c1"
     char_span: [978, 2136]
     sentence_count: 3
     key_terms: [wsl2, docker, bash, use, powershell, terminate, instead, better]
+    concepts: [docker, powershell, terminate, instead, better]
     section: The positives
     token_count: 271
   - id: "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c2"
     char_span: [2156, 3309]
     sentence_count: 7
     key_terms: [code, powershell, claude, wsl2, bash, here, use, distro]
+    concepts: [powershell, claude, distro, plugin, ubuntu]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1t29cmf.md#c0", "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c3", "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c5"]
     section: The negatives
     token_count: 277
   - id: "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c3"
     char_span: [3324, 5242]
     sentence_count: 19
     key_terms: [powershell, works, projects, bash, claude, code, windows, using]
+    concepts: [powershell, works, projects, claude, windows]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1t29cmf.md#c0", "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c2", "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c5"]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c4"
     char_span: [5245, 6482]
     sentence_count: 9
     key_terms: [space, free, virtual, disk, ram, wsl, "doesn't", claude]
+    concepts: [space, virtual, "doesn't", claude, "that's"]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c5"
     char_span: [6484, 8691]
     sentence_count: 13
     key_terms: [claude, windows, wsl, powershell, port, instance, because, through]
+    concepts: [claude, windows, powershell, instance, because]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1t29cmf.md#c0", "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c2", "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c6"
     char_span: [8431, 8896]
     sentence_count: 2
     key_terms: [windows, powershell, switching, therefore, commands, increase, inherent, juscuz96]
+    concepts: [windows]
     section: Comments
     token_count: 105
   - id: "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c7"
     char_span: [8898, 10075]
     sentence_count: 8
     key_terms: [wsl2, windows, side, smoother, doesn, going, happy, place]
+    concepts: [windows, smoother, doesn, going, happy]
     section: Comments
     token_count: 273
 ---

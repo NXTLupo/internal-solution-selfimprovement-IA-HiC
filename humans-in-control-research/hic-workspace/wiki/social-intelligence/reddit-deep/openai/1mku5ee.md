@@ -21,59 +21,74 @@ chunks:
     char_span: [0, 238]
     sentence_count: 1
     key_terms: [comments, openai, reddit-deep, juntmac, posted, reddit, source, https]
+    concepts: [comments, openai]
     token_count: 81
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1mku5ee/this_says_it_all_to_me_o3_vs_gpt5/"}]
   - id: "social-intelligence/reddit-deep/openai/1mku5ee.md#c1"
     char_span: [252, 2049]
     sentence_count: 9
     key_terms: [thinking, c1b4474f1ca771e40a64a1d8954e1d3745066dd2, correct, graph, bar, conditions, ectocarpus, stacking]
+    concepts: [thinking, correct, conditions, ectocarpus, graph]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/openai/1mku5ee.md#c2"
     char_span: [2051, 3945]
     sentence_count: 13
     key_terms: [claude, because, did, chatgpt, like, try, mistake, errors]
+    concepts: [claude, because, chatgpt, mistake, errors]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mku5ee.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1mku5ee.md#c3"
     char_span: [3719, 5230]
     sentence_count: 10
     key_terms: [customers, "it's", errors, embarrassing, presentation, like, chatgpt, mistake]
+    concepts: [customers, embarrassing, presentation, errors, chatgpt]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mku5ee.md#c2"]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/openai/1mku5ee.md#c4"
     char_span: [5232, 6812]
     sentence_count: 14
     key_terms: [thinking, ed0c323e026cbd310e337b8971dd62cfe7b247d8, image, got, choices, closest, replied, gemini]
+    concepts: [thinking, image, choices, closest, replied]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/openai/1mku5ee.md#c5"
     char_span: [6814, 8744]
     sentence_count: 13
     key_terms: [better, thinking, "don't", because, "doesn't", prompts, coding, demand]
+    concepts: [better, thinking, "don't", because, "doesn't"]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mku5ee.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1mku5ee.md#c6"
     char_span: [8518, 8781]
     sentence_count: 2
     key_terms: [better, benchmarks, consensus, "doesn't", general, hatsuwr, lmarena, testing]
+    concepts: [better]
     section: Comments
     token_count: 70
   - id: "social-intelligence/reddit-deep/openai/1mku5ee.md#c7"
     char_span: [8783, 10505]
     sentence_count: 10
     key_terms: [non-thinking, gpt-5, thinking, eb7c4e94e67896e88fef579b859100e42a8cd8ea, better, height, screenshot, reasoning]
+    concepts: [non-thinking, gpt-5, thinking, better, height]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mku5ee.md#c5"]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/openai/1mku5ee.md#c8"
     char_span: [10507, 12193]
     sentence_count: 5
     key_terms: [gpt5, being, outperforms, correctly, catches, "doesn't", credit, openai]
+    concepts: [outperforms, being, correctly, catches, "doesn't"]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/openai/1mku5ee.md#c9"
     char_span: [12197, 12540]
     sentence_count: 3
     key_terms: [absolutely, like, pro, thinking-pro, outperforms, rare-site, thinking, youtuber]
+    concepts: [absolutely]
     section: Comments
     token_count: 106
 ---

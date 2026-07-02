@@ -19,16 +19,22 @@ chunks:
     char_span: [0, 2080]
     sentence_count: 14
     key_terms: [task, selection, reproducible, extraction, agent, tasks, benchmark, retrieval]
+    concepts: [selection, reproducible, extraction, benchmark, retrieval]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1suzqxe.md#c1"]
     token_count: 448
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1suzqxe/opensource_9task_benchmark_for_codingagent/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1suzqxe.md#c1"
     char_span: [2082, 3953]
     sentence_count: 9
     key_terms: [retrieval, techniques, agent, baseline, extraction, delta, per, technique]
+    concepts: [retrieval, techniques, baseline, agent, extraction]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1suzqxe.md#c0"]
     token_count: 486
   - id: "social-intelligence/reddit-deep/machinelearning/1suzqxe.md#c2"
     char_span: [3955, 4881]
     sentence_count: 8
     key_terms: [paper-lantern-challenges, coding-agent-benchmarks, https, paperlantern-ai, paperlantern, agent, retrieval, architecture-incompatible]
+    concepts: [paper-lantern-challenges, coding-agent-benchmarks, https, paperlantern-ai, paperlantern]
     token_count: 204
 ---
 # Open-source 9-task benchmark for coding-agent retrieval augmentation. Per-task deltas +0.010 to +0.320, all evals reproducible [P]

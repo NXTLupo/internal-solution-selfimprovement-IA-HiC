@@ -21,23 +21,31 @@ chunks:
     char_span: [0, 467]
     sentence_count: 3
     key_terms: [applyingtocollege, comments, cornell, cost, overshadows, reddit-deep, attendance, colleges]
+    concepts: [applyingtocollege, comments, cornell]
     token_count: 127
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1suxhuf/cornell_or_columbia/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1suxhuf.md#c1"
     char_span: [481, 2190]
     sentence_count: 13
     key_terms: [cornell, columbia, campus, prestigious, med, real, experience, undergrad]
+    concepts: [cornell, columbia, campus, prestigious, experience]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1suxhuf.md#c3"]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/applyingtocollege/1suxhuf.md#c2"
     char_span: [2192, 3989]
     sentence_count: 22
     key_terms: [cornell, major, shadowing, opportunities, grade, cals, cas, days]
+    concepts: [cornell, shadowing, major, opportunities, grade]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1suxhuf.md#c3"]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/applyingtocollege/1suxhuf.md#c3"
     char_span: [3991, 5006]
     sentence_count: 12
     key_terms: [cornell, summer, opportunities, shadowing, columbia, medicine, schools, historical-many9869]
+    concepts: [opportunities, cornell, summer, shadowing, columbia]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1suxhuf.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1suxhuf.md#c2"]
     section: Comments
     token_count: 260
 ---

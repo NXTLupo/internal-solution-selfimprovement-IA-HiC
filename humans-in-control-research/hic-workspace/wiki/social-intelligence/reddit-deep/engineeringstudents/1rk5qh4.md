@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1274]
     sentence_count: 5
     key_terms: [experience, engineering, engineeringstudents, work, school, been, job, currently]
+    concepts: [experience, engineering, engineeringstudents, school, currently]
     token_count: 292
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rk5qh4/am_i_not_doing_enough/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rk5qh4.md#c1"
     char_span: [1288, 1754]
     sentence_count: 3
     key_terms: [companies, engineers, anymore, interns, "aren't", hiring, new, next]
+    concepts: [companies, engineers, anymore, interns, "aren't"]
     section: Comments
     token_count: 119
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rk5qh4.md#c2"
     char_span: [1756, 3781]
     sentence_count: 12
     key_terms: [resume, average, skywalker170997, job, need, interviews, recruiters, mentioned]
+    concepts: [resume, average, skywalker170997, interviews, recruiters]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rk5qh4.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rk5qh4.md#c3"
     char_span: [3495, 4150]
     sentence_count: 4
     key_terms: [average, recruiters, resume, worst, move, competition, everything, experience]
+    concepts: [average, recruiters, resume, worst]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rk5qh4.md#c2"]
     section: Comments
     token_count: 161
 ---

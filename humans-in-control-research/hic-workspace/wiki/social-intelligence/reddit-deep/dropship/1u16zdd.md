@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 766]
     sentence_count: 6
     key_terms: [shipping, international, comments, dropship, prepped, ready, coolshield709, reddit-deep]
+    concepts: [shipping, international, comments, dropship, prepped]
     token_count: 182
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1u16zdd/what_should_i_prepare_before_turning_on/"}]
   - id: "social-intelligence/reddit-deep/dropship/1u16zdd.md#c1"
-    char_span: [781, 2672]
+    char_span: [780, 2671]
     sentence_count: 10
     key_terms: [delivery, need, compliance, category, checkout, dropship, duties, landed]
+    concepts: [delivery, compliance, category, checkout, dropship]
     section: Comments
     token_count: 435
 ---

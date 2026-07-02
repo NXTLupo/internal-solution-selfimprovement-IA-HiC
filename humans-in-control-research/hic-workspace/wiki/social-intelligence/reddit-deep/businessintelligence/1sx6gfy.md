@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1204]
     sentence_count: 8
     key_terms: [businessintelligence, visualization, able, user, want, questions, comments, product]
+    concepts: [businessintelligence, visualization, questions, comments, product]
     token_count: 277
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1sx6gfy/best_ai_query_and_visualization_tools/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1sx6gfy.md#c1"
-    char_span: [1219, 2704]
+    char_span: [1218, 2703]
     sentence_count: 13
     key_terms: [data, like, odd-string29, mcp, questions, already, access, agents]
+    concepts: [odd-string29, questions, already, access, agents]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/businessintelligence/1sx6gfy.md#c2"
-    char_span: [2706, 4220]
+    char_span: [2705, 4219]
     sentence_count: 11
     key_terms: [like, last, sql, use, week, cases, language, produces]
+    concepts: [cases, language, produces, response, chatbot]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/businessintelligence/1sx6gfy.md#c3"
-    char_span: [4222, 5869]
+    char_span: [4221, 5868]
     sentence_count: 4
     key_terms: [build-your-own-data-analytics-slack-ai-agent-with-shaper, chat, like, mcp, open, own, sql, dashboards]
+    concepts: [build-your-own-data-analytics-slack-ai-agent-with-shaper, dashboards, available, framework, questions]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/businessintelligence/1sx6gfy.md#c4"
-    char_span: [5871, 8044]
+    char_span: [5870, 8043]
     sentence_count: 15
     key_terms: [data, users, tool, want, permission, generate, ability, athenic]
+    concepts: [users, permission, generate, ability, athenic]
     section: Comments
     token_count: 512
 ---

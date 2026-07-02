@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1176]
     sentence_count: 8
     key_terms: [productivity, years, dad, "i'm", comments, getting, parents, aware]
+    concepts: [productivity, years, comments, getting, parents]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1te7bfo/productivity_during_tough_times/"}]
   - id: "social-intelligence/reddit-deep/productivity/1te7bfo.md#c1"
     char_span: [1190, 2037]
     sentence_count: 8
     key_terms: [productive, caregiving, nursing, rhythm, doing, cna, job, work]
+    concepts: [productive, caregiving, nursing, rhythm, doing]
     section: Comments
     token_count: 205
 ---

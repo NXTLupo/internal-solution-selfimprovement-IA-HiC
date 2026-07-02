@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1909]
     sentence_count: 8
     key_terms: [financially, "i'm", comments, future, architecture, years, successful, findapath]
+    concepts: [financially, comments, architecture, future, successful]
     token_count: 442
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1s65vhq/need_help_deciding_what_to_study_for_my_future/"}]
   - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c1"
     char_span: [1923, 2870]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c2"
     char_span: [2873, 4860]
     sentence_count: 10
     key_terms: [hauntingprompt1436, interest, fakehollow0902, help, life, experience, degrees, helpful]
+    concepts: [hauntingprompt1436, interest, fakehollow0902, experience, degrees]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c3"
     char_span: [4862, 7151]
     sentence_count: 15
     key_terms: [architecture, decision, animals, fakehollow0902, skills, money, "it's", job]
+    concepts: [architecture, decision, fakehollow0902, animals, skills]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c4"
     char_span: [7153, 8802]
     sentence_count: 5
     key_terms: [work, substantialhandle124, high, passion, family, architecture, "it's", vet]
+    concepts: [substantialhandle124, passion, architecture, family, government]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c5"
     char_span: [8804, 10689]
     sentence_count: 13
     key_terms: [opening-cantaloupe56, fakehollow0902, want, through, advice, future, starve, supply]
+    concepts: [opening-cantaloupe56, fakehollow0902, through, advice, future]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c6"
     char_span: [10691, 12882]
     sentence_count: 13
     key_terms: [something, passion, sucks, eventually, being, fakehollow0902, people, architecture]
+    concepts: [something, passion, sucks, eventually, being]
     section: Comments
     token_count: 486
 ---

@@ -21,69 +21,87 @@ chunks:
     char_span: [0, 2400]
     sentence_count: 14
     key_terms: [safety, gpt, gpt-5, reasoning, users, tifinchi, assumptions, new]
+    concepts: [safety, gpt-5, reasoning, tifinchi, users]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1pth1bw.md#c2", "social-intelligence/reddit-deep/gpt/1pth1bw.md#c5"]
     token_count: 515
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1pth1bw/new_safety_and_ethical_concern_with_gpt/"}]
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c1"
     char_span: [2402, 5193]
     sentence_count: 17
     key_terms: [identity, reasoning, constraints, workspace, organizational, tiers, business, chatgpt]
+    concepts: [identity, reasoning, constraints, organizational, workspace]
     token_count: 520
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c2"
     char_span: [5195, 6110]
     sentence_count: 7
     key_terms: [users, safety, constraints, careful, failure, systems, design, risk]
+    concepts: [users, safety, constraints, careful, failure]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1pth1bw.md#c0"]
     token_count: 177
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c3"
     char_span: [6124, 8271]
     sentence_count: 18
     key_terms: [guardrails, conversations, constantly, technical, thinking, because, nothing, overall]
+    concepts: [guardrails, conversations, constantly, technical, thinking]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c4"
     char_span: [8273, 8659]
     sentence_count: 4
     key_terms: [providing, people, "don't", specifically, inclination, difference, structured, understand]
+    concepts: [providing, people, "don't"]
     section: Comments
     token_count: 83
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c5"
     char_span: [8661, 10665]
     sentence_count: 10
     key_terms: [google, something, tifinchi, jacques-vache-23, safety, transcript, clnwo4dbwgmd8bowlceur2hdtv0, reasoning]
+    concepts: [google, jacques-vache-23, something, tifinchi, safety]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1pth1bw.md#c0"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c6"
     char_span: [10667, 10876]
     sentence_count: 2
     key_terms: [cactus, continuing, genuinely, reassess, causing, leaning, opacity, tightly]
+    concepts: [cactus]
     section: Comments
     token_count: 50
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c7"
     char_span: [10878, 13254]
     sentence_count: 6
     key_terms: [character-release976, fascinating, like, tifinchi, because, limits, models, engineering]
+    concepts: [character-release976, fascinating, tifinchi, because, limits]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1pth1bw.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c8"
     char_span: [12926, 14995]
     sentence_count: 12
     key_terms: [guardrails, "i've", because, problem, capabilities, fascinating, "it's", alignment]
+    concepts: [guardrails, because, problem, capabilities, fascinating]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1pth1bw.md#c7"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c9"
     char_span: [14997, 16979]
     sentence_count: 21
     key_terms: [the-bridge-ami, persistent, resolution, done, find, "i've", "it's", let]
+    concepts: [the-bridge-ami, persistent, resolution, alignment, neocities]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c10"
     char_span: [16981, 18856]
     sentence_count: 12
     key_terms: [research, tifinchi, michaeldfwftw, duecommunication9248, diagnostic, f2c4-8011-b33c-e37afa2e5b7a, citations, chatgpt]
+    concepts: [research, michaeldfwftw, tifinchi, duecommunication9248, diagnostic]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c11"
     char_span: [18575, 18973]
     sentence_count: 3
     key_terms: [research, defensiveness, according, automatic, citations, longevity, facebook, experts]
+    concepts: [research]
     section: Comments
     token_count: 90
 ---

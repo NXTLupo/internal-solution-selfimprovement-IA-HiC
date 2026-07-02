@@ -21,29 +21,39 @@ chunks:
     char_span: [0, 857]
     sentence_count: 6
     key_terms: [research, people, competitive, get, gradschool, comments, schools, grad]
+    concepts: [research, people, competitive, gradschool, comments]
     token_count: 197
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1na2dn9/how_do_the_people_with_turbulent_undergrads_get/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1na2dn9.md#c1"
     char_span: [871, 2583]
     sentence_count: 13
     key_terms: [work, experience, school, grad, time, undergrad, program, people]
+    concepts: [experience, school, undergrad, program, people]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1na2dn9.md#c2", "social-intelligence/reddit-deep/gradschool/1na2dn9.md#c3", "social-intelligence/reddit-deep/gradschool/1na2dn9.md#c4"]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/gradschool/1na2dn9.md#c2"
     char_span: [2585, 4679]
     sentence_count: 10
     key_terms: [industry, get, letter, school, phd, recommendation, people, good]
+    concepts: [industry, letter, school, recommendation, people]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1na2dn9.md#c1"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/gradschool/1na2dn9.md#c3"
     char_span: [4681, 6561]
     sentence_count: 15
     key_terms: [time, worked, undergrad, program, get, gpa, phd, grades]
+    concepts: [undergrad, worked, program, grades, experience]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1na2dn9.md#c1", "social-intelligence/reddit-deep/gradschool/1na2dn9.md#c4"]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/gradschool/1na2dn9.md#c4"
     char_span: [6563, 8687]
     sentence_count: 20
     key_terms: [experience, masters, program, get, time, research, schools, people]
+    concepts: [experience, masters, program, research, schools]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1na2dn9.md#c1", "social-intelligence/reddit-deep/gradschool/1na2dn9.md#c3"]
     section: Comments
     token_count: 468
 ---

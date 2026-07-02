@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1618]
     sentence_count: 13
     key_terms: ["i'm", grade, career, advice, done, want, healthcare, findapath]
+    concepts: [grade, career, advice, healthcare, findapath]
     token_count: 410
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1s2ymbs/high_school_student_career_path_advice/"}]
   - id: "social-intelligence/reddit-deep/findapath/1s2ymbs.md#c1"
     char_span: [1632, 2579]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1s2ymbs.md#c2"
     char_span: [2582, 4519]
     sentence_count: 10
     key_terms: [science, engineering, want, healthcare, pharmacy, programs, biz-123, finance]
+    concepts: [science, engineering, healthcare, pharmacy, programs]
     section: Comments
     token_count: 432
 ---

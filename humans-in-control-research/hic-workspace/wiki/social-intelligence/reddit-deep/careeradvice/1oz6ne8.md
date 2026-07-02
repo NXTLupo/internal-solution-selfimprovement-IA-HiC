@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1009]
     sentence_count: 7
     key_terms: [recruiting, recruiter, careeradvice, learn, recruitment, data, sql, tech]
+    concepts: [recruiting, recruiter, careeradvice, recruitment, automation]
     token_count: 266
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1oz6ne8/26m_recruiter_should_i_learn_sqlpower_biai_to/"}]
 ---
 # 26M Recruiter — Should I Learn SQL/Power BI/AI to Switch Into Data or Tech Recruiting? Is It Too Late
 

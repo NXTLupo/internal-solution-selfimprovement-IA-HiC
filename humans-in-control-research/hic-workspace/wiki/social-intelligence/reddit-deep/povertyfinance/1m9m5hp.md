@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 2309]
     sentence_count: 16
     key_terms: [living, costs, parents, husband, povertyfinance, money, everything, utilities]
+    concepts: [living, costs, parents, povertyfinance, husband]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c2"]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1m9m5hp/multigenerational_living_has_become_our_only/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c1"
     char_span: [2323, 3707]
     sentence_count: 9
     key_terms: [opportunity, accident, railroad, exactly, parents, aromatic-warning1495, disastrous-deer-9137, important-aerie-5408]
+    concepts: [opportunity, accident, railroad, exactly, parents]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c2"
     char_span: [3709, 5507]
     sentence_count: 8
     key_terms: [parents, living, relationship, shame, dont, home, sometimes, family]
+    concepts: [parents, relationship, living, shame, sometimes]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c0"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c3"
     char_span: [5509, 6192]
     sentence_count: 8
     key_terms: [school, college, "that's", debt, job, old, time, independently]
+    concepts: [school, college, "that's"]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c4"
     char_span: [6194, 8292]
     sentence_count: 15
     key_terms: [people, boundaries, parents, like, respect, individualism, "don't", get]
+    concepts: [people, boundaries, parents, individualism, respect]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c5"
     char_span: [8294, 9075]
     sentence_count: 6
     key_terms: [parents, situation, grateful, aware-influence-8622, moonandstarstarot, hopeful-ant-3509, generational, helplessness]
+    concepts: [parents, situation, grateful]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c6"
     char_span: [9077, 11093]
     sentence_count: 14
     key_terms: [like, own, living, people, sounds, space, different, bathroom]
+    concepts: [living, people, sounds, space, different]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c7"
     char_span: [11095, 11969]
     sentence_count: 7
     key_terms: [month, moonandstarstarot, grandparents, significant, immigrants, tightening, different, explained]
+    concepts: [month]
     section: Comments
     token_count: 207
 ---

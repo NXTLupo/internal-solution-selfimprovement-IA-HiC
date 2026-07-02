@@ -19,50 +19,65 @@ chunks:
     char_span: [0, 2086]
     sentence_count: 13
     key_terms: [internship, got, experience, applied, engineering, engineeringstudents, previous, company]
+    concepts: [internship, experience, engineering, engineeringstudents, applied]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c5", "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c6"]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1lwd8xa/how_i_got_an_engineering_internship_with_a_31_gpa/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c1"
     char_span: [2088, 4171]
     sentence_count: 21
     key_terms: [applications, indeed, sitqxsiyhdb-tloz, company, resumes, people, resume, apply]
+    concepts: [applications, indeed, sitqxsiyhdb-tloz, company, resumes]
     token_count: 491
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c2"
     char_span: [4173, 6368]
     sentence_count: 36
     key_terms: [resume, engineering, "don't", resumes, below, gpa, "it's", like]
+    concepts: [resume, engineering, "don't", resumes, below]
     token_count: 503
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c3"
     char_span: [6370, 8593]
     sentence_count: 21
     key_terms: [programming, yourself, applications, take, want, internship, weaknesses, interview]
+    concepts: [programming, yourself, applications, internship, weaknesses]
     token_count: 486
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c4"
-    char_span: [8608, 10070]
+    char_span: [8607, 10069]
     sentence_count: 13
     key_terms: [gpa, internship, "it's", low, get, got, deleted, career]
+    concepts: [internship, deleted, career, below]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c5"
-    char_span: [10072, 11729]
+    char_span: [10071, 11728]
     sentence_count: 9
     key_terms: [being, experience, internship, boskadoff, relevant, without, formal-masterpiece-7, shadowbannedforlifee]
+    concepts: [being, experience, internship, boskadoff, relevant]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c0"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c6"
-    char_span: [11731, 13652]
+    char_span: [11730, 13651]
     sentence_count: 15
     key_terms: [recruiters, company, engineering, haha, like, difference, experience, networking]
+    concepts: [recruiters, company, engineering, difference, experience]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c0"]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c7"
-    char_span: [13654, 15086]
+    char_span: [13653, 15085]
     sentence_count: 9
     key_terms: [boskadoff, company, differs, section, skills, studio, visual, procrastinatewhynot]
+    concepts: [boskadoff, company, differs, section, skills]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c8"]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c8"
-    char_span: [15088, 17130]
+    char_span: [15087, 17129]
     sentence_count: 13
     key_terms: [resume, skills, engineeringresumes, boskadoff, project, website, engineering, kind]
+    concepts: [resume, engineeringresumes, skills, boskadoff, project]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c7"]
     section: Comments
     token_count: 512
 ---

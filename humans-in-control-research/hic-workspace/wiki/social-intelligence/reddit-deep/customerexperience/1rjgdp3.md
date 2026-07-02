@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1421]
     sentence_count: 2
     key_terms: [lorikeetcx, cx-jobs, https, www, support-operations-analyst-ai-automation-linktree, automations-ai-specialist-product-support-figma, customerexperience, ai-program-manager-customer-experience-skims]
+    concepts: [lorikeetcx, cx-jobs, https, customerexperience, support]
     token_count: 384
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1rjgdp3/cx_jobs_this_week_where_ai_is_actually_part_of/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1rjgdp3.md#c1"
-    char_span: [1436, 2410]
+    char_span: [1435, 2409]
     sentence_count: 7
     key_terms: [agents, operationalizing, johnthetechai2, auto-drafting, communication, conversations, agentixlabs, bookmarking]
+    concepts: [agents]
     section: Comments
     token_count: 226
 ---

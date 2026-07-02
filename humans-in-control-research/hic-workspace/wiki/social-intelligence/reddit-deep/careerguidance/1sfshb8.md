@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1279]
     sentence_count: 5
     key_terms: [mba, careerguidance, predictable, building, comments, outcomes, programs, degree]
+    concepts: [careerguidance, predictable, building, comments, outcomes]
     token_count: 303
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sfshb8/if_even_top_mba_grads_are_struggling_with_jobs/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sfshb8.md#c1"
     char_span: [1293, 2880]
     sentence_count: 8
     key_terms: [company, "it's", job, something, masters, always, degree, mbathrowaway98383683]
+    concepts: [company, something, masters, always, degree]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/careerguidance/1sfshb8.md#c2"
     char_span: [2882, 3874]
     sentence_count: 6
     key_terms: [degree, top, graduate, stanford, career, unless, youre, spacepiratewatney]
+    concepts: [degree, graduate, stanford, career, unless]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sfshb8.md#c3"]
     section: Comments
     token_count: 235
   - id: "social-intelligence/reddit-deep/careerguidance/1sfshb8.md#c3"
     char_span: [3876, 5002]
     sentence_count: 4
     key_terms: [degree, debt, better, having, school, stanford, struggle, getting]
+    concepts: [degree, better, having, school, stanford]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sfshb8.md#c2"]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/careerguidance/1sfshb8.md#c4"
     char_span: [5004, 6131]
     sentence_count: 8
     key_terms: [lifetime, people, mbas, degree, less-opportunity-715, get, like, mba]
+    concepts: [lifetime, people, degree]
     section: Comments
     token_count: 274
 ---

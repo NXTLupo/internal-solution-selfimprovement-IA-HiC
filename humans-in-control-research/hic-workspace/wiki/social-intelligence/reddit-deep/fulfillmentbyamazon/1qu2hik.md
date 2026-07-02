@@ -20,22 +20,27 @@ chunks:
     char_span: [0, 2022]
     sentence_count: 10
     key_terms: [listing, hijacker, fulfillmentbyamazon, dog, comments, chinese, destroy, noticed]
+    concepts: [listing, hijacker, fulfillmentbyamazon, comments, chinese]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1qu2hik/hijacker_threatened_to_treat_my_listing_like_a/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1qu2hik.md#c1"
     char_span: [2024, 2884]
     sentence_count: 7
     key_terms: [lost, ranking, visibility, hours, never, box, buy, time]
+    concepts: [ranking, visibility, hours, never]
     token_count: 202
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1qu2hik.md#c2"
-    char_span: [2899, 4328]
+    char_span: [2898, 4327]
     sentence_count: 11
     key_terms: [sellers, through, seller, "you're", available-wasabi-622, normaldevelopment148, https, sorry]
+    concepts: [sellers, through, seller, "you're", https]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1qu2hik.md#c3"
-    char_span: [4330, 5927]
+    char_span: [4329, 5926]
     sentence_count: 11
     key_terms: [transparency, amazon, program, antitrust, hijackers, hijacker, shipment, listing]
+    concepts: [transparency, amazon, program, antitrust, hijackers]
     section: Comments
     token_count: 370
 ---

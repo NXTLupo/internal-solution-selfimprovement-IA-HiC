@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2093]
     sentence_count: 17
     key_terms: [course, time, university, health, mental, because, "wasn't", owed]
+    concepts: [course, university, health, mental, because]
     token_count: 481
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1o6qb3e/how_to_return_to_college_when_owe_the_university/"}]
   - id: "social-intelligence/reddit-deep/college/1o6qb3e.md#c1"
     char_span: [2095, 3828]
     sentence_count: 21
     key_terms: [school, suggestions, help, owe, "haven't", return, low, university]
+    concepts: [school, suggestions, "haven't", return, university]
     token_count: 394
   - id: "social-intelligence/reddit-deep/college/1o6qb3e.md#c2"
     char_span: [3842, 4226]

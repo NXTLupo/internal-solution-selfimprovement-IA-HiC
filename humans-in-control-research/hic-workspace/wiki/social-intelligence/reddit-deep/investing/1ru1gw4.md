@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1968]
     sentence_count: 8
     key_terms: [nasdaq-100, spacex, shares, capitalisation, tracking, nasdaq, index, rule]
+    concepts: [nasdaq-100, spacex, shares, capitalisation, tracking]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1ru1gw4/why_the_spacex_ipo_should_be_concerning_to/"}]
   - id: "social-intelligence/reddit-deep/investing/1ru1gw4.md#c1"
     char_span: [1982, 3803]
     sentence_count: 10
     key_terms: [shareholders, charlatans, juanpabloeltres, lockup, lastgreenleaf, inclusion, mandatory, podcast]
+    concepts: [shareholders, charlatans, juanpabloeltres, lastgreenleaf, lockup]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/investing/1ru1gw4.md#c2"
     char_span: [3805, 5628]
     sentence_count: 8
     key_terms: [added, funds, sp500, buy, vti, companies, investing, backdate]
+    concepts: [added, funds, sp500, companies, investing]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/investing/1ru1gw4.md#c3"
-    char_span: [5630, 7225]
+    char_span: [5630, 7178]
     sentence_count: 3
-    key_terms: [elon-mu***REDACTED-KEY***, theprofessional9, stocks, wealthfront, look, voo, want, charge]
+    key_terms: [theprofessional9, stocks, wealthfront, look, voo, want, charge, https]
+    concepts: [theprofessional9, stocks, wealthfront, charge, https]
     section: Comments
-    token_count: 449
+    token_count: 436
   - id: "social-intelligence/reddit-deep/investing/1ru1gw4.md#c4"
-    char_span: [7227, 8479]
+    char_span: [7180, 8432]
     sentence_count: 8
     key_terms: [definitely, tesla, sub, theprofessional9, americanscream, phillipjpark, considering, devonhezter]
+    concepts: [definitely, tesla]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/investing/1ru1gw4.md#c5"
-    char_span: [8481, 9330]
+    char_span: [8434, 9283]
     sentence_count: 5
     key_terms: [nasdaq-100, nasdaq, fightonforusc, investing, stocks, earthelectronic7954, sp500, paradoxicalparrots]
+    concepts: [nasdaq-100, fightonforusc, nasdaq, investing, stocks]
     section: Comments
     token_count: 256
 ---

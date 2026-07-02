@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2138]
     sentence_count: 13
     key_terms: [career, get, job, cons, jobs, pros, careerguidance, paths]
+    concepts: [career, careerguidance, brokerages, considered, experience]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1se28qn/what_career_path_should_i_take_single_mom_that/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1se28qn.md#c1"
     char_span: [2140, 2414]
     sentence_count: 1
     key_terms: [manager, work, illreputation991, odd-athlete279, deleted, project, realtor, become]
+    concepts: [manager]
     section: Comments
     token_count: 74
 ---

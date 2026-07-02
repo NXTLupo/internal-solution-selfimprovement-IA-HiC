@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1598]
     sentence_count: 20
     key_terms: [linkedin, page, b2bmarketing, posts, reach, real, engagement, everything]
+    concepts: [linkedin, b2bmarketing, engagement, everything, posts]
     token_count: 361
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1rvnpxw/10k_linkedin_followers_in_under_2_years/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rvnpxw.md#c1"
-    char_span: [1613, 3909]
+    char_span: [1612, 3908]
     sentence_count: 14
     key_terms: [looking-for-marketing-discussion-811236647760298024, posts, comments, content, corporate, questions, impressions-to-engagement, linkedin]
+    concepts: [posts, comments, content, corporate, questions]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rvnpxw.md#c2"
-    char_span: [3911, 6070]
+    char_span: [3910, 6069]
     sentence_count: 10
     key_terms: [people, lead, like, magnets, ducksoupecommerce, failure, "i've", want]
+    concepts: [people, magnets, ducksoupecommerce, failure, building]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rvnpxw.md#c3"
-    char_span: [6074, 7999]
+    char_span: [6073, 7998]
     sentence_count: 12
     key_terms: [traction, already, people, conversion, meaningful, linkedin, outreach, content]
+    concepts: [traction, already, people, conversion, meaningful]
     section: Comments
     token_count: 432
 ---

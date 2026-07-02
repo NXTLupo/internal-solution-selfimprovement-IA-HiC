@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 951]
     sentence_count: 7
     key_terms: [timeline, salesforce, component, activity, comments, license, https, com]
+    concepts: [timeline, salesforce, component, activity, comments]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1lwtbwc.md#c2"]
     token_count: 198
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1lwtbwc/timeline_component/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1lwtbwc.md#c1"
-    char_span: [966, 3130]
+    char_span: [965, 3129]
     sentence_count: 15
     key_terms: [component, cloud, time, like, need, thebeanmachine88, license, without]
+    concepts: [component, cloud, thebeanmachine88, license, without]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/salesforce/1lwtbwc.md#c2"
-    char_span: [3132, 3925]
+    char_span: [3131, 3924]
     sentence_count: 6
     key_terms: [custom, kingofcrash8, salesforce, licenses, timeline, events, object, suspicious-nerve-487]
+    concepts: [kingofcrash8, custom, salesforce, licenses, timeline]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1lwtbwc.md#c0"]
     section: Comments
     token_count: 213
 ---

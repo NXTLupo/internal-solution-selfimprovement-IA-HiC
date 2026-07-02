@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 905]
     sentence_count: 7
     key_terms: [internships, got, healthcare, marketing, comments, selected, analyst, fast-growing]
+    concepts: [internships, healthcare, marketing, comments, selected]
     token_count: 204
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t5cuxk/finally_got_an_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1t5cuxk.md#c1"
     char_span: [919, 1427]
     sentence_count: 3
     key_terms: [addazzling9105, beautiful-year-1945, clg, did, wow, nipseytrapper, applicants, internship]
+    concepts: [addazzling9105]
     section: Comments
     token_count: 170
 ---

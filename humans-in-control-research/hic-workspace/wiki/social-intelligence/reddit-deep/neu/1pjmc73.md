@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 485]
     sentence_count: 5
     key_terms: [campus, london, got, business, comments, boston, going, neu]
+    concepts: [campus, london, business, comments, boston]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1pjmc73.md#c1"]
     token_count: 132
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1pjmc73/i_got_innnnnn/"}]
   - id: "social-intelligence/reddit-deep/neu/1pjmc73.md#c1"
     char_span: [499, 2314]
     sentence_count: 11
     key_terms: [congratulations, ok-gas-3757, campus, boston, london, good, hard, tul1ps0ft]
+    concepts: [congratulations, ok-gas-3757, campus, boston, london]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1pjmc73.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1pjmc73.md#c2"
     char_span: [2005, 3440]
     sentence_count: 9
     key_terms: [northeastern, spitalfields, super, buildings, believe, classes, friends, london]
+    concepts: [northeastern, spitalfields, super, buildings, believe]
     section: Comments
     token_count: 335
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1464]
     sentence_count: 9
     key_terms: [catch, validation, cons, pros, emailawesome, operational, comments, creating]
+    concepts: [catch, validation, emailawesome, operational, comments]
     token_count: 301
+    sources: [{"n":"reddit-deep: r/salesops","u":"https://www.reddit.com/r/SalesOps/comments/1roymk3/bounce_rate_drift_is_creating_operational_noise/"}]
   - id: "social-intelligence/reddit-deep/salesops/1roymk3.md#c1"
-    char_span: [1479, 3273]
+    char_span: [1478, 3272]
     sentence_count: 7
     key_terms: [validate, policy, send, test, validation, addresses, different, disappear]
+    concepts: [validate, policy, validation, addresses, different]
     section: Comments
     token_count: 403
 ---

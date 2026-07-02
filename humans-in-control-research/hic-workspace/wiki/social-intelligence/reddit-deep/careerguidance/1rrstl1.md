@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 606]
     sentence_count: 4
     key_terms: [careerguidance, comments, money, here, need, browneyedsoul0, reddit-deep, appreciate]
+    concepts: [careerguidance, comments, money]
     token_count: 163
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rrstl1/i_need_help_guys_28_year_old_man_with_no_jobmoney/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rrstl1.md#c1"
     char_span: [620, 1720]
     sentence_count: 11
     key_terms: [particular-run3031, job, tell, logistics, softwares, degree, supply, chain]
+    concepts: [particular-run3031, logistics, softwares, degree, supply]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/careerguidance/1rrstl1.md#c2"
     char_span: [1722, 2923]
     sentence_count: 10
     key_terms: [get, management, logistics, warehouse, learn, venue, job, bojackworseman13]
+    concepts: [management, logistics, warehouse, learn, venue]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/careerguidance/1rrstl1.md#c3"
     char_span: [2925, 5102]
     sentence_count: 9
     key_terms: [radiology, probably, welding, kishanpatel995, school, start, certificate, assessment]
+    concepts: [radiology, probably, kishanpatel995, welding, school]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rrstl1.md#c4"
     char_span: [4830, 5749]
     sentence_count: 7
     key_terms: [noclownsonmystation, start, making, no-lavishness-773, tommyknocker77, substitute, ultrasound, dangerous]
+    concepts: [noclownsonmystation, start, making]
     section: Comments
     token_count: 247
   - id: "social-intelligence/reddit-deep/careerguidance/1rrstl1.md#c5"
     char_span: [5751, 6965]
     sentence_count: 11
     key_terms: [photography, skills, use, pictures, realize, people, maybe, good]
+    concepts: [photography, skills, pictures, realize, people]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/careerguidance/1rrstl1.md#c6"
     char_span: [6967, 9058]
     sentence_count: 21
     key_terms: [opportunities, job, start, career, engineering, good, college, diploma]
+    concepts: [opportunities, start, career, engineering, college]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/careerguidance/1rrstl1.md#c7"

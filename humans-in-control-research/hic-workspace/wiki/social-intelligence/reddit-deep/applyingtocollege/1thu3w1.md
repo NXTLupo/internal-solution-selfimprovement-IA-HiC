@@ -19,29 +19,39 @@ chunks:
     char_span: [0, 1502]
     sentence_count: 11
     key_terms: [applyingtocollege, year, college, colby, plan, definitely, comments, thoughts]
+    concepts: [applyingtocollege, college, colby, definitely, comments]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c1"]
     token_count: 354
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1thu3w1/colby_college_thoughts_and_plan/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c1"
     char_span: [1516, 3685]
     sentence_count: 15
     key_terms: [transfer, college, niceunparticularman, colby, year, admitted, circles, people]
+    concepts: [transfer, niceunparticularman, college, colby, admitted]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c4"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c2"
     char_span: [3687, 5717]
     sentence_count: 9
     key_terms: [transfer, school, year, grocerycharacter, apply, money, state, sponsorship]
+    concepts: [transfer, school, grocerycharacter, sponsorship, apply]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c3"
     char_span: [5719, 7367]
     sentence_count: 11
     key_terms: [schools, apply, northwestern, colby, been, "it's", less, admitted]
+    concepts: [schools, apply, northwestern, colby, admitted]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c1"]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c4"
     char_span: [7369, 8753]
     sentence_count: 10
     key_terms: [colby, transfer, strong, applicant, excellent, financial, college, country]
+    concepts: [colby, transfer, strong, applicant, excellent]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c1"]
     section: Comments
     token_count: 312
 ---

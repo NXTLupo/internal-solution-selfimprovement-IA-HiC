@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1721]
     sentence_count: 21
     key_terms: [robotics, concentration, quite, scholarship, mscs, neu, comments, received]
+    concepts: [robotics, concentration, scholarship, quite, comments]
     token_count: 395
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rgwezy/neu_ms_robotics_cs_concentration_vs_ms_cs/"}]
 ---
 # NEU MS Robotics (CS concentration) vs MS CS?
 

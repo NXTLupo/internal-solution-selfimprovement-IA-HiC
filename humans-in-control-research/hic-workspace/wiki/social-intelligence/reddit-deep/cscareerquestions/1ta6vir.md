@@ -21,40 +21,48 @@ chunks:
     char_span: [0, 2138]
     sentence_count: 24
     key_terms: [programmer, "i'm", everything, being, gotta, something, cscareerquestions, whole]
+    concepts: [programmer, everything, cscareerquestions, something, being]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ta6vir/im_at_loss_i_dont_want_to_be_a_programmer_anymore/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c1"
     char_span: [2140, 3686]
     sentence_count: 25
     key_terms: [gotta, azure, pipelines, programming, aws, etc, "it's", knowledge]
+    concepts: [gotta, azure, pipelines, programming, knowledge]
     token_count: 356
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c2"
     char_span: [3700, 5612]
     sentence_count: 21
     key_terms: [get, keep, industry, enough, need, problems, because, manager]
+    concepts: [industry, enough, problems, because, manager]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c3"
     char_span: [5614, 7684]
     sentence_count: 11
     key_terms: [employers, engineers, software, get, articlehaunting3983, people, job, especially]
+    concepts: [employers, engineers, software, articlehaunting3983, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c4"
     char_span: [7396, 7951]
     sentence_count: 6
     key_terms: [employers, employer, degree, remote, articlehaunting3983, "it's", ones, requirement]
+    concepts: [employers, employer, degree, remote]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c5"
     char_span: [7953, 9482]
     sentence_count: 16
     key_terms: [job, employer, "isn't", "it's", project, articlehaunting3983, doing, find]
+    concepts: [employer, "isn't", project, doing]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c6"
     char_span: [9485, 11580]
     sentence_count: 12
     key_terms: [expert, everything, "can't", simply, "don't", tracagnotto, dev, too]
+    concepts: [expert, everything, "can't", simply, tracagnotto]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c7"

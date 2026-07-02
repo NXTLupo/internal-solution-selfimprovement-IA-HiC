@@ -1,6 +1,6 @@
 ---
 name: nxt-slot-illustrator
-description: Generate flat, anti-slop, content-true SVG VISUALIZATIONS (data viz) for NXT/NU deck and artifact image slots. Use when a slide or artifact needs a diagram of its OWN data in an image placeholder (operating model, capability stack, maturity, funnel, journey, ranked findings, comparison matrix, KPI gauge, roadmap, architecture, composition, divider). Output is token-locked, text-free SVG sized to the slot, themed by brand (NXT|NU) x ground (dark|light). This is the DATA-VIZ lane; for emotive hero/persona art use the `illustrator` skill instead.
+description: Generate flat, anti-slop, content-true SVG VISUALIZATIONS (data viz) for NXT/NU deck and artifact image slots. Use when a slide or artifact needs a diagram of its OWN data in an image placeholder (operating model, capability stack, maturity, funnel, journey, ranked findings, comparison matrix, KPI gauge, roadmap, architecture, composition, divider). Output is token-locked, text-free SVG sized to the slot, themed by brand (NXT|NU) x ground (dark|light). This is the DATA-VIZ lane; conceptual/content slot panels route to the native infographic lane (/api/ai/diagram families) per the `designer` skill.
 ---
 
 # NXT Slot Illustrator (data-viz lane)
@@ -13,9 +13,11 @@ read as generic AI filler. It is the P3 data-viz doctrine made real: determinist
 token-locked VECTOR (not raster AI image-gen), collision-safe, zero AI cost, and
 content-true by construction.
 
-It COMPLEMENTS, does not replace, the emotive flat-vector `illustrator` (Nano
-Banana). Route by surface: relational / data / structural -> this engine; emotive
-hero, cover, persona emblem -> `illustrator`.
+It COMPLEMENTS the native infographic lane (E4, 2026-07-02: the diffusion `illustrator`
+emotive branch is RETIRED). Route by surface: relational / data / structural viz INSIDE
+a slide panel -> this engine; conceptual per-element content panels (theme thumbnail,
+persona detail, case-study, recommendation) -> the native infographic families via
+`/api/ai/diagram` (see the `designer` skill routing table).
 
 ## Runtime authority (single source of truth)
 The renderer is **`humans-in-control-research/services/vizEngine.ts`** (TS, imported

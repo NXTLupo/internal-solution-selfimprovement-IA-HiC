@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 2474]
     sentence_count: 22
     key_terms: [political, socialist, september, academic, comments, violence, highereducation, remarks]
+    concepts: [political, socialist, september, highereducation, academic]
     token_count: 484
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1nk7z8n/fired_for_being_a_socialist/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1nk7z8n.md#c1"
     char_span: [2476, 3934]
     sentence_count: 12
     key_terms: [conversation, office, president, recorded, private, criticizing, university, illegally]
+    concepts: [conversation, office, president, recorded, private]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/highereducation/1nk7z8n.md#c2"
     char_span: [3936, 5593]
     sentence_count: 7
     key_terms: [american, tell, america, because, problem, support, around, people]
+    concepts: [american, america, because, problem, support]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/highereducation/1nk7z8n.md#c3"
     char_span: [5595, 6733]
     sentence_count: 6
     key_terms: [sue, ocr, protected, enforce, rights, speech, civil, going]
+    concepts: [protected, enforce, rights, speech, civil]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/highereducation/1nk7z8n.md#c4"
     char_span: [6735, 8073]
     sentence_count: 7
     key_terms: [retaliation, oklahoma, willing, fired, texas, own, won, cross-examining]
+    concepts: [retaliation, oklahoma, willing, fired, texas]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/highereducation/1nk7z8n.md#c5"
     char_span: [8075, 8880]
     sentence_count: 3
     key_terms: [overthrow, nothing, system, giddy-girly-banana, foreignlibrary424, poopscootnboogey, gutfounderedgal, twomayaderens]
+    concepts: [overthrow, nothing, system]
     section: Comments
     token_count: 232
 ---

@@ -21,65 +21,77 @@ chunks:
     char_span: [0, 1698]
     sentence_count: 13
     key_terms: ["i've", past, "didn't", possibility, find, life, whatsoever, findapath]
+    concepts: ["didn't", possibility, whatsoever, findapath, lifestyle]
     token_count: 414
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1m53kom/dumped_32f_sugar_baby_at_a_loss_on_what_to_do/"}]
   - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c1"
     char_span: [1712, 2659]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c2"
     char_span: [2662, 4696]
     sentence_count: 12
     key_terms: [flight, classes, become, "that's", attendant, good, customer, service]
+    concepts: [flight, classes, become, "that's", attendant]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c3"
     char_span: [4449, 5094]
     sentence_count: 5
     key_terms: [classes, which-contact7684, "it's", pay, nomadprogrammer, relationship, technically, escomaniac]
+    concepts: [classes]
     section: Comments
     token_count: 178
   - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c4"
     char_span: [5096, 5883]
     sentence_count: 9
     key_terms: [life, new, because, living, place, like, picklesstpeter, executive]
+    concepts: [because, living, place]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c5"
     char_span: [5885, 7698]
     sentence_count: 10
     key_terms: [comment, people, "i'm", years, back, get, life, too]
+    concepts: [comment, people, years, working, trying]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c6"
     char_span: [7700, 9143]
     sentence_count: 11
     key_terms: [experience, job, too, "true", flipper, realtor, travel, agent]
+    concepts: [experience, flipper, realtor, travel, agent]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c7"
     char_span: [9145, 10623]
     sentence_count: 14
     key_terms: [people, get, life, personable, another, because, company, travel]
+    concepts: [people, personable, another, because, company]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c8"
     char_span: [10625, 12075]
     sentence_count: 12
     key_terms: [city, like, take, restaurant, something, credits, schools, online]
+    concepts: [restaurant, something, credits, schools, online]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c9"
     char_span: [12077, 14176]
     sentence_count: 20
     key_terms: [like, tech, town, getting, moving, people, start, work]
+    concepts: [getting, moving, people, experience, start]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c10"
     char_span: [14178, 15133]
     sentence_count: 11
     key_terms: [personality, get, certification, quizzes, require, been, big, fits]
+    concepts: [personality, certification, quizzes, require]
     section: Comments
     token_count: 228
 ---

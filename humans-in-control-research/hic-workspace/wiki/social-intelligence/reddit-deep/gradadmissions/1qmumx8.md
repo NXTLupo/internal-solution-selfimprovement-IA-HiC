@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 1280]
     sentence_count: 8
     key_terms: [research, experience, undergraduate, gradadmissions, independent, publication, published, comments]
+    concepts: [research, experience, undergraduate, gradadmissions, independent]
     token_count: 260
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qmumx8/does_undergraduate_research_count_as_a/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qmumx8.md#c1"
-    char_span: [1295, 3469]
+    char_span: [1294, 3468]
     sentence_count: 14
     key_terms: [publication, journal, research, getting, section, peer-reviewed, dankashmemes, publications]
+    concepts: [publication, journal, research, peer-reviewed, getting]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1qmumx8.md#c3"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/gradadmissions/1qmumx8.md#c2"
-    char_span: [3471, 3800]
+    char_span: [3470, 3799]
     sentence_count: 3
     key_terms: [manuscript, novel, published, analysis, designed, findings, polished, preprint]
+    concepts: [manuscript, novel]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/gradadmissions/1qmumx8.md#c3"
-    char_span: [3802, 6067]
+    char_span: [3801, 6066]
     sentence_count: 16
     key_terms: [publication, research, journal, definitely, reviewed, project, school, peer-reviewed]
+    concepts: [publication, research, journal, definitely, reviewed]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1qmumx8.md#c1"]
     section: Comments
     token_count: 492
 ---

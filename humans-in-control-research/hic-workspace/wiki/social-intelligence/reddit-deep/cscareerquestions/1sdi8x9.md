@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1463]
     sentence_count: 7
     key_terms: [cscareerquestions, replaced, degree, route, competitive, side, comments, remotely]
+    concepts: [cscareerquestions, replaced, degree, competitive, route]
     token_count: 337
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sdi8x9/graduating_soon_with_fin_degree_then_pursuing_and/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdi8x9.md#c1"
     char_span: [1477, 3388]
     sentence_count: 6
     key_terms: [internship, technical, side, finance, understand, available, financial, business]
+    concepts: [internship, technical, finance, understand, available]
     section: Comments
     token_count: 459
 ---

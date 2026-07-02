@@ -21,59 +21,75 @@ chunks:
     char_span: [0, 742]
     sentence_count: 7
     key_terms: [knowledge, comments, train, using, job, jobs, reddit-deep, experience]
+    concepts: [knowledge, comments, train, using]
     token_count: 190
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1ks0hgq/job_hired_someone_with_no_experience_and_no/"}]
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c1"
     char_span: [756, 1857]
     sentence_count: 7
     key_terms: [computers, computer, people, classes, teaches, basic, local, snootangerines4359]
+    concepts: [computers, computer, people, classes, teaches]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1ks0hgq.md#c2", "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c4", "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c5", "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c8"]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c2"
     char_span: [1859, 3786]
     sentence_count: 19
     key_terms: [computer, skills, like, constantly, instructor, computers, classes, started]
+    concepts: [computer, skills, constantly, instructor, computers]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1ks0hgq.md#c1"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c3"
     char_span: [3788, 5537]
     sentence_count: 15
     key_terms: [games, video, everything, language, college, english, friends, getting]
+    concepts: [everything, games, video, language, college]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c4"
     char_span: [5539, 6849]
     sentence_count: 7
     key_terms: [computer, folks, literacy, people, deal, because, younger, others]
+    concepts: [computer, folks, literacy, people, because]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1ks0hgq.md#c1"]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c5"
     char_span: [6851, 8729]
     sentence_count: 15
     key_terms: [understanding, computers, people, kids, everything, experience, computer, "didn't"]
+    concepts: [understanding, computers, people, everything, experience]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1ks0hgq.md#c1"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c6"
     char_span: [8731, 10478]
     sentence_count: 16
     key_terms: [computer, never, did, hire, job, japanese, basic85, company]
+    concepts: [computer, never, japanese, basic85, company]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c7"
     char_span: [10480, 12068]
     sentence_count: 9
     key_terms: [english, completely, underpaid, because, "doesn't", workers, unless, ok-neighborhood2109]
+    concepts: [english, completely, underpaid, because, "doesn't"]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c8"
     char_span: [12070, 13744]
     sentence_count: 11
     key_terms: [train, computer, classes, courses, online, did, free, job]
+    concepts: [train, computer, classes, courses, online]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1ks0hgq.md#c1"]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c9"
     char_span: [13746, 15310]
     sentence_count: 6
     key_terms: [use, jbjhill, someone, chromebooks, good, computers, browser, getting]
+    concepts: [jbjhill, someone, chromebooks, computers, browser]
     section: Comments
     token_count: 414
 ---

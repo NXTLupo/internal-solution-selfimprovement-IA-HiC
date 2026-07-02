@@ -20,35 +20,42 @@ chunks:
     char_span: [0, 1720]
     sentence_count: 8
     key_terms: ["i've", incredible, attorneys, because, company, given, essentially, role]
+    concepts: [incredible, attorneys, because, company, essentially]
     token_count: 396
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1t11rnq/how_on_earth_am_i_suppose_to_sell_to_attorneys/"}]
   - id: "social-intelligence/reddit-deep/sales/1t11rnq.md#c1"
-    char_span: [1735, 3666]
+    char_span: [1734, 3665]
     sentence_count: 20
     key_terms: [work, get, keysersoze0103, emails, niche, phone, bar, cold]
+    concepts: [keysersoze0103, emails, "attorney's", gatekeeper, niche]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/sales/1t11rnq.md#c2"
-    char_span: [3668, 4843]
+    char_span: [3667, 4842]
     sentence_count: 9
     key_terms: [attorneys, association, work, advice, firms, great, sales, bar]
+    concepts: [attorneys, association, advice, firms, great]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/sales/1t11rnq.md#c3"
-    char_span: [4846, 6689]
+    char_span: [4845, 6688]
     sentence_count: 8
     key_terms: [attorneys, ask, call, calendar, gloebe10, meeting, minutes, selling]
+    concepts: [attorneys, calendar, gloebe10, meeting, minutes]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/sales/1t11rnq.md#c4"
-    char_span: [6691, 8140]
+    char_span: [6690, 8139]
     sentence_count: 12
     key_terms: [conferences, attorneys, rockstars007, ask, questions, something, smaller, engage]
+    concepts: [conferences, attorneys, rockstars007, questions, something]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/sales/1t11rnq.md#c5"
-    char_span: [8142, 9028]
+    char_span: [8141, 9027]
     sentence_count: 9
     key_terms: [get, positiveleg982, good, lawyers, pretty, front, local, sales]
+    concepts: [positiveleg982, lawyers, pretty, front, local]
     section: Comments
     token_count: 227
 ---

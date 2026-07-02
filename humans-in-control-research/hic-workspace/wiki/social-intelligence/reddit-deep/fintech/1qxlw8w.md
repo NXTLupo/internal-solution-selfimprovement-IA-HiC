@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1509]
     sentence_count: 11
     key_terms: [fintech, development, no-code, applications, automation, leveraging, platforms, solutions]
+    concepts: [fintech, development, no-code, applications, automation]
     token_count: 293
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1qxlw8w/leveraging_nocodelowcode_platforms_for_rapid/"}]
   - id: "social-intelligence/reddit-deep/fintech/1qxlw8w.md#c1"
-    char_span: [1524, 1864]
+    char_span: [1523, 1863]
     sentence_count: 2
     key_terms: [https, makex, app, best, www, visualization, development, dashboards]
+    concepts: [https, makex]
     section: Comments
     token_count: 90
 ---

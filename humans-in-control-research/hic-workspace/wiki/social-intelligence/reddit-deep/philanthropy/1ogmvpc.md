@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 467]
     sentence_count: 4
     key_terms: [philanthropy, comments, advised, regrets, setting, anyone, donor, fund]
+    concepts: [philanthropy, comments, advised, regrets, setting]
     token_count: 124
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1ogmvpc/donor_advised_fund_regrets/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1ogmvpc.md#c1"
-    char_span: [482, 2510]
+    char_span: [481, 2509]
     sentence_count: 19
     key_terms: [daf, grants, recommend, give, causes, donate, contributions, organizations]
+    concepts: [grants, recommend, contributions, organizations, causes]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/philanthropy/1ogmvpc.md#c2"
-    char_span: [2512, 4035]
+    char_span: [2511, 4034]
     sentence_count: 8
     key_terms: [daf, charitable, deduction, financial, genuine, good-obligation-3865, daffy, money]
+    concepts: [charitable, deduction, financial, genuine, daffy]
     section: Comments
     token_count: 360
 ---

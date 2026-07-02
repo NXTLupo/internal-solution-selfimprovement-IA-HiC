@@ -21,35 +21,45 @@ chunks:
     char_span: [0, 1294]
     sentence_count: 13
     key_terms: [school, difference, gradschool, comments, partner, stories, posted, boat]
+    concepts: [difference, school, gradschool, comments, partner]
     token_count: 291
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rzbd59/how_to_cope_with_long_distance_in_grad_school/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1rzbd59.md#c1"
     char_span: [1308, 3008]
     sentence_count: 11
     key_terms: [together, partner, either, like, distance, marrying, possible, yourself]
+    concepts: [together, partner, either, distance, marrying]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1rzbd59.md#c2", "social-intelligence/reddit-deep/gradschool/1rzbd59.md#c4"]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/gradschool/1rzbd59.md#c2"
     char_span: [3010, 5223]
     sentence_count: 21
     key_terms: [together, expectations, hour, visiting, partner, moving, years, back]
+    concepts: [together, expectations, visiting, partner, moving]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1rzbd59.md#c1", "social-intelligence/reddit-deep/gradschool/1rzbd59.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1rzbd59.md#c3"
     char_span: [4946, 5315]
     sentence_count: 5
     key_terms: [canada, seoul, back, came, live, difference, finishing, distance]
+    concepts: [canada, seoul]
     section: Comments
     token_count: 85
   - id: "social-intelligence/reddit-deep/gradschool/1rzbd59.md#c4"
     char_span: [5317, 7406]
     sentence_count: 19
     key_terms: [distance, together, partner, time, because, communication, relationship, hard]
+    concepts: [distance, together, partner, communication, because]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1rzbd59.md#c1", "social-intelligence/reddit-deep/gradschool/1rzbd59.md#c2"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/gradschool/1rzbd59.md#c5"
     char_span: [7408, 9588]
     sentence_count: 8
     key_terms: [distance, always, nights, school, relationship, movie, phone, date]
+    concepts: [distance, relationship, always, nights, school]
     section: Comments
     token_count: 493
 ---

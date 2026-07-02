@@ -1,4 +1,4 @@
-> SUPERSEDED BY `hic-definitive-vision-and-100-percent-plan-v2-2026-06-30.md` (AIR-first integration of the
+> SUPERSEDED BY `hic-definitive-vision-and-100-percent-plan-v2-2026-07-01.md` (AIR-first integration of the
 > expert review). This v1 remains the authoritative AUDIT RECORD (the six live file:line audits, Part II) and
 > the original nine workstreams. Read v2 for the integrated architecture, the AIR backbone (WS-0), MCP
 > governance (WS-J), the reprioritization, and the seven-stage sequence.

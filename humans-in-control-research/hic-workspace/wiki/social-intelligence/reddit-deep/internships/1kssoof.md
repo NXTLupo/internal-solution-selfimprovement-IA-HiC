@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1975]
     sentence_count: 13
     key_terms: [looking, shyam-sunder-reddy, linkedin, startup, https, internships, opportunity, com]
+    concepts: [looking, shyam-sunder-reddy, linkedin, startup, internships]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1kssoof/startup_internship_opportunity_paid_postlaunch/"}]
 ---
 # Startup Internship Opportunity (Paid – Post-Launch Payout) - Looking for Growth & Listening (or) Pilot Ops Interns
 

@@ -21,70 +21,91 @@ chunks:
     char_span: [0, 1940]
     sentence_count: 14
     key_terms: [private, school, schools, year, college, applyingtocollege, paying, upperclassman]
+    concepts: [private, school, schools, college, applyingtocollege]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c7", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c8", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c9", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c10"]
     token_count: 461
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1litxs4/psa_from_college_upperclassman_go_private/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c1"
     char_span: [1942, 3446]
     sentence_count: 14
     key_terms: [schools, because, private, school, opportunities, scholarships, major, truly]
+    concepts: [schools, opportunities, because, private, scholarships]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c9", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c11"]
     token_count: 323
   - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c2"
     char_span: [3460, 4518]
     sentence_count: 5
     key_terms: [applyingtocollege, comments, lawrence, enough, reddit, https, com, old]
+    concepts: [applyingtocollege, comments, lawrence, enough, reddit]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c3"
     char_span: [4520, 5925]
     sentence_count: 9
     key_terms: [schools, colleges, prestige, juniata, scandal, gold-dragonfly-2174, sarah, fischervonneumann]
+    concepts: [schools, colleges, prestige, juniata, scandal]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c4"
     char_span: [5927, 7997]
     sentence_count: 13
     key_terms: [research, workingclassprep, selective, students, schools, opportunities, scholarship, endowments]
+    concepts: [research, workingclassprep, selective, students, opportunities]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c5"
     char_span: [7999, 8528]
     sentence_count: 3
     key_terms: [professors, schools, respectfully, universities, instruction, recruiting, conducted, familiar]
+    concepts: [professors, schools]
     section: Comments
     token_count: 118
   - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c6"
     char_span: [8530, 10910]
     sentence_count: 19
     key_terms: [colleges, endowments, aid, private, state, endowment, financial, year]
+    concepts: [colleges, endowments, private, endowment, financial]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c9", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c10"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c7"
     char_span: [10594, 12266]
     sentence_count: 12
     key_terms: [schools, minutes, school, cost, time, financial, in-state, private]
+    concepts: [schools, minutes, school, financial, in-state]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c11"]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c8"
     char_span: [12268, 14253]
     sentence_count: 17
     key_terms: [college, private, students, student, tuition, colby-sawyer, great, merit]
+    concepts: [college, private, students, student, tuition]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c10"]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c9"
     char_span: [14255, 16511]
     sentence_count: 14
     key_terms: [scholarships, schools, merit, endowment, gpa, private, struggling, published]
+    concepts: [scholarships, schools, endowment, merit, private]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c10", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c11"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c10"
     char_span: [16513, 17506]
     sentence_count: 8
     key_terms: [endowment, school, student, million, private, schools, number, years]
+    concepts: [endowment, school, student, million, private]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c8", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c9"]
     section: Comments
     token_count: 217
   - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c11"
     char_span: [17508, 19212]
     sentence_count: 9
     key_terms: [scholarships, merit, state, school, schools, aid, year, guaranteed]
+    concepts: [scholarships, merit, state, school, schools]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c7", "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c9"]
     section: Comments
     token_count: 411
 ---

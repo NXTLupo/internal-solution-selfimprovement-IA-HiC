@@ -20,41 +20,49 @@ chunks:
     char_span: [0, 2088]
     sentence_count: 17
     key_terms: [productmanagement, code, "i'm", perspective, new, comments, develop, feature]
+    concepts: [productmanagement, perspective, comments, develop, feature]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1tr6pzj/ai_slop_code_from_c_suite/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1tr6pzj.md#c1"
-    char_span: [2103, 3795]
+    char_span: [2102, 3794]
     sentence_count: 11
     key_terms: [production, bystander, "doesn't", through, review, prestigious-disk3158, owner, wants]
+    concepts: [production, bystander, "doesn't", through, review]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/productmanagement/1tr6pzj.md#c2"
-    char_span: [3797, 5803]
+    char_span: [3796, 5802]
     sentence_count: 12
     key_terms: [engineering, metrics, standards, development, responsible, experiment, something, because]
+    concepts: [engineering, metrics, standards, development, responsible]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/productmanagement/1tr6pzj.md#c3"
-    char_span: [5805, 7240]
+    char_span: [5804, 7239]
     sentence_count: 7
     key_terms: [features, bad, argument, testing, code, time, business, getting]
+    concepts: [features, argument, testing, business, getting]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/productmanagement/1tr6pzj.md#c4"
-    char_span: [7242, 8732]
+    char_span: [7241, 8731]
     sentence_count: 8
     key_terms: [people, positive-conspiracy, code, quality, change, review, coded, longbreaddinosaur]
+    concepts: [positive-conspiracy, people, quality, change, review]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/productmanagement/1tr6pzj.md#c5"
-    char_span: [8734, 10752]
+    char_span: [8733, 10751]
     sentence_count: 8
     key_terms: [product, going, code, slop, business, because, quality, design]
+    concepts: [product, going, business, because, quality]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/productmanagement/1tr6pzj.md#c6"
-    char_span: [10756, 12069]
+    char_span: [10755, 12068]
     sentence_count: 8
     key_terms: [been, product, pushing, sandbox, similar, anyone, market, being]
+    concepts: [product, pushing, sandbox, similar, anyone]
     section: Comments
     token_count: 315
 ---

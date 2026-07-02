@@ -1954,6 +1954,35 @@ try:
 except Exception as _hc_err:
     logging.getLogger("app").warning(f"[sources] healthcare pack not loaded: {_hc_err}")
 
+# ----------------------------------------------------------------------------
+# Insurance data pack (2026-07-01) — 200 verified free sources merged from
+# insurance_sources.py (auto-generated from insurance_sources_registry.md).
+# Same wiring as the healthcare pack: every entry uses a supported connector
+# (rss | static_url | web_search) and flows through the SAME search -> chunk ->
+# wiki -> manifest -> retrieval pipeline. Surfaced as SOURCE_PACKS["insurance"].
+# ----------------------------------------------------------------------------
+try:
+    from insurance_sources import INSURANCE_SOURCES as _INSURANCE_SOURCES
+    _new_ins = {k: v for k, v in _INSURANCE_SOURCES.items() if k not in SOURCES}
+    SOURCES.update(_new_ins)
+    logger.info(f"[sources] merged {len(_new_ins)} Insurance sources")
+except Exception as _ins_err:
+    logging.getLogger("app").warning(f"[sources] insurance pack not loaded: {_ins_err}")
+
+# ----------------------------------------------------------------------------
+# Agriculture & Agribusiness data pack (2026-07-01) — 200 verified free sources
+# merged from agriculture_sources.py (auto-generated from
+# agriculture_sources_registry.md). Same wiring as the healthcare pack;
+# surfaced as SOURCE_PACKS["agriculture"].
+# ----------------------------------------------------------------------------
+try:
+    from agriculture_sources import AGRICULTURE_SOURCES as _AGRICULTURE_SOURCES
+    _new_agr = {k: v for k, v in _AGRICULTURE_SOURCES.items() if k not in SOURCES}
+    SOURCES.update(_new_agr)
+    logger.info(f"[sources] merged {len(_new_agr)} Agriculture sources")
+except Exception as _agr_err:
+    logging.getLogger("app").warning(f"[sources] agriculture pack not loaded: {_agr_err}")
+
 # ================================================================
 # CONNECTOR ENGINE — Generic handlers for each connector type
 # ================================================================
@@ -7234,6 +7263,32 @@ SOURCE_PACKS = {
                         "Digital Health, AI in Medicine & MedTech",
                         "Specialty, Clinical & Professional Communities",
                         "Health Economics, Policy & Market Data"]},
+    # NOTE (insurance/agriculture, 2026-07-01): both packs share the registry category name
+    # "Communities, Forums & Reddit", so NEITHER lists it in `categories` (that would cross-pollute
+    # the other pack's community sources). Membership for those sources rides pack_match instead —
+    # every generated source carries pack="insurance"/"agriculture".
+    "insurance": {"name": "Insurance", "kind": "industry",
+        "industries": ["insurance", "benefits", "health_insurance", "reinsurance", "insurtech"],
+        "description": "200 free sources: P&C/life/health trade press, NAIC/state/federal + global regulators, "
+                       "benefits & employee-benefits (BenefitsPRO, EBN, KFF, consultancies), insurtech & analyst "
+                       "research, actuarial & professional bodies, practitioner communities.",
+        "pack_match": "insurance",
+        "categories": ["Trade Press & Industry News",
+                        "Regulatory, Government & Standards Bodies",
+                        "Benefits, Health Insurance & Employee Benefits",
+                        "Insurtech, Data, Analytics & Vendor/Research",
+                        "Associations, Actuarial & Professional Bodies"]},
+    "agriculture": {"name": "Agriculture & Agribusiness", "kind": "industry",
+        "industries": ["agriculture", "agribusiness", "agtech", "food", "commodities"],
+        "description": "200 free sources: farm & ag trade press (AgWeb, DTN, Successful Farming), USDA + global "
+                       "regulators and data, commodity/grain/livestock markets, ag-tech & precision ag research, "
+                       "extension & academic, grower communities.",
+        "pack_match": "agriculture",
+        "categories": ["Farm & Ag Trade Press / News",
+                        "Government, Regulatory & Data",
+                        "Commodity Markets, Grain, Livestock & Prices",
+                        "Ag-Tech, Precision Ag, Inputs & Research",
+                        "Associations, Extension & Academic"]},
     # ---- Cross-cutting theme packs ----
     "ai_trends": {"name": "AI Trends", "kind": "theme", "industries": ["ai_research"],
         "description": "AI lab blogs, AI news, models/datasets, conferences, policy & ethics.",
@@ -7377,8 +7432,12 @@ async def list_sources():
         if cat not in categories:
             categories[cat] = []
         entry_packs = list(cat_to_packs.get(cat, []))
-        if src.get("pack") == "creative_ai" and "creative_ai" not in entry_packs:
-            entry_packs.append("creative_ai")
+        # Pack-field tagging (generalized 2026-07-01; was a creative_ai special case): any source
+        # stamped pack=<id> belongs to that pack — this is how pack_match membership (healthcare,
+        # creative_ai, insurance, agriculture) reaches the pack-aware landing UX.
+        _src_pack = src.get("pack")
+        if _src_pack and _src_pack in SOURCE_PACKS and _src_pack not in entry_packs:
+            entry_packs.append(_src_pack)
         categories[cat].append({"id": sid, "name": src["name"], "type": src["type"],
                                  "packs": entry_packs, "industries": src.get("industries", [])})
     return {"total": len(SOURCES), "categories": categories}
@@ -8013,14 +8072,20 @@ async def _extract_pdf_impl(url: str, max_pages: int = 200,
                 # Gap B: archive the extracted PDF to the wiki pipeline so it
                 # chunks + manifests + becomes retrievable. Fire-and-forget so
                 # extraction latency (and search fan-out) is unaffected.
+                # 2026-07-02 (live-defect fix): persist under the RESOLVED final URL, never a
+                # grounding/redirect wrapper. The request already followed redirects, so
+                # resp.url is the real host - persisting the request url minted articles named
+                # "vertexaisearch.cloud.google.com" that then rode into themes + citations as a
+                # provider bucket (standing rule: every source needs REAL attribution).
+                persist_url = str(resp.url) if str(getattr(resp, 'url', '') or '').startswith('http') else url
                 if persist and full_text:
                     try:
                         asyncio.create_task(
-                            _persist_remote_pdf(url, full_text, len(pages), engagement=engagement)
+                            _persist_remote_pdf(persist_url, full_text, len(pages), engagement=engagement)
                         )
                     except RuntimeError:
                         # No running loop (sync context) - persist inline best-effort.
-                        await _persist_remote_pdf(url, full_text, len(pages), engagement=engagement)
+                        await _persist_remote_pdf(persist_url, full_text, len(pages), engagement=engagement)
                 return {
                     "url": url,
                     "extracted": True,
@@ -9589,11 +9654,33 @@ async def _semantic_cache_store(provider: str, body: dict, response: dict) -> No
 # object. Provider "cache not found / expired" (404/400) -> recreate + retry ONCE,
 # else fall back to a plain inline call.
 #
-# SHIPPED OFF BY DEFAULT (GEMINI_EXPLICIT_CACHE_ENABLED=0) like the semantic
-# cache: real + wired + flippable. When off it adds ZERO overhead (every helper
-# early-returns before any work).
+# E1 (2026-07-02, artifact-total-elevation): DEFAULT ON, gated by SECOND OCCURRENCE. A cache object is
+# created only when the SAME (model, system-prefix, corpus-version) key is seen a second time within the
+# TTL window (ns="gemseen" counter below), so storage fees are paid only for prefixes that demonstrably
+# repeat (theme shards, multi-artifact engagements) - a one-off prompt never creates a cache. Master
+# off-switch stays: GEMINI_EXPLICIT_CACHE_ENABLED=0. Rollout telemetry per plan RI item U2:
+# creates/hits/misses logged + _GEMINI_EXPLICIT_CACHE_STATS.
 # ----------------------------------------------------------------------------
-GEMINI_EXPLICIT_CACHE_ENABLED = os.environ.get("GEMINI_EXPLICIT_CACHE_ENABLED", "0") in ("1", "true", "True")
+GEMINI_EXPLICIT_CACHE_ENABLED = os.environ.get("GEMINI_EXPLICIT_CACHE_ENABLED", "1") in ("1", "true", "True")
+# create the remote cache object on the Nth sighting of a prefix (default 2 = second occurrence).
+try:
+    GEMINI_CACHE_CREATE_ON_SEEN = int(os.environ.get("GEMINI_CACHE_CREATE_ON_SEEN", "2"))
+except ValueError:
+    GEMINI_CACHE_CREATE_ON_SEEN = 2
+
+
+def _gemini_prefix_seen_count(key: "str | None") -> int:
+    """Increment + return the sighting count for a prefix key (shared sqlite, ns=gemseen).
+    Best-effort: returns a large number on storage failure so caching still engages."""
+    if not key:
+        return 0
+    try:
+        val = _cache_db_get("gemseen", key)
+        n = (val.get("n", 0) if isinstance(val, dict) else 0) + 1
+        _cache_db_put("gemseen", key, {"n": n}, GEMINI_CACHE_TTL_SEC)
+        return n
+    except Exception:
+        return GEMINI_CACHE_CREATE_ON_SEEN  # fail-open: engage caching
 try:
     GEMINI_CACHE_TTL_SEC = int(os.environ.get("GEMINI_CACHE_TTL_SEC", "3600"))
 except ValueError:
@@ -9709,13 +9796,42 @@ def _anthropic_cc() -> dict:
         cc["ttl"] = "1h"
     return cc
 
+# E1 (2026-07-02, artifact-total-elevation): CACHE-BREAK MARKER. Clients that assemble large system
+# prompts order them [stable core][semi-stable engagement][dynamic] and separate the segments with this
+# marker. The Anthropic path converts each boundary into a cache_control breakpoint, so the stable core
+# amortizes ACROSS engagements and the semi-stable block amortizes across every call WITHIN one
+# engagement (theme shards, retries, depth passes, each #artifact). Non-Anthropic paths strip the marker
+# (it must never reach any model). Chosen to be un-typeable by corpus content.
+HIC_CACHE_BREAK = "\n<<<HIC-CACHE-BREAK>>>\n"
+
+
+def _strip_cache_markers(obj):
+    """Remove HIC_CACHE_BREAK markers from every string in a payload (gemini/openai paths, and the
+    anthropic fallback when caching is disabled). Best-effort, never raises."""
+    try:
+        if isinstance(obj, str):
+            return obj.replace(HIC_CACHE_BREAK, "\n").replace(HIC_CACHE_BREAK.strip(), "")
+        if isinstance(obj, list):
+            return [_strip_cache_markers(x) for x in obj]
+        if isinstance(obj, dict):
+            return {k: _strip_cache_markers(v) for k, v in obj.items()}
+    except Exception:
+        pass
+    return obj
+
+
 def _inject_anthropic_cache_control(body: dict) -> bool:
-    """Mark the stable prompt prefix with cache breakpoint(s) in place. Sets up
-    to TWO breakpoints (Anthropic allows 4): one on the TOOLS array (so a large,
-    stable tool-definitions prefix caches independently of the system text) and
-    one on the SYSTEM block. Returns True if any breakpoint was added. Best-
-    effort: never raises."""
-    if not PROMPT_CACHE_ENABLED or not isinstance(body, dict):
+    """Mark the stable prompt prefix with cache breakpoint(s) in place. Anthropic allows 4 breakpoints:
+    one goes on the TOOLS array; the SYSTEM string gets up to THREE, at HIC_CACHE_BREAK marker
+    boundaries when present (stable core | semi-stable engagement | dynamic tail), else one on the whole
+    system block (legacy behavior). Markers are ALWAYS consumed here so they never reach the model.
+    Returns True if any breakpoint was added. Best-effort: never raises."""
+    if not isinstance(body, dict):
+        return False
+    if not PROMPT_CACHE_ENABLED:
+        # still consume markers so they never leak to the model
+        if isinstance(body.get("system"), str) and HIC_CACHE_BREAK.strip() in body["system"]:
+            body["system"] = _strip_cache_markers(body["system"])
         return False
     added = False
     try:
@@ -9728,10 +9844,32 @@ def _inject_anthropic_cache_control(body: dict) -> bool:
             if isinstance(last_tool, dict) and "cache_control" not in last_tool:
                 last_tool["cache_control"] = _anthropic_cc()
                 added = True
-        # Breakpoint 2: SYSTEM (the large grounding prefix).
+        # Breakpoints 2..4: SYSTEM. Split on the cache-break marker into ordered blocks; set a
+        # breakpoint at the end of every block EXCEPT the final (dynamic) one, provided the cumulative
+        # prefix up to that boundary clears the min-cacheable size. A single unsegmented system keeps
+        # the legacy whole-block breakpoint.
         sys = body.get("system")
         if isinstance(sys, str):
-            if len(sys) >= ANTHROPIC_CACHE_MIN_CHARS:
+            parts = [p for p in sys.split(HIC_CACHE_BREAK.strip()) if p.strip()] if (HIC_CACHE_BREAK.strip() in sys) else [sys]
+            parts = [p.strip("\n") for p in parts]
+            if len(parts) > 1:
+                blocks = []
+                cumulative = 0
+                boundaries_set = 0
+                for i, part in enumerate(parts):
+                    cumulative += len(part)
+                    block = {"type": "text", "text": part}
+                    is_last = (i == len(parts) - 1)
+                    # cache the boundary when it is not the dynamic tail, the prefix is big enough,
+                    # and we have breakpoint budget left (3 on system; tools used one).
+                    if not is_last and cumulative >= ANTHROPIC_CACHE_MIN_CHARS and boundaries_set < 3:
+                        block["cache_control"] = _anthropic_cc()
+                        boundaries_set += 1
+                        added = True
+                    blocks.append(block)
+                body["system"] = blocks
+                logger.info(f"[prompt-cache] system split into {len(parts)} blocks, {boundaries_set} cache breakpoint(s)")
+            elif len(sys) >= ANTHROPIC_CACHE_MIN_CHARS:
                 body["system"] = [{"type": "text", "text": sys, "cache_control": _anthropic_cc()}]
                 added = True
         elif isinstance(sys, list) and sys:
@@ -9879,6 +10017,7 @@ async def proxy_gemini(request: Request):
     try:
         body = await request.json()
         body = _scrub_outbound_payload(body)  # 2026-06-15 - emoji/surrogate ban (see proxy_anthropic)
+        body = _strip_cache_markers(body)     # E1 2026-07-02 - cache-break markers are Anthropic-only
         # 2026-06-12 - default swapped off the retired gemini-2.5-flash tier
         # to the canonical fast-text model (canonical-models standing rule).
         model = body.get("model", "gemini-3.5-flash")
@@ -10042,6 +10181,11 @@ async def proxy_gemini(request: Request):
                     logger.info(f"[gemini-explicit-cache] HIT {name} model={model}")
                 else:
                     _GEMINI_EXPLICIT_CACHE_STATS["misses"] += 1
+                    # E1 (2026-07-02): SECOND-OCCURRENCE gate - only prefixes that repeat within the
+                    # TTL window earn a remote cache object (storage fees track demonstrated reuse).
+                    if not force_recreate and _gemini_prefix_seen_count(key) < GEMINI_CACHE_CREATE_ON_SEEN:
+                        logger.info(f"[gemini-explicit-cache] first sighting of prefix (model={model}, {len(sys_text)} chars) - implicit caching only; explicit cache engages on repeat")
+                        return None
                     name = await _gemini_create_cached_content(
                         api_key, model, norm_si, GEMINI_CACHE_TTL_SEC
                     )
@@ -10332,6 +10476,7 @@ async def proxy_openai(request: Request):
     try:
         body = await request.json()
         body = _scrub_outbound_payload(body)  # 2026-06-15 - broken-emoji-half guard (see proxy_anthropic)
+        body = _strip_cache_markers(body)     # E1 2026-07-02 - cache-break markers are Anthropic-only
         # Prompt caching (2026-06-22): OpenAI auto-caches prompts >=1024 tokens;
         # `prompt_cache_key` steers same-prefix requests to the same cache shard
         # for a higher hit rate. Key on the engagement slug (stable across a
@@ -18544,124 +18689,25 @@ async def ai_illustrations_catalog(brand: str = "", tag: str = ""):
     return {"count": len(reg), "illustrations": reg}
 
 
-# ── BRAND IMAGERY (flat-illustrative, 2026-06-27) ───────────────────────────────
-# The THIRD imagery type (after icons + diagrams): corporate, on-brand, FLAT-ILLUSTRATIVE
-# scenes generated by Nano Banana (gemini-3.1-flash-image-preview). NOT the retired abstract
-# single-line art (_illustration_prompt) and NOT realistic photography. Full scene on its own
-# ground (NO transparency knockout). Style is user-selectable; default = editorial.
-import hashlib as _hashlib_bi
-_BRANDIMG_DIR = os.path.join(os.path.dirname(_ILLUS_DIR), "brand-images")
-# Canonical brand-image style (user-locked 2026-06-27): refined Corporate Memphis / Alegria blended
-# with modern isometric vector art. ONE house style; `style` param kept only as an optional minor
-# flavour but the structural spec below is always applied.
-_BRANDIMG_STYLES = {"memphis-iso": "the canonical NXT Corporate-Memphis + isometric house style"}
-_BRANDIMG_DEFAULT_STYLE = "memphis-iso"
-
-
-def _brand_image_palette(brand: str) -> str:
-    """On-brand palette phrase pulled from the Figma token MIRROR (never-hardcode), brand-specific.
-    Encodes the spec's 'soft pastel grounds + saturated electric brand accents + dark monoline'."""
-    b = "nu" if str(brand).lower() == "nu" else "nxt"
-    toks = ((_load_figma_tokens() or {}).get(b.upper(), {}) or {}).get("color", {}) or {}
-    def hx(role, fb):
-        v = toks.get(role)
-        return v if isinstance(v, str) and v.startswith("#") else fb
-    if b == "nxt":
-        return (f"BRAND-LOCKED palette: soft off-white and pale mint/soft-blue PASTEL grounds, contrasted "
-                f"with saturated ELECTRIC accents of chartreuse yellow-green ({hx('accent','#B8B800')}), "
-                f"bright cyan ({hx('cyan','#00B7C3')}) and deep teal ({hx('teal','#115054')}); all outlines "
-                f"and drop shadows in near-black ({hx('ink','#141414')})")
-    return (f"BRAND-LOCKED palette: warm off-white and pale grounds, contrasted with saturated ELECTRIC "
-            f"accents of crimson Huskies red ({hx('accent','#C8102E')}), muted teal ({hx('cyan','#1D6E64')}) "
-            f"and warm gold (#A4804A); all outlines and drop shadows in deep navy ({hx('rail','#0E1626')})")
-
-
-def _brand_image_prompt(concept: str, brand: str, style: str) -> str:
-    # Encodes the full user-supplied style breakdown so every brand image is consistent.
-    return (
-        f"A refined Corporate Memphis (Alegria) illustration blended with modern isometric vector art, depicting: {concept.strip()}. "
-        "LINEWORK: every object, character and detail encased in a solid CONTINUOUS dark outline of UNIFORM "
-        "stroke weight (true monoline, no thick-to-thin variation); perfectly smooth vector paths, polished "
-        "digital edges, zero sketchiness. "
-        "PERSPECTIVE: isometric / parallel projection from an elevated angle; parallel lines do NOT converge "
-        "to a vanishing point; depth built by overlapping clean flat shapes, never atmospheric fading. "
-        "CHARACTERS: stylized Corporate-Memphis people with flowing, slightly bendy limbs and minimalist "
-        "faces (simple dot eyes, thin curved mouths), defined by their action and posture. "
-        "COMPOSITION: every figure's ENTIRE HEAD is fully inside the frame with generous headroom above; "
-        "NEVER crop, cut off, or clip a head, face, or the top of any figure; keep clear margin on all sides. "
-        "OBJECTS: real items distilled to basic geometric primitives (circles, cylinders, rectangles); "
-        "clutter-free, idealized, perfectly aligned, friction-free. "
-        f"COLOR: flat SOLID color fills inside the outlines; {_brand_image_palette(brand)}. "
-        "SHADING: NO gradients; cell-shading via distinct slightly darker/lighter flat BLOCK shapes; drop "
-        "shadows rendered as crisp SOLID geometric shapes on the floor (no blur). "
-        "Overall: approachable, optimistic, tech-forward, instantly readable. "
-        "ABSOLUTELY NOT: abstract single-continuous-line art, abstract blobs, realistic photography, "
-        "painterly or 3D render, heavy gradients, generic clip-art. NO text, NO words, NO numbers, NO "
-        "logos, NO watermarks anywhere in the image."
-    )
-
-
-async def _brand_image(concept: str, brand: str, style: str = "", variant: int = 0) -> dict:
-    """Generate (or REUSE) one flat-illustrative on-brand BRAND IMAGE (full scene, no transparency),
-    persist + cache by content id. Returns {url, dataUri, id, style, reused}; fail-open."""
-    import base64
-    brand = "nu" if str(brand).lower() == "nu" else "nxt"
-    style = style if style in _BRANDIMG_STYLES else _BRANDIMG_DEFAULT_STYLE
-    try:
-        variant = max(0, int(variant))
-    except Exception:
-        variant = 0
-    iid = "brandimg-" + _hashlib_bi.sha1(f"{concept}|{brand}|{style}|{variant}".encode("utf-8")).hexdigest()[:12]
-    os.makedirs(_BRANDIMG_DIR, exist_ok=True)
-    out_path = os.path.join(_BRANDIMG_DIR, f"{iid}.png")
-    url = f"/hic-workspace/wiki/design-system/brand-images/{iid}.png"
-    if os.path.exists(out_path):
-        try:
-            with open(out_path, "rb") as f:
-                raw = f.read()
-            return {"url": url, "dataUri": "data:image/png;base64," + base64.b64encode(raw).decode(),
-                    "id": iid, "style": style, "reused": True}
-        except Exception:
-            pass
-    api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
-    if not api_key or not concept:
-        return {"url": "", "dataUri": "", "id": iid, "style": style, "reused": False}
-    gurl = f"https://generativelanguage.googleapis.com/v1beta/models/{_GEMINI_IMAGE_MODEL}:generateContent"
-    body = {"contents": [{"parts": [{"text": _brand_image_prompt(concept, brand, style)}]}],
-            "generationConfig": {"responseModalities": ["IMAGE"]}}
-    try:
-        async with httpx.AsyncClient() as client:
-            resp = await client.post(gurl, json=body, headers=_goog_key_headers(api_key), timeout=120.0)
-        if resp.status_code != 200:
-            logger.warning(f"[brand-image] HTTP {resp.status_code}: {resp.text[:200]}")
-            return {"url": "", "dataUri": "", "id": iid, "style": style, "reused": False}
-        parts = (((resp.json().get("candidates") or [{}])[0]).get("content", {}).get("parts")) or []
-        for part in parts:
-            inline = part.get("inlineData") or part.get("inline_data")
-            if inline and inline.get("data"):
-                png = base64.b64decode(inline["data"])  # NO knockout - full scene keeps its ground
-                with open(out_path, "wb") as f:
-                    f.write(png)
-                return {"url": url, "dataUri": "data:image/png;base64," + base64.b64encode(png).decode(),
-                        "id": iid, "style": style, "reused": False}
-        return {"url": "", "dataUri": "", "id": iid, "style": style, "reused": False}
-    except Exception as e:
-        logger.warning(f"[brand-image] generation error: {e}")
-        return {"url": "", "dataUri": "", "id": iid, "style": style, "reused": False}
-
-
+# E4 (2026-07-02, artifact-total-elevation): the Memphis-isometric diffusion lane for CONTENT slots is
+# RETIRED (DELETE doctrine - same treatment the diagram image-gen fallback got on 7/01). Live evidence:
+# the diffusion model rendered slide headlines INSIDE the image (twice, off-brand type) despite the
+# prompt's text ban, and produced busy dioramas that communicate nothing element-specific. Content slots
+# (recommendation panels, theme thumbnails, persona panels) now render NATIVELY via /api/ai/diagram
+# infographic families (stat-row / process-flow / comparison / ranked-bars / composition, chromeless slot
+# shells) - locked typography, token palette, real icon glyphs, text-in-image impossible by construction.
+# Persona situational photography (/api/generate-gemini-image) is a different, unflagged endpoint and is
+# unchanged. The old _brand_image_prompt memphis directives were deleted with this block.
 @app.post("/api/ai/brand-image")
 async def ai_brand_image(payload: dict):
-    """Generate (or reuse) ONE flat-illustrative on-brand BRAND IMAGE (the third imagery type).
-    Body: { concept, brand:"nxt|nu", style:"geometric|humanist|editorial|isometric", variant? }.
-    Returns { url, dataUri, id, style, reused }. Fail-open (empty url on failure)."""
-    concept = (payload.get("concept") or "").strip()
-    if not concept:
-        return JSONResponse({"error": "concept required"}, status_code=400)
-    res = await _brand_image(concept, payload.get("brand", "nxt"),
-                             payload.get("style", _BRANDIMG_DEFAULT_STYLE), payload.get("variant", 0))
-    res.update({"brand": ("nu" if str(payload.get("brand", "nxt")).lower() == "nu" else "nxt")})
-    return res
+    """RETIRED (2026-07-02, E4). Content-slot imagery renders natively via /api/ai/diagram (infographic
+    families). Returns an empty fail-open result so pre-E4 bundles degrade to text-only instead of
+    crashing; the response names the replacement."""
+    logger.warning("[brand-image] RETIRED endpoint called (memphis-iso lane deleted 2026-07-02) - "
+                   "route content-slot imagery to /api/ai/diagram infographic families")
+    return {"url": "", "dataUri": "", "id": "", "style": "retired", "reused": False,
+            "deprecated": True,
+            "replacement": "/api/ai/diagram with kind in (stat-row|process-flow|comparison|ranked-bars|composition), chrome:'none', frame:{w,h}"}
 
 
 # ---------------------------------------------------------------------------
@@ -18702,7 +18748,7 @@ def _diagram_palette(brand: str, canvas: str) -> dict:
 # D17 (2026-07-01, owner-chosen): diagrams render as clean WHITE, flat, minimalist images (not
 # accent-filled cards). Bump this version when the diagram STYLE changes so the content-hash cache
 # (which keys on spec, not prompt text) invalidates and regenerates.
-_DIAGRAM_STYLE_VERSION = "v16-strategic-detail"
+_DIAGRAM_STYLE_VERSION = "v17-infographic-families"
 
 
 _DIAG_DASH_RE = re.compile(r"\s*[–—]\s*")  # en/em dash only (never ASCII hyphen - standing rule)
@@ -18898,7 +18944,13 @@ async def _brand_diagram(spec: dict, brand: str, canvas: str) -> dict:
         return {"url": "", "dataUri": "", "id": iid, "reused": False}
     # D17 (2026-07-01, owner-chosen): NATIVE-RENDER to a full-bleed 16:9 GOLD exhibit image (real
     # HTML/CSS from brand tokens -> headless Chromium). Locked, consistent typography + 100% accurate
-    # corpus text + real vector icons. Image-gen (below) is fallback only if Chromium is unavailable.
+    # corpus text + real vector icons.
+    # FAIL-CLOSED (2026-07-01 design audit): diagrams NEVER fall back to diffusion image-gen. The live
+    # 1:50 PM renders proved the failure mode: two specs hit a native-render exception, fell to
+    # gemini-3.1-flash-image-preview, and the cached exhibits shipped a connector crossing THROUGH a
+    # node box + a leaked style hex ("#73757A") - both hard bans (.claude/CLAUDE.md graphic-collision).
+    # A diffusion model cannot hold diagram-density typography (the D17 lesson: intrinsic, not prompt).
+    # On native failure we return EMPTY so the SPA renders its clean in-deck native matrix/tree instead.
     try:
         import asyncio as _aio
         import nxt_diagram_render as _ndr
@@ -18911,36 +18963,12 @@ async def _brand_diagram(spec: dict, brand: str, canvas: str) -> dict:
                                     "brand": brand, "canvas": canvas, "file": f"{iid}.png", "url": url,
                                     "model": "native-html-chromium", "diagram": True})
             return {"url": url, "dataUri": "data:image/png;base64," + base64.b64encode(png).decode(), "id": iid, "reused": False}
-        logger.warning("[diagram] native render unavailable (no Chromium); falling back to image-gen")
+        logger.warning("[diagram] native render unavailable (no Chromium); FAIL-CLOSED (no image-gen for diagrams) - SPA native matrix/tree renders instead")
     except Exception as e:
-        logger.warning(f"[diagram] native render error: {e}; falling back to image-gen")
-    api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
-    if not api_key:
-        return {"url": "", "dataUri": "", "id": iid, "reused": False}
-    gurl = f"https://generativelanguage.googleapis.com/v1beta/models/{_GEMINI_IMAGE_MODEL}:generateContent"
-    body = {"contents": [{"parts": [{"text": _diagram_prompt(spec, brand, canvas)}]}],
-            "generationConfig": {"responseModalities": ["IMAGE"]}}
-    try:
-        async with httpx.AsyncClient() as client:
-            resp = await client.post(gurl, json=body, headers=_goog_key_headers(api_key), timeout=120.0)
-        if resp.status_code != 200:
-            logger.warning(f"[diagram] HTTP {resp.status_code}: {resp.text[:200]}")
-            return {"url": "", "dataUri": "", "id": iid, "reused": False}
-        parts = (((resp.json().get("candidates") or [{}])[0]).get("content", {}).get("parts")) or []
-        for part in parts:
-            inline = part.get("inlineData") or part.get("inline_data")
-            if inline and inline.get("data"):
-                png = base64.b64decode(inline["data"])  # keep the diagram ground (NO knockout)
-                with open(out_path, "wb") as f:
-                    f.write(png)
-                _illus_registry_append({"id": iid, "idea": spec.get("title", ""), "kind": spec.get("kind"),
-                                        "brand": brand, "canvas": canvas, "file": f"{iid}.png", "url": url,
-                                        "model": _GEMINI_IMAGE_MODEL, "diagram": True})
-                return {"url": url, "dataUri": "data:image/png;base64," + base64.b64encode(png).decode(), "id": iid, "reused": False}
-        return {"url": "", "dataUri": "", "id": iid, "reused": False}
-    except Exception as e:
-        logger.warning(f"[diagram] generation error: {e}")
-        return {"url": "", "dataUri": "", "id": iid, "reused": False}
+        logger.warning(f"[diagram] native render error: {e}; FAIL-CLOSED (no image-gen for diagrams) - SPA native matrix/tree renders instead")
+    # DELETED (2026-07-01): the diffusion image-gen fallback block that used to live here. Diagrams are
+    # native-render-or-nothing; _diagram_prompt remains for re-prompt tooling but no runtime path calls it.
+    return {"url": "", "dataUri": "", "id": iid, "reused": False}
 
 
 @app.post("/api/ai/diagram")
@@ -20522,7 +20550,10 @@ async def _run_visual_qa(kind: str, html: str) -> dict | None:
         import artifact_visual_qa as _vqa
         # kind='proto' -> click through each nav control + re-check, so a screen that errors/blanks
         # only on navigation is caught (the gate previously verified the landing screen alone).
-        report = await asyncio.to_thread(_vqa.audit_html, html, 1440, 1000, kind == "proto")
+        # E3 layout_density (2026-07-02): slide/stage audits gate on > 25% empty body area; every
+        # other kind reports the metric only (threshold calibration = owner-gated U6).
+        _density_max = 0.25 if kind in ("stage", "slides", "slide", "gold") else None
+        report = await asyncio.to_thread(_vqa.audit_html, html, 1440, 1000, kind == "proto", _density_max)
         if not report.get("available"):
             logger.info(f"[artifact/{kind}] visual QA unavailable: {report.get('reason')}")
         elif report.get("passed"):

@@ -21,52 +21,64 @@ chunks:
     char_span: [0, 2339]
     sentence_count: 18
     key_terms: [agent, claude, agents, memory, source, system, architecture, gets]
+    concepts: [agent, claude, agents, memory, architecture]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1s9jprb.md#c7"]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1s9jprb/the_claude_code_leak_accidentally_published_the/"}]
   - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c1"
     char_span: [2343, 3610]
     sentence_count: 15
     key_terms: [claude-code-source-leak-what-to-learn-ai-agents-2026, patterns, architecture, thoughts, design, memory, agent, https]
+    concepts: [claude-code-source-leak-what-to-learn-ai-agents-2026, patterns, architecture, thoughts, design]
     token_count: 280
   - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c2"
     char_span: [3624, 5355]
     sentence_count: 13
     key_terms: ["it's", slop, content, getting, production, accurate, variance, written]
+    concepts: [content, getting, production, accurate, variance]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c3"
     char_span: [5357, 7363]
     sentence_count: 17
     key_terms: [hasfivevowels, wrong, like, comment, claude, winter-computer9809, learn, times]
+    concepts: [hasfivevowels, wrong, comment, claude, learn]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c4"
     char_span: [7365, 9718]
     sentence_count: 10
     key_terms: [code, does, feature, people, agent, truncation, validation, honestly]
+    concepts: [feature, people, agent, truncation, validation]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c5"
     char_span: [9720, 11732]
     sentence_count: 17
     key_terms: [semantic, drift, post, attack, legitimate, indistinguishable, agents, months]
+    concepts: [semantic, drift, legitimate, attack, indistinguishable]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c6"
     char_span: [11734, 13683]
     sentence_count: 10
     key_terms: [context, interesting, "it's", prompt, system, structure, semantic, specific]
+    concepts: [interesting, context, prompt, system, structure]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c7"
     char_span: [13685, 15721]
     sentence_count: 17
     key_terms: [state, leak, agents, claude, worker, observations, agent, layer]
+    concepts: [state, observations, agents, claude, worker]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1s9jprb.md#c0"]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c8"
     char_span: [15723, 16483]
     sentence_count: 9
     key_terms: [cli, desktop, diverging, feature, claude, set, side, tool]
+    concepts: [desktop, diverging, feature, claude]
     section: Comments
     token_count: 172
 ---

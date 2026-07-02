@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 1775]
     sentence_count: 8
     key_terms: [non-custodial, defi, defindex, protocol, specifically, audit, beans, blend]
+    concepts: [non-custodial, defindex, protocol, specifically, traditional]
     token_count: 403
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1sy1tno/exploring_beans_a_noncustodial_interface_for/"}]
   - id: "social-intelligence/reddit-deep/defi/1sy1tno.md#c1"
     char_span: [1777, 2478]
     sentence_count: 5
     key_terms: [risk, liquidity, lending, market, smart, alternative, constrained, established]
+    concepts: [liquidity, lending, market, smart]
     token_count: 162
   - id: "social-intelligence/reddit-deep/defi/1sy1tno.md#c2"
-    char_span: [2493, 4571]
+    char_span: [2492, 4570]
     sentence_count: 16
     key_terms: [recovery, beans, non-custodial, account, stellar-native, social, unwind, self-custody]
+    concepts: [recovery, beans, non-custodial, stellar-native, account]
     section: Comments
     token_count: 461
 ---

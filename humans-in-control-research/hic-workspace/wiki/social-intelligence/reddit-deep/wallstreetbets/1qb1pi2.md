@@ -21,39 +21,51 @@ chunks:
     char_span: [0, 1980]
     sentence_count: 25
     key_terms: [wallstreetbets, powell, "that's", rates, president, anything, comments, criminal]
+    concepts: [wallstreetbets, powell, "that's", rates, president]
     token_count: 444
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1qb1pi2/either_i_get_rich_or_we_all_die_my_current/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md#c1"
     char_span: [1982, 3698]
     sentence_count: 27
     key_terms: [infrastructure, trump, path, rips, term, everything, critical, spending]
+    concepts: [infrastructure, everything, trump, critical, spending]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md#c2"]
     token_count: 375
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md#c2"
     char_span: [3700, 5232]
     sentence_count: 12
     key_terms: [defense, independence, fed, infrastructure, trump, case, breaks, market]
+    concepts: [defense, independence, infrastructure, trump, breaks]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md#c1"]
     token_count: 374
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md#c3"
     char_span: [5246, 5660]
     sentence_count: 1
     key_terms: [comments, wallstreetbets, reddit, https, total, com, www, submissions]
+    concepts: [comments, wallstreetbets, reddit, https, total]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md#c4"
     char_span: [5662, 7224]
     sentence_count: 3
     key_terms: [yeah, generated, discord, damage, stocks, natural-currency7600, carlosdangerwashere, carsonthecarsinogen]
+    concepts: [generated, discord, damage, stocks, brain]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md#c5"
     char_span: [6998, 8195]
     sentence_count: 8
     key_terms: [inverse, damage, fiscal, policy, turbulent-narwhal803, brain, professional-age, distinctasdf]
+    concepts: [inverse, damage, fiscal, policy, brain]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md#c4"]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md#c6"
     char_span: [8198, 9690]
     sentence_count: 9
     key_terms: [money, through, capital, overnight, currency, monopoly, reserve, global]
+    concepts: [money, through, capital, overnight, currency]
     section: Comments
     token_count: 400
 ---

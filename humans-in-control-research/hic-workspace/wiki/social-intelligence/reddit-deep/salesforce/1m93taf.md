@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 2182]
     sentence_count: 9
     key_terms: [salesforce, date, due, action, tasks, account, partner, plans]
+    concepts: [salesforce, action, tasks, account, partner]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1m93taf.md#c1"]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1m93taf/action_plans_app_efficient_ways_to_create/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1m93taf.md#c1"
-    char_span: [2197, 3624]
+    char_span: [2196, 3623]
     sentence_count: 13
     key_terms: [appexchange, action, salesforce, brunogadaleta, niavc, plans, features, removed]
+    concepts: [appexchange, salesforce, action, brunogadaleta, niavc]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1m93taf.md#c0"]
     section: Comments
     token_count: 365
 ---

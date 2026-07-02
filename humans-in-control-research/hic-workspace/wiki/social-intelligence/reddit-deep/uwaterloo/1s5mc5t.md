@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 2261]
     sentence_count: 19
     key_terms: [waterloo, international, co-op, student, "i'm", tuition, questions, math]
+    concepts: [waterloo, international, co-op, student, tuition]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1s5mc5t.md#c1"]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1s5mc5t/incoming_waterloo_cs_students_questions/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1s5mc5t.md#c1"
     char_span: [2263, 3946]
     sentence_count: 16
     key_terms: [waterloo, culture, austin, program, international, co-op, here, situation]
+    concepts: [waterloo, culture, austin, international, program]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1s5mc5t.md#c0"]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/uwaterloo/1s5mc5t.md#c2"
     char_span: [3948, 5908]
     sentence_count: 4
     key_terms: [ucla, waterloo, students, cinnamoneyrolls, school, major, environment, big]
+    concepts: [waterloo, cinnamoneyrolls, students, school, environment]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/uwaterloo/1s5mc5t.md#c3"
     char_span: [5681, 6099]
     sentence_count: 2
     key_terms: [youtube, still-engineering768, https, watch, com, ucla, www, metaphorically]
+    concepts: [youtube, https, watch]
     section: Comments
     token_count: 122
   - id: "social-intelligence/reddit-deep/uwaterloo/1s5mc5t.md#c4"
     char_span: [6101, 8246]
     sentence_count: 15
     key_terms: [get, waterloo, job, "there's", pretty, coops, big, tech]
+    concepts: [waterloo, "there's", pretty, coops, portal]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/uwaterloo/1s5mc5t.md#c5"
     char_span: [8248, 9963]
     sentence_count: 10
     key_terms: [admissions, uwaterloo, please, automoderator, moderators, message, around, reddit]
+    concepts: [admissions, uwaterloo, automoderator, please, moderators]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/uwaterloo/1s5mc5t.md#c6"
     char_span: [9965, 11968]
     sentence_count: 18
     key_terms: [coop, austin, because, better, cooked, waterlooworks, waterloo, cracked]
+    concepts: [austin, waterlooworks, because, better, cooked]
     section: Comments
     token_count: 474
 ---

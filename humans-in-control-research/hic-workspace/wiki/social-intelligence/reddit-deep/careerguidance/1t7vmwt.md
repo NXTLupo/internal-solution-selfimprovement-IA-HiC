@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 2230]
     sentence_count: 17
     key_terms: [design, company, role, manufacturing, work, product, careerguidance, visual]
+    concepts: [design, company, manufacturing, product, careerguidance]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t7vmwt.md#c1"]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t7vmwt/is_this_a_good_move/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t7vmwt.md#c1"
     char_span: [2232, 3492]
     sentence_count: 11
     key_terms: [role, salary, commute, company, leaving, design, people, engineering-focused]
+    concepts: [salary, commute, company, leaving, design]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t7vmwt.md#c0"]
     token_count: 260
 ---
 # Is this a good move?

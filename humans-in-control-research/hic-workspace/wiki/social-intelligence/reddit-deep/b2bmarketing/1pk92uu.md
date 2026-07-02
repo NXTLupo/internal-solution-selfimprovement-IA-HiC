@@ -20,22 +20,27 @@ chunks:
     char_span: [0, 2098]
     sentence_count: 12
     key_terms: [linkedin, messages, people, outreach, clients, b2bmarketing, last, comments]
+    concepts: [linkedin, messages, people, outreach, clients]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1pk92uu/i_sent_75000_messages_on_linkedin_last_year/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1pk92uu.md#c1"
     char_span: [2100, 2990]
     sentence_count: 8
     key_terms: [manual, leads, month, complimenting, realistically, acquisition, summarizing, experience]
+    concepts: [manual, leads, month]
     token_count: 211
   - id: "social-intelligence/reddit-deep/b2bmarketing/1pk92uu.md#c2"
-    char_span: [3005, 4701]
+    char_span: [3004, 4700]
     sentence_count: 14
     key_terms: [looking-for-marketing-discussion-811236647760298024, completely, agree, capableai, questions, replaced, discord, message]
+    concepts: [completely, agree, capableai, questions, replaced]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/b2bmarketing/1pk92uu.md#c3"
-    char_span: [4703, 6144]
+    char_span: [4702, 6143]
     sentence_count: 12
     key_terms: [capableai, automation, messaging, inbound, problem, agency, report, "what's"]
+    concepts: [capableai, automation, messaging, inbound, problem]
     section: Comments
     token_count: 389
 ---

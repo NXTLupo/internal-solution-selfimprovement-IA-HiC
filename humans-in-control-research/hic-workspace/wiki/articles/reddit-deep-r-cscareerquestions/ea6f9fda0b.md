@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2009]
     sentence_count: 18
     key_terms: [cscareerquestions, like, projects, cloud, engineering, opt, experience, portfolio]
+    concepts: [cscareerquestions, projects, engineering, cloud, experience]
     token_count: 457
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ns8rmw/which_career_in_cs_would_you_choose_if_you_were/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/ea6f9fda0b.md#c1"
     char_span: [2011, 2878]
     sentence_count: 7
     key_terms: [get, opt, current, getting, always, given, roles, years]
+    concepts: [current, getting, always, given, roles]
     token_count: 197
 ---
 # Which career in CS would you choose if you were starting now on OPT? Software developer vs data analyst vs project manager vsscrum masters etc?

@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 741]
     sentence_count: 2
     key_terms: [fulfillmentbyamazon, a2m6zryjv7f8x0, amazon, atvpdkikx0der, marketplaceid, https, ads, com]
+    concepts: [fulfillmentbyamazon, a2m6zryjv7f8x0, atvpdkikx0der, marketplaceid, amazon]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1of6bxl.md#c1"]
     token_count: 214
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1of6bxl/how_is_this_brand_ranking_so_high_for_new/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1of6bxl.md#c1"
-    char_span: [756, 1996]
+    char_span: [755, 1995]
     sentence_count: 9
     key_terms: [amazon, fulfillmentbyamazon, discord, ranking, traffic, fba, external, discuss]
+    concepts: [fulfillmentbyamazon, amazon, discord, ranking, traffic]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1of6bxl.md#c0", "social-intelligence/reddit-deep/fulfillmentbyamazon/1of6bxl.md#c2"]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1of6bxl.md#c2"
-    char_span: [1998, 3962]
+    char_span: [1997, 3961]
     sentence_count: 11
     key_terms: [amazon, ads, better, traffic, running, brand, price, placements]
+    concepts: [amazon, better, traffic, running, brand]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1of6bxl.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1of6bxl.md#c3"
-    char_span: [3720, 4020]
+    char_span: [3719, 4019]
     sentence_count: 2
     key_terms: [hot-difficulty941, data, guaranteed, profithawk, strategies, listings, variants, besides]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1of6bxl.md#c4"
-    char_span: [4022, 4540]
+    char_span: [4021, 4539]
     sentence_count: 5
     key_terms: [ads, ranking, essential, on-amazon, off-amazon, worth, fast, recommended]
+    concepts: [ranking, essential, on-amazon, off-amazon, worth]
     section: Comments
     token_count: 125
 ---

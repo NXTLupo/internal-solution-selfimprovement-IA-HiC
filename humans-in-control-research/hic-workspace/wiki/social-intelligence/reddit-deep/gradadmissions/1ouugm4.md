@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 209]
     sentence_count: 2
     key_terms: [gradadmissions, comments, reddit-deep, everybody, posted, reddit, source, thanks]
+    concepts: [gradadmissions, comments]
     token_count: 66
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1ouugm4/how_is_my_sop/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1ouugm4.md#c1"
     char_span: [223, 965]
     sentence_count: 4
     key_terms: [language, want, because, study, person-first, specifically, stigmatizing, fulfillment]
+    concepts: [language, because, study]
     section: Comments
     token_count: 176
 ---

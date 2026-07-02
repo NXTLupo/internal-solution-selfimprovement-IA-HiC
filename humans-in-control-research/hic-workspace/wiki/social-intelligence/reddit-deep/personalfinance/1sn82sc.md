@@ -7,83 +7,95 @@ subreddit: "personalfinance"
 title: "Looking for advice on where to even begin with budgeting and saving while living paycheck to paycheck - currently on Step 0 (PF Wiki)"
 author: "EmileeYoungWord"
 date: "2026-04-16T16:10:52.000Z"
-score: 6
-upvote_ratio: 0.79
+score: 5
+upvote_ratio: 0.85
 num_comments: 24
 flair: "Budgeting"
-extracted_at: "2026-06-11T15:26:16.538Z"
+extracted_at: "2026-06-26T21:51:56.920Z"
 extraction_method: "praw-deep"
-research_goal: "Produce the definitive guide to personal investing in 2026 by analyzing the current state of the fintech and financial industries. Evaluate retail investor behaviors, emerging asset classes, and platform shifts using 2026 market news, industry reports, and social media trends to identify actionable investment strategies and market opportunities."
-engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
+research_goal: "Identify and analyze the top five consumer finance trends for 2026 across retail banking, fintech, and consumer lending, delivering a prioritized trend matrix that details key drivers, shifting consumer behaviors, and technological adoption."
+engagement: "identify-and-analyze-the-top-five-consumer-finance-trends-fo"
 chunks:
   - id: "social-intelligence/reddit-deep/personalfinance/1sn82sc.md#c0"
     char_span: [0, 2052]
     sentence_count: 12
     key_terms: [pay, time, week, business, personalfinance, monthly, partner, varies]
+    concepts: [personalfinance, business, approximately, monthly, partner]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1sn82sc/looking_for_advice_on_where_to_even_begin_with/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1sn82sc.md#c1"
     char_span: [2054, 3568]
     sentence_count: 10
     key_terms: [shop, cover, pay, credit, enough, occasionally, especially, better]
+    concepts: [cover, occasionally, credit, enough, especially]
     token_count: 341
   - id: "social-intelligence/reddit-deep/personalfinance/1sn82sc.md#c2"
     char_span: [3570, 5742]
     sentence_count: 16
     key_terms: [because, anything, "i'm", "don't", expensive, pay, rental, boxes]
+    concepts: [because, anything, expensive, "don't", rental]
     token_count: 472
   - id: "social-intelligence/reddit-deep/personalfinance/1sn82sc.md#c3"
-    char_span: [5757, 7687]
+    char_span: [5756, 7686]
     sentence_count: 8
     key_terms: ["it's", agencies, remote, "isn't", jobs, storefront, business, benefit]
+    concepts: [agencies, remote, "isn't", storefront, business]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/personalfinance/1sn82sc.md#c4"
-    char_span: [7690, 9803]
+    char_span: [7689, 9802]
     sentence_count: 18
     key_terms: [spectrum, worth, call, "it's", especially, switching, "verizon's", programs]
+    concepts: [spectrum, especially, worth, switching, "verizon's"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/personalfinance/1sn82sc.md#c5"
-    char_span: [9807, 12053]
+    char_span: [9806, 12052]
     sentence_count: 24
     key_terms: [phone, shop, phones, get, pay, definitely, anything, provider]
+    concepts: [phone, phones, definitely, anything, provider]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/personalfinance/1sn82sc.md#c6"
-    char_span: [12055, 13510]
+    char_span: [12054, 13509]
     sentence_count: 12
     key_terms: [applications, remote, withholding, applying, beyond, having, making, market]
+    concepts: [applications, remote, withholding, applying, beyond]
     section: Comments
     token_count: 300
   - id: "social-intelligence/reddit-deep/personalfinance/1sn82sc.md#c7"
-    char_span: [13512, 15078]
+    char_span: [13511, 15077]
     sentence_count: 6
     key_terms: [applications, neighboring, interviews, ultimately, moving, retail, school, lonely-somewhere-385]
+    concepts: [applications, neighboring, interviews, ultimately, moving]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/personalfinance/1sn82sc.md#c8"
-    char_span: [15080, 17092]
+    char_span: [15079, 17091]
     sentence_count: 17
     key_terms: [taxes, "it's", like, household, take-home, monthly, "there's", income]
+    concepts: [taxes, household, take-home, monthly, "there's"]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/personalfinance/1sn82sc.md#c9"
-    char_span: [17094, 19183]
+    char_span: [17093, 19182]
     sentence_count: 14
     key_terms: [time, online, worth, lot, definitely, storefront, insurance, providers]
+    concepts: [online, definitely, storefront, worth, insurance]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/personalfinance/1sn82sc.md#c10"
-    char_span: [19185, 20621]
+    char_span: [19184, 20620]
     sentence_count: 10
     key_terms: [married, income, "i'm", "i've", job, household, higher, median]
+    concepts: [married, income, household, higher, median]
     section: Comments
     token_count: 346
 ---
 # Looking for advice on where to even begin with budgeting and saving while living paycheck to paycheck - currently on Step 0 (PF Wiki)
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1sn82sc/looking_for_advice_on_where_to_even_begin_with/)
-Posted by **EmileeYoungWord** · **6↑** · **24 comments**
+Posted by **EmileeYoungWord** · **5↑** · **24 comments**
 
 Hello, I (32F) live in Washington state, USA in a smaller, more central WA city than Seattle. I have a partner (34M) and 2 children (9F and 5f) for whom I am owed, but rarely ever receive child support payments for. I work full time at a college, making $3,811 monthly before taxes and will be getting a pay raise up to $3,999 monthly in July as part of the classified employee payment schedule for my position. After taxation, my current take-home pay is about $2,800.
 
@@ -125,7 +137,7 @@ Based on this information is there anyone who has any ideas of services in WA st
 
 ## Comments
 
-- **turning_the_tide** (8↑): The biggest thing that jumps out from your numbers isn't the spending, it's the fact that a significant chunk of your household's income, your partner's time and effort, and a big piece of your mental energy is tied up in a business that isn't paying him a wage and sometimes can't even cover its own basic bills. That's essentially a second mortgage that isn't providing any return, and it's dragging everything else down.
+- **turning_the_tide** (5↑): The biggest thing that jumps out from your numbers isn't the spending, it's the fact that a significant chunk of your household's income, your partner's time and effort, and a big piece of your mental energy is tied up in a business that isn't paying him a wage and sometimes can't even cover its own basic bills. That's essentially a second mortgage that isn't providing any return, and it's dragging everything else down.
 
 It's understandable to want to see it succeed, but right now it sounds like it's costing you more than just money, it's costing you the ability to get ahead. If your partner could bring in even a small, consistent income from a part-time remote job, that would instantly free up hundreds of dollars that are currently being stretched thin to cover business shortfalls or just the general cost of living. That's where the real leverage is IMO, not in trying to shave another $10 off the internet bill.
   - **EmileeYoungWord** (0↑): I agree, we’re both applying to remote jobs constantly, I’m grateful to hear it sounds like the right route. The real benefit of having the storefront is the benefit of being able to see and touch things that wouldn’t come across as well online, but it’s definitely also crossing my mind more that we may need to consider the realities of our needs and expectations and possibly close down the physical storefront in order to switch to online only.

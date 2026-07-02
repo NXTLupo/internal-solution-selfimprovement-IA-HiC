@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1173]
     sentence_count: 13
     key_terms: [medical, careerguidance, field, years, comments, career, change, jobs]
+    concepts: [careerguidance, medical, field, years, comments]
     token_count: 288
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1thocil/advice_for_a_career_change_at_30_despite_the_job/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1thocil.md#c1"
     char_span: [1187, 3350]
     sentence_count: 12
     key_terms: [tech, because, sales, mri, completely, radiology, physical, straight]
+    concepts: [because, completely, sales, radiology, physical]
     section: Comments
     token_count: 441
 ---

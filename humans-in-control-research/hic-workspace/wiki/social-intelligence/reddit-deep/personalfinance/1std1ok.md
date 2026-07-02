@@ -20,9 +20,11 @@ chunks:
     char_span: [0, 783]
     sentence_count: 10
     key_terms: [personalfinance, account, plaid, bank, comments, password, tried, app]
+    concepts: [personalfinance, account, plaid, comments, password]
     token_count: 191
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1std1ok/plaid_is_being_a_nightmare/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1std1ok.md#c1"
-    char_span: [798, 1043]
+    char_span: [797, 1042]
     sentence_count: 2
     key_terms: [days, tryingtobelevel, reconnect, sideways, believe, quicken, trying, hours]
     section: Comments

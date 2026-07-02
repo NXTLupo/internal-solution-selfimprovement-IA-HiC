@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 2074]
     sentence_count: 1
     key_terms: [yunexpress, seller, original, line-haul, comments, customer, dispatch, carrier]
+    concepts: [yunexpress, seller, original, line-haul, comments]
     token_count: 422
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1sw0rbv/yunexpress_opened_and_repackaged_a_shipment/"}]
   - id: "social-intelligence/reddit-deep/dropship/1sw0rbv.md#c1"
-    char_span: [2089, 4624]
+    char_span: [2088, 4623]
     sentence_count: 9
     key_terms: [packaging, counterfeit, damage, photo, different, beegodropdropship, customer, because]
+    concepts: [packaging, counterfeit, beegodropdropship, damage, different]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/dropship/1sw0rbv.md#c2"
-    char_span: [4626, 6645]
+    char_span: [4625, 6644]
     sentence_count: 4
     key_terms: [repackaging, photo, warehouse, beegodropdropship, branded, carrier, confirmation, presentation]
+    concepts: [repackaging, beegodropdropship, warehouse, photo, branded]
     section: Comments
     token_count: 407
 ---

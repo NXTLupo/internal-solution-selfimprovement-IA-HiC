@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1346]
     sentence_count: 11
     key_terms: [internship, college, time, get, "i'm", "i've", comments, starting]
+    concepts: [internship, college, comments, starting, thinking]
     token_count: 321
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1mbof4x/is_doing_an_internship_at_the_same_time_as_my/"}]
   - id: "social-intelligence/reddit-deep/college/1mbof4x.md#c1"
-    char_span: [1361, 1586]
+    char_span: [1360, 1585]
     sentence_count: 2
     key_terms: [hours, cabbage-soup, flexibility, schedule, sometime, double, check, worry]
+    concepts: [hours]
     section: Comments
     token_count: 60
   - id: "social-intelligence/reddit-deep/college/1mbof4x.md#c2"
-    char_span: [1588, 3466]
+    char_span: [1587, 3465]
     sentence_count: 14
     key_terms: [internship, slightlyobtrusivemom, "it's", hours, fine, week, definitely, experience]
+    concepts: [internship, slightlyobtrusivemom, definitely, experience, hours]
     section: Comments
     token_count: 472
 ---

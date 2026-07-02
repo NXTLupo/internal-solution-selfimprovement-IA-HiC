@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 264]
     sentence_count: 1
     key_terms: [internships, comments, reddit-deep, advice, posted, reddit, source, co-op]
+    concepts: [internships, comments]
     token_count: 84
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1s4mgm3/advice_for_fall_2026_internships_or_coop/"}]
   - id: "social-intelligence/reddit-deep/internships/1s4mgm3.md#c1"
     char_span: [278, 663]
     sentence_count: 1
     key_terms: [companies, sweet-frosting4839, fall, internshipdaily, international, sponsorship, definitely, targeting]
+    concepts: [companies]
     section: Comments
     token_count: 88
 ---

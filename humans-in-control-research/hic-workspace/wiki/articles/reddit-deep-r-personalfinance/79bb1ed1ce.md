@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2064]
     sentence_count: 19
     key_terms: [personalfinance, debt, currently, comments, savings, financial, insurance, subreddit]
+    concepts: [personalfinance, currently, comments, savings, financial]
     token_count: 490
+    sources: [{"n":"Reddit Deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1psrd4q/i_am_currently_fighting_cancer_do_i_spend_most_of/"}]
   - id: "articles/reddit-deep-r-personalfinance/79bb1ed1ce.md#c1"
     char_span: [2066, 4279]
     sentence_count: 17
     key_terms: [life, money, years, debt, get, need, finances, memories]
+    concepts: [money, years, finances, memories, spending]
     token_count: 505
   - id: "articles/reddit-deep-r-personalfinance/79bb1ed1ce.md#c2"
     char_span: [4281, 4780]

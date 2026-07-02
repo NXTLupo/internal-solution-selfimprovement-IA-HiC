@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1200]
     sentence_count: 6
     key_terms: [software, internships, internship, differently, engineering, preparing, comments, projects]
+    concepts: [software, internships, internship, differently, engineering]
     token_count: 265
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tghagi/preparing_for_my_first_software_engineering/"}]
   - id: "social-intelligence/reddit-deep/internships/1tghagi.md#c1"
     char_span: [1214, 2236]
     sentence_count: 13
     key_terms: [interviews, applying, something, practice, projects, prachub, hiredu, https]
+    concepts: [interviews, applying, something, practice, projects]
     section: Comments
     token_count: 242
 ---

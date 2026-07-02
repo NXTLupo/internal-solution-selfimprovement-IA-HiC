@@ -21,59 +21,74 @@ chunks:
     char_span: [0, 234]
     sentence_count: 2
     key_terms: [wallstreetbets, comments, maranathahamen, reddit-deep, infinite, glitch, posted, reddit]
+    concepts: [wallstreetbets, comments]
     token_count: 74
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1nfny9x/orcl_infinite_money_glitch/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c1"
     char_span: [248, 1852]
     sentence_count: 6
     key_terms: [bought, peak, discord, someone, months, depressionmakesjerks, apple, https]
+    concepts: [bought, discord, someone, months, apple]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c2"
     char_span: [1854, 3556]
     sentence_count: 8
     key_terms: [like, bubble, buying, itself, apple-long-throwaway, apple, dying, money]
+    concepts: [bubble, buying, itself, apple, dying]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c3"
     char_span: [3558, 4832]
     sentence_count: 5
     key_terms: [intel, e960d91d5ce374fc91a6a97b4e3443c48b7b8b6e, preview, format, https, money, width, radicallyobjective]
+    concepts: [intel, preview, format, https, money]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c4"
     char_span: [4834, 6910]
     sentence_count: 12
     key_terms: [money, making, years, companies, bubble, growth, obsolecence, need]
+    concepts: [money, making, companies, years, bubble]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c5"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c5"
     char_span: [6914, 8786]
     sentence_count: 11
     key_terms: [fca8f428fd25de9aa29aa4981a40496fc2f8a1ee, quarter, "don't", money, need, next, sell, companies]
+    concepts: [quarter, "don't", money, companies, financial]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c4"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c6"
     char_span: [8788, 10463]
     sentence_count: 7
     key_terms: [nvidia, d55cc583947fe9cb319f4a9db8a3acf8334b9638, credit, oracle, https, because, housing, banned]
+    concepts: [nvidia, credit, oracle, https, because]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c9"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c7"
     char_span: [10465, 11538]
     sentence_count: 6
     key_terms: [money, pump, mother-chipmunk2778, right, trade, orcl, s1n0d3utscht3k, forecasting]
+    concepts: [money, right, trade]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c8"
     char_span: [11540, 12785]
     sentence_count: 9
     key_terms: [people, different, use, multiple, market, openai, competitive, don]
+    concepts: [people, different, multiple, market, openai]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c9"
     char_span: [12788, 14581]
     sentence_count: 9
     key_terms: [oracle-and-amd-collaborate-to-help-customers-deliver-breakthrough-performance-for-large-scale-ai-and-agentic-workloads-2025-06-12, mother-chipmunk2778, oracle, use, nvidia, spacetoaster, cloud, amd]
+    concepts: [mother-chipmunk2778, oracle, spacetoaster, nvidia, cloud]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c6"]
     section: Comments
     token_count: 490
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 791]
     sentence_count: 7
     key_terms: [plainswap, comments, reliable, without, around, https, defi, fees]
+    concepts: [plainswap, comments, reliable, without, around]
     token_count: 198
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1secw5j/reliable_no_kyc_platforms_to_swap_coins_privately/"}]
   - id: "social-intelligence/reddit-deep/defi/1secw5j.md#c1"
-    char_span: [806, 2091]
+    char_span: [805, 2090]
     sentence_count: 6
     key_terms: [swaps, exchange, kyc, flake, best, changenow, monero, "that's"]
+    concepts: [exchange, swaps, flake, changenow, monero]
     section: Comments
     token_count: 370
 ---

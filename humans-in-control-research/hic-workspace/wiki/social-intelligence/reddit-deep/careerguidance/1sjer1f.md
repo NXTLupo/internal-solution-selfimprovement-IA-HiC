@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1957]
     sentence_count: 23
     key_terms: [home, company, careerguidance, work, comments, roughly, canada, enough]
+    concepts: [careerguidance, company, comments, roughly, canada]
     token_count: 458
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sjer1f/offer_from_a_rocketship_ai_startup_but_it_means/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sjer1f.md#c1"
     char_span: [1959, 4150]
     sentence_count: 27
     key_terms: [like, company, husband, new, saying, years, time, different]
+    concepts: [company, husband, saying, years, different]
     token_count: 479
   - id: "social-intelligence/reddit-deep/careerguidance/1sjer1f.md#c2"
     char_span: [4152, 4548]
@@ -36,24 +39,28 @@ chunks:
     char_span: [4562, 6724]
     sentence_count: 17
     key_terms: [years, family, like, canadian, startups, excited, similar, decide]
+    concepts: [years, family, canadian, startups, excited]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/careerguidance/1sjer1f.md#c4"
     char_span: [6726, 8384]
     sentence_count: 17
     key_terms: [opportunity, back, kid, like, new, want, imagine, outcome]
+    concepts: [opportunity, imagine, outcome, willing, around]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/careerguidance/1sjer1f.md#c5"
     char_span: [8386, 10549]
     sentence_count: 22
     key_terms: [take, career, job, life, time, experience, generally, groundbreaking-history]
+    concepts: [career, experience, generally, person, sounds]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1sjer1f.md#c6"
     char_span: [10551, 10843]
     sentence_count: 2
     key_terms: [comforts, home, important, anything, thinking, perfect, become, boring]
+    concepts: [comforts]
     section: Comments
     token_count: 71
 ---

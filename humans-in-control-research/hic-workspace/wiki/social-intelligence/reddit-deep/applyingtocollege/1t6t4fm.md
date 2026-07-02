@@ -21,40 +21,55 @@ chunks:
     char_span: [0, 2045]
     sentence_count: 16
     key_terms: [volunteering, college, put, people, performative, applyingtocollege, putting, applications]
+    concepts: [volunteering, college, people, performative, applyingtocollege]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c5"]
     token_count: 451
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1t6t4fm/does_it_bother_anyone_else_how_performative_adn/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c1"
     char_span: [2047, 3358]
     sentence_count: 9
     key_terms: [college, general, performative, university, education, genuinely, colleges, degree]
+    concepts: [college, general, performative, university, education]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c6"]
     token_count: 277
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c2"
     char_span: [3372, 5168]
     sentence_count: 10
     key_terms: [college, people, get, further, opportunities, performative, dont, kids]
+    concepts: [college, people, opportunities, further, performative]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c5"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c3"
     char_span: [5170, 6341]
     sentence_count: 7
     key_terms: [life, people, activities, understand, lucrative, monetary, beleive, greater]
+    concepts: [people, activities, understand, lucrative, monetary]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c4"]
     section: Comments
     token_count: 250
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c4"
     char_span: [6343, 8405]
     sentence_count: 8
     key_terms: [lucrative, money, getting, career, people, success, making, paying]
+    concepts: [lucrative, money, getting, career, people]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c3"]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c5"
     char_span: [8407, 9992]
     sentence_count: 11
     key_terms: [purplurpuzzlehead111, get, like, because, school, performative, people, class]
+    concepts: [purplurpuzzlehead111, because, performative, school, people]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c2"]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c6"
     char_span: [9994, 11196]
     sentence_count: 6
     key_terms: [college, education, parents, "they're", adults, though, good, "it's"]
+    concepts: [college, education, parents, "they're", adults]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c1"]
     section: Comments
     token_count: 271
 ---

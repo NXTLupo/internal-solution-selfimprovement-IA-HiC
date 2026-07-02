@@ -20,41 +20,49 @@ chunks:
     char_span: [0, 1718]
     sentence_count: 10
     key_terms: [marketing, app, comments, trip, everything, cofounder, features, launched]
+    concepts: [marketing, comments, everything, cofounder, features]
     token_count: 389
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1rvw3q4/solo_founder_building_an_ai_travel_planner/"}]
   - id: "social-intelligence/reddit-deep/saas/1rvw3q4.md#c1"
-    char_span: [1733, 4028]
+    char_span: [1732, 4027]
     sentence_count: 18
     key_terms: [product, trips, communities, itinerary, trip, planning, build, users]
+    concepts: [product, trips, communities, itinerary, planning]
     section: Comments
     token_count: 515
   - id: "social-intelligence/reddit-deep/saas/1rvw3q4.md#c2"
-    char_span: [4030, 6178]
+    char_span: [4029, 6177]
     sentence_count: 17
     key_terms: [theideamakeragency, people, cofounder, crowded, obvious, travel, distribution, users]
+    concepts: [theideamakeragency, people, cofounder, crowded, obvious]
     section: Comments
     token_count: 514
   - id: "social-intelligence/reddit-deep/saas/1rvw3q4.md#c3"
-    char_span: [6180, 7645]
+    char_span: [6179, 7644]
     sentence_count: 4
     key_terms: [hotel, users, com, trip, krist4lle, thousands, enjoiful, created]
+    concepts: [hotel, users, krist4lle, thousands, enjoiful]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/saas/1rvw3q4.md#c4"
-    char_span: [7647, 9775]
+    char_span: [7646, 9774]
     sentence_count: 12
     key_terms: [crowded, question, problem, focus, space, destination, co-founder, discovery]
+    concepts: [crowded, question, problem, destination, co-founder]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/saas/1rvw3q4.md#c5"
-    char_span: [9777, 11913]
+    char_span: [9776, 11912]
     sentence_count: 17
     key_terms: [travel, people, communities, like, plan, trip, usually, going]
+    concepts: [travel, people, communities, usually, gillescode]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/saas/1rvw3q4.md#c6"
-    char_span: [11915, 12336]
+    char_span: [11914, 12335]
     sentence_count: 8
     key_terms: [crowded, don, cofounder, everyone, feedback, focusing, probably, products]
+    concepts: [crowded]
     section: Comments
     token_count: 86
 ---

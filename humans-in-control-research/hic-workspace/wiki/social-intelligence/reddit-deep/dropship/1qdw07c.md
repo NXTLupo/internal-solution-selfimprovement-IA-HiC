@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 564]
     sentence_count: 7
     key_terms: [supplier, responsible, comments, dropship, service, lost, take, responsibility]
+    concepts: [supplier, responsible, comments, dropship, service]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1qdw07c.md#c1"]
     token_count: 139
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1qdw07c/who_is_responsible_for_lost_packages_if_the/"}]
   - id: "social-intelligence/reddit-deep/dropship/1qdw07c.md#c1"
-    char_span: [579, 2635]
+    char_span: [578, 2634]
     sentence_count: 16
     key_terms: [supplier, carrier, responsible, customer, automatically, liability, suppliers, dropship]
+    concepts: [supplier, carrier, responsible, customer, automatically]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1qdw07c.md#c0"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/dropship/1qdw07c.md#c2"
-    char_span: [2637, 3645]
+    char_span: [2636, 3644]
     sentence_count: 10
     key_terms: [supplier, shipping, speedx, agent, cheap, ok-experience4369, don, lost]
+    concepts: [supplier, shipping, speedx, agent, cheap]
     section: Comments
     token_count: 219
 ---

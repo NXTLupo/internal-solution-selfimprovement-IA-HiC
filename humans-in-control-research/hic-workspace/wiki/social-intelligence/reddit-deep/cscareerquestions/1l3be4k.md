@@ -19,58 +19,74 @@ chunks:
     char_span: [0, 2243]
     sentence_count: 15
     key_terms: [experience, years, count, cybersecurity, apparently, cscareerquestions, because, "doesn't"]
+    concepts: [experience, years, cybersecurity, count, apparently]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c4"]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1l3be4k/6_months_job_hunting_apparently_my_4_years_dont/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c1"
     char_span: [2245, 3753]
     sentence_count: 10
     key_terms: [get, experience, stupid, cybersecurity, professionals, "i've", technology, companies]
+    concepts: [experience, cybersecurity, professionals, stupid, technology]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c4"]
     token_count: 313
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c2"
     char_span: [3767, 5720]
     sentence_count: 17
     key_terms: [experience, java, embedded, through, enough, hiring, modern, resume]
+    concepts: [experience, embedded, through, enough, hiring]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c3"
     char_span: [5722, 7412]
     sentence_count: 12
     key_terms: ["don't", lot, want, experience, salaries, systems, people, maybe]
+    concepts: ["don't", experience, salaries, systems, people]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c4"
     char_span: [7414, 9457]
     sentence_count: 6
     key_terms: [teaching, experience, cybersecurity, industry, years, job, epicfail1994, get]
+    concepts: [teaching, experience, cybersecurity, industry, years]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c1"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c5"
     char_span: [9460, 11387]
     sentence_count: 16
     key_terms: [experience, interview, something, sonicwall, resume, years, get, tell]
+    concepts: [experience, interview, something, sonicwall, resume]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c6"
     char_span: [11389, 13144]
     sentence_count: 9
     key_terms: [experience, companies, cloud, "it's", corporate, posting, someone, devops]
+    concepts: [experience, companies, cloud, corporate, posting]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c7"
     char_span: [13146, 14884]
     sentence_count: 9
     key_terms: [junior, someone, littlespatialphenome, experience, point, management, teaching, looking]
+    concepts: [junior, littlespatialphenome, someone, experience, management]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c8"
     char_span: [14886, 16697]
     sentence_count: 16
     key_terms: [stack, experience, job, good, unethical, engineer, promoted, specific]
+    concepts: [stack, experience, unethical, engineer, promoted]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c9"]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c9"
     char_span: [16699, 17828]
     sentence_count: 3
     key_terms: [specific, stack, experience, projecting, competent, questions, answer, "didn't"]
+    concepts: [specific, experience, projecting, stack, competent]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c8"]
     section: Comments
     token_count: 228
 ---

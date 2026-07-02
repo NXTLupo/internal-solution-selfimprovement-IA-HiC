@@ -19,23 +19,31 @@ chunks:
     char_span: [0, 572]
     sentence_count: 3
     key_terms: [comments, job, jobs, application, desperation, reddit-deep, experience, miserable]
+    concepts: [comments]
     token_count: 150
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1plxr8l/how_the_hell_do_you_get_an_entry_level_job_with/"}]
   - id: "social-intelligence/reddit-deep/jobs/1plxr8l.md#c1"
     char_span: [586, 2379]
     sentence_count: 13
     key_terms: [resume, retail, been, experience, physical, because, friends, showing]
+    concepts: [resume, retail, experience, physical, because]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1plxr8l.md#c3"]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/jobs/1plxr8l.md#c2"
     char_span: [2381, 4066]
     sentence_count: 19
     key_terms: [experience, trade, people, different, interview, trades, trying, willingnesskind7561]
+    concepts: [experience, trade, people, different, interview]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1plxr8l.md#c3"]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/jobs/1plxr8l.md#c3"
     char_span: [4068, 5432]
     sentence_count: 10
     key_terms: [retail, people, places, experience, "they're", school, new-veterinarian5597, cadd9181b7543ii7i44]
+    concepts: [retail, people, places, experience, "they're"]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1plxr8l.md#c1", "social-intelligence/reddit-deep/jobs/1plxr8l.md#c2"]
     section: Comments
     token_count: 333
 ---

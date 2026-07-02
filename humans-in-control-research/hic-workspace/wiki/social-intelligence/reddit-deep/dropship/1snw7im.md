@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1470]
     sentence_count: 13
     key_terms: [shipping, parts, store, bmw, comments, dropship, planning, platform]
+    concepts: [shipping, parts, store, comments, dropship]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1snw7im.md#c1"]
     token_count: 329
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1snw7im/thinking_of_starting_a_shopify_store_selling_bmw/"}]
   - id: "social-intelligence/reddit-deep/dropship/1snw7im.md#c1"
-    char_span: [1485, 2281]
+    char_span: [1484, 2280]
     sentence_count: 5
     key_terms: [dropship, pretty, parts, keep, spam, self-promotion, automatically, automoderator]
+    concepts: [dropship, pretty, parts]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1snw7im.md#c0"]
     section: Comments
     token_count: 191
 ---

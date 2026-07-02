@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1501]
     sentence_count: 7
     key_terms: [neu, international, students, current, market, opportunities, internships, job]
+    concepts: [international, students, current, market, opportunities]
     token_count: 333
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1t2moco/is_neu_msai_worth_it_for_an_international_student/"}]
   - id: "social-intelligence/reddit-deep/neu/1t2moco.md#c1"
     char_span: [1515, 2163]
     sentence_count: 6
     key_terms: [greenocto, high, international, beetroot747, significant, additional, everything, interviews]
+    concepts: [greenocto]
     section: Comments
     token_count: 165
   - id: "social-intelligence/reddit-deep/neu/1t2moco.md#c2"
     char_span: [2165, 3866]
     sentence_count: 9
     key_terms: [mobile-finding-3779, seshuuu, beetroot747, challenging, job, optimistic, situation, something]
+    concepts: [mobile-finding-3779, seshuuu, beetroot747, challenging, optimistic]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/neu/1t2moco.md#c3"
     char_span: [3868, 4239]
     sentence_count: 3
     key_terms: [umass, oddactive2516, understand, somewhere, confused, gustamos, amherst, getting]
+    concepts: [umass]
     section: Comments
     token_count: 113
 ---

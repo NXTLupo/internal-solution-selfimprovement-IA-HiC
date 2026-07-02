@@ -21,16 +21,22 @@ chunks:
     char_span: [0, 1821]
     sentence_count: 17
     key_terms: [wanted, got, quit, experience, findapath, comments, "couldn't", because]
+    concepts: [wanted, experience, findapath, comments, "couldn't"]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1mmy04y.md#c2"]
     token_count: 416
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1mmy04y/32m_with_a_jd_and_no_recent_work_experience_or/"}]
   - id: "social-intelligence/reddit-deep/findapath/1mmy04y.md#c1"
     char_span: [1823, 3548]
     sentence_count: 20
     key_terms: ["i'm", need, "don't", work, thinking, applied, mostly, month]
+    concepts: ["don't", thinking, applied, mostly, month]
     token_count: 393
   - id: "social-intelligence/reddit-deep/findapath/1mmy04y.md#c2"
     char_span: [3562, 4694]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    concepts: [thank, helpful, please, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1mmy04y.md#c0"]
     section: Comments
     token_count: 248
 ---

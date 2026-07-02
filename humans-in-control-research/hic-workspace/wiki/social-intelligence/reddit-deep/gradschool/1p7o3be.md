@@ -21,64 +21,78 @@ chunks:
     char_span: [0, 2196]
     sentence_count: 8
     key_terms: [history, american, studies, phd, archival, cultural, research, popular]
+    concepts: [history, american, studies, archival, cultural]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1p7o3be.md#c9"]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1p7o3be/considering_pursuing_a_phd_maybe_in_american/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c1"
     char_span: [2198, 3006]
     sentence_count: 14
     key_terms: ["i'm", opportunities, interested, realistic, kinds, else, like, phd]
+    concepts: [opportunities, interested, realistic, kinds]
     token_count: 193
   - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c2"
     char_span: [3020, 4635]
     sentence_count: 9
     key_terms: [someone, want, time, work, conditions, concerned, doctorate, programs]
+    concepts: [someone, conditions, concerned, doctorate, programs]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c3"
     char_span: [4637, 5782]
     sentence_count: 9
     key_terms: [degree, time, phd, get, cloverjones316, recommendation, disappearing, respectfully]
+    concepts: [degree]
     section: Comments
     token_count: 274
   - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c4"
     char_span: [5784, 7535]
     sentence_count: 8
     key_terms: [humanities, time, history, political, analysis, programs, career, school]
+    concepts: [humanities, history, political, analysis, programs]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c5"
     char_span: [7537, 9719]
     sentence_count: 12
     key_terms: [maybe, being, "i'd", job, studies, school, opportunities, media]
+    concepts: [maybe, being, opportunities, studies, school]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c6"
     char_span: [9496, 9948]
     sentence_count: 3
     key_terms: [young, get, job, externalseat, humanities, struggling, broadway, position]
+    concepts: [young]
     section: Comments
     token_count: 115
   - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c7"
     char_span: [9951, 10871]
     sentence_count: 5
     key_terms: [humanities, getting, writing, sample, school, maybe, cloverjones316, applications]
+    concepts: [humanities, getting, writing, sample, school]
     section: Comments
     token_count: 205
   - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c8"
     char_span: [10873, 12821]
     sentence_count: 11
     key_terms: [like, getting, working, cloverjones316, "you're", days, hour, "it's"]
+    concepts: [cloverjones316, getting, working, "you're", applying]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c9"
     char_span: [12825, 13628]
     sentence_count: 5
     key_terms: [want, experience, research, history, program, studies, non-traditional, unfortunately]
+    concepts: [experience, research, history, program, studies]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1p7o3be.md#c0"]
     section: Comments
     token_count: 153
   - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c10"
     char_span: [13630, 15399]
     sentence_count: 13
     key_terms: [teaching, humanities, community, education, something, phd, having, scholarship]
+    concepts: [teaching, humanities, community, education, something]
     section: Comments
     token_count: 385
 ---

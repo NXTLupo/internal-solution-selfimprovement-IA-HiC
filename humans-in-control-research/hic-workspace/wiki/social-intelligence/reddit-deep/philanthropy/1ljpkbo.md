@@ -17,24 +17,29 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1ljpkbo.md#c0"
-    char_span: [0, 584]
+    char_span: [0, 583]
     sentence_count: 1
     key_terms: [giving, philanthropy, nonprofits, comments, smaller, threat, below, lenoxhillpartners]
-    token_count: 146
+    concepts: [philanthropy, giving, nonprofits, comments, smaller]
+    token_count: 145
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1ljpkbo/giving_usa_report_summarized_below_dafs_pose/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1ljpkbo.md#c1"
-    char_span: [586, 2620]
+    char_span: [585, 2619]
     sentence_count: 4
     key_terms: [foundations, gifts, individuals, giving, inflation, family, contributions, donor]
+    concepts: [foundations, gifts, individuals, giving, inflation]
     token_count: 512
   - id: "social-intelligence/reddit-deep/philanthropy/1ljpkbo.md#c2"
-    char_span: [2374, 3234]
+    char_span: [2373, 3233]
     sentence_count: 3
     key_terms: [benefit, society, double, public, increasingly, volunteering, environment, personalize]
+    concepts: [benefit, society, double, public]
     token_count: 190
   - id: "social-intelligence/reddit-deep/philanthropy/1ljpkbo.md#c3"
-    char_span: [3236, 4085]
+    char_span: [3235, 4084]
     sentence_count: 5
     key_terms: [dafs, nonprofits, summarized, halfmydaf, dollars, going, https, lenoxhillpartners]
+    concepts: [nonprofits, summarized, halfmydaf, dollars, going]
     token_count: 197
 ---
 # Giving USA report summarized below; DAFs pose increasing threat to smaller nonprofits

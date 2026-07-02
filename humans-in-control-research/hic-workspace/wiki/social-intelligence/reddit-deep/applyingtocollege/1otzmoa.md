@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1067]
     sentence_count: 8
     key_terms: [applyingtocollege, art, been, colleges, comments, guitar, thoroughfaredefender, music]
+    concepts: [applyingtocollege, colleges, comments, guitar, music]
     token_count: 259
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1otzmoa/how_much_do_colleges_value_art_and_music_ecs_on/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1otzmoa.md#c1"
     char_span: [1081, 3239]
     sentence_count: 16
     key_terms: [music, campus, art, ecs, skills, participation, application, background]
+    concepts: [music, campus, participation, skills, application]
     section: Comments
     token_count: 474
 ---

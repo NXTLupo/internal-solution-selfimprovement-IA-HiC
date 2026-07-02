@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1386]
     sentence_count: 12
     key_terms: [businessintelligence, environments, llm, new, something, comments, training, missing]
+    concepts: [businessintelligence, environments, something, comments, training]
     token_count: 316
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1mbgnew/why_arent_bi_environments_foundational_training/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1mbgnew.md#c1"
-    char_span: [1401, 3579]
+    char_span: [1400, 3578]
     sentence_count: 17
     key_terms: [data, "i've", tableau, cramponmystyle, documentation, llm, new, dashboards]
+    concepts: [cramponmystyle, documentation, tableau, dashboards, metadata]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/businessintelligence/1mbgnew.md#c2"
-    char_span: [3581, 5895]
+    char_span: [3580, 5894]
     sentence_count: 16
     key_terms: [dashboards, data, "it's", llm, something, insights, powerful, reports]
+    concepts: [dashboards, something, insights, powerful, reports]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/businessintelligence/1mbgnew.md#c3"
-    char_span: [5897, 8112]
+    char_span: [5896, 8111]
     sentence_count: 18
     key_terms: [data, copilot-chat-with-data-standalone, equivalent, dashboard, decisions, parkerauk, something, business]
+    concepts: [equivalent, dashboard, decisions, parkerauk, something]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/businessintelligence/1mbgnew.md#c4"
-    char_span: [8114, 9365]
+    char_span: [8113, 9364]
     sentence_count: 12
     key_terms: [data, models, frontier, answers, however, cost, good, here]
+    concepts: [models, frontier, answers, however]
     section: Comments
     token_count: 271
 ---

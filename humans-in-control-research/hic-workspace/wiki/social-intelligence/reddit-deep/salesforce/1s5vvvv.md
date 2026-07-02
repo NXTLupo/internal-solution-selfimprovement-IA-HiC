@@ -11,25 +11,31 @@ score: 1
 upvote_ratio: 0.67
 num_comments: 7
 flair: "career question"
-extracted_at: "2026-06-11T18:58:38.960Z"
+extracted_at: "2026-06-23T20:32:01.768Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Analyze case studies of private equity firms and holding companies (such as Medforth) that build repeatable AI capabilities once and scale them across higher education portfolio companies. Deliver an operational playbook detailing the shared-service models, governance frameworks, and deployment strategies used to scale AI across admissions workflows, student communications, and enrollment operations to accelerate long enrollment cycles."
+engagement: "analyze-case-studies-of-private-equity-firms-and-holding-com"
 chunks:
   - id: "social-intelligence/reddit-deep/salesforce/1s5vvvv.md#c0"
     char_span: [0, 2278]
     sentence_count: 9
     key_terms: [cloud, salesforce, developer, experience, sales, platform, service, professional]
+    concepts: [cloud, salesforce, developer, experience, sales]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1s5vvvv.md#c1"]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1s5vvvv/can_you_please_evaluate_this_section_of_my_cv/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1s5vvvv.md#c1"
     char_span: [2280, 4888]
     sentence_count: 2
     key_terms: [cloud, developed, across, salesforce, platform, apex, recruiters, built]
+    concepts: [developed, cloud, across, salesforce, platform]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1s5vvvv.md#c0"]
     token_count: 511
   - id: "social-intelligence/reddit-deep/salesforce/1s5vvvv.md#c2"
-    char_span: [4890, 6924]
+    char_span: [4890, 6923]
     sentence_count: 9
     key_terms: [sponsorship, applications, dev, resolution, salesforce, requiring, linkedin, clients]
+    concepts: [sponsorship, applications, resolution, salesforce, requiring]
     section: Comments
     token_count: 443
 ---

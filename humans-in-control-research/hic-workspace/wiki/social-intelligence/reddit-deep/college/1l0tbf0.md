@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1859]
     sentence_count: 15
     key_terms: [college, "i'm", "i've", scared, got, family, years, "i'll"]
+    concepts: [college, scared, family, university, years]
+    related_chunks: ["social-intelligence/reddit-deep/college/1l0tbf0.md#c4"]
     token_count: 473
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1l0tbf0/im_scared_and_nervous/"}]
   - id: "social-intelligence/reddit-deep/college/1l0tbf0.md#c1"
     char_span: [1873, 3792]
     sentence_count: 18
     key_terms: [school, melodydreamx, ask, "it's", possible, problems, figure, hoping]
+    concepts: [melodydreamx, school, possible, problems, figure]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/college/1l0tbf0.md#c2"
     char_span: [3794, 5854]
     sentence_count: 31
     key_terms: [reading, learn, "don't", lot, use, important, listening, learning]
+    concepts: [reading, learn, "don't", important, listening]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/college/1l0tbf0.md#c3"
     char_span: [5856, 7818]
     sentence_count: 20
     key_terms: ["i'm", online, lavishnessrecent2138, full-time, work, because, degree, "can't"]
+    concepts: [online, lavishnessrecent2138, full-time, because, degree]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/college/1l0tbf0.md#c4"
     char_span: [7820, 9599]
     sentence_count: 31
     key_terms: [family, find, got, job, time, yesterday, college, deleted]
+    concepts: [family, yesterday, college, deleted, degree]
+    related_chunks: ["social-intelligence/reddit-deep/college/1l0tbf0.md#c0"]
     section: Comments
     token_count: 450
 ---

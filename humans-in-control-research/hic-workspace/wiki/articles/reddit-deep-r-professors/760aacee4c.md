@@ -18,21 +18,30 @@ chunks:
     char_span: [0, 2314]
     sentence_count: 18
     key_terms: [students, accommodations, accommodation, complete, time, disabilities, grades, extra]
+    concepts: [students, accommodations, accommodation, complete, disabilities]
+    related_chunks: ["articles/reddit-deep-r-professors/760aacee4c.md#c1", "articles/reddit-deep-r-professors/760aacee4c.md#c2", "articles/reddit-deep-r-professors/760aacee4c.md#c3"]
     token_count: 482
+    sources: [{"n":"Reddit Deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1peijrv/are_reasonable_disability_accommodations_supposed/"}]
   - id: "articles/reddit-deep-r-professors/760aacee4c.md#c1"
     char_span: [2316, 3416]
     sentence_count: 8
     key_terms: [accommodation, class, exam, advantage, students, friend, giving, parent]
+    concepts: [accommodation, class, advantage, students, friend]
+    related_chunks: ["articles/reddit-deep-r-professors/760aacee4c.md#c0"]
     token_count: 243
   - id: "articles/reddit-deep-r-professors/760aacee4c.md#c2"
     char_span: [3418, 5330]
     sentence_count: 6
     key_terms: [students, helping, accommodations, equitable, professor, law, specifically, needed]
+    concepts: [students, helping, accommodations, equitable, professor]
+    related_chunks: ["articles/reddit-deep-r-professors/760aacee4c.md#c0", "articles/reddit-deep-r-professors/760aacee4c.md#c3"]
     token_count: 405
   - id: "articles/reddit-deep-r-professors/760aacee4c.md#c3"
     char_span: [5332, 6781]
     sentence_count: 8
     key_terms: [accommodations, students, weeks, submitted, barriers, material, schedule, semester]
+    concepts: [accommodations, students, weeks, submitted, barriers]
+    related_chunks: ["articles/reddit-deep-r-professors/760aacee4c.md#c0", "articles/reddit-deep-r-professors/760aacee4c.md#c2"]
     token_count: 309
 ---
 # Are reasonable disability accommodations supposed to help students LEARN or help students get BETTER GRADES? Are they supposed to allow disabled students to achieve to their fullest potential or to "level the playing field" to allow them to get the same grades as non-disabled students?

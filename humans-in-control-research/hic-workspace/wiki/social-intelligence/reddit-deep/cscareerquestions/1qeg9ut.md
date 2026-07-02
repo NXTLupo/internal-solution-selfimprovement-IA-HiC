@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1932]
     sentence_count: 14
     key_terms: [learn, start, cscareerquestions, getting, build, don, something, anything]
+    concepts: [cscareerquestions, learn, start, getting, build]
     token_count: 441
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qeg9ut/cs_diploma_student_looking_for_skills_to_learn/"}]
 ---
 # CS Diploma Student looking for skills to learn for pursuing entry level positions
 

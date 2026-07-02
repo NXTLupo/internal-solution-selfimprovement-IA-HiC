@@ -19,41 +19,53 @@ chunks:
     char_span: [0, 1286]
     sentence_count: 10
     key_terms: [semester, college, class, going, comments, already, because, since]
+    concepts: [semester, college, class, going, comments]
+    related_chunks: ["social-intelligence/reddit-deep/college/1on6y5e.md#c2"]
     token_count: 317
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1on6y5e/im_just_so_exhausted/"}]
   - id: "social-intelligence/reddit-deep/college/1on6y5e.md#c1"
     char_span: [1300, 3038]
     sentence_count: 17
     key_terms: [homework, semester, absolutely, because, chem, eat, exam, time]
+    concepts: [homework, semester, absolutely, because, experience]
+    related_chunks: ["social-intelligence/reddit-deep/college/1on6y5e.md#c3"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/college/1on6y5e.md#c2"
     char_span: [3040, 4659]
     sentence_count: 12
     key_terms: [taking, classes, semester, going, didn, sometimes, because, dropped]
+    concepts: [taking, classes, semester, going, sometimes]
+    related_chunks: ["social-intelligence/reddit-deep/college/1on6y5e.md#c0"]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/college/1on6y5e.md#c3"
     char_span: [4661, 6741]
     sentence_count: 19
     key_terms: [time, because, doing, work, homework, going, great, considering]
+    concepts: [because, doing, homework, considering, going]
+    related_chunks: ["social-intelligence/reddit-deep/college/1on6y5e.md#c1"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/college/1on6y5e.md#c4"
     char_span: [6743, 8844]
     sentence_count: 16
     key_terms: [time, harder, more-relationship335, school, november, possible, semester, students]
+    concepts: [more-relationship335, harder, school, november, possible]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/college/1on6y5e.md#c5"
     char_span: [8846, 9864]
     sentence_count: 9
     key_terms: [class, hard, laziness, classes, failing, lecture, break, take]
+    concepts: [class, laziness, classes, failing, lecture]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/college/1on6y5e.md#c6"
     char_span: [9866, 11200]
     sentence_count: 6
     key_terms: [time, fragrant-report-544, hard, business, dropped, school, more-relationship335, going]
+    concepts: [fragrant-report-544, business, dropped, school, going]
     section: Comments
     token_count: 338
 ---

@@ -20,49 +20,61 @@ chunks:
     char_span: [0, 1962]
     sentence_count: 18
     key_terms: [optimization, geo, problem, b2b, get, engine, generative, results]
+    concepts: [optimization, problem, generative, engine, results]
     token_count: 460
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1sholck/geo_isnt_a_future_problem_for_b2b_its_a_today/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sholck.md#c1"
     char_span: [1964, 4324]
     sentence_count: 15
     key_terms: [traditional, search, pages, overview, research, chatgpt, content, traffic]
+    concepts: [traditional, search, pages, overview, research]
     token_count: 455
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sholck.md#c2"
     char_span: [4326, 7011]
     sentence_count: 18
     key_terms: [content, engines, schema, geo, keywords, presence, website, around]
+    concepts: [content, engines, schema, keywords, presence]
     token_count: 509
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sholck.md#c3"
     char_span: [7013, 9626]
     sentence_count: 16
     key_terms: [geo, traditional, visibility, content, measurement, companies, agencies, tracking]
+    concepts: [traditional, visibility, measurement, content, companies]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1sholck.md#c7"]
     token_count: 487
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sholck.md#c4"
     char_span: [9628, 10076]
     sentence_count: 4
     key_terms: [geo, different, b2b-specific, fundamentals, competition, experience, prioritize, questions]
+    concepts: [different]
     token_count: 90
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sholck.md#c5"
-    char_span: [10091, 12299]
+    char_span: [10090, 12298]
     sentence_count: 14
     key_terms: [problem, website, looking-for-marketing-discussion-811236647760298024, questions, building, content, overagentroger, amitkumargeo]
+    concepts: [problem, website, questions, building, overagentroger]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sholck.md#c6"
-    char_span: [12301, 13875]
+    char_span: [12300, 13874]
     sentence_count: 12
     key_terms: [geo, measurements, "isn't", positioning, data, "it's", training, content]
+    concepts: [measurements, positioning, "isn't", training, content]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sholck.md#c7"
-    char_span: [13877, 15886]
+    char_span: [13876, 15885]
     sentence_count: 16
     key_terms: [getting, like, absolutely, visibility, companies, problem, brands, search]
+    concepts: [getting, absolutely, visibility, companies, problem]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1sholck.md#c3"]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sholck.md#c8"
-    char_span: [15888, 17258]
+    char_span: [15887, 17257]
     sentence_count: 9
     key_terms: [brand, b2b, enterprise, tracking, anymore, looking, tools, been]
+    concepts: [brand, enterprise, tracking, anymore, looking]
     section: Comments
     token_count: 282
 ---

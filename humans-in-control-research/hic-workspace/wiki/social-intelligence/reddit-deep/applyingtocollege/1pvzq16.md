@@ -19,34 +19,45 @@ chunks:
     char_span: [0, 1970]
     sentence_count: 17
     key_terms: [narrative, try, activities, high, want, stick, schoolers, applyingtocollege]
+    concepts: [narrative, activities, applyingtocollege, schoolers, stick]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c5"]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1pvzq16/rant_about_sticking_to_a_narrative/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c1"
     char_span: [1972, 2779]
     sentence_count: 7
     key_terms: [major, want, stanford, college, admit, furthermore, activities, admission]
+    concepts: [major, stanford, college, admit]
     token_count: 190
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c2"
     char_span: [2793, 4635]
     sentence_count: 14
     key_terms: [narrative, disciplines, arc, unrelated, coherent, almost, henare, right]
+    concepts: [narrative, disciplines, unrelated, coherent, almost]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c3"
     char_span: [4637, 6707]
     sentence_count: 16
     key_terms: [activities, narrative, form, completely, everything, curiosity, colleges, college]
+    concepts: [activities, narrative, completely, everything, curiosity]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c5"]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c4"
     char_span: [6709, 8608]
     sentence_count: 15
     key_terms: [college, like, people, doing, narrative, want, "i'm", everything]
+    concepts: [college, people, narrative, doing, everything]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c3"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c5"
     char_span: [8610, 10369]
     sentence_count: 11
     key_terms: [narrative, school, want, activities, whatever, enthusiasmcomplete37, being, doing]
+    concepts: [narrative, school, activities, whatever, being]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c3"]
     section: Comments
     token_count: 393
 ---

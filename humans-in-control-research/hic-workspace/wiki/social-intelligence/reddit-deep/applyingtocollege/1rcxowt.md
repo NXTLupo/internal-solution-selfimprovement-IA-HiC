@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 865]
     sentence_count: 6
     key_terms: [applyingtocollege, engineering, aerospace, counselor, comments, looking, state, stats]
+    concepts: [applyingtocollege, engineering, aerospace, counselor, comments]
     token_count: 204
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rcxowt/looking_for_a_college_counselor_who_is_well/"}]
 ---
 # Looking for a college counselor who is well experienced with aerospace engineering applications. Kid has average stats- 3.6 GPA, approx 1450 range SAT, PLTW Engineering 4years, two pending patents aerospace related, Eagle scout, currently in NASA HAS program.
 

@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 794]
     sentence_count: 8
     key_terms: [genz, interested, comments, people, non-technological, jobs, backgrounds, reddit-deep]
+    concepts: [interested, comments, people]
     token_count: 197
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1phi8ci/so_how_do_we_think_the_ai_wipes_jobs_thing_will/"}]
   - id: "social-intelligence/reddit-deep/genz/1phi8ci.md#c1"
     char_span: [808, 2819]
     sentence_count: 16
     key_terms: [people, robots, crying, going, money, crispydave, everything, questions]
+    concepts: [people, robots, crying, crispydave, everything]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/genz/1phi8ci.md#c2"
     char_span: [2821, 4515]
     sentence_count: 9
     key_terms: [happening, intelligent, government, already, idkfora, people, historical-relief777, money]
+    concepts: [happening, intelligent, government, already, idkfora]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/genz/1phi8ci.md#c3"
     char_span: [4517, 5564]
     sentence_count: 6
     key_terms: [like, afford, people, jobs, service, through, working, class]
+    concepts: [afford, people, service, through, working]
     section: Comments
     token_count: 235
   - id: "social-intelligence/reddit-deep/genz/1phi8ci.md#c4"
     char_span: [5566, 7874]
     sentence_count: 8
     key_terms: [people, without, corporations, class, because, society, "they're", working]
+    concepts: [people, without, corporations, class, because]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/genz/1phi8ci.md#c5"
     char_span: [7876, 9953]
     sentence_count: 15
     key_terms: [wikipedia, jobs, wiping, get, controlled, knowledge, because, limited]
+    concepts: [wikipedia, wiping, controlled, knowledge, because]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/genz/1phi8ci.md#c6"
     char_span: [9955, 12109]
     sentence_count: 11
     key_terms: [wikipedia, work, people, ai-reasoning-math-olympiad-imo, continue, tolopono, global, randomshadeofpurple]
+    concepts: [wikipedia, people, continue, tolopono, global]
     section: Comments
     token_count: 506
 ---

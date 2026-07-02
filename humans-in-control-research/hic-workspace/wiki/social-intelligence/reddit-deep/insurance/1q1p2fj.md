@@ -20,44 +20,60 @@ chunks:
     char_span: [0, 290]
     sentence_count: 2
     key_terms: [insurance, comments, progressive, reddit-deep, subrogation, apologies, everyone, fiasco]
+    concepts: [insurance, comments]
     token_count: 84
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1q1p2fj/subrogation_fiasco_with_progressive_any_others/"}]
   - id: "social-intelligence/reddit-deep/insurance/1q1p2fj.md#c1"
     char_span: [292, 2164]
     sentence_count: 19
     key_terms: [tesla, back, subrogation, car, arbitration, call, get, insurance]
+    concepts: [tesla, subrogation, arbitration, insurance, driver]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1q1p2fj.md#c2", "social-intelligence/reddit-deep/insurance/1q1p2fj.md#c3", "social-intelligence/reddit-deep/insurance/1q1p2fj.md#c7"]
     token_count: 445
   - id: "social-intelligence/reddit-deep/insurance/1q1p2fj.md#c2"
     char_span: [2166, 3149]
     sentence_count: 13
     key_terms: [call, arbitration, progressive, subrogation, back, get, deductible, insurance]
+    concepts: [arbitration, progressive, subrogation, deductible, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1q1p2fj.md#c1", "social-intelligence/reddit-deep/insurance/1q1p2fj.md#c4", "social-intelligence/reddit-deep/insurance/1q1p2fj.md#c6"]
     token_count: 222
   - id: "social-intelligence/reddit-deep/insurance/1q1p2fj.md#c3"
     char_span: [3151, 4698]
     sentence_count: 17
     key_terms: [tesla, progressive, ruling, against, driver, arbitrator, evidence, police]
+    concepts: [progressive, tesla, ruling, against, driver]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1q1p2fj.md#c1", "social-intelligence/reddit-deep/insurance/1q1p2fj.md#c7"]
     token_count: 343
   - id: "social-intelligence/reddit-deep/insurance/1q1p2fj.md#c4"
-    char_span: [4713, 6609]
+    char_span: [4712, 6608]
     sentence_count: 16
     key_terms: [arbitration, progressive, decision, get, department, completed, insurance, changing]
+    concepts: [arbitration, progressive, decision, department, completed]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1q1p2fj.md#c2", "social-intelligence/reddit-deep/insurance/1q1p2fj.md#c6"]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/insurance/1q1p2fj.md#c5"
-    char_span: [6611, 8714]
+    char_span: [6610, 8713]
     sentence_count: 18
     key_terms: [progressive, evidence, arb, company, correctly, panelist, either, error]
+    concepts: [progressive, evidence, company, correctly, panelist]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1q1p2fj.md#c6"]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/insurance/1q1p2fj.md#c6"
-    char_span: [8716, 10929]
+    char_span: [8715, 10928]
     sentence_count: 16
     key_terms: [progressive, evidence, insurance, arb, didn, decision, tesla, did]
+    concepts: [progressive, evidence, insurance, decision, leadership]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1q1p2fj.md#c2", "social-intelligence/reddit-deep/insurance/1q1p2fj.md#c4", "social-intelligence/reddit-deep/insurance/1q1p2fj.md#c5"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/insurance/1q1p2fj.md#c7"
-    char_span: [10931, 13048]
+    char_span: [10930, 13047]
     sentence_count: 14
     key_terms: [tesla, provided, driver, video, progressive, insurance, witnesses, arb]
+    concepts: [tesla, provided, driver, video, progressive]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1q1p2fj.md#c1", "social-intelligence/reddit-deep/insurance/1q1p2fj.md#c3"]
     section: Comments
     token_count: 477
 ---

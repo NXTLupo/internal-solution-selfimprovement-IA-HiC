@@ -21,21 +21,28 @@ chunks:
     char_span: [0, 2329]
     sentence_count: 20
     key_terms: [technical, product, something, enjoyed, working, careerguidance, work, experience]
+    concepts: [technical, product, something, careerguidance, enjoyed]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rvl5zx.md#c1"]
     token_count: 463
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rvl5zx/21_new_gradfeeling_stuck_early_in_my_career/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rvl5zx.md#c1"
     char_span: [2331, 4646]
     sentence_count: 14
     key_terms: [product, consulting, technical, because, master, people, management, roles]
+    concepts: [product, consulting, technical, because, management]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rvl5zx.md#c0"]
     token_count: 459
   - id: "social-intelligence/reddit-deep/careerguidance/1rvl5zx.md#c2"
     char_span: [4648, 5041]
     sentence_count: 4
     key_terms: [appreciate, consulting, interests, resources, responses, something, guidance, programs]
+    concepts: [appreciate]
     token_count: 77
   - id: "social-intelligence/reddit-deep/careerguidance/1rvl5zx.md#c3"
     char_span: [5055, 6083]
     sentence_count: 10
     key_terms: [product, newsletter, psychologicalask6716, ideas, roles, tasks, thepandapear, experiences]
+    concepts: [product, newsletter, ideas, roles, tasks]
     section: Comments
     token_count: 202
 ---

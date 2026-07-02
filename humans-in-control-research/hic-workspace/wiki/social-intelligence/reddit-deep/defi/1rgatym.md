@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1684]
     sentence_count: 6
     key_terms: [apollo, blockchain, cloud, decentralized, accelerator, google, infrastructure, https]
+    concepts: [apollo, blockchain, decentralized, cloud, accelerator]
     token_count: 442
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1rgatym/0g_launches_20m_apollo_accelerator_with_stanford/"}]
   - id: "social-intelligence/reddit-deep/defi/1rgatym.md#c1"
-    char_span: [1699, 2181]
+    char_span: [1698, 2180]
     sentence_count: 4
     key_terms: [agents, safety, agent, human-in-the-loop, verifiability, agentixlabs, interesting, reliability]
+    concepts: [agents, safety, agent]
     section: Comments
     token_count: 103
 ---

@@ -1,6 +1,6 @@
 ---
 name: hic-unified-vision
-description: The definitive nine-phase operational contract for the HiC end-to-end workflow — how the eight Unified Vision principles bind at each phase (objective grounding, all-source collection + second-brain reuse, provenance chunking, concept-graph manifest, anti-RAG themes + both chat desks, one cost/quota/quality routing authority, gated self-improvement, componentized runtime-filled GOLD imagery, globally-native PPTX). Read this before any non-trivial HiC pipeline, retrieval, routing, design-system, or self-improvement work so the change traces to the phase contract it must honor. Operationalizes .claude/UNIFIED_VISION.md; the integrated AIR-first 100% plan lives in humans-in-control-research/plans/hic-definitive-vision-and-100-percent-plan-v2-2026-06-30.md (v1 same name is the file:line audit record).
+description: The definitive nine-phase operational contract for the HiC end-to-end workflow — how the eight Unified Vision principles bind at each phase (objective grounding, all-source collection + second-brain reuse, provenance chunking, concept-graph manifest, anti-RAG themes + both chat desks, one cost/quota/quality routing authority, gated self-improvement, componentized runtime-filled GOLD imagery, globally-native PPTX). Read this before any non-trivial HiC pipeline, retrieval, routing, design-system, or self-improvement work so the change traces to the phase contract it must honor. Operationalizes .claude/UNIFIED_VISION.md; the integrated AIR-first 100% plan lives in humans-in-control-research/plans/hic-definitive-vision-and-100-percent-plan-v2-2026-07-01.md (v1 same name is the file:line audit record).
 ---
 
 # HiC Unified Vision — the nine-phase operational contract
@@ -73,7 +73,7 @@ hashtag artifacts, routing, Nano Banana imagery, Figma filling, PPTX export, QA,
 the convergence of HiC's already-scattered structures (GenerationReceipt, epoch traces, registry.json, the
 manifest), NOT new parallel machinery. AIR serializes five always-on typed graphs: Objective, Evidence,
 Artifact, Design, Improvement. Renderers consume AIR; none renders from raw model prose. AIR is
-schema-constrained (strict JSON schema). Full plan: `plans/hic-definitive-vision-and-100-percent-plan-v2-2026-06-30.md`.
+schema-constrained (strict JSON schema). Full plan: `plans/hic-definitive-vision-and-100-percent-plan-v2-2026-07-01.md`.
 
 Anti-RAG, operationally (phase 5), means OBJECTIVE-GRAPH-AND-MANIFEST-FIRST retrieval: decompose the objective,
 let the manifest graph discover candidate chunks, fetch cited evidence by exact pointer, and apply a

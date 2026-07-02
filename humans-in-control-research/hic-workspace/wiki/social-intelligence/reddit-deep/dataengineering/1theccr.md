@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1114]
     sentence_count: 6
     key_terms: [dataengineering, built, data, did, analytics, something, comments, starting]
+    concepts: [dataengineering, built, analytics, something, comments]
     token_count: 235
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1theccr/advice_on_launching_a_small_data_consulting_side/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1theccr.md#c1"
-    char_span: [1129, 3169]
+    char_span: [1128, 3168]
     sentence_count: 17
     key_terms: [difficult-vacation-5, consulting, companies, mymonkeycircus, point, donjuandoja, been, big]
+    concepts: [difficult-vacation-5, consulting, companies, mymonkeycircus, donjuandoja]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/dataengineering/1theccr.md#c2"
-    char_span: [3171, 4514]
+    char_span: [3170, 4513]
     sentence_count: 9
     key_terms: [because, product, people, jobs, customers, thanks, idungiveboutnothing, bets]
+    concepts: [because, product, people, customers, thanks]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/dataengineering/1theccr.md#c3"
-    char_span: [4516, 5918]
+    char_span: [4515, 5917]
     sentence_count: 14
     key_terms: [let, experience, someone, willing, chance, thanks, going, back]
+    concepts: [experience, someone, willing, chance, thanks]
     section: Comments
     token_count: 382
 ---

@@ -20,34 +20,44 @@ chunks:
     char_span: [0, 1931]
     sentence_count: 21
     key_terms: [insurance, rental, budget, get, personalfinance, charged, car, comments]
+    concepts: [insurance, rental, budget, personalfinance, charged]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1o0ngpi.md#c3", "social-intelligence/reddit-deep/personalfinance/1o0ngpi.md#c4"]
     token_count: 463
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1o0ngpi/budget_car_rental_charge_more_than_expected/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1o0ngpi.md#c1"
     char_span: [1933, 2961]
     sentence_count: 16
     key_terms: [budget, asked, never, "i'm", counter, credit, "didn't", normal]
+    concepts: [budget, asked, never, counter, credit]
     token_count: 229
   - id: "social-intelligence/reddit-deep/personalfinance/1o0ngpi.md#c2"
-    char_span: [2976, 4910]
+    char_span: [2975, 4909]
     sentence_count: 11
     key_terms: ["didn't", agreed, signed, initialed, accident, agreeing, jgatcomb, because]
+    concepts: ["didn't", agreed, signed, initialed, accident]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/personalfinance/1o0ngpi.md#c3"
-    char_span: [4913, 7025]
+    char_span: [4912, 7024]
     sentence_count: 16
     key_terms: [car, credit, rental, lesson, expensive, insurance, learned, abplanetearth]
+    concepts: [credit, rental, lesson, expensive, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1o0ngpi.md#c0"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/personalfinance/1o0ngpi.md#c4"
-    char_span: [7028, 8691]
+    char_span: [7027, 8690]
     sentence_count: 17
     key_terms: [amount, lot, insurance, happened, charged, better, lowest, passes]
+    concepts: [amount, insurance, happened, charged, better]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1o0ngpi.md#c0"]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/personalfinance/1o0ngpi.md#c5"
-    char_span: [8693, 10320]
+    char_span: [8692, 10319]
     sentence_count: 17
     key_terms: [insurance, explicitly, cheapest, abplanetearth, advantage, expensive, employee, because]
+    concepts: [insurance, explicitly, cheapest, abplanetearth, advantage]
     section: Comments
     token_count: 364
 ---

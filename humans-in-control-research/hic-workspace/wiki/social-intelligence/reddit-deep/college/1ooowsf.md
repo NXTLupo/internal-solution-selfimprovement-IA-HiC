@@ -19,41 +19,51 @@ chunks:
     char_span: [0, 2147]
     sentence_count: 17
     key_terms: [semester, graduating, roommate, because, earlier, gone, love, sad]
+    concepts: [semester, graduating, roommate, because, earlier]
     token_count: 479
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ooowsf/feel_extremely_sad_about_graduating_1_semester/"}]
   - id: "social-intelligence/reddit-deep/college/1ooowsf.md#c1"
-    char_span: [2162, 4338]
+    char_span: [2161, 4337]
     sentence_count: 21
     key_terms: [future-cattle8130, part, graduate, hemanstarfox, experiences, life, jastop94, another]
+    concepts: [future-cattle8130, graduate, hemanstarfox, experiences, jastop94]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ooowsf.md#c2"
-    char_span: [4068, 4596]
+    char_span: [4067, 4595]
     sentence_count: 7
     key_terms: [natural, "it's", joy, transformative, hemanstarfox, experience, graduating, graduated]
+    concepts: [natural]
     section: Comments
     token_count: 124
   - id: "social-intelligence/reddit-deep/college/1ooowsf.md#c3"
-    char_span: [4598, 6594]
+    char_span: [4597, 6593]
     sentence_count: 22
     key_terms: [school, grad, year, experience, professors, university, graduated, professor]
+    concepts: [school, experience, professors, university, graduated]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ooowsf.md#c5"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/college/1ooowsf.md#c4"
-    char_span: [6596, 6884]
+    char_span: [6595, 6883]
     sentence_count: 4
     key_terms: [campus, activities, apartment, continued, different, roommates, situation, continue]
+    concepts: [campus]
     section: Comments
     token_count: 59
   - id: "social-intelligence/reddit-deep/college/1ooowsf.md#c5"
-    char_span: [6886, 9141]
+    char_span: [6885, 9140]
     sentence_count: 23
     key_terms: [college, "you're", experience, graduate, school, love, year, professor]
+    concepts: [college, experience, "you're", graduate, school]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ooowsf.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ooowsf.md#c6"
-    char_span: [8839, 10009]
+    char_span: [8838, 10008]
     sentence_count: 10
     key_terms: [school, early, job, like, outside, money, worth, zebraturbulent8635]
+    concepts: [school, early, outside, money, worth]
     section: Comments
     token_count: 283
 ---

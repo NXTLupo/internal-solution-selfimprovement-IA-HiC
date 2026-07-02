@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 2211]
     sentence_count: 15
     key_terms: [robotics, non-technical, product, technology, marketing, because, careerguidance, engineering]
+    concepts: [non-technical, robotics, product, technology, marketing]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t5z4jk.md#c1"]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t5z4jk/early_career_dilemma_stay_on_the_pm_path_or_move/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t5z4jk.md#c1"
     char_span: [2213, 3256]
     sentence_count: 7
     key_terms: [build, engineering, marketing, robotics, honest, people, skills, technology-driven]
+    concepts: [engineering, build, marketing, robotics, honest]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t5z4jk.md#c0"]
     token_count: 216
 ---
 # Early career dilemma: stay on the PM path or move to marketing in a robotics startup?

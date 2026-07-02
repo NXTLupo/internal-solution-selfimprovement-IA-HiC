@@ -20,41 +20,54 @@ chunks:
     char_span: [0, 1449]
     sentence_count: 10
     key_terms: [insurance, called, aaa, car, time, comments, coverage, claimed]
+    concepts: [insurance, called, comments, coverage, claimed]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tvaops.md#c5"]
     token_count: 360
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1tvaops/aaa_insurance_denial/"}]
   - id: "social-intelligence/reddit-deep/insurance/1tvaops.md#c1"
-    char_span: [1464, 3290]
+    char_span: [1463, 3289]
     sentence_count: 18
     key_terms: [vehicle, policy, intelligent-donut566, mom, leased, lease, named, internetdad]
+    concepts: [vehicle, policy, intelligent-donut566, leased, internetdad]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tvaops.md#c2"]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/insurance/1tvaops.md#c2"
-    char_span: [3292, 5256]
+    char_span: [3291, 5255]
     sentence_count: 18
     key_terms: [policy, intelligent-donut566, day, insured, car, listed, insurance, add]
+    concepts: [intelligent-donut566, policy, insured, listed, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tvaops.md#c1", "social-intelligence/reddit-deep/insurance/1tvaops.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/insurance/1tvaops.md#c3"
-    char_span: [4995, 5858]
+    char_span: [4994, 5857]
     sentence_count: 4
     key_terms: [car, day, april, callmeskii, intelligent-donut566, call, days, information]
+    concepts: [april, callmeskii]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/insurance/1tvaops.md#c4"
-    char_span: [5860, 7707]
+    char_span: [5859, 7706]
     sentence_count: 16
     key_terms: [grace, insured, car, period, coverage, time, anything, policy]
+    concepts: [grace, insured, period, coverage, anything]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tvaops.md#c5"]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/insurance/1tvaops.md#c5"
-    char_span: [7709, 9896]
+    char_span: [7708, 9895]
     sentence_count: 13
     key_terms: [policy, insurance, period, grace, coverage, car, vehicle, existing]
+    concepts: [policy, insurance, period, coverage, grace]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tvaops.md#c0", "social-intelligence/reddit-deep/insurance/1tvaops.md#c2", "social-intelligence/reddit-deep/insurance/1tvaops.md#c4"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/insurance/1tvaops.md#c6"
-    char_span: [9898, 10285]
+    char_span: [9897, 10284]
     sentence_count: 5
     key_terms: [policy, lease, substitution, additional, different, lacylove, prepared, trade-in]
+    concepts: [policy, lease]
     section: Comments
     token_count: 95
 ---

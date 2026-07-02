@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 2453]
     sentence_count: 11
     key_terms: [sales, support, operations, services, growth, businesses, experience, companies]
+    concepts: [operations, support, sales, services, businesses]
     token_count: 490
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1tcx20p/is_it_still_worth_starting_a_ukfocused_growth/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tcx20p.md#c1"
-    char_span: [2468, 4640]
+    char_span: [2467, 4639]
     sentence_count: 10
     key_terms: [looking-for-marketing-discussion-811236647760298024, questions, signals, appointment, high-intent, appreciate, especially, genuinely]
+    concepts: [questions, signals, appointment, high-intent, appreciate]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tcx20p.md#c2"
-    char_span: [4644, 6810]
+    char_span: [4643, 6809]
     sentence_count: 17
     key_terms: [vertical, trying, professional, niche, sales, teams, hyper-niche, like]
+    concepts: [vertical, professional, trying, hyper-niche, niche]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tcx20p.md#c3"
-    char_span: [6812, 8968]
+    char_span: [6811, 8967]
     sentence_count: 7
     key_terms: [plus, emails, email, appointment, cold, lead, work, activities]
+    concepts: [emails, appointment, activities, email, companies]
     section: Comments
     token_count: 439
 ---

@@ -21,33 +21,40 @@ chunks:
     char_span: [0, 1827]
     sentence_count: 18
     key_terms: [everything, gradschool, academia, comments, college, english, getting, parents]
+    concepts: [everything, gradschool, academia, comments, college]
     token_count: 441
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tc9ef7/help_advice_on_getting_into_a_mfa/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c1"
     char_span: [1829, 3842]
     sentence_count: 20
     key_terms: [want, applied, writing, trauma, eventually, intergenerational, stories, undergraduate]
+    concepts: [applied, writing, eventually, intergenerational, trauma]
     token_count: 436
   - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c2"
     char_span: [3844, 4780]
     sentence_count: 8
     key_terms: [university, applying, hearing, give, job, year, recommendations, communications]
+    concepts: [university, applying, hearing]
     token_count: 213
   - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c3"
     char_span: [4794, 6935]
     sentence_count: 16
     key_terms: [writing, mfa, phd, benefit, schools, want, university, electives]
+    concepts: [writing, benefit, schools, university, electives]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c4"
     char_span: [6938, 9082]
     sentence_count: 16
     key_terms: [students, visiting, writer, relationships, lot, too, beneficial, respected]
+    concepts: [students, visiting, relationships, writer, beneficial]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c5"
     char_span: [9084, 10422]
     sentence_count: 8
     key_terms: [phd, mfa, canadian, research, medical, advice, doing, lot]
+    concepts: [canadian, research, medical, advice, doing]
     section: Comments
     token_count: 343
 ---

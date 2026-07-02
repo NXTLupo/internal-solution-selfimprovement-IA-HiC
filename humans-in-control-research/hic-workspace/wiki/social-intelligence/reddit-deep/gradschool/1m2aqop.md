@@ -21,59 +21,70 @@ chunks:
     char_span: [0, 2066]
     sentence_count: 17
     key_terms: [citations, gradschool, industry, organization, bad, job, sign, researcher]
+    concepts: [citations, gradschool, industry, organization, researcher]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1m2aqop/as_someone_from_industry_be_careful_with_using_ai/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1m2aqop.md#c1"
     char_span: [2080, 4105]
     sentence_count: 11
     key_terms: [citations, sometimes, dad, fake, inappropriately, citing, making, source]
+    concepts: [citations, sometimes, inappropriately, citing, making]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/gradschool/1m2aqop.md#c2"
     char_span: [4107, 4538]
     sentence_count: 1
     key_terms: [sources, real, hallucinations, hallucinate, definitely, citations, catching, deleted]
+    concepts: [sources]
     section: Comments
     token_count: 112
   - id: "social-intelligence/reddit-deep/gradschool/1m2aqop.md#c3"
     char_span: [4540, 6364]
     sentence_count: 10
     key_terms: [dashes, use, dash, lot, convinced, singular-beauty-em-dash, been, "it's"]
+    concepts: [dashes, convinced]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/gradschool/1m2aqop.md#c4"
     char_span: [6367, 7719]
     sentence_count: 11
     key_terms: [writing, using, use, sentence, students, dashes, iphone, irreversibledetails]
+    concepts: [writing, using, sentence, students, dashes]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/gradschool/1m2aqop.md#c5"
     char_span: [7721, 9547]
     sentence_count: 22
     key_terms: ["doesn't", sign, autocorrect, sources, keyboard, likewise, material, article]
+    concepts: ["doesn't", autocorrect, sources, keyboard, likewise]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/gradschool/1m2aqop.md#c6"
     char_span: [9549, 11359]
     sentence_count: 12
     key_terms: [timeforacatnap852, get, using, lazy, too, millimetre, citations, anything]
+    concepts: [timeforacatnap852, millimetre, using, citations, anything]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/gradschool/1m2aqop.md#c7"
     char_span: [11361, 13019]
     sentence_count: 11
     key_terms: [use, literature, researcher, critical, thinking, person, skills, peers]
+    concepts: [literature, researcher, critical, thinking, person]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/gradschool/1m2aqop.md#c8"
     char_span: [13021, 14266]
     sentence_count: 9
     key_terms: [masters, school, box, job, checking, learning, stepping, people]
+    concepts: [masters, school, checking, learning, stepping]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/gradschool/1m2aqop.md#c9"
     char_span: [14268, 16079]
     sentence_count: 8
     key_terms: ["i'm", students, particularly, use, em-dashes, because, problem, sources]
+    concepts: [students, particularly, em-dashes, because, problem]
     section: Comments
     token_count: 381
 ---

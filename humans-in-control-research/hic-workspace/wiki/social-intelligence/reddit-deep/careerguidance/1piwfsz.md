@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 2216]
     sentence_count: 21
     key_terms: [offer, data, boeing, center, aviation, industry, careerguidance, travel]
+    concepts: [offer, boeing, center, aviation, industry]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1piwfsz.md#c1"]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1piwfsz/should_i_wait_for_boeing_offernot_yet_come_or/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1piwfsz.md#c1"
     char_span: [2230, 3750]
     sentence_count: 12
     key_terms: [accept, boeing, center, offer, data, newuser2111, hear, deadline]
+    concepts: [accept, boeing, center, offer, newuser2111]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1piwfsz.md#c0"]
     section: Comments
     token_count: 367
 ---

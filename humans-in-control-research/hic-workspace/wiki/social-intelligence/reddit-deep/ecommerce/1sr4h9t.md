@@ -11,40 +11,49 @@ score: 10
 upvote_ratio: 0.92
 num_comments: 4
 flair: "📰 News"
-extracted_at: "2026-06-18T13:35:23.821Z"
+extracted_at: "2026-06-24T22:13:57.310Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1sr4h9t.md#c0"
-    char_span: [0, 924]
+    char_span: [0, 923]
     sentence_count: 4
     key_terms: [e-commerce, ecommerce, week, comments, industry, sources, arrive, posted]
-    token_count: 241
+    concepts: [e-commerce, ecommerce, comments, industry, sources]
+    token_count: 240
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1sr4h9t/ecommerce_industry_news_recap_week_of_april_20th/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1sr4h9t.md#c1"
-    char_span: [926, 3471]
+    char_span: [925, 3470]
     sentence_count: 9
     key_terms: [amazon, financial, rfid, ups, company, prices, money, documents]
+    concepts: [amazon, financial, company, prices, money]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1sr4h9t.md#c2"
-    char_span: [3124, 5695]
+    char_span: [3123, 5694]
     sentence_count: 11
     key_terms: [amazon, ads, openai, created, action, market, prices, autos]
+    concepts: [amazon, openai, created, action, market]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1sr4h9t.md#c3"
-    char_span: [5403, 7733]
+    char_span: [5402, 7732]
     sentence_count: 12
     key_terms: [mode, new, google, questions, open, company, started, side-by-side]
+    concepts: [google, questions, company, started, side-by-side]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1sr4h9t.md#c5"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1sr4h9t.md#c4"
-    char_span: [7404, 9755]
+    char_span: [7403, 9754]
     sentence_count: 16
     key_terms: [salesforce, agents, google, data, across, tools, meta, new]
+    concepts: [salesforce, agents, google, across, agentforce]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1sr4h9t.md#c5"
-    char_span: [9479, 10257]
+    char_span: [9478, 10256]
     sentence_count: 6
     key_terms: [qvc, company, google, reels, right, meta, rate, run]
+    concepts: [company, google, reels, right]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1sr4h9t.md#c3"]
     token_count: 191
 ---
 # E-commerce Industry News Recap 🔥 Week of April 20th, 2026

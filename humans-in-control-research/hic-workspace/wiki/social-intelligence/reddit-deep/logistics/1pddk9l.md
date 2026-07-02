@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 2299]
     sentence_count: 35
     key_terms: [logistics, cargo, bikes, small, bike, vans, parking, traffic]
+    concepts: [logistics, cargo, bikes, small, parking]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1pddk9l.md#c1"]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1pddk9l/could_cargo_bikes_be_good_option_for_delivery/"}]
   - id: "social-intelligence/reddit-deep/logistics/1pddk9l.md#c1"
-    char_span: [2314, 4399]
+    char_span: [2313, 4398]
     sentence_count: 19
     key_terms: [cargo, courier, bikes, bicycle, hour, runs, work, downtown]
+    concepts: [cargo, courier, bikes, bicycle, downtown]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1pddk9l.md#c0"]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/logistics/1pddk9l.md#c2"
-    char_span: [4401, 5880]
+    char_span: [4400, 5879]
     sentence_count: 4
     key_terms: [mildlysaltedtatertot, vehicles, vans, efficiency, markets, smaller, igotfiredpleasehelp, bikes]
+    concepts: [mildlysaltedtatertot, vehicles, efficiency, markets, smaller]
     section: Comments
     token_count: 350
 ---

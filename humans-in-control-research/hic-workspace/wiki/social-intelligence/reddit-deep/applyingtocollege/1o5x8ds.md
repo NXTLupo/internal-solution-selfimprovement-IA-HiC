@@ -19,51 +19,64 @@ chunks:
     char_span: [0, 2354]
     sentence_count: 12
     key_terms: [comments, waitlisted, applicant, duke, application, admissions, applyingtocollege, readers]
+    concepts: [comments, waitlisted, applicant, application, admissions]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c2"]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1o5x8ds/viewing_my_duke_admissions_file_as_a_waitlisted/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c1"
     char_span: [2356, 4359]
     sentence_count: 9
     key_terms: [readers, application, personality, students, extracurriculars, alumni, school, "interviewer's"]
+    concepts: [application, personality, readers, extracurriculars, students]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c2"]
     token_count: 436
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c2"
     char_span: [4361, 6352]
     sentence_count: 13
     key_terms: [application, readers, comments, probably, extracurricular, because, activities, applicant]
+    concepts: [application, readers, extracurricular, comments, probably]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c1"]
     token_count: 433
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c3"
     char_span: [6366, 7597]
     sentence_count: 13
     key_terms: [duke-university-undergraduate-admissions-changes-numerical-rating-standardized-testing-essays-covid-test-optional-ai-generated-college-consultants-20240220, essays, score, applicant, article, across, family, means]
+    concepts: [essays, score, applicant, article, across]
     section: Comments
     token_count: 296
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c4"
     char_span: [7599, 9513]
     sentence_count: 7
     key_terms: [waitlist, schools, school, duke, like, decision, essays, people]
+    concepts: [waitlist, schools, school, decision, essays]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c5"
     char_span: [9287, 9820]
     sentence_count: 3
     key_terms: [academics, schools, measurementtop2885, incrementally, coursework, understand, attribute, difficult]
+    concepts: [academics, schools]
     section: Comments
     token_count: 135
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c6"
     char_span: [9822, 10299]
     sentence_count: 5
     key_terms: [academics, academic, checkbox, fact, meaningless, personality, presumptive, absolutely]
+    concepts: [academics, academic, checkbox]
     section: Comments
     token_count: 108
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c7"
     char_span: [10301, 12501]
     sentence_count: 16
     key_terms: [admissions, counselors, private, people, scores, achievement, give, yale]
+    concepts: [admissions, counselors, private, people, scores]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c8"
     char_span: [12503, 14009]
     sentence_count: 10
     key_terms: [essays, definitely, college, profiteering, application, admissions, extreme, change]
+    concepts: [definitely, essays, college, profiteering, application]
     section: Comments
     token_count: 333
 ---

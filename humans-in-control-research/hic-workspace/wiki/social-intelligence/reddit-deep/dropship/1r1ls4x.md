@@ -20,22 +20,29 @@ chunks:
     char_span: [0, 1963]
     sentence_count: 14
     key_terms: [suppliers, mystery, supplier, tuition, refund, comments, dropship, looking]
+    concepts: [suppliers, mystery, supplier, tuition, refund]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1r1ls4x.md#c3"]
     token_count: 463
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1r1ls4x/how_i_pay_my_tuition_selling_mystery_boxes_and/"}]
   - id: "social-intelligence/reddit-deep/dropship/1r1ls4x.md#c1"
     char_span: [1965, 2628]
     sentence_count: 5
     key_terms: ["don't", business, fees, non-negotiable, marketplace, trustworthy, calculate, logistics]
+    concepts: ["don't", business]
     token_count: 154
   - id: "social-intelligence/reddit-deep/dropship/1r1ls4x.md#c2"
-    char_span: [2643, 4417]
+    char_span: [2642, 4416]
     sentence_count: 13
     key_terms: [dropshipping, though, expectation, yeah, connected, business, dropship, pallets]
+    concepts: [dropshipping, though, expectation, connected, business]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/dropship/1r1ls4x.md#c3"
-    char_span: [4419, 5539]
+    char_span: [4418, 5538]
     sentence_count: 8
     key_terms: [post, supplier, chatgpt, people, policy, refund, ayanokouji-kiyotaka, small]
+    concepts: [supplier, chatgpt, people, policy, refund]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1r1ls4x.md#c0"]
     section: Comments
     token_count: 289
 ---

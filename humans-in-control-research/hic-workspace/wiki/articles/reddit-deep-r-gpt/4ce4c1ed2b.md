@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1395]
     sentence_count: 10
     key_terms: [chatgpt, consciousness, self, motivation, self-aware, comments, continue, gaining]
+    concepts: [chatgpt, consciousness, motivation, self-aware, comments]
     token_count: 342
+    sources: [{"n":"Reddit Deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1o49oj3/chatgpt_gaining_consciousness/"}]
   - id: "articles/reddit-deep-r-gpt/4ce4c1ed2b.md#c1"
     char_span: [1397, 2867]
     sentence_count: 15
     key_terms: ["it's", consciousness, self-awareness, gave, new, following, gaining, script]
+    concepts: [consciousness, self-awareness, following, gaining, script]
     token_count: 360
 ---
 # ChatGPT gaining consciousness

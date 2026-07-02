@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1115]
     sentence_count: 5
     key_terms: [personalfinance, savings, attached, comments, looking, recommendation, restrictions, comparisons]
+    concepts: [personalfinance, savings, attached, comments, looking]
     token_count: 254
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1qve51y/looking_for_hysa_comparisons/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1qve51y.md#c1"
-    char_span: [1130, 3373]
+    char_span: [1129, 3372]
     sentence_count: 14
     key_terms: [personalfinance, locations, physical, reddit, https, transfers, com, www]
+    concepts: [personalfinance, locations, physical, reddit, transfers]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/personalfinance/1qve51y.md#c2"
-    char_span: [3375, 4333]
+    char_span: [3374, 4332]
     sentence_count: 6
     key_terms: [fdic, typically, sign-up, banks, amex, app, bank, fine]
+    concepts: [typically, sign-up, banks]
     section: Comments
     token_count: 227
 ---

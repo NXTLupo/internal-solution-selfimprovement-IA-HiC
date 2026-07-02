@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 467]
     sentence_count: 3
     key_terms: [gradadmissions, comments, applied, comment, english, school, applications, reddit-deep]
+    concepts: [gradadmissions, comments, applied, comment, english]
     token_count: 124
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1p9suu3/english_phd_fall_2026/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1p9suu3.md#c1"
     char_span: [481, 2150]
     sentence_count: 6
     key_terms: [rylieroodle, got, rejected, portal, email, good, rejection, yesterday]
+    concepts: [rylieroodle, rejected, portal, email, rejection]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1p9suu3.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1p9suu3.md#c2"
     char_span: [1968, 3766]
     sentence_count: 11
     key_terms: [rejection, rejected, schools, "i'm", interviews, rejections, university, accepted]
+    concepts: [rejection, rejected, schools, interviews, rejections]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1p9suu3.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1p9suu3.md#c3"
     char_span: [3530, 4808]
     sentence_count: 6
     key_terms: [interview, interviewed, cold-law-4869, email, refreshing, finalists, admitted, anything]
+    concepts: [interview, interviewed, cold-law-4869, email, refreshing]
     section: Comments
     token_count: 354
 ---

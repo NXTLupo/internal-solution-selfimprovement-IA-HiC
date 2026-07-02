@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 814]
     sentence_count: 7
     key_terms: [college, recommendations, experience, summer, comments, looking, student, thatonepersonat2am]
+    concepts: [college, recommendations, experience, summer, comments]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qfyvf2.md#c1"]
     token_count: 183
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1qfyvf2/college_student_looking_for_summer_job/"}]
   - id: "social-intelligence/reddit-deep/college/1qfyvf2.md#c1"
     char_span: [828, 2965]
     sentence_count: 14
     key_terms: [summer, experience, camps, work, job, kids, look, college]
+    concepts: [summer, experience, camps, college, looking]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qfyvf2.md#c0"]
     section: Comments
     token_count: 504
 ---

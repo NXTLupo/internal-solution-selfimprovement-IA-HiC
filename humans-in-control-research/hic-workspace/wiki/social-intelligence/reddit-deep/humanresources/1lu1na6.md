@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 2228]
     sentence_count: 18
     key_terms: [questions, exam, shrm-cp, through, humanresources, helped, didn, like]
+    concepts: [questions, humanresources, shrm-cp, through, helped]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1lu1na6.md#c3"]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1lu1na6/just_passed_shrmcp_honest_thoughts_and_sharing/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1lu1na6.md#c1"
     char_span: [2242, 4120]
     sentence_count: 24
     key_terms: [test, exam, questions, got, tomorrow, coffeecookie101, congratulations, felt]
+    concepts: [questions, coffeecookie101, congratulations, tomorrow, practice]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/humanresources/1lu1na6.md#c2"
     char_span: [4122, 5891]
     sentence_count: 20
     key_terms: [taking, got, help, congrats, remember, saturday, nervous, anyone]
+    concepts: [taking, congrats, remember, saturday, nervous]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/humanresources/1lu1na6.md#c3"
     char_span: [5893, 7435]
     sentence_count: 14
     key_terms: [exam, questions, calculation, preliminary, got, like, time, through]
+    concepts: [questions, calculation, preliminary, through, study]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1lu1na6.md#c0"]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/humanresources/1lu1na6.md#c4"
     char_span: [7437, 9312]
     sentence_count: 18
     key_terms: [test, felt, phr, question, passed, letschatt23, scp, shrm]
+    concepts: [question, passed, letschatt23, competency, congrats]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/humanresources/1lu1na6.md#c5"
     char_span: [9314, 10674]
     sentence_count: 7
     key_terms: [questions, helpful, found, answers, maybe, exam, read, shrm]
+    concepts: [questions, helpful, found, answers, maybe]
     section: Comments
     token_count: 308
 ---

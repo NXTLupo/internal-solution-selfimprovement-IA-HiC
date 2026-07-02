@@ -21,34 +21,43 @@ chunks:
     char_span: [0, 2196]
     sentence_count: 13
     key_terms: [love, people, like, comments, romantic, together, instead, person]
+    concepts: [people, comments, romantic, together, instead]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1oi5cam/why_is_dating_in_gen_z_such_a_challenge/"}]
   - id: "social-intelligence/reddit-deep/genz/1oi5cam.md#c1"
     char_span: [2198, 3217]
     sentence_count: 6
     key_terms: [writing, years, past, gotten, watch, hypocritical, spirituality, maintenance]
+    concepts: [writing, years, gotten, watch]
     token_count: 228
   - id: "social-intelligence/reddit-deep/genz/1oi5cam.md#c2"
     char_span: [3231, 4891]
     sentence_count: 10
     key_terms: [politics, ruined, relationships, generations, like, something, deleted, discord]
+    concepts: [politics, relationships, ruined, generations, something]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/genz/1oi5cam.md#c3"
     char_span: [4893, 5903]
     sentence_count: 13
     key_terms: [people, normal, virtual-scarcity-463, gettinwiggywiddit, talk, entertainment, tunapizzacat, generations]
+    concepts: [people, normal]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/genz/1oi5cam.md#c4"
     char_span: [5905, 7959]
     sentence_count: 17
     key_terms: [people, dating, woman, find, men, nerd, financial, sometimes]
+    concepts: [people, dating, woman, financial, sometimes]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1oi5cam.md#c5"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/genz/1oi5cam.md#c5"
     char_span: [7961, 9970]
     sentence_count: 13
     key_terms: [dating, people, person, connections, apps, like, generation, because]
+    concepts: [dating, people, person, connections, generation]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1oi5cam.md#c4"]
     section: Comments
     token_count: 460
 ---

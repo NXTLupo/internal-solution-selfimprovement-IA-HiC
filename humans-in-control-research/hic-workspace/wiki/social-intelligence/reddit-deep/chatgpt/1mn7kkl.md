@@ -21,65 +21,77 @@ chunks:
     char_span: [0, 1622]
     sentence_count: 9
     key_terms: [chatgpt, claude, fail, "it's", like, comments, posted, basic]
+    concepts: [chatgpt, claude, comments, posted, basic]
     token_count: 410
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1mn7kkl/chatgpt_5_is_dumb_af/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1mn7kkl.md#c1"
     char_span: [1636, 3105]
     sentence_count: 11
     key_terms: [conversation, summaries, please, image, post, r-chatgpt-1050422060352024636, concerns, chatgpt-shared-links-faq]
+    concepts: [conversation, summaries, please, image, concerns]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/chatgpt/1mn7kkl.md#c2"
     char_span: [3107, 4737]
     sentence_count: 9
     key_terms: [asking, give, "it's", like, instead, altruistic-slide-512, times, civilizedpsycho224]
+    concepts: [asking, instead, times]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/chatgpt/1mn7kkl.md#c3"
     char_span: [4739, 6597]
     sentence_count: 16
     key_terms: [never, gpt, used, better, format, having, people, awful]
+    concepts: [never, better, format, having, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1mn7kkl.md#c4"
     char_span: [6349, 8419]
     sentence_count: 21
     key_terms: [rooms, willmoor, everything, memory, like, criticism, draconian, building]
+    concepts: [willmoor, rooms, everything, memory, criticism]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1mn7kkl.md#c5"
     char_span: [8176, 9534]
     sentence_count: 10
     key_terms: [project, memory, bleed, identical, projects, response, default, "doesn't"]
+    concepts: [project, memory, bleed, identical, projects]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/chatgpt/1mn7kkl.md#c6"
     char_span: [9536, 10680]
     sentence_count: 9
     key_terms: [link, e4252a794f70cf12e107e16ee3b185f56eeb089f, links, time, different, because, deleted, either]
+    concepts: [links, different, because, deleted, either]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/chatgpt/1mn7kkl.md#c7"
     char_span: [10682, 12136]
     sentence_count: 9
     key_terms: [settings, enable, openai, phone, users, building, comments, legacy]
+    concepts: [settings, enable, openai, phone, users]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/chatgpt/1mn7kkl.md#c8"
     char_span: [12138, 13365]
     sentence_count: 13
     key_terms: [better, feels, great, works, gpt, like, used, jesusspanksmydog]
+    concepts: [better, feels, great, works]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/chatgpt/1mn7kkl.md#c9"
     char_span: [13367, 15205]
     sentence_count: 8
     key_terms: [questions, jesusspanksmydog, file, completely, consensus, example, styles, "that's"]
+    concepts: [jesusspanksmydog, questions, completely, consensus, example]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/chatgpt/1mn7kkl.md#c10"
     char_span: [15207, 17248]
     sentence_count: 11
     key_terms: [question, jesusspanksmydog, output, brainstorming, emotional, detailed, document, purposes]
+    concepts: [jesusspanksmydog, question, brainstorming, output, emotional]
     section: Comments
     token_count: 497
 ---

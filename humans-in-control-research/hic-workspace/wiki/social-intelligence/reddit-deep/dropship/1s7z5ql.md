@@ -20,21 +20,24 @@ chunks:
     char_span: [0, 995]
     sentence_count: 10
     key_terms: [comments, dropship, evenings, shipping, making, months, ago, monkeyhating123]
+    concepts: [comments, dropship, evenings, shipping, making]
     token_count: 236
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1s7z5ql/outsourced_fulfillment_to_a_3pl_warehouse_two/"}]
   - id: "social-intelligence/reddit-deep/dropship/1s7z5ql.md#c1"
-    char_span: [1010, 1162]
+    char_span: [1009, 1161]
     sentence_count: 1
     key_terms: [spam, self-promotion, automoderator, comments, critique, dropship, report, review]
     section: Comments
     token_count: 45
   - id: "social-intelligence/reddit-deep/dropship/1s7z5ql.md#c2"
-    char_span: [1165, 3249]
+    char_span: [1164, 3248]
     sentence_count: 6
     key_terms: [product, something, because, starts, like, choosing, instead, easier]
+    concepts: [product, something, because, starts, choosing]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/dropship/1s7z5ql.md#c3"
-    char_span: [3251, 3469]
+    char_span: [3250, 3468]
     sentence_count: 2
     key_terms: [fulfillment, happening, business, decision, degrades, friction, catalog, choices]
     section: Comments

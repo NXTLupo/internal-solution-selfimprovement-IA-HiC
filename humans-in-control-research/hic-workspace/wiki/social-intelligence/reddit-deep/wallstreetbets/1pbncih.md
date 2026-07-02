@@ -21,34 +21,43 @@ chunks:
     char_span: [0, 1741]
     sentence_count: 8
     key_terms: [barrick, gold, like, wallstreetbets, price, comments, fraction, profits]
+    concepts: [barrick, wallstreetbets, price, comments, fraction]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1pbncih.md#c1"]
     token_count: 497
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1pbncih/gold_king_midas_anus_b_barrick_mining_dd/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pbncih.md#c1"
     char_span: [1743, 3374]
     sentence_count: 16
     key_terms: [gold, barrick, money, price, share, prints, going, stock]
+    concepts: [barrick, money, price, share, prints]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1pbncih.md#c0"]
     token_count: 497
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pbncih.md#c2"
     char_span: [3388, 4344]
     sentence_count: 2
     key_terms: [https, discord, preview, format, total, width, years, ago]
+    concepts: [https, discord, preview, format, total]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pbncih.md#c3"
     char_span: [4346, 5663]
     sentence_count: 2
     key_terms: [e73404d697d64ca1d30a4f1e11bb1c95dd4f7bf7, goblin561, holding, hotchicksplayingbass, anus, did, get, got]
+    concepts: [goblin561, holding]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pbncih.md#c4"
     char_span: [5665, 6786]
     sentence_count: 6
     key_terms: [butterrollercoaster, duchamp1945, slop, goblin561, barrick, cantgetthistowork, buy, get]
+    concepts: [butterrollercoaster, duchamp1945, goblin561, barrick]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pbncih.md#c5"
     char_span: [6788, 7539]
     sentence_count: 2
     key_terms: [goblin561, waiting4reccession, gold, intoxicated, optionscone, definitely, berserker, extremely]
+    concepts: [goblin561]
     section: Comments
     token_count: 223
 ---

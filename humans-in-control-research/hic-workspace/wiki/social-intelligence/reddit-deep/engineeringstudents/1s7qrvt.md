@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1906]
     sentence_count: 6
     key_terms: [lebanon, engineering, industrial, management, engineeringstudents, solutions, looking, people-facing]
+    concepts: [lebanon, engineering, engineeringstudents, industrial, management]
     token_count: 437
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1s7qrvt/us_citizen_finishing_engineering_masters_in/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s7qrvt.md#c1"
     char_span: [1920, 2292]
     sentence_count: 2
     key_terms: [degree, equivalence, experience, icedaggerz, perplexing, employers, interview, potential]
+    concepts: [degree]
     section: Comments
     token_count: 92
 ---

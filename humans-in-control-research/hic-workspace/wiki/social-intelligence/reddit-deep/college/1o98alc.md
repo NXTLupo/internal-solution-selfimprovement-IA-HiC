@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 637]
     sentence_count: 7
     key_terms: [non-traditional, college, university, comments, student, advice, first-generation, appreciated]
+    concepts: [non-traditional, college, university, comments, student]
     token_count: 154
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1o98alc/nontraditional_college_student_any_advice/"}]
   - id: "social-intelligence/reddit-deep/college/1o98alc.md#c1"
     char_span: [651, 2416]
     sentence_count: 18
     key_terms: [non-traditional, school, back, "i'm", experience, grudgingly, going, older]
+    concepts: [non-traditional, school, experience, grudgingly, going]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/college/1o98alc.md#c2"
     char_span: [2418, 4455]
     sentence_count: 20
     key_terms: [school, "i'm", especially, everything, semester, student, taking, though]
+    concepts: [school, especially, everything, semester, student]
     section: Comments
     token_count: 477
 ---

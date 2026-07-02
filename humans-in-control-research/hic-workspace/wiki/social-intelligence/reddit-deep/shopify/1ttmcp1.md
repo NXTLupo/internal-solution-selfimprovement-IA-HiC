@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1144]
     sentence_count: 15
     key_terms: [product, pages, referrals, shopify, ai-referred, browsing, comments, organic]
+    concepts: [product, referrals, pages, shopify, ai-referred]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1ttmcp1.md#c1"]
     token_count: 260
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1ttmcp1/ai_referrals_may_turn_product_pages_into_the_new/"}]
   - id: "social-intelligence/reddit-deep/shopify/1ttmcp1.md#c1"
-    char_span: [1159, 3433]
+    char_span: [1158, 3432]
     sentence_count: 19
     key_terms: [product, traffic, being, pages, recommended, been, come, referrals]
+    concepts: [product, traffic, recommended, being, pages]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1ttmcp1.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1ttmcp1.md#c2"
-    char_span: [3435, 5782]
+    char_span: [3434, 5781]
     sentence_count: 16
     key_terms: [search, traffic, llm, recommendations, engines, revenue, google, optimization]
+    concepts: [search, traffic, recommendations, engines, revenue]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/shopify/1ttmcp1.md#c3"
-    char_span: [5787, 5963]
+    char_span: [5786, 5962]
     sentence_count: 2
     key_terms: [product, "don't", successful, understand, ecommerce, important, mentioned, suddenly]
+    concepts: [product, "don't"]
     section: Comments
     token_count: 36
 ---

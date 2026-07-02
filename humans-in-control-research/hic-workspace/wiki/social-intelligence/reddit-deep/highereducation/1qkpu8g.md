@@ -21,16 +21,22 @@ chunks:
     char_span: [0, 2190]
     sentence_count: 6
     key_terms: [university, rights, stand, highereducation, creeley, higher, institutions, urged]
+    concepts: [university, rights, highereducation, stand, creeley]
     token_count: 470
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1qkpu8g/higher_ed_urged_to_stand_up_to_government_attacks/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1qkpu8g.md#c1"
     char_span: [2194, 4771]
     sentence_count: 5
     key_terms: [higher, education, students, conflict-based, attack, constructive, institutions, necessarily]
+    concepts: [education, higher, students, conflict-based, constructive]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1qkpu8g.md#c2"]
     token_count: 502
   - id: "social-intelligence/reddit-deep/highereducation/1qkpu8g.md#c2"
     char_span: [4775, 5923]
     sentence_count: 8
     key_terms: [institutions, americas-censored-campuses-25-web-of-control, higher, principles, education, survival, federal, prepare]
+    concepts: [institutions, higher, principles, education, survival]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1qkpu8g.md#c1"]
     section: Comments
     token_count: 254
 ---

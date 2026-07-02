@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1582]
     sentence_count: 12
     key_terms: [english, literature, study, biotechnology, since, write, been, want]
+    concepts: [english, literature, study, biotechnology, since]
     token_count: 347
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ocyii0/how_to_study_after_changing_stream/"}]
   - id: "social-intelligence/reddit-deep/college/1ocyii0.md#c1"
     char_span: [1596, 2107]
     sentence_count: 2
     key_terms: [attend, time, glimmeringsea, definitely, professors, admission, analyzing, dependent]
+    concepts: [attend]
     section: Comments
     token_count: 121
 ---

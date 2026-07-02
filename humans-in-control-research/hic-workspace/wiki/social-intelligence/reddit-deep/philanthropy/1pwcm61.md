@@ -17,34 +17,47 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c0"
-    char_span: [0, 1841]
+    char_span: [0, 1840]
     sentence_count: 4
     key_terms: [philanthropy, reddit, https, com, www, fundraising, subreddits, donations]
-    token_count: 509
+    concepts: [philanthropy, reddit, https, fundraising, subreddits]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c1", "social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c2", "social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c3", "social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c4", "social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c5"]
+    token_count: 508
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1pwcm61/read_before_you_post_on_rphilanthropy_includes/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c1"
-    char_span: [1843, 2847]
+    char_span: [1842, 2846]
     sentence_count: 5
     key_terms: [subreddits, philanthropy, donations, comments, section, reddit, cause, ask]
+    concepts: [subreddits, philanthropy, donations, comments, section]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c0"]
     token_count: 226
   - id: "social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c2"
-    char_span: [2849, 4120]
+    char_span: [2848, 4119]
     sentence_count: 1
     key_terms: [reddit, https, com, www, mutualaid, amazonwishlistgiving, assistance, philanthropygiving]
+    concepts: [reddit, https, mutualaid, amazonwishlistgiving, philanthropygiving]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c0", "social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c3", "social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c4"]
     token_count: 381
   - id: "social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c3"
-    char_span: [4122, 5658]
+    char_span: [4121, 5657]
     sentence_count: 2
     key_terms: [reddit, https, com, www, crowdsourcedactivism, effectivealtruism, humansbeingbros, volunteerfreely]
+    concepts: [reddit, https, crowdsourcedactivism, effectivealtruism, humansbeingbros]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c0", "social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c2", "social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c4"]
     token_count: 437
   - id: "social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c4"
-    char_span: [5660, 7466]
+    char_span: [5659, 7465]
     sentence_count: 2
     key_terms: [reddit, https, com, www, development, animalshelterstories, lgbtqhumanitarianism, communitytheatre]
+    concepts: [reddit, https, development, animalshelterstories, lgbtqhumanitarianism]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c0", "social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c2", "social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c3"]
     token_count: 494
   - id: "social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c5"
-    char_span: [7468, 9431]
+    char_span: [7467, 9430]
     sentence_count: 10
     key_terms: [fundraising, nonprofits, https, small, com, ngos, www, best-fundraising-strategies-nonprofits]
+    concepts: [fundraising, nonprofits, https, small, focused]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1pwcm61.md#c0"]
     token_count: 474
 ---
 # Read before you post on r/Philanthropy (includes subreddits where you can ask for donations, subreddits to discuss other nonprofit-related subjects, etc.)

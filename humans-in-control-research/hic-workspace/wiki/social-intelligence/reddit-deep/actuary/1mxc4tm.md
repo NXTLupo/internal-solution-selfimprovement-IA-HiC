@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 797]
     sentence_count: 5
     key_terms: [advice, apply, actuarial, comments, actuary, exams, math, pass]
+    concepts: [advice, apply, actuarial, comments, actuary]
     token_count: 204
+    sources: [{"n":"reddit-deep: r/actuary","u":"https://www.reddit.com/r/actuary/comments/1mxc4tm/resume_advice_el_any_advice_is_greatly_appreciated/"}]
   - id: "social-intelligence/reddit-deep/actuary/1mxc4tm.md#c1"
-    char_span: [812, 2592]
+    char_span: [811, 2591]
     sentence_count: 14
     key_terms: [exams, competitive-tank-349, interview, back, passing, studying, benefit, college]
+    concepts: [competitive-tank-349, exams, interview, passing, studying]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/actuary/1mxc4tm.md#c2"
-    char_span: [2594, 4272]
+    char_span: [2593, 4271]
     sentence_count: 6
     key_terms: [excel, adectgaming, samplesimilar9332, resume, position, getting, google, apply]
+    concepts: [excel, adectgaming, samplesimilar9332, resume, position]
     section: Comments
     token_count: 410
 ---

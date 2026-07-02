@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1419]
     sentence_count: 12
     key_terms: [science, careerguidance, career, skills, agriculture, bsc, financial, long-term]
+    concepts: [careerguidance, science, career, skills, agriculture]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s4zt4k.md#c1"]
     token_count: 341
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1s4zt4k/bsc_cs_student_23m_facing_financial_crisis_what/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1s4zt4k.md#c1"
     char_span: [1433, 3805]
     sentence_count: 15
     key_terms: [problems, skills, solve, specific, agriculture, freelancing, feeling-cell-2264, want]
+    concepts: [problems, skills, specific, solve, agriculture]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s4zt4k.md#c0"]
     section: Comments
     token_count: 501
 ---

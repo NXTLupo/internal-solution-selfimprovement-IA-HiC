@@ -21,35 +21,45 @@ chunks:
     char_span: [0, 713]
     sentence_count: 6
     key_terms: [positions, jobs, comments, posted, selenevomersv, manufacturer, non-advanced, professional]
+    concepts: [positions, comments, posted]
     token_count: 176
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1oz1vb0/only_18_of_my_companys_posted_jobs_are_for/"}]
   - id: "social-intelligence/reddit-deep/jobs/1oz1vb0.md#c1"
     char_span: [727, 2754]
     sentence_count: 15
     key_terms: [level, roles, entry, company, data, people, senior, individual]
+    concepts: [level, roles, company, entry, people]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1oz1vb0.md#c3", "social-intelligence/reddit-deep/jobs/1oz1vb0.md#c4"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/jobs/1oz1vb0.md#c2"
     char_span: [2756, 4395]
     sentence_count: 8
     key_terms: [experience, shyleoging, companies, require, people, redact, "that's", entry]
+    concepts: [experience, shyleoging, companies, require, people]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/jobs/1oz1vb0.md#c3"
     char_span: [4399, 6146]
     sentence_count: 10
     key_terms: [entry, level, task, companies, currently, positions, deleted, throwawayfrompa1701]
+    concepts: [entry, level, companies, currently, positions]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1oz1vb0.md#c1"]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/jobs/1oz1vb0.md#c4"
     char_span: [6148, 8341]
     sentence_count: 25
     key_terms: [level, years, experience, company, workers, construction, entry, field]
+    concepts: [level, years, experience, company, workers]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1oz1vb0.md#c1"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/jobs/1oz1vb0.md#c5"
     char_span: [8343, 8836]
     sentence_count: 3
     key_terms: [years, non-senior, junior, senior, next, undoubtedly, completely, experience]
+    concepts: [non-senior, years, junior, senior]
     section: Comments
     token_count: 125
 ---

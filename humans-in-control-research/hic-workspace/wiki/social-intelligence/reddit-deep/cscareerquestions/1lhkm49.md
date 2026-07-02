@@ -21,47 +21,59 @@ chunks:
     char_span: [0, 700]
     sentence_count: 5
     key_terms: [cscareerquestions, financially, independent, outsourcing, comments, another, switch, major]
+    concepts: [cscareerquestions, financially, independent, outsourcing, comments]
     token_count: 171
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1lhkm49/should_i_switch_to_another_major_because_of_ai/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c1"
     char_span: [714, 2907]
     sentence_count: 18
     key_terms: [something, school, university, like, college, degree, doing, "don't"]
+    concepts: [something, university, school, college, degree]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c2"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c2"
     char_span: [2909, 5108]
     sentence_count: 22
     key_terms: [degree, development, years, portfolio, time, school, worked, full]
+    concepts: [degree, development, portfolio, years, school]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c3"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c3"
     char_span: [5110, 7319]
     sentence_count: 13
     key_terms: [engineering, degrees, like, school, years, competitive, high, job]
+    concepts: [engineering, degrees, school, competitive, years]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c2"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c4"
     char_span: [7321, 8647]
     sentence_count: 2
     key_terms: [degree, transfer, schools, target, universities, accounting, excellent, always]
+    concepts: [degree, transfer, schools, universities, target]
     section: Comments
     token_count: 282
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c5"
     char_span: [8649, 10195]
     sentence_count: 7
     key_terms: [years, career, "don't", like, definitely, assistant, education, everyone]
+    concepts: [years, career, definitely, "don't", assistant]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c6"
     char_span: [10197, 12398]
     sentence_count: 17
     key_terms: [outsourcing, going, staff, been, delegation, fungible, projects, another]
+    concepts: [outsourcing, going, delegation, staff, fungible]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c7"
     char_span: [12400, 13779]
     sentence_count: 6
     key_terms: [leagueaggravating595, money, time, want, terpsicore1987, understanding, distribution, holistically]
+    concepts: [money]
     section: Comments
     token_count: 369
 ---

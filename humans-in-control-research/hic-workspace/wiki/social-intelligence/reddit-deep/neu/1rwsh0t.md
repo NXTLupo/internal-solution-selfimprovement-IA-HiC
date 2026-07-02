@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 2290]
     sentence_count: 10
     key_terms: [immediate, because, "don't", start, application, companies, comments, projects]
+    concepts: [immediate, because, application, "don't", start]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rwsh0t/what_else_can_i_do_with_my_degree/"}]
   - id: "social-intelligence/reddit-deep/neu/1rwsh0t.md#c1"
     char_span: [2292, 3012]
     sentence_count: 3
     key_terms: [degree, "don't", given, roles, get, accomplished, northeastern, particularly]
+    concepts: [degree, "don't", given, roles]
     token_count: 135
   - id: "social-intelligence/reddit-deep/neu/1rwsh0t.md#c2"
     char_span: [3026, 3952]
     sentence_count: 8
     key_terms: [northeastern, available, support, please, sounds, healthandwellness, call, edu]
+    concepts: [northeastern, available, support, please, sounds]
     section: Comments
     token_count: 238
 ---

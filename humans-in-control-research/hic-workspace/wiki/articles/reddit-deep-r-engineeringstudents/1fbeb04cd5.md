@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1673]
     sentence_count: 11
     key_terms: [experience, internship, engineeringstudents, unpaid, undergraduate, like, work, comments]
+    concepts: [experience, internship, engineeringstudents, undergraduate, unpaid]
     token_count: 364
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1t8ndq2/taking_an_unpaid_internship_with_no_experience/"}]
   - id: "articles/reddit-deep-r-engineeringstudents/1fbeb04cd5.md#c1"
     char_span: [1675, 3872]
     sentence_count: 17
     key_terms: [research, internship, summer, hintothemagnificent, something, like, "you're", undergraduate]
+    concepts: [research, internship, summer, hintothemagnificent, something]
     token_count: 468
   - id: "articles/reddit-deep-r-engineeringstudents/1fbeb04cd5.md#c2"
     char_span: [3874, 4242]

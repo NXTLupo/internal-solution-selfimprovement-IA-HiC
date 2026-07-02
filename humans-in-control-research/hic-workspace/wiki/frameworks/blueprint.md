@@ -14,24 +14,32 @@ chunks:
     char_span: [0, 400]
     sentence_count: 3
     key_terms: [blueprint, service, anti-patterns, authoritative, specification, deliverable, methodology, generating]
+    concepts: [blueprint, service]
+    related_chunks: ["frameworks/blueprint.md#c1"]
     section: Purpose
     token_count: 65
   - id: "frameworks/blueprint.md#c1"
     char_span: [426, 3076]
     sentence_count: 13
     key_terms: [customer, actions, service, blueprint, systems, components, "shostack's", includes]
+    concepts: [customer, actions, service, blueprint, systems]
+    related_chunks: ["frameworks/blueprint.md#c0", "frameworks/blueprint.md#c2", "frameworks/blueprint.md#c5", "frameworks/blueprint.md#c7", "frameworks/blueprint.md#c8"]
     section: Canonical Framework
     token_count: 511
   - id: "frameworks/blueprint.md#c2"
     char_span: [3078, 4429]
     sentence_count: 8
     key_terms: [line, customer, actions, backstage, interaction, experience, frontstage, visibility]
+    concepts: [customer, actions, backstage, interaction, experience]
+    related_chunks: ["frameworks/blueprint.md#c1", "frameworks/blueprint.md#c6", "frameworks/blueprint.md#c7", "frameworks/blueprint.md#c8"]
     section: Canonical Framework
     token_count: 241
   - id: "frameworks/blueprint.md#c3"
     char_span: [4450, 6939]
     sentence_count: 2
     key_terms: [emotional, step, time, lane, customer, documenting, measurement, technology]
+    concepts: [emotional, customer, documenting, measurement, technology]
+    related_chunks: ["frameworks/blueprint.md#c7", "frameworks/blueprint.md#c9"]
     section: Extended Lanes
     token_count: 495
   - id: "frameworks/blueprint.md#c4"
@@ -44,42 +52,55 @@ chunks:
     char_span: [7137, 9635]
     sentence_count: 6
     key_terms: [customer, failure, blueprint, moments, point, truth, encounter, per]
+    concepts: [customer, failure, blueprint, moments, disproportionate]
+    related_chunks: ["frameworks/blueprint.md#c1", "frameworks/blueprint.md#c7"]
     section: Required Blueprint Structure
     token_count: 486
   - id: "frameworks/blueprint.md#c6"
     char_span: [9655, 11535]
     sentence_count: 7
     key_terms: [customer, add, documented, interaction, identified, understand, point, emotional]
+    concepts: [customer, documented, interaction, identified, understand]
+    related_chunks: ["frameworks/blueprint.md#c2"]
     section: Quality Gates
     token_count: 360
   - id: "frameworks/blueprint.md#c7"
     char_span: [11555, 14142]
     sentence_count: 27
     key_terms: [blueprint, customer, backstage, without, lane, emotional, actions, frontstage]
+    concepts: [blueprint, customer, backstage, without, emotional]
+    related_chunks: ["frameworks/blueprint.md#c1", "frameworks/blueprint.md#c2", "frameworks/blueprint.md#c3", "frameworks/blueprint.md#c5", "frameworks/blueprint.md#c9"]
     section: Anti-Patterns
     token_count: 500
   - id: "frameworks/blueprint.md#c8"
     char_span: [14179, 15579]
     sentence_count: 10
     key_terms: [phase, customer, action, actions, frontstage, lanes, backstage, lines]
+    concepts: [phase, customer, action, actions, frontstage]
+    related_chunks: ["frameworks/blueprint.md#c1", "frameworks/blueprint.md#c2"]
     section: Blueprint Construction Process
     token_count: 278
   - id: "frameworks/blueprint.md#c9"
     char_span: [15609, 17716]
     sentence_count: 8
     key_terms: [emotional, customer, benchmarks, step, time, lane, research, cross-reference]
+    concepts: [emotional, customer, benchmarks, cross-reference, research]
+    related_chunks: ["frameworks/blueprint.md#c3", "frameworks/blueprint.md#c7"]
     section: Generation Instructions
     token_count: 426
   - id: "frameworks/blueprint.md#c10"
     char_span: [17746, 19357]
     sentence_count: 1
     key_terms: [indicator, points, extended, lane, marked, actions, moments, accent]
+    concepts: [indicator, points, extended, marked, actions]
     section: Visualization Standards
     token_count: 382
   - id: "frameworks/blueprint.md#c11"
     char_span: [19380, 19871]
     sentence_count: 1
     key_terms: [frameworks, blueprint, benchmarks, personas, actions, industry-specific, industry-standard, conversational]
+    concepts: [frameworks, blueprint, benchmarks, personas, actions]
+    related_chunks: ["frameworks/blueprint.md#c1"]
     section: Cross-References
     token_count: 101
 ---

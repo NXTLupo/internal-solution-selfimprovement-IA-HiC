@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1722]
     sentence_count: 28
     key_terms: [like, work, cscareerquestions, everything, comments, backend, project, months]
+    concepts: [cscareerquestions, everything, comments, backend, project]
     token_count: 399
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1lcxe9a/5_months_into_corporate_life_and_im_genuinely/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lcxe9a.md#c1"
     char_span: [1736, 3248]
     sentence_count: 7
     key_terms: [definitely, consider, employed, company, resume, taking, get, give]
+    concepts: [definitely, consider, employed, company, resume]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lcxe9a.md#c2"
     char_span: [3250, 5234]
     sentence_count: 13
     key_terms: [onboarding, lol, "don't", job, need, constantly, management, something]
+    concepts: [onboarding, constantly, "don't", management, something]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lcxe9a.md#c3"
     char_span: [4973, 5774]
     sentence_count: 4
     key_terms: [job, something, applying, quitting, better, market, quiet, thank]
+    concepts: [something, applying, quitting, better, market]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lcxe9a.md#c4"
     char_span: [5776, 6473]
     sentence_count: 3
     key_terms: [big, tech, work, technical, people, darkflameshadowninja, snoochipmunks9977, experience]
+    concepts: [technical, people]
     section: Comments
     token_count: 164
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lcxe9a.md#c5"
     char_span: [6475, 8266]
     sentence_count: 8
     key_terms: [gpt, work, corporate, specific, chatgpt, deleted, effort, people]
+    concepts: [corporate, specific, chatgpt, deleted, effort]
     section: Comments
     token_count: 494
 ---

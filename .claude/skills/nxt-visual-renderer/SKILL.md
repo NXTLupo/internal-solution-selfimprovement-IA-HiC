@@ -106,14 +106,14 @@ Densified templates carry an optional `implication` field — one sentence tying
 ### 5. Deduplicated Sources footer
 Every slide ends with a single `Sources:` footer showing the unique source names used on that slide. Do not repeat the same source inline 3-5 times — per-quote attribution is enough.
 
-### 6. Strategic imagery is authored FROM the corpus content on the slide (per-element)
-Any template that carries an image slot (themes per-theme thumbnail, persona portrait, case-study panel, recommendation panel, the narrative #slides archetypes, cover/divider) gets a content-true image whose subject is drawn from the manifest-grounded corpus content that landed on THAT slide element. The runtime image branch is Nano-Banana (the Memphis-iso flat-illustrative `/api/ai/brand-image`); your job here is to AUTHOR the concept it renders.
-- PER-ELEMENT, not per-slide: where a template repeats items, author one concept per item, on that item. Emit it as `brandImage: { concept: "<scene>" }` (or `imageConcept: "<scene>"`) on each theme / persona / case / recommendation, NOT once on the slide.
-- AUTHOR FROM THE CORPUS: derive the scene from THIS element's actual substance — the named subject, the actor the corpus is about (advancement officers + alumni; clinicians + patients; co-op students + employers), the specific theme thesis / case intervention / recommendation mechanism. The image must be traceable to the corpus content the manifest placed on the slide.
-- NO PURE DECORATION: an image that fills space, sets mood, or repeats one generic scene across items is forbidden (same gate as content-true icons). If an element's image can't be traced to its corpus content, omit it for that element.
-- STYLE IS AUTOMATIC: describe ONLY the subject. The canonical Corporate-Memphis / isometric house style + brand-locked palette are applied by the generator. No text, words, numbers, logos, or UI inside the image.
-- FALLBACK: if you do not author a concept, the illustrator derives one from the element's corpus-sourced fields (name / title / insight) — still corpus-grounded, but the authored concept is richer; prefer authoring it.
-The fuller per-deliverable version of this contract lives in the deliverable expert skills (deck-narrative-composer, theme-analyst, persona-architect, case-study-analyst, recommendation-architect) under "Brand-Imagery Prompting Contract".
+### 6. Strategic imagery is COMPOSED FROM the corpus data on the element (native infographic, E4 2026-07-02)
+The diffusion imagery lane (Memphis-iso `/api/ai/brand-image`, "describe a scene") is RETIRED. Any template that carries a content image slot (themes per-theme thumbnail, persona detail panel, case-study panel, recommendation panel) is filled by a NATIVE infographic panel rendered from the element's OWN structured data via `/api/ai/diagram` (families: stat-row, process-flow, comparison, ranked-bars, composition; chromeless, token-locked, typeset natively). Your job is not to describe a scene — it is to make the element's DATA rich enough to compose from.
+- COMPOSE, DON'T DESCRIBE: the panel is derived deterministically (`artifactIllustrator.ts::infographicSpecFrom`) from the element's fields: actions/steps/phases (3+) become a process-flow; a beforeAfter pair becomes a comparison; labeled KPI tiles (only ever quote-carried numbers, per the Quantitative Claim Rule) become a stat-row; the citation mix becomes a composition (evidence-mix) panel. Author those FIELDS well and the visual follows.
+- PER-ELEMENT, not per-slide: where a template repeats items, each item's own fields drive its own panel.
+- EMPTY BEATS INVENTED: if an element carries no derivable structured data, the slot stays empty. Never pad fields to force a panel; never expect a mood image to fill space.
+- NO TEXT-IN-IMAGE DEFECTS BY CONSTRUCTION: the panel's text is typeset HTML in brand fonts; there is no diffusion step to misspell it.
+- Decorative `slides:*` chrome surfaces (cover, section-divider, agenda, block-quote, thesis-interstitial) are image-free INTERIM until the E3 creative-director pass defines their visual language.
+Older "Brand-Imagery Prompting Contract" sections in the deliverable expert skills (deck-narrative-composer, theme-analyst, persona-architect, case-study-analyst, recommendation-architect) that ask for a `brandImage: { concept }` scene description are SUPERSEDED by this compose-from-evidence contract; a legacy authored concept is ignored by the native lane.
 
 ## Brand tokens
 

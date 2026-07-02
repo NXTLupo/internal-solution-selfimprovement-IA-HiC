@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1306]
     sentence_count: 8
     key_terms: [cscareerquestions, doing, academics, questions, brutally, comments, projects, college]
+    concepts: [cscareerquestions, doing, academics, questions, brutally]
     token_count: 328
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1msxxay/need_brutally_honest_advice_5th_sem_tier3_college/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1msxxay.md#c1"
     char_span: [1320, 2481]
     sentence_count: 8
     key_terms: [doing, arkguardian, good, hackathons, kiirchoff, building, learning, projects]
+    concepts: [arkguardian, doing, hackathons, kiirchoff, building]
     section: Comments
     token_count: 287
 ---

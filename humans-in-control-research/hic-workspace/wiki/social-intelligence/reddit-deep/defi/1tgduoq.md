@@ -20,28 +20,34 @@ chunks:
     char_span: [0, 2159]
     sentence_count: 23
     key_terms: [card, balance, screen, seconds, bakery, crypto, gnosis, number]
+    concepts: [balance, screen, seconds, bakery, crypto]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1tgduoq/realized_something_at_a_lisbon_bakery_this/"}]
   - id: "social-intelligence/reddit-deep/defi/1tgduoq.md#c1"
     char_span: [2161, 2323]
     sentence_count: 3
     key_terms: [balance, crypto, honest, number, "don't", using, able, card]
     token_count: 38
   - id: "social-intelligence/reddit-deep/defi/1tgduoq.md#c2"
-    char_span: [2338, 4342]
+    char_span: [2337, 4341]
     sentence_count: 13
     key_terms: [balance, custodial, card, exactly, people, gap, different, sobaphoto]
+    concepts: [balance, custodial, exactly, people, different]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1tgduoq.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/defi/1tgduoq.md#c3"
-    char_span: [4160, 4562]
+    char_span: [4159, 4561]
     sentence_count: 4
     key_terms: [professional103, explanations, constraints, lucentjvwax, depending, ecosystem, tolerance, whatever]
     section: Comments
     token_count: 116
   - id: "social-intelligence/reddit-deep/defi/1tgduoq.md#c4"
-    char_span: [4564, 5745]
+    char_span: [4563, 5744]
     sentence_count: 5
     key_terms: [real, difference, custodial, database, platform, balance, custody, actual]
+    concepts: [difference, custodial, database, platform, balance]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1tgduoq.md#c2"]
     section: Comments
     token_count: 235
 ---

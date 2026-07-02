@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 768]
     sentence_count: 5
     key_terms: [financial, careerguidance, comments, college, finally, looking, market, start]
+    concepts: [financial, careerguidance, comments, college, finally]
     token_count: 185
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tk6my9/what_careers_in_the_financial_sector_actually/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tk6my9.md#c1"
     char_span: [782, 2528]
     sentence_count: 13
     key_terms: [tax, finance, people, companies, roles, traditional, work, accounting]
+    concepts: [finance, people, companies, traditional, accounting]
     section: Comments
     token_count: 355
 ---

@@ -19,10 +19,12 @@ content_hash: "a2f227dec7ea0c68"
 relevance_by_goal: {"46dec9599ad5":60}
 chunks:
   - id: "articles/reddit-deep-r-defi/dac9ce22e4.md#c0"
-    char_span: [0, 2028]
+    char_span: [0, 2027]
     sentence_count: 6
     key_terms: [defi, zypto, cross-chain, app, wallet, chainlink, ccip, pay]
-    token_count: 462
+    concepts: [zypto, cross-chain, wallet, interoperability, chainlink]
+    token_count: 461
+    sources: [{"n":"Reddit Deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1rfc5g5/zypto_wallet_app_update_kucoin_pay_onramp_native/"}]
 ---
 # Zypto Wallet App Update: KuCoin Pay On-Ramp + Native Chainlink CCIP Bridging
 

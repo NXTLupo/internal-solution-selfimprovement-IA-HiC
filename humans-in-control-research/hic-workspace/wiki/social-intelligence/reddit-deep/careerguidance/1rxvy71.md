@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 2027]
     sentence_count: 22
     key_terms: [companies, strategy, careerguidance, nobody, worked, connections, comments, industry]
+    concepts: [companies, strategy, careerguidance, nobody, worked]
     token_count: 444
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rxvy71/has_anyone_successfully_changed_careers_at_30/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rxvy71.md#c1"
     char_span: [2041, 3844]
     sentence_count: 20
     key_terms: [years, did, mellowtronic, experience, motivated, shopify, almost, being]
+    concepts: [years, mellowtronic, experience, motivated, shopify]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/careerguidance/1rxvy71.md#c2"
     char_span: [3846, 5951]
     sentence_count: 17
     key_terms: [honestly, downthegrapevine, mindcypress, free, like, mba, too, compliance]
+    concepts: [downthegrapevine, honestly, mindcypress, compliance, languages]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/careerguidance/1rxvy71.md#c3"
     char_span: [5953, 7979]
     sentence_count: 6
     key_terms: [work, small, another, felt, lot, everything, companies, sometimes]
+    concepts: [small, another, everything, companies, sometimes]
     section: Comments
     token_count: 445
 ---

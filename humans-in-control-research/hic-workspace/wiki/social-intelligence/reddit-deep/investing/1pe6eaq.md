@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 909]
     sentence_count: 18
     key_terms: [investing, "i'm", real, comments, estate, solana, stocks, like]
+    concepts: [investing, comments, estate, solana, stocks]
     token_count: 236
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1pe6eaq/70_and_im_out_for_sure/"}]
   - id: "social-intelligence/reddit-deep/investing/1pe6eaq.md#c1"
     char_span: [923, 2086]
     sentence_count: 11
     key_terms: [investment, target, nullification, speculative, "i'm", rule, tsla, nothing]
+    concepts: [investment, nullification, target, speculative, nothing]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/investing/1pe6eaq.md#c2"
     char_span: [2088, 3594]
     sentence_count: 12
     key_terms: ["there's", people, medonsirius, sell, sometimes, taplar, cards, packs]
+    concepts: ["there's", people, medonsirius, sometimes, taplar]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/investing/1pe6eaq.md#c3"
     char_span: [3596, 5725]
     sentence_count: 14
     key_terms: [market, investors, gains, company, buying, future, retail, companies]
+    concepts: [investors, market, gains, company, buying]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1pe6eaq.md#c4"
     char_span: [5727, 6873]
     sentence_count: 12
     key_terms: [embarrassedrole3299, investors, insanely, serious, wealthy, bought, market, method]
+    concepts: [embarrassedrole3299, investors, insanely, serious, wealthy]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/investing/1pe6eaq.md#c5"
     char_span: [6875, 7896]
     sentence_count: 6
     key_terms: [definitely, doubled, selling, solana, good, saw, time, butterpotatohead]
+    concepts: [definitely, doubled, selling, solana]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/investing/1pe6eaq.md#c6"
     char_span: [7898, 9778]
     sentence_count: 14
     key_terms: [probably, holding, fundamentals, hold, "it's", like, set, community]
+    concepts: [probably, holding, fundamentals, community, business]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1pe6eaq.md#c7"

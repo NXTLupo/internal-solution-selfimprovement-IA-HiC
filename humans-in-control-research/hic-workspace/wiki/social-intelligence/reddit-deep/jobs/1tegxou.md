@@ -19,34 +19,41 @@ chunks:
     char_span: [0, 1975]
     sentence_count: 12
     key_terms: ["i've", jobs, local, positions, high, cybersecurity, programming, job]
+    concepts: [positions, local, cybersecurity, programming, experience]
     token_count: 438
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1tegxou/how_do_you_guys_manage_to_get_decent_paying_jobs/"}]
   - id: "social-intelligence/reddit-deep/jobs/1tegxou.md#c1"
     char_span: [1977, 2523]
     sentence_count: 4
     key_terms: [connections, "i'm", improve, "i've", job, specifically, alternative, interested]
+    concepts: [connections, improve]
     token_count: 113
   - id: "social-intelligence/reddit-deep/jobs/1tegxou.md#c2"
-    char_span: [2538, 4548]
+    char_span: [2537, 4547]
     sentence_count: 13
     key_terms: [job, getting, resume, experience, commercialqueasy538, roles, get, market]
+    concepts: [commercialqueasy538, getting, experience, resume, roles]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/jobs/1tegxou.md#c3"
-    char_span: [4550, 6522]
+    char_span: [4549, 6521]
     sentence_count: 17
     key_terms: [job-application-tracker-304442c8054680d4a870f232c102726b, job, companies, position, unemployment, keep, experience, applying]
+    concepts: [companies, position, unemployment, experience, applying]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/jobs/1tegxou.md#c4"
-    char_span: [6524, 8893]
+    char_span: [6523, 8892]
     sentence_count: 14
     key_terms: ["i've", through, lot, indeed, resume, applications, connections, job]
+    concepts: [through, applications, indeed, resume, connections]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/jobs/1tegxou.md#c5"
-    char_span: [8895, 11189]
+    char_span: [8894, 11188]
     sentence_count: 12
     key_terms: [definitely, interviews, level, roles, job, decent, applications, lower]
+    concepts: [definitely, interviews, level, roles, applications]
     section: Comments
     token_count: 510
 ---

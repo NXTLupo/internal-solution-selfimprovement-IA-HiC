@@ -11,40 +11,49 @@ score: 16
 upvote_ratio: 0.94
 num_comments: 8
 flair: "Shopify General Discussion"
-extracted_at: "2026-06-18T13:35:23.051Z"
+extracted_at: "2026-06-24T22:14:23.471Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/shopify/1rpap19.md#c0"
     char_span: [0, 844]
     sentence_count: 4
     key_terms: [shopify, e-commerce, reddit, https, com, news, www, comments]
+    concepts: [shopify, e-commerce, reddit, https, comments]
     token_count: 224
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1rpap19/this_weeks_top_ecommerce_news_stories_mar_9th_2026/"}]
   - id: "social-intelligence/reddit-deep/shopify/1rpap19.md#c1"
     char_span: [847, 3363]
     sentence_count: 14
     key_terms: [recommendations, checkout, meta, information, shopping, chatbot, million, product]
+    concepts: [recommendations, checkout, information, shopping, chatbot]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1rpap19.md#c2"
     char_span: [3054, 5584]
     sentence_count: 12
     key_terms: [amazon, anthropic, according, ads, services, websites, sources, openai]
+    concepts: [anthropic, amazon, according, services, websites]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1rpap19.md#c3"
     char_span: [5234, 7914]
     sentence_count: 13
     key_terms: [google, app, store, fees, settlement, epic, billing, stores]
+    concepts: [google, store, settlement, billing, stores]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1rpap19.md#c4"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1rpap19.md#c4"
     char_span: [7579, 10251]
     sentence_count: 8
     key_terms: [product, "google's", app, google, store, "apple's", sweeney, infrastructure]
+    concepts: [product, "google's", google, store, infrastructure]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1rpap19.md#c3"]
     token_count: 502
   - id: "social-intelligence/reddit-deep/shopify/1rpap19.md#c5"
-    char_span: [10266, 10684]
+    char_span: [10265, 10683]
     sentence_count: 3
     key_terms: [community, contact, shopify, automatically, automoderator, moderators, soliciting, performed]
+    concepts: [community, contact, shopify]
     section: Comments
     token_count: 90
 ---

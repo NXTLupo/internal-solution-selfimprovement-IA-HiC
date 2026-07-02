@@ -19,29 +19,38 @@ content_hash: "868edeef8dc70f11"
 relevance_by_goal: {"490684cfa204":75}
 chunks:
   - id: "articles/reddit-deep-r-logistics/d5d53cdaa4.md#c0"
-    char_span: [0, 2297]
+    char_span: [0, 2296]
     sentence_count: 21
     key_terms: [logistics, amazon, transportation, "amazon's", access, selling, businesses, customers]
-    token_count: 497
+    concepts: [logistics, amazon, transportation, "amazon's", access]
+    related_chunks: ["articles/reddit-deep-r-logistics/d5d53cdaa4.md#c1", "articles/reddit-deep-r-logistics/d5d53cdaa4.md#c4"]
+    token_count: 496
+    sources: [{"n":"Reddit Deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1t4k5zg/catch_up_on_what_happened_this_week_in_logistics/"}]
   - id: "articles/reddit-deep-r-logistics/d5d53cdaa4.md#c1"
-    char_span: [2299, 4657]
+    char_span: [2298, 4656]
     sentence_count: 23
     key_terms: [amazon, "amazon's", ebay, volume, value, years, specialized, announced]
+    concepts: [amazon, "amazon's", volume, specialized, value]
+    related_chunks: ["articles/reddit-deep-r-logistics/d5d53cdaa4.md#c0"]
     token_count: 480
   - id: "articles/reddit-deep-r-logistics/d5d53cdaa4.md#c2"
-    char_span: [4659, 7114]
+    char_span: [4658, 7113]
     sentence_count: 31
     key_terms: [ebay, sellers, cohen, authentication, built, items, "gamestop's", individual]
+    concepts: [sellers, cohen, authentication, built, "gamestop's"]
     token_count: 506
   - id: "articles/reddit-deep-r-logistics/d5d53cdaa4.md#c3"
-    char_span: [7116, 9467]
+    char_span: [7115, 9466]
     sentence_count: 21
     key_terms: [delivery, teamsters, volume, subcontracted, model, fulfillment, home, contractor]
+    concepts: [delivery, teamsters, subcontracted, volume, fulfillment]
     token_count: 457
   - id: "articles/reddit-deep-r-logistics/d5d53cdaa4.md#c4"
-    char_span: [9469, 11952]
+    char_span: [9468, 11951]
     sentence_count: 15
     key_terms: [amazon, logistics, industry, freight, interesting, customers, shipments, delivery]
+    concepts: [amazon, logistics, industry, freight, interesting]
+    related_chunks: ["articles/reddit-deep-r-logistics/d5d53cdaa4.md#c0"]
     token_count: 498
 ---
 # Catch up on what happened this week in Logistics: April 28 - May 4

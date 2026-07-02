@@ -19,15 +19,18 @@ chunks:
     char_span: [0, 1506]
     sentence_count: 14
     key_terms: [humanresources, years, like, background, experience, nonprofits, comments, teaching]
+    concepts: [humanresources, background, experience, nonprofits, years]
     token_count: 351
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1smq1ck/how_did_you_figure_out_what_you_like_to_do_in_hr/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1smq1ck.md#c1"
-    char_span: [1521, 3396]
+    char_span: [1520, 3395]
     sentence_count: 10
     key_terms: [generalist, like, personality, roles, msgrayrm813, recruitment, role, programs]
+    concepts: [generalist, personality, roles, msgrayrm813, recruitment]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/humanresources/1smq1ck.md#c2"
-    char_span: [3399, 4229]
+    char_span: [3398, 4228]
     sentence_count: 6
     key_terms: [back, accommodations, satisfaction, shawarmalegs, coordinator, msgrayrm813, generalist, operations]
     section: Comments

@@ -17,24 +17,29 @@ research_goal: "Produce the definitive guide to personal investing in 2026 by an
 engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/investing/1rgsbvn.md#c0"
-    char_span: [0, 1996]
+    char_span: [0, 1995]
     sentence_count: 6
     key_terms: [safety, personal, safer, women, authorities, help, interested, emergency]
-    token_count: 448
+    concepts: [safety, personal, authorities, interested, safer]
+    token_count: 447
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1rgsbvn/safer_x_binge_labs_open_to_suggestions_for_a_seed/"}]
   - id: "social-intelligence/reddit-deep/investing/1rgsbvn.md#c1"
-    char_span: [1998, 4188]
+    char_span: [1997, 4187]
     sentence_count: 6
     key_terms: [sos, subscription, safer, emergency, like, zones, partnership, app]
+    concepts: [subscription, emergency, safer, partnership, corporates]
     token_count: 495
   - id: "social-intelligence/reddit-deep/investing/1rgsbvn.md#c2"
-    char_span: [4190, 6443]
+    char_span: [4189, 6442]
     sentence_count: 11
     key_terms: [infrastructure, sos, revenue, bangalore, hubs, annual, series, india]
+    concepts: [infrastructure, revenue, bangalore, annual, series]
     token_count: 477
   - id: "social-intelligence/reddit-deep/investing/1rgsbvn.md#c3"
-    char_span: [6445, 7042]
+    char_span: [6444, 7041]
     sentence_count: 3
     key_terms: [believe, problem, b2b, conversations, partnerships, authorities, sustainable, understand]
+    concepts: [believe, problem]
     token_count: 127
 ---
 # Safer x Binge Labs - Open to suggestions for a seed round for a Women Safety Platform.

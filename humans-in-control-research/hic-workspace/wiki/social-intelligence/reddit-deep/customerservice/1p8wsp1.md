@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1718]
     sentence_count: 13
     key_terms: [style, japanese, agent, customerservice, global, differences, information, work]
+    concepts: [japanese, style, agent, customerservice, global]
     token_count: 405
+    sources: [{"n":"reddit-deep: r/customerservice","u":"https://www.reddit.com/r/CustomerService/comments/1p8wsp1/global_cs_strategy_issues_with_cultural/"}]
   - id: "social-intelligence/reddit-deep/customerservice/1p8wsp1.md#c1"
-    char_span: [1733, 3466]
+    char_span: [1732, 3465]
     sentence_count: 25
     key_terms: [want, rank, gonna, get, give, good, let, run]
+    concepts: [gonna, employees, hierarchy, employee, someone]
     section: Comments
     token_count: 369
 ---

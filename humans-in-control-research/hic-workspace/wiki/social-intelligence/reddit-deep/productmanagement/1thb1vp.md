@@ -20,35 +20,46 @@ chunks:
     char_span: [0, 1586]
     sentence_count: 10
     key_terms: [people, "i'm", "i've", productmanagement, get, user, problem, interviews]
+    concepts: [people, productmanagement, problem, interviews, comments]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1thb1vp.md#c1", "social-intelligence/reddit-deep/productmanagement/1thb1vp.md#c2"]
     token_count: 353
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1thb1vp/user_interviews_are_not_going_well_are_there_any/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1thb1vp.md#c1"
-    char_span: [1601, 3588]
+    char_span: [1600, 3587]
     sentence_count: 12
     key_terms: [problem, people, "i'm", negligible, hobby, getting, issue, participate]
+    concepts: [problem, people, negligible, hobby, getting]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1thb1vp.md#c0", "social-intelligence/reddit-deep/productmanagement/1thb1vp.md#c2"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/productmanagement/1thb1vp.md#c2"
-    char_span: [3590, 5724]
+    char_span: [3589, 5723]
     sentence_count: 9
     key_terms: [people, problem, give, "that's", recruiting, cards, "it's", already]
+    concepts: [people, problem, recruiting, "that's", cards]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1thb1vp.md#c0", "social-intelligence/reddit-deep/productmanagement/1thb1vp.md#c1", "social-intelligence/reddit-deep/productmanagement/1thb1vp.md#c3"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/productmanagement/1thb1vp.md#c3"
-    char_span: [5726, 7905]
+    char_span: [5725, 7904]
     sentence_count: 14
     key_terms: [people, cards, research, time, pokemon, communities, better, doing]
+    concepts: [people, research, cards, communities, pokemon]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1thb1vp.md#c2"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/productmanagement/1thb1vp.md#c4"
-    char_span: [7907, 9904]
+    char_span: [7906, 9903]
     sentence_count: 13
     key_terms: [interview, bulk, questions, give, time, problem, enough, "don't"]
+    concepts: [interview, questions, problem, enough, "don't"]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/productmanagement/1thb1vp.md#c5"
-    char_span: [9906, 10778]
+    char_span: [9905, 10777]
     sentence_count: 6
     key_terms: [problem, further, answer, better, based, ohcrapitsyouagain, isn, interviewing]
+    concepts: [problem, further, answer, better, based]
     section: Comments
     token_count: 198
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1147]
     sentence_count: 7
     key_terms: [memory, evaluation, machinelearning, systems, scores, system, performance, different]
+    concepts: [evaluation, memory, machinelearning, systems, scores]
     token_count: 241
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1s8osi9/d_the_problem_with_comparing_ai_memory_system/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1s8osi9.md#c1"
     char_span: [1161, 2938]
     sentence_count: 2
     key_terms: [eval, running, locomo, memory, comparisons, informative, own, benchmarks]
+    concepts: [running, locomo, memory, comparisons, informative]
     section: Comments
     token_count: 387
 ---

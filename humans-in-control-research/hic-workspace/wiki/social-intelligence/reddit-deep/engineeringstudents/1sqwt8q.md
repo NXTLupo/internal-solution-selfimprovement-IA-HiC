@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1265]
     sentence_count: 9
     key_terms: [get, engineeringstudents, classmates, depressed, comments, around, people, stupid]
+    concepts: [engineeringstudents, classmates, depressed, comments, around]
     token_count: 284
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sqwt8q/i_dont_like_my_life/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sqwt8q.md#c1"
     char_span: [1279, 2709]
     sentence_count: 8
     key_terms: [class, questions, ask, fun, engineers, something, sometimes, learning]
+    concepts: [class, questions, engineers, something, sometimes]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1sqwt8q.md#c2"]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sqwt8q.md#c2"
     char_span: [2711, 4703]
     sentence_count: 16
     key_terms: [questions, class, year, people, "you're", ask, job, professor]
+    concepts: [questions, class, people, "you're", professor]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1sqwt8q.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sqwt8q.md#c3"
     char_span: [4487, 5331]
     sentence_count: 5
     key_terms: [ask, questions, since, suspiciousbnnuy, relationship, everything, interested, professors]
+    concepts: [questions, since]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sqwt8q.md#c4"
     char_span: [5333, 6174]
     sentence_count: 7
     key_terms: ["it's", get, problems, dream, steps, time, classmates, experience]
+    concepts: [problems, dream, steps]
     section: Comments
     token_count: 192
 ---

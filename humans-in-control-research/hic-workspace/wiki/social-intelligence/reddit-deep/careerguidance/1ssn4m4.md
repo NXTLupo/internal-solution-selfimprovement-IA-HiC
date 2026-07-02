@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2209]
     sentence_count: 14
     key_terms: [coding, option, competitive, development, interest, careerguidance, career, doing]
+    concepts: [coding, option, competitive, development, interest]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1ssn4m4/need_career_guidance_after_bca/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1ssn4m4.md#c1"
     char_span: [2211, 3078]
     sentence_count: 4
     key_terms: [confusion, practical, another, whether, career, want, undervaluing, comfortable]
+    concepts: [confusion, practical, another, whether, career]
     token_count: 189
 ---
 # NEED CAREER  GUIDANCE AFTER BCA?

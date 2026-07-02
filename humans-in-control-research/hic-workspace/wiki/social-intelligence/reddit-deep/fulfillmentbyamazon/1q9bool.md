@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1764]
     sentence_count: 16
     key_terms: [inventory, amazon, product, safety, food, fulfillmentbyamazon, asin, review]
+    concepts: [inventory, amazon, product, safety, fulfillmentbyamazon]
     token_count: 417
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1q9bool/product_safety_block_on_1kg_oats_asin_amazonae/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1q9bool.md#c1"
-    char_span: [1779, 2452]
+    char_span: [1778, 2451]
     sentence_count: 4
     key_terms: [fulfillmentbyamazon, discord, fba, discuss, server, join, automatically, automoderator]
+    concepts: [fulfillmentbyamazon, discord, discuss, server]
     section: Comments
     token_count: 163
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 215]
     sentence_count: 2
     key_terms: [gradadmissions, comments, common-payment9984, reddit-deep, posted, reddit, source, https]
+    concepts: [gradadmissions, comments]
     token_count: 67
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rlb46k/i_got_in/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rlb46k.md#c1"
     char_span: [229, 1448]
     sentence_count: 8
     key_terms: [congratulations, congrats, common-payment9984, like, emeraldmeetsauburn, starryeyedwings, amazing, profile]
+    concepts: [congratulations, common-payment9984, congrats, emeraldmeetsauburn, starryeyedwings]
     section: Comments
     token_count: 374
 ---

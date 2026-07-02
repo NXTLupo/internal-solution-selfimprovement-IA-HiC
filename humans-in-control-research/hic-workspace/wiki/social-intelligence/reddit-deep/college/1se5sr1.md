@@ -19,89 +19,110 @@ chunks:
     char_span: [0, 1403]
     sentence_count: 20
     key_terms: [students, semester, college, directions, experience, different, comments, absent]
+    concepts: [students, semester, college, directions, experience]
     token_count: 316
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1se5sr1/what_is_going_on_with_students_right_now/"}]
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c1"
     char_span: [1417, 1996]
     sentence_count: 6
     key_terms: [major, business, class, like, participates, journalism, questions, sometimes]
+    concepts: [major, business, class]
+    related_chunks: ["social-intelligence/reddit-deep/college/1se5sr1.md#c2"]
     section: Comments
     token_count: 131
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c2"
     char_span: [1998, 4242]
     sentence_count: 17
     key_terms: [business, like, majors, because, class, need, stem, students]
+    concepts: [business, majors, because, class, students]
+    related_chunks: ["social-intelligence/reddit-deep/college/1se5sr1.md#c1", "social-intelligence/reddit-deep/college/1se5sr1.md#c3", "social-intelligence/reddit-deep/college/1se5sr1.md#c12"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c3"
     char_span: [3984, 5913]
     sentence_count: 15
     key_terms: [classes, students, like, business, need, yeah, interested, anything]
+    concepts: [classes, students, business, interested, anything]
+    related_chunks: ["social-intelligence/reddit-deep/college/1se5sr1.md#c2"]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c4"
     char_span: [5915, 7985]
     sentence_count: 13
     key_terms: [people, class, english, discussions, been, take, interested, mandatory]
+    concepts: [people, class, english, discussions, interested]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c5"
     char_span: [7987, 10045]
     sentence_count: 14
     key_terms: [learning, material, answer, quiz, everything, worksheet, lectures, students]
+    concepts: [learning, material, answer, everything, worksheet]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c6"
     char_span: [10047, 11141]
     sentence_count: 6
     key_terms: [because, don, learning, get, job, jobs, certification, applications]
+    concepts: [because, learning]
     section: Comments
     token_count: 227
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c7"
     char_span: [11144, 13104]
     sentence_count: 18
     key_terms: [learning, time, getting, holiestcannoly, graded, school, participation, going]
+    concepts: [learning, holiestcannoly, participation, getting, graded]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c8"
     char_span: [13106, 15185]
     sentence_count: 25
     key_terms: [classes, having, missed, social, though, media, plan, staying]
+    concepts: [classes, having, missed, social, though]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c9"
     char_span: [15187, 17342]
     sentence_count: 24
     key_terms: [classes, world, need, night, keep, hierarchy, important, magnesium]
+    concepts: [classes, world, night, hierarchy, important]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c10"
     char_span: [17344, 19460]
     sentence_count: 16
     key_terms: [students, professor, yourself, someone, staying, student, happen, little]
+    concepts: [students, professor, yourself, someone, staying]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c11"
     char_span: [19462, 20514]
     sentence_count: 3
     key_terms: [students, anymore, great, aren, don, responsibilities, balenciagagucci, mynameiswinner]
+    concepts: [students, anymore, great]
+    related_chunks: ["social-intelligence/reddit-deep/college/1se5sr1.md#c12"]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c12"
     char_span: [20517, 22850]
     sentence_count: 16
     key_terms: [anymore, don, students, because, care, "i'm", like, professors]
+    concepts: [anymore, students, because, professors, notebook]
+    related_chunks: ["social-intelligence/reddit-deep/college/1se5sr1.md#c2", "social-intelligence/reddit-deep/college/1se5sr1.md#c11"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c13"
     char_span: [22544, 23390]
     sentence_count: 5
     key_terms: [gpa, anymore, system, beautiful-package877, personalitynew2404, drop, fail, simultaneously]
+    concepts: [anymore, system]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c14"
     char_span: [23392, 24257]
     sentence_count: 10
     key_terms: [husband, student, school, "it's", time, nontraditional, additionally, generational]
+    concepts: [husband, student, school]
     section: Comments
     token_count: 207
 ---

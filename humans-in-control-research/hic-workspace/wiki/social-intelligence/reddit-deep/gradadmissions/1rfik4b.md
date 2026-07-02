@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 207]
     sentence_count: 1
     key_terms: [gradadmissions, comments, whatttt, nemosfishballs, reddit-deep, posted, reddit, source]
+    concepts: [gradadmissions, comments, whatttt]
     token_count: 67
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rfik4b/whatttt/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rfik4b.md#c1"
-    char_span: [222, 2063]
+    char_span: [221, 2062]
     sentence_count: 15
     key_terms: [congratulations, money-mountain5041, school, proud, congrats, "i'm", family, mother]
+    concepts: [congratulations, money-mountain5041, school, congrats, proud]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rfik4b.md#c2"
-    char_span: [1839, 2785]
+    char_span: [1838, 2784]
     sentence_count: 9
     key_terms: [congratulations, amazing, nice, negative, comment, footsignificant6793, tamsisonherkeyboard, money-mountain5041]
+    concepts: [congratulations, amazing, negative, comment]
     section: Comments
     token_count: 274
 ---

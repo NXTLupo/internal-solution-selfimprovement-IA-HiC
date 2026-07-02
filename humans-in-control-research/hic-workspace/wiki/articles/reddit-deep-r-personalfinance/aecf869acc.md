@@ -18,21 +18,26 @@ chunks:
     char_span: [0, 2125]
     sentence_count: 15
     key_terms: [pool, wife, house, financial, get, loan, personalfinance, share]
+    concepts: [financial, house, personalfinance, retirement, share]
     token_count: 502
+    sources: [{"n":"Reddit Deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1p83emh/mom_asking_to_use_a_heloc_to_buy_a_pool/"}]
   - id: "articles/reddit-deep-r-personalfinance/aecf869acc.md#c1"
     char_span: [2129, 2797]
     sentence_count: 7
     key_terms: [pay, concern, house, "i've", real, relationship, considering, immediately]
+    concepts: [concern, house]
     token_count: 144
   - id: "articles/reddit-deep-r-personalfinance/aecf869acc.md#c2"
     char_span: [2799, 4970]
     sentence_count: 21
     key_terms: [pool, "don't", "it's", live, risk, excavation, including, september]
+    concepts: ["don't", excavation, including, september, cleaning]
     token_count: 512
   - id: "articles/reddit-deep-r-personalfinance/aecf869acc.md#c3"
     char_span: [4683, 5788]
     sentence_count: 8
     key_terms: [like, live, lawn, mom, retired, someone, garage, nickburnscompanyguy]
+    concepts: [retired, someone, garage, being, fence]
     token_count: 256
 ---
 # Mom Asking to Use a HELOC to Buy a Pool

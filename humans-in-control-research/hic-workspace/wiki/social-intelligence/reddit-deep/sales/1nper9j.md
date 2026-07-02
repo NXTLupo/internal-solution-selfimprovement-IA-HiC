@@ -20,34 +20,46 @@ chunks:
     char_span: [0, 2301]
     sentence_count: 16
     key_terms: [sales, linkedin, worked, customers, moving, people, construction, frozen-treat]
+    concepts: [sales, linkedin, worked, customers, construction]
+    related_chunks: ["social-intelligence/reddit-deep/sales/1nper9j.md#c4"]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1nper9j/how_should_i_set_up_my_linkedin_for_breaking_into/"}]
   - id: "social-intelligence/reddit-deep/sales/1nper9j.md#c1"
     char_span: [2303, 2725]
     sentence_count: 2
     key_terms: [prospecting, pipeline, client, entrepreneurial, high-performing, communication, adaptability, consistently]
+    concepts: [prospecting, pipeline, client]
     token_count: 82
   - id: "social-intelligence/reddit-deep/sales/1nper9j.md#c2"
-    char_span: [2740, 4801]
+    char_span: [2739, 4800]
     sentence_count: 19
     key_terms: [profile, linkedin, number, interview, anything, managed, revenue, tickets]
+    concepts: [profile, linkedin, number, interview, anything]
+    related_chunks: ["social-intelligence/reddit-deep/sales/1nper9j.md#c3", "social-intelligence/reddit-deep/sales/1nper9j.md#c5"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/sales/1nper9j.md#c3"
-    char_span: [4804, 6784]
+    char_span: [4803, 6783]
     sentence_count: 16
     key_terms: [apply, roles, per, linkedin, profile, seconds, sales, look]
+    concepts: [apply, roles, linkedin, profile, seconds]
+    related_chunks: ["social-intelligence/reddit-deep/sales/1nper9j.md#c2", "social-intelligence/reddit-deep/sales/1nper9j.md#c5"]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/sales/1nper9j.md#c4"
-    char_span: [6786, 8461]
+    char_span: [6785, 8460]
     sentence_count: 13
     key_terms: [sales, meaningful, linkedin, helpful, summary, advice, people, good]
+    concepts: [meaningful, sales, linkedin, helpful, summary]
+    related_chunks: ["social-intelligence/reddit-deep/sales/1nper9j.md#c0"]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/sales/1nper9j.md#c5"
-    char_span: [8463, 9063]
+    char_span: [8462, 9062]
     sentence_count: 4
     key_terms: [linkedin, profile, special-land-9854, main, want, specializes, tigercircle, generation]
+    concepts: [linkedin, profile]
+    related_chunks: ["social-intelligence/reddit-deep/sales/1nper9j.md#c2", "social-intelligence/reddit-deep/sales/1nper9j.md#c3"]
     section: Comments
     token_count: 140
 ---

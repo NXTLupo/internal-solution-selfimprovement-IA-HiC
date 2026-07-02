@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 861]
     sentence_count: 4
     key_terms: [admitted, comments, students, workload, program, ece, neu, opportunities]
+    concepts: [admitted, comments, students, workload, program]
     token_count: 205
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1swpk5d/admitted_to_ms_in_ece_looking_for_student/"}]
 ---
 # Admitted to MS in ECE – looking for student experiences (difficulty, workload, internships, timeline)
 

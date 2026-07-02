@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 1320]
     sentence_count: 1
     key_terms: [learning, disability, applyingtocollege, anyone, disabilities, particularly, somewhere, comments]
+    concepts: [learning, disability, applyingtocollege, disabilities, particularly]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ljxw3a.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1ljxw3a.md#c2"]
     token_count: 275
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1ljxw3a/learning_disabilities_and_applying_to_college/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ljxw3a.md#c1"
     char_span: [1334, 3574]
     sentence_count: 17
     key_terms: [students, applyingtocollege, disabled, college, mention, disabilities, learning, schools]
+    concepts: [students, applyingtocollege, disabled, disabilities, college]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ljxw3a.md#c0"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ljxw3a.md#c2"
     char_span: [3576, 4823]
     sentence_count: 11
     key_terms: [school, extra, learning, time, disabilities, "don't", admissions, disability]
+    concepts: [school, learning, disabilities, extra, admissions]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ljxw3a.md#c0"]
     section: Comments
     token_count: 266
 ---

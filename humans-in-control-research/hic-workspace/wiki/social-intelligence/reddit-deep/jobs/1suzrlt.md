@@ -21,53 +21,63 @@ chunks:
     char_span: [0, 2257]
     sentence_count: 15
     key_terms: [meeting, project, been, company, manager, time, email, told]
+    concepts: [meeting, project, company, manager, email]
     token_count: 500
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1suzrlt/fired_for_the_first_time_in_30_years_weird/"}]
   - id: "social-intelligence/reddit-deep/jobs/1suzrlt.md#c1"
     char_span: [2271, 4018]
     sentence_count: 18
     key_terms: [lawyer, boss, negotiable, separation, agreement, severance, projects, "there's"]
+    concepts: [lawyer, negotiable, separation, agreement, severance]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/jobs/1suzrlt.md#c2"
     char_span: [4020, 5612]
     sentence_count: 9
     key_terms: [manager, something, deadline, probably, because, company, meeting, project]
+    concepts: [manager, something, deadline, probably, because]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/jobs/1suzrlt.md#c3"
     char_span: [5614, 7726]
     sentence_count: 17
     key_terms: [boss, get, reach, potentially, vp-of-vibes, leadership, narrative, because]
+    concepts: [potentially, vp-of-vibes, leadership, reach, narrative]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/jobs/1suzrlt.md#c4"
     char_span: [7728, 8933]
     sentence_count: 9
     key_terms: [maleficentcherry7116, agreement, company, someone, sometimes, people, internationalspray79, offer]
+    concepts: [maleficentcherry7116, agreement, company, someone, sometimes]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/jobs/1suzrlt.md#c5"
     char_span: [8935, 10304]
     sentence_count: 7
     key_terms: [severance, company, month, subcontract, work, employment, companies, eligible]
+    concepts: [severance, company, subcontract, employment, month]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/jobs/1suzrlt.md#c6"
     char_span: [10306, 12323]
     sentence_count: 17
     key_terms: [lawyer, job, boss, get, getting, project, anything, complete]
+    concepts: [lawyer, getting, project, anything, complete]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/jobs/1suzrlt.md#c7"
     char_span: [12325, 14395]
     sentence_count: 19
     key_terms: [boss, review, email, ready, upset, platform, sent, team]
+    concepts: [review, platform, email, ready, upset]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/jobs/1suzrlt.md#c8"
     char_span: [14397, 16192]
     sentence_count: 13
     key_terms: [boss, people, sorry, get, "i'm", definitely, ton-mantis, something]
+    concepts: [people, definitely, sorry, ton-mantis, something]
     section: Comments
     token_count: 433
 ---

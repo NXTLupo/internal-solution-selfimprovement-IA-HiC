@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1150]
     sentence_count: 7
     key_terms: [short-term, work, povertyfinance, short, freelance, comments, options, similar]
+    concepts: [short-term, povertyfinance, short, freelance, comments]
     token_count: 270
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1teq5bg/need_advice_370_short_on_a_debt_struggling_to/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1teq5bg.md#c1"
     char_span: [1164, 2938]
     sentence_count: 5
     key_terms: [day, get, paid, extension, because, payment, usually, local]
+    concepts: [extension, because, payment, usually, local]
     section: Comments
     token_count: 414
 ---

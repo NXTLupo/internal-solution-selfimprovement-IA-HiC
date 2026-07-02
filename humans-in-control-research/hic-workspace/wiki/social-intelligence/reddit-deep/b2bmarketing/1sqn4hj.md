@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1087]
     sentence_count: 9
     key_terms: [reddit, tools, b2bmarketing, generation, marketing, comments, did, help]
+    concepts: [reddit, tools, b2bmarketing, generation, marketing]
     token_count: 229
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1sqn4hj/has_anyone_here_actually_used_reddit_marketing/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sqn4hj.md#c1"
-    char_span: [1102, 3340]
+    char_span: [1101, 3339]
     sentence_count: 10
     key_terms: [conversations, looking-for-marketing-discussion-811236647760298024, get, help, automate, reddit, find, "i've"]
+    concepts: [conversations, automate, reddit, questions, because]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sqn4hj.md#c2"
-    char_span: [3345, 3712]
+    char_span: [3344, 3711]
     sentence_count: 6
     key_terms: [advance, join, communities, competitors, engagement, sub-reddit, promoting, promotion]
+    concepts: [advance]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sqn4hj.md#c3"
-    char_span: [3714, 5828]
+    char_span: [3713, 5827]
     sentence_count: 13
     key_terms: [threads, like, people, check, tools, get, ones, tool]
+    concepts: [threads, people, check, tools, listening]
     section: Comments
     token_count: 494
 ---

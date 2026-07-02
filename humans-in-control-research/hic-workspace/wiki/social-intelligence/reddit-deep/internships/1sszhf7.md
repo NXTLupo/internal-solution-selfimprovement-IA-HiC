@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 2289]
     sentence_count: 19
     key_terms: [applications, internships, internship, lot, getting, started, feels, roles]
+    concepts: [applications, internships, internship, getting, started]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sszhf7/if_youre_losing_hope_in_your_internship_search/"}]
   - id: "social-intelligence/reddit-deep/internships/1sszhf7.md#c1"
     char_span: [2291, 2456]
     sentence_count: 3
@@ -29,6 +31,7 @@ chunks:
     char_span: [2470, 4312]
     sentence_count: 13
     key_terms: [interviews, experience, internship, maybe, applied, resume, applications, send]
+    concepts: [interviews, experience, internship, maybe, applied]
     section: Comments
     token_count: 495
 ---

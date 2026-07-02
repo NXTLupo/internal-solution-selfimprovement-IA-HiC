@@ -21,47 +21,61 @@ chunks:
     char_span: [0, 1739]
     sentence_count: 18
     key_terms: [credit, spending, people, adult, like, own, apartment, comments]
+    concepts: [credit, spending, people, adult, apartment]
     token_count: 385
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1oeddst/why_does_every_part_of_adult_life_suddenly/"}]
   - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c1"
     char_span: [1753, 3715]
     sentence_count: 16
     key_terms: [credit, score, money, juliavalentine, "don't", bank, free, use]
+    concepts: [credit, score, money, juliavalentine, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1oeddst.md#c4", "social-intelligence/reddit-deep/genz/1oeddst.md#c5", "social-intelligence/reddit-deep/genz/1oeddst.md#c6", "social-intelligence/reddit-deep/genz/1oeddst.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c2"
     char_span: [3717, 5080]
     sentence_count: 12
     key_terms: [credit, breaknecessary6940, laplongejr, european, because, curious, getting, borrow]
+    concepts: [breaknecessary6940, credit, laplongejr, european, because]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c3"
     char_span: [5082, 7362]
     sentence_count: 16
     key_terms: [credit, someone, certain, behavior, designed, history, living, scores]
+    concepts: [credit, someone, certain, behavior, designed]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c4"
     char_span: [7364, 8678]
     sentence_count: 9
     key_terms: [credit, cards, score, functioning, applies, digital, history, society]
+    concepts: [credit, cards, functioning, score, applies]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1oeddst.md#c1"]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c5"
     char_span: [8680, 9562]
     sentence_count: 5
     key_terms: [credit, "don't", money, point, card, getting, kawaiiqueen21, essentially]
+    concepts: [credit, "don't", money, point, getting]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1oeddst.md#c1", "social-intelligence/reddit-deep/genz/1oeddst.md#c6", "social-intelligence/reddit-deep/genz/1oeddst.md#c7"]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c6"
     char_span: [9564, 11218]
     sentence_count: 10
     key_terms: [credit, "don't", trust, good, history, expect, benefit, paying]
+    concepts: [credit, "don't", trust, history, expect]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1oeddst.md#c1", "social-intelligence/reddit-deep/genz/1oeddst.md#c5", "social-intelligence/reddit-deep/genz/1oeddst.md#c7"]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c7"
     char_span: [11220, 12344]
     sentence_count: 5
     key_terms: [credit, "don't", trust, something, accept, phones, since, until]
+    concepts: [credit, "don't", trust, something, accept]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1oeddst.md#c1", "social-intelligence/reddit-deep/genz/1oeddst.md#c5", "social-intelligence/reddit-deep/genz/1oeddst.md#c6"]
     section: Comments
     token_count: 249
 ---

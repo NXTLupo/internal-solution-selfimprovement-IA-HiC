@@ -19,19 +19,23 @@ content_hash: "fc5f6a7740f228ba"
 relevance_by_goal: {"46dec9599ad5":45}
 chunks:
   - id: "articles/reddit-deep-r-investing/ebe0dd36d4.md#c0"
-    char_span: [0, 1992]
+    char_span: [0, 1991]
     sentence_count: 12
     key_terms: [design, figma, product, priced, adobe, worth, development, investing]
-    token_count: 502
+    concepts: [design, figma, product, priced, development]
+    token_count: 501
+    sources: [{"n":"Reddit Deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1lr70x3/figmas_ipo_why_i_think_its_worth_2750share/"}]
   - id: "articles/reddit-deep-r-investing/ebe0dd36d4.md#c1"
-    char_span: [1994, 3643]
+    char_span: [1993, 3642]
     sentence_count: 7
     key_terms: [software, "it's", meetings, margins, product, shares, electronichousing595, "can't"]
+    concepts: [software, meetings, margins, product, shares]
     token_count: 383
   - id: "articles/reddit-deep-r-investing/ebe0dd36d4.md#c2"
-    char_span: [3645, 4544]
+    char_span: [3644, 4543]
     sentence_count: 4
     key_terms: [people, products, specific, product, backgroundartist9883, give, like, pay]
+    concepts: [people, products, specific, product]
     token_count: 222
 ---
 # Figma’s IPO: Why I Think It’s Worth $27.50/Share

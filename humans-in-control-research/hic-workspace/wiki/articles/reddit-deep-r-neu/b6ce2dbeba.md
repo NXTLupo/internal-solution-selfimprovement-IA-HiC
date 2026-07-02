@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 787]
     sentence_count: 2
     key_terms: [program, abroad, people, reddit, super, back, neu, opportunities]
+    concepts: [program, abroad, people, reddit, super]
     token_count: 180
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rzdct7/is_it_actually_bad_coming_back_from_nuin/"}]
   - id: "articles/reddit-deep-r-neu/b6ce2dbeba.md#c1"
     char_span: [789, 2970]
     sentence_count: 9
     key_terms: [nuin, friends, people, back, boston, campus, year, semester]
+    concepts: [friends, people, boston, campus, semester]
     token_count: 512
   - id: "articles/reddit-deep-r-neu/b6ce2dbeba.md#c2"
     char_span: [2662, 3877]
     sentence_count: 8
     key_terms: [nuin, because, spoiled, aid, got, lot, entitled, wealthy]
+    concepts: [because, spoiled, entitled, wealthy, coming]
     token_count: 279
 ---
 # is it actually bad coming back from nuin??

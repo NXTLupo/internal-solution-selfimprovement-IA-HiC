@@ -8,19 +8,23 @@ chunks:
     char_span: [0, 254]
     sentence_count: 3
     key_terms: [nxt, isqhavm7si4qhawb7y9c2z, brand, design-tokens, collection, variable, runtime, design]
+    concepts: [brand]
     token_count: 79
   - id: "brand/nxt/design-system.md#c1"
     char_span: [271, 583]
     sentence_count: 1
     key_terms: [b8b800, cc6644, wash, chartreuse, band-text, hairline, success, accent]
+    concepts: [b8b800, cc6644]
     section: Color tokens
     token_count: 143
   - id: "brand/nxt/design-system.md#c2"
     char_span: [599, 2689]
     sentence_count: 6
     key_terms: [source, design-system, mono, semibold, takeaway, archivo, quote, cyan]
+    concepts: [source, design-system, semibold, takeaway, archivo]
     section: "Font roles / Dimensions / GOLD anatomy (every artifact page) / Case-study deep-dive variants (diversify, never repeat one) / Where the implementations live / Pattern pages (per-hashtag construction specs)"
     token_count: 506
+    sources: [{"n":"lines in cyan mono, never as a per-slide source strip.","u":""}]
 ---
 # NXT Humans Design System
 

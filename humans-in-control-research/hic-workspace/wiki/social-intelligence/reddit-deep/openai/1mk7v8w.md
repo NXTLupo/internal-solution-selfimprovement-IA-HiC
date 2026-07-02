@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 327]
     sentence_count: 1
     key_terms: [comments, context, openai, drinksbeerdaily, reddit-deep, openrouter, quality, windows]
+    concepts: [comments, context, openai]
     token_count: 96
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1mk7v8w/all_gpt5_models_has_a_400k_context_windows_per/"}]
   - id: "social-intelligence/reddit-deep/openai/1mk7v8w.md#c1"
     char_span: [341, 2154]
     sentence_count: 12
     key_terms: [gpt-5, docs, page, outdated, million, cutoff, models, openai]
+    concepts: [gpt-5, outdated, million, cutoff, models]
     section: Comments
     token_count: 460
 ---

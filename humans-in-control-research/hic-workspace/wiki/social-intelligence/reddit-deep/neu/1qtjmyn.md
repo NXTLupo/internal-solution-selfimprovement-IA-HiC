@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 528]
     sentence_count: 4
     key_terms: [co-op, comments, search, been, neu, internships, reddit-deep, applying]
+    concepts: [co-op, comments, search]
     token_count: 151
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qtjmyn/help_advice_on_getting_a_coop/"}]
   - id: "social-intelligence/reddit-deep/neu/1qtjmyn.md#c1"
     char_span: [542, 795]
     sentence_count: 1
     key_terms: [applying, typical-builder-8032, internships, persistent, referrals, september, linkedin, because]
+    concepts: [applying]
     section: Comments
     token_count: 76
 ---

@@ -19,12 +19,14 @@ content_hash: "156f81950af6eefe"
 relevance_by_goal: {"46dec9599ad5":55}
 chunks:
   - id: "articles/reddit-deep-r-chatgpt/eeaa2a9e8d.md#c0"
-    char_span: [0, 1713]
+    char_span: [0, 1712]
     sentence_count: 10
     key_terms: [chatgpt, https, save, a67df99152969d796f9f11b204d9826f971f9f51, callmejimmilton, please, conversation, image]
-    token_count: 500
+    concepts: [chatgpt, callmejimmilton, https, conversation, please]
+    token_count: 499
+    sources: [{"n":"[Reddit Deep: r/chatgpt](articles/reddit-deep-r-chatgpt/6af6ab7dff.md","u":""}]
   - id: "articles/reddit-deep-r-chatgpt/eeaa2a9e8d.md#c1"
-    char_span: [1715, 2096]
+    char_span: [1714, 2095]
     sentence_count: 2
     key_terms: [street-inevitable358, worth-reputation3450, like, u4b1wjrfhipww, interrogated, aeugaedirlu, tortured, dungeon]
     token_count: 132

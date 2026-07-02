@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 594]
     sentence_count: 5
     key_terms: [gradschool, comments, people, orangespectre, communities, reddit-deep, applicants, subreddits]
+    concepts: [gradschool, comments, people]
     token_count: 134
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1t8lkzo/where_do_people_track_grad_school_decisions/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1t8lkzo.md#c1"
     char_span: [608, 1995]
     sentence_count: 5
     key_terms: [results, right, find, decision, better, people, season, sluntcrossintheroad]
+    concepts: [results, right, decision, better, people]
     section: Comments
     token_count: 353
 ---

@@ -19,19 +19,23 @@ content_hash: "4a3703b44e65da44"
 relevance_by_goal: {"46dec9599ad5":45}
 chunks:
   - id: "articles/reddit-deep-r-defi/95dcfd8e8a.md#c0"
-    char_span: [0, 2248]
+    char_span: [0, 2247]
     sentence_count: 23
     key_terms: [defi, money, reddit, wanted, learn, price, days, real]
-    token_count: 494
+    concepts: [money, reddit, wanted, learn, liquidated]
+    token_count: 493
+    sources: [{"n":"Reddit Deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1sqg8zm/i_built_a_defi_simulator_defi_tycoon_so_people/"}]
   - id: "articles/reddit-deep-r-defi/95dcfd8e8a.md#c1"
-    char_span: [2250, 4564]
+    char_span: [2249, 4563]
     sentence_count: 31
     key_terms: [learning, real, simulation, right, defi, notsoschrodinger, signal, thanks]
+    concepts: [learning, simulation, notsoschrodinger, right, signal]
     token_count: 495
   - id: "articles/reddit-deep-r-defi/95dcfd8e8a.md#c2"
-    char_span: [4566, 5296]
+    char_span: [4565, 5295]
     sentence_count: 9
     key_terms: [friends, regular-forever5876, liquidation, appreciate, definitely, guardrails, wackysnaky, long-term]
+    concepts: [friends]
     token_count: 190
 ---
 # I built a DeFi simulator (DeFi Tycoon) so people can learn without losing money

@@ -21,50 +21,62 @@ chunks:
     char_span: [0, 2097]
     sentence_count: 14
     key_terms: [years, like, got, since, cscareerquestions, "i'm", anyone, became]
+    concepts: [years, cscareerquestions, since, anyone, became]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c1"]
     token_count: 500
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tai12z/feels_like_anyone_can_do_what_i_do_now/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c1"
     char_span: [2099, 3982]
     sentence_count: 20
     key_terms: ["i've", got, since, started, became, better, people, skills]
+    concepts: [since, started, became, better, people]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c0"]
     token_count: 423
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c2"
     char_span: [3984, 5983]
     sentence_count: 16
     key_terms: [like, "i'm", job, though, doing, since, feel, year]
+    concepts: [though, doing, everything, since, anymore]
     token_count: 445
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c3"
     char_span: [5985, 6738]
     sentence_count: 11
     key_terms: [sorry, lot, career, typing, alone, hope, "i'm", like]
+    concepts: [sorry, career, typing, alone]
     token_count: 173
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c4"
     char_span: [6752, 8526]
     sentence_count: 8
     key_terms: [like, software, games, platformer, something, everyone, complex, imagine]
+    concepts: [software, games, platformer, something, everyone]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c5"
     char_span: [8528, 10052]
     sentence_count: 8
     key_terms: ["i'm", coding, people, like, need, confident, guidance, complex]
+    concepts: [coding, people, confident, guidance, complex]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c6"
     char_span: [10055, 11934]
     sentence_count: 14
     key_terms: [llm, dev, complexity, generating, understand, mastering, curious, shaders]
+    concepts: [complexity, generating, understand, mastering, curious]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c7"
     char_span: [11936, 14228]
     sentence_count: 9
     key_terms: [judgment, somewhat, probably, because, career, got, "it's", job]
+    concepts: [judgment, somewhat, probably, because, career]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c8"
     char_span: [14230, 15612]
     sentence_count: 8
     key_terms: ["it's", information, learning, longjumping-rate1948, never, get, like, side]
+    concepts: [information, learning, never]
     section: Comments
     token_count: 337
 ---

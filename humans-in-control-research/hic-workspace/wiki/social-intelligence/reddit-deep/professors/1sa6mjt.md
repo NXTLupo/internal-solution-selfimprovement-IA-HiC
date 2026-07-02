@@ -19,46 +19,54 @@ chunks:
     char_span: [0, 2142]
     sentence_count: 25
     key_terms: [himself, "he's", comments, accelerated, day, professors, structure, recently]
+    concepts: [himself, comments, accelerated, professors, structure]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1sa6mjt/new_guy_misrepresents_himself_and_yet/"}]
   - id: "social-intelligence/reddit-deep/professors/1sa6mjt.md#c1"
     char_span: [2144, 2633]
     sentence_count: 5
     key_terms: [support, "i'm", appreciate, attention, challenge, expertise, preparing, questions]
+    concepts: [support]
     token_count: 104
   - id: "social-intelligence/reddit-deep/professors/1sa6mjt.md#c2"
-    char_span: [2648, 4670]
+    char_span: [2647, 4669]
     sentence_count: 13
     key_terms: [gossip, landslime, people, like, someone, become, appropriate-low-4850, aware]
+    concepts: [gossip, landslime, people, someone, become]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1sa6mjt.md#c3"
-    char_span: [4458, 4734]
+    char_span: [4457, 4733]
     sentence_count: 2
     key_terms: [google-searched, frankrizzo319, tigeretching, plagiarized, fantastic, landslime, published, anything]
     section: Comments
     token_count: 79
   - id: "social-intelligence/reddit-deep/professors/1sa6mjt.md#c4"
-    char_span: [4736, 5746]
+    char_span: [4735, 5745]
     sentence_count: 8
     key_terms: [because, vulnerable, likely, tenure, knows, emmynoetherring, opportunities, capabilities]
+    concepts: [because, vulnerable, likely, tenure, knows]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/professors/1sa6mjt.md#c5"
-    char_span: [5748, 7421]
+    char_span: [5747, 7420]
     sentence_count: 14
     key_terms: [everything, expertise, questions, program, handle, jargon, likely, built]
+    concepts: [everything, expertise, questions, program, handle]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/professors/1sa6mjt.md#c6"
-    char_span: [7423, 9596]
+    char_span: [7422, 9595]
     sentence_count: 22
     key_terms: [position, program, administration, department, explain, going, didn, get]
+    concepts: [position, administration, program, department, explain]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/professors/1sa6mjt.md#c7"
-    char_span: [9598, 11500]
+    char_span: [9597, 11499]
     sentence_count: 15
     key_terms: [record, mr-mojo-rizin, going, birdsnstuf, everything, document, school, appropriate-low-4850]
+    concepts: [mr-mojo-rizin, record, birdsnstuf, everything, going]
     section: Comments
     token_count: 485
 ---

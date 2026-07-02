@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1692]
     sentence_count: 14
     key_terms: [job, applications, never, jobs, life, interviews, comments, manager]
+    concepts: [applications, interviews, never, comments, manager]
     token_count: 403
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1mjfj57/i_have_never_struggled_to_find_a_basic_minimum/"}]
   - id: "social-intelligence/reddit-deep/jobs/1mjfj57.md#c1"
     char_span: [1706, 3347]
     sentence_count: 7
     key_terms: [adult, life, military, deleted, entire, online, gasaccomplished3929, apply]
+    concepts: [adult, military, deleted, entire, online]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/jobs/1mjfj57.md#c2"
     char_span: [3349, 5097]
     sentence_count: 11
     key_terms: [get, warehouse, amazon, better, job, jobs, want, applying]
+    concepts: [warehouse, amazon, better, applying, probably]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/jobs/1mjfj57.md#c3"
     char_span: [5099, 6233]
     sentence_count: 9
     key_terms: [job, get, market, paris, far-telephone-7432, easy, jobs, time]
+    concepts: [market, paris]
     section: Comments
     token_count: 280
 ---

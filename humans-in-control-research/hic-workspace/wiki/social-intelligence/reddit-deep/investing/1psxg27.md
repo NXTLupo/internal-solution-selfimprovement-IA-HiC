@@ -20,16 +20,22 @@ chunks:
     char_span: [0, 1828]
     sentence_count: 17
     key_terms: [kaspi, marketplace, profitability, app, like, kazakhstan, consumers, investing]
+    concepts: [kaspi, marketplace, profitability, kazakhstan, consumers]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1psxg27.md#c1"]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1psxg27/kspi_wechat_meli_style_superapp_in_kazakhstan/"}]
   - id: "social-intelligence/reddit-deep/investing/1psxg27.md#c1"
     char_span: [1830, 3519]
     sentence_count: 17
     key_terms: [report, russia, kaspi, local, uncertainty, kazakhstan, continued, turkey]
+    concepts: [report, russia, uncertainty, kaspi, kazakhstan]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1psxg27.md#c0"]
     token_count: 394
   - id: "social-intelligence/reddit-deep/investing/1psxg27.md#c2"
-    char_span: [3534, 4641]
+    char_span: [3533, 4640]
     sentence_count: 3
     key_terms: [kaspi-kz-responds-investor-questions-111600392, https, most-undervalued-stocks, financial-information, undervalued, com, culperresearch, report]
+    concepts: [kaspi-kz-responds-investor-questions-111600392, https, most-undervalued-stocks, financial-information, undervalued]
     section: Comments
     token_count: 312
 ---

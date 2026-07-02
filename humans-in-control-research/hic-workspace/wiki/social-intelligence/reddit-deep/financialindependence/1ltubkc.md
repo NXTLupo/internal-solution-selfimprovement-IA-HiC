@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 2163]
     sentence_count: 8
     key_terms: [years, travel, financialindependence, corporate, love, careers, debt, help]
+    concepts: [years, travel, financialindependence, corporate, careers]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1ltubkc/the_slow_path_to_wealth_was_quicker_than/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c1"
     char_span: [2165, 3339]
     sentence_count: 6
     key_terms: [rather, spending, dramatically, money, years, like, take, time]
+    concepts: [rather, spending, dramatically, money, throughout]
     token_count: 261
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c2"
     char_span: [3341, 5127]
     sentence_count: 10
     key_terms: [school, private, around, number, wealth, potentially, net, per]
+    concepts: [school, private, around, number, wealth]
     token_count: 501
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c3"
     char_span: [5129, 5736]
@@ -40,6 +44,7 @@ chunks:
     char_span: [5750, 7111]
     sentence_count: 1
     key_terms: [wealth, net, user-no-relation, household, change, income, age, beg]
+    concepts: [wealth]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c5"
@@ -52,36 +57,44 @@ chunks:
     char_span: [7733, 9359]
     sentence_count: 14
     key_terms: [japan, work, daycare, tokyo, free, like, wife, prefecture]
+    concepts: [japan, daycare, prefecture, tokyo, full-time]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c7"
     char_span: [9361, 11231]
     sentence_count: 12
     key_terms: [income, "that's", tokyo, toseta256, savings, pretty, child, early]
+    concepts: [income, "that's", tokyo, toseta256, savings]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c8"
     char_span: [10960, 12343]
     sentence_count: 7
     key_terms: ["that's", income, household, nonprofit, japanese, median, triple, early]
+    concepts: ["that's", income, household, nonprofit, japanese]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c7"]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c9"
     char_span: [12345, 14628]
     sentence_count: 15
     key_terms: [friends, social, japanese, life, "you'll", people, years, been]
+    concepts: [friends, social, japanese, "you'll", people]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c10"
     char_span: [14630, 16582]
     sentence_count: 15
     key_terms: [quick, toseta256, expectations, japan, life, work, discipline, understand]
+    concepts: [quick, toseta256, expectations, discipline, japan]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c11"
     char_span: [16325, 17021]
     sentence_count: 8
     key_terms: [japan, invested, "i'm", usa, combination, investments, percentages, everything]
+    concepts: [japan, invested]
     section: Comments
     token_count: 178
 ---

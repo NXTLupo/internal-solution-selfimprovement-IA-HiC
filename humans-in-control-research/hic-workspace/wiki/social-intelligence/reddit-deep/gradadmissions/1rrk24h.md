@@ -21,41 +21,53 @@ chunks:
     char_span: [0, 1728]
     sentence_count: 18
     key_terms: [gradadmissions, maybe, professor, comments, decision, because, contact, mid-may]
+    concepts: [gradadmissions, maybe, professor, comments, decision]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rrk24h.md#c2"]
     token_count: 396
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rrk24h/informal_offer_rescinded_just_complaining_im/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rrk24h.md#c1"
     char_span: [1742, 3669]
     sentence_count: 13
     key_terms: [probably, because, bullet, dodged, admin, been, like, definitely]
+    concepts: [probably, because, bullet, dodged, admin]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/gradadmissions/1rrk24h.md#c2"
     char_span: [3671, 5645]
     sentence_count: 18
     key_terms: [like, wait, want, professor, decision, yourself, choice, saying]
+    concepts: [professor, decision, yourself, choice, saying]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rrk24h.md#c0"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/gradadmissions/1rrk24h.md#c3"
     char_span: [5647, 7085]
     sentence_count: 13
     key_terms: [deadline, accepted, honestly, advisor, offer, been, give, "i'd"]
+    concepts: [deadline, accepted, honestly, advisor, offer]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/gradadmissions/1rrk24h.md#c4"
     char_span: [7087, 8951]
     sentence_count: 21
     key_terms: [accept, offer, "i'd", play, unofficial, employers, contract, official]
+    concepts: [accept, offer, unofficial, employers, contract]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rrk24h.md#c6"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/gradadmissions/1rrk24h.md#c5"
     char_span: [8953, 10348]
     sentence_count: 13
     key_terms: [choice, early, gave, someone, telling, offers, offer, didn]
+    concepts: [choice, early, someone, telling, offers]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/gradadmissions/1rrk24h.md#c6"
     char_span: [10350, 11689]
     sentence_count: 10
     key_terms: [minimumtelevision217, offer, accept, advice, blacklist, position, better, careful-while-7214]
+    concepts: [minimumtelevision217, offer, accept, advice, blacklist]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rrk24h.md#c4"]
     section: Comments
     token_count: 319
 ---

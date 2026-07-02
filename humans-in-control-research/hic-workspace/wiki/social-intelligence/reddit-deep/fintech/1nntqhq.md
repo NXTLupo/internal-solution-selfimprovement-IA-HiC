@@ -17,10 +17,12 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/fintech/1nntqhq.md#c0"
-    char_span: [0, 1596]
+    char_span: [0, 1595]
     sentence_count: 9
     key_terms: [fintech, enterprise, compliance, comments, clients, learned, lessons, working]
-    token_count: 358
+    concepts: [fintech, enterprise, compliance, comments, clients]
+    token_count: 357
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1nntqhq/we_worked_with_terapeak_hub_international_edge/"}]
 ---
 # We worked with Terapeak, Hub International, Edge Benefits and more... here are 5 things we learned building fintech solutions for enterprise clients
 

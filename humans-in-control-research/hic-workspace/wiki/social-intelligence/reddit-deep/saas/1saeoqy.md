@@ -20,45 +20,54 @@ chunks:
     char_span: [0, 2138]
     sentence_count: 11
     key_terms: [handle, interruptions, agent, best, comments, software, started, without]
+    concepts: [interruptions, handle, agent, comments, software]
     token_count: 486
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1saeoqy/best_ai_voice_agent_software/"}]
   - id: "social-intelligence/reddit-deep/saas/1saeoqy.md#c1"
     char_span: [2140, 4195]
     sentence_count: 16
     key_terms: [need, deflection, salesforce, analytics, sentiment, workflows, platform, aircall]
+    concepts: [deflection, salesforce, analytics, sentiment, workflows]
     token_count: 472
   - id: "social-intelligence/reddit-deep/saas/1saeoqy.md#c2"
     char_span: [4197, 5932]
     sentence_count: 15
     key_terms: ["it's", platforms, handoffs, elevenlabs, platform, aircall, handoff, agents]
+    concepts: [platforms, handoffs, elevenlabs, platform, aircall]
     token_count: 404
   - id: "social-intelligence/reddit-deep/saas/1saeoqy.md#c3"
-    char_span: [5947, 7916]
+    char_span: [5946, 7915]
     sentence_count: 10
     key_terms: [platforms, routing, retell, add, min, vapi, telephony, regions]
+    concepts: [platforms, routing, retell, telephony, regions]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/saas/1saeoqy.md#c4"
-    char_span: [7920, 9444]
+    char_span: [7919, 9443]
     sentence_count: 13
     key_terms: [pay-per-use, use, platforms, prospects, "doesn't", handoff, pricing, beyond]
+    concepts: [pay-per-use, platforms, prospects, "doesn't", handoff]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/saas/1saeoqy.md#c5"
-    char_span: [9448, 11708]
+    char_span: [9447, 11707]
     sentence_count: 11
     key_terms: [scenarios, needing, agent, calls, after-hours, difference, sentiment, callback]
+    concepts: [scenarios, needing, after-hours, agent, calls]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/saas/1saeoqy.md#c6"
-    char_span: [11710, 13735]
+    char_span: [11709, 13734]
     sentence_count: 23
     key_terms: [call, calendar, answers, recording, transfer, latency, number, simple]
+    concepts: [calendar, answers, recording, transfer, latency]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/saas/1saeoqy.md#c7"
-    char_span: [13737, 15556]
+    char_span: [13736, 15555]
     sentence_count: 13
     key_terms: [sexual-harassment-from-abhishek-sharma-shunya-labs-a-decade-later-finding-my-voice-after-d25ee664d71d, reachall, harassment, voice, medium, shunya, bolna, abhisheksharmasexualharrasment]
+    concepts: [reachall, harassment, voice, medium, shunya]
     section: Comments
     token_count: 476
 ---

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2021]
     sentence_count: 23
     key_terms: [college, breakup, "i'm", through, dad, work, extensions, accident]
+    concepts: [college, breakup, through, extensions, accident]
     token_count: 494
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1so8sgm/should_i_tell_my_profs_my_dad_passed/"}]
   - id: "articles/reddit-deep-r-college/d0aae9d84b.md#c1"
     char_span: [2023, 3435]
     sentence_count: 13
     key_terms: [etc, work, missed, profs, weeks, hospital, college, stepmom]
+    concepts: [missed, profs, weeks, hospital, college]
     token_count: 333
 ---
 # Should I tell my profs my dad passed?

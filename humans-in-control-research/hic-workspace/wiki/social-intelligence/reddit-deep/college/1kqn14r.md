@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 610]
     sentence_count: 3
     key_terms: [college, comments, freshman, posted, ticket, stubs, year, experiences]
+    concepts: [college, comments, freshman, posted, ticket]
     token_count: 147
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1kqn14r/ticket_stubs_from_my_freshman_year_of_college/"}]
   - id: "social-intelligence/reddit-deep/college/1kqn14r.md#c1"
     char_span: [624, 1542]
     sentence_count: 7
     key_terms: [saves, day, good, sethrs21, deleted, iwishitwaschristmas, been, lol]
+    concepts: [saves, sethrs21, deleted]
     section: Comments
     token_count: 257
 ---

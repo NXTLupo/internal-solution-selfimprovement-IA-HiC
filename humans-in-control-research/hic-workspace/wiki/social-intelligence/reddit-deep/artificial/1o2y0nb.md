@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 287]
     sentence_count: 1
     key_terms: [https, artificial, comments, arxiv, abs, org, metaknowing, reddit-deep]
+    concepts: [artificial, https, comments, arxiv]
     token_count: 94
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1o2y0nb/llms_can_get_addicted_to_gambling/"}]
   - id: "social-intelligence/reddit-deep/artificial/1o2y0nb.md#c1"
     char_span: [301, 2045]
     sentence_count: 13
     key_terms: [behavior, addiction, c9bedd4c08c7c76aa8e33df6a3f3e8ecd4b8009f, optimization, withdrawal, gambling, because, similar]
+    concepts: [behavior, addiction, optimization, withdrawal, gambling]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/artificial/1o2y0nb.md#c2"
     char_span: [2048, 3367]
     sentence_count: 9
     key_terms: [irrationality, behaviour, index, paper, bankruptcy, outcomes, exhibit, humans]
+    concepts: [irrationality, behaviour, bankruptcy, index, paper]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/artificial/1o2y0nb.md#c3"
     char_span: [3369, 5312]
     sentence_count: 10
     key_terms: [survival, "it's", emotion, feelings, "doesn't", behaviour, cognitive, something]
+    concepts: [survival, emotion, feelings, "doesn't", behaviour]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/artificial/1o2y0nb.md#c4"
     char_span: [5314, 6723]
     sentence_count: 12
     key_terms: [processes, survival, understand, machines, thought, being, drive, anthropomorphizing]
+    concepts: [processes, survival, understand, machines, thought]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/artificial/1o2y0nb.md#c5"
     char_span: [6725, 8640]
     sentence_count: 13
     key_terms: [deleted, addict, behave, like, everything, simulating, behaviour, something]
+    concepts: [deleted, addict, behave, everything, simulating]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1o2y0nb.md#c6"
@@ -62,6 +69,7 @@ chunks:
     char_span: [8744, 9353]
     sentence_count: 3
     key_terms: [like, surprised, prestigious-text8939, does, "it's", interpretations, doctorschwifty, banjoschmanjo]
+    concepts: [surprised]
     section: Comments
     token_count: 158
 ---

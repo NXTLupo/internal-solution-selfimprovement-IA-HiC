@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 570]
     sentence_count: 4
     key_terms: [ninjatrader, stocks, execution, comments, futures, trading, broker, day]
+    concepts: [ninjatrader, stocks, execution, comments, futures]
     token_count: 131
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1p3nmki/best_stock_brokerplatform_for_execution_day/"}]
   - id: "social-intelligence/reddit-deep/stocks/1p3nmki.md#c1"
-    char_span: [585, 2316]
+    char_span: [584, 2315]
     sentence_count: 13
     key_terms: ["i've", charts, direct-access, configurable, tradestation, ocean, das, use]
+    concepts: [direct-access, configurable, tradestation, charts, ocean]
     section: Comments
     token_count: 423
 ---

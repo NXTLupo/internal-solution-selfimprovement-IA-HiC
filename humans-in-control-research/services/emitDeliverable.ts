@@ -158,8 +158,19 @@ export interface EmitDeliverableOpts<T> {
         evidence?: EvidencePointer[];                        // optional pre-built ledger
         /** The manifest chunks that grounded this generation. When provided, the wrapper maps them to a
          *  REAL EvidencePointer ledger (buildEvidenceLedger) - preferred over a pre-built `evidence`. */
-        resolvedChunks?: Array<{ id: string; sourcePath?: string; text?: string; sources?: Array<{ n: string; u: string }>; concepts?: string[]; relatedChunks?: string[] }>;
+        resolvedChunks?: Array<{ id: string; sourcePath?: string; text?: string; sources?: Array<{ n: string; u: string }>; concepts?: string[]; relatedChunks?: string[]; retrievalScore?: number }>;
         buildPayload?: (result: T, text: string) => unknown; // defaults to the extracted text
+        /** W2 (2026-07-01, scorecard "modelTrace 0/11"): the routing decision that selected this
+         *  artifact's model (from aiRouter.chooseArtifactModel). Recorded as a ModelTraceStep so the AIR
+         *  carries selectedModel + routingReason + quota state. When omitted, the wrapper still records a
+         *  step from opts.model_id with a caller-selected reason - the trace is NEVER empty again. */
+        routing?: { model?: string; reason?: string; alternatives?: string[]; quotaState?: 'healthy' | 'degraded' | 'exhausted' | 'unknown' };
+        /** W3 (scorecard "decomposedQuestions 0/11"): the research plan's sub-questions. When omitted the
+         *  wrapper falls back to window.__hicResearchPlanSubQuestions (set by App.tsx when a plan exists).
+         *  Coverage per sub-question is computed deterministically against the grounding corpus + output. */
+        subQuestions?: Array<{ id: string; question?: string; text?: string; priority?: string | number; expected_named_entities?: string[] }>;
+        /** D12 per-path ramp: set true ONLY after this path has emitted a clean AIR on a live run. */
+        blocking?: boolean;
     };
 }
 
@@ -298,18 +309,70 @@ export async function emitDeliverable<T>(opts: EmitDeliverableOpts<T>): Promise<
                 || (typeof window !== 'undefined' ? ((window as any).__hicCurrentEngagementSlug as string) : '')
                 || 'run';
             const artifactId = opts.air.artifactId || `${opts.deliverable.replace(/^#/, '')}_${t0}`;
+            // W3 (2026-07-01, scorecard "decomposedQuestions 0/11"): hydrate the Objective Graph. Sub-questions
+            // come from the caller or the research plan global (App.tsx sets it when the plan exists); coverage
+            // per sub-question is computed deterministically (auditSubQuestionCoverage) against the corpus that
+            // grounded THIS artifact plus its own output text - the objective-supremacy signal, per artifact.
+            let decomposedQuestions: any[] = [];
+            try {
+                const rawSqs = opts.air.subQuestions
+                    || (typeof window !== 'undefined' ? ((window as any).__hicResearchPlanSubQuestions as any[]) : null)
+                    || [];
+                if (Array.isArray(rawSqs) && rawSqs.length) {
+                    const { auditSubQuestionCoverage } = await import('./researchPlanner');
+                    const groundingText = [
+                        ...(opts.air.resolvedChunks || []).map(c => c.text || ''),
+                        text || '',
+                    ].join('\n');
+                    const audit = auditSubQuestionCoverage(groundingText, rawSqs as any);
+                    const covById = new Map(audit.perQuestion.map(p => [p.id, p.status]));
+                    const prioNum = (p: any): number => (typeof p === 'number' ? Math.min(5, Math.max(1, p))
+                        : p === 'high' ? 1 : p === 'low' ? 5 : 3);
+                    decomposedQuestions = rawSqs.slice(0, 12).map((sq: any, i: number) => ({
+                        id: String(sq.id || `sq_${i + 1}`),
+                        text: String(sq.question || sq.text || '').slice(0, 300),
+                        priority: prioNum(sq.priority),
+                        requiredEvidenceTypes: Array.isArray(sq.expected_evidence_types) ? sq.expected_evidence_types : undefined,
+                        coverageStatus: covById.get(String(sq.id || `sq_${i + 1}`)) || 'uncovered',
+                    })).filter((q: any) => q.text);
+                }
+            } catch (e: any) {
+                console.warn(`[emitDeliverable/${opts.deliverable}] sub-question hydration failed (non-fatal):`, e?.message || e);
+            }
             const objective = {
                 objectiveId: `obj_${runId}`,
                 userObjective: opts.air.objective || '',
-                decomposedQuestions: [] as any[],
+                decomposedQuestions,
                 audience: opts.air.audience,
             };
             const payload = opts.air.buildPayload ? opts.air.buildPayload(result, text) : text;
             let evidence = opts.air.evidence || [];
             // WS-J/D14: record the grounding read as a GOVERNED tool step (wiki_retrieval pack) so the AIR
             // carries a real toolTrace, giving the mcp_tool_governance gate live per-run data on this path too.
-            const { newRunTrace, recordToolStep } = await import('./runTraceService');
+            const { newRunTrace, recordToolStep, recordModelStep } = await import('./runTraceService');
             const airTrace = newRunTrace(runId);
+            // W2 (scorecard "modelTrace 0/11" + "Provider Tracing LOST"): ALWAYS record the model step.
+            // The FINAL model wins over the requested one when the chain-walker surfaces it (result.modelUsed),
+            // so a fallback (e.g. Opus -> Gemini) is recorded as what actually ran, with the routing reason.
+            try {
+                const finalModel = String((result as any)?.modelUsed || opts.air.routing?.model || opts.model_id || 'unknown');
+                const requested = String(opts.air.routing?.model || opts.model_id || finalModel);
+                const fellBack = finalModel !== requested;
+                const provider: 'gemini' | 'anthropic' | 'openai' =
+                    finalModel.startsWith('claude-') ? 'anthropic'
+                        : (finalModel.startsWith('gpt-') || finalModel.startsWith('o1') || finalModel.startsWith('o3')) ? 'openai'
+                            : 'gemini';
+                recordModelStep(airTrace, {
+                    step: `${opts.deliverable.replace(/^#/, '')}:generate`,
+                    selectedModel: finalModel,
+                    routingReason: (opts.air.routing?.reason || 'caller-selected model')
+                        + (fellBack ? ` [FELL BACK from ${requested}]` : ''),
+                    provider,
+                    costEstimateUsd: 0,
+                    quotaState: opts.air.routing?.quotaState || (fellBack ? 'degraded' : 'unknown'),
+                    elapsedMs: elapsed_ms,
+                });
+            } catch { /* trace step is best-effort; the AIR still emits */ }
             if (opts.air.resolvedChunks && opts.air.resolvedChunks.length > 0) {
                 const { buildEvidenceLedger } = await import('./evidenceLedgerService');
                 evidence = buildEvidenceLedger(opts.air.resolvedChunks);
@@ -323,7 +386,8 @@ export async function emitDeliverable<T>(opts: EmitDeliverableOpts<T>): Promise<
             }
             const { air, entry } = buildAir({
                 runId, artifactId, trigger: opts.air.trigger, objective,
-                evidenceLedger: evidence, artifactPayload: payload, trace: airTrace, shadowMode: true,
+                evidenceLedger: evidence, artifactPayload: payload, trace: airTrace,
+                shadowMode: opts.air.blocking !== true,
             });
             const v = validateAir(air);
             if (v.failures.length > 0) {

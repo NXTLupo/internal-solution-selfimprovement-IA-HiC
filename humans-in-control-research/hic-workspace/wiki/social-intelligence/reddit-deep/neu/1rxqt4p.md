@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 2065]
     sentence_count: 14
     key_terms: [oakland, business, administration, boston, healthcare, transition, campus, co-ops]
+    concepts: [oakland, business, administration, healthcare, transition]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rxqt4p/prospective_student_oakland_to_boston_business/"}]
 ---
 # Prospective Student: Oakland to Boston (Business + Public Health) — Is the transition/ROI worth it?
 

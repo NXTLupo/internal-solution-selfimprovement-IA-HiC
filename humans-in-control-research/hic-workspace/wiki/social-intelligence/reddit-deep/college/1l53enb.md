@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1119]
     sentence_count: 4
     key_terms: [data, cheme, major, analysis, comments, majoring, biochem, college]
+    concepts: [cheme, major, analysis, comments, majoring]
     token_count: 263
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1l53enb/need_advice_double_major_or_cheme/"}]
 ---
 # need advice: double major or chemE
 

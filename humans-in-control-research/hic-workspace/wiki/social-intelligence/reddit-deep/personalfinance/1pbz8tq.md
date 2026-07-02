@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1910]
     sentence_count: 18
     key_terms: [savings, internship, back, get, personalfinance, around, credit, track]
+    concepts: [internship, savings, personalfinance, around, credit]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1pbz8tq.md#c1"]
     token_count: 474
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1pbz8tq/21_blew_most_of_my_internship_money_now_stressed/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1pbz8tq.md#c1"
     char_span: [1924, 3802]
     sentence_count: 13
     key_terms: [savings, debt, pay, budget, credit, income, "you're", overspending]
+    concepts: [savings, budget, credit, overspending, income]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1pbz8tq.md#c0"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/personalfinance/1pbz8tq.md#c2"
     char_span: [3804, 5148]
     sentence_count: 11
     key_terms: [money, don, learned, credit, lesson, "you're", chickenmysterious586, cards]
+    concepts: [money, learned, credit, lesson, "you're"]
     section: Comments
     token_count: 353
 ---

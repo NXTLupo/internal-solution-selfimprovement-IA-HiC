@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 303]
     sentence_count: 2
     key_terms: [careerguidance, comments, reddit-deep, sharktopus-, experience, engineer, looking, advice]
+    concepts: [careerguidance, comments]
     token_count: 91
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1td2af6/qa_engineer_with_25_years_of_experience_looking/"}]
 ---
 # Qa engineer with 2.5 years of experience looking for career advice?
 

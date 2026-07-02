@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1975]
     sentence_count: 14
     key_terms: [transcription, editing, jobs, experience, schedule, medical, workonline, comments]
+    concepts: [transcription, editing, experience, schedule, medical]
+    related_chunks: ["social-intelligence/reddit-deep/workonline/1tgz1uf.md#c1"]
     token_count: 440
+    sources: [{"n":"reddit-deep: r/workonline","u":"https://www.reddit.com/r/WorkOnline/comments/1tgz1uf/sciencemedical_transcription_or_editing/"}]
   - id: "social-intelligence/reddit-deep/workonline/1tgz1uf.md#c1"
     char_span: [1989, 2543]
     sentence_count: 4
     key_terms: [medical, transcription, entry-level, fortheloveofbugs, positioning, background, everything, experience]
+    concepts: [transcription, medical, entry-level]
+    related_chunks: ["social-intelligence/reddit-deep/workonline/1tgz1uf.md#c0"]
     section: Comments
     token_count: 117
 ---

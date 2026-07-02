@@ -21,47 +21,61 @@ chunks:
     char_span: [0, 806]
     sentence_count: 7
     key_terms: [college, comments, going, reddit, bro, kids, tell, good-ground523]
+    concepts: [college, comments, going, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/college/1njm1g6.md#c2"]
     token_count: 194
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1njm1g6/theres_too_many_bad_faith_arguments_about_college/"}]
   - id: "social-intelligence/reddit-deep/college/1njm1g6.md#c1"
     char_span: [820, 2332]
     sentence_count: 10
     key_terms: [education, college, scam, cost, here, university, students, curious]
+    concepts: [education, college, university, students, curious]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/college/1njm1g6.md#c2"
     char_span: [2334, 4428]
     sentence_count: 19
     key_terms: [going, people, college, money, degree, cost, investment, university]
+    concepts: [going, people, college, money, degree]
+    related_chunks: ["social-intelligence/reddit-deep/college/1njm1g6.md#c0", "social-intelligence/reddit-deep/college/1njm1g6.md#c4", "social-intelligence/reddit-deep/college/1njm1g6.md#c5", "social-intelligence/reddit-deep/college/1njm1g6.md#c6"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/college/1njm1g6.md#c3"
     char_span: [4430, 5493]
     sentence_count: 4
     key_terms: [scam, education, because, "they're", increasingly-fascist, odd-marionberry5999, job, lies]
+    concepts: [education, because, "they're"]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/college/1njm1g6.md#c4"
     char_span: [5496, 7694]
     sentence_count: 6
     key_terms: [degree, people, bisexualspikespiegel, "doesn't", badgroundnoise, tech, undergrad, college]
+    concepts: [degree, bisexualspikespiegel, people, badgroundnoise, "doesn't"]
+    related_chunks: ["social-intelligence/reddit-deep/college/1njm1g6.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1njm1g6.md#c5"
     char_span: [7410, 8169]
     sentence_count: 5
     key_terms: [people, college, arts, liberal, mean, badgroundnoise, indoctrination, complaining]
+    concepts: [people, college, liberal]
+    related_chunks: ["social-intelligence/reddit-deep/college/1njm1g6.md#c2", "social-intelligence/reddit-deep/college/1njm1g6.md#c6"]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/college/1njm1g6.md#c6"
     char_span: [8171, 10400]
     sentence_count: 13
     key_terms: [people, lot, government, different, college, gravity--falls, universities, data]
+    concepts: [people, government, different, gravity--falls, college]
+    related_chunks: ["social-intelligence/reddit-deep/college/1njm1g6.md#c2", "social-intelligence/reddit-deep/college/1njm1g6.md#c5"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/college/1njm1g6.md#c7"
     char_span: [10402, 10987]
     sentence_count: 4
     key_terms: [everyone, college, work, engineering, progressing, significant, graduating, investment]
+    concepts: [everyone, college]
     section: Comments
     token_count: 131
 ---

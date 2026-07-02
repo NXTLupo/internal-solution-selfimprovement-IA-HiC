@@ -21,57 +21,73 @@ chunks:
     char_span: [0, 1916]
     sentence_count: 7
     key_terms: [hypsm, colleges, went, https, hertz-foundation-announces-2025-hertz-fellows, laureates, surprised, undergrad]
+    concepts: [hypsm, colleges, applyingtocollege, laureates, surprised]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c9"]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1mnsxig/surprised_by_dominance_of_5_colleges_in/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c1"
     char_span: [1918, 3301]
     sentence_count: 7
     key_terms: [some-thoughts-on-elite-law-school-bias-in-clerkship-hiring, justice-thomas-criticizes-law-school-rankings-hierarchy, want, justice-scalia-and-how-elites-are-hired, clerks, hired, https, com]
+    concepts: [clerks, hired, https, fields, "don't"]
     token_count: 356
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c2"
     char_span: [3303, 5523]
     sentence_count: 13
     key_terms: [hypsm, universities, great, backgrounds, fellowships, "it's", proportion, committee]
+    concepts: [universities, hypsm, great, backgrounds, fellowships]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c6"]
     token_count: 459
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c3"
     char_span: [5537, 7268]
     sentence_count: 8
     key_terms: [nobel, prize, economics, university, colleges, wealthy, winners, people]
+    concepts: [nobel, prize, economics, university, colleges]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c4"
     char_span: [7270, 9357]
     sentence_count: 10
     key_terms: [universities, physics, particularly, hypsm, univ, harvard, etc, professors]
+    concepts: [universities, physics, particularly, hypsm, harvard]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c2"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c5"
     char_span: [9359, 11673]
     sentence_count: 22
     key_terms: [students, classes, professors, universities, princeton, fellowships, letters, recommendation]
+    concepts: [students, classes, professors, universities, princeton]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c6"
     char_span: [11675, 14074]
     sentence_count: 16
     key_terms: [students, fellowships, hypsm, independent, student-led, lot, win, privileged]
+    concepts: [fellowships, students, hypsm, independent, student-led]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c2"]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c7"
     char_span: [14076, 15485]
     sentence_count: 1
     key_terms: [university, engineering, computer, stanford, science, electrical, school, mba]
+    concepts: [university, engineering, computer, stanford, science]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c8"
     char_span: [15487, 17367]
     sentence_count: 12
     key_terms: [schools, ivy, league, attended, wharton, preponderance, hypsm, university]
+    concepts: [schools, league, attended, preponderance, wharton]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c9"
     char_span: [17369, 18326]
     sentence_count: 3
     key_terms: [surprised, results, hypsm, throwaway-critic0, organizations, billionaires, considering, necessarily]
+    concepts: [surprised, results, hypsm]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c0"]
     section: Comments
     token_count: 229
 ---

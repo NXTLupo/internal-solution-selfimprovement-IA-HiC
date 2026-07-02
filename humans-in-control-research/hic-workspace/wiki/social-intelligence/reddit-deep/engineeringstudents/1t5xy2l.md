@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1413]
     sentence_count: 10
     key_terms: [engineering, engineeringstudents, experience, management, comments, headache, studying, thinking]
+    concepts: [engineering, engineeringstudents, experience, management, comments]
     token_count: 318
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1t5xy2l/mech_engineer_with_6_years_work_experience/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t5xy2l.md#c1"
     char_span: [1427, 3079]
     sentence_count: 10
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    concepts: [engineeringstudents, please, reddit, https, automoderator]
     section: Comments
     token_count: 384
 ---

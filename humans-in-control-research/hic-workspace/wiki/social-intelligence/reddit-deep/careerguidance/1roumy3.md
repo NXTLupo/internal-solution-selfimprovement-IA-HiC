@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 2116]
     sentence_count: 13
     key_terms: [get, experience, healthcare, jobs, radiology, like, want, careerguidance]
+    concepts: [experience, healthcare, radiology, careerguidance, anyone]
     token_count: 465
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1roumy3/trying_to_get_into_radiology_rad_tech_path_but/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1roumy3.md#c1"
     char_span: [2130, 3608]
     sentence_count: 14
     key_terms: [education, sudburysonofabitch, rad, tech, hospital, formal, needed, going]
+    concepts: [education, sudburysonofabitch, hospital, formal, needed]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/careerguidance/1roumy3.md#c2"
     char_span: [3610, 5029]
     sentence_count: 9
     key_terms: [program, school, get, rad, tech, want, accredited, healthcare]
+    concepts: [program, school, accredited, healthcare, education]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/careerguidance/1roumy3.md#c3"
     char_span: [5031, 6731]
     sentence_count: 10
     key_terms: [program, get, admissions, counselor, knowledge, questions, college, courses]
+    concepts: [program, admissions, counselor, knowledge, questions]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/careerguidance/1roumy3.md#c4"
     char_span: [6733, 8813]
     sentence_count: 16
     key_terms: [get, hospital, community, program, volunteering, take, anything, position]
+    concepts: [hospital, community, program, volunteering, anything]
     section: Comments
     token_count: 511
 ---

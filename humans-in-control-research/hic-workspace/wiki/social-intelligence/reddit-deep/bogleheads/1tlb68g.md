@@ -20,34 +20,45 @@ chunks:
     char_span: [0, 2017]
     sentence_count: 18
     key_terms: [advice, concentrated, "i've", post, bogleheads, community, positions, remaining]
+    concepts: [advice, concentrated, bogleheads, community, positions]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1tlb68g/laidoff_last_april_decided_to_retire_55_at_13m/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1tlb68g.md#c1"
     char_span: [2019, 3323]
     sentence_count: 2
     key_terms: [mortgage, asset, cash, plan, vti, remaining, equities, detail]
+    concepts: [mortgage, asset, remaining, equities, detail]
     token_count: 451
   - id: "social-intelligence/reddit-deep/bogleheads/1tlb68g.md#c2"
-    char_span: [3338, 5236]
+    char_span: [3337, 5235]
     sentence_count: 16
     key_terms: [throwaway-20260521, wealth, fee, get, advisor, "that's", using, help]
+    concepts: [throwaway-20260521, wealth, advisor, "that's", using]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1tlb68g.md#c4"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/bogleheads/1tlb68g.md#c3"
-    char_span: [5238, 7350]
+    char_span: [5237, 7349]
     sentence_count: 9
     key_terms: [fatfire, throwaway-20260521, account, because, advice, assets, understanding, constructive]
+    concepts: [fatfire, throwaway-20260521, understanding, account, because]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1tlb68g.md#c4", "social-intelligence/reddit-deep/bogleheads/1tlb68g.md#c5"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/bogleheads/1tlb68g.md#c4"
-    char_span: [7352, 9468]
+    char_span: [7351, 9467]
     sentence_count: 13
     key_terms: [throwaway-20260521, account, advised, wealth, donor, funds, stock, write]
+    concepts: [throwaway-20260521, account, advised, wealth, donor]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1tlb68g.md#c2", "social-intelligence/reddit-deep/bogleheads/1tlb68g.md#c3", "social-intelligence/reddit-deep/bogleheads/1tlb68g.md#c5"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/bogleheads/1tlb68g.md#c5"
-    char_span: [9470, 11342]
+    char_span: [9469, 11341]
     sentence_count: 15
     key_terms: [retirement, accounts, aapl, throwaway-20260521, diversification, account, taxable, optimization]
+    concepts: [retirement, accounts, throwaway-20260521, diversification, account]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1tlb68g.md#c3", "social-intelligence/reddit-deep/bogleheads/1tlb68g.md#c4"]
     section: Comments
     token_count: 450
 ---

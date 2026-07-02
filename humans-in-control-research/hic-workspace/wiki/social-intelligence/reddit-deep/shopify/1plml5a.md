@@ -11,32 +11,39 @@ score: 6
 upvote_ratio: 0.75
 num_comments: 35
 flair: "Shopify General Discussion"
-extracted_at: "2026-06-18T13:35:23.040Z"
+extracted_at: "2026-06-24T22:14:23.469Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/shopify/1plml5a.md#c0"
     char_span: [0, 1089]
     sentence_count: 19
     key_terms: [incremental, chatbot, sales, don, here, comments, increase, shopify]
+    concepts: [incremental, chatbot, sales, comments, increase]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1plml5a.md#c1"]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1plml5a/does_anyone_have_a_chatbot_that_has_actual_and/"}]
   - id: "social-intelligence/reddit-deep/shopify/1plml5a.md#c1"
-    char_span: [1104, 2907]
+    char_span: [1103, 2906]
     sentence_count: 11
     key_terms: [sales, bot, chatbot, operational, community, compare, contact, savings]
+    concepts: [sales, chatbot, operational, community, compare]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1plml5a.md#c0"]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/shopify/1plml5a.md#c2"
-    char_span: [2909, 4985]
+    char_span: [2908, 4984]
     sentence_count: 9
     key_terms: [human, get, sessions, chatbot, villagehomef, chat, roi, companies]
+    concepts: [human, sessions, chatbot, villagehomef, companies]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/shopify/1plml5a.md#c3"
-    char_span: [4987, 6675]
+    char_span: [4986, 6674]
     sentence_count: 11
     key_terms: [customer, product, support, chat, part, roi, modcowboy, another]
+    concepts: [customer, product, support, modcowboy, another]
     section: Comments
     token_count: 390
 ---

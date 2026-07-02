@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 2072]
     sentence_count: 11
     key_terms: [visa, digital, income, digitalnomad, costa, nomad, year, permanent]
+    concepts: [digital, digitalnomad, income, costa, nomad]
     token_count: 479
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1s3np5t/costa_rica_digital_nomad_visa_1_year_in_heres_the/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1s3np5t.md#c1"
     char_span: [2086, 4028]
     sentence_count: 11
     key_terms: [panama, month, income, expensive, been, like, monthly, people]
+    concepts: [panama, month, income, expensive, monthly]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1s3np5t.md#c2"
     char_span: [3790, 4644]
     sentence_count: 5
     key_terms: [people, residency, realize, panama, sounds, round-possible-5632, until, been]
+    concepts: [people, residency, realize, panama, sounds]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/digitalnomad/1s3np5t.md#c3"
     char_span: [4649, 6279]
     sentence_count: 11
     key_terms: [breakdown, residency, locked, bank, "it's", visa, insightful, account]
+    concepts: [breakdown, residency, locked, insightful, account]
     section: Comments
     token_count: 412
 ---

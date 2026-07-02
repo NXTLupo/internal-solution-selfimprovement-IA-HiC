@@ -19,10 +19,12 @@ content_hash: "27afd4b4f08aa4a8"
 relevance_by_goal: {"490684cfa204":80}
 chunks:
   - id: "articles/reddit-deep-r-customerexperience/fce0dc58a6.md#c0"
-    char_span: [0, 2118]
+    char_span: [0, 2117]
     sentence_count: 11
     key_terms: [customer, teams, customerexperience, data, view, single, seen, companies]
-    token_count: 453
+    concepts: [customer, customerexperience, teams, single, companies]
+    token_count: 452
+    sources: [{"n":"Reddit Deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1pi2e75/is_a_single_view_of_the_customer_actually/"}]
 ---
 # Is a “single view of the customer” actually achievable or just a CX myth we keep chasing?
 

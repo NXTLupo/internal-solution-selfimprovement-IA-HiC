@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 328]
     sentence_count: 2
     key_terms: [uwaterloo, comments, waterloo, suspicious-group-368, reddit-deep, withdrawal, possible, received]
+    concepts: [uwaterloo, comments, waterloo]
     token_count: 88
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1pu7rty/received_a_withdrawal_email_from_waterloo/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1pu7rty.md#c1"
     char_span: [342, 2414]
     sentence_count: 19
     key_terms: [prestigious-brain259, like, time, because, appeal, university, withdrawal, failure]
+    concepts: [prestigious-brain259, because, appeal, university, withdrawal]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/uwaterloo/1pu7rty.md#c2"
     char_span: [2416, 3523]
     sentence_count: 13
     key_terms: [international, dept, academic, english, degree, kicked, "you're", "don't"]
+    concepts: [international, academic, english, degree, kicked]
     section: Comments
     token_count: 274
   - id: "social-intelligence/reddit-deep/uwaterloo/1pu7rty.md#c3"
     char_span: [3527, 4462]
     sentence_count: 11
     key_terms: [university, commercialzucchini19, sorry, day, end, bumblebee-glad, requirements, alternative]
+    concepts: [university, sorry]
     section: Comments
     token_count: 246
 ---

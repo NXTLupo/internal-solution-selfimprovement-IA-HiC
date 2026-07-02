@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 346]
     sentence_count: 1
     key_terms: [careerguidance, comments, wise-economics6932, cybersecurity, internships, reddit-deep, looking, seeking]
+    concepts: [careerguidance, comments]
     token_count: 96
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tal2at/cscybersecurity_grad_looking_for_dev_roles_remote/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tal2at.md#c1"
     char_span: [360, 1018]
     sentence_count: 1
     key_terms: [internships, bullets, focused, dev, coursework, dippatel21, paragraphs, highlight]
+    concepts: [internships, bullets, focused]
     section: Comments
     token_count: 149
 ---

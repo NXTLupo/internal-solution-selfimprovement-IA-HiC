@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2007]
     sentence_count: 19
     key_terms: ["didn't", everything, colab, cscareerquestions, later, file, good, team]
+    concepts: [everything, cscareerquestions, "didn't", colab, later]
     token_count: 469
+    sources: [{"n":"reddit: cscareerquestions","u":"https://reddit.com/r/cscareerquestions/comments/1rteomh/i_was_very_pessimistic_about_ai_taking_jobs_then/"}]
   - id: "articles/reddit-cscareerquestions/edde81a9e7.md#c1"
     char_span: [2009, 2362]
     sentence_count: 3

@@ -21,59 +21,70 @@ chunks:
     char_span: [0, 1556]
     sentence_count: 9
     key_terms: [elite, gradadmissions, people, educational, observation, coaching, comments, question]
+    concepts: [elite, gradadmissions, people, educational, observation]
     token_count: 338
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qz8lj6/observation_people_who_get_acceptances_from_elite/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c1"
     char_span: [1570, 3768]
     sentence_count: 18
     key_terms: [been, research, anxious-silver12, presentation, field, demonstrate, work, university]
+    concepts: [anxious-silver12, research, presentation, demonstrate, field]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c2"
     char_span: [3770, 5865]
     sentence_count: 18
     key_terms: [program, someone, asked, look, questions, something, programs, another]
+    concepts: [program, someone, asked, questions, something]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c3"
     char_span: [5867, 8004]
     sentence_count: 13
     key_terms: [students, prestigious, schools, applying, programs, research, good, application]
+    concepts: [students, prestigious, schools, applying, programs]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c4"
     char_span: [8006, 10430]
     sentence_count: 11
     key_terms: [prestigious, people, universities, everyone, because, invited, program, scienceysturf]
+    concepts: [prestigious, people, universities, everyone, scienceysturf]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c5"
     char_span: [10118, 11621]
     sentence_count: 10
     key_terms: [faculty, always, individuals, prestigious, applicants, questions, already, noticed]
+    concepts: [faculty, always, individuals, prestigious, applicants]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c6"
     char_span: [11623, 13749]
     sentence_count: 22
     key_terms: ["i'm", school, field, want, department, certainly, undergrad, bullshit]
+    concepts: [school, department, field, certainly, undergrad]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c7"
     char_span: [13751, 15686]
     sentence_count: 11
     key_terms: [field, language, learning, yourself, scholarship, lot, important, speaking]
+    concepts: [field, language, learning, yourself, scholarship]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c8"
     char_span: [15689, 18038]
     sentence_count: 14
     key_terms: [background, being, new, different, probably, because, culture, learned]
+    concepts: [background, being, different, probably, because]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c9"
     char_span: [18040, 19778]
     sentence_count: 15
     key_terms: [like, through, people, connections, networking, academia, wealthy, moonshine-bicicletta]
+    concepts: [through, people, connections, networking, academia]
     section: Comments
     token_count: 373
 ---

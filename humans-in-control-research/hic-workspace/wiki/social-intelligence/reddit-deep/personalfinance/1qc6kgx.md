@@ -11,24 +11,27 @@ score: 6
 upvote_ratio: 0.71
 num_comments: 21
 flair: "Saving"
-extracted_at: "2026-06-11T15:26:16.545Z"
+extracted_at: "2026-06-20T17:52:32.561Z"
 extraction_method: "praw-deep"
-research_goal: "Produce the definitive guide to personal investing in 2026 by analyzing the current state of the fintech and financial industries. Evaluate retail investor behaviors, emerging asset classes, and platform shifts using 2026 market news, industry reports, and social media trends to identify actionable investment strategies and market opportunities."
-engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/personalfinance/1qc6kgx.md#c0"
     char_span: [0, 1855]
     sentence_count: 8
     key_terms: [capital, savings, moving, large, account, balance, around, personalfinance]
+    concepts: [capital, savings, moving, large, account]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1qc6kgx/should_i_move_a_large_savings_balance_from/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1qc6kgx.md#c1"
-    char_span: [1870, 3873]
+    char_span: [1869, 3872]
     sentence_count: 14
     key_terms: [rates, account, surfskate4life, money, rate, history, bank, difference]
+    concepts: [account, rates, surfskate4life, money, history]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1qc6kgx.md#c2"
-    char_span: [3875, 3902]
+    char_span: [3874, 3901]
     sentence_count: 1
     key_terms: [support, app, good, nice]
     section: Comments
@@ -70,7 +73,7 @@ Thanks for any insight or recent experiences.
 
 ## Comments
 
-- **kenzakan** (4↑): I think it depends on how much is considered a large savings amount.
+- **kenzakan** (5↑): I think it depends on how much is considered a large savings amount.
 
 You can do the math though. It may be worth it if the difference is significant, but rates are all subjective to change, and dealing with difficult banks is hardly worth the hassle.
 

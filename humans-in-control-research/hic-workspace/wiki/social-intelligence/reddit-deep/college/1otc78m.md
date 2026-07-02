@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1213]
     sentence_count: 9
     key_terms: [sleep, sometimes, day, don, get, college, wake, comments]
+    concepts: [sleep, sometimes, college, comments, honestly]
     token_count: 320
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1otc78m/why_cant_i_wake_up/"}]
   - id: "social-intelligence/reddit-deep/college/1otc78m.md#c1"
     char_span: [1227, 2942]
     sentence_count: 10
     key_terms: [upset-gerbil6061, waking, time, getting, minutes, morning, sunrise, through]
+    concepts: [upset-gerbil6061, waking, getting, minutes, morning]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/college/1otc78m.md#c2"
     char_span: [2944, 4764]
     sentence_count: 17
     key_terms: [sleep, get, anxiety, going, body, depression, consider, disorder]
+    concepts: [sleep, anxiety, depression, going, consider]
     section: Comments
     token_count: 436
 ---

@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 1006]
     sentence_count: 6
     key_terms: [marketing, internship, opportunities, internships, experience, comments, looking, gain]
+    concepts: [marketing, internship, opportunities, internships, experience]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1m6mdac.md#c1"]
     token_count: 220
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1m6mdac/looking_for_a_marketing_internship_mba_student/"}]
   - id: "social-intelligence/reddit-deep/internships/1m6mdac.md#c1"
-    char_span: [1021, 1898]
+    char_span: [1020, 1897]
     sentence_count: 4
     key_terms: [internships, marketing, get, apprenticeships, coursework, structured, artifacts, automated]
+    concepts: [internships, marketing]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1m6mdac.md#c0"]
     section: Comments
     token_count: 194
 ---

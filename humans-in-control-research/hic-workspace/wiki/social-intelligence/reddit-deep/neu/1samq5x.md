@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 362]
     sentence_count: 4
     key_terms: [tuition, comments, co-op, help, neu, influenceno442, reddit-deep, financial]
+    concepts: [tuition, comments, co-op]
     token_count: 102
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1samq5x/how_much_will_the_coop_help_my_tuition/"}]
   - id: "social-intelligence/reddit-deep/neu/1samq5x.md#c1"
     char_span: [376, 1671]
     sentence_count: 4
     key_terms: [adtough2930, influenceno442, classes, heard, money, take, yeah, graduate]
+    concepts: [adtough2930, influenceno442, classes, heard, money]
     section: Comments
     token_count: 379
 ---

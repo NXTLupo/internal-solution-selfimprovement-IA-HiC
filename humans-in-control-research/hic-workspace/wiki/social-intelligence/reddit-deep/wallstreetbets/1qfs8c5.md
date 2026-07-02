@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1109]
     sentence_count: 6
     key_terms: [customers, poet, wallstreetbets, development, photonics, comments, company, patents]
+    concepts: [customers, wallstreetbets, development, photonics, comments]
     token_count: 291
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1qfs8c5/half_million_poet_yolo/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qfs8c5.md#c1"
     char_span: [1123, 2125]
     sentence_count: 4
     key_terms: [iamtexasranger, discord, shares, https, total, tech, wsb, g683cj6og6eg1]
+    concepts: [iamtexasranger, discord, shares, https, total]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qfs8c5.md#c2"
     char_span: [2127, 4021]
     sentence_count: 11
     key_terms: [poet, averaged, player, down, tech, probably, average, market]
+    concepts: [averaged, player, probably, average, market]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qfs8c5.md#c3"
     char_span: [3736, 4813]
     sentence_count: 7
     key_terms: [good, patents, market, shares, charming-priority859, defiant-walk-8330, been, far]
+    concepts: [patents, market, shares]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qfs8c5.md#c4"

@@ -20,22 +20,27 @@ chunks:
     char_span: [0, 2369]
     sentence_count: 6
     key_terms: [arbitration, strike, emergency, labor, union, industry, minister, samsung]
+    concepts: [arbitration, strike, emergency, industry, minister]
     token_count: 467
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1td39tk/emergency_arbitration_unavoidable_if_samsung/"}]
   - id: "social-intelligence/reddit-deep/stocks/1td39tk.md#c1"
     char_span: [2371, 4597]
     sentence_count: 7
     key_terms: [kim, damage, production, samsung, electronics, including, trillion, losses]
+    concepts: [damage, production, electronics, samsung, including]
     token_count: 423
   - id: "social-intelligence/reddit-deep/stocks/1td39tk.md#c2"
-    char_span: [4612, 6464]
+    char_span: [4611, 6463]
     sentence_count: 10
     key_terms: [strike, going, taxes, "it's", lose, work, collective, understand]
+    concepts: [strike, collective, going, taxes, understand]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/stocks/1td39tk.md#c3"
-    char_span: [6466, 7235]
+    char_span: [6465, 7234]
     sentence_count: 6
     key_terms: [negotiation, workers, strike, work, rollertoaster7, arbitration, allahakbau, protection]
+    concepts: [negotiation, workers, strike]
     section: Comments
     token_count: 206
 ---

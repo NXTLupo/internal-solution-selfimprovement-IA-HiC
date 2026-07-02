@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1109]
     sentence_count: 15
     key_terms: [customerexperience, customer, happens, customers, comments, support, brand, bot]
+    concepts: [customerexperience, customer, happens, customers, comments]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1n2dqdf/what_happens_to_your_brand_when_your_next/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1n2dqdf.md#c1"
-    char_span: [1124, 3115]
+    char_span: [1123, 3114]
     sentence_count: 12
     key_terms: [customer, question, brands, interactions, human, touchpoints, like, personal]
+    concepts: [customer, question, interactions, brands, touchpoints]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/customerexperience/1n2dqdf.md#c2"
-    char_span: [3117, 5085]
+    char_span: [3116, 5084]
     sentence_count: 14
     key_terms: [google-launches-an-ai-agent-that-will-call-customer-service-for-you, bots, contact-center, human, team, companies, questions, customer]
+    concepts: [google-launches-an-ai-agent-that-will-call-customer-service-for-you, contact-center, human, companies, questions]
     section: Comments
     token_count: 459
 ---

@@ -21,106 +21,133 @@ chunks:
     char_span: [0, 2206]
     sentence_count: 20
     key_terms: [craig, everyone, hours, been, else, "he's", responsibilities, sick]
+    concepts: [craig, everyone, hours, responsibilities, benefits]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1ohipo8.md#c3", "social-intelligence/reddit-deep/managers/1ohipo8.md#c14"]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1ohipo8/how_do_you_talk_to_an_employee_who_isnt_getting/"}]
   - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c1"
     char_span: [2208, 3929]
     sentence_count: 19
     key_terms: [get, work, someone, better, "can't", been, "he's", help]
+    concepts: [someone, better, "can't", everyone, punished]
     token_count: 381
   - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c2"
     char_span: [3943, 6036]
     sentence_count: 11
     key_terms: [experience, "you're", leadership, level, role, conversation, flex, team]
+    concepts: [experience, "you're", leadership, level, conversation]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c3"
     char_span: [6041, 8055]
     sentence_count: 14
     key_terms: [craig, time, hours, performance, been, does, like, negatively]
+    concepts: [craig, performance, hours, negatively, situations]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1ohipo8.md#c0", "social-intelligence/reddit-deep/managers/1ohipo8.md#c10", "social-intelligence/reddit-deep/managers/1ohipo8.md#c14"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c4"
     char_span: [8060, 9108]
     sentence_count: 4
     key_terms: [experience, customer, others, lines, let, read, resourcefulness, straightforward]
+    concepts: [experience, customer, others, lines]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c5"
     char_span: [9110, 10976]
     sentence_count: 8
     key_terms: [working, read, "don't", hours, lines, wants, employees, problem]
+    concepts: [working, "don't", hours, lines, wants]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c6"
     char_span: [10978, 13139]
     sentence_count: 11
     key_terms: [doing, needs, advancement, path, available, promotion, customer, employee]
+    concepts: [doing, advancement, needs, available, promotion]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c7"
     char_span: [13141, 15342]
     sentence_count: 14
     key_terms: [employee, time, because, performance, people, completely, issue, "it's"]
+    concepts: [employee, performance, because, completely, people]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c8"
     char_span: [15344, 16623]
     sentence_count: 7
     key_terms: [time, performance, policy, "that's", strategically, conversation, flex, employees]
+    concepts: [performance, strategically, conversation, policy, "that's"]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c9"
     char_span: [16625, 18201]
     sentence_count: 10
     key_terms: [hours, promotion, get, mean, schedule, metrics, skills, needs]
+    concepts: [hours, promotion, schedule, metrics, skills]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1ohipo8.md#c14"]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c10"
     char_span: [18203, 20206]
     sentence_count: 12
     key_terms: [customers, benefit, availability, performance, hours, meeting, cannot, significant]
+    concepts: [customers, availability, performance, benefit, hours]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1ohipo8.md#c3", "social-intelligence/reddit-deep/managers/1ohipo8.md#c16"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c11"
     char_span: [20208, 22449]
     sentence_count: 14
     key_terms: [being, "he's", understand, opportunities, hours, using, been, time]
+    concepts: [being, understand, opportunities, department, hours]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c12"
     char_span: [22115, 23230]
     sentence_count: 8
     key_terms: [choice, high-demand, management, approach, exposure, promoted, accomplishedblood515, being]
+    concepts: [choice, high-demand, management, approach, exposure]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c13"
     char_span: [23232, 25403]
     sentence_count: 16
     key_terms: [response, opportunities, craig, development, like, time, schedule, exactly]
+    concepts: [response, opportunities, development, craig, schedule]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1ohipo8.md#c14", "social-intelligence/reddit-deep/managers/1ohipo8.md#c17"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c14"
     char_span: [25405, 27436]
     sentence_count: 15
     key_terms: [hours, time, like, experience, flex, craig, does, use]
+    concepts: [hours, experience, craig, regardless, schedule]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1ohipo8.md#c0", "social-intelligence/reddit-deep/managers/1ohipo8.md#c3", "social-intelligence/reddit-deep/managers/1ohipo8.md#c9", "social-intelligence/reddit-deep/managers/1ohipo8.md#c13", "social-intelligence/reddit-deep/managers/1ohipo8.md#c17"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c15"
     char_span: [27438, 29745]
     sentence_count: 30
     key_terms: [work, people, day, life, like, became, making, coast]
+    concepts: [people, became, making, coast, competitor]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c16"
     char_span: [29747, 31728]
     sentence_count: 16
     key_terms: [company, policy, "he's", benefit, choices, hours, level, time]
+    concepts: [company, policy, benefit, choices, hours]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1ohipo8.md#c10"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c17"
     char_span: [31730, 32813]
     sentence_count: 7
     key_terms: [opportunities, craig, specializes, work, honestly, schedule, manager, problem]
+    concepts: [opportunities, craig, specializes, honestly, schedule]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1ohipo8.md#c13", "social-intelligence/reddit-deep/managers/1ohipo8.md#c14"]
     section: Comments
     token_count: 221
 ---

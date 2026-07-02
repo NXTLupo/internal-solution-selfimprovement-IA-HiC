@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1733]
     sentence_count: 1
     key_terms: [years, "i'm", like, another, studies, behind, myself, employement]
+    concepts: [years, another, studies, behind, myself]
     token_count: 403
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1te05ng/i_feel_like_ive_wasted_my_life_at_24/"}]
   - id: "social-intelligence/reddit-deep/findapath/1te05ng.md#c1"
     char_span: [1747, 3884]
     sentence_count: 21
     key_terms: [therapist, life, thank, help, helpful, please, klistellacca, "he's"]
+    concepts: [therapist, thank, helpful, klistellacca, please]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1te05ng.md#c3"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/findapath/1te05ng.md#c2"
     char_span: [3886, 4606]
     sentence_count: 9
     key_terms: [life, working, lukasgoestoamygdala, buddy, right, half, late, work]
+    concepts: [working, buddy, right]
     section: Comments
     token_count: 196
   - id: "social-intelligence/reddit-deep/findapath/1te05ng.md#c3"
     char_span: [4608, 6711]
     sentence_count: 18
     key_terms: [life, day, good, klistellacca, experienced, work, university, something]
+    concepts: [klistellacca, experienced, university, something, therapist]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1te05ng.md#c1"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/findapath/1te05ng.md#c4"
     char_span: [6713, 8509]
     sentence_count: 19
     key_terms: [people, life, didn, foundation, probably, success, entire, accordingweight6019]
+    concepts: [people, foundation, probably, success, entire]
     section: Comments
     token_count: 421
 ---

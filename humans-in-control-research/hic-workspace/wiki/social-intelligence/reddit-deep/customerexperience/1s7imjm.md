@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 1539]
     sentence_count: 20
     key_terms: [conversations, customerexperience, customers, coaching, tickets, comments, customer, friction]
+    concepts: [conversations, customerexperience, customers, coaching, tickets]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1s7imjm.md#c1"]
     token_count: 339
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1s7imjm/your_ai_is_handling_more_tickets_your_csat_is/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1s7imjm.md#c1"
-    char_span: [1554, 3870]
+    char_span: [1553, 3869]
     sentence_count: 24
     key_terms: [because, tickets, seeing, silent, conversations, resolution, retention, closing]
+    concepts: [because, conversations, tickets, seeing, silent]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1s7imjm.md#c0"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/customerexperience/1s7imjm.md#c2"
-    char_span: [3872, 4392]
+    char_span: [3871, 4391]
     sentence_count: 4
     key_terms: [conversations, surveys, teams, csat, soft-car-3231, completely, currently, different]
+    concepts: [conversations, surveys, teams]
     section: Comments
     token_count: 120
 ---

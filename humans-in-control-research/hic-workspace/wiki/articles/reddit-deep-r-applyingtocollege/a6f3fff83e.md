@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1310]
     sentence_count: 4
     key_terms: [applyingtocollege, comments, officers, "didn't", reddit, professional-net1776, showbusinessforyou67, funny]
+    concepts: [applyingtocollege, comments, officers, "didn't", reddit]
     token_count: 347
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1odqdl4/jokes_too_hot_for_admission_officers/"}]
 ---
 # Jokes too hot for admission officers
 

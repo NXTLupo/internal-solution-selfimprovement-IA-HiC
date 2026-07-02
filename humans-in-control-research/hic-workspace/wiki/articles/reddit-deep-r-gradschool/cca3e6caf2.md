@@ -18,26 +18,32 @@ chunks:
     char_span: [0, 1722]
     sentence_count: 8
     key_terms: [gradschool, utm, reddit, business, comments, research, https, share]
+    concepts: [gradschool, reddit, business, comments, research]
     token_count: 425
+    sources: [{"n":"Reddit Deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1mw0g38/update_offered_a_great_unrelated_job_opportunity/"}]
   - id: "articles/reddit-deep-r-gradschool/cca3e6caf2.md#c1"
     char_span: [1724, 3112]
     sentence_count: 6
     key_terms: [research, "i'm", myself, "bachelor's", anything, honestly, trying, quite]
+    concepts: [research, myself, "bachelor's", anything, honestly]
     token_count: 294
   - id: "articles/reddit-deep-r-gradschool/cca3e6caf2.md#c2"
     char_span: [3114, 4845]
     sentence_count: 8
     key_terms: [lifestyle, phd, maintain, research, science, social, data, something]
+    concepts: [lifestyle, maintain, research, science, social]
     token_count: 376
   - id: "articles/reddit-deep-r-gradschool/cca3e6caf2.md#c3"
     char_span: [4847, 7110]
     sentence_count: 12
     key_terms: [programs, research, like, school, grad, definitely, something, statement]
+    concepts: [programs, research, school, definitely, something]
     token_count: 460
   - id: "articles/reddit-deep-r-gradschool/cca3e6caf2.md#c4"
     char_span: [7112, 8282]
     sentence_count: 6
     key_terms: [professors, program, totally, great, reach, stats, substantial-role01, ask]
+    concepts: [professors, program, totally, great, reach]
     token_count: 244
 ---
 # UPDATE: Offered a great, unrelated job opportunity. Do I still go to grad school?

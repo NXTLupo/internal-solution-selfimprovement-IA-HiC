@@ -19,81 +19,101 @@ chunks:
     char_span: [0, 194]
     sentence_count: 1
     key_terms: [professors, comments, old-team-4298, reddit-deep, posted, reddit, source, "don't"]
+    concepts: [professors, comments]
     token_count: 66
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1tb6abr/dont_know_what_to_do/"}]
   - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c1"
     char_span: [196, 2522]
     sentence_count: 21
     key_terms: [students, "i've", like, lot, year, feedback, teaching, thought]
+    concepts: [students, feedback, teaching, instantaneous, thought]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1tb6abr.md#c7", "social-intelligence/reddit-deep/professors/1tb6abr.md#c11"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c2"
     char_span: [2236, 2800]
     sentence_count: 4
     key_terms: ["don't", "i'm", "it's", move, emotionally, tremendous, declining, logically]
+    concepts: ["don't"]
     token_count: 129
   - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c3"
-    char_span: [2815, 4011]
+    char_span: [2814, 4010]
     sentence_count: 9
     key_terms: [teaching, doing, disastrous-pair-9466, covid, group, least, aromatic-rule-5679, sign]
+    concepts: [teaching, doing, covid, group, least]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c4"
-    char_span: [4013, 6198]
+    char_span: [4012, 6197]
     sentence_count: 15
     key_terms: [reading, evaluations, class, sections, student, always, review, tenure]
+    concepts: [evaluations, reading, class, sections, student]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1tb6abr.md#c13"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c5"
-    char_span: [5942, 7071]
+    char_span: [5941, 7070]
     sentence_count: 7
     key_terms: [tenure, semester, anyway, review, expensive-mention-90, class, point, aromatic-rule-5679]
+    concepts: [tenure, semester, anyway, review, class]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c6"
-    char_span: [7073, 8515]
+    char_span: [7072, 8514]
     sentence_count: 13
     key_terms: [description, been, teaching, preview, support, answer, format, thissaladtastesweird]
+    concepts: [description, teaching, preview, support, answer]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c7"
-    char_span: [8517, 10716]
+    char_span: [8516, 10715]
     sentence_count: 15
     key_terms: [feedback, students, guides, study, angry, class, evals, "i'm"]
+    concepts: [feedback, students, guides, study, actionable]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1tb6abr.md#c1"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c8"
-    char_span: [10718, 12558]
+    char_span: [10717, 12557]
     sentence_count: 11
     key_terms: [students, "i'm", expected, memory, online, please, saying, school]
+    concepts: [students, expected, memory, online, please]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c9"
-    char_span: [12560, 14722]
+    char_span: [12559, 14721]
     sentence_count: 14
     key_terms: [students, get, come, activities, discussion, interested, professors, anything]
+    concepts: [students, activities, discussion, interested, professors]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c10"
-    char_span: [14724, 16899]
+    char_span: [14723, 16898]
     sentence_count: 12
     key_terms: [lecture, professor, because, did, attempts, question, culture, fucking]
+    concepts: [lecture, professor, because, attempts, question]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c11"
-    char_span: [16901, 18594]
+    char_span: [16900, 18593]
     sentence_count: 10
     key_terms: [lecture, did, kind, especially, anything, students, teaching, because]
+    concepts: [lecture, especially, anything, students, teaching]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1tb6abr.md#c1"]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c12"
-    char_span: [18596, 19197]
+    char_span: [18595, 19196]
     sentence_count: 4
     key_terms: ["here's", watching, reading, "it's", own, comprehension, documentaries, comparative]
+    concepts: ["here's", watching, reading]
     section: Comments
     token_count: 139
   - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c13"
-    char_span: [19199, 20855]
+    char_span: [19198, 20854]
     sentence_count: 12
     key_terms: [student, class, doing, keep, cannellita, disengaged, experience, semester]
+    concepts: [student, cannellita, class, disengaged, doing]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1tb6abr.md#c4"]
     section: Comments
     token_count: 389
 ---

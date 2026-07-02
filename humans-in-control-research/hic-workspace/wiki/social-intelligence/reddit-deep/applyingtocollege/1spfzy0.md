@@ -21,22 +21,30 @@ chunks:
     char_span: [0, 1978]
     sentence_count: 8
     key_terms: [berkeley, applyingtocollege, nice, graduate, uchicago, kinda, major, quant]
+    concepts: [berkeley, applyingtocollege, graduate, uchicago, environment]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1spfzy0.md#c1"]
     token_count: 472
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1spfzy0/help_me_decide_uchicago_vs_berkeley_leaning/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spfzy0.md#c1"
     char_span: [1980, 3858]
     sentence_count: 22
     key_terms: [quant, "i'm", "it's", chicago, feel, like, want, berkeley]
+    concepts: [quant, chicago, berkeley, uchicago, applied]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1spfzy0.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1spfzy0.md#c2"]
     token_count: 438
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spfzy0.md#c2"
     char_span: [3872, 5580]
     sentence_count: 8
     key_terms: [berkeley, conscious-secret-775, quant, berk, overrated, berkley, chicago, without]
+    concepts: [berkeley, conscious-secret-775, quant, overrated, berkley]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1spfzy0.md#c1"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spfzy0.md#c3"
     char_span: [5582, 5901]
     sentence_count: 1
     key_terms: [chicago, smart, berk, recommend, becoming, "they'll", better, easier]
+    concepts: [chicago, smart]
     section: Comments
     token_count: 81
 ---

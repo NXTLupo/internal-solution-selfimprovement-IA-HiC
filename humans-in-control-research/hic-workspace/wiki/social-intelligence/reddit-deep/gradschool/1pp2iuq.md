@@ -21,47 +21,63 @@ chunks:
     char_span: [0, 1636]
     sentence_count: 20
     key_terms: [professor, course, professional, work, assignment, gradschool, requested, academic]
+    concepts: [professor, course, professional, assignment, gradschool]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c1", "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c5"]
     token_count: 345
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1pp2iuq/possibly_failing_first_ever_grad_class_filled/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c1"
     char_span: [1650, 3609]
     sentence_count: 18
     key_terms: [professor, work, shocked, grad, assignment, seriously, because, friends]
+    concepts: [professor, shocked, assignment, seriously, because]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c0", "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c3", "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c4"]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c2"
     char_span: [3611, 5674]
     sentence_count: 15
     key_terms: [program, online, professor, grad, courses, vague, requirments, like]
+    concepts: [program, online, professor, courses, requirments]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c3", "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c5"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c3"
     char_span: [5676, 7803]
     sentence_count: 23
     key_terms: [online, students, because, university, professor, people, coyotelitius, give]
+    concepts: [online, students, because, university, professor]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c1", "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c2", "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c4", "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c5"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c4"
     char_span: [7805, 10125]
     sentence_count: 22
     key_terms: [professor, probably, grade, because, change, experienced, retroactive, professors]
+    concepts: [professor, probably, grade, because, change]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c1", "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c3"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c5"
     char_span: [10127, 12467]
     sentence_count: 23
     key_terms: [university, degree, program, professor, good, course, "don't", appreciated]
+    concepts: [university, degree, program, professor, course]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c0", "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c2", "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c3", "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c6"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c6"
     char_span: [12469, 14429]
     sentence_count: 14
     key_terms: [professor, degree, opportunities, coyotelitius, least, somewhere, another, problem]
+    concepts: [professor, opportunities, coyotelitius, degree, least]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c5"]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c7"
     char_span: [14431, 15821]
     sentence_count: 10
     key_terms: [good, professor, prusaudis, standards, maintain, required, syllabus, degree]
+    concepts: [professor, prusaudis, standards, maintain, required]
     section: Comments
     token_count: 333
 ---

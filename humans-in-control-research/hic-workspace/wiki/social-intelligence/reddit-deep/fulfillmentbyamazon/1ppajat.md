@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1408]
     sentence_count: 13
     key_terms: [amazon, fulfillmentbyamazon, png, e6cb741576d62724ad60b72eeada704b138ef73d, website, better, https, buy]
+    concepts: [fulfillmentbyamazon, amazon, website, better, https]
     token_count: 373
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1ppajat/what_other_brands_have_you_seen_do_this/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1ppajat.md#c1"
-    char_span: [1423, 3334]
+    char_span: [1422, 3333]
     sentence_count: 13
     key_terms: [price, fulfillmentbyamazon, amazonapideveloper, channels, examples, discord, amazon, match]
+    concepts: [price, fulfillmentbyamazon, amazonapideveloper, channels, examples]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1ppajat.md#c2"
-    char_span: [3336, 5374]
+    char_span: [3335, 5373]
     sentence_count: 14
     key_terms: [amazon, price, quantities, packs, probably, small, cap, lot]
+    concepts: [amazon, price, quantities, packs, probably]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1ppajat.md#c3"
-    char_span: [5379, 6467]
+    char_span: [5378, 6466]
     sentence_count: 9
     key_terms: [different, amazon, brands, stonesgoods, spillover, strategy, instead, reason]
+    concepts: [different, amazon, brands, stonesgoods, spillover]
     section: Comments
     token_count: 239
 ---

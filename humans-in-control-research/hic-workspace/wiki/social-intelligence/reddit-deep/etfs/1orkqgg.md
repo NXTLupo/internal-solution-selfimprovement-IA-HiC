@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 561]
     sentence_count: 4
     key_terms: [etfs, comments, bitcoin, license, hong, kong, professional, reddit-deep]
+    concepts: [comments, bitcoin, license]
     token_count: 138
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1orkqgg/bitcoin_etf_in_hong_kong/"}]
   - id: "social-intelligence/reddit-deep/etfs/1orkqgg.md#c1"
-    char_span: [576, 2135]
+    char_span: [575, 2134]
     sentence_count: 9
     key_terms: [bitcoin, strategies, etfs, risk, moderators, volatility, portfolio, protected]
+    concepts: [bitcoin, strategies, moderators, volatility, portfolio]
     section: Comments
     token_count: 325
 ---

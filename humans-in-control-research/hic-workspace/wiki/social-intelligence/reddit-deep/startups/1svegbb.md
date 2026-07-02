@@ -20,36 +20,47 @@ chunks:
     char_span: [0, 2140]
     sentence_count: 14
     key_terms: [tier, website, google, businesses, everything, month, digital, review]
+    concepts: [website, businesses, everything, google, month]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1svegbb.md#c5"]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1svegbb/good_idea_v2_i_will_not_promote/"}]
   - id: "social-intelligence/reddit-deep/startups/1svegbb.md#c1"
     char_span: [2142, 3086]
     sentence_count: 11
     key_terms: [client, sites, publishing, account, average, replit, costs, high]
+    concepts: [client, publishing, sites, account, average]
     token_count: 216
   - id: "social-intelligence/reddit-deep/startups/1svegbb.md#c2"
     char_span: [3088, 4847]
     sentence_count: 4
     key_terms: [yearly, starting, clients, revenue, profit, level, month, hold]
+    concepts: [yearly, starting, clients, revenue, profit]
     token_count: 483
   - id: "social-intelligence/reddit-deep/startups/1svegbb.md#c3"
     char_span: [4849, 6607]
     sentence_count: 9
     key_terms: [sites, site, deadline, review, pick, tier, approved, designer]
+    concepts: [sites, deadline, review, approved, designer]
     token_count: 429
   - id: "social-intelligence/reddit-deep/startups/1svegbb.md#c4"
     char_span: [6609, 8583]
     sentence_count: 17
     key_terms: [month, call, cold, client, calling, clients, level, get]
+    concepts: [month, client, calling, clients, level]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1svegbb.md#c5"]
     token_count: 466
   - id: "social-intelligence/reddit-deep/startups/1svegbb.md#c5"
     char_span: [8585, 10220]
     sentence_count: 11
     key_terms: [clients, google, month, hub, job, performance, days, site]
+    concepts: [clients, google, month, performance, retention]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1svegbb.md#c0", "social-intelligence/reddit-deep/startups/1svegbb.md#c4"]
     token_count: 371
   - id: "social-intelligence/reddit-deep/startups/1svegbb.md#c6"
-    char_span: [10235, 12214]
+    char_span: [10234, 12213]
     sentence_count: 20
     key_terms: [customers, get, client, experience, already, process, start, theredhype]
+    concepts: [customers, client, experience, already, process]
     section: Comments
     token_count: 460
 ---

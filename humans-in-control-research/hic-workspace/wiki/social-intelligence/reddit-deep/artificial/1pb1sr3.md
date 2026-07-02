@@ -21,53 +21,65 @@ chunks:
     char_span: [0, 1711]
     sentence_count: 18
     key_terms: [model, "i'm", like, pro, word, artificial, comments, document]
+    concepts: [model, artificial, comments, document, silently]
     token_count: 403
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1pb1sr3/gemini_3_is_pulling_the_same_dynamic_downgrade/"}]
   - id: "social-intelligence/reddit-deep/artificial/1pb1sr3.md#c1"
     char_span: [1725, 3431]
     sentence_count: 12
     key_terms: [model, like, used, context, ignores, request, models, people]
+    concepts: [model, context, ignores, request, models]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/artificial/1pb1sr3.md#c2"
     char_span: [3433, 4199]
     sentence_count: 5
     key_terms: [fraud, rubengarciahernandez, get, consistent, controlled, companies, "emperor's", financial]
+    concepts: [fraud]
     section: Comments
     token_count: 201
   - id: "social-intelligence/reddit-deep/artificial/1pb1sr3.md#c3"
     char_span: [4201, 6165]
     sentence_count: 13
     key_terms: [gemini, exist, model, "it's", technical, messages, question, because]
+    concepts: [gemini, exist, model, technical, messages]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/artificial/1pb1sr3.md#c4"
     char_span: [6167, 8040]
     sentence_count: 13
     key_terms: [gemini, creaturefeature16, "don't", "i'm", legitimate, because, models, people]
+    concepts: [gemini, creaturefeature16, "don't", legitimate, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1pb1sr3.md#c5"
     char_span: [7774, 8416]
     sentence_count: 5
     key_terms: [legitimate, thebluecollartrader, glock7enteen, hemorrhaging, imacompnerd, absolutely, conjecture, responding]
+    concepts: [legitimate]
     section: Comments
     token_count: 180
   - id: "social-intelligence/reddit-deep/artificial/1pb1sr3.md#c6"
     char_span: [8418, 9700]
     sentence_count: 2
     key_terms: [google, going, "i'm", training, money, allocate, models, powerful-frame-44]
+    concepts: [google, going, training, money, allocate]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/artificial/1pb1sr3.md#c7"
     char_span: [9702, 11789]
     sentence_count: 8
     key_terms: [happening, model, evidence, google, people, claim, money, gpu]
+    concepts: [happening, model, evidence, google, people]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1pb1sr3.md#c8"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/artificial/1pb1sr3.md#c8"
     char_span: [11791, 13662]
     sentence_count: 17
     key_terms: [model, people, "it's", pro, "doesn't", obvious, answer, saying]
+    concepts: [model, people, "doesn't", obvious, answer]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1pb1sr3.md#c7"]
     section: Comments
     token_count: 461
 ---

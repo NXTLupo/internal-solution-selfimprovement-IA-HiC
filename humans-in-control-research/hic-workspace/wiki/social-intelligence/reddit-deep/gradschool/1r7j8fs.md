@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 1773]
     sentence_count: 14
     key_terms: [information, understand, problem, "don't", results, gradschool, literature, technique]
+    concepts: [information, understand, problem, "don't", results]
     token_count: 390
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1r7j8fs/how_to_approach_reading_papers_with_a_mind_that/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c1"
     char_span: [1787, 3902]
     sentence_count: 20
     key_terms: [good, read, paper, reading, write, idea, questions, abstract]
+    concepts: [paper, reading, write, questions, abstract]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c2"
     char_span: [3904, 5139]
     sentence_count: 12
     key_terms: [better, paper, been, get, identify, lacuna, fill, help]
+    concepts: [better, paper, identify, lacuna]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c3"
     char_span: [5141, 7407]
     sentence_count: 15
     key_terms: [questions, something, question, read, discipline, terrified, labmates, project]
+    concepts: [questions, something, question, discipline, terrified]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c4"
     char_span: [7111, 7944]
     sentence_count: 7
     key_terms: [highlight, something, helpful, papers, zotero, topic, communication, introduction]
+    concepts: [highlight, something, helpful, papers, zotero]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c5"]
     section: Comments
     token_count: 179
   - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c5"
     char_span: [7946, 10196]
     sentence_count: 24
     key_terms: [papers, read, something, specific, yourself, methods, maybe, notes]
+    concepts: [papers, something, specific, yourself, methods]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c4"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c6"
     char_span: [10198, 10976]
     sentence_count: 3
     key_terms: [notes, paper, specific, context, did, approach, results, answer]
+    concepts: [notes, paper, specific, context, approach]
     section: Comments
     token_count: 171
 ---

@@ -20,34 +20,41 @@ chunks:
     char_span: [0, 2310]
     sentence_count: 18
     key_terms: [truck, police, insurance, report, interstate, name, companies, traveling]
+    concepts: [truck, police, insurance, report, interstate]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1qpgstb/commercial_truck_tire_hit_my_car_insurance/"}]
   - id: "social-intelligence/reddit-deep/insurance/1qpgstb.md#c1"
     char_span: [2312, 2779]
     sentence_count: 6
     key_terms: [insurance, number, fmcsa, edit, cancellation, information, direction, effective]
+    concepts: [insurance, number, fmcsa]
     token_count: 104
   - id: "social-intelligence/reddit-deep/insurance/1qpgstb.md#c2"
-    char_span: [2794, 4569]
+    char_span: [2793, 4568]
     sentence_count: 10
     key_terms: [trucking, company, uninsured, file, coverage, driving, claims, small]
+    concepts: [trucking, company, uninsured, coverage, driving]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/insurance/1qpgstb.md#c3"
-    char_span: [4571, 6739]
+    char_span: [4570, 6738]
     sentence_count: 16
     key_terms: [insurance, company, vehicle, driver, michael2ss, hopefully, contact, covered]
+    concepts: [insurance, company, vehicle, driver, michael2ss]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/insurance/1qpgstb.md#c4"
-    char_span: [6499, 7227]
+    char_span: [6498, 7226]
     sentence_count: 6
     key_terms: [coverage, insurance, provider, time, comprehensive, unfortunately, underinsured, responsible]
+    concepts: [coverage, insurance, provider]
     section: Comments
     token_count: 169
   - id: "social-intelligence/reddit-deep/insurance/1qpgstb.md#c5"
-    char_span: [7229, 8600]
+    char_span: [7228, 8599]
     sentence_count: 9
     key_terms: [insurance, d89b38b666c4d6196c6aaa5473d2f5079ac3dad4, though, commercial, deleted, georgia, states, conscious-evidence37]
+    concepts: [insurance, though, commercial, deleted, georgia]
     section: Comments
     token_count: 375
 ---

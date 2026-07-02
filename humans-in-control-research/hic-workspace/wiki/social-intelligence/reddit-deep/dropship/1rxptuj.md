@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 1693]
     sentence_count: 13
     key_terms: [dropship, supplier, through, spent, comments, shipping, sourcing, months]
+    concepts: [dropship, supplier, through, spent, comments]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1rxptuj.md#c1"]
     token_count: 352
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1rxptuj/spent_six_months_building_a_dropship_store_around/"}]
   - id: "social-intelligence/reddit-deep/dropship/1rxptuj.md#c1"
-    char_span: [1708, 3668]
+    char_span: [1707, 3667]
     sentence_count: 9
     key_terms: [supplier, dependency, logistics, dropship, sourcing, contact, orders, single]
+    concepts: [supplier, dependency, logistics, dropship, sourcing]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1rxptuj.md#c0"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/dropship/1rxptuj.md#c2"
-    char_span: [3670, 3970]
+    char_span: [3669, 3969]
     sentence_count: 2
     key_terms: [month, "you'd", risk, concentration, fulfillment, pick-pack, threshold, entirely]
+    concepts: [month, "you'd"]
     section: Comments
     token_count: 72
 ---

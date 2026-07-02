@@ -21,21 +21,26 @@ chunks:
     char_span: [0, 1030]
     sentence_count: 6
     key_terms: [engineeringstudents, aerospace, startup, important, comments, engineer, school, going]
+    concepts: [engineeringstudents, aerospace, startup, important, comments]
     token_count: 222
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1prw3an/tips_for_engineering_students_wanting_those/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1prw3an.md#c1"
     char_span: [1032, 3285]
     sentence_count: 20
     key_terms: [experience, engineers, something, thermal, internships, important, job, because]
+    concepts: [experience, engineers, something, internships, thermal]
     token_count: 473
   - id: "social-intelligence/reddit-deep/engineeringstudents/1prw3an.md#c2"
     char_span: [3287, 3724]
     sentence_count: 4
     key_terms: ["don't", team-oriented, contributing, open-minded, brightest, questions, something, stupidest]
+    concepts: ["don't"]
     token_count: 93
   - id: "social-intelligence/reddit-deep/engineeringstudents/1prw3an.md#c3"
     char_span: [3738, 4699]
     sentence_count: 8
     key_terms: [internships, important, because, clubs, gottatrusttheengr, get, hard, lot]
+    concepts: [internships, important, because, clubs]
     section: Comments
     token_count: 224
 ---

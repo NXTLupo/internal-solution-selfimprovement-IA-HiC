@@ -21,53 +21,66 @@ chunks:
     char_span: [0, 1579]
     sentence_count: 18
     key_terms: [want, "don't", like, money, "i'm", nomading, afford, digitalnomad]
+    concepts: ["don't", money, nomading, digitalnomad, afford]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c4"]
     token_count: 419
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1qgfl7s/i_dont_want_to_be_a_nomad_anymore_but_i_dont_like/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c1"
     char_span: [1593, 3632]
     sentence_count: 11
     key_terms: [front, singer, quote, resistance, situations, bothering, judgments, inflated]
+    concepts: [front, singer, quote, resistance, situations]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c2"
     char_span: [3634, 5336]
     sentence_count: 11
     key_terms: [adf21a, situation, similar, rather, being, "can't", quote, raped]
+    concepts: [adf21a, situation, similar, rather, being]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c3"
     char_span: [5338, 5770]
     sentence_count: 5
     key_terms: [events, view, life-destroying, soul-destroying, manageable, responses, something, splitting]
+    concepts: [events]
     section: Comments
     token_count: 96
   - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c4"
     char_span: [5772, 7784]
     sentence_count: 13
     key_terms: [ohwhereareyoufrom, "don't", money, years, job, like, something, somewhere]
+    concepts: [ohwhereareyoufrom, "don't", money, years, something]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c0", "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c5"
     char_span: [7507, 9226]
     sentence_count: 13
     key_terms: [back, american, america, working, living, revolutionarysoft253, being, until]
+    concepts: [american, america, working, living, being]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c6"
     char_span: [9228, 10880]
     sentence_count: 13
     key_terms: [money, like, life, live, want, something, caviar, learn]
+    concepts: [money, something, caviar, learn, right]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c4"]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c7"
     char_span: [10882, 12853]
     sentence_count: 16
     key_terms: ["it's", get, like, realistically, time, expensive, normal, people]
+    concepts: [realistically, expensive, normal, people, world]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c8"
     char_span: [12855, 13915]
     sentence_count: 8
     key_terms: ["you're", handcuffs, day, juneseyeball, learning, "that's", money, ohwhereareyoufrom]
+    concepts: ["you're", handcuffs, juneseyeball, learning, "that's"]
     section: Comments
     token_count: 275
 ---

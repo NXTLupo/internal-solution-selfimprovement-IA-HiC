@@ -21,39 +21,47 @@ chunks:
     char_span: [0, 1622]
     sentence_count: 22
     key_terms: [prof, year, gradadmissions, grad, different, comments, frankly, message]
+    concepts: [gradadmissions, different, comments, frankly, message]
     token_count: 410
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1pqx0u6/everything_sucks_and_you_are_allowed_to_feel_this/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md#c1"
     char_span: [1624, 3217]
     sentence_count: 10
     key_terms: [through, rejection, applied, estonia, university, fulbright, programme, february]
+    concepts: [through, rejection, applied, estonia, university]
     token_count: 386
   - id: "social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md#c2"
     char_span: [3219, 4368]
     sentence_count: 9
     key_terms: [something, school, "you're", applications, never, value, acceptances, fit]
+    concepts: [something, applications, school, "you're", acceptances]
     token_count: 264
   - id: "social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md#c3"
     char_span: [4382, 6252]
     sentence_count: 16
     key_terms: [kanoncyn, get, applying, postbacc, programs, good, research, looking]
+    concepts: [kanoncyn, applying, postbacc, programs, research]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md#c4"
     char_span: [6013, 6586]
     sentence_count: 5
     key_terms: [wrote, recommenders, confidence, everything, judgement, programme, rejection, something]
+    concepts: [wrote]
     section: Comments
     token_count: 132
   - id: "social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md#c5"
     char_span: [6588, 8588]
     sentence_count: 19
     key_terms: [time, year, thanks, opportunities, diversity, volunteer, rejected, research]
+    concepts: [opportunities, thanks, diversity, volunteer, rejected]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md#c6"
     char_span: [8590, 10410]
     sentence_count: 14
     key_terms: [rejection, kanoncyn, like, different, fulbright, honestly, position, thanks]
+    concepts: [rejection, kanoncyn, different, fulbright, honestly]
     section: Comments
     token_count: 454
 ---

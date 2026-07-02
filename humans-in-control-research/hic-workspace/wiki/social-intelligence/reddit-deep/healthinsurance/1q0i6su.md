@@ -8,52 +8,62 @@ title: "SUREST AND UNITED HEALTHCARE - AVOID THEM LIKE THE PLAGUE!"
 author: "Key_Way5357"
 date: "2025-12-31T17:16:39.000Z"
 score: 44
-upvote_ratio: 0.85
+upvote_ratio: 0.84
 num_comments: 54
 flair: "Employer/COBRA Insurance"
-extracted_at: "2026-06-17T19:26:43.274Z"
+extracted_at: "2026-06-20T17:52:36.289Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/healthinsurance/1q0i6su.md#c0"
     char_span: [0, 1942]
     sentence_count: 14
     key_terms: [authorization, code, days, give, received, cholecystectomy, healthinsurance, another]
+    concepts: [authorization, cholecystectomy, healthinsurance, received, another]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1q0i6su.md#c1"]
     token_count: 437
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1q0i6su/surest_and_united_healthcare_avoid_them_like_the/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1q0i6su.md#c1"
     char_span: [1944, 3488]
     sentence_count: 11
     key_terms: [authorization, code, claims, re-process, cholecystectomy, surgery, obtain, surest]
+    concepts: [authorization, re-process, claims, cholecystectomy, surgery]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1q0i6su.md#c0"]
     token_count: 329
   - id: "social-intelligence/reddit-deep/healthinsurance/1q0i6su.md#c2"
-    char_span: [3503, 5860]
+    char_span: [3502, 5859]
     sentence_count: 8
     key_terms: [post, please, information, questions, following, eob, edit, help]
+    concepts: [please, information, questions, following, healthinsurance]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/healthinsurance/1q0i6su.md#c3"
-    char_span: [5862, 7866]
+    char_span: [5861, 7864]
     sentence_count: 13
     key_terms: [code, contact, codes, insurance, subreddit, emergent, cholecystectomy, billing]
+    concepts: [contact, insurance, subreddit, cholecystectomy, codes]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/healthinsurance/1q0i6su.md#c4"
-    char_span: [7868, 9930]
+    char_span: [7866, 9928]
     sentence_count: 15
     key_terms: [insurance, "it's", scarinternational161, providers, issues, auto, homeowners, companies]
+    concepts: [insurance, scarinternational161, providers, issues, homeowners]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/healthinsurance/1q0i6su.md#c5"
-    char_span: [9932, 11488]
+    char_span: [9930, 11486]
     sentence_count: 10
     key_terms: [surest, provider, non-emergent, activate, program, surgery, being, maybe]
+    concepts: [surest, provider, non-emergent, activate, program]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/healthinsurance/1q0i6su.md#c6"
-    char_span: [11490, 12303]
+    char_span: [11488, 12301]
     sentence_count: 6
     key_terms: [plan, elective, surest, considerationold9301, great, talk, pinkhairanalyst, authorization]
+    concepts: [elective, surest, great]
     section: Comments
     token_count: 198
 ---
@@ -101,13 +111,13 @@ Please also read the following carefully to avoid post removal:
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/HealthInsurance) if you have any questions or concerns.*
-- **hospitalist1975** (29↑): It may not be insurance’s problem. It’s likely the surgeons billing code was wrong, for emergent cholecystectomies, it has to be coded as such, if the surgeon do a emergent cholecystectomy and bills as a routine elective cholecystectomy, it will be denied because you would have have a pre authorization for non emergent surgeries
-  - **[deleted]** (5↑): Can we talk about the stupidity of “needing the right code” in order to be billed correctly?  Even with the right codes, shit gets denied. 
+- **hospitalist1975** (30↑): It may not be insurance’s problem. It’s likely the surgeons billing code was wrong, for emergent cholecystectomies, it has to be coded as such, if the surgeon do a emergent cholecystectomy and bills as a routine elective cholecystectomy, it will be denied because you would have have a pre authorization for non emergent surgeries
+  - **[deleted]** (4↑): Can we talk about the stupidity of “needing the right code” in order to be billed correctly?  Even with the right codes, shit gets denied. 
 
 THERE HAS TO BE A BETTER WAY.
-    - **Unique-Hedgehog-3732** (3↑): Also why does it seem like clinics don't know the right code over and over and over? That's literally some people's one job. And indeed, why can't the insurance company just fix the damn code?
+    - **Unique-Hedgehog-3732** (4↑): Also why does it seem like clinics don't know the right code over and over and over? That's literally some people's one job. And indeed, why can't the insurance company just fix the damn code?
   - **Key_Way5357** (6↑): It was not. We had the provider and the insurance on a conference call and the provider had the billing codes reviewed by their coding review board and the CPT codes were correct. Even Surest agreed the codes were correct. It was NOT a billing code issue.
-- **Mission-Carry-887** (10↑): My experience with UHC.
+- **Mission-Carry-887** (9↑): My experience with UHC.
 
 Negatives:
 
@@ -125,7 +135,7 @@ Positive:
 
 I am talking about fake providers that have residential addresses and phone numbers that are disconnected. These appear to be  deliberately faked up for reasons I can only speculate.
   - **[deleted]** (1↑): I agree with everything you say except for the last line. It works for some people some of the time but not consistently.
-- **ScarInternational161** (13↑): NONE OF THIS IS NORMAL
+- **ScarInternational161** (14↑): NONE OF THIS IS NORMAL
 
 When do we realize the NO one should have to become an insurance specialist to have insurance pay a bill!?!?
 
@@ -134,9 +144,9 @@ Taxes? CPA does it for us
 Auto? Our insurance does it
 
 Health? We have to learn it, fight for it, do it ourselves? What do we pay THEM FOR??
-  - **TrainingLow9079** (7↑): Actually plenty of people have issues getting homeowners and auto payouts too...but I agree with the essence of your point
+  - **TrainingLow9079** (6↑): Actually plenty of people have issues getting homeowners and auto payouts too...but I agree with the essence of your point
   - **bluedanuria** (5↑): To be fair, my auto insurance also gave me a terrible time before finally paying after a natural disaster.
-    - **ScarInternational161** (3↑): I've had issues too, but it's not comparable. It's supplying a police report, or pictures, or something like that.
+    - **ScarInternational161** (2↑): I've had issues too, but it's not comparable. It's supplying a police report, or pictures, or something like that.
 
 It's not trying to learn what code it was, or having to prove you did have a fever before you went to the doctor, or being told it's not covered when your policy book states it is, but you can't get a clear answer.
 
@@ -146,12 +156,12 @@ It's not trying to learn what code it was, or having to prove you did have a fev
   - **benfoldsgroupie** (1↑): It's not a service, it's a pyramid scheme.
 - **mcmurrml** (9↑): United has a reputation already for not being good.
 - **Full_Honeydew_9739** (6↑): They do that because most people give up and pay it.
-  - **Key_Way5357** (7↑): Yea - that's what we figured. Spent nearly 2 months fighting this including multiple conference calls with the HR benefits group, the provider and Surest.
-- **airjordan610** (4↑): I’m a Surest member, too. I think for some plan sponsors, they have a program where you have to “activate” coverage for certain non-routine, non-emergent procedures (my employer recently removed this program). I think the intent is to try to keep overall costs down for the self-funded plan sponsor. Maybe there was some sort of provider coding/billing issue with the claims that made Surest think that the services were non-emergent? I understand Surest is a newer product, so maybe UHC is still working out the bugs. But it’s been solid for me so far.
+  - **Key_Way5357** (6↑): Yea - that's what we figured. Spent nearly 2 months fighting this including multiple conference calls with the HR benefits group, the provider and Surest.
+- **airjordan610** (5↑): I’m a Surest member, too. I think for some plan sponsors, they have a program where you have to “activate” coverage for certain non-routine, non-emergent procedures (my employer recently removed this program). I think the intent is to try to keep overall costs down for the self-funded plan sponsor. Maybe there was some sort of provider coding/billing issue with the claims that made Surest think that the services were non-emergent? I understand Surest is a newer product, so maybe UHC is still working out the bugs. But it’s been solid for me so far.
   - **Key_Way5357** (6↑): Unfortunately, that was my assumption as well. However, after talking to 5 reps who continued to tell me we needed to activate an authorization code for them to cover the surgery DESPITE ME telling them that was it was an emergency meant this was no longer just a misunderstanding, but them intentionally trying to make it as difficult as possible for us to get the surgery covered.
 
 This Surest plan works great if you have elective surgeries or procedures that are planned in advance. However, for emergency situations, they continue to deny the claims claiming that it was ELECTIVE. And regardless of how many times you speak to a rep, they tell you to talk to your HR benefits group to get an authorization code or to talk to the provider and figure out why it's not being covered.
 - **geoff7772** (2↑): contact your stated insurance ombudsman and dilemma a complaint!
   - **[deleted]** (2↑): Are you aware that the Attorney General of the U.S. is a former lobbyist for UHC? Nice, huh?
-- **ConsiderationOld9301** (3↑): Scumbags
+- **ConsiderationOld9301** (2↑): Scumbags
 - **PinkHairAnalyst** (2↑): I had Surest this year and had no issues. It’s a great plan in my opinion. You probably had the plan where you have to activate coverage.

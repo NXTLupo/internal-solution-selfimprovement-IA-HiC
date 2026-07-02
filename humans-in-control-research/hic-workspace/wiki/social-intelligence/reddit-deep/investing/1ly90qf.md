@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1040]
     sentence_count: 7
     key_terms: [regulation, block, jpm, xyz, investing, comments, fintechs, fintech]
+    concepts: [regulation, block, investing, comments, fintechs]
     token_count: 241
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1ly90qf/thoughts_on_block_xyz_pypl_and_other_fintechs_in/"}]
   - id: "social-intelligence/reddit-deep/investing/1ly90qf.md#c1"
-    char_span: [1055, 2829]
+    char_span: [1054, 2828]
     sentence_count: 9
     key_terms: [fees, fintechs, minimal, transactions, banks, going, stablecoins, percentage]
+    concepts: [fintechs, minimal, transactions, stablecoins, banks]
     section: Comments
     token_count: 394
 ---

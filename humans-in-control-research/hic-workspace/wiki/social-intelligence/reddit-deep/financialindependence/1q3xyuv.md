@@ -21,56 +21,69 @@ chunks:
     char_span: [0, 1875]
     sentence_count: 7
     key_terms: [https, com, imgur, financialindependence, sabbatical, travel, international, year]
+    concepts: [https, financialindependence, imgur, sabbatical, international]
     token_count: 473
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1q3xyuv/fire_update_one_year_ago_i_quit_my_job_with_a/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c1"
     char_span: [1877, 3495]
     sentence_count: 3
     key_terms: [days, vietnam, hcmc, malaysia, fiji, taipei, kauai, spent]
+    concepts: [vietnam, malaysia, taipei, kauai, spent]
     token_count: 497
   - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c2"
     char_span: [3497, 5369]
     sentence_count: 7
     key_terms: [points, total, hotels, hyatt, spent, health, travel, certificates]
+    concepts: [points, total, hotels, hyatt, spent]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c7"]
     token_count: 461
   - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c3"
     char_span: [5371, 6827]
     sentence_count: 8
     key_terms: [fire, get, billionaire, having, travel, "don't", able, back]
+    concepts: [billionaire, having, travel, "don't"]
     token_count: 314
   - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c4"
     char_span: [6841, 8416]
     sentence_count: 19
     key_terms: [job, bathroom, making, owning, update, pretty-balance-sheet, great, house]
+    concepts: [bathroom, making, owning, update, great]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c5"
     char_span: [8418, 10306]
     sentence_count: 14
     key_terms: [points, doctorofcredit, people, solomongrumpy, lot, want, cheapb98, flights]
+    concepts: [points, doctorofcredit, solomongrumpy, people, cheapb98]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c6"
     char_span: [10309, 10533]
     sentence_count: 4
     key_terms: [business, points, class, costs, redemptions, extremely, talking, "that's"]
+    concepts: [business, points, class, costs]
     section: Comments
     token_count: 61
   - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c7"
     char_span: [10536, 12396]
     sentence_count: 16
     key_terms: [credit, card, bathroom, points, hyatt, investments, spending, cards]
+    concepts: [credit, bathroom, points, investments, hyatt]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c8"
     char_span: [12141, 12813]
     sentence_count: 10
     key_terms: [investments, wife, did, survivorfan4545, whobethismight, significantly, sabbatical, currently]
+    concepts: [investments]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c9"
     char_span: [12815, 13479]
     sentence_count: 5
     key_terms: [concerned, churning, start, did, find, likewhite0nrice, especially, experience]
+    concepts: [concerned, churning, start]
     section: Comments
     token_count: 162
 ---

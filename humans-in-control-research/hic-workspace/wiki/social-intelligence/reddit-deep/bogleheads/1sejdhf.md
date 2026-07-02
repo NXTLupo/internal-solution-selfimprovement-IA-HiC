@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1466]
     sentence_count: 8
     key_terms: ["i'm", etfs, reduced, charge, transaction, bad, "i'll", bogleheads]
+    concepts: [reduced, charge, transaction, bogleheads, comments]
     token_count: 385
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1sejdhf/considering_jpmc_for_reduced_loan_rate/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1sejdhf.md#c1"
-    char_span: [1481, 1989]
+    char_span: [1480, 1988]
     sentence_count: 3
     key_terms: [probably, broker, trading-activity-fee, fee-rate-advisories, https, rules-regulations, fees, www]
+    concepts: [probably, broker, https]
     section: Comments
     token_count: 126
 ---

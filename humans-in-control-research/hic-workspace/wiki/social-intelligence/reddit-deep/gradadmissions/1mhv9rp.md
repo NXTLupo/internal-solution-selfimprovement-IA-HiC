@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2174]
     sentence_count: 17
     key_terms: ["i'm", lab, enough, experience, doing, wet, school, good]
+    concepts: [enough, experience, doing, school, pressure]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1mhv9rp/debilitating_stress_about_grad_school_admissions/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1mhv9rp.md#c1"
     char_span: [2188, 3765]
     sentence_count: 11
     key_terms: ["i'm", plan, get, good, constantly, something, yourself, experts]
+    concepts: [constantly, something, yourself, experts, failure]
     section: Comments
     token_count: 375
 ---

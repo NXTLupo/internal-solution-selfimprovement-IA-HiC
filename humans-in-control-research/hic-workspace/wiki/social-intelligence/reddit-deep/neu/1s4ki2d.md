@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1321]
     sentence_count: 4
     key_terms: [subleased, usually, people, appreciate, comments, someone, student, neu]
+    concepts: [subleased, usually, people, appreciate, comments]
     token_count: 298
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1s4ki2d/quick_question_for_students_whove_subleased_before/"}]
 ---
 # Quick question for students who've subleased before
 

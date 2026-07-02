@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 2160]
     sentence_count: 20
     key_terms: [business, accounting, credits, double, major, econ, school, currently]
+    concepts: [business, accounting, credits, double, major]
+    related_chunks: ["social-intelligence/reddit-deep/college/1m2tobm.md#c1"]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1m2tobm/csecon_double_major_or_switch_to_business/"}]
   - id: "social-intelligence/reddit-deep/college/1m2tobm.md#c1"
-    char_span: [2175, 2895]
+    char_span: [2174, 2894]
     sentence_count: 5
     key_terms: [business, accounting, economics, because, finance, degree, econ, like]
+    concepts: [business, accounting, economics, because, finance]
+    related_chunks: ["social-intelligence/reddit-deep/college/1m2tobm.md#c0"]
     section: Comments
     token_count: 140
 ---

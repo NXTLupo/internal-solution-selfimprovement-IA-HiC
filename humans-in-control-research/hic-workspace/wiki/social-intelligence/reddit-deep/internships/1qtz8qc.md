@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 310]
     sentence_count: 1
     key_terms: [internships, comments, fishermanhuge127, experiences, reddit-deep, student-led, community, building]
+    concepts: [internships, comments]
     token_count: 80
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1qtz8qc/building_a_studentled_learning_community_looking/"}]
 ---
 # Building a student-led learning community – looking for advice & experiences
 

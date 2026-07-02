@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2018]
     sentence_count: 17
     key_terms: [customer, retail, success, role, career, opportunity, optical, advice]
+    concepts: [customer, retail, success, career, opportunity]
     token_count: 421
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1ro11ty/need_career_advice_stay_in_retail_or_move_to/"}]
 ---
 # Need Career Advice: Stay in Retail or Move to Customer Success Role in Spain?
 

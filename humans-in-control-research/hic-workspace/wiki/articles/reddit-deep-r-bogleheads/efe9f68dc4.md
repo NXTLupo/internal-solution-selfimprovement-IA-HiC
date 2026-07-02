@@ -19,10 +19,12 @@ content_hash: "8da97236dd3efb59"
 relevance_by_goal: {"46dec9599ad5":50}
 chunks:
   - id: "articles/reddit-deep-r-bogleheads/efe9f68dc4.md#c0"
-    char_span: [0, 1716]
+    char_span: [0, 1715]
     sentence_count: 14
     key_terms: [vanguard, person, schwab, experience, knows, talk, customer, service]
-    token_count: 412
+    concepts: [vanguard, experience, person, schwab, knows]
+    token_count: 411
+    sources: [{"n":"Reddit Deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1qc4gv6/vanguard_customer_service/"}]
 ---
 # Vanguard Customer Service
 

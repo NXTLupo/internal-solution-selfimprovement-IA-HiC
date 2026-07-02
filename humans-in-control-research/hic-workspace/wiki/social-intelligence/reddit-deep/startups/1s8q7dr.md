@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 2136]
     sentence_count: 20
     key_terms: [source, community, launch, share, users, attribution, open, experience]
+    concepts: [source, community, launch, attribution, experience]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1s8q7dr.md#c1"]
     token_count: 483
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1s8q7dr/my_pushback_experience_as_a_founder_i_will_not/"}]
   - id: "social-intelligence/reddit-deep/startups/1s8q7dr.md#c1"
-    char_span: [2151, 4048]
+    char_span: [2150, 4047]
     sentence_count: 14
     key_terms: [source, open, masoodtalha, lukeypookie23, attribution, use, attribute, licensing]
+    concepts: [source, masoodtalha, lukeypookie23, attribution, attribute]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1s8q7dr.md#c0"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/startups/1s8q7dr.md#c2"
-    char_span: [4050, 6228]
+    char_span: [4049, 6227]
     sentence_count: 24
     key_terms: [open, breaking, license, enough, lesson, source, masoodtalha, big]
+    concepts: [breaking, license, enough, lesson, source]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/startups/1s8q7dr.md#c3"
-    char_span: [6230, 6925]
+    char_span: [6229, 6924]
     sentence_count: 9
     key_terms: [going, kept, attribution, masoodtalha, commenting, contribute, everything, ridiculous]
+    concepts: [going]
     section: Comments
     token_count: 163
 ---

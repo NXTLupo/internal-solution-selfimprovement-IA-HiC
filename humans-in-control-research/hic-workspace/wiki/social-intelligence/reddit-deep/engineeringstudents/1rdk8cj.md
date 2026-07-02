@@ -19,57 +19,70 @@ chunks:
     char_span: [0, 1814]
     sentence_count: 18
     key_terms: [career, engineeringstudents, resumes, electrical, comments, thoughts, making, great]
+    concepts: [engineeringstudents, career, resumes, electrical, comments]
     token_count: 416
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rdk8cj/i_attended_my_first_career_fair_as_an_employer/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c1"
     char_span: [1817, 3835]
     sentence_count: 22
     key_terms: ["don't", projects, conversation, company, resume, take, work, experience]
+    concepts: ["don't", projects, conversation, company, resume]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c4"]
     token_count: 451
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c2"
     char_span: [3838, 4302]
     sentence_count: 5
     key_terms: [school, temperatures, traditional, professors, structures, curiosity, interview, compared]
+    concepts: [school]
     token_count: 103
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c3"
-    char_span: [4317, 6228]
+    char_span: [4316, 6227]
     sentence_count: 17
     key_terms: [get, students, company, ikishenno, because, sooner, engineeringstudents, helps]
+    concepts: [students, company, ikishenno, because, sooner]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c4"
-    char_span: [6230, 7793]
+    char_span: [6229, 7792]
     sentence_count: 13
     key_terms: [interviewing, experience, "don't", like, try, conversation, going, engineering]
+    concepts: [interviewing, experience, "don't", conversation, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c1"]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c5"
-    char_span: [7796, 9464]
+    char_span: [7795, 9463]
     sentence_count: 16
     key_terms: [pitch, questions, interviewing, ask, elevator, company, chance, nearly]
+    concepts: [questions, pitch, interviewing, elevator, company]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c6"
-    char_span: [9466, 11650]
+    char_span: [9465, 11649]
     sentence_count: 26
     key_terms: [someone, conversation, programming, get, like, talk, tip, candidates]
+    concepts: [someone, conversation, programming, candidates, computer]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c7"
-    char_span: [11652, 13652]
+    char_span: [11651, 13651]
     sentence_count: 15
     key_terms: [recruiters, coursework, recruiter, put, logical-angle212, because, courses, design]
+    concepts: [recruiters, coursework, logical-angle212, recruiter, because]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c8"
-    char_span: [13654, 15564]
+    char_span: [13653, 15563]
     sentence_count: 15
     key_terms: [people, internship, year, like, experience, necessary, otherwise, personal]
+    concepts: [internship, people, experience, necessary, otherwise]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c9"
-    char_span: [15566, 17236]
+    char_span: [15565, 17235]
     sentence_count: 13
     key_terms: [company, people, nervousness, companies, recruiter, students, advice, google]
+    concepts: [company, people, nervousness, companies, recruiter]
     section: Comments
     token_count: 386
 ---

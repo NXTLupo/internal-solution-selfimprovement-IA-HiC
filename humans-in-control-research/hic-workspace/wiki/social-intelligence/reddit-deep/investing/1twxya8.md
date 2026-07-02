@@ -20,49 +20,66 @@ chunks:
     char_span: [0, 2308]
     sentence_count: 13
     key_terms: [retail, vusiongroup, shelf, infrastructure, electronic, thesis, vusion, operations]
+    concepts: [retail, vusiongroup, infrastructure, shelf, electronic]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1twxya8.md#c1", "social-intelligence/reddit-deep/investing/1twxya8.md#c4"]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1twxya8/vusiongroup_dd_digital_shelf_infrastructure_saas/"}]
   - id: "social-intelligence/reddit-deep/investing/1twxya8.md#c1"
     char_span: [2310, 4487]
     sentence_count: 13
     key_terms: [shelf, vusion, retail, infrastructure, store, physical, revenue, electronic]
+    concepts: [shelf, vusion, retail, infrastructure, physical]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1twxya8.md#c0", "social-intelligence/reddit-deep/investing/1twxya8.md#c4"]
     token_count: 456
   - id: "social-intelligence/reddit-deep/investing/1twxya8.md#c2"
     char_span: [4489, 6561]
     sentence_count: 13
     key_terms: [revenue, vas, recurring, growth, approximately, adjusted, million, guidance]
+    concepts: [revenue, recurring, growth, approximately, adjusted]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1twxya8.md#c3"]
     token_count: 492
   - id: "social-intelligence/reddit-deep/investing/1twxya8.md#c3"
     char_span: [6563, 8471]
     sentence_count: 10
     key_terms: [walmart, carrefour, growth, recurring, reference, case, adoption, software]
+    concepts: [walmart, carrefour, growth, recurring, reference]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1twxya8.md#c2", "social-intelligence/reddit-deep/investing/1twxya8.md#c7"]
     token_count: 400
   - id: "social-intelligence/reddit-deep/investing/1twxya8.md#c4"
     char_span: [8473, 10304]
     sentence_count: 14
     key_terms: [data, vusion, store, shelf, execution, infrastructure, out-of-stock, opportunity]
+    concepts: [vusion, store, execution, shelf, infrastructure]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1twxya8.md#c0", "social-intelligence/reddit-deep/investing/1twxya8.md#c1"]
     token_count: 376
   - id: "social-intelligence/reddit-deep/investing/1twxya8.md#c5"
-    char_span: [10319, 11879]
+    char_span: [10318, 11878]
     sentence_count: 11
     key_terms: [please, major, carrefour, execution, investing, cameras, higher, vusion]
+    concepts: [please, major, carrefour, execution, investing]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/investing/1twxya8.md#c6"
-    char_span: [11881, 14010]
+    char_span: [11880, 14009]
     sentence_count: 11
     key_terms: [beautiful-low-3932, potential, walmart, short, "i'm", management, quent1113, concerns]
+    concepts: [beautiful-low-3932, potential, walmart, management, short]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1twxya8.md#c7"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/investing/1twxya8.md#c7"
-    char_span: [14012, 16606]
+    char_span: [14011, 16605]
     sentence_count: 19
     key_terms: [short, walmart, growth, dilution, around, vusion, rather, point]
+    concepts: [short, walmart, growth, dilution, around]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1twxya8.md#c3", "social-intelligence/reddit-deep/investing/1twxya8.md#c6"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/investing/1twxya8.md#c8"
-    char_span: [16608, 18863]
+    char_span: [16607, 18862]
     sentence_count: 11
     key_terms: [vusion-ex-ses-imagotag-gotham-city-research-accuse-ses-imagotag-de-gonfler-ses-resultats-et-parie-sur-sa-chute-en-bourse-1074029, vusion, whether, beautiful-low-3932, cash, revenue, vusion-ex-ses-imagotag-fr0010282822, response-to-the-gotham-city-report]
+    concepts: [vusion, whether, beautiful-low-3932, revenue, prepayments]
     section: Comments
     token_count: 514
 ---

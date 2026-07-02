@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 2015]
     sentence_count: 10
     key_terms: [student, students, instructions, askacademia, scholarship, supervision, phd, engagement]
+    concepts: [student, students, instructions, askacademia, scholarship]
     token_count: 413
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1lqo9qy/struggling_with_phd_student_who_isnt/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c1"
     char_span: [2017, 4383]
     sentence_count: 12
     key_terms: [because, primary, supervisor, issue, like, work, incredibly, deadlines]
+    concepts: [because, primary, supervisor, incredibly, issue]
     token_count: 507
   - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c2"
     char_span: [4397, 5719]
     sentence_count: 7
     key_terms: [student, issues, help, already, unable, antiquearachnid9380, back, step]
+    concepts: [student, issues, already, unable]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c4"]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c3"
     char_span: [5721, 7526]
     sentence_count: 20
     key_terms: [students, professional, struggling, mentoring, learning, because, choices, faculty]
+    concepts: [students, professional, struggling, mentoring, learning]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c4"
     char_span: [7528, 9778]
     sentence_count: 19
     key_terms: [student, health, issues, mental, sounds, communicate, interaction, does]
+    concepts: [student, health, issues, mental, sounds]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c2"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c5"
     char_span: [9780, 11512]
     sentence_count: 13
     key_terms: [student, imagine, doing, adhd, back, let, like, accomodations]
+    concepts: [student, imagine, doing]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c6"
     char_span: [11514, 13439]
     sentence_count: 18
     key_terms: [student, support, experience, phd, english, master, topic, years]
+    concepts: [student, support, experience, english, master]
     section: Comments
     token_count: 394
 ---

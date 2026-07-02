@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 841]
     sentence_count: 7
     key_terms: [careeradvice, comments, learning, careers, switch, space, development, implemented]
+    concepts: [careeradvice, comments, learning, careers, switch]
     token_count: 210
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1ta9pxd/planning_to_switch_careers_to_ai_and_ml/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1ta9pxd.md#c1"
     char_span: [855, 1218]
     sentence_count: 1

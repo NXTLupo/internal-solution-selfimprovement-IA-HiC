@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1854]
     sentence_count: 9
     key_terms: [fine-tuning, model, training, outputs, inference-time, deeplearning, wrong, bad]
+    concepts: [fine-tuning, model, training, inference-time, outputs]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1svg7if/three_lessons_from_finetuning_a_5b_code_assistant/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1svg7if.md#c1"
     char_span: [1856, 3288]
     sentence_count: 7
     key_terms: [fine-tuning-5b-code-assistant-three-lessons, instruction, https, wrong, microgpt, correct, deliberately, pretraining]
+    concepts: [fine-tuning-5b-code-assistant-three-lessons, instruction, https, wrong, microgpt]
     token_count: 333
 ---
 # Three lessons from fine-tuning a 5B code assistant — bad outputs from 5% → 0%

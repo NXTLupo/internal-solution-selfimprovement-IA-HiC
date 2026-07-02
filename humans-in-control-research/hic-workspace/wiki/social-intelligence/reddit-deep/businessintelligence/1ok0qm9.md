@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1107]
     sentence_count: 9
     key_terms: [clients, businessintelligence, linkedin, get, referrals, comments, quarter, months]
+    concepts: [businessintelligence, clients, linkedin, referrals, comments]
     token_count: 257
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1ok0qm9/i_need_ideas/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1ok0qm9.md#c1"
-    char_span: [1122, 3208]
+    char_span: [1121, 3207]
     sentence_count: 23
     key_terms: [events, help, going, coaching, tracking, clients, options, event]
+    concepts: [events, going, coaching, tracking, clients]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/businessintelligence/1ok0qm9.md#c2"
-    char_span: [3210, 3619]
+    char_span: [3209, 3618]
     sentence_count: 1
     key_terms: [nofluffwisdom, breakdown, marketing, subscribe, messages, stupidly, funnels, instead]
+    concepts: [nofluffwisdom]
     section: Comments
     token_count: 104
 ---

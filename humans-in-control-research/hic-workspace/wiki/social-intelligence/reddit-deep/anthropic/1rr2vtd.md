@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 359]
     sentence_count: 1
     key_terms: [anthropic, comments, reddit-deep, dsolo01, minutes, prompts, claude, posted]
+    concepts: [anthropic, comments]
     token_count: 112
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1rr2vtd/claude_code_max_20x_usage_100_in_40_minutes_after/"}]
 ---
 # Claude Code MAX 20x usage 100% in 40 minutes??? after 3 prompts
 

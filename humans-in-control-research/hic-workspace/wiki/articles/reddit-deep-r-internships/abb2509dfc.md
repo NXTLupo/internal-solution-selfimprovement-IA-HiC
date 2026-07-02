@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1999]
     sentence_count: 8
     key_terms: [internships, backend, stack, looking, applications, https, com, paid]
+    concepts: [internships, backend, stack, looking, applications]
     token_count: 485
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t49lw4/looking_for_remote_full_stack_or_backend/"}]
 ---
 # Looking for remote Full Stack or Backend Internships
 

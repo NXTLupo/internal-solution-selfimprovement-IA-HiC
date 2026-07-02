@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 859]
     sentence_count: 4
     key_terms: [math, minor, engineering, engineeringstudents, comp, sci, considering, comments]
+    concepts: [minor, engineering, engineeringstudents, considering, comments]
     token_count: 198
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qb7q1g/math_minor_or_engineering_math_minor_comp_sci/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qb7q1g.md#c1"
     char_span: [873, 1337]
     sentence_count: 2
     key_terms: [difference, csguy29, quakingquakersquake, agree, minor, edge, math, curriculum]
+    concepts: [difference, csguy29, agree, minor]
     section: Comments
     token_count: 128
 ---

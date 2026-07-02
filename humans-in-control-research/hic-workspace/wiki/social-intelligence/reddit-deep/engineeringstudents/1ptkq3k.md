@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 575]
     sentence_count: 5
     key_terms: [engineering, engineeringstudents, comments, military, substantial-shirt875, environmental, internships, reddit-deep]
+    concepts: [engineering, engineeringstudents, comments, military]
     token_count: 132
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1ptkq3k/to_older_students_did_you_ever_have_issues/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ptkq3k.md#c1"
     char_span: [589, 2289]
     sentence_count: 14
     key_terms: [internships, did, battlebots, experience, internship, interviews, finding, trouble]
+    concepts: [internships, battlebots, experience, internship, interviews]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ptkq3k.md#c2"
     char_span: [2291, 4171]
     sentence_count: 14
     key_terms: [job, substantial-shirt875, graduating, got, yourself, market, internships, internship]
+    concepts: [substantial-shirt875, graduating, yourself, market, internships]
     section: Comments
     token_count: 493
 ---

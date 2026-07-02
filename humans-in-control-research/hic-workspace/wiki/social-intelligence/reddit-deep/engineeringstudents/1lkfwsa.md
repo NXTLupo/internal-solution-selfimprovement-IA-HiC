@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 780]
     sentence_count: 4
     key_terms: [development, engineeringstudents, research, comments, engineer, front, end, like]
+    concepts: [development, engineeringstudents, research, comments, engineer]
     token_count: 178
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1lkfwsa/if_i_want_to_be_an_engineer_general_for_now_for/"}]
 ---
 # If i want to be an engineer (general for now), for my internship should i work in AI research or front end UI development? (Those are the two options given).
 

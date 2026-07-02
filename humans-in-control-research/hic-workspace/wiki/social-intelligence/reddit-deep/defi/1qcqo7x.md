@@ -20,14 +20,17 @@ chunks:
     char_span: [0, 2375]
     sentence_count: 7
     key_terms: [platform, defi, token, solana, through, crypto, guides, tokens]
+    concepts: [platform, token, solana, through, crypto]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1qcqo7x/looking_for_testers_communitydriven_defi_platform/"}]
   - id: "social-intelligence/reddit-deep/defi/1qcqo7x.md#c1"
     char_span: [2377, 3428]
     sentence_count: 3
     key_terms: [community, required, something, platform, testing, wallet, beta, defi]
+    concepts: [community, required, something, platform, testing]
     token_count: 226
   - id: "social-intelligence/reddit-deep/defi/1qcqo7x.md#c2"
-    char_span: [3443, 3802]
+    char_span: [3442, 3801]
     sentence_count: 2
     key_terms: [primarybitt, developing, enterprise, interested, customer, feedback, mounitis, bingowt]
     section: Comments

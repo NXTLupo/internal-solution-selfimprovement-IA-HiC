@@ -20,29 +20,39 @@ chunks:
     char_span: [0, 1923]
     sentence_count: 19
     key_terms: [financial, take, planning, financialcareers, people, years, cut, get]
+    concepts: [financial, financialcareers, planning, people, years]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1s92ezt.md#c1", "social-intelligence/reddit-deep/financialcareers/1s92ezt.md#c2", "social-intelligence/reddit-deep/financialcareers/1s92ezt.md#c3"]
     token_count: 473
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1s92ezt/is_100k_pay_cut_worth_it_to_switch_careers_to/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1s92ezt.md#c1"
-    char_span: [1938, 3231]
+    char_span: [1937, 3230]
     sentence_count: 10
     key_terms: [financialcareers, discord, family, professionals, pay, financial, full-time, consider]
+    concepts: [financialcareers, professionals, discord, family, financial]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1s92ezt.md#c0"]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/financialcareers/1s92ezt.md#c2"
-    char_span: [3233, 5286]
+    char_span: [3232, 5285]
     sentence_count: 11
     key_terms: [financial, planning, notbannedaccount419, trading, career, job, realize, working]
+    concepts: [financial, planning, notbannedaccount419, trading, career]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1s92ezt.md#c0", "social-intelligence/reddit-deep/financialcareers/1s92ezt.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1s92ezt.md#c3"
-    char_span: [4986, 5803]
+    char_span: [4985, 5802]
     sentence_count: 3
     key_terms: [people, financial, planning, notbannedaccount419, taxes, don, own, prep]
+    concepts: [people, financial, planning, taxes]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1s92ezt.md#c0", "social-intelligence/reddit-deep/financialcareers/1s92ezt.md#c2"]
     section: Comments
     token_count: 214
   - id: "social-intelligence/reddit-deep/financialcareers/1s92ezt.md#c4"
-    char_span: [5805, 6531]
+    char_span: [5804, 6530]
     sentence_count: 7
     key_terms: [cut, get, eventually, freeing, revenue, takes, like, sell]
+    concepts: [eventually, freeing, revenue, takes]
     section: Comments
     token_count: 165
 ---

@@ -9,24 +9,27 @@ author: ""
 date: "2025-07-02T21:25:33.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-06-17T19:28:02.119307+00:00"
+extracted_at: "2026-06-20T17:53:57.057818+00:00"
 chars: 2733
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
-collected_at: "2026-06-17T19:28:01.408Z"
-relevance: 92
-engagement_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
+collected_at: "2026-06-20T17:53:56.867Z"
+relevance: 60
+engagement_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
 content_hash: "c463e4d86901097b"
-relevance_by_goal: {"68c375ef0d4e":92}
+relevance_by_goal: {"68c375ef0d4e":92,"0c6bc22d8192":60}
 chunks:
   - id: "articles/reddit-deep-r-insurtech/ba9ed79da3.md#c0"
-    char_span: [0, 2185]
+    char_span: [0, 2184]
     sentence_count: 14
     key_terms: [customers, insurance, data, companies, customer, "here's", seeing, information]
-    token_count: 460
+    concepts: [customers, insurance, companies, customer, "here's"]
+    token_count: 459
+    sources: [{"n":"Reddit Deep: r/insurtech","u":"https://www.reddit.com/r/InsurTech/comments/1lq7ttv/the_27_loyalty_problem_why_insurance_is_finally/"}]
   - id: "articles/reddit-deep-r-insurtech/ba9ed79da3.md#c1"
-    char_span: [2187, 2959]
+    char_span: [2186, 2958]
     sentence_count: 2
     key_terms: [elevating-customer-experience-a-win-win-for-insurers-and-customers, how-the-new-customer-experience-model-is-transforming-insurance, https, financial-services, com, www, our-insights, robertreiss]
+    concepts: [elevating-customer-experience-a-win-win-for-insurers-and-customers, how-the-new-customer-experience-model-is-transforming-insurance, financial-services, https, our-insights]
     token_count: 204
 ---
 # The 27% Loyalty Problem: Why Insurance is Finally Waking Up to Customer Experience

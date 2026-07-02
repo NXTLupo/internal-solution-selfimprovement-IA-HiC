@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1789]
     sentence_count: 8
     key_terms: [roommate, "i'm", neu, medical, oakland, random, condition, because]
+    concepts: [roommate, medical, oakland, random, condition]
     token_count: 410
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1t3vkbh/neu_oakland_single_vs_random_roommate_firstyear/"}]
   - id: "articles/reddit-deep-r-neu/ddefd4d910.md#c1"
     char_span: [1791, 3420]
     sentence_count: 11
     key_terms: [single, dorms, miathekoala, get, friends, oakland, singles, minifridge]
+    concepts: [single, dorms, miathekoala, friends, oakland]
     token_count: 406
 ---
 # NEU Oakland: single vs. random roommate (first-year)

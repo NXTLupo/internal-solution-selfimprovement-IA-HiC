@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 572]
     sentence_count: 3
     key_terms: [college, comments, money, full, good, job, time, iluvj3ffbuckley]
+    concepts: [college, comments, money]
     token_count: 153
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1l8w4id/what_job_to_get_as_a_full_time_student/"}]
   - id: "social-intelligence/reddit-deep/college/1l8w4id.md#c1"
     char_span: [586, 1792]
     sentence_count: 10
     key_terms: [job, work, money, food, on-campus, online, server, pizza]
+    concepts: [money, on-campus, online, server, pizza]
     section: Comments
     token_count: 298
   - id: "social-intelligence/reddit-deep/college/1l8w4id.md#c2"
     char_span: [1794, 3787]
     sentence_count: 16
     key_terms: [job, campus, lavendertearose32, try, server, good, restaurant, draining]
+    concepts: [campus, lavendertearose32, server, restaurant, draining]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1l8w4id.md#c3"
     char_span: [3573, 5489]
     sentence_count: 10
     key_terms: [work, job, did, homework, iluvj3ffbuckley, school, get, law]
+    concepts: [iluvj3ffbuckley, homework, school, semester, classes]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1l8w4id.md#c4"
     char_span: [5199, 5630]
     sentence_count: 5
     key_terms: [get, pay, restaurant, bills, gotta, job, whatsoever, stressful]
+    concepts: [restaurant, bills, gotta]
     section: Comments
     token_count: 94
 ---

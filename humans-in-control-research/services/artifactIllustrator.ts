@@ -61,22 +61,133 @@ function conceptFromPayload(payload: Record<string, unknown>): string {
     return '';
 }
 
+// ============================================================================
+// E4 (2026-07-02, artifact-total-elevation): NATIVE INFOGRAPHIC branch. The memphis-iso diffusion
+// lane (/api/ai/brand-image) is retired; content slots render via the SAME native contract as the
+// D17 diagrams (/api/ai/diagram, nxt_diagram_render infographic families) in a CHROMELESS slot shell
+// sized to the registry bounds. The spec is built from the ELEMENT'S OWN DATA (content-true or
+// nothing): steps/actions -> process-flow; before/after -> comparison; stats/kpis -> stat-row;
+// citations -> evidence-mix composition. An element with no structurable substance gets NO image -
+// honest image-free beats a decorative scene.
+// ============================================================================
+
+function _strList(v: unknown, cap = 6): string[] {
+    if (!Array.isArray(v)) return [];
+    return v.map(x => {
+        if (typeof x === 'string') return x.trim();
+        if (x && typeof x === 'object') {
+            const o = x as Record<string, unknown>;
+            for (const k of ['name', 'title', 'label', 'action', 'step', 'text']) {
+                if (typeof o[k] === 'string' && (o[k] as string).trim()) return (o[k] as string).trim();
+            }
+        }
+        return '';
+    }).filter(Boolean).slice(0, cap);
+}
+
+function _sourceTypeOf(name: string): string {
+    const n = name.toLowerCase();
+    if (/reddit|r\/|forum|hacker news|bluesky|mastodon/.test(n)) return 'Social';
+    if (/upload|client|internal|\.pdf|\.docx?|interview|discussion/.test(n)) return 'Client material';
+    return 'External research';
+}
+
+/** Build a content-true infographic spec from a payload element. Returns null when the element has
+ *  no structurable substance (-> no image; never decorate). */
+export function infographicSpecFrom(el: unknown, concept: string): Record<string, unknown> | null {
+    const o = (el && typeof el === 'object') ? el as Record<string, unknown> : {};
+    // 1) process-flow from actions/steps/phases (the mechanism the element proposes)
+    for (const key of ['actions', 'steps', 'phases', 'coherentActions']) {
+        const steps = _strList(o[key]);
+        if (steps.length >= 3) {
+            return { kind: 'process-flow', steps: steps.map(s => ({ name: s })) };
+        }
+    }
+    // 2) comparison from before/after shapes
+    const ba = o['beforeAfter'] as Record<string, unknown> | undefined;
+    if (ba && typeof ba === 'object') {
+        const left = _strList((ba as any).before?.points ?? (ba as any).before, 5);
+        const right = _strList((ba as any).after?.points ?? (ba as any).after, 5);
+        if (left.length >= 2 && right.length >= 2) {
+            return {
+                kind: 'comparison',
+                left: { title: 'Before', points: left },
+                right: { title: 'After', points: right },
+            };
+        }
+    }
+    // 3) stat-row from kpis/stats/metrics carrying label+value (+ quote/source when cited)
+    for (const key of ['kpiTiles', 'kpis', 'stats', 'metrics', 'keyMetrics']) {
+        const arr = o[key];
+        if (Array.isArray(arr)) {
+            const stats = arr.filter(x => x && typeof x === 'object').map(x => {
+                const s = x as Record<string, unknown>;
+                return {
+                    label: String(s.label ?? s.name ?? '').trim(),
+                    value: String(s.value ?? s.stat ?? '').trim(),
+                    quote: typeof s.quote === 'string' ? s.quote : undefined,
+                    source: typeof s.source === 'string' ? s.source : undefined,
+                };
+            }).filter(s => s.label).slice(0, 5);
+            if (stats.length >= 2) return { kind: 'stat-row', stats };
+        }
+    }
+    // 4) evidence-mix composition from the element's own citations (content-true provenance view).
+    //    Also harvests nested per-section evidence sources (executive-brief sections[].evidence.source)
+    //    so section-anatomy payloads compose their provenance mix without a top-level citations[].
+    let cites: unknown = o['citations'] ?? o['sources'];
+    if (!Array.isArray(cites) || cites.length < 2) {
+        const secs = o['sections'];
+        if (Array.isArray(secs)) {
+            const fromSections = secs
+                .map(s => (s && typeof s === 'object') ? (s as any).evidence?.source : undefined)
+                .filter((x): x is string => typeof x === 'string' && !!x.trim());
+            if (fromSections.length >= 2) cites = fromSections;
+        }
+    }
+    if (Array.isArray(cites) && cites.length >= 2) {
+        const byType = new Map<string, number>();
+        for (const c of cites) {
+            const name = typeof c === 'string' ? c : String((c as any)?.sourceName ?? (c as any)?.source ?? '');
+            if (!name.trim()) continue;
+            const t = _sourceTypeOf(name);
+            byType.set(t, (byType.get(t) || 0) + 1);
+        }
+        const segments = Array.from(byType.entries()).map(([label, n]) => ({ label, share: n }));
+        if (segments.length >= 2) return { kind: 'composition', segments };
+    }
+    void concept;
+    return null;   // no structurable substance -> no image (honest image-free)
+}
+
 async function generateOne(concept: string, brand: string, canvas: 'dark' | 'light', kind: SlotKind,
-                           variant: number, branch?: string): Promise<{ url: string; dataUri: string; reused: boolean } | null> {
+                           variant: number, branch?: string, el?: unknown,
+                           bounds?: { w: number; h: number }): Promise<{ url: string; dataUri: string; reused: boolean } | null> {
     try {
-        // emotive branch (user-locked 2026-06-27): the THIRD imagery type is the Memphis-iso
-        // flat-illustrative brand image (/api/ai/brand-image), NOT the old continuous single-line art
-        // (/api/ai/illustration) the user rejected. Route emotive there; other branches keep the
-        // existing path.
-        const emotive = branch === 'emotive';
-        const url = emotive ? `${PROXY_BASE}/api/ai/brand-image` : `${PROXY_BASE}/api/ai/illustration`;
-        const body = emotive
-            ? JSON.stringify({ concept, brand, variant })
-            : JSON.stringify({ concept, brand, canvas, slot: kind, variant });
-        const resp = await fetch(url, {
+        const native = branch === 'infographic' || branch === 'emotive';   // 'emotive' = legacy audit value, now native
+        if (native) {
+            const spec = infographicSpecFrom(el, concept);
+            if (!spec) return null;   // content-true or nothing
+            // chromeless slot shell at 2x the registry bounds (crisp at render size); variant folds into
+            // the spec hash so intra-artifact dedup still works via distinct content.
+            spec['chrome'] = 'none';
+            spec['frame'] = { w: Math.round((bounds?.w || 492) * 2), h: Math.round((bounds?.h || 290) * 2) };
+            if (variant > 0) spec['variant'] = variant;
+            const resp = await fetch(`${PROXY_BASE}/api/ai/diagram`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ spec, brand, canvas }),
+            });
+            if (!resp.ok) return null;
+            const r = await resp.json();
+            return (r && typeof r.url === 'string' && r.url)
+                ? { url: r.url, dataUri: typeof r.dataUri === 'string' ? r.dataUri : '', reused: !!r.reused }
+                : null;
+        }
+        const resp = await fetch(`${PROXY_BASE}/api/ai/illustration`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body,
+            body: JSON.stringify({ concept, brand, canvas, slot: kind, variant }),
         });
         if (!resp.ok) return null;
         const r = await resp.json();
@@ -112,10 +223,11 @@ export async function resolveArtifactImages(
     const usedUrls = new Set<string>();
     let attached = 0;
 
-    // Pull a unique image for `concept`, bumping variant on intra-artifact repeats.
-    const uniqueImage = async (concept: string): Promise<string> => {
+    // Pull a unique image for `concept`, bumping variant on intra-artifact repeats. The source
+    // ELEMENT rides along so the native infographic branch can build a content-true spec (E4).
+    const uniqueImage = async (concept: string, el?: unknown): Promise<string> => {
         for (let v = 0; v <= 3; v++) {
-            const r = await generateOne(concept, brand, canvas, kind, v, spec.branch);
+            const r = await generateOne(concept, brand, canvas, kind, v, spec.branch, el, spec.bounds);
             if (!r) return '';
             // Dedup on the stable content-id (url); STORE the data-URI so the image embeds in exports
             // (falls back to the url only if the endpoint returned no dataUri).
@@ -127,7 +239,7 @@ export async function resolveArtifactImages(
     if (spec.mode === 'panel' || spec.mode === 'hero') {
         const concept = conceptFromPayload(payload);
         if (!concept) return 0;
-        const url = await uniqueImage(concept);
+        const url = await uniqueImage(concept, payload);
         if (url) { payload[spec.carrier] = url; attached++; onLog?.(`${artifact}: panel image attached`); }
         return attached;
     }
@@ -148,7 +260,7 @@ export async function resolveArtifactImages(
     for (let i = 0; i < cap; i++) {
         const concept = conceptFromElement(arr[i]);
         if (!concept) { images[i] = images[i] || ''; continue; }
-        const url = await uniqueImage(concept);
+        const url = await uniqueImage(concept, arr[i]);
         images[i] = url;
         if (url) attached++;
     }

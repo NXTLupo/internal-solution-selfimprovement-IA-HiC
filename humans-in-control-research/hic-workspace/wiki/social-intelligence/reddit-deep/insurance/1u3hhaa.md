@@ -8,59 +8,69 @@ title: "New Supercar Damaged in Parking Lot - Allstate Refuses to Pay for Proper
 author: "TruElevation"
 date: "2026-06-12T01:25:04.000Z"
 score: 0
-upvote_ratio: 0.38
-num_comments: 59
+upvote_ratio: 0.36
+num_comments: 60
 flair: "Auto Insurance"
-extracted_at: "2026-06-17T19:26:46.473Z"
+extracted_at: "2026-06-20T17:52:10.506Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/insurance/1u3hhaa.md#c0"
     char_span: [0, 2176]
     sentence_count: 10
     key_terms: [allstate, car, been, shop, process, through, parts, weeks]
+    concepts: [allstate, process, through, "allstate's", parts]
     token_count: 470
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1u3hhaa/new_supercar_damaged_in_parking_lot_allstate/"}]
   - id: "social-intelligence/reddit-deep/insurance/1u3hhaa.md#c1"
     char_span: [2181, 3625]
     sentence_count: 11
     key_terms: [having, car, "i'm", "don't", insurance, process, either, option]
+    concepts: [having, "don't", insurance, process, either]
     token_count: 319
   - id: "social-intelligence/reddit-deep/insurance/1u3hhaa.md#c2"
-    char_span: [3640, 5652]
+    char_span: [3639, 5651]
     sentence_count: 13
     key_terms: [insurance, vehicle, specifically, vagabondcamp, rates, like, use, crowlady77]
+    concepts: [insurance, vehicle, specifically, vagabondcamp, crowlady77]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/insurance/1u3hhaa.md#c3"
-    char_span: [5436, 5875]
+    char_span: [5435, 5874]
     sentence_count: 2
     key_terms: [insured, aromatic-mountain670, car, cars, high, completely, preferred, specialty]
+    concepts: [insured]
     section: Comments
     token_count: 117
   - id: "social-intelligence/reddit-deep/insurance/1u3hhaa.md#c4"
-    char_span: [5877, 7261]
+    char_span: [5876, 7260]
     sentence_count: 11
     key_terms: [shop, allstate, labor, pay, rate, willing, claim, model]
+    concepts: [allstate, labor, willing, claim, model]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/insurance/1u3hhaa.md#c5"
-    char_span: [7263, 9147]
+    char_span: [7262, 9146]
     sentence_count: 19
     key_terms: [insurance, car, pay, increase, company, rate, allstate, supercar]
+    concepts: [insurance, increase, company, allstate, supercar]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1u3hhaa.md#c6"]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/insurance/1u3hhaa.md#c6"
-    char_span: [9149, 10130]
+    char_span: [9148, 10128]
     sentence_count: 8
     key_terms: [insurance, allstate, frostymission, usaa, because, issues, super, car]
+    concepts: [insurance, allstate, frostymission, because, issues]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1u3hhaa.md#c5"]
     section: Comments
     token_count: 272
 ---
 # New Supercar Damaged in Parking Lot - Allstate Refuses to Pay for Proper Repairs
 
 Source: [reddit-deep: r/insurance](https://www.reddit.com/r/Insurance/comments/1u3hhaa/new_supercar_damaged_in_parking_lot_allstate/)
-Posted by **TruElevation** · **0↑** · **59 comments**
+Posted by **TruElevation** · **0↑** · **60 comments**
 
 I've spent the past few weeks dealing with this situation and I feel like I'm stuck at this point.
 
@@ -100,13 +110,13 @@ Edit 2: It's not about the car specifically, it's not that exotic, but my locati
   - **TruElevation** (1↑): Thankfully, yes. My state's minimums should be enough to deal with this specific claim regardless, and if I use my insurance I'm even more on the clear side of that. The impact wasn't extremely hard, so we're not talking about a complete front end rebuild. The damage is disproportionate to the speed, but it did force the steering from dead center to full lock and the suspension didn't like that. That's where the biggest issue on the rates is, having to do with the actual mechanical work being done right rather than the cosmetic stuff.
     - **Crowlady77** (2↑): Does your insurance have a rider for increased repair fees?  That might be the way to go, letting them recover the costs.
     - **VagabondCamp** (1↑): So you really have one of three options.  You use a GHRN that may not be authorized to do work on the vehicle, you go with the shop of your choice but if they don’t agree to Allstate’s labor rates, you may be responsible for the difference, or you use your own insurance.  Allstate may make a concession on labor rates but if say they are allowing $140/hr and your shop wants $250, it is unlikely to happen - just as an example.
-- **sun-king** (5↑): What kind of vehicle?
+- **sun-king** (7↑): What kind of vehicle?
   - **user_number_666** (2↑): something like a Lamborghini or McLaren, probably
   - **LoneStarGut** (1↑): I am thinking it is a Tesla. The specifically sell models called the Performance, plus they certify body shops.
     - **Crowlady77** (1↑): That's not a supercar though lol.  I know my insurance does specifically have repair shops for Teslas.
 - **mtsingh1991** (6↑): What type of car is it? I can't imagine USAA insuring high end cars? They probably have an MSRP limit of like 150k
   - **Hot_Fan_4169** (2↑): Toyota Corolla
-- **Aromatic-Mountain670** (6↑): Whatever make the "super car " is needs to be insured with a specialty insuror 
+- **Aromatic-Mountain670** (5↑): Whatever make the "super car " is needs to be insured with a specialty insuror 
 Hagerty is my preferred option as they are used to handling show cars and high dollar vehicles 
 Had a 79 TransAm completely rebuilt sparing no expense. and insured for $150,000 
 Motor was right out of a car magazine. 
@@ -137,12 +147,12 @@ You will not see a premium increase for a claim that is not your fault.   Typica
 Look into diminished value claims once the repairs are completed.  There are firms that do only this process.   You can often recoup a decent amount of money.
 
 Also look into your state's insurance regulators and see if they have anything to say.
-  - **saints21** (-4↑): You can absolutely see a rate increase or higher premiums even if you don't have a rate increase. And Allstate does have to pay for any specialized labor rate. It just might take forever to get it covered and would be a fight.
+  - **saints21** (-3↑): You can absolutely see a rate increase or higher premiums even if you don't have a rate increase. And Allstate does have to pay for any specialized labor rate. It just might take forever to get it covered and would be a fight.
 
 To be clear, this is fact based information. Not sure why it's being downvoted. There's zero room for opinion on this.
     - **FrostyMission** (1↑): I guess these details are really state specific.
 - **Hot_Fan_4169** (2↑): This super car is probably a Nissan Altima …
-- **Decorus_Somes** (-1↑): Insurance pays fair market rates, your shop charging more is not insurance companies fault. You got a super car then used usaa to insure it instead of a company like Chubb or Grundy. You get what you pay for
+- **Decorus_Somes** (1↑): Insurance pays fair market rates, your shop charging more is not insurance companies fault. You got a super car then used usaa to insure it instead of a company like Chubb or Grundy. You get what you pay for
   - **sa09777** (2↑): He’s a claimant
     - **Decorus_Somes** (2↑): Yes and he can't use USAA because they would have the same issues Allstate is. Did you not read his post?
     - **FrostyMission** (0↑): They're still right.  USAA is as garbage as Allstate

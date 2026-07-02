@@ -19,12 +19,14 @@ content_hash: "a782c9af8e37bffe"
 relevance_by_goal: {"490684cfa204":70}
 chunks:
   - id: "articles/reddit-deep-r-ecommerce/50deeb0f8b.md#c0"
-    char_span: [0, 2184]
+    char_span: [0, 2183]
     sentence_count: 12
     key_terms: [discount, customers, never, price, discounts, miracleaayodele, expect, scheme]
-    token_count: 516
+    concepts: [discount, customers, discounts, miracleaayodele, never]
+    token_count: 515
+    sources: [{"n":"Reddit Deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1n4qm3w/would_you_rather_lose_a_sale_or_sell_at_a_smaller/"}]
   - id: "articles/reddit-deep-r-ecommerce/50deeb0f8b.md#c1"
-    char_span: [2186, 2410]
+    char_span: [2185, 2409]
     sentence_count: 1
     key_terms: [side, miracleaayodele, abandonment, negotiation, concession, unilateral, customers, discounts]
     token_count: 44

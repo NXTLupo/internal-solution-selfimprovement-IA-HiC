@@ -20,28 +20,36 @@ chunks:
     char_span: [0, 2090]
     sentence_count: 36
     key_terms: [instagram, product, wedding, entrepreneur, too, co-founder, confirmed, strangers]
+    concepts: [instagram, product, wedding, entrepreneur, co-founder]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1t1bhxf/my_cofounder_uses_clay_and_ai_agents_for_outreach/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1t1bhxf.md#c1"
     char_span: [2092, 3752]
     sentence_count: 25
     key_terms: [people, feedback, outreach, wedding, right, australians, completely, different]
+    concepts: [people, feedback, outreach, wedding, australians]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1t1bhxf.md#c4"]
     token_count: 334
   - id: "social-intelligence/reddit-deep/entrepreneur/1t1bhxf.md#c2"
-    char_span: [3767, 4576]
+    char_span: [3766, 4575]
     sentence_count: 4
     key_terms: [please, entrepreneur, permanent, promotion, stickied, comment, thread, weekly]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/entrepreneur/1t1bhxf.md#c3"
-    char_span: [4579, 6748]
+    char_span: [4578, 6747]
     sentence_count: 18
     key_terms: [timing, manual, automation, message, "co-founder's", optimizes, automate, outreach]
+    concepts: [timing, automation, manual, message, "co-founder's"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/entrepreneur/1t1bhxf.md#c4"
-    char_span: [6750, 9009]
+    char_span: [6749, 9008]
     sentence_count: 19
     key_terms: [scale, automation, people, something, outreach, wedding, "you're", because]
+    concepts: [automation, scale, something, people, outreach]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1t1bhxf.md#c1"]
     section: Comments
     token_count: 472
 ---

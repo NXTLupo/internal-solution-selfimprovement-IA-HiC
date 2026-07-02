@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 539]
     sentence_count: 5
     key_terms: [engineeringstudents, comments, wrongdoerjumpy, considering, engineering, provisional, reddit-deep, acceptance]
+    concepts: [engineeringstudents, comments]
     token_count: 137
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1stonnm/i_earned_a_biology_premed_degree_in_may_2022_and/"}]
 ---
 # I earned a biology (pre-med) degree in May 2022 and have worked in QA/QC since. I’ve lost interest in medicine and am now pursuing industrial engineering. I have a provisional acceptance to Johns Hopkins IE and am considering UofL. Anyone make a similar switch and reach a six-figure career?
 

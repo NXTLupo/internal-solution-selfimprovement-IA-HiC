@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 590]
     sentence_count: 5
     key_terms: [comments, oakland, campus, acrobatic-teach-9373, clubs, doing, tamid, neu]
+    concepts: [comments, oakland, campus, clubs, doing]
     token_count: 147
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1m1jma4/can_you_join_clubs_like_student_value_fund_tamid/"}]
   - id: "social-intelligence/reddit-deep/neu/1m1jma4.md#c1"
     char_span: [604, 1276]
     sentence_count: 9
     key_terms: [clubs, club, business, possible, good, competitive, experiences, interesting]
+    concepts: [clubs, business, possible]
     section: Comments
     token_count: 151
 ---

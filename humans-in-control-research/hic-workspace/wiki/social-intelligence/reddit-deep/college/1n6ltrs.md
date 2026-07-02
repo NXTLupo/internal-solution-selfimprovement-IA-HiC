@@ -19,73 +19,88 @@ chunks:
     char_span: [0, 1812]
     sentence_count: 15
     key_terms: [college, despite, please, life, time, greek, experiences, frat]
+    concepts: [college, despite, please, experiences, greek]
     token_count: 421
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1n6ltrs/i_rushed_and_i_regret_it_an_alumnus_perspective/"}]
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c1"
     char_span: [1814, 3738]
     sentence_count: 14
     key_terms: ["you're", something, because, people, front, get, "it's", bullying]
+    concepts: ["you're", something, because, people, front]
     token_count: 421
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c2"
     char_span: [3740, 5706]
     sentence_count: 27
     key_terms: [people, "that's", want, almost, alumni, guys, work, drinking]
+    concepts: [people, "that's", almost, alumni, drinking]
     token_count: 456
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c3"
     char_span: [5708, 7734]
     sentence_count: 13
     key_terms: [college, "you've", "don't", edit, frat, get, time, want]
+    concepts: [college, "you've", "don't", yourself, feeling]
     token_count: 476
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c4"
     char_span: [7736, 8869]
     sentence_count: 11
     key_terms: [everyone, house, because, centuries-old, gay, guys, afraid, enough]
+    concepts: [everyone, house, centuries-old, because, afraid]
     token_count: 251
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c5"
-    char_span: [8884, 8930]
+    char_span: [8883, 8929]
     sentence_count: 1
     key_terms: [thoughtful, cartslaw]
     section: Comments
     token_count: 15
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c6"
-    char_span: [8932, 11183]
+    char_span: [8931, 11182]
     sentence_count: 18
     key_terms: [college, school, frats, frat, get, chapter, sharing, house]
+    concepts: [college, school, frats, chapter, sharing]
+    related_chunks: ["social-intelligence/reddit-deep/college/1n6ltrs.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c7"
-    char_span: [10840, 13145]
+    char_span: [10839, 13144]
     sentence_count: 12
     key_terms: [frats, house, college, fraternities, sororities, positive, couple, like]
+    concepts: [frats, fraternities, house, college, sororities]
+    related_chunks: ["social-intelligence/reddit-deep/college/1n6ltrs.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c8"
-    char_span: [12825, 15317]
+    char_span: [12824, 15316]
     sentence_count: 18
     key_terms: [expensive, franchise, "it's", like, "they're", frats, going, experiences]
+    concepts: [expensive, franchise, "they're", experiences, frats]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c9"
-    char_span: [15005, 15983]
+    char_span: [15004, 15982]
     sentence_count: 9
     key_terms: [didn, expensive, better, cousin, going, years, keep, need]
+    concepts: [expensive, better, cousin, going, years]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c10"
-    char_span: [15985, 17766]
+    char_span: [15984, 17765]
     sentence_count: 13
     key_terms: ["didn't", get, life, like, wife, work, culture, anyone]
+    concepts: ["didn't", culture, anyone, greek, house]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c11"
-    char_span: [17770, 19797]
+    char_span: [17769, 19796]
     sentence_count: 11
     key_terms: [sororities, seemed, experienced, get, something, support, "didn't", people]
+    concepts: [sororities, seemed, experienced, something, support]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c12"
-    char_span: [19799, 21874]
+    char_span: [19798, 21873]
     sentence_count: 19
     key_terms: [frat, house, chapter, seating, take-em-in-the-back-and-make-em-bleed, game, old, experience]
+    concepts: [house, chapter, seating, experience, football]
     section: Comments
     token_count: 505
 ---

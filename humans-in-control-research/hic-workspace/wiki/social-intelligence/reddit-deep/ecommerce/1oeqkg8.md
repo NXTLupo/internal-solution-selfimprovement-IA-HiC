@@ -20,35 +20,42 @@ chunks:
     char_span: [0, 1338]
     sentence_count: 12
     key_terms: [research, qualitative, customers, ecommerce, behavior, business, comments, customer]
+    concepts: [research, qualitative, customers, ecommerce, behavior]
     token_count: 272
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1oeqkg8/how_do_you_currently_do_qualitative_research_for/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1oeqkg8.md#c1"
-    char_span: [1353, 3227]
+    char_span: [1352, 3226]
     sentence_count: 9
     key_terms: [like, keywords, reviews, check, quite, customers, delivered, different]
+    concepts: [keywords, reviews, check, quite, customers]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/ecommerce/1oeqkg8.md#c2"
-    char_span: [3236, 5493]
+    char_span: [3235, 5492]
     sentence_count: 13
     key_terms: [insights, data, like, get, help, automation, brown-leo, customers]
+    concepts: [insights, automation, brown-leo, customers, pjmg2020]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1oeqkg8.md#c3"
-    char_span: [5199, 5584]
+    char_span: [5198, 5583]
     sentence_count: 3
     key_terms: [person, started, sales, conventional, experience, invaluable, marketing, customer]
+    concepts: [person, started, sales]
     section: Comments
     token_count: 85
   - id: "social-intelligence/reddit-deep/ecommerce/1oeqkg8.md#c4"
-    char_span: [5586, 7763]
+    char_span: [5585, 7762]
     sentence_count: 18
     key_terms: [researches, get, emotional, deep, details, using, everything, individual]
+    concepts: [researches, emotional, details, everything, individual]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/ecommerce/1oeqkg8.md#c5"
-    char_span: [7765, 8554]
+    char_span: [7764, 8553]
     sentence_count: 8
     key_terms: [customers, competitors, need, part, question, already, better, well-established]
+    concepts: [customers, competitors, question, already, better]
     section: Comments
     token_count: 178
 ---

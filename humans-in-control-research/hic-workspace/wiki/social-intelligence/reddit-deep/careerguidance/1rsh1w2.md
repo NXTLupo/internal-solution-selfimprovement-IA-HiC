@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 298]
     sentence_count: 2
     key_terms: [careerguidance, comments, hallthink6610, reddit-deep, confused, learning, career, posted]
+    concepts: [careerguidance, comments]
     token_count: 88
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rsh1w2/16yo_learning_python_ml_but_confused_about_tech/"}]
 ---
 # 16yo learning Python & ML but confused about tech career path?
 

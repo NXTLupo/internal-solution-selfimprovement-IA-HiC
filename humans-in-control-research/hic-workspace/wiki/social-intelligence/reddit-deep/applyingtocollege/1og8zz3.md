@@ -21,47 +21,61 @@ chunks:
     char_span: [0, 870]
     sentence_count: 8
     key_terms: [applyingtocollege, "doesn't", school, act, comments, devilfishlane1975, good, applications]
+    concepts: [applyingtocollege, "doesn't", school, comments]
     token_count: 216
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1og8zz3/a_worried_father_and_college_applications/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c1"
     char_span: [884, 2512]
     sentence_count: 12
     key_terms: [competitive, schools, safeties, state, university, rejected, student, reason]
+    concepts: [competitive, schools, safeties, state, university]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c3"]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c2"
     char_span: [2514, 3496]
     sentence_count: 6
     key_terms: [school, law, formal-research4531, schools, competitive, dame, oos, catholic]
+    concepts: [school, formal-research4531, schools, competitive, catholic]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c3"]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c3"
     char_span: [3498, 5341]
     sentence_count: 15
     key_terms: [school, schools, prestigious, apply, state, law, authority, parental]
+    concepts: [school, prestigious, schools, apply, state]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c4"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c4"
     char_span: [5343, 6929]
     sentence_count: 10
     key_terms: [safety, school, time, apply, transfer, college, forward, schools]
+    concepts: [safety, school, apply, transfer, college]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c7"]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c5"
     char_span: [6931, 8757]
     sentence_count: 15
     key_terms: [applicants, schools, denied, years, admission, florida, student, denial]
+    concepts: [applicants, schools, denied, years, admission]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c6"
     char_span: [8759, 9637]
     sentence_count: 9
     key_terms: [unc, counselor, selective, harder, school, reach, state, devilfishlane1975]
+    concepts: [counselor, selective, harder, school, reach]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c7"
     char_span: [9639, 11391]
     sentence_count: 13
     key_terms: [application, safety, school, going, page, unc, athletes, applied]
+    concepts: [application, safety, school, going, athletes]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c4"]
     section: Comments
     token_count: 459
 ---

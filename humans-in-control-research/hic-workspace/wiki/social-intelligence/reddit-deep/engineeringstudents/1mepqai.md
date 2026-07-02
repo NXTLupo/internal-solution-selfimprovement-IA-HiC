@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 389]
     sentence_count: 2
     key_terms: [engineeringstudents, opportunities, mechatronics, engineers, comments, abroad, career, freedomsufficient484]
+    concepts: [engineeringstudents, opportunities, mechatronics, engineers, comments]
     token_count: 92
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1mepqai/what_are_the_career_opportunities_for/"}]
 ---
 # What are the career opportunities for Mechatronics engineers in India and abroad?
 

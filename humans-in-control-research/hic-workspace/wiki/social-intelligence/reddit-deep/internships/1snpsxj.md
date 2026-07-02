@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1072]
     sentence_count: 9
     key_terms: [internships, alberta, year, internship, comments, looking, summer, month]
+    concepts: [internships, alberta, internship, comments, looking]
     token_count: 256
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1snpsxj/tips_on_securing_an_internship_in_an_area_that/"}]
   - id: "social-intelligence/reddit-deep/internships/1snpsxj.md#c1"
     char_span: [1086, 3242]
     sentence_count: 16
     key_terms: [companies, applying, postings, remote, resume, summer, roles, start]
+    concepts: [companies, applying, postings, remote, resume]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/internships/1snpsxj.md#c2"

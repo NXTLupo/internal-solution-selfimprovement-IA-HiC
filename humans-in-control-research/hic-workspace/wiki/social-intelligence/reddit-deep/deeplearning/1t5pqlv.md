@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 299]
     sentence_count: 1
     key_terms: [deeplearning, comments, thisguy123123, reddit-deep, generating, management, practices, context]
+    concepts: [deeplearning, comments]
     token_count: 80
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1t5pqlv/best_practices_for_context_management_when/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1t5pqlv.md#c1"
     char_span: [313, 1105]
     sentence_count: 3
     key_terms: [context, retrieval, aggressively, requirements, agentixlabs, constraints, clarifying, collecting]
+    concepts: [context, retrieval]
     section: Comments
     token_count: 177
 ---

@@ -14,21 +14,27 @@ chunks:
     char_span: [0, 2360]
     sentence_count: 9
     key_terms: [sources, source, brief, category, first-person, tier-demoted, alternative, description]
+    concepts: [sources, source, brief, category, first-person]
+    related_chunks: ["anti-patterns/data_review.md#c1"]
     token_count: 497
   - id: "anti-patterns/data_review.md#c1"
     char_span: [2362, 4031]
     sentence_count: 7
     key_terms: [sources, downstream, retained, marked, source, alternative, description, tier]
+    concepts: [sources, downstream, retained, marked, source]
+    related_chunks: ["anti-patterns/data_review.md#c0"]
     token_count: 399
   - id: "anti-patterns/data_review.md#c2"
     char_span: [4033, 5966]
     sentence_count: 9
     key_terms: [source, summary, journal, resolve, author, higher, verification, alternative]
+    concepts: [source, summary, journal, resolve, verification]
     token_count: 432
   - id: "anti-patterns/data_review.md#c3"
     char_span: [6006, 6519]
     sentence_count: 3
     key_terms: [patterns, appendlearnedantipattern, added, user, user-correction, auto-appended, consistently, description]
+    concepts: [patterns, added]
     section: Learned Anti-Patterns (auto-grown)
     token_count: 122
 ---

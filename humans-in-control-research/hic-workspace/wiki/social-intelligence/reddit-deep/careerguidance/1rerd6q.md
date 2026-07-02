@@ -19,40 +19,52 @@ chunks:
     char_span: [0, 2011]
     sentence_count: 17
     key_terms: [job, relationship, currently, been, firm, located, careerguidance, years]
+    concepts: [relationship, currently, careerguidance, located, environment]
     token_count: 471
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rerd6q/how_do_i_23f_need_to_make_a_career_decision_that/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rerd6q.md#c1"
     char_span: [2013, 3873]
     sentence_count: 17
     key_terms: [job, day, boyfriend, commuting, hours, relationship, live, take]
+    concepts: [boyfriend, commuting, relationship, hours, detrimentally]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rerd6q.md#c2"]
     token_count: 429
   - id: "social-intelligence/reddit-deep/careerguidance/1rerd6q.md#c2"
     char_span: [3887, 5271]
     sentence_count: 14
     key_terms: [day, commute, early-career, relationship, job, per, boyfriend, lawyer]
+    concepts: [commute, early-career, relationship, boyfriend, lawyer]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rerd6q.md#c1", "social-intelligence/reddit-deep/careerguidance/1rerd6q.md#c5"]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/careerguidance/1rerd6q.md#c3"
     char_span: [5273, 7308]
     sentence_count: 14
     key_terms: [job, salary, relationship, opportunity, days, get, life, stay]
+    concepts: [salary, relationship, opportunity, potential, starting]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/careerguidance/1rerd6q.md#c4"
     char_span: [7313, 9162]
     sentence_count: 11
     key_terms: [years, school, college, opportunities, law, philosophy, supportive, countries]
+    concepts: [years, school, opportunities, college, philosophy]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/careerguidance/1rerd6q.md#c5"
     char_span: [9164, 10968]
     sentence_count: 19
     key_terms: [job, career, relationship, college, commute, married, started, either]
+    concepts: [relationship, career, college, commute, married]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rerd6q.md#c2", "social-intelligence/reddit-deep/careerguidance/1rerd6q.md#c6"]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/careerguidance/1rerd6q.md#c6"
     char_span: [10970, 12776]
     sentence_count: 19
     key_terms: [career, partner, relationship, yourself, forever, better, place, right]
+    concepts: [career, partner, relationship, yourself, forever]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rerd6q.md#c5"]
     section: Comments
     token_count: 509
 ---

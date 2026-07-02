@@ -21,76 +21,99 @@ chunks:
     char_span: [0, 1886]
     sentence_count: 16
     key_terms: [financialindependence, years, retire, financial, comments, expenses, question, assumes]
+    concepts: [financialindependence, years, retire, financial, comments]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c12"]
     token_count: 461
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1rh8pdp/new_advisor_short_circuited_about_fire/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c1"
     char_span: [1888, 2501]
     sentence_count: 4
     key_terms: [expensive, dont, like, assumptions, comprehend, platitudes, admission, ludicrous]
+    concepts: [expensive]
     token_count: 152
   - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c2"
     char_span: [2515, 4532]
     sentence_count: 11
     key_terms: [retirement, years, one-mastodon-1063, thewealthyhealthy, work, mattresses, lowering, stuffing]
+    concepts: [retirement, years, one-mastodon-1063, thewealthyhealthy, mattresses]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c3"
     char_span: [4311, 5387]
     sentence_count: 5
     key_terms: [thewealthyhealthy, mattresses, retirement, financial, exchange, dollars, people, notacommunistburner]
+    concepts: [thewealthyhealthy, mattresses, retirement, financial, exchange]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c2", "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c6"]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c4"
     char_span: [5389, 7439]
     sentence_count: 14
     key_terms: [retirement, spend, conservative, low, like, people, worth, year]
+    concepts: [retirement, spend, conservative, people, worth]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c5", "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c5"
     char_span: [7195, 7951]
     sentence_count: 6
     key_terms: [people, money, spend, problem, types, conscious-potat0, solomongrumpy, understanding]
+    concepts: [people, money, spend, problem, types]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c4"]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c6"
     char_span: [7954, 9533]
     sentence_count: 21
     key_terms: [planning, retirement, taxes, maybe, financial, advisors, guidance, crushed]
+    concepts: [planning, retirement, taxes, maybe, financial]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c3", "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c7", "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c11"]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c7"
     char_span: [9535, 11421]
     sentence_count: 9
     key_terms: [retirement, taxes, people, maybe, possible, concept, advice, income]
+    concepts: [retirement, taxes, people, maybe, possible]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c4", "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c6"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c8"
     char_span: [11423, 13487]
     sentence_count: 16
     key_terms: [dad, like, advisor, people, "he's", town, predicted, advisors]
+    concepts: [advisor, people, predicted, advisors, anything]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c9"
     char_span: [13489, 14598]
     sentence_count: 6
     key_terms: [retirement, "would've", retired, barely, early, worth, thewealthyhealthy, been]
+    concepts: [retirement, "would've", retired, barely, early]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c10"
     char_span: [14600, 15821]
     sentence_count: 9
     key_terms: [tax, tell, somewhat, mutual, report, funds, place, need]
+    concepts: [somewhat, mutual, report, funds, place]
     section: Comments
     token_count: 274
   - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c11"
     char_span: [15824, 17418]
     sentence_count: 9
     key_terms: [financial, consult, planning, advice, estate, mostly, parent, people]
+    concepts: [financial, consult, planning, advice, estate]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c6", "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c12"]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c12"
     char_span: [17420, 18537]
     sentence_count: 5
     key_terms: [financial, good, years, different, advisor, advice, thewealthyhealthy, cpa]
+    concepts: [financial, years, different, advisor, advice]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c0", "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c11"]
     section: Comments
     token_count: 267
 ---

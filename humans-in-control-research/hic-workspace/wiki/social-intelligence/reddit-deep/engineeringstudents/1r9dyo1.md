@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1682]
     sentence_count: 11
     key_terms: [position, automotive, engineeringstudents, co-op, safety-operations, take, design, offer]
+    concepts: [position, engineeringstudents, automotive, safety-operations, co-op]
     token_count: 378
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1r9dyo1/mechanical_eng_student_take_safetyoperations_coop/"}]
 ---
 # Mechanical Eng Student: Take Safety-Operations Co-op or Hold Out for Design Role?
 

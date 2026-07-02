@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 1784]
     sentence_count: 11
     key_terms: [ucla, usc, applyingtocollege, better, opportunities, enthusiastic, major, psychology]
+    concepts: [applyingtocollege, opportunities, enthusiastic, better, major]
     token_count: 395
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1ssoqc3/academic_prestige_ucla_vs_alumni_network_usc/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssoqc3.md#c1"
     char_span: [1798, 3200]
     sentence_count: 10
     key_terms: [happycaterpillar2409, intelligent-poet-120, financial, usc, university-plans-to-cut-employee-benefits, pretty, great, students]
+    concepts: [happycaterpillar2409, intelligent-poet-120, financial, pretty, great]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ssoqc3.md#c2"]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssoqc3.md#c2"
     char_span: [3202, 4507]
     sentence_count: 3
     key_terms: [ucla, usc, intelligent-poet-120, popular-adagio7459, transfertotop25, schools, top, financial]
+    concepts: [intelligent-poet-120, popular-adagio7459, transfertotop25, schools, financial]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ssoqc3.md#c1"]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssoqc3.md#c3"
     char_span: [4509, 5850]
     sentence_count: 17
     key_terms: [usc, internships, ucla, everyone, research, classes, largely, almost]
+    concepts: [internships, everyone, research, classes, largely]
     section: Comments
     token_count: 325
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 779]
     sentence_count: 5
     key_terms: [personalfinance, looking, comments, finances, student, money, young, help]
+    concepts: [personalfinance, looking, comments, finances, student]
     token_count: 182
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1slplnd/help_guide_me_through_investingsavinggeneral/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1slplnd.md#c1"
     char_span: [793, 1957]
     sentence_count: 8
     key_terms: [personalfinance, budget, wiki, map, plan, bouncyegg, budgeting, financial]
+    concepts: [personalfinance, budget, bouncyegg, budgeting, financial]
     section: Comments
     token_count: 290
 ---

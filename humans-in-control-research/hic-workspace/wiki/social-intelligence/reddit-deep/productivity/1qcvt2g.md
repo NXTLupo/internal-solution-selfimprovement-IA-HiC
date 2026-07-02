@@ -21,29 +21,39 @@ chunks:
     char_span: [0, 1319]
     sentence_count: 8
     key_terms: [productivity, ecosystem, apple, apps, habits, full, comments, settings]
+    concepts: [productivity, ecosystem, apple, habits, comments]
     token_count: 296
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1qcvt2g/apple_ecosystem_users_whats_your_ultimate/"}]
   - id: "social-intelligence/reddit-deep/productivity/1qcvt2g.md#c1"
     char_span: [1333, 3190]
     sentence_count: 3
     key_terms: [apple, calendar, notes, academic-spread8477, reminders, tracking, combination, apps]
+    concepts: [apple, calendar, notes, academic-spread8477, reminders]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1qcvt2g.md#c2", "social-intelligence/reddit-deep/productivity/1qcvt2g.md#c3", "social-intelligence/reddit-deep/productivity/1qcvt2g.md#c4"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/productivity/1qcvt2g.md#c2"
     char_span: [3192, 3957]
     sentence_count: 2
     key_terms: [use, different, calendar, specific, because, mundane-canary-5737, apple, event]
+    concepts: [different, calendar, specific, because, apple]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1qcvt2g.md#c1"]
     section: Comments
     token_count: 167
   - id: "social-intelligence/reddit-deep/productivity/1qcvt2g.md#c3"
     char_span: [3959, 6160]
     sentence_count: 20
     key_terms: [use, todoist, reminders, calendar, apps, like, already, people]
+    concepts: [todoist, reminders, calendar, already, people]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1qcvt2g.md#c1", "social-intelligence/reddit-deep/productivity/1qcvt2g.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/productivity/1qcvt2g.md#c4"
     char_span: [5880, 6967]
     sentence_count: 4
     key_terms: [reminders, does, use, calendar, busycal, journal, ambitious-coyote389, tasks]
+    concepts: [reminders, calendar, busycal, journal, tasks]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1qcvt2g.md#c1", "social-intelligence/reddit-deep/productivity/1qcvt2g.md#c3"]
     section: Comments
     token_count: 262
 ---

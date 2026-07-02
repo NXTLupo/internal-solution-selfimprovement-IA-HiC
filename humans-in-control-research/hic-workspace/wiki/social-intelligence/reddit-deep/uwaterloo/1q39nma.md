@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1994]
     sentence_count: 10
     key_terms: [blacklist, candidates, uwaterloo, salaries, co-operative-education, experience, https, mod]
+    concepts: [blacklist, candidates, uwaterloo, co-operative-education, salaries]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1q39nma/waterlooworks_megathread_spring_2026/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1q39nma.md#c1"
     char_span: [2008, 3285]
     sentence_count: 1
     key_terms: [anyone, watrank, watrank-devs, heard, back, com, decisions, interview]
+    concepts: [anyone, watrank, watrank-devs, heard, decisions]
     section: Comments
     token_count: 381
 ---

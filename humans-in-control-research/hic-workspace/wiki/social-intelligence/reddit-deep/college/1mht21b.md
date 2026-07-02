@@ -19,23 +19,31 @@ chunks:
     char_span: [0, 1965]
     sentence_count: 12
     key_terms: [loans, extremely, year, college, subsidized, comments, research, schedule]
+    concepts: [extremely, loans, college, subsidized, comments]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mht21b.md#c1"]
     token_count: 440
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1mht21b/in_defense_of_student_loans/"}]
   - id: "social-intelligence/reddit-deep/college/1mht21b.md#c1"
     char_span: [1979, 4101]
     sentence_count: 13
     key_terms: [loans, people, take, zealousideal-pea-220, subsidized, situation, taking, issue]
+    concepts: [loans, people, zealousideal-pea-220, subsidized, situation]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mht21b.md#c0", "social-intelligence/reddit-deep/college/1mht21b.md#c2"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/college/1mht21b.md#c2"
     char_span: [4103, 6262]
     sentence_count: 17
     key_terms: [loans, people, university, freshman, private, years, financial, communal]
+    concepts: [loans, university, people, freshman, private]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mht21b.md#c1"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/college/1mht21b.md#c3"
     char_span: [6264, 6839]
     sentence_count: 5
     key_terms: [universities, smaller, class, sizes, universites, auditorium, orientated, amenities]
+    concepts: [universities, smaller, class, sizes]
     section: Comments
     token_count: 120
 ---

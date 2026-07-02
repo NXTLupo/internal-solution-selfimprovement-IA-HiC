@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1688]
     sentence_count: 14
     key_terms: [financialindependence, reddit, money, comments, family, https, com, etc]
+    concepts: [financialindependence, reddit, money, comments, family]
     token_count: 398
+    sources: [{"n":"Reddit Deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1q2wqi1/handing_in_my_resignation_on_monday/"}]
   - id: "articles/reddit-deep-r-financialindependence/eebdb6afd9.md#c1"
     char_span: [1690, 3092]
     sentence_count: 13
     key_terms: [independence, financial, "i'm", thank, "i've", "it's", retirement, yourself]
+    concepts: [independence, financial, retirement, thank, yourself]
     token_count: 383
 ---
 # Handing in my resignation on Monday.

@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 2284]
     sentence_count: 20
     key_terms: [product, people, going, something, win, products, success, distribution]
+    concepts: [product, people, something, going, products]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1t7vre3/what_actually_drives_startup_product_success/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1t7vre3.md#c1"
-    char_span: [2288, 3517]
+    char_span: [2288, 3516]
     sentence_count: 7
     key_terms: [entrepreneur, please, permanent, promotion, stickied, comment, thread, weekly]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/entrepreneur/1t7vre3.md#c2"
-    char_span: [3519, 5433]
+    char_span: [3518, 5432]
     sentence_count: 14
     key_terms: [distribution, amacg, great, fit, "it's", problem, product, market]
+    concepts: [distribution, amacg, great, kunalkhatri12, problem]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/entrepreneur/1t7vre3.md#c3"
-    char_span: [5438, 6345]
+    char_span: [5437, 6344]
     sentence_count: 8
     key_terms: ["it's", audience, consistency, because, network, agree, point, "i've"]
+    concepts: [audience, consistency, because, network, agree]
     section: Comments
     token_count: 211
 ---

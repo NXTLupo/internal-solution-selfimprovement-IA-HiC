@@ -20,57 +20,70 @@ chunks:
     char_span: [0, 1809]
     sentence_count: 11
     key_terms: [data, scientist, unicorn, datascience, been, like, business, comments]
+    concepts: [scientist, unicorn, datascience, business, comments]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1lmi8j8.md#c9"]
     token_count: 444
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1lmi8j8/the_unicorn_is_dead_a_fourera_history_of_the_data/"}]
   - id: "social-intelligence/reddit-deep/datascience/1lmi8j8.md#c1"
     char_span: [1811, 3824]
     sentence_count: 13
     key_terms: [data, engineers, building, became, models, model, business, modeling]
+    concepts: [engineers, building, became, models, model]
     token_count: 462
   - id: "social-intelligence/reddit-deep/datascience/1lmi8j8.md#c2"
     char_span: [3826, 5797]
     sentence_count: 14
     key_terms: [engineering, building, build, "we're", like, experience, prediction, question]
+    concepts: [engineering, building, build, experience, prediction]
     token_count: 441
   - id: "social-intelligence/reddit-deep/datascience/1lmi8j8.md#c3"
-    char_span: [5812, 7839]
+    char_span: [5811, 7838]
     sentence_count: 17
     key_terms: [data, happened, modeling, company, years, lot, pipelines, engineer]
+    concepts: [happened, modeling, company, years, pipelines]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/datascience/1lmi8j8.md#c4"
-    char_span: [7841, 9965]
+    char_span: [7840, 9964]
     sentence_count: 13
     key_terms: [data, company, science, statisticians, dss, production, employing, service]
+    concepts: [company, statisticians, science, production, employing]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/datascience/1lmi8j8.md#c5"
-    char_span: [9967, 12264]
+    char_span: [9966, 12263]
     sentence_count: 12
     key_terms: [data, science, statistical, people, software, training, model, good]
+    concepts: [statistical, science, people, software, training]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/datascience/1lmi8j8.md#c6"
-    char_span: [12266, 13946]
+    char_span: [12265, 13945]
     sentence_count: 9
     key_terms: [books, statistical, data, bluesoup10, scientist, analysis, infinity, question]
+    concepts: [books, statistical, bluesoup10, scientist, analysis]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/datascience/1lmi8j8.md#c7"
-    char_span: [13948, 15494]
+    char_span: [13947, 15493]
     sentence_count: 9
     key_terms: [mission-balance-4250, pretty, immediately, llms, used, production, mean, use]
+    concepts: [mission-balance-4250, pretty, immediately, production]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/datascience/1lmi8j8.md#c8"
-    char_span: [15496, 16488]
+    char_span: [15495, 16487]
     sentence_count: 6
     key_terms: [chatbots, mountainbrewer, organizational, functionality, productionize, optimization, development, engineering]
+    concepts: [chatbots]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/datascience/1lmi8j8.md#c9"
-    char_span: [16490, 17826]
+    char_span: [16489, 17825]
     sentence_count: 6
     key_terms: [data, inference, scientist, important, business, strategy, anomnib, driving]
+    concepts: [inference, scientist, important, business, strategy]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1lmi8j8.md#c0"]
     section: Comments
     token_count: 328
 ---

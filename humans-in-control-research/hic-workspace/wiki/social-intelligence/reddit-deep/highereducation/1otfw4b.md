@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 733]
     sentence_count: 5
     key_terms: [student, engagement, highereducation, communicators, comments, tips, communications, forsakenspace7]
+    concepts: [student, engagement, highereducation, communicators, comments]
     token_count: 170
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1otfw4b/for_communicatorsmarketing_folks_any_tips_on/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1otfw4b.md#c1"
     char_span: [747, 2771]
     sentence_count: 18
     key_terms: [open, students, engagement, "it's", parents, "don't", email, rates]
+    concepts: [students, engagement, parents, department, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1otfw4b.md#c2"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/highereducation/1otfw4b.md#c2"
     char_span: [2773, 4102]
     sentence_count: 14
     key_terms: [because, department, engagement, numbers, emails, staff, professorpumpkins, good]
+    concepts: [because, department, engagement, numbers, emails]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1otfw4b.md#c1"]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/highereducation/1otfw4b.md#c3"
     char_span: [4104, 5408]
     sentence_count: 9
     key_terms: [emails, semester, create, engage, representativedot626, sapphirevelociraptor, maybe, wants]
+    concepts: [emails, semester, create, engage, maybe]
     section: Comments
     token_count: 293
 ---

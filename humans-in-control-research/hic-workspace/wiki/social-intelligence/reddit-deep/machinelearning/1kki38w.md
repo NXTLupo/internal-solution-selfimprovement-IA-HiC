@@ -21,40 +21,48 @@ chunks:
     char_span: [0, 2145]
     sentence_count: 8
     key_terms: [https, representation, ctm, continuous, neural, thought, sakana, continuous-thought-machines]
+    concepts: [https, representation, continuous, neural, continuous-thought-machines]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1kki38w/r_continuous_thought_machines_neural_dynamics_as/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c1"
     char_span: [2147, 4168]
     sentence_count: 7
     key_terms: [ctm, tasks, internal, classification, intelligence, calibration, challenging, work]
+    concepts: [internal, tasks, classification, intelligence, calibration]
     token_count: 395
   - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c2"
     char_span: [4182, 6159]
     sentence_count: 17
     key_terms: [mazes, difficult, solving, problem, plausibility, challenging, like, biological]
+    concepts: [mazes, difficult, solving, problem, plausibility]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c3"
     char_span: [6161, 8191]
     sentence_count: 9
     key_terms: [time, models, asking, reason, like, genuinely, gradients, hobbyists]
+    concepts: [models, asking, reason, genuinely, gradients]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c4"
     char_span: [8193, 10235]
     sentence_count: 18
     key_terms: [space, representations, "they're", imagination, frequency, engineer, probably, research]
+    concepts: [representations, space, "they're", imagination, frequency]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c5"
     char_span: [10237, 12610]
     sentence_count: 13
     key_terms: [llm, language, ctm, model, module, computation, pathfinding, algorithms]
+    concepts: [language, model, module, computation, pathfinding]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c6"
     char_span: [12322, 13472]
     sentence_count: 11
     key_terms: [gramious, synapse, featurisation, model, use, dimension, slowest, models]
+    concepts: [gramious, featurisation, synapse, model, dimension]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c7"

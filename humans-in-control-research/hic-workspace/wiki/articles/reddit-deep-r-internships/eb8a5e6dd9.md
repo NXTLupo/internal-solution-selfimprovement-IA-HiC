@@ -19,14 +19,17 @@ content_hash: "13ddb8313e82ac42"
 relevance_by_goal: {"3d9ef8ee927f":45}
 chunks:
   - id: "articles/reddit-deep-r-internships/eb8a5e6dd9.md#c0"
-    char_span: [0, 825]
+    char_span: [0, 824]
     sentence_count: 11
     key_terms: [advice, internships, reddit-deep-r-internships, people, hired, right, did, got]
-    token_count: 206
+    concepts: [advice, internships, people, hired, right]
+    token_count: 205
+    sources: [{"n":"[Reddit Deep: r/internships](articles/reddit-deep-r-internships/8fd7a78d77.md","u":""}]
   - id: "articles/reddit-deep-r-internships/eb8a5e6dd9.md#c1"
-    char_span: [827, 2571]
+    char_span: [826, 2570]
     sentence_count: 9
     key_terms: [internship, hard, arleyx949, referral, something, applying, without, always]
+    concepts: [internship, arleyx949, referral, something, applying]
     token_count: 394
 ---
 # Looking for advice from people who got hired in 2025-2026

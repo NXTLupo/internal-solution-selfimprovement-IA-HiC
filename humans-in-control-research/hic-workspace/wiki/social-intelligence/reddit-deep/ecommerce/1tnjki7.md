@@ -7,56 +7,66 @@ subreddit: "ecommerce"
 title: "E-commerce Industry News Recap 🔥 Week of May 25th, 2026"
 author: "adventurepaul"
 date: "2026-05-25T19:39:16.000Z"
-score: 36
+score: 38
 upvote_ratio: 0.97
 num_comments: 28
 flair: "📰 News"
-extracted_at: "2026-06-18T13:35:23.802Z"
+extracted_at: "2026-06-24T22:13:57.306Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1tnjki7.md#c0"
     char_span: [0, 527]
     sentence_count: 2
     key_terms: [e-commerce, ecommerce, comments, industry, posted, recap, week, adventurepaul]
+    concepts: [e-commerce, ecommerce, comments, industry, posted]
     token_count: 146
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1tnjki7/ecommerce_industry_news_recap_week_of_may_25th/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1tnjki7.md#c1"
     char_span: [529, 2848]
     sentence_count: 8
     key_terms: [google, cart, universal, gemini, retail, search, e-commerce, merchant]
+    concepts: [google, universal, e-commerce, gemini, retail]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1tnjki7.md#c2"
     char_span: [2547, 5042]
     sentence_count: 9
     key_terms: [amazon, starlink, including, satellites, leo, airlines, formats, provide]
+    concepts: [amazon, starlink, including, satellites, airlines]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1tnjki7.md#c3"
     char_span: [4754, 7435]
     sentence_count: 14
     key_terms: [shopify, protocol, publishers, amazon, commerce, marketplace, merchants, universal]
+    concepts: [shopify, protocol, publishers, amazon, commerce]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1tnjki7.md#c4"
     char_span: [7121, 9510]
     sentence_count: 13
     key_terms: [dimensional, arena, contracts, afterpay, weight, terms, venue, pay]
+    concepts: [dimensional, contracts, arena, afterpay, weight]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1tnjki7.md#c5"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1tnjki7.md#c5"
     char_span: [9167, 10252]
     sentence_count: 4
     key_terms: [dimensional, weight, divisor, including, package, lightweight, multiplying, calculates]
+    concepts: [dimensional, weight, divisor, including, package]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1tnjki7.md#c4"]
     token_count: 220
   - id: "social-intelligence/reddit-deep/ecommerce/1tnjki7.md#c6"
-    char_span: [10267, 10707]
+    char_span: [10266, 10706]
     sentence_count: 3
     key_terms: [graceonajourney1611, cro, roi, subscription, information, challenge, customers, ecommerce]
+    concepts: [graceonajourney1611]
     section: Comments
     token_count: 107
 ---
 # E-commerce Industry News Recap 🔥 Week of May 25th, 2026
 
 Source: [reddit-deep: r/ecommerce](https://www.reddit.com/r/ecommerce/comments/1tnjki7/ecommerce_industry_news_recap_week_of_may_25th/)
-Posted by **adventurepaul** · **36↑** · **28 comments**
+Posted by **adventurepaul** · **38↑** · **28 comments**
 
 Hi r/ecommerce \- I'm Paul and I follow the e-commerce industry closely for my Shopifreaks E-commerce Newsletter. Every week for the past 5 years I've posted a summary recap of the week's top stories on this subreddit, which I cover in depth with sources in the full edition.
 

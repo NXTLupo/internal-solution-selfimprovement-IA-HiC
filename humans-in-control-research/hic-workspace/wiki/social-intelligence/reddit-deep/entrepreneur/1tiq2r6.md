@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 592]
     sentence_count: 2
     key_terms: [entrepreneur, questions, comments, service, small, automatically, professional, overwhelmed]
+    concepts: [entrepreneur, questions, comments, service, small]
     token_count: 129
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1tiq2r6/how_ai_customer_service_saved_me_from_replying_to/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1tiq2r6.md#c1"
-    char_span: [607, 2460]
+    char_span: [606, 2459]
     sentence_count: 8
     key_terms: [entrepreneur, please, permanent, promotion, stickied, comment, thread, weekly]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/entrepreneur/1tiq2r6.md#c2"
-    char_span: [2462, 4495]
+    char_span: [2461, 4494]
     sentence_count: 12
     key_terms: [customer, genuinely, templates, automate, chatbot, instead, support, actual]
+    concepts: [customer, genuinely, templates, automate, chatbot]
     section: Comments
     token_count: 399
 ---

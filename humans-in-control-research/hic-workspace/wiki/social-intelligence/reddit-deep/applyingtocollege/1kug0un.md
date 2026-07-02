@@ -21,28 +21,38 @@ chunks:
     char_span: [0, 1617]
     sentence_count: 12
     key_terms: [hopkins, med, school, applyingtocollege, amazing, education, comments, waitlist]
+    concepts: [hopkins, school, applyingtocollege, amazing, education]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1kug0un.md#c2"]
     token_count: 402
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1kug0un/just_got_off_johns_hopkins_waitlist_yesterday/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kug0un.md#c1"
     char_span: [1619, 3091]
     sentence_count: 1
     key_terms: [med, school, undergrad, prestige, college, campus, mostly, tennis]
+    concepts: [school, undergrad, prestige, college, campus]
     token_count: 338
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kug0un.md#c2"
     char_span: [3105, 4779]
     sentence_count: 12
     key_terms: [applyingtocollege, school, jhu, med, probably, notyourtype9645, great, get]
+    concepts: [applyingtocollege, school, notyourtype9645, probably, great]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1kug0un.md#c0"]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kug0un.md#c3"
     char_span: [4781, 6701]
     sentence_count: 14
     key_terms: [med, school, guaranteed, worldwidemonopoly, "doesn't", program, people, hard]
+    concepts: [school, guaranteed, worldwidemonopoly, "doesn't", program]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1kug0un.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kug0un.md#c4"
     char_span: [6703, 7575]
     sentence_count: 7
     key_terms: [guaranteed, med, school, interviews, down, jhu, actionjackzon, prestigious]
+    concepts: [guaranteed, school, interviews]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1kug0un.md#c3"]
     section: Comments
     token_count: 211
 ---

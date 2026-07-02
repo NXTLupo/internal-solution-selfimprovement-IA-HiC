@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 1300]
     sentence_count: 8
     key_terms: [like, college, always, school, everything, business, comments, major]
+    concepts: [college, always, school, everything, business]
     token_count: 298
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1m6hfk2/whats_a_stable_major_that_will_have_good_chances/"}]
   - id: "social-intelligence/reddit-deep/college/1m6hfk2.md#c1"
     char_span: [1314, 2195]
     sentence_count: 7
     key_terms: [people, world, choice-coffee-9741, job, schizoaffective, prettyandright, undergraduate, connections]
+    concepts: [people, world]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/college/1m6hfk2.md#c2"
     char_span: [2197, 4154]
     sentence_count: 23
     key_terms: [being, "don't", great, work, definitely, friends, jealous, nursing]
+    concepts: [being, definitely, "don't", great, friends]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1m6hfk2.md#c3"
     char_span: [3942, 5837]
     sentence_count: 11
     key_terms: [good, created, deleted, nursing, making, years, like, working]
+    concepts: [created, deleted, nursing, making, years]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1m6hfk2.md#c4"
     char_span: [5591, 7193]
     sentence_count: 6
     key_terms: [because, lawyer, management, business, career, excellent-letter-780, year, certifications]
+    concepts: [because, lawyer, management, business, career]
     section: Comments
     token_count: 409
 ---

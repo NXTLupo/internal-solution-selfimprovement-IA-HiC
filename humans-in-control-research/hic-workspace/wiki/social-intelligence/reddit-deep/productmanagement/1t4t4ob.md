@@ -20,23 +20,32 @@ chunks:
     char_span: [0, 706]
     sentence_count: 4
     key_terms: [amplitude, amplitude-and-statsig-partnership, statsig, productmanagement, https, blog, com, comments]
+    concepts: [amplitude, amplitude-and-statsig-partnership, statsig, productmanagement, https]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1t4t4ob.md#c2", "social-intelligence/reddit-deep/productmanagement/1t4t4ob.md#c3"]
     token_count: 163
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1t4t4ob/amplitude_buys_statsig/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1t4t4ob.md#c1"
-    char_span: [721, 1256]
+    char_span: [720, 1255]
     sentence_count: 2
     key_terms: [statsig, openai, like, experimentation, praying4exitz, acquisition, engineering, experiments]
+    concepts: [statsig, openai]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1t4t4ob.md#c2"]
     section: Comments
     token_count: 116
   - id: "social-intelligence/reddit-deep/productmanagement/1t4t4ob.md#c2"
-    char_span: [1258, 3307]
+    char_span: [1257, 3306]
     sentence_count: 15
     key_terms: [amplitude, statsig, openai, account, confident-climate139, sskates, email, been]
+    concepts: [amplitude, statsig, openai, confident-climate139, account]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1t4t4ob.md#c0", "social-intelligence/reddit-deep/productmanagement/1t4t4ob.md#c1", "social-intelligence/reddit-deep/productmanagement/1t4t4ob.md#c3"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/productmanagement/1t4t4ob.md#c3"
-    char_span: [3309, 5277]
+    char_span: [3308, 5276]
     sentence_count: 11
     key_terms: [statsig, amplitude, product, code, transition, customers, engineers, integrate]
+    concepts: [statsig, amplitude, product, transition, customers]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1t4t4ob.md#c0", "social-intelligence/reddit-deep/productmanagement/1t4t4ob.md#c2"]
     section: Comments
     token_count: 443
 ---

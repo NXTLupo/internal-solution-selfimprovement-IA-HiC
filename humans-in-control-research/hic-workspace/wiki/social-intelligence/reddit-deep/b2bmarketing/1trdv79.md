@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1496]
     sentence_count: 7
     key_terms: [marketing, b2b, b2bmarketing, lead, automation, interested, genuinely, comments]
+    concepts: [marketing, b2bmarketing, automation, interested, genuinely]
     token_count: 331
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1trdv79/want_to_learn_modern_b2b_marketing_from_scratch/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1trdv79.md#c1"
-    char_span: [1511, 3387]
+    char_span: [1510, 3386]
     sentence_count: 14
     key_terms: [looking-for-marketing-discussion-811236647760298024, people, learn, questions, building, linkedin, practice, discord]
+    concepts: [people, learn, questions, building, linkedin]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/b2bmarketing/1trdv79.md#c2"
-    char_span: [3389, 5645]
+    char_span: [3388, 5644]
     sentence_count: 3
     key_terms: [specific, getting, focus, learn, lead, real, use, honestly]
+    concepts: [specific, getting, focus, learn, honestly]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/b2bmarketing/1trdv79.md#c3"
-    char_span: [5647, 5771]
+    char_span: [5646, 5770]
     sentence_count: 1
     key_terms: [automate, backwards, something, converts, message, broken, people]
+    concepts: [automate]
     section: Comments
     token_count: 27
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1023]
     sentence_count: 9
     key_terms: [work, hate, year, findapath, anything, comments, because, started]
+    concepts: [findapath, anything, comments, because, started]
     token_count: 234
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1lgtlrt/changing_career_path_after_i_started_working_for/"}]
   - id: "social-intelligence/reddit-deep/findapath/1lgtlrt.md#c1"
     char_span: [1037, 3251]
     sentence_count: 16
     key_terms: [thank, helpful, please, find, findapath, marketing, comments, everyone]
+    concepts: [thank, helpful, please, findapath, marketing]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/findapath/1lgtlrt.md#c2"

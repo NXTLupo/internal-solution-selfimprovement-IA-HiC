@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1778]
     sentence_count: 8
     key_terms: [international, students, co-op, engineering, northeastern, msem, scm, background]
+    concepts: [international, students, engineering, co-op, northeastern]
     token_count: 372
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qlcw6i/admitted_msem_scm_concentration_is_the_coop/"}]
 ---
 # Admitted MSEM (SCM concentration) – Is the Co-op advantage real for international students given the recent merger?
 

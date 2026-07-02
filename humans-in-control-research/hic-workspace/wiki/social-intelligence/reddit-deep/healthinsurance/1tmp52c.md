@@ -11,30 +11,37 @@ score: 119
 upvote_ratio: 0.95
 num_comments: 127
 flair: "Claims/Providers"
-extracted_at: "2026-06-17T19:26:43.270Z"
+extracted_at: "2026-06-20T17:52:36.280Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c0"
     char_span: [0, 2193]
     sentence_count: 23
     key_terms: [responsibility, member, claims, therapist, healthinsurance, service, comments, provider]
+    concepts: [responsibility, member, claims, therapist, healthinsurance]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1tmp52c/is_my_therapist_scamming_me/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c1"
     char_span: [2195, 4303]
     sentence_count: 22
     key_terms: [anthem, charges, update, sessions, believe, claims, claim, never]
+    concepts: [anthem, charges, update, sessions, believe]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c2"]
     token_count: 505
   - id: "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c2"
     char_span: [4305, 6773]
     sentence_count: 19
     key_terms: [charges, anthem, submitted, provider, appeal, thank, details, claims]
+    concepts: [charges, submitted, anthem, provider, appeal]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c1", "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c13"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c3"
     char_span: [6775, 9102]
     sentence_count: 24
     key_terms: [investigations, like, send, confusion, requested, situation, therapist, sessions]
+    concepts: [investigations, confusion, requested, situation, therapist]
     token_count: 501
   - id: "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c4"
     char_span: [9104, 9421]
@@ -42,57 +49,73 @@ chunks:
     key_terms: [immediately, screenshots, deductible, department, complaint, licensing, progress, sessions]
     token_count: 68
   - id: "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c5"
-    char_span: [9436, 11309]
+    char_span: [9435, 11308]
     sentence_count: 6
     key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    concepts: [information, questions, following, please, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c6"]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c6"
-    char_span: [11311, 12378]
+    char_span: [11310, 12377]
     sentence_count: 5
     key_terms: [please, eob, post, via, contact, report, information, questions]
+    concepts: [please, contact, report, information, questions]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c5"]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c7"
-    char_span: [12381, 14111]
+    char_span: [12380, 14110]
     sentence_count: 18
     key_terms: [insurance, provider, therapist, in-network, unethical, company, either, sessions]
+    concepts: [insurance, provider, therapist, in-network, unethical]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c8", "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c9", "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c11", "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c13"]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c8"
-    char_span: [14114, 16029]
+    char_span: [14113, 16028]
     sentence_count: 20
     key_terms: [insurance, provider, billing, claims, report, gladoshascake4you, sessions, fraudulent]
+    concepts: [insurance, provider, billing, claims, gladoshascake4you]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c7", "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c9", "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c11", "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c13"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c9"
-    char_span: [16031, 18152]
+    char_span: [16030, 18152]
     sentence_count: 18
     key_terms: [insurance, billing, definitely, severeordinary2816, fee, provider, balance, anthem]
+    concepts: [insurance, billing, severeordinary2816, definitely, provider]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c7", "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c8", "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c11", "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c13"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c10"
-    char_span: [17921, 18539]
+    char_span: [17920, 18539]
     sentence_count: 7
     key_terms: [insurance, severeordinary2816, stop, reimbursement, hotsaucehigh, contracting, understands, colleagues]
+    concepts: [insurance]
     section: Comments
     token_count: 141
   - id: "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c11"
     char_span: [18541, 20931]
     sentence_count: 16
     key_terms: [insurance, company, claims, provider, state, practices, time, report]
+    concepts: [insurance, company, claims, provider, practices]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c7", "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c8", "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c9", "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c13"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c12"
     char_span: [20933, 22744]
     sentence_count: 16
     key_terms: [insurance, network, different, information, providers, wistah978, contract, service]
+    concepts: [insurance, network, different, information, providers]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c13"
     char_span: [22746, 24297]
     sentence_count: 12
     key_terms: [anthem, insurance, provider, getting, claims, "she's", shes, providers]
+    concepts: [anthem, insurance, provider, getting, claims]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c2", "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c7", "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c8", "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c9", "social-intelligence/reddit-deep/healthinsurance/1tmp52c.md#c11"]
     section: Comments
     token_count: 390
 ---
@@ -250,46 +273,46 @@ Please also read the following information carefully to help others assist with 
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/HealthInsurance) if you have any questions or concerns.*
-- **Empty_Ad4954** (257↑): If she is an in-network provider she has a contract with your insurance provider and has agreed to their reimbursement rates. Confirm with your insurance company that her and her office are in-network. If she’s collecting the “remaining balance” from patients she’s breaking her contractual obligation. Providers cannot ask you to give up your rights to not be balanced billed. Also, it sounds like you’re no longer comfortable with her either way and it’d be best to find another provider
-  - **Tiredmagnolia** (79↑): OP your insurance can also do a three-way call with the provider and you to explain everything (if they actually are in network).
+- **Empty_Ad4954** (259↑): If she is an in-network provider she has a contract with your insurance provider and has agreed to their reimbursement rates. Confirm with your insurance company that her and her office are in-network. If she’s collecting the “remaining balance” from patients she’s breaking her contractual obligation. Providers cannot ask you to give up your rights to not be balanced billed. Also, it sounds like you’re no longer comfortable with her either way and it’d be best to find another provider
+  - **Tiredmagnolia** (78↑): OP your insurance can also do a three-way call with the provider and you to explain everything (if they actually are in network).
   - **CatPerson88** (2↑): Exactly
-- **Defiant_Trifle1122** (244↑): I'm a psychologist. Your therapist is in network and has agreed to the rate that the insurance company set. She or he cannot "balance bill" you. Depending on your state, it may be illegal. Regardless of state, it's unethical and in violation of the agreement that the therapist made with the insurance company as an in-network provider. If you want to go hard, you can report them to their licensing board for unethical behavior. At a minimum, I would not stick with this therapist. They're either uneducated or unethical. You don't want either of those in a therapist.
-  - **HotSauceHigh** (89↑): I have 5 charges from her and I think I saw her 5 times. But Anthem shows 10claims from her and each has several sessions listed and paid out. Several each day. Total 19 sessions. Starting months ago.
+- **Defiant_Trifle1122** (249↑): I'm a psychologist. Your therapist is in network and has agreed to the rate that the insurance company set. She or he cannot "balance bill" you. Depending on your state, it may be illegal. Regardless of state, it's unethical and in violation of the agreement that the therapist made with the insurance company as an in-network provider. If you want to go hard, you can report them to their licensing board for unethical behavior. At a minimum, I would not stick with this therapist. They're either uneducated or unethical. You don't want either of those in a therapist.
+  - **HotSauceHigh** (88↑): I have 5 charges from her and I think I saw her 5 times. But Anthem shows 10claims from her and each has several sessions listed and paid out. Several each day. Total 19 sessions. Starting months ago.
 
 
  Can something like that be a mistake? She has a kind of cold vibe but this is too blatant to be real. Has none of her clients ever looked at their eob? Am I the first? So fuckin weird!
     - **Brak-23** (55↑): I can't speak to the provider billing side but from working on the health plan claims side if it's authorized and within the benefit and not a duplicate (same day) we tend to pay it and assume the provider is not being fraudulent. But if she is billing for days you aren't seeing her that should be flagged with your insurance.
-    - **AlternativeZone5089** (8↑): Hard to imagine a mistake here.  I'm a therapist.
+    - **AlternativeZone5089** (9↑): Hard to imagine a mistake here.  I'm a therapist.
     - **bella-tiggers-mom** (6↑): See my response above for this very same thing.
     - **IllustratorTraining** (5↑): Is she billing 50/60 minute sessions? Possible she bills insurance like three 15/20 minute sessions. Still fraudulent. Using insurance as essentially a discount for clients is unhinged.
     - **GladosHasCake4You** (2↑): Were any claims denied?  There should not be 10 paid claims for 5 sessions. It isn’t uncommon at all to have claims submitted more than once, though. It’s most likely that. 
 
 Anthem is good for asking for different details.
-  - **acatwithumbs** (9↑): Even if OP doesn’t want to go hard, report her to Anthem, they investigate  participating provider contract violations.
-- **proudmommy_31324** (84↑): If she is in network, she is balance billing. Report her to your insurance.
-  - **GladosHasCake4You** (40↑): Insurance doesn’t care. You have to report to a state licensing body. I’ve had success with my state’s AG. 
+  - **acatwithumbs** (8↑): Even if OP doesn’t want to go hard, report her to Anthem, they investigate  participating provider contract violations.
+- **proudmommy_31324** (86↑): If she is in network, she is balance billing. Report her to your insurance.
+  - **GladosHasCake4You** (38↑): Insurance doesn’t care. You have to report to a state licensing body. I’ve had success with my state’s AG. 
 
 I spent over 20 hours on this with them last year. Everyone kept saying report to insurance. 
 
 Over a dozen employees of the insurance company including an executive confirmed they do not take reports from consumers about violations of a contract between them and a provider and that it is not my business what is in that agreement. 
 
 The attorney general takes a few months but I get a refund every time.
-    - **wistah978** (26↑): My insurance cares.  In the past 6 months I had an old provider send in a bill from almost 2 years ago that was somehow paid evn though it was timely filing and another overcharge me and insist they hadn't even after seeing the EOB.  My insurance hopped on 3 way calls to tell both my responsibility was 0.
-    - **Purple_Following3660** (16↑): Where I work, they definitely care.
-    - **proudmommy_31324** (14↑): Then you have awful insurance. They are to investigate all reports of balance billing or they can get in trouble. I would with these insurances everyday.
+    - **wistah978** (25↑): My insurance cares.  In the past 6 months I had an old provider send in a bill from almost 2 years ago that was somehow paid evn though it was timely filing and another overcharge me and insist they hadn't even after seeing the EOB.  My insurance hopped on 3 way calls to tell both my responsibility was 0.
+    - **Purple_Following3660** (15↑): Where I work, they definitely care.
+    - **proudmommy_31324** (11↑): Then you have awful insurance. They are to investigate all reports of balance billing or they can get in trouble. I would with these insurances everyday.
     - **HotSauceHigh** (4↑): What insurance company and what state? Anthem doesn't seem mad at all. Just explaining policy in a detached way.
     - **Hestia79** (1↑): Insurance definitely cares.
-- **Economy_Ad_2605** (44↑): EPO plans do not have out-of-network benefits, so if she receives payments from you insurance means she is in network.   
+- **Economy_Ad_2605** (48↑): EPO plans do not have out-of-network benefits, so if she receives payments from you insurance means she is in network.   
 If provider is in network, that means that her billing fee is irrelevant, she's entitled to the negotiated insurance fee - allowable amount, which is total of your insurance payment plus your co-pay.   
 From what you’ve described you are paying difference between the allowable amount and her fee, which is a no-no when it comes to an in-network provider and should be adjusted.  
 I would re-verify your payments against EOB’s and go from there.   
 I have seen many providers who had no idea how insurance works, so when it comes to scamming - no idea. However it definitely seems that you are being overcharged.
 - **SevereOrdinary2816** (25↑): I’m a therapist. She appears to be balance billing you. If she is in-network with Anthem, that means she agreed to the negotiated reimbursement rate of $77.87 (+ whatever copay). She is not entitled to collect the difference between her session fee and the reimbursement rate.
-  - **HotSauceHigh** (8↑): And she must know that, right? She's getting $97.87 from anthem. So not even balance billing. Straight up theft.
-    - **SevereOrdinary2816** (15↑): She should know that she cannot double dip like she is trying to do here. If she doesn’t, she should stop contracting with insurance companies until she understands how to bill correctly. I imagine that once she is informed that what she is doing is not allowed, she may stop taking insurance. Most of my colleagues who have their own practice don’t take insurance at all for reasons such as this.
+  - **HotSauceHigh** (10↑): And she must know that, right? She's getting $97.87 from anthem. So not even balance billing. Straight up theft.
+    - **SevereOrdinary2816** (16↑): She should know that she cannot double dip like she is trying to do here. If she doesn’t, she should stop contracting with insurance companies until she understands how to bill correctly. I imagine that once she is informed that what she is doing is not allowed, she may stop taking insurance. Most of my colleagues who have their own practice don’t take insurance at all for reasons such as this.
 
 Whether she knew or not at the time, she owes you money (and most likely owes many other clients money as well).
-- **Vendelight** (25↑): An EPO plan has two benefit levels:
+- **Vendelight** (22↑): An EPO plan has two benefit levels:
 
 1.  Claims paying in network
 2.  Claims being denied because you saw an OON provider.
@@ -330,27 +353,27 @@ You can Google information about who to report healthcare fraud to and how to go
 Also, if your provider has any accreditations, from accrediting bodies, which you could find out by asking them or the practice manager/administrator for that information and also report them to thwir accreditation bodies.
 
 That also makes an impact because providers can receive incentives for maintaining quality and other standards of care.
-- **wistah978** (34↑): $77 is a low reimbursement rate. She could just be mistaken, but she could be out of network . Some providers say they "accept" an insurance, by which they don't have a contract with your insurance but will submit the bill to insurance..That is different from being in network, meaning they have a contract that sets rates and other rules. 
+- **wistah978** (39↑): $77 is a low reimbursement rate. She could just be mistaken, but she could be out of network . Some providers say they "accept" an insurance, by which they don't have a contract with your insurance but will submit the bill to insurance..That is different from being in network, meaning they have a contract that sets rates and other rules. 
 
 As others have said, confirm with your insurance whether she is in network or not.  If so, she has to accept the amount your EOB says you owe.  If she is OON, she can balance bill.  
 
 Check her network status and your EOB.  If she is in network, either tell her your insurance is telling you a different amount and suggest she call them, or ask your insurance company to call her.
   - **HotSauceHigh** (4↑): She's in network and EOBs show a $97.87 rate to her. I saw her about 5 times and anthem was billed by her for 19.
-    - **wistah978** (8↑): 19 codes or 19 dates of service?   This isn't my area of expertise but I know appointments can have more than one code/service billed. Billing you for dates you weren't there would be different. 
+    - **wistah978** (7↑): 19 codes or 19 dates of service?   This isn't my area of expertise but I know appointments can have more than one code/service billed. Billing you for dates you weren't there would be different. 
 
 If she is deliberately scamming you, she's doing so at the level of Wile E. Coyote- badly, openly, leaving receipts, and without having read the instructions for anything she does.  
 
 If you are comfortable talking to her directly, do so.  Or you can just tell her you asked your insurance about the conflicting bills and are waiting for their answer and let your insurance company talk to her.
-    - **BumCadillac** (5↑): It sounds like you’re seeing the same dates of service on multiple EOB’s. Match up actual claim numbers.
+    - **BumCadillac** (4↑): It sounds like you’re seeing the same dates of service on multiple EOB’s. Match up actual claim numbers.
   - **WRX_MOM** (3↑): Nah, sadly, that’s what a lot of plans reimburse now. It’s bad out here.
-- **LadyGreyIcedTea** (18↑): The provider is trying to balance bill you, which usually isn't allowed for in-network providers. By signing a contract with Anthem, the provider agreed to accept Anthem's reimbursement for their services.
-- **doubler82** (11↑): This seems shady, if shes submitting claims for you,  that means shes in network, OON providers dont submit claims, you pay full price and get reimbursed a portion.
+- **LadyGreyIcedTea** (17↑): The provider is trying to balance bill you, which usually isn't allowed for in-network providers. By signing a contract with Anthem, the provider agreed to accept Anthem's reimbursement for their services.
+- **doubler82** (12↑): This seems shady, if shes submitting claims for you,  that means shes in network, OON providers dont submit claims, you pay full price and get reimbursed a portion.
 
 This seems like she's getting her negotiated  insurance payment and getting the rest from you, so shes double dipping.
 
 Call Anthem and explain to them what's been going on, they will guide you further.
 
 Keep us posted!
-  - **HotSauceHigh** (12↑): She's more than double dipping. Getting $97.87 from anthem and $200 from me. Meaning she wants me to think anthem only gives her $35. I can't believe she's doing this as if I'm the first person to ever catch it. Unluckily for her, I'm healed enough to call it out and stand up for myself and all her clients who can't.
+  - **HotSauceHigh** (11↑): She's more than double dipping. Getting $97.87 from anthem and $200 from me. Meaning she wants me to think anthem only gives her $35. I can't believe she's doing this as if I'm the first person to ever catch it. Unluckily for her, I'm healed enough to call it out and stand up for myself and all her clients who can't.
     - **MickyKent** (2↑): 🙌
   - **Psychological_Pop488** (2↑): I’m an OON provider and I do submit claims for my clients.

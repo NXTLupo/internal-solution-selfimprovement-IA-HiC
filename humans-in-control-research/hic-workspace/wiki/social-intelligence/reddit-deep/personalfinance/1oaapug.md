@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1780]
     sentence_count: 16
     key_terms: [around, investments, personalfinance, earning, partner, pension, savings, investment]
+    concepts: [around, investments, personalfinance, earning, partner]
     token_count: 428
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1oaapug/advice_needed_to_develop_a_finance_strategy_for/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1oaapug.md#c1"
     char_span: [1794, 2455]
     sentence_count: 3
     key_terms: [personalfinance, automatically, automoderator, wiki, moderators, investing, performed, questions]
+    concepts: [personalfinance, automatically, automoderator, moderators, investing]
     section: Comments
     token_count: 164
 ---

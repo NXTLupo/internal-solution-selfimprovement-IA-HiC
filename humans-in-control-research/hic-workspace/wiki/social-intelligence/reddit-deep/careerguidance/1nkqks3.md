@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1577]
     sentence_count: 10
     key_terms: [major, dentistry, neuroscience, careerguidance, doubts, doing, high, undergrad]
+    concepts: [major, dentistry, neuroscience, careerguidance, doubts]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1nkqks3.md#c1"]
     token_count: 349
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1nkqks3/how_do_you_approach_doubts_in_your_undergrad_and/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1nkqks3.md#c1"
     char_span: [1579, 3655]
     sentence_count: 18
     key_terms: [engineering, pre-dental, dentistry, want, extracurricular, career, dental, pursue]
+    concepts: [engineering, pre-dental, dentistry, extracurricular, neuroscience]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1nkqks3.md#c0"]
     token_count: 456
 ---
 # How do you approach doubts in your undergrad and how do I work through questions I won't have the answer to right away? Life advice for an undergrad who has no idea what they are doing.

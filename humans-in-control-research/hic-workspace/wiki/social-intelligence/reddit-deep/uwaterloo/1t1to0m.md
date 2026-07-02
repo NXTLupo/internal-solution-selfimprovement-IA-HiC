@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 1521]
     sentence_count: 11
     key_terms: [waterloo, uchicago, tech, network, math, reputation, uwaterloo, comments]
+    concepts: [waterloo, uchicago, network, reputation, uwaterloo]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1t1to0m.md#c1", "social-intelligence/reddit-deep/uwaterloo/1t1to0m.md#c2"]
     token_count: 358
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1t1to0m/recently_got_transfer_offer_from_uchicago_and/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1t1to0m.md#c1"
     char_span: [1535, 2996]
     sentence_count: 10
     key_terms: [waterloo, uchicago, chicago, want, resources, prestige, students, school]
+    concepts: [waterloo, uchicago, chicago, resources, prestige]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1t1to0m.md#c0", "social-intelligence/reddit-deep/uwaterloo/1t1to0m.md#c2"]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/uwaterloo/1t1to0m.md#c2"
     char_span: [2998, 4611]
     sentence_count: 10
     key_terms: [admissions, uwaterloo, uchicago, waterloo, automoderator, skyl0rdxdcs, year, moderators]
+    concepts: [admissions, uwaterloo, uchicago, waterloo, automoderator]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1t1to0m.md#c0", "social-intelligence/reddit-deep/uwaterloo/1t1to0m.md#c1"]
     section: Comments
     token_count: 415
 ---

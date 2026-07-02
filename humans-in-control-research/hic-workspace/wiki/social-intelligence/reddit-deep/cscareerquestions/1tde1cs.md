@@ -19,41 +19,49 @@ chunks:
     char_span: [0, 1437]
     sentence_count: 10
     key_terms: [cscareerquestions, like, work, experiences, comments, passion, working, people]
+    concepts: [cscareerquestions, experiences, comments, passion, working]
     token_count: 321
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tde1cs/has_anyone_lost_their_passion/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tde1cs.md#c1"
     char_span: [1451, 3301]
     sentence_count: 16
     key_terms: [embedded, work, software, evolution, hundreds, gamedev, aware-individual-827, niche]
+    concepts: [embedded, software, evolution, hundreds, gamedev]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tde1cs.md#c2"
     char_span: [3303, 5174]
     sentence_count: 17
     key_terms: [tech, nitpicking, semicolons, requests, decades, outsourcing, pull, swe]
+    concepts: [nitpicking, semicolons, requests, decades, outsourcing]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tde1cs.md#c3"
     char_span: [5176, 7300]
     sentence_count: 25
     key_terms: [people, coding, learning, "what's", messierkatr, huge, "it's", like]
+    concepts: [people, coding, learning, "what's", messierkatr]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tde1cs.md#c4"
     char_span: [7303, 9202]
     sentence_count: 23
     key_terms: [job, something, example, getting, passion, issues, months, people]
+    concepts: [something, example, getting, passion, issues]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tde1cs.md#c5"
     char_span: [9204, 11022]
     sentence_count: 15
     key_terms: [jobs, today, interesting, work, tech, standards, exciting, nicotine]
+    concepts: [today, interesting, standards, exciting, nicotine]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tde1cs.md#c6"
     char_span: [11024, 11550]
     sentence_count: 6
     key_terms: [got, never, interesting, employees, fortune, options, nvidia, stock]
+    concepts: [interesting, never, employees, fortune, options]
     section: Comments
     token_count: 99
 ---

@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1016]
     sentence_count: 9
     key_terms: [cscareerquestions, finding, area, bay, jobs, comments, postings, posted]
+    concepts: [cscareerquestions, finding, comments, postings, posted]
     token_count: 230
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1pb5hp4/how_are_new_grads_finding_jobs/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pb5hp4.md#c1"
     char_span: [1030, 1996]
     sentence_count: 8
     key_terms: [networking, get, network, connections, job, computer, linkedin, behind]
+    concepts: [networking, network, connections, computer, linkedin]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pb5hp4.md#c2"
     char_span: [1998, 4019]
     sentence_count: 13
     key_terms: [jobs, better, people, job, linkedin, apply, been, find]
+    concepts: [better, people, linkedin, apply, experience]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pb5hp4.md#c3"
     char_span: [4021, 6234]
     sentence_count: 19
     key_terms: [jobs, looking, change, find, cannot, apply, days, job]
+    concepts: [looking, change, cannot, apply, applying]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pb5hp4.md#c4"
     char_span: [6236, 8449]
     sentence_count: 13
     key_terms: [already, job, jobs, applying, listings, because, instead, writing]
+    concepts: [already, applying, listings, because, instead]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pb5hp4.md#c5"

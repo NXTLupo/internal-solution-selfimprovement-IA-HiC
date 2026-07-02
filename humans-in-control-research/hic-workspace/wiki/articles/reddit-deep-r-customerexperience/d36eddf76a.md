@@ -19,19 +19,25 @@ content_hash: "5f2155797f444b49"
 relevance_by_goal: {"490684cfa204":62}
 chunks:
   - id: "articles/reddit-deep-r-customerexperience/d36eddf76a.md#c0"
-    char_span: [0, 2448]
+    char_span: [0, 2447]
     sentence_count: 19
     key_terms: [experience, faster, resolution, replies, interaction, better, customerexperience, customers]
-    token_count: 485
+    concepts: [experience, faster, resolution, interaction, replies]
+    related_chunks: ["articles/reddit-deep-r-customerexperience/d36eddf76a.md#c2"]
+    token_count: 484
+    sources: [{"n":"Reddit Deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1sdoxje/is_ai_actually_improving_customer_experience_or/"}]
   - id: "articles/reddit-deep-r-customerexperience/d36eddf76a.md#c1"
-    char_span: [2450, 4248]
+    char_span: [2449, 4247]
     sentence_count: 16
     key_terms: [resolution, positive-writer-3015, teams, soft-car-3231, real, deflection, experience, improving]
+    concepts: [resolution, positive-writer-3015, teams, soft-car-3231, deflection]
     token_count: 392
   - id: "articles/reddit-deep-r-customerexperience/d36eddf76a.md#c2"
-    char_span: [4250, 5724]
+    char_span: [4249, 5723]
     sentence_count: 16
     key_terms: [interaction, frustration, real, different, broken, faster, "that's", agent]
+    concepts: [interaction, frustration, different, broken, faster]
+    related_chunks: ["articles/reddit-deep-r-customerexperience/d36eddf76a.md#c0"]
     token_count: 311
 ---
 # Is AI actually improving customer experience, or just making it faster to frustrate customers?

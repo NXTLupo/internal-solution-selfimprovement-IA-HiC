@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 1049]
     sentence_count: 7
     key_terms: [undergrad, "i'm", gradschool, comments, college, paying, school, bad]
+    concepts: [undergrad, gradschool, comments, college, paying]
     token_count: 260
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1q64rlk/is_50k_in_undergrad_loans_a_bad_idea_if_i_want_to/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1q64rlk.md#c1"
     char_span: [1063, 2898]
     sentence_count: 13
     key_terms: [amount, "that's", archaeology, "it's", job, academia, academic, industry]
+    concepts: [amount, "that's", archaeology, academia, academic]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/gradschool/1q64rlk.md#c2"
     char_span: [2900, 5147]
     sentence_count: 14
     key_terms: [marine, field, lot, conservation, get, year, management, monitoring]
+    concepts: [marine, field, conservation, management, monitoring]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/gradschool/1q64rlk.md#c3"
     char_span: [5149, 7002]
     sentence_count: 13
     key_terms: [program, working, assistance, "bachelor's", full-time, masters, hours, loans]
+    concepts: [program, working, assistance, "bachelor's", full-time]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/gradschool/1q64rlk.md#c4"
     char_span: [7004, 9143]
     sentence_count: 18
     key_terms: [school, loans, undergrad, grad, field, state, down, like]
+    concepts: [school, loans, undergrad, california, field]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1q64rlk.md#c5"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/gradschool/1q64rlk.md#c5"
     char_span: [9145, 10850]
     sentence_count: 7
     key_terms: [grad, school, independent, experience, undergrad, familiar, students, cheaper]
+    concepts: [school, independent, experience, undergrad, familiar]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1q64rlk.md#c4"]
     section: Comments
     token_count: 358
 ---

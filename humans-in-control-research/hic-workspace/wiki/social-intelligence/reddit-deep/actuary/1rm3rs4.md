@@ -20,33 +20,41 @@ chunks:
     char_span: [0, 953]
     sentence_count: 8
     key_terms: [comments, actuary, applied, school, don, get, time, want]
+    concepts: [comments, actuary, applied, school]
     token_count: 232
+    sources: [{"n":"reddit-deep: r/actuary","u":"https://www.reddit.com/r/actuary/comments/1rm3rs4/resume_review/"}]
   - id: "social-intelligence/reddit-deep/actuary/1rm3rs4.md#c1"
-    char_span: [968, 3039]
+    char_span: [967, 3038]
     sentence_count: 20
     key_terms: [glum-necessary-5256, exams, resume, passed, information, get, job, internship]
+    concepts: [glum-necessary-5256, exams, resume, passed, information]
+    related_chunks: ["social-intelligence/reddit-deep/actuary/1rm3rs4.md#c2"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/actuary/1rm3rs4.md#c2"
-    char_span: [3041, 4834]
+    char_span: [3040, 4833]
     sentence_count: 15
     key_terms: [masters, passed, exams, interviews, university, education, impressed, technical]
+    concepts: [masters, passed, exams, interviews, university]
+    related_chunks: ["social-intelligence/reddit-deep/actuary/1rm3rs4.md#c1"]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/actuary/1rm3rs4.md#c3"
-    char_span: [4836, 6641]
+    char_span: [4835, 6640]
     sentence_count: 16
     key_terms: [going, track, skills, university, analytics, september, because, instead]
+    concepts: [going, track, skills, university, analytics]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/actuary/1rm3rs4.md#c4"
-    char_span: [6644, 8705]
+    char_span: [6643, 8704]
     sentence_count: 21
     key_terms: [resume, terrible, little, interviews, actuarial, business, comment, "didn't"]
+    concepts: [resume, terrible, little, interviews, actuarial]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/actuary/1rm3rs4.md#c5"
-    char_span: [8707, 8858]
+    char_span: [8706, 8857]
     sentence_count: 2
     key_terms: [baconweave, terrible, thinking, "wouldn't", someone, advice, leave, thank]
     section: Comments

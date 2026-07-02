@@ -21,43 +21,60 @@ chunks:
     char_span: [0, 2060]
     sentence_count: 6
     key_terms: [like, nyu, cornell, applyingtocollege, nyc, entrepreneurship, already, because]
+    concepts: [cornell, applyingtocollege, entrepreneurship, already, because]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c7"]
     token_count: 473
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1syqg6o/nyu_stern_or_cornell_dyson/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c1"
     char_span: [2062, 3941]
     sentence_count: 13
     key_terms: [friends, like, nyu, cornell, since, everyone, already, people]
+    concepts: [friends, cornell, since, everyone, already]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c7"]
     token_count: 419
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c2"
     char_span: [3943, 5410]
     sentence_count: 11
     key_terms: [like, people, get, ill, live, genuinely, manhattan, biggest]
+    concepts: [people, genuinely, manhattan, biggest, cornell]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c5"]
     token_count: 335
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c3"
     char_span: [5412, 7390]
     sentence_count: 11
     key_terms: [like, cornell, city, brown, genuinely, want, experience, hispanic]
+    concepts: [cornell, genuinely, brown, experience, hispanic]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c6"]
     token_count: 446
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c4"
     char_span: [7392, 8813]
     sentence_count: 3
     key_terms: [reasons, nyu, cornell, friends, city, like, convince, because]
+    concepts: [reasons, cornell, friends, convince, because]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c7"]
     token_count: 325
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c5"
     char_span: [8827, 10587]
     sentence_count: 12
     key_terms: [cornell, nyu, school, nyc, brands, people, community, someone]
+    concepts: [cornell, school, brands, people, community]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c7"]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c6"
     char_span: [10589, 12430]
     sentence_count: 20
     key_terms: [nyc, cornell, experience, stern, nyu, right, influencers, like]
+    concepts: [cornell, experience, stern, influencers, right]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c3"]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c7"
     char_span: [12432, 14431]
     sentence_count: 31
     key_terms: [cornell, friends, nyu, "you're", like, went, entrepreneurship, school]
+    concepts: [cornell, friends, "you're", entrepreneurship, school]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c5"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c8"

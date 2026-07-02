@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1955]
     sentence_count: 1
     key_terms: [gpt, firewall, semantic, answer, small, state, map, comments]
+    concepts: [firewall, semantic, answer, small, state]
     token_count: 478
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1nebqn9/fixing_gpt_bugs_before_they_happen_a/"}]
   - id: "social-intelligence/reddit-deep/gpt/1nebqn9.md#c1"
     char_span: [1957, 3966]
     sentence_count: 1
     key_terms: [fix, add, metric, normalization, map, page, checkpoint, onestardao]
+    concepts: [normalization, metric, checkpoint, onestardao, problemmap]
     token_count: 467
   - id: "social-intelligence/reddit-deep/gpt/1nebqn9.md#c2"
     char_span: [3968, 4932]
     sentence_count: 1
     key_terms: [map, question, because, answer, number, people, trace, before-generation]
+    concepts: [question, because, answer, number, people]
     token_count: 238
 ---
 # fixing gpt bugs before they happen, a beginner-friendly “semantic firewall” + the problem map

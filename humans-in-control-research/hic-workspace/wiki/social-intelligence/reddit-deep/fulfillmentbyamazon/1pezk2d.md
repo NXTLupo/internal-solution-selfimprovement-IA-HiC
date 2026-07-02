@@ -20,38 +20,51 @@ chunks:
     char_span: [0, 1780]
     sentence_count: 8
     key_terms: [amazon, third-party, fba, sellers, experiences, fulfillmentbyamazon, customer, tracking]
+    concepts: [amazon, third-party, experiences, fulfillmentbyamazon, sellers]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c2", "social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c3", "social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c5"]
     token_count: 399
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1pezk2d/fba_fraud_at_its_finest/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c1"
     char_span: [1782, 3253]
     sentence_count: 16
     key_terms: [toaster, price, refund, amazon, new, tell, supervisor, another]
+    concepts: [toaster, price, refund, amazon, supervisor]
     token_count: 357
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c2"
     char_span: [3255, 5436]
     sentence_count: 18
     key_terms: [amazon, third-party, sellers, purchases, seller, refunded, items, cuisinart]
+    concepts: [amazon, third-party, sellers, purchases, seller]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c0", "social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c3", "social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c5", "social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c6"]
     token_count: 495
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c3"
     char_span: [5438, 6678]
     sentence_count: 8
     key_terms: [amazon, third-party, anything, products, returned, happens, seller, black]
+    concepts: [amazon, third-party, anything, products, returned]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c0", "social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c2"]
     token_count: 265
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c4"
-    char_span: [6693, 7171]
+    char_span: [6692, 7170]
     sentence_count: 3
     key_terms: [discord, fba, discuss, server, fulfillmentbyamazon, join, automoderator, optimization]
+    concepts: [discord, discuss, server]
     section: Comments
     token_count: 119
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c5"
-    char_span: [7174, 9161]
+    char_span: [7173, 9160]
     sentence_count: 13
     key_terms: [amazon, sellers, walmart, customers, action, return, fraud, customer]
+    concepts: [amazon, sellers, walmart, customers, action]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c0", "social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c2"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c6"
-    char_span: [9163, 10833]
+    char_span: [9162, 10832]
     sentence_count: 15
     key_terms: [amazon, seller, past-obligation-2655, people, replicate, shopify, always, "you're"]
+    concepts: [amazon, past-obligation-2655, seller, people, replicate]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1pezk2d.md#c2"]
     section: Comments
     token_count: 405
 ---

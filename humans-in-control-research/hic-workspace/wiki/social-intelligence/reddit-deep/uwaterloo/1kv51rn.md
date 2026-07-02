@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 497]
     sentence_count: 3
     key_terms: [uwaterloo, comments, waterloo, "there's", business-week4389, reddit-deep, percentage, companies]
+    concepts: [uwaterloo, comments, waterloo, "there's"]
     token_count: 125
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1kv51rn/how_many_cs_co_ops_are_reserved_only_for_waterloo/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1kv51rn.md#c1"
     char_span: [511, 2236]
     sentence_count: 13
     key_terms: [waterloo, companies, number, like, reserve, headcount, students, nrgxlr8tr]
+    concepts: [waterloo, companies, number, reserve, headcount]
     section: Comments
     token_count: 452
 ---

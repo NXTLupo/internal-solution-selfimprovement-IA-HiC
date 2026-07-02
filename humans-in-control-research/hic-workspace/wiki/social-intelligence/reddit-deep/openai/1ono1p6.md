@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 740]
     sentence_count: 7
     key_terms: [comments, context, project, openai, window, goofball-john-mcgee, user, misremembers]
+    concepts: [comments, context, project, openai, window]
     token_count: 193
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1ono1p6/what_happened_to_gpt5s_context_window/"}]
 ---
 # What happened to GPT-5’s Context Window?
 

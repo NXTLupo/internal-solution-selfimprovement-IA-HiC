@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 313]
     sentence_count: 2
     key_terms: [gradadmissions, comments, randomlebaneseperson, reddit-deep, recommend, business, career, majors]
+    concepts: [gradadmissions, comments]
     token_count: 89
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qk4d4v/which_majorscareer_paths_would_you_recommend_a/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qk4d4v.md#c1"
     char_span: [327, 1396]
     sentence_count: 9
     key_terms: ["i'm", business, doing, years, job, recommend, looking, masters]
+    concepts: [business, doing, years, recommend, looking]
     section: Comments
     token_count: 241
 ---

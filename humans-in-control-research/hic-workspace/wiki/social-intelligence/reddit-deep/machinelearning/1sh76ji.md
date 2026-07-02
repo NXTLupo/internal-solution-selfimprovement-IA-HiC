@@ -21,31 +21,40 @@ chunks:
     char_span: [0, 1911]
     sentence_count: 9
     key_terms: [machinelearning, files, tests, comments, remove, post-training, dependencies, https]
+    concepts: [machinelearning, files, tests, comments, post-training]
     token_count: 433
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1sh76ji/started_a_video_series_on_building_an/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1sh76ji.md#c1"
     char_span: [1913, 3500]
     sentence_count: 9
     key_terms: [orchestration, framework, care, noticed, layer, let, whether, better]
+    concepts: [orchestration, framework, noticed, layer, whether]
     token_count: 359
   - id: "social-intelligence/reddit-deep/machinelearning/1sh76ji.md#c2"
     char_span: [3502, 5552]
     sentence_count: 12
     key_terms: [through, blog, post, codebase, dhruvnigam93, https, especially, different]
+    concepts: [through, codebase, dhruvnigam93, especially, https]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1sh76ji.md#c3"]
     token_count: 494
   - id: "social-intelligence/reddit-deep/machinelearning/1sh76ji.md#c3"
     char_span: [5554, 7209]
     sentence_count: 7
     key_terms: [github, https, com, codebase, openrlhf, meta-pytorch, token-aware, torchforge]
+    concepts: [github, https, codebase, openrlhf, meta-pytorch]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1sh76ji.md#c2"]
     token_count: 377
   - id: "social-intelligence/reddit-deep/machinelearning/1sh76ji.md#c4"
     char_span: [7211, 8679]
     sentence_count: 8
     key_terms: ["it's", "i'll", "i'm", implementation, better, final, codebase, engineer]
+    concepts: [implementation, better, final, codebase, engineer]
     token_count: 360
   - id: "social-intelligence/reddit-deep/machinelearning/1sh76ji.md#c5"
     char_span: [8681, 9662]
     sentence_count: 4
     key_terms: [orchestration, post-training, pattern, youtube, reinforcedknowledge, https, layer, video]
+    concepts: [orchestration, post-training, pattern, youtube, https]
     token_count: 224
 ---
 # Started a video series on building an orchestration layer for LLM post-training [P]

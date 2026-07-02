@@ -21,33 +21,40 @@ chunks:
     char_span: [0, 1705]
     sentence_count: 13
     key_terms: [comments, company, flunkie, replied, called, saying, signed, wanted]
+    concepts: [comments, company, flunkie, replied, called]
     token_count: 406
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1mv7vqx/we_no_longer_require_your_services/"}]
   - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c1"
     char_span: [1707, 3612]
     sentence_count: 16
     key_terms: [position, consulting, requested, company, engineering, contractor, contract, director]
+    concepts: [position, consulting, requested, company, engineering]
     token_count: 424
   - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c2"
     char_span: [3614, 4820]
     sentence_count: 7
     key_terms: [position, interesting, "it's", work, department, "doesn't", require, office]
+    concepts: [position, interesting, department, "doesn't", require]
     token_count: 249
   - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c3"
     char_span: [4834, 6409]
     sentence_count: 11
     key_terms: [like, refused, wanted, worked, notyourkidfrommotown, crazy, going, story]
+    concepts: [refused, wanted, worked, crazy, going]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c4"
     char_span: [6411, 8421]
     sentence_count: 16
     key_terms: [companies, insurance, work, unemployment, did, like, employment, because]
+    concepts: [companies, insurance, unemployment, employment, because]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c5"
     char_span: [8423, 10504]
     sentence_count: 18
     key_terms: [good, work, contract, offer, job, like, employment, checklist]
+    concepts: [contract, employment, offer, checklist, instincts]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c6"
@@ -60,24 +67,28 @@ chunks:
     char_span: [10632, 12715]
     sentence_count: 12
     key_terms: [pto, work, unlimited, companies, policy, state, paid, pay]
+    concepts: [unlimited, companies, policy, state, benefits]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c8"
     char_span: [12415, 12783]
     sentence_count: 3
     key_terms: [benefits, work, iheartnjdevils, government, countries, exporting, providing, retaining]
+    concepts: [benefits]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c9"
     char_span: [12785, 15084]
     sentence_count: 14
     key_terms: [work, required, engineering, cannot, scope, license, institutional, state]
+    concepts: [required, engineering, cannot, scope, institutional]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c10"
     char_span: [15086, 16036]
     sentence_count: 11
     key_terms: [company, job, "didn't", notyourkidfrommotown, signal-response449, good, run, manufacturing]
+    concepts: [company, "didn't"]
     section: Comments
     token_count: 235
 ---

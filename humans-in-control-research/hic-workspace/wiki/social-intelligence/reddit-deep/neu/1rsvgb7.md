@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2181]
     sentence_count: 7
     key_terms: [seattle, northeastern, campus, experience, co-op, university, boston, students]
+    concepts: [seattle, northeastern, campus, experience, co-op]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rsvgb7/admitted_to_northeastern_university_seattle/"}]
   - id: "social-intelligence/reddit-deep/neu/1rsvgb7.md#c1"
     char_span: [2183, 2519]
     sentence_count: 4
     key_terms: [students, seattle, internships, appreciate, especially, graduation, full-time, long-term]
+    concepts: [students, seattle]
     token_count: 71
 ---
 # Admitted to Northeastern University Seattle campus (MS CS) but wanted Boston – Need advice

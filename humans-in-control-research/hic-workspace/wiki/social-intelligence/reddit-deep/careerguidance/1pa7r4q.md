@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1212]
     sentence_count: 7
     key_terms: [careerguidance, health, issues, wise, comments, severe, least, need]
+    concepts: [careerguidance, health, issues, comments, severe]
     token_count: 288
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pa7r4q/what_could_i_do_career_wise_with_my_health_issues/"}]
 ---
 # what could I do career wise with my health issues, need advice/ guidance? [UK]
 

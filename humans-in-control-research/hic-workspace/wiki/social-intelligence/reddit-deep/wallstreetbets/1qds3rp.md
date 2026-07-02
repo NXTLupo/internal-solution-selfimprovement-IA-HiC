@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 956]
     sentence_count: 10
     key_terms: [wallstreetbets, hopefully, comments, worth, net, winter-shoulders, understanding, reddit-deep]
+    concepts: [wallstreetbets, hopefully, comments, worth]
     token_count: 243
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1qds3rp/options_changed_my_life_pt_3/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qds3rp.md#c1"
     char_span: [970, 2064]
     sentence_count: 4
     key_terms: [wsb, strategy, discord, extreme-island-5041, total, charliedayismyhero, thebestinthewest11, far]
+    concepts: [strategy, discord, total]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qds3rp.md#c2"
     char_span: [2067, 3620]
     sentence_count: 6
     key_terms: [ironsam811, strategy, hacking99percent, months, time, supposed, chart, cantgetthistowork]
+    concepts: [ironsam811, hacking99percent, strategy, months, supposed]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qds3rp.md#c3"
     char_span: [3623, 5183]
     sentence_count: 5
     key_terms: [like, a1ef64f2947ebbd9a74568ba6070a82f3d932df2, derisking, portfolio, double, people, looks, back]
+    concepts: [derisking, portfolio, double, people, looks]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qds3rp.md#c4"
     char_span: [5185, 6553]
     sentence_count: 8
     key_terms: [money, google, retire, right, spxt, want, winter-shoulders, baconreader9000]
+    concepts: [money, google, retire, right]
     section: Comments
     token_count: 398
 ---

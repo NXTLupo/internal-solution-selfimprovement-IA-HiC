@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 1785]
     sentence_count: 15
     key_terms: [margin, options, immediately, something, buy, "i'm", sale, account]
+    concepts: [margin, immediately, options, something, account]
     token_count: 418
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1q8bt8j/help_me_understand_settlement_margin_etc/"}]
   - id: "social-intelligence/reddit-deep/investing/1q8bt8j.md#c1"
     char_span: [1789, 3442]
     sentence_count: 12
     key_terms: ["didn't", fidelity, work, customer, account, service, "i'm", move]
+    concepts: ["didn't", fidelity, customer, account, service]
     token_count: 361
   - id: "social-intelligence/reddit-deep/investing/1q8bt8j.md#c2"
-    char_span: [3457, 5617]
+    char_span: [3456, 5616]
     sentence_count: 14
     key_terms: [margin, settlement, interest, proceeds, plenty-bill7296, limited, apply, rules]
+    concepts: [margin, settlement, interest, plenty-bill7296, proceeds]
     section: Comments
     token_count: 490
 ---

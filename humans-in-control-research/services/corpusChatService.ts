@@ -10,7 +10,7 @@ import * as _hashtagRegistryModule from './hashtagRegistry';
 // feedback_deliverables_manifest_wiki_not_rag). pickChunksForPrompt pre-ranks the
 // engagement's chunk catalog; resolveChunks dereferences pointers to verbatim
 // spans; assembleChunkCorpus renders the cite-by-pointer block.
-import { artifactModelFor } from './aiRouter';
+import { artifactModelFor, HIC_CACHE_BREAK } from './aiRouter';
 import { catalogEntryFor } from './artifactCatalog';
 import { pickChunksForPrompt, assembleChunkCorpus, chunkCitationInstructions } from './chunkRetrieval';
 import { resolveChunks, currentEngagementSlug } from './wikiPointerResolver';
@@ -1398,13 +1398,15 @@ Example of the same service-blueprint pattern applied to a B2B SaaS onboarding c
       {
         "name":"Unified Customer Profile API",
         "priority":"must",
+        "storyId":"US-1",
         "userStory":"As a high-value-deals officer, I want to see every touchpoint a customer has had across all 3 Salesforce orgs on one screen so I can reference them in a prospect call without switching systems.",
         "acceptanceCriteria":[
-          "Profile page loads in < 2s for 95% of customers",
-          "Displays spend history, event attendance, email opens, volunteer hours",
-          "Identity resolves across all 3 Salesforce orgs via Segment anonymous_id",
-          "Officer-initiated note syncs back to owning org within 30s"
-        ]
+          "Given a customer with records in multiple orgs, when the officer opens the profile, then spend history, event attendance, email opens, and volunteer hours render on one screen.",
+          "Given records that share a Segment anonymous_id, when the profile loads, then identity resolves across all 3 Salesforce orgs without a manual merge.",
+          "Given an officer-initiated note, when it is saved, then the owning org receives the synced note before the officer leaves the page."
+        ],
+        "successMetric":"Officers stop switching systems during prospect calls; the profile screen is the single reference surface.",
+        "traces":"THE OFFICER - fragmented-record gap"
       },
       {
         "name":"Predictive Propensity Score",
@@ -1585,6 +1587,8 @@ DENSE PAYLOAD FIELDS (W2 dense layouts - emit these when the corpus carries them
   - recommendation, 4-6 supportingActions (or 3 + impactGrid + 2 evidence): routes to full-width action rows + impact band + evidence cards. Emit every evidenced action; the layout absorbs them.
   - persona-card carrying goals + painPoints + behaviors:["<observed behavior>", x3] + winConditions:["<what wins them>", x3] (optionally descriptors as an uppercase trait strip, stakes as a relationship-stakes line): routes to the identity column + 2x2 evidence quadrants.
   - prd-feature, userStory + 3-5 acceptanceCriteria per feature: max 2 such features per slide (decomposition recipe above); routes to the two-deep-card layout with technicalDetails/stakeholders in the footer.
+  - prd-feature DEPTH CONTRACT (2026-07-02, HARD): every acceptanceCriteria item is a COMPLETE Given/When/Then sentence ("Given a returning customer with an open ticket, when they submit the contact form, then the matching help article renders before the queue position"), never a bare assertion fragment. Every feature carries storyId ("US-1", "US-2", ... sequential across the whole PRD), successMetric (ONE observable signal, qualitative language per the Quantitative Claim Rule), and traces (the persona name + the gap it closes, e.g. "THE REPEATER - routing gap").
+  - prd REQUIREMENTS LEDGER (2026-07-02): every #prd response ALSO emits ONE closing prd-feature slide whose prdFeature carries ONLY "requirements": { "functional": [{"id":"FR-1","text":"..."}], "nonFunctional": [{"id":"NFR-1","text":"..."}], "outOfScope": [{"id":"OOS-1","text":"..."}] } (no features array on that slide). 4-6 rows per column, each a complete evidenced sentence; out-of-scope rows state what is deliberately NOT built and why in a clause. Title states the boundary judgment (e.g. "The requirements draw a hard line between the answer surface we build and the queue we refuse to rebuild"). Renders as the three-column FR/NFR/OOS ledger; ids are sequential and stable.
 These fields are evidence carriers: behaviors, winConditions, additionalQuotes and synthesis come from the corpus (verbatim quotes keep inline named-source attribution), never invented to fill a layout.
 
 SLIDE-SYSTEM VARIANTS (2026-06-11, from the NU Giving uplift; Figma GOLD slides pages NU 103:2 / NXT 324:2 carry the exemplars). Emit these via the EXISTING templates' optional fields when the content matches the shape:
@@ -1617,8 +1621,10 @@ FOUNDATIONAL CONSULTING MANDATES (apply to ALL responses):
    - FORBIDDEN: "Research shows...", "Studies indicate...", "Data suggests...", "Sources confirm..."
    - REQUIRED: Extract and embed VERBATIM quotes with [SOURCE_NAME: "Article Title"] citations
    - Every factual claim must have a named source. Every insight must feature a direct quote or specific data point.
+   - QUOTES ARE COMPLETE SENTENCES: never a lowercase mid-sentence fragment ("installing fire detection and protection equipment."). Pick a span that starts and ends as a sentence, or pick a different span.
+   - DECK-LEVEL EVIDENCE DIVERSITY (MANDATORY): across the whole deck, no single citation may carry more than a third of the slides; never reuse the same verbatim quote on two slides; at least 60% of citations name external (non-upload) sources. If your draft repeats one source line slide after slide, you are FAILING - retrieve different ledger sources per slide before delivering.
 
-4. ACTION TITLES: Every title is a complete sentence stating a SPECIFIC, CONTESTABLE conclusion - a named cause, mechanism, actor, or change a reader could disagree with. A title earns its place by being specific and contestable, NOT by carrying a figure.
+4. ACTION TITLES: Every title is a complete sentence stating a SPECIFIC, CONTESTABLE conclusion - a named cause, mechanism, actor, or change a reader could disagree with. A title earns its place by being specific and contestable, NOT by carrying a figure. THIS APPLIES TO EVERY CONTENT SLIDE - capability lists, data-source inventories, measurement frameworks, and outcome slides included; the KICKER carries the topic label ("AI CAPABILITIES"), the TITLE carries the judgment ("The platform learns risk-scoring from every farmer interaction"). A kicker plus a descriptive subtitle is NOT a title.
    - BAD (topic label): "The Landscape", "Key Findings", "Recommendations", "Overview"
    - BAD (naked number, violates the Quantitative Claim Rule): a title built around a percentage or dollar figure. A number lives ONLY inside an attributed quote on the slide body, never in a title.
    - BAD (generically true, nobody could disagree): "Customer experience matters", or a "Three core capabilities define the ..." list framing.
@@ -2844,6 +2850,69 @@ async function fetchSlidesArchetypeManifest(): Promise<string> {
     return _slidesManifestCache;
 }
 
+// E5 (2026-07-02, artifact-total-elevation) - COMPONENT-SPEC RETRIEVAL. The component registry
+// (wiki brand/figma-node-map.md) has been manifest-chunked since 6/23 but NOTHING retrieved it at
+// generation time, so the model composed slides from prose memory of the bricks instead of their
+// actual anatomy + image slots. This reads the registry page once per session and, per artifact
+// request, extracts ONLY the sections relevant to the message's directives (keyword-matched on the
+// '## ' section headings), capped, and appends them to the design-system rules block. Fail-open.
+let _nodeMapCache: string | null = null;
+async function fetchComponentSpecBlock(userMessage: string): Promise<string> {
+    try {
+        if (_nodeMapCache === null) {
+            const r = await fetch(`${PROXY_BASE}/api/wiki/read-article/${encodeURIComponent('brand/figma-node-map.md')}`);
+            if (r.ok) {
+                const j = await r.json().catch(() => null);
+                _nodeMapCache = (j && (j.content || j.body || j.markdown)) ? String(j.content || j.body || j.markdown) : '';
+            } else { _nodeMapCache = ''; }
+        }
+        if (!_nodeMapCache) return '';
+        // Directive -> registry-section keywords. A section is kept when its heading matches any
+        // keyword for a directive present in the message (plus 'image-slot' rows for slot anatomy).
+        const TAG_KEYS: Array<[RegExp, string[]]> = [
+            [/#slides?\b/i, ['slides', 'archetype', 'cover', 'divider']],
+            [/#journey\b/i, ['journey']],
+            [/#blueprint\b/i, ['blueprint']],
+            [/#personas?\b/i, ['persona']],
+            [/#themes?\b/i, ['theme']],
+            [/#recs?\b|#recommendations?\b/i, ['recommendation']],
+            [/#strategy\b/i, ['strategy']],
+            [/#competitive\b/i, ['competitive']],
+            [/#case-stud(y|ies)\b/i, ['case-study', 'case study']],
+            [/#roadmap\b/i, ['roadmap', 'timeline']],
+            [/#gap\b/i, ['gap']],
+            [/#audit\b/i, ['audit']],
+            [/#arch\b/i, ['architecture']],
+            [/#org\b/i, ['org']],
+            [/#prd\b/i, ['prd']],
+            [/#brief\b|#explainer\b|#report\b/i, ['brief', 'executive', 'explainer', 'report']],
+            [/#mindmap\b/i, ['mindmap', 'mind map']],
+            [/#meta-themes\b/i, ['meta-theme']],
+        ];
+        const keys = TAG_KEYS.filter(([re]) => re.test(userMessage)).flatMap(([, ks]) => ks);
+        if (keys.length === 0) return '';
+        const sections = _nodeMapCache.split(/\n(?=## )/);
+        const kept: string[] = [];
+        for (const s of sections) {
+            const head = (s.split('\n', 1)[0] || '').toLowerCase();
+            // Program sections named for the artifact (JOURNEY IN-TABLE REDESIGN, THEMES OVERVIEW...)
+            // ride whole; the cross-artifact REGISTRY/AUDIT tables contribute only THIS artifact's
+            // rows (heading + table header + matching lines) - the full tables are 10x the budget.
+            if (/component registry|image-slot registry|image audit|emotive slots|content archetypes/.test(head)) {
+                const lines = s.split('\n');
+                const rows = lines.filter((l, i) => i < 4 || keys.some(k => l.toLowerCase().includes(k)));
+                if (rows.length > 4) kept.push(rows.join('\n'));
+            } else if (keys.some(k => head.includes(k))) {
+                kept.push(s);
+            }
+        }
+        if (kept.length === 0) return '';
+        let block = kept.join('\n');
+        if (block.length > 7000) block = block.slice(0, 7000) + '\n[component-spec block truncated]';
+        return `\n\n=== COMPONENT REGISTRY SPECS (brand/figma-node-map.md - the ACTUAL brick anatomy + image slots for this artifact; compose against these, never prose memory) ===\n${block}`;
+    } catch { return ''; }
+}
+
 export async function sendChatMessage(
     model: ChatModel,
     userMessage: string,
@@ -3151,6 +3220,22 @@ export async function sendChatMessage(
         }
     }
 
+    // E5 (2026-07-02) - COMPONENT-SPEC RETRIEVAL: slide/HTML artifact requests additionally carry
+    // the registry sections for their bricks (anatomy + image slots) so the model composes against
+    // the ACTUAL component contract. Rides the existing nxtDesignSystemRules carrier (converge,
+    // no new prompt plumbing); additive + fail-open.
+    if (messageTargetsArtifact(userMessage)) {
+        try {
+            const specBlock = await fetchComponentSpecBlock(userMessage);
+            if (specBlock) {
+                context = { ...context, nxtDesignSystemRules: (context.nxtDesignSystemRules || '') + specBlock };
+                console.log(`[chat] E5 component-spec retrieval: ${specBlock.length} chars of registry anatomy injected`);
+            }
+        } catch (err: any) {
+            console.warn('[chat] E5 component-spec retrieval skipped:', err?.message || err);
+        }
+    }
+
     // 2026-06-09 - MANIFEST-CHUNK GROUNDING (the new engine, intent A.1). Before
     // building the prompt, pre-rank the engagement's manifest chunk catalog
     // against the user's message (+ research goal as extra context), resolve the
@@ -3368,9 +3453,16 @@ ${qe.skillContent}
     const corpusBreakdown = computeCorpusSourceBreakdown(context);
     const categoryRoster = buildCategoryRoster(context);
 
+    // E1 (2026-07-02, artifact-total-elevation): CACHE-ALIGNED PROMPT ARCHITECTURE. The system prompt is
+    // assembled [STABLE CORE][marker][ENGAGEMENT BLOCK][marker][DYNAMIC grounding + short tail]. The proxy
+    // converts each marker into an Anthropic cache_control breakpoint, so the stable core (rules, protocol,
+    // output format, anti-slop) amortizes ACROSS engagements and the engagement block amortizes across
+    // every call within one engagement. Non-Anthropic providers strip the marker at the proxy. Do NOT
+    // interleave engagement-varying values into the stable core - that reorders the cache boundary.
+    const CACHE_BREAK = HIC_CACHE_BREAK;
+
     let systemPrompt = `You are a McKinsey-trained research intelligence analyst operating in the NXT Humans Chat-Driven Research Workbench.
-You have access to ${context.sourceCount} data sources containing ${context.articleCount} articles collected for this research.
-The research goal is: "${context.researchGoal}"
+The research goal, live source roster, and corpus composition for THIS run are in the ENGAGEMENT CONTEXT block further below.
 
 ================================================================================
 === IRON LAW: USER-SELECTED SOURCES MUST BE USED ===
@@ -3405,15 +3497,13 @@ ABSOLUTE RULES:
           incomplete donation flows."
    BAD: "Sephora has a tiered customers program" (implies an existing thing)
 
-=== ACTIVE CATEGORIES WITH CONTENT (cite from these when relevant) ===
-${categoryRoster}
+(The live ACTIVE CATEGORIES roster for this run appears in the ENGAGEMENT CONTEXT block below.)
 ================================================================================
 
 === CORPUS SOURCE COMPOSITION ===
-The corpus below contains content from MULTIPLE source types. Every type is
-first-class evidence. You MUST cite from a balanced mix - not just uploads.
-
-${corpusBreakdown.summary}
+The corpus contains content from MULTIPLE source types (the live per-type breakdown
+is in the ENGAGEMENT CONTEXT block below). Every type is first-class evidence. You
+MUST cite from a balanced mix - not just uploads.
 
 SOURCE-MIX DISCIPLINE (MANDATORY):
 - Uploads (client-provided PDFs, interviews, internal docs) provide CONTEXT - the client's POV, their data, their stakeholder voices
@@ -3470,13 +3560,6 @@ If your draft answer cites only uploads, that is a violation of source-mix disci
 
 When tool results return empty or error, the archive genuinely doesn't have evidence for that claim - narrow your answer to what IS evidenced, or tell the user plainly which dimension lacks coverage in conversational prose. Do NOT fabricate. NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any QA-style annotation in any chat response, deliverable artifact, slide, persona, or other user-facing output. The reader is the user - not a QA dashboard.
 ${DELIVERABLE_PROTOCOL}
-${manifestSummary}
-${wikiResourceManifest}
-${topicModelBlock}
-${skillInstructions}
-${provenanceIndex ? `=== SOURCE PROVENANCE INDEX (${context.sourceReferences?.length || 0} sources) ===\n${provenanceIndex}\n=== END PROVENANCE ===\n` : ''}
-
-${groundingContext}
 
 === LENGTH & DEPTH DISCIPLINE (re-read before responding) ===
 Match the OUTPUT SIZE to what the user actually requested. Common signals:
@@ -3562,6 +3645,23 @@ The reader is an expert. Write like a senior consultant, not a marketing brochur
 - Numbers are evidence carried by a cited quote, never a bare assertion you make.
 Write subject-verb-object sentences with concrete nouns and varied openings. If you catch yourself reaching for a buzzword, say the plain thing instead.
 === END PLAIN-VOICE / ANTI-SLOP RULES ===
+${CACHE_BREAK}================================================================================
+=== ENGAGEMENT CONTEXT (this research run) ===
+================================================================================
+The research goal is: "${context.researchGoal}"
+You have access to ${context.sourceCount} data sources containing ${context.articleCount} articles collected for this research.
+
+=== ACTIVE CATEGORIES WITH CONTENT (cite from these when relevant) ===
+${categoryRoster}
+
+=== CORPUS SOURCE COMPOSITION (live breakdown) ===
+${corpusBreakdown.summary}
+${manifestSummary}
+${wikiResourceManifest}
+${topicModelBlock}
+${skillInstructions}
+${provenanceIndex ? `=== SOURCE PROVENANCE INDEX (${context.sourceReferences?.length || 0} sources) ===\n${provenanceIndex}\n=== END PROVENANCE ===\n` : ''}
+${CACHE_BREAK}${groundingContext}
 
 === ANTI-HALLUCINATION REMINDER (re-read before responding) ===
 BEFORE including any URL in your response, verify it exists VERBATIM in the SOURCE PROVENANCE INDEX above. If you cannot find the exact URL, DO NOT include one - cite by source name only.
@@ -3684,7 +3784,8 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
             if (deckMode) {
                 const slidesManifest = await fetchSlidesArchetypeManifest();
                 if (slidesManifest) {
-                    systemPrompt += `\n\n========================================================================\nDECK MODE - COMPOSE FROM THE SLIDES ARCHETYPE REGISTRY (Figma 609)\nTHIS SUPERSEDES the "SLIDE OUTPUT PROTOCOL - 18 TEMPLATES" catalog above: for THIS deck do NOT use any of those GOLD template names (persona-card, theme-cluster, recommendation, timeline, case-study, etc.). Use ONLY the 14 SLIDES archetypes in the catalog below, EACH with the \`slides:\` prefix. A fence without \`slides:\` is a HARD FAILURE in deck mode.\nThis is a narrative DECK, composed from the registered SLIDES archetypes the same way a prototype is composed from its component manifest. For EVERY slide emit a fence of the form:\n  :::slide template=slides:<archetype> brand=${brandHint}\n  { ...payload exactly as the catalog's PAYLOAD line specifies for that archetype... }\n  :::\nThe \`slides:\` prefix is MANDATORY - it routes the slide through the registry composer. The JSON body fields MUST match the archetype's PAYLOAD contract verbatim (key names + array lengths).\nNARRATIVE ARC - PLAN THE BUSINESS ARGUMENT FIRST (MANDATORY; this GOVERNS the whole deck, archetype choice serves it):\nA deck is ONE argument told start to finish, NOT an assortment of on-topic slides. BEFORE choosing any archetype, decide the deck's spine and make every slide advance it:\n  1. THESIS: one contestable sentence the whole deck proves (state the answer up front, Minto). Every slide ladders up to it.\n  2. ARC (Rumelt kernel + SCQA), in this order: (a) SETUP / context the audience accepts; (b) COMPLICATION / DIAGNOSIS - the central tension or failure named with evidence (why the status quo is unacceptable); (c) EVIDENCE - the themes/proof that establish the diagnosis; (d) IMPLICATION / SO-WHAT for the business; (e) GUIDING POLICY + COHERENT ACTIONS - the recommendation and the moves that follow; (f) CLOSE - the decision or ask. A landscape/outlook deck STILL resolves to "and therefore..."; never end on a flat list.\n  3. CONNECTIVE TISSUE: consecutive slides must FOLLOW from one another - read top-to-bottom the titles alone must tell the whole argument (the Partner Test). Use section-divider / thesis-interstitial to mark arc TRANSITIONS, never as filler.\n  3a. TITLE CRAFT (CONCISE + LITERAL, NO METAPHOR - HARD): every slide title is SHORT and PLAIN. Aim <= 10 words / ~70 chars, one line; state the judgment in literal business language naming the mechanism, system, actor, or proper noun. BANNED: figurative/cliche business metaphors and imagery - e.g. "front door", "trust ceiling", "the meter", "margin closes" / "closes the margin", "where value leaks", "bleeds", "...eat(s) it", "opens the door", "walk through first", "redrawing the map". Name the literal thing instead. ("funnel" terms - top/front of the funnel - are LEGITIMATE marketing vocabulary, NOT banned.) BAD (wordy + metaphor): "AI moves the retail front door from search to the assistant, but the operators who win 2026 are the ones who capture the premium before the platform tax and the trust ceiling eat it" -> GOOD (tight + literal): "AI assistants now originate retail traffic and convert better than search". BAD: "Retail 2026: The AI Front Door Opens, the Margin Closes" -> GOOD: "AI raises conversion and adds new costs in 2026". The single deck THESIS line may run one sentence longer, but the metaphor ban has NO exception: the thesis, the synthesis, and the closing/recommendation titles are where the model is most tempted to reach for "front door / trust ceiling / margin closes" - they must stay just as literal as the body titles (length latitude is NOT license for figurative language). Keep titles contestable (a named cause/change a reader could disagree with), never topic labels.\n  3b. SUBJECT DISCIPLINE - NO META-NARRATION (HARD, applies to EVERY field of EVERY slide): the deck is ABOUT THE SUBJECT (the market, product, org, audience the user named), NEVER about the deck/report itself. NEVER describe how the deck is built, structured, sequenced, or where to go next in it. BANNED as content anywhere (title, subtitle, kicker, agenda items + group labels, section-divider supporting, thesis, body): "how this deck/report is built", "where to ideate", "from diagnosis to ideation", "the framework" (as a section name), "the (2026) takeaway" (as a section name), "at a glance" (as a section name), "how might we questions" (as a LABEL - real HMW questions belong in body content, never as a TOC entry), "the through-line / the pattern behind / the section order / setting up the narrative", and any "01: <name of a deck section>" agenda item that points at the deck's OWN parts. The AGENDA (slides:agenda), if used, lists the SUBJECT'S domains in plain business language (e.g. "Customer-facing failure modes", "Operational cost drivers", "The recommended response") - each item names a real content area of the SUBJECT, never a deck-process step. cover.subtitle / section-divider.supporting / thesis state a fact about the SUBJECT, never about the document. A reader must never see that this is a generated deck or how it was assembled.\n  4. SUBSTANCE LIVES IN BODY SLIDES: the argument is carried by CONTENT-DENSE archetypes (numbered-themes, evidence-table, block-quote, org-model, stat-row with real MEANS/MATTERS) - cover/agenda/divider/thesis are CONNECTIVE, not where the content goes. A deck that is mostly sparse connective slides is WRONG and reads as empty.\n  5. If AUTHORITATIVE SOURCE CONTENT is present (a user-pasted enumerated set), build the arc AROUND it IN THE USER'S ORDER - sequence their items into setup -> diagnosis -> evidence -> so-what; never drop, merge, or reorder them.\nSELECTION DOCTRINE (be SMART - choose the archetype that fits each slide's content AND its role in the arc above; do NOT default to one):\n  - PLAN FIRST (mandatory): before emitting any fence, decide the archetype for EACH slide from ITS content, then emit the slides in that order. Across the deck use AT LEAST 5 DISTINCT archetypes; a deck that is mostly one archetype is WRONG.\n  - slides:numbered-themes is NOT a catch-all. It profiles EXACTLY 4 items on ONE slide (a grouped summary, e.g. four themes/plays at a glance). Use it AT MOST once or twice per deck. NEVER use it for one-subject-per-slide content, and NEVER repeat it.\n  - Map each slide to the archetype that matches its SHAPE: opener -> slides:cover; contents (6+ slides) -> slides:agenda; section break or one-line assertion -> slides:section-divider / slides:thesis-interstitial; a single deep-dive subject (one app, one capability, one role) -> slides:block-quote (hero voice) OR slides:role-needs / slides:role-recommendation (single-subject layouts); compare named subjects across criteria -> slides:evidence-table; three hard proof numbers -> slides:stat-row; a 3-part model/architecture -> slides:org-model; two contrasting forces -> slides:problem-diptych; phased plan -> slides:role-roadmap / slides:aggregate-roadmap.\n  - For "one slide per X" coverage (e.g. nine apps): do NOT emit nine identical numbered-themes. GROUP them (four per numbered-themes slide), OR give each a single-subject archetype, and intersperse stat-row / block-quote / evidence-table / section-divider so consecutive slides differ.\n  - HARD: never emit the same body archetype twice in a row, and never more than twice total except section-dividers.\n  - For #presentation, narrative content scenes that want a supporting visual use slides:scene with { kicker, title, body, imageConcept, canvas:"dark" } - imageConcept is a literal SHAPES-AS-CONTENT description of the scene idea (e.g. "a human figure beside flowing lines converging to one point"); the runtime generates a tasteful on-brand transparent illustration from it. Do NOT supply an image URL; not every scene needs one.\n\n--- SLIDES ARCHETYPE CATALOG (the registry the composer renders from) ---\n${slidesManifest}\n========================================================================`;
+                    systemPrompt += `\n\n========================================================================\nDECK MODE - COMPOSE FROM THE SLIDES ARCHETYPE REGISTRY (Figma 609)\nTHIS SUPERSEDES the "SLIDE OUTPUT PROTOCOL - 18 TEMPLATES" catalog above: for THIS deck do NOT use any of those GOLD template names (persona-card, theme-cluster, recommendation, timeline, case-study, etc.). Use ONLY the SLIDES archetypes in the catalog below, EACH with the \`slides:\` prefix. A fence without \`slides:\` is a HARD FAILURE in deck mode.\nThis is a narrative DECK, composed from the registered SLIDES archetypes the same way a prototype is composed from its component manifest. For EVERY slide emit a fence of the form:\n  :::slide template=slides:<archetype> brand=${brandHint}\n  { ...payload exactly as the catalog's PAYLOAD line specifies for that archetype... }\n  :::\nThe \`slides:\` prefix is MANDATORY - it routes the slide through the registry composer. The JSON body fields MUST match the archetype's PAYLOAD contract verbatim (key names + array lengths).\nNARRATIVE ARC - PLAN THE BUSINESS ARGUMENT FIRST (MANDATORY; this GOVERNS the whole deck, archetype choice serves it):\nA deck is ONE argument told start to finish, NOT an assortment of on-topic slides. BEFORE choosing any archetype, decide the deck's spine and make every slide advance it:\n  1. THESIS: one contestable sentence the whole deck proves (state the answer up front, Minto). Every slide ladders up to it.\n  2. ARC (Rumelt kernel + SCQA), in this order: (a) SETUP / context the audience accepts; (b) COMPLICATION / DIAGNOSIS - the central tension or failure named with evidence (why the status quo is unacceptable); (c) EVIDENCE - the themes/proof that establish the diagnosis; (d) IMPLICATION / SO-WHAT for the business; (e) GUIDING POLICY + COHERENT ACTIONS - the recommendation and the moves that follow; (f) CLOSE - the decision or ask. A landscape/outlook deck STILL resolves to "and therefore..."; never end on a flat list.\n  3. CONNECTIVE TISSUE: consecutive slides must FOLLOW from one another - read top-to-bottom the titles alone must tell the whole argument (the Partner Test). Use section-divider / thesis-interstitial to mark arc TRANSITIONS, never as filler.\n  3a. TITLE CRAFT (CONCISE + LITERAL, NO METAPHOR - HARD): every slide title is SHORT and PLAIN. Aim <= 10 words / ~70 chars, one line; state the judgment in literal business language naming the mechanism, system, actor, or proper noun. BANNED: figurative/cliche business metaphors and imagery - e.g. "front door", "trust ceiling", "the meter", "margin closes" / "closes the margin", "where value leaks", "bleeds", "...eat(s) it", "opens the door", "walk through first", "redrawing the map". Name the literal thing instead. ("funnel" terms - top/front of the funnel - are LEGITIMATE marketing vocabulary, NOT banned.) BAD (wordy + metaphor): "AI moves the retail front door from search to the assistant, but the operators who win 2026 are the ones who capture the premium before the platform tax and the trust ceiling eat it" -> GOOD (tight + literal): "AI assistants now originate retail traffic and convert better than search". BAD: "Retail 2026: The AI Front Door Opens, the Margin Closes" -> GOOD: "AI raises conversion and adds new costs in 2026". The single deck THESIS line may run one sentence longer, but the metaphor ban has NO exception: the thesis, the synthesis, and the closing/recommendation titles are where the model is most tempted to reach for "front door / trust ceiling / margin closes" - they must stay just as literal as the body titles (length latitude is NOT license for figurative language). Keep titles contestable (a named cause/change a reader could disagree with), never topic labels.\n  3b. SUBJECT DISCIPLINE - NO META-NARRATION (HARD, applies to EVERY field of EVERY slide): the deck is ABOUT THE SUBJECT (the market, product, org, audience the user named), NEVER about the deck/report itself. NEVER describe how the deck is built, structured, sequenced, or where to go next in it. BANNED as content anywhere (title, subtitle, kicker, agenda items + group labels, section-divider supporting, thesis, body): "how this deck/report is built", "where to ideate", "from diagnosis to ideation", "the framework" (as a section name), "the (2026) takeaway" (as a section name), "at a glance" (as a section name), "how might we questions" (as a LABEL - real HMW questions belong in body content, never as a TOC entry), "the through-line / the pattern behind / the section order / setting up the narrative", and any "01: <name of a deck section>" agenda item that points at the deck's OWN parts. The AGENDA (slides:agenda), if used, lists the SUBJECT'S domains in plain business language (e.g. "Customer-facing failure modes", "Operational cost drivers", "The recommended response") - each item names a real content area of the SUBJECT, never a deck-process step. cover.subtitle / section-divider.supporting / thesis state a fact about the SUBJECT, never about the document. A reader must never see that this is a generated deck or how it was assembled.\n  4. SUBSTANCE LIVES IN BODY SLIDES: the argument is carried by CONTENT-DENSE archetypes (numbered-themes, evidence-table, block-quote, org-model, stat-row with real MEANS/MATTERS) - cover/agenda/divider/thesis are CONNECTIVE, not where the content goes. A deck that is mostly sparse connective slides is WRONG and reads as empty.\n  5. If AUTHORITATIVE SOURCE CONTENT is present (a user-pasted enumerated set), build the arc AROUND it IN THE USER'S ORDER - sequence their items into setup -> diagnosis -> evidence -> so-what; never drop, merge, or reorder them.\nSELECTION DOCTRINE (be SMART - choose the archetype that fits each slide's content AND its role in the arc above; do NOT default to one):\n  - PLAN FIRST (mandatory): before emitting any fence, decide the archetype for EACH slide from ITS content, then emit the slides in that order. Across the deck use AT LEAST 5 DISTINCT archetypes; a deck that is mostly one archetype is WRONG.\n  - slides:numbered-themes is NOT a catch-all. It profiles EXACTLY 4 items on ONE slide (a grouped summary, e.g. four themes/plays at a glance). Use it AT MOST once or twice per deck. NEVER use it for one-subject-per-slide content, and NEVER repeat it.\n  - Map each slide to the archetype that matches its SHAPE: opener -> slides:cover; contents (6+ slides) -> slides:agenda; section break or one-line assertion -> slides:section-divider / slides:thesis-interstitial; a single deep-dive subject (one app, one capability, one role) -> slides:block-quote (hero voice) OR slides:role-needs / slides:role-recommendation (single-subject layouts); compare named subjects across criteria -> slides:evidence-table; three hard proof numbers -> slides:stat-row; a 3-part model/architecture -> slides:org-model; two contrasting forces -> slides:problem-diptych; phased plan -> slides:role-roadmap / slides:aggregate-roadmap; a STRUCTURAL finding that prose columns would bury (a sequence of 3-5 concrete moves, a before/after contrast, a labeled qualitative distribution, or an evidence-source mix) -> slides:infographic-exhibit (the runtime composes a NATIVE data panel from the payload's own steps/beforeAfter/stats/citations fields; never author an image URL).
+  - INFOGRAPHIC FLOOR (2026-07-02): a deck of 8+ slides includes AT LEAST ONE slides:infographic-exhibit - most business arguments contain a phased sequence or a before/after contrast that earns it (a mitigation sequence, a doom-loop vs response contrast, a coverage-mix composition). At most 2 per deck; only emit it when the structured fields are real evidenced content, never padding.\n  - For "one slide per X" coverage (e.g. nine apps): do NOT emit nine identical numbered-themes. GROUP them (four per numbered-themes slide), OR give each a single-subject archetype, and intersperse stat-row / block-quote / evidence-table / section-divider so consecutive slides differ.\n  - HARD: never emit the same body archetype twice in a row, and never more than twice total except section-dividers.\n  - For #presentation, narrative content scenes that want a supporting visual use slides:scene with { kicker, title, body, imageConcept, canvas:"dark" } - imageConcept is a literal SHAPES-AS-CONTENT description of the scene idea (e.g. "a human figure beside flowing lines converging to one point"); the runtime generates a tasteful on-brand transparent illustration from it. Do NOT supply an image URL; not every scene needs one.\n\n--- SLIDES ARCHETYPE CATALOG (the registry the composer renders from) ---\n${slidesManifest}\n========================================================================`;
                 }
             }
 
@@ -3864,7 +3965,7 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
                 const _catHit = !_tplHit ? (userMessage.match(/#[a-z][a-z-]*/gi) || []).map(t => catalogEntryFor(t)).find(e => e && (e.modality === 'slides' || e.modality === 'html')) : null;
                 const _trigger = _tplHit ? `#${_tplHit[1]}` : (/#slides?\b/i.test(userMessage) ? '#slides' : (_catHit ? `#${_catHit.id}` : '#artifact'));
                 const _slug = currentEngagementSlug() || 'run';
-                const [{ buildAir, writeAir, validateAir }, { buildEvidenceLedger }, { newRunTrace, recordToolStep }] = await Promise.all([
+                const [{ buildAir, writeAir, validateAir }, { buildEvidenceLedger }, { newRunTrace, recordToolStep, recordModelStep }] = await Promise.all([
                     import('./artifactAirService'), import('./evidenceLedgerService'), import('./runTraceService'),
                 ]);
                 const _nowMs = Date.now();
@@ -3874,6 +3975,20 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
                 // toolTrace naming the signed pack (wiki_retrieval) that authorized the read. This gives the
                 // mcp_tool_governance gate live data on every artifact run, not just a static contract file.
                 const _airTrace = newRunTrace(_slug);
+                // 2026-07-02 live-defect fix ("modelTrace empty" on every chat-path artifact AIR): the
+                // slide/chat artifact path resolves its model via the force-route above (mutating `model`)
+                // but never recorded the decision. Record the ROUTED model + reason so phase-6 observability
+                // holds on this path too, matching emitDeliverable's recordModelStep contract.
+                recordModelStep(_airTrace, {
+                    step: `chat-artifact:${_trigger.replace(/^#/, '')}`,
+                    selectedModel: String(model),
+                    routingReason: deliverableModelOverride(userMessage)
+                        ? 'bake-off-validated schema tier (aiRouter.artifactModelFor)'
+                        : 'artifact force-route (aiRouter.artifactModelFor default tier)',
+                    provider: String(model).startsWith('claude') ? 'anthropic' : (String(model).startsWith('gpt') ? 'openai' : 'gemini'),
+                    costEstimateUsd: 0,
+                    quotaState: 'healthy',
+                });
                 if (_airGroundingChunks.length > 0) {
                     recordToolStep(_airTrace, {
                         step: 'grounding:manifest-retrieval',

@@ -11,37 +11,43 @@ score: 7
 upvote_ratio: 0.73
 num_comments: 39
 flair: "employees and HR"
-extracted_at: "2026-06-10T18:04:10.232Z"
+extracted_at: "2026-06-25T15:21:48.084Z"
 extraction_method: "praw-deep"
-research_goal: "Identify emerging trends in higher education related ONLY to fundraising, advancement, and donations in 2026. Include social media posts, academic articles, RSS News, government data, and uploaded documents related to Donation, Advancement, and Fundraising, to provide a robust set of comprehensive, strategic recommendations and a roadmap for higher education universities in 2026\n"
-engagement: "identify-emerging-trends-in-higher-education-related-only-to"
+research_goal: "Identify how peer large private universities without medical schools are implementing AI across advancement workflows—including fundraising, alumni relations, and donor communications—to define our own adoption roadmap that balances ethical guardrails, staff readiness, and ROI."
+engagement: "identify-how-peer-large-private-universities-without-medical"
 chunks:
   - id: "social-intelligence/reddit-deep/nonprofit/1s4v5zl.md#c0"
     char_span: [0, 2254]
     sentence_count: 20
     key_terms: [been, comments, department, engagement, nonprofit, something, employee, meetings]
+    concepts: [comments, department, engagement, nonprofit, something]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/nonprofit","u":"https://www.reddit.com/r/nonprofit/comments/1s4v5zl/advice_on_employee/"}]
   - id: "social-intelligence/reddit-deep/nonprofit/1s4v5zl.md#c1"
     char_span: [2256, 4524]
     sentence_count: 24
     key_terms: [doesn, initiative, community, strategic, outreach, starting, because, around]
+    concepts: [doesn, initiative, community, strategic, outreach]
     token_count: 465
   - id: "social-intelligence/reddit-deep/nonprofit/1s4v5zl.md#c2"
-    char_span: [4539, 6421]
+    char_span: [4538, 6420]
     sentence_count: 18
     key_terms: [termination, team, funding, someone, organization, moved, boo, presumably]
+    concepts: [termination, funding, someone, organization, moved]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/nonprofit/1s4v5zl.md#c3"
-    char_span: [6423, 8363]
+    char_span: [6422, 8362]
     sentence_count: 11
     key_terms: [hours, work, please, agree, culture, beyond, expect, people]
+    concepts: [hours, please, agree, culture, beyond]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/nonprofit/1s4v5zl.md#c4"
-    char_span: [8365, 10250]
+    char_span: [8364, 10249]
     sentence_count: 16
     key_terms: [like, sounds, board, better, member, opening-emphasis8400, being, doing]
+    concepts: [sounds, board, better, member, being]
     section: Comments
     token_count: 440
 ---
@@ -80,34 +86,34 @@ Am I overreacting, or is this as inappropriate and misaligned as it seems? Looki
 
 ## Comments
 
-- **unicornzndrgns** (20↑): Have you not given him any warnings about his behavior that are documented in his employee file? Why is this guy still around after the way he treated the board member?
+- **unicornzndrgns** (21↑): Have you not given him any warnings about his behavior that are documented in his employee file? Why is this guy still around after the way he treated the board member?
   - **bippity_boppity-boo** (9↑): Yes, we have. 
 
 It’s been a discussion with our ED. We have moved for termination with HR. 
 
 It’s a complex and out of my control as I inherited him 🙃.
-- **hulking_menace** (12↑): If someone adds value to the team and contributes to the organization you should keep them. 
+- **hulking_menace** (13↑): If someone adds value to the team and contributes to the organization you should keep them. 
 
 If someone detracts from the team and burns resources then you should remove them. 
 
 You're focused on the impacts to them which are good because they suggest you are an empathetic leader, but allowing your empathy to override your responsibilities is bad. Carrying team members who are a net negative isn't just bad for morale and productivity, it is also a misuse of the funding. Presumably your funding is given to your organization for a purpose - carrying this person is also presumably not that focus.  
 
 Free up your funding, get your time back, and find someone who will do the job you need done.
-  - **bippity_boppity-boo** (5↑): Really appreciate this! 
+  - **bippity_boppity-boo** (4↑): Really appreciate this! 
 
 We have moved for termination. 
 
 Weirdly complex situation around his transition into our team and unfortunately inherited him.
-- **DefinitelyYoda** (8↑): The boundary issues alone are a huge red flag. Do you think he’d be surprised if you let him go? If not, it’s time. If so, you may need to have a hard conversation that he isn’t meeting expectations and this isn’t going to work if things don’t change - giving specific examples of concern.
-  - **bippity_boppity-boo** (5↑): Thank you for this! He’s had 1:1 once a week; that go on for two hours sometimes. 
+- **DefinitelyYoda** (7↑): The boundary issues alone are a huge red flag. Do you think he’d be surprised if you let him go? If not, it’s time. If so, you may need to have a hard conversation that he isn’t meeting expectations and this isn’t going to work if things don’t change - giving specific examples of concern.
+  - **bippity_boppity-boo** (6↑): Thank you for this! He’s had 1:1 once a week; that go on for two hours sometimes. 
 
 We had moved for termination. 
 
 We’ve been doing this for about 6 months, investing in his PIP, and have come to the conclusion nothing will change. 
 
 We’ve been emphatic based on his family, etc.
-    - **DefinitelyYoda** (4↑): It’s a hard part of managing, but for many of us the work is too important to allow people to continue in roles when they aren’t a good fit. Seems like you did much more than was required to try to get him on track!
-- **Own_Exit2162** (4↑): Some of the things you describe - passive-aggressive with team members, combative, jealousy, etc - are common for someone who's in over their head and unable to learn and grow.  They are operating defensively out of fear.
+    - **DefinitelyYoda** (5↑): It’s a hard part of managing, but for many of us the work is too important to allow people to continue in roles when they aren’t a good fit. Seems like you did much more than was required to try to get him on track!
+- **Own_Exit2162** (5↑): Some of the things you describe - passive-aggressive with team members, combative, jealousy, etc - are common for someone who's in over their head and unable to learn and grow.  They are operating defensively out of fear.
 - **Boopa0011** (11↑): Yes, I agree, this person needs to be put on a formal PIP with very clear guidance and follow-up, and if the problems you laid out don't change, you will need to let him go.
 
 However, I was taken aback by this:
@@ -117,11 +123,11 @@ However, I was taken aback by this:
 Please be careful about saying things like this. Please model good work-life balance and create a culture where it is possible to get the work done in 8 hours a day, OR you pay folks overtime to work longer hours. Please do not expect people to work 50 hours a week and go "above and beyond" (whatever that even means) in a nonprofit mission-driven setting where I would imagine few folks are making enough money to justify that approach to what is, after all, *a job*.
 
 ETA - anybody who downvotes this needs to do some soul searching
-  - **margoembargo** (6↑): Absolutely agree with you. Lots of red flags with this employee's performance, or lack thereof. But a few yellow flags from OP, too, about their org's workplace culture.
+  - **margoembargo** (5↑): Absolutely agree with you. Lots of red flags with this employee's performance, or lack thereof. But a few yellow flags from OP, too, about their org's workplace culture.
   - **bippity_boppity-boo** (2↑): I completely agree with you. Given that his role is community engagement, it was clearly understood that working a Saturday or Sunday for an event would be offset by flexing hours on Monday or Tuesday.
 
 What I can’t justify is spending 4–5 hours having ChatGPT write emails while no actual work is getting done and hyper-fixating on words and definition of words.
-- **Formal-Rip-1221** (4↑): Kick him to the curb yesterday. Good heavens, he's a lawsuit waiting to happen, as his behavior with the board member sounds like stalking or harassment.
+- **Formal-Rip-1221** (3↑): Kick him to the curb yesterday. Good heavens, he's a lawsuit waiting to happen, as his behavior with the board member sounds like stalking or harassment.
 
 More generally speaking, counselors are frequently some of the most difficult people to supervise. His professional background does not surprise me at all.
 - **Yeshua713** (3↑): I'm not in non-profits but I've lead various sized teams before, up to 20+ in kitchens and about 10+ in sales. 

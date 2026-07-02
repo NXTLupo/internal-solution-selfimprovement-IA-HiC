@@ -11,45 +11,53 @@ score: 29
 upvote_ratio: 0.91
 num_comments: 10
 flair: "Shopify General Discussion"
-extracted_at: "2026-06-18T13:35:23.050Z"
+extracted_at: "2026-06-24T22:14:23.471Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/shopify/1rctgp5.md#c0"
     char_span: [0, 842]
     sentence_count: 4
     key_terms: [shopify, e-commerce, reddit, https, com, news, www, comments]
+    concepts: [shopify, e-commerce, reddit, https, comments]
     token_count: 223
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1rctgp5/this_weeks_top_ecommerce_news_stories_feb_23rd/"}]
   - id: "social-intelligence/reddit-deep/shopify/1rctgp5.md#c1"
     char_span: [844, 3292]
     sentence_count: 15
     key_terms: [merchants, search, sparky, tiktok, new, perplexity, customers, logistics]
+    concepts: [merchants, search, sparky, tiktok, perplexity]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1rctgp5.md#c2"
     char_span: [2982, 5349]
     sentence_count: 13
     key_terms: [revenue, past, reported, company, walmart, google, "you're", years]
+    concepts: [revenue, reported, company, walmart, google]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1rctgp5.md#c3"
     char_span: [5067, 7286]
     sentence_count: 16
     key_terms: [ads, depop, etsy, chatgpt, expedia, like, announced, acquired]
+    concepts: [depop, chatgpt, expedia, announced, acquired]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1rctgp5.md#c4"
     char_span: [6959, 9515]
     sentence_count: 9
     key_terms: [shopify, search, social, share, advertisers, marketplace, ads, publishers]
+    concepts: [shopify, search, social, advertisers, marketplace]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1rctgp5.md#c5"
     char_span: [9199, 10249]
     sentence_count: 4
     key_terms: [been, ads, increasing, pinterest, searches, walmart, growth, sales]
+    concepts: [increasing, pinterest, searches, walmart, growth]
     token_count: 209
   - id: "social-intelligence/reddit-deep/shopify/1rctgp5.md#c6"
-    char_span: [10264, 10682]
+    char_span: [10263, 10681]
     sentence_count: 3
     key_terms: [community, contact, shopify, automatically, automoderator, moderators, soliciting, performed]
+    concepts: [community, contact, shopify]
     section: Comments
     token_count: 90
 ---

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 868]
     sentence_count: 7
     key_terms: ["i'm", career, careerguidance, too, experience, developer, comments, software]
+    concepts: [career, careerguidance, experience, developer, comments]
     token_count: 211
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sv2lgv/does_anyone_have_advise_on_career_change_from/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sv2lgv.md#c1"
     char_span: [882, 1920]
     sentence_count: 5
     key_terms: [programming, background, understand, something, systems, rude-passenger2992, been, "i've"]
+    concepts: [programming, background, understand, something, systems]
     section: Comments
     token_count: 217
 ---

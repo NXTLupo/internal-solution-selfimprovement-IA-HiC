@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1403]
     sentence_count: 5
     key_terms: [gemma, qwen, throughput, deeplearning, dense, a3b, moe, per]
+    concepts: [gemma, throughput, deeplearning, dense, comments]
     token_count: 521
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1sva0b9/qwen_36_27b_vs_qwen_36_35b_a3b_vs_gemma_4_models/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1sva0b9.md#c1"
     char_span: [1405, 2192]
     sentence_count: 5
@@ -31,6 +33,7 @@ chunks:
     char_span: [2206, 3069]
     sentence_count: 8
     key_terms: [token, numbers, prompt, concurrent, throughput, prefilled, cache, means]
+    concepts: [token, numbers, prompt, concurrent, throughput]
     section: Comments
     token_count: 224
 ---

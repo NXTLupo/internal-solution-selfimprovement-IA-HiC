@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1124]
     sentence_count: 11
     key_terms: [done, productivity, get, want, productive, something, comments, action]
+    concepts: [productivity, productive, something, comments, action]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1tksv1n/how_do_you_todo_i_need_a_better_way_to_get_things/"}]
   - id: "social-intelligence/reddit-deep/productivity/1tksv1n.md#c1"
     char_span: [1138, 2987]
     sentence_count: 12
     key_terms: [self-accountability, complete, big, flamingolower6171, help, week, accountability, apps]
+    concepts: [self-accountability, complete, flamingolower6171, accountability, motivated]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/productivity/1tksv1n.md#c2"
     char_span: [2989, 4678]
     sentence_count: 19
     key_terms: [list, day, tasks, write, pick, everything, planning, another]
+    concepts: [everything, tasks, write, planning, another]
     section: Comments
     token_count: 423
 ---

@@ -19,64 +19,80 @@ chunks:
     char_span: [0, 2173]
     sentence_count: 8
     key_terms: [job, role, contract, months, years, performance, due, left]
+    concepts: [contract, months, years, performance, careerguidance]
     token_count: 531
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1smt1ja/is_my_career_trajectory_a_red_flag_32f_looking/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c1"
     char_span: [2175, 2552]
     sentence_count: 5
     key_terms: [managers, hiring, circumstances, overthinking, unfortunate, appreciate, especially, recruiters]
+    concepts: [managers, hiring]
     token_count: 70
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c2"
     char_span: [2566, 4639]
     sentence_count: 20
     key_terms: [employee, employers, job, market, labor, free, good, means]
+    concepts: [employee, employers, market, labor, means]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c3"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c3"
     char_span: [4641, 6324]
     sentence_count: 17
     key_terms: [market, jobs, like, want, currently, employee, believe, economy]
+    concepts: [market, currently, employee, believe, economy]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c2"]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c4"
     char_span: [6326, 8341]
     sentence_count: 14
     key_terms: [people, because, job, hiring, doesn, familiar, history, hoppers]
+    concepts: [people, because, hiring, doesn, familiar]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c5"
     char_span: [8343, 9891]
     sentence_count: 11
     key_terms: [job, like, want, history, someone, candidate, employers, because]
+    concepts: [history, someone, candidate, employers, because]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c6"
     char_span: [9893, 11501]
     sentence_count: 15
     key_terms: [problem, bad, lack, culture, alignment, fit, job, getting]
+    concepts: [problem, culture, alignment, getting, right]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c7"
     char_span: [11503, 13130]
     sentence_count: 18
     key_terms: [years, job, specialist-mix-7610, least, roles, bad, "it's", like]
+    concepts: [years, specialist-mix-7610, least, roles, something]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c8"
     char_span: [13132, 15247]
     sentence_count: 17
     key_terms: [contract, implementation, experiences, get, new, role, experience, candidate]
+    concepts: [contract, implementation, experiences, experience, candidate]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c9"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c9"
     char_span: [15249, 17340]
     sentence_count: 16
     key_terms: [job, experience, roles, contract, relevant, right, like, work]
+    concepts: [experience, roles, contract, relevant, right]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c8"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c10"
     char_span: [17342, 18007]
     sentence_count: 6
     key_terms: [university, reason, yr-grandma-friend, did, job, restructuring, uncomfortable, parenthesis]
+    concepts: [university, reason]
     section: Comments
     token_count: 156
 ---

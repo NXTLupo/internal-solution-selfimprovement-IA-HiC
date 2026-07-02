@@ -21,28 +21,36 @@ chunks:
     char_span: [0, 1647]
     sentence_count: 8
     key_terms: [valuations, investors, openai, index, price, ipo, musk, companies]
+    concepts: [valuations, investors, openai, index, price]
     token_count: 378
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1qz99ma/are_index_funds_investors_about_to_get_fleeced_by/"}]
   - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c1"
     char_span: [1649, 2247]
     sentence_count: 4
     key_terms: [vanguard, weighed, openai, shift, fund, dimensional, problematic, thankfully]
+    concepts: [vanguard, weighed, openai, shift]
     token_count: 136
   - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c2"
     char_span: [2261, 3953]
     sentence_count: 10
     key_terms: [everypassage, float, shares, market, index, companies, sell, included]
+    concepts: [everypassage, float, shares, market, companies]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1qz99ma.md#c6"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c3"
     char_span: [3955, 4681]
     sentence_count: 4
     key_terms: [billion, company, better, losing, index, heironymous123123, sophonparticle, multi-billion]
+    concepts: [billion, company, better, losing, index]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1qz99ma.md#c8"]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c4"
     char_span: [4683, 6689]
     sentence_count: 15
     key_terms: [ipo, companies, public, retail, snorlax42meow, going, "it's", investors]
+    concepts: [companies, snorlax42meow, public, retail, going]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c5"
@@ -55,72 +63,88 @@ chunks:
     char_span: [6816, 8418]
     sentence_count: 16
     key_terms: [market, companies, float, index, "isn't", space, free, openai]
+    concepts: [companies, market, float, index, "isn't"]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1qz99ma.md#c2", "social-intelligence/reddit-deep/investing/1qz99ma.md#c13"]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c7"
     char_span: [8420, 9954]
     sentence_count: 16
     key_terms: [leaders, space, openai, apple, early, good, investment, leader]
+    concepts: [leaders, space, openai, apple, early]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c8"
     char_span: [9956, 12039]
     sentence_count: 14
     key_terms: [spacex, billion, company, buy, like, companies, something, indexes]
+    concepts: [spacex, billion, company, companies, something]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1qz99ma.md#c3", "social-intelligence/reddit-deep/investing/1qz99ma.md#c14"]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c9"
     char_span: [12041, 13320]
     sentence_count: 10
     key_terms: [subscribers, high, retention, valuation, profits, around, openai, people]
+    concepts: [subscribers, retention, valuation, profits, around]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c10"
     char_span: [13322, 14957]
     sentence_count: 11
     key_terms: [starlink, demand, launch, artificial, satellites, launches, fit-stress3300, spacex]
+    concepts: [starlink, artificial, satellites, demand, launch]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c11"
     char_span: [14959, 17107]
     sentence_count: 10
     key_terms: [podcast, skylinedrop, index, rational, reminder, performance, mylord420, slightly]
+    concepts: [podcast, skylinedrop, index, rational, reminder]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c12"
     char_span: [17109, 18845]
     sentence_count: 16
     key_terms: [funds, "you're", index, unconfirmed, vcx, valuation, fundrise, trillion]
+    concepts: [funds, "you're", unconfirmed, index, valuation]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c13"
     char_span: [18847, 20923]
     sentence_count: 14
     key_terms: [value, companies, profitability, index, get, autonomous, salesman, vehicles]
+    concepts: [value, companies, profitability, autonomous, index]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1qz99ma.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c14"
     char_span: [20669, 21411]
     sentence_count: 5
     key_terms: [companies, company, acrobatic-song-3151, deathbyclownshoes, narrative-based, self-driving, datacenters, apparently]
+    concepts: [companies, company]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1qz99ma.md#c8"]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c15"
     char_span: [21413, 22263]
     sentence_count: 5
     key_terms: [philippines, satoshisvisiontm, burlyjohnbrown, brute-forced, corrections, macewindu89, philipinnes, autonomous]
+    concepts: [philippines]
     section: Comments
     token_count: 232
   - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c16"
     char_span: [22265, 24015]
     sentence_count: 10
     key_terms: [people, don, states, united, car, like, brute-forced, philippines]
+    concepts: [people, states, united, brute-forced, philippines]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c17"
     char_span: [24018, 25117]
     sentence_count: 9
     key_terms: [company, brute-forced, tesla, regulatory, technology, deliver, austin, years]
+    concepts: [company, brute-forced, regulatory, technology, tesla]
     section: Comments
     token_count: 255
 ---

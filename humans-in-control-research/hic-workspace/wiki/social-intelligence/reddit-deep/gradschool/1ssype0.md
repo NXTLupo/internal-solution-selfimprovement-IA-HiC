@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 1590]
     sentence_count: 3
     key_terms: [like, experience, college, master, school, doing, netherlands, back]
+    concepts: [experience, college, master, school, netherlands]
     token_count: 365
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1ssype0/is_grad_school_in_the_us_worth_it/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1ssype0.md#c1"
     char_span: [1604, 3276]
     sentence_count: 14
     key_terms: [life, undergraduate, universities, movies, school, graduate, college, grad]
+    concepts: [undergraduate, universities, movies, school, graduate]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/gradschool/1ssype0.md#c2"
     char_span: [3278, 5374]
     sentence_count: 11
     key_terms: [socializing, students, college, instead, parties, events, games, fail]
+    concepts: [socializing, students, college, instead, parties]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1ssype0.md#c3"
     char_span: [5081, 5887]
     sentence_count: 8
     key_terms: [undergrad, events, school, state, big, grad, employability, retainer4491]
+    concepts: [undergrad, events, school, state]
     section: Comments
     token_count: 190
   - id: "social-intelligence/reddit-deep/gradschool/1ssype0.md#c4"
     char_span: [5889, 8140]
     sentence_count: 20
     key_terms: [program, undergrads, school, time, research, student, people, maybe]
+    concepts: [program, undergrads, school, research, student]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/gradschool/1ssype0.md#c5"
     char_span: [8142, 9545]
     sentence_count: 12
     key_terms: [friends, club, difficult, parties, people, grad, research, masters]
+    concepts: [friends, difficult, parties, people, research]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ssype0.md#c6"]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/gradschool/1ssype0.md#c6"
     char_span: [9547, 10952]
     sentence_count: 13
     key_terms: [friends, "it's", like, lot, work, people, group, fun]
+    concepts: [friends, people, group]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ssype0.md#c5"]
     section: Comments
     token_count: 354
 ---

@@ -20,40 +20,48 @@ chunks:
     char_span: [0, 2078]
     sentence_count: 18
     key_terms: [people, everything, cto, data, dataengineering, estate, years, move]
+    concepts: [everything, people, dataengineering, estate, years]
     token_count: 464
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1rbk3ov/new_cto_has_joined_and_is_ignoring_me/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1rbk3ov.md#c1"
     char_span: [2080, 2672]
     sentence_count: 8
     key_terms: [behaviour, disrespectful, understanding, challenges, sidelining, obviously, outlining, approach]
+    concepts: [behaviour]
     token_count: 128
   - id: "social-intelligence/reddit-deep/dataengineering/1rbk3ov.md#c2"
-    char_span: [2687, 4847]
+    char_span: [2686, 4846]
     sentence_count: 15
     key_terms: [cto, data, time, already, flag, get, red, situation]
+    concepts: [already, situation, whatever, common, resume]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/dataengineering/1rbk3ov.md#c3"
-    char_span: [4849, 6970]
+    char_span: [4848, 6969]
     sentence_count: 16
     key_terms: [available, new, been, challenge, decisions, executive, technical, because]
+    concepts: [available, challenge, decisions, executive, technical]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/dataengineering/1rbk3ov.md#c4"
-    char_span: [6972, 7990]
+    char_span: [6971, 7989]
     sentence_count: 11
     key_terms: [communicate, scattered, hired, boss, get, good, new, thisfunnieguy]
+    concepts: [communicate, scattered, hired]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/dataengineering/1rbk3ov.md#c5"
-    char_span: [7992, 10091]
+    char_span: [7991, 10090]
     sentence_count: 12
     key_terms: [cto, change, get, good, talk, pointless, contacts, company]
+    concepts: [change, pointless, contacts, company, sorry]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/dataengineering/1rbk3ov.md#c6"
-    char_span: [10093, 12118]
+    char_span: [10092, 12117]
     sentence_count: 13
     key_terms: [contract, company, big, down, fact, need, use, experience]
+    concepts: [contract, company, experience, warehouse, bigquery]
     section: Comments
     token_count: 503
 ---

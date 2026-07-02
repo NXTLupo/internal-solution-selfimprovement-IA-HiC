@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1940]
     sentence_count: 14
     key_terms: [like, careerguidance, feel, background, government, academic, comments, everyone]
+    concepts: [careerguidance, background, government, academic, comments]
     token_count: 431
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1smrkq8/title_how_do_you_bridge_the_knowledge_gap_for/"}]
 ---
 # Title: How do you bridge the "knowledge gap" for career and academic paths? Looking for advice.
 

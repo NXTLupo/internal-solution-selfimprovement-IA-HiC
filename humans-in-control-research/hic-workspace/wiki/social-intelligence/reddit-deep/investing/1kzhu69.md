@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 2266]
     sentence_count: 9
     key_terms: [foreign, us-set-to-weaponize-taxes-on-foreign-investors-via-section-899, taxes, section, individuals, countries, tax, representatives]
+    concepts: [us-set-to-weaponize-taxes-on-foreign-investors-via-section-899, foreign, taxes, individuals, section]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1kzhu69/proposed_us_foreign_tax_bill_would_make_us_assets/"}]
   - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c1"
     char_span: [2280, 4186]
     sentence_count: 16
     key_terms: [tariffs, investments, convinced, already, buy, currency, deleted, foreign]
+    concepts: [tariffs, investments, convinced, already, currency]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c2"
     char_span: [4188, 5700]
     sentence_count: 9
     key_terms: [read, single, bills, tax, want, understand, investing, because]
+    concepts: [single, bills, understand, investing, because]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c3"
     char_span: [5702, 7658]
     sentence_count: 6
     key_terms: [beat, been, foreign, super, the-one-big-beautiful-bill-act, attention, congress, investor]
+    concepts: [foreign, super, attention, congress, investor]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c4"
     char_span: [7660, 9536]
     sentence_count: 18
     key_terms: [tax, withholding, beat, countries, dividends, rate, foreign, taxable]
+    concepts: [withholding, countries, dividends, foreign, taxable]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c5"
     char_span: [9538, 11218]
     sentence_count: 13
     key_terms: [synthetic, "they're", assets, etfs, policies, "you're", pleasant-shallot-707, crash]
+    concepts: [synthetic, "they're", assets, policies, "you're"]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c6"
     char_span: [11220, 13410]
     sentence_count: 10
     key_terms: [taxes, index, synthetic, withholding, etf, federal, cities, estate]
+    concepts: [taxes, synthetic, index, withholding, federal]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c7"

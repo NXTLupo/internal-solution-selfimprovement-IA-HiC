@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 642]
     sentence_count: 5
     key_terms: [students, professors, comments, teacher, class, come, help, job]
+    concepts: [students, professors, comments, teacher, class]
     token_count: 163
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1qxth9d/other_professors_students_come_to_me_to_learn/"}]
   - id: "social-intelligence/reddit-deep/professors/1qxth9d.md#c1"
     char_span: [656, 1123]
     sentence_count: 3
     key_terms: [professor-genxer, encourage, attend, office, hours, advantage, professor, semester]
+    concepts: [professor-genxer, encourage, attend, office, hours]
     section: Comments
     token_count: 117
   - id: "social-intelligence/reddit-deep/professors/1qxth9d.md#c2"
     char_span: [1125, 3412]
     sentence_count: 13
     key_terms: [students, teach, instructor, math, tutoring, college, instructors, cool]
+    concepts: [students, teach, instructor, tutoring, college]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/professors/1qxth9d.md#c3"
     char_span: [3414, 4868]
     sentence_count: 10
     key_terms: [students, student, office, colleague, help, "i'm", going, concepts]
+    concepts: [students, student, office, colleague, going]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/professors/1qxth9d.md#c4"
     char_span: [4870, 5638]
     sentence_count: 6
     key_terms: [crisscrosscoyote, professor, exams, ask, qualitative, zoomtoastem, colleagues, othertimes]
+    concepts: [crisscrosscoyote, professor, exams]
     section: Comments
     token_count: 202
 ---

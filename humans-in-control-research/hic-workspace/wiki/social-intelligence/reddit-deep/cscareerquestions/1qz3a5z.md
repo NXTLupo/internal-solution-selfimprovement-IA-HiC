@@ -21,35 +21,48 @@ chunks:
     char_span: [0, 1354]
     sentence_count: 8
     key_terms: [programming, skills, being, cscareerquestions, average, better, able, don]
+    concepts: [programming, cscareerquestions, skills, being, average]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c5"]
     token_count: 306
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qz3a5z/do_you_think_have_above_average_social_skills_is/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c1"
     char_span: [1368, 3106]
     sentence_count: 14
     key_terms: [skills, average, social, like, coding, unfortunately, above, below]
+    concepts: [skills, average, social, unfortunately, coding]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c5"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c2"
     char_span: [3108, 4184]
     sentence_count: 5
     key_terms: [skills, get, industry, promoted, myself, normal, social, worked]
+    concepts: [skills, industry, promoted, myself, normal]
     section: Comments
     token_count: 262
+    sources: [{"n":"myself - worked in big tech for years and when I spent several hours a week soci","u":""}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c3"
     char_span: [4187, 5598]
     sentence_count: 9
     key_terms: [skills, asking, social, being, programming, good, l00babies, improve]
+    concepts: [skills, asking, social, programming, being]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c5"]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c4"
     char_span: [5600, 7464]
     sentence_count: 20
     key_terms: [test, skills, technical, social, left-right-middle, need, job, average]
+    concepts: [technical, skills, left-right-middle, social, average]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c5"]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c5"
     char_span: [7466, 9675]
     sentence_count: 14
     key_terms: [average, programming, skills, social, technical, fun, work, person]
+    concepts: [average, programming, skills, social, technical]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c4"]
     section: Comments
     token_count: 482
 ---

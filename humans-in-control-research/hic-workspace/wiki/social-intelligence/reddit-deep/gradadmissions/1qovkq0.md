@@ -19,16 +19,22 @@ chunks:
     char_span: [0, 2022]
     sentence_count: 19
     key_terms: [nyu, experience, marketing, comments, gradadmissions, master, school, big]
+    concepts: [experience, marketing, comments, gradadmissions, master]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qovkq0/no_fulltime_experience_big_grad_school_questions/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qovkq0.md#c1"
     char_span: [2024, 2820]
     sentence_count: 4
     key_terms: [school, "i'm", experience, full-time, because, campus, get, nyu]
+    concepts: [school, experience, full-time, because, campus]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1qovkq0.md#c2"]
     token_count: 168
   - id: "social-intelligence/reddit-deep/gradadmissions/1qovkq0.md#c2"
-    char_span: [2835, 4576]
+    char_span: [2834, 4575]
     sentence_count: 24
     key_terms: [mba, marketing, because, get, top, business, people, school]
+    concepts: [marketing, because, business, people, school]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1qovkq0.md#c1"]
     section: Comments
     token_count: 401
 ---

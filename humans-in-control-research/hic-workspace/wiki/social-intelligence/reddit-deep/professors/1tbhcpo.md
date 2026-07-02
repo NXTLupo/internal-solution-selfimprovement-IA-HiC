@@ -21,83 +21,102 @@ chunks:
     char_span: [0, 1867]
     sentence_count: 9
     key_terms: [gen, they-love-self-care-hate-hustle-and-need-job-ceos-advice-unemployable-gen-zer, they-hate-hustle-but-need-a-joba-ceos-advice-for-an-unemployable-gen-z, values, https, self-care, getting, people]
+    concepts: [values, self-care, https, getting, people]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1tbhcpo.md#c10"]
     token_count: 489
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1tbhcpo/video_why_gen_z_is_getting_fired_after_being/"}]
   - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c1"
     char_span: [1881, 3925]
     sentence_count: 14
     key_terms: [like, teaching, student, fargrape1953, doing, overwhelmed, "i'm", jobs]
+    concepts: [teaching, student, fargrape1953, overwhelmed, doing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c2"
     char_span: [3927, 4791]
     sentence_count: 7
     key_terms: [like, class, asking, blametheorangejuice, don, disheartening, disrespectful, conversation]
+    concepts: [class, asking]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c3"
     char_span: [4793, 6635]
     sentence_count: 12
     key_terms: [donttouchmybalzac, like, job, work, millennial, because, college, people]
+    concepts: [donttouchmybalzac, millennial, because, college, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c4"
     char_span: [6440, 7599]
     sentence_count: 11
     key_terms: [students, authentic, "don't", learn, donttouchmybalzac, papayatwentythree, care, job]
+    concepts: [students, authentic, "don't", learn]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1tbhcpo.md#c13"]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c5"
     char_span: [7602, 9621]
     sentence_count: 9
     key_terms: [self-expression, assignment, "don't", like, valuing, work, sufficient, authentic]
+    concepts: [self-expression, assignment, "don't", valuing, sufficient]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c6"
     char_span: [9623, 11030]
     sentence_count: 6
     key_terms: [self, work, authentic, practice, required, because, perhaps, reframe]
+    concepts: [authentic, practice, required, because, perhaps]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c7"
     char_span: [11032, 12717]
     sentence_count: 8
     key_terms: [savings-bee-4993, obvious, re-not-15-minutes-early-then-you, assessments, don, everything, immediate, something]
+    concepts: [savings-bee-4993, obvious, assessments, everything, immediate]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c8"
     char_span: [12719, 14318]
     sentence_count: 19
     key_terms: [values, prepare, disrespectful, assignment, practice, change, "didn't", "that's"]
+    concepts: [values, disrespectful, prepare, assignment, practice]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c9"
     char_span: [14320, 16213]
     sentence_count: 13
     key_terms: [values, different, "they're", going, point, "it's", asking, given]
+    concepts: [values, different, "they're", going, point]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c10"
     char_span: [16215, 18287]
     sentence_count: 15
     key_terms: [work, increasingly, people, values, interpreted, hard, job, want]
+    concepts: [increasingly, people, values, interpreted, employees]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1tbhcpo.md#c0"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c11"
     char_span: [18289, 20440]
     sentence_count: 14
     key_terms: [college, professionalism, students, job, part, supposed, time, undergrad]
+    concepts: [college, professionalism, students, supposed, undergrad]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c12"
     char_span: [20442, 22377]
     sentence_count: 11
     key_terms: [deadlines, students, hard, late, work, because, amount, business-oriented]
+    concepts: [deadlines, students, because, amount]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c13"
     char_span: [22379, 24328]
     sentence_count: 16
     key_terms: [students, "don't", generations, want, figuring, avocado, "they'll", "didn't"]
+    concepts: [students, generations, "don't", figuring, avocado]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1tbhcpo.md#c4"]
     section: Comments
     token_count: 440
 ---

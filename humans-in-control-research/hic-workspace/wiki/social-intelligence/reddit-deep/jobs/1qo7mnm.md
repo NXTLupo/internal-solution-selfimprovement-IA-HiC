@@ -21,40 +21,48 @@ chunks:
     char_span: [0, 2267]
     sentence_count: 25
     key_terms: [full-time, like, clarity, time, automation, agreement, benefits, comments]
+    concepts: [full-time, clarity, automation, agreement, benefits]
     token_count: 484
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1qo7mnm/just_got_fired/"}]
   - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c1"
     char_span: [2269, 4545]
     sentence_count: 14
     key_terms: [engagement, asked, wasn, work, last, time, automation, reporting]
+    concepts: [engagement, asked, automation, reporting, happened]
     token_count: 470
   - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c2"
     char_span: [4559, 6584]
     sentence_count: 16
     key_terms: [consulting, client, agency, doing, done, etc, rate, department]
+    concepts: [consulting, client, agency, department, doing]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c3"
     char_span: [6587, 8714]
     sentence_count: 16
     key_terms: [problems, obviously, need, "don't", since, back, done, get]
+    concepts: [problems, obviously, "don't", since, understand]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c4"
     char_span: [8716, 10685]
     sentence_count: 20
     key_terms: [number, "he'd", like, rate, "they're", yadda, put, desperate]
+    concepts: [number, "they're", yadda, desperate, equipment]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c5"
     char_span: [10687, 12626]
     sentence_count: 22
     key_terms: [companies, frank, elsewhere, recently, walking, better, higher, longer]
+    concepts: [companies, frank, elsewhere, recently, walking]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c6"
     char_span: [12628, 14523]
     sentence_count: 19
     key_terms: [work, did, octeyon, contact, agency, longer, intelligent-note9517, bayouwaterandmusic]
+    concepts: [octeyon, contact, agency, longer]
     section: Comments
     token_count: 499
 ---

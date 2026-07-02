@@ -20,17 +20,24 @@ chunks:
     char_span: [0, 1110]
     sentence_count: 6
     key_terms: [vanguard, financial, transfer, advisor, because, form, says, bogleheads]
+    concepts: [vanguard, financial, transfer, advisor, because]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rc03jf.md#c1", "social-intelligence/reddit-deep/bogleheads/1rc03jf.md#c2"]
     token_count: 261
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1rc03jf/switching_to_vanguard_butcan_some_one_help_me/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1rc03jf.md#c1"
-    char_span: [1125, 2631]
+    char_span: [1124, 2630]
     sentence_count: 12
     key_terms: [funds, vanguard, cash, transfer, mutual, transferred, sell, everything]
+    concepts: [funds, vanguard, transfer, mutual, transferred]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rc03jf.md#c0"]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/bogleheads/1rc03jf.md#c2"
-    char_span: [2633, 3921]
+    char_span: [2632, 3920]
     sentence_count: 7
     key_terms: [vanguard, mainframes, company, new, interface, advisor, cloud, unlimitedrealities]
+    concepts: [vanguard, mainframes, company, interface, advisor]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rc03jf.md#c0"]
     section: Comments
     token_count: 298
 ---

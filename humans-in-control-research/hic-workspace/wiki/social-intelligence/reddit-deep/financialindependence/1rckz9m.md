@@ -20,95 +20,114 @@ chunks:
     char_span: [0, 1254]
     sentence_count: 8
     key_terms: [financialindependence, income, expenses, taxes, tax, retirement, breakdown, questions]
+    concepts: [financialindependence, income, expenses, retirement, taxes]
     token_count: 277
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1rckz9m/re_year_1_a_chubbyfire_income_tax_breakdown/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c1"
     char_span: [1265, 1928]
     sentence_count: 2
     key_terms: [income, tax, total, federal, owed, tax-advantaged, "california's", california]
+    concepts: [income, total, federal]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c6"]
     section: TL;DR
     token_count: 194
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c2"
     char_span: [1943, 4034]
     sentence_count: 13
     key_terms: [income, tax, insurance, health, highest, lowest, state, total]
+    concepts: [income, insurance, health, highest, lowest]
     section: Overview
     token_count: 514
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c3"
     char_span: [4036, 5679]
     sentence_count: 9
     key_terms: [accounts, tax-advantaged, bonds, taxable, traditional, allocation, retirement, portfolio]
+    concepts: [accounts, tax-advantaged, bonds, taxable, traditional]
     section: Overview
     token_count: 454
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c4"
     char_span: [5681, 7555]
     sentence_count: 11
     key_terms: [tax, income, dividends, marginal, property, years, low, year]
+    concepts: [income, dividends, marginal, property, consulting]
     section: Overview
     token_count: 425
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c5"
     char_span: [7557, 8098]
     sentence_count: 2
     key_terms: [unknowns, taxes, today, years, tax, recommendations, spreadsheet, personally]
+    concepts: [unknowns, taxes, today, years]
     section: Overview
     token_count: 120
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c6"
     char_span: [8139, 9684]
     sentence_count: 7
     key_terms: [income, deduction, self-employment, tax, gains, total, capital, amount]
+    concepts: [income, deduction, self-employment, gains, total]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c1"]
     section: "2025 Income Tax - Federal: -$3,000"
     token_count: 424
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c7"
     char_span: [9686, 10257]
     sentence_count: 4
     key_terms: [tax, repayment, therefore, advance, credits, credit, total, underestimated]
+    concepts: [repayment, therefore, advance, credits, credit]
     section: "2025 Income Tax - Federal: -$3,000"
     token_count: 141
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c8"
     char_span: [10272, 12028]
     sentence_count: 20
     key_terms: [tax, years, conversions, work, whether, working, family, future]
+    concepts: [conversions, years, whether, working, family]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c9"
     char_span: [12030, 13390]
     sentence_count: 14
     key_terms: [income, city, ira, work, california, paycheck, purposes, council]
+    concepts: [income, california, paycheck, purposes, council]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c10"
     char_span: [13392, 15333]
     sentence_count: 15
     key_terms: [get, year, years, alternating, projections, aca, "i've", low]
+    concepts: [alternating, projections, consulting, years, something]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c11"
     char_span: [15335, 17225]
     sentence_count: 6
     key_terms: [etc, expenses, allocation, magnesiumcarbonate, insurance, property, transportation, maintenance]
+    concepts: [expenses, magnesiumcarbonate, allocation, insurance, property]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c12"
     char_span: [17227, 19096]
     sentence_count: 8
     key_terms: [cash, years, year, short, fund, correction, short-term, dividends]
+    concepts: [years, correction, short, short-term, dividends]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c13"
     char_span: [19098, 21291]
     sentence_count: 8
     key_terms: [future, point, like, problem, income, roth, tax, thinking]
+    concepts: [future, point, problem, income, thinking]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c14"
     char_span: [21293, 22984]
     sentence_count: 12
     key_terms: [people, subsidies, aca, stay, qualify, like, insurance, spending]
+    concepts: [people, subsidies, qualify, insurance, spending]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c15"
     char_span: [22986, 24132]
     sentence_count: 9
     key_terms: [getting, person, fireinnahole, tax, another, easily, wealth, tonguepunchmypoopbox]
+    concepts: [getting, fireinnahole, person, another, easily]
     section: Comments
     token_count: 289
 ---

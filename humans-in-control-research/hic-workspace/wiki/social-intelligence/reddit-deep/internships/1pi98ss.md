@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1200]
     sentence_count: 6
     key_terms: [student, internship, internships, got, comments, forward, future, learn]
+    concepts: [student, internship, internships, comments, forward]
     token_count: 285
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1pi98ss/got_my_first_internship_after_many_rejections/"}]
 ---
 # Got My First Internship After Many Rejections – Need Advice on Tech Stack and Future Path
 

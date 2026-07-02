@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1321]
     sentence_count: 10
     key_terms: [ucp, shopify, https, commerce, everything-ucp, github, transactions, trust]
+    concepts: [shopify, https, commerce, everything-ucp, transactions]
     token_count: 305
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1qbkiui/anyone_tested_ucp_universal_commerce_protocol_on/"}]
   - id: "social-intelligence/reddit-deep/shopify/1qbkiui.md#c1"
-    char_span: [1336, 3547]
+    char_span: [1335, 3546]
     sentence_count: 19
     key_terms: [ucp, product, space, products, trust, users, feed, show]
+    concepts: [product, space, products, trust, users]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/shopify/1qbkiui.md#c2"
-    char_span: [3549, 5250]
+    char_span: [3548, 5249]
     sentence_count: 11
     key_terms: [checkout, shopify, catalog, too, community, honeytech, j91ytsp4, ucpstore]
+    concepts: [checkout, shopify, catalog, community, honeytech]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/shopify/1qbkiui.md#c3"
-    char_span: [5252, 6778]
+    char_span: [5251, 6777]
     sentence_count: 15
     key_terms: [universal-commerce-protocol-guide, ucp, google, native, direction, building, content, sounds]
+    concepts: [universal-commerce-protocol-guide, google, native, direction, building]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/shopify/1qbkiui.md#c4"
-    char_span: [6780, 7245]
+    char_span: [6779, 7244]
     sentence_count: 2
     key_terms: [details, shopos, spaces, brand, https, app, singlefee6420, crawlability]
+    concepts: [details, shopos, spaces, brand, https]
     section: Comments
     token_count: 131
 ---

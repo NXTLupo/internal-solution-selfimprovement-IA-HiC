@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2189]
     sentence_count: 14
     key_terms: [career, long-term, another, careerguidance, growth, travel, opportunities, been]
+    concepts: [career, long-term, careerguidance, opportunities, another]
     token_count: 451
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rqtyor/im_looking_for_genuine_career_guidance_and_would/"}]
 ---
 # I’m looking for genuine career guidance and would really appreciate advice from experienced professionals here?
 

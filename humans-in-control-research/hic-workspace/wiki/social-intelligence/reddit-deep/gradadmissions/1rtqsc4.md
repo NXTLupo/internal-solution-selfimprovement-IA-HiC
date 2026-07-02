@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 828]
     sentence_count: 5
     key_terms: [admission, transcripts, get, official, gradadmissions, comments, "don't", want]
+    concepts: [admission, transcripts, official, gradadmissions, comments]
     token_count: 189
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rtqsc4/canada_grad_school_admission_without_official/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rtqsc4.md#c1"
-    char_span: [843, 1381]
+    char_span: [842, 1380]
     sentence_count: 4
     key_terms: [transcripts, schools, circumstances, admissions, afterwards, definitely, understand, unofficial]
+    concepts: [transcripts, schools]
     section: Comments
     token_count: 113
 ---

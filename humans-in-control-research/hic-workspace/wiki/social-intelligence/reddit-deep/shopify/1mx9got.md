@@ -11,20 +11,23 @@ score: 68
 upvote_ratio: 1
 num_comments: 27
 flair: ""
-extracted_at: "2026-06-18T13:35:23.050Z"
+extracted_at: "2026-06-24T22:14:23.471Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/shopify/1mx9got.md#c0"
     char_span: [0, 1817]
     sentence_count: 8
     key_terms: [shopify, comments, post, groups, violations, please, group, karma]
+    concepts: [shopify, comments, violations, groups, please]
     token_count: 438
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1mx9got/ongoing_issues_please_read_our_group_rules_before/"}]
   - id: "social-intelligence/reddit-deep/shopify/1mx9got.md#c1"
-    char_span: [1819, 3201]
+    char_span: [1819, 3200]
     sentence_count: 9
     key_terms: [group, users, information, help, here, certainly, internet, account]
+    concepts: [group, information, users, certainly, internet]
     token_count: 303
 ---
 # ONGOING ISSUES - Please read our Group Rules before posting / commenting
@@ -54,4 +57,4 @@ Moderators are always open to rule suggestions or changes - it is *your* group, 
 
 ## Comments
 
-- **Ok_Investigator8478** (-1↑): You do realize 99.9% of such posts are bots right?
+- **Ok_Investigator8478** (-3↑): You do realize 99.9% of such posts are bots right?

@@ -19,47 +19,56 @@ chunks:
     char_span: [0, 1865]
     sentence_count: 18
     key_terms: [college, "don't", "i'm", going, parents, school, scholarships, orientation]
+    concepts: [college, "don't", going, parents, scholarships]
     token_count: 451
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ldm79p/overwhelmed_and_dont_know_how_im_going_to_pay_for/"}]
   - id: "social-intelligence/reddit-deep/college/1ldm79p.md#c1"
     char_span: [1879, 3029]
     sentence_count: 17
     key_terms: [get, job, major, oversaturated, various-maybe, good, something, english]
+    concepts: [major, oversaturated, various-maybe, something, english]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/college/1ldm79p.md#c2"
     char_span: [3031, 5020]
     sentence_count: 14
     key_terms: [job, major, computer, science, degree, portfolio, prospects, saturated]
+    concepts: [major, computer, science, degree, portfolio]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/college/1ldm79p.md#c3"
     char_span: [5022, 7102]
     sentence_count: 16
     key_terms: [college, community, job, years, financial, graduate, required, masters]
+    concepts: [college, community, years, financial, graduate]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ldm79p.md#c4"
     char_span: [6798, 7165]
     sentence_count: 1
     key_terms: [financial, aid, use, scholarship, considered, continuing, necessary, transfers]
+    concepts: [financial]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/college/1ldm79p.md#c5"
     char_span: [7167, 8919]
     sentence_count: 14
     key_terms: [college, degree, money, courses, cost, too, understand, general]
+    concepts: [college, degree, money, courses, understand]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/college/1ldm79p.md#c6"
     char_span: [8921, 10837]
     sentence_count: 17
     key_terms: [university, something, work, applying, because, called, get, keep]
+    concepts: [university, something, applying, because, called]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/college/1ldm79p.md#c7"
     char_span: [10839, 12452]
     sentence_count: 13
     key_terms: [school, signed, loans, get, job, community, computer, contract]
+    concepts: [school, signed, loans, community, computer]
     section: Comments
     token_count: 380
 ---

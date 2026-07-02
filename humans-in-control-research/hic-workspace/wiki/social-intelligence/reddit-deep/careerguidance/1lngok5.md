@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 533]
     sentence_count: 2
     key_terms: [careerguidance, comments, career, myself, redreptile2020, commitments, constraints, reddit-deep]
+    concepts: [careerguidance, comments, career, myself]
     token_count: 133
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1lngok5/what_are_the_easiest_and_best_career_paths_you/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1lngok5.md#c1"
     char_span: [547, 2157]
     sentence_count: 11
     key_terms: [world, eventually, history, options, picture, brain, "don't", focus]
+    concepts: [world, eventually, history, options, picture]
     section: Comments
     token_count: 374
 ---

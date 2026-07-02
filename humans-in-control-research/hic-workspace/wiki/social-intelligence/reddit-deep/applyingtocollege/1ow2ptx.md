@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 733]
     sentence_count: 6
     key_terms: [applyingtocollege, college, got, acceptance, comments, reaction, "i'm", international]
+    concepts: [applyingtocollege, college, acceptance, comments, reaction]
     token_count: 178
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1ow2ptx/i_got_my_first_college_acceptance_from_penn_state/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ow2ptx.md#c1"
     char_span: [747, 2627]
     sentence_count: 13
     key_terms: [congratulations, state, school, penn, congrats, happy, fall, fun]
+    concepts: [congratulations, state, school, congrats, happy]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ow2ptx.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ow2ptx.md#c2"
     char_span: [2392, 3104]
     sentence_count: 6
     key_terms: [congrats, congratulations, got, acceptance, state, aureliaaubreeastor, haunting-fruit7154, secrerofficeninja]
+    concepts: [congratulations, congrats, acceptance, state]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ow2ptx.md#c1"]
     section: Comments
     token_count: 206
 ---

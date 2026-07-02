@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 500]
     sentence_count: 2
     key_terms: [applyingtocollege, comments, better, application, chairperson, reddit-deep, committee, executive]
+    concepts: [applyingtocollege, comments, better]
     token_count: 123
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rw5k6o/which_eca_is_better_for_college_application/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rw5k6o.md#c1"
     char_span: [514, 2028]
     sentence_count: 13
     key_terms: [mayafromprepory, better, applications, experience, ashilify, business, yourself, offers]
+    concepts: [mayafromprepory, applications, better, experience, ashilify]
     section: Comments
     token_count: 328
 ---

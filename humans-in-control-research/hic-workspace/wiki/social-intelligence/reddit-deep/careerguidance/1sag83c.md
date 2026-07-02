@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1339]
     sentence_count: 4
     key_terms: [careerguidance, india, pcmb, comments, studying, options, student, abroad]
+    concepts: [careerguidance, india, comments, studying, options]
     token_count: 313
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sag83c/how_do_you_figure_out_your_career_path_when_youre/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sag83c.md#c1"
     char_span: [1353, 2658]
     sentence_count: 5
     key_terms: [career, creativecupcake6640, best, test, boostgrad, minutes, request, session]
+    concepts: [career, creativecupcake6640, boostgrad, minutes, request]
     section: Comments
     token_count: 306
 ---

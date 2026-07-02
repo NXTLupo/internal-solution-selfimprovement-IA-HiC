@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1820]
     sentence_count: 21
     key_terms: [freelance, client, asked, legit, freelancing, like, portfolio, comments]
+    concepts: [freelance, client, freelancing, asked, legit]
     token_count: 419
+    sources: [{"n":"reddit-deep: r/freelance","u":"https://www.reddit.com/r/freelance/comments/1p4xmc9/legit_client_or_not_until_they_asked_for_my/"}]
   - id: "social-intelligence/reddit-deep/freelance/1p4xmc9.md#c1"
     char_span: [1822, 3786]
     sentence_count: 22
     key_terms: [red, flag, printer, through, person, felt, let, like]
+    concepts: [printer, through, person, confirmed, decisions]
     token_count: 446
   - id: "social-intelligence/reddit-deep/freelance/1p4xmc9.md#c2"
     char_span: [3788, 5310]
     sentence_count: 22
     key_terms: [freelancers, like, scam, struggling, scammers, matters, payment, confidence-crushing]
+    concepts: [freelancers, struggling, scammers, matters, payment]
     token_count: 350
   - id: "social-intelligence/reddit-deep/freelance/1p4xmc9.md#c3"
     char_span: [5324, 5817]

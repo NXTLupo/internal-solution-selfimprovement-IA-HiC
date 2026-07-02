@@ -21,16 +21,21 @@ chunks:
     char_span: [0, 2005]
     sentence_count: 9
     key_terms: [credit, card, balance, brother, away, debt, mom, personalfinance]
+    concepts: [credit, balance, brother, personalfinance, understands]
     token_count: 514
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1sq4n5y/my_brother_passed_away_and_left_my_mom_money_via/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c1"
     char_span: [2007, 3928]
     sentence_count: 13
     key_terms: [credit, pay, insurance, card, "i'm", life, interest, payments]
+    concepts: [credit, insurance, interest, payments, minimum]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c6", "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c7"]
     token_count: 413
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c2"
     char_span: [3942, 6141]
     sentence_count: 20
     key_terms: [getting, judgment, payout, creditors, insurance, annuity, credit, income]
+    concepts: [getting, judgment, payout, creditors, insurance]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c3"
@@ -43,42 +48,52 @@ chunks:
     char_span: [6999, 9025]
     sentence_count: 18
     key_terms: [home, mortgage, getting, credit, bankruptcy, co-signed, creditors, deceased]
+    concepts: [mortgage, getting, credit, bankruptcy, co-signed]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c5"
     char_span: [9027, 9978]
     sentence_count: 11
     key_terms: [thanks, circumstances, suspicious, interest, happens, months, "don't", extra]
+    concepts: [circumstances, thanks, suspicious, interest, happens]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c6"
     char_span: [9980, 11952]
     sentence_count: 12
     key_terms: [credit, debt, "don't", card, interest, cards, house, apr]
+    concepts: [credit, "don't", interest, cards, house]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c1"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c7"
     char_span: [11954, 13804]
     sentence_count: 16
     key_terms: [pay, insurance, get, certificate, death, money, debt, credit]
+    concepts: [insurance, certificate, death, money, credit]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c1", "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c8"]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c8"
     char_span: [13806, 15577]
     sentence_count: 15
     key_terms: [death, certificate, months, cause, days, "i'm", instead, unusual]
+    concepts: [death, certificate, months, cause, instead]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c7"]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c9"
     char_span: [15579, 17799]
     sentence_count: 18
     key_terms: [cards, debt, insurance, attorney, freezing, planning, because, elderly]
+    concepts: [cards, insurance, attorney, freezing, planning]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c10"
     char_span: [17801, 19554]
     sentence_count: 12
     key_terms: [option, house, sure, need, community, something, brother, losing]
+    concepts: [option, house, community, something, brother]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c11"

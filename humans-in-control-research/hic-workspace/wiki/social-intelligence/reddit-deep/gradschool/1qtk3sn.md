@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 813]
     sentence_count: 7
     key_terms: [school, research, grad, experience, berkeley, gradschool, comments, graduate]
+    concepts: [school, research, experience, berkeley, gradschool]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qtk3sn.md#c1", "social-intelligence/reddit-deep/gradschool/1qtk3sn.md#c2"]
     token_count: 184
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1qtk3sn/question_about_grad_school_admission/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1qtk3sn.md#c1"
     char_span: [827, 1605]
     sentence_count: 6
     key_terms: [research, experience, programs, applied, did, phd, time, year]
+    concepts: [research, experience, programs, applied]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qtk3sn.md#c0", "social-intelligence/reddit-deep/gradschool/1qtk3sn.md#c2"]
     section: Comments
     token_count: 187
   - id: "social-intelligence/reddit-deep/gradschool/1qtk3sn.md#c2"
     char_span: [1607, 3438]
     sentence_count: 13
     key_terms: [research, junior, experience, professors, intelligentcat3311, students, babygoldenbear, thelastnoelll]
+    concepts: [research, intelligentcat3311, experience, professors, junior]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qtk3sn.md#c0", "social-intelligence/reddit-deep/gradschool/1qtk3sn.md#c1"]
     section: Comments
     token_count: 460
 ---

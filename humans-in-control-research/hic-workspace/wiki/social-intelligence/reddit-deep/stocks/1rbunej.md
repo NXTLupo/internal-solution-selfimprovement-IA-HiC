@@ -21,77 +21,95 @@ chunks:
     char_span: [0, 2026]
     sentence_count: 16
     key_terms: [epstein, comments, stocks, international, files, individuals, investments, associated]
+    concepts: [epstein, comments, international, stocks, individuals]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rbunej.md#c4"]
     token_count: 419
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1rbunej/trumps_deadman_switch/"}]
   - id: "social-intelligence/reddit-deep/stocks/1rbunej.md#c1"
     char_span: [2040, 3766]
     sentence_count: 15
     key_terms: [stocks, decades, please, skyrocketing, sky, off-topic, political, specific]
+    concepts: [stocks, decades, skyrocketing, please, off-topic]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/stocks/1rbunej.md#c2"
     char_span: [3768, 5376]
     sentence_count: 12
     key_terms: [market, international, going, usd, because, crash, cash, get]
+    concepts: [market, international, going, because, crash]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rbunej.md#c7"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/stocks/1rbunej.md#c3"
     char_span: [5378, 5884]
     sentence_count: 2
     key_terms: [system, baked, seems, stay, dontgoatsemebro, emotionalbag777, irrational, stabilize]
+    concepts: [system, baked, seems]
     section: Comments
     token_count: 133
   - id: "social-intelligence/reddit-deep/stocks/1rbunej.md#c4"
     char_span: [5886, 7738]
     sentence_count: 8
     key_terms: [international, treasuries, dollar, stocks, meancryptographer585, peanutbuttertoast4me, trump, "we've"]
+    concepts: [international, treasuries, dollar, stocks, trump]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rbunej.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1rbunej.md#c5"
     char_span: [7506, 8648]
     sentence_count: 4
     key_terms: [people, switch, released, market, meancryptographer585, files, dead, take]
+    concepts: [people, switch, released, market, files]
     section: Comments
     token_count: 251
   - id: "social-intelligence/reddit-deep/stocks/1rbunej.md#c6"
     char_span: [8653, 10359]
     sentence_count: 8
     key_terms: [feel, high, like, consumer, already, fearful, markets, assets]
+    concepts: [consumer, already, fearful, markets, assets]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/stocks/1rbunej.md#c7"
     char_span: [10363, 11981]
     sentence_count: 11
     key_terms: [market, international, anything, empires, fearful, "there's", growth, people]
+    concepts: [international, market, anything, empires, fearful]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rbunej.md#c2"]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/stocks/1rbunej.md#c8"
     char_span: [11983, 14118]
     sentence_count: 10
     key_terms: [economy, market, price, like, boatloads, exception, question, company]
+    concepts: [economy, market, price, boatloads, exception]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1rbunej.md#c9"
     char_span: [13855, 14275]
     sentence_count: 3
     key_terms: [lower, rates, deregulations, calihusker83, thec0rp0ral, completely, outsmarted, decisions]
+    concepts: [lower, rates]
     section: Comments
     token_count: 110
   - id: "social-intelligence/reddit-deep/stocks/1rbunej.md#c10"
     char_span: [14277, 15511]
     sentence_count: 7
     key_terms: [dust, future, market, cloud7100, political, settles, sitting, always]
+    concepts: [future, market, cloud7100, political, settles]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/stocks/1rbunej.md#c11"
     char_span: [15513, 17336]
     sentence_count: 5
     key_terms: [falling, american, sky, market, stock, like, something, pdubbs87]
+    concepts: [falling, american, market, stock, something]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/stocks/1rbunej.md#c12"
     char_span: [17338, 19050]
     sentence_count: 9
     key_terms: [world, economic, elements, dumbest, sociallybutterflying, years, flounderlegitimate, evil]
+    concepts: [world, economic, elements, dumbest, years]
     section: Comments
     token_count: 437
 ---

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1053]
     sentence_count: 8
     key_terms: [job, careerguidance, receptionist, get, experience, comments, careers, medical]
+    concepts: [careerguidance, receptionist, experience, comments, careers]
     token_count: 256
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1negl9l/job_market_is_down_whats_the_smartest_or_safest/"}]
   - id: "articles/reddit-deep-r-careerguidance/edee60bd11.md#c1"
     char_span: [1055, 2412]
     sentence_count: 10
     key_terms: [receptionist, healthcare, positions, administrative, get, jobs, hospital, careers]
+    concepts: [receptionist, healthcare, positions, administrative, hospital]
     token_count: 305
 ---
 # Job market is down - what’s the smartest or safest careers right now?

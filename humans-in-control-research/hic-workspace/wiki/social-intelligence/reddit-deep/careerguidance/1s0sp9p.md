@@ -21,83 +21,108 @@ chunks:
     char_span: [0, 648]
     sentence_count: 3
     key_terms: [careerguidance, education, comments, getting, career, degree, wanted, reddit-deep]
+    concepts: [careerguidance, education, comments, getting, career]
     token_count: 163
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1s0sp9p/careereducation_transition_from_cs_to_cadd/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c1"
     char_span: [650, 2429]
     sentence_count: 10
     key_terms: ["i'm", get, because, either, "don't", competitive, like, work]
+    concepts: [because, either, competitive, "don't", complete]
     token_count: 396
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c2"
     char_span: [2431, 4250]
     sentence_count: 10
     key_terms: [like, "i'm", college, point, tuition, degree, manipulating, too]
+    concepts: [college, point, tuition, manipulating, degree]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c9"]
     token_count: 393
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c3"
     char_span: [4252, 6603]
     sentence_count: 7
     key_terms: [engineering, degree, get, design, bachelors, something, "i'd", like]
+    concepts: [engineering, degree, design, bachelors, something]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c6", "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c12", "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c14"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c4"
     char_span: [6321, 6673]
     sentence_count: 3
     key_terms: [doesnt, pay, interested, motivation, bachelors, difficult, intrinsic, thinking]
+    concepts: [doesnt]
     token_count: 78
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c5"
     char_span: [6675, 8779]
     sentence_count: 10
     key_terms: [degree, "i'm", cadd, like, shit, already, because, associates]
+    concepts: [degree, already, because, associates, regardless]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c6"]
     token_count: 469
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c6"
     char_span: [8781, 10243]
     sentence_count: 7
     key_terms: [because, engineering, degree, bim, "i've", couple, architecture, field]
+    concepts: [engineering, because, degree, architecture, couple]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c3", "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c5"]
     token_count: 316
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c7"
     char_span: [10257, 12395]
     sentence_count: 7
     key_terms: [cadd, like, degree, building, involves, autocad, working, bigger]
+    concepts: [degree, building, involves, autocad, working]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c8"
     char_span: [12397, 13968]
     sentence_count: 9
     key_terms: [cad, leverage, looking, point, bim, get, "i'm", shit]
+    concepts: [leverage, looking, point, position, instead]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c9"
     char_span: [13970, 16425]
     sentence_count: 17
     key_terms: [degree, management, electives, point, database, important, computer, because]
+    concepts: [degree, management, electives, database, point]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c10"
     char_span: [16091, 17249]
     sentence_count: 9
     key_terms: [degree, important, completing, passionate, passion, career, doing, happy]
+    concepts: [degree, important, completing, passionate, passion]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c12"]
     section: Comments
     token_count: 247
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c11"
     char_span: [17251, 19308]
     sentence_count: 9
     key_terms: [like, bachelors, psychology, masters, economics, interests, get, want]
+    concepts: [bachelors, psychology, masters, economics, interests]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c12"
     char_span: [19310, 21323]
     sentence_count: 13
     key_terms: [like, shit, want, degree, something, passion, though, video]
+    concepts: [degree, something, passion, though, video]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c3", "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c10", "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c14"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c13"
     char_span: [21325, 23265]
     sentence_count: 14
     key_terms: [like, math, skills, thinking, "don't", guess, get, job]
+    concepts: [skills, thinking, background, "don't", guess]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c14"]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c14"
     char_span: [23267, 24885]
     sentence_count: 8
     key_terms: [something, like, work, degree, skills, economics, thinking, design]
+    concepts: [something, degree, skills, economics, thinking]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c3", "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c12", "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c13"]
     section: Comments
     token_count: 348
 ---

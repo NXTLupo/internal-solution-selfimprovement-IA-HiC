@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1225]
     sentence_count: 8
     key_terms: [hours, card, personalfinance, limit, transaction, last, use, comments]
+    concepts: [hours, personalfinance, transaction, limit, comments]
     token_count: 296
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1s6r0si/rapid_pay_cards_suck_so_much/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1s6r0si.md#c1"
-    char_span: [1240, 2216]
+    char_span: [1239, 2215]
     sentence_count: 7
     key_terms: [card, definitely, deposit, credit, use, account, direct, dismal-nectarine-347]
+    concepts: [definitely, deposit, credit, account, direct]
     section: Comments
     token_count: 238
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 481]
     sentence_count: 3
     key_terms: [competitiontrick2836, anthropic, comments, setup, promptengineering, reddit-deep, who-let-the, perfect]
+    concepts: [competitiontrick2836, anthropic, comments, setup]
     token_count: 141
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1rtxv1v/i_built_a_claude_skill_that_writes_perfect/"}]
 ---
 # I built a Claude skill that writes perfect prompts and hit #1 twice on r/PromptEngineering. Here is the setup for the people who need a setup guide.
 

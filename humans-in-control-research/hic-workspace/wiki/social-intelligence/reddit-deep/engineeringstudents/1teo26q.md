@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2216]
     sentence_count: 10
     key_terms: [manitoba, mechanical, engineering, canada, university, students, international, job]
+    concepts: [manitoba, mechanical, engineering, canada, university]
     token_count: 477
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1teo26q/canada_how_good_is_mechanical_engineering_at/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1teo26q.md#c1"
-    char_span: [2231, 3234]
+    char_span: [2230, 3233]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    concepts: [engineeringstudents, please, reddit, https, automoderator]
     section: Comments
     token_count: 225
 ---

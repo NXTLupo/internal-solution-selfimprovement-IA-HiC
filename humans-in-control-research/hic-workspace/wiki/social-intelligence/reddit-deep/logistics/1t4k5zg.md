@@ -20,31 +20,42 @@ chunks:
     char_span: [0, 1810]
     sentence_count: 14
     key_terms: [logistics, amazon, transportation, "amazon's", businesses, capacity, comments, everyone]
+    concepts: [logistics, transportation, amazon, "amazon's", businesses]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1t4k5zg.md#c1", "social-intelligence/reddit-deep/logistics/1t4k5zg.md#c5"]
     token_count: 404
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1t4k5zg/catch_up_on_what_happened_this_week_in_logistics/"}]
   - id: "social-intelligence/reddit-deep/logistics/1t4k5zg.md#c1"
     char_span: [1812, 4275]
     sentence_count: 23
     key_terms: [amazon, "amazon's", years, volume, fulfillment, announced, customers, inventory]
+    concepts: [amazon, "amazon's", years, volume, fulfillment]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1t4k5zg.md#c0", "social-intelligence/reddit-deep/logistics/1t4k5zg.md#c3"]
     token_count: 494
   - id: "social-intelligence/reddit-deep/logistics/1t4k5zg.md#c2"
     char_span: [4277, 6660]
     sentence_count: 34
     key_terms: [ebay, sellers, billion, roughly, authentication, cohen, items, individual]
+    concepts: [sellers, authentication, billion, roughly, cohen]
     token_count: 498
   - id: "social-intelligence/reddit-deep/logistics/1t4k5zg.md#c3"
     char_span: [6662, 9058]
     sentence_count: 21
     key_terms: [delivery, teamsters, "ebay's", volume, worth, fulfillment, ebay, home]
+    concepts: [delivery, teamsters, "ebay's", volume, fulfillment]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1t4k5zg.md#c1"]
     token_count: 470
   - id: "social-intelligence/reddit-deep/logistics/1t4k5zg.md#c4"
     char_span: [9060, 10265]
     sentence_count: 8
     key_terms: [need, delivery, facility, million, center, supply, target, million-square-foot]
+    concepts: [delivery, facility, million, center, supply]
     token_count: 252
   - id: "social-intelligence/reddit-deep/logistics/1t4k5zg.md#c5"
-    char_span: [10280, 12035]
+    char_span: [10279, 12034]
     sentence_count: 11
     key_terms: [amazon, logistics, industry, freight, interesting, customers, shipments, tracking]
+    concepts: [amazon, logistics, industry, freight, interesting]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1t4k5zg.md#c0"]
     section: Comments
     token_count: 352
 ---

@@ -21,7 +21,10 @@ chunks:
     char_span: [0, 2209]
     sentence_count: 10
     key_terms: [school, grad, "i'm", schools, considering, programs, because, "don't"]
+    concepts: [school, considering, schools, programs, because]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1mb9yaq.md#c2"]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1mb9yaq/career_change_into_becoming_a_therapist_and/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1mb9yaq.md#c1"
     char_span: [2214, 2707]
     sentence_count: 1
@@ -31,6 +34,8 @@ chunks:
     char_span: [2721, 4734]
     sentence_count: 21
     key_terms: [school, best, programs, program, application, connections, grad, counseling]
+    concepts: [school, programs, program, application, connections]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1mb9yaq.md#c0"]
     section: Comments
     token_count: 430
 ---

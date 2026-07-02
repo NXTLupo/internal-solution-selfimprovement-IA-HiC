@@ -20,14 +20,17 @@ chunks:
     char_span: [0, 2060]
     sentence_count: 15
     key_terms: [situation, aid, knowing, question, family, school, been, neu]
+    concepts: [situation, knowing, question, family, school]
     token_count: 456
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1mibo21/genuine_urgent_question_rant_pretty_difficult/"}]
   - id: "social-intelligence/reddit-deep/neu/1mibo21.md#c1"
     char_span: [2062, 4356]
     sentence_count: 19
     key_terms: [been, documents, knowing, around, did, june, time, everything]
+    concepts: [documents, knowing, around, everything, submitted]
     token_count: 509
   - id: "social-intelligence/reddit-deep/neu/1mibo21.md#c2"
-    char_span: [4371, 4747]
+    char_span: [4370, 4746]
     sentence_count: 4
     key_terms: [careless-ability-748, few-engineering-890, kamehameha33, frustrating, appreciate, completely, definitely, financial]
     section: Comments

@@ -21,28 +21,34 @@ chunks:
     char_span: [0, 1818]
     sentence_count: 7
     key_terms: [committee, previous, analyst, agents, report, reads, adversarial, investment]
+    concepts: [committee, previous, analyst, agents, report]
     token_count: 455
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1s2nd7w/i_built_a_9agent_ai_investment_committee_the/"}]
   - id: "social-intelligence/reddit-deep/investing/1s2nd7w.md#c1"
     char_span: [1820, 2141]
     sentence_count: 2
     key_terms: [search, tool, web, "anthropic's", anthropic, advocate, analysis, anything]
+    concepts: [search]
     token_count: 86
   - id: "social-intelligence/reddit-deep/investing/1s2nd7w.md#c2"
     char_span: [2155, 3523]
     sentence_count: 7
     key_terms: ["you're", anthropic, data, marwkaw, device, money, neophyte12, account]
+    concepts: ["you're", anthropic, marwkaw, device, money]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/investing/1s2nd7w.md#c3"
     char_span: [3525, 5310]
     sentence_count: 17
     key_terms: [marwkaw, https, imgur, com, single, agent, analysis, helps]
+    concepts: [marwkaw, https, imgur, single, agent]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1s2nd7w.md#c4"
     char_span: [5076, 6067]
     sentence_count: 10
     key_terms: [because, picking, get, "i'm", like, backtesting, fundamental, integrated]
+    concepts: [because, picking]
     section: Comments
     token_count: 260
 ---

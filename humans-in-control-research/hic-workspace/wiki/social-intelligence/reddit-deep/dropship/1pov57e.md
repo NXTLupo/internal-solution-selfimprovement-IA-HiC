@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 1259]
     sentence_count: 7
     key_terms: [dropshipping, inventory, fulfillment, "i'm", transition, comments, dropship, shipping]
+    concepts: [dropshipping, inventory, fulfillment, transition, comments]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1pov57e.md#c2"]
     token_count: 275
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1pov57e/do_i_actually_need_a_fulfillment_center_or_is/"}]
   - id: "social-intelligence/reddit-deep/dropship/1pov57e.md#c1"
-    char_span: [1274, 3018]
+    char_span: [1273, 3017]
     sentence_count: 8
     key_terms: [shipping, dropship, product, amazon, faster, get, inventory, products]
+    concepts: [shipping, dropship, product, amazon, faster]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/dropship/1pov57e.md#c2"
-    char_span: [3020, 5035]
+    char_span: [3019, 5034]
     sentence_count: 11
     key_terms: [inventory, delivery, dropshipping, fulfillment, faster, ground, middle, drumroll-ph]
+    concepts: [inventory, delivery, dropshipping, fulfillment, faster]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1pov57e.md#c0"]
     section: Comments
     token_count: 460
 ---

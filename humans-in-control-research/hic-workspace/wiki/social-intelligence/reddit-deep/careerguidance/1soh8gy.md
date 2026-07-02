@@ -21,28 +21,37 @@ chunks:
     char_span: [0, 2319]
     sentence_count: 12
     key_terms: [careerguidance, career, entertainment, drive, never, felt, job, time]
+    concepts: [careerguidance, entertainment, career, drive, never]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1soh8gy/25_and_no_real_job_experience_no_car_multiple/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c1"
     char_span: [2321, 3719]
     sentence_count: 11
     key_terms: [job, get, medical, coding, people, certification, billing, without]
+    concepts: [certification, medical, coding, people, billing]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c3", "social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c4"]
     token_count: 302
   - id: "social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c2"
     char_span: [3733, 6034]
     sentence_count: 34
     key_terms: [life, get, take, continue, yourself, excuses, learn, quit]
+    concepts: [continue, yourself, excuses, depression, learn]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c3"
     char_span: [6036, 8331]
     sentence_count: 25
     key_terms: [coding, medical, healthcare, get, lots, alwaysreturning, don, overnight]
+    concepts: [coding, healthcare, medical, alwaysreturning, overnight]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c1", "social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c4"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c4"
     char_span: [8333, 9153]
     sentence_count: 9
     key_terms: [coding, people, car, medical, reddit, job, jobs, mind]
+    concepts: [coding, people, medical, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c1", "social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c3"]
     section: Comments
     token_count: 184
 ---

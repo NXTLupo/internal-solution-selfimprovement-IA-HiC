@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2409]
     sentence_count: 24
     key_terms: [field, career, work, experience, economics, finance, toronto, careerguidance]
+    concepts: [field, career, experience, economics, careerguidance]
     token_count: 506
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tfxx4w/i_am_confused_about_finding_my_career_path_in/"}]
   - id: "articles/reddit-deep-r-careerguidance/fbcdc2e919.md#c1"
     char_span: [2411, 2464]
     sentence_count: 2

@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 2007]
     sentence_count: 6
     key_terms: [limited, careerguidance, retail, interpersonal, years, job, background, associate]
+    concepts: [careerguidance, interpersonal, limited, retail, background]
     token_count: 436
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qge6dm/help_finding_a_career_path_for_my_66yearold_mom/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1qge6dm.md#c1"
     char_span: [2021, 2951]
     sentence_count: 5
     key_terms: [places, retail, banks, roles, experience, people, skills, local]
+    concepts: [places, retail, banks, experience, roles]
     section: Comments
     token_count: 188
   - id: "social-intelligence/reddit-deep/careerguidance/1qge6dm.md#c2"
     char_span: [2953, 4924]
     sentence_count: 16
     key_terms: [store, background, customers, probably, counter, people, places, retail]
+    concepts: [background, store, customers, probably, counter]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/careerguidance/1qge6dm.md#c3"
     char_span: [4926, 7058]
     sentence_count: 24
     key_terms: [job, too, require, good, security, grocery, patient, systems]
+    concepts: [require, security, grocery, patient, systems]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/careerguidance/1qge6dm.md#c4"
     char_span: [7060, 7810]
     sentence_count: 12
     key_terms: [something, customer, hospital, service, working, representative, proficiency, wheelchairs]
+    concepts: [something, customer, hospital, service, working]
     section: Comments
     token_count: 153
 ---

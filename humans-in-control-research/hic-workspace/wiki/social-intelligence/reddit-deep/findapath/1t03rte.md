@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1206]
     sentence_count: 13
     key_terms: [corporate, don, times, want, findapath, graduated, comments, forever]
+    concepts: [corporate, times, findapath, graduated, comments]
     token_count: 306
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1t03rte/graduated_15_years_ago_dont_want_to_work_a/"}]
   - id: "social-intelligence/reddit-deep/findapath/1t03rte.md#c1"
     char_span: [1220, 2799]
     sentence_count: 15
     key_terms: [thank, helpful, please, "it's", life, findapath, anything, comments]
+    concepts: [thank, helpful, please, findapath, anything]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/findapath/1t03rte.md#c2"
     char_span: [2801, 4078]
     sentence_count: 15
     key_terms: [com, careerexplorer, bunnychow123, life, passionate, testerly, purpose, appalachianskinthief]
+    concepts: [careerexplorer, bunnychow123, passionate, testerly, purpose]
     section: Comments
     token_count: 329
 ---

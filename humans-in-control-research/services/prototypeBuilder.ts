@@ -173,7 +173,7 @@ const CODE_MODEL = OPUS_CAP_ACTIVE ? 'gemini-3.1-pro-preview' : 'claude-opus-4-8
 // system prompt. Replaces vague "clean modern" aesthetic placeholders with
 // named, evidence-backed visual references the coder must visually pass
 // against. See: .claude/skills/design-exemplar-curator/SKILL.md
-import { OPUS_CAP_ACTIVE } from './aiRouter';
+import { OPUS_CAP_ACTIVE, HIC_CACHE_BREAK as PROTO_CACHE_BREAK } from './aiRouter';
 import { curateExemplarsForBrief, buildStage4InjectionBlock } from './designExemplarCurator';
 // 2026-05-14 - Experience Prototype Composer (STRICT-RULE). Mandates that
 // Stage 4 compose every region from the AI Experience Patterns catalog at
@@ -201,6 +201,24 @@ export interface ExperienceBrief {
         other: string[];
     };
     open_questions: string[];
+    /** E6 (2026-07-02, artifact-total-elevation) PRD-IN-BRIEF: the detailed PRD is CONTAINED
+     *  within the brief the prototype utilizes. Shape reuses the prd-compiler feature schema
+     *  (converge, no fork). Stage 1 populates it from corpus evidence ONLY (a thin corpus yields
+     *  a thin PRD honestly); Stage 2 maps features -> screens (every Must-have reaches a screen
+     *  or is flagged); the Stage 5 reviewer audits acceptance-criteria coverage. */
+    prd_candidate?: {
+        features: Array<{
+            name: string;
+            priority: 'must' | 'should' | 'could' | 'wont';
+            description: string;                 // 40-60 words
+            acceptanceCriteria: string[];        // Given/When/Then
+            citations: string[];                 // real named sources from the corpus
+            evidenceBasis: string;               // verbatim quote or named entity anchoring the feature
+        }>;
+        success_metrics: Array<{ metric: string; baseline: string; target: string; guardrail: string }>;
+        risks: string[];
+        out_of_scope: string[];
+    };
 }
 
 export interface InteractionSpec {
@@ -216,6 +234,10 @@ export interface InteractionSpec {
     state_machine: Array<{ from: string; trigger: string; to: string; side_effects: string[] }>;
     micro_interactions: Array<any>;
     motion_contract: Array<any>;
+    /** E6 (2026-07-02) feature -> screen traceability: every prd_candidate feature maps to the
+     *  screen(s) demonstrating it. A Must-have with no screen carries unmapped_reason (flagged,
+     *  never silently dropped); Stage 5 audits this map for acceptance coverage. */
+    feature_screen_map?: Array<{ feature: string; priority: string; screens: string[]; unmapped_reason?: string }>;
 }
 
 export interface DesignSystem {
@@ -278,6 +300,15 @@ export interface CritiqueReport {
             missing_piece: string;     // Concrete: "Expert path expects keyboard shortcut to skip the intro - not wired."
         }>;
     };
+    /** E6 (2026-07-02) - PRD acceptance coverage, audited by the Stage 5 reviewer against the
+     *  brief's prd_candidate when present. Rides the build receipt next to session_coverage. */
+    prd_coverage?: {
+        must_total: number;
+        must_demonstrated: number;
+        criteria_total: number;
+        criteria_met: number;
+        unmet: string[];
+    } | null;
 }
 
 /**
@@ -442,7 +473,8 @@ If you skip any of these steps, the downstream pipeline produces a generic proto
 6. Identify AI inference points - where the magic comes from. Be specific: "when the user submits the trajectory form, call Gemini to extract 3 named gap themes and 3 concrete next steps grounded in the persona's context".
 7. Identify hard constraints (brand, platform, accessibility, regulatory).
 8. Identify open questions - things the concept does not specify and the downstream stages should not invent.
-9. Return ONLY the JSON Experience Brief, no preamble.
+9. Populate \`prd_candidate\` - the PRD contained WITHIN the brief. Derive features ONLY from what the input evidences (the CONCEPT BRIEF block, persona pain points, grounding themes, client-uploaded documents). Each feature: a name, MoSCoW priority, a 40-60 word description, 2-4 Given/When/Then acceptanceCriteria, citations naming REAL sources from the input, and an evidenceBasis (a verbatim quote or named entity). A thin input yields a THIN prd_candidate honestly - never pad with invented features, metrics, or risks. success_metrics use qualitative baselines/targets unless a number rides inside a cited quote.
+10. Return ONLY the JSON Experience Brief, no preamble.
 </instructions>
 
 <output_schema>
@@ -465,7 +497,13 @@ If you skip any of these steps, the downstream pipeline produces a generic proto
     "accessibility": "WCAG AA minimum, plus any specifics",
     "other": ["string"]
   },
-  "open_questions": ["string"]
+  "open_questions": ["string"],
+  "prd_candidate": {
+    "features": [{ "name": "string", "priority": "must | should | could | wont", "description": "string, 40-60 words", "acceptanceCriteria": ["Given ... When ... Then ..."], "citations": ["real named source from the input"], "evidenceBasis": "verbatim quote or named entity" }],
+    "success_metrics": [{ "metric": "string", "baseline": "string (qualitative unless quote-carried)", "target": "string", "guardrail": "string" }],
+    "risks": ["string - only evidenced risks"],
+    "out_of_scope": ["string"]
+  }
 }
 </output_schema>
 
@@ -498,7 +536,8 @@ A senior product partner reviewing this prototype must conclude it's a substanti
 5. Define the state machine: how the user moves between screens, what triggers each transition, what state persists. Every AI inference point in the brief MUST appear as a side effect of at least one transition.
 6. Define the micro-interactions: hover states, loading states (with skeleton or shimmer), empty states (with a useful prompt, not "no data"), error states (with retry), success states (with momentum to next action).
 7. Define the motion contract using the five-channel model - typographic mass, color modulation, spatial extension, positional drift, temporal sequence - and assign motion roles deliberately. Every motion choice must encode something or set tone. No decorative animation.
-8. Output ONLY the JSON Interaction Spec.
+8. Map every \`prd_candidate.features\` entry from the brief to the screen(s) that demonstrate it (\`feature_screen_map\`). EVERY priority "must" feature MUST reach at least one screen; if a Must-have cannot be demonstrated, keep it in the map with an \`unmapped_reason\` (never silently drop it - the Stage 5 reviewer audits this map).
+9. Output ONLY the JSON Interaction Spec.
 </instructions>
 
 <output_schema>
@@ -508,6 +547,7 @@ A senior product partner reviewing this prototype must conclude it's a substanti
   "state_machine": [{ "from": "screen_id", "trigger": "string", "to": "screen_id", "side_effects": ["string - including any AI calls fired"] }],
   "micro_interactions": [{ "element": "string", "states": ["default", "hover", "active", "loading", "empty", "error", "success"], "behavior_per_state": {} }],
   "motion_contract": [{ "element": "string", "signal": "functional | expressive", "channel": "typographic_mass | color_modulation | spatial_extension | positional_drift | temporal_sequence", "encodes": "string" }],
+  "feature_screen_map": [{ "feature": "string - prd_candidate feature name", "priority": "must | should | could | wont", "screens": ["screen_id"], "unmapped_reason": "string, ONLY when screens is empty" }],
   "ai_flows": [
     { "id": "string - matches an ai_inference_points id from the brief", "fires_from_screen": "screen_id", "fires_on_trigger": "string", "endpoint": "/api/ai/gemini-compat | /api/ai/anthropic | /api/ai/openai | /api/wiki/fetch-articles", "system_prompt_outline": "string - what role the AI plays", "user_message_template": "string - what gets sent, with placeholders", "expected_response_shape": "string", "renders_into": "screen_id + element_name" }
   ]
@@ -1077,6 +1117,46 @@ export interface BuildOptions {
 
 const SCREEN_MARKER = '/*__SCREENS__*/';
 
+// E6.2 (2026-07-02, artifact-total-elevation) - DETERMINISTIC SEED GROUNDING. Between Stage 2 and
+// the orchestrator, compile the CORPUS-DERIVED names/records the seed arrays must use: the brief's
+// personas, every simulated-session persona (name + role, per bucket), and named entities lifted
+// from the rich concept text (proper-noun phrases). The model fills gaps but NEVER invents a name
+// where a corpus value exists; the reviewer audits seed-vs-session distribution (every bucket must
+// find data it can exercise). Pure + deterministic - no model call.
+export function deriveSeedGrounding(
+    brief: ExperienceBrief,
+    sessions: SimulatedUserSession[],
+    richConcept: string,
+): string {
+    const people: string[] = [];
+    if (brief.primary_persona?.name) people.push(`${brief.primary_persona.name} (primary persona - the protagonist record)`);
+    for (const a of brief.secondary_actors || []) if (a?.role) people.push(`${a.role} (secondary actor)`);
+    const byBucket: Record<string, string[]> = { modal: [], edge: [], tail: [] };
+    for (const s of sessions || []) {
+        const b = (s.bucket || 'modal') as keyof typeof byBucket;
+        if (s.persona?.name) (byBucket[b] = byBucket[b] || []).push(`${s.persona.name} (${s.persona.role || 'session persona'})`);
+    }
+    // Proper-noun phrases from the rich concept/brief text (2-4 capitalized words) - the named
+    // programs/orgs/systems the uploads evidenced. Deterministic regex lift, deduped, capped.
+    const entities = Array.from(new Set(
+        (richConcept.match(/\b[A-Z][a-zA-Z]{2,}(?: [A-Z][a-zA-Z&-]{2,}){1,3}\b/g) || [])
+            .map(e => e.trim())
+            .filter(e => !/^(The|This|That|These|Those|When|Given|Then|BRIEF|SPEC|APPROVED|CONCEPT|RESEARCH|FULL|CLIENT|GROUNDING)\b/.test(e)),
+    )).slice(0, 40);
+    if (!people.length && !entities.length && !sessions.length) return '';
+    const bucketLines = (['modal', 'edge', 'tail'] as const)
+        .filter(b => byBucket[b]?.length)
+        .map(b => `  ${b.toUpperCase()} (${byBucket[b].length}): ${byBucket[b].slice(0, 12).join('; ')}`);
+    return `\n\nSEED GROUNDING (CORPUS-DERIVED - deterministic, compiled from the brief + sessions + uploads):
+Seed arrays MUST use these verbatim before inventing ANY name/record. The model fills gaps; it never
+invents where a corpus value exists. Every session bucket below must find seed data it can exercise
+(the reviewer audits seed-vs-session distribution).
+PEOPLE/ROLES: ${people.join('; ') || '(none named)'}
+SESSION PERSONAS BY BUCKET:
+${bucketLines.join('\n') || '  (no sessions)'}
+NAMED ENTITIES FROM THE CORPUS TEXT: ${entities.join('; ') || '(none lifted)'}`;
+}
+
 interface PodScreenSpec {
     id: string;                      // safe identifier used in Screen_<id> + state.activeScreen
     name: string;
@@ -1235,6 +1315,12 @@ Emit ONE JSON object (no prose, no fences) with these keys:
 </rules>`;
 
 function buildPodSystem(brand: Brand, slicedManifest: string, sharedCode: string, contract: AppShellContract): string {
+    // 2026-07-02 #proto PROMPT CACHING: the [role + shared module code + contract] prefix is
+    // IDENTICAL across every parallel screen pod (and every corrective retry) in a build; only the
+    // sliced manifest + output rules differ. The HIC_CACHE_BREAK marker lets the anthropic proxy
+    // set a cache_control breakpoint on that shared prefix, so pod 2..N and every retry read the
+    // 10-20K-token shared_code prefix from cache instead of paying full input price N times.
+    // The gemini fallback proxy strips the marker (never reaches a model as text).
     return `<role>
 You are a WORKER agent building EXACTLY ONE screen of a larger React prototype. Other agents are
 building the other screens in parallel. You must conform to the shared contract precisely or the
@@ -1255,7 +1341,7 @@ ACTIONS YOU MAY FIRE (exact strings): ${contract.action_list.join(', ')}
 SHARED PRIMITIVES YOU MAY USE: ${contract.shared_primitives.join(', ')}
 SEED DATA: ${contract.seed_data_note}
 </contract>
-
+${PROTO_CACHE_BREAK}
 <component_manifest brand="${brand}">
 Compose this screen's regions from these brand components ONLY (the categories your screen needs).
 Use each component's documented structure + the brand tokens. Do NOT invent UI shapes.
@@ -1301,6 +1387,13 @@ Check the merged code for INTEGRATION DRIFT introduced by parallel building:
 - The App shell must render every Screen_X by state.activeScreen with working navigation between them.
 - Seed data must be present and deep (named protagonist + 12+ peer records + concrete numbers), per
   the brief and simulated sessions. No placeholders.
+- SEED-VS-SESSION DISTRIBUTION (E6.2): when a SEED GROUNDING block was provided, verify the seed
+  arrays USE its corpus-derived names/records (an invented name where a grounded one existed is a
+  "data" issue), and verify EVERY session bucket (modal/edge/tail) finds seed data it can exercise.
+- PRD ACCEPTANCE COVERAGE (E6): when the BRIEF carries \`prd_candidate\`, audit each feature's
+  Given/When/Then acceptanceCriteria against the merged code. A Must-have feature whose criteria
+  the prototype cannot demonstrate is a "coverage" issue (severity major). Report the audit in
+  \`prd_coverage\` alongside the session coverage.
 - RUNTIME CONTRACT (corrected_code MUST obey): the root component is named \`App\` (host auto-mounts
   it); hooks are GLOBAL (never destructure from React); framer-motion=\`window.framerMotion\`,
   icons=\`window.lucide\`; NO import/export statements; NO \`render()\`/\`createRoot\` call in the code.
@@ -1313,6 +1406,7 @@ Emit ONE JSON object (no prose, no fences):
   "issues": [{ "category": "integration|code_bug|brand|data|coverage", "severity": "blocker|major|minor",
     "description": "...", "code_location": "Screen_x / reducer / App", "fix": "what you did" }],
   "session_coverage": { "coverage_pct": number, "sessions_passed": number, "sessions_total": number } | null,
+  "prd_coverage": { "must_total": number, "must_demonstrated": number, "criteria_total": number, "criteria_met": number, "unmet": ["feature: the specific Given/When/Then not demonstrated"] } | null,
   "corrected_code": "the FULL corrected single-file React prototype, OR null" }
 corrected_code RULES (STRICT): if you change ANYTHING, corrected_code MUST be the ENTIRE rebuilt
 single-file prototype from the first line to the last - never a fragment, never a diff, never a
@@ -1375,7 +1469,10 @@ async function buildAppViaPods(args: {
         + `\n\n=== FIGMA DESIGN TOKENS (${brand}) - bind every color/font to these ===\n${liveTokens}\n\n`
         + POD_ORCHESTRATOR_SYSTEM
         + (protoConstraints ? `\n\n<learned_constraints>\n${protoConstraints}\n</learned_constraints>` : '');
-    const orchUser = `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}${richBrief}${sessionsBlock}`;
+    // E6.2 - deterministic seed grounding compiled between Stage 2 and the orchestrator: corpus
+    // names/records the seed arrays must use verbatim (model fills gaps, never invents over corpus).
+    const seedGrounding = deriveSeedGrounding(brief, simulatedSessions, richBrief || '');
+    const orchUser = `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}${richBrief}${sessionsBlock}${seedGrounding}`;
     let contract: AppShellContract;
     try {
         contract = await callOpusJsonStage<AppShellContract>(
@@ -1586,6 +1683,26 @@ async function buildAppViaPods(args: {
     if (purity.stale_fonts.length || purity.literal_hex > 0) {
         console.warn(`[proto] TOKEN PURITY: ${purity.literal_hex} literal hex, ${purity.stale_fonts.length} stale font(s)${purity.stale_fonts.length ? ` [${purity.stale_fonts.join(', ')}]` : ''}; grounding ${grounding_pct}%.`);
     }
+    // E6.3 (2026-07-02) - grounding_pct RATCHET (>= 80). Advisory by default: a sub-80 build
+    // always surfaces a MAJOR coverage issue. Flips BLOCKING (verdict forced to 'refine') via
+    // localStorage['hic.proto.groundingBlocking']='on' after two consecutive clean builds -
+    // the ratchet flip is the owner-gated T2 item; never relax back once flipped.
+    if (grounding_pct < 80) {
+        (critique.issues = critique.issues || []).push({
+            category: 'coverage',
+            severity: 'major',
+            description: `Component grounding ${grounding_pct}% is below the 80% ratchet floor: ${inventedTotal}/${declaredTotal} declared components are not in the Figma proto/<Name> manifest.`,
+            source_of_truth: 'design_system',
+            code_location: 'pod PROTO COMPONENTS declarations',
+            fix: 'Rebuild each invented region from the nearest real proto/<Name> component.',
+        } as any);
+        let groundingBlocking = false;
+        try { groundingBlocking = (globalThis as any).localStorage?.getItem('hic.proto.groundingBlocking') === 'on'; } catch { /* headless */ }
+        if (groundingBlocking && critique.verdict === 'ship') {
+            console.warn(`[proto] grounding ratchet BLOCKING: verdict ship -> refine at ${grounding_pct}% (< 80).`);
+            critique.verdict = 'refine';
+        }
+    }
     if (purity.stale_fonts.length) {
         (critique.issues = critique.issues || []).push({
             category: 'code_bug',
@@ -1598,7 +1715,11 @@ async function buildAppViaPods(args: {
     }
 
     const cov = critique.session_coverage ? ` · coverage ${critique.session_coverage.coverage_pct}%` : '';
-    fire(5, 'Integration Reviewer', 'done', `${critique.verdict}${cov} · ${critique.issues?.length || 0} issues · grounding ${grounding_pct}% · ${correctedIsSubstantive ? 'reviewer-corrected' : 'assembled'}`);
+    // E6 (2026-07-02): PRD acceptance coverage on the receipt line, next to session coverage.
+    const prdCov = critique.prd_coverage
+        ? ` · prd ${critique.prd_coverage.must_demonstrated}/${critique.prd_coverage.must_total} must-have, ${critique.prd_coverage.criteria_met}/${critique.prd_coverage.criteria_total} criteria`
+        : '';
+    fire(5, 'Integration Reviewer', 'done', `${critique.verdict}${cov}${prdCov} · ${critique.issues?.length || 0} issues · grounding ${grounding_pct}% · ${correctedIsSubstantive ? 'reviewer-corrected' : 'assembled'}`);
 
     // Build a BuildRecipe-shaped summary for the artifact (orchestrator contract -> recipe view).
     const buildRecipe: BuildRecipe = {

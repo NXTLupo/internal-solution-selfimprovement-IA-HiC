@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1113]
     sentence_count: 8
     key_terms: [jobs, job, like, currently, degree, reddit, entry, level]
+    concepts: [currently, degree, reddit, entry, level]
     token_count: 261
+    sources: [{"n":"Reddit Deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1pmlssl/what_entry_level_jobs_did_you_actually_like/"}]
   - id: "articles/reddit-deep-r-jobs/aa7eacd3a4.md#c1"
     char_span: [1115, 2210]
     sentence_count: 7
     key_terms: [job, receptionist, being, groundsman, favorite, built, loved, quick-angle9562]
+    concepts: [receptionist, being, groundsman, favorite, built]
     token_count: 273
 ---
 # What entry level jobs did you actually like?

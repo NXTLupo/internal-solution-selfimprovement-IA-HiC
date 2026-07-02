@@ -20,41 +20,54 @@ chunks:
     char_span: [0, 1204]
     sentence_count: 10
     key_terms: [tools, dataengineering, comments, low-code, pipeline, airflow, anyone, issues]
+    concepts: [dataengineering, tools, comments, low-code, pipeline]
     token_count: 264
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1m3tswv/anyone_switched_from_airflow_to_lowcode_data/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c1"
-    char_span: [1219, 3069]
+    char_span: [1218, 3068]
     sentence_count: 14
     key_terms: [transformation, orchestration, airflow, data, dbt, ingestion, integrate, strictly]
+    concepts: [transformation, orchestration, airflow, ingestion, integrate]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c2", "social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c3", "social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c6"]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c2"
-    char_span: [3071, 4740]
+    char_span: [3070, 4739]
     sentence_count: 12
     key_terms: [airflow, dockeroperator, orchestration, logic, business, kubernetespodoperator, people, image]
+    concepts: [airflow, dockeroperator, orchestration, logic, business]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c1", "social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c3", "social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c6"]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c3"
-    char_span: [4742, 6885]
+    char_span: [4741, 6884]
     sentence_count: 17
     key_terms: [airflow, use, because, dagster, orchestration, tried, lot, airbyte]
+    concepts: [airflow, because, orchestration, dagster, tried]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c1", "social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c2", "social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c4", "social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c6"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c4"
-    char_span: [6887, 8848]
+    char_span: [6886, 8847]
     sentence_count: 16
     key_terms: [airflow, code, data, going, etl, "it's", like, imcguyver]
+    concepts: [airflow, going, imcguyver, dagster, problem]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c3"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c5"
-    char_span: [8850, 10817]
+    char_span: [8849, 10816]
     sentence_count: 10
     key_terms: [earthgoddessdude, people, azure, work, constantly, repeatable, functions, ingestion]
+    concepts: [earthgoddessdude, people, azure, constantly, repeatable]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c6"
-    char_span: [10820, 11959]
+    char_span: [10819, 11958]
     sentence_count: 10
     key_terms: [ingestion, integrate, airflow, orchestration, cleaning, individual-durian952, basic, here]
+    concepts: [ingestion, integrate, orchestration, airflow, cleaning]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c1", "social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c2", "social-intelligence/reddit-deep/dataengineering/1m3tswv.md#c3"]
     section: Comments
     token_count: 233
 ---

@@ -17,14 +17,17 @@ research_goal: "Produce the definitive guide to personal investing in 2026 by an
 engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/defi/1s82lzd.md#c0"
-    char_span: [0, 1980]
+    char_span: [0, 1979]
     sentence_count: 14
     key_terms: [defi, pecunity, abstraction, lose, automation, everything, one-click, technical]
-    token_count: 492
+    concepts: [pecunity, abstraction, automation, everything, one-click]
+    token_count: 491
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1s82lzd/why_is_defi_still_a_ux_nightmare_and_how_account/"}]
   - id: "social-intelligence/reddit-deep/defi/1s82lzd.md#c1"
-    char_span: [1982, 3945]
+    char_span: [1981, 3944]
     sentence_count: 13
     key_terms: [cyfrin-audit-reports, risks, cyfrin-pecunity-v2, pecunity, account, cyfrin, abstraction, like]
+    concepts: [cyfrin-audit-reports, cyfrin-pecunity-v2, risks, pecunity, account]
     token_count: 481
 ---
 # Why is DeFi still a UX nightmare? (And how Account Abstraction at Pecunity is finally fixing it)

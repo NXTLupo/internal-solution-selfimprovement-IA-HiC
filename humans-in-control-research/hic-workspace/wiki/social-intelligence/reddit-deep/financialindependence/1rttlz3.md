@@ -21,58 +21,72 @@ chunks:
     char_span: [0, 1506]
     sentence_count: 6
     key_terms: [fire, financialindependence, total, years, after-tax, portfolio, comments, expenses]
+    concepts: [financialindependence, total, years, after-tax, portfolio]
     token_count: 459
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1rttlz3/military_fire/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c1"
     char_span: [1508, 3110]
     sentence_count: 12
     key_terms: [working, get, new, spending, friends, reading, realize, needed]
+    concepts: [working, spending, friends, reading, realize]
     token_count: 348
   - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c2"
     char_span: [3124, 4265]
     sentence_count: 5
     key_terms: [healthcare, jimzzz38, military, because, housing, parents, retired, free]
+    concepts: [healthcare, jimzzz38, military, because, housing]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c9"]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c3"
     char_span: [4268, 6272]
     sentence_count: 14
     key_terms: [pay, military, "it's", job, active, base, free, completely]
+    concepts: [military, active, completely, depending, socialism]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c4"
     char_span: [6274, 7860]
     sentence_count: 7
     key_terms: [military, additional, pay, through, years, low, allowance, housing]
+    concepts: [military, additional, through, years, allowance]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c9"]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c5"
     char_span: [7863, 9712]
     sentence_count: 14
     key_terms: [retirement, people, military, benefits, like, experience, healthcare, civilians]
+    concepts: [retirement, people, military, benefits, experience]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c6"
     char_span: [9714, 10999]
     sentence_count: 6
     key_terms: [conversions, get, percentile, jealous, overall, people, free, ira]
+    concepts: [conversions, percentile, jealous, overall, people]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c7"
     char_span: [11001, 12753]
     sentence_count: 11
     key_terms: [estate, withdrawal, portfolio, rate, real, advantageone1754, lending, mil]
+    concepts: [withdrawal, estate, advantageone1754, portfolio, lending]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c8"
     char_span: [12755, 14338]
     sentence_count: 9
     key_terms: ["you're", military, projections, retirees, pension, income, compensation, years]
+    concepts: ["you're", military, projections, retirees, pension]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c9"
     char_span: [14340, 15489]
     sentence_count: 8
     key_terms: [military, pay, year, discipline, allowance, platform, housing, regular]
+    concepts: [military, discipline, allowance, platform, housing]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c2", "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c4"]
     section: Comments
     token_count: 287
 ---

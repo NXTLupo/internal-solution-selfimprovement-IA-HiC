@@ -19,29 +19,37 @@ chunks:
     char_span: [0, 1269]
     sentence_count: 8
     key_terms: [math, co-ops, people, major, engineering, neu, comments, boston]
+    concepts: [co-ops, people, engineering, major, comments]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1qyu9if.md#c3"]
     token_count: 309
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qyu9if/cs_math_major/"}]
   - id: "social-intelligence/reddit-deep/neu/1qyu9if.md#c1"
     char_span: [1283, 3441]
     sentence_count: 11
     key_terms: [people, concentration, math, work, roles, give, here, foundation]
+    concepts: [people, concentration, foundation, professors, roles]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/neu/1qyu9if.md#c2"
     char_span: [3443, 4257]
     sentence_count: 5
     key_terms: [boston, here, live, completely, honest, being, moved, city]
+    concepts: [boston, completely, honest, being, moved]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/neu/1qyu9if.md#c3"
     char_span: [4259, 6320]
     sentence_count: 11
     key_terms: [fun-succotash-7160, here, "i'm", math, major, minor, engineering, take]
+    concepts: [fun-succotash-7160, engineering, major, minor, working]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1qyu9if.md#c0"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/neu/1qyu9if.md#c4"
     char_span: [6322, 8492]
     sentence_count: 16
     key_terms: [semester, math, glitteringmaybe4121, clubs, fun-succotash-7160, courses, instead, major]
+    concepts: [semester, glitteringmaybe4121, fun-succotash-7160, clubs, courses]
     section: Comments
     token_count: 512
 ---

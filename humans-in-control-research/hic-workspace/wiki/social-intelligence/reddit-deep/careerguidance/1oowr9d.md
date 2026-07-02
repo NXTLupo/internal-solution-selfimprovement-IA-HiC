@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1330]
     sentence_count: 11
     key_terms: [future, get, careerguidance, design, remote, years, job, mechanical]
+    concepts: [future, careerguidance, design, remote, mechanical]
     token_count: 308
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1oowr9d/future_career_with_remote_opportunities_and_advice/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1oowr9d.md#c1"
     char_span: [1344, 1895]
     sentence_count: 1
     key_terms: [engineering, remote, roles, like, computational, opportunities, development, automation]
+    concepts: [engineering, remote, roles]
     section: Comments
     token_count: 110
 ---

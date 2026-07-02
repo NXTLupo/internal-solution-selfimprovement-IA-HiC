@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1865]
     sentence_count: 9
     key_terms: [instructional, design, hiring, designers, highereducation, advice, anyone, higher]
+    concepts: [instructional, design, hiring, designers, highereducation]
     token_count: 345
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1rrztqs/earlycareer_instructional_designer_looking_for/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1rrztqs.md#c1"
     char_span: [1879, 2392]
     sentence_count: 3
     key_terms: [instructional, designer, accessibility, technologist, competition, consulting, experience, education]
+    concepts: [instructional, designer]
     section: Comments
     token_count: 106
   - id: "social-intelligence/reddit-deep/highereducation/1rrztqs.md#c2"
     char_span: [2394, 4560]
     sentence_count: 16
     key_terms: [tornforshrek, sponsorship, experience, need, work, definitely, university, position]
+    concepts: [tornforshrek, sponsorship, experience, definitely, university]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1rrztqs.md#c3"
@@ -50,12 +54,14 @@ chunks:
     char_span: [4878, 6918]
     sentence_count: 12
     key_terms: [tornforshrek, look, jobs, associate, recommend, benefits, willing, higher]
+    concepts: [tornforshrek, associate, recommend, benefits, willing]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/highereducation/1rrztqs.md#c6"
     char_span: [6920, 7685]
     sentence_count: 7
     key_terms: [university, brandeis, boston, work, tornforshrek, institution, prestigious, healthcare]
+    concepts: [university, brandeis, boston]
     section: Comments
     token_count: 188
 ---

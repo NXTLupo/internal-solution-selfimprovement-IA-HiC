@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1668]
     sentence_count: 11
     key_terms: [iit, kgp, rpr, mandi, confirmation, guide, internships, comments]
+    concepts: [mandi, confirmation, internships, guide, comments]
     token_count: 395
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1szrbii/help_me_choose_between_these_three/"}]
   - id: "social-intelligence/reddit-deep/internships/1szrbii.md#c1"
     char_span: [1682, 2206]
     sentence_count: 2
     key_terms: [reallypratik, selected, grishma, domain, get, year, internships, shortlisted]
+    concepts: [reallypratik, selected, grishma, domain]
     section: Comments
     token_count: 158
 ---

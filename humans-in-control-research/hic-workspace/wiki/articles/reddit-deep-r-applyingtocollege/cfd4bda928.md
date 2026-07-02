@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1720]
     sentence_count: 16
     key_terms: [apply, class, applyingtocollege, upper-middle, kid, year, colleges, comments]
+    concepts: [applyingtocollege, apply, class, upper-middle, colleges]
     token_count: 427
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1teyhcj/colleges_to_apply_to_if_you_are_uppermiddle_class/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/cfd4bda928.md#c1"
     char_span: [1722, 3905]
     sentence_count: 13
     key_terms: [income, paying, years, like, household, increased, getting, people]
+    concepts: [income, paying, years, household, increased]
     token_count: 508
 ---
 # Colleges to apply to if you are upper-middle class

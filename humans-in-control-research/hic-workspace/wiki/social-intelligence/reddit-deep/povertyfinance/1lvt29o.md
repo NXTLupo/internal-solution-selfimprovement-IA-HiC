@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1265]
     sentence_count: 13
     key_terms: [school, car, povertyfinance, right, debt, job, comments, continue]
+    concepts: [school, povertyfinance, right, comments, continue]
     token_count: 306
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1lvt29o/23_yo_adult_stuck_in_debt_car_trouble_lowpaying/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1lvt29o.md#c1"
     char_span: [1279, 2987]
     sentence_count: 15
     key_terms: [school, work, job, "don't", get, student, finish, car]
+    concepts: [school, "don't", student, finish, interview]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1lvt29o.md#c2"]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/povertyfinance/1lvt29o.md#c2"
     char_span: [2989, 4152]
     sentence_count: 8
     key_terms: [school, getting, "don't", debt, job, another, deleted, finish]
+    concepts: [school, getting, "don't", another, deleted]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1lvt29o.md#c1"]
     section: Comments
     token_count: 283
 ---

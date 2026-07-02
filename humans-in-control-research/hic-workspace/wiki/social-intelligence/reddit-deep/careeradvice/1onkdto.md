@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1951]
     sentence_count: 19
     key_terms: [company, switch, looking, related, careeradvice, good, experience, chatbots]
+    concepts: [company, switch, looking, related, careeradvice]
     token_count: 467
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1onkdto/worked_at_jobs_where_i_did_not_learn_anything/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1onkdto.md#c1"
     char_span: [1965, 2507]
     sentence_count: 3
     key_terms: [programming, background, growing, learn, stats, math, videoconjeetu, sustainable]
+    concepts: [programming, background, growing, learn, stats]
     section: Comments
     token_count: 138
 ---

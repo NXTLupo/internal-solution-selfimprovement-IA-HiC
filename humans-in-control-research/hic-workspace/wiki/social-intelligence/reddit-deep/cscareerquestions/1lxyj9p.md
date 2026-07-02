@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1774]
     sentence_count: 14
     key_terms: [engineering, data, skills, knowledge, cscareerquestions, because, myself, employability]
+    concepts: [engineering, skills, cscareerquestions, knowledge, employability]
     token_count: 392
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1lxyj9p/yet_to_be_cs_postgrad_breadth_vs_depth_should_i/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lxyj9p.md#c1"
     char_span: [1788, 3774]
     sentence_count: 14
     key_terms: [something, project, learn, good, frontend, learning, engineering, interesting]
+    concepts: [something, project, learn, frontend, learning]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lxyj9p.md#c2"
     char_span: [3776, 4699]
     sentence_count: 5
     key_terms: [infrastructure, data, being, engineering, important, breadth, build, depth]
+    concepts: [infrastructure, engineering, being, important, breadth]
     section: Comments
     token_count: 193
 ---

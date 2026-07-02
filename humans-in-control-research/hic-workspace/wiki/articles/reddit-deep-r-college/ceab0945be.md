@@ -18,16 +18,22 @@ chunks:
     char_span: [0, 2105]
     sentence_count: 15
     key_terms: [college, parents, understand, get, etc, help, comments, parental]
+    concepts: [college, parents, understand, comments, parental]
+    related_chunks: ["articles/reddit-deep-r-college/ceab0945be.md#c2"]
     token_count: 470
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1mdejn8/parents_dont_understand_my_commitments/"}]
   - id: "articles/reddit-deep-r-college/ceab0945be.md#c1"
     char_span: [2107, 3245]
     sentence_count: 14
     key_terms: [work, graduate, hours, move, stay, time, week, paintforyourlife]
+    concepts: [graduate, hours]
     token_count: 284
   - id: "articles/reddit-deep-r-college/ceab0945be.md#c2"
     char_span: [3247, 4761]
     sentence_count: 15
     key_terms: [want, parents, job, time, been, plus, generation, understand]
+    concepts: [parents, generation, understand, students, studying]
+    related_chunks: ["articles/reddit-deep-r-college/ceab0945be.md#c0"]
     token_count: 354
 ---
 # Parents don’t understand my commitments

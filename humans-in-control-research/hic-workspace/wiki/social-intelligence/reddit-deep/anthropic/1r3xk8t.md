@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 325]
     sentence_count: 1
     key_terms: [anthropic, comments, metaknowing, reddit-deep, developers, december, "haven't", spotify]
+    concepts: [anthropic, comments]
     token_count: 90
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1r3xk8t/spotify_says_its_best_developers_use_claude_and/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1r3xk8t.md#c1"
     char_span: [339, 2187]
     sentence_count: 12
     key_terms: [going, code, honk, "doesn't", anyone, claude, deluge, period]
+    concepts: [going, "doesn't", anyone, claude, deluge]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/anthropic/1r3xk8t.md#c2"
     char_span: [2189, 3675]
     sentence_count: 6
     key_terms: [app, "it's", claude, code, spotify, always, months, pretty]
+    concepts: [claude, spotify, always, months, pretty]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/anthropic/1r3xk8t.md#c3"
     char_span: [3677, 5437]
     sentence_count: 13
     key_terms: [claude, coding, good, like, productivity, month, get, openrouter]
+    concepts: [claude, coding, productivity, month, openrouter]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/anthropic/1r3xk8t.md#c4"
     char_span: [5439, 6341]
     sentence_count: 7
     key_terms: [code, developers, thought, whoever, cedarsageandsilicone, fewer, does, else]
+    concepts: [developers, thought, whoever, fewer]
     section: Comments
     token_count: 242
 ---

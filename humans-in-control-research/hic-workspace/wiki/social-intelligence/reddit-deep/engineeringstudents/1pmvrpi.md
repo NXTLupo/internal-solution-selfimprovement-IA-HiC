@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1755]
     sentence_count: 1
     key_terms: [engineering, mechanical, engineeringstudents, computer, coding, fact, changing, comments]
+    concepts: [engineering, engineeringstudents, mechanical, computer, coding]
     token_count: 364
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1pmvrpi/computer_engineering_student_confused_about_my/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pmvrpi.md#c1"
     char_span: [1769, 2568]
     sentence_count: 5
     key_terms: [eng, electrical, education, software, ended, comp, less, like]
+    concepts: [electrical, education, software, ended]
     section: Comments
     token_count: 172
 ---

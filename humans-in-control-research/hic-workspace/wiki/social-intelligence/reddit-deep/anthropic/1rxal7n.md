@@ -21,34 +21,44 @@ chunks:
     char_span: [0, 2145]
     sentence_count: 15
     key_terms: [accessibility, outlook, outlook-email-scanner, api, claude, skill, permissions, https]
+    concepts: [accessibility, outlook-email-scanner, outlook, claude, skill]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1rxal7n.md#c2", "social-intelligence/reddit-deep/anthropic/1rxal7n.md#c3"]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1rxal7n/skill_md_file_to_scan_mac_outlook_emails_with/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1rxal7n.md#c1"
     char_span: [2147, 2378]
     sentence_count: 2
     key_terms: [outlook, outlook-email-scanner, github, attachment, arkya-ai, download, licensed, visible]
+    concepts: [outlook, github]
     token_count: 61
   - id: "social-intelligence/reddit-deep/anthropic/1rxal7n.md#c2"
     char_span: [2392, 4412]
     sentence_count: 6
     key_terms: [outlook, accessibility, win32com, inbox, windows, msg, client, import]
+    concepts: [outlook, accessibility, win32com, inbox, windows]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1rxal7n.md#c0", "social-intelligence/reddit-deep/anthropic/1rxal7n.md#c3"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/anthropic/1rxal7n.md#c3"
     char_span: [4418, 6382]
     sentence_count: 11
     key_terms: [outlook, write, com, automation, msg, api, direct, option]
+    concepts: [outlook, automation, write, accessibility, direct]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1rxal7n.md#c0", "social-intelligence/reddit-deep/anthropic/1rxal7n.md#c2"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/anthropic/1rxal7n.md#c4"
     char_span: [6384, 8247]
     sentence_count: 12
     key_terms: [personal, coolreddy, "it's", cool, drewhouser, catalyst, alzeric, company]
+    concepts: [personal, coolreddy, drewhouser, catalyst, alzeric]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/anthropic/1rxal7n.md#c5"
     char_span: [7946, 8469]
     sentence_count: 1
     key_terms: [frontmost, catalyst, like, axidentifier, everything, screenshot, afternoon, different]
+    concepts: [frontmost, catalyst]
     section: Comments
     token_count: 114
 ---

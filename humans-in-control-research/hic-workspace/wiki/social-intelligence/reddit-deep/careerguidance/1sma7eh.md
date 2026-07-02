@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 482]
     sentence_count: 5
     key_terms: [careerguidance, comments, analyst, data, job, reddit-deep, suggestions, projects]
+    concepts: [careerguidance, comments, analyst]
     token_count: 140
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sma7eh/im_stuck_in_a_bpo_job_for_year_and_wanted_to_come/"}]
 ---
 # I’m stuck in a BPO job for year and wanted to come out. It’s been 8 years, I think data analyst is better suits me, I kinda know sql, excel. Don’t know, if I can learn BI and python and do work on projects, will I be job ready?. Please help me with the suggestions.
 

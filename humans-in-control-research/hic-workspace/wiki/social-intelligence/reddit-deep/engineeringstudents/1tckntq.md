@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1903]
     sentence_count: 14
     key_terms: [hospitalization, year, transcript, engineeringstudents, junior, class, engineering, got]
+    concepts: [hospitalization, engineeringstudents, transcript, junior, engineering]
     token_count: 481
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tckntq/struggling_engineering_student_needs_advice/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tckntq.md#c1"
     char_span: [1905, 3174]
     sentence_count: 20
     key_terms: [like, job, mean, research, because, fucking, looking, several]
+    concepts: [research, because, fucking, looking, several]
     token_count: 288
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tckntq.md#c2"
     char_span: [3188, 4357]
     sentence_count: 8
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    concepts: [engineeringstudents, please, reddit, https, automoderator]
     section: Comments
     token_count: 266
 ---

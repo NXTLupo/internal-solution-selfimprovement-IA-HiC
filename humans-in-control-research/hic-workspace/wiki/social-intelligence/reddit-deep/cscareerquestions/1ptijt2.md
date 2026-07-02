@@ -19,34 +19,46 @@ chunks:
     char_span: [0, 1599]
     sentence_count: 6
     key_terms: [bloomberg, return, interviews, cscareerquestions, aws, nyc, got, sure]
+    concepts: [bloomberg, interviews, cscareerquestions, return, internship]
     token_count: 397
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ptijt2/aws_vs_bloomberg_google_meta_finals_new_grad/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ptijt2.md#c1"
     char_span: [1601, 2469]
     sentence_count: 6
     key_terms: [lot, work, bloomberg, better, pretty, secure, known, aws]
+    concepts: [bloomberg, better, pretty, secure, known]
     token_count: 195
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ptijt2.md#c2"
     char_span: [2483, 4067]
     sentence_count: 10
     key_terms: [aws, technicalestate8733, bloomberg, bad, meta, anecdotally, good, experience]
+    concepts: [technicalestate8733, bloomberg, anecdotally, experience, getting]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ptijt2.md#c3"]
     section: Comments
     token_count: 435
+    sources: [{"n":"I used to work at Facebook (pre-Meta), and still have a ton of friends there.  I","u":""}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ptijt2.md#c3"
     char_span: [4069, 5608]
     sentence_count: 10
     key_terms: [getting, amazon, years, bloomberg, get, join, chachachoud, lay]
+    concepts: [getting, amazon, bloomberg, years, chachachoud]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ptijt2.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1ptijt2.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1ptijt2.md#c5"]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ptijt2.md#c4"
     char_span: [5610, 7688]
     sentence_count: 15
     key_terms: [google, bloomberg, start, offer, years, date, because, pokerestock]
+    concepts: [bloomberg, google, start, offer, years]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ptijt2.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ptijt2.md#c5"
     char_span: [7433, 9380]
     sentence_count: 11
     key_terms: [bloomberg, amazon, aws, team, working, resume, doors, "it's"]
+    concepts: [bloomberg, amazon, working, resume, doors]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ptijt2.md#c3"]
     section: Comments
     token_count: 472
 ---

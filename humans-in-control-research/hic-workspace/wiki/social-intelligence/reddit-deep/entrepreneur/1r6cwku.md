@@ -20,23 +20,31 @@ chunks:
     char_span: [0, 790]
     sentence_count: 8
     key_terms: [entrepreneur, customers, comments, crowded, pivoted, own, saas, time]
+    concepts: [entrepreneur, customers, comments, crowded, pivoted]
     token_count: 200
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1r6cwku/pivoted_from_199m_saas_to_99_one_time_smart_or/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1r6cwku.md#c1"
-    char_span: [805, 2982]
+    char_span: [804, 2981]
     sentence_count: 14
     key_terms: [one-time, entrepreneur, please, weekly-card-8508, costs, customers, permanent, promotion]
+    concepts: [one-time, entrepreneur, please, weekly-card-8508, costs]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1r6cwku.md#c2", "social-intelligence/reddit-deep/entrepreneur/1r6cwku.md#c3"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/entrepreneur/1r6cwku.md#c2"
-    char_span: [2984, 5097]
+    char_span: [2983, 5096]
     sentence_count: 20
     key_terms: [product, one-time, subscription, self-hosted, customers, work, weekly-card-8508, managed]
+    concepts: [product, one-time, subscription, self-hosted, weekly-card-8508]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1r6cwku.md#c1", "social-intelligence/reddit-deep/entrepreneur/1r6cwku.md#c3"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/entrepreneur/1r6cwku.md#c3"
-    char_span: [5099, 6906]
+    char_span: [5098, 6905]
     sentence_count: 6
     key_terms: [one-time, weekly-card-8508, support, recurring, consider, against, nk90600, pricing]
+    concepts: [one-time, weekly-card-8508, support, recurring, consider]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1r6cwku.md#c1", "social-intelligence/reddit-deep/entrepreneur/1r6cwku.md#c2"]
     section: Comments
     token_count: 412
 ---

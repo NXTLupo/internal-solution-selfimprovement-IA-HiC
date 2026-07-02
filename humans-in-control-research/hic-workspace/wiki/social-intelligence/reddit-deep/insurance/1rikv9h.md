@@ -20,51 +20,65 @@ chunks:
     char_span: [0, 2144]
     sentence_count: 21
     key_terms: [car, insurance, state, farm, vehicle, shop, told, driver]
+    concepts: [insurance, state, vehicle, driver, at-fault]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1rikv9h.md#c1", "social-intelligence/reddit-deep/insurance/1rikv9h.md#c6"]
     token_count: 461
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1rikv9h/should_i_invoke_appraisal_clause_for_my_car_claim/"}]
   - id: "social-intelligence/reddit-deep/insurance/1rikv9h.md#c1"
     char_span: [2146, 4579]
     sentence_count: 26
     key_terms: [shop, state, appraiser, farm, vehicle, body, inspection, car]
+    concepts: [appraiser, state, vehicle, inspection, another]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1rikv9h.md#c0", "social-intelligence/reddit-deep/insurance/1rikv9h.md#c2", "social-intelligence/reddit-deep/insurance/1rikv9h.md#c6"]
     token_count: 484
   - id: "social-intelligence/reddit-deep/insurance/1rikv9h.md#c2"
     char_span: [4581, 7033]
     sentence_count: 19
     key_terms: [shop, repairs, state, independent, body, farm, damage, appraiser]
+    concepts: [repairs, independent, state, appraiser, damage]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1rikv9h.md#c1"]
     token_count: 494
   - id: "social-intelligence/reddit-deep/insurance/1rikv9h.md#c3"
-    char_span: [7048, 8281]
+    char_span: [7047, 8280]
     sentence_count: 8
     key_terms: [appraisal, state, farm, shop, responsible, body, caused, clause]
+    concepts: [appraisal, state, responsible, caused, clause]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/insurance/1rikv9h.md#c4"
-    char_span: [8283, 10487]
+    char_span: [8282, 10486]
     sentence_count: 20
     key_terms: [shop, company, independent, body, original, believe, caused, "don't"]
+    concepts: [independent, company, original, believe, caused]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/insurance/1rikv9h.md#c5"
-    char_span: [10172, 10588]
+    char_span: [10171, 10587]
     sentence_count: 2
     key_terms: [little, prior, shop, musicgreat7856, disappointing, representing, discrepancy, obligations]
+    concepts: [little, prior]
     section: Comments
     token_count: 83
   - id: "social-intelligence/reddit-deep/insurance/1rikv9h.md#c6"
-    char_span: [10590, 12447]
+    char_span: [10589, 12446]
     sentence_count: 10
     key_terms: [shop, vehicle, state, preferred, "it's", network, relationship, shops]
+    concepts: [vehicle, preferred, state, network, relationship]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1rikv9h.md#c0", "social-intelligence/reddit-deep/insurance/1rikv9h.md#c1"]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/insurance/1rikv9h.md#c7"
-    char_span: [12449, 13273]
+    char_span: [12448, 13272]
     sentence_count: 4
     key_terms: [friend, right, get, independent, additional, department, appraisal, appraiser]
+    concepts: [friend, right]
     section: Comments
     token_count: 177
   - id: "social-intelligence/reddit-deep/insurance/1rikv9h.md#c8"
-    char_span: [13275, 15237]
+    char_span: [13274, 15236]
     sentence_count: 8
     key_terms: [car, repairs, dealership, weeks, franchise, shop, repaired, manufacturer]
+    concepts: [repairs, dealership, franchise, weeks, repaired]
     section: Comments
     token_count: 443
 ---

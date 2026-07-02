@@ -20,88 +20,104 @@ chunks:
     char_span: [0, 2007]
     sentence_count: 7
     key_terms: [car, personalfinance, daycare, going, been, bill, year, financial]
+    concepts: [personalfinance, daycare, going, financial, comments]
     token_count: 467
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1oazb07/new_dad_freaking_out_how_in_the_hole_are_we/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c1"
     char_span: [2009, 2331]
     sentence_count: 2
     key_terms: [money, different, elsewhere, diligent, honestly, strictly, looking, roughly]
+    concepts: [money]
     token_count: 69
   - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c2"
     char_span: [2345, 3948]
     sentence_count: 15
     key_terms: [daycare, wife, mortgage, student, income, broke, debts, loans]
+    concepts: [daycare, mortgage, student, income, broke]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c3"
     char_span: [3950, 5271]
     sentence_count: 14
     key_terms: [childcare, far, year, council, "doesn't", family, does, home]
+    concepts: [childcare, council, "doesn't", family]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c4"
     char_span: [5273, 7130]
     sentence_count: 20
     key_terms: [daycare, years, job, congratulations, assets, raise, development, different]
+    concepts: [daycare, congratulations, years, assets, development]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c5"
     char_span: [7132, 8021]
     sentence_count: 8
     key_terms: ["don't", food, budgeting, getting, stupid, penny, kind, need]
+    concepts: ["don't", budgeting, getting, stupid, penny]
     section: Comments
     token_count: 214
   - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c6"
     char_span: [8023, 9401]
     sentence_count: 8
     key_terms: [baby, food, discounted, paycheck, daycare, rather, least, "we're"]
+    concepts: [discounted, paycheck, daycare, rather, least]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c7"
     char_span: [9403, 10300]
     sentence_count: 7
     key_terms: [savings, cushion, going, means, month, need, want, year]
+    concepts: [savings, cushion, going, means, month]
     section: Comments
     token_count: 235
   - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c8"
     char_span: [10302, 11806]
     sentence_count: 15
     key_terms: [discretionary, funds, look, want, spending, daycare, looking, picture]
+    concepts: [discretionary, funds, spending, daycare, looking]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c9"
     char_span: [11808, 13599]
     sentence_count: 14
     key_terms: [daycare, childcare, care, "they're", cost, paying, "that's", replacement]
+    concepts: [daycare, childcare, "they're", paying, "that's"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c10"
     char_span: [13601, 15001]
     sentence_count: 10
     key_terms: [childcare, making, costs, "she's", wife, years, year, "you're"]
+    concepts: [childcare, making, costs, "she's", years]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c11"
     char_span: [15003, 16979]
     sentence_count: 15
     key_terms: [been, job, people, keep, year, management, looking, income]
+    concepts: [people, management, looking, income, months]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c12"
     char_span: [16983, 18866]
     sentence_count: 14
     key_terms: [living, "you're", expenses, "don't", keep, helping, savings, income]
+    concepts: [living, "you're", expenses, "don't", helping]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c13"
     char_span: [18868, 20665]
     sentence_count: 15
     key_terms: [daycare, probably, being, care, good, discount, employee, benefit]
+    concepts: [daycare, probably, being, discount, employee]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c14"
     char_span: [20667, 21769]
     sentence_count: 13
     key_terms: [job, finding, care, don, get, kids, time, outstanding]
+    concepts: [finding]
     section: Comments
     token_count: 256
 ---

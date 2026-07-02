@@ -20,16 +20,22 @@ chunks:
     char_span: [0, 2109]
     sentence_count: 22
     key_terms: [returned, mcp, hubspot, connector, instead, metrics, expansion, expecting]
+    concepts: [returned, hubspot, connector, instead, metrics]
+    related_chunks: ["social-intelligence/reddit-deep/salesops/1td05vy.md#c1"]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/salesops","u":"https://www.reddit.com/r/SalesOps/comments/1td05vy/tested_hubspots_mcp_connector_on_revops_metrics/"}]
   - id: "social-intelligence/reddit-deep/salesops/1td05vy.md#c1"
     char_span: [2111, 4117]
     sentence_count: 23
     key_terms: [layer, hubspot, returned, channel, "doesn't", nothing, revenue, "there's"]
+    concepts: [layer, hubspot, returned, channel, "doesn't"]
+    related_chunks: ["social-intelligence/reddit-deep/salesops/1td05vy.md#c0"]
     token_count: 440
   - id: "social-intelligence/reddit-deep/salesops/1td05vy.md#c2"
-    char_span: [4132, 4774]
+    char_span: [4131, 4773]
     sentence_count: 3
     key_terms: [constructionleft2325, semantic, layer, using, vasco, app, mcp, infrastructure]
+    concepts: [constructionleft2325, semantic, layer, using, vasco]
     section: Comments
     token_count: 148
 ---

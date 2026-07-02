@@ -20,35 +20,45 @@ chunks:
     char_span: [0, 2113]
     sentence_count: 12
     key_terms: [teams, small, work, agile, processes, productmanagement, like, ai-accelerated]
+    concepts: [teams, small, agile, productmanagement, processes]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1p8ck9i.md#c3", "social-intelligence/reddit-deep/productmanagement/1p8ck9i.md#c5"]
     token_count: 428
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1p8ck9i/are_full_agile_processes_becoming_outdated_for/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1p8ck9i.md#c1"
-    char_span: [2128, 3801]
+    char_span: [2127, 3800]
     sentence_count: 8
     key_terms: [agile, practices, software, solution, mindset, figure, development, individuals]
+    concepts: [agile, practices, software, solution, mindset]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/productmanagement/1p8ck9i.md#c2"
-    char_span: [3803, 6063]
+    char_span: [3802, 6062]
     sentence_count: 13
     key_terms: [figma, landing, requirements, page, team, building, agile, small]
+    concepts: [figma, requirements, landing, building, davearneson]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/productmanagement/1p8ck9i.md#c3"
-    char_span: [6065, 7941]
+    char_span: [6064, 7940]
     sentence_count: 14
     key_terms: [small, processes, need, product, requirements, agile, "don't", guide]
+    concepts: [small, processes, product, requirements, signalbound]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1p8ck9i.md#c0"]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/productmanagement/1p8ck9i.md#c4"
-    char_span: [7943, 10092]
+    char_span: [7942, 10091]
     sentence_count: 15
     key_terms: [focus, work, feedback, meetings, specialization, non-technical, agile, efficiency]
+    concepts: [focus, feedback, meetings, specialization, non-technical]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/productmanagement/1p8ck9i.md#c5"
-    char_span: [10094, 11491]
+    char_span: [10093, 11490]
     sentence_count: 8
     key_terms: [agile, ceremonies, alignment, need, learning, teams, execution, clarity]
+    concepts: [agile, ceremonies, alignment, learning, teams]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1p8ck9i.md#c0"]
     section: Comments
     token_count: 306
 ---

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1854]
     sentence_count: 9
     key_terms: [https, co-op, co-ops, nucoop, nuworks-co-op-grader, app, tool, chrome-extension]
+    concepts: [https, co-op, nuworks-co-op-grader, co-ops, nucoop]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qfhuw3/northeastern_coop_chrome_extension/"}]
   - id: "social-intelligence/reddit-deep/neu/1qfhuw3.md#c1"
     char_span: [1868, 2550]
     sentence_count: 5
     key_terms: [turtlecap1324, thank, academicweapon149, cake, day, julianproskillz, northeastern, innovators]
+    concepts: [turtlecap1324, thank]
     section: Comments
     token_count: 212
 ---

@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 2097]
     sentence_count: 19
     key_terms: [job, applications, internships, interview, applying, minutes, through, resume]
+    concepts: [applications, internships, interview, applying, minutes]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1njj9sw/1700_applications_1_offer_13_months_of_struggling/"}]
   - id: "social-intelligence/reddit-deep/internships/1njj9sw.md#c1"
     char_span: [2099, 3207]
     sentence_count: 21
     key_terms: [chatgpt, resume, job, yourself, because, cover, didn, good]
+    concepts: [chatgpt, resume, yourself, because, cover]
     token_count: 271
   - id: "social-intelligence/reddit-deep/internships/1njj9sw.md#c2"
-    char_span: [3222, 4382]
+    char_span: [3221, 4381]
     sentence_count: 12
     key_terms: [graduating, did, betteroutbidder, dagmercleftjaw, flaky-knee2278, advertisement, entertainment, unfortunately]
+    concepts: [graduating]
     section: Comments
     token_count: 304
 ---

@@ -7,28 +7,33 @@ subreddit: "supplychain"
 title: "Career Advice - Logistics to Demand Planning"
 author: "Environmental_Bug_46"
 date: "2026-01-20T22:07:02.000Z"
-score: 11
-upvote_ratio: 1
+score: 10
+upvote_ratio: 0.92
 num_comments: 6
 flair: ""
-extracted_at: "2026-06-18T13:35:09.838Z"
+extracted_at: "2026-06-24T22:13:50.251Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/supplychain/1qif6lv.md#c0"
     char_span: [0, 1957]
     sentence_count: 17
     key_terms: [analyst, work, planning, demand, being, years, supplychain, role]
+    concepts: [analyst, planning, demand, supplychain, being]
+    related_chunks: ["social-intelligence/reddit-deep/supplychain/1qif6lv.md#c1"]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/supplychain","u":"https://www.reddit.com/r/supplychain/comments/1qif6lv/career_advice_logistics_to_demand_planning/"}]
   - id: "social-intelligence/reddit-deep/supplychain/1qif6lv.md#c1"
-    char_span: [1972, 3738]
+    char_span: [1971, 3737]
     sentence_count: 15
     key_terms: [demand, planning, logistics, jobs, commute, salary, range, experience]
+    concepts: [demand, planning, logistics, commute, salary]
+    related_chunks: ["social-intelligence/reddit-deep/supplychain/1qif6lv.md#c0"]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/supplychain/1qif6lv.md#c2"
-    char_span: [3740, 4135]
+    char_span: [3739, 4134]
     sentence_count: 6
     key_terms: [bearcalcium, considering, environment, forwarding, execution, logistics, promotion, questions]
     section: Comments
@@ -37,7 +42,7 @@ chunks:
 # Career Advice - Logistics to Demand Planning
 
 Source: [reddit-deep: r/supplychain](https://www.reddit.com/r/supplychain/comments/1qif6lv/career_advice_logistics_to_demand_planning/)
-Posted by **Environmental_Bug_46** · **11↑** · **6 comments**
+Posted by **Environmental_Bug_46** · **10↑** · **6 comments**
 
 Hello!
 

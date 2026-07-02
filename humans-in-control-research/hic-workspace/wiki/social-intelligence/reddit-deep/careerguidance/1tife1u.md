@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1709]
     sentence_count: 18
     key_terms: [get, visa, work, someone, careerguidance, career, recommended, universites]
+    concepts: [careerguidance, someone, career, recommended, universites]
     token_count: 407
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tife1u/rejected_by_italian_embassy_for_study_visa_which/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tife1u.md#c1"
     char_span: [1723, 2937]
     sentence_count: 9
     key_terms: [need, impression, pakistan, europe, german, skills, "can't", level]
+    concepts: [impression, pakistan, europe, german, skills]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/careerguidance/1tife1u.md#c2"
     char_span: [2939, 4159]
     sentence_count: 7
     key_terms: [economy, germany, support, better, career, trying, maybe, route]
+    concepts: [economy, germany, support, better, career]
     section: Comments
     token_count: 273
 ---

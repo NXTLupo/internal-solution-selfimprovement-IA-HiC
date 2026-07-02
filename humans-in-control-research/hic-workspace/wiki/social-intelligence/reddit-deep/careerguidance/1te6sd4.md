@@ -19,21 +19,26 @@ chunks:
     char_span: [0, 1127]
     sentence_count: 9
     key_terms: [careerguidance, career, family, experience, business, comments, details, almost]
+    concepts: [careerguidance, career, family, experience, business]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1te6sd4/struggling_to_find_a_job_after_almost_2_year/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1te6sd4.md#c1"
     char_span: [1129, 3305]
     sentence_count: 7
     key_terms: [feel, break, ive, analyst, career, been, manager, resume]
+    concepts: [break, analyst, career, manager, resume]
     token_count: 463
   - id: "social-intelligence/reddit-deep/careerguidance/1te6sd4.md#c2"
     char_span: [3307, 4973]
     sentence_count: 7
     key_terms: [operations, financial, analyst, hospitality, global, position, company, career]
+    concepts: [operations, financial, hospitality, analyst, global]
     token_count: 360
   - id: "social-intelligence/reddit-deep/careerguidance/1te6sd4.md#c3"
     char_span: [4987, 6546]
     sentence_count: 10
     key_terms: [roles, experience, point, like, financial, psytrense, targeting, anything]
+    concepts: [roles, experience, point, financial, psytrense]
     section: Comments
     token_count: 353
 ---

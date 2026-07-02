@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1637]
     sentence_count: 20
     key_terms: [team, manager, been, new, pip, comments, convince, escalate]
+    concepts: [manager, comments, convince, escalate, managers]
     token_count: 385
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1lmug9m/need_advice_im_a_manager_stuck_in_a_toxic/"}]
   - id: "social-intelligence/reddit-deep/managers/1lmug9m.md#c1"
     char_span: [1651, 3198]
     sentence_count: 14
     key_terms: [management, restaurant, everything, "manager's", problems, training, "didn't", offers]
+    concepts: [management, restaurant, everything, "manager's", problems]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/managers/1lmug9m.md#c2"
     char_span: [3200, 4784]
     sentence_count: 15
     key_terms: [pip, team, no-mongoose1541, nothing, job, like, another, fallacy]
+    concepts: [no-mongoose1541, nothing, another, fallacy, leaving]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/managers/1lmug9m.md#c3"
     char_span: [4786, 6639]
     sentence_count: 10
     key_terms: [manager, leave, pip, reason, chemical-bathroom-24, feels, teams, toxic]
+    concepts: [manager, leave, reason, feels, teams]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/managers/1lmug9m.md#c4"
     char_span: [6641, 8363]
     sentence_count: 8
     key_terms: [heightflat9761, team, harassment, deleted, investigation, got, another, because]
+    concepts: [heightflat9761, harassment, investigation, deleted, another]
     section: Comments
     token_count: 418
 ---

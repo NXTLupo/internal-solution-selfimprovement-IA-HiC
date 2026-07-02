@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1438]
     sentence_count: 12
     key_terms: [humanresources, hrbp, management, currently, comments, career, global, person]
+    concepts: [humanresources, management, currently, comments, career]
     token_count: 358
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1tc8qm0/need_career_advice_na/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1tc8qm0.md#c1"
     char_span: [1452, 3450]
     sentence_count: 9
     key_terms: [experience, companies, bigger, get, company, smaller, people, emarialartayu]
+    concepts: [experience, companies, bigger, emarialartayu, company]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/humanresources/1tc8qm0.md#c2"
     char_span: [3455, 4625]
     sentence_count: 10
     key_terms: [ornery-mycologist-53, puddingadorable9260, good, take, experience, different, feeling, looked]
+    concepts: [ornery-mycologist-53, puddingadorable9260, experience, different, feeling]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/humanresources/1tc8qm0.md#c3"
     char_span: [4627, 5670]
     sentence_count: 10
     key_terms: [puddingadorable9260, hrbp, role, promotion, change, title, bank, head]
+    concepts: [puddingadorable9260, promotion, change, title]
     section: Comments
     token_count: 252
 ---

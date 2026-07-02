@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 2321]
     sentence_count: 19
     key_terms: [internships, projects, did, like, recruiters, applying, comments, watching]
+    concepts: [internships, projects, recruiters, applying, comments]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1mtble7/from_no_interviews_to_internships_at_apple_and/"}]
   - id: "social-intelligence/reddit-deep/internships/1mtble7.md#c1"
     char_span: [2323, 3440]
     sentence_count: 14
     key_terms: [experience, rejection, stories, folder, https, video, youtu, did]
+    concepts: [experience, rejection, stories, folder, https]
     token_count: 251
   - id: "social-intelligence/reddit-deep/internships/1mtble7.md#c2"
     char_span: [3454, 5131]
     sentence_count: 9
     key_terms: [ask, relevant-author3142, referral, kind-complex4635, internships, call, beforehand, referrals]
+    concepts: [relevant-author3142, kind-complex4635, referral, internships, beforehand]
     section: Comments
     token_count: 423
 ---

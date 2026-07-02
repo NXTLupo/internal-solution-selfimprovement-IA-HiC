@@ -19,35 +19,48 @@ chunks:
     char_span: [0, 750]
     sentence_count: 6
     key_terms: [jobs, entry-level, experience, comments, years, pamelakesmyz38, first-timers, lower-paying]
+    concepts: [entry-level, experience, comments, years]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1m7ysor.md#c1", "social-intelligence/reddit-deep/jobs/1m7ysor.md#c4"]
     token_count: 167
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1m7ysor/why_do_so_many_entrylevel_jobs_require_experience/"}]
   - id: "social-intelligence/reddit-deep/jobs/1m7ysor.md#c1"
     char_span: [764, 1531]
     sentence_count: 5
     key_terms: [experience, required, years, individual-mud9487, job, kids, seen, underestimating]
+    concepts: [experience, required, years]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1m7ysor.md#c0"]
     section: Comments
     token_count: 198
   - id: "social-intelligence/reddit-deep/jobs/1m7ysor.md#c2"
     char_span: [1533, 3537]
     sentence_count: 8
     key_terms: [requirements, people, get, job, understand, interview, something, wishlist]
+    concepts: [requirements, people, understand, interview, something]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1m7ysor.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1m7ysor.md#c3"
     char_span: [3285, 4227]
     sentence_count: 8
     key_terms: [job, significantly, interview, without, income, people, clickprofessional769, offer]
+    concepts: [significantly, interview, without, income, people]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1m7ysor.md#c2"]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/jobs/1m7ysor.md#c4"
     char_span: [4229, 6265]
     sentence_count: 14
     key_terms: [experience, pay, get, careers, workers, people, years, entry-level]
+    concepts: [experience, careers, workers, people, entry-level]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1m7ysor.md#c0", "social-intelligence/reddit-deep/jobs/1m7ysor.md#c5"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/jobs/1m7ysor.md#c5"
     char_span: [6267, 7292]
     sentence_count: 4
     key_terms: [experience, someone, people, "don't", like, cookiebutterlover03, heard, makes]
+    concepts: [experience, someone, people, "don't", heard]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1m7ysor.md#c4"]
     section: Comments
     token_count: 239
 ---

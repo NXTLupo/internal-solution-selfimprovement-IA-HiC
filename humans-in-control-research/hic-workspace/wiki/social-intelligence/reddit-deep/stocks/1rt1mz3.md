@@ -20,43 +20,58 @@ chunks:
     char_span: [0, 2097]
     sentence_count: 15
     key_terms: [yandex, physical, cloud, real, market, nebius, taxi, adjacency]
+    concepts: [yandex, physical, cloud, market, nebius]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rt1mz3.md#c5"]
     token_count: 470
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1rt1mz3/nebius_is_running_the_exact_yandex_playbook_again/"}]
   - id: "social-intelligence/reddit-deep/stocks/1rt1mz3.md#c1"
     char_span: [2099, 4568]
     sentence_count: 20
     key_terms: [nebius, platform, need, product, scaling, models, like, ai-native]
+    concepts: [nebius, platform, product, scaling, models]
     token_count: 503
   - id: "social-intelligence/reddit-deep/stocks/1rt1mz3.md#c2"
     char_span: [4570, 7083]
     sentence_count: 20
     key_terms: [customer, nebius, majority, segments, like, technology, early, because]
+    concepts: [customer, nebius, majority, segments, technology]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rt1mz3.md#c3"]
     token_count: 489
   - id: "social-intelligence/reddit-deep/stocks/1rt1mz3.md#c3"
     char_span: [7085, 9486]
     sentence_count: 20
     key_terms: [nebius, majority, segment, siemens, synnex, enterprise, late, already]
+    concepts: [nebius, majority, segment, siemens, enterprise]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rt1mz3.md#c2"]
     token_count: 478
   - id: "social-intelligence/reddit-deep/stocks/1rt1mz3.md#c4"
     char_span: [9488, 10279]
     sentence_count: 6
     key_terms: [physical, robots, fulfillment, centers, across, today, commercially, conveyances]
+    concepts: [physical, robots, fulfillment, centers, across]
     token_count: 166
   - id: "social-intelligence/reddit-deep/stocks/1rt1mz3.md#c5"
-    char_span: [10294, 11997]
+    char_span: [10293, 11996]
     sentence_count: 4
     key_terms: [nebius, reddit, physical, positionjournal, autonomous, negative, robotics, avride]
+    concepts: [nebius, reddit, positionjournal, physical, autonomous]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rt1mz3.md#c0", "social-intelligence/reddit-deep/stocks/1rt1mz3.md#c6", "social-intelligence/reddit-deep/stocks/1rt1mz3.md#c7"]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/stocks/1rt1mz3.md#c6"
-    char_span: [12001, 14017]
+    char_span: [12000, 14016]
     sentence_count: 9
     key_terms: [positionjournal, russian, nebius, term, investment, thought, zurboz, anymanufacturer6465]
+    concepts: [positionjournal, russian, nebius, investment, thought]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rt1mz3.md#c5", "social-intelligence/reddit-deep/stocks/1rt1mz3.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1rt1mz3.md#c7"
-    char_span: [13740, 15224]
+    char_span: [13739, 15223]
     sentence_count: 13
     key_terms: [positionjournal, thanks, nebius, like, billion, buying, nvidia, responsible-laugh590]
+    concepts: [positionjournal, thanks, nebius, billion, buying]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1rt1mz3.md#c5", "social-intelligence/reddit-deep/stocks/1rt1mz3.md#c6"]
     section: Comments
     token_count: 394
 ---

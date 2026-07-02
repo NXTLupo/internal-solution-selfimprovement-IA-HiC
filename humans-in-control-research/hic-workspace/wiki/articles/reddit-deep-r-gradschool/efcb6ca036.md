@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1801]
     sentence_count: 18
     key_terms: [because, denied, school, graduate, application, been, department, gradschool]
+    concepts: [because, denied, school, graduate, application]
     token_count: 396
+    sources: [{"n":"Reddit Deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1qjgfev/denied_from_grad_school_any_hope_ever/"}]
   - id: "articles/reddit-deep-r-gradschool/efcb6ca036.md#c1"
     char_span: [1803, 3829]
     sentence_count: 19
     key_terms: [years, experience, plan, certification, publications, like, work, community]
+    concepts: [years, experience, certification, publications, community]
     token_count: 470
   - id: "articles/reddit-deep-r-gradschool/efcb6ca036.md#c2"
     char_span: [3831, 5003]
     sentence_count: 15
     key_terms: [accepted, program, applied, challenges, community, completed, doctorate, selective]
+    concepts: [accepted, program, applied, challenges, community]
     token_count: 262
 ---
 # Denied From Grad School. Any Hope? Ever?

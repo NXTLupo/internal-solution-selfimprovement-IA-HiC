@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1916]
     sentence_count: 12
     key_terms: [kla, offer, mathworks, intern, internships, role, work, conversion]
+    concepts: [mathworks, offer, intern, internships, conversion]
     token_count: 450
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sux66v/offer_decision_help_huge_last_minute_dilemma/"}]
   - id: "social-intelligence/reddit-deep/internships/1sux66v.md#c1"
-    char_span: [1931, 2561]
+    char_span: [1930, 2560]
     sentence_count: 4
     key_terms: [appropriate-tutor587, going, weeks, internship, relocating, relocation, currently, position]
+    concepts: [appropriate-tutor587, going, weeks]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/internships/1sux66v.md#c2"
-    char_span: [2563, 3952]
+    char_span: [2562, 3951]
     sentence_count: 11
     key_terms: [mathworks, weeks, kla, want, relocation, decision, duration, exciting]
+    concepts: [mathworks, relocation, weeks, decision, duration]
     section: Comments
     token_count: 344
 ---

@@ -21,34 +21,41 @@ chunks:
     char_span: [0, 1831]
     sentence_count: 10
     key_terms: [seagate-forecasts-upbeat-quarter-ai-202242268, technology, billion, revenue, seagate, earnings, fourth-quarter, wallstreetbets]
+    concepts: [seagate-forecasts-upbeat-quarter-ai-202242268, technology, billion, revenue, seagate]
     token_count: 470
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1syim21/seagate_16_afterhours_on_q3_2026_earnings_eps_5/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1syim21.md#c1"
     char_span: [1833, 2220]
     sentence_count: 1
     key_terms: [seagate-technology-reports-fiscal-third-quarter-2026-financial-results, businesswire, https, com, home, news, png, www]
+    concepts: [seagate-technology-reports-fiscal-third-quarter-2026-financial-results, businesswire, https]
     token_count: 131
   - id: "social-intelligence/reddit-deep/wallstreetbets/1syim21.md#c2"
     char_span: [2234, 3743]
     sentence_count: 4
     key_terms: [drive, ec3295e9c58e3c84506e332ebc341176ef247dff, seagate, bought, drives, year, discord, issues]
+    concepts: [drive, seagate, bought, drives, discord]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/wallstreetbets/1syim21.md#c3"
     char_span: [3745, 5577]
     sentence_count: 10
     key_terms: [expensive, too, memory, sector, soffatjockis, fomo, sandisk, market]
+    concepts: [expensive, soffatjockis, memory, sector, sandisk]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1syim21.md#c4"
     char_span: [5579, 7342]
     sentence_count: 15
     key_terms: [memory, totallycomputername, like, earnings, hyperscalers, maybe, wild, anymore]
+    concepts: [totallycomputername, memory, earnings, hyperscalers, maybe]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/wallstreetbets/1syim21.md#c5"
     char_span: [7344, 8168]
     sentence_count: 10
     key_terms: [stock, yoy, hardware, software, pinheadlarrry27, jharedtroll23, capacitors, g3tr1ghttt]
+    concepts: [stock, hardware, software]
     section: Comments
     token_count: 266
 ---

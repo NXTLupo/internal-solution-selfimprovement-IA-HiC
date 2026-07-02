@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 654]
     sentence_count: 6
     key_terms: [internships, internship, comments, title, "i'm", need, connections, engineering]
+    concepts: [internships, internship, comments, title]
     token_count: 163
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1lntej4/advices_on_how_to_find_an_internship_out_of_the/"}]
   - id: "social-intelligence/reddit-deep/internships/1lntej4.md#c1"
     char_span: [668, 2472]
     sentence_count: 12
     key_terms: [professors, etc, industry, applications, email, cold, internship, directors]
+    concepts: [professors, industry, applications, email, internship]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/internships/1lntej4.md#c2"
     char_span: [2475, 2950]
     sentence_count: 2
     key_terms: [person, networking, messaging, questions, anywhere, compared, goodluck, interest]
+    concepts: [person]
     section: Comments
     token_count: 110
 ---

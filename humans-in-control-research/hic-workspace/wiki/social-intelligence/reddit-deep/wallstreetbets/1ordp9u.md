@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 1985]
     sentence_count: 28
     key_terms: [bought, wallstreetbets, calls, point, years, like, expiration, comments]
+    concepts: [bought, wallstreetbets, calls, expiration, point]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c4"]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1ordp9u/decade_of_experience/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c1"
     char_span: [1987, 3396]
     sentence_count: 19
     key_terms: [bought, interest, diversified, like, million, options, margin, chart]
+    concepts: [bought, interest, diversified, million, options]
     token_count: 350
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c2"
     char_span: [3410, 4805]
     sentence_count: 3
     key_terms: [https, ade7f854fc152e2f3bac4a7bc3d6cb94f30002cb, da9449954425ce252c411654bea25b2f49bc55db, years, discord, preview, trading, format]
+    concepts: [https, years, discord, preview, trading]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c3"
     char_span: [4807, 6407]
     sentence_count: 9
     key_terms: [wendys-member, calls, experience, opposite, friends, bought, breakfastmedical5164, being]
+    concepts: [wendys-member, calls, experience, opposite, friends]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c4"
     char_span: [6225, 6711]
     sentence_count: 5
     key_terms: [bought, calls, "don't", price, june, sept, alert-money-9699, salespunk44]
+    concepts: [bought, calls, "don't", price]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c0"]
     section: Comments
     token_count: 167
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c5"
     char_span: [6716, 8116]
     sentence_count: 3
     key_terms: [spdr-s-p-500-ucits-etf-acc-ie000xzsv718--noigygcgigsgbgazbobwadoubvawgsqbuw4brqgmtgaobbay3oeob9tn0analtadua7aeyahexaaaykdyce-ysmlcaumqa, people, "wendy's", behind, prestigious-ebb-6408, appropriateowl1370, howdthatturnout, lewdacris916]
+    concepts: [people, "wendy's", behind]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c6"
     char_span: [8118, 9633]
     sentence_count: 7
     key_terms: [thank, like, bullish, flgrant, instead, service, casino, option]
+    concepts: [thank, bullish, flgrant, instead, service]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c7"
@@ -67,6 +77,7 @@ chunks:
     char_span: [10121, 11516]
     sentence_count: 5
     key_terms: [like, blah, sell, retirement, market, disconnectedgarbage, right, years]
+    concepts: [retirement, market, right, years]
     section: Comments
     token_count: 415
 ---

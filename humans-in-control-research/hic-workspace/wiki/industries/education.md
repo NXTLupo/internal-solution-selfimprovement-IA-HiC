@@ -10,6 +10,7 @@ chunks:
     char_span: [0, 784]
     sentence_count: 2
     key_terms: [industries, sources, shared, social-intelligence, reddit-deep, careerguidance, reddit-deep-r-applyingtocollege, education]
+    concepts: [industries, sources, social-intelligence, shared, reddit-deep]
     section: Cross-over verticals (shared sources) / Representative sources
     token_count: 216
 ---

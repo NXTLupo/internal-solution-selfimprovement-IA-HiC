@@ -21,29 +21,39 @@ chunks:
     char_span: [0, 1242]
     sentence_count: 6
     key_terms: [engineeringstudents, engineering, experience, mechanical, comments, creamprofessional641, work, problem-solving]
+    concepts: [engineeringstudents, engineering, experience, mechanical, comments]
     token_count: 278
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1pxuja5/decent_starting_salary_for_a_mechanical/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pxuja5.md#c1"
     char_span: [1256, 2475]
     sentence_count: 6
     key_terms: [page, creamprofessional641, points, fresh, grad, experience, equipment, recruiter]
+    concepts: [creamprofessional641, points, experience, fresh, equipment]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1pxuja5.md#c4"]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pxuja5.md#c2"
     char_span: [2477, 3816]
     sentence_count: 10
     key_terms: [resume, creamprofessional641, bassprobachelor, pay, definitely, oracle5of7, positions, question]
+    concepts: [resume, creamprofessional641, bassprobachelor, definitely, oracle5of7]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1pxuja5.md#c3"]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pxuja5.md#c3"
     char_span: [3818, 5749]
     sentence_count: 7
     key_terms: [creamprofessional641, resume, engineeringresumes, skills, thank, pinkytrees, getting, section]
+    concepts: [creamprofessional641, resume, engineeringresumes, skills, pinkytrees]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1pxuja5.md#c2"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pxuja5.md#c4"
     char_span: [5751, 6336]
     sentence_count: 4
     key_terms: [creamprofessional641, fresh, grads, get, take, consideration, considering, experience]
+    concepts: [creamprofessional641, fresh, grads]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1pxuja5.md#c1"]
     section: Comments
     token_count: 141
 ---

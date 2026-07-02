@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1017]
     sentence_count: 10
     key_terms: [digital, digitalnomad, down, comments, country, however, nomads, settle]
+    concepts: [digital, digitalnomad, comments, country, however]
     token_count: 246
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1mzkhp7/struggling_to_find_the_next_life_phase_as_a/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1mzkhp7.md#c1"
     char_span: [1031, 3193]
     sentence_count: 21
     key_terms: [home, life, location, people, time, explorers, situation, changing]
+    concepts: [location, people, explorers, situation, changing]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/digitalnomad/1mzkhp7.md#c2"
     char_span: [3195, 5153]
     sentence_count: 15
     key_terms: [nomad, years, life, nomadism, months, traditional, foreigners-in-your-own-country, lifestyle]
+    concepts: [nomad, years, nomadism, months, traditional]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/digitalnomad/1mzkhp7.md#c3"
     char_span: [5155, 5595]
     sentence_count: 4
     key_terms: [different, equivalent, everything, concerned, liquidity, wondering, dopamine, maggieyw]
+    concepts: [different]
     section: Comments
     token_count: 102
 ---

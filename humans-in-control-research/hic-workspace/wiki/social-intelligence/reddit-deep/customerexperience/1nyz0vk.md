@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 953]
     sentence_count: 6
     key_terms: [automating, customerexperience, wondering, comments, replies, voice, "i'm", too]
+    concepts: [customerexperience, automating, wondering, comments, replies]
     token_count: 215
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1nyz0vk/automating_cx_with_ai/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1nyz0vk.md#c1"
-    char_span: [968, 3248]
+    char_span: [967, 3247]
     sentence_count: 19
     key_terms: [automation, responses, real, customers, analysis, feedback, instead, handle]
+    concepts: [automation, responses, customers, analysis, feedback]
     section: Comments
     token_count: 491
 ---

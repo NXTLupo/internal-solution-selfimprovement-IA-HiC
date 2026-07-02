@@ -21,47 +21,56 @@ chunks:
     char_span: [0, 1006]
     sentence_count: 7
     key_terms: [research, series, gradschool, comments, console, energy, gaming, unplug]
+    concepts: [research, series, gradschool, comments, console]
     token_count: 247
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1t4ielq/anyone_else_use_a_gaming_console_to_unplug_after/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c1"
     char_span: [1020, 2843]
     sentence_count: 13
     key_terms: [games, console, minecraft, lot, honest, laptop, people, school]
+    concepts: [games, console, minecraft, honest, laptop]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c2"
     char_span: [2845, 4871]
     sentence_count: 16
     key_terms: [games, like, video, game, want, interested, something, gamepass]
+    concepts: [games, interested, video, something, gamepass]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c3"
     char_span: [4873, 7008]
     sentence_count: 20
     key_terms: [little, game, like, build-and-run-your-own-theme-park, mechanically, house, nightmares, overcooked]
+    concepts: [little, mechanically, house, nightmares, overcooked]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c4"
     char_span: [7010, 8947]
     sentence_count: 13
     key_terms: [absolutely, simulator, like, game, goat, "it's", friends, nothing]
+    concepts: [absolutely, simulator, friends, nothing, ghosts]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c5"
     char_span: [8949, 10081]
     sentence_count: 6
     key_terms: [games, like, competitive, overcooked, shooters, run, multiplayers, battlefield]
+    concepts: [games, competitive, overcooked, shooters]
     section: Comments
     token_count: 252
   - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c6"
     char_span: [10084, 12107]
     sentence_count: 10
     key_terms: [games, switch, like, xbox, recommendations, indie, been, good]
+    concepts: [games, switch, recommendations, indie, nintendo]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c7"
     char_span: [12109, 12865]
     sentence_count: 4
     key_terms: [whether, myself, doing, "it's", xbox, distraction, responsible, considered]
+    concepts: [whether, myself, doing]
     section: Comments
     token_count: 163
 ---

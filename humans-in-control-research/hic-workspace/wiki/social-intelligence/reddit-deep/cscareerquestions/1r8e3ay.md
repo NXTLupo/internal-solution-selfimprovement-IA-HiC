@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 1319]
     sentence_count: 10
     key_terms: [offer, company, developer, cscareerquestions, career, devops, intern, months]
+    concepts: [offer, company, cscareerquestions, developer, career]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1r8e3ay.md#c1"]
     token_count: 310
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1r8e3ay/career_advice_for_coop_internship/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r8e3ay.md#c1"
     char_span: [1333, 2253]
     sentence_count: 6
     key_terms: [legitimate-brain-978, offer, chances, company, embedded, later, too, want]
+    concepts: [legitimate-brain-978, offer, chances, company, embedded]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1r8e3ay.md#c0"]
     section: Comments
     token_count: 224
 ---

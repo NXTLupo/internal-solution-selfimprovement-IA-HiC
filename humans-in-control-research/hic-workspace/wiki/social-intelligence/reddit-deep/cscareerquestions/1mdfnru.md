@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 504]
     sentence_count: 3
     key_terms: [cscareerquestions, programming, comments, computer, areas, architecture, cryptography, chembrodude]
+    concepts: [cscareerquestions, programming, comments, computer, areas]
     token_count: 114
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1mdfnru/how_are_other_areas_of_the_cs_job_market_going/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c1"
     char_span: [518, 1271]
     sentence_count: 6
     key_terms: [embedded, market, "it's", systems, usually, pretty, juggernautguilty566, month]
+    concepts: [embedded, market, systems, usually, pretty]
     section: Comments
     token_count: 170
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c2"
     char_span: [1273, 3249]
     sentence_count: 9
     key_terms: [company, chembrodude, rapidroastingham, cybersecurity, competitive, applicants, outsourced, insurance]
+    concepts: [chembrodude, company, rapidroastingham, cybersecurity, competitive]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c3"
     char_span: [2987, 3591]
     sentence_count: 2
     key_terms: [people, occurrenceoverlap, dev, like, web, rapidroastingham, disposepriority, clearancejobs]
+    concepts: [people]
     section: Comments
     token_count: 156
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c4"
     char_span: [3594, 5781]
     sentence_count: 11
     key_terms: [web, dev, frontend, backend, like, lot, work, companies]
+    concepts: [frontend, backend, companies, database, probably]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c5"
     char_span: [5783, 7679]
     sentence_count: 18
     key_terms: [graphics, experience, work, challenging, chembrodude, "it's", definitely, interviews]
+    concepts: [graphics, experience, challenging, chembrodude, definitely]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c6"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c6"
     char_span: [7682, 9307]
     sentence_count: 10
     key_terms: [people, experience, graphics, mostly, skills, implementing, portfolio, applying]
+    concepts: [people, experience, graphics, implementing, mostly]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c5"]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c7"
     char_span: [9310, 10188]
     sentence_count: 8
     key_terms: [robotics, cybersecurity, companies, engineer, hardcore, research, like, chembrodude]
+    concepts: [robotics, cybersecurity, companies, engineer, hardcore]
     section: Comments
     token_count: 218
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2165]
     sentence_count: 21
     key_terms: [husband, course, summer, weeks, next, week, gradschool, situation]
+    concepts: [husband, course, summer, gradschool, weeks]
     token_count: 482
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1lwypu3/how_to_navigate_gradschool_as_nontraditional/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1lwypu3.md#c1"
     char_span: [2167, 2511]
     sentence_count: 6
@@ -31,6 +33,7 @@ chunks:
     char_span: [2525, 3770]
     sentence_count: 10
     key_terms: [grandparents, hazelstone37, something, someone, working, never, areptiledysfuction, good]
+    concepts: [grandparents, hazelstone37, something, someone, working]
     section: Comments
     token_count: 310
 ---

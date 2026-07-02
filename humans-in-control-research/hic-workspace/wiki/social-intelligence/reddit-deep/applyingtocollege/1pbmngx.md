@@ -19,58 +19,71 @@ chunks:
     char_span: [0, 1942]
     sentence_count: 15
     key_terms: [applyingtocollege, convince, because, parents, ready, don, want, comments]
+    concepts: [applyingtocollege, convince, because, parents, ready]
     token_count: 479
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1pbmngx/how_to_convince_my_mom/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c1"
     char_span: [1944, 2494]
     sentence_count: 5
     key_terms: [consider, plan-5-years-in-advanced, "haven't", been, requirements, decisions, financial, in-spirit]
+    concepts: [consider, "haven't"]
     token_count: 131
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c2"
     char_span: [2508, 3524]
     sentence_count: 6
     key_terms: [live, abroad, parent, school, dad, does, kids, love]
+    concepts: [abroad, parent, school]
     section: Comments
     token_count: 248
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c3"
     char_span: [3526, 4875]
     sentence_count: 12
     key_terms: [visa, express, student, intent, mom, year, understand, college]
+    concepts: [express, student, intent, understand, college]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c7"]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c4"
     char_span: [4877, 6826]
     sentence_count: 14
     key_terms: [school, rahbloxqueen, being, defer, start, "he's", accepted, country]
+    concepts: [school, rahbloxqueen, being, defer, start]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c5"
     char_span: [6828, 8808]
     sentence_count: 11
     key_terms: [school, federal, signing, like, part, understand, accepted, already]
+    concepts: [school, federal, signing, understand, accepted]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c6"
     char_span: [8810, 10991]
     sentence_count: 22
     key_terms: [semester, because, country, necessarily, get, year, financial, generally]
+    concepts: [semester, because, country, necessarily, financial]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c7"
     char_span: [10993, 13404]
     sentence_count: 20
     key_terms: [parents, understand, concerns, college, like, counselor, colleges, navigate]
+    concepts: [parents, understand, concerns, college, counselor]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c3"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c8"
     char_span: [13406, 15593]
     sentence_count: 18
     key_terms: [school, get, college, need, financial, traveling, convince, concern]
+    concepts: [school, college, financial, traveling, convince]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c9"
     char_span: [15595, 17210]
     sentence_count: 8
     key_terms: [scotland, school, looking, program, weather, been, love, want]
+    concepts: [scotland, school, looking, program, weather]
     section: Comments
     token_count: 380
 ---

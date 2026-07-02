@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1813]
     sentence_count: 11
     key_terms: [https, distribution, sampling, model, srtrbm-llm-hybrid, org, training, hybrid]
+    concepts: [https, distribution, sampling, srtrbm-llm-hybrid, model]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1smskvs.md#c1"]
     token_count: 458
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1smskvs/rbm_sampling_remains_stable_but_hybrid_llmguided/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1smskvs.md#c1"
     char_span: [1827, 4258]
     sentence_count: 13
     key_terms: [samples, sampling, distribution, rbm, energy, detailed, does, balance]
+    concepts: [samples, distribution, sampling, energy, detailed]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1smskvs.md#c0"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/deeplearning/1smskvs.md#c2"
     char_span: [4260, 5117]
     sentence_count: 5
     key_terms: [operating, detailed, dynamics, training, balance, regime, chain, non-equilibrium]
+    concepts: [operating, detailed, dynamics, training, balance]
     section: Comments
     token_count: 150
 ---

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1089]
     sentence_count: 15
     key_terms: [gradadmissions, comments, country, finally, cycles, hours, back, get]
+    concepts: [gradadmissions, comments, country, finally, cycles]
     token_count: 256
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qot5kp/its_finally_over/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qot5kp.md#c1"
-    char_span: [1104, 2067]
+    char_span: [1103, 2066]
     sentence_count: 5
     key_terms: [congratulations, rest, program, equivalent-fill-2949, passionzealousideal1, rahulyouareacheater, happy, congratationssssss]
+    concepts: [congratulations, program, happy]
     section: Comments
     token_count: 301
 ---

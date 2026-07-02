@@ -20,47 +20,58 @@ chunks:
     char_span: [0, 1653]
     sentence_count: 8
     key_terms: [want, manage, people, wealth, management, roles, financialcareers, finance]
+    concepts: [management, manage, people, wealth, financialcareers]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1mrhn89.md#c1"]
     token_count: 400
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1mrhn89/i_know_i_want_to_manage_peoples_wealth_but_what/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1mrhn89.md#c1"
-    char_span: [1668, 3743]
+    char_span: [1667, 3742]
     sentence_count: 24
     key_terms: [financial, management, financialcareers, discord, wealth, professionals, paraplanner, good]
+    concepts: [financial, management, financialcareers, professionals, discord]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1mrhn89.md#c0"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/financialcareers/1mrhn89.md#c2"
-    char_span: [3745, 4898]
+    char_span: [3744, 4897]
     sentence_count: 9
     key_terms: [slghtlystewpid, meant, specific, because, credit, school, suisse, nyu]
+    concepts: [slghtlystewpid, meant, specific, because, credit]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/financialcareers/1mrhn89.md#c3"
-    char_span: [4900, 6780]
+    char_span: [4899, 6779]
     sentence_count: 16
     key_terms: [analyst, like, credit, internships, ask, don, different, subreddit]
+    concepts: [analyst, credit, internships, different, subreddit]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/financialcareers/1mrhn89.md#c4"
-    char_span: [6782, 7890]
+    char_span: [6781, 7889]
     sentence_count: 6
     key_terms: [sesame-trout-area, someone, seriously, details, people, unless, "don't", need]
+    concepts: [sesame-trout-area, someone, seriously, details, people]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/financialcareers/1mrhn89.md#c5"
-    char_span: [7892, 10161]
+    char_span: [7891, 10160]
     sentence_count: 18
     key_terms: [start, managing, want, individuals, private, assets, career, client]
+    concepts: [managing, start, individuals, private, assets]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1mrhn89.md#c6"
-    char_span: [9870, 11504]
+    char_span: [9869, 11503]
     sentence_count: 11
     key_terms: [questions, dmtwolf, private, want, definitely, redditors, decisive, banking]
+    concepts: [questions, dmtwolf, private, definitely, redditors]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/financialcareers/1mrhn89.md#c7"
-    char_span: [11506, 11832]
+    char_span: [11505, 11831]
     sentence_count: 2
     key_terms: [money, path, consistency, management, technical, business, involves, managing]
+    concepts: [money]
     section: Comments
     token_count: 68
 ---

@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 431]
     sentence_count: 4
     key_terms: [gradadmissions, recommendation, comments, letter, recommendations, josephnoexiste, reddit-deep, professor]
+    concepts: [gradadmissions, recommendation, comments, letter]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rgigpf.md#c1"]
     token_count: 112
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rgigpf/roast_my_recommendation_letter/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rgigpf.md#c1"
     char_span: [445, 1365]
     sentence_count: 6
     key_terms: [greenpelican24, josephnoexiste, recommendation, letter, professor, like, qualitatively, immediately]
+    concepts: [greenpelican24, josephnoexiste, recommendation, letter, professor]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rgigpf.md#c0"]
     section: Comments
     token_count: 225
 ---

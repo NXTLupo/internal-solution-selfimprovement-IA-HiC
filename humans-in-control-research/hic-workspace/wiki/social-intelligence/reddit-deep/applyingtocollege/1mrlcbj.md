@@ -19,71 +19,90 @@ chunks:
     char_span: [0, 2186]
     sentence_count: 17
     key_terms: [college, school, parents, scholarships, community, applyingtocollege, don, disappointed]
+    concepts: [college, school, scholarships, parents, applyingtocollege]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c6"]
     token_count: 497
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1mrlcbj/asian_tiger_parents_are_forcing_me_to_go_to/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c1"
     char_span: [2188, 4065]
     sentence_count: 13
     key_terms: [scholarships, college, community, classes, schools, look, "would've", credits]
+    concepts: [scholarships, college, community, classes, schools]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c11"]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c2"
     char_span: [4068, 5518]
     sentence_count: 10
     key_terms: [high, government, families, incomes, faithlessnessmain564, apply, fafsa, money]
+    concepts: [government, families, incomes, apply, fafsa]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c3"
     char_span: [5520, 7060]
     sentence_count: 15
     key_terms: [princeton, don, get, something, transfers, probably, parents, opportunity-vanderbilt]
+    concepts: [princeton, something, transfers, probably, parents]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c4"
     char_span: [7062, 8181]
     sentence_count: 6
     key_terms: [college, pay, faithlessnessmain564, asian, don, get, job, mom]
+    concepts: [college, asian]
     section: Comments
     token_count: 280
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c5"
     char_span: [8183, 10307]
     sentence_count: 18
     key_terms: [college, schools, through, loans, time, community, credit, saving]
+    concepts: [college, schools, through, loans, community]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c11"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c6"
     char_span: [10042, 11780]
     sentence_count: 12
     key_terms: [college, scholarships, merit, full, get, miss, ole, selective]
+    concepts: [college, scholarships, merit, selective, anything]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c1"]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c7"
     char_span: [11782, 12261]
     sentence_count: 5
     key_terms: [college, cash, get, pay, applications, neighborhood, babysitting, community]
+    concepts: [college]
     section: Comments
     token_count: 109
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c8"
     char_span: [12263, 14219]
     sentence_count: 15
     key_terms: [scholarship, schools, sat, colleges, national, national-merit-semifinalist-cutoffs, merit, offer]
+    concepts: [scholarship, schools, colleges, national, merit]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c11"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c9"
     char_span: [14221, 15916]
     sentence_count: 23
     key_terms: [schools, like, alabama, always, great, maybe, due, good]
+    concepts: [schools, alabama, always, great, maybe]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c10"
     char_span: [15918, 17617]
     sentence_count: 10
     key_terms: [undergrad, went, broadcom, founders, stanford, tuition, faithlessnessmain564, did]
+    concepts: [undergrad, broadcom, founders, stanford, tuition]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c11"
     char_span: [17619, 18796]
     sentence_count: 11
     key_terms: [application, fees, pay, colleges, schools, attendance, college, better]
+    concepts: [application, colleges, schools, attendance, college]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1mrlcbj.md#c8"]
     section: Comments
     token_count: 262
 ---

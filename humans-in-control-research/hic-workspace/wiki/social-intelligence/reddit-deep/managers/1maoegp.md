@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 1773]
     sentence_count: 18
     key_terms: [burnout, because, remote-first, work, struggling, comments, managers, either]
+    concepts: [burnout, because, remote-first, struggling, comments]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1maoegp.md#c2", "social-intelligence/reddit-deep/managers/1maoegp.md#c4"]
     token_count: 451
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1maoegp/66_of_employees_are_struggling_in_2025_as_a/"}]
   - id: "social-intelligence/reddit-deep/managers/1maoegp.md#c1"
     char_span: [1787, 3966]
     sentence_count: 23
     key_terms: [openingconfection261, employees, work, "there's", higher, people, encourage, something]
+    concepts: [openingconfection261, employees, "there's", higher, people]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/managers/1maoegp.md#c2"
     char_span: [3968, 5780]
     sentence_count: 11
     key_terms: [work, because, "they're", development, "it's", need, time, sometimes]
+    concepts: [because, "they're", development, sometimes, burnout]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1maoegp.md#c0", "social-intelligence/reddit-deep/managers/1maoegp.md#c4"]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/managers/1maoegp.md#c3"
     char_span: [5782, 7663]
     sentence_count: 20
     key_terms: [work, "don't", day, take, constant, meetings, burnout, despite]
+    concepts: ["don't", constant, meetings, burnout, despite]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/managers/1maoegp.md#c4"
     char_span: [7665, 8572]
     sentence_count: 17
     key_terms: [technically, flexible, another, because, burnout, enough, hours, point]
+    concepts: [technically, flexible, another, because, burnout]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1maoegp.md#c0", "social-intelligence/reddit-deep/managers/1maoegp.md#c2"]
     section: Comments
     token_count: 198
 ---

@@ -21,65 +21,82 @@ chunks:
     char_span: [0, 1688]
     sentence_count: 13
     key_terms: [people, trying, understand, credits, povertyfinance, system, money, taxes]
+    concepts: [people, understand, trying, povertyfinance, credits]
     token_count: 369
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1oze4m2/ive_been_trying_to_understand_how_rich_people/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c1"
     char_span: [1702, 3308]
     sentence_count: 11
     key_terms: [pay, borrow, income, taxes, tax, million, offset, accidentally]
+    concepts: [borrow, income, taxes, million, accidentally]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c4", "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c9"]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c2"
     char_span: [3313, 5342]
     sentence_count: 14
     key_terms: [stocks, interest, payments, loan, pay, assets, likely, taxes]
+    concepts: [stocks, interest, payments, assets, likely]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c3"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c3"
     char_span: [5344, 7701]
     sentence_count: 14
     key_terms: [interest, "it's", investments, "there's", assets, margin, people, class]
+    concepts: [interest, investments, "there's", assets, margin]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c2"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c4"
     char_span: [7703, 8581]
     sentence_count: 8
     key_terms: [equity, taxes, capital, assets, borrow, result, gains, home]
+    concepts: [equity, taxes, capital, assets, borrow]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c1"]
     section: Comments
     token_count: 192
   - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c5"
     char_span: [8583, 10556]
     sentence_count: 16
     key_terms: [assets, "it's", wealthy, around, people, huge, own, illiquid]
+    concepts: [assets, wealthy, around, people, illiquid]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c6"
     char_span: [10558, 11989]
     sentence_count: 7
     key_terms: [interest, stock, worth, gain, tax, personal, people, system]
+    concepts: [interest, stock, worth, personal, people]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c7"
     char_span: [11991, 14241]
     sentence_count: 17
     key_terms: [people, tax, available, designed, enough, taxes, progressive, get]
+    concepts: [people, available, designed, enough, progressive]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c8"
     char_span: [14243, 15716]
     sentence_count: 11
     key_terms: [business, people, businesses, tax, deductions, easier, start, taxes]
+    concepts: [business, businesses, people, deductions, easier]
     section: Comments
     token_count: 306
   - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c9"
     char_span: [15718, 17517]
     sentence_count: 11
     key_terms: [credit, contributions, tax, earners, income, taxes, wage, retirement]
+    concepts: [credit, contributions, earners, income, taxes]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c1"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c10"
     char_span: [17519, 19132]
     sentence_count: 10
     key_terms: [taxes, tax, paying, credits, confusing, loopholes, because, wealthy]
+    concepts: [taxes, paying, credits, confusing, loopholes]
     section: Comments
     token_count: 374
 ---

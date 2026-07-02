@@ -20,27 +20,32 @@ chunks:
     char_span: [0, 1700]
     sentence_count: 4
     key_terms: [companies, api, integration, money, founders, actual, comments, netflix]
+    concepts: [companies, integration, money, founders, actual]
     token_count: 416
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1nktx12/did_some_digging_on_ai_success_rates_the_results/"}]
   - id: "social-intelligence/reddit-deep/saas/1nktx12.md#c1"
-    char_span: [1715, 3051]
+    char_span: [1714, 3050]
     sentence_count: 14
     key_terms: [speech, defining, output, multimillion-dollar, agree, using, bot, tool]
+    concepts: [speech, defining, output, agree, using]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/saas/1nktx12.md#c2"
-    char_span: [3053, 5009]
+    char_span: [3052, 5008]
     sentence_count: 12
     key_terms: [problem, business, totally, data, keeather, research, solution, project]
+    concepts: [problem, business, totally, keeather, research]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/saas/1nktx12.md#c3"
-    char_span: [5011, 6962]
+    char_span: [5010, 6961]
     sentence_count: 10
     key_terms: [mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo, use, https, siderealhiraeth, generally, fortune, bubble, people]
+    concepts: [mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo, https, siderealhiraeth, generally, fortune]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/saas/1nktx12.md#c4"
-    char_span: [6964, 7032]
+    char_span: [6963, 7031]
     sentence_count: 1
     key_terms: [production, prototype, poc]
     section: Comments

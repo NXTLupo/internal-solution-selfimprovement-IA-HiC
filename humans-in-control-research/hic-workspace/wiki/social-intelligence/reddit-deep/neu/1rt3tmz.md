@@ -19,22 +19,29 @@ chunks:
     char_span: [0, 222]
     sentence_count: 2
     key_terms: [comments, neu, ok-banana-2859, reddit-deep, questions, posted, reddit, source]
+    concepts: [comments]
     token_count: 74
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rt3tmz/i_got_in_but_now_i_have_so_many_questions/"}]
   - id: "social-intelligence/reddit-deep/neu/1rt3tmz.md#c1"
     char_span: [224, 2484]
     sentence_count: 19
     key_terms: [northeastern, aid, estimated, financial, cost, circumstances, realistically, contribution]
+    concepts: [northeastern, estimated, financial, circumstances, realistically]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1rt3tmz.md#c3"]
     token_count: 473
   - id: "social-intelligence/reddit-deep/neu/1rt3tmz.md#c2"
     char_span: [2498, 4652]
     sentence_count: 13
     key_terms: [aid, slow-employment8774, usually, ok-banana-2859, unsubsidized, "don't", loans, like]
+    concepts: [slow-employment8774, ok-banana-2859, usually, unsubsidized, "don't"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1rt3tmz.md#c3"
     char_span: [4374, 6480]
     sentence_count: 18
     key_terms: [aid, financial, get, because, captain-marmot, ok-banana-2859, circumstances, major]
+    concepts: [financial, captain-marmot, ok-banana-2859, circumstances, because]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1rt3tmz.md#c1"]
     section: Comments
     token_count: 505
 ---

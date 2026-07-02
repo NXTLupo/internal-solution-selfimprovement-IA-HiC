@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 808]
     sentence_count: 3
     key_terms: [https, html-starter-kappa-ecru, nuworks-co-op-grader, ashwin-iyer1, com, positions, comments, applied]
+    concepts: [html-starter-kappa-ecru, https, nuworks-co-op-grader, ashwin-iyer1, positions]
     token_count: 215
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1oe1ppl/spring_coop_search_results_second_year_cs_x/"}]
   - id: "social-intelligence/reddit-deep/neu/1oe1ppl.md#c1"
     char_span: [822, 1786]
     sentence_count: 9
     key_terms: [position, turtlecap1324, quantitative, risk, analytics, applied, finance, careless-monitor7276]
+    concepts: [position, turtlecap1324, quantitative, analytics, applied]
     section: Comments
     token_count: 251
 ---

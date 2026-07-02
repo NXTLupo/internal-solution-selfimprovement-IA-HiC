@@ -19,65 +19,79 @@ chunks:
     char_span: [0, 1567]
     sentence_count: 15
     key_terms: [industry, cscareerquestions, cannot, "don't", years, tech, technology, companies]
+    concepts: [industry, cscareerquestions, cannot, "don't", technology]
     token_count: 347
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ln5nii/we_are_entering_a_unstable_phase_in_tech_industry/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ln5nii.md#c1"
     char_span: [1581, 3440]
     sentence_count: 16
     key_terms: [experience, something, new, wrong, get, hire, language, already]
+    concepts: [experience, something, wrong, language, already]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ln5nii.md#c4"]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ln5nii.md#c2"
     char_span: [3442, 5022]
     sentence_count: 11
     key_terms: [design, lead, team, system, "that's", experience, understand, position]
+    concepts: [design, system, "that's", experience, understand]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ln5nii.md#c3"
     char_span: [5024, 6829]
     sentence_count: 10
     key_terms: [get, write, experience, building, shehzman, because, someone, career]
+    concepts: [experience, write, building, shehzman, because]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ln5nii.md#c4"
     char_span: [6831, 8030]
     sentence_count: 7
     key_terms: [people, get, experience, companies, something, earning, better, jfjfujpuovkvtdghjll]
+    concepts: [people, experience, companies, something, earning]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ln5nii.md#c1"]
     section: Comments
     token_count: 296
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ln5nii.md#c5"
     char_span: [8032, 9980]
     sentence_count: 14
     key_terms: [everyone, big, tech, healthcare, offshoring, engineers, industry, medicaid]
+    concepts: [everyone, healthcare, offshoring, engineers, industry]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ln5nii.md#c6"
     char_span: [9982, 11270]
     sentence_count: 6
     key_terms: [industry, right, product, impact, mature, doesn, quite, tech]
+    concepts: [industry, right, product, impact, mature]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ln5nii.md#c7"
     char_span: [11275, 13420]
     sentence_count: 18
     key_terms: [heartless, tech, unfortunately, companies, situation, industry, company, without]
+    concepts: [heartless, unfortunately, companies, situation, industry]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ln5nii.md#c8"
     char_span: [13422, 15453]
     sentence_count: 15
     key_terms: [years, java, career, been, dev, job, different, realistic]
+    concepts: [years, career, different, realistic, because]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ln5nii.md#c9"
     char_span: [15455, 17521]
     sentence_count: 15
     key_terms: [companies, engineers, normal, sense, like, long, term, time]
+    concepts: [companies, engineers, normal, sense, boot-camp]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ln5nii.md#c10"
     char_span: [17523, 19335]
     sentence_count: 14
     key_terms: [code, "i'm", industry, principal, standards, causing, company, manager]
+    concepts: [industry, principal, standards, causing, company]
     section: Comments
     token_count: 448
 ---

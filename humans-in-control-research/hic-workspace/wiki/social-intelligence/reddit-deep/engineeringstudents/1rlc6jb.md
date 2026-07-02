@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1646]
     sentence_count: 15
     key_terms: ["i'm", summer, internship, engineeringstudents, actual, offer, engineering, counselors]
+    concepts: [engineeringstudents, internship, summer, actual, engineering]
     token_count: 366
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rlc6jb/junior_mechanical_engineering_student_here_need/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rlc6jb.md#c1"
     char_span: [1660, 2768]
     sentence_count: 8
     key_terms: [internship, job, applying, jdwjxia, resume, review, offer, engineeringresumes]
+    concepts: [internship, applying, jdwjxia, resume, review]
     section: Comments
     token_count: 261
 ---

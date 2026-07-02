@@ -21,46 +21,59 @@ chunks:
     char_span: [0, 2233]
     sentence_count: 15
     key_terms: [london, like, thailand, digitalnomad, been, life, move, southeast]
+    concepts: [london, thailand, digitalnomad, southeast, comments]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1sfp7wt/did_anyone_here_move_to_thailand_southeast_asia/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c1"
     char_span: [2235, 2849]
     sentence_count: 3
     key_terms: [people, sound, does, like, move, real, underestimate, bureaucracy]
+    concepts: [people, sound]
     token_count: 119
   - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c2"
     char_span: [2863, 4901]
     sentence_count: 17
     key_terms: [london, bangkok, syllabubexpensive663, right, move, consistent, creati-hu, probably]
+    concepts: [london, syllabubexpensive663, bangkok, consistent, right]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c6"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c3"
     char_span: [4903, 6907]
     sentence_count: 10
     key_terms: [syllabubexpensive663, income, bali, part, work, coworking, creati-hu, probably]
+    concepts: [syllabubexpensive663, income, coworking, creati-hu, probably]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c5"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c4"
     char_span: [6909, 8943]
     sentence_count: 16
     key_terms: [chiang, mai, "you're", city, lots, around, coffee, slower]
+    concepts: [chiang, "you're", around, coffee, slower]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c5"
     char_span: [8945, 10972]
     sentence_count: 15
     key_terms: [syllabubexpensive663, whether, income, ready, something, probably, already, produce]
+    concepts: [syllabubexpensive663, whether, income, ready, something]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c3"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c6"
     char_span: [10974, 12927]
     sentence_count: 17
     key_terms: [syllabubexpensive663, london, months, thanks, "it's", life, optimistic, burning]
+    concepts: [syllabubexpensive663, london, months, thanks, optimistic]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c2"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c7"
     char_span: [12929, 14294]
     sentence_count: 10
     key_terms: [philippines, less, like, probably, around, making, people, syllabubexpensive663]
+    concepts: [philippines, probably, around, making, people]
     section: Comments
     token_count: 322
 ---

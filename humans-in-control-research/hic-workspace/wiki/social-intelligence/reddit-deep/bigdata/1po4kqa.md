@@ -17,19 +17,26 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/bigdata/1po4kqa.md#c0"
-    char_span: [0, 2407]
+    char_span: [0, 2406]
     sentence_count: 12
     key_terms: [data, certifications, scientist, business, professionals, clds, science, usdsi]
-    token_count: 518
+    concepts: [certifications, scientist, business, professionals, science]
+    related_chunks: ["social-intelligence/reddit-deep/bigdata/1po4kqa.md#c1", "social-intelligence/reddit-deep/bigdata/1po4kqa.md#c2"]
+    token_count: 517
+    sources: [{"n":"reddit-deep: r/bigdata","u":"https://www.reddit.com/r/bigdata/comments/1po4kqa/top_6_data_scientist_certifications_that_will_pay/"}]
   - id: "social-intelligence/reddit-deep/bigdata/1po4kqa.md#c1"
-    char_span: [2409, 4935]
+    char_span: [2408, 4934]
     sentence_count: 6
     key_terms: [data, analytics, certified, scientist, professionals, business, senior, azure]
+    concepts: [analytics, certified, scientist, professionals, business]
+    related_chunks: ["social-intelligence/reddit-deep/bigdata/1po4kqa.md#c0"]
     token_count: 485
   - id: "social-intelligence/reddit-deep/bigdata/1po4kqa.md#c2"
-    char_span: [4937, 7468]
+    char_span: [4936, 7467]
     sentence_count: 7
     key_terms: [data, certifications, science, certification, learning, choose, analytics, sas]
+    concepts: [certifications, science, certification, learning, choose]
+    related_chunks: ["social-intelligence/reddit-deep/bigdata/1po4kqa.md#c0"]
     token_count: 488
 ---
 # Top 6 Data Scientist Certifications that will Pay Off in 2026

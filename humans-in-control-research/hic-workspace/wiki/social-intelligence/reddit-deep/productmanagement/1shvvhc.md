@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1596]
     sentence_count: 1
     key_terms: [products, becomes, custom, productmanagement, software, traditional, here, work]
+    concepts: [products, becomes, custom, productmanagement, software]
     token_count: 354
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1shvvhc/what_is_the_moat_of_software_if_ai_starts/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1shvvhc.md#c1"
-    char_span: [1611, 3332]
+    char_span: [1610, 3331]
     sentence_count: 11
     key_terms: [papaswagbear, home, own, building, software, people, everyone, security]
+    concepts: [papaswagbear, building, software, people, everyone]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/productmanagement/1shvvhc.md#c2"
-    char_span: [3334, 5319]
+    char_span: [3333, 5318]
     sentence_count: 10
     key_terms: [everyone, need, user, work, understand, developer, solution, always]
+    concepts: [everyone, understand, developer, solution, always]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/productmanagement/1shvvhc.md#c3"
-    char_span: [5321, 7131]
+    char_span: [5320, 7130]
     sentence_count: 8
     key_terms: [people, data, competitors, like, customer, pricing, become, figure]
+    concepts: [people, competitors, customer, pricing, become]
     section: Comments
     token_count: 421
 ---

@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 2585]
     sentence_count: 13
     key_terms: [startup, university, engineering, potentially, boston, engineeringstudents, been, lab]
+    concepts: [startup, university, engineering, engineeringstudents, potentially]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1spcbbe/senior_engineering_student_deciding_between/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1spcbbe.md#c1"
     char_span: [2599, 4317]
     sentence_count: 11
     key_terms: [startup, sbron8, especially, elsewhere, options, boston, equity, patent]
+    concepts: [startup, sbron8, especially, elsewhere, options]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/engineeringstudents/1spcbbe.md#c2"
     char_span: [4319, 4781]
     sentence_count: 3
     key_terms: [experience, "doesn't", illustrious-limit160, worth, anywhere, benefit, company, startup]
+    concepts: [experience, "doesn't", worth]
     section: Comments
     token_count: 117
 ---

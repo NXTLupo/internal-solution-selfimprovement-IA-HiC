@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1343]
     sentence_count: 10
     key_terms: [salesforce, cpq, billing, "i'm", comments, studying, junior, months]
+    concepts: [salesforce, billing, comments, studying, junior]
     token_count: 319
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1q3vfzh/should_i_quit_studying_cpq_billing/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1q3vfzh.md#c1"
-    char_span: [1358, 3079]
+    char_span: [1357, 3078]
     sentence_count: 16
     key_terms: [billing, quoting, being, perspective, cpq, next, indyjones8, salesforce]
+    concepts: [billing, quoting, perspective, being, indyjones8]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/salesforce/1q3vfzh.md#c2"
-    char_span: [3081, 4816]
+    char_span: [3080, 4815]
     sentence_count: 13
     key_terms: [cpq, important, billing, revenue, like, personally, understand, business]
+    concepts: [important, billing, revenue, personally, understand]
     section: Comments
     token_count: 394
 ---

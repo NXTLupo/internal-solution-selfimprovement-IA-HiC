@@ -20,20 +20,24 @@ chunks:
     char_span: [0, 2753]
     sentence_count: 22
     key_terms: [data, tools, systems, businessintelligence, drift, accessing, need, infrastructure]
+    concepts: [businessintelligence, tools, systems, accessing, drift]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1ow0lub/ai_tools_are_querying_your_data_warehouse_without/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1ow0lub.md#c1"
     char_span: [2755, 3563]
     sentence_count: 5
     key_terms: [response, monitoring, procedures, classification, organizational, ai-generated, capabilities, foundational]
+    concepts: [response, monitoring, procedures]
     token_count: 132
   - id: "social-intelligence/reddit-deep/businessintelligence/1ow0lub.md#c2"
-    char_span: [3578, 5889]
+    char_span: [3577, 5888]
     sentence_count: 20
     key_terms: [access, tools, management, "it's", approval, without, nobody, "isn't"]
+    concepts: [access, tools, management, approval, without]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/businessintelligence/1ow0lub.md#c3"
-    char_span: [5891, 6031]
+    char_span: [5890, 6030]
     sentence_count: 1
     key_terms: [dialektai, byebybuy, hasajedi, linkedin, chatgpt, check, inbox, cool]
     section: Comments

@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 2168]
     sentence_count: 10
     key_terms: [lab, current, new, berkeley, advisor, gradadmissions, perspectives, established]
+    concepts: [current, berkeley, gradadmissions, advisor, perspectives]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rp2oag.md#c1"]
     token_count: 465
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rp2oag/mit_or_berkeley_for_eecs/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rp2oag.md#c1"
     char_span: [2182, 3522]
     sentence_count: 7
     key_terms: [berkeley, advisor, funding, bay, here, students, school, though]
+    concepts: [berkeley, advisor, funding, students, school]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rp2oag.md#c0"]
     section: Comments
     token_count: 289
   - id: "social-intelligence/reddit-deep/gradadmissions/1rp2oag.md#c2"
     char_span: [3524, 5542]
     sentence_count: 11
     key_terms: [mit, beyond, berkeley, happy, stats, did, here, "i'm"]
+    concepts: [beyond, berkeley, happy, stats, academic]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rp2oag.md#c3"
     char_span: [5290, 5707]
     sentence_count: 3
     key_terms: ["i'm", mit, seems, americanidiot3342, notification, anecdotally, application, barkpatrol]
+    concepts: [seems]
     section: Comments
     token_count: 108
 ---

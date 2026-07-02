@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1997]
     sentence_count: 22
     key_terms: [shesallwritey, program, gradadmissions, professional, age, experience, academic, comments]
+    concepts: [shesallwritey, gradadmissions, program, professional, experience]
     token_count: 513
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1svh6xn/gpa_26_age_42_applied_1_accepted_1/"}]
 ---
 # GPA: 2.6 Age: 42 Applied: 1 Accepted: 1!
 

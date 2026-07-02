@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1466]
     sentence_count: 12
     key_terms: [school, applyingtocollege, college, since, get, understand, financial, comments]
+    concepts: [applyingtocollege, school, college, since, understand]
     token_count: 337
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sogebp/i_got_obsessed_with_prestige_and_i_lowk_fucked_up/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sogebp.md#c1"
     char_span: [1480, 2042]
     sentence_count: 1
     key_terms: [psychological-talk76, prestige, transfer, zealousideal-sky1121, aid, northeastern, fwellimort, obviously]
+    concepts: [psychological-talk76, prestige, transfer]
     section: Comments
     token_count: 166
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sogebp.md#c2"
     char_span: [2044, 3673]
     sentence_count: 16
     key_terms: [psychological-talk76, aid, get, parents, tennispro2589, money, like, pay]
+    concepts: [psychological-talk76, tennispro2589, parents, money, financial]
     section: Comments
     token_count: 419
 ---

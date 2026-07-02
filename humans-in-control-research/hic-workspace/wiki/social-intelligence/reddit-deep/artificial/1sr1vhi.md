@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 920]
     sentence_count: 5
     key_terms: [making, end, artificial, something, comments, generate, valuable, people]
+    concepts: [making, artificial, something, comments, generate]
     token_count: 210
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1sr1vhi/honest_opinion_about_ai/"}]
   - id: "social-intelligence/reddit-deep/artificial/1sr1vhi.md#c1"
     char_span: [934, 3078]
     sentence_count: 17
     key_terms: [research, better, ask, using, prompt, documentation, understand, resources]
+    concepts: [research, better, using, documentation, prompt]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/artificial/1sr1vhi.md#c2"
     char_span: [3082, 5049]
     sentence_count: 14
     key_terms: [something, program, theory, ask, quality, entire, prompt, wanted]
+    concepts: [something, program, theory, quality, entire]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/artificial/1sr1vhi.md#c3"
     char_span: [5051, 7325]
     sentence_count: 20
     key_terms: [slop, trillion, doesn, going, model, get, work, parameters]
+    concepts: [trillion, doesn, going, model, parameters]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/artificial/1sr1vhi.md#c4"
     char_span: [7327, 8746]
     sentence_count: 14
     key_terms: [use, questions, found, stats, ask, help, work, specifications]
+    concepts: [questions, found, stats]
     section: Comments
     token_count: 315
 ---

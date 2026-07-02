@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 831]
     sentence_count: 12
     key_terms: [financial, bogleheads, recommend, comments, services, "i'm", recommendations, alphabetical]
+    concepts: [financial, bogleheads, recommend, comments, services]
     token_count: 221
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1tkm7xs/changing_brokerages_recommendations/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1tkm7xs.md#c1"
-    char_span: [846, 2059]
+    char_span: [845, 2058]
     sentence_count: 5
     key_terms: [https, org, district, fidelity, vanguard, account, school, voya]
+    concepts: [https, district, fidelity, vanguard, account]
     section: Comments
     token_count: 322
 ---

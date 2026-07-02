@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 2049]
     sentence_count: 17
     key_terms: [coach, clients, operations, leads, marketing, customersuccess, coaches, agency]
+    concepts: [coach, clients, operations, marketing, customersuccess]
     token_count: 464
+    sources: [{"n":"reddit-deep: r/customersuccess","u":"https://www.reddit.com/r/CustomerSuccess/comments/1qng7sh/i_run_a_marketing_agency_my_clients_kept_failing/"}]
   - id: "social-intelligence/reddit-deep/customersuccess/1qng7sh.md#c1"
     char_span: [2051, 2862]
     sentence_count: 7
     key_terms: [sending, users, bulk, deliverability, multi-currency, notifications, transactional, notification]
+    concepts: [sending, users]
     token_count: 169
   - id: "social-intelligence/reddit-deep/customersuccess/1qng7sh.md#c2"
-    char_span: [2877, 4592]
+    char_span: [2876, 4591]
     sentence_count: 12
     key_terms: [because, like, coaches, ops, onboarding, curious, comfortable-bowl3190, chaos]
+    concepts: [because, coaches, onboarding, curious, chaos]
     section: Comments
     token_count: 381
 ---

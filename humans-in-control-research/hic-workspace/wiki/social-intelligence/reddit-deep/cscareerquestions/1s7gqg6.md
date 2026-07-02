@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1012]
     sentence_count: 6
     key_terms: [cscareerquestions, jobs, comments, market, comes, "don't", major, end]
+    concepts: [cscareerquestions, comments, market, comes, "don't"]
     token_count: 246
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1s7gqg6/can_electrical_engineers_do_computer_science_jobs/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s7gqg6.md#c1"
     char_span: [1026, 1939]
     sentence_count: 7
     key_terms: [jobs, switching, like, majors, safety, guaranteed, strongly, systems]
+    concepts: [switching, majors, safety, guaranteed, strongly]
     section: Comments
     token_count: 231
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s7gqg6.md#c2"
     char_span: [1941, 3761]
     sentence_count: 7
     key_terms: [grads, data-shows-surprising-rebound-tech-141608296, unemployment, engineering, programming, jobs, like, rate]
+    concepts: [grads, unemployment, engineering, programming, computer]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s7gqg6.md#c3"
     char_span: [3763, 5698]
     sentence_count: 13
     key_terms: [hardware, personalityexact337, great, xascrimson, testing, better, collar, enjoy]
+    concepts: [hardware, personalityexact337, great, xascrimson, testing]
     section: Comments
     token_count: 494
 ---

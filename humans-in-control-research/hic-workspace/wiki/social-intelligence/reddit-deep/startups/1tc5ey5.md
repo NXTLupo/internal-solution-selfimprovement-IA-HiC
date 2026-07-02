@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 2386]
     sentence_count: 22
     key_terms: [content, articles, months, nobody, specific, point, write, everything]
+    concepts: [content, articles, months, nobody, specific]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1tc5ey5/i_will_not_promote_9_months_of_content_marketing/"}]
   - id: "social-intelligence/reddit-deep/startups/1tc5ey5.md#c1"
     char_span: [2388, 2667]
     sentence_count: 4
     key_terms: [completely, content, distribution, realization, conversion, different, problems, separate]
+    concepts: [completely, content]
     token_count: 50
   - id: "social-intelligence/reddit-deep/startups/1tc5ey5.md#c2"
-    char_span: [2682, 4791]
+    char_span: [2681, 4790]
     sentence_count: 17
     key_terms: [point, support, "it's", customer, language, advisorplus8451, content, keyword]
+    concepts: [point, support, advisorplus8451, customer, language]
     section: Comments
     token_count: 469
 ---

@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 926]
     sentence_count: 1
     key_terms: [digitalmarketing, tracking, reddit, told, reconciliation, spreadsheets, conversion, generating]
+    concepts: [digitalmarketing, tracking, reddit]
     token_count: 209
+    sources: [{"n":"reddit: digitalmarketing","u":"https://reddit.com/r/DigitalMarketing/comments/1sqoema/a_prospect_just_told_me_they_cant_justify_my/"}]
 ---
 # A prospect just told me they can’t justify my retainer because "ai does the same thing for free now."
 

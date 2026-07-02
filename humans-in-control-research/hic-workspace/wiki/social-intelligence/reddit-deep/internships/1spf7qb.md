@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2214]
     sentence_count: 20
     key_terms: [like, robots, wear-leveling, internships, developing, internship, comments, honestly]
+    concepts: [wear-leveling, robots, internships, developing, internship]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1spf7qb/feeling_insecure_about_my_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1spf7qb.md#c1"
     char_span: [2228, 2720]
     sentence_count: 3
     key_terms: [yourself, spiritual-manner-548, experienced, undoubtably, sophomore, undersell, impostor, syndrome]
+    concepts: [yourself]
     section: Comments
     token_count: 145
 ---

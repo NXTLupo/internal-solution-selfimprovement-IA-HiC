@@ -21,36 +21,44 @@ chunks:
     char_span: [0, 2032]
     sentence_count: 12
     key_terms: [courses, "i'm", gradschool, comments, career, having, nature, given]
+    concepts: [courses, gradschool, comments, career, having]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1lw14yw/midlife_careerlocation_change_at_age_40_after_6/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1lw14yw.md#c1"
     char_span: [2034, 3458]
     sentence_count: 6
     key_terms: [been, programs, working, years, work, graduate, editing, several]
+    concepts: [programs, working, years, graduate, editing]
     token_count: 297
   - id: "social-intelligence/reddit-deep/gradschool/1lw14yw.md#c2"
     char_span: [3460, 4593]
     sentence_count: 8
     key_terms: ["it's", year, graduation, living, travel, month, order, wales]
+    concepts: [graduation, living, travel, month, order]
     token_count: 265
   - id: "social-intelligence/reddit-deep/gradschool/1lw14yw.md#c3"
     char_span: [4595, 6849]
     sentence_count: 18
     key_terms: [work, australia, social, graduation, university, because, opportunities, find]
+    concepts: [australia, social, graduation, university, opportunities]
     token_count: 502
   - id: "social-intelligence/reddit-deep/gradschool/1lw14yw.md#c4"
     char_span: [6851, 7956]
     sentence_count: 6
     key_terms: [lor, programs, prereqs, request, science, enough, close, since]
+    concepts: [programs, prereqs, request, science, enough]
     token_count: 260
   - id: "social-intelligence/reddit-deep/gradschool/1lw14yw.md#c5"
     char_span: [7958, 9773]
     sentence_count: 11
     key_terms: [work, options, science, "i'm", "can't", get, lab, interests]
+    concepts: [options, science, "can't", interests, possibly]
     token_count: 408
   - id: "social-intelligence/reddit-deep/gradschool/1lw14yw.md#c6"
     char_span: [9787, 10779]
     sentence_count: 7
     key_terms: [better, here, boston, whole, been, get, "it's", move]
+    concepts: [better, boston, whole]
     section: Comments
     token_count: 235
 ---

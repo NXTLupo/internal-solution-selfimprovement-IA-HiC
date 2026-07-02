@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 619]
     sentence_count: 4
     key_terms: [experience, jobs, comments, without, though, completepurification, entry, back]
+    concepts: [experience, comments, without, though, entry]
     token_count: 159
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1pdkfv0/seriously_though_how_do_you_guys_find_an_entry/"}]
   - id: "social-intelligence/reddit-deep/jobs/1pdkfv0.md#c1"
     char_span: [633, 2302]
     sentence_count: 15
     key_terms: [job, years, experience, get, applying, implementno2626, working, entry]
+    concepts: [experience, years, implementno2626, applying, working]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/jobs/1pdkfv0.md#c2"
     char_span: [2304, 3677]
     sentence_count: 11
     key_terms: [lot, "don't", did, job, experience, projects, certain, started]
+    concepts: ["don't", experience, projects, certain, started]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/jobs/1pdkfv0.md#c3"
     char_span: [3679, 4651]
     sentence_count: 8
     key_terms: [job, department, "college's", career, people, jobs, personality, replacement]
+    concepts: [department, "college's", career, people]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/jobs/1pdkfv0.md#c4"
     char_span: [4653, 5945]
     sentence_count: 8
     key_terms: [certain-working1864, years, someone, people, opportunity, experience, internship, offers]
+    concepts: [certain-working1864, years, someone, people, opportunity]
     section: Comments
     token_count: 331
 ---

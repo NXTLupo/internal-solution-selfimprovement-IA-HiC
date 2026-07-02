@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1412]
     sentence_count: 12
     key_terms: [experience, gpa, work, get, good, like, "bachelor's", gradschool]
+    concepts: [experience, "bachelor's", gradschool, comments, honestly]
     token_count: 327
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tbdm3f/applying_to_grad_school_in_public_policy_with_low/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1tbdm3f.md#c1"
     char_span: [1426, 1904]
     sentence_count: 2
     key_terms: [college, learn, get, gpa, non-matriculated, significantly, application, cinemacatty]
+    concepts: [college, learn]
     section: Comments
     token_count: 122
 ---

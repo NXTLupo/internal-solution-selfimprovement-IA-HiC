@@ -20,46 +20,55 @@ chunks:
     char_span: [0, 2069]
     sentence_count: 25
     key_terms: [built, product, started, told, workspace, comments, describe, cognova]
+    concepts: [built, product, started, workspace, comments]
     token_count: 486
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1s9w1vu/22_years_of_building_software_and_i_have_no_idea/"}]
   - id: "social-intelligence/reddit-deep/saas/1s9w1vu.md#c1"
     char_span: [2071, 3992]
     sentence_count: 24
     key_terms: ["i'm", "you're", developer, did, product, seriously, something, cognova]
+    concepts: ["you're", developer, product, seriously, something]
     token_count: 426
   - id: "social-intelligence/reddit-deep/saas/1s9w1vu.md#c2"
-    char_span: [4007, 6088]
+    char_span: [4006, 6087]
     sentence_count: 14
     key_terms: [users, twitter, distribution, builders, patrity, problem, anyone, like]
+    concepts: [users, distribution, twitter, builders, patrity]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/saas/1s9w1vu.md#c3"
-    char_span: [6090, 8329]
+    char_span: [6089, 8328]
     sentence_count: 22
     key_terms: [conversations, memory, people, "that's", pain, thinking, problem, persistent]
+    concepts: [conversations, memory, people, "that's", thinking]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/saas/1s9w1vu.md#c4"
-    char_span: [8331, 10519]
+    char_span: [8330, 10518]
     sentence_count: 15
     key_terms: [problem, completely, embarrassingly, people, conversations, distribution, real, different]
+    concepts: [problem, completely, embarrassingly, conversations, distribution]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/saas/1s9w1vu.md#c5"
-    char_span: [10521, 12722]
+    char_span: [10520, 12721]
     sentence_count: 21
     key_terms: [users, solution, people, get, icp, describing, thomashoi2, anything]
+    concepts: [users, solution, people, describing, thomashoi2]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/saas/1s9w1vu.md#c6"
-    char_span: [12724, 15072]
+    char_span: [12723, 15071]
     sentence_count: 39
     key_terms: [hole, people, drill, product, stories, talking, thier, commesion]
+    concepts: [people, drill, product, stories, talking]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/saas/1s9w1vu.md#c7"
-    char_span: [15074, 17093]
+    char_span: [15073, 17092]
     sentence_count: 23
     key_terms: [users, marketing, need, nxotcl2kq1se1rpy, get, user, something, whatever]
+    concepts: [nxotcl2kq1se1rpy, marketing, users, something, whatever]
     section: Comments
     token_count: 497
 ---

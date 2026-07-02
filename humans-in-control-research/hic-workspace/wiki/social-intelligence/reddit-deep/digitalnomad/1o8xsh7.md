@@ -21,46 +21,59 @@ chunks:
     char_span: [0, 2178]
     sentence_count: 16
     key_terms: [free, public, insurance, brazil, need, "you're", digitalnomad, "don't"]
+    concepts: [public, insurance, brazil, digitalnomad, "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c3", "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c6"]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1o8xsh7/icydk_you_dont_need_travel_medical_insurance_for/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c1"
     char_span: [2180, 2566]
     sentence_count: 2
     key_terms: [countries, experiences, healthcare, regardless, according, emergency, slovenia, ecuador]
+    concepts: [countries]
     token_count: 91
   - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c2"
     char_span: [2580, 3363]
     sentence_count: 7
     key_terms: [healthcare, emergency, services, haberdasher42, cardiologist, consultation, appointment, overcrowded]
+    concepts: [healthcare, emergency, services]
     section: Comments
     token_count: 170
   - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c3"
     char_span: [3365, 5319]
     sentence_count: 11
     key_terms: [insurance, brazil, system, healthcare, travel, abuse, scdws, sus]
+    concepts: [insurance, healthcare, brazil, system, travel]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c0"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c4"
     char_span: [5321, 5575]
     sentence_count: 4
     key_terms: ["that's", immediately, healthcare, emergency, accident, everyone, medical, support]
+    concepts: ["that's"]
     section: Comments
     token_count: 54
   - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c5"
     char_span: [5577, 7596]
     sentence_count: 13
     key_terms: [get, treatment, emergency, insurance, free, uninsured, hospital, ignorant]
+    concepts: [treatment, emergency, insurance, uninsured, hospital]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c6"
     char_span: [7324, 8811]
     sentence_count: 13
     key_terms: [emergency, receive, care, don, insurance, hospital, public, being]
+    concepts: [emergency, receive, insurance, hospital, public]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c0", "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c5"]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c7"
     char_span: [8813, 9951]
     sentence_count: 6
     key_terms: [free, healthcare, argentina, brazilian, education, hospitals, insurance, universal]
+    concepts: [healthcare, argentina, brazilian, education, hospitals]
     section: Comments
     token_count: 265
 ---

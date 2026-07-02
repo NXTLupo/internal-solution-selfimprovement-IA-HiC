@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 2242]
     sentence_count: 26
     key_terms: [because, constantly, don, job, like, tech, problems, solving]
+    concepts: [because, constantly, problems, solving, findapath]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1le1olm/im_leaving_tech_its_too_risky_and_unstable_better/"}]
   - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c1"
     char_span: [2244, 3237]
     sentence_count: 13
     key_terms: [average, being, job, tech, everything, projects, day, get]
+    concepts: [average, being, everything, projects]
     token_count: 217
   - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c2"
     char_span: [3251, 4896]
     sentence_count: 15
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, buddies]
+    concepts: [thank, helpful, please, findapath, comments]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c3"
     char_span: [4898, 6879]
     sentence_count: 16
     key_terms: [people, years, find, get, job, openings, shortage, anymore]
+    concepts: [people, years, openings, shortage, anymore]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c4"
@@ -49,18 +54,21 @@ chunks:
     char_span: [7095, 8461]
     sentence_count: 11
     key_terms: [something, new, learning, doing, "don't", never, world, find]
+    concepts: [something, learning, doing, "don't", never]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c6"
     char_span: [8463, 10060]
     sentence_count: 13
     key_terms: [programs, because, did, cybersecurity, productivity, restrictions, want, associates]
+    concepts: [programs, because, cybersecurity, productivity, restrictions]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c7"
     char_span: [10062, 11847]
     sentence_count: 17
     key_terms: ["i'm", left, marcmoreno, deleted, always, career, early, years]
+    concepts: [marcmoreno, deleted, always, career, early]
     section: Comments
     token_count: 416
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1879]
     sentence_count: 13
     key_terms: [wait, year, personal, market, sprint, careeradvice, comments, running]
+    concepts: [personal, careeradvice, market, sprint, comments]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1qte9l8/2026_is_shaping_up_to_be_a_massive_year_for/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1qte9l8.md#c1"
     char_span: [1881, 2980]
     sentence_count: 9
     key_terms: [specific, people, timing, help, like, year, ai-saturated, offerfortune]
+    concepts: [specific, people, timing]
     token_count: 269
 ---
 # 2026 is shaping up to be a massive year for career shifts. But a successful transition isn't just about what you do, it's about when you pull the trigger.

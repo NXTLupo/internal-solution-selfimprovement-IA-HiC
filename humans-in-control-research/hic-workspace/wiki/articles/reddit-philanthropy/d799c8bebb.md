@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1425]
     sentence_count: 5
     key_terms: [cfc-letter-to-opm-09032025-final, cfc, nonprofits, administration, https, councilofnonprofits, www, campaign]
+    concepts: [cfc-letter-to-opm-09032025-final, nonprofits, administration, https, councilofnonprofits]
     token_count: 315
+    sources: [{"n":"reddit: Philanthropy","u":"https://reddit.com/r/Philanthropy/comments/1n9btej/trump_administration_issued_a_stop_work_order_for/"}]
 ---
 # Trump Administration issued a "stop work order" for the Combined Federal Campaign (CFC), a source of significant funding for nonprofit organizations
 

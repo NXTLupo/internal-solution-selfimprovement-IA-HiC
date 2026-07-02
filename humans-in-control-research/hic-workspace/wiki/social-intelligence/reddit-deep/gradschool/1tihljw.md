@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 1226]
     sentence_count: 11
     key_terms: [program, phd, work, gradschool, anywhere, comments, programs, research]
+    concepts: [program, gradschool, anywhere, comments, programs]
     token_count: 290
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tihljw/picking_your_grad_school/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c1"
     char_span: [1240, 2518]
     sentence_count: 9
     key_terms: [phd, work, program, study, time, interested, university, obtaining]
+    concepts: [program, interested, study, university, obtaining]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c2"
     char_span: [2520, 4140]
     sentence_count: 9
     key_terms: [programs, phd, sometimes, institutions, like, interested, research, keeping]
+    concepts: [programs, sometimes, institutions, interested, research]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1tihljw.md#c3"]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c3"
     char_span: [4146, 6439]
     sentence_count: 25
     key_terms: [programs, research, interested, metallurgy, faculty, schools, member, people]
+    concepts: [programs, research, interested, metallurgy, faculty]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1tihljw.md#c2"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c4"
     char_span: [6441, 8212]
     sentence_count: 16
     key_terms: [phd, want, profit, emotional-tough2780, program, careenbeemolly, school, work]
+    concepts: [emotional-tough2780, profit, careenbeemolly, program, school]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1tihljw.md#c5"]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c5"
     char_span: [8214, 10212]
     sentence_count: 15
     key_terms: [careenbeemolly, schools, emotional-tough2780, undergrad, like, "i'm", look, definitely]
+    concepts: [careenbeemolly, emotional-tough2780, schools, undergrad, definitely]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1tihljw.md#c4"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c6"

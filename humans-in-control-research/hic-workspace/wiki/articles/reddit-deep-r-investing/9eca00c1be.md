@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1751]
     sentence_count: 18
     key_terms: [investing, market, happened, divorce, retirement, comments, payment, reddit]
+    concepts: [investing, market, happened, divorce, retirement]
     token_count: 413
+    sources: [{"n":"Reddit Deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1tbhx28/wisdom_being_in_the_market_over_time/"}]
   - id: "articles/reddit-deep-r-investing/9eca00c1be.md#c1"
     char_span: [1753, 2727]
     sentence_count: 9
     key_terms: [market, investment, mortgage, recover, selling, stock, works, dad]
+    concepts: [market, investment, mortgage, recover, selling]
     token_count: 229
 ---
 # Wisdom being in the market over time

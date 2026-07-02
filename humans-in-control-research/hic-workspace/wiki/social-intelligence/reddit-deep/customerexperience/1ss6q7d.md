@@ -17,10 +17,12 @@ research_goal: "Deliver a comprehensive 2026 outlook report on the global retail
 engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
 chunks:
   - id: "social-intelligence/reddit-deep/customerexperience/1ss6q7d.md#c0"
-    char_span: [0, 2037]
+    char_span: [0, 2036]
     sentence_count: 8
     key_terms: [customer, lorikeetcx, https, cx-jobs, www, lifecycle, senior-leader-customer-experience-training-true-corporation, senior-solutions-architect-customer-success-nvidia]
+    concepts: [customer, lorikeetcx, cx-jobs, https, lifecycle]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1ss6q7d/airbnb_and_amex_are_hiring_for_customer_lifecycle/"}]
 ---
 # Airbnb and Amex are hiring for customer lifecycle AI this week. Here's what's new on the board
 

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 781]
     sentence_count: 7
     key_terms: [gradadmissions, comments, afford, got, reddit-deep, financial, something, applying]
+    concepts: [gradadmissions, comments, afford]
     token_count: 214
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rlv1hy/i_got_into_an_ivy_and_i_cant_afford_it/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c1"
     char_span: [795, 2837]
     sentence_count: 18
     key_terms: [program, offer, scholarship, aid, difference, financial, decision, masters]
+    concepts: [program, scholarship, difference, offer, financial]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c2"
@@ -38,42 +41,49 @@ chunks:
     char_span: [3033, 4945]
     sentence_count: 8
     key_terms: [negotiate, offered, school, scholarship, pay, year, education, students]
+    concepts: [negotiate, offered, school, scholarship, education]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c4"
     char_span: [4947, 6301]
     sentence_count: 3
     key_terms: [like, universities, government, education, american, master, saying, guess]
+    concepts: [universities, government, education, american, master]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c5"
     char_span: [6303, 8376]
     sentence_count: 20
     key_terms: [programs, graduate, schools, education, expensive, people, uiuc, financial]
+    concepts: [programs, graduate, schools, education, expensive]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c6"
     char_span: [8148, 10188]
     sentence_count: 14
     key_terms: [masters, architecture, degree, master, undergrad, get, programs, funded]
+    concepts: [masters, architecture, degree, master, undergrad]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c7"
     char_span: [9951, 11784]
     sentence_count: 13
     key_terms: [leninistfuture05, afford, hoping, loans, got, students, applied, tuition]
+    concepts: [leninistfuture05, afford, hoping, loans, students]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c8"
     char_span: [11786, 13678]
     sentence_count: 6
     key_terms: [depressednstresse, get, "it's", like, pay, acceptance, financial, accepted]
+    concepts: [depressednstresse, acceptance, financial, accepted, getting]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c9"
     char_span: [13434, 15186]
     sentence_count: 12
     key_terms: [accept, don, got, financial, programs, wellthatsjustgreat77, ananthropolothology, apply]
+    concepts: [accept, financial, programs, apply, defer]
     section: Comments
     token_count: 424
 ---

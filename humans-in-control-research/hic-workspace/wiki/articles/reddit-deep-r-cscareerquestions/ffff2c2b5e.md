@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1114]
     sentence_count: 9
     key_terms: [college-labor-market, cscareerquestions, outcomes-by-major, https, "it's", www, newyorkfed, subreddit]
+    concepts: [college-labor-market, cscareerquestions, outcomes-by-major, https, newyorkfed]
     token_count: 281
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1l6v3w6/reminder_most_cs_grads_arent_flipping_burgers_77/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/ffff2c2b5e.md#c1"
     char_span: [1116, 2672]
     sentence_count: 11
     key_terms: [github, git, use, job, like, learn, "it's", mind]
+    concepts: [github, learn]
     token_count: 377
 ---
 # Reminder: Most CS grads aren’t flipping burgers. ~77% land jobs that actually require a CS degree.

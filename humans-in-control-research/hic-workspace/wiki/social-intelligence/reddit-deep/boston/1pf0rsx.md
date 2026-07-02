@@ -20,36 +20,50 @@ chunks:
     char_span: [0, 1820]
     sentence_count: 4
     key_terms: [https, www, little-mania-world-tour-midget-wrestling-all-stars-145837, festival-lights-returns-worcester-common-friday-dec-5, performances, boston, events, com]
+    concepts: [https, performances, boston, events, comments]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1pf0rsx.md#c1", "social-intelligence/reddit-deep/boston/1pf0rsx.md#c3", "social-intelligence/reddit-deep/boston/1pf0rsx.md#c4", "social-intelligence/reddit-deep/boston/1pf0rsx.md#c5"]
     token_count: 482
+    sources: [{"n":"reddit-deep: r/boston","u":"https://www.reddit.com/r/boston/comments/1pf0rsx/things_to_do_in_boston_this_weekend_december_5th/"}]
   - id: "social-intelligence/reddit-deep/boston/1pf0rsx.md#c1"
     char_span: [1822, 3378]
     sentence_count: 1
     key_terms: [https, com, events, www, mojo-boston-presents-the-baxbys-south-pleasant-r-zavjhp, brighton-music-hall-presented-by-citizens-events, paradise-rock-club-presented-by-citizens-events, thisweekboston]
+    concepts: [https, events, thisweekboston, candlelight, huntington]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1pf0rsx.md#c0", "social-intelligence/reddit-deep/boston/1pf0rsx.md#c2", "social-intelligence/reddit-deep/boston/1pf0rsx.md#c3", "social-intelligence/reddit-deep/boston/1pf0rsx.md#c4", "social-intelligence/reddit-deep/boston/1pf0rsx.md#c5"]
     token_count: 495
   - id: "social-intelligence/reddit-deep/boston/1pf0rsx.md#c2"
     char_span: [3380, 5147]
     sentence_count: 2
     key_terms: [holiday, https, theatre, market, honky-tonk-holiday-with-the-talking-hearts, malden-winter-market-tickets-1970730678510, com, org]
+    concepts: [holiday, https, theatre, market, thisweekboston]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1pf0rsx.md#c1"]
     token_count: 455
   - id: "social-intelligence/reddit-deep/boston/1pf0rsx.md#c3"
     char_span: [5149, 6734]
     sentence_count: 2
     key_terms: [https, com, the-aimee-mann-ted-leo-christmas-show-ft-paul-f-tompkins-nellie-mckay-josh-gondelman, events, www, highly-suspect-the-mister-anniversary-tour-160957, brighton-music-hall-presented-by-citizens-events, livenation]
+    concepts: [https, events, livenation, citywinery, venue]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1pf0rsx.md#c0", "social-intelligence/reddit-deep/boston/1pf0rsx.md#c1", "social-intelligence/reddit-deep/boston/1pf0rsx.md#c4", "social-intelligence/reddit-deep/boston/1pf0rsx.md#c5"]
     token_count: 507
   - id: "social-intelligence/reddit-deep/boston/1pf0rsx.md#c4"
     char_span: [6736, 8606]
     sentence_count: 1
     key_terms: [https, com, www, boston, brighton-music-hall-presented-by-citizens-events, paradise-rock-club-presented-by-citizens-events, games, featuring]
+    concepts: [https, boston, featuring, games, events]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1pf0rsx.md#c0", "social-intelligence/reddit-deep/boston/1pf0rsx.md#c1", "social-intelligence/reddit-deep/boston/1pf0rsx.md#c3", "social-intelligence/reddit-deep/boston/1pf0rsx.md#c5"]
     token_count: 500
   - id: "social-intelligence/reddit-deep/boston/1pf0rsx.md#c5"
     char_span: [8608, 10251]
     sentence_count: 2
     key_terms: [https, events, singers-showcase-a-sky-full-of-stars-the-songs-of-coldplay-2, global-arts-live-presents-mike-block-yacouba-sissoko, boston, friday, footlight, www]
+    concepts: [https, events, boston, friday, footlight]
+    related_chunks: ["social-intelligence/reddit-deep/boston/1pf0rsx.md#c0", "social-intelligence/reddit-deep/boston/1pf0rsx.md#c1", "social-intelligence/reddit-deep/boston/1pf0rsx.md#c3", "social-intelligence/reddit-deep/boston/1pf0rsx.md#c4"]
     token_count: 457
   - id: "social-intelligence/reddit-deep/boston/1pf0rsx.md#c6"
-    char_span: [10266, 11099]
+    char_span: [10265, 11098]
     sentence_count: 5
     key_terms: [feiertag-presented-by-team-nobody, waltham-taprooms-7th-anniversary-celebration, thebostoncalendar, registration, https, com, shanec628, event-details-registration]
+    concepts: [feiertag-presented-by-team-nobody, thebostoncalendar, registration, https, shanec628]
     section: Comments
     token_count: 245
 ---

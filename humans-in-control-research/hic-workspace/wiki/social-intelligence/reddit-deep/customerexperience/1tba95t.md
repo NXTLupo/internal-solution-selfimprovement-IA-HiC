@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1237]
     sentence_count: 8
     key_terms: [agents, customerexperience, different, customer, personalization, communication, agentforce, consistent]
+    concepts: [customerexperience, agents, different, personalization, customer]
     token_count: 256
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1tba95t/is_consistent_dynamic_personalization_realistic/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1tba95t.md#c1"
-    char_span: [1252, 2358]
+    char_span: [1251, 2357]
     sentence_count: 8
     key_terms: [functions, context, within, amantulsyan35, separation, currently, adoption, company]
+    concepts: [functions, amantulsyan35, context, within, separation]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/customerexperience/1tba95t.md#c2"
-    char_span: [2360, 3715]
+    char_span: [2359, 3714]
     sentence_count: 9
     key_terms: [get, context, shared, tools, here, lot, want, work]
+    concepts: [context, shared, tools]
     section: Comments
     token_count: 293
 ---

@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1628]
     sentence_count: 10
     key_terms: [internships, virtual, students, benefits-of-virtual-internships-malaysia, on-site, skills, career-ready, opportunity]
+    concepts: [internships, virtual, students, on-site, career-ready]
     token_count: 343
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1qx6mii/how_virtual_internships_can_help_build/"}]
 ---
 # How Virtual Internships Can Help Build Career-Ready Skills in Malaysia: A Real Opportunity for Students
 

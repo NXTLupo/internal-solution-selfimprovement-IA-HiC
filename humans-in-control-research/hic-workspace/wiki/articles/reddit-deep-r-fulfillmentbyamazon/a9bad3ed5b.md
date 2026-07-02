@@ -19,14 +19,17 @@ content_hash: "98d6fc61367dc0c6"
 relevance_by_goal: {"490684cfa204":45}
 chunks:
   - id: "articles/reddit-deep-r-fulfillmentbyamazon/a9bad3ed5b.md#c0"
-    char_span: [0, 2390]
+    char_span: [0, 2389]
     sentence_count: 14
     key_terms: [cahoot, fulfillmentbyamazon, fulfillment, experience, relationship, legal, complaints, inventory]
-    token_count: 488
+    concepts: [fulfillmentbyamazon, cahoot, fulfillment, experience, relationship]
+    token_count: 487
+    sources: [{"n":"Reddit Deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1miqrns/warning_to_other_sellers_our_experience_getting/"}]
   - id: "articles/reddit-deep-r-fulfillmentbyamazon/a9bad3ed5b.md#c1"
-    char_span: [2392, 3952]
+    char_span: [2391, 3951]
     sentence_count: 14
     key_terms: [amazonpuncher, fba, like, own, subreddit, discuss, learned, amazon]
+    concepts: [amazonpuncher, subreddit, discuss, learned, amazon]
     token_count: 388
 ---
 # ⚠️ Warning to Other Sellers - Our Experience Getting Locked into a 3PL Fulfillment Contract with Cahoot.ai

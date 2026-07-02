@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 790]
     sentence_count: 8
     key_terms: [recovery, datascience, identifying, propensity, insurance, modelling, comments, external]
+    concepts: [recovery, datascience, identifying, propensity, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1okvmiz.md#c2"]
     token_count: 172
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1okvmiz/home_insurance_claims_recovery_modelling/"}]
   - id: "social-intelligence/reddit-deep/datascience/1okvmiz.md#c1"
-    char_span: [805, 2610]
+    char_span: [804, 2609]
     sentence_count: 14
     key_terms: [recovery, something, check, claim, model, party, contractor, impossible]
+    concepts: [recovery, something, check, claim, contractor]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/datascience/1okvmiz.md#c2"
-    char_span: [2612, 4968]
+    char_span: [2611, 4967]
     sentence_count: 20
     key_terms: [recovery, model, party, frequency-severity, insurance, claim, fault, using]
+    concepts: [recovery, model, frequency-severity, insurance, party]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1okvmiz.md#c0"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/datascience/1okvmiz.md#c3"
-    char_span: [4970, 6534]
+    char_span: [4969, 6533]
     sentence_count: 12
     key_terms: [loss-data-analytics, insurance, company, whether, repair, openacttexts, homeowners, themselves]
+    concepts: [loss-data-analytics, insurance, company, whether, openacttexts]
     section: Comments
     token_count: 335
 ---

@@ -21,64 +21,78 @@ chunks:
     char_span: [0, 2225]
     sentence_count: 19
     key_terms: [months, asked, work, definitely, comments, internet, managers, planning]
+    concepts: [months, asked, definitely, comments, internet]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1phnait/have_you_noticed_younger_employees_who_seem_brain/"}]
   - id: "social-intelligence/reddit-deep/managers/1phnait.md#c1"
     char_span: [2227, 2885]
     sentence_count: 5
     key_terms: [generation, employees, internet, seen, time, describing, leadership, behaviors]
+    concepts: [generation, employees, internet]
     token_count: 140
   - id: "social-intelligence/reddit-deep/managers/1phnait.md#c2"
     char_span: [2899, 4848]
     sentence_count: 14
     key_terms: [leadership, hired, developed, getting, someone, intent, people, wanted]
+    concepts: [leadership, developed, hired, getting, someone]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/managers/1phnait.md#c3"
     char_span: [4850, 6259]
     sentence_count: 12
     key_terms: ["wasn't", employees, definitely, however, younger, answer, demand, simply]
+    concepts: ["wasn't", employees, definitely, however, younger]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1phnait.md#c6"]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/managers/1phnait.md#c4"
     char_span: [6261, 7354]
     sentence_count: 6
     key_terms: [later, raise, alveolarfricatives, days, hour, job, need, take]
+    concepts: [later, raise]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/managers/1phnait.md#c5"
     char_span: [7356, 8970]
     sentence_count: 5
     key_terms: [bad, been, like, employees, around, happen, people, sounds]
+    concepts: [employees, around, happen, people, sounds]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/managers/1phnait.md#c6"
     char_span: [8972, 9579]
     sentence_count: 3
     key_terms: [employees, younger, old, conscientious, responsible, supervisors, productive, techniques]
+    concepts: [employees, younger]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1phnait.md#c3"]
     section: Comments
     token_count: 139
   - id: "social-intelligence/reddit-deep/managers/1phnait.md#c7"
     char_span: [9581, 11614]
     sentence_count: 13
     key_terms: [hired, attitude, replace, minute, "don't", generations, bad, get]
+    concepts: [hired, attitude, replace, minute, generations]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/managers/1phnait.md#c8"
     char_span: [11616, 12579]
     sentence_count: 1
     key_terms: [dont, people, care, job, business, someone, died, like]
+    concepts: [people, business, someone]
     section: Comments
     token_count: 217
   - id: "social-intelligence/reddit-deep/managers/1phnait.md#c9"
     char_span: [12581, 14418]
     sentence_count: 6
     key_terms: [good, empathy, loyalty, people, team, everyone, pensions, around]
+    concepts: [empathy, loyalty, people, everyone, pensions]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/managers/1phnait.md#c10"
     char_span: [14420, 16177]
     sentence_count: 7
     key_terms: [like, traderiggystikibar, competent, oldlinepnwshine, overly, people, being, based]
+    concepts: [traderiggystikibar, competent, oldlinepnwshine, overly, people]
     section: Comments
     token_count: 462
 ---

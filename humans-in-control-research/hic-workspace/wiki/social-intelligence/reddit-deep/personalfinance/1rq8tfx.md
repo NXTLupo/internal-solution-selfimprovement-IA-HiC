@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 969]
     sentence_count: 9
     key_terms: [personalfinance, comments, friend, little, intelligent-log-5755, house, right, small]
+    concepts: [personalfinance, comments, friend, little, house]
     token_count: 242
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1rq8tfx/am_i_right_to_think_buying_a_house_would_be/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1rq8tfx.md#c1"
     char_span: [983, 2896]
     sentence_count: 20
     key_terms: [savings, pay, month, afford, house, rent, costs, going]
+    concepts: [savings, month, afford, house, costs]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1rq8tfx.md#c3"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/personalfinance/1rq8tfx.md#c2"
     char_span: [2898, 4810]
     sentence_count: 10
     key_terms: [income, dkgk1, house, kids, expenses, daycare, furnace, savings]
+    concepts: [income, dkgk1, house, expenses, daycare]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/personalfinance/1rq8tfx.md#c3"
     char_span: [4812, 6588]
     sentence_count: 13
     key_terms: [house, mortgage, month, buy, around, costs, money, liquidretro]
+    concepts: [house, mortgage, month, around, liquidretro]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1rq8tfx.md#c1"]
     section: Comments
     token_count: 434
 ---

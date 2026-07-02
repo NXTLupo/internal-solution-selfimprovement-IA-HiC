@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 227]
     sentence_count: 1
     key_terms: [internships, comments, monosoloone, reddit-deep, internship, advice, career, posted]
+    concepts: [internships, comments]
     token_count: 69
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sypqbg/internshipcareer_advice/"}]
   - id: "social-intelligence/reddit-deep/internships/1sypqbg.md#c1"
     char_span: [241, 558]
     sentence_count: 3
     key_terms: [resume, applications, nepternship, robertisaak, submissions, mattering, referrals, something]
+    concepts: [resume]
     section: Comments
     token_count: 68
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 291]
     sentence_count: 2
     key_terms: [gradadmissions, comments, reddit-deep, mattvalver, accepted, columbia, believe, program]
+    concepts: [gradadmissions, comments]
     token_count: 84
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rq3wvp/war_is_over/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rq3wvp.md#c1"
     char_span: [305, 608]
     sentence_count: 2
     key_terms: [congratulations, dependent-coyote-437, no-restaurant-7340, jewishtigerpup, mattvalver, congrats, amazing, program]
+    concepts: [congratulations]
     section: Comments
     token_count: 107
 ---

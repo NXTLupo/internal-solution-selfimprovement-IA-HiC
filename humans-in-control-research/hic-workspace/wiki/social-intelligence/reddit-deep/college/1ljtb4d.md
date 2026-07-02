@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 549]
     sentence_count: 1
     key_terms: [internship, college, comments, hours, idk, time, week, flyingdiva88]
+    concepts: [internship, college, comments, hours]
     token_count: 152
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ljtb4d/summer_internship/"}]
   - id: "social-intelligence/reddit-deep/college/1ljtb4d.md#c1"
     char_span: [563, 1021]
     sentence_count: 9
     key_terms: [depends, good, home, certifiedowl8, experience, internship, consider, expenses]
+    concepts: [depends]
     section: Comments
     token_count: 119
 ---

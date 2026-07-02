@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 318]
     sentence_count: 1
     key_terms: [comments, academicweapon149, neu, northeastern, reddit-deep, familiar, students, closing]
+    concepts: [comments]
     token_count: 92
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rmgfks/two_saints_tavern_a_familiar_bar_for_northeastern/"}]
   - id: "social-intelligence/reddit-deep/neu/1rmgfks.md#c1"
     char_span: [332, 1679]
     sentence_count: 6
     key_terms: [ohe, rip, punters, closed, spiritual-march-5097, place, justoneotherschlub, back]
+    concepts: [punters, closed, place]
     section: Comments
     token_count: 412
 ---

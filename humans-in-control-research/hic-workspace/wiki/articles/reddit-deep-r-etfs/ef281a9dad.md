@@ -19,19 +19,23 @@ content_hash: "8cf256fa07c6329a"
 relevance_by_goal: {"46dec9599ad5":80}
 chunks:
   - id: "articles/reddit-deep-r-etfs/ef281a9dad.md#c0"
-    char_span: [0, 2171]
+    char_span: [0, 2170]
     sentence_count: 18
     key_terms: [etfs, like, decades, crypto, stocks, wealth, millennials, next]
-    token_count: 495
+    concepts: [decades, crypto, stocks, wealth, millennials]
+    token_count: 494
+    sources: [{"n":"Reddit Deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1n5sikt/vt_vti_voo_over_the_next_couple_of_decades_will/"}]
   - id: "articles/reddit-deep-r-etfs/ef281a9dad.md#c1"
-    char_span: [2173, 3823]
+    char_span: [2172, 3822]
     sentence_count: 10
     key_terms: [dominate, bubble, money, inflation, adjusted, internet, company, decades]
+    concepts: [dominate, bubble, money, inflation, adjusted]
     token_count: 401
   - id: "articles/reddit-deep-r-etfs/ef281a9dad.md#c2"
-    char_span: [3825, 4748]
+    char_span: [3824, 4747]
     sentence_count: 7
     key_terms: [market, people, conviction, overvalued, drawdowns, knowing, invest, beneficial-ad-7771]
+    concepts: [market, people, conviction, overvalued, drawdowns]
     token_count: 234
 ---
 # VT, VTI & VOO over the next couple of decades will not make you wealthy

@@ -20,41 +20,49 @@ chunks:
     char_span: [0, 935]
     sentence_count: 11
     key_terms: [dataengineering, tests, traditional, comments, culture, problem, testing, "don't"]
+    concepts: [dataengineering, traditional, tests, comments, culture]
     token_count: 210
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1rti3za/testing_in_de_feels_decades_behind_traditional/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1rti3za.md#c1"
-    char_span: [950, 3229]
+    char_span: [949, 3228]
     sentence_count: 19
     key_terms: [data, engineering, control, tests, hard, wrong, engineer, fixtures]
+    concepts: [engineering, control, tests, wrong, engineer]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/dataengineering/1rti3za.md#c2"
-    char_span: [3231, 4556]
+    char_span: [3230, 4555]
     sentence_count: 10
     key_terms: [records, test, testing, macros, expected, usually, pretty, using]
+    concepts: [records, testing, macros, expected, usually]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/dataengineering/1rti3za.md#c3"
-    char_span: [4558, 6172]
+    char_span: [4557, 6171]
     sentence_count: 11
     key_terms: [macros, dbt, dvc, like, files, workflow, version, agree]
+    concepts: [macros, files, workflow, version, agree]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/dataengineering/1rti3za.md#c4"
-    char_span: [6174, 7365]
+    char_span: [6173, 7364]
     sentence_count: 7
     key_terms: [data, something, business, software, quality, checks, volume, jumpy-possibility754]
+    concepts: [something, business, software, quality, checks]
     section: Comments
     token_count: 262
   - id: "social-intelligence/reddit-deep/dataengineering/1rti3za.md#c5"
-    char_span: [7367, 9204]
+    char_span: [7366, 9203]
     sentence_count: 12
     key_terms: [test, launch, dbt, jsp777, "that's", code, run, documented]
+    concepts: [launch, jsp777, "that's", documented, coverage]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/dataengineering/1rti3za.md#c6"
-    char_span: [9206, 11439]
+    char_span: [9205, 11438]
     sentence_count: 12
     key_terms: [engineering, streaming, testing, software, data, modularized, understand, behavior]
+    concepts: [engineering, streaming, testing, software, modularized]
     section: Comments
     token_count: 496
 ---

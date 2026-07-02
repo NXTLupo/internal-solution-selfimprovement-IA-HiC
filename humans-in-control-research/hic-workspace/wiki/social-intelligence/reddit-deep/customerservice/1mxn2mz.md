@@ -17,10 +17,12 @@ research_goal: "Generate a comprehensive product marketing report for NXT Humans
 engagement: "generate-a-comprehensive-product-marketing-report-for-nxt-hu"
 chunks:
   - id: "social-intelligence/reddit-deep/customerservice/1mxn2mz.md#c0"
-    char_span: [0, 842]
+    char_span: [0, 841]
     sentence_count: 7
     key_terms: [customerservice, submitted, comments, because, months, issue, ago, theacebutterfly]
+    concepts: [customerservice, submitted, comments, because, months]
     token_count: 204
+    sources: [{"n":"reddit-deep: r/customerservice","u":"https://www.reddit.com/r/CustomerService/comments/1mxn2mz/duolingo_support_is_shockingly_bad/"}]
 ---
 # Duolingo support is shockingly bad
 

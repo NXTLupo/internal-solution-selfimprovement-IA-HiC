@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1043]
     sentence_count: 8
     key_terms: [experience, cscareerquestions, swe, dont, interview, comments, "master's", worked]
+    concepts: [experience, cscareerquestions, interview, comments, "master's"]
     token_count: 254
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1megvj7/advice_on_career_path_swe_aiml/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1megvj7.md#c1"
     char_span: [1057, 1955]
     sentence_count: 9
     key_terms: [swe, especially, "you're", superb-education-992, genai, roles, bar, visa]
+    concepts: [especially, "you're", genai, roles]
     section: Comments
     token_count: 214
 ---

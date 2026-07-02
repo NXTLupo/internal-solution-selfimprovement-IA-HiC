@@ -20,61 +20,79 @@ chunks:
     char_span: [0, 1523]
     sentence_count: 8
     key_terms: [logistics, niche, companies, "i've", problems, idea, pain, interviews]
+    concepts: [logistics, companies, niche, problems, interviews]
     token_count: 331
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1sxxt2j/what_are_some_businesses_that_service_different/"}]
   - id: "social-intelligence/reddit-deep/logistics/1sxxt2j.md#c1"
     char_span: [1525, 3917]
     sentence_count: 2
     key_terms: [trucking, truck, trucks, per, local, because, company, acquisition]
+    concepts: [trucking, truck, trucks, local, because]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1sxxt2j.md#c2", "social-intelligence/reddit-deep/logistics/1sxxt2j.md#c4"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/logistics/1sxxt2j.md#c2"
     char_span: [3604, 4638]
     sentence_count: 1
     key_terms: [trucks, countries, services, because, parcel, connections, lot, truck]
+    concepts: [trucks, countries, services, because, parcel]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1sxxt2j.md#c1", "social-intelligence/reddit-deep/logistics/1sxxt2j.md#c4"]
     token_count: 209
   - id: "social-intelligence/reddit-deep/logistics/1sxxt2j.md#c3"
     char_span: [4640, 5339]
     sentence_count: 2
     key_terms: [warehouses, companies, company, generic, company-specific, intermediaries, intermediary, integration]
+    concepts: [warehouses, companies, company, generic]
     token_count: 138
   - id: "social-intelligence/reddit-deep/logistics/1sxxt2j.md#c4"
     char_span: [5341, 7463]
     sentence_count: 1
     key_terms: [because, loads, regulations, trucks, profitability, does, easy, internally]
+    concepts: [because, loads, regulations, profitability, trucks]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1sxxt2j.md#c1", "social-intelligence/reddit-deep/logistics/1sxxt2j.md#c2"]
     token_count: 443
   - id: "social-intelligence/reddit-deep/logistics/1sxxt2j.md#c5"
-    char_span: [7545, 8525]
+    char_span: [7544, 8524]
     sentence_count: 2
     key_terms: [being, turkey, foodstuffs, shipping, al-hawa, europe, prices, sector]
+    concepts: [being, turkey, foodstuffs, shipping, al-hawa]
     section: "7) Calls with **food suppliers / trading companies / FMCG-type companies**"
     token_count: 225
+    sources: [{"n":"the foodstuffs-focused calls I ran later.","u":""}]
   - id: "social-intelligence/reddit-deep/logistics/1sxxt2j.md#c6"
-    char_span: [8583, 9378]
+    char_span: [8582, 9377]
     sentence_count: 1
     key_terms: [because, turkish, logistics, products, conversation, associated, surcharges, clearance]
+    concepts: [because, turkish, logistics, products]
     section: "8) Brief call with the **Ukrainian dairy importer**"
     token_count: 166
+    sources: [{"n":"my short conversation notes.","u":""}]
   - id: "social-intelligence/reddit-deep/logistics/1sxxt2j.md#c7"
-    char_span: [9412, 9807]
+    char_span: [9411, 9806]
     sentence_count: 1
     key_terms: [companies, relationships, undercutting, constrained, additional, regulation, repeatedly, proactive]
+    concepts: [companies]
     section: 9) Other brief call signals
     token_count: 76
+    sources: [{"n":"scattered remarks across the thread.","u":""}]
   - id: "social-intelligence/reddit-deep/logistics/1sxxt2j.md#c8"
-    char_span: [9859, 10291]
+    char_span: [9858, 10290]
     sentence_count: 1
     key_terms: [foodstuffs, logistics, often, relationships, optimization, partnerships, undercutting, flexibility]
+    concepts: [foodstuffs, logistics, often]
     section: Cross-call patterns that showed up repeatedly
     token_count: 93
   - id: "social-intelligence/reddit-deep/logistics/1sxxt2j.md#c9"
-    char_span: [10306, 12336]
+    char_span: [10305, 12335]
     sentence_count: 5
     key_terms: [logistics, business, already, post, "i've", points, find, pain]
+    concepts: [logistics, business, already, points, consideration]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/logistics/1sxxt2j.md#c10"
-    char_span: [12338, 14546]
+    char_span: [12337, 14545]
     sentence_count: 15
     key_terms: [subreddit, arsalamalam, like, optimization, route, solutions, delivery, problems]
+    concepts: [subreddit, arsalamalam, optimization, route, solutions]
     section: Comments
     token_count: 498
 ---

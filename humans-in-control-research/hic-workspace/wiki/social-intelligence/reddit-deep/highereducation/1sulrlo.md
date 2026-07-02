@@ -7,80 +7,100 @@ subreddit: "highereducation"
 title: "Calif. community colleges are offering bachelor's degrees. Not everyone likes it."
 author: "sfgate"
 date: "2026-04-24T17:08:15.000Z"
-score: 125
+score: 129
 upvote_ratio: 0.98
 num_comments: 30
 flair: ""
-extracted_at: "2026-06-05T23:42:16.768Z"
+extracted_at: "2026-06-23T20:31:59.066Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+research_goal: "Analyze case studies of private equity firms and holding companies (such as Medforth) that build repeatable AI capabilities once and scale them across higher education portfolio companies. Deliver an operational playbook detailing the shared-service models, governance frameworks, and deployment strategies used to scale AI across admissions workflows, student communications, and enrollment operations to accelerate long enrollment cycles."
+engagement: "analyze-case-studies-of-private-equity-firms-and-holding-com"
 chunks:
   - id: "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c0"
     char_span: [0, 2081]
     sentence_count: 14
     key_terms: [community, education, bachelor, college, degrees, four-year, colleges, highereducation]
+    concepts: [community, education, bachelor, college, degrees]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1sulrlo.md#c1", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c2", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c3", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c4", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c5"]
     token_count: 447
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1sulrlo/calif_community_colleges_are_offering_bachelors/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c1"
     char_span: [2083, 4050]
     sentence_count: 8
     key_terms: [program, community, programs, renda, bachelor, community-colleges-can-offer-bachelors, degree, educational-services-and-support]
+    concepts: [program, community, programs, renda, bachelor]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1sulrlo.md#c0", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c2", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c4", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c5"]
     token_count: 451
   - id: "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c2"
     char_span: [4052, 6438]
     sentence_count: 8
     key_terms: [students-at-this-community-college-can-earn-a-bachelors-and-help-prevent-wildfires, programs, college, goldman, community, bachelor, degrees, faculty]
+    concepts: [programs, college, goldman, community, bachelor]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1sulrlo.md#c0", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c1", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c4", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c5"]
     token_count: 480
   - id: "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c3"
     char_span: [6440, 8685]
     sentence_count: 6
     key_terms: [education, california-community-college-enrollment-3, https, community, state, calmatters, higher-education, system]
+    concepts: [california-community-college-enrollment-3, education, community, https, higher-education]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1sulrlo.md#c0", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c4"]
     token_count: 505
   - id: "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c4"
     char_span: [8687, 10285]
     sentence_count: 6
     key_terms: [community-colleges-cost-bachelors-degrees-csu-says-no-to-some, california-community-colleges-approve-3-new-bachelors-degrees-over-csus-objections, https, adc4709f688295d75b9ee418de2592862c765027d50d901fdd8c3faeb2b5939f, newsom-rejects-bill-for-community-college-nursing-programs, california-community-colleges-approve-3-new-bachelors-deg, csu, community]
+    concepts: [community-colleges-cost-bachelors-degrees-csu-says-no-to-some, https, community, college, program]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1sulrlo.md#c0", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c1", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c2", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c3"]
     token_count: 446
   - id: "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c5"
     char_span: [10299, 12646]
     sentence_count: 9
     key_terms: [colleges, community, traditional, degrees, programs, students, institutions, year]
+    concepts: [colleges, community, traditional, degrees, programs]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1sulrlo.md#c0", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c1", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c2", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c6"
     char_span: [12340, 14437]
     sentence_count: 12
     key_terms: [community, universities, degrees, state, colleges, get, students, school]
+    concepts: [community, universities, degrees, colleges, state]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1sulrlo.md#c0", "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c7"
     char_span: [14206, 14499]
     sentence_count: 2
     key_terms: [working, anesthesia, bigfitmama, university, advantage, part-time, critical, getting]
+    concepts: [working]
     section: Comments
     token_count: 80
   - id: "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c8"
     char_span: [14501, 15747]
     sentence_count: 6
     key_terms: [year, students, making, universities, admin, big, job, low]
+    concepts: [students, universities, making, admin]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c9"
     char_span: [15749, 17680]
     sentence_count: 10
     key_terms: [students-at-this-community-college-can-earn-a-bachelors-and-help-prevent-wildfires, amputatorbot, https, state, comments, degrees, florida, reddit]
+    concepts: [students-at-this-community-college-can-earn-a-bachelors-and-help-prevent-wildfires, amputatorbot, https, state, comments]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c10"
     char_span: [17682, 18829]
     sentence_count: 7
     key_terms: [bachelors, college, value, gatekeeping, different, increased, everyone, access]
+    concepts: [bachelors, college, gatekeeping, value, different]
     section: Comments
     token_count: 259
 ---
 # Calif. community colleges are offering bachelor's degrees. Not everyone likes it.
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1sulrlo/calif_community_colleges_are_offering_bachelors/)
-Posted by **sfgate** · **125↑** · **30 comments**
+Posted by **sfgate** · **129↑** · **30 comments**
 
 More than a decade ago while teaching at a community college, Connie Renda, a professor of health information management, met a student whose mother and father never expected him to [go to college](https://www.sfgate.com/bayarea/article/college-graduates-job-market-22192065.php). 
 
@@ -147,23 +167,23 @@ When the CSU [objects to a program](https://www.latimes.com/california/story/20
 ## Comments
 
 - **def21** (23↑): Going to be interesting if 4-year institutions start pushing embedded associate degrees. Not quite sure how that is going to impact graduation/retention rates tho
-  - **paciolionthegulf** (10↑): There are some places that already offer that, like McNeese State University.
-    - **def21** (6↑): Institutions in my state are permitted to, but the aforementioned concerns of how reporting is affected seems to be stopping many from jumping on that train
+  - **paciolionthegulf** (11↑): There are some places that already offer that, like McNeese State University.
+    - **def21** (5↑): Institutions in my state are permitted to, but the aforementioned concerns of how reporting is affected seems to be stopping many from jumping on that train
     - **daemonicwanderer** (2↑): Louisiana has too many public four year colleges in general.
 - **dorothy_zbornakk** (49↑): miami dade college has offered bachelor's degrees for years. it's one of the first places that i considered going when i got into FIU, but they didn't offer me any financial aid. what an absurd thing to be hostile towards.
-  - **daemonicwanderer** (30↑): I get why they are hostile though. Community colleges are now no longer feeders into the CSU system, but actively competing with it via offering bachelor’s degrees. In a time where colleges are seeing traditional pathways for students dry up, having more competition can be an issue.
-    - **Pon_de** (17↑): That’s not true. Community colleges remain feeders to the CSU. In fact this relationship has only strengthened with the expansion of Associate Degrees for Transfer that align community college programs to specific BA/BS programs and guarantee students do not have to complete more than 2 additional years once they transfer. The community colleges and the CSUs also now have formal dual admission pathways and accept a common lower division curriculum called Cal-GETC.
-    - **Mclurkerrson** (25↑): What’s annoying is CA has major issues actually offering access to those 4-year programs (at traditional institutions) to CC students. They can’t meet the demand from these transfers and end up placing them across the state which isn’t realistic for most of them, especially if they’re at more rural community colleges. While I understand their hesitance, the traditional universities aren’t meeting the need of students so CCs should be allowed to.
-    - **dorothy_zbornakk** (16↑): community colleges are not offering anywhere near the breadth of 4 year degree programs that traditional universities can, or do. they're overwhelmingly technical and/or or industry-based degrees like cyber sec, hospitality/event management, and human resources type degrees. i would question how real the competition is for these kinds of degrees, and how much it impacts their operations, when online degrees and certs have existed for decades anyway.
+  - **daemonicwanderer** (31↑): I get why they are hostile though. Community colleges are now no longer feeders into the CSU system, but actively competing with it via offering bachelor’s degrees. In a time where colleges are seeing traditional pathways for students dry up, having more competition can be an issue.
+    - **Pon_de** (18↑): That’s not true. Community colleges remain feeders to the CSU. In fact this relationship has only strengthened with the expansion of Associate Degrees for Transfer that align community college programs to specific BA/BS programs and guarantee students do not have to complete more than 2 additional years once they transfer. The community colleges and the CSUs also now have formal dual admission pathways and accept a common lower division curriculum called Cal-GETC.
+    - **Mclurkerrson** (27↑): What’s annoying is CA has major issues actually offering access to those 4-year programs (at traditional institutions) to CC students. They can’t meet the demand from these transfers and end up placing them across the state which isn’t realistic for most of them, especially if they’re at more rural community colleges. While I understand their hesitance, the traditional universities aren’t meeting the need of students so CCs should be allowed to.
+    - **dorothy_zbornakk** (17↑): community colleges are not offering anywhere near the breadth of 4 year degree programs that traditional universities can, or do. they're overwhelmingly technical and/or or industry-based degrees like cyber sec, hospitality/event management, and human resources type degrees. i would question how real the competition is for these kinds of degrees, and how much it impacts their operations, when online degrees and certs have existed for decades anyway.
     - **bwd-2** (2↑): I wonder if the CSU system competes with community colleges in workforce development...
     - **shadeofmyheart** (2↑): Is it though? CSU are among some of the most selective state universities. Like FL the state universities can afford to be selective. FL state universities turn away 4.0 students with decent SAT scores because they are just so full. The community colleges (they are all called “state colleges” now here in FL) allow students to get 4 year degrees that they may not have been able to attain at the huge R1s.
   - **DataRikerGeordiTroi** (2↑): oh my gaud, love the user name.  Love to see a Dorothy Zbornak standing up for education access in this sub. Thank you for being a friend of r/highereducation
     - **dorothy_zbornakk** (4↑): funnily enough, i used to teach high school before i went to work in higher ed.
-- **MizzGee** (8↑): I find it interesting. I work at a community college in Indiana. We offer an ASN program. 1/3 of all of our nurses are educated at our community college system in our state. BSN and ASN get paid the same for so much, but BSN get promoted and can also go to CRNA, NP, Health Educator. But we have successfully worked it out that you can get your LPN in high school at age 18, do a transition to ASN, which is 18 months and then take the NCLEX and be working as an RN before you are 21. Go to school to part-time while getting your BSN while working in critical care, apply for CRNA, and make $100,000 in Anesthesia by 24.
+- **MizzGee** (9↑): I find it interesting. I work at a community college in Indiana. We offer an ASN program. 1/3 of all of our nurses are educated at our community college system in our state. BSN and ASN get paid the same for so much, but BSN get promoted and can also go to CRNA, NP, Health Educator. But we have successfully worked it out that you can get your LPN in high school at age 18, do a transition to ASN, which is 18 months and then take the NCLEX and be working as an RN before you are 21. Go to school to part-time while getting your BSN while working in critical care, apply for CRNA, and make $100,000 in Anesthesia by 24.
 - **BigFitMama** (24↑): God forbid anyone get an advantage via paying 3/4 less in loans than at a University. 
 
 You know what - if Universities are suffering due low enrollment - lower your prices and realize the bulk of this Gen is low income first generation and they run away from students loans in terror.
-  - **daemonicwanderer** (7↑): Universities aren’t awash in cash.
+  - **daemonicwanderer** (6↑): Universities aren’t awash in cash.
     - **BigFitMama** (5↑): Funny thing - the bigger and older the Uni the more like they are sitting on a sustaining fund made of donations invested. A supposedly used to make operations sustainable and have a back up for emergencies.
 
 The other thing - they have a big account full of funds that were specifically bequested to scholarships and grants. Year after year if that money isn't fully spent or gifted it just collects interest.
@@ -174,7 +194,7 @@ It's pretty crappy - theyll lay off 100 people making 45k or less a year who dir
 
 Sigh.
     - **The_Homestarmy** (1↑): Some of them are. San Francisco State pays its president 520,000 dollars a year. Public universities suffering for cash don't do that.
-- **shadeofmyheart** (4↑): The Florida state education system has already been doing this for at least over 15 years. The community colleges are called “state colleges” now. University of Florida and Florida State and all the others haven’t suffered for it. (They have other things to worry about with our bonehead administration)
+- **shadeofmyheart** (5↑): The Florida state education system has already been doing this for at least over 15 years. The community colleges are called “state colleges” now. University of Florida and Florida State and all the others haven’t suffered for it. (They have other things to worry about with our bonehead administration)
 - **KeyGovernment4188** (3↑): Texas CC have offered bachelor's degrees for a while.  Argument for has been that in addition to lower costs, students often love their CC and want to continue their studies without transferring.  Arguments against has been a concern about academic quality and access to undergraduate opportunities, and duplication of degrees.  Some students would also prefer a university on their degrees.
 - **AmputatorBot** (1↑): It looks like OP posted an AMP link. These should load faster, but AMP is controversial because of [concerns over privacy and the Open Web](https://www.reddit.com/r/AmputatorBot/comments/ehrq3z/why_did_i_build_amputatorbot).
 
@@ -187,7 +207,7 @@ Maybe check out **the canonical page** instead: **[https://edsource.org/2023/stu
   - **daemonicwanderer** (1↑): Why one would need a BA or BS in some of these subjects like automotive technology? 
 
 But if CSU were to offer bachelor’s with lower credit hours, would it be a different, more intensive track so that students are walking out with an equivalent amount of material covered? Or is it just going to be “let’s cut out the undergrad core and focus strictly on employment classes”?
-- **MyDMDThrowaway** (-1↑): What do yall want? Increased access to higher ed, diluting the value of a bachelors even further for everyone involved
+- **MyDMDThrowaway** (-4↑): What do yall want? Increased access to higher ed, diluting the value of a bachelors even further for everyone involved
 
 Or allow a bit of gatekeeping to keep bachelors of some sort of remaining value
 
@@ -198,6 +218,6 @@ Increased access means nothing if the degree you get has been diluted in value 1
 That’s my 2c
 
 I’m all for the gatekeeping. Too much rampant grade inflation and degree dilution across the board
-  - **daemonicwanderer** (8↑): I think that everyone should have the opportunity to pursue a college education if they wish. However, you should be able to make a decent living without the need to go to college. 
+  - **daemonicwanderer** (7↑): I think that everyone should have the opportunity to pursue a college education if they wish. However, you should be able to make a decent living without the need to go to college. 
 
 If we are making college degrees standard, then we need to provide funding for people to afford to attend the public school of their choice

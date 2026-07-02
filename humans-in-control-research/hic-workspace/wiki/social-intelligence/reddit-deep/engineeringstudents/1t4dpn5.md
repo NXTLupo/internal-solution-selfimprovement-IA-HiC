@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 931]
     sentence_count: 6
     key_terms: [engineeringstudents, focus, consistency, placements, comments, personal, issues, dsa]
+    concepts: [engineeringstudents, consistency, focus, placements, comments]
     token_count: 222
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1t4dpn5/6th_sem_engineering_student_lost_focus_due_to/"}]
 ---
 # 6th sem engineering student, lost focus due to personal issues - need placement prep advice
 

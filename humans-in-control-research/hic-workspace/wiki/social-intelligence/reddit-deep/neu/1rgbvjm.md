@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 796]
     sentence_count: 8
     key_terms: [b1tz8ajtzprw97hda, survey, https, neu, comments, seattle, people, forms]
+    concepts: [b1tz8ajtzprw97hda, survey, https, comments, seattle]
     token_count: 227
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rgbvjm/seattle_campus_why_do_people_quit_help_our_ai/"}]
 ---
 # [Seattle Campus] Why do people quit? Help our AI project! (3-min survey)
 

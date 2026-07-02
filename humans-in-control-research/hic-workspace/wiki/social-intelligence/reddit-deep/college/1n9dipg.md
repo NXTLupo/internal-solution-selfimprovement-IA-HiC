@@ -19,35 +19,45 @@ chunks:
     char_span: [0, 485]
     sentence_count: 5
     key_terms: [sexuality, comments, college, course, human, weird, reddit-deep, assignment]
+    concepts: [sexuality, comments, college, course, human]
+    related_chunks: ["social-intelligence/reddit-deep/college/1n9dipg.md#c1"]
     token_count: 121
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1n9dipg/has_anyone_ever_taken_a_human_sexuality_course/"}]
   - id: "social-intelligence/reddit-deep/college/1n9dipg.md#c1"
     char_span: [499, 2185]
     sentence_count: 7
     key_terms: [course, like, sexuality, something, studies, gender, report, theory]
+    concepts: [course, sexuality, something, studies, gender]
+    related_chunks: ["social-intelligence/reddit-deep/college/1n9dipg.md#c0", "social-intelligence/reddit-deep/college/1n9dipg.md#c3"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/college/1n9dipg.md#c2"
     char_span: [2187, 3671]
     sentence_count: 8
     key_terms: [course, class, being, send, presented, lecturer, because, covered]
+    concepts: [course, class, being, presented, lecturer]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/college/1n9dipg.md#c3"
     char_span: [3673, 5926]
     sentence_count: 24
     key_terms: [film, music, get, porn, something, netflix, called, course]
+    concepts: [music, something, netflix, called, course]
+    related_chunks: ["social-intelligence/reddit-deep/college/1n9dipg.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1n9dipg.md#c4"
     char_span: [5667, 6557]
     sentence_count: 3
     key_terms: [compliant, student, couple, course, format, other-squirrel-8705, adappropriate2295, spaceistoofaraway]
+    concepts: [compliant, student, couple, course, format]
     section: Comments
     token_count: 231
   - id: "social-intelligence/reddit-deep/college/1n9dipg.md#c5"
     char_span: [6559, 8359]
     sentence_count: 4
     key_terms: [technical-waltz1669, sexuality, weird, words, like, sex, formatting, formatted]
+    concepts: [technical-waltz1669, sexuality, formatting, weird, words]
     section: Comments
     token_count: 474
 ---

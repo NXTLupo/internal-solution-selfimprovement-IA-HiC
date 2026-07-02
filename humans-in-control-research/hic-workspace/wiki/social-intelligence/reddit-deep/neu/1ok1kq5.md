@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 513]
     sentence_count: 5
     key_terms: [applications, comments, applied, rich-independence184, works, neu, reddit-deep, anymore]
+    concepts: [applications, comments, applied, works]
     token_count: 133
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1ok1kq5/applied_through_nu_works_no_reply_yet/"}]
   - id: "social-intelligence/reddit-deep/neu/1ok1kq5.md#c1"
     char_span: [527, 1299]
     sentence_count: 7
     key_terms: [job, experience, market, rich-independence184, academicweapon149, unprecedentedly, unpredictable, journalistnu]
+    concepts: [experience, market]
     section: Comments
     token_count: 194
 ---

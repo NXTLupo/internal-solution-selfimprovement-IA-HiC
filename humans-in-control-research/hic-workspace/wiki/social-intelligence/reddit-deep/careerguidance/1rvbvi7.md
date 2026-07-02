@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 802]
     sentence_count: 9
     key_terms: [careerguidance, bca, math, comments, confused, engineer, student, advice]
+    concepts: [careerguidance, comments, confused, engineer, student]
     token_count: 204
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rvbvi7/confused_about_aiml_career_paths_any_advice_for_a/"}]
 ---
 # Confused About AI/ML Career Paths – Any Advice for a BCA Student?
 

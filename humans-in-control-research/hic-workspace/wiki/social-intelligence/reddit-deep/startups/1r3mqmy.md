@@ -20,34 +20,43 @@ chunks:
     char_span: [0, 2521]
     sentence_count: 39
     key_terms: [reality, because, staying, reward, uncomfortable, intelligence, being, doesn]
+    concepts: [reality, because, uncomfortable, staying, intelligence]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1r3mqmy.md#c1", "social-intelligence/reddit-deep/startups/1r3mqmy.md#c3"]
     token_count: 514
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1r3mqmy/hard_facts_i_will_not_promote/"}]
   - id: "social-intelligence/reddit-deep/startups/1r3mqmy.md#c1"
     char_span: [2523, 3512]
     sentence_count: 22
     key_terms: [reality, vision, don, face, something, because, gives, small]
+    concepts: [reality, vision, something, because, gives]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1r3mqmy.md#c0", "social-intelligence/reddit-deep/startups/1r3mqmy.md#c3"]
     token_count: 200
   - id: "social-intelligence/reddit-deep/startups/1r3mqmy.md#c2"
-    char_span: [3527, 3837]
+    char_span: [3526, 3836]
     sentence_count: 5
     key_terms: [visual-sun-6018, everything, productive, avoidance, expanding, painfully, accurate, founders]
     section: Comments
     token_count: 68
   - id: "social-intelligence/reddit-deep/startups/1r3mqmy.md#c3"
-    char_span: [3839, 6260]
+    char_span: [3838, 6259]
     sentence_count: 17
     key_terms: [something, behavior, because, problem, reality, uncomfortable, intelligence, drift]
+    concepts: [something, behavior, uncomfortable, because, problem]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1r3mqmy.md#c0", "social-intelligence/reddit-deep/startups/1r3mqmy.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/startups/1r3mqmy.md#c4"
-    char_span: [5987, 6375]
+    char_span: [5986, 6374]
     sentence_count: 4
     key_terms: [behavior, "aren't", "isn't", self-disciplined, intelligence, execution, something, anonjian]
+    concepts: [behavior, "aren't", "isn't"]
     section: Comments
     token_count: 94
   - id: "social-intelligence/reddit-deep/startups/1r3mqmy.md#c5"
-    char_span: [6377, 7385]
+    char_span: [6376, 7384]
     sentence_count: 10
     key_terms: [activation, channels, usually, users, negative-fly-4659, good, spreadsheet-not, infrastructure]
+    concepts: [activation, channels, usually, users]
     section: Comments
     token_count: 232
 ---

@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 2766]
     sentence_count: 21
     key_terms: [quality, conversational, accuracy, data, product, annotation, datasets, analyst]
+    concepts: [quality, conversational, accuracy, product, annotation]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1qnuxf1/need_help_finding_a_career_path_based_on_my/"}]
   - id: "social-intelligence/reddit-deep/findapath/1qnuxf1.md#c1"
     char_span: [2768, 3994]
     sentence_count: 8
     key_terms: [documentation, quality, improvements, operational, performance, data, operations, analysis]
+    concepts: [documentation, quality, improvements, operational, performance]
     token_count: 206
   - id: "social-intelligence/reddit-deep/findapath/1qnuxf1.md#c2"
-    char_span: [4009, 4438]
+    char_span: [4008, 4437]
     sentence_count: 3
     key_terms: [marketing, enough, fieryllamaboner74, did, undergrad, remained, research, strategy]
+    concepts: [marketing, enough]
     section: Comments
     token_count: 113
 ---

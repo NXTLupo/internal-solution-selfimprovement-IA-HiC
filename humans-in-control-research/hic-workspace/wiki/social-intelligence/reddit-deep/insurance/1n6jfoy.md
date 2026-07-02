@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1236]
     sentence_count: 9
     key_terms: [insurance, home, state, been, farm, "i'm", customers, comments]
+    concepts: [insurance, state, customers, comments, customer]
     token_count: 290
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1n6jfoy/home_insurance_shocker/"}]
   - id: "social-intelligence/reddit-deep/insurance/1n6jfoy.md#c1"
-    char_span: [1251, 3399]
+    char_span: [1250, 3398]
     sentence_count: 15
     key_terms: [insurance, year, companies, shop, time, rising, costs, keep]
+    concepts: [insurance, companies, rising, costs, expected]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/insurance/1n6jfoy.md#c2"
-    char_span: [3401, 5400]
+    char_span: [3400, 5399]
     sentence_count: 16
     key_terms: [rates, independent, get, new, year, carriers, another, deleted]
+    concepts: [rates, independent, carriers, another, deleted]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/insurance/1n6jfoy.md#c3"
-    char_span: [5402, 6184]
+    char_span: [5401, 6183]
     sentence_count: 6
     key_terms: [average, revenue, around, state, data, roof, shop, dipshhittery]
+    concepts: [average, revenue, around, state]
     section: Comments
     token_count: 188
 ---

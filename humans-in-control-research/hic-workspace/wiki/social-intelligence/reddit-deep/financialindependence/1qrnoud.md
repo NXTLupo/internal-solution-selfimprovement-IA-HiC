@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2197]
     sentence_count: 21
     key_terms: [kids, time, financialindependence, annual, income, get, jobs, eventually]
+    concepts: [financialindependence, annual, income, eventually, comments]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1qrnoud/need_advice_wwyd_hit_fi_struggling_to_quit_work/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c1"
     char_span: [2199, 2932]
     sentence_count: 7
     key_terms: [finances, buffer, family, opportunity, appreciate, healthcare, breakdown, brokerage]
+    concepts: [finances, buffer, family]
     token_count: 185
   - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c2"
     char_span: [2946, 4781]
     sentence_count: 14
     key_terms: [home, spouse, boundaries, available, working, having, health, start]
+    concepts: [spouse, boundaries, available, working, having]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c3"
@@ -43,6 +47,7 @@ chunks:
     char_span: [5259, 7358]
     sentence_count: 20
     key_terms: [car, expenses, budget, buffer, "don't", maintenance, home, year]
+    concepts: [expenses, budget, buffer, maintenance, "don't"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c5"
@@ -55,18 +60,21 @@ chunks:
     char_span: [7415, 9153]
     sentence_count: 18
     key_terms: [retirement, money, household, away, "it's", american, expenses, medicaid]
+    concepts: [retirement, household, money, american, expenses]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c7"
     char_span: [9156, 11402]
     sentence_count: 24
     key_terms: ["don't", lifestyle, buy, investments, kids, try, ourselves, combined]
+    concepts: [lifestyle, "don't", investments, ourselves, combined]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c8"
     char_span: [11404, 13497]
     sentence_count: 30
     key_terms: [income, market, independence, build, count, away, people, retire]
+    concepts: [income, market, independence, build, count]
     section: Comments
     token_count: 435
 ---

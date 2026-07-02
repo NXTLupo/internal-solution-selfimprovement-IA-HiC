@@ -20,28 +20,34 @@ chunks:
     char_span: [0, 2365]
     sentence_count: 8
     key_terms: [expedition, weather, pre-expedition, success, termination, data, either, summit]
+    concepts: [expedition, weather, pre-expedition, success, termination]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1lkpnkk/preexpedition_weather_conditions_and_success/"}]
   - id: "social-intelligence/reddit-deep/datascience/1lkpnkk.md#c1"
     char_span: [2367, 3225]
     sentence_count: 4
     key_terms: [png, a6925405bc7b5a9930fa9265adc3f425129579d8, attributes, diagram, failure, preview, success, format]
+    concepts: [attributes, diagram, failure, preview, success]
     token_count: 237
   - id: "social-intelligence/reddit-deep/datascience/1lkpnkk.md#c2"
-    char_span: [3240, 5058]
+    char_span: [3239, 5057]
     sentence_count: 7
     key_terms: [temperature, mission-balance-4250, pressure, weather, budget-puppy, routefinding, depending, crevasse]
+    concepts: [temperature, mission-balance-4250, pressure, weather, budget-puppy]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/datascience/1lkpnkk.md#c3"
-    char_span: [5060, 6681]
+    char_span: [5059, 6680]
     sentence_count: 9
     key_terms: [feature, success, "don't", like, risk, wind, formation, decision]
+    concepts: [feature, success, "don't", formation, decision]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/datascience/1lkpnkk.md#c4"
-    char_span: [6683, 8527]
+    char_span: [6682, 8526]
     sentence_count: 13
     key_terms: [wind, weather, slabs, data, humidity, specific, perhaps, easier]
+    concepts: [weather, slabs, humidity, specific, perhaps]
     section: Comments
     token_count: 396
 ---

@@ -19,34 +19,44 @@ chunks:
     char_span: [0, 2201]
     sentence_count: 9
     key_terms: [internship, internships, people, get, experience, comments, midterms, playbook]
+    concepts: [internship, internships, people, experience, comments]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1r7kmck.md#c1", "social-intelligence/reddit-deep/internships/1r7kmck.md#c5"]
     token_count: 514
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1r7kmck/the_playbook_for_landing_an_internship_in_2026/"}]
   - id: "social-intelligence/reddit-deep/internships/1r7kmck.md#c1"
     char_span: [2203, 4533]
     sentence_count: 12
     key_terms: [people, like, want, students, internships, lot, luck, especially]
+    concepts: [people, students, internships, especially, referrals]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1r7kmck.md#c0"]
     token_count: 509
   - id: "social-intelligence/reddit-deep/internships/1r7kmck.md#c2"
-    char_span: [4548, 6199]
+    char_span: [4547, 6198]
     sentence_count: 12
     key_terms: [university, armadillotop2003, career, appropriate-tutor587, services, within, get, help]
+    concepts: [armadillotop2003, university, appropriate-tutor587, career, services]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/internships/1r7kmck.md#c3"
-    char_span: [6201, 8378]
+    char_span: [6200, 8377]
     sentence_count: 18
     key_terms: [resume, applying, got, applied, "didn't", because, company, going]
+    concepts: [resume, applying, applied, "didn't", because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1r7kmck.md#c4"
-    char_span: [8075, 9855]
+    char_span: [8074, 9854]
     sentence_count: 14
     key_terms: [internship, keep, lot, honestly, journey, learned, bottom, gotten]
+    concepts: [internship, honestly, journey, learned, bottom]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/internships/1r7kmck.md#c5"
-    char_span: [9857, 11277]
+    char_span: [9856, 11276]
     sentence_count: 21
     key_terms: [how-i-got-internships-at-verizon-and-apple-with-no-experience, programs, people, recognizable, experience, projects, already, insane]
+    concepts: [programs, recognizable, people, experience, projects]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1r7kmck.md#c0"]
     section: Comments
     token_count: 313
 ---

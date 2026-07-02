@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1389]
     sentence_count: 20
     key_terms: ["i'm", final, "i've", grade, been, got, professor, academic]
+    concepts: [final, grade, professor, academic, released]
     token_count: 335
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sweoby/feel_like_just_failed_my_final_what_can_i_do/"}]
   - id: "articles/reddit-deep-r-neu/af03bbbf24.md#c1"
     char_span: [1391, 2664]
     sentence_count: 5
     key_terms: [grade, disfiguredcoconut, sovereignphobia, transcript, replaces, affect, grades, people]
+    concepts: [grade, disfiguredcoconut, sovereignphobia, transcript, replaces]
     token_count: 307
 ---
 # Feel like just failed my final, what can I do before the grade got released

@@ -20,39 +20,50 @@ chunks:
     char_span: [0, 409]
     sentence_count: 2
     key_terms: [path, comments, stocks, multi-bagger, reddit-deep, subreddits, building, interest]
+    concepts: [comments, stocks]
     token_count: 108
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1npbyeg/path_toward_a_multibagger/"}]
   - id: "social-intelligence/reddit-deep/stocks/1npbyeg.md#c1"
     char_span: [411, 3000]
     sentence_count: 8
     key_terms: [software, enterprise, customers, rpa, agentic, market, uipath, enterprises]
+    concepts: [software, enterprise, customers, agentic, market]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1npbyeg.md#c2"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1npbyeg.md#c2"
     char_span: [2699, 3626]
     sentence_count: 5
     key_terms: [agentic, market, software, growth, cheap, going, been, twelve-month]
+    concepts: [agentic, market, software, growth, cheap]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1npbyeg.md#c1", "social-intelligence/reddit-deep/stocks/1npbyeg.md#c6"]
     token_count: 194
   - id: "social-intelligence/reddit-deep/stocks/1npbyeg.md#c3"
-    char_span: [3628, 5288]
+    char_span: [3628, 5287]
     sentence_count: 10
     key_terms: [path, automation, frequently, vortexleon, companies, trailing, agentic, trading]
+    concepts: [automation, frequently, vortexleon, companies, trailing]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/stocks/1npbyeg.md#c4"
-    char_span: [5290, 7195]
+    char_span: [5289, 7194]
     sentence_count: 12
     key_terms: [agentic, senior-preference678, rpa, pre-planned, good, tech, realize, giving]
+    concepts: [senior-preference678, agentic, pre-planned, realize, giving]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1npbyeg.md#c5"
-    char_span: [6964, 7557]
+    char_span: [6963, 7556]
     sentence_count: 2
     key_terms: [uipath, talking, giving, years, api, dont, old, institutional]
+    concepts: [uipath, talking, giving, years]
     section: Comments
     token_count: 153
   - id: "social-intelligence/reddit-deep/stocks/1npbyeg.md#c6"
-    char_span: [7559, 9284]
+    char_span: [7558, 9283]
     sentence_count: 16
     key_terms: [rpa, uipath, companies, growth, market, year, investment, microsoft]
+    concepts: [uipath, companies, growth, market, investment]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1npbyeg.md#c2"]
     section: Comments
     token_count: 393
 ---

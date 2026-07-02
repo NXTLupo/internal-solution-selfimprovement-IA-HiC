@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 347]
     sentence_count: 2
     key_terms: [engineeringstudents, comments, engineering, reddit-deep, especially, aerospace, student, posted]
+    concepts: [engineeringstudents, comments]
     token_count: 90
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sfk6xv/final_year_aerospace_engineering_student_uk_where/"}]
 ---
 # Final year Aerospace Engineering student (UK) — where do I even start with jobs, especially in Japan?
 

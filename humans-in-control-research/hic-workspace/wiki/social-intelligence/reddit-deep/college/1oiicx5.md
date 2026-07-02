@@ -19,51 +19,65 @@ chunks:
     char_span: [0, 2147]
     sentence_count: 19
     key_terms: [college, parents, life, leave, money, back, get, home]
+    concepts: [college, parents, internship, leave, money]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1oiicx5/verge_of_being_kicked_out/"}]
   - id: "social-intelligence/reddit-deep/college/1oiicx5.md#c1"
     char_span: [2149, 4347]
     sentence_count: 24
     key_terms: [year, "i'm", "it's", parents, degree, classes, started, studies]
+    concepts: [parents, degree, classes, started, studies]
+    related_chunks: ["social-intelligence/reddit-deep/college/1oiicx5.md#c2", "social-intelligence/reddit-deep/college/1oiicx5.md#c3", "social-intelligence/reddit-deep/college/1oiicx5.md#c8"]
     token_count: 504
   - id: "social-intelligence/reddit-deep/college/1oiicx5.md#c2"
     char_span: [4349, 4710]
     sentence_count: 5
     key_terms: [general, studies, useless, degree, "don't", feel, transfer, anybody]
+    concepts: [general, studies, useless, degree, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/college/1oiicx5.md#c1", "social-intelligence/reddit-deep/college/1oiicx5.md#c3"]
     token_count: 87
   - id: "social-intelligence/reddit-deep/college/1oiicx5.md#c3"
     char_span: [4724, 6297]
     sentence_count: 13
     key_terms: [degree, life, need, get, work, director, control, general]
+    concepts: [degree, director, control, general, studies]
+    related_chunks: ["social-intelligence/reddit-deep/college/1oiicx5.md#c1", "social-intelligence/reddit-deep/college/1oiicx5.md#c2"]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/college/1oiicx5.md#c4"
     char_span: [6299, 7945]
     sentence_count: 21
     key_terms: [degree, years, time, took, college, matter, engineering, get]
+    concepts: [degree, years, college, matter, engineering]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/college/1oiicx5.md#c5"
     char_span: [7947, 9802]
     sentence_count: 16
     key_terms: [degree, school, "it's", employable, something, relevant, courses, "doesn't"]
+    concepts: [degree, school, employable, something, relevant]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/college/1oiicx5.md#c6"
     char_span: [9804, 11817]
     sentence_count: 15
     key_terms: [life, "don't", like, problems, parents, bright, future, living]
+    concepts: ["don't", problems, parents, bright, future]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/college/1oiicx5.md#c7"
     char_span: [11820, 13941]
     sentence_count: 19
     key_terms: [degree, people, life, take, work, because, never, like]
+    concepts: [degree, people, because, especially, never]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/college/1oiicx5.md#c8"
     char_span: [13943, 15554]
     sentence_count: 18
     key_terms: [life, need, degree, "i'm", parents, without, working, "can't"]
+    concepts: [degree, parents, without, working, "can't"]
+    related_chunks: ["social-intelligence/reddit-deep/college/1oiicx5.md#c1"]
     section: Comments
     token_count: 370
 ---

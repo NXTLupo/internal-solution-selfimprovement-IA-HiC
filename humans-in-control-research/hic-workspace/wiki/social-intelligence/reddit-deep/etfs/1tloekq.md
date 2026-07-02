@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 287]
     sentence_count: 1
     key_terms: [etfs, comments, here, cowardbeater1969, reddit-deep, checking, consider, exposure]
+    concepts: [comments]
     token_count: 84
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1tloekq/if_you_want_ai_supply_chain_exposure_here_are_the/"}]
   - id: "social-intelligence/reddit-deep/etfs/1tloekq.md#c1"
-    char_span: [302, 1837]
+    char_span: [301, 1836]
     sentence_count: 4
     key_terms: [ais, lurcherlong, holding, people, emotional-breath-838, inevitable-earth-273, frillycanonization3, justastrawberryyy]
+    concepts: [lurcherlong, holding, people]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/etfs/1tloekq.md#c2"
-    char_span: [1839, 3444]
+    char_span: [1838, 3443]
     sentence_count: 12
     key_terms: [infrastructure, broader, exposure, universe, focuses, implementation, focus, ais]
+    concepts: [infrastructure, broader, exposure, universe, implementation]
     section: Comments
     token_count: 371
 ---

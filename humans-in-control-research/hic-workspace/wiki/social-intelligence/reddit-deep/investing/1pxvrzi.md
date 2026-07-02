@@ -21,53 +21,66 @@ chunks:
     char_span: [0, 1275]
     sentence_count: 11
     key_terms: [silver, demand, oil, industrial, increased, investing, investors, comments]
+    concepts: [silver, demand, industrial, increased, investing]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1pxvrzi.md#c2", "social-intelligence/reddit-deep/investing/1pxvrzi.md#c8"]
     token_count: 267
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1pxvrzi/an_ounce_of_silver_is_now_worth_more_than_a/"}]
   - id: "social-intelligence/reddit-deep/investing/1pxvrzi.md#c1"
     char_span: [1289, 1886]
     sentence_count: 4
     key_terms: [oil, hybris12, sector, buy, ilovethegirls1, diversify, convince, negative]
+    concepts: [hybris12, sector]
     section: Comments
     token_count: 164
   - id: "social-intelligence/reddit-deep/investing/1pxvrzi.md#c2"
     char_span: [1888, 3548]
     sentence_count: 6
     key_terms: [like, silver, right, gold, cheaper, deleted, demand, doing]
+    concepts: [silver, right, cheaper, deleted, demand]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1pxvrzi.md#c0", "social-intelligence/reddit-deep/investing/1pxvrzi.md#c8"]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/investing/1pxvrzi.md#c3"
     char_span: [3550, 5423]
     sentence_count: 14
     key_terms: [silver, market, makes, price, sense, "it's", lot, oil]
+    concepts: [silver, market, makes, price, sense]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/investing/1pxvrzi.md#c4"
     char_span: [5425, 5756]
     sentence_count: 3
     key_terms: [assets, correction, eventually, melanthius, parabolic, followed, probably, tumbling]
+    concepts: [assets]
     section: Comments
     token_count: 87
   - id: "social-intelligence/reddit-deep/investing/1pxvrzi.md#c5"
     char_span: [5759, 7614]
     sentence_count: 11
     key_terms: [silver, sell, rojerlockless, years, too, thinking, jewelry, bought]
+    concepts: [silver, rojerlockless, years, thinking, jewelry]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/investing/1pxvrzi.md#c6"
     char_span: [7616, 9156]
     sentence_count: 10
     key_terms: [diamonds, copper, according, created, deleted, premium, bought, future]
+    concepts: [diamonds, copper, according, created, deleted]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/investing/1pxvrzi.md#c7"
     char_span: [9158, 10966]
     sentence_count: 10
     key_terms: [silver, maybe, "it's", time, inflation, adjusted, whatever, profits]
+    concepts: [silver, maybe, inflation, adjusted, whatever]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/investing/1pxvrzi.md#c8"
     char_span: [10968, 12631]
     sentence_count: 10
     key_terms: [silver, artificial, demand, hoarding, people, distribution, year, companies]
+    concepts: [silver, artificial, demand, hoarding, distribution]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1pxvrzi.md#c0", "social-intelligence/reddit-deep/investing/1pxvrzi.md#c2"]
     section: Comments
     token_count: 407
 ---

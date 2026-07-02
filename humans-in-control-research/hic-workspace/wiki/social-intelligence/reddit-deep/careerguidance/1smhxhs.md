@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1270]
     sentence_count: 8
     key_terms: [biochemistry, careerguidance, applications, something, comments, paycheck, career, field]
+    concepts: [biochemistry, careerguidance, applications, something, comments]
     token_count: 291
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1smhxhs/biochemistry_student_19_unsure_about_career_path/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1smhxhs.md#c1"
     char_span: [1284, 2284]
     sentence_count: 1
     key_terms: [get, work, companies, biotech, working, people, right, bioinformatics]
+    concepts: [companies, biotech, working, people, right]
     section: Comments
     token_count: 205
 ---

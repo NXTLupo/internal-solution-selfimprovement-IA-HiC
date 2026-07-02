@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1001]
     sentence_count: 8
     key_terms: [undergrad, student, help, college, faculty, design, connections, engineering]
+    concepts: [undergrad, student, college, faculty, design]
     token_count: 213
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lrcdty/how_to_find_advisors_for_an_undergrad_student_club/"}]
   - id: "social-intelligence/reddit-deep/college/1lrcdty.md#c1"
     char_span: [1015, 2186]
     sentence_count: 9
     key_terms: [advisor, office, hours, club, building, schools, active, defianttumbleweed850]
+    concepts: [advisor, office, hours, building, schools]
     section: Comments
     token_count: 259
 ---

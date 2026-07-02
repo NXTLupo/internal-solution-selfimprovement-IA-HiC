@@ -21,79 +21,94 @@ chunks:
     char_span: [0, 1997]
     sentence_count: 25
     key_terms: [processes, software, google, cscareerquestions, ship, work, "didn't", agile]
+    concepts: [processes, software, google, cscareerquestions, "didn't"]
     token_count: 449
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1kslf3b/after_4_years_at_google_heres_my_honest_take_on/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c1"
     char_span: [1999, 4219]
     sentence_count: 31
     key_terms: [software, docs, point, doc, information, "what's", wrong, ship]
+    concepts: [software, point, information, "what's", wrong]
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c2"
     char_span: [4221, 6479]
     sentence_count: 21
     key_terms: [docs, "they're", google, high-level, "don't", like, retrospectives, documentation]
+    concepts: ["they're", high-level, google, "don't", retrospectives]
     token_count: 479
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c3"
     char_span: [6481, 8816]
     sentence_count: 20
     key_terms: [bottom-up, engineering, people, because, feature, better, maybe, get]
+    concepts: [bottom-up, engineering, people, because, feature]
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c4"
     char_span: [8818, 10320]
     sentence_count: 16
     key_terms: [work, everything, leadership, presented, believe, no-show, problem, "don't"]
+    concepts: [everything, leadership, presented, believe, no-show]
     token_count: 341
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c5"
     char_span: [10334, 11997]
     sentence_count: 11
     key_terms: [manager, google, doc, pushed, get, good, especially, deadlines]
+    concepts: [manager, google, pushed, especially, deadlines]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c6"
     char_span: [11999, 13768]
     sentence_count: 14
     key_terms: [coding, deadline, planning, couple, high, roadmap, design, matter]
+    concepts: [coding, deadline, planning, couple, roadmap]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c7"
     char_span: [13770, 15779]
     sentence_count: 15
     key_terms: [severance, like, change, choice, google, get, "i'm", extremely]
+    concepts: [severance, change, choice, google, extremely]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c8"
     char_span: [15781, 17342]
     sentence_count: 13
     key_terms: [business, "you're", companies, big, parts, always, change, people]
+    concepts: [business, "you're", companies, parts, always]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c9"
     char_span: [17344, 19731]
     sentence_count: 18
     key_terms: [companies, everything, bureaucracy, big, experience, something, everyone, opposite]
+    concepts: [companies, everything, bureaucracy, experience, something]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c10"
     char_span: [19497, 20174]
     sentence_count: 5
     key_terms: ["i'm", experience, teams, ubccompscistudent, time, especially, companies, generally]
+    concepts: [experience, teams]
     section: Comments
     token_count: 178
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c11"
     char_span: [20176, 22250]
     sentence_count: 14
     key_terms: [google, company, legal, fit, negative, because, better, people]
+    concepts: [google, company, legal, negative, because]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c12"
     char_span: [22252, 23913]
     sentence_count: 16
     key_terms: [reviews, often, code, did, google, conceptually, learn, fix]
+    concepts: [reviews, often, conceptually, google, learn]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c13"
     char_span: [23915, 24899]
     sentence_count: 7
     key_terms: [been, team, test, teams, bug, investigations, incorrectly, regressions]
+    concepts: [teams]
     section: Comments
     token_count: 224
 ---

@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 875]
     sentence_count: 13
     key_terms: [personalfinance, start, financially, comments, educated, become, smart, thirdeyeskyward]
+    concepts: [personalfinance, financially, start, comments, educated]
     token_count: 233
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1pfobii/how_do_i_become_financially_educated_how_to_start/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1pfobii.md#c1"
     char_span: [889, 2407]
     sentence_count: 20
     key_terms: [stocks, chemical-power8042, great, money, don, estate, build, extra]
+    concepts: [stocks, chemical-power8042, great, money, estate]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/personalfinance/1pfobii.md#c2"
     char_span: [2409, 4598]
     sentence_count: 17
     key_terms: [personalfinance, commontopics, watch, years, new, discussion, financial, approach]
+    concepts: [personalfinance, commontopics, discussion, watch, years]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/personalfinance/1pfobii.md#c3"
     char_span: [4601, 6773]
     sentence_count: 12
     key_terms: [financial, book, personal, finance, faster, money, savvy, watch]
+    concepts: [financial, personal, finance, faster, money]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/personalfinance/1pfobii.md#c4"
     char_span: [6775, 7562]
     sentence_count: 8
     key_terms: [investing, learn, savings, funds, index, left, read, diversification]
+    concepts: [investing, learn, savings, funds, index]
     section: Comments
     token_count: 178
 ---

@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 761]
     sentence_count: 7
     key_terms: [student, suggestions, comments, college, looking, area, "i'm", neu]
+    concepts: [student, suggestions, comments, college, looking]
     token_count: 191
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1l5rjuq/best_area_for_offcampus_housing_for_noncollege/"}]
   - id: "social-intelligence/reddit-deep/neu/1l5rjuq.md#c1"
     char_span: [775, 2501]
     sentence_count: 12
     key_terms: [chilllfam, long-hold6548, question, allston, housing, jamaica, looking, boston]
+    concepts: [chilllfam, long-hold6548, question, allston, housing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1l5rjuq.md#c2"
     char_span: [2264, 2563]
     sentence_count: 5
     key_terms: [looking, moving, "i'm", potentially, definitely, chilllfam, transfer, friends]
+    concepts: [looking, moving]
     section: Comments
     token_count: 78
 ---

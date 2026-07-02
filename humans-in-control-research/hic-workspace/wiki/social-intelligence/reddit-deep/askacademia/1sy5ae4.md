@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1430]
     sentence_count: 9
     key_terms: [askacademia, long, admissions, applicants, committees, humanities, references, academic]
+    concepts: [askacademia, admissions, applicants, committees, humanities]
     token_count: 281
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1sy5ae4/how_do_faculty_view_nontraditional_applicants/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1sy5ae4.md#c1"
     char_span: [1444, 3370]
     sentence_count: 17
     key_terms: [professors, no-end-2710, graduate, years, exceptional, been, experience, references]
+    concepts: [professors, no-end-2710, graduate, exceptional, experience]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/askacademia/1sy5ae4.md#c2"
     char_span: [3372, 4247]
     sentence_count: 5
     key_terms: [letters, recommendation, applicant, programs, history, read, significantly, applications]
+    concepts: [recommendation, letters, applicant, programs, history]
     section: Comments
     token_count: 178
   - id: "social-intelligence/reddit-deep/askacademia/1sy5ae4.md#c3"
     char_span: [4249, 6406]
     sentence_count: 16
     key_terms: [different, ghztegju, research, letters, professional, thank, hear, long]
+    concepts: [different, ghztegju, research, letters, professional]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/askacademia/1sy5ae4.md#c4"
     char_span: [6408, 6782]
     sentence_count: 4
     key_terms: [speak, ask, recommendation, professor, ghztegju, "master's", reaching, research]
+    concepts: [speak]
     section: Comments
     token_count: 87
 ---

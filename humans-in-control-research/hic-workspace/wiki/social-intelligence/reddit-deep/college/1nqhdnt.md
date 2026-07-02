@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 681]
     sentence_count: 3
     key_terms: [college, party, "i'm", comments, invited, student, "don't", older]
+    concepts: [college, party, comments, invited, student]
     token_count: 180
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1nqhdnt/got_invited_to_a_college_party_but_im_an_older/"}]
   - id: "social-intelligence/reddit-deep/college/1nqhdnt.md#c1"
     char_span: [695, 1467]
     sentence_count: 7
     key_terms: [fun, whether, unless, older, weird, care, end, no-software254]
+    concepts: [whether, unless, older, weird]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/college/1nqhdnt.md#c2"
     char_span: [1469, 2721]
     sentence_count: 11
     key_terms: ["you're", weird, friends, hanging, "don't", older, throwaway44556879, feel]
+    concepts: ["you're", weird, friends, hanging, "don't"]
     section: Comments
     token_count: 338
 ---

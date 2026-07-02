@@ -21,65 +21,77 @@ chunks:
     char_span: [0, 1938]
     sentence_count: 11
     key_terms: [financialindependence, taxable, feb, home, hysa, corporate, including, comments]
+    concepts: [financialindependence, taxable, corporate, including, comments]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1t9yme3/net_worth_multimillionaire/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1t9yme3.md#c1"
     char_span: [1952, 3244]
     sentence_count: 10
     key_terms: [time, year, spending, newborn, spend, intentional, plan, quitting]
+    concepts: [spending, newborn, intentional, spend, quitting]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/financialindependence/1t9yme3.md#c2"
     char_span: [3246, 5263]
     sentence_count: 16
     key_terms: [instability, enough, global, expenses, seasons, "you're", tasty-beautiful-9679, great]
+    concepts: [instability, enough, global, expenses, seasons]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/financialindependence/1t9yme3.md#c3"
     char_span: [5265, 7292]
     sentence_count: 26
     key_terms: [year, considering, people, spend, don, kids, surprised, working]
+    concepts: [considering, people, spend, surprised, working]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/financialindependence/1t9yme3.md#c4"
     char_span: [7294, 8844]
     sentence_count: 16
     key_terms: [providing, seriously, provider, family, point, spend, area, home]
+    concepts: [providing, seriously, provider, family, point]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/financialindependence/1t9yme3.md#c5"
     char_span: [8846, 10374]
     sentence_count: 15
     key_terms: [years, early, wife, commission, portfolio, honestly, older, bit]
+    concepts: [years, commission, early, portfolio, honestly]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/financialindependence/1t9yme3.md#c6"
     char_span: [10376, 11729]
     sentence_count: 17
     key_terms: [parents, daycare, closer, been, kids, time, want, wife]
+    concepts: [parents, daycare, closer]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/financialindependence/1t9yme3.md#c7"
     char_span: [11731, 13735]
     sentence_count: 24
     key_terms: [time, corporate, job, recruz, frustrations, like, want, education]
+    concepts: [corporate, frustrations, recruz, education, another]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1t9yme3.md#c8"
     char_span: [13492, 14052]
     sentence_count: 5
     key_terms: [taxable, back, time, proportionally, investments, different, full-time, roboculon]
+    concepts: [taxable]
     section: Comments
     token_count: 141
   - id: "social-intelligence/reddit-deep/financialindependence/1t9yme3.md#c9"
     char_span: [14054, 15926]
     sentence_count: 10
     key_terms: [retirement, taxable, emergency, early, funds, ira, tax, advantaged]
+    concepts: [retirement, taxable, emergency, advantaged, early]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/financialindependence/1t9yme3.md#c10"
     char_span: [15928, 16462]
     sentence_count: 4
     key_terms: [tax-advantaged, accounts, taxable, making, maxing, person, spend, legitosaurusrex]
+    concepts: [tax-advantaged, accounts, taxable, making, maxing]
     section: Comments
     token_count: 134
 ---

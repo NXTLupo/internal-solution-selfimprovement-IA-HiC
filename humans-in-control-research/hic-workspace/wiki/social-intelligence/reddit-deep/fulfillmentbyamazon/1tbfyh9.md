@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1267]
     sentence_count: 9
     key_terms: [brand, interested, supplement, fulfillmentbyamazon, business, comments, struggle, selling]
+    concepts: [brand, fulfillmentbyamazon, interested, supplement, business]
     token_count: 284
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1tbfyh9/supplement_brand_for_sale/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tbfyh9.md#c1"
-    char_span: [1282, 2433]
+    char_span: [1281, 2432]
     sentence_count: 7
     key_terms: [fulfillmentbyamazon, discord, fba, discuss, empire, server, pretty-entertainer-4, "it's"]
+    concepts: [fulfillmentbyamazon, discord, discuss, empire, server]
     section: Comments
     token_count: 315
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1977]
     sentence_count: 4
     key_terms: [supply, logistics, chain, management, customer, ensuring, managing, sustainability]
+    concepts: [logistics, supply, chain, management, customer]
     token_count: 384
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1pien3t/asking_advice_from_professionals_v40_exim_e/"}]
   - id: "social-intelligence/reddit-deep/logistics/1pien3t.md#c1"
-    char_span: [1992, 2287]
+    char_span: [1991, 2286]
     sentence_count: 3
     key_terms: [going, sustainability, stealthagents, definitely, specialist, practices, relevant, around]
+    concepts: [going]
     section: Comments
     token_count: 65
 ---

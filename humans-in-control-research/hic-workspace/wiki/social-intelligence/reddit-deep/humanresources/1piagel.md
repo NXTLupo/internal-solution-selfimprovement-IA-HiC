@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 1189]
     sentence_count: 10
     key_terms: [romantic, humanresources, policy, relationships, relationship, information, disclosed, employees]
+    concepts: [romantic, humanresources, relationships, relationship, policy]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1piagel.md#c2", "social-intelligence/reddit-deep/humanresources/1piagel.md#c3"]
     token_count: 278
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1piagel/20_years_in_hr_and_i_just_had_a_first_looking_for/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1piagel.md#c1"
     char_span: [1203, 2679]
     sentence_count: 8
     key_terms: [relationship, disclosed, employee, language, professional, regardless, something, handbook]
+    concepts: [relationship, disclosed, employee, language, professional]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/humanresources/1piagel.md#c2"
     char_span: [2681, 4225]
     sentence_count: 9
     key_terms: [disclosure, policy, relationship, harassment, employer, promoted, confirm, "they're"]
+    concepts: [disclosure, policy, relationship, harassment, employer]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1piagel.md#c0", "social-intelligence/reddit-deep/humanresources/1piagel.md#c3"]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/humanresources/1piagel.md#c3"
     char_span: [4227, 6589]
     sentence_count: 19
     key_terms: [agreement, "i'd", company, future, policy, relationship, move, addressing]
+    concepts: [agreement, company, relationship, future, policy]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1piagel.md#c0", "social-intelligence/reddit-deep/humanresources/1piagel.md#c2"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/humanresources/1piagel.md#c4"
     char_span: [6591, 7384]
     sentence_count: 7
     key_terms: [biases, person, letsgetridiculus, relationships, relationship, opportunity, unnecessary, committees]
+    concepts: [biases, person]
     section: Comments
     token_count: 165
 ---

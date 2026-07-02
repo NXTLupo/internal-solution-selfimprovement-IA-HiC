@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 889]
     sentence_count: 2
     key_terms: [the-future-of-jobs-report-2025, skills, futureofwork, publications, https, work, www, comments]
+    concepts: [the-future-of-jobs-report-2025, futureofwork, publications, skills, https]
     token_count: 225
+    sources: [{"n":"reddit-deep: r/futureofwork","u":"https://www.reddit.com/r/FutureOfWork/comments/1q5nwts/future_of_work_job_report/"}]
   - id: "social-intelligence/reddit-deep/futureofwork/1q5nwts.md#c1"
     char_span: [903, 1550]
     sentence_count: 5
     key_terms: [people, like, part, real, tech, responsibilities, directionally, underestimate]
+    concepts: [people]
     section: Comments
     token_count: 129
 ---

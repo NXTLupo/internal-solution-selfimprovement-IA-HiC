@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1645]
     sentence_count: 7
     key_terms: [internships, university, applied, alumni, rlly, want, networking, comments]
+    concepts: [internships, university, applied, alumni, networking]
     token_count: 393
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tdi8gp/ask_an_alum_for_help_if_you_havent_find_a_summer/"}]
   - id: "social-intelligence/reddit-deep/internships/1tdi8gp.md#c1"
-    char_span: [1660, 3678]
+    char_span: [1659, 3677]
     sentence_count: 7
     key_terms: [people, students, commonoption8539, genuine, "don't", help, work, internship]
+    concepts: [people, commonoption8539, students, genuine, "don't"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/internships/1tdi8gp.md#c2"
-    char_span: [3680, 5064]
+    char_span: [3679, 5063]
     sentence_count: 2
     key_terms: [template, get, please, share, message, appreciate, company, check]
+    concepts: [template, please, share, message, appreciate]
     section: Comments
     token_count: 434
 ---

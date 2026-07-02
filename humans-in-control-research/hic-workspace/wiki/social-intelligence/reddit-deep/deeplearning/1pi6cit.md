@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1067]
     sentence_count: 18
     key_terms: [deeplearning, performance, evaluation, comments, single, teams, call, uncomfortable]
+    concepts: [deeplearning, performance, evaluation, comments, single]
     token_count: 245
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1pi6cit/llmops_is_turning_out_to_be_harder_than_classic/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1pi6cit.md#c1"
     char_span: [1081, 3229]
     sentence_count: 22
     key_terms: [llm, don, like, phenomenon, documents, gibonfrog, pipeline, problems]
+    concepts: [phenomenon, documents, gibonfrog, pipeline, problems]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/deeplearning/1pi6cit.md#c2"
     char_span: [3231, 4489]
     sentence_count: 12
     key_terms: [different, product, output, error, eol, assistance, friction, answers]
+    concepts: [different, product, output, assistance, error]
     section: Comments
     token_count: 274
   - id: "social-intelligence/reddit-deep/deeplearning/1pi6cit.md#c3"
     char_span: [4492, 6549]
     sentence_count: 11
     key_terms: [prompts, code, like, problem, evals, use, assertions, versioning]
+    concepts: [prompts, problem, assertions, evals, versioning]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/deeplearning/1pi6cit.md#c4"
     char_span: [6551, 8227]
     sentence_count: 11
     key_terms: [like, frameworks, managing, change, maleficent-wafer-243, tools, add, non-determinism]
+    concepts: [frameworks, managing, change, tools]
     section: Comments
     token_count: 344
 ---

@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1023]
     sentence_count: 7
     key_terms: [talent, humanresources, years, like, strategic, comments, another, company]
+    concepts: [talent, humanresources, years, strategic, comments]
     token_count: 234
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1stonsz/is_an_mba_for_midcareer_hr_professionals_worth_it/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1stonsz.md#c1"
     char_span: [1037, 2616]
     sentence_count: 7
     key_terms: [getting, experience, mba, work, get, want, degrees, better]
+    concepts: [getting, experience, degrees, better, people]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/humanresources/1stonsz.md#c2"
     char_span: [2618, 4675]
     sentence_count: 17
     key_terms: [mba, business, whether, level, cost, strategic, decision, position]
+    concepts: [business, whether, level, strategic, decision]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1stonsz.md#c3"]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/humanresources/1stonsz.md#c3"
     char_span: [4677, 6540]
     sentence_count: 14
     key_terms: [like, work, years, mba, business, gonna, level, tinylittlepoopman]
+    concepts: [years, business, gonna, level]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1stonsz.md#c2"]
     section: Comments
     token_count: 447
 ---

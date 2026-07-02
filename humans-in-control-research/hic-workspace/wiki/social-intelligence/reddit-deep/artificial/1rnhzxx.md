@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 360]
     sentence_count: 1
     key_terms: [artificial, comments, desperate-ad-9679, codegraphcontext, reddit-deep, assistants, structured, codebase]
+    concepts: [artificial, comments]
     token_count: 90
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1rnhzxx/codegraphcontext_an_mcp_server_that_converts_your/"}]
   - id: "social-intelligence/reddit-deep/artificial/1rnhzxx.md#c1"
     char_span: [475, 2114]
     sentence_count: 4
     key_terms: [codegraphcontext, https, mcp, github, infrastructure, graph, code, adoption]
+    concepts: [codegraphcontext, https, github, infrastructure, graph]
     section: CodeGraphContext- the go to solution for graphical code indexing for Github Copilot or any IDE of your choice
     token_count: 399
   - id: "social-intelligence/reddit-deep/artificial/1rnhzxx.md#c2"
     char_span: [2129, 3490]
     sentence_count: 7
     key_terms: [relevant-magic-card, desperate-ad-9679, context, static, decorators, analysis, dynamic, support]
+    concepts: [relevant-magic-card, desperate-ad-9679, context, static, decorators]
     section: Comments
     token_count: 326
 ---

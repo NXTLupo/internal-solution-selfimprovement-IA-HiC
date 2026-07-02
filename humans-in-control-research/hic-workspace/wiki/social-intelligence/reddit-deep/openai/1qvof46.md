@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1651]
     sentence_count: 17
     key_terms: [chatgpt, gemini, extensions, queue, projects, browser, openai, ahmdidjajeicoopcdpablhecokaepofl]
+    concepts: [chatgpt, extensions, gemini, queue, projects]
     token_count: 411
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1qvof46/i_switched_from_chatgpt_to_gemini_for_the_context/"}]
 ---
 # I switched from ChatGPT to Gemini for the context window, but the UI felt ancient. So I built an extension to fix it.
 

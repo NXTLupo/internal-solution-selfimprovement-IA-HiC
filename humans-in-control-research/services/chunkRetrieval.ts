@@ -42,6 +42,10 @@ import {
 // WS-A: register per-chunk REAL sources at the assembleChunkCorpus chokepoint so cite-time resolution
 // (resolveManifestPointers) uses the chunk's actual attribution, not the page title.
 import { registerResolvedChunkSources } from './citationPointerRegistry';
+// W6 (2026-07-01, scorecard "corpus bias toward Reddit"): stop junk grounding AT RETRIEVAL - the same
+// non-evidence predicate the ledger uses (bot/mod boilerplate, tombstones) now excludes chunks BEFORE
+// they ground a generation, not just before they enter the AIR ledger.
+import { isNonEvidenceChunk } from './evidenceLedgerService';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -102,6 +106,13 @@ export interface ManifestChunkRecord {
     sourceTitle: string;
     sourceSubreddit: string;
     sourceRelevance: number;
+    /** W6 (2026-07-01) - true when this record was admitted by a CROSS-ENGAGEMENT tier (tier-1.5
+     *  objective-ranked whole-store admission or the tier-3 whole-wiki fallback), NOT by the engagement's
+     *  own corpus or the user's KL selection. Off-engagement chunks are held to a stricter admission bar:
+     *  they never enter via zero-overlap broaden backfill (the documented path by which r/waterloo Reddit
+     *  chunks grounded an asset-management run). Objective-relevant off-engagement evidence still enters
+     *  via keyword match / concept adjacency - this is a leakage guard, not an isolation wall. */
+    offEngagement?: boolean;
 }
 
 const _CATALOG_CACHE = new Map<string, { ts: number; records: ManifestChunkRecord[] }>();
@@ -116,7 +127,15 @@ const _CATALOG_TTL_MS = 60_000;
  * NOT used here (topic-identity pointers, a different scheme).
  */
 interface SelectionCatalog { ids: string[]; pages: Record<string, { key_terms: string[]; relevance: number; title?: string }>; }
-async function _fetchSelectionCatalogIds(): Promise<SelectionCatalog> {
+/** OWNER-RATIFIED floor (2026-07-01): a DORMANT KL selection must be at least this goal-similar to the
+ *  CURRENT research objective before it may ground a deliverable. Live failure this closes: a leftover
+ *  r/healthinsurance selection from a prior session expanded to 929 chunk pointers, rode the
+ *  user-selection priority tier, and filled 100% of every theme shard's grounding budget on an
+ *  AGRICULTURAL-insurance run (all 12 themes came back health-insurance). An explicitly committed
+ *  (non-dormant) selection is NEVER gated - user selections trump auto-ranking remains absolute
+ *  for deliberate, current choices. */
+const DORMANT_SELECTION_MIN_GOAL_SIM = 0.2;
+async function _fetchSelectionCatalogIds(researchObjective = ''): Promise<SelectionCatalog> {
     const empty: SelectionCatalog = { ids: [], pages: {} };
     try {
         const selResp = await fetch(`${PROXY_BASE}/api/user-selection/active`);
@@ -134,6 +153,28 @@ async function _fetchSelectionCatalogIds(): Promise<SelectionCatalog> {
         // manual re-apply. (Supersedes the retrieval-consumer half of the prior
         // no-auto-arm rule per the owner's current directive; UI/collection unchanged.)
         const _dormant = !!sel._uncommitted;
+        // 2026-07-01 REFINEMENT (owner-approved): a DORMANT selection only auto-passes when its
+        // CONTENT is plausibly about the current objective. Objective-supremacy: a selection made
+        // for a different engagement must not silently hijack this one's grounding. Scored with the
+        // same scoreGoalSimilarity the cache loader uses (converge, no new similarity brain).
+        if (_dormant && researchObjective.trim().length >= 8) {
+            const descriptor = [
+                ...(Array.isArray(sel.social_subreddits) ? sel.social_subreddits : []),
+                ...(Array.isArray(sel.article_sources) ? sel.article_sources : []),
+                ...(Array.isArray(sel.source_archive_paths) ? sel.source_archive_paths : []).map(
+                    (p: string) => String(p).replace(/^sources\//, '').replace(/\.md$/i, '').replace(/[-_/]+/g, ' ')),
+                String(sel.goal || ''),
+            ].join(' ').trim();
+            if (descriptor) {
+                const { scoreGoalSimilarity } = await import('./wikiCacheLoader');
+                const sim = scoreGoalSimilarity(researchObjective, descriptor);
+                if (sim < DORMANT_SELECTION_MIN_GOAL_SIM) {
+                    console.warn(`[chunkRetrieval] DORMANT KL selection SKIPPED for grounding: goal similarity ${sim.toFixed(2)} < ${DORMANT_SELECTION_MIN_GOAL_SIM} floor (selection: "${descriptor.slice(0, 120)}"). Re-commit the selection via Curate to use it deliberately; an explicitly committed selection is always honored.`);
+                    return empty;
+                }
+                console.log(`[chunkRetrieval] dormant KL selection goal-similarity ${sim.toFixed(2)} >= ${DORMANT_SELECTION_MIN_GOAL_SIM} - honored for grounding`);
+            }
+        }
         const body = {
             social_subreddits: Array.isArray(sel.social_subreddits) ? sel.social_subreddits : [],
             article_sources: Array.isArray(sel.article_sources) ? sel.article_sources : [],
@@ -196,7 +237,7 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false,
         //   BLEND       -> both, deduped    -> this run's fresh corpus + chosen cached corpus
         // _fetchSelectionCatalogIds already returns empty for an _uncommitted (dormant)
         // selection, honoring the no-auto-arm rule, so a fresh page load never injects it.
-        const sel = await _fetchSelectionCatalogIds();
+        const sel = await _fetchSelectionCatalogIds(_obj);
         // 2026-06-16 - the user's COMMITTED KL selection. These chunk ids TRUMP
         // auto-ranking: tagged userSelected on the record below so they are never
         // dropped by the keyword gates and rank above non-selected chunks.
@@ -219,6 +260,9 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false,
         // every pointer against the manifest (chunk_count), so grounding stays
         // frontmatter-tied - resolveChunks dereferences spans; raw store text never
         // enters the prompt (anti-RAG: feedback_deliverables_manifest_wiki_not_rag).
+        // W6 (2026-07-01): track which pointers were admitted by a CROSS-ENGAGEMENT tier (tier-1.5 /
+        // tier-3) so pickChunksForPrompt can hold them to a stricter bar (no zero-overlap backfill).
+        const _offEngagementIds = new Set<string>();
         if (_obj) {
             try {
                 const goalUrl = `${PROXY_BASE}/api/manifest/chunks-by-goal?goal=${encodeURIComponent(_obj)}&engagement=${encodeURIComponent(engagementSlug)}&types=${encodeURIComponent('social-post,article,upload,insight')}&limit=600`;
@@ -230,7 +274,7 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false,
                     if (gIds.length) {
                         const have = new Set(ids);
                         let added = 0;
-                        for (const id of gIds) { if (!have.has(id)) { ids.push(id); have.add(id); added++; } }
+                        for (const id of gIds) { if (!have.has(id)) { ids.push(id); have.add(id); _offEngagementIds.add(id); added++; } }
                         // tier-1 (engagement) + tier-2 (KL) page metadata WINS on collision;
                         // objective-ranked pages fill the rest of the candidate pool.
                         pages = { ...gPages, ...pages };
@@ -260,6 +304,7 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false,
                 const wData = await wResp.json();
                 ids = Array.isArray(wData?.chunk_ids) ? wData.chunk_ids : [];
                 pages = (wData && typeof wData.pages === 'object' && wData.pages) ? wData.pages : {};
+                for (const id of ids) _offEngagementIds.add(id);   // W6: whole-wiki fallback = all cross-engagement
                 console.warn(`[chunkRetrieval] tier-1 (engagement "${engagementSlug}") + tier-2 (KL selection) catalogs EMPTY - tier-3 WHOLE-WIKI manifest fallback: ${ids.length} chunk pointers, ${Object.keys(pages).length} pages (pre-rank narrows to the on-goal slice; grounding stays manifest-based, never bulk RAG)`);
             }
         }
@@ -283,6 +328,7 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false,
                 sourceSubreddit: '',
                 sourceRelevance: pm ? (pm.relevance || 0) : 0,
                 userSelected: _userSelectedIds.has(id),
+                offEngagement: _offEngagementIds.has(id) && !_userSelectedIds.has(id),
             };
         });
         _CATALOG_CACHE.set(cacheKey, { ts: Date.now(), records });
@@ -352,6 +398,9 @@ export interface PickChunksOptions {
 
 export interface PickedChunks {
     chunkIds: string[];
+    /** W6 (2026-07-01): normalized objective-relevance per selected chunk (0-100; pinned=100,
+     *  user-selected=95, auto picks scaled by keyword score). Feeds EvidencePointer.objectiveScore. */
+    scores?: Record<string, number>;
     droppedZeroScore: number;
     droppedOverBudget: number;
     catalogSize: number;
@@ -671,16 +720,24 @@ export async function pickChunksForPrompt(
     // selected org chunks before the selected off-topic ones). Non-selected
     // (objective-admitted) chunks fill only the budget the selection leaves.
     const USER_SELECTED_TIER = 100000;
+    let _droppedNonEvidence = 0;
     for (const rec of candidateRecs) {
         const ch = byId.get(rec.chunkId);
         if (!ch) continue;
+        const isPinned = pinned.has(ch.id);
+        const isUserSel = !!(rec.userSelected || rec.namedRef);
+        // W6 (2026-07-01): NON-EVIDENCE chunks (bot/mod boilerplate, tombstones, stubs) never ground a
+        // generation - drop at retrieval, the upstream twin of the ledger's buildEvidenceLedger filter.
+        // User-selected/pinned chunks are exempt (user selections trump auto-ranking).
+        if (!isPinned && !isUserSel && isNonEvidenceChunk(ch.text)) {
+            _droppedNonEvidence++;
+            continue;
+        }
         let overlap = 0;
         for (const t of ch.keyTerms) {
             if (promptKeywords.has(t.toLowerCase())) overlap++;
         }
         const score = overlap * Math.max(1, ch.sentenceCount);
-        const isPinned = pinned.has(ch.id);
-        const isUserSel = !!(rec.userSelected || rec.namedRef);
         if (!isPinned && !isUserSel && score === 0) {
             // WS-G(traversal): concept-graph neighbor of a matched chunk -> admit at a low positive score
             // (below every keyword match) so the concept graph feeds retrieval. Runs in BOTH strict and
@@ -694,7 +751,13 @@ export async function pickChunksForPrompt(
             // strict pass DROPS these (precision); a broaden retry KEEPS them as
             // relevance-ranked backfill so adjacent evidence fills the budget
             // instead of starving the window at the matched set.
-            if (_broaden) {
+            // W6 (2026-07-01): CROSS-ENGAGEMENT chunks are EXCLUDED from zero-overlap backfill.
+            // This was the leakage path: tier-1.5/tier-3 admitted the whole store, and broaden
+            // backfilled zero-overlap chunks by sourceRelevance - which is relevance to their OWN
+            // original engagement, not to THIS objective (how r/waterloo Reddit grounded an
+            // asset-management run). Off-engagement evidence must earn admission via keyword
+            // match or concept adjacency; the engagement's own corpus keeps the old behavior.
+            if (_broaden && !rec.offEngagement) {
                 const relScore = Math.max(0.01, Math.min(0.99, (rec.sourceRelevance || 0) / 100));
                 scored.push({ chunk: ch, score: relScore, charLen: ch.text.length });
                 _broadenBackfill++;
@@ -726,6 +789,9 @@ export async function pickChunksForPrompt(
     }
     if (_conceptAdmitted > 0) {
         console.log(`[chunkRetrieval] concept-graph: admitted ${_conceptAdmitted} concept-adjacent chunk(s) (1-hop related_chunks of keyword-matched chunks) that had zero keyword overlap`);
+    }
+    if (_droppedNonEvidence > 0) {
+        console.log(`[chunkRetrieval] non-evidence filter: dropped ${_droppedNonEvidence} bot/boilerplate/tombstone chunk(s) at retrieval (never ground a generation)`);
     }
 
     // Phase A1 (go-forward plan) - MMR diversity packing. The old pack took pure
@@ -817,8 +883,27 @@ export async function pickChunksForPrompt(
     const _userSocial = _socialSel - _autoSocial;  // social that came from the user's own selection
     console.log(`[chunkRetrieval] MMR pack: selected ${selected.length} chunks (lambda=${LAMBDA}, ~${Math.round(usedChars / CHARS_PER_TOKEN_ESTIMATE)} tok) from ${pool.length} scored candidates; source-type balance: ${_socialSel} social (${_userSocial} user-selected / ${_autoSocial} auto) / ${selected.length - _socialSel} non-social (auto-social cap ${Math.round(SOCIAL_MAX_FRAC * 100)}% of ${_autoTotal} auto picks; user selections never capped)`);
 
+    // W6 (2026-07-01): normalized objective-relevance per selected chunk (0-100) so the AIR evidence
+    // ledger carries a real objectiveScore per pointer. Pinned=100, user-selected tier=95; auto picks
+    // scale by their keyword score relative to the strongest auto candidate.
+    const scores: Record<string, number> = {};
+    {
+        const _byIdScore = new Map<string, number>();
+        for (const s of scored) _byIdScore.set(s.chunk.id, s.score);
+        let maxPlain = 0;
+        for (const s of scored) if (Number.isFinite(s.score) && s.score < USER_SELECTED_TIER && s.score > maxPlain) maxPlain = s.score;
+        for (const id of selected) {
+            const sc = _byIdScore.get(id);
+            if (sc === undefined) { scores[id] = 0; continue; }
+            if (!Number.isFinite(sc)) scores[id] = 100;
+            else if (sc >= USER_SELECTED_TIER) scores[id] = 95;
+            else scores[id] = maxPlain > 0 ? Math.max(1, Math.round((sc / maxPlain) * 90)) : 0;
+        }
+    }
+
     return {
         chunkIds: selected,
+        scores,
         droppedZeroScore,
         droppedOverBudget,
         catalogSize: catalog.length,
@@ -919,12 +1004,15 @@ export async function buildManifestCorpusForGoal(
         const resolved = await resolveChunks(picked.chunkIds);
         if (!resolved.chunks.length) return empty;
         console.log(`[MCR-helper] grounded "${goal.slice(0, 50)}...": ${resolved.chunks.length} chunks from ${resolved.sourcesRead} pages (catalog=${picked.catalogSize})`);
+        // W6: attach the retrieval-time objective score to each chunk so the AIR evidence ledger
+        // (buildEvidenceLedger -> EvidencePointer.objectiveScore) carries per-pointer alignment.
+        const chunksScored = resolved.chunks.map(c => ({ ...c, retrievalScore: picked.scores?.[c.id] ?? 0 }));
         return {
-            corpus: assembleChunkCorpus(resolved.chunks),
-            chunkCount: resolved.chunks.length,
+            corpus: assembleChunkCorpus(chunksScored),
+            chunkCount: chunksScored.length,
             sourcesRead: resolved.sourcesRead,
             instructions: chunkCitationInstructions(),
-            chunks: resolved.chunks,
+            chunks: chunksScored,
         };
     } catch (e: any) {
         console.warn('[MCR-helper] grounding failed (caller falls back):', e?.message || e);

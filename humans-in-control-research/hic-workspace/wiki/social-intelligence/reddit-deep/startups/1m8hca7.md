@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 772]
     sentence_count: 6
     key_terms: [anyone, successfully, questions, something, comments, startups, support, automatically]
+    concepts: [successfully, anyone, questions, something, comments]
     token_count: 161
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1m8hca7/has_anyone_actually_used_ai_for_customer_support/"}]
   - id: "social-intelligence/reddit-deep/startups/1m8hca7.md#c1"
-    char_span: [787, 1781]
+    char_span: [786, 1780]
     sentence_count: 12
     key_terms: [decagon, assistant, customer, rippling, support, emergencysherbert247, longjumping-turn-142, your-startup-advisor]
+    concepts: [decagon, assistant, customer, rippling, support]
     section: Comments
     token_count: 262
   - id: "social-intelligence/reddit-deep/startups/1m8hca7.md#c2"
-    char_span: [1783, 3169]
+    char_span: [1782, 3168]
     sentence_count: 11
     key_terms: [customers, customer, whatsapp, doing, help, multiple, platform, instead]
+    concepts: [customers, customer, whatsapp, doing, multiple]
     section: Comments
     token_count: 345
 ---

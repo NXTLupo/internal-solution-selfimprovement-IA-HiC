@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1223]
     sentence_count: 10
     key_terms: [marketing, like, roles, internships, ads, findapath, comments, strategy]
+    concepts: [marketing, internships, roles, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1lj7qt1.md#c1"]
     token_count: 279
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1lj7qt1/thirdyear_bba_student_confused_about_marketing/"}]
   - id: "social-intelligence/reddit-deep/findapath/1lj7qt1.md#c1"
     char_span: [1237, 2905]
     sentence_count: 13
     key_terms: [thank, helpful, please, able, good, help, findapath, comments]
+    concepts: [thank, helpful, please, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1lj7qt1.md#c0"]
     section: Comments
     token_count: 395
 ---

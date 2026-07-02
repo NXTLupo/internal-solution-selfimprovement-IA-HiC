@@ -19,105 +19,129 @@ chunks:
     char_span: [0, 843]
     sentence_count: 7
     key_terms: [agency, internships, job, comments, december, jobs, msw, significantly]
+    concepts: [agency, internships, comments, december]
     token_count: 213
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1pptill/fired_for_sexual_harassment/"}]
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c1"
     char_span: [845, 3124]
     sentence_count: 20
     key_terms: [guess, dad, like, started, fired, day, did, "didn't"]
+    concepts: [guess, started, fired, inappropriate, "didn't"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c2"
     char_span: [2843, 3436]
     sentence_count: 6
     key_terms: [field, fired, hurt, inappropriate, conversation, acknowledge, reprimanded, harassment]
+    concepts: [field, fired]
     token_count: 134
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c3"
     char_span: [3438, 4979]
     sentence_count: 9
     key_terms: [family, fluffyassistant7107, "couldn't", torture, pulled, place, words, lifes-a-lil-foggy]
+    concepts: [family, fluffyassistant7107, "couldn't", torture, pulled]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c4"
     char_span: [4981, 6557]
     sentence_count: 8
     key_terms: [sexual, inappropriate, new, unplanned, creepy, u-dull-western9379, hire, own]
+    concepts: [inappropriate, sexual, unplanned, creepy]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1pptill.md#c12"]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c5"
     char_span: [6559, 8532]
     sentence_count: 19
     key_terms: [because, like, work, people, inappropriate, childhood, something, riddance]
+    concepts: [because, inappropriate, people, childhood, something]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c6"
     char_span: [8534, 10443]
     sentence_count: 16
     key_terms: [get, got, harassment, drinking, personal, company, trapped, person]
+    concepts: [harassment, drinking, personal, company, trapped]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c7"
     char_span: [10445, 12252]
     sentence_count: 11
     key_terms: [either, terminate, response, someone, autism, responsible-dig-359, being, hire]
+    concepts: [either, terminate, response, someone, autism]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c8"
     char_span: [12254, 14269]
     sentence_count: 23
     key_terms: [fluffyassistant7107, friends, learned, lesson, office, close, early, like]
+    concepts: [fluffyassistant7107, friends, learned, lesson, office]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c9"
     char_span: [14271, 15622]
     sentence_count: 14
     key_terms: [work, people, experience, conversation, sex, remotely, advice, brings]
+    concepts: [experience, people, conversation, remotely, advice]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1pptill.md#c10"]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c10"
     char_span: [15624, 17284]
     sentence_count: 11
     key_terms: [conversation, language, judged, people, black, gonna, material-heron6336, mynameisnotsparta]
+    concepts: [conversation, language, judged, people, black]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1pptill.md#c9"]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c11"
     char_span: [17286, 18530]
     sentence_count: 10
     key_terms: [work, personal, people, plentycryptographer5, avoid, day, like, need]
+    concepts: [personal, people, avoid]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c12"
     char_span: [18532, 20141]
     sentence_count: 8
     key_terms: [inappropriate, far, too, work, discussion, randyest, office, sexual]
+    concepts: [inappropriate, discussion, randyest, office, sexual]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1pptill.md#c4", "social-intelligence/reddit-deep/jobs/1pptill.md#c15"]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c13"
     char_span: [20143, 22179]
     sentence_count: 16
     key_terms: [bullet, telling, dodged, did, work, educating, catholic, believe]
+    concepts: [bullet, telling, dodged, educating, catholic]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c14"
     char_span: [21938, 22532]
     sentence_count: 7
     key_terms: [relationship, parents, guys, "it's", generalizations, unconscious, dogmomaf15, something]
+    concepts: [relationship, parents]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c15"
     char_span: [22534, 24508]
     sentence_count: 14
     key_terms: [inappropriate, conversation, office, "wasn't", "you're", come, "it's", like]
+    concepts: [inappropriate, conversation, office, "wasn't", "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1pptill.md#c12"]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c16"
     char_span: [24511, 26553]
     sentence_count: 20
     key_terms: [conversation, personal, unplanned, parents, keep, work, definitely, different]
+    concepts: [conversation, personal, unplanned, parents, definitely]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c17"
     char_span: [26555, 27195]
     sentence_count: 3
     key_terms: [inappropriate, gobirds1-11-6-26, professionalism, conversation, professional, challenge, diligent, problems]
+    concepts: [inappropriate]
     section: Comments
     token_count: 144
 ---

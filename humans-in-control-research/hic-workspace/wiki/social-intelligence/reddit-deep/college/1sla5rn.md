@@ -21,23 +21,32 @@ chunks:
     char_span: [0, 1122]
     sentence_count: 7
     key_terms: [people, student, college, comments, excited, active, attend, "don't"]
+    concepts: [people, student, college, comments, excited]
+    related_chunks: ["social-intelligence/reddit-deep/college/1sla5rn.md#c2", "social-intelligence/reddit-deep/college/1sla5rn.md#c3"]
     token_count: 251
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1sla5rn/how_do_i_get_people_to_join_my_student_org/"}]
   - id: "social-intelligence/reddit-deep/college/1sla5rn.md#c1"
     char_span: [1136, 2809]
     sentence_count: 16
     key_terms: [professors, people, club, get, want, question, classes, mention]
+    concepts: [professors, people, question, classes, mention]
+    related_chunks: ["social-intelligence/reddit-deep/college/1sla5rn.md#c2"]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/college/1sla5rn.md#c2"
     char_span: [2811, 4938]
     sentence_count: 15
     key_terms: [people, club, orgs, classes, college, interesting, org, show]
+    concepts: [people, classes, college, interesting, attendance]
+    related_chunks: ["social-intelligence/reddit-deep/college/1sla5rn.md#c0", "social-intelligence/reddit-deep/college/1sla5rn.md#c1"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/college/1sla5rn.md#c3"
     char_span: [4940, 6078]
     sentence_count: 15
     key_terms: [meetings, students, college, student, budget, ask, food, lab]
+    concepts: [meetings, students, college, student, budget]
+    related_chunks: ["social-intelligence/reddit-deep/college/1sla5rn.md#c0"]
     section: Comments
     token_count: 248
 ---

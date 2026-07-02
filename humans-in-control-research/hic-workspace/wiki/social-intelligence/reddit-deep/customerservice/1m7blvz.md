@@ -17,10 +17,12 @@ research_goal: "Generate a comprehensive product marketing report for NXT Humans
 engagement: "generate-a-comprehensive-product-marketing-report-for-nxt-hu"
 chunks:
   - id: "social-intelligence/reddit-deep/customerservice/1m7blvz.md#c0"
-    char_span: [0, 1075]
+    char_span: [0, 1074]
     sentence_count: 7
     key_terms: [paytm, store, customerservice, heusen, use, van, assistant, comments]
+    concepts: [paytm, customerservice, store, heusen, assistant]
     token_count: 268
+    sources: [{"n":"reddit-deep: r/customerservice","u":"https://www.reddit.com/r/CustomerService/comments/1m7blvz/paytm_gift_card_not_working_at_store/"}]
 ---
 # Paytm Gift Card not working at store
 

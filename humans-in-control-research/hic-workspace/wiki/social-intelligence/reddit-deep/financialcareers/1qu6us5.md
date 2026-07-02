@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 356]
     sentence_count: 1
     key_terms: [financialcareers, comments, ill-blacksmith9006, reddit-deep, management, investing, enough, posted]
+    concepts: [financialcareers, comments]
     token_count: 98
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1qu6us5/is_my_cv_good_enough_for_asset_management_or_for/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1qu6us5.md#c1"
-    char_span: [371, 2074]
+    char_span: [370, 2073]
     sentence_count: 12
     key_terms: [nutmegger189, ill-blacksmith9006, random, competitive, interested, bachelor, relevant, buyside]
+    concepts: [nutmegger189, ill-blacksmith9006, random, competitive, interested]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/financialcareers/1qu6us5.md#c2"
-    char_span: [2076, 4386]
+    char_span: [2075, 4385]
     sentence_count: 16
     key_terms: [internships, projects, firms, titleok8744, cold, good, experience, different]
+    concepts: [internships, projects, titleok8744, experience, firms]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1qu6us5.md#c3"
-    char_span: [4044, 5144]
+    char_span: [4043, 5143]
     sentence_count: 7
     key_terms: [optionderivative, different, private, grades, substantial-march906, get, york, thepercocetpapi]
+    concepts: [optionderivative, different, private, grades]
     section: Comments
     token_count: 262
 ---

@@ -21,47 +21,61 @@ chunks:
     char_span: [0, 845]
     sentence_count: 8
     key_terms: [learning, cscareerquestions, tech, building, comments, confused, people, python]
+    concepts: [learning, cscareerquestions, building, comments, confused]
     token_count: 189
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rsh0wl/16yo_learning_python_ml_but_confused_about_tech/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c1"
     char_span: [859, 2321]
     sentence_count: 11
     key_terms: [job, productivity, awful, affected, replaced, workers, advice, people]
+    concepts: [productivity, awful, affected, replaced, workers]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c2"
     char_span: [2323, 4386]
     sentence_count: 15
     key_terms: [math, hallthink6610, calculus, learn, career, fundamentals, start, perspective]
+    concepts: [hallthink6610, calculus, learn, fundamentals, career]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c3"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c3"
     char_span: [4388, 5836]
     sentence_count: 11
     key_terms: [learning, hallthink6610, born-rate-6692, advice, fundamentals, something, concepts, enjoying]
+    concepts: [hallthink6610, learning, born-rate-6692, fundamentals, advice]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c7"]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c4"
     char_span: [5838, 7889]
     sentence_count: 25
     key_terms: [something, fundamentals, better, "don't", focus, optimal, realize, "you'll"]
+    concepts: [something, fundamentals, better, "don't", focus]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c5"
     char_span: [7891, 10133]
     sentence_count: 21
     key_terms: [building, understand, designing, something, "you'll", start, tutorials, "i'd"]
+    concepts: [building, understand, designing, something, "you'll"]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c6"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c6"
     char_span: [10135, 12283]
     sentence_count: 17
     key_terms: [like, understand, "you're", something, understanding, learn, years, technology]
+    concepts: [understand, "you're", something, understanding, learn]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c5"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c7"
     char_span: [12285, 13340]
     sentence_count: 10
     key_terms: [hallthink6610, dependent-cash-3405, thanks, keep, too, focusing, learning, getting]
+    concepts: [hallthink6610, dependent-cash-3405, thanks, focusing, learning]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c3"]
     section: Comments
     token_count: 261
 ---

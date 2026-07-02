@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 766]
     sentence_count: 5
     key_terms: [team, in-person, comments, managers, managing, company, office, remote]
+    concepts: [in-person, comments, managers, managing, company]
     token_count: 180
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1r7ij0s/any_tips_for_remotely_managing_an_inperson_team/"}]
   - id: "social-intelligence/reddit-deep/managers/1r7ij0s.md#c1"
     char_span: [780, 1351]
     sentence_count: 5
     key_terms: [accept, higher, level, team, comfortable, established, experienced, temptation]
+    concepts: [accept, higher, level]
     section: Comments
     token_count: 126
   - id: "social-intelligence/reddit-deep/managers/1r7ij0s.md#c2"
     char_span: [1353, 3323]
     sentence_count: 14
     key_terms: [team, day, office, opportunities, expectations, good, lot, time]
+    concepts: [opportunities, expectations, office, in-person, probably]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/managers/1r7ij0s.md#c3"

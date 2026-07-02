@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 967]
     sentence_count: 6
     key_terms: [jobs, comments, recently, however, career, energy, sector, embarrassedeffect705]
+    concepts: [comments, recently, however, career, energy]
     token_count: 225
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1o2rk2j/is_it_worth_it_to_only_apply_to_jobs_in_my_ideal/"}]
   - id: "social-intelligence/reddit-deep/jobs/1o2rk2j.md#c1"
     char_span: [981, 3134]
     sentence_count: 20
     key_terms: [degree, something, job, time, upstairs-screen-4200, apply, energy, sector]
+    concepts: [something, degree, upstairs-screen-4200, apply, energy]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1o2rk2j.md#c2"
     char_span: [2886, 3472]
     sentence_count: 4
     key_terms: [experience, get, "it's", sustainability, engineering, internships, traditional, prioritize]
+    concepts: [experience]
     section: Comments
     token_count: 130
   - id: "social-intelligence/reddit-deep/jobs/1o2rk2j.md#c3"
     char_span: [3474, 4098]
     sentence_count: 1
     key_terms: [experience, career, unconventional, engineering, perspective, attractive, unemployed, companies]
+    concepts: [experience, career]
     section: Comments
     token_count: 124
 ---

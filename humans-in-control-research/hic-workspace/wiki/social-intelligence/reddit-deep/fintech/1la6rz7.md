@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 2280]
     sentence_count: 18
     key_terms: [fintech, licensed, regulator, banking, digital, words, copy, experience]
+    concepts: [fintech, licensed, regulator, banking, digital]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1la6rz7.md#c1", "social-intelligence/reddit-deep/fintech/1la6rz7.md#c3"]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1la6rz7/in_fintech_wrong_words_can_cost_you_heres_what_i/"}]
   - id: "social-intelligence/reddit-deep/fintech/1la6rz7.md#c1"
     char_span: [2282, 4539]
     sentence_count: 16
     key_terms: [licensed, don, investment, regulator, like, partners, payments, platform]
+    concepts: [licensed, investment, regulator, partners, payments]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1la6rz7.md#c0"]
     token_count: 490
   - id: "social-intelligence/reddit-deep/fintech/1la6rz7.md#c2"
     char_span: [4541, 4990]
@@ -32,15 +37,18 @@ chunks:
     key_terms: [accountability, difference, government, sometimes, timelines, homepage, language, slightly]
     token_count: 108
   - id: "social-intelligence/reddit-deep/fintech/1la6rz7.md#c3"
-    char_span: [5005, 6870]
+    char_span: [5004, 6869]
     sentence_count: 22
     key_terms: [fintech, founders, early-stage, regulator, founder, product, always, aggressive-dealer426]
+    concepts: [fintech, founders, early-stage, regulator, founder]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1la6rz7.md#c0"]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/fintech/1la6rz7.md#c4"
-    char_span: [6873, 8531]
+    char_span: [6872, 8530]
     sentence_count: 9
     key_terms: [always, legal, different, marketing, research, against, happen, "that's"]
+    concepts: [always, legal, different, marketing, research]
     section: Comments
     token_count: 414
 ---

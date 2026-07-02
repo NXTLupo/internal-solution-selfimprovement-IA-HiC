@@ -17,62 +17,72 @@ research_goal: "Produce the definitive guide to personal investing in 2026 by an
 engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/stocks/1lif35x.md#c0"
-    char_span: [0, 2181]
+    char_span: [0, 2143]
     sentence_count: 5
-    key_terms: [hims--hers-stock-falls-after-novo-nordi***REDACTED-KEY***, nordisk, hims, novo, hers, wegovy, telehealth, stock-market-news]
-    token_count: 480
+    key_terms: [hims--hers-stock-falls-after-novo-nordi, nordisk, hims, novo, hers, wegovy, telehealth, stock-market-news]
+    concepts: [hims--hers-stock-falls-after-novo-nordi, nordisk, telehealth, stock-market-news, wegovy]
+    token_count: 472
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1lif35x/hims_hers_stock_falls_after_novo_nordisk_ends/"}]
   - id: "social-intelligence/reddit-deep/stocks/1lif35x.md#c1"
-    char_span: [2196, 4106]
+    char_span: [2157, 4067]
     sentence_count: 10
     key_terms: [novo-nordisk-s-canadian-mistake, insurance, like, around, canada, month, drug, blog-post]
+    concepts: [novo-nordisk-s-canadian-mistake, insurance, around, canada, month]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1lif35x.md#c2"
-    char_span: [3800, 4127]
+    char_span: [3761, 4088]
     sentence_count: 1
     key_terms: [yourself, companies, physician, compound, tomorrow, "wouldn't", correct, deleted]
+    concepts: [yourself]
     section: Comments
     token_count: 68
   - id: "social-intelligence/reddit-deep/stocks/1lif35x.md#c3"
-    char_span: [4130, 6174]
+    char_span: [4091, 6135]
     sentence_count: 12
     key_terms: [insurance, get, online, through, authorization, gym, pay, ruthwik081]
+    concepts: [insurance, online, authorization, through, ruthwik081]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1lif35x.md#c4"
-    char_span: [5950, 6672]
+    char_span: [5911, 6633]
     sentence_count: 3
     key_terms: [money, last, ruthwik081, friday, reddit, volume, sold, daydreamer1015]
+    concepts: [money, ruthwik081, friday, reddit, volume]
     section: Comments
     token_count: 196
   - id: "social-intelligence/reddit-deep/stocks/1lif35x.md#c5"
-    char_span: [6674, 7578]
+    char_span: [6635, 7539]
     sentence_count: 3
     key_terms: [elevatorpotential99, interstellarreddit, lol, loss, scottystellar, high-profile, cloudninexo, johnstack12]
     section: Comments
     token_count: 234
   - id: "social-intelligence/reddit-deep/stocks/1lif35x.md#c6"
-    char_span: [7580, 8988]
+    char_span: [7541, 8949]
     sentence_count: 10
     key_terms: [wegovy, price, megadethfoy, cheaper, redact, implausibleaardvark, hims, "it's"]
+    concepts: [wegovy, megadethfoy, price, cheaper, redact]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/stocks/1lif35x.md#c7"
-    char_span: [8990, 10462]
+    char_span: [8951, 10423]
     sentence_count: 9
     key_terms: [company, danish, hims, everything, because, believe, patient, values]
+    concepts: [company, danish, everything, because, believe]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/stocks/1lif35x.md#c8"
-    char_span: [10464, 12415]
+    char_span: [10425, 12376]
     sentence_count: 13
     key_terms: [hims, compounded, drugs, makes, wegovy, fda, novo, different]
+    concepts: [compounded, drugs, makes, wegovy, different]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/stocks/1lif35x.md#c9"
-    char_span: [12417, 13716]
+    char_span: [12378, 13677]
     sentence_count: 9
     key_terms: [people, sheeeeeeeeeeeeeeeiiiiit, because, future, melodic-following-56, buy, "it's", need]
+    concepts: [people, because, future]
     section: Comments
     token_count: 297
 ---

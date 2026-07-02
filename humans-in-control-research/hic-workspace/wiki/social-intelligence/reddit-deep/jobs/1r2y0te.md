@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 788]
     sentence_count: 3
     key_terms: [career, jobs, fair, mentorship, comments, referral, students, "india's"]
+    concepts: [career, mentorship, comments, referral, students]
     token_count: 237
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1r2y0te/career_fair_2026_is_indias_largest_virtual_career/"}]
 ---
 # Career Fair 2026 is India's largest virtual career fair for students, offering access to 25,000+ entry-level jobs, free AI career tools, and expert mentorship. It helps college students and freshers explore jobs, improve skills, and become career-ready.
 

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 353]
     sentence_count: 4
     key_terms: [anthropic, comments, reddit-deep, transformed, littercoin, yesterday, versions, develop]
+    concepts: [anthropic, comments]
     token_count: 94
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1rhshrv/our_mobile_app_was_transformed_yesterday_six/"}]
 ---
 # Our mobile app was transformed yesterday. Six versions took over six years to develop. Version 7 was built in a day with Claude code.
 

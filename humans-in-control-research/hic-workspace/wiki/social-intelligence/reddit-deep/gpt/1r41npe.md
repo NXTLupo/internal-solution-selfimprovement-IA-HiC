@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 666]
     sentence_count: 6
     key_terms: [gpt, comments, digital, karen, hypothetically, hypothetical, professional, acknowledge]
+    concepts: [comments, digital, karen]
     token_count: 167
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1r41npe/i_feel_gpt_52_is_a_digital_karen/"}]
   - id: "social-intelligence/reddit-deep/gpt/1r41npe.md#c1"
     char_span: [680, 1967]
     sentence_count: 20
     key_terms: [manager, doubtfive, karen, corporate-flavored, no-conclusion8653, big, mrs, rude]
+    concepts: [manager, doubtfive, karen]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/gpt/1r41npe.md#c2"
     char_span: [1969, 3350]
     sentence_count: 7
     key_terms: [annoying, fearless-sandwich823, great, karen, worse, various-smell-6900, been, "it's"]
+    concepts: [annoying, great, karen, worse]
     section: Comments
     token_count: 451
 ---

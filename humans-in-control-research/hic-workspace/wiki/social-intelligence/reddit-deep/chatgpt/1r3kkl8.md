@@ -21,59 +21,78 @@ chunks:
     char_span: [0, 2099]
     sentence_count: 16
     key_terms: [chatgpt, like, claude, gemini, feels, been, feel, "it's"]
+    concepts: [chatgpt, claude, gemini, feels, corporate]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c1", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c2", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c3", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c6", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c7"]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1r3kkl8/after_3_years_with_chatgpt_i_tried_claude_and/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c1"
     char_span: [2113, 4149]
     sentence_count: 13
     key_terms: [chatgpt, gemini, temporary-wallaby829, complex, better, openai, please, conversation]
+    concepts: [temporary-wallaby829, chatgpt, gemini, complex, conversation]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c0", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c3", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c6", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c12", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c13"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c2"
     char_span: [4151, 5803]
     sentence_count: 13
     key_terms: [controls, claude, post-training, cycle, sure, chatgpt, tighter, asking]
+    concepts: [controls, post-training, claude, cycle, chatgpt]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c0", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c13"]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c3"
     char_span: [5805, 6605]
     sentence_count: 4
     key_terms: [history, gemini, gpt, chatgpt, latest, revolutionarypie5223, chat, use]
+    concepts: [history, gemini, chatgpt, latest]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c0", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c1", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c4", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c6", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c12"]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c4"
     char_span: [6607, 8124]
     sentence_count: 12
     key_terms: [chatgpt, email, information, interesting, chat, history, answer, export]
+    concepts: [chatgpt, information, interesting, email, history]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c3"]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c5"
     char_span: [8126, 9961]
     sentence_count: 11
     key_terms: [gemini, like, prompt, rules, gpt, instructions, memoryplugin, blah]
+    concepts: [gemini, prompt, rules, instructions, memoryplugin]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c6"
     char_span: [9963, 11605]
     sentence_count: 12
     key_terms: [like, gemini, use, chatgpt, idolovecrisps, feels, day, gpt]
+    concepts: [gemini, idolovecrisps, chatgpt, feels, material]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c0", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c1", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c3", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c12", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c13"]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c7"
     char_span: [11607, 13154]
     sentence_count: 12
     key_terms: [claude, "they're", gemini, surreybird, something, "doesn't", mention, better]
+    concepts: [claude, "they're", gemini, surreybird, something]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c0", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c9", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c11", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c13"]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c8"
     char_span: [13156, 14771]
     sentence_count: 13
     key_terms: [temporary-wallaby829, like, surreybird, research, exactly, models, sanity, "that's"]
+    concepts: [temporary-wallaby829, surreybird, research, exactly, models]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c9"
     char_span: [14775, 16459]
     sentence_count: 9
     key_terms: ["i'm", like, "don't", gpt, claude, intelligence, surreybird, emotional]
+    concepts: ["don't", intelligence, claude, surreybird, emotional]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c7"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c10"
@@ -86,30 +105,38 @@ chunks:
     char_span: [16638, 18821]
     sentence_count: 9
     key_terms: [like, "i'm", feeling, competition, gpt, "it's", move, something]
+    concepts: [feeling, competition, something, "didn't", gemini]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c12"
     char_span: [18549, 19661]
     sentence_count: 7
     key_terms: [gemini, projects, chatgpt, attachments, gems, like, contents, claude]
+    concepts: [gemini, projects, chatgpt, attachments, contents]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c0", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c1", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c3", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c6", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c13"]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c13"
     char_span: [19663, 21612]
     sentence_count: 17
     key_terms: [chatgpt, claude, project, gemini, temporary-wallaby829, gpt, projects, chat]
+    concepts: [chatgpt, claude, temporary-wallaby829, project, gemini]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c0", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c1", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c2", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c3", "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c6"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c14"
     char_span: [21614, 23338]
     sentence_count: 16
     key_terms: [opinion, temporary-wallaby829, using, strong, like, time, reasoning, requiring]
+    concepts: [temporary-wallaby829, opinion, using, strong, reasoning]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c15"
     char_span: [23340, 25154]
     sentence_count: 11
     key_terms: [like, temporary-wallaby829, psychopath, personalnature1795, straight, d01542acc80786dd9eb1f7899450f3ee7dd1bf5a, act, "i'm"]
+    concepts: [temporary-wallaby829, personalnature1795, psychopath, straight, extended]
     section: Comments
     token_count: 512
 ---

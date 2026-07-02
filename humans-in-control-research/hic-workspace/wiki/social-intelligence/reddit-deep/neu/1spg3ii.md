@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1286]
     sentence_count: 10
     key_terms: [oncampus, financially, job, time, comments, support, myself, right]
+    concepts: [oncampus, financially, comments, support, myself]
     token_count: 309
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1spg3ii/having_a_bad_time_financially_need_a_part_time_job/"}]
   - id: "social-intelligence/reddit-deep/neu/1spg3ii.md#c1"
     char_span: [1300, 2680]
     sentence_count: 7
     key_terms: [get, relationship, good, professors, difficult, continue, rick-67, campus]
+    concepts: [relationship, professors, difficult, continue, rick-67]
     section: Comments
     token_count: 387
 ---

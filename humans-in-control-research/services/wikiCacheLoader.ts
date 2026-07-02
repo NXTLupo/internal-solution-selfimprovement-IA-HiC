@@ -216,7 +216,10 @@ export async function loadCachedItemsByGoal(
     goal: string,
     opts: { minScore?: number; maxItems?: number; maxBodyChars?: number } = {},
 ): Promise<DataSourceItem[]> {
-    const minScore = opts.minScore ?? 0.2;   // matches resolveEngagementSourceArchive's "too weak" floor
+    // 2026-07-01 (live agricultural-insurance run): 0.2 folded four HIGHER-ED marketing archives
+    // (scores 0.29-0.38) into an agriculture corpus while the real match scored 0.67. Raised to 0.45:
+    // genuinely adjacent objectives still reuse; keyword-coincidence archives no longer contaminate.
+    const minScore = opts.minScore ?? 0.45;
     const maxItems = opts.maxItems ?? 8;      // bounded so auto-reuse never floods the corpus
     const maxBody = opts.maxBodyChars ?? 12000;
     if (!goal || goal.trim().length < 8) return [];
@@ -312,8 +315,10 @@ function readFrontmatterField(text: string, field: string): string | null {
     return null;
 }
 
-/** Cheap word-overlap score (Jaccard-ish) for matching legacy archives to engagement goals. */
-function scoreGoalSimilarity(a: string, b: string): number {
+/** Cheap word-overlap score (Jaccard-ish) for matching legacy archives to engagement goals.
+ *  EXPORTED (2026-07-01): chunkRetrieval reuses it to gate DORMANT KL selections by goal
+ *  relevance before they ground a deliverable (the stale r/healthinsurance takeover fix). */
+export function scoreGoalSimilarity(a: string, b: string): number {
     const STOP = new Set(['the', 'and', 'for', 'with', 'from', 'into', 'this', 'that', 'these', 'those', 'their', 'identify', 'understand', 'analyze', 'explore', 'develop', 'create', 'build', 'design', 'comprehensive', 'strategy', 'based', 'current', 'new', 'research', 'analysis']);
     const norm = (s: string) => new Set((s || '').toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(t => t.length >= 4 && !STOP.has(t)));
     const A = norm(a);

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1972]
     sentence_count: 16
     key_terms: [estate, real, nightlife, bartending, careerguidance, job, experience, developer]
+    concepts: [estate, nightlife, bartending, careerguidance, experience]
     token_count: 453
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1mrapck/thought_i_landed_my_dream_job_with_a_millionaire/"}]
   - id: "articles/reddit-deep-r-careerguidance/cdafbd801d.md#c1"
     char_span: [1974, 3793]
     sentence_count: 14
     key_terms: [sue, fafnirthesteed, sales, development, like, pay, harassment, agreement]
+    concepts: [fafnirthesteed, development, harassment, sales, agreement]
     token_count: 447
 ---
 # Thought I landed my dream job with a millionaire real estate developer, but it turned into a nightmare. How do I recover and build the career I want?

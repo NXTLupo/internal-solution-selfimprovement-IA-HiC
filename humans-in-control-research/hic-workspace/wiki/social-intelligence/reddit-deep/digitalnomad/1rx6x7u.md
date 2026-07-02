@@ -21,35 +21,45 @@ chunks:
     char_span: [0, 1569]
     sentence_count: 10
     key_terms: [travel, having, digitalnomad, comments, digital, looking, someone, working]
+    concepts: [travel, digitalnomad, having, comments, digital]
     token_count: 378
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1rx6x7u/best_ways_to_meet_other_mature_dns_to_travel_with/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c1"
     char_span: [1583, 3798]
     sentence_count: 15
     key_terms: [someone, lessmediamorelife, finding, people, rather, travel, connections, activities]
+    concepts: [someone, lessmediamorelife, finding, people, rather]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c3", "social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c2"
     char_span: [3510, 3949]
     sentence_count: 4
     key_terms: [experiences, someone, want, realistically, interested, apartment, "couldn't", romantic]
+    concepts: [experiences, someone]
     section: Comments
     token_count: 101
   - id: "social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c3"
     char_span: [3951, 5717]
     sentence_count: 13
     key_terms: [coliving, people, rather, meet, together, friends, having, travel]
+    concepts: [coliving, people, rather, together, friends]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c1"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c4"
     char_span: [5719, 7565]
     sentence_count: 10
     key_terms: [nomad, groups, people, june, country, around, cities, mexico]
+    concepts: [nomad, groups, people, country, around]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c5"
     char_span: [7567, 8810]
     sentence_count: 13
     key_terms: [lessmediamorelife, community, instead, usually, people, spaces, persistence0fmemory, stays]
+    concepts: [lessmediamorelife, community, instead, usually, people]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c1"]
     section: Comments
     token_count: 289
 ---

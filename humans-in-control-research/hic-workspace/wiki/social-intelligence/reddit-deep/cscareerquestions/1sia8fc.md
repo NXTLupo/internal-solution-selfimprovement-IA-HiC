@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 503]
     sentence_count: 3
     key_terms: [cscareerquestions, internship, developer, comments, through, summer, seo, tech]
+    concepts: [cscareerquestions, internship, developer, comments, through]
     token_count: 127
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sia8fc/seo_tech_developer_vs_summer_internship/"}]
 ---
 # SEO Tech Developer vs. Summer Internship
 

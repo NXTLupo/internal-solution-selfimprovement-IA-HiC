@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 1927]
     sentence_count: 13
     key_terms: [administrative, store, job, generalist, responsibilities, humanresources, demonstrating, understanding]
+    concepts: [administrative, store, generalist, responsibilities, humanresources]
     token_count: 392
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1r7dxii/given_my_job_description_what_would_you_think_the/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1r7dxii.md#c1"
     char_span: [1941, 4058]
     sentence_count: 17
     key_terms: [generalist, administrator, role, admin, straight-peach1854, position, company, level]
+    concepts: [generalist, administrator, straight-peach1854, admin, position]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1r7dxii.md#c2"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/humanresources/1r7dxii.md#c2"
     char_span: [4060, 4947]
     sentence_count: 7
     key_terms: [generalist, admin, entry, level, hot-district7964, recommendations, administration, issues--unless]
+    concepts: [generalist, admin, entry, level]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1r7dxii.md#c1"]
     section: Comments
     token_count: 212
 ---

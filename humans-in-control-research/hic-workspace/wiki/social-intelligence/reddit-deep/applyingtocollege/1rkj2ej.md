@@ -19,40 +19,52 @@ chunks:
     char_span: [0, 2106]
     sentence_count: 16
     key_terms: [subreddit, applyingtocollege, purdue, school, great, good, high, highschool]
+    concepts: [applyingtocollege, subreddit, purdue, school, great]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c6"]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rkj2ej/i_regret_90_of_my_highschool_career/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c1"
     char_span: [2108, 3864]
     sentence_count: 16
     key_terms: ["can't", better, myself, school, scholarships, doing, stop, year]
+    concepts: ["can't", scholarships, better, myself, school]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c4"]
     token_count: 378
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c2"
     char_span: [3878, 5074]
     sentence_count: 7
     key_terms: [school, excellent, law, college, non-selective, state, experiences, flagships]
+    concepts: [school, excellent, non-selective, college, experiences]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c3"
     char_span: [5076, 7099]
     sentence_count: 12
     key_terms: [score, college, end, key-singer-7657, great, counselor, happycava, better]
+    concepts: [score, college, key-singer-7657, great, counselor]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c4"
     char_span: [6809, 8564]
     sentence_count: 11
     key_terms: [purdue, school, jrsygirlsdontpumpgas, classicart3777, better, didn, studying, because]
+    concepts: [jrsygirlsdontpumpgas, purdue, school, classicart3777, better]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c6"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c5"
     char_span: [8566, 8940]
     sentence_count: 6
     key_terms: [kids, time, school, extra, get, high, maturity, straight]
+    concepts: [school, extra]
     section: Comments
     token_count: 86
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c6"
     char_span: [8942, 10641]
     sentence_count: 18
     key_terms: [classicart3777, purdue, life, school, everything, loved, offer, state]
+    concepts: [classicart3777, purdue, school, everything, loved]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c4"]
     section: Comments
     token_count: 435
 ---

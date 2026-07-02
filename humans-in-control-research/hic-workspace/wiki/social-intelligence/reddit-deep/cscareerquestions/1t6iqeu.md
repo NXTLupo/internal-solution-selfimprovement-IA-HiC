@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 2031]
     sentence_count: 26
     key_terms: [cscareerquestions, team, director, here, new, role, comments, because]
+    concepts: [cscareerquestions, director, comments, because, support]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t6iqeu/question_how_would_you_handle_a_new_grad_who_is/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t6iqeu.md#c1"
     char_span: [2033, 2452]
     sentence_count: 5
@@ -29,30 +31,35 @@ chunks:
     char_span: [2466, 3928]
     sentence_count: 4
     key_terms: [that-, attitude, hafi51, financial-quail-4215, free-huckleberry-965, check, minimumcertain8651, word-word-3numbers]
+    concepts: [that-, attitude, hafi51, check]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t6iqeu.md#c3"
     char_span: [3931, 5336]
     sentence_count: 7
     key_terms: [manager, that-, tell, people, cloud, great, infra, bad]
+    concepts: [manager, that-, people, cloud, great]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t6iqeu.md#c4"
     char_span: [5338, 6755]
     sentence_count: 10
     key_terms: [support, software, role, cooked, team, company, devops, reason]
+    concepts: [support, software, cooked, company, devops]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t6iqeu.md#c5"
     char_span: [6757, 7774]
     sentence_count: 8
     key_terms: [little, like, pay, team, definitely, person, going, turn]
+    concepts: [little, definitely, person, going]
     section: Comments
     token_count: 247
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t6iqeu.md#c6"
     char_span: [7776, 8750]
     sentence_count: 8
     key_terms: [looking, "you're", needworkfast-csstud, that-, good, job, let, new]
+    concepts: [looking, "you're", that-]
     section: Comments
     token_count: 270
 ---

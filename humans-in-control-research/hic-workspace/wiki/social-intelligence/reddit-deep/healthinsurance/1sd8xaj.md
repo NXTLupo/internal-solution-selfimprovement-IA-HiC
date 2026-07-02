@@ -20,41 +20,51 @@ chunks:
     char_span: [0, 1773]
     sentence_count: 16
     key_terms: [short-term, plan, deductible, comments, healthinsurance, coinsurance, "i'm", uhc]
+    concepts: [short-term, deductible, healthinsurance, comments, coinsurance]
     token_count: 405
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1sd8xaj/one_missed_aca_premium_no_coverage_until_2027/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1sd8xaj.md#c1"
-    char_span: [1788, 3666]
+    char_span: [1787, 3665]
     sentence_count: 6
     key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    concepts: [information, questions, following, please, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1sd8xaj.md#c2"]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/healthinsurance/1sd8xaj.md#c2"
-    char_span: [3668, 5627]
+    char_span: [3667, 5626]
     sentence_count: 12
     key_terms: [period, please, reinstatement, eob, contact, grace, questions, subreddit]
+    concepts: [period, please, reinstatement, contact, questions]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1sd8xaj.md#c1"]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/healthinsurance/1sd8xaj.md#c3"
-    char_span: [5629, 7464]
+    char_span: [5628, 7463]
     sentence_count: 14
     key_terms: [plan, major, medical, worth, txfeinbergs, negotiated, indemnity, uninsured]
+    concepts: [major, medical, txfeinbergs, negotiated, worth]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/healthinsurance/1sd8xaj.md#c4"
-    char_span: [7466, 9592]
+    char_span: [7465, 9591]
     sentence_count: 14
     key_terms: [coverage, enrollment, protection, orchidobjective11, aca, plan, plans, marketplace]
+    concepts: [coverage, enrollment, protection, orchidobjective11, marketplace]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1sd8xaj.md#c5"
-    char_span: [9330, 9967]
+    char_span: [9329, 9966]
     sentence_count: 2
     key_terms: [insurance, likely, ok-preparation-8085, won, duhforesttyme216, marketplace, jujulabee, something]
+    concepts: [insurance, likely]
     section: Comments
     token_count: 147
   - id: "social-intelligence/reddit-deep/healthinsurance/1sd8xaj.md#c6"
-    char_span: [9969, 11793]
+    char_span: [9968, 11792]
     sentence_count: 11
     key_terms: [insurance, enrollment, medical, health, open, conditions, deductible, guaranteed]
+    concepts: [insurance, enrollment, medical, health, conditions]
     section: Comments
     token_count: 365
 ---

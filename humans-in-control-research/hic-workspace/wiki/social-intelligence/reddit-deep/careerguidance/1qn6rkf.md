@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 818]
     sentence_count: 7
     key_terms: [job, careerguidance, year, comments, shift, super, bye, cons]
+    concepts: [careerguidance, comments, shift, super]
     token_count: 244
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qn6rkf/career_advice_43_yr_old_male_should_i_take/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1qn6rkf.md#c1"
     char_span: [832, 2156]
     sentence_count: 13
     key_terms: [justareddituser202, ask, job, want, another, being, bored, "don't"]
+    concepts: [justareddituser202, another, being, bored, "don't"]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/careerguidance/1qn6rkf.md#c2"
     char_span: [2158, 4048]
     sentence_count: 13
     key_terms: [comfortable, sure-ad8068, promotion, time, "doesn't", job, like, need]
+    concepts: [comfortable, sure-ad8068, promotion, "doesn't", growth]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/careerguidance/1qn6rkf.md#c3"
     char_span: [4050, 5360]
     sentence_count: 13
     key_terms: [supervisor, value, retirement, consider, position, priority, company, fragrantdifficulty68]
+    concepts: [supervisor, retirement, value, consider, position]
     section: Comments
     token_count: 366
 ---

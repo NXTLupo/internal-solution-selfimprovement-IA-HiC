@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1094]
     sentence_count: 10
     key_terms: [cima, path, careerguidance, accounting, comments, advice, career, unsure]
+    concepts: [careerguidance, accounting, comments, advice, career]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1swvucs/need_advice_on_choosing_a_career_path_cima_or/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1swvucs.md#c1"
-    char_span: [1109, 1847]
+    char_span: [1108, 1846]
     sentence_count: 9
     key_terms: [career, need, lawfulnesskey297, work-from-home, supplementary, assessments, collaborate, partnership]
+    concepts: [career]
     section: Comments
     token_count: 164
 ---

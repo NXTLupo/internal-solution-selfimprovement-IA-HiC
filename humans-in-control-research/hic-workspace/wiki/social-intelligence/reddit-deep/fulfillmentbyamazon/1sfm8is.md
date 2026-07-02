@@ -20,29 +20,38 @@ chunks:
     char_span: [0, 1809]
     sentence_count: 17
     key_terms: [amazon, fulfillmentbyamazon, asin, search, trying, like, placement, comments]
+    concepts: [amazon, fulfillmentbyamazon, search, trying, placement]
     token_count: 415
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1sfm8is/burn_damaged_asin_and_start_over_or_try_to/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1sfm8is.md#c1"
-    char_span: [1824, 3763]
+    char_span: [1823, 3762]
     sentence_count: 13
     key_terms: [listing, fulfillmentbyamazon, rank, discord, algorithmic, asin, fba, suppressed]
+    concepts: [listing, fulfillmentbyamazon, discord, algorithmic, suppressed]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1sfm8is.md#c2"
-    char_span: [3765, 5865]
+    char_span: [3764, 5864]
     sentence_count: 20
     key_terms: [get, vine, keywords, reviews, like, listing, review, keep]
+    concepts: [keywords, reviews, listing, review, historical]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1sfm8is.md#c3", "social-intelligence/reddit-deep/fulfillmentbyamazon/1sfm8is.md#c4"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1sfm8is.md#c3"
-    char_span: [5867, 7844]
+    char_span: [5866, 7843]
     sentence_count: 22
     key_terms: [reviews, listing, star, getting, price, conversion, removed, launch]
+    concepts: [reviews, listing, getting, conversion, price]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1sfm8is.md#c2"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1sfm8is.md#c4"
-    char_span: [7846, 8725]
+    char_span: [7845, 8724]
     sentence_count: 9
     key_terms: [product, review, algorithm, friends, listing, people, fresh, asin]
+    concepts: [product, review, algorithm, friends, listing]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1sfm8is.md#c2"]
     section: Comments
     token_count: 190
 ---

@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1745]
     sentence_count: 8
     key_terms: [filmmaking, video, confusion, careerguidance, career, doing, engineering, able]
+    concepts: [filmmaking, confusion, video, careerguidance, career]
     token_count: 408
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1te76lz/noncs_engineering_student_stuck_between_a_cs/"}]
 ---
 # Non-CS engineering student stuck between a CS career and filmmaking—how do I fix my path?
 

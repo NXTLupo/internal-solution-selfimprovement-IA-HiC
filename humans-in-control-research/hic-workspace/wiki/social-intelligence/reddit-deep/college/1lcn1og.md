@@ -19,34 +19,46 @@ chunks:
     char_span: [0, 2135]
     sentence_count: 15
     key_terms: [college, "i'm", community, "i'd", probably, tuition, able, help]
+    concepts: [college, community, probably, tuition, committed]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lcn1og.md#c2", "social-intelligence/reddit-deep/college/1lcn1og.md#c4", "social-intelligence/reddit-deep/college/1lcn1og.md#c5"]
     token_count: 489
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lcn1og/is_community_college_the_better_option/"}]
   - id: "social-intelligence/reddit-deep/college/1lcn1og.md#c1"
     char_span: [2137, 2633]
     sentence_count: 3
     key_terms: [having, thank, realistically, community, education, situation, judgment, terrible]
+    concepts: [having, thank]
     token_count: 109
   - id: "social-intelligence/reddit-deep/college/1lcn1og.md#c2"
     char_span: [2647, 3921]
     sentence_count: 9
     key_terms: [college, community, years, get, semester, liberal, turbulent-artist961, loans]
+    concepts: [college, community, years, semester, liberal]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lcn1og.md#c0", "social-intelligence/reddit-deep/college/1lcn1og.md#c4", "social-intelligence/reddit-deep/college/1lcn1og.md#c5"]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/college/1lcn1og.md#c3"
     char_span: [3923, 5948]
     sentence_count: 18
     key_terms: [transfer, college, school, internships, live, experience, community, semester]
+    concepts: [transfer, college, school, internships, experience]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lcn1og.md#c4", "social-intelligence/reddit-deep/college/1lcn1og.md#c5"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/college/1lcn1og.md#c4"
     char_span: [5950, 7249]
     sentence_count: 16
     key_terms: [college, academic, take, experience, community, education, students, classes]
+    concepts: [college, academic, experience, community, education]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lcn1og.md#c0", "social-intelligence/reddit-deep/college/1lcn1og.md#c2", "social-intelligence/reddit-deep/college/1lcn1og.md#c3", "social-intelligence/reddit-deep/college/1lcn1og.md#c5"]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/college/1lcn1og.md#c5"
     char_span: [7251, 8437]
     sentence_count: 11
     key_terms: [arts, college, liberal, degree, school, community, ildadof3, family]
+    concepts: [college, liberal, degree, school, community]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lcn1og.md#c0", "social-intelligence/reddit-deep/college/1lcn1og.md#c2", "social-intelligence/reddit-deep/college/1lcn1og.md#c3", "social-intelligence/reddit-deep/college/1lcn1og.md#c4"]
     section: Comments
     token_count: 290
 ---

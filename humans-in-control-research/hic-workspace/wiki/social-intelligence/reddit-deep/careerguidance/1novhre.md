@@ -19,41 +19,53 @@ chunks:
     char_span: [0, 694]
     sentence_count: 8
     key_terms: [careerguidance, programming, comments, start, years, successfully, reddit-deep, appreciate]
+    concepts: [careerguidance, programming, comments, start, years]
     token_count: 170
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1novhre/is_it_too_late_to_start_programming_at_43/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1novhre.md#c1"
     char_span: [708, 2193]
     sentence_count: 10
     key_terms: [thepancakewar, applications, field, jobs, because, someone, print, yadda]
+    concepts: [thepancakewar, applications, field, because, someone]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/careerguidance/1novhre.md#c2"
     char_span: [2195, 4179]
     sentence_count: 16
     key_terms: [bullshit, people, programming, ago, laid, hardware, software, competitive-dream860]
+    concepts: [bullshit, people, programming, hardware, software]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1novhre.md#c4"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/careerguidance/1novhre.md#c3"
     char_span: [4181, 5241]
     sentence_count: 6
     key_terms: [experienced, experience, project, legitimate-instance2, jobs, tech, redactedtortoise, professionally]
+    concepts: [experienced, experience, project]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/careerguidance/1novhre.md#c4"
     char_span: [5243, 7328]
     sentence_count: 7
     key_terms: [programming, companies, job, deleted, people, get, experience, industrial]
+    concepts: [programming, companies, deleted, people, experience]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1novhre.md#c2"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/careerguidance/1novhre.md#c5"
     char_span: [7330, 8734]
     sentence_count: 14
     key_terms: [career, being, subreddits, aleksdude, possible, happens, ageism, proof-emergency-5441]
+    concepts: [career, being, subreddits, aleksdude, possible]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1novhre.md#c6"]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/careerguidance/1novhre.md#c6"
     char_span: [8736, 10242]
     sentence_count: 16
     key_terms: [time, career, "you're", possible, serious, coding, people, slow-bodybuilder-972]
+    concepts: [career, "you're", possible, serious, coding]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1novhre.md#c5"]
     section: Comments
     token_count: 383
 ---

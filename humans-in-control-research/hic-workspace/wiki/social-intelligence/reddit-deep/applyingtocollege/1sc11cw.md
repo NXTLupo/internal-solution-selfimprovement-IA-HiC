@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1921]
     sentence_count: 13
     key_terms: [college, school, smith, washu, applyingtocollege, bio, schools, enough]
+    concepts: [college, applyingtocollege, school, smith, washu]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sc11cw/help_me_pick_a_college/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c1"
     char_span: [1923, 2409]
     sentence_count: 3
@@ -29,36 +31,44 @@ chunks:
     char_span: [2423, 4400]
     sentence_count: 12
     key_terms: [smith, environment, going, purplecowswiftie, schools, night, lot, med]
+    concepts: [smith, environment, purplecowswiftie, going, schools]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c3"
     char_span: [4402, 6482]
     sentence_count: 12
     key_terms: [great, opportunities, school, boston, smith, resources, students, medical]
+    concepts: [opportunities, great, school, boston, resources]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c7"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c4"
     char_span: [6484, 8588]
     sentence_count: 17
     key_terms: [implementnatural204, smith, student, representative, school, mainbeachgoon, aspirations, interesting]
+    concepts: [implementnatural204, smith, representative, mainbeachgoon, student]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c5"
     char_span: [8353, 8908]
     sentence_count: 6
     key_terms: [activities, school, buy, city, good, incredibly, drinking, football]
+    concepts: [activities, school]
     section: Comments
     token_count: 135
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c6"
     char_span: [8910, 9934]
     sentence_count: 14
     key_terms: [study, smith, time, want, work, starting, because, friends]
+    concepts: [study, smith, starting, because, friends]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c7"
     char_span: [9936, 11499]
     sentence_count: 6
     key_terms: [smith, opportunities, research, boston, implementnatural204, scene, get, paid]
+    concepts: [smith, opportunities, research, boston, scene]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c3"]
     section: Comments
     token_count: 351
 ---

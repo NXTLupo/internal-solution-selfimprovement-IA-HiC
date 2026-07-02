@@ -19,58 +19,73 @@ chunks:
     char_span: [0, 2209]
     sentence_count: 22
     key_terms: [research, students, professors, something, applyingtocollege, school, cold, need]
+    concepts: [research, students, professors, applyingtocollege, something]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1m6ns4n.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1m6ns4n.md#c5"]
     token_count: 456
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1m6ns4n/research_is_more_important_than_you_think/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m6ns4n.md#c1"
     char_span: [2211, 2893]
     sentence_count: 10
     key_terms: [use, write, let, demonstrates, self-publish, experiments, pay-to-play, admissions]
+    concepts: [write]
     token_count: 146
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m6ns4n.md#c2"
     char_span: [2907, 4703]
     sentence_count: 11
     key_terms: [admissions, research, better, admission, doing, "doesn't", officers, someone]
+    concepts: [admissions, research, admission, better, doing]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1m6ns4n.md#c3"]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m6ns4n.md#c3"
     char_span: [4705, 6595]
     sentence_count: 16
     key_terms: [work, admissions, something, research, publication, committee, college, student]
+    concepts: [admissions, something, research, publication, committee]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1m6ns4n.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1m6ns4n.md#c2"]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m6ns4n.md#c4"
     char_span: [6597, 7950]
     sentence_count: 11
     key_terms: [agency, research, shows, high, kids, everything, difficult, classes]
+    concepts: [agency, research, everything, shows, difficult]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m6ns4n.md#c5"
     char_span: [7952, 9619]
     sentence_count: 12
     key_terms: [research, students, remember-me-1, intersection, understand, project, school, strong]
+    concepts: [research, students, remember-me-1, intersection, understand]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1m6ns4n.md#c0"]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m6ns4n.md#c6"
     char_span: [9621, 10994]
     sentence_count: 4
     key_terms: [research, independent, initiative, thinking, student, lab, professor, working]
+    concepts: [research, independent, initiative, thinking, student]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m6ns4n.md#c7"
     char_span: [10996, 12932]
     sentence_count: 11
     key_terms: [student, project, demonstrate, mathematics, creativity, scientific, knowledge, ownership]
+    concepts: [student, project, demonstrate, mathematics, creativity]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m6ns4n.md#c8"
     char_span: [12934, 14655]
     sentence_count: 17
     key_terms: [high, student, school, lotsofgrading, peer-reviewed, pay-to-play, get, curiosity]
+    concepts: [lotsofgrading, peer-reviewed, student, school, pay-to-play]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m6ns4n.md#c9"
     char_span: [14657, 16476]
     sentence_count: 14
     key_terms: [research, project, pay-to-play, unpublished, college, journal, program, doing]
+    concepts: [research, project, pay-to-play, unpublished, college]
     section: Comments
     token_count: 408
 ---

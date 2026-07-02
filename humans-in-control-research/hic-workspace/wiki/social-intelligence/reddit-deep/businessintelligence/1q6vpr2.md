@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1546]
     sentence_count: 12
     key_terms: [businessintelligence, business, through, consolidated, multi-entity, data, llcs, need]
+    concepts: [businessintelligence, business, through, consolidated, multi-entity]
     token_count: 331
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1q6vpr2/setting_up_bi_for_multientity_company_structure/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1q6vpr2.md#c1"
-    char_span: [1561, 3536]
+    char_span: [1560, 3535]
     sentence_count: 15
     key_terms: [separate, shopify, data, sources, google, sheets, database, keep]
+    concepts: [separate, shopify, sources, google, sheets]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/businessintelligence/1q6vpr2.md#c2"
-    char_span: [3538, 5960]
+    char_span: [3537, 5959]
     sentence_count: 17
     key_terms: [reporting, accounting, entity, separate, consolidated, legal, data, use]
+    concepts: [reporting, accounting, entity, separate, consolidated]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1q6vpr2.md#c3"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/businessintelligence/1q6vpr2.md#c3"
-    char_span: [5962, 7566]
+    char_span: [5961, 7565]
     sentence_count: 14
     key_terms: [separate, entity, model, team, nockpoint, sometimes, together, product]
+    concepts: [separate, entity, model, nockpoint, sometimes]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1q6vpr2.md#c2"]
     section: Comments
     token_count: 357
 ---

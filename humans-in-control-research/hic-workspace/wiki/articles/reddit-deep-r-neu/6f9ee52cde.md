@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1149]
     sentence_count: 6
     key_terms: [opportunities, mba, northeastern, experiences, students, program, honest, international]
+    concepts: [opportunities, northeastern, experiences, students, international]
     token_count: 236
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1tk2ib7/accepted_to_northeastern_mba_looking_for_honest/"}]
 ---
 # Accepted to Northeastern MBA Looking for Honest Reviews & Experiences
 

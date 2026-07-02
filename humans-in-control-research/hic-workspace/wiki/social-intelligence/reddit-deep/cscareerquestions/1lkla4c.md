@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 770]
     sentence_count: 6
     key_terms: [cscareerquestions, comments, careers, affect, future, field, https, north]
+    concepts: [cscareerquestions, comments, careers, affect, future]
     token_count: 190
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1lkla4c/north_koreans_are_competing_for_tech_jobs_in_the/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkla4c.md#c1"
     char_span: [784, 2898]
     sentence_count: 8
     key_terms: [companies, "don't", administrativehost15, exitingthedonut, being, work, fucking, western]
+    concepts: [companies, "don't", administrativehost15, exitingthedonut, being]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkla4c.md#c2"
     char_span: [2643, 3954]
     sentence_count: 13
     key_terms: [people, government, companies, american, interest, administrativehost15, rates, watch]
+    concepts: [people, government, companies, american, interest]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkla4c.md#c3"
     char_span: [3956, 4706]
     sentence_count: 1
     key_terms: [korea, north, leetcode, razza357, anxious-possibility, documentary, developers, government]
+    concepts: [korea, north, leetcode, razza357]
     section: Comments
     token_count: 206
 ---

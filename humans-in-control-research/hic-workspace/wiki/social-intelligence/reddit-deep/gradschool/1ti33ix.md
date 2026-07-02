@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1756]
     sentence_count: 15
     key_terms: [school, graduate, job, major, get, recommendation, letter, field]
+    concepts: [school, graduate, major, recommendation, letter]
     token_count: 416
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1ti33ix/recent_college_undergrad_seeking_advice_for_grad/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1ti33ix.md#c1"
     char_span: [1770, 2964]
     sentence_count: 11
     key_terms: [nomoremermaids, custodial, mercuryo1, masters, program, overall-register9758, zestyclose-smell4158, bag]
+    concepts: [nomoremermaids, custodial, mercuryo1, masters, program]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/gradschool/1ti33ix.md#c2"
     char_span: [2966, 3711]
     sentence_count: 6
     key_terms: [school, grad, pay, recommendation, higher-paying, connections, flexibility, speedydooo]
+    concepts: [school]
     section: Comments
     token_count: 191
 ---

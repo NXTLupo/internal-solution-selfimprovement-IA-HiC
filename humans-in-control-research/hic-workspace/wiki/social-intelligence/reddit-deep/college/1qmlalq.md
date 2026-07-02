@@ -19,28 +19,36 @@ chunks:
     char_span: [0, 1910]
     sentence_count: 16
     key_terms: [college, graduation, happened, officially, university, situation, comments, because]
+    concepts: [college, graduation, happened, officially, university]
     token_count: 411
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1qmlalq/i_was_given_confirmation_that_i_graduatedor_so_i/"}]
   - id: "social-intelligence/reddit-deep/college/1qmlalq.md#c1"
     char_span: [1912, 4117]
     sentence_count: 28
     key_terms: [degree, emails, email, university, receiving, requirements, list, graduation]
+    concepts: [degree, emails, email, university, receiving]
     token_count: 459
   - id: "social-intelligence/reddit-deep/college/1qmlalq.md#c2"
     char_span: [4131, 6386]
     sentence_count: 16
     key_terms: [advisor, graduation, graduate, application, active, semester, applied, degree]
+    concepts: [advisor, graduation, graduate, application, active]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1qmlalq.md#c3"
     char_span: [6101, 7122]
     sentence_count: 11
     key_terms: [graduation, degree, grades, institution, "registrar's", depending, graduated, registrar]
+    concepts: [graduation, degree, grades, institution, "registrar's"]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qmlalq.md#c4"]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/college/1qmlalq.md#c4"
     char_span: [7124, 9275]
     sentence_count: 14
     key_terms: [graduation, "i've", requirements, students, courses, degree, "you're", hours]
+    concepts: [graduation, requirements, students, courses, degree]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qmlalq.md#c3"]
     section: Comments
     token_count: 485
 ---

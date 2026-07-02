@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 777]
     sentence_count: 9
     key_terms: [college, necessities, budgeting, wondering, comments, working, money, spend]
+    concepts: [college, necessities, budgeting, wondering, comments]
     token_count: 197
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1o5qnek/just_a_girl_budgeting_for_college/"}]
   - id: "social-intelligence/reddit-deep/college/1o5qnek.md#c1"
     char_span: [791, 1029]
     sentence_count: 2
@@ -32,24 +34,31 @@ chunks:
     char_span: [1031, 2912]
     sentence_count: 9
     key_terms: [budget, dear-fig-3728, money, month, spend, groceries, fun, always]
+    concepts: [dear-fig-3728, budget, money, month, groceries]
+    related_chunks: ["social-intelligence/reddit-deep/college/1o5qnek.md#c3", "social-intelligence/reddit-deep/college/1o5qnek.md#c4"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/college/1o5qnek.md#c3"
     char_span: [2914, 4290]
     sentence_count: 13
     key_terms: [money, month, spend, get, allowance, beginning, spending, together]
+    concepts: [money, month, spend, allowance, beginning]
+    related_chunks: ["social-intelligence/reddit-deep/college/1o5qnek.md#c2"]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/college/1o5qnek.md#c4"
     char_span: [4292, 6246]
     sentence_count: 19
     key_terms: [like, etc, food, week, month, eat, groceries, otherwise]
+    concepts: [month, groceries, otherwise, spending, troubles]
+    related_chunks: ["social-intelligence/reddit-deep/college/1o5qnek.md#c2"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/college/1o5qnek.md#c5"
     char_span: [6248, 6749]
     sentence_count: 4
     key_terms: [figure, fun, half, savings, going, rainy, split, day]
+    concepts: [figure, savings, going, rainy, split]
     section: Comments
     token_count: 122
 ---

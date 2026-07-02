@@ -20,38 +20,50 @@ chunks:
     char_span: [0, 2482]
     sentence_count: 17
     key_terms: [pitch, investors, slide, comments, something, business, investor, problem]
+    concepts: [pitch, investors, comments, slide, something]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c3", "social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c5"]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1taihr6/how_to_build_a_pitch_deck_that_actually_gets/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c1"
     char_span: [2484, 5047]
     sentence_count: 25
     key_terms: [slide, problem, product, customer, explaining, understand, show, founders]
+    concepts: [problem, slide, product, customer, explaining]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c3"]
     token_count: 505
   - id: "social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c2"
     char_span: [5049, 7314]
     sentence_count: 23
     key_terms: [market, investors, week, numbers, users, specific, product, partnerships]
+    concepts: [market, investors, numbers, users, specific]
     token_count: 453
   - id: "social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c3"
     char_span: [7316, 9689]
     sentence_count: 25
     key_terms: [investors, team, slide, problem, competitors, positioning, plan, understand]
+    concepts: [investors, slide, problem, competitors, positioning]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c0", "social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c1", "social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c5"]
     token_count: 487
   - id: "social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c4"
-    char_span: [9691, 11541]
+    char_span: [9691, 11540]
     sentence_count: 13
     key_terms: [entrepreneur, please, permanent, promotion, founders, stickied, comment, explain]
+    concepts: [entrepreneur, please, permanent, promotion, founders]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c5"
-    char_span: [11543, 13394]
+    char_span: [11542, 13393]
     sentence_count: 3
     key_terms: [investors, decks, "don't", design, slide, founders, because, usually]
+    concepts: [investors, decks, "don't", design, slide]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c0", "social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c3"]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c6"
-    char_span: [13396, 14407]
+    char_span: [13395, 14406]
     sentence_count: 8
     key_terms: [long, melvinak, "don't", thank, write, businessstrategist, read, adefficient8374]
+    concepts: [melvinak, "don't", thank, write]
     section: Comments
     token_count: 270
 ---

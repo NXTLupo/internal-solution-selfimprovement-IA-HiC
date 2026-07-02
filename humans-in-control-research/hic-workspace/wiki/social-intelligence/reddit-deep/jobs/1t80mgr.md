@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 282]
     sentence_count: 2
     key_terms: [jobs, comments, pristine-row-7432, entry-level, reddit-deep, experience, companies, insights]
+    concepts: [comments]
     token_count: 82
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1t80mgr/why_do_companies_force_entrylevel_jobs_to_require/"}]
   - id: "social-intelligence/reddit-deep/jobs/1t80mgr.md#c1"
     char_span: [296, 1787]
     sentence_count: 10
     key_terms: [training, years, basic, internships, take, experience, companies, practices]
+    concepts: [training, years, internships, basic, experience]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1t80mgr.md#c2"]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/jobs/1t80mgr.md#c2"
     char_span: [1789, 2724]
     sentence_count: 8
     key_terms: [experience, people, requires, training, company, pristine-row-7432, requirements, functioning]
+    concepts: [experience, people, requires, training, company]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1t80mgr.md#c1"]
     section: Comments
     token_count: 205
 ---

@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 2097]
     sentence_count: 10
     key_terms: [phd, coursework, years, nus, research, askacademia, positioning, restarting]
+    concepts: [coursework, years, research, askacademia, positioning]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1shlgew/phd_at_nus_vs_restarting_in_the_us_worth/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1shlgew.md#c1"
     char_span: [2111, 4074]
     sentence_count: 8
     key_terms: [phd, ship, comments, student, reddit, https, com, need]
+    concepts: [comments, student, reddit, https, mentoring]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/askacademia/1shlgew.md#c2"
     char_span: [4076, 5073]
     sentence_count: 8
     key_terms: [blackforestcheesecak, here, phd, living, lower, years, cost, communicating]
+    concepts: [blackforestcheesecak, living, lower, years]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/askacademia/1shlgew.md#c3"
     char_span: [5075, 7037]
     sentence_count: 15
     key_terms: [phd, connections, feel, advisor, lacking, always, longer, maybe]
+    concepts: [connections, advisor, lacking, always, longer]
     section: Comments
     token_count: 456
 ---

@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1349]
     sentence_count: 12
     key_terms: [college, feel, like, comments, instead, enough, feels, money]
+    concepts: [college, comments, instead, enough, feels]
     token_count: 301
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ppyl2l/realizing_college_is_less_about_classes_and_more/"}]
   - id: "social-intelligence/reddit-deep/college/1ppyl2l.md#c1"
     char_span: [1363, 3170]
     sentence_count: 14
     key_terms: [class, time, calendar, done, work, homework, get, assignment]
+    concepts: [class, calendar, homework, assignment, allocated]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/college/1ppyl2l.md#c2"
     char_span: [3172, 4401]
     sentence_count: 5
     key_terms: [time, course, per, week, work, calendar, semester, credits]
+    concepts: [course, calendar, semester, credits, through]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/college/1ppyl2l.md#c3"
     char_span: [4403, 6412]
     sentence_count: 10
     key_terms: [college, people, like, post, week, especially, described, semester]
+    concepts: [college, people, especially, described, semester]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/college/1ppyl2l.md#c4"
     char_span: [6414, 7030]
     sentence_count: 4
     key_terms: [college, figure, learn, ok-culture-7141, foundation, ourselves, adulting, prepares]
+    concepts: [college, figure, learn]
     section: Comments
     token_count: 161
 ---

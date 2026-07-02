@@ -20,59 +20,73 @@ chunks:
     char_span: [0, 924]
     sentence_count: 9
     key_terms: [charity, philanthropy, used, comments, donation, specific, whether, anyone]
+    concepts: [charity, philanthropy, comments, donation, specific]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1u0twjh.md#c3", "social-intelligence/reddit-deep/philanthropy/1u0twjh.md#c7"]
     token_count: 206
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1u0twjh/has_anyone_here_actually_tried_to_verify_where_a/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1u0twjh.md#c1"
-    char_span: [939, 3174]
+    char_span: [938, 3173]
     sentence_count: 22
     key_terms: [people, donation, fund, trying, goes, paid, week, work]
+    concepts: [people, donation, trying, jcravens42, donations]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/philanthropy/1u0twjh.md#c2"
-    char_span: [3176, 5386]
+    char_span: [3175, 5385]
     sentence_count: 12
     key_terms: [money, like, went, donated, dollar, people, person, pot]
+    concepts: [money, donated, dollar, people, person]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/philanthropy/1u0twjh.md#c3"
-    char_span: [5388, 7381]
+    char_span: [5387, 7380]
     sentence_count: 20
     key_terms: [general, fund, specific, charity, flexibility, operational, donation, expenses]
+    concepts: [general, specific, charity, flexibility, operational]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1u0twjh.md#c0"]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/philanthropy/1u0twjh.md#c4"
-    char_span: [7383, 8823]
+    char_span: [7382, 8822]
     sentence_count: 12
     key_terms: [spent, anyone, organization, responsible, nonprofit, already, donate, redchairbluechair123]
+    concepts: [spent, organization, anyone, responsible, nonprofit]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/philanthropy/1u0twjh.md#c5"
-    char_span: [8825, 11185]
+    char_span: [8824, 11184]
     sentence_count: 12
     key_terms: [cause, deployed, food, correcting-the-overhead-myth-how-dan-pallottas-ted-talk-has-begun-to-change-the-conversation, consider, donations, effectiveness, organization]
+    concepts: [deployed, cause, consider, donations, effectiveness]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/philanthropy/1u0twjh.md#c6"
-    char_span: [11188, 13267]
+    char_span: [11187, 13266]
     sentence_count: 20
     key_terms: [designated, donations, specific, because, example, undesignated, used, donation]
+    concepts: [designated, donations, specific, undesignated, because]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/philanthropy/1u0twjh.md#c7"
-    char_span: [13269, 15686]
+    char_span: [13268, 15685]
     sentence_count: 18
     key_terms: [needs, donation, specific, organization, "can't", funds, deliveries, designated]
+    concepts: [needs, donation, specific, organization, "can't"]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1u0twjh.md#c0"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/philanthropy/1u0twjh.md#c8"
-    char_span: [15689, 16387]
+    char_span: [15688, 16386]
     sentence_count: 5
     key_terms: [individual, transparency, based, donor, expenditures, mrmoneywhale, "non-profit's", nonprofits]
+    concepts: [individual, transparency, based, donor]
     section: Comments
     token_count: 153
   - id: "social-intelligence/reddit-deep/philanthropy/1u0twjh.md#c9"
-    char_span: [16389, 18225]
+    char_span: [16388, 18224]
     sentence_count: 11
     key_terms: [onwards-and-upwards, food, donated, support, maybe, money, feel, accounting]
+    concepts: [onwards-and-upwards, donated, support, accounting, maybe]
     section: Comments
     token_count: 406
 ---

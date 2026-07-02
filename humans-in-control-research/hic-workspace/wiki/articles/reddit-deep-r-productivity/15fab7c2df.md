@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1971]
     sentence_count: 14
     key_terms: [productivity, need, been, new, trap, everything, comments, without]
+    concepts: [productivity, everything, comments, without, months]
     token_count: 482
+    sources: [{"n":"Reddit Deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1nlrfov/realized_i_am_stuck_in_the_productivity_trap/"}]
   - id: "articles/reddit-deep-r-productivity/15fab7c2df.md#c1"
     char_span: [1973, 2689]
     sentence_count: 6
     key_terms: [subconscious, flow, because, instead, myself, special-succotash688, mind, productivity]
+    concepts: [subconscious, because, instead, myself]
     token_count: 160
 ---
 # Realized I am stuck in the productivity trap

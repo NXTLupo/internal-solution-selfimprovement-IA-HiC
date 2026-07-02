@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1265]
     sentence_count: 11
     key_terms: [gpt, time, chat, stamp, wrong, timeanddate, ask, com]
+    concepts: [timeanddate, stamp, wrong, responses, comments]
     token_count: 313
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1q7hprw/i_am_having_the_hardest_time_getting_chat_gpt_to/"}]
   - id: "social-intelligence/reddit-deep/gpt/1q7hprw.md#c1"
     char_span: [1279, 3048]
     sentence_count: 4
     key_terms: [meta-data, include, ide-extension, time-stamping, number-of-queries-into-instance, time-stamp, starting, queries]
+    concepts: [meta-data, ide-extension, time-stamping, include, time-stamp]
     section: Comments
     token_count: 487
 ---

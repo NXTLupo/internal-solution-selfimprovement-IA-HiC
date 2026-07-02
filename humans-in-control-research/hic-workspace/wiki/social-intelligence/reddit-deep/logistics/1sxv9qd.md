@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 986]
     sentence_count: 5
     key_terms: [yanwen, delhivery, tracking, updates, normal, delhi, india, logistics]
+    concepts: [delhivery, yanwen, tracking, updates, normal]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1sxv9qd.md#c1"]
     token_count: 249
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1sxv9qd/yanwen_delhivery_shipment_stuck_in_india_for_4/"}]
   - id: "social-intelligence/reddit-deep/logistics/1sxv9qd.md#c1"
-    char_span: [1001, 3054]
+    char_span: [1000, 3053]
     sentence_count: 17
     key_terms: [delhivery, tracking, yanwen, realistic-crab7729, week, customs, waiting, pretty]
+    concepts: [delhivery, tracking, realistic-crab7729, yanwen, customs]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1sxv9qd.md#c0"]
     section: Comments
     token_count: 488
 ---

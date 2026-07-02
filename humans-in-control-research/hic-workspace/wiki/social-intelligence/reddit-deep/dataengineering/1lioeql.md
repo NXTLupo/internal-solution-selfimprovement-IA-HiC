@@ -20,75 +20,99 @@ chunks:
     char_span: [0, 2319]
     sentence_count: 16
     key_terms: [engineers, testing, reddit, dataengineering, comments, data, perspective, often]
+    concepts: [engineers, testing, dataengineering, reddit, comments]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1lioeql.md#c3", "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c5"]
     token_count: 467
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1lioeql/why_data_engineers_dont_test_according_to_reddit/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c1"
     char_span: [2321, 4559]
     sentence_count: 17
     key_terms: [data, engineers, engineering, product, perspective, analytical, pipelines, testing]
+    concepts: [engineers, engineering, perspective, product, analytical]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1lioeql.md#c6"]
     token_count: 419
   - id: "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c2"
     char_span: [4561, 5827]
     sentence_count: 8
     key_terms: [data, problem, fields, handle, impossible, pipelines, analysis, changes]
+    concepts: [problem, fields, handle, impossible, pipelines]
     token_count: 250
   - id: "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c3"
-    char_span: [5842, 8007]
+    char_span: [5841, 8006]
     sentence_count: 18
     key_terms: [testing, transforms, test, dataengineering, involve, massive, integration, conditions]
+    concepts: [testing, transforms, dataengineering, involve, massive]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1lioeql.md#c0"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c4"
-    char_span: [8009, 10255]
+    char_span: [8008, 10254]
     sentence_count: 8
     key_terms: [data, testing, quality, tests, pipelines, coverage, "that's", integration]
+    concepts: [testing, quality, pipelines, tests, coverage]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1lioeql.md#c9", "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c11"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c5"
-    char_span: [10257, 12162]
+    char_span: [10256, 12161]
     sentence_count: 11
     key_terms: [engineers, data, different, testing, being, users, test, youravgse]
+    concepts: [engineers, different, testing, being, users]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1lioeql.md#c0"]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c6"
-    char_span: [12164, 14422]
+    char_span: [12163, 14421]
     sentence_count: 16
     key_terms: [engineering, data, experience, perspective, engineers, something, everyone, experiences]
+    concepts: [engineering, experience, perspective, engineers, something]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1lioeql.md#c1"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c7"
-    char_span: [14426, 16129]
+    char_span: [14425, 16128]
     sentence_count: 11
     key_terms: [python, like, statement, template, outputs, inputs, output, script]
+    concepts: [python, statement, template, outputs, inputs]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c8"
-    char_span: [16131, 17539]
+    char_span: [16130, 17538]
     sentence_count: 9
     key_terms: [tests, business, good, technical, numbers, people, data, like]
+    concepts: [business, tests, technical, numbers, people]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c9"
-    char_span: [17541, 19776]
+    char_span: [17540, 19775]
     sentence_count: 11
     key_terms: [software, data, testing, discussion, years, tests, companies, engineers]
+    concepts: [software, testing, discussion, years, tests]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1lioeql.md#c4", "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c10", "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c11"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c10"
-    char_span: [19778, 22339]
+    char_span: [19777, 22338]
     sentence_count: 15
     key_terms: [data, testing, engineering, development, teams, software, quality, tests]
+    concepts: [testing, engineering, development, software, teams]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1lioeql.md#c9", "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c11"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c11"
-    char_span: [22341, 24113]
+    char_span: [22340, 24112]
     sentence_count: 13
     key_terms: [state, software, data, tests, "it's", testing, typical, manage]
+    concepts: [state, software, tests, testing, typical]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1lioeql.md#c4", "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c9", "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c10", "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c12"]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/dataengineering/1lioeql.md#c12"
-    char_span: [24115, 25668]
+    char_span: [24114, 25667]
     sentence_count: 14
     key_terms: [state, tests, data, mock, application, interesting, mean, swe]
+    concepts: [state, tests, application, interesting, changing]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1lioeql.md#c11"]
     section: Comments
     token_count: 363
 ---

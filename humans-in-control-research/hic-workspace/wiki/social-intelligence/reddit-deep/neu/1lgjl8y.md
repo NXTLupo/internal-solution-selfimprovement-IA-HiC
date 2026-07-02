@@ -21,29 +21,39 @@ chunks:
     char_span: [0, 1702]
     sentence_count: 15
     key_terms: [school, semester, through, neu, seriously, comments, teaching, college]
+    concepts: [school, semester, through, seriously, comments]
     token_count: 380
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1lgjl8y/is_it_just_me_or_is_this_school_really_awful/"}]
   - id: "social-intelligence/reddit-deep/neu/1lgjl8y.md#c1"
     char_span: [1716, 3475]
     sentence_count: 10
     key_terms: [professors, classes, good, choose, school, northeastern, been, definitely]
+    concepts: [professors, classes, northeastern, choose, school]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1lgjl8y.md#c2", "social-intelligence/reddit-deep/neu/1lgjl8y.md#c3"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/neu/1lgjl8y.md#c2"
     char_span: [3477, 4588]
     sentence_count: 9
     key_terms: [professors, been, classes, ratings, better, choose, based, get]
+    concepts: [professors, classes, ratings, better, choose]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1lgjl8y.md#c1", "social-intelligence/reddit-deep/neu/1lgjl8y.md#c3"]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/neu/1lgjl8y.md#c3"
     char_span: [4590, 6875]
     sentence_count: 19
     key_terms: [professors, here, time, classes, knowledgeable, architecture, northeastern, loved]
+    concepts: [professors, knowledgeable, classes, architecture, northeastern]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1lgjl8y.md#c1", "social-intelligence/reddit-deep/neu/1lgjl8y.md#c2", "social-intelligence/reddit-deep/neu/1lgjl8y.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1lgjl8y.md#c4"
     char_span: [6586, 6886]
     sentence_count: 1
     key_terms: [architecture, professors, design, cryptography, northeastern, computation, elegantly, around]
+    concepts: [architecture, professors, design]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1lgjl8y.md#c3"]
     section: Comments
     token_count: 68
 ---

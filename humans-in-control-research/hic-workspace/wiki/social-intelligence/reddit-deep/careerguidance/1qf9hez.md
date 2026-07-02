@@ -19,89 +19,110 @@ chunks:
     char_span: [0, 438]
     sentence_count: 2
     key_terms: [careerguidance, guaranteed, comments, market, job, overcrowded, reddit-deep, recommend]
+    concepts: [careerguidance, guaranteed, comments, market]
     token_count: 126
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qf9hez/if_you_had_to_recommend_1_career_path_for/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c1"
-    char_span: [453, 2286]
+    char_span: [452, 2285]
     sentence_count: 16
     key_terms: [medical, people, healthcare, cytotech, job, lab, hospital, patients]
+    concepts: [medical, people, healthcare, cytotech, hospital]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c2", "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c3"]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c2"
-    char_span: [2288, 3547]
+    char_span: [2287, 3546]
     sentence_count: 10
     key_terms: [healthcare, jobs, medical, time, experience, assistant, training, because]
+    concepts: [healthcare, medical, experience, assistant, training]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c1", "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c3", "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c4"]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c3"
-    char_span: [3549, 4623]
+    char_span: [3548, 4622]
     sentence_count: 7
     key_terms: [medical, people, healthcare, get, job, money, don, easy]
+    concepts: [medical, healthcare, people, money]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c1", "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c2", "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c9"]
     section: Comments
     token_count: 253
   - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c4"
-    char_span: [4625, 6838]
+    char_span: [4624, 6837]
     sentence_count: 17
     key_terms: [healthcare, experience, get, productivity, great, free, high, job]
+    concepts: [healthcare, experience, productivity, great, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c5"
-    char_span: [6562, 7626]
+    char_span: [6561, 7625]
     sentence_count: 7
     key_terms: [good, work, because, people, dry-translator4773, get, high, job]
+    concepts: [because, people]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c6"
-    char_span: [7628, 9770]
+    char_span: [7627, 9769]
     sentence_count: 11
     key_terms: [trades, parents, "don't", experience, business, finances, question, skilled]
+    concepts: [trades, parents, "don't", experience, business]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c7"
-    char_span: [9772, 11063]
+    char_span: [9771, 11062]
     sentence_count: 12
     key_terms: [electrician, hvac, currently, working, worked, union, completelypositive, boss]
+    concepts: [electrician, currently, working, worked, union]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c8"
-    char_span: [11065, 12171]
+    char_span: [11064, 12170]
     sentence_count: 9
     key_terms: [days, get, work, year, probably, because, someone, willing]
+    concepts: [probably, because, someone, willing, working]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c9"
-    char_span: [12173, 14203]
+    char_span: [12172, 14202]
     sentence_count: 13
     key_terms: [people, gonzothegreat22, banking, electricians, money, own, work, business]
+    concepts: [people, gonzothegreat22, banking, electricians, money]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c10"
-    char_span: [13933, 15218]
+    char_span: [13932, 15217]
     sentence_count: 11
     key_terms: [banking, work, insurance, finance, prefer, career-development, get, high]
+    concepts: [banking, insurance, finance, prefer]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c11"
-    char_span: [15220, 16124]
+    char_span: [15219, 16123]
     sentence_count: 6
     key_terms: [finance, degree, shitty, start, year, finance-specific, plentyad2818, charismatic]
+    concepts: [finance, degree, shitty, start]
     section: Comments
     token_count: 222
   - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c12"
-    char_span: [16126, 18259]
+    char_span: [16125, 18258]
     sentence_count: 11
     key_terms: [engineering, nursing, curvefront7807, icecreamvalley, years, don, california, countries]
+    concepts: [engineering, curvefront7807, icecreamvalley, nursing, california]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c13"
-    char_span: [18261, 19339]
+    char_span: [18260, 19338]
     sentence_count: 8
     key_terms: [already, catfancier4393, engineering, "don't", new, opportunities, moxie-maniac, professional]
+    concepts: [catfancier4393, already, engineering, "don't"]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c14"
-    char_span: [19341, 20532]
+    char_span: [19340, 20531]
     sentence_count: 5
     key_terms: [virtual-ducks, dispatcher, company, started, working, little, going, did]
+    concepts: [virtual-ducks, dispatcher, company, started, working]
     section: Comments
     token_count: 301
 ---

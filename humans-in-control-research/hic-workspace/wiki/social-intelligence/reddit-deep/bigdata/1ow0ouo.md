@@ -17,10 +17,12 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/bigdata/1ow0ouo.md#c0"
-    char_span: [0, 1350]
+    char_span: [0, 1349]
     sentence_count: 3
     key_terms: [shampoo, donald, data, luke, breaking, comments, bigdata, details]
+    concepts: [shampoo, donald, breaking, comments, bigdata]
     token_count: 334
+    sources: [{"n":"reddit-deep: r/bigdata","u":"https://www.reddit.com/r/bigdata/comments/1ow0ouo/luke_donald_talks_data_ryder_cup_shampoo/"}]
 ---
 # Luke Donald talks Data, Ryder Cup, & Shampoo
 

@@ -20,31 +20,38 @@ chunks:
     char_span: [0, 2068]
     sentence_count: 15
     key_terms: [logistics, section, tariffs, trade, "trump's", ieepa, march, down]
+    concepts: [logistics, section, tariffs, trade, "trump's"]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1rq2k9y/catch_up_on_what_happened_this_week_in_logistics/"}]
   - id: "social-intelligence/reddit-deep/logistics/1rq2k9y.md#c1"
     char_span: [2070, 4066]
     sentence_count: 15
     key_terms: [last, consumer, spending, freight, higher, target, been, fiddelke]
+    concepts: [consumer, spending, freight, higher, target]
     token_count: 427
   - id: "social-intelligence/reddit-deep/logistics/1rq2k9y.md#c2"
     char_span: [4068, 6483]
     sentence_count: 15
     key_terms: [chatgpt, users, year, openai, target, back, buy, last]
+    concepts: [chatgpt, users, openai, target, purchases]
     token_count: 508
   - id: "social-intelligence/reddit-deep/logistics/1rq2k9y.md#c3"
     char_span: [6485, 8504]
     sentence_count: 12
     key_terms: [order, parcel-and-freight-meets-shipping-software, compliance, february, platform, auctane, freight, redwood]
+    concepts: [order, compliance, february, platform, auctane]
     token_count: 437
   - id: "social-intelligence/reddit-deep/logistics/1rq2k9y.md#c4"
     char_span: [8506, 9797]
     sentence_count: 10
     key_terms: [amazon, new, tcs, blockchain, logistics-pulse-by-fulfillyn, freight, invoice, paypal]
+    concepts: [amazon, blockchain, freight, invoice, paypal]
     token_count: 285
   - id: "social-intelligence/reddit-deep/logistics/1rq2k9y.md#c5"
-    char_span: [9812, 10322]
+    char_span: [9811, 10321]
     sentence_count: 3
     key_terms: [charlesholmes1, existingchannel5779, selectivestupidity1, like, appreciate, summarized, different, logistics]
+    concepts: [charlesholmes1]
     section: Comments
     token_count: 147
 ---

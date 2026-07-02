@@ -20,28 +20,36 @@ chunks:
     char_span: [0, 2002]
     sentence_count: 12
     key_terms: [vanguard, bogleheads, inclusion, vti, comments, asked, index, space]
+    concepts: [vanguard, bogleheads, inclusion, comments, asked]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1s5xzqk.md#c1"]
     token_count: 464
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1s5xzqk/how_many_bogleheads_are_developing_a_direct_index/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1s5xzqk.md#c1"
     char_span: [2004, 2806]
     sentence_count: 7
     key_terms: [inclusion, vanguard, vti, retirement, company, space, drop, voo]
+    concepts: [inclusion, vanguard, retirement, company, space]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1s5xzqk.md#c0"]
     token_count: 166
   - id: "social-intelligence/reddit-deep/bogleheads/1s5xzqk.md#c2"
-    char_span: [2821, 4621]
+    char_span: [2820, 4620]
     sentence_count: 11
     key_terms: [vti, spacex, regardless, portion, market, public, index, cap]
+    concepts: [regardless, spacex, portion, market, public]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/bogleheads/1s5xzqk.md#c3"
-    char_span: [4623, 6669]
+    char_span: [4622, 6668]
     sentence_count: 19
     key_terms: [fidelity, transfer, account, market, samtertriads, don, hsa, year]
+    concepts: [fidelity, transfer, account, samtertriads, market]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/bogleheads/1s5xzqk.md#c4"
-    char_span: [6671, 7898]
+    char_span: [6670, 7897]
     sentence_count: 8
     key_terms: [jackfruitcrazy51, inclusion, change, market, comfortable-math-158, "don't", rules, ghostisalwaysthere]
+    concepts: [jackfruitcrazy51, inclusion, change, market, "don't"]
     section: Comments
     token_count: 312
 ---

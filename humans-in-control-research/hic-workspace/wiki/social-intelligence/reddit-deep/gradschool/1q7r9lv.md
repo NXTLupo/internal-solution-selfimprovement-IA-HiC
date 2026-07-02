@@ -21,47 +21,56 @@ chunks:
     char_span: [0, 998]
     sentence_count: 6
     key_terms: [affordable, gradschool, comments, graduate, options, school, snoomarzipans6854, love]
+    concepts: [affordable, gradschool, comments, graduate, options]
     token_count: 232
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1q7r9lv/americans_who_have_attended_graduate_school/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1q7r9lv.md#c1"
     char_span: [1012, 3138]
     sentence_count: 17
     key_terms: [canadian, degrees, people, school, universities, considering, did, lot]
+    concepts: [canadian, degrees, universities, people, school]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/gradschool/1q7r9lv.md#c2"
     char_span: [3140, 5334]
     sentence_count: 12
     key_terms: [school, phd, here, research, classes, program, internationals, did]
+    concepts: [school, research, internationals, classes, program]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1q7r9lv.md#c3"
     char_span: [5052, 5794]
     sentence_count: 10
     key_terms: [industry, degree, school, time, misadventuresofj, accreditation, self-planned, alternative]
+    concepts: [industry, degree, school]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/gradschool/1q7r9lv.md#c4"
     char_span: [5796, 7149]
     sentence_count: 13
     key_terms: [university, gradstudies, fee, classmates, students, however, overall, program]
+    concepts: [university, gradstudies, classmates, students, however]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/gradschool/1q7r9lv.md#c5"
     char_span: [7151, 8185]
     sentence_count: 5
     key_terms: [economics, sfu-economics-maintains-top-three-ranking, canada, academically, sfu, important, kevingyk, rigorous]
+    concepts: [economics, academically, canada, important, kevingyk]
     section: Comments
     token_count: 255
   - id: "social-intelligence/reddit-deep/gradschool/1q7r9lv.md#c6"
     char_span: [8187, 10471]
     sentence_count: 18
     key_terms: [lot, here, programs, germany, canada, accommodation, international, money]
+    concepts: [programs, accommodation, international, germany, canada]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/gradschool/1q7r9lv.md#c7"
     char_span: [10473, 11131]
     sentence_count: 4
     key_terms: [program, policy-oriented, afghanistan, development, interesting, classmates, university, australia]
+    concepts: [program]
     section: Comments
     token_count: 141
 ---

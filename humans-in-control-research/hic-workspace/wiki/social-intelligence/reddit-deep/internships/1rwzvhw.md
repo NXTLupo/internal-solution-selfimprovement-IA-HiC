@@ -16,10 +16,12 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1rwzvhw.md#c0"
-    char_span: [0, 1299]
+    char_span: [0, 1298]
     sentence_count: 2
     key_terms: [backend, internship, opportunities, internships, looking, systems, development, engineering]
-    token_count: 319
+    concepts: [backend, internship, opportunities, internships, looking]
+    token_count: 318
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rwzvhw/3rd_year_cs_student_looking_for_backend_ai/"}]
 ---
 # 3rd Year CS Student looking for Backend / AI Internship, Resume Review + Opportunities
 

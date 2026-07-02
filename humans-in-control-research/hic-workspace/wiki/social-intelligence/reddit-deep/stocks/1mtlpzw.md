@@ -20,69 +20,91 @@ chunks:
     char_span: [0, 2415]
     sentence_count: 9
     key_terms: [comcast, internet, broadband, customers, company, consumers, business, million]
+    concepts: [comcast, internet, broadband, customers, company]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mtlpzw.md#c1", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c3", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c4", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c7"]
     token_count: 477
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1mtlpzw/comcast_gets_serious_about_subscriber_losses_a/"}]
   - id: "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c1"
     char_span: [2417, 5069]
     sentence_count: 18
     key_terms: [comcast, internet, wireless, including, year, company, broadband, customers]
+    concepts: [comcast, internet, wireless, including, company]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mtlpzw.md#c0", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c3", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c4", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c7"]
     token_count: 505
   - id: "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c2"
     char_span: [5071, 5677]
     sentence_count: 3
     key_terms: [selection-1945, year, archive, https, ymxr9, down, turnaround, analytics]
+    concepts: [selection-1945, archive, https, ymxr9]
     token_count: 161
   - id: "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c3"
-    char_span: [5692, 6596]
+    char_span: [5691, 6595]
     sentence_count: 6
     key_terms: [internet, company, service, turbulentpromise4812, month, rate, "capatilism's", chusifer24]
+    concepts: [internet, company, service, month]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mtlpzw.md#c0", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c1", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c4", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c10"]
     section: Comments
     token_count: 225
   - id: "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c4"
-    char_span: [6598, 8319]
+    char_span: [6597, 8318]
     sentence_count: 9
     key_terms: [internet, comcast, month, area, per, years, verizon, google]
+    concepts: [internet, comcast, month, years, verizon]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mtlpzw.md#c0", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c1", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c3", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c5", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c7"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c5"
-    char_span: [8321, 9254]
+    char_span: [8320, 9253]
     sentence_count: 5
     key_terms: [centurylink, comcast, "i've", offered, places, month, nothinglikecoffee, came]
+    concepts: [centurylink, comcast, offered, places, month]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mtlpzw.md#c4", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c8", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c10"]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c6"
-    char_span: [9256, 11387]
+    char_span: [9255, 11386]
     sentence_count: 19
     key_terms: [because, internet, tried, frequencies, come, port, time, use]
+    concepts: [because, internet, frequencies, constantly, tried]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c7"
-    char_span: [11389, 13031]
+    char_span: [11388, 13030]
     sentence_count: 11
     key_terms: [data, internet, comcast, speeds, store, cap, caps, equipment]
+    concepts: [internet, comcast, speeds, store, equipment]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mtlpzw.md#c0", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c1", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c4"]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c8"
-    char_span: [13033, 14287]
+    char_span: [13032, 14286]
     sentence_count: 11
     key_terms: [get, comcast, almost, break, month, sense, spend, world]
+    concepts: [comcast, almost, break, month, sense]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mtlpzw.md#c4", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c5", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c10"]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c9"
-    char_span: [14289, 15320]
+    char_span: [14288, 15319]
     sentence_count: 4
     key_terms: [monopoly, multiple, regional, against, prices, system, throwaway9gk0k4k569, fiber]
+    concepts: [monopoly, multiple, regional, against, prices]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c10"
-    char_span: [15322, 16982]
+    char_span: [15321, 16981]
     sentence_count: 13
     key_terms: [comcast, month, expensive, meanwhile, service, verizon, router, "don't"]
+    concepts: [comcast, month, expensive, meanwhile, service]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mtlpzw.md#c3", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c4", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c5", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c8", "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c11"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/stocks/1mtlpzw.md#c11"
-    char_span: [16984, 17649]
+    char_span: [16983, 17648]
     sentence_count: 7
     key_terms: [service, comcast, sucks, retroactively, shillyshally, blockbuster, matrix0007, unreliable]
+    concepts: [service, comcast, sucks]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1mtlpzw.md#c10"]
     section: Comments
     token_count: 169
 ---

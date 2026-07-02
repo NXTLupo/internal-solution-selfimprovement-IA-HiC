@@ -5,6 +5,7 @@ chunks:
     char_span: [54, 1059]
     sentence_count: 7
     key_terms: [high, meticulous, tapestry, pivotal, craftsmanship, role, innovation, represents]
+    concepts: [meticulous, tapestry, pivotal, craftsmanship, innovation]
     section: "2026-05-25 14:21:11 · turn test-1 · 10 slop hit(s)"
     token_count: 266
 ---

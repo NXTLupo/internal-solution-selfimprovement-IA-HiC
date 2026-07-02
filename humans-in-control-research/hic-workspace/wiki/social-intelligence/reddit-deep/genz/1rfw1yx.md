@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 2024]
     sentence_count: 23
     key_terms: [generation, gen, hate, like, people, without, trends, adhd]
+    concepts: [generation, people, without, trends, diagnosing]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1rfw1yx.md#c5"]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1rfw1yx/i_hate_my_generation_gen_z/"}]
   - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c1"
     char_span: [2038, 2167]
     sentence_count: 1
     key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
+    concepts: [discord]
     section: Comments
     token_count: 41
   - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c2"
     char_span: [2170, 4314]
     sentence_count: 15
     key_terms: [people, talk, chanceotherwise, social, especially, real, college, media-centric]
+    concepts: [people, chanceotherwise, especially, social, media-centric]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c3"
     char_span: [4011, 4609]
     sentence_count: 6
     key_terms: [people, talk, college, owemdc1zqylg1, incompetent, describing, especially, generation]
+    concepts: [people, college]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c4"
     char_span: [4611, 5187]
     sentence_count: 6
     key_terms: [younger, friends, opinion, zoomers, old, especially, generation, cattiness]
+    concepts: [younger, friends, opinion, zoomers]
     section: Comments
     token_count: 125
   - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c5"
     char_span: [5189, 7074]
     sentence_count: 15
     key_terms: [people, working, status, doing, years, quo, shit, generation]
+    concepts: [people, working, status, doing, generation]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1rfw1yx.md#c0"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c6"
     char_span: [7076, 8602]
     sentence_count: 8
     key_terms: [minimum-rough-9442, gen, millennials, been, remember, course, saying, wanted]
+    concepts: [minimum-rough-9442, millennials, remember, course, saying]
     section: Comments
     token_count: 420
 ---

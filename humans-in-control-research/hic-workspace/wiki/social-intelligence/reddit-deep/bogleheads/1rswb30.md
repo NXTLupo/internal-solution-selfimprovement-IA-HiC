@@ -20,23 +20,32 @@ chunks:
     char_span: [0, 677]
     sentence_count: 6
     key_terms: [fidelity, vanguard, bogleheads, comments, voo, equivalents, reddit-deep, terminology]
+    concepts: [fidelity, vanguard, bogleheads, comments]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rswb30.md#c2"]
     token_count: 168
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1rswb30/help_with_vanguard_vs_fidelity_terminology/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1rswb30.md#c1"
-    char_span: [692, 2676]
+    char_span: [691, 2675]
     sentence_count: 15
     key_terms: [fidelity, equivalent, funds, voo, instead, mutual, use, market]
+    concepts: [fidelity, equivalent, funds, instead, mutual]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rswb30.md#c2", "social-intelligence/reddit-deep/bogleheads/1rswb30.md#c3"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/bogleheads/1rswb30.md#c2"
-    char_span: [2678, 4440]
+    char_span: [2677, 4439]
     sentence_count: 11
     key_terms: [fidelity, vanguard, mutual, funds, international, etfs, need, use]
+    concepts: [fidelity, vanguard, mutual, international, funds]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rswb30.md#c0", "social-intelligence/reddit-deep/bogleheads/1rswb30.md#c1", "social-intelligence/reddit-deep/bogleheads/1rswb30.md#c3"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/bogleheads/1rswb30.md#c3"
-    char_span: [4442, 5160]
+    char_span: [4441, 5159]
     sentence_count: 4
     key_terms: [fidelity, funds, letter, reason, buy, etfs, warmwoolenmitten, alternatives]
+    concepts: [fidelity, funds, letter, reason]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rswb30.md#c1", "social-intelligence/reddit-deep/bogleheads/1rswb30.md#c2"]
     section: Comments
     token_count: 177
 ---

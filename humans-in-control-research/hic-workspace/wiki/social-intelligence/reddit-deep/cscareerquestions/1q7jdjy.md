@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 907]
     sentence_count: 1
     key_terms: [internships, experience, cscareerquestions, because, comments, personal, projects, without]
+    concepts: [internships, experience, cscareerquestions, because, comments]
     token_count: 201
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1q7jdjy/new_grad_with_no_internships/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q7jdjy.md#c1"
     char_span: [921, 3154]
     sentence_count: 13
     key_terms: [projects, internships, matter, people, impossible, got, "it's", experience]
+    concepts: [projects, internships, matter, impossible, people]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q7jdjy.md#c2"
     char_span: [3156, 5064]
     sentence_count: 16
     key_terms: [startup, accomplishedsea8675, different, building, getting, years, big, tech]
+    concepts: [startup, accomplishedsea8675, different, building, getting]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q7jdjy.md#c3"
     char_span: [5066, 7490]
     sentence_count: 13
     key_terms: [projects, skills, interviews, personal, school, decisions, lot, getting]
+    concepts: [projects, skills, interviews, personal, school]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q7jdjy.md#c4"
     char_span: [7492, 8304]
     sentence_count: 5
     key_terms: [cooked, independent-dish-128, hot-conference-9129, story, according-emu-8721, brave-finding-3866, hard, job]
+    concepts: [cooked, story]
     section: Comments
     token_count: 240
 ---

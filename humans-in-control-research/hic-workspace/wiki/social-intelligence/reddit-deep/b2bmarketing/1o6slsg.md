@@ -20,41 +20,53 @@ chunks:
     char_span: [0, 930]
     sentence_count: 5
     key_terms: [linkedin, b2bmarketing, comments, outreach, dms, "i've", decision-makers, relationships]
+    concepts: [linkedin, b2bmarketing, comments, outreach]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1o6slsg.md#c2"]
     token_count: 212
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1o6slsg/has_anyone_here_actually_managed_to_make_linkedin/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1o6slsg.md#c1"
-    char_span: [945, 2910]
+    char_span: [944, 2909]
     sentence_count: 11
     key_terms: [looking-for-marketing-discussion-811236647760298024, dms, like, podawaa, consistently, tools, everything, questions]
+    concepts: [podawaa, consistently, everything, tools, questions]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/b2bmarketing/1o6slsg.md#c2"
-    char_span: [2912, 5048]
+    char_span: [2911, 5047]
     sentence_count: 7
     key_terms: [people, outreach, personalized, worth, linkedin, messages, solution, brainer]
+    concepts: [people, outreach, personalized, worth, linkedin]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1o6slsg.md#c0", "social-intelligence/reddit-deep/b2bmarketing/1o6slsg.md#c3"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/b2bmarketing/1o6slsg.md#c3"
-    char_span: [5050, 7287]
+    char_span: [5049, 7286]
     sentence_count: 14
     key_terms: [people, linkedin, cold, get, messages, machine, organic, washing]
+    concepts: [people, linkedin, messages, machine, organic]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1o6slsg.md#c2", "social-intelligence/reddit-deep/b2bmarketing/1o6slsg.md#c6"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/b2bmarketing/1o6slsg.md#c4"
-    char_span: [7289, 9433]
+    char_span: [7288, 9432]
     sentence_count: 23
     key_terms: [linkedin, something, contacts, contact, post, sell, companies, nitrox-82]
+    concepts: [linkedin, something, contacts, contact, companies]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/b2bmarketing/1o6slsg.md#c5"
-    char_span: [9435, 11089]
+    char_span: [9434, 11088]
     sentence_count: 14
     key_terms: [custom, reply, outreach, reaching, percent, problem, profile, wawzgit]
+    concepts: [custom, reply, outreach, reaching, percent]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/b2bmarketing/1o6slsg.md#c6"
-    char_span: [11091, 12391]
+    char_span: [11090, 12390]
     sentence_count: 12
     key_terms: [linkedin, messages, strategy, company, through, people, "don't", cold]
+    concepts: [linkedin, messages, strategy, company, through]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1o6slsg.md#c3"]
     section: Comments
     token_count: 293
 ---

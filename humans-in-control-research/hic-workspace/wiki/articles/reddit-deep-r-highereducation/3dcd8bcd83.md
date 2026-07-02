@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2237]
     sentence_count: 20
     key_terms: [banner, registrar, problem, office, highereducation, experience, students, faculty]
+    concepts: [registrar, banner, problem, office, highereducation]
     token_count: 496
+    sources: [{"n":"Reddit Deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1tjnh4e/career_advice_registrar_to_it/"}]
   - id: "articles/reddit-deep-r-highereducation/3dcd8bcd83.md#c1"
     char_span: [2239, 4309]
     sentence_count: 19
     key_terms: [registrar, ellucian, people, "don't", institution, here, consulting, ferrilli]
+    concepts: [registrar, ellucian, people, institution, consulting]
     token_count: 472
 ---
 # Career Advice (Registrar to IT?)

@@ -21,35 +21,45 @@ chunks:
     char_span: [0, 966]
     sentence_count: 5
     key_terms: [director, managers, been, team, comments, sitting, reddit, early]
+    concepts: [director, managers, comments, sitting, reddit]
     token_count: 222
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1t5f8au/update_my_director_has_been_sitting_at_the_front/"}]
   - id: "social-intelligence/reddit-deep/managers/1t5f8au.md#c1"
     char_span: [980, 2474]
     sentence_count: 9
     key_terms: [director, employee, termination, cause, doing, atty, case, documentation]
+    concepts: [director, employee, termination, cause, doing]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1t5f8au.md#c2", "social-intelligence/reddit-deep/managers/1t5f8au.md#c3"]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/managers/1t5f8au.md#c2"
     char_span: [2476, 4017]
     sentence_count: 8
     key_terms: [director, employee, accountable, team, situation, company, teams, thekingofswing777]
+    concepts: [director, employee, accountable, situation, company]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1t5f8au.md#c1", "social-intelligence/reddit-deep/managers/1t5f8au.md#c3"]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/managers/1t5f8au.md#c3"
     char_span: [4020, 5981]
     sentence_count: 8
     key_terms: [time, team, employees, business, director, employee, allow, doing]
+    concepts: [employees, business, director, employee, allow]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1t5f8au.md#c1", "social-intelligence/reddit-deep/managers/1t5f8au.md#c2"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/managers/1t5f8au.md#c4"
     char_span: [5983, 8049]
     sentence_count: 15
     key_terms: [good, time, because, behavior, employee, manager, always, longer]
+    concepts: [because, behavior, employee, manager, always]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/managers/1t5f8au.md#c5"
     char_span: [8051, 9127]
     sentence_count: 9
     key_terms: [early, employee, leaves, worked, came, late, soupboyfanclub, conversation]
+    concepts: [early, employee, leaves, worked]
     section: Comments
     token_count: 267
 ---

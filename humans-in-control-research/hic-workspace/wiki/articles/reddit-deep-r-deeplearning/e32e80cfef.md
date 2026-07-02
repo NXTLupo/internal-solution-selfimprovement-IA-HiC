@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1403]
     sentence_count: 5
     key_terms: [gemma, qwen, throughput, a3b, deeplearning, dense, fp8, moe]
+    concepts: [gemma, throughput, deeplearning, dense, pattern]
     token_count: 524
+    sources: [{"n":"Reddit Deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1sva0b9/qwen_36_27b_vs_qwen_36_35b_a3b_vs_gemma_4_models/"}]
   - id: "articles/reddit-deep-r-deeplearning/e32e80cfef.md#c1"
     char_span: [1405, 3010]
     sentence_count: 12
     key_terms: [prompt, token, numbers, cache, does, fp8, moe, concurrent]
+    concepts: [prompt, token, numbers, cache, concurrent]
     token_count: 386
 ---
 # Qwen 3.6 27B vs Qwen 3.6 35B A3B vs Gemma 4 models Throughput on H100

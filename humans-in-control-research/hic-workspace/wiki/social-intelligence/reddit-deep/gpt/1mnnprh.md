@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1186]
     sentence_count: 2
     key_terms: [verbosity, effort, high, low, medium, gpt-5, response, minimal]
+    concepts: [verbosity, effort, medium, gpt-5, response]
     token_count: 342
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1mnnprh/example_of_all_gpt5_reasoning_effort_levels/"}]
   - id: "social-intelligence/reddit-deep/gpt/1mnnprh.md#c1"
     char_span: [1197, 2768]
     sentence_count: 5
     key_terms: [convo-lang, https, current, learn, electrons, reasoning-effort, voltage, github]
+    concepts: [convo-lang, https, current, reasoning-effort, electrons]
     token_count: 368
 ---
 # Example of all GPT-5 Reasoning Effort Levels

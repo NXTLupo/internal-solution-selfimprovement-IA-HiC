@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1513]
     sentence_count: 11
     key_terms: [engineering, umich, worth, debt, engineeringstudents, prestige, "i'm", mechanical]
+    concepts: [engineering, umich, worth, engineeringstudents, prestige]
     token_count: 334
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tczy44/is_prestige_worth_taking_on_debt/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tczy44.md#c1"
     char_span: [1527, 3533]
     sentence_count: 19
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, students, posting]
+    concepts: [engineeringstudents, please, reddit, https, students]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tczy44.md#c2"
     char_span: [3536, 5502]
     sentence_count: 14
     key_terms: [portfolio, debt, well-regarded, peterverdone, windjetman62, worth, good, look]
+    concepts: [portfolio, well-regarded, peterverdone, windjetman62, worth]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tczy44.md#c3"
     char_span: [5504, 7199]
     sentence_count: 21
     key_terms: [want, msu, companies, michigan, going, like, guessing, prestige]
+    concepts: [companies, michigan, going, guessing, prestige]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tczy44.md#c4"
     char_span: [7201, 8683]
     sentence_count: 10
     key_terms: [difference, debt, msu, isn, probably, future, pretty, adoormarkedpirate420]
+    concepts: [difference, probably, future, pretty, doesn]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tczy44.md#c5"
     char_span: [8685, 9506]
     sentence_count: 5
     key_terms: [difference, program, smaller, support, umass, get, significantly, counterpoint]
+    concepts: [difference, program, smaller, support, umass]
     section: Comments
     token_count: 189
 ---

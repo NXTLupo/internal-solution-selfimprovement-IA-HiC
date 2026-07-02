@@ -20,29 +20,39 @@ chunks:
     char_span: [0, 991]
     sentence_count: 9
     key_terms: [wallets, people, defi, complicated, used, comments, software, normal]
+    concepts: [wallets, people, complicated, comments, software]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1on0dkr.md#c3"]
     token_count: 233
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1on0dkr/why_do_people_think_wallets_are_complicated/"}]
   - id: "social-intelligence/reddit-deep/defi/1on0dkr.md#c1"
-    char_span: [1006, 2990]
+    char_span: [1005, 2989]
     sentence_count: 12
     key_terms: [realhobbybob, cash, "it's", wallet, feature, chain, "don't", complicated]
+    concepts: [realhobbybob, wallet, feature, complicated, chain]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1on0dkr.md#c2", "social-intelligence/reddit-deep/defi/1on0dkr.md#c3"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/defi/1on0dkr.md#c2"
-    char_span: [2992, 5161]
+    char_span: [2991, 5160]
     sentence_count: 17
     key_terms: [money, complicated, something, card, realhobbybob, cash, like, because]
+    concepts: [money, complicated, something, realhobbybob, because]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1on0dkr.md#c1", "social-intelligence/reddit-deep/defi/1on0dkr.md#c3"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/defi/1on0dkr.md#c3"
-    char_span: [5163, 7124]
+    char_span: [5162, 7123]
     sentence_count: 14
     key_terms: [people, want, because, realhobbybob, complicated, use, used, year]
+    concepts: [people, because, realhobbybob, complicated, different]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1on0dkr.md#c0", "social-intelligence/reddit-deep/defi/1on0dkr.md#c1", "social-intelligence/reddit-deep/defi/1on0dkr.md#c2"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/defi/1on0dkr.md#c4"
-    char_span: [7126, 7504]
+    char_span: [7125, 7503]
     sentence_count: 1
     key_terms: [because, phasedramatic6137, used, straightforward, intimidating, self-custody, billionaire, understands]
+    concepts: [because]
     section: Comments
     token_count: 79
 ---

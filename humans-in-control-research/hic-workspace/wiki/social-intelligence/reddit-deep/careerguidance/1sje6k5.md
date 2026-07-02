@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1385]
     sentence_count: 11
     key_terms: [career, like, apprenticeship, careerguidance, "i'm", business, comments, employee]
+    concepts: [career, apprenticeship, careerguidance, business, comments]
     token_count: 323
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sje6k5/career/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sje6k5.md#c1"
     char_span: [1399, 1612]
     sentence_count: 2
     key_terms: [student, debt, voodoofat, college, degrees, follows, forever, mention]
+    concepts: [student]
     section: Comments
     token_count: 54
   - id: "social-intelligence/reddit-deep/careerguidance/1sje6k5.md#c2"
     char_span: [1614, 3737]
     sentence_count: 13
     key_terms: [software, degree, "you're", later, good, management, business, computer]
+    concepts: [software, degree, "you're", later, management]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1sje6k5.md#c3"
@@ -44,12 +48,14 @@ chunks:
     char_span: [3784, 5790]
     sentence_count: 21
     key_terms: [people, college, learning, job, enough, feel, "you're", happy]
+    concepts: [people, college, learning, enough, "you're"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/careerguidance/1sje6k5.md#c5"
     char_span: [5792, 7671]
     sentence_count: 13
     key_terms: [college, business, own, want, degree, start, requirement, good]
+    concepts: [college, business, degree, requirement, start]
     section: Comments
     token_count: 431
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1042]
     sentence_count: 8
     key_terms: [jobs, internships, dec, years, year, comments, applied, august]
+    concepts: [internships, years, comments, applied, august]
     token_count: 259
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1nwl5lx/my_year_of_employment_was_off_by_1_years_for_two/"}]
   - id: "social-intelligence/reddit-deep/jobs/1nwl5lx.md#c1"
     char_span: [1056, 1745]
     sentence_count: 5
     key_terms: [enter, odds, employment, especially, wouldn, years, self, slim]
+    concepts: [employment, enter, especially, wouldn, years]
     section: Comments
     token_count: 156
 ---

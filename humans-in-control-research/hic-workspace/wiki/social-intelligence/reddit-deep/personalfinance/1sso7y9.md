@@ -21,53 +21,68 @@ chunks:
     char_span: [0, 1413]
     sentence_count: 10
     key_terms: [name, account, never, unit, personalfinance, collections, dad, got]
+    concepts: [account, never, personalfinance, collections, comments]
     token_count: 343
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1sso7y9/my_dad_put_my_name_on_a_storage_unit_years_ago/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c1"
     char_span: [1427, 3117]
     sentence_count: 12
     key_terms: [anything, did, wrong, dad, get, sign, permission, removed]
+    concepts: [anything, permission, wrong, removed, better]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c2"
     char_span: [3119, 4373]
     sentence_count: 5
     key_terms: [storage, dad, debt, company, "it's", collectors, contents, alanbly]
+    concepts: [storage, company, collectors, contents, alanbly]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c3", "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c7"]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c3"
     char_span: [4375, 6015]
     sentence_count: 16
     key_terms: [probably, company, storage, years, been, property, already, trailer]
+    concepts: [probably, company, storage, years, property]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c2", "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c7"]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c4"
     char_span: [6017, 8044]
     sentence_count: 16
     key_terms: [dad, storage, financial, debt, auction, credit, collections, safetyman35]
+    concepts: [storage, financial, auction, credit, collections]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c7"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c5"
     char_span: [8046, 9788]
     sentence_count: 15
     key_terms: [storage, month, climate-controlled, area, unit, promotional, cost, pay]
+    concepts: [storage, climate-controlled, month, promotional, anything]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c7"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c6"
     char_span: [9790, 11254]
     sentence_count: 20
     key_terms: [debt, did, credit, report, prove, what-is-a-debt-validation-letter, earned, "don't"]
+    concepts: [credit, report, prove, earned, "don't"]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c7"
     char_span: [11256, 13391]
     sentence_count: 18
     key_terms: [company, collections, storage, unit, pay, signed, name, anything]
+    concepts: [company, collections, storage, signed, anything]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c2", "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c3", "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c4", "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c5"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c8"
     char_span: [13393, 14191]
     sentence_count: 5
     key_terms: [auction, debt, pay, satisfy, particular-step-9760, close, lock, take]
+    concepts: [auction, satisfy, close]
     section: Comments
     token_count: 197
 ---

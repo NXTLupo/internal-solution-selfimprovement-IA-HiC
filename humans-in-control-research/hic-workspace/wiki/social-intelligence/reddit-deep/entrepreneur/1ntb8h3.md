@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 749]
     sentence_count: 5
     key_terms: [entrepreneur, comments, customer, solo-entrepreneur, solo, entrepreneurship, entrepreneurs, escalations]
+    concepts: [entrepreneur, comments, customer]
     token_count: 176
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1ntb8h3/how_do_you_manage_your_time_as_a_soloentrepreneur/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1ntb8h3.md#c1"
-    char_span: [764, 2542]
+    char_span: [763, 2541]
     sentence_count: 8
     key_terms: [entrepreneur, please, focus, day, secret-boot-8924, here, time, marketing]
+    concepts: [entrepreneur, please, secret-boot-8924, focus, marketing]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/entrepreneur/1ntb8h3.md#c2"
-    char_span: [2544, 4602]
+    char_span: [2543, 4601]
     sentence_count: 14
     key_terms: [tasks, time, week, accomplished-law-222, operational, day, different, specific]
+    concepts: [tasks, accomplished-law-222, operational, different, specific]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/entrepreneur/1ntb8h3.md#c3"
-    char_span: [4604, 6091]
+    char_span: [4603, 6090]
     sentence_count: 16
     key_terms: [time, murky-character2151, blocking, keeps, tasks, answer, desperatepurple5798, helps]
+    concepts: [murky-character2151, blocking, keeps, tasks, answer]
     section: Comments
     token_count: 371
 ---

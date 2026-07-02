@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1492]
     sentence_count: 7
     key_terms: [free, info, college, bag, dorm, dumb, shit, pregnancy]
+    concepts: [college, pregnancy, comments, students, condoms]
     token_count: 385
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1mhj4b8/building_an_do_dumb_shit_safely_bag_for_my_niece/"}]
   - id: "articles/reddit-deep-r-college/ad7f07bdd1.md#c1"
     char_span: [1494, 2930]
     sentence_count: 7
     key_terms: [paint, years, emergency, painted, lights, stable, shelf, small]
+    concepts: [paint, years, emergency, painted, lights]
     token_count: 344
 ---
 # Building an "Do dumb shit, safely" bag for my niece to keep in her dorm, what goes in it

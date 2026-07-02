@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 619]
     sentence_count: 8
     key_terms: [investing, comments, broker, market, trades, reddit-deep, trustworthy, withdrawals]
+    concepts: [investing, comments, broker, market, trades]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1sqs7qw.md#c1"]
     token_count: 146
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1sqs7qw/broker_trades_market_is_it_ok/"}]
   - id: "social-intelligence/reddit-deep/investing/1sqs7qw.md#c1"
-    char_span: [634, 1395]
+    char_span: [633, 1394]
     sentence_count: 9
     key_terms: [market, trades, brokercheck, brokers, "haven't", skepticalinvestor21, finra, "isn't"]
+    concepts: [market, trades, brokercheck, brokers, "haven't"]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1sqs7qw.md#c0"]
     section: Comments
     token_count: 184
 ---

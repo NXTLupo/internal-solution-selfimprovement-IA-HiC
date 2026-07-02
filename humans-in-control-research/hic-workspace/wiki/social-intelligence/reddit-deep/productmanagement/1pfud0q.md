@@ -20,41 +20,48 @@ chunks:
     char_span: [0, 1186]
     sentence_count: 8
     key_terms: [agentic, product, productmanagement, service, solutions, technical, comments, roadmap]
+    concepts: [agentic, product, productmanagement, service, solutions]
     token_count: 260
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1pfud0q/new_product_owner_for_agentic_ai_solutions_what/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1pfud0q.md#c1"
-    char_span: [1201, 3066]
+    char_span: [1200, 3065]
     sentence_count: 18
     key_terms: [use, cases, workflows, systems, thinking, workflow, levers, matter]
+    concepts: [workflows, cases, systems, thinking, workflow]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/productmanagement/1pfud0q.md#c2"
-    char_span: [3068, 3626]
+    char_span: [3067, 3625]
     sentence_count: 3
     key_terms: [framework, learning, tools, "it's", approachable, theoretical, accessible, interested]
+    concepts: [framework, learning, tools]
     section: Comments
     token_count: 125
   - id: "social-intelligence/reddit-deep/productmanagement/1pfud0q.md#c3"
-    char_span: [3628, 5887]
+    char_span: [3627, 5886]
     sentence_count: 8
     key_terms: [claude-with-the-anthropic-api, context, course, recommend, agents, agent, evals, start]
+    concepts: [claude-with-the-anthropic-api, context, course, recommend, agents]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/productmanagement/1pfud0q.md#c4"
-    char_span: [5558, 5891]
+    char_span: [5557, 5890]
     sentence_count: 1
     key_terms: [deanondelivery, instrumented, observations, reasoning, recording, reviewing, assuming, products]
     section: Comments
     token_count: 65
   - id: "social-intelligence/reddit-deep/productmanagement/1pfud0q.md#c5"
-    char_span: [5893, 8135]
+    char_span: [5892, 8134]
     sentence_count: 16
     key_terms: [learning, interviews, customers, use, requirements, focus, tools, meetings]
+    concepts: [learning, interviews, customers, requirements, focus]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/productmanagement/1pfud0q.md#c6"
-    char_span: [8137, 9112]
+    char_span: [8136, 9111]
     sentence_count: 8
     key_terms: [understanding, build, using, need, rag, sure, unfortunately, deeplearning]
+    concepts: [understanding, build, using]
     section: Comments
     token_count: 228
 ---

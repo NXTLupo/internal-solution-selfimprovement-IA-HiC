@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 956]
     sentence_count: 6
     key_terms: [cscareerquestions, coding, degree, alternative, assessments, comments, computer, science]
+    concepts: [cscareerquestions, coding, degree, alternative, assessments]
     token_count: 204
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1mp4e3r/graduating_this_summer_but_no_interest_in_coding/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mp4e3r.md#c1"
     char_span: [970, 2947]
     sentence_count: 17
     key_terms: [job, like, specifically, code, get, leet, industry, leetcode]
+    concepts: [specifically, industry, leetcode, looking, career]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mp4e3r.md#c2"
     char_span: [2949, 4981]
     sentence_count: 17
     key_terms: ["don't", leetcode, process, documentation, "can't", "it's", job, sure]
+    concepts: [leetcode, "don't", documentation, process, "can't"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mp4e3r.md#c3"
     char_span: [4983, 6850]
     sentence_count: 13
     key_terms: [hiring-without-whiteboards, coding, interviews, engineer, "that's", roles, sales, jobs]
+    concepts: [hiring-without-whiteboards, interviews, coding, engineer, "that's"]
     section: Comments
     token_count: 450
 ---

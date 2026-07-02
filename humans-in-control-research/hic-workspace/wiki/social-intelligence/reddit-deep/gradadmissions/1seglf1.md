@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2361]
     sentence_count: 2
     key_terms: [academic, development, analytical, lab, work, industry, application, different]
+    concepts: [development, academic, analytical, industry, application]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1seglf1/analytical_development_ra_or_academic_lab_ra/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1seglf1.md#c1"
     char_span: [2375, 4643]
     sentence_count: 14
     key_terms: [research, experience, industry, apply, important, academic, don, like]
+    concepts: [research, experience, industry, important, apply]
     section: Comments
     token_count: 482
 ---

@@ -21,29 +21,39 @@ chunks:
     char_span: [0, 1321]
     sentence_count: 8
     key_terms: [engineering, internship, freshman, engineeringstudents, internships, get, like, electrical]
+    concepts: [engineering, internship, freshman, engineeringstudents, internships]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c1", "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c3"]
     token_count: 306
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1o50lnm/how_do_you_get_engineering_internships_as_a/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c1"
     char_span: [1335, 3132]
     sentence_count: 19
     key_terms: [get, like, "don't", small, fair, "i'm", job, internship]
+    concepts: ["don't", internship, small, freshman, college]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c2"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c2"
     char_span: [3134, 4611]
     sentence_count: 14
     key_terms: ["i'm", year, "don't", engineering, currently, freshman, student, enough]
+    concepts: [engineering, "don't", currently, freshman, student]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c1", "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c3"]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c3"
     char_span: [4613, 6647]
     sentence_count: 18
     key_terms: [engineering, freshman, range-shoddy, being, internships, get, job, year]
+    concepts: [engineering, freshman, range-shoddy, internships, being]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c2"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c4"
     char_span: [6649, 7332]
     sentence_count: 7
     key_terms: [company, local, any-composer-6790, concentrate, engineering, entry-level, internship, university]
+    concepts: [company, local]
     section: Comments
     token_count: 153
 ---

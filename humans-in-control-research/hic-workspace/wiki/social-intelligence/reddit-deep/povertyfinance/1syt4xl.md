@@ -21,39 +21,47 @@ chunks:
     char_span: [0, 1934]
     sentence_count: 6
     key_terms: [because, povertyfinance, family, friend, since, rent, currently, comments]
+    concepts: [because, povertyfinance, family, friend, since]
     token_count: 443
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1syt4xl/about_to_be_homeless_in_2_weeks/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c1"
     char_span: [1936, 3664]
     sentence_count: 5
     key_terms: [september, "that's", going, get, "i'm", job, everything, letting]
+    concepts: [september, "that's", everything, going, letting]
     token_count: 388
   - id: "social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c2"
     char_span: [3666, 4593]
     sentence_count: 4
     key_terms: [friends, money, spent, already, wedding, needed, people, vegas]
+    concepts: [friends, money, spent, already, wedding]
     token_count: 211
   - id: "social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c3"
     char_span: [4607, 6481]
     sentence_count: 13
     key_terms: [furniture, thenonedayshewokeup, cost, storage, money, marketplace, work, facebook]
+    concepts: [furniture, thenonedayshewokeup, storage, marketplace, money]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c4"
     char_span: [6483, 8234]
     sentence_count: 7
     key_terms: [work, reason, get, "it's", "there's", able, actively, another]
+    concepts: [reason, "there's", actively, another, because]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c5"
     char_span: [8236, 8563]
     sentence_count: 7
     key_terms: [worked, constantly, autistic, disagree, working, always, either, little]
+    concepts: [worked]
     section: Comments
     token_count: 95
   - id: "social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c6"
     char_span: [8565, 10549]
     sentence_count: 18
     key_terms: [work, manager, help, "i'm", people, "don't", get, tanf]
+    concepts: [manager, people, "don't", having, hiring]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c7"
@@ -66,24 +74,28 @@ chunks:
     char_span: [10567, 11207]
     sentence_count: 5
     key_terms: [work, need, hours, fkthisshit13463534, unfortunately, curlyshook, reproduced, graveyard]
+    concepts: [hours]
     section: Comments
     token_count: 162
   - id: "social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c9"
     char_span: [11209, 12885]
     sentence_count: 18
     key_terms: [time, people, money, help, move, work, ungrateful, husband]
+    concepts: [people, money, ungrateful, husband, waiting]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c10"
     char_span: [12887, 14049]
     sentence_count: 5
     key_terms: ["i'm", here, agreement, landlord, because, planned, worked, being]
+    concepts: [agreement, landlord, because, planned, worked]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c11"
     char_span: [14051, 16265]
     sentence_count: 22
     key_terms: [get, help, childcare, jobs, work, offered, enough, "you're"]
+    concepts: [childcare, offered, enough, "you're", assistance]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c12"
@@ -96,30 +108,38 @@ chunks:
     char_span: [16335, 17919]
     sentence_count: 15
     key_terms: [living, "you're", uhaul, move, illegal, always, "didn't", excuse]
+    concepts: [living, "you're", uhaul, illegal, always]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c14"
     char_span: [17921, 19582]
     sentence_count: 13
     key_terms: [lease, did, move, notice, month, uhaul, bus, days]
+    concepts: [lease, notice, month, uhaul]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c15", "social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c16"]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c15"
     char_span: [19584, 21576]
     sentence_count: 13
     key_terms: [days, notice, house, live, rent, because, month, girlfriend]
+    concepts: [notice, house, because, girlfriend, month]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c14"]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c16"
     char_span: [21579, 23764]
     sentence_count: 27
     key_terms: [lease, month, residency, get, through, rights, established, job]
+    concepts: [residency, lease, month, through, rights]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c14"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/povertyfinance/1syt4xl.md#c17"
     char_span: [23767, 26018]
     sentence_count: 13
     key_terms: [notice, avoiding, tenancy, days, rental, given, end, tenant]
+    concepts: [notice, avoiding, tenancy, rental, given]
     section: Comments
     token_count: 509
 ---

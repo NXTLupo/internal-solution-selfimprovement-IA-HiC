@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 709]
     sentence_count: 2
     key_terms: [careerguidance, prospects, comments, negative, positive, career, course, domain]
+    concepts: [careerguidance, prospects, comments, negative, positive]
     token_count: 163
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1supken/what_are_the_career_prospects_after_pursuing_ma/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1supken.md#c1"
     char_span: [723, 1620]
     sentence_count: 7
     key_terms: [working, people, interdisciplinary, day, "it's", look, thepandapear, internships]
+    concepts: [working, people]
     section: Comments
     token_count: 192
 ---

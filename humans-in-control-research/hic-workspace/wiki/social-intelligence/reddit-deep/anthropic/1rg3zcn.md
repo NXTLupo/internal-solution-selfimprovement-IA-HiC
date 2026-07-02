@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 367]
     sentence_count: 1
     key_terms: [anthropic, comments, cve-2025-59536, cve-2026-21852, exfiltration, reddit-deep, texasguy911, research]
+    concepts: [anthropic, comments]
     token_count: 110
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1rg3zcn/caught_in_the_hook_rce_and_api_token_exfiltration/"}]
 ---
 # Caught in the Hook: RCE and API Token Exfiltration Through Claude Code Project Files | CVE-2025-59536 | CVE-2026-21852 - Check Point Research
 

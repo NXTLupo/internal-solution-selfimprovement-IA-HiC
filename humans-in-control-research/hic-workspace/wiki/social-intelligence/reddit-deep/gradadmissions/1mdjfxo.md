@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1051]
     sentence_count: 5
     key_terms: [format, sop, example, gradadmissions, https, comments, notion, field]
+    concepts: [format, gradadmissions, example, https, comments]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1mdjfxo/whats_the_take_on_sop_format_for_phd_application/"}]
 ---
 # What's the take on SOP format for PhD application in CS (specifically machine learning & robotics)?
 

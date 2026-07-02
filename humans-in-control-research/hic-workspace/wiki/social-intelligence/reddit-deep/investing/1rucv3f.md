@@ -21,47 +21,61 @@ chunks:
     char_span: [0, 619]
     sentence_count: 4
     key_terms: [investing, comments, kind, like, fit-army7395, combination, environment, reddit-deep]
+    concepts: [investing, comments]
     token_count: 148
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1rucv3f/does_anyone_else_feel_like_stagflation_risk_is/"}]
   - id: "social-intelligence/reddit-deep/investing/1rucv3f.md#c1"
     char_span: [633, 2626]
     sentence_count: 14
     key_terms: [trump, inflation, everything, trying, happening, anything, economic, massive]
+    concepts: [trump, inflation, everything, trying, happening]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rucv3f.md#c2", "social-intelligence/reddit-deep/investing/1rucv3f.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1rucv3f.md#c2"
     char_span: [2348, 3239]
     sentence_count: 6
     key_terms: [good, information, everything, because, pleasant-shallot-707, ideas, trump, snoodoughnuts1763]
+    concepts: [information, everything, because, ideas, trump]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rucv3f.md#c1", "social-intelligence/reddit-deep/investing/1rucv3f.md#c4"]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/investing/1rucv3f.md#c3"
     char_span: [3241, 5276]
     sentence_count: 19
     key_terms: [economy, businesses, inflation, unemployment, good, lack, "america's", countries]
+    concepts: [economy, businesses, inflation, unemployment, "america's"]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rucv3f.md#c5"]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/investing/1rucv3f.md#c4"
     char_span: [5278, 6603]
     sentence_count: 10
     key_terms: [trump, did, oil, ordinarily, because, economy, prices, though]
+    concepts: [ordinarily, trump, because, economy, prices]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rucv3f.md#c2", "social-intelligence/reddit-deep/investing/1rucv3f.md#c5"]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/investing/1rucv3f.md#c5"
     char_span: [6605, 8225]
     sentence_count: 9
     key_terms: [trump, inflation, economy, trumpflation, did, growth, slump, years]
+    concepts: [trump, inflation, economy, trumpflation, growth]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rucv3f.md#c1", "social-intelligence/reddit-deep/investing/1rucv3f.md#c3", "social-intelligence/reddit-deep/investing/1rucv3f.md#c4"]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/investing/1rucv3f.md#c6"
     char_span: [8227, 10110]
     sentence_count: 7
     key_terms: [going, cliff, everything, energy, supply, being, biden, shock]
+    concepts: [going, cliff, everything, energy, supply]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/investing/1rucv3f.md#c7"
     char_span: [10112, 10496]
     sentence_count: 2
     key_terms: [bond-markets-flash-warning-as-inflation-risks-resurface, inflation, marketinsider, environments, historically, commodities, persistence, stagflation]
+    concepts: [inflation]
     section: Comments
     token_count: 87
 ---

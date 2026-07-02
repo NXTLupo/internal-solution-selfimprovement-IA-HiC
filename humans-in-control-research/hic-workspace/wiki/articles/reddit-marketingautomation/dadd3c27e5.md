@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 848]
     sentence_count: 5
     key_terms: [marketingautomation, automation, marketing, workflows, others, reddit, tools, feel]
+    concepts: [marketingautomation, automation, marketing, workflows, others]
     token_count: 175
+    sources: [{"n":"reddit: marketingautomation","u":"https://reddit.com/r/MarketingAutomation/comments/1r6alr1/recommended_tools_for_marketing_automation/"}]
 ---
 # Recommended tools for marketing automation?
 

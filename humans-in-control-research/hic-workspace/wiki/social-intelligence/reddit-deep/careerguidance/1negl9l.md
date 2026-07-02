@@ -21,89 +21,105 @@ chunks:
     char_span: [0, 613]
     sentence_count: 5
     key_terms: [careerguidance, comments, careers, down, competition, eesamanagod, reddit-deep, callbacks]
+    concepts: [careerguidance, comments, careers]
     token_count: 164
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1negl9l/job_market_is_down_whats_the_smartest_or_safest/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c1"
     char_span: [627, 2367]
     sentence_count: 11
     key_terms: [receptionist, get, experience, healthcare, positions, administrative, job, jobs]
+    concepts: [receptionist, experience, healthcare, positions, administrative]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c2"
     char_span: [2369, 3728]
     sentence_count: 13
     key_terms: [people, hairstylist, optometrician-at-the-home, higher, pretty, wheels, significant-leg1070, great]
+    concepts: [people, hairstylist, higher, pretty, wheels]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c3"
     char_span: [3730, 5097]
     sentence_count: 13
     key_terms: [idea, "that's", patients, offices, surgery, people, mission-leopard-4178, maybe]
+    concepts: ["that's", patients, offices, surgery, people]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c4"
     char_span: [5099, 6468]
     sentence_count: 9
     key_terms: [wealth, people, corporations, generational, inheritances, money, transfer, minimal]
+    concepts: [wealth, corporations, generational, inheritances, people]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c5"
     char_span: [6470, 7877]
     sentence_count: 10
     key_terms: [boomers, generation, rate, people, proportion, because, conscious-quarter423, birth]
+    concepts: [boomers, generation, people, proportion, because]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c6"
     char_span: [7879, 8627]
     sentence_count: 3
     key_terms: [healthcare, frolickingsymbiote, get, job, considered, eventually, everywhere, expensive]
+    concepts: [healthcare]
     section: Comments
     token_count: 190
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c7"
     char_span: [8629, 10760]
     sentence_count: 15
     key_terms: [nighthawkndemontron, trades, industries, jobs, like, work, people, desperately]
+    concepts: [nighthawkndemontron, industries, trades, people, desperately]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c8"
     char_span: [10491, 12580]
     sentence_count: 17
     key_terms: [chef, shortage, drivers, school, live, agree, entry, going]
+    concepts: [shortage, drivers, school, agree, entry]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c9"
     char_span: [12333, 14077]
     sentence_count: 12
     key_terms: [water, trades, deleted, reflex, aggravating-flan-818, phthalovonlangborste, delinquentbattlecat, downwiththechipness]
+    concepts: [water, trades, deleted, reflex]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c10"
     char_span: [13857, 15651]
     sentence_count: 10
     key_terms: [work, assassin, social, water, kerrybom, officer, started, funded]
+    concepts: [assassin, social, water, kerrybom, officer]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c11"
     char_span: [15372, 16094]
     sentence_count: 6
     key_terms: [work, kerrybom, layoffs, health, public, job, risk, houseofburns]
+    concepts: [kerrybom, layoffs, health, public]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c12"
     char_span: [16096, 17842]
     sentence_count: 15
     key_terms: [accounting, cpa, market, salty-cod7667, like, lot, tech, getting]
+    concepts: [accounting, salty-cod7667, market, getting, bigger]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c13"
     char_span: [17844, 20071]
     sentence_count: 13
     key_terms: [insurance, health, "it's", reimbursement, state, accountants, been, get]
+    concepts: [insurance, health, reimbursement, accountants, accounting]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c14"
     char_span: [20073, 20791]
     sentence_count: 6
     key_terms: [hair, automation, going, code, job, need, relationship, accountants]
+    concepts: [automation, going]
     section: Comments
     token_count: 179
 ---

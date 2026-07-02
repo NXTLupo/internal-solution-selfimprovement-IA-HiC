@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1302]
     sentence_count: 12
     key_terms: [internships, interview, got, helped, resume, interviews, regularly, comments]
+    concepts: [internships, interview, helped, resume, interviews]
     token_count: 283
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1otywiv/i_got_the_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1otywiv.md#c1"
-    char_span: [1317, 2490]
+    char_span: [1316, 2489]
     sentence_count: 12
     key_terms: [congrats, internship, congratulations, meanjo13, appropriate-tutor587, away-yogurtcloset200, lower, super-patient8105]
+    concepts: [congrats, internship, congratulations, meanjo13, lower]
     section: Comments
     token_count: 329
 ---

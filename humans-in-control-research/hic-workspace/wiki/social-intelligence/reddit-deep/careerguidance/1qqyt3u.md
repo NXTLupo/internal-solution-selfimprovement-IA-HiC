@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 1283]
     sentence_count: 10
     key_terms: [wildlife, careerguidance, competitive, pay, biologist, interests, comments, "that's"]
+    concepts: [wildlife, careerguidance, competitive, biologist, interests]
     token_count: 288
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qqyt3u/how_do_i_figure_out_a_stable_career_path_when_all/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c1"
     char_span: [1297, 3241]
     sentence_count: 15
     key_terms: [work, wildlife, field, time, school, doing, "don't", environment]
+    concepts: [wildlife, field, school, environment, consulting]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c7"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c2"
     char_span: [3243, 5382]
     sentence_count: 15
     key_terms: ["you're", compromise, get, list, career, being, desk, good]
+    concepts: [compromise, "you're", career, being, "they're"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c3"
     char_span: [5384, 7813]
     sentence_count: 23
     key_terms: ["you'll", clients, time, get, example, work, construction, interesting]
+    concepts: ["you'll", clients, example, construction, interesting]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c4"
     char_span: [7815, 9835]
     sentence_count: 12
     key_terms: [get, short, different, lot, want, people, work, example]
+    concepts: [different, short, people, example, stories]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c5"
     char_span: [9837, 10805]
     sentence_count: 9
     key_terms: [want, day, fields, field, looks, get, like, sure]
+    concepts: [fields, field, looks]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c6"
     char_span: [10807, 13015]
     sentence_count: 13
     key_terms: [utility, design, field, find, epicuretrekker2, idea, work, everything]
+    concepts: [utility, design, epicuretrekker2, field, everything]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c7"
     char_span: [13018, 14741]
     sentence_count: 20
     key_terms: [school, business, classes, field, high, jobs, marketing, whatever]
+    concepts: [school, business, classes, field, marketing]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c1"]
     section: Comments
     token_count: 406
 ---

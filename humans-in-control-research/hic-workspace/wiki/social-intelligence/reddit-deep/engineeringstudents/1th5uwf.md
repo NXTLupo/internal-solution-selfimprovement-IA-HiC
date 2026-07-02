@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1542]
     sentence_count: 12
     key_terms: [reservoir, engineering, international, master, engineeringstudents, petroleum, student, skills]
+    concepts: [reservoir, engineering, international, engineeringstudents, master]
     token_count: 296
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1th5uwf/what_should_an_international_masters_student_in/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1th5uwf.md#c1"
     char_span: [1556, 2545]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    concepts: [engineeringstudents, please, reddit, https, automoderator]
     section: Comments
     token_count: 223
 ---

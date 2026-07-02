@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 990]
     sentence_count: 7
     key_terms: [work, skills, careeradvice, accelerate, leveraging, learning, career, reddit]
+    concepts: [careeradvice, skills, accelerate, leveraging, learning]
     token_count: 229
+    sources: [{"n":"Reddit Deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1sb7y4e/leveraging_ai_to_accelerate_your_career/"}]
   - id: "articles/reddit-deep-r-careeradvice/ce50a2b8dd.md#c1"
     char_span: [992, 2383]
     sentence_count: 4
     key_terms: [workflows, replace, agents, agent, quick, doc, real, seen]
+    concepts: [workflows, replace, agents, agent, quick]
     token_count: 300
 ---
 # Leveraging AI to accelerate your career

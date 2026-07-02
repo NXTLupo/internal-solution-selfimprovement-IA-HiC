@@ -21,47 +21,61 @@ chunks:
     char_span: [0, 2373]
     sentence_count: 18
     key_terms: [engineering, school, "i'm", engineeringstudents, different, "he's", middle, local]
+    concepts: [engineering, school, engineeringstudents, different, middle]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c1"]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1ssnyw5/advice_for_a_parent_of_a_future_engineering/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c1"
     char_span: [2387, 4381]
     sentence_count: 15
     key_terms: [engineeringstudents, wiki, please, reddit, school, https, com, posting]
+    concepts: [engineeringstudents, please, reddit, school, https]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c0"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c2"
     char_span: [4383, 6526]
     sentence_count: 19
     key_terms: [engineering, like, college, interests, because, wanted, bubblywaveee, give]
+    concepts: [engineering, college, interests, because, bubblywaveee]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c3"
     char_span: [6336, 6737]
     sentence_count: 3
     key_terms: [engineering, degree, bubblywaveee, dontchuworri, professional, chicagotuna, accredited, discipline]
+    concepts: [engineering, degree]
     section: Comments
     token_count: 110
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c4"
     char_span: [6739, 9140]
     sentence_count: 19
     key_terms: [engineering, mechanical, probably, electrical, get, "it's", railtec, degree]
+    concepts: [engineering, mechanical, probably, electrical, railtec]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c5"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c5"
     char_span: [9142, 9852]
     sentence_count: 4
     key_terms: [learning, engineering, mechanical, college, online, state, like, chicagotuna]
+    concepts: [learning, engineering, mechanical, college, online]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c4"]
     section: Comments
     token_count: 147
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c6"
     char_span: [9854, 12164]
     sentence_count: 20
     key_terms: [bubblywaveee, work, school, build, math, experience, something, calculus]
+    concepts: [bubblywaveee, school, build, experience, something]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c7"
     char_span: [11836, 12918]
     sentence_count: 7
     key_terms: [bubblywaveee, discernment, good, kid, consider, agency, friend, got]
+    concepts: [bubblywaveee, discernment, consider, agency, friend]
     section: Comments
     token_count: 267
 ---

@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 695]
     sentence_count: 7
     key_terms: [comments, normal, chronicallylurkiing, check, jobs, like, administrator, reddit-deep]
+    concepts: [comments, normal, check]
     token_count: 164
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1o8iiaj/is_this_a_normal_hiring_practice/"}]
   - id: "social-intelligence/reddit-deep/jobs/1o8iiaj.md#c1"
     char_span: [709, 2281]
     sentence_count: 10
     key_terms: [ban-the-box-fair-chance-hiring-state-and-local-guide, background, scam, "doesn't", credit, states, no-understanding4968, chronicallylurkiing]
+    concepts: [background, "doesn't", credit, states, check]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/jobs/1o8iiaj.md#c2"
     char_span: [2283, 4000]
     sentence_count: 12
     key_terms: [credit, scam, pull, website, offer, applicant, instead, reports]
+    concepts: [credit, website, offer, applicant, instead]
     section: Comments
     token_count: 456
 ---

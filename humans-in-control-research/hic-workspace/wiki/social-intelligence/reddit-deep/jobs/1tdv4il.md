@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2035]
     sentence_count: 13
     key_terms: [experience, internship, job, internships, jobs, year, supposed, entry]
+    concepts: [experience, internship, internships, supposed, engineering]
     token_count: 465
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1tdv4il/first_entry_level_now_internships/"}]
   - id: "social-intelligence/reddit-deep/jobs/1tdv4il.md#c1"
-    char_span: [2050, 3573]
+    char_span: [2049, 3572]
     sentence_count: 9
     key_terms: [internships, "they're", unpaid, early, been, associated, internship, companies]
+    concepts: [internships, "they're", unpaid, associated, early]
     section: Comments
     token_count: 345
 ---

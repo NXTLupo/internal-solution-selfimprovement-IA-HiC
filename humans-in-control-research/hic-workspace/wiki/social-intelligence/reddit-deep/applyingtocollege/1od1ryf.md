@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 698]
     sentence_count: 4
     key_terms: [applyingtocollege, like, low-income, comments, programs, college, help, prep]
+    concepts: [applyingtocollege, low-income, comments, programs, college]
     token_count: 166
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1od1ryf/any_lowincome_college_prep_programs_still_open/"}]
 ---
 # Any Low-Income College prep programs still open?
 

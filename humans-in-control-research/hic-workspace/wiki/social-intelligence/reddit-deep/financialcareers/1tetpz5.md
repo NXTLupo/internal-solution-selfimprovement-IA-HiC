@@ -20,35 +20,42 @@ chunks:
     char_span: [0, 796]
     sentence_count: 7
     key_terms: [financialcareers, credit, specialized, bank, portfolio, comments, position, smaller]
+    concepts: [financialcareers, credit, specialized, portfolio, comments]
     token_count: 190
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1tetpz5/credit_analyst_portfolio_manger/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1tetpz5.md#c1"
-    char_span: [811, 1752]
+    char_span: [810, 1751]
     sentence_count: 6
     key_terms: [financialcareers, discord, professionals, full-time, banking, network, careotherwise3174, bank]
+    concepts: [financialcareers, professionals, discord, full-time, banking]
     section: Comments
     token_count: 209
   - id: "social-intelligence/reddit-deep/financialcareers/1tetpz5.md#c2"
-    char_span: [1754, 3432]
+    char_span: [1753, 3431]
     sentence_count: 6
     key_terms: [bank, careotherwise3174, move, systems, size, corporate, structure, existent]
+    concepts: [careotherwise3174, systems, corporate, structure, existent]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/financialcareers/1tetpz5.md#c3"
-    char_span: [3434, 4512]
+    char_span: [3433, 4511]
     sentence_count: 12
     key_terms: [role, experience, analyst, banking, work, healthcare, corporate, financing]
+    concepts: [experience, analyst, banking, healthcare, corporate]
     section: Comments
     token_count: 232
   - id: "social-intelligence/reddit-deep/financialcareers/1tetpz5.md#c4"
-    char_span: [4514, 6548]
+    char_span: [4513, 6547]
     sentence_count: 16
     key_terms: [credit, banks, lot, market, bank, compliance, analyst, credits]
+    concepts: [credit, banks, market, compliance, analyst]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1tetpz5.md#c5"
-    char_span: [6327, 6785]
+    char_span: [6326, 6784]
     sentence_count: 3
     key_terms: [credit, got, bank, essentially, underwriter, commercial, management, bachelors]
+    concepts: [credit]
     section: Comments
     token_count: 125
 ---

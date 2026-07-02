@@ -17,10 +17,12 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1tu6kku.md#c0"
-    char_span: [0, 2248]
+    char_span: [0, 2247]
     sentence_count: 8
     key_terms: [philanthropy-backed-fund-launched-132817137, philanthropists, philanthropy, https, renaissancephilanthropy, renaissance, fund, african]
-    token_count: 483
+    concepts: [philanthropy-backed-fund-launched-132817137, philanthropists, philanthropy, renaissancephilanthropy, https]
+    token_count: 482
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1tu6kku/100m_philanthropybacked_fund_launched_to_support/"}]
 ---
 # $100M philanthropy-backed fund launched to support new African manufacturers
 

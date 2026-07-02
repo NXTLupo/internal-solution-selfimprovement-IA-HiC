@@ -21,22 +21,29 @@ chunks:
     char_span: [0, 1225]
     sentence_count: 3
     key_terms: [https, com, streetinsider, www, stocks, market, news, investopedia]
+    concepts: [streetinsider, https, stocks, market, investopedia]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1sflk9i.md#c1"]
     token_count: 321
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1sflk9i/rstocks_daily_discussion_wednesday_apr_08_2026/"}]
   - id: "social-intelligence/reddit-deep/stocks/1sflk9i.md#c1"
     char_span: [1227, 1887]
     sentence_count: 2
     key_terms: [author, reddit, search, stocks, https, com, new, sort]
+    concepts: [author, reddit, search, stocks, https]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1sflk9i.md#c0"]
     token_count: 203
   - id: "social-intelligence/reddit-deep/stocks/1sflk9i.md#c2"
     char_span: [1901, 3573]
     sentence_count: 9
     key_terms: [ivorytowerresident, iran, civilization, gets, point, trump, continue, farrisat]
+    concepts: [ivorytowerresident, civilization, point, trump, continue]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/stocks/1sflk9i.md#c3"
     char_span: [3575, 4765]
     sentence_count: 10
     key_terms: [offer, theory, back, days, did, dip, like, next]
+    concepts: [offer, theory]
     section: Comments
     token_count: 306
 ---

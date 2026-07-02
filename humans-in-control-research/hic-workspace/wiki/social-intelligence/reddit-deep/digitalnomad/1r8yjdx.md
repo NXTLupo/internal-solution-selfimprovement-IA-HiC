@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 2245]
     sentence_count: 24
     key_terms: [number, friends, get, like, japanese, housing, digitalnomad, nomad]
+    concepts: [number, friends, japanese, housing, digitalnomad]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1r8yjdx/i_am_a_tokyo_local_and_got_tired_of_seeing_my/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1r8yjdx.md#c1"
     char_span: [2247, 3029]
     sentence_count: 8
     key_terms: [book, kotoriii, exactly, mobile, sakura, mobal, did, esim]
+    concepts: [kotoriii, exactly, mobile, sakura, mobal]
     section: Comments
     token_count: 196
   - id: "social-intelligence/reddit-deep/digitalnomad/1r8yjdx.md#c2"
     char_span: [3031, 5007]
     sentence_count: 11
     key_terms: [atms, altruistic-mine-1848, visa, account, getting, common, eleven, broadexample]
+    concepts: [altruistic-mine-1848, account, getting, broadexample, common]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/digitalnomad/1r8yjdx.md#c3"
     char_span: [5009, 6918]
     sentence_count: 18
     key_terms: [sim, completely, basic, countries, like, use, assuming, specific]
+    concepts: [completely, countries, basic, assuming, specific]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/digitalnomad/1r8yjdx.md#c4"
     char_span: [6920, 8237]
     sentence_count: 14
     key_terms: [noastronaut8503, getting, noticed, tourist, bother, nomads, hotel, japan]
+    concepts: [noastronaut8503, getting, noticed, tourist, bother]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/digitalnomad/1r8yjdx.md#c5"
     char_span: [8239, 10379]
     sentence_count: 22
     key_terms: [language, noastronaut8503, barrier, trying, admin, guide, wise, navigating]
+    concepts: [noastronaut8503, language, barrier, trying, admin]
     section: Comments
     token_count: 479
 ---

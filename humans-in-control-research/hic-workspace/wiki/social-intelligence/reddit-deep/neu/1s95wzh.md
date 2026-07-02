@@ -19,23 +19,32 @@ chunks:
     char_span: [0, 919]
     sentence_count: 8
     key_terms: [northeastern, engineering, comments, commit, scared, going, study, neu]
+    concepts: [northeastern, engineering, comments, commit, scared]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1s95wzh.md#c1", "social-intelligence/reddit-deep/neu/1s95wzh.md#c2", "social-intelligence/reddit-deep/neu/1s95wzh.md#c3"]
     token_count: 220
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1s95wzh/boston_university_or_northeastern_engineering/"}]
   - id: "social-intelligence/reddit-deep/neu/1s95wzh.md#c1"
     char_span: [933, 2341]
     sentence_count: 5
     key_terms: [engineering, probably, chemical, northeastern, everything, undergrad, ranked, chem]
+    concepts: [engineering, probably, chemical, northeastern, everything]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1s95wzh.md#c0", "social-intelligence/reddit-deep/neu/1s95wzh.md#c2", "social-intelligence/reddit-deep/neu/1s95wzh.md#c3"]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/neu/1s95wzh.md#c2"
     char_span: [2343, 4535]
     sentence_count: 11
     key_terms: [engineering, feel, northeastern, school, major, supported, like, academic]
+    concepts: [engineering, northeastern, school, supported, major]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1s95wzh.md#c0", "social-intelligence/reddit-deep/neu/1s95wzh.md#c1", "social-intelligence/reddit-deep/neu/1s95wzh.md#c3"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/neu/1s95wzh.md#c3"
     char_span: [4537, 4992]
     sentence_count: 5
     key_terms: [northeastern, engineering, campus, altruistic-trust907, here, handyhomeowner84, coldflame563, kindclick635]
+    concepts: [northeastern, engineering, campus]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1s95wzh.md#c0", "social-intelligence/reddit-deep/neu/1s95wzh.md#c1", "social-intelligence/reddit-deep/neu/1s95wzh.md#c2"]
     section: Comments
     token_count: 118
 ---

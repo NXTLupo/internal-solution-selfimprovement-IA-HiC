@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1330]
     sentence_count: 8
     key_terms: [living, masters, help, job, want, experience, situation, comments]
+    concepts: [living, masters, experience, situation, comments]
     token_count: 299
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ourw15/navigating_getting_my_masters_with_finding_a_job/"}]
 ---
 # Navigating Getting My Masters With Finding A Job to Help Offset Living Costs
 

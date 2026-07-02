@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1436]
     sentence_count: 8
     key_terms: [content, careerguidance, "i'm", like, look, poli, sci, want]
+    concepts: [careerguidance, content, employment, political, comments]
     token_count: 353
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tjdg3i/feels_like_im_inbetween_a_ton_of_opportunities/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tjdg3i.md#c1"
     char_span: [1450, 3016]
     sentence_count: 1
     key_terms: [skills, writing, through, betaartistic9, like, redditters, analytics, multiple]
+    concepts: [skills, writing, betaartistic9, through, redditters]
     section: Comments
     token_count: 359
 ---

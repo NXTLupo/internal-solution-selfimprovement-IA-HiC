@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1432]
     sentence_count: 5
     key_terms: [investors, seasoning, pensions, dumping, requirements, unprofitable, index, price]
+    concepts: [investors, seasoning, pensions, dumping, requirements]
     token_count: 310
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1rumu62/dumping_unprofitable_startups_onto_pensions_at/"}]
   - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c1"
     char_span: [1446, 2205]
     sentence_count: 4
     key_terms: [pension, funds, index, tiny, "vc's", lemmingswag, assurances, responders]
+    concepts: [pension, funds, index]
     section: Comments
     token_count: 190
   - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c2"
     char_span: [2207, 4091]
     sentence_count: 13
     key_terms: [doing, buy, profitable, impacted, country, indexes, without, public]
+    concepts: [doing, profitable, impacted, country, indexes]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c3"
     char_span: [4093, 6255]
     sentence_count: 15
     key_terms: [profitable, spacex, questionable, people, paperwork, "it's", believe, money]
+    concepts: [profitable, spacex, questionable, people, paperwork]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c4"
     char_span: [6257, 8393]
     sentence_count: 12
     key_terms: [spacex, billion, like, increased, valuation, company, dollars, market]
+    concepts: [spacex, billion, increased, valuation, company]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c5"
     char_span: [8395, 9622]
     sentence_count: 9
     key_terms: [openai, better, infinitely, anything, somehow, claude, hoping, offers]
+    concepts: [openai, better, infinitely, anything, somehow]
     section: Comments
     token_count: 280
   - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c6"
     char_span: [9624, 11136]
     sentence_count: 11
     key_terms: [inclusion, seasoning, wework, funds, index, price, analytickai, ipo]
+    concepts: [inclusion, seasoning, wework, analytickai, funds]
     section: Comments
     token_count: 316
 ---

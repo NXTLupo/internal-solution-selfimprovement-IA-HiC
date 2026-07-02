@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1360]
     sentence_count: 10
     key_terms: [full-time, finance-related, co-op, year, management, wellington, questions, comments]
+    concepts: [full-time, finance-related, co-op, management, wellington]
     token_count: 331
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1seijrf/wellington_management_coop/"}]
   - id: "social-intelligence/reddit-deep/neu/1seijrf.md#c1"
     char_span: [1374, 2353]
     sentence_count: 9
     key_terms: [co-op, private, answer, co-ops, offers, return, detectiveelectrical2, difficult-review283]
+    concepts: [co-op, private, answer, co-ops, offers]
     section: Comments
     token_count: 266
 ---

@@ -19,16 +19,22 @@ chunks:
     char_span: [0, 2119]
     sentence_count: 10
     key_terms: [mechatronics, marketing, fall, projects, project, student, canada, co-op]
+    concepts: [mechatronics, marketing, projects, project, student]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1snworv.md#c1"]
     token_count: 495
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1snworv/year_1_mechatronics_engineering_student_seeking/"}]
   - id: "social-intelligence/reddit-deep/internships/1snworv.md#c1"
     char_span: [2121, 2956]
     sentence_count: 3
     key_terms: [mechatronics, project, variety, doing, worth, deep, certifications, shallow-to-mid]
+    concepts: [mechatronics, project, variety, doing, worth]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1snworv.md#c0"]
     token_count: 186
   - id: "social-intelligence/reddit-deep/internships/1snworv.md#c2"
     char_span: [2970, 3528]
     sentence_count: 2
     key_terms: [projects, early, get, everything, interviews, freelance, hopefully, anything]
+    concepts: [projects, early]
     section: Comments
     token_count: 148
 ---

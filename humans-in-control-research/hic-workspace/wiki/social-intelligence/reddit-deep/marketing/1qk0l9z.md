@@ -17,24 +17,29 @@ research_goal: "Deliver a comprehensive 2026 outlook report on the global retail
 engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
 chunks:
   - id: "social-intelligence/reddit-deep/marketing/1qk0l9z.md#c0"
-    char_span: [0, 1096]
+    char_span: [0, 1095]
     sentence_count: 10
     key_terms: [experiencing, "i'm", seo, marketing, accounts, comments, insights, google]
-    token_count: 260
+    concepts: [experiencing, marketing, accounts, comments, insights]
+    token_count: 259
+    sources: [{"n":"reddit-deep: r/marketing","u":"https://www.reddit.com/r/marketing/comments/1qk0l9z/for_those_of_you_that_manage_local_seo_accounts/"}]
   - id: "social-intelligence/reddit-deep/marketing/1qk0l9z.md#c1"
-    char_span: [1098, 3453]
+    char_span: [1097, 3452]
     sentence_count: 33
     key_terms: [positioning, technical, get, "it's", lead, like, google, "don't"]
+    concepts: [positioning, technical, google, "don't", links]
     token_count: 512
   - id: "social-intelligence/reddit-deep/marketing/1qk0l9z.md#c2"
-    char_span: [3138, 4237]
+    char_span: [3137, 4236]
     sentence_count: 11
     key_terms: [service, technical, offering, cities, never, city, "i'm", maps]
+    concepts: [service, technical, offering, cities, never]
     token_count: 214
   - id: "social-intelligence/reddit-deep/marketing/1qk0l9z.md#c3"
-    char_span: [4239, 5722]
+    char_span: [4238, 5721]
     sentence_count: 15
     key_terms: [worth, fort, local, competitors, blogging, multiple, against, content]
+    concepts: [worth, competitors, local, blogging, multiple]
     token_count: 323
 ---
 # For those of you that manage local SEO accounts, what are you experiencing in 2026?

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2098]
     sentence_count: 7
     key_terms: [experiments, agent, kaggle, like, experimentation, compute, across, system]
+    concepts: [experiments, agent, kaggle, experimentation, compute]
     token_count: 445
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1rsie5v/built_karpathy_autoresearch_like_agent_but_with/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1rsie5v.md#c1"
     char_span: [2112, 3718]
     sentence_count: 12
     key_terms: [agent, like, sellinside9661, architecture, baselines, notebook, taxonomy, planner]
+    concepts: [agent, sellinside9661, architecture, baselines, notebook]
     section: Comments
     token_count: 385
 ---

@@ -18,11 +18,16 @@ chunks:
     char_span: [0, 2249]
     sentence_count: 31
     key_terms: [years, myself, something, without, maybe, been, bug, use]
+    concepts: [years, myself, something, without, artificial]
+    related_chunks: ["articles/reddit-deep-r-artificial/eecb4ce667.md#c1"]
     token_count: 480
+    sources: [{"n":"Reddit Deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1sderg4/i_have_been_coding_for_11_years_and_i_caught/"}]
   - id: "articles/reddit-deep-r-artificial/eecb4ce667.md#c1"
     char_span: [2251, 3650]
     sentence_count: 8
     key_terms: [myself, people, years, problem, enough, figure, though, good]
+    concepts: [myself, people, years, problem, enough]
+    related_chunks: ["articles/reddit-deep-r-artificial/eecb4ce667.md#c0"]
     token_count: 353
 ---
 # I have been coding for 11 years and I caught myself completely unable to debug a problem without AI assistance last month. That scared me more than anything I have seen in this industry.

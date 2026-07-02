@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1970]
     sentence_count: 13
     key_terms: [students, applyingtocollege, b2zwywlybnz0y2rn, elise, https, dr0ztvdkqcu, com, pham]
+    concepts: [students, applyingtocollege, b2zwywlybnz0y2rn, dr0ztvdkqcu, elise]
     token_count: 423
+    sources: [{"n":"reddit: ApplyingToCollege","u":"https://reddit.com/r/ApplyingToCollege/comments/1pcxgt3/elise_pham_made_2m_off_college_consulting/"}]
 ---
 # Elise Pham made $2M off college consulting
 

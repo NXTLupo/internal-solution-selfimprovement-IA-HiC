@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 744]
     sentence_count: 4
     key_terms: [wallstreetbets, comments, reddit, https, com, www, comment, context]
+    concepts: [wallstreetbets, comments, reddit, https, comment]
     token_count: 226
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1rjdoyx/480k_mu_yolo_240k_in_margin/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rjdoyx.md#c1"
     char_span: [758, 1955]
     sentence_count: 3
     key_terms: [margin, b8752deff856714be9b6bb23a2a035efdd1da62a, leveraged, leverage, discord, efficiencymaterial51, https, leaps]
+    concepts: [margin, leveraged, leverage, discord, https]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rjdoyx.md#c2"
     char_span: [1957, 3304]
     sentence_count: 4
     key_terms: [wallstreetbetscallss, thinking, shares, autisticgaybear69, fine, get, "it's", long]
+    concepts: [wallstreetbetscallss, thinking, shares]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rjdoyx.md#c3"
     char_span: [3306, 4305]
     sentence_count: 4
     key_terms: [d147926191796c9058d285ed63e9da6f8851b00b, cutlercares, undervalued, saying, substantial-big8008, "it's", png, content-pop-690]
+    concepts: [cutlercares, undervalued, saying]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rjdoyx.md#c4"
     char_span: [4307, 5156]
     sentence_count: 1
     key_terms: [df368a307fda00f1dc73c85e4702a9766a96144f, going, down, therealarmament, banditcleaner2, sasfasasquatch, super-tendies, hitman133295]
+    concepts: [going]
     section: Comments
     token_count: 302
 ---

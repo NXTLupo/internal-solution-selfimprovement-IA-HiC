@@ -20,52 +20,62 @@ chunks:
     char_span: [0, 2081]
     sentence_count: 18
     key_terms: [hubspot, python, phase, warehouse, postgres, dataengineering, replica, data]
+    concepts: [hubspot, python, warehouse, dataengineering, phase]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1t2jcb4/new_and_only_de_startup_thoughts_on_my_kiss_stack/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1t2jcb4.md#c1"
     char_span: [2083, 2863]
     sentence_count: 8
     key_terms: [mistakes, aware, data, need, time, recommendations, orchestration, currently]
+    concepts: [mistakes, aware]
     token_count: 179
   - id: "social-intelligence/reddit-deep/dataengineering/1t2jcb4.md#c2"
-    char_span: [2878, 4098]
+    char_span: [2877, 4097]
     sentence_count: 11
     key_terms: [databricks, configuration, prestigiousant3766, snowflake, tools, integration, duckdb, later]
+    concepts: [databricks, configuration, prestigiousant3766, snowflake, integration]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/dataengineering/1t2jcb4.md#c3"
-    char_span: [4100, 5894]
+    char_span: [4099, 5893]
     sentence_count: 13
     key_terms: [postgres, iceberg, budget, duckdb, cdc, data, mystafet, company]
+    concepts: [postgres, iceberg, budget, duckdb, mystafet]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/dataengineering/1t2jcb4.md#c4"
-    char_span: [5896, 7923]
+    char_span: [5895, 7922]
     sentence_count: 12
     key_terms: [orchestrator, dbt, github, actions, fargate, running, timeout, simple]
+    concepts: [orchestrator, github, actions, fargate, running]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/dataengineering/1t2jcb4.md#c5"
-    char_span: [7925, 9883]
+    char_span: [7924, 9882]
     sentence_count: 14
     key_terms: [managed, version, data, dbt, get, need, snowflake, something]
+    concepts: [managed, version, snowflake, something, dlthub]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/dataengineering/1t2jcb4.md#c6"
-    char_span: [9885, 11224]
+    char_span: [9884, 11223]
     sentence_count: 11
     key_terms: [orchestration, eventbridge, scottfujitadiarrhea, simple, dependencies, orchestrator, cron, functions]
+    concepts: [orchestration, eventbridge, scottfujitadiarrhea, dependencies, orchestrator]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/dataengineering/1t2jcb4.md#c7"
-    char_span: [11226, 12901]
+    char_span: [11225, 12900]
     sentence_count: 14
     key_terms: [data, migration, replica, duckdb, organization, stick, "i'm", want]
+    concepts: [migration, replica, organization, duckdb, analytical]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/dataengineering/1t2jcb4.md#c8"
-    char_span: [12903, 14125]
+    char_span: [12902, 14124]
     sentence_count: 13
     key_terms: [tools, data, fast, move, handle, alternative-guava392, "don't", later]
+    concepts: [tools, handle, "don't", later]
     section: Comments
     token_count: 281
 ---

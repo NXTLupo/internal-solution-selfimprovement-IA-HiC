@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1890]
     sentence_count: 15
     key_terms: [company, because, however, sales, new, role, department, encouraged]
+    concepts: [company, because, however, department, encouraged]
     token_count: 438
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1syyeji/took_three_days_off_because_i_had_a_miscarriage/"}]
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c1"
     char_span: [1892, 4258]
     sentence_count: 17
     key_terms: [days, sick, time, company, status, email, miscarriage, cold]
+    concepts: [company, status, miscarriage, completely, email]
     token_count: 510
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c2"
     char_span: [4260, 4342]
@@ -36,24 +39,28 @@ chunks:
     char_span: [4356, 6652]
     sentence_count: 16
     key_terms: [cersei, employee, significant, managing, actions, impacts, partner, person]
+    concepts: [cersei, employee, significant, managing, actions]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c4"
     char_span: [6654, 8425]
     sentence_count: 13
     key_terms: [let, physically, supervisor, vomiting, capable, better, people, asked]
+    concepts: [physically, supervisor, vomiting, capable, better]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c5"
     char_span: [8427, 10668]
     sentence_count: 16
     key_terms: [emergency, company, understand, practices, best, boss, like, feeling]
+    concepts: [emergency, company, understand, practices, feeling]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c6"
     char_span: [10670, 12807]
     sentence_count: 17
     key_terms: [got, leave, never, weeks, supervisor, daughter, because, himself]
+    concepts: [leave, never, supervisor, weeks, daughter]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c7"
@@ -66,24 +73,28 @@ chunks:
     char_span: [13055, 14619]
     sentence_count: 12
     key_terms: [manager, asking, like, themselves, workplace, employee, entirely, powerful]
+    concepts: [manager, asking, themselves, workplace, employee]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c9"
     char_span: [14621, 16554]
     sentence_count: 11
     key_terms: ["i'm", person, personally, sometimes, everyone, pharmacy, remember, realize]
+    concepts: [person, personally, sometimes, everyone, pharmacy]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c10"
     char_span: [16556, 18525]
     sentence_count: 11
     key_terms: [manager, demoniclionfish, what-you-should-know-about-pregnant-workers-fairness-act, situation, response, federal, inappropriate, state]
+    concepts: [manager, demoniclionfish, situation, response, inappropriate]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c11"
     char_span: [18527, 20367]
     sentence_count: 10
     key_terms: [manager, making, days, did, medical, message, person, please]
+    concepts: [manager, making, medical, message, person]
     section: Comments
     token_count: 422
 ---

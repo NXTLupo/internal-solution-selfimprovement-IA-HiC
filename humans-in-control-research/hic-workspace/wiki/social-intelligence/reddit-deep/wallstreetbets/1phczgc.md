@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 2044]
     sentence_count: 3
     key_terms: [confluent, ibm-buy-confluent-11-billion-130718587, ibm, cloud, data, billion, company, infrastructure]
+    concepts: [ibm-buy-confluent-11-billion-130718587, confluent, cloud, infrastructure, wallstreetbets]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1phczgc/confluent_jumps_30_premarket_after_ibm_buys_it/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1phczgc.md#c1"
     char_span: [2046, 2450]
     sentence_count: 1
     key_terms: [expected, cash, deal, png, year, l1up2pwakz5g1, "transaction's", transaction]
+    concepts: [expected]
     token_count: 124
   - id: "social-intelligence/reddit-deep/wallstreetbets/1phczgc.md#c2"
     char_span: [2464, 2674]
     sentence_count: 1
     key_terms: [months, total, submissions, visualmod, comments, previous, account, report]
+    concepts: [months, total]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/wallstreetbets/1phczgc.md#c3"
     char_span: [2676, 4424]
     sentence_count: 12
     key_terms: [ibm, thatguyfrmboston, discord, indian, months, cheaptechnology6193, stretchantique9147, dev]
+    concepts: [thatguyfrmboston, discord, indian, months]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1phczgc.md#c4"
@@ -49,12 +54,14 @@ chunks:
     char_span: [4858, 6351]
     sentence_count: 12
     key_terms: [ibm, year, products, realize, "you'll", sales, start, liquidpele]
+    concepts: [products, realize, "you'll", liquidpele, sales]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/wallstreetbets/1phczgc.md#c6"
     char_span: [6353, 7131]
     sentence_count: 2
     key_terms: [good, software, ibm, confectiondry7881, josephkambourakis, aliensweetpotato, capitalize, gatovision]
+    concepts: [software]
     section: Comments
     token_count: 222
 ---

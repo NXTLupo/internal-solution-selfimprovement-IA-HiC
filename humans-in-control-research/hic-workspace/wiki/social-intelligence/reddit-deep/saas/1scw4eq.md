@@ -20,33 +20,42 @@ chunks:
     char_span: [0, 2190]
     sentence_count: 20
     key_terms: [partners, product, severely, because, company, underestimated, distribution, order]
+    concepts: [partners, product, severely, underestimated, because]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1scw4eq/this_post_cost_me_350000/"}]
   - id: "social-intelligence/reddit-deep/saas/1scw4eq.md#c1"
     char_span: [2192, 4468]
     sentence_count: 25
     key_terms: [enterprise, b2b, clients, product, funding, longer, result, distribution]
+    concepts: [enterprise, clients, product, funding, distribution]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1scw4eq.md#c3"]
     token_count: 508
   - id: "social-intelligence/reddit-deep/saas/1scw4eq.md#c2"
     char_span: [4470, 5031]
     sentence_count: 9
     key_terms: [saas, founders, sell, appreciate, management, anonymous, community, companies]
+    concepts: [founders]
     token_count: 134
   - id: "social-intelligence/reddit-deep/saas/1scw4eq.md#c3"
-    char_span: [5046, 7105]
+    char_span: [5045, 7104]
     sentence_count: 16
     key_terms: [product, implementation, integration, cost, "it's", like, enterprise, refreshing]
+    concepts: [product, implementation, integration, enterprise, refreshing]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1scw4eq.md#c1"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/saas/1scw4eq.md#c4"
-    char_span: [7109, 9016]
+    char_span: [7108, 9015]
     sentence_count: 16
     key_terms: [partner, company, recruitment, partners, software, product, sharing, europe]
+    concepts: [partner, company, recruitment, partners, software]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/saas/1scw4eq.md#c5"
-    char_span: [9018, 10816]
+    char_span: [9017, 10815]
     sentence_count: 14
     key_terms: [blueberry-man25, data, here, management, knowledge, building, client, people]
+    concepts: [blueberry-man25, management, knowledge, building, client]
     section: Comments
     token_count: 400
 ---

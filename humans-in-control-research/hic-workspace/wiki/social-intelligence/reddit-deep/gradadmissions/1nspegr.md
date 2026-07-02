@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2349]
     sentence_count: 13
     key_terms: [engineering, graduate, experience, years, career, electrical, practical, dft]
+    concepts: [engineering, graduate, experience, years, electrical]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1nspegr/concern_about_graduate_school_and_career_path/"}]
 ---
 # Concern about graduate school and career path
 

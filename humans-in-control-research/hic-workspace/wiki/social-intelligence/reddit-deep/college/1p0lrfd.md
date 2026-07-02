@@ -21,28 +21,34 @@ chunks:
     char_span: [0, 1553]
     sentence_count: 15
     key_terms: [college, going, back, time, comments, unusual, buckle, gotten]
+    concepts: [college, going, comments, unusual, buckle]
     token_count: 354
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1p0lrfd/going_back_at_30/"}]
   - id: "social-intelligence/reddit-deep/college/1p0lrfd.md#c1"
     char_span: [1555, 2700]
     sentence_count: 10
     key_terms: [major, transcript, classes, concern, change, school, part, want]
+    concepts: [major, transcript, classes, concern, change]
     token_count: 240
   - id: "social-intelligence/reddit-deep/college/1p0lrfd.md#c2"
     char_span: [2714, 4334]
     sentence_count: 14
     key_terms: [college, years, age, cosmology, question, students, because, school]
+    concepts: [college, years, cosmology, question, students]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/college/1p0lrfd.md#c3"
     char_span: [4336, 6233]
     sentence_count: 17
     key_terms: ["i'm", student, classmates, old, year, usually, assume, age]
+    concepts: [student, classmates, usually, assume, freshmen]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/college/1p0lrfd.md#c4"
     char_span: [6235, 7823]
     sentence_count: 14
     key_terms: [nearly-third-students-change-major-within-three-years-math-majors-most, going, recommendation, here, professors, average, classes, credits]
+    concepts: [going, recommendation, professors, average, classes]
     section: Comments
     token_count: 396
 ---

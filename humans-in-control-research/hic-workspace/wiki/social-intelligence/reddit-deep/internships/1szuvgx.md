@@ -19,28 +19,36 @@ chunks:
     char_span: [0, 574]
     sentence_count: 4
     key_terms: [startup, internships, internship, comments, learned, lessons, real, considering]
+    concepts: [startup, internships, internship, comments, learned]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1szuvgx.md#c2"]
     token_count: 139
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1szuvgx/8_real_lessons_i_learned_from_my_startup/"}]
   - id: "social-intelligence/reddit-deep/internships/1szuvgx.md#c1"
     char_span: [576, 2946]
     sentence_count: 21
     key_terms: [everything, internship, build, like, environments, early-stage, time, work]
+    concepts: [everything, internship, build, environments, early-stage]
     token_count: 488
   - id: "social-intelligence/reddit-deep/internships/1szuvgx.md#c2"
     char_span: [2948, 4223]
     sentence_count: 2
     key_terms: [startup, like, internship, people, start-up, company, funding, trying]
+    concepts: [startup, internship, people, start-up, company]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1szuvgx.md#c0"]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/internships/1szuvgx.md#c3"
     char_span: [4225, 5563]
     sentence_count: 6
     key_terms: [work, internship, community, leaving, manager, intern, slight-parking-7328, doing]
+    concepts: [internship, community, leaving, manager, intern]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/internships/1szuvgx.md#c4"
     char_span: [5565, 6570]
     sentence_count: 1
     key_terms: [internship, founder, opportunity, monday, pure-woodpecker-994, main, team, try]
+    concepts: [internship, founder, opportunity, monday]
     section: Comments
     token_count: 230
 ---

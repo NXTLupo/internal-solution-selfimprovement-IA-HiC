@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2089]
     sentence_count: 12
     key_terms: [uwaterloo, co-op, mdsai, comments, current, reddit, admissions, roles]
+    concepts: [uwaterloo, comments, co-op, mdsai, current]
     token_count: 480
+    sources: [{"n":"Reddit Deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1tj3bgw/waterloo_meng_ece_coop_or_mdsai_coop_any_current/"}]
 ---
 # Waterloo MEng ECE Co-op or MDSAI Co-op: any current student thoughts?
 

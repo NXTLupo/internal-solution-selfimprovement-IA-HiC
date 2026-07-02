@@ -20,45 +20,55 @@ chunks:
     char_span: [0, 1908]
     sentence_count: 1
     key_terms: [gta, platform, year, rockstar, budget, launch, fivem, years]
+    concepts: [platform, rockstar, budget, launch, fivem]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1tesblm.md#c6"]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1tesblm/why_ttwo_is_probably_mispriced_ahead_of_gta_6/"}]
   - id: "social-intelligence/reddit-deep/stocks/1tesblm.md#c1"
-    char_span: [1910, 3848]
+    char_span: [1910, 3847]
     sentence_count: 13
     key_terms: [gta, online, years, like, money, game, development, been]
+    concepts: [online, years, money, development, current]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/stocks/1tesblm.md#c2"
-    char_span: [3850, 4585]
+    char_span: [3849, 4584]
     sentence_count: 3
     key_terms: [game, racing, going, transaction, unlock, micro, call, duty]
+    concepts: [racing, transaction, going, unlock, micro]
     section: Comments
     token_count: 154
   - id: "social-intelligence/reddit-deep/stocks/1tesblm.md#c3"
-    char_span: [4587, 6429]
+    char_span: [4586, 6428]
     sentence_count: 13
     key_terms: [game, dudewithasweater, incorporated, gta, own, already, another, console]
+    concepts: [dudewithasweater, incorporated, already, another, console]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/stocks/1tesblm.md#c4"
-    char_span: [6431, 7741]
+    char_span: [6430, 7740]
     sentence_count: 9
     key_terms: [people, games, get, play, billions, watching, decade, enjoy]
+    concepts: [people, games, billions, watching, decade]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/stocks/1tesblm.md#c5"
-    char_span: [7743, 9506]
+    char_span: [7742, 9505]
     sentence_count: 16
     key_terms: [day, gta, ttwo, break, been, like, sabswithr, billions]
+    concepts: [break, sabswithr, billions, released, numbers]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/stocks/1tesblm.md#c6"
-    char_span: [9508, 11579]
+    char_span: [9507, 11578]
     sentence_count: 6
     key_terms: [launch, gta, ttwo, catalyst, online, game, nov, generation]
+    concepts: [launch, catalyst, online, generation, platform]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1tesblm.md#c0"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/stocks/1tesblm.md#c7"
-    char_span: [11581, 11867]
+    char_span: [11580, 11866]
     sentence_count: 1
     key_terms: [averysmallbeing, deliberately, disclosure, omitting, position, question, holding, through]
     section: Comments

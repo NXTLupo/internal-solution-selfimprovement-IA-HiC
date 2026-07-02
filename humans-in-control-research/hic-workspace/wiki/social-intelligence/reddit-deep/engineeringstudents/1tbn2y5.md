@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 836]
     sentence_count: 5
     key_terms: [engineering, engineeringstudents, summer, comments, reddit, wellhotdiggitydong, semiconductor, development]
+    concepts: [engineering, engineeringstudents, summer, comments, reddit]
     token_count: 194
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tbn2y5/how_can_i_make_myself_more_hirable_this_summer/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c1"
     char_span: [850, 3116]
     sentence_count: 16
     key_terms: [internship, equivalent-house8556, like, work, company, manager, hiring, engineering]
+    concepts: [internship, equivalent-house8556, company, manager, hiring]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c2"
     char_span: [3118, 5134]
     sentence_count: 10
     key_terms: [lockheed, nvidia, average, school, internships, get, got, internship]
+    concepts: [lockheed, nvidia, average, school, internships]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c3"
     char_span: [5136, 7112]
     sentence_count: 26
     key_terms: [utilities, interviews, industry, voltage, get, high, work, practice]
+    concepts: [utilities, interviews, industry, voltage, practice]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c4"
     char_span: [7114, 8942]
     sentence_count: 25
     key_terms: [manufacturing, job, summer, get, project, resume, good, work]
+    concepts: [manufacturing, summer, project, resume, internship]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c5"
     char_span: [8944, 10228]
     sentence_count: 10
     key_terms: [research, interview, willing, family, member, resume, "they'd", "can't"]
+    concepts: [research, interview, willing, family, member]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c6"
     char_span: [10230, 12616]
     sentence_count: 15
     key_terms: [experience, internships, like, research, project, interviewers, engineering, get]
+    concepts: [experience, internships, research, project, interviewers]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c7"

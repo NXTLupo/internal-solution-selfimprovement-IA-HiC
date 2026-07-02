@@ -21,41 +21,53 @@ chunks:
     char_span: [0, 2398]
     sentence_count: 20
     key_terms: ["i'm", experience, research, background, currently, neuropsychology, skills, opportunity]
+    concepts: [experience, research, background, currently, neuropsychology]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c3"]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1r6ljt4/seeking_advice_on_gaining_research_experience/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c1"
     char_span: [2412, 4355]
     sentence_count: 19
     key_terms: [research, opportunity, programs, catspoopinboxes, project, similar, found, lab]
+    concepts: [research, opportunity, catspoopinboxes, programs, project]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c5"]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c2"
     char_span: [4357, 6526]
     sentence_count: 25
     key_terms: [read, get, being, start, like, approaches, different, questions]
+    concepts: [approaches, being, start, different, questions]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c3"
     char_span: [6528, 8425]
     sentence_count: 19
     key_terms: [get, research, experience, program, interesting, professors, psychology, difficult]
+    concepts: [research, experience, program, interesting, professors]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c0"]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c4"
     char_span: [8427, 10805]
     sentence_count: 18
     key_terms: [research, psychology, community, university, satelliteabstract, get, bachelor, college]
+    concepts: [research, psychology, community, university, satelliteabstract]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c5"
     char_span: [10505, 12777]
     sentence_count: 18
     key_terms: [programs, research, neuroscience, dangerous-energy-331, experience, psychology, ok-vermicelli-6222, satelliteabstract]
+    concepts: [programs, research, neuroscience, dangerous-energy-331, ok-vermicelli-6222]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c6"
     char_span: [12556, 13389]
     sentence_count: 6
     key_terms: [ok-vermicelli-6222, requirements, non-degree, university, degree, public, sense, did]
+    concepts: [ok-vermicelli-6222, requirements, non-degree, university, degree]
     section: Comments
     token_count: 189
 ---

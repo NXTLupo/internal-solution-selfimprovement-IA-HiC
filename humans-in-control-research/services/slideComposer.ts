@@ -441,6 +441,27 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
             { x: 196, y: 1014, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'sourceLine' },
         ],
     },
+    // infographic-exhibit (2026-07-02, #slides infographic uplift) - the deck's NATIVE DATA VISUAL
+    // slide: kicker + action title + a full-width exhibit panel filled by the E4 native infographic
+    // lane (/api/ai/diagram chromeless: stat-row | process-flow | comparison | ranked-bars |
+    // composition, composed from the slide payload's OWN fields via infographicSpecFrom) + the
+    // takeaway band. The chat seam writes composerPayload.exhibitImage (registry
+    // slides:infographic-exhibit); ABSENT image -> the region renders nothing and the takeaway
+    // still closes the slide (fail-open, never an empty well in exports: the GEO walker emits the
+    // filled panel as a real swappable native picture).
+    'infographic-exhibit': {
+        chrome: 'content-rail',
+        regions: [
+            { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'kicker' },
+            { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: 'deckTitle', leading: 1.06, payload: 'title' },
+            { x: 196, y: 186, w: 1620, kind: 'hairline', h: 1 },
+            { kind: 'image', x: 196, y: 226, w: 1622, h: 600, payload: 'exhibitImage', fit: 'contain' },
+            { kind: 'rect', x: 196, y: 858, w: 1622, h: 100, color: 'accent' },
+            { x: 228, y: 878, w: 200, color: 'rail', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.85, upper: true, payload: 'takeaway.label' },
+            { x: 440, y: 876, w: 1340, color: 'rail', font: 'heading', size: SCALE.bodyReadable, weight: 700, leading: 1.2, payload: 'takeaway.statement' },
+            { x: 196, y: 1014, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'sourceLine' },
+        ],
+    },
     // cover (609:2) - full-bleed dark opener. Content gutter left:101 (no rail). The brand mark is
     // the real registry logo (rendered by chrome, top-right), NOT a typeset wordmark line.
     'cover': {

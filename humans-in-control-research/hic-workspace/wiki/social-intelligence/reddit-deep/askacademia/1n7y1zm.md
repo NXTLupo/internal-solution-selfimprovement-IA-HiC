@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1148]
     sentence_count: 6
     key_terms: [experiential, learning, organization, internship, "master's", research, askacademia, political]
+    concepts: [experiential, learning, organization, internship, "master's"]
     token_count: 250
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1n7y1zm/how_is_experiential_learning_viewed_in_higher/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1n7y1zm.md#c1"
     char_span: [1162, 2303]
     sentence_count: 7
     key_terms: [experience, relevant, applied, applicants, program, experiential, considered, academia]
+    concepts: [experience, relevant, applied, applicants, program]
     section: Comments
     token_count: 249
 ---

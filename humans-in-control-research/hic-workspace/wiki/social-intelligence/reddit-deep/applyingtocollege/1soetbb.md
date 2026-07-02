@@ -21,23 +21,31 @@ chunks:
     char_span: [0, 1673]
     sentence_count: 19
     key_terms: [financial, applyingtocollege, don, cornell, parent, uni, comments, rejected]
+    concepts: [applyingtocollege, financial, cornell, parent, comments]
     token_count: 431
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1soetbb/ivy_w_200k_parent_salary/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c1"
     char_span: [1687, 3620]
     sentence_count: 13
     key_terms: [school, uga, cornell, parents, going, complaining, med, penn]
+    concepts: [school, cornell, parents, complaining, experience]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c9", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c12"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c2"
     char_span: [3622, 4925]
     sentence_count: 6
     key_terms: [cornell, penn, difference, families, someone, attend, little, extra]
+    concepts: [cornell, difference, families, someone, attend]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c12"]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c3"
     char_span: [4927, 6757]
     sentence_count: 10
     key_terms: [pay, price, get, because, cornell, parents, assets, better]
+    concepts: [price, because, cornell, parents, assets]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c13"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c4"
@@ -50,84 +58,108 @@ chunks:
     char_span: [7029, 8972]
     sentence_count: 13
     key_terms: [school, undergrad, families, parents, people, home, med, take]
+    concepts: [school, undergrad, families, parents, people]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c10", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c11"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c6"
     char_span: [8704, 10764]
     sentence_count: 20
     key_terms: [state, school, schools, undergrad, desertingwillow, going, went, flagship]
+    concepts: [state, school, schools, undergrad, desertingwillow]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c10", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c11", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c14"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c7"
     char_span: [10490, 10776]
     sentence_count: 4
     key_terms: [schools, went, co-residents, graduated, radiology, cheapest, resident, fancier]
+    concepts: [schools]
     section: Comments
     token_count: 69
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c8"
     char_span: [10778, 11289]
     sentence_count: 7
     key_terms: [school, med, theplaceallover, experience, understand, different, medschool, undergrad]
+    concepts: [school]
     section: Comments
     token_count: 132
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c9"
     char_span: [11291, 13226]
     sentence_count: 16
     key_terms: [chemical-estimate226, cornell, opportunities, option, school, great, experiences, take]
+    concepts: [chemical-estimate226, cornell, opportunities, option, school]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c12", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c16"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c10"
     char_span: [12994, 14127]
     sentence_count: 9
     key_terms: [school, schools, med, son, went, undergrad, doctor, chemical-estimate226]
+    concepts: [school, schools, undergrad, doctor, money]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c11"]
     section: Comments
     token_count: 274
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c11"
     char_span: [14129, 16133]
     sentence_count: 18
     key_terms: [school, non-degree-programs, https, upenn, undergrad, edu, high, "it's"]
+    concepts: [school, non-degree-programs, undergrad, https, upenn]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c10"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c12"
     char_span: [16135, 17132]
     sentence_count: 12
     key_terms: [school, "it's", want, internship, cornell, attend, summer, environmentactive325]
+    concepts: [school, internship, cornell, attend, summer]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c9"]
     section: Comments
     token_count: 226
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c13"
     char_span: [17134, 18589]
     sentence_count: 14
     key_terms: [uga, because, assets, years, like, reasonable, children, school]
+    concepts: [because, assets, reasonable, years, children]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c3"]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c14"
     char_span: [18591, 20729]
     sentence_count: 19
     key_terms: [pre-med, school, medical, going, state, colleges, students, college]
+    concepts: [pre-med, school, medical, going, state]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c15"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c15"
     char_span: [20731, 22040]
     sentence_count: 11
     key_terms: [undergraduate, medical, residency, school, important, went, pediatrician, speciality]
+    concepts: [undergraduate, medical, residency, school, important]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c14"]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c16"
     char_span: [22042, 24204]
     sentence_count: 17
     key_terms: [deflation, opportunities, grade, cornell, courses, school, circumstances, loans]
+    concepts: [deflation, opportunities, grade, circumstances, cornell]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c17"
     char_span: [23914, 24327]
     sentence_count: 5
     key_terms: [courses, curves, work, contribute, alleviate, depending, students, cornell]
+    concepts: [courses, curves]
     section: Comments
     token_count: 94
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c18"
     char_span: [24329, 25019]
     sentence_count: 8
     key_terms: [cornell, campus, insane, premed, ive, opportunities, conferences, individuals]
+    concepts: [cornell, campus, insane, premed]
     section: Comments
     token_count: 144
 ---

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1874]
     sentence_count: 12
     key_terms: [years, coimbatore, bangalore, company, project, careerguidance, role, engineer]
+    concepts: [coimbatore, years, bangalore, company, project]
     token_count: 480
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1o1z01b/need_advice_my_brother_2_years_experience_in_it/"}]
   - id: "articles/reddit-deep-r-careerguidance/fcf2eac975.md#c1"
     char_span: [1876, 2972]
     sentence_count: 11
     key_terms: [project, move, role, developer, internal, transfer, career, devops]
+    concepts: [project, developer, internal, transfer, career]
     token_count: 282
 ---
 # Need advice: My brother (2 years experience in IT) stuck in a long project, wants to switch role or company – what should he do?

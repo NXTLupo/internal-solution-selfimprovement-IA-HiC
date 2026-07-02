@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1055]
     sentence_count: 9
     key_terms: [povertyfinance, unfortunately, sometimes, comments, reddit, thank, live, non-essential]
+    concepts: [povertyfinance, unfortunately, sometimes, comments, reddit]
     token_count: 252
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1ne1vwk/struggling_with_debt_and_low_income/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1ne1vwk.md#c1"
     char_span: [1069, 2946]
     sentence_count: 13
     key_terms: [healthcare, don, budgetgpt, noxelblue, universal, control, cutting, deleted]
+    concepts: [healthcare, budgetgpt, noxelblue, universal, control]
     section: Comments
     token_count: 474
 ---

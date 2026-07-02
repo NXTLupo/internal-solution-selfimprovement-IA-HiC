@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 299]
     sentence_count: 2
     key_terms: [comments, jobs, reddit-deep, structured, developer, learning, backend, getting]
+    concepts: [comments]
     token_count: 85
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1ps3vff/is_there_a_structured_way_of_learning_for_getting/"}]
 ---
 # Is there a structured way of learning, for getting a job as a Backend Developer?
 

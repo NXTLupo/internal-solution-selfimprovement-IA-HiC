@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 916]
     sentence_count: 8
     key_terms: [careerguidance, philosophy, berkeley, comments, majoring, student, totally, super-pomegranate339]
+    concepts: [careerguidance, philosophy, berkeley, comments, majoring]
     token_count: 221
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1shbz7j/what_career_paths_can_i_pivot_to_as_a/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1shbz7j.md#c1"
     char_span: [930, 2657]
     sentence_count: 12
     key_terms: ["you're", experience, majors, philosophy, marketing, super-pomegranate339, lazy-protection3749, psych]
+    concepts: [experience, "you're", majors, philosophy, marketing]
     section: Comments
     token_count: 354
 ---

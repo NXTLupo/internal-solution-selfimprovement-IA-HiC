@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1301]
     sentence_count: 5
     key_terms: [engineering, internship, engineeringstudents, sub-saharan, don, especially, companies, something]
+    concepts: [engineering, engineeringstudents, internship, sub-saharan, especially]
     token_count: 292
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1s5v6fx/looking_for_internship_advice_in_subsaharan/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s5v6fx.md#c1"
     char_span: [1315, 1882]
     sentence_count: 6
     key_terms: [applying, already, people, right, cold, warm, connections, engineering]
+    concepts: [applying, already, people, right]
     section: Comments
     token_count: 115
 ---

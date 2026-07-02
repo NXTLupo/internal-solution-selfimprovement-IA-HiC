@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 2079]
     sentence_count: 16
     key_terms: [like, car, feel, povertyfinance, "don't", money, financially, home]
+    concepts: [povertyfinance, financially, "don't", money, anything]
     token_count: 489
+    sources: [{"n":"Reddit Deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1sleijx/car_stolen_on_day_3_in_a_new_city_1000_miles_away/"}]
   - id: "articles/reddit-deep-r-povertyfinance/27eeb4af8f.md#c1"
     char_span: [2081, 4002]
     sentence_count: 15
     key_terms: [car, found, stolen, crack, dogshaveears, time, underneath, yesterday]
+    concepts: [found, stolen, crack, dogshaveears, underneath]
     token_count: 455
   - id: "articles/reddit-deep-r-povertyfinance/27eeb4af8f.md#c2"
     char_span: [4004, 4380]
     sentence_count: 6
     key_terms: [stolen, back, long, seat, helpitgrow, something, somewhere, hennessy]
+    concepts: [stolen]
     token_count: 95
 ---
 # Car stolen on day 3 in a new city 1000 miles away from home. Move back or tough it out? What are even my options...

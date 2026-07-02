@@ -18,21 +18,26 @@ chunks:
     char_span: [0, 2095]
     sentence_count: 20
     key_terms: [independence, financial, personalfinance, towards, income, start, "i've", like]
+    concepts: [independence, financial, personalfinance, towards, income]
     token_count: 486
+    sources: [{"n":"Reddit Deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1t4dcmn/broke_and_late_to_the_game/"}]
   - id: "articles/reddit-deep-r-personalfinance/f5cd77aab4.md#c1"
     char_span: [2097, 4170]
     sentence_count: 12
     key_terms: [income, opportunities, month, job, get, love, includes, interest]
+    concepts: [income, opportunities, month, includes, interest]
     token_count: 504
   - id: "articles/reddit-deep-r-personalfinance/f5cd77aab4.md#c2"
     char_span: [4172, 5963]
     sentence_count: 19
     key_terms: [debt, save, flowchart, expenses, starter, budget, trying, "you're"]
+    concepts: [flowchart, expenses, starter, budget, trying]
     token_count: 439
   - id: "articles/reddit-deep-r-personalfinance/f5cd77aab4.md#c3"
     char_span: [5965, 6293]
     sentence_count: 2
     key_terms: [income, toward, savings, strategies, repayment, higher, living, lower]
+    concepts: [income, toward, savings]
     token_count: 90
 ---
 # Broke and Late to the game

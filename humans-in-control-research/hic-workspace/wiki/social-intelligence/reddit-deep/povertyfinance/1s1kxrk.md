@@ -21,58 +21,71 @@ chunks:
     char_span: [0, 2022]
     sentence_count: 26
     key_terms: [budget, spending, povertyfinance, spend, investments, wife, situation, anything]
+    concepts: [budget, spending, povertyfinance, investments, spend]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c1"]
     token_count: 480
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1s1kxrk/tips_for_getting_spouse_to_stick_to_the_budget/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c1"
     char_span: [2024, 3192]
     sentence_count: 18
     key_terms: [needs, spending, account, monthly, budget, bills, going, money]
+    concepts: [needs, spending, account, monthly, budget]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c0"]
     token_count: 286
   - id: "social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c2"
     char_span: [3206, 3658]
     sentence_count: 4
     key_terms: ["it's", weekly, cash, fun, gone, misappropriated, necessities, replenished]
+    concepts: [weekly]
     section: Comments
     token_count: 108
   - id: "social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c3"
     char_span: [3660, 5421]
     sentence_count: 15
     key_terms: [cash, account, debit, card, snacks, money, "it's", stop]
+    concepts: [account, debit, snacks, money, checking]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c4"
     char_span: [5423, 7138]
     sentence_count: 14
     key_terms: [cancer, money, budgeting, thinking, problem, hustle, sounds, being]
+    concepts: [cancer, money, budgeting, thinking, problem]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c5"
     char_span: [7140, 9281]
     sentence_count: 11
     key_terms: [problem, therapy, financial, something, work, finance, budget, spouse]
+    concepts: [problem, therapy, financial, something, finance]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c6"
     char_span: [9283, 10415]
     sentence_count: 4
     key_terms: ["doesn't", agree, get, calculator, budget, figure, going, money]
+    concepts: ["doesn't", agree, calculator, budget, figure]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c7"
     char_span: [10417, 12298]
     sentence_count: 7
     key_terms: [money, couples, lv-42whatnow, "it's", because, down, need, spending]
+    concepts: [lv-42whatnow, money, couples, because, spending]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c8"
     char_span: [12300, 14344]
     sentence_count: 15
     key_terms: [financial, spending, advisor, tenaciousgreen, health, counselling, necessities, retirement]
+    concepts: [financial, spending, tenaciousgreen, advisor, health]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c9"
     char_span: [14346, 16182]
     sentence_count: 17
     key_terms: [allowance, money, like, personally, different, ninjakaat, whatever, account]
+    concepts: [allowance, money, personally, different, ninjakaat]
     section: Comments
     token_count: 438
 ---

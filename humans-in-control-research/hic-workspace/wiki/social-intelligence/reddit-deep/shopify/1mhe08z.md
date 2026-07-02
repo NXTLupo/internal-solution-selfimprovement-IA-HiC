@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 2233]
     sentence_count: 24
     key_terms: [abandoned, shopify, calls, customers, anyone, email, phone, converting]
+    concepts: [abandoned, shopify, customers, calls, anyone]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1mhe08z/we_started_calling_our_abandoned_carts_and_got/"}]
   - id: "social-intelligence/reddit-deep/shopify/1mhe08z.md#c1"
-    char_span: [2248, 3864]
+    char_span: [2247, 3863]
     sentence_count: 9
     key_terms: [call, customers, phone, no-army6590, absolutely, conversion, community, checkbox]
+    concepts: [customers, no-army6590, absolutely, conversion, phone]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/shopify/1mhe08z.md#c2"
-    char_span: [3866, 5868]
+    char_span: [3865, 5867]
     sentence_count: 17
     key_terms: [saimis1122, call, being, carts, never, abandoned, something, sometimes]
+    concepts: [saimis1122, being, carts, never, abandoned]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/shopify/1mhe08z.md#c3"
-    char_span: [5870, 6543]
+    char_span: [5869, 6542]
     sentence_count: 7
     key_terms: [carts, works, conversations, ai-automated, ai-powered, automation, connection, "everyone's"]
+    concepts: [carts, works]
     section: Comments
     token_count: 156
 ---

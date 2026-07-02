@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1903]
     sentence_count: 15
     key_terms: [kimi, opus, tasks, reasoning, comments, coding, deeplearning, interesting]
+    concepts: [tasks, reasoning, comments, deeplearning, coding]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1sx79xf/kimi_k26_vs_claude_opus_47_on_autonomous_coding/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1sx79xf.md#c1"
     char_span: [1905, 2262]
     sentence_count: 2
     key_terms: [kimi-k2-6-vs-opus-4-7, heyneo, https, blog, com, interesting, evaluation, benchmark]
+    concepts: [kimi-k2-6-vs-opus-4-7, heyneo, https]
     section: Comments
     token_count: 108
 ---

@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1955]
     sentence_count: 14
     key_terms: [b2b, tool, lead, evaluating, generation, qualification, entrepreneur, open]
+    concepts: [evaluating, generation, qualification, entrepreneur, enterprise]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1q9chov/evaluating_b2b_lead_generation_tool_compliance/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1q9chov.md#c1"
-    char_span: [1970, 3783]
+    char_span: [1969, 3782]
     sentence_count: 10
     key_terms: [entrepreneur, please, lead, better, data, permanent, promotion, services]
+    concepts: [entrepreneur, please, better, permanent, promotion]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/entrepreneur/1q9chov.md#c2"
-    char_span: [3785, 5828]
+    char_span: [3784, 5827]
     sentence_count: 12
     key_terms: [additional-pop8840, teams, data, engagement, enrichment, platforms, technical, pipeline]
+    concepts: [additional-pop8840, engagement, enrichment, teams, platforms]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/entrepreneur/1q9chov.md#c3"
-    char_span: [5832, 7004]
+    char_span: [5831, 7003]
     sentence_count: 10
     key_terms: ["what's", use-cases, signals, "you're", fit-photograph-4282, aisdr, https, sales]
+    concepts: ["what's", use-cases, signals, "you're", aisdr]
     section: Comments
     token_count: 280
 ---

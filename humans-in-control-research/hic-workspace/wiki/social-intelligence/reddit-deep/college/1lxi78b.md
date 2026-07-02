@@ -19,65 +19,86 @@ chunks:
     char_span: [0, 2028]
     sentence_count: 13
     key_terms: [syracuse, college, transfer, scholarships, sophomore, grades, school, take]
+    concepts: [syracuse, college, transfer, scholarships, sophomore]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lxi78b.md#c6", "social-intelligence/reddit-deep/college/1lxi78b.md#c8"]
     token_count: 472
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lxi78b/my_family_can_only_afford_sophomore_year_and_i/"}]
   - id: "social-intelligence/reddit-deep/college/1lxi78b.md#c1"
     char_span: [2042, 3883]
     sentence_count: 14
     key_terms: [year, junior, scholarships, time, work, through, loans, especially]
+    concepts: [junior, scholarships, through, especially, loans]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lxi78b.md#c3", "social-intelligence/reddit-deep/college/1lxi78b.md#c5"]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/college/1lxi78b.md#c2"
     char_span: [3885, 5332]
     sentence_count: 9
     key_terms: [syracuse, realistically, debt, gpa, applicants, especially, applying, business]
+    concepts: [syracuse, realistically, applicants, especially, applying]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/college/1lxi78b.md#c3"
     char_span: [5334, 7621]
     sentence_count: 13
     key_terms: [loans, get, direct, scholarships, given, maybe, gpa, job]
+    concepts: [loans, scholarships, direct, given, maybe]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lxi78b.md#c1", "social-intelligence/reddit-deep/college/1lxi78b.md#c5"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/college/1lxi78b.md#c4"
     char_span: [7623, 9877]
     sentence_count: 12
     key_terms: [scholarships, university, community, apply, school, cheaper, college, organizations]
+    concepts: [scholarships, university, community, apply, school]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lxi78b.md#c8", "social-intelligence/reddit-deep/college/1lxi78b.md#c9"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/college/1lxi78b.md#c5"
     char_span: [9879, 11827]
     sentence_count: 15
     key_terms: [scholarships, through, loans, start, costs, state, look, year]
+    concepts: [scholarships, through, loans, start, costs]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lxi78b.md#c1", "social-intelligence/reddit-deep/college/1lxi78b.md#c3"]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/college/1lxi78b.md#c6"
     char_span: [11829, 12818]
     sentence_count: 6
     key_terms: [available, college, scholarships, hometown, send, freshmen, incoming, because]
+    concepts: [available, scholarships, college, hometown, freshmen]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lxi78b.md#c0", "social-intelligence/reddit-deep/college/1lxi78b.md#c7", "social-intelligence/reddit-deep/college/1lxi78b.md#c8"]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/college/1lxi78b.md#c7"
     char_span: [12820, 14555]
     sentence_count: 11
     key_terms: [scholarships, job, summer, available, get, look, work, class]
+    concepts: [scholarships, summer, available, class, money]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lxi78b.md#c6"]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/college/1lxi78b.md#c8"
     char_span: [14557, 15856]
     sentence_count: 13
     key_terms: [college, scholarships, community, time, syracuse, attending, transfer, courses]
+    concepts: [scholarships, college, community, syracuse, attending]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lxi78b.md#c0", "social-intelligence/reddit-deep/college/1lxi78b.md#c4", "social-intelligence/reddit-deep/college/1lxi78b.md#c6", "social-intelligence/reddit-deep/college/1lxi78b.md#c9"]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/college/1lxi78b.md#c9"
     char_span: [15858, 17466]
     sentence_count: 17
     key_terms: [scholarships, years, community, strawberry1282, financial, resources, situation, division]
+    concepts: [scholarships, community, years, strawberry1282, financial]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lxi78b.md#c4", "social-intelligence/reddit-deep/college/1lxi78b.md#c8"]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/college/1lxi78b.md#c10"
     char_span: [17468, 18159]
     sentence_count: 5
     key_terms: [years, get, college, federal, job, unicornsheets, competitive, especially]
+    concepts: [years, college, federal]
     section: Comments
     token_count: 161
 ---

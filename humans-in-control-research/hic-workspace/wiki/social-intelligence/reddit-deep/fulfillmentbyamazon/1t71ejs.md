@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 2307]
     sentence_count: 24
     key_terms: [delivery, day, platform, fulfillmentbyamazon, customers, ecommerce, shipping, service]
+    concepts: [delivery, platform, fulfillmentbyamazon, customers, ecommerce]
     token_count: 465
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1t71ejs/accidentally_enabled_same_day_delivery_for_entire/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1t71ejs.md#c1"
-    char_span: [2309, 4046]
+    char_span: [2309, 4045]
     sentence_count: 14
     key_terms: [fulfillmentbyamazon, discord, going, fba, slop, logistics, subreddit, comments]
+    concepts: [fulfillmentbyamazon, discord, going, logistics, subreddit]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1t71ejs.md#c2"
-    char_span: [4048, 6069]
+    char_span: [4047, 6068]
     sentence_count: 17
     key_terms: [like, amazon, people, orders, potentialpassage8209, babybackchickenwing, "don't", going]
+    concepts: [amazon, people, orders, "don't", going]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1t71ejs.md#c3"
-    char_span: [5782, 6361]
+    char_span: [5781, 6360]
     sentence_count: 4
     key_terms: [mistake, potentialpassage8209, cancellation, explanation, lucazade401, significant, especially, experience]
+    concepts: [mistake]
     section: Comments
     token_count: 128
 ---

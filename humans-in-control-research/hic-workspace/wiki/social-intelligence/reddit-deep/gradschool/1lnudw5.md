@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1857]
     sentence_count: 17
     key_terms: [research, papers, gradschool, returning, seriously, comments, thoughts, become]
+    concepts: [research, papers, gradschool, returning, seriously]
     token_count: 441
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1lnudw5/midphd_and_its_looking_like_ive_made_a_huge/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1lnudw5.md#c1"
     char_span: [1871, 3773]
     sentence_count: 22
     key_terms: [research, phd, "you're", opportunities, find, job, like, lot]
+    concepts: [research, opportunities, "you're", graduate, already]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/gradschool/1lnudw5.md#c2"
     char_span: [3778, 5210]
     sentence_count: 12
     key_terms: [phd, "don't", want, year, decide, finish, "you're", human-anything5295]
+    concepts: ["don't", decide, finish, "you're"]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/gradschool/1lnudw5.md#c3"
     char_span: [5212, 7305]
     sentence_count: 14
     key_terms: [balance, through, time, hobbies, like, need, outdoorsy, research]
+    concepts: [balance, through, hobbies, outdoorsy, research]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/gradschool/1lnudw5.md#c4"

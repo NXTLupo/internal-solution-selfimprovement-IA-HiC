@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 876]
     sentence_count: 4
     key_terms: [internships, engineeringstudents, apply, comments, freshman, public-hamster-9224, taken, worth]
+    concepts: [engineeringstudents, internships, apply, comments, freshman]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rixa90.md#c1"]
     token_count: 202
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rixa90/is_it_worth_it_to_apply_for_internships_as_a/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rixa90.md#c1"
     char_span: [890, 2881]
     sentence_count: 15
     key_terms: [summer, experience, apply, burstawesome, internships, get, definitely, internship]
+    concepts: [experience, summer, apply, burstawesome, internships]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rixa90.md#c0"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rixa90.md#c2"
     char_span: [2883, 4328]
     sentence_count: 11
     key_terms: [freshman, year, resume, learn, internship, companies, research, summer]
+    concepts: [freshman, resume, internship, learn, companies]
     section: Comments
     token_count: 325
 ---

@@ -21,49 +21,65 @@ chunks:
     char_span: [0, 2421]
     sentence_count: 20
     key_terms: [people, promotion, doesn, promoted, nobody, relationships, careeradvice, consistently]
+    concepts: [promotion, people, doesn, promoted, relationships]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c1", "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c2", "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c3", "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c7"]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1qv82oc/what_actually_gets_people_promoted_quickly_and/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c1"
     char_span: [2423, 4619]
     sentence_count: 33
     key_terms: [people, promotion, want, everything, start, boss, don, get]
+    concepts: [people, promotion, everything, start, level]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c0"]
     token_count: 507
   - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c2"
     char_span: [4621, 6936]
     sentence_count: 31
     key_terms: [people, company, companies, here, need, work, getting, doesn]
+    concepts: [people, company, companies, getting, doesn]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c0", "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c3"]
     token_count: 507
   - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c3"
     char_span: [6938, 9178]
     sentence_count: 22
     key_terms: [promoted, people, politics, get, company, loyalty, leave, don]
+    concepts: [promoted, people, politics, company, loyalty]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c0", "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c2", "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c4"]
     token_count: 497
   - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c4"
     char_span: [9180, 10274]
     sentence_count: 23
     key_terms: [people, got, ready, real, won, feedback, politics, reality]
+    concepts: [people, ready, feedback, politics, reality]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c3"]
     token_count: 237
   - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c5"
     char_span: [10288, 12047]
     sentence_count: 9
     key_terms: [people, being, likable, extremely, nothing, working, artistic-staff-8611, enjoy]
+    concepts: [people, being, likable, extremely, nothing]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c6"
     char_span: [12049, 13959]
     sentence_count: 12
     key_terms: [get, being, management, important, network, advice, around, either]
+    concepts: [being, management, important, network, advice]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c7"
     char_span: [13961, 15414]
     sentence_count: 14
     key_terms: [promotion, get, role, work, co-worker, effective, recommend, promoted]
+    concepts: [promotion, co-worker, effective, recommend, promoted]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c0"]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c8"
     char_span: [15416, 16102]
     sentence_count: 2
     key_terms: [enough, material-dream-4976, cases, ladyfisherbuckeye, boss, vivalajester1114, unfortunately, starting]
+    concepts: [enough, cases]
     section: Comments
     token_count: 200
 ---

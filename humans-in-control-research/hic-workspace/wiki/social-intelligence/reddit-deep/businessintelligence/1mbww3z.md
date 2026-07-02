@@ -20,23 +20,29 @@ chunks:
     char_span: [0, 614]
     sentence_count: 4
     key_terms: [businessintelligence, dashboard, different, comments, custom, source, trying, lostinthesauce2004]
+    concepts: [businessintelligence, dashboard, different, comments, custom]
     token_count: 139
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1mbww3z/custom_dashboard_solutions/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1mbww3z.md#c1"
-    char_span: [629, 2510]
+    char_span: [628, 2509]
     sentence_count: 18
     key_terms: [dashboard, looker, data, "it's", database, results, fabric, materializing]
+    concepts: [dashboard, looker, database, materializing, results]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/businessintelligence/1mbww3z.md#c2"
-    char_span: [2512, 4513]
+    char_span: [2511, 4512]
     sentence_count: 11
     key_terms: [build, dashboard, data, open-source, apis, etc, use, streamlit]
+    concepts: [dashboard, build, open-source, streamlit, scalable]
     section: Comments
     token_count: 466
+    sources: [{"n":"stylebi","u":""}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1mbww3z.md#c3"
-    char_span: [4515, 4910]
+    char_span: [4514, 4909]
     sentence_count: 3
     key_terms: [worked, connected, datatobiz, scheduled, something, alerting, delivery, multiple]
+    concepts: [worked]
     section: Comments
     token_count: 83
 ---

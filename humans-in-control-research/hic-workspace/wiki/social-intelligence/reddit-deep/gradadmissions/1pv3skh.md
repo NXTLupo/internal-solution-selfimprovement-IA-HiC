@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 2192]
     sentence_count: 15
     key_terms: [research, national, summer, admissions, lab, industry, gradadmissions, school]
+    concepts: [research, national, summer, admissions, industry]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1pv3skh.md#c2"]
     token_count: 448
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1pv3skh/national_lab_vs_university_research_vs_industry/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1pv3skh.md#c1"
-    char_span: [2207, 4241]
+    char_span: [2206, 4240]
     sentence_count: 13
     key_terms: [lab, like, because, experience, research, going, gonna, been]
+    concepts: [because, experience, research, going, gonna]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/gradadmissions/1pv3skh.md#c2"
-    char_span: [4243, 6622]
+    char_span: [4242, 6621]
     sentence_count: 17
     key_terms: [responsibilities, lab, industry, summer, doing, national, research, valuable]
+    concepts: [responsibilities, industry, summer, doing, national]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1pv3skh.md#c0"]
     section: Comments
     token_count: 507
 ---

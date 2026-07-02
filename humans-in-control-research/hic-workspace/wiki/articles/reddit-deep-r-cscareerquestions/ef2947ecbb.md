@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2188]
     sentence_count: 14
     key_terms: [job, market, people, years, cscareerquestions, comments, get, hard]
+    concepts: [cscareerquestions, market, people, years, comments]
     token_count: 512
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1s24srg/what_was_the_tech_job_market_like_especially_for/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/ef2947ecbb.md#c1"
     char_span: [2190, 4321]
     sentence_count: 22
     key_terms: [company, onsite, people, extremely, offshore, because, competitive, let]
+    concepts: [company, onsite, people, extremely, offshore]
     token_count: 471
 ---
 # What was the tech job market like (especially for recent CS graduates) in 2016?

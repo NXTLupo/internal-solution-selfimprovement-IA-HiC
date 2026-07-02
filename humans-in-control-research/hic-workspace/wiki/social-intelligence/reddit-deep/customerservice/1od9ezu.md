@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 1350]
     sentence_count: 10
     key_terms: [because, customerservice, empathy, human, order, time, comments, customer]
+    concepts: [because, customerservice, empathy, human, order]
+    related_chunks: ["social-intelligence/reddit-deep/customerservice/1od9ezu.md#c1"]
     token_count: 316
+    sources: [{"n":"reddit-deep: r/customerservice","u":"https://www.reddit.com/r/CustomerService/comments/1od9ezu/ai_wont_kill_customer_experience_it_might/"}]
   - id: "social-intelligence/reddit-deep/customerservice/1od9ezu.md#c1"
-    char_span: [1365, 3368]
+    char_span: [1364, 3367]
     sentence_count: 13
     key_terms: [companies, because, human, use, customer, company, service, workers]
+    concepts: [companies, because, human, customer, company]
+    related_chunks: ["social-intelligence/reddit-deep/customerservice/1od9ezu.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/customerservice/1od9ezu.md#c2"
-    char_span: [3148, 4520]
+    char_span: [3147, 4519]
     sentence_count: 8
     key_terms: [agents, support, mattress, new, use, repetitive, delivery, queries]
+    concepts: [agents, support, mattress, repetitive, delivery]
     section: Comments
     token_count: 313
 ---

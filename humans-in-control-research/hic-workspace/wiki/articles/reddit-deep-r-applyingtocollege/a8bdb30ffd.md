@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1690]
     sentence_count: 13
     key_terms: [get, admissions, applyingtocollege, "i'm", college, parents, "don't", explaining]
+    concepts: [admissions, applyingtocollege, college, parents, "don't"]
     token_count: 369
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1qe113j/my_parents_think_im_being_dramatic_about_how/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/a8bdb30ffd.md#c1"
     char_span: [1692, 3612]
     sentence_count: 24
     key_terms: [hopeful-force-2147, different, year, little, got, peak, sat, newspaper]
+    concepts: [hopeful-force-2147, different, little, newspaper, because]
     token_count: 505
   - id: "articles/reddit-deep-r-applyingtocollege/a8bdb30ffd.md#c2"
     char_span: [3614, 4555]
     sentence_count: 8
     key_terms: [the-demographic-cliff-is-overblown, eduvantis, people, class, https, sucks, com, fake]
+    concepts: [eduvantis, people, class, https, sucks]
     token_count: 245
 ---
 # My parents think I'm being dramatic about how competitive college admissions is now and it's driving me insane

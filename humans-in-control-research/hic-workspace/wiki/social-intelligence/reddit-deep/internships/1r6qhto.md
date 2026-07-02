@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 2034]
     sentence_count: 2
     key_terms: [internships, opportunities, company, email, linkedin, posted, search, https]
+    concepts: [internships, opportunities, company, email, linkedin]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1r6qhto/stop_doomscrolling_indeed_here_are_3_better_ways/"}]
   - id: "social-intelligence/reddit-deep/internships/1r6qhto.md#c1"
     char_span: [2036, 3977]
     sentence_count: 1
     key_terms: [internships, com, internship, google, https, city, day, use]
+    concepts: [internships, internship, google, https, intern]
     token_count: 503
   - id: "social-intelligence/reddit-deep/internships/1r6qhto.md#c2"
     char_span: [3979, 5859]
     sentence_count: 17
     key_terms: [suitable-jelly-3693, emergency-mixture500, companies, thanks, opportunities, thank, job, work]
+    concepts: [suitable-jelly-3693, emergency-mixture500, companies, opportunities, thanks]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/internships/1r6qhto.md#c3"

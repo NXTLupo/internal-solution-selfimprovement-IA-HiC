@@ -21,89 +21,111 @@ chunks:
     char_span: [0, 1038]
     sentence_count: 14
     key_terms: [cscareerquestions, "it's", people, time, companies, different, comments, pattern]
+    concepts: [cscareerquestions, people, companies, different, comments]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c6", "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c12"]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1mlrhlj/no_ai_isnt_the_reason_you_cant_find_a_job/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c1"
     char_span: [1052, 2863]
     sentence_count: 13
     key_terms: [people, unqualified, being, hired, building, making, job, droves]
+    concepts: [people, unqualified, being, hired, building]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c8"]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c2"
     char_span: [2865, 4734]
     sentence_count: 16
     key_terms: [tech, underqualified, government, position, doing, sites, years, c-u-in-da-ballpit]
+    concepts: [underqualified, government, position, doing, sites]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c3"
     char_span: [4736, 6642]
     sentence_count: 14
     key_terms: [making, being, wrong, handholding, something, because, people, spring]
+    concepts: [making, handholding, being, wrong, something]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c4"
     char_span: [6644, 8403]
     sentence_count: 11
     key_terms: [work, form, everyone, backend, fields, talent, values, videos]
+    concepts: [everyone, backend, fields, talent, values]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c5"
     char_span: [8405, 10238]
     sentence_count: 12
     key_terms: [people, because, got, chili-lime-chihuahua, agree, place, years, billyblobsabillion]
+    concepts: [people, because, agree, place, years]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c6"
     char_span: [10240, 12388]
     sentence_count: 19
     key_terms: [people, market, job, companies, administration, trying, "i've", "it's"]
+    concepts: [people, market, companies, administration, trying]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c10", "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c12"]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c7"
     char_span: [12390, 13895]
     sentence_count: 9
     key_terms: [lol, inflation, actively, economic, trying, chili-lime-chihuahua, white, years]
+    concepts: [inflation, actively, economic, trying, white]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c8"
     char_span: [13897, 15717]
     sentence_count: 20
     key_terms: ["it's", like, hired, distraction, job, investment, people, any-competition8494]
+    concepts: [distraction, hired, investment, people, teams]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c1"]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c9"
     char_span: [15719, 17860]
     sentence_count: 17
     key_terms: [hiring, "don't", investment, companies, huge, lot, bubble, market]
+    concepts: [hiring, "don't", investment, companies, bubble]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c10"
     char_span: [17863, 19406]
     sentence_count: 10
     key_terms: [layoffs, companies, company, junior, market, people, money, stock]
+    concepts: [layoffs, companies, company, junior, market]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c6"]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c11"
     char_span: [19408, 21590]
     sentence_count: 22
     key_terms: [people, headcount, products, layoffs, months, time, offshoring, companies]
+    concepts: [people, headcount, products, layoffs, months]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c12"
     char_span: [21592, 23046]
     sentence_count: 9
     key_terms: [work, people, lot, companies, needed, built, going, early-surround7413]
+    concepts: [people, companies, needed, built, going]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c6"]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c13"
     char_span: [23048, 25163]
     sentence_count: 10
     key_terms: [deleted, time, applicants, companies, talking, around, hiring, market]
+    concepts: [deleted, applicants, companies, talking, around]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c14"
     char_span: [25165, 26235]
     sentence_count: 9
     key_terms: [tech, interest, getting, thatfeelingisbliss88, rates, train, job, like]
+    concepts: [interest, getting, rates, train]
     section: Comments
     token_count: 291
 ---

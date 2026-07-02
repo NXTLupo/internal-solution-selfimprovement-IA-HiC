@@ -11,35 +11,46 @@ score: 2
 upvote_ratio: 1
 num_comments: 0
 flair: ""
-extracted_at: "2026-06-11T18:57:30.599Z"
+extracted_at: "2026-06-26T21:51:45.880Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Identify and analyze the top five consumer finance trends for 2026 across retail banking, fintech, and consumer lending, delivering a prioritized trend matrix that details key drivers, shifting consumer behaviors, and technological adoption."
+engagement: "identify-and-analyze-the-top-five-consumer-finance-trends-fo"
 chunks:
   - id: "social-intelligence/reddit-deep/fintech/1op25xo.md#c0"
-    char_span: [0, 1936]
+    char_span: [0, 1935]
     sentence_count: 8
     key_terms: [fintech, modular, singapore, financial, platform, https, transformation, institutions]
-    token_count: 439
+    concepts: [fintech, modular, singapore, financial, platform]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1op25xo.md#c3"]
+    token_count: 438
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1op25xo/modular_fintech_platform_in_singapore_scalable/"}]
   - id: "social-intelligence/reddit-deep/fintech/1op25xo.md#c1"
-    char_span: [1938, 3724]
+    char_span: [1937, 3723]
     sentence_count: 11
     key_terms: [flexm, https, com, www, financial, compliance, modular, systems]
+    concepts: [flexm, https, financial, compliance, independently]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1op25xo.md#c2", "social-intelligence/reddit-deep/fintech/1op25xo.md#c3", "social-intelligence/reddit-deep/fintech/1op25xo.md#c4"]
     token_count: 382
   - id: "social-intelligence/reddit-deep/fintech/1op25xo.md#c2"
-    char_span: [3726, 5618]
+    char_span: [3725, 5617]
     sentence_count: 10
     key_terms: [avvxseipys7gssq848susgzj7ihxpfitr3qfgrzthrtem4op9yhe4o3kn2ez4-tgh-, singapore, compliance, banks, flexm, modular, infrastructure, https]
+    concepts: [singapore, compliance, banks, flexm, infrastructure]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1op25xo.md#c1", "social-intelligence/reddit-deep/fintech/1op25xo.md#c3"]
     token_count: 496
   - id: "social-intelligence/reddit-deep/fintech/1op25xo.md#c3"
-    char_span: [5620, 8363]
+    char_span: [5619, 8362]
     sentence_count: 16
     key_terms: [compliance, modular, financial, singapore, maritime, platform, flexm, transactions]
+    concepts: [compliance, modular, financial, singapore, maritime]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1op25xo.md#c0", "social-intelligence/reddit-deep/fintech/1op25xo.md#c1", "social-intelligence/reddit-deep/fintech/1op25xo.md#c2"]
     token_count: 496
   - id: "social-intelligence/reddit-deep/fintech/1op25xo.md#c4"
-    char_span: [8365, 9091]
+    char_span: [8364, 9090]
     sentence_count: 4
     key_terms: [flexm, com, intelligent, www, modularity, financial, book-a-demo-about-us, https]
+    concepts: [flexm, intelligent, modularity, financial, https]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1op25xo.md#c1"]
     token_count: 160
 ---
 # Modular Fintech Platform in Singapore: Scalable Solutions for Banks, MSBs, Startups & the Maritime Sector

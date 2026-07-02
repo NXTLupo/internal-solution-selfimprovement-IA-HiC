@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2092]
     sentence_count: 25
     key_terms: [data, biometric, persona, giving, away, stop, biometrics, workonline]
+    concepts: [biometric, persona, giving, biometrics, workonline]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/workonline","u":"https://www.reddit.com/r/WorkOnline/comments/1szoupn/stop_giving_away_your_biometric_data/"}]
   - id: "social-intelligence/reddit-deep/workonline/1szoupn.md#c1"
     char_span: [2094, 3634]
     sentence_count: 17
     key_terms: [actors, change, surveillance, verification, bad, biometrics, companies, platform]
+    concepts: [surveillance, verification, actors, change, biometrics]
     token_count: 337
   - id: "social-intelligence/reddit-deep/workonline/1szoupn.md#c2"
     char_span: [3648, 4382]
     sentence_count: 7
     key_terms: [deleted, picture, wanted, being, easelegitimate7404, like, information, collecting]
+    concepts: [deleted, picture, wanted, being]
     section: Comments
     token_count: 164
 ---

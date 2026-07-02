@@ -21,83 +21,104 @@ chunks:
     char_span: [0, 1431]
     sentence_count: 15
     key_terms: [feedback, managers, asking, peers, comments, manager, doing, uncomfortable]
+    concepts: [feedback, managers, asking, peers, comments]
     token_count: 325
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1nbkvnc/the_strangest_part_of_becoming_a_manager_you_stop/"}]
   - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c1"
     char_span: [1445, 3313]
     sentence_count: 12
     key_terms: [feedback, because, people, recognise, anything, negative, clients, manager]
+    concepts: [feedback, because, people, recognise, anything]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1nbkvnc.md#c6"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c2"
     char_span: [3315, 3862]
     sentence_count: 3
     key_terms: [manager, taotaoloomins, absolutely, attempting, experience, direction, something, sometimes]
+    concepts: [manager]
     section: Comments
     token_count: 142
   - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c3"
     char_span: [3864, 5925]
     sentence_count: 15
     key_terms: [bad, boss, negative, themselves, messenger, something, honest, issues]
+    concepts: [negative, themselves, messenger, something, honest]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c4"
     char_span: [5663, 7667]
     sentence_count: 16
     key_terms: [manager, speaking, consequences, get, like, management, themselves, helping]
+    concepts: [manager, speaking, consequences, management, themselves]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c5"
     char_span: [7669, 9516]
     sentence_count: 11
     key_terms: [feedback, manager, feel, "don't", like, promotion, disagree, culture]
+    concepts: [feedback, manager, "don't", promotion, disagree]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1nbkvnc.md#c6", "social-intelligence/reddit-deep/managers/1nbkvnc.md#c8", "social-intelligence/reddit-deep/managers/1nbkvnc.md#c9"]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c6"
     char_span: [9519, 11602]
     sentence_count: 15
     key_terms: [feedback, manager, people, "i'm", problem, understand, promotion, coworker]
+    concepts: [feedback, manager, people, problem, understand]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1nbkvnc.md#c1", "social-intelligence/reddit-deep/managers/1nbkvnc.md#c5", "social-intelligence/reddit-deep/managers/1nbkvnc.md#c8", "social-intelligence/reddit-deep/managers/1nbkvnc.md#c9", "social-intelligence/reddit-deep/managers/1nbkvnc.md#c11"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c7"
     char_span: [11605, 13098]
     sentence_count: 14
     key_terms: [feedback, information, "it's", anonymous, someone, sense, share, long]
+    concepts: [feedback, information, anonymous, someone, sense]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c8"
     char_span: [13100, 14084]
     sentence_count: 7
     key_terms: [manager, "manager's", feedback, feel, uncomfortable, anonymously, comfortable, performance]
+    concepts: [manager, "manager's", feedback]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1nbkvnc.md#c5", "social-intelligence/reddit-deep/managers/1nbkvnc.md#c6", "social-intelligence/reddit-deep/managers/1nbkvnc.md#c9"]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c9"
     char_span: [14086, 16218]
     sentence_count: 20
     key_terms: [manager, need, feedback, unprofessional, relationships, department, potential, negative]
+    concepts: [manager, feedback, unprofessional, relationships, department]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1nbkvnc.md#c5", "social-intelligence/reddit-deep/managers/1nbkvnc.md#c6", "social-intelligence/reddit-deep/managers/1nbkvnc.md#c8"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c10"
     char_span: [16220, 17961]
     sentence_count: 9
     key_terms: [information, soviet, intel, party, cia, data, because, grain]
+    concepts: [information, soviet, intel, party, because]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c11"
     char_span: [17963, 19952]
     sentence_count: 12
     key_terms: [team, manager, numbers, people, update, etc, effective, feedback]
+    concepts: [manager, numbers, people, update, effective]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1nbkvnc.md#c6"]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c12"
     char_span: [19954, 21380]
     sentence_count: 11
     key_terms: [got, don, team, important, vacation, because, company, guiding]
+    concepts: [important, vacation, because, company, guiding]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c13"
     char_span: [21382, 22642]
     sentence_count: 9
     key_terms: [like, feedback, get, team, current, little, weird, ihadtopickthisname]
+    concepts: [feedback, current, little, weird]
     section: Comments
     token_count: 313
 ---

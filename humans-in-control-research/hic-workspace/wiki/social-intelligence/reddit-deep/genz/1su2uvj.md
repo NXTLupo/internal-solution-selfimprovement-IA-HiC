@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 908]
     sentence_count: 3
     key_terms: [comments, because, college, failed, having, "don't", money, point]
+    concepts: [comments, because, college, failed, having]
     token_count: 226
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1su2uvj/anyone_else_dont_see_the_point_in_trying_anymore/"}]
   - id: "social-intelligence/reddit-deep/genz/1su2uvj.md#c1"
     char_span: [922, 2508]
     sentence_count: 13
     key_terms: [try, freakysnake102, degree, people, noongaming, because, discord, makes]
+    concepts: [freakysnake102, degree, people, noongaming, because]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1su2uvj.md#c2"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/genz/1su2uvj.md#c2"
     char_span: [2510, 4299]
     sentence_count: 10
     key_terms: [freakysnake102, because, job, time, apprenticeships, pyschofangirl, maybe, debt]
+    concepts: [freakysnake102, because, apprenticeships, pyschofangirl, maybe]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1su2uvj.md#c1"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/genz/1su2uvj.md#c3"
     char_span: [4302, 5507]
     sentence_count: 11
     key_terms: [freakysnake102, colognegod, college, anyone, motion, going, eclecticevergreen, hire]
+    concepts: [freakysnake102, colognegod, college, anyone, motion]
     section: Comments
     token_count: 323
 ---

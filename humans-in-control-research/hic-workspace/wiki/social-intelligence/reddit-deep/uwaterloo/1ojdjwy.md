@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 610]
     sentence_count: 2
     key_terms: [uwaterloo, students, glassdoor, goosedoor, comments, built, com, exploitative]
+    concepts: [uwaterloo, students, glassdoor, goosedoor, comments]
     token_count: 147
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1ojdjwy/i_built_glassdoor_for_uwaterloo_students/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1ojdjwy.md#c1"
     char_span: [624, 1970]
     sentence_count: 6
     key_terms: [east-contract-9378, an1malcross1ng97, great, shopify, levels, independent-crew9790, puzzleheadeddrive692, snoosuggestions7200]
+    concepts: [east-contract-9378, an1malcross1ng97, great, shopify, levels]
     section: Comments
     token_count: 413
 ---

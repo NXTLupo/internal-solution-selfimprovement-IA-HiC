@@ -21,16 +21,22 @@ chunks:
     char_span: [0, 2003]
     sentence_count: 15
     key_terms: [certifications, google, cscareerquestions, job, meta, degree, architecture, certificates]
+    concepts: [certifications, google, cscareerquestions, architecture, certificates]
     token_count: 470
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1shrknu/for_those_who_already_have_a_cs_degree_did/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shrknu.md#c1"
     char_span: [2005, 2662]
     sentence_count: 9
     key_terms: [certificates, experience, projects, hiring, job, time-consuming, contributing, engineering]
+    concepts: [certificates, experience, projects, hiring]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1shrknu.md#c2"]
     token_count: 136
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shrknu.md#c2"
     char_span: [2676, 3718]
     sentence_count: 6
     key_terms: [certificates, resume, revorian, project, hiring, skills, intelligent-glass840, top-half-of-the-page]
+    concepts: [certificates, resume, revorian, project, hiring]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1shrknu.md#c1"]
     section: Comments
     token_count: 255
 ---

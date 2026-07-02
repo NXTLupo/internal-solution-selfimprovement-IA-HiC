@@ -21,57 +21,73 @@ chunks:
     char_span: [0, 1957]
     sentence_count: 15
     key_terms: [people, chatgpt, openai, use, artificial, attachment, concerning, comments]
+    concepts: [people, chatgpt, openai, artificial, attachment]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1mlwunz.md#c2"]
     token_count: 448
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1mlwunz/the_chatgpt_5_backlash_is_concerning/"}]
   - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c1"
     char_span: [1959, 4355]
     sentence_count: 20
     key_terms: [people, something, companionship, never, like, connection, situations, understand]
+    concepts: [people, something, companionship, connection, never]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1mlwunz.md#c2"]
     token_count: 501
   - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c2"
     char_span: [4357, 5405]
     sentence_count: 7
     key_terms: [people, companionship, back, companion, chatgpt, power, open, personalization]
+    concepts: [companionship, people, companion, chatgpt, power]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1mlwunz.md#c0", "social-intelligence/reddit-deep/artificial/1mlwunz.md#c1"]
     token_count: 221
   - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c3"
     char_span: [5419, 6425]
     sentence_count: 5
     key_terms: [completely, critique, "aren't", public-vegetable-182, available-signal209, get, "it's", contradicted]
+    concepts: [completely, critique, "aren't"]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c4"
     char_span: [6427, 7562]
     sentence_count: 9
     key_terms: [listen, information, gpt, work, people, "don't", gtp-5, been]
+    concepts: [listen, information, people, "don't", gtp-5]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c5"
     char_span: [7564, 9749]
     sentence_count: 15
     key_terms: [people, thedadthatgrills, therapy, "aren't", being, countries, because, issues]
+    concepts: [people, thedadthatgrills, therapy, "aren't", being]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c6"
     char_span: [9434, 11533]
     sentence_count: 25
     key_terms: [people, mental, phone, like, loneliness, global, issues, social]
+    concepts: [people, mental, loneliness, phone, global]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1mlwunz.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c7"
     char_span: [11298, 11769]
     sentence_count: 3
     key_terms: [loneliness, global, issue, alancarronline, individualism, increasingly, stereotypes, companies]
+    concepts: [loneliness, global, issue]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1mlwunz.md#c6"]
     section: Comments
     token_count: 125
   - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c8"
     char_span: [11771, 14067]
     sentence_count: 20
     key_terms: [problem, unfortunately, need, emotional, potential, sometimes, profound, digital]
+    concepts: [unfortunately, problem, emotional, potential, sometimes]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c9"
     char_span: [14069, 15019]
     sentence_count: 7
     key_terms: [model, like, people, quirks, hours, learn, disappointment, professionally]
+    concepts: [model, people, quirks, hours, learn]
     section: Comments
     token_count: 221
 ---

@@ -21,71 +21,84 @@ chunks:
     char_span: [0, 1245]
     sentence_count: 5
     key_terms: [buy-america-bye-america-wall-street-exodus-gathers-pace-2026-02-20, investors, https, com, www, investing, business, comments]
+    concepts: [buy-america-bye-america-wall-street-exodus-gathers-pace-2026-02-20, investors, https, investing, business]
     token_count: 301
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1ra9g3x/from_buy_america_to_bye_america_wall_street/"}]
   - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c1"
     char_span: [1259, 2931]
     sentence_count: 9
     key_terms: [toddler, economy, speedflychris, unhinged, better, trying, asset, kgb]
+    concepts: [toddler, speedflychris, economy, unhinged, better]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c2"
     char_span: [2684, 3986]
     sentence_count: 10
     key_terms: [international, been, valuations, rotation, unpredictability, non-emotional, profitability, speedflychris]
+    concepts: [international, valuations, rotation]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c3"
     char_span: [3988, 6158]
     sentence_count: 16
     key_terms: [currency, capital, europe, going, "isn't", trump, union, already]
+    concepts: [currency, capital, europe, going, "isn't"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c4"
     char_span: [5918, 6838]
     sentence_count: 7
     key_terms: [last, people, sentientshadeofgreen, trade, years, sophonparticle, understanding, consumption]
+    concepts: [people, trade, years]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c5"
     char_span: [6840, 9245]
     sentence_count: 30
     key_terms: [energy, china, workers, europe, indian, un-affordable, india, tech]
+    concepts: [energy, china, un-affordable, workers, europe]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c6"
     char_span: [9247, 11554]
     sentence_count: 25
     key_terms: [world, producers, american, deficit, accelerating, trade, eventually, education]
+    concepts: [producers, world, american, deficit, accelerating]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c7"
     char_span: [11556, 13342]
     sentence_count: 15
     key_terms: [imports-tariffs-trade-deficit, world, economy, happen, generations, term, benefited, business]
+    concepts: [imports-tariffs-trade-deficit, world, economy, happen, generations]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c8"
     char_span: [13344, 14594]
     sentence_count: 8
     key_terms: [vulnerabilities, world, case, structural, benefit, markets, dollar, likely]
+    concepts: [vulnerabilities, structural, world, benefit, markets]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c9"
     char_span: [14596, 16729]
     sentence_count: 16
     key_terms: [u-s-hegemony-continuing-decline-enduring-danger, revenue, monthlyreview, world, articles, hegemony, abroad, rather]
+    concepts: [u-s-hegemony-continuing-decline-enduring-danger, monthlyreview, revenue, world, articles]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c10"
     char_span: [16732, 17213]
     sentence_count: 7
     key_terms: [competitors, regional, going, take, legislation, providers, continue, everyone]
+    concepts: [competitors, regional, going]
     section: Comments
     token_count: 111
   - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c11"
     char_span: [17215, 18870]
     sentence_count: 11
     key_terms: [like, income, hospitals, tax-free, bridges, federal, mistake, stable]
+    concepts: [income, hospitals, tax-free, bridges, federal]
     section: Comments
     token_count: 435
 ---

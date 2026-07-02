@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1022]
     sentence_count: 10
     key_terms: [internship, internships, comments, anyone, learn, looks, wants, able]
+    concepts: [internship, internships, comments, anyone, learn]
     token_count: 250
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1lanb8c/finally_got_an_internship_from_pure_cold_emailing/"}]
   - id: "social-intelligence/reddit-deep/internships/1lanb8c.md#c1"
     char_span: [1036, 2968]
     sentence_count: 14
     key_terms: [did, company, jolly-train-4950, congratulations, job, interested, internship, congrats]
+    concepts: [company, jolly-train-4950, congratulations, interested, internship]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1lanb8c.md#c2"
     char_span: [2763, 4012]
     sentence_count: 12
     key_terms: [skills, projects, applying, congrats, internship, did, sent, too]
+    concepts: [skills, projects, applying, congrats, internship]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/internships/1lanb8c.md#c3"

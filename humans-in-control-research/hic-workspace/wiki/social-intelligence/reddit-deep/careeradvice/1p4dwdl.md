@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2168]
     sentence_count: 18
     key_terms: [cybersecurity, company, devops, logistics, option, opportunities, careeradvice, experienced]
+    concepts: [cybersecurity, company, devops, logistics, opportunities]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1p4dwdl/need_career_advice_cybersecurity_role_at/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1p4dwdl.md#c1"
     char_span: [2182, 2735]
     sentence_count: 8
     key_terms: [become, people, hired, big, irreplaceable, accounting, difference, learning]
+    concepts: [become, people, hired]
     section: Comments
     token_count: 137
 ---

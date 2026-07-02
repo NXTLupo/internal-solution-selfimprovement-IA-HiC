@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 984]
     sentence_count: 9
     key_terms: [research, internships, days, experience, internship, comments, student, advice]
+    concepts: [research, internships, experience, internship, comments]
     token_count: 232
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1mgrgwo/lastminute_advice_4_days_apply_for_a_dream/"}]
   - id: "social-intelligence/reddit-deep/internships/1mgrgwo.md#c1"
     char_span: [998, 1880]
     sentence_count: 9
     key_terms: [reachful, research, explore, did, communicate, publication, absolutely, critically]
+    concepts: [reachful, research, explore]
     section: Comments
     token_count: 193
 ---

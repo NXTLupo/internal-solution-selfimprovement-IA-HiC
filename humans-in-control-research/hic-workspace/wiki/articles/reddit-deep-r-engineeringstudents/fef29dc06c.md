@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 979]
     sentence_count: 6
     key_terms: [engineeringstudents, aerospace, startup, important, engineer, reddit, school, going]
+    concepts: [engineeringstudents, aerospace, startup, important, engineer]
     token_count: 204
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1prw3an/tips_for_engineering_students_wanting_those/"}]
   - id: "articles/reddit-deep-r-engineeringstudents/fef29dc06c.md#c1"
     char_span: [981, 3234]
     sentence_count: 20
     key_terms: [experience, engineers, something, thermal, internships, important, job, because]
+    concepts: [experience, engineers, something, internships, thermal]
     token_count: 473
   - id: "articles/reddit-deep-r-engineeringstudents/fef29dc06c.md#c2"
     char_span: [3236, 4635]
     sentence_count: 11
     key_terms: [internships, important, because, always, clubs, "don't", gottatrusttheengr, get]
+    concepts: [internships, important, because, always, clubs]
     token_count: 312
 ---
 # Tips for engineering students wanting those aerospace startup careers

@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 797]
     sentence_count: 5
     key_terms: [brown, applyingtocollege, duke, engineering, comments, software, startups, factors]
+    concepts: [applyingtocollege, brown, engineering, comments, software]
     token_count: 190
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1ss7c1x/duke_vs_brown_for_cs/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ss7c1x.md#c1"
     char_span: [811, 2356]
     sentence_count: 4
     key_terms: [duke, brown, friends, professorroyal6807, enough, connections, internships, undergrad]
+    concepts: [brown, friends, professorroyal6807, enough, connections]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ss7c1x.md#c2"
     char_span: [2358, 4317]
     sentence_count: 9
     key_terms: [duke, brown, cornell, programs, college, prestigious, get, too]
+    concepts: [brown, cornell, programs, college, prestigious]
     section: Comments
     token_count: 491
 ---

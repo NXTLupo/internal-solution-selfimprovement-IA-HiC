@@ -20,26 +20,34 @@ chunks:
     char_span: [0, 2238]
     sentence_count: 26
     key_terms: [search, views, youtube, pain, videos, customer, content, people]
+    concepts: [search, views, youtube, videos, customer]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1r5bhte.md#c3"]
     token_count: 514
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1r5bhte/my_youtube_videos_get_only_100_views_but_they/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1r5bhte.md#c1"
     char_span: [2240, 4710]
     sentence_count: 36
     key_terms: [content, problem, real, specific, pain, comments, tutorial, already]
+    concepts: [content, problem, specific, comments, tutorial]
     token_count: 498
   - id: "social-intelligence/reddit-deep/entrepreneur/1r5bhte.md#c2"
     char_span: [4712, 7132]
     sentence_count: 30
     key_terms: [video, content, google, becomes, mockup, customer, tutorial, search]
+    concepts: [video, content, google, becomes, mockup]
     token_count: 516
   - id: "social-intelligence/reddit-deep/entrepreneur/1r5bhte.md#c3"
     char_span: [7134, 9047]
     sentence_count: 25
     key_terms: [youtube, tools, new, founders, videos, video, pain, customers]
+    concepts: [youtube, tools, founders, videos, video]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1r5bhte.md#c0"]
     token_count: 416
   - id: "social-intelligence/reddit-deep/entrepreneur/1r5bhte.md#c4"
-    char_span: [9062, 10376]
+    char_span: [9061, 10375]
     sentence_count: 7
     key_terms: [entrepreneur, please, post, permanent, promotion, stickied, comment, nuvia7]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 343
 ---

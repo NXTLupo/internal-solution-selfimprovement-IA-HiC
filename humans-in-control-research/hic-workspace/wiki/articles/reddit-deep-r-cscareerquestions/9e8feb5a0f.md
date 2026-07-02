@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2172]
     sentence_count: 16
     key_terms: [internships, job, networking, better, cscareerquestions, personal, projects, chances]
+    concepts: [internships, networking, better, cscareerquestions, personal]
     token_count: 508
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1kw5mrk/should_i_pursue_an_ms_in_cs_to_improve_my/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/9e8feb5a0f.md#c1"
     char_span: [2174, 3983]
     sentence_count: 17
     key_terms: [aspects, domains, masters, someone, person, illustrious-pound266, great, here]
+    concepts: [aspects, domains, masters, someone, person]
     token_count: 413
 ---
 # Should I pursue an MS in CS to improve my internship/job chances if I got zero internships during my BS?

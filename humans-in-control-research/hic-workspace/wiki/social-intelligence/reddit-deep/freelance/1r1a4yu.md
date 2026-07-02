@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2294]
     sentence_count: 18
     key_terms: [proxify, assessment, experience, freelance, allowed, process, camera, documentation]
+    concepts: [proxify, assessment, experience, freelance, documentation]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/freelance","u":"https://www.reddit.com/r/freelance/comments/1r1a4yu/rejected_by_proxify_despite_years_of_professional/"}]
   - id: "social-intelligence/reddit-deep/freelance/1r1a4yu.md#c1"
     char_span: [2296, 3885]
     sentence_count: 18
     key_terms: [code, core, test, because, headers, request, "can't", environment]
+    concepts: [because, headers, request, environment, "can't"]
     token_count: 357
   - id: "social-intelligence/reddit-deep/freelance/1r1a4yu.md#c2"
     char_span: [3899, 5873]
     sentence_count: 15
     key_terms: [platforms, documentation, assessments, "i've", try, everything, no-documentation-allowed, instead]
+    concepts: [platforms, documentation, assessments, everything, instead]
     section: Comments
     token_count: 432
 ---

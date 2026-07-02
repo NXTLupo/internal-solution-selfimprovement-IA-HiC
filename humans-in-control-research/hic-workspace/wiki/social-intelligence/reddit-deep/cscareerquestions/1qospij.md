@@ -21,21 +21,26 @@ chunks:
     char_span: [0, 1697]
     sentence_count: 18
     key_terms: [cscareerquestions, code, stop, exhausting, practices, comments, studying, reading]
+    concepts: [cscareerquestions, exhausting, practices, comments, studying]
     token_count: 415
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qospij/rant_mle_career_paths_keeping_up_with_tech/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qospij.md#c1"
     char_span: [1699, 3680]
     sentence_count: 17
     key_terms: [don, get, leetcode, supposed, documentation, wanna, sure, engineers]
+    concepts: [leetcode, supposed, documentation, wanna, engineers]
     token_count: 464
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qospij.md#c2"
     char_span: [3682, 4450]
     sentence_count: 9
     key_terms: [good, working, seems, get, keep, mle, work, professionals]
+    concepts: [working, seems]
     token_count: 180
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qospij.md#c3"
     char_span: [4464, 6201]
     sentence_count: 11
     key_terms: [established, learning, software, yourself, tooling, without, effort, moving]
+    concepts: [established, learning, software, yourself, tooling]
     section: Comments
     token_count: 388
 ---

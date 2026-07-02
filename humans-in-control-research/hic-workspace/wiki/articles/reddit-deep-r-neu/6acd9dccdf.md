@@ -19,14 +19,17 @@ content_hash: "b52c5148416d69b8"
 relevance_by_goal: {"3d9ef8ee927f":48}
 chunks:
   - id: "articles/reddit-deep-r-neu/6acd9dccdf.md#c0"
-    char_span: [0, 1028]
+    char_span: [0, 1027]
     sentence_count: 9
     key_terms: [co-ops, co-op, difficult, having, employers, students, landing, reddit]
-    token_count: 240
+    concepts: [co-ops, difficult, co-op, having, employers]
+    token_count: 239
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1tcjfq9/depressing_coop_search/"}]
   - id: "articles/reddit-deep-r-neu/6acd9dccdf.md#c1"
-    char_span: [1030, 2696]
+    char_span: [1029, 2695]
     sentence_count: 10
     key_terms: [co-op, search, able, coop, internship, student, reason, independent-ad-4509]
+    concepts: [co-op, search, internship, student, reason]
     token_count: 405
 ---
 # Depressing Co-op search

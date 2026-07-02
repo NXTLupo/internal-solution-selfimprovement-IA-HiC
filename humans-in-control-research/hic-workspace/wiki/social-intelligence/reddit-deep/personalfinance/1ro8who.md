@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 796]
     sentence_count: 4
     key_terms: [personalfinance, advice, debt, comments, paying, house, realistically, reddit-deep]
+    concepts: [personalfinance, advice, comments, paying, house]
     token_count: 188
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1ro8who/money_advice_paying_off_debt_and_saving/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1ro8who.md#c1"
     char_span: [810, 1897]
     sentence_count: 3
     key_terms: ["there's", get, paying, substantial-pop-7529, basic, least, debt, down]
+    concepts: ["there's", paying, basic, least]
     section: Comments
     token_count: 236
 ---

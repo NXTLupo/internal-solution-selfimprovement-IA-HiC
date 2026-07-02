@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1930]
     sentence_count: 17
     key_terms: [school, classes, grad, people, did, criticisms, gradschool, interested]
+    concepts: [school, classes, people, criticisms, gradschool]
     token_count: 447
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tk0odl/is_grad_school_harder_than_undergrad_or_just/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1tk0odl.md#c1"
     char_span: [1944, 4060]
     sentence_count: 19
     key_terms: [undergrad, school, like, time, feels, difficult, grad, because]
+    concepts: [undergrad, school, difficult, feels, because]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1tk0odl.md#c3"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/gradschool/1tk0odl.md#c2"
     char_span: [4062, 5719]
     sentence_count: 18
     key_terms: [difficulty, school, grad, "i'm", year, experience, motivation, different]
+    concepts: [difficulty, school, experience, motivation, different]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/gradschool/1tk0odl.md#c3"
     char_span: [5721, 7522]
     sentence_count: 11
     key_terms: [undergrad, harder, assignment, requires, because, courses, several, easier]
+    concepts: [undergrad, harder, assignment, requires, because]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1tk0odl.md#c1"]
     section: Comments
     token_count: 436
 ---

@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1488]
     sentence_count: 10
     key_terms: ["i'm", work, getting, time, gradschool, balancing, bullshit, comments]
+    concepts: [getting, gradschool, balancing, bullshit, comments]
     token_count: 341
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rs32aq/im_getting_frustrated_with_the_balancing_act_of/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1rs32aq.md#c1"
     char_span: [1502, 3443]
     sentence_count: 9
     key_terms: [actual, part, meetings, research, classes, finish, phd, work]
+    concepts: [actual, meetings, research, classes, finish]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1rs32aq.md#c2"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/gradschool/1rs32aq.md#c2"
     char_span: [3446, 5458]
     sentence_count: 14
     key_terms: [research, hours, day, want, work, professional, "i'm", like]
+    concepts: [research, hours, professional, reading, actual]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1rs32aq.md#c1"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/gradschool/1rs32aq.md#c3"
     char_span: [5460, 6457]
     sentence_count: 7
     key_terms: [research, pipette, likely, others, school, though, grad, work]
+    concepts: [research, pipette, likely, others, school]
     section: Comments
     token_count: 213
 ---

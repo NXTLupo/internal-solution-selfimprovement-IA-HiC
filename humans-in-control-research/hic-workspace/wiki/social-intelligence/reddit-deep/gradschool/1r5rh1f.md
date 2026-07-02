@@ -21,59 +21,70 @@ chunks:
     char_span: [0, 1498]
     sentence_count: 14
     key_terms: [interesting, quit, day, get, gradschool, comments, quitting, research]
+    concepts: [interesting, gradschool, comments, quitting, research]
     token_count: 361
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1r5rh1f/i_am_thinking_of_quitting_my_phd_and_need_any/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c1"
     char_span: [1512, 3552]
     sentence_count: 19
     key_terms: [phd, money, job, program, opportunity, find, potential, applying]
+    concepts: [money, program, opportunity, potential, applying]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c2"
     char_span: [3554, 5425]
     sentence_count: 20
     key_terms: [advisor, process, opportunities, cold, did, feet, department, experience]
+    concepts: [opportunities, advisor, process, department, experience]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c3"
     char_span: [5427, 7105]
     sentence_count: 16
     key_terms: [phd, research, year, program, reasons, started, student, data]
+    concepts: [research, program, reasons, started, student]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c4"
     char_span: [7107, 8468]
     sentence_count: 10
     key_terms: [phd, degree, don, get, industry, research, already, masters]
+    concepts: [degree, industry, research, already, masters]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c5"
     char_span: [8470, 10554]
     sentence_count: 10
     key_terms: [justking1414, definitely, probably, get, year, something, interest, defense]
+    concepts: [justking1414, definitely, probably, something, interest]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c6"
     char_span: [10556, 11099]
     sentence_count: 3
     key_terms: [interest, pay, speciality, sufficient, supporting, principle, proximity, careers]
+    concepts: [interest]
     section: Comments
     token_count: 113
   - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c7"
     char_span: [11101, 13261]
     sentence_count: 14
     key_terms: [phd, materials, tiredbiochemist, science, school, get, material, biochem]
+    concepts: [materials, tiredbiochemist, science, school, material]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c8"
     char_span: [13040, 15136]
     sentence_count: 17
     key_terms: [day, phd, like, work, academiasupport, classes, going, get]
+    concepts: [academiasupport, classes, going, different, lydiaj123]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c9"
     char_span: [14932, 15480]
     sentence_count: 9
     key_terms: [good, life, feels, days, don, long, quit, references]
+    concepts: [feels]
     section: Comments
     token_count: 148
 ---

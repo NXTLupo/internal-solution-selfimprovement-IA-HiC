@@ -20,35 +20,44 @@ chunks:
     char_span: [0, 1030]
     sentence_count: 6
     key_terms: [logistics, operations, problems, technology, understand, companies, comments, ground]
+    concepts: [logistics, operations, problems, technology, understand]
     token_count: 215
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1txr1ik/what_are_the_biggest_day_to_day_problems_in/"}]
   - id: "social-intelligence/reddit-deep/logistics/1txr1ik.md#c1"
-    char_span: [1045, 3420]
+    char_span: [1044, 3419]
     sentence_count: 5
     key_terms: [dispatcher, lies, time, driver, "what's", ninjahatori2, fuel, operations]
+    concepts: [dispatcher, driver, ninjahatori2, "what's", operations]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/logistics/1txr1ik.md#c2"
-    char_span: [3422, 5556]
+    char_span: [3421, 5555]
     sentence_count: 9
     key_terms: [ninjahatori2, container, sharing, time, happening, contract, insights, terminal]
+    concepts: [ninjahatori2, container, sharing, happening, contract]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1txr1ik.md#c4"]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/logistics/1txr1ik.md#c3"
-    char_span: [5558, 7619]
+    char_span: [5557, 7618]
     sentence_count: 10
     key_terms: [system, level, different, ground, documentation, sds, sequencing, documents]
+    concepts: [system, different, level, documentation, ground]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/logistics/1txr1ik.md#c4"
-    char_span: [7621, 9730]
+    char_span: [7620, 9729]
     sentence_count: 17
     key_terms: [ninjahatori2, happens, sharing, thank, declaration, information, time, "carrier's"]
+    concepts: [ninjahatori2, happens, sharing, declaration, information]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1txr1ik.md#c2"]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/logistics/1txr1ik.md#c5"
-    char_span: [9732, 11840]
+    char_span: [9731, 11839]
     sentence_count: 10
     key_terms: [real, logistics, day, biggest, minute, ninjahatori2, dispatchers, operations]
+    concepts: [logistics, biggest, ninjahatori2, minute, dispatchers]
     section: Comments
     token_count: 474
 ---

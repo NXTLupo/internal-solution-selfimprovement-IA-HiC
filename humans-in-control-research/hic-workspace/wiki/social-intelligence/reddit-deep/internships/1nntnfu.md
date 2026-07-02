@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 2249]
     sentence_count: 27
     key_terms: [difference, apply, companies, job, better, internships, jobs, different]
+    concepts: [difference, companies, apply, better, internships]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1nntnfu/my_lessons_from_1482_job_applications_and_5_offers/"}]
   - id: "social-intelligence/reddit-deep/internships/1nntnfu.md#c1"
     char_span: [2251, 4002]
     sentence_count: 20
     key_terms: [experience, interview, interviews, questions, job, real, company, resume]
+    concepts: [experience, interview, interviews, questions, company]
     token_count: 367
   - id: "social-intelligence/reddit-deep/internships/1nntnfu.md#c2"
     char_span: [4016, 4893]
     sentence_count: 3
     key_terms: [helpful, thanks, student, openingkitchen7220, want, work, congratulations, real-role872]
+    concepts: [helpful, thanks, student]
     section: Comments
     token_count: 238
 ---

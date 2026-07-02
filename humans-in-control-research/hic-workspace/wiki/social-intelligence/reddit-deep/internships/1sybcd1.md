@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1660]
     sentence_count: 2
     key_terms: [full-stack, system, microservices, built, internships, tech, attendance, internship]
+    concepts: [full-stack, system, microservices, internships, attendance]
     token_count: 420
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sybcd1/is_the_market_that_brutal_3rd_year_fullstack_dev/"}]
   - id: "social-intelligence/reddit-deep/internships/1sybcd1.md#c1"
     char_span: [1674, 3038]
     sentence_count: 6
     key_terms: [metrics, resume, get, real, projects, channel, strong, point]
+    concepts: [metrics, resume, projects, channel, strong]
     section: Comments
     token_count: 349
 ---

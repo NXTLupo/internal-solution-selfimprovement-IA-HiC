@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 330]
     sentence_count: 1
     key_terms: [chatgpt, comments, reddit-deep, department, essoessex, homeland, security, ordered]
+    concepts: [chatgpt, comments]
     token_count: 89
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1oct62p/department_of_homeland_security_ordered_openai_to/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1oct62p.md#c1"
     char_span: [344, 2520]
     sentence_count: 13
     key_terms: [search, r-chatgpt-1050422060352024636, vpn, danthedeer, protecting, countries, providers, subpeonad]
+    concepts: [search, danthedeer, protecting, countries, providers]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1oct62p.md#c2"
     char_span: [2522, 3607]
     sentence_count: 3
     key_terms: [activity, evidence, online, crime, charged, fiction, worried, google]
+    concepts: [activity, evidence, online, crime, charged]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/chatgpt/1oct62p.md#c3"
     char_span: [3609, 5784]
     sentence_count: 11
     key_terms: [government, different, internet, personal, wrong, information, type, something]
+    concepts: [government, different, internet, personal, information]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/chatgpt/1oct62p.md#c4"
     char_span: [5786, 7841]
     sentence_count: 9
     key_terms: [meaning, guess, hanzi, breadcrumbs, information, get, chatgpt, history]
+    concepts: [meaning, breadcrumbs, information, guess, hanzi]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/chatgpt/1oct62p.md#c5"
     char_span: [7843, 9321]
     sentence_count: 8
     key_terms: [the-worries-about-ai-in-trumps-social-media-surveillance-00279255, digital-future-daily, newsletters, anything, politico, himself, suspect, warrant]
+    concepts: [the-worries-about-ai-in-trumps-social-media-surveillance-00279255, digital-future-daily, newsletters, anything, politico]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/chatgpt/1oct62p.md#c6"
     char_span: [9323, 10267]
     sentence_count: 5
     key_terms: [patterns, engage, rocketlabbeatsspacex, bannedwith1milkarma, giphy, adeptnessround9618, quendfi6demlzq0ckt, gif]
+    concepts: [patterns, engage, giphy]
     section: Comments
     token_count: 276
 ---

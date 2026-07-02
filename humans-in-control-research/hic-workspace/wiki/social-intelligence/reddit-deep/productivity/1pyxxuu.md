@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1098]
     sentence_count: 10
     key_terms: [productivity, better, alignment, comments, instead, avoid, feels, focus]
+    concepts: [productivity, better, alignment, comments, instead]
     token_count: 225
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1pyxxuu/productivity_isnt_about_discipline_its_about/"}]
   - id: "social-intelligence/reddit-deep/productivity/1pyxxuu.md#c1"
     char_span: [1112, 3198]
     sentence_count: 17
     key_terms: [discipline, readwithai, dews0, goals, value, alignment, goal, level]
+    concepts: [discipline, readwithai, alignment, dews0, goals]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/productivity/1pyxxuu.md#c2"
     char_span: [3200, 5326]
     sentence_count: 23
     key_terms: [productivity, good, people, important, being, often, throughout, adherence]
+    concepts: [productivity, people, important, being, often]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/productivity/1pyxxuu.md#c3"
     char_span: [5328, 7446]
     sentence_count: 10
     key_terms: [something, friction, instead, indexintuition, uncomfortable, productivity, real, automation]
+    concepts: [something, friction, indexintuition, uncomfortable, instead]
     section: Comments
     token_count: 447
 ---

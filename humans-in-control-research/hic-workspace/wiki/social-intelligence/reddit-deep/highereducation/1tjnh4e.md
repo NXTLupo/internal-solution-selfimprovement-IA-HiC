@@ -19,40 +19,50 @@ chunks:
     char_span: [0, 1888]
     sentence_count: 17
     key_terms: [registrar, office, highereducation, problem, banner, comments, students, faculty]
+    concepts: [registrar, office, highereducation, problem, banner]
     token_count: 431
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1tjnh4e/career_advice_registrar_to_it/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1tjnh4e.md#c1"
     char_span: [1890, 2294]
     sentence_count: 3
     key_terms: [experience, banner, learn, don, certifications, demonstrate, familiarity, programming]
+    concepts: [experience, banner, learn]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1tjnh4e.md#c6"]
     token_count: 84
   - id: "social-intelligence/reddit-deep/highereducation/1tjnh4e.md#c2"
     char_span: [2308, 4319]
     sentence_count: 17
     key_terms: [registrar, ellucian, people, "don't", institution, here, consulting, ferrilli]
+    concepts: [registrar, ellucian, people, institution, consulting]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/highereducation/1tjnh4e.md#c3"
     char_span: [4321, 6511]
     sentence_count: 19
     key_terms: [banner, systems, "i'm", like, workday, blackswampmage, maybe, interviewed]
+    concepts: [banner, systems, blackswampmage, workday, interviewed]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/highereducation/1tjnh4e.md#c4"
     char_span: [6513, 8117]
     sentence_count: 19
     key_terms: [parents, veanell, better, higher, calls, want, work, university]
+    concepts: [parents, veanell, better, higher, calls]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/highereducation/1tjnh4e.md#c5"
     char_span: [8119, 9966]
     sentence_count: 14
     key_terms: [options, people, sometimes, current, private, systems, access, degree]
+    concepts: [options, people, sometimes, current, private]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/highereducation/1tjnh4e.md#c6"
     char_span: [9968, 11037]
     sentence_count: 11
     key_terms: [experience, mentioned, banner, behind, learn, get, "i'm", ive]
+    concepts: [experience, mentioned, banner, behind, learn]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1tjnh4e.md#c1"]
     section: Comments
     token_count: 236
 ---

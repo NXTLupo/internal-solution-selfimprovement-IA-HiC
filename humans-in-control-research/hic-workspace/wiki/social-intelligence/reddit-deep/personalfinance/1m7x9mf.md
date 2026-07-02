@@ -20,23 +20,32 @@ chunks:
     char_span: [0, 1532]
     sentence_count: 9
     key_terms: [credit, card, benefits, personalfinance, cards, close, comments, compared]
+    concepts: [credit, personalfinance, benefits, cards, close]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1m7x9mf.md#c1", "social-intelligence/reddit-deep/personalfinance/1m7x9mf.md#c3"]
     token_count: 364
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1m7x9mf/wanting_to_close_my_awful_first_credit_card/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1m7x9mf.md#c1"
-    char_span: [1547, 3549]
+    char_span: [1546, 3548]
     sentence_count: 17
     key_terms: [credit, cards, years, card, utilization, month, always, score]
+    concepts: [credit, cards, years, utilization, month]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1m7x9mf.md#c0"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/personalfinance/1m7x9mf.md#c2"
-    char_span: [3551, 5703]
+    char_span: [3550, 5702]
     sentence_count: 15
     key_terms: [credit, "you're", card, new, pay, closing, "don't", score]
+    concepts: [credit, "you're", closing, definitely, "don't"]
     section: Comments
     token_count: 493
+    sources: [{"n":"have worked in data/analytics for multiple financial companies, including credit","u":""}]
   - id: "social-intelligence/reddit-deep/personalfinance/1m7x9mf.md#c3"
-    char_span: [5705, 6738]
+    char_span: [5704, 6737]
     sentence_count: 12
     key_terms: [credit, card, close, enough, paying, score, fine, pay]
+    concepts: [credit, close, enough, paying, score]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1m7x9mf.md#c0"]
     section: Comments
     token_count: 274
 ---

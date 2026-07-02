@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 863]
     sentence_count: 4
     key_terms: [applyingtocollege, help, experience, something, comments, college, work, ayobroseriously]
+    concepts: [applyingtocollege, experience, something, comments, college]
     token_count: 218
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1qtc5dw/any_suggestions_for_the_college_application_plsss/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qtc5dw.md#c1"
     char_span: [877, 1708]
     sentence_count: 5
     key_terms: [admissions-source-school, universityofcalifornia, https, gpa-calculator-uc, infocenter, financial, rogerhub, college]
+    concepts: [admissions-source-school, universityofcalifornia, gpa-calculator-uc, https, infocenter]
     section: Comments
     token_count: 210
 ---

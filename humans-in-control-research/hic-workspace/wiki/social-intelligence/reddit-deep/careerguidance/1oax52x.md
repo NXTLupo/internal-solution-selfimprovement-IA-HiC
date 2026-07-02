@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 1917]
     sentence_count: 17
     key_terms: [career, something, healthcare, want, careerguidance, people, least, down]
+    concepts: [something, career, healthcare, careerguidance, people]
     token_count: 458
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1oax52x/what_healthcare_career_would_you_recommend/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1oax52x.md#c1"
     char_span: [1931, 3873]
     sentence_count: 11
     key_terms: [nursing, radiology, thecrystalball2018, get, work, degree, good, live]
+    concepts: [nursing, radiology, thecrystalball2018, degree, associates]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1oax52x.md#c2", "social-intelligence/reddit-deep/careerguidance/1oax52x.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1oax52x.md#c2"
     char_span: [3577, 5810]
     sentence_count: 20
     key_terms: [nursing, insurance, become, degree, did, get, good, like]
+    concepts: [nursing, insurance, become, degree, experience]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1oax52x.md#c1", "social-intelligence/reddit-deep/careerguidance/1oax52x.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1oax52x.md#c3"
     char_span: [5531, 6300]
     sentence_count: 8
     key_terms: [nursing, degree, like, experience, bachelor, being, maybe, did]
+    concepts: [nursing, degree, experience, bachelor, being]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1oax52x.md#c1", "social-intelligence/reddit-deep/careerguidance/1oax52x.md#c2"]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/careerguidance/1oax52x.md#c4"
     char_span: [6302, 6860]
     sentence_count: 4
     key_terms: [nurse, techs, years, good, life, shezeundone, crissbliss, hygienists]
+    concepts: [nurse, techs, years]
     section: Comments
     token_count: 141
 ---

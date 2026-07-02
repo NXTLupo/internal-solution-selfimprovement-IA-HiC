@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1533]
     sentence_count: 5
     key_terms: [internships, internship, maybe, "you're", nyc, interested, competing, comments]
+    concepts: [internships, internship, maybe, "you're", interested]
     token_count: 355
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sya3go/last_minute_internships_in_nyc_as_a_first_year/"}]
 ---
 # Last minute internships in NYC as a first year undergraduate student?
 

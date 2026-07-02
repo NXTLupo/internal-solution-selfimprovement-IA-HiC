@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 745]
     sentence_count: 3
     key_terms: [applyingtocollege, comments, officers, fbi, hard, jaihanusthegreat, accreditation, perseverance]
+    concepts: [applyingtocollege, comments, officers]
     token_count: 176
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1odqdl4/jokes_too_hot_for_admission_officers/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1odqdl4.md#c1"
     char_span: [759, 2217]
     sentence_count: 3
     key_terms: [jaihanusthegreat, someone, itswooooshwithouttheh, independent-skirt487, professional-net1776, showbusinessforyou67, truecommunication440, itswooooshwith4os]
+    concepts: [jaihanusthegreat, someone]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/applyingtocollege/1odqdl4.md#c2"
     char_span: [2219, 2868]
     sentence_count: 3
     key_terms: [applyingtocollege, essays, wiki, reddit, collegeessays, https, com, www]
+    concepts: [applyingtocollege, essays, collegeessays, reddit, https]
     section: Comments
     token_count: 161
 ---

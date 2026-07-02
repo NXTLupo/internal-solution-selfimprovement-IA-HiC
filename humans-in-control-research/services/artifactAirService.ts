@@ -7,7 +7,7 @@
  * store. Renderers consume AIR; none renders from raw model prose (enforced by air_schema_integrity, ramped
  * shadow -> blocking per path through Stage 3).
  *
- * Plan: plans/hic-definitive-vision-and-100-percent-plan-v2-2026-06-30.md (WS-0). Persistence is via the proxy
+ * Plan: plans/hic-definitive-vision-and-100-percent-plan-v2-2026-07-01.md (WS-0). Persistence is via the proxy
  * (POST /api/air/write); writeAir degrades gracefully (persisted:false) if the proxy endpoint is absent so this
  * module never breaks a running build before the endpoint ships.
  */
@@ -105,6 +105,56 @@ const EMPTY_HIERARCHY: InsightHierarchy = {
     situation: [], complication: [], rootCauses: [], implications: [], strategicChoices: [],
 };
 
+// W4 (2026-07-01, scorecard "renderPlan empty"): derive the render plan FROM THE CATALOG when the caller
+// does not supply one. The catalog already declares each artifact's modality/editability/image-bearing
+// contract; an empty targetModes/imageSlots was a mapping gap, not missing information (converge, no fork).
+const _DIAGRAM_TEMPLATES = new Set(['journey-map', 'architecture-map', 'service-blueprint']);
+const _DIAGRAM_IDS = new Set(['journey', 'arch', 'blueprint', 'mindmap']);
+function deriveTargetModes(entry: ArtifactCatalogEntry | null): RenderPlan['targetModes'] {
+    if (!entry) return ['analyst'];
+    switch (entry.modality) {
+        case 'slides':
+        case 'multi': return ['analyst', 'pptx'];
+        case 'html': return ['analyst', 'html'];
+        case 'figma_spec': return ['figma'];
+        case 'external_render': return ['html'];
+        case 'image': return ['analyst'];
+        case 'analysis':
+        default: return ['analyst'];
+    }
+}
+function deriveImageSlots(entry: ArtifactCatalogEntry | null): ImageSlotDecision[] {
+    if (!entry) return [{ slotId: 'canvas', mode: 'none', wired: true }];
+    const slots: ImageSlotDecision[] = [];
+    if ((entry.templateId && _DIAGRAM_TEMPLATES.has(entry.templateId)) || _DIAGRAM_IDS.has(entry.id)) {
+        // D17: journeys/arch/blueprints/mindmaps render as a full-bleed native GOLD exhibit image
+        // (HTML/CSS from brand tokens -> headless Chromium via /api/ai/diagram), never diffusion image-gen.
+        slots.push({
+            slotId: 'exhibit:full-bleed-diagram',
+            templateId: entry.templateId || undefined,
+            mode: 'diagram',
+            modelTier: 'native_render_chromium',
+            promptSource: 'evidence_ledger',
+            wired: true,
+            altText: `${entry.id} exhibit composed from brand tokens + slide data (D17 native render)`,
+        });
+    }
+    if (entry.imageBearing) {
+        slots.push({
+            slotId: 'element-imagery',
+            templateId: entry.templateId || undefined,
+            mode: 'brand_image',
+            promptSource: 'air_insight',
+            wired: true,
+        });
+    }
+    if (slots.length === 0) {
+        // Deliberately image-free layout - recorded, never silently unfilled (phase 8).
+        slots.push({ slotId: 'canvas', templateId: entry.templateId || undefined, mode: 'none', wired: true });
+    }
+    return slots;
+}
+
 /** Build an ArtifactAIR. artifactType is resolved from the trigger via the catalog (none omitted). */
 export function buildAir(input: BuildAirInput): { air: ArtifactAIR; entry: ArtifactCatalogEntry | null } {
     const entry = catalogEntryFor(input.trigger);
@@ -120,9 +170,9 @@ export function buildAir(input: BuildAirInput): { air: ArtifactAIR; entry: Artif
         insightHierarchy: { ...EMPTY_HIERARCHY, ...(input.insightHierarchy || {}) },
         artifactPayload: input.artifactPayload ?? null,
         renderPlan: {
-            targetModes: input.renderPlan?.targetModes || [],
+            targetModes: input.renderPlan?.targetModes?.length ? input.renderPlan.targetModes : deriveTargetModes(entry),
             templateCandidates: input.renderPlan?.templateCandidates || (entry?.templateId ? [entry.templateId] : []),
-            imageSlots: input.renderPlan?.imageSlots || [],
+            imageSlots: input.renderPlan?.imageSlots?.length ? input.renderPlan.imageSlots : deriveImageSlots(entry),
             density: input.renderPlan?.density || 'base',
         },
         modelTrace: trace.modelSteps,
@@ -162,6 +212,20 @@ export const MIN_WELLFORMED_RATIO = 0.10;
  * evidence well-formedness is a RATIO — it blocks only below MIN_WELLFORMED_RATIO (grounding collapse) and
  * is otherwise a warning. In shadow mode nothing blocks (ok=true) so a path can ramp before it flips.
  */
+// W5 (2026-07-01, scorecard "36 generic citations"): provider-bucket citations in the RENDERED PAYLOAD
+// are an objective credibility defect - "(Source: Gemini Focused Research)" leaks model provenance as if
+// it were a source. Mirrors .claude/hooks/checks/citation_resolution.py (keep in sync).
+const PAYLOAD_BUCKET_CITATION_RE = /\(\s*sources?\s*:\s*(gemini|openai|deepseek|anthropic|claude|gpt)\b[^)]*\)|gemini\s*\(\s*focused\s+research\s*\)|\bsource\s*:\s*(gemini|openai|deepseek)\b/gi;
+// W8: naked quantitative claims OUTSIDE double-quoted verbatim quotes (the #1 AI-slop tell per
+// .claude/CLAUDE.md Quantitative Claim Rule). Heuristic count, surfaced as a review score, never a block.
+function countNakedNumbers(text: string): number {
+    if (!text) return 0;
+    // strip double-quoted spans (a number inside a verbatim quote is allowed)
+    const outsideQuotes = text.replace(/"[^"]{10,400}"/g, ' ');
+    const m = outsideQuotes.match(/\b\d+(?:\.\d+)?\s*%|\$\s?\d[\d,.]*(?:\s?[KMB]\b|billion|million)?/gi);
+    return m ? m.length : 0;
+}
+
 export function validateAir(air: ArtifactAIR): AirValidationResult {
     const failures: string[] = [];
     const warnings: string[] = [];
@@ -183,6 +247,24 @@ export function validateAir(air: ArtifactAIR): AirValidationResult {
     } else if (badPointers.length > 0) {
         warnings.push(`${badPointers.length}/${ledger.length} evidence pointer(s) not well-formed (no named source: pre-migration source-lag)`);
     }
+    // W5: provider-bucket citations in the payload are a CONTRACT failure (objective defect - blocks
+    // when the path is non-shadow). The real source must come from the chunk/page attribution ladder.
+    let payloadText = '';
+    try { payloadText = typeof air.artifactPayload === 'string' ? air.artifactPayload : JSON.stringify(air.artifactPayload || ''); } catch { /* non-serializable payload */ }
+    if (payloadText) {
+        const buckets = payloadText.match(PAYLOAD_BUCKET_CITATION_RE);
+        if (buckets && buckets.length) {
+            failures.push(`${buckets.length} provider-bucket citation(s) in payload (e.g. ${String(buckets[0]).slice(0, 60)}) - resolve to the REAL source, never a model/provider label`);
+        }
+        // W8: naked-number review signal (Quantitative Claim Rule). Reported, never blocks.
+        const naked = countNakedNumbers(payloadText);
+        if (air.qualityReport) air.qualityReport.reviewScores['naked_numbers_outside_quotes'] = naked;
+        if (naked > 0) warnings.push(`${naked} naked quantitative claim(s) outside verbatim quotes (Quantitative Claim Rule review signal)`);
+    }
+    // W2/W3 observability: an empty modelTrace or undecomposed objective is a hydration gap the
+    // scorecard flagged - surface it every run so it can never be silently absent again.
+    if (!air.modelTrace || air.modelTrace.length === 0) warnings.push('modelTrace empty: no routed model/reason recorded for this artifact');
+    if (!air.objective?.decomposedQuestions || air.objective.decomposedQuestions.length === 0) warnings.push('objective.decomposedQuestions empty: sub-question coverage not recorded');
     return { ok: shadow ? true : failures.length === 0, failures, warnings, wellFormedRatio, shadowMode: shadow };
 }
 

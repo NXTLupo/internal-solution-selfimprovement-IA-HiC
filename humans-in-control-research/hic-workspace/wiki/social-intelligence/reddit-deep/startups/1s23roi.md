@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 2338]
     sentence_count: 15
     key_terms: ["i've", product, thought, point, get, learned, market, distribution]
+    concepts: [product, thought, point, learned, distribution]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1s23roi/ive_learned_way_more_about_market_research_and/"}]
   - id: "social-intelligence/reddit-deep/startups/1s23roi.md#c1"
-    char_span: [2353, 3691]
+    char_span: [2352, 3690]
     sentence_count: 14
     key_terms: [product, time, marketing, something, business, weekends, hustle, build]
+    concepts: [product, marketing, something, business, weekends]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/startups/1s23roi.md#c2"
-    char_span: [3693, 5312]
+    char_span: [3692, 5311]
     sentence_count: 6
     key_terms: [products, get, saturated, outbound, getting, market, sales, skill]
+    concepts: [products, saturated, outbound, getting, market]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/startups/1s23roi.md#c3"
-    char_span: [5314, 7155]
+    char_span: [5313, 7154]
     sentence_count: 13
     key_terms: [cold, different, sequences, outbound, specific, already, because, getting]
+    concepts: [different, sequences, outbound, specific, already]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1s23roi.md#c4"]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/startups/1s23roi.md#c4"
-    char_span: [7159, 9170]
+    char_span: [7158, 9169]
     sentence_count: 11
     key_terms: [outbound, distribution, real, different, outreach, research, problem, started]
+    concepts: [outbound, distribution, different, outreach, research]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1s23roi.md#c3"]
     section: Comments
     token_count: 446
 ---

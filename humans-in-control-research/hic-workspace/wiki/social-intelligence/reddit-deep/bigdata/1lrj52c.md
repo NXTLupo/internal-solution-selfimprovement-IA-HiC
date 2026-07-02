@@ -17,19 +17,26 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/bigdata/1lrj52c.md#c0"
-    char_span: [0, 2333]
+    char_span: [0, 2332]
     sentence_count: 11
     key_terms: [mlops, learning, machine, engineers, data-scientist-vs-ml-engineer-a-comparative-career-guide, deployment, operations, models]
-    token_count: 514
+    concepts: [mlops, learning, machine, engineers, deployment]
+    related_chunks: ["social-intelligence/reddit-deep/bigdata/1lrj52c.md#c1", "social-intelligence/reddit-deep/bigdata/1lrj52c.md#c2"]
+    token_count: 513
+    sources: [{"n":"reddit-deep: r/bigdata","u":"https://www.reddit.com/r/bigdata/comments/1lrj52c/futureproof_your_tech_career_with_mlops/"}]
   - id: "social-intelligence/reddit-deep/bigdata/1lrj52c.md#c1"
-    char_span: [2335, 4957]
+    char_span: [2334, 4956]
     sentence_count: 12
     key_terms: [certification, engineering, mlops, data, engineer, learning, machine, professional]
+    concepts: [certification, engineering, mlops, engineer, learning]
+    related_chunks: ["social-intelligence/reddit-deep/bigdata/1lrj52c.md#c0", "social-intelligence/reddit-deep/bigdata/1lrj52c.md#c2"]
     token_count: 483
   - id: "social-intelligence/reddit-deep/bigdata/1lrj52c.md#c2"
-    char_span: [4959, 6430]
+    char_span: [4958, 6429]
     sentence_count: 10
     key_terms: [data, learning, machine, certifications, engineering, looking, related, devops]
+    concepts: [learning, certifications, machine, engineering, looking]
+    related_chunks: ["social-intelligence/reddit-deep/bigdata/1lrj52c.md#c0", "social-intelligence/reddit-deep/bigdata/1lrj52c.md#c1"]
     token_count: 292
 ---
 # Future-proof Your Tech Career with MLOps Certification

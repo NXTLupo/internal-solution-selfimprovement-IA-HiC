@@ -19,51 +19,67 @@ chunks:
     char_span: [0, 2146]
     sentence_count: 5
     key_terms: [school, applyingtocollege, prestige, connections, like, top, anything, comments]
+    concepts: [school, applyingtocollege, prestige, connections, anything]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c6"]
     token_count: 460
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1t8v1zm/reflections_from_someone_who_didnt_go_to_the/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c1"
     char_span: [2148, 3965]
     sentence_count: 7
     key_terms: [school, because, friends, less, top, different, obviously, everyone]
+    concepts: [school, because, friends, different, obviously]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c6"]
     token_count: 372
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c2"
     char_span: [3967, 5683]
     sentence_count: 5
     key_terms: [school, balanced, schools, names, connections, big, feel, prob]
+    concepts: [school, balanced, schools, connections, names]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c0"]
     token_count: 390
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c3"
     char_span: [5697, 6597]
     sentence_count: 7
     key_terms: [prestige, general, getting, matters, schools, matter, option, comfortable-fun1718]
+    concepts: [prestige, general, getting, matters, schools]
     section: Comments
     token_count: 217
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c4"
     char_span: [6599, 8246]
     sentence_count: 8
     key_terms: [prestige, prestigious, afford, georgetown, affordability, cew-reports, perspective, does]
+    concepts: [prestige, prestigious, georgetown, afford, affordability]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c6"]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c5"
     char_span: [8248, 10521]
     sentence_count: 13
     key_terms: [prestige, here, notavalgrinder, school, undergraduate, "don't", university, realized]
+    concepts: [prestige, notavalgrinder, undergraduate, school, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c6"
     char_span: [10255, 12355]
     sentence_count: 15
     key_terms: [school, prestige, prestigious, t20, different, outcomes, positive, matters]
+    concepts: [school, prestige, prestigious, different, outcomes]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c7"
     char_span: [12070, 12913]
     sentence_count: 6
     key_terms: [everything, understand, college, working, school, single, "don't", else]
+    concepts: [everything, understand, college, working, school]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c8"
     char_span: [12915, 14157]
     sentence_count: 8
     key_terms: [applyingtocollege, essays, wiki, boomers, reddit, collegeessays, https, com]
+    concepts: [applyingtocollege, essays, collegeessays, boomers, reddit]
     section: Comments
     token_count: 294
 ---

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1905]
     sentence_count: 14
     key_terms: [experience, because, gradadmissions, myself, school, apply, roles, years]
+    concepts: [experience, gradadmissions, because, myself, school]
     token_count: 422
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1sqw153/career_development_grad_school/"}]
   - id: "articles/reddit-deep-r-gradadmissions/f6fa8a8dd1.md#c1"
     char_span: [1907, 2299]
     sentence_count: 3
     key_terms: [certificates, diplomas, grad, swissalpseal, especially, comments, reapply, studies]
+    concepts: [certificates, diplomas]
     token_count: 97
 ---
 # Career development & grad school

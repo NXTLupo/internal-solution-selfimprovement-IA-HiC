@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1157]
     sentence_count: 9
     key_terms: [student, careerguidance, school, summer, learn, high, comments, career]
+    concepts: [careerguidance, student, school, summer, learn]
     token_count: 265
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1lpjoqi/what_are_the_best_skills_for_a_high_school/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1lpjoqi.md#c1"
     char_span: [1171, 2734]
     sentence_count: 16
     key_terms: [looking, matter, get, creative, valuable, editing, fluffypreparation150, being]
+    concepts: [looking, matter, creative, valuable, editing]
     section: Comments
     token_count: 360
 ---

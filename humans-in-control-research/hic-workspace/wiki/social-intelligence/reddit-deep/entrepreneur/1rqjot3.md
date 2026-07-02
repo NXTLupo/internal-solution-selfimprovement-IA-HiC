@@ -20,54 +20,65 @@ chunks:
     char_span: [0, 2285]
     sentence_count: 22
     key_terms: [care, home, different, people, entrepreneur, age, regulatory, americans]
+    concepts: [different, entrepreneur, people, regulatory, americans]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1rqjot3/pe_is_dumping_billions_into_home_care_despite_79/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1rqjot3.md#c1"
     char_span: [2287, 3913]
     sentence_count: 13
     key_terms: [revenue, sde, caregiver, ebitda, non-medical, year, caregivers, platforms]
+    concepts: [revenue, caregiver, ebitda, non-medical, caregivers]
     token_count: 439
   - id: "social-intelligence/reddit-deep/entrepreneur/1rqjot3.md#c2"
     char_span: [3915, 6219]
     sentence_count: 13
     key_terms: [care, operators, home, private-pay, building, personal, premium, revenue]
+    concepts: [operators, private-pay, building, personal, premium]
     token_count: 510
   - id: "social-intelligence/reddit-deep/entrepreneur/1rqjot3.md#c3"
     char_span: [6221, 6510]
     sentence_count: 2
     key_terms: [medicaid, "i'd", mix, fundamentally, private-pay, evaluating, breakdown, different]
+    concepts: [medicaid]
     token_count: 69
   - id: "social-intelligence/reddit-deep/entrepreneur/1rqjot3.md#c4"
     char_span: [6512, 8772]
     sentence_count: 18
     key_terms: [audit, operators, density, history, client, reimbursement, state, private-pay]
+    concepts: [operators, audit, reimbursement, density, history]
     token_count: 495
   - id: "social-intelligence/reddit-deep/entrepreneur/1rqjot3.md#c5"
     char_span: [8774, 10281]
     sentence_count: 16
     key_terms: [competition, population, business-friendly, cut, medicaid, care, cms, regulatory]
+    concepts: [competition, population, business-friendly, medicaid, regulatory]
     token_count: 348
   - id: "social-intelligence/reddit-deep/entrepreneur/1rqjot3.md#c6"
-    char_span: [10296, 11100]
+    char_span: [10295, 11099]
     sentence_count: 4
     key_terms: [please, entrepreneur, permanent, promotion, stickied, comment, thread, weekly]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 181
   - id: "social-intelligence/reddit-deep/entrepreneur/1rqjot3.md#c7"
-    char_span: [11103, 13067]
+    char_span: [11102, 13066]
     sentence_count: 13
     key_terms: [turnover, content, employees, agencies, industry, pipeline, referral, similar]
+    concepts: [turnover, content, employees, agencies, industry]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/entrepreneur/1rqjot3.md#c8"
-    char_span: [13069, 15345]
+    char_span: [13068, 15344]
     sentence_count: 12
     key_terms: [contractors, immigrants, staffing, immigration, operational, like, companies, turnover]
+    concepts: [contractors, immigrants, staffing, immigration, operational]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/entrepreneur/1rqjot3.md#c9"
-    char_span: [15347, 17024]
+    char_span: [15346, 17023]
     sentence_count: 8
     key_terms: [damn, "you're", like, management, onboarding, caregiver, difficult, driving]
+    concepts: ["you're", management, onboarding, caregiver, difficult]
     section: Comments
     token_count: 412
 ---

@@ -21,69 +21,84 @@ chunks:
     char_span: [0, 1786]
     sentence_count: 8
     key_terms: [china, china-may-see-flying-taxis-in-three-years-ehang-predicts, advanced-air-mobility-reality-index-april-2025-release, ehang, https, stock, com, certification]
+    concepts: [china, ehang, https, stock, certification]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1kpng3q.md#c1"]
     token_count: 423
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1kpng3q/pilotless_planes_are_taking_flight_in_china_bank/"}]
   - id: "social-intelligence/reddit-deep/investing/1kpng3q.md#c1"
     char_span: [1788, 3812]
     sentence_count: 12
     key_terms: [archer-selected-as-the-official-air-taxi-provider-of-the-la28-olympic-and-paralympic-games-and-team-usa-in-exclusive-deal, https, www, cnbcs-the-china-connection-newsletter-tourism-surge-defies-slowdown, china, com, cnbc, aviation]
+    concepts: [https, china, aviation, economy, low-altitude]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1kpng3q.md#c0"]
     token_count: 503
   - id: "social-intelligence/reddit-deep/investing/1kpng3q.md#c2"
     char_span: [3814, 5209]
     sentence_count: 9
     key_terms: [analysts, air, ehang, potential, taxi, america, revenue, market]
+    concepts: [analysts, potential, ehang, america, revenue]
     token_count: 302
   - id: "social-intelligence/reddit-deep/investing/1kpng3q.md#c3"
     char_span: [5223, 6852]
     sentence_count: 16
     key_terms: [aircraft, already, chogo82, flying, planes, safety, drone, cars]
+    concepts: [aircraft, already, chogo82, flying, planes]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/investing/1kpng3q.md#c4"
     char_span: [6854, 8520]
     sentence_count: 15
     key_terms: [aviation, drone, mean, set, anything, because, apply, going]
+    concepts: [aviation, drone, anything, because, apply]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/investing/1kpng3q.md#c5"
     char_span: [8522, 10789]
     sentence_count: 14
     key_terms: [flight, want, aviation, simultaneously, "you'd", emergency, someone, flying]
+    concepts: [flight, aviation, simultaneously, "you'd", emergency]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/investing/1kpng3q.md#c6"
     char_span: [10791, 12619]
     sentence_count: 11
     key_terms: [human, decision-making, sensor, misunderstood, accordingly, constraints, case, time]
+    concepts: [decision-making, human, misunderstood, sensor, accordingly]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/investing/1kpng3q.md#c7"
     char_span: [12621, 14590]
     sentence_count: 9
     key_terms: [aircraft, corporation, chinese, china, comac, commercial, passengers, shanghai]
+    concepts: [aircraft, corporation, chinese, china, comac]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1kpng3q.md#c8"
     char_span: [14359, 15059]
     sentence_count: 4
     key_terms: [planning, landing, takeoff, weather, pressurization, professional, contingency, immediately]
+    concepts: [planning, landing, takeoff, weather]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/investing/1kpng3q.md#c9"
     char_span: [15061, 16710]
     sentence_count: 11
     key_terms: [pilots, altitude, autopilot, manually, flights, flight, humans, people]
+    concepts: [pilots, altitude, autopilot, manually, flights]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/investing/1kpng3q.md#c10"
     char_span: [16712, 17628]
     sentence_count: 3
     key_terms: [control, inputs, sensor, being, pilot, oversimplification, done, "it's"]
+    concepts: [control, inputs, sensor, being, pilot]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/investing/1kpng3q.md#c11"
     char_span: [17630, 19633]
     sentence_count: 12
     key_terms: [pilots, software, flying, assumptions, like, automation, autonomous, pilotless]
+    concepts: [pilots, software, flying, assumptions, automation]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/investing/1kpng3q.md#c12"

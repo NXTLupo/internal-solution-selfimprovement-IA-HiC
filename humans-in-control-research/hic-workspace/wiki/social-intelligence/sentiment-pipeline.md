@@ -16,60 +16,74 @@ chunks:
     char_span: [0, 816]
     sentence_count: 6
     key_terms: [sentiment, pipeline, analysis, evidence, research, social-research-backend, social, gpu]
+    concepts: [sentiment, pipeline, analysis, evidence, research]
+    related_chunks: ["social-intelligence/sentiment-pipeline.md#c2", "social-intelligence/sentiment-pipeline.md#c7", "social-intelligence/sentiment-pipeline.md#c8"]
     section: Architecture Overview
     token_count: 143
   - id: "social-intelligence/sentiment-pipeline.md#c1"
     char_span: [840, 2963]
     sentence_count: 5
     key_terms: [stage, via, comments, reddit, twitter-roberta-base-sentiment, data, util, trustpilot]
+    concepts: [stage, comments, reddit, trustpilot, collected]
     section: Processing Stages
     token_count: 486
   - id: "social-intelligence/sentiment-pipeline.md#c2"
     char_span: [2965, 5004]
     sentence_count: 1
     key_terms: [sentiment, stage, analysis, cluster, clustering, keyword, density-based, noise]
+    concepts: [sentiment, analysis, stage, cluster, clustering]
+    related_chunks: ["social-intelligence/sentiment-pipeline.md#c0"]
     section: Processing Stages
     token_count: 469
   - id: "social-intelligence/sentiment-pipeline.md#c3"
     char_span: [5006, 7126]
     sentence_count: 6
     key_terms: [frequency, post, via, similarity, chunk, evidence, negative, positive]
+    concepts: [frequency, similarity, chunk, evidence, negative]
     section: Processing Stages
     token_count: 467
   - id: "social-intelligence/sentiment-pipeline.md#c4"
     char_span: [7146, 7673]
     sentence_count: 2
     key_terms: [query, api, post, sentiment, analyze-sentiment, rag, analyze-async, llm-analyzer]
+    concepts: [query, sentiment]
     section: API Endpoints
     token_count: 124
   - id: "social-intelligence/sentiment-pipeline.md#c5"
     char_span: [7704, 8097]
     sentence_count: 1
     key_terms: [bundled, scikit-learn, transformers, bertopic, hdbscan, sentence-transformers, vadersentiment, sentence-bert]
+    concepts: [bundled, scikit-learn, transformers, bertopic, hdbscan]
     section: Backend Technology Stack
     token_count: 142
   - id: "social-intelligence/sentiment-pipeline.md#c6"
     char_span: [8126, 8565]
     sentence_count: 1
     key_terms: [twitter-roberta-base-sentiment, filtering, sentiment, deberta-v3-base-absa-v1, all-mpnet-base-v2, filteringcluster, filteringroberta, aspect-targeted]
+    concepts: [filtering, sentiment]
     section: Filter Types Reference
     token_count: 120
   - id: "social-intelligence/sentiment-pipeline.md#c7"
     char_span: [8601, 9538]
     sentence_count: 6
     key_terms: [research, points, hic, emotional, sentiment, negative, social-research-backend, journey]
+    concepts: [research, points, emotional, sentiment, negative]
+    related_chunks: ["social-intelligence/sentiment-pipeline.md#c0"]
     section: Integration with HiC Research
     token_count: 192
   - id: "social-intelligence/sentiment-pipeline.md#c8"
     char_span: [9567, 10133]
     sentence_count: 1
     key_terms: [evidence, tier, engagement, analysis, pages, wiki, corroborated, attribution]
+    concepts: [evidence, engagement, analysis, pages]
+    related_chunks: ["social-intelligence/sentiment-pipeline.md#c0"]
     section: Wiki Integration Rules
     token_count: 110
   - id: "social-intelligence/sentiment-pipeline.md#c9"
     char_span: [10156, 10579]
     sentence_count: 1
     key_terms: [social-intelligence, sources-registry, frameworks, sentiment, connector-catalog, credibility-tiers, topic-modeling, construction]
+    concepts: [social-intelligence, sources-registry, frameworks, sentiment]
     section: Cross-References
     token_count: 94
 ---

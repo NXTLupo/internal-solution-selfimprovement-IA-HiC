@@ -20,29 +20,38 @@ chunks:
     char_span: [0, 1721]
     sentence_count: 13
     key_terms: [salesforce, opportunity, product, object, revenue, opportunities, transactional, enablement]
+    concepts: [salesforce, opportunity, product, object, opportunities]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1sga21j.md#c1", "social-intelligence/reddit-deep/salesforce/1sga21j.md#c3"]
     token_count: 361
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1sga21j/opportunity_object_assumes_youre_bring_in_money/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1sga21j.md#c1"
-    char_span: [1736, 3586]
+    char_span: [1735, 3585]
     sentence_count: 13
     key_terms: [opportunity, revenue, object, objects, custom, data, "it's", certain]
+    concepts: [opportunity, revenue, object, objects, custom]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1sga21j.md#c0"]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/salesforce/1sga21j.md#c2"
-    char_span: [3589, 5794]
+    char_span: [3588, 5793]
     sentence_count: 16
     key_terms: [data, product, processes, management, account, process, revenue, object]
+    concepts: [product, processes, management, account, process]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/salesforce/1sga21j.md#c3"
-    char_span: [5796, 7940]
+    char_span: [5795, 7939]
     sentence_count: 21
     key_terms: [use, opportunities, process, transactions, institution, opportunity, sales, products]
+    concepts: [opportunities, transactions, institution, opportunity, process]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1sga21j.md#c0"]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/salesforce/1sga21j.md#c4"
-    char_span: [7942, 9227]
+    char_span: [7941, 9226]
     sentence_count: 12
     key_terms: [transactions, amount, use, custom, potential, number, object, track]
+    concepts: [transactions, amount, custom, potential, number]
     section: Comments
     token_count: 270
 ---

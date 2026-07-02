@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1254]
     sentence_count: 15
     key_terms: [salesforce, use, cloud, data, accounting, management, comments, customer]
+    concepts: [salesforce, accounting, cloud, management, comments]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1o23idq.md#c1"]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1o23idq/what_are_some_use_cases_for_data_cloud_in_our/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1o23idq.md#c1"
-    char_span: [1269, 2758]
+    char_span: [1268, 2757]
     sentence_count: 10
     key_terms: [data, cloud, customer, much-macaroon3953, using, salesforce, instantly, real-time]
+    concepts: [customer, cloud, much-macaroon3953, salesforce, using]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1o23idq.md#c0"]
     section: Comments
     token_count: 349
 ---

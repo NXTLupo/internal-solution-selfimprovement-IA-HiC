@@ -7,88 +7,102 @@ subreddit: "ecommerce"
 title: "Learnings after working with marketing agencies"
 author: "Aggravating_Emu_7190"
 date: "2025-10-22T06:00:38.000Z"
-score: 12
-upvote_ratio: 0.83
+score: 11
+upvote_ratio: 0.82
 num_comments: 33
 flair: ""
-extracted_at: "2026-06-18T13:35:23.813Z"
+extracted_at: "2026-06-24T22:13:57.308Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c0"
     char_span: [0, 2199]
     sentence_count: 24
     key_terms: [time, agency, brand, ecommerce, marketing, ourselves, bad, email]
+    concepts: [agency, ecommerce, marketing, ourselves, brand]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1od0c4w/learnings_after_working_with_marketing_agencies/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c1"
     char_span: [2201, 4309]
     sentence_count: 21
     key_terms: [agency, ads, enough, retainer, website, months, "wasn't", email]
+    concepts: [agency, enough, retainer, website, months]
     token_count: 476
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c2"
     char_span: [4311, 6468]
     sentence_count: 28
     key_terms: [creatives, month, retainer, feels, something, "it's", like, emails]
+    concepts: [creatives, retainer, month, something, feels]
     token_count: 492
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c3"
     char_span: [6470, 8537]
     sentence_count: 19
     key_terms: [agency, retainers, fit, agencies, options, smaller, better, brand]
+    concepts: [agency, retainers, agencies, options, smaller]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c4"]
     token_count: 479
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c4"
-    char_span: [8539, 10637]
+    char_span: [8539, 10636]
     sentence_count: 20
     key_terms: [design, agencies, templates, good, agency, "we're", contractors, cro]
+    concepts: [design, agencies, templates, agency, contractors]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c3"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c5"
-    char_span: [10639, 12723]
+    char_span: [10638, 12722]
     sentence_count: 17
     key_terms: [people, whatsapp, profit, understanding, "don't", pearlsswine, ltv, team]
+    concepts: [people, whatsapp, understanding, profit, pearlsswine]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c6"
-    char_span: [12725, 14338]
+    char_span: [12724, 14337]
     sentence_count: 10
     key_terms: [example, total, ltv, agencies, boutique, agency, revenue-based, profit-based]
+    concepts: [example, total, agencies, boutique, revenue-based]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c7"
-    char_span: [14340, 16672]
+    char_span: [14339, 16671]
     sentence_count: 15
     key_terms: [agency, revenue, segmentation, automations, email, list, creative, retainer]
+    concepts: [agency, segmentation, automations, revenue, email]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c8"
-    char_span: [16449, 17186]
+    char_span: [16448, 17185]
     sentence_count: 6
     key_terms: [etc, per, founder-story, calendaring, testimonial, commercial, andromeda, creatives]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c9"
-    char_span: [17188, 17836]
+    char_span: [17187, 17835]
     sentence_count: 7
     key_terms: [agencies, "don't", fast, everything, marketing, spend, grow, too]
+    concepts: [agencies, "don't", everything, marketing, spend]
     section: Comments
     token_count: 151
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c10"
-    char_span: [17838, 20053]
-    sentence_count: 15
-    key_terms: [agency, costs, makes, founder-led, like, per, retainers, agencies]
+    char_span: [17837, 20017]
+    sentence_count: 18
+    key_terms: [higher, commission, because, agency, based, costs, model, sales]
+    concepts: [commission, higher, because, agency, conversions]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c11"
-    char_span: [19734, 21488]
-    sentence_count: 17
-    key_terms: [commission, roas, higher, model, based, sales, scale, spend]
+    char_span: [19779, 20920]
+    sentence_count: 9
+    key_terms: [roas, commission, margin, model, scale, kevinfromadamplify, remarkabletwo5927, "i'm"]
+    concepts: [commission, margin, model, scale]
     section: Comments
-    token_count: 396
+    token_count: 246
 ---
 # Learnings after working with marketing agencies
 
 Source: [reddit-deep: r/ecommerce](https://www.reddit.com/r/ecommerce/comments/1od0c4w/learnings_after_working_with_marketing_agencies/)
-Posted by **Aggravating_Emu_7190** · **12↑** · **33 comments**
+Posted by **Aggravating_Emu_7190** · **11↑** · **33 comments**
 
 So I have now worked with a few different agencies at different price points and here are some learnings. 
 
@@ -162,7 +176,7 @@ If you have other learnings to add to this, please chime in. I'm still trying to
 
 ## Comments
 
-- **mtgentry** (6↑): Some general thoughts. When it comes to creative work, I often see agencies make beautiful “aspirational” work that the CMO loves—but the in-house team can’t actually  execute on. For example, my old agency in LA worked with a fashion retailer and built out a full system: brand guidelines, landing pages, detailed photo direction, everything. But the clients internal team in Texas couldn’t maintain that same level of quality. Not a good result IMO.
+- **mtgentry** (5↑): Some general thoughts. When it comes to creative work, I often see agencies make beautiful “aspirational” work that the CMO loves—but the in-house team can’t actually  execute on. For example, my old agency in LA worked with a fashion retailer and built out a full system: brand guidelines, landing pages, detailed photo direction, everything. But the clients internal team in Texas couldn’t maintain that same level of quality. Not a good result IMO.
 
 For a smaller company like yours, I’d still try to hire the best agency you can afford to create the core assets—landing page templates, ad templates, design systems, etc. Just make sure the creative is built in a way that cheaper contractors can reuse it later without breaking it.
 
@@ -223,10 +237,8 @@ Your bigger lessons should be don't hire for everything at once and don't try to
 
 Like if we made $2M in 2026, is the $25k/mo really a factor? No. But now that I don't see a path to $2M in 2026, hindsight says I should've probably slowed down, hired one agency at a time, and maybe did more research. But I spent dozens of hours researching and interviewing and eventually you just have to make a choice and hope that the microscopic sample of agencies you happened to find and reach out to was a good sample and that your gut can help you decide which ones to pick.
     - **fathom53** (2↑): Choices do have to be made for businesses of all sizes. $2 million per year or $166K per month means that $25K is 15% of your costs before ad spend. That makes OPEX really hard to make work. Costs tend to go up as you scale up past $1 million per year because it takes time to optimize the business to bring down "fixed costs" that you use to get products to customers. This all makes cash flow really tight. At least that is our experience working with 7 figured brands at all ends of the spectrum.
-- **mindthychime** (1↑): this was one of the most relatable breakdowns I’ve read in a while. Agencies can look shiny on the outside, but the fit makes or breaks everything especially for a founder-led brand where the vibe matters as much as the numbers. You nailed it: big retainers ≠ better results. Honestly, your plan to shift toward smaller, specialized partners sounds like the move you’ll probably get more attention and actual strategy that fits you, not a copy-paste playbook. We’ve helped a few founder-led ecom brands do exactly that plug in the right Growth Assistants for email, ads, and ops without burning through retainers and it’s wild how much lighter it feels once the right people are in place.
-  - **Aggravating_Emu_7190** (1↑): Are you with a service like MarketerHire or something similar?
 - **KevinFromAdAmplify** (1↑): We were an agency until we started building our own customer intelligence platform to better understand and act on key metrics.  
 But as an agency we tied the client's success to ours. We charged a very small retainer but the upside for us was based on sales conversions  attributed to the campaigns we were running. It wasn't based on ad spend because why would I want you to spend more money if you weren't seeing the sales conversions at a good margin. So we worked with each client individually and agreed on a commission scale that increased based on ROAS targets. The higher the ROAS the higher our commission %. We adjusted for subsequent sales. So we  had a hard incentive which motivates us not to 'set and forget' campaigns. Just thought I'd share a different model that could be proposed.
   - **Aggravating_Emu_7190** (2↑): That's an interesting model. My only concern with "the higher than ROAS the higher the commission" is that if my break-even is 1.8x (or whatever), I don't like seeing a 5x because I feel like I'm not spending enough and I'm leaving money on the table. So how do you deal with that in your model?
     - **KevinFromAdAmplify** (1↑): That’s a fair point. We looked at it the same way early on, so our model factored in both efficiency and scale. Once a certain ROAS threshold was hit, we encouraged spend increases as long as contribution margin stayed healthy. The commission grew not just with ROAS but also total attributed revenue, so we had a reason to keep pushing scale rather than protecting a high number. It kept everyone focused on profitable growth, not just percentage metrics.
-- **MaskedDonkeyKicker** (1↑): wow that is a lot more $$ than I would've expected for an ecommerce store. What kind of FB ads were you doing? We they static images or videos?
+- **RemarkableTwo5927** (1↑): The fit vs clout lesson is underrated. Generic hypergrowth agencies optimize for their own case studies, not your brand. The brands that win long-term usually have intelligence systems that are custom to their category — knowing exactly where competitors are positioning by product type, not just store-wide averages. That's what separates reactive pricing from deliberate margin strategy.

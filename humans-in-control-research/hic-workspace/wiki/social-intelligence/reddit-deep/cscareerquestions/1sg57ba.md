@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 728]
     sentence_count: 4
     key_terms: [cscareerquestions, applications, tech, experience, engineers, comments, amazing, market]
+    concepts: [cscareerquestions, applications, experience, engineers, comments]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c7", "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c15"]
     token_count: 174
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sg57ba/job_market_is_amazing_for_ai_engineers/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c1"
     char_span: [742, 2274]
     sentence_count: 6
     key_terms: [linkedin, lot, agents, ai-integrated, applications, experience, recruiters, building]
+    concepts: [linkedin, ai-integrated, applications, agents, experience]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c0"]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c2"
     char_span: [2276, 4380]
     sentence_count: 7
     key_terms: [product, management, engineers, team, architecture, engineering, engineer, supposed]
+    concepts: [product, management, engineers, architecture, engineering]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c3"
@@ -44,84 +50,100 @@ chunks:
     char_span: [4630, 6791]
     sentence_count: 17
     key_terms: ["i'm", doing, work, engineering, end, interviews, companies, overkill]
+    concepts: [doing, engineering, interviews, companies, overkill]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c5"
     char_span: [6793, 8782]
     sentence_count: 7
     key_terms: [like, intelligence, interested, understand, retrieval, features, pydantic, fastapi]
+    concepts: [intelligence, interested, understand, retrieval, features]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c6"
     char_span: [8784, 10854]
     sentence_count: 17
     key_terms: [frontend, want, people, like, vibe, interviews, something, customer]
+    concepts: [frontend, people, interviews, something, customer]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c7"
     char_span: [10856, 12001]
     sentence_count: 5
     key_terms: [utm, years, cscareerquestions, share, chatbots, comments, web3xcss, comment]
+    concepts: [cscareerquestions, years, share, chatbots, comments]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c0"]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c8"
     char_span: [12003, 12649]
     sentence_count: 2
     key_terms: [switching, swe, eightseventhree, maxamillion17, programming, considered, externally, internally]
+    concepts: [switching]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c9"
     char_span: [12651, 14768]
     sentence_count: 10
     key_terms: [experience, engineer, company, get, idea, llms, because, someone]
+    concepts: [experience, engineer, company, because, someone]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c10"
     char_span: [14445, 14895]
     sentence_count: 1
     key_terms: [company, came, stakeholders, automations, forecasting, intelligent, completely, statistics]
+    concepts: [company]
     section: Comments
     token_count: 87
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c11"
     char_span: [14899, 15372]
     sentence_count: 3
     key_terms: [working, company, get, raisecertain8916, recruiting, addition, engineer, frontier]
+    concepts: [working, company]
     section: Comments
     token_count: 112
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c12"
     char_span: [15374, 17300]
     sentence_count: 20
     key_terms: [mostly, engineer, money, etc, like, work, companies, building]
+    concepts: [mostly, engineer, money, companies, building]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c13"
     char_span: [17037, 17728]
     sentence_count: 6
     key_terms: [engineering, accomplished, significant, deviations, experience, recruiters, bromoblue, employers]
+    concepts: [engineering]
     section: Comments
     token_count: 154
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c14"
     char_span: [17730, 19065]
     sentence_count: 8
     key_terms: [net, engineers, engineer, dev, new, learning, roles, tools]
+    concepts: [engineers, engineer, learning, roles, tools]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c15"
     char_span: [19067, 21094]
     sentence_count: 15
     key_terms: [like, level-championship72, engineers, applications, model, get, use, production]
+    concepts: [level-championship72, engineers, applications, model, production]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c0"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c16"
     char_span: [21096, 23215]
     sentence_count: 24
     key_terms: [projects, engineer, software, work, something, ycemann13, founders, linkedin]
+    concepts: [projects, engineer, software, something, ycemann13]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg57ba.md#c17"
     char_span: [23217, 23938]
     sentence_count: 5
     key_terms: [project, evals, rangedisastrous155, bot, try, understanding, beneficial, experiment]
+    concepts: [project, evals]
     section: Comments
     token_count: 164
 ---

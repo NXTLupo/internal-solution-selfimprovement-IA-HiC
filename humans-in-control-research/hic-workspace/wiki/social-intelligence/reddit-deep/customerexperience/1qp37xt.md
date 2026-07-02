@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 623]
     sentence_count: 5
     key_terms: [customerexperience, real-time, data, comments, cryrevolutionary7536, practitioners, availability, intelligent]
+    concepts: [customerexperience, real-time, comments]
     token_count: 135
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1qp37xt/what_data_actually_drives_intelligent_routing_and/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1qp37xt.md#c1"
-    char_span: [638, 1619]
+    char_span: [637, 1618]
     sentence_count: 6
     key_terms: [important, real-time, systems, able, organizations, information, automated, intercom]
+    concepts: [important, real-time, systems, organizations, information]
     section: Comments
     token_count: 210
 ---

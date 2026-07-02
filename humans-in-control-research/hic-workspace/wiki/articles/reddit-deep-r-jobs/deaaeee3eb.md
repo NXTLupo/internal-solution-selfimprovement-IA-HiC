@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1793]
     sentence_count: 11
     key_terms: [car, transportation, interview, job, reliable, whatever32657, asked, ask]
+    concepts: [transportation, interview, reliable, whatever32657, asked]
     token_count: 474
+    sources: [{"n":"Reddit Deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1pxaprb/didnt_get_the_job_because_i_dont_have_a_car/"}]
   - id: "articles/reddit-deep-r-jobs/deaaeee3eb.md#c1"
     char_span: [1795, 2072]
     sentence_count: 2

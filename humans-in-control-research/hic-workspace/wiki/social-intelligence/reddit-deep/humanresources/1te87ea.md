@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1337]
     sentence_count: 6
     key_terms: [humanresources, "i'm", marketing, comments, services, content, anyone, career]
+    concepts: [humanresources, marketing, comments, services, content]
     token_count: 303
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1te87ea/switching_career_paths_na/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1te87ea.md#c1"
     char_span: [1351, 3189]
     sentence_count: 15
     key_terms: [roles, thank, certification, applications, years, definitely, management, marketing]
+    concepts: [roles, thank, certification, applications, definitely]
     section: Comments
     token_count: 447
 ---

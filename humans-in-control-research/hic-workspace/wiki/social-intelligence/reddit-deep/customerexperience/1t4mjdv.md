@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1685]
     sentence_count: 5
     key_terms: [customerexperience, interaction, isn, comments, question, contact, replace, whether]
+    concepts: [customerexperience, interaction, comments, question, contact]
     token_count: 379
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1t4mjdv/why_ai_wont_replace_the_human_element_in_cx/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1t4mjdv.md#c1"
-    char_span: [1700, 3705]
+    char_span: [1699, 3704]
     sentence_count: 12
     key_terms: [another, agents, humans, too, important, reducing, context, measure]
+    concepts: [another, agents, humans, important, reducing]
     section: Comments
     token_count: 403
 ---

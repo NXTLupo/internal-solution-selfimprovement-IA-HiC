@@ -21,47 +21,61 @@ chunks:
     char_span: [0, 1483]
     sentence_count: 13
     key_terms: [professors, tutoring, "he's", been, "it's", including, "student's", comments]
+    concepts: [professors, tutoring, including, "student's", comments]
     token_count: 345
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1ryiook/students_parent_contacted_me/"}]
   - id: "social-intelligence/reddit-deep/professors/1ryiook.md#c1"
     char_span: [1497, 3001]
     sentence_count: 12
     key_terms: [authorization, parent, parents, conversations, involved, meeting, written, almost]
+    concepts: [authorization, parent, conversations, parents, involved]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/professors/1ryiook.md#c2"
     char_span: [3003, 4827]
     sentence_count: 19
     key_terms: [student, students, college, parent, ferpa, colleagues, himself, female]
+    concepts: [student, students, college, parent, colleagues]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ryiook.md#c3", "social-intelligence/reddit-deep/professors/1ryiook.md#c6", "social-intelligence/reddit-deep/professors/1ryiook.md#c7"]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/professors/1ryiook.md#c3"
     char_span: [4829, 6755]
     sentence_count: 13
     key_terms: [parent, email, account, student, ferpa, jaguaraugaj, university, contacted]
+    concepts: [parent, email, account, student, jaguaraugaj]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ryiook.md#c2", "social-intelligence/reddit-deep/professors/1ryiook.md#c4", "social-intelligence/reddit-deep/professors/1ryiook.md#c6", "social-intelligence/reddit-deep/professors/1ryiook.md#c7"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/professors/1ryiook.md#c4"
     char_span: [6757, 8891]
     sentence_count: 20
     key_terms: [ferpa, student, email, waiver, leave, speak, "won't", verifiable]
+    concepts: [ferpa, student, email, waiver, leave]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ryiook.md#c3", "social-intelligence/reddit-deep/professors/1ryiook.md#c6"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/professors/1ryiook.md#c5"
     char_span: [8893, 9508]
     sentence_count: 6
     key_terms: [asked, appropriate, assistance, boundaries, definitely, directions, disability, struggling]
+    concepts: [asked]
     section: Comments
     token_count: 120
   - id: "social-intelligence/reddit-deep/professors/1ryiook.md#c6"
     char_span: [9510, 11542]
     sentence_count: 14
     key_terms: [email, contact, student, information, parent, discuss, however, administrative]
+    concepts: [email, information, contact, student, parent]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ryiook.md#c2", "social-intelligence/reddit-deep/professors/1ryiook.md#c3", "social-intelligence/reddit-deep/professors/1ryiook.md#c4", "social-intelligence/reddit-deep/professors/1ryiook.md#c7"]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/professors/1ryiook.md#c7"
     char_span: [11544, 12425]
     sentence_count: 6
     key_terms: [student, punishing, father, parent, life-education-8030, paper, dad, son]
+    concepts: [student, punishing, father, parent, paper]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ryiook.md#c2", "social-intelligence/reddit-deep/professors/1ryiook.md#c3", "social-intelligence/reddit-deep/professors/1ryiook.md#c6"]
     section: Comments
     token_count: 232
 ---

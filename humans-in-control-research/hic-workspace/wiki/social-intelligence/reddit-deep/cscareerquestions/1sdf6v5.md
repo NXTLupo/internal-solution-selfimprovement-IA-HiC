@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1241]
     sentence_count: 10
     key_terms: [colgate, cscareerquestions, anyone, purdue, great, "i'm", troy, university]
+    concepts: [colgate, cscareerquestions, anyone, purdue, great]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sdf6v5.md#c2"]
     token_count: 303
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sdf6v5/50kyear_at_purdue_vs_30kyear_at_colgate/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdf6v5.md#c1"
     char_span: [1255, 2290]
     sentence_count: 8
     key_terms: [dismal-river-9389, debt, income, purdue, unless, years, job, mit]
+    concepts: [dismal-river-9389, income, purdue, unless, years]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdf6v5.md#c2"
     char_span: [2292, 4162]
     sentence_count: 15
     key_terms: [full, ride, colgate, pretty, purdue, universities, money, troy]
+    concepts: [colgate, universities, pretty, purdue, difference]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sdf6v5.md#c0"]
     section: Comments
     token_count: 495
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1831]
     sentence_count: 10
     key_terms: [robinhood, love, investing, recurring, weight, index, use, individual]
+    concepts: [robinhood, investing, recurring, weight, index]
     token_count: 442
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1ptgn9m/want_to_find_a_brokerage_w_a_ui_like_a_mix_of_m1/"}]
   - id: "social-intelligence/reddit-deep/investing/1ptgn9m.md#c1"
-    char_span: [1846, 3472]
+    char_span: [1845, 3471]
     sentence_count: 14
     key_terms: [auto, anywheresavings1710, recurring, increase, weekly, gaylrdfocker, investment, investing]
+    concepts: [anywheresavings1710, recurring, increase, gaylrdfocker, weekly]
     section: Comments
     token_count: 398
 ---

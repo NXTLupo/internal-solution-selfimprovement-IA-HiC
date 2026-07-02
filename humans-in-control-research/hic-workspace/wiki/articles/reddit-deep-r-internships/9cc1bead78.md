@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1906]
     sentence_count: 9
     key_terms: [internships, experience, asked, https, environment, interesting, take, internship]
+    concepts: [internships, experience, environment, interesting, asked]
     token_count: 445
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1siqkhh/should_i_take_a_lowquality_internship_just_for/"}]
   - id: "articles/reddit-deep-r-internships/9cc1bead78.md#c1"
     char_span: [1909, 2498]
     sentence_count: 3
     key_terms: [ropeemotional0910, "don't", honestly, resume, applications, martin3dabot, internship, traddev26]
+    concepts: [ropeemotional0910, "don't", honestly, resume]
     token_count: 154
 ---
 # Should I take a low-quality internship just for experience + stipend?

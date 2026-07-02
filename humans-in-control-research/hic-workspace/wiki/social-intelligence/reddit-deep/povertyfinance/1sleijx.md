@@ -21,64 +21,79 @@ chunks:
     char_span: [0, 2132]
     sentence_count: 16
     key_terms: [like, car, feel, povertyfinance, "don't", money, financially, home]
+    concepts: [povertyfinance, financially, "don't", money, anything]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1sleijx/car_stolen_on_day_3_in_a_new_city_1000_miles_away/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c1"
     char_span: [2134, 2450]
     sentence_count: 1
     key_terms: [yesterday, edit, comprehensive, advertised, liability, somewhere, anything, coverage]
+    concepts: [yesterday]
     token_count: 67
   - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c2"
     char_span: [2464, 4117]
     sentence_count: 15
     key_terms: [car, found, crack, stolen, dogshaveears, time, underneath, cocaine]
+    concepts: [found, crack, dogshaveears, stolen, underneath]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c4"]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c3"
     char_span: [4119, 4768]
     sentence_count: 7
     key_terms: [stolen, back, car, long, seat, ur-a-cunt-harry, helpitgrow, stolenpens]
+    concepts: [stolen]
     section: Comments
     token_count: 175
   - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c4"
     char_span: [4771, 6808]
     sentence_count: 11
     key_terms: [car, stolen, coverage, found, insurance, back, police, useless]
+    concepts: [stolen, coverage, found, insurance, police]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c2", "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c5"
     char_span: [6529, 7194]
     sentence_count: 9
     key_terms: [coverage, insurance, city, don, need, comprehensive, completely, especially]
+    concepts: [coverage, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c4"]
     section: Comments
     token_count: 158
   - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c6"
     char_span: [7196, 9394]
     sentence_count: 20
     key_terms: [car, anything, control, "i'm", community, situation, yourself, stlouis]
+    concepts: [anything, control, community, situation, yourself]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c7"
     char_span: [9398, 11561]
     sentence_count: 14
     key_terms: [car, back, consider, right, youre, best, dont, job]
+    concepts: [consider, right, youre, situation, already]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c8"
     char_span: [11563, 12842]
     sentence_count: 7
     key_terms: [money, get, budget, option, aware, back, car, job]
+    concepts: [money, budget, option, aware]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c9"
     char_span: [12844, 14766]
     sentence_count: 21
     key_terms: [car, here, get, job, sorry, don, gigglesann, kirkwood]
+    concepts: [gigglesann, sorry, kirkwood, scooter, public]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c10"
     char_span: [14768, 15453]
     sentence_count: 6
     key_terms: [louis, job, street, city, "it's", makinggrace, opportunity, paulcdejean]
+    concepts: [louis, street]
     section: Comments
     token_count: 185
 ---

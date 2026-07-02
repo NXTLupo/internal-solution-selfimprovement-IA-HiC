@@ -19,64 +19,80 @@ chunks:
     char_span: [0, 1285]
     sentence_count: 10
     key_terms: [experience, cscareerquestions, job, hiring, interviews, comments, linkedin, relevant]
+    concepts: [experience, cscareerquestions, hiring, interviews, comments]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c7", "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c9"]
     token_count: 288
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1n4wcc3/asking_hiring_managers_how_does_low_experiece/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c1"
     char_span: [1287, 2839]
     sentence_count: 31
     key_terms: [experience, important, hiring, devs, get, job, positions, referrals]
+    concepts: [experience, important, hiring, positions, referrals]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c7", "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c9"]
     token_count: 331
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c2"
-    char_span: [2854, 4788]
+    char_span: [2853, 4787]
     sentence_count: 20
     key_terms: [something, learn, attitude, don, juniors, leading-ability-7317, resume, interviewing]
+    concepts: [something, attitude, leading-ability-7317, learn, juniors]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c3"
-    char_span: [4790, 6681]
+    char_span: [4789, 6680]
     sentence_count: 15
     key_terms: [learn, answer, thank, didn, candidate, interview, something, attitude]
+    concepts: [learn, answer, thank, candidate, interview]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c4"
-    char_span: [6683, 8812]
+    char_span: [6682, 8811]
     sentence_count: 16
     key_terms: [get, question, process, experience, less, pipeline, through, intern]
+    concepts: [question, process, experience, pipeline, through]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c5"
-    char_span: [8814, 11052]
+    char_span: [8813, 11051]
     sentence_count: 16
     key_terms: [candidate, experience, impressive, get, consider, role, swe, background]
+    concepts: [candidate, experience, impressive, consider, background]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c6"
-    char_span: [11054, 13285]
+    char_span: [11053, 13284]
     sentence_count: 11
     key_terms: [customer, altruistic-cattle761, service, support, career, doing, roles, immediately]
+    concepts: [customer, altruistic-cattle761, service, support, career]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c7"
-    char_span: [13287, 15384]
+    char_span: [13286, 15383]
     sentence_count: 13
     key_terms: [hiring, experience, position, manager, resumes, intern, hire, graduation]
+    concepts: [hiring, experience, position, manager, resumes]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c9"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c8"
-    char_span: [15386, 16987]
+    char_span: [15385, 16986]
     sentence_count: 12
     key_terms: [experience, technical, projects, looking, internships, big, criteria, quality]
+    concepts: [experience, technical, projects, looking, internships]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c9"
-    char_span: [16989, 19027]
+    char_span: [16988, 19026]
     sentence_count: 15
     key_terms: [experience, candidates, recruiter, hiring, least, part, qualified, pipeline]
+    concepts: [experience, candidates, recruiter, hiring, least]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c7"]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c10"
-    char_span: [19029, 19468]
+    char_span: [19028, 19467]
     sentence_count: 5
     key_terms: [hired, get, candidates, admitting, awkward, company, husband, looking]
+    concepts: [hired]
     section: Comments
     token_count: 106
 ---

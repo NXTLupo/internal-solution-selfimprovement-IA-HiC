@@ -21,17 +21,22 @@ chunks:
     char_span: [0, 1014]
     sentence_count: 7
     key_terms: [long-term, comments, google, nvidia, stocks, stock, pick, controversial]
+    concepts: [long-term, comments, google, nvidia, stocks]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1pv0l8i.md#c6", "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c7", "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c8"]
     token_count: 235
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1pv0l8i/if_you_had_to_pick_one_longterm_ai_winner_google/"}]
   - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c1"
     char_span: [1028, 2871]
     sentence_count: 4
     key_terms: [google, company, reddit, year, people, worst, ago, investment]
+    concepts: [google, company, reddit, people, investment]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c2"
     char_span: [2873, 4622]
     sentence_count: 16
     key_terms: [google, shit, because, bought, transformers, fking, everyone, people]
+    concepts: [google, because, transformers, bought, fking]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c3"
@@ -44,30 +49,38 @@ chunks:
     char_span: [5006, 7003]
     sentence_count: 11
     key_terms: [google, always, wikipedia, monopoly, against, bought, pmmeuroneweirdtrick, https]
+    concepts: [google, always, wikipedia, monopoly, against]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c5"
     char_span: [6748, 7385]
     sentence_count: 5
     key_terms: [google, etc, throwawaynewc, applications, continuously, companies, immediate, long-term]
+    concepts: [google]
     section: Comments
     token_count: 158
   - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c6"
     char_span: [7387, 9096]
     sentence_count: 13
     key_terms: [nvidia, business, market, time, google, trying, going, buy]
+    concepts: [nvidia, business, market, google, trying]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1pv0l8i.md#c0", "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c7", "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c8"]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c7"
     char_span: [9098, 10965]
     sentence_count: 17
     key_terms: [google, nvidia, data, driving, self, yrrrrrrrr, behavior, example]
+    concepts: [google, nvidia, driving, yrrrrrrrr, behavior]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1pv0l8i.md#c0", "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c6", "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c8"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c8"
     char_span: [10967, 12941]
     sentence_count: 27
     key_terms: [google, nvidia, tpus, use, twice, multiple, research, atleast]
+    concepts: [google, nvidia, twice, multiple, research]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1pv0l8i.md#c0", "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c6", "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c7"]
     section: Comments
     token_count: 483
 ---

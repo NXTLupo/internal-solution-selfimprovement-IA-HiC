@@ -18,46 +18,59 @@ chunks:
     char_span: [0, 1795]
     sentence_count: 1
     key_terms: [propublica, https, org, www, topics, organizations, nonprofits, projects]
+    concepts: [propublica, https, organizations, topics, nonprofits]
+    related_chunks: ["articles/jina-reader/a19d5baffb.md#c1", "articles/jina-reader/a19d5baffb.md#c7"]
     token_count: 493
+    sources: [{"n":"Jina Reader","u":"https://projects.propublica.org/nonprofits/organizations/941156365"}]
   - id: "articles/jina-reader/a19d5baffb.md#c1"
     char_span: [1797, 2951]
     sentence_count: 1
     key_terms: [propublica, https, www, org, com, search, nonprofits, projects]
+    concepts: [propublica, https, nonprofits, search, projects]
+    related_chunks: ["articles/jina-reader/a19d5baffb.md#c0", "articles/jina-reader/a19d5baffb.md#c7"]
     token_count: 315
   - id: "articles/jina-reader/a19d5baffb.md#c2"
     char_span: [2977, 4648]
     sentence_count: 8
     key_terms: [organization, reported, schedule, details, transactions, donor-advised, organizations, educational]
+    concepts: [organization, reported, schedule, transactions, details]
     section: Organization summary
     token_count: 347
+    sources: [{"n":"Form 990 tax filings from 2011 to 2024","u":""}]
   - id: "articles/jina-reader/a19d5baffb.md#c3"
     char_span: [4685, 6439]
     sentence_count: 8
     key_terms: [data, revenue, audits, nonprofit, form, irs, net, federal]
+    concepts: [revenue, audits, nonprofit, "organization's", organizations]
     section: Tax Filings and Audits by Year
     token_count: 494
   - id: "articles/jina-reader/a19d5baffb.md#c4"
     char_span: [6441, 6996]
     sentence_count: 1
     key_terms: [assets, compensation, total, expenses, operated, donor-advised, professional, transactions]
+    concepts: [compensation, assets, total, expenses, operated]
     section: Tax Filings and Audits by Year
     token_count: 174
   - id: "articles/jina-reader/a19d5baffb.md#c5"
     char_span: [6998, 8318]
     sentence_count: 3
     key_terms: [affairs, chief, president, former, robert, alum, appt, smc]
+    concepts: [affairs, chief, president, former, robert]
     section: Tax Filings and Audits by Year
     token_count: 512
   - id: "articles/jina-reader/a19d5baffb.md#c6"
     char_span: [8167, 9023]
     sentence_count: 2
     key_terms: [affairs, thru, communication, organizations, compensation, government, nonprofits, propublica]
+    concepts: [affairs]
     section: Tax Filings and Audits by Year
     token_count: 320
   - id: "articles/jina-reader/a19d5baffb.md#c7"
     char_span: [9025, 10160]
     sentence_count: 1
     key_terms: [nonprofits, propublica, projects, https, org, revenue, organizations, extracted]
+    concepts: [nonprofits, propublica, projects, https, organizations]
+    related_chunks: ["articles/jina-reader/a19d5baffb.md#c0", "articles/jina-reader/a19d5baffb.md#c1"]
     section: Tax Filings and Audits by Year
     token_count: 345
 ---

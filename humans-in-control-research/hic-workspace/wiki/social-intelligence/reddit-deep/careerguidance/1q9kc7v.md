@@ -21,7 +21,10 @@ chunks:
     char_span: [0, 2144]
     sentence_count: 19
     key_terms: [company, current, flexibility, role, careerguidance, job, new, comments]
+    concepts: [flexibility, company, current, careerguidance, comments]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c3"]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1q9kc7v/should_i_stay_at_wfh_job_vs_20k_raise_with/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c1"
     char_span: [2146, 2774]
     sentence_count: 4
@@ -32,30 +35,36 @@ chunks:
     char_span: [2776, 4354]
     sentence_count: 18
     key_terms: [bearwithabeard, opportunities, job, new, time, companies, negotiate, increase]
+    concepts: [bearwithabeard, opportunities, companies, negotiate, increase]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c3"
     char_span: [4356, 6522]
     sentence_count: 17
     key_terms: [flexibility, bearwithabeard, role, current, change, super, wfh, work]
+    concepts: [flexibility, bearwithabeard, current, change, super]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c4"
     char_span: [6279, 7495]
     sentence_count: 9
     key_terms: [going, commute, bearwithabeard, hours, week, tzukiyomi, job, role]
+    concepts: [going, bearwithabeard, commute, hours, tzukiyomi]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c5"
     char_span: [7497, 8268]
     sentence_count: 7
     key_terms: [reviews, yearly, cash, bearwithabeard, compensation, oldmamallama, flexibility, opportunity]
+    concepts: [reviews, yearly]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c6"
     char_span: [8270, 10288]
     sentence_count: 16
     key_terms: [work, being, home, working, kids, like, time, understand]
+    concepts: [being, working, understand, decision, deleted]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c7"

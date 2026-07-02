@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1275]
     sentence_count: 13
     key_terms: [ago, bill, healthinsurance, denial, denied, days, approved, comments]
+    concepts: [healthinsurance, denial, denied, approved, comments]
     token_count: 303
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1p5zwgc/just_found_out_my_claims_were_denied_and_im/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1p5zwgc.md#c1"
-    char_span: [1290, 3656]
+    char_span: [1289, 3655]
     sentence_count: 8
     key_terms: [post, please, information, questions, following, eob, edit, help]
+    concepts: [please, information, questions, following, healthinsurance]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/healthinsurance/1p5zwgc.md#c2"
-    char_span: [3658, 5702]
+    char_span: [3657, 5701]
     sentence_count: 15
     key_terms: [contact, appeal, fearlesshospital1133, insurance, subreddit, via, denied, please]
+    concepts: [contact, fearlesshospital1133, appeal, insurance, subreddit]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/healthinsurance/1p5zwgc.md#c3"
-    char_span: [5704, 7958]
+    char_span: [5703, 7957]
     sentence_count: 19
     key_terms: [insurance, medical, necessary, hospital, company, appeal, prior, medically]
+    concepts: [insurance, medical, necessary, hospital, company]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/healthinsurance/1p5zwgc.md#c4"
-    char_span: [7960, 9709]
+    char_span: [7959, 9708]
     sentence_count: 17
     key_terms: [insurance, provider, denial, email, bill, eob, providers, hospital]
+    concepts: [insurance, provider, denial, email, providers]
     section: Comments
     token_count: 408
 ---

@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 627]
     sentence_count: 6
     key_terms: [productivity, productive, comments, everyone, plan, stay, week, efficiently]
+    concepts: [productivity, productive, comments, everyone]
     token_count: 147
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1swovpn/how_do_you_plan_your_week_to_stay_productive/"}]
   - id: "social-intelligence/reddit-deep/productivity/1swovpn.md#c1"
     char_span: [641, 2147]
     sentence_count: 21
     key_terms: [list, today, care, down, need, complete, tasks, write]
+    concepts: [today, complete, tasks, write, completed]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/productivity/1swovpn.md#c2"
     char_span: [2149, 3860]
     sentence_count: 11
     key_terms: [down, week, simple, makes, like, too, work, everything]
+    concepts: [simple, everything, makes, backwards, important]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/productivity/1swovpn.md#c3"
     char_span: [3862, 5888]
     sentence_count: 17
     key_terms: [day, like, week, tasks, context, list, work, calendar]
+    concepts: [tasks, context, calendar, tracked, everything]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/productivity/1swovpn.md#c4"
     char_span: [5890, 7118]
     sentence_count: 6
     key_terms: [location-based, like, list, time, try, checklists, blocking, calendar]
+    concepts: [location-based, checklists, blocking, calendar, honestly]
     section: Comments
     token_count: 287
 ---

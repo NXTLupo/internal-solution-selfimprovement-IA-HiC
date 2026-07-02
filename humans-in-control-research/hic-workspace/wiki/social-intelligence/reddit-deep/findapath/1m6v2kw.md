@@ -19,52 +19,62 @@ chunks:
     char_span: [0, 1462]
     sentence_count: 12
     key_terms: [narcissistic, relationship, self, findapath, lifestyle, comments, because, someone]
+    concepts: [narcissistic, relationship, findapath, lifestyle, comments]
     token_count: 349
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1m6v2kw/28f_entire_life_changed_from_multimillionaire/"}]
   - id: "social-intelligence/reddit-deep/findapath/1m6v2kw.md#c1"
     char_span: [1464, 3292]
     sentence_count: 18
     key_terms: [career, love, thought, sports, careers, college, jobs, work]
+    concepts: [career, thought, sports, careers, college]
     token_count: 438
   - id: "social-intelligence/reddit-deep/findapath/1m6v2kw.md#c2"
-    char_span: [3307, 5132]
+    char_span: [3306, 5131]
     sentence_count: 17
     key_terms: [why-does-he-do-that-pdf-free-download-by-lundy-bancroft, thank, helpful, please, "don't", here, need, take]
+    concepts: [thank, helpful, please, "don't", findapath]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/findapath/1m6v2kw.md#c3"
-    char_span: [5134, 7320]
+    char_span: [5133, 7319]
     sentence_count: 15
     key_terms: [job, did, because, through, life, completely, everything, interested]
+    concepts: [because, through, completely, everything, interested]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1m6v2kw.md#c4"
-    char_span: [7022, 7401]
+    char_span: [7021, 7400]
     sentence_count: 4
     key_terms: [completely, get, understand, commenter, otherwise, already, looking, luckily]
+    concepts: [completely]
     section: Comments
     token_count: 81
   - id: "social-intelligence/reddit-deep/findapath/1m6v2kw.md#c5"
-    char_span: [7404, 9304]
+    char_span: [7403, 9303]
     sentence_count: 15
     key_terms: [trainer, working, equestrian, horse, student, relationship, barn, position]
+    concepts: [trainer, working, equestrian, horse, student]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/findapath/1m6v2kw.md#c6"
-    char_span: [9306, 9887]
+    char_span: [9305, 9886]
     sentence_count: 4
     key_terms: [horses, fortune, money, back, bad, need, sell, alternative]
+    concepts: [horses, fortune, money]
     section: Comments
     token_count: 145
   - id: "social-intelligence/reddit-deep/findapath/1m6v2kw.md#c7"
-    char_span: [9889, 11802]
+    char_span: [9888, 11801]
     sentence_count: 15
     key_terms: [temporary-detail-400, fredotwoatatime, hour-print8519, horses, don, need, equestrian, olympics]
+    concepts: [temporary-detail-400, fredotwoatatime, hour-print8519, horses, equestrian]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/findapath/1m6v2kw.md#c8"
-    char_span: [11804, 14032]
+    char_span: [11803, 14031]
     sentence_count: 13
     key_terms: [like, someone, hospital, family, build, donor, help, life]
+    concepts: [someone, hospital, family, build, donor]
     section: Comments
     token_count: 470
 ---

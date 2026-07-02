@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 709]
     sentence_count: 4
     key_terms: [productivity, long-term, something, comments, system, stick, too, emersonblaketkl]
+    concepts: [productivity, long-term, something, comments, system]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1t1cjzh.md#c1", "social-intelligence/reddit-deep/productivity/1t1cjzh.md#c2"]
     token_count: 158
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1t1cjzh/what_actually_makes_a_productivity_system_stick/"}]
   - id: "social-intelligence/reddit-deep/productivity/1t1cjzh.md#c1"
     char_span: [723, 2875]
     sentence_count: 11
     key_terms: [productivity, progress, system, easy, planning, trigger, like, simplicity]
+    concepts: [productivity, progress, system, planning, trigger]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1t1cjzh.md#c0", "social-intelligence/reddit-deep/productivity/1t1cjzh.md#c2"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/productivity/1t1cjzh.md#c2"
     char_span: [2877, 4524]
     sentence_count: 13
     key_terms: [system, friction, productivity, the-30m-promise, working, time, utm, planning]
+    concepts: [system, friction, productivity, the-30m-promise, working]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1t1cjzh.md#c0", "social-intelligence/reddit-deep/productivity/1t1cjzh.md#c1"]
     section: Comments
     token_count: 388
 ---

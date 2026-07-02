@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1426]
     sentence_count: 18
     key_terms: [time, student, aid, college, bill, full, need, comments]
+    concepts: [student, college, comments, possible, please]
     token_count: 348
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lrwvyn/how_badly_hurt_will_i_be_by_trumps_big_beautiful/"}]
   - id: "social-intelligence/reddit-deep/college/1lrwvyn.md#c1"
     char_span: [1440, 2276]
     sentence_count: 5
     key_terms: [senate-republican-megabill, interactive, url-share, nytimes, student, upshot, clear-grapefruit4902, electronic-face3553]
+    concepts: [senate-republican-megabill, interactive, url-share, nytimes, student]
     section: Comments
     token_count: 262
   - id: "social-intelligence/reddit-deep/college/1lrwvyn.md#c2"
     char_span: [2278, 3929]
     sentence_count: 8
     key_terms: [studentloans, grad, country, degrees, reddit, school, unlucky-champion288, "can't"]
+    concepts: [studentloans, country, degrees, reddit, school]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/college/1lrwvyn.md#c3"
     char_span: [3931, 4896]
     sentence_count: 7
     key_terms: [pell-grants-escape-one-big-beautiful-bill-act-mostly-unscathed, sanantonioreport, version, undeadism144, bill, mentioned, update, electronic-face3553]
+    concepts: [pell-grants-escape-one-big-beautiful-bill-act-mostly-unscathed, sanantonioreport, version, undeadism144, mentioned]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/college/1lrwvyn.md#c4"
     char_span: [4898, 6769]
     sentence_count: 9
     key_terms: [version, bill, full, time, credits, senate, grants, passed]
+    concepts: [version, credits, senate, grants, passed]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/college/1lrwvyn.md#c5"
     char_span: [6771, 7394]
     sentence_count: 2
     key_terms: [government, financial, semester, credits, credit, electronic-face3553, take, time]
+    concepts: [government, financial, semester, credits, credit]
     section: Comments
     token_count: 133
 ---

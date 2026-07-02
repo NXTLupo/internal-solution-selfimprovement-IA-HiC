@@ -19,24 +19,29 @@ content_hash: "3c2ccaa4edca3d2a"
 relevance_by_goal: {"c9d49044cb4d":40,"490684cfa204":55}
 chunks:
   - id: "articles/reddit-deep-r-customerexperience/8a7e4ee9ca.md#c0"
-    char_span: [0, 2341]
-    sentence_count: 17
+    char_span: [0, 2463]
+    sentence_count: 19
     key_terms: [customerexperience, been, tickets, agents, haven, teams, value, implemented]
-    token_count: 493
+    concepts: [customerexperience, tickets, agents, implemented, haven]
+    token_count: 515
+    sources: [{"n":"Reddit Deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1qzcroc/where_does_ai_actually_add_value_today_beyond/"}]
   - id: "articles/reddit-deep-r-customerexperience/8a7e4ee9ca.md#c1"
-    char_span: [2343, 4177]
-    sentence_count: 13
+    char_span: [2465, 4176]
+    sentence_count: 11
     key_terms: [across, real, customer, context, agents, cryrevolutionary7536, agree, doesn]
-    token_count: 384
+    concepts: [across, customer, context, agents, agree]
+    token_count: 361
   - id: "articles/reddit-deep-r-customerexperience/8a7e4ee9ca.md#c2"
-    char_span: [4179, 5912]
+    char_span: [4178, 5911]
     sentence_count: 10
     key_terms: [create, data, customer, conversations, agent, point, incomplete, companies]
+    concepts: [create, customer, conversations, agent, incomplete]
     token_count: 384
   - id: "articles/reddit-deep-r-customerexperience/8a7e4ee9ca.md#c3"
-    char_span: [5914, 6688]
+    char_span: [5913, 6687]
     sentence_count: 3
     key_terms: [around, build, boring-tadpole7880, etc, task, transformation, integrations, competition]
+    concepts: [around, build]
     token_count: 170
 ---
 # where does AI actually add value today (beyond chatbots)?

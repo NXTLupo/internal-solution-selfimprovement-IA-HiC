@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2142]
     sentence_count: 17
     key_terms: [vendor, agent, erp, clients, harness, "i'm", build, api]
+    concepts: [vendor, agent, clients, harness, build]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1ttvu3e/is_this_a_real_business_opportunity_or_not_i_will/"}]
   - id: "social-intelligence/reddit-deep/startups/1ttvu3e.md#c1"
-    char_span: [2144, 3487]
+    char_span: [2144, 3486]
     sentence_count: 12
     key_terms: [server, skills, build, erp, mcp, moat, workflows, automate]
+    concepts: [server, skills, build, workflows, automate]
     token_count: 304
 ---
 # Is this a real business opportunity or not? (i will not promote)

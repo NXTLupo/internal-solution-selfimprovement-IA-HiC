@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 303]
     sentence_count: 1
     key_terms: [engineeringstudents, comments, engineering, kujellyfish, reddit-deep, experience, college, posted]
+    concepts: [engineeringstudents, comments]
     token_count: 79
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1t0nvaz/engineering_experience_while_in_early_college_job/"}]
 ---
 # Engineering Experience while in early college (Job reccs)
 

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 968]
     sentence_count: 4
     key_terms: [job, around, money, careerguidance, making, australia, comments, january]
+    concepts: [around, money, careerguidance, making, australia]
     token_count: 235
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t9wcxv/do_i_stick_with_my_job_and_learn_the_skills_or/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t9wcxv.md#c1"
     char_span: [982, 1820]
     sentence_count: 7
     key_terms: [australia, fitting, kitchen, skills, electronic-bus-5350, frame, money, goal]
+    concepts: [australia, fitting, kitchen, skills, frame]
     section: Comments
     token_count: 187
 ---

@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 903]
     sentence_count: 9
     key_terms: ["i'm", ascensus, transfer, bogleheads, comments, fidelty, people, get]
+    concepts: [ascensus, transfer, bogleheads, comments, fidelty]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rknied.md#c1"]
     token_count: 232
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1rknied/moving_solo_401k_away_from_ascensus_to_fidelty/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1rknied.md#c1"
-    char_span: [918, 2616]
+    char_span: [917, 2615]
     sentence_count: 20
     key_terms: [ascensus, recordkeeper, transfer, account, new, confirmation, form, did]
+    concepts: [ascensus, recordkeeper, transfer, account, confirmation]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rknied.md#c0"]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/bogleheads/1rknied.md#c2"
-    char_span: [2618, 3214]
+    char_span: [2617, 3213]
     sentence_count: 2
     key_terms: [ascensus, employee-side, contributed, information, contribute, instantly, longlanes, personal]
+    concepts: [ascensus]
     section: Comments
     token_count: 143
 ---

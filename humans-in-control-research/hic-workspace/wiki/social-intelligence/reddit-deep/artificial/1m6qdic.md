@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 766]
     sentence_count: 6
     key_terms: [chatgpt, better, grok, artificial, comments, curious, coding, derekagraham]
+    concepts: [chatgpt, better, artificial, comments, curious]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1m6qdic.md#c1"]
     token_count: 194
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1m6qdic/can_someone_tell_me_what_makes_people_think_grok/"}]
   - id: "social-intelligence/reddit-deep/artificial/1m6qdic.md#c1"
     char_span: [780, 2633]
     sentence_count: 8
     key_terms: [reddit, better, voice, elon, comments, amazing, because, chatgpt]
+    concepts: [reddit, better, voice, comments, amazing]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1m6qdic.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1m6qdic.md#c2"
     char_span: [2430, 4023]
     sentence_count: 8
     key_terms: [because, grok, uncensored, amazing, exactly, answer, remarkable-unit-7874, forsaken-parsley798]
+    concepts: [because, uncensored, amazing, exactly, answer]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1m6qdic.md#c3"
     char_span: [3823, 4994]
     sentence_count: 8
     key_terms: [grok, marketing, summaries, unlimited, training, deleted, budget, gpt]
+    concepts: [marketing, summaries, unlimited, training, deleted]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/artificial/1m6qdic.md#c4"
     char_span: [4996, 5538]
     sentence_count: 2
     key_terms: [different, psychologically, perspectives, bowlfew3641, encountered, manipulated, perspective, ideologies]
+    concepts: [different]
     section: Comments
     token_count: 132
 ---

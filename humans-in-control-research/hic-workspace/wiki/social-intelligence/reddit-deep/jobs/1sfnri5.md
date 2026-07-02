@@ -19,17 +19,22 @@ chunks:
     char_span: [0, 1453]
     sentence_count: 12
     key_terms: [comments, jobs, job, years, unemployed, multiple, reddit, resume]
+    concepts: [comments, unemployed, years, multiple, reddit]
     token_count: 325
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1sfnri5/three_years_unemployed/"}]
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c1"
     char_span: [1467, 3410]
     sentence_count: 17
     key_terms: [ambulancefactory, being, years, job, interviews, because, instead, nothing]
+    concepts: [ambulancefactory, being, interviews, years, because]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sfnri5.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c2"
     char_span: [3144, 3885]
     sentence_count: 6
     key_terms: [government, business, myself, world, "i'm", look, ambulancefactory, occasionally]
+    concepts: [government, business, myself, world]
     section: Comments
     token_count: 177
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c3"
@@ -42,6 +47,7 @@ chunks:
     char_span: [4148, 6081]
     sentence_count: 16
     key_terms: [parents, surfing, career, people, please, resume, big-establishment707, glittering-music-818]
+    concepts: [parents, surfing, career, people, please]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c5"
@@ -54,48 +60,59 @@ chunks:
     char_span: [6147, 8093]
     sentence_count: 9
     key_terms: [because, quickly, being, experience, getting, resume, "you're", doing]
+    concepts: [because, quickly, being, experience, getting]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sfnri5.md#c1"]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c7"
     char_span: [8095, 10038]
     sentence_count: 13
     key_terms: [resume, like, management, positions, getting, usually, higher, people]
+    concepts: [resume, management, positions, getting, usually]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c8"
     char_span: [10040, 11428]
     sentence_count: 14
     key_terms: [canimakeyouhurtmore, job, like, applications, unemployment, experience, better, "can't"]
+    concepts: [canimakeyouhurtmore, applications, unemployment, experience, better]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sfnri5.md#c13"]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c9"
     char_span: [11430, 12268]
     sentence_count: 4
     key_terms: [canimakeyouhurtmore, qualifications, suggestion, melodiccontact2560, hide, idea, circumstances, dontholdback1]
+    concepts: [canimakeyouhurtmore, qualifications, suggestion]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c10"
     char_span: [12270, 14357]
     sentence_count: 14
     key_terms: [business, degrees, market, resume, consulting, everything, experience, recruiters]
+    concepts: [business, degrees, market, resume, consulting]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c11"
     char_span: [14074, 16183]
     sentence_count: 25
     key_terms: [years, retirement, adept-donkey, life, time, consulting, everything, successful]
+    concepts: [years, retirement, adept-donkey, consulting, everything]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c12"
     char_span: [15906, 16617]
     sentence_count: 7
     key_terms: [job, nephew, canimakeyouhurtmore, "it's", time, necessarily, curveballs, deductible]
+    concepts: [nephew]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c13"
     char_span: [16619, 18351]
     sentence_count: 19
     key_terms: [canimakeyouhurtmore, freelance, unemployment, work, missteee2, honestly, looking, through]
+    concepts: [canimakeyouhurtmore, freelance, unemployment, missteee2, honestly]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sfnri5.md#c8"]
     section: Comments
     token_count: 432
 ---

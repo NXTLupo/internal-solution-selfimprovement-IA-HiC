@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 990]
     sentence_count: 5
     key_terms: [science, data, cscareerquestions, roles, entry-level, internships, interested, analytics]
+    concepts: [science, cscareerquestions, entry-level, internships, interested]
     token_count: 215
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1q1mn2u/how_did_noncs_majors_with_data_science_training/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q1mn2u.md#c1"
     char_span: [1004, 3034]
     sentence_count: 12
     key_terms: [data, engineer, recruitinghell, analyst, applied, "didn't", role, experience]
+    concepts: [engineer, recruitinghell, analyst, applied, "didn't"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q1mn2u.md#c2"
     char_span: [3036, 4059]
     sentence_count: 9
     key_terms: [data, job, healthcare, company, shitty, illustrious-pound266, excel, local]
+    concepts: [healthcare, company, shitty, excel, local]
     section: Comments
     token_count: 235
 ---

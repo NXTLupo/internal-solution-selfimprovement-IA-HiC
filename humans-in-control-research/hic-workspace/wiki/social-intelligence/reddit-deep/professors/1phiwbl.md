@@ -21,40 +21,54 @@ chunks:
     char_span: [0, 2386]
     sentence_count: 15
     key_terms: [students, course, professors, evaluations, student, likely, exist, peers]
+    concepts: [students, course, professors, evaluations, student]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1phiwbl.md#c3", "social-intelligence/reddit-deep/professors/1phiwbl.md#c5", "social-intelligence/reddit-deep/professors/1phiwbl.md#c6"]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1phiwbl/you_probably_should_listen_to_student_feedback/"}]
   - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c1"
     char_span: [2388, 2695]
     sentence_count: 2
     key_terms: ["don't", away, come, pop, read, douchebaggery, actionable, something]
+    concepts: ["don't"]
     token_count: 71
   - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c2"
     char_span: [2709, 4801]
     sentence_count: 13
     key_terms: [feedback, students, evals, often, asturiusmatamoros, constructive, like, colleagues]
+    concepts: [feedback, students, asturiusmatamoros, evals, often]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1phiwbl.md#c3"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c3"
     char_span: [4803, 6932]
     sentence_count: 10
     key_terms: [feedback, student, useful, students, response, reading, shitty, "don't"]
+    concepts: [feedback, student, useful, students, response]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1phiwbl.md#c0", "social-intelligence/reddit-deep/professors/1phiwbl.md#c2", "social-intelligence/reddit-deep/professors/1phiwbl.md#c5", "social-intelligence/reddit-deep/professors/1phiwbl.md#c6"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c4"
     char_span: [6934, 8631]
     sentence_count: 11
     key_terms: [students, teaching, evaluation, s0272775714000417, comments, sciencedirect, evaluations, help]
+    concepts: [students, teaching, evaluation, s0272775714000417, comments]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1phiwbl.md#c5"]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c5"
     char_span: [8633, 10780]
     sentence_count: 15
     key_terms: [evaluations, students, teaching, student, comments, hateful, realize, course]
+    concepts: [evaluations, students, teaching, student, comments]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1phiwbl.md#c0", "social-intelligence/reddit-deep/professors/1phiwbl.md#c3", "social-intelligence/reddit-deep/professors/1phiwbl.md#c4", "social-intelligence/reddit-deep/professors/1phiwbl.md#c6"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c6"
     char_span: [10782, 11769]
     sentence_count: 3
     key_terms: [students, looking, student, canvas, level, didn, encouragement, consistently]
+    concepts: [students, looking, student, canvas, level]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1phiwbl.md#c0", "social-intelligence/reddit-deep/professors/1phiwbl.md#c3", "social-intelligence/reddit-deep/professors/1phiwbl.md#c5"]
     section: Comments
     token_count: 196
 ---

@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1529]
     sentence_count: 15
     key_terms: [cscareerquestions, job, tech, associates, experience, companies, completed, extremely]
+    concepts: [cscareerquestions, associates, experience, companies, completed]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1szzn6e.md#c3"]
     token_count: 383
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1szzn6e/my_personal_experience_in_the_tech_job_market_in/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szzn6e.md#c1"
     char_span: [1543, 1940]
     sentence_count: 1
     key_terms: [posts, white, women, like, eldric-darkfire, tuckfrump69, generation, assisted]
+    concepts: [posts, white, women]
     section: Comments
     token_count: 108
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szzn6e.md#c2"
     char_span: [1942, 3654]
     sentence_count: 10
     key_terms: [cscareerquestions, salamazmlekom, applications, anyone, pretty, reddit, maybe, offer]
+    concepts: [cscareerquestions, salamazmlekom, applications, anyone, pretty]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szzn6e.md#c3"
     char_span: [3420, 4769]
     sentence_count: 8
     key_terms: [something, cscareerquestions, certs, experience, vtarxelus, "wouldn't", posting, degree]
+    concepts: [cscareerquestions, something, certs, experience, vtarxelus]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1szzn6e.md#c0"]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szzn6e.md#c4"
     char_span: [4771, 5292]
     sentence_count: 5
     key_terms: [resume, template, internship, guarantee, feedback, linkedin, managers, mcdonald]
+    concepts: [resume, template]
     section: Comments
     token_count: 129
 ---

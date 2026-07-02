@@ -17,14 +17,17 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/bigdata/1oep0g0.md#c0"
-    char_span: [0, 1722]
+    char_span: [0, 1721]
     sentence_count: 2
     key_terms: [apache-spark-analytics, projectsbasedlearning, spark, apache, analytics, https, com, bigdata]
-    token_count: 401
+    concepts: [apache-spark-analytics, projectsbasedlearning, spark, apache, analytics]
+    token_count: 400
+    sources: [{"n":"reddit-deep: r/bigdata","u":"https://www.reddit.com/r/bigdata/comments/1oep0g0/big_data_hadoop_and_spark_analytics_projects_end/"}]
   - id: "social-intelligence/reddit-deep/bigdata/1oep0g0.md#c1"
-    char_span: [1724, 2583]
+    char_span: [1723, 2582]
     sentence_count: 1
     key_terms: [projectsbasedlearning, bigdata-hadoop, sensex-log-data-processing-pdf-file-processing-in-map-reduce-part-1, generate-analytics-from-a-product-based-company-web-log-part-1, https, analyze-social-bookmarking-sites-to-find-insights-part-1, com, project]
+    concepts: [projectsbasedlearning, bigdata-hadoop, https, project, processing]
     token_count: 201
 ---
 # Big data Hadoop and Spark Analytics Projects (End to End)

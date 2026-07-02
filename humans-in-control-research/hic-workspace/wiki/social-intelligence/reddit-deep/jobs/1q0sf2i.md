@@ -19,41 +19,49 @@ chunks:
     char_span: [0, 2197]
     sentence_count: 21
     key_terms: [salary, year, manager, role, budget, grade, job, take]
+    concepts: [salary, manager, budget, grade, coworkers]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1q0sf2i/my_manager_wants_me_to_take_over_a_late_coworkers/"}]
   - id: "social-intelligence/reddit-deep/jobs/1q0sf2i.md#c1"
     char_span: [2199, 4068]
     sentence_count: 18
     key_terms: [because, "don't", information, bump, "i'm", like, statements, financial]
+    concepts: [because, information, "don't", statements, financial]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/jobs/1q0sf2i.md#c2"
     char_span: [4070, 5140]
     sentence_count: 5
     key_terms: [since, company, budget, saving, plus, boss, firm, work]
+    concepts: [since, company, budget, saving]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/jobs/1q0sf2i.md#c3"
     char_span: [5142, 7132]
     sentence_count: 13
     key_terms: [farrahlikefawcett2, don, someone, title, job, pay, backfill, increase]
+    concepts: [farrahlikefawcett2, someone, title, backfill, increase]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1q0sf2i.md#c4"
     char_span: [6871, 8313]
     sentence_count: 15
     key_terms: [title, job, including, promotion, industry, salary, money, tried]
+    concepts: [title, including, promotion, industry, salary]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/jobs/1q0sf2i.md#c5"
     char_span: [8315, 9989]
     sentence_count: 11
     key_terms: [take, understand, increase, company, looking, answer, better, budget]
+    concepts: [understand, increase, company, looking, answer]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/jobs/1q0sf2i.md#c6"
     char_span: [9991, 11022]
     sentence_count: 7
     key_terms: [responsibilities, company, worth, work, financial, thanks, doing, hours]
+    concepts: [responsibilities, company, worth, financial, thanks]
     section: Comments
     token_count: 261
 ---

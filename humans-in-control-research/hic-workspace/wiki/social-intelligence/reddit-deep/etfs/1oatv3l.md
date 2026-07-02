@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 585]
     sentence_count: 4
     key_terms: [comments, exposure, vanguard, etfs, like, mag7, contributions, specifically]
+    concepts: [comments, exposure, vanguard]
     token_count: 148
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1oatv3l/additional_mag7_exposure/"}]
   - id: "social-intelligence/reddit-deep/etfs/1oatv3l.md#c1"
-    char_span: [600, 1833]
+    char_span: [599, 1832]
     sentence_count: 10
     key_terms: [electronic-buyer-468, need, portfolio, various, broker, shares, small, stock]
+    concepts: [electronic-buyer-468, portfolio, various, broker, shares]
     section: Comments
     token_count: 343
 ---

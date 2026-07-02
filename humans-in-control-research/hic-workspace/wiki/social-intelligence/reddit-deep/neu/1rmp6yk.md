@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 336]
     sentence_count: 1
     key_terms: [co-op, comments, pre-law, fall, neu, reddit-deep, comparison, different]
+    concepts: [co-op, comments, pre-law]
     token_count: 98
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rmp6yk/coop_search_comparison_prelaw/"}]
   - id: "social-intelligence/reddit-deep/neu/1rmp6yk.md#c1"
     char_span: [350, 547]
     sentence_count: 1
     key_terms: [congrats, accept, co-ops, part, time, yeah]
+    concepts: [congrats]
     section: Comments
     token_count: 76
 ---

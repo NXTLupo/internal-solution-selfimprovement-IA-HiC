@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2353]
     sentence_count: 17
     key_terms: [accounting, college, internship, job, graduate, degree, "you'll", internships]
+    concepts: [accounting, college, internship, graduate, degree]
     token_count: 510
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1qevr4j/is_it_worth_switching_to_business_accountingeven/"}]
 ---
 # Is it worth switching to business (accounting)even though I'm already a sophmore
 

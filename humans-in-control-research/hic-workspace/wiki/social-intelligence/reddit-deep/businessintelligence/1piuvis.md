@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1005]
     sentence_count: 4
     key_terms: [businessintelligence, templates, comments, design, power, data, side, use]
+    concepts: [businessintelligence, templates, comments, design, power]
     token_count: 250
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1piuvis/do_you_actually_usebuy_power_bi_templates_or/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1piuvis.md#c1"
-    char_span: [1020, 2621]
+    char_span: [1019, 2620]
     sentence_count: 6
     key_terms: [work, requirements, contract, murky-sun9552, part, grovbolle, templates, approach]
+    concepts: [requirements, contract, murky-sun9552, grovbolle, templates]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/businessintelligence/1piuvis.md#c2"
-    char_span: [2623, 3955]
+    char_span: [2622, 3954]
     sentence_count: 10
     key_terms: [templates, use, everything, powerbi, reports, scratch, doing, doubt]
+    concepts: [templates, everything, powerbi, reports, scratch]
     section: Comments
     token_count: 325
 ---

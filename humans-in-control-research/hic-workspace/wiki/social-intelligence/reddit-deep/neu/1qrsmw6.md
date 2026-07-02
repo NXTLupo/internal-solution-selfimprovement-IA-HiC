@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 2204]
     sentence_count: 9
     key_terms: [engineering, neu, concentration, roles, data, program, boston, dueinspection3568]
+    concepts: [engineering, concentration, roles, program, boston]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qrsmw6/ms_in_ai_cv_at_neu_boston_worth_accepting_if_my/"}]
 ---
 # MS in AI (CV) at NEU Boston — worth accepting if my goal is Data Engineering?
 

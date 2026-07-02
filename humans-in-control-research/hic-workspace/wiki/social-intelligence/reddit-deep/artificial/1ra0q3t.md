@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 2090]
     sentence_count: 10
     key_terms: [code, ai-generated, comprehension, team, artificial, interested, codebase, comments]
+    concepts: [ai-generated, comprehension, artificial, interested, codebase]
     token_count: 443
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1ra0q3t/how_is_your_team_managing_comprehension_of/"}]
   - id: "social-intelligence/reddit-deep/artificial/1ra0q3t.md#c1"
     char_span: [2104, 4428]
     sentence_count: 18
     key_terms: [architecture, code, difficult-sugar-4862, available-knee9983, implementation, understanding, team, convention]
+    concepts: [architecture, difficult-sugar-4862, available-knee9983, implementation, understanding]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/artificial/1ra0q3t.md#c2"
     char_span: [4430, 6559]
     sentence_count: 13
     key_terms: [code, add, technically, like, generated, treating, because, anyone]
+    concepts: [technically, generated, treating, because, anyone]
     section: Comments
     token_count: 481
 ---

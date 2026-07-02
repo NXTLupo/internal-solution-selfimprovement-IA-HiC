@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 638]
     sentence_count: 4
     key_terms: [entry-level, jobs, careerguidance, comments, careers, skills, many-economics-4326, build]
+    concepts: [entry-level, careerguidance, comments, careers, skills]
     token_count: 146
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rwpfzm/what_entrylevel_jobs_actually_help_you_move_into/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rwpfzm.md#c1"
     char_span: [652, 2671]
     sentence_count: 11
     key_terms: [work, being, thekidfromhotaru, service, customer, company, credit, teller]
+    concepts: [thekidfromhotaru, being, service, customer, company]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rwpfzm.md#c2"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/careerguidance/1rwpfzm.md#c2"
     char_span: [2673, 4437]
     sentence_count: 12
     key_terms: [service, degree, hotel, job, experience, customer, working, retail]
+    concepts: [service, degree, experience, hotel, customer]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rwpfzm.md#c1"]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/careerguidance/1rwpfzm.md#c3"
     char_span: [4440, 6443]
     sentence_count: 14
     key_terms: [help, work, grungecheap56119, company, support, call, lot, companies]
+    concepts: [grungecheap56119, company, support, companies, valuable]
     section: Comments
     token_count: 478
 ---

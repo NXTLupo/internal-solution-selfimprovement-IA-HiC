@@ -19,52 +19,68 @@ chunks:
     char_span: [0, 1491]
     sentence_count: 8
     key_terms: [school, people, state, applyingtocollege, t10, comments, program, chose]
+    concepts: [school, applyingtocollege, people, state, comments]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c8"]
     token_count: 364
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1s9msj8/going_to_my_backup_state_school_was_the_best/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c1"
     char_span: [1493, 3759]
     sentence_count: 20
     key_terms: [people, college, because, different, life, clubs, got, job]
+    concepts: [people, college, because, different, clubs]
     token_count: 481
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c2"
     char_span: [3773, 5737]
     sentence_count: 23
     key_terms: [income, schools, school, top, prestigious, live, graduate, college]
+    concepts: [income, schools, school, prestigious, graduate]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c5"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c3"
     char_span: [5739, 7705]
     sentence_count: 12
     key_terms: [committed, parents, state, schools, regret, feel, completely, genuinely]
+    concepts: [committed, parents, state, schools, regret]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c4"
     char_span: [7707, 9411]
     sentence_count: 19
     key_terms: ["i'll", behind, thank, get, here, "i'm", like, education]
+    concepts: [behind, thank, education, genuinely, decision]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c5"
     char_span: [9413, 10690]
     sentence_count: 11
     key_terms: [t10, lottery, reach, engineering, schools, school, "that's", informal-bluejay5701]
+    concepts: [lottery, engineering, reach, schools, school]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c2"]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c6"
     char_span: [10692, 12340]
     sentence_count: 11
     key_terms: [law, college, school, level, scholarship, competing, everyone, friends]
+    concepts: [college, school, scholarship, level, competing]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c7", "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c8"]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c7"
     char_span: [12342, 13225]
     sentence_count: 8
     key_terms: [college, school, law, top, students, terminal, attend, degree]
+    concepts: [college, school, students, terminal, attend]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c8"]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c8"
     char_span: [13227, 15150]
     sentence_count: 18
     key_terms: [law, school, college, likely, state, scholarship, work, full-ride]
+    concepts: [school, college, likely, scholarship, state]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c7"]
     section: Comments
     token_count: 433
 ---

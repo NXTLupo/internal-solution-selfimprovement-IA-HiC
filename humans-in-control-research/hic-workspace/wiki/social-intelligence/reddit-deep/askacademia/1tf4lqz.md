@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 823]
     sentence_count: 6
     key_terms: [askacademia, physics, master, comments, research, program, degree, mathematical]
+    concepts: [askacademia, physics, master, comments, research]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1tf4lqz.md#c2"]
     token_count: 200
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1tf4lqz/raskacademia/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1tf4lqz.md#c1"
     char_span: [837, 2180]
     sentence_count: 6
     key_terms: [undergraduate, degree, phd, experience, cosmicmerchant, programmes, programme, "master's"]
+    concepts: [undergraduate, degree, experience, cosmicmerchant, programmes]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/askacademia/1tf4lqz.md#c2"
     char_span: [2182, 4305]
     sentence_count: 14
     key_terms: [research, theoretical, phd, "master's", physics, want, because, masters]
+    concepts: [research, theoretical, "master's", physics, because]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1tf4lqz.md#c0"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/askacademia/1tf4lqz.md#c3"
     char_span: [4307, 6249]
     sentence_count: 14
     key_terms: [phd, theoretical, doing, knowledge, abstract, carriera, research, courses]
+    concepts: [theoretical, doing, knowledge, abstract, carriera]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/askacademia/1tf4lqz.md#c4"
     char_span: [6251, 7808]
     sentence_count: 13
     key_terms: [research, generally, without, help, interested, understand, academia, average]
+    concepts: [research, generally, without, interested, understand]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/askacademia/1tf4lqz.md#c5"
     char_span: [7810, 8628]
     sentence_count: 8
     key_terms: [masters, phd, average, grades, useful, level, experimentalerror, requirements]
+    concepts: [masters, average, grades, useful, level]
     section: Comments
     token_count: 184
 ---

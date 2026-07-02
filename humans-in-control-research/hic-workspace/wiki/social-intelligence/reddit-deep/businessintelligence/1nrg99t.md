@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 902]
     sentence_count: 6
     key_terms: [businessintelligence, use, dashboard, comments, chatgpt, weekly, help, own]
+    concepts: [businessintelligence, dashboard, comments, chatgpt, weekly]
     token_count: 211
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1nrg99t/how_do_you_use_ai_in_analytics/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1nrg99t.md#c1"
-    char_span: [917, 2243]
+    char_span: [916, 2242]
     sentence_count: 1
     key_terms: [drivers, change, use, actions, metric, simple, weekly, llm]
+    concepts: [drivers, change, actions, metric, simple]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/businessintelligence/1nrg99t.md#c2"
-    char_span: [2245, 4338]
+    char_span: [2244, 4337]
     sentence_count: 12
     key_terms: [data, use, context, full, here, like, chatgpt, usually]
+    concepts: [context, chatgpt, usually, report, basic]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/businessintelligence/1nrg99t.md#c3"
-    char_span: [4085, 5227]
+    char_span: [4084, 5226]
     sentence_count: 2
     key_terms: [a-new-a16z-report-looks-at-which-ai-companies-startups-are-actually-paying-for, consumer, deliverables, use, enterprise, techcrunch, faster, https]
+    concepts: [a-new-a16z-report-looks-at-which-ai-companies-startups-are-actually-paying-for, consumer, deliverables, enterprise, techcrunch]
     section: Comments
     token_count: 299
 ---

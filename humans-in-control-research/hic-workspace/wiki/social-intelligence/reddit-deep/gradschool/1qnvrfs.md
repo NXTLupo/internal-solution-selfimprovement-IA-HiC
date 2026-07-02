@@ -21,23 +21,33 @@ chunks:
     char_span: [0, 1415]
     sentence_count: 13
     key_terms: [letter, professor, student, asked, lab, gradschool, situations, comments]
+    concepts: [letter, professor, student, asked, gradschool]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qnvrfs.md#c1", "social-intelligence/reddit-deep/gradschool/1qnvrfs.md#c2", "social-intelligence/reddit-deep/gradschool/1qnvrfs.md#c3"]
     token_count: 323
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1qnvrfs/an_undergrad_asked_me_for_a_lor/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1qnvrfs.md#c1"
     char_span: [1429, 3011]
     sentence_count: 12
     key_terms: [professor, letter, internship, student, willing, school, weight, klutzy-amount-1265]
+    concepts: [professor, letter, internship, student, willing]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qnvrfs.md#c0", "social-intelligence/reddit-deep/gradschool/1qnvrfs.md#c2", "social-intelligence/reddit-deep/gradschool/1qnvrfs.md#c3"]
     section: Comments
     token_count: 397
+    sources: [{"n":">20 site years of directing REUs","u":""}]
   - id: "social-intelligence/reddit-deep/gradschool/1qnvrfs.md#c2"
     char_span: [3013, 5094]
     sentence_count: 14
     key_terms: [letter, professor, ask, prof, reu, draft, undergrad, markjay6]
+    concepts: [letter, professor, draft, undergrad, markjay6]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qnvrfs.md#c0", "social-intelligence/reddit-deep/gradschool/1qnvrfs.md#c1"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/gradschool/1qnvrfs.md#c3"
     char_span: [5096, 6999]
     sentence_count: 12
     key_terms: [letter, students, student, grad, coursework, experience, instructor, reference]
+    concepts: [letter, students, student, coursework, experience]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qnvrfs.md#c0", "social-intelligence/reddit-deep/gradschool/1qnvrfs.md#c1"]
     section: Comments
     token_count: 410
 ---

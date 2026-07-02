@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2382]
     sentence_count: 13
     key_terms: [retrieved, chunking, chunk, semantic, context, answer, search, system]
+    concepts: [retrieved, chunking, chunk, semantic, context]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1t7vuo7/wrote_up_the_failure_modes_that_kept_breaking_my/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1t7vuo7.md#c1"
     char_span: [2396, 3828]
     sentence_count: 1
     key_terms: [retrieval, u92yvvgajxe3utxz, because, issue, mbdijawx8xk, rag, completely, document]
+    concepts: [retrieval, u92yvvgajxe3utxz, because, mbdijawx8xk, completely]
     section: Comments
     token_count: 309
 ---

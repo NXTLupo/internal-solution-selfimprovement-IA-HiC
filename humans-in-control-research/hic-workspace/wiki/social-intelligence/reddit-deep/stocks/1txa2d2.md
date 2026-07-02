@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 2384]
     sentence_count: 9
     key_terms: [companies, index, profitability, requirements, trading, market, nasdaq, public]
+    concepts: [companies, index, profitability, requirements, trading]
     token_count: 467
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1txa2d2/spacex_other_mega_ipos_denied_fast_index_entry_by/"}]
   - id: "social-intelligence/reddit-deep/stocks/1txa2d2.md#c1"
-    char_span: [2399, 4214]
+    char_span: [2398, 4213]
     sentence_count: 6
     key_terms: [good, established, following, change, nasdaq, evening-statement-57, terrible-penalty-291, mewingprogression19]
+    concepts: [established, following, change, nasdaq, balls]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1txa2d2.md#c2"
-    char_span: [3947, 4426]
+    char_span: [3946, 4425]
     sentence_count: 3
     key_terms: [trillion, because, nasdaq, worth, mobile-bar7732, unprecedented, companies, purchases]
+    concepts: [trillion, because, nasdaq, worth]
     section: Comments
     token_count: 121
 ---

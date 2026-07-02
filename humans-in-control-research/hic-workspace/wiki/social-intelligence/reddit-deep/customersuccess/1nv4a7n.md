@@ -20,16 +20,22 @@ chunks:
     char_span: [0, 2240]
     sentence_count: 19
     key_terms: [feedback, customers, product, source, customersuccess, "you're", conversation, being]
+    concepts: [feedback, customers, product, source, customersuccess]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1nv4a7n.md#c2"]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/customersuccess","u":"https://www.reddit.com/r/CustomerSuccess/comments/1nv4a7n/followup_on_a_conversation_i_had_this_week_about/"}]
   - id: "social-intelligence/reddit-deep/customersuccess/1nv4a7n.md#c1"
     char_span: [2242, 2791]
     sentence_count: 6
     key_terms: [reach, here, conversations, individually, advocates, attention, companies, customers]
+    concepts: [reach]
     token_count: 120
   - id: "social-intelligence/reddit-deep/customersuccess/1nv4a7n.md#c2"
-    char_span: [2806, 4453]
+    char_span: [2805, 4452]
     sentence_count: 11
     key_terms: [feedback, customers, nohallett, instead, support, tickets, having, yellow]
+    concepts: [feedback, customers, nohallett, instead, support]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1nv4a7n.md#c0"]
     section: Comments
     token_count: 380
 ---

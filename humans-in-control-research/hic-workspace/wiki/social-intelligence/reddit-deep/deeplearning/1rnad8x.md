@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1793]
     sentence_count: 7
     key_terms: [rag, memory, https, knowledge, com, indexing, context, agents]
+    concepts: [memory, https, knowledge, indexing, context]
     token_count: 428
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1rnad8x/3_repos_you_should_know_if_youre_building_with/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1rnad8x.md#c1"
     char_span: [1807, 2562]
     sentence_count: 4
     key_terms: [agent, curious-visit3353, agentixlabs, giorgio1979, developing, important, knowledge, preferred]
+    concepts: [agent]
     section: Comments
     token_count: 188
 ---

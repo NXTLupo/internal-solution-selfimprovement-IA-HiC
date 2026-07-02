@@ -20,29 +20,34 @@ chunks:
     char_span: [0, 449]
     sentence_count: 1
     key_terms: [financialcareers, comments, position, analyst, reddit-deep, graduation, interview, off-cycle]
+    concepts: [financialcareers, comments, position, analyst]
     token_count: 113
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1lm7lp6/almost_a_year_since_graduation_im_feeling_lost/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1lm7lp6.md#c1"
-    char_span: [464, 2206]
+    char_span: [463, 2205]
     sentence_count: 11
     key_terms: [experience, don, job, wso, tellabid, format, market, balance]
+    concepts: [experience, tellabid, format, market, balance]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/financialcareers/1lm7lp6.md#c2"
-    char_span: [2208, 2472]
+    char_span: [2207, 2471]
     sentence_count: 3
     key_terms: [available, companies, mentioned, processes, ynghuncho, tellabid, someone, macros]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/financialcareers/1lm7lp6.md#c3"
-    char_span: [2474, 4439]
+    char_span: [2473, 4438]
     sentence_count: 8
     key_terms: [blah, find, middlesex, tellabid, idroplikenasdaq, target, want, university]
+    concepts: [middlesex, idroplikenasdaq, tellabid, target, university]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1lm7lp6.md#c4"
-    char_span: [4142, 5150]
+    char_span: [4141, 5149]
     sentence_count: 7
     key_terms: [like, tellabid, coffee, words, did, lead, role, work]
+    concepts: [tellabid, coffee, words]
     section: Comments
     token_count: 250
 ---

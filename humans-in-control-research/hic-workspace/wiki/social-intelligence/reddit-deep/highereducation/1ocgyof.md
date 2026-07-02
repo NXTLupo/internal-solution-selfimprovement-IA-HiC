@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1005]
     sentence_count: 7
     key_terms: ["what's", highereducation, reddit, accounts, comments, account, working, admins]
+    concepts: ["what's", highereducation, reddit, accounts, comments]
     token_count: 240
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1ocgyof/ups_and_downs_of_using_reddit_higher_ed_admins/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1ocgyof.md#c1"
     char_span: [1019, 3189]
     sentence_count: 11
     key_terms: [lost-content-visibility-got-you-spooked, university, reddit, users, universityofmiami, get, here, www]
+    concepts: [lost-content-visibility-got-you-spooked, university, reddit, universityofmiami, users]
     section: Comments
     token_count: 496
 ---

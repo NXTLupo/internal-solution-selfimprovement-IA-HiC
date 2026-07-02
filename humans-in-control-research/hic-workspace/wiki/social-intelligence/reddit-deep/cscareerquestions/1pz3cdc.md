@@ -21,34 +21,41 @@ chunks:
     char_span: [0, 1859]
     sentence_count: 30
     key_terms: [comments, got, saved, cscareerquestions, get, reddit, https, back]
+    concepts: [comments, cscareerquestions, saved, reddit, chubbyfire]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1pz3cdc/got_laid_off_in_september_and_i_decided_to/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pz3cdc.md#c1"
     char_span: [1861, 2189]
     sentence_count: 9
     key_terms: [medical, issues, going, housewives, increase, northern, virginia, discuss]
+    concepts: [medical, issues, going]
     token_count: 77
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pz3cdc.md#c2"
     char_span: [2203, 3348]
     sentence_count: 11
     key_terms: [sounds, like, withdrawal, deserved, assets, health, retire, difficult-cricket541]
+    concepts: [sounds, withdrawal, deserved, assets, health]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pz3cdc.md#c3"
     char_span: [3350, 5190]
     sentence_count: 19
     key_terms: [retirement, difficult-cricket541, plan, chubby, fire, nice, arlington, accounts]
+    concepts: [retirement, difficult-cricket541, chubby, arlington, accounts]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pz3cdc.md#c4"
     char_span: [5192, 6682]
     sentence_count: 16
     key_terms: [library, thegreatcoursesplus, classes, get, arlington, fairfax, thanks, beginning-comedian-2]
+    concepts: [thegreatcoursesplus, library, classes, arlington, fairfax]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pz3cdc.md#c5"
     char_span: [6684, 7444]
     sentence_count: 3
     key_terms: [get, walking, desk, consider, because, money, area, diet]
+    concepts: [walking, consider, because, money]
     section: Comments
     token_count: 177
 ---

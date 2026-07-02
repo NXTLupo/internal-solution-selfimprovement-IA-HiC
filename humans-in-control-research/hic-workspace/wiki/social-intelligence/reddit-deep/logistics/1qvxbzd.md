@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 1222]
     sentence_count: 8
     key_terms: [logistics, cargo, operational, autonomous, aircraft, comments, delivery, feedback]
+    concepts: [logistics, cargo, operational, autonomous, aircraft]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1qvxbzd.md#c2"]
     token_count: 269
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1qvxbzd/could_a_uav_like_this_actually_be_useful_in_real/"}]
   - id: "social-intelligence/reddit-deep/logistics/1qvxbzd.md#c1"
-    char_span: [1237, 3143]
+    char_span: [1236, 3142]
     sentence_count: 15
     key_terms: [aircraft, type, fluid, conditions, procedures, deicing, parameters, projected]
+    concepts: [aircraft, fluid, conditions, procedures, deicing]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/logistics/1qvxbzd.md#c2"
-    char_span: [3145, 5551]
+    char_span: [3144, 5550]
     sentence_count: 18
     key_terms: [aircraft, design, high-frequency, feeder, operational, high, lot, logistics]
+    concepts: [aircraft, design, high-frequency, feeder, operational]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1qvxbzd.md#c0"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/logistics/1qvxbzd.md#c3"
-    char_span: [5553, 7834]
+    char_span: [5552, 7833]
     sentence_count: 20
     key_terms: [premium, drone, utilization, isn, expedited, liability, something, sprinter]
+    concepts: [premium, utilization, drone, expedited, liability]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/logistics/1qvxbzd.md#c4"
-    char_span: [7836, 9363]
+    char_span: [7835, 9362]
     sentence_count: 8
     key_terms: [logistics, problems, shipping, current, island, routes, speed, greycouchbluewalls]
+    concepts: [logistics, problems, shipping, current, island]
     section: Comments
     token_count: 360
 ---

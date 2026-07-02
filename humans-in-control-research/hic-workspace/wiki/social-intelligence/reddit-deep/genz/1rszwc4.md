@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1896]
     sentence_count: 20
     key_terms: [financially, lot, comments, people, understand, however, wealthy, working]
+    concepts: [financially, comments, people, understand, however]
     token_count: 451
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1rszwc4/how_are_yall_surviving_right_now/"}]
   - id: "social-intelligence/reddit-deep/genz/1rszwc4.md#c1"
     char_span: [1910, 2423]
     sentence_count: 3
     key_terms: [discord, enough, simply, money, area, automatically, automoderator, systemfrown]
+    concepts: [discord, enough, simply, money]
     section: Comments
     token_count: 141
   - id: "social-intelligence/reddit-deep/genz/1rszwc4.md#c2"
     char_span: [2425, 3913]
     sentence_count: 7
     key_terms: [living, jobs, ineptfortitude, like, live, genuinely, paycheck, america]
+    concepts: [living, ineptfortitude, genuinely, paycheck, america]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/genz/1rszwc4.md#c3"
     char_span: [3915, 5997]
     sentence_count: 12
     key_terms: [people, politicians, like, student, loans, here, thegalator, majority]
+    concepts: [people, politicians, student, loans, thegalator]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/genz/1rszwc4.md#c4"
     char_span: [5999, 7236]
     sentence_count: 7
     key_terms: [americas-wealth-distriution-by-generation, housing, people, wealth, visualcapitalist, richer, years, pleasure]
+    concepts: [americas-wealth-distriution-by-generation, housing, people, wealth, visualcapitalist]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/genz/1rszwc4.md#c5"
     char_span: [7239, 9158]
     sentence_count: 14
     key_terms: ["don't", systemfrown, get, military, wxskater, fucking, society, people]
+    concepts: [systemfrown, "don't", military, wxskater, fucking]
     section: Comments
     token_count: 504
 ---

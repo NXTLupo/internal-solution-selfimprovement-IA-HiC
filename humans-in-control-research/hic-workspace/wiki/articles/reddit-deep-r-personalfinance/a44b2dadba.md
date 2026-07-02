@@ -19,17 +19,22 @@ content_hash: "c68861e0b7e577a4"
 relevance_by_goal: {"46dec9599ad5":30}
 chunks:
   - id: "articles/reddit-deep-r-personalfinance/a44b2dadba.md#c0"
-    char_span: [0, 1427]
+    char_span: [0, 1426]
     sentence_count: 11
     key_terms: [mortgage, account, transfer, personalfinance, "i'm", put, principal, accounts]
-    token_count: 346
+    concepts: [mortgage, account, personalfinance, transfer, principal]
+    related_chunks: ["articles/reddit-deep-r-personalfinance/a44b2dadba.md#c1"]
+    token_count: 345
+    sources: [{"n":"Reddit Deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1t0zun0/my_credit_unions_systems_tried_to_f_me_over/"}]
   - id: "articles/reddit-deep-r-personalfinance/a44b2dadba.md#c1"
-    char_span: [1429, 3530]
+    char_span: [1428, 3529]
     sentence_count: 18
     key_terms: [mortgage, account, bank, transfer, paying, month, joint, money]
+    concepts: [mortgage, account, transfer, paying, month]
+    related_chunks: ["articles/reddit-deep-r-personalfinance/a44b2dadba.md#c0"]
     token_count: 508
   - id: "articles/reddit-deep-r-personalfinance/a44b2dadba.md#c2"
-    char_span: [3532, 3627]
+    char_span: [3531, 3626]
     sentence_count: 1
     key_terms: [payment, amount, moment, proper, system, until, base, drop]
     token_count: 20

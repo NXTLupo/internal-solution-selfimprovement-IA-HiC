@@ -21,52 +21,64 @@ chunks:
     char_span: [0, 2421]
     sentence_count: 22
     key_terms: [advisor, been, seriously, records, askacademia, environment, case, take]
+    concepts: [advisor, seriously, records, askacademia, environment]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1omc6lx/has_anyone_formally_reported_their_phd_advisor/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1omc6lx.md#c1"
     char_span: [2423, 3037]
     sentence_count: 8
     key_terms: [through, feel, like, documenting, emotionally, environment, exhausting, protecting]
+    concepts: [through]
     token_count: 131
   - id: "social-intelligence/reddit-deep/askacademia/1omc6lx.md#c2"
     char_span: [3051, 5260]
     sentence_count: 13
     key_terms: [environment, because, being, often, against, hostile, discriminating, unprofessional]
+    concepts: [environment, because, being, often, discriminating]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/askacademia/1omc6lx.md#c3"
     char_span: [5262, 7597]
     sentence_count: 8
     key_terms: [power, assault, jurisdictions, threatening, misconduct, therefore, academia, behavior]
+    concepts: [power, jurisdictions, assault, threatening, misconduct]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/askacademia/1omc6lx.md#c4"
     char_span: [7599, 9750]
     sentence_count: 14
     key_terms: [lot, bullying, because, schools, causes, doing, group, whole]
+    concepts: [bullying, because, schools, causes, doing]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/askacademia/1omc6lx.md#c5"
     char_span: [9752, 11643]
     sentence_count: 13
     key_terms: [record, behavior, dean, because, little, department, university, complaint]
+    concepts: [record, behavior, because, little, department]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/askacademia/1omc6lx.md#c6"
     char_span: [11645, 13999]
     sentence_count: 18
     key_terms: [students, university, student, complaints, graduate, years, "i've", took]
+    concepts: [university, students, student, complaints, graduate]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1omc6lx.md#c7"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/askacademia/1omc6lx.md#c7"
     char_span: [14001, 15994]
     sentence_count: 20
     key_terms: [student, communication, understanding, like, phd, try, university, sometimes]
+    concepts: [student, communication, understanding, university, sometimes]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1omc6lx.md#c6"]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/askacademia/1omc6lx.md#c8"
     char_span: [15996, 18221]
     sentence_count: 15
     key_terms: [because, student, institution, chair, prioritized, complaints, department, professors]
+    concepts: [institution, because, student, prioritized, chair]
     section: Comments
     token_count: 463
 ---

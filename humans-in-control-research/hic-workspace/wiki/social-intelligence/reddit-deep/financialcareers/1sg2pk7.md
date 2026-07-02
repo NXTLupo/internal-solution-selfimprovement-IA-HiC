@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 388]
     sentence_count: 1
     key_terms: [financialcareers, logistics, comments, nyu, bigdilfworldwide, reddit-deep, brokerage, sophomore]
+    concepts: [financialcareers, logistics, comments]
     token_count: 106
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1sg2pk7/input_on_my_resume_incoming_sophomore_at_nyu/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1sg2pk7.md#c1"
-    char_span: [403, 1729]
+    char_span: [402, 1728]
     sentence_count: 7
     key_terms: [bigdilfworldwide, template, good, resume, allnamestaken, quantifiable, bro, education]
+    concepts: [bigdilfworldwide, template, allnamestaken, quantifiable, resume]
     section: Comments
     token_count: 381
 ---

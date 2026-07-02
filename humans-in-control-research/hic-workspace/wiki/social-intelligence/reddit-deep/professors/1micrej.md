@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 1174]
     sentence_count: 10
     key_terms: [assignments, don, humanities, professors, ai-proof, comments, defeated, learning]
+    concepts: [assignments, humanities, professors, ai-proof, comments]
     token_count: 296
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1micrej/how_did_you_move_past_the_ai_is_the_end_of/"}]
   - id: "social-intelligence/reddit-deep/professors/1micrej.md#c1"
     char_span: [1188, 2809]
     sentence_count: 12
     key_terms: [handwriting, assignments, handwritten, classwork, reading, student, summary, writing]
+    concepts: [handwriting, assignments, handwritten, classwork, reading]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1micrej.md#c4"]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/professors/1micrej.md#c2"
     char_span: [2811, 4714]
     sentence_count: 11
     key_terms: [students, work, countryzestyclose, student, babypintojuniorlube, class, "isn't", stopslappingmybaby]
+    concepts: [students, countryzestyclose, student, class, "isn't"]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1micrej.md#c9"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/professors/1micrej.md#c3"
     char_span: [4716, 6476]
     sentence_count: 10
     key_terms: [online, own, days, everybody, critical, pressure, teaching, thinking]
+    concepts: [online, everybody, critical, pressure, teaching]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/professors/1micrej.md#c4"
     char_span: [6478, 8506]
     sentence_count: 10
     key_terms: [students, cautious-yellow, handwritten, exams, exam, use, cheat, going]
+    concepts: [cautious-yellow, students, handwritten, exams, assignments]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1micrej.md#c1", "social-intelligence/reddit-deep/professors/1micrej.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1micrej.md#c5"
@@ -56,48 +65,58 @@ chunks:
     char_span: [8695, 10667]
     sentence_count: 23
     key_terms: [work, point, students, "that's", write, "i'm", understand, anything]
+    concepts: [point, students, "that's", understand, write]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/professors/1micrej.md#c7"
     char_span: [10669, 12735]
     sentence_count: 16
     key_terms: [experience, themselves, used, assignments, philosophy, "true", students, short]
+    concepts: [experience, themselves, assignments, philosophy, students]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1micrej.md#c4"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/professors/1micrej.md#c8"
     char_span: [12737, 14810]
     sentence_count: 16
     key_terms: [students, code, instructor, similar, written, coding, grade, camp]
+    concepts: [students, instructor, similar, written, coding]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/professors/1micrej.md#c9"
     char_span: [14812, 17103]
     sentence_count: 20
     key_terms: [did, citations, students, categories, use, student, "it's", teaching]
+    concepts: [citations, students, categories, student, teaching]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1micrej.md#c2"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/professors/1micrej.md#c10"
     char_span: [17105, 18946]
     sentence_count: 13
     key_terms: [because, students, evaluation, correctly, important, focusing, learning, course]
+    concepts: [because, students, evaluation, correctly, important]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/professors/1micrej.md#c11"
     char_span: [18948, 21298]
     sentence_count: 21
     key_terms: [students, communicate, mechanics, learning, purpose, writing, assignments, experiences]
+    concepts: [students, communicate, mechanics, learning, purpose]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/professors/1micrej.md#c12"
     char_span: [21300, 23125]
     sentence_count: 15
     key_terms: [been, assignments, class, going, suggestions, chatgpt, classes, faculty]
+    concepts: [assignments, suggestions, class, going, chatgpt]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/professors/1micrej.md#c13"
     char_span: [23127, 24240]
     sentence_count: 9
     key_terms: [myself, going, microsoft, academia, problem, likely, teach, "i'm"]
+    concepts: [myself, going, microsoft, academia, problem]
     section: Comments
     token_count: 258
 ---

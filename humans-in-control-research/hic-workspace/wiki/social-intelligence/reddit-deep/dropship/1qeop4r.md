@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1060]
     sentence_count: 3
     key_terms: [shipping, products, supplier, germany, looking, supplements, supplement, wholesale]
+    concepts: [shipping, products, supplier, germany, looking]
     token_count: 226
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1qeop4r/supplement_supplier_based_in_germany_great/"}]
   - id: "social-intelligence/reddit-deep/dropship/1qeop4r.md#c1"
-    char_span: [1075, 2178]
+    char_span: [1074, 2177]
     sentence_count: 4
     key_terms: [redddddsss, send, please, dropship, check, spam, marchsimple3732, self-promotion]
+    concepts: [redddddsss, please, dropship, check]
     section: Comments
     token_count: 358
 ---

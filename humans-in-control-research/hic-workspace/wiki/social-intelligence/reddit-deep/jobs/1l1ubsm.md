@@ -21,79 +21,100 @@ chunks:
     char_span: [0, 2200]
     sentence_count: 21
     key_terms: [get, jobs, recruiter, resume, been, good, tips, comments]
+    concepts: [recruiter, resume, comments, getting, manager]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1l1ubsm.md#c1", "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c12"]
     token_count: 490
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1l1ubsm/i_have_been_a_hiring_manager_for_7_years_at/"}]
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c1"
     char_span: [2202, 4643]
     sentence_count: 21
     key_terms: [recruiters, get, job, application, resume, recruiter, position, because]
+    concepts: [recruiters, application, resume, recruiter, position]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1l1ubsm.md#c0"]
     token_count: 502
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c2"
     char_span: [4645, 6923]
     sentence_count: 25
     key_terms: [interview, combative, don, time, someone, hiring, people, receptionist]
+    concepts: [interview, combative, someone, receptionist, hiring]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1l1ubsm.md#c4", "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c18"]
     token_count: 499
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c3"
     char_span: [6925, 9325]
     sentence_count: 23
     key_terms: [position, job, questions, because, interviewing, experience, like, assuming]
+    concepts: [position, questions, interviewing, because, experience]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1l1ubsm.md#c4"]
     token_count: 503
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c4"
     char_span: [9327, 10457]
     sentence_count: 13
     key_terms: [interviewer, interview, ask, position, feel, get, questions, someone]
+    concepts: [interviewer, interview, position, questions, someone]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1l1ubsm.md#c2", "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c3", "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c15", "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c17", "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c18"]
     token_count: 254
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c5"
     char_span: [10471, 12703]
     sentence_count: 17
     key_terms: [good, actionable, job, problems, saying, "can't", "candidate's", end]
+    concepts: [actionable, problems, saying, "candidate's", "can't"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c6"
     char_span: [12705, 14433]
     sentence_count: 14
     key_terms: [job, though, applications, hired, get, candidates, interviews, different]
+    concepts: [applications, though, candidates, hired, interviews]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c7"
     char_span: [14435, 16078]
     sentence_count: 11
     key_terms: [skills, far-presentation-794, tailoring, hundreds, personal, position, letter, resume]
+    concepts: [far-presentation-794, skills, tailoring, hundreds, personal]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c8"
     char_span: [16080, 17578]
     sentence_count: 18
     key_terms: ["it's", time, interviews, applying, months, years, back, don]
+    concepts: [interviews, applying, months, years]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c9"
     char_span: [17580, 19431]
     sentence_count: 9
     key_terms: ["i'm", resume, skills, parts, get, job, applying, approach]
+    concepts: [resume, skills, parts, applying, approach]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c10"
     char_span: [19433, 21342]
     sentence_count: 12
     key_terms: [resume, bad, candidates, different, filtering, partially, because, company]
+    concepts: [resume, candidates, different, filtering, partially]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c11"
     char_span: [21344, 22254]
     sentence_count: 7
     key_terms: [interviews, getting, stupid, lol, instructions, julie3151991, description, interviewed]
+    concepts: [interviews, getting, stupid]
     section: Comments
     token_count: 218
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c12"
     char_span: [22256, 23438]
     sentence_count: 12
     key_terms: [job, professional, impression, interview, getting, manager, service, waiting]
+    concepts: [professional, impression, interview, getting, manager]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1l1ubsm.md#c0"]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c13"
     char_span: [23440, 25289]
     sentence_count: 9
     key_terms: [people, post, knowledge, technical, deleted, google, resume, basic]
+    concepts: [people, knowledge, technical, deleted, google]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c14"
@@ -106,60 +127,75 @@ chunks:
     char_span: [25928, 28144]
     sentence_count: 19
     key_terms: [job, questions, like, want, darkknightniner, "don't", felt, interview]
+    concepts: [questions, darkknightniner, "don't", interview, bullshit]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1l1ubsm.md#c4", "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c17"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c16"
     char_span: [27815, 28281]
     sentence_count: 5
     key_terms: [questions, ask, didn, intercepting, interviewer, introduced, themselves, interview]
+    concepts: [questions]
     section: Comments
     token_count: 97
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c17"
     char_span: [28283, 30391]
     sentence_count: 15
     key_terms: [job, interview, company, interviewer, questions, ask, common, sense]
+    concepts: [interview, interviewer, company, questions, common]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1l1ubsm.md#c4", "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c15"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c18"
     char_span: [30393, 32499]
     sentence_count: 19
     key_terms: [interview, because, don, industry, someone, ask, late, interviews]
+    concepts: [interview, because, industry, someone, interviews]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1l1ubsm.md#c2", "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c4", "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c19", "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c20"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c19"
     char_span: [32501, 34213]
     sentence_count: 8
     key_terms: [because, fit, job, place, did, get, interview, likeable]
+    concepts: [because, place, interview, likeable, probably]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1l1ubsm.md#c18"]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c20"
     char_span: [34215, 36458]
     sentence_count: 26
     key_terms: [job, interviews, interview, always, discussions, don, companies, "doesn't"]
+    concepts: [interviews, interview, always, discussions, companies]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1l1ubsm.md#c18"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c21"
     char_span: [36177, 36778]
     sentence_count: 6
     key_terms: [interview, job, incompetent, recruiters, ultimately, searching, targeting, believed]
+    concepts: [interview]
     section: Comments
     token_count: 136
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c22"
     char_span: [36780, 38873]
     sentence_count: 17
     key_terms: [people, good, need, connections, get, jobs, candidates, dedication]
+    concepts: [people, connections, candidates, dedication, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c23"
     char_span: [38640, 39389]
     sentence_count: 11
     key_terms: [apply, via, advice, though, "it's", jobs, like, link]
+    concepts: [apply, advice, though]
     section: Comments
     token_count: 188
   - id: "social-intelligence/reddit-deep/jobs/1l1ubsm.md#c24"
     char_span: [39392, 40314]
     sentence_count: 6
     key_terms: [via, applicants, interview, allowed, resume, unless, apply, like]
+    concepts: [applicants, interview, allowed, resume, unless]
     section: Comments
     token_count: 203
 ---

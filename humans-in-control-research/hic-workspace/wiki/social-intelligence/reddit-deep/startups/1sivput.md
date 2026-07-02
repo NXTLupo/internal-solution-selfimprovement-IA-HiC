@@ -20,61 +20,77 @@ chunks:
     char_span: [0, 2207]
     sentence_count: 19
     key_terms: [business, comments, startups, founder, trying, been, "i'm", sell]
+    concepts: [business, comments, startups, founder, trying]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1sivput/im_a_serial_founder_heres_how_i_come_up_with/"}]
   - id: "social-intelligence/reddit-deep/startups/1sivput.md#c1"
     char_span: [2209, 4513]
     sentence_count: 13
     key_terms: [pain, businesses, business, enjoyment, important, opportunities, point, "it's"]
+    concepts: [businesses, business, enjoyment, important, opportunities]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1sivput.md#c2"]
     token_count: 462
   - id: "social-intelligence/reddit-deep/startups/1sivput.md#c2"
     char_span: [4515, 6971]
     sentence_count: 17
     key_terms: [businesses, enjoyment, pain, business, customer, great, building, skillset]
+    concepts: [businesses, enjoyment, business, customer, great]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1sivput.md#c1"]
     token_count: 510
   - id: "social-intelligence/reddit-deep/startups/1sivput.md#c3"
     char_span: [6973, 9045]
     sentence_count: 6
     key_terms: [skills, design, business, programming, acceptable, skill, marketing, list]
+    concepts: [skills, design, business, programming, acceptable]
     token_count: 476
   - id: "social-intelligence/reddit-deep/startups/1sivput.md#c4"
     char_span: [9047, 10277]
     sentence_count: 9
     key_terms: [chasing, person, skills, going, worth, ask, troy, opportunities]
+    concepts: [chasing, person, skills, going, worth]
     token_count: 258
   - id: "social-intelligence/reddit-deep/startups/1sivput.md#c5"
-    char_span: [10292, 11356]
+    char_span: [10291, 11355]
     sentence_count: 4
     key_terms: [https, imgur, com, business, lqt1xne, qhpic6e, coach, llm]
+    concepts: [https, imgur, business, lqt1xne, qhpic6e]
     section: Comments
     token_count: 280
   - id: "social-intelligence/reddit-deep/startups/1sivput.md#c6"
-    char_span: [11358, 13118]
+    char_span: [11357, 13117]
     sentence_count: 13
     key_terms: [people, business, ssbmomelette, reddit, motivation, genuinely, comments, helpful]
+    concepts: [people, business, ssbmomelette, reddit, motivation]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/startups/1sivput.md#c7"
-    char_span: [13120, 15070]
+    char_span: [13119, 15069]
     sentence_count: 23
     key_terms: [point, solution, ssbmomelette, enough, timing, post, time, factor]
+    concepts: [point, solution, ssbmomelette, enough, timing]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/startups/1sivput.md#c8"
-    char_span: [15072, 15689]
+    char_span: [15071, 15688]
     sentence_count: 7
     key_terms: [market, business, "there's", timing, being, space, time, interested]
+    concepts: [market, business, "there's", timing, being]
     section: Comments
     token_count: 141
   - id: "social-intelligence/reddit-deep/startups/1sivput.md#c9"
-    char_span: [15694, 17787]
+    char_span: [15693, 17786]
     sentence_count: 10
     key_terms: [chocolateexciting682, customers, building, docusaurus, enjoyment, important, something, passion]
+    concepts: [chocolateexciting682, customers, building, docusaurus, enjoyment]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1sivput.md#c10"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/startups/1sivput.md#c10"
-    char_span: [17789, 18952]
+    char_span: [17788, 18951]
     sentence_count: 9
     key_terms: [people, customers, potential, building, customer, directly, calling, through]
+    concepts: [people, customers, potential, building, customer]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1sivput.md#c9"]
     section: Comments
     token_count: 249
 ---

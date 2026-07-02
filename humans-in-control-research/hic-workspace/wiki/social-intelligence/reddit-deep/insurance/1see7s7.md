@@ -20,40 +20,49 @@ chunks:
     char_span: [0, 2273]
     sentence_count: 23
     key_terms: [insurance, inspection, unit, usaa, comments, urgency, immediately, hvac]
+    concepts: [insurance, inspection, comments, urgency, immediately]
     token_count: 486
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1see7s7/usaa_is_trash_and_wouldnt_pay_out_my_insurance/"}]
   - id: "social-intelligence/reddit-deep/insurance/1see7s7.md#c1"
     char_span: [2275, 2652]
     sentence_count: 4
     key_terms: [get, advice, insurance, good, here, professionals, negativity, carefully]
+    concepts: [advice, insurance]
     token_count: 80
   - id: "social-intelligence/reddit-deep/insurance/1see7s7.md#c2"
-    char_span: [2667, 4295]
+    char_span: [2666, 4294]
     sentence_count: 11
     key_terms: [policy, insurance, asleep-section1248, breakdown, findtheothers623, sub, tear, wear]
+    concepts: [insurance, policy, asleep-section1248, findtheothers623, breakdown]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1see7s7.md#c4"]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/insurance/1see7s7.md#c3"
-    char_span: [4297, 5361]
+    char_span: [4296, 5360]
     sentence_count: 12
     key_terms: [information, experience, insurance, company, damage, surge, asleep-section1248, bad]
+    concepts: [information, experience, insurance, company, damage]
     section: Comments
     token_count: 256
   - id: "social-intelligence/reddit-deep/insurance/1see7s7.md#c4"
-    char_span: [5363, 7440]
+    char_span: [5362, 7439]
     sentence_count: 18
     key_terms: [insurance, asleep-section1248, investment, surge, something, aldosi-arkenstone, because, covered]
+    concepts: [insurance, asleep-section1248, investment, aldosi-arkenstone, something]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1see7s7.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/insurance/1see7s7.md#c5"
-    char_span: [7190, 7508]
+    char_span: [7189, 7507]
     sentence_count: 2
     key_terms: [asleep-section1248, antique-bat-4463, overabundance, maintenance, situations, insurance, separate, "wouldn't"]
     section: Comments
     token_count: 89
   - id: "social-intelligence/reddit-deep/insurance/1see7s7.md#c6"
-    char_span: [7510, 8825]
+    char_span: [7509, 8824]
     sentence_count: 14
     key_terms: [repair, insurance, replacement, got, deductible, difference, repairable, standpoint]
+    concepts: [repair, insurance, replacement, deductible, difference]
     section: Comments
     token_count: 294
 ---

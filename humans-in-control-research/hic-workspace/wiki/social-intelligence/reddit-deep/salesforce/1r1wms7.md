@@ -20,47 +20,60 @@ chunks:
     char_span: [0, 2025]
     sentence_count: 16
     key_terms: [salesforce, services, packages, productized, cloud, service, automation, consultant]
+    concepts: [salesforce, services, packages, productized, cloud]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1r1wms7.md#c4"]
     token_count: 480
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1r1wms7/how_are_you_selling_productized_services_as/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1r1wms7.md#c1"
-    char_span: [2027, 4276]
+    char_span: [2027, 4275]
     sentence_count: 23
     key_terms: [salesforce, sell, probably, starting, trying, hours, enterprise, experience]
+    concepts: [salesforce, probably, starting, trying, enterprise]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/salesforce/1r1wms7.md#c2"
-    char_span: [4278, 5850]
+    char_span: [4277, 5849]
     sentence_count: 18
     key_terms: [salesforce, aes, use, charge, relationships, help, need, work]
+    concepts: [salesforce, relationships, charge, management, customers]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/salesforce/1r1wms7.md#c3"
-    char_span: [5852, 8095]
+    char_span: [5851, 8094]
     sentence_count: 17
     key_terms: [salesforce, quickstart, difficult, projects, bigger, relationship, deals, communities]
+    concepts: [salesforce, quickstart, difficult, projects, relationship]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1r1wms7.md#c5"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/salesforce/1r1wms7.md#c4"
-    char_span: [8097, 9949]
+    char_span: [8096, 9948]
     sentence_count: 14
     key_terms: [hours, want, quickstarts, week, work, salesforce, question, services]
+    concepts: [hours, quickstarts, salesforce, question, services]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1r1wms7.md#c0"]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/salesforce/1r1wms7.md#c5"
-    char_span: [9951, 12104]
+    char_span: [9950, 12103]
     sentence_count: 21
     key_terms: [rate, quickstart, fixed, hours, projects, etc, "i've", sell]
+    concepts: [quickstart, fixed, hours, projects, unbillable]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1r1wms7.md#c3"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/salesforce/1r1wms7.md#c6"
-    char_span: [12106, 13901]
+    char_span: [12105, 13900]
     sentence_count: 7
     key_terms: [retainer, example, propose, quickstarter, "i'm", quickstart, something, customer]
+    concepts: [retainer, example, propose, quickstarter, quickstart]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/salesforce/1r1wms7.md#c7"
-    char_span: [13903, 14611]
+    char_span: [13902, 14610]
     sentence_count: 1
     key_terms: [customer, quickstart, salesforce, understand, navigator, contract, external, increase]
+    concepts: [customer]
     section: Comments
     token_count: 160
 ---

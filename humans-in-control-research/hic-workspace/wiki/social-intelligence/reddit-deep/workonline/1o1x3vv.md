@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 922]
     sentence_count: 9
     key_terms: [philippines, online, start, workonline, comments, working, skills, beginner-friendly]
+    concepts: [philippines, online, start, workonline, comments]
     token_count: 216
+    sources: [{"n":"reddit-deep: r/workonline","u":"https://www.reddit.com/r/WorkOnline/comments/1o1x3vv/beginner_from_the_philippines_where_should_i/"}]
   - id: "social-intelligence/reddit-deep/workonline/1o1x3vv.md#c1"
     char_span: [936, 1784]
     sentence_count: 7
     key_terms: [experience, simple, apply, beginner-friendly, jobs, applications, philippines, unoriginal2]
+    concepts: [experience, simple, apply]
     section: Comments
     token_count: 208
 ---

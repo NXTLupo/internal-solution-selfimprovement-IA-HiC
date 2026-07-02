@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1746]
     sentence_count: 22
     key_terms: [internships, postings, intern, skills, being, day, companies, comments]
+    concepts: [internships, postings, intern, skills, being]
     token_count: 369
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t3i1wg/what_companies_still_expect_interns_to_know_even/"}]
   - id: "social-intelligence/reddit-deep/internships/1t3i1wg.md#c1"
     char_span: [1760, 4099]
     sentence_count: 13
     key_terms: [like, interns, documentation, tasks, low, work, enhancvapp, internship]
+    concepts: [documentation, interns, enhancvapp, internship, tasks]
     section: Comments
     token_count: 499
 ---

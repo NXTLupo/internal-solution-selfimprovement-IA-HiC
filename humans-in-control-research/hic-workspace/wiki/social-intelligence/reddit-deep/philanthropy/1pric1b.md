@@ -20,47 +20,58 @@ chunks:
     char_span: [0, 1292]
     sentence_count: 11
     key_terms: [fees, philanthropy, fee, seem, membership, understand, comments, anyone]
+    concepts: [philanthropy, membership, understand, comments, anyone]
     token_count: 322
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1pric1b/does_anyone_understand_daffys_business_model_how/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1pric1b.md#c1"
-    char_span: [1307, 3247]
+    char_span: [1306, 3246]
     sentence_count: 10
     key_terms: [daffy, community, through, fund, institutions, local, foundations, daf]
+    concepts: [daffy, community, through, institutions, foundations]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1pric1b.md#c6"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/philanthropy/1pric1b.md#c2"
-    char_span: [3249, 5266]
+    char_span: [3248, 5265]
     sentence_count: 16
     key_terms: [daffy, aside, platform, relationship, daf, transparency, different, explained]
+    concepts: [daffy, aside, platform, relationship, transparency]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/philanthropy/1pric1b.md#c3"
-    char_span: [5268, 6679]
+    char_span: [5267, 6678]
     sentence_count: 13
     key_terms: [daf, balance, assets, "it's", investment, choices, explore, options]
+    concepts: [balance, assets, investment, choices, explore]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/philanthropy/1pric1b.md#c4"
-    char_span: [6681, 8633]
+    char_span: [6680, 8632]
     sentence_count: 18
     key_terms: ["chariot's", chariot, pricing, daffy, money, daf, nonprofits, question]
+    concepts: ["chariot's", chariot, pricing, daffy, money]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/philanthropy/1pric1b.md#c5"
-    char_span: [8635, 10467]
+    char_span: [8634, 10466]
     sentence_count: 13
     key_terms: [nonprofits, community, fees, amex, daf, fee, "it's", generally]
+    concepts: [nonprofits, community, generally, providers, merchant]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/philanthropy/1pric1b.md#c6"
-    char_span: [10469, 12548]
+    char_span: [10468, 12547]
     sentence_count: 17
     key_terms: [daffy, campaign, contributions, people, community, because, donate, page]
+    concepts: [contributions, campaign, daffy, people, community]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1pric1b.md#c1"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/philanthropy/1pric1b.md#c7"
-    char_span: [12550, 12714]
+    char_span: [12549, 12713]
     sentence_count: 1
     key_terms: [people, contributing, subscription, deduction, breakage, quickly, enough, grant]
+    concepts: [people]
     section: Comments
     token_count: 33
 ---

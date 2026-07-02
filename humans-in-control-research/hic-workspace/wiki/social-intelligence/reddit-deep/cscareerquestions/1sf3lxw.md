@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 756]
     sentence_count: 5
     key_terms: [cscareerquestions, https, comments, movement, wwwrise, "what's", org, accelerating]
+    concepts: [cscareerquestions, https, comments, movement, wwwrise]
     token_count: 187
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sf3lxw/mass_layoffs_in_cs_careers_are_accelerating_learn/"}]
 ---
 # Mass Layoffs In CS Careers Are Accelerating. Learn How To Protect Yourself
 

@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1261]
     sentence_count: 14
     key_terms: [waterloo, money, been, anything, comments, anyone, right, help]
+    concepts: [waterloo, money, anything, comments, anyone]
     token_count: 300
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1oj9h9t/really_need_help_finding_work_or_ways_to_make/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1oj9h9t.md#c1"
     char_span: [1275, 3097]
     sentence_count: 24
     key_terms: [hiring, lot, retail, employment, suggest, youth-programs, people, places]
+    concepts: [hiring, employment, retail, youth-programs, suggest]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/waterloo/1oj9h9t.md#c2"
     char_span: [3099, 4988]
     sentence_count: 9
     key_terms: [snooploopssecret, need, employment, llunedd, centre, resume, skills, great]
+    concepts: [snooploopssecret, employment, llunedd, centre, resume]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/waterloo/1oj9h9t.md#c3"
     char_span: [4991, 6975]
     sentence_count: 17
     key_terms: [work, snooploopssecret, looking, hiring, people, skills, construction, usually]
+    concepts: [snooploopssecret, looking, construction, hiring, people]
     section: Comments
     token_count: 476
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1771]
     sentence_count: 7
     key_terms: [philanthropy-for-radicals, baldwin, garland, philanthropy, foundation, dissentmagazine, institutions, https]
+    concepts: [philanthropy-for-radicals, philanthropy, baldwin, garland, foundation]
     token_count: 379
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1s45cng/the_garland_fund_was_not_a_typical_foundation_but/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1s45cng.md#c1"
-    char_span: [1786, 2337]
+    char_span: [1785, 2336]
     sentence_count: 1
     key_terms: [wanting, nohippi3chic, inheritance, compromise, nonprofits, influence, initially, liberties]
+    concepts: [wanting]
     section: Comments
     token_count: 123
 ---

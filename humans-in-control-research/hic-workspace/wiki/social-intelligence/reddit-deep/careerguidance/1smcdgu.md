@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 342]
     sentence_count: 3
     key_terms: [careerguidance, comments, reddit-deep, bangalore, forensics, high-pay, biotech, student]
+    concepts: [careerguidance, comments]
     token_count: 110
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1smcdgu/12th_pcb_student_need_highpay_career_path_no_mbbs/"}]
 ---
 # 12th PCB Student: Need high-pay career path (No MBBS). Is Biotech/Forensics in Bangalore worth it (Urgent)??
 

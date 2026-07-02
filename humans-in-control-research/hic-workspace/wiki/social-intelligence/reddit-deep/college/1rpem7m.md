@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1485]
     sentence_count: 16
     key_terms: [college, school, time, current, degree, full, want, healthcare]
+    concepts: [college, school, current, degree, healthcare]
     token_count: 347
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1rpem7m/possible_degree_change/"}]
   - id: "social-intelligence/reddit-deep/college/1rpem7m.md#c1"
     char_span: [1499, 3395]
     sentence_count: 9
     key_terms: ["i'm", too, everything, healthcare, passionate, full-time, switched, yourself]
+    concepts: [everything, healthcare, passionate, full-time, switched]
     section: Comments
     token_count: 434
 ---

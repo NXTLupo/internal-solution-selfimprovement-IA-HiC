@@ -20,41 +20,51 @@ chunks:
     char_span: [0, 2090]
     sentence_count: 13
     key_terms: [finance, full-time, business, internship, operations, canadian, financialcareers, school]
+    concepts: [finance, full-time, business, internship, operations]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1o9kw8n/do_i_have_a_chance_at_a_career_in_high_finance_if/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1o9kw8n.md#c1"
-    char_span: [2092, 3958]
+    char_span: [2092, 3957]
     sentence_count: 11
     key_terms: [financialcareers, banking, discord, professionals, transitioned, full-time, questions, consider]
+    concepts: [financialcareers, professionals, banking, discord, transitioned]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/financialcareers/1o9kw8n.md#c2"
-    char_span: [3960, 5389]
+    char_span: [3959, 5388]
     sentence_count: 7
     key_terms: [experience, grades, link809, enough, target, gpa, too, want]
+    concepts: [experience, grades, link809, enough, target]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/financialcareers/1o9kw8n.md#c3"
-    char_span: [5391, 6960]
+    char_span: [5390, 6959]
     sentence_count: 9
     key_terms: [work, school, years, good, experience, associate, business, grades]
+    concepts: [school, experience, years, associate, business]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/financialcareers/1o9kw8n.md#c4"
-    char_span: [6962, 8806]
+    char_span: [6961, 8805]
     sentence_count: 13
     key_terms: [bank, mba, disciplinedwill, pedanticplatypodes, sponsor, good, post, work]
+    concepts: [disciplinedwill, pedanticplatypodes, sponsor, definitely, experience]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1o9kw8n.md#c6"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/financialcareers/1o9kw8n.md#c5"
-    char_span: [8808, 10222]
+    char_span: [8807, 10221]
     sentence_count: 10
     key_terms: [finance, violinistdangerous71, canadian, competitive, high, assume, canada, redact]
+    concepts: [violinistdangerous71, finance, canadian, competitive, assume]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/financialcareers/1o9kw8n.md#c6"
-    char_span: [10224, 11574]
+    char_span: [10223, 11573]
     sentence_count: 6
     key_terms: [disciplinedwill, day, roll, experience, analysts, meapppp, sleeves, smaller]
+    concepts: [disciplinedwill, experience, analysts, meapppp, sleeves]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1o9kw8n.md#c4"]
     section: Comments
     token_count: 346
 ---

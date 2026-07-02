@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 1222]
     sentence_count: 6
     key_terms: [leadership, early, careerguidance, career, professionals, management, education, programme]
+    concepts: [leadership, early, careerguidance, professionals, career]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rq5thi.md#c1"]
     token_count: 255
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rq5thi/early_career_confusion_job_first_or_leadership/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rq5thi.md#c1"
     char_span: [1236, 2358]
     sentence_count: 11
     key_terms: [work, experience, leadership, early, learn, ok-juggernaut8061, did, don]
+    concepts: [experience, leadership, early, learn]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rq5thi.md#c0"]
     section: Comments
     token_count: 265
 ---

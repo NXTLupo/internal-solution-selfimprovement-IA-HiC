@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1931]
     sentence_count: 19
     key_terms: [job, masters, working, career, secure, neuroscience, occupational, been]
+    concepts: [masters, working, neuroscience, occupational, career]
     token_count: 447
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1sy2iqp/career_path_advice_anyone_i_thought_id_have_a/"}]
   - id: "social-intelligence/reddit-deep/findapath/1sy2iqp.md#c1"
     char_span: [1945, 3704]
     sentence_count: 14
     key_terms: [thank, creative, helpful, please, alongside, findapath, comments, everyone]
+    concepts: [thank, creative, helpful, please, alongside]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/findapath/1sy2iqp.md#c2"
     char_span: [3706, 5879]
     sentence_count: 15
     key_terms: [day, degree, doing, healthcare, currently, something, country, problem]
+    concepts: [degree, doing, healthcare, currently, something]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/findapath/1sy2iqp.md#c3"
     char_span: [5882, 7172]
     sentence_count: 9
     key_terms: ["don't", research, degree, another, masters, grads, miamiconnectionexo, get]
+    concepts: ["don't", research, degree, another, masters]
     section: Comments
     token_count: 296
 ---

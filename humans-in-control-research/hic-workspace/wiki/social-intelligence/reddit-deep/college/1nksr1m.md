@@ -19,52 +19,69 @@ chunks:
     char_span: [0, 1922]
     sentence_count: 19
     key_terms: [class, semester, college, medical, accommodations, been, take, conditions]
+    concepts: [class, semester, college, accommodations, medical]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nksr1m.md#c4"]
     token_count: 440
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1nksr1m/is_there_anything_that_can_be_done_to_accommodate/"}]
   - id: "social-intelligence/reddit-deep/college/1nksr1m.md#c1"
     char_span: [1924, 2378]
     sentence_count: 5
     key_terms: [ideas, here, like, inappropriate, suggestions, disability, outrageous, genuinely]
+    concepts: [ideas]
     token_count: 98
   - id: "social-intelligence/reddit-deep/college/1nksr1m.md#c2"
     char_span: [2392, 4449]
     sentence_count: 13
     key_terms: [accommodation, course, record, disability, lectures, set, professor, semester]
+    concepts: [accommodation, course, record, disability, lectures]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nksr1m.md#c3", "social-intelligence/reddit-deep/college/1nksr1m.md#c5", "social-intelligence/reddit-deep/college/1nksr1m.md#c8"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/college/1nksr1m.md#c3"
     char_span: [4451, 6781]
     sentence_count: 14
     key_terms: [class, lectures, schedule, course, online, "it's", material, probably]
+    concepts: [class, lectures, schedule, course, online]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nksr1m.md#c2", "social-intelligence/reddit-deep/college/1nksr1m.md#c8"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/college/1nksr1m.md#c4"
     char_span: [6783, 7401]
     sentence_count: 4
     key_terms: [class, take, semester, going, maybe, next, prerequisite, perspective]
+    concepts: [class, semester, going, maybe]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nksr1m.md#c0", "social-intelligence/reddit-deep/college/1nksr1m.md#c5"]
     section: Comments
     token_count: 137
   - id: "social-intelligence/reddit-deep/college/1nksr1m.md#c5"
     char_span: [7403, 9554]
     sentence_count: 12
     key_terms: [class, asynchronous, maybe, accommodation, get, disability, different, anything]
+    concepts: [class, asynchronous, maybe, accommodation, disability]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nksr1m.md#c2", "social-intelligence/reddit-deep/college/1nksr1m.md#c4", "social-intelligence/reddit-deep/college/1nksr1m.md#c7", "social-intelligence/reddit-deep/college/1nksr1m.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1nksr1m.md#c6"
     char_span: [9325, 9592]
     sentence_count: 3
     key_terms: [class, iknowallseven, accessible, disability, impossible, structured, suggested, instance]
+    concepts: [class]
     section: Comments
     token_count: 71
   - id: "social-intelligence/reddit-deep/college/1nksr1m.md#c7"
     char_span: [9595, 11620]
     sentence_count: 21
     key_terms: [reading, class, accommodation, list, try, work, guardrails, detailed]
+    concepts: [reading, class, accommodation, guardrails, detailed]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nksr1m.md#c5"]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/college/1nksr1m.md#c8"
     char_span: [11623, 12853]
     sentence_count: 8
     key_terms: [accommodation, disability, course, lectures, services, another, options, office]
+    concepts: [accommodation, disability, course, lectures, services]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nksr1m.md#c2", "social-intelligence/reddit-deep/college/1nksr1m.md#c3", "social-intelligence/reddit-deep/college/1nksr1m.md#c5"]
     section: Comments
     token_count: 269
 ---

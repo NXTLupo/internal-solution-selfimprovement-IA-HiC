@@ -20,34 +20,40 @@ chunks:
     char_span: [0, 2455]
     sentence_count: 13
     key_terms: [project, "i'm", migration, productmanagement, system, documentation, non-technical, integrations]
+    concepts: [project, productmanagement, migration, documentation, non-technical]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1nhadmn/how_to_approach_a_complex_system_migration_as_the/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1nhadmn.md#c1"
     char_span: [2457, 2683]
     sentence_count: 3
     key_terms: [documentation, appreciate, frameworks, incredibly, strategies, articles, helpful, methods]
     token_count: 44
   - id: "social-intelligence/reddit-deep/productmanagement/1nhadmn.md#c2"
-    char_span: [2698, 4876]
+    char_span: [2697, 4875]
     sentence_count: 24
     key_terms: [important, tool, document, documentation, integrations, scale, building, biggest]
+    concepts: [important, document, documentation, integrations, scale]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/productmanagement/1nhadmn.md#c3"
-    char_span: [4878, 7047]
+    char_span: [4877, 7046]
     sentence_count: 20
     key_terms: [new, system, tool, get, like, old, practical, something]
+    concepts: [system, practical, something, typically, building]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/productmanagement/1nhadmn.md#c4"
-    char_span: [7049, 9177]
+    char_span: [7048, 9176]
     sentence_count: 25
     key_terms: [integrations, goals, docs, get, keep, run, migration, airtable]
+    concepts: [integrations, goals, migration, airtable, external]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/productmanagement/1nhadmn.md#c5"
-    char_span: [9179, 10766]
+    char_span: [9178, 10765]
     sentence_count: 12
     key_terms: [coda, airtable, rather, own, set, documentation, dependencies, integrations]
+    concepts: [airtable, rather]
     section: Comments
     token_count: 363
 ---

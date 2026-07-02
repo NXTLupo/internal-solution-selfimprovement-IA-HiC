@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2049]
     sentence_count: 14
     key_terms: [like, marketing, careerguidance, being, years, been, experience, passionate]
+    concepts: [marketing, careerguidance, being, experience, passionate]
     token_count: 473
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sh0kda/feeling_directionless_in_my_career_in_my_early/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sh0kda.md#c1"
     char_span: [2051, 3839]
     sentence_count: 12
     key_terms: ["i'm", like, get, been, feel, "i've", job, direction]
+    concepts: [direction, something, another, anyone, people]
     token_count: 398
   - id: "social-intelligence/reddit-deep/careerguidance/1sh0kda.md#c2"
     char_span: [3853, 4161]

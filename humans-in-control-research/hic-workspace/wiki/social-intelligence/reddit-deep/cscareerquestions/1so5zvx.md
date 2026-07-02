@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 1854]
     sentence_count: 10
     key_terms: [don, like, cscareerquestions, because, didn, job, comments, position]
+    concepts: [cscareerquestions, because, comments, position, degree]
     token_count: 440
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1so5zvx/got_fired_today_and_i_dont_like_cs/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1so5zvx.md#c1"
     char_span: [1868, 3596]
     sentence_count: 17
     key_terms: [something, "that's", problem, documentation, doing, going, life, manuals]
+    concepts: [something, "that's", documentation, problem, doing]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/cscareerquestions/1so5zvx.md#c2"
     char_span: [3598, 5227]
     sentence_count: 15
     key_terms: ["don't", years, something, time, choose, expectation, been, life]
+    concepts: [something, "don't", years, choose, expectation]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/cscareerquestions/1so5zvx.md#c3"
     char_span: [5232, 7291]
     sentence_count: 12
     key_terms: [love, pursue, job, time, work, something, anything, bullshit]
+    concepts: [pursue, something, anything, bullshit, requires]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/cscareerquestions/1so5zvx.md#c4"
     char_span: [7293, 9191]
     sentence_count: 14
     key_terms: [job, writing, try, definitely, another, passion, illustrious-pound266, being]
+    concepts: [writing, definitely, another, passion, being]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/cscareerquestions/1so5zvx.md#c5"
     char_span: [9193, 11025]
     sentence_count: 8
     key_terms: [without, aware, use, management, mistakes, ability, people, stupid]
+    concepts: [without, aware, management, mistakes, ability]
     section: Comments
     token_count: 387
 ---

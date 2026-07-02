@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1431]
     sentence_count: 16
     key_terms: [marketing, return, offer, internships, recruiting, corporate, comments, consumer]
+    concepts: [marketing, return, internships, offer, recruiting]
     token_count: 300
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tjwi27/how_do_you_actually_earn_a_return_offer/"}]
   - id: "social-intelligence/reddit-deep/internships/1tjwi27.md#c1"
     char_span: [1445, 3503]
     sentence_count: 12
     key_terms: [perspective, people, questions, meetings, share, ask, role, show]
+    concepts: [perspective, people, questions, meetings, share]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/internships/1tjwi27.md#c2"
     char_span: [3505, 5449]
     sentence_count: 25
     key_terms: [intelligence, better, mistake, having, coachability, apply, learn, opportunity]
+    concepts: [intelligence, better, mistake, coachability, having]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/internships/1tjwi27.md#c3"
     char_span: [5451, 6506]
     sentence_count: 11
     key_terms: [yourself, work, qualities, because, return, wallstreetmastermind, "don't", ask]
+    concepts: [yourself, qualities, because, return, "don't"]
     section: Comments
     token_count: 231
 ---

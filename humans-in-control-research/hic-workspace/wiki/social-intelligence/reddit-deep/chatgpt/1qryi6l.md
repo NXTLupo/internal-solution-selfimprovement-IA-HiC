@@ -21,41 +21,53 @@ chunks:
     char_span: [0, 998]
     sentence_count: 9
     key_terms: ["it's", chatgpt, custom, "that's", instructions, times, something, structure]
+    concepts: [chatgpt, instructions, custom, "that's", times]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c2", "social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c4"]
     token_count: 244
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1qryi6l/chatgpt_ignores_custom_instructions_and_wont_stop/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c1"
     char_span: [1012, 2081]
     sentence_count: 12
     key_terms: [r-chatgpt-1050422060352024636, patience, discord, vacuum, "you're", withoutreason1729, bad, been]
+    concepts: [patience, discord, vacuum, "you're"]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c2"
     char_span: [2083, 3755]
     sentence_count: 10
     key_terms: [something, chatgpt, part, "that's", comprehensivefish880, haunting-detail2025, librarianrecent6145, ordinary-stable-290]
+    concepts: [something, chatgpt, "that's", write]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c3"
     char_span: [3522, 4352]
     sentence_count: 8
     key_terms: [instructions, want, something, almost, change, ordinary-stable-290, run, established]
+    concepts: [instructions, something, almost, change]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c4"]
     section: Comments
     token_count: 214
   - id: "social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c4"
     char_span: [4354, 5931]
     sentence_count: 10
     key_terms: [something, stop, custom, instructions, instruction, guardrails, sentences, training]
+    concepts: [something, instructions, custom, instruction, guardrails]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c0", "social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c3"]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c5"
     char_span: [5933, 7779]
     sentence_count: 14
     key_terms: [gongalongas, paranoia, strawman, gravity, problem, change, more-explanation2032, quick]
+    concepts: [gongalongas, paranoia, strawman, gravity, problem]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c6"
     char_span: [7781, 9260]
     sentence_count: 5
     key_terms: [openai, power, users, downvoted, thinking, format, google, charming-opening-437]
+    concepts: [openai, power, users, downvoted, thinking]
     section: Comments
     token_count: 349
 ---

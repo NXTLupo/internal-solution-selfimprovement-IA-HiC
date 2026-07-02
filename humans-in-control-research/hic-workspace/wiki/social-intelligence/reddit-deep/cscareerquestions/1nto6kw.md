@@ -19,99 +19,123 @@ chunks:
     char_span: [0, 2172]
     sentence_count: 16
     key_terms: [candidates, cscareerquestions, experiences, side, recruiter, comments, initial, hiring]
+    concepts: [candidates, cscareerquestions, experiences, recruiter, comments]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1nto6kw/psa_the_real_reason_youre_struggling_in_the_tech/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c1"
     char_span: [2174, 4355]
     sentence_count: 18
     key_terms: [people, experience, because, resumes, someone, hiring, often, background]
+    concepts: [experience, people, because, resumes, someone]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c11"]
     token_count: 424
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c2"
     char_span: [4357, 5220]
     sentence_count: 8
     key_terms: [candidates, tons, references, believe, metrics, hiring, people, else]
+    concepts: [candidates, references, believe, metrics, hiring]
     token_count: 184
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c3"
     char_span: [5234, 7207]
     sentence_count: 12
     key_terms: [experience, faang, component, react, years, java, like, year]
+    concepts: [experience, faang, component, react, years]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c4"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c4"
     char_span: [7209, 8626]
     sentence_count: 6
     key_terms: [experience, faang, functional, component, integrate, because, startup, affectionate-turn137]
+    concepts: [experience, faang, functional, component, integrate]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c3"]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c5"
     char_span: [8628, 10373]
     sentence_count: 8
     key_terms: [like, time, companies, leetcode, global, people, check, justleave-mealone]
+    concepts: [companies, leetcode, global, people, check]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c6"
     char_span: [10375, 11767]
     sentence_count: 5
     key_terms: [candidates, company, deleted, asking, easily, blood, clear, mark]
+    concepts: [candidates, company, deleted, asking, easily]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c7"
     char_span: [11769, 14024]
     sentence_count: 8
     key_terms: [metrics, android, developers, get, bullshit, advice, impact, people]
+    concepts: [metrics, android, developers, bullshit, advice]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c8"
     char_span: [13701, 14461]
     sentence_count: 1
     key_terms: [bullshit, feature, payment, people, calls, get, stereotypical, dethstroke54]
+    concepts: [bullshit, feature, payment, people, calls]
     section: Comments
     token_count: 167
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c9"
     char_span: [14463, 16740]
     sentence_count: 20
     key_terms: [productive, jobs, because, trying, productivity, faang, investments, find]
+    concepts: [productive, because, productivity, trying, investments]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c10"
     char_span: [16742, 18324]
     sentence_count: 11
     key_terms: [day, "they're", working, chill, faang, cyclodevops, business, ladycatherinehoward]
+    concepts: ["they're", working, cyclodevops, chill, faang]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c11"
     char_span: [18327, 20427]
     sentence_count: 16
     key_terms: [experience, get, resume, product, people, head, emergency, billions]
+    concepts: [experience, resume, product, people, emergency]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c1"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c12"
     char_span: [20429, 21880]
     sentence_count: 6
     key_terms: [meritocracy, means, interview, everyone, become, fidodo, people, person]
+    concepts: [meritocracy, means, interview, everyone, become]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c13"
     char_span: [21882, 23530]
     sentence_count: 10
     key_terms: [embellishment, interviewer, experience, architect, interview, prepared, software, yourself]
+    concepts: [embellishment, interviewer, experience, architect, interview]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c14"
     char_span: [23532, 25632]
     sentence_count: 18
     key_terms: [job, company, beastybaiter, "it's", oil, went, honestly, software]
+    concepts: [company, beastybaiter, honestly, software, resumes]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c15"
     char_span: [25634, 27254]
     sentence_count: 14
     key_terms: [candidates, evaluations, get, companies, interview, win, time, work]
+    concepts: [candidates, evaluations, companies, interview, happened]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c16"]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c16"
     char_span: [27256, 29284]
     sentence_count: 19
     key_terms: [recruiters, interview, people, requirements, arms, here, race, candidates]
+    concepts: [recruiters, interview, requirements, people, candidates]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c15"]
     section: Comments
     token_count: 449
 ---

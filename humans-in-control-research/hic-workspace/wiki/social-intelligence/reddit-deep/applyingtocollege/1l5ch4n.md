@@ -21,71 +21,87 @@ chunks:
     char_span: [0, 2094]
     sentence_count: 24
     key_terms: ["i'm", parents, university, applyingtocollege, college, school, independent, aid]
+    concepts: [parents, university, applyingtocollege, college, school]
     token_count: 475
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1l5ch4n/watching_my_friends_commit_financial_aid_fraud_to/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c1"
     char_span: [2108, 4330]
     sentence_count: 10
     key_terms: [homeless, get, individual, schools, student, verification, based, fafsa]
+    concepts: [homeless, individual, schools, student, verification]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c2"
     char_span: [4332, 5742]
     sentence_count: 3
     key_terms: [homelessness, considering, prove, difficult, homeless, student, cholitoburrito, independent]
+    concepts: [homelessness, considering, difficult, prove, homeless]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c3"
     char_span: [5744, 7482]
     sentence_count: 12
     key_terms: [parents, independent, incredibly, especially, difficult, income, doing, seems]
+    concepts: [independent, parents, incredibly, especially, difficult]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c4"
     char_span: [7484, 9594]
     sentence_count: 12
     key_terms: [independent, financial, fafsa, aid, aos, honestly, subsidized-unsubsidized, process]
+    concepts: [independent, financial, fafsa, honestly, process]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c5"
     char_span: [9363, 9792]
     sentence_count: 3
     key_terms: [student, independent, status, fafsa, aos, contribution, requirements, eligibility]
+    concepts: [student, independent, status, fafsa]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c6"]
     section: Comments
     token_count: 104
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c6"
     char_span: [9794, 10499]
     sentence_count: 2
     key_terms: [independent, appearance, homeless, status, being, court, circumstances, documentation]
+    concepts: [independent, appearance, homeless, status, being]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c5"]
     section: Comments
     token_count: 158
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c7"
     char_span: [10501, 12203]
     sentence_count: 10
     key_terms: [income, court, money, rich, year, appearance, referring, families]
+    concepts: [income, appearance, court, money, referring]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c8"
     char_span: [12205, 12853]
     sentence_count: 5
     key_terms: [telling, socioeconomic, differences, reinvested, resentment, sushiritto, financial, situation]
+    concepts: [telling]
     section: Comments
     token_count: 154
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c9"
     char_span: [12855, 14893]
     sentence_count: 14
     key_terms: [people, aid, something, billion, "doesn't", friends, getting, "they're"]
+    concepts: [people, something, billion, "doesn't", friends]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c10"
     char_span: [14690, 15230]
     sentence_count: 4
     key_terms: [the-secret-irs-files-trove-of-never-before-seen-records-reveal-how-the-wealthiest-avoid-income-tax, propublica, article, billion, chatgpt, https, com, org]
+    concepts: [the-secret-irs-files-trove-of-never-before-seen-records-reveal-how-the-wealthiest-avoid-income-tax, propublica, article, billion, chatgpt]
     section: Comments
     token_count: 158
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c11"
     char_span: [15232, 16830]
     sentence_count: 11
     key_terms: [definitely, billionaires, get, unrealized, difficult, loopholes, homeless, capital]
+    concepts: [definitely, billionaires, unrealized, difficult, loopholes]
     section: Comments
     token_count: 358
 ---

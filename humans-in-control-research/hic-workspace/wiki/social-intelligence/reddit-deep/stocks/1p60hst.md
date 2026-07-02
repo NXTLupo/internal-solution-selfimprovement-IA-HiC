@@ -20,47 +20,60 @@ chunks:
     char_span: [0, 2114]
     sentence_count: 12
     key_terms: [google, nvidia, meta, information, customers, data, tpus, meta-google-discuss-tpu-deal-233823637]
+    concepts: [google, nvidia, information, customers, centers]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1p60hst.md#c3", "social-intelligence/reddit-deep/stocks/1p60hst.md#c4", "social-intelligence/reddit-deep/stocks/1p60hst.md#c6"]
     token_count: 436
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1p60hst/meta_and_google_discuss_tpu_deal_as_google/"}]
   - id: "social-intelligence/reddit-deep/stocks/1p60hst.md#c1"
-    char_span: [2129, 3298]
+    char_span: [2128, 3297]
     sentence_count: 11
     key_terms: [sold, deleted, pain474, "that's", translatorroyal1016, prudent-corgi3793, does, "it's"]
+    concepts: [deleted, pain474, "that's"]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/stocks/1p60hst.md#c2"
-    char_span: [3300, 4869]
+    char_span: [3299, 4868]
     sentence_count: 18
     key_terms: [nvidia, tpus, support, buy, did, mass, sentiment, produce]
+    concepts: [nvidia, support, sentiment, produce, bought]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/stocks/1p60hst.md#c3"
-    char_span: [4871, 6898]
+    char_span: [4870, 6897]
     sentence_count: 11
     key_terms: [tpus, google, chips, clustered, nvidia, instructions, specialized, does]
+    concepts: [google, clustered, chips, instructions, nvidia]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1p60hst.md#c0", "social-intelligence/reddit-deep/stocks/1p60hst.md#c4", "social-intelligence/reddit-deep/stocks/1p60hst.md#c6"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/stocks/1p60hst.md#c4"
-    char_span: [6900, 8970]
+    char_span: [6899, 8969]
     sentence_count: 14
     key_terms: [google, margins, business, chips, nvidia, cloud, tpus, margin]
+    concepts: [google, margins, business, chips, nvidia]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1p60hst.md#c0", "social-intelligence/reddit-deep/stocks/1p60hst.md#c3", "social-intelligence/reddit-deep/stocks/1p60hst.md#c6"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/stocks/1p60hst.md#c5"
-    char_span: [8972, 11013]
+    char_span: [8971, 11012]
     sentence_count: 21
     key_terms: [google, cloud, companies, openai, today, code, cost, like]
+    concepts: [google, companies, cloud, openai, today]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/stocks/1p60hst.md#c6"
-    char_span: [11015, 12891]
+    char_span: [11014, 12890]
     sentence_count: 24
     key_terms: [understandingnew2810, nvidia, pytorch, tpus, google, big, cuda, cheaper]
+    concepts: [understandingnew2810, nvidia, pytorch, google, cheaper]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1p60hst.md#c0", "social-intelligence/reddit-deep/stocks/1p60hst.md#c3", "social-intelligence/reddit-deep/stocks/1p60hst.md#c4"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/stocks/1p60hst.md#c7"
-    char_span: [12894, 13428]
+    char_span: [12893, 13427]
     sentence_count: 3
     key_terms: [robotics, google, physical, been, tpu, used, invest0rnoob1, accustomed]
+    concepts: [robotics, google, physical]
     section: Comments
     token_count: 141
 ---

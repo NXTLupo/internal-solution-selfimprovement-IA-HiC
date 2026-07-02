@@ -21,101 +21,125 @@ chunks:
     char_span: [0, 1336]
     sentence_count: 5
     key_terms: [companies, year, being, investing, market, let, time, comments]
+    concepts: [companies, investing, being, market, comments]
     token_count: 324
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1pg9e4i/10_a_year_returns_lets_just_think_about_that_for/"}]
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c1"
     char_span: [1350, 2146]
     sentence_count: 2
     key_terms: [company, wage, employees, business, minimum, "don't", job, open]
+    concepts: [company, employees, business, minimum, "don't"]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c2"
     char_span: [2151, 3803]
     sentence_count: 4
     key_terms: [burger, inflation, cost, time, affected, currency, company, reverse]
+    concepts: [burger, inflation, affected, currency, company]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c3"
     char_span: [3805, 5472]
     sentence_count: 7
     key_terms: [inflation, interest, chapwoodindex, compound, pickup, hulksinvinciblepants, preferred-til-newops, mrjohnnydangerously]
+    concepts: [inflation, interest, chapwoodindex, compound, pickup]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c4"
     char_span: [5474, 7411]
     sentence_count: 15
     key_terms: [inflation, growth, average, valuations, years, dividends, subtract, year]
+    concepts: [inflation, growth, average, valuations, dividends]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c5"
     char_span: [7413, 9409]
     sentence_count: 11
     key_terms: [inflation, worth, trillion, dollar, "that's", years, ago, year]
+    concepts: [inflation, worth, trillion, dollar, "that's"]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1pg9e4i.md#c6", "social-intelligence/reddit-deep/investing/1pg9e4i.md#c14"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c6"
     char_span: [9411, 11225]
     sentence_count: 16
     key_terms: [inflation, quadrillion, today, worth, companies, long, company, billion]
+    concepts: [inflation, quadrillion, companies, today, worth]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1pg9e4i.md#c5", "social-intelligence/reddit-deep/investing/1pg9e4i.md#c8", "social-intelligence/reddit-deep/investing/1pg9e4i.md#c10"]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c7"
     char_span: [11228, 12755]
     sentence_count: 11
     key_terms: [stock, inflation, earnings, markets, stocks, money, shifting, factor]
+    concepts: [inflation, stock, earnings, markets, stocks]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c8"
     char_span: [12757, 14544]
     sentence_count: 12
     key_terms: [today, worth, market, exaggeration, stock, huge, ridiculous, inflation]
+    concepts: [today, worth, exaggeration, market, ridiculous]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1pg9e4i.md#c6", "social-intelligence/reddit-deep/investing/1pg9e4i.md#c13"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c9"
     char_span: [14546, 16069]
     sentence_count: 8
     key_terms: [people, gdp, market, cap, larger, money, "household's", everything]
+    concepts: [people, market, larger, "household's", everything]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c10"
     char_span: [16071, 17798]
     sentence_count: 14
     key_terms: [inflation, companies, commonly-confused-words, shear-vs-sheer, profit, gdp, "it's", grammarly]
+    concepts: [inflation, commonly-confused-words, companies, shear-vs-sheer, profit]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1pg9e4i.md#c6"]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c11"
     char_span: [17800, 19092]
     sentence_count: 10
     key_terms: [everything, crazy, money, earnings, nvidia, people, stupid, basis]
+    concepts: [everything, crazy, money, earnings, nvidia]
     section: Comments
     token_count: 298
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c12"
     char_span: [19094, 21024]
     sentence_count: 12
     key_terms: [years, crazy, trillion, because, choicethegame, exist, today, companies]
+    concepts: [years, crazy, trillion, choicethegame, because]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c13"
     char_span: [21026, 22958]
     sentence_count: 15
     key_terms: ["company's", market, remember, today, average, federal, minimum, touched]
+    concepts: ["company's", market, remember, today, average]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1pg9e4i.md#c8"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c14"
     char_span: [22960, 24032]
     sentence_count: 9
     key_terms: [companies, leverage, trillion, million, dollar, exist, enshittification, malinvestments]
+    concepts: [companies, leverage, trillion, million, dollar]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1pg9e4i.md#c5"]
     section: Comments
     token_count: 266
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c15"
     char_span: [24034, 26182]
     sentence_count: 19
     key_terms: [like, top, companies, consumers, year, years, lot, nvda]
+    concepts: [companies, consumers, years, engagement, products]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c16"
     char_span: [25894, 26496]
     sentence_count: 12
     key_terms: [companies, bricksufficient6938, transactions, willingness, engagement, exxonmobil, citygroup, consumers]
+    concepts: [companies]
     section: Comments
     token_count: 148
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1320]
     sentence_count: 9
     key_terms: [car, debt, personalfinance, savings, loans, like, emergency, comments]
+    concepts: [personalfinance, savings, loans, emergency, comments]
     token_count: 328
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1tc2xsw/first_money_moves_when_starting_first_engineering/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1tc2xsw.md#c1"
     char_span: [1334, 1782]
     sentence_count: 3
     key_terms: [personalfinance, questions, wiki, automatically, automoderator, information, flinters17, moderators]
+    concepts: [personalfinance, questions]
     section: Comments
     token_count: 111
 ---

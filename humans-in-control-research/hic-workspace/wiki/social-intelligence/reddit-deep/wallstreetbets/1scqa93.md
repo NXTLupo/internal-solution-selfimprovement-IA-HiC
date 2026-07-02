@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1966]
     sentence_count: 13
     key_terms: [blackstone-drives-medallia-negotiations, https, blah, com, company, why-did-nvidia-stock-crash-after-blowout-earnings, right, down]
+    concepts: [blackstone-drives-medallia-negotiations, https, company, right, wallstreetbets]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1scqa93/saaspocalypse_story_is_a_boomer_fantasy/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c1"
     char_span: [1968, 2551]
     sentence_count: 10
@@ -31,36 +33,45 @@ chunks:
     char_span: [2565, 4075]
     sentence_count: 6
     key_terms: [ai-moderator, saas, together, discord, garbage, massive, boomer, entire]
+    concepts: [ai-moderator, together, discord, garbage, massive]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c3"
     char_span: [4077, 5001]
     sentence_count: 5
     key_terms: [humans, humble-section-5638, years, need, paid, s1n0d3utscht3k, seafinding9818, nomynametoday]
+    concepts: [humans, years]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c4"
     char_span: [5003, 6296]
     sentence_count: 11
     key_terms: [work, "doesn't", boss, need, months, sentientshadeofgreen, doesn, speed]
+    concepts: ["doesn't", months, doesn, speed]
     section: Comments
     token_count: 325
+    sources: [{"n":"me launching a company with one engineer vs would have needed a team of 3 or 4 t","u":""}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c5"
     char_span: [6298, 8423]
     sentence_count: 18
     key_terms: [email, work, worked, based, build, did, dos, get]
+    concepts: [email, worked, based, build, discussion]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c6"
     char_span: [8142, 8432]
     sentence_count: 3
     key_terms: [based, email, working, dos, computers, remember, transfer, mailmen]
+    concepts: [based, email, working]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c5"]
     section: Comments
     token_count: 67
   - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c7"
     char_span: [8434, 9346]
     sentence_count: 6
     key_terms: [going, don, customers, software, finally, systems, hidden, above]
+    concepts: [going, customers, software, finally, systems]
     section: Comments
     token_count: 231
 ---

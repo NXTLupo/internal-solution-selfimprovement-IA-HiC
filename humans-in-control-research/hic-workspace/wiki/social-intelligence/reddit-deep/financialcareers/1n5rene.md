@@ -7,58 +7,64 @@ subreddit: "financialcareers"
 title: "Roast my resume? Be as brutal as possible because I know HR won’t be lenient."
 author: "chiefstone"
 date: "2025-09-01T15:15:11.000Z"
-score: 72
+score: 73
 upvote_ratio: 0.97
 num_comments: 54
 flair: "Resume Feedback"
-extracted_at: "2026-06-11T18:58:14.076Z"
+extracted_at: "2026-06-29T14:40:16.486Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Define the 2026 \"state of the Art\" operational and technological benchmarks for \"The State of Data & Distribution in Asset Management\". Synthesize key developments across data infrastructure, distribution enablement, and AI governance frameworks to identify leading industry capabilities and compliance standards."
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
 chunks:
   - id: "social-intelligence/reddit-deep/financialcareers/1n5rene.md#c0"
     char_span: [0, 316]
     sentence_count: 3
     key_terms: [financialcareers, comments, reddit-deep, chiefstone, possible, because, lenient, brutal]
+    concepts: [financialcareers, comments]
     token_count: 89
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1n5rene/roast_my_resume_be_as_brutal_as_possible_because/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1n5rene.md#c1"
-    char_span: [331, 1884]
+    char_span: [330, 1883]
     sentence_count: 31
     key_terms: [take, biology, doing, major, want, relevant, ideally, nobody]
+    concepts: [biology, doing, major, relevant, ideally]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/financialcareers/1n5rene.md#c2"
-    char_span: [1886, 3883]
+    char_span: [1885, 3882]
     sentence_count: 18
     key_terms: [interests, don, removing, manylegal48, lol, show, recruiters, executive]
+    concepts: [interests, removing, manylegal48, recruiters, executive]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/financialcareers/1n5rene.md#c3"
-    char_span: [3885, 5672]
+    char_span: [3884, 5671]
     sentence_count: 17
     key_terms: [school, gpa, background, experience, management, personal, relevant, biology]
+    concepts: [school, background, experience, management, personal]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/financialcareers/1n5rene.md#c4"
-    char_span: [5675, 6629]
+    char_span: [5674, 6628]
     sentence_count: 10
     key_terms: [get, liked, job, interests, looking, never, good, jobs]
+    concepts: [liked, interests, looking, never]
     section: Comments
     token_count: 230
 ---
 # Roast my resume? Be as brutal as possible because I know HR won’t be lenient.
 
 Source: [reddit-deep: r/financialcareers](https://www.reddit.com/r/FinancialCareers/comments/1n5rene/roast_my_resume_be_as_brutal_as_possible_because/)
-Posted by **chiefstone** · **72↑** · **54 comments**
+Posted by **chiefstone** · **73↑** · **54 comments**
 
 _(no body - link/image post)_
 
 ## Comments
 
-- **Spirited_Golf_188** (90↑): I think you can take McDonald's off
-- **spotpea** (34↑): Take off that finance GPA
+- **Spirited_Golf_188** (92↑): I think you can take McDonald's off
+- **spotpea** (35↑): Take off that finance GPA
 - **chiwiwix** (22↑): Make sure u add your walmart experience gail lewis , that'll seal the deal.
-- **ManyLegal48** (37↑): Honest:
+- **ManyLegal48** (36↑): Honest:
 
 The first thing that sticks out to me is why the fuck are you doing a double major in Biology? Genuinely what the fuck? You’re not doing premed, you want to be an IB/Quant/Risk analyst, etc? 
 
@@ -79,15 +85,15 @@ Take interests out. Nobody cares. You can make fishing pals when you actually ha
 All in all. This is all my opinion. But you have way to much stuff. And the biology is not helping the way you think it is. Granted I wouldn’t take it of of course. But still.
 
 And for the love of god! Take out the executive summary! Nobody has that shit. Recruiters often skim. More words is bad.
-  - **TheStrongestGamer** (35↑): You know, you hit right on the head  and probably the best advice on this post 💯 but no need to be a dick either.
-    - **ManyLegal48** (3↑): Sorry 😅 I didn’t mean to come off as a dick I was just trying to be brutally honest
-  - **slghtlystewpid** (18↑): I agree with (i) removing executive summary, (ii) removing McDonalds, and (iii) the confusion about the double major.
+  - **TheStrongestGamer** (37↑): You know, you hit right on the head  and probably the best advice on this post 💯 but no need to be a dick either.
+    - **ManyLegal48** (1↑): Sorry 😅 I didn’t mean to come off as a dick I was just trying to be brutally honest
+  - **slghtlystewpid** (17↑): I agree with (i) removing executive summary, (ii) removing McDonalds, and (iii) the confusion about the double major.
 
 What I don’t agree with is removing the interests. I absolutely love the interests section of resumes, as it allows me to differentiate candidates that otherwise look the same. I’ve screened resumes for 3 years now as part of summer analyst and full time analyst recruiting. We see the same resume over and over again. Interests is the one opportunity you have to show personality and be unique. Don’t put anything controversial, but if you like to golf, fish, cook, mountain bike, rock climb whatever. That’s cool as hell. Just don’t put like hunting or politics or something. People will ask in an interview about your interests if they are even slightly normal.
-  - **igetlotsofupvotes** (18↑): Not saying any of your points are wrong but it’s funny that a 19 year old is so passionately criticizing a resume when they have nothing to show for themself or gone through any recruitment process, especially not on the other side. 
+  - **igetlotsofupvotes** (17↑): Not saying any of your points are wrong but it’s funny that a 19 year old is so passionately criticizing a resume when they have nothing to show for themself or gone through any recruitment process, especially not on the other side. 
 
 Plenty of non math/econ people make it into banking - it’s only really a hard requirement for quant roles which op is clearly severely unqualified for.
-    - **ManyLegal48** (-18↑): I’ve had experience since highschool lol, I even got a first round interview for Optiver (I notice you have the quant flair). I think Id know a thing or two about what recruiters are looking for lol. 
+    - **ManyLegal48** (-19↑): I’ve had experience since highschool lol, I even got a first round interview for Optiver (I notice you have the quant flair). I think Id know a thing or two about what recruiters are looking for lol. 
 
 So I do have plenty to show for myself, managing, projects, math olympiad, etc. You don’t know my quals I dont know urs
 
@@ -97,7 +103,7 @@ Edit: Clarified interview lol just 1st round
   - **auburnlur** (3↑): Why is supply chain management embarrassing
     - **Significant-Side2718** (1↑): That’s what I’m saying… I would prefer supply chain management actually
   - **Slavbro23_** (2↑): He's an undergrad; realistically, all they are evaluated on is GPA and school name unless they have some crazy experience (military background comes to mind). If anything, fishkeeping sets him apart from all the other bullshit people at this level put on their résumés.
-- **[deleted]** (6↑): Executive summary is laughable. 2-3 lines crystal clear about your professional background.
+- **[deleted]** (5↑): Executive summary is laughable. 2-3 lines crystal clear about your professional background.
 
 Education section is ridiculous. Just remove biology and relevant coursework. You only need the school name, gpa, expected graduation year, and finance major.
 

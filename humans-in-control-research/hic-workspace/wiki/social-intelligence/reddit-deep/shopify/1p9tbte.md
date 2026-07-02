@@ -11,20 +11,23 @@ score: 1
 upvote_ratio: 0.66
 num_comments: 12
 flair: "Shopify General Discussion"
-extracted_at: "2026-06-18T13:35:23.060Z"
+extracted_at: "2026-06-24T22:14:23.474Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/shopify/1p9tbte.md#c0"
     char_span: [0, 858]
     sentence_count: 9
     key_terms: [shopify, comments, results, tariffs, international, northernhang, conflicting, reddit-deep]
+    concepts: [shopify, comments, results, tariffs]
     token_count: 208
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1p9tbte/did_i_miss_a_new_usa_tariff_rule_based_in_and/"}]
   - id: "social-intelligence/reddit-deep/shopify/1p9tbte.md#c1"
-    char_span: [873, 2288]
+    char_span: [872, 2287]
     sentence_count: 10
     key_terms: [shopify, northernhang, steel, queenkrool, backpacks, community, products, contact]
+    concepts: [shopify, northernhang, queenkrool, steel, backpacks]
     section: Comments
     token_count: 360
 ---

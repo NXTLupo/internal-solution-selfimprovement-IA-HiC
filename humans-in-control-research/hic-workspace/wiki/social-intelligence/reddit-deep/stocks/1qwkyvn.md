@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 538]
     sentence_count: 7
     key_terms: [portfolio, premarket, comments, stocks, going, names, down, red]
+    concepts: [portfolio, premarket, comments, stocks, going]
     token_count: 149
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1qwkyvn/a_lot_of_names_in_deep_red_premarket_whats_going/"}]
   - id: "social-intelligence/reddit-deep/stocks/1qwkyvn.md#c1"
     char_span: [552, 1788]
     sentence_count: 5
     key_terms: [bitcoin, own, understand, research, people, shares, trying, rare-competition-248]
+    concepts: [bitcoin, understand, research, people, shares]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/stocks/1qwkyvn.md#c2"
     char_span: [1790, 3589]
     sentence_count: 6
     key_terms: [like, buy, mstr, everyone, bitcoin, slides, wallstbetmodsrgayaf, been]
+    concepts: [everyone, bitcoin, slides]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/stocks/1qwkyvn.md#c3"
@@ -44,30 +48,35 @@ chunks:
     char_span: [4357, 5727]
     sentence_count: 5
     key_terms: [balls, catalyst, tickling, getting, markets, sometimesifartandpee, associategreat2350, precipitously]
+    concepts: [balls, catalyst, tickling, getting, markets]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/stocks/1qwkyvn.md#c5"
     char_span: [5730, 7606]
     sentence_count: 13
     key_terms: [layoff-and-hiring-announcements-hit-their-worst-january-levels-since-2009-challenger-says, challenger, sources, big, crowded, headpaleontologist40, slight-platypus2877, being]
+    concepts: [challenger, sources, crowded, being]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/stocks/1qwkyvn.md#c6"
     char_span: [7608, 9507]
     sentence_count: 12
     key_terms: [deleted, terrible, answer, thank, numbers, years, confidence, leadership]
+    concepts: [deleted, terrible, answer, thank, numbers]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/stocks/1qwkyvn.md#c7"
     char_span: [9509, 11561]
     sentence_count: 9
     key_terms: [people, working, class, until, american, america, average, instead]
+    concepts: [people, working, class, until, american]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/stocks/1qwkyvn.md#c8"
     char_span: [11563, 13585]
     sentence_count: 20
     key_terms: [expectations, harbison215, year, eliminated, something, billion, returns, market]
+    concepts: [expectations, harbison215, eliminated, something, billion]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/stocks/1qwkyvn.md#c9"

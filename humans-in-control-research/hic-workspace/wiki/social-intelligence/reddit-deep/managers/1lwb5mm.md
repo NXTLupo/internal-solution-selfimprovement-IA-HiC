@@ -21,27 +21,35 @@ chunks:
     char_span: [0, 2060]
     sentence_count: 10
     key_terms: [discord, website, chat, customer, management, message, requests-for-league-of-legends, "it's"]
+    concepts: [discord, website, customer, management, message]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1lwb5mm.md#c1"]
     token_count: 460
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1lwb5mm/need_help_with_management_tools_my_companys/"}]
   - id: "social-intelligence/reddit-deep/managers/1lwb5mm.md#c1"
     char_span: [2062, 4120]
     sentence_count: 18
     key_terms: [discord, management, "it's", project, notifications, conversation, check, group]
+    concepts: [discord, management, notifications, project, conversation]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1lwb5mm.md#c0"]
     token_count: 470
   - id: "social-intelligence/reddit-deep/managers/1lwb5mm.md#c2"
     char_span: [4122, 5884]
     sentence_count: 10
     key_terms: [productivity, tasks, chat, like, operators, something, "don't", sales]
+    concepts: [productivity, tasks, operators, something, "don't"]
     token_count: 385
   - id: "social-intelligence/reddit-deep/managers/1lwb5mm.md#c3"
     char_span: [5898, 8177]
     sentence_count: 12
     key_terms: [company, slack, channels, discord, pricing, virtual, communications, plan]
+    concepts: [company, slack, channels, communications, discord]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/managers/1lwb5mm.md#c4"
     char_span: [8179, 9839]
     sentence_count: 10
     key_terms: [discord, like, solution, automatically, chat, lot, experience, features]
+    concepts: [discord, solution, automatically, experience, features]
     section: Comments
     token_count: 377
 ---

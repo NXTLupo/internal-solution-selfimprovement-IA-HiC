@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1269]
     sentence_count: 9
     key_terms: [supplement, shipping, brand, comments, dropship, customs, quality, scaling]
+    concepts: [supplement, shipping, brand, comments, dropship]
     token_count: 283
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1t7ztti/scaling_a_supplement_brand_heres_why_your_supply/"}]
   - id: "social-intelligence/reddit-deep/dropship/1t7ztti.md#c1"
-    char_span: [1284, 2233]
+    char_span: [1283, 2232]
     sentence_count: 4
     key_terms: [dropship, sounds, post, spam, self-promotion, automatically, automoderator, partnership]
+    concepts: [dropship, sounds]
     section: Comments
     token_count: 232
 ---

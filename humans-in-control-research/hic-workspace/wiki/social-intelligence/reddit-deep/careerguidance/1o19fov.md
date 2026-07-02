@@ -21,31 +21,40 @@ chunks:
     char_span: [0, 1801]
     sentence_count: 21
     key_terms: [company, careerguidance, years, phd, background, comments, however, present]
+    concepts: [company, careerguidance, background, years, comments]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1o19fov.md#c2"]
     token_count: 424
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1o19fov/should_i_leave_my_job/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1o19fov.md#c1"
     char_span: [1803, 3889]
     sentence_count: 21
     key_terms: [work, phd, person, been, team, brilliant, convinced, something]
+    concepts: [person, brilliant, convinced, something, multiple]
     token_count: 439
   - id: "social-intelligence/reddit-deep/careerguidance/1o19fov.md#c2"
     char_span: [3891, 5982]
     sentence_count: 28
     key_terms: [feh, company, boss, promote, leave, years, been, suggested]
+    concepts: [company, promote, leave, years, suggested]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1o19fov.md#c0"]
     token_count: 472
   - id: "social-intelligence/reddit-deep/careerguidance/1o19fov.md#c3"
     char_span: [5984, 7905]
     sentence_count: 22
     key_terms: [however, boss, time, occasions, feh, work, office, asked]
+    concepts: [however, occasions, office, orientation, asked]
     token_count: 443
   - id: "social-intelligence/reddit-deep/careerguidance/1o19fov.md#c4"
     char_span: [7907, 9737]
     sentence_count: 19
     key_terms: [lunch, time, feedback, break, back, feh, get, understand]
+    concepts: [lunch, feedback, break, understand, evening]
     token_count: 423
   - id: "social-intelligence/reddit-deep/careerguidance/1o19fov.md#c5"
     char_span: [9739, 10208]
     sentence_count: 7
     key_terms: ["don't", start, days, time, blabbering, distancing, motivation, incident]
+    concepts: ["don't", start]
     token_count: 112
 ---
 # Should I leave my job?

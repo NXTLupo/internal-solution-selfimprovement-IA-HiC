@@ -19,47 +19,58 @@ chunks:
     char_span: [0, 1442]
     sentence_count: 12
     key_terms: [cscareerquestions, like, everyone, experience, becoming, comments, reaction, already]
+    concepts: [cscareerquestions, everyone, experience, becoming, comments]
     token_count: 327
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1mkmahc/is_it_normal_to_feel_like_youre_falling_behind/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md#c1"
     char_span: [1456, 2379]
     sentence_count: 4
     key_terms: [senior, level, client, certainlyforgetful, got, like, ok-swimmer-2634, responsibility]
+    concepts: [senior, level, client]
     section: Comments
     token_count: 248
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md#c2"
     char_span: [2381, 4049]
     sentence_count: 16
     key_terms: [senior, title, salary, titles, interesting, principal, doing, big]
+    concepts: [senior, title, salary, titles, interesting]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md#c7"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md#c3"
     char_span: [4051, 6387]
     sentence_count: 18
     key_terms: [interesting, experience, work, systems, programming, back, came, did]
+    concepts: [interesting, experience, systems, programming, production]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md#c4"
     char_span: [6389, 8134]
     sentence_count: 18
     key_terms: [experience, similar, professionally, vue3, recruiters, exploring, knowledge, recruiter]
+    concepts: [experience, professionally, similar, recruiters, exploring]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md#c5"
     char_span: [8136, 10428]
     sentence_count: 16
     key_terms: [job, tech, bioinformatics, justuseansvm, big, did, like, technology]
+    concepts: [bioinformatics, justuseansvm, technology, different, knowledge]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md#c6"
     char_span: [10430, 12423]
     sentence_count: 13
     key_terms: [senior, engineer, staff, bioinformatics, contributions, work, experience, companies]
+    concepts: [senior, engineer, staff, bioinformatics, contributions]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md#c7"
     char_span: [12425, 14598]
     sentence_count: 15
     key_terms: [senior, cscareerquestions, because, titles, want, different, comments, observed]
+    concepts: [senior, cscareerquestions, because, titles, different]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md#c2"]
     section: Comments
     token_count: 493
 ---

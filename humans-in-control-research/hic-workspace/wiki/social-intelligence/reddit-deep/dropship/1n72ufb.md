@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1069]
     sentence_count: 6
     key_terms: [shipping, refunds, sellers, guaranteed, carriers, comments, dropship, services]
+    concepts: [shipping, refunds, sellers, guaranteed, carriers]
     token_count: 247
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1n72ufb/how_many_sellers_actually_claim_refunds_on/"}]
   - id: "social-intelligence/reddit-deep/dropship/1n72ufb.md#c1"
-    char_span: [1084, 1420]
+    char_span: [1083, 1419]
     sentence_count: 2
     key_terms: [dropship, spam, self-promotion, automatically, automoderator, moderators, performed, questions]
+    concepts: [dropship]
     section: Comments
     token_count: 86
 ---

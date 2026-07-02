@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2013]
     sentence_count: 11
     key_terms: [povertyfinance, money, spend, bank, card, don, automation, comments]
+    concepts: [povertyfinance, automation, money, spend, comments]
     token_count: 472
+    sources: [{"n":"Reddit Deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1s7plcu/here_are_a_few_things_ive_been_through_hope_it/"}]
   - id: "articles/reddit-deep-r-povertyfinance/fcba36cdc8.md#c1"
     char_span: [2017, 3597]
     sentence_count: 8
     key_terms: [people, like, internet, budgeting, starting, already, service, mobile]
+    concepts: [people, internet, budgeting, starting, already]
     token_count: 367
 ---
 # Here are a few things i’ve been through. hope it helps give you some perspective.

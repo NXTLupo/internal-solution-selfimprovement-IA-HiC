@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1118]
     sentence_count: 7
     key_terms: [salesforce, experience, move, recruiters, companies, developer, comments, advice]
+    concepts: [salesforce, experience, recruiters, companies, developer]
     token_count: 257
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1qmod84/salesforce_developer_in_dubai_looking_to_move_to/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1qmod84.md#c1"
-    char_span: [1133, 2375]
+    char_span: [1132, 2374]
     sentence_count: 6
     key_terms: [company, market, devs, better, creative-lobster3601, majestic-deal-758, atm, job]
+    concepts: [company, market, better]
     section: Comments
     token_count: 330
 ---

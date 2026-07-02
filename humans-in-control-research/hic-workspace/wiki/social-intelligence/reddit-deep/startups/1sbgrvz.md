@@ -20,40 +20,50 @@ chunks:
     char_span: [0, 2047]
     sentence_count: 25
     key_terms: [co-founder, business, saying, coach, minutes, problem, "you're", need]
+    concepts: [co-founder, business, saying, coach, minutes]
     token_count: 445
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1sbgrvz/a_business_coach_told_my_tech_cofounder/"}]
   - id: "social-intelligence/reddit-deep/startups/1sbgrvz.md#c1"
     char_span: [2049, 3600]
     sentence_count: 25
     key_terms: ["you're", customers, feature, get, next, problem, product, someone]
+    concepts: ["you're", customers, feature, problem, product]
     token_count: 355
   - id: "social-intelligence/reddit-deep/startups/1sbgrvz.md#c2"
-    char_span: [3615, 4180]
+    char_span: [3614, 4179]
     sentence_count: 2
     key_terms: [marriage, finding, tktrd1, like, vivid-spray4775, relationships, optionok4807, complaints]
+    concepts: [marriage, finding, tktrd1]
     section: Comments
     token_count: 160
   - id: "social-intelligence/reddit-deep/startups/1sbgrvz.md#c3"
-    char_span: [4182, 6105]
+    char_span: [4181, 6104]
     sentence_count: 9
     key_terms: [devreme, co-founder, tech, like, experience, founder, someone, usually]
+    concepts: [devreme, co-founder, experience, founder, someone]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/startups/1sbgrvz.md#c4"
-    char_span: [6107, 8366]
+    char_span: [6106, 8365]
     sentence_count: 13
     key_terms: [different, communication, devreme, problem, trust, need, especially, behaviour]
+    concepts: [different, communication, devreme, problem, especially]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1sbgrvz.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/startups/1sbgrvz.md#c5"
-    char_span: [8151, 8897]
+    char_span: [8150, 8896]
     sentence_count: 3
     key_terms: [people, different, devreme, face, savings-cry-3201, philosophical, perspectives, recommended]
+    concepts: [people, different, devreme]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1sbgrvz.md#c4"]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/startups/1sbgrvz.md#c6"
-    char_span: [8899, 10311]
+    char_span: [8898, 10310]
     sentence_count: 19
     key_terms: [because, uncomfortable, feels, building, features, problem, product, through]
+    concepts: [uncomfortable, because, feels, building, features]
     section: Comments
     token_count: 335
 ---

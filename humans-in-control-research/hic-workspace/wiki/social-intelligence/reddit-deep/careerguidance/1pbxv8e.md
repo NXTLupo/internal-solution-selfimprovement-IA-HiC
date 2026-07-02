@@ -19,41 +19,49 @@ chunks:
     char_span: [0, 682]
     sentence_count: 5
     key_terms: [careerguidance, underrated, comments, advice, misunderstandings, work, productivity, reddit-deep]
+    concepts: [careerguidance, underrated, comments, advice]
     token_count: 158
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pbxv8e/whats_the_most_underrated_work_advice_you_received/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1pbxv8e.md#c1"
     char_span: [696, 2525]
     sentence_count: 12
     key_terms: [environment, hard, work, peaceful, position, deleted, other-razzmatazz-816, mediocre-career8695]
+    concepts: [environment, peaceful, position, deleted, chaos]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1pbxv8e.md#c2"
     char_span: [2332, 4280]
     sentence_count: 16
     key_terms: [something, fight, time, eventually, everything, complain, everyone, limbodog]
+    concepts: [something, eventually, everything, fight, complain]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1pbxv8e.md#c3"
     char_span: [4000, 5538]
     sentence_count: 13
     key_terms: [longer, task, deleted, forever, greatly, perfect, product, served]
+    concepts: [longer, deleted, forever, greatly, perfect]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/careerguidance/1pbxv8e.md#c4"
     char_span: [5540, 7310]
     sentence_count: 14
     key_terms: [own, experience, solutions, mistakes, because, perfect, months, trying]
+    concepts: [experience, solutions, mistakes, because, perfect]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/careerguidance/1pbxv8e.md#c5"
     char_span: [7312, 8600]
     sentence_count: 13
     key_terms: [kind, people, "don't", work, bounderies, solutions, kindness, because]
+    concepts: [people, bounderies, "don't", solutions, kindness]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/careerguidance/1pbxv8e.md#c6"
     char_span: [8602, 10289]
     sentence_count: 8
     key_terms: [apprehensivecrab96, get, work, hard, goldcarats, something, someone, people]
+    concepts: [apprehensivecrab96, goldcarats, something, someone, people]
     section: Comments
     token_count: 489
 ---

@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 2069]
     sentence_count: 19
     key_terms: ["i'm", feel, like, relatively, "it's", job, applying, dataengineering]
+    concepts: [relatively, dataengineering, applying, environment, pipelines]
     token_count: 481
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1ti7vto/laid_off_a_week_ago_am_i_screwed/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1ti7vto.md#c1"
-    char_span: [2084, 3969]
+    char_span: [2083, 3968]
     sentence_count: 24
     key_terms: [yourself, get, time, job, new, business, contract, network]
+    concepts: [yourself, business, contract, network, normal]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/dataengineering/1ti7vto.md#c2"
-    char_span: [3971, 5649]
+    char_span: [3970, 5648]
     sentence_count: 14
     key_terms: [job, worked, got, last, time, references, linkedin, around]
+    concepts: [worked, references, linkedin, around, layoff]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/dataengineering/1ti7vto.md#c3"
-    char_span: [5652, 6852]
+    char_span: [5651, 6851]
     sentence_count: 16
     key_terms: ["don't", questions, technical, engineer, linkedin, resumes, systems, resume]
+    concepts: ["don't", questions, technical, engineer, linkedin]
     section: Comments
     token_count: 276
 ---

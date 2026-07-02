@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1266]
     sentence_count: 9
     key_terms: [businessintelligence, excel, narrative, comments, workflow, explain, writing, report]
+    concepts: [businessintelligence, excel, narrative, comments, workflow]
     token_count: 294
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1peaqfp/how_do_you_handle_the_excel_narrative_report/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1peaqfp.md#c1"
-    char_span: [1281, 3469]
+    char_span: [1280, 3468]
     sentence_count: 18
     key_terms: [different, want, interpretation, report, job, text, commentary, dashboard]
+    concepts: [different, interpretation, report, commentary, dashboard]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/businessintelligence/1peaqfp.md#c2"
-    char_span: [3471, 5549]
+    char_span: [3470, 5548]
     sentence_count: 6
     key_terms: [report, excel, ponziedd, instructions, data, dimensions, reporting, analysis]
+    concepts: [report, excel, ponziedd, instructions, dimensions]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/businessintelligence/1peaqfp.md#c3"
-    char_span: [5551, 5812]
+    char_span: [5550, 5811]
     sentence_count: 2
     key_terms: [instead, combination, exhausting, refinement, cognitive, narrative, starting, strategy]
+    concepts: [instead]
     section: Comments
     token_count: 47
 ---

@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2101]
     sentence_count: 15
     key_terms: [oil, iran, trump, strikes, war, wallstreetbets, been, escalation]
+    concepts: [trump, strikes, wallstreetbets, escalation, carefully]
     token_count: 456
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1rgt09f/oil_is_mispriced_ignore_headlines_and_look_at/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c1"
     char_span: [2103, 4681]
     sentence_count: 17
     key_terms: [oil, russian, ukraine, war, opec, economic, nations, market]
+    concepts: [russian, ukraine, economic, nations, market]
     token_count: 504
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c2"
     char_span: [4683, 7122]
     sentence_count: 17
     key_terms: [energy, oil, renewable, large, whilst, reductions, trump, term]
+    concepts: [energy, renewable, large, reductions, whilst]
     token_count: 484
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c3"
     char_span: [7136, 7225]
@@ -42,6 +46,7 @@ chunks:
     char_span: [7227, 9035]
     sentence_count: 4
     key_terms: [iran, oil, companies, insider, comprehensivedoor130, no-understanding2406, price, sectorratiogeneral]
+    concepts: [companies, insider, price]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c5"
@@ -54,6 +59,7 @@ chunks:
     char_span: [9208, 11307]
     sentence_count: 7
     key_terms: [years, oil, "you're", fundamentals, gonna, gdp, perfectly, probably]
+    concepts: [years, fundamentals, "you're", gonna, perfectly]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c7"

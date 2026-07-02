@@ -1,7 +1,7 @@
 ﻿
 import { GoogleGenAI, Type, Schema, Chat, GenerateContentResponse } from "@google/genai";
 import { FileUpload, AnalysisResult, Persona, ScriptScene, Slide, SlideLayout, StepResult_Ingestion, StepResult_Themes, StepResult_Personas, StepResult_Structure, StepResult_Narrative, StepResult_Final, Theme, SlideStyle, Citation, StrategicRecommendation, OutputOption, StepResult_JourneyMap, StepResult_TechArch, ServiceBlueprintStage, TechnicalArchitecture, TechNode, TechFlow, PRD, StepResult_PRD, StrategicRoadmap, StepResult_Roadmap, StepResult_Recommendations, StepResult_CrossCuttingSynthesis, DeckInputContext, ContentBlock } from "../types";
-import { tryRepairJson, OPUS_CAP_ACTIVE } from './aiRouter';
+import { tryRepairJson, OPUS_CAP_ACTIVE, HIC_CACHE_BREAK, stripCacheMarkers } from './aiRouter';
 import { recordAICall } from './costMeter';
 
 // 2026-06-20 COST METER FIX. The GoogleGenAI client below talks DIRECT to Google
@@ -726,26 +726,15 @@ export class GenAISession {
             }
         } catch (e) { /* frameworks optional */ }
 
+        // E1 (2026-07-02): cache-aligned assembly - static core first, engagement block after the
+        // cache-break marker (the proxy turns the marker into an Anthropic cache breakpoint; other
+        // providers strip it). The static core must contain NOTHING engagement-varying.
         const systemInstruction = `
             You are an elite CX consulting partner (McKinsey/BCG/IDEO caliber) powered by advanced AI and a persistent, compounding knowledge architecture.
 
             CORE OBJECTIVE: Produce consulting-grade deliverables from research evidence.
-            RESEARCH GOAL: "${this.goal}"
-            ANALYSIS APPROACH: "${this.approach}"
-            ${lensPromptSegment}
-            ${frameworkInstructions}
-
-            ${wikiKnowledge ? `
-=== COMPILED KNOWLEDGE FROM WIKI (persistent, compounding) ===
-The following knowledge has been compiled from the NXT Humans wiki layer.
-This is NOT generated from scratch - it represents accumulated consulting
-methodology, anti-patterns, benchmark data, and brand standards that have
-been refined across multiple engagements. ALWAYS prefer this compiled
-knowledge over re-deriving from training data.
-
-${wikiKnowledge}
-=== END WIKI KNOWLEDGE ===
-            ` : ''}
+            (The research goal, analysis approach, lens, frameworks, and compiled wiki knowledge for
+            THIS engagement are in the ENGAGEMENT CONTEXT block at the end of this system prompt.)
 
             ANTI-SLOP LANGUAGE ENFORCEMENT:
             BANNED PHRASES (replace with specific, quantified language):
@@ -758,12 +747,12 @@ ${wikiKnowledge}
             REPLACE WITH: Specific data. Named frameworks. Quantified impact.
 
             NXT HUMANS DESIGN SYSTEM (for all visual output):
-            Anti-slop business flat minimalism. Stark white canvas (#FFFFFF).
-            Bebas Neue headlines, Archivo body, JetBrains Mono code.
-            Chartreuse (#B8B800) power accent <= 15% of surface. Cyan (#00B7C3) secondary.
-            NO gradients, shadows, 3D, organic shapes, pie charts, rounded corners > 4px.
-            NO Inter, Roboto, Arial, Poppins. NO purple, pink, orange palettes.
-            Every chart title is a CONCLUSION sentence, not a topic label.
+            Anti-slop business flat minimalism on a stark white canvas. Concrete colors, fonts, and
+            sizes are NEVER invented here - they resolve from the live design tokens
+            (/api/design-tokens; the renderer twins hydrate them). Restraint rules that always hold:
+            a single brand accent used sparingly (<= 15% of any surface), NO gradients, NO shadows,
+            NO 3D, NO organic shapes, NO pie charts, NO rounded corners > 4px, NO off-brand fonts or
+            palettes. Every chart title is a CONCLUSION sentence, not a topic label.
             Source every data point. Y-axis starts at zero.
 
             JSON OUTPUT RULES:
@@ -787,12 +776,32 @@ ${wikiKnowledge}
             - When generating deck slides: every slide quote field must contain a real verbatim quote with source attribution.
             - If a claim cannot be traced to a specific chunk, prefix it with "[No direct source]".
             - Prioritize claims from sources that MOST DIRECTLY address the research objective, regardless of source type.
+${HIC_CACHE_BREAK}================================================================
+=== ENGAGEMENT CONTEXT (this research run) ===
+================================================================
+            RESEARCH GOAL: "${this.goal}"
+            ANALYSIS APPROACH: "${this.approach}"
+            ${lensPromptSegment}
+            ${frameworkInstructions}
+
+            ${wikiKnowledge ? `
+=== COMPILED KNOWLEDGE FROM WIKI (persistent, compounding) ===
+The following knowledge has been compiled from the NXT Humans wiki layer.
+This is NOT generated from scratch - it represents accumulated consulting
+methodology, anti-patterns, benchmark data, and brand standards that have
+been refined across multiple engagements. ALWAYS prefer this compiled
+knowledge over re-deriving from training data.
+
+${wikiKnowledge}
+=== END WIKI KNOWLEDGE ===
+            ` : ''}
         ${getActiveConstraints()}`;
 
         this.chatSession = this.ai.chats.create({
             model: 'gemini-3.5-flash',
             config: {
-                systemInstruction: systemInstruction,
+                // direct Gemini SDK path: the cache-break marker is Anthropic-proxy-only - strip it.
+                systemInstruction: stripCacheMarkers(systemInstruction),
                 temperature: 0.1, // Low temperature for higher structural stability
             }
         });
@@ -2353,7 +2362,7 @@ Now extract the full theme set from the widened evidence.`;
                             // desirable); determinism is enforced downstream at the cap +
                             // deterministic-naming + cache. seed kept for best-effort reproducibility.
                             seed: 42,
-                            systemInstruction: this.systemInstructionCached,
+                            systemInstruction: stripCacheMarkers(this.systemInstructionCached),
                         } as any,
                     });
                     const stream = (result.stream || result) as AsyncIterable<GenerateContentResponse>;
@@ -2515,7 +2524,7 @@ Now extract the full theme set from the widened evidence.`;
                         responseMimeType: 'application/json',
                         responseSchema: schema,
                         seed: 42,
-                        systemInstruction: this.systemInstructionCached,
+                        systemInstruction: stripCacheMarkers(this.systemInstructionCached),
                     } as any,
                 });
                 const stream = (result.stream || result) as AsyncIterable<GenerateContentResponse>;
@@ -2570,7 +2579,7 @@ Now extract the full theme set from the widened evidence.`;
                 const { analyzeTextJSON } = await import('./openaiService');
                 const schemaDescription = `\n\nOUTPUT A SINGLE JSON OBJECT MATCHING THIS SHAPE:\n${JSON.stringify(schema, null, 2)}\n\nReturn ONLY the JSON object, no markdown fences, no preamble, no trailing prose.`;
                 const gptResult = await analyzeTextJSON<StepResult_Themes>(
-                    this.systemInstructionCached,
+                    stripCacheMarkers(this.systemInstructionCached),
                     effectivePrompt + schemaDescription,
                     'gpt-5.5',
                     32_000,

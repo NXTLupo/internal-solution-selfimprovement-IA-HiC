@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 510]
     sentence_count: 4
     key_terms: [engineeringstudents, comments, universitystrange705, job, applications, engineering, internships, reddit-deep]
+    concepts: [engineeringstudents, comments]
     token_count: 121
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1t5w8gx/upcoming_gradi_graduate_in_3_days_with_a_degree/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t5w8gx.md#c1"
     char_span: [524, 1030]
     sentence_count: 4
     key_terms: [companies, job, investmentgreen, definitely, handshake, linkedin, prepared, starting]
+    concepts: [companies]
     section: Comments
     token_count: 116
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t5w8gx.md#c2"
     char_span: [1032, 3167]
     sentence_count: 12
     key_terms: [universitystrange705, shot-violinist4069, luck, applying, network, advice, disappointed, apply]
+    concepts: [universitystrange705, shot-violinist4069, applying, network, disappointed]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t5w8gx.md#c3"
     char_span: [2866, 4026]
     sentence_count: 9
     key_terms: [engineering, applying, sure, everything, graduate, company, project, market]
+    concepts: [engineering, applying, everything, graduate, company]
     section: Comments
     token_count: 274
 ---

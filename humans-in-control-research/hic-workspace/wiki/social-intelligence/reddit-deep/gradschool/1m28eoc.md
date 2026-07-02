@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1807]
     sentence_count: 15
     key_terms: [school, program, semesters, because, grad, gradschool, pathology, comments]
+    concepts: [school, program, semesters, because, gradschool]
     token_count: 419
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1m28eoc/switching_careers_midgrad_school/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1m28eoc.md#c1"
     char_span: [1821, 2253]
     sentence_count: 4
     key_terms: [finish, back, slp, want, conversation, vexedcoffee, experience, programs]
+    concepts: [finish]
     section: Comments
     token_count: 118
 ---

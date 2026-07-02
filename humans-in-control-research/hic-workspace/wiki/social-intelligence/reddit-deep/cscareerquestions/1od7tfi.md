@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 901]
     sentence_count: 11
     key_terms: [cscareerquestions, growth, big, comments, director, company, career, rather]
+    concepts: [cscareerquestions, growth, comments, director, company]
     token_count: 214
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1od7tfi/big_tech_career_growth/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1od7tfi.md#c1"
     char_span: [915, 2896]
     sentence_count: 21
     key_terms: [senior, like, bluegrassclimber, staff, big, life, anything, startup]
+    concepts: [senior, bluegrassclimber, staff, anything, startup]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1od7tfi.md#c2"
     char_span: [2898, 4947]
     sentence_count: 11
     key_terms: [work, company, senior, big, job, life, everyone, similarintern923]
+    concepts: [company, senior, similarintern923, everyone, going]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1od7tfi.md#c3"
     char_span: [4949, 5772]
     sentence_count: 5
     key_terms: [startups, timmyturnahp21, experience, famous-composer5628, chase, title, touch, completely]
+    concepts: [startups, timmyturnahp21, experience, chase, title]
     section: Comments
     token_count: 216
 ---

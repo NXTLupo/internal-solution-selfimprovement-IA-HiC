@@ -8,48 +8,56 @@ title: "E-commerce Industry News Recap 🔥 Week of April 13th, 2026"
 author: "adventurepaul"
 date: "2026-04-13T20:39:15.000Z"
 score: 10
-upvote_ratio: 0.82
+upvote_ratio: 0.86
 num_comments: 7
 flair: "📰 News"
-extracted_at: "2026-06-18T13:35:23.818Z"
+extracted_at: "2026-06-24T22:13:57.309Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1sknaow.md#c0"
     char_span: [0, 582]
     sentence_count: 3
     key_terms: [e-commerce, ecommerce, comments, industry, posted, "week's", recap, news]
+    concepts: [e-commerce, ecommerce, comments, industry, posted]
     token_count: 158
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1sknaow/ecommerce_industry_news_recap_week_of_april_13th/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1sknaow.md#c1"
     char_span: [584, 2942]
     sentence_count: 11
     key_terms: [share, rezolve, "commerce's", board, offer, commerce, directly, toolkit]
+    concepts: [share, rezolve, "commerce's", board, offer]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1sknaow.md#c2"
     char_span: [2622, 5204]
     sentence_count: 13
     key_terms: [paypal, experience, amazon, checkout, usps, partnership, agreement, embedded]
+    concepts: [paypal, experience, amazon, checkout, partnership]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1sknaow.md#c3"
     char_span: [4873, 7593]
     sentence_count: 12
     key_terms: [vulnerabilities, company, process, across, amazon, french, launch, vulnerability]
+    concepts: [vulnerabilities, vulnerability, company, process, across]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1sknaow.md#c4"
     char_span: [7236, 9783]
     sentence_count: 9
     key_terms: [amazon, delivery, sellers, including, city, boycott, subcontractors, vulnerability]
+    concepts: [amazon, delivery, sellers, including, subcontractors]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1sknaow.md#c5"
     char_span: [9462, 10255]
     sentence_count: 2
     key_terms: [disney, tiktok, delivery, shop, brick-and-mortar, creator-driven, muppets-themed, subcontractors]
+    concepts: [disney, tiktok, delivery]
     token_count: 156
   - id: "social-intelligence/reddit-deep/ecommerce/1sknaow.md#c6"
-    char_span: [10270, 11117]
+    char_span: [10269, 11116]
     sentence_count: 3
     key_terms: [commerce, new, formerincome6352, developer-first, restructuring, attribution, bigcommerce, conversions]
+    concepts: [commerce]
     section: Comments
     token_count: 184
 ---

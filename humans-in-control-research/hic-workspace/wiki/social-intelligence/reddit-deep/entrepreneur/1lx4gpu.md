@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1238]
     sentence_count: 5
     key_terms: [support, entrepreneur, building, comments, customer, everyone, project, agents]
+    concepts: [support, entrepreneur, building, comments, customer]
     token_count: 286
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1lx4gpu/i_built_a_chatbase_alternative_ai_agent_for/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1lx4gpu.md#c1"
-    char_span: [1253, 2318]
+    char_span: [1252, 2317]
     sentence_count: 5
     key_terms: [entrepreneur, please, permanent, promotion, stickied, comment, thread, weekly]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 252
 ---

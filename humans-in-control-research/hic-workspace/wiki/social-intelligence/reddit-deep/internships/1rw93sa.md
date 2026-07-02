@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 1942]
     sentence_count: 15
     key_terms: [internship, offer, visa, internships, university, student, dream, full-time]
+    concepts: [internship, offer, internships, university, student]
     token_count: 429
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rw93sa/lost_dream_internship_offer_due_to_visa_issues/"}]
   - id: "social-intelligence/reddit-deep/internships/1rw93sa.md#c1"
     char_span: [1944, 3598]
     sentence_count: 14
     key_terms: [opportunity, been, "don't", job, offer, like, company, mention]
+    concepts: [opportunity, "don't", offer, company, mention]
     token_count: 354
   - id: "social-intelligence/reddit-deep/internships/1rw93sa.md#c2"
-    char_span: [3613, 5456]
+    char_span: [3612, 5455]
     sentence_count: 14
     key_terms: [appropriate-tutor587, offer, potential-drag9761, hey, lot, time, visa, experience]
+    concepts: [appropriate-tutor587, potential-drag9761, offer, experience, companies]
     section: Comments
     token_count: 477
 ---

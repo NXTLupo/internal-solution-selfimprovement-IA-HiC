@@ -21,45 +21,54 @@ chunks:
     char_span: [0, 1918]
     sentence_count: 19
     key_terms: [getting, family, job, patient, since, spent, findapath, comments]
+    concepts: [getting, family, patient, since, spent]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1q9m1dg/33m_im_very_behind_in_life_need_advise_and/"}]
   - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c1"
     char_span: [1920, 3879]
     sentence_count: 22
     key_terms: [get, rent, car, need, paid, appartment, accident, roommate]
+    concepts: [appartment, accident, roommate, another, father]
     token_count: 477
   - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c2"
     char_span: [3881, 4503]
     sentence_count: 4
     key_terms: [around, "i'm", "i've", something, been, like, electronics, maintaining]
+    concepts: [around, something]
     token_count: 145
   - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c3"
     char_span: [4517, 5464]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c4"
     char_span: [5467, 7433]
     sentence_count: 13
     key_terms: [help, desk, career, health, lemonchill24, get, like, look]
+    concepts: [lemonchill24, career, health, positions, military]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c5"
     char_span: [7435, 8883]
     sentence_count: 15
     key_terms: [like, nursing, additional, schooling, security, nurses, capital-trouble4468, familiar-green-6273]
+    concepts: [nursing, additional, schooling, security, nurses]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c6"
     char_span: [8885, 9618]
     sentence_count: 9
     key_terms: [tlie000, entry, level, like, flairpointsbot, learninearnin, considering, perspective]
+    concepts: [tlie000, entry, level]
     section: Comments
     token_count: 194
   - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c7"
     char_span: [9623, 11587]
     sentence_count: 14
     key_terms: [thank, door, uber, flairpointsbot, car, dash, get, job]
+    concepts: [thank, flairpointsbot, confirming, something, provided]
     section: Comments
     token_count: 489
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 312]
     sentence_count: 1
     key_terms: [chatgpt, comments, neverhighb4, reddit-deep, personal, account, connect, finance]
+    concepts: [chatgpt, comments]
     token_count: 86
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1te0ygy/openai_brings_new_personal_finance_options_to/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1te0ygy.md#c1"
     char_span: [326, 2051]
     sentence_count: 8
     key_terms: [openai, chatgpt, please, conversation, image, integration, post, r-chatgpt-1050422060352024636]
+    concepts: [openai, chatgpt, conversation, please, integration]
     section: Comments
     token_count: 443
 ---

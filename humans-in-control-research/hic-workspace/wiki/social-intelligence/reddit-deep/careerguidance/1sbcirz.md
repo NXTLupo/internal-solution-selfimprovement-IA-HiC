@@ -19,71 +19,84 @@ chunks:
     char_span: [0, 1672]
     sentence_count: 12
     key_terms: [something, careerguidance, like, work, understand, anything, comments, quietly]
+    concepts: [something, careerguidance, understand, anything, comments]
     token_count: 396
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sbcirz/midcareer_folks_how_are_you_actually_dealing_with/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c1"
     char_span: [1686, 3443]
     sentence_count: 9
     key_terms: [something, quesomehungry, money, solutions, decimate, tweaking, because, claude]
+    concepts: [something, quesomehungry, money, solutions, decimate]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c2"
     char_span: [3445, 5620]
     sentence_count: 11
     key_terms: [management, valuable, faster, inventory, automate, starting, chatgpt, getting]
+    concepts: [management, valuable, faster, inventory, automate]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c3"
     char_span: [5622, 7064]
     sentence_count: 12
     key_terms: [agents, vendors, transcriptions, reviewing, summaries, doctors, doing, use]
+    concepts: [agents, transcriptions, vendors, reviewing, summaries]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c4"
     char_span: [7066, 8977]
     sentence_count: 10
     key_terms: [doctor, been, critique, mistakes, because, medical, suspicious-walk-4854, scary]
+    concepts: [doctor, critique, mistakes, because, medical]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c5"
     char_span: [8979, 11154]
     sentence_count: 17
     key_terms: [use, colonelcomicsansders, kummer5peck, proprietary, work, companies, employers, workflows]
+    concepts: [colonelcomicsansders, kummer5peck, proprietary, companies, employers]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c6"
     char_span: [10825, 12184]
     sentence_count: 9
     key_terms: [use, start, don, good, need, work, bigfoottundra, snappermaster]
+    concepts: [start]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c7"
     char_span: [12186, 14185]
     sentence_count: 15
     key_terms: [going, because, "it's", bubble, jobs, lot, replace, use]
+    concepts: [going, because, bubble, replace, eventually]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c8"
     char_span: [14187, 16398]
     sentence_count: 20
     key_terms: [like, technology, "it's", understand, able, working, people, "can't"]
+    concepts: [technology, understand, working, people, "can't"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c9"
     char_span: [16401, 18527]
     sentence_count: 15
     key_terms: [data, learning, "it's", machine, science, lot, better, code]
+    concepts: [learning, machine, science, better, calculus]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c10"
     char_span: [18529, 20170]
     sentence_count: 11
     key_terms: [projects, work, time, replaced, methods, sounds, speed, find]
+    concepts: [projects, replaced, methods, sounds, speed]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c11"
     char_span: [20172, 21281]
     sentence_count: 7
     key_terms: [workers, better, code, use, administrative, virtual-ducks, crazygal2121, diamond-d0g]
+    concepts: [workers, better]
     section: Comments
     token_count: 269
 ---

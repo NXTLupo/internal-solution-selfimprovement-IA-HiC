@@ -19,75 +19,95 @@ chunks:
     char_span: [0, 2369]
     sentence_count: 24
     key_terms: [students, etc, talent, science, engineering, information, grads, cscareerquestions]
+    concepts: [students, talent, engineering, information, science]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1oemgrv/reality_of_cs_students_in_this_subreddit/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c1"
     char_span: [2371, 4399]
     sentence_count: 20
     key_terms: [youtube, students, https, watch, com, www, interviews, etc]
+    concepts: [youtube, students, https, watch, interviews]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c10"]
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c2"
     char_span: [4401, 6644]
     sentence_count: 23
     key_terms: [students, youtube, https, watch, years, been, com, www]
+    concepts: [students, youtube, https, watch, years]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c10"]
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c3"
-    char_span: [6659, 8697]
+    char_span: [6658, 8696]
     sentence_count: 17
     key_terms: [candidates, experience, questions, bad, good, lot, interviews, companies]
+    concepts: [candidates, experience, questions, interviews, companies]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c11"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c4"
-    char_span: [8699, 10612]
+    char_span: [8698, 10611]
     sentence_count: 18
     key_terms: [get, instead, "it's", because, new, engineers, listening, engineer]
+    concepts: [instead, because, engineers, listening, engineer]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c5"
-    char_span: [10614, 11828]
+    char_span: [10613, 11827]
     sentence_count: 10
     key_terms: [like, another, client, using, api, help, took, adobjective7323]
+    concepts: [another, client, using]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c6"
-    char_span: [11830, 13701]
+    char_span: [11829, 13700]
     sentence_count: 16
     key_terms: [engineering, something, get, learning, yourself, date, deep, implement]
+    concepts: [engineering, something, learning, yourself, implement]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c7"
-    char_span: [13703, 15924]
+    char_span: [13702, 15923]
     sentence_count: 13
     key_terms: [learning, systems, focus, computing, get, adobjective7323, better, field]
+    concepts: [learning, systems, computing, adobjective7323, focus]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c8"
-    char_span: [15926, 17754]
+    char_span: [15925, 17753]
     sentence_count: 16
     key_terms: [going, roles, time, lot, new, candidates, something, leetcode]
+    concepts: [going, roles, candidates, something, leetcode]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c9"
-    char_span: [17756, 19916]
+    char_span: [17755, 19915]
     sentence_count: 22
     key_terms: [students, company, "there's", people, python, significantly, cpp, like]
+    concepts: [students, significantly, company, "there's", people]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c10"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c10"
-    char_span: [19918, 21712]
+    char_span: [19917, 21711]
     sentence_count: 8
     key_terms: [people, respectfully-quoted, https, com, www, students, someone, tablet-babylon]
+    concepts: [people, respectfully-quoted, https, students, tablet-babylon]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c9"]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c11"
-    char_span: [21714, 23614]
+    char_span: [21713, 23613]
     sentence_count: 14
     key_terms: [like, python, interviews, questions, question, trivia, "can't", graduated]
+    concepts: [python, interviews, questions, question, trivia]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c3"]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c12"
-    char_span: [23616, 24194]
+    char_span: [23615, 24193]
     sentence_count: 6
     key_terms: [code, software, write, comfortable, feralwookie, discussion, historical, meaningful]
+    concepts: [software, write]
     section: Comments
     token_count: 124
 ---

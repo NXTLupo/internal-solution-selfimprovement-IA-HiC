@@ -21,40 +21,48 @@ chunks:
     char_span: [0, 2076]
     sentence_count: 25
     key_terms: [jobs, corporate, dont, life, because, feel, careerguidance, career]
+    concepts: [corporate, because, careerguidance, career, collar]
     token_count: 455
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1n6xywb/does_anyone_else_feel_scammed_by_corporate_jobs/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c1"
     char_span: [2078, 2534]
     sentence_count: 3
     key_terms: [life, nothing, people, work, corporations, corporation, everything, experience]
+    concepts: [nothing, people]
     token_count: 86
   - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c2"
     char_span: [2548, 3801]
     sentence_count: 9
     key_terms: [best, "it's", candidates, interviews, screaming, process, career, "you're"]
+    concepts: [candidates, interviews, screaming, process, career]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c3"
     char_span: [3803, 5510]
     sentence_count: 21
     key_terms: [universities, companies, everyone, india, jobs, candidates, students, because]
+    concepts: [universities, companies, everyone, candidates, india]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c4"
     char_span: [5512, 6814]
     sentence_count: 11
     key_terms: [different, job, feel, like, career, decent, no-requirement-5357, add]
+    concepts: [different, career, decent]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c5"
     char_span: [6816, 8151]
     sentence_count: 13
     key_terms: [theflyinghambone, superronnie2, engineer, ability, english, conscious-quarter423, until, fall]
+    concepts: [theflyinghambone, superronnie2, engineer, ability, english]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c6"
     char_span: [8153, 10361]
     sentence_count: 18
     key_terms: ["i'm", people, get, life, own, capitalism, experience, believe]
+    concepts: [people, capitalism, experience, believe, dream]
     section: Comments
     token_count: 510
 ---

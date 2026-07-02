@@ -19,41 +19,53 @@ chunks:
     char_span: [0, 1532]
     sentence_count: 8
     key_terms: [northeastern, students, experience, sometimes, international, co-op, advantage, companies]
+    concepts: [northeastern, students, experience, sometimes, international]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1thsny7.md#c2", "social-intelligence/reddit-deep/neu/1thsny7.md#c3"]
     token_count: 325
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1thsny7/sometimes_i_forget_how_insane_northeasterns_coop/"}]
   - id: "social-intelligence/reddit-deep/neu/1thsny7.md#c1"
     char_span: [1546, 2403]
     sentence_count: 9
     key_terms: [co-op, awkward, leader, group, hate, lead, team, areuuuforreal]
+    concepts: [co-op, awkward, leader, group]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/neu/1thsny7.md#c2"
     char_span: [2405, 4194]
     sentence_count: 10
     key_terms: [co-op, areuuuforreal, students, international, job, experience, advantage, companies]
+    concepts: [co-op, areuuuforreal, students, international, experience]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1thsny7.md#c0", "social-intelligence/reddit-deep/neu/1thsny7.md#c3", "social-intelligence/reddit-deep/neu/1thsny7.md#c5"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/neu/1thsny7.md#c3"
     char_span: [4196, 6304]
     sentence_count: 11
     key_terms: [graduating, co-op, students, experience, hate, career, areuuuforreal, turtlecap1324]
+    concepts: [graduating, students, co-op, experience, areuuuforreal]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1thsny7.md#c0", "social-intelligence/reddit-deep/neu/1thsny7.md#c2", "social-intelligence/reddit-deep/neu/1thsny7.md#c5"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/neu/1thsny7.md#c4"
     char_span: [6306, 7499]
     sentence_count: 7
     key_terms: [co-ops, interviewing, northeastern, structure, imaginationtop4876, like, lot, work]
+    concepts: [interviewing, northeastern, co-ops, structure]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/neu/1thsny7.md#c5"
     char_span: [7501, 9074]
     sentence_count: 9
     key_terms: [people, areuuuforreal, northeastern, co-op, feel, get, genuinely, honestly]
+    concepts: [people, areuuuforreal, northeastern, co-op, genuinely]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1thsny7.md#c2", "social-intelligence/reddit-deep/neu/1thsny7.md#c3"]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/neu/1thsny7.md#c6"
     char_span: [9076, 9782]
     sentence_count: 5
     key_terms: [coops, lot, specifically, interviewer, itsbobdudes, experience, interviews, currently]
+    concepts: [coops]
     section: Comments
     token_count: 162
 ---

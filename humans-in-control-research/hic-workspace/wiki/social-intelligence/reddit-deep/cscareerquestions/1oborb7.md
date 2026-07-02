@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 2032]
     sentence_count: 17
     key_terms: [engineer, considering, obviously, cscareerquestions, company, experiences, feel, job]
+    concepts: [engineer, considering, cscareerquestions, obviously, company]
     token_count: 477
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1oborb7/am_i_crazy_for_considering_leaving_my_current_job/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oborb7.md#c1"
     char_span: [2046, 3121]
     sentence_count: 5
     key_terms: [world, navy, military, against, deleted, drauren, joining, people]
+    concepts: [world, military, against, deleted, drauren]
     section: Comments
     token_count: 282
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oborb7.md#c2"
     char_span: [3123, 4225]
     sentence_count: 11
     key_terms: [year, old, corporate, recommend, something, already, making, drone]
+    concepts: [corporate, recommend, something, already, making]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oborb7.md#c3"
     char_span: [4227, 6156]
     sentence_count: 14
     key_terms: [travel, get, like, navy, adventurous-card-707, appropriate-wing6607, crazy, death]
+    concepts: [travel, crazy, death, money]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oborb7.md#c4"
     char_span: [6158, 8225]
     sentence_count: 22
     key_terms: [military, get, job, project, purpose, life, want, education]
+    concepts: [military, project, purpose, education, personal]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oborb7.md#c5"
     char_span: [8227, 10379]
     sentence_count: 16
     key_terms: [experiences, military, relationships, keep, like, direction, because, purpose]
+    concepts: [experiences, military, relationships, direction, because]
     section: Comments
     token_count: 487
 ---

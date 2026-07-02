@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1157]
     sentence_count: 3
     key_terms: [applyingtocollege, columbia, school, duke, consulting, financial, work-life, comments]
+    concepts: [applyingtocollege, columbia, school, consulting, financial]
     token_count: 282
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1slut6t/columbia_or_duke/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1slut6t.md#c1"
     char_span: [1171, 2757]
     sentence_count: 5
     key_terms: [duke, no-strength2541, affectionateart1720, columbia, students, finance, prefer, inevitable-cow-8489]
+    concepts: [no-strength2541, affectionateart1720, columbia, students, finance]
     section: Comments
     token_count: 440
 ---

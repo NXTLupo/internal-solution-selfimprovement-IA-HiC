@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 256]
     sentence_count: 1
     key_terms: [anthropic, comments, customization, reddit-deep, ankammusic, runbook, claude, posted]
+    concepts: [anthropic, comments]
     token_count: 72
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1smfv5x/claude_code_prompt_customization_runbook/"}]
 ---
 # Claude Code prompt customization runbook
 

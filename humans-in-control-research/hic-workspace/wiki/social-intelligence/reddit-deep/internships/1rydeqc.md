@@ -19,33 +19,42 @@ chunks:
     char_span: [0, 2206]
     sentence_count: 19
     key_terms: [ask, questions, internships, accounting, internship, beginning, work, intern]
+    concepts: [questions, internships, accounting, internship, beginning]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rydeqc.md#c3"]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rydeqc/accounting_intern_doesnt_think_theyre_getting_an/"}]
   - id: "social-intelligence/reddit-deep/internships/1rydeqc.md#c1"
     char_span: [2208, 4392]
     sentence_count: 16
     key_terms: [internship, client, comments, feedback, understanding, work, expectations, review]
+    concepts: [internship, client, understanding, comments, feedback]
     token_count: 464
   - id: "social-intelligence/reddit-deep/internships/1rydeqc.md#c2"
     char_span: [4394, 5888]
     sentence_count: 12
     key_terms: [work, feedback, expectations, important, cultural, great, fact, fit]
+    concepts: [feedback, expectations, important, cultural, great]
     token_count: 334
   - id: "social-intelligence/reddit-deep/internships/1rydeqc.md#c3"
-    char_span: [5903, 8020]
+    char_span: [5902, 8019]
     sentence_count: 26
     key_terms: [internship, questions, impossible-fix-2552, corporate, feedback, research, self-reflection, get]
+    concepts: [internship, questions, impossible-fix-2552, corporate, self-reflection]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rydeqc.md#c0"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/internships/1rydeqc.md#c4"
-    char_span: [8022, 8617]
+    char_span: [8021, 8616]
     sentence_count: 4
     key_terms: [internship, assumed, doing, appreciated, development, internships, corporate, question]
+    concepts: [internship, assumed, doing]
     section: Comments
     token_count: 139
   - id: "social-intelligence/reddit-deep/internships/1rydeqc.md#c5"
-    char_span: [8619, 10649]
+    char_span: [8618, 10648]
     sentence_count: 17
     key_terms: [questions, only-tumbleweed-6562, ask, intern, good, everything, clients, reviews]
+    concepts: [questions, only-tumbleweed-6562, intern, everything, clients]
     section: Comments
     token_count: 478
 ---

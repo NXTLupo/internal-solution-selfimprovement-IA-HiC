@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2102]
     sentence_count: 8
     key_terms: [professionals, convenience, retail, challenges, locations, humanresources, multi-location, gas]
+    concepts: [professionals, convenience, challenges, retail, locations]
     token_count: 417
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1thw1lc/hr_network_ca_nationwide/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1thw1lc.md#c1"
     char_span: [2116, 3169]
     sentence_count: 8
     key_terms: [post, subreddit, discord, mundane-jump-7546, work, gonebabythoughts, humanresources, multi-location]
+    concepts: [subreddit, discord]
     section: Comments
     token_count: 258
 ---

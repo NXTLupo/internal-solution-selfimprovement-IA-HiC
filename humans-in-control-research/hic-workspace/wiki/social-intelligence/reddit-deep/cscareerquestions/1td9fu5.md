@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 749]
     sentence_count: 8
     key_terms: [cscareerquestions, advice, comments, career, donts, dos, catsweaty4883, reddit-deep]
+    concepts: [cscareerquestions, advice, comments, career, donts]
     token_count: 186
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1td9fu5/how_to_grow_in_this_career_looking_for_advice_for/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1td9fu5.md#c1"
     char_span: [763, 2319]
     sentence_count: 12
     key_terms: [catsweaty4883, technical, managers, decided, "doesn't", manager, impact, matter]
+    concepts: [catsweaty4883, technical, managers, decided, "doesn't"]
     section: Comments
     token_count: 354
 ---

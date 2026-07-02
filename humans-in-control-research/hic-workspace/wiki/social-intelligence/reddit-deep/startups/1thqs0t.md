@@ -20,49 +20,64 @@ chunks:
     char_span: [0, 2364]
     sentence_count: 30
     key_terms: [build, building, founder, care, don, coding, constraints, customers]
+    concepts: [building, build, founder, coding, constraints]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1thqs0t.md#c8"]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1thqs0t/if_youre_thinking_of_making_another_i_vibe_coded/"}]
   - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c1"
     char_span: [2366, 4747]
     sentence_count: 44
     key_terms: [real, everyone, product, feels, distribution, cost, building, coding]
+    concepts: [everyone, product, distribution, feels, building]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1thqs0t.md#c5", "social-intelligence/reddit-deep/startups/1thqs0t.md#c8"]
     token_count: 499
   - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c2"
     char_span: [4749, 7381]
     sentence_count: 47
     key_terms: [capability, mvp, build, iterating, want, generate, instead, painful]
+    concepts: [capability, iterating, build, generate, instead]
     token_count: 511
   - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c3"
     char_span: [7383, 9856]
     sentence_count: 47
     key_terms: [sometimes, demand, founders, product, build, building, market, using]
+    concepts: [sometimes, demand, founders, product, build]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1thqs0t.md#c5", "social-intelligence/reddit-deep/startups/1thqs0t.md#c8"]
     token_count: 515
   - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c4"
     char_span: [9858, 10317]
     sentence_count: 12
     key_terms: [ask, specific, commit, email, write, compliment, understand, introduce]
+    concepts: [specific, commit, email, write]
     token_count: 101
   - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c5"
-    char_span: [10332, 12307]
+    char_span: [10331, 12306]
     sentence_count: 14
     key_terms: [product, demand, iterating, building, distribution, holes, need, real]
+    concepts: [product, demand, iterating, building, distribution]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1thqs0t.md#c1", "social-intelligence/reddit-deep/startups/1thqs0t.md#c3", "social-intelligence/reddit-deep/startups/1thqs0t.md#c8"]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c6"
-    char_span: [12309, 14043]
+    char_span: [12308, 14042]
     sentence_count: 15
     key_terms: [post, founders, people, excellent, calls, heart, tools, technicalsoup8578]
+    concepts: [founders, people, excellent, calls, heart]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c7"
-    char_span: [14052, 16149]
+    char_span: [14051, 16148]
     sentence_count: 18
     key_terms: [building, weekend, development, app, need, test, something, synthetic]
+    concepts: [building, weekend, development, something, synthetic]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c8"
-    char_span: [16151, 18459]
+    char_span: [16150, 18458]
     sentence_count: 16
     key_terms: [build, design, been, building, product, skills, taste, app]
+    concepts: [build, design, building, product, skills]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1thqs0t.md#c0", "social-intelligence/reddit-deep/startups/1thqs0t.md#c1", "social-intelligence/reddit-deep/startups/1thqs0t.md#c3", "social-intelligence/reddit-deep/startups/1thqs0t.md#c5"]
     section: Comments
     token_count: 509
 ---

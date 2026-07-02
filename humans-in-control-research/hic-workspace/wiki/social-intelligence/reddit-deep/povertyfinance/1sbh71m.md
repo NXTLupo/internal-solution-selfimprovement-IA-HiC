@@ -21,52 +21,65 @@ chunks:
     char_span: [0, 2162]
     sentence_count: 18
     key_terms: [truck, need, povertyfinance, comments, brother, instead, license, partner]
+    concepts: [truck, povertyfinance, comments, brother, instead]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1sbh71m/unable_to_calmly_discuss_finances_with_my_partner/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c1"
     char_span: [2164, 4355]
     sentence_count: 19
     key_terms: [money, feel, get, want, brother, mental, "don't", away]
+    concepts: [money, brother, mental, discussing, "don't"]
     token_count: 491
   - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c2"
     char_span: [4357, 6456]
     sentence_count: 32
     key_terms: [partner, get, please, "you're", spent, down, "i'm", talk]
+    concepts: [partner, please, "you're", spent, yourself]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c8"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c3"
     char_span: [6458, 7942]
     sentence_count: 19
     key_terms: [start, budget, world, like, definitely, patience, because, husband]
+    concepts: [start, budget, definitely, world, patience]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c4"
     char_span: [7944, 10083]
     sentence_count: 13
     key_terms: [psychiatrist, like, talkiatry, therapy, meds, through, afford, "wasn't"]
+    concepts: [psychiatrist, talkiatry, therapy, through, afford]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c5"
     char_span: [10085, 12126]
     sentence_count: 11
     key_terms: [people, probably, money, start, regulations, get, like, try]
+    concepts: [people, probably, regulations, money, start]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c6"
     char_span: [12128, 14056]
     sentence_count: 9
     key_terms: [want, goals, financial, generally, dynamic, partner, quarter, therapy]
+    concepts: [goals, financial, generally, dynamic, partner]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c8"]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c7"
     char_span: [14058, 15567]
     sentence_count: 18
     key_terms: [thehitmanbravo, trauma, definitely, brother, mothers, therapy, mother, knows]
+    concepts: [thehitmanbravo, trauma, definitely, brother, mothers]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c8"
     char_span: [15569, 16917]
     sentence_count: 9
     key_terms: [money, financial, "you're", something, partner, trying, being, learn]
+    concepts: [money, financial, "you're", something, partner]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c2", "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c6"]
     section: Comments
     token_count: 298
 ---

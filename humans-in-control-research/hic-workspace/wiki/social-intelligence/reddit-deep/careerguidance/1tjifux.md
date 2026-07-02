@@ -19,47 +19,61 @@ chunks:
     char_span: [0, 1862]
     sentence_count: 10
     key_terms: [long-term, higher, strong, years, stability, comments, careerguidance, offer]
+    concepts: [long-term, higher, strong, stability, years]
     token_count: 444
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tjifux/am_i_insane_to_leave_a_100k_job_at_23/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c1"
-    char_span: [1877, 3185]
+    char_span: [1876, 3184]
     sentence_count: 9
     key_terms: [security, long-term, job, training, pretty, sounds, field, years]
+    concepts: [security, long-term, training, pretty, sounds]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tjifux.md#c6"]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c2"
-    char_span: [3187, 4578]
+    char_span: [3186, 4577]
     sentence_count: 7
     key_terms: [give, amount, option, worried-plankton2702, dontfeedagalasponge, lower, job, work]
+    concepts: [amount, option, lower]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c3"
-    char_span: [4580, 6500]
+    char_span: [4579, 6499]
     sentence_count: 18
     key_terms: [years, training, happens, salary, worth, like, pay, something]
+    concepts: [years, training, happens, salary, worth]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tjifux.md#c4", "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c5", "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c6"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c4"
-    char_span: [6502, 8395]
+    char_span: [6501, 8394]
     sentence_count: 8
     key_terms: [years, training, year, job, current, working, chance, entire]
+    concepts: [years, training, current, working, chance]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tjifux.md#c3", "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c5"
-    char_span: [8181, 8757]
+    char_span: [8180, 8756]
     sentence_count: 5
     key_terms: [training, making, paying, years, coriolanuscangetit, year, pineapplelemur, professional]
+    concepts: [training, making, paying, years]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tjifux.md#c3", "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c4"]
     section: Comments
     token_count: 158
   - id: "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c6"
-    char_span: [8759, 10213]
+    char_span: [8758, 10212]
     sentence_count: 10
     key_terms: [sounds, like, industry, training, salary, high, because, option]
+    concepts: [sounds, industry, training, salary, because]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tjifux.md#c1", "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c3"]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c7"
-    char_span: [10216, 11845]
+    char_span: [10215, 11844]
     sentence_count: 10
     key_terms: [people, life, change, money, time, whether, happen, income]
+    concepts: [people, change, money, whether, happen]
     section: Comments
     token_count: 361
 ---

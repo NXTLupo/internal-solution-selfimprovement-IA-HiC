@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 993]
     sentence_count: 10
     key_terms: [car, new, povertyfinance, comments, savings, get, aggressively, discouraging]
+    concepts: [povertyfinance, comments, savings]
     token_count: 248
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1sz84uo/just_buy_a_new_car/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1sz84uo.md#c1"
     char_span: [1007, 3118]
     sentence_count: 20
     key_terms: [submitter, appropriate, need, advice, please, issue, vents, vent]
+    concepts: [submitter, appropriate, advice, please, issue]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/povertyfinance/1sz84uo.md#c2"
     char_span: [3121, 4612]
     sentence_count: 12
     key_terms: [car, replacement, new, own, fix, line, something, putting]
+    concepts: [replacement, something, putting, savings, "isn't"]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1sz84uo.md#c4"]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/povertyfinance/1sz84uo.md#c3"
     char_span: [4614, 6850]
     sentence_count: 12
     key_terms: [maintenance, replacement, car, parts, complicated, find, get, terrifying]
+    concepts: [maintenance, replacement, parts, complicated, terrifying]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1sz84uo.md#c4"
     char_span: [6852, 8496]
     sentence_count: 13
     key_terms: [car, no-setting9690, replacement, something, mechanic, standard, repairs, youtube]
+    concepts: [no-setting9690, replacement, something, mechanic, standard]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1sz84uo.md#c2"]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/povertyfinance/1sz84uo.md#c5"
     char_span: [8498, 10248]
     sentence_count: 19
     key_terms: [yourself, car, tools, save, cheaper, maintenance, diy, like]
+    concepts: [yourself, tools, cheaper, maintenance, expensive]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/povertyfinance/1sz84uo.md#c6"
     char_span: [10250, 11186]
     sentence_count: 8
     key_terms: [car, everything, comments, helpful, problem, frugal, reddit, https]
+    concepts: [everything, comments, helpful, problem, frugal]
     section: Comments
     token_count: 247
 ---

@@ -17,10 +17,12 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/businessintelligence/1nlrjis.md#c0"
-    char_span: [0, 1645]
+    char_span: [0, 1644]
     sentence_count: 12
     key_terms: [signal, businessintelligence, analytics, dashboard, app, com, signalsnapshot, https]
+    concepts: [signal, businessintelligence, analytics, dashboard, signalsnapshot]
     token_count: 380
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1nlrjis/i_made_a_dashboard_for_signal_messenger/"}]
 ---
 # I made a dashboard for Signal Messenger
 

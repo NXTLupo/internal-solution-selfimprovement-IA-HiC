@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1656]
     sentence_count: 18
     key_terms: [class, college, like, philosophy, comments, expected, problems, because]
+    concepts: [class, college, philosophy, comments, expected]
     token_count: 369
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1nh7glw/are_colleges_dumbing_down_their_curriculum/"}]
   - id: "social-intelligence/reddit-deep/college/1nh7glw.md#c1"
     char_span: [1670, 3684]
     sentence_count: 13
     key_terms: [hell, tool, professors, learning, anti-ai, without, writing, course]
+    concepts: [professors, learning, anti-ai, without, writing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1nh7glw.md#c2"
@@ -36,60 +39,74 @@ chunks:
     char_span: [3775, 5531]
     sentence_count: 5
     key_terms: [homework, like, classes, course, worked, math, assignment, professor]
+    concepts: [homework, classes, course, worked, assignment]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/college/1nh7glw.md#c4"
     char_span: [5533, 6547]
     sentence_count: 6
     key_terms: [until, get, understand, helped, like, math, functionality, katiehart2019]
+    concepts: [understand, until, helped]
     section: Comments
     token_count: 253
   - id: "social-intelligence/reddit-deep/college/1nh7glw.md#c5"
     char_span: [6549, 8777]
     sentence_count: 17
     key_terms: [students, effort, like, classes, college, school, been, less]
+    concepts: [students, effort, classes, college, school]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nh7glw.md#c6", "social-intelligence/reddit-deep/college/1nh7glw.md#c7", "social-intelligence/reddit-deep/college/1nh7glw.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1nh7glw.md#c6"
     char_span: [8534, 10470]
     sentence_count: 16
     key_terms: [easier, college, years, better, school, doing, older, "i'm"]
+    concepts: [easier, college, years, better, school]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nh7glw.md#c5"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/college/1nh7glw.md#c7"
     char_span: [10472, 12255]
     sentence_count: 13
     key_terms: [learning, time, classes, behind, school, based, get, kids]
+    concepts: [learning, classes, behind, school, based]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nh7glw.md#c5"]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/college/1nh7glw.md#c8"
     char_span: [12257, 13305]
     sentence_count: 6
     key_terms: [reading, education, college, assign, videos, remarkable-ad3665, form, "i'm"]
+    concepts: [reading, education, college, assign, videos]
     section: Comments
     token_count: 248
   - id: "social-intelligence/reddit-deep/college/1nh7glw.md#c9"
     char_span: [13307, 15049]
     sentence_count: 9
     key_terms: [class, like, professors, don, read, lectures, students, classes]
+    concepts: [class, professors, lectures, students, classes]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nh7glw.md#c5"]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/college/1nh7glw.md#c10"
     char_span: [15051, 17218]
     sentence_count: 12
     key_terms: [classes, remarkable-ad3665, work, reading, book, "it's", like, read]
+    concepts: [classes, remarkable-ad3665, reading, accessible, definitely]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/college/1nh7glw.md#c11"
     char_span: [17220, 19157]
     sentence_count: 9
     key_terms: [understand, "don't", school, quiz, education, obviously, questions, semester]
+    concepts: [understand, "don't", school, education, obviously]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/college/1nh7glw.md#c12"
     char_span: [19160, 20059]
     sentence_count: 9
     key_terms: [week, syllabus, day, principle, school, class, essay, times]
+    concepts: [syllabus, principle, school, class, essay]
     section: Comments
     token_count: 262
 ---

@@ -5,53 +5,69 @@ chunks:
     char_span: [0, 379]
     sentence_count: 3
     key_terms: [benchmarks, technology, adoption, cross-referenced, transformation, corresponding, quantitative, initiatives]
+    concepts: [benchmarks, technology, adoption]
     token_count: 72
   - id: "benchmarks/technology-adoption.md#c1"
     char_span: [404, 1868]
     sentence_count: 1
     key_terms: [verified, martech, marketing, evidence, benchmarks, confidence, cross-refs, financial-impact]
+    concepts: [verified, martech, marketing, evidence, financial-impact]
+    related_chunks: ["benchmarks/technology-adoption.md#c2", "benchmarks/technology-adoption.md#c3", "benchmarks/technology-adoption.md#c4", "benchmarks/technology-adoption.md#c5"]
     section: MarTech Utilization
     token_count: 412
   - id: "benchmarks/technology-adoption.md#c2"
     char_span: [1886, 3427]
     sentence_count: 1
     key_terms: [verified, evidence, data, confidence, cross-refs, organizations, digital-transformation, source]
+    concepts: [verified, evidence, confidence, cross-refs, digital-transformation]
+    related_chunks: ["benchmarks/technology-adoption.md#c1", "benchmarks/technology-adoption.md#c3", "benchmarks/technology-adoption.md#c4", "benchmarks/technology-adoption.md#c5", "benchmarks/technology-adoption.md#c6"]
     section: AI Adoption
     token_count: 420
   - id: "benchmarks/technology-adoption.md#c3"
     char_span: [3464, 4599]
     sentence_count: 1
     key_terms: [data, customer, verified, evidence, digital-transformation, confidence, cross-refs, source]
+    concepts: [customer, verified, digital-transformation, evidence, confidence]
+    related_chunks: ["benchmarks/technology-adoption.md#c1", "benchmarks/technology-adoption.md#c2", "benchmarks/technology-adoption.md#c4", "benchmarks/technology-adoption.md#c5", "benchmarks/technology-adoption.md#c6"]
     section: CDP and Data Platform Adoption
     token_count: 303
   - id: "benchmarks/technology-adoption.md#c4"
     char_span: [4638, 5360]
     sentence_count: 1
     key_terms: [cloud, verified, evidence, report, confidence, cross-refs, frameworks, average]
+    concepts: [cloud, verified, evidence, report, confidence]
+    related_chunks: ["benchmarks/technology-adoption.md#c1", "benchmarks/technology-adoption.md#c2", "benchmarks/technology-adoption.md#c3", "benchmarks/technology-adoption.md#c5", "benchmarks/technology-adoption.md#c6"]
     section: "Cloud Migration & Infrastructure"
     token_count: 213
   - id: "benchmarks/technology-adoption.md#c5"
     char_span: [5389, 6535]
     sentence_count: 1
     key_terms: [digital, transformation, verified, evidence, digital-transformation, benchmarks, confidence, cross-refs]
+    concepts: [transformation, digital, verified, digital-transformation, evidence]
+    related_chunks: ["benchmarks/technology-adoption.md#c1", "benchmarks/technology-adoption.md#c2", "benchmarks/technology-adoption.md#c3", "benchmarks/technology-adoption.md#c4"]
     section: Digital Transformation
     token_count: 301
   - id: "benchmarks/technology-adoption.md#c6"
     char_span: [6569, 7344]
     sentence_count: 1
     key_terms: [benchmarks, verified, chatbot, containment, data, confidence, cross-refs, cx-metrics]
+    concepts: [benchmarks, verified, chatbot, containment, confidence]
+    related_chunks: ["benchmarks/technology-adoption.md#c2", "benchmarks/technology-adoption.md#c3", "benchmarks/technology-adoption.md#c4", "benchmarks/technology-adoption.md#c7"]
     section: "Chatbot & Conversational AI"
     token_count: 213
   - id: "benchmarks/technology-adoption.md#c7"
     char_span: [7366, 8155]
     sentence_count: 1
     key_terms: [crm, data, verified, failure, entry, benchmarks, compliance, confidence]
+    concepts: [verified, failure, benchmarks, compliance, confidence]
+    related_chunks: ["benchmarks/technology-adoption.md#c2", "benchmarks/technology-adoption.md#c3", "benchmarks/technology-adoption.md#c4", "benchmarks/technology-adoption.md#c6"]
     section: CRM Utilization
     token_count: 211
   - id: "benchmarks/technology-adoption.md#c8"
     char_span: [8178, 8799]
     sentence_count: 4
     key_terms: [represent, mckinsey, figure, cited, been, transformation, utilization, attributed]
+    concepts: [represent, mckinsey, figure, cited]
     section: Validation Notes
     token_count: 121
 ---

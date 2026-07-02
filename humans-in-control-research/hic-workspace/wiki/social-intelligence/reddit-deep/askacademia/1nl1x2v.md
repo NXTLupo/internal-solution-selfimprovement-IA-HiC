@@ -21,82 +21,99 @@ chunks:
     char_span: [0, 1492]
     sentence_count: 9
     key_terms: [shinycrap, theory, askacademia, colleagues, comments, appears, effect, found]
+    concepts: [shinycrap, theory, askacademia, colleagues, comments]
     token_count: 380
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1nl1x2v/i_found_out_one_of_my_colleagues_is_teaching_an/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c1"
     char_span: [1494, 2558]
     sentence_count: 10
     key_terms: [shinycrap, students, incompatible, colleague, nothing, program, class, grad]
+    concepts: [shinycrap, students, incompatible, colleague, nothing]
     token_count: 232
   - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c2"
     char_span: [2572, 4555]
     sentence_count: 15
     key_terms: [class, revamp, theellimist, colleagues, seriously, something, helping, theory]
+    concepts: [class, revamp, theellimist, colleagues, seriously]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c3"
     char_span: [4557, 6407]
     sentence_count: 7
     key_terms: [course, catalog, through, chair, want, complaints, continue, students]
+    concepts: [course, catalog, through, chair, complaints]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c4"
     char_span: [6409, 8156]
     sentence_count: 6
     key_terms: [junior, department, faculty, absolutely, situation, something, opinions, someone]
+    concepts: [department, junior, faculty, absolutely, situation]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c5"
     char_span: [8158, 10355]
     sentence_count: 13
     key_terms: ["it's", outrageous, colleague, political, politics-diplomatically, faculty, course, get]
+    concepts: [outrageous, colleague, political, faculty, course]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c6"
     char_span: [10357, 12046]
     sentence_count: 13
     key_terms: [question, shinycrap, link, critiques, thoughts, lecture, student, answer]
+    concepts: [question, shinycrap, critiques, thoughts, lecture]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c7"
     char_span: [12048, 13802]
     sentence_count: 7
     key_terms: [solresol, token, ring, industry, printer, floppy, matrix, string]
+    concepts: [solresol, token, industry, printer, floppy]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c8"
     char_span: [13804, 15227]
     sentence_count: 6
     key_terms: [archknits, history, blah, colleagues, something, argument, learning, teaches]
+    concepts: [archknits, history, colleagues, something, argument]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c9"
     char_span: [15229, 16871]
     sentence_count: 7
     key_terms: [psychology, neurolinguistic, programming, probably, teaching, thinking, degrees, comfortable-goat-734]
+    concepts: [psychology, neurolinguistic, programming, probably, teaching]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c10"
     char_span: [16873, 18818]
     sentence_count: 13
     key_terms: [thought, interest, certainsandwich4472, theory, nudge, department, wikipedia, business]
+    concepts: [thought, interest, certainsandwich4472, theory, department]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c11"
     char_span: [18555, 20668]
     sentence_count: 14
     key_terms: [shinycrap, department, teach, idustriousraccoon, problem, recent, discussion, literature]
+    concepts: [shinycrap, department, teach, idustriousraccoon, problem]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c12"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c12"
     char_span: [20387, 20762]
     sentence_count: 1
     key_terms: [department, shinycrap, desconectado, discussion, critiques, seniority, wondering, friendly]
+    concepts: [department, shinycrap]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c11"]
     section: Comments
     token_count: 92
   - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c13"
     char_span: [20764, 21881]
     sentence_count: 6
     key_terms: [students, faculty, affect, get, "i'm", "it's", need, contradictory]
+    concepts: [students, faculty, affect]
     section: Comments
     token_count: 261
 ---

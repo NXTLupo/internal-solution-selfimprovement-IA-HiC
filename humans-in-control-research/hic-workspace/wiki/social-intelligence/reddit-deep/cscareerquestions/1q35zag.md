@@ -19,47 +19,56 @@ chunks:
     char_span: [0, 1082]
     sentence_count: 9
     key_terms: [cscareerquestions, year, internship, comments, students, listed, never, got]
+    concepts: [cscareerquestions, internship, comments, students, listed]
     token_count: 243
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1q35zag/internships_how_do_you_deal_with_students_who_lie/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q35zag.md#c1"
     char_span: [1096, 2854]
     sentence_count: 8
     key_terms: [experience, company, work, because, applicants, internship, get, job]
+    concepts: [experience, company, because, applicants, internship]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q35zag.md#c2"
     char_span: [2856, 4537]
     sentence_count: 10
     key_terms: [references, get, jawohlmeinherr, eventually, companies, leetcode, probably, called]
+    concepts: [references, jawohlmeinherr, eventually, companies, leetcode]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q35zag.md#c3"
     char_span: [4539, 6516]
     sentence_count: 14
     key_terms: [interview, manager, job, lie, wild, hackathons, javascript, questions]
+    concepts: [interview, manager, hackathons, javascript, questions]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q35zag.md#c4"
     char_span: [6518, 7149]
     sentence_count: 5
     key_terms: [lie, tnerb253, found, job, part, time, disadvantaged, competitive]
+    concepts: [tnerb253, found]
     section: Comments
     token_count: 148
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q35zag.md#c5"
     char_span: [7151, 9351]
     sentence_count: 15
     key_terms: [get, recommendation, caught, offer, been, background, transcript, uncovered]
+    concepts: [recommendation, caught, background, offer, transcript]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q35zag.md#c6"
     char_span: [9041, 11133]
     sentence_count: 8
     key_terms: [away-reception587, get, unknowngenius222, honesty, recommendation, honest, being, interviews]
+    concepts: [away-reception587, unknowngenius222, recommendation, honesty, honest]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q35zag.md#c7"
     char_span: [10887, 11526]
     sentence_count: 5
     key_terms: [interview, wenweallfallasleep, tech, contributing, hornycrowbat, rareanxiety2, accordingly, competency]
+    concepts: [interview]
     section: Comments
     token_count: 160
 ---

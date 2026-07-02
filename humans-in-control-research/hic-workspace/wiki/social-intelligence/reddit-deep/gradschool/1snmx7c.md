@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1394]
     sentence_count: 8
     key_terms: [sit-in-front-ofa-blank-wall-for-a-while-because-what, professor, program, gradschool, something, comments, semester, friends]
+    concepts: [professor, program, gradschool, something, comments]
     token_count: 319
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1snmx7c/this_is_how_they_get_you/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1snmx7c.md#c1"
     char_span: [1408, 2367]
     sentence_count: 5
@@ -32,6 +34,7 @@ chunks:
     char_span: [2369, 4600]
     sentence_count: 15
     key_terms: [intellectual, professor, interest, students, faculty, "that's", bigfrondnicky, peers]
+    concepts: [intellectual, professor, interest, students, bigfrondnicky]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1snmx7c.md#c3"
@@ -44,6 +47,7 @@ chunks:
     char_span: [4644, 5997]
     sentence_count: 7
     key_terms: [like, interesting, find, professors, something, someone, always, texted]
+    concepts: [interesting, professors, something, someone, always]
     section: Comments
     token_count: 317
 ---

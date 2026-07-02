@@ -1,12 +1,35 @@
 ---
+id: synthesis/improvement-epochs.md
 title: Improvement Epochs — measured benchmark deltas over time
 type: synthesis
 updated: 2026-06-17
+chunks:
+  - id: "synthesis/improvement-epochs.md#c0"
+    char_span: [0, 1289]
+    sentence_count: 3
+    key_terms: [benchmarks, evidenced, evidence, maturity, digital-transformation, technology, adoption, organizational]
+    concepts: [benchmarks, evidenced, digital-transformation, evidence, maturity]
+    section: Benchmark Status and Tracking
+    token_count: 245
 ---
 
+```yaml
+id: synthesis/improvement-epochs.md
+title: Improvement Epochs — measured benchmark deltas over time
+type: synthesis
+updated: 2026-06-17
+chunks:
+  - id: "synthesis/improvement-epochs.md#c0"
+    char_span: [0, 1289]
+    sentence_count: 3
+    key_terms: [benchmarks, evidenced, evidence, maturity, digital-transformation, technology, adoption, organizational]
+    concepts: [benchmarks, evidenced, digital-transformation, evidence, maturity]
+    section: Benchmark Status and Tracking
+    token_count: 245
+```
 # Improvement Epochs
 
 ## Benchmark Status and Tracking
 
-*   **CX Maturity Benchmarks**: Benchmark data within maturity models is currently designated as HYPOTHESIS [evidence/cx-maturity.md]. These entries are slated to be upgraded to PARTIALLY EVIDENCED or EVIDENCED as primary sources—including Gartner reports, Forrester CX Index data, and client assessments—are ingested and verified to support claims related to organizational readiness, maturity assessment findings, progression patterns, and maturity-to-outcome correlations [evidence/cx-maturity.md].
-*   **Technology Adoption Benchmarks**: Benchmark data within technology adoption frameworks is currently designated as HYPOTHESIS [evidence/digital-transformation.md]. These entries will be upgraded to PARTIALLY EVIDENCED or EVIDENCED upon the ingestion and verification of primary sources—such as McKinsey transformation studies, Gartner surveys, Deloitte/MIT digital maturity research, and client case studies—to support claims related to success/failure rates, adoption patterns, change management effectiveness, technology ROI, and organizational factors that predict transformation outcomes [evidence/digital-transformation.md].
+*   **CX Maturity Benchmarks**: Benchmark data within customer experience (CX) maturity models is currently designated as a hypothesis [evidence/cx-maturity.md]. These entries are slated to be upgraded to partially evidenced or evidenced status as source documents are ingested into the research workspace [evidence/cx-maturity.md]. Once verified, this evidence is intended to support claims and correlations regarding organizational maturity levels, structures, employee factors, gap analysis, and financial or maturity-to-revenue impacts [evidence/cx-maturity.md].
+*   **Technology Adoption Benchmarks**: Benchmark data within digital transformation and technology adoption frameworks is currently designated as a hypothesis [evidence/digital-transformation.md]. These entries will be upgraded to partially evidenced or evidenced status upon the ingestion and verification of primary research and source documents [evidence/digital-transformation.md]. This verified evidence is intended to address pending categories including transformation failure, change management, technology adoption, and culture [evidence/digital-transformation.md].

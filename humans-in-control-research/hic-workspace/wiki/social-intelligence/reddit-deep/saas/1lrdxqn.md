@@ -20,41 +20,51 @@ chunks:
     char_span: [0, 320]
     sentence_count: 3
     key_terms: [saas, comments, vulnerabilities, applications, reddit-deep, combined, security, funding]
+    concepts: [comments]
     token_count: 88
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1lrdxqn/i_security_tested_200_saas_applications_before/"}]
   - id: "social-intelligence/reddit-deep/saas/1lrdxqn.md#c1"
-    char_span: [550, 2806]
+    char_span: [549, 2805]
     sentence_count: 8
     key_terms: [admin, damage, looks, fix, like, real, api, data]
+    concepts: [admin, damage, looks, customer, security]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1lrdxqn.md#c5"]
     section: "Everyone crying below regarding being able to get funding even when there are security loopholes, can you share your urls here please and I will get the shit down, and make you deprete for solution for your vibecoded saas. / 1. **Exposed Admin Panels** (Found in 87% of apps) / 2. **SQL Injection in Search** (Found in 82% of apps) / 3. **API Keys in Browser Code** (Found in 78% of apps) / 4. **Broken Access Controls** (Found in 74% of apps) / 5. **Zero Rate Limiting** (Found in 69% of apps) / The Business Reality: / Quick Self-Test (takes 5 minutes):"
     token_count: 448
   - id: "social-intelligence/reddit-deep/saas/1lrdxqn.md#c2"
-    char_span: [2833, 3463]
+    char_span: [2832, 3462]
     sentence_count: 4
     key_terms: [enterprise, security, issues, deals, cost, fix, vulnerabilities, prioritization]
+    concepts: [enterprise, security, issues, deals]
     section: "Why This Matters Now:"
     token_count: 126
   - id: "social-intelligence/reddit-deep/saas/1lrdxqn.md#c3"
-    char_span: [3478, 4996]
+    char_span: [3477, 4995]
     sentence_count: 12
     key_terms: [digitalwankster, "you're", bullshit, straight, stories, saying, commonconference2293, saas]
+    concepts: [digitalwankster, "you're", bullshit, straight, stories]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/saas/1lrdxqn.md#c4"
-    char_span: [4998, 6292]
+    char_span: [4997, 6291]
     sentence_count: 6
     key_terms: [sql, interesting-one-7460, prepared, injections, statements, mechanism, escaping, changed]
+    concepts: [interesting-one-7460, prepared, injections, statements, mechanism]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/saas/1lrdxqn.md#c5"
-    char_span: [6294, 7938]
+    char_span: [6293, 7937]
     sentence_count: 10
     key_terms: [apps, anonuemus, customer, security, fixable, like, own, sql]
+    concepts: [anonuemus, customer, security, fixable]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1lrdxqn.md#c1"]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/saas/1lrdxqn.md#c6"
-    char_span: [7940, 9580]
+    char_span: [7939, 9579]
     sentence_count: 11
     key_terms: [does, architecture, money, implemented, phpmyadmin, beginning, investors, investor]
+    concepts: [architecture, implemented, money, phpmyadmin, beginning]
     section: Comments
     token_count: 406
 ---

@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 1093]
     sentence_count: 6
     key_terms: [data, columns, column, probabilities, datascience, evaluation, generating, regression]
+    concepts: [probabilities, columns, column, datascience, evaluation]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1rqajlo.md#c2"]
     token_count: 249
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1rqajlo/error_when_generating_predicted_probabilities_for/"}]
   - id: "social-intelligence/reddit-deep/datascience/1rqajlo.md#c1"
-    char_span: [1108, 2595]
+    char_span: [1107, 2594]
     sentence_count: 6
     key_terms: [features, model, lasso, selected, regularization, train, cocohomlogy, depending]
+    concepts: [features, model, selected, lasso, regularization]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/datascience/1rqajlo.md#c2"
-    char_span: [2597, 3696]
+    char_span: [2596, 3695]
     sentence_count: 10
     key_terms: [snowflake, limit, column, solution, columns, python, using, work]
+    concepts: [snowflake, limit, column, solution, columns]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1rqajlo.md#c0"]
     section: Comments
     token_count: 248
 ---

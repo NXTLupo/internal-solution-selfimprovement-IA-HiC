@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1430]
     sentence_count: 13
     key_terms: [like, townhouse, comments, everyone, economy, holding, living, coolreplacement2837]
+    concepts: [townhouse, comments, everyone, economy, holding]
     token_count: 341
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1s5aseb/cost_of_living_avoiding_debt/"}]
   - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c1"
     char_span: [1444, 2995]
     sentence_count: 11
     key_terms: [jobs, work, discord, minimum, working, heater, months, broke]
+    concepts: [discord, minimum, working, heater, months]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c2"
     char_span: [2997, 4107]
     sentence_count: 9
     key_terms: [car, situation, boomers, coolreplacement2837, "can't", years, don, get]
+    concepts: [situation, boomers, "can't", years]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c3"
     char_span: [4109, 6087]
     sentence_count: 13
     key_terms: [coolreplacement2837, youchasechickens, "it's", definitely, apartment, engineers, probably, townhome]
+    concepts: [coolreplacement2837, youchasechickens, definitely, apartment, engineers]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c4"
     char_span: [6089, 8168]
     sentence_count: 26
     key_terms: [city, per, own, unfortunately, month, taxes, area, like]
+    concepts: [unfortunately, increasing, month, taxes, apartment]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c5"
     char_span: [8170, 9714]
     sentence_count: 15
     key_terms: [coolreplacement2837, able, married, single, financially, own, paycheck, couples]
+    concepts: [coolreplacement2837, married, single, financially, paycheck]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c6"
     char_span: [9716, 10704]
     sentence_count: 5
     key_terms: [coolreplacement2837, eltaquerodeca, money, together, parents, making, people, did]
+    concepts: [coolreplacement2837, eltaquerodeca, money, together, parents]
     section: Comments
     token_count: 254
 ---

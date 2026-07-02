@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1858]
     sentence_count: 4
     key_terms: [opportunities, analytics, strategy, market, internships, data, frameworks, internship]
+    concepts: [opportunities, analytics, strategy, market, internships]
     token_count: 394
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1th5bfi/bba_student_strategy_analytics_focus_seeking/"}]
 ---
 # BBA Student (Strategy & Analytics Focus) | Seeking Business Analyst Internship
 

@@ -20,41 +20,52 @@ chunks:
     char_span: [0, 2085]
     sentence_count: 1
     key_terms: [useless, nobody, people, saying, b2bmarketing, lets, cofounder, comments]
+    concepts: [useless, nobody, b2bmarketing, people, saying]
     token_count: 471
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1rue1y9/how_i_went_from_0_to_8k_mrr_in_5_months_no/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rue1y9.md#c1"
     char_span: [2087, 4302]
     sentence_count: 1
     key_terms: [people, get, person, because, rewrote, cannot, email, month]
+    concepts: [people, person, because, rewrote, cannot]
     token_count: 493
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rue1y9.md#c2"
     char_span: [4304, 6665]
     sentence_count: 1
     key_terms: [like, month, built, email, something, emails, person, saying]
+    concepts: [month, something, built, email, emails]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1rue1y9.md#c3", "social-intelligence/reddit-deep/b2bmarketing/1rue1y9.md#c4"]
     token_count: 517
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rue1y9.md#c3"
     char_span: [6667, 9037]
     sentence_count: 2
     key_terms: [email, cold, customers, month, ones, because, everything, something]
+    concepts: [customers, email, month, because, everything]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1rue1y9.md#c2", "social-intelligence/reddit-deep/b2bmarketing/1rue1y9.md#c4"]
     token_count: 499
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rue1y9.md#c4"
     char_span: [9039, 10255]
     sentence_count: 1
     key_terms: [people, email, month, started, cold, day, onboarding, customers]
+    concepts: [people, email, month, started, onboarding]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1rue1y9.md#c2", "social-intelligence/reddit-deep/b2bmarketing/1rue1y9.md#c3"]
     token_count: 275
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rue1y9.md#c5"
-    char_span: [10270, 11580]
+    char_span: [10269, 11579]
     sentence_count: 11
     key_terms: [looking-for-marketing-discussion-811236647760298024, interested, questions, discord, people, "that's", month, automatically]
+    concepts: [interested, questions, discord, people, "that's"]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rue1y9.md#c6"
-    char_span: [11584, 13884]
+    char_span: [11583, 13883]
     sentence_count: 13
     key_terms: [like, already, people, early, part, post, real, customers]
+    concepts: [already, people, early, customers, customer]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rue1y9.md#c7"
-    char_span: [13622, 13911]
+    char_span: [13621, 13910]
     sentence_count: 3
     key_terms: [ragnhildensteiner, distribution, especially, marketing, suggested, outreach, chatgpt, seeing]
     section: Comments

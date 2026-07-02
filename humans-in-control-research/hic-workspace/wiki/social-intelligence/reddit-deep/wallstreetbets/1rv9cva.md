@@ -21,81 +21,105 @@ chunks:
     char_span: [0, 1756]
     sentence_count: 16
     key_terms: [newsletters, substack, authors, pickers, classification, wallstreetbets, update, stock]
+    concepts: [newsletters, substack, authors, classification, wallstreetbets]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c8", "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c9"]
     token_count: 441
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1rv9cva/part_2_i_now_spent_13000year_on_substack/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c1"
     char_span: [1758, 3510]
     sentence_count: 14
     key_terms: [authors, macro, commentary, excluded, high-conviction, author, stock-picking, stock]
+    concepts: [authors, macro, commentary, high-conviction, excluded]
     token_count: 435
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c2"
     char_span: [3512, 4697]
     sentence_count: 7
     key_terms: [median, research, return, benchmarks, average, capital, alpha, calls]
+    concepts: [median, research, return, benchmarks, average]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c5"]
     token_count: 327
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c3"
     char_span: [4699, 5503]
     sentence_count: 3
     key_terms: [research, calls, interesting, capital, semianalysis, concentrate, fabricated, irrational]
+    concepts: [research, interesting, calls, capital]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c4"]
     token_count: 366
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c4"
     char_span: [5505, 6726]
     sentence_count: 5
     key_terms: [research, capital, fabricated, alpha, knowledge, altay, citrini, fundaai]
+    concepts: [research, capital, fabricated, knowledge, alpha]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c3", "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c6"]
     token_count: 480
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c5"
     char_span: [6728, 7637]
     sentence_count: 5
     key_terms: [research, semianalysis, irrational, analysis, return, med, semiconductor, interesting]
+    concepts: [research, semianalysis, irrational, analysis, return]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c2"]
     token_count: 353
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c6"
     char_span: [7639, 8647]
     sentence_count: 8
     key_terms: [calls, author, alpha, fabricated, knowledge, research, global, making]
+    concepts: [calls, author, alpha, fabricated, knowledge]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c4"]
     token_count: 366
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c7"
     char_span: [8649, 9441]
     sentence_count: 8
     key_terms: [calls, med, fundaai, short, long, win, consistency, high-volume]
+    concepts: [calls, fundaai, short]
     token_count: 314
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c8"
     char_span: [9443, 10343]
     sentence_count: 6
     key_terms: [research, authors, newsletters, quality, returns, market, volume, alpha]
+    concepts: [research, authors, newsletters, quality, returns]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c0", "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c9"]
     token_count: 224
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c9"
     char_span: [10357, 12229]
     sentence_count: 13
     key_terms: [research, authors, global, newsletters, tech, discord, fundaai, quality]
+    concepts: [research, authors, global, newsletters, discord]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c0", "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c8"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c10"
     char_span: [12231, 13342]
     sentence_count: 7
     key_terms: [performance, calculated, newsletter, alpha, allegedly, nothing, period, pretty]
+    concepts: [performance, calculated, newsletter, alpha, allegedly]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c11"
     char_span: [13344, 15196]
     sentence_count: 11
     key_terms: [tldr, something, horizons, imagine, various, market, fine-razzmatazz1791, a-big-texas-howdy]
+    concepts: [something, horizons, imagine, various, market]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c12"
     char_span: [15198, 16122]
     sentence_count: 4
     key_terms: [newsletters, analysis, without, useful, langdonalgerpuzzles, users, primaryconcern2608, automoderator]
+    concepts: [newsletters, analysis, without, useful, users]
     section: Comments
     token_count: 209
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c13"
     char_span: [16124, 17391]
     sentence_count: 6
     key_terms: [substack, something, getting, message, random, atmospheremiddle1682, confident-grab-7688, throwaway9gk0k4k569]
+    concepts: [substack, something, getting, message, random]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c14"
     char_span: [17393, 18904]
     sentence_count: 5
     key_terms: [shittybidet123, dick, soxx, capital, deleted, looking, primaryconcern2608, been]
+    concepts: [shittybidet123, capital, deleted, looking]
     section: Comments
     token_count: 451
 ---

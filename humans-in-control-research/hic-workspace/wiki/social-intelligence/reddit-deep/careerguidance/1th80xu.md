@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1925]
     sentence_count: 18
     key_terms: [stability, want, careerguidance, feels, flexibility, time, exhausted, situation]
+    concepts: [stability, careerguidance, flexibility, feels, exhausted]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1th80xu.md#c4"]
     token_count: 423
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1th80xu/what_careers_offer_stability/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1th80xu.md#c1"
     char_span: [1939, 3330]
     sentence_count: 14
     key_terms: [healthcare, entry-level, specialized, work, different, teaching, setting, people]
+    concepts: [healthcare, entry-level, specialized, different, teaching]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/careerguidance/1th80xu.md#c2"
     char_span: [3332, 5120]
     sentence_count: 13
     key_terms: [administration, jobs, government, stability, benefits, honestly, career, higher]
+    concepts: [administration, government, stability, benefits, honestly]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/careerguidance/1th80xu.md#c3"
     char_span: [5122, 6954]
     sentence_count: 11
     key_terms: [people, operations, strategy, environments, less, background, compliance, everything]
+    concepts: [operations, people, strategy, environments, background]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/careerguidance/1th80xu.md#c4"
     char_span: [6956, 8928]
     sentence_count: 16
     key_terms: [flexibility, companies, roles, operations, stability, project, coordination, work]
+    concepts: [flexibility, companies, roles, operations, stability]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1th80xu.md#c0"]
     section: Comments
     token_count: 423
 ---

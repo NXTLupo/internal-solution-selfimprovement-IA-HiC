@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1260]
     sentence_count: 6
     key_terms: [experience, cscareerquestions, internship, comments, already, college, better, people]
+    concepts: [experience, cscareerquestions, internship, comments, already]
     token_count: 262
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t4tjg0/how_helpful_is_it_for_your_first_job_prospects_to/"}]
 ---
 # How helpful is it for your first job prospects to have experience in Machine Learning from an internship?
 

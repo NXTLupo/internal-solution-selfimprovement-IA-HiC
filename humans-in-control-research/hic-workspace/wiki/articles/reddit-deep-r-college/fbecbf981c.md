@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2117]
     sentence_count: 16
     key_terms: [undergrad, advisor, club, college, student, office, hours, help]
+    concepts: [undergrad, advisor, college, student, office]
     token_count: 448
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1lrcdty/how_to_find_advisors_for_an_undergrad_student_club/"}]
 ---
 # How to find advisors for an Undergrad Student Club
 

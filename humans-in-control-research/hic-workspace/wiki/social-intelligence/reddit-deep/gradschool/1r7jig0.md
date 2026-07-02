@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1038]
     sentence_count: 7
     key_terms: [degree, gradschool, graduate, "master's", program, undergraduate, experience, typically]
+    concepts: [gradschool, degree, graduate, "master's", undergraduate]
     token_count: 231
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1r7jig0/how_much_does_your_averagegpa_typically_improve/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1r7jig0.md#c1"
     char_span: [1052, 2848]
     sentence_count: 16
     key_terms: [undergrad, college, school, grad, courses, because, classes, program]
+    concepts: [undergrad, college, school, courses, because]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1r7jig0.md#c3"]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/gradschool/1r7jig0.md#c2"
     char_span: [2850, 4328]
     sentence_count: 5
     key_terms: [gpa, school, lasixsteroidsabx, "master's", lot, wondering, ireland, matters]
+    concepts: [school, lasixsteroidsabx, "master's", wondering, ireland]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/gradschool/1r7jig0.md#c3"
     char_span: [4330, 6264]
     sentence_count: 16
     key_terms: [gpa, undergrad, graduate, school, grad, different, graduated, location]
+    concepts: [undergrad, graduate, school, different, graduated]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1r7jig0.md#c1"]
     section: Comments
     token_count: 496
 ---

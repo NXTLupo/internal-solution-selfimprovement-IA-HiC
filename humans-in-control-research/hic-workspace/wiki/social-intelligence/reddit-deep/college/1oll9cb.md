@@ -19,29 +19,37 @@ chunks:
     char_span: [0, 1581]
     sentence_count: 30
     key_terms: [students, here, time, college, comments, increase, midsems, without]
+    concepts: [students, college, comments, increase, midsems]
     token_count: 397
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1oll9cb/prof_nearly_made_me_tear_up_in_class/"}]
   - id: "social-intelligence/reddit-deep/college/1oll9cb.md#c1"
-    char_span: [1596, 3721]
+    char_span: [1595, 3720]
     sentence_count: 11
     key_terms: [college, like, people, chocokissses, fact, high, lot, professors]
+    concepts: [college, chocokissses, people, professors, something]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1oll9cb.md#c2"
-    char_span: [3508, 5671]
+    char_span: [3507, 5670]
     sentence_count: 19
     key_terms: [teachers, teacher, student, strict, best, highschool, strictest, students]
+    concepts: [teachers, teacher, student, strict, highschool]
+    related_chunks: ["social-intelligence/reddit-deep/college/1oll9cb.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1oll9cb.md#c3"
-    char_span: [5373, 6763]
+    char_span: [5372, 6762]
     sentence_count: 13
     key_terms: [people, strict, creative, failures, teachers, because, classes, failure]
+    concepts: [people, strict, creative, failures, teachers]
+    related_chunks: ["social-intelligence/reddit-deep/college/1oll9cb.md#c2"]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/college/1oll9cb.md#c4"
-    char_span: [6765, 8759]
+    char_span: [6764, 8758]
     sentence_count: 18
     key_terms: [time, "don't", grade, learn, right, internships, exam, give]
+    concepts: [internships, "don't", grade, learn, right]
     section: Comments
     token_count: 459
 ---

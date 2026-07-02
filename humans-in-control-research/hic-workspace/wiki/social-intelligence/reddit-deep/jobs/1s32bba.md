@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 809]
     sentence_count: 3
     key_terms: [job, comments, another, direct-mixture-2855, jobs, stay, reddit-deep, argument]
+    concepts: [comments, another]
     token_count: 201
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1s32bba/is_it_bad_to_quit_my_entry_level_job_only_after_8/"}]
   - id: "social-intelligence/reddit-deep/jobs/1s32bba.md#c1"
     char_span: [823, 2754]
     sentence_count: 14
     key_terms: [report, resume, eurocanadian2, taxes, don, job, want, situation]
+    concepts: [eurocanadian2, report, resume, taxes, situation]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/jobs/1s32bba.md#c2"
     char_span: [2756, 3986]
     sentence_count: 13
     key_terms: [report, like, labor, job, r3giment75, companies, breaking, calling]
+    concepts: [report, labor, r3giment75, companies, breaking]
     section: Comments
     token_count: 292
 ---

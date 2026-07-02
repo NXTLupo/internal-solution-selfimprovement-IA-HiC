@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1778]
     sentence_count: 12
     key_terms: [internships, job, networking, cscareerquestions, personal, projects, chances, better]
+    concepts: [internships, networking, cscareerquestions, personal, projects]
     token_count: 428
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1kw5mrk/should_i_pursue_an_ms_in_cs_to_improve_my/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kw5mrk.md#c1"
     char_span: [1780, 2383]
     sentence_count: 5
     key_terms: [online, get, part, opportunities, candidates, everything, networking, education]
+    concepts: [online]
     token_count: 130
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kw5mrk.md#c2"
     char_span: [2397, 4056]
     sentence_count: 16
     key_terms: [aspects, domains, masters, someone, person, illustrious-pound266, great, here]
+    concepts: [aspects, domains, masters, someone, person]
     section: Comments
     token_count: 393
 ---

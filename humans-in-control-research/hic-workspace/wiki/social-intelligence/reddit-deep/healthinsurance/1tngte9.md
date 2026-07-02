@@ -20,35 +20,46 @@ chunks:
     char_span: [0, 1975]
     sentence_count: 16
     key_terms: [insurance, appeal, company, clinic, healthinsurance, responsibility, got, business]
+    concepts: [insurance, appeal, company, clinic, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1tngte9.md#c3"]
     token_count: 463
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1tngte9/clinic_never_submitted_my_claim_and_now_insurance/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1tngte9.md#c1"
-    char_span: [1990, 3871]
+    char_span: [1989, 3870]
     sentence_count: 6
     key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    concepts: [information, questions, following, please, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1tngte9.md#c2"]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/healthinsurance/1tngte9.md#c2"
-    char_span: [3873, 5537]
+    char_span: [3872, 5536]
     sentence_count: 8
     key_terms: [please, eob, contact, information, questions, subreddit, post, via]
+    concepts: [please, information, contact, questions, subreddit]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1tngte9.md#c1"]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/healthinsurance/1tngte9.md#c3"
-    char_span: [5539, 7649]
+    char_span: [5538, 7648]
     sentence_count: 11
     key_terms: [clinic, services, ask, responsibility, time, network, insurance, bill]
+    concepts: [clinic, services, responsibility, network, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1tngte9.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1tngte9.md#c4"
-    char_span: [7391, 7688]
+    char_span: [7390, 7687]
     sentence_count: 4
     key_terms: [timely, chiefkc20, luminaire, processed, scenario, services, because, dealing]
+    concepts: [timely]
     section: Comments
     token_count: 72
   - id: "social-intelligence/reddit-deep/healthinsurance/1tngte9.md#c5"
-    char_span: [7692, 8189]
+    char_span: [7691, 8188]
     sentence_count: 6
     key_terms: [luminaire, address, claim, employer, patient, complained, electronic, forwarding]
+    concepts: [luminaire, address, claim, employer, patient]
     section: Comments
     token_count: 100
 ---

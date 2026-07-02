@@ -2,7 +2,7 @@
 name: illustrator
 version: 1.0
 category: visual-generator
-description: Generates ONE tasteful, on-brand, minimalist abstract FLAT-VECTOR illustration per scene to support a #presentation (and, later, #slides) - never AI photo-slop. The image relates to the scene's content, uses ONLY the brand palette (NXT or NU tokens from /api/design-tokens), and is produced by Nano Banana 2 (gemini-3.1-flash-image-preview) or GPT Image 2 (gpt-image-2). Apply when a presentation scene needs a supporting graphic. Pairs with deck-narrative-composer (the scene content) and the brand token system (the palette).
+description: Generates ONE tasteful, on-brand, minimalist abstract FLAT-VECTOR illustration per scene to support a #presentation (:5014 renderer) - never AI photo-slop. NARROWED 2026-07-02 (E4): this is the #presentation lane ONLY; GOLD artifact + #slides image slots route to the native infographic lane per the `designer` skill, NOT here. The image relates to the scene's content, uses ONLY the brand palette (NXT or NU tokens from /api/design-tokens), and is produced by Nano Banana 2 (gemini-3.1-flash-image-preview) or GPT Image 2 (gpt-image-2). Apply when a presentation scene needs a supporting graphic. Pairs with deck-narrative-composer (the scene content) and the brand token system (the palette).
 thinking: high
 ---
 
@@ -23,25 +23,15 @@ target.) Emit ONE illustration per section that warrants it, AT MOST 4-5 across 
 section needs one (negative space is a feature). Decorative-only images are FORBIDDEN - the image
 must encode the section's idea.
 
-## Registry coverage contract (GOLD artifacts + #slides — REGISTRY-DRIVEN, not composer-seeded)
-For GOLD deliverables and #slides decks, image placeholders are NOT invented per-run from a composer
-`imageConcept` (that path is only for the interactive #presentation). They are PRE-DEFINED in the
-IMAGE-SLOT REGISTRY and you MUST cover every one for the artifact you are generating:
-- SOURCE: `wiki/brand/figma-node-map.md` -> `## IMAGE-SLOT REGISTRY`, plus the 5 fragments in
-  `wiki/brand/image-slots/` (procedure: `image-slots/AGENT-GUIDE-find-image-references.md`).
-- COVERAGE RULE (hard): before generating, ENUMERATE that artifact's slots from the registry and
-  generate ONE illustration for EVERY non-optional slot (`imgOptional=false`). Map per slot:
-  `concept` <- `imgRole` (scene-concept seed, verbatim), `canvas` <- `imgGround` (dark|light),
-  `slot`/composition <- `imgKind` (panel|hero|thumbnail|glyph), and align to `imgElement`/`imgPhase`
-  (the phase/behavior/action/peer/milestone the thumbnail belongs to). Drop `imgOptional=true` slots
-  first only under a budget cap.
-- NEVER invent a slot the registry does not list; NEVER generate for an archetype in the registry's
-  "Deliberately left image-free" set (forcing one there is a regression, not coverage).
-- VERIFY coverage: every non-optional slot for the artifact must end up with an image (or be explicitly
-  budget-dropped). A missing non-optional slot is an incomplete deliverable.
-- WRITE the URL into the deliverable's runtime payload field (index-aligned per the RUNTIME PAYLOAD
-  CONTRACT in the registry: journey -> `journeyMap.phaseImages[]`; other deliverables follow the same
-  `<element>Images[]` / per-item `.image` pattern once their renderer twin is wired).
+## GOLD artifacts + #slides: SUPERSEDED (E4, 2026-07-02) — do NOT generate here
+The former "registry coverage contract" for GOLD deliverables and #slides is RETIRED with the
+diffusion content-image lane. GOLD artifact + #slides image slots are now routed by
+`services/visualRouter.ts` per the `designer` skill: content slots (theme thumbnail, persona detail,
+case-study, recommendation) fill from the NATIVE infographic families (`/api/ai/diagram`, composed
+deterministically from the element's own data via `artifactIllustrator.ts::infographicSpecFrom`);
+icon slots fill from the tokenized glyph library; data panels fill from `vizEngine`. This skill
+generates NOTHING for those surfaces. Its scope is the interactive `#presentation` (:5014) lane
+below, where the composer seeds an `imageConcept` per narrative section.
 
 ## The image library (persist + catalog + reuse)
 Every generated illustration is saved as a transparent PNG and cataloged so it is REUSABLE, not

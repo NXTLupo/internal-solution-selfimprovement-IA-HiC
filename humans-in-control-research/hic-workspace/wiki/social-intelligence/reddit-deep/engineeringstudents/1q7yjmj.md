@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 309]
     sentence_count: 2
     key_terms: [engineeringstudents, comments, engineering, reddit-deep, wheremars, student, advice, career]
+    concepts: [engineeringstudents, comments]
     token_count: 85
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1q7yjmj/what_career_advice_would_you_give_a_first_year/"}]
 ---
 # What career advice would you give a first year engineering student??
 

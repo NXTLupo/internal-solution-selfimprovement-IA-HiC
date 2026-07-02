@@ -21,77 +21,93 @@ chunks:
     char_span: [0, 1687]
     sentence_count: 12
     key_terms: [code, cscareerquestions, juniors, early, adoption, comments, almost, coding]
+    concepts: [cscareerquestions, juniors, early, adoption, comments]
     token_count: 400
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rwvql6/imo_actual_swes_would_be_super_high_in_demand_in/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c1"
     char_span: [1701, 3789]
     sentence_count: 11
     key_terms: [capitalism, "don't", engineering, lolclempson, care, code, "it's", businesses]
+    concepts: [capitalism, "don't", engineering, lolclempson, businesses]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c2"
     char_span: [3791, 5617]
     sentence_count: 6
     key_terms: [quality, business, going, absolutely, customers, software, another, matters]
+    concepts: [quality, business, absolutely, going, customers]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c3"
     char_span: [5619, 7897]
     sentence_count: 8
     key_terms: [models, reasons, prices, source, significantly, subscriptions, get, open]
+    concepts: [models, significantly, subscriptions, reasons, prices]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c4"
     char_span: [7899, 10383]
     sentence_count: 20
     key_terms: [companies, developers, development, customers, software, already, models, firms]
+    concepts: [companies, developers, development, customers, software]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c12"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c5"
     char_span: [10385, 12517]
     sentence_count: 14
     key_terms: [testing, code, debugging, done, speeds, communicating, communication, maybe]
+    concepts: [testing, debugging, communicating, communication, speeds]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c6"
     char_span: [12519, 14433]
     sentence_count: 14
     key_terms: [code, job, people, learn, engineer, monkey, senior, doing]
+    concepts: [people, learn, engineer, monkey, senior]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c7"
     char_span: [14435, 16637]
     sentence_count: 16
     key_terms: ["don't", questions, product, losing, people, screen, start, code]
+    concepts: [questions, "don't", product, losing, people]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c8"
     char_span: [16639, 18747]
     sentence_count: 20
     key_terms: ["it's", skills, architecture, coding, "aren't", resume, good, need]
+    concepts: [skills, architecture, coding, "aren't", resume]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c9"
     char_span: [18749, 20949]
     sentence_count: 15
     key_terms: [architecture, code, engineer, thinking, writing, foot, like, opus]
+    concepts: [architecture, engineer, thinking, writing, absolutely]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c10"
     char_span: [20951, 22962]
     sentence_count: 11
     key_terms: [always, demand, amount, people, cope, adapting, industry, required]
+    concepts: [always, demand, amount, people, adapting]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c11"
     char_span: [22964, 24479]
     sentence_count: 12
     key_terms: [cscareerquestions, companies, industry, college, company, juniors, working, agents]
+    concepts: [cscareerquestions, companies, industry, college, company]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c12"
     char_span: [24481, 26206]
     sentence_count: 20
     key_terms: [code, start, someone, get, new, developers, companies, generates]
+    concepts: [start, someone, developers, companies, generates]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c4"]
     section: Comments
     token_count: 366
 ---

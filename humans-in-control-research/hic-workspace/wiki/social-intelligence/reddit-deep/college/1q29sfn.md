@@ -19,35 +19,47 @@ chunks:
     char_span: [0, 2137]
     sentence_count: 8
     key_terms: [college, school, course, year, wanna, years, high, working]
+    concepts: [college, school, course, wanna, years]
+    related_chunks: ["social-intelligence/reddit-deep/college/1q29sfn.md#c2", "social-intelligence/reddit-deep/college/1q29sfn.md#c3", "social-intelligence/reddit-deep/college/1q29sfn.md#c4", "social-intelligence/reddit-deep/college/1q29sfn.md#c5"]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1q29sfn/6_years_out_of_school_and_i_want_to_go_back_to/"}]
   - id: "social-intelligence/reddit-deep/college/1q29sfn.md#c1"
     char_span: [2151, 4364]
     sentence_count: 16
     key_terms: [transfer, course, courses, business, program, useful, coachinteresting7125, community]
+    concepts: [transfer, course, courses, business, coachinteresting7125]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/college/1q29sfn.md#c2"
     char_span: [4366, 5589]
     sentence_count: 7
     key_terms: [skills, been, students, college, school, academic, "haven't", though]
+    concepts: [skills, students, college, school, academic]
+    related_chunks: ["social-intelligence/reddit-deep/college/1q29sfn.md#c0", "social-intelligence/reddit-deep/college/1q29sfn.md#c3", "social-intelligence/reddit-deep/college/1q29sfn.md#c4", "social-intelligence/reddit-deep/college/1q29sfn.md#c5"]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/college/1q29sfn.md#c3"
     char_span: [5591, 7730]
     sentence_count: 12
     key_terms: [school, because, back, high, college, parents, lot, questions]
+    concepts: [school, because, college, parents, questions]
+    related_chunks: ["social-intelligence/reddit-deep/college/1q29sfn.md#c0", "social-intelligence/reddit-deep/college/1q29sfn.md#c2", "social-intelligence/reddit-deep/college/1q29sfn.md#c4"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/college/1q29sfn.md#c4"
     char_span: [7732, 9713]
     sentence_count: 14
     key_terms: [get, college, school, people, reinforcement, "don't", certificate, algebra]
+    concepts: [college, school, reinforcement, people, certificate]
+    related_chunks: ["social-intelligence/reddit-deep/college/1q29sfn.md#c0", "social-intelligence/reddit-deep/college/1q29sfn.md#c2", "social-intelligence/reddit-deep/college/1q29sfn.md#c3", "social-intelligence/reddit-deep/college/1q29sfn.md#c5"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/college/1q29sfn.md#c5"
     char_span: [9715, 11406]
     sentence_count: 15
     key_terms: [college, bridge, course, people, skills, back, find, students]
+    concepts: [college, bridge, course, people, skills]
+    related_chunks: ["social-intelligence/reddit-deep/college/1q29sfn.md#c0", "social-intelligence/reddit-deep/college/1q29sfn.md#c2", "social-intelligence/reddit-deep/college/1q29sfn.md#c4"]
     section: Comments
     token_count: 380
 ---

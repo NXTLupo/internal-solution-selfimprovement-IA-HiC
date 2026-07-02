@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 989]
     sentence_count: 5
     key_terms: [career, guidance, students, idea, ai-powered, careerguidance, good, comments]
+    concepts: [career, guidance, students, ai-powered, careerguidance]
     token_count: 208
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1svjpin/aipowered_career_guidance_for_students_good_idea/"}]
 ---
 # “AI-powered career guidance for students — good idea or terrible idea?”
 

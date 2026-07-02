@@ -9,24 +9,27 @@ author: ""
 date: "2025-12-18T18:57:47.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-06-18T13:41:36.307553+00:00"
+extracted_at: "2026-06-24T22:16:58.703569+00:00"
 chars: 3429
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
-collected_at: "2026-06-18T13:41:35.182Z"
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
+collected_at: "2026-06-24T22:16:55.010Z"
 relevance: 40
-engagement_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-content_hash: "65e92e48d45d817d"
-relevance_by_goal: {"490684cfa204":40}
+engagement_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+content_hash: "a0e0ee193e5c70f0"
+relevance_by_goal: {"490684cfa204":40,"5600fa7d89d5":40}
 chunks:
   - id: "articles/reddit-deep-r-shopify/0dd7dac99a.md#c0"
-    char_span: [0, 2174]
+    char_span: [0, 2173]
     sentence_count: 5
     key_terms: [business, shopify, platform, limitations, support, forms, frustration, completely]
-    token_count: 496
+    concepts: [business, shopify, platform, limitations, support]
+    token_count: 495
+    sources: [{"n":"Reddit Deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1ppyyxv/why_is_sidekick_so_understanding_and_shopify_cant/"}]
   - id: "articles/reddit-deep-r-shopify/0dd7dac99a.md#c1"
-    char_span: [2176, 3634]
+    char_span: [2175, 3633]
     sentence_count: 7
     key_terms: [sidekick, villagehomef, bot, work, community, platform, because, contact]
+    concepts: [sidekick, villagehomef, community, platform, because]
     token_count: 360
 ---
 # Why is Sidekick so understanding and Shopify can't be bothered?
@@ -73,13 +76,13 @@ I just had a long 'conversation' with the AI chatbot about Shopify limitations a
 [1↑ AutoModerator] To keep this community relevant to the Shopify community, store reviews and external blog links will be removed. Users soliciting personal contact, sales, or services in any form will result in a permanent ban.
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/shopify) if you have any questions or concerns.*
-[71↑ DjSpelk] News at 10: AI systems agree with you because engagement is their primary function
-[20↑ IamMorphNZ] What are you taking about? 
+[74↑ DjSpelk] News at 10: AI systems agree with you because engagement is their primary function
+[19↑ IamMorphNZ] What are you taking about? 
 
 Sidekick tells me I'm a handsome young man with huge potential, just like my mum said????
 [1↑ junkdumper] Wait till you hear what the ladies say at the gentlemen's club.
-[30↑ VillageHomeF] this is an inexpensive ecommece platform with fairly robust tools.  it isn't going to do everything you want it to out the box.  you have to learn to work within the parameters of the system.  if not, find another platform.
-[-4↑ LegitimateAd5334] I mean
+[29↑ VillageHomeF] this is an inexpensive ecommece platform with fairly robust tools.  it isn't going to do everything you want it to out the box.  you have to learn to work within the parameters of the system.  if not, find another platform.
+[-5↑ LegitimateAd5334] I mean
 Fairly robust... Except for Sidekick.
 
 Idiot bot doesn't work and actively makes shit up

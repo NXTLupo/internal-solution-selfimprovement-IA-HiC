@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1316]
     sentence_count: 5
     key_terms: [summer, trying, start, programming, seriously, uwaterloo, comments, incoming]
+    concepts: [summer, trying, programming, start, seriously]
     token_count: 290
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1tan6kz/incoming_waterloo_cs_student_trying_to_use_the/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1tan6kz.md#c1"
     char_span: [1330, 3427]
     sentence_count: 9
     key_terms: [learn, project, python, summer, try, computer, learning, projects]
+    concepts: [learn, project, python, summer, computer]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/uwaterloo/1tan6kz.md#c2"
     char_span: [3429, 3892]
     sentence_count: 3
     key_terms: [projects, learning, learn, take, technologies, spectacular, frameworks, unfamiliar]
+    concepts: [projects, learning, learn]
     section: Comments
     token_count: 95
 ---

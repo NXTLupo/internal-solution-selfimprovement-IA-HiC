@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1777]
     sentence_count: 6
     key_terms: [affective, cognitive, consciousness, architecture, deeplearning, state, real, nutshells1]
+    concepts: [affective, cognitive, consciousness, architecture, deeplearning]
     token_count: 392
+    sources: [{"n":"Reddit Deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1sez7d0/i_built_a_functional_cognitive_engine_sovereign/"}]
   - id: "articles/reddit-deep-r-deeplearning/1beea91bf1.md#c1"
     char_span: [1779, 4421]
     sentence_count: 16
     key_terms: [universe, probabilistic, recursive, pocket, within, hypothesis, simulation, indistinguishable]
+    concepts: [universe, probabilistic, recursive, hypothesis, simulation]
     token_count: 501
   - id: "articles/reddit-deep-r-deeplearning/1beea91bf1.md#c2"
     char_span: [4423, 6314]
     sentence_count: 9
     key_terms: [probabilistic, indistinguishability, epistemic, inference, indistinguishable, through, supset, level]
+    concepts: [probabilistic, indistinguishability, indistinguishable, epistemic, inference]
     token_count: 434
   - id: "articles/reddit-deep-r-deeplearning/1beea91bf1.md#c3"
     char_span: [6319, 6959]

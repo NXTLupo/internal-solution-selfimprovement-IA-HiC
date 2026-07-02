@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1930]
     sentence_count: 14
     key_terms: [wallstreetbets, comments, market, https, long-term, backlog, reddit, com]
+    concepts: [wallstreetbets, comments, market, long-term, https]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1m8lrly/googl_yolo_the_dip_to_191_was_a_gift_from_the/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1m8lrly.md#c1"
     char_span: [1944, 3658]
     sentence_count: 9
     key_terms: [driverless, wsb, calls, waymo, years, car, discord, problem]
+    concepts: [driverless, calls, waymo, years, discord]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/wallstreetbets/1m8lrly.md#c2"
     char_span: [3660, 5491]
     sentence_count: 10
     key_terms: [waymo, driving, self, unsuccessfully, thats, "it's", everywhere, expensive]
+    concepts: [waymo, driving, unsuccessfully, everywhere, thats]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/wallstreetbets/1m8lrly.md#c3"
     char_span: [5494, 7332]
     sentence_count: 13
     key_terms: [tesla, waymo, wrong, reliability, cars, absolutely, geofenced, ghostjinn]
+    concepts: [reliability, absolutely, tesla, waymo, wrong]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/wallstreetbets/1m8lrly.md#c4"
     char_span: [7334, 8531]
     sentence_count: 9
     key_terms: [traditionalmousse500, fee22710ed34f64815878785952662674d6805a6, wanderingtofu, dip, preview, buying, change, format]
+    concepts: [traditionalmousse500, wanderingtofu, preview, buying, change]
     section: Comments
     token_count: 396
 ---

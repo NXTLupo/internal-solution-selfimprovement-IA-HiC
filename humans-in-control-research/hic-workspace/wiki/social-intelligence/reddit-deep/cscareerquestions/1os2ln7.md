@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1549]
     sentence_count: 10
     key_terms: [cscareerquestions, leetcode, etc, "i'm", university, solutions, comments, courses]
+    concepts: [cscareerquestions, leetcode, university, solutions, comments]
     token_count: 355
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1os2ln7/is_swesde_the_only_sensible_entry_point_into_any/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1os2ln7.md#c1"
     char_span: [1563, 2382]
     sentence_count: 6
     key_terms: [necessary, always, degree, etc, low, own, responsibility, incentivized]
+    concepts: [necessary, always, degree]
     section: Comments
     token_count: 187
 ---

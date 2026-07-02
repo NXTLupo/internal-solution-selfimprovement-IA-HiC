@@ -21,22 +21,29 @@ chunks:
     char_span: [0, 1916]
     sentence_count: 15
     key_terms: [students, college, student, loans, increase, already, significantly, grant]
+    concepts: [students, college, student, loans, increase]
+    related_chunks: ["social-intelligence/reddit-deep/college/1l79wjs.md#c2"]
     token_count: 437
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1l79wjs/heads_up_for_future_college_students_or_those/"}]
   - id: "social-intelligence/reddit-deep/college/1l79wjs.md#c1"
     char_span: [1918, 2273]
     sentence_count: 4
     key_terms: [information, congress, assistance, house-bill, extremely, including, military, proposal]
+    concepts: [information, congress]
     token_count: 80
   - id: "social-intelligence/reddit-deep/college/1l79wjs.md#c2"
     char_span: [2287, 4037]
     sentence_count: 13
     key_terms: [student, loans, increase, pell, college, students, grants, middle]
+    concepts: [student, increase, loans, college, students]
+    related_chunks: ["social-intelligence/reddit-deep/college/1l79wjs.md#c0"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/college/1l79wjs.md#c3"
     char_span: [4039, 5670]
     sentence_count: 9
     key_terms: [open-salary6273, college, bill, year, fucking, anti-intellectualism, thepickleconnoisseur, start]
+    concepts: [open-salary6273, college, fucking, start, years]
     section: Comments
     token_count: 441
 ---

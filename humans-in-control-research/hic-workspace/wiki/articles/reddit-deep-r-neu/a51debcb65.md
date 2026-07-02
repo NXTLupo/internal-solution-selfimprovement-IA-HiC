@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1879]
     sentence_count: 15
     key_terms: [scholarship, indian, students, scholarships, got, international, student, cash]
+    concepts: [scholarship, scholarships, indian, students, international]
     token_count: 449
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1s6pjbz/scholarships/"}]
 ---
 # Scholarships
 

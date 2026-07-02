@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 342]
     sentence_count: 2
     key_terms: [engineeringstudents, engineering, comments, internships, reddit-deep, willy1996ok, chemical, process]
+    concepts: [engineeringstudents, engineering, comments]
     token_count: 85
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1q1e6ji/chemical_engineering_student_stuck_in_quality/"}]
 ---
 # Chemical Engineering student stuck in Quality internships — how do I break into Process Engineering?
 

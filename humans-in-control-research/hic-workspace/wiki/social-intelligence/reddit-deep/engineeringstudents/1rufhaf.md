@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 755]
     sentence_count: 6
     key_terms: [feel, engineeringstudents, engineering, experience, comments, career, "i'm", like]
+    concepts: [engineeringstudents, engineering, experience, comments, career]
     token_count: 183
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rufhaf/imposter_syndrome_or_not_fit_for_engineering/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rufhaf.md#c1"
     char_span: [769, 2876]
     sentence_count: 24
     key_terms: [year, "i'm", concepts, working, co-op, good, told, important]
+    concepts: [concepts, working, co-op, important, supposed]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rufhaf.md#c2"
     char_span: [2878, 4845]
     sentence_count: 21
     key_terms: [problems, fundamentals, eventually, down, feeling, enough, never, right]
+    concepts: [problems, fundamentals, eventually, feeling, enough]
     section: Comments
     token_count: 420
 ---

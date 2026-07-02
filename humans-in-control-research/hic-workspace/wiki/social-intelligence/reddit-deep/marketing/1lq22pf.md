@@ -20,29 +20,39 @@ chunks:
     char_span: [0, 2324]
     sentence_count: 17
     key_terms: [marketing, department, sales, budget, b2b, lead, company, manufacturer]
+    concepts: [marketing, department, sales, budget, company]
+    related_chunks: ["social-intelligence/reddit-deep/marketing/1lq22pf.md#c1", "social-intelligence/reddit-deep/marketing/1lq22pf.md#c2", "social-intelligence/reddit-deep/marketing/1lq22pf.md#c3"]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/marketing","u":"https://www.reddit.com/r/marketing/comments/1lq22pf/solo_marketer_at_90m_b2b_manufacturer_how_do_you/"}]
   - id: "social-intelligence/reddit-deep/marketing/1lq22pf.md#c1"
-    char_span: [2339, 3216]
+    char_span: [2338, 3215]
     sentence_count: 6
     key_terms: [forklifterotica, following, marketing, industry, budget, independentbutton53, more-scheme1836, manufacturing]
+    concepts: [forklifterotica, following, marketing, industry, budget]
+    related_chunks: ["social-intelligence/reddit-deep/marketing/1lq22pf.md#c0"]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/marketing/1lq22pf.md#c2"
-    char_span: [3218, 4667]
+    char_span: [3217, 4666]
     sentence_count: 15
     key_terms: [sales, manufacturing, independentbutton53, marketing, leads, customers, business, capacity]
+    concepts: [manufacturing, sales, independentbutton53, marketing, leads]
+    related_chunks: ["social-intelligence/reddit-deep/marketing/1lq22pf.md#c0", "social-intelligence/reddit-deep/marketing/1lq22pf.md#c3"]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/marketing/1lq22pf.md#c3"
-    char_span: [4670, 6937]
+    char_span: [4669, 6936]
     sentence_count: 18
     key_terms: [marketing, sales, companies, get, manufacturing, deals, "don't", trade]
+    concepts: [marketing, sales, companies, manufacturing, attribution]
+    related_chunks: ["social-intelligence/reddit-deep/marketing/1lq22pf.md#c0", "social-intelligence/reddit-deep/marketing/1lq22pf.md#c2"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/marketing/1lq22pf.md#c4"
-    char_span: [6939, 8595]
+    char_span: [6938, 8594]
     sentence_count: 13
     key_terms: [capacity, opportunities, sales, touchpoints, leadership, marketing, internal, position]
+    concepts: [capacity, opportunities, touchpoints, leadership, sales]
     section: Comments
     token_count: 330
 ---

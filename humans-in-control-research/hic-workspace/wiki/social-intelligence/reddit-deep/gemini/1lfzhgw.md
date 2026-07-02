@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1145]
     sentence_count: 5
     key_terms: [gemini, app, comments, passkey, iphone, authy, windows, chrome]
+    concepts: [gemini, comments, passkey, iphone, authy]
     token_count: 292
+    sources: [{"n":"reddit-deep: r/gemini","u":"https://www.reddit.com/r/Gemini/comments/1lfzhgw/safety_first_this_worked_for_me/"}]
   - id: "social-intelligence/reddit-deep/gemini/1lfzhgw.md#c1"
     char_span: [1159, 2629]
     sentence_count: 15
     key_terms: [auntietd, windows, access, ticket, authy, email, games, never]
+    concepts: [auntietd, windows, access, ticket, authy]
     section: Comments
     token_count: 420
 ---

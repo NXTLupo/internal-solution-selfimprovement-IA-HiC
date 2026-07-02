@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1725]
     sentence_count: 3
     key_terms: [cscareerquestions, assistant, developer, prototype, real-time, comments, engineer, projects]
+    concepts: [cscareerquestions, assistant, developer, prototype, real-time]
     token_count: 411
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1lprn8q/ai_career_path_advice/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lprn8q.md#c1"
     char_span: [1727, 2431]
     sentence_count: 6
     key_terms: [engineer, mlops, job, certifications, minimum-viable, prioritisation, contributions, assumptions]
+    concepts: [engineer, mlops]
     token_count: 163
 ---
 # AI career path advice

@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1438]
     sentence_count: 18
     key_terms: ["i'm", taught, "don't", money, never, personalfinance, parents, savings]
+    concepts: [taught, "don't", money, never, personalfinance]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1qpmi31.md#c2"]
     token_count: 336
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1qpmi31/my_parents_never_taught_me_about_money_and_now_im/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1qpmi31.md#c1"
     char_span: [1452, 3550]
     sentence_count: 29
     key_terms: [need, personalfinance, budget, "you're", spend, accountable, wiki, decisions]
+    concepts: [personalfinance, budget, "you're", accountable, spend]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/personalfinance/1qpmi31.md#c2"
     char_span: [3552, 5539]
     sentence_count: 23
     key_terms: ["don't", "it's", money, understand, income, spend, emergency, anything]
+    concepts: ["don't", money, understand, income, spend]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1qpmi31.md#c0"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/personalfinance/1qpmi31.md#c3"

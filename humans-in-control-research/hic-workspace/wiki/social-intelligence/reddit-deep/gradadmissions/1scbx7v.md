@@ -21,35 +21,45 @@ chunks:
     char_span: [0, 2259]
     sentence_count: 16
     key_terms: [comments, programs, get, degrees, people, undergrad, phd, research]
+    concepts: [comments, programs, degrees, people, undergrad]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c2", "social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c4"]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1scbx7v/whats_with_all_the_hate_against_ms_degrees/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c1"
     char_span: [2273, 3092]
     sentence_count: 7
     key_terms: [phd, education, never, danceswithsockson, take, floweryhimalayas, combat-wounded, flyingmeowbear]
+    concepts: [education, never]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c2"
     char_span: [3094, 5177]
     sentence_count: 12
     key_terms: [get, people, phd, everyone, degrees, jewishtigerpup, want, work]
+    concepts: [people, everyone, jewishtigerpup, degrees, "bachelor's"]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c0"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c3"
     char_span: [5179, 6456]
     sentence_count: 11
     key_terms: [wanted, definitely, masters, career, school, "don't", rabbi, teach]
+    concepts: [wanted, definitely, masters, career, school]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c4"
     char_span: [6458, 8761]
     sentence_count: 7
     key_terms: [phd, programs, masters, applicants, degrees, funded, sometimes, typically]
+    concepts: [programs, masters, applicants, degrees, funded]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c0"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c5"
     char_span: [8763, 10960]
     sentence_count: 17
     key_terms: [masters, phd, "master's", need, program, degree, considered, field]
+    concepts: [masters, "master's", program, considered, degree]
     section: Comments
     token_count: 511
 ---

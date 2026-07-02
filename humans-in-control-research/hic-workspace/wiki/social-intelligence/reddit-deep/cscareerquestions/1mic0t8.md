@@ -19,89 +19,111 @@ chunks:
     char_span: [0, 847]
     sentence_count: 10
     key_terms: [cscareerquestions, programming, "i'm", job, comments, career, market, being]
+    concepts: [cscareerquestions, programming, comments, career, market]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c4"]
     token_count: 212
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1mic0t8/im_about_to_enter_this_world_should_i_rethink_it/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c1"
     char_span: [861, 2140]
     sentence_count: 10
     key_terms: [hours, programming, like, computers, because, people, "don't", world]
+    concepts: [programming, hours, computers, because, people]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c2"
     char_span: [2142, 4293]
     sentence_count: 22
     key_terms: ["it's", programming, job, time, school, get, like, projects]
+    concepts: [programming, school, projects, classes, enjoyed]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c3"
     char_span: [4295, 5776]
     sentence_count: 10
     key_terms: [job, people, get, employment, graduation, probably, market, though]
+    concepts: [people, employment, graduation, probably, market]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c11"]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c4"
     char_span: [5778, 7776]
     sentence_count: 14
     key_terms: [job, like, market, internship, cscareerquestions, applications, field, bad]
+    concepts: [internship, cscareerquestions, market, applications, field]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c0"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c5"
     char_span: [7778, 9896]
     sentence_count: 24
     key_terms: [job, sub, career, careers, people, been, experience, generally]
+    concepts: [career, careers, people, experience, generally]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c7"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c6"
     char_span: [9898, 11820]
     sentence_count: 17
     key_terms: [people, software, trades, engineers, pay, engineering, hard, highly]
+    concepts: [software, people, trades, engineers, engineering]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c7"
     char_span: [11822, 14020]
     sentence_count: 16
     key_terms: [experience, people, loves, startup, recommend, growing, groups, likely]
+    concepts: [experience, people, loves, startup, recommend]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c5"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c8"
     char_span: [14022, 16327]
     sentence_count: 21
     key_terms: [always, roughly, significantly, been, get, told, understand, difficult]
+    concepts: [always, significantly, roughly, understand, difficult]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c9"
     char_span: [16329, 18561]
     sentence_count: 34
     key_terms: [learn, college, don, work, majors, cloud, field, comfortable]
+    concepts: [learn, college, majors, comfortable, engineering]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c10"
     char_span: [18563, 20333]
     sentence_count: 19
     key_terms: [jesta1215, industry, point, experience, rewritten, keeping, science, advice]
+    concepts: [jesta1215, industry, experience, point, rewritten]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c11"
     char_span: [20335, 21997]
     sentence_count: 14
     key_terms: [market, get, people, students, always, comfortable-insect-7, comes, going]
+    concepts: [market, people, students, always, comes]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c3"]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c12"
     char_span: [21999, 23660]
     sentence_count: 14
     key_terms: [get, because, degree, knows, years, "it's", companies, getting]
+    concepts: [because, degree, knows, years, companies]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c13"
     char_span: [23662, 25355]
     sentence_count: 11
     key_terms: [big, definitely, graduates, frontend, "would've", backend, towards, coding]
+    concepts: [definitely, graduates, frontend, "would've", backend]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c14"
     char_span: [25357, 26479]
     sentence_count: 17
     key_terms: [enjoy, already, rethink, people, considerationtiny511, best, don, good]
+    concepts: [enjoy, already, rethink, people]
     section: Comments
     token_count: 271
 ---

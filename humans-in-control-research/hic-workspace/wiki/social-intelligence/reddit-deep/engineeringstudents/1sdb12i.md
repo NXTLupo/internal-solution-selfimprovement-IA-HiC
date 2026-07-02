@@ -19,41 +19,53 @@ chunks:
     char_span: [0, 1946]
     sentence_count: 20
     key_terms: [engineering, engineeringstudents, like, classes, feel, year, chemistry, countless]
+    concepts: [engineering, engineeringstudents, classes, chemistry, countless]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md#c3"]
     token_count: 433
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sdb12i/is_it_normal_to_have_cs_as_a_first_year/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md#c1"
     char_span: [1960, 4126]
     sentence_count: 24
     key_terms: [problem, struggling, read, sets, through, study, understand, procedure]
+    concepts: [problem, struggling, through, study, understand]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md#c2"
     char_span: [4128, 6220]
     sentence_count: 18
     key_terms: [get, study, thepowerfulpaet, always, fundamentals, accommodate, back, bit]
+    concepts: [study, thepowerfulpaet, fundamentals, always, accommodate]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md#c3"
     char_span: [6222, 8161]
     sentence_count: 10
     key_terms: [upper, want, classes, college, grades, engineering, bme, good]
+    concepts: [upper, classes, college, grades, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md#c0"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md#c4"
     char_span: [8163, 10260]
     sentence_count: 17
     key_terms: [understand, college, fundamentals, being, going, understands, don, technician]
+    concepts: [understand, college, fundamentals, understands, being]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md#c5"
     char_span: [10262, 12337]
     sentence_count: 10
     key_terms: [year, best, semester, get, something, figuring, studying, because]
+    concepts: [semester, something, figuring, studying, because]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md#c6"
     char_span: [12063, 12643]
     sentence_count: 3
     key_terms: [easy, something, semester, classes, cold-supermarket-440, boost, gpa, take]
+    concepts: [something, semester, classes, boost]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md#c5"]
     section: Comments
     token_count: 141
 ---

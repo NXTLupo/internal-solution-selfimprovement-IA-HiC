@@ -19,29 +19,36 @@ chunks:
     char_span: [0, 2222]
     sentence_count: 16
     key_terms: [degree, pursue, part-time, something, cscareerquestions, post-secondary, career, don]
+    concepts: [cscareerquestions, degree, pursue, part-time, something]
     token_count: 495
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1oziapg/if_your_employer_were_to_pay_100_for_any_degree/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oziapg.md#c1"
     char_span: [2236, 3776]
     sentence_count: 9
     key_terms: [management, something, misingnoglic, "don't", get, "it's", background, technical]
+    concepts: [management, something, misingnoglic, background, "don't"]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oziapg.md#c2"
     char_span: [3779, 5267]
     sentence_count: 13
     key_terms: [economics, industry, georgia, masters, always, chance, degree, domain]
+    concepts: [economics, industry, georgia, masters, always]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oziapg.md#c3"
     char_span: [5269, 6676]
     sentence_count: 9
     key_terms: [like, program, doing, prestigious, rate, work, yeah, graduation]
+    concepts: [program, prestigious, doing, graduation, majorwang]
     section: Comments
     token_count: 363
+    sources: [{"n":"doing the program as well","u":""}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oziapg.md#c4"
     char_span: [6678, 7482]
     sentence_count: 7
     key_terms: [product, mba, management, sisyphusandmyboulder, level, hardware-software, saas, jollytheory783]
+    concepts: [product, management, level]
     section: Comments
     token_count: 202
 ---

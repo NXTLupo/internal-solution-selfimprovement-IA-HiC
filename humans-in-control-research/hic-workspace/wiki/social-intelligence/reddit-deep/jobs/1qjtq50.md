@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 591]
     sentence_count: 2
     key_terms: [career, jobs, comments, skills, learn, good, pick, lemonade2250]
+    concepts: [career, comments, skills, learn]
     token_count: 142
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1qjtq50/what_jobs_skills_to_learn_for_career_development/"}]
 ---
 # What jobs skills to learn for career development?
 

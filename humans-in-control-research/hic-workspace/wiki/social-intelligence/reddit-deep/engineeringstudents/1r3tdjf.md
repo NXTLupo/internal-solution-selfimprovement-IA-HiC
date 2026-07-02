@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 493]
     sentence_count: 4
     key_terms: [engineeringstudents, comments, students, mikemanthousand, engineering, internships, reddit-deep, engineers]
+    concepts: [engineeringstudents, comments, students]
     token_count: 116
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1r3tdjf/how_many_internships_do_engineering_students/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r3tdjf.md#c1"
     char_span: [507, 1666]
     sentence_count: 5
     key_terms: [engineers, sophomore, ghostmcspiritwolf, engineering, internships, mechanical, because, school]
+    concepts: [ghostmcspiritwolf, engineers, sophomore, engineering, internships]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1r3tdjf.md#c4"]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r3tdjf.md#c2"
     char_span: [1668, 3803]
     sentence_count: 12
     key_terms: [internships, work, universities, job, like, australia, different, graduate]
+    concepts: [internships, universities, australia, different, graduate]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r3tdjf.md#c3"
     char_span: [3805, 5447]
     sentence_count: 10
     key_terms: [internships, because, people, got, applicants, experience, internship, robotics]
+    concepts: [internships, because, people, applicants, experience]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r3tdjf.md#c4"
     char_span: [5449, 7349]
     sentence_count: 12
     key_terms: [internships, get, opportunity, need, want, candidates, confident, engineers]
+    concepts: [internships, opportunity, candidates, confident, engineers]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1r3tdjf.md#c1"]
     section: Comments
     token_count: 409
 ---

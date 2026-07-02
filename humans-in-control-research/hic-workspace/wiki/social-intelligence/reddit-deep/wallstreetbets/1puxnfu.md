@@ -21,82 +21,104 @@ chunks:
     char_span: [0, 1966]
     sentence_count: 7
     key_terms: [nvidia-buying-ai-chip-startup-groq-for-about-20-billion-biggest-deal, billion, groq, nvidia, wallstreetbets, davis, https, accelerator]
+    concepts: [nvidia-buying-ai-chip-startup-groq-for-about-20-billion-biggest-deal, billion, nvidia, wallstreetbets, accelerator]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c1"]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1puxnfu/nvidia_to_buy_ai_chip_startup_groq_for_20_billion/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c1"
     char_span: [1968, 3591]
     sentence_count: 7
     key_terms: [company, nvidia, billion, filing, public, fundraising, chip, ross]
+    concepts: [company, nvidia, billion, filing, public]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c0"]
     token_count: 361
   - id: "social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c2"
     char_span: [3605, 4787]
     sentence_count: 4
     key_terms: [discord, dressed, months, noonefartslikegaston, chips, https, pivot, total]
+    concepts: [discord, dressed, months, chips, https]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c3"
     char_span: [4789, 6637]
     sentence_count: 10
     key_terms: [investors, serious, nvidia, owning, system, capital-resident-131, tonguepunchmypoopbox, u-dontknowaccounting]
+    concepts: [investors, serious, nvidia, owning, system]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c4"
     char_span: [6373, 7339]
     sentence_count: 6
     key_terms: [monopolies, monopoly, nvidia, owning, system, glad-veterinarian365, strange-term-4168, good]
+    concepts: [monopolies, monopoly, nvidia, owning, system]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c3"]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c5"
     char_span: [7341, 9054]
     sentence_count: 12
     key_terms: [chips, money, potential, limited, design, talent, makes, years]
+    concepts: [chips, money, potential, limited, design]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c6"]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c6"
     char_span: [9056, 10792]
     sentence_count: 10
     key_terms: [chips, inference, hardware, design, nvidia, development, chip, groq]
+    concepts: [chips, inference, hardware, design, nvidia]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c5", "social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c7"]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c7"
     char_span: [10794, 12413]
     sentence_count: 9
     key_terms: [nvidia, enough, groq, inference, question, meaning, almost, better]
+    concepts: [nvidia, enough, inference, question, meaning]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c6"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c8"
     char_span: [12415, 13714]
     sentence_count: 4
     key_terms: [intel, manufacture, groq, money, never, waiting4reccession, dentistwithcavity, deal]
+    concepts: [intel, manufacture, money, never]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c9"
     char_span: [13716, 15532]
     sentence_count: 7
     key_terms: [chips, trump, jensen, nvda, capital, chinese, funding, market]
+    concepts: [chips, trump, jensen, capital, chinese]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c10"
     char_span: [15534, 17269]
     sentence_count: 5
     key_terms: [nvda, market, acquire, entire, antimonopoly, cap, cash, funniest]
+    concepts: [market, acquire, antimonopoly, entire, funniest]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c11"
     char_span: [17271, 17998]
     sentence_count: 4
     key_terms: [money, good, like, billion, months, cash, groq, kittylover-7]
+    concepts: [money, billion, months]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c12"
     char_span: [18000, 19869]
     sentence_count: 10
     key_terms: [buy, get, sell, investment, companies, different, financing, investors]
+    concepts: [investment, companies, different, financing, investors]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/wallstreetbets/1puxnfu.md#c13"
     char_span: [19871, 21213]
     sentence_count: 8
     key_terms: [market, weight, bills, years, cash, aranthos-faroth, acquisitions, creeper15877]
+    concepts: [market, weight, bills, years]
     section: Comments
     token_count: 394
 ---

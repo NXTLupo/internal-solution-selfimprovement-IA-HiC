@@ -20,28 +20,34 @@ chunks:
     char_span: [0, 2099]
     sentence_count: 7
     key_terms: [phone, iphones, tiktok, different, organic, day, farm, hand]
+    concepts: [iphones, phone, tiktok, different, organic]
     token_count: 515
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1lg2kw9/109k_organic_tiktok_views_95_orders_a_day_with_a/"}]
   - id: "social-intelligence/reddit-deep/dropship/1lg2kw9.md#c1"
     char_span: [2101, 3656]
     sentence_count: 6
     key_terms: [content, tiktok, day, etc, customers, account, formats, product]
+    concepts: [content, tiktok, customers, account, formats]
     token_count: 368
   - id: "social-intelligence/reddit-deep/dropship/1lg2kw9.md#c2"
-    char_span: [3671, 4230]
+    char_span: [3670, 4229]
     sentence_count: 4
     key_terms: [dropship, spam, riversmann1868, self-promotion, automatically, automoderator, interesting, moderators]
+    concepts: [dropship]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/dropship/1lg2kw9.md#c3"
-    char_span: [4232, 6208]
+    char_span: [4231, 6207]
     sentence_count: 8
     key_terms: [tasadams, impactnarration, tiktok, whole, find, sim, accounts, internet]
+    concepts: [impactnarration, tasadams, tiktok, whole, accounts]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/dropship/1lg2kw9.md#c4"
-    char_span: [6210, 6659]
+    char_span: [6209, 6658]
     sentence_count: 4
     key_terms: [tasadams, website, niche, shop, accessories, redirected, customers, directly]
+    concepts: [tasadams, website, niche]
     section: Comments
     token_count: 129
 ---

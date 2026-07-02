@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2140]
     sentence_count: 16
     key_terms: [engineering, school, flexibility, career, engineeringstudents, warehouse, programming, path]
+    concepts: [engineering, school, engineeringstudents, flexibility, career]
     token_count: 444
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sm31hb/career_pivot_advice_from_warehouse_management_to/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sm31hb.md#c1"
     char_span: [2154, 3564]
     sentence_count: 10
     key_terms: [force, programming, "it's", controller, experience, spacecraft, satellite, something]
+    concepts: [programming, controller, experience, force, spacecraft]
     section: Comments
     token_count: 294
 ---

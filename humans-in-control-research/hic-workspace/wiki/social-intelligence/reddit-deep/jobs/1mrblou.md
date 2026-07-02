@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 2003]
     sentence_count: 12
     key_terms: [jobs, degree, market, serious, workers, people, plenty, don]
+    concepts: [degree, market, serious, workers, people]
     token_count: 458
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1mrblou/why_the_job_market_feels_broken_for_serious/"}]
   - id: "social-intelligence/reddit-deep/jobs/1mrblou.md#c1"
     char_span: [2017, 4040]
     sentence_count: 20
     key_terms: [work, experience, jobs, time, offshoring, starting, degree, "didn't"]
+    concepts: [experience, offshoring, starting, degree, "didn't"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/jobs/1mrblou.md#c2"
     char_span: [4042, 4719]
     sentence_count: 6
     key_terms: ["that's", beneficial-wonder576, thats, got, transportation, remnanthelmet, probationary, completely]
+    concepts: ["that's", thats]
     section: Comments
     token_count: 161
   - id: "social-intelligence/reddit-deep/jobs/1mrblou.md#c3"
     char_span: [4721, 6689]
     sentence_count: 14
     key_terms: [experience, people, train, companies, entry, level, years, want]
+    concepts: [experience, people, companies, train, entry]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/jobs/1mrblou.md#c4"
     char_span: [6691, 8960]
     sentence_count: 12
     key_terms: [people, job, college, factories, jobs, internships, work, internship]
+    concepts: [people, college, factories, internships, internship]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1mrblou.md#c5"
     char_span: [8708, 10744]
     sentence_count: 11
     key_terms: [someone, being, serious, through, worker, consistently, professional, commitments]
+    concepts: [someone, being, serious, through, consistently]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1mrblou.md#c6"
@@ -60,12 +67,14 @@ chunks:
     char_span: [10753, 12472]
     sentence_count: 23
     key_terms: [retirement, live, managers, office, stock, aaronjudge2, free, here]
+    concepts: [retirement, managers, office, aaronjudge2, department]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/jobs/1mrblou.md#c8"
     char_span: [12474, 12969]
     sentence_count: 4
     key_terms: [boomers, deleted, good, pay, take, millennials, bottleneck, poignantly]
+    concepts: [boomers, deleted]
     section: Comments
     token_count: 143
 ---

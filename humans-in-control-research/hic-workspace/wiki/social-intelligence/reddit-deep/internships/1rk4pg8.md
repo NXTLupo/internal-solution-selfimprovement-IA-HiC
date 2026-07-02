@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 2004]
     sentence_count: 11
     key_terms: [resume, internships, intern, ats, comments, built, like, use]
+    concepts: [internships, resume, intern, comments, built]
     token_count: 481
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rk4pg8/tips_to_make_your_resume_ats_friendly/"}]
   - id: "social-intelligence/reddit-deep/internships/1rk4pg8.md#c1"
     char_span: [2006, 2717]
     sentence_count: 5
     key_terms: [resume, experience, formatting, projects, dates, consistent, difference, especially]
+    concepts: [resume, experience, formatting, projects, dates]
     token_count: 148
   - id: "social-intelligence/reddit-deep/internships/1rk4pg8.md#c2"
-    char_span: [2732, 3905]
+    char_span: [2731, 3904]
     sentence_count: 5
     key_terms: [skills, experience, explaining, recruiters, ddddeeeeg, keywords, section, resume]
+    concepts: [skills, experience, explaining, recruiters, ddddeeeeg]
     section: Comments
     token_count: 295
 ---

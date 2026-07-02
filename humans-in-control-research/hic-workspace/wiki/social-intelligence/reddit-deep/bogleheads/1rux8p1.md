@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1014]
     sentence_count: 10
     key_terms: [address, vanguard, account, bogleheads, brokerage, comments, father, since]
+    concepts: [address, vanguard, account, bogleheads, brokerage]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rux8p1.md#c1"]
     token_count: 236
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1rux8p1/i_cannot_set_up_a_vanguard_account/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1rux8p1.md#c1"
-    char_span: [1029, 2446]
+    char_span: [1028, 2445]
     sentence_count: 12
     key_terms: [account, vanguard, situation, like, different, maybe, years, ago]
+    concepts: [account, vanguard, situation, different, maybe]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rux8p1.md#c0"]
     section: Comments
     token_count: 322
 ---

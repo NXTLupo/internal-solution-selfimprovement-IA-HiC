@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 994]
     sentence_count: 7
     key_terms: [businessintelligence, platforms, intelligence, dashboard, comments, reports, trying, scale]
+    concepts: [businessintelligence, platforms, intelligence, dashboard, comments]
     token_count: 208
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1npm00v/anyone_else_hitting_limits_with_traditional_bi/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1npm00v.md#c1"
-    char_span: [1009, 2896]
+    char_span: [1008, 2895]
     sentence_count: 14
     key_terms: [analytics, metabase, agentic, static, admin, like, tool, companies]
+    concepts: [analytics, metabase, agentic, static, admin]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/businessintelligence/1npm00v.md#c2"
-    char_span: [2898, 4768]
+    char_span: [2897, 4767]
     sentence_count: 16
     key_terms: [data, traditional, domo, dashboards, warehouse, platform, support, model]
+    concepts: [traditional, dashboards, warehouse, platform, support]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/businessintelligence/1npm00v.md#c3"
-    char_span: [4770, 5431]
+    char_span: [4769, 5430]
     sentence_count: 1
     key_terms: [like, feels, less, genzbossishere, assumptions, immediately, opportunity, understands]
+    concepts: [feels]
     section: Comments
     token_count: 140
 ---

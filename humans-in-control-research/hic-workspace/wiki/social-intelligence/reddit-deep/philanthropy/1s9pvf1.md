@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1357]
     sentence_count: 8
     key_terms: [daf, sponsor, philanthropy, trust, sure, understand, behavior, comments]
+    concepts: [sponsor, philanthropy, trust, understand, behavior]
     token_count: 316
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1s9pvf1/shattered_trust_21_million_daf_lawsuit_threatens/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1s9pvf1.md#c1"
-    char_span: [1372, 2806]
+    char_span: [1371, 2805]
     sentence_count: 4
     key_terms: [foundations, dafs, for-profit, management, nonprofits, community, company, donor]
+    concepts: [foundations, for-profit, management, nonprofits, community]
     section: Comments
     token_count: 288
 ---

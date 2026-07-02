@@ -21,46 +21,55 @@ chunks:
     char_span: [0, 2242]
     sentence_count: 18
     key_terms: [lifestyle, digitalnomad, remote, comments, germany, different, long-term, starting]
+    concepts: [lifestyle, digitalnomad, remote, comments, germany]
     token_count: 481
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1ro0rjb/how_are_people_starting_the_digital_nomad/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1ro0rjb.md#c1"
     char_span: [2244, 3930]
     sentence_count: 12
     key_terms: [people, savings, income, something, building, nomading, started, honest]
+    concepts: [people, savings, income, something, building]
     token_count: 344
   - id: "social-intelligence/reddit-deep/digitalnomad/1ro0rjb.md#c2"
     char_span: [3944, 5306]
     sentence_count: 9
     key_terms: [gameover281997, border, month, don, runs, especially, countries, insurance]
+    concepts: [gameover281997, border, especially, month, countries]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/digitalnomad/1ro0rjb.md#c3"
     char_span: [5308, 7250]
     sentence_count: 14
     key_terms: [month, prescription, usually, around, lots, apartment, extremely, because]
+    concepts: [prescription, month, usually, around, apartment]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/digitalnomad/1ro0rjb.md#c4"
     char_span: [7252, 9200]
     sentence_count: 17
     key_terms: [airbnb, cheaper, retirement, living, people, costs, month, rent]
+    concepts: [airbnb, cheaper, retirement, living, people]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/digitalnomad/1ro0rjb.md#c5"
     char_span: [9202, 10372]
     sentence_count: 8
     key_terms: [south, savings, africa, europe, imaginationupbeat867, standard-building373, doing, local]
+    concepts: [south, savings, africa, europe, doing]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/digitalnomad/1ro0rjb.md#c6"
     char_span: [10374, 12121]
     sentence_count: 12
     key_terms: [drippingsoy, place, rent, went, find, guy, like, building]
+    concepts: [drippingsoy, place, building, property, because]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/digitalnomad/1ro0rjb.md#c7"
     char_span: [12123, 12586]
     sentence_count: 3
     key_terms: [live, halong, overwhelming, pharmaxhrist, affordable, nomading, november, problem]
+    concepts: [halong]
     section: Comments
     token_count: 141
 ---

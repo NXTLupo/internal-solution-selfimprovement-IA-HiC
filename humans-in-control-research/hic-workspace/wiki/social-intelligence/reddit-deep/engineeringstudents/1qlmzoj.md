@@ -21,47 +21,62 @@ chunks:
     char_span: [0, 2082]
     sentence_count: 12
     key_terms: [engineering, "it's", people, "i'm", engineeringstudents, bad, hard, want]
+    concepts: [engineering, people, engineeringstudents, appreciate, thank]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c5"]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qlmzoj/is_engineering_as_hard_as_people_say/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c1"
     char_span: [2084, 3133]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, reddit, https, com, "i'm", read, www]
+    concepts: [engineeringstudents, reddit, https, resources, please]
     section: Comments
     token_count: 248
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c2"
     char_span: [3136, 4473]
     sentence_count: 11
     key_terms: [engineering, discipline, everyone, "it's", job, like, work, motivation]
+    concepts: [engineering, discipline, everyone, motivation, concepts]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c4", "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c5"]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c3"
     char_span: [4475, 6138]
     sentence_count: 13
     key_terms: [engineering, grades, professors, curve, departments, hard, average, college]
+    concepts: [engineering, professors, grades, departments, curve]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c4"
     char_span: [6140, 7816]
     sentence_count: 13
     key_terms: [discipline, according-earth5498, mediocre, engineering, historical-winner801, study, self, hard]
+    concepts: [discipline, according-earth5498, mediocre, historical-winner801, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c5", "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c6", "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c7"]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c5"
     char_span: [7819, 9946]
     sentence_count: 17
     key_terms: [engineering, discipline, laloidemurphyxx, people, check, learn, get, internship]
+    concepts: [engineering, discipline, laloidemurphyxx, people, check]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c4"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c6"
     char_span: [9948, 11845]
     sentence_count: 21
     key_terms: [learn, according-earth5498, engineering, hard, "i'll", "it's", something, remember]
+    concepts: [learn, according-earth5498, engineering, something, remember]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c4", "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c7"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c7"
     char_span: [11847, 13752]
     sentence_count: 10
     key_terms: [engineering, degree, computer, electrical, according-earth5498, deepspaceanon, hours, engineer]
+    concepts: [engineering, degree, computer, electrical, according-earth5498]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c4", "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c6"]
     section: Comments
     token_count: 428
 ---

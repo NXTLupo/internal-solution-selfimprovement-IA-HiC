@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1247]
     sentence_count: 13
     key_terms: [early, transfers, dari, payments, international, cross-border, stablecoins, comments]
+    concepts: [transfers, early, payments, international, cross-border]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1r0s9wu.md#c1"]
     token_count: 288
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1r0s9wu/were_launching_dari_this_week_a_new_crossborder/"}]
   - id: "social-intelligence/reddit-deep/defi/1r0s9wu.md#c1"
-    char_span: [1262, 1606]
+    char_span: [1261, 1605]
     sentence_count: 2
     key_terms: [cross-border, solidityscan, everything, payments, security, trust, abhiramsakaray, contract-level]
+    concepts: [cross-border, solidityscan, everything, payments, security]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1r0s9wu.md#c0"]
     section: Comments
     token_count: 79
 ---

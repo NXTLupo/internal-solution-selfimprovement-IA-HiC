@@ -17,14 +17,17 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1pfxsl1.md#c0"
-    char_span: [0, 2225]
+    char_span: [0, 2224]
     sentence_count: 17
     key_terms: [million, receives, support, philanthropy, health, foundation, strengthen, university]
-    token_count: 460
+    concepts: [million, receives, philanthropy, support, foundation]
+    token_count: 459
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1pfxsl1/philanthropy_news_digest_from_candid_formerly/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1pfxsl1.md#c1"
-    char_span: [2227, 2828]
+    char_span: [2226, 2827]
     sentence_count: 4
     key_terms: [foundation, endowment, cariola, philanthropynewsdigest, assets, lilly, stock, surge]
+    concepts: [foundation, endowment, cariola, assets, lilly]
     token_count: 122
 ---
 # Philanthropy News Digest from Candid (formerly Guidestar). Selected headlines Dec. 6

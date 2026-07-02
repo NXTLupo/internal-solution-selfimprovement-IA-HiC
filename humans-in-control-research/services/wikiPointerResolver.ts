@@ -285,6 +285,9 @@ export interface ResolvedChunk {
     concepts?: string[];
     /** WS-G: intra-doc concept-adjacent chunk pointers (seed edges for concept-walk retrieval). */
     relatedChunks?: string[];
+    /** W6 (2026-07-01): retrieval-time objective relevance (0-100), attached by buildManifestCorpusForGoal
+     *  from pickChunksForPrompt's ranking. Flows into the AIR EvidencePointer.objectiveScore. */
+    retrievalScore?: number;
 }
 
 export interface ResolvedChunks {

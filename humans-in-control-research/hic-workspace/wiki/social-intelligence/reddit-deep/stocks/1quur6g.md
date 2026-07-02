@@ -21,53 +21,69 @@ chunks:
     char_span: [0, 1183]
     sentence_count: 10
     key_terms: [stocks, like, market, increasingly, feels, comments, equities, isn]
+    concepts: [stocks, increasingly, market, feels, comments]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1quur6g.md#c8"]
     token_count: 266
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1quur6g/from_investing_to_gambling_the_state_of_us_stocks/"}]
   - id: "social-intelligence/reddit-deep/stocks/1quur6g.md#c1"
     char_span: [1197, 3030]
     sentence_count: 15
     key_terms: [risk, like, buying, fundamentals, young, get, shit, time]
+    concepts: [fundamentals, buying, long-blood, young, liquidity]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/stocks/1quur6g.md#c2"
     char_span: [3032, 5023]
     sentence_count: 16
     key_terms: [money, want, netflix, buying, "you're", down, averaging, financial]
+    concepts: [money, netflix, buying, "you're", averaging]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/stocks/1quur6g.md#c3"
     char_span: [5026, 6794]
     sentence_count: 12
     key_terms: [trading, buying, covid, different, investing, little, prices, single]
+    concepts: [trading, buying, covid, different, investing]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/stocks/1quur6g.md#c4"
     char_span: [6797, 8543]
     sentence_count: 7
     key_terms: [market, momentum, trading, index, investors, liquidity, deleted, forget]
+    concepts: [market, momentum, trading, index, investors]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1quur6g.md#c7"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/stocks/1quur6g.md#c5"
     char_span: [8545, 10489]
     sentence_count: 16
     key_terms: [market, right, years, buy, time, valuations, portfolio, because]
+    concepts: [market, right, valuations, years, portfolio]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1quur6g.md#c6", "social-intelligence/reddit-deep/stocks/1quur6g.md#c8"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/stocks/1quur6g.md#c6"
     char_span: [10491, 12208]
     sentence_count: 16
     key_terms: [changed, years, long, science, market, fundamentally, laws, old]
+    concepts: [changed, years, fundamentally, science, market]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1quur6g.md#c5", "social-intelligence/reddit-deep/stocks/1quur6g.md#c8"]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/stocks/1quur6g.md#c7"
     char_span: [12210, 14077]
     sentence_count: 13
     key_terms: [principles, parking-ad5909, market, money, investors, equities, correct, "doesn't"]
+    concepts: [principles, parking-ad5909, market, money, investors]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1quur6g.md#c4", "social-intelligence/reddit-deep/stocks/1quur6g.md#c8"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/stocks/1quur6g.md#c8"
     char_span: [14079, 14965]
     sentence_count: 8
     key_terms: [market, trillion, stocks, money, years, been, flow, lot]
+    concepts: [market, trillion, stocks, money, years]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1quur6g.md#c0", "social-intelligence/reddit-deep/stocks/1quur6g.md#c5", "social-intelligence/reddit-deep/stocks/1quur6g.md#c6", "social-intelligence/reddit-deep/stocks/1quur6g.md#c7"]
     section: Comments
     token_count: 212
 ---

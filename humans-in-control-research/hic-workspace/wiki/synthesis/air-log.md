@@ -1,3 +1,13 @@
+---
+id: synthesis/air-log.md
+chunks:
+  - id: "synthesis/air-log.md#c0"
+    char_span: [0, 648]
+    sentence_count: 1
+    key_terms: [claude-opus-4-8, evidence, slides, spine, ext, gate, pass, "true"]
+    concepts: [claude-opus-4-8, evidence, slides, spine]
+    token_count: 238
+---
 - selftest air-log append OK
 
 

@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 530]
     sentence_count: 6
     key_terms: [waterloo, moving, comments, toronto, saltygiraffe6400, reddit-deep, affordable, experience]
+    concepts: [waterloo, moving, comments, toronto]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1mbkgg0.md#c1"]
     token_count: 137
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1mbkgg0/best_moving_method_from_waterloo_to_toronto/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1mbkgg0.md#c1"
     char_span: [544, 2297]
     sentence_count: 10
     key_terms: [drop, kms, cearrach, waterloo, toronto, local, truck, uhaul]
+    concepts: [cearrach, waterloo, toronto, enterprise, local]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1mbkgg0.md#c0"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/waterloo/1mbkgg0.md#c2"
     char_span: [2299, 2900]
     sentence_count: 6
     key_terms: [student, van, speechrecent1898, move-pooling, especially, something, checking, facebook]
+    concepts: [student]
     section: Comments
     token_count: 141
 ---

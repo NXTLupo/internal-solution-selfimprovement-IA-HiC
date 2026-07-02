@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1542]
     sentence_count: 9
     key_terms: [arlington, consulting, boston, campus, trying, opportunities, geopolitical, northeastern]
+    concepts: [arlington, consulting, boston, campus, opportunities]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1saxq34.md#c1"]
     token_count: 359
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1saxq34/northeastern_mpp_boston_vs_arlington_dc/"}]
   - id: "social-intelligence/reddit-deep/neu/1saxq34.md#c1"
     char_span: [1556, 3081]
     sentence_count: 12
     key_terms: [boston, arlington, student, larger, space, perspective, community, joshi1381]
+    concepts: [boston, arlington, student, larger, perspective]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1saxq34.md#c0"]
     section: Comments
     token_count: 355
 ---

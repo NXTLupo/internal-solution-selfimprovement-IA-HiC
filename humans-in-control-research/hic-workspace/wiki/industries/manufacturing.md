@@ -10,6 +10,7 @@ chunks:
     char_span: [0, 784]
     sentence_count: 2
     key_terms: [industries, reddit-deep-r-careerguidance, sources, shared, articles, manufacturing, reddit-deep-r-engineeringstudents, reddit-deep-r-cscareerquestions]
+    concepts: [reddit-deep-r-careerguidance, industries, sources, shared, articles]
     section: Cross-over verticals (shared sources) / Representative sources
     token_count: 220
 ---

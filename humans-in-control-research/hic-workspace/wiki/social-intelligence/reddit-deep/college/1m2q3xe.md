@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 933]
     sentence_count: 7
     key_terms: [internship, college, work, comments, "don't", "isn't", does, extracurricular]
+    concepts: [internship, college, comments, "don't", "isn't"]
     token_count: 224
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1m2q3xe/how_does_one_acquire_their_first_internship/"}]
   - id: "social-intelligence/reddit-deep/college/1m2q3xe.md#c1"
     char_span: [947, 2601]
     sentence_count: 10
     key_terms: [experience, being, job, attorney, involved, college, finding, general]
+    concepts: [experience, being, attorney, involved, college]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/college/1m2q3xe.md#c2"
     char_span: [2603, 4821]
     sentence_count: 23
     key_terms: [people, internship, likely, get, like, look, connect, kaisersoze1793]
+    concepts: [people, internship, likely, kaisersoze1793, connect]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/college/1m2q3xe.md#c3"
     char_span: [4823, 6932]
     sentence_count: 16
     key_terms: [internships, career, internship, job, networking, interview, network, apply]
+    concepts: [internships, career, internship, networking, interview]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/college/1m2q3xe.md#c4"
     char_span: [6934, 8637]
     sentence_count: 9
     key_terms: [internship, summer, experience, year, job, freshman, engineering, internships]
+    concepts: [internship, summer, experience, freshman, engineering]
     section: Comments
     token_count: 359
 ---

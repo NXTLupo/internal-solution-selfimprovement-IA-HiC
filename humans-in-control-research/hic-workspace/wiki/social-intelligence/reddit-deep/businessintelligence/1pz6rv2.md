@@ -20,21 +20,27 @@ chunks:
     char_span: [0, 883]
     sentence_count: 7
     key_terms: [businessintelligence, internal, power, comments, product, looker, theceoinprogress, alternatives]
+    concepts: [businessintelligence, internal, power, comments, product]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1pz6rv2.md#c1"]
     token_count: 195
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1pz6rv2/power_bi_looker_felt_great_for_internal_bi_less/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1pz6rv2.md#c1"
-    char_span: [898, 3237]
+    char_span: [897, 3236]
     sentence_count: 12
     key_terms: [analytics, tools, embedded, internal, product, teams, customer, superset]
+    concepts: [analytics, embedded, internal, tools, product]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1pz6rv2.md#c0"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/businessintelligence/1pz6rv2.md#c2"
-    char_span: [3239, 4943]
+    char_span: [3238, 4942]
     sentence_count: 8
     key_terms: [embedded, great, https, power, interested, customers, recognize, evidence]
+    concepts: [embedded, great, https, interested, power]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/businessintelligence/1pz6rv2.md#c3"
-    char_span: [4945, 5275]
+    char_span: [4944, 5274]
     sentence_count: 3
     key_terms: [dicotyledon, embedding, expensive, cheapest, customer, embedded, multiple, projects]
     section: Comments

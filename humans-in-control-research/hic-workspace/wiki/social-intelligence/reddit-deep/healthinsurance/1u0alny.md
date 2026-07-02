@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1034]
     sentence_count: 11
     key_terms: [out-of-pocket, deductible, healthinsurance, reselecting, insurance, anything, benefits, comments]
+    concepts: [out-of-pocket, deductible, healthinsurance, reselecting, insurance]
     token_count: 249
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1u0alny/will_a_qle_reset_my_recently_met_deductible_and/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1u0alny.md#c1"
-    char_span: [1049, 2924]
+    char_span: [1048, 2923]
     sentence_count: 6
     key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    concepts: [information, questions, following, please, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1u0alny.md#c2"]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/healthinsurance/1u0alny.md#c2"
-    char_span: [2926, 3993]
+    char_span: [2925, 3992]
     sentence_count: 5
     key_terms: [please, eob, post, via, contact, report, information, questions]
+    concepts: [please, contact, report, information, questions]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1u0alny.md#c1"]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/healthinsurance/1u0alny.md#c3"
-    char_span: [3996, 5489]
+    char_span: [3995, 5488]
     sentence_count: 10
     key_terms: [insurance, anything, qle, contact, apart-flan6705, "don't", need, benefits]
+    concepts: [insurance, anything, apart-flan6705, contact, "don't"]
     section: Comments
     token_count: 378
 ---

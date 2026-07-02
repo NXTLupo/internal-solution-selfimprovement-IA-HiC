@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 815]
     sentence_count: 4
     key_terms: [internships, dsa, preparing, comments, projects, together, looking, mern]
+    concepts: [internships, preparing, comments, projects, together]
     token_count: 202
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t4daxx/looking_for_people_preparing_for_sde/"}]
   - id: "social-intelligence/reddit-deep/internships/1t4daxx.md#c1"
     char_span: [829, 1911]
     sentence_count: 9
     key_terms: [prep, good, like, interested, interviews, leetcode, projects, remarkable-bunch6208]
+    concepts: [interested, interviews, leetcode, projects, group]
     section: Comments
     token_count: 266
 ---

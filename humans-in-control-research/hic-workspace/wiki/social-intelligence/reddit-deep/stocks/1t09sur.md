@@ -21,59 +21,75 @@ chunks:
     char_span: [0, 2192]
     sentence_count: 15
     key_terms: [million, reddit, revenue, estimates, earnings, analyst, per, topping]
+    concepts: [million, reddit, revenue, estimates, earnings]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1t09sur.md#c2"]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1t09sur/reddit_reports_69_jump_in_revenue_topping_analyst/"}]
   - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c1"
     char_span: [2206, 4243]
     sentence_count: 12
     key_terms: [like, reddit, ads, because, redditors, comment, "they're", pretty]
+    concepts: [reddit, because, redditors, comment, "they're"]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1t09sur.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c2"
     char_span: [3966, 4879]
     sentence_count: 5
     key_terms: [reddit, marketing, comment, revenue, metric, click, ads, long]
+    concepts: [reddit, marketing, comment, revenue, metric]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1t09sur.md#c0", "social-intelligence/reddit-deep/stocks/1t09sur.md#c1"]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c3"
     char_span: [4881, 6952]
     sentence_count: 16
     key_terms: [reddit, advertising, ads, advertisers, google, mlb-leakyleak, case, roas]
+    concepts: [reddit, advertising, advertisers, mlb-leakyleak, google]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c4"
     char_span: [6954, 8305]
     sentence_count: 9
     key_terms: [users, reddit, ads, antimarketing, growth, never, most-animator-5743, don]
+    concepts: [users, reddit, antimarketing, growth, never]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c5"
     char_span: [8307, 10133]
     sentence_count: 8
     key_terms: [buy, tried, like, mods, subs, desperate, always, better]
+    concepts: [tried, desperate, always, better, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c6"
     char_span: [9915, 11714]
     sentence_count: 10
     key_terms: [ads, newacceveryday420day, sure-caterpillar-263, reddit, gold, nice, platforms, position]
+    concepts: [newacceveryday420day, sure-caterpillar-263, reddit, platforms, position]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c7"
     char_span: [11476, 12098]
     sentence_count: 2
     key_terms: [ads, quality, sure-caterpillar-263, year, jimhalpertsuncle, deadmancaulking, definitely, fortheus18]
+    concepts: [quality]
     section: Comments
     token_count: 178
   - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c8"
     char_span: [12100, 13128]
     sentence_count: 2
     key_terms: [message, com, remindmebot, reddit, www, delete, https, compose]
+    concepts: [message, remindmebot, reddit, delete, https]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1t09sur.md#c9"]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c9"
     char_span: [13130, 13696]
     sentence_count: 1
     key_terms: [remindmebot, message, reddit, https, com, www, compose, subject]
+    concepts: [remindmebot, message, reddit, https, compose]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1t09sur.md#c8"]
     section: Comments
     token_count: 196
 ---

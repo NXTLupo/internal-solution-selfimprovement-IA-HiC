@@ -21,23 +21,31 @@ chunks:
     char_span: [0, 1224]
     sentence_count: 10
     key_terms: [people, feel, like, already, because, feels, lot, financial]
+    concepts: [people, already, because, feels, financial]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1s1b5lw.md#c2"]
     token_count: 280
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1s1b5lw/do_a_lot_of_us_take_financial_risks_because_we/"}]
   - id: "social-intelligence/reddit-deep/genz/1s1b5lw.md#c1"
     char_span: [1238, 3063]
     sentence_count: 12
     key_terms: [mundaneenthusiasm977, experience, different, because, friends, truckinducks, investments, "i've"]
+    concepts: [mundaneenthusiasm977, experience, different, because, friends]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1s1b5lw.md#c2"]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/genz/1s1b5lw.md#c2"
     char_span: [3065, 5080]
     sentence_count: 15
     key_terms: [people, mundaneenthusiasm977, financial, influence, because, bad, less, lot]
+    concepts: [people, mundaneenthusiasm977, financial, influence, because]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1s1b5lw.md#c0", "social-intelligence/reddit-deep/genz/1s1b5lw.md#c1"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/genz/1s1b5lw.md#c3"
     char_span: [5082, 5917]
     sentence_count: 4
     key_terms: [credit, gambling, card, "i'll", absolutely, demolished, difficulty, eventually]
+    concepts: [credit, gambling]
     section: Comments
     token_count: 191
 ---

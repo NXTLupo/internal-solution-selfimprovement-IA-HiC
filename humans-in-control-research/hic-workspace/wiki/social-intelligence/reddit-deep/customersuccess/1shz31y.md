@@ -20,16 +20,22 @@ chunks:
     char_span: [0, 2509]
     sentence_count: 18
     key_terms: [customer, technology, success, customersuccess, product, like, profession, resources]
+    concepts: [customer, technology, success, customersuccess, product]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1shz31y.md#c1"]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/customersuccess","u":"https://www.reddit.com/r/CustomerSuccess/comments/1shz31y/customer_success_builtin_or_bolted_on/"}]
   - id: "social-intelligence/reddit-deep/customersuccess/1shz31y.md#c1"
     char_span: [2511, 3873]
     sentence_count: 12
     key_terms: [customer, success, indispensable, capabilities, requirement, app, customers, knowledge]
+    concepts: [customer, indispensable, success, capabilities, requirement]
+    related_chunks: ["social-intelligence/reddit-deep/customersuccess/1shz31y.md#c0"]
     token_count: 284
   - id: "social-intelligence/reddit-deep/customersuccess/1shz31y.md#c2"
-    char_span: [3888, 4549]
+    char_span: [3887, 4548]
     sentence_count: 5
     key_terms: [outcome, agent, agentixlabs, follow-ups, incentives, instrument, management, bolted-on]
+    concepts: [outcome, agent]
     section: Comments
     token_count: 143
 ---

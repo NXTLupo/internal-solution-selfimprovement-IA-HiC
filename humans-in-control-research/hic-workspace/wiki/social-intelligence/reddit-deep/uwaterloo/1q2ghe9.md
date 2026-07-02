@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 953]
     sentence_count: 10
     key_terms: [experience, high-level, uwaterloo, comments, securing, chances, improve, looking]
+    concepts: [experience, high-level, uwaterloo, comments, securing]
     token_count: 242
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1q2ghe9/not_sure_how_to_bridge_gap_in_experience_or_what/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1q2ghe9.md#c1"
     char_span: [967, 3146]
     sentence_count: 15
     key_terms: [projects, points, stretchedwasfresh, bullet, apply, take, externally, high-level]
+    concepts: [projects, points, stretchedwasfresh, bullet, apply]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/uwaterloo/1q2ghe9.md#c2"
     char_span: [3148, 5060]
     sentence_count: 18
     key_terms: [quant, year, clean-ad-7364, mean, top, waterloo, results, unless]
+    concepts: [quant, clean-ad-7364, waterloo, results, unless]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/uwaterloo/1q2ghe9.md#c3"
     char_span: [4827, 6103]
     sentence_count: 8
     key_terms: [striking-setting-560, quant, projects, put, especially, transcript, necessary, probably]
+    concepts: [striking-setting-560, quant, projects, especially, transcript]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/uwaterloo/1q2ghe9.md#c4"
     char_span: [6105, 7171]
     sentence_count: 6
     key_terms: [good, learning, awards, concepts, section, "you're", funrecommendation298, misakamikasa10086]
+    concepts: [learning, awards, concepts, section, "you're"]
     section: Comments
     token_count: 267
 ---

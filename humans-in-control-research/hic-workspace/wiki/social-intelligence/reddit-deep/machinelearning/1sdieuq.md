@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1871]
     sentence_count: 5
     key_terms: [model, known-origin, reference, organisms, machinelearning, layers, method, activations]
+    concepts: [model, known-origin, reference, organisms, machinelearning]
     token_count: 453
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1sdieuq/r_reference_model_free_behavioral_discovery_of/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1sdieuq.md#c1"
     char_span: [1873, 4189]
     sentence_count: 3
     key_terms: [topics, reference-free-behavioral-discovery, model, rlhf, factory, farming, planted, topic-specific]
+    concepts: [reference-free-behavioral-discovery, topics, model, topic-specific, factory]
     token_count: 506
   - id: "social-intelligence/reddit-deep/machinelearning/1sdieuq.md#c2"
     char_span: [4191, 5643]
     sentence_count: 1
     key_terms: [rip-it-out-by-the-roots, layer, behaviors, different, something, auditing, behavior, bmarti44]
+    concepts: [rip-it-out-by-the-roots, layer, behaviors, different, something]
     section: Comments
     token_count: 311
 ---

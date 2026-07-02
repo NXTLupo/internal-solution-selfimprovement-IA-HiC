@@ -20,52 +20,63 @@ chunks:
     char_span: [0, 2104]
     sentence_count: 16
     key_terms: [business, partner, clients, bought, period, entrepreneur, wants, day]
+    concepts: [business, partner, clients, entrepreneur, bought]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1schtc3.md#c3"]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1schtc3/business_partner_wants_to_go_his_own_way_need/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1schtc3.md#c1"
     char_span: [2106, 4269]
     sentence_count: 19
     key_terms: [business, anyway, own, school, "don't", ideas, since, etc]
+    concepts: [business, anyway, school, "don't", ideas]
     token_count: 503
   - id: "social-intelligence/reddit-deep/entrepreneur/1schtc3.md#c2"
-    char_span: [4271, 5148]
+    char_span: [4271, 5147]
     sentence_count: 4
     key_terms: [please, entrepreneur, permanent, promotion, stickied, comment, thread, weekly]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/entrepreneur/1schtc3.md#c3"
-    char_span: [5151, 7355]
+    char_span: [5150, 7354]
     sentence_count: 19
     key_terms: [business, like, systems, proposal, without, bought, negligible, bond000]
+    concepts: [business, systems, proposal, without, bought]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1schtc3.md#c0"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/entrepreneur/1schtc3.md#c4"
-    char_span: [7357, 9625]
+    char_span: [7356, 9624]
     sentence_count: 22
     key_terms: [business, work, client, value, like, friendship, different, anything]
+    concepts: [business, client, friendship, value, different]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/entrepreneur/1schtc3.md#c5"
-    char_span: [9630, 11145]
+    char_span: [9629, 11144]
     sentence_count: 16
     key_terms: ["don't", been, buy, does, let, want, sometimes, valuation]
+    concepts: ["don't", sometimes, valuation, increase, opinion]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/entrepreneur/1schtc3.md#c6"
-    char_span: [11147, 13245]
+    char_span: [11146, 13244]
     sentence_count: 10
     key_terms: ["that's", "doesn't", entrepreneur, improvements, buy, put, want, potential]
+    concepts: ["that's", "doesn't", entrepreneur, improvements, potential]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/entrepreneur/1schtc3.md#c7"
-    char_span: [13015, 13332]
+    char_span: [13014, 13331]
     sentence_count: 2
     key_terms: [furniture, splitting, proposal, address, divorce, "doesn't", forward, problem]
     section: Comments
     token_count: 82
   - id: "social-intelligence/reddit-deep/entrepreneur/1schtc3.md#c8"
-    char_span: [13334, 14345]
+    char_span: [13333, 14344]
     sentence_count: 15
     key_terms: [chatgpt, point, valuation, business, mediator, reviews, profit, let]
+    concepts: [chatgpt, point, valuation, business, mediator]
     section: Comments
     token_count: 249
 ---

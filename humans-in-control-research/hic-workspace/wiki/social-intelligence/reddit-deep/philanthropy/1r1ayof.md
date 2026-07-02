@@ -17,10 +17,12 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1r1ayof.md#c0"
-    char_span: [0, 850]
+    char_span: [0, 811]
     sentence_count: 1
-    key_terms: [americas-top-25-philanthropists---and-why-mu***REDACTED-KEY***, forbeswealthteam, forbes, philanthropy, https, com, www, comments]
-    token_count: 250
+    key_terms: [americas-top-25-philanthropists---and-why-mu, forbeswealthteam, forbes, philanthropy, redacted-key, https, com, www]
+    concepts: [americas-top-25-philanthropists---and-why-mu, forbeswealthteam, philanthropy, redacted-key, forbes]
+    token_count: 245
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1r1ayof/americas_top_25_philanthropists_and_why_musk_page/"}]
 ---
 # America’s Top 25 Philanthropists — And Why Musk, Page And Ellison Aren’t On The List
 

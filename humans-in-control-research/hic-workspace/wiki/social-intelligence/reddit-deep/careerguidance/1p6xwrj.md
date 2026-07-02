@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 598]
     sentence_count: 3
     key_terms: [careerguidance, comments, career, good, responsibilities, reddit-deep, effective, seriously]
+    concepts: [careerguidance, comments, career]
     token_count: 145
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1p6xwrj/whats_one_small_thing_that_seriously_improves/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1p6xwrj.md#c1"
     char_span: [612, 2573]
     sentence_count: 19
     key_terms: [work, email, priority, minutes, non, ones, coworkers, straight]
+    concepts: [email, priority, minutes, coworkers, straight]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/careerguidance/1p6xwrj.md#c2"
     char_span: [2575, 4162]
     sentence_count: 17
     key_terms: [work, being, biggest, instead, answer, asking, better, impact]
+    concepts: [being, biggest, instead, answer, asking]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/careerguidance/1p6xwrj.md#c3"
     char_span: [4164, 5948]
     sentence_count: 12
     key_terms: [being, pivot, don, people, tables, boss, work, personable]
+    concepts: [being, pivot, people, tables, personable]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/careerguidance/1p6xwrj.md#c4"
     char_span: [5950, 7397]
     sentence_count: 11
     key_terms: [fun, time, promotion, everyone, getting, instead, always, having]
+    concepts: [promotion, everyone, getting, instead, always]
     section: Comments
     token_count: 365
 ---

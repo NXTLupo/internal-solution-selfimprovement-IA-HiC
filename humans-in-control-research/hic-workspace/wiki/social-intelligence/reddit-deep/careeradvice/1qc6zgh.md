@@ -21,28 +21,34 @@ chunks:
     char_span: [0, 2112]
     sentence_count: 16
     key_terms: [training, job, explaining, day, position, received, office, careeradvice]
+    concepts: [training, explaining, position, received, careeradvice]
     token_count: 464
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1qc6zgh/blindsided_after_being_let_go_from_a_job_i_was/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c1"
     char_span: [2114, 3632]
     sentence_count: 18
     key_terms: [training, never, completely, something, feeling, anyone, career, reason]
+    concepts: [training, completely, never, something, feeling]
     token_count: 339
   - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c2"
     char_span: [3646, 4367]
     sentence_count: 4
     key_terms: [violating, employer, "you're", developmenteastern75, find, dirttraining3804, unenforceable, self-enforce]
+    concepts: [violating, employer, "you're"]
     section: Comments
     token_count: 169
   - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c3"
     char_span: [4369, 6217]
     sentence_count: 17
     key_terms: [like, company, time, industry, compete, prevent, working, lawyer]
+    concepts: [company, industry, compete, prevent, working]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c4"
     char_span: [6219, 8054]
     sentence_count: 14
     key_terms: [reason, non-compete, case, time, compete, legally, shitty, states]
+    concepts: [reason, non-compete, compete, legally, shitty]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c5"
@@ -55,42 +61,49 @@ chunks:
     char_span: [8408, 9485]
     sentence_count: 5
     key_terms: [staffing, montana, period, affectionate-sir-784, union, conscious-egg-2232, grungecheap56119, right-to-work]
+    concepts: [staffing, montana, period, union]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c7"
     char_span: [9487, 11583]
     sentence_count: 17
     key_terms: [like, hiring, years, guy, work, contracts, sometimes, attorney]
+    concepts: [hiring, years, contracts, sometimes, attorney]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c8"
     char_span: [11585, 13509]
     sentence_count: 14
     key_terms: [conscious-egg-2232, original, training, vacation, working, happen, fired, going]
+    concepts: [conscious-egg-2232, original, training, vacation, working]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c9"
     char_span: [13512, 15498]
     sentence_count: 16
     key_terms: [business, job, redditisfacist3, "didn't", months, happened, because, metrics]
+    concepts: [business, redditisfacist3, "didn't", months, happened]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c10"
     char_span: [15500, 16993]
     sentence_count: 15
     key_terms: [company, agency, role, year, regardless, different, position, c-suite]
+    concepts: [company, agency, regardless, different, position]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c11"
     char_span: [16995, 18306]
     sentence_count: 6
     key_terms: [egxnd3mtd2l6lxnlcnaisgvtcgxvew1lbnqgbgf3cyboaxjpbmcgyw5kigltbwvkawf0zsb0zxjtaw5hdglvbibhznrlcibszwf2aw5nig90agvyigpvykjjmfcrcvj6lnaceagqaqgyab0boag5gkobbdaumjs4aqpiaqd4aqgyag6gaognwgikeaaysamy1gqyr8icbrahgkabwgifeceyqwlcaguqirifbzgdaiggazagcjihbdiumtkgb6l7sgcemc4xmrg, employer, interference, "i'm", something, tortious, ltxmae-jhkg4wn4po8za0aq, company]
+    concepts: [employer, interference, something, tortious, company]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c12"
     char_span: [18215, 19074]
     sentence_count: 3
     key_terms: [aognwgikeaaysamy1gqyr8icbrahgkabwgifeceyqwlcaguqirifbzgdaiggazagcjihbdiumtkgb6l7sgcemc4xmrgh-wzcbwuwljgunsghjyaiaa, autexfc0xsgozjsioh1c6b1mo5ntij2aovxquyr7owbktf-, conscious-egg-2232, company, quarterdisastrous479, stopelectingwealthy, name, gws-wiz-serp]
+    concepts: [conscious-egg-2232, company]
     section: Comments
     token_count: 399
 ---

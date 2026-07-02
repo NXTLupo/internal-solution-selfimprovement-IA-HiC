@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1106]
     sentence_count: 8
     key_terms: [comments, hired, internships, everyone, position, process, started, share]
+    concepts: [comments, internships, hired, everyone, position]
     token_count: 249
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1ti7wyn/boss_seems_upset_i_got_hired/"}]
   - id: "social-intelligence/reddit-deep/internships/1ti7wyn.md#c1"
     char_span: [1120, 2736]
     sentence_count: 13
     key_terms: [unprofessional, got, internship, best, focus, hired, get, job]
+    concepts: [unprofessional, internship, focus, hired, someone]
     section: Comments
     token_count: 386
 ---

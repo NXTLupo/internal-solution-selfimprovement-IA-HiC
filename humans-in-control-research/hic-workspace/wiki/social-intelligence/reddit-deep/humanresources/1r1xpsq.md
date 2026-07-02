@@ -19,39 +19,45 @@ chunks:
     char_span: [0, 2096]
     sentence_count: 12
     key_terms: [interviewing, recruitment, humanresources, hiring, talent, professional, good, hrbp]
+    concepts: [interviewing, recruitment, humanresources, professional, hiring]
     token_count: 464
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1r1xpsq/are_we_merging_hrbp_with_ta_na/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1r1xpsq.md#c1"
-    char_span: [2098, 3705]
+    char_span: [2098, 3704]
     sentence_count: 16
     key_terms: [job, hunterofshadows, time, recruiting, interview, otherwise, sometimes, technical]
+    concepts: [hunterofshadows, recruiting, interview, otherwise, sometimes]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/humanresources/1r1xpsq.md#c2"
-    char_span: [3707, 5651]
+    char_span: [3706, 5650]
     sentence_count: 12
     key_terms: [hrbp, companies, manager, lot, goodvibezone, small, like, role]
+    concepts: [companies, manager, goodvibezone, small, people]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/humanresources/1r1xpsq.md#c3"
-    char_span: [5654, 7817]
+    char_span: [5653, 7816]
     sentence_count: 13
     key_terms: [because, specialist, problem, nobody, doing, does, "it's", cruelhumor]
+    concepts: [because, specialist, problem, nobody, cruelhumor]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/humanresources/1r1xpsq.md#c4"
-    char_span: [7819, 8330]
+    char_span: [7818, 8329]
     sentence_count: 2
     key_terms: [get, part, transactional, intelligence, relationship, interesting, leadership, recruiting]
     section: Comments
     token_count: 101
   - id: "social-intelligence/reddit-deep/humanresources/1r1xpsq.md#c5"
-    char_span: [8332, 10196]
+    char_span: [8331, 10195]
     sentence_count: 14
     key_terms: [roles, combining, companies, lot, benefit, don, reasonable, dedicated]
+    concepts: [combining, companies, roles, benefit, reasonable]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/humanresources/1r1xpsq.md#c6"
-    char_span: [10198, 10545]
+    char_span: [10197, 10544]
     sentence_count: 4
     key_terms: ["it's", professional, prohibitive, everything, generalist, recruiting, outsource, parkerj33]
     section: Comments

@@ -20,59 +20,72 @@ chunks:
     char_span: [0, 2019]
     sentence_count: 15
     key_terms: [cigna, experimental, told, since, healthinsurance, denial, denied, state]
+    concepts: [cigna, experimental, healthinsurance, since, denial]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1rfwqde/cigna_denial/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1rfwqde.md#c1"
-    char_span: [2034, 3911]
+    char_span: [2033, 3910]
     sentence_count: 6
     key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    concepts: [information, questions, following, please, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rfwqde.md#c2"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/healthinsurance/1rfwqde.md#c2"
-    char_span: [3913, 5826]
+    char_span: [3912, 5825]
     sentence_count: 10
     key_terms: [please, eob, contact, questions, subreddit, post, via, medical]
+    concepts: [please, contact, questions, subreddit, medical]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rfwqde.md#c1"]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/healthinsurance/1rfwqde.md#c3"
-    char_span: [5828, 7363]
+    char_span: [5827, 7362]
     sentence_count: 13
     key_terms: [cigna, medical, doctor, pdf, coveragepolicies, provide, denial, https]
+    concepts: [cigna, medical, doctor, coveragepolicies, provide]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/healthinsurance/1rfwqde.md#c4"
-    char_span: [7365, 9472]
+    char_span: [7364, 9471]
     sentence_count: 19
     key_terms: [cover, botox, migraines, effectiveegg5712, medical, policy, trying, unsuccessful]
+    concepts: [cover, effectiveegg5712, migraines, botox, medical]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/healthinsurance/1rfwqde.md#c5"
-    char_span: [9474, 11228]
+    char_span: [9473, 11227]
     sentence_count: 14
     key_terms: [get, cigna, insurances, medication, prescribed, treatments, doctors, doctor]
+    concepts: [cigna, insurances, medication, prescribed, treatments]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/healthinsurance/1rfwqde.md#c6"
-    char_span: [11230, 11758]
+    char_span: [11229, 11757]
     sentence_count: 3
     key_terms: [insurance, costs, cover, ridgeconnection, astronomical, outrageously, bankruptcy, squareturd]
+    concepts: [insurance, costs, cover]
     section: Comments
     token_count: 131
   - id: "social-intelligence/reddit-deep/healthinsurance/1rfwqde.md#c7"
-    char_span: [11760, 13972]
+    char_span: [11759, 13971]
     sentence_count: 20
     key_terms: [treatments, experimental, neurologist, treatment, pain, migraine, cover, aggravation]
+    concepts: [treatments, experimental, neurologist, treatment, migraine]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1rfwqde.md#c8"
-    char_span: [13708, 14393]
+    char_span: [13707, 14392]
     sentence_count: 4
     key_terms: [cover, get, imaging, aggressive-car-6760, being, cigna, days, list]
+    concepts: [cover, imaging, being, cigna]
     section: Comments
     token_count: 166
   - id: "social-intelligence/reddit-deep/healthinsurance/1rfwqde.md#c9"
-    char_span: [14395, 15339]
+    char_span: [14394, 15338]
     sentence_count: 10
     key_terms: [treatment, conservative, physician, clinical, symptoms, denials, imaging, appeal]
+    concepts: [treatment, conservative, physician, clinical, symptoms]
     section: Comments
     token_count: 183
 ---

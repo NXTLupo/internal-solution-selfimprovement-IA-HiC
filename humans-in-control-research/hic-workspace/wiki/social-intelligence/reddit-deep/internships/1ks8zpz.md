@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 2112]
     sentence_count: 31
     key_terms: [data, got, engineering, experience, finally, porsche, posted, applications]
+    concepts: [engineering, experience, finally, porsche, applications]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1ks8zpz/1000_applications_later_finally_in_the_system/"}]
   - id: "social-intelligence/reddit-deep/internships/1ks8zpz.md#c1"
     char_span: [2114, 3483]
     sentence_count: 20
     key_terms: [through, apply, considering, here, experience, market, master, hurts]
+    concepts: [through, considering, apply, experience, market]
     token_count: 315
   - id: "social-intelligence/reddit-deep/internships/1ks8zpz.md#c2"
     char_span: [3497, 4553]
     sentence_count: 7
     key_terms: [congratulations, interview, deleted, round, complex-poet-6809, keytradition2051, unfortunately, questioning]
+    concepts: [congratulations, interview, deleted, round]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/internships/1ks8zpz.md#c3"
     char_span: [4555, 5443]
     sentence_count: 9
     key_terms: [deleted, thanks, international, offer, linkedin, revoked, student, apply]
+    concepts: [international, deleted, thanks, offer, linkedin]
     section: Comments
     token_count: 258
 ---

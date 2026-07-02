@@ -21,21 +21,26 @@ chunks:
     char_span: [0, 1874]
     sentence_count: 12
     key_terms: [treatment, licensed, careerguidance, independently, fully, work, management, including]
+    concepts: [treatment, licensed, careerguidance, independently, fully]
     token_count: 413
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1s2love/anyone_have_advice_for_a_fully_licensed_counselor/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1s2love.md#c1"
     char_span: [1876, 4375]
     sentence_count: 11
     key_terms: [clients, emotional, role, work, problem-solving, income, within, professional]
+    concepts: [clients, emotional, problem-solving, professional, income]
     token_count: 513
   - id: "social-intelligence/reddit-deep/careerguidance/1s2love.md#c2"
     char_span: [4377, 5989]
     sentence_count: 6
     key_terms: [roles, looking, administration, did, experience, management, transition, emotional]
+    concepts: [roles, administration, looking, experience, management]
     token_count: 328
   - id: "social-intelligence/reddit-deep/careerguidance/1s2love.md#c3"
     char_span: [6003, 6620]
     sentence_count: 4
     key_terms: [experience, "you're", acadiaordinary8955, documentation, coordination, corrections, development, positioning]
+    concepts: [experience, "you're"]
     section: Comments
     token_count: 115
 ---

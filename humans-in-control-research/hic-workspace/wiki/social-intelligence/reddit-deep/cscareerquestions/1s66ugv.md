@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1193]
     sentence_count: 11
     key_terms: [career, considering, major, cscareerquestions, chances, science, cogsci, hurt]
+    concepts: [career, considering, cscareerquestions, major, chances]
     token_count: 265
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1s66ugv/considering_returning_to_university_to_do_a/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s66ugv.md#c1"
     char_span: [1207, 1847]
     sentence_count: 7
     key_terms: [engineering, chances, effective-bee-7004, interdisciplinary, math, tech, randromeda2172, graduation]
+    concepts: [engineering, chances]
     section: Comments
     token_count: 166
 ---

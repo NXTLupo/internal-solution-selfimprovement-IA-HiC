@@ -20,34 +20,40 @@ chunks:
     char_span: [0, 2173]
     sentence_count: 11
     key_terms: [pinterest-plunges-tariffs-weigh-large-customers-ad-spending-2026-02-13, pinterest, business, company, media-telecom, https, advertising, "pinterest's"]
+    concepts: [pinterest-plunges-tariffs-weigh-large-customers-ad-spending-2026-02-13, pinterest, business, media-telecom, company]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1r3rmkw/pinterest_down_20_after_earnings/"}]
   - id: "social-intelligence/reddit-deep/stocks/1r3rmkw.md#c1"
     char_span: [2178, 2824]
     sentence_count: 5
     key_terms: [growing, competitors, company, staff, like, communicating, reminiscent, constantly]
+    concepts: [growing, competitors, company, staff]
     token_count: 138
   - id: "social-intelligence/reddit-deep/stocks/1r3rmkw.md#c2"
-    char_span: [2839, 4799]
+    char_span: [2838, 4798]
     sentence_count: 15
     key_terms: [pinterest, gloomy-insurance-739, search, unusable, google, like, site, absolutely]
+    concepts: [pinterest, gloomy-insurance-739, search, unusable, google]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1r3rmkw.md#c3"
-    char_span: [4613, 4980]
+    char_span: [4612, 4979]
     sentence_count: 3
     key_terms: [ads, half, "it's", slop, unfortunately, composedbull, karlou1984, geocities]
     section: Comments
     token_count: 108
   - id: "social-intelligence/reddit-deep/stocks/1r3rmkw.md#c4"
-    char_span: [4982, 7194]
+    char_span: [4981, 7193]
     sentence_count: 20
     key_terms: [pinterest, contrarian, similar-piglet-5209, reddit, "don't", integration, been, user]
+    concepts: [pinterest, similar-piglet-5209, contrarian, reddit, integration]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/stocks/1r3rmkw.md#c5"
-    char_span: [7196, 8733]
+    char_span: [7195, 8732]
     sentence_count: 11
     key_terms: [pinterest, use, different, platforms, selling, social, get, slop]
+    concepts: [pinterest, different, platforms, selling, social]
     section: Comments
     token_count: 394
 ---

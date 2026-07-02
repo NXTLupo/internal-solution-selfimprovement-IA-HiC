@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 540]
     sentence_count: 2
     key_terms: [research, gradadmissions, gpa, experience, comments, industry, working, get]
+    concepts: [research, gradadmissions, experience, comments, industry]
     token_count: 135
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1p41kwn/can_you_get_into_grad_school_after_working_in/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1p41kwn.md#c1"
-    char_span: [555, 1839]
+    char_span: [554, 1838]
     sentence_count: 6
     key_terms: [though, programs, schools, broedinger, targeting, looking, ranking, "that's"]
+    concepts: [though, programs, schools, broedinger, targeting]
     section: Comments
     token_count: 310
 ---

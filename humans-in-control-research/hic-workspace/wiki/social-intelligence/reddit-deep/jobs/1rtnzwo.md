@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 602]
     sentence_count: 5
     key_terms: [comments, "they're", individualdoughnut96, going, jobs, reddit-deep, everywhere, experience]
+    concepts: [comments, "they're", going]
     token_count: 154
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rtnzwo/it_is_2026_and_were_still_doing_this/"}]
   - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c1"
     char_span: [616, 2489]
     sentence_count: 11
     key_terms: [sick, someone, anonymous345678910, immunocompromised, inconsiderate, don, because, chronically]
+    concepts: [someone, anonymous345678910, immunocompromised, inconsiderate, chronically]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c2"
@@ -38,60 +41,72 @@ chunks:
     char_span: [2650, 4689]
     sentence_count: 14
     key_terms: [sick, did, because, manager, come, day, like, bathroom]
+    concepts: [because, manager, bathroom, exactly, someone]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c4"
     char_span: [4462, 5653]
     sentence_count: 8
     key_terms: [sick, fucking, week, send, because, usually, individualdoughnut96, auto]
+    concepts: [fucking, because, usually]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c5"
     char_span: [5655, 7064]
     sentence_count: 10
     key_terms: [paid, leave, sick, note, work, mandatory, vacation, nothing]
+    concepts: [leave, mandatory, vacation, nothing, course]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c6"
     char_span: [7066, 8871]
     sentence_count: 12
     key_terms: [sick, doctor, leave, work, going, next, week, advance]
+    concepts: [doctor, leave, going, advance, anxiety]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c7"
     char_span: [8874, 10582]
     sentence_count: 8
     key_terms: [sick, because, beartato4772, tonsillitis, day, exhausts, pigeoneatingpancakes, makes]
+    concepts: [because, beartato4772, tonsillitis, exhausts, makes]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c8"
     char_span: [10584, 11925]
     sentence_count: 15
     key_terms: [sick, policy, days, health, work, fridays, meeting, mondays]
+    concepts: [policy, health, fridays, meeting, mondays]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rtnzwo.md#c9"]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c9"
     char_span: [11927, 13489]
     sentence_count: 10
     key_terms: [problem, body, get, sick, work, remember, fridays, getting]
+    concepts: [problem, remember, fridays, getting, mondays]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rtnzwo.md#c8"]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c10"
     char_span: [13491, 14010]
     sentence_count: 3
     key_terms: [everywhere, happening, redact, individualdoughnut96, sick, antipiety, reduction, exposure]
+    concepts: [everywhere, happening, redact]
     section: Comments
     token_count: 139
   - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c11"
     char_span: [14012, 15764]
     sentence_count: 10
     key_terms: [sick, pto, days, don, job, pay, already, company]
+    concepts: [already, company, happens, being, leave]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c12"
     char_span: [15766, 17878]
     sentence_count: 22
     key_terms: [sick, calls, less, pay, work, anything, employee, paycheck]
+    concepts: [calls, anything, employee, paycheck, because]
     section: Comments
     token_count: 501
 ---

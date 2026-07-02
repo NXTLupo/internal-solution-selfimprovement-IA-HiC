@@ -19,21 +19,29 @@ chunks:
     char_span: [0, 2080]
     sentence_count: 10
     key_terms: [university, public, schools, measure, forbes, considered, applyingtocollege, ivy]
+    concepts: [university, public, schools, measure, considered]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tis7th.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1tis7th.md#c2"]
     token_count: 461
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1tis7th/i_still_dont_buy_into_the_forbes_definition_of_a/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tis7th.md#c1"
     char_span: [2082, 4243]
     sentence_count: 13
     key_terms: [public, application, university, ivy, freshman, private, schools, universities]
+    concepts: [public, application, university, freshman, private]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tis7th.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1tis7th.md#c2"]
     token_count: 417
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tis7th.md#c2"
     char_span: [4245, 6127]
     sentence_count: 9
     key_terms: [university, ivy, forbes, public, co-op, academy, georgia, schools]
+    concepts: [university, forbes, public, co-op, academy]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tis7th.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1tis7th.md#c1"]
     token_count: 416
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tis7th.md#c3"
     char_span: [6141, 7753]
     sentence_count: 10
     key_terms: [applyingtocollege, essays, ivy, wiki, reddit, collegeessays, https, com]
+    concepts: [applyingtocollege, essays, collegeessays, reddit, https]
     section: Comments
     token_count: 409
 ---

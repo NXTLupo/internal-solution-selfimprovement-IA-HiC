@@ -20,40 +20,51 @@ chunks:
     char_span: [0, 2061]
     sentence_count: 10
     key_terms: [product, client, build, productmanagement, prioritization, around, been, dont]
+    concepts: [product, client, productmanagement, build, prioritization]
     token_count: 473
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1lzq19a/help_leadership_has_not_made_up_their_mind_on/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1lzq19a.md#c1"
     char_span: [2063, 2971]
     sentence_count: 8
     key_terms: [environment, product, leadership, release, started, stable, here, requirements]
+    concepts: [environment, product, leadership, release, started]
     token_count: 198
   - id: "social-intelligence/reddit-deep/productmanagement/1lzq19a.md#c2"
-    char_span: [2986, 4901]
+    char_span: [2985, 4900]
     sentence_count: 15
     key_terms: [company, requests, help, new, challenges, leadership, nexus-1997, customer]
+    concepts: [company, requests, challenges, leadership, nexus-1997]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1lzq19a.md#c3"]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/productmanagement/1lzq19a.md#c3"
-    char_span: [4903, 6812]
+    char_span: [4902, 6811]
     sentence_count: 12
     key_terms: [change, work, leadership, meaningful, nexus-1997, because, benefit, career]
+    concepts: [change, leadership, meaningful, nexus-1997, because]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1lzq19a.md#c2", "social-intelligence/reddit-deep/productmanagement/1lzq19a.md#c4"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/productmanagement/1lzq19a.md#c4"
-    char_span: [6814, 8642]
+    char_span: [6813, 8641]
     sentence_count: 18
     key_terms: [take, nexus-1997, learning, yourself, another, because, product, being]
+    concepts: [nexus-1997, learning, yourself, another, because]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1lzq19a.md#c3"]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/productmanagement/1lzq19a.md#c5"
-    char_span: [8644, 10882]
+    char_span: [8643, 10881]
     sentence_count: 24
     key_terms: [great, customers, work, strategy, opportunities, consistent, nexus-1997, customer]
+    concepts: [great, customers, strategy, opportunities, consistent]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/productmanagement/1lzq19a.md#c6"
-    char_span: [10884, 11953]
+    char_span: [10883, 11952]
     sentence_count: 14
     key_terms: [product, though, "we're", debt, keep, take, hour-two-3104, firefighting]
+    concepts: [product, though, "we're"]
     section: Comments
     token_count: 251
 ---

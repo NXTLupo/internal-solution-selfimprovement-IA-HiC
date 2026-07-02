@@ -19,14 +19,17 @@ content_hash: "114485fc6b0843aa"
 relevance_by_goal: {"46dec9599ad5":40}
 chunks:
   - id: "articles/reddit-deep-r-chatgpt/e1bfec2fab.md#c0"
-    char_span: [0, 1728]
+    char_span: [0, 1727]
     sentence_count: 20
     key_terms: [chatgpt, helped, unemployment, call, especially, something, discord, instead]
-    token_count: 431
+    concepts: [chatgpt, unemployment, helped, especially, something]
+    token_count: 430
+    sources: [{"n":"[Reddit Deep: r/chatgpt](articles/reddit-deep-r-chatgpt/98cc5c4267.md","u":""}]
   - id: "articles/reddit-deep-r-chatgpt/e1bfec2fab.md#c1"
-    char_span: [1730, 3349]
+    char_span: [1729, 3348]
     sentence_count: 7
     key_terms: [limerence, chatgpt, friends, people, process, wonderful-captain-82, grief, learn]
+    concepts: [limerence, chatgpt, friends, people, process]
     token_count: 391
 ---
 # I’m in crisis - and ChatGPT showed up for me in a way I didn’t expect

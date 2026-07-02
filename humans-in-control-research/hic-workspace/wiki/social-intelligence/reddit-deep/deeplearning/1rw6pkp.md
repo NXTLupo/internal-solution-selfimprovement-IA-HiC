@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 974]
     sentence_count: 5
     key_terms: [deeplearning, cloud, local, model, using, downloaded, processing, comments]
+    concepts: [deeplearning, cloud, downloaded, local, model]
     token_count: 265
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1rw6pkp/local_mlx_model_for_text_only_chats_for_qa/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1rw6pkp.md#c1"
     char_span: [988, 2594]
     sentence_count: 2
     key_terms: [gemma, summaries, context, gpt, oss, pdf, reasoning, research]
+    concepts: [gemma, summaries, context, reasoning, research]
     section: Comments
     token_count: 415
 ---

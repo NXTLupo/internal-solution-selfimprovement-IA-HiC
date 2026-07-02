@@ -19,23 +19,31 @@ chunks:
     char_span: [0, 919]
     sentence_count: 5
     key_terms: [experience, cscareerquestions, tech, company, startup, cut, pay, take]
+    concepts: [experience, cscareerquestions, company, startup, comments]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1spcm5u.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1spcm5u.md#c3"]
     token_count: 236
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1spcm5u/how_much_of_a_pay_cut_would_you_take_for_tech/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spcm5u.md#c1"
     char_span: [933, 2880]
     sentence_count: 15
     key_terms: [startup, big, pay, tech, higher, faang, anthropic, cut]
+    concepts: [startup, higher, anthropic, faang, google]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spcm5u.md#c2"
     char_span: [2882, 4526]
     sentence_count: 15
     key_terms: [startup, pixelphoenixforce, years, experience, startups, company, usually, reason]
+    concepts: [startup, pixelphoenixforce, experience, years, startups]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1spcm5u.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1spcm5u.md#c3"]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spcm5u.md#c3"
     char_span: [4528, 5990]
     sentence_count: 12
     key_terms: [experience, money, tech, jsdodgers, probably, startup, better, helped]
+    concepts: [experience, money, jsdodgers, probably, startup]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1spcm5u.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1spcm5u.md#c2"]
     section: Comments
     token_count: 362
 ---

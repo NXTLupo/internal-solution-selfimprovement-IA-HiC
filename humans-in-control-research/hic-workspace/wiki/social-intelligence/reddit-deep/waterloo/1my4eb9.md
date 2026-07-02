@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 646]
     sentence_count: 5
     key_terms: [comments, waterloo, looking, places, get, job, astopingalperto, specifically]
+    concepts: [comments, waterloo, looking, places]
     token_count: 163
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1my4eb9/currently_looking_for_a_job/"}]
 ---
 # Currently looking for a job
 

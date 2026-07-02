@@ -21,13 +21,16 @@ chunks:
     char_span: [0, 2055]
     sentence_count: 12
     key_terms: [development, cloud, experience, engineer, roles, cscareerquestions, security, support]
+    concepts: [development, experience, cloud, engineer, cscareerquestions]
     token_count: 462
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rxu2le/confused_between_cloud_vs_development_career_path/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rxu2le.md#c1"
     char_span: [2069, 2259]
     sentence_count: 4
     key_terms: [sde, secirity, security, becomes, concern, raising, better, demand]
     section: Comments
     token_count: 57
+    sources: [{"n":"I\u2019m SDE with 14YoE.","u":""}]
 ---
 # Confused between Cloud vs Development career path (need honest advice)
 

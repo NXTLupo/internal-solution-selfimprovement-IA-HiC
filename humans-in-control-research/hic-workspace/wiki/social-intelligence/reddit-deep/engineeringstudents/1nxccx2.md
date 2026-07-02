@@ -19,41 +19,51 @@ chunks:
     char_span: [0, 1571]
     sentence_count: 12
     key_terms: [experience, internship, engineeringstudents, interview, engineering, get, "i'm", like]
+    concepts: [engineeringstudents, experience, internship, interview, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1nxccx2.md#c1"]
     token_count: 349
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1nxccx2/those_of_you_who_graduated_without_a_coop_or/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nxccx2.md#c1"
     char_span: [1585, 3824]
     sentence_count: 20
     key_terms: [engineeringstudents, job, get, internship, wiki, company, reddit, https]
+    concepts: [engineeringstudents, internship, company, reddit, https]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1nxccx2.md#c0"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nxccx2.md#c2"
     char_span: [3826, 5740]
     sentence_count: 18
     key_terms: [year, graduation, don, "i'm", need, test, periferial, career]
+    concepts: [graduation, periferial, career, harder, likely]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nxccx2.md#c3"
     char_span: [5527, 6345]
     sentence_count: 6
     key_terms: [ceezmuhgeez, work, looking, "i'm", circumstances, goebelwarming, metallurgical, readysponge07]
+    concepts: [ceezmuhgeez, looking]
     section: Comments
     token_count: 217
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nxccx2.md#c4"
     char_span: [6347, 8546]
     sentence_count: 19
     key_terms: [anything, did, never, working, job, like, show, take]
+    concepts: [anything, never, working, convenient, experience]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nxccx2.md#c5"
     char_span: [8549, 10500]
     sentence_count: 17
     key_terms: [worked, internship, engineer, college, co-op, years, gpa, experience]
+    concepts: [worked, internship, engineer, college, co-op]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nxccx2.md#c6"
     char_span: [10502, 11148]
     sentence_count: 5
     key_terms: [worked, bit, work, construction, interviewed, sociability, considered, craigslist]
+    concepts: [worked]
     section: Comments
     token_count: 149
 ---

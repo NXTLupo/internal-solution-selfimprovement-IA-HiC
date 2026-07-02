@@ -20,31 +20,41 @@ chunks:
     char_span: [0, 1680]
     sentence_count: 9
     key_terms: [etf, etfs, fund, leveraged, defiance, launches, daily, https]
+    concepts: [leveraged, defiance, launches, exposure, trackinsight]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1naa8sk.md#c1"]
     token_count: 444
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1naa8sk/etf_weekly_industry_updates_sep_15_2025/"}]
   - id: "social-intelligence/reddit-deep/etfs/1naa8sk.md#c1"
     char_span: [1682, 3765]
     sentence_count: 13
     key_terms: [trackinsight, etf, fund, https, exposure, com, www, agentic]
+    concepts: [trackinsight, exposure, https, agentic, options]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1naa8sk.md#c0", "social-intelligence/reddit-deep/etfs/1naa8sk.md#c3"]
     token_count: 508
   - id: "social-intelligence/reddit-deep/etfs/1naa8sk.md#c2"
     char_span: [3767, 5793]
     sentence_count: 10
     key_terms: [etf, etfs, stocks, exposure, september, bitcoin, shares, filed]
+    concepts: [stocks, exposure, september, bitcoin, shares]
     token_count: 512
   - id: "social-intelligence/reddit-deep/etfs/1naa8sk.md#c3"
     char_span: [5795, 8131]
     sentence_count: 16
     key_terms: [exposure, income, etf, options, synthetic, vistashares, bitcoin, strategies]
+    concepts: [exposure, income, synthetic, vistashares, options]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1naa8sk.md#c1"]
     token_count: 475
   - id: "social-intelligence/reddit-deep/etfs/1naa8sk.md#c4"
     char_span: [8133, 10217]
     sentence_count: 12
     key_terms: [etf, etfs, assets, global, blackrock, coinbase, launched, futures]
+    concepts: [assets, global, blackrock, coinbase, launched]
     token_count: 506
   - id: "social-intelligence/reddit-deep/etfs/1naa8sk.md#c5"
-    char_span: [10232, 11521]
+    char_span: [10231, 11520]
     sentence_count: 8
     key_terms: [spyi, etfcentral, comment, income, reddit, https, com, high]
+    concepts: [etfcentral, comment, income, reddit, https]
     section: Comments
     token_count: 344
 ---

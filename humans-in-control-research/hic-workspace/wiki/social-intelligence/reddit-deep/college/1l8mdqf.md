@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1466]
     sentence_count: 13
     key_terms: [math, college, start, did, comments, rebuild, science, basics]
+    concepts: [college, start, comments, rebuild, science]
     token_count: 334
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1l8mdqf/engineering_majors_who_struggled_with_math_how/"}]
   - id: "social-intelligence/reddit-deep/college/1l8mdqf.md#c1"
     char_span: [1480, 3408]
     sentence_count: 15
     key_terms: [math, teacher, step, level, mudcute2158, arithmetic, understand, studying]
+    concepts: [teacher, mudcute2158, arithmetic, level, understand]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/college/1l8mdqf.md#c2"
     char_span: [3410, 4853]
     sentence_count: 10
     key_terms: [math, class, algebra, since, questions, practice, because, college]
+    concepts: [class, algebra, since, questions, practice]
     section: Comments
     token_count: 327
 ---

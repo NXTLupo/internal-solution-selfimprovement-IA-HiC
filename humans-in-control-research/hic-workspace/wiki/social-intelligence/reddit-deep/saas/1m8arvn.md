@@ -20,34 +20,41 @@ chunks:
     char_span: [0, 2012]
     sentence_count: 16
     key_terms: [learned, app, code, lot, coding, myself, wanted, saas]
+    concepts: [learned, coding, myself, wanted, comments]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1m8arvn/im_18yo_created_my_first_ever_app_and_made_me_3k/"}]
   - id: "social-intelligence/reddit-deep/saas/1m8arvn.md#c1"
     char_span: [2014, 4199]
     sentence_count: 19
     key_terms: ["didn't", mostly, tiktok, cause, views, differently, app, been]
+    concepts: ["didn't", mostly, tiktok, differently, cause]
     token_count: 519
   - id: "social-intelligence/reddit-deep/saas/1m8arvn.md#c2"
-    char_span: [4214, 5616]
+    char_span: [4213, 5615]
     sentence_count: 12
     key_terms: [success, app, get, marketing, original, product, almost, easily]
+    concepts: [success, marketing, original, product, almost]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/saas/1m8arvn.md#c3"
-    char_span: [5618, 7424]
+    char_span: [5617, 7423]
     sentence_count: 5
     key_terms: [like, successful, something, because, success, pedro-schott, never, chairchiman]
+    concepts: [successful, something, because, success, pedro-schott]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/saas/1m8arvn.md#c4"
-    char_span: [7426, 8090]
+    char_span: [7425, 8089]
     sentence_count: 5
     key_terms: [help, different-cell-4535, happy, thalesviniciusf, surface-level, familiarity, information, programming]
+    concepts: [happy]
     section: Comments
     token_count: 166
   - id: "social-intelligence/reddit-deep/saas/1m8arvn.md#c5"
-    char_span: [8092, 9626]
+    char_span: [8091, 9625]
     sentence_count: 13
     key_terms: [pedro-schott, learning, love, mrr, saas, awesome, build, looks]
+    concepts: [pedro-schott, learning, awesome, build, looks]
     section: Comments
     token_count: 436
 ---

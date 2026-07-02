@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 637]
     sentence_count: 5
     key_terms: [engineeringstudents, telecommunications, engineering, internships, comments, resume, apply, late-training7359]
+    concepts: [engineeringstudents, telecommunications, engineering, internships, comments]
     token_count: 141
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1t4e3lu/advice_for_applying_to_telecommunications/"}]
 ---
 # Advice for applying to telecommunications engineering internships
 

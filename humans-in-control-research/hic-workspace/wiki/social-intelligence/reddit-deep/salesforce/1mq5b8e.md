@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 725]
     sentence_count: 5
     key_terms: [salesforce, printable, email, form, view, comments, acheive, custom]
+    concepts: [salesforce, printable, email, comments, acheive]
     token_count: 174
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1mq5b8e/send_the_printable_view_of_a_record_in_an_email/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1mq5b8e.md#c1"
-    char_span: [740, 2495]
+    char_span: [739, 2494]
     sentence_count: 11
     key_terms: [illperspective9981, form, document, "you're", "don't", email, cost, done]
+    concepts: [illperspective9981, document, "you're", "don't", email]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/salesforce/1mq5b8e.md#c2"
-    char_span: [2500, 2915]
+    char_span: [2499, 2914]
     sentence_count: 3
     key_terms: [business-systems360, going, cost, form, considerations, implementation, salesforce, suggestion]
+    concepts: [going]
     section: Comments
     token_count: 87
 ---

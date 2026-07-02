@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1415]
     sentence_count: 14
     key_terms: [coding, launch, months, entrepreneur, vibe, comments, project, reality]
+    concepts: [entrepreneur, coding, launch, months, comments]
     token_count: 324
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1o8un5s/solopreneur_ai_taking_over_9_months_to_launch/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1o8un5s.md#c1"
-    char_span: [1430, 2645]
+    char_span: [1429, 2644]
     sentence_count: 6
     key_terms: [entrepreneur, please, permanent, promotion, stickied, comment, thread, weekly]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/entrepreneur/1o8un5s.md#c2"
-    char_span: [2647, 4197]
+    char_span: [2646, 4196]
     sentence_count: 9
     key_terms: [people, somedigit, like, background, validated, building, through, launch]
+    concepts: [people, somedigit, background, validated, building]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/entrepreneur/1o8un5s.md#c3"
-    char_span: [4199, 5814]
+    char_span: [4198, 5813]
     sentence_count: 11
     key_terms: [time, code, vibe, coding, architecture, real, take, something]
+    concepts: [architecture, coding, something, planning, products]
     section: Comments
     token_count: 359
 ---

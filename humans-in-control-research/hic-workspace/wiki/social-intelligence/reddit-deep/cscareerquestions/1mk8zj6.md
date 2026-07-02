@@ -21,71 +21,84 @@ chunks:
     char_span: [0, 1794]
     sentence_count: 14
     key_terms: [chatgpt, engineers, cscareerquestions, like, diminishing, comments, software, hitting]
+    concepts: [chatgpt, cscareerquestions, engineers, diminishing, comments]
     token_count: 398
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1mk8zj6/the_fact_that_chatgpt_5_is_barely_an_improvement/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c1"
     char_span: [1808, 3503]
     sentence_count: 10
     key_terms: [overflow, stack, decisions, without, happen, market, early, field]
+    concepts: [overflow, stack, decisions, without, happen]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c2"
     char_span: [3505, 4280]
     sentence_count: 6
     key_terms: [industry, gone, industries, websites, horses, pushing-ai-autonomy, tools, martinfowler]
+    concepts: [industry, industries, websites, horses, tools]
     section: Comments
     token_count: 192
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c3"
     char_span: [4282, 6584]
     sentence_count: 13
     key_terms: [agents, engineers, workflows, creating, being, assumptions, ability, agentic]
+    concepts: [agents, engineers, workflows, creating, assumptions]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c4"
     char_span: [6586, 8972]
     sentence_count: 16
     key_terms: [business, results, using, development, use, want, work, algorithms]
+    concepts: [business, results, development, algorithms, guaranteed]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c5"
     char_span: [8974, 11169]
     sentence_count: 11
     key_terms: [application, been, "it's", like, anthropic, focusing, language, utilized]
+    concepts: [application, anthropic, focusing, language, utilized]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c6"
     char_span: [11171, 13155]
     sentence_count: 17
     key_terms: [management, chatgpt, "they're", middle, theory, turing, "can't", correctness]
+    concepts: [management, chatgpt, "they're", middle, theory]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c7"
     char_span: [13157, 14785]
     sentence_count: 11
     key_terms: [tests, unit, test, claude, "it's", like, churning, chatgpt]
+    concepts: [tests, claude, churning, chatgpt, deleted]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c8"
     char_span: [14787, 16405]
     sentence_count: 11
     key_terms: [claude, limitations, get, technology, something, inherent, possible, chatgpt]
+    concepts: [claude, limitations, technology, something, inherent]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c9"
     char_span: [16407, 17429]
     sentence_count: 7
     key_terms: [hallucination, improvement, comes, moves, code, elo, sanityasymptote, regurgitates]
+    concepts: [hallucination, improvement, comes, moves]
     section: Comments
     token_count: 241
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c10"
     char_span: [17432, 19457]
     sentence_count: 9
     key_terms: [replace, programmers, programming, jobs, assembly, versions, already, because]
+    concepts: [replace, programmers, programming, assembly, versions]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c11"
     char_span: [19459, 21264]
     sentence_count: 6
     key_terms: [code, something, describe, language, because, generated, approach, decision]
+    concepts: [something, describe, language, because, generated]
     section: Comments
     token_count: 386
 ---

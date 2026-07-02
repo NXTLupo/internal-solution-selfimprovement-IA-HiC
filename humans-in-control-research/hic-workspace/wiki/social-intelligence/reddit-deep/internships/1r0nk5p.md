@@ -19,34 +19,41 @@ chunks:
     char_span: [0, 1957]
     sentence_count: 1
     key_terms: [internships, apply, the-10-best-websites-for-finding-an-internship, how-many-internships-should-i-apply-to, indeed, resume, https, com]
+    concepts: [internships, apply, indeed, resume, everything]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1r0nk5p/how_to_get_an_internship_in_2026_everything_i_am/"}]
   - id: "social-intelligence/reddit-deep/internships/1r0nk5p.md#c1"
     char_span: [1959, 3829]
     sentence_count: 1
     key_terms: [follow-ups, resume, follow-up, recruiter, applying, how-and-why-write-great-cover-letter, cover, track]
+    concepts: [follow-ups, resume, follow-up, recruiter, applying]
     token_count: 475
   - id: "social-intelligence/reddit-deep/internships/1r0nk5p.md#c2"
-    char_span: [3844, 4995]
+    char_span: [3843, 4994]
     sentence_count: 3
     key_terms: [networking, internships, find, qualified, linkedin, deleted, future-palpitation15, suitable-jelly-3693]
+    concepts: [networking, internships, qualified, linkedin, deleted]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/internships/1r0nk5p.md#c3"
-    char_span: [4997, 6904]
+    char_span: [4996, 6903]
     sentence_count: 5
     key_terms: [suitable-jelly-3693, internships, freshman, sophomores, chunkygobbler911, opportunities, get, interviews]
+    concepts: [suitable-jelly-3693, internships, freshman, sophomores, chunkygobbler911]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1r0nk5p.md#c4"
-    char_span: [6702, 7256]
+    char_span: [6701, 7255]
     sentence_count: 3
     key_terms: [getting, suitable-jelly-3693, work, stormiiclouds77, optimization, application, internships, interndock]
+    concepts: [getting]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/internships/1r0nk5p.md#c5"
-    char_span: [7258, 8968]
+    char_span: [7257, 8967]
     sentence_count: 6
     key_terms: [suitable-jelly-3693, linkedin, applications, tiredcat640, look, recruiter, relevant, because]
+    concepts: [suitable-jelly-3693, linkedin, applications, tiredcat640, recruiter]
     section: Comments
     token_count: 430
 ---

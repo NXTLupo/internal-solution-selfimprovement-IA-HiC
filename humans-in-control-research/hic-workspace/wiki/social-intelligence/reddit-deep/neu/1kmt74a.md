@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 393]
     sentence_count: 2
     key_terms: [comments, neu, perspectives, coordinator, reddit-deep, contribute, experience, "people's"]
+    concepts: [comments]
     token_count: 103
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1kmt74a/nuin_alumni_how_did_your_student_success/"}]
   - id: "social-intelligence/reddit-deep/neu/1kmt74a.md#c1"
     char_span: [407, 1335]
     sentence_count: 2
     key_terms: [family, students, events, group, questions, shopping, similar, abroad]
+    concepts: [family, students, events, group, questions]
     section: Comments
     token_count: 197
 ---

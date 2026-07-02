@@ -19,46 +19,56 @@ chunks:
     char_span: [0, 2344]
     sentence_count: 27
     key_terms: [daughter, car, others, college, people, being, wants, comments]
+    concepts: [daughter, others, college, people, being]
+    related_chunks: ["social-intelligence/reddit-deep/college/1pmz0yb.md#c3"]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1pmz0yb/when_to_give_a_student_a_car/"}]
   - id: "social-intelligence/reddit-deep/college/1pmz0yb.md#c1"
     char_span: [2346, 2696]
     sentence_count: 6
     key_terms: ["that's", "she's", irregularly, counselor, learning, question, yourself, central]
+    concepts: ["that's", "she's"]
     token_count: 85
   - id: "social-intelligence/reddit-deep/college/1pmz0yb.md#c2"
-    char_span: [2711, 3246]
+    char_span: [2710, 3245]
     sentence_count: 4
     key_terms: [burden, places, randomthrowaway9796, being, leave, car, opportunities, apartment]
+    concepts: [burden, places, being, leave]
     section: Comments
     token_count: 125
   - id: "social-intelligence/reddit-deep/college/1pmz0yb.md#c3"
-    char_span: [3248, 4965]
+    char_span: [3247, 4964]
     sentence_count: 9
     key_terms: [friends, people, car, transportation, being, need, rely, time]
+    concepts: [friends, people, transportation, being, different]
+    related_chunks: ["social-intelligence/reddit-deep/college/1pmz0yb.md#c0"]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/college/1pmz0yb.md#c4"
-    char_span: [4967, 5412]
+    char_span: [4966, 5411]
     sentence_count: 4
     key_terms: [bus, unfortunately, codeswift27, constantly, sometimes, daughter, personal, possible]
     section: Comments
     token_count: 108
   - id: "social-intelligence/reddit-deep/college/1pmz0yb.md#c5"
-    char_span: [5414, 7612]
+    char_span: [5413, 7611]
     sentence_count: 17
     key_terms: [car, get, anxiety, therapy, going, bus, help, like]
+    concepts: [anxiety, therapy, completely, going, better]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1pmz0yb.md#c6"
-    char_span: [7335, 8441]
+    char_span: [7334, 8440]
     sentence_count: 9
     key_terms: [car, year, school, get, freshman, because, campus, didnt]
+    concepts: [school, freshman, because, campus, didnt]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/college/1pmz0yb.md#c7"
-    char_span: [8443, 9169]
+    char_span: [8442, 9168]
     sentence_count: 8
     key_terms: [opportunity, car, apologize, success, bookreader018, acknowledged, independence, watdoyoumead]
+    concepts: [opportunity, apologize, success]
     section: Comments
     token_count: 172
 ---

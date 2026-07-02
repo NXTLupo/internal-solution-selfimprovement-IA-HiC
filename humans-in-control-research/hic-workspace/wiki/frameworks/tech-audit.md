@@ -14,72 +14,93 @@ chunks:
     char_span: [0, 1513]
     sentence_count: 6
     key_terms: [framework, technology, governance, provides, security, impact, cybersecurity, management]
+    concepts: [framework, technology, governance, provides, security]
+    related_chunks: ["frameworks/tech-audit.md#c10"]
     section: Canonical Foundations
     token_count: 283
   - id: "frameworks/tech-audit.md#c1"
     char_span: [1546, 3818]
     sentence_count: 4
     key_terms: [integration, api, assessment, technology, technical, cost, management, dimension]
+    concepts: [integration, assessment, technology, technical, management]
+    related_chunks: ["frameworks/tech-audit.md#c2", "frameworks/tech-audit.md#c3", "frameworks/tech-audit.md#c4", "frameworks/tech-audit.md#c5", "frameworks/tech-audit.md#c6"]
     section: The 15 Required Dimensions
     token_count: 466
   - id: "frameworks/tech-audit.md#c2"
     char_span: [3820, 6038]
     sentence_count: 1
     key_terms: [security, assessment, performance, management, dimension, frequency, tdr, time]
+    concepts: [security, assessment, performance, management, dimension]
+    related_chunks: ["frameworks/tech-audit.md#c1", "frameworks/tech-audit.md#c3", "frameworks/tech-audit.md#c5"]
     section: The 15 Required Dimensions
     token_count: 483
   - id: "frameworks/tech-audit.md#c3"
     char_span: [6040, 8442]
     sentence_count: 2
     key_terms: [data, assessment, dimension, criteria, strategy, management, cloud, scope]
+    concepts: [assessment, dimension, criteria, strategy, management]
+    related_chunks: ["frameworks/tech-audit.md#c1", "frameworks/tech-audit.md#c2", "frameworks/tech-audit.md#c4", "frameworks/tech-audit.md#c5"]
     section: The 15 Required Dimensions
     token_count: 465
   - id: "frameworks/tech-audit.md#c4"
     char_span: [8444, 11091]
     sentence_count: 3
     key_terms: [compliance, time, assessment, percentage, technology, criteria, internal, required]
+    concepts: [compliance, assessment, percentage, technology, criteria]
+    related_chunks: ["frameworks/tech-audit.md#c1", "frameworks/tech-audit.md#c3", "frameworks/tech-audit.md#c6", "frameworks/tech-audit.md#c11"]
     section: The 15 Required Dimensions
     token_count: 517
   - id: "frameworks/tech-audit.md#c5"
     char_span: [11093, 12339]
     sentence_count: 1
     key_terms: [dimension, skills, technical, proof-of-concept, assessment, capability, innovation, investment]
+    concepts: [dimension, skills, proof-of-concept, technical, assessment]
+    related_chunks: ["frameworks/tech-audit.md#c1", "frameworks/tech-audit.md#c2", "frameworks/tech-audit.md#c3"]
     section: The 15 Required Dimensions
     token_count: 232
   - id: "frameworks/tech-audit.md#c6"
     char_span: [12362, 14055]
     sentence_count: 11
     key_terms: [recommendations, methodology, assessment, investment, technology, risk, analysis, scoring]
+    concepts: [recommendations, methodology, assessment, investment, technology]
+    related_chunks: ["frameworks/tech-audit.md#c1", "frameworks/tech-audit.md#c4", "frameworks/tech-audit.md#c11"]
     section: Report Structure
     token_count: 345
   - id: "frameworks/tech-audit.md#c7"
     char_span: [14081, 14974]
     sentence_count: 5
     key_terms: [end-of-life, red, misaligned, strategy, because, review, system, color]
+    concepts: [end-of-life, misaligned, strategy, because, review]
     section: Color Coding System
     token_count: 184
   - id: "frameworks/tech-audit.md#c8"
     char_span: [15018, 16497]
     sentence_count: 7
     key_terms: [investment, implementation, quantification, risk, cost, benefits, annual, factor]
+    concepts: [implementation, quantification, investment, benefits, consolidation]
     section: Forrester TEI Calculation Methodology
     token_count: 276
   - id: "frameworks/tech-audit.md#c9"
     char_span: [16554, 17875]
     sentence_count: 6
     key_terms: [missing, step, tdr, estimate, patterns, remediation, debt, components]
+    concepts: [missing, estimate, patterns, remediation, components]
     section: SQALE Technical Debt Ratio -- Detailed Application
     token_count: 270
   - id: "frameworks/tech-audit.md#c10"
     char_span: [17895, 19498]
     sentence_count: 11
     key_terms: [without, technology, security, systems, foundational, compliance, sanctioned, trajectory]
+    concepts: [without, technology, security, systems, foundational]
+    related_chunks: ["frameworks/tech-audit.md#c0"]
     section: Anti-Patterns
     token_count: 299
   - id: "frameworks/tech-audit.md#c11"
     char_span: [19528, 21057]
     sentence_count: 14
     key_terms: [technology, assessment, available, anti-patterns, architecture, deliverable, benchmarks, capability]
+    concepts: [technology, assessment, available, anti-patterns, architecture]
+    related_chunks: ["frameworks/tech-audit.md#c1", "frameworks/tech-audit.md#c4", "frameworks/tech-audit.md#c6"]
     section: Generation Instructions
     token_count: 289
 ---

@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1941]
     sentence_count: 13
     key_terms: [engineering, mechanical, engineeringstudents, research, software, project, time, experience]
+    concepts: [engineering, engineeringstudents, mechanical, research, software]
     token_count: 394
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1r6tbik/graduating_in_a_few_months_with_dual_degrees_in/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6tbik.md#c1"
     char_span: [1943, 2921]
     sentence_count: 8
     key_terms: [master, roles, time, whether, funded, offer, right, back]
+    concepts: [master, roles, whether, funded, offer]
     token_count: 196
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6tbik.md#c2"
     char_span: [2935, 3608]
     sentence_count: 6
     key_terms: [probably, going, best, get, catsdrinkingbeer, application, engineering, experience]
+    concepts: [probably, going]
     section: Comments
     token_count: 168
 ---

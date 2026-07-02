@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2178]
     sentence_count: 11
     key_terms: [career, projects, development, engineeringstudents, country, apply, learn, sense]
+    concepts: [career, projects, development, engineeringstudents, country]
     token_count: 490
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1o9916q/dont_know_what_to_do_for_next_internship_and/"}]
 ---
 # Don't know what to do for next internship and career development, ECE student
 

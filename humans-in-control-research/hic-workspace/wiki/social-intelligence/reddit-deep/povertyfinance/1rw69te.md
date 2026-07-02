@@ -21,17 +21,22 @@ chunks:
     char_span: [0, 1027]
     sentence_count: 1
     key_terms: [sliding, povertyfinance, afford, health, mental, scale, comments, session]
+    concepts: [povertyfinance, sliding, afford, health, mental]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1rw69te.md#c4", "social-intelligence/reddit-deep/povertyfinance/1rw69te.md#c6"]
     token_count: 250
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1rw69te/mental_health_care_low_income_is_basically/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1rw69te.md#c1"
     char_span: [1041, 2665]
     sentence_count: 16
     key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
+    concepts: [submitter, appropriate, advice, vents, emotional]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/povertyfinance/1rw69te.md#c2"
     char_span: [2667, 4639]
     sentence_count: 16
     key_terms: [university, receipts, notyourlionheart, session, near, household, medicaid, because]
+    concepts: [university, notyourlionheart, receipts, session, household]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/povertyfinance/1rw69te.md#c3"
@@ -44,6 +49,8 @@ chunks:
     char_span: [4838, 6994]
     sentence_count: 19
     key_terms: [mental, services, health, get, nami, something, worthless, honestly]
+    concepts: [mental, services, health, something, worthless]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1rw69te.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1rw69te.md#c5"
@@ -56,6 +63,8 @@ chunks:
     char_span: [7099, 8806]
     sentence_count: 14
     key_terms: [too, get, assistance, kimkam1898, services, sliding, afford, health]
+    concepts: [assistance, kimkam1898, services, sliding, afford]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1rw69te.md#c0"]
     section: Comments
     token_count: 425
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1405]
     sentence_count: 8
     key_terms: [compliance, suppliers, documentation, supplychain, "i'm", like, something, comments]
+    concepts: [compliance, suppliers, documentation, supplychain, something]
     token_count: 284
+    sources: [{"n":"reddit-deep: r/supplychain","u":"https://www.reddit.com/r/supplychain/comments/1srg5nf/anyone_here_actually_confident_about_trade/"}]
   - id: "social-intelligence/reddit-deep/supplychain/1srg5nf.md#c1"
-    char_span: [1420, 2018]
+    char_span: [1419, 2017]
     sentence_count: 1
     key_terms: [compliance, trade, department, process, adventurous-boss-882, staff, classification, qualification]
+    concepts: [compliance, department, trade, process, staff]
     section: Comments
     token_count: 135
 ---

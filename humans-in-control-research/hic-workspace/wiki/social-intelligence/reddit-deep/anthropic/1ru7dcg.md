@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 316]
     sentence_count: 1
     key_terms: [anthropic, comments, auto-inject, reddit-deep, codebase, ctxpilot, windsurf, context]
+    concepts: [anthropic, comments]
     token_count: 92
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1ru7dcg/ctxpilot_autoinject_codebase_context_into_cursor/"}]
 ---
 # ctxpilot — Auto-inject codebase context into Cursor, Claude Code, Codex & Windsurf
 

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1968]
     sentence_count: 9
     key_terms: [https, endorsement, agents, memory, arxiv, comments, machinelearning, memento]
+    concepts: [https, endorsement, agents, memory, arxiv]
     token_count: 453
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1roykna/r_seeking_arxiv_endorsement_for_csai_memento_a/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1roykna.md#c1"
     char_span: [1982, 3737]
     sentence_count: 15
     key_terms: [fragments, retrieval, activation, fragment-based, interesting, time, importance, critical]
+    concepts: [fragments, retrieval, activation, fragment-based, interesting]
     section: Comments
     token_count: 356
 ---

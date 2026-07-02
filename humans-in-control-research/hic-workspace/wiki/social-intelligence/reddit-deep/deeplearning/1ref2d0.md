@@ -21,28 +21,36 @@ chunks:
     char_span: [0, 2698]
     sentence_count: 31
     key_terms: [retrieval, rag, knowledge, systems, production, models, quality, expensive]
+    concepts: [retrieval, knowledge, production, systems, models]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1ref2d0.md#c1"]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1ref2d0/is_rag_just_a_bandaid_for_llm_limitations_or_a/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1ref2d0.md#c1"
     char_span: [2700, 3868]
     sentence_count: 15
     key_terms: [production, systems, rag, long-term, retrieval, solution, current, domains]
+    concepts: [production, systems, long-term, retrieval, solution]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1ref2d0.md#c0"]
     token_count: 216
   - id: "social-intelligence/reddit-deep/deeplearning/1ref2d0.md#c2"
     char_span: [3882, 6119]
     sentence_count: 11
     key_terms: [information, specialist, residentticket1273, problem, ground-truth, organisation, point, "it's"]
+    concepts: [information, residentticket1273, specialist, problem, ground-truth]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/deeplearning/1ref2d0.md#c3"
     char_span: [6121, 7800]
     sentence_count: 7
     key_terms: [information, characteristics, develop, fundamentally, llms, time, snapshot, context]
+    concepts: [information, characteristics, fundamentally, develop, snapshot]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/deeplearning/1ref2d0.md#c4"
     char_span: [7802, 9315]
     sentence_count: 7
     key_terms: [brain, kind, lot, sentences, language, parsing, amount, system]
+    concepts: [brain, sentences, language, parsing, amount]
     section: Comments
     token_count: 342
 ---

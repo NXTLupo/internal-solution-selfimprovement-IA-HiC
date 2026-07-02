@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 1196]
     sentence_count: 8
     key_terms: [technical, systems, internships, reliability, less, bloomberg, comments, employee]
+    concepts: [technical, systems, internships, reliability, bloomberg]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1qoofaw.md#c1"]
     token_count: 287
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1qoofaw/need_help_picking_an_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1qoofaw.md#c1"
     char_span: [1210, 2450]
     sentence_count: 9
     key_terms: [less, nutanix, technical, ok-building-4079, higher, internships, role, decision]
+    concepts: [nutanix, ok-building-4079, technical, higher, internships]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1qoofaw.md#c0", "social-intelligence/reddit-deep/internships/1qoofaw.md#c2"]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/internships/1qoofaw.md#c2"
     char_span: [2452, 3314]
     sentence_count: 9
     key_terms: [nutanix, technical, compared, support, appropriate-tutor587, more-requirement1214, later, got]
+    concepts: [nutanix, technical, compared, support, later]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1qoofaw.md#c1"]
     section: Comments
     token_count: 208
 ---

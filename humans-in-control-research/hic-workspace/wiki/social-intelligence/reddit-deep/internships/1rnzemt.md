@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2241]
     sentence_count: 18
     key_terms: [internship, internships, remote, want, responsibilities, aligned, because, company]
+    concepts: [internship, internships, remote, responsibilities, aligned]
     token_count: 484
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rnzemt/two_internships_take_the_risk_or_leave_it/"}]
   - id: "social-intelligence/reddit-deep/internships/1rnzemt.md#c1"
     char_span: [2243, 2397]
     sentence_count: 2

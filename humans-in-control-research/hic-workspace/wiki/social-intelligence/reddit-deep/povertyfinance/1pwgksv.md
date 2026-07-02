@@ -21,62 +21,81 @@ chunks:
     char_span: [0, 1908]
     sentence_count: 15
     key_terms: [povertyfinance, barely, family, christmas, comments, remember, college, afford]
+    concepts: [povertyfinance, barely, family, christmas, comments]
     token_count: 430
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1pwgksv/my_family_stole_my_identity_and_threatened_to/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c1"
     char_span: [1910, 4329]
     sentence_count: 22
     key_terms: [family, because, parents, "don't", been, dad, mom, time]
+    concepts: [family, because, parents, "don't", everything]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c2", "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c3", "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c4"]
     token_count: 511
   - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c2"
     char_span: [4331, 6573]
     sentence_count: 20
     key_terms: ["i'm", "didn't", myself, being, parents, family, sister, cards]
+    concepts: ["didn't", myself, being, parents, family]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c1", "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c4"]
     token_count: 488
   - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c3"
     char_span: [6575, 7873]
     sentence_count: 11
     key_terms: ["i'm", people, need, because, got, everything, messages, probably]
+    concepts: [people, because, everything, messages, probably]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c1"]
     token_count: 269
   - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c4"
     char_span: [7887, 9815]
     sentence_count: 23
     key_terms: [family, steps-to-take-if-someone-opens-a-credit-card-in-your-name, parents, police, report, responsible, yourself, accept]
+    concepts: [family, parents, police, report, responsible]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c1", "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c2", "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c7"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c5"
     char_span: [9817, 11493]
     sentence_count: 8
     key_terms: [credit, like, ssn, without, always, family, loving, parent]
+    concepts: [credit, without, always, family, loving]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c6"
     char_span: [11495, 13391]
     sentence_count: 21
     key_terms: [himself, parents, credit, aunt, hard, minutes, people, report]
+    concepts: [himself, parents, credit, minutes, people]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c7"
     char_span: [13393, 15523]
     sentence_count: 22
     key_terms: [family, don, get, life, people, report, situation, therapist]
+    concepts: [family, people, report, situation, therapist]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c4"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c8"
     char_span: [15525, 16655]
     sentence_count: 7
     key_terms: [credit, payments, report, cards, debt, get, want, nekohideyoshi]
+    concepts: [credit, payments, report, cards]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c9"]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c9"
     char_span: [16657, 18663]
     sentence_count: 16
     key_terms: [credit, don, report, "don't", loans, score, "it's", like]
+    concepts: [credit, report, "don't", loans, score]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c10"
     char_span: [18665, 19546]
     sentence_count: 12
     key_terms: [report, back, single, radiant-pianist-3596, doing, money, whysomanyostriches, knew]
+    concepts: [report, single, doing, money]
     section: Comments
     token_count: 205
 ---

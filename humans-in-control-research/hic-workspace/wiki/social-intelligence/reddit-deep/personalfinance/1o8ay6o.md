@@ -20,40 +20,53 @@ chunks:
     char_span: [0, 2073]
     sentence_count: 22
     key_terms: [account, checking, schwab, capital, immediately, checks, deposited, new]
+    concepts: [account, checking, schwab, capital, immediately]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1o8ay6o.md#c2", "social-intelligence/reddit-deep/personalfinance/1o8ay6o.md#c5"]
     token_count: 466
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1o8ay6o/my_experience_opening_a_new_schwab_checking/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1o8ay6o.md#c1"
     char_span: [2075, 3875]
     sentence_count: 20
     key_terms: [account, days, documentation, inconvenience, email, money, "i'm", apparently]
+    concepts: [account, documentation, inconvenience, apparently, department]
     token_count: 402
   - id: "social-intelligence/reddit-deep/personalfinance/1o8ay6o.md#c2"
-    char_span: [3890, 6001]
+    char_span: [3889, 6000]
     sentence_count: 19
     key_terms: [zelle, fraud, account, schwab, experience, pinetreevermont, using, dept]
+    concepts: [zelle, fraud, account, experience, schwab]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1o8ay6o.md#c0", "social-intelligence/reddit-deep/personalfinance/1o8ay6o.md#c3", "social-intelligence/reddit-deep/personalfinance/1o8ay6o.md#c4"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/personalfinance/1o8ay6o.md#c3"
-    char_span: [6003, 7924]
+    char_span: [6002, 7923]
     sentence_count: 23
     key_terms: [service, fraud, customer, detection, experience, likely, transfers, amounts]
+    concepts: [service, fraud, customer, detection, experience]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1o8ay6o.md#c2"]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/personalfinance/1o8ay6o.md#c4"
-    char_span: [7926, 9986]
+    char_span: [7925, 9985]
     sentence_count: 21
     key_terms: [zelle, "it's", account, check, bill, pay, experience, transfer]
+    concepts: [zelle, account, check, experience, transfer]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1o8ay6o.md#c2"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/personalfinance/1o8ay6o.md#c5"
-    char_span: [9988, 11101]
+    char_span: [9987, 11100]
     sentence_count: 9
     key_terms: [account, brokerage, pinetreevermont, checks, checking, planning, schwab, paper]
+    concepts: [account, brokerage, pinetreevermont, checks, checking]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1o8ay6o.md#c0"]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/personalfinance/1o8ay6o.md#c6"
-    char_span: [11103, 12253]
+    char_span: [11102, 12252]
     sentence_count: 8
     key_terms: [companies, modern, simple, fraud, interconnectedness, hate, "i'm", like]
+    concepts: [companies, modern, simple, fraud]
     section: Comments
     token_count: 264
 ---

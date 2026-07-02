@@ -16,10 +16,12 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1syr4gm.md#c0"
-    char_span: [0, 1493]
+    char_span: [0, 1492]
     sentence_count: 13
     key_terms: [something, careerguidance, around, been, real, business, comments, passion]
+    concepts: [something, careerguidance, around, business, comments]
     token_count: 338
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1syr4gm/lost_between_4_distinct_career_paths_any_advice/"}]
 ---
 # Lost between 4 distinct career paths. Any advice?
 

@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1607]
     sentence_count: 12
     key_terms: [businessintelligence, reports, entity, international, consolidated, transactions, local, power]
+    concepts: [businessintelligence, international, reports, consolidated, transactions]
     token_count: 313
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1ow8wcq/our_international_expansion_broke_all_our_power/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1ow8wcq.md#c1"
-    char_span: [1622, 3728]
+    char_span: [1621, 3727]
     sentence_count: 14
     key_terms: [currency, financial, local, consolidation, ytd, month, sales, quarter-end]
+    concepts: [currency, financial, local, consolidation, month]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1ow8wcq.md#c2"]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/businessintelligence/1ow8wcq.md#c2"
-    char_span: [3730, 5820]
+    char_span: [3729, 5819]
     sentence_count: 16
     key_terms: [local, data, end, erp, look, need, sng, currency]
+    concepts: [local, currency, problem, system, "you'll"]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1ow8wcq.md#c1"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/businessintelligence/1ow8wcq.md#c3"
-    char_span: [5822, 7437]
+    char_span: [5821, 7436]
     sentence_count: 7
     key_terms: [currency, column, currencies, table, like, usd, something, inserted]
+    concepts: [currency, column, currencies, table, something]
     section: Comments
     token_count: 364
 ---

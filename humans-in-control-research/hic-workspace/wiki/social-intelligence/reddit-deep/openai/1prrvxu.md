@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 877]
     sentence_count: 6
     key_terms: [experience, comments, advice, better, openai, paying, reddit, topics]
+    concepts: [experience, comments, advice, better, openai]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1prrvxu.md#c6"]
     token_count: 210
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1prrvxu/paying_users_is_chatgpt_as_bad_as_people_here_say/"}]
   - id: "social-intelligence/reddit-deep/openai/1prrvxu.md#c1"
     char_span: [891, 2526]
     sentence_count: 10
     key_terms: [code, leopardcomfortable99, find, pro, complain, psychologicalself170, free, got]
+    concepts: [leopardcomfortable99, complain]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/openai/1prrvxu.md#c2"
     char_span: [2528, 3615]
     sentence_count: 12
     key_terms: [get, like, need, assistant, helping, overall, though, find]
+    concepts: [assistant, helping, overall, though]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/openai/1prrvxu.md#c3"
     char_span: [3617, 5155]
     sentence_count: 14
     key_terms: [use, instructions, completely, generation, blindly, better, image, month]
+    concepts: [instructions, completely, generation, blindly, better]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/openai/1prrvxu.md#c4"
     char_span: [5157, 7100]
     sentence_count: 22
     key_terms: [like, prompt, detailed, watercolours, worse, instruction, "i'm", honestly]
+    concepts: [prompt, detailed, watercolours, instruction, worse]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/openai/1prrvxu.md#c5"
     char_span: [7102, 9124]
     sentence_count: 16
     key_terms: [model, completion, flash, safe, be60c07b-6bc2-4f54-bcee-4141e1d6c69a, gemini, people, complaining]
+    concepts: [model, completion, flash, gemini, people]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/openai/1prrvxu.md#c6"
     char_span: [9126, 11148]
     sentence_count: 18
     key_terms: [people, chatgpt, better, bad, like, time, use, especially]
+    concepts: [people, chatgpt, better, especially, comments]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1prrvxu.md#c0"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/openai/1prrvxu.md#c7"
     char_span: [11150, 11895]
     sentence_count: 4
     key_terms: [opinion, here, type, therapy-like, background, excellent, immediate, questions]
+    concepts: [opinion]
     section: Comments
     token_count: 202
 ---

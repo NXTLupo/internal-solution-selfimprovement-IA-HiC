@@ -41,47 +41,59 @@ chunks:
     char_span: [0, 622]
     sentence_count: 1
     key_terms: [style, div, assistant, niva-ai-family-assistant, y3jvccw1mzc5ldqymdgsmcww, behance, padding, e0e0e0]
+    concepts: [style, assistant, behance, padding, e0e0e0]
     token_count: 213
   - id: "exemplars/behance/ai-chatbot/niva-ai-family-assistant.md#c1"
     char_span: [654, 1502]
     sentence_count: 4
     key_terms: [assistant, prototype, reasoning, without, assistant-as-presence, cards, schedule-as-object, hic]
+    concepts: [assistant, prototype, reasoning, without, cards]
     section: What this exemplar teaches
     token_count: 182
   - id: "exemplars/behance/ai-chatbot/niva-ai-family-assistant.md#c2"
     char_span: [1563, 3604]
     sentence_count: 16
     key_terms: [extension, assistant, nxt, orb, family, "niva's", like, chartreuse]
+    concepts: [extension, assistant, family, "niva's", chartreuse]
+    related_chunks: ["exemplars/behance/ai-chatbot/niva-ai-family-assistant.md#c3", "exemplars/behance/ai-chatbot/niva-ai-family-assistant.md#c4"]
     section: "Verbalized framings — how #NXT extends to this pattern"
     token_count: 476
   - id: "exemplars/behance/ai-chatbot/niva-ai-family-assistant.md#c3"
     char_span: [3606, 4777]
     sentence_count: 10
     key_terms: [family, chartreuse, assistant, through, chrome, black, radical-departure, nxt]
+    concepts: [family, chartreuse, assistant, through, chrome]
+    related_chunks: ["exemplars/behance/ai-chatbot/niva-ai-family-assistant.md#c2"]
     section: "Verbalized framings — how #NXT extends to this pattern"
     token_count: 264
   - id: "exemplars/behance/ai-chatbot/niva-ai-family-assistant.md#c4"
     char_span: [4837, 6756]
     sentence_count: 14
     key_terms: [red, assistant, extension, cohort, institutional, co-op, strip, sans]
+    concepts: [assistant, extension, institutional, cohort, co-op]
+    related_chunks: ["exemplars/behance/ai-chatbot/niva-ai-family-assistant.md#c2", "exemplars/behance/ai-chatbot/niva-ai-family-assistant.md#c5"]
     section: "Verbalized framings — how #NU extends to this pattern"
     token_count: 446
   - id: "exemplars/behance/ai-chatbot/niva-ai-family-assistant.md#c5"
     char_span: [6758, 7819]
     sentence_count: 10
     key_terms: [recommendation, assistant, red, framing, co-op, state, already-restrained, scholarship-grade]
+    concepts: [recommendation, assistant, framing, co-op, state]
+    related_chunks: ["exemplars/behance/ai-chatbot/niva-ai-family-assistant.md#c4"]
     section: "Verbalized framings — how #NU extends to this pattern"
     token_count: 226
   - id: "exemplars/behance/ai-chatbot/niva-ai-family-assistant.md#c6"
     char_span: [7861, 8638]
     sentence_count: 1
     key_terms: [framing, brand, load, multi-identity-reasoning, household-coordination, schedule-negotiation, convention-honoring, brief]
+    concepts: [framing, brand, brief]
     section: How to use this exemplar in a brief
     token_count: 190
   - id: "exemplars/behance/ai-chatbot/niva-ai-family-assistant.md#c7"
     char_span: [8662, 9016]
     sentence_count: 1
     key_terms: [assistant, behance-217080729, behance-218377031, behance-244400099, behance-249132293, multi-participant, inspiration, progression]
+    concepts: [assistant]
     section: Related exemplars
     token_count: 92
 ---

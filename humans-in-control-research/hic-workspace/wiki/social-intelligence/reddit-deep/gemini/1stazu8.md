@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1157]
     sentence_count: 9
     key_terms: [gemini, app, data, different, comments, nothing, project, canvas]
+    concepts: [gemini, different, comments, nothing, project]
     token_count: 263
+    sources: [{"n":"reddit-deep: r/gemini","u":"https://www.reddit.com/r/Gemini/comments/1stazu8/building_a_web_app/"}]
 ---
 # Building a web app
 

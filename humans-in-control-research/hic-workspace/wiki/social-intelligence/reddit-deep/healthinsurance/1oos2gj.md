@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 2313]
     sentence_count: 15
     key_terms: [hair, office, check, insurance, minoxidil, tretinoin, acne, healthinsurance]
+    concepts: [office, insurance, minoxidil, tretinoin, check]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1oos2gj/please_help_me_navigate_this_claim_denial_that_i/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1oos2gj.md#c1"
-    char_span: [2328, 4360]
+    char_span: [2327, 4359]
     sentence_count: 8
     key_terms: [please, post, questions, information, following, eob, healthinsurance, been]
+    concepts: [please, questions, information, following, healthinsurance]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/healthinsurance/1oos2gj.md#c2"
-    char_span: [4362, 5775]
+    char_span: [4361, 5774]
     sentence_count: 10
     key_terms: [contact, primary, subreddit, provider, please, report, codes, via]
+    concepts: [contact, primary, subreddit, provider, please]
     section: Comments
     token_count: 324
 ---

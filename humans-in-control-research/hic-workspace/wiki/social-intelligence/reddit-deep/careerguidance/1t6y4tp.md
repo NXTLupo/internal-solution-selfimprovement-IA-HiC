@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2504]
     sentence_count: 17
     key_terms: [finance, engineering, genuinely, cybersecurity, reverse, systems, deeply, side]
+    concepts: [finance, engineering, genuinely, cybersecurity, reverse]
     token_count: 524
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t6y4tp/title_finance_student_deeply_interested_in/"}]
 ---
 # Title: Finance Student Deeply Interested in Reverse Engineering / Computer Systems – Career Confusion and Need Honest Advice?
 

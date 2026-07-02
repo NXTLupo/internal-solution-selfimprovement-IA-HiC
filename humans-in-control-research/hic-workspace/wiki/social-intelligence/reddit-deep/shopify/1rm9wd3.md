@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 2147]
     sentence_count: 12
     key_terms: [page, checkout, product, understand, visitors, shopify, safety, add]
+    concepts: [checkout, product, understand, visitors, shopify]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1rm9wd3.md#c2"]
     token_count: 495
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1rm9wd3/visitors_add_to_cart_and_reach_checkout_but_dont/"}]
   - id: "social-intelligence/reddit-deep/shopify/1rm9wd3.md#c1"
-    char_span: [2162, 3866]
+    char_span: [2161, 3865]
     sentence_count: 16
     key_terms: [store, audience, traffic, site, community, contact, numbers, problem]
+    concepts: [store, audience, traffic, community, contact]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/shopify/1rm9wd3.md#c2"
-    char_span: [3868, 5738]
+    char_span: [3867, 5737]
     sentence_count: 17
     key_terms: [product, page, checkout, trust, clear, return, safety, issue]
+    concepts: [product, checkout, trust, clear, return]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1rm9wd3.md#c0"]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/shopify/1rm9wd3.md#c3"
-    char_span: [5740, 7717]
+    char_span: [5739, 7716]
     sentence_count: 21
     key_terms: [products, baby, buying, questions, something, checkout, possible, shipping]
+    concepts: [products, buying, questions, something, checkout]
     section: Comments
     token_count: 406
 ---

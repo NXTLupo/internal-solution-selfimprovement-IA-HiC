@@ -19,29 +19,38 @@ chunks:
     char_span: [0, 1981]
     sentence_count: 22
     key_terms: ["i'm", get, "i've", applications, resume, experience, cscareerquestions, https]
+    concepts: [applications, experience, cscareerquestions, resume, internships]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c3"]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1n9j4pe/t20_school_700_applications_and_nothing_at_all_so/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c1"
     char_span: [1995, 3944]
     sentence_count: 12
     key_terms: ["don't", people, friends, advice, either, google, better, market]
+    concepts: ["don't", people, friends, advice, either]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c2"
     char_span: [3946, 5618]
     sentence_count: 12
     key_terms: [resume, stack, full, good, experience, company, deleted, generic]
+    concepts: [resume, experience, stack, company, deleted]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c3"]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c3"
     char_span: [5620, 7252]
     sentence_count: 16
     key_terms: [university, people, resume, like, low, experience, already, posting]
+    concepts: [university, people, resume, experience, already]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c2"]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c4"
     char_span: [7254, 9323]
     sentence_count: 15
     key_terms: [applying, get, graduate, awesomeness2078, internships, full, next, time]
+    concepts: [applying, awesomeness2078, graduate, internships, university]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c5"

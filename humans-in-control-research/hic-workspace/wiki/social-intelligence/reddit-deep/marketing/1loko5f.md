@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 919]
     sentence_count: 8
     key_terms: [social, media, ads, marketing, comments, creation, customer, shopping]
+    concepts: [social, media, marketing, comments, creation]
     token_count: 216
+    sources: [{"n":"reddit-deep: r/marketing","u":"https://www.reddit.com/r/marketing/comments/1loko5f/spending_budget_on_shopping_ads_vs_social_media/"}]
   - id: "social-intelligence/reddit-deep/marketing/1loko5f.md#c1"
-    char_span: [934, 2288]
+    char_span: [933, 2287]
     sentence_count: 18
     key_terms: [marketing, looking-for-marketing-discussion-811236647760298024, ads, branding, business, discord, "doesn't", advice]
+    concepts: [marketing, branding, business, discord, "doesn't"]
     section: Comments
     token_count: 313
 ---

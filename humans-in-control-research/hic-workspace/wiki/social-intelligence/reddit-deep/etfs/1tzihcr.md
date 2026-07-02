@@ -17,14 +17,17 @@ research_goal: "Produce the definitive guide to personal investing in 2026 by an
 engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/etfs/1tzihcr.md#c0"
-    char_span: [0, 2070]
+    char_span: [0, 2069]
     sentence_count: 17
     key_terms: [across, different, portfolio, brokers, currency, european, multiple, gains]
-    token_count: 451
+    concepts: [different, portfolio, across, brokers, currency]
+    token_count: 450
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1tzihcr/im_a_european_investor_with_holdings_across/"}]
   - id: "social-intelligence/reddit-deep/etfs/1tzihcr.md#c1"
-    char_span: [2072, 2878]
+    char_span: [2071, 2877]
     sentence_count: 6
     key_terms: [foliopal, everything, https, month, never, app, card, data]
+    concepts: [foliopal, everything, https, month, never]
     token_count: 178
 ---
 # I’m a European investor with holdings across multiple brokers, and no tool showed me my real gains after currency moves. So I built one.

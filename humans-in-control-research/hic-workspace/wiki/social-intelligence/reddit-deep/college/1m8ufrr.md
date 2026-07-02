@@ -19,28 +19,34 @@ chunks:
     char_span: [0, 1997]
     sentence_count: 18
     key_terms: [disorder, got, classes, scholarships, never, personality, try, comments]
+    concepts: [disorder, classes, scholarships, personality, never]
     token_count: 438
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1m8ufrr/what_options_are_available/"}]
   - id: "social-intelligence/reddit-deep/college/1m8ufrr.md#c1"
     char_span: [1999, 3190]
     sentence_count: 12
     key_terms: [been, good, help, try, apparently, transcript, "don't", since]
+    concepts: [apparently, transcript, "don't", since]
     token_count: 258
   - id: "social-intelligence/reddit-deep/college/1m8ufrr.md#c2"
     char_span: [3204, 5037]
     sentence_count: 14
     key_terms: [psychology, requires, required, psychologist, coursework, hours, courses, credit]
+    concepts: [psychology, requires, required, psychologist, coursework]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/college/1m8ufrr.md#c3"
     char_span: [5042, 7188]
     sentence_count: 16
     key_terms: [college, school, jayybirdd22, professions, back, "i'm", take, seriously]
+    concepts: [college, school, jayybirdd22, professions, seriously]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/college/1m8ufrr.md#c4"
     char_span: [7190, 8344]
     sentence_count: 10
     key_terms: [college, stuffed, animal, family, grants, free, get, step]
+    concepts: [college, stuffed, animal, family, grants]
     section: Comments
     token_count: 266
 ---

@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1663]
     sentence_count: 4
     key_terms: [weeks, finance, sprint, productmanagement, planning, spent, got, comments]
+    concepts: [weeks, finance, productmanagement, sprint, planning]
     token_count: 348
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1rlqthk/spent_three_weeks_writing_a_prd_for_our_ap/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1rlqthk.md#c1"
-    char_span: [1678, 3659]
+    char_span: [1677, 3658]
     sentence_count: 14
     key_terms: [engineering, better, come, building, question, finance, involve, people]
+    concepts: [engineering, better, building, question, finance]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/productmanagement/1rlqthk.md#c2"
-    char_span: [3661, 4847]
+    char_span: [3660, 4846]
     sentence_count: 11
     key_terms: [requirements, problem, stakeholders, build, engineering, "didn't", pretty, "that's"]
+    concepts: [requirements, problem, stakeholders, engineering, build]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/productmanagement/1rlqthk.md#c3"
-    char_span: [4851, 6335]
+    char_span: [4850, 6334]
     sentence_count: 6
     key_terms: [understanding, solution, solutions, building, external, problem, product, market]
+    concepts: [understanding, solution, solutions, building, external]
     section: Comments
     token_count: 348
 ---

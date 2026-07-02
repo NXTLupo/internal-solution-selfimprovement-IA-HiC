@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 270]
     sentence_count: 1
     key_terms: [internships, comments, antique-wish9622, reddit-deep, finding, seeking, student, advice]
+    concepts: [internships, comments]
     token_count: 85
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1q8grs0/seeking_advice_on_finding_aiml_internships_as_a/"}]
 ---
 # Seeking advice on finding AI/ML internships as a 2nd-year student
 

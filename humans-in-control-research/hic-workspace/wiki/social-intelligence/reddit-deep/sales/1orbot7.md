@@ -20,34 +20,41 @@ chunks:
     char_span: [0, 2110]
     sentence_count: 29
     key_terms: [sales, like, day, tell, comments, grinding, clients, company]
+    concepts: [sales, comments, grinding, clients, company]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1orbot7/anyone_else_grinding_like_crazy_getting_praised/"}]
   - id: "social-intelligence/reddit-deep/sales/1orbot7.md#c1"
     char_span: [2112, 2526]
     sentence_count: 9
     key_terms: [problem, respect, people, want, consistently, leadership, targeting, activity]
+    concepts: [problem, respect, people]
     token_count: 94
   - id: "social-intelligence/reddit-deep/sales/1orbot7.md#c2"
-    char_span: [2541, 4035]
+    char_span: [2540, 4034]
     sentence_count: 11
     key_terms: ["don't", people, deals, sales, like, corporate, territory, closing]
+    concepts: ["don't", people, deals, sales, corporate]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/sales/1orbot7.md#c3"
-    char_span: [4038, 6130]
+    char_span: [4037, 6129]
     sentence_count: 22
     key_terms: [compensation, always, "you're", "don't", else, get, everything, business]
+    concepts: [compensation, always, "you're", "don't", everything]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/sales/1orbot7.md#c4"
-    char_span: [6132, 8269]
+    char_span: [6131, 8268]
     sentence_count: 20
     key_terms: [work, don, keep, broker, get, good, different, referrals]
+    concepts: [broker, different, referrals, industry, partners]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/sales/1orbot7.md#c5"
-    char_span: [8271, 9982]
+    char_span: [8270, 9981]
     sentence_count: 21
     key_terms: ["you're", ask, like, mind, want, territory, actively, company]
+    concepts: ["you're", territory, actively, company, getting]
     section: Comments
     token_count: 399
 ---

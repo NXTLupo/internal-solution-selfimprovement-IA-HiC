@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1761]
     sentence_count: 10
     key_terms: [money, australia, job, around, skills, fitting, january, kitchen]
+    concepts: [money, australia, around, skills, careerguidance]
     token_count: 400
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t9wcxv/do_i_stick_with_my_job_and_learn_the_skills_or/"}]
 ---
 # Do I stick with my job and learn the skills or prioritise making more money?
 

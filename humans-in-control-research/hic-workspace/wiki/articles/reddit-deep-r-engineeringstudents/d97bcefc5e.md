@@ -18,11 +18,16 @@ chunks:
     char_span: [0, 1669]
     sentence_count: 10
     key_terms: [internships, engineeringstudents, apply, freshman, summer, experience, positions, technical]
+    concepts: [internships, engineeringstudents, apply, freshman, summer]
+    related_chunks: ["articles/reddit-deep-r-engineeringstudents/d97bcefc5e.md#c1"]
     token_count: 367
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rixa90/is_it_worth_it_to_apply_for_internships_as_a/"}]
   - id: "articles/reddit-deep-r-engineeringstudents/d97bcefc5e.md#c1"
     char_span: [1671, 2821]
     sentence_count: 9
     key_terms: [internship, apply, get, definitely, experience, freshman, gained, summer]
+    concepts: [internship, apply, definitely, experience, freshman]
+    related_chunks: ["articles/reddit-deep-r-engineeringstudents/d97bcefc5e.md#c0"]
     token_count: 255
 ---
 # Is it worth it to apply for internships as a freshman?

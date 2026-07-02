@@ -21,22 +21,29 @@ chunks:
     char_span: [0, 2032]
     sentence_count: 9
     key_terms: [cscareerquestions, offers, time, search, job, comments, brutal, market]
+    concepts: [cscareerquestions, offers, search, comments, opportunities]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1nwss1b/from_0_offers_to_multiple_opportunities_job/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwss1b.md#c1"
     char_span: [2034, 2764]
     sentence_count: 9
     key_terms: [https, imgur, com, categorization, interviews, failure, ho9vgfg, reason]
+    concepts: [https, imgur, categorization, interviews, failure]
     token_count: 186
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwss1b.md#c2"
     char_span: [2778, 4799]
     sentence_count: 13
     key_terms: [time, diabloallica, experience, offers, big, get, tech, yoe]
+    concepts: [diabloallica, experience, offers, interviews, probably]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nwss1b.md#c3"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwss1b.md#c3"
     char_span: [4801, 5918]
     sentence_count: 11
     key_terms: [questions, problems, resume, did, experience, interviews, congrats, leetcode]
+    concepts: [questions, problems, resume, experience, interviews]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nwss1b.md#c2"]
     section: Comments
     token_count: 265
 ---

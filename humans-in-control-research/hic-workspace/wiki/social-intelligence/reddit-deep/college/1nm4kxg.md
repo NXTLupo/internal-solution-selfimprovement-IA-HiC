@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1610]
     sentence_count: 13
     key_terms: ["i'm", feel, here, because, school, like, time, college]
+    concepts: [because, school, college, genuinely, comments]
     token_count: 390
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1nm4kxg/regretting_the_college_i_chose/"}]
   - id: "social-intelligence/reddit-deep/college/1nm4kxg.md#c1"
     char_span: [1624, 2398]
     sentence_count: 11
     key_terms: [people, clubs, girls, like, iknowallseven, engineering, friendship, university]
+    concepts: [people, clubs, girls]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/college/1nm4kxg.md#c2"
     char_span: [2400, 4010]
     sentence_count: 14
     key_terms: [school, fraternities-engineering, pledges, someone, making, place, day, don]
+    concepts: [school, pledges, someone, making, place]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/college/1nm4kxg.md#c3"
     char_span: [4012, 5899]
     sentence_count: 14
     key_terms: [school, through, engineering, remember, years, transferred, life, interested]
+    concepts: [school, engineering, through, remember, transferred]
     section: Comments
     token_count: 424
 ---

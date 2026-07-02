@@ -20,9 +20,11 @@ chunks:
     char_span: [0, 1564]
     sentence_count: 13
     key_terms: [marketing, content, solutions, pmm, work, being, boss, pmms]
+    concepts: [marketing, content, solutions, being, currently]
     token_count: 338
+    sources: [{"n":"reddit-deep: r/marketing","u":"https://www.reddit.com/r/marketing/comments/1ndol0a/potential_switch_to_product_marketing_any_advice/"}]
   - id: "social-intelligence/reddit-deep/marketing/1ndol0a.md#c1"
-    char_span: [1579, 1822]
+    char_span: [1578, 1821]
     sentence_count: 4
     key_terms: [bluemountaindace, productmarketing, palettepilot, goodnight, probably, question, active, answer]
     section: Comments

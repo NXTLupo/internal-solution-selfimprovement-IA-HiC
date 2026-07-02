@@ -19,41 +19,49 @@ chunks:
     char_span: [0, 1668]
     sentence_count: 15
     key_terms: [https, b9aadff41884148484c700d12288de98cdc57be0, preview, anyone, format, applications, width, auto]
+    concepts: [https, preview, applications, anyone, format]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1ocmxwb/does_anyone_else_feel_like_its_impossible_to_get/"}]
   - id: "social-intelligence/reddit-deep/jobs/1ocmxwb.md#c1"
     char_span: [1682, 3068]
     sentence_count: 14
     key_terms: [experience, formatting, applying, deleted, resume, beardedswashbuckler, keep, page]
+    concepts: [experience, formatting, applying, deleted, resume]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/jobs/1ocmxwb.md#c2"
     char_span: [3070, 4871]
     sentence_count: 21
     key_terms: [linkedin, initiatives, jobs, work, interviews, companies, different, graduated]
+    concepts: [linkedin, initiatives, interviews, companies, different]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/jobs/1ocmxwb.md#c3"
     char_span: [4873, 6535]
     sentence_count: 21
     key_terms: [resumes, impact, professional, "don't", get, good, want, recruiter]
+    concepts: [resumes, professional, impact, "don't", recruiter]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/jobs/1ocmxwb.md#c4"
     char_span: [6537, 8483]
     sentence_count: 18
     key_terms: ["i'm", data, analyst, hiring, "you're", anything, resume, professional]
+    concepts: [analyst, hiring, "you're", anything, professional]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/jobs/1ocmxwb.md#c5"
     char_span: [8485, 10099]
     sentence_count: 11
     key_terms: [job, resume, get, better, career, cloggedbachus, applications, jobs]
+    concepts: [resume, cloggedbachus, applications, better, career]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/jobs/1ocmxwb.md#c6"
     char_span: [10101, 10708]
     sentence_count: 3
     key_terms: [passion, career, hiking, outside, klutzyinvestments, life, love, cloggedbachus]
+    concepts: [passion, career, hiking, outside]
     section: Comments
     token_count: 147
 ---

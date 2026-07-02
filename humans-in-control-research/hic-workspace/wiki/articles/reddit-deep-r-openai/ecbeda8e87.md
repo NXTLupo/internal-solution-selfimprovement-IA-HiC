@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1049]
     sentence_count: 11
     key_terms: [context, openai, available, paying, window, plus, halved, reddit]
+    concepts: [context, openai, available, paying, window]
     token_count: 244
+    sources: [{"n":"Reddit Deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1mlif1r/openai_has_halved_paying_users_context_windows/"}]
   - id: "articles/reddit-deep-r-openai/ecbeda8e87.md#c1"
     char_span: [1051, 2304]
     sentence_count: 10
     key_terms: [context, gemini, tokens, conversation, sometimes, new, rude, airlineglass5010]
+    concepts: [context, conversation, gemini, tokens, sometimes]
     token_count: 317
 ---
 # OpenAI has HALVED paying user's context windows, overnight, without warning.

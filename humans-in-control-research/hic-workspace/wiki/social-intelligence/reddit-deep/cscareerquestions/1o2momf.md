@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 635]
     sentence_count: 5
     key_terms: [cscareerquestions, "i'm", comments, big, tech, internships, reddit-deep, experience]
+    concepts: [cscareerquestions, comments]
     token_count: 167
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1o2momf/should_i_care_about_internships_if_im_doing/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o2momf.md#c1"
     char_span: [649, 1701]
     sentence_count: 5
     key_terms: [internships, experience, opportunity, current, market, big, visa, maximum-okra3237]
+    concepts: [internships, experience, opportunity, current, market]
     section: Comments
     token_count: 251
 ---

@@ -21,101 +21,121 @@ chunks:
     char_span: [0, 1096]
     sentence_count: 12
     key_terms: [job, having, available, comments, fields, living, matter, months]
+    concepts: [having, available, comments, fields, living]
     token_count: 259
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1qasfkr/if_you_have_a_job_keep_it_until_the_wheels_fall/"}]
   - id: "social-intelligence/reddit-deep/jobs/1qasfkr.md#c1"
     char_span: [1110, 2870]
     sentence_count: 15
     key_terms: [antiauthoritariansin, people, resignation, got, inflation, workers, better, caught]
+    concepts: [antiauthoritariansin, people, resignation, inflation, workers]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/jobs/1qasfkr.md#c2"
     char_span: [2873, 4858]
     sentence_count: 12
     key_terms: [job, everyone, because, changed, feeling, enough, health, hiring]
+    concepts: [everyone, because, changed, feeling, enough]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qasfkr.md#c3"
     char_span: [4628, 5927]
     sentence_count: 11
     key_terms: [job, find, "it's", anything, finding, chance, market, months]
+    concepts: [anything, finding, chance, market, months]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/jobs/1qasfkr.md#c4"
     char_span: [5929, 7671]
     sentence_count: 14
     key_terms: ["don't", job, years, year, company, started, neat-butterscotch-98, outsideeducator8557]
+    concepts: ["don't", years, company, started, above]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/jobs/1qasfkr.md#c5"
     char_span: [7673, 9512]
     sentence_count: 12
     key_terms: [job, like, work, years, get, hire, hour, year]
+    concepts: [years, warehouse, finally, leaving, tourism]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/jobs/1qasfkr.md#c6"
     char_span: [9514, 10277]
     sentence_count: 6
     key_terms: ["i've", college, great, job, competitive, cupholdery, regretting, captandor]
+    concepts: [college, great]
     section: Comments
     token_count: 198
   - id: "social-intelligence/reddit-deep/jobs/1qasfkr.md#c7"
     char_span: [10279, 12355]
     sentence_count: 11
     key_terms: [back, work, hired, bank, job, absolutely, executives, graduates]
+    concepts: [absolutely, executives, hired, graduates, college]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qasfkr.md#c8"
     char_span: [12113, 13140]
     sentence_count: 10
     key_terms: [outsourcing, great, point, noticerenthusiast, give, job, nice, work]
+    concepts: [outsourcing, great, point]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/jobs/1qasfkr.md#c9"
     char_span: [13142, 14023]
     sentence_count: 6
     key_terms: [designers, americans, south, got, job, communicating, competitive, apparently]
+    concepts: [designers, americans, south]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/jobs/1qasfkr.md#c10"
     char_span: [14025, 16028]
     sentence_count: 13
     key_terms: [job, got, fired, right, state, surprise, america, freezes]
+    concepts: [fired, right, state, surprise, america]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/jobs/1qasfkr.md#c11"
     char_span: [16030, 16954]
     sentence_count: 8
     key_terms: [colleagues, offshoring, company, offices, acrobatic-let-6620, did, jobs, generalizing]
+    concepts: [colleagues, offshoring, company, offices]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qasfkr.md#c12"]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/jobs/1qasfkr.md#c12"
     char_span: [16956, 18738]
     sentence_count: 15
     key_terms: [india, company, work, management, offshoring, malaysia, because, entire]
+    concepts: [india, company, management, offshoring, malaysia]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qasfkr.md#c11"]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/jobs/1qasfkr.md#c13"
     char_span: [18740, 19280]
     sentence_count: 2
     key_terms: [people, myfeetlooklikehands, least, thethirteenthcylon, non-offshored, management, offshoring, alphawolf]
+    concepts: [people, least]
     section: Comments
     token_count: 150
   - id: "social-intelligence/reddit-deep/jobs/1qasfkr.md#c14"
     char_span: [19282, 20899]
     sentence_count: 10
     key_terms: [jobs, work, taking, employees, citizens, learning, related, workers]
+    concepts: [taking, employees, citizens, learning, related]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/jobs/1qasfkr.md#c15"
     char_span: [20901, 22868]
     sentence_count: 19
     key_terms: [job, industry, "it's", experience, seriously, "master's", company, getting]
+    concepts: [industry, experience, seriously, "master's", company]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/jobs/1qasfkr.md#c16"
     char_span: [22870, 23925]
     sentence_count: 6
     key_terms: [job, industry, screened, listed, months, cards, brownieandsparky23, didn]
+    concepts: [industry, screened, listed, months, cards]
     section: Comments
     token_count: 237
 ---

@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1298]
     sentence_count: 7
     key_terms: [college, because, need, take, currently, semesters, comments, parents]
+    concepts: [college, because, currently, semesters, comments]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lurl0x.md#c3"]
     token_count: 301
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lurl0x/how_do_you_tell_your_parents_that_you_need_to/"}]
   - id: "social-intelligence/reddit-deep/college/1lurl0x.md#c1"
     char_span: [1312, 2091]
     sentence_count: 8
     key_terms: [take, semesters, parents, yourself, okay, tell, time, told]
+    concepts: [semesters, parents, yourself]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/college/1lurl0x.md#c2"
     char_span: [2093, 3902]
     sentence_count: 20
     key_terms: [time, tell, needed, dad, okay, because, classes, behind]
+    concepts: [needed, because, classes, behind, dinner]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/college/1lurl0x.md#c3"
     char_span: [3904, 5418]
     sentence_count: 11
     key_terms: [because, college, parents, need, told, already, career, guilty]
+    concepts: [because, college, parents, already, career]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lurl0x.md#c0"]
     section: Comments
     token_count: 349
 ---

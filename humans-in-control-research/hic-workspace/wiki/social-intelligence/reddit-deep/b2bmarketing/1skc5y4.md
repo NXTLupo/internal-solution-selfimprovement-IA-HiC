@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 2080]
     sentence_count: 3
     key_terms: [gtm, companies, "here's", b2bmarketing, marketing, activity, comments, exactly]
+    concepts: [companies, b2bmarketing, "here's", marketing, activity]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1skc5y4/2_years_in_and_i_still_think_most_b2b_companies/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1skc5y4.md#c1"
-    char_span: [2095, 4300]
+    char_span: [2094, 4299]
     sentence_count: 14
     key_terms: [marketing, strategy, radiant-security-347, documentation, plan, looking-for-marketing-discussion-811236647760298024, terms, perspective]
+    concepts: [marketing, strategy, radiant-security-347, documentation, perspective]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/b2bmarketing/1skc5y4.md#c2"
-    char_span: [4302, 6490]
+    char_span: [4301, 6489]
     sentence_count: 7
     key_terms: [sales, raceinteresting3814, customer, strategy, looks, positioning, find, like]
+    concepts: [sales, raceinteresting3814, customer, strategy, positioning]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1skc5y4.md#c4"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/b2bmarketing/1skc5y4.md#c3"
-    char_span: [6492, 7659]
+    char_span: [6491, 7658]
     sentence_count: 7
     key_terms: [icp, entirely, different, execution, exercise, because, mapping, usually]
+    concepts: [entirely, different, execution, exercise, because]
     section: Comments
     token_count: 250
   - id: "social-intelligence/reddit-deep/b2bmarketing/1skc5y4.md#c4"
-    char_span: [7661, 8972]
+    char_span: [7660, 8971]
     sentence_count: 6
     key_terms: [raceinteresting3814, marketing, akshatjain007, sales, conversion, optimizes, exactly, demand]
+    concepts: [raceinteresting3814, marketing, akshatjain007, conversion, sales]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1skc5y4.md#c2"]
     section: Comments
     token_count: 345
 ---

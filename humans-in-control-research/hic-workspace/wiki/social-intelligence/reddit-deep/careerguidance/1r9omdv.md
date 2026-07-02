@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 1854]
     sentence_count: 13
     key_terms: [been, careerguidance, data, comments, complex, project, always, remote]
+    concepts: [careerguidance, comments, complex, project, always]
     token_count: 387
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1r9omdv/how_working_with_tmaxx_international_leveled_up/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1r9omdv.md#c1"
     char_span: [1868, 2664]
     sentence_count: 6
     key_terms: [language, linkedin, working, been, "i've", transcriptionist, transitioning, application]
+    concepts: [language, linkedin, working]
     section: Comments
     token_count: 218
   - id: "social-intelligence/reddit-deep/careerguidance/1r9omdv.md#c2"
     char_span: [2666, 4600]
     sentence_count: 11
     key_terms: [assessment, did, working, got, pay, completed, cattawny, because]
+    concepts: [assessment, working, completed, cattawny, because]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1r9omdv.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1r9omdv.md#c3"
     char_span: [4266, 5359]
     sentence_count: 5
     key_terms: [beautiful-card-2340, task, assessment, completed, submitted, company, amount, going]
+    concepts: [beautiful-card-2340, assessment, completed, submitted, company]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1r9omdv.md#c2"]
     section: Comments
     token_count: 283
 ---

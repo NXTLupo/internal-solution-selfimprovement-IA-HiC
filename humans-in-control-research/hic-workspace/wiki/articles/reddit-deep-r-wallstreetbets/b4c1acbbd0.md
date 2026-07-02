@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1175]
     sentence_count: 3
     key_terms: [comments, wallstreetbets, coin, strategy, discord, reddit, youlikeblockingsodoi, https]
+    concepts: [comments, wallstreetbets, strategy, discord, reddit]
     token_count: 347
+    sources: [{"n":"Reddit Deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1pv691b/mstr_saylor_with_his_dilation_strategy/"}]
 ---
 # MSTR ( Saylor with his dilation strategy )
 

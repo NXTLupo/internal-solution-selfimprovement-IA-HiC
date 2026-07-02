@@ -20,22 +20,27 @@ chunks:
     char_span: [0, 2295]
     sentence_count: 23
     key_terms: [defi, money, wanted, learn, price, days, real, liquidated]
+    concepts: [money, wanted, learn, liquidated, price]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1sqg8zm/i_built_a_defi_simulator_defi_tycoon_so_people/"}]
   - id: "social-intelligence/reddit-deep/defi/1sqg8zm.md#c1"
     char_span: [2297, 3003]
     sentence_count: 12
     key_terms: [defi, store, "i'm", "it's", real, unrealistic, simulation, approvals]
+    concepts: [store]
     token_count: 160
   - id: "social-intelligence/reddit-deep/defi/1sqg8zm.md#c2"
-    char_span: [3018, 5252]
+    char_span: [3017, 5251]
     sentence_count: 28
     key_terms: [right, learning, real, notsoschrodinger, signal, thanks, "that's", money]
+    concepts: [learning, right, notsoschrodinger, signal, thanks]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/defi/1sqg8zm.md#c3"
-    char_span: [5254, 6443]
+    char_span: [5253, 6442]
     sentence_count: 8
     key_terms: [ssv84, simulations, defi, good, simulation, different, mechanics, prices]
+    concepts: [simulations, simulation, ssv84, different, mechanics]
     section: Comments
     token_count: 294
 ---

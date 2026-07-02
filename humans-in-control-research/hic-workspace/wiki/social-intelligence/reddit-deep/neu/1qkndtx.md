@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1149]
     sentence_count: 5
     key_terms: [program, northeastern, experiences, experience, academic, admitted, comments, everyone]
+    concepts: [program, northeastern, experiences, experience, academic]
     token_count: 261
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qkndtx/admitted_to_northeastern_msba_fall_2026_looking/"}]
 ---
 # Admitted to Northeastern MSBA (Fall 2026) – Looking for student experiences & program insights
 

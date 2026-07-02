@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2266]
     sentence_count: 18
     key_terms: [program, college, askacademia, conferences, been, sure, prospects, comments]
+    concepts: [program, college, askacademia, conferences, prospects]
     token_count: 477
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1t9syr8/recently_learned_that_the_head_of_my_program_was/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1t9syr8.md#c1"
     char_span: [2280, 3732]
     sentence_count: 18
     key_terms: [yourself, recommendation, "don't", conferences, networking, already, travel, academiathrow5371]
+    concepts: [yourself, recommendation, conferences, "don't", networking]
     section: Comments
     token_count: 333
 ---

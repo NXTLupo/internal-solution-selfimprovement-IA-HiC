@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1412]
     sentence_count: 12
     key_terms: [remote, find, work, english, ontario, workonline, comments, anyone]
+    concepts: [remote, english, ontario, workonline, comments]
     token_count: 324
+    sources: [{"n":"reddit-deep: r/workonline","u":"https://www.reddit.com/r/WorkOnline/comments/1p5pd3b/struggling_to_find_remote_work_in_ontario_only/"}]
   - id: "social-intelligence/reddit-deep/workonline/1p5pd3b.md#c1"
     char_span: [1426, 1703]
     sentence_count: 2

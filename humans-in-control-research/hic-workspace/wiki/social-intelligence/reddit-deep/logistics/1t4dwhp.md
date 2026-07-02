@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 957]
     sentence_count: 8
     key_terms: [anyone, logistics, comments, delivery, industry, failed, does, per]
+    concepts: [anyone, logistics, comments, delivery, industry]
     token_count: 216
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1t4dwhp/does_anyone_actually_measure_the_cost_of_a_failed/"}]
   - id: "social-intelligence/reddit-deep/logistics/1t4dwhp.md#c1"
-    char_span: [972, 2736]
+    char_span: [971, 2735]
     sentence_count: 14
     key_terms: [cost, driver, nobody, because, b2b, carriers, "doesn't", freight]
+    concepts: [driver, nobody, because, carriers, "doesn't"]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/logistics/1t4dwhp.md#c2"
-    char_span: [2738, 3718]
+    char_span: [2737, 3717]
     sentence_count: 11
     key_terms: [schedule, tracking, nobody, cost, too, bigvalleytech, stealthagents, truckerverse]
+    concepts: [schedule, tracking, nobody]
     section: Comments
     token_count: 231
 ---

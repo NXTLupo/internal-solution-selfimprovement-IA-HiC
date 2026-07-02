@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 2113]
     sentence_count: 5
     key_terms: [spacex, index, spacex-seeks-early-index-entry-as-it-prepares-massive-ipo-8445ed59, companies, ipo, company, indexes, major]
+    concepts: [spacex, index, companies, company, indexes]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1qwkh74.md#c1"]
     token_count: 429
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1qwkh74/spacex_seeks_early_index_entry_as_it_prepares/"}]
   - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c1"
     char_span: [2122, 2931]
     sentence_count: 4
     key_terms: [companies, successfully, executives, potential, indexes, major, "i'm", ipo]
+    concepts: [companies, successfully, executives, potential, indexes]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1qwkh74.md#c0"]
     token_count: 151
   - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c2"
     char_span: [2945, 3733]
     sentence_count: 5
     key_terms: [revenue, little, market, gonna, index, "i'm", darthpineapple5, norcalathlete]
+    concepts: [revenue, little, market, gonna, index]
     section: Comments
     token_count: 208
   - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c3"
     char_span: [3735, 5594]
     sentence_count: 9
     key_terms: [spacex, early, needs, get, investors, liquidity, trillion, windhero]
+    concepts: [spacex, early, needs, investors, liquidity]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c4"
     char_span: [5596, 7477]
     sentence_count: 15
     key_terms: [dealerships, company, direct, tesla, car, get, sell, without]
+    concepts: [dealerships, company, direct, tesla, without]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c5"
     char_span: [7479, 9428]
     sentence_count: 13
     key_terms: [texas, manufacturers, dealers, tesla, laws, sell, because, direct]
+    concepts: [manufacturers, texas, dealers, tesla, because]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c6"
     char_span: [9430, 11443]
     sentence_count: 11
     key_terms: [dealership, manufacturers, laws, dealer, international, tesla, traditional, networks]
+    concepts: [dealership, manufacturers, international, dealer, traditional]
     section: Comments
     token_count: 435
 ---

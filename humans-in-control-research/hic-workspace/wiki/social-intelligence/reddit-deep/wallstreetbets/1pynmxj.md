@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 730]
     sentence_count: 8
     key_terms: [wallstreetbets, silver, comments, dollars, futures, bought, money, sell]
+    concepts: [wallstreetbets, silver, comments, dollars, futures]
     token_count: 194
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1pynmxj/almost_lost_all_my_money_today_trading_silver/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pynmxj.md#c1"
     char_span: [744, 947]
     sentence_count: 1
     key_terms: [total, submissions, visualmod, comments, previous, account, report, years]
+    concepts: [total]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pynmxj.md#c2"
     char_span: [949, 2475]
     sentence_count: 6
     key_terms: [own-masterpiece5539, discord, futures, trading, swimming-fondant-892, doing, https, money]
+    concepts: [own-masterpiece5539, discord, futures, trading, doing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pynmxj.md#c3"
     char_span: [2259, 3436]
     sentence_count: 4
     key_terms: [futures, money, buy, lose, contract, xelonima, change, dollar]
+    concepts: [futures, money, contract, xelonima, change]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pynmxj.md#c4"
     char_span: [3438, 4280]
     sentence_count: 4
     key_terms: [buy, silver, high, "it's", low, sell, deleted, watercresscontent454]
+    concepts: [silver, deleted]
     section: Comments
     token_count: 250
 ---

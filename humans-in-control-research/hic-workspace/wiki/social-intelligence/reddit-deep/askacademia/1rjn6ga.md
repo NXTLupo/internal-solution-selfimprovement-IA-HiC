@@ -21,40 +21,52 @@ chunks:
     char_span: [0, 2181]
     sentence_count: 11
     key_terms: [research, project, thesis, bachelor, course, ects, independent, defense]
+    concepts: [research, project, thesis, bachelor, course]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c4"]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1rjn6ga/would_you_consider_an_advancedlevel_research/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c1"
     char_span: [2183, 2660]
     sentence_count: 3
     key_terms: [level, project, cycle, ects, educational, high-stakes, requirement, assessment]
+    concepts: [level, project, cycle]
     token_count: 101
   - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c2"
     char_span: [2674, 4743]
     sentence_count: 13
     key_terms: [experience, another, perspective, good, "bachelor's", motivation, university, programme]
+    concepts: [experience, another, perspective, "bachelor's", motivation]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c3"]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c3"
     char_span: [4747, 5911]
     sentence_count: 8
     key_terms: [university, experience, another, because, doing, administrative, accreditation, unnecessarily]
+    concepts: [university, experience, another, because, doing]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c2"]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c4"
     char_span: [5913, 7856]
     sentence_count: 16
     key_terms: [like, degree, thesis, exception, bachelor, complete, another, enough]
+    concepts: [degree, thesis, exception, bachelor, complete]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c0"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c5"
     char_span: [7858, 9822]
     sentence_count: 16
     key_terms: [thesis, work, university, did, alaskawolfjoe, requirements, "don't", institution]
+    concepts: [thesis, university, alaskawolfjoe, requirements, institution]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c6"
     char_span: [9824, 11716]
     sentence_count: 12
     key_terms: [course, degree, university, program, thesis, retroactively, part, situations]
+    concepts: [university, course, degree, retroactively, program]
     section: Comments
     token_count: 392
 ---

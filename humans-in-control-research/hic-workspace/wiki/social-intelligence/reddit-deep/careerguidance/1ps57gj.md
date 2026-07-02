@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 754]
     sentence_count: 9
     key_terms: [careerguidance, career, comments, yourself, purpose, advice, attach, best]
+    concepts: [careerguidance, career, comments, yourself, purpose]
     token_count: 182
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1ps57gj/whats_the_best_career_advice_youve_actually_seen/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1ps57gj.md#c1"
     char_span: [768, 2836]
     sentence_count: 16
     key_terms: [work, experience, understandingodd7952, role, degree, notalwaysuhb, too, internship]
+    concepts: [experience, understandingodd7952, notalwaysuhb, degree, internship]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/careerguidance/1ps57gj.md#c2"
     char_span: [2838, 3952]
     sentence_count: 8
     key_terms: [priority, work, boss, list, time, everyone, industry-dependent, job]
+    concepts: [priority, everyone]
     section: Comments
     token_count: 256
   - id: "social-intelligence/reddit-deep/careerguidance/1ps57gj.md#c3"
     char_span: [3954, 6058]
     sentence_count: 13
     key_terms: [never, geohog713, job, focused, someone, willing, "you're", opportunities]
+    concepts: [never, geohog713, opportunities, focused, someone]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/careerguidance/1ps57gj.md#c4"
     char_span: [6060, 8229]
     sentence_count: 21
     key_terms: [delegate, get, people, help, manage, field, learn, like]
+    concepts: [delegate, people, manage, field, learn]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/careerguidance/1ps57gj.md#c5"
     char_span: [8231, 10413]
     sentence_count: 19
     key_terms: [manager, keep, opportunity, learn, opportunities, focus, development, back]
+    concepts: [manager, opportunity, learn, opportunities, development]
     section: Comments
     token_count: 465
 ---

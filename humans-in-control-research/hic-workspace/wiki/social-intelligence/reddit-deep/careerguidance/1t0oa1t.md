@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 382]
     sentence_count: 2
     key_terms: [careerguidance, comments, hotpossibility8951, job, reddit-deep, experience, guidance, anybody]
+    concepts: [careerguidance, comments]
     token_count: 108
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t0oa1t/im_25_and_i_dont_have_a_job_till_now_no/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t0oa1t.md#c1"
     char_span: [396, 1967]
     sentence_count: 6
     key_terms: [basic, entry, start, data, job, confidence, something, customer]
+    concepts: [basic, confidence, entry, start, something]
     section: Comments
     token_count: 383
 ---

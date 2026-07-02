@@ -20,51 +20,61 @@ chunks:
     char_span: [0, 2203]
     sentence_count: 7
     key_terms: [figma, shares, billion, ipo, software, company, collaboration, stock]
+    concepts: [figma, shares, billion, software, collaboration]
     token_count: 478
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1me69dm/fig_is_indicating_95100_per_cnbc/"}]
   - id: "social-intelligence/reddit-deep/stocks/1me69dm.md#c1"
     char_span: [2205, 4324]
     sentence_count: 6
     key_terms: [figma, year, company, public, field, ipo, first-time, companies]
+    concepts: [figma, company, public, field, first-time]
     token_count: 461
   - id: "social-intelligence/reddit-deep/stocks/1me69dm.md#c2"
     char_span: [4326, 5600]
     sentence_count: 7
     key_terms: [figma-indicated-112-above-ipo-152947660, figma, million, finance, revenue, brown, https, stock]
+    concepts: [figma-indicated-112-above-ipo-152947660, figma, million, finance, revenue]
     token_count: 277
   - id: "social-intelligence/reddit-deep/stocks/1me69dm.md#c3"
-    char_span: [5615, 6495]
+    char_span: [5614, 6494]
     sentence_count: 5
     key_terms: [private, price, right, like, lol, year, winningwatchlist, retirementgoals]
+    concepts: [private, price, right]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/stocks/1me69dm.md#c4"
-    char_span: [6498, 7996]
+    char_span: [6497, 7995]
     sentence_count: 10
     key_terms: [requested, got, lol, share, robinhood, deleted, single, right]
+    concepts: [requested, share, robinhood, deleted, single]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1me69dm.md#c5"
-    char_span: [7833, 8206]
+    char_span: [7832, 8205]
     sentence_count: 3
     key_terms: [lol, share, gave, too, melancholy79, oddproxy99, stlredbird, checking]
+    concepts: [share]
     section: Comments
     token_count: 145
   - id: "social-intelligence/reddit-deep/stocks/1me69dm.md#c6"
-    char_span: [8208, 9855]
+    char_span: [8207, 9854]
     sentence_count: 6
     key_terms: [winningwatchlist, buying, danyzinho29, smart, damnmyredditheart, buy, come, edit]
+    concepts: [winningwatchlist, buying, danyzinho29, smart]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1me69dm.md#c7"
-    char_span: [9644, 11243]
+    char_span: [9643, 11242]
     sentence_count: 8
     key_terms: [buy, sofi, winningwatchlist, tulip-quartz, tnguyen5057, bought, doesnt, responsible-soft-127]
+    concepts: [winningwatchlist, tulip-quartz, tnguyen5057, bought, doesnt]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1me69dm.md#c8"
-    char_span: [11053, 11780]
+    char_span: [11052, 11779]
     sentence_count: 3
     key_terms: [got, responsible-soft-127, share, trade, adjustedtitan1, brucestarcrest, daynighttrade, tulip-quartz]
+    concepts: [share, trade]
     section: Comments
     token_count: 246
 ---

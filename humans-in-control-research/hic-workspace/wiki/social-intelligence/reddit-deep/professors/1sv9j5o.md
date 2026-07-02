@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 2126]
     sentence_count: 22
     key_terms: [because, leaving, students, money, years, time, work, professors]
+    concepts: [because, leaving, students, money, professors]
     token_count: 473
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1sv9j5o/my_university_is_running_out_of_money_and_im/"}]
   - id: "social-intelligence/reddit-deep/professors/1sv9j5o.md#c1"
     char_span: [2140, 4088]
     sentence_count: 15
     key_terms: [going, become, field, years, phd, understand, professor, securing]
+    concepts: [going, become, field, understand, years]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/professors/1sv9j5o.md#c2"
     char_span: [4090, 5938]
     sentence_count: 17
     key_terms: [teach, right, questioning, job, corporate, something, teaching, already]
+    concepts: [teach, questioning, right, corporate, something]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/professors/1sv9j5o.md#c3"
     char_span: [5940, 8103]
     sentence_count: 19
     key_terms: [institution, department, need, health, last, faculty, better, years]
+    concepts: [institution, department, health, faculty, better]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1sv9j5o.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1sv9j5o.md#c4"
     char_span: [7820, 8542]
     sentence_count: 8
     key_terms: [new, contract, better, leave, interestingly, opportunities, financially, institution]
+    concepts: [contract, better, leave]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/professors/1sv9j5o.md#c5"
     char_span: [8544, 10336]
     sentence_count: 16
     key_terms: ["i'm", "that's", doing, overwhelmed, feel, like, constantly, students]
+    concepts: ["that's", overwhelmed, constantly, doing, students]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/professors/1sv9j5o.md#c6"
     char_span: [10338, 12578]
     sentence_count: 27
     key_terms: [people, department, place, thank, institution, realization, million, exists]
+    concepts: [people, department, place, institution, realization]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1sv9j5o.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1sv9j5o.md#c7"
     char_span: [12295, 13353]
     sentence_count: 13
     key_terms: [better, sports, sure, congratulations, considering, functioning, institution, colleagues]
+    concepts: [better, sports]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/professors/1sv9j5o.md#c8"

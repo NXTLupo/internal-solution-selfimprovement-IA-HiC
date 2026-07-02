@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1110]
     sentence_count: 8
     key_terms: [job, comments, mentiontechnical9805, asked, offer, right, start, tells]
+    concepts: [comments, asked, offer, right, start]
     token_count: 277
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rgks60/they_gave_me_an_offer_for_more_than_what_i_asked/"}]
   - id: "social-intelligence/reddit-deep/jobs/1rgks60.md#c1"
     char_span: [1124, 1246]
     sentence_count: 3
@@ -32,30 +34,37 @@ chunks:
     char_span: [1248, 3182]
     sentence_count: 20
     key_terms: [position, years, been, didn, flag, job, red, year]
+    concepts: [position, years, congrats, because, called]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rgks60.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rgks60.md#c3"
     char_span: [2918, 4877]
     sentence_count: 17
     key_terms: [experience, range, job, because, salary, years, been, something]
+    concepts: [experience, range, because, salary, years]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rgks60.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rgks60.md#c4"
     char_span: [4621, 6185]
     sentence_count: 12
     key_terms: [happened, people, company, around, medicineconstant7130, asked, gonna, years]
+    concepts: [happened, people, company, around, asked]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/jobs/1rgks60.md#c5"
     char_span: [6190, 7351]
     sentence_count: 9
     key_terms: [mean, higher, hiring, above, offer, onyxlabyrinth1979, pay, accountability]
+    concepts: [higher, hiring, above, offer]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/jobs/1rgks60.md#c6"
     char_span: [7353, 9305]
     sentence_count: 16
     key_terms: [get, industry, software, years, programmers, job, profession, bootcamp]
+    concepts: [industry, software, programmers, profession, years]
     section: Comments
     token_count: 468
 ---

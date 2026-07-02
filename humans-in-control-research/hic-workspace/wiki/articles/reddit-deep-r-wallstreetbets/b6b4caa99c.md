@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1717]
     sentence_count: 9
     key_terms: [sndk, exhaustion, puts, rsi, comments, wallstreetbets, feb, short-term]
+    concepts: [exhaustion, comments, wallstreetbets, short-term, parabolic]
     token_count: 502
+    sources: [{"n":"Reddit Deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1qtkgt6/sndk_mu_momentum_exhaustion/"}]
   - id: "articles/reddit-deep-r-wallstreetbets/b6b4caa99c.md#c1"
     char_span: [1719, 2135]
     sentence_count: 2
     key_terms: [crayons, aggravating-buy-1695, top-perception3709, jordanpeterson9, far-guava6006, restrictions, scytherdota, reasoning]
+    concepts: [crayons]
     token_count: 137
 ---
 # 🌈🐻 $SNDK $MU - Momentum Exhaustion

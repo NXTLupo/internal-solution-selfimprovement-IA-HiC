@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 685]
     sentence_count: 1
     key_terms: [health, comments, support, mental, helpful, personal-entrance390, "i've", neu]
+    concepts: [health, comments, support, mental, helpful]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1r9dn1u.md#c2"]
     token_count: 160
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1r9dn1u/mental_health_support/"}]
   - id: "social-intelligence/reddit-deep/neu/1r9dn1u.md#c1"
     char_span: [699, 2733]
     sentence_count: 1
     key_terms: [psychiatrist, northeastern, like, leanonme, hotline, therapy, health, mental]
+    concepts: [psychiatrist, northeastern, leanonme, hotline, therapy]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/neu/1r9dn1u.md#c2"
     char_span: [2735, 3681]
     sentence_count: 7
     key_terms: [uhcs, therapy, health, services, students, support, through, mental]
+    concepts: [therapy, health, services, students, support]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1r9dn1u.md#c0"]
     section: Comments
     token_count: 228
 ---

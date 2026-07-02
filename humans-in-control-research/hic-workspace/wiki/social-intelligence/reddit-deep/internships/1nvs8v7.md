@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1624]
     sentence_count: 12
     key_terms: [internships, searching, months, applications, job, experience, full-time, interview]
+    concepts: [internships, searching, applications, months, experience]
     token_count: 390
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1nvs8v7/18_months_of_searching_1870_applications_i/"}]
   - id: "social-intelligence/reddit-deep/internships/1nvs8v7.md#c1"
     char_span: [1638, 2825]
     sentence_count: 4
     key_terms: [congratulations, congrats, deserved, comfortable-lime-936, consistent-serve-701, professional-age-948, repulsive-news-9610, big]
+    concepts: [congratulations, congrats, deserved]
     section: Comments
     token_count: 323
 ---

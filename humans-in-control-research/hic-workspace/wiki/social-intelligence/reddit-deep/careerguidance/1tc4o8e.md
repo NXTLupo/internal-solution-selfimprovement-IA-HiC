@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1414]
     sentence_count: 14
     key_terms: [frontend, careerguidance, client, months, continued, developer, comments, company]
+    concepts: [frontend, careerguidance, client, months, continued]
     token_count: 333
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tc4o8e/career_choice_path_confusion_in_software/"}]
 ---
 # Career choice path confusion in software development. Should I specialize or just be useful?
 

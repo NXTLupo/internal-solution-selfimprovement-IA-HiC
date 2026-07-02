@@ -19,59 +19,70 @@ chunks:
     char_span: [0, 1190]
     sentence_count: 9
     key_terms: [findapath, comments, confused, career, choose, don, love, real]
+    concepts: [findapath, comments, confused, career, choose]
     token_count: 291
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1ooacz0/be_honest_guys_whats_actually_the_best_career_to/"}]
   - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c1"
-    char_span: [1205, 2823]
+    char_span: [1204, 2822]
     sentence_count: 15
     key_terms: [thank, helpful, change, please, findapath, comments, everyone, guidance]
+    concepts: [thank, helpful, change, please, findapath]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c2"
-    char_span: [2825, 4489]
+    char_span: [2824, 4488]
     sentence_count: 15
     key_terms: [something, passion, "you're", onetinterestprofiler, like, talent, start, good]
+    concepts: [something, onetinterestprofiler, passion, "you're", talent]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c3"
-    char_span: [4491, 6487]
+    char_span: [4490, 6486]
     sentence_count: 15
     key_terms: [good, need, want, subjects, example, talking, better, enough]
+    concepts: [subjects, example, talking, better, enough]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c4"
-    char_span: [6489, 8031]
+    char_span: [6488, 8030]
     sentence_count: 19
     key_terms: [years, technical, school, did, get, college, degree, don]
+    concepts: [technical, years, school, college, degree]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c5"
-    char_span: [8033, 9465]
+    char_span: [8032, 9464]
     sentence_count: 16
     key_terms: [get, good, accounting, auditing, getting, change, degree, people]
+    concepts: [accounting, auditing, getting, change, degree]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c6"
-    char_span: [9467, 10987]
+    char_span: [9466, 10986]
     sentence_count: 6
     key_terms: [job, field, work, benefits, expected, degrees, "didn't", "don't"]
+    concepts: [field, benefits, expected, degrees, "didn't"]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c7"
-    char_span: [10989, 12543]
+    char_span: [10988, 12542]
     sentence_count: 10
     key_terms: [doing, job, skills, communication, great, different, sacrifice, because]
+    concepts: [doing, communication, skills, great, different]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c8"
-    char_span: [12546, 14373]
+    char_span: [12545, 14372]
     sentence_count: 18
     key_terms: [because, brother, etc, like, work, medicine, looking, myself]
+    concepts: [because, brother, medicine, looking, myself]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c9"
-    char_span: [14375, 15833]
+    char_span: [14374, 15832]
     sentence_count: 9
     key_terms: [passion, job, comment, people, engineering, get, work, volunteer]
+    concepts: [passion, comment, people, engineering, volunteer]
     section: Comments
     token_count: 325
 ---

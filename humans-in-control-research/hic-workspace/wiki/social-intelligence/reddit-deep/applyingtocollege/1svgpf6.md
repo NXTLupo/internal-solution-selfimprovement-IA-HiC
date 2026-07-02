@@ -21,44 +21,55 @@ chunks:
     char_span: [0, 890]
     sentence_count: 6
     key_terms: [applyingtocollege, post, comments, reasons, austin, "don't", "i'll", want]
+    concepts: [applyingtocollege, comments, reasons, austin, "don't"]
     token_count: 217
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1svgpf6/fine_one_more_post_and_then_ill_let_it_rest_are/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md#c1"
     char_span: [892, 3027]
     sentence_count: 15
     key_terms: [cornell, school, grad, undergrad, "don't", cost, name, take]
+    concepts: [cornell, school, undergrad, "don't", admitted]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md#c2"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md#c2"
     char_span: [2758, 3676]
     sentence_count: 7
     key_terms: [cornell, music, school, loans, wrong, "it's", prestige-focused, non-academic]
+    concepts: [cornell, music, school, loans, wrong]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md#c1"]
     token_count: 209
   - id: "social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md#c3"
     char_span: [3678, 4145]
     sentence_count: 4
     key_terms: [cornell, been, "i've", appreciate, graduation, commented, hindering, everyone]
+    concepts: [cornell]
     token_count: 105
   - id: "social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md#c4"
     char_span: [4159, 6037]
     sentence_count: 19
     key_terms: [decision, like, choice, choose, "isn't", wrong, path, adventure]
+    concepts: [decision, choice, choose, "isn't", wrong]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md#c5"
     char_span: [6039, 7869]
     sentence_count: 19
     key_terms: [cornell, reasons, invalid, derpyderp2048, yourself, austin, degree, faulty]
+    concepts: [cornell, reasons, derpyderp2048, invalid, yourself]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md#c6"
     char_span: [7871, 9724]
     sentence_count: 12
     key_terms: [cornell, austin, choose, akshtttt, prestige, because, college, parents]
+    concepts: [cornell, austin, choose, akshtttt, prestige]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md#c7"
     char_span: [9726, 11482]
     sentence_count: 13
     key_terms: [derpyderp2048, decision, long, thanks, grad, run, yeah, congrats]
+    concepts: [derpyderp2048, decision, thanks, congrats, prestige]
     section: Comments
     token_count: 450
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 887]
     sentence_count: 3
     key_terms: [god, comments, students, bostonu, around, mother, wmscog, group]
+    concepts: [comments, students, bostonu, around, mother]
     token_count: 223
+    sources: [{"n":"reddit-deep: r/bostonu","u":"https://www.reddit.com/r/BostonU/comments/1m6psfo/headsup_bu_god_the_mother_group_wmscog_is/"}]
   - id: "social-intelligence/reddit-deep/bostonu/1m6psfo.md#c1"
     char_span: [889, 2969]
     sentence_count: 10
     key_terms: [group, someone, theological, questions, biblical, credible, believe, support]
+    concepts: [group, someone, theological, questions, biblical]
     token_count: 469
   - id: "social-intelligence/reddit-deep/bostonu/1m6psfo.md#c2"
     char_span: [2971, 3275]
@@ -32,15 +35,17 @@ chunks:
     key_terms: [uncomfortable, conversation, concerning, encounter, wellbeing, behavior, hesitate, students]
     token_count: 65
   - id: "social-intelligence/reddit-deep/bostonu/1m6psfo.md#c3"
-    char_span: [3290, 4992]
+    char_span: [3289, 4991]
     sentence_count: 11
     key_terms: [international, students, campus, cults, bandwagonreaganfan, depreseedrobot230, fineprofessor3364, away]
+    concepts: [international, students, campus, cults]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/bostonu/1m6psfo.md#c4"
-    char_span: [4994, 5960]
+    char_span: [4993, 5959]
     sentence_count: 6
     key_terms: [campus, active, falun, cult, gong, here, supernatural, enlightened]
+    concepts: [campus, active, falun]
     section: Comments
     token_count: 237
 ---

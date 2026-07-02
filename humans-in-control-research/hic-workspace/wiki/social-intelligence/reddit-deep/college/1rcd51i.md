@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 955]
     sentence_count: 6
     key_terms: [college, parents, school, comments, decision, guilty, state, dad]
+    concepts: [college, parents, school, comments, decision]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rcd51i.md#c1", "social-intelligence/reddit-deep/college/1rcd51i.md#c2"]
     token_count: 232
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1rcd51i/how_do_i_stop_feeling_guilty_for_letting_my/"}]
   - id: "social-intelligence/reddit-deep/college/1rcd51i.md#c1"
     char_span: [969, 2854]
     sentence_count: 21
     key_terms: [adventurousexpert217, because, college, parents, scholarships, dad, feel, help]
+    concepts: [adventurousexpert217, because, college, parents, scholarships]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rcd51i.md#c0", "social-intelligence/reddit-deep/college/1rcd51i.md#c2"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/college/1rcd51i.md#c2"
     char_span: [2856, 4778]
     sentence_count: 15
     key_terms: [parents, help, college, pay, time, decision, afford, guilty]
+    concepts: [parents, college, decision, afford, guilty]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rcd51i.md#c0", "social-intelligence/reddit-deep/college/1rcd51i.md#c1"]
     section: Comments
     token_count: 483
 ---

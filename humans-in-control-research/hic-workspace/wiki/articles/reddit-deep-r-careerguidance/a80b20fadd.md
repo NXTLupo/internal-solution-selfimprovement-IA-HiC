@@ -18,21 +18,26 @@ chunks:
     char_span: [0, 2281]
     sentence_count: 19
     key_terms: [role, leadership, boss, job, like, work, another, careerguidance]
+    concepts: [leadership, careerguidance, another, expectations, offer]
     token_count: 499
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t8tt86/i_got_offered_a_director_role_at_another/"}]
   - id: "articles/reddit-deep-r-careerguidance/a80b20fadd.md#c1"
     char_span: [2283, 4020]
     sentence_count: 15
     key_terms: [job, new, meeting, get, time, director, tomorrow, months]
+    concepts: [meeting, director, tomorrow, months, offer]
     token_count: 397
   - id: "articles/reddit-deep-r-careerguidance/a80b20fadd.md#c2"
     char_span: [4022, 6022]
     sentence_count: 13
     key_terms: [want, raise, severance, company, years, comfortable, keep, new]
+    concepts: [severance, raise, company, comfortable, years]
     token_count: 490
   - id: "articles/reddit-deep-r-careerguidance/a80b20fadd.md#c3"
     char_span: [6024, 6542]
     sentence_count: 5
     key_terms: [changed, doubled, butteredpizza69420, love, successfully, comfortable, industries, increases]
+    concepts: [changed, doubled]
     token_count: 123
 ---
 # I got offered a director role at another institution and I told my boss. She said she’ll do anything she can to keep me. How do I approach this with the idea of making the most money/job security?

@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 811]
     sentence_count: 7
     key_terms: [work, professor, comments, supposed, college, worried, little, died]
+    concepts: [professor, comments, supposed, college, worried]
     token_count: 191
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1sqrp2g/my_professor_died/"}]
   - id: "social-intelligence/reddit-deep/college/1sqrp2g.md#c1"
     char_span: [825, 2161]
     sentence_count: 8
     key_terms: [professor, university, course, significant, remaining, semester, changes, passed]
+    concepts: [professor, university, course, significant, remaining]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/college/1sqrp2g.md#c2"
     char_span: [2163, 4308]
     sentence_count: 21
     key_terms: [professor, sorry, loss, man, department, passed, walked, einsteinsgranddaddy]
+    concepts: [professor, department, sorry, passed, walked]
+    related_chunks: ["social-intelligence/reddit-deep/college/1sqrp2g.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1sqrp2g.md#c3"
     char_span: [4008, 5302]
     sentence_count: 11
     key_terms: [immediately, class, sorry, professor, teaching, changed, nothing, started]
+    concepts: [immediately, class, sorry, professor, teaching]
+    related_chunks: ["social-intelligence/reddit-deep/college/1sqrp2g.md#c2"]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/college/1sqrp2g.md#c4"
     char_span: [5304, 7544]
     sentence_count: 19
     key_terms: [professor, semester, arts, professors, excuse-negative, classes, college, waiting]
+    concepts: [professor, semester, professors, excuse-negative, classes]
     section: Comments
     token_count: 498
 ---

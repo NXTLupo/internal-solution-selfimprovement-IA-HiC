@@ -19,71 +19,84 @@ chunks:
     char_span: [0, 1496]
     sentence_count: 11
     key_terms: [unemployment, money, dont, job, jobs, applying, months, fired]
+    concepts: [unemployment, money, applying, months, experience]
     token_count: 349
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1sxniga/5_months_unemployed_about_to_run_out_of_money/"}]
   - id: "social-intelligence/reddit-deep/jobs/1sxniga.md#c1"
     char_span: [1510, 3138]
     sentence_count: 7
     key_terms: [unemployment, fired, contest, being, collect, qualify, frosty-wishbone-5303, weeks]
+    concepts: [unemployment, fired, contest, being, collect]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/jobs/1sxniga.md#c2"
     char_span: [3140, 3687]
     sentence_count: 3
     key_terms: [getting, people, boat, goodisland8523, salespeople, companies, nessa0707, providers]
+    concepts: [getting, people]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/jobs/1sxniga.md#c3"
     char_span: [3689, 5098]
     sentence_count: 8
     key_terms: [nessa0707, employees, business, because, biotech, people, sad-examination-4301, alone]
+    concepts: [nessa0707, employees, business, because, biotech]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/jobs/1sxniga.md#c4"
     char_span: [5100, 6962]
     sentence_count: 15
     key_terms: [shift, disability, nessa0707, permanent, having, people, taking, attackofthesnakebear]
+    concepts: [disability, shift, nessa0707, permanent, having]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/jobs/1sxniga.md#c5"
     char_span: [6964, 7856]
     sentence_count: 9
     key_terms: [definitely, employee, company, hours, staff, years, call, high]
+    concepts: [definitely, employee, company, hours, staff]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/jobs/1sxniga.md#c6"
     char_span: [7858, 9911]
     sentence_count: 17
     key_terms: [level, home, need, because, functioning, good, jobs, work]
+    concepts: [level, because, functioning, especially, understand]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sxniga.md#c7"
     char_span: [9617, 11104]
     sentence_count: 10
     key_terms: [jobs, work, companies, group, homes, bit, get, look]
+    concepts: [companies, group, homes]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/jobs/1sxniga.md#c8"
     char_span: [11106, 12413]
     sentence_count: 13
     key_terms: [experience, list, restaurant, training, listing, closed, redact, unless]
+    concepts: [experience, restaurant, training, listing, closed]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/jobs/1sxniga.md#c9"
     char_span: [12415, 14288]
     sentence_count: 12
     key_terms: [housing, blackchaos93, job, regrets, enough, crazy-animator1123, find, get]
+    concepts: [housing, blackchaos93, regrets, enough]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/jobs/1sxniga.md#c10"
     char_span: [14290, 15520]
     sentence_count: 12
     key_terms: [hours, "i'm", work, week, overnight, already, live-in, people]
+    concepts: [hours, overnight, already, live-in, people]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/jobs/1sxniga.md#c11"
     char_span: [15522, 17266]
     sentence_count: 18
     key_terms: [donate, center, hotels, information, always, banned, health, hiring]
+    concepts: [donate, center, hotels, information, always]
     section: Comments
     token_count: 431
 ---

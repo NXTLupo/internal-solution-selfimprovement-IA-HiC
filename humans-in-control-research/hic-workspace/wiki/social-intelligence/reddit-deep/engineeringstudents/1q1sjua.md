@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 379]
     sentence_count: 4
     key_terms: [engineeringstudents, comments, engineering, internships, reddit-deep, electrical, aerospace, sophomore]
+    concepts: [engineeringstudents, comments]
     token_count: 100
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1q1sjua/studentelectrical_engineering_us_seeking_resume/"}]
 ---
 # [Student]-[Electrical Engineering] [US] Seeking resume advice/review for internships. Aerospace or power. Sophomore, Junior in fall 2026.
 

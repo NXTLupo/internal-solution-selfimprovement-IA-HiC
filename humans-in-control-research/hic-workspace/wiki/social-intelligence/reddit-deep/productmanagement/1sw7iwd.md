@@ -20,77 +20,94 @@ chunks:
     char_span: [0, 1440]
     sentence_count: 6
     key_terms: [prototype, productmanagement, working, amount, enough, documentation, going, good]
+    concepts: [prototype, productmanagement, documentation, working, amount]
     token_count: 304
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1sw7iwd/documentation_can_never_be_replaced/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1sw7iwd.md#c1"
-    char_span: [1455, 2816]
+    char_span: [1454, 2815]
     sentence_count: 11
     key_terms: [features, better, documentation, doc, something, process, putting, writing]
+    concepts: [features, documentation, better, something, process]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/productmanagement/1sw7iwd.md#c2"
-    char_span: [2818, 5021]
+    char_span: [2817, 5020]
     sentence_count: 15
     key_terms: [prd, managers, products, product, communication, documentation, agree, whole]
+    concepts: [managers, products, communication, documentation, product]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/productmanagement/1sw7iwd.md#c3"
-    char_span: [5023, 6239]
+    char_span: [5022, 6238]
     sentence_count: 13
     key_terms: [prds, google, product, usually, writing, build, own, skip]
+    concepts: [google, product, usually, writing, build]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/productmanagement/1sw7iwd.md#c4"
-    char_span: [6241, 8374]
+    char_span: [6240, 8373]
     sentence_count: 13
     key_terms: [prd, hustlininthehall, does, prds, decisions, launching, prototype, gaslight]
+    concepts: [hustlininthehall, decisions, launching, prototype, gaslight]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/productmanagement/1sw7iwd.md#c5"
-    char_span: [8103, 9595]
+    char_span: [8102, 9594]
     sentence_count: 10
     key_terms: [product, least, dev, devs, prd, prioritizations, implementation, communication]
+    concepts: [product, least]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/productmanagement/1sw7iwd.md#c6"
-    char_span: [9597, 10990]
+    char_span: [9596, 10989]
     sentence_count: 11
     key_terms: [prototyping, because, product, written, always, states, decks, needs]
+    concepts: [prototyping, because, product, written, always]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1sw7iwd.md#c9"]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/productmanagement/1sw7iwd.md#c7"
-    char_span: [10992, 13033]
+    char_span: [10991, 13032]
     sentence_count: 8
     key_terms: [problem, spec, want, especially, "that's", fuzzy-football-4544, argue, build]
+    concepts: [problem, especially, "that's", argue, build]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/productmanagement/1sw7iwd.md#c8"
-    char_span: [13035, 14994]
+    char_span: [13034, 14993]
     sentence_count: 18
     key_terms: [documentation, claude, doing, complicated, dev, team, prototypes, different]
+    concepts: [documentation, claude, doing, complicated, prototypes]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/productmanagement/1sw7iwd.md#c9"
-    char_span: [14996, 17117]
+    char_span: [14995, 17116]
     sentence_count: 9
     key_terms: [prototyping, design, prd, problem, product, without, building, thinking]
+    concepts: [prototyping, design, problem, product, without]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1sw7iwd.md#c6", "social-intelligence/reddit-deep/productmanagement/1sw7iwd.md#c10"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/productmanagement/1sw7iwd.md#c10"
-    char_span: [17119, 19157]
+    char_span: [17118, 19156]
     sentence_count: 13
     key_terms: [prototype, "it's", prd, problem, product, having, backwards, building]
+    concepts: [prototype, problem, product, having, backwards]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1sw7iwd.md#c9"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/productmanagement/1sw7iwd.md#c11"
-    char_span: [19160, 21518]
+    char_span: [19159, 21517]
     sentence_count: 18
     key_terms: [prototype, like, "i'm", "it's", feature, course, design, pretty]
+    concepts: [prototype, feature, course, design, pretty]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/productmanagement/1sw7iwd.md#c12"
-    char_span: [21521, 22374]
+    char_span: [21520, 22373]
     sentence_count: 5
     key_terms: [user, research, features, "they're", design, system, "don't", terms]
+    concepts: [research, features, "they're", design, system]
     section: Comments
     token_count: 176
 ---

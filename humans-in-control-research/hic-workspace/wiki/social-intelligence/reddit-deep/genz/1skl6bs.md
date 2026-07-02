@@ -21,35 +21,47 @@ chunks:
     char_span: [0, 1485]
     sentence_count: 12
     key_terms: [single, relationship, life, like, girlfriend, comments, around, needed]
+    concepts: [single, relationship, girlfriend, comments, around]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1skl6bs.md#c3", "social-intelligence/reddit-deep/genz/1skl6bs.md#c4"]
     token_count: 353
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1skl6bs/is_it_just_me_or_is_most_of_gen_z_men_women_or/"}]
   - id: "social-intelligence/reddit-deep/genz/1skl6bs.md#c1"
     char_span: [1499, 2670]
     sentence_count: 2
     key_terms: [boyfriend, e690d547e7d044da2864178137df1fb7dea65a9f, wastekoala473, "don't", giphy, gif, approach, discord]
+    concepts: [boyfriend, wastekoala473, "don't", giphy, approach]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/genz/1skl6bs.md#c2"
     char_span: [2672, 4744]
     sentence_count: 12
     key_terms: [single, women, relationships, dating, men, generation, geofrtdeem, people]
+    concepts: [single, women, relationships, dating, generation]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1skl6bs.md#c3", "social-intelligence/reddit-deep/genz/1skl6bs.md#c4"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/genz/1skl6bs.md#c3"
     char_span: [4746, 6232]
     sentence_count: 5
     key_terms: [women, relationship, gen, dating, being, men, girlfriend, majority]
+    concepts: [relationship, women, dating, being, girlfriend]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1skl6bs.md#c0", "social-intelligence/reddit-deep/genz/1skl6bs.md#c2", "social-intelligence/reddit-deep/genz/1skl6bs.md#c4"]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/genz/1skl6bs.md#c4"
     char_span: [6234, 8240]
     sentence_count: 11
     key_terms: [relationship, people, single, been, ineptfortitude, dating, women, men]
+    concepts: [relationship, people, single, ineptfortitude, dating]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1skl6bs.md#c0", "social-intelligence/reddit-deep/genz/1skl6bs.md#c2", "social-intelligence/reddit-deep/genz/1skl6bs.md#c3", "social-intelligence/reddit-deep/genz/1skl6bs.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1skl6bs.md#c5"
     char_span: [8010, 8415]
     sentence_count: 5
     key_terms: [relationship, "i'm", people, tooobsessedwithmoney, actively, majority, rejected, suicidal]
+    concepts: [relationship, people]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1skl6bs.md#c4"]
     section: Comments
     token_count: 116
   - id: "social-intelligence/reddit-deep/genz/1skl6bs.md#c6"

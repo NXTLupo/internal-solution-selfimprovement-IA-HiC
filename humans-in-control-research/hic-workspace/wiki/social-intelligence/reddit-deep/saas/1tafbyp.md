@@ -20,35 +20,42 @@ chunks:
     char_span: [0, 2191]
     sentence_count: 22
     key_terms: [code, lines, saas, founder, email, works, integration, real]
+    concepts: [lines, founder, integration, email, works]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1tafbyp/9000_lines_of_code_solo_founder_99month_saas_the/"}]
   - id: "social-intelligence/reddit-deep/saas/1tafbyp.md#c1"
-    char_span: [2206, 4325]
+    char_span: [2205, 4324]
     sentence_count: 30
     key_terms: [finance, development, claude, code, file, backend, started, gemini]
+    concepts: [development, finance, claude, backend, started]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/saas/1tafbyp.md#c2"
-    char_span: [4327, 6377]
+    char_span: [4326, 6376]
     sentence_count: 10
     key_terms: [everything, because, billing, instead, right, incremental, add, auth]
+    concepts: [everything, because, billing, instead, incremental]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/saas/1tafbyp.md#c3"
-    char_span: [6379, 8489]
+    char_span: [6378, 8488]
     sentence_count: 20
     key_terms: [customers, already, support, paying, questions, something, customer, someone]
+    concepts: [customers, already, support, paying, questions]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/saas/1tafbyp.md#c4"
-    char_span: [8491, 10528]
+    char_span: [8490, 10527]
     sentence_count: 25
     key_terms: [file, because, that-guy-scott, "you're", architecture, refactoring, customers, customer]
+    concepts: [that-guy-scott, because, architecture, "you're", refactoring]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/saas/1tafbyp.md#c5"
-    char_span: [10532, 11044]
+    char_span: [10531, 11043]
     sentence_count: 4
     key_terms: [sendio, day, especially, instantly, something, founders, linkedin, meetings]
+    concepts: [sendio]
     section: Comments
     token_count: 106
 ---

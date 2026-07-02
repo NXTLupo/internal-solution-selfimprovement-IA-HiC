@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1516]
     sentence_count: 11
     key_terms: [international, student, advice, been, year, experience, struggling, comments]
+    concepts: [international, student, advice, experience, struggling]
     token_count: 333
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1mg4utz/international_student_in_kw_struggling_to_find/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1mg4utz.md#c1"
     char_span: [1530, 2698]
     sentence_count: 8
     key_terms: [students, international, probably, studying, "there's", secure, trying, doing]
+    concepts: [students, international, probably, studying, "there's"]
     section: Comments
     token_count: 257
   - id: "social-intelligence/reddit-deep/waterloo/1mg4utz.md#c2"
     char_span: [2700, 4709]
     sentence_count: 14
     key_terms: [quiet-divide-3982, co-op, school, appreciate, job, dronedesigner, did, kind]
+    concepts: [quiet-divide-3982, co-op, appreciate, school, dronedesigner]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/waterloo/1mg4utz.md#c3"

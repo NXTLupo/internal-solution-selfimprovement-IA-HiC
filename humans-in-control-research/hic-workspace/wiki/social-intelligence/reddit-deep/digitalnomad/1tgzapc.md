@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1155]
     sentence_count: 10
     key_terms: [digitalnomad, business, comments, clients, always, mostly, people, "you're"]
+    concepts: [digitalnomad, business, comments, clients, always]
     token_count: 261
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1tgzapc/how_do_you_actually_meet_people_who_can_send_you/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1tgzapc.md#c1"
     char_span: [1169, 2953]
     sentence_count: 8
     key_terms: [online, "you're", dumpsterslunt, niche, seller-rich, linkedin, referral, remember]
+    concepts: [online, dumpsterslunt, "you're", seller-rich, niche]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/digitalnomad/1tgzapc.md#c2"
     char_span: [2955, 3360]
     sentence_count: 3
     key_terms: [clients, geographical, restriction, competing, different, scaleable, agencies, industry]
+    concepts: [clients]
     section: Comments
     token_count: 87
 ---

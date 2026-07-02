@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1290]
     sentence_count: 10
     key_terms: [embedded, engineering, engineeringstudents, robotics, student, mechatronics, comments, learning]
+    concepts: [embedded, engineering, engineeringstudents, robotics, student]
     token_count: 302
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1se8mtg/advice_for_engineering_student/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1se8mtg.md#c1"
     char_span: [1304, 1935]
     sentence_count: 4
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    concepts: [engineeringstudents, reddit, https, resources, please]
     section: Comments
     token_count: 149
 ---

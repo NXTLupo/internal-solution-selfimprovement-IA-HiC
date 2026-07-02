@@ -166,6 +166,24 @@ export interface ProductBrief {
         accessibility: string;
         other: string[];
     };
+    /** E6 (2026-07-02, artifact-total-elevation) PRD-IN-BRIEF: the detailed PRD contained within
+     *  the brief the prototype utilizes (prd-compiler feature schema; converge, no fork). Shown in
+     *  the brief-picker card for approval; flows into buildPrototype as approvedBrief.prd_candidate
+     *  where Stage 2 maps features -> screens and Stage 5 audits acceptance-criteria coverage.
+     *  Populated ONLY from evidenced input - a thin corpus yields a thin PRD honestly. */
+    prd_candidate?: {
+        features: Array<{
+            name: string;
+            priority: 'must' | 'should' | 'could' | 'wont';
+            description: string;
+            acceptanceCriteria: string[];
+            citations: string[];
+            evidenceBasis: string;
+        }>;
+        success_metrics: Array<{ metric: string; baseline: string; target: string; guardrail: string }>;
+        risks: string[];
+        out_of_scope: string[];
+    };
 }
 
 export interface BriefGenerationOptions {
@@ -279,6 +297,7 @@ Every brief you write MUST meet or exceed these counts. Under-specifying trigger
 - **visual_direction**: aesthetic_keywords (specific - "data-dense editorial restraint" not "modern and clean"), hero_treatment (verbose), motion_character (verbose), and image_gen_opportunities (3-6 specific Imagen prompts the prototype calls at runtime).
 - **5-7 success_criteria** - concrete, observable.
 - **hard_constraints** brand / platform / accessibility / other.
+- **prd_candidate** (PRD-IN-BRIEF, E6): 4-10 features derived ONLY from what the input evidences - each with name, MoSCoW priority, a 40-60 word description, 2-4 Given/When/Then acceptanceCriteria, citations naming REAL sources from the input, and an evidenceBasis (verbatim quote or named entity). Plus success_metrics (qualitative baselines/targets unless a number rides inside a cited quote), evidenced risks, and out_of_scope. A thin input yields a THIN prd_candidate honestly - never pad.
 </exhaustiveness_floor>
 
 <no_verbatim_research_quotes>
@@ -365,6 +384,12 @@ Return a single JSON object - the complete ProductBrief - matching this schema:
     "platform": "web",
     "accessibility": "WCAG AA",
     "other": ["string"]
+  },
+  "prd_candidate": {
+    "features": [{ "name": "string", "priority": "must | should | could | wont", "description": "string, 40-60 words", "acceptanceCriteria": ["Given ... When ... Then ..."], "citations": ["real named source"], "evidenceBasis": "verbatim quote or named entity" }],
+    "success_metrics": [{ "metric": "string", "baseline": "string", "target": "string", "guardrail": "string" }],
+    "risks": ["string"],
+    "out_of_scope": ["string"]
   }
 }
 

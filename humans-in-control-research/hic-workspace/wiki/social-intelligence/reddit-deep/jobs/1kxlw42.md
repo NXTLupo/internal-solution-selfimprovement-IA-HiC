@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1027]
     sentence_count: 7
     key_terms: [jobs, entry-level, florida, comments, criminal, justice, looking, outside]
+    concepts: [entry-level, florida, comments, criminal, justice]
     token_count: 235
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1kxlw42/criminal_justice_student_in_florida_what/"}]
 ---
 # Criminal Justice Student in Florida — What Entry-Level Jobs Should I Be Looking At (Outside of Being a Cop)?
 

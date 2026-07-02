@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 2300]
     sentence_count: 17
     key_terms: [problem, math, career, degree, field, going, cscareerquestions, get]
+    concepts: [problem, career, cscareerquestions, degree, field]
     token_count: 510
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1l8mflq/too_old_for_career_change_into_cs/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/66f1ec2bbc.md#c1"
     char_span: [2304, 3950]
     sentence_count: 7
     key_terms: [willing, new, because, kids, move, university, anywhere, relocate]
+    concepts: [willing, because, university, anywhere, relocate]
     token_count: 394
   - id: "articles/reddit-deep-r-cscareerquestions/66f1ec2bbc.md#c2"
     char_span: [3952, 4581]
     sentence_count: 7
     key_terms: [get, coding, care, financially, background, experience, proficient, transition]
+    concepts: [coding]
     token_count: 155
 ---
 # Too old for career change into CS?

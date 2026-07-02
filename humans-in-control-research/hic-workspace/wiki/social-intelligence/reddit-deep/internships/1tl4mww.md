@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 541]
     sentence_count: 5
     key_terms: [internships, internship, comments, landed, summer, start, fall, reddit-deep]
+    concepts: [internships, internship, comments, landed, summer]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1tl4mww.md#c2"]
     token_count: 153
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tl4mww/internship_landed_eager_for_fall_2026_already/"}]
   - id: "social-intelligence/reddit-deep/internships/1tl4mww.md#c1"
     char_span: [555, 2479]
     sentence_count: 9
     key_terms: [fall, spring, appropriate-tutor587, graduation, internship, postings, later, internships]
+    concepts: [appropriate-tutor587, graduation, internship, spring, postings]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/internships/1tl4mww.md#c2"
     char_span: [2481, 3979]
     sentence_count: 10
     key_terms: [fall, start, internships, internship, different, september, already, companies]
+    concepts: [internships, internship, start, different, september]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1tl4mww.md#c0"]
     section: Comments
     token_count: 371
 ---

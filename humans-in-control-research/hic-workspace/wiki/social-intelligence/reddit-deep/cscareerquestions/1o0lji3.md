@@ -21,17 +21,22 @@ chunks:
     char_span: [0, 255]
     sentence_count: 1
     key_terms: [cscareerquestions, comments, market, job, tech, reddit-deep, positions, posted]
+    concepts: [cscareerquestions, comments, market]
     token_count: 73
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1o0lji3/tech_job_market/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o0lji3.md#c1"
     char_span: [269, 1751]
     sentence_count: 3
     key_terms: [answer, future, market, creepyrooftop, newchameleon, get, first-half, terrible]
+    concepts: [creepyrooftop, newchameleon, answer, future, market]
     section: Comments
     token_count: 435
+    sources: [{"n":"I am a time traveler","u":""}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o0lji3.md#c2"
     char_span: [1755, 2735]
     sentence_count: 5
     key_terms: [tonytheevil, lol, qualified, years, no-rush-hour-2422, like, chrisfathead1, bamartin1618]
+    concepts: [tonytheevil, qualified, years]
     section: Comments
     token_count: 277
 ---

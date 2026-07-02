@@ -19,19 +19,23 @@ content_hash: "f576cd2c2b1920cd"
 relevance_by_goal: {"7bbd4efaae7d":80}
 chunks:
   - id: "articles/reddit-deep-r-investing/858fde3bfa.md#c0"
-    char_span: [0, 1998]
+    char_span: [0, 1997]
     sentence_count: 13
     key_terms: [blue-owl-stock-record-low-fund-redemptions, credit, investors, billion, private, requests, blue, fund]
-    token_count: 448
+    concepts: [blue-owl-stock-record-low-fund-redemptions, investors, credit, billion, private]
+    token_count: 447
+    sources: [{"n":"[Reddit Deep: r/investing](articles/reddit-deep-r-investing/5c486287b9.md","u":""}]
   - id: "articles/reddit-deep-r-investing/858fde3bfa.md#c1"
-    char_span: [2000, 4476]
+    char_span: [1999, 4475]
     sentence_count: 22
     key_terms: [retail, getting, credit, doesn, money, illiquidity, hope, like]
+    concepts: [retail, getting, credit, illiquidity, disruption]
     token_count: 515
   - id: "articles/reddit-deep-r-investing/858fde3bfa.md#c2"
-    char_span: [4478, 4977]
+    char_span: [4477, 4976]
     sentence_count: 4
     key_terms: [story, personalfinance, everypassage, redemption, withdrawal, collapses, different, hilarious]
+    concepts: [story]
     token_count: 129
 ---
 # Blue Owl Stock Crashes to All-Time Low After $5.4 Billion Redemption Requests

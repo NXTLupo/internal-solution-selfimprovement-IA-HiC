@@ -21,68 +21,85 @@ chunks:
     char_span: [0, 1587]
     sentence_count: 15
     key_terms: ["i'm", life, time, engineer, careerguidance, "don't", stuck, feel]
+    concepts: [engineer, careerguidance, "don't", stuck, technology]
     token_count: 371
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tlg7ou/itcorporate_life_doesnt_feel_right_what_should_i/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c1"
     char_span: [1589, 3113]
     sentence_count: 16
     key_terms: ["i'm", like, started, people, topics, feel, constantly, technical]
+    concepts: [started, people, topics, constantly, technical]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c9"]
     token_count: 327
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c2"
     char_span: [3115, 5358]
     sentence_count: 24
     key_terms: [work, "i'm", switching, back, life, interest, studying, jobs]
+    concepts: [switching, interest, studying, something, industry]
     token_count: 503
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c3"
     char_span: [5360, 6980]
     sentence_count: 19
     key_terms: [life, time, feel, people, bit, "i'm", "it's", like]
+    concepts: [people, everyone, anyways, "doesn't", respond]
     token_count: 359
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c4"
     char_span: [6994, 8614]
     sentence_count: 17
     key_terms: [life, thoughts, deeper, relationships, find, journaling, question, mission]
+    concepts: [thoughts, relationships, deeper, journaling, question]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c6"]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c5"
     char_span: [8616, 10555]
     sentence_count: 24
     key_terms: ["you're", job, "don't", maybe, life, achievement, good, "i'm"]
+    concepts: ["you're", "don't", maybe, achievement, honestly]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c6"
     char_span: [10557, 12113]
     sentence_count: 17
     key_terms: [life, people, find, give, like, work, question, problem]
+    concepts: [people, question, problem, around, deeper]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c4"]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c7"
     char_span: [12115, 14227]
     sentence_count: 19
     key_terms: [company, different, "i'm", work, feeling, transformative, right, opportunity]
+    concepts: [company, different, transformative, feeling, opportunity]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c8"
     char_span: [14229, 16483]
     sentence_count: 27
     key_terms: [work, years, life, around, office, relationships, technological, moved]
+    concepts: [years, relationships, technological, around, office]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c9"
     char_span: [16485, 18708]
     sentence_count: 21
     key_terms: ["i'm", like, job, people, topics, feel, started, okimreloaded]
+    concepts: [people, topics, started, okimreloaded, constantly]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c1"]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c10"
     char_span: [18710, 20847]
     sentence_count: 19
     key_terms: [like, feels, work, less, low, corporate, lifestyle, something]
+    concepts: [feels, corporate, lifestyle, something, sometimes]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c11"
     char_span: [20851, 21904]
     sentence_count: 8
     key_terms: ["you're", achieve, outside, similar, advice, good, want, work]
+    concepts: ["you're", achieve, outside, similar, advice]
     section: Comments
     token_count: 227
 ---

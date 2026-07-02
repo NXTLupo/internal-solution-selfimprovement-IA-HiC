@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 368]
     sentence_count: 2
     key_terms: [engineeringstudents, comments, swimmingengineering6, pharmaceutical, considering, engineering, reddit-deep, university]
+    concepts: [engineeringstudents, comments]
     token_count: 90
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1srv3gk/considering_msc_in_pharmaceutical_engineering_at/"}]
 ---
 # Considering MSc in Pharmaceutical Engineering at Ghent University – career prospects in pharma/cosmetics industry?
 

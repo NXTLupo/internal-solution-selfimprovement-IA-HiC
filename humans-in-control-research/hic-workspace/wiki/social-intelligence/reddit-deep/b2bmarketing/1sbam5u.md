@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1640]
     sentence_count: 24
     key_terms: [agencies, clients, agency, research, because, b2bmarketing, email, lead]
+    concepts: [agencies, clients, agency, research, because]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1sbam5u.md#c2"]
     token_count: 389
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1sbam5u/i_run_a_cold_email_agency_that_charges_1500mo/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sbam5u.md#c1"
-    char_span: [1655, 2479]
+    char_span: [1654, 2478]
     sentence_count: 6
     key_terms: [looking-for-marketing-discussion-811236647760298024, questions, research, discord, personalization, automatically, automoderator, b2bmarketing]
+    concepts: [questions, research, discord]
     section: Comments
     token_count: 194
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sbam5u.md#c2"
-    char_span: [2481, 4591]
+    char_span: [2480, 4590]
     sentence_count: 13
     key_terms: [research, agencies, because, problem, deliverability, email, automation, outbound]
+    concepts: [research, agencies, deliverability, because, problem]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1sbam5u.md#c0"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sbam5u.md#c3"
-    char_span: [4595, 5705]
+    char_span: [4594, 5704]
     sentence_count: 12
     key_terms: [video, personalised, prospecting, because, channel, seeing, inevitable-intern471, email]
+    concepts: [video, personalised, prospecting, because, channel]
     section: Comments
     token_count: 242
 ---

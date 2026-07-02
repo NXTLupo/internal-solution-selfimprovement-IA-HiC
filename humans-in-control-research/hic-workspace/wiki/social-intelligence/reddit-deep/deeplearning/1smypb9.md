@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1753]
     sentence_count: 2
     key_terms: [content, structured, seo, deeplearning, responses, comments, thinking, keyword]
+    concepts: [content, structured, deeplearning, responses, comments]
     token_count: 367
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1smypb9/using_llmguided_edits_to_make_ai_models_more/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1smypb9.md#c1"
     char_span: [1767, 3044]
     sentence_count: 5
     key_terms: [entity, content, specifically, mentiondesk, keyword, similar, clean, found]
+    concepts: [entity, content, specifically, mentiondesk, keyword]
     section: Comments
     token_count: 258
 ---

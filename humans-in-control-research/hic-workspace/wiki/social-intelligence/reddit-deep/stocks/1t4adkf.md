@@ -21,34 +21,43 @@ chunks:
     char_span: [0, 1932]
     sentence_count: 5
     key_terms: [https, com, news, market, stocks, streetinsider, stockcharts, technical]
+    concepts: [https, market, stocks, streetinsider, stockcharts]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1t4adkf.md#c1"]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1t4adkf/rstocks_daily_discussion_technicals_tuesday_may/"}]
   - id: "social-intelligence/reddit-deep/stocks/1t4adkf.md#c1"
     char_span: [1934, 2998]
     sentence_count: 1
     key_terms: [reddit, stocks, https, com, www, author, search, indicator]
+    concepts: [reddit, stocks, https, author, search]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1t4adkf.md#c0"]
     token_count: 305
   - id: "social-intelligence/reddit-deep/stocks/1t4adkf.md#c2"
     char_span: [3012, 4442]
     sentence_count: 10
     key_terms: [reality, unprecedented, years, time, inflation, economy, finally, markets]
+    concepts: [unprecedented, reality, years, inflation, economy]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/stocks/1t4adkf.md#c3"
     char_span: [4444, 5250]
     sentence_count: 6
     key_terms: [investigatorplus3229, stock, sportsguru4714, bornalivedead, propelling, declining, happening, sentiment]
+    concepts: [stock]
     section: Comments
     token_count: 222
   - id: "social-intelligence/reddit-deep/stocks/1t4adkf.md#c4"
     char_span: [5252, 7005]
     sentence_count: 9
     key_terms: [moddingspreee, rally, msft, investment, billion, google, investigatorplus3229, internetsolid4166]
+    concepts: [moddingspreee, investment, rally, billion, google]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1t4adkf.md#c5"
     char_span: [6808, 7787]
     sentence_count: 3
     key_terms: [long, been, momentum, anyone, farms, empathyfabrication, internetsolid4166, fakietreflip]
+    concepts: [momentum, anyone, farms]
     section: Comments
     token_count: 278
 ---

@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 1297]
     sentence_count: 11
     key_terms: [school, feel, gradadmissions, doctor, like, self, pepperdine, comments]
+    concepts: [school, gradadmissions, doctor, pepperdine, comments]
     token_count: 308
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1prbjym/obsessing_over_grad_school_admission_responses/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1prbjym.md#c1"
-    char_span: [1312, 2993]
+    char_span: [1311, 2992]
     sentence_count: 17
     key_terms: [sensitive-contest-88, pepperdine, applied, phd, psyd, sure, deleted, program]
+    concepts: [sensitive-contest-88, pepperdine, applied, deleted, program]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1prbjym.md#c2"]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/gradadmissions/1prbjym.md#c2"
-    char_span: [2995, 3848]
+    char_span: [2994, 3847]
     sentence_count: 6
     key_terms: [sensitive-contest-88, deleted, piccolotemporary4975, heard, get, job, application, financially]
+    concepts: [sensitive-contest-88, deleted, heard]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1prbjym.md#c1"]
     section: Comments
     token_count: 213
 ---

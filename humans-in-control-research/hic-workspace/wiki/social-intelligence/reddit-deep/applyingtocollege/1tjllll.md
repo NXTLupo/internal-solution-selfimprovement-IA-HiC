@@ -21,52 +21,66 @@ chunks:
     char_span: [0, 2026]
     sentence_count: 9
     key_terms: [sats, school, applyingtocollege, homework, scores, https, like, especially]
+    concepts: [school, applyingtocollege, homework, scores, especially]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1tjllll/bring_back_the_sats/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjllll.md#c1"
     char_span: [2028, 2845]
     sentence_count: 6
     key_terms: [students, "i'm", different, anything, because, opposed, schools, sats]
+    concepts: [students, different, anything, because, opposed]
     token_count: 155
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjllll.md#c2"
     char_span: [2859, 4360]
     sentence_count: 13
     key_terms: [schools, college, test, colleges, exciting-ad-5705, regardless, important, academic]
+    concepts: [schools, college, exciting-ad-5705, colleges, regardless]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tjllll.md#c8"]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjllll.md#c3"
     char_span: [4362, 5386]
     sentence_count: 7
     key_terms: [sats, college, admissions, cherrychocolatepizza, prove, fair, like, institutional]
+    concepts: [college, admissions, prove]
     section: Comments
     token_count: 234
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjllll.md#c4"
     char_span: [5388, 7643]
     sentence_count: 12
     key_terms: [test, because, like, sat, sats, schools, better, nametoocool]
+    concepts: [because, schools, better, nametoocool, tesseracts]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjllll.md#c5"
     char_span: [7379, 8856]
     sentence_count: 12
     key_terms: [students, sat, schooler, schools, scores, simply, going, ecs]
+    concepts: [students, schooler, schools, scores, simply]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tjllll.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1tjllll.md#c8"]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjllll.md#c6"
     char_span: [8858, 10734]
     sentence_count: 9
     key_terms: [students, context, schools, student, applications, need, sat, activities]
+    concepts: [students, context, schools, student, applications]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tjllll.md#c5"]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjllll.md#c7"
     char_span: [10736, 12742]
     sentence_count: 21
     key_terms: [schools, school, admissions, consider, focused, good, idea, applicants]
+    concepts: [schools, admissions, school, consider, focused]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjllll.md#c8"
     char_span: [12744, 14939]
     sentence_count: 15
     key_terms: [colleges, scores, students, test, college, sat, lopsidedfood8893, agree]
+    concepts: [colleges, scores, students, college, lopsidedfood8893]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tjllll.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1tjllll.md#c5"]
     section: Comments
     token_count: 466
 ---

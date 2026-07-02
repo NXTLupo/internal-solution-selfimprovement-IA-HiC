@@ -19,39 +19,49 @@ content_hash: "fa88e2782cb7086d"
 relevance_by_goal: {"490684cfa204":95}
 chunks:
   - id: "articles/reddit-deep-r-ecommerce/e7c3bac8a6.md#c0"
-    char_span: [0, 472]
+    char_span: [0, 471]
     sentence_count: 2
     key_terms: [e-commerce, ecommerce, industry, reddit, recap, week, shopifreaks, newsletter]
-    token_count: 129
+    concepts: [e-commerce, ecommerce, industry, reddit, recap]
+    token_count: 128
+    sources: [{"n":"Reddit Deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1tnjki7/ecommerce_industry_news_recap_week_of_may_25th/"}]
   - id: "articles/reddit-deep-r-ecommerce/e7c3bac8a6.md#c1"
-    char_span: [474, 2793]
+    char_span: [473, 2792]
     sentence_count: 8
     key_terms: [google, cart, universal, gemini, retail, search, e-commerce, merchant]
+    concepts: [google, universal, e-commerce, gemini, retail]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/e7c3bac8a6.md#c2"
-    char_span: [2492, 4987]
+    char_span: [2491, 4986]
     sentence_count: 9
     key_terms: [amazon, starlink, including, satellites, leo, airlines, formats, provide]
+    concepts: [amazon, starlink, including, satellites, airlines]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/e7c3bac8a6.md#c3"
-    char_span: [4699, 7380]
+    char_span: [4698, 7379]
     sentence_count: 14
     key_terms: [shopify, protocol, publishers, amazon, commerce, marketplace, merchants, universal]
+    concepts: [shopify, protocol, publishers, amazon, commerce]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/e7c3bac8a6.md#c4"
-    char_span: [7066, 9455]
+    char_span: [7065, 9454]
     sentence_count: 13
     key_terms: [dimensional, arena, contracts, afterpay, weight, terms, venue, pay]
+    concepts: [dimensional, contracts, arena, afterpay, weight]
+    related_chunks: ["articles/reddit-deep-r-ecommerce/e7c3bac8a6.md#c5"]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/e7c3bac8a6.md#c5"
-    char_span: [9112, 10197]
+    char_span: [9111, 10196]
     sentence_count: 4
     key_terms: [dimensional, weight, divisor, including, package, lightweight, multiplying, calculates]
+    concepts: [dimensional, weight, divisor, including, package]
+    related_chunks: ["articles/reddit-deep-r-ecommerce/e7c3bac8a6.md#c4"]
     token_count: 220
   - id: "articles/reddit-deep-r-ecommerce/e7c3bac8a6.md#c6"
-    char_span: [10199, 10638]
+    char_span: [10198, 10637]
     sentence_count: 3
     key_terms: [graceonajourney1611, cro, roi, subscription, information, challenge, customers, ecommerce]
+    concepts: [graceonajourney1611]
     token_count: 99
 ---
 # E-commerce Industry News Recap 🔥 Week of May 25th, 2026

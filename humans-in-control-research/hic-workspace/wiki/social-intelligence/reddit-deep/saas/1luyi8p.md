@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1743]
     sentence_count: 1
     key_terms: [chatclient, saas, source, https, code, support, com, comments]
+    concepts: [chatclient, source, https, support, comments]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1luyi8p/i_am_selling_source_code_of_my_saas/"}]
   - id: "social-intelligence/reddit-deep/saas/1luyi8p.md#c1"
-    char_span: [1758, 3158]
+    char_span: [1757, 3157]
     sentence_count: 5
     key_terms: [vikaskookna, check, info, annoying, market, defiantscarcity3133, offer, price]
+    concepts: [vikaskookna, check, annoying, market, offer]
     section: Comments
     token_count: 452
 ---

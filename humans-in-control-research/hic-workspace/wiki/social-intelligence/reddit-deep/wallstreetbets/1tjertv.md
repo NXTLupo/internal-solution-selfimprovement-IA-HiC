@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1222]
     sentence_count: 7
     key_terms: [brokers, wallstreetbets, june, rule, effective, comments, phase-in, support]
+    concepts: [brokers, wallstreetbets, effective, comments, phase-in]
     token_count: 282
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1tjertv/which_brokers_do_people_think_will_actually/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1tjertv.md#c1"
-    char_span: [1237, 2816]
+    char_span: [1236, 2815]
     sentence_count: 4
     key_terms: [tastytrade, https, comments, services, account, discord, ready, total]
+    concepts: [tastytrade, https, comments, services, account]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/wallstreetbets/1tjertv.md#c2"
-    char_span: [2818, 3242]
+    char_span: [2817, 3241]
     sentence_count: 1
     key_terms: [valianne11111, faster, less, wipe, soothingwafer, compliance, brokerage, complaint]
+    concepts: [valianne11111, faster]
     section: Comments
     token_count: 108
 ---

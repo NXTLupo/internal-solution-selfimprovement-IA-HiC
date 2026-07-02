@@ -8,43 +8,52 @@ title: "This Week's Top E-commerce News Stories 💥 May 25th, 2026"
 author: "adventurepaul"
 date: "2026-05-25T19:40:11.000Z"
 score: 6
-upvote_ratio: 0.69
+upvote_ratio: 0.75
 num_comments: 3
 flair: "Shopify General Discussion"
-extracted_at: "2026-06-18T13:35:23.049Z"
+extracted_at: "2026-06-24T22:14:23.470Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/shopify/1tnjlf5.md#c0"
     char_span: [0, 809]
     sentence_count: 4
     key_terms: [shopify, e-commerce, news, comments, stories, recaps, reddit, "week's"]
+    concepts: [shopify, e-commerce, comments, stories, recaps]
     token_count: 210
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1tnjlf5/this_weeks_top_ecommerce_news_stories_may_25th/"}]
   - id: "social-intelligence/reddit-deep/shopify/1tnjlf5.md#c1"
     char_span: [811, 3136]
     sentence_count: 8
     key_terms: [google, cart, universal, gemini, retail, search, merchant, e-commerce]
+    concepts: [google, universal, gemini, retail, search]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1tnjlf5.md#c2"
     char_span: [2831, 5359]
     sentence_count: 9
     key_terms: [amazon, starlink, including, satellites, leo, airlines, formats, provide]
+    concepts: [amazon, starlink, including, satellites, airlines]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1tnjlf5.md#c3"
     char_span: [5049, 7709]
     sentence_count: 15
     key_terms: [shopify, protocol, publishers, amazon, commerce, marketplace, merchants, universal]
+    concepts: [shopify, protocol, publishers, amazon, commerce]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1tnjlf5.md#c4"
     char_span: [7405, 9802]
     sentence_count: 13
     key_terms: [dimensional, weight, arena, contracts, afterpay, terms, venue, pay]
+    concepts: [dimensional, weight, contracts, arena, afterpay]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1tnjlf5.md#c5"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1tnjlf5.md#c5"
-    char_span: [9494, 10362]
+    char_span: [9494, 10361]
     sentence_count: 4
     key_terms: [divisor, weight, dimensional, package, multiplying, dimensions, unfamiliar, "package's"]
+    concepts: [divisor, dimensional, weight, package]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1tnjlf5.md#c4"]
     token_count: 190
 ---
 # This Week's Top E-commerce News Stories 💥 May 25th, 2026

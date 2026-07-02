@@ -19,17 +19,24 @@ chunks:
     char_span: [0, 1250]
     sentence_count: 2
     key_terms: [college, never, campus, did, comments, commuter, crochet, friends]
+    concepts: [college, never, campus, comments, commuter]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mlh8er.md#c1"]
     token_count: 295
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1mlh8er/making_friends_in_college_as_a_commuter_student/"}]
   - id: "social-intelligence/reddit-deep/college/1mlh8er.md#c1"
     char_span: [1264, 3546]
     sentence_count: 17
     key_terms: [friends, commuter, campus, school, did, get, honestly, classes]
+    concepts: [friends, commuter, campus, school, honestly]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mlh8er.md#c0", "social-intelligence/reddit-deep/college/1mlh8er.md#c2"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/college/1mlh8er.md#c2"
     char_span: [3548, 4626]
     sentence_count: 7
     key_terms: [friends, campus, short-vermicelli-178, week, queenaemmaarryn, throwaway0-285, conversations, conversation]
+    concepts: [friends, campus]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mlh8er.md#c1"]
     section: Comments
     token_count: 261
 ---

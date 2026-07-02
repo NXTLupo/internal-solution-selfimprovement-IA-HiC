@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 300]
     sentence_count: 2
     key_terms: [careerguidance, comments, opportunities, reddit-deep, regarding, students, advice, career]
+    concepts: [careerguidance, comments]
     token_count: 86
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qkl1si/any_career_advice_regarding_job_opportunities_for/"}]
 ---
 # Any career advice regarding job opportunities for econ students?
 

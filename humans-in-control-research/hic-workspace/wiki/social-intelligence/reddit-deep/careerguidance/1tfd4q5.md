@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1807]
     sentence_count: 15
     key_terms: [experience, field, work, medical, careerguidance, healthcare, logistics, comments]
+    concepts: [experience, field, careerguidance, medical, healthcare]
     token_count: 398
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tfd4q5/career_advice_for_getting_into_the_medical_field/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tfd4q5.md#c1"
-    char_span: [1822, 4206]
+    char_span: [1821, 4205]
     sentence_count: 13
     key_terms: [experience, emergency, hospitals, hospital, background, roles, response, nursing]
+    concepts: [experience, emergency, hospitals, hospital, background]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/careerguidance/1tfd4q5.md#c2"
-    char_span: [4208, 4619]
+    char_span: [4207, 4618]
     sentence_count: 3
     key_terms: [career, transitions, gradsimple, interviews, navigating, newsletter, figuring, grounded]
+    concepts: [career]
     section: Comments
     token_count: 81
 ---

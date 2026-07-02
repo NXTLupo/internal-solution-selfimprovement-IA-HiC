@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1176]
     sentence_count: 11
     key_terms: [experience, decent, like, candidate, comments, semester, "doesn't", reddit]
+    concepts: [experience, decent, candidate, comments, semester]
     token_count: 289
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rq31g2/coop_search/"}]
 ---
 # Co-op Search
 

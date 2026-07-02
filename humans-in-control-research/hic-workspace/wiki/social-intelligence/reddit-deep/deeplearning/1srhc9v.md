@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1982]
     sentence_count: 11
     key_terms: [qwen3, openrouter, qwen, comments, adapter, ollama, capabilities, deeplearning]
+    concepts: [qwen3, openrouter, comments, adapter, capabilities]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1srhc9v/opensource_multimodal_studio_on_qwen3635ba3b/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1srhc9v.md#c1"
     char_span: [1984, 2317]
     sentence_count: 2
     key_terms: [qwen-lens-studio, dakshjain-1616, github, https, com, real-world, genuinely, document]
+    concepts: [qwen-lens-studio, dakshjain-1616, github, https]
     section: Comments
     token_count: 92
 ---

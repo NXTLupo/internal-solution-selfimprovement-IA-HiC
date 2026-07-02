@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 528]
     sentence_count: 5
     key_terms: [engineeringstudents, internship, comments, "i'm", job, engineering, environment, reddit-deep]
+    concepts: [engineeringstudents, internship, comments]
     token_count: 134
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1nxaapw/first_year_mechanical_engineering_student_how_do/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nxaapw.md#c1"
     char_span: [542, 1107]
     sentence_count: 5
     key_terms: [companies, job, need, ones, year, apelikeartisan, application, experience]
+    concepts: [companies]
     section: Comments
     token_count: 134
 ---

@@ -19,39 +19,49 @@ chunks:
     char_span: [0, 2030]
     sentence_count: 1
     key_terms: [intern, internships, don, summer, internship, late, postings, apply]
+    concepts: [intern, internships, internship, summer, postings]
     token_count: 480
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1r8lrcw/still_dont_have_a_summer_internship_here_is_what/"}]
   - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c1"
     char_span: [2032, 4129]
     sentence_count: 1
     key_terms: [don, outreach, internships, companies, ask, get, someone, applications]
+    concepts: [outreach, internships, companies, someone, applications]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1r8lrcw.md#c2"]
     token_count: 502
   - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c2"
     char_span: [4131, 5606]
     sentence_count: 1
     key_terms: [internships, don, relationships, keep, year-round, companies, students, relationship-building]
+    concepts: [internships, relationships, year-round, companies, students]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1r8lrcw.md#c1"]
     token_count: 339
   - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c3"
-    char_span: [5621, 5790]
+    char_span: [5620, 5789]
     sentence_count: 2
     key_terms: [offer, got, stickybarbie, alongside, small-ish, company, intern, people]
+    concepts: [offer]
     section: Comments
     token_count: 44
   - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c4"
-    char_span: [5792, 7701]
+    char_span: [5791, 7700]
     sentence_count: 4
     key_terms: [suitable-jelly-3693, life-journalist-2790, experience, chatgpt, relationships, anything, original, valuable]
+    concepts: [suitable-jelly-3693, life-journalist-2790, experience, relationships, chatgpt]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c5"
-    char_span: [7454, 7911]
+    char_span: [7453, 7910]
     sentence_count: 1
     key_terms: [insane, suitable-jelly-3693, neat-service-7974, ashaazability, conversation, heavenlylord, finishing, "couldn't"]
+    concepts: [insane]
     section: Comments
     token_count: 126
   - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c6"
-    char_span: [7913, 8539]
+    char_span: [7912, 8538]
     sentence_count: 6
     key_terms: [companies, suitable-jelly-3693, variouschicken1144, slow-hair7851, certificate, internships, definitely, internship]
+    concepts: [companies]
     section: Comments
     token_count: 156
 ---

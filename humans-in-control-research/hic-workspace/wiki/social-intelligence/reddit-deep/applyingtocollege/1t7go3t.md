@@ -19,75 +19,96 @@ chunks:
     char_span: [0, 2031]
     sentence_count: 6
     key_terms: [admissions, demonstrated, admission, eqrogwtp6paekwgx0dl6pq93oxdqgo5zhplnpikzfty, applyingtocollege, data, interest, timeline]
+    concepts: [admissions, demonstrated, applyingtocollege, admission, interest]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c5"]
     token_count: 515
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1t7go3t/admission_officers_are_watching_you/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c1"
     char_span: [2033, 4555]
     sentence_count: 21
     key_terms: [admissions, schools, timeline, tracking, colleges, interest, waitlist, demonstrated]
+    concepts: [admissions, schools, timeline, tracking, colleges]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c5"]
     token_count: 509
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c2"
     char_span: [4557, 5181]
     sentence_count: 6
     key_terms: [admission, interest, officers, tracking, non-negotiables, demonstrated, supplemental, absolutely]
+    concepts: [admission, interest, officers, tracking]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c0"]
     token_count: 137
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c3"
     char_span: [5195, 7588]
     sentence_count: 15
     key_terms: [admissions, demonstrated, interest, decisions, departments, use, schools, college-confidential]
+    concepts: [admissions, demonstrated, interest, decisions, departments]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c5"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c4"
     char_span: [7590, 8508]
     sentence_count: 4
     key_terms: [consideration, demonstrated, decisions, interest, schools, college-confidential, environmentactive325, small-but-meaningful]
+    concepts: [consideration, demonstrated, decisions, interest, schools]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c9"]
     section: Comments
     token_count: 190
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c5"
     char_span: [8510, 10170]
     sentence_count: 5
     key_terms: [schools, demonstrated, admissions, applicant, aos, interest, acknowledge, data]
+    concepts: [demonstrated, schools, admissions, applicant, interest]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c9"]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c6"
     char_span: [10172, 12426]
     sentence_count: 16
     key_terms: [like, ben-ma, town, definitely, understand, selective, colleges, students]
+    concepts: [ben-ma, definitely, understand, selective, colleges]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c7"
     char_span: [12126, 12594]
     sentence_count: 6
     key_terms: [schools, factor, never, informational, frustrating, unsubscribe, understand, certainly]
+    concepts: [schools, factor, never]
     section: Comments
     token_count: 110
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c8"
     char_span: [12596, 13131]
     sentence_count: 5
     key_terms: [schools, email, because, demonstrated, application, information, unsubscribe, admissions]
+    concepts: [schools, email, because]
     section: Comments
     token_count: 105
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c9"
     char_span: [13133, 15003]
     sentence_count: 18
     key_terms: [waitlist, got, schools, school, demonstrated, get, ivy, list]
+    concepts: [waitlist, schools, school, demonstrated, interested]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c5"]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c10"
     char_span: [15005, 15894]
     sentence_count: 8
     key_terms: [data, rate, acceptance, bigjeducationalconsulting, good, look, rea, scea]
+    concepts: [acceptance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c11"
     char_span: [15896, 17529]
     sentence_count: 13
     key_terms: [schools, salesforce, slate, collegevine, crm, does, like, privacy]
+    concepts: [schools, salesforce, collegevine, slate, privacy]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c12"
     char_span: [17531, 18770]
     sentence_count: 8
     key_terms: [applicants, selective, business, highly, information, education, colleges, tracking]
+    concepts: [applicants, selective, business, highly, information]
     section: Comments
     token_count: 292
 ---

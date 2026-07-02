@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2177]
     sentence_count: 22
     key_terms: [experience, careerguidance, career, course, people, never, scrum, years]
+    concepts: [experience, careerguidance, career, course, people]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t6g4bh/career_option_for_swe_with_8_years_of_experience/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t6g4bh.md#c1"
     char_span: [2179, 3533]
     sentence_count: 23
     key_terms: [got, role, better, best, get, appreciate, definitely, positions]
+    concepts: [better, appreciate, definitely, positions, options]
     token_count: 301
   - id: "social-intelligence/reddit-deep/careerguidance/1t6g4bh.md#c2"
     char_span: [3547, 4981]
     sentence_count: 16
     key_terms: [experience, onlythephantomknows, sales, technical, work, presentations, engineering, explaining]
+    concepts: [onlythephantomknows, experience, technical, sales, presentations]
     section: Comments
     token_count: 336
 ---

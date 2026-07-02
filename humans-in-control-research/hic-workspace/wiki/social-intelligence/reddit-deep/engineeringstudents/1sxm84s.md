@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 459]
     sentence_count: 2
     key_terms: [engineeringstudents, engineering, comments, sankey, cherryspacepie, reddit-deep, electrical, internship]
+    concepts: [engineeringstudents, engineering, comments, sankey]
     token_count: 122
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sxm84s/electrical_engineering_senior_35_gpa_1/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sxm84s.md#c1"
     char_span: [473, 1501]
     sentence_count: 7
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, www, tadpoleeffective2307]
+    concepts: [engineeringstudents, please, reddit, https, index]
     section: Comments
     token_count: 246
 ---

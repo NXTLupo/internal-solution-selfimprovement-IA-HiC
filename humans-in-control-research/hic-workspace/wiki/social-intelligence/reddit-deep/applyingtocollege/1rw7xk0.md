@@ -19,41 +19,51 @@ chunks:
     char_span: [0, 1093]
     sentence_count: 7
     key_terms: [option, school, applyingtocollege, opportunities, comments, going, later, plans]
+    concepts: [option, applyingtocollege, school, opportunities, comments]
     token_count: 289
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rw7xk0/parents_input_pls_extra_40kyr_worth_it_for_kids/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rw7xk0.md#c1"
     char_span: [1107, 2284]
     sentence_count: 14
     key_terms: [school, binghamton, leftover, premium, attend, busy-development-334, law, pay]
+    concepts: [school, binghamton, leftover, premium, attend]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rw7xk0.md#c2"
     char_span: [2286, 4182]
     sentence_count: 17
     key_terms: [busy-development-334, school, northeastern, doesn, does, don, ross, uiuc]
+    concepts: [busy-development-334, northeastern, school, doesn, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rw7xk0.md#c3"
     char_span: [4184, 6063]
     sentence_count: 9
     key_terms: [student, per, reach4college, undergraduate, kid, difference, analysis, dawglius]
+    concepts: [student, reach4college, undergraduate, difference, analysis]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rw7xk0.md#c4"
     char_span: [6065, 7295]
     sentence_count: 15
     key_terms: [difference, mid-tier, differences, kid, suny, school, "don't", happy]
+    concepts: [difference, mid-tier, differences, school, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rw7xk0.md#c6"]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rw7xk0.md#c5"
     char_span: [7297, 9125]
     sentence_count: 10
     key_terms: [like, username001999, less, experience, different, enjoyment, expensive, something]
+    concepts: [username001999, experience, different, enjoyment, expensive]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rw7xk0.md#c6"
     char_span: [9127, 10421]
     sentence_count: 8
     key_terms: [ucs, mid-tier, school, sunys, lean, suny, tier, famous-prior6590]
+    concepts: [mid-tier, school, sunys]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rw7xk0.md#c4"]
     section: Comments
     token_count: 322
 ---

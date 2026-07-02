@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 582]
     sentence_count: 5
     key_terms: [maximize, careerguidance, political, comments, sphere, etc, reddit-deep, actionable]
+    concepts: [maximize, careerguidance, political, comments, sphere]
     token_count: 148
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sf1gck/how_do_i_maximize_early_career_success_in_the/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sf1gck.md#c1"
     char_span: [596, 1171]
     sentence_count: 5
     key_terms: [internship, clearance, summer, fun-culture492, connections, internships, candidates, government]
+    concepts: [internship, clearance, summer]
     section: Comments
     token_count: 130
 ---

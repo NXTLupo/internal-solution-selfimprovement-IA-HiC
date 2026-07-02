@@ -19,47 +19,58 @@ chunks:
     char_span: [0, 1772]
     sentence_count: 14
     key_terms: [acceptance, schools, applyingtocollege, universities, prestigious, recognition, does, low]
+    concepts: [acceptance, schools, applyingtocollege, universities, prestigious]
     token_count: 382
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1oy8yq0/difference_between_low_acceptance_rate_liberal/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c1"
     char_span: [1786, 3762]
     sentence_count: 15
     key_terms: [prestige, known, school, get, lac, top, graduates, respected]
+    concepts: [prestige, known, school, graduates, respected]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c2"
     char_span: [3764, 5552]
     sentence_count: 18
     key_terms: [lacs, top, students, faculty, universities, student, per, endowments]
+    concepts: [students, universities, faculty, student, endowments]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c3"
     char_span: [5554, 7421]
     sentence_count: 15
     key_terms: [undergrads, different, tech, similar, feeder, people, universities, lacs]
+    concepts: [undergrads, different, similar, universities, feeder]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c4"
     char_span: [7423, 8731]
     sentence_count: 21
     key_terms: [schools, students, typically, grad, undergraduates, resources, programs, research]
+    concepts: [schools, students, typically, undergraduates, resources]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c6"]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c5"
     char_span: [8733, 10844]
     sentence_count: 19
     key_terms: [schools, competitive, programs, look, ppl, want, academics, strengths]
+    concepts: [schools, competitive, programs, academics, strengths]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c6"
     char_span: [10846, 12632]
     sentence_count: 20
     key_terms: [school, class, students, university, resources, because, professional, lacs]
+    concepts: [school, students, class, university, resources]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c4"]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c7"
     char_span: [12634, 14448]
     sentence_count: 16
     key_terms: [college, smaller, school, relationships, lac, professors, professor, colleges]
+    concepts: [relationships, college, smaller, school, professors]
     section: Comments
     token_count: 418
 ---

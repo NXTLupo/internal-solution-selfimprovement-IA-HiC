@@ -19,24 +19,32 @@ content_hash: "f824a4fd65154a42"
 relevance_by_goal: {"68c375ef0d4e":40}
 chunks:
   - id: "articles/reddit-deep-r-healthinsurance/2ee14bcbc2.md#c0"
-    char_span: [0, 2384]
+    char_span: [0, 2383]
     sentence_count: 14
     key_terms: [deductible, individual, insurance, processed, date, bill, family, delivery]
-    token_count: 509
+    concepts: [deductible, individual, insurance, processed, family]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/2ee14bcbc2.md#c1", "articles/reddit-deep-r-healthinsurance/2ee14bcbc2.md#c3"]
+    token_count: 508
+    sources: [{"n":"Reddit Deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1u36qb9/for_ob_care_during_labor_and_delivery_will/"}]
   - id: "articles/reddit-deep-r-healthinsurance/2ee14bcbc2.md#c1"
-    char_span: [2386, 4591]
+    char_span: [2385, 4590]
     sentence_count: 10
     key_terms: [deductible, insurance, service, information, individual, delivery, review, automatically]
+    concepts: [deductible, insurance, information, service, individual]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/2ee14bcbc2.md#c0"]
     token_count: 455
   - id: "articles/reddit-deep-r-healthinsurance/2ee14bcbc2.md#c2"
-    char_span: [4593, 6862]
+    char_span: [4592, 6861]
     sentence_count: 10
     key_terms: [please, post, questions, information, eob, contact, subreddit, edit]
+    concepts: [please, questions, information, contact, subreddit]
     token_count: 495
   - id: "articles/reddit-deep-r-healthinsurance/2ee14bcbc2.md#c3"
-    char_span: [6865, 9257]
+    char_span: [6864, 9256]
     sentence_count: 19
     key_terms: [deductible, claims, hospital, admission, processed, reprocess, sometimes, birth]
+    concepts: [deductible, claims, hospital, admission, processed]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/2ee14bcbc2.md#c0"]
     token_count: 484
 ---
 # For OB care during labor and delivery, will individual deductible or family deductible apply?

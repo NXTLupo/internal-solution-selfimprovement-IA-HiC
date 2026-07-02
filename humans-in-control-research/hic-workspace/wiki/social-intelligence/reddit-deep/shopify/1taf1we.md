@@ -11,45 +11,53 @@ score: 29
 upvote_ratio: 0.94
 num_comments: 11
 flair: ""
-extracted_at: "2026-06-18T13:35:23.039Z"
+extracted_at: "2026-06-24T22:14:23.469Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/shopify/1taf1we.md#c0"
     char_span: [0, 798]
     sentence_count: 3
     key_terms: [shopify, e-commerce, reddit, https, com, news, www, comments]
+    concepts: [shopify, e-commerce, reddit, https, comments]
     token_count: 213
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1taf1we/this_weeks_top_ecommerce_news_stories_may_11th/"}]
   - id: "social-intelligence/reddit-deep/shopify/1taf1we.md#c1"
     char_span: [800, 3386]
     sentence_count: 11
     key_terms: [amazon, countries, logistics, new, services, "organization's", international, manufacturing]
+    concepts: [amazon, countries, logistics, services, "organization's"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1taf1we.md#c2"
     char_span: [3092, 5594]
     sentence_count: 14
     key_terms: [store, chatgpt, shopify, ads, like, new, product, advertisers]
+    concepts: [store, chatgpt, shopify, advertisers, product]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1taf1we.md#c3"
     char_span: [5252, 7712]
     sentence_count: 10
     key_terms: [shopping, agent, company, meta, product, updates, advertisers, lets]
+    concepts: [shopping, agent, company, product, updates]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1taf1we.md#c4"
     char_span: [7356, 9872]
     sentence_count: 7
     key_terms: [consumers, new, product, running, openai, discretionary, ceo, low-income]
+    concepts: [consumers, discretionary, product, running, openai]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1taf1we.md#c5"
     char_span: [9558, 10249]
     sentence_count: 3
     key_terms: [airline, already, started, effort, spirit, letsbuyspiritair-com, going, discretionary]
+    concepts: [airline, already, started, effort, spirit]
     token_count: 136
   - id: "social-intelligence/reddit-deep/shopify/1taf1we.md#c6"
-    char_span: [10264, 12014]
+    char_span: [10263, 12013]
     sentence_count: 12
     key_terms: [klaviyo-expands-integration-with-anthropic-to-bring-agentic-marketing-workflows-to-claude, adventurepaul, loosepantsbigwallet, claude, businesswire, https, store, been]
+    concepts: [klaviyo-expands-integration-with-anthropic-to-bring-agentic-marketing-workflows-to-claude, adventurepaul, loosepantsbigwallet, businesswire, claude]
     section: Comments
     token_count: 446
 ---

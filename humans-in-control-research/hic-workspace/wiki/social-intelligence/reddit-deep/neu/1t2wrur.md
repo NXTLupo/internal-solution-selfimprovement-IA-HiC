@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 726]
     sentence_count: 9
     key_terms: ["i'm", pdp, comments, elective, workload, better, co-op, mscs]
+    concepts: [comments, elective, workload, better, co-op]
     token_count: 186
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1t2wrur/mscs_help_me_decide_which_course_to_take_along/"}]
 ---
 # MSCS! Help me decide which course to take along with PDP for first semester!
 

@@ -21,28 +21,34 @@ chunks:
     char_span: [0, 1974]
     sentence_count: 14
     key_terms: [date-flation-average-date-costs-gen-z-millenials-2026-4, businessinsider, https, average, millennials, dating, dating-apps-men-women-behave-differently-2018-6, according]
+    concepts: [date-flation-average-date-costs-gen-z-millenials-2026-4, businessinsider, https, millennials, average]
     token_count: 500
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1tajw0q/why_dating_feels_impossible_now/"}]
   - id: "social-intelligence/reddit-deep/genz/1tajw0q.md#c1"
     char_span: [1976, 2718]
     sentence_count: 7
     key_terms: [rising-cost-dating-millennials-gen-z-soaring-cost-love-apps-2024-8, options, dates, https, need, businessinsider, alternatives, lower-cost]
+    concepts: [options, dates, https]
     token_count: 175
   - id: "social-intelligence/reddit-deep/genz/1tajw0q.md#c2"
     char_span: [2732, 3968]
     sentence_count: 9
     key_terms: [immortalvanquish, expensive, discord, dating, people, downtowngrocery6945, dates, night]
+    concepts: [immortalvanquish, expensive, discord, dating, people]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/genz/1tajw0q.md#c3"
     char_span: [3970, 5245]
     sentence_count: 10
     key_terms: [dates, night, date, spending, stranger, strictly, dollars, coffee]
+    concepts: [dates, night, spending, stranger, strictly]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/genz/1tajw0q.md#c4"
     char_span: [5247, 6649]
     sentence_count: 11
     key_terms: [dates, over-transition9609, date, plus, korean-themed, v2h0v0noxl0h1, snowstorm556, convenience]
+    concepts: [dates]
     section: Comments
     token_count: 394
 ---

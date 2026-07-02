@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 879]
     sentence_count: 4
     key_terms: [cscareerquestions, comments, college, screwed, course, terms, been, circumstances]
+    concepts: [cscareerquestions, comments, college, screwed, course]
     token_count: 212
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1nlgdsf/am_i_screwed_as_a_cs_student_set_to_graduate_in/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nlgdsf.md#c1"
     char_span: [893, 2896]
     sentence_count: 15
     key_terms: [interest, "you'll", "you've", faang, debt, goal, rose, technical]
+    concepts: [interest, "you'll", "you've", faang, technical]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nlgdsf.md#c2"
     char_span: [2898, 4527]
     sentence_count: 10
     key_terms: [got, graduation, currently, kansas, "that's", clubs, doing, "don't"]
+    concepts: [graduation, currently, kansas, "that's", clubs]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nlgdsf.md#c3"
     char_span: [4529, 6473]
     sentence_count: 11
     key_terms: [classes, fall, spring, accounting, co-op, something, summer, major]
+    concepts: [classes, spring, accounting, something, co-op]
     section: Comments
     token_count: 506
 ---

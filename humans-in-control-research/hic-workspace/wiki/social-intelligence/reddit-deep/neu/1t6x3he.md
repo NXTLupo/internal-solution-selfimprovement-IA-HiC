@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1788]
     sentence_count: 11
     key_terms: [accounting, spring, big, fall, co-op, cycle, "i'm", extracurriculars]
+    concepts: [accounting, spring, extracurriculars, co-op, cycle]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1t6x3he.md#c1"]
     token_count: 421
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1t6x3he/fall_to_spring_coop_switch_for_accounting_major/"}]
   - id: "social-intelligence/reddit-deep/neu/1t6x3he.md#c1"
     char_span: [1802, 2543]
     sentence_count: 8
     key_terms: [accounting, experience, recruiting, public, spring, firms, big, extracurricular]
+    concepts: [accounting, experience, recruiting, public, spring]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1t6x3he.md#c0"]
     section: Comments
     token_count: 165
 ---

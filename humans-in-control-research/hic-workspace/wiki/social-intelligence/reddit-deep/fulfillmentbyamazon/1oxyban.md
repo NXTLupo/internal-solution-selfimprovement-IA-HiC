@@ -20,28 +20,36 @@ chunks:
     char_span: [0, 2311]
     sentence_count: 21
     key_terms: [amazon, ups, gautam, protected, claims, support, get, refund]
+    concepts: [amazon, gautam, protected, claims, support]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1oxyban.md#c1"]
     token_count: 532
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1oxyban/amazon_does_not_protect_fbm_sellers_when/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1oxyban.md#c1"
     char_span: [2313, 4506]
     sentence_count: 14
     key_terms: [sandeep, ups, amazon, protected, claims, refund, claim, customer]
+    concepts: [sandeep, amazon, protected, claims, refund]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1oxyban.md#c0"]
     token_count: 529
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1oxyban.md#c2"
-    char_span: [4521, 4999]
+    char_span: [4520, 4998]
     sentence_count: 3
     key_terms: [discord, fba, discuss, server, fulfillmentbyamazon, join, automoderator, optimization]
+    concepts: [discord, discuss, server]
     section: Comments
     token_count: 119
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1oxyban.md#c3"
-    char_span: [5002, 6694]
+    char_span: [5001, 6693]
     sentence_count: 12
     key_terms: [amazon, claim, shipping, through, label, get, time, insurance]
+    concepts: [amazon, claim, shipping, through, label]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1oxyban.md#c4"
-    char_span: [6696, 8216]
+    char_span: [6695, 8215]
     sentence_count: 14
     key_terms: [amazon, buyer, package, delivered, ups, time, understand, automatic]
+    concepts: [amazon, buyer, package, delivered, understand]
     section: Comments
     token_count: 326
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1816]
     sentence_count: 13
     key_terms: [papers, techniques, agent, paper, without, access, agents, autoresearch]
+    concepts: [papers, techniques, agent, paper, without]
     token_count: 436
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1s6ae6t/gave_a_claude_code_agent_access_to_2m_cs_papers/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1s6ae6t.md#c1"
     char_span: [1830, 2605]
     sentence_count: 4
     key_terms: [hindsight, vectorize-io, kalpitdixit, scholarship, literature, relevant, access, github]
+    concepts: [hindsight, vectorize-io, kalpitdixit, scholarship, literature]
     section: Comments
     token_count: 200
 ---

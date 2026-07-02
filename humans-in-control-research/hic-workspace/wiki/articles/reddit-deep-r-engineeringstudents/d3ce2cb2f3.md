@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1477]
     sentence_count: 10
     key_terms: [freshman, engineering, internship, engineeringstudents, internships, get, like, electrical]
+    concepts: [freshman, engineering, internship, engineeringstudents, internships]
     token_count: 341
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1o50lnm/how_do_you_get_engineering_internships_as_a/"}]
   - id: "articles/reddit-deep-r-engineeringstudents/d3ce2cb2f3.md#c1"
     char_span: [1479, 3029]
     sentence_count: 16
     key_terms: [get, like, "don't", small, fair, "i'm", job, internship]
+    concepts: ["don't", internship, small, college, emailed]
     token_count: 394
   - id: "articles/reddit-deep-r-engineeringstudents/d3ce2cb2f3.md#c2"
     char_span: [3031, 3665]
     sentence_count: 5
     key_terms: ["i'm", year, student, "don't", oversaturated, discouraging, manufacturer, engineering]
+    concepts: [student, "don't"]
     token_count: 159
 ---
 # How do you get engineering internships as a college freshman?

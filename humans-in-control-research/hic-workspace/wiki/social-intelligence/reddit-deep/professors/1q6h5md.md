@@ -19,65 +19,88 @@ chunks:
     char_span: [0, 1198]
     sentence_count: 10
     key_terms: [accommodations, anxiety, accommodate, professors, comments, industry, anxious, because]
+    concepts: [accommodations, anxiety, accommodate, professors, comments]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1q6h5md.md#c10"]
     token_count: 264
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1q6h5md/at_what_point_are_accommodations_doing_students_a/"}]
   - id: "social-intelligence/reddit-deep/professors/1q6h5md.md#c1"
-    char_span: [1213, 3063]
+    char_span: [1212, 3062]
     sentence_count: 15
     key_terms: [accommodation, letter, specific-pen-8688, because, slides, institution, disability, classroom]
+    concepts: [accommodation, letter, specific-pen-8688, because, slides]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1q6h5md.md#c5"]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/professors/1q6h5md.md#c2"
-    char_span: [3065, 5151]
+    char_span: [3064, 5150]
     sentence_count: 10
     key_terms: [students, seats, class, office, get, seat, classroom, official]
+    concepts: [students, seats, class, office, classroom]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1q6h5md.md#c3", "social-intelligence/reddit-deep/professors/1q6h5md.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1q6h5md.md#c3"
-    char_span: [4879, 5370]
+    char_span: [4878, 5369]
     sentence_count: 4
     key_terms: [lectures, material, students, reading, class, trsmithsubbreddit, information, highlight]
+    concepts: [lectures, material, students, reading, class]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1q6h5md.md#c2", "social-intelligence/reddit-deep/professors/1q6h5md.md#c7"]
     section: Comments
     token_count: 115
   - id: "social-intelligence/reddit-deep/professors/1q6h5md.md#c4"
-    char_span: [5372, 6359]
+    char_span: [5371, 6358]
     sentence_count: 8
     key_terms: [anxiety, situation, exposure, student, slides, ahead, imhereforthevotes, come]
+    concepts: [anxiety, situation, exposure, student, slides]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1q6h5md.md#c5"]
     section: Comments
     token_count: 209
   - id: "social-intelligence/reddit-deep/professors/1q6h5md.md#c5"
-    char_span: [6361, 8344]
+    char_span: [6360, 8343]
     sentence_count: 12
     key_terms: [student, class, slides, advance, anxiety, courses, accommodations, having]
+    concepts: [student, class, slides, accommodations, accommodation]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1q6h5md.md#c1", "social-intelligence/reddit-deep/professors/1q6h5md.md#c4", "social-intelligence/reddit-deep/professors/1q6h5md.md#c8", "social-intelligence/reddit-deep/professors/1q6h5md.md#c9"]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/professors/1q6h5md.md#c6"
-    char_span: [8346, 10381]
+    char_span: [8345, 10380]
     sentence_count: 15
     key_terms: [lecture, notes, students, office, disability, student, "don't", get]
+    concepts: [lecture, notes, students, disability, office]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1q6h5md.md#c2", "social-intelligence/reddit-deep/professors/1q6h5md.md#c7", "social-intelligence/reddit-deep/professors/1q6h5md.md#c9"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/professors/1q6h5md.md#c7"
-    char_span: [10383, 12560]
+    char_span: [10382, 12559]
     sentence_count: 14
     key_terms: [notes, students, accommodations, disservice, high, lectures, school, taking]
+    concepts: [notes, students, accommodations, disservice, lectures]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1q6h5md.md#c3", "social-intelligence/reddit-deep/professors/1q6h5md.md#c6", "social-intelligence/reddit-deep/professors/1q6h5md.md#c9"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/professors/1q6h5md.md#c8"
-    char_span: [12562, 14872]
+    char_span: [12561, 14871]
     sentence_count: 13
     key_terms: [accommodations, student, incomplete, mandatory, semester, work, institution, contract]
+    concepts: [accommodations, student, incomplete, mandatory, semester]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1q6h5md.md#c5"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/professors/1q6h5md.md#c9"
-    char_span: [14874, 16905]
+    char_span: [14873, 16904]
     sentence_count: 16
     key_terms: [accommodations, class, notes, work, classes, lecture, student, time]
+    concepts: [accommodations, class, notes, classes, lecture]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1q6h5md.md#c5", "social-intelligence/reddit-deep/professors/1q6h5md.md#c6", "social-intelligence/reddit-deep/professors/1q6h5md.md#c7"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/professors/1q6h5md.md#c10"
-    char_span: [16907, 18021]
+    char_span: [16906, 18020]
     sentence_count: 9
     key_terms: [accommodations, time, counseling, anxiety, center, been, need, root]
+    concepts: [accommodations, counseling, anxiety, center]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1q6h5md.md#c0"]
     section: Comments
     token_count: 251
 ---

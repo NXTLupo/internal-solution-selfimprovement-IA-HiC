@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1721]
     sentence_count: 15
     key_terms: [manager, team, advice, need, protecting, comments, managers, believe]
+    concepts: [manager, advice, protecting, comments, managers]
     token_count: 362
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1qmvtxg/need_advice_on_managing_up_while_protecting_my/"}]
   - id: "social-intelligence/reddit-deep/managers/1qmvtxg.md#c1"
     char_span: [1735, 3215]
     sentence_count: 13
     key_terms: [progress, need, take, situation, managing, probably, believe, manager]
+    concepts: [progress, situation, managing, probably, believe]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/managers/1qmvtxg.md#c2"
     char_span: [3217, 5448]
     sentence_count: 13
     key_terms: [team, manager, need, underperforming, answer, appropriately, deliverables, environment]
+    concepts: [manager, underperforming, appropriately, deliverables, answer]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/managers/1qmvtxg.md#c3"
     char_span: [5450, 5734]
     sentence_count: 1
     key_terms: [stakeholders, appropriately, salvageable, management, supportive, deadlines, generally, tradeoff]
+    concepts: [stakeholders]
     section: Comments
     token_count: 52
 ---

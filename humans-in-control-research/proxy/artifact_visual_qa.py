@@ -95,6 +95,40 @@ _QA_JS = r"""
   //    window error (Babel/React mount failure). Its presence is a hard defect.
   const protoError = document.querySelector('.__hic_proto_error');
 
+  // 8. LAYOUT DENSITY (E3 2026-07-02, artifact-total-elevation): the fraction of the content
+  //    region NOT covered by any visible content leaf (own text / img / svg / canvas). A card
+  //    whose interior is dead ivory wash marks no cells -> a template that underfills its
+  //    containers reports a high emptyBodyFrac (the 366:2 "big gaps" failure, evidence E-3).
+  //    Panel backgrounds/borders deliberately do NOT count as content.
+  let emptyBodyFrac = null;
+  {
+    const region = document.querySelector('[data-stage-body], .gold-body, .slide-body, .stage-body, main') || mount;
+    if (region) {
+      const rb = region.getBoundingClientRect();
+      if (rb.width > 200 && rb.height > 150) {
+        const GX = 48, GY = 27;
+        const grid = new Uint8Array(GX * GY);
+        const mark = (r) => {
+          if (r.width <= 0 || r.height <= 0) return;
+          const x0 = Math.max(0, Math.floor((r.left - rb.left) / rb.width * GX));
+          const x1 = Math.min(GX - 1, Math.ceil((r.right - rb.left) / rb.width * GX) - 1);
+          const y0 = Math.max(0, Math.floor((r.top - rb.top) / rb.height * GY));
+          const y1 = Math.min(GY - 1, Math.ceil((r.bottom - rb.top) / rb.height * GY) - 1);
+          for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) grid[y * GX + x] = 1;
+        };
+        region.querySelectorAll('*').forEach(el => {
+          if (!vis(el)) return;
+          const tag = el.tagName;
+          if (tag === 'SCRIPT' || tag === 'STYLE') return;
+          if (tag === 'IMG' || tag === 'svg' || tag === 'SVG' || tag === 'CANVAS' || tag === 'VIDEO') { mark(el.getBoundingClientRect()); return; }
+          if (dt(el).length >= 2) mark(el.getBoundingClientRect());
+        });
+        let filled = 0; for (const v of grid) if (v) filled++;
+        emptyBodyFrac = Math.round((1 - filled / (GX * GY)) * 1000) / 1000;
+      }
+    }
+  }
+
   return {
     clientWidth: iw,
     horizScroll: document.documentElement.scrollWidth > iw+2,
@@ -103,6 +137,7 @@ _QA_JS = r"""
     asymmetry, meterMisuse: meter, overlapCount: overlap,
     mountTextLen: mountText.length, mountEls: mountEls,
     protoError: protoError ? (protoError.textContent || '').slice(0, 400) : null,
+    emptyBodyFrac,
   };
 }
 """
@@ -183,12 +218,16 @@ def _probe_nav(page, max_clicks: int = 12) -> dict:
     return out
 
 
-def audit_html(html: str, viewport: int = 1440, height: int = 1000, click_through: bool = False) -> dict:
+def audit_html(html: str, viewport: int = 1440, height: int = 1000, click_through: bool = False,
+               density_max: float | None = None) -> dict:
     """Render `html` in headless Chromium and return a structured defect report.
     Renders WITH the serve-time enforcement CSS so it audits exactly what the user
     sees. click_through=True (set for kind='proto') additionally clicks each nav/interactive
     control and re-checks the mount, so a screen that errors or goes blank ONLY on navigation is
-    caught - the gate previously verified the landing screen alone. Returns {available: False, ...}
+    caught - the gate previously verified the landing screen alone.
+    density_max (E3 2026-07-02): when set (e.g. 0.25 for slide/stage audits), an empty-body
+    fraction above it counts as a layout_density defect; when None the metric is REPORT-ONLY
+    (threshold calibration is the owner-gated U6 item). Returns {available: False, ...}
     if Chromium is unavailable (never raises)."""
     if not html:
         return {"available": False, "reason": "empty html"}
@@ -241,6 +280,11 @@ def audit_html(html: str, viewport: int = 1440, height: int = 1000, click_throug
     # NAV COVERAGE: a screen that errors/blanks only AFTER navigation (the gate's blind spot).
     nav_runtime_error = 1 if (nav and nav.get("error_label") is not None) else 0
     nav_blank = 1 if (nav and nav.get("blank_label")) else 0
+    # LAYOUT DENSITY (E3): empty-body fraction from the DOM-geometry probe. Gated only when the
+    # caller supplies density_max; otherwise reported for calibration (owner-gated U6).
+    empty_frac = data.get("emptyBodyFrac")
+    density_defect = 1 if (density_max is not None and isinstance(empty_frac, (int, float))
+                           and empty_frac > density_max) else 0
     defects = {
         "blank": blank,
         "runtime_error": runtime_error,
@@ -252,12 +296,13 @@ def audit_html(html: str, viewport: int = 1440, height: int = 1000, click_throug
         "meter_misuse": len(data.get("meterMisuse", [])),
         "margin_asymmetry": asym.get("delta", 0) if asym else 0,
         "horizontal_scroll": bool(data.get("horizScroll")),
+        "layout_density": density_defect,
     }
     passed = (defects["blank"] == 0 and defects["runtime_error"] == 0
               and defects["nav_runtime_error"] == 0 and defects["nav_blank"] == 0
               and defects["crush"] == 0 and defects["overflow"] == 0 and defects["overlap"] == 0
               and defects["meter_misuse"] == 0 and defects["margin_asymmetry"] <= 8
-              and not defects["horizontal_scroll"])
+              and not defects["horizontal_scroll"] and defects["layout_density"] == 0)
     return {
         "available": True,
         "passed": passed,
@@ -271,5 +316,7 @@ def audit_html(html: str, viewport: int = 1440, height: int = 1000, click_throug
             "meterMisuse": data.get("meterMisuse", []),
             "asymmetry": asym,
             "clientWidth": data.get("clientWidth"),
+            "empty_body_frac": empty_frac,
+            "density_max": density_max,
         },
     }

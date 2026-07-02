@@ -19,53 +19,70 @@ chunks:
     char_span: [0, 1385]
     sentence_count: 12
     key_terms: [unemployed, market, people, capitulate, cscareerquestions, "it's", job, eventually]
+    concepts: [unemployed, capitulate, cscareerquestions, market, people]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c4"]
     token_count: 312
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1lpgk9z/the_job_market_wont_get_better_until_most_of_the/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c1"
     char_span: [1399, 2790]
     sentence_count: 9
     key_terms: [job, less, field, too, interviews, fields, people, leave]
+    concepts: [field, interviews, fields, people, leave]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c6", "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c7"]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c2"
     char_span: [2792, 4793]
     sentence_count: 12
     key_terms: [people, leave, software, because, better, engineering, job, unemployed]
+    concepts: [people, leave, software, because, better]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c6"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c3"
     char_span: [4795, 6837]
     sentence_count: 14
     key_terms: [time, games, here, graduating, everyone, deleted, "doesn't", working]
+    concepts: [games, graduating, everyone, deleted, "doesn't"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c4"
     char_span: [6839, 8594]
     sentence_count: 9
     key_terms: [people, tech, job, less, bootcamp, career, market, never]
+    concepts: [people, bootcamp, career, market, never]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c0"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c5"
     char_span: [8596, 10414]
     sentence_count: 7
     key_terms: [people, job, anymore, going, available, disagree, better, paying]
+    concepts: [people, anymore, going, available, disagree]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c7"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c6"
     char_span: [10416, 12563]
     sentence_count: 18
     key_terms: [people, fields, because, passionate, clittoryhinton, doing, enjoy, development]
+    concepts: [people, fields, because, passionate, clittoryhinton]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c7"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c7"
     char_span: [12565, 14697]
     sentence_count: 14
     key_terms: [get, fields, people, going, right, wage, oversupply, pivoting]
+    concepts: [fields, people, going, oversupply, right]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c6"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c8"
     char_span: [14699, 16421]
     sentence_count: 9
     key_terms: [offshoring, years, been, market, "don't", else, anything, deleted]
+    concepts: [offshoring, years, market, "don't", anything]
     section: Comments
     token_count: 443
 ---

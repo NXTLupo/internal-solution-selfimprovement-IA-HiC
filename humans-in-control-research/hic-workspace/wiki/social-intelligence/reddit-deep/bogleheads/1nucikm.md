@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 280]
     sentence_count: 1
     key_terms: [bogleheads, comments, mat6toob2024, reddit-deep, unnecessary, everything, customer, vanguard]
+    concepts: [bogleheads, comments]
     token_count: 75
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1nucikm/vanguard_customer_service_is_so_shit/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1nucikm.md#c1"
-    char_span: [295, 2221]
+    char_span: [294, 2220]
     sentence_count: 16
     key_terms: [customer, vanguard, mat6toob2024, experiences, transferred, call, experience, quickly]
+    concepts: [customer, vanguard, mat6toob2024, experiences, transferred]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1nucikm.md#c2"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/bogleheads/1nucikm.md#c2"
-    char_span: [2223, 2851]
+    char_span: [2222, 2850]
     sentence_count: 8
     key_terms: [customer, vanguard, service, nearly, like, recommending, appreciated, interviewed]
+    concepts: [customer, vanguard, service, nearly]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1nucikm.md#c1"]
     section: Comments
     token_count: 134
 ---

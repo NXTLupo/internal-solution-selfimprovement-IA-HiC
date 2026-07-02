@@ -20,23 +20,32 @@ chunks:
     char_span: [0, 468]
     sentence_count: 6
     key_terms: [bogleheads, comments, customer, vanguard, service, johnnylikesetfs, communicate, reddit-deep]
+    concepts: [bogleheads, comments, customer, vanguard, service]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1qc4gv6.md#c2", "social-intelligence/reddit-deep/bogleheads/1qc4gv6.md#c3"]
     token_count: 120
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1qc4gv6/vanguard_customer_service/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1qc4gv6.md#c1"
-    char_span: [483, 2499]
+    char_span: [482, 2498]
     sentence_count: 13
     key_terms: [vanguard, rep, person, schwab, experience, knows, talk, fidelity]
+    concepts: [vanguard, experience, person, schwab, knows]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1qc4gv6.md#c3"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/bogleheads/1qc4gv6.md#c2"
-    char_span: [2501, 3970]
+    char_span: [2500, 3969]
     sentence_count: 11
     key_terms: [customer, service, fidelity, schwab, self-directed, rep, answer, better]
+    concepts: [customer, service, fidelity, schwab, self-directed]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1qc4gv6.md#c0", "social-intelligence/reddit-deep/bogleheads/1qc4gv6.md#c3"]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/bogleheads/1qc4gv6.md#c3"
-    char_span: [3972, 5000]
+    char_span: [3971, 4999]
     sentence_count: 8
     key_terms: [service, schwab, customer, fidelity, vanguard, better, generally, accounts]
+    concepts: [service, schwab, customer, fidelity, vanguard]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1qc4gv6.md#c0", "social-intelligence/reddit-deep/bogleheads/1qc4gv6.md#c1", "social-intelligence/reddit-deep/bogleheads/1qc4gv6.md#c2"]
     section: Comments
     token_count: 241
 ---

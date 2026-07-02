@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 785]
     sentence_count: 7
     key_terms: [college, careerguidance, school, students, reddit, entry, level, right]
+    concepts: [college, careerguidance, school, students, reddit]
     token_count: 180
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rhqtso/why_are_students_pushed_to_pursue_professional/"}]
   - id: "articles/reddit-deep-r-careerguidance/e2fda2f6ef.md#c1"
     char_span: [787, 2742]
     sentence_count: 12
     key_terms: [years, bachelors, "it's", degree, school, scholarships, challenging, financially]
+    concepts: [bachelors, years, scholarships, degree, school]
     token_count: 490
 ---
 # Why are students pushed to pursue professional careers at such a young age?

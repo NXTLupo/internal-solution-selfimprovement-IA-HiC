@@ -14,12 +14,14 @@ chunks:
     char_span: [0, 868]
     sentence_count: 7
     key_terms: [identity, humans, visual, nxt, decorative, output, single, rounded-everything]
+    concepts: [identity, humans, visual, decorative, output]
     section: Design Philosophy
     token_count: 162
   - id: "brand/identity.md#c1"
     char_span: [903, 2091]
     sentence_count: 1
     key_terms: [b8b800, sans-serif, accents, f5f5f0, nxt-chartreuse-soft, nxt-critical-border, nxt-evidence-border, nxt-positive-border]
+    concepts: [b8b800, sans-serif, accents, f5f5f0]
     section: Complete CSS Variable System
     token_count: 502
   - id: "brand/identity.md#c2"
@@ -32,54 +34,63 @@ chunks:
     char_span: [2641, 4270]
     sentence_count: 6
     key_terms: [deliverable, primary, dark, mode, dividers, sections, accents, section]
+    concepts: [deliverable, primary, dividers, sections, accents]
     section: Template Modes
     token_count: 450
   - id: "brand/identity.md#c4"
     char_span: [4294, 6042]
     sentence_count: 4
     key_terms: [chartreuse, color, secondary, backgrounds, accent, visual, never, white]
+    concepts: [chartreuse, color, secondary, backgrounds, accent]
     section: Color Usage Rules
     token_count: 427
   - id: "brand/identity.md#c5"
     char_span: [6044, 7341]
     sentence_count: 3
     key_terms: [background, borders, alternating, backgrounds, information, text, elements, nxt-body]
+    concepts: [background, borders, alternating, backgrounds, information]
     section: Color Usage Rules
     token_count: 397
   - id: "brand/identity.md#c6"
     char_span: [7365, 8613]
     sentence_count: 3
     key_terms: [deliverable, code, font, sans-serif, typefaces, banned, design, default-of-defaults]
+    concepts: [deliverable, sans-serif, typefaces, banned, design]
     section: Typography System
     token_count: 298
   - id: "brand/identity.md#c7"
     char_span: [8615, 9809]
     sentence_count: 1
     key_terms: [headline, body, section, titles, headings, title, hero, paragraphs]
+    concepts: [headline, section, titles, headings, paragraphs]
     section: Typography System
     token_count: 386
   - id: "brand/identity.md#c8"
     char_span: [9811, 11267]
     sentence_count: 12
     key_terms: [text, bebas, headlines, uppercase, neue, use, designed, headline]
+    concepts: [headlines, uppercase, bebas, designed, headline]
     section: Typography System
     token_count: 394
   - id: "brand/identity.md#c9"
     char_span: [11288, 12922]
     sentence_count: 4
     key_terms: [space-lg, spacing, content, gaps, space-md, vertical, padding, values]
+    concepts: [space-lg, spacing, content, space-md, vertical]
     section: Spacing System
     token_count: 445
   - id: "brand/identity.md#c10"
     char_span: [12943, 13648]
     sentence_count: 4
     key_terms: [brand-dot-grid, appears, circles, "maker's", grid-template-columns, repeat, grid-template-rows, gap]
+    concepts: [brand-dot-grid, appears, circles, "maker's", repeat]
     section: Brand Dot Grid
     token_count: 205
   - id: "brand/identity.md#c11"
     char_span: [13671, 14174]
     sentence_count: 2
     key_terms: [brand, banned, typography, anti-slop, identity, color, rules, illustration-style]
+    concepts: [brand, banned, typography, anti-slop, identity]
     section: Cross-References
     token_count: 103
 ---

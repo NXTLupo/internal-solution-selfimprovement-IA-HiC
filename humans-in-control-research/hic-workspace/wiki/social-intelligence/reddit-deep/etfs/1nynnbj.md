@@ -20,35 +20,45 @@ chunks:
     char_span: [0, 939]
     sentence_count: 1
     key_terms: [etf, xar-vs-qqqm-vs-ibit-vs-ura-vs-gdx-vs-fxi, large-cap, comments, capital, compare, defense, miners]
+    concepts: [large-cap, comments, capital, compare, defense]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1nynnbj/etf_portfolio/"}]
   - id: "social-intelligence/reddit-deep/etfs/1nynnbj.md#c1"
-    char_span: [954, 1562]
+    char_span: [953, 1561]
     sentence_count: 5
     key_terms: [diversified, portfolio, fund, sgov, vbil, appreciation, conservative, aggressive]
+    concepts: [diversified, portfolio]
     section: Comments
     token_count: 159
   - id: "social-intelligence/reddit-deep/etfs/1nynnbj.md#c2"
-    char_span: [1564, 3387]
+    char_span: [1563, 3386]
     sentence_count: 13
     key_terms: [qqqm-vs-ibit-vs-ura-vs-gdx-vs-kweb-vs-shld-vs-smh, qqqm, https, com, etfcentral, electrical-fly4210, stockanalysis, constructive]
+    concepts: [qqqm-vs-ibit-vs-ura-vs-gdx-vs-kweb-vs-shld-vs-smh, https, electrical-fly4210, etfcentral, stockanalysis]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1nynnbj.md#c3", "social-intelligence/reddit-deep/etfs/1nynnbj.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/etfs/1nynnbj.md#c3"
-    char_span: [3174, 3635]
+    char_span: [3173, 3634]
     sentence_count: 3
     key_terms: [etfcentral, qqqm, comment, reddit, compare-etfs, com, www, https]
+    concepts: [etfcentral, comment, compare-etfs, reddit, https]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1nynnbj.md#c2"]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/etfs/1nynnbj.md#c4"
-    char_span: [3637, 5128]
+    char_span: [3636, 5127]
     sentence_count: 8
     key_terms: [qqqm-vs-ibit-vs-ura-vs-gdx-vs-kweb-vs-shld-vs-smh, stockanalysis, electrical-fly4210, miners, thanks, personally, compare, useful]
+    concepts: [qqqm-vs-ibit-vs-ura-vs-gdx-vs-kweb-vs-shld-vs-smh, stockanalysis, electrical-fly4210, miners, thanks]
+    related_chunks: ["social-intelligence/reddit-deep/etfs/1nynnbj.md#c2"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/etfs/1nynnbj.md#c5"
-    char_span: [5130, 5678]
+    char_span: [5129, 5677]
     sentence_count: 4
     key_terms: [months, yearly, basis, "isn't", better-performing, etfs, "everything's", individual]
+    concepts: [months, yearly, basis, "isn't"]
     section: Comments
     token_count: 156
 ---

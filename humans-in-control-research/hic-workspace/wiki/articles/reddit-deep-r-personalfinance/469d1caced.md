@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1839]
     sentence_count: 11
     key_terms: [dont, personalfinance, account, been, last, withdraw, savings, advice]
+    concepts: [personalfinance, account, withdraw, savings, advice]
     token_count: 444
+    sources: [{"n":"Reddit Deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1mxw81u/just_found_out_about_a_secret_account_with_76k_in/"}]
   - id: "articles/reddit-deep-r-personalfinance/469d1caced.md#c1"
     char_span: [1841, 3882]
     sentence_count: 16
     key_terms: [money, time, account, thought, dad, lot, seriously, research]
+    concepts: [money, account, thought, seriously, research]
     token_count: 459
   - id: "articles/reddit-deep-r-personalfinance/469d1caced.md#c2"
     char_span: [3884, 5117]
     sentence_count: 13
     key_terms: [ask, hysa, investment, crypto, randomcoffeethoughts, money, years, dad]
+    concepts: [investment, crypto, money, years]
     token_count: 307
 ---
 # Just found out about a secret account with $76k in it, and I dont know what to do with it

@@ -20,27 +20,36 @@ chunks:
     char_span: [0, 2162]
     sentence_count: 33
     key_terms: [get, reddit, startups, posting, people, "you're", time, everything]
+    concepts: [reddit, startups, posting, people, "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1sqxkut.md#c1", "social-intelligence/reddit-deep/startups/1sqxkut.md#c2"]
     token_count: 479
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1sqxkut/i_will_not_promote_startupsfounders_guide_my/"}]
   - id: "social-intelligence/reddit-deep/startups/1sqxkut.md#c1"
     char_span: [2164, 4473]
     sentence_count: 36
     key_terms: [people, product, like, "you're", "don't", something, link, traffic]
+    concepts: [people, product, "you're", something, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1sqxkut.md#c0", "social-intelligence/reddit-deep/startups/1sqxkut.md#c2"]
     token_count: 495
   - id: "social-intelligence/reddit-deep/startups/1sqxkut.md#c2"
     char_span: [4475, 5592]
     sentence_count: 18
     key_terms: [people, customers, communities, "you're", subreddits, building, get, problem]
+    concepts: [customers, people, communities, subreddits, "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1sqxkut.md#c0", "social-intelligence/reddit-deep/startups/1sqxkut.md#c1"]
     token_count: 243
   - id: "social-intelligence/reddit-deep/startups/1sqxkut.md#c3"
-    char_span: [5607, 7536]
+    char_span: [5606, 7535]
     sentence_count: 16
     key_terms: [building, promote, genuinely, something, noticed, problem, spammer, through]
+    concepts: [building, promote, genuinely, something, noticed]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/startups/1sqxkut.md#c4"
-    char_span: [7538, 9651]
+    char_span: [7537, 9650]
     sentence_count: 17
     key_terms: [threads, environment, like, commenting, everything, scrolling, targeting, traction]
+    concepts: [threads, environment, commenting, everything, scrolling]
     section: Comments
     token_count: 454
 ---

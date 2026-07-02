@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 1672]
     sentence_count: 11
     key_terms: [thailand, spain, digital, nomad, travel, digitalnomad, speak, visa]
+    concepts: [thailand, digital, spain, nomad, digitalnomad]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c1", "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c3", "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c4"]
     token_count: 401
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1pgui36/help_me_decide_digital_nomad_base_spain_or/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c1"
     char_span: [1686, 3730]
     sentence_count: 7
     key_terms: [thailand, permanent, residency, spain, europe, passport, cosmicaceituna, taxes]
+    concepts: [thailand, permanent, residency, spain, europe]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c0", "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c3", "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c2"
     char_span: [3500, 4013]
     sentence_count: 2
     key_terms: [amazing, cheap, helpful-staff9562, lots, adventurours, activities, apartments, designer]
+    concepts: [amazing, cheap]
     section: Comments
     token_count: 130
   - id: "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c3"
     char_span: [4015, 6016]
     sentence_count: 18
     key_terms: [thailand, spain, interested, years, "i'm", "it's", long, thai]
+    concepts: [thailand, spain, interested, years, northern]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c0", "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c1", "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c4"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c4"
     char_span: [6018, 7535]
     sentence_count: 16
     key_terms: [thailand, spain, europe, another, connect, reason, "you'll", no-programmer7358]
+    concepts: [thailand, spain, europe, another, connect]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c0", "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c1", "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c3"]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c5"
     char_span: [7537, 8622]
     sentence_count: 10
     key_terms: [thailand, countries, clients, locals, great, apac, did, end]
+    concepts: [thailand, countries, clients, locals, great]
     section: Comments
     token_count: 257
 ---

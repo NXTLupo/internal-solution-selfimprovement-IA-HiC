@@ -20,41 +20,48 @@ chunks:
     char_span: [0, 1480]
     sentence_count: 9
     key_terms: [customerexperience, hyper-personalized, interaction, suggestions, improving, platforms, real-time, comments]
+    concepts: [customerexperience, hyper-personalized, interaction, suggestions, improving]
     token_count: 307
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1swtenx/are_hyperpersonalized_cx_platforms_in_contact/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1swtenx.md#c1"
-    char_span: [1495, 3042]
+    char_span: [1494, 3041]
     sentence_count: 10
     key_terms: [agent, hyper-personalization, call, working, bad, longwaybroadband, mid-interaction, understanding]
+    concepts: [hyper-personalization, agent, working]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/customerexperience/1swtenx.md#c2"
-    char_span: [3044, 4197]
+    char_span: [3043, 4196]
     sentence_count: 5
     key_terms: [ro7ligrx5nhsr6ycexw15z0gewlory7uhskuk9ok3v9iczbt7-w2y0iis6hggtbf3xoy-24ago7whjnvhclxpqp6yfzxzwpmb9imgxtcorstigedjos3ru7zheh0zar9idpcdwfwueui7j2kaqdttupz-ru9xunowyb9udaysz-zj-, nxm5eghnpcv1-sptevogvtupjqowlu4l8hcxdqidvb8q59gvgimyyz1fo-, agent, here, implementation, personalize, practically, difference]
+    concepts: [agent]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/customerexperience/1swtenx.md#c3"
-    char_span: [4095, 4820]
+    char_span: [4094, 4819]
     sentence_count: 1
     key_terms: [ssyi8v3fv6x6mhftpj1wzxzlrn4dfwkb7k6qe2h41pjdgukprjbumjbxjv917v4i8p5doymikdou8cjuilbhgary-kvkt-, jgzci1qhdbnn3czsveavq8z3newbij1hg6-, nokdixnjmn-qogkflo9fk]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/customerexperience/1swtenx.md#c4"
-    char_span: [4728, 5514]
+    char_span: [4727, 5513]
     sentence_count: 2
     key_terms: [problem, hyper-personalized, hfkxppidso2mk1rqh, dialpadofficial, compelling, invaluable, technology, ownership]
+    concepts: [problem]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/customerexperience/1swtenx.md#c5"
-    char_span: [5516, 7595]
+    char_span: [5515, 7594]
     sentence_count: 15
     key_terms: [hyper-personalized, personalization, across, agents, intent, interactions, agent, suggestions]
+    concepts: [hyper-personalized, personalization, interactions, across, agents]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/customerexperience/1swtenx.md#c6"
-    char_span: [7597, 9079]
+    char_span: [7596, 9078]
     sentence_count: 11
     key_terms: [agent, personalization, tickets, platforms, instead, signals, autonomous-resolution, effort]
+    concepts: [agent, personalization, tickets, platforms, instead]
     section: Comments
     token_count: 309
 ---

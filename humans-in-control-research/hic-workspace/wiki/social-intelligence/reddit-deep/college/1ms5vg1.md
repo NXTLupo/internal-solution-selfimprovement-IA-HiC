@@ -19,47 +19,60 @@ chunks:
     char_span: [0, 1263]
     sentence_count: 6
     key_terms: [get, degree, women, college, hired, job, men, comments]
+    concepts: [degree, women, college, hired, comments]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ms5vg1.md#c1", "social-intelligence/reddit-deep/college/1ms5vg1.md#c3", "social-intelligence/reddit-deep/college/1ms5vg1.md#c4"]
     token_count: 304
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ms5vg1/more_women_are_being_hired_than_men_with_a_4_year/"}]
   - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c1"
     char_span: [1277, 2970]
     sentence_count: 12
     key_terms: [women, healthcare, either, men, degree, news, childcare, college]
+    concepts: [women, healthcare, either, degree, childcare]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ms5vg1.md#c0"]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c2"
     char_span: [2972, 4725]
     sentence_count: 12
     key_terms: [dominated, like, college, market, traditionally, engineering, job, want]
+    concepts: [dominated, traditionally, college, market, engineering]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c3"
     char_span: [4727, 6840]
     sentence_count: 11
     key_terms: [women, men, young, age, fact, education, educated, college]
+    concepts: [women, young, education, educated, college]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ms5vg1.md#c0", "social-intelligence/reddit-deep/college/1ms5vg1.md#c4"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c4"
     char_span: [6842, 8872]
     sentence_count: 15
     key_terms: [women, men, education, college, circumstantial, leave, average-college-gpa-statistics, take]
+    concepts: [women, education, circumstantial, college, leave]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ms5vg1.md#c0", "social-intelligence/reddit-deep/college/1ms5vg1.md#c3"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c5"
     char_span: [8874, 11088]
     sentence_count: 12
     key_terms: [academic-achievement-isnt-reason-there-are-more-men-women-majoring-physics-engineering-and, wide-and-lasting-consequences-teachers-give-girls-higher-grades-than-boys, teachers, gender, internships, got, like, professor]
+    concepts: [teachers, gender, internships, professor, required]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c6"
     char_span: [11090, 13371]
     sentence_count: 17
     key_terms: [financial, college, getting, support, through, people, school, women]
+    concepts: [financial, college, getting, support, through]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c7"
     char_span: [13375, 15108]
     sentence_count: 9
     key_terms: [college, friends, ropethefreeze, participated, job, stem, impressive, getting]
+    concepts: [college, ropethefreeze, friends, participated, impressive]
     section: Comments
     token_count: 403
 ---

@@ -21,47 +21,62 @@ chunks:
     char_span: [0, 999]
     sentence_count: 4
     key_terms: [college, graduates, highereducation, prepare, according, americans, comments, career]
+    concepts: [college, graduates, highereducation, prepare, according]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c2"]
     token_count: 225
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1mcfzk5/1_in_2_graduates_say_their_college_major_didnt/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c1"
     char_span: [1013, 2696]
     sentence_count: 10
     key_terms: [college, experience, students, undergraduate, research, training, regrets, degree]
+    concepts: [college, experience, students, undergraduate, research]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c2", "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c6", "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c7"]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c2"
     char_span: [2698, 4538]
     sentence_count: 7
     key_terms: [extracurricular, college, complaints, graduates, research, "they're", always, school]
+    concepts: [extracurricular, college, complaints, graduates, research]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c0", "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c1"]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c3"
     char_span: [4540, 6675]
     sentence_count: 18
     key_terms: [students, employment, internship, career, job, look, time, "don't"]
+    concepts: [students, employment, internship, career, description]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c7"]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c4"
     char_span: [6677, 8351]
     sentence_count: 17
     key_terms: [programs, students, program, "don't", get, like, elementary, themselves]
+    concepts: [programs, students, program, "don't", elementary]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c5"
     char_span: [8353, 10069]
     sentence_count: 13
     key_terms: [job, college, education, training, want, higher, people, plenty]
+    concepts: [college, education, training, higher, people]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c6"
     char_span: [10071, 11662]
     sentence_count: 11
     key_terms: [get, something, business, students, college, degrees, prepare, degree]
+    concepts: [something, business, students, college, degrees]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c1", "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c7"]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c7"
     char_span: [11664, 12790]
     sentence_count: 7
     key_terms: [students, career, resources, advanced, college, ambitious-meringue37, major, track]
+    concepts: [students, career, resources, advanced, college]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c1", "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c3", "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c6"]
     section: Comments
     token_count: 252
 ---

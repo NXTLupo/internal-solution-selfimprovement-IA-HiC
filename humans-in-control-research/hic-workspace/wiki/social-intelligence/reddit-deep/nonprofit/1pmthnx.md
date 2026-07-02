@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1237]
     sentence_count: 10
     key_terms: [leadership, nonprofit, development, experience, comments, director, "garry's", budget]
+    concepts: [leadership, nonprofit, development, experience, comments]
     token_count: 264
+    sources: [{"n":"reddit-deep: r/nonprofit","u":"https://www.reddit.com/r/nonprofit/comments/1pmthnx/garrys_nonprofit_leadership_lab/"}]
   - id: "social-intelligence/reddit-deep/nonprofit/1pmthnx.md#c1"
-    char_span: [1252, 3047]
+    char_span: [1251, 3046]
     sentence_count: 14
     key_terms: [funding, "it's", free, year, baseline, gf04363, serving, budget]
+    concepts: [funding, baseline, gf04363, serving, budget]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/nonprofit/1pmthnx.md#c2"
-    char_span: [3049, 4593]
+    char_span: [3048, 4592]
     sentence_count: 14
     key_terms: [donors, meetings, conversations, relationships, conservation, organization, major, ask]
+    concepts: [donors, meetings, conversations, relationships, conservation]
     section: Comments
     token_count: 302
 ---

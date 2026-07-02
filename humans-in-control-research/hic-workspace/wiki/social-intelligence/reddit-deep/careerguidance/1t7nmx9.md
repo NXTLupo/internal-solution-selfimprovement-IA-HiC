@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 295]
     sentence_count: 1
     key_terms: [careerguidance, comments, progression, reddit-deep, corporate, advice, career, posted]
+    concepts: [careerguidance, comments]
     token_count: 89
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t7nmx9/need_career_progression_advice_first_corporate_job/"}]
 ---
 # Need Career Progression Advice? - First Corporate Job
 

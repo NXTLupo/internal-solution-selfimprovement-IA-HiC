@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1950]
     sentence_count: 14
     key_terms: [etfs, diversified, due, won, platforms, reporting, comments, citizen]
+    concepts: [diversified, platforms, reporting, comments, citizen]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1s2p3nz/etf_locked_out_as_a_ukus_citizen_is_this_the_next/"}]
   - id: "social-intelligence/reddit-deep/etfs/1s2p3nz.md#c1"
-    char_span: [1965, 2527]
+    char_span: [1964, 2526]
     sentence_count: 6
     key_terms: [companies, nicholas77armstrong, etf, safe-tennis-6121, aredit-account, berkshire, europeans, replicate]
+    concepts: [companies]
     section: Comments
     token_count: 149
   - id: "social-intelligence/reddit-deep/etfs/1s2p3nz.md#c2"
-    char_span: [2529, 4071]
+    char_span: [2528, 4070]
     sentence_count: 15
     key_terms: [look, companies, time, quality, sector, stocks, "don't", idea]
+    concepts: [companies, quality, sector, stocks, "don't"]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/etfs/1s2p3nz.md#c3"
-    char_span: [4073, 5254]
+    char_span: [4072, 5253]
     sentence_count: 8
     key_terms: [cap, small, trust, portfolio, utilities, stocks, trusts, brilliantunlucky4592]
+    concepts: [small, trust, portfolio, utilities, stocks]
     section: Comments
     token_count: 285
 ---

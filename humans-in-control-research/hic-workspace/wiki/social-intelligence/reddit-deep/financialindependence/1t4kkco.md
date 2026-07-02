@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 1727]
     sentence_count: 10
     key_terms: [financialindependence, comments, reddit, update, https, com, www, fire]
+    concepts: [financialindependence, comments, reddit, update, https]
     token_count: 474
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1t4kkco/fire_update_38_no_home_one_toddler_37m_nw/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1t4kkco.md#c1"
     char_span: [1729, 2448]
     sentence_count: 2
     key_terms: [assets, etfs, international, continuing, treasuries, breakdown, portfolio, rebalance]
+    concepts: [assets]
     token_count: 305
   - id: "social-intelligence/reddit-deep/financialindependence/1t4kkco.md#c2"
     char_span: [2462, 4365]
     sentence_count: 13
     key_terms: [years, equities, mortgage, capital, coming, living, regret, salary]
+    concepts: [years, equities, mortgage, capital, coming]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/financialindependence/1t4kkco.md#c3"
     char_span: [4367, 6175]
     sentence_count: 16
     key_terms: [cycle, end, market, treasuries, legitosaurusrex, predict, months, ago]
+    concepts: [cycle, treasuries, market, legitosaurusrex, predict]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/financialindependence/1t4kkco.md#c4"
     char_span: [6177, 7616]
     sentence_count: 11
     key_terms: [lolkkthxbye, stock, "i've", individual, reading, income, "you're", ok-psychology7619]
+    concepts: [lolkkthxbye, individual, stock, reading, income]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1t4kkco.md#c5"]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/financialindependence/1t4kkco.md#c5"
     char_span: [7618, 9440]
     sentence_count: 12
     key_terms: [partner, lolkkthxbye, working, income, keep, risk, mrandr01d, benefits]
+    concepts: [lolkkthxbye, partner, working, income, mrandr01d]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1t4kkco.md#c4"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/financialindependence/1t4kkco.md#c6"
     char_span: [9442, 10035]
     sentence_count: 7
     key_terms: [did, adding, april, solomongrumpy, compounding, impressive, portfolio, accounts]
+    concepts: [adding, april]
     section: Comments
     token_count: 177
 ---

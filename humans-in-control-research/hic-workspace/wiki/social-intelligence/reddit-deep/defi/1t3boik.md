@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 2063]
     sentence_count: 2
     key_terms: [coinbase, listed, market, month, never, defi, dex, last]
+    concepts: [coinbase, listed, market, month, never]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1t3boik.md#c1"]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1t3boik/been_a_coinbase_user_forever_realized_last_month/"}]
   - id: "social-intelligence/reddit-deep/defi/1t3boik.md#c1"
-    char_span: [2078, 3525]
+    char_span: [2077, 3524]
     sentence_count: 10
     key_terms: [coinbase, market, amazing, crypto, screen, wallet, ledgerthrowaway12345, dexes]
+    concepts: [coinbase, market, amazing, crypto, screen]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1t3boik.md#c0"]
     section: Comments
     token_count: 388
 ---

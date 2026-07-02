@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2272]
     sentence_count: 19
     key_terms: [software, cscareerquestions, "didn't", significant, like, experience, interviews, operating]
+    concepts: [software, cscareerquestions, "didn't", significant, experience]
     token_count: 498
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rpe2ks/hows_the_job_market_5_experience_above_only_no/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/f1c6ffa97c.md#c1"
     char_span: [2274, 3937]
     sentence_count: 18
     key_terms: [hybrid, silicon, "didn't", remote, valley, fewer, development, engineering]
+    concepts: [hybrid, silicon, "didn't", remote, valley]
     token_count: 370
 ---
 # How's the job market (5+ Experience & above only - No entry level)

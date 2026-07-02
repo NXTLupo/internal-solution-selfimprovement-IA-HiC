@@ -21,62 +21,76 @@ chunks:
     char_span: [0, 1883]
     sentence_count: 18
     key_terms: [openai, subscription, teams, pro, removed, access, legacy, models]
+    concepts: [openai, subscription, teams, removed, access]
     token_count: 455
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1mlrlsb/openais_habit_of_rug_pullingwhy_we_are_moving_on/"}]
   - id: "social-intelligence/reddit-deep/openai/1mlrlsb.md#c1"
     char_span: [1885, 3468]
     sentence_count: 14
     key_terms: [openai, o1-pro, gpt-5, worse, customers, research, default, pattern]
+    concepts: [openai, o1-pro, gpt-5, worse, customers]
     token_count: 338
   - id: "social-intelligence/reddit-deep/openai/1mlrlsb.md#c2"
     char_span: [3470, 5020]
     sentence_count: 1
     key_terms: [https, com, exclusive-openai-takes-bold-step-disables-chatgpt-browse-with-bing-feature-fcc316e2653b, openai, medium, notice, why-did-chatgpt-get-lazy-in-december-516076d0f113, chatgpt-is-killing-off-plugins-what-it-means]
+    concepts: [https, openai, medium, notice, ycombinator]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mlrlsb.md#c3"]
     token_count: 467
   - id: "social-intelligence/reddit-deep/openai/1mlrlsb.md#c3"
     char_span: [5022, 5567]
     sentence_count: 5
     key_terms: [services, notice, openai, "you're", get, "it's", infrastructure, businesses]
+    concepts: [services, notice, openai, "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1mlrlsb.md#c2"]
     token_count: 117
   - id: "social-intelligence/reddit-deep/openai/1mlrlsb.md#c4"
     char_span: [5581, 7361]
     sentence_count: 16
     key_terms: [models, larger, local, get, building, deleted, prompts, running]
+    concepts: [models, larger, local, building, deleted]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/openai/1mlrlsb.md#c5"
     char_span: [7363, 8877]
     sentence_count: 11
     key_terms: [use, resources, getting, locally, access, having, models, people]
+    concepts: [resources, getting, locally, access, having]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/openai/1mlrlsb.md#c6"
     char_span: [8879, 10174]
     sentence_count: 9
     key_terms: [like, use, compute, limits, model, tasks, lyra-in-the-flesh, "i've"]
+    concepts: [compute, limits, model, tasks]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/openai/1mlrlsb.md#c7"
     char_span: [10176, 12230]
     sentence_count: 12
     key_terms: [models, open, llm, accounts, consumer, chatgpt, problem, access]
+    concepts: [models, accounts, consumer, chatgpt, problem]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/openai/1mlrlsb.md#c8"
     char_span: [12232, 13341]
     sentence_count: 6
     key_terms: [google, integration, etc, pro, requests, research, supports, chatgpt]
+    concepts: [google, integration, requests, research, supports]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/openai/1mlrlsb.md#c9"
     char_span: [13343, 15115]
     sentence_count: 16
     key_terms: [api, tokens, being, assistant, chat-gpt, response, chatgpt, "doesn't"]
+    concepts: [tokens, being, assistant, chat-gpt, response]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/openai/1mlrlsb.md#c10"
     char_span: [15117, 16029]
     sentence_count: 7
     key_terms: [google, foundational, arbitrarily, advance, choose, models, please, model]
+    concepts: [google, foundational, arbitrarily, advance, choose]
     section: Comments
     token_count: 204
 ---

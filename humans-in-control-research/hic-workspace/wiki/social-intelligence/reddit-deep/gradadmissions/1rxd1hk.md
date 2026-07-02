@@ -21,60 +21,78 @@ chunks:
     char_span: [0, 1507]
     sentence_count: 3
     key_terms: [program, research, gradadmissions, school, application, lor, time, comments]
+    concepts: [program, research, gradadmissions, school, application]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c1", "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c3", "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c6"]
     token_count: 403
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rxd1hk/26_phd_app_results_and_my_application_process/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c1"
     char_span: [1509, 3880]
     sentence_count: 13
     key_terms: [research, programs, program, application, resources, because, writing, fields]
+    concepts: [research, programs, application, program, resources]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c0", "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c6"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c2"
     char_span: [3882, 5745]
     sentence_count: 15
     key_terms: [research, advice, interview, statement, asked, look, interested, mentioned]
+    concepts: [research, advice, interview, statement, asked]
     token_count: 419
   - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c3"
     char_span: [5747, 8090]
     sentence_count: 14
     key_terms: [interview, questions, school, phd, question, ability, answers, gradadmissions]
+    concepts: [interview, questions, school, question, gradadmissions]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c0"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c4"
     char_span: [7797, 10191]
     sentence_count: 15
     key_terms: [questions, research, field, project, ability, pis, interviewing, asked]
+    concepts: [questions, research, field, project, ability]
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c5"
     char_span: [9903, 10252]
     sentence_count: 4
     key_terms: [field, interviewing, interested, questions, somewhere, memorize, possible, prepared]
+    concepts: [field]
     token_count: 78
   - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c6"
     char_span: [10266, 11670]
     sentence_count: 10
     key_terms: [phd, want, research, application, industry, prepared, explain, process]
+    concepts: [research, application, industry, prepared, explain]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c0", "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c1"]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c7"
     char_span: [11672, 13210]
     sentence_count: 6
     key_terms: [interviews, definitely, people, programs, students, current, nervous, program]
+    concepts: [interviews, definitely, people, programs, students]
     section: Comments
     token_count: 306
   - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c8"
     char_span: [13212, 14880]
     sentence_count: 10
     key_terms: [ok-soup-3313, thank, congrats, holiday-metal1028, congratulations, great, information, best]
+    concepts: [ok-soup-3313, thank, congrats, holiday-metal1028, congratulations]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c9"
     char_span: [14642, 14922]
     sentence_count: 3
     key_terms: [ok-soup-3313, thank, congratulations, recreational, activities, community, sdavistvs, students]
+    concepts: [ok-soup-3313, thank]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c8"]
     section: Comments
     token_count: 87
   - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c10"
     char_span: [14924, 15394]
     sentence_count: 4
     key_terms: [because, getting, did, time, understanding, specifically, definitely, experience]
+    concepts: [because, getting]
     section: Comments
     token_count: 87
 ---

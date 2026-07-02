@@ -21,34 +21,45 @@ chunks:
     char_span: [0, 2127]
     sentence_count: 20
     key_terms: [person, housing, unit, college, office, students, school, older]
+    concepts: [person, housing, college, office, students]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mmpgoj.md#c2", "social-intelligence/reddit-deep/college/1mmpgoj.md#c4"]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1mmpgoj/older_students_promised_a_2_person_unit_now_stuck/"}]
   - id: "social-intelligence/reddit-deep/college/1mmpgoj.md#c1"
     char_span: [2129, 2676]
     sentence_count: 5
     key_terms: [leasing, person, back, lot, aggressive, responding, scheduled, everyone]
+    concepts: [leasing, person]
     token_count: 126
   - id: "social-intelligence/reddit-deep/college/1mmpgoj.md#c2"
     char_span: [2690, 4694]
     sentence_count: 15
     key_terms: [person, difference, housing, title, woman, "it's", need, definitely]
+    concepts: [person, difference, housing, definitely, title]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mmpgoj.md#c0", "social-intelligence/reddit-deep/college/1mmpgoj.md#c4"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/college/1mmpgoj.md#c3"
     char_span: [4696, 6694]
     sentence_count: 21
     key_terms: [housing, "she's", because, transitioning, comfortable, told, roommate, stalking]
+    concepts: [housing, "she's", transitioning, because, comfortable]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mmpgoj.md#c4"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/college/1mmpgoj.md#c4"
     char_span: [6696, 8874]
     sentence_count: 14
     key_terms: [housing, being, year-old, because, person, get, guaranteed, treatment]
+    concepts: [housing, being, year-old, because, person]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mmpgoj.md#c0", "social-intelligence/reddit-deep/college/1mmpgoj.md#c2", "social-intelligence/reddit-deep/college/1mmpgoj.md#c3"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/college/1mmpgoj.md#c5"
     char_span: [8876, 11210]
     sentence_count: 19
     key_terms: [housing, university, roommate, "don't", situation, somewhere, change, potentially]
+    concepts: [housing, university, roommate, situation, somewhere]
     section: Comments
     token_count: 495
 ---

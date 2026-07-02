@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1042]
     sentence_count: 5
     key_terms: [operators, delivery, whether, logistics, business, comments, manage, trying]
+    concepts: [operators, delivery, whether, logistics, business]
     token_count: 222
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1rp5qvk/how_do_smallmedium_delivery_operators_actually/"}]
   - id: "social-intelligence/reddit-deep/logistics/1rp5qvk.md#c1"
-    char_span: [1057, 3138]
+    char_span: [1056, 3137]
     sentence_count: 12
     key_terms: [transporters, per, freight, tools, business, shippers, billion, around]
+    concepts: [transporters, freight, tools, business, shippers]
     section: Comments
     token_count: 487
 ---

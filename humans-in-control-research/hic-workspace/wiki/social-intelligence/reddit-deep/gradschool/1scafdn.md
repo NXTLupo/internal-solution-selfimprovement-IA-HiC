@@ -21,41 +21,53 @@ chunks:
     char_span: [0, 1308]
     sentence_count: 10
     key_terms: [advantage, experience, take, full, time, gradschool, undergrad, comments]
+    concepts: [advantage, experience, gradschool, undergrad, comments]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1scafdn.md#c5"]
     token_count: 285
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1scafdn/how_to_take_full_advantage_of_the_college/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1scafdn.md#c1"
     char_span: [1322, 1760]
     sentence_count: 3
     key_terms: [campus, did, grad, snowblindalbino, environment, experience, undergrads, undergrad]
+    concepts: [campus]
     section: Comments
     token_count: 97
   - id: "social-intelligence/reddit-deep/gradschool/1scafdn.md#c2"
     char_span: [1762, 4004]
     sentence_count: 16
     key_terms: [sports, volleyball, free, grad, lot, campus, improv, performances]
+    concepts: [volleyball, sports, performances, campus, improv]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1scafdn.md#c3"
     char_span: [3741, 5756]
     sentence_count: 12
     key_terms: [grad, students, going, student, free, "i'm", classmates, undergrad]
+    concepts: [students, going, student, classmates, undergrad]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1scafdn.md#c5"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/gradschool/1scafdn.md#c4"
     char_span: [5758, 7710]
     sentence_count: 11
     key_terms: [conferences, opportunities, relationships, grad, students, because, current, funding]
+    concepts: [conferences, opportunities, relationships, students, because]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/gradschool/1scafdn.md#c5"
     char_span: [7712, 8848]
     sentence_count: 7
     key_terms: [undergrad, grad, "didn't", school, experience, students, awkward, person]
+    concepts: [undergrad, "didn't", school, experience, students]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1scafdn.md#c0", "social-intelligence/reddit-deep/gradschool/1scafdn.md#c3", "social-intelligence/reddit-deep/gradschool/1scafdn.md#c6"]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/gradschool/1scafdn.md#c6"
     char_span: [8850, 9934]
     sentence_count: 7
     key_terms: [students, school, free, grad, sometimes, study, miserablescrem, dustybuttocks]
+    concepts: [students, school, sometimes, study]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1scafdn.md#c5"]
     section: Comments
     token_count: 257
 ---

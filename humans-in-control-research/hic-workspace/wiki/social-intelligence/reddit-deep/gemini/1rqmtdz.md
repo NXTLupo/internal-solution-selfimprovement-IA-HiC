@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1140]
     sentence_count: 4
     key_terms: [gemini, acp-loop, interval, deploy, recurring, succeeded, workflows, comments]
+    concepts: [gemini, acp-loop, interval, deploy, recurring]
     token_count: 304
+    sources: [{"n":"reddit-deep: r/gemini","u":"https://www.reddit.com/r/Gemini/comments/1rqmtdz/i_built_acploop_a_recurring_prompt_scheduler_for/"}]
 ---
 # I built acp-loop: a recurring prompt scheduler for ACP agents
 

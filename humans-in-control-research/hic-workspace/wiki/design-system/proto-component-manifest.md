@@ -5,131 +5,172 @@ chunks:
     char_span: [0, 549]
     sentence_count: 3
     key_terms: [proto, component, prototype, patterns, isqhavm7si4qhawb7y9c2z, z2v9pvhg23hlljeitpbdat, below, file]
+    concepts: [proto, component, prototype, patterns, below]
+    related_chunks: ["design-system/proto-component-manifest.md#c45"]
     token_count: 163
   - id: "design-system/proto-component-manifest.md#c1"
     char_span: [626, 1862]
     sentence_count: 4
     key_terms: [color, font, mono, nxt, display, accent, ffffff, source]
+    concepts: [color, display, accent, ffffff, source]
     section: Brand token resolution (use as CSS variables in the generated prototype)
     token_count: 434
   - id: "design-system/proto-component-manifest.md#c2"
     char_span: [1914, 3153]
     sentence_count: 11
     key_terms: [muted, radius, reasoning, border, structure, font, icon, padding]
+    concepts: [muted, radius, reasoning, border, structure]
+    related_chunks: ["design-system/proto-component-manifest.md#c3", "design-system/proto-component-manifest.md#c4", "design-system/proto-component-manifest.md#c5", "design-system/proto-component-manifest.md#c8", "design-system/proto-component-manifest.md#c9"]
     section: "AI-CHAT category (11 components, both brands)"
     token_count: 434
   - id: "design-system/proto-component-manifest.md#c3"
     char_span: [3155, 4344]
     sentence_count: 9
     key_terms: [border, radius, text, surface, structure, proto, semibold, accent]
+    concepts: [border, radius, surface, structure, proto]
+    related_chunks: ["design-system/proto-component-manifest.md#c2", "design-system/proto-component-manifest.md#c4", "design-system/proto-component-manifest.md#c7", "design-system/proto-component-manifest.md#c9", "design-system/proto-component-manifest.md#c11"]
     section: "AI-CHAT category (11 components, both brands)"
     token_count: 397
   - id: "design-system/proto-component-manifest.md#c4"
     char_span: [4346, 5583]
     sentence_count: 10
     key_terms: [icon, radius, structure, panel, accent, active, muted, proto]
+    concepts: [structure, radius, panel, accent, active]
+    related_chunks: ["design-system/proto-component-manifest.md#c2", "design-system/proto-component-manifest.md#c3", "design-system/proto-component-manifest.md#c7", "design-system/proto-component-manifest.md#c9", "design-system/proto-component-manifest.md#c11"]
     section: "AI-CHAT category (11 components, both brands)"
     token_count: 450
   - id: "design-system/proto-component-manifest.md#c5"
     char_span: [5637, 6628]
     sentence_count: 10
     key_terms: [medium, muted, structure, underline, text, padding, accent, active]
+    concepts: [medium, structure, underline, muted, padding]
+    related_chunks: ["design-system/proto-component-manifest.md#c2", "design-system/proto-component-manifest.md#c8", "design-system/proto-component-manifest.md#c11", "design-system/proto-component-manifest.md#c13", "design-system/proto-component-manifest.md#c14"]
     section: "NAVIGATION category (9 components, both brands)"
     token_count: 277
   - id: "design-system/proto-component-manifest.md#c6"
     char_span: [6630, 7255]
     sentence_count: 4
     key_terms: [label, icon, vertical, padding, item, text, horizontal, structure]
+    concepts: [label, vertical, padding]
     section: "NAVIGATION category (9 components, both brands)"
     token_count: 356
   - id: "design-system/proto-component-manifest.md#c7"
     char_span: [7257, 8479]
     sentence_count: 8
     key_terms: [surface, accent, circle, horizontal, label, structure, text, current]
+    concepts: [surface, accent, horizontal, circle, structure]
+    related_chunks: ["design-system/proto-component-manifest.md#c3", "design-system/proto-component-manifest.md#c4", "design-system/proto-component-manifest.md#c14", "design-system/proto-component-manifest.md#c16", "design-system/proto-component-manifest.md#c18"]
     section: "NAVIGATION category (9 components, both brands)"
     token_count: 499
   - id: "design-system/proto-component-manifest.md#c8"
     char_span: [8481, 9184]
     sentence_count: 7
     key_terms: [grid, chevron, padding, border, muted, panel, text, structure]
+    concepts: [chevron, padding, border, muted, panel]
+    related_chunks: ["design-system/proto-component-manifest.md#c2", "design-system/proto-component-manifest.md#c5", "design-system/proto-component-manifest.md#c12", "design-system/proto-component-manifest.md#c13", "design-system/proto-component-manifest.md#c15"]
     section: "NAVIGATION category (9 components, both brands)"
     token_count: 249
   - id: "design-system/proto-component-manifest.md#c9"
     char_span: [9233, 10633]
     sentence_count: 7
     key_terms: [text, border, radius, input, structure, checkbox, padding, surface]
+    concepts: [border, radius, structure, input, checkbox]
+    related_chunks: ["design-system/proto-component-manifest.md#c2", "design-system/proto-component-manifest.md#c3", "design-system/proto-component-manifest.md#c4", "design-system/proto-component-manifest.md#c11", "design-system/proto-component-manifest.md#c13"]
     section: "FORMS category (3 components, both brands)"
     token_count: 424
   - id: "design-system/proto-component-manifest.md#c10"
     char_span: [10693, 11918]
     sentence_count: 7
     key_terms: [color, success, status, error, warning, structure, icon, info]
+    concepts: [color, success, status, error, warning]
     section: "FEEDBACK & STATUS category (9 components, both brands)"
     token_count: 471
   - id: "design-system/proto-component-manifest.md#c11"
     char_span: [11920, 13141]
     sentence_count: 7
     key_terms: [structure, radius, proto, padding, color, muted, panel, radius999]
+    concepts: [structure, radius, proto, padding, color]
+    related_chunks: ["design-system/proto-component-manifest.md#c2", "design-system/proto-component-manifest.md#c3", "design-system/proto-component-manifest.md#c4", "design-system/proto-component-manifest.md#c5", "design-system/proto-component-manifest.md#c9"]
     section: "FEEDBACK & STATUS category (9 components, both brands)"
     token_count: 391
   - id: "design-system/proto-component-manifest.md#c12"
     char_span: [13143, 13602]
     sentence_count: 3
     key_terms: [border, unread, muted, dot, list, text, notification, color-only]
+    concepts: [border, unread, muted]
+    related_chunks: ["design-system/proto-component-manifest.md#c2", "design-system/proto-component-manifest.md#c8", "design-system/proto-component-manifest.md#c13", "design-system/proto-component-manifest.md#c15"]
     section: "FEEDBACK & STATUS category (9 components, both brands)"
     token_count: 220
   - id: "design-system/proto-component-manifest.md#c13"
     char_span: [13659, 14966]
     sentence_count: 7
     key_terms: [muted, text, border, structure, vertical, radius, proto, sparkline]
+    concepts: [muted, structure, border, vertical, radius]
+    related_chunks: ["design-system/proto-component-manifest.md#c2", "design-system/proto-component-manifest.md#c3", "design-system/proto-component-manifest.md#c4", "design-system/proto-component-manifest.md#c5", "design-system/proto-component-manifest.md#c8"]
     section: "DATA DISPLAY category (14 components, both brands)"
     token_count: 402
   - id: "design-system/proto-component-manifest.md#c14"
     char_span: [14968, 16379]
     sentence_count: 7
     key_terms: [structure, muted, text, proto, accent, vertical, avatars, border]
+    concepts: [structure, muted, proto, accent, vertical]
+    related_chunks: ["design-system/proto-component-manifest.md#c2", "design-system/proto-component-manifest.md#c3", "design-system/proto-component-manifest.md#c4", "design-system/proto-component-manifest.md#c5", "design-system/proto-component-manifest.md#c7"]
     section: "DATA DISPLAY category (14 components, both brands)"
     token_count: 469
   - id: "design-system/proto-component-manifest.md#c15"
     char_span: [16381, 17799]
     sentence_count: 7
     key_terms: [structure, text, radius, border, muted, panel, proto, horizontal]
+    concepts: [structure, radius, border, muted, panel]
+    related_chunks: ["design-system/proto-component-manifest.md#c2", "design-system/proto-component-manifest.md#c3", "design-system/proto-component-manifest.md#c4", "design-system/proto-component-manifest.md#c5", "design-system/proto-component-manifest.md#c8"]
     section: "DATA DISPLAY category (14 components, both brands)"
     token_count: 425
   - id: "design-system/proto-component-manifest.md#c16"
     char_span: [17859, 19742]
     sentence_count: 12
     key_terms: [structure, proto, accent, svg, cool, muted, panel, img]
+    concepts: [structure, proto, accent, muted, panel]
+    related_chunks: ["design-system/proto-component-manifest.md#c2", "design-system/proto-component-manifest.md#c3", "design-system/proto-component-manifest.md#c4", "design-system/proto-component-manifest.md#c5", "design-system/proto-component-manifest.md#c7"]
     section: "CHARTS / DATA-VIZ category (9 components, both brands)"
     token_count: 498
   - id: "design-system/proto-component-manifest.md#c17"
     char_span: [19794, 20563]
     sentence_count: 4
     key_terms: [dialog, muted, fill, text, aria-modal, on-accent, structure, semibold]
+    concepts: [dialog, aria-modal, muted, on-accent, structure]
+    related_chunks: ["design-system/proto-component-manifest.md#c2", "design-system/proto-component-manifest.md#c5", "design-system/proto-component-manifest.md#c13", "design-system/proto-component-manifest.md#c14", "design-system/proto-component-manifest.md#c15"]
     section: "OVERLAYS category (2 components, both brands)"
     token_count: 228
   - id: "design-system/proto-component-manifest.md#c18"
     char_span: [20611, 21709]
     sentence_count: 5
     key_terms: [accent, panel, muted, on-accent, structure, step, border, button]
+    concepts: [accent, panel, on-accent, structure, muted]
+    related_chunks: ["design-system/proto-component-manifest.md#c2", "design-system/proto-component-manifest.md#c4", "design-system/proto-component-manifest.md#c5", "design-system/proto-component-manifest.md#c7", "design-system/proto-component-manifest.md#c8"]
     section: "MISC category (3 components, both brands)"
     token_count: 319
   - id: "design-system/proto-component-manifest.md#c19"
     char_span: [21768, 22997]
     sentence_count: 6
     key_terms: [accent, image, structure, icon, text, featured, semibold, proto]
+    concepts: [accent, structure, image, featured, semibold]
+    related_chunks: ["design-system/proto-component-manifest.md#c4", "design-system/proto-component-manifest.md#c7", "design-system/proto-component-manifest.md#c14", "design-system/proto-component-manifest.md#c16", "design-system/proto-component-manifest.md#c18"]
     section: "DOMAIN VISUALS category (14 components, both brands)"
     token_count: 397
   - id: "design-system/proto-component-manifest.md#c20"
     char_span: [22999, 24660]
     sentence_count: 9
     key_terms: [structure, accent, text, muted, semibold, proto, card, row]
+    concepts: [structure, accent, muted, semibold, proto]
+    related_chunks: ["design-system/proto-component-manifest.md#c2", "design-system/proto-component-manifest.md#c3", "design-system/proto-component-manifest.md#c4", "design-system/proto-component-manifest.md#c5", "design-system/proto-component-manifest.md#c7"]
     section: "DOMAIN VISUALS category (14 components, both brands)"
     token_count: 488
   - id: "design-system/proto-component-manifest.md#c21"
     char_span: [24662, 25825]
     sentence_count: 7
     key_terms: [structure, sponsored, muted, proto, labelled, panel, card, logo]
+    concepts: [structure, sponsored, muted, proto, labelled]
+    related_chunks: ["design-system/proto-component-manifest.md#c2", "design-system/proto-component-manifest.md#c3", "design-system/proto-component-manifest.md#c5", "design-system/proto-component-manifest.md#c11", "design-system/proto-component-manifest.md#c13"]
     section: "DOMAIN VISUALS category (14 components, both brands)"
     token_count: 318
   - id: "design-system/proto-component-manifest.md#c22"
@@ -142,128 +183,186 @@ chunks:
     char_span: [26218, 27429]
     sentence_count: 5
     key_terms: [proto, palette, accent, data, ecru, gold, nxt, archetypes]
+    concepts: [proto, palette, accent, archetypes, concentric]
+    related_chunks: ["design-system/proto-component-manifest.md#c14", "design-system/proto-component-manifest.md#c16", "design-system/proto-component-manifest.md#c20", "design-system/proto-component-manifest.md#c24", "design-system/proto-component-manifest.md#c25"]
     section: VOL II — extended pattern library
     token_count: 329
   - id: "design-system/proto-component-manifest.md#c24"
     char_span: [27431, 28688]
     sentence_count: 3
     key_terms: [proto, checkbox, accent, mono, name, rows, selected, headers]
+    concepts: [proto, checkbox, accent, selected, headers]
+    related_chunks: ["design-system/proto-component-manifest.md#c14", "design-system/proto-component-manifest.md#c16", "design-system/proto-component-manifest.md#c20", "design-system/proto-component-manifest.md#c23", "design-system/proto-component-manifest.md#c25"]
     section: VOL II — extended pattern library
     token_count: 375
   - id: "design-system/proto-component-manifest.md#c25"
     char_span: [28690, 30244]
     sentence_count: 1
     key_terms: [proto, warn, cool, lines, bad, rows, accent, border]
+    concepts: [proto, lines, accent, border, status]
+    related_chunks: ["design-system/proto-component-manifest.md#c3", "design-system/proto-component-manifest.md#c14", "design-system/proto-component-manifest.md#c16", "design-system/proto-component-manifest.md#c20", "design-system/proto-component-manifest.md#c23"]
     section: VOL II — extended pattern library
     token_count: 468
   - id: "design-system/proto-component-manifest.md#c26"
     char_span: [30246, 31555]
     sentence_count: 3
     key_terms: [proto, accent, row, text, swatch, ecru, pill, bubbles]
+    concepts: [proto, accent, swatch, bubbles, palette]
+    related_chunks: ["design-system/proto-component-manifest.md#c14", "design-system/proto-component-manifest.md#c16", "design-system/proto-component-manifest.md#c20", "design-system/proto-component-manifest.md#c23", "design-system/proto-component-manifest.md#c24"]
     section: VOL II — extended pattern library
     token_count: 357
   - id: "design-system/proto-component-manifest.md#c27"
     char_span: [31557, 33166]
     sentence_count: 1
     key_terms: [proto, text, price, grid, name, panel, exercise, labelled]
+    concepts: [proto, price, panel, exercise, labelled]
+    related_chunks: ["design-system/proto-component-manifest.md#c16", "design-system/proto-component-manifest.md#c21", "design-system/proto-component-manifest.md#c37", "design-system/proto-component-manifest.md#c41"]
     section: VOL II — extended pattern library
     token_count: 500
   - id: "design-system/proto-component-manifest.md#c28"
     char_span: [33168, 34201]
     sentence_count: 1
     key_terms: [proto, text, bad, pill, warn, signed, dark, del]
+    concepts: [proto, signed]
     section: VOL II — extended pattern library
     token_count: 271
   - id: "design-system/proto-component-manifest.md#c29"
     char_span: [34230, 34988]
     sentence_count: 2
     key_terms: [pages, vol-ii, screenshot-verified, above, token, data, self-improvement, a11y-i18n-theme]
+    concepts: [pages, vol-ii, above, token]
     section: "VOL II status: COMPLETE"
     token_count: 226
   - id: "design-system/proto-component-manifest.md#c30"
     char_span: [35048, 36571]
     sentence_count: 7
     key_terms: [color, proto, bar, nxt, ring, text, ranked, track]
+    concepts: [color, proto, ranked, archetypes, track]
+    related_chunks: ["design-system/proto-component-manifest.md#c11", "design-system/proto-component-manifest.md#c23", "design-system/proto-component-manifest.md#c35"]
     section: "VOL III — AI-native & talent-lifecycle pattern library"
     token_count: 423
   - id: "design-system/proto-component-manifest.md#c31"
     char_span: [36573, 38515]
     sentence_count: 3
     key_terms: [proto, suggestions, live, pill, helpful, answer, warn-border, provenance]
+    concepts: [proto, suggestions, helpful, answer, warn-border]
     section: "VOL III — AI-native & talent-lifecycle pattern library"
     token_count: 493
   - id: "design-system/proto-component-manifest.md#c32"
     char_span: [38517, 40416]
     sentence_count: 2
     key_terms: [proto, rows, accent, availability, label, offer, stage, shortlisted]
+    concepts: [proto, availability, accent, shortlisted, evaluation]
+    related_chunks: ["design-system/proto-component-manifest.md#c14", "design-system/proto-component-manifest.md#c16", "design-system/proto-component-manifest.md#c20", "design-system/proto-component-manifest.md#c23", "design-system/proto-component-manifest.md#c24"]
     section: "VOL III — AI-native & talent-lifecycle pattern library"
     token_count: 508
   - id: "design-system/proto-component-manifest.md#c33"
     char_span: [40418, 41720]
     sentence_count: 2
     key_terms: [proto, rows, relationship, role, text, shortlist, checkbox, relationshipnarrative]
+    concepts: [proto, relationship, shortlist, checkbox, cycle]
+    related_chunks: ["design-system/proto-component-manifest.md#c24"]
     section: "VOL III — AI-native & talent-lifecycle pattern library"
     token_count: 355
   - id: "design-system/proto-component-manifest.md#c34"
     char_span: [41750, 42402]
     sentence_count: 2
     key_terms: [nxt, runtime, vol-iii, screenshot-verified, brand, token, node, talent-lifecycle]
+    concepts: [runtime, vol-iii, brand, token]
+    related_chunks: ["design-system/proto-component-manifest.md#c39"]
     section: "VOL III status: COMPLETE"
     token_count: 170
   - id: "design-system/proto-component-manifest.md#c35"
     char_span: [42484, 44511]
     sentence_count: 8
     key_terms: [proto, token, archetypes, chartreuse, scale, elevation, nxt, ramp]
+    concepts: [proto, token, archetypes, chartreuse, elevation]
+    related_chunks: ["design-system/proto-component-manifest.md#c23", "design-system/proto-component-manifest.md#c30"]
     section: "VOL IV — design-system uplift & gaps (foundations, primitives, a11y, states)"
     token_count: 501
   - id: "design-system/proto-component-manifest.md#c36"
     char_span: [44513, 46309]
     sentence_count: 1
     key_terms: [proto, role, status, esc, aria-describedby, aria-expanded, aria-haspopup, aria-pressed]
+    concepts: [proto, status, aria-describedby, aria-expanded, aria-haspopup]
+    related_chunks: ["design-system/proto-component-manifest.md#c25"]
     section: "VOL IV — design-system uplift & gaps (foundations, primitives, a11y, states)"
     token_count: 428
   - id: "design-system/proto-component-manifest.md#c37"
     char_span: [46311, 48384]
     sentence_count: 1
     key_terms: [proto, aria-current, text, filtering, explicit, labelled, headers, ordered]
+    concepts: [proto, aria-current, filtering, explicit, labelled]
+    related_chunks: ["design-system/proto-component-manifest.md#c21", "design-system/proto-component-manifest.md#c27"]
     section: "VOL IV — design-system uplift & gaps (foundations, primitives, a11y, states)"
     token_count: 491
   - id: "design-system/proto-component-manifest.md#c38"
     char_span: [48386, 49559]
     sentence_count: 2
     key_terms: [proto, review-before-publish, states, focus, state, icon, text, critique-flagged]
+    concepts: [proto, states, focus, state]
     section: "VOL IV — design-system uplift & gaps (foundations, primitives, a11y, states)"
     token_count: 289
   - id: "design-system/proto-component-manifest.md#c39"
     char_span: [49588, 50283]
     sentence_count: 3
     key_terms: [archetypes, runtime, brands, vol-iv, screenshot-verified, brand, token, a11y]
+    concepts: [archetypes, runtime, brands, vol-iv, brand]
+    related_chunks: ["design-system/proto-component-manifest.md#c34", "design-system/proto-component-manifest.md#c42"]
     section: "VOL IV status: COMPLETE"
     token_count: 181
   - id: "design-system/proto-component-manifest.md#c40"
     char_span: [50337, 51750]
     sentence_count: 4
     key_terms: [proto, product, concierge, grounded, shopper, answer, autocomplete, archetypes]
+    concepts: [proto, product, concierge, grounded, shopper]
     section: VOL V — AI commerce patterns (retail / shopping)
     token_count: 335
   - id: "design-system/proto-component-manifest.md#c41"
     char_span: [51752, 52623]
     sentence_count: 1
     key_terms: [proto, price, add, cart, filter, rating, count, stars]
+    concepts: [proto, price, filter, rating, count]
+    related_chunks: ["design-system/proto-component-manifest.md#c27"]
     section: VOL V — AI commerce patterns (retail / shopping)
     token_count: 216
   - id: "design-system/proto-component-manifest.md#c42"
     char_span: [52651, 52937]
     sentence_count: 2
     key_terms: [archetypes, brands, screenshot-verified, placeholders, third-party, components, variable, dingbat]
+    concepts: [archetypes, brands]
+    related_chunks: ["design-system/proto-component-manifest.md#c39"]
     section: "VOL V status: COMPLETE"
     token_count: 81
   - id: "design-system/proto-component-manifest.md#c43"
     char_span: [53011, 53951]
     sentence_count: 4
     key_terms: [gutter, margin, col, mobile, layout-grids, desktop, proto, breakpointgrid]
+    concepts: [gutter, margin, layout-grids, mobile, desktop]
     section: "RESPONSIVE BREAKPOINT GRID (apply to ALL #proto / #prototype output)"
     token_count: 291
+  - id: "design-system/proto-component-manifest.md#c44"
+    char_span: [54027, 54533]
+    sentence_count: 4
+    key_terms: [page, isqhavm7si4qhawb7y9c2z, z2v9pvhg23hlljeitpbdat, proto, file, name, node, authoritative]
+    concepts: [proto]
+    section: "PROTO COMPONENT NODE INDEX (NXT page 403:2, live-verified 2026-06-23)"
+    token_count: 153
+  - id: "design-system/proto-component-manifest.md#c45"
+    char_span: [54535, 55875]
+    sentence_count: 1
+    key_terms: [proto, component, node, nxt, chatmessage, breadcrumb, checkgroup, pagination]
+    concepts: [proto, component]
+    related_chunks: ["design-system/proto-component-manifest.md#c0"]
+    section: "PROTO COMPONENT NODE INDEX (NXT page 403:2, live-verified 2026-06-23)"
+    token_count: 512
+  - id: "design-system/proto-component-manifest.md#c46"
+    char_span: [55713, 56451]
+    sentence_count: 1
+    key_terms: [proto, featuregrid, testimonial, logocloud, nativead, compare, heatmap, pricing]
+    concepts: [proto]
+    section: "PROTO COMPONENT NODE INDEX (NXT page 403:2, live-verified 2026-06-23)"
+    token_count: 290
 ---
 # #proto Component Manifest
 

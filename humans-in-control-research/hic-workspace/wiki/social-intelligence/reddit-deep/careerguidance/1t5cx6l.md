@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1480]
     sentence_count: 11
     key_terms: [careers, careerguidance, something, comments, already, rebuild, people, going]
+    concepts: [careerguidance, careers, something, comments, already]
     token_count: 333
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t5cx6l/do_people_actually_rebuild_their_careers_in_their/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t5cx6l.md#c1"
     char_span: [1494, 2012]
     sentence_count: 5
     key_terms: [program, career, affordability, chicken121260, flexibility, definitely, rebuilding, balancing]
+    concepts: [program, career]
     section: Comments
     token_count: 127
 ---

@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 562]
     sentence_count: 3
     key_terms: [fulfillmentbyamazon, results, search, variations, comments, https, png, understanding]
+    concepts: [fulfillmentbyamazon, results, search, variations, comments]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1svgfrx.md#c1"]
     token_count: 158
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1svgfrx/search_results_showing_for_all_variations/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1svgfrx.md#c1"
-    char_span: [577, 1691]
+    char_span: [576, 1690]
     sentence_count: 7
     key_terms: [fulfillmentbyamazon, discord, fba, variations, advanced, discuss, listing, server]
+    concepts: [fulfillmentbyamazon, discord, variations, advanced, discuss]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1svgfrx.md#c0"]
     section: Comments
     token_count: 252
 ---

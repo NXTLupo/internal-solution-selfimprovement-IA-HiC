@@ -1,9 +1,29 @@
 ---
+id: brand/image-slots/gap-audit-arch-prd.md
 title: Image Slots — gap, tech-audit, tech-architecture, prd (NXT)
 type: brand
 updated: 2026-06-17
+chunks:
+  - id: "brand/image-slots/gap-audit-arch-prd.md#c0"
+    char_span: [0, 440]
+    sentence_count: 4
+    key_terms: [slots, nxt, shared-plugin-data, tech-architecture, fill, gold, component-local, illustrator]
+    concepts: [slots]
+    token_count: 114
+  - id: "brand/image-slots/gap-audit-arch-prd.md#c1"
+    char_span: [442, 2255]
+    sentence_count: 1
+    key_terms: [gold, nxt, milestones, thumbnail, light, prd, empty, band]
+    concepts: [milestones, thumbnail, light, empty, request]
+    token_count: 484
+  - id: "brand/image-slots/gap-audit-arch-prd.md#c2"
+    char_span: [2300, 4028]
+    sentence_count: 11
+    key_terms: [nxt, content-complete, gold, requirements, column, band, takeaway, left]
+    concepts: [content-complete, requirements, column, takeaway, image-free]
+    section: Components deliberately left image-free
+    token_count: 428
 ---
-
 # Image Slots — gap / tech-audit / tech-architecture / prd (NXT GOLD)
 
 Placed blank `img-slot` frames (transparent, no fill/stroke) nested inside the NXT GOLD components

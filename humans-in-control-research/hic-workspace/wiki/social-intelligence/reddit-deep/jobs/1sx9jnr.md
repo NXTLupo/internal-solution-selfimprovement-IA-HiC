@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 2185]
     sentence_count: 15
     key_terms: [e-commerce, software, years, engineering, been, experience, job, feeling]
+    concepts: [e-commerce, software, engineering, experience, years]
     token_count: 480
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1sx9jnr/8_years_unemployed_entry_level_software_engineer/"}]
   - id: "social-intelligence/reddit-deep/jobs/1sx9jnr.md#c1"
     char_span: [2199, 4321]
     sentence_count: 14
     key_terms: [swe, resume, headlessheadhunter, been, backend, getting, stacks, applications]
+    concepts: [headlessheadhunter, resume, backend, getting, applications]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/jobs/1sx9jnr.md#c2"
     char_span: [4325, 4663]
     sentence_count: 2
     key_terms: [check, different, platforms, everyone, honestly, linkedin, standout, startups]
+    concepts: [check]
     section: Comments
     token_count: 72
 ---

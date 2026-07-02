@@ -19,23 +19,31 @@ chunks:
     char_span: [0, 2339]
     sentence_count: 7
     key_terms: [princeton-enhances-financial-aid-again-it-welcomes-class-2029-which-includes, princeton, princeton-eliminates-tuition-for-families-making-250-000-a-year, financial, students, https, applyingtocollege, aid]
+    concepts: [princeton-enhances-financial-aid-again-it-welcomes-class-2029-which-includes, princeton, financial, students, applyingtocollege]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mkx4k4.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1mkx4k4.md#c2"]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1mkx4k4/princeton_eliminates_tuition_for_families_making/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mkx4k4.md#c1"
     char_span: [2353, 3753]
     sentence_count: 6
     key_terms: [princeton, families, students, come, earning, hopkins, tuition, yogurtclosetopen3567]
+    concepts: [princeton, families, students, earning, hopkins]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mkx4k4.md#c0"]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mkx4k4.md#c2"
     char_span: [3755, 5507]
     sentence_count: 9
     key_terms: [princeton, net-price-calculator, admission, financial, cost-aid, https, aid, edu]
+    concepts: [princeton, net-price-calculator, admission, financial, cost-aid]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mkx4k4.md#c0"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mkx4k4.md#c3"
     char_span: [5509, 7499]
     sentence_count: 17
     key_terms: [retirement, princeton, accounts, tuition, international, means, years, year]
+    concepts: [retirement, princeton, accounts, international, tuition]
     section: Comments
     token_count: 504
 ---

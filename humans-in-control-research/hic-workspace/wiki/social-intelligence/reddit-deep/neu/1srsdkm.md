@@ -20,9 +20,11 @@ chunks:
     char_span: [0, 1688]
     sentence_count: 9
     key_terms: [termination, course, summer, accidentally, form, ogs, registered, contacted]
+    concepts: [termination, course, accidentally, summer, registered]
     token_count: 378
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1srsdkm/sevis_termination_due_to_accidentally_dropping/"}]
   - id: "social-intelligence/reddit-deep/neu/1srsdkm.md#c1"
-    char_span: [1703, 1992]
+    char_span: [1702, 1991]
     sentence_count: 4
     key_terms: [electronicfix854, pavvypower, tomorrow, agility, meeting, respond, attend, breath]
     section: Comments

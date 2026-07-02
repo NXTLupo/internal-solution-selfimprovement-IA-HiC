@@ -21,22 +21,28 @@ chunks:
     char_span: [0, 1467]
     sentence_count: 16
     key_terms: [been, financialindependence, fire, "i've", "i'm", everything, comments, become]
+    concepts: [financialindependence, everything, comments, become, cancer]
     token_count: 341
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1m46rfp/cancer_and_fire/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c1"
     char_span: [1469, 3409]
     sentence_count: 20
     key_terms: [care, time, chance, health, costs, get, treatments, daughter]
+    concepts: [chance, health, costs, treatments, daughter]
     token_count: 449
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c2"
     char_span: [3423, 4375]
     sentence_count: 10
     key_terms: [cancer, wife, treatment, express-alfalfa-3702, "don't", been, best, fmla]
+    concepts: [cancer, treatment, "don't"]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c3"
     char_span: [4377, 6549]
     sentence_count: 22
     key_terms: ["it's", company, through, intellectually, leave, hope, job, time]
+    concepts: [intellectually, company, through, leave, understand]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c7", "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c4"
@@ -49,42 +55,51 @@ chunks:
     char_span: [6752, 8769]
     sentence_count: 24
     key_terms: [care, kids, express-alfalfa-3702, money, daughter, help, time, guilty]
+    concepts: [express-alfalfa-3702, money, daughter, guilty, retire]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c6"
     char_span: [8771, 10730]
     sentence_count: 17
     key_terms: [express-alfalfa-3702, "it's", take, kids, work, definitely, everything, insurance]
+    concepts: [express-alfalfa-3702, definitely, everything, insurance, something]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c7"
     char_span: [10732, 12727]
     sentence_count: 15
     key_terms: [company, because, strong, leave, get, insurance, situation, clinical]
+    concepts: [company, because, strong, leave, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c3"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c8"
     char_span: [12729, 14479]
     sentence_count: 23
     key_terms: [keep, family, cancer, sure, understand, through, express-alfalfa-3702, faang]
+    concepts: [family, cancer, understand, through, faang]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c3"]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c9"
     char_span: [14481, 16455]
     sentence_count: 24
     key_terms: [medical, family, biopsy, good, time, sequencing, changing, research]
+    concepts: [medical, family, biopsy, sequencing, changing]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c10"
     char_span: [16457, 18391]
     sentence_count: 24
     key_terms: [hire, pick, take, driver, drop, kids, talk, hospitals]
+    concepts: [driver, hospitals, laundry, school, being]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c11"
     char_span: [18393, 19969]
     sentence_count: 16
     key_terms: [express-alfalfa-3702, amazing, because, rainbowcandy7, good, take-home, instance, family]
+    concepts: [express-alfalfa-3702, rainbowcandy7, amazing, because, take-home]
     section: Comments
     token_count: 405
 ---

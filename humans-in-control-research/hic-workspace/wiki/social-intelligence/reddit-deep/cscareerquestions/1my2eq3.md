@@ -19,47 +19,56 @@ chunks:
     char_span: [0, 933]
     sentence_count: 9
     key_terms: [cscareerquestions, job, comments, nursing, degree, market, people, reddit]
+    concepts: [cscareerquestions, comments, nursing, degree, market]
     token_count: 226
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1my2eq3/is_the_job_market_in_the_us_really_as_bad_as/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1my2eq3.md#c1"
-    char_span: [948, 2513]
+    char_span: [947, 2512]
     sentence_count: 14
     key_terms: [university, nobody, get, went, applying, got, experience, internship]
+    concepts: [university, nobody, applying, experience, internship]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/cscareerquestions/1my2eq3.md#c2"
-    char_span: [2515, 4434]
+    char_span: [2514, 4433]
     sentence_count: 12
     key_terms: [internships, experience, berkeley, students, matters, schools, state, years]
+    concepts: [internships, experience, berkeley, students, matters]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1my2eq3.md#c3"
-    char_span: [4436, 6202]
+    char_span: [4435, 6201]
     sentence_count: 7
     key_terms: [internships, market, people, getting, get, gpa, job, internship]
+    concepts: [internships, market, people, getting, internship]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/cscareerquestions/1my2eq3.md#c4"
-    char_span: [6204, 8274]
+    char_span: [6203, 8273]
     sentence_count: 17
     key_terms: [graduated, decent, market, rough, bad, jobs, experience, computer]
+    concepts: [graduated, decent, market, experience, rough]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1my2eq3.md#c5"
-    char_span: [8276, 10306]
+    char_span: [8275, 10305]
     sentence_count: 26
     key_terms: [people, grads, new, underemployment, because, advice, degree, number]
+    concepts: [people, grads, underemployment, because, unemployment]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1my2eq3.md#c6"
-    char_span: [10308, 11952]
+    char_span: [10307, 11951]
     sentence_count: 10
     key_terms: [graduates, worse, numbers, market, computer, coding-ai-jobs-students, overall, percent]
+    concepts: [graduates, worse, numbers, market, computer]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/cscareerquestions/1my2eq3.md#c7"
-    char_span: [11954, 13826]
+    char_span: [11953, 13825]
     sentence_count: 24
     key_terms: [numbers, unemployment, "that's", like, getting, overwhelming, grads, makes]
+    concepts: [unemployment, numbers, "that's", getting, overwhelming]
     section: Comments
     token_count: 446
 ---

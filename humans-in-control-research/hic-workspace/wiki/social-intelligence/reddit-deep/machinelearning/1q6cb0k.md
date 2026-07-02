@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 422]
     sentence_count: 2
     key_terms: [machinelearning, arxiv, https, comments, pages, abs, org, deepseek-r1]
+    concepts: [machinelearning, arxiv, https, comments, pages]
     token_count: 141
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1q6cb0k/r_deepseekr1s_paper_was_updated_2_days_ago/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1q6cb0k.md#c1"
     char_span: [436, 2346]
     sentence_count: 9
     key_terms: [paper, self-normalising, catch, calculation, grpo, hype, original, problems]
+    concepts: [paper, self-normalising, calculation, catch, original]
     section: Comments
     token_count: 474
 ---

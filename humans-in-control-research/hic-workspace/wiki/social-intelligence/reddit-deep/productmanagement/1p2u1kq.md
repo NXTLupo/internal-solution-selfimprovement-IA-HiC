@@ -20,41 +20,51 @@ chunks:
     char_span: [0, 2203]
     sentence_count: 6
     key_terms: [expectations, continuously, senior, different, productmanagement, pms, work, navigate]
+    concepts: [expectations, continuously, productmanagement, senior, different]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1p2u1kq.md#c6"]
     token_count: 483
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1p2u1kq/does_anyone_think_that_the_expectations_for_what/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1p2u1kq.md#c1"
-    char_span: [2218, 4451]
+    char_span: [2217, 4450]
     sentence_count: 14
     key_terms: [dau, director, responsibilities, measure, wanted, ever-shifting, light, role]
+    concepts: [responsibilities, director, ever-shifting, measure, wanted]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/productmanagement/1p2u1kq.md#c2"
-    char_span: [4453, 6077]
+    char_span: [4452, 6076]
     sentence_count: 7
     key_terms: [sociopaths, hustlininthehall, narcissistic, narcissists, consulting, experience, management, directors]
+    concepts: [sociopaths, hustlininthehall, narcissistic, narcissists, consulting]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/productmanagement/1p2u1kq.md#c3"
-    char_span: [6079, 8243]
+    char_span: [6078, 8242]
     sentence_count: 14
     key_terms: [responsibilities, stage, different, want, company, product, experiences, like]
+    concepts: [responsibilities, different, stage, company, product]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/productmanagement/1p2u1kq.md#c4"
-    char_span: [8245, 9474]
+    char_span: [8244, 9473]
     sentence_count: 13
     key_terms: [pms, lucky-hannibal, org, companies, manager, smaller, exist, smart]
+    concepts: [lucky-hannibal, companies, manager, smaller, exist]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/productmanagement/1p2u1kq.md#c5"
-    char_span: [9476, 10511]
+    char_span: [9475, 10510]
     sentence_count: 6
     key_terms: [different, genuinepragmatism, "i've", hustlininthehall, expectations, organization, requirements, through-line]
+    concepts: [different]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/productmanagement/1p2u1kq.md#c6"
-    char_span: [10513, 11923]
+    char_span: [10512, 11922]
     sentence_count: 7
     key_terms: [different, senior, make-decisions-that-will-save-the-company, expectations, title, years, companies, google]
+    concepts: [different, senior, expectations, title, years]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1p2u1kq.md#c0"]
     section: Comments
     token_count: 315
 ---

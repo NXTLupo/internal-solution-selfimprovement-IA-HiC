@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1339]
     sentence_count: 10
     key_terms: [delivery, planning, driver, route, logistics, comments, handling, initial]
+    concepts: [delivery, planning, driver, route, logistics]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1qzcuvn.md#c1"]
     token_count: 318
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1qzcuvn/lastmile_delivery_colleagues_how_do_you_actually/"}]
   - id: "social-intelligence/reddit-deep/logistics/1qzcuvn.md#c1"
-    char_span: [1354, 3692]
+    char_span: [1353, 3691]
     sentence_count: 16
     key_terms: [routes, couriers, route, time, delivery, stop, efficient, something]
+    concepts: [routes, couriers, route, delivery, efficient]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1qzcuvn.md#c0"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/logistics/1qzcuvn.md#c2"
-    char_span: [3694, 5976]
+    char_span: [3693, 5975]
     sentence_count: 12
     key_terms: [live, tracking, whatsapp, day, sick, exceptions, blocked, changes]
+    concepts: [tracking, whatsapp, exceptions, blocked, changes]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/logistics/1qzcuvn.md#c3"
-    char_span: [5978, 8221]
+    char_span: [5977, 8220]
     sentence_count: 13
     key_terms: [maptitude-fleet-logistics-video, maptitude, caliper, https, com, time, www, reassign]
+    concepts: [maptitude-fleet-logistics-video, maptitude, caliper, https, reassign]
     section: Comments
     token_count: 495
 ---

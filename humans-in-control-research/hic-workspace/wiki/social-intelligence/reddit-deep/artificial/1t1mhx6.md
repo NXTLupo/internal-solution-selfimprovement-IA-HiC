@@ -21,83 +21,98 @@ chunks:
     char_span: [0, 1827]
     sentence_count: 15
     key_terms: [uber, budget, coding, spend, code, cost, per, artificial]
+    concepts: [budget, coding, artificial, spend, engineers]
     token_count: 415
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1t1mhx6/uber_burned_its_entire_2026_ai_coding_budget_in_4/"}]
   - id: "social-intelligence/reddit-deep/artificial/1t1mhx6.md#c1"
     char_span: [1841, 2709]
     sentence_count: 7
     key_terms: ["don't", waymo, uber, driving, builderofdragons, ivereddithaveyou, nonamenomonet, uberpocalypse]
+    concepts: ["don't", waymo, driving]
     section: Comments
     token_count: 253
   - id: "social-intelligence/reddit-deep/artificial/1t1mhx6.md#c2"
     char_span: [2711, 4605]
     sentence_count: 7
     key_terms: [uber, spending, money, ride, tax, algorithm, compute, imagine]
+    concepts: [spending, money, algorithm, compute, imagine]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/artificial/1t1mhx6.md#c3"
     char_span: [4607, 6288]
     sentence_count: 13
     key_terms: [system, engineers, homegrown, own, maps, operations, platforms, surprised]
+    concepts: [system, engineers, homegrown, operations, platforms]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/artificial/1t1mhx6.md#c4"
     char_span: [6290, 7657]
     sentence_count: 8
     key_terms: [problem, enterprise, better, demand, prices, supply, main-lifeguard-6739, being]
+    concepts: [problem, enterprise, better, demand, prices]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/artificial/1t1mhx6.md#c5"
     char_span: [7659, 9227]
     sentence_count: 8
     key_terms: [being, using, code, use, engineers, "it's", writing, documentation]
+    concepts: [being, using, engineers, documentation, writing]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/artificial/1t1mhx6.md#c6"
     char_span: [9230, 10606]
     sentence_count: 7
     key_terms: [token, usage, "it's", companies, through, using, alextheredditor97, burn]
+    concepts: [token, usage, companies, through, using]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/artificial/1t1mhx6.md#c7"
     char_span: [10608, 12053]
     sentence_count: 7
     key_terms: [thousands, xtcaddict, headline, claude, models, source, doesn, point]
+    concepts: [thousands, xtcaddict, headline, claude, models]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/artificial/1t1mhx6.md#c8"
     char_span: [12055, 14058]
     sentence_count: 17
     key_terms: [uber-torches-entire-2026-ai-budget-on-claude-code-in-four-months, engineers, non-deterministic, uber, software, https, www, industries]
+    concepts: [non-deterministic, engineers, software, https, industries]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/artificial/1t1mhx6.md#c9"
     char_span: [14060, 14709]
     sentence_count: 4
     key_terms: [instructions, software, outcomes, tooling, agents, human, straightforward, surprisingly]
+    concepts: [instructions, software, outcomes, tooling, agents]
     section: Comments
     token_count: 138
   - id: "social-intelligence/reddit-deep/artificial/1t1mhx6.md#c10"
     char_span: [14712, 16760]
     sentence_count: 14
     key_terms: [software, engineering, completed, business, engineer, openclaw, measure, serious]
+    concepts: [software, engineering, completed, business, engineer]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1t1mhx6.md#c11"
     char_span: [16497, 18601]
     sentence_count: 18
     key_terms: [day, engineer, tokens, development, code, like, work, reviewing]
+    concepts: [engineer, tokens, development, reviewing, rubbish]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1t1mhx6.md#c12"
     char_span: [18400, 19012]
     sentence_count: 3
     key_terms: [work, snoomemesjellies9003, month, api, shadiakiki1986, professional, puddlewhale, everything]
+    concepts: [month]
     section: Comments
     token_count: 176
   - id: "social-intelligence/reddit-deep/artificial/1t1mhx6.md#c13"
     char_span: [19014, 19769]
     sentence_count: 8
     key_terms: [spend, getting, "aren't", month, value, encouraged, hamburglin, understand]
+    concepts: [spend, getting, "aren't", month, value]
     section: Comments
     token_count: 184
 ---

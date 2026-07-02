@@ -14,42 +14,52 @@ chunks:
     char_span: [0, 1030]
     sentence_count: 5
     key_terms: [chart, conclusion, title, visualization, satisfaction, data, standards, customer]
+    concepts: [chart, conclusion, title, visualization, satisfaction]
     section: "The Zelazny Principle: Conclusion-First Charts"
     token_count: 235
   - id: "brand/chart-standards.md#c1"
     char_span: [1063, 3285]
     sentence_count: 1
     key_terms: [across, comparison, relationship, categories, comparing, showing, chart, time]
+    concepts: [across, comparison, relationship, categories, comparing]
     section: Chart Type Selection Guide
     token_count: 497
   - id: "brand/chart-standards.md#c2"
     char_span: [3287, 5049]
     sentence_count: 12
     key_terms: [chart, bar, horizontal, pie, compare, comparison, perspective, distortion]
+    concepts: [chart, horizontal, compare, comparison, perspective]
     section: Chart Type Selection Guide
     token_count: 382
   - id: "brand/chart-standards.md#c3"
     char_span: [5090, 6771]
     sentence_count: 4
     key_terms: [nxt-muted, series, category, color, conclusion, highlight, nxt-chartreuse, use]
+    concepts: [nxt-muted, category, series, color, conclusion]
     section: Functional Color System for Charts
     token_count: 449
   - id: "brand/chart-standards.md#c4"
     char_span: [6797, 8146]
     sentence_count: 8
     key_terms: [gridlines, labels, data, y-axis, chart, bar, charts, horizontal]
+    concepts: [gridlines, labels, y-axis, chart, charts]
+    related_chunks: ["brand/chart-standards.md#c6"]
     section: Axis and Grid Rules
     token_count: 355
   - id: "brand/chart-standards.md#c5"
     char_span: [8179, 9390]
     sentence_count: 11
     key_terms: [source, include, chart, data, date, internal, reviews, reader]
+    concepts: [source, include, chart, internal, reviews]
     section: Source Citations on Charts
     token_count: 329
+    sources: [{"n":"[Dataset or Study Name], [Organization], [Date]. N=[sample size].","u":""},{"n":"stack vertically, one per line","u":""},{"n":"Customer Satisfaction Survey, NXT Humans, Q3 2025. N=2,847.","u":""},{"n":"App Store Reviews, scraped via Reddit Ripper, 2025-09-15. N=12,340 reviews.","u":""},{"n":"Modeled from BERTopic analysis of 5,200 support tickets, 2025-08-01 to 2025-10-3","u":""},{"n":"Internal CRM export, 2025-10-01\" is valid.","u":""}]
   - id: "brand/chart-standards.md#c6"
     char_span: [9427, 10526]
     sentence_count: 1
     key_terms: [chart, charts, insight, maximum, labels, brand, title, axis]
+    concepts: [chart, charts, insight, maximum, labels]
+    related_chunks: ["brand/chart-standards.md#c4"]
     section: Chart Implementation Checklist
     token_count: 261
 ---

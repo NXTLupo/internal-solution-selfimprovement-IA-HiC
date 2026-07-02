@@ -20,33 +20,43 @@ chunks:
     char_span: [0, 663]
     sentence_count: 3
     key_terms: [commercial, commercialinsurance, insurance, comments, lines, reddit-deep, residential, buildings]
+    concepts: [commercialinsurance, commercial, insurance, comments, lines]
+    related_chunks: ["social-intelligence/reddit-deep/commercialinsurance/1mxl4fg.md#c5"]
     token_count: 150
+    sources: [{"n":"reddit-deep: r/commercialinsurance","u":"https://www.reddit.com/r/commercialinsurance/comments/1mxl4fg/commercial_insurance_mess_mixed_userisk_lines/"}]
   - id: "social-intelligence/reddit-deep/commercialinsurance/1mxl4fg.md#c1"
     char_span: [665, 2955]
     sentence_count: 9
     key_terms: [standard, carrier, cancellation, quote, premium, expectations, line, cancelling]
+    concepts: [standard, carrier, cancellation, quote, premium]
     token_count: 464
   - id: "social-intelligence/reddit-deep/commercialinsurance/1mxl4fg.md#c2"
     char_span: [2957, 3393]
     sentence_count: 6
     key_terms: [carriers, take, cancel-later, experiences, replacement, lettering, realistic, approach]
+    concepts: [carriers]
     token_count: 92
   - id: "social-intelligence/reddit-deep/commercialinsurance/1mxl4fg.md#c3"
-    char_span: [3408, 4358]
+    char_span: [3407, 4357]
     sentence_count: 6
     key_terms: [risk, insurance, unusual, background-student62, worst, intentionally, professionals, czechyerself]
+    concepts: [insurance, unusual, worst]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/commercialinsurance/1mxl4fg.md#c4"
-    char_span: [4360, 5994]
+    char_span: [4359, 5993]
     sentence_count: 12
     key_terms: [insurance, carrier, renewal, brokerages, business, carriers, consider, standard]
+    concepts: [insurance, carrier, renewal, brokerages, business]
+    related_chunks: ["social-intelligence/reddit-deep/commercialinsurance/1mxl4fg.md#c5"]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/commercialinsurance/1mxl4fg.md#c5"
-    char_span: [5996, 7683]
+    char_span: [5995, 7682]
     sentence_count: 15
     key_terms: [insurance, commercial, business, deductibles, premiums, services, carrier, been]
+    concepts: [insurance, commercial, business, deductibles, premiums]
+    related_chunks: ["social-intelligence/reddit-deep/commercialinsurance/1mxl4fg.md#c0", "social-intelligence/reddit-deep/commercialinsurance/1mxl4fg.md#c4"]
     section: Comments
     token_count: 386
 ---

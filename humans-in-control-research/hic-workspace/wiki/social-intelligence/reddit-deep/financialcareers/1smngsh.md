@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1564]
     sentence_count: 12
     key_terms: [summer, financialcareers, sure, experience, comments, point, recommendations, opportunities]
+    concepts: [summer, financialcareers, experience, comments, point]
     token_count: 353
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1smngsh/not_sure_what_to_do/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1smngsh.md#c1"
-    char_span: [1579, 3651]
+    char_span: [1578, 3650]
     sentence_count: 18
     key_terms: [networking, resume, school, roles, back, done, like, probably]
+    concepts: [networking, resume, school, roles, probably]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1smngsh.md#c2"
-    char_span: [3345, 4042]
+    char_span: [3344, 4041]
     sentence_count: 7
     key_terms: [networking, efficient-drop-5378, job, need, jackedjackass69, information, internships, unnecessary]
+    concepts: [networking]
     section: Comments
     token_count: 175
   - id: "social-intelligence/reddit-deep/financialcareers/1smngsh.md#c3"
-    char_span: [4044, 5759]
+    char_span: [4043, 5758]
     sentence_count: 12
     key_terms: [medical, school, get, like, definitely, healthcare, internship, bloomberg]
+    concepts: [medical, school, definitely, healthcare, internship]
     section: Comments
     token_count: 378
 ---

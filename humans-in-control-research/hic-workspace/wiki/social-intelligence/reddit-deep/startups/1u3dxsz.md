@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1475]
     sentence_count: 1
     key_terms: [build, slop, time, customer, get, temptation, comments, feedback]
+    concepts: [build, customer, temptation, comments, feedback]
     token_count: 320
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1u3dxsz/the_more_time_i_spend_with_ai_the_less_productive/"}]
   - id: "social-intelligence/reddit-deep/startups/1u3dxsz.md#c1"
-    char_span: [1490, 3278]
+    char_span: [1489, 3277]
     sentence_count: 15
     key_terms: [distribution, technical, moat, sentence, because, founder, something, started]
+    concepts: [distribution, technical, sentence, because, founder]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/startups/1u3dxsz.md#c2"
-    char_span: [3280, 4476]
+    char_span: [3279, 4475]
     sentence_count: 4
     key_terms: [engineers, build, put, side, slop, time, halfbakedtheorem, foobarbazqux123]
+    concepts: [engineers, build]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/startups/1u3dxsz.md#c3"
-    char_span: [4478, 5660]
+    char_span: [4477, 5659]
     sentence_count: 5
     key_terms: [building, development, people, aggressivespeech8340, right, slop, take, time]
+    concepts: [building, development, people, right]
     section: Comments
     token_count: 276
 ---

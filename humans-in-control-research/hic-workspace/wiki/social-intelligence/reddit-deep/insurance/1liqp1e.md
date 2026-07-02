@@ -20,29 +20,39 @@ chunks:
     char_span: [0, 1984]
     sentence_count: 11
     key_terms: [roof, damage, insurance, repairs, months, replacement, accusing, adjuster]
+    concepts: [insurance, damage, repairs, months, replacement]
     token_count: 416
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1liqp1e/homeowners_insurance_accusing_me_of_fraud/"}]
   - id: "social-intelligence/reddit-deep/insurance/1liqp1e.md#c1"
-    char_span: [1999, 3772]
+    char_span: [1998, 3771]
     sentence_count: 17
     key_terms: [adjuster, engineer, other-interaction809, fraud, settlement, adjusters, sometimes, happened]
+    concepts: [adjuster, engineer, other-interaction809, fraud, settlement]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1liqp1e.md#c4"]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/insurance/1liqp1e.md#c2"
-    char_span: [3774, 5689]
+    char_span: [3773, 5688]
     sentence_count: 12
     key_terms: [anything, roofer, roof, insurance, company, claims, pretty, confidence]
+    concepts: [anything, roofer, insurance, company, claims]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1liqp1e.md#c3"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/insurance/1liqp1e.md#c3"
-    char_span: [5691, 7349]
+    char_span: [5690, 7348]
     sentence_count: 8
     key_terms: [roofer, hurricane, insurance, findtheothers623, days, hurricanes, tornadoes, accusing]
+    concepts: [roofer, findtheothers623, hurricane, insurance, hurricanes]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1liqp1e.md#c2"]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/insurance/1liqp1e.md#c4"
-    char_span: [7351, 9550]
+    char_span: [7350, 9549]
     sentence_count: 19
     key_terms: [damage, engineers, other-interaction809, adjuster, roof, report, roofer, hired]
+    concepts: [damage, engineers, other-interaction809, adjuster, report]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1liqp1e.md#c1"]
     section: Comments
     token_count: 510
 ---

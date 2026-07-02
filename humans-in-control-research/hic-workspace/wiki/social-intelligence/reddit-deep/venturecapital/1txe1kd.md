@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1688]
     sentence_count: 8
     key_terms: [private, structured, funds, fund, emerging, investor, managers, raising]
+    concepts: [private, structured, funds, emerging, investor]
     token_count: 347
+    sources: [{"n":"reddit-deep: r/venturecapital","u":"https://www.reddit.com/r/venturecapital/comments/1txe1kd/building_a_private_capital_formation_platform_for/"}]
   - id: "social-intelligence/reddit-deep/venturecapital/1txe1kd.md#c1"
-    char_span: [1703, 3344]
+    char_span: [1702, 3343]
     sentence_count: 18
     key_terms: [fund, "you're", "don't", intro, lps, need, databases, discovery]
+    concepts: ["you're", "don't", intro, databases, discovery]
     section: Comments
     token_count: 380
 ---

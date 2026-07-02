@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 239]
     sentence_count: 1
     key_terms: [comments, much-general-1686, neu, northeastern, reddit-deep, applied, posted, reddit]
+    concepts: [comments]
     token_count: 75
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qpygk3/got_into_northeastern_applied_ea/"}]
   - id: "social-intelligence/reddit-deep/neu/1qpygk3.md#c1"
     char_span: [253, 1133]
     sentence_count: 6
     key_terms: [international, engineering, scholarship, mechanical, congrats, honors, promptresponsible123, communicationok3228]
+    concepts: [international, engineering, scholarship, mechanical, congrats]
     section: Comments
     token_count: 240
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 584]
     sentence_count: 6
     key_terms: [gemini, code, comments, passkey, authy, says, sent, redownloaded]
+    concepts: [gemini, comments, passkey, authy]
     token_count: 157
+    sources: [{"n":"reddit-deep: r/gemini","u":"https://www.reddit.com/r/Gemini/comments/1lu5isk/unable_to_set_up_passkey/"}]
   - id: "social-intelligence/reddit-deep/gemini/1lu5isk.md#c1"
     char_span: [598, 1838]
     sentence_count: 9
     key_terms: [code, authy, weeks, google, get, alexbnyclp, emailed, enabled]
+    concepts: [authy, weeks, google, alexbnyclp, emailed]
     section: Comments
     token_count: 323
 ---

@@ -19,27 +19,33 @@ chunks:
     char_span: [0, 1778]
     sentence_count: 7
     key_terms: [job, internships, experience, internship, uah, company, game, get]
+    concepts: [internships, experience, internship, company, aerospace]
     token_count: 419
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sbyrck/internships_arent_a_numbers_game/"}]
   - id: "social-intelligence/reddit-deep/internships/1sbyrck.md#c1"
     char_span: [1780, 3682]
     sentence_count: 15
     key_terms: [email, experience, fraternity, cfd, told, friend, ansys, works]
+    concepts: [email, experience, fraternity, friend, ansys]
     token_count: 437
   - id: "social-intelligence/reddit-deep/internships/1sbyrck.md#c2"
     char_span: [3684, 4832]
     sentence_count: 8
     key_terms: [connections, job, doing, personal, projects, chances, heavily, people]
+    concepts: [connections, doing, personal, projects, chances]
     token_count: 247
   - id: "social-intelligence/reddit-deep/internships/1sbyrck.md#c3"
     char_span: [4846, 6404]
     sentence_count: 12
     key_terms: [school, companies, engineering, fraternity, aerospace, student, people, connections]
+    concepts: [school, companies, engineering, fraternity, aerospace]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/internships/1sbyrck.md#c4"
     char_span: [6406, 8696]
     sentence_count: 15
     key_terms: [get, connections, because, working, hypnotic8008, clubs, email, definitely]
+    concepts: [connections, because, working, hypnotic8008, clubs]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1sbyrck.md#c5"
@@ -52,6 +58,7 @@ chunks:
     char_span: [8791, 10806]
     sentence_count: 14
     key_terms: [connections, right, someone, skills, get, "it's", networking, portfolio]
+    concepts: [connections, right, someone, skills, networking]
     section: Comments
     token_count: 474
 ---

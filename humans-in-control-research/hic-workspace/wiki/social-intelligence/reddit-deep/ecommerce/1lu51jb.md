@@ -17,34 +17,41 @@ research_goal: "Deliver a comprehensive 2026 outlook report on the global retail
 engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1lu51jb.md#c0"
-    char_span: [0, 250]
+    char_span: [0, 249]
     sentence_count: 1
     key_terms: [ecommerce, comments, adventurepaul, reddit-deep, e-commerce, industry, posted, reddit]
-    token_count: 81
+    concepts: [ecommerce, comments]
+    token_count: 80
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1lu51jb/ecommerce_industry_news_recap_week_of_july_7th/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1lu51jb.md#c1"
-    char_span: [252, 2760]
+    char_span: [251, 2759]
     sentence_count: 12
     key_terms: [publishers, e-commerce, offering, content, bill, week, introduced, newsletter]
+    concepts: [publishers, e-commerce, offering, content, introduced]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1lu51jb.md#c2"
-    char_span: [2427, 4994]
+    char_span: [2426, 4993]
     sentence_count: 10
     key_terms: [openai, organization, information, consulting, company, researchers, meta, year]
+    concepts: [openai, organization, information, consulting, company]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1lu51jb.md#c3"
-    char_span: [4695, 7165]
+    char_span: [4694, 7164]
     sentence_count: 11
     key_terms: [nintendo, switch, "nintendo's", app, products, whatsapp, amazon, new]
+    concepts: [nintendo, "nintendo's", switch, products, whatsapp]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1lu51jb.md#c4"
-    char_span: [6879, 9352]
+    char_span: [6878, 9351]
     sentence_count: 11
     key_terms: [through, platform, listing, testing, search, price, like, move]
+    concepts: [through, platform, listing, testing, search]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1lu51jb.md#c5"
-    char_span: [9071, 10253]
+    char_span: [9070, 10252]
     sentence_count: 4
     key_terms: [alibaba, wix, users, chatbots, messages, platform, product, global]
+    concepts: [alibaba, users, chatbots, messages, platform]
     token_count: 245
 ---
 # E-commerce Industry News Recap 🔥 Week of July 7th, 2025

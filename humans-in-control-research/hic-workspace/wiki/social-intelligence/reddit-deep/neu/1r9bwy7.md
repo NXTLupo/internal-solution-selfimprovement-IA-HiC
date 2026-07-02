@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 541]
     sentence_count: 4
     key_terms: [northeastern, comments, neu, sapphireblossom, over-the-top, reddit-deep, crazy-long, generated]
+    concepts: [northeastern, comments]
     token_count: 146
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1r9bwy7/stumbled_upon_this_crazy_northeastern_alum_account/"}]
   - id: "social-intelligence/reddit-deep/neu/1r9bwy7.md#c1"
     char_span: [555, 1943]
     sentence_count: 4
     key_terms: [sapphireblossom, northeastern, "he's", posts, real, mbturgeon, facebook, linkedin]
+    concepts: [sapphireblossom, northeastern, posts, mbturgeon, facebook]
     section: Comments
     token_count: 409
 ---

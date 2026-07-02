@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 1183]
     sentence_count: 9
     key_terms: [program, dissertation, gradschool, comments, teaching, thrown, wolves, inevitable-falcon-96]
+    concepts: [program, dissertation, gradschool, comments, teaching]
     token_count: 267
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1pob7td/how_normal_is_it_to_be_thrown_to_the_wolves/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1pob7td.md#c1"
     char_span: [1197, 3469]
     sentence_count: 14
     key_terms: [department, program, like, someone, effectively, institution, been, help]
+    concepts: [department, program, someone, effectively, institution]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/gradschool/1pob7td.md#c2"
     char_span: [3471, 5817]
     sentence_count: 25
     key_terms: [research, questions, own, program, writing, accessibility, dissertation, field]
+    concepts: [research, questions, accessibility, program, writing]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1pob7td.md#c4"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/gradschool/1pob7td.md#c3"
     char_span: [5819, 6860]
     sentence_count: 12
     key_terms: [depend, specific, humanities, programs, enough, skills, topics, teach]
+    concepts: [depend, specific, humanities, programs, enough]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/gradschool/1pob7td.md#c4"
     char_span: [6862, 8751]
     sentence_count: 12
     key_terms: [writing, research, graduate, program, course, skills, year, themselves]
+    concepts: [writing, research, graduate, program, course]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1pob7td.md#c2"]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/gradschool/1pob7td.md#c5"
     char_span: [8753, 10100]
     sentence_count: 6
     key_terms: [workshops, advisor, writing, qualitative, concrete, drafting, training, methods]
+    concepts: [workshops, advisor, writing, qualitative, concrete]
     section: Comments
     token_count: 250
 ---

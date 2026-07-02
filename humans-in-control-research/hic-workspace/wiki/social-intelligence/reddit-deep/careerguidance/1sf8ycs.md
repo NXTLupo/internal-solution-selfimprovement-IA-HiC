@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2073]
     sentence_count: 15
     key_terms: ["i'm", charleston, since, college, careerguidance, career, being, experiences]
+    concepts: [charleston, since, careerguidance, college, career]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sf8ycs/early_career_and_living_advice_please/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sf8ycs.md#c1"
     char_span: [2075, 3229]
     sentence_count: 10
     key_terms: [here, "i'm", charleston, elsewhere, insurance, graduate, firms, "i've"]
+    concepts: [charleston, elsewhere, insurance, graduate, firms]
     token_count: 260
   - id: "social-intelligence/reddit-deep/careerguidance/1sf8ycs.md#c2"
     char_span: [3243, 5248]
     sentence_count: 7
     key_terms: ["you're", estate, real, market, people, "charleston's", firms, since]
+    concepts: ["you're", estate, "charleston's", market, people]
     section: Comments
     token_count: 423
 ---

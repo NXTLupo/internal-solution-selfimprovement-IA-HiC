@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 311]
     sentence_count: 2
     key_terms: [careeradvice, comments, legitimate-meat-2720, realistically, reddit-deep, building, complete, career]
+    concepts: [careeradvice, comments]
     token_count: 86
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1t2jhrt/can_i_realistically_complete_acca_while_building/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1t2jhrt.md#c1"
     char_span: [313, 2596]
     sentence_count: 21
     key_terms: [acca, focus, learning, qualification, exemptions, structured, data, complete]
+    concepts: [qualification, learning, focus, exemptions, structured]
     token_count: 495
 ---
 # Can I realistically complete ACCA while building AI/Data skills, or should I commit to one career path?

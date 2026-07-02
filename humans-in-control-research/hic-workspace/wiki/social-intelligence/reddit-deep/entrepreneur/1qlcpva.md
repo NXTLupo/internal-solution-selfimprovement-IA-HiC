@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 854]
     sentence_count: 3
     key_terms: [employee, subcontractor, entrepreneur, potentially, comments, vegetable-plenty857, "community's", flexibility]
+    concepts: [employee, subcontractor, entrepreneur, potentially, comments]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1qlcpva.md#c1"]
     token_count: 183
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1qlcpva/subcontractor_vs_employee/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1qlcpva.md#c1"
-    char_span: [869, 3090]
+    char_span: [868, 3089]
     sentence_count: 23
     key_terms: [contractor, employee, entrepreneur, please, task, outcome, here, work]
+    concepts: [contractor, employee, entrepreneur, please, outcome]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1qlcpva.md#c0"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/entrepreneur/1qlcpva.md#c2"
-    char_span: [3092, 3845]
+    char_span: [3091, 3844]
     sentence_count: 2
     key_terms: [reason, legal, man, tax, picklikewarren, subcontractors, determination, raging-totoro]
+    concepts: [reason, legal]
     section: Comments
     token_count: 176
   - id: "social-intelligence/reddit-deep/entrepreneur/1qlcpva.md#c3"
-    char_span: [3847, 5713]
+    char_span: [3846, 5712]
     sentence_count: 11
     key_terms: [work, own, contractors, choice, people, justaicurious, tax, want]
+    concepts: [contractors, justaicurious, choice, people, business]
     section: Comments
     token_count: 443
 ---

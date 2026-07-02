@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1537]
     sentence_count: 9
     key_terms: [nonprofit, administrative, like, research, support, donor, experience, nonprofits]
+    concepts: [nonprofit, administrative, research, support, donor]
     token_count: 305
+    sources: [{"n":"reddit-deep: r/nonprofit","u":"https://www.reddit.com/r/nonprofit/comments/1sfhjt0/trying_to_get_into_nonprofit_field/"}]
   - id: "social-intelligence/reddit-deep/nonprofit/1sfhjt0.md#c1"
-    char_span: [1552, 2367]
+    char_span: [1551, 2366]
     sentence_count: 3
     key_terms: [career-changing-tech-for-good-dont-make-interview-balasubramanyam, linkedin, article, https, pulse, wrote, com, www]
+    concepts: [career-changing-tech-for-good-dont-make-interview-balasubramanyam, linkedin, article, https, pulse]
     section: Comments
     token_count: 189
 ---

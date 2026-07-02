@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1620]
     sentence_count: 13
     key_terms: [competitive, engineering, mechanical, operations, engineeringstudents, co-op, company, development]
+    concepts: [competitive, engineering, engineeringstudents, mechanical, operations]
     token_count: 356
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1p2gwd8/operations_internship_vs_mechanical_engineering/"}]
 ---
 # Operations internship vs. mechanical engineering co-op
 

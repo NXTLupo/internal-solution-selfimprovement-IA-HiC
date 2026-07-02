@@ -21,27 +21,33 @@ chunks:
     char_span: [0, 1972]
     sentence_count: 11
     key_terms: ["i'm", cscareerquestions, research, theoretical, like, complexity, education, questions]
+    concepts: [cscareerquestions, research, theoretical, complexity, education]
     token_count: 434
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sg4pkd/seeking_advice_for_theoretical_cs_aspirant/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4pkd.md#c1"
     char_span: [1974, 4456]
     sentence_count: 15
     key_terms: [problems, "i'm", selection, median, theoretical, sure, algorithms, approaches]
+    concepts: [problems, selection, median, theoretical, algorithms]
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4pkd.md#c2"
     char_span: [4458, 5134]
     sentence_count: 6
     key_terms: [research, "doesn't", school, unsure, feel, grad, high-demand, independent]
+    concepts: [research, "doesn't", school, unsure]
     token_count: 138
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4pkd.md#c3"
     char_span: [5148, 7132]
     sentence_count: 17
     key_terms: [research, name, academia, choice, people, doing, don, post]
+    concepts: [research, academia, choice, people, doing]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4pkd.md#c4"
     char_span: [7134, 9024]
     sentence_count: 16
     key_terms: [results, simple, researchers, algorithms, sosa, don, experience, simplicity]
+    concepts: [results, simple, researchers, algorithms, experience]
     section: Comments
     token_count: 424
 ---

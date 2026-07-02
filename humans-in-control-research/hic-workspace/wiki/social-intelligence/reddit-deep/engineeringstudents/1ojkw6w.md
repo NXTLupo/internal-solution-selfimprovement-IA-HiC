@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1279]
     sentence_count: 7
     key_terms: [mechatronics, sydney, internship, engineeringstudents, research, engineering, comments, position]
+    concepts: [mechatronics, engineeringstudents, internship, sydney, research]
     token_count: 280
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1ojkw6w/how_can_i_find_internship_or_research/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ojkw6w.md#c1"
     char_span: [1293, 1756]
     sentence_count: 3

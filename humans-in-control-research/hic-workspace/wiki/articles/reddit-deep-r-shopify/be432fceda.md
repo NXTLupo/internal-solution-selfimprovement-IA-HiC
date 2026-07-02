@@ -19,39 +19,47 @@ content_hash: "1644f49e152cb090"
 relevance_by_goal: {"490684cfa204":35}
 chunks:
   - id: "articles/reddit-deep-r-shopify/be432fceda.md#c0"
-    char_span: [0, 668]
+    char_span: [0, 667]
     sentence_count: 3
     key_terms: [shopify, e-commerce, news, recaps, reddit, weekly, shopifreaks, newsletter]
-    token_count: 169
+    concepts: [shopify, e-commerce, recaps, reddit, weekly]
+    token_count: 168
+    sources: [{"n":"Reddit Deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1pytdbg/this_weeks_top_ecommerce_news_stories_dec_29th/"}]
   - id: "articles/reddit-deep-r-shopify/be432fceda.md#c1"
-    char_span: [670, 3222]
+    char_span: [669, 3221]
     sentence_count: 11
     key_terms: [information, experiments, according, different, instacart, sponsored, chatgpt, wealth]
+    concepts: [information, experiments, according, different, instacart]
     token_count: 512
   - id: "articles/reddit-deep-r-shopify/be432fceda.md#c2"
-    char_span: [2941, 5640]
+    char_span: [2940, 5639]
     sentence_count: 11
     key_terms: [users, alexa, cards, through, skills, integrations, reservations, gift]
+    concepts: [users, alexa, cards, through, integrations]
     token_count: 512
   - id: "articles/reddit-deep-r-shopify/be432fceda.md#c3"
-    char_span: [5296, 7770]
+    char_span: [5295, 7769]
     sentence_count: 13
     key_terms: [amazon, necklace, swastika, senators, tiktok, used, vehicles, pendant]
+    concepts: [amazon, necklace, swastika, senators, tiktok]
     token_count: 512
   - id: "articles/reddit-deep-r-shopify/be432fceda.md#c4"
-    char_span: [7460, 10094]
+    char_span: [7459, 10093]
     sentence_count: 14
     key_terms: [amazon, e-commerce, used, online, foods, users, whole, data]
+    concepts: [amazon, e-commerce, online, foods, fragmented]
     token_count: 512
   - id: "articles/reddit-deep-r-shopify/be432fceda.md#c5"
-    char_span: [9772, 10194]
+    char_span: [9771, 10193]
     sentence_count: 2
     key_terms: [spokesperson, company, reddit, chatgptjailbreak, communities, guardrails, bypassing, following]
+    concepts: [spokesperson, company, reddit]
     token_count: 80
   - id: "articles/reddit-deep-r-shopify/be432fceda.md#c6"
-    char_span: [10196, 10629]
+    char_span: [10195, 10628]
     sentence_count: 3
     key_terms: [community, contact, shopify, automatically, automoderator, moderators, soliciting, performed]
+    concepts: [community, contact, shopify]
     token_count: 91
 ---
 # This Week's Top E-commerce News Stories 💥 Dec 29th, 2025

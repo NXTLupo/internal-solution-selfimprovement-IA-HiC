@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 822]
     sentence_count: 7
     key_terms: [customer, customerservice, support, comments, manager, system, ticket, part]
+    concepts: [customerservice, customer, support, comments, manager]
     token_count: 205
+    sources: [{"n":"reddit-deep: r/customerservice","u":"https://www.reddit.com/r/CustomerService/comments/1mp1bsi/if_ai_is_so_powerful_why_hasnt_it_fixed_customer/"}]
   - id: "social-intelligence/reddit-deep/customerservice/1mp1bsi.md#c1"
-    char_span: [837, 2681]
+    char_span: [836, 2680]
     sentence_count: 11
     key_terms: [automation, because, system, basic, solve, expensive, customer, managers]
+    concepts: [automation, because, system, basic, solve]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/customerservice/1mp1bsi.md#c2"
-    char_span: [2685, 4491]
+    char_span: [2684, 4490]
     sentence_count: 8
     key_terms: [perspective, "it's", like, time, automated, customer, features, ordering]
+    concepts: [perspective, automated, customer, features, ordering]
     section: Comments
     token_count: 426
 ---

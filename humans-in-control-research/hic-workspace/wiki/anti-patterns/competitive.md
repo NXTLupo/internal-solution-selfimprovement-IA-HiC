@@ -14,48 +14,58 @@ chunks:
     char_span: [0, 2025]
     sentence_count: 9
     key_terms: [analysis, feature, without, alternative, competitive, description, client, comparison]
+    concepts: [analysis, alternative, competitive, description, feature]
+    related_chunks: ["anti-patterns/competitive.md#c6"]
     section: "AP-COMP-01: Feature Matrix Only / AP-COMP-02: Stale Intelligence / AP-COMP-03: Self-Congratulatory Analysis"
     token_count: 414
   - id: "anti-patterns/competitive.md#c1"
     char_span: [2070, 2680]
     sentence_count: 5
     key_terms: [strong, description, enterprise, mid-market, strategic, highest-probability, enterprise-grade, purpose-built]
+    concepts: [strong, description, enterprise, mid-market, strategic]
     section: "AP-COMP-04: No Differentiation Insight"
     token_count: 128
   - id: "anti-patterns/competitive.md#c2"
     char_span: [2717, 3244]
     sentence_count: 3
     key_terms: [battlecard, sales, page, second-scannable, implementation, operator-grade, analyst-grade, integrations]
+    concepts: [battlecard, sales]
     section: "AP-COMP-05: Missing Battlecard"
     token_count: 125
   - id: "anti-patterns/competitive.md#c3"
     char_span: [3289, 3862]
     sentence_count: 2
     key_terms: [reviews, competitor, marketing, implementation, descriptions, acquisition, alternative, description]
+    concepts: [reviews, competitor, marketing]
     section: "AP-COMP-06: No Customer Sentiment Data"
     token_count: 130
   - id: "anti-patterns/competitive.md#c4"
     char_span: [3905, 4412]
     sentence_count: 5
     key_terms: [pricing, tco, comparison, effective, price, differentiation, implementation, capabilities]
+    concepts: [pricing, comparison, effective, price]
     section: "AP-COMP-07: Missing Pricing Analysis"
     token_count: 121
   - id: "anti-patterns/competitive.md#c5"
     char_span: [4450, 4980]
     sentence_count: 5
     key_terms: [competitors, categorization, salesforce, hubspot, monday, notion, excel, com]
+    concepts: [competitors, categorization, salesforce, hubspot, monday]
     section: "AP-COMP-08: Archetype Confusion"
     token_count: 117
   - id: "anti-patterns/competitive.md#c6"
     char_span: [5013, 5583]
     sentence_count: 2
     key_terms: [competitive, analysis, response, description, alternative, battlecards, prioritized, customers]
+    concepts: [competitive, analysis, response, description]
+    related_chunks: ["anti-patterns/competitive.md#c0"]
     section: "AP-COMP-09: No Action Plan"
     token_count: 123
   - id: "anti-patterns/competitive.md#c7"
     char_span: [5631, 6115]
     sentence_count: 2
     key_terms: [market, through, without, cagr, acceleration, quantitative, alternative, attribution]
+    concepts: [market, through, without]
     section: "AP-COMP-10: Data Without Source Citations"
     token_count: 117
 ---

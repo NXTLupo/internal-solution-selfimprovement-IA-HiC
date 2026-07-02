@@ -20,34 +20,45 @@ chunks:
     char_span: [0, 2525]
     sentence_count: 14
     key_terms: [carrier, carriers, forwarders, been, freight, relationships, perspective, especially]
+    concepts: [carrier, carriers, forwarders, relationships, freight]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1sm7jc2.md#c2", "social-intelligence/reddit-deep/logistics/1sm7jc2.md#c3", "social-intelligence/reddit-deep/logistics/1sm7jc2.md#c4", "social-intelligence/reddit-deep/logistics/1sm7jc2.md#c5"]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1sm7jc2/carrierforwarder_dynamics_a_view_from_the_inside/"}]
   - id: "social-intelligence/reddit-deep/logistics/1sm7jc2.md#c1"
     char_span: [2527, 2889]
     sentence_count: 3
     key_terms: [definitely, engagement, everything, forwarders, noticeable, questions, universal, becoming]
     token_count: 67
   - id: "social-intelligence/reddit-deep/logistics/1sm7jc2.md#c2"
-    char_span: [2904, 5265]
+    char_span: [2903, 5264]
     sentence_count: 17
     key_terms: [direct, carriers, relationships, freight, around, broker, because, brokers]
+    concepts: [direct, relationships, carriers, freight, around]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1sm7jc2.md#c0", "social-intelligence/reddit-deep/logistics/1sm7jc2.md#c5"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/logistics/1sm7jc2.md#c3"
-    char_span: [5270, 6926]
+    char_span: [5269, 6925]
     sentence_count: 11
     key_terms: [carriers, forwarders, capacity, service, agreements, expertise, shippers, specific]
+    concepts: [carriers, forwarders, capacity, service, agreements]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1sm7jc2.md#c0", "social-intelligence/reddit-deep/logistics/1sm7jc2.md#c4"]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/logistics/1sm7jc2.md#c4"
-    char_span: [6928, 8741]
+    char_span: [6927, 8740]
     sentence_count: 6
     key_terms: [carriers, forwarders, emotionalpatience540, carrier, big, operations, rates, small]
+    concepts: [carriers, forwarders, emotionalpatience540, carrier, operations]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1sm7jc2.md#c0", "social-intelligence/reddit-deep/logistics/1sm7jc2.md#c3", "social-intelligence/reddit-deep/logistics/1sm7jc2.md#c5"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/logistics/1sm7jc2.md#c5"
-    char_span: [8743, 10843]
+    char_span: [8742, 10842]
     sentence_count: 8
     key_terms: [relationships, case, carriers, shippers, carrier, clients, dispute, brands]
+    concepts: [relationships, carriers, shippers, carrier, clients]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1sm7jc2.md#c0", "social-intelligence/reddit-deep/logistics/1sm7jc2.md#c2", "social-intelligence/reddit-deep/logistics/1sm7jc2.md#c4"]
     section: Comments
     token_count: 452
 ---

@@ -21,48 +21,62 @@ chunks:
     char_span: [0, 1908]
     sentence_count: 7
     key_terms: [https, png, bf88fbc3ea07c454f20ee791c8d66ceda9e1f9c9, wallstreetbets, been, oil, disruption, countries]
+    concepts: [https, wallstreetbets, disruption, countries, comments]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c6"]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1tcuvyi/venture_global_vg_the_easiest_energy_play_of_2026/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c1"
     char_span: [1912, 3636]
     sentence_count: 8
     key_terms: [png, lng, https, preview, why-asia-sits-at-the-centre-of-the-global-lng-shock, format, width, asia]
+    concepts: [https, preview, format, width, natural]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c4"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c2"
     char_span: [3638, 5321]
     sentence_count: 12
     key_terms: [countries, png, strait, blah, gulf, conflict, preview, buying]
+    concepts: [countries, strait, conflict, preview, buying]
     token_count: 446
   - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c3"
     char_span: [5323, 7004]
     sentence_count: 10
     key_terms: [lng, infrastructure, production, png, aa6139662aed79040ee2079da48da1e687887c3c, fc6e5594d103dd365cc5f87447eab01fa62048d9, company, aggressively]
+    concepts: [infrastructure, production, company, aggressively, years]
     token_count: 410
   - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c4"
     char_span: [7006, 8563]
     sentence_count: 9
     key_terms: [png, https, preview, format, width, auto, redd, webp]
+    concepts: [https, preview, format, width, qatarenergy]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c1"]
     token_count: 479
   - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c5"
     char_span: [8565, 10267]
     sentence_count: 9
     key_terms: [nitrogen, customers, png, b275ed5025250dd924c1c222b81b62d4fb023f7f, gas, companies, contracts, another]
+    concepts: [nitrogen, customers, companies, contracts, another]
     token_count: 397
   - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c6"
     char_span: [10281, 10891]
     sentence_count: 1
     key_terms: [wallstreetbets, comments, reddit, https, com, www, total, years]
+    concepts: [wallstreetbets, comments, reddit, https, total]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c0"]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c7"
     char_span: [10893, 11990]
     sentence_count: 5
     key_terms: [post, regarded, discord, bought, https, egg, "i'm", last]
+    concepts: [regarded, discord, bought, https]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c8"
     char_span: [11992, 13615]
     sentence_count: 12
     key_terms: [either, supply, great, money, value, been, debt, gas]
+    concepts: [either, supply, great, money, value]
     section: Comments
     token_count: 471
 ---

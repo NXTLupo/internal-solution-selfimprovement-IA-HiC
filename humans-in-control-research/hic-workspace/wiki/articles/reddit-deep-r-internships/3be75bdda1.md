@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1561]
     sentence_count: 12
     key_terms: [internships, searching, months, applications, job, experience, full-time, interview]
+    concepts: [internships, searching, applications, months, experience]
     token_count: 371
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1nvs8v7/18_months_of_searching_1870_applications_i/"}]
   - id: "articles/reddit-deep-r-internships/3be75bdda1.md#c1"
     char_span: [1563, 2492]
     sentence_count: 4
     key_terms: [congratulations, congrats, comfortable-lime-936, consistent-serve-701, professional-age-948, repulsive-news-9610, big, job]
+    concepts: [congratulations, congrats]
     token_count: 243
 ---
 # 18 months of searching, 1870 applications, I received my dream offer

@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 2173]
     sentence_count: 17
     key_terms: [internships, been, enough, internship, applications, feel, "i'm", "i've"]
+    concepts: [internships, internship, enough, applications, linkedin]
     token_count: 502
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t1zwjd/i_give_up_on_internships/"}]
   - id: "articles/reddit-deep-r-internships/cc10f56baf.md#c1"
     char_span: [2178, 3515]
     sentence_count: 10
     key_terms: [companies, dialsoapbox, internships, students, company, apply, weeks, ago]
+    concepts: [companies, dialsoapbox, internships, students, company]
     token_count: 302
   - id: "articles/reddit-deep-r-internships/cc10f56baf.md#c2"
     char_span: [3517, 5361]
     sentence_count: 16
     key_terms: [internship, role, work, student, zettasyntax, grad, "i'm", "couldn't"]
+    concepts: [internship, student, zettasyntax, "couldn't", everyone]
     token_count: 442
 ---
 # I Give Up on Internships....

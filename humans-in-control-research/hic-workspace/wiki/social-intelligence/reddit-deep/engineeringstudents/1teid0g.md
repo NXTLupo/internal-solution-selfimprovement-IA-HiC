@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1516]
     sentence_count: 9
     key_terms: [degree, engineering, electrical, engineeringstudents, trade, considering, electrician, residential]
+    concepts: [degree, engineering, electrical, engineeringstudents, trade]
     token_count: 331
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1teid0g/career_advice_for_electrician_apprentice/"}]
 ---
 # Career advice for electrician, apprentice considering Electrical Engineering degree
 

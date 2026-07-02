@@ -20,27 +20,32 @@ chunks:
     char_span: [0, 1486]
     sentence_count: 9
     key_terms: [like, projects, e8c1b09c3b3fe5ec831fbabbc373b22e0a02bc29, programming, comments, concepts, actuary, because]
+    concepts: [projects, programming, comments, concepts, actuary]
     token_count: 377
+    sources: [{"n":"reddit-deep: r/actuary","u":"https://www.reddit.com/r/actuary/comments/1qid0to/would_you_hire_me_with_this_resume/"}]
   - id: "social-intelligence/reddit-deep/actuary/1qid0to.md#c1"
-    char_span: [1501, 3244]
+    char_span: [1500, 3243]
     sentence_count: 15
     key_terms: [experience, points, gpa, definitely, actuarial, college, section, bullet]
+    concepts: [experience, points, definitely, actuarial, college]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/actuary/1qid0to.md#c2"
-    char_span: [3246, 4144]
+    char_span: [3245, 4143]
     sentence_count: 5
     key_terms: [business, letter, resume, cover, stops, using, care, new]
+    concepts: [business, letter, resume, cover, stops]
     section: Comments
     token_count: 218
   - id: "social-intelligence/reddit-deep/actuary/1qid0to.md#c3"
-    char_span: [4146, 6079]
+    char_span: [4145, 6078]
     sentence_count: 11
     key_terms: [give, like, page, bullet, resume, mrrml, look, text]
+    concepts: [bullet, resume, experience, mrrml, consider]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/actuary/1qid0to.md#c4"
-    char_span: [5890, 6580]
+    char_span: [5889, 6579]
     sentence_count: 1
     key_terms: [get, like, tech, work, communication, personality, completely, experience]
     section: Comments

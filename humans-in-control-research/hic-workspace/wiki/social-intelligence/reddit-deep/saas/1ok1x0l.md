@@ -20,28 +20,35 @@ chunks:
     char_span: [0, 1879]
     sentence_count: 18
     key_terms: [time, because, morning, block, dan, saas, monitoring, collapses]
+    concepts: [because, morning, block, monitoring, collapses]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1ok1x0l/im_3_years_old_and_just_sold_my_saas_for_12b/"}]
   - id: "social-intelligence/reddit-deep/saas/1ok1x0l.md#c1"
     char_span: [1881, 2443]
     sentence_count: 4
     key_terms: [failurefinder, because, com, got, "i'm", fingerpainting, diversifying, acquisition]
+    concepts: [failurefinder, because]
     token_count: 139
   - id: "social-intelligence/reddit-deep/saas/1ok1x0l.md#c2"
-    char_span: [2458, 3357]
+    char_span: [2457, 3356]
     sentence_count: 4
     key_terms: [representativelazy42, ushetzbnsmkne3tc4l, "it's", like, kindnessandskill, advertisement, mile-high-guy, vibebabbling]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/saas/1ok1x0l.md#c3"
-    char_span: [3359, 4963]
+    char_span: [3358, 4962]
     sentence_count: 5
     key_terms: [did, time, tommy, someone, altruistic-treat-975, zealousideal-fix8399, thank, abject-kitchen3198]
+    concepts: [tommy, someone, thank]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1ok1x0l.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/saas/1ok1x0l.md#c4"
-    char_span: [4782, 5134]
+    char_span: [4781, 5133]
     sentence_count: 3
     key_terms: [tommy, zealousideal-fix8399, thank, trussisgonealready, millionaire, slacking, problem, behind]
+    concepts: [tommy, thank]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1ok1x0l.md#c3"]
     section: Comments
     token_count: 118
 ---

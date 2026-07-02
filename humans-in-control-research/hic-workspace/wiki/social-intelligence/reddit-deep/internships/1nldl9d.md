@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 661]
     sentence_count: 5
     key_terms: [internships, internship, comments, students, application, experiences, individuals, oppurtunity]
+    concepts: [internships, internship, comments, students]
     token_count: 152
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1nldl9d/remote_internship_for_students/"}]
   - id: "social-intelligence/reddit-deep/internships/1nldl9d.md#c1"
     char_span: [675, 2659]
     sentence_count: 18
     key_terms: [nobel, internship, tacoman9112012, because, coach, connections, get, like]
+    concepts: [internship, nobel, tacoman9112012, because, coach]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/internships/1nldl9d.md#c2"
     char_span: [2661, 3224]
     sentence_count: 2
     key_terms: [interested, even-resident-8683, small-outside-4596, potential-key2141, coldcoffeepilado, communication, unsocialadult, internships]
+    concepts: [interested]
     section: Comments
     token_count: 183
 ---

@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 1737]
     sentence_count: 11
     key_terms: [year, analysis, askacademia, grandparent, data, "i'm", phd, comments]
+    concepts: [analysis, askacademia, grandparent, comments, "couldn't"]
     token_count: 419
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1t5vql6/seeking_advice_on_a_semester_long_leave_of/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1t5vql6.md#c1"
     char_span: [1739, 3553]
     sentence_count: 11
     key_terms: [disseration, whether, people, occasionally, needs, years, "i'm", research]
+    concepts: [disseration, whether, occasionally, people, needs]
     token_count: 398
   - id: "social-intelligence/reddit-deep/askacademia/1t5vql6.md#c2"
     char_span: [3567, 5176]
     sentence_count: 15
     key_terms: [through, leave, important, tonos468, absence, advisor, "can't", "don't"]
+    concepts: [through, leave, important, tonos468, absence]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/askacademia/1t5vql6.md#c3"
     char_span: [5178, 6303]
     sentence_count: 9
     key_terms: [conditions, academia, semester, burnout, working, afford, breaks, sounds]
+    concepts: [conditions, academia, semester, burnout, working]
     section: Comments
     token_count: 249
 ---

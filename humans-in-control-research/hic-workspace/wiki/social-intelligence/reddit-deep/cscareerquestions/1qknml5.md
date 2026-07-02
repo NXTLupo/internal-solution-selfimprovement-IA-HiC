@@ -19,70 +19,85 @@ chunks:
     char_span: [0, 1992]
     sentence_count: 14
     key_terms: [hackerrank, role, challenges, cscareerquestions, software, through, myself, consideration]
+    concepts: [hackerrank, challenges, cscareerquestions, software, consideration]
     token_count: 430
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qknml5/refusing_hackerrank_questions/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c1"
     char_span: [1994, 2703]
     sentence_count: 7
     key_terms: [refusing, anyone, else, process, hiring, years, participate, challenges]
+    concepts: [refusing, anyone, process, hiring, years]
     token_count: 155
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c2"
     char_span: [2717, 4162]
     sentence_count: 11
     key_terms: [puzzles, "person's", skills, good, evaluating, experience, practical, leetcode]
+    concepts: [puzzles, "person's", skills, evaluating, experience]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c3"
     char_span: [4164, 6151]
     sentence_count: 9
     key_terms: [like, get, hours, hour, experience, interview, objective, screening]
+    concepts: [experience, hours, interview, objective, screening]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c4"
     char_span: [6153, 8048]
     sentence_count: 10
     key_terms: ["it's", approach, bugs, real, approaches, candidates, defensible, hackerrank]
+    concepts: [approach, approaches, candidates, defensible, hackerrank]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c9"]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c5"
     char_span: [8050, 10255]
     sentence_count: 17
     key_terms: [candidates, "it's", people, market, good, used, igotskills, qualified]
+    concepts: [candidates, people, market, igotskills, qualified]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c6"
     char_span: [10257, 11808]
     sentence_count: 9
     key_terms: [hiring, get, position, intrinsically, "don't", "we're", educational, professions]
+    concepts: [hiring, position, intrinsically, educational, professions]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c7"
     char_span: [11810, 13689]
     sentence_count: 12
     key_terms: [get, questions, fail, leetcode, "don't", assessments, demonstrate, "developer's"]
+    concepts: [questions, leetcode, assessments, demonstrate, "developer's"]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c8"
     char_span: [13693, 15416]
     sentence_count: 15
     key_terms: [interviews, technical, participate, confidence, investment, understand, informed, "they're"]
+    concepts: [interviews, technical, participate, confidence, investment]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c9"
     char_span: [15418, 17220]
     sentence_count: 16
     key_terms: [minimum, coding, tasks, like, time, work, candidates, hackerrank]
+    concepts: [minimum, coding, candidates, hackerrank, tasks]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c4"]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c10"
     char_span: [17222, 19183]
     sentence_count: 20
     key_terms: [better, code, job, leet, like, shit, problems, question]
+    concepts: [better, problems, question, problem, process]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c11"
     char_span: [19185, 19487]
     sentence_count: 3
     key_terms: [problem, statement, keep, thinkingthong, hackerranker, deciphering, hackerrank, statements]
+    concepts: [problem, statement]
     section: Comments
     token_count: 67
 ---

@@ -19,77 +19,91 @@ chunks:
     char_span: [0, 730]
     sentence_count: 9
     key_terms: [careerguidance, comments, taking, imaginary-status4109, new, future-proofing, certifications, professional]
+    concepts: [careerguidance, comments, taking]
     token_count: 174
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1slq5sx/im_honestly_scared_ai_is_going_to_make_my_role/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1slq5sx.md#c1"
     char_span: [744, 2423]
     sentence_count: 9
     key_terms: [twoalert3448, future, cpa, sue, sued, accounting, regulated, auditing]
+    concepts: [twoalert3448, future, accounting, regulated, auditing]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/careerguidance/1slq5sx.md#c2"
     char_span: [2425, 4590]
     sentence_count: 15
     key_terms: [ideas, instead, twoalert3448, money, accountant, associates, questions, something]
+    concepts: [ideas, instead, twoalert3448, accountant, associates]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/careerguidance/1slq5sx.md#c3"
     char_span: [4592, 5196]
     sentence_count: 13
     key_terms: [job, course, gold-guidance-6430, did, safe, use, mamacareerguru, comprehension]
+    concepts: [course]
     section: Comments
     token_count: 167
   - id: "social-intelligence/reddit-deep/careerguidance/1slq5sx.md#c4"
     char_span: [5198, 6957]
     sentence_count: 13
     key_terms: [skills, technical, another, because, advice, people, imaginary-status4109, jessedoasjessedoes4]
+    concepts: [skills, technical, another, because, advice]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/careerguidance/1slq5sx.md#c5"
     char_span: [6959, 8038]
     sentence_count: 7
     key_terms: [especially, different, because, maybe, money, usage, years, don]
+    concepts: [especially, different, because, maybe, money]
     section: Comments
     token_count: 257
   - id: "social-intelligence/reddit-deep/careerguidance/1slq5sx.md#c6"
     char_span: [8040, 10179]
     sentence_count: 18
     key_terms: [accuracy, tools, people, feel, time, use, department, automated]
+    concepts: [accuracy, tools, people, department, automated]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/careerguidance/1slq5sx.md#c7"
     char_span: [10181, 10632]
     sentence_count: 1
     key_terms: [insurance, itmustbeniiiiice, restricting, relatively, requesting, university, upskilling, companies]
+    concepts: [insurance]
     section: Comments
     token_count: 107
   - id: "social-intelligence/reddit-deep/careerguidance/1slq5sx.md#c8"
     char_span: [10634, 12721]
     sentence_count: 14
     key_terms: [physical, shelikesscience, jobs, nope, take, technical, college, therapy]
+    concepts: [shelikesscience, physical, technical, college, therapy]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/careerguidance/1slq5sx.md#c9"
     char_span: [12723, 14356]
     sentence_count: 13
     key_terms: [robotics, human, jobs, replaced, people, remote, going, space]
+    concepts: [robotics, human, replaced, people, remote]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/careerguidance/1slq5sx.md#c10"
     char_span: [14358, 15769]
     sentence_count: 13
     key_terms: [remote, like, role, financial, yourself, anxiety, humans, living]
+    concepts: [remote, financial, yourself, anxiety, humans]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/careerguidance/1slq5sx.md#c11"
     char_span: [15771, 17392]
     sentence_count: 15
     key_terms: [people, older, already, happens, discrimination, attractive, younger, imaginary-status4109]
+    concepts: [people, older, discrimination, already, happens]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/careerguidance/1slq5sx.md#c12"
     char_span: [17395, 17915]
     sentence_count: 4
     key_terms: [flexible, imaginary-status4109, keep, lotsofcatsfi, technologies, reassurance, completely, corporate]
+    concepts: [flexible]
     section: Comments
     token_count: 133
 ---

@@ -21,28 +21,34 @@ chunks:
     char_span: [0, 1803]
     sentence_count: 13
     key_terms: [path, wallstreetbets, "that's", orchestration, next, week, snowflake, adoption]
+    concepts: [wallstreetbets, orchestration, "that's", snowflake, adoption]
     token_count: 449
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1ogs58b/path_is_about_to_rip_20/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ogs58b.md#c1"
     char_span: [1805, 3579]
     sentence_count: 18
     key_terms: ["they're", like, automation, software, "uipath's", agentic, "that's", uipath]
+    concepts: ["they're", automation, software, "uipath's", agentic]
     token_count: 498
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ogs58b.md#c2"
     char_span: [3593, 4532]
     sentence_count: 3
     key_terms: [get, bed, discord, invest, dualipastrophyhsband, https, total, buy]
+    concepts: [discord, invest, https, total]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ogs58b.md#c3"
     char_span: [4534, 6107]
     sentence_count: 5
     key_terms: [romania, hot, romanian, pretty, psychological-wrap25, needs, women, inspectordull5915]
+    concepts: [romania, romanian, pretty, needs, women]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ogs58b.md#c4"
     char_span: [5935, 6898]
     sentence_count: 6
     key_terms: [wednesday, garbage, anyway, terrible-session5028, going, necarpenter417, commonemitter, ridiculously]
+    concepts: [wednesday, garbage, anyway, going]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ogs58b.md#c5"
@@ -55,6 +61,7 @@ chunks:
     char_span: [7189, 8710]
     sentence_count: 15
     key_terms: [vanilaagorila, right, commodities, gold, good, peddycash, bullshit, euphoria]
+    concepts: [vanilaagorila, right, commodities, peddycash, bullshit]
     section: Comments
     token_count: 433
 ---

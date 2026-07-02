@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2094]
     sentence_count: 6
     key_terms: [internships, like, instead, started, don, everything, interviews, interview]
+    concepts: [internships, instead, started, everything, interviews]
     token_count: 467
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sa2elo/i_cant_find_a_job_i_keep_failing_interviews_i_see/"}]
   - id: "social-intelligence/reddit-deep/internships/1sa2elo.md#c1"
     char_span: [2108, 2931]
     sentence_count: 4
     key_terms: [like, writing, resume, necessary-pipe-5971, feel, get, high, use]
+    concepts: [writing, resume]
     section: Comments
     token_count: 231
 ---

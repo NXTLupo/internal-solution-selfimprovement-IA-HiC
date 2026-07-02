@@ -20,38 +20,48 @@ chunks:
     char_span: [0, 842]
     sentence_count: 6
     key_terms: [comments, crossing, startups, revenue, annual, hiring, classic-rutabaga-474, "we're"]
+    concepts: [comments, crossing, startups, revenue, annual]
     token_count: 226
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1q6rr3x/1_year_later_crossing_750k_annual_revenue_as_a/"}]
   - id: "social-intelligence/reddit-deep/startups/1q6rr3x.md#c1"
     char_span: [844, 2652]
     sentence_count: 12
     key_terms: [learning, founder, doing, code, headcount, personal, planning, probably]
+    concepts: [learning, founder, doing, headcount, personal]
     token_count: 428
   - id: "social-intelligence/reddit-deep/startups/1q6rr3x.md#c2"
     char_span: [2654, 4397]
     sentence_count: 10
     key_terms: [year, "it's", customer, learning, "haven't", pricing, revenue, months]
+    concepts: [customer, learning, "haven't", pricing, revenue]
     token_count: 400
   - id: "social-intelligence/reddit-deep/startups/1q6rr3x.md#c3"
     char_span: [4399, 5750]
     sentence_count: 9
     key_terms: [business, anything, expenses, licenses, problem, spend, apps, arr]
+    concepts: [business, anything, expenses, licenses, problem]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1q6rr3x.md#c4"]
     token_count: 310
   - id: "social-intelligence/reddit-deep/startups/1q6rr3x.md#c4"
-    char_span: [5765, 7560]
+    char_span: [5764, 7559]
     sentence_count: 18
     key_terms: [problem, classic-rutabaga-474, solve, business, gap, technical, motivation, initially]
+    concepts: [problem, classic-rutabaga-474, business, solve, technical]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1q6rr3x.md#c3"]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/startups/1q6rr3x.md#c5"
-    char_span: [7562, 9322]
+    char_span: [7561, 9321]
     sentence_count: 7
     key_terms: [construction, classic-rutabaga-474, space, management, reputation, marketing, document, deleted]
+    concepts: [construction, classic-rutabaga-474, space, management, reputation]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/startups/1q6rr3x.md#c6"
-    char_span: [9324, 9691]
+    char_span: [9323, 9690]
     sentence_count: 3
     key_terms: [conference, marketing, classic-rutabaga-474, spend, contractors, collateral, increase, maintain]
+    concepts: [conference, marketing, spend]
     section: Comments
     token_count: 92
 ---

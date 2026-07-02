@@ -19,41 +19,51 @@ chunks:
     char_span: [0, 2090]
     sentence_count: 9
     key_terms: [tech, cscareerquestions, etc, job, experience, recruiters, different, comments]
+    concepts: [cscareerquestions, experience, recruiters, different, comments]
     token_count: 490
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1pihb2b/about_to_graduate_with_a_cs_degree_and_still_no/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pihb2b.md#c1"
-    char_span: [2105, 3891]
+    char_span: [2104, 3890]
     sentence_count: 11
     key_terms: [certifications, job, get, got, time, interviews, technician, difficult]
+    concepts: [certifications, interviews, technician, difficult, undergrad]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pihb2b.md#c2"
-    char_span: [3893, 6036]
+    char_span: [3892, 6035]
     sentence_count: 18
     key_terms: [get, companies, real, experience, interviews, screening, something, projects]
+    concepts: [companies, experience, interviews, screening, something]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1pihb2b.md#c3"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pihb2b.md#c3"
-    char_span: [6038, 8260]
+    char_span: [6037, 8259]
     sentence_count: 17
     key_terms: [leetcode, learn, get, time, experience, internship, something, entirely]
+    concepts: [leetcode, experience, internship, learn, something]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1pihb2b.md#c2"]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pihb2b.md#c4"
-    char_span: [8262, 10007]
+    char_span: [8261, 10006]
     sentence_count: 12
     key_terms: [internships, experience, apply, pivot, roles, like, swe, graduation]
+    concepts: [internships, experience, apply, graduation, pivot]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pihb2b.md#c5"
-    char_span: [10009, 11993]
+    char_span: [10008, 11992]
     sentence_count: 19
     key_terms: [co-op, work, definitely, interview, position, question, popular, problem]
+    concepts: [co-op, definitely, interview, position, question]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pihb2b.md#c6"
-    char_span: [11995, 12717]
+    char_span: [11994, 12716]
     sentence_count: 13
     key_terms: [companies, ready, overrrrrrrrrrrrr, soft-wear-3714, unfortunately, headquarters, application, electrician]
+    concepts: [companies, ready]
     section: Comments
     token_count: 176
 ---

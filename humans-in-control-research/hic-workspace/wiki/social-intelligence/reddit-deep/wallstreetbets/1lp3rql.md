@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 380]
     sentence_count: 2
     key_terms: [wallstreetbets, comments, account, buying, beneficialbuffalo815, puts, reddit-deep, switches]
+    concepts: [wallstreetbets, comments, account, buying]
     token_count: 119
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1lp3rql/never_give_up_25k_10k_75k/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1lp3rql.md#c1"
     char_span: [394, 1681]
     sentence_count: 3
     key_terms: [smart, wsb, d1b3532c26c99ef88456d41314cf2bb31620f7a6, https, discord, beneficialbuffalo815, total, fallweathercamping]
+    concepts: [smart, https, discord, total]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/wallstreetbets/1lp3rql.md#c2"
     char_span: [1683, 2983]
     sentence_count: 9
     key_terms: [beneficialbuffalo815, gambling, tomorrow, account, muted-woodpecker-469, hostileenvironments, close, "don't"]
+    concepts: [beneficialbuffalo815, gambling, tomorrow, account, close]
     section: Comments
     token_count: 404
 ---

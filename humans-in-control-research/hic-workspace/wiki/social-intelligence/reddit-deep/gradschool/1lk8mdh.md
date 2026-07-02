@@ -21,40 +21,52 @@ chunks:
     char_span: [0, 2371]
     sentence_count: 21
     key_terms: [program, gradschool, comments, competitive, been, like, experience, professors]
+    concepts: [program, gradschool, comments, competitive, experience]
     token_count: 490
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1lk8mdh/i_have_never_experienced_bullying_like_i_have_in/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c1"
     char_span: [2373, 2826]
     sentence_count: 7
     key_terms: [setting, grad, expectations, experienced, boundaries, colleagues, navigating, adulthood]
+    concepts: [setting]
     token_count: 89
   - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c2"
     char_span: [2840, 4566]
     sentence_count: 16
     key_terms: [people, "i'm", possible, loving, school, class, sorry, feel]
+    concepts: [people, possible, loving, school, class]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c3"]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c3"
     char_span: [4568, 6389]
     sentence_count: 15
     key_terms: [like, program, cohort, school, people, pretty, age, feel]
+    concepts: [program, cohort, school, people, pretty]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c2"]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c4"
     char_span: [6391, 7855]
     sentence_count: 7
     key_terms: [presentation, definitely, professor, because, decided, project, person, done]
+    concepts: [presentation, definitely, professor, because, decided]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c5"]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c5"
     char_span: [7857, 10135]
     sentence_count: 18
     key_terms: [like, because, professional, bad, classmates, eventually, professor, learning]
+    concepts: [because, professional, classmates, eventually, professor]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c4"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c6"
     char_span: [10137, 11723]
     sentence_count: 14
     key_terms: [department, dean, did, approaches, professor, received, students, handle]
+    concepts: [department, approaches, professor, received, students]
     section: Comments
     token_count: 329
 ---

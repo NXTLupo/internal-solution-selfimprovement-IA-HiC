@@ -19,31 +19,42 @@ chunks:
     char_span: [0, 1190]
     sentence_count: 1
     key_terms: ["i'm", co-op, get, year, financial, something, comments, myself]
+    concepts: [co-op, financial, something, comments, myself]
     token_count: 312
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1mdaj6e/should_i_only_do_one_coop_when_for_financial/"}]
   - id: "social-intelligence/reddit-deep/neu/1mdaj6e.md#c1"
     char_span: [1204, 3371]
     sentence_count: 8
     key_terms: [co-op, experience, summer, going, advisor, however, iloveveigarlol, internships]
+    concepts: [co-op, experience, summer, going, iloveveigarlol]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1mdaj6e.md#c2", "social-intelligence/reddit-deep/neu/1mdaj6e.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1mdaj6e.md#c2"
     char_span: [3119, 4031]
     sentence_count: 2
     key_terms: [internship, iloveveigarlol, summer, co-op, choose, doing, "i'm", year]
+    concepts: [internship, iloveveigarlol, summer, co-op, choose]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1mdaj6e.md#c1"]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/neu/1mdaj6e.md#c3"
     char_span: [4033, 5546]
     sentence_count: 1
     key_terms: [co-op, semester, thats, finish, like, experience, roommate, college]
+    concepts: [co-op, semester, thats, finish, experience]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1mdaj6e.md#c1", "social-intelligence/reddit-deep/neu/1mdaj6e.md#c4"]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/neu/1mdaj6e.md#c4"
     char_span: [5548, 7497]
     sentence_count: 17
     key_terms: [grant, grants, co-op, coop, semester, rainbow1222, pell, classes]
+    concepts: [grant, grants, co-op, semester, rainbow1222]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1mdaj6e.md#c3"]
     section: Comments
     token_count: 485
+    sources: [{"n":"I\u2019ve been on coop twice and received both grants","u":""}]
 ---
 # should i only do one co-op & when? (for financial reasons)
 

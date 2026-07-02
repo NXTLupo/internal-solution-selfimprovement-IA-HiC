@@ -20,59 +20,71 @@ chunks:
     char_span: [0, 1301]
     sentence_count: 13
     key_terms: [insurance, erie, information, comments, systems, agent, able, misinformation]
+    concepts: [insurance, information, comments, systems, agent]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1lf6pg2.md#c5"]
     token_count: 280
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1lf6pg2/erie_insurance_outage_keep_calm/"}]
   - id: "social-intelligence/reddit-deep/insurance/1lf6pg2.md#c1"
-    char_span: [1316, 2020]
+    char_span: [1315, 2019]
     sentence_count: 4
     key_terms: [ransomware, days, individually, ahoooooooo, convicted, activity, bringing, released]
+    concepts: [ransomware]
     section: Comments
     token_count: 188
   - id: "social-intelligence/reddit-deep/insurance/1lf6pg2.md#c2"
-    char_span: [2022, 4054]
+    char_span: [2021, 4053]
     sentence_count: 11
     key_terms: [erie, payments, deleted, get, service, brian051770, been, pay]
+    concepts: [payments, deleted, service, brian051770, "doesn't"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/insurance/1lf6pg2.md#c3"
-    char_span: [4056, 4563]
+    char_span: [4055, 4562]
     sentence_count: 3
     key_terms: [frustrating, irksomemind, hopefully, pestering, bothered, thinking, because, earlier]
     section: Comments
     token_count: 126
   - id: "social-intelligence/reddit-deep/insurance/1lf6pg2.md#c4"
-    char_span: [4565, 6389]
+    char_span: [4564, 6388]
     sentence_count: 9
     key_terms: [down, get, check, month, back, been, erie-insurance-cyberattack, emailed]
+    concepts: [check, month, emailed, network, attack]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/insurance/1lf6pg2.md#c5"
-    char_span: [6391, 7682]
+    char_span: [6390, 7681]
     sentence_count: 11
     key_terms: [been, information, policyholders, info, told, personal, reasonable-cut-7355, agent]
+    concepts: [information, policyholders, personal, agent, being]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1lf6pg2.md#c0"]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/insurance/1lf6pg2.md#c6"
-    char_span: [7687, 10022]
+    char_span: [7686, 10021]
     sentence_count: 10
     key_terms: [ransomware, statements, system, trying1percent, information, responsible, back, been]
+    concepts: [ransomware, statements, system, trying1percent, information]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/insurance/1lf6pg2.md#c7"
-    char_span: [9741, 10171]
+    char_span: [9740, 10170]
     sentence_count: 4
     key_terms: [breach, data, erie, ex-employees, interesting, cbus-eagle, commercial, protection]
+    concepts: [breach]
     section: Comments
     token_count: 99
   - id: "social-intelligence/reddit-deep/insurance/1lf6pg2.md#c8"
-    char_span: [10173, 12312]
+    char_span: [10172, 12311]
     sentence_count: 14
     key_terms: [brilliant-king-2843, been, claim, issue, "it's", insurance, anything, payments]
+    concepts: [brilliant-king-2843, claim, issue, insurance, anything]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/insurance/1lf6pg2.md#c9"
-    char_span: [12042, 13469]
+    char_span: [12041, 13468]
     sentence_count: 15
     key_terms: [customers, policies, agency, people, system, claim, sorry, back]
+    concepts: [customers, policies, agency, people, system]
     section: Comments
     token_count: 337
 ---

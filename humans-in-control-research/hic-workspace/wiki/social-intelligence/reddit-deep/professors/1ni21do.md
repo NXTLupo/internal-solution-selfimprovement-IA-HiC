@@ -21,58 +21,71 @@ chunks:
     char_span: [0, 2287]
     sentence_count: 16
     key_terms: [federal, billion, research, funding, university, following, against, support]
+    concepts: [federal, billion, research, funding, university]
     token_count: 457
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1ni21do/uc_prepares_to_bend_the_knee/"}]
   - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c1"
     char_span: [2289, 3802]
     sentence_count: 15
     key_terms: [university, community, across, state, california, together, mission, working]
+    concepts: [university, community, across, california, state]
     token_count: 287
   - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c2"
     char_span: [3816, 5280]
     sentence_count: 6
     key_terms: [faculty, names, ubiquity75, berkeley, several, trying, beneficial-jump-3877, university-business]
+    concepts: [faculty, names, ubiquity75, berkeley, several]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c3"
     char_span: [5282, 7266]
     sentence_count: 12
     key_terms: [harvard, columbia, people, system, whole, believe, public, unfuckingbelievable]
+    concepts: [harvard, columbia, people, system, whole]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c4"
     char_span: [6997, 8742]
     sentence_count: 10
     key_terms: [enrollment, students, harvard, leaning, speech, system, beneficial-jump-3877, behind-the-scenes]
+    concepts: [enrollment, students, harvard, leaning, speech]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ni21do.md#c5"]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c5"
     char_span: [8744, 10440]
     sentence_count: 7
     key_terms: [speech, free, conservative, disparaged, leaning, popular, reality, cityofdestinyunbound]
+    concepts: [speech, conservative, disparaged, leaning, popular]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ni21do.md#c4"]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c6"
     char_span: [10442, 11820]
     sentence_count: 11
     key_terms: [federal, demand, trump, federally-demanded, rinsedryrepeat, second-largest, long-standing, constitution]
+    concepts: [federal, demand, trump]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c7"
     char_span: [11822, 13013]
     sentence_count: 8
     key_terms: [people, cityofdestinyunbound, being, fact, nocuzzlikeyea13, administration, darthjarjarjar, rinsedryrepeat]
+    concepts: [people, being]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c8"
     char_span: [13015, 15288]
     sentence_count: 21
     key_terms: [power, congressional, republicans, dems, democracy, essie7888, anything, serving]
+    concepts: [power, congressional, republicans, democracy, essie7888]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c9"
     char_span: [15290, 17203]
     sentence_count: 18
     key_terms: [don, ubiquity75, post, "i'm", harvard, supreme, behind, social]
+    concepts: [ubiquity75, harvard, supreme, behind, social]
     section: Comments
     token_count: 506
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 307]
     sentence_count: 2
     key_terms: [engineeringstudents, comments, engineering, reddit-deep, industrial, internship, student, byluxs]
+    concepts: [engineeringstudents, comments]
     token_count: 81
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1nm60jv/how_to_find_a_summer_internship_as_a_industrial/"}]
 ---
 # How to find a summer internship as a Industrial Engineering student?
 

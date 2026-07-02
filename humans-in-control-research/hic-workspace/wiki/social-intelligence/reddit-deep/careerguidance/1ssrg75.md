@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1388]
     sentence_count: 12
     key_terms: [mba, bsc, careerguidance, like, plz, rha, skte, toh]
+    concepts: [careerguidance, graduation, comments, biology, realize]
     token_count: 397
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1ssrg75/mba_as_a_bio_student_career_guidance_plz_help/"}]
 ---
 # Mba as a bio student ? Career guidance plz help🙏🥀
 

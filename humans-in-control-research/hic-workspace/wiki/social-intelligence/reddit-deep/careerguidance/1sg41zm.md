@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 938]
     sentence_count: 6
     key_terms: [sciences, health, careerguidance, field, study, jobs, comments, careers]
+    concepts: [sciences, health, careerguidance, field, study]
     token_count: 214
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sg41zm/questioning_my_choice_to_study_health_sciences/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sg41zm.md#c1"
     char_span: [952, 2404]
     sentence_count: 7
     key_terms: [health, people, coordinator, informatics, interviews, companies, insurance, clinical]
+    concepts: [health, people, coordinator, informatics, interviews]
     section: Comments
     token_count: 276
 ---

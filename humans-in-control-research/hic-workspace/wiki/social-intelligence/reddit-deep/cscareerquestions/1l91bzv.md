@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 1620]
     sentence_count: 15
     key_terms: [people, cscareerquestions, market, never, job, jobs, experience, comments]
+    concepts: [cscareerquestions, people, market, experience, never]
     token_count: 385
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1l91bzv/the_best_advice_on_how_to_get_a_job_in_this_market/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c1"
     char_span: [1622, 3576]
     sentence_count: 25
     key_terms: [experience, "don't", work, engineer, projects, software, people, skills]
+    concepts: [experience, "don't", engineer, projects, software]
     token_count: 439
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c2"
     char_span: [3578, 5577]
     sentence_count: 24
     key_terms: [job, get, offer, interview, time, requirements, asked, negotiating]
+    concepts: [interview, offer, requirements, negotiating, asked]
     token_count: 469
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c3"
     char_span: [5579, 5951]
@@ -36,63 +40,77 @@ chunks:
     key_terms: [date, get, good, next, week, opportunity, everything, experience]
     token_count: 85
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c4"
-    char_span: [5966, 8030]
+    char_span: [5965, 8029]
     sentence_count: 17
     key_terms: [absolutely, double-happiness, number, offers, offer, give, negotiate, leverage]
+    concepts: [absolutely, double-happiness, number, offers, offer]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c5"
-    char_span: [8032, 9352]
+    char_span: [8031, 9351]
     sentence_count: 10
     key_terms: [advice, experience, somebody, angular, because, fucking, "that's", worked]
+    concepts: [advice, experience, somebody, angular, because]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c12"]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c6"
-    char_span: [9354, 11482]
+    char_span: [9353, 11481]
     sentence_count: 14
     key_terms: [lying, skill, knowledge, "that's", interviewers, experience, interview, project]
+    concepts: [lying, knowledge, skill, interviewers, "that's"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c7"
-    char_span: [11484, 13664]
+    char_span: [11483, 13663]
     sentence_count: 29
     key_terms: [experience, lead, getting, years, decisions, "i've", "didn't", being]
+    concepts: [experience, getting, decisions, years, "didn't"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c8"
-    char_span: [13666, 14728]
+    char_span: [13665, 14727]
     sentence_count: 8
     key_terms: [questions, through, "didn't", "wasn't", "can't", indistinguishable, job, lie]
+    concepts: [questions, through, "didn't", "wasn't", "can't"]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c9"
-    char_span: [14731, 16726]
+    char_span: [14730, 16725]
     sentence_count: 14
     key_terms: [someone, experience, able, lead, tech, fullstack, recruiter, somewhere]
+    concepts: [someone, experience, fullstack, recruiter, somewhere]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c11"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c10"
-    char_span: [16728, 18398]
+    char_span: [16727, 18397]
     sentence_count: 15
     key_terms: [lie, experience, understand, hired, react, get, user-agent-string-history, applying]
+    concepts: [experience, understand, hired, react, applying]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c11"
-    char_span: [18401, 20388]
+    char_span: [18400, 20387]
     sentence_count: 10
     key_terms: [masters, doing, job, k8s, experience, fullstack, interview, someone]
+    concepts: [masters, doing, experience, fullstack, interview]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c9", "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c12"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c12"
-    char_span: [20390, 22493]
+    char_span: [20389, 22492]
     sentence_count: 17
     key_terms: [experience, like, current, advice, point, jobs, interview, personal]
+    concepts: [experience, current, advice, point, interview]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c11"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c13"
-    char_span: [22495, 23837]
+    char_span: [22494, 23836]
     sentence_count: 13
     key_terms: [video, negotiate, something, project, games, date, want, choosing]
+    concepts: [negotiate, something, video, project, games]
     section: Comments
     token_count: 321
 ---

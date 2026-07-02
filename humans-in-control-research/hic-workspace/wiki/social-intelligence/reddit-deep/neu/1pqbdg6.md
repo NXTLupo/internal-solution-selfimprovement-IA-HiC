@@ -21,7 +21,10 @@ chunks:
     char_span: [0, 2403]
     sentence_count: 21
     key_terms: [companies, job, problems, worked, applications, graph, sponsorship, like]
+    concepts: [companies, problems, applications, worked, sponsorship]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1pqbdg6.md#c2"]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1pqbdg6/navigating_the_fulltime_sde_search_as_a_dec_2025/"}]
   - id: "social-intelligence/reddit-deep/neu/1pqbdg6.md#c1"
     char_span: [2405, 2833]
     sentence_count: 4
@@ -31,12 +34,15 @@ chunks:
     char_span: [2847, 4858]
     sentence_count: 22
     key_terms: [applications, companies, applying, startups, company, navneetjoshi7, interviews, callbacks]
+    concepts: [applications, companies, applying, startups, navneetjoshi7]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1pqbdg6.md#c0"]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/neu/1pqbdg6.md#c3"
     char_span: [4860, 5824]
     sentence_count: 11
     key_terms: [internship, genuinely, projects, people, particular-quote3369, darthvalarmorghulis, coop, send]
+    concepts: [internship, genuinely, projects, people]
     section: Comments
     token_count: 240
 ---

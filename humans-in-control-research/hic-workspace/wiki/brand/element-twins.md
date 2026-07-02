@@ -8,11 +8,13 @@ chunks:
     char_span: [0, 1672]
     sentence_count: 3
     key_terms: [rendercasestudy, casestudyslide, takeaway, element, case-study, four-block, gold, slidetostagehtml]
+    concepts: [rendercasestudy, casestudyslide, takeaway, element, case-study]
     token_count: 509
   - id: "brand/element-twins.md#c1"
     char_span: [1674, 1839]
     sentence_count: 1
     key_terms: [setboundvariableforpaint, figma, brand-token, collections, variable, literal, frames, fills]
+    concepts: [figma]
     token_count: 45
 ---
 # Element Twins

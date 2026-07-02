@@ -18,16 +18,22 @@ chunks:
     char_span: [0, 2197]
     sentence_count: 25
     key_terms: [school, high, college, "don't", applyingtocollege, differently, university, teenagers]
+    concepts: [school, college, applyingtocollege, "don't", differently]
+    related_chunks: ["articles/reddit-deep-r-applyingtocollege/1aecaac3aa.md#c2"]
     token_count: 503
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1stolqp/parent_of_a_soon_to_be_9th_grader_what_do_you/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/1aecaac3aa.md#c1"
     char_span: [2199, 4303]
     sentence_count: 20
     key_terms: [year, school, high, highschool, academics, computer, already, college]
+    concepts: [school, highschool, academics, computer, already]
     token_count: 475
   - id: "articles/reddit-deep-r-applyingtocollege/1aecaac3aa.md#c2"
     char_span: [4305, 6638]
     sentence_count: 19
     key_terms: [college, school, interests, schools, major, high, life, math]
+    concepts: [college, school, interests, schools, experience]
+    related_chunks: ["articles/reddit-deep-r-applyingtocollege/1aecaac3aa.md#c0"]
     token_count: 502
   - id: "articles/reddit-deep-r-applyingtocollege/1aecaac3aa.md#c3"
     char_span: [6640, 6744]

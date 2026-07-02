@@ -21,47 +21,61 @@ chunks:
     char_span: [0, 1657]
     sentence_count: 14
     key_terms: [laptop, desk, resignation, time, company, email, work, personally]
+    concepts: [laptop, resignation, company, email, personally]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1py80ew.md#c1", "social-intelligence/reddit-deep/jobs/1py80ew.md#c7"]
     token_count: 404
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1py80ew/i_am_quiting_do_i_have_to_personally_turn_in_my/"}]
   - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c1"
     char_span: [1671, 3600]
     sentence_count: 19
     key_terms: [weeks, computer, company, laptop, employees, tracking, though, got]
+    concepts: [weeks, computer, company, laptop, employees]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1py80ew.md#c0"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c2"
     char_span: [3602, 5671]
     sentence_count: 20
     key_terms: [start, people, "it's", job, new, employment, obligated, december]
+    concepts: [start, people, employment, obligated, december]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c3"
     char_span: [5673, 7212]
     sentence_count: 9
     key_terms: [never, another, company, manager, future, laptop, return, tisthetimetobelit2]
+    concepts: [never, another, company, manager, future]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1py80ew.md#c5"]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c4"
     char_span: [7214, 9219]
     sentence_count: 15
     key_terms: [interview, exit, get, remembered, emotional, secretary, anyways, company]
+    concepts: [interview, remembered, emotional, secretary, anyways]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c5"
     char_span: [9221, 11355]
     sentence_count: 18
     key_terms: [get, work, companies, equipment, company, manager, working, people]
+    concepts: [companies, equipment, company, manager, working]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1py80ew.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c6"
     char_span: [11102, 11716]
     sentence_count: 4
     key_terms: [documented, sure, want, documentation, masteraahs, supervisor, equipment, "couldn't"]
+    concepts: [documented]
     section: Comments
     token_count: 149
   - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c7"
     char_span: [11721, 12418]
     sentence_count: 4
     key_terms: [resigning, somewhere, company, email, ijustworkhere000c, ok-willow-9145, definitely, equipment]
+    concepts: [resigning, somewhere, company, email]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1py80ew.md#c0"]
     section: Comments
     token_count: 179
 ---

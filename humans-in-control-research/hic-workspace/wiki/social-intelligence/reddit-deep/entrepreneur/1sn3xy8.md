@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 1622]
     sentence_count: 13
     key_terms: [agent, business, entrepreneur, tone, comments, question, product, support]
+    concepts: [agent, business, entrepreneur, comments, question]
     token_count: 353
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1sn3xy8/writing_a_proper_ai_brief_for_my_business/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1sn3xy8.md#c1"
-    char_span: [1637, 3662]
+    char_span: [1636, 3661]
     sentence_count: 9
     key_terms: [entrepreneur, please, weekly, rules, llfounder, permanent, promotion, something]
+    concepts: [entrepreneur, please, weekly, rules, llfounder]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/entrepreneur/1sn3xy8.md#c2"
-    char_span: [3664, 5688]
+    char_span: [3663, 5687]
     sentence_count: 17
     key_terms: [llfounder, usually, prompt, "you're", timiprotocol, agent, brief, drift]
+    concepts: [llfounder, usually, timiprotocol, prompt, "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1sn3xy8.md#c4"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/entrepreneur/1sn3xy8.md#c3"
-    char_span: [5690, 6260]
+    char_span: [5689, 6259]
     sentence_count: 3
     key_terms: [making, "that's", agent, "i've", user, instructions, improvises, llfounder]
+    concepts: [making, "that's", agent]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/entrepreneur/1sn3xy8.md#c4"
-    char_span: [6262, 8435]
+    char_span: [6261, 8434]
     sentence_count: 17
     key_terms: [llfounder, context, exactly, prompt, inconsistent, agent, users, works]
+    concepts: [llfounder, context, exactly, inconsistent, prompt]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1sn3xy8.md#c2"]
     section: Comments
     token_count: 476
 ---

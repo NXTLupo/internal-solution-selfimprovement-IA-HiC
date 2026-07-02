@@ -8,35 +8,40 @@ title: "Insurance companies trafficking in PII."
 author: "Photononic"
 date: "2026-04-25T22:20:03.000Z"
 score: 0
-upvote_ratio: 0.33
+upvote_ratio: 0.35
 num_comments: 33
 flair: ""
-extracted_at: "2026-06-17T19:26:46.478Z"
+extracted_at: "2026-06-20T17:52:10.514Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/insurance/1svpqup.md#c0"
     char_span: [0, 1998]
     sentence_count: 26
     key_terms: [bcbs, sharing, insurance, pii, partners, service, though, prohibited]
+    concepts: [sharing, insurance, partners, service, though]
     token_count: 452
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1svpqup/insurance_companies_trafficking_in_pii/"}]
   - id: "social-intelligence/reddit-deep/insurance/1svpqup.md#c1"
-    char_span: [2013, 4023]
+    char_span: [2012, 4022]
     sentence_count: 27
     key_terms: [recoveryone, health, data, plan, sharing, allow, unrealistic, bcbs]
+    concepts: [recoveryone, health, sharing, unrealistic, allow]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/insurance/1svpqup.md#c2"
-    char_span: [4025, 5897]
+    char_span: [4024, 5896]
     sentence_count: 21
     key_terms: [recoveryone, insubordination, surgery, therapy, called, shared, gaslighting, time]
+    concepts: [recoveryone, insubordination, surgery, therapy, called]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/insurance/1svpqup.md#c3"
-    char_span: [5899, 7627]
+    char_span: [5898, 7626]
     sentence_count: 16
     key_terms: [tcpa, committee, insurance, steering, supposed, letter, person, signed]
+    concepts: [committee, insurance, steering, supposed, letter]
     section: Comments
     token_count: 393
 ---
@@ -59,28 +64,28 @@ I went though this before with CIGNA. They claimed that my plan is subsidized by
 
 ## Comments
 
-- **Head_of_Lettuce** (24↑): This reads like you have unrealistic expectations about privacy. RecoveryOne is built into your BCBS health insurance plan. BCBS might allow you to opt out (depends on the plan), and you can ask not to be contacted by RecoveryOne. But you can’t completely prevent any data from being shared with them.
+- **Head_of_Lettuce** (23↑): This reads like you have unrealistic expectations about privacy. RecoveryOne is built into your BCBS health insurance plan. BCBS might allow you to opt out (depends on the plan), and you can ask not to be contacted by RecoveryOne. But you can’t completely prevent any data from being shared with them.
 
 This would be like asking your doctors not to send your health data to BCBS. It’s nonsensical. That’s how the health insurance plan is designed, and I guarantee you that’s explained in your Summary Plan Description.
-  - **Photononic** (-14↑): Not unrealistic.  Say "RecoveryOne" suffers a data breach.  Now my info gets shared again with a class action settlement administrator.  You think I am settling for $20? Wrong! I will sue both "Recoveryone" and CIGNA.  "RecoveryOne" for failing to protect my data, and CIGNA for sharing it with them when I specifically  told them not to.
+  - **Photononic** (-15↑): Not unrealistic.  Say "RecoveryOne" suffers a data breach.  Now my info gets shared again with a class action settlement administrator.  You think I am settling for $20? Wrong! I will sue both "Recoveryone" and CIGNA.  "RecoveryOne" for failing to protect my data, and CIGNA for sharing it with them when I specifically  told them not to.
 
 I have had similar discussions with my present employer. They gave all our names to "Horizon Daycare".  My wife and I are 60.  I had a vasectomy at 20, and my wife is past menopause.  Our adopted son is 22.  What need to we have for daycare?  Just about every boomer, and Gen-X was getting the solicitations.  We complained to HR, and it stopped.
 
 Somehow they never seemed to solicit the employees who actually have young children. Go figure!
 - **Poop_Dolla** (14↑): Which regulation were you citing for them being prohibited from sharing PHI with anyone but your chosen providers?
-  - **Photononic** (-19↑): My own.  I don't allow it.
+  - **Photononic** (-17↑): My own.  I don't allow it.
     - **Poop_Dolla** (15↑): Ok, but unfortunately they don't have to abide by that.
-    - **Resse811** (12↑): I’m sorry but this is hilarious. 
+    - **Resse811** (11↑): I’m sorry but this is hilarious. 
 
 You don’t get to set regulations. You get to set boundaries- but that’s about how you act not how others act.
-    - **Longjumping-Elk-6118** (6↑): LOL why do you care
-- **SearchAtlantis** (11↑): That is not how that works. 
+    - **Longjumping-Elk-6118** (7↑): LOL why do you care
+- **SearchAtlantis** (12↑): That is not how that works. 
 
 HIPAA et al. allow sharing PHI for "treatment, payment, [and] health care operations..."
 
 If they've baked in RecoveryOne or some other care management group into their systems that's helping do care management (treatment) or operations. Now you should be able to opt out of RecoveryOne on their end I imagine but nothing you say to the insurance company is going to change that.
-- **xkcd123** (8↑): A third party company threatened legal action against you because you didn’t want their service and/or complained?  Why?
-  - **Photononic** (-5↑): The third party was none other than "RecoveryOne".  They violated TCPA by calling me 26 times, and texting me even more.  They kept attempting to offer me physical therapy for my "recent surgery".  The fact that I had a surgery was shared by GIGNA.  I asked them "what kind of physical therapy is offered for YAG laser eye surgery?".  I followed that with, "Do not call me again".  She hung up.
+- **xkcd123** (7↑): A third party company threatened legal action against you because you didn’t want their service and/or complained?  Why?
+  - **Photononic** (-3↑): The third party was none other than "RecoveryOne".  They violated TCPA by calling me 26 times, and texting me even more.  They kept attempting to offer me physical therapy for my "recent surgery".  The fact that I had a surgery was shared by GIGNA.  I asked them "what kind of physical therapy is offered for YAG laser eye surgery?".  I followed that with, "Do not call me again".  She hung up.
 
 I told CIGNA that they should not be sharing PII with their partners without express permission.  They assured me it would not happen again, but it did. They shared my PII with "Identity Force", with another (I forget).
 

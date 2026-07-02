@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 774]
     sentence_count: 4
     key_terms: [engineeringstudents, engineering, princeton, anything, comments, students, studying, classes]
+    concepts: [engineeringstudents, engineering, princeton, anything, comments]
     token_count: 168
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sc1ls4/advice_for_firstyear_engineering_students_small/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sc1ls4.md#c1"
     char_span: [788, 1083]
     sentence_count: 3
     key_terms: [princeton, physics, fundamentals, definitely, experience, different, freshman, probably]
+    concepts: [princeton, physics]
     section: Comments
     token_count: 67
 ---

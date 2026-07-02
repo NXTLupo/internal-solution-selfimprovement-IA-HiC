@@ -21,47 +21,57 @@ chunks:
     char_span: [0, 2072]
     sentence_count: 23
     key_terms: [managers, manager, genuinely, conversation, transition, difficult, promotion, comments]
+    concepts: [managers, manager, genuinely, conversation, transition]
     token_count: 459
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1oq74un/leaving_for_a_90_raise_right_when_my_manager/"}]
   - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c1"
     char_span: [2086, 3811]
     sentence_count: 21
     key_terms: [manager, stay, leaving, department, situation, person, place, raise]
+    concepts: [manager, leaving, department, situation, person]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c2"
     char_span: [3813, 5876]
     sentence_count: 9
     key_terms: [sometimes, manager, someone, answer, good, mentioned, thrilled, because]
+    concepts: [sometimes, manager, someone, answer, mentioned]
     section: Comments
     token_count: 483
+    sources: [{"n":"35+ yrs of management experience.","u":""}]
   - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c3"
     char_span: [5879, 7706]
     sentence_count: 14
     key_terms: [manager, happy, team, want, training, because, company, enough]
+    concepts: [manager, happy, training, because, company]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c4"
     char_span: [7708, 9026]
     sentence_count: 7
     key_terms: [looking, best, something, better, jazzliketradition519, asked, anotherleftistbot, got]
+    concepts: [looking, something, better, asked]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c5"
     char_span: [9028, 10317]
     sentence_count: 12
     key_terms: [good, like, employee, sounds, goatymcgoatfacesings, best, "i'd", keep]
+    concepts: [employee, sounds]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c6"
     char_span: [10320, 11962]
     sentence_count: 10
     key_terms: [leave, information, want, department, clearly, current, getting, manager]
+    concepts: [information, department, leave, clearly, current]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c7"
     char_span: [11964, 12898]
     sentence_count: 10
     key_terms: [initial, though, asked, offer, sheriffharrybawls, ask, work, dry-shower9037]
+    concepts: [initial, though, asked, offer]
     section: Comments
     token_count: 230
 ---

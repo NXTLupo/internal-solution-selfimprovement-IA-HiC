@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2233]
     sentence_count: 11
     key_terms: [interesting, field, get, like, work, careerguidance, certs, great]
+    concepts: [interesting, field, careerguidance, certs, experience]
     token_count: 490
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rqdfav/what_are_realistic_short_and_long_term_career/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rqdfav.md#c1"
     char_span: [2235, 2590]
     sentence_count: 3
@@ -31,6 +33,7 @@ chunks:
     char_span: [2604, 3376]
     sentence_count: 7
     key_terms: [technical, solutions, analyst, people, help, like, implementation, communication]
+    concepts: [technical, solutions, analyst, people]
     section: Comments
     token_count: 147
 ---

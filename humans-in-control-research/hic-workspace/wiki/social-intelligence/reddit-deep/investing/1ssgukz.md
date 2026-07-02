@@ -21,17 +21,22 @@ chunks:
     char_span: [0, 1026]
     sentence_count: 11
     key_terms: [bps, short-term, investing, comments, expected, markets, pricing, year]
+    concepts: [short-term, investing, comments, expected, markets]
     token_count: 268
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1ssgukz/markets_are_reacting_to_the_middle_east_situation/"}]
   - id: "social-intelligence/reddit-deep/investing/1ssgukz.md#c1"
     char_span: [1040, 1301]
     sentence_count: 3
     key_terms: [anonymoushipopotomus, green, magnitude, promising, boiling, markets, matters, market]
+    concepts: [green]
     section: Comments
     token_count: 72
   - id: "social-intelligence/reddit-deep/investing/1ssgukz.md#c2"
     char_span: [1303, 3362]
     sentence_count: 8
     key_terms: [israel, ceasefire, stopped, chartnavigator, market, strait, difference, talking]
+    concepts: [israel, ceasefire, chartnavigator, stopped, market]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1ssgukz.md#c5", "social-intelligence/reddit-deep/investing/1ssgukz.md#c6", "social-intelligence/reddit-deep/investing/1ssgukz.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1ssgukz.md#c3"
@@ -44,30 +49,38 @@ chunks:
     char_span: [3434, 4795]
     sentence_count: 9
     key_terms: [fed, like, backstop, federal, price, fake, learning, reserve]
+    concepts: [backstop, federal, price, learning, reserve]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/investing/1ssgukz.md#c5"
     char_span: [4797, 5768]
     sentence_count: 5
     key_terms: [chartnavigator, caterpillar, options, jcpopm, market, money, like, automatically]
+    concepts: [chartnavigator, caterpillar, options, jcpopm, market]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1ssgukz.md#c2", "social-intelligence/reddit-deep/investing/1ssgukz.md#c7"]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/investing/1ssgukz.md#c6"
     char_span: [5770, 6983]
     sentence_count: 5
     key_terms: [blockade, market, maybe, "it's", ceasefire, doesnt, humans, incomingaxofkindness]
+    concepts: [blockade, market, maybe, ceasefire, doesnt]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1ssgukz.md#c2"]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/investing/1ssgukz.md#c7"
     char_span: [6985, 8593]
     sentence_count: 8
     key_terms: [chartnavigator, market, inverse, delicious-plastic-44, fitseaworthiness5275, juniorcaptaintenneal, point, posts]
+    concepts: [chartnavigator, market, inverse, point, posts]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1ssgukz.md#c2", "social-intelligence/reddit-deep/investing/1ssgukz.md#c5"]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/investing/1ssgukz.md#c8"
     char_span: [8595, 9454]
     sentence_count: 4
     key_terms: [chartnavigator, thegodpepe, representativeok7443, great, money, needs, exit, "it's"]
+    concepts: [chartnavigator, thegodpepe, great, money, needs]
     section: Comments
     token_count: 243
 ---

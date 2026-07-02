@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 1542]
     sentence_count: 10
     key_terms: [sales, careerguidance, career, experience, management, business, comments, security]
+    concepts: [sales, careerguidance, career, experience, management]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c3"]
     token_count: 354
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1lpvp2p/43_and_wanting_a_career_switch_is_it_too_late/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c1"
     char_span: [1556, 1853]
     sentence_count: 4
     key_terms: [sales, different, change, justhereforpics1776, b2b, industries, though, makes]
+    concepts: [different, sales, change]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c2"]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c2"
     char_span: [1858, 3748]
     sentence_count: 16
     key_terms: [get, change, going, sales, late, something, training, somehow]
+    concepts: [change, going, sales, something, training]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c1"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c3"
     char_span: [3750, 4682]
     sentence_count: 14
     key_terms: [years, certs, field, sales, experience, "you've", liquiddiscourage1, back]
+    concepts: [years, certs, experience, field, sales]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c0"]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c4"
     char_span: [4684, 6613]
     sentence_count: 11
     key_terms: [coding, actwide6615, career, years, been, take, looking, change]
+    concepts: [coding, actwide6615, career, years, looking]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c5"
     char_span: [6355, 8221]
     sentence_count: 10
     key_terms: [coding, like, anything, because, adult, going, right, sales]
+    concepts: [coding, anything, because, adult, going]
     section: Comments
     token_count: 475
 ---

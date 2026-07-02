@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 941]
     sentence_count: 8
     key_terms: [cscareerquestions, limited, claude, reddit, month, posts, code, like]
+    concepts: [cscareerquestions, limited, claude, reddit, month]
     token_count: 249
+    sources: [{"n":"reddit: cscareerquestions","u":"https://reddit.com/r/cscareerquestions/comments/1s0qax6/am_i_insane_for_thinking_this_sub_is_being/"}]
 ---
 # Am I insane for thinking this sub is being astroturfed?
 

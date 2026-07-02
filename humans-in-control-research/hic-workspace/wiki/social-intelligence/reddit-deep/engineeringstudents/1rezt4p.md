@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1784]
     sentence_count: 10
     key_terms: [already, "i'm", engineeringstudents, "i'd", "it's", masters, school, undergrad]
+    concepts: [already, engineeringstudents, masters, school, undergrad]
     token_count: 437
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rezt4p/grad_schoolcareer_question/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rezt4p.md#c1"
     char_span: [1786, 3256]
     sentence_count: 11
     key_terms: [being, "i'm", opportunity, too, internship, somewhere, current, excited]
+    concepts: [being, opportunity, internship, somewhere, current]
     token_count: 347
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rezt4p.md#c2"
     char_span: [3270, 3708]
     sentence_count: 6
     key_terms: [chances, being, doing, grad, lot, tall-cat-8890, institution, elsewhere]
+    concepts: [chances, being, doing]
     section: Comments
     token_count: 108
 ---

@@ -19,32 +19,37 @@ chunks:
     char_span: [0, 2275]
     sentence_count: 23
     key_terms: [exam, class, grades, grade, students, college, lecture, midterm]
+    concepts: [class, grades, grade, students, college]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1p32cdm/professor_hasnt_returned_a_single_grade_all/"}]
   - id: "social-intelligence/reddit-deep/college/1p32cdm.md#c1"
     char_span: [2277, 2359]
     sentence_count: 2
     key_terms: [experience, escalate, himself, similar, anyone, dean, does]
     token_count: 17
   - id: "social-intelligence/reddit-deep/college/1p32cdm.md#c2"
-    char_span: [2374, 4581]
+    char_span: [2373, 4580]
     sentence_count: 20
     key_terms: [professor, chair, department, dean, changed, nothing, report, exam]
+    concepts: [professor, chair, department, changed, nothing]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/college/1p32cdm.md#c3"
-    char_span: [4583, 7147]
+    char_span: [4582, 7146]
     sentence_count: 17
     key_terms: [dean, situation, feedback, semester, students, course, requirements, opportunity]
+    concepts: [situation, feedback, semester, students, requirements]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/college/1p32cdm.md#c4"
-    char_span: [7149, 8942]
+    char_span: [7148, 8941]
     sentence_count: 12
     key_terms: [university, absolutely, mediatrixmagnifica, professor, situation, nothing, documentation, department]
+    concepts: [university, mediatrixmagnifica, absolutely, professor, situation]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/college/1p32cdm.md#c5"
-    char_span: [8944, 9465]
+    char_span: [8943, 9464]
     sentence_count: 4
     key_terms: [like, life, responsibility, blue-zebra-10, unfortunately, department, disaster, personal]
     section: Comments

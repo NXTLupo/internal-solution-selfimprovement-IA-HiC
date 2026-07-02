@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 788]
     sentence_count: 7
     key_terms: [internships, internship, countries, comments, morocco, summer, want, requirements]
+    concepts: [internships, internship, countries, comments, morocco]
     token_count: 187
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1r1lhf0/desperately_want_a_summer_internship_abroad/"}]
   - id: "social-intelligence/reddit-deep/internships/1r1lhf0.md#c1"
     char_span: [802, 2872]
     sentence_count: 10
     key_terms: [internship, technical-machine-76, com, internshipdaily, seoul, experience, including, programme]
+    concepts: [internship, technical-machine-76, internshipdaily, experience, seoul]
     section: Comments
     token_count: 490
 ---

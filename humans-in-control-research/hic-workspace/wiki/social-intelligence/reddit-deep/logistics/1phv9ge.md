@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1990]
     sentence_count: 18
     key_terms: [delivery, product, heavy, bulk, fit, pop, experience, customers]
+    concepts: [delivery, product, heavy, experience, customers]
     token_count: 474
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1phv9ge/ancient_mom_and_pop_at_breaking_point_with_bulk/"}]
   - id: "social-intelligence/reddit-deep/logistics/1phv9ge.md#c1"
-    char_span: [2005, 4148]
+    char_span: [2004, 4147]
     sentence_count: 12
     key_terms: [xepera23, unlikely-author-9068, full, own, separating, warehouse, reliable, trucking]
+    concepts: [xepera23, unlikely-author-9068, separating, warehouse, reliable]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/logistics/1phv9ge.md#c2"
-    char_span: [4150, 5010]
+    char_span: [4149, 5009]
     sentence_count: 4
     key_terms: ["i'm", discussion, purchasing, inventory, "don't", sales, interested, management]
+    concepts: [discussion, purchasing, inventory, "don't", sales]
     section: Comments
     token_count: 204
   - id: "social-intelligence/reddit-deep/logistics/1phv9ge.md#c3"
-    char_span: [5012, 7161]
+    char_span: [5011, 7160]
     sentence_count: 12
     key_terms: [years, freight, transportation, thicccthottie, truck, fucknjagoff, deliveries, warehouses]
+    concepts: [years, transportation, thicccthottie, freight, fucknjagoff]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/logistics/1phv9ge.md#c4"
-    char_span: [7163, 7469]
+    char_span: [7162, 7468]
     sentence_count: 1
     key_terms: [product, ammunition, packaging, positions, variables, meetings, question, pricing]
+    concepts: [product]
     section: Comments
     token_count: 67
 ---

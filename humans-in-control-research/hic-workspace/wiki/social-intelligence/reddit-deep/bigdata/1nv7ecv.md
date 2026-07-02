@@ -17,19 +17,26 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/bigdata/1nv7ecv.md#c0"
-    char_span: [0, 2395]
+    char_span: [0, 2394]
     sentence_count: 13
     key_terms: [portfolio, science, data, how-to-make-a-solid-portfolio-for-an-aspiring-data-analyst, audience, professional, building, components]
-    token_count: 485
+    concepts: [portfolio, science, audience, professional, building]
+    related_chunks: ["social-intelligence/reddit-deep/bigdata/1nv7ecv.md#c1", "social-intelligence/reddit-deep/bigdata/1nv7ecv.md#c2"]
+    token_count: 484
+    sources: [{"n":"reddit-deep: r/bigdata","u":"https://www.reddit.com/r/bigdata/comments/1nv7ecv/designing_your_data_science_portfolio_like_a_pro/"}]
   - id: "social-intelligence/reddit-deep/bigdata/1nv7ecv.md#c1"
-    char_span: [2397, 4662]
+    char_span: [2396, 4661]
     sentence_count: 14
     key_terms: [data, portfolio, science, skills, highlight, projects, clean, etc]
+    concepts: [portfolio, science, skills, highlight, projects]
+    related_chunks: ["social-intelligence/reddit-deep/bigdata/1nv7ecv.md#c0", "social-intelligence/reddit-deep/bigdata/1nv7ecv.md#c2"]
     token_count: 514
   - id: "social-intelligence/reddit-deep/bigdata/1nv7ecv.md#c2"
-    char_span: [4664, 6185]
+    char_span: [4663, 6184]
     sentence_count: 10
     key_terms: [science, portfolio, data, avoid, content, analytics, projects, certifications]
+    concepts: [science, portfolio, avoid, content, analytics]
+    related_chunks: ["social-intelligence/reddit-deep/bigdata/1nv7ecv.md#c0", "social-intelligence/reddit-deep/bigdata/1nv7ecv.md#c1"]
     token_count: 306
 ---
 # Designing Your Data Science Portfolio Like a Pro

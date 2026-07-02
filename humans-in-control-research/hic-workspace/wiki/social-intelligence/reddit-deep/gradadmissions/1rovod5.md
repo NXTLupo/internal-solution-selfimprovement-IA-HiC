@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 1927]
     sentence_count: 20
     key_terms: [because, research, gradadmissions, applications, wanna, application, get, last]
+    concepts: [because, research, gradadmissions, applications, application]
     token_count: 455
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rovod5/i_made_it/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rovod5.md#c1"
     char_span: [1929, 2728]
     sentence_count: 12
     key_terms: [wait, school, been, best, got, like, excruciating, application]
+    concepts: [school]
     token_count: 193
   - id: "social-intelligence/reddit-deep/gradadmissions/1rovod5.md#c2"
     char_span: [2742, 4429]
     sentence_count: 9
     key_terms: [congratulations, thank, work, university, applying, program, having, track]
+    concepts: [congratulations, thank, university, applying, program]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rovod5.md#c3"
     char_span: [4168, 4970]
     sentence_count: 5
     key_terms: ["it's", thankyouuu, moment, please, track, keep, resident-egg7549, congratulations]
+    concepts: [thankyouuu, moment, please, track]
     section: Comments
     token_count: 221
 ---

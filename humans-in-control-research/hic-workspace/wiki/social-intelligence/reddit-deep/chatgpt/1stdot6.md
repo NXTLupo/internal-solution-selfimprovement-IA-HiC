@@ -21,52 +21,66 @@ chunks:
     char_span: [0, 2090]
     sentence_count: 3
     key_terms: [claude, caveman, information, words, sentences, full, credits, "doesn't"]
+    concepts: [claude, caveman, information, sentences, words]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1stdot6.md#c1"]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1stdot6/i_started_talking_to_claude_like_a_caveman_my/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c1"
     char_span: [2092, 3905]
     sentence_count: 1
     key_terms: [caveman, business, instead, theory, claude, says, summarise, audience]
+    concepts: [caveman, business, instead, theory, claude]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1stdot6.md#c0"]
     token_count: 405
   - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c2"
     char_span: [3919, 4569]
     sentence_count: 4
     key_terms: [openai, conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, support]
+    concepts: [conversation, openai, image, discord, support]
     section: Comments
     token_count: 172
   - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c3"
     char_span: [4572, 6002]
     sentence_count: 4
     key_terms: [lot, butterfliesandallama, terse, bc9czlgcmtw4cj8rgh, centrifugalmalaise, remarkablewish2508, willingnessok3081, post]
+    concepts: [terse]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c4"
     char_span: [5835, 6770]
     sentence_count: 3
     key_terms: [amaze, response, tokens, costs, input, token, iwilltalkaboutguns, vp6b55t5f41koebdvo]
+    concepts: [amaze, response, tokens, costs, input]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1stdot6.md#c8"]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c5"
     char_span: [6773, 7910]
     sentence_count: 13
     key_terms: [caveman, language, like, time, neurological, good, credits, saves]
+    concepts: [caveman, language, neurological, credits, saves]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c6"
     char_span: [7913, 9797]
     sentence_count: 8
     key_terms: [like, language, affect, conversation, llm, use, emotions, complex]
+    concepts: [language, conversation, affect, emotions, complex]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c7"
     char_span: [9802, 11742]
     sentence_count: 12
     key_terms: [languages, poetry-for-neanderthals-board-game-rules-and-instructions-for-how-to-play, computer, language, tokens, human, something, complex]
+    concepts: [languages, computer, language, tokens, human]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c8"
     char_span: [11744, 12444]
     sentence_count: 3
     key_terms: [amaze, tokens, whatever, whatrusernamesused4, gaym38znd1kyled0du, wumbleinthejungle, lordsnowgaryen, rodebaksteen]
+    concepts: [amaze, tokens, whatever]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1stdot6.md#c4"]
     section: Comments
     token_count: 238
 ---

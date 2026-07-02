@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 696]
     sentence_count: 3
     key_terms: [opportunities, internships, internship, comments, engineer, position, software, substantialpizza557]
+    concepts: [opportunities, internships, internship, comments, engineer]
     token_count: 162
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1mnqpz8/how_to_search_internship_opportunities/"}]
   - id: "social-intelligence/reddit-deep/internships/1mnqpz8.md#c1"
     char_span: [710, 2696]
     sentence_count: 7
     key_terms: [companies, simplify, open, https, big, summer, nointernship, internships]
+    concepts: [companies, simplify, https, nointernship, summer]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/internships/1mnqpz8.md#c2"
     char_span: [2698, 3579]
     sentence_count: 10
     key_terms: [company, substantialpizza557, companies, applying, linkedin, deleted, big, don]
+    concepts: [substantialpizza557, company, companies, applying, linkedin]
     section: Comments
     token_count: 216
 ---

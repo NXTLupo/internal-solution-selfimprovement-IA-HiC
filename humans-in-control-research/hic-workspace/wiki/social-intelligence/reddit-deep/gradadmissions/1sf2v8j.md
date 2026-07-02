@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1339]
     sentence_count: 6
     key_terms: [submitted, decisions, dec, gradadmissions, april, ece, uoft, rejection]
+    concepts: [submitted, decisions, gradadmissions, april, rejection]
     token_count: 350
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1sf2v8j/april_7_and_no_decisions_yet_should_i_assume/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1sf2v8j.md#c1"
     char_span: [1353, 2311]
     sentence_count: 7
     key_terms: [acceptance, rejection, students, funding, holding, waiting, assume, people]
+    concepts: [acceptance, rejection, students, funding, holding]
     section: Comments
     token_count: 233
   - id: "social-intelligence/reddit-deep/gradadmissions/1sf2v8j.md#c2"
     char_span: [2313, 4254]
     sentence_count: 9
     key_terms: [strawberryangel101, programs, schools, waiting, april, bugtrousers, rejection, accepted]
+    concepts: [strawberryangel101, programs, schools, waiting, bugtrousers]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1sf2v8j.md#c3"
     char_span: [4038, 5173]
     sentence_count: 3
     key_terms: [pure-consequence7284, applied, back, different, waiting, letter, diligent-design-5019, prestigious-good8372]
+    concepts: [pure-consequence7284, applied, different, waiting, letter]
     section: Comments
     token_count: 323
 ---

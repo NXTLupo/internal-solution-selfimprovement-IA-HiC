@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1444]
     sentence_count: 7
     key_terms: ["i'm", experience, research, gradadmissions, gpa, candidates, including, comments]
+    concepts: [experience, research, gradadmissions, candidates, including]
     token_count: 322
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1ne2dy2/worried_about_grad_school_admission_chances/"}]
 ---
 # Worried about grad school admission chances
 

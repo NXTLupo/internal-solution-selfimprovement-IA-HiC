@@ -19,44 +19,60 @@ chunks:
     char_span: [0, 1847]
     sentence_count: 13
     key_terms: ["it's", acceptances, people, "don't", applyingtocollege, get, gatekeeping, want]
+    concepts: [acceptances, applyingtocollege, people, "don't", gatekeeping]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c3"]
     token_count: 413
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1ruf3i4/gatekeeping_your_results_its_for_your_own_good/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c1"
     char_span: [1849, 3938]
     sentence_count: 15
     key_terms: [people, trust, acceptances, gatekeeping, end, get, "it's", time]
+    concepts: [people, trust, acceptances, gatekeeping, obviously]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c3"]
     token_count: 456
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c2"
     char_span: [3940, 6333]
     sentence_count: 15
     key_terms: [people, "don't", sure, tell, want, parents, believe, college]
+    concepts: [people, "don't", parents, believe, college]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c0"]
     token_count: 493
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c3"
     char_span: [6335, 7759]
     sentence_count: 15
     key_terms: [people, "i'm", gatekeeping, got, life, decisions, anything, everyone]
+    concepts: [people, gatekeeping, decisions, anything, everyone]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c4"]
     token_count: 310
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c4"
     char_span: [7773, 8941]
     sentence_count: 3
     key_terms: [gatekeep, school, thats, get, everyone, people, intelligent-web-8017, crazy]
+    concepts: [gatekeep, school, thats, everyone, people]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c7"]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c5"
     char_span: [8943, 10757]
     sentence_count: 10
     key_terms: [people, soup, friends, bean, life, disagree, nothing, theory]
+    concepts: [people, friends, disagree, nothing, theory]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c6"
     char_span: [10759, 11780]
     sentence_count: 4
     key_terms: [schools, school, admissions, everyone, college, culture, little, people]
+    concepts: [schools, school, admissions, everyone, college]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c4"]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c7"
     char_span: [11782, 13287]
     sentence_count: 9
     key_terms: [like, people, state, don, honest, school, senior, intelligent-web-8017]
+    concepts: [people, state, honest, school, senior]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c4"]
     section: Comments
     token_count: 369
 ---

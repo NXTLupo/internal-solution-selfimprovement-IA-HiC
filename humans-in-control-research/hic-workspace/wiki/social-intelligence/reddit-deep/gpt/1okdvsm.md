@@ -21,28 +21,34 @@ chunks:
     char_span: [0, 1948]
     sentence_count: 9
     key_terms: [sycophantic, mathematical, researchers, generating, dekoninck, statement, com, articles]
+    concepts: [sycophantic, mathematical, researchers, generating, dekoninck]
     token_count: 474
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1okdvsm/ai_chatbots_are_sycophants_researchers_say_its/"}]
   - id: "social-intelligence/reddit-deep/gpt/1okdvsm.md#c1"
     char_span: [1950, 2252]
     sentence_count: 1
     key_terms: [https, d41586-025-03390-0, nature-202510, arxiv, articles, nature, com, doi]
+    concepts: [d41586-025-03390-0, https, nature-202510, arxiv, articles]
     token_count: 118
   - id: "social-intelligence/reddit-deep/gpt/1okdvsm.md#c2"
     char_span: [2266, 4032]
     sentence_count: 12
     key_terms: [back, "it's", ogthesamurai, roast, freylaverse, like, strengths, premise]
+    concepts: [ogthesamurai, freylaverse, roast, strengths, premise]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/gpt/1okdvsm.md#c3"
     char_span: [4034, 5960]
     sentence_count: 20
     key_terms: [because, internal, research, premise, science, without, check, facts]
+    concepts: [because, internal, research, premise, science]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/gpt/1okdvsm.md#c4"
     char_span: [5962, 6534]
     sentence_count: 4
     key_terms: [asked, science, times, complimenting, verification, personality, compliance, everything]
+    concepts: [asked, science, times]
     section: Comments
     token_count: 159
 ---

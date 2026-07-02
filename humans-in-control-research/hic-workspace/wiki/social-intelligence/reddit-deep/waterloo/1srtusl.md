@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1388]
     sentence_count: 9
     key_terms: [waterloo, information, been, job, comments, advice, health, region]
+    concepts: [waterloo, information, comments, advice, health]
     token_count: 304
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1srtusl/any_advice_for_a_recent_grad_struggling_to_find_a/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1srtusl.md#c1"
     char_span: [1402, 3358]
     sentence_count: 17
     key_terms: [health, insurance, districtcurrent, like, companies, industry, commute, ontario]
+    concepts: [health, insurance, districtcurrent, companies, industry]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/waterloo/1srtusl.md#c2"
     char_span: [3360, 5550]
     sentence_count: 17
     key_terms: [entry-level, help, resume, build, data, get, interested, applying]
+    concepts: [entry-level, resume, build, interested, applying]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/waterloo/1srtusl.md#c3"

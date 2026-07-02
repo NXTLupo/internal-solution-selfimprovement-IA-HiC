@@ -19,17 +19,22 @@ chunks:
     char_span: [0, 1650]
     sentence_count: 19
     key_terms: [cscareerquestions, people, got, grad, new, comments, honestly, software]
+    concepts: [cscareerquestions, people, comments, honestly, software]
     token_count: 413
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qpdxps/laid_off_w_6_months_of_experience_as_new_grad/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpdxps.md#c1"
     char_span: [1664, 1923]
     sentence_count: 3
     key_terms: [amazon, recognize, spicebox, layoffs, thought, caught, future, hiring]
+    concepts: [amazon]
     section: Comments
     token_count: 61
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpdxps.md#c2"
     char_span: [1925, 3840]
     sentence_count: 12
     key_terms: [people, rich-put4159, layoff, got, amazon, months, great, never]
+    concepts: [people, rich-put4159, layoff, amazon, months]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1qpdxps.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpdxps.md#c3"
@@ -42,24 +47,29 @@ chunks:
     char_span: [3963, 5332]
     sentence_count: 7
     key_terms: [applying, happened, smartest, career, gold-collection2513, early, start, felt]
+    concepts: [applying, happened, smartest, career, early]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpdxps.md#c5"
     char_span: [5336, 6676]
     sentence_count: 6
     key_terms: [applications, people, got, rich-put4159, mean, rejections, something, anything]
+    concepts: [applications, people, rich-put4159, rejections, something]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1qpdxps.md#c2"]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpdxps.md#c6"
     char_span: [6680, 8477]
     sentence_count: 17
     key_terms: [get, something, find, job, together, around, saying, shitty]
+    concepts: [something, together, around, saying, shitty]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpdxps.md#c7"
     char_span: [8479, 9495]
     sentence_count: 3
     key_terms: [project, working, hired, clients, nothing, client, python, alone]
+    concepts: [project, working, hired, clients, nothing]
     section: Comments
     token_count: 217
 ---

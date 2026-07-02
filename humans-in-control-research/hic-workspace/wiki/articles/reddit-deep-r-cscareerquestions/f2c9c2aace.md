@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1291]
     sentence_count: 5
     key_terms: [internships, internship, cscareerquestions, job, experience, important, interview, comments]
+    concepts: [internships, internship, cscareerquestions, experience, important]
     token_count: 289
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rlvymd/how_important_was_your_internship_experience_in/"}]
 ---
 # How important was your internship experience in landing your first full-time job?
 

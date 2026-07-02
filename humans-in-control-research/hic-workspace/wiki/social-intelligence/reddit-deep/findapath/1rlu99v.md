@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1367]
     sentence_count: 9
     key_terms: [love, findapath, comments, thinking, advice, though, "don't", great]
+    concepts: [findapath, comments, thinking, advice, though]
     token_count: 327
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1rlu99v/jobs_for_a_notsosmart_woman_that_does_not_involve/"}]
   - id: "social-intelligence/reddit-deep/findapath/1rlu99v.md#c1"
     char_span: [1381, 2328]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1rlu99v.md#c2"
     char_span: [2331, 4428]
     sentence_count: 17
     key_terms: [assistant, job, work, hospital, good, experience, management, questions]
+    concepts: [assistant, hospital, experience, management, questions]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/findapath/1rlu99v.md#c3"
     char_span: [4431, 5788]
     sentence_count: 10
     key_terms: [nursing, people, sales, get, work, rewarded, degree, number]
+    concepts: [nursing, people, sales, rewarded, degree]
     section: Comments
     token_count: 333
 ---

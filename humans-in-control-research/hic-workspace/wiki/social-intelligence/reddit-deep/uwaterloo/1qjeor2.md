@@ -21,29 +21,39 @@ chunks:
     char_span: [0, 1250]
     sentence_count: 10
     key_terms: [uwaterloo, university, good, people, comments, students, answer, campus]
+    concepts: [uwaterloo, university, people, comments, students]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1qjeor2.md#c1"]
     token_count: 316
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1qjeor2/is_waterloo_a_good_university/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1qjeor2.md#c1"
     char_span: [1264, 2994]
     sentence_count: 7
     key_terms: [waterloo, university, people, person, like, skindiacus, probably, similar]
+    concepts: [waterloo, university, people, person, skindiacus]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1qjeor2.md#c0", "social-intelligence/reddit-deep/uwaterloo/1qjeor2.md#c3", "social-intelligence/reddit-deep/uwaterloo/1qjeor2.md#c4"]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/uwaterloo/1qjeor2.md#c2"
     char_span: [2996, 4268]
     sentence_count: 11
     key_terms: [medicine, end, people, taking, lot, college, become, career]
+    concepts: [medicine, people, taking, college, become]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/uwaterloo/1qjeor2.md#c3"
     char_span: [4270, 6417]
     sentence_count: 17
     key_terms: [waterloo, great, like, physics, people, school, value, phys]
+    concepts: [waterloo, great, physics, people, school]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1qjeor2.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/uwaterloo/1qjeor2.md#c4"
     char_span: [6419, 7814]
     sentence_count: 11
     key_terms: [waterloo, co-op, like, university, graduates, average, because, culture]
+    concepts: [waterloo, co-op, university, graduates, average]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1qjeor2.md#c1"]
     section: Comments
     token_count: 308
 ---

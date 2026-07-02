@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 1168]
     sentence_count: 16
     key_terms: [semester, gradschool, comments, school, "don't", back, drop, full]
+    concepts: [semester, gradschool, comments, school, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1r1jctt.md#c1"]
     token_count: 278
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1r1jctt/should_i_drop_out/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1r1jctt.md#c1"
     char_span: [1182, 3275]
     sentence_count: 18
     key_terms: [school, time, full, grad, like, semester, health, work]
+    concepts: [school, semester, health, completely, yourself]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1r1jctt.md#c0", "social-intelligence/reddit-deep/gradschool/1r1jctt.md#c2"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/gradschool/1r1jctt.md#c2"
     char_span: [3277, 5444]
     sentence_count: 20
     key_terms: [school, researchplaceholder, professor, yourself, "you're", extra, smart, "i'm"]
+    concepts: [school, researchplaceholder, professor, yourself, "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1r1jctt.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1r1jctt.md#c3"
     char_span: [5448, 6575]
     sentence_count: 12
     key_terms: [already, classes, take, potential, thinking, feeling, person, school]
+    concepts: [already, classes, potential, thinking, feeling]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/gradschool/1r1jctt.md#c4"
     char_span: [6577, 8620]
     sentence_count: 10
     key_terms: [semester, classes, gf20xx, don, half, "i'm", take, dropped]
+    concepts: [semester, classes, gf20xx, dropped, accelerated]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1r1jctt.md#c5"

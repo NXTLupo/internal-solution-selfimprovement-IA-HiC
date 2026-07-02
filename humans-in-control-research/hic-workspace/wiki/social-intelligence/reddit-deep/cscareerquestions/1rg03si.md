@@ -19,16 +19,22 @@ chunks:
     char_span: [0, 2406]
     sentence_count: 13
     key_terms: [behavioral, cscareerquestions, job, coinbase, practice, projects, finally, getting]
+    concepts: [behavioral, cscareerquestions, coinbase, practice, projects]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rg03si/landed_meta_and_coinbase_offers_after_spending/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c1"
     char_span: [2408, 4730]
     sentence_count: 10
     key_terms: [questions, question, companies, like, bank, asked, problems, design]
+    concepts: [questions, question, companies, problems, asked]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c2"]
     token_count: 465
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c2"
     char_span: [4732, 7152]
     sentence_count: 22
     key_terms: [question, leetcode, companies, bank, consistent, like, interviews, got-blocked-by-codesignal-cooldown-annoy-4nrw]
+    concepts: [question, leetcode, companies, consistent, interviews]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c1"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c3"
     char_span: [7154, 7536]
@@ -36,37 +42,42 @@ chunks:
     key_terms: [pick, wlb, compensation, attracting, definitely, companies, wondering, "anyone's"]
     token_count: 77
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c4"
-    char_span: [7551, 8829]
+    char_span: [7550, 8828]
     sentence_count: 8
     key_terms: [coinbase, months, hire, last, stock, down, pip, bitcoin]
+    concepts: [coinbase, months, stock, bitcoin, culture]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c5"
-    char_span: [8831, 10882]
+    char_span: [8830, 10881]
     sentence_count: 11
     key_terms: [culture, companies, wlb, company, thanks, get, like, take]
+    concepts: [culture, companies, company, thanks, highest]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c6"
-    char_span: [10633, 11846]
+    char_span: [10632, 11845]
     sentence_count: 7
     key_terms: [leetcode, andauri, getting, career, effort, market, useful, maybe]
+    concepts: [leetcode, andauri, getting, career, effort]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c7"
-    char_span: [11848, 12602]
+    char_span: [11847, 12601]
     sentence_count: 8
     key_terms: [grokking, leetcode, cares, post, assumption, struggling, situation, pointing]
+    concepts: [grokking, leetcode, cares]
     section: Comments
     token_count: 184
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c8"
-    char_span: [12604, 14656]
+    char_span: [12603, 14655]
     sentence_count: 13
     key_terms: [yeah, "don't", story, lot, meta, sure, team, appreciate]
+    concepts: [appreciate, "don't", story, interview, coinbase]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c9"
-    char_span: [14404, 14674]
+    char_span: [14403, 14673]
     sentence_count: 5
     key_terms: [team, appreciate, department, coinbase, feedback, specific, matters, public]
     section: Comments

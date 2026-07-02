@@ -21,40 +21,48 @@ chunks:
     char_span: [0, 1658]
     sentence_count: 10
     key_terms: [time, povertyfinance, work, apartment, comments, thought, plasma, child]
+    concepts: [povertyfinance, apartment, comments, thought, plasma]
     token_count: 402
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1rsrdnb/i_am_at_the_point_where_i_tempted_to_shoplift_to/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c1"
     char_span: [1660, 3549]
     sentence_count: 13
     key_terms: ["can't", because, buy, new, "i'm", work, year, everything]
+    concepts: ["can't", because, everything, supervisor, daughter]
     token_count: 434
   - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c2"
     char_span: [3563, 5187]
     sentence_count: 16
     key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
+    concepts: [submitter, appropriate, advice, vents, emotional]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c3"
     char_span: [5189, 6907]
     sentence_count: 16
     key_terms: [wishlists, post, friends, amazon, hard, assistance, netill7423, something]
+    concepts: [wishlists, friends, amazon, assistance, netill7423]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c4"
     char_span: [6909, 8708]
     sentence_count: 10
     key_terms: [work, food, mom, political, outreach, watching, friends, leaning]
+    concepts: [political, outreach, watching, friends, leaning]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c5"
     char_span: [8710, 9165]
     sentence_count: 4
     key_terms: [work, doing, environmental, canvassing, nonprofit, partially, political, something]
+    concepts: [doing]
     section: Comments
     token_count: 101
   - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c6"
     char_span: [9167, 11217]
     sentence_count: 26
     key_terms: [get, school, never, pelotonyogi, hard, jail, job, craigslist]
+    concepts: [school, pelotonyogi, craigslist, never, counselor]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c7"

@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 252]
     sentence_count: 1
     key_terms: [anthropic, comments, thehashimwarren, reddit-deep, winning, claude, posted, reddit]
+    concepts: [anthropic, comments]
     token_count: 77
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1py01my/this_is_why_claude_code_is_winning/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1py01my.md#c1"
     char_span: [266, 1786]
     sentence_count: 9
     key_terms: [claude, code, anthropic, users, like, features, tooling, adding]
+    concepts: [claude, anthropic, users, features, tooling]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1py01my.md#c2"]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/anthropic/1py01my.md#c2"
     char_span: [1788, 3137]
     sentence_count: 9
     key_terms: [claude, code, breakthrough, anthropic, google, thathandsomehandsome, like, appropriately]
+    concepts: [claude, breakthrough, anthropic, google]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1py01my.md#c1"]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/anthropic/1py01my.md#c3"
     char_span: [3139, 5152]
     sentence_count: 17
     key_terms: [like, agent, hook, gemini, pre, runs, win, womp]
+    concepts: [agent, gemini, anthropic, exactly, someone]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/anthropic/1py01my.md#c4"
     char_span: [5154, 5628]
     sentence_count: 3
     key_terms: [hooks, useful, super, use, agent-specific, notification, especially, riotofmind]
+    concepts: [hooks, useful, super]
     section: Comments
     token_count: 119
 ---

@@ -17,34 +17,41 @@ research_goal: "Deliver a comprehensive 2026 outlook report on the global retail
 engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1nnx0v0.md#c0"
-    char_span: [0, 250]
+    char_span: [0, 249]
     sentence_count: 1
     key_terms: [ecommerce, comments, adventurepaul, reddit-deep, e-commerce, industry, posted, reddit]
-    token_count: 82
+    concepts: [ecommerce, comments]
+    token_count: 81
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1nnx0v0/ecommerce_industry_news_recap_week_of_sep_22nd/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1nnx0v0.md#c1"
-    char_span: [252, 2683]
+    char_span: [251, 2682]
     sentence_count: 9
     key_terms: [chatbot, e-commerce, "seller's", product, google, conversations, like, week]
+    concepts: [chatbot, e-commerce, "seller's", conversations, product]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1nnx0v0.md#c2"
-    char_span: [2326, 4902]
+    char_span: [2325, 4901]
     sentence_count: 10
     key_terms: [google, reddit, content, encourage, protocol, contributors, transactions, discussions]
+    concepts: [google, reddit, content, encourage, protocol]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1nnx0v0.md#c3"
-    char_span: [4604, 7195]
+    char_span: [4603, 7194]
     sentence_count: 7
     key_terms: [amazon, licensing, news, "amazon's", distribution, fulfillment, information, warehousing]
+    concepts: [amazon, licensing, "amazon's", distribution, fulfillment]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1nnx0v0.md#c4"
-    char_span: [6862, 9339]
+    char_span: [6861, 9338]
     sentence_count: 7
     key_terms: [users, age, like, experience, microsoft, president, retailers, "amazon's"]
+    concepts: [experience, users, microsoft, president, retailers]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1nnx0v0.md#c5"
-    char_span: [9035, 10253]
+    char_span: [9034, 10252]
     sentence_count: 5
     key_terms: [companies, administration, deal, following, president, friday, house, today]
+    concepts: [companies, administration, following, president, friday]
     token_count: 261
 ---
 # E-commerce Industry News Recap 🔥 Week of Sep 22nd, 2025

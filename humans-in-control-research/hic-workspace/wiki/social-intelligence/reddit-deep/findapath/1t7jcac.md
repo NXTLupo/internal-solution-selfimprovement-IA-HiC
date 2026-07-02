@@ -21,27 +21,35 @@ chunks:
     char_span: [0, 1859]
     sentence_count: 16
     key_terms: [corporate, got, job, dance, did, completely, findapath, comments]
+    concepts: [corporate, completely, dance, findapath, comments]
     token_count: 455
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1t7jcac/28m_unemployed_switched_multiple_career_paths/"}]
   - id: "social-intelligence/reddit-deep/findapath/1t7jcac.md#c1"
     char_span: [1861, 3701]
     sentence_count: 18
     key_terms: [because, been, "i'm", unemployed, corporate, contract, another, started]
+    concepts: [because, unemployed, corporate, contract, another]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1t7jcac.md#c2"]
     token_count: 391
   - id: "social-intelligence/reddit-deep/findapath/1t7jcac.md#c2"
     char_span: [3703, 5426]
     sentence_count: 19
     key_terms: [years, feel, another, because, friends, "haven't", nothing, parents]
+    concepts: [years, another, because, friends, "haven't"]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1t7jcac.md#c1"]
     token_count: 369
   - id: "social-intelligence/reddit-deep/findapath/1t7jcac.md#c3"
     char_span: [5440, 7450]
     sentence_count: 17
     key_terms: [helped, thank, like, helpful, please, findapath, comments, everyone]
+    concepts: [helped, thank, helpful, please, findapath]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/findapath/1t7jcac.md#c4"
     char_span: [7452, 7928]
     sentence_count: 4
     key_terms: [andreapucci72, "doesn't", "you're", thank, book, flairpointsbot, confirming, definitely]
+    concepts: [andreapucci72, "doesn't", "you're", thank]
     section: Comments
     token_count: 129
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1363]
     sentence_count: 11
     key_terms: [consultant, tech, mba, role, careerguidance, get, want, work]
+    concepts: [consultant, careerguidance, technical, comments, working]
     token_count: 323
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tfl1i5/how_to_change_career_path_after_working_as_a_tech/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tfl1i5.md#c1"
     char_span: [1377, 3171]
     sentence_count: 6
     key_terms: [consulting, management, mba, right, tech, background, definitely, operations]
+    concepts: [consulting, management, background, definitely, operations]
     section: Comments
     token_count: 343
 ---

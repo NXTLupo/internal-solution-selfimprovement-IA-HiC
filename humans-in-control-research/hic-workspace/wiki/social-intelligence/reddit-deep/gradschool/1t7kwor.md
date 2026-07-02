@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 961]
     sentence_count: 5
     key_terms: [work, gradschool, university, comments, students, summer, grad, research-related]
+    concepts: [gradschool, university, comments, students, summer]
     token_count: 211
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1t7kwor/grad_students_who_arent_taing_over_the_summer/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1t7kwor.md#c1"
     char_span: [975, 3186]
     sentence_count: 7
     key_terms: [like, genuinely, jobs, people, though, store, don, old]
+    concepts: [genuinely, people, though, store, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1t7kwor.md#c2"
     char_span: [2864, 3373]
     sentence_count: 1
     key_terms: [feels, side, tool, work, unemployment, copyediting, especially, everything]
+    concepts: [feels]
     section: Comments
     token_count: 117
   - id: "social-intelligence/reddit-deep/gradschool/1t7kwor.md#c3"
     char_span: [3375, 5342]
     sentence_count: 15
     key_terms: [summer, research, get, funding, work, "didn't", "that's", scholarships]
+    concepts: [summer, research, funding, scholarships, "didn't"]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/gradschool/1t7kwor.md#c4"
     char_span: [5344, 6552]
     sentence_count: 7
     key_terms: [school, get, flexible, working, people, summer, field, good]
+    concepts: [school, flexible, working, people, summer]
     section: Comments
     token_count: 292
 ---

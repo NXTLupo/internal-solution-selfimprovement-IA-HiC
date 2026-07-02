@@ -21,40 +21,53 @@ chunks:
     char_span: [0, 2199]
     sentence_count: 20
     key_terms: [week, honestly, being, get, lab, time, everything, gradschool]
+    concepts: [honestly, being, everything, gradschool, comments]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1n9ptfq/hate_being_a_ta/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c1"
     char_span: [2201, 3583]
     sentence_count: 14
     key_terms: [because, program, funding, school, "i'm", time, research, "don't"]
+    concepts: [because, program, funding, school, research]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c3"]
     token_count: 289
   - id: "social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c2"
     char_span: [3597, 5740]
     sentence_count: 18
     key_terms: ["i'm", lifesuckssdi, hours, especially, experience, professor, meetings, semester]
+    concepts: [lifesuckssdi, especially, experience, hours, professor]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c5", "social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c6"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c3"
     char_span: [5742, 7921]
     sentence_count: 14
     key_terms: [research, experience, manageable, "i'm", meetings, program, lifesuckssdi, maybe]
+    concepts: [research, experience, manageable, meetings, program]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c1"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c4"
     char_span: [7923, 9754]
     sentence_count: 13
     key_terms: [funding, funded, opportunity, grad, mean, need, sometimes, academia]
+    concepts: [funding, funded, opportunity, sometimes, academia]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c5"
     char_span: [9756, 11929]
     sentence_count: 16
     key_terms: [professors, professor, time, work, research, expectations, lifesuckssdi, like]
+    concepts: [professors, professor, research, expectations, lifesuckssdi]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c6"
     char_span: [11655, 13779]
     sentence_count: 18
     key_terms: [lifesuckssdi, character-twist-1409, maybe, different, get, like, feel, give]
+    concepts: [lifesuckssdi, character-twist-1409, different, maybe, experience]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c2"]
     section: Comments
     token_count: 496
 ---

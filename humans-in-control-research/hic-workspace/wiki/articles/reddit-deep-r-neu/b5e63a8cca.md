@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1950]
     sentence_count: 17
     key_terms: [something, law, interested, major, neu, security, school, hard]
+    concepts: [something, interested, major, security, school]
     token_count: 465
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rt2wfo/best_major_for_law_school_pleaseeee_helppp/"}]
 ---
 # Best major for law school (PLEASEEEE HELPPP)
 

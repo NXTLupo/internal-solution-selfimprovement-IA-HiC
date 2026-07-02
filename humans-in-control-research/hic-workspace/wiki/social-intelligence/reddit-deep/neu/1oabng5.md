@@ -19,26 +19,34 @@ chunks:
     char_span: [0, 1544]
     sentence_count: 4
     key_terms: [comments, neu, utm, students, missing, reddit, https, share]
+    concepts: [comments, students, missing, reddit, difference]
     token_count: 397
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1oabng5/from_missing_a_pet_to_making_a_difference/"}]
   - id: "social-intelligence/reddit-deep/neu/1oabng5.md#c1"
     char_span: [1546, 4016]
     sentence_count: 18
     key_terms: [boston, animal, students, northeastern, volunteer, help, animals, student]
+    concepts: [boston, animal, students, northeastern, volunteer]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1oabng5.md#c2"]
     token_count: 513
   - id: "social-intelligence/reddit-deep/neu/1oabng5.md#c2"
     char_span: [4018, 6482]
     sentence_count: 14
     key_terms: [volunteers, animal, volunteer, role, location, animals, shelter, administrative]
+    concepts: [volunteers, animal, volunteer, location, administrative]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1oabng5.md#c1"]
     token_count: 502
   - id: "social-intelligence/reddit-deep/neu/1oabng5.md#c3"
     char_span: [6484, 8246]
     sentence_count: 9
     key_terms: [animals, volunteers, mspca, care, commitment, off-campus, certified, volunteer]
+    concepts: [animals, volunteers, commitment, mspca, off-campus]
     token_count: 346
   - id: "social-intelligence/reddit-deep/neu/1oabng5.md#c4"
     char_span: [8248, 10063]
     sentence_count: 9
     key_terms: [shelters, animals, shelter, animal, organizations, organization, fundraising, cat]
+    concepts: [shelters, organizations, animals, shelter, organization]
     token_count: 374
 ---
 # FROM MISSING A PET TO MAKING A DIFFERENCE

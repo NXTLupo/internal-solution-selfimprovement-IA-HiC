@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2458]
     sentence_count: 15
     key_terms: [graduate, opportunities, development, scholarship, community, mcdonnell, mail, cultural]
+    concepts: [opportunities, graduate, development, scholarship, community]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1ptk5b2/mcdonell_scholarship_mail_is_it_something_good/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1ptk5b2.md#c1"
     char_span: [2460, 3621]
     sentence_count: 9
     key_terms: [application, mcdonnell, washu, program, academy, graduate, submit, apply]
+    concepts: [application, mcdonnell, program, washu, academy]
     token_count: 219
   - id: "social-intelligence/reddit-deep/gradadmissions/1ptk5b2.md#c2"
     char_span: [3635, 5067]
     sentence_count: 9
     key_terms: [mean-influence1000, institution, mcdonnell, consideration, applied, priority, program, email]
+    concepts: [mean-influence1000, institution, mcdonnell, consideration, applied]
     section: Comments
     token_count: 383
 ---

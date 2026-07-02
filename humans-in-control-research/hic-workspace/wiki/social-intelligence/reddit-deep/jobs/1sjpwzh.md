@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 2144]
     sentence_count: 19
     key_terms: [process, senior, free, time, work, candidates, expertise, comments]
+    concepts: [process, senior, candidates, expertise, comments]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1sjpwzh/why_companies_want_us_to_work_for_free/"}]
   - id: "social-intelligence/reddit-deep/jobs/1sjpwzh.md#c1"
     char_span: [2146, 3618]
     sentence_count: 11
     key_terms: [already, looking, professional, free, filtering, standards, technical, somebody]
+    concepts: [already, looking, professional, filtering, standards]
     token_count: 315
   - id: "social-intelligence/reddit-deep/jobs/1sjpwzh.md#c2"
     char_span: [3632, 5308]
     sentence_count: 9
     key_terms: [practice, anybody, company, people, hopefullyagoodboomer, being, labor, free]
+    concepts: [practice, anybody, company, people, being]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/jobs/1sjpwzh.md#c3"
     char_span: [5310, 6803]
     sentence_count: 10
     key_terms: [company, employees, wants, call, free, pay, show, respectful]
+    concepts: [company, employees, respectful, themselves, wants]
     section: Comments
     token_count: 362
 ---

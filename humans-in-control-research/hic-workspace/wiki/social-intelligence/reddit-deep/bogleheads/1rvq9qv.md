@@ -20,53 +20,68 @@ chunks:
     char_span: [0, 2258]
     sentence_count: 23
     key_terms: [account, vanguard, fidelity, transfer, alerts, does, acats, lock]
+    concepts: [account, vanguard, fidelity, transfer, alerts]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c1", "social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c2", "social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c4"]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1rvq9qv/worried_about_acats_fraud_for_my_vanguard_account/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c1"
-    char_span: [2273, 3695]
+    char_span: [2272, 3694]
     sentence_count: 10
     key_terms: [acats, vanguard, account, freeze, fraud, thewitchphd, accounts, called]
+    concepts: [acats, vanguard, account, freeze, thewitchphd]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c0", "social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c2"]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c2"
-    char_span: [3697, 5471]
+    char_span: [3696, 5470]
     sentence_count: 11
     key_terms: [account, acats, medallion, transfer, brokerage-account-acats-transfer-fraud, fraud, insurance, mismatch]
+    concepts: [account, medallion, acats, transfer, fraud]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c0", "social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c1", "social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c4", "social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c7"]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c3"
-    char_span: [5473, 6004]
+    char_span: [5472, 6003]
     sentence_count: 8
     key_terms: [lock, bogleheads, statements, mongering, accounts, fidelity, outdated, address]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c4"
-    char_span: [6006, 7932]
+    char_span: [6005, 7931]
     sentence_count: 17
     key_terms: [fidelity, schwab, transfer, lock, brokerage-account-acats-transfer-fraud, account, feature, wadesh]
+    concepts: [fidelity, schwab, transfer, account, feature]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c0", "social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c5"
-    char_span: [7652, 7990]
+    char_span: [7651, 7989]
     sentence_count: 5
     key_terms: [issue, transferred, fidelity, prevents, released, security, transfer, account]
+    concepts: [issue]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c6"
-    char_span: [7992, 10136]
+    char_span: [7991, 10135]
     sentence_count: 32
     key_terms: [identity, theft, protection, yogurtclosetok4366, brokerage-account-acats-transfer-fraud, fraud, compromised, info]
+    concepts: [identity, theft, protection, yogurtclosetok4366, compromised]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c7"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c7"
-    char_span: [10138, 11768]
+    char_span: [10137, 11767]
     sentence_count: 7
     key_terms: [account, fraud, get, identity, block, protection, something, fidelity]
+    concepts: [account, fraud, identity, block, protection]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c2", "social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c6"]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/bogleheads/1rvq9qv.md#c8"
-    char_span: [11770, 12449]
+    char_span: [11769, 12448]
     sentence_count: 5
     key_terms: [account, institution, money, lock, move, investments, withdrawals, definitely]
+    concepts: [account, institution, money]
     section: Comments
     token_count: 157
 ---

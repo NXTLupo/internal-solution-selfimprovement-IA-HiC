@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 441]
     sentence_count: 1
     key_terms: [fulfillmentbyamazon, daf9d69e0d3e03eb6419b24bad9fc05eca2b726e, comments, https, v4123g1906zg1, selectad8997, reddit-deep, authentic]
+    concepts: [fulfillmentbyamazon, comments, https]
     token_count: 146
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1t3qf3q/product_authentic/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1t3qf3q.md#c1"
-    char_span: [456, 1396]
+    char_span: [455, 1395]
     sentence_count: 4
     key_terms: [fulfillmentbyamazon, discord, fba, wangmobile, discuss, server, join, automatically]
+    concepts: [fulfillmentbyamazon, discord, wangmobile, discuss, server]
     section: Comments
     token_count: 235
 ---

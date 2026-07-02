@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 2160]
     sentence_count: 17
     key_terms: [gpt-5, tools, thinking, personality, good, use, mentioned, either]
+    concepts: [gpt-5, tools, thinking, personality, mentioned]
     token_count: 497
+    sources: [{"n":"Reddit Deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1mnuys2/weird_experiences_with_the_gpt5_api/"}]
   - id: "articles/reddit-deep-r-openai/85b5deed4a.md#c1"
     char_span: [2162, 3037]
     sentence_count: 6
     key_terms: [model, keeps, wants, good, keep, like, user, benchmarks]
+    concepts: [model, keeps, wants]
     token_count: 205
   - id: "articles/reddit-deep-r-openai/85b5deed4a.md#c2"
     char_span: [3039, 4843]
     sentence_count: 21
     key_terms: [use, work, models, system, possible-ad-6765, better, prompt, agent]
+    concepts: [models, system, possible-ad-6765, better, prompt]
     token_count: 449
 ---
 # Weird experiences with the GPT-5 API

@@ -19,94 +19,119 @@ chunks:
     char_span: [0, 2290]
     sentence_count: 17
     key_terms: [stocks, equities, economy, bubble, cash, market, devaluation, significant]
+    concepts: [stocks, equities, economy, bubble, market]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1o1ioby.md#c1"]
     token_count: 486
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1o1ioby/we_arent_in_the_dot_com_bubble_were_in_an/"}]
   - id: "social-intelligence/reddit-deep/stocks/1o1ioby.md#c1"
     char_span: [2292, 3319]
     sentence_count: 8
     key_terms: [market, equities, industry, global, remain, "don't", bull, expectations]
+    concepts: [market, equities, industry, global, remain]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1o1ioby.md#c0"]
     token_count: 225
   - id: "social-intelligence/reddit-deep/stocks/1o1ioby.md#c2"
     char_span: [3333, 5160]
     sentence_count: 11
     key_terms: [dollar, down, gold, like, currencies, treasuries, dopadelic, inflation]
+    concepts: [dollar, currencies, treasuries, dopadelic, inflation]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/stocks/1o1ioby.md#c3"
     char_span: [5162, 7363]
     sentence_count: 34
     key_terms: [like, because, taiwan, money, back, war, companies, dollars]
+    concepts: [because, taiwan, money, companies, dollars]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1o1ioby.md#c14"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/stocks/1o1ioby.md#c4"
     char_span: [7365, 8748]
     sentence_count: 10
     key_terms: [value, like, "it's", maybe, galactojack, been, inflation, recession]
+    concepts: [value, galactojack, maybe, inflation, recession]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/stocks/1o1ioby.md#c5"
     char_span: [8750, 10260]
     sentence_count: 6
     key_terms: [utm, bubble, thevisualinvestors, float, share, comments, web3xcss, deleted]
+    concepts: [thevisualinvestors, bubble, float, share, comments]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/stocks/1o1ioby.md#c6"
     char_span: [10262, 11668]
     sentence_count: 15
     key_terms: [money, growth, liquidity, blue, chips, ding, too, printing]
+    concepts: [money, growth, liquidity, chips, printing]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/stocks/1o1ioby.md#c7"
     char_span: [11670, 13042]
     sentence_count: 8
     key_terms: [us-equity-funds-record-biggest-weekly-outflow-five-weeks-2025-09-12, economy, deleted, outperforming, month, wants, ago, anywhere]
+    concepts: [economy, outperforming, deleted, month, wants]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/stocks/1o1ioby.md#c8"
     char_span: [13044, 14763]
     sentence_count: 15
     key_terms: [stocks, dollar, invest, right, usd, year, continue, european]
+    concepts: [stocks, dollar, invest, right, continue]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/stocks/1o1ioby.md#c9"
     char_span: [14765, 16469]
     sentence_count: 14
     key_terms: [stocks, korean, identifying, absolutely, valuations, improving, thousands, earnings]
+    concepts: [stocks, korean, identifying, absolutely, valuations]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/stocks/1o1ioby.md#c10"
     char_span: [16471, 18423]
     sentence_count: 20
     key_terms: [bubble, growth, companies, com, nothing, fundamentals, delivering, selling]
+    concepts: [bubble, growth, companies, nothing, fundamentals]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1o1ioby.md#c11", "social-intelligence/reddit-deep/stocks/1o1ioby.md#c14"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/stocks/1o1ioby.md#c11"
     char_span: [18425, 20441]
     sentence_count: 14
     key_terms: [companies, like, bubble, number, today, tech, adoption, earnings]
+    concepts: [companies, bubble, number, today, adoption]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1o1ioby.md#c10", "social-intelligence/reddit-deep/stocks/1o1ioby.md#c14"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/stocks/1o1ioby.md#c12"
     char_span: [20443, 22112]
     sentence_count: 12
     key_terms: [bubble, company, explain, people, going, mania, money, today]
+    concepts: [bubble, company, explain, people, going]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1o1ioby.md#c15"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/stocks/1o1ioby.md#c13"
     char_span: [22114, 23889]
     sentence_count: 13
     key_terms: [going, "isn't", question, nvidia, flop, profitable, companies, customers]
+    concepts: [going, "isn't", question, nvidia, profitable]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/stocks/1o1ioby.md#c14"
     char_span: [23891, 25648]
     sentence_count: 10
     key_terms: [companies, money, bubble, unprofitable, customers, dot-com, become, pretty]
+    concepts: [companies, money, unprofitable, bubble, customers]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1o1ioby.md#c3", "social-intelligence/reddit-deep/stocks/1o1ioby.md#c10", "social-intelligence/reddit-deep/stocks/1o1ioby.md#c11"]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/stocks/1o1ioby.md#c15"
     char_span: [25651, 27119]
     sentence_count: 7
     key_terms: [bubble, people, get, choices, history, enough, lesson, repeat]
+    concepts: [bubble, people, choices, history, enough]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1o1ioby.md#c12"]
     section: Comments
     token_count: 370
 ---

@@ -20,34 +20,40 @@ chunks:
     char_span: [0, 2010]
     sentence_count: 23
     key_terms: [idea, everyone, investor, fintech, trying, been, yada, cofounder]
+    concepts: [everyone, investor, fintech, trying, cofounder]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1shpl8i/i_think_i_really_am_just_the_idea_guy_and_its/"}]
   - id: "social-intelligence/reddit-deep/startups/1shpl8i.md#c1"
     char_span: [2012, 2475]
     sentence_count: 7
     key_terms: [get, entrepreneurship, constructive, appreciated, intimidated, overwhelmed, university, connected]
     token_count: 86
   - id: "social-intelligence/reddit-deep/startups/1shpl8i.md#c2"
-    char_span: [2490, 4690]
+    char_span: [2489, 4689]
     sentence_count: 7
     key_terms: [accomplish, everything, years, cofounder, getting, people, keep, increments]
+    concepts: [accomplish, everything, cofounder, years, getting]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/startups/1shpl8i.md#c3"
-    char_span: [4694, 6771]
+    char_span: [4693, 6770]
     sentence_count: 24
     key_terms: [platform, "you'll", build, ycombinator, like, need, want, validation]
+    concepts: [platform, "you'll", ycombinator, build, validation]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/startups/1shpl8i.md#c4"
-    char_span: [6773, 8265]
+    char_span: [6772, 8264]
     sentence_count: 10
     key_terms: [get, good, time, cofounder, equipment, needleworkerchoice89, goodbreakfestmeal, blbd]
+    concepts: [cofounder, equipment]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/startups/1shpl8i.md#c5"
-    char_span: [8267, 9743]
+    char_span: [8266, 9742]
     sentence_count: 15
     key_terms: [people, paying, solutions, platform, similar, bank, gap, caseygzz]
+    concepts: [people, paying, solutions, platform, similar]
     section: Comments
     token_count: 343
 ---

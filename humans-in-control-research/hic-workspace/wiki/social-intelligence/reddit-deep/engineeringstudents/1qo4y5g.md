@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 620]
     sentence_count: 3
     key_terms: [experience, engineeringstudents, comments, "y'all", add, put, non-engineering, engineering]
+    concepts: [engineeringstudents, experience, comments, "y'all"]
     token_count: 149
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qo4y5g/adding_nonengineering_experiences_on_resume_for/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qo4y5g.md#c1"
     char_span: [634, 1117]
     sentence_count: 1
     key_terms: [problem, solving, asked, like, collegemustache, troubleshooting, challenges, internship]
+    concepts: [problem, solving, asked]
     section: Comments
     token_count: 124
 ---

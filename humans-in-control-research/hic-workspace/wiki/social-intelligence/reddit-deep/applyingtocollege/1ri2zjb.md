@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 1896]
     sentence_count: 13
     key_terms: [umbc, applyingtocollege, virginia, applied, schools, choice, purdue, tech]
+    concepts: [applyingtocollege, virginia, applied, schools, choice]
     token_count: 490
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1ri2zjb/9_acceptances_rejected_from_top_choice_umd_cheap/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c1"
     char_span: [1910, 3510]
     sentence_count: 18
     key_terms: [school, umbc, dental, like, definitely, experience, expensive, argument]
+    concepts: [school, dental, definitely, experience, expensive]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c4"]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c2"
     char_span: [3512, 5504]
     sentence_count: 12
     key_terms: [engineering, school, dental, purdue, interested, something, biology, pre-dental]
+    concepts: [engineering, school, dental, purdue, interested]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c4"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c3"
     char_span: [5506, 7558]
     sentence_count: 14
     key_terms: [school, dental, get, major, engineering, want, dentists, deleted]
+    concepts: [school, dental, engineering, major, dentists]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c4"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c4"
     char_span: [7560, 9521]
     sentence_count: 14
     key_terms: [school, year, important-drop-3338, umbc, pre-med, dental, towson, state]
+    concepts: [school, important-drop-3338, pre-med, dental, towson]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c3"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c5"
     char_span: [9523, 10107]
     sentence_count: 3
     key_terms: [important, medical, undergraduate, residency, parents, program, school, law]
+    concepts: [important, undergraduate, medical, residency, parents]
     section: Comments
     token_count: 153
 ---

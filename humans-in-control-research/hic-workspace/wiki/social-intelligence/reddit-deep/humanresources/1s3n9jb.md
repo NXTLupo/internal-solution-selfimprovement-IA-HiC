@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 671]
     sentence_count: 5
     key_terms: [humanresources, applications, "i've", comments, response, getting, reddit, resume]
+    concepts: [humanresources, applications, comments, response, getting]
     token_count: 170
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1s3n9jb/resume_advice_ny/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1s3n9jb.md#c1"
     char_span: [685, 2673]
     sentence_count: 19
     key_terms: [roles, generalist, responsibilities, coordinator, role, experience, identified, recruiting]
+    concepts: [generalist, roles, responsibilities, coordinator, experience]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/humanresources/1s3n9jb.md#c2"
     char_span: [2675, 4569]
     sentence_count: 20
     key_terms: [olddirtmcgirt, company, interview, place, something, multiple, instead, oversaw]
+    concepts: [olddirtmcgirt, company, interview, place, something]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/humanresources/1s3n9jb.md#c3"
     char_span: [4571, 5322]
     sentence_count: 7
     key_terms: [company, migration, employee, repeat, data, job, like, work]
+    concepts: [company, migration, employee, repeat]
     section: Comments
     token_count: 179
 ---

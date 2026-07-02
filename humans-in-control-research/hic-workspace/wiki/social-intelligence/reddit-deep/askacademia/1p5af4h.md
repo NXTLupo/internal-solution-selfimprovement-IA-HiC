@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 1084]
     sentence_count: 4
     key_terms: [research, remote, askacademia, comments, programs, dissertation-focused, fully, distance-learning]
+    concepts: [research, remote, askacademia, comments, programs]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1p5af4h.md#c2", "social-intelligence/reddit-deep/askacademia/1p5af4h.md#c3"]
     token_count: 224
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1p5af4h/remote_phd/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1p5af4h.md#c1"
     char_span: [1098, 3370]
     sentence_count: 16
     key_terms: [research, field, computational, independent, integration, phd, supervisor, generally]
+    concepts: [research, field, computational, independent, integration]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1p5af4h.md#c2"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/askacademia/1p5af4h.md#c2"
     char_span: [3372, 5800]
     sentence_count: 16
     key_terms: [research, remote, supervision, computational, already, work, universities, fully]
+    concepts: [research, remote, supervision, computational, already]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1p5af4h.md#c0", "social-intelligence/reddit-deep/askacademia/1p5af4h.md#c1", "social-intelligence/reddit-deep/askacademia/1p5af4h.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1p5af4h.md#c3"
     char_span: [5489, 6669]
     sentence_count: 7
     key_terms: [graduate, expectation, research, already, remote, like, phd, industry-based]
+    concepts: [graduate, expectation, research, already, remote]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1p5af4h.md#c0", "social-intelligence/reddit-deep/askacademia/1p5af4h.md#c2"]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/askacademia/1p5af4h.md#c4"
     char_span: [6671, 8757]
     sentence_count: 16
     key_terms: [phd, work, remote, department, doing, theoretical, don, phds]
+    concepts: [department, remote, doing, theoretical, coursework]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/askacademia/1p5af4h.md#c5"
     char_span: [8759, 9535]
     sentence_count: 6
     key_terms: [already, priority, programs, dissertation-only, computational, departmental, exceptional, independent]
+    concepts: [already, priority, programs]
     section: Comments
     token_count: 166
 ---

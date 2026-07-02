@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 861]
     sentence_count: 8
     key_terms: [support, dropshipping, did, questions, comments, customer, dropship, stores]
+    concepts: [dropshipping, support, questions, comments, customer]
     token_count: 188
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1s50yju/at_what_stage_did_customer_support_become_a/"}]
   - id: "social-intelligence/reddit-deep/dropship/1s50yju.md#c1"
-    char_span: [876, 2062]
+    char_span: [875, 2061]
     sentence_count: 3
     key_terms: [started, getting, becoming, dropship, messages, ashamed-might-766, help, hour]
+    concepts: [started, getting, becoming, dropship, messages]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/dropship/1s50yju.md#c2"
-    char_span: [2064, 3102]
+    char_span: [2063, 3101]
     sentence_count: 5
     key_terms: [orders, emails, day, templates, helpdesk, tracking, tickets, around]
+    concepts: [orders, emails, templates, helpdesk, tracking]
     section: Comments
     token_count: 242
 ---

@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1672]
     sentence_count: 14
     key_terms: [spain, location, visa, student, switch, comments, northern, advisor]
+    concepts: [location, spain, student, switch, comments]
     token_count: 389
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1mdqb5g/nuin_student_visa_issues_request_a_location_switch/"}]
   - id: "social-intelligence/reddit-deep/neu/1mdqb5g.md#c1"
-    char_span: [1687, 3278]
+    char_span: [1686, 3277]
     sentence_count: 6
     key_terms: [leopardaway2812, northeastern, decisionparalysis101, edu, program, nuin, consulate, merobo1]
+    concepts: [leopardaway2812, northeastern, decisionparalysis101, program, consulate]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1mdqb5g.md#c2"
-    char_span: [3036, 3391]
+    char_span: [3035, 3390]
     sentence_count: 2
     key_terms: [friends, ambassadorleading593, expeditor, locations, questions, services, biggest, dollars]
+    concepts: [friends]
     section: Comments
     token_count: 89
   - id: "social-intelligence/reddit-deep/neu/1mdqb5g.md#c3"
-    char_span: [3393, 4581]
+    char_span: [3392, 4580]
     sentence_count: 1
     key_terms: [something, process, email, because, visa, having, recall, get]
+    concepts: [something, process, email, because, having]
     section: Comments
     token_count: 244
 ---

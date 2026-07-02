@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1690]
     sentence_count: 13
     key_terms: [internships, internship, better, months, onsite, opportunities, offer, been]
+    concepts: [internships, internship, opportunities, better, months]
     token_count: 385
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1qxylpv/need_advice_accept_onsite_internship_now_or_wait/"}]
 ---
 # Need advice: Accept onsite internship now or wait for better FTE opportunities?
 

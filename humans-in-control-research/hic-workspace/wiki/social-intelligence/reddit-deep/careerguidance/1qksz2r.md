@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 362]
     sentence_count: 3
     key_terms: [careerguidance, comments, overwhelmed, reddit-deep, financial, struggles, feeling, picking]
+    concepts: [careerguidance, comments]
     token_count: 103
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qksz2r/feeling_overwhelmed_picking_my_career_path_as_a/"}]
 ---
 # Feeling overwhelmed picking my career path as a senior high student with financial struggles—need advice. What should I do?
 

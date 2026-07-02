@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 999]
     sentence_count: 4
     key_terms: [uwaterloo, comments, reddit, chancellor, email, https, secretariat, com]
+    concepts: [uwaterloo, comments, chancellor, reddit, secretariat]
     token_count: 266
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1shww10/chancellor_doesnt_give_a_shit_about_your/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1shww10.md#c1"
     char_span: [1013, 2900]
     sentence_count: 11
     key_terms: [convocation, speech, chancellor, phone, dominic, feridun, respect, sacred-goose]
+    concepts: [convocation, chancellor, speech, phone, dominic]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1shww10.md#c3"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/uwaterloo/1shww10.md#c2"
     char_span: [2902, 3711]
     sentence_count: 8
     key_terms: [students, chancellor, ceremony, done, job, take, responsibilities, youcanreachmenow]
+    concepts: [students, chancellor, ceremony]
     section: Comments
     token_count: 176
   - id: "social-intelligence/reddit-deep/uwaterloo/1shww10.md#c3"
     char_span: [3713, 5028]
     sentence_count: 8
     key_terms: [convocation, phone, hours, lol, position, regular, boring, ecstatic-trick8276]
+    concepts: [convocation, phone, hours, position, regular]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1shww10.md#c1"]
     section: Comments
     token_count: 361
 ---

@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1241]
     sentence_count: 10
     key_terms: [cpq, experienced, time, current, learn, consultant, salesforce, comments]
+    concepts: [experienced, current, consultant, learn, salesforce]
     token_count: 272
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1ogs4ge/approx_time_for_experienced_consultant_to_learn/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1ogs4ge.md#c1"
-    char_span: [1256, 2779]
+    char_span: [1255, 2778]
     sentence_count: 16
     key_terms: [cpq, revenue, migrating, something, rca, sfarch22, experience, specialize]
+    concepts: [revenue, migrating, something, sfarch22, experience]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/salesforce/1ogs4ge.md#c2"
-    char_span: [2782, 4632]
+    char_span: [2781, 4631]
     sentence_count: 14
     key_terms: [cpq, learn, product, etc, learning, someone, charge, client]
+    concepts: [learn, product, learning, someone, charge]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/salesforce/1ogs4ge.md#c3"
-    char_span: [4634, 5636]
+    char_span: [4633, 5635]
     sentence_count: 11
     key_terms: [cpq, learning, industries, depending, better, latterlandscape9581, "can't", cloud]
+    concepts: [learning, industries, depending, better, "can't"]
     section: Comments
     token_count: 262
 ---

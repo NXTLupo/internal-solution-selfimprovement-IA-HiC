@@ -21,23 +21,31 @@ chunks:
     char_span: [0, 1054]
     sentence_count: 9
     key_terms: [applicants, undergrad, gradadmissions, school, grad, admissions, comments, people]
+    concepts: [applicants, undergrad, gradadmissions, school, admissions]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1tlggc9.md#c1", "social-intelligence/reddit-deep/gradadmissions/1tlggc9.md#c2"]
     token_count: 223
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1tlggc9/is_there_a_grad_school_admissions_forum/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1tlggc9.md#c1"
     char_span: [1068, 1961]
     sentence_count: 6
     key_terms: [process, admissions, different, scattered, undergrad, require, "there's", school]
+    concepts: [process, admissions, different, scattered, undergrad]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1tlggc9.md#c0", "social-intelligence/reddit-deep/gradadmissions/1tlggc9.md#c2"]
     section: Comments
     token_count: 188
   - id: "social-intelligence/reddit-deep/gradadmissions/1tlggc9.md#c2"
     char_span: [1963, 4193]
     sentence_count: 15
     key_terms: [admissions, grad, applicants, different, process, phdadmissions, field, right]
+    concepts: [admissions, applicants, different, phdadmissions, process]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1tlggc9.md#c0", "social-intelligence/reddit-deep/gradadmissions/1tlggc9.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1tlggc9.md#c3"
     char_span: [3962, 4468]
     sentence_count: 5
     key_terms: [everything, feeling, alone, grad, valuablefood9879, proofleast9846, phdadmissions, dadmissions]
+    concepts: [everything, feeling, alone]
     section: Comments
     token_count: 124
 ---

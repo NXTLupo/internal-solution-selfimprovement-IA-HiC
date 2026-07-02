@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 1202]
     sentence_count: 6
     key_terms: [professional, studies, didnt, job, cps, got, mps, neu]
+    concepts: [professional, studies, didnt, comments, applied]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1so1h8i.md#c1"]
     token_count: 323
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1so1h8i/didnt_apply_but_got_into_2_programs_this_year_is/"}]
   - id: "social-intelligence/reddit-deep/neu/1so1h8i.md#c1"
     char_span: [1216, 1792]
     sentence_count: 5
     key_terms: [wateryphoenix750, professional, studies, striking-escape-1812, advertisement, functionally, northeastern, rhynocerous]
+    concepts: [wateryphoenix750, professional, studies]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1so1h8i.md#c0"]
     section: Comments
     token_count: 149
 ---

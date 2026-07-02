@@ -10,6 +10,7 @@ chunks:
     char_span: [0, 768]
     sentence_count: 2
     key_terms: [reddit-deep-r-careerguidance, industries, sources, shared, articles, healthcare, reddit-deep-r-artificial, auto-generated]
+    concepts: [reddit-deep-r-careerguidance, industries, sources, shared, articles]
     section: Cross-over verticals (shared sources) / Representative sources
     token_count: 219
 ---

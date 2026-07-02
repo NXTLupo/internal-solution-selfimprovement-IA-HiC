@@ -19,53 +19,63 @@ chunks:
     char_span: [0, 1497]
     sentence_count: 12
     key_terms: [models, building, machinelearning, senior, experiencing, engineering, fine-tuning, work]
+    concepts: [models, building, machinelearning, experiencing, senior]
     token_count: 331
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1npdfh1/d_is_senior_ml_engineering_just_api_calls_now/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1npdfh1.md#c1"
     char_span: [1511, 3393]
     sentence_count: 10
     key_terms: [api, want, used, work, augmenting, engineers, sometimes, remember]
+    concepts: [augmenting, engineers, sometimes, remember, replace]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/machinelearning/1npdfh1.md#c2"
     char_span: [3395, 5071]
     sentence_count: 12
     key_terms: ["it's", like, llm, long, met0xff, results, having, models]
+    concepts: [met0xff, results, having, models, "don't"]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/machinelearning/1npdfh1.md#c3"
     char_span: [5073, 7226]
     sentence_count: 16
     key_terms: [often, api, like, companies, honestly, products, because, calling]
+    concepts: [often, companies, honestly, products, because]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/machinelearning/1npdfh1.md#c4"
     char_span: [7228, 9407]
     sentence_count: 16
     key_terms: [knowledge, time, anymore, anyways, "there's", almost, people, "that's"]
+    concepts: [knowledge, anymore, anyways, "there's", almost]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/machinelearning/1npdfh1.md#c5"
     char_span: [9409, 10431]
     sentence_count: 6
     key_terms: [sometimes, "it's", model, data, hosted, complextemporary9497, being, drift]
+    concepts: [sometimes, model, hosted, being, drift]
     section: Comments
     token_count: 235
   - id: "social-intelligence/reddit-deep/machinelearning/1npdfh1.md#c6"
     char_span: [10436, 12675]
     sentence_count: 13
     key_terms: [problems, been, like, raz4r, interesting, predictions, economists, different]
+    concepts: [problems, interesting, predictions, economists, raz4r]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/machinelearning/1npdfh1.md#c7"
     char_span: [12338, 12816]
     sentence_count: 3
     key_terms: [effects, use, heterogeneity, constantly, economists, government, high-level, leadership]
+    concepts: [effects]
     section: Comments
     token_count: 96
   - id: "social-intelligence/reddit-deep/machinelearning/1npdfh1.md#c8"
     char_span: [12818, 14943]
     sentence_count: 12
     key_terms: [engineer, engineers, because, traditional, production, just-enough-to-be-dangerous, companies, knowledge]
+    concepts: [engineer, engineers, because, traditional, production]
     section: Comments
     token_count: 442
 ---

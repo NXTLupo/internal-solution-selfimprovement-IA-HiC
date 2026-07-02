@@ -20,34 +20,45 @@ chunks:
     char_span: [0, 2231]
     sentence_count: 28
     key_terms: [enterprise, features, product, customers, building, enterprises, core, self-serve]
+    concepts: [enterprise, features, product, customers, building]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1qpxtqs.md#c2", "social-intelligence/reddit-deep/saas/1qpxtqs.md#c3", "social-intelligence/reddit-deep/saas/1qpxtqs.md#c4"]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1qpxtqs/we_spent_180k_building_an_enterprise_product/"}]
   - id: "social-intelligence/reddit-deep/saas/1qpxtqs.md#c1"
     char_span: [2233, 2504]
     sentence_count: 3
     key_terms: [different, enterprise, everything, self-serve, business, starting, upmarket, company]
+    concepts: [different]
     token_count: 57
   - id: "social-intelligence/reddit-deep/saas/1qpxtqs.md#c2"
-    char_span: [2519, 4434]
+    char_span: [2518, 4433]
     sentence_count: 20
     key_terms: [enterprise, compliance, product, month, procurement, becomes, easier, small]
+    concepts: [enterprise, compliance, product, procurement, month]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1qpxtqs.md#c0", "social-intelligence/reddit-deep/saas/1qpxtqs.md#c3"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/saas/1qpxtqs.md#c3"
-    char_span: [4436, 6711]
+    char_span: [4435, 6710]
     sentence_count: 20
     key_terms: [enterprise, procurement, customers, build, enterprises, year, upmarket, someone]
+    concepts: [enterprise, procurement, customers, enterprises, build]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1qpxtqs.md#c0", "social-intelligence/reddit-deep/saas/1qpxtqs.md#c2"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/saas/1qpxtqs.md#c4"
-    char_span: [6715, 8823]
+    char_span: [6714, 8822]
     sentence_count: 14
     key_terms: [enterprise, different, features, post, experience, honestly, validate, valuable]
+    concepts: [enterprise, different, features, experience, honestly]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1qpxtqs.md#c0"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/saas/1qpxtqs.md#c5"
-    char_span: [8825, 9119]
+    char_span: [8824, 9118]
     sentence_count: 1
     key_terms: [didnt, decebaldecebal, unvalidated, enterprise, founders, because, company, product]
+    concepts: [didnt]
     section: Comments
     token_count: 74
 ---

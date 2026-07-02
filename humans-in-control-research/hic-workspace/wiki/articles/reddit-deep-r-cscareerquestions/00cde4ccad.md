@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1373]
     sentence_count: 10
     key_terms: [cscareerquestions, like, work, experiences, passion, working, people, reddit]
+    concepts: [cscareerquestions, experiences, passion, working, people]
     token_count: 301
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tde1cs/has_anyone_lost_their_passion/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/00cde4ccad.md#c1"
     char_span: [1375, 3190]
     sentence_count: 16
     key_terms: [embedded, work, software, evolution, hundreds, gamedev, aware-individual-827, niche]
+    concepts: [embedded, software, evolution, hundreds, gamedev]
     token_count: 432
   - id: "articles/reddit-deep-r-cscareerquestions/00cde4ccad.md#c2"
     char_span: [3192, 4416]
     sentence_count: 16
     key_terms: [tech, decades, outsourcing, swe, industries, outsourced, certain, replace]
+    concepts: [decades, outsourcing, industries, outsourced, certain]
     token_count: 286
 ---
 # Has anyone lost their passion?

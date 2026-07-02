@@ -20,41 +20,49 @@ chunks:
     char_span: [0, 1883]
     sentence_count: 18
     key_terms: [attorney, insurance, car, represented, been, don, anything, comments]
+    concepts: [attorney, insurance, represented, anything, comments]
     token_count: 432
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1sukfh1/i_was_rear_ended_and_have_an_attorney_but_i_dont/"}]
   - id: "social-intelligence/reddit-deep/insurance/1sukfh1.md#c1"
-    char_span: [1898, 2164]
+    char_span: [1897, 2163]
     sentence_count: 1
     key_terms: [agreement, birdieponderinglife, depending, anywhere, attorney, rendered, services, already]
+    concepts: [agreement]
     section: Comments
     token_count: 64
   - id: "social-intelligence/reddit-deep/insurance/1sukfh1.md#c2"
-    char_span: [2166, 4403]
+    char_span: [2165, 4402]
     sentence_count: 11
     key_terms: [get, imaging, craftyperformance272, birdieponderinglife, recommendation, issues, "don't", going]
+    concepts: [craftyperformance272, birdieponderinglife, imaging, recommendation, issues]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/insurance/1sukfh1.md#c3"
-    char_span: [4103, 5243]
+    char_span: [4102, 5242]
     sentence_count: 7
     key_terms: [nationalgreen4249, tingling, representation, back, settlement, doctor, injury, craftyperformance272]
+    concepts: [nationalgreen4249, tingling, representation, settlement, doctor]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/insurance/1sukfh1.md#c4"
-    char_span: [5246, 7349]
+    char_span: [5245, 7348]
     sentence_count: 17
     key_terms: [birdieponderinglife, lawyer, money, settlement, insurance, maximize, tingling, follow]
+    concepts: [birdieponderinglife, lawyer, money, settlement, insurance]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/insurance/1sukfh1.md#c5"
-    char_span: [7351, 8929]
+    char_span: [7350, 8928]
     sentence_count: 16
     key_terms: [injuries, treatment, imaging, claim, don, get, settlement, attorney]
+    concepts: [injuries, treatment, imaging, claim, settlement]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/insurance/1sukfh1.md#c6"
-    char_span: [8931, 9745]
+    char_span: [8930, 9744]
     sentence_count: 4
     key_terms: [birdieponderinglife, darkblue222, case, get, mri, representation, physiatrist, associated]
+    concepts: [birdieponderinglife, darkblue222]
     section: Comments
     token_count: 204
 ---

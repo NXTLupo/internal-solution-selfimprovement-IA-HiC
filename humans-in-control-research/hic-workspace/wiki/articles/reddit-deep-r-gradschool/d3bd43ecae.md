@@ -18,31 +18,42 @@ chunks:
     char_span: [0, 1704]
     sentence_count: 17
     key_terms: [advisor, phd, prospective, "i've", want, year, gradschool, situation]
+    concepts: [advisor, prospective, gradschool, situation, current]
+    related_chunks: ["articles/reddit-deep-r-gradschool/d3bd43ecae.md#c2"]
     token_count: 380
+    sources: [{"n":"Reddit Deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1ouph0e/debating_between_filing_a_harassment_case_against/"}]
   - id: "articles/reddit-deep-r-gradschool/d3bd43ecae.md#c1"
     char_span: [1706, 4132]
     sentence_count: 19
     key_terms: [advisor, funding, health, issues, told, because, time, director]
+    concepts: [advisor, funding, health, issues, because]
+    related_chunks: ["articles/reddit-deep-r-gradschool/d3bd43ecae.md#c4"]
     token_count: 501
   - id: "articles/reddit-deep-r-gradschool/d3bd43ecae.md#c2"
     char_span: [4134, 6315]
     sentence_count: 24
     key_terms: [advisor, "it's", situation, "i'm", new, everything, harassment, university]
+    concepts: [advisor, situation, everything, harassment, university]
+    related_chunks: ["articles/reddit-deep-r-gradschool/d3bd43ecae.md#c0"]
     token_count: 470
   - id: "articles/reddit-deep-r-gradschool/d3bd43ecae.md#c3"
     char_span: [6317, 7744]
     sentence_count: 12
     key_terms: [funding, legal, experiences, grad, programs, unlikely, advisor, against]
+    concepts: [funding, experiences, legal, programs, unlikely]
     token_count: 302
   - id: "articles/reddit-deep-r-gradschool/d3bd43ecae.md#c4"
     char_span: [7746, 9930]
     sentence_count: 16
     key_terms: [students, advisor, union, help, new, because, program, student]
+    concepts: [students, advisor, union, because, program]
+    related_chunks: ["articles/reddit-deep-r-gradschool/d3bd43ecae.md#c1"]
     token_count: 495
   - id: "articles/reddit-deep-r-gradschool/d3bd43ecae.md#c5"
     char_span: [9932, 12060]
     sentence_count: 25
     key_terms: [accommodations, official, disability, reasonable, advisor, office, documentation, legal]
+    concepts: [accommodations, official, disability, reasonable, documentation]
     token_count: 437
 ---
 # Debating between filing a harassment case against my PhD advisor

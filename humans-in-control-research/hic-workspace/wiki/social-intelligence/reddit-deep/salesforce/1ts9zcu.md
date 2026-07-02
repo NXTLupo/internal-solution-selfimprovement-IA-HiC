@@ -17,10 +17,12 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/salesforce/1ts9zcu.md#c0"
-    char_span: [0, 764]
+    char_span: [0, 763]
     sentence_count: 6
     key_terms: [salesforce, https, lot, closenote, comments, manual, calls, "don't"]
-    token_count: 199
+    concepts: [salesforce, https, closenote, comments, manual]
+    token_count: 198
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1ts9zcu/built_a_note_taking_tool_for_reps/"}]
 ---
 # Built a note taking tool for reps
 

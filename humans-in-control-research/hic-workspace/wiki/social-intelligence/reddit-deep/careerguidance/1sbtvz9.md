@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1114]
     sentence_count: 6
     key_terms: [exchange, college, program, careerguidance, multinational, professional, internship, comments]
+    concepts: [exchange, careerguidance, multinational, college, program]
     token_count: 254
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sbtvz9/when_it_comes_to_the_job_market_and_professional/"}]
 ---
 # When it comes to the job market and professional careers, in what ways can participating in work exchange programs be detrimental?
 

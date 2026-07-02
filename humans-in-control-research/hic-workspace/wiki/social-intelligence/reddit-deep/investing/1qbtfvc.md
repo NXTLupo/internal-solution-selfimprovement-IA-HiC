@@ -17,10 +17,12 @@ research_goal: "Produce the definitive guide to personal investing in 2026 by an
 engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/investing/1qbtfvc.md#c0"
-    char_span: [0, 2060]
+    char_span: [0, 2059]
     sentence_count: 12
     key_terms: [investors, interval, like, funds, nefariousnessdry9139, seems, invest, non-u]
+    concepts: [investors, interval, funds, nefariousnessdry9139, seems]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1qbtfvc/how_can_nonus_investors_invest_in_interval_funds/"}]
 ---
 # How can non-U.S. investors invest in interval funds?
 

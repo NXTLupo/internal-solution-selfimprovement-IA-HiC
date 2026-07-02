@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1804]
     sentence_count: 12
     key_terms: [applying, engineeringstudents, started, didn, get, year, internship, comments]
+    concepts: [applying, engineeringstudents, started, internship, comments]
     token_count: 410
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1kmnhbw/freshman_materials_engineering_student_tries/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kmnhbw.md#c1"
     char_span: [1818, 3900]
     sentence_count: 16
     key_terms: [engineeringstudents, experience, wiki, position, please, reddit, https, application]
+    concepts: [engineeringstudents, experience, position, please, reddit]
     section: Comments
     token_count: 465
 ---

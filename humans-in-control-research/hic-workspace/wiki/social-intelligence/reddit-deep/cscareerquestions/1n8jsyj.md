@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1685]
     sentence_count: 14
     key_terms: [prospects, undergrad, cscareerquestions, military, degree, market, comments, question]
+    concepts: [cscareerquestions, prospects, undergrad, military, degree]
     token_count: 380
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1n8jsyj/midcareer_swap_cs_student_37_military_retiree/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n8jsyj.md#c1"
     char_span: [1699, 3329]
     sentence_count: 13
     key_terms: [clearance, skillbridge, security, veterans, alice-miner, recommend, eligible, programs]
+    concepts: [clearance, skillbridge, security, veterans, alice-miner]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1n8jsyj.md#c4"]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n8jsyj.md#c2"
     char_span: [3331, 4866]
     sentence_count: 11
     key_terms: [doff87, "that's", subnetwork, thailand, program, veteran, omscs, one-scientist-6997]
+    concepts: [doff87, "that's", subnetwork, thailand, program]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n8jsyj.md#c3"
     char_span: [4868, 6223]
     sentence_count: 12
     key_terms: [hybrid-cloud-email-with-amazon-ses-and-dovecot, ex200-red-hat-certified-system-administrator-rhcsa-exam, https, com, lot, www, effort, market]
+    concepts: [hybrid-cloud-email-with-amazon-ses-and-dovecot, https, effort, market, number]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n8jsyj.md#c4"
     char_span: [6225, 7900]
     sentence_count: 15
     key_terms: [clearance, pretty, experience, security, cybersecurity, electrician, job, tech]
+    concepts: [clearance, experience, pretty, security, cybersecurity]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1n8jsyj.md#c1"]
     section: Comments
     token_count: 377
 ---

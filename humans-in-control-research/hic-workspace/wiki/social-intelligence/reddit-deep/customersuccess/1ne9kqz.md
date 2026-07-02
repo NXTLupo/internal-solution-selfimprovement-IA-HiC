@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1120]
     sentence_count: 3
     key_terms: [customer, customersuccess, onboarding, comments, founding, journey, mapping, process]
+    concepts: [customersuccess, customer, onboarding, comments, founding]
     token_count: 266
+    sources: [{"n":"reddit-deep: r/customersuccess","u":"https://www.reddit.com/r/CustomerSuccess/comments/1ne9kqz/founding_csm_role/"}]
   - id: "social-intelligence/reddit-deep/customersuccess/1ne9kqz.md#c1"
-    char_span: [1135, 3016]
+    char_span: [1134, 3015]
     sentence_count: 13
     key_terms: [product, get, processes, building, defining, renewals, current, discombobulated-plan]
+    concepts: [product, processes, building, defining, renewals]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/customersuccess/1ne9kqz.md#c2"
-    char_span: [3018, 3885]
+    char_span: [3017, 3884]
     sentence_count: 5
     key_terms: ["you'll", "you're", call, time, too, comprehensive, no-coach8285, challenging]
+    concepts: ["you'll", "you're"]
     section: Comments
     token_count: 220
 ---

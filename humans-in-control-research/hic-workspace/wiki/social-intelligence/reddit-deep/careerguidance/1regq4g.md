@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1958]
     sentence_count: 8
     key_terms: [feel, learn, job, working, help, "it's", project, careerguidance]
+    concepts: [learn, working, careerguidance, project, myself]
     token_count: 449
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1regq4g/what_should_i_do_to_save_and_improve_my_career_in/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1regq4g.md#c1"
     char_span: [1972, 3605]
     sentence_count: 10
     key_terms: [people, skills, solid, start, interesting, bit, networking, mentioned]
+    concepts: [people, skills, interesting, networking, solid]
     section: Comments
     token_count: 366
 ---

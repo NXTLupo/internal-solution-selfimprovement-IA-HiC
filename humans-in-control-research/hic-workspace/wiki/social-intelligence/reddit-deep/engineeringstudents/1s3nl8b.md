@@ -21,29 +21,39 @@ chunks:
     char_span: [0, 946]
     sentence_count: 7
     key_terms: [engineeringstudents, engineering, comments, classes, makeup, people, doing, girls]
+    concepts: [engineeringstudents, engineering, comments, classes, makeup]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1s3nl8b.md#c2"]
     token_count: 220
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1s3nl8b/do_you_see_girly_girls_as_less_competent/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s3nl8b.md#c1"
     char_span: [960, 2738]
     sentence_count: 12
     key_terms: [women, dress, "i'm", talk, work, classes, afraid, people]
+    concepts: [women, dress, classes, afraid, people]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1s3nl8b.md#c2"]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s3nl8b.md#c2"
     char_span: [2740, 4859]
     sentence_count: 10
     key_terms: [engineering, makes, engineers, like, classes, people, girly, level]
+    concepts: [engineering, engineers, makes, classes, people]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1s3nl8b.md#c0", "social-intelligence/reddit-deep/engineeringstudents/1s3nl8b.md#c1"]
     section: Comments
     token_count: 496
+    sources: [{"n":"was said guy back in school","u":""}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s3nl8b.md#c3"
     char_span: [4861, 5880]
     sentence_count: 6
     key_terms: [because, almost, years, like, look, pink, thesixthvisitor, paperr-cranes]
+    concepts: [because, almost, years]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s3nl8b.md#c4"
     char_span: [5882, 7730]
     sentence_count: 12
     key_terms: [like, "you're", johnbrownserection, dress, girly, going, lab, less]
+    concepts: [johnbrownserection, "you're", dress, girly, going]
     section: Comments
     token_count: 432
 ---

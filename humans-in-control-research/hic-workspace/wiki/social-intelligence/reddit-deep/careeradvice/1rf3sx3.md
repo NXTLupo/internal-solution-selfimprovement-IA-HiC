@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 838]
     sentence_count: 4
     key_terms: [careeradvice, comments, hype, job, ai-resistant, engineering, reddit-deep, automation]
+    concepts: [careeradvice, comments]
     token_count: 222
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1rf3sx3/how_are_you_protecting_your_career_from_ai/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1rf3sx3.md#c1"
     char_span: [852, 1475]
     sentence_count: 2
     key_terms: [myself, mobile-temperature36, like, use, presentations, automations, combination, implemented]
+    concepts: [myself]
     section: Comments
     token_count: 141
 ---

@@ -21,23 +21,32 @@ chunks:
     char_span: [0, 719]
     sentence_count: 4
     key_terms: [internship, internships, comments, getting, summer, cycle, late, reddit-deep]
+    concepts: [internship, internships, comments, getting, summer]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rou3c0.md#c1"]
     token_count: 173
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rou3c0/getting_an_internship_this_late_in_the_cycle/"}]
   - id: "social-intelligence/reddit-deep/internships/1rou3c0.md#c1"
     char_span: [733, 2511]
     sentence_count: 8
     key_terms: [summer, internship, companies, linkedin, major, internships, work, network]
+    concepts: [internship, summer, companies, linkedin, internships]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rou3c0.md#c0", "social-intelligence/reddit-deep/internships/1rou3c0.md#c2", "social-intelligence/reddit-deep/internships/1rou3c0.md#c3"]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/internships/1rou3c0.md#c2"
     char_span: [2513, 4702]
     sentence_count: 11
     key_terms: [like, companies, internships, experience, programs, through, externship, applying]
+    concepts: [companies, internships, experience, programs, through]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rou3c0.md#c1"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/internships/1rou3c0.md#c3"
     char_span: [4704, 5810]
     sentence_count: 11
     key_terms: [best-websites-to-find-internships-in-2026, linkedin, internships, applied, company, ask, here, codecareerstack]
+    concepts: [linkedin, internships, applied, company]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rou3c0.md#c1"]
     section: Comments
     token_count: 266
 ---

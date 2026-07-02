@@ -20,28 +20,34 @@ chunks:
     char_span: [0, 1802]
     sentence_count: 1
     key_terms: [sales, territory, job, been, hit, recession, accounts, comments]
+    concepts: [sales, territory, recession, accounts, comments]
     token_count: 415
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1tzds5f/pipd_job_offer_and_waiting_on_decisionfinal/"}]
   - id: "social-intelligence/reddit-deep/sales/1tzds5f.md#c1"
     char_span: [1804, 3329]
     sentence_count: 3
     key_terms: [office, commission, company, home, reps, time, interviews, training]
+    concepts: [commission, office, company, interviews, training]
     token_count: 337
   - id: "social-intelligence/reddit-deep/sales/1tzds5f.md#c2"
-    char_span: [3344, 5464]
+    char_span: [3343, 5463]
     sentence_count: 14
     key_terms: [specific-sir-6542, company, reps, good, work, management, companies, business]
+    concepts: [specific-sir-6542, company, management, companies, business]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/sales/1tzds5f.md#c3"
-    char_span: [5466, 7055]
+    char_span: [5465, 7054]
     sentence_count: 11
     key_terms: [get, redlocks7, already, layoffs, offer, trust, disproportionately, specific-sir-6542]
+    concepts: [redlocks7, already, layoffs, offer, trust]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/sales/1tzds5f.md#c4"
-    char_span: [7057, 7915]
+    char_span: [7056, 7914]
     sentence_count: 3
     key_terms: [specific-sir-6542, job, weeks, immediate, mdh74266, waiting, offer, start]
+    concepts: [specific-sir-6542, weeks, immediate, mdh74266, waiting]
     section: Comments
     token_count: 225
 ---

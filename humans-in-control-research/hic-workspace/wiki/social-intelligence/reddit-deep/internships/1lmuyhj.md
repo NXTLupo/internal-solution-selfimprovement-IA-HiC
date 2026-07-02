@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1144]
     sentence_count: 6
     key_terms: [internship, internship-to-job, project, github, application, development, internships, opportunity]
+    concepts: [internship, internship-to-job, project, github, application]
     token_count: 250
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1lmuyhj/job_search_internship_looking_for_a_paid/"}]
 ---
 # [Job Search / Internship] Looking for a paid internship or internship-to-job opportunity ( BCA graduate with prior project experience)
 

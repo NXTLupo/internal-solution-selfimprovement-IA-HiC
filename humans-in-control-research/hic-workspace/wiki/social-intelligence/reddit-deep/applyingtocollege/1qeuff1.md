@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1103]
     sentence_count: 9
     key_terms: [emotional, applyingtocollege, comments, college, process, health, mental, myself]
+    concepts: [applyingtocollege, emotional, comments, college, process]
     token_count: 239
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1qeuff1/how_do_i_handle_the_emotional_ups_and_downs_of/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qeuff1.md#c1"
     char_span: [1117, 3101]
     sentence_count: 9
     key_terms: [prospective, friends, like, pre-college-application, college, choice, review, safety]
+    concepts: [prospective, friends, college, choice, review]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qeuff1.md#c2"
     char_span: [3103, 4476]
     sentence_count: 15
     key_terms: [happiness, "you're", find, get, cliches, harvard, accept, "didn't"]
+    concepts: [happiness, "you're", cliches, harvard, accept]
     section: Comments
     token_count: 306
 ---

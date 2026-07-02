@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1232]
     sentence_count: 10
     key_terms: [scholars, nyc, scholarships, accepted, comments, daughter, external, programs]
+    concepts: [scholars, scholarships, accepted, comments, daughter]
     token_count: 281
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rb2h5g/external_scholarships_accepted_for_nyc_scholars/"}]
 ---
 # External Scholarships accepted for NYC Scholars, London Scholars, Oakland campus, etc?
 

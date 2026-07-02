@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1182]
     sentence_count: 7
     key_terms: [experience, engineeringstudents, co-op, competitive, entry-level, comments, student, without]
+    concepts: [engineeringstudents, experience, co-op, competitive, entry-level]
     token_count: 270
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sg7ro8/ee_student_without_coop_experience_how_to_stay/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sg7ro8.md#c1"
     char_span: [1196, 1840]
     sentence_count: 3
     key_terms: [no-reporter-1651, without, connections, nepternship, robertisaak, experience, instantly, applying]
+    concepts: [no-reporter-1651, without]
     section: Comments
     token_count: 170
 ---

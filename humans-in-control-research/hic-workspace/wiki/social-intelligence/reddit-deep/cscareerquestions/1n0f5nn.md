@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 540]
     sentence_count: 3
     key_terms: [cscareerquestions, comments, areas, major, urban, job, l-rockatansky, reddit-deep]
+    concepts: [cscareerquestions, comments, areas, major, urban]
     token_count: 146
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1n0f5nn/is_it_still_relatively_possible_to_get_100/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n0f5nn.md#c1"
     char_span: [554, 2586]
     sentence_count: 15
     key_terms: [jobs, hybrid, get, actual, being, drive, hour, new]
+    concepts: [hybrid, actual, being, drive, recruiters]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n0f5nn.md#c2"
     char_span: [2588, 3851]
     sentence_count: 5
     key_terms: [like, roles, easier, hiring, plenty, remote, illustrious-pound266, crazy]
+    concepts: [roles, easier, hiring, plenty, remote]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n0f5nn.md#c3"
     char_span: [3853, 5972]
     sentence_count: 16
     key_terms: [companies, market, job, jobs, hiring, person, dynamichunter, expectations]
+    concepts: [companies, market, dynamichunter, expectations, hiring]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n0f5nn.md#c4"
     char_span: [5724, 6178]
     sentence_count: 3
     key_terms: [jobs, willing, market, being, move, new, dynamichunter, definitely]
+    concepts: [willing, market, being]
     section: Comments
     token_count: 114
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n0f5nn.md#c5"
     char_span: [6180, 7606]
     sentence_count: 8
     key_terms: [jobs, area, remote, bigger, competitive, new, anywhere, compared]
+    concepts: [remote, bigger, competitive, anywhere, compared]
     section: Comments
     token_count: 321
 ---

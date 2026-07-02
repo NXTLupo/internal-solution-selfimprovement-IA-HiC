@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1679]
     sentence_count: 15
     key_terms: [job, comments, company, careerguidance, months, leave, role, full-time]
+    concepts: [comments, careerguidance, company, months, leave]
     token_count: 403
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1stm0rl/is_it_wrong_to_take_a_job_if_i_know_ill_leave_in/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1stm0rl.md#c1"
     char_span: [1693, 2921]
     sentence_count: 3
     key_terms: [munchytime, probably, months, paying, anonymousforalittle, since, fantastic-kale9603, fast]
+    concepts: [munchytime, probably, months, paying, since]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/careerguidance/1stm0rl.md#c2"
     char_span: [2924, 3994]
     sentence_count: 7
     key_terms: [job, months, take, onboarding, leaving, working, matter, being]
+    concepts: [months, onboarding, leaving, working, matter]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/careerguidance/1stm0rl.md#c3"
     char_span: [3996, 6009]
     sentence_count: 15
     key_terms: [money, get, job, need, people, toxic, like, take]
+    concepts: [money, people, toxic, position, always]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/careerguidance/1stm0rl.md#c4"
     char_span: [6011, 7539]
     sentence_count: 10
     key_terms: [difficult-mango312, dog, struggle, company, people, candidate, companies, because]
+    concepts: [difficult-mango312, struggle, company, people, candidate]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/careerguidance/1stm0rl.md#c5"
     char_span: [7541, 9228]
     sentence_count: 16
     key_terms: [company, time, companies, leaving, "wasn't", capable-savings-6776, ago, care]
+    concepts: [company, companies, leaving, "wasn't"]
     section: Comments
     token_count: 436
 ---

@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1706]
     sentence_count: 8
     key_terms: [brown, brown-deal-50-million-trump, education, federal, government, university, agreement, usatoday]
+    concepts: [brown-deal-50-million-trump, brown, education, federal, government]
     token_count: 385
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1mdjwnm/brown_university_inks_deal_with_trump_admin_to/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1mdjwnm.md#c1"
     char_span: [1720, 3566]
     sentence_count: 9
     key_terms: [medical, government, daemonicwanderer, administration, antisemitism, spacebutler, care, time]
+    concepts: [medical, government, daemonicwanderer, administration, antisemitism]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/highereducation/1mdjwnm.md#c2"
     char_span: [3568, 4330]
     sentence_count: 7
     key_terms: [administration, effective, trump, data, ladypreshpresh, anti-semitism, antisemitism, concessions]
+    concepts: [administration, effective, trump]
     section: Comments
     token_count: 190
 ---

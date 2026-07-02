@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1242]
     sentence_count: 8
     key_terms: [adults, young, financial, debt, personalfinance, programme, wellbeing, recovery]
+    concepts: [adults, financial, personalfinance, young, programme]
     token_count: 254
+    sources: [{"n":"Reddit Deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1mspnvj/testing_a_concept_debt_recovery_financial/"}]
   - id: "articles/reddit-deep-r-personalfinance/da520cff5c.md#c1"
     char_span: [1244, 3472]
     sentence_count: 10
     key_terms: [financial, support, structured, debt, participants, participant, challenges, peer]
+    concepts: [financial, support, structured, participants, participant]
     token_count: 414
 ---
 # Testing a Concept: Debt Recovery & Financial Wellbeing Charity for Young Adults

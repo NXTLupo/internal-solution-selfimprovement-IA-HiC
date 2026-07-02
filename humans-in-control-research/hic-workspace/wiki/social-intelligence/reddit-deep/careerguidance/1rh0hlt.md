@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 386]
     sentence_count: 5
     key_terms: [careerguidance, comments, homework, career, skills, "what's", learn, tasks]
+    concepts: [careerguidance, comments, homework, career, skills]
     token_count: 116
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rh0hlt/whats_your_job_what_did_you_learn_to_get_it_key/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rh0hlt.md#c1"
     char_span: [400, 1473]
     sentence_count: 4
     key_terms: [skills, being, management, company, getting, learned, good, role]
+    concepts: [skills, being, management, company, getting]
     section: Comments
     token_count: 229
 ---

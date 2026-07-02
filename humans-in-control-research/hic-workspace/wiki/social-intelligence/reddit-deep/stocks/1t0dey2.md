@@ -20,59 +20,71 @@ chunks:
     char_span: [0, 885]
     sentence_count: 8
     key_terms: [comments, margins, pharma, stocks, gross, cash, net, roic]
+    concepts: [comments, margins, pharma, stocks, gross]
     token_count: 249
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1t0dey2/724m_in_net_cash_8975_gross_margins_2359_roic/"}]
   - id: "social-intelligence/reddit-deep/stocks/1t0dey2.md#c1"
-    char_span: [904, 1550]
+    char_span: [903, 1549]
     sentence_count: 5
     key_terms: [revenue, doximity, digital, doctors, subscription-based, pharmaceutical, collaborate, colleagues]
+    concepts: [revenue, doximity, digital, doctors]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1t0dey2.md#c9"]
     section: the business
     token_count: 131
   - id: "social-intelligence/reddit-deep/stocks/1t0dey2.md#c2"
-    char_span: [1568, 2239]
+    char_span: [1567, 2238]
     sentence_count: 3
     key_terms: [year, earnings, capex, owner, maintenance, operating, revenue, margin]
+    concepts: [earnings, maintenance, capex, owner, operating]
     section: the numbers
     token_count: 215
   - id: "social-intelligence/reddit-deep/stocks/1t0dey2.md#c3"
-    char_span: [2263, 2462]
+    char_span: [2262, 2461]
     sentence_count: 3
     key_terms: [ev-to-owner-earnings, enterprise, multiple, assets, liquid, gives, share, value]
     section: the balance sheet
     token_count: 66
   - id: "social-intelligence/reddit-deep/stocks/1t0dey2.md#c4"
-    char_span: [2483, 2986]
+    char_span: [2482, 2985]
     sentence_count: 5
     key_terms: [pharma, stock, uncertainty, downgraded, visibility, mid-april, evercore, finalize]
+    concepts: [pharma, stock]
     section: "why it's cheap"
     token_count: 112
   - id: "social-intelligence/reddit-deep/stocks/1t0dey2.md#c5"
-    char_span: [3024, 3814]
+    char_span: [3023, 3813]
     sentence_count: 10
     key_terms: [margins, average, buyback, instead, year, cannibalizing, acquisitions, double-digit]
+    concepts: [margins, average, buyback, instead]
     section: why I think the market is wrong
     token_count: 198
   - id: "social-intelligence/reddit-deep/stocks/1t0dey2.md#c6"
-    char_span: [3830, 4360]
+    char_span: [3829, 4359]
     sentence_count: 3
     key_terms: [per, share, value, user, hyper-growth, acquisition, penetration, increasing]
+    concepts: [share, value]
     section: valuation
     token_count: 154
   - id: "social-intelligence/reddit-deep/stocks/1t0dey2.md#c7"
-    char_span: [4382, 5120]
+    char_span: [4381, 5119]
     sentence_count: 8
     key_terms: [already, market, user, infrastructure, distribution, openevidence, addressable, competition]
+    concepts: [already, market]
     section: what worries me
     token_count: 162
   - id: "social-intelligence/reddit-deep/stocks/1t0dey2.md#c8"
-    char_span: [5143, 5636]
+    char_span: [5142, 5635]
     sentence_count: 7
     key_terms: [position, business, hold, fundamentals, high-quality, ai-assisted, disclosure, regulatory]
+    concepts: [position, business]
     section: where I come out
     token_count: 111
   - id: "social-intelligence/reddit-deep/stocks/1t0dey2.md#c9"
-    char_span: [5651, 7395]
+    char_span: [5650, 7394]
     sentence_count: 8
     key_terms: [hospital, mitochondria420, stringfood, doximity, doctors, medical, square, zestyclose-essay-127]
+    concepts: [mitochondria420, hospital, stringfood, doximity, doctors]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1t0dey2.md#c1"]
     section: Comments
     token_count: 492
 ---

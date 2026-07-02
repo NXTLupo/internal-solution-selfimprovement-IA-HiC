@@ -19,14 +19,19 @@ content_hash: "e4cdc7ec7e5015da"
 relevance_by_goal: {"490684cfa204":45}
 chunks:
   - id: "articles/reddit-deep-r-customerexperience/60dafe29ed.md#c0"
-    char_span: [0, 997]
+    char_span: [0, 996]
     sentence_count: 8
     key_terms: [customer, customerexperience, human, experience, companies, better, reddit, get]
-    token_count: 205
+    concepts: [customer, customerexperience, experience, human, companies]
+    related_chunks: ["articles/reddit-deep-r-customerexperience/60dafe29ed.md#c1"]
+    token_count: 204
+    sources: [{"n":"Reddit Deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1mps78z/is_ai_making_customer_service_better_or_just_less/"}]
   - id: "articles/reddit-deep-r-customerexperience/60dafe29ed.md#c1"
-    char_span: [999, 2862]
+    char_span: [998, 2861]
     sentence_count: 13
     key_terms: [human, app, customer, ivr, experience, matters, service, website]
+    concepts: [human, customer, experience, matters, service]
+    related_chunks: ["articles/reddit-deep-r-customerexperience/60dafe29ed.md#c0"]
     token_count: 438
 ---
 # Is AI making customer service better… or just less human?

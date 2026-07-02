@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1795]
     sentence_count: 8
     key_terms: [assistants, images, tokens, completions, api, vision, chat, gpt-4o]
+    concepts: [assistants, images, tokens, completions, vision]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1qd9wws/why_does_assistants_api_use_45x_fewer_tokens_than/"}]
 ---
 # Why does Assistants API use 4-5x fewer tokens than Chat Completions for the exact same vision task with images? (GPT-4o / 4.1)
 

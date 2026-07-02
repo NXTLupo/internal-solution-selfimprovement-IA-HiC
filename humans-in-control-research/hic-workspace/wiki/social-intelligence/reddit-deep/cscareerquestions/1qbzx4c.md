@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 1592]
     sentence_count: 14
     key_terms: [people, cscareerquestions, applying, intermediate, job, comments, network, junior]
+    concepts: [cscareerquestions, people, applying, intermediate, comments]
     token_count: 386
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qbzx4c/my_job_search_is_over_heres_what_i_learned/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qbzx4c.md#c1"
     char_span: [1606, 3427]
     sentence_count: 14
     key_terms: [post, friends, recruiters, network, untrimmedbagel, get, experience, linkedin]
+    concepts: [friends, recruiters, untrimmedbagel, network, experience]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qbzx4c.md#c2"
     char_span: [3429, 5191]
     sentence_count: 11
     key_terms: [job, "you're", helpdesk, software, connections, development, importantsquirrel, getting]
+    concepts: ["you're", helpdesk, software, connections, development]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qbzx4c.md#c3"
     char_span: [5193, 7255]
     sentence_count: 20
     key_terms: [interview, networking, companies, untrimmedbagel, uncomfortable, experiences, another, getting]
+    concepts: [interview, networking, companies, untrimmedbagel, uncomfortable]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qbzx4c.md#c4"
     char_span: [7257, 9271]
     sentence_count: 16
     key_terms: [people, network, being, feels, networking, leetcode, degrees, someone]
+    concepts: [people, network, being, feels, networking]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qbzx4c.md#c5"
     char_span: [9273, 10406]
     sentence_count: 12
     key_terms: [post, changes, comment, right, congratulations, untrimmedbagel, illustration, intermediate]
+    concepts: [changes, comment, right]
     section: Comments
     token_count: 242
 ---

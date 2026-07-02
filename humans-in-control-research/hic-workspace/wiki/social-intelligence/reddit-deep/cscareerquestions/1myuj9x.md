@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1955]
     sentence_count: 19
     key_terms: [data, analytics, been, "i'm", "i've", cscareerquestions, python, built]
+    concepts: [analytics, cscareerquestions, python, built, years]
     token_count: 458
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1myuj9x/ive_become_a_jackofalltrades_but_a_master_of_none/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1myuj9x.md#c1"
     char_span: [1969, 3985]
     sentence_count: 8
     key_terms: [recognitionsignal425, experience, technology, because, rust, sql, deleted, despise]
+    concepts: [recognitionsignal425, experience, technology, because, deleted]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1myuj9x.md#c2"
     char_span: [3987, 5717]
     sentence_count: 14
     key_terms: [depth, valuable, knowledge, guru, understanding, databases, languages, pacemaker]
+    concepts: [valuable, depth, knowledge, understanding, databases]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/cscareerquestions/1myuj9x.md#c3"
     char_span: [5719, 7963]
     sentence_count: 14
     key_terms: [like, need, someone, issues, trades, "don't", needs, specialists]
+    concepts: [someone, issues, trades, specialists, "don't"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/cscareerquestions/1myuj9x.md#c4"
     char_span: [7966, 9279]
     sentence_count: 11
     key_terms: [hiring, because, career, "don't", value, generalists, role, generalist]
+    concepts: [hiring, because, career, generalists, "don't"]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/cscareerquestions/1myuj9x.md#c5"
     char_span: [9281, 10880]
     sentence_count: 8
     key_terms: [trades, data, jack, everything, experience, technical, t-shaped, clients]
+    concepts: [trades, everything, experience, technical, t-shaped]
     section: Comments
     token_count: 378
 ---

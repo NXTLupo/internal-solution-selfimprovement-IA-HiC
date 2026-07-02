@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 433]
     sentence_count: 2
     key_terms: [aba5-0997f8fa1c60, context, window, https, com, comments, chatgpt, openai]
+    concepts: [aba5-0997f8fa1c60, context, window, https, comments]
     token_count: 160
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1ml6adn/32k_context_window_for_gpt5/"}]
   - id: "social-intelligence/reddit-deep/openai/1ml6adn.md#c1"
     char_span: [447, 1652]
     sentence_count: 11
     key_terms: [gemini, thehunter920, com, plan, use, aistudio, frontend, context]
+    concepts: [gemini, thehunter920, aistudio, frontend, context]
     section: Comments
     token_count: 346
 ---

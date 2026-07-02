@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 712]
     sentence_count: 5
     key_terms: [uwaterloo, comments, roommate, waterloo, educationaljump5162, moved, here, room]
+    concepts: [uwaterloo, comments, roommate, waterloo, moved]
     token_count: 186
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1n73lcv/just_moved_here_for_the_first_time_wtf/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1n73lcv.md#c1"
     char_span: [726, 2652]
     sentence_count: 10
     key_terms: [room, thespoiciestmemelord, agentindependent306, reach, worst, management, mattress, housing]
+    concepts: [thespoiciestmemelord, agentindependent306, management, reach, worst]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/uwaterloo/1n73lcv.md#c2"
     char_span: [2390, 3131]
     sentence_count: 4
     key_terms: [like, housing, delicious-feature334, bed, year, ryebreadepic, responsible, management]
+    concepts: [housing]
     section: Comments
     token_count: 190
   - id: "social-intelligence/reddit-deep/uwaterloo/1n73lcv.md#c3"
     char_span: [3133, 3909]
     sentence_count: 4
     key_terms: [bedsheets, afford, redact, agentindependent306, objective-cup-2242, bed, eats, like]
+    concepts: [bedsheets, afford, redact]
     section: Comments
     token_count: 208
 ---

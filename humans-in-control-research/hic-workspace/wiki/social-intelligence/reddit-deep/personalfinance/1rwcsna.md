@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 990]
     sentence_count: 5
     key_terms: [expenses, personalfinance, month, budgeting, splitting, comments, spending, aspect]
+    concepts: [personalfinance, expenses, month, budgeting, splitting]
     token_count: 226
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1rwcsna/best_appswebsite_for_splitting_expenses_with/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1rwcsna.md#c1"
-    char_span: [1005, 3031]
+    char_span: [1004, 3030]
     sentence_count: 5
     key_terms: [bills, pay, expenses, person1, credit, spreadsheet, card, work]
+    concepts: [bills, expenses, person1, credit, spreadsheet]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/personalfinance/1rwcsna.md#c2"
-    char_span: [3033, 4892]
+    char_span: [3032, 4891]
     sentence_count: 2
     key_terms: [pay, money, fair, income, relationship, like, personal, incomes]
+    concepts: [money, relationship, income, personal, incomes]
     section: Comments
     token_count: 452
 ---

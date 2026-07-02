@@ -19,65 +19,79 @@ chunks:
     char_span: [0, 1906]
     sentence_count: 9
     key_terms: [university, video, engineering, mechanical, engineeringstudents, gpa, phd, applied]
+    concepts: [university, video, engineering, engineeringstudents, mechanical]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1pshoiw/how_i_got_into_a_mechanical_engineering_phd_with/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c1"
     char_span: [1908, 4235]
     sentence_count: 21
     key_terms: [get, because, school, information, interested, demanding, applying, invested]
+    concepts: [because, school, information, interested, demanding]
     token_count: 513
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c2"
     char_span: [4237, 6376]
     sentence_count: 17
     key_terms: [professor, years, degree, field, get, phd, possible, research]
+    concepts: [professor, years, degree, field, possible]
     token_count: 495
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c3"
     char_span: [6378, 8411]
     sentence_count: 23
     key_terms: [research, schools, undergrad, a0175c971d0a884f1bae70a0fcdb0311fe117038, did, like, mech, phd]
+    concepts: [research, schools, undergrad, experience, internship]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c10"]
     token_count: 513
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c4"
     char_span: [8413, 10309]
     sentence_count: 18
     key_terms: [professor, university, research, school, lab, accepted, schools, application]
+    concepts: [professor, university, research, school, accepted]
     token_count: 402
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c5"
-    char_span: [10324, 11388]
+    char_span: [10323, 11387]
     sentence_count: 10
     key_terms: [phd, subfield, get, convinced, excited, within, niche, years]
+    concepts: [subfield, convinced, excited, within, niche]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c6"
-    char_span: [11390, 12687]
+    char_span: [11389, 12686]
     sentence_count: 10
     key_terms: [research, get, bachelors, because, example, postdoc, people, years]
+    concepts: [research, bachelors, because, example, postdoc]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c7"
-    char_span: [12689, 13856]
+    char_span: [12688, 13855]
     sentence_count: 8
     key_terms: [get, phd, positions, crash-55, position, research, easier, holder]
+    concepts: [positions, crash-55, position, research, easier]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c8"
-    char_span: [13858, 15418]
+    char_span: [13857, 15417]
     sentence_count: 8
     key_terms: [boskadoff, pay, need, school, company, getting, masters, program]
+    concepts: [boskadoff, school, company, getting, masters]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c9"
-    char_span: [15420, 17060]
+    char_span: [15419, 17059]
     sentence_count: 9
     key_terms: [masters, classes, bachelors, melodicpudding2557, doing, get, take, year]
+    concepts: [masters, classes, bachelors, melodicpudding2557, doing]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c10"
-    char_span: [17062, 19122]
+    char_span: [17061, 19121]
     sentence_count: 12
     key_terms: [research, get, phd, schools, project, final, information, etc]
+    concepts: [research, schools, project, information, experience]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c3"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c11"
-    char_span: [19124, 19404]
+    char_span: [19123, 19403]
     sentence_count: 4
     key_terms: [different, mandatory, solutions, exchange, national, company, program, service]
     section: Comments

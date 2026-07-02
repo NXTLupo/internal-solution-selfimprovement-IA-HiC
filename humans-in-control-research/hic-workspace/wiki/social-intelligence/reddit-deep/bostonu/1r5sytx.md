@@ -20,41 +20,50 @@ chunks:
     char_span: [0, 1592]
     sentence_count: 9
     key_terms: [leslie, comments, because, bostonu, epstein, boston, https, never]
+    concepts: [leslie, comments, because, bostonu, epstein]
     token_count: 437
+    sources: [{"n":"reddit-deep: r/bostonu","u":"https://www.reddit.com/r/BostonU/comments/1r5sytx/to_think_i_could_have_missed_any_of_this/"}]
   - id: "social-intelligence/reddit-deep/bostonu/1r5sytx.md#c1"
     char_span: [1594, 3130]
     sentence_count: 11
     key_terms: [writing, ohio, professors, transcript, university, professor, something, whatever]
+    concepts: [writing, professors, transcript, university, professor]
     token_count: 338
   - id: "social-intelligence/reddit-deep/bostonu/1r5sytx.md#c2"
     char_span: [3132, 5397]
     sentence_count: 21
     key_terms: [don, remember, workshop, hopkins, stories, without, myself, barth]
+    concepts: [remember, workshop, hopkins, stories, without]
     token_count: 509
   - id: "social-intelligence/reddit-deep/bostonu/1r5sytx.md#c3"
     char_span: [5399, 6722]
     sentence_count: 10
     key_terms: [projecting, thought, milton, going, don, philosophies, unrestrained, anticipated]
+    concepts: [projecting, thought, milton, going]
     token_count: 322
   - id: "social-intelligence/reddit-deep/bostonu/1r5sytx.md#c4"
     char_span: [6724, 7591]
     sentence_count: 11
     key_terms: [books, class, teach, understanding, expectations, confessions, expectation, discussion]
+    concepts: [books, class, teach]
     token_count: 199
   - id: "social-intelligence/reddit-deep/bostonu/1r5sytx.md#c5"
     char_span: [7593, 9724]
     sentence_count: 29
     key_terms: [did, good, anything, because, fiction, bright, down, find]
+    concepts: [anything, because, fiction, bright]
     token_count: 503
   - id: "social-intelligence/reddit-deep/bostonu/1r5sytx.md#c6"
     char_span: [9726, 10229]
     sentence_count: 5
     key_terms: [leslie, sue, complaints, completely, tap-danced, sleepless, complain, honoring]
+    concepts: [leslie]
     token_count: 114
   - id: "social-intelligence/reddit-deep/bostonu/1r5sytx.md#c7"
-    char_span: [10244, 12189]
+    char_span: [10243, 12188]
     sentence_count: 17
     key_terms: [ok-minute1385, commencement, been, get, relation, mean-imagination6670, movie, thank]
+    concepts: [ok-minute1385, commencement, relation, movie, thank]
     section: Comments
     token_count: 510
 ---

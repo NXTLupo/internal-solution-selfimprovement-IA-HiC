@@ -19,41 +19,55 @@ chunks:
     char_span: [0, 1862]
     sentence_count: 9
     key_terms: [religious, universities, being, faith, college, non-practicing, school, experiences]
+    concepts: [religious, universities, being, faith, non-practicing]
     token_count: 392
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lnmwu8/not_religious_but_looking_for_jobs_at_religious/"}]
   - id: "social-intelligence/reddit-deep/college/1lnmwu8.md#c1"
-    char_span: [1877, 3148]
+    char_span: [1876, 3147]
     sentence_count: 8
     key_terms: [religious, orientation, don, protestant, employees, employee, schools, student]
+    concepts: [religious, orientation, protestant, employees, employee]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lnmwu8.md#c2"]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/college/1lnmwu8.md#c2"
-    char_span: [3150, 5671]
+    char_span: [3149, 5670]
     sentence_count: 16
     key_terms: [schools, religious, employees, affiliation, institution, myfacesaysitssugar, student, institutions]
+    concepts: [schools, religious, employees, affiliation, institution]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lnmwu8.md#c1", "social-intelligence/reddit-deep/college/1lnmwu8.md#c3", "social-intelligence/reddit-deep/college/1lnmwu8.md#c4", "social-intelligence/reddit-deep/college/1lnmwu8.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1lnmwu8.md#c3"
-    char_span: [5301, 6471]
+    char_span: [5300, 6470]
     sentence_count: 8
     key_terms: [religious, schools, participation, affiliation, hire, university, candidate, catholic]
+    concepts: [religious, schools, participation, affiliation, university]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lnmwu8.md#c2", "social-intelligence/reddit-deep/college/1lnmwu8.md#c4", "social-intelligence/reddit-deep/college/1lnmwu8.md#c5", "social-intelligence/reddit-deep/college/1lnmwu8.md#c6"]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/college/1lnmwu8.md#c4"
-    char_span: [6473, 7910]
+    char_span: [6472, 7909]
     sentence_count: 13
     key_terms: [schools, non-discrimination, religious, catholic, college, discriminate, specifically, issue]
+    concepts: [schools, non-discrimination, religious, catholic, college]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lnmwu8.md#c2", "social-intelligence/reddit-deep/college/1lnmwu8.md#c3", "social-intelligence/reddit-deep/college/1lnmwu8.md#c6"]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/college/1lnmwu8.md#c5"
-    char_span: [7912, 9574]
+    char_span: [7911, 9573]
     sentence_count: 10
     key_terms: [statement, "it's", sign, background, university, religious, worldview, anything]
+    concepts: [statement, background, university, religious, worldview]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lnmwu8.md#c3"]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/college/1lnmwu8.md#c6"
-    char_span: [9577, 11404]
+    char_span: [9576, 11403]
     sentence_count: 11
     key_terms: [religious, religion, catholic, schools, jesuit, school, "don't", like]
+    concepts: [religious, religion, catholic, schools, jesuit]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lnmwu8.md#c2", "social-intelligence/reddit-deep/college/1lnmwu8.md#c3", "social-intelligence/reddit-deep/college/1lnmwu8.md#c4"]
     section: Comments
     token_count: 403
 ---

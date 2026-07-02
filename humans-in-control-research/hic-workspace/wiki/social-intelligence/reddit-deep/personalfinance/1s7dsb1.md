@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2107]
     sentence_count: 15
     key_terms: [payments, month, car, personalfinance, months, comments, another, payment]
+    concepts: [payments, month, personalfinance, months, comments]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1s7dsb1/got_myself_into_a_84_month_car_loan_of_42k/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c1"
     char_span: [2109, 2373]
     sentence_count: 3
@@ -31,24 +33,28 @@ chunks:
     char_span: [2387, 4392]
     sentence_count: 14
     key_terms: [comments, get, last, vehicle, down, pay, post, absolutely]
+    concepts: [comments, vehicle, absolutely, principal, roommate]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c3"
     char_span: [4394, 5711]
     sentence_count: 12
     key_terms: [get, underwater, possible, "doesn't", driving, likely, "you're", "it's"]
+    concepts: [underwater, possible, "doesn't", driving, likely]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c4"
     char_span: [5714, 6568]
     sentence_count: 5
     key_terms: [average-car-loan-interest-rates-by-credit-score, car, situation, proposed, solution, balance, beneficialchemist874, loan]
+    concepts: [situation, proposed, solution, balance]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c5"
     char_span: [6570, 8747]
     sentence_count: 17
     key_terms: [get, paying, better, income, months, agree, month, car]
+    concepts: [paying, better, income, months, agree]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c6"
@@ -61,6 +67,7 @@ chunks:
     char_span: [9029, 9777]
     sentence_count: 7
     key_terms: [extra, towards, money, until, gen, loan, pay, answerguru]
+    concepts: [extra, towards, money, until]
     section: Comments
     token_count: 188
 ---

@@ -17,10 +17,12 @@ research_goal: "Deliver a comprehensive 2026 outlook report on the global retail
 engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
 chunks:
   - id: "social-intelligence/reddit-deep/marketing/1lu73yy.md#c0"
-    char_span: [0, 1829]
+    char_span: [0, 1828]
     sentence_count: 10
     key_terms: [people, store, instagram, product, shopify, supplements, like, marketing]
-    token_count: 416
+    concepts: [people, instagram, store, product, shopify]
+    token_count: 415
+    sources: [{"n":"reddit-deep: r/marketing","u":"https://www.reddit.com/r/marketing/comments/1lu73yy/how_would_you_target_solo_creators_product/"}]
 ---
 # How would you target solo creators & product promoters at scale?
 

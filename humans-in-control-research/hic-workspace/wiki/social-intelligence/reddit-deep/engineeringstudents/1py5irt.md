@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1802]
     sentence_count: 10
     key_terms: [get, job, career, experience, engineeringstudents, companies, want, engineering]
+    concepts: [career, experience, engineeringstudents, companies, engineering]
     token_count: 378
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1py5irt/career_success_is_more_than_internships/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1py5irt.md#c1"
     char_span: [1816, 4113]
     sentence_count: 11
     key_terms: [company, internship, internships, guidelines, companies, get, known, competitive]
+    concepts: [company, internship, internships, guidelines, companies]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1py5irt.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1py5irt.md#c2"
     char_span: [3857, 4850]
     sentence_count: 8
     key_terms: [spacex, internships, land, experience, internship, successful, engineers, mid-tier]
+    concepts: [spacex, internships, experience, internship, successful]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1py5irt.md#c1"]
     section: Comments
     token_count: 235
   - id: "social-intelligence/reddit-deep/engineeringstudents/1py5irt.md#c3"
     char_span: [4852, 6841]
     sentence_count: 14
     key_terms: [worked, contributing, money, prestigious, like, difference, retirement, referring]
+    concepts: [contributing, worked, prestigious, difference, money]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/engineeringstudents/1py5irt.md#c4"
     char_span: [6843, 7632]
     sentence_count: 3
     key_terms: [job, contribute, without, growth, time, contributing, developing, eventually]
+    concepts: [contribute, without, growth]
     section: Comments
     token_count: 191
 ---

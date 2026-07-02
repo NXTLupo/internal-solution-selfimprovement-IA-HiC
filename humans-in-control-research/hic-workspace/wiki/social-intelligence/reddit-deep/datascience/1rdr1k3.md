@@ -20,47 +20,58 @@ chunks:
     char_span: [0, 432]
     sentence_count: 3
     key_terms: [datascience, comments, python, development, reddit-deep, everything, br0monium, primarily]
+    concepts: [datascience, comments, python]
     token_count: 113
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1rdr1k3/what_is_your_python_development_set_up/"}]
   - id: "social-intelligence/reddit-deep/datascience/1rdr1k3.md#c1"
-    char_span: [455, 2161]
+    char_span: [454, 2160]
     sentence_count: 20
     key_terms: [environment, production, python, environments, tools, use, used, analytics]
+    concepts: [environment, production, environments, python, tools]
     section: What do you use? / How do you use it?
     token_count: 363
   - id: "social-intelligence/reddit-deep/datascience/1rdr1k3.md#c2"
-    char_span: [2176, 3747]
+    char_span: [2175, 3746]
     sentence_count: 10
     key_terms: [kedro, pipeline, triplethreat8, environment, data, run, deployment, pipelining]
+    concepts: [kedro, pipeline, triplethreat8, environment, deployment]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/datascience/1rdr1k3.md#c3"
-    char_span: [3749, 4989]
+    char_span: [3748, 4988]
     sentence_count: 11
     key_terms: [environment, "it's", use, virtual, br0monium, pipelines, managing, manager]
+    concepts: [environment, virtual, br0monium, pipelines, managing]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/datascience/1rdr1k3.md#c4"
-    char_span: [4991, 6481]
+    char_span: [4990, 6480]
     sentence_count: 15
     key_terms: [projects, "it's", production, inference, language, personal, response, training]
+    concepts: [projects, production, inference, language, personal]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1rdr1k3.md#c5"]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/datascience/1rdr1k3.md#c5"
-    char_span: [6483, 8531]
+    char_span: [6482, 8530]
     sentence_count: 12
     key_terms: [python, like, rust, pyenv, work, personal, projects, atmosck]
+    concepts: [python, pyenv, personal, projects, atmosck]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1rdr1k3.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/datascience/1rdr1k3.md#c6"
-    char_span: [8252, 9101]
+    char_span: [8251, 9100]
     sentence_count: 5
     key_terms: [projects, accordingweight6019, like, crispybacon233, deduplication, environments, reproducible, subscription]
+    concepts: [projects]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/datascience/1rdr1k3.md#c7"
-    char_span: [9103, 10432]
+    char_span: [9102, 10431]
     sentence_count: 13
     key_terms: [sometimes, cloud, use, enterprise, depends, jupyter, pycharm, claude]
+    concepts: [sometimes, cloud, enterprise, depends, jupyter]
     section: Comments
     token_count: 345
 ---

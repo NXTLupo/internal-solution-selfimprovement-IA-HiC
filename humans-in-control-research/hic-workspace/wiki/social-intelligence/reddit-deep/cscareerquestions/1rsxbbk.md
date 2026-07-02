@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 766]
     sentence_count: 3
     key_terms: [tech, considering, cscareerquestions, market, recommend, comments, current, job]
+    concepts: [considering, cscareerquestions, market, recommend, comments]
     token_count: 191
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rsxbbk/what_tech_career_would_you_recommend_going_into/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsxbbk.md#c1"
     char_span: [780, 2683]
     sentence_count: 8
     key_terms: [generalist, societywonderful321, learn, welding, easier, i-feel-love79, ornery-car92, barriers]
+    concepts: [societywonderful321, generalist, learn, i-feel-love79, welding]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsxbbk.md#c2"
     char_span: [2505, 4140]
     sentence_count: 15
     key_terms: [i-feel-love79, need, tech, learning, deleted, farming, tcoder7, people]
+    concepts: [i-feel-love79, learning, deleted, farming, tcoder7]
     section: Comments
     token_count: 451
 ---

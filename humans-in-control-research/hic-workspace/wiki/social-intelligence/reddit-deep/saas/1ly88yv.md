@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 2141]
     sentence_count: 14
     key_terms: [list, backlinks, saas, clients, visibility, tools, directories, free]
+    concepts: [backlinks, clients, visibility, directories, extensions]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1ly88yv.md#c2"]
     token_count: 497
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1ly88yv/spent_4_years_doing_seo_for_clients_built_a_list/"}]
   - id: "social-intelligence/reddit-deep/saas/1ly88yv.md#c1"
-    char_span: [2143, 3219]
+    char_span: [2143, 3218]
     sentence_count: 6
     key_terms: [directories, huzzler, organic, website, charming-wednesday-936, google, affectionate-let8985, https]
+    concepts: [directories, huzzler, organic, website, google]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/saas/1ly88yv.md#c2"
-    char_span: [3221, 4599]
+    char_span: [3220, 4598]
     sentence_count: 5
     key_terms: [send, directories, seo, "you're", backlinking, visibility, traffic, website]
+    concepts: [directories, "you're", backlinking, visibility, traffic]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1ly88yv.md#c0"]
     section: Comments
     token_count: 368
 ---

@@ -20,21 +20,25 @@ chunks:
     char_span: [0, 2058]
     sentence_count: 21
     key_terms: [portfolio, individual, holdings, stocks, ira, roth, vanguard, years]
+    concepts: [portfolio, individual, holdings, stocks, vanguard]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1tk2ghg/investing_advice_for_a_beginner/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1tk2ghg.md#c1"
-    char_span: [2062, 4157]
+    char_span: [2062, 4156]
     sentence_count: 17
     key_terms: [target, whitecoatinvestor, allocation, account, advice, funds, brokerage, date]
+    concepts: [target, whitecoatinvestor, allocation, account, advice]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/bogleheads/1tk2ghg.md#c2"
-    char_span: [4159, 6252]
+    char_span: [4158, 6251]
     sentence_count: 18
     key_terms: [ira, account, stocks, tax, want, brokerage, accounts, fidelity]
+    concepts: [account, stocks, brokerage, accounts, fidelity]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/bogleheads/1tk2ghg.md#c3"
-    char_span: [6254, 6722]
+    char_span: [6253, 6721]
     sentence_count: 8
     key_terms: [like, diversification, professional, simplicity, important, physician, compound, equities]
     section: Comments

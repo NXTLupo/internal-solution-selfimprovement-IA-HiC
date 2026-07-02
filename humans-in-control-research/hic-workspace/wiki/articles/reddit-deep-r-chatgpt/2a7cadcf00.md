@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2317]
     sentence_count: 23
     key_terms: [chatgpt, knowledge, students, don, ancient, because, non-existent, class]
+    concepts: [chatgpt, knowledge, students, ancient, because]
     token_count: 506
+    sources: [{"n":"Reddit Deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1kzzyb2/professor_at_the_end_of_2_years_of_struggling/"}]
   - id: "articles/reddit-deep-r-chatgpt/2a7cadcf00.md#c1"
     char_span: [2319, 3425]
     sentence_count: 8
     key_terms: [gpt, chatgpt, writing, zero-pe, dashes, silver-chipmunk7744, write, "it's"]
+    concepts: [chatgpt, writing, zero-pe, dashes, write]
     token_count: 314
 ---
 # Professor at the end of 2 years of struggling with ChatGPT use among students.

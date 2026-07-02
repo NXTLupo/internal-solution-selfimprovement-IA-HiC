@@ -19,58 +19,71 @@ chunks:
     char_span: [0, 1417]
     sentence_count: 9
     key_terms: [years, cscareerquestions, performance, work, anything, comments, maintain, promoted]
+    concepts: [years, cscareerquestions, performance, anything, comments]
     token_count: 334
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1pjcwpi/just_got_fired_from_my_job_of_almost_10_years_for/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c1"
     char_span: [1419, 2811]
     sentence_count: 11
     key_terms: [frontend, skills, "i'm", backend, least, job, take, work]
+    concepts: [frontend, skills, backend, experience, least]
     token_count: 311
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c2"
     char_span: [2825, 4231]
     sentence_count: 16
     key_terms: [experience, got, job, thought, money, dev, sometimes, little]
+    concepts: [experience, thought, money, sometimes, little]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c3"
     char_span: [4233, 6246]
     sentence_count: 18
     key_terms: [java, for-loop, programming, syntax, shamanshaman123, job, learning, yourself]
+    concepts: [for-loop, programming, syntax, shamanshaman123, learning]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c6"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c4"
     char_span: [6248, 8212]
     sentence_count: 17
     key_terms: [java, philosophies, javascript, understand, solid, community, fitgas7951, language]
+    concepts: [philosophies, javascript, understand, community, solid]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c5"
     char_span: [8214, 10191]
     sentence_count: 12
     key_terms: [java, companies, legacy, use, software, right, programming, languages]
+    concepts: [companies, legacy, software, programming, right]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c6"
     char_span: [10193, 11752]
     sentence_count: 12
     key_terms: [shamanshaman123, beginning-comedian-2, "it's", apply, right, get, jobs, per]
+    concepts: [shamanshaman123, beginning-comedian-2, apply, right, learning]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c3"]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c7"
     char_span: [11754, 13895]
     sentence_count: 23
     key_terms: [shamanshaman123, "don't", years, been, code, java, something, yourself]
+    concepts: [shamanshaman123, "don't", years, something, yourself]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c8"
     char_span: [13897, 15965]
     sentence_count: 24
     key_terms: [back, get, figure, programming, seanprefect, java, job, experience]
+    concepts: [figure, programming, seanprefect, experience, different]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c9"
     char_span: [15967, 16867]
     sentence_count: 11
     key_terms: [interviewers, persistence, competence, recommend, yourself, judging, get, "it's"]
+    concepts: [interviewers, persistence, competence, recommend, yourself]
     section: Comments
     token_count: 208
 ---

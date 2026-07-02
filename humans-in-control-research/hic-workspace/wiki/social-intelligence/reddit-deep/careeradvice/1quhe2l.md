@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1171]
     sentence_count: 10
     key_terms: [people, careeradvice, young, get, comments, feedback, learning, platform]
+    concepts: [people, careeradvice, young, comments, feedback]
     token_count: 279
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1quhe2l/duolingo_for_career_success_users_wanted/"}]
 ---
 # Duolingo for Career Success: Users Wanted
 

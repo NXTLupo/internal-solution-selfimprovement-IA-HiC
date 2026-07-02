@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 772]
     sentence_count: 5
     key_terms: [engineeringstudents, calculus, comments, semester, reddit, calc, engineering, reddit-deep]
+    concepts: [engineeringstudents, calculus, comments, semester, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md#c1"]
     token_count: 187
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1nbs3sr/is_it_normal_to_struggle_in_calculus_ii/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md#c1"
     char_span: [786, 2409]
     sentence_count: 9
     key_terms: [engineeringstudents, wiki, please, reddit, https, calc, com, students]
+    concepts: [engineeringstudents, please, reddit, https, students]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md#c0"]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md#c2"
     char_span: [2411, 3510]
     sentence_count: 17
     key_terms: [tutor, classes, possible, hardest, list, weed, stumpythegiant, intentionally]
+    concepts: [tutor, classes, possible, hardest]
     section: Comments
     token_count: 256
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md#c3"
     char_span: [3512, 5423]
     sentence_count: 23
     key_terms: [calc, diff, class, appearanceable6646, professor, hardest, got, math]
+    concepts: [appearanceable6646, professor, class, hardest, definitely]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md#c4"
@@ -50,6 +57,7 @@ chunks:
     char_span: [5560, 6661]
     sentence_count: 11
     key_terms: [calc, class, trig, eventually, struggles, found, pre, retrospectively]
+    concepts: [class, eventually, struggles, found]
     section: Comments
     token_count: 272
 ---

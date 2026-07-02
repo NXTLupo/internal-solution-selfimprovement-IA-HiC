@@ -19,7 +19,10 @@ chunks:
     char_span: [0, 2060]
     sentence_count: 11
     key_terms: [college, events, drive, connections, rent, comments, freshman, because]
+    concepts: [college, events, connections, drive, comments]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mu4pze.md#c6"]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1mu4pze/will_i_miss_out_on_a_lot_of_events_and_the/"}]
   - id: "social-intelligence/reddit-deep/college/1mu4pze.md#c1"
     char_span: [2062, 2607]
     sentence_count: 5
@@ -35,36 +38,45 @@ chunks:
     char_span: [2898, 5013]
     sentence_count: 14
     key_terms: [drive, going, lot, anxious, driving, right, comfortable, car]
+    concepts: [drive, going, anxious, driving, comfortable]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mu4pze.md#c4"
     char_span: [4749, 5045]
     sentence_count: 3
     key_terms: [question, miss, discojellyfisho, convenience, experience, yourself, because, cutting]
+    concepts: [question]
     section: Comments
     token_count: 71
   - id: "social-intelligence/reddit-deep/college/1mu4pze.md#c5"
     char_span: [5047, 6348]
     sentence_count: 9
     key_terms: [campus, connections, dorm, experience, apartment, commute, choose, rychaithescienceguy]
+    concepts: [campus, connections, experience, apartment, commute]
     section: Comments
     token_count: 300
   - id: "social-intelligence/reddit-deep/college/1mu4pze.md#c6"
     char_span: [6350, 8205]
     sentence_count: 17
     key_terms: [campus, time, commuting, college, friends, events, person, being]
+    concepts: [campus, commuting, college, friends, events]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mu4pze.md#c0", "social-intelligence/reddit-deep/college/1mu4pze.md#c7", "social-intelligence/reddit-deep/college/1mu4pze.md#c8"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/college/1mu4pze.md#c7"
     char_span: [8207, 9996]
     sentence_count: 13
     key_terms: [people, friends, campus, like, whatever, classes, college, "they're"]
+    concepts: [people, friends, campus, whatever, classes]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mu4pze.md#c6"]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/college/1mu4pze.md#c8"
     char_span: [9998, 10924]
     sentence_count: 10
     key_terms: [commuter, depends, campus, events, find, participatory, unfortunately, bobbybobo888]
+    concepts: [commuter, depends, campus, events]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mu4pze.md#c6"]
     section: Comments
     token_count: 212
 ---

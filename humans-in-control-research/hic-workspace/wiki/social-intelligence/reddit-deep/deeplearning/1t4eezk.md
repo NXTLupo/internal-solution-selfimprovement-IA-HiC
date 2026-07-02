@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1302]
     sentence_count: 9
     key_terms: [synthetic-data-flywheel, https, synthetic, com, comments, flywheel, dakshjain-1616, github]
+    concepts: [synthetic-data-flywheel, synthetic, https, comments, flywheel]
     token_count: 318
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1t4eezk/synthetic_data_flywheel_for_instruction_tuning/"}]
 ---
 # Synthetic data flywheel for instruction tuning. Failure cases from each cycle become seeds for the next
 

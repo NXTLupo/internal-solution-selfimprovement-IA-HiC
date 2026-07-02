@@ -21,22 +21,31 @@ chunks:
     char_span: [0, 1824]
     sentence_count: 13
     key_terms: [daughter, don, povertyfinance, sister, work, something, comments, hopeless]
+    concepts: [daughter, povertyfinance, sister, something, comments]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c2"]
     token_count: 429
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1nbtddq/single_mother_feeling_absolutely_hopeless/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c1"
     char_span: [1827, 2752]
     sentence_count: 3
     key_terms: [going, comments, daycare, getting, school, didn, look, scholarship]
+    concepts: [going, comments, daycare, getting, school]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c5"]
     token_count: 203
   - id: "social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c2"
     char_span: [2766, 4715]
     sentence_count: 16
     key_terms: [start, care, head, daughter, sister, averyrose2010, taxes, like]
+    concepts: [start, daughter, averyrose2010, sister, taxes]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c0"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c3"
     char_span: [4717, 6764]
     sentence_count: 18
     key_terms: [work, child, continue, school, requirements, start, state, get]
+    concepts: [child, continue, requirements, school, department]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c6"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c4"
@@ -49,12 +58,16 @@ chunks:
     char_span: [7059, 9046]
     sentence_count: 16
     key_terms: [child, get, work, hours, time, daycare, getting, luckyyyyyy53]
+    concepts: [child, hours, daycare, getting, luckyyyyyy53]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c1"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c6"
     char_span: [9049, 10969]
     sentence_count: 15
     key_terms: [child, week, another, support, income, school, internationalrich252, psychologicalpark930]
+    concepts: [child, another, support, income, school]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c3"]
     section: Comments
     token_count: 478
 ---

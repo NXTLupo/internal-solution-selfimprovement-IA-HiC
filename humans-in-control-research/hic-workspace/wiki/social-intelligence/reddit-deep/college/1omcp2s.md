@@ -21,34 +21,43 @@ chunks:
     char_span: [0, 1639]
     sentence_count: 13
     key_terms: [college, health, crazy, month, got, condition, insurance, comments]
+    concepts: [college, health, crazy, month, condition]
     token_count: 393
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1omcp2s/how_am_i_supposed_to_financially_support_myself/"}]
   - id: "social-intelligence/reddit-deep/college/1omcp2s.md#c1"
     char_span: [1641, 2371]
     sentence_count: 10
     key_terms: [paycheck, student, living, being, bad, got, job, life]
+    concepts: [paycheck, student, living, being]
     token_count: 162
   - id: "social-intelligence/reddit-deep/college/1omcp2s.md#c2"
     char_span: [2385, 3583]
     sentence_count: 11
     key_terms: [food, year, insurance, whenever, student, health, banks, since]
+    concepts: [insurance, whenever, student, health, banks]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/college/1omcp2s.md#c3"
     char_span: [3585, 5684]
     sentence_count: 19
     key_terms: [already, university, semester, home, taking, enrollment, decent-muffin9530, classes]
+    concepts: [university, already, semester, enrollment, decent-muffin9530]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1omcp2s.md#c4"
     char_span: [5426, 7045]
     sentence_count: 19
     key_terms: [loans, time, hours, discojellyfisho, private, week, classes, towards]
+    concepts: [loans, discojellyfisho, hours, private, classes]
+    related_chunks: ["social-intelligence/reddit-deep/college/1omcp2s.md#c5"]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/college/1omcp2s.md#c5"
     char_span: [7047, 8162]
     sentence_count: 11
     key_terms: [time, website, books, hours, provided, classes, version, school]
+    concepts: [website, books, hours, provided, classes]
+    related_chunks: ["social-intelligence/reddit-deep/college/1omcp2s.md#c4"]
     section: Comments
     token_count: 263
 ---

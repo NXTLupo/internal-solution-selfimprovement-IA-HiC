@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 827]
     sentence_count: 6
     key_terms: [careerguidance, teller, background, comments, advice, credit, people, small]
+    concepts: [careerguidance, teller, background, comments, advice]
     token_count: 200
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qzew36/new_teller_at_a_small_credit_union_canada_with_a/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1qzew36.md#c1"
     char_span: [841, 2816]
     sentence_count: 18
     key_terms: [employees, work, branch, departments, need, advance, members, answer]
+    concepts: [employees, branch, departments, advance, members]
     section: Comments
     token_count: 450
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1963]
     sentence_count: 11
     key_terms: [logistics, delivery, sms, messente, started, reliability, went, enterprise]
+    concepts: [logistics, delivery, messente, started, reliability]
     token_count: 409
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1ltvlej/what_we_learned_sending_50000_tracking_updates_a/"}]
   - id: "social-intelligence/reddit-deep/logistics/1ltvlej.md#c1"
-    char_span: [1978, 3052]
+    char_span: [1977, 3051]
     sentence_count: 7
     key_terms: [reliability, important, insights, deleted, share, using, day, here]
+    concepts: [reliability, important, insights, deleted, share]
     section: Comments
     token_count: 256
 ---

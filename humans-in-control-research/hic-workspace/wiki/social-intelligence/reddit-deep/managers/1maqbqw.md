@@ -21,53 +21,65 @@ chunks:
     char_span: [0, 1682]
     sentence_count: 16
     key_terms: [work, manager, employee, managers, approved, comments, pregnant, company]
+    concepts: [manager, employee, managers, approved, comments]
     token_count: 345
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1maqbqw/managers_would_you_approve_this/"}]
   - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c1"
     char_span: [1696, 3343]
     sentence_count: 12
     key_terms: [pregnant, leave, work, maternity, pregnancy, manager, affectionate-sir-784, comes]
+    concepts: [pregnant, leave, maternity, pregnancy, manager]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1maqbqw.md#c6"]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c2"
     char_span: [3345, 5209]
     sentence_count: 15
     key_terms: [precedent, pregnant, start, women, decision, approve, deleted, manager]
+    concepts: [precedent, pregnant, start, women, decision]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c3"
     char_span: [5211, 7200]
     sentence_count: 13
     key_terms: [deleted, redact, working, covid, home, anonymized, suggested, employee]
+    concepts: [deleted, redact, working, anonymized, covid]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c4"
     char_span: [7202, 9425]
     sentence_count: 12
     key_terms: [because, manager, someone, wfh, department, people, leave, permanently]
+    concepts: [because, manager, someone, department, people]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c5"
     char_span: [9427, 9848]
     sentence_count: 3
     key_terms: [fair, everyone, accountability, precipitously, unambiguous, unreachable, standards, outlined]
+    concepts: [everyone]
     section: Comments
     token_count: 94
   - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c6"
     char_span: [9850, 11582]
     sentence_count: 11
     key_terms: [people, pregnant, village, consideration, leave, subjective, precedent, situation]
+    concepts: [people, pregnant, consideration, village, leave]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1maqbqw.md#c1"]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c7"
     char_span: [11584, 13670]
     sentence_count: 10
     key_terms: [precedent, employees, work, setting, like, wfh, productive, otherwise]
+    concepts: [precedent, employees, setting, productive, otherwise]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c8"
     char_span: [13672, 14849]
     sentence_count: 8
     key_terms: [decent-historian-207, flexibility, ada, exemption, approved, workers, affectionate-sir-784, conscious-train-5816]
+    concepts: [decent-historian-207, flexibility, exemption, approved, workers]
     section: Comments
     token_count: 294
 ---

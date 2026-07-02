@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 693]
     sentence_count: 2
     key_terms: [got, comments, decision, choose, neu, scholarships, specifically, reddit-deep]
+    concepts: [comments, decision, choose]
     token_count: 166
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qz9re8/i_got_in/"}]
   - id: "social-intelligence/reddit-deep/neu/1qz9re8.md#c1"
     char_span: [707, 2858]
     sentence_count: 15
     key_terms: [london, program, schools, experience, boysenberrytime3143, captainwalnuts69, housing, opportunities]
+    concepts: [london, boysenberrytime3143, program, schools, experience]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1qz9re8.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1qz9re8.md#c2"
     char_span: [2570, 4293]
     sentence_count: 5
     key_terms: ["it's", program, schools, london, imreallyscared2002, united-function282, parents, great]
+    concepts: [program, schools, imreallyscared2002, united-function282, london]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1qz9re8.md#c1"]
     section: Comments
     token_count: 440
 ---

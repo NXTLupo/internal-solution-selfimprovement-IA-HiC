@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1311]
     sentence_count: 10
     key_terms: [backend, cscareerquestions, roles, back-office, big, role, tech, experience]
+    concepts: [backend, cscareerquestions, back-office, experience, roles]
     token_count: 293
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qt8b5b/earlycareer_backend_engineer_highpaying_python/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qt8b5b.md#c1"
     char_span: [1325, 2925]
     sentence_count: 18
     key_terms: [years, understanding, market, "it's", tech, learning, yourself, fintech]
+    concepts: [understanding, years, market, learning, yourself]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qt8b5b.md#c2"
     char_span: [2927, 3628]
     sentence_count: 4
     key_terms: [experience, finance, being, clear, "don't", firms, big, tech]
+    concepts: [experience, finance, being, clear, "don't"]
     section: Comments
     token_count: 165
 ---

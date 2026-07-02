@@ -21,59 +21,76 @@ chunks:
     char_span: [0, 1378]
     sentence_count: 6
     key_terms: [blue-owl-stock-record-low-fund-redemptions, billion, credit, requests, private, https, blue, com]
+    concepts: [blue-owl-stock-record-low-fund-redemptions, billion, credit, requests, private]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1sbejuv.md#c3"]
     token_count: 339
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1sbejuv/blue_owl_stock_crashes_to_alltime_low_after_54/"}]
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c1"
     char_span: [1392, 3887]
     sentence_count: 24
     key_terms: [illiquidity, investors, credit, retail, professional, doesn, hope, tech]
+    concepts: [illiquidity, investors, professional, credit, retail]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1sbejuv.md#c3", "social-intelligence/reddit-deep/investing/1sbejuv.md#c4"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c2"
     char_span: [3889, 5686]
     sentence_count: 14
     key_terms: [getting, private, quarter, money, month, blackstone, redemption, crowbars]
+    concepts: [getting, private, quarter, blackstone, money]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c3"
     char_span: [5688, 7898]
     sentence_count: 17
     key_terms: [private, sell, credit, investors, illiquid, publicly, equity, traded]
+    concepts: [private, credit, investors, illiquid, publicly]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1sbejuv.md#c0", "social-intelligence/reddit-deep/investing/1sbejuv.md#c1", "social-intelligence/reddit-deep/investing/1sbejuv.md#c4", "social-intelligence/reddit-deep/investing/1sbejuv.md#c5", "social-intelligence/reddit-deep/investing/1sbejuv.md#c8"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c4"
     char_span: [7900, 9200]
     sentence_count: 8
     key_terms: [investors, always, credit, people, indication, liquidity, private, starts]
+    concepts: [investors, always, credit, people, indication]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1sbejuv.md#c1", "social-intelligence/reddit-deep/investing/1sbejuv.md#c3"]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c5"
     char_span: [9202, 11166]
     sentence_count: 13
     key_terms: [investors, private, standard, midmarket-pe, fund, investment, valuations, credit]
+    concepts: [investors, private, standard, midmarket-pe, investment]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1sbejuv.md#c3", "social-intelligence/reddit-deep/investing/1sbejuv.md#c8"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c6"
     char_span: [11168, 13008]
     sentence_count: 11
     key_terms: [premium, illiquidity, redemptions, don, get, long, understand, volatility]
+    concepts: [premium, illiquidity, redemptions, understand, volatility]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c7"
     char_span: [13010, 15015]
     sentence_count: 5
     key_terms: [funds, loans, redemptions, often, investors, blue-owl-tells-investors-loan-204038988, retail, value]
+    concepts: [funds, loans, redemptions, investors, often]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c8"
     char_span: [15017, 16939]
     sentence_count: 15
     key_terms: [fund, private, kinda, underlying, investors, headline, biggest, getting]
+    concepts: [private, kinda, underlying, investors, headline]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1sbejuv.md#c3", "social-intelligence/reddit-deep/investing/1sbejuv.md#c5"]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c9"
     char_span: [16941, 17462]
     sentence_count: 4
     key_terms: [bubbles, question, owl, franks2000inchtv, opportunity, starting, another, beating]
+    concepts: [bubbles, question]
     section: Comments
     token_count: 144
 ---

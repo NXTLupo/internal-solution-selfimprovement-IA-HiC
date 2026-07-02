@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1878]
     sentence_count: 8
     key_terms: [step, profit, financial, business-focused, interpretation, entrepreneurs, performance, data]
+    concepts: [profit, business-focused, financial, interpretation, entrepreneurs]
     token_count: 458
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1o4oek8/i_just_launched_my_second_ai_product_a/"}]
   - id: "social-intelligence/reddit-deep/gpt/1o4oek8.md#c1"
     char_span: [1880, 2753]
     sentence_count: 5
     key_terms: [eur, financial, revenue, table, business-specific, use, depreciation, reinvestment]
+    concepts: [financial, revenue, table]
     token_count: 217
 ---
 # I just launched my second AI product — a Business-Focused AI Toolkit for entrepreneurs.

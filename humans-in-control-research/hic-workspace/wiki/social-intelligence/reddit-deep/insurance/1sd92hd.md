@@ -20,28 +20,34 @@ chunks:
     char_span: [0, 1920]
     sentence_count: 13
     key_terms: [car, tow, vehicle, insurance, yard, electric, given, chp]
+    concepts: [vehicle, insurance, electric, belongings, given]
     token_count: 484
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1sd92hd/state_farm_leaving_car_in_tow_yard_during_fee/"}]
   - id: "social-intelligence/reddit-deep/insurance/1sd92hd.md#c1"
     char_span: [1922, 3261]
     sentence_count: 8
     key_terms: [storage, fees, "i'm", responsible, car, "shouldn't", minimize, remotely]
+    concepts: [storage, responsible, "shouldn't", minimize, remotely]
     token_count: 296
   - id: "social-intelligence/reddit-deep/insurance/1sd92hd.md#c2"
-    char_span: [3276, 4257]
+    char_span: [3275, 4256]
     sentence_count: 7
     key_terms: [car, fees, supervisor, escalate, itemized, tomorrow, salvage, value]
+    concepts: [supervisor, escalate, itemized, tomorrow, salvage]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/insurance/1sd92hd.md#c3"
-    char_span: [4259, 6153]
+    char_span: [4258, 6152]
     sentence_count: 8
     key_terms: [car, value, tow, salvage, state, fees, rates, possession]
+    concepts: [value, salvage, state, possession, rates]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/insurance/1sd92hd.md#c4"
-    char_span: [6155, 7884]
+    char_span: [6154, 7883]
     sentence_count: 7
     key_terms: [underwriting, get, tow, itemized, company, going, bill, charges]
+    concepts: [underwriting, itemized, company, going, charges]
     section: Comments
     token_count: 421
 ---

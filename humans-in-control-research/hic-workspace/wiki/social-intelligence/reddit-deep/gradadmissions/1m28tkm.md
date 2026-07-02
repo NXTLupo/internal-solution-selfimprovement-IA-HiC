@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1208]
     sentence_count: 6
     key_terms: [questions, gradadmissions, school, edit, like, applying, comments, programs]
+    concepts: [questions, gradadmissions, school, applying, comments]
     token_count: 282
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1m28tkm/happy_to_answer_questions_about_applying_to_phd/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c1"
     char_span: [1222, 3096]
     sentence_count: 15
     key_terms: [research, usual-try-2059, people, application, fit, get, good, experience]
+    concepts: [research, usual-try-2059, people, application, experience]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c3", "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c7", "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c8"]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c2"
     char_span: [3098, 4666]
     sentence_count: 5
     key_terms: [did, want, lab, motivations, school, outrageous-media-603, "don't", silent-archer-5750]
+    concepts: [motivations, school, "don't"]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c3"
     char_span: [4668, 6747]
     sentence_count: 20
     key_terms: [usual-try-2059, research, masters, experience, seriouslynotmanan, help, programs, phd]
+    concepts: [usual-try-2059, research, masters, experience, seriouslynotmanan]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c1", "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c7", "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c4"
@@ -50,24 +57,30 @@ chunks:
     char_span: [6796, 7861]
     sentence_count: 5
     key_terms: [students, specific, need, want, possible, program, cases, keep]
+    concepts: [students, specific, possible, program, cases]
     section: Comments
     token_count: 237
   - id: "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c6"
     char_span: [7863, 9733]
     sentence_count: 14
     key_terms: [research, faculty, lab, finding, through, considering, supervisors, interests]
+    concepts: [research, faculty, finding, through, considering]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c7"
     char_span: [9735, 11602]
     sentence_count: 14
     key_terms: [usual-try-2059, too, research, someone, cycle, thank, accepted, applying]
+    concepts: [usual-try-2059, research, someone, cycle, thank]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c1", "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c8"
     char_span: [11342, 12075]
     sentence_count: 6
     key_terms: [rejected, experience, research, papers, like, usual-try-2059, applications, contributed]
+    concepts: [rejected, experience, research, papers]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c1", "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c3"]
     section: Comments
     token_count: 181
 ---

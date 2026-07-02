@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 575]
     sentence_count: 4
     key_terms: [cscareerquestions, big, tech, experience, comments, market, "how's", years]
+    concepts: [cscareerquestions, experience, comments, market, "how's"]
     token_count: 154
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1pe1ne1/hows_the_job_market_for_people_with_23_yoe_at_big/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pe1ne1.md#c1"
     char_span: [589, 2219]
     sentence_count: 12
     key_terms: [better, reaching, ecethrowaway01, got, interviews, personally, recruiters, april-may]
+    concepts: [better, reaching, ecethrowaway01, interviews, personally]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pe1ne1.md#c2"
     char_span: [2221, 4202]
     sentence_count: 11
     key_terms: [leetcode, get, planb2019, design, system, yoe, interview, applying]
+    concepts: [leetcode, planb2019, design, system, interview]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pe1ne1.md#c3"
     char_span: [3958, 5048]
     sentence_count: 2
     key_terms: [work, yoe, leetcode, question, the-original-spuggy, bad, last, nice]
+    concepts: [leetcode, question]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pe1ne1.md#c4"
     char_span: [5050, 6784]
     sentence_count: 11
     key_terms: [interviews, start, applying, cold, recruiters, companies, interview, because]
+    concepts: [interviews, start, applying, recruiters, companies]
     section: Comments
     token_count: 385
 ---

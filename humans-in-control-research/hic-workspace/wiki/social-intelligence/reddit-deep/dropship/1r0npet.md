@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1649]
     sentence_count: 10
     key_terms: [money, "he's", "doesn't", around, "i'm", assuming, business, comments]
+    concepts: [money, "doesn't", around, assuming, business]
     token_count: 398
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1r0npet/my_uncle_spent_70000_dollars_on_alibaba_and/"}]
   - id: "social-intelligence/reddit-deep/dropship/1r0npet.md#c1"
-    char_span: [1664, 3697]
+    char_span: [1663, 3696]
     sentence_count: 6
     key_terms: [business, people, trying, liquidating, inventory, marketing, branding, dropship]
+    concepts: [business, people, trying, liquidating, inventory]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/dropship/1r0npet.md#c2"
-    char_span: [3699, 5317]
+    char_span: [3698, 5316]
     sentence_count: 19
     key_terms: [customs, product, sell, amazon, inventory, company, website, bought]
+    concepts: [customs, product, amazon, inventory, company]
     section: Comments
     token_count: 384
 ---

@@ -20,33 +20,40 @@ chunks:
     char_span: [0, 1916]
     sentence_count: 17
     key_terms: [allw, etf, leveraged, comments, misconceptions, around, value, "it's"]
+    concepts: [leveraged, comments, misconceptions, around, value]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1mveuvr/misconceptions_around_allw_the_all_weather_etf/"}]
   - id: "social-intelligence/reddit-deep/etfs/1mveuvr.md#c1"
     char_span: [1918, 3817]
     sentence_count: 16
     key_terms: [leverage, "you'd", portfolio, misconception, get, expense, optimal, "you're"]
+    concepts: [leverage, portfolio, "you'd", misconception, expense]
     token_count: 507
   - id: "social-intelligence/reddit-deep/etfs/1mveuvr.md#c2"
     char_span: [3819, 4380]
     sentence_count: 5
     key_terms: [leverage, optimal, ddnum, study, allw, risk, leveragedetfs, disclaimer]
+    concepts: [leverage, optimal, ddnum, study]
     token_count: 146
   - id: "social-intelligence/reddit-deep/etfs/1mveuvr.md#c3"
-    char_span: [4395, 6109]
+    char_span: [4394, 6108]
     sentence_count: 16
     key_terms: [fund, spy, reddit, trackinsight, launched, leverage, remember, comment]
+    concepts: [trackinsight, reddit, launched, leverage, remember]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/etfs/1mveuvr.md#c4"
-    char_span: [6111, 7256]
+    char_span: [6110, 7255]
     sentence_count: 9
     key_terms: [voo, automatically, trackinsight, moderators, performed, questions, subreddit, concerns]
+    concepts: [automatically, trackinsight, moderators, performed, questions]
     section: Comments
     token_count: 306
   - id: "social-intelligence/reddit-deep/etfs/1mveuvr.md#c5"
-    char_span: [7258, 7995]
+    char_span: [7257, 7994]
     sentence_count: 4
     key_terms: [charlybregni, excelente, seguridad, leverage, savings, activo, brinda, firm-permission-3311]
+    concepts: [charlybregni, excelente, seguridad, leverage, savings]
     section: Comments
     token_count: 210
 ---

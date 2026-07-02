@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1676]
     sentence_count: 5
     key_terms: [work, transformation, business, reports, trends, leadership, workforce, economic]
+    concepts: [transformation, business, reports, leadership, trends]
     token_count: 373
+    sources: [{"n":"reddit-deep: r/futureofwork","u":"https://www.reddit.com/r/FutureOfWork/comments/1rf5frz/essential_futureofwork_resources_reports_trends/"}]
   - id: "social-intelligence/reddit-deep/futureofwork/1rf5frz.md#c1"
     char_span: [1690, 2567]
     sentence_count: 7
     key_terms: [work, productivity, remote, png, time, ygtn50vi2tlg1, disconnected, hubstaffapp]
+    concepts: [productivity, remote]
     section: Comments
     token_count: 224
 ---

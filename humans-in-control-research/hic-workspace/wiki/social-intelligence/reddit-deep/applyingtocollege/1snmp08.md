@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1107]
     sentence_count: 5
     key_terms: [experience, applyingtocollege, college, international, affordable, comments, options, student]
+    concepts: [experience, applyingtocollege, international, college, affordable]
     token_count: 256
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1snmp08/help_needed_pls_aussie_student_looking_for/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1snmp08.md#c1"
     char_span: [1121, 1340]
     sentence_count: 3

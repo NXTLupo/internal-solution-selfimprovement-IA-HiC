@@ -20,35 +20,42 @@ chunks:
     char_span: [0, 1848]
     sentence_count: 10
     key_terms: [using, productmanagement, platform, opportunities, aid, code, role, vibe]
+    concepts: [productmanagement, using, platform, opportunities, discovery]
     token_count: 412
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1rguhz2/using_ai_in_technicalplatform_product_management/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1rguhz2.md#c1"
-    char_span: [1863, 3894]
+    char_span: [1862, 3893]
     sentence_count: 14
     key_terms: [product, business, improvements, engineering, altruistic-judge-911, value, data, shipping]
+    concepts: [product, business, improvements, altruistic-judge-911, engineering]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/productmanagement/1rguhz2.md#c2"
-    char_span: [3896, 5951]
+    char_span: [3895, 5950]
     sentence_count: 14
     key_terms: [use, cases, data, thinking, content, draft, tools, structure]
+    concepts: [cases, thinking, content, draft, tools]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/productmanagement/1rguhz2.md#c3"
-    char_span: [5953, 8224]
+    char_span: [5952, 8223]
     sentence_count: 13
     key_terms: [llms, using, day, terms, vibe-coding, like, llm, task]
+    concepts: [using, vibe-coding, terms, vibe-code, ideation]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/productmanagement/1rguhz2.md#c4"
-    char_span: [8226, 10451]
+    char_span: [8225, 10450]
     sentence_count: 21
     key_terms: [genai, docs, use, internet, claude, early, etc, productive]
+    concepts: [genai, internet, claude, early, productive]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/productmanagement/1rguhz2.md#c5"
-    char_span: [10453, 11198]
+    char_span: [10452, 11197]
     sentence_count: 6
     key_terms: [prototyping, new, altruistic-judge-911, help, "i'm", disorganised, definitely, delivering]
+    concepts: [prototyping]
     section: Comments
     token_count: 173
 ---

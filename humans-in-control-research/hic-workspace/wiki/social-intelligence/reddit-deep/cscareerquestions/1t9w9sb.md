@@ -19,17 +19,24 @@ chunks:
     char_span: [0, 1254]
     sentence_count: 9
     key_terms: [cscareerquestions, year, co-op, portfolio, comments, projects, another, degrees]
+    concepts: [cscareerquestions, co-op, portfolio, comments, projects]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t9w9sb.md#c1"]
     token_count: 313
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t9w9sb/30_year_old_cs_student_debating_whether_coop_is/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t9w9sb.md#c1"
     char_span: [1268, 3198]
     sentence_count: 13
     key_terms: [projects, co-op, specialization, experience, internship, full, time, coding]
+    concepts: [projects, specialization, co-op, experience, internship]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t9w9sb.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1t9w9sb.md#c2"]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t9w9sb.md#c2"
     char_span: [3200, 4390]
     sentence_count: 5
     key_terms: [experience, internship, job, graduating, without, choose, insane, co-op]
+    concepts: [experience, internship, graduating, without, choose]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t9w9sb.md#c1"]
     section: Comments
     token_count: 289
 ---

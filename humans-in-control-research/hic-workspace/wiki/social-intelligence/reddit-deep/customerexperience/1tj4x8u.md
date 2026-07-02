@@ -20,16 +20,22 @@ chunks:
     char_span: [0, 1812]
     sentence_count: 2
     key_terms: [lorikeetcx, senior-product-manager-conversational-ai-for-customer-service-f-m-d-auto1-group, cx-jobs, https, www, cs-transformation-automation-lead-wallapop, integrity-operations-specialist-bumble-inc, senior-director-customer-support-clio]
+    concepts: [senior-product-manager-conversational-ai-for-customer-service-f-m-d-auto1-group, lorikeetcx, cx-jobs, https, cs-transformation-automation-lead-wallapop]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1tj4x8u.md#c1"]
     token_count: 500
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1tj4x8u/the_cxai_job_market_is_shifting_deploy_ai_is_now/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1tj4x8u.md#c1"
     char_span: [1814, 2450]
     sentence_count: 2
     key_terms: [implementation-engineer-ai-rudder, lorikeetcx, cx-jobs, https, www, utm, cx-ai-jobs, whether]
+    concepts: [implementation-engineer-ai-rudder, lorikeetcx, cx-jobs, https, cx-ai-jobs]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1tj4x8u.md#c0"]
     token_count: 178
   - id: "social-intelligence/reddit-deep/customerexperience/1tj4x8u.md#c2"
-    char_span: [2465, 2999]
+    char_span: [2464, 2998]
     sentence_count: 3
     key_terms: [customer, roles, interesting, responsibly, automation, definitely, deployment, escalation]
+    concepts: [customer, roles]
     section: Comments
     token_count: 109
 ---

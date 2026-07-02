@@ -21,55 +21,68 @@ chunks:
     char_span: [0, 2017]
     sentence_count: 12
     key_terms: [financialindependence, get, comments, "didn't", father, mother, people, worked]
+    concepts: [financialindependence, comments, "didn't", father, mother]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1mibxco/one_year_fi_how_i_got_here_and_how_its_going_a/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c1"
     char_span: [2019, 4195]
     sentence_count: 18
     key_terms: [because, money, like, bought, next, inflation, mortgage, college]
+    concepts: [because, money, bought, inflation, mortgage]
     token_count: 517
   - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c2"
     char_span: [4200, 6241]
     sentence_count: 16
     key_terms: [car, accounts, months, cash, pay, retirement, sometimes, surviving]
+    concepts: [accounts, months, retirement, sometimes, surviving]
     token_count: 494
   - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c3"
     char_span: [6243, 8338]
     sentence_count: 13
     key_terms: [retirement, something, mortgage, non-retirement, wanted, condo, house, low]
+    concepts: [retirement, something, mortgage, non-retirement, wanted]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1mibxco.md#c4"]
     token_count: 511
   - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c4"
     char_span: [8340, 10320]
     sentence_count: 20
     key_terms: [mortgage, non-retirement, knew, paid, retirement, starting, company, figured]
+    concepts: [mortgage, non-retirement, retirement, starting, company]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1mibxco.md#c3"]
     token_count: 502
   - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c5"
     char_span: [10334, 12282]
     sentence_count: 16
     key_terms: [sharing, redqueenwhitequeen, thank, car, love, too, inspiring, paralyzed]
+    concepts: [sharing, redqueenwhitequeen, thank, inspiring, paralyzed]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c6"
     char_span: [12284, 14280]
     sentence_count: 23
     key_terms: [great, like, thanks, years, periodic, deaths, enough, lesson]
+    concepts: [great, thanks, years, periodic, deaths]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c7"
     char_span: [14282, 16191]
     sentence_count: 15
     key_terms: ["i'm", taxable, people, fine, everything, financial, because, husband]
+    concepts: [taxable, people, everything, financial, because]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c8"
     char_span: [16193, 17404]
     sentence_count: 10
     key_terms: [years, accounts, taxable, market, doing, house, until, redqueenwhitequeen]
+    concepts: [years, accounts, taxable, market, doing]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c9"
     char_span: [17406, 19243]
     sentence_count: 16
     key_terms: [gruntbuggly, colleagues, because, company, pretty, "that's", least, alpacamytoothbrush]
+    concepts: [gruntbuggly, colleagues, because, company, pretty]
     section: Comments
     token_count: 429
 ---

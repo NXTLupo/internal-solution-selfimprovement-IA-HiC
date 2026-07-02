@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 1066]
     sentence_count: 9
     key_terms: [cscareerquestions, swe, statistical, analysis, comments, working, fucked, practical-durian-593]
+    concepts: [cscareerquestions, statistical, analysis, comments, working]
     token_count: 267
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sjhbq1/left_industry_for_5_years_how_fucked_am_i/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sjhbq1.md#c1"
     char_span: [1080, 3152]
     sentence_count: 17
     key_terms: [internships, practical-durian-593, phd, least, job, less, background, companies]
+    concepts: [internships, practical-durian-593, background, least, companies]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sjhbq1.md#c2"
     char_span: [3154, 4777]
     sentence_count: 14
     key_terms: [companies, overqualified, level, experience, company, practical-durian-593, spend, get]
+    concepts: [companies, overqualified, experience, level, company]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sjhbq1.md#c3"
     char_span: [4779, 5963]
     sentence_count: 5
     key_terms: [swe, generic, going, years, back, data, don, job]
+    concepts: [generic, going, years]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sjhbq1.md#c4"
     char_span: [5965, 7266]
     sentence_count: 3
     key_terms: [given, code, get, job, mikeyzhong, research, comment, getting]
+    concepts: [given, mikeyzhong, research, comment, getting]
     section: Comments
     token_count: 314
 ---

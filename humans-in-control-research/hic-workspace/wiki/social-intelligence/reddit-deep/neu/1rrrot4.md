@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1910]
     sentence_count: 13
     key_terms: [theatre, psychology, productions, like, overall, student, school, northeastern]
+    concepts: [theatre, psychology, productions, overall, student]
     token_count: 413
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rrrot4/help_with_some_info_plz/"}]
   - id: "social-intelligence/reddit-deep/neu/1rrrot4.md#c1"
     char_span: [1924, 3952]
     sentence_count: 8
     key_terms: [theatre, opportunities, people, smaller, clubs, super, coop, good]
+    concepts: [opportunities, theatre, people, smaller, clubs]
     section: Comments
     token_count: 479
 ---

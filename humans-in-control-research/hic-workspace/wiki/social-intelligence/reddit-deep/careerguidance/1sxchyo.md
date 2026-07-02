@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 351]
     sentence_count: 2
     key_terms: [careerguidance, comments, reddit-deep, considered, valuable, degrees, career, market]
+    concepts: [careerguidance, comments]
     token_count: 95
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sxchyo/what_degrees_are_still_useful_and_which_career/"}]
 ---
 # What degrees are still useful and which career paths are still considered valuable in the UK job market today?
 

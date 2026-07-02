@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1765]
     sentence_count: 9
     key_terms: [cybersecurity, transformation, security, staffing, help, soc, comments, looking]
+    concepts: [cybersecurity, transformation, security, staffing, comments]
     token_count: 382
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1ocy9ac/looking_for_advice_on_prospecting_cybersecurity/"}]
   - id: "social-intelligence/reddit-deep/sales/1ocy9ac.md#c1"
-    char_span: [1780, 3410]
+    char_span: [1779, 3409]
     sentence_count: 14
     key_terms: [something, need, figuring, linkedin, outbound, around, people, doing]
+    concepts: [something, figuring, linkedin, outbound, around]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/sales/1ocy9ac.md#c2"
-    char_span: [3412, 5176]
+    char_span: [3411, 5175]
     sentence_count: 12
     key_terms: [soc, looking, companies, work, beforeicry, industries, outsourced, successful]
+    concepts: [looking, companies, beforeicry, industries, outsourced]
     section: Comments
     token_count: 391
 ---

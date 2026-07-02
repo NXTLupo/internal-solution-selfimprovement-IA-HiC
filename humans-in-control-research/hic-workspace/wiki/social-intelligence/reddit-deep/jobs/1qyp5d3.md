@@ -19,107 +19,126 @@ chunks:
     char_span: [0, 1520]
     sentence_count: 12
     key_terms: [job, market, gen, jobs, new, discussion, comments, amounts]
+    concepts: [market, discussion, comments, amounts, traffic]
     token_count: 345
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1qyp5d3/we_need_to_talk_about_the_gen_z_job_crisis/"}]
   - id: "social-intelligence/reddit-deep/jobs/1qyp5d3.md#c1"
     char_span: [1534, 3191]
     sentence_count: 12
     key_terms: [tiny-nature3538, gen, job, marketing, because, always, school, agree]
+    concepts: [tiny-nature3538, marketing, because, always, school]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/jobs/1qyp5d3.md#c2"
     char_span: [3193, 5111]
     sentence_count: 14
     key_terms: [like, took, because, work, year, experience, facilities, companies]
+    concepts: [because, experience, facilities, companies, positions]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/jobs/1qyp5d3.md#c3"
     char_span: [5113, 7410]
     sentence_count: 27
     key_terms: [like, development, supervisors, complaints, employees, awkward, talking, around]
+    concepts: [development, supervisors, complaints, employees, awkward]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/jobs/1qyp5d3.md#c4"
     char_span: [7412, 8562]
     sentence_count: 8
     key_terms: [completely, like, generation, employees, stopped, add, lot, ludovicgiulystan]
+    concepts: [completely, generation, employees, stopped]
     section: Comments
     token_count: 262
   - id: "social-intelligence/reddit-deep/jobs/1qyp5d3.md#c5"
     char_span: [8564, 10002]
     sentence_count: 15
     key_terms: [environment, passion, provide, grads, sucks, wages, get, here]
+    concepts: [environment, passion, provide, grads, sucks]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/jobs/1qyp5d3.md#c6"
     char_span: [10004, 11804]
     sentence_count: 14
     key_terms: [around, enough, leave, "i'm", pay, because, company, network]
+    concepts: [around, enough, leave, because, company]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/jobs/1qyp5d3.md#c7"
     char_span: [11806, 13865]
     sentence_count: 15
     key_terms: [boomers, majority, year, shareholders, write, did, old, positions]
+    concepts: [boomers, majority, shareholders, write, positions]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qyp5d3.md#c8"
     char_span: [13867, 15461]
     sentence_count: 9
     key_terms: [middle, businesses, government, management, companies, majority, already, average]
+    concepts: [middle, businesses, government, management, companies]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/jobs/1qyp5d3.md#c9"
     char_span: [15463, 17347]
     sentence_count: 14
     key_terms: [better, graduated, applying, get, job, new, javerthugo, everyone]
+    concepts: [better, graduated, applying, javerthugo, everyone]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/jobs/1qyp5d3.md#c10"
     char_span: [17349, 18091]
     sentence_count: 7
     key_terms: [life, degrees, never, own, underemployed, experience, javerthugo, struggling]
+    concepts: [degrees, never]
     section: Comments
     token_count: 201
   - id: "social-intelligence/reddit-deep/jobs/1qyp5d3.md#c11"
     char_span: [18093, 19367]
     sentence_count: 11
     key_terms: [years, job, graduated, recession, something, people, bad, com]
+    concepts: [years, graduated, recession, something, people]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/jobs/1qyp5d3.md#c12"
     char_span: [19369, 21340]
     sentence_count: 8
     key_terms: [company, tax, gdom123456, labor, outsourcing, outsourced, companies, american]
+    concepts: [company, gdom123456, outsourcing, labor, outsourced]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qyp5d3.md#c13"
     char_span: [21097, 23160]
     sentence_count: 11
     key_terms: [companies, change, india, move, offshoring, behavior, without, happen]
+    concepts: [companies, change, india, offshoring, behavior]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/jobs/1qyp5d3.md#c14"
     char_span: [23162, 25409]
     sentence_count: 18
     key_terms: [companies, outsourcing, gen, job, degrees, problem, costs, immigration]
+    concepts: [companies, outsourcing, degrees, problem, immigration]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qyp5d3.md#c15"
     char_span: [25411, 27718]
     sentence_count: 17
     key_terms: [companies, salaries, apprehensivegoal2782, ridiculous, employees, jobs, getting, enough]
+    concepts: [companies, salaries, apprehensivegoal2782, ridiculous, employees]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qyp5d3.md#c16"
     char_span: [27427, 28104]
     sentence_count: 3
     key_terms: [people, business, apprehensivegoal2782, maybe, competitors, companies, eliminate, employees]
+    concepts: [people, business, maybe]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/jobs/1qyp5d3.md#c17"
     char_span: [28106, 28993]
     sentence_count: 4
     key_terms: [possible, comfortable-maybe183, need, next, consequences, ohbrother-fu, razzemmatazz, shareholders]
+    concepts: [possible]
     section: Comments
     token_count: 234
 ---

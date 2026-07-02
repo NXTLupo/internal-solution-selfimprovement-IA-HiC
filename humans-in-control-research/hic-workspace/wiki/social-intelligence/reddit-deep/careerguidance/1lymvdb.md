@@ -21,47 +21,56 @@ chunks:
     char_span: [0, 1840]
     sentence_count: 14
     key_terms: [wanna, day, "don't", been, "i'm", job, careerguidance, money]
+    concepts: [wanna, "don't", careerguidance, money, anything]
     token_count: 455
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1lymvdb/do_i_quit_my_job_after_my_first_day_today/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c1"
     char_span: [1854, 3547]
     sentence_count: 14
     key_terms: [gonna, months, opportunity, day, give, home, "i'm", brahnbrahl]
+    concepts: [gonna, months, opportunity, brahnbrahl, diagnosed]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c2"
     char_span: [3549, 4125]
     sentence_count: 2
     key_terms: ["it's", mental, since, consciousness, unfortunately, psychologist, surroundings, convulsions]
+    concepts: [mental, since]
     section: Comments
     token_count: 133
   - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c3"
     char_span: [4127, 6116]
     sentence_count: 22
     key_terms: ["i'm", because, depression, sucks, support, goodgoodgoody, home, quit]
+    concepts: [because, depression, sucks, goodgoodgoody, support]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c4"
     char_span: [5869, 7764]
     sentence_count: 10
     key_terms: [psychiatrist, "it's", like, need, problem, serious, therapy, health]
+    concepts: [psychiatrist, fr0styalt0idz, problem, serious, therapy]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c5"
     char_span: [7768, 10020]
     sentence_count: 20
     key_terms: [like, week, work, standard, therapy, finance, started, working]
+    concepts: [standard, therapy, finance, started, working]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c6"
     char_span: [9771, 10021]
     sentence_count: 4
     key_terms: [finance, week, work, important, projects, someone, stories, working]
+    concepts: [finance]
     section: Comments
     token_count: 65
   - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c7"
     char_span: [10023, 11290]
     sentence_count: 12
     key_terms: [years, work, everything, today, stanthemilkman8888, ago, big, else]
+    concepts: [years, everything, today]
     section: Comments
     token_count: 307
 ---

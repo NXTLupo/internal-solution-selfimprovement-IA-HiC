@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1231]
     sentence_count: 10
     key_terms: [job, got, library, front, hours, today, desk, don]
+    concepts: [library, front, hours, today, assistant]
     token_count: 286
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1phown5/help_with_deciding_a_student_job_opportunity/"}]
 ---
 # Help with deciding a student job opportunity
 

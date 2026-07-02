@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1828]
     sentence_count: 12
     key_terms: [investing, companies, players, stocks, data, take, focusing, centre]
+    concepts: [investing, companies, players, stocks, focusing]
     token_count: 394
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1oyim2d/my_take_on_investing_in_us_stocks_relevant_to_ai/"}]
   - id: "social-intelligence/reddit-deep/investing/1oyim2d.md#c1"
     char_span: [1842, 3787]
     sentence_count: 13
     key_terms: [theme, data, center, down, like, strength, growth, month]
+    concepts: [theme, center, strength, growth, month]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/investing/1oyim2d.md#c2"
     char_span: [3789, 5800]
     sentence_count: 9
     key_terms: [datacenter, power, infrastructure, cooling, centers, market, datacenters, data]
+    concepts: [datacenter, power, infrastructure, cooling, centers]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1oyim2d.md#c3"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/investing/1oyim2d.md#c3"
     char_span: [5804, 7455]
     sentence_count: 18
     key_terms: [infrastructure, fundamentals, avgo, data, financial, cooling, "you're", early]
+    concepts: [infrastructure, fundamentals, financial, cooling, "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1oyim2d.md#c2"]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/investing/1oyim2d.md#c4"
     char_span: [7457, 9008]
     sentence_count: 11
     key_terms: [narrow-ad-7856, international, good, reasonable, center, careless-cobbler-357, broad, index]
+    concepts: [narrow-ad-7856, international, reasonable, center, broad]
     section: Comments
     token_count: 383
 ---

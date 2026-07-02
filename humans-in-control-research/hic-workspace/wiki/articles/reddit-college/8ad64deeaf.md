@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1414]
     sentence_count: 10
     key_terms: [alternative, assignment, religious, obligation, college, class, event, week]
+    concepts: [alternative, assignment, religious, obligation, college]
     token_count: 321
+    sources: [{"n":"reddit: college","u":"https://reddit.com/r/college/comments/1oc8xdk/missed_class_due_to_religious_obligation/"}]
 ---
 # Missed class due to religious obligation; professor gave 0
 

@@ -65,6 +65,27 @@ run_weekly() {
   note "[weekly] SkillOpt retrain (delegates to skillopt-weekly.sh; has its own held-out validate-candidate.py gate)"
   bash "$HIC_DIR/scripts/skillopt-weekly.sh" >> "$LOG" 2>&1 \
     && note "[weekly] skillopt-weekly OK" || note "[weekly] skillopt-weekly failed (see log)"
+
+  # E6.3 (2026-07-02, artifact-total-elevation): #proto manifest <-> Figma parity, weekly.
+  # HEADLESS TIER: audits the proto component manifest the pipeline actually composes from
+  # (design-system/proto-component-manifest.md) for staleness + vocabulary collapse - the two
+  # drift symptoms a dead mirror shows. The LIVE Figma comparison (5 proto-pattern pages vs the
+  # manifest ids) is a Claude-driven job via /schedule, same split as wiki-curator above.
+  note "[weekly] proto manifest<->Figma parity (headless tier)"
+  MANIFEST_FILE="$HIC_DIR/hic-workspace/wiki/design-system/proto-component-manifest.md"
+  if [ -f "$MANIFEST_FILE" ]; then
+    PROTO_COUNT=$(grep -c "proto/" "$MANIFEST_FILE" 2>/dev/null || echo 0)
+    AGE_DAYS=$(( ( $(date +%s) - $(date -r "$MANIFEST_FILE" +%s) ) / 86400 ))
+    if [ "$PROTO_COUNT" -lt 100 ]; then
+      note "[weekly] PROTO PARITY DRIFT: only $PROTO_COUNT proto/<Name> refs (expected 150+; vocabulary collapse?)"
+    elif [ "$AGE_DAYS" -gt 21 ]; then
+      note "[weekly] PROTO PARITY WARN: manifest untouched for ${AGE_DAYS}d - run the live Figma parity pass (5 proto pages) via Claude /schedule"
+    else
+      note "[weekly] proto manifest OK ($PROTO_COUNT proto refs, ${AGE_DAYS}d old)"
+    fi
+  else
+    note "[weekly] PROTO PARITY FAIL: $MANIFEST_FILE missing - #proto builds are composing blind"
+  fi
 }
 
 # ─── MONTHLY: weekly jobs + health-check summary ───────────────────────────

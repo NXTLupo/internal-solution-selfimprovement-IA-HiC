@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 994]
     sentence_count: 8
     key_terms: [customerexperience, agents, assist, agent, comments, replies, support, teams]
+    concepts: [customerexperience, agents, assist, agent, comments]
     token_count: 223
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1qttnzf/what_most_grinds_your_gears_with_ai_agent_assist/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1qttnzf.md#c1"
-    char_span: [1009, 2510]
+    char_span: [1008, 2509]
     sentence_count: 6
     key_terms: [ton, fait, pour, grounding, contexte, agents, client, email]
+    concepts: [grounding, contexte, agents, client, email]
     section: Comments
     token_count: 388
 ---

@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 645]
     sentence_count: 6
     key_terms: [college, masters, like, undergrad, comments, student, phoenixmaster123, undergraduate]
+    concepts: [college, masters, undergrad, comments, student]
     token_count: 147
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lscvpf/what_is_college_life_as_a_masters_student_like/"}]
   - id: "social-intelligence/reddit-deep/college/1lscvpf.md#c1"
     char_span: [659, 1213]
     sentence_count: 5
     key_terms: [undergrad, classes, social, "you're", work, all-encompassing, concentrated, environment]
+    concepts: [undergrad, classes, social, "you're"]
     section: Comments
     token_count: 123
   - id: "social-intelligence/reddit-deep/college/1lscvpf.md#c2"
     char_span: [1215, 3000]
     sentence_count: 17
     key_terms: [students, work, experience, graduate, school, fun, undergrad, because]
+    concepts: [students, experience, graduate, school, undergrad]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lscvpf.md#c3", "social-intelligence/reddit-deep/college/1lscvpf.md#c4"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/college/1lscvpf.md#c3"
     char_span: [3002, 5398]
     sentence_count: 26
     key_terms: [program, undergrad, students, age, school, class, grad, average]
+    concepts: [program, undergrad, students, school, class]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lscvpf.md#c2", "social-intelligence/reddit-deep/college/1lscvpf.md#c4"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/college/1lscvpf.md#c4"
     char_span: [5400, 7363]
     sentence_count: 15
     key_terms: [year, school, undergrad, grad, students, harder, clubs, experiences]
+    concepts: [undergrad, school, students, harder, experiences]
+    related_chunks: ["social-intelligence/reddit-deep/college/1lscvpf.md#c2", "social-intelligence/reddit-deep/college/1lscvpf.md#c3"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/college/1lscvpf.md#c5"

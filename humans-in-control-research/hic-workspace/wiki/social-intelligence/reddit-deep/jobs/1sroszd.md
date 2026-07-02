@@ -21,142 +21,181 @@ chunks:
     char_span: [0, 2017]
     sentence_count: 15
     key_terms: [expectations, call, genuinely, recruiter, comments, getting, myself, salary]
+    concepts: [expectations, genuinely, recruiter, comments, getting]
     token_count: 443
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1sroszd/the_recruiter_called_my_salary_expectations_cute/"}]
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c1"
     char_span: [2019, 2942]
     sentence_count: 7
     key_terms: [resume, prep, application, considered, interviews, recruiters, callbacks, guesswork]
+    concepts: [resume]
     token_count: 202
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c2"
     char_span: [2956, 4716]
     sentence_count: 12
     key_terms: [mission, people, cute, statement, driven, equity, prefer, salary]
+    concepts: [mission, people, statement, driven, equity]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sroszd.md#c7"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c3"
     char_span: [4718, 5337]
     sentence_count: 3
     key_terms: [mission, "doesn't", "won't", help, appointments, performance, significant, medically]
+    concepts: [mission, "doesn't", "won't"]
     section: Comments
     token_count: 140
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c4"
     char_span: [5339, 7443]
     sentence_count: 11
     key_terms: [get, free, work, passionate, recruiter, because, mission, working]
+    concepts: [passionate, recruiter, because, mission, working]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sroszd.md#c20"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c5"
     char_span: [7156, 7725]
     sentence_count: 3
     key_terms: [interviews, reputation-final, improperboston, absolutely, different, exhausted, bullshit, terrible]
+    concepts: [interviews]
     section: Comments
     token_count: 147
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c6"
     char_span: [7727, 9205]
     sentence_count: 12
     key_terms: [work, people, money, "it's", shit, want, leadership, companies]
+    concepts: [people, leadership, money, companies, salaries]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sroszd.md#c7"]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c7"
     char_span: [9207, 10906]
     sentence_count: 12
     key_terms: [mission, corporations, like, companies, absurd, people, labor, money]
+    concepts: [mission, corporations, companies, absurd, people]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sroszd.md#c2", "social-intelligence/reddit-deep/jobs/1sroszd.md#c6"]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c8"
     char_span: [10908, 12807]
     sentence_count: 10
     key_terms: [rockstar, mission, pizza, company, culture, market, people, prefer]
+    concepts: [rockstar, mission, pizza, company, culture]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sroszd.md#c10"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c9"
     char_span: [12809, 14142]
     sentence_count: 7
     key_terms: [rockstars, rockstar, teacher, cringe, pocket, maybe, pizza, call]
+    concepts: [rockstars, rockstar, teacher, cringe, pocket]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sroszd.md#c11"]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c10"
     char_span: [14144, 16056]
     sentence_count: 13
     key_terms: [rockstar, family, boss, assholes, company, "they're", people, supermarketfluffy123]
+    concepts: [rockstar, family, assholes, company, "they're"]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sroszd.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c11"
     char_span: [15795, 16882]
     sentence_count: 8
     key_terms: [rockstar, bank, get, rockstars, local, techs, paid, pnc]
+    concepts: [rockstar, rockstars, local, techs]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sroszd.md#c9"]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c12"
     char_span: [16884, 18419]
     sentence_count: 8
     key_terms: ["don't", rockstar, manager, suckerforthevillains, least, get, job, like]
+    concepts: ["don't", rockstar, manager, least]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c13"
     char_span: [18421, 20618]
     sentence_count: 20
     key_terms: [work, interview, get, until, call, in-person, recruiter, something]
+    concepts: [interview, until, in-person, recruiter, something]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sroszd.md#c20"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c14"
     char_span: [20321, 20684]
     sentence_count: 4
     key_terms: [recruiter, didn, want, consideration, opportunity, withdrawing, interview, response]
+    concepts: [recruiter]
     section: Comments
     token_count: 81
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c15"
     char_span: [20686, 22700]
     sentence_count: 18
     key_terms: [permanent, been, interview, contract, position, "would've", company, sounds]
+    concepts: [permanent, interview, contract, position, "would've"]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sroszd.md#c16"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c16"
     char_span: [22466, 23788]
     sentence_count: 11
     key_terms: [time, admittedly, interview, "would've", people, jellyadventurous5699, suckerforthevillains, been]
+    concepts: [admittedly, interview, "would've", people]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sroszd.md#c15"]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c17"
     char_span: [23790, 25184]
     sentence_count: 7
     key_terms: [enough, photon-reddit, arctic-shift, negotiation, supervision, guy, "he's", candidates]
+    concepts: [enough, photon-reddit, arctic-shift, negotiation, supervision]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sroszd.md#c21"]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c18"
     char_span: [25186, 27215]
     sentence_count: 17
     key_terms: [company, candidate, consequences, posts, like, generated, recruiter, structure]
+    concepts: [company, candidate, consequences, posts, generated]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c19"
     char_span: [27217, 29130]
     sentence_count: 18
     key_terms: [reddit, punctuation, shit, people, exceptional, been, get, like]
+    concepts: [reddit, punctuation, people, exceptional, creative]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c20"
     char_span: [29132, 31064]
     sentence_count: 7
     key_terms: [candidate, great, "it's", recruiter, something, working, automatic-voice-2499, urinefilledaquarium]
+    concepts: [candidate, great, recruiter, something, working]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sroszd.md#c4", "social-intelligence/reddit-deep/jobs/1sroszd.md#c13"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c21"
     char_span: [31066, 32942]
     sentence_count: 5
     key_terms: [fake, don, like, post, resume, photon-reddit, arctic-shift, "there's"]
+    concepts: [photon-reddit, arctic-shift, resume, "there's", author]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sroszd.md#c17"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c22"
     char_span: [32944, 34748]
     sentence_count: 12
     key_terms: [people, fake, "they're", like, something, talking, never, posts]
+    concepts: [people, "they're", something, talking, never]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/jobs/1sroszd.md#c23"
     char_span: [34750, 36144]
     sentence_count: 8
     key_terms: [non-negotiable, better, expectations, left, desperate, falling, meeting, "they're"]
+    concepts: [non-negotiable, expectations, better, desperate, falling]
     section: Comments
     token_count: 360
 ---

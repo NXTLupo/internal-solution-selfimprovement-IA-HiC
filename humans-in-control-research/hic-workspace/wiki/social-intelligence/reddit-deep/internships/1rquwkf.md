@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 454]
     sentence_count: 3
     key_terms: [internships, comments, question, students, helped, landed, conversation, successfully]
+    concepts: [internships, comments, question, students, helped]
     token_count: 108
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rquwkf/students_who_landed_internships_what_question/"}]
   - id: "social-intelligence/reddit-deep/internships/1rquwkf.md#c1"
     char_span: [468, 808]
     sentence_count: 3
     key_terms: [interviewer, job, mentioned, interview, questions, previous, focused, generic]
+    concepts: [interviewer, mentioned]
     section: Comments
     token_count: 73
   - id: "social-intelligence/reddit-deep/internships/1rquwkf.md#c2"
     char_span: [810, 2835]
     sentence_count: 9
     key_terms: [questions, interviewer, great, skills, conversation, ask, experience, sometimes]
+    concepts: [questions, interviewer, great, conversation, skills]
     section: Comments
     token_count: 474
 ---

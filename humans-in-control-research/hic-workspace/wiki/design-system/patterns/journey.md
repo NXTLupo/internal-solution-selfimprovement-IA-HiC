@@ -8,12 +8,14 @@ chunks:
     char_span: [0, 1629]
     sentence_count: 11
     key_terms: [matrix, mono, nxt, archivo, tokens, base, chat, ibm]
+    concepts: [matrix, archivo, tokens, variables, journey]
     section: Figma exemplars (source of truth) / Anatomy / Construction rule (1-to-1 PPTX)
     token_count: 460
   - id: "design-system/patterns/journey.md#c1"
     char_span: [1673, 2335]
     sentence_count: 3
     key_terms: [stages, journey-map, blueprint, journey, lanes, service-blueprint, exportjourneymap, renderjourneymap]
+    concepts: [stages, journey-map, blueprint, journey, lanes]
     section: Runtime template contract (2026-06-11)
     token_count: 184
 ---

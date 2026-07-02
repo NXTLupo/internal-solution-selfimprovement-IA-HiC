@@ -111,13 +111,26 @@ function resolveProviderModelId(chatModel: FreeformGenerationModel): string {
 async function callClaude(prompt: string, modelId: string): Promise<string> {
     const { callAIWithRetry } = await import('../../services/aiRetryClient');
     const { designerVoiceAddendum } = await import('./voiceAddendum');
-    const sys = SYSTEM_PROMPT + await designerVoiceAddendum();
+    const { HIC_CACHE_BREAK } = await import('../../services/aiRouter');
+    // 2026-07-02 DESIGNER-CHAT CACHING: buildPrompt marks the stable-prefix boundary. Lift the
+    // stable prefix into the system string so the proxy's marker split sets cache_control
+    // breakpoints on [core][stable prefix]; the tiny literal tail keeps the big block NON-final
+    // (the injector marks non-final blocks only). Iterating on the same artifact then re-reads
+    // the 30-50KB rules+exemplar prefix from cache instead of re-ingesting it every turn.
+    let sys = SYSTEM_PROMPT + await designerVoiceAddendum();
+    let userContent = prompt;
+    const brk = prompt.indexOf(HIC_CACHE_BREAK);
+    if (brk > 0) {
+        sys = sys + HIC_CACHE_BREAK + prompt.slice(0, brk) + HIC_CACHE_BREAK
+            + 'Apply every rule and reference above to this generation.';
+        userContent = prompt.slice(brk + HIC_CACHE_BREAK.length);
+    }
     // No `temperature`: opus-4-8 400s on it ("deprecated for this model").
     const data: any = await callAIWithRetry('anthropic', {
         model: modelId,
         max_tokens: MAX_TOKENS,
         system: sys,
-        messages: [{ role: 'user', content: prompt }],
+        messages: [{ role: 'user', content: userContent }],
     }, { label: `Freeform (Claude ${modelId})`, maxAttempts: 3 });
     const blocks = Array.isArray(data?.content) ? data.content : [];
     return blocks.map((b: any) => (typeof b?.text === 'string' ? b.text : '')).join('');
@@ -187,10 +200,16 @@ async function callGemini(prompt: string, modelId: string): Promise<string> {
 
 async function callForModel(prompt: string, model: FreeformGenerationModel): Promise<string> {
     const providerId = resolveProviderModelId(model);
-    if (model === 'deepseek-v4-flash') return callDeepSeek(prompt, providerId);
-    if (model === 'gpt-5.4') return analyzeTextOpenAI(SYSTEM_PROMPT, prompt, providerId, MAX_TOKENS, TEMPERATURE);
+    // 2026-07-02 caching: only the Anthropic path consumes the cache-break marker (callClaude
+    // lifts the stable prefix into system). Every other provider gets a marker-free prompt -
+    // Gemini's implicit caching keys on the stable-first prefix ordering buildPrompt already
+    // guarantees; the marker itself must never reach a model as literal text.
     if (model === 'claude-opus-4-8') return callClaude(prompt, providerId);
-    return callGemini(prompt, providerId);
+    const { stripCacheMarkers } = await import('../../services/aiRouter');
+    const clean = stripCacheMarkers(prompt);
+    if (model === 'deepseek-v4-flash') return callDeepSeek(clean, providerId);
+    if (model === 'gpt-5.4') return analyzeTextOpenAI(SYSTEM_PROMPT, clean, providerId, MAX_TOKENS, TEMPERATURE);
+    return callGemini(clean, providerId);
 }
 
 /**
@@ -549,6 +568,17 @@ async function buildPrompt(args: FreeformGenerateArgs, bundle: { exemplarHtml: s
         `        [ ] No region is empty - every visual zone has brand-styled content\n\n` +
         `=== EXEMPLAR BODY CONTENT (your structural reference - adapt the text inside) ===\n` +
         splitExemplarShell(bundle.exemplarHtml).sampleBody);
+
+    // 2026-07-02 DESIGNER-CHAT PROMPT CACHING: everything ABOVE this marker is stable per
+    // (kind, brand) across Designer iterations - tone/anti-slop rules, VS preamble (kind-keyed),
+    // output contract, brand + diagram skills, architecture rules, and the 30-50KB exemplar body.
+    // The Claude path lifts the stable prefix into the system string where the proxy's marker
+    // split sets cache_control breakpoints; non-Anthropic paths strip the marker client-side.
+    // Dynamic content (corpus slice, revision artifact, title rules, user ask) follows.
+    {
+        const { HIC_CACHE_BREAK } = await import('../../services/aiRouter');
+        sections.push(HIC_CACHE_BREAK);
+    }
 
     if (args.corpus && args.corpus.length > 0) {
         sections.push(`\n=== RESEARCH CORPUS + UPLOADS (grounding evidence) ===\n${args.corpus.slice(0, 200000)}`);

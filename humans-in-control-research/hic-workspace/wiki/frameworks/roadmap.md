@@ -14,60 +14,78 @@ chunks:
     char_span: [0, 951]
     sentence_count: 7
     key_terms: [roadmap, strategic, now-next-later, outcome-based, specification, provides, feature, purpose]
+    concepts: [roadmap, strategic, now-next-later, outcome-based, specification]
+    related_chunks: ["frameworks/roadmap.md#c8"]
     section: Canonical Framework
     token_count: 177
   - id: "frameworks/roadmap.md#c1"
     char_span: [982, 3295]
     sentence_count: 11
     key_terms: [theme, initiative, strategic, themes, problem, initiatives, confidence, dimension]
+    concepts: [theme, initiative, strategic, themes, initiatives]
+    related_chunks: ["frameworks/roadmap.md#c2", "frameworks/roadmap.md#c3", "frameworks/roadmap.md#c8"]
     section: Required Dimensions (14)
     token_count: 493
   - id: "frameworks/roadmap.md#c2"
     char_span: [3297, 5976]
     sentence_count: 13
     key_terms: [initiative, strategic, dependency, metric, dependencies, dimension, capacity, allocation]
+    concepts: [initiative, strategic, dependency, dependencies, metric]
+    related_chunks: ["frameworks/roadmap.md#c1", "frameworks/roadmap.md#c3", "frameworks/roadmap.md#c8"]
     section: Required Dimensions (14)
     token_count: 505
   - id: "frameworks/roadmap.md#c3"
     char_span: [5978, 8422]
     sentence_count: 11
     key_terms: [initiatives, confidence, dimension, strategic, problem, risk, initiative, low]
+    concepts: [initiatives, confidence, dimension, strategic, initiative]
+    related_chunks: ["frameworks/roadmap.md#c1", "frameworks/roadmap.md#c2", "frameworks/roadmap.md#c7", "frameworks/roadmap.md#c8"]
     section: Required Dimensions (14)
     token_count: 483
   - id: "frameworks/roadmap.md#c4"
     char_span: [8424, 10664]
     sentence_count: 8
     key_terms: [debt, customer, allocation, technical, initiatives, impact, investment, validation]
+    concepts: [customer, allocation, technical, initiatives, investment]
+    related_chunks: ["frameworks/roadmap.md#c5"]
     section: Required Dimensions (14)
     token_count: 417
   - id: "frameworks/roadmap.md#c5"
     char_span: [10666, 11503]
     sentence_count: 11
     key_terms: [view, detail, customer, initiative-level, horizon, time, allocation, investment]
+    concepts: [detail, initiative-level, customer, horizon, allocation]
+    related_chunks: ["frameworks/roadmap.md#c4"]
     section: Required Dimensions (14)
     token_count: 150
   - id: "frameworks/roadmap.md#c6"
     char_span: [11547, 13712]
     sentence_count: 20
     key_terms: [roadmap, detection, fix, items, precision, presented, date, project]
+    concepts: [roadmap, detection, precision, presented, items]
     section: Anti-Patterns (Generation Must Avoid)
     token_count: 423
   - id: "frameworks/roadmap.md#c7"
     char_span: [13732, 14930]
     sentence_count: 1
     key_terms: [confidence, initiative, review, completeness, allocation, capacity, gradient, detail]
+    concepts: [confidence, initiative, completeness, review, allocation]
+    related_chunks: ["frameworks/roadmap.md#c3"]
     section: Quality Gates
     token_count: 269
   - id: "frameworks/roadmap.md#c8"
     char_span: [14960, 17425]
     sentence_count: 19
     key_terms: [roadmap, strategic, initiatives, dependencies, decompose, features, problem, change]
+    concepts: [roadmap, strategic, initiatives, dependencies, decompose]
+    related_chunks: ["frameworks/roadmap.md#c0", "frameworks/roadmap.md#c1", "frameworks/roadmap.md#c2", "frameworks/roadmap.md#c3"]
     section: Generation Instructions
     token_count: 489
   - id: "frameworks/roadmap.md#c9"
     char_span: [17448, 17920]
     sentence_count: 1
     key_terms: [frameworks, initiative, roadmap, anti-patterns, benchmarks, framework, strategy, prd]
+    concepts: [frameworks, initiative, anti-patterns, roadmap, benchmarks]
     section: Cross-References
     token_count: 98
 ---

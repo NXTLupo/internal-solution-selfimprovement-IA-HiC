@@ -19,10 +19,12 @@ content_hash: "0457458665cc53e9"
 relevance_by_goal: {"490684cfa204":78}
 chunks:
   - id: "articles/reddit-deep-r-fulfillmentbyamazon/db703fc1ff.md#c0"
-    char_span: [0, 1965]
+    char_span: [0, 1964]
     sentence_count: 13
     key_terms: [fulfillmentbyamazon, pr-052826-customs-rules, ireland, https, customer, customs, discord, press-releases]
-    token_count: 479
+    concepts: [fulfillmentbyamazon, pr-052826-customs-rules, ireland, https, customer]
+    token_count: 478
+    sources: [{"n":"Reddit Deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1u20h95/selling_to_ireland_the_150_customs_relief/"}]
 ---
 # Selling to Ireland? The €150 customs relief disappears 1 July and wondering what's your plan?
 

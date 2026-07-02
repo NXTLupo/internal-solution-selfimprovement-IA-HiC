@@ -20,15 +20,20 @@ chunks:
     char_span: [0, 1896]
     sentence_count: 9
     key_terms: [resolution, humans, interactions, customerexperience, bots, platform, agents, likely]
+    concepts: [resolution, humans, interactions, customerexperience, platform]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1rju0vl.md#c1"]
     token_count: 381
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1rju0vl/we_analyzed_100050_support_interactions_and_found/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1rju0vl.md#c1"
-    char_span: [1911, 3892]
+    char_span: [1910, 3891]
     sentence_count: 11
     key_terms: [ai-support-agent-performance-data-from-isara-reveals-the-hidden-skill-gap, humans, bots, experiences, like, suck, resolution, identical]
+    concepts: [ai-support-agent-performance-data-from-isara-reveals-the-hidden-skill-gap, humans, experiences, resolution, identical]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1rju0vl.md#c0"]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/customerexperience/1rju0vl.md#c2"
-    char_span: [3894, 4158]
+    char_span: [3893, 4157]
     sentence_count: 2
     key_terms: [bots, spirited-ad6269, specifically, confronted, knowledge, building, failure, perform]
     section: Comments

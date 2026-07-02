@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 249]
     sentence_count: 2
     key_terms: [comments, openai, sufficient-rough-647, reddit-deep, cleaning, jumping, sinking, people]
+    concepts: [comments, openai]
     token_count: 71
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1sofogu/what_is_going_on/"}]
   - id: "social-intelligence/reddit-deep/openai/1sofogu.md#c1"
     char_span: [263, 1630]
     sentence_count: 8
     key_terms: [sora, png, db5afe6ab18682dca32ae99f9f911bdce38c259c, preview, dead, format, people, pleasant-contact-556]
+    concepts: [preview, format, people, https, today]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/openai/1sofogu.md#c2"
     char_span: [1632, 3458]
     sentence_count: 9
     key_terms: [winter-cabinet-2074, like, product, applications, weil, canned, openai, people]
+    concepts: [winter-cabinet-2074, product, applications, canned, openai]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/openai/1sofogu.md#c3"
     char_span: [3460, 4753]
     sentence_count: 9
     key_terms: [step, company, expected, vesting, smuttynoserevolution, somethingwhateveryt, winter-cabinet-2074, claim]
+    concepts: [company, expected, vesting, claim]
     section: Comments
     token_count: 366
 ---

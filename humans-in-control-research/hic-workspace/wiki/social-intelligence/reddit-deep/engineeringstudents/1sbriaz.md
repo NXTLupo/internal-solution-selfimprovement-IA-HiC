@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 309]
     sentence_count: 2
     key_terms: [engineeringstudents, comments, reddit-deep, experience, internship, community, research, college]
+    concepts: [engineeringstudents, comments]
     token_count: 77
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sbriaz/researchinternship_experience_as_a_community/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sbriaz.md#c1"
     char_span: [323, 615]
     sentence_count: 2

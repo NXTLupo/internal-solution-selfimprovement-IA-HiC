@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 881]
     sentence_count: 8
     key_terms: [final, neu, year, comments, semester, student, reddit, scared]
+    concepts: [final, comments, semester, student, reddit]
     token_count: 232
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sej5tn/help_im_scared/"}]
   - id: "articles/reddit-deep-r-neu/edddf78f12.md#c1"
     char_span: [883, 2959]
     sentence_count: 8
     key_terms: [fine, get, email, final, freshman, probably, yourself, america]
+    concepts: [email, final, freshman, probably, yourself]
     token_count: 512
   - id: "articles/reddit-deep-r-neu/edddf78f12.md#c2"
     char_span: [2683, 3598]
     sentence_count: 13
     key_terms: [transcript, finals, "don't", get, good, lot, certificate, explanation]
+    concepts: [transcript, finals, "don't"]
     token_count: 227
 ---
 # HELP IM SCARED

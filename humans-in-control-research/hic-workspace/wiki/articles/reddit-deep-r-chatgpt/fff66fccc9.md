@@ -18,11 +18,16 @@ chunks:
     char_span: [0, 1980]
     sentence_count: 17
     key_terms: [chatgpt, voice, please, reddit, conversation, https, image, pause]
+    concepts: [chatgpt, voice, conversation, please, reddit]
+    related_chunks: ["articles/reddit-deep-r-chatgpt/fff66fccc9.md#c1"]
     token_count: 488
+    sources: [{"n":"Reddit Deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1pi3gdl/heavy_voice_mode_users_do_you_actually_like/"}]
   - id: "articles/reddit-deep-r-chatgpt/fff66fccc9.md#c1"
     char_span: [1982, 3365]
     sentence_count: 18
     key_terms: [voice, use, chatgpt, artemgetman, mode, time, interrupt, without]
+    concepts: [voice, chatgpt, artemgetman, interrupt, without]
+    related_chunks: ["articles/reddit-deep-r-chatgpt/fff66fccc9.md#c0"]
     token_count: 345
 ---
 # Heavy voice mode users - do you actually like ChatGPT's voice experience?

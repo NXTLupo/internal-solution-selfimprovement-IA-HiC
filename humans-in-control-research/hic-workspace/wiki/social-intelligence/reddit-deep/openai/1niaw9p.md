@@ -21,64 +21,79 @@ chunks:
     char_span: [0, 2074]
     sentence_count: 4
     key_terms: [chatgpt, information, openai, usage, use, personal, million, people]
+    concepts: [information, chatgpt, openai, usage, personal]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1niaw9p.md#c3"]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1niaw9p/new_openai_study_reveals_how_700_million_people/"}]
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c1"
     char_span: [2076, 2421]
     sentence_count: 1
     key_terms: [economic-research-chatgpt-usage-paper, a253471f-8260-40c6-a2cc-aa93fe9f142e, https, privacy-preserving, pdf, comprehensive, classifiers, researchers]
+    concepts: [https]
     token_count: 86
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c2"
     char_span: [2435, 3403]
     sentence_count: 5
     key_terms: [through, codex, because, chatgpt, models, pretty, search, going]
+    concepts: [through, codex, because, chatgpt, models]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c3"
     char_span: [3405, 5298]
     sentence_count: 5
     key_terms: [openai, paid, professional, data, plan, use, hundreds, chatgpt]
+    concepts: [openai, professional, hundreds, chatgpt, million]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1niaw9p.md#c0", "social-intelligence/reddit-deep/openai/1niaw9p.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c4"
     char_span: [5085, 5956]
     sentence_count: 2
     key_terms: [sustainable, free, whatever, idontcareaboutthenam, users, wrote, paid, brainstorming]
+    concepts: [sustainable, whatever, users, wrote]
     section: Comments
     token_count: 251
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c5"
     char_span: [5959, 6768]
     sentence_count: 4
     key_terms: [seems, messages, thinking, coding, take, per-conversation, anecdotally, computation]
+    concepts: [seems, messages, thinking, coding]
     section: Comments
     token_count: 209
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c6"
     char_span: [6771, 8558]
     sentence_count: 15
     key_terms: [families, tutoring, jobs, starting, wealthy, access, advice, afford]
+    concepts: [families, tutoring, starting, wealthy, access]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c7"
     char_span: [8560, 10565]
     sentence_count: 10
     key_terms: [jobs, chatgpt, professional, work, anything, happened, effects, people]
+    concepts: [professional, chatgpt, anything, happened, effects]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1niaw9p.md#c3"]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c8"
     char_span: [10567, 12526]
     sentence_count: 13
     key_terms: ["it's", use, gpt, sharing, therapy, coding, going, money]
+    concepts: [sharing, therapy, coding, information, interesting]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c9"
     char_span: [12528, 14396]
     sentence_count: 12
     key_terms: [media, users, conversations, relationship, proportion, million, wanting, number]
+    concepts: [media, users, conversations, relationship, proportion]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c10"
     char_span: [14398, 15321]
     sentence_count: 5
     key_terms: [chatgpt, everything, fluffypolicepeanut, been, end, get, less, conversation]
+    concepts: [chatgpt, everything]
     section: Comments
     token_count: 230
 ---

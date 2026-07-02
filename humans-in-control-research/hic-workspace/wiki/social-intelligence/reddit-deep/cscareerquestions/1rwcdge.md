@@ -19,29 +19,37 @@ chunks:
     char_span: [0, 744]
     sentence_count: 6
     key_terms: [engineering, cscareerquestions, career, tech, comments, industry, software, been]
+    concepts: [engineering, cscareerquestions, career, comments, industry]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rwcdge.md#c1"]
     token_count: 170
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rwcdge/is_software_engineering_a_career_suicide/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwcdge.md#c1"
     char_span: [758, 2816]
     sentence_count: 16
     key_terms: [engineering, career, healthcare, cscareerquestions, job, message, degree, been]
+    concepts: [engineering, career, healthcare, cscareerquestions, message]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rwcdge.md#c0"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwcdge.md#c2"
     char_span: [2818, 4693]
     sentence_count: 13
     key_terms: [engineering, people, because, get, displaced, graduate, physical, software]
+    concepts: [engineering, people, because, displaced, graduate]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwcdge.md#c3"
     char_span: [4695, 6710]
     sentence_count: 17
     key_terms: [years, getting, interviews, gold-flatworm-4313, software, senior, applications, competition]
+    concepts: [years, getting, gold-flatworm-4313, interviews, software]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwcdge.md#c4"
     char_span: [6712, 8105]
     sentence_count: 11
     key_terms: [people, like, career, firing, launch, "what's", miserable-corner-254, happyirishman633210]
+    concepts: [people, career, firing, launch, "what's"]
     section: Comments
     token_count: 329
 ---

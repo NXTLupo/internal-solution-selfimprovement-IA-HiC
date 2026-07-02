@@ -20,58 +20,78 @@ chunks:
     char_span: [0, 2076]
     sentence_count: 18
     key_terms: [quant, trading, trades, seems, bank, financialcareers, street, understanding]
+    concepts: [quant, trading, trades, financialcareers, seems]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c1", "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c2", "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c7", "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c9"]
     token_count: 470
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1s0hkoy/sales_trading_at_a_bank_vs_quant_trading/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c1"
     char_span: [2078, 2329]
     sentence_count: 1
     key_terms: [because, trading, quant, sales, essentially, perspective, entirety, replaced]
+    concepts: [because, trading, quant, sales]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c0", "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c2", "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c7"]
     token_count: 53
   - id: "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c2"
-    char_span: [2344, 4764]
+    char_span: [2343, 4763]
     sentence_count: 12
     key_terms: [because, trading, something, financialcareers, discord, making, market, spread]
+    concepts: [because, trading, financialcareers, something, professionals]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c0", "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c1"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c3"
-    char_span: [4766, 6617]
+    char_span: [4765, 6616]
     sentence_count: 14
     key_terms: [market, banks, prop, markets, street, essentially, don, jane]
+    concepts: [market, banks, markets, street, essentially]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c8"]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c4"
-    char_span: [6619, 8438]
+    char_span: [6618, 8437]
     sentence_count: 16
     key_terms: [business, street, mentality, jane, because, morgan, people, lower]
+    concepts: [business, street, mentality, because, morgan]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c6"]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c5"
-    char_span: [8440, 10348]
+    char_span: [8439, 10347]
     sentence_count: 10
     key_terms: [pushing, bonds, been, like, products, comment, similar, income]
+    concepts: [pushing, bonds, products, comment, similar]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c6"
-    char_span: [10350, 12422]
+    char_span: [10349, 12421]
     sentence_count: 13
     key_terms: [jane, street, trading, morgan, trade, fund, balance, because]
+    concepts: [street, trading, morgan, trade, balance]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c4"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c7"
-    char_span: [12426, 14981]
+    char_span: [12425, 14980]
     sentence_count: 23
     key_terms: [quant, banks, trading, risk, pricing, quants, drive, portfolio]
+    concepts: [quant, trading, banks, pricing, quants]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c0", "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c1", "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c8"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c8"
-    char_span: [14985, 17053]
+    char_span: [14984, 17052]
     sentence_count: 23
     key_terms: [trading, banks, making, market, prop-trading, drive, strategies, mentioned]
+    concepts: [trading, banks, prop-trading, making, market]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c3", "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c7"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c9"
-    char_span: [17055, 18425]
+    char_span: [17054, 18424]
     sentence_count: 10
     key_terms: [relationships, through, trades, quant, becoming, specific, trading, client]
+    concepts: [relationships, through, trades, quant, becoming]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1s0hkoy.md#c0"]
     section: Comments
     token_count: 299
 ---

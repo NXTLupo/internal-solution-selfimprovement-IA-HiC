@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1931]
     sentence_count: 16
     key_terms: [years, back, everyone, selling, months, digitalnomad, great, everything]
+    concepts: [years, everyone, selling, digitalnomad, months]
     token_count: 466
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1mldvef/full_send_at_36_has_anyone_else_done_it_and_not/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c1"
     char_span: [1933, 2300]
     sentence_count: 5
@@ -31,36 +33,42 @@ chunks:
     char_span: [2314, 3088]
     sentence_count: 11
     key_terms: [people, lot, want, tyler----durden, captainhector1, cost-efficient, furnishings, belongings]
+    concepts: [people]
     section: Comments
     token_count: 196
   - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c3"
     char_span: [3090, 4900]
     sentence_count: 15
     key_terms: [southeast, morrigan613, asia, costa, like, love, move, rica]
+    concepts: [southeast, morrigan613, costa, guanacaste, fellow]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c4"
     char_span: [4902, 7160]
     sentence_count: 16
     key_terms: [southeast, relationships, asia, "you're", generally, people, disappointed, "don't"]
+    concepts: [southeast, relationships, generally, "you're", disappointed]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c5"
     char_span: [7162, 8679]
     sentence_count: 13
     key_terms: [want, probably, like, wherever, friends, living, people, seems]
+    concepts: [probably, wherever, friends, living, people]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c6"
     char_span: [8681, 10406]
     sentence_count: 13
     key_terms: [life, business, back, live, long, take, belongings, something]
+    concepts: [business, belongings, something, traveled, months]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c7"
     char_span: [10408, 12360]
     sentence_count: 16
     key_terms: [years, abroad, since, back, expensive, excited, savings, storage]
+    concepts: [years, abroad, since, expensive, excited]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c8"

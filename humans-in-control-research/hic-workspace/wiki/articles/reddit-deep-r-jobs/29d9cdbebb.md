@@ -18,21 +18,26 @@ chunks:
     char_span: [0, 1585]
     sentence_count: 12
     key_terms: [jobs, get, job, too, management, comments, anyone, market]
+    concepts: [management, comments, anyone, market, middle]
     token_count: 359
+    sources: [{"n":"Reddit Deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1qflsos/is_this_the_bleakest_the_job_market_has_ever/"}]
   - id: "articles/reddit-deep-r-jobs/29d9cdbebb.md#c1"
     char_span: [1587, 3573]
     sentence_count: 21
     key_terms: [job, fired, stealing, boss, too, experience, business, another]
+    concepts: [fired, stealing, experience, business, another]
     token_count: 441
   - id: "articles/reddit-deep-r-jobs/29d9cdbebb.md#c2"
     char_span: [3575, 4990]
     sentence_count: 16
     key_terms: [government, job, anything, economy, market, businesses, according, president]
+    concepts: [government, anything, economy, market, businesses]
     token_count: 311
   - id: "articles/reddit-deep-r-jobs/29d9cdbebb.md#c3"
     char_span: [4992, 6198]
     sentence_count: 10
     key_terms: [departments, time, government, trillion, service, times, lockedoutofelfland, days]
+    concepts: [departments, government, trillion, service, times]
     token_count: 265
 ---
 # Is this the bleakest the job market has ever looked?

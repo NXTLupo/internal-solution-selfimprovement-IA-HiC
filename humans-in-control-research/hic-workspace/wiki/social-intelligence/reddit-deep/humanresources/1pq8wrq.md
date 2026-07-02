@@ -19,34 +19,41 @@ chunks:
     char_span: [0, 2038]
     sentence_count: 27
     key_terms: [boss, work, humanresources, today, been, feel, like, week]
+    concepts: [humanresources, frequently, generalist, today, sometimes]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1pq8wrq/i_cried_at_my_boss_today_oh/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1pq8wrq.md#c1"
     char_span: [2040, 3495]
     sentence_count: 16
     key_terms: [immigration, been, feel, engagement, employee, proposal, because, program]
+    concepts: [immigration, engagement, employee, proposal, because]
     token_count: 325
   - id: "social-intelligence/reddit-deep/humanresources/1pq8wrq.md#c2"
     char_span: [3509, 5525]
     sentence_count: 20
     key_terms: [time, stress, immigration, boss, take, work, year, allowed]
+    concepts: [stress, immigration, allowed, always, extra]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/humanresources/1pq8wrq.md#c3"
     char_span: [5527, 6831]
     sentence_count: 8
     key_terms: [stress, system, given, going, space, lavender-dalmation, been, care]
+    concepts: [stress, system, given, going, space]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/humanresources/1pq8wrq.md#c4"
     char_span: [6833, 8750]
     sentence_count: 16
     key_terms: [lavender-dalmation, boss, take, employees, support, become, swimming-moment-5315, great]
+    concepts: [lavender-dalmation, employees, support, become, great]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/humanresources/1pq8wrq.md#c5"
     char_span: [8752, 10231]
     sentence_count: 17
     key_terms: [director, especially, holidays, yourself, sending, around, being, makes]
+    concepts: [director, especially, holidays, yourself, sending]
     section: Comments
     token_count: 339
 ---

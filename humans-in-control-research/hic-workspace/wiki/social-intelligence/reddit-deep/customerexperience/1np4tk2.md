@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1154]
     sentence_count: 10
     key_terms: [customer, customerexperience, comments, service, support, better, faster, cryrevolutionary7536]
+    concepts: [customer, customerexperience, comments, service, support]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1np4tk2.md#c1"]
     token_count: 252
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1np4tk2/is_ai_making_customer_service_better_or_just/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1np4tk2.md#c1"
-    char_span: [1169, 3351]
+    char_span: [1168, 3350]
     sentence_count: 17
     key_terms: [customer, support, been, agents, ai-in-customer-experience-trends, right, teams, need]
+    concepts: [customer, support, agents, experience, right]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1np4tk2.md#c0"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/customerexperience/1np4tk2.md#c2"
-    char_span: [3353, 5072]
+    char_span: [3352, 5071]
     sentence_count: 14
     key_terms: [customers, human, especially, different, answers, handle, cases, doesn]
+    concepts: [customers, especially, human, different, answers]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/customerexperience/1np4tk2.md#c3"
-    char_span: [5074, 6623]
+    char_span: [5073, 6622]
     sentence_count: 11
     key_terms: [conversation, customers, requests, cheaper, context, problem, whether, better]
+    concepts: [conversation, customers, requests, cheaper, context]
     section: Comments
     token_count: 330
 ---

@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 845]
     sentence_count: 8
     key_terms: [school, comments, college, student, access, one-description4302, find, reassurance]
+    concepts: [school, comments, college, student, access]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mfq0tt.md#c1", "social-intelligence/reddit-deep/college/1mfq0tt.md#c2"]
     token_count: 215
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1mfq0tt/who_am_i_if_not_a_student/"}]
   - id: "social-intelligence/reddit-deep/college/1mfq0tt.md#c1"
     char_span: [859, 2930]
     sentence_count: 18
     key_terms: [student, experience, one-description4302, get, time, college, school, being]
+    concepts: [one-description4302, student, experience, college, school]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mfq0tt.md#c0", "social-intelligence/reddit-deep/college/1mfq0tt.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mfq0tt.md#c2"
     char_span: [2676, 3918]
     sentence_count: 8
     key_terms: [libraries, school, one-description4302, college, card, let, tap, visitor]
+    concepts: [libraries, school, one-description4302, college, visitor]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mfq0tt.md#c0", "social-intelligence/reddit-deep/college/1mfq0tt.md#c1"]
     section: Comments
     token_count: 324
 ---

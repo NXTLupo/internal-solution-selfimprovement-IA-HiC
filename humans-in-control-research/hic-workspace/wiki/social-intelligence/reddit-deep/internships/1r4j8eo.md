@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 877]
     sentence_count: 5
     key_terms: [internships, apps, comments, flamingominute1454, opportunities, applications, competitions, environments]
+    concepts: [internships, comments]
     token_count: 205
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1r4j8eo/looking_for_internship_job_or_freelance/"}]
 ---
 # Looking for Internship, Job, or Freelance Opportunities in Software Development
 

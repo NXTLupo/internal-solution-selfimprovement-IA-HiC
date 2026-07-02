@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 568]
     sentence_count: 2
     key_terms: [experience, engineeringstudents, sales, comments, school, jolly-valuable-7923, professional, convenience]
+    concepts: [engineeringstudents, experience, sales, comments, school]
     token_count: 132
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qm3ax9/27_10_years_sales_experience_not_high_level_but/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qm3ax9.md#c1"
     char_span: [582, 1895]
     sentence_count: 9
     key_terms: [engineering, communicate, internships, get, good, help, engineers, skills]
+    concepts: [engineering, communicate, internships, engineers, skills]
     section: Comments
     token_count: 304
 ---

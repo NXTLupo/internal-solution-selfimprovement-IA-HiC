@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 359]
     sentence_count: 1
     key_terms: [anthropic, comments, source, inevitable-rub8969, reddit-deep, dimonchoo, principal, engineer]
+    concepts: [anthropic, comments, source]
     token_count: 100
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1q2s9wh/google_principal_engineer_uses_claude_code_to/"}]
 ---
 # Google Principal Engineer uses Claude Code to solve a Major Problem
 

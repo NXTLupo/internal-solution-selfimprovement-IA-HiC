@@ -19,40 +19,48 @@ chunks:
     char_span: [0, 2031]
     sentence_count: 19
     key_terms: [psychology, book, written, psychologist, credentials, curriculum, professor, anything]
+    concepts: [psychology, written, psychologist, credentials, curriculum]
     token_count: 451
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1qgnk7f/im_concerned_about_the_curriculum_quality_in_my/"}]
   - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c1"
     char_span: [2033, 2377]
     sentence_count: 5
     key_terms: [somebody, get, like, ridiculous, something, undergrad, anything, checking]
+    concepts: [somebody]
     token_count: 73
   - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c2"
     char_span: [2391, 4244]
     sentence_count: 18
     key_terms: [class, syllabus, slowishsheepherder, ccs, real, classes, college, faculty]
+    concepts: [class, syllabus, slowishsheepherder, classes, college]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c3"
     char_span: [4246, 6299]
     sentence_count: 20
     key_terms: [professors, syllabus, reviews, school, best, department, everybody, sometimes]
+    concepts: [professors, syllabus, reviews, school, department]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c4"
     char_span: [6301, 7069]
     sentence_count: 5
     key_terms: [course, focused, always, professional-117, materials--you, interpersonal, evolutionary, evaluations]
+    concepts: [course, focused, always]
     section: Comments
     token_count: 164
   - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c5"
     char_span: [7071, 8703]
     sentence_count: 15
     key_terms: [department, major, get, psychology, different, disagree, "you're", chair]
+    concepts: [department, major, psychology, different, disagree]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c6"
     char_span: [8705, 10900]
     sentence_count: 15
     key_terms: [people, course, cream, correlation, eat, get, ice, like]
+    concepts: [people, course, correlation, cream, understand]
     section: Comments
     token_count: 506
 ---

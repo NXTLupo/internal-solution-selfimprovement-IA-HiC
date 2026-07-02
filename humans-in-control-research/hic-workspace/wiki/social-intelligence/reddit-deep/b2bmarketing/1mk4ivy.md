@@ -20,26 +20,33 @@ chunks:
     char_span: [0, 2313]
     sentence_count: 31
     key_terms: [like, post, linkedin, message, product, someone, people, b2bmarketing]
+    concepts: [linkedin, message, product, someone, b2bmarketing]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1mk4ivy/a_friend_of_mine_closed_a_72k_deal_from_a/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1mk4ivy.md#c1"
     char_span: [2315, 2538]
     sentence_count: 6
     key_terms: [gojiberry, conversations, listening, chasing, convert, perfect, equals, intent]
+    concepts: [gojiberry]
     token_count: 56
   - id: "social-intelligence/reddit-deep/b2bmarketing/1mk4ivy.md#c2"
-    char_span: [2553, 4447]
+    char_span: [2552, 4446]
     sentence_count: 15
     key_terms: [looking-for-marketing-discussion-811236647760298024, questions, linkedin, closed, gojiberryai, "i'm", involved, discord]
+    concepts: [questions, linkedin, closed, gojiberryai, involved]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1mk4ivy.md#c3"]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/b2bmarketing/1mk4ivy.md#c3"
-    char_span: [4449, 6300]
+    char_span: [4448, 6299]
     sentence_count: 17
     key_terms: [linkedin, post, chatgpt, gojiberryai, work, company, depends, someone]
+    concepts: [linkedin, chatgpt, gojiberryai, company, depends]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1mk4ivy.md#c2"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/b2bmarketing/1mk4ivy.md#c4"
-    char_span: [6302, 6642]
+    char_span: [6301, 6641]
     sentence_count: 3
     key_terms: [gojiberryai, hydr0lysis, shelly887, thejamstr, toast777y, linkedin, original, outreach]
     section: Comments

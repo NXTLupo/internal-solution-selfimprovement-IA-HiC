@@ -20,39 +20,53 @@ chunks:
     char_span: [0, 2086]
     sentence_count: 9
     key_terms: [data, synapse, "i'm", storage, dataengineering, azure, notebooks, situation]
+    concepts: [synapse, storage, dataengineering, azure, notebooks]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1o88lxr.md#c6"]
     token_count: 484
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1o88lxr/is_azure_blob_storage_slow_as_fuck/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1o88lxr.md#c1"
     char_span: [2088, 3073]
     sentence_count: 1
     key_terms: [calls, total, avg, max, min, transform, includes, quality]
+    concepts: [calls, total]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1o88lxr.md#c2"]
     token_count: 504
   - id: "social-intelligence/reddit-deep/dataengineering/1o88lxr.md#c2"
     char_span: [3075, 4787]
     sentence_count: 8
     key_terms: [data, environments, local, code, total, minutes, calls, took]
+    concepts: [environments, local, total, minutes, calls]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1o88lxr.md#c1"]
     token_count: 518
   - id: "social-intelligence/reddit-deep/dataengineering/1o88lxr.md#c3"
-    char_span: [4802, 6651]
+    char_span: [4801, 6650]
     sentence_count: 15
     key_terms: [time, synapse, code, data, cluster, problem, spark, take]
+    concepts: [synapse, cluster, problem, spark, wtfzambo]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1o88lxr.md#c5"]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/dataengineering/1o88lxr.md#c4"
-    char_span: [6653, 8317]
+    char_span: [6652, 8316]
     sentence_count: 14
     key_terms: [write, container, takes, code, data, wtfzambo, storage, polars]
+    concepts: [write, container, takes, wtfzambo, storage]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/dataengineering/1o88lxr.md#c5"
-    char_span: [8319, 9870]
+    char_span: [8318, 9869]
     sentence_count: 14
     key_terms: [reading, synapse, spark, data, repeatedly, iteration, wtfzambo, dataset]
+    concepts: [reading, synapse, repeatedly, spark, iteration]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1o88lxr.md#c3"]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/dataengineering/1o88lxr.md#c6"
-    char_span: [9872, 11781]
+    char_span: [9871, 11780]
     sentence_count: 15
     key_terms: [region, synapse, code, storage, considerationok8231, pyspark, resources, involved]
+    concepts: [region, synapse, considerationok8231, storage, pyspark]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1o88lxr.md#c0"]
     section: Comments
     token_count: 455
 ---

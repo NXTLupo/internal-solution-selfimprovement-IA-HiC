@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1243]
     sentence_count: 12
     key_terms: [projects, engineering, engineeringstudents, non-engineering, typical-user-87, "don't", unrelated, comments]
+    concepts: [projects, engineering, engineeringstudents, non-engineering, typical-user-87]
     token_count: 285
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qtpyzs/how_do_i_tailor_my_skillsresume_to_a_job/"}]
 ---
 # How do I tailor my skills/resume to a job unrelated to engineering with no previous work experience?
 

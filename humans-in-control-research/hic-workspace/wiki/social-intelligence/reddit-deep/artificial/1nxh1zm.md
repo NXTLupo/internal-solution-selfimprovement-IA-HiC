@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1338]
     sentence_count: 10
     key_terms: [assistants, better, faster, tools, artificial, assistant, different, engineers]
+    concepts: [assistants, better, faster, artificial, tools]
     token_count: 295
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1nxh1zm/are_we_actually_becoming_better_engineers_with_ai/"}]
   - id: "social-intelligence/reddit-deep/artificial/1nxh1zm.md#c1"
     char_span: [1352, 3081]
     sentence_count: 14
     key_terms: [companies, going, like, llm, absolutely, production, pushing, output]
+    concepts: [companies, absolutely, going, production, pushing]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/artificial/1nxh1zm.md#c2"
     char_span: [3083, 4954]
     sentence_count: 15
     key_terms: [code, get, level, software, actual, coding, commas, higher]
+    concepts: [level, software, actual, coding, commas]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/artificial/1nxh1zm.md#c3"
     char_span: [4956, 7009]
     sentence_count: 15
     key_terms: [code, coding, using, use, providing, language, because, design]
+    concepts: [coding, using, providing, language, because]
     section: Comments
     token_count: 485
 ---

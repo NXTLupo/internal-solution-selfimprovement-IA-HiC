@@ -7,56 +7,64 @@ subreddit: "ecommerce"
 title: "E-commerce Industry News Recap 🔥 Week of Feb 23rd, 2026"
 author: "adventurepaul"
 date: "2026-02-23T20:45:16.000Z"
-score: 16
-upvote_ratio: 0.94
+score: 14
+upvote_ratio: 0.9
 num_comments: 13
 flair: "📰 News"
-extracted_at: "2026-06-18T13:35:23.817Z"
+extracted_at: "2026-06-24T22:13:57.308Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1rcte9f.md#c0"
     char_span: [0, 250]
     sentence_count: 1
     key_terms: [ecommerce, comments, adventurepaul, reddit-deep, e-commerce, industry, posted, reddit]
+    concepts: [ecommerce, comments]
     token_count: 82
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1rcte9f/ecommerce_industry_news_recap_week_of_feb_23rd/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1rcte9f.md#c1"
     char_span: [252, 2632]
     sentence_count: 15
     key_terms: [e-commerce, merchants, sparky, tiktok, new, news, customers, logistics]
+    concepts: [e-commerce, merchants, sparky, tiktok, customers]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1rcte9f.md#c2"
     char_span: [2371, 4748]
     sentence_count: 13
     key_terms: [revenue, perplexity, past, company, google, "you're", years, help]
+    concepts: [revenue, perplexity, company, google, "you're"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1rcte9f.md#c3"
     char_span: [4459, 6630]
     sentence_count: 15
     key_terms: [ads, revenue, depop, etsy, chatgpt, expedia, "walmart's", acquired]
+    concepts: [revenue, depop, chatgpt, expedia, "walmart's"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1rcte9f.md#c4"
     char_span: [6371, 8869]
     sentence_count: 10
     key_terms: [ads, shopify, social, share, marketplace, publishers, applovin, platform]
+    concepts: [shopify, social, marketplace, publishers, share]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1rcte9f.md#c5"
     char_span: [8515, 10252]
     sentence_count: 6
     key_terms: [increasing, ads, been, social, year, pinterest, searches, company]
+    concepts: [increasing, social, pinterest, searches, company]
     token_count: 343
   - id: "social-intelligence/reddit-deep/ecommerce/1rcte9f.md#c6"
-    char_span: [10267, 11358]
+    char_span: [10266, 11357]
     sentence_count: 9
     key_terms: [residential, datacenter, e-commerce, scraping, getting, proxy, part, infrastructure]
+    concepts: [residential, datacenter, e-commerce, scraping, getting]
     section: Comments
     token_count: 217
 ---
 # E-commerce Industry News Recap 🔥 Week of Feb 23rd, 2026
 
 Source: [reddit-deep: r/ecommerce](https://www.reddit.com/r/ecommerce/comments/1rcte9f/ecommerce_industry_news_recap_week_of_feb_23rd/)
-Posted by **adventurepaul** · **16↑** · **13 comments**
+Posted by **adventurepaul** · **14↑** · **13 comments**
 
 Hi r/ecommerce - I'm Paul and I follow the e-commerce industry closely for my Shopifreaks E-commerce Newsletter. Every week for the past 5 years I've posted a summary recap of the week's top stories on this subreddit, which I cover in depth with sources in the full edition. Let's dive in to this week's top e-commerce news...
 ___

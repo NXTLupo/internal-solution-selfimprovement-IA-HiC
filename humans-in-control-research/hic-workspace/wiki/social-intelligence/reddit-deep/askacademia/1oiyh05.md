@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1858]
     sentence_count: 11
     key_terms: [phd, research, postdoc, programs, shorter, others, employability, productivity]
+    concepts: [research, postdoc, programs, employability, shorter]
     token_count: 401
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1oiyh05/how_does_the_length_of_a_phd_duration_in_us_vs/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1oiyh05.md#c1"
     char_span: [1872, 3783]
     sentence_count: 10
     key_terms: [phd, teaching, experience, teach, years, requirements, candidates, knowledge]
+    concepts: [teaching, experience, teach, years, requirements]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/askacademia/1oiyh05.md#c2"
     char_span: [3785, 5324]
     sentence_count: 10
     key_terms: [phd, research, "master's", masters, funded, publications, heavy, years]
+    concepts: [research, "master's", masters, publications, funded]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1oiyh05.md#c4"]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/askacademia/1oiyh05.md#c3"
     char_span: [5326, 7298]
     sentence_count: 11
     key_terms: [research, phd, american, position, disadvantage, expectations, productivity, time]
+    concepts: [research, american, position, disadvantage, expectations]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/askacademia/1oiyh05.md#c4"
     char_span: [7300, 8715]
     sentence_count: 10
     key_terms: [whether, publications, work, difference, potential, "master's", research, depends]
+    concepts: [whether, publications, difference, potential, "master's"]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1oiyh05.md#c2"]
     section: Comments
     token_count: 320
 ---

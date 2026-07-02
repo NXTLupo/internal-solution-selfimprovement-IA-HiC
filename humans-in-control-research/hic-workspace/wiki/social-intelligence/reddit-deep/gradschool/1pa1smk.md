@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2066]
     sentence_count: 5
     key_terms: [year, engineering, rocketry, early, years, plan, take, gradschool]
+    concepts: [engineering, rocketry, early, gradschool, internship]
     token_count: 484
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1pa1smk/i_am_on_path_to_finish_my_engineering_bachelors/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1pa1smk.md#c1"
     char_span: [2068, 2382]
     sentence_count: 3
@@ -31,6 +33,7 @@ chunks:
     char_span: [2396, 3268]
     sentence_count: 5
     key_terms: [time, research, neurosciencenerd, extra, year, related, usually, matter]
+    concepts: [neurosciencenerd, research, extra, related, usually]
     section: Comments
     token_count: 218
 ---

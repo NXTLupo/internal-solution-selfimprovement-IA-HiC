@@ -16,10 +16,12 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1rxwwiy.md#c0"
-    char_span: [0, 1437]
+    char_span: [0, 1436]
     sentence_count: 13
     key_terms: [counseling, work, gradadmissions, school, been, time, experience, psychology]
-    token_count: 325
+    concepts: [counseling, gradadmissions, school, experience, psychology]
+    token_count: 324
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rxwwiy/seeking_advices_for_grad_school_admission/"}]
 ---
 # Seeking advices for Grad school admission
 

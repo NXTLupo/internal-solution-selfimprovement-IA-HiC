@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 500]
     sentence_count: 2
     key_terms: [comments, looking, neu, opportunities, reddit-deep, professor, learning, reliable]
+    concepts: [comments, looking]
     token_count: 144
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rxbwv7/any_labsprofs_you_know_looking_for_an_ra_aiml/"}]
   - id: "social-intelligence/reddit-deep/neu/1rxbwv7.md#c1"
     char_span: [514, 815]
     sentence_count: 1

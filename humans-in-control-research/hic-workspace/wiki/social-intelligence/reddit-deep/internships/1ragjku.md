@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1927]
     sentence_count: 1
     key_terms: [internships, co-op, experience, internship, "i'm", applying, summer, offer]
+    concepts: [internships, co-op, experience, internship, applying]
     token_count: 433
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1ragjku/doubts_about_coop/"}]
   - id: "social-intelligence/reddit-deep/internships/1ragjku.md#c1"
     char_span: [1941, 2505]
     sentence_count: 5
     key_terms: [graduate, experiences, graduation, semester, appropriate-tutor587, co-op, years, year]
+    concepts: [graduate, experiences, graduation, semester, co-op]
     section: Comments
     token_count: 148
 ---

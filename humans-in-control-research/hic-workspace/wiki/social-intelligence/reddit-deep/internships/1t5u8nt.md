@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 670]
     sentence_count: 6
     key_terms: [internships, offer, comments, give, got, no-part-8666, reddit-deep, dedication]
+    concepts: [internships, offer, comments]
     token_count: 181
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t5u8nt/i_got_an_offer_dont_give_up/"}]
   - id: "social-intelligence/reddit-deep/internships/1t5u8nt.md#c1"
     char_span: [684, 2658]
     sentence_count: 16
     key_terms: [company, being, been, experience, interested, companies, anything, applying]
+    concepts: [company, being, experience, interested, companies]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/internships/1t5u8nt.md#c2"
     char_span: [2660, 4531]
     sentence_count: 3
     key_terms: [interview, remember, company, no-part-8666, back, interviews, understand, pipedmeat]
+    concepts: [interview, remember, company, no-part-8666, interviews]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1t5u8nt.md#c4"]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/internships/1t5u8nt.md#c3"
     char_span: [4533, 6438]
     sentence_count: 4
     key_terms: [internships, application, did, strategy, network, no-part-8666, get, like]
+    concepts: [internships, application, strategy, network, no-part-8666]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/internships/1t5u8nt.md#c4"
     char_span: [6440, 7791]
     sentence_count: 4
     key_terms: [resume, got, interviews, sacrifices, interview, strategy, landed, plenty]
+    concepts: [resume, interviews, sacrifices, interview, strategy]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1t5u8nt.md#c2"]
     section: Comments
     token_count: 314
 ---

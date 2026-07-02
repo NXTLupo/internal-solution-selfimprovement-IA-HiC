@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1041]
     sentence_count: 4
     key_terms: [gains, wallstreetbets, big, combined, comments, lucky, plays, years]
+    concepts: [gains, wallstreetbets, combined, comments, lucky]
     token_count: 295
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1nopbhh/10_years_ago_my_net_worth_was_0/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nopbhh.md#c1"
     char_span: [1055, 2266]
     sentence_count: 5
     key_terms: [get, hard, hump, past, deleted, hitting, discord, https]
+    concepts: [deleted, hitting, discord, https, stuck]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nopbhh.md#c2"
     char_span: [2268, 3039]
     sentence_count: 8
     key_terms: [shares, big-baller-47, man, port, boston-bets, deceptifob, dudermagee, depending]
+    concepts: [big-baller-47, shares]
     section: Comments
     token_count: 243
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nopbhh.md#c3"
     char_span: [3041, 4512]
     sentence_count: 17
     key_terms: [company, years, kids, put, through, retail, school, money]
+    concepts: [company, years, through, retail, school]
     section: Comments
     token_count: 414
 ---

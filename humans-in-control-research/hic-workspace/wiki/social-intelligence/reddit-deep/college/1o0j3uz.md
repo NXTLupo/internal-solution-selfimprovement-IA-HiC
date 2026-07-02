@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 886]
     sentence_count: 4
     key_terms: [best-colleges-america-2026-f64d590e, college, wsj, https, com, www, education, wsjreddit]
+    concepts: [best-colleges-america-2026-f64d590e, college, https, education, wsjreddit]
     token_count: 246
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1o0j3uz/the_2026_best_colleges_in_america_stanford_babson/"}]
   - id: "social-intelligence/reddit-deep/college/1o0j3uz.md#c1"
     char_span: [900, 1406]
     sentence_count: 3
     key_terms: [school, authoritarian, automatically, hannahneedle, university, political, academic, business]
+    concepts: [school]
     section: Comments
     token_count: 118
 ---

@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1748]
     sentence_count: 22
     key_terms: [defi, dexs, like, comments, binance, happens, quietly, shifted]
+    concepts: [comments, binance, happens, quietly, shifted]
     token_count: 421
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1srgjpt/will_defi_will_be_the_death_of_binance/"}]
   - id: "social-intelligence/reddit-deep/defi/1srgjpt.md#c1"
-    char_span: [1763, 2686]
+    char_span: [1762, 2685]
     sentence_count: 3
     key_terms: [capital, aave, defi, happened, security, onchain, serious, itself]
+    concepts: [capital, happened, security, onchain, serious]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/defi/1srgjpt.md#c2"
-    char_span: [2688, 4504]
+    char_span: [2687, 4503]
     sentence_count: 10
     key_terms: [dexs, cexes, polymanai, binance, enough, users, competition, cexs]
+    concepts: [polymanai, cexes, binance, enough, competition]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/defi/1srgjpt.md#c3"
-    char_span: [4506, 6609]
+    char_span: [4505, 6608]
     sentence_count: 7
     key_terms: [users, binance, cexs, people, defi, "true", use, majority]
+    concepts: [users, binance, people, majority, without]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/defi/1srgjpt.md#c4"
-    char_span: [6385, 6892]
+    char_span: [6384, 6891]
     sentence_count: 3
     key_terms: [crypto, "don't", cex, day, dex, want, decentralisation, maintaining]
+    concepts: [crypto, "don't"]
     section: Comments
     token_count: 129
 ---

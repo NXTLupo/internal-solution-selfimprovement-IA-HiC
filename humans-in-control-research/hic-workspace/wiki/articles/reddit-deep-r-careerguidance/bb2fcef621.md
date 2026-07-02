@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2115]
     sentence_count: 19
     key_terms: [career, looking, people, trying, experience, started, working, careerguidance]
+    concepts: [career, looking, experience, people, trying]
     token_count: 507
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t3p1ly/20m_feeling_lost_on_career_path_looking_for/"}]
   - id: "articles/reddit-deep-r-careerguidance/bb2fcef621.md#c1"
     char_span: [2120, 2877]
     sentence_count: 3
     key_terms: [trades, looking, newrepresentative912, hot-criticism8353, like, long, paid, term]
+    concepts: [trades, looking]
     token_count: 175
 ---
 # 20M feeling lost on career path — looking for advice from people with experience?

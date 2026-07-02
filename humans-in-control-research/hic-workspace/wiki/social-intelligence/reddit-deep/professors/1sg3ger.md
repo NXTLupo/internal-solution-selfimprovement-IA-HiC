@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1497]
     sentence_count: 11
     key_terms: [development, professors, like, students, professional, offerings, building, comments]
+    concepts: [development, professors, students, professional, offerings]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1sg3ger.md#c1"]
     token_count: 310
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1sg3ger/whats_the_worst_professional_development_youve/"}]
   - id: "social-intelligence/reddit-deep/professors/1sg3ger.md#c1"
     char_span: [1511, 2954]
     sentence_count: 6
     key_terms: [development, faculty, actuallycallie, professional, last, ambassador, colleagues, training]
+    concepts: [development, actuallycallie, faculty, professional, ambassador]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1sg3ger.md#c0"]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/professors/1sg3ger.md#c2"
     char_span: [2957, 5014]
     sentence_count: 13
     key_terms: [development, university, documents, trainings, learning, training, canvas, professional]
+    concepts: [development, university, documents, trainings, learning]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/professors/1sg3ger.md#c3"
     char_span: [5016, 6401]
     sentence_count: 14
     key_terms: [tool, using, faculty, problem, students, entire, saying, assignments]
+    concepts: [using, faculty, problem, students, entire]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/professors/1sg3ger.md#c4"
     char_span: [6403, 7622]
     sentence_count: 8
     key_terms: [something, "don't", like, department, students, instead, service, else]
+    concepts: [something, department, "don't", students, instead]
     section: Comments
     token_count: 303
 ---

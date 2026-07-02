@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 447]
     sentence_count: 3
     key_terms: [experience, gradschool, comments, criteria, count, work, filipinoairlines, internships]
+    concepts: [experience, gradschool, comments, criteria, count]
     token_count: 113
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1osxpw6/does_the_internship_in_grad_school_count_for_the/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1osxpw6.md#c1"
     char_span: [461, 1338]
     sentence_count: 10
     key_terms: [experience, companies, internships, work, field, directly, asking, count]
+    concepts: [experience, companies, internships, field, directly]
     section: Comments
     token_count: 196
 ---

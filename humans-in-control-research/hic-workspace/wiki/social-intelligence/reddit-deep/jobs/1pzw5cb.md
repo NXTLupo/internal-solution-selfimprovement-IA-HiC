@@ -19,58 +19,71 @@ chunks:
     char_span: [0, 1645]
     sentence_count: 11
     key_terms: [got, job, supervisor, comments, reason, asked, dream, woman]
+    concepts: [supervisor, comments, reason, asked, dream]
     token_count: 399
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1pzw5cb/got_dream_job_a_month_in_and_got_laid_off/"}]
   - id: "social-intelligence/reddit-deep/jobs/1pzw5cb.md#c1"
     char_span: [1647, 2463]
     sentence_count: 8
     key_terms: [tomorrow, county, get, like, probationary, unemployment, entry-level, legal-clerk]
+    concepts: [tomorrow, county]
     token_count: 187
   - id: "social-intelligence/reddit-deep/jobs/1pzw5cb.md#c2"
     char_span: [2477, 3956]
     sentence_count: 16
     key_terms: [performance, management, probation, happened, company, people, reason, dopeless-hope-addict]
+    concepts: [performance, management, probation, happened, company]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/jobs/1pzw5cb.md#c3"
     char_span: [3960, 6120]
     sentence_count: 21
     key_terms: [something, "it's", job, people, month, never, place, super]
+    concepts: [something, people, month, never, place]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/jobs/1pzw5cb.md#c4"
     char_span: [6122, 8013]
     sentence_count: 13
     key_terms: [iloveramonhehe, great, state, performance, "i'm", job, employment, especially]
+    concepts: [iloveramonhehe, performance, employment, especially, great]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/jobs/1pzw5cb.md#c5"
     char_span: [8015, 9828]
     sentence_count: 14
     key_terms: [fired, like, unemployment, give, enjoying, happened, resume, states]
+    concepts: [fired, unemployment, enjoying, happened, resume]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1pzw5cb.md#c6"]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/jobs/1pzw5cb.md#c6"
     char_span: [9830, 11871]
     sentence_count: 14
     key_terms: [fired, unemployment, quitaquites, collect, cause, reduction, bonner71, happened]
+    concepts: [unemployment, fired, quitaquites, collect, cause]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1pzw5cb.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1pzw5cb.md#c7"
     char_span: [11620, 12996]
     sentence_count: 5
     key_terms: [office, happened, budget, please, sounds, peaceful-mountains, aromatic-two-8258, did]
+    concepts: [office, happened, budget, please, sounds]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/jobs/1pzw5cb.md#c8"
     char_span: [12998, 15092]
     sentence_count: 18
     key_terms: [job, supervisor, work, unemployment, doing, like, because, looking]
+    concepts: [supervisor, unemployment, doing, because, looking]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/jobs/1pzw5cb.md#c9"
     char_span: [15094, 15752]
     sentence_count: 6
     key_terms: [supervisor, losing, sounds, agree, place, blarneygreengrass, like, alwayscooking345]
+    concepts: [supervisor, losing, sounds, agree, place]
     section: Comments
     token_count: 186
 ---

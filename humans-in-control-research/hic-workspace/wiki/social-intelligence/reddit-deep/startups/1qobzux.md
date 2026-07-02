@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 2432]
     sentence_count: 7
     key_terms: [startups, environments, exposure, often, companies, operating, already, company]
+    concepts: [environments, startups, exposure, companies, operating]
     token_count: 495
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1qobzux/what_environments_produce_the_best_startups_i/"}]
   - id: "social-intelligence/reddit-deep/startups/1qobzux.md#c1"
-    char_span: [2447, 4444]
+    char_span: [2446, 4443]
     sentence_count: 9
     key_terms: [important, app9bwqoyhzr2xuwu, shrmbgx7nevb6kcrf, close, environment, frequently, customers, airtable]
+    concepts: [app9bwqoyhzr2xuwu, shrmbgx7nevb6kcrf, important, environment, close]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/startups/1qobzux.md#c2"
-    char_span: [4235, 5119]
+    char_span: [4234, 5118]
     sentence_count: 6
     key_terms: [formation, stage, checklist, edkang99, initial, list, recommendations, responsibility]
+    concepts: [formation, stage, checklist, edkang99, initial]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/startups/1qobzux.md#c3"
-    char_span: [5121, 6111]
+    char_span: [5120, 6110]
     sentence_count: 6
     key_terms: [fit, founder, founders, outcomes, problem, market, tasks, data]
+    concepts: [founder, founders, outcomes, problem, market]
     section: Comments
     token_count: 226
 ---

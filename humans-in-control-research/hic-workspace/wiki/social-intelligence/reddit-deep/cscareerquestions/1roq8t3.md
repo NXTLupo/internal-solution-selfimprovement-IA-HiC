@@ -21,77 +21,93 @@ chunks:
     char_span: [0, 1872]
     sentence_count: 27
     key_terms: [career, cscareerquestions, "i'm", kids, like, want, wife, engineers]
+    concepts: [career, cscareerquestions, engineers, comments, struggle]
     token_count: 448
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1roq8t3/wanting_to_start_a_family_but_genuinely_unsure_if/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c1"
     char_span: [1886, 4220]
     sentence_count: 20
     key_terms: [opportunities, jobs, pristine-item680, people, means, here, role, absolutely]
+    concepts: [opportunities, pristine-item680, people, absolutely, means]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c3"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c2"
     char_span: [4222, 6299]
     sentence_count: 16
     key_terms: [timelysuccess7537, getting, unemployment, lose, automated, average, because, coaches]
+    concepts: [timelysuccess7537, getting, unemployment, automated, average]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c3"
     char_span: [6301, 8330]
     sentence_count: 20
     key_terms: [jobs, work, pristine-item680, people, "don't", human, replaced, around]
+    concepts: [pristine-item680, people, "don't", human, replaced]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c1"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c4"
     char_span: [8332, 10495]
     sentence_count: 16
     key_terms: [lostquestionsss, careers, happens, likely, disappearing, average, destroy, smarter]
+    concepts: [lostquestionsss, careers, happens, disappearing, likely]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c5"
     char_span: [10497, 12405]
     sentence_count: 22
     key_terms: [jobs, like, career, exist, maybe, pivot, knowledge, trying]
+    concepts: [career, knowledge, exist, maybe, pivot]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c6"
     char_span: [12407, 14123]
     sentence_count: 17
     key_terms: [strings, job, automate, because, leasing, friend, future, mining]
+    concepts: [strings, automate, because, leasing, friend]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c7"
     char_span: [14125, 16368]
     sentence_count: 13
     key_terms: [engineering, automated, jobs, software, leasing, "can't", years, llm]
+    concepts: [engineering, automated, software, leasing, "can't"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c8"
     char_span: [16370, 17677]
     sentence_count: 11
     key_terms: [languages, new, frameworks, different, systems, human, code, etc]
+    concepts: [languages, frameworks, different, systems, human]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c9"
     char_span: [17679, 19647]
     sentence_count: 16
     key_terms: [engineers, engineering, get, job, kids, replaced, scenario, father]
+    concepts: [engineers, engineering, replaced, scenario, father]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c10"
     char_span: [19649, 21402]
     sentence_count: 12
     key_terms: [kids, having, people, offshoring, engineers, bloated, idiotic, layoffs]
+    concepts: [having, people, offshoring, engineers, bloated]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c11"
     char_span: [21404, 23615]
     sentence_count: 21
     key_terms: [people, valuable, change, likely, "you're", "i'm", jobs, automated]
+    concepts: [people, valuable, change, likely, "you're"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c12"
     char_span: [23617, 25034]
     sentence_count: 11
     key_terms: [care, kids, life, having, don, wife, current-fig8840, internetcookiez]
+    concepts: [having]
     section: Comments
     token_count: 338
 ---

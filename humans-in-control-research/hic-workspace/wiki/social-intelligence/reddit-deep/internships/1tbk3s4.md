@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1803]
     sentence_count: 14
     key_terms: [internship, internships, like, asked, days, too, response, conversation]
+    concepts: [internship, internships, asked, response, conversation]
     token_count: 435
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tbk3s4/i_asked_for_an_internship_too_soon_questionvent/"}]
   - id: "social-intelligence/reddit-deep/internships/1tbk3s4.md#c1"
     char_span: [1817, 2647]
     sentence_count: 4
     key_terms: [harrystylesmexicangf, like, vague, j4qchjny38at8hqvsu, too, persuasiveass, thisisdumb228, application]
+    concepts: [harrystylesmexicangf, vague]
     section: Comments
     token_count: 237
 ---

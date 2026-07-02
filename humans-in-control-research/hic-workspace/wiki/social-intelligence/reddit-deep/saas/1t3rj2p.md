@@ -20,58 +20,68 @@ chunks:
     char_span: [0, 2034]
     sentence_count: 28
     key_terms: [saas, customers, agents, per-customer, auth, work, depressing, comments]
+    concepts: [customers, per-customer, agents, depressing, comments]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1t3rj2p/was_cpo_at_a_saas_customers_kept_asking_us_to/"}]
   - id: "social-intelligence/reddit-deep/saas/1t3rj2p.md#c1"
     char_span: [2036, 2614]
     sentence_count: 5
     key_terms: [multi-tenant, engineering, connecting, internally, customers, mid-build, post-ship, adoption]
     token_count: 120
   - id: "social-intelligence/reddit-deep/saas/1t3rj2p.md#c2"
-    char_span: [2629, 4874]
+    char_span: [2628, 4873]
     sentence_count: 18
     key_terms: [app, mcp, because, routes, needs, definitions, auth, data]
+    concepts: [because, routes, definitions, experience, needs]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/saas/1t3rj2p.md#c3"
-    char_span: [4876, 6806]
+    char_span: [4875, 6805]
     sentence_count: 8
     key_terms: [mcp, requests, auth, standard, because, handles, install, queries]
+    concepts: [requests, standard, because, handles, install]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/saas/1t3rj2p.md#c4"
-    char_span: [6808, 8126]
+    char_span: [6807, 8125]
     sentence_count: 15
     key_terms: ["i'd", tool, synthetic, refresh, middleware-as-registry, "that's", right, token]
+    concepts: [synthetic, refresh, "that's", right, token]
     section: Comments
     token_count: 275
   - id: "social-intelligence/reddit-deep/saas/1t3rj2p.md#c5"
-    char_span: [8128, 9603]
+    char_span: [8127, 9602]
     sentence_count: 11
     key_terms: [integration, api, auth, like, cases, human, context-switching, use]
+    concepts: [integration, cases, human]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/saas/1t3rj2p.md#c6"
-    char_span: [9607, 10563]
+    char_span: [9606, 10562]
     sentence_count: 5
     key_terms: [model, agent, saying, doesn, did, does, key, need]
+    concepts: [model, agent, saying, doesn]
     section: Comments
     token_count: 214
   - id: "social-intelligence/reddit-deep/saas/1t3rj2p.md#c7"
-    char_span: [10565, 12587]
+    char_span: [10564, 12586]
     sentence_count: 14
     key_terms: [different, agent, customers, mcp, multi-tenant, tenant-level, flows, permissions]
+    concepts: [different, customers, agent, multi-tenant, tenant-level]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/saas/1t3rj2p.md#c8"
-    char_span: [12589, 14088]
+    char_span: [12588, 14087]
     sentence_count: 10
     key_terms: [somethingdifferent24, enterprise, agent, crewpale9061, api, mcp, monetizing, reasoning]
+    concepts: [somethingdifferent24, enterprise, agent, crewpale9061, monetizing]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/saas/1t3rj2p.md#c9"
-    char_span: [14090, 15390]
+    char_span: [14089, 15389]
     sentence_count: 11
     key_terms: [api, layer, enterprise, customers, limiting, adding, oauth, auth]
+    concepts: [enterprise, layer, customers, limiting, adding]
     section: Comments
     token_count: 293
 ---

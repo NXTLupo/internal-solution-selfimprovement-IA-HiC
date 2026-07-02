@@ -19,19 +19,23 @@ content_hash: "24a0e4898dccaaa5"
 relevance_by_goal: {"3d9ef8ee927f":30}
 chunks:
   - id: "articles/reddit-deep-r-neu/be17a2bd6c.md#c0"
-    char_span: [0, 2262]
+    char_span: [0, 2261]
     sentence_count: 27
     key_terms: [experience, years, neu, work, people, being, job, operations]
-    token_count: 512
+    concepts: [experience, years, people, being, operations]
+    token_count: 511
+    sources: [{"n":"[Reddit Deep: r/neu](articles/reddit-deep-r-neu/57da5a9163.md","u":""}]
   - id: "articles/reddit-deep-r-neu/be17a2bd6c.md#c1"
-    char_span: [2264, 4575]
+    char_span: [2263, 4574]
     sentence_count: 29
     key_terms: [college, lot, "don't", communities, "it's", specific, culture, depends]
+    concepts: [college, communities, "don't", specific, culture]
     token_count: 510
   - id: "articles/reddit-deep-r-neu/be17a2bd6c.md#c2"
-    char_span: [4577, 5413]
+    char_span: [4576, 5412]
     sentence_count: 6
     key_terms: [comments, science, boston, independent-lab6410, minor, bulky-command9731, oweoyahdkcns18273, data]
+    concepts: [comments, science, boston, minor]
     token_count: 205
 ---
 # Advice about NEU from someone who graduated a few years ago.

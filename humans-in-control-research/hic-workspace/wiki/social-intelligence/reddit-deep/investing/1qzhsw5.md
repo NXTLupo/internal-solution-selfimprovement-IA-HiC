@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1021]
     sentence_count: 8
     key_terms: [investing, wondering, comments, chinese, looking, markets, china, korea]
+    concepts: [investing, wondering, comments, chinese, looking]
     token_count: 227
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1qzhsw5/international_market_etfs_looking_to_diversify/"}]
   - id: "social-intelligence/reddit-deep/investing/1qzhsw5.md#c1"
     char_span: [1035, 2888]
     sentence_count: 10
     key_terms: [investments, reddit, gruntledgary, ewy, look, vxus, outperform, projected]
+    concepts: [investments, gruntledgary, reddit, outperform, projected]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/investing/1qzhsw5.md#c2"
     char_span: [2890, 3466]
     sentence_count: 2
     key_terms: [exposure, world, exus, specific, p500, want, effectively, re-weighted]
+    concepts: [exposure, world, specific]
     section: Comments
     token_count: 146
   - id: "social-intelligence/reddit-deep/investing/1qzhsw5.md#c3"
     char_span: [3468, 5083]
     sentence_count: 8
     key_terms: [great, portfolio, "they're", advice, better, market, "you're", pleasant-shallot-707]
+    concepts: [great, portfolio, "they're", advice, better]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/investing/1qzhsw5.md#c4"
     char_span: [5085, 5643]
     sentence_count: 4
     key_terms: [someone, china, like, distribution, gruntledgary, machine8851, everything, leadership]
+    concepts: [someone, china]
     section: Comments
     token_count: 135
 ---

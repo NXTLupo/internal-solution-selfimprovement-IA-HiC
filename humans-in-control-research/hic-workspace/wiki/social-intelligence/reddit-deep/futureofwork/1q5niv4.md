@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1114]
     sentence_count: 2
     key_terms: [learning-and-development, work, future-of-work, futureofwork, https, www, comments, balance]
+    concepts: [learning-and-development, future-of-work, futureofwork, https, comments]
     token_count: 257
+    sources: [{"n":"reddit-deep: r/futureofwork","u":"https://www.reddit.com/r/FutureOfWork/comments/1q5niv4/the_future_of_work_trends_and_insights_for_2025/"}]
   - id: "social-intelligence/reddit-deep/futureofwork/1q5niv4.md#c1"
     char_span: [1128, 1774]
     sentence_count: 2
     key_terms: [future-of-work-trends-you-should-know-2025, consultport, future, future-of-consulting, thumbsdrivesmecrazy, new, work, problem-solving]
+    concepts: [consultport, future]
     section: Comments
     token_count: 139
 ---

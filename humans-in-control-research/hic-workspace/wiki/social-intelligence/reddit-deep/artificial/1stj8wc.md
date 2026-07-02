@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 449]
     sentence_count: 3
     key_terms: [ai-generated, artificial, "company's", comments, google, number, code, reddit-deep]
+    concepts: [ai-generated, artificial, "company's", comments, google]
     token_count: 123
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1stj8wc/google_says_75_of_the_companys_new_code_is/"}]
   - id: "social-intelligence/reddit-deep/artificial/1stj8wc.md#c1"
     char_span: [463, 1408]
     sentence_count: 5
     key_terms: [like, explains, protobuf, buggier, detouristcollective, tanishkacantcopee, code, temporaryuser10]
+    concepts: [explains, protobuf, buggier]
     section: Comments
     token_count: 253
 ---

@@ -7,37 +7,41 @@ subreddit: "salesforce"
 title: "Resume Advice!!!"
 author: "Fair-Ad-122"
 date: "2026-06-11T00:00:30.000Z"
-score: 2
-upvote_ratio: 0.58
+score: 5
+upvote_ratio: 0.69
 num_comments: 5
 flair: "help please"
-extracted_at: "2026-06-11T18:58:38.959Z"
+extracted_at: "2026-06-23T20:32:01.767Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Analyze case studies of private equity firms and holding companies (such as Medforth) that build repeatable AI capabilities once and scale them across higher education portfolio companies. Deliver an operational playbook detailing the shared-service models, governance frameworks, and deployment strategies used to scale AI across admissions workflows, student communications, and enrollment operations to accelerate long enrollment cycles."
+engagement: "analyze-case-studies-of-private-equity-firms-and-holding-com"
 chunks:
   - id: "social-intelligence/reddit-deep/salesforce/1u2j7eu.md#c0"
     char_span: [0, 973]
     sentence_count: 6
     key_terms: [resume, salesforce, "i'm", "i've", comments, getting, advice, https]
+    concepts: [salesforce, resume, comments, getting, advice]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1u2j7eu/resume_advice/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1u2j7eu.md#c1"
-    char_span: [988, 3241]
+    char_span: [987, 3240]
     sentence_count: 26
     key_terms: [salesforce, development, technical, need, business, positioning, net, want]
+    concepts: [salesforce, development, technical, business, positioning]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/salesforce/1u2j7eu.md#c2"
-    char_span: [3243, 3924]
+    char_span: [3242, 3923]
     sentence_count: 2
     key_terms: [instead, resume, onyxlabyrinth1979, get, "i'd", responsibilities, certifications, acquisitions]
+    concepts: [instead, resume]
     section: Comments
     token_count: 141
 ---
 # Resume Advice!!!
 
 Source: [reddit-deep: r/salesforce](https://www.reddit.com/r/salesforce/comments/1u2j7eu/resume_advice/)
-Posted by **Fair-Ad-122** · **2↑** · **5 comments**
+Posted by **Fair-Ad-122** · **5↑** · **5 comments**
 
 What's up y'all! I'm *kinda* new to this job market, and I'm fully aware of the terrible condition its in. Trust me, I've sent probably 1000 job applications since I've graduated. These jobs that I have on my resume aren't even from me applying, I've been fortunate enough to have some connections that let me work for them part-time while I still search for that full-time position. I've found that I'm no longer getting responses from jobs, not even rejections so I'm wondering, is there something wrong with my resume? **What can I improve and is it worth getting salesforce certifications to boost my resume?** Any advice is greatly appreciated, feel free to be super blunt
 

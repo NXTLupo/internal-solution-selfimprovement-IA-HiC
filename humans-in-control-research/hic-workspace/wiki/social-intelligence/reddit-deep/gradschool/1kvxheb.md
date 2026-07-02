@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 778]
     sentence_count: 5
     key_terms: [gradschool, comments, job, like, slutforguacamole, reddit-deep, employment, especially]
+    concepts: [gradschool, comments]
     token_count: 190
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1kvxheb/feel_like_im_dreaming/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1kvxheb.md#c1"
     char_span: [792, 2228]
     sentence_count: 12
     key_terms: [congratulations, slutforguacamole, exciting, job, thank, interview, thepaintedfern, congrats]
+    concepts: [congratulations, slutforguacamole, exciting, interview, thank]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1kvxheb.md#c2"]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/gradschool/1kvxheb.md#c2"
     char_span: [2230, 3351]
     sentence_count: 8
     key_terms: [slutforguacamole, congratulations, congrats, never, thank, been, did, done]
+    concepts: [slutforguacamole, congratulations, congrats, never, thank]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1kvxheb.md#c1"]
     section: Comments
     token_count: 298
 ---

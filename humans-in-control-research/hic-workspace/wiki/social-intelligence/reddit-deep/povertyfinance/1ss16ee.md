@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1364]
     sentence_count: 12
     key_terms: [povertyfinance, considering, loan, everything, withdrawl, comments, everyone, current]
+    concepts: [povertyfinance, considering, everything, withdrawl, comments]
     token_count: 346
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1ss16ee/withdrawl_from_401k/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1ss16ee.md#c1"
     char_span: [1378, 1703]
     sentence_count: 3
     key_terms: [bankruptcy, easy-seesaw285, relatively, protected, craters, economy, further, level]
+    concepts: [bankruptcy]
     section: Comments
     token_count: 83
   - id: "social-intelligence/reddit-deep/povertyfinance/1ss16ee.md#c2"
     char_span: [1705, 3406]
     sentence_count: 12
     key_terms: [debt, left, ago, bankruptcy, protected, withdraw, medical, credit]
+    concepts: [bankruptcy, protected, withdraw, medical, credit]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/povertyfinance/1ss16ee.md#c3"
     char_span: [3408, 5541]
     sentence_count: 12
     key_terms: [what-is-the-difference-between-credit-counseling-and-debt-settlement-debt-consolidation-or-credit-repair-en-1449, credit, https, car, nfcc, pay, www, hardship]
+    concepts: [what-is-the-difference-between-credit-counseling-and-debt-settlement-debt-consolidation-or-credit-repair-en-1449, credit, consumerfinance, https, hardship]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/povertyfinance/1ss16ee.md#c4"
     char_span: [5543, 7510]
     sentence_count: 17
     key_terms: [credit, "don't", card, loan, nfcc, completely, expenses, another]
+    concepts: [credit, completely, "don't", expenses, another]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/povertyfinance/1ss16ee.md#c5"
     char_span: [7512, 7942]
     sentence_count: 3
     key_terms: [job, future, national-practice705, searching, temporary, continue, expenses, treading]
+    concepts: [future]
     section: Comments
     token_count: 109
 ---

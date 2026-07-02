@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1163]
     sentence_count: 7
     key_terms: [inventory, fulfillmentbyamazon, units, fba, amazon, fulfillment, comments, centers]
+    concepts: [inventory, fulfillmentbyamazon, units, amazon, fulfillment]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1pyz4mo.md#c1"]
     token_count: 250
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1pyz4mo/fba_holding_units_in_one_area/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1pyz4mo.md#c1"
-    char_span: [1178, 2342]
+    char_span: [1177, 2341]
     sentence_count: 8
     key_terms: [inventory, amazon, wedgeco, extractor, located, seattle, broken, stock]
+    concepts: [inventory, amazon, wedgeco, extractor, located]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1pyz4mo.md#c0"]
     section: Comments
     token_count: 270
 ---

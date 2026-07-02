@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 1896]
     sentence_count: 24
     key_terms: [engineers, cscareerquestions, code, junior, within, write, employment, anthropic]
+    concepts: [engineers, cscareerquestions, junior, within, employment]
     token_count: 422
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t6au6g/the_junior_developer_career_path_is_disappearing/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t6au6g.md#c1"
     char_span: [1898, 3436]
     sentence_count: 19
     key_terms: ["doesn't", juniors, seniors, hiring, people, years, entry-level, "quarter's"]
+    concepts: ["doesn't", juniors, seniors, hiring, people]
     token_count: 325
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t6au6g.md#c2"
     char_span: [3450, 5275]
     sentence_count: 9
     key_terms: [ambitious-garbage-73, roles, post, slop, harvard, coding, junior, please]
+    concepts: [ambitious-garbage-73, roles, harvard, coding, junior]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t6au6g.md#c3"
     char_span: [5277, 6213]
     sentence_count: 13
     key_terms: [code, something, company, coding, going, less, like, show]
+    concepts: [something, company, coding, going]
     section: Comments
     token_count: 210
 ---

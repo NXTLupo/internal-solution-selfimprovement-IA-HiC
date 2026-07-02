@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1854]
     sentence_count: 7
     key_terms: [billion, revenue, micron, quarter, adjusted, fiscal, earnings, expectations]
+    concepts: [billion, revenue, micron, quarter, adjusted]
     token_count: 400
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1pp8bae/micron_pops_as_q1_results_guidance_blow_past/"}]
   - id: "social-intelligence/reddit-deep/stocks/1pp8bae.md#c1"
-    char_span: [1869, 3717]
+    char_span: [1868, 3716]
     sentence_count: 9
     key_terms: [earnings, oracle, panic, openai, commitments, sentiment, deleted, revenue]
+    concepts: [earnings, oracle, panic, openai, commitments]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/stocks/1pp8bae.md#c2"
-    char_span: [3719, 5278]
+    char_span: [3718, 5277]
     sentence_count: 11
     key_terms: [earnings, opportunity, bought, micron, leatherinspector2409, gains, great, mega]
+    concepts: [earnings, opportunity, bought, micron, gains]
     section: Comments
     token_count: 429
 ---

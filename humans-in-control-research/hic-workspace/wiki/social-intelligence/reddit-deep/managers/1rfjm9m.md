@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1443]
     sentence_count: 9
     key_terms: [team, plan, been, soon, want, management, comments, included]
+    concepts: [management, comments, included, informed, managers]
     token_count: 319
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1rfjm9m/new_manager_and_i_need_to_layoff_team_members/"}]
   - id: "social-intelligence/reddit-deep/managers/1rfjm9m.md#c1"
     char_span: [1457, 2519]
     sentence_count: 10
     key_terms: [genek1953, stealth, warning, people, team, work, consideration, discussions]
+    concepts: [genek1953, stealth, warning, people]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/managers/1rfjm9m.md#c2"
     char_span: [2521, 4375]
     sentence_count: 12
     key_terms: [tell, months, pretty, leave, place, like, team, work]
+    concepts: [months, pretty, leave, place, maternity]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/managers/1rfjm9m.md#c3"
     char_span: [4377, 6470]
     sentence_count: 15
     key_terms: [early, until, don, get, std, team, tell, want]
+    concepts: [early, understand, until, pregnancy, assuming]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/managers/1rfjm9m.md#c4"
     char_span: [6472, 8428]
     sentence_count: 8
     key_terms: [good, time, months, eligibility, employment, quarters, "state's", worked]
+    concepts: [months, eligibility, employment, quarters, "state's"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/managers/1rfjm9m.md#c5"
     char_span: [8430, 9871]
     sentence_count: 6
     key_terms: [discrimination, people, weeks, encourage, pregnant, layoff, township-road-nnn, "it's"]
+    concepts: [discrimination, people, weeks, encourage, pregnant]
     section: Comments
     token_count: 332
 ---

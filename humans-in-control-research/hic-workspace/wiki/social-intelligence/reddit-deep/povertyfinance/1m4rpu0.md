@@ -21,52 +21,64 @@ chunks:
     char_span: [0, 1732]
     sentence_count: 16
     key_terms: [house, povertyfinance, window, money, units, don, keep, insurance]
+    concepts: [house, povertyfinance, window, money, units]
     token_count: 436
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1m4rpu0/house_has_no_ac_what_can_i_do/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c1"
     char_span: [1734, 2793]
     sentence_count: 9
     key_terms: [bathrooms, myself, work, expensive, house, water, fix, got]
+    concepts: [bathrooms, myself, expensive, house, water]
     token_count: 240
   - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c2"
     char_span: [2807, 4636]
     sentence_count: 20
     key_terms: [keep, house, cool, bug, down, need, used, control]
+    concepts: [house, control, service, windows, "that's"]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c4"]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c3"
     char_span: [4638, 6685]
     sentence_count: 13
     key_terms: [dehumidifier, attic, room, putting, area, heat, used, insulation]
+    concepts: [dehumidifier, attic, putting, insulation, apartment]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c4"
     char_span: [6687, 8792]
     sentence_count: 28
     key_terms: [windows, fans, reflective, air, ice, put, use, couple]
+    concepts: [windows, reflective, couple, house, insulation]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c2"]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c5"
     char_span: [8794, 10322]
     sentence_count: 17
     key_terms: [room, windows, curtains, living, window, air, cool, door]
+    concepts: [windows, curtains, living, window, because]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c6"
     char_span: [10325, 12058]
     sentence_count: 19
     key_terms: [air, room, window, keep, cool, get, bedroom, kitchen]
+    concepts: [window, bedroom, kitchen, outside, weather]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c7"
     char_span: [12060, 12577]
     sentence_count: 4
     key_terms: [cheap, theater, blakecarconstruction, movie, like, thankfully, microwave, something]
+    concepts: [cheap, theater, movie]
     section: Comments
     token_count: 120
   - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c8"
     char_span: [12579, 14405]
     sentence_count: 16
     key_terms: [blakecarconstruction, playful-mastodon9251, house, fix, leak, like, clearesult, focus-ira]
+    concepts: [blakecarconstruction, playful-mastodon9251, clearesult, house, focus-ira]
     section: Comments
     token_count: 461
 ---

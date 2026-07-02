@@ -21,65 +21,79 @@ chunks:
     char_span: [0, 2198]
     sentence_count: 11
     key_terms: [models, routed, being, sensitive, illegal, people, model, everything]
+    concepts: [models, routed, sensitive, being, illegal]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1nryifa/lead_engineer_of_aiprm_confirms_the_routing_is/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c1"
     char_span: [2212, 2469]
     sentence_count: 2
     key_terms: [r-chatgpt-1050422060352024636, discord, withoutreason1729, post, contribution, appreciate, featured, getting]
+    concepts: [discord]
     section: Comments
     token_count: 66
   - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c2"
     char_span: [2471, 4323]
     sentence_count: 17
     key_terms: [ill-increase3549, because, subscription, cancelled, canceled, kimi-k2, renewal, cancel]
+    concepts: [ill-increase3549, because, subscription, cancelled, canceled]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c3"
     char_span: [4112, 4980]
     sentence_count: 6
     key_terms: [company, kimi-k2, proprio, fishermaneuphoric687, armadilla-brufolosa, anche, intellettivamente, con]
+    concepts: [company, kimi-k2, proprio, anche]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c4"
     char_span: [4982, 6804]
     sentence_count: 10
     key_terms: [chatgpt, people, brand, edits, human, users, efficiencydry6570, feel]
+    concepts: [chatgpt, people, brand, edits, human]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1nryifa.md#c6"]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c5"
     char_span: [6806, 7683]
     sentence_count: 5
     key_terms: [corporate, informal-fig-7116, like, png, vj9wdfbl9rrf1, aspectqueasy, trademarks, interests]
+    concepts: [corporate]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c6"
     char_span: [7685, 9605]
     sentence_count: 12
     key_terms: [people, like, pay, ill-increase3549, get, watermarks, believe, chatgpt]
+    concepts: [people, ill-increase3549, watermarks, believe, chatgpt]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1nryifa.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c7"
     char_span: [9389, 10235]
     sentence_count: 9
     key_terms: [completely, deleted, getting, october, "there's", louder, models, greedy-sandwich9709]
+    concepts: [completely, deleted, getting, october, "there's"]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c8"
     char_span: [10237, 12043]
     sentence_count: 15
     key_terms: [thebratscribe, "it's", like, thinking, fucking, walking, finger, middle]
+    concepts: [thebratscribe, thinking, fucking, walking, finger]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c9"
     char_span: [12045, 12859]
     sentence_count: 6
     key_terms: [dirty, "i'm", openai, embarrassed-farm-594, internationaldog1836, armadilla-brufolosa, fraud, like]
+    concepts: [dirty, openai, fraud]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c10"
     char_span: [12861, 14440]
     sentence_count: 12
     key_terms: [people, gpt, downvoting, comments, because, instead, asking, gregodensgiantdong1]
+    concepts: [people, downvoting, comments, because, instead]
     section: Comments
     token_count: 436
 ---

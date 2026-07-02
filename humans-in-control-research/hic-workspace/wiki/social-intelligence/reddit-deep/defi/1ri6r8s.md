@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1524]
     sentence_count: 10
     key_terms: [protocols, defi, transaction, costs, user, protocol, because, mainnet]
+    concepts: [protocols, transaction, costs, protocol, infrastructure]
     token_count: 333
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1ri6r8s/defi_unit_economics_are_completely_broken_on/"}]
   - id: "social-intelligence/reddit-deep/defi/1ri6r8s.md#c1"
-    char_span: [1539, 2183]
+    char_span: [1538, 2182]
     sentence_count: 2
     key_terms: [mainnet, jumpy-teaching-3118, thedudeonblockchain, gas, infrastructure, environments, acquisition, exaggerate]
+    concepts: [mainnet]
     section: Comments
     token_count: 175
 ---

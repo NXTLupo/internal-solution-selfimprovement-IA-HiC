@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 813]
     sentence_count: 6
     key_terms: [experimenting, agent, artificial, workflows, comments, virtual, agents, code]
+    concepts: [experimenting, agent, artificial, workflows, comments]
     token_count: 174
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1lvd9p2/experimenting_with_ai_agent_workflows_easy_no/"}]
   - id: "social-intelligence/reddit-deep/artificial/1lvd9p2.md#c1"
     char_span: [827, 1625]
     sentence_count: 7
     key_terms: [no-code, bro, dev, like, receptionists, environments, intelligence, horizon-dev]
+    concepts: [no-code]
     section: Comments
     token_count: 166
 ---

@@ -20,47 +20,59 @@ chunks:
     char_span: [0, 975]
     sentence_count: 5
     key_terms: [philanthropy, https, charities, comments, "there's", wozldj, share, tally]
+    concepts: [philanthropy, https, charities, comments, "there's"]
     token_count: 224
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1qwf3zy/i_want_your_help_understanding_if_theres_a_better/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1qwf3zy.md#c1"
-    char_span: [990, 3165]
+    char_span: [989, 3164]
     sentence_count: 13
     key_terms: [nonprofits, understand, transparency, great, transaction, jcravens42, charities, expensive]
+    concepts: [nonprofits, understand, transparency, transaction, great]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1qwf3zy.md#c7"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/philanthropy/1qwf3zy.md#c2"
-    char_span: [3167, 4951]
+    char_span: [3166, 4950]
     sentence_count: 18
     key_terms: [run, accounting, interested, simplified, understand, churches, expenses, thought]
+    concepts: [accounting, interested, simplified, understand, churches]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/philanthropy/1qwf3zy.md#c3"
-    char_span: [4955, 5997]
+    char_span: [4954, 5996]
     sentence_count: 11
     key_terms: [trust, transparency, donating, willing, donate, donors, people, based]
+    concepts: [trust, transparency, donating, willing, donate]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/philanthropy/1qwf3zy.md#c4"
-    char_span: [6001, 8107]
+    char_span: [6000, 8106]
     sentence_count: 14
     key_terms: [payment, transparent, stripe, data, companies, comments, scalable, solution]
+    concepts: [transparent, payment, stripe, companies, comments]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/philanthropy/1qwf3zy.md#c5"
-    char_span: [8109, 9806]
+    char_span: [8108, 9805]
     sentence_count: 8
     key_terms: [https, www, charitywatch, charitydata, donors, charityintelligence, financial, org]
+    concepts: [https, charitywatch, charitydata, charityintelligence, donors]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/philanthropy/1qwf3zy.md#c6"
-    char_span: [9808, 11459]
+    char_span: [9807, 11458]
     sentence_count: 12
     key_terms: [donors, public, mrfinnsmith, data, org, haipiswind, expenses, publish]
+    concepts: [donors, public, mrfinnsmith, haipiswind, expenses]
     section: Comments
     token_count: 379
+    sources: [{"n":"donations auto-tracked through Stripe, expenses pulled from transaction history ","u":""}]
   - id: "social-intelligence/reddit-deep/philanthropy/1qwf3zy.md#c7"
-    char_span: [11461, 13736]
+    char_span: [11460, 13735]
     sentence_count: 13
     key_terms: [transparency, like, updates, big, real, time, confidence, difference]
+    concepts: [transparency, updates, confidence, difference, understand]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1qwf3zy.md#c1"]
     section: Comments
     token_count: 498
 ---

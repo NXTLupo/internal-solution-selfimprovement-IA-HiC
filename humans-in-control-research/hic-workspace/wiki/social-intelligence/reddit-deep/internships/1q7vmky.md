@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 2187]
     sentence_count: 12
     key_terms: [resume, applications, com, internships, internship, https, www, tracked]
+    concepts: [applications, resume, internships, internship, https]
     token_count: 533
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1q7vmky/i_tracked_100_internship_applications_the_problem/"}]
   - id: "social-intelligence/reddit-deep/internships/1q7vmky.md#c1"
     char_span: [2189, 4044]
     sentence_count: 11
     key_terms: [roles, job, like, applicants, internship, saturated, reposted, looking]
+    concepts: [applicants, internship, roles, saturated, reposted]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/internships/1q7vmky.md#c2"
     char_span: [4046, 4860]
     sentence_count: 3
     key_terms: [applying, jobs, interviews, systematically, pingpongmanny, competitions, application, conclusions]
+    concepts: [applying, interviews]
     section: Comments
     token_count: 197
 ---

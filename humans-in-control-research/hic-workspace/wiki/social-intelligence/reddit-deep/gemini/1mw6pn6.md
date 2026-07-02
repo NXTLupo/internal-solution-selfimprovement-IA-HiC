@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 782]
     sentence_count: 6
     key_terms: [account, gemini, experience, unsettling, comments, someone, seems, administrator]
+    concepts: [account, gemini, experience, unsettling, comments]
     token_count: 181
+    sources: [{"n":"reddit-deep: r/gemini","u":"https://www.reddit.com/r/Gemini/comments/1mw6pn6/some_assistance_pls/"}]
   - id: "social-intelligence/reddit-deep/gemini/1mw6pn6.md#c1"
     char_span: [796, 1605]
     sentence_count: 9
     key_terms: [humblead6496, ticket, thank, been, escalated, account, gianna, please]
+    concepts: [humblead6496, ticket, thank, escalated, account]
     section: Comments
     token_count: 215
 ---

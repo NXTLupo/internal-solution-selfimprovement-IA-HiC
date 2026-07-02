@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1842]
     sentence_count: 8
     key_terms: [roommate, "i'm", neu, medical, oakland, random, condition, comments]
+    concepts: [roommate, medical, oakland, random, condition]
     token_count: 432
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1t3vkbh/neu_oakland_single_vs_random_roommate_firstyear/"}]
   - id: "social-intelligence/reddit-deep/neu/1t3vkbh.md#c1"
     char_span: [1856, 3591]
     sentence_count: 11
     key_terms: [single, dorms, friends, miathekoala, get, oakland, singles, minifridge]
+    concepts: [single, dorms, miathekoala, friends, oakland]
     section: Comments
     token_count: 451
 ---

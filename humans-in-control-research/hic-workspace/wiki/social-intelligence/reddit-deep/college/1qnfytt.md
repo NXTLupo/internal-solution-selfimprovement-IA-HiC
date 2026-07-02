@@ -19,59 +19,79 @@ chunks:
     char_span: [0, 1694]
     sentence_count: 22
     key_terms: [students, comments, college, assignment, noticed, writing, school, skills]
+    concepts: [students, comments, college, assignment, noticed]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qnfytt.md#c3", "social-intelligence/reddit-deep/college/1qnfytt.md#c7"]
     token_count: 372
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1qnfytt/are_students_dumber/"}]
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c1"
     char_span: [1708, 3480]
     sentence_count: 17
     key_terms: [age, college, friends, people, key-wash-1573, undergrad, freshman, started]
+    concepts: [college, key-wash-1573, friends, people, undergrad]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qnfytt.md#c2", "social-intelligence/reddit-deep/college/1qnfytt.md#c3"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c2"
     char_span: [3482, 5384]
     sentence_count: 14
     key_terms: [college, friends, being, older, freshman, younger, anyone, little]
+    concepts: [college, friends, being, older, freshman]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qnfytt.md#c1"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c3"
     char_span: [5386, 7366]
     sentence_count: 10
     key_terms: [students, professor, college, people, covid, fail, brovo911, because]
+    concepts: [students, professor, college, people, covid]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qnfytt.md#c0", "social-intelligence/reddit-deep/college/1qnfytt.md#c1", "social-intelligence/reddit-deep/college/1qnfytt.md#c5", "social-intelligence/reddit-deep/college/1qnfytt.md#c7"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c4"
     char_span: [7368, 9368]
     sentence_count: 17
     key_terms: [students, school, explain, "they're", high, sure, year, learning]
+    concepts: [students, school, explain, "they're", learning]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qnfytt.md#c5", "social-intelligence/reddit-deep/college/1qnfytt.md#c9"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c5"
     char_span: [9370, 11582]
     sentence_count: 22
     key_terms: [use, people, account, desktop, game, help, learning, students]
+    concepts: [people, account, desktop, learning, students]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qnfytt.md#c3", "social-intelligence/reddit-deep/college/1qnfytt.md#c4", "social-intelligence/reddit-deep/college/1qnfytt.md#c8"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c6"
     char_span: [11585, 11974]
     sentence_count: 4
     key_terms: [showed, never, appreciated, algorithm, searching, relevant, revelant, specific]
+    concepts: [showed, never]
     section: Comments
     token_count: 83
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c7"
     char_span: [11977, 14006]
     sentence_count: 21
     key_terms: [students, classes, "don't", get, college, "aren't", class, part]
+    concepts: [students, classes, "don't", college, "aren't"]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qnfytt.md#c0", "social-intelligence/reddit-deep/college/1qnfytt.md#c3"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c8"
     char_span: [14008, 15317]
     sentence_count: 9
     key_terms: [learning, people, computer, because, getting, stopped, through, dumber]
+    concepts: [learning, people, computer, because, getting]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qnfytt.md#c5"]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c9"
     char_span: [15319, 17311]
     sentence_count: 18
     key_terms: [students, back, school, don, like, education, semester, because]
+    concepts: [students, school, education, semester, because]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qnfytt.md#c4"]
     section: Comments
     token_count: 471
 ---

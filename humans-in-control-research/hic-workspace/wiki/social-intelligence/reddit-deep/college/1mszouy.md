@@ -19,47 +19,60 @@ chunks:
     char_span: [0, 1785]
     sentence_count: 11
     key_terms: [college, wants, rutgers, school, trade, comments, getting, nothing]
+    concepts: [college, wants, rutgers, school, trade]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mszouy.md#c9"]
     token_count: 401
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1mszouy/my_son_wants_to_come_home_after_24_hours_of_being/"}]
   - id: "social-intelligence/reddit-deep/college/1mszouy.md#c1"
     char_span: [1799, 2201]
     sentence_count: 5
     key_terms: ["doesn't", south-highlight-1630, lindsey7618, reevaluate, homesick, semester, "wouldn't", routine]
+    concepts: ["doesn't"]
     section: Comments
     token_count: 126
   - id: "social-intelligence/reddit-deep/college/1mszouy.md#c2"
     char_span: [2203, 4221]
     sentence_count: 17
     key_terms: [home, semester, parents, doesn, back, real, definitely, something]
+    concepts: [semester, parents, definitely, doesn, something]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/college/1mszouy.md#c3"
     char_span: [4223, 6074]
     sentence_count: 11
     key_terms: [probably, classes, feel, "he's", like, time, semester, started]
+    concepts: [probably, classes, semester, started, better]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mszouy.md#c9"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/college/1mszouy.md#c4"
     char_span: [6076, 7708]
     sentence_count: 16
     key_terms: [school, semester, heart, get, job, character, graduate, requires]
+    concepts: [school, semester, heart, character, graduate]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mszouy.md#c9"]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/college/1mszouy.md#c5"
     char_span: [7710, 9486]
     sentence_count: 11
     key_terms: [anxiety, trainsoundschoochoo, good, like, parents, "you're", give, home]
+    concepts: [trainsoundschoochoo, anxiety, parents, "you're", difference]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/college/1mszouy.md#c6"
     char_span: [9488, 10494]
     sentence_count: 3
     key_terms: [school, university, education, disclose, grades, grad, show, time]
+    concepts: [school, university, education, disclose, grades]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/college/1mszouy.md#c7"
     char_span: [10496, 12672]
     sentence_count: 21
     key_terms: [semester, home, because, college, cousin, grades, school, going]
+    concepts: [semester, because, college, cousin, grades]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mszouy.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mszouy.md#c8"
@@ -72,12 +85,15 @@ chunks:
     char_span: [12708, 14741]
     sentence_count: 13
     key_terms: [school, semester, through, classes, college, started, staying, wanted]
+    concepts: [school, semester, through, classes, college]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mszouy.md#c0", "social-intelligence/reddit-deep/college/1mszouy.md#c3", "social-intelligence/reddit-deep/college/1mszouy.md#c4", "social-intelligence/reddit-deep/college/1mszouy.md#c7"]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/college/1mszouy.md#c10"
     char_span: [14744, 16877]
     sentence_count: 19
     key_terms: [campus, plan, support, talking, spent, fall, feel, counseling]
+    concepts: [campus, support, talking, counseling, spent]
     section: Comments
     token_count: 462
 ---

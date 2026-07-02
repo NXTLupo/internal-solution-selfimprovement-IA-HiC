@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 1204]
     sentence_count: 4
     key_terms: [months, people, digitalnomad, comments, crisis, myself, person, being]
+    concepts: [digitalnomad, months, people, comments, crisis]
     token_count: 292
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1mproeq/life_crisis_after_3_months_of_being_a_nomad/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c1"
     char_span: [1218, 2751]
     sentence_count: 11
     key_terms: [character-ad-4021, flick, home, too, bangkok, country, message, phangan]
+    concepts: [character-ad-4021, flick, bangkok, country, message]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c2"
     char_span: [2753, 3896]
     sentence_count: 15
     key_terms: [feel, right, something, because, comment, friends, germany, totally]
+    concepts: [right, something, because, comment, friends]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c3"
     char_span: [3898, 5302]
     sentence_count: 6
     key_terms: [being, emotions, problems, others, people, feeling-attention43, nicotinecravings, opportunities]
+    concepts: [being, emotions, problems, others, people]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c5"]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c4"
     char_span: [5304, 6464]
     sentence_count: 8
     key_terms: [relationship, yourself, serious, alternativefuture155, odd-recognition4120, death, ended, loved]
+    concepts: [relationship, yourself, serious, death, ended]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c5"
     char_span: [6466, 8417]
     sentence_count: 27
     key_terms: [get, people, day, being, nomad, did, feel, home]
+    concepts: [people, being, nomad, something, exercise]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c3"]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c6"
     char_span: [8419, 9392]
     sentence_count: 10
     key_terms: [home, yourself, "you're", "don't", "it's", week, meaningless, consenting]
+    concepts: [yourself, "you're", "don't"]
     section: Comments
     token_count: 242
 ---

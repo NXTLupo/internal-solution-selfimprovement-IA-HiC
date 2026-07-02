@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 975]
     sentence_count: 8
     key_terms: [ai-generated, code, artificial, production, blackbox, comments, reliable, review]
+    concepts: [ai-generated, artificial, production, blackbox, comments]
     token_count: 228
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1l5pkcc/how_reliable_is_aigenerated_code_for_production/"}]
   - id: "social-intelligence/reddit-deep/artificial/1l5pkcc.md#c1"
     char_span: [989, 2525]
     sentence_count: 11
     key_terms: [code, "it's", human, time, reliable, testing, working, verify]
+    concepts: [human, reliable, testing, working, verify]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/artificial/1l5pkcc.md#c2"
     char_span: [2527, 3289]
     sentence_count: 7
     key_terms: [code, people, "don't", product, etc, good, astronomical, expectations]
+    concepts: [people, "don't", product]
     section: Comments
     token_count: 165
 ---

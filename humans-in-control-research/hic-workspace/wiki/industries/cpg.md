@@ -10,6 +10,7 @@ chunks:
     char_span: [0, 641]
     sentence_count: 2
     key_terms: [articles, sources, industries, reddit-deep-r-wallstreetbets, shared, reddit-deep-r-povertyfinance, reddit-behavioraleconomics, reddit-deep-r-genz]
+    concepts: [reddit-deep-r-wallstreetbets, articles, industries, sources, shared]
     section: Cross-over verticals (shared sources) / Representative sources
     token_count: 187
 ---

@@ -21,71 +21,86 @@ chunks:
     char_span: [0, 1927]
     sentence_count: 13
     key_terms: [investing, stocks, american, "i'm", like, individual, companies, portfolio]
+    concepts: [investing, stocks, american, individual, companies]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1qimilb.md#c11"]
     token_count: 435
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1qimilb/should_i_be_moving_away_from_us_stocks_as_a/"}]
   - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c1"
     char_span: [1941, 3918]
     sentence_count: 11
     key_terms: [politics, equities, current, nothing, events, "don't", jemicarus, protect]
+    concepts: [politics, equities, current, nothing, events]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c2"
     char_span: [3920, 5999]
     sentence_count: 18
     key_terms: [dollar, does, stop, american, question, price, last, lost]
+    concepts: [dollar, american, question, price, taiwanese]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c3"
     char_span: [6001, 7948]
     sentence_count: 11
     key_terms: [americans, spending, market, paper, materials, consumer, currency, "they're"]
+    concepts: [americans, spending, market, paper, materials]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c4"
     char_span: [7950, 8411]
     sentence_count: 3
     key_terms: [posts, time, feltzinclasp5, fascinating, completely, liberation, vblade2003, primarily]
+    concepts: [posts]
     section: Comments
     token_count: 109
   - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c5"
     char_span: [8413, 10337]
     sentence_count: 10
     key_terms: [financialthrowaw2020, day, time, contributions, liberation, investors, decided, sitting]
+    concepts: [financialthrowaw2020, contributions, liberation, investors, decided]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c6"
     char_span: [10339, 12556]
     sentence_count: 19
     key_terms: [billionaires, millionaires, hedge, billionaire, companies, greenland, portfolio, president]
+    concepts: [billionaires, millionaires, billionaire, hedge, companies]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c7"
     char_span: [12558, 14474]
     sentence_count: 15
     key_terms: [decisions, just-here2-learn, certain, agree, ex-us, portfolio, recovered, congress]
+    concepts: [just-here2-learn, decisions, certain, agree, ex-us]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c8"
     char_span: [14476, 15107]
     sentence_count: 6
     key_terms: [panama-canal-ports-blackrock-trump, already, people, deal, did, work, just-here2-learn, cupofchupachups]
+    concepts: [already, people]
     section: Comments
     token_count: 171
   - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c9"
     char_span: [15110, 16765]
     sentence_count: 12
     key_terms: [president, just-here2-learn, people, "don't", population, protesting, blackrock, "we're"]
+    concepts: [just-here2-learn, president, people, "don't", population]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c10"
     char_span: [16767, 18289]
     sentence_count: 7
     key_terms: [country, market, bias, global, labour, something, american, european]
+    concepts: [country, market, global, labour, something]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c11"
     char_span: [18292, 19696]
     sentence_count: 5
     key_terms: [international, voo, investment, companies, saalor100, american, defense, stocks]
+    concepts: [international, investment, companies, saalor100, american]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1qimilb.md#c0"]
     section: Comments
     token_count: 360
 ---

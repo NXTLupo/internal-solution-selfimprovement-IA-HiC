@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 697]
     sentence_count: 10
     key_terms: [back, questions, comments, friends, oakland, coop, find, guys]
+    concepts: [questions, comments, friends, oakland]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1s3x6wr.md#c1"]
     token_count: 185
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1s3x6wr/nu_oakland_questions/"}]
   - id: "social-intelligence/reddit-deep/neu/1s3x6wr.md#c1"
     char_span: [711, 2334]
     sentence_count: 3
     key_terms: [people, boston, coop, oakland, everyone, friends, going, yunshen1102]
+    concepts: [people, boston, oakland, everyone, friends]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1s3x6wr.md#c0"]
     section: Comments
     token_count: 390
 ---

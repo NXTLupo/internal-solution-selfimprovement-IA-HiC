@@ -21,28 +21,39 @@ chunks:
     char_span: [0, 2120]
     sentence_count: 13
     key_terms: [internship, abroad, marketing, internships, opportunity, here, like, work]
+    concepts: [internship, abroad, marketing, internships, opportunity]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1kv7ehi.md#c4"]
     token_count: 482
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1kv7ehi/dream_internship_vs_faang_opportunity_abroad_what/"}]
   - id: "social-intelligence/reddit-deep/internships/1kv7ehi.md#c1"
     char_span: [2122, 4011]
     sentence_count: 12
     key_terms: [management, like, company, project, abroad, opportunities, feels, offer]
+    concepts: [management, opportunities, company, project, abroad]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1kv7ehi.md#c2", "social-intelligence/reddit-deep/internships/1kv7ehi.md#c3"]
     token_count: 401
   - id: "social-intelligence/reddit-deep/internships/1kv7ehi.md#c2"
     char_span: [4025, 5917]
     sentence_count: 16
     key_terms: [company, accomplished-bowl300, faang, like, abroad, relationship, great, long]
+    concepts: [company, accomplished-bowl300, faang, relationship, abroad]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1kv7ehi.md#c1", "social-intelligence/reddit-deep/internships/1kv7ehi.md#c3", "social-intelligence/reddit-deep/internships/1kv7ehi.md#c4"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/internships/1kv7ehi.md#c3"
     char_span: [5919, 8077]
     sentence_count: 21
     key_terms: [opportunities, abroad, work, hometown, kid-on-the-block, company, staying, city]
+    concepts: [opportunities, abroad, kid-on-the-block, hometown, company]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1kv7ehi.md#c1", "social-intelligence/reddit-deep/internships/1kv7ehi.md#c2"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/internships/1kv7ehi.md#c4"
     char_span: [8079, 9719]
     sentence_count: 20
     key_terms: [accomplished-bowl300, faang, opportunity, life, new, take, want, experience]
+    concepts: [accomplished-bowl300, opportunity, experience, faang, internship]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1kv7ehi.md#c0", "social-intelligence/reddit-deep/internships/1kv7ehi.md#c2"]
     section: Comments
     token_count: 395
 ---

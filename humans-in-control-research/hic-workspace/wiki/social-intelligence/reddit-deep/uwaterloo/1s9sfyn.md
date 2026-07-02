@@ -21,59 +21,81 @@ chunks:
     char_span: [0, 1637]
     sentence_count: 5
     key_terms: [year, future, income, cash, credit, file, benefit, carryforward]
+    concepts: [future, income, credit, benefit, carryforward]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c1", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c3", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c4", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c5"]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1s9sfyn/waterloo_students_filing_taxes_with_zero_income/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c1"
     char_span: [1639, 3241]
     sentence_count: 6
     key_terms: [credit, cash, income, year, tuition, filing, years, amount]
+    concepts: [credit, income, tuition, filing, years]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c0", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c3", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c4", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c5", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c8"]
     token_count: 498
   - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c2"
     char_span: [3243, 5071]
     sentence_count: 11
     key_terms: [canadian, tax, canada, international, students, institution, year, credit]
+    concepts: [canadian, canada, international, students, institution]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c6"]
     token_count: 400
   - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c3"
     char_span: [5073, 6986]
     sentence_count: 10
     key_terms: [line, canada, income, credit, schedule, ontario, form, automatic]
+    concepts: [canada, income, credit, schedule, ontario]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c0", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c1", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c4", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c5"]
     token_count: 492
   - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c4"
     char_span: [6988, 8273]
     sentence_count: 8
     key_terms: [year, tuition, carryforward, credit, future, income, cash, file]
+    concepts: [tuition, carryforward, credit, future, income]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c0", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c1", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c3", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c5"]
     token_count: 322
   - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c5"
     char_span: [8275, 9908]
     sentence_count: 9
     key_terms: [credit, cash, year, income, tuition, filing, years, benefit]
+    concepts: [credit, income, tuition, filing, years]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c0", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c1", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c3", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c4", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c8"]
     token_count: 474
   - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c6"
     char_span: [9910, 10408]
     sentence_count: 4
     key_terms: [canadian, international, tax, year, residents, ontario, file, citizenship]
+    concepts: [canadian, international, residents, ontario]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c2"]
     token_count: 116
   - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c7"
     char_span: [10422, 12169]
     sentence_count: 9
     key_terms: [benefit, exactly, possiblecup140, wealthsimple, gettaxclear, free, time, full-time]
+    concepts: [benefit, possiblecup140, exactly, wealthsimple, gettaxclear]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c9"]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c8"
     char_span: [12171, 14055]
     sentence_count: 10
     key_terms: [people, taxes, file, tax, benefits, canadians-taxes-filing-money-owed-1, filing, income]
+    concepts: [people, taxes, benefits, filing, income]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c1", "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c5"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c9"
     char_span: [14057, 15447]
     sentence_count: 6
     key_terms: [ontariostudentresidencerebate, benefit, possiblecup140, designated, taxtronpro, trillium, ontario, qualify]
+    concepts: [ontariostudentresidencerebate, possiblecup140, benefit, designated, taxtronpro]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c7"]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c10"
     char_span: [15449, 16322]
     sentence_count: 6
     key_terms: [amount, off-campus, residence, file, rent, oversimplified, possiblecup140, back-returns]
+    concepts: [amount, off-campus, residence]
     section: Comments
     token_count: 197
 ---

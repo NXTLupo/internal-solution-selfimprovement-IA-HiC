@@ -19,53 +19,68 @@ chunks:
     char_span: [0, 1639]
     sentence_count: 16
     key_terms: [students, assignments, class, fun, professors, comments, methods, passed]
+    concepts: [students, assignments, class, professors, comments]
     token_count: 377
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1ridicn/fun_but_asinine_assignments/"}]
   - id: "social-intelligence/reddit-deep/professors/1ridicn.md#c1"
     char_span: [1653, 3145]
     sentence_count: 7
     key_terms: [assignment, students, lessons, stupid, rabid, vapid, fun, meme]
+    concepts: [assignment, students, lessons, stupid, rabid]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ridicn.md#c2", "social-intelligence/reddit-deep/professors/1ridicn.md#c7"]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/professors/1ridicn.md#c2"
     char_span: [3147, 5145]
     sentence_count: 12
     key_terms: [fun, students, content, explain, big-dig1631, don, "i'm", less]
+    concepts: [students, content, explain, big-dig1631, assignment]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ridicn.md#c1", "social-intelligence/reddit-deep/professors/1ridicn.md#c7"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/professors/1ridicn.md#c3"
     char_span: [5147, 6605]
     sentence_count: 13
     key_terms: [because, gamification, "it's", absolutely, jeopardy, material, students, classes]
+    concepts: [because, gamification, absolutely, jeopardy, material]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/professors/1ridicn.md#c4"
     char_span: [6608, 8852]
     sentence_count: 23
     key_terms: [students, understanding, lot, isn, knowledge, something, concepts, question]
+    concepts: [understanding, students, knowledge, something, concepts]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/professors/1ridicn.md#c5"
     char_span: [8854, 11103]
     sentence_count: 20
     key_terms: [students, competence, grade, awareness, fun, pharmacological, big-dig1631, activities]
+    concepts: [students, competence, awareness, grade, pharmacological]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ridicn.md#c6"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/professors/1ridicn.md#c6"
     char_span: [11105, 13244]
     sentence_count: 19
     key_terms: [students, genealogy, answer, grade, geology, participate, get, discussion]
+    concepts: [students, genealogy, answer, grade, geology]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ridicn.md#c5"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/professors/1ridicn.md#c7"
     char_span: [13247, 15200]
     sentence_count: 13
     key_terms: [students, boring, infantilizing, wife, assignment, grubbing, because, serious]
+    concepts: [students, infantilizing, boring, assignment, grubbing]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ridicn.md#c1", "social-intelligence/reddit-deep/professors/1ridicn.md#c2"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/professors/1ridicn.md#c8"
     char_span: [15202, 17487]
     sentence_count: 21
     key_terms: [learning, objectives, students, accountability, fun, help, considered, contribute]
+    concepts: [learning, objectives, students, accountability, considered]
     section: Comments
     token_count: 510
 ---

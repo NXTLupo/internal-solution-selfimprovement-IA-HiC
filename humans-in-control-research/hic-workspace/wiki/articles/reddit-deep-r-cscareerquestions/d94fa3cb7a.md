@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1567]
     sentence_count: 5
     key_terms: [trump-green-cards-gradutate-college, talent, cscareerquestions, irresponsible, https, com, guy, www]
+    concepts: [trump-green-cards-gradutate-college, cscareerquestions, talent, irresponsible, https]
     token_count: 381
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ouvega/new_grads_and_folks_looking_for_new_job_how_do/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/d94fa3cb7a.md#c1"
     char_span: [1569, 3420]
     sentence_count: 22
     key_terms: [party, h-1bs, against, parties, action, people, least, taken]
+    concepts: [party, h-1bs, against, parties, action]
     token_count: 420
 ---
 # New grads and folks looking for new job- how do you feel about Trump's conversation with Laura Inghram tonight in where he stated America lacks talent and you can't just pick an unemployed person off the unemployment line to do the jobs foreign countries are creating due to big investments?

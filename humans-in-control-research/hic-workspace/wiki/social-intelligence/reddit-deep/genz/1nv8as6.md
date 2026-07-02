@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 1344]
     sentence_count: 17
     key_terms: [elon, comments, filled, health, earns, genz, paid, per]
+    concepts: [comments, filled, health, earns]
     token_count: 343
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1nv8as6/how_loaded_these_billionaires_bastards_are_is/"}]
   - id: "social-intelligence/reddit-deep/genz/1nv8as6.md#c1"
     char_span: [1358, 3093]
     sentence_count: 6
     key_terms: [eclecticevergreen, working, value, hard, multiple, discord, enough, months]
+    concepts: [eclecticevergreen, working, value, multiple, discord]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/genz/1nv8as6.md#c2"
     char_span: [3095, 4384]
     sentence_count: 6
     key_terms: [gilded, billionaires, age, symptom, assets, wealth, mega-billionaires, buy]
+    concepts: [billionaires, gilded, symptom, assets, wealth]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1nv8as6.md#c3"]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/genz/1nv8as6.md#c3"
     char_span: [4387, 6459]
     sentence_count: 18
     key_terms: [debt, down, wealth, redistributed, billionaires, means, musk, contribute]
+    concepts: [redistributed, billionaires, wealth, contribute, means]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1nv8as6.md#c2"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/genz/1nv8as6.md#c4"
     char_span: [6462, 8142]
     sentence_count: 15
     key_terms: [individuals, politicians, political, economic-political-social, fairness, getting, always, people]
+    concepts: [individuals, politicians, political, fairness, getting]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/genz/1nv8as6.md#c5"
     char_span: [8144, 10191]
     sentence_count: 11
     key_terms: [down, another, dollars, market, people, essentially, theoretical, like]
+    concepts: [another, dollars, market, people, essentially]
     section: Comments
     token_count: 488
 ---

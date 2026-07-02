@@ -21,53 +21,66 @@ chunks:
     char_span: [0, 2290]
     sentence_count: 16
     key_terms: [market, burry, don, happen, real, economic, bubble, people]
+    concepts: [market, burry, happen, economic, bubble]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1ovhixs/michael_burry_is_a_clown_who_got_lucky_once/"}]
   - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c1"
     char_span: [2304, 4015]
     sentence_count: 8
     key_terms: [guy, "it's", english, michael, people, gettingdumberwithage, clown, write]
+    concepts: [english, michael, people, clown, write]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c2"
     char_span: [4017, 5798]
     sentence_count: 11
     key_terms: [years, "he's", performance, portfolio, past, market, michael-burry, stockcircle]
+    concepts: [years, performance, portfolio, michael-burry, market]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1ovhixs.md#c3", "social-intelligence/reddit-deep/investing/1ovhixs.md#c8"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c3"
     char_span: [5800, 7186]
     sentence_count: 12
     key_terms: [performance, michael-burry, hedge, wrong, stockcircle, been, understand, portfolio]
+    concepts: [performance, michael-burry, stockcircle, hedge, understand]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1ovhixs.md#c2"]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c4"
     char_span: [7188, 8987]
     sentence_count: 5
     key_terms: [utm, because, contracts, investors, money, share, lost, comments]
+    concepts: [because, contracts, investors, money, share]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c5"
     char_span: [8989, 10333]
     sentence_count: 6
     key_terms: ["he's", burry, money, portfolio, people, like, against, premium]
+    concepts: [burry, portfolio, money, people, against]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c6"
     char_span: [10335, 12283]
     sentence_count: 8
     key_terms: [top, tell, dollars, started, better, people, wildly, money]
+    concepts: [dollars, started, better, people, wildly]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c7"
     char_span: [12064, 12854]
     sentence_count: 3
     key_terms: [professionalyellow55, right, time, lazy-gene-7284, koolaidman391, danknadoflex, oddchocolate, historical]
+    concepts: [right]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c8"
     char_span: [12856, 14441]
     sentence_count: 8
     key_terms: [year, market, portfolio, years, performance, did, "he's", lol]
+    concepts: [market, portfolio, performance, management, years]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1ovhixs.md#c2"]
     section: Comments
     token_count: 438
 ---

@@ -21,77 +21,98 @@ chunks:
     char_span: [0, 1968]
     sentence_count: 24
     key_terms: [around, money, boyfriend, personalfinance, account, inheritance, debt, left]
+    concepts: [around, boyfriend, money, personalfinance, account]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c5", "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c6"]
     token_count: 495
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1sg2dmf/mom_died_and_left_me_money_but_i_am_a_little_lost/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c1"
     char_span: [1982, 4170]
     sentence_count: 17
     key_terms: [money, comments, hysa, read, yourself, until, bank, post]
+    concepts: [money, comments, yourself, until, financial]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c4"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c2"
     char_span: [4172, 6264]
     sentence_count: 18
     key_terms: [money, bank, put, options, recommend, face, hysa, sitting]
+    concepts: [money, options, recommend, sitting, institution]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c3"
     char_span: [6266, 7317]
     sentence_count: 7
     key_terms: [alternate, something, checking, interest, account, t-bill, international-ant174, state]
+    concepts: [alternate, something, checking, interest, account]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c6"]
     section: Comments
     token_count: 233
   - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c4"
     char_span: [7319, 9204]
     sentence_count: 16
     key_terms: [money, decisions, emotionally, inheritance, fund, hysa, year, financial]
+    concepts: [money, decisions, emotionally, inheritance, financial]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c1"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c5"
     char_span: [9206, 10455]
     sentence_count: 12
     key_terms: [wiki, personalfinance, money, windfall, account, reddit, boyfriend, grand]
+    concepts: [personalfinance, money, windfall, account, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c0", "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c6"]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c6"
     char_span: [10457, 12469]
     sentence_count: 23
     key_terms: [account, earn, interest, thattotal2020, funds, money, bank, get]
+    concepts: [account, interest, thattotal2020, funds, money]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c0", "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c3", "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c5", "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c10"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c7"
     char_span: [12471, 14358]
     sentence_count: 15
     key_terms: [want, fidelity, put, retirement, paycheck, contribution, money, fund]
+    concepts: [fidelity, retirement, paycheck, contribution, money]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c8"
     char_span: [14360, 16241]
     sentence_count: 23
     key_terms: [funds, american, years, hysa, high-interest-savings-to-get, yourself, express, million]
+    concepts: [funds, american, years, yourself, express]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c9"
     char_span: [16243, 17008]
     sentence_count: 9
     key_terms: [investing, someone, edward, people, funds, jones, find, year]
+    concepts: [investing, someone, edward, people, funds]
     section: Comments
     token_count: 187
   - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c10"
     char_span: [17010, 18847]
     sentence_count: 11
     key_terms: [funds, jitterbug26, rule, everything, interest, probably, america, through]
+    concepts: [funds, jitterbug26, everything, interest, probably]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c6"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c11"
     char_span: [18849, 20951]
     sentence_count: 24
     key_terms: [employer, better, banks, credit, people, unions, rates, retirement]
+    concepts: [employer, better, banks, credit, people]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c12"
     char_span: [20953, 21809]
     sentence_count: 11
     key_terms: [max, roth, contribute, employer, don, irs, tax, year]
+    concepts: [contribute, employer]
     section: Comments
     token_count: 238
 ---

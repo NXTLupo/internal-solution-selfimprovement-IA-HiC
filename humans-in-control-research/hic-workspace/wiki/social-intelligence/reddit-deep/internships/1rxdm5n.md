@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 358]
     sentence_count: 3
     key_terms: [internships, comments, abroad, endlessethann, international, opportunities, reddit-deep, internship]
+    concepts: [internships, comments, abroad]
     token_count: 99
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rxdm5n/anyone_know_where_i_can_find_reliable/"}]
   - id: "social-intelligence/reddit-deep/internships/1rxdm5n.md#c1"
     char_span: [372, 1524]
     sentence_count: 6
     key_terms: [internship, endlessethann, asia, placement, europe, outrageousgazelle210, sweet-frosting4839, day]
+    concepts: [internship, endlessethann, placement, europe]
     section: Comments
     token_count: 293
 ---

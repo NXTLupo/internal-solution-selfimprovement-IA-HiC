@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1445]
     sentence_count: 6
     key_terms: [productivity, use, system, organization, "i'm", reminders, comments, personal]
+    concepts: [productivity, organization, system, reminders, comments]
     token_count: 321
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1tkd7xa/what_is_your_personal_organization_system_for/"}]
   - id: "social-intelligence/reddit-deep/productivity/1tkd7xa.md#c1"
     char_span: [1459, 3342]
     sentence_count: 13
     key_terms: [text, plain, backlog, notion, system, emacs, files, topic]
+    concepts: [plain, backlog, notion, system, emacs]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/productivity/1tkd7xa.md#c2"
     char_span: [3344, 5327]
     sentence_count: 17
     key_terms: [use, notes, note, todoist, obsidian, list, work, everything]
+    concepts: [notes, todoist, obsidian, everything, mineralum]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/productivity/1tkd7xa.md#c3"

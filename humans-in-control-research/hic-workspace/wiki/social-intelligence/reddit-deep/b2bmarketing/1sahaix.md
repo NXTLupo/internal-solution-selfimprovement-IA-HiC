@@ -20,29 +20,39 @@ chunks:
     char_span: [0, 1138]
     sentence_count: 8
     key_terms: [reddit, comments, people, b2bmarketing, leads, anyone, gotten, hand]
+    concepts: [reddit, comments, b2bmarketing, people, leads]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1sahaix.md#c1", "social-intelligence/reddit-deep/b2bmarketing/1sahaix.md#c2", "social-intelligence/reddit-deep/b2bmarketing/1sahaix.md#c3"]
     token_count: 254
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1sahaix/has_anyone_actually_generated_leads_from_reddit/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sahaix.md#c1"
-    char_span: [1153, 2922]
+    char_span: [1152, 2921]
     sentence_count: 12
     key_terms: [looking-for-marketing-discussion-811236647760298024, reddit, questions, helpful, leads, adamyamada, community, discord]
+    concepts: [reddit, questions, helpful, adamyamada, leads]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1sahaix.md#c0", "social-intelligence/reddit-deep/b2bmarketing/1sahaix.md#c2"]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sahaix.md#c2"
-    char_span: [2924, 5094]
+    char_span: [2923, 5093]
     sentence_count: 20
     key_terms: [like, reddit, platform, time, leads, connection, engagement, messaging]
+    concepts: [reddit, platform, leads, connection, engagement]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1sahaix.md#c0", "social-intelligence/reddit-deep/b2bmarketing/1sahaix.md#c1"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sahaix.md#c3"
-    char_span: [5096, 7109]
+    char_span: [5095, 7108]
     sentence_count: 19
     key_terms: [people, leads, get, help, like, comments, strategy, because]
+    concepts: [people, leads, comments, strategy, because]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1sahaix.md#c0"]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sahaix.md#c4"
-    char_span: [7111, 7644]
+    char_span: [7110, 7643]
     sentence_count: 3
     key_terms: [genuinely, helpful, using, brightmindflow, authority, currently, platforms, comments]
+    concepts: [genuinely, helpful, using]
     section: Comments
     token_count: 129
 ---

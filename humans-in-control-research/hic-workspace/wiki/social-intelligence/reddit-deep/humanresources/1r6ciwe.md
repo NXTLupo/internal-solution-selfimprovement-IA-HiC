@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 2195]
     sentence_count: 10
     key_terms: [accommodations, leadership, humanresources, been, practices, comments, informal, pregnant]
+    concepts: [accommodations, leadership, humanresources, practices, comments]
     token_count: 430
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1r6ciwe/pregnant_only_hr_at_small_company_mn/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1r6ciwe.md#c1"
     char_span: [2209, 4254]
     sentence_count: 14
     key_terms: [pregnancy, like, trust, boilerplate, get, timelines, employee, possible]
+    concepts: [pregnancy, boilerplate, trust, timelines, employee]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/humanresources/1r6ciwe.md#c2"
     char_span: [4256, 6002]
     sentence_count: 12
     key_terms: [accommodations, employees, congratulations, company, formalizing, pregnancies, own, pregnancy]
+    concepts: [accommodations, employees, congratulations, company, formalizing]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/humanresources/1r6ciwe.md#c3"
     char_span: [6004, 8157]
     sentence_count: 11
     key_terms: [leave, employees, medical, family, weeks, take, program, state]
+    concepts: [leave, employees, medical, family, weeks]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/humanresources/1r6ciwe.md#c4"
     char_span: [8159, 9897]
     sentence_count: 11
     key_terms: [employee, company, "that's", "you're", accommodation, ceo, supervisor, different]
+    concepts: [employee, accommodation, company, "that's", "you're"]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/humanresources/1r6ciwe.md#c5"
     char_span: [9899, 10855]
     sentence_count: 10
     key_terms: [accommodations, person, want, hr-of-one, interest, support, write, boss]
+    concepts: [accommodations, person, hr-of-one, interest, support]
     section: Comments
     token_count: 227
 ---

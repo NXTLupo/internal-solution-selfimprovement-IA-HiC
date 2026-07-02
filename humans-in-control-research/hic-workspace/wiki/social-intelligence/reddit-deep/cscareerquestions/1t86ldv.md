@@ -19,63 +19,83 @@ chunks:
     char_span: [0, 1993]
     sentence_count: 19
     key_terms: [interviews, did, applications, offer, roles, cscareerquestions, came, applying]
+    concepts: [interviews, applications, cscareerquestions, offer, roles]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c1"]
     token_count: 456
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t86ldv/my_job_search_experience_11_yoe_564_applications/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c1"
     char_span: [1995, 3895]
     sentence_count: 16
     key_terms: [companies, interviews, interview, contracting, applications, get, less, experience]
+    concepts: [companies, interviews, interview, contracting, applications]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c7", "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c8", "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c9"]
     token_count: 420
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c2"
     char_span: [3897, 5569]
     sentence_count: 16
     key_terms: ["don't", interview, connections, interviews, recruiters, managers, resulted, clearly]
+    concepts: [interview, "don't", connections, interviews, recruiters]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c1"]
     token_count: 351
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c3"
-    char_span: [5584, 7401]
+    char_span: [5583, 7400]
     sentence_count: 6
     key_terms: [companies, importantsquirrel, been, getting, bombed, banks, implement, questions]
+    concepts: [importantsquirrel, companies, getting, bombed, banks]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c8"]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c4"
-    char_span: [7403, 9477]
+    char_span: [7402, 9476]
     sentence_count: 17
     key_terms: [questions, asked, never, interviewed, got, "i'm", experience, different]
+    concepts: [questions, interviewed, asked, experience, never]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c10"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c5"
-    char_span: [9482, 11570]
+    char_span: [9481, 11569]
     sentence_count: 18
     key_terms: [importantsquirrel, jobs, multimodeviber, descriptions, roles, job, like, pay]
+    concepts: [importantsquirrel, multimodeviber, descriptions, roles, intention]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c6"
-    char_span: [11318, 11796]
+    char_span: [11317, 11795]
     sentence_count: 4
     key_terms: [government-adjacent, congratulations, universities, governments, fallwindss, government, foolproof, hospitals]
     section: Comments
     token_count: 114
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c7"
-    char_span: [11798, 13656]
+    char_span: [11797, 13655]
     sentence_count: 17
     key_terms: [interviews, did, got, sent, swe, particular, companies, engineer]
+    concepts: [interviews, particular, companies, engineer, applied]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c1"]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c8"
-    char_span: [13658, 15772]
+    char_span: [13657, 15771]
     sentence_count: 20
     key_terms: [interview, pretty, asked, companies, importantsquirrel, did, company, fairly]
+    concepts: [interview, pretty, importantsquirrel, companies, asked]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c3"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c9"
-    char_span: [15774, 17196]
+    char_span: [15773, 17195]
     sentence_count: 14
     key_terms: [companies, applications, people, job, yoe, variance, experience, impressive]
+    concepts: [companies, applications, people, variance, experience]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c10"]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c10"
-    char_span: [17198, 18549]
+    char_span: [17197, 18548]
     sentence_count: 16
     key_terms: [company, "it's", never, experience, university, companies, referrals, shallow86]
+    concepts: [company, experience, never, university, companies]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c9"]
     section: Comments
     token_count: 326
 ---

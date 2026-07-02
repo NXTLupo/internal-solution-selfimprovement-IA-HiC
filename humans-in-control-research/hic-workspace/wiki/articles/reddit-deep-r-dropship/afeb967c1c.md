@@ -19,19 +19,23 @@ content_hash: "0507d93b93372754"
 relevance_by_goal: {"490684cfa204":45}
 chunks:
   - id: "articles/reddit-deep-r-dropship/afeb967c1c.md#c0"
-    char_span: [0, 1147]
+    char_span: [0, 1146]
     sentence_count: 1
     key_terms: [comments, dropship, fulfillment, aliexpress, reddit, doing, going, been]
-    token_count: 267
+    concepts: [comments, dropship, fulfillment, aliexpress, reddit]
+    token_count: 266
+    sources: [{"n":"Reddit Deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1rwis8u/those_of_you_who_switched_from_aliexpress_to_a/"}]
   - id: "articles/reddit-deep-r-dropship/afeb967c1c.md#c1"
-    char_span: [1150, 3339]
+    char_span: [1149, 3338]
     sentence_count: 4
     key_terms: [beegodropdropship, delivery, variance, fulfillment, refund, consistent, customers, unpredictability]
+    concepts: [beegodropdropship, delivery, variance, fulfillment, consistent]
     token_count: 479
   - id: "articles/reddit-deep-r-dropship/afeb967c1c.md#c2"
-    char_span: [3341, 4116]
+    char_span: [3340, 4115]
     sentence_count: 4
     key_terms: [orders, across, count, start, days, sku, skus, consistency]
+    concepts: [orders, across, count, start]
     token_count: 174
 ---
 # those of you who switched from AliExpress to a real fulfillment center — was it worth it? trying to decide

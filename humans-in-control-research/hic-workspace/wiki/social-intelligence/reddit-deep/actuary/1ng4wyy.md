@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 2120]
     sentence_count: 14
     key_terms: [public, topic, benchmarks, actuarial, comments, interest, actuary, adjusts]
+    concepts: [public, benchmarks, topic, actuarial, comments]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/actuary","u":"https://www.reddit.com/r/actuary/comments/1ng4wyy/actuarial_ai_for_exam_prep/"}]
   - id: "social-intelligence/reddit-deep/actuary/1ng4wyy.md#c1"
-    char_span: [2135, 3839]
+    char_span: [2134, 3838]
     sentence_count: 3
     key_terms: [impossible-shock-773, exams, gpt-4-fails-final-actuarial-exam, llm, firerapper, actuarial, question, example]
+    concepts: [impossible-shock-773, exams, firerapper, actuarial, question]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/actuary/1ng4wyy.md#c2"
-    char_span: [3841, 4923]
+    char_span: [3840, 4922]
     sentence_count: 9
     key_terms: [comparisons, adaptation, learning, because, learner, student, advise, better]
+    concepts: [comparisons, adaptation, learning, because, learner]
     section: Comments
     token_count: 249
 ---

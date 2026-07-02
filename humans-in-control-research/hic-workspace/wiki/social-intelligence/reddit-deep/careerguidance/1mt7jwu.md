@@ -21,34 +21,41 @@ chunks:
     char_span: [0, 2069]
     sentence_count: 15
     key_terms: [founder, careerguidance, work, comments, recently, looking, startup, working]
+    concepts: [careerguidance, founder, comments, recently, looking]
     token_count: 440
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1mt7jwu/ceo_told_me_to_start_looking_even_interview/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7jwu.md#c1"
     char_span: [2071, 3771]
     sentence_count: 19
     key_terms: [entry-level, consulting, advice, roles, analytical, analytics, off-cycle, possible]
+    concepts: [entry-level, consulting, advice, analytical, roles]
     token_count: 365
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7jwu.md#c2"
     char_span: [3785, 5618]
     sentence_count: 10
     key_terms: [something, company, good, like, use, yeah, anything, figured]
+    concepts: [something, company, anything, figured, apply]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7jwu.md#c3"
     char_span: [5620, 6977]
     sentence_count: 11
     key_terms: [recommendation, job, like, letter, ask, get, contacts, provide]
+    concepts: [recommendation, letter, contacts, provide, person]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7jwu.md#c4"
     char_span: [6979, 8786]
     sentence_count: 23
     key_terms: [job, step, take, time, backward, company, looking, naughty]
+    concepts: [backward, company, looking, naughty, talking]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7jwu.md#c5"
     char_span: [8788, 10495]
     sentence_count: 20
     key_terms: [network, ask, find, like, experience, companies, traction, contact]
+    concepts: [network, experience, companies, traction, contact]
     section: Comments
     token_count: 392
 ---

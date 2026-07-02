@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 963]
     sentence_count: 6
     key_terms: [engineering, engineeringstudents, internship, comments, research, physics, summer, "don't"]
+    concepts: [engineering, engineeringstudents, internship, comments, research]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c1"]
     token_count: 218
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rxk6t2/how_cooked_am_i_with_no_internships/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c1"
     char_span: [977, 1774]
     sentence_count: 4
     key_terms: [engineering, navy, internship, designing, ships, pristine-judge640, got, queenofruneblade]
+    concepts: [engineering, internship, designing, ships]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c0"]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c2"
     char_span: [1776, 3966]
     sentence_count: 20
     key_terms: [team, internship, entry, something, pristine-judge640, queenofruneblade, design, senior]
+    concepts: [internship, pristine-judge640, queenofruneblade, something, entry]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c3"
     char_span: [3968, 5319]
     sentence_count: 10
     key_terms: [volunteer, queenofruneblade, company, volunteering, "can't", something, deleted, optical]
+    concepts: [queenofruneblade, volunteer, company, volunteering, "can't"]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c4"
     char_span: [5321, 7175]
     sentence_count: 8
     key_terms: [optical, engineering, queenofruneblade, degree, masters, optics, abravexstove, get]
+    concepts: [optical, engineering, queenofruneblade, degree, masters]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c5"
     char_span: [7177, 8213]
     sentence_count: 6
     key_terms: [projects, internships, job, personal, several, secure, capital-spring1682, show-and-tell]
+    concepts: [projects, internships, personal, several, secure]
     section: Comments
     token_count: 235
 ---

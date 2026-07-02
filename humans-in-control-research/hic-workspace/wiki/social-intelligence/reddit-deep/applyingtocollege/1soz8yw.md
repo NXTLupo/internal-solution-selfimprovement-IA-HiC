@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 1988]
     sentence_count: 17
     key_terms: [international, college, school, applyingtocollege, parents, universities, scholarship, gave]
+    concepts: [international, college, applyingtocollege, school, parents]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c5"]
     token_count: 465
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1soz8yw/im_lost_and_confused_about_going_to_college/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c1"
     char_span: [1990, 2297]
     sentence_count: 4
     key_terms: [scholarships, international, community, different, probably, transfer, college, student]
+    concepts: [scholarships]
     token_count: 72
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c2"
     char_span: [2311, 4124]
     sentence_count: 16
     key_terms: [state, college-openings-update, administration, international, gpa, visa, interested, nacacnet]
+    concepts: [state, college-openings-update, administration, international, interested]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c3"
     char_span: [4126, 6043]
     sentence_count: 19
     key_terms: [options, memphis, dangerous, schools, enroll, dream, nyc, navigate]
+    concepts: [options, memphis, dangerous, schools, enroll]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c4"
     char_span: [6045, 7776]
     sentence_count: 13
     key_terms: [schools, international, because, scholarships, physician, medical, administration, school]
+    concepts: [schools, international, scholarships, because, physician]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c5"
     char_span: [7778, 9869]
     sentence_count: 24
     key_terms: [rhodes, fordham, college, school, elitist, family, bronx, debt]
+    concepts: [rhodes, fordham, college, school, elitist]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c0"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c6"
     char_span: [9871, 11177]
     sentence_count: 11
     key_terms: [college, community, working, students, "didn't", state, sucks, get]
+    concepts: [college, community, working, students, "didn't"]
     section: Comments
     token_count: 289
 ---

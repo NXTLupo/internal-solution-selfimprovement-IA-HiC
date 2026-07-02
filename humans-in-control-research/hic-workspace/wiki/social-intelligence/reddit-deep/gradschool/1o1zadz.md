@@ -21,47 +21,61 @@ chunks:
     char_span: [0, 2021]
     sentence_count: 16
     key_terms: [program, professor, points, email, department, disability, gradschool, comments]
+    concepts: [program, professor, points, department, disability]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1o1zadz.md#c6", "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c7"]
     token_count: 441
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1o1zadz/i_am_being_targeted_to_leave_my_program/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c1"
     char_span: [2035, 3650]
     sentence_count: 12
     key_terms: [grading, objective, whether, effort, graded, grade, need, department]
+    concepts: [grading, objective, whether, effort, graded]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c2"
     char_span: [3652, 5814]
     sentence_count: 18
     key_terms: [subjective, "don't", because, grading, partial, credit, don, give]
+    concepts: [subjective, "don't", because, grading, partial]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c3"
     char_span: [5816, 7012]
     sentence_count: 10
     key_terms: [degree, completion, assistant, position, programs, advisor, likely, thesis]
+    concepts: [degree, completion, assistant, position, programs]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c4"
     char_span: [7014, 8563]
     sentence_count: 11
     key_terms: ["don't", program, want, history, problematic, keep, absolutely, professor]
+    concepts: ["don't", program, history, problematic, absolutely]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1o1zadz.md#c5"]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c5"
     char_span: [8565, 10680]
     sentence_count: 12
     key_terms: [students, program, issues, history, awards, degree, comes, leave]
+    concepts: [students, program, issues, history, awards]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1o1zadz.md#c4"]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c6"
     char_span: [10682, 11548]
     sentence_count: 9
     key_terms: [professor, something, program, course, letter, fair, free, like]
+    concepts: [professor, something, program, course, letter]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1o1zadz.md#c0"]
     section: Comments
     token_count: 197
   - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c7"
     char_span: [11550, 13069]
     sentence_count: 12
     key_terms: [professor, grade, department, recommend, unjustly, program, appeal, degree]
+    concepts: [professor, department, grade, recommend, unjustly]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1o1zadz.md#c0"]
     section: Comments
     token_count: 319
 ---

@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1389]
     sentence_count: 8
     key_terms: [offer, internships, experience, internship, interviews, comments, "don't", best]
+    concepts: [offer, internships, experience, internship, interviews]
     token_count: 302
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1si4bqh/hopecore_update/"}]
   - id: "social-intelligence/reddit-deep/internships/1si4bqh.md#c1"
     char_span: [1403, 1750]
     sentence_count: 3

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2088]
     sentence_count: 3
     key_terms: [oklo-nvidia-and-los-alamos-national-laboratory-collaborate-to-advance-nuclear-fuel-validation-at-los-alamos-in-support-of-nuclear-powered-ai-factories, nuclear, nuclear-powered, support, plutonium-bearing, factories, infrastructure, validation]
+    concepts: [nuclear, nuclear-powered, plutonium-bearing, support, infrastructure]
     token_count: 432
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1stjpem/oklo_and_nvidia_collaborate_to_advance_nuclear/"}]
   - id: "social-intelligence/reddit-deep/stocks/1stjpem.md#c1"
-    char_span: [2103, 4063]
+    char_span: [2102, 4062]
     sentence_count: 14
     key_terms: [nuclear, company, power, day, meme, need, oklo, companies]
+    concepts: [nuclear, company, power, companies, expecting]
     section: Comments
     token_count: 456
 ---

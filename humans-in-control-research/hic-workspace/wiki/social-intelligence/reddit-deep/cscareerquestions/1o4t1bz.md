@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 2253]
     sentence_count: 20
     key_terms: [learning, data, machine, science, through, university, cscareerquestions, trying]
+    concepts: [learning, machine, science, through, university]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1o4t1bz.md#c1"]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1o4t1bz/18_year_old_student_looking_for_honest_advice_on/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o4t1bz.md#c1"
     char_span: [2267, 3481]
     sentence_count: 6
     key_terms: [learning, machine, science, data, loficoochie, alot, get, good]
+    concepts: [learning, machine, science, loficoochie, exciting]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1o4t1bz.md#c0"]
     section: Comments
     token_count: 283
 ---

@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 686]
     sentence_count: 4
     key_terms: [careerguidance, school, engineering, comments, college, company, student, faced]
+    concepts: [careerguidance, school, engineering, comments, college]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t9pz9s.md#c1"]
     token_count: 167
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t9pz9s/20_year_old_college_student_faced_with_a_career/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t9pz9s.md#c1"
     char_span: [700, 2126]
     sentence_count: 10
     key_terms: [engineering, school, "you're", trade, find, path, mechanical, company]
+    concepts: [engineering, school, "you're", mechanical, trade]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t9pz9s.md#c0"]
     section: Comments
     token_count: 316
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2278]
     sentence_count: 18
     key_terms: [essay, applyingtocollege, tutoring, myself, experiences, help, community, comments]
+    concepts: [essay, applyingtocollege, tutoring, myself, experiences]
     token_count: 482
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1pjldq9/in_honor_of_eds_coming_out_soon_im_releasing_the/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pjldq9.md#c1"
     char_span: [2280, 2659]
     sentence_count: 3
@@ -31,12 +33,14 @@ chunks:
     char_span: [2673, 3896]
     sentence_count: 6
     key_terms: [justthewriter, queen4jesus, hey, zealousideal-act4003, writingridingrunner, asked, inside-agency-2701, fusiondrifter5]
+    concepts: [justthewriter, queen4jesus, asked]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pjldq9.md#c3"
     char_span: [3900, 4940]
     sentence_count: 7
     key_terms: [famoustouch833, plagiarism, archive, essays, please, zealousideal-act4003, gs559, https]
+    concepts: [famoustouch833, plagiarism, archive, essays, please]
     section: Comments
     token_count: 286
 ---

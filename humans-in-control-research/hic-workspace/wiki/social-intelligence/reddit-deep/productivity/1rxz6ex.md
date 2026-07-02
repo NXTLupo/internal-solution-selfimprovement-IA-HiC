@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1990]
     sentence_count: 26
     key_terms: [procrastination, because, productivity, "you're", something, problem, "it's", like]
+    concepts: [procrastination, productivity, because, "you're", something]
     token_count: 425
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1rxz6ex/procrastination_is_silently_creating_a_graveyard/"}]
   - id: "social-intelligence/reddit-deep/productivity/1rxz6ex.md#c1"
     char_span: [2004, 3609]
     sentence_count: 6
     key_terms: [productivity, organizing, inventory, "it's", time, iwantboringtimes, played, space]
+    concepts: [productivity, organizing, iwantboringtimes, inventory, played]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/productivity/1rxz6ex.md#c2"
     char_span: [3611, 5787]
     sentence_count: 8
     key_terms: ["you're", "it's", "that's", discomfort, important, threshold, task, shan8567]
+    concepts: ["you're", discomfort, "that's", important, threshold]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/productivity/1rxz6ex.md#c3"
     char_span: [5789, 8057]
     sentence_count: 18
     key_terms: [people, doing, done, like, need, plan, definitely, resources]
+    concepts: [people, doing, definitely, resources, somewhere]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/productivity/1rxz6ex.md#c4"
     char_span: [8059, 10286]
     sentence_count: 2
     key_terms: [planning, resistance, feels, heavier, usually, "you're", consistently, brain]
+    concepts: [planning, resistance, feels, heavier, usually]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/productivity/1rxz6ex.md#c5"
     char_span: [10288, 12027]
     sentence_count: 13
     key_terms: [brain, start, deciding, reorganizing, doing, file, like, open]
+    concepts: [brain, start, deciding, reorganizing, doing]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/productivity/1rxz6ex.md#c6"
     char_span: [12029, 13444]
     sentence_count: 18
     key_terms: [sentence, something, decision, start, document, already, because, "there's"]
+    concepts: [sentence, something, decision, start, document]
     section: Comments
     token_count: 315
 ---

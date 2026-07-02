@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1789]
     sentence_count: 12
     key_terms: [internships, connections, get, got, internship, interviews, comments, because]
+    concepts: [internships, connections, internship, interviews, comments]
     token_count: 410
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rwimd6/sick_of_being_unable_to_get_an_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1rwimd6.md#c1"
     char_span: [1803, 3757]
     sentence_count: 18
     key_terms: [applying, engineering, internships, land, experience, structured, interview, domestic]
+    concepts: [applying, engineering, internships, experience, structured]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/internships/1rwimd6.md#c2"
     char_span: [3759, 5666]
     sentence_count: 9
     key_terms: [internships, resume, everything, maybe, right, american, graduate, applied]
+    concepts: [internships, everything, resume, maybe, right]
     section: Comments
     token_count: 490
 ---

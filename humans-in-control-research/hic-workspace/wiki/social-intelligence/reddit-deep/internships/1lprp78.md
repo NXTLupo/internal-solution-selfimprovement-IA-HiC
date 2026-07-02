@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 894]
     sentence_count: 1
     key_terms: [internships, data, comments, learning, science, student, working, advice]
+    concepts: [internships, comments, learning, science, student]
     token_count: 222
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1lprp78/looking_for_advice_and_maybe_a_remote_internship/"}]
 ---
 # Looking for advice (and maybe a remote internship?) as a data science student trying to grow
 

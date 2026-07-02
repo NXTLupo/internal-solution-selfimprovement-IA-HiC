@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1251]
     sentence_count: 13
     key_terms: [internships, applyingtocollege, student, baruch, career, pace, networking, university]
+    concepts: [internships, applyingtocollege, student, baruch, career]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1qrttji/pace_university_vs_baruch_college_looking_for/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qrttji.md#c1"
     char_span: [1265, 1522]
     sentence_count: 1
     key_terms: [business, baruch, lacedprozac, finance, liberal, majors, school, doing]
+    concepts: [business, baruch]
     section: Comments
     token_count: 69
 ---

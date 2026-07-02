@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 531]
     sentence_count: 4
     key_terms: [comments, identity, fintech, client, incorporation, inconsistent, reddit-deep, regulations]
+    concepts: [comments, identity, fintech, client]
     token_count: 124
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1mb4xn7/whats_the_standard_process_for_verifying_b2b/"}]
   - id: "social-intelligence/reddit-deep/fintech/1mb4xn7.md#c1"
-    char_span: [546, 2939]
+    char_span: [545, 2938]
     sentence_count: 17
     key_terms: [verification, business, complyadvantage, platforms, checks, manual, automatically, incorporation]
+    concepts: [verification, business, complyadvantage, platforms, automatically]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/fintech/1mb4xn7.md#c2"
-    char_span: [2941, 4891]
+    char_span: [2940, 4890]
     sentence_count: 15
     key_terms: [jurisdictions, compliance, verifymyclient, incorporation, verification, data, kyb, registries]
+    concepts: [jurisdictions, compliance, verifymyclient, incorporation, verification]
     section: Comments
     token_count: 392
 ---

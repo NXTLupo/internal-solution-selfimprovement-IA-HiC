@@ -20,35 +20,45 @@ chunks:
     char_span: [0, 2064]
     sentence_count: 12
     key_terms: [working, sales, didn, end, product, customers, business, comments]
+    concepts: [working, sales, product, customers, business]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1n1f1zp.md#c3"]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1n1f1zp/lost_in_b2b_sales_looking_for_advice_i_will_not/"}]
   - id: "social-intelligence/reddit-deep/startups/1n1f1zp.md#c1"
-    char_span: [2079, 4519]
+    char_span: [2078, 4518]
     sentence_count: 17
     key_terms: [product, service, does, customer, because, finding, impact, people]
+    concepts: [product, service, customer, because, finding]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/startups/1n1f1zp.md#c2"
-    char_span: [4521, 6086]
+    char_span: [4520, 6085]
     sentence_count: 13
     key_terms: [revenue, selling, reaching, need, enterprise, decision, finance, product]
+    concepts: [revenue, selling, reaching, enterprise, decision]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/startups/1n1f1zp.md#c3"
-    char_span: [6088, 8435]
+    char_span: [6087, 8434]
     sentence_count: 20
     key_terms: [product, "you're", sales, lyingondabitch, easier, late-put-9295, enterprise, customer]
+    concepts: [product, "you're", sales, lyingondabitch, late-put-9295]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1n1f1zp.md#c0", "social-intelligence/reddit-deep/startups/1n1f1zp.md#c5"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/startups/1n1f1zp.md#c4"
-    char_span: [8437, 10300]
+    char_span: [8436, 10299]
     sentence_count: 14
     key_terms: [lyingondabitch, conversations, cash, too, painful, usually, advice, better]
+    concepts: [lyingondabitch, conversations, painful, usually, advice]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/startups/1n1f1zp.md#c5"
-    char_span: [10302, 11329]
+    char_span: [10301, 11328]
     sentence_count: 8
     key_terms: [product, lyingondabitch, social, media, want, marketing, trying, interesting-bat4097]
+    concepts: [lyingondabitch, product, social, media, marketing]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1n1f1zp.md#c3"]
     section: Comments
     token_count: 258
 ---

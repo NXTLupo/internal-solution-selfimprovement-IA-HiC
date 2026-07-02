@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1088]
     sentence_count: 7
     key_terms: [experience, jobs, years, job, new, management, comments, account]
+    concepts: [experience, management, years, comments, account]
     token_count: 253
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1pejus9/advice_on_career_development_when_to_leave/"}]
   - id: "social-intelligence/reddit-deep/jobs/1pejus9.md#c1"
     char_span: [1102, 1779]
     sentence_count: 5
     key_terms: [job, making, legitimatefig792, applications, bob-dolemite, interviews, submitting, potential]
+    concepts: [making]
     section: Comments
     token_count: 177
 ---

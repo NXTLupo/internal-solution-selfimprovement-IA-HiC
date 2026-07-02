@@ -21,21 +21,26 @@ chunks:
     char_span: [0, 1885]
     sentence_count: 12
     key_terms: [careerguidance, years, portfolio, comments, personal, liberal, through, trading]
+    concepts: [careerguidance, years, portfolio, comments, personal]
     token_count: 433
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1msqkg4/what_are_the_best_ways_to_develop_skills_that/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1msqkg4.md#c1"
     char_span: [1887, 3923]
     sentence_count: 8
     key_terms: [additional, business, income, revenue, career, skills, professional, don]
+    concepts: [additional, business, income, revenue, professional]
     token_count: 469
   - id: "social-intelligence/reddit-deep/careerguidance/1msqkg4.md#c2"
     char_span: [3925, 5104]
     sentence_count: 7
     key_terms: [skills, employable, salesforce, tableau, experience, marketable, in-demand, current]
+    concepts: [employable, salesforce, skills, tableau, experience]
     token_count: 263
   - id: "social-intelligence/reddit-deep/careerguidance/1msqkg4.md#c3"
     char_span: [5118, 5943]
     sentence_count: 5
     key_terms: [federal-court-reporting-program, ncra-a-to-z-online-program, discover, program, discoversteno-program, court, found, https]
+    concepts: [discover, program, court, found, https]
     section: Comments
     token_count: 208
 ---

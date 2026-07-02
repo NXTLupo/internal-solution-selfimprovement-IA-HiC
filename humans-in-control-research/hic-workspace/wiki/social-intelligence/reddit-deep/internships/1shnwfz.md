@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1723]
     sentence_count: 15
     key_terms: [early-stage, internships, chemicals, financial, comments, everyone, brandywinechemicalworks, finance]
+    concepts: [early-stage, internships, chemicals, financial, comments]
     token_count: 384
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1shnwfz/finance_intern_opportunity_at_an_earlystage/"}]
   - id: "social-intelligence/reddit-deep/internships/1shnwfz.md#c1"
     char_span: [1737, 2217]
     sentence_count: 3
     key_terms: [brandywinechemworks, economics, studying, brandywinechemicalworks, junior, remote, yeah, interview]
+    concepts: [brandywinechemworks, economics, studying, junior, remote]
     section: Comments
     token_count: 145
 ---

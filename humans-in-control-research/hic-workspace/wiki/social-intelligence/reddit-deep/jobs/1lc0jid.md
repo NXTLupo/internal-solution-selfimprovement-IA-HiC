@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1899]
     sentence_count: 18
     key_terms: [job, jobs, applying, applications, pay, companies, anything, comments]
+    concepts: [applying, applications, companies, anything, comments]
     token_count: 428
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1lc0jid/hired_after_almost_4y_of_unemployment/"}]
   - id: "social-intelligence/reddit-deep/jobs/1lc0jid.md#c1"
     char_span: [1913, 1959]
     sentence_count: 1
@@ -32,18 +34,21 @@ chunks:
     char_span: [1961, 4015]
     sentence_count: 14
     key_terms: [lateworldliness2211, business, private, geocsw, appointments, "don't", care, own]
+    concepts: [lateworldliness2211, business, private, appointments, geocsw]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1lc0jid.md#c3"
     char_span: [3756, 4456]
     sentence_count: 4
     key_terms: [own, moment, lateworldliness2211, nudniksphilkes, expectation, opportunity, businesses, eliminated]
+    concepts: [moment]
     section: Comments
     token_count: 165
   - id: "social-intelligence/reddit-deep/jobs/1lc0jid.md#c4"
     char_span: [4458, 5707]
     sentence_count: 7
     key_terms: [lateworldliness2211, thank, congratulations, like, congrats, possible, always, years]
+    concepts: [lateworldliness2211, thank, congratulations, congrats, possible]
     section: Comments
     token_count: 366
 ---

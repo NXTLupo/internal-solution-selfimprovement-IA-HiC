@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 2038]
     sentence_count: 1
     key_terms: [engineering, design, management, mechanical, engineeringstudents, roles, manufacturing, interviews]
+    concepts: [engineering, engineeringstudents, management, mechanical, design]
     token_count: 441
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1r6eme5/i_got_a_job_mechanical_engineering_29_gpa/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6eme5.md#c1"
     char_span: [2052, 3779]
     sentence_count: 8
     key_terms: [engineeringstudents, interview, wiki, ricecrackerfool, please, reddit, https, com]
+    concepts: [engineeringstudents, interview, ricecrackerfool, please, reddit]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6eme5.md#c2"
     char_span: [3783, 5740]
     sentence_count: 12
     key_terms: [questions, something, cwrhg3ewr8krelct, qlzjwdry71k, like, interview, company, mention]
+    concepts: [cwrhg3ewr8krelct, questions, something, qlzjwdry71k, interview]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6eme5.md#c3"
     char_span: [5742, 6259]
     sentence_count: 2
     key_terms: [teaching, ricecrackerfool, consolidating, engineering, advocating, inorite234, leadership, university]
+    concepts: [teaching]
     section: Comments
     token_count: 121
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6eme5.md#c4"
     char_span: [6261, 8080]
     sentence_count: 12
     key_terms: [ricecrackerfool, congratulations, thank, primaryminimum248, sadamhussein2450, patents, student, school]
+    concepts: [ricecrackerfool, congratulations, thank, primaryminimum248, sadamhussein2450]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6eme5.md#c5"
     char_span: [7830, 8123]
     sentence_count: 3
     key_terms: [impossible-okra-6721, thank, congratulations, ricecrackerfool, intestinal, fortitude, graduated, increase]
+    concepts: [thank]
     section: Comments
     token_count: 73
 ---

@@ -21,46 +21,57 @@ chunks:
     char_span: [0, 1771]
     sentence_count: 7
     key_terms: [med, prereqs, school, careerguidance, loans, embarrassed, debt, take]
+    concepts: [prereqs, school, careerguidance, embarrassed, classmates]
     token_count: 425
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1ry81qc/what_career_should_i_pursue_as_a_failed_med/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c1"
     char_span: [1773, 3459]
     sentence_count: 5
     key_terms: [school, nursing, program, anesthesiology, apply, get, med, "bachelor's"]
+    concepts: [school, nursing, anesthesiology, program, apply]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c3"]
     token_count: 380
   - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c2"
     char_span: [3473, 5378]
     sentence_count: 25
     key_terms: [sales, did, everything, experience, okamipiano, shelli1206, sometimes, looking]
+    concepts: [sales, everything, experience, okamipiano, shelli1206]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c3"
     char_span: [5380, 7398]
     sentence_count: 23
     key_terms: [program, career, degree, school, med, graduating, probably, nursing]
+    concepts: [program, career, degree, school, graduating]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c1"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c4"
     char_span: [7400, 9683]
     sentence_count: 12
     key_terms: [medical, debt, job, insurance, school, embarrassment, substantial, like]
+    concepts: [medical, insurance, embarrassment, school, substantial]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c5"
     char_span: [9685, 10957]
     sentence_count: 22
     key_terms: [forgiven, loans, debt, healthcare, non-profit, payments, student, fucked]
+    concepts: [forgiven, healthcare, loans, non-profit, payments]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c6"
     char_span: [10959, 12807]
     sentence_count: 12
     key_terms: [healthcare, already, nursing, roles, informatics, data, debt, technology]
+    concepts: [healthcare, already, nursing, informatics, roles]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c7"
     char_span: [12812, 13527]
     sentence_count: 7
     key_terms: [another, working, been, too, certifications, embarrassment, background, classmates]
+    concepts: [another, working]
     section: Comments
     token_count: 158
 ---

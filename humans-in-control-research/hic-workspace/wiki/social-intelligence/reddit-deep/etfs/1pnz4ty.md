@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 362]
     sentence_count: 3
     key_terms: [comments, etfs, francegala98, investengine, reddit-deep, percentage, portfolio, reconfirm]
+    concepts: [comments]
     token_count: 99
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1pnz4ty/little_lecture_needed/"}]
   - id: "social-intelligence/reddit-deep/etfs/1pnz4ty.md#c1"
-    char_span: [377, 1700]
+    char_span: [376, 1699]
     sentence_count: 8
     key_terms: [synthetic, because, francegala98, share, did, etf, spxl, understand]
+    concepts: [synthetic, because, francegala98, share, understand]
     section: Comments
     token_count: 364
 ---

@@ -19,34 +19,43 @@ chunks:
     char_span: [0, 2134]
     sentence_count: 11
     key_terms: [been, game, programming, years, getting, through, careerguidance, design]
+    concepts: [programming, years, careerguidance, unfortunately, getting]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rtah91/my_girlfriend_finished_7_years_of_college_in/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rtah91.md#c1"
     char_span: [2136, 2556]
     sentence_count: 3
     key_terms: [positions, get, appreciated, programmer, available, developer, resources, showcase]
+    concepts: [positions]
     token_count: 90
   - id: "social-intelligence/reddit-deep/careerguidance/1rtah91.md#c2"
     char_span: [2570, 4232]
     sentence_count: 14
     key_terms: [job, work, applying, programming, back, here, thoughts, company]
+    concepts: [applying, programming, thoughts, company, someone]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/careerguidance/1rtah91.md#c3"
     char_span: [4235, 5663]
     sentence_count: 12
     key_terms: [game, awesome, been, industry, advice, people, needs, thank]
+    concepts: [awesome, industry, advice, people, needs]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rtah91.md#c5"]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/careerguidance/1rtah91.md#c4"
     char_span: [5665, 7568]
     sentence_count: 14
     key_terms: [game, job, ontario, discussions, luci, name, design, recent]
+    concepts: [discussions, ontario, design, recent, development]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/careerguidance/1rtah91.md#c5"
     char_span: [7570, 9690]
     sentence_count: 23
     key_terms: [needs, industry, friends, year, keywords, day, get, take]
+    concepts: [needs, industry, friends, keywords, experience]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rtah91.md#c3"]
     section: Comments
     token_count: 480
 ---

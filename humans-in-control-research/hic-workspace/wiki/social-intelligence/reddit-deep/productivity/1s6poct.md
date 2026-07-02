@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 775]
     sentence_count: 7
     key_terms: [productivity, comments, northernvillan, reddit-deep, suggestions, management, productive, situations]
+    concepts: [productivity, comments]
     token_count: 169
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1s6poct/productivity_system_that_works/"}]
   - id: "social-intelligence/reddit-deep/productivity/1s6poct.md#c1"
     char_span: [789, 3006]
     sentence_count: 17
     key_terms: [productivity, system, time, systems, working, northernvillan, "you're", performance]
+    concepts: [productivity, system, northernvillan, systems, working]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/productivity/1s6poct.md#c2"
     char_span: [3008, 5277]
     sentence_count: 10
     key_terms: [meetings, time, people, etc, outlook, needed, system, productivity]
+    concepts: [meetings, people, outlook, productivity, needed]
     section: Comments
     token_count: 502
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1278]
     sentence_count: 12
     key_terms: [fintech, video, q6cvs1zgasf27eds, product, https, comments, feedback, youtu]
+    concepts: [fintech, video, q6cvs1zgasf27eds, product, https]
     token_count: 316
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1pi5g3g/would_love_feedback_on_a_fintech_product_launch/"}]
   - id: "social-intelligence/reddit-deep/fintech/1pi5g3g.md#c1"
-    char_span: [1293, 2741]
+    char_span: [1292, 2740]
     sentence_count: 13
     key_terms: [problem, constructive, whatafounder, clean, feedback, signals, visuals, early]
+    concepts: [problem, constructive, whatafounder, clean, feedback]
     section: Comments
     token_count: 347
 ---

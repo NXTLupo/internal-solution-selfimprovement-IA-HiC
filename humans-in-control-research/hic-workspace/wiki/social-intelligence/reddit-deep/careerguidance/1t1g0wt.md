@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 262]
     sentence_count: 2
     key_terms: [careerguidance, comments, willingnessgreat2641, reddit-deep, student, advice, career, newbie]
+    concepts: [careerguidance, comments]
     token_count: 80
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t1g0wt/career_advice_for_newbie_student/"}]
 ---
 # Career Advice for Newbie Student??
 

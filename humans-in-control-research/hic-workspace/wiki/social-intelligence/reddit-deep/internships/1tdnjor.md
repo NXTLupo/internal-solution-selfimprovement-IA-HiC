@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 851]
     sentence_count: 6
     key_terms: [internships, market, graduating, operations, comments, school, next, tech]
+    concepts: [internships, market, graduating, operations, comments]
     token_count: 206
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tdnjor/feeling_jumped_by_the_internship_market/"}]
   - id: "social-intelligence/reddit-deep/internships/1tdnjor.md#c1"
     char_span: [865, 2166]
     sentence_count: 13
     key_terms: [experience, resume, every-contact7020, globalcold1117, e1stephano, internship, comments, reddit]
+    concepts: [experience, every-contact7020, resume, globalcold1117, e1stephano]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/internships/1tdnjor.md#c2"
     char_span: [2168, 3651]
     sentence_count: 13
     key_terms: [resume, internships, get, good, "it's", luck, interest, projects]
+    concepts: [resume, internships, interest, projects, applied]
     section: Comments
     token_count: 368
 ---

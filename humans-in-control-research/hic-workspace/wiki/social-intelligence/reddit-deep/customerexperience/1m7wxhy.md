@@ -20,27 +20,32 @@ chunks:
     char_span: [0, 701]
     sentence_count: 5
     key_terms: [customerexperience, human, comments, customer, agents, cryrevolutionary7536, interactions, reddit-deep]
+    concepts: [customerexperience, human, comments, customer, agents]
     token_count: 156
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1m7wxhy/human_vs_ai_in_customer_experience_whats_the/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1m7wxhy.md#c1"
-    char_span: [716, 2885]
+    char_span: [715, 2884]
     sentence_count: 14
     key_terms: [human, utm, share, get, repetitive, companies, customers, questions]
+    concepts: [human, share, repetitive, companies, customers]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/customerexperience/1m7wxhy.md#c2"
-    char_span: [2887, 5412]
+    char_span: [2886, 5411]
     sentence_count: 20
     key_terms: [tickets, response, support, significantly, satisfaction, human, right, real]
+    concepts: [tickets, response, significantly, support, satisfaction]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/customerexperience/1m7wxhy.md#c3"
-    char_span: [5414, 7364]
+    char_span: [5413, 7363]
     sentence_count: 13
     key_terms: [ai-in-customer-experience-trends, customers, person, satisfaction, get, customer, clients, happens]
+    concepts: [ai-in-customer-experience-trends, customers, satisfaction, person, customer]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/customerexperience/1m7wxhy.md#c4"
-    char_span: [7366, 7708]
+    char_span: [7365, 7707]
     sentence_count: 2
     key_terms: [quantifiable-cx, ai-cx-vendor, off-channel, switching, possible, training, yourself, decides]
     section: Comments

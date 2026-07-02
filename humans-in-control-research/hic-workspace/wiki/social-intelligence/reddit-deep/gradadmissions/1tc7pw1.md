@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 334]
     sentence_count: 2
     key_terms: [gradadmissions, comments, research, grad, international, reddit-deep, important, published]
+    concepts: [gradadmissions, comments, research]
     token_count: 86
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1tc7pw1/research_for_grad_school/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1tc7pw1.md#c1"
     char_span: [348, 1694]
     sentence_count: 11
     key_terms: [research, zestyclose-tax2939, programs, papers, contributions, top, conference, authored]
+    concepts: [research, zestyclose-tax2939, programs, contributions, papers]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/gradadmissions/1tc7pw1.md#c2"
     char_span: [1696, 3734]
     sentence_count: 11
     key_terms: [phd, experience, seeking-for-entry-level-positions-with-20-years-of-experience, publications, application, yourself, program, top]
+    concepts: [experience, publications, application, yourself, program]
     section: Comments
     token_count: 474
 ---

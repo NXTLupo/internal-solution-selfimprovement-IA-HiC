@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 791]
     sentence_count: 8
     key_terms: [percentage, investing, comments, momentum, growth, caps, etfs, long]
+    concepts: [percentage, investing, comments, momentum, growth]
     token_count: 203
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1mgsgvf/should_younger_investors_focus_on_more_volatile/"}]
   - id: "social-intelligence/reddit-deep/investing/1mgsgvf.md#c1"
     char_span: [805, 2704]
     sentence_count: 13
     key_terms: [risk, bestjaegerpilot, fun-sundae4060, stocks, concentration, investing, portfolio, accounts]
+    concepts: [bestjaegerpilot, fun-sundae4060, concentration, stocks, investing]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/investing/1mgsgvf.md#c2"
     char_span: [2706, 4655]
     sentence_count: 14
     key_terms: [account, altruistic-buy8779, dividends, time, accounts, income, invest, years]
+    concepts: [account, altruistic-buy8779, dividends, accounts, income]
     section: Comments
     token_count: 465
 ---

@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 818]
     sentence_count: 7
     key_terms: [like, personalfinance, intelligent, comments, everyday, investor, market, money]
+    concepts: [personalfinance, intelligent, comments, everyday, investor]
     token_count: 196
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1l0zp0g/the_intelligent_investor_kinda_rewired_how_i/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1l0zp0g.md#c1"
     char_span: [832, 2902]
     sentence_count: 12
     key_terms: [time, read, market, "don't", hold, too, updated, change]
+    concepts: [market, "don't", updated, change, depressive]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/personalfinance/1l0zp0g.md#c2"
     char_span: [2904, 4866]
     sentence_count: 18
     key_terms: [read, better, get, everyone, minutes, thought, advice, bought]
+    concepts: [better, everyone, minutes, thought, advice]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/personalfinance/1l0zp0g.md#c3"
     char_span: [4868, 5776]
     sentence_count: 8
     key_terms: [financial, fastlane, dachieftainofthirsk, books, book, tax-advantaged, consolidated, explanations]
+    concepts: [financial, fastlane, books]
     section: Comments
     token_count: 226
   - id: "social-intelligence/reddit-deep/personalfinance/1l0zp0g.md#c4"
     char_span: [5778, 6887]
     sentence_count: 4
     key_terms: [edition, revised, get, "it's", changed, gskinny, pretty, saving]
+    concepts: [edition, revised, changed, gskinny, pretty]
     section: Comments
     token_count: 303
 ---

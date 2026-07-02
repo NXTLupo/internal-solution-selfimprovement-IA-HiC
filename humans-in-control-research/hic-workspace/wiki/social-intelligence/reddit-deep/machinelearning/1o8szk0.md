@@ -19,45 +19,57 @@ chunks:
     char_span: [0, 2212]
     sentence_count: 6
     key_terms: [tool, structured, language, natural, format, https, tools, json]
+    concepts: [structured, language, natural, format, https]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c4"]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1o8szk0/r_plain_english_outperforms_json_for_llm_tool/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c1"
     char_span: [2214, 4295]
     sentence_count: 11
     key_terms: [tool, relevant, nlt, example, assessment, accuracy, finished, thinking]
+    concepts: [relevant, example, assessment, accuracy, finished]
     token_count: 492
   - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c2"
     char_span: [4297, 6568]
     sentence_count: 12
     key_terms: [tool, structured, training, model, selection, nlt, accuracy, reduced]
+    concepts: [structured, training, model, selection, accuracy]
     token_count: 434
   - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c3"
     char_span: [6582, 8406]
     sentence_count: 13
     key_terms: [structured, json, outputs, markdown, gemini, output, random, performance]
+    concepts: [structured, outputs, markdown, gemini, output]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c4"
     char_span: [8408, 10075]
     sentence_count: 10
     key_terms: [tool, output, parameters, accuracy, language, natural, undoubtedly, case]
+    concepts: [parameters, output, accuracy, language, natural]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c0", "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c5"]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c5"
     char_span: [10077, 12185]
     sentence_count: 11
     key_terms: [tool, parameters, tools, pass, reasoning, language, practice, natural]
+    concepts: [parameters, tools, reasoning, language, practice]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c4"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c6"
     char_span: [12187, 14515]
     sentence_count: 16
     key_terms: [paper, tool, skills, json, calling, "anthropic's", interesting, "it's"]
+    concepts: [paper, skills, calling, "anthropic's", interesting]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c7"
     char_span: [14518, 15802]
     sentence_count: 8
     key_terms: [tool, especially, benchmark, calling, tektoks, format, inputs, string]
+    concepts: [especially, benchmark, calling, tektoks, format]
     section: Comments
     token_count: 305
 ---

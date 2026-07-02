@@ -21,34 +21,41 @@ chunks:
     char_span: [0, 1843]
     sentence_count: 16
     key_terms: [home, median, housing, annual, unaffordable, according, american, comments]
+    concepts: [median, housing, unaffordable, annual, according]
     token_count: 459
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1nt4wrb/housing_is_the_most_unaffordable_its_ever_been_in/"}]
   - id: "social-intelligence/reddit-deep/genz/1nt4wrb.md#c1"
     char_span: [1845, 2867]
     sentence_count: 13
     key_terms: [purchasing, time, private, afford, cannot, equity, firms, homes]
+    concepts: [purchasing, private, afford, cannot, equity]
     token_count: 222
   - id: "social-intelligence/reddit-deep/genz/1nt4wrb.md#c2"
     char_span: [2881, 4661]
     sentence_count: 12
     key_terms: [income, market, https, i2at3msc-se, "it's", old, household, billions]
+    concepts: [income, market, i2at3msc-se, https, household]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/genz/1nt4wrb.md#c3"
     char_span: [4663, 6765]
     sentence_count: 18
     key_terms: [right, want, going, need, because, housing, "you're", asset]
+    concepts: [right, going, because, housing, "you're"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/genz/1nt4wrb.md#c4"
     char_span: [6767, 8696]
     sentence_count: 23
     key_terms: [stocks, market, eastern-joke-7537, cash, get, keep, live, hopefully]
+    concepts: [stocks, eastern-joke-7537, market, hopefully, investing]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/genz/1nt4wrb.md#c5"
     char_span: [8698, 10185]
     sentence_count: 13
     key_terms: [freakazoidon, live, million, state, big, buy, did, etc]
+    concepts: [freakazoidon, million, state]
     section: Comments
     token_count: 384
 ---

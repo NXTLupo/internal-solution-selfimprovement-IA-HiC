@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1381]
     sentence_count: 10
     key_terms: [looking, careeradvice, completely, business, comments, everyone, software, remote]
+    concepts: [looking, careeradvice, completely, business, comments]
     token_count: 331
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1r7zhei/looking_to_finally_transition_to_a_remote_career/"}]
 ---
 # Looking to finally transition to a remote career, but my head is spinning — what’s actually worth learning in 2026?
 

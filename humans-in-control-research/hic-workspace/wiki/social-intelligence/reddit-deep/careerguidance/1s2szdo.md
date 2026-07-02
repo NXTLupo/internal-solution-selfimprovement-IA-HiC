@@ -19,63 +19,80 @@ chunks:
     char_span: [0, 1852]
     sentence_count: 16
     key_terms: [private, careerguidance, years, job, time, purchasing, community, contracts]
+    concepts: [careerguidance, private, purchasing, years, community]
     token_count: 459
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1s2szdo/demoted_for_being_honest_now_stuck_in_a_golden/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c1"
     char_span: [1854, 3887]
     sentence_count: 12
     key_terms: [purchasing, company, manager, sector, state, years, like, demotion]
+    concepts: [purchasing, company, manager, sector, state]
     token_count: 490
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c2"
     char_span: [3889, 6129]
     sentence_count: 17
     key_terms: [budget, specific, government, get, agency, organization, professional, being]
+    concepts: [budget, specific, government, organization, professional]
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c3"
     char_span: [6131, 7883]
     sentence_count: 8
     key_terms: [pension, weeks, money, get, vacation, extra, leave, years]
+    concepts: [pension, weeks, money, vacation, financially]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c8", "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c9"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c4"
     char_span: [7885, 9620]
     sentence_count: 16
     key_terms: [mba, top, online, school, accreditation, usewinter2668, get, good]
+    concepts: [accreditation, usewinter2668, online, school, networking]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c5"
     char_span: [9622, 11745]
     sentence_count: 29
     key_terms: [top, years, time, mba, doing, money, don, full]
+    concepts: [years, doing, investment, money, education]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c6"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c6"
     char_span: [11747, 12994]
     sentence_count: 15
     key_terms: [get, education, something, money, been, else, job, okay]
+    concepts: [education, something, money]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c5"]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c7"
     char_span: [12996, 15100]
     sentence_count: 16
     key_terms: [job, get, mba, private, coordinator, keep, too, university]
+    concepts: [private, coordinator, university, applying, benefits]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c8"
     char_span: [14830, 15486]
     sentence_count: 4
     key_terms: [hours, job, work, university, vacation, pension, weeks, malapriapism4hours]
+    concepts: [hours, university, vacation, pension, weeks]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c3", "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c9"]
     section: Comments
     token_count: 190
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c9"
     char_span: [15488, 16970]
     sentence_count: 14
     key_terms: [pension, get, job, jump, required, vacation, yourself, demoted]
+    concepts: [pension, required, vacation, yourself, demoted]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c3", "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c8"]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c10"
     char_span: [16972, 18009]
     sentence_count: 7
     key_terms: [skill, employment, government, leadership, feedback, constructively, participating, understanding]
+    concepts: [employment, government, leadership, skill, feedback]
     section: Comments
     token_count: 228
 ---

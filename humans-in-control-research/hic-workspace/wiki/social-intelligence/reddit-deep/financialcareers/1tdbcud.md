@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 370]
     sentence_count: 2
     key_terms: [financialcareers, comments, appreciated, internships, reddit-deep, experience, management, industry]
+    concepts: [financialcareers, comments]
     token_count: 95
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1tdbcud/rate_my_cv/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1tdbcud.md#c1"
-    char_span: [385, 1180]
+    char_span: [384, 1179]
     sentence_count: 6
     key_terms: [kittyfarrell, profile, youudyy, value, tasty-flatworm1217, richardthomasalex, calpol-dealer, certification]
+    concepts: [kittyfarrell, profile, youudyy, value]
     section: Comments
     token_count: 234
 ---

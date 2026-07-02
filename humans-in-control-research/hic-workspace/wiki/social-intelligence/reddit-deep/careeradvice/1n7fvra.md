@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1406]
     sentence_count: 15
     key_terms: [careeradvice, being, ideas, find, comments, cannot, spent, years]
+    concepts: [careeradvice, being, ideas, comments, cannot]
     token_count: 342
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1n7fvra/nearly_60_blown_through_two_successful_identity/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1n7fvra.md#c1"
     char_span: [1420, 2696]
     sentence_count: 12
     key_terms: [universities, university, colleges, editing, looking, resume, "you're", beachyhaircitroen]
+    concepts: [universities, university, colleges, editing, looking]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/careeradvice/1n7fvra.md#c2"
     char_span: [2698, 3646]
     sentence_count: 3
     key_terms: [beachyhaircitroen, publishing, people, reedsy, art, don, self, sell]
+    concepts: [beachyhaircitroen, publishing, people, reedsy]
     section: Comments
     token_count: 273
 ---

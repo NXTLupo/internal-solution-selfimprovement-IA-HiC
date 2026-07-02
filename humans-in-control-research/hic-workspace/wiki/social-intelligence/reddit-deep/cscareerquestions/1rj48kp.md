@@ -19,52 +19,64 @@ chunks:
     char_span: [0, 1998]
     sentence_count: 14
     key_terms: [interview, candidate, cscareerquestions, "i've", another, company, engineering, internships]
+    concepts: [interview, cscareerquestions, candidate, another, company]
     token_count: 460
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rj48kp/losing_hope_over_getting_a_job_in_this_industry/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c1"
     char_span: [2000, 3386]
     sentence_count: 11
     key_terms: [industry, getting, advice, career, people, summer, switch, certificate]
+    concepts: [industry, getting, advice, career, people]
     token_count: 310
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c2"
-    char_span: [3401, 5353]
+    char_span: [3400, 5352]
     sentence_count: 14
     key_terms: [feel, confidence, collegestudentlol1, "i'm", job, time, experience, graduated]
+    concepts: [collegestudentlol1, confidence, experience, graduated, deleted]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c3"
-    char_span: [5098, 5391]
+    char_span: [5097, 5390]
     sentence_count: 1
     key_terms: [company, project, antarcticapenguin, experience, prototype, capstone, consider, benched]
+    concepts: [company, project]
     section: Comments
     token_count: 73
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c4"
-    char_span: [5393, 6799]
+    char_span: [5392, 6798]
     sentence_count: 11
     key_terms: ["you're", resume, interviews, collegestudentlol1, something, job, going, getting]
+    concepts: ["you're", collegestudentlol1, interviews, resume, something]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c8"]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c5"
-    char_span: [6801, 7709]
+    char_span: [6800, 7708]
     sentence_count: 5
     key_terms: [resume, anything, current, collegestudentlol1, llc, specializations, non-existent, particularly]
+    concepts: [resume, anything, current]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c6"
-    char_span: [7711, 9287]
+    char_span: [7710, 9286]
     sentence_count: 10
     key_terms: ["there's", visa, industry, looking, canada, roles, substantial, want]
+    concepts: ["there's", industry, looking, canada, substantial]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c7"
-    char_span: [9290, 11101]
+    char_span: [9289, 11100]
     sentence_count: 18
     key_terms: [job, new, get, hire, market, people, grads, competition]
+    concepts: [market, people, competition, experience, grads]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c8"
-    char_span: [11103, 12094]
+    char_span: [11102, 12093]
     sentence_count: 12
     key_terms: [interviews, collegestudentlol1, like, interview, always, look, want, vinegarytuba4]
+    concepts: [collegestudentlol1, interviews, interview, always]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c4"]
     section: Comments
     token_count: 234
 ---

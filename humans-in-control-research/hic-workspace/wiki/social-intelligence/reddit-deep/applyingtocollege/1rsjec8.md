@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 798]
     sentence_count: 6
     key_terms: [leadership, applyingtocollege, applications, like, scla, admissions, societies, comments]
+    concepts: [leadership, applyingtocollege, applications, admissions, societies]
     token_count: 171
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rsjec8/do_leadership_societies_like_the_scla_actually/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rsjec8.md#c1"
     char_span: [812, 1349]
     sentence_count: 2
     key_terms: [impact, organizations, experiences, activities, everything, initiative, p3stop4st4, detailing]
+    concepts: [impact]
     section: Comments
     token_count: 126
 ---

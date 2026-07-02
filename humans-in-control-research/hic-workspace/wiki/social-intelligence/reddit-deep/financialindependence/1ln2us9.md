@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1959]
     sentence_count: 14
     key_terms: [financialindependence, retirement, age, live, relative, future, small, traditional]
+    concepts: [financialindependence, retirement, relative, future, traditional]
     token_count: 471
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1ln2us9/relative_is_retirement_age_but_needs_to_live_on/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1ln2us9.md#c1"
     char_span: [1973, 3248]
     sentence_count: 9
     key_terms: [retire, retirement, deeterfly, situation, anything, tracygee, ability, age]
+    concepts: [retire, retirement, deeterfly, situation, anything]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/financialindependence/1ln2us9.md#c2"
     char_span: [3250, 4561]
     sentence_count: 12
     key_terms: [property, working, number, social, starwarsfan456123789, until, gambledmywifeaway, adu]
+    concepts: [property, working, number, social, until]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/financialindependence/1ln2us9.md#c3"
     char_span: [4563, 6374]
     sentence_count: 11
     key_terms: [support, pretty, ntdoyfanboy, adu, get, need, government, retirement]
+    concepts: [support, pretty, ntdoyfanboy, government, retirement]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/financialindependence/1ln2us9.md#c4"
     char_span: [6376, 8436]
     sentence_count: 18
     key_terms: [annuity, retirement, month, like, probably, person, years, risk]
+    concepts: [annuity, retirement, month, probably, person]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/financialindependence/1ln2us9.md#c5"
     char_span: [8438, 9038]
     sentence_count: 6
     key_terms: [month, definitely, going, cash, job, low, too, appropriate]
+    concepts: [definitely, month, going]
     section: Comments
     token_count: 162
 ---

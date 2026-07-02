@@ -21,47 +21,60 @@ chunks:
     char_span: [0, 1484]
     sentence_count: 11
     key_terms: [team, low, comments, managers, keeping, performers, processes, person]
+    concepts: [comments, managers, keeping, performers, processes]
     token_count: 359
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1tdasqi/why_keeping_low_performers/"}]
   - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c1"
     char_span: [1498, 3540]
     sentence_count: 10
     key_terms: [everything, knowledge, document, someone, ron, difference, sometimes, enormous]
+    concepts: [everything, knowledge, document, someone, difference]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c2"
     char_span: [3542, 5396]
     sentence_count: 11
     key_terms: [employee, lot, manager, someone, uncomfortable, bad, get, experience]
+    concepts: [employee, uncomfortable, manager, someone, experience]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c3"
     char_span: [5398, 7537]
     sentence_count: 12
     key_terms: [work, hiring, years, departments, replacement, impossible, probation, backfill]
+    concepts: [hiring, departments, replacement, impossible, years]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c4"
     char_span: [7539, 9304]
     sentence_count: 10
     key_terms: [person, sometimes, "it's", team, personality, got, everyone, because]
+    concepts: [person, sometimes, personality, everyone, because]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1tdasqi.md#c6", "social-intelligence/reddit-deep/managers/1tdasqi.md#c7"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c5"
     char_span: [9306, 11295]
     sentence_count: 8
     key_terms: [low, person, performers, get, someone, fired, backfill, everyone]
+    concepts: [performers, person, someone, fired, backfill]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1tdasqi.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c6"
     char_span: [11010, 12980]
     sentence_count: 12
     key_terms: [thatfeelingisbliss88, "don't", people, person, sharing-about-his-personal-life, like, want, because]
+    concepts: [thatfeelingisbliss88, "don't", people, person, because]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1tdasqi.md#c4", "social-intelligence/reddit-deep/managers/1tdasqi.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c7"
     char_span: [12758, 13435]
     sentence_count: 6
     key_terms: [sometimes, "don't", team, someone, person, let, like, soggy-attempt]
+    concepts: [sometimes, "don't", someone, person]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1tdasqi.md#c4", "social-intelligence/reddit-deep/managers/1tdasqi.md#c5", "social-intelligence/reddit-deep/managers/1tdasqi.md#c6"]
     section: Comments
     token_count: 170
 ---

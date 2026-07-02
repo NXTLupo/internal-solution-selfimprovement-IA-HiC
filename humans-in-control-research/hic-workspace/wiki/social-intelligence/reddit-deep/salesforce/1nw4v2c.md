@@ -7,56 +7,70 @@ subreddit: "salesforce"
 title: "Winter'26 Release Notes - Abridged Edition by SFXD"
 author: "Windyo"
 date: "2025-10-02T14:10:26.000Z"
-score: 151
+score: 152
 upvote_ratio: 0.99
 num_comments: 24
 flair: "apps/products"
-extracted_at: "2026-06-11T18:58:38.959Z"
+extracted_at: "2026-06-25T15:21:44.739Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Identify how peer large private universities without medical schools are implementing AI across advancement workflows—including fundraising, alumni relations, and donor communications—to define our own adoption roadmap that balances ethical guardrails, staff readiness, and ROI."
+engagement: "identify-how-peer-large-private-universities-without-medical"
 chunks:
   - id: "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c0"
     char_span: [0, 1551]
     sentence_count: 3
     key_terms: [https, salesforce, release, release-notes, articleview, how-to-be-at-peace-with-myself, com, abridged]
+    concepts: [https, salesforce, release, release-notes, articleview]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c1", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c2", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c3", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c4", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c5"]
     token_count: 421
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1nw4v2c/winter26_release_notes_abridged_edition_by_sfxd/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c1"
     char_span: [1553, 3685]
     sentence_count: 8
     key_terms: [https, release-notes, articleview, salesforce, release, com, help, htm]
+    concepts: [release-notes, https, articleview, salesforce, release]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c0", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c2", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c3", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c4", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c5"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c2"
     char_span: [3407, 5495]
     sentence_count: 2
     key_terms: [release-notes, articleview, salesforce, https, release, com, help, htm]
+    concepts: [release-notes, articleview, salesforce, https, release]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c0", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c1", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c3", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c4", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c5"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c3"
     char_span: [5222, 7226]
     sentence_count: 4
     key_terms: [release-notes, articleview, salesforce, https, release, com, htm, type]
+    concepts: [release-notes, articleview, salesforce, https, release]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c0", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c1", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c2", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c4", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c5"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c4"
     char_span: [7007, 9008]
     sentence_count: 4
     key_terms: [release-notes, articleview, salesforce, https, com, release, help, htm]
+    concepts: [release-notes, articleview, salesforce, https, release]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c0", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c1", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c2", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c3", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c5"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c5"
     char_span: [8745, 10244]
     sentence_count: 1
     key_terms: [release-notes, articleview, salesforce, release, https, com, help, htm]
+    concepts: [release-notes, articleview, salesforce, release, https]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c0", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c1", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c2", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c3", "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c4"]
     token_count: 390
   - id: "social-intelligence/reddit-deep/salesforce/1nw4v2c.md#c6"
-    char_span: [10259, 11959]
+    char_span: [10258, 11958]
     sentence_count: 13
     key_terms: [windyo, griffinnowak, subscribe, summary, thought, format, thanks, right]
+    concepts: [windyo, griffinnowak, subscribe, summary, thought]
     section: Comments
     token_count: 494
 ---
 # Winter'26 Release Notes - Abridged Edition by SFXD
 
 Source: [reddit-deep: r/salesforce](https://www.reddit.com/r/salesforce/comments/1nw4v2c/winter26_release_notes_abridged_edition_by_sfxd/)
-Posted by **Windyo** · **151↑** · **24 comments**
+Posted by **Windyo** · **152↑** · **24 comments**
 
 - - - - -
 The [Salesforce Discord Collective](https://join.sfxd.org) Presents:        
@@ -98,16 +112,16 @@ _Is big this release because lots of sections were too small to stand alone_
 ## Comments
 
 - **ssk42** (21↑): High quality summary as usual, Windy. Thank you!!
-  - **Windyo** (5↑): TYVM :)
-- **SalesforceManiac** (7↑): I looked forward to these! Thanks a lot!
+  - **Windyo** (6↑): TYVM :)
+- **SalesforceManiac** (6↑): I looked forward to these! Thanks a lot!
 
 Can I buy you some beer, coffee or other mind altering substances? 😄
-  - **Windyo** (7↑): I'll open a beer for celebration's sake :)
-- **DatGuyHjort11** (3↑): Goat
+  - **Windyo** (8↑): I'll open a beer for celebration's sake :)
+- **DatGuyHjort11** (4↑): Goat
 - **GriffinNowak** (3↑): This is how I need all my updates to look. I never read the release notes because they include a bunch of stuff that doesn’t matter. Can I subscribe to this?
 
 Edit: Should have finished reading before asking if I could subscribe
-  - **Windyo** (8↑): I mean I've been publishing them for 8 years now, always under this account and on the SFXD wiki so... sure? :)
+  - **Windyo** (6↑): I mean I've been publishing them for 8 years now, always under this account and on the SFXD wiki so... sure? :)
     - **GriffinNowak** (1↑): That’s my bad. I think I’ve seen this format maybe once before and I thought it was a one off. Glad to see it’s reoccurring
 - **bobx11** (1↑): ❤️
   - **Windyo** (1↑): ❤️

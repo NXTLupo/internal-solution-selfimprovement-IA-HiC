@@ -19,10 +19,12 @@ content_hash: "26bf7246f9c27e9e"
 relevance_by_goal: {"46dec9599ad5":45}
 chunks:
   - id: "articles/reddit-deep-r-bogleheads/cf26c4ccca.md#c0"
-    char_span: [0, 1725]
+    char_span: [0, 1724]
     sentence_count: 15
     key_terms: [target, bonds, years, bit, bogleheads, retirement, portfolio, ascensus]
-    token_count: 422
+    concepts: [target, bonds, years, bogleheads, retirement]
+    token_count: 421
+    sources: [{"n":"Reddit Deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1se4xrk/45_years_old_for_my_i401k_do_target_date_for/"}]
 ---
 # 45 years old. For my i401k, do target date for someone younger or ignore bonds?
 

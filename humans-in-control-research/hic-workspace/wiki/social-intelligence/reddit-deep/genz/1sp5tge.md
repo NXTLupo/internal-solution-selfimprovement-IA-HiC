@@ -21,38 +21,46 @@ chunks:
     char_span: [0, 2234]
     sentence_count: 16
     key_terms: [short, men, social, extensively, lengthening, absolutely, important, argument]
+    concepts: [short, social, extensively, lengthening, absolutely]
     token_count: 472
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1sp5tge/cosmetic_leg_lengthening_surgery_can_be_overall/"}]
   - id: "social-intelligence/reddit-deep/genz/1sp5tge.md#c1"
     char_span: [2236, 3770]
     sentence_count: 18
     key_terms: [lengthening, something, increasingly, worth, development, limb, individual, orthopedic]
+    concepts: [lengthening, something, increasingly, development, individual]
     token_count: 338
   - id: "social-intelligence/reddit-deep/genz/1sp5tge.md#c2"
     char_span: [3772, 6035]
     sentence_count: 21
     key_terms: [cosmetic, someone, surgery, being, acceptable, extremely, argument, majority]
+    concepts: [cosmetic, someone, surgery, acceptable, being]
     token_count: 465
   - id: "social-intelligence/reddit-deep/genz/1sp5tge.md#c3"
     char_span: [6037, 7959]
     sentence_count: 14
     key_terms: [articles, surgery, people, https, gov, ncbi, nih, nlm]
+    concepts: [articles, surgery, people, https, complications]
     token_count: 406
   - id: "social-intelligence/reddit-deep/genz/1sp5tge.md#c4"
     char_span: [7973, 9222]
     sentence_count: 8
     key_terms: [thousands, discord, osrs-ruined-my-life, month, years, ago, automatically, automoderator]
+    concepts: [thousands, discord, month, years]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/genz/1sp5tge.md#c5"
     char_span: [9224, 11149]
     sentence_count: 6
     key_terms: [short, inches, "i'm", legs, health, being, right, look]
+    concepts: [short, inches, health, being, right]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1sp5tge.md#c6"
     char_span: [10951, 11718]
     sentence_count: 4
     key_terms: [inches, feet, mischling2543, commonality, lengthening, defective, otherwise, multiple]
+    concepts: [inches]
     section: Comments
     token_count: 212
 ---

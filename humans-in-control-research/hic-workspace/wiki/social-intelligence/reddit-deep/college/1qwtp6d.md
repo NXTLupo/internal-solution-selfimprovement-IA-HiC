@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 1159]
     sentence_count: 11
     key_terms: [college, big, experience, university, school, community, comments, illinois]
+    concepts: [college, experience, university, school, community]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qwtp6d.md#c2"]
     token_count: 261
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1qwtp6d/budgeting_college_debt/"}]
   - id: "social-intelligence/reddit-deep/college/1qwtp6d.md#c1"
     char_span: [1173, 2683]
     sentence_count: 10
     key_terms: [sports, illinois, school, state, big, definitely, fantastic, culture]
+    concepts: [sports, illinois, school, definitely, state]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/college/1qwtp6d.md#c2"
     char_span: [2685, 4950]
     sentence_count: 14
     key_terms: [school, experience, big, program, debt, get, possible, attend]
+    concepts: [school, experience, program, possible, attend]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qwtp6d.md#c0"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/college/1qwtp6d.md#c3"

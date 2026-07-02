@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1751]
     sentence_count: 12
     key_terms: [experience, cscareerquestions, right, applying, comments, everyone, position, starting]
+    concepts: [experience, cscareerquestions, right, applying, comments]
     token_count: 402
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1pa0iv7/should_i_directly_go_for_a_masters_after_grad_or/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pa0iv7.md#c1"
     char_span: [1765, 3976]
     sentence_count: 14
     key_terms: [resume, masters, internship, anything, spiritualclub895, career, master, professional]
+    concepts: [resume, masters, internship, spiritualclub895, anything]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pa0iv7.md#c2"
     char_span: [3978, 4287]
     sentence_count: 1
     key_terms: [workflows, data, micro-internship, externship, internship, automated, employers, automate]
+    concepts: [workflows]
     section: Comments
     token_count: 67
 ---

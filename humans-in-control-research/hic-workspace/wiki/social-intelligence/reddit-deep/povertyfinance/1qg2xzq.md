@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 283]
     sentence_count: 1
     key_terms: [povertyfinance, comments, independent-arm-8839, reddit-deep, smartest, monthly, budget, income]
+    concepts: [povertyfinance, comments]
     token_count: 82
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1qg2xzq/smartest_way_to_budget_my_low_monthly_income/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1qg2xzq.md#c1"
     char_span: [297, 1570]
     sentence_count: 12
     key_terms: [budget, "let's", month, car, flat, rate, averaged, billing]
+    concepts: [budget, "let's", month, averaged, billing]
     section: Comments
     token_count: 316
 ---

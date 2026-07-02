@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1685]
     sentence_count: 15
     key_terms: [quicken, accounts, personalfinance, connections, comments, expenses, overview, linking]
+    concepts: [quicken, personalfinance, accounts, connections, comments]
     token_count: 384
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1r43jcc/quicken_is_a_joke_any_other_recommendations/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1r43jcc.md#c1"
-    char_span: [1700, 3639]
+    char_span: [1699, 3638]
     sentence_count: 17
     key_terms: [quicken, version, "it's", expenses, been, use, year, everything]
+    concepts: [quicken, version, expenses, everything, overall]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/personalfinance/1r43jcc.md#c2"
-    char_span: [3641, 4055]
+    char_span: [3640, 4054]
     sentence_count: 2
     key_terms: [money, screenshots, interested, investing, projected, situation, accounts, balances]
+    concepts: [money]
     section: Comments
     token_count: 94
 ---

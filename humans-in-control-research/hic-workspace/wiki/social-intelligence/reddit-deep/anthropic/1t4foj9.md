@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 331]
     sentence_count: 1
     key_terms: [anthropic, comments, gaslighting, reddit-deep, assistant, deleting, uncover, claude]
+    concepts: [anthropic, comments]
     token_count: 93
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1t4foj9/how_claude_code_helped_me_uncover_that_my_ai/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1t4foj9.md#c1"
     char_span: [345, 1243]
     sentence_count: 10
     key_terms: [blacklist, git, operations, approach, happened, confirmation, destructivly, implementing]
+    concepts: [blacklist, operations, approach, happened]
     section: Comments
     token_count: 216
 ---

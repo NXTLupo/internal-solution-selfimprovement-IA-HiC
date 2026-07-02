@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1074]
     sentence_count: 11
     key_terms: [customer, entrepreneur, "i'm", businesses, questions, business, comments, feedback]
+    concepts: [customer, entrepreneur, businesses, questions, business]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1n4ze1r.md#c1"]
     token_count: 246
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1n4ze1r/looking_for_feedback_i_built_an_ai_chatbot_to/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1n4ze1r.md#c1"
-    char_span: [1089, 2850]
+    char_span: [1088, 2849]
     sentence_count: 7
     key_terms: [entrepreneur, please, case, here, use, permanent, promotion, customer]
+    concepts: [entrepreneur, please, permanent, promotion, customer]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1n4ze1r.md#c0"]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/entrepreneur/1n4ze1r.md#c2"
-    char_span: [2852, 4989]
+    char_span: [2851, 4988]
     sentence_count: 12
     key_terms: [making, got, definitely, customers, solutions, building, problem, website]
+    concepts: [making, definitely, customers, solutions, building]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/entrepreneur/1n4ze1r.md#c3"
-    char_span: [4993, 6437]
+    char_span: [4992, 6436]
     sentence_count: 13
     key_terms: [wants, knowledge, product, support, tickets, scholarinevitable532, bot, new]
+    concepts: [wants, knowledge, product, support, tickets]
     section: Comments
     token_count: 315
 ---

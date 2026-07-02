@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1832]
     sentence_count: 17
     key_terms: [trademark, counterfeit, seller, select, item, listing, fulfillmentbyamazon, brand]
+    concepts: [trademark, counterfeit, seller, select, fulfillmentbyamazon]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1pgy4lo.md#c1"]
     token_count: 456
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1pgy4lo/how_do_i_kick_another_seller_off_my_brand_listing/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1pgy4lo.md#c1"
-    char_span: [1847, 3730]
+    char_span: [1846, 3729]
     sentence_count: 12
     key_terms: [transparency, listing, product, seller, fulfillmentbyamazon, correct, discord, program]
+    concepts: [transparency, listing, product, fulfillmentbyamazon, seller]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1pgy4lo.md#c0"]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1pgy4lo.md#c2"
-    char_span: [3732, 5913]
+    char_span: [3731, 5912]
     sentence_count: 14
     key_terms: [transparency, channels, getting, amazon, order, time, products, registry]
+    concepts: [transparency, channels, getting, amazon, order]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1pgy4lo.md#c3"
-    char_span: [5915, 8093]
+    char_span: [5914, 8092]
     sentence_count: 17
     key_terms: [hijackers, packaging, brand, hijacker, registry, product, amazon, images]
+    concepts: [hijackers, packaging, brand, hijacker, registry]
     section: Comments
     token_count: 479
 ---

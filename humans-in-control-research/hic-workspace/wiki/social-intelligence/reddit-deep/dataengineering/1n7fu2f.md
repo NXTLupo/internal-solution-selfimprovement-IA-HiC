@@ -7,109 +7,125 @@ subreddit: "dataengineering"
 title: "Confirm my suspicion about data modeling"
 author: "DryRelationship1330"
 date: "2025-09-03T14:09:04.000Z"
-score: 297
+score: 298
 upvote_ratio: 0.96
 num_comments: 133
 flair: "Career"
-extracted_at: "2026-06-11T18:58:17.197Z"
+extracted_at: "2026-06-29T14:40:47.211Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Define the 2026 \"state of the Art\" operational and technological benchmarks for \"The State of Data & Distribution in Asset Management\". Synthesize key developments across data infrastructure, distribution enablement, and AI governance frameworks to identify leading industry capabilities and compliance standards."
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
 chunks:
   - id: "social-intelligence/reddit-deep/dataengineering/1n7fu2f.md#c0"
     char_span: [0, 1392]
     sentence_count: 6
     key_terms: [data, modeling, dataengineering, comments, leaders, dryrelationship1330, ask, like]
+    concepts: [dataengineering, modeling, comments, leaders]
     token_count: 329
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1n7fu2f/confirm_my_suspicion_about_data_modeling/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1n7fu2f.md#c1"
-    char_span: [1407, 3510]
+    char_span: [1406, 3509]
     sentence_count: 9
     key_terms: [revenue, "it's", sales, bookings, focused, talking, design, losses]
+    concepts: [revenue, sales, bookings, focused, talking]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/dataengineering/1n7fu2f.md#c2"
-    char_span: [3512, 4858]
+    char_span: [3511, 4857]
     sentence_count: 11
     key_terms: [data, reports, dashboard, accounting, finally, finance, start, been]
+    concepts: [reports, dashboard, accounting, finally, finance]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/dataengineering/1n7fu2f.md#c3"
-    char_span: [4860, 6861]
+    char_span: [4859, 6860]
     sentence_count: 12
     key_terms: [data, governance, architecture, quick, sales, like, win, structure]
+    concepts: [governance, architecture, quick, sales, structure]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/dataengineering/1n7fu2f.md#c4"
-    char_span: [6863, 9181]
+    char_span: [6862, 9180]
     sentence_count: 14
     key_terms: [whatever, architecture, trust, data, time, leadership, companies, important]
+    concepts: [whatever, architecture, leadership, trust, companies]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/dataengineering/1n7fu2f.md#c5"
-    char_span: [9183, 10737]
+    char_span: [9182, 10736]
     sentence_count: 10
     key_terms: [data, database, modeling, benefits, dryrelationship1330, folks, "it's", part]
+    concepts: [database, modeling, benefits, folks]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/dataengineering/1n7fu2f.md#c6"
-    char_span: [10739, 12498]
+    char_span: [10738, 12496]
     sentence_count: 14
     key_terms: [data, people, "it's", completely, medallion, warehouse, business, modeling]
+    concepts: [people, completely, medallion, warehouse, business]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/dataengineering/1n7fu2f.md#c7"
-    char_span: [12500, 13262]
+    char_span: [12498, 13260]
     sentence_count: 8
     key_terms: [medallion, delta, transformations, infrastructure, documentation, architecture, consumption, jballoonist]
+    concepts: [medallion, delta]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/dataengineering/1n7fu2f.md#c8"
-    char_span: [13264, 15211]
+    char_span: [13262, 15209]
     sentence_count: 17
     key_terms: [employee, "it's", thread, useful, "don't", going, agiledatamodeling, roastmecerebrally]
+    concepts: [employee, thread, useful, "don't", going]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/dataengineering/1n7fu2f.md#c9"
-    char_span: [15213, 17665]
+    char_span: [15211, 17663]
     sentence_count: 22
     key_terms: [modelling, discuss, always, requirements, data, feel, like, projects]
+    concepts: [modelling, discuss, requirements, always, projects]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/dataengineering/1n7fu2f.md#c10"
-    char_span: [17667, 19420]
+    char_span: [17665, 19418]
     sentence_count: 13
     key_terms: [agiledatamodeling, kimball-vs-one-big-table-vs-data-vault-in-data-modeling-fa5f63326b84, erwin, https, com, data, reddit, comments]
+    concepts: [agiledatamodeling, erwin, https, reddit, comments]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/dataengineering/1n7fu2f.md#c11"
-    char_span: [19422, 21470]
+    char_span: [19420, 21468]
     sentence_count: 11
     key_terms: [data, sneakpeekbot, business, https, com, modeling, storage, reddit]
+    concepts: [sneakpeekbot, business, https, modeling, storage]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/dataengineering/1n7fu2f.md#c12"
-    char_span: [21472, 23347]
+    char_span: [21470, 23345]
     sentence_count: 16
     key_terms: [data, snowflake, datawarehouse, etc, tons, companies, redshift, usurped]
+    concepts: [snowflake, datawarehouse, companies, redshift, usurped]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/dataengineering/1n7fu2f.md#c13"
-    char_span: [23349, 25574]
+    char_span: [23347, 25572]
     sentence_count: 16
     key_terms: [data, talk, "don't", modeling, point, space, influencers, knowledge]
+    concepts: [modeling, "don't", influencers, point, space]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/dataengineering/1n7fu2f.md#c14"
-    char_span: [25576, 27634]
+    char_span: [25574, 27632]
     sentence_count: 12
     key_terms: [data, models, modeling, design, applications, "don't", performance, get]
+    concepts: [models, modeling, applications, design, performance]
     section: Comments
     token_count: 482
 ---
 # Confirm my suspicion about data modeling
 
 Source: [reddit-deep: r/dataengineering](https://www.reddit.com/r/dataengineering/comments/1n7fu2f/confirm_my_suspicion_about_data_modeling/)
-Posted by **DryRelationship1330** · **297↑** · **133 comments**
+Posted by **DryRelationship1330** · **298↑** · **133 comments**
 
 As a consultant, I see a lot of mid-market and enterprise DWs in varying states of (mis)management.
 
@@ -125,7 +141,7 @@ Yes/no?
 
 ## Comments
 
-- **cream_pie_king** (295↑): It's dead because businesses have focused on fast delivery vs consistent, trusted data platform design INCLUDING data modeling.
+- **cream_pie_king** (300↑): It's dead because businesses have focused on fast delivery vs consistent, trusted data platform design INCLUDING data modeling.
 
 It's all due to MBA brainrot employees who need their "quick win" and incompetent executive leadership who buys into the newest buzzword architecture frameworks that promise "faster time to insight" without any structure to ensure the boomer brained finance team and the dude bro sales team agree on how to calculate basic shit like, I don't know sales revenue.
   - **DryRelationship1330** (42↑): Back in the day, I used to think that the 'source of truth' moniker for a DW was...wrong. It was 'source of contextual truth'. 
@@ -138,7 +154,7 @@ To your point.
     - **cream_pie_king** (33↑): My org is literally going through a revenue bookings alignment project. The project is to have a "central source for bookings data, that also allows for teams to define bookings based on their needs".
 
 We are publicly traded and this is insane to me.
-    - **iupuiclubs** (7↑): >\_The Tax Bros think its = "we have no revenue, it's all losses all the way down..."
+    - **iupuiclubs** (5↑): >\_The Tax Bros think its = "we have no revenue, it's all losses all the way down..."
 
 This is why that crazy "unnecessary" dev layer disappeared, you become so laser focused on making arbitrarily "robustly designed perfect systems" you lack basic knowledge on what stakeholders are even talking about or asking for.
 
@@ -149,7 +165,7 @@ Blow this up to multiple SME areas and if there is any congruence you *think* yo
 People with finance/accounting background that also do data will clean up in this sphere all day now. Sure your systems are "perfect" but trade off is dont even know what you're making the system for.
     - **ExpertStrict5558** (1↑): Sounds like you need a glossary.
   - **Toastbuns** (9↑): Yeah I had a team of 6, now 3 as 3 have been pulled into AI slop projects. I'm expected to deliver more with 50% of the resources we had and even with 6 we didnt have time or luxury of writing great documentation or doing real data modeling. It's definitely not happening now.
-  - **domscatterbrain** (7↑): There are some interesting facts when we analyse the dashboard usage. Most of daily and weekly reports only consumed by the Operation teams. Finance and Accounting only care about monthly reports. Finally C-level only visit that one big dashboard, rarely! That's because they asked that we capture said dashboard and send it directly to their phone every morning.
+  - **domscatterbrain** (6↑): There are some interesting facts when we analyse the dashboard usage. Most of daily and weekly reports only consumed by the Operation teams. Finance and Accounting only care about monthly reports. Finally C-level only visit that one big dashboard, rarely! That's because they asked that we capture said dashboard and send it directly to their phone every morning.
 
 No realtime analytics, no drill down, no buzzwords that has been implemented are visited.
 
@@ -177,7 +193,7 @@ I firmly believe in that over time some logic remains important (like SQL is sti
   - **Illustrious-Welder11** (1↑): Nah, it’s leadership getting annoyed it takes 2 years to get an accurate revenue trend line.  It takes 6 months to get baseline and market size for a strategy bet that they end up flying blind.  
 
 It is not just leadership and MBAs who suffer from buzzwords.  Look in the mirror and think about the promises of bulletproof, scalable, and extensible pristinely modeled data warehouses that never succeeded in delivering, gaining trust, or influencing decision making.
-- **No_Introduction1721** (92↑): Well, its important to remember that the Kimball and Inmon standards were developed in the 80s.  I think there’s three key trends that have happened in ensuing decades that explain the mess we’re in today:
+- **No_Introduction1721** (90↑): Well, its important to remember that the Kimball and Inmon standards were developed in the 80s.  I think there’s three key trends that have happened in ensuing decades that explain the mess we’re in today:
 
 First and most obviously, computing has gotten exponentially more powerful. A big part of the reason people cared so much was because they literally had to. Nowadays, no one gives a crap, and if you’re a conspiracy theorist, you could even argue that medallion architecture is being perpetuated by cloud providers as a way to extract more money from their clients. 
 
@@ -188,7 +204,7 @@ Second, and somewhat related, technology just moves so fast that you’re migrat
 Third, while the concept of “data” has been democratized and de-mystified quite a bit in the ensuing four decades, the actual database part of it still has somewhat of a barrier to entry. So I think part of the issue is that “Can I get this in Excel to do my own analysis?” has become such a ubiquitous question that you can’t really say no to it, leading to a bunch of bespoke OBTs that aren’t documented particularly well, if at all. 
 
 IMO modeling is still important, but it’s largely because of BI/Data Viz software adoption and not database constraints themselves anymore.
-  - **DryRelationship1330** (27↑): I'm more inclined to believe your theory about the medallion arch that you realize.
+  - **DryRelationship1330** (28↑): I'm more inclined to believe your theory about the medallion arch that you realize.
 
 As I noted to another poster, it's odd to me frankly that Starburst/Trino doesn't just come out w/ a marketing slogan: **"Why bother with ETL and rigorous modeling, you just want a federated query/catalog. We know you're just going to fix your data at the report level. Who are you kidding!..fahgettaboutit."**
   - **kenfar** (21↑): Data warehousing used to be primarily driven by database practitioners.   Many of the folks involved were prior DBAs and data modelers.  For these folks time spent on data modeling had clear benefits, and wasn't terribly difficult.  But most of the data engineers that have joined the field over the last 15 years don't have that background - and so it's a much bigger lift.
@@ -196,9 +212,9 @@ As I noted to another poster, it's odd to me frankly that Starburst/Trino doesn'
 I'd also say that the benefits of good data models go far beyond performance - and impact data quality, usability, functionality, and build time.  
 
 However, the folks that aren't already hearing about this, and don't hear about it from their vendors, etc - aren't going to spend time on data modeling.   They're just going to make messes.
-  - **Blaze344** (10↑): All best practices are just as important as they've always been, and they will always be. Taking medallion as an example, it's clearly a pretty solid generalist approach that provides the data at the stage that it matters for the interested parties, if a team or business can't take advantage of that, I'd honestly say it's the fault of the business and not of the principle. I have a similar view on scrum and agile and stuff like that. Most people adopted it because of buzzwords. Most people also have no idea how to use it which is why so many hate it, but they erroneously blame agile rather than the fact that they're experiencing a broken, useless version that has 2 hour dailies.
+  - **Blaze344** (9↑): All best practices are just as important as they've always been, and they will always be. Taking medallion as an example, it's clearly a pretty solid generalist approach that provides the data at the stage that it matters for the interested parties, if a team or business can't take advantage of that, I'd honestly say it's the fault of the business and not of the principle. I have a similar view on scrum and agile and stuff like that. Most people adopted it because of buzzwords. Most people also have no idea how to use it which is why so many hate it, but they erroneously blame agile rather than the fact that they're experiencing a broken, useless version that has 2 hour dailies.
   - **autumnotter** (10↑): There's no reason medallion architecture and good data modelling can't coexist. Databricks has tons of data warehousing SMEs who talk about Kimball and good data warehouse designs, I've seen their talks. Just because people don't bother to do it doesn't mean it's not a best practice or the two are somehow in opposition. Silver and gold layer, depending on the companies standards, often have very classical data warehouse designs.
-  - **grapegeek** (8↑): I completely agree. Compute is cheap so people are lazy. Excel can do way more now. Your average data user can get what they want themselves. I’m dealing with the same thing. Data Modeling has been shoved down to engineers that have no clue and we’ve gotten rid of all the dedicated modelers.
+  - **grapegeek** (9↑): I completely agree. Compute is cheap so people are lazy. Excel can do way more now. Your average data user can get what they want themselves. I’m dealing with the same thing. Data Modeling has been shoved down to engineers that have no clue and we’ve gotten rid of all the dedicated modelers.
   - **Odd-Government8896** (2↑): Very well said and I completely agree here ☝️ 
 
 Regarding medallion. It could be an evil plot to increase consumption. Except for the fact things like delta -> delta transformations in pyspark are SO MUCH CHEAPER than other methods...
@@ -207,16 +223,16 @@ Regarding medallion. It could be an evil plot to increase consumption. Except fo
 
 And if you don't have as much reason to sweat the costs, some of the things we used to do aren't that useful. I have never once really cared whether something is a fact or a dimension. I have this argument with my architect regularly. He strongly prefers to have naming standards like fact_blah_blah and dim_yada_yada. It's a table. If it has what I need to join to in it, that's the query I'm going to write. Do you need to pull in employee information based on employee ID? There's going to be one thing that has a key of employee ID and a bunch of attributes about employees. Who cares what you call it?
     - **roastmecerebrally** (2↑): this is a brain rot take lol. Its very useful to separate the tables into facts and dimensions
-- **adastra1930** (34↑): I want to hang out with everyone in this thread. I’m relatively new to engineering, mostly self-taught and on the job (for a large enterprise). I know my stuff well enough to know that there’s stuff we don’t do well, and I’d be very curious to find out what foundational stuff we’re not doing
-  - **DoomBuzzer** (14↑): I am an Analytics Engineer, wanting to know how to model better and this is already my favorite thread on the forum. I see plenty of issues I resonate with.
-    - **NotSure2505** (4↑): Come join the conversation at r/agiledatamodeling.   This subject is exactly what we discuss.
-  - **Little_Kitty** (7↑): Save this post and come back to it whenever you get a sense of imposter syndrome.  It's not that you don't understand a complex pipeline, it's that it was written by idiots and has descended into a Byzantine mess that spans multiple languages and a dozen repos just to do the most basic task.
+- **adastra1930** (36↑): I want to hang out with everyone in this thread. I’m relatively new to engineering, mostly self-taught and on the job (for a large enterprise). I know my stuff well enough to know that there’s stuff we don’t do well, and I’d be very curious to find out what foundational stuff we’re not doing
+  - **DoomBuzzer** (13↑): I am an Analytics Engineer, wanting to know how to model better and this is already my favorite thread on the forum. I see plenty of issues I resonate with.
+    - **NotSure2505** (3↑): Come join the conversation at r/agiledatamodeling.   This subject is exactly what we discuss.
+  - **Little_Kitty** (6↑): Save this post and come back to it whenever you get a sense of imposter syndrome.  It's not that you don't understand a complex pipeline, it's that it was written by idiots and has descended into a Byzantine mess that spans multiple languages and a dozen repos just to do the most basic task.
 
 The industry has spent over a decade hiring whoever into the data space, failing to train them and with management spamming buzzwords while low utility software marketing teams make daft claims on social media.  Now pour an unhealthy dose of AI slop on top of that...
 
 For products and projects I manage, it's a constant battle to police sloppy commits, Rube Goldberg machines and claimed "client requests" which not only fail to make logical sense, but have no real deliverable or endpoint.  Proper modelling, granularity & application of constraints becomes a dream and solving issues around distributed systems, incrementality, recovery from corruption and temporal stability don't even get thought of.
-  - **NotSure2505** (-3↑): Come join the conversation at r/agiledatamodeling.   This subject is exactly what we discuss.
-- **ObjectiveAssist7177** (19↑): ooof what a wonderful topic to discuss... shame its not a Friday as I would have more time for a reply.  Im being serious this is a "pub" kinda question that sadly I dont have collegues that share the same spark to discuss with.
+  - **NotSure2505** (-2↑): Come join the conversation at r/agiledatamodeling.   This subject is exactly what we discuss.
+- **ObjectiveAssist7177** (18↑): ooof what a wonderful topic to discuss... shame its not a Friday as I would have more time for a reply.  Im being serious this is a "pub" kinda question that sadly I dont have collegues that share the same spark to discuss with.
 
 This industry has evolved so fast that terms have been highly convoluted and become some what meaningless. 
 
@@ -249,7 +265,7 @@ SQLDBM, Hackolade, many others, take your pick. None have the feature set of erw
 
 ----
 ^^I'm ^^a ^^bot, ^^beep ^^boop ^^| ^^Downvote ^^to ^^remove ^^| ^^[Contact](https://www.reddit.com/message/compose/?to=sneakpeekbot) ^^| ^^[Info](https://np.reddit.com/r/sneakpeekbot/) ^^| ^^[Opt-out](https://np.reddit.com/r/sneakpeekbot/comments/o8wk1r/blacklist_ix/) ^^| ^^[GitHub](https://github.com/ghnr/sneakpeekbot)
-- **DJ_Laaal** (10↑): As a DW professional with two decades in the domain, I’ve lived through the transition data modeling and data architecture have gone through during those times. When I started my professional career in data, a 2-year Datawarehouse build-out project was the norm. We used to do rigorous requirements gathering (for months!), hire a multitude of skilled people to document the business processes, track down data sources and cover every inch of the enterprise reporting needs on paper. Then the laborious phase of ETL, physical data modeling, test runs, and QA will ensue. Finally some BI team would develop the static reports and before you know it, it’s already 2 years gone!
+- **DJ_Laaal** (11↑): As a DW professional with two decades in the domain, I’ve lived through the transition data modeling and data architecture have gone through during those times. When I started my professional career in data, a 2-year Datawarehouse build-out project was the norm. We used to do rigorous requirements gathering (for months!), hire a multitude of skilled people to document the business processes, track down data sources and cover every inch of the enterprise reporting needs on paper. Then the laborious phase of ETL, physical data modeling, test runs, and QA will ensue. Finally some BI team would develop the static reports and before you know it, it’s already 2 years gone!
 
 Nowadays, every single business comes pre-wired to collect and move streams of raw data all over the place. Costs of data storage have significantly dropped so dumping it all in into a cheap cloud storage is a no-brainer and it’s an acceptable approach. Storage and compute are now segregated so no upfront unutilized servers anymore. 
 
@@ -258,15 +274,15 @@ I guess the fundamental idea behind serving data analytics has switched from bui
 I’d say it’s just a paradigm shift that has acceptable flaws with upside advantages that outweigh the said flaws (i.e. lack of emphasis on the traditional DW approaches we built our careers around in the past).
 
 Edit: also wanted to mention how the term “datawarehouse” has now been usurped by the vendors to mean “snowflake, redshift or GCP”. Not the Kimball or Innmon style datawarehouses we used to build. In fact, Bill Innmon (he’s in my LinkedIn network) wrote a very expressive LI post about this a year ago. Now I see even him kind of coming to terms with the fact that the old school DW as a industry and a domain is dead.
-  - **NotSure2505** (5↑): >how the term “datawarehouse” has now been usurped by the vendors to mean “snowflake, redshift or GCP”.
+  - **NotSure2505** (4↑): >how the term “datawarehouse” has now been usurped by the vendors to mean “snowflake, redshift or GCP”.
 
 I cannot begin to tell you how frustrating it is to have conversations with clients who don't know the difference.  It's painful to have to explain this simple distinction to someone after they start complaining about how bad (and expensive) their "Datawarehouse" is when in reality it was just a data lake of file dumps with no relational structure. Not surprised it sucks.  Just because you put it in Snowflake doesn't make it a data warehouse.
 
 Did you know that for enterprises, companies like Snowflake quietly offer them free storage for any  unstructured data they load?  It's basically a land grab.  These companies don't care about the analytical effectiveness, they just want to fill hard drives and charge rent on this data into perpetuity.
-- **chrgrz** (22↑): Most likely Yes. 
+- **chrgrz** (19↑): Most likely Yes. 
 In my last two recent roles, most of the data issues directly pointed out to referential integrity issues and somehow when the discussion came to the point of design, people would just throw out garbage points. 
 You would know and be shocked to see, how many of the so called data experts lack any kind of modeling knowledge.
-  - **kenfar** (14↑): I went to a hadoop conference around 2014.  It was Strata - which at the time was enormous.  Probably 5000 engineers there.  Tons of buzz, tons of hype, tons of excitement, etc, etc, etc.
+  - **kenfar** (13↑): I went to a hadoop conference around 2014.  It was Strata - which at the time was enormous.  Probably 5000 engineers there.  Tons of buzz, tons of hype, tons of excitement, etc, etc, etc.
 
 They had a panel discussion with some of the lead presenters, who at one point agreed that data ingestion was the most challenging aspect of a big data project.  At which point I asked the question: "are you familiar with any discipline or methodologies that could assist people in developing data injection processes?"  And they all shook their heads, said "no", that they weren't familiar with anything that could help.  I suggested that they take a look at ETL.
 
@@ -288,9 +304,9 @@ Databricks has several pages, free ebooks, and courses on data modeling...
     - **kenfar** (1↑): Sorry, should have been more specific: they don't talk about it in their marketing or sales materials.  When they're trying to sell the solution to a customer - they don't talk about it.
 
 Once you're on the product there's a bit.
-- **dbrownems** (9↑): From what I see, I somewhat agree, but only data modeling in the DW layer.  Star-schema data marts/semantic models are alive-and-well, because that's all that really matters.
-- **Awkward_Tick0** (8↑): The house of cards will topple eventually. Not my problem
-- **GreyHairedDWGuy** (8↑): Data modelling crowd knowledge has dwindled over the years because of a few factors:
+- **dbrownems** (8↑): From what I see, I somewhat agree, but only data modeling in the DW layer.  Star-schema data marts/semantic models are alive-and-well, because that's all that really matters.
+- **Awkward_Tick0** (9↑): The house of cards will topple eventually. Not my problem
+- **GreyHairedDWGuy** (9↑): Data modelling crowd knowledge has dwindled over the years because of a few factors:
 
 \- in the late 70 to the early-90's, large orgs tended to develop their own in-house applications for everything (ERP, Finance/Accounting...etc) so there needed to be practitioners who could design stable, well considered data models which supported OLTP applications.   With the advent of 'off the shelf' solutions like JDE, Peoplesoft, SAP...etc the need to design your own models fell off a cliff.  While a BI/DW model is designed differently, it was generally the people with existing OLTP model knowledge that went down this path as well.
 

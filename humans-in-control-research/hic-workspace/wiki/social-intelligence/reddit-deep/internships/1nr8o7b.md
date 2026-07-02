@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 1910]
     sentence_count: 17
     key_terms: [job, internships, internship, companies, opportunities, applications, application, did]
+    concepts: [internships, internship, companies, opportunities, applications]
     token_count: 435
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1nr8o7b/my_long_journey_from_unpaid_intern_to_135k_job/"}]
   - id: "social-intelligence/reddit-deep/internships/1nr8o7b.md#c1"
     char_span: [1912, 3338]
     sentence_count: 10
     key_terms: [interview, resume, experience, job, internship, interviews, full-time, questions]
+    concepts: [interview, resume, experience, internship, interviews]
     token_count: 297
   - id: "social-intelligence/reddit-deep/internships/1nr8o7b.md#c2"
-    char_span: [3353, 4591]
+    char_span: [3352, 4590]
     sentence_count: 10
     key_terms: [applications, environment, experience, workload, company, passout, service, working]
+    concepts: [applications, environment, experience, workload, company]
     section: Comments
     token_count: 309
 ---

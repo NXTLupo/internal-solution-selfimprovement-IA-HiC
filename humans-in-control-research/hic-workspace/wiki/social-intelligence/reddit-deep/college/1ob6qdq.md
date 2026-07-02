@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 2078]
     sentence_count: 16
     key_terms: [years, been, here, "i've", because, college, courses, credits]
+    concepts: [years, international, because, college, courses]
     token_count: 462
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ob6qdq/are_my_3_years_random_general_undergrad_studies/"}]
   - id: "social-intelligence/reddit-deep/college/1ob6qdq.md#c1"
     char_span: [2080, 3500]
     sentence_count: 12
     key_terms: [japan, international, scholarship, get, want, undergrad, academic, graduate]
+    concepts: [japan, international, scholarship, undergrad, academic]
     token_count: 301
   - id: "social-intelligence/reddit-deep/college/1ob6qdq.md#c2"
     char_span: [3514, 5732]
     sentence_count: 19
     key_terms: [bachelor, japan, learning, major, graduate, transfer, credits, general]
+    concepts: [bachelor, japan, learning, major, graduate]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/college/1ob6qdq.md#c3"
     char_span: [5734, 6286]
     sentence_count: 6
     key_terms: [eikaiwa, "i'm", connections, information, something, software, starting, teaching]
+    concepts: [eikaiwa]
     section: Comments
     token_count: 128
 ---

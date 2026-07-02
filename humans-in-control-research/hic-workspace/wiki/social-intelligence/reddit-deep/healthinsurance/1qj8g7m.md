@@ -20,58 +20,70 @@ chunks:
     char_span: [0, 2175]
     sentence_count: 12
     key_terms: [plan, healthinsurance, administration, health, policy, portal, responsible, care]
+    concepts: [healthinsurance, administration, health, policy, portal]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1qj8g7m/has_anyone_else_had_issues_with_mba_tpa_mcclure/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1qj8g7m.md#c1"
     char_span: [2179, 2366]
     sentence_count: 3
     key_terms: [information, compiling, situation, database, comment, compare, dealing, denials]
     token_count: 38
   - id: "social-intelligence/reddit-deep/healthinsurance/1qj8g7m.md#c2"
-    char_span: [2381, 4747]
+    char_span: [2380, 4746]
     sentence_count: 8
     key_terms: [post, please, information, questions, following, eob, edit, help]
+    concepts: [please, information, questions, following, healthinsurance]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/healthinsurance/1qj8g7m.md#c3"
-    char_span: [4749, 5245]
+    char_span: [4748, 5244]
     sentence_count: 3
     key_terms: [contact, report, via, subreddit, attempts, someone, please, conversations]
+    concepts: [contact, report, subreddit, attempts, someone]
     section: Comments
     token_count: 109
   - id: "social-intelligence/reddit-deep/healthinsurance/1qj8g7m.md#c4"
-    char_span: [5248, 7231]
+    char_span: [5247, 7230]
     sentence_count: 17
     key_terms: [insurance, effectiveegg5712, cigna, plan, mcclure, lifex, recommend, smack1114]
+    concepts: [insurance, effectiveegg5712, cigna, mcclure, lifex]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1qj8g7m.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1qj8g7m.md#c5"
-    char_span: [6922, 9311]
+    char_span: [6921, 9310]
     sentence_count: 14
     key_terms: [network, verification, eligibility, change, health, effective, card, transition]
+    concepts: [network, verification, eligibility, effective, change]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1qj8g7m.md#c6"
-    char_span: [9056, 11262]
+    char_span: [9055, 11261]
     sentence_count: 3
     key_terms: [benefithealthplan, provider, https, eligibility, pre-certification, com, submitted, here]
+    concepts: [benefithealthplan, provider, pre-certification, eligibility, https]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1qj8g7m.md#c7"
-    char_span: [10894, 13210]
+    char_span: [10893, 13209]
     sentence_count: 6
     key_terms: [insurance, providers, benefithealthplan, customersupport, system, month, been, bill]
+    concepts: [benefithealthplan, insurance, providers, customersupport, system]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1qj8g7m.md#c8"
-    char_span: [12893, 14995]
+    char_span: [12892, 14994]
     sentence_count: 21
     key_terms: [insurance, message, mba, tpa, issues, people, cigna, since]
+    concepts: [insurance, message, issues, people, cigna]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1qj8g7m.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1qj8g7m.md#c9"
-    char_span: [14678, 15802]
+    char_span: [14677, 15801]
     sentence_count: 13
     key_terms: [insurance, group, through, interestingnebula667, kooky-cucumber-9463, since, pre-authorization, been]
+    concepts: [insurance, group, through, since]
     section: Comments
     token_count: 276
 ---

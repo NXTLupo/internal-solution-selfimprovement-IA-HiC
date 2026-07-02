@@ -21,95 +21,115 @@ chunks:
     char_span: [0, 1536]
     sentence_count: 18
     key_terms: [book, obvious, personalfinance, thirty, years, millionaire, don, comments]
+    concepts: [obvious, personalfinance, thirty, millionaire, years]
     token_count: 354
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1r08grq/millionaire_next_door/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1r08grq.md#c1"
     char_span: [1550, 3541]
     sentence_count: 21
     key_terms: [people, keeping, "don't", lego, because, own, save, jones]
+    concepts: [people, keeping, "don't", because, increasing]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1r08grq.md#c14"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/personalfinance/1r08grq.md#c2"
     char_span: [3543, 3764]
     sentence_count: 3
     key_terms: [dollars, "today's", soon-to-be-spouse, together, friend, invest, making, going]
+    concepts: [dollars, "today's"]
     section: Comments
     token_count: 69
   - id: "social-intelligence/reddit-deep/personalfinance/1r08grq.md#c3"
     char_span: [3766, 5832]
     sentence_count: 16
     key_terms: [afford, millionaires, communities, millionaire, book, high, college, desires]
+    concepts: [millionaires, afford, communities, millionaire, college]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1r08grq.md#c4"
     char_span: [5508, 7724]
     sentence_count: 10
     key_terms: [income, high, millionaires, people, low, becoming, savings, boring]
+    concepts: [income, millionaires, people, becoming, revolutionary]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1r08grq.md#c14"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1r08grq.md#c5"
     char_span: [7455, 8347]
     sentence_count: 9
     key_terms: [people, book, like, writing, boring, buying, reader, imnotveryfunatpartys]
+    concepts: [people, writing, boring, buying, reader]
     section: Comments
     token_count: 208
   - id: "social-intelligence/reddit-deep/personalfinance/1r08grq.md#c6"
     char_span: [8349, 9807]
     sentence_count: 15
     key_terms: [people, poor, invest, consumption, millionaire, book, interview, invested]
+    concepts: [people, invest, consumption, millionaire, interview]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/personalfinance/1r08grq.md#c7"
     char_span: [9809, 11222]
     sentence_count: 7
     key_terms: [millionaires, investment, years, book, earned, puzzleheaded-win3445, least, worth]
+    concepts: [millionaires, investment, years, earned, least]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/personalfinance/1r08grq.md#c8"
     char_span: [11224, 13095]
     sentence_count: 17
     key_terms: [million, saving, enjoy, years, people, though, today, "you'd"]
+    concepts: [million, saving, enjoy, years, people]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/personalfinance/1r08grq.md#c9"
     char_span: [13097, 13808]
     sentence_count: 9
     key_terms: [money, important, "i'm", like, live, put, save, bluntspoon]
+    concepts: [money, important]
     section: Comments
     token_count: 191
   - id: "social-intelligence/reddit-deep/personalfinance/1r08grq.md#c10"
     char_span: [13810, 15989]
     sentence_count: 19
     key_terms: [book, years, buying, books, early, point, able, instead]
+    concepts: [years, buying, books, early, point]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1r08grq.md#c11"
     char_span: [15991, 17075]
     sentence_count: 12
     key_terms: [cars, driving, impressed, others, money, sense, smart, "it's"]
+    concepts: [driving, impressed, others, money, sense]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/personalfinance/1r08grq.md#c12"
     char_span: [17077, 19162]
     sentence_count: 14
     key_terms: [people, car, cars, "i've", lot, year, retirement, probably]
+    concepts: [people, retirement, probably, average, "there's"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1r08grq.md#c13"
     char_span: [18866, 19209]
     sentence_count: 2
     key_terms: [people, jones, save, impressions, criticism, biggest, fifteen, survive]
+    concepts: [people, jones]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/personalfinance/1r08grq.md#c14"
     char_span: [19212, 21392]
     sentence_count: 11
     key_terms: [book, people, difficult, millionaires, "don't", residential, help, page]
+    concepts: [people, difficult, millionaires, residential, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1r08grq.md#c1", "social-intelligence/reddit-deep/personalfinance/1r08grq.md#c4"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/personalfinance/1r08grq.md#c15"
     char_span: [21394, 23141]
     sentence_count: 10
     key_terms: [afmboopoa1tunq5ey9lzezsnmxhgvm44glccju6wbe0cpxby1bayo6fo, people, the-national-study-of-millionaires-research, money, lot, nonsense, remember, valuable]
+    concepts: [people, money, nonsense, remember, valuable]
     section: Comments
     token_count: 452
 ---

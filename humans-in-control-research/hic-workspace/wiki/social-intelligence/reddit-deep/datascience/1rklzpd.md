@@ -20,28 +20,36 @@ chunks:
     char_span: [0, 2118]
     sentence_count: 11
     key_terms: [perpetualbooster, tuning, intervals, hyperparameter, datascience, prediction, drift, model]
+    concepts: [perpetualbooster, hyperparameter, intervals, tuning, datascience]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1rklzpd/project_perpetualbooster_v194_a_gbm_that_skips/"}]
   - id: "social-intelligence/reddit-deep/datascience/1rklzpd.md#c1"
     char_span: [2120, 3223]
     sentence_count: 2
     key_terms: [retraining, perpetual, github, perpetual-ml, need, production, without, xgboost]
+    concepts: [retraining, perpetual, perpetual-ml, github, production]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1rklzpd.md#c4"]
     token_count: 267
   - id: "social-intelligence/reddit-deep/datascience/1rklzpd.md#c2"
-    char_span: [3238, 4237]
+    char_span: [3237, 4236]
     sentence_count: 10
     key_terms: [dml, gbm, predictive, perpetual, causal, econml, doing, model]
+    concepts: [predictive, perpetual, causal, econml, doing]
     section: Comments
     token_count: 252
   - id: "social-intelligence/reddit-deep/datascience/1rklzpd.md#c3"
-    char_span: [4239, 6445]
+    char_span: [4238, 6444]
     sentence_count: 16
     key_terms: [training, drift, budget, dml, test, similar, tuning, using]
+    concepts: [training, drift, budget, similar, tuning]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/datascience/1rklzpd.md#c4"
-    char_span: [6237, 8228]
+    char_span: [6236, 8227]
     sentence_count: 16
     key_terms: [production, how-perpetual-works, drift, perpetual-ml, forecasting, blog, time, statistic]
+    concepts: [how-perpetual-works, production, drift, perpetual-ml, forecasting]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1rklzpd.md#c1"]
     section: Comments
     token_count: 494
 ---

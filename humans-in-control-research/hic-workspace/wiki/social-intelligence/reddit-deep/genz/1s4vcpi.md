@@ -21,53 +21,68 @@ chunks:
     char_span: [0, 389]
     sentence_count: 3
     key_terms: [comments, credit, card, debt, genz, hard, reddit-deep, everything]
+    concepts: [comments, credit]
     token_count: 110
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1s4vcpi/credit_card_debt/"}]
   - id: "social-intelligence/reddit-deep/genz/1s4vcpi.md#c1"
     char_span: [403, 1602]
     sentence_count: 8
     key_terms: [poor, christmas, discord, always, credit, people, properobligation9779, "don't"]
+    concepts: [christmas, discord, always, credit, people]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1s4vcpi.md#c2"]
     section: Comments
     token_count: 306
   - id: "social-intelligence/reddit-deep/genz/1s4vcpi.md#c2"
     char_span: [1604, 3514]
     sentence_count: 9
     key_terms: [credit, debt, people, card, get, bought, properobligation9779, over-transition9609]
+    concepts: [credit, people, bought, money]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1s4vcpi.md#c1", "social-intelligence/reddit-deep/genz/1s4vcpi.md#c5"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/genz/1s4vcpi.md#c3"
     char_span: [3516, 5311]
     sentence_count: 9
     key_terms: [credit, debt, interest, balance, card, here, like, getting]
+    concepts: [credit, interest, balance, getting, monthly]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1s4vcpi.md#c4", "social-intelligence/reddit-deep/genz/1s4vcpi.md#c5"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/genz/1s4vcpi.md#c4"
     char_span: [5313, 5990]
     sentence_count: 4
     key_terms: [balance, interest, period, limit, card, hit, immediately, additional]
+    concepts: [balance, interest, period, limit]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1s4vcpi.md#c3"]
     section: Comments
     token_count: 166
   - id: "social-intelligence/reddit-deep/genz/1s4vcpi.md#c5"
     char_span: [5992, 7896]
     sentence_count: 8
     key_terms: [cards, interest, expenses, credit, money, store, total, card]
+    concepts: [cards, interest, expenses, credit, money]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1s4vcpi.md#c2", "social-intelligence/reddit-deep/genz/1s4vcpi.md#c3"]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/genz/1s4vcpi.md#c6"
     char_span: [7898, 9604]
     sentence_count: 14
     key_terms: [pay, cancermoon2caprising, down, debt, don, "i'm", everything, relatives]
+    concepts: [cancermoon2caprising, everything, relatives, triggered, possible]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/genz/1s4vcpi.md#c7"
     char_span: [9606, 11291]
     sentence_count: 13
     key_terms: [credit, card, get, irresponsible, bills, responsible, car, pay]
+    concepts: [credit, irresponsible, responsible, bills, finances]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/genz/1s4vcpi.md#c8"
     char_span: [11293, 11969]
     sentence_count: 3
     key_terms: [interest, minimum, angstycarroteater, keep, pay, try, financially, responsible]
+    concepts: [interest, minimum]
     section: Comments
     token_count: 169
 ---

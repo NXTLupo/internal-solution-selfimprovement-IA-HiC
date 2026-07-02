@@ -21,47 +21,56 @@ chunks:
     char_span: [0, 422]
     sentence_count: 3
     key_terms: [wallstreetbets, comments, posted, fmcc, sell, told, reddit-deep, apresta16]
+    concepts: [wallstreetbets, comments, posted]
     token_count: 130
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1ky8uq6/yall_told_me_to_sell_when_fmcc_was_under_1/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c1"
     char_span: [436, 640]
     sentence_count: 1
     key_terms: [total, years, submissions, visualmod, comments, previous, account, report]
+    concepts: [total, years]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c2"
     char_span: [642, 2364]
     sentence_count: 5
     key_terms: [wsb, bitcoin21mm, bro, like, bagholding, something, believed, comments]
+    concepts: [bitcoin21mm, bagholding, something, believed, comments]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c3"
     char_span: [2107, 2777]
     sentence_count: 7
     key_terms: [been, bagholding, popular-substance490, maybe, years, additional, conviction, allocated]
+    concepts: [bagholding, maybe, years]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c4"
     char_span: [2779, 4596]
     sentence_count: 12
     key_terms: [apresta16, better, years, loss, tax, invested, probably, deleted]
+    concepts: [apresta16, better, years, invested, probably]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c5"
     char_span: [4361, 5080]
     sentence_count: 8
     key_terms: [years, deleted, bro, gain, good, lol, sideshowglobs, considering]
+    concepts: [years, deleted]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c6"
     char_span: [5082, 6228]
     sentence_count: 8
     key_terms: [wrong, years, reddit, until, beneficial-swim843, chersprolapsedanus, down, draw]
+    concepts: [wrong, years, reddit, until]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c7"
     char_span: [6230, 7077]
     sentence_count: 5
     key_terms: [accumulate, apresta16, dumpster, register, working, behind, time, opportunity]
+    concepts: [accumulate, apresta16, dumpster, register, working]
     section: Comments
     token_count: 256
 ---

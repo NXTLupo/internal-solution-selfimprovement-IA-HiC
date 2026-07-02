@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 690]
     sentence_count: 3
     key_terms: [engineeringstudents, engineering, experience, internship, chemical, comments, offer, sjsoalkavdbeie]
+    concepts: [engineeringstudents, engineering, experience, internship, chemical]
     token_count: 168
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1smh3oc/my_summer_2026_internship_search/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1smh3oc.md#c1"
     char_span: [704, 2517]
     sentence_count: 8
     key_terms: [sjsoalkavdbeie, job, getting, crazy, competitive, engineering, mysticalrng, congrats]
+    concepts: [sjsoalkavdbeie, getting, competitive, engineering, mysticalrng]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1smh3oc.md#c2"
     char_span: [2314, 2895]
     sentence_count: 2
     key_terms: [waidmannsheil05, teacher, recommended, asked, southlakeredboat, recommendation, hoseinspector, applications]
+    concepts: [waidmannsheil05, teacher, recommended, asked]
     section: Comments
     token_count: 161
 ---

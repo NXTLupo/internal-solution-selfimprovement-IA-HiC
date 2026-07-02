@@ -19,19 +19,23 @@ content_hash: "621521f87e9e90f3"
 relevance_by_goal: {"490684cfa204":85}
 chunks:
   - id: "articles/reddit-deep-r-ecommerce/5c5df4e0cd.md#c0"
-    char_span: [0, 1727]
+    char_span: [0, 1726]
     sentence_count: 19
     key_terms: [people, e-commerce, customer, recommendations, support, discussion, ecommerce, questions]
-    token_count: 413
+    concepts: [people, e-commerce, recommendations, customer, support]
+    token_count: 412
+    sources: [{"n":"Reddit Deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1o8tmf7/ecommerce_ai/"}]
   - id: "articles/reddit-deep-r-ecommerce/5c5df4e0cd.md#c1"
-    char_span: [1731, 3852]
+    char_span: [1730, 3851]
     sentence_count: 15
     key_terms: [order, comm100, customers, oms, chatbot, service, shopify, updates]
+    concepts: [order, comm100, customers, chatbot, service]
     token_count: 484
   - id: "articles/reddit-deep-r-ecommerce/5c5df4e0cd.md#c2"
-    char_span: [3854, 4272]
+    char_span: [3853, 4271]
     sentence_count: 5
     key_terms: [skin, customers, products, care, recommends, provides, brother, curious]
+    concepts: [customers, products]
     token_count: 89
 ---
 # E-commerce & AI

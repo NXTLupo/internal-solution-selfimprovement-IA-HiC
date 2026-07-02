@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1097]
     sentence_count: 11
     key_terms: [gift, nonprofit, new, officer, work, comments, advice, whoooooooooo89231]
+    concepts: [nonprofit, officer, comments, advice]
     token_count: 245
+    sources: [{"n":"reddit-deep: r/nonprofit","u":"https://www.reddit.com/r/nonprofit/comments/1p29qlq/new_gift_officer_advice/"}]
   - id: "social-intelligence/reddit-deep/nonprofit/1p29qlq.md#c1"
-    char_span: [1112, 2870]
+    char_span: [1111, 2869]
     sentence_count: 20
     key_terms: [number, donors, relationship, fundraising, ask, nonprofit, specific, amount]
+    concepts: [number, relationship, donors, fundraising, nonprofit]
     section: Comments
     token_count: 383
 ---

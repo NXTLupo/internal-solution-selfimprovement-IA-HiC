@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1309]
     sentence_count: 5
     key_terms: [internship, looking, someone, equity, exceptional, internships, paid, developer]
+    concepts: [internship, looking, someone, equity, exceptional]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1pd8xl6.md#c1"]
     token_count: 305
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1pd8xl6/hiring_a_brilliant_student_developer_mumbai_paid/"}]
   - id: "social-intelligence/reddit-deep/internships/1pd8xl6.md#c1"
     char_span: [1323, 2228]
     sentence_count: 4
     key_terms: [zuck, wants, pay, building, exactly, looking, someone, born-requirement-303]
+    concepts: [wants, building, exactly, looking, someone]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1pd8xl6.md#c0"]
     section: Comments
     token_count: 252
 ---

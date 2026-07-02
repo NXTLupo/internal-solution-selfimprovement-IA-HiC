@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1660]
     sentence_count: 12
     key_terms: [coding, bachelor, cse, careerguidance, career, family, fields, master]
+    concepts: [coding, bachelor, careerguidance, career, family]
     token_count: 380
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sul7jq/cse_student_who_hates_coding_what_career_path/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sul7jq.md#c1"
     char_span: [1674, 3220]
     sentence_count: 7
     key_terms: [management, tech, business, coding, understanding, cherryred245, wizzlord2008, focus]
+    concepts: [management, business, understanding, cherryred245, wizzlord2008]
     section: Comments
     token_count: 327
 ---

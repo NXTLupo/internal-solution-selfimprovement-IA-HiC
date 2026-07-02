@@ -8,6 +8,7 @@ chunks:
     char_span: [0, 1035]
     sentence_count: 1
     key_terms: [industries, sources, vertical, sustainability, manufacturing, multi-valued, fundraising, cross-over]
+    concepts: [industries, sources, vertical]
     token_count: 328
 ---
 # Industries

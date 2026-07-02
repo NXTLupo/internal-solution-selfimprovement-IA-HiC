@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1114]
     sentence_count: 7
     key_terms: [engineeringstudents, engineering, electronic, comments, related, summer, field, sherbertquirky3789]
+    concepts: [engineeringstudents, engineering, electronic, comments, related]
     token_count: 256
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sfdvwo/electronic_engineering_internship_advice/"}]
 ---
 # Electronic Engineering Internship Advice
 

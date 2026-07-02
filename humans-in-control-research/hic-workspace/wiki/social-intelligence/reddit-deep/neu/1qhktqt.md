@@ -19,21 +19,26 @@ chunks:
     char_span: [0, 1914]
     sentence_count: 19
     key_terms: [neu, people, being, years, job, experience, graduated, comments]
+    concepts: [people, being, experience, years, graduated]
     token_count: 443
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qhktqt/advice_about_neu_from_someone_who_graduated_a_few/"}]
   - id: "social-intelligence/reddit-deep/neu/1qhktqt.md#c1"
     char_span: [1916, 4061]
     sentence_count: 27
     key_terms: [college, social, communities, bad, lot, nyc, experience, specific]
+    concepts: [college, social, communities, experience, specific]
     token_count: 475
   - id: "social-intelligence/reddit-deep/neu/1qhktqt.md#c2"
     char_span: [4063, 4834]
     sentence_count: 12
     key_terms: ["don't", though, tough, "it's", corporations, engineering, especially, abilities]
+    concepts: ["don't", though, tough]
     token_count: 170
   - id: "social-intelligence/reddit-deep/neu/1qhktqt.md#c3"
     char_span: [4848, 5559]
     sentence_count: 4
     key_terms: [science, boston, independent-lab6410, minor, bulky-command9731, oweoyahdkcns18273, data, grad]
+    concepts: [science, boston, minor]
     section: Comments
     token_count: 190
 ---

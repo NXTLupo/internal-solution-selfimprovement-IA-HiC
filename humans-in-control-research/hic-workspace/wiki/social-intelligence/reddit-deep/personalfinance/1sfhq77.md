@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 974]
     sentence_count: 4
     key_terms: [alight, voya, personalfinance, account, transferred, financial, solutions, comments]
+    concepts: [alight, personalfinance, account, transferred, financial]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sfhq77.md#c1"]
     token_count: 235
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1sfhq77/voya_to_alight_financial_solutions/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1sfhq77.md#c1"
-    char_span: [989, 1971]
+    char_span: [988, 1970]
     sentence_count: 7
     key_terms: [access, alight, providers, switched, account, company, current, support]
+    concepts: [access, alight, providers, switched, account]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sfhq77.md#c0"]
     section: Comments
     token_count: 243
 ---

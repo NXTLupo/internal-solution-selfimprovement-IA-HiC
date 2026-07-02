@@ -17,10 +17,12 @@ research_goal: "Analyze the r/neu subreddit to synthesize social evidence, senti
 engagement: "analyze-the-r-neu-subreddit-to-synthesize-social-evidence-se"
 chunks:
   - id: "social-intelligence/reddit-deep/bostonu/1opke5h.md#c0"
-    char_span: [0, 1973]
+    char_span: [0, 1972]
     sentence_count: 9
     key_terms: [urban-refuge, https, support, urban, com, tech, student, refuge]
-    token_count: 430
+    concepts: [urban-refuge, https, support, urban, student]
+    token_count: 429
+    sources: [{"n":"reddit-deep: r/bostonu","u":"https://www.reddit.com/r/BostonU/comments/1opke5h/help_support_urban_refuge_crowdfunding/"}]
 ---
 # Help support Urban Refuge Crowdfunding!
 

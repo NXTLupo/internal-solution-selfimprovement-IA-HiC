@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2225]
     sentence_count: 17
     key_terms: [full-time, internship, co-op, looking, graduation, engineeringstudents, something, however]
+    concepts: [full-time, internship, co-op, engineeringstudents, looking]
     token_count: 515
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1otiaou/how_do_youcan_you_apply_for_coops_and_fulltime_at/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1otiaou.md#c1"
     char_span: [2227, 3006]
     sentence_count: 6
     key_terms: [year, throughout, classes, offered, spring, find, need, take]
+    concepts: [throughout, classes, offered, spring]
     section: Comments
     token_count: 173
 ---

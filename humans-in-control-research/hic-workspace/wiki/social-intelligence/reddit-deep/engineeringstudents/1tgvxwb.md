@@ -21,47 +21,60 @@ chunks:
     char_span: [0, 766]
     sentence_count: 10
     key_terms: [engineeringstudents, nowhere, tried, comments, through, "don't", got, "i'm"]
+    concepts: [engineeringstudents, nowhere, tried, comments, through]
     token_count: 185
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tgvxwb/where_do_i_find_internships_this_late/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c1"
     char_span: [780, 1214]
     sentence_count: 3
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    concepts: [engineeringstudents, reddit, https, resources, index]
     section: Comments
     token_count: 106
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c2"
     char_span: [1216, 2889]
     sentence_count: 11
     key_terms: [internship, fall, time, summer, competitive, internships, late, too]
+    concepts: [internship, summer, competitive, internships, fraggin601]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c4", "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c5"]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c3"
     char_span: [2891, 3972]
     sentence_count: 8
     key_terms: [programming, mechanical, something, honestly, learn, sherbertquirky3789, like, transportation]
+    concepts: [programming, mechanical, something, honestly, learn]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c4"
     char_span: [3974, 6189]
     sentence_count: 15
     key_terms: [internships, positions, fall, martianmeng, internship, find, semester, "don't"]
+    concepts: [internships, positions, martianmeng, internship, semester]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c5"
     char_span: [5894, 8103]
     sentence_count: 19
     key_terms: [research, internship, positions, summer, experience, breadno4883, club, late]
+    concepts: [research, internship, positions, summer, experience]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c4", "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c6"
     char_span: [7844, 10061]
     sentence_count: 22
     key_terms: [research, looking, summer, department, experience, internship, controlledchaos74, try]
+    concepts: [research, looking, department, experience, internship]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c7"
     char_span: [9772, 10731]
     sentence_count: 11
     key_terms: [job, year, learn, university, class, money, time, engineering]
+    concepts: [learn, university, class, money]
     section: Comments
     token_count: 207
 ---

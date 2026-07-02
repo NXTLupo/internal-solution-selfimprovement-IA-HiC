@@ -17,14 +17,19 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1rcuy1s.md#c0"
-    char_span: [0, 988]
+    char_span: [0, 987]
     sentence_count: 4
     key_terms: [acquisition, donor, philanthropy, fundraising, performance, sustainable, marketing, comments]
-    token_count: 441
+    concepts: [acquisition, donor, philanthropy, fundraising, performance]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1rcuy1s.md#c1"]
+    token_count: 440
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1rcuy1s/mercycorps_seeks_\ud835\uddd7\ud835\uddf6\ud835\uddff\ud835\uddf2\ud835\uddf0\ud835\ude01\ud835\uddfc\ud835\uddff_\ud835\uddfc\ud835\uddf3_\ud835\uddd4\ud835\uddf0\ud835\uddfe\ud835\ude02\ud835\uddf6\ud835\ude00\ud835\uddf6\ud835\ude01\ud835\uddf6\ud835\uddfc\ud835\uddfb_\ud835\uddee\ud835\uddfb\ud835\uddf1/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1rcuy1s.md#c1"
-    char_span: [992, 2114]
+    char_span: [991, 2113]
     sentence_count: 1
     key_terms: [acquisition, fundraising, experience, mercycorps, o9sfzfwz, programs, jobvite, strong]
+    concepts: [acquisition, fundraising, experience, mercycorps, o9sfzfwz]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1rcuy1s.md#c0"]
     token_count: 445
 ---
 # MercyCorps seeks 𝗗𝗶𝗿𝗲𝗰𝘁𝗼𝗿 𝗼𝗳 𝗔𝗰𝗾𝘂𝗶𝘀𝗶𝘁𝗶𝗼𝗻 𝗮𝗻𝗱 𝗚𝗿𝗼𝘄𝘁𝗵 (fundraising)

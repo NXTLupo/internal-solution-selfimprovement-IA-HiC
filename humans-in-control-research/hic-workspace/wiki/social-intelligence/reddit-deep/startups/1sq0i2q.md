@@ -20,28 +20,34 @@ chunks:
     char_span: [0, 2141]
     sentence_count: 17
     key_terms: [assistant, "i'm", startups, been, get, reminders, something, comments]
+    concepts: [assistant, startups, reminders, something, comments]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1sq0i2q/honest_question_from_a_firsttime_founder_how_much/"}]
   - id: "social-intelligence/reddit-deep/startups/1sq0i2q.md#c1"
     char_span: [2143, 3904]
     sentence_count: 14
     key_terms: [founder, enough, stage, ask, plan, something, investor, traction]
+    concepts: [founder, enough, stage, something, investor]
     token_count: 416
   - id: "social-intelligence/reddit-deep/startups/1sq0i2q.md#c2"
-    char_span: [3919, 5649]
+    char_span: [3918, 5648]
     sentence_count: 14
     key_terms: [offer, yourself, thegrinningskull, ask, "it's", plan, put, investment]
+    concepts: [thegrinningskull, offer, yourself, investment, typically]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/startups/1sq0i2q.md#c3"
-    char_span: [5651, 7679]
+    char_span: [5650, 7678]
     sentence_count: 15
     key_terms: [investment, illustrious-key-9228, unstoppablefutureme, milestone, ask, get, angels, going]
+    concepts: [investment, illustrious-key-9228, unstoppablefutureme, milestone, angels]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/startups/1sq0i2q.md#c4"
-    char_span: [7681, 9625]
+    char_span: [7680, 9624]
     sentence_count: 19
     key_terms: [need, investment, less, crypto, exit, ownership, potential, answers]
+    concepts: [investment, crypto, ownership, potential, answers]
     section: Comments
     token_count: 460
 ---

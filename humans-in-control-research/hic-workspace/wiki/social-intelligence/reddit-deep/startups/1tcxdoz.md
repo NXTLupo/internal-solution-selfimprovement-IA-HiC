@@ -20,28 +20,34 @@ chunks:
     char_span: [0, 2219]
     sentence_count: 20
     key_terms: [software, startups, agents, companies, saas, problems, system, challengers]
+    concepts: [software, startups, agents, companies, problems]
     token_count: 477
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1tcxdoz/y_combinator_just_released_their_requests_for/"}]
   - id: "social-intelligence/reddit-deep/startups/1tcxdoz.md#c1"
     char_span: [2221, 4751]
     sentence_count: 23
     key_terms: [space, looking, around, chips, agriculture, enterprise, individual, chemicals]
+    concepts: [space, looking, around, agriculture, chips]
     token_count: 508
   - id: "social-intelligence/reddit-deep/startups/1tcxdoz.md#c2"
-    char_span: [4766, 6383]
+    char_span: [4765, 6382]
     sentence_count: 12
     key_terms: [intenselyswedish, already, enough, interesting, ycombinator, rfs, categories, indicator]
+    concepts: [intenselyswedish, already, enough, interesting, ycombinator]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/startups/1tcxdoz.md#c3"
-    char_span: [6385, 7964]
+    char_span: [6384, 7963]
     sentence_count: 9
     key_terms: [companies, been, verraai, foldedlikeaasiansir, https, com, "it's", like]
+    concepts: [companies, verraai, https]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/startups/1tcxdoz.md#c4"
-    char_span: [7966, 8913]
+    char_span: [7965, 8912]
     sentence_count: 7
     key_terms: [intenselyswedish, demand, munkymead, actively, building, looking, market, thanks]
+    concepts: [intenselyswedish, demand, munkymead, actively, building]
     section: Comments
     token_count: 252
 ---

@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 720]
     sentence_count: 7
     key_terms: [comments, guidance, myself, feel, job, jobs, like, lost]
+    concepts: [comments, guidance, myself]
     token_count: 180
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1q2flm6/got_laid_off_but_feel_like_i_lost_my_identity/"}]
   - id: "social-intelligence/reddit-deep/jobs/1q2flm6.md#c1"
     char_span: [734, 2723]
     sentence_count: 15
     key_terms: [letter, recommendation, get, help, job, like, use, reference]
+    concepts: [letter, recommendation, reference, something, problem]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/jobs/1q2flm6.md#c2"
     char_span: [2725, 4605]
     sentence_count: 14
     key_terms: [identity, yourself, unemployment, uncle, whatsapp, around, layoff, flatyogurtcloset2423]
+    concepts: [identity, yourself, unemployment, uncle, whatsapp]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1q2flm6.md#c3"
     char_span: [4331, 5052]
     sentence_count: 7
     key_terms: [identity, around, flatyogurtcloset2423, never, clammyhandedfreak, job, wrap, relationships]
+    concepts: [identity, around, never]
     section: Comments
     token_count: 188
   - id: "social-intelligence/reddit-deep/jobs/1q2flm6.md#c4"
     char_span: [5054, 6670]
     sentence_count: 12
     key_terms: [family, job, anyone, people, never, state, double-area1152, disorientation]
+    concepts: [family, anyone, people, never, state]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/jobs/1q2flm6.md#c5"
     char_span: [6672, 8569]
     sentence_count: 8
     key_terms: [dash, single, does, work, something, someone, manual, myself]
+    concepts: [single, something, someone, manual, myself]
     section: Comments
     token_count: 479
 ---

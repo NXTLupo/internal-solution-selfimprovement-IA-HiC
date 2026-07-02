@@ -20,17 +20,24 @@ chunks:
     char_span: [0, 1915]
     sentence_count: 12
     key_terms: [beneficiaries, vanguard, customer, account, information, call, rep, service]
+    concepts: [beneficiaries, vanguard, customer, information, account]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1ode2ib.md#c1", "social-intelligence/reddit-deep/bogleheads/1ode2ib.md#c2"]
     token_count: 416
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1ode2ib/cannot_update_beneficiaries_at_vanguard_horrible/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1ode2ib.md#c1"
-    char_span: [1930, 3783]
+    char_span: [1929, 3782]
     sentence_count: 10
     key_terms: [vanguard, retirement, account, service, beneficiaries, relationship, group, different]
+    concepts: [vanguard, retirement, beneficiaries, account, service]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1ode2ib.md#c0", "social-intelligence/reddit-deep/bogleheads/1ode2ib.md#c2"]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/bogleheads/1ode2ib.md#c2"
-    char_span: [3785, 5718]
+    char_span: [3784, 5717]
     sentence_count: 17
     key_terms: [customer, vanguard, ticket, beneficiaries, fidelity, message, someone, support]
+    concepts: [customer, vanguard, beneficiaries, ticket, fidelity]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1ode2ib.md#c0", "social-intelligence/reddit-deep/bogleheads/1ode2ib.md#c1"]
     section: Comments
     token_count: 460
 ---

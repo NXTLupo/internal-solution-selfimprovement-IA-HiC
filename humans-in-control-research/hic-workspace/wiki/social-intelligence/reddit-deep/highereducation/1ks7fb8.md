@@ -18,35 +18,46 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c0"
-    char_span: [0, 1904]
+    char_span: [0, 1845]
     sentence_count: 9
-    key_terms: [federal-ta***REDACTED-KEY***, university, jewish, trump, antisemitism, universities, berman-harvard-trump-cuts-damage-americas-economy, students]
-    token_count: 409
+    key_terms: [university, jewish, trump, antisemitism, universities, berman-harvard-trump-cuts-damage-americas-economy, students, highereducation]
+    concepts: [university, jewish, antisemitism, universities, trump]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c1", "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c3", "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c4"]
+    token_count: 397
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1ks7fb8/we_are_jewish_students_from_universities_trump_is/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c1"
-    char_span: [1906, 4226]
+    char_span: [1847, 4167]
     sentence_count: 17
     key_terms: [jewish, education, students, democracy, ucla-condemns-ugly-antisemitic-pig-display, columbia-pro-palestinian-group-hamas, campus, uc-berkeley-antisemitism-00153463]
+    concepts: [jewish, education, students, democracy, antisemitism]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c0", "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c4"]
     token_count: 486
   - id: "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c2"
-    char_span: [4228, 5827]
+    char_span: [4169, 5768]
     sentence_count: 8
     key_terms: [antisemitism-is-on-the-rise-blaming-dei-diversity-equity-and-inclusion-only-perpetuates-it, ending-illegal-discrimination-and-restoring-merit-based-opportunity, department-of-education-civil-rights-office-investigations, jewish-university-presidents-trump-antisemitism-campus, universities, https, administration, department]
+    concepts: [universities, https, administration, department, education]
     token_count: 338
   - id: "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c3"
-    char_span: [5829, 7982]
+    char_span: [5770, 7923]
     sentence_count: 11
     key_terms: [university, trump-says-jewish-voters-will-bear-lot-blame-loses-fighting-antisemiti-rcna171938, jewish, https, trump, camp-auschwitz-jan-6-rioter-trump-pardoned, com, www]
+    concepts: [university, jewish, https, trump, politics]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c0", "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c4"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c4"
-    char_span: [7984, 10216]
+    char_span: [7925, 10157]
     sentence_count: 12
     key_terms: [antisemitism, university, forward, jewish, people, organization, trump, themselves]
+    concepts: [antisemitism, university, forward, organization, jewish]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c0", "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c1", "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c5"
-    char_span: [10218, 10772]
+    char_span: [10159, 10713]
     sentence_count: 6
     key_terms: [hamas, fallingbrick, palestinians, carlitospig, hardliners, admitting, coworker, everyone]
+    concepts: [hamas]
     section: Comments
     token_count: 132
 ---

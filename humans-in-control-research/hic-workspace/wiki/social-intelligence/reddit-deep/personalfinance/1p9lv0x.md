@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1626]
     sentence_count: 15
     key_terms: [month, isa, personalfinance, london, right, financial, comments, account]
+    concepts: [month, personalfinance, london, right, financial]
     token_count: 417
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1p9lv0x/23_5kmonth_posttax_75k_saved_how_should_i_be/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1p9lv0x.md#c1"
     char_span: [1640, 3472]
     sentence_count: 8
     key_terms: [personalfinance, questions, ukpersonalfinance, cash, automatically, automoderator, fund, wiki]
+    concepts: [personalfinance, ukpersonalfinance, questions, automatically, automoderator]
     section: Comments
     token_count: 444
 ---

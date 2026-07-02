@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 463]
     sentence_count: 3
     key_terms: [financialcareers, comments, "i'm", reddit-deep, internship, interviews, struggling, undergrad]
+    concepts: [financialcareers, comments]
     token_count: 125
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1lf58xb/roast_my_cv_uk_undergrad_struggling_to_break_into/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1lf58xb.md#c1"
-    char_span: [478, 2473]
+    char_span: [477, 2472]
     sentence_count: 10
     key_terms: [still-recognition972, internship, words, english, bolded, grades, resume, get]
+    concepts: [still-recognition972, internship, words, english, bolded]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/financialcareers/1lf58xb.md#c2"
-    char_span: [2475, 4417]
+    char_span: [2474, 4416]
     sentence_count: 19
     key_terms: [experience, work, masters, get, need, schooling, industry, intended]
+    concepts: [experience, masters, schooling, industry, intended]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/financialcareers/1lf58xb.md#c3"
-    char_span: [4419, 5306]
+    char_span: [4418, 5305]
     sentence_count: 3
     key_terms: [management, "you're", careless-orchid-8683, asset, like, lse, accomplishments, glock13purdy]
+    concepts: [management, "you're", asset]
     section: Comments
     token_count: 241
 ---

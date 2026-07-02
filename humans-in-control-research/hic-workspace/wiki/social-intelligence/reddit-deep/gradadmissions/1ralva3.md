@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 333]
     sentence_count: 4
     key_terms: [gradadmissions, comments, reddit-deep, feedback, helpful, someone, writing, posted]
+    concepts: [gradadmissions, comments]
     token_count: 91
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1ralva3/can_someone_review_my_sop_first_time_writing_it/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1ralva3.md#c1"
     char_span: [347, 2464]
     sentence_count: 16
     key_terms: [want, experience, past, because, neuroscience, experiences, etc, like]
+    concepts: [experience, because, neuroscience, experiences, facilities]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/gradadmissions/1ralva3.md#c2"
     char_span: [2466, 4144]
     sentence_count: 14
     key_terms: [program, degree, paragraph, interest, include, exeter, start, creatororinsanity]
+    concepts: [program, degree, paragraph, interest, include]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/gradadmissions/1ralva3.md#c3"
     char_span: [4149, 4910]
     sentence_count: 5
     key_terms: [like, phrasing, noticed, errors, space, start, good, observer-ship]
+    concepts: [phrasing, noticed, errors, space, start]
     section: Comments
     token_count: 181
 ---

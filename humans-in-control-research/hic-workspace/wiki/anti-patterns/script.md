@@ -14,54 +14,69 @@ chunks:
     char_span: [0, 2065]
     sentence_count: 7
     key_terms: [alternative, script, conversational, conversation, indefinitely, description, like, escalation]
+    concepts: [alternative, script, conversational, conversation, indefinitely]
+    related_chunks: ["anti-patterns/script.md#c4", "anti-patterns/script.md#c7", "anti-patterns/script.md#c8"]
     section: "AP-SCRIPT-001: Robot Voice / AP-SCRIPT-002: Infinite Retry Loops"
     token_count: 397
   - id: "anti-patterns/script.md#c1"
     char_span: [2123, 2914]
     sentence_count: 5
     key_terms: [fallback, attempt, unrecognized, progressive, message, offers, context-aware, alternative]
+    concepts: [fallback, attempt, unrecognized, progressive, message]
     section: "AP-SCRIPT-003: Identical Fallback Messages Repeated"
     token_count: 148
   - id: "anti-patterns/script.md#c2"
     char_span: [2956, 3745]
     sentence_count: 1
     key_terms: [order, script, information, asks, user, utterance, example, number]
+    concepts: [order, script, information, utterance, example]
+    related_chunks: ["anti-patterns/script.md#c6"]
     section: "AP-SCRIPT-004: Missing Slot Filling"
     token_count: 161
   - id: "anti-patterns/script.md#c3"
     char_span: [3797, 4612]
     sentence_count: 3
     key_terms: [subscription, confirmation, user, without, cancel, disambiguation, cancellations, irreversible]
+    concepts: [subscription, confirmation, without, cancel]
     section: "AP-SCRIPT-005: No Confirmation Before Actions"
     token_count: 159
   - id: "anti-patterns/script.md#c4"
     char_span: [4656, 5528]
     sentence_count: 5
     key_terms: [conversation, without, alternative, refunds, orders, older, paths, days]
+    concepts: [conversation, without, alternative, refunds, orders]
+    related_chunks: ["anti-patterns/script.md#c0"]
     section: "AP-SCRIPT-006: Dead-End Conversations"
     token_count: 175
   - id: "anti-patterns/script.md#c5"
     char_span: [5586, 6416]
     sentence_count: 3
     key_terms: [conversation, turn, number, order, description, bot, user, provided]
+    concepts: [conversation, number, description, order, provided]
     section: "AP-SCRIPT-007: Ignoring Context from Previous Turns"
     token_count: 166
   - id: "anti-patterns/script.md#c6"
     char_span: [6470, 7375]
     sentence_count: 6
     key_terms: [persona, script, tone, emotional, defining, example, professional-casual, avoid]
+    concepts: [persona, script, emotional, defining, example]
+    related_chunks: ["anti-patterns/script.md#c2"]
     section: "AP-SCRIPT-008: No Persona or Tone Documentation"
     token_count: 179
   - id: "anti-patterns/script.md#c7"
     char_span: [7433, 8324]
     sentence_count: 3
     key_terms: [alternative, screen, script, carousels, reader, does, text, compatibility]
+    concepts: [alternative, screen, script, carousels, reader]
+    related_chunks: ["anti-patterns/script.md#c0", "anti-patterns/script.md#c8"]
     section: "AP-SCRIPT-009: Missing Accessibility Considerations"
     token_count: 160
   - id: "anti-patterns/script.md#c8"
     char_span: [8381, 9308]
     sentence_count: 2
     key_terms: [script, channels, alternative, sms, elements, includes, channel, arrays]
+    concepts: [script, channels, alternative, elements, includes]
+    related_chunks: ["anti-patterns/script.md#c0", "anti-patterns/script.md#c7"]
     section: "AP-SCRIPT-010: Assuming Single-Channel Interaction"
     token_count: 170
 ---

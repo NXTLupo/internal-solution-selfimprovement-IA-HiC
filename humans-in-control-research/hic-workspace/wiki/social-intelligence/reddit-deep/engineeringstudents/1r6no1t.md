@@ -21,53 +21,63 @@ chunks:
     char_span: [0, 497]
     sentence_count: 3
     key_terms: [engineering, engineeringstudents, comments, advice, "you've", reddit-deep, "shouldn't", received]
+    concepts: [engineering, engineeringstudents, comments, advice, "you've"]
     token_count: 123
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1r6no1t/whats_the_worst_engineering_advice_youve_ever/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md#c1"
     char_span: [511, 1802]
     sentence_count: 8
     key_terms: [internships, thunderthighlasagna, relevant, job, experience, positions, couldn, resume]
+    concepts: [internships, thunderthighlasagna, relevant, experience, positions]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md#c2"
     char_span: [1804, 3721]
     sentence_count: 10
     key_terms: [davyjoneslocker, advice, people, technical, degree, engineering, bad, children]
+    concepts: [davyjoneslocker, advice, people, technical, degree]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md#c3"
     char_span: [3723, 5931]
     sentence_count: 19
     key_terms: [grades, students, matter, engineers, gpa, better, people, school]
+    concepts: [students, grades, matter, engineers, understanding]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md#c4"
     char_span: [5933, 7839]
     sentence_count: 11
     key_terms: [because, teacher, matter, engineering, math, graduated, knowledge, certain]
+    concepts: [because, teacher, matter, engineering, graduated]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md#c5"
     char_span: [7841, 9003]
     sentence_count: 4
     key_terms: [solidride5853, engineering, school, like, skills, civil, girls, firstpersonwinner]
+    concepts: [solidride5853, engineering, school, skills, civil]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md#c6"
     char_span: [9005, 10797]
     sentence_count: 12
     key_terms: [professor, learn, teaching, because, better, matter, something, prestige]
+    concepts: [professor, learn, teaching, because, better]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md#c7"
     char_span: [10799, 11593]
     sentence_count: 5
     key_terms: [school, certainty, matter, grade, code, does, get, job]
+    concepts: [school, certainty, matter, grade]
     section: Comments
     token_count: 197
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md#c8"
     char_span: [11595, 13231]
     sentence_count: 7
     key_terms: [engineering, don, get, scratchdue440, hard, jobs, undergrad, programs]
+    concepts: [engineering, scratchdue440, undergrad, programs, starting]
     section: Comments
     token_count: 410
 ---

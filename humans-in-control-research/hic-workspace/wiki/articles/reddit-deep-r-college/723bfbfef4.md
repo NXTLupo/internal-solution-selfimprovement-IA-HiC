@@ -18,16 +18,22 @@ chunks:
     char_span: [0, 1102]
     sentence_count: 9
     key_terms: [class, questions, college, "it's", accounting, engagement, classroom, professor]
+    concepts: [class, questions, college, accounting, engagement]
     token_count: 256
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1q8gwe2/has_classroom_engagement_always_been_so_bad_or_is/"}]
   - id: "articles/reddit-deep-r-college/723bfbfef4.md#c1"
     char_span: [1104, 3199]
     sentence_count: 18
     key_terms: [students, student, participate, class, years, bad, been, discussion]
+    concepts: [students, participate, student, class, discussion]
+    related_chunks: ["articles/reddit-deep-r-college/723bfbfef4.md#c2"]
     token_count: 467
   - id: "articles/reddit-deep-r-college/723bfbfef4.md#c2"
     char_span: [3201, 5420]
     sentence_count: 20
     key_terms: ["it's", participate, feel, students, school, class, high, like]
+    concepts: [participate, students, school, class, completely]
+    related_chunks: ["articles/reddit-deep-r-college/723bfbfef4.md#c1"]
     token_count: 486
   - id: "articles/reddit-deep-r-college/723bfbfef4.md#c3"
     char_span: [5422, 5684]

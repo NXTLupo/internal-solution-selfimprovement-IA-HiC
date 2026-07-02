@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 706]
     sentence_count: 3
     key_terms: [internships, contribute, internship, comments, student, aggressive-post-156, learn, open]
+    concepts: [internships, contribute, internship, comments, student]
     token_count: 182
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1oea1kk/3rdyear_cs_student_open_to_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1oea1kk.md#c1"
     char_span: [720, 967]
     sentence_count: 2

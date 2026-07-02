@@ -20,56 +20,75 @@ chunks:
     char_span: [0, 1635]
     sentence_count: 7
     key_terms: [month, salesforce, solo, revenue, years, back, breakdown, comments]
+    concepts: [month, salesforce, revenue, years, breakdown]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c1", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c2", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c3", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c7"]
     token_count: 413
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1qmj2sz/how_much_i_made_in_my_first_2_years_working_solo/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c1"
     char_span: [1637, 2804]
     sentence_count: 2
     key_terms: [clients, month, total, revenue, billed, portugal, canada, aug]
+    concepts: [clients, month, total, revenue, billed]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c0", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c2", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c3", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c7"]
     token_count: 475
   - id: "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c2"
     char_span: [2806, 4513]
     sentence_count: 12
     key_terms: [clients, month, revenue, total, billed, work, stability, possible]
+    concepts: [clients, month, revenue, total, billed]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c0", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c1", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c3", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c7"]
     token_count: 496
   - id: "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c3"
     char_span: [4515, 6416]
     sentence_count: 19
     key_terms: [month, clients, working, months, years, book, solo, work]
+    concepts: [month, clients, working, months, years]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c0", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c1", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c2", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c6", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c7"]
     token_count: 409
   - id: "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c4"
-    char_span: [6431, 8247]
+    char_span: [6430, 8246]
     sentence_count: 21
     key_terms: [business, started, starting, sharing, working, relationship, aamergalal, free-book]
+    concepts: [business, started, starting, sharing, working]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c5"
-    char_span: [8249, 10227]
+    char_span: [8248, 10226]
     sentence_count: 24
     key_terms: [business, around, time, want, absolutely, elements, clients, instead]
+    concepts: [business, around, absolutely, elements, clients]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c9"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c6"
-    char_span: [10229, 12346]
+    char_span: [10228, 12345]
     sentence_count: 16
     key_terms: [experience, years, work, clients, people, being, care, don]
+    concepts: [experience, years, clients, people, being]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c3", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c7"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c7"
-    char_span: [12348, 14504]
+    char_span: [12347, 14503]
     sentence_count: 20
     key_terms: [experience, salesforce, clients, month, years, zero, free-book, bringing]
+    concepts: [experience, salesforce, clients, month, years]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c0", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c1", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c2", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c3", "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c6"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c8"
-    char_span: [14506, 16466]
+    char_span: [14505, 16465]
     sentence_count: 14
     key_terms: [hours, jaeltyqddesvge9am5mm, want, comment, started, client, worked, seataffectionate7146]
+    concepts: [hours, jaeltyqddesvge9am5mm, comment, started, client]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c9"
-    char_span: [16468, 17850]
+    char_span: [16467, 17849]
     sentence_count: 12
     key_terms: [salesforce, business, winning, around, client, person, seataffectionate7146, avoid]
+    concepts: [salesforce, business, winning, around, client]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qmj2sz.md#c5"]
     section: Comments
     token_count: 333
 ---

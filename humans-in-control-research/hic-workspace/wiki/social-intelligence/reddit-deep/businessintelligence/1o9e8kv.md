@@ -20,28 +20,34 @@ chunks:
     char_span: [0, 2035]
     sentence_count: 24
     key_terms: [businessintelligence, like, week, charts, sales, today, bar, comments]
+    concepts: [businessintelligence, charts, sales, today, comments]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1o9e8kv/all_the_noteable_bi_bs_i_dealt_with_this_week/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1o9e8kv.md#c1"
     char_span: [2037, 2720]
     sentence_count: 10
     key_terms: [formats, means, table, date, did, net, gross-discounts, troublshooting]
+    concepts: [formats, means, table]
     token_count: 153
   - id: "social-intelligence/reddit-deep/businessintelligence/1o9e8kv.md#c2"
-    char_span: [2735, 3443]
+    char_span: [2734, 3442]
     sentence_count: 6
     key_terms: [vikster1, vendor, data, like, net, tell, gross-discounts, collectively]
+    concepts: [vikster1, vendor]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/businessintelligence/1o9e8kv.md#c3"
-    char_span: [3445, 5495]
+    char_span: [3444, 5494]
     sentence_count: 4
     key_terms: [year, report, difference, negative, positive, quantity, looks, sales]
+    concepts: [difference, report, negative, positive, quantity]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/businessintelligence/1o9e8kv.md#c4"
-    char_span: [5498, 6846]
+    char_span: [5497, 6845]
     sentence_count: 11
     key_terms: [want, learn, order, style, take, tell, used, future-proofing]
+    concepts: [learn, order, style]
     section: Comments
     token_count: 308
 ---

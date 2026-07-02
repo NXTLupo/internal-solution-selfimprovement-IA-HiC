@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 299]
     sentence_count: 1
     key_terms: [artificial, comments, reddit-deep, initiative, progress, prompts, kernel, making]
+    concepts: [artificial, comments]
     token_count: 79
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1qrqwr4/ai_code_review_prompts_initiative_making_progress/"}]
 ---
 # AI code review prompts initiative making progress for the Linux kernel
 

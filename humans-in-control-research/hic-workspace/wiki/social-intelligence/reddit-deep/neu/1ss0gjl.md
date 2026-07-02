@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1424]
     sentence_count: 8
     key_terms: [co-op, nothing, get, like, team, associates, comments, begging]
+    concepts: [co-op, nothing, associates, comments, begging]
     token_count: 347
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1ss0gjl/i_hate_my_final_coop/"}]
   - id: "social-intelligence/reddit-deep/neu/1ss0gjl.md#c1"
     char_span: [1438, 3537]
     sentence_count: 13
     key_terms: [work, graduating, internship, co-op, feel, got, like, time]
+    concepts: [graduating, internship, co-op, learning, office]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/neu/1ss0gjl.md#c2"
     char_span: [3539, 5346]
     sentence_count: 11
     key_terms: [potatoresponsible347, learn, something, time, people, outside, skills, being]
+    concepts: [potatoresponsible347, something, learn, people, outside]
     section: Comments
     token_count: 456
 ---

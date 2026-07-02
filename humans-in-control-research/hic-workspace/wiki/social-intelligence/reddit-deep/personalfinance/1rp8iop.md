@@ -20,22 +20,29 @@ chunks:
     char_span: [0, 2243]
     sentence_count: 11
     key_terms: [abound, money, india, through, personalfinance, international, confirmation, beneficiary]
+    concepts: [abound, money, india, through, personalfinance]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1rp8iop.md#c2"]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1rp8iop/5000_sent_through_abound_in_jan_2026_almost_15/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1rp8iop.md#c1"
     char_span: [2245, 3331]
     sentence_count: 4
     key_terms: [arbitration, something, transfers, resolved, through, abound, anyone, people]
+    concepts: [arbitration, something, transfers, resolved, through]
     token_count: 232
   - id: "social-intelligence/reddit-deep/personalfinance/1rp8iop.md#c2"
-    char_span: [3346, 4778]
+    char_span: [3345, 4777]
     sentence_count: 5
     key_terms: [comments, reddit, https, com, www, money, nri, abound]
+    concepts: [comments, reddit, https, money, abound]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1rp8iop.md#c0"]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/personalfinance/1rp8iop.md#c3"
-    char_span: [4781, 5651]
+    char_span: [4780, 5650]
     sentence_count: 13
     key_terms: [account, transaction, time, jumpy-scientist-4320, money, month, stuck, technical-fruit22]
+    concepts: [account, transaction, money, month, stuck]
     section: Comments
     token_count: 245
 ---

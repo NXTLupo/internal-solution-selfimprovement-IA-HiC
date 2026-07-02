@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1465]
     sentence_count: 8
     key_terms: [finance, mumbai, internships, com, accounts, analysis, "i'm", internship]
+    concepts: [finance, mumbai, internships, accounts, analysis]
     token_count: 362
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sytk6s/bcom_student_from_hr_college_looking_for_paid/"}]
   - id: "social-intelligence/reddit-deep/internships/1sytk6s.md#c1"
     char_span: [1479, 1782]
     sentence_count: 1
     key_terms: [awful, job, no-anxiety2705, referrals, directly, fakeness, linkedin, startups]
+    concepts: [awful]
     section: Comments
     token_count: 81
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 392]
     sentence_count: 1
     key_terms: [opportunities, applyingtocollege, internship, placement, comments, college, reddit-deep, particular]
+    concepts: [opportunities, applyingtocollege, internship, placement, comments]
     token_count: 91
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1m9jqh1/choosing_college_based_on_internship_and/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m9jqh1.md#c1"
     char_span: [406, 2188]
     sentence_count: 12
     key_terms: [school, schools, internship, internships, better, summer, "it's", nyc]
+    concepts: [school, internship, schools, internships, better]
     section: Comments
     token_count: 364
 ---

@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1860]
     sentence_count: 20
     key_terms: [tired, job, market, being, manager, futureofwork, supersedes, comments]
+    concepts: [tired, market, being, manager, futureofwork]
     token_count: 463
+    sources: [{"n":"reddit-deep: r/futureofwork","u":"https://www.reddit.com/r/FutureOfWork/comments/1t8ylqq/is_the_job_market_going_to_recover_or_are_we_now/"}]
   - id: "social-intelligence/reddit-deep/futureofwork/1t8ylqq.md#c1"
     char_span: [1862, 3813]
     sentence_count: 36
     key_terms: [don, because, nothing, here, job, experience, miserable, underpaid]
+    concepts: [because, nothing, experience, miserable, underpaid]
     token_count: 484
   - id: "social-intelligence/reddit-deep/futureofwork/1t8ylqq.md#c2"
     char_span: [3827, 5652]
     sentence_count: 23
     key_terms: [job, market, yourself, "it's", something, alexrada, staying, expect]
+    concepts: [market, yourself, something, alexrada, staying]
     section: Comments
     token_count: 431
 ---

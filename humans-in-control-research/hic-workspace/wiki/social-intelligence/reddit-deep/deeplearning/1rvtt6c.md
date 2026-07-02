@@ -21,32 +21,41 @@ chunks:
     char_span: [0, 2090]
     sentence_count: 16
     key_terms: [category, entities, examples, hallucination, current, pre-generation, causal, deeplearning]
+    concepts: [category, hallucination, entities, examples, pre-generation]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1rvtt6c.md#c1"]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1rvtt6c/i_designed_a_pregeneration_causal_gate_that/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1rvtt6c.md#c1"
     char_span: [2092, 3572]
     sentence_count: 13
     key_terms: [reduction, category, rate, hallucination, impossible, ambiguity, latency, across]
+    concepts: [reduction, category, hallucination, impossible, ambiguity]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1rvtt6c.md#c0"]
     token_count: 357
   - id: "social-intelligence/reddit-deep/deeplearning/1rvtt6c.md#c2"
     char_span: [3574, 5355]
     sentence_count: 14
     key_terms: [dominant, pass, context, mercury, energy, query, different, systems]
+    concepts: [dominant, context, mercury, energy, different]
     token_count: 483
   - id: "social-intelligence/reddit-deep/deeplearning/1rvtt6c.md#c3"
     char_span: [5357, 6081]
     sentence_count: 4
     key_terms: [run, because, spec, cross-validation, production-scale, architecture, computation, engineering]
+    concepts: [because]
     token_count: 177
   - id: "social-intelligence/reddit-deep/deeplearning/1rvtt6c.md#c4"
     char_span: [6095, 7839]
     sentence_count: 12
     key_terms: [hypothesis, "it's", post, structure, argument, exactly, numbers, someone]
+    concepts: [hypothesis, structure, argument, exactly, numbers]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/deeplearning/1rvtt6c.md#c5"
     char_span: [7841, 8900]
     sentence_count: 9
     key_terms: ["that's", reproducible, formatting, account, llm, repo, used, self-contained]
+    concepts: [reproducible, "that's", formatting, account]
     section: Comments
     token_count: 267
 ---

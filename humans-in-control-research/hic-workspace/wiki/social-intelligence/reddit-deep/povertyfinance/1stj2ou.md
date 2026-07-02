@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1730]
     sentence_count: 17
     key_terms: [got, povertyfinance, credit, going, "we've", debt, comments, paying]
+    concepts: [povertyfinance, credit, going, "we've", comments]
     token_count: 416
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1stj2ou/newly_budgeting/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1stj2ou.md#c1"
     char_span: [1744, 3725]
     sentence_count: 16
     key_terms: [chicken, povertyfinance, dinner, buy, egg, like, wiki, dumplings]
+    concepts: [chicken, povertyfinance, dinner, dumplings, excellent]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/povertyfinance/1stj2ou.md#c2"
     char_span: [3729, 5838]
     sentence_count: 23
     key_terms: [price, alicecat628, car, give, life, expensive, insurance, internet]
+    concepts: [alicecat628, price, expensive, insurance, internet]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/povertyfinance/1stj2ou.md#c3"
     char_span: [5840, 7889]
     sentence_count: 25
     key_terms: [budget, debt, husband, cash, spending, great, spreadsheet, get]
+    concepts: [budget, husband, spending, spreadsheet, great]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/povertyfinance/1stj2ou.md#c4"
     char_span: [7891, 9561]
     sentence_count: 11
     key_terms: [instead, eat, homemade, budget, buying, beans, guess, lonelycontact9158]
+    concepts: [instead, homemade, budget, buying, beans]
     section: Comments
     token_count: 394
 ---

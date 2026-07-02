@@ -19,19 +19,23 @@ content_hash: "9c5181cf5b818970"
 relevance_by_goal: {"68c375ef0d4e":35}
 chunks:
   - id: "articles/reddit-deep-r-actuary/bd53fadfae.md#c0"
-    char_span: [0, 2059]
+    char_span: [0, 2058]
     sentence_count: 14
     key_terms: [public, topic, benchmarks, actuarial, interest, actuary, adjusts, sources]
-    token_count: 493
+    concepts: [public, benchmarks, topic, actuarial, interest]
+    token_count: 492
+    sources: [{"n":"Reddit Deep: r/actuary","u":"https://www.reddit.com/r/actuary/comments/1ng4wyy/actuarial_ai_for_exam_prep/"}]
   - id: "articles/reddit-deep-r-actuary/bd53fadfae.md#c1"
-    char_span: [2061, 3729]
+    char_span: [2060, 3728]
     sentence_count: 3
     key_terms: [impossible-shock-773, exams, gpt-4-fails-final-actuarial-exam, llm, firerapper, actuarial, question, example]
+    concepts: [impossible-shock-773, exams, firerapper, actuarial, question]
     token_count: 422
   - id: "articles/reddit-deep-r-actuary/bd53fadfae.md#c2"
-    char_span: [3731, 4674]
+    char_span: [3730, 4673]
     sentence_count: 8
     key_terms: [comparisons, adaptation, learning, because, learner, student, advise, better]
+    concepts: [comparisons, adaptation, learning, because, learner]
     token_count: 197
 ---
 # Actuarial AI for exam prep

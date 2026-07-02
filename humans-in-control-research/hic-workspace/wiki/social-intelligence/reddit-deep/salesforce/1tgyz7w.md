@@ -20,16 +20,23 @@ chunks:
     char_span: [0, 2752]
     sentence_count: 15
     key_terms: [salesforce, sharepoint, management, files, operational, connect, sfiles, document]
+    concepts: [salesforce, sharepoint, management, operational, connect]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1tgyz7w.md#c1", "social-intelligence/reddit-deep/salesforce/1tgyz7w.md#c2"]
     token_count: 515
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1tgyz7w/salesforce_sharepoint_integration_at_scale_files/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1tgyz7w.md#c1"
     char_span: [2754, 4813]
     sentence_count: 10
     key_terms: [sharepoint, document, salesforce, workflows, files, sfiles, strong, automation]
+    concepts: [sharepoint, document, salesforce, workflows, files]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1tgyz7w.md#c0", "social-intelligence/reddit-deep/salesforce/1tgyz7w.md#c2"]
     token_count: 387
   - id: "social-intelligence/reddit-deep/salesforce/1tgyz7w.md#c2"
-    char_span: [4828, 5978]
+    char_span: [4827, 5977]
     sentence_count: 6
     key_terms: [how-choose-right-salesforcesharepoint-integration-strategy-sfiles-0j2we, connect, salesforce, sharepoint, files, data, integration, sync]
+    concepts: [connect, salesforce, sharepoint, files, integration]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1tgyz7w.md#c0", "social-intelligence/reddit-deep/salesforce/1tgyz7w.md#c1"]
     section: Comments
     token_count: 241
 ---

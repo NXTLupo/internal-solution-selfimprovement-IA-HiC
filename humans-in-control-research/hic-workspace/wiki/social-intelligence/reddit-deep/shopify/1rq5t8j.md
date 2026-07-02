@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 490]
     sentence_count: 4
     key_terms: [shopify, microsoft, comments, copilot, reddit-deep, redirecting, storefront, attempted]
+    concepts: [shopify, microsoft, comments, copilot]
     token_count: 123
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1rq5t8j/microsoft_copilot_shopping/"}]
   - id: "social-intelligence/reddit-deep/shopify/1rq5t8j.md#c1"
-    char_span: [505, 2240]
+    char_span: [504, 2239]
     sentence_count: 5
     key_terms: [shopping, experts, shopify, automatically, villagehomef, new, community, customer]
+    concepts: [shopping, automatically, experts, shopify, villagehomef]
     section: Comments
     token_count: 419
 ---

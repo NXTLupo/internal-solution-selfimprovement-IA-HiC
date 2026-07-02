@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1505]
     sentence_count: 6
     key_terms: [engineering, careerguidance, career, opportunities, mechatronics, work, biomedical, university]
+    concepts: [engineering, careerguidance, opportunities, mechatronics, career]
     token_count: 342
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t6e6es/career_path_advice/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t6e6es.md#c1"
-    char_span: [1520, 2229]
+    char_span: [1519, 2228]
     sentence_count: 7
     key_terms: [since, tech, work, introductory, mechatronics, thepandapear, engineering, interesting]
+    concepts: [since]
     section: Comments
     token_count: 146
 ---

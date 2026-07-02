@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 883]
     sentence_count: 7
     key_terms: [povertyfinance, month, comments, income, loans, asparagusinner6577, done, handwriting]
+    concepts: [povertyfinance, month, comments, income, loans]
     token_count: 215
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1rzku67/apologies_for_my_terrible_handwriting_but_this_is/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c1"
     char_span: [897, 2832]
     sentence_count: 10
     key_terms: [asparagusinner6577, usually, hsa, max, work, tribbans95, breakfast, dinner]
+    concepts: [asparagusinner6577, usually, tribbans95, breakfast, dinner]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c2"
     char_span: [2834, 4262]
     sentence_count: 8
     key_terms: [ill-jellyfish6101, get, spectrum, spotify, strict-confusion-570, month, phone, asparagusinner6577]
+    concepts: [ill-jellyfish6101, spectrum, spotify, month, phone]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c3"
     char_span: [4264, 4905]
     sentence_count: 5
     key_terms: [spectrum, internet, spectrum-internet-assist, don, fireprostan, nationalize, depending, emergency]
+    concepts: [spectrum, internet]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c4"
     char_span: [4907, 7008]
     sentence_count: 12
     key_terms: [spotify, get, cheaper, budget, family, job, plan, situation]
+    concepts: [spotify, cheaper, budget, family, situation]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c5"
     char_span: [6751, 7952]
     sentence_count: 8
     key_terms: [spotify, music, family, friends, student, wentoburningmanonce, never, ads]
+    concepts: [spotify, music, family, friends, student]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c4"]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c6"
     char_span: [7954, 8433]
     sentence_count: 4
     key_terms: [spotify, okresolution4275, queenarreic, probably, iphones, mention, student, towards]
+    concepts: [spotify]
     section: Comments
     token_count: 136
 ---

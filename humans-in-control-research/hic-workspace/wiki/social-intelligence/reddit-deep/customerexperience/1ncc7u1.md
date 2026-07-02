@@ -20,29 +20,33 @@ chunks:
     char_span: [0, 1252]
     sentence_count: 8
     key_terms: [customerexperience, customer, human, experiences, assistants, efficiency, companies, sometimes]
+    concepts: [customerexperience, customer, experiences, assistants, efficiency]
     token_count: 273
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1ncc7u1/are_companies_overautomating_customer_experience/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1ncc7u1.md#c1"
-    char_span: [1267, 1313]
+    char_span: [1266, 1312]
     sentence_count: 2
     key_terms: [wintermute306, answer, simple]
     section: Comments
     token_count: 16
   - id: "social-intelligence/reddit-deep/customerexperience/1ncc7u1.md#c2"
-    char_span: [1315, 3541]
+    char_span: [1314, 3540]
     sentence_count: 15
     key_terms: [human, "it's", queries, get, want, experience, customers, chatbots]
+    concepts: [human, queries, experience, customers, chatbots]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/customerexperience/1ncc7u1.md#c3"
-    char_span: [3256, 3568]
+    char_span: [3255, 3567]
     sentence_count: 2
     key_terms: [get, specifically, possibility, customers, channels, chatbots, feedback, informed]
     section: Comments
     token_count: 71
   - id: "social-intelligence/reddit-deep/customerexperience/1ncc7u1.md#c4"
-    char_span: [3570, 4736]
+    char_span: [3569, 4735]
     sentence_count: 8
     key_terms: [because, linkedin, queries, events, https, com, like, need]
+    concepts: [because, linkedin, queries, events, https]
     section: Comments
     token_count: 270
 ---

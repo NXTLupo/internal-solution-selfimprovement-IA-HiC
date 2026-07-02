@@ -20,59 +20,79 @@ chunks:
     char_span: [0, 2023]
     sentence_count: 14
     key_terms: [fidelity, vanguard, investing, long-term, index, etfs, through, funds]
+    concepts: [fidelity, vanguard, investing, long-term, index]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c1", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c3", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c4", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c5", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c8"]
     token_count: 453
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1lo0au5/why_does_everyone_recommend_fidelity_as_a_broker/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c1"
-    char_span: [2038, 4100]
+    char_span: [2037, 4099]
     sentence_count: 23
     key_terms: [fidelity, beneficiaries, vanguard, account, people, funds, brokerage, probate]
+    concepts: [fidelity, beneficiaries, vanguard, account, people]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c0", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c3", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c4", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c5", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c8"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c2"
-    char_span: [4102, 5381]
+    char_span: [4101, 5380]
     sentence_count: 9
     key_terms: [fidelity, funds, because, etfs, zero, "they're", invest, brokerage]
+    concepts: [fidelity, funds, because, "they're", invest]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c4", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c5", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c8", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c9"]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c3"
-    char_span: [5383, 7352]
+    char_span: [5382, 7351]
     sentence_count: 19
     key_terms: [easy, vanguard, mutual, "don't", "it's", use, fidelity, bogle]
+    concepts: [vanguard, mutual, "don't", fidelity, bogle]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c0", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c1", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c4", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c5", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c8"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c4"
-    char_span: [7354, 9212]
+    char_span: [7353, 9211]
     sentence_count: 16
     key_terms: [app, fidelity, password, vanguard, because, years, like, employers]
+    concepts: [fidelity, password, vanguard, because, years]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c0", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c1", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c2", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c3", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c5"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c5"
-    char_span: [9214, 11068]
+    char_span: [9213, 11067]
     sentence_count: 13
     key_terms: [vanguard, accounts, fidelity, funds, tax-advantaged, fund, new, investing]
+    concepts: [vanguard, accounts, fidelity, funds, tax-advantaged]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c0", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c1", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c2", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c3", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c4"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c6"
-    char_span: [11070, 13054]
+    char_span: [11069, 13053]
     sentence_count: 18
     key_terms: [matters, investment, like, details, funding, matter, funds, tax]
+    concepts: [matters, investment, details, funding, matter]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c7"
-    char_span: [13056, 15156]
+    char_span: [13055, 15155]
     sentence_count: 16
     key_terms: [fidelity, customer, service, experience, accounts, vanguard, contact, prefer]
+    concepts: [fidelity, customer, service, experience, accounts]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c5", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c8"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c8"
-    char_span: [15158, 17022]
+    char_span: [15157, 17021]
     sentence_count: 12
     key_terms: [vanguard, support, fidelity, funds, customer, beneficiaries, "i'm", retirement]
+    concepts: [vanguard, support, fidelity, funds, customer]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c0", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c1", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c2", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c3", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c4"]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c9"
-    char_span: [17024, 18345]
+    char_span: [17023, 18344]
     sentence_count: 12
     key_terms: [funds, fidelity, mutual, vanguard, fee, "fidelity's", "vanguard's", "company's"]
+    concepts: [funds, fidelity, mutual, vanguard, "fidelity's"]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c0", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c1", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c2", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c3", "social-intelligence/reddit-deep/bogleheads/1lo0au5.md#c4"]
     section: Comments
     token_count: 305
 ---

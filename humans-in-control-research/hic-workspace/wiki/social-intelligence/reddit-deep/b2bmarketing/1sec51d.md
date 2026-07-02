@@ -20,27 +20,35 @@ chunks:
     char_span: [0, 1946]
     sentence_count: 13
     key_terms: [because, volume, inbox, campaigns, per, comments, deliverability, across]
+    concepts: [because, volume, campaigns, inbox, comments]
     token_count: 430
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1sec51d/i_run_43_active_cold_email_campaigns_right_now/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sec51d.md#c1"
     char_span: [1948, 3748]
     sentence_count: 19
     key_terms: [verification, sending, people, rates, reply, html, campaigns, sequences]
+    concepts: [verification, sending, people, rates, reply]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1sec51d.md#c2"]
     token_count: 357
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sec51d.md#c2"
     char_span: [3750, 5793]
     sentence_count: 24
     key_terms: [domains, infrastructure, sending, offer, reply, tracking, campaigns, probably]
+    concepts: [domains, infrastructure, sending, offer, reply]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1sec51d.md#c1"]
     token_count: 427
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sec51d.md#c3"
-    char_span: [5808, 7027]
+    char_span: [5807, 7026]
     sentence_count: 3
     key_terms: [looking-for-marketing-discussion-811236647760298024, deliverability, performance, campaigns, questions, discord, ok-information-6722, based]
+    concepts: [deliverability, performance, campaigns, questions, discord]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sec51d.md#c4"
-    char_span: [7029, 8742]
+    char_span: [7028, 8741]
     sentence_count: 3
     key_terms: [domains, "don't", email, especially, starting, agency, always, people]
+    concepts: [domains, "don't", email, especially, starting]
     section: Comments
     token_count: 435
 ---

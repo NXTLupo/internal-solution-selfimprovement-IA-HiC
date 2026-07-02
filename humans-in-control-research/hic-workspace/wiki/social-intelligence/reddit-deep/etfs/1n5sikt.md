@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 2228]
     sentence_count: 18
     key_terms: [etfs, like, decades, crypto, stocks, wealth, millennials, next]
+    concepts: [decades, crypto, stocks, wealth, millennials]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1n5sikt/vt_vti_voo_over_the_next_couple_of_decades_will/"}]
   - id: "social-intelligence/reddit-deep/etfs/1n5sikt.md#c1"
-    char_span: [2243, 3908]
+    char_span: [2242, 3907]
     sentence_count: 10
     key_terms: [dominate, bubble, money, inflation, adjusted, internet, company, decades]
+    concepts: [dominate, bubble, money, inflation, adjusted]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/etfs/1n5sikt.md#c2"
-    char_span: [3910, 5556]
+    char_span: [3909, 5555]
     sentence_count: 12
     key_terms: [market, people, conviction, overvalued, drawdowns, everyone, knowing, winners]
+    concepts: [market, people, conviction, overvalued, drawdowns]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/etfs/1n5sikt.md#c3"
-    char_span: [5558, 6665]
+    char_span: [5557, 6664]
     sentence_count: 6
     key_terms: [people, investing, invest, college, realize, wealthy, market, waiter]
+    concepts: [people, investing, invest, college, realize]
     section: Comments
     token_count: 294
 ---

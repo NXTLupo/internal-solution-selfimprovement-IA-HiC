@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1667]
     sentence_count: 14
     key_terms: [careerfocusmind, college, outrageous-guava1881, replace, careerguidance, career, paths, new]
+    concepts: [careerfocusmind, outrageous-guava1881, college, careerguidance, replace]
     token_count: 385
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1owjqgq/what_career_paths_do_you_think_colleges_should_be/"}]
 ---
 # What career paths do you think colleges should be preparing students for more proactively?
 

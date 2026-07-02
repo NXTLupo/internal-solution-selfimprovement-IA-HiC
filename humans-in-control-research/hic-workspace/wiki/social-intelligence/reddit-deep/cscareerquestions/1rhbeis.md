@@ -21,71 +21,87 @@ chunks:
     char_span: [0, 650]
     sentence_count: 4
     key_terms: [cscareerquestions, comments, improve, market, death, job, counteracted, reddit-deep]
+    concepts: [cscareerquestions, comments, improve, market, death]
     token_count: 161
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rhbeis/do_you_think_the_job_market_will_improve_as/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c1"
     char_span: [664, 1832]
     sentence_count: 5
     key_terms: [fair, world, nylockian, everyone, common, base, born, lie]
+    concepts: [world, nylockian, everyone, common]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c2"
     char_span: [1836, 2812]
     sentence_count: 6
     key_terms: [e9e21f1e-b893-40cc-a12f-413656d8b9a6, imageassetref, tech, paramount, southpark, applying, boomers, quality]
+    concepts: [e9e21f1e-b893-40cc-a12f-413656d8b9a6, imageassetref, paramount, southpark, applying]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c3"
     char_span: [2814, 4392]
     sentence_count: 10
     key_terms: [get, market, work, working, degree, "don't", grads, offer]
+    concepts: [market, working, degree, "don't", grads]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c4"
     char_span: [4394, 6472]
     sentence_count: 12
     key_terms: [people, jobs, new, grads, developers, developer, competition, code]
+    concepts: [people, grads, developers, developer, competition]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c5"
     char_span: [6474, 8206]
     sentence_count: 9
     key_terms: [people, invented, valuable, machine, oppositeworking19, guy, job, "true"]
+    concepts: [people, invented, valuable, machine]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c6"
     char_span: [8208, 10212]
     sentence_count: 11
     key_terms: [people, starve, "i'm", unemployed, something, anything, interest, trough]
+    concepts: [people, starve, unemployed, something, anything]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c7", "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c9"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c7"
     char_span: [10214, 12206]
     sentence_count: 12
     key_terms: [faang, work, people, anything, always, sub, industry, leetcode]
+    concepts: [faang, people, anything, always, industry]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c6"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c8"
     char_span: [12208, 14212]
     sentence_count: 7
     key_terms: [engineers, lot, work, generating, data, "it's", bangalore, decades]
+    concepts: [engineers, generating, bangalore, decades, funny]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c9"
     char_span: [14214, 14934]
     sentence_count: 7
     key_terms: [something, degree, people, "it's", went, reciprocity, tuckfrump69, capitalist]
+    concepts: [something, degree, people]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c6"]
     section: Comments
     token_count: 167
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c10"
     char_span: [14936, 16977]
     sentence_count: 16
     key_terms: [hallucinations, people, going, been, get, offshored, tcoder7, "what's"]
+    concepts: [hallucinations, people, going, offshored, tcoder7]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c11"
     char_span: [16730, 17668]
     sentence_count: 5
     key_terms: [hallucinations, improvements, market, years, ones, swe, leetcodeispain, oversaturated]
+    concepts: [hallucinations, improvements, market, years]
     section: Comments
     token_count: 209
 ---

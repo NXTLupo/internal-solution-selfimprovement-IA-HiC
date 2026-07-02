@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1401]
     sentence_count: 10
     key_terms: [college, school, want, high, experience, interests, comments, worried]
+    concepts: [college, school, experience, interests, comments]
     token_count: 332
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1qgf8k3/how_do_i_start_over_in_college/"}]
   - id: "social-intelligence/reddit-deep/college/1qgf8k3.md#c1"
     char_span: [1415, 3307]
     sentence_count: 15
     key_terms: [clubs, group, maybe, depending, friends, join, different, college]
+    concepts: [clubs, depending, group, maybe, friends]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/college/1qgf8k3.md#c2"
     char_span: [3309, 5036]
     sentence_count: 14
     key_terms: [college, students, social, seen, especially, professor, campus, friend]
+    concepts: [college, students, social, especially, professor]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/college/1qgf8k3.md#c3"
     char_span: [5038, 6977]
     sentence_count: 13
     key_terms: [miserable-practice99, people, like, librarylurker42, friends, thank, newsletters, dont]
+    concepts: [miserable-practice99, people, librarylurker42, friends, newsletters]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qgf8k3.md#c4"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/college/1qgf8k3.md#c4"
     char_span: [6979, 8628]
     sentence_count: 23
     key_terms: [friends, people, yourself, get, college, making, group, put]
+    concepts: [friends, people, yourself, college, making]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qgf8k3.md#c3"]
     section: Comments
     token_count: 391
 ---

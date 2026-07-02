@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 512]
     sentence_count: 2
     key_terms: [cscareerquestions, market, comments, years, job, oversaturated, significantly, reddit-deep]
+    concepts: [cscareerquestions, market, comments, years]
     token_count: 126
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1q0euxt/could_the_cs_job_market_improve_in_a_couple_of/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c1"
     char_span: [526, 2394]
     sentence_count: 15
     key_terms: [money, happen, get, toy, anxiety, drauren, passion, bubble]
+    concepts: [money, happen, anxiety, drauren, passion]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c2"
     char_span: [2396, 4419]
     sentence_count: 18
     key_terms: [money, job, because, future, years, paid, tech, jimbo831]
+    concepts: [money, because, future, years, jimbo831]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c3"
     char_span: [4421, 6427]
     sentence_count: 12
     key_terms: [people, learning, because, market, school, interested, don, skills]
+    concepts: [people, learning, because, interested, market]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c4"
     char_span: [6429, 8623]
     sentence_count: 17
     key_terms: [software, time, enough, good, through, point, work, companies]
+    concepts: [software, enough, through, point, companies]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c5"
     char_span: [8314, 9901]
     sentence_count: 15
     key_terms: [manufacturing, quixlequaxle, "don't", going, "it's", like, need, engineers]
+    concepts: [manufacturing, quixlequaxle, "don't", going, engineers]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c6"
     char_span: [9903, 10500]
     sentence_count: 5
     key_terms: [like, careers, career, pursue, post-secondary, snackatttack, considering, industry]
+    concepts: [careers, career, pursue]
     section: Comments
     token_count: 144
 ---

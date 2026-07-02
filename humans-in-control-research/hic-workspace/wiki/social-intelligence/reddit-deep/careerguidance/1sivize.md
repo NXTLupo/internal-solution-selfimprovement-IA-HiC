@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2288]
     sentence_count: 13
     key_terms: [like, healthcare, law, administration, don, supply, chain, feel]
+    concepts: [healthcare, administration, supply, chain, freshman]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sivize/freshman_trying_to_figure_out_a_stable_career/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sivize.md#c1"
-    char_span: [2290, 3467]
+    char_span: [2290, 3466]
     sentence_count: 10
     key_terms: [people, try, specific, helpful, asking, maybe, like, b0uldersh0ulders]
+    concepts: [people, specific, helpful, asking, maybe]
     section: Comments
     token_count: 246
 ---

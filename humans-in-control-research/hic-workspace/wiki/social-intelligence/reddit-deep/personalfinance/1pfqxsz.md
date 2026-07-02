@@ -21,27 +21,35 @@ chunks:
     char_span: [0, 1827]
     sentence_count: 12
     key_terms: [month, personalfinance, practitioner, time, wife, currently, comments, practice]
+    concepts: [month, personalfinance, practitioner, currently, comments]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c3"]
     token_count: 459
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1pfqxsz/pregnant_wife_got_terminated_and_we_are_freaking/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c1"
     char_span: [1829, 3435]
     sentence_count: 14
     key_terms: [income, carrying, account, hunting, debt, job, completely, hurricane]
+    concepts: [income, carrying, account, hunting, completely]
     token_count: 370
   - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c2"
     char_span: [3437, 4720]
     sentence_count: 7
     key_terms: [company, owner, wife, terminated, employees, including, income, state]
+    concepts: [company, owner, terminated, employees, including]
     token_count: 273
   - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c3"
     char_span: [4734, 6655]
     sentence_count: 14
     key_terms: [job, comments, maternity, practice, leave, month, shift, new]
+    concepts: [comments, maternity, practice, leave, month]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c0"]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c4"
     char_span: [6658, 8645]
     sentence_count: 16
     key_terms: [work, get, benefits, interest, position, practice, transfer, patient]
+    concepts: [benefits, interest, position, practice, transfer]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c5"
@@ -54,24 +62,28 @@ chunks:
     char_span: [9006, 11183]
     sentence_count: 20
     key_terms: [whatever, income, potentially, home, everything, situation, goodwill, possible]
+    concepts: [whatever, income, potentially, everything, situation]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c7"
     char_span: [10952, 11748]
     sentence_count: 9
     key_terms: [practice, hours, gardeniaroseviolet, days, time, availability, practitioner, commenting]
+    concepts: [practice, hours]
     section: Comments
     token_count: 197
   - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c8"
     char_span: [11750, 13917]
     sentence_count: 24
     key_terms: [insurance, get, wife, covering, going, right, until, years]
+    concepts: [insurance, covering, going, right, until]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c9"
     char_span: [13919, 14249]
     sentence_count: 3
     key_terms: [inpatient, primary, care, hippoofdoom, significant, outpatient, schedules, settings]
+    concepts: [inpatient, primary]
     section: Comments
     token_count: 78
 ---

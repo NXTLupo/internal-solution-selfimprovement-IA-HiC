@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1088]
     sentence_count: 9
     key_terms: [co-ops, co-op, difficult, having, employers, comments, students, landing]
+    concepts: [co-ops, difficult, co-op, having, employers]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1tcjfq9/depressing_coop_search/"}]
   - id: "social-intelligence/reddit-deep/neu/1tcjfq9.md#c1"
     char_span: [1102, 3180]
     sentence_count: 14
     key_terms: [co-op, coop, search, able, internship, interviews, student, reason]
+    concepts: [co-op, search, internship, interviews, student]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1tcjfq9.md#c2"
     char_span: [2891, 3320]
     sentence_count: 7
     key_terms: [interviews, applications, internship, accepting, carefully, anything, applying, draining]
+    concepts: [interviews]
     section: Comments
     token_count: 92
 ---

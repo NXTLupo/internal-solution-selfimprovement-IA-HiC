@@ -19,34 +19,43 @@ chunks:
     char_span: [0, 1829]
     sentence_count: 2
     key_terms: [amazon, arista, team, aws, manager, seattle, living, bonus]
+    concepts: [amazon, arista, manager, seattle, cscareerquestions]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1pp4u0e.md#c3"]
     token_count: 482
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1pp4u0e/new_grad_swe_decision_aws_seattle_vs_arista/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pp4u0e.md#c1"
     char_span: [1831, 2245]
     sentence_count: 3
     key_terms: [career, arista, early, growthperspective, team, compensation, uncertainty, appreciate]
+    concepts: [career, arista, early]
     token_count: 90
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pp4u0e.md#c2"
     char_span: [2259, 3869]
     sentence_count: 13
     key_terms: [like, company, sarcasticpie, brand, aws, work, straight, culture]
+    concepts: [company, sarcasticpie, brand, straight, culture]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pp4u0e.md#c3"
     char_span: [3871, 5768]
     sentence_count: 15
     key_terms: [gatorboyusa, amazon, years, experience, arista, name, against, layoffs]
+    concepts: [gatorboyusa, amazon, years, experience, arista]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1pp4u0e.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pp4u0e.md#c4"
     char_span: [5545, 6983]
     sentence_count: 9
     key_terms: [gatorboyusa, melodic-rub-3703, situation, transfer, layoffs, seattle, similar, amazon]
+    concepts: [gatorboyusa, melodic-rub-3703, situation, transfer, layoffs]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pp4u0e.md#c5"
     char_span: [6985, 8514]
     sentence_count: 11
     key_terms: [salary, gatorboyusa, bay, long, term, something, company, signing]
+    concepts: [salary, gatorboyusa, something, company, signing]
     section: Comments
     token_count: 344
 ---

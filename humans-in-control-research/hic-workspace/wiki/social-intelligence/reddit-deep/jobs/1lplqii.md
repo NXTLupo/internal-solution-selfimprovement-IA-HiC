@@ -19,47 +19,60 @@ chunks:
     char_span: [0, 774]
     sentence_count: 7
     key_terms: [bachelors, interview, comments, "master's", company, resume, stated, "i'm"]
+    concepts: [bachelors, interview, comments, "master's", company]
     token_count: 189
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1lplqii/i_left_off_my_masters_from_my_resume_and/"}]
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c1"
     char_span: [788, 2833]
     sentence_count: 12
     key_terms: [school, degree, company, lied, annoying, probably, nursing, sued]
+    concepts: [school, degree, company, annoying, probably]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lplqii.md#c2"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c2"
     char_span: [2835, 4147]
     sentence_count: 7
     key_terms: [annoying, employer, leaving, degree, school, imheretoblowsunshine, mundanehuckleberry58, asked]
+    concepts: [annoying, employer, leaving, degree, school]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lplqii.md#c1"]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c3"
     char_span: [4149, 5955]
     sentence_count: 10
     key_terms: [qualified, job, want, degree, higher, expectations, hire, ability]
+    concepts: [qualified, expectations, degree, higher, ability]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lplqii.md#c5", "social-intelligence/reddit-deep/jobs/1lplqii.md#c9", "social-intelligence/reddit-deep/jobs/1lplqii.md#c10"]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c4"
     char_span: [5958, 8021]
     sentence_count: 18
     key_terms: [degree, job, applying, anymore, deleted, queencilantro, "isn't", application]
+    concepts: [degree, applying, queencilantro, anymore, deleted]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c5"
     char_span: [7803, 8659]
     sentence_count: 7
     key_terms: [qualified, degree, job, poopmaester41, "bachelor's", disclosing, disqualify, questioned]
+    concepts: [qualified, degree]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lplqii.md#c3", "social-intelligence/reddit-deep/jobs/1lplqii.md#c9"]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c6"
     char_span: [8661, 10419]
     sentence_count: 13
     key_terms: [degree, lie, listed, check, qualifications, background, don, because]
+    concepts: [degree, qualifications, listed, check, background]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c7"
     char_span: [10421, 12354]
     sentence_count: 12
     key_terms: ["don't", like, list, want, work, education, something, complete]
+    concepts: ["don't", education, something, complete, deleted]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c8"
@@ -72,12 +85,16 @@ chunks:
     char_span: [12656, 14660]
     sentence_count: 14
     key_terms: [degree, qualified, being, overqualified, job, because, lynkofwinds, get]
+    concepts: [qualified, degree, overqualified, being, lynkofwinds]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lplqii.md#c3", "social-intelligence/reddit-deep/jobs/1lplqii.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c10"
     char_span: [14430, 15243]
     sentence_count: 2
     key_terms: [degree, like, highest, higher, mysterious-panda964, discriminating, background, creighcray]
+    concepts: [degree, highest, higher]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lplqii.md#c3"]
     section: Comments
     token_count: 216
 ---

@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1673]
     sentence_count: 18
     key_terms: [generalist, immigration, company, humanresources, development, been, etc, feel]
+    concepts: [generalist, immigration, humanresources, company, development]
     token_count: 400
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1q6d9gx/does_anyone_else_feel_stuck_as_a_generalist_oh/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1q6d9gx.md#c1"
     char_span: [1687, 3712]
     sentence_count: 20
     key_terms: [company, market, years, get, job, assistant, director, process]
+    concepts: [company, market, years, assistant, director]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/humanresources/1q6d9gx.md#c2"
     char_span: [3714, 5581]
     sentence_count: 13
     key_terms: [role, often, generalists, immigration, currently, specific, across, hiring]
+    concepts: [generalists, immigration, often, currently, specific]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/humanresources/1q6d9gx.md#c3"
     char_span: [5583, 6326]
     sentence_count: 4
     key_terms: [consultants, need, consulting, generalist, lavender-dalmation, high, questionshauntme, understandable]
+    concepts: [consultants, consulting, generalist]
     section: Comments
     token_count: 168
 ---

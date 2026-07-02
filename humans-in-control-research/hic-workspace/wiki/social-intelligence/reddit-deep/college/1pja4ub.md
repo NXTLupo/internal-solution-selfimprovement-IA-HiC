@@ -19,23 +19,29 @@ chunks:
     char_span: [0, 1185]
     sentence_count: 9
     key_terms: [college, something, want, degree, associates, experience, bachelors, unrelated]
+    concepts: [college, something, degree, associates, experience]
     token_count: 266
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1pja4ub/multiple_unrelated_degrees/"}]
   - id: "social-intelligence/reddit-deep/college/1pja4ub.md#c1"
     char_span: [1199, 3321]
     sentence_count: 12
     key_terms: [linguistics, classes, credits, wanted, honestly, connect, degrees, majors]
+    concepts: [linguistics, classes, credits, wanted, honestly]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/college/1pja4ub.md#c2"
     char_span: [3323, 4691]
     sentence_count: 11
     key_terms: [language, majors, major, linguistics, common, biology, doubles, doable]
+    concepts: [language, majors, major, linguistics, common]
     section: Comments
     token_count: 320
+    sources: [{"n":"I'm a linguistics major, though not in comp linguistics","u":""}]
   - id: "social-intelligence/reddit-deep/college/1pja4ub.md#c3"
     char_span: [4694, 5938]
     sentence_count: 11
     key_terms: [engineering, "it's", "wouldn't", another, example, overlap, related, common]
+    concepts: [engineering, "wouldn't", another, example, overlap]
     section: Comments
     token_count: 303
 ---

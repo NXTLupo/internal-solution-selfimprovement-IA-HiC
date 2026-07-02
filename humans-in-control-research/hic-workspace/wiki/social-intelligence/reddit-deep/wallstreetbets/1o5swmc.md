@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1628]
     sentence_count: 12
     key_terms: [wallstreetbets, months, going, good, comments, chatgpt, savings, youtube]
+    concepts: [wallstreetbets, months, going, comments, chatgpt]
     token_count: 390
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1o5swmc/my_wife_took_me_back_after_i_doubled_our_lifes/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o5swmc.md#c1"
     char_span: [1642, 1846]
     sentence_count: 1
     key_terms: [total, years, submissions, visualmod, comments, previous, account, report]
+    concepts: [total, years]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o5swmc.md#c2"
     char_span: [1848, 3541]
     sentence_count: 6
     key_terms: [half, wife, pegging, girlfriend, splitting, accident, deleted, discord]
+    concepts: [pegging, girlfriend, splitting, accident, deleted]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o5swmc.md#c3"
     char_span: [3332, 4400]
     sentence_count: 3
     key_terms: [png, f6fb9bb46d2a5836ff8ae28c739bab62b3598143, post, wife, deleted, preview, format, aussie-mountainbiker]
+    concepts: [deleted, preview, format, https, width]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o5swmc.md#c4"
     char_span: [4402, 5671]
     sentence_count: 8
     key_terms: [chatgpt, regarded, jjolliffe, imagine, "it's", png, fliesenschieber, self-fulfilling]
+    concepts: [chatgpt, regarded, jjolliffe, imagine]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o5swmc.md#c5"
     char_span: [5673, 7076]
     sentence_count: 5
     key_terms: [congrats, jjolliffe, deleted, quantum, miktoo, alternative-park-841, couch, gunnawunna1111117]
+    concepts: [congrats, jjolliffe, deleted, quantum, miktoo]
     section: Comments
     token_count: 462
 ---

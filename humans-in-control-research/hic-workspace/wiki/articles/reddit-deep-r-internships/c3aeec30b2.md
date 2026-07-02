@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2209]
     sentence_count: 18
     key_terms: ["i'm", internship, intern, stay, company, manager, least, constraints]
+    concepts: [internship, intern, company, manager, constraints]
     token_count: 460
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rz7qky/asking_for_a_return_offer/"}]
 ---
 # Asking for a return offer?
 

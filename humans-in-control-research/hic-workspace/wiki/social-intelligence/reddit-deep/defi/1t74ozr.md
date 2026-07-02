@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 907]
     sentence_count: 6
     key_terms: [wallet, crypto-wallet-bitcoin-paybis, anything, comments, people, trying, app, apps]
+    concepts: [wallet, anything, comments, people, trying]
     token_count: 218
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1t74ozr/whats_the_biggest_red_flag_when_choosing_a_wallet/"}]
   - id: "social-intelligence/reddit-deep/defi/1t74ozr.md#c1"
-    char_span: [922, 2241]
+    char_span: [921, 2240]
     sentence_count: 9
     key_terms: [wallet, signing, permissions, like, everything, hardware, support, wallets]
+    concepts: [wallet, signing, permissions, everything, hardware]
     section: Comments
     token_count: 306
 ---

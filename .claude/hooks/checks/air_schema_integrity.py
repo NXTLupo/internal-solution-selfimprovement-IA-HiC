@@ -13,6 +13,17 @@ from typing import Any
 AIR_VERSION = "hic-air-2026-06-30"
 _POINTER_RE = re.compile(r"#c\d+$", re.IGNORECASE)
 
+# W5 (2026-07-01, scorecard "gate does NOT flag payload bucket citations"): provider-bucket citations in
+# the rendered payload are an objective credibility defect. Mirrors services/artifactAirService.ts
+# PAYLOAD_BUCKET_CITATION_RE (keep in sync) and composes with checks/citation_resolution.py (which scans
+# whole rendered surfaces; this scan makes the AIR gate itself catch the defect on every emission).
+_PAYLOAD_BUCKET_RE = re.compile(
+    r"\(\s*sources?\s*:\s*(gemini|openai|deepseek|anthropic|claude|gpt)\b[^)]*\)"
+    r"|gemini\s*\(\s*focused\s+research\s*\)"
+    r"|\bsource\s*:\s*(gemini|openai|deepseek)\b",
+    re.IGNORECASE,
+)
+
 # D12 (2026-07-01): evidence grounding-collapse floor — mirrors services/artifactAirService.ts
 # MIN_WELLFORMED_RATIO. Pointer well-formedness is a RATIO, not all-or-nothing: pre-migration corpus
 # pages legitimately lack structured `sources:` frontmatter, so 100% well-formed is unrealizable until the
@@ -75,6 +86,28 @@ def check(target: Any, ctx: dict | None = None) -> dict:
                 f"{len(bad)}/{len(ledger)} evidence pointer(s) not well-formed "
                 f"(no named source: pre-migration source-lag): idx {bad[:8]}"
             )
+
+    # W5: provider-bucket citations in the payload = CONTRACT failure (blocks when non-shadow).
+    payload = target.get("artifactPayload")
+    if payload is not None:
+        try:
+            import json as _json
+            ptxt = payload if isinstance(payload, str) else _json.dumps(payload, ensure_ascii=False)
+        except Exception:
+            ptxt = str(payload)
+        buckets = _PAYLOAD_BUCKET_RE.findall(ptxt)
+        if buckets:
+            failures.append(
+                f"{len(buckets)} provider-bucket citation(s) in payload "
+                f"- resolve to the REAL source (chunk/page attribution ladder), never a model/provider label"
+            )
+
+    # W2/W3 observability (2026-07-01): an empty modelTrace or undecomposed objective is a hydration gap
+    # the scorecard flagged (modelTrace 0/11, decomposedQuestions 0/11) - surface it on every gate run.
+    if not target.get("modelTrace"):
+        warnings.append("modelTrace empty: no routed model/reason recorded for this artifact")
+    if not (obj.get("decomposedQuestions") or []):
+        warnings.append("objective.decomposedQuestions empty: sub-question coverage not recorded")
 
     ok = True if shadow else (len(failures) == 0)
     return {

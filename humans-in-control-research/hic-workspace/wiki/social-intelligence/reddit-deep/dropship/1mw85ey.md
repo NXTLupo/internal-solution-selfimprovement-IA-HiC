@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1775]
     sentence_count: 19
     key_terms: [get, return, dropshipping, comments, dropship, everyone, products, shipping]
+    concepts: [dropshipping, return, comments, dropship, everyone]
     token_count: 383
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1mw85ey/everyone_cries_about_shipping_times_while_refunds/"}]
   - id: "social-intelligence/reddit-deep/dropship/1mw85ey.md#c1"
-    char_span: [1790, 3098]
+    char_span: [1789, 3097]
     sentence_count: 10
     key_terms: [sell, cost, use, connected, questions, dropship, example, product]
+    concepts: [connected, questions, dropship, example, product]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/dropship/1mw85ey.md#c2"
-    char_span: [3100, 4886]
+    char_span: [3099, 4885]
     sentence_count: 15
     key_terms: [product, because, selling, sharing, design, nobody, stores, thanks]
+    concepts: [product, because, selling, sharing, design]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/dropship/1mw85ey.md#c3"
-    char_span: [4888, 5878]
+    char_span: [4887, 5877]
     sentence_count: 8
     key_terms: [dropshipping, anything, brand, items, keep, niche-specific, whitelabeling, tech-related]
+    concepts: [dropshipping, anything, brand, items]
     section: Comments
     token_count: 237
 ---

@@ -19,58 +19,69 @@ chunks:
     char_span: [0, 2083]
     sentence_count: 31
     key_terms: [job, interview, company, role, heard, never, get, ive]
+    concepts: [interview, company, approached, heard, never]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1s4frb4/i_got_a_job_offer_and_im_devastated/"}]
   - id: "social-intelligence/reddit-deep/jobs/1s4frb4.md#c1"
     char_span: [2085, 4047]
     sentence_count: 28
     key_terms: [job, got, person, away, phone, get, ive, last]
+    concepts: [person, phone, interview, getting, minutes]
     token_count: 443
   - id: "social-intelligence/reddit-deep/jobs/1s4frb4.md#c2"
     char_span: [4061, 5943]
     sentence_count: 13
     key_terms: [job, take, easier, interview, get, "it's", looking, people]
+    concepts: [easier, interview, looking, people, environment]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1s4frb4.md#c3"
     char_span: [5728, 6138]
     sentence_count: 4
     key_terms: [job, interview, myburneraccount1357, shine, assumptions, bopboopbip, proportion, fsfmarina]
+    concepts: [interview, shine]
     section: Comments
     token_count: 110
   - id: "social-intelligence/reddit-deep/jobs/1s4frb4.md#c4"
     char_span: [6140, 7971]
     sentence_count: 23
     key_terms: [job, toxic, questions, ask, like, everyone, feedback, previous]
+    concepts: [questions, toxic, everyone, feedback, previous]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/jobs/1s4frb4.md#c5"
     char_span: [7973, 8936]
     sentence_count: 12
     key_terms: [dishing, getting, piping, toxic, hot, tea, work, accountability]
+    concepts: [dishing, getting, piping, toxic]
     section: Comments
     token_count: 250
   - id: "social-intelligence/reddit-deep/jobs/1s4frb4.md#c6"
     char_span: [8938, 10619]
     sentence_count: 19
     key_terms: [job, toxic, people, new, time, guarantee, horrible, sympathy]
+    concepts: [toxic, people, guarantee, horrible, sympathy]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/jobs/1s4frb4.md#c7"
     char_span: [10621, 12548]
     sentence_count: 22
     key_terms: [job, like, making, empathyfail, new, walk, work, experience]
+    concepts: [making, empathyfail, experience, deduction, commute]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1s4frb4.md#c8"
     char_span: [12303, 14063]
     sentence_count: 16
     key_terms: [waferlongjumping6509, new, trust, empathyfail, find, job, successful, running]
+    concepts: [waferlongjumping6509, empathyfail, successful, trust, running]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/jobs/1s4frb4.md#c9"
     char_span: [14065, 14382]
     sentence_count: 2
     key_terms: [looking, team, communicating, experienced, individual, mentoring, addition, training]
+    concepts: [looking]
     section: Comments
     token_count: 68
 ---

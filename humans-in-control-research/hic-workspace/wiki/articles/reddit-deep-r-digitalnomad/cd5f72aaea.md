@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2074]
     sentence_count: 20
     key_terms: [years, back, everyone, selling, months, digitalnomad, great, full]
+    concepts: [years, everyone, selling, digitalnomad, months]
     token_count: 499
+    sources: [{"n":"Reddit Deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1mldvef/full_send_at_36_has_anyone_else_done_it_and_not/"}]
   - id: "articles/reddit-deep-r-digitalnomad/cd5f72aaea.md#c1"
     char_span: [2076, 3827]
     sentence_count: 17
     key_terms: [want, costa, morrigan613, love, rica, work, brazil, fellow]
+    concepts: [morrigan613, costa, brazil, fellow, people]
     token_count: 439
 ---
 # 'Full Send' at 36: Has anyone else done it and not looked back?

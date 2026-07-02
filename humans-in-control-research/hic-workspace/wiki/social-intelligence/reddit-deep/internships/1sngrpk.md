@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1365]
     sentence_count: 11
     key_terms: [interview, internships, internship, rejection, comments, honestly, asking, summer]
+    concepts: [interview, internships, internship, rejection, comments]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1sngrpk.md#c1"]
     token_count: 319
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sngrpk/i_had_a_perfect_interview_last_month_and_woke_up/"}]
   - id: "social-intelligence/reddit-deep/internships/1sngrpk.md#c1"
     char_span: [1379, 3206]
     sentence_count: 12
     key_terms: [appropriate-tutor587, interview, feedback, get, rejection, better, zealousideal-job6344, offer]
+    concepts: [appropriate-tutor587, interview, feedback, rejection, better]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1sngrpk.md#c0"]
     section: Comments
     token_count: 459
 ---

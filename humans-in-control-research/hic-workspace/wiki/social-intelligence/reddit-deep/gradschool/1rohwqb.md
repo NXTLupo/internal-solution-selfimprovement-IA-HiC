@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 832]
     sentence_count: 3
     key_terms: [experience, gradschool, comments, rejected, applied, pretty, been, don]
+    concepts: [experience, gradschool, comments, rejected, applied]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1rohwqb.md#c2"]
     token_count: 206
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rohwqb/ive_just_been_rejected_from_every_grad_school_i/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c1"
     char_span: [846, 2223]
     sentence_count: 1
     key_terms: [cal, lachicafresita, reapplying, feedback, programs, applied, odinnw, did]
+    concepts: [lachicafresita, reapplying, feedback, programs, applied]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c2"
     char_span: [2225, 4062]
     sentence_count: 9
     key_terms: [program, jewishtigerpup, applied, year, accepted, rejected, sinnayre, degree]
+    concepts: [program, jewishtigerpup, applied, accepted, rejected]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1rohwqb.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c3"
     char_span: [3833, 4819]
     sentence_count: 10
     key_terms: [don, year, programs, program, someone, school, best, did]
+    concepts: [programs, program, someone, school]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c4"
@@ -50,12 +57,14 @@ chunks:
     char_span: [4920, 7125]
     sentence_count: 15
     key_terms: [experience, applications, get, research, prestigious, try, work, year]
+    concepts: [experience, applications, research, prestigious, bachelor]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c6"
     char_span: [6804, 8750]
     sentence_count: 17
     key_terms: [recommendations, letters, records, recommendation, school, recommenders, since, did]
+    concepts: [recommendations, letters, records, recommendation, recommenders]
     section: Comments
     token_count: 413
 ---

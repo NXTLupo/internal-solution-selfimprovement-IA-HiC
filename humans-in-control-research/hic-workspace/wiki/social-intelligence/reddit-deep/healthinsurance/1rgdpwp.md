@@ -20,35 +20,45 @@ chunks:
     char_span: [0, 843]
     sentence_count: 7
     key_terms: [christus, hospital, healthinsurance, comments, deliver, advice, called, obgyns]
+    concepts: [healthinsurance, christus, hospital, comments, deliver]
     token_count: 200
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1rgdpwp/need_advice/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1rgdpwp.md#c1"
-    char_span: [858, 2732]
+    char_span: [857, 2731]
     sentence_count: 6
     key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    concepts: [information, questions, following, please, healthinsurance]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/healthinsurance/1rgdpwp.md#c2"
-    char_span: [2734, 5006]
+    char_span: [2733, 5005]
     sentence_count: 12
     key_terms: [insurance, network, please, provider, eob, contact, questions, subreddit]
+    concepts: [insurance, network, please, provider, contact]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rgdpwp.md#c4", "social-intelligence/reddit-deep/healthinsurance/1rgdpwp.md#c5"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/healthinsurance/1rgdpwp.md#c3"
-    char_span: [5008, 6977]
+    char_span: [5007, 6976]
     sentence_count: 10
     key_terms: [conditions, hmo, service, care, network, healthcare, available, health]
+    concepts: [conditions, service, network, healthcare, available]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/healthinsurance/1rgdpwp.md#c4"
-    char_span: [6979, 8454]
+    char_span: [6978, 8453]
     sentence_count: 12
     key_terms: [network, in-network, insurance, hospital, information, care, referral, websites]
+    concepts: [network, in-network, insurance, hospital, information]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rgdpwp.md#c2", "social-intelligence/reddit-deep/healthinsurance/1rgdpwp.md#c5"]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/healthinsurance/1rgdpwp.md#c5"
-    char_span: [8456, 10025]
+    char_span: [8455, 10024]
     sentence_count: 14
     key_terms: [insurance, network, call, "i'm", hospital, through, called, going]
+    concepts: [insurance, network, hospital, through, called]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1rgdpwp.md#c2", "social-intelligence/reddit-deep/healthinsurance/1rgdpwp.md#c4"]
     section: Comments
     token_count: 346
 ---

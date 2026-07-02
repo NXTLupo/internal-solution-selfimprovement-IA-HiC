@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 855]
     sentence_count: 9
     key_terms: [want, animals, career, work, findapath, comments, pursuing, future]
+    concepts: [animals, career, findapath, comments, pursuing]
     token_count: 219
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1moszgn/i_want_to_work_with_animals_but_is_it_a_realistic/"}]
   - id: "social-intelligence/reddit-deep/findapath/1moszgn.md#c1"
     char_span: [869, 2746]
     sentence_count: 18
     key_terms: [thank, helpful, people, please, here, findapath, comments, everyone]
+    concepts: [thank, helpful, people, please, findapath]
     section: Comments
     token_count: 434
 ---

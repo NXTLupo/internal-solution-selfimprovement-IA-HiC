@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1039]
     sentence_count: 11
     key_terms: [math, semester, statistical, cscareerquestions, algebra, theory, algorithms, statistics]
+    concepts: [semester, statistical, cscareerquestions, algebra, theory]
     token_count: 270
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1td2hfo/3rd_year_bsc_cs_looking_for_msc_math_statistics/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1td2hfo.md#c1"
     char_span: [1053, 1766]
     sentence_count: 5
     key_terms: [analysis, algebra, real, algorithms, courses, "what's", asked, mother-click-4465]
+    concepts: [analysis, algebra, algorithms, courses, "what's"]
     section: Comments
     token_count: 153
 ---

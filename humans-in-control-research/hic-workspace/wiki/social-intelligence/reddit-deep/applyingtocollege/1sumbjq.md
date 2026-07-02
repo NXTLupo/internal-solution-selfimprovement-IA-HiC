@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 2078]
     sentence_count: 14
     key_terms: [college, actuarial, community, applyingtocollege, math, schools, school, scholarship]
+    concepts: [college, applyingtocollege, actuarial, community, schools]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sumbjq/is_ucla_worth_the_extra_money/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sumbjq.md#c1"
     char_span: [2092, 3969]
     sentence_count: 22
     key_terms: [ucla, want, consulting, quant, "it's", only-finish-3497, compete, career]
+    concepts: [consulting, only-finish-3497, quant, compete, career]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sumbjq.md#c2"
     char_span: [3971, 6166]
     sentence_count: 13
     key_terms: [something, experience, feel, college, career, people, uncertainty, best]
+    concepts: [something, experience, college, career, people]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sumbjq.md#c3"
     char_span: [6168, 8354]
     sentence_count: 24
     key_terms: [ucla, best, yourself, version, traditional, get, math, take]
+    concepts: [yourself, version, traditional, experience, necessary]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sumbjq.md#c4"
     char_span: [8356, 10403]
     sentence_count: 13
     key_terms: [ucla, major, live, because, program, undergraduate, gonna, uci]
+    concepts: [major, undergraduate, because, program, gonna]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sumbjq.md#c5"
     char_span: [10405, 11460]
     sentence_count: 10
     key_terms: [ucla, alabama, finalists, national, opposite-lettuce2040, bitaffectionate9339, agree, merit]
+    concepts: [alabama, finalists, national, agree, merit]
     section: Comments
     token_count: 292
 ---

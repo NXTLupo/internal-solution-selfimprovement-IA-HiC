@@ -21,34 +21,41 @@ chunks:
     char_span: [0, 2050]
     sentence_count: 26
     key_terms: [career, careeradvice, engineering, experiences, felt, different, comments, discover]
+    concepts: [careeradvice, career, engineering, experiences, different]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1lh9jt6/what_i_learned_from_being_completely_lost_in_my/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1lh9jt6.md#c1"
     char_span: [2052, 2478]
     sentence_count: 7
     key_terms: [change, population, important, miserable, anything, complain, figuring, anyways]
+    concepts: [change]
     token_count: 98
   - id: "social-intelligence/reddit-deep/careeradvice/1lh9jt6.md#c2"
     char_span: [2492, 3249]
     sentence_count: 8
     key_terms: [rather, taking, lonely-ad-5410, opportunities, experiences, exploration, comforting, completely]
+    concepts: [rather, taking]
     section: Comments
     token_count: 156
   - id: "social-intelligence/reddit-deep/careeradvice/1lh9jt6.md#c3"
     char_span: [3251, 5160]
     sentence_count: 20
     key_terms: ["master's", thank, internship, career, thanks, educationinformal376, purdueglobalofficial, reach]
+    concepts: ["master's", internship, thank, career, thanks]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careeradvice/1lh9jt6.md#c4"
     char_span: [4906, 5532]
     sentence_count: 5
     key_terms: [technical, grades, thesis, build, credentials, engineering, suggestions, especially]
+    concepts: [technical, grades, thesis, build]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/careeradvice/1lh9jt6.md#c5"
     char_span: [5534, 7168]
     sentence_count: 16
     key_terms: [path, try, reflection, expenses, industry, substack, applied, support]
+    concepts: [reflection, expenses, industry, substack, applied]
     section: Comments
     token_count: 406
 ---

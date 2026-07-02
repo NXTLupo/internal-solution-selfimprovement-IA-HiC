@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1861]
     sentence_count: 11
     key_terms: [nandi-mini-150m, model, huggingface, https, transformers, architecture, deeplearning, benchmaxing]
+    concepts: [nandi-mini-150m, huggingface, model, transformers, https]
     token_count: 447
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1sdu0nf/we_just_released_nandimini150m_a_150m_model_with/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1sdu0nf.md#c1"
     char_span: [1875, 2448]
     sentence_count: 1
     key_terms: [version, paintereffective9584, nice-resolution2620, does, gguf, approachable, interference, intraluminal]
+    concepts: [version]
     section: Comments
     token_count: 151
 ---

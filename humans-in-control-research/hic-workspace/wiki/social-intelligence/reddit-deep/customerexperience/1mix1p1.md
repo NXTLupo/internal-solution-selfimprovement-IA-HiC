@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 848]
     sentence_count: 8
     key_terms: [customerexperience, companies, customer, experience, comments, support, cryrevolutionary7536, human]
+    concepts: [customerexperience, companies, customer, experience, comments]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1mix1p1.md#c3"]
     token_count: 186
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1mix1p1/how_is_ai_changing_the_way_companies_handle/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1mix1p1.md#c1"
-    char_span: [863, 2758]
+    char_span: [862, 2757]
     sentence_count: 13
     key_terms: [handle, people, human, humans, comes, experiences, definitely, emotional]
+    concepts: [handle, people, human, humans, experiences]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/customerexperience/1mix1p1.md#c2"
-    char_span: [2760, 4553]
+    char_span: [2759, 4552]
     sentence_count: 12
     key_terms: [human, like, time, customers, emotional, fieldcamp, complex, handles]
+    concepts: [human, customers, emotional, fieldcamp, complex]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/customerexperience/1mix1p1.md#c3"
-    char_span: [4555, 6776]
+    char_span: [4554, 6775]
     sentence_count: 19
     key_terms: [customer, experience, human, been, without, system, calls, phone]
+    concepts: [customer, experience, human, without, system]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1mix1p1.md#c0"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/customerexperience/1mix1p1.md#c4"
-    char_span: [6778, 6986]
+    char_span: [6777, 6985]
     sentence_count: 2
     key_terms: [right, strategically, cost-cutting, experiences, importantly, companies, reasoning, getting]
+    concepts: [right]
     section: Comments
     token_count: 39
 ---

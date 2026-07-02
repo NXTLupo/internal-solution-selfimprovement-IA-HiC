@@ -20,35 +20,47 @@ chunks:
     char_span: [0, 795]
     sentence_count: 9
     key_terms: [fidelity, maintenance, fees, bogleheads, brokerage, comments, vanguard, substantial-cat-6852]
+    concepts: [fidelity, maintenance, bogleheads, brokerage, comments]
     token_count: 180
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1na3mom/fidelity_fees/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1na3mom.md#c1"
-    char_span: [810, 2676]
+    char_span: [809, 2675]
     sentence_count: 17
     key_terms: [paperless, fidelity, vanguard, substantial-cat-6852, fee, fees, transfer, catch]
+    concepts: [paperless, fidelity, vanguard, substantial-cat-6852, transfer]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1na3mom.md#c2", "social-intelligence/reddit-deep/bogleheads/1na3mom.md#c3", "social-intelligence/reddit-deep/bogleheads/1na3mom.md#c4"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/bogleheads/1na3mom.md#c2"
-    char_span: [2678, 3825]
+    char_span: [2677, 3824]
     sentence_count: 13
     key_terms: [vanguard, company, fidelity, own, ownership, usually, schwab, though]
+    concepts: [vanguard, company, fidelity, ownership, usually]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1na3mom.md#c1", "social-intelligence/reddit-deep/bogleheads/1na3mom.md#c3", "social-intelligence/reddit-deep/bogleheads/1na3mom.md#c4", "social-intelligence/reddit-deep/bogleheads/1na3mom.md#c5"]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/bogleheads/1na3mom.md#c3"
-    char_span: [3827, 5303]
+    char_span: [3826, 5302]
     sentence_count: 9
     key_terms: [vanguard, fidelity, funds, how-to-convert-vanguard-mutual-fund-to-etf-online, equivalent, buy, mutual, expense]
+    concepts: [vanguard, fidelity, funds, equivalent, mutual]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1na3mom.md#c1", "social-intelligence/reddit-deep/bogleheads/1na3mom.md#c2", "social-intelligence/reddit-deep/bogleheads/1na3mom.md#c4", "social-intelligence/reddit-deep/bogleheads/1na3mom.md#c5"]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/bogleheads/1na3mom.md#c4"
-    char_span: [5305, 7275]
+    char_span: [5304, 7274]
     sentence_count: 14
     key_terms: [fidelity, vanguard, fee, substantial-cat-6852, fees, want, service, better]
+    concepts: [fidelity, vanguard, substantial-cat-6852, service, better]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1na3mom.md#c1", "social-intelligence/reddit-deep/bogleheads/1na3mom.md#c2", "social-intelligence/reddit-deep/bogleheads/1na3mom.md#c3"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/bogleheads/1na3mom.md#c5"
-    char_span: [7277, 8244]
+    char_span: [7276, 8243]
     sentence_count: 14
     key_terms: [fidelity, funds, for-profit, company, index, learn, fees, free]
+    concepts: [fidelity, for-profit, funds, company, index]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1na3mom.md#c2", "social-intelligence/reddit-deep/bogleheads/1na3mom.md#c3"]
     section: Comments
     token_count: 220
 ---

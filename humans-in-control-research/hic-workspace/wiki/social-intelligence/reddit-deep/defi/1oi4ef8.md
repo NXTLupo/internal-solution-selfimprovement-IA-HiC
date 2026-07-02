@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1585]
     sentence_count: 13
     key_terms: [defi, decentralized, functionality, transaction, gas, need, comments, finance]
+    concepts: [decentralized, functionality, transaction, comments, finance]
     token_count: 359
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1oi4ef8/defi_doesnt_need_more_features_it_needs_less/"}]
   - id: "social-intelligence/reddit-deep/defi/1oi4ef8.md#c1"
-    char_span: [1600, 2628]
+    char_span: [1599, 2627]
     sentence_count: 6
     key_terms: [like, transactions, improvement, etherdelta, token, huge, leap, smartcontractkid]
+    concepts: [transactions, improvement, etherdelta, token]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/defi/1oi4ef8.md#c2"
-    char_span: [2630, 4678]
+    char_span: [2629, 4677]
     sentence_count: 10
     key_terms: [defi, project, implementation, "it's", real, want, web3, interested]
+    concepts: [implementation, project, interested, adoption, grandma]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/defi/1oi4ef8.md#c3"
-    char_span: [4680, 6053]
+    char_span: [4679, 6052]
     sentence_count: 11
     key_terms: [like, protocols, multiple, strategy, instead, modules, normal, feels]
+    concepts: [protocols, multiple, strategy, instead, modules]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/defi/1oi4ef8.md#c4"
-    char_span: [6055, 6996]
+    char_span: [6054, 6995]
     sentence_count: 6
     key_terms: [smartcontractkid, enough, good, winner, staticautomatic202, extreme-lake-1726, "i'm", coffeadefi]
+    concepts: [smartcontractkid, enough, winner]
     section: Comments
     token_count: 263
 ---

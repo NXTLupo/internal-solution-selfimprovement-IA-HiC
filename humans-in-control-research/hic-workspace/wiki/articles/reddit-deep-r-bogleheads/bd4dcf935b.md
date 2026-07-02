@@ -19,24 +19,32 @@ content_hash: "8eb939e7624c8d10"
 relevance_by_goal: {"46dec9599ad5":65}
 chunks:
   - id: "articles/reddit-deep-r-bogleheads/bd4dcf935b.md#c0"
-    char_span: [0, 1831]
+    char_span: [0, 1830]
     sentence_count: 13
     key_terms: [chase, fidelity, fees, merrill, account, banking, morgan, experiences]
-    token_count: 465
+    concepts: [fidelity, chase, merrill, account, banking]
+    related_chunks: ["articles/reddit-deep-r-bogleheads/bd4dcf935b.md#c2", "articles/reddit-deep-r-bogleheads/bd4dcf935b.md#c3"]
+    token_count: 464
+    sources: [{"n":"Reddit Deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1p8763f/jp_morgan_self_investing_chase_banking_or_bank_of/"}]
   - id: "articles/reddit-deep-r-bogleheads/bd4dcf935b.md#c1"
-    char_span: [1836, 3928]
+    char_span: [1835, 3927]
     sentence_count: 13
     key_terms: [free, "i'm", money, wires, account, banks, investments, "i've"]
+    concepts: [money, wires, account, investments, banks]
     token_count: 468
   - id: "articles/reddit-deep-r-bogleheads/bd4dcf935b.md#c2"
-    char_span: [3930, 6030]
+    char_span: [3929, 6029]
     sentence_count: 10
     key_terms: [fidelity, buy, assets, hold, merrill, rewards, boa, fees]
+    concepts: [fidelity, assets, merrill, rewards, instantly]
+    related_chunks: ["articles/reddit-deep-r-bogleheads/bd4dcf935b.md#c0"]
     token_count: 508
   - id: "articles/reddit-deep-r-bogleheads/bd4dcf935b.md#c3"
-    char_span: [6032, 7786]
+    char_span: [6031, 7785]
     sentence_count: 14
     key_terms: [chase, account, fractional, allow, shares, investments, does, like]
+    concepts: [chase, account, fractional, allow, shares]
+    related_chunks: ["articles/reddit-deep-r-bogleheads/bd4dcf935b.md#c0"]
     token_count: 420
 ---
 # JP Morgan self Investing/ Chase Banking or Bank of America/Merrill experiences

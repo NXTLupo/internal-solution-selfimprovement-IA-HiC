@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 929]
     sentence_count: 5
     key_terms: [college, friends, social, went, graduated, comments, because, "i'm"]
+    concepts: [college, friends, social, graduated, comments]
+    related_chunks: ["social-intelligence/reddit-deep/college/1shryxo.md#c2", "social-intelligence/reddit-deep/college/1shryxo.md#c3"]
     token_count: 217
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1shryxo/just_graduated_all_my_college_friends_left_the/"}]
   - id: "social-intelligence/reddit-deep/college/1shryxo.md#c1"
     char_span: [943, 2511]
     sentence_count: 17
     key_terms: [people, bar, yourself, city, day, like, week, regular]
+    concepts: [people, yourself, regular, class, going]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/college/1shryxo.md#c2"
     char_span: [2513, 4143]
     sentence_count: 15
     key_terms: [people, friends, like, new, something, probably, college, feeling]
+    concepts: [people, friends, something, probably, college]
+    related_chunks: ["social-intelligence/reddit-deep/college/1shryxo.md#c0", "social-intelligence/reddit-deep/college/1shryxo.md#c3"]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/college/1shryxo.md#c3"
     char_span: [4146, 6072]
     sentence_count: 14
     key_terms: [people, friends, social, new, position, college, "there's", better]
+    concepts: [people, friends, social, position, college]
+    related_chunks: ["social-intelligence/reddit-deep/college/1shryxo.md#c0", "social-intelligence/reddit-deep/college/1shryxo.md#c2"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/college/1shryxo.md#c4"
     char_span: [6074, 6792]
     sentence_count: 12
     key_terms: [join, college, group, current, groups, young, club, cross-stitch]
+    concepts: [college, group, current, groups, young]
     section: Comments
     token_count: 181
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1249]
     sentence_count: 12
     key_terms: [get, research, experience, published, gradadmissions, undergrad, volunteer, comments]
+    concepts: [research, experience, published, gradadmissions, undergrad]
     token_count: 294
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rc5hm8/how_do_you_get_research_experience_and_get/"}]
 ---
 # How do you get research experience and get published post-grad?
 

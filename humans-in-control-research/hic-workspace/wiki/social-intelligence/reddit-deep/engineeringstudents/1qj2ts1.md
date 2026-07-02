@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1424]
     sentence_count: 10
     key_terms: [companies, ojt, engineeringstudents, looking, opportunities, "don't", engineering, mechanical]
+    concepts: [companies, engineeringstudents, opportunities, looking, engineering]
     token_count: 326
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qj2ts1/ojt_companiesopportunities_in_the_usa_as_a/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qj2ts1.md#c1"
     char_span: [1438, 1860]
     sentence_count: 6
     key_terms: [companies, internship, applications, individual, otherwise, recommend, anything, linkedin]
+    concepts: [companies, internship]
     section: Comments
     token_count: 94
 ---

@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 901]
     sentence_count: 8
     key_terms: [good, findapath, anything, comments, because, school, "don't", easy]
+    concepts: [findapath, anything, comments, because, school]
     token_count: 212
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1n01biy/easy_career_path_for_someone_that_isnt_good_at/"}]
   - id: "social-intelligence/reddit-deep/findapath/1n01biy.md#c1"
     char_span: [915, 1862]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1n01biy.md#c2"
     char_span: [1865, 3796]
     sentence_count: 12
     key_terms: [kid, international-bet-66, life, kids, like, shit, something, whatever]
+    concepts: [international-bet-66, something, whatever, because, courses]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/findapath/1n01biy.md#c3"
     char_span: [3798, 5922]
     sentence_count: 11
     key_terms: [anything, people, get, interacting, interaction, like, practice, enjoy]
+    concepts: [anything, people, interacting, interaction, practice]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/findapath/1n01biy.md#c4"
     char_span: [5924, 6178]
     sentence_count: 2
     key_terms: [management, upper, budget-studio4516, description, straight, besides, nursing, shooter]
+    concepts: [management, upper]
     section: Comments
     token_count: 62
 ---

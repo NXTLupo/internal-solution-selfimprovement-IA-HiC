@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1250]
     sentence_count: 5
     key_terms: [cscareerquestions, research, summer, opportunities, internships, underclassmen-internships, comments, github]
+    concepts: [cscareerquestions, research, opportunities, summer, internships]
     token_count: 293
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qsb1fp/what_to_do_over_the_summer_as_a_first_year_in_cs/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qsb1fp.md#c1"
     char_span: [1264, 3132]
     sentence_count: 22
     key_terms: [information, doing, find, job, resume, "can't", "don't", pages]
+    concepts: [information, doing, resume, "can't", "don't"]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qsb1fp.md#c2"
     char_span: [3135, 4285]
     sentence_count: 7
     key_terms: [knowledge, time, apply, job, automated, learning, problems, company]
+    concepts: [knowledge, apply, automated, learning, problems]
     section: Comments
     token_count: 250
 ---

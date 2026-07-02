@@ -8,6 +8,7 @@ chunks:
     char_span: [0, 1459]
     sentence_count: 10
     key_terms: [mono, archivo, tokens, fingerprint, chat, ibm, nxt, plex]
+    concepts: [archivo, tokens, fingerprint, behavioral, variables]
     section: Figma exemplars (source of truth) / Anatomy / Construction rule (1-to-1 PPTX)
     token_count: 381
 ---

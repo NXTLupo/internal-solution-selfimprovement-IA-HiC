@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1818]
     sentence_count: 15
     key_terms: [pipeline, lead, automation, b2bmarketing, integration, everything, generation, salesforce]
+    concepts: [pipeline, automation, b2bmarketing, integration, everything]
     token_count: 366
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1swzcpj/how_a_fragmented_b2b_lead_stack_is_reducing/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1swzcpj.md#c1"
-    char_span: [1833, 3392]
+    char_span: [1832, 3391]
     sentence_count: 7
     key_terms: [looking-for-marketing-discussion-811236647760298024, questions, discord, tools, automatically, automoderator, b2bmarketing, moderators]
+    concepts: [looking-for-marketing-discussion-811236647760298024, questions, discord, tools, automatically]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/b2bmarketing/1swzcpj.md#c2"
-    char_span: [3394, 5421]
+    char_span: [3393, 5420]
     sentence_count: 14
     key_terms: [tools, system, logic, routing, qualification, enrichment, pipeline, because]
+    concepts: [tools, system, logic, qualification, routing]
     section: Comments
     token_count: 452
 ---

@@ -21,58 +21,73 @@ chunks:
     char_span: [0, 2258]
     sentence_count: 13
     key_terms: [retirement, accounts, parent, personalfinance, time, investment, comments, because]
+    concepts: [retirement, accounts, parent, personalfinance, investment]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1my7usg/parent_in_poverty_retirement_denial/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c1"
     char_span: [2260, 3406]
     sentence_count: 11
     key_terms: [parent, help, financial, recognize, options, people, condo, ideas]
+    concepts: [parent, financial, recognize, options, people]
     token_count: 247
   - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c2"
     char_span: [3420, 4244]
     sentence_count: 12
     key_terms: [parent, money, point, years, case, life, male, year]
+    concepts: [parent, money, point, years]
     section: Comments
     token_count: 201
   - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c3"
     char_span: [4246, 6207]
     sentence_count: 13
     key_terms: [housing, get, senior, care, good, time, retirement, annuities]
+    concepts: [housing, senior, retirement, annuities, assets]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c4"
     char_span: [6209, 7797]
     sentence_count: 15
     key_terms: [issue, renting, selling, condo, years, rent, proceeds, looking]
+    concepts: [issue, renting, selling, condo, years]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1my7usg.md#c6"]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c5"
     char_span: [7799, 9603]
     sentence_count: 15
     key_terms: [parents, help, need, pay, belongings, boundaries, accounts, directly]
+    concepts: [parents, belongings, boundaries, accounts, directly]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c6"
     char_span: [9605, 10961]
     sentence_count: 11
     key_terms: [condo, floor, money, possible, renting, without, necessaryemployer488, ask]
+    concepts: [condo, floor, money, possible, renting]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1my7usg.md#c4"]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c7"
     char_span: [10963, 12882]
     sentence_count: 16
     key_terms: [wide-bonus-4319, responsibility, money, help, housing, savings, filial, parent]
+    concepts: [wide-bonus-4319, responsibility, money, housing, savings]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1my7usg.md#c9"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c8"
     char_span: [12884, 14949]
     sentence_count: 22
     key_terms: [people, retirement, average-net-worth-by-age-how-do-you-measure-up, less, live, filial-responsibility-laws, medicaid, annuity]
+    concepts: [retirement, people, medicaid, annuity, becomes]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c9"
     char_span: [14951, 16221]
     sentence_count: 9
     key_terms: [housing, downsizing, without, option, money, put, unit, appreciated]
+    concepts: [housing, downsizing, without, option, money]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1my7usg.md#c7"]
     section: Comments
     token_count: 262
 ---

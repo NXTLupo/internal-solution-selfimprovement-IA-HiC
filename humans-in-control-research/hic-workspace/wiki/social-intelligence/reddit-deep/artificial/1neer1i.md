@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 469]
     sentence_count: 1
     key_terms: [artificial, comments, sharpkaleidoscope182, creaturefeature16, f0urleafcl0ver, reddit-deep, developers, cavemen]
+    concepts: [artificial, comments]
     token_count: 140
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1neer1i/developers_joke_about_coding_like_cavemen_as_ai/"}]
 ---
 # Developers joke about “coding like cavemen” as AI service suffers major outage
 

@@ -19,94 +19,120 @@ chunks:
     char_span: [0, 2455]
     sentence_count: 16
     key_terms: [college, people, trade, tradesmen, skilled, careerguidance, degree, trades]
+    concepts: [college, people, tradesmen, trade, careerguidance]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c9", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c14"]
     token_count: 522
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1thvdbp/skilled_trades_vs_college_what_is_your_opinion/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c1"
     char_span: [2457, 2888]
     sentence_count: 6
     key_terms: [people, trades, guaranteed, anti-college, conversation, romanticized, absolutely, direction]
+    concepts: [people, trades, guaranteed]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c6", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c7", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c8", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c9"]
     token_count: 79
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c2"
     char_span: [2902, 4383]
     sentence_count: 7
     key_terms: [jmclondon97, company, human, point, need, responsible-net8594, end, loop]
+    concepts: [jmclondon97, company, human, point]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c3"
     char_span: [4385, 5783]
     sentence_count: 9
     key_terms: [enough, management, college, great, lucky, charming-ebb-1981, get, long]
+    concepts: [enough, management, college, great, lucky]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c4"
     char_span: [5785, 7491]
     sentence_count: 9
     key_terms: [collar, union, white, people, bigtiddyhimbo, completely, finding, nursing]
+    concepts: [collar, union, white, bigtiddyhimbo, people]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c5", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c6", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c8"]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c5"
     char_span: [7493, 8438]
     sentence_count: 7
     key_terms: [healthcare, people, question, largely, collar, get, hard, real]
+    concepts: [healthcare, people, question, largely, collar]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c4", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c6"]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c6"
     char_span: [8440, 10430]
     sentence_count: 11
     key_terms: [people, trades, get, pushing, collar, hour, overtime, workers]
+    concepts: [people, trades, pushing, collar, overtime]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c1", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c4", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c5", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c7", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c8"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c7"
     char_span: [10432, 11914]
     sentence_count: 14
     key_terms: [trades, making, people, hour, own, told, work, something]
+    concepts: [trades, making, people, something, sometimes]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c1", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c6", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c8", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c9"]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c8"
     char_span: [11916, 13875]
     sentence_count: 12
     key_terms: [trades, work, people, bigtiddyhimbo, electricians, going, job, jobs]
+    concepts: [trades, people, bigtiddyhimbo, electricians, completely]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c1", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c4", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c6", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c7", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c9"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c9"
     char_span: [13877, 15913]
     sentence_count: 15
     key_terms: [people, trades, work, college, working, having, nurse, don]
+    concepts: [people, trades, college, working, having]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c0", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c1", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c6", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c7", "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c8"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c10"
     char_span: [15915, 17406]
     sentence_count: 13
     key_terms: [good, people, power, engineer, deliver, without, build, saltedporcupine217]
+    concepts: [people, power, engineer, deliver, without]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c11"
     char_span: [17408, 18453]
     sentence_count: 9
     key_terms: [installed, response, people, great, done, lot, own, shit]
+    concepts: [installed, response, people, great]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c12"
     char_span: [18455, 20472]
     sentence_count: 15
     key_terms: [engineering, manufacturing, apprentices, "it's", like, trandabear, industry, recently]
+    concepts: [engineering, manufacturing, apprentices, trandabear, industry]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c13"
     char_span: [20474, 21255]
     sentence_count: 3
     key_terms: [high, salary, years, theliiusion0fseif, able, line, past, work]
+    concepts: [salary, years]
     section: Comments
     token_count: 201
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c14"
     char_span: [21257, 23487]
     sentence_count: 13
     key_terms: [people, years, good, like, habits, never, trade, been]
+    concepts: [people, years, habits, never, trade]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c15"
     char_span: [23215, 23938]
     sentence_count: 8
     key_terms: [been, job, trades, responsible-net8594, "don't", telecommunications, done, long]
+    concepts: [trades, "don't"]
     section: Comments
     token_count: 178
 ---

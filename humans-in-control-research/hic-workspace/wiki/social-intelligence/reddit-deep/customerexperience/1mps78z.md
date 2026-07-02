@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 1059]
     sentence_count: 8
     key_terms: [customer, customerexperience, human, experience, companies, comments, better, cryrevolutionary7536]
+    concepts: [customer, customerexperience, experience, human, companies]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1mps78z.md#c1"]
     token_count: 225
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1mps78z/is_ai_making_customer_service_better_or_just_less/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1mps78z.md#c1"
-    char_span: [1074, 3231]
+    char_span: [1073, 3230]
     sentence_count: 13
     key_terms: [human, app, customer, ivr, consistent, experience, honestly, matters]
+    concepts: [human, customer, consistent, experience, honestly]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1mps78z.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/customerexperience/1mps78z.md#c2"
-    char_span: [2923, 4045]
+    char_span: [2922, 4044]
     sentence_count: 7
     key_terms: [like, real, instead, faster, people, person, basic, focus]
+    concepts: [instead, faster, people, person, basic]
     section: Comments
     token_count: 250
 ---

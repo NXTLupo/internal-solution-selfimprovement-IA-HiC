@@ -21,51 +21,61 @@ chunks:
     char_span: [0, 1816]
     sentence_count: 13
     key_terms: [doe, oct, wallstreetbets, grant, stock, cool, comments, balance]
+    concepts: [wallstreetbets, grant, stock, comments, balance]
     token_count: 495
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1o8qbja/abat_is_gonna_drop_tomorrow_at_open_1017_in_for/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o8qbja.md#c1"
     char_span: [1818, 3878]
     sentence_count: 15
     key_terms: [compensation, directors, project, board, "it's", impossible, viability, economic]
+    concepts: [compensation, directors, project, board, impossible]
     token_count: 489
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o8qbja.md#c2"
     char_span: [3880, 5317]
     sentence_count: 14
     key_terms: [grant, avg, puts, cash, nov, too, dilution, salaries]
+    concepts: [grant, dilution, salaries, burning, project]
     token_count: 381
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o8qbja.md#c3"
     char_span: [5331, 6483]
     sentence_count: 3
     key_terms: [firstforfun44, post, discord, interestingcheek7095, mother-chipmunk2778, "can't", hours, https]
+    concepts: [firstforfun44, discord, "can't", hours, https]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o8qbja.md#c4"
     char_span: [6485, 8109]
     sentence_count: 9
     key_terms: [mother-chipmunk2778, through, get, post, market, gamblingpharmastocks, primaryastronaut8916, eulif]
+    concepts: [mother-chipmunk2778, through, market, eulif]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o8qbja.md#c5"
     char_span: [8111, 10023]
     sentence_count: 12
     key_terms: [wsb, get, definitely, successful, average, bought, common, people]
+    concepts: [definitely, successful, average, bought, common]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o8qbja.md#c6"
     char_span: [9791, 10148]
     sentence_count: 2
     key_terms: ["they'd", calls, wsb, averaged, everyone, guessing, rejected, average]
+    concepts: ["they'd", calls]
     section: Comments
     token_count: 100
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o8qbja.md#c7"
     char_span: [10150, 11512]
     sentence_count: 7
     key_terms: [resources, inferred, indicated, measured, resource, project, classification, post]
+    concepts: [resources, inferred, indicated, measured, resource]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o8qbja.md#c8"
     char_span: [11514, 13154]
     sentence_count: 2
     key_terms: [misterjefe83, whateverisok, because, shares, captainunderpants111, calls, hours, right]
+    concepts: [misterjefe83, whateverisok, because, shares, calls]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o8qbja.md#c9"
@@ -78,6 +88,7 @@ chunks:
     char_span: [13179, 14721]
     sentence_count: 3
     key_terms: [trump-eyes-deeper-energy-project-cuts-as-shutdown-drags-on, article, semafor, https, com, www, dotadogma, c4958f7c218f27c104887ec75eccccd3f01e4568]
+    concepts: [trump-eyes-deeper-energy-project-cuts-as-shutdown-drags-on, article, semafor, https, dotadogma]
     section: Comments
     token_count: 511
 ---

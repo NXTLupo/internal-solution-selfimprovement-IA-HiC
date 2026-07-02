@@ -14,54 +14,63 @@ chunks:
     char_span: [0, 2317]
     sentence_count: 11
     key_terms: [problem, features, strategic, business, alternative, description, need, user]
+    concepts: [problem, features, strategic, business, alternative]
     section: "AP-PRD-001: Solution Masquerading as Problem / AP-PRD-002: Feature List Without Strategic Context"
     token_count: 439
   - id: "anti-patterns/prd.md#c1"
     char_span: [2363, 3389]
     sentence_count: 4
     key_terms: [criteria, acceptance, queries, results, language, search, fast, implementation]
+    concepts: [criteria, acceptance, queries, results, language]
     section: "AP-PRD-003: Vacuous Acceptance Criteria"
     token_count: 201
   - id: "anti-patterns/prd.md#c2"
     char_span: [3436, 4443]
     sentence_count: 3
     key_terms: [search, scope, analytics, language, requires, natural, built, state]
+    concepts: [search, scope, analytics, language, requires]
     section: "AP-PRD-004: Missing Out-of-Scope Section"
     token_count: 199
   - id: "anti-patterns/prd.md#c3"
     char_span: [4482, 5469]
     sentence_count: 6
     key_terms: [metrics, success, metric, self-service, resolution, trade-offs, guardrail, increase]
+    concepts: [metrics, success, self-service, metric, resolution]
     section: "AP-PRD-005: No Guardrail Metrics"
     token_count: 205
   - id: "anti-patterns/prd.md#c4"
     char_span: [5521, 6323]
     sentence_count: 2
     key_terms: [current, without, months, target, nps, baseline, achieve, metrics]
+    concepts: [current, without, months, target, baseline]
     section: "AP-PRD-006: Success Metrics Without Baselines"
     token_count: 184
   - id: "anti-patterns/prd.md#c5"
     char_span: [6378, 7320]
     sentence_count: 2
     key_terms: [implementation, stories, technical, user, search, perspective, developer, describe]
+    concepts: [implementation, stories, technical, search, perspective]
     section: "AP-PRD-007: User Stories That Are Actually Tasks"
     token_count: 183
   - id: "anti-patterns/prd.md#c6"
     char_span: [7362, 8319]
     sentence_count: 3
     key_terms: [risks, risk, mitigation, payment, dependency, processor, adoption, severity]
+    concepts: [risks, mitigation, payment, dependency, processor]
     section: "AP-PRD-008: Missing Risk Assessment"
     token_count: 181
   - id: "anti-patterns/prd.md#c7"
     char_span: [8353, 9479]
     sentence_count: 3
     key_terms: [requirements, prd, incorporating, specification, validated, document, learning, exactly]
+    concepts: [requirements, incorporating, specification, validated, document]
     section: "AP-PRD-009: PRD-as-Contract"
     token_count: 215
   - id: "anti-patterns/prd.md#c8"
     char_span: [9522, 10629]
     sentence_count: 7
     key_terms: [stakeholder, alignment, disagreements, stakeholders, engineering, unresolved, approved, document]
+    concepts: [stakeholder, alignment, disagreements, stakeholders, engineering]
     section: "AP-PRD-010: No Stakeholder Alignment"
     token_count: 218
 ---

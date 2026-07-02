@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 1298]
     sentence_count: 12
     key_terms: [class, semester, last, grade, got, help, "it's", assignment]
+    concepts: [semester, class, grade, assignment, gradschool]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sh7gj5.md#c1", "social-intelligence/reddit-deep/gradschool/1sh7gj5.md#c4"]
     token_count: 309
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1sh7gj5/my_fiancee_just_barely_dropped_below_the/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1sh7gj5.md#c1"
     char_span: [1312, 3337]
     sentence_count: 18
     key_terms: [needs, assignment, grade, professor, academic, graduate, rubric, talk]
+    concepts: [needs, assignment, professor, grade, academic]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sh7gj5.md#c0"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/gradschool/1sh7gj5.md#c2"
     char_span: [3339, 4730]
     sentence_count: 14
     key_terms: ["can't", professor, partner, problem, solve, emotionally, tyuiopguyt, students]
+    concepts: [professor, "can't", partner, problem, emotionally]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/gradschool/1sh7gj5.md#c3"
     char_span: [4732, 6571]
     sentence_count: 17
     key_terms: [my-other-favorite-ww, reason, here, tyuiopguyt, advice, handle, record, entrepreneurhuge5008]
+    concepts: [my-other-favorite-ww, reason, tyuiopguyt, advice, handle]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/gradschool/1sh7gj5.md#c4"
     char_span: [6573, 7069]
     sentence_count: 3
     key_terms: [assignment, final, entire, class, extra, exam, prof, presentation]
+    concepts: [assignment, final, entire, class, extra]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sh7gj5.md#c0"]
     section: Comments
     token_count: 112
 ---

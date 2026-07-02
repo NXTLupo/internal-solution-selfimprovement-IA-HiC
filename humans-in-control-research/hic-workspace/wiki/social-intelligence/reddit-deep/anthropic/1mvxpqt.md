@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 261]
     sentence_count: 1
     key_terms: [anthropic, comments, reddit-deep, context, claude, posted, reddit, source]
+    concepts: [anthropic, comments]
     token_count: 79
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1mvxpqt/claude_code_now_have_context_hook/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1mvxpqt.md#c1"
     char_span: [275, 1918]
     sentence_count: 7
     key_terms: [stingraycharles, mcp, tokens, tools, anthropic, already, certain, context]
+    concepts: [stingraycharles, tokens, tools, anthropic, already]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/anthropic/1mvxpqt.md#c2"
     char_span: [1920, 3500]
     sentence_count: 8
     key_terms: [github, https, com, bitching, jomon003, moaning, playmcp, useful]
+    concepts: [github, https, bitching, jomon003, moaning]
     section: Comments
     token_count: 504
 ---

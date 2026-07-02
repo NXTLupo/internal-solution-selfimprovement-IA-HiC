@@ -21,47 +21,59 @@ chunks:
     char_span: [0, 890]
     sentence_count: 3
     key_terms: [savings, povertyfinance, insurance, comments, shopping, budget, events, strawberryspinachcat]
+    concepts: [povertyfinance, savings, insurance, comments, shopping]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c2"]
     token_count: 262
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1ssczoj/share_your_monthly_budget/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c1"
     char_span: [904, 2419]
     sentence_count: 11
     key_terms: [cantsleepconfused, rent, polishrocket, utilities, expenses, account, average, budget]
+    concepts: [cantsleepconfused, polishrocket, utilities, expenses, account]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c2"
     char_span: [2421, 3987]
     sentence_count: 7
     key_terms: [expenses, savings, costco, groceries, insurance, utilities, interest, internet]
+    concepts: [expenses, savings, costco, groceries, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c0", "social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c6"]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c3"
     char_span: [3990, 5612]
     sentence_count: 12
     key_terms: [child, frozenrage1989, support, income, month, chicken, making, salary]
+    concepts: [frozenrage1989, child, support, income, month]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c4"
     char_span: [5614, 7458]
     sentence_count: 12
     key_terms: [paid, empty-disaster-6738, insurance, includes, internet, monthly, income, single]
+    concepts: [empty-disaster-6738, insurance, includes, internet, monthly]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c5"
     char_span: [7460, 9064]
     sentence_count: 8
     key_terms: [debt, mortgage, hoa, management, savings, credit, people, whatelsecouldiwrite]
+    concepts: [mortgage, management, savings, credit, people]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c6"
     char_span: [9067, 10283]
     sentence_count: 6
     key_terms: [mortgage, subscriptions, house, groceries, insurance, expenses, income, month]
+    concepts: [mortgage, subscriptions, house, groceries, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c2"]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c7"
     char_span: [10285, 10890]
     sentence_count: 5
     key_terms: [people, reason, communication, purplechips7, groceries, important, remaining, expenses]
+    concepts: [people, reason]
     section: Comments
     token_count: 158
 ---

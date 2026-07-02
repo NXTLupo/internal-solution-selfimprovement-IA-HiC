@@ -21,11 +21,15 @@ chunks:
     char_span: [0, 812]
     sentence_count: 6
     key_terms: [jobs, people, comments, anymore, starter, reddit-deep, experience, trampoline]
+    concepts: [people, comments, anymore, starter]
     token_count: 196
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1lzwstq/starter_jobs_arent_starter_jobs_anymore/"}]
   - id: "social-intelligence/reddit-deep/jobs/1lzwstq.md#c1"
     char_span: [826, 2951]
     sentence_count: 21
     key_terms: [unemployment, people, time, older, job, jobs, corporate, because]
+    concepts: [unemployment, people, older, corporate, because]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lzwstq.md#c13"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/jobs/1lzwstq.md#c2"
@@ -38,6 +42,7 @@ chunks:
     char_span: [3270, 5831]
     sentence_count: 7
     key_terms: [generation, market, job, entering, burden, since, absolutely, personally]
+    concepts: [generation, market, entering, burden, absolutely]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1lzwstq.md#c4"
@@ -50,42 +55,53 @@ chunks:
     char_span: [5845, 7599]
     sentence_count: 14
     key_terms: ["hadn't", get, economy, people, supposed, another, fucking, somehow]
+    concepts: ["hadn't", economy, people, supposed, another]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lzwstq.md#c8", "social-intelligence/reddit-deep/jobs/1lzwstq.md#c14"]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/jobs/1lzwstq.md#c6"
     char_span: [7601, 9440]
     sentence_count: 12
     key_terms: [retirement, people, retire, experience, age, jobs, getting, almost]
+    concepts: [retirement, experience, people, retire, getting]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lzwstq.md#c14"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/jobs/1lzwstq.md#c7"
     char_span: [9442, 10129]
     sentence_count: 5
     key_terms: [mcdonalds, setting, retire, "that's", alwayscalculating, type, lurkingainteazy, entertainment]
+    concepts: [mcdonalds, setting, retire, "that's"]
     section: Comments
     token_count: 177
   - id: "social-intelligence/reddit-deep/jobs/1lzwstq.md#c8"
     char_span: [10131, 12164]
     sentence_count: 10
     key_terms: [people, workers, economy, job, jobs, lot, cashiers, better]
+    concepts: [people, workers, economy, cashiers, better]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lzwstq.md#c5", "social-intelligence/reddit-deep/jobs/1lzwstq.md#c14"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/jobs/1lzwstq.md#c9"
     char_span: [12166, 14176]
     sentence_count: 15
     key_terms: [jobs, people, school, time, working, teens, deleted, exactly]
+    concepts: [people, school, working, teens, deleted]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lzwstq.md#c13", "social-intelligence/reddit-deep/jobs/1lzwstq.md#c14"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/jobs/1lzwstq.md#c10"
     char_span: [14178, 14877]
     sentence_count: 8
     key_terms: [job, time, online, school, doing, since, get, high]
+    concepts: [online, school, doing, since]
     section: Comments
     token_count: 167
   - id: "social-intelligence/reddit-deep/jobs/1lzwstq.md#c11"
     char_span: [14879, 16958]
     sentence_count: 16
     key_terms: [got, get, job, family, applications, day, jobs, time]
+    concepts: [applications, family, everywhere, happening, applying]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1lzwstq.md#c12"
@@ -98,24 +114,32 @@ chunks:
     char_span: [16986, 18888]
     sentence_count: 16
     key_terms: [been, years, because, people, school, older, brainwavecc, get]
+    concepts: [years, because, people, school, brainwavecc]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lzwstq.md#c1", "social-intelligence/reddit-deep/jobs/1lzwstq.md#c9", "social-intelligence/reddit-deep/jobs/1lzwstq.md#c14"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/jobs/1lzwstq.md#c14"
     char_span: [18890, 20998]
     sentence_count: 15
     key_terms: [people, jobs, get, job, look, step, experience, economy]
+    concepts: [people, experience, economy, website, school]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lzwstq.md#c5", "social-intelligence/reddit-deep/jobs/1lzwstq.md#c6", "social-intelligence/reddit-deep/jobs/1lzwstq.md#c8", "social-intelligence/reddit-deep/jobs/1lzwstq.md#c9", "social-intelligence/reddit-deep/jobs/1lzwstq.md#c13"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/jobs/1lzwstq.md#c15"
     char_span: [21000, 23113]
     sentence_count: 11
     key_terms: [clep, college, https, collegeboard, clep-college-credit-policy-search, exam, org, clep-test-center-search]
+    concepts: [college, collegeboard, https, clep-college-credit-policy-search, clep-test-center-search]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lzwstq.md#c16"]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/jobs/1lzwstq.md#c16"
     char_span: [23115, 24394]
     sentence_count: 4
     key_terms: [https, credits-deductions, about-form-1098-e, gov, irs, jobs, www, benefits]
+    concepts: [credits-deductions, about-form-1098-e, https, benefits, college]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lzwstq.md#c15"]
     section: Comments
     token_count: 324
 ---

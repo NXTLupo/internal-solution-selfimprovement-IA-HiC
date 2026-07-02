@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 799]
     sentence_count: 8
     key_terms: [university, applyingtocollege, program, pre-college, comments, academy, anyone, online]
+    concepts: [university, applyingtocollege, program, pre-college, comments]
     token_count: 189
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1q61tuw/anyone_have_experience_with_academy_of_art/"}]
 ---
 # Anyone have experience with Academy of Art University’s online Pre-College program?
 

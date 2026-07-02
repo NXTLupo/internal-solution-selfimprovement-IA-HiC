@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1516]
     sentence_count: 10
     key_terms: [credit, card, debt, genz, poor, christmas, comments, discord]
+    concepts: [credit, christmas, comments, discord, always]
     token_count: 384
+    sources: [{"n":"Reddit Deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1s4vcpi/credit_card_debt/"}]
   - id: "articles/reddit-deep-r-genz/cdf5e3fcab.md#c1"
     char_span: [1518, 2920]
     sentence_count: 7
     key_terms: [debt, credit, people, card, get, bought, properobligation9779, like]
+    concepts: [credit, people, bought]
     token_count: 333
 ---
 # Credit card debt

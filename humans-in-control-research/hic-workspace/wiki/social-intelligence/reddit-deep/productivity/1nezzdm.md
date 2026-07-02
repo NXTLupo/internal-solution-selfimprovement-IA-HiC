@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1385]
     sentence_count: 11
     key_terms: [mornings, scrolling, random, productivity, like, time, comments, stealing]
+    concepts: [mornings, scrolling, productivity, random, comments]
     token_count: 319
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1nezzdm/screens_are_stealing_my_mornings_and_im_letting/"}]
   - id: "social-intelligence/reddit-deep/productivity/1nezzdm.md#c1"
     char_span: [1399, 3361]
     sentence_count: 14
     key_terms: [phone, routine, feel, like, doing, beginning, instagram, realizing]
+    concepts: [phone, routine, doing, beginning, instagram]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/productivity/1nezzdm.md#c2"
     char_span: [3363, 5170]
     sentence_count: 13
     key_terms: [phone, morning, brick, lock, social, media, get, bedroom]
+    concepts: [phone, morning, brick, social, media]
     section: Comments
     token_count: 445
 ---

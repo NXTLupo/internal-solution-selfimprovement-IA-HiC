@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 764]
     sentence_count: 6
     key_terms: [experience, engineeringstudents, wanted, engineering, comments, students, looking, startup]
+    concepts: [engineeringstudents, experience, wanted, engineering, comments]
     token_count: 166
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1m7qkfy/any_engineering_students_looking_for/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1m7qkfy.md#c1"
     char_span: [778, 1308]
     sentence_count: 5
     key_terms: [investment, platform, startup, mrtophatlizard, different, scheduler, everyone, recycled]
+    concepts: [investment, platform, startup]
     section: Comments
     token_count: 144
 ---

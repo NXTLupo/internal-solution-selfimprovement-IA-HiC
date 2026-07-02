@@ -8,25 +8,38 @@ chunks:
     char_span: [0, 314]
     sentence_count: 3
     key_terms: [journey, matrix, slide, table, body, opportunities, user-directed, actor-lane]
+    concepts: [journey, matrix, slide, table]
     token_count: 75
   - id: "design-system/journey-map-in-table-anatomy.md#c1"
-    char_span: [348, 1883]
+    char_span: [347, 1882]
     sentence_count: 12
     key_terms: [phase, row, accent, distribute, cell, mono, opportunities, qualitative]
+    concepts: [phase, distribute, accent, opportunities, qualitative]
+    related_chunks: ["design-system/journey-map-in-table-anatomy.md#c2"]
     section: Row anatomy (top to bottom)
     token_count: 382
   - id: "design-system/journey-map-in-table-anatomy.md#c2"
-    char_span: [1941, 2334]
+    char_span: [1940, 2333]
     sentence_count: 3
     key_terms: [opportunities, phase, overallpainpoints, item, count-adaptive, full-payload, chronology, generating]
+    concepts: [opportunities, phase]
+    related_chunks: ["design-system/journey-map-in-table-anatomy.md#c1"]
     section: Arc-ordering contract (load-bearing for generation)
     token_count: 92
   - id: "design-system/journey-map-in-table-anatomy.md#c3"
-    char_span: [2366, 2861]
+    char_span: [2365, 2860]
     sentence_count: 1
     key_terms: [slidetemplates, components, corpuschatservice, renderjourneymap, slidetostagehtml, journeymapslide, string-or-array, journeymapdata]
+    concepts: [slidetemplates, components]
     section: Code twins (keep in sync)
     token_count: 131
+  - id: "design-system/journey-map-in-table-anatomy.md#c4"
+    char_span: [2903, 3335]
+    sentence_count: 4
+    key_terms: [cells, generation-side, opportunities, summarization, attributions, over-budget, keyinsight, fragments]
+    concepts: [cells]
+    section: No-truncation contract (2026-06-12)
+    token_count: 99
 ---
 # Journey Map GOLD anatomy - the matrix IS the slide body
 

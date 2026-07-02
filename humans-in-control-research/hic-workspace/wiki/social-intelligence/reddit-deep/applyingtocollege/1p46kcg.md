@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1510]
     sentence_count: 10
     key_terms: [applyingtocollege, applications, great, competition, look, nslc, activities, diplomacy]
+    concepts: [applyingtocollege, applications, competition, activities, great]
     token_count: 330
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1p46kcg/putting_nslc_on_college_applications/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p46kcg.md#c1"
     char_span: [1524, 2457]
     sentence_count: 3
     key_terms: [nslc, impressive, acknowledge, scholarship, attendance, colleges, covered, mention]
+    concepts: [impressive, acknowledge, scholarship, attendance, colleges]
     section: Comments
     token_count: 212
 ---

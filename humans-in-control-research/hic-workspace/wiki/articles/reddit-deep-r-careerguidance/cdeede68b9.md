@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1161]
     sentence_count: 12
     key_terms: [job, careerguidance, java, role, developer, engineer, company, package]
+    concepts: [careerguidance, developer, engineer, company, package]
     token_count: 271
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sc2gu9/which_career_pathjava_development_or/"}]
 ---
 # Which career path—Java development or DevOps/Cloud—will give me better long-term salary growth and job stability, considering I want to switch from QA early in my career?
 

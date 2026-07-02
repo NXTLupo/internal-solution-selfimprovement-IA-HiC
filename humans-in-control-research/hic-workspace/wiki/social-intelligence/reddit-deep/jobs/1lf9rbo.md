@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 685]
     sentence_count: 2
     key_terms: [jobs, white-collar, entry-level, comments, amodei, sugar-coating, unemployment, elimination]
+    concepts: [white-collar, entry-level, comments, amodei]
     token_count: 168
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1lf9rbo/ai_could_wipe_out_half_of_all_entrylevel/"}]
   - id: "social-intelligence/reddit-deep/jobs/1lf9rbo.md#c1"
     char_span: [699, 2639]
     sentence_count: 14
     key_terms: [always, company, people, human, "it's", new, tech, companies]
+    concepts: [always, company, people, human, companies]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lf9rbo.md#c3"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/jobs/1lf9rbo.md#c2"
     char_span: [2641, 3673]
     sentence_count: 12
     key_terms: [boogeyman, customers, business, people, though, doing, ceo, etc]
+    concepts: [boogeyman, customers, business, people, though]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/jobs/1lf9rbo.md#c3"
     char_span: [3675, 5563]
     sentence_count: 15
     key_terms: [eighteen64, afartinanemptyroom, jobs, people, aaronfromky, companies, something, children]
+    concepts: [afartinanemptyroom, eighteen64, people, aaronfromky, companies]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lf9rbo.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1lf9rbo.md#c4"

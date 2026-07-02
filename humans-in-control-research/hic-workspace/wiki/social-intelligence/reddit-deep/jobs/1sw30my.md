@@ -19,88 +19,111 @@ chunks:
     char_span: [0, 2104]
     sentence_count: 25
     key_terms: [applied, short-staffed, apply, asked, call, get, told, work]
+    concepts: [short-staffed, applied, apply, asked, explained]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1sw30my/i_didnt_even_apply_there/"}]
   - id: "social-intelligence/reddit-deep/jobs/1sw30my.md#c1"
     char_span: [2106, 3298]
     sentence_count: 12
     key_terms: [responded, comments, employee, location, commute, asked, sammy, been]
+    concepts: [responded, comments, employee, location, commute]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sw30my.md#c7"]
     token_count: 261
   - id: "social-intelligence/reddit-deep/jobs/1sw30my.md#c2"
     char_span: [3312, 5423]
     sentence_count: 8
     key_terms: [job, interview, kind, management, because, getting, refresh, dollar]
+    concepts: [interview, management, because, getting, refresh]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sw30my.md#c3"
     char_span: [5174, 7288]
     sentence_count: 16
     key_terms: [store, job, manager, get, interview, applied, misery, imjusthere4thecatz]
+    concepts: [store, manager, interview, applied, misery]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sw30my.md#c4"
     char_span: [7032, 8969]
     sentence_count: 6
     key_terms: [dollar, family, tried, walk, management, answer, minute, person]
+    concepts: [dollar, family, management, tried, answer]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sw30my.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sw30my.md#c5"
     char_span: [8765, 9323]
     sentence_count: 2
     key_terms: [dollar, family, relocate, "that's", job, mentaladventure, "corporate's", radiantzote]
+    concepts: [dollar, family, relocate, "that's"]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sw30my.md#c4"]
     section: Comments
     token_count: 151
   - id: "social-intelligence/reddit-deep/jobs/1sw30my.md#c6"
     char_span: [9326, 11181]
     sentence_count: 15
     key_terms: [applied, job, moved, like, nah, year, actively, location]
+    concepts: [applied, moved, actively, location, position]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sw30my.md#c9", "social-intelligence/reddit-deep/jobs/1sw30my.md#c13"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/jobs/1sw30my.md#c7"
     char_span: [11183, 13322]
     sentence_count: 22
     key_terms: ["mcdonald's", never, get, like, employee, because, commute, manager]
+    concepts: ["mcdonald's", never, employee, because, commute]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sw30my.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sw30my.md#c8"
     char_span: [13054, 13550]
     sentence_count: 5
     key_terms: [company, working, reputation, ambulance, something, accepted, corey307, coworker]
+    concepts: [company, working]
     section: Comments
     token_count: 114
   - id: "social-intelligence/reddit-deep/jobs/1sw30my.md#c9"
     char_span: [13552, 15602]
     sentence_count: 14
     key_terms: [job, another, applied, location, station, sammy, store, interview]
+    concepts: [another, applied, location, station, sammy]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sw30my.md#c6", "social-intelligence/reddit-deep/jobs/1sw30my.md#c13"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sw30my.md#c10"
     char_span: [15353, 16460]
     sentence_count: 7
     key_terms: [staffed, austin, little, steven, wanted, store, sgtsilverlining, international]
+    concepts: [staffed, austin, little, steven, wanted]
     section: Comments
     token_count: 289
   - id: "social-intelligence/reddit-deep/jobs/1sw30my.md#c11"
     char_span: [16462, 18185]
     sentence_count: 15
     key_terms: [employees, dollar-general-understaffed-stores-to-its-detriment-suit-says, hours, job, time, week, certain, someone]
+    concepts: [employees, hours, certain, someone, staffed]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/jobs/1sw30my.md#c12"
     char_span: [18187, 18988]
     sentence_count: 7
     key_terms: [people, job, desperate, relocate, thissitesuxsohardomg, weird, want, sluttyaunteater]
+    concepts: [people, desperate, relocate, weird]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/jobs/1sw30my.md#c13"
     char_span: [18990, 21037]
     sentence_count: 16
     key_terms: [location, like, applied, though, rabicanshiver, miles, job, commute]
+    concepts: [location, rabicanshiver, applied, though, miles]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1sw30my.md#c6", "social-intelligence/reddit-deep/jobs/1sw30my.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sw30my.md#c14"
     char_span: [20769, 21325]
     sentence_count: 4
     key_terms: [instead, though, sea-opportunity5812, rabicanshiver, realboabab, commuting, roundtrip, applied]
+    concepts: [instead, though]
     section: Comments
     token_count: 148
 ---

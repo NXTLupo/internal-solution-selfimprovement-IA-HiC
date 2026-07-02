@@ -21,57 +21,71 @@ chunks:
     char_span: [0, 1815]
     sentence_count: 9
     key_terms: [https, com, calculators, will-money-last-retire-early, different, fire-retirement-calculator, financialindependence, like]
+    concepts: [https, will-money-last-retire-early, calculators, fire-retirement-calculator, different]
     token_count: 456
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1pe35gm/fire_calculators_that_do_different_and/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1pe35gm.md#c1"
     char_span: [1817, 3795]
     sentence_count: 6
     key_terms: [com, https, http, engaging-data, networthify, retirement-planning-calculator, calculator, fire]
+    concepts: [https, engaging-data, retirement-planning-calculator, networthify, calculator]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1pe35gm.md#c2", "social-intelligence/reddit-deep/financialindependence/1pe35gm.md#c3"]
     token_count: 502
   - id: "social-intelligence/reddit-deep/financialindependence/1pe35gm.md#c2"
     char_span: [3797, 4782]
     sentence_count: 5
     key_terms: [https, com, www, calculator, ficalc, flexibleretirementplanner, portfoliovisualizer, app]
+    concepts: [https, calculator, flexibleretirementplanner, ficalc, portfoliovisualizer]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1pe35gm.md#c1"]
     token_count: 243
   - id: "social-intelligence/reddit-deep/financialindependence/1pe35gm.md#c3"
     char_span: [4796, 6610]
     sentence_count: 10
     key_terms: [will-money-last-retire-early, calculator, time, engaging-data, broke, dead, seriously, looking]
+    concepts: [will-money-last-retire-early, calculator, engaging-data, broke, seriously]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1pe35gm.md#c1"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/financialindependence/1pe35gm.md#c4"
     char_span: [6613, 8527]
     sentence_count: 11
     key_terms: [developer, "i'm", firecalc, projects, bitcoin, being, since, community]
+    concepts: [developer, firecalc, projects, bitcoin, being]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/financialindependence/1pe35gm.md#c5"
     char_span: [8529, 10489]
     sentence_count: 13
     key_terms: [withdrawal, account, because, being, understand, various, figure, method]
+    concepts: [withdrawal, account, because, being, understand]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/financialindependence/1pe35gm.md#c6"
     char_span: [10491, 12428]
     sentence_count: 12
     key_terms: [version, analysis, free, saferetirementspending, mmrose1980, tax, inflation, drawdown]
+    concepts: [version, saferetirementspending, analysis, mmrose1980, inflation]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/financialindependence/1pe35gm.md#c7"
     char_span: [12430, 14203]
     sentence_count: 11
     key_terms: [https, walletburst, app, owlplanner, streamlit, kookdonk, account, dornith]
+    concepts: [https, walletburst, owlplanner, streamlit, kookdonk]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/financialindependence/1pe35gm.md#c8"
     char_span: [14205, 16143]
     sentence_count: 12
     key_terms: [calculators, information, fire, like, tax, experience, inflation, lifestyle]
+    concepts: [calculators, information, experience, inflation, lifestyle]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/financialindependence/1pe35gm.md#c9"
     char_span: [16145, 16401]
     sentence_count: 2
     key_terms: [rnovadigital, place, com, www, connected, downside, progress, playing]
+    concepts: [rnovadigital, place]
     section: Comments
     token_count: 60
 ---

@@ -17,10 +17,12 @@ research_goal: "Deliver a comprehensive 2026 outlook report on the global retail
 engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
 chunks:
   - id: "social-intelligence/reddit-deep/customerexperience/1rfuc10.md#c0"
-    char_span: [0, 1501]
+    char_span: [0, 1500]
     sentence_count: 2
     key_terms: [lorikeetcx, cx-jobs, https, www, support-operations-analyst-ai-automation-linktree, vp-cx-ccaas-ai-transformation-engagement-lead-exl, automation, automations-ai-specialist-product-support-figma]
-    token_count: 405
+    concepts: [lorikeetcx, cx-jobs, https, customerexperience, automation]
+    token_count: 404
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1rfuc10/cx_jobs_this_week_where_ai_is_actually_part_of/"}]
 ---
 # CX jobs this week where AI is actually part of the work (not just the job ad)
 

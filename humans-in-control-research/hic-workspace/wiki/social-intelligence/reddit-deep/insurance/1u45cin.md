@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1948]
     sentence_count: 21
     key_terms: [insurance, fault, geico, state, farm, "i'm", accident, called]
+    concepts: [insurance, fault, geico, state, accident]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1u45cin.md#c3"]
     token_count: 448
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1u45cin/insurance_agreed_5050_split_then_caved_said_im_at/"}]
   - id: "social-intelligence/reddit-deep/insurance/1u45cin.md#c1"
-    char_span: [1963, 4098]
+    char_span: [1962, 4097]
     sentence_count: 16
     key_terms: [liability, detrimental, reliance, back, helpful-macaron1096, geico, money, living-listen-2147]
+    concepts: [liability, detrimental, reliance, helpful-macaron1096, living-listen-2147]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/insurance/1u45cin.md#c2"
-    char_span: [4100, 6069]
+    char_span: [4099, 6068]
     sentence_count: 13
     key_terms: [state, farm, liability, money, payment, back, owed, collision]
+    concepts: [state, liability, money, payment, collision]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/insurance/1u45cin.md#c3"
-    char_span: [6071, 7557]
+    char_span: [6070, 7556]
     sentence_count: 11
     key_terms: [insurance, fault, company, driver, slowhand1971, state, video, pay]
+    concepts: [insurance, fault, company, slowhand1971, driver]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1u45cin.md#c0"]
     section: Comments
     token_count: 372
 ---

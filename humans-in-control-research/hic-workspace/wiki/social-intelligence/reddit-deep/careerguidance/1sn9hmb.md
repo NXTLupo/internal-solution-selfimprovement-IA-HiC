@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 338]
     sentence_count: 2
     key_terms: [careerguidance, comments, reddit-deep, bhuvi1991, developer, realistic, learning, android]
+    concepts: [careerguidance, comments]
     token_count: 99
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sn9hmb/10_yoe_senior_android_developer_learning_data/"}]
 ---
 # 10+ YOE Senior Android Developer learning Data Science — What’s the realistic "next step" in the Job market?
 

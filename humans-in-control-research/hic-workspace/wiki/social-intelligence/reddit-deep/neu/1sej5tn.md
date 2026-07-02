@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 855]
     sentence_count: 8
     key_terms: [final, neu, comments, semester, student, scared, school, mocks]
+    concepts: [final, comments, semester, student, scared]
     token_count: 229
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sej5tn/help_im_scared/"}]
   - id: "social-intelligence/reddit-deep/neu/1sej5tn.md#c1"
     char_span: [869, 941]
     sentence_count: 1
@@ -30,12 +32,14 @@ chunks:
     char_span: [943, 2978]
     sentence_count: 8
     key_terms: [fine, get, email, final, freshman, yourself, america, average]
+    concepts: [email, final, freshman, yourself, america]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1sej5tn.md#c3"
     char_span: [2695, 3961]
     sentence_count: 15
     key_terms: [lot, transcript, student, finals, school, "don't", place, potential-visit741]
+    concepts: [transcript, student, finals, school, "don't"]
     section: Comments
     token_count: 326
 ---

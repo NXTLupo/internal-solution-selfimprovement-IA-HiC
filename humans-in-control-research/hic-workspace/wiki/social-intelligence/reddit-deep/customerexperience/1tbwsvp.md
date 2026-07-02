@@ -20,17 +20,24 @@ chunks:
     char_span: [0, 2030]
     sentence_count: 12
     key_terms: [customer, customerexperience, like, support, day, get, customers, comments]
+    concepts: [customer, customerexperience, support, customers, comments]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1tbwsvp.md#c1", "social-intelligence/reddit-deep/customerexperience/1tbwsvp.md#c2"]
     token_count: 447
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1tbwsvp/why_customer_support_is_still_a_nightmare_even/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1tbwsvp.md#c1"
-    char_span: [2045, 4631]
+    char_span: [2044, 4630]
     sentence_count: 18
     key_terms: [support, like, customer, companies, messaging, instead, asynchronous, expectations]
+    concepts: [support, customer, companies, messaging, instead]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1tbwsvp.md#c0", "social-intelligence/reddit-deep/customerexperience/1tbwsvp.md#c2"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/customerexperience/1tbwsvp.md#c2"
-    char_span: [4633, 6156]
+    char_span: [4632, 6155]
     sentence_count: 13
     key_terms: [customer, support, frustrating, underneath, companies, channels, contact, getting]
+    concepts: [customer, support, frustrating, underneath, companies]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1tbwsvp.md#c0", "social-intelligence/reddit-deep/customerexperience/1tbwsvp.md#c1"]
     section: Comments
     token_count: 306
 ---

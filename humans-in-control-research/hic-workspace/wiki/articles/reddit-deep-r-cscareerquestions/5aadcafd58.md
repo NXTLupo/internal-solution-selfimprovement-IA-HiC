@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 2279]
     sentence_count: 11
     key_terms: [graduated, been, because, internship, cscareerquestions, "i'm", focus, back]
+    concepts: [graduated, because, internship, cscareerquestions, focus]
     token_count: 503
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qo5imy/graduated_in_2021_but_havent_been_able_to_find/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/5aadcafd58.md#c1"
     char_span: [2281, 4567]
     sentence_count: 23
     key_terms: [job, interested, like, give, current, people, going, point]
+    concepts: [interested, current, people, directjacob, programming]
     token_count: 499
   - id: "articles/reddit-deep-r-cscareerquestions/5aadcafd58.md#c2"
     char_span: [4569, 6018]
     sentence_count: 17
     key_terms: [people, build, study, job, use, want, advice, having]
+    concepts: [people, build, study, advice, having]
     token_count: 336
 ---
 # Graduated in 2021 but haven't been able to find work or time to practice/build a portfolio sense, not sure where to go from here.

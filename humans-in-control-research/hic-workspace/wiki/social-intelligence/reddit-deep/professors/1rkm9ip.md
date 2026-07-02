@@ -19,107 +19,135 @@ chunks:
     char_span: [0, 1654]
     sentence_count: 24
     key_terms: [professors, different, professor, comments, specific, students, thoughts, blame]
+    concepts: [professors, different, professor, comments, specific]
     token_count: 393
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1rkm9ip/specific_ways_students_are_different/"}]
   - id: "social-intelligence/reddit-deep/professors/1rkm9ip.md#c1"
     char_span: [1668, 3669]
     sentence_count: 19
     key_terms: [matrix, find, learning, tutorial, something, wonder, expectation, concept]
+    concepts: [matrix, learning, tutorial, something, wonder]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rkm9ip.md#c2"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/professors/1rkm9ip.md#c2"
     char_span: [3671, 5590]
     sentence_count: 15
     key_terms: [like, skills, something, learning, semester, harvard, learned, course]
+    concepts: [skills, something, learning, semester, harvard]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rkm9ip.md#c1"]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/professors/1rkm9ip.md#c3"
     char_span: [5592, 7046]
     sentence_count: 11
     key_terms: [information, ancient, because, rome, anything, external, students, youtube]
+    concepts: [information, ancient, because, anything, external]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/professors/1rkm9ip.md#c4"
     char_span: [7048, 9103]
     sentence_count: 21
     key_terms: [email, candlelight, back, help, downtown, response, parents, toiling]
+    concepts: [candlelight, email, downtown, response, parents]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/professors/1rkm9ip.md#c5"
     char_span: [9106, 9924]
     sentence_count: 8
     key_terms: [easy, learning, answers, course, "didn't", review, give, "it's"]
+    concepts: [learning, answers, course, "didn't", review]
     section: Comments
     token_count: 188
   - id: "social-intelligence/reddit-deep/professors/1rkm9ip.md#c6"
     char_span: [9926, 11914]
     sentence_count: 10
     key_terms: [because, understand, class, homework, material, bimodal, college, bell]
+    concepts: [because, understand, class, homework, material]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/professors/1rkm9ip.md#c7"
     char_span: [11916, 13956]
     sentence_count: 14
     key_terms: [don, students, videos, ctenophorever, instructions, get, complaints, something]
+    concepts: [students, ctenophorever, instructions, videos, complaints]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rkm9ip.md#c8"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/professors/1rkm9ip.md#c8"
     char_span: [13958, 15602]
     sentence_count: 13
     key_terms: [students, videos, don, seeing, class, "don't", study, watch]
+    concepts: [students, videos, seeing, class, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rkm9ip.md#c7", "social-intelligence/reddit-deep/professors/1rkm9ip.md#c9"]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/professors/1rkm9ip.md#c9"
     char_span: [15604, 17491]
     sentence_count: 19
     key_terms: [students, college, class, get, difficult, full-time, literate, however]
+    concepts: [students, college, class, difficult, full-time]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rkm9ip.md#c8", "social-intelligence/reddit-deep/professors/1rkm9ip.md#c16"]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/professors/1rkm9ip.md#c10"
     char_span: [17493, 19143]
     sentence_count: 10
     key_terms: [observation, app, quit, use, computer, students, teaching, blowing]
+    concepts: [observation, computer, students, teaching, blowing]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rkm9ip.md#c11", "social-intelligence/reddit-deep/professors/1rkm9ip.md#c16"]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/professors/1rkm9ip.md#c11"
     char_span: [19145, 20362]
     sentence_count: 11
     key_terms: [students, years, computer, laptops, program, phones, chickenfightyourmom, "don't"]
+    concepts: [students, years, computer, laptops, program]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rkm9ip.md#c10", "social-intelligence/reddit-deep/professors/1rkm9ip.md#c15"]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/professors/1rkm9ip.md#c12"
     char_span: [20364, 22585]
     sentence_count: 24
     key_terms: [computer, generation, document, replaces, folder, social, files, box]
+    concepts: [computer, generation, document, replaces, folder]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/professors/1rkm9ip.md#c13"
     char_span: [22587, 24446]
     sentence_count: 12
     key_terms: [outlets, traditional, media, reporting, get, happening, minnesota, happened]
+    concepts: [traditional, outlets, reporting, media, happening]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/professors/1rkm9ip.md#c14"
     char_span: [24448, 26437]
     sentence_count: 14
     key_terms: [something, advising, captcha, ratings, better, class, video, mother-of-vampires]
+    concepts: [something, advising, captcha, ratings, better]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/professors/1rkm9ip.md#c15"
     char_span: [26439, 28402]
     sentence_count: 12
     key_terms: [parents, years, bad, kid, too, everything, behavior, students]
+    concepts: [parents, everything, years, behavior, students]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rkm9ip.md#c11"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/professors/1rkm9ip.md#c16"
     char_span: [28404, 30255]
     sentence_count: 13
     key_terms: [something, students, difficult, although, teaching, thinking, student, racist]
+    concepts: [something, students, difficult, although, teaching]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rkm9ip.md#c9", "social-intelligence/reddit-deep/professors/1rkm9ip.md#c10"]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/professors/1rkm9ip.md#c17"
     char_span: [30257, 31356]
     sentence_count: 7
     key_terms: [learning, dr-nom-de-plume, contradictory, growthmindset, opportunities, arrakeensun, experiences, incorrectly]
+    concepts: [learning]
     section: Comments
     token_count: 258
 ---

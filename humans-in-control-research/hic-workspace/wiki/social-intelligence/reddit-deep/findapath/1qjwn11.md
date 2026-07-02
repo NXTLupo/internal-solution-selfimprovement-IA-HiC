@@ -21,52 +21,62 @@ chunks:
     char_span: [0, 2293]
     sentence_count: 14
     key_terms: ["i've", completely, work, career, understanding, like, time, understand]
+    concepts: [completely, understanding, career, understand, decisions]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1qjwn11/whats_the_one_thing_that_actually_made_you/"}]
   - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c1"
     char_span: [2295, 4687]
     sentence_count: 15
     key_terms: [yourself, "i'm", career, assessment, better, people, years, real]
+    concepts: [yourself, assessment, career, better, people]
     token_count: 481
   - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c2"
     char_span: [4701, 6719]
     sentence_count: 19
     key_terms: [thank, life, helpful, people, please, findapath, comments, deathbed]
+    concepts: [thank, helpful, people, please, findapath]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c3"
     char_span: [6721, 8680]
     sentence_count: 35
     key_terms: [like, company, job, burnout, career, sector, maybe, start]
+    concepts: [company, burnout, career, sector, maybe]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c4"
     char_span: [8682, 10941]
     sentence_count: 31
     key_terms: [work, job, life, list, want, bucket, does, need]
+    concepts: [bucket, questions, envision, another, because]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c5"
     char_span: [10943, 12517]
     sentence_count: 6
     key_terms: [worked, "i've", something, manager, answer, change, helps, value]
+    concepts: [worked, something, manager, answer, change]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c6"
     char_span: [12519, 14524]
     sentence_count: 16
     key_terms: [strengths, free, design, great, human, years, assessment, everything]
+    concepts: [strengths, design, assessment, everything, great]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c7"
     char_span: [14526, 15524]
     sentence_count: 12
     key_terms: [life, everything, helped, others, don, own, post, well-intended]
+    concepts: [everything, helped, others]
     section: Comments
     token_count: 228
   - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c8"
     char_span: [15526, 17024]
     sentence_count: 10
     key_terms: [patterns, different, appears, people, work, something, specific, curious]
+    concepts: [patterns, different, appears, people, something]
     section: Comments
     token_count: 320
 ---

@@ -20,52 +20,64 @@ chunks:
     char_span: [0, 2171]
     sentence_count: 20
     key_terms: [people, comments, entrepreneur, making, sell, time, scraped, done-for-you]
+    concepts: [people, comments, entrepreneur, making, scraped]
     token_count: 482
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1n4a3wx/i_scraped_25k_comments_to_find_which_ai_tools/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1n4a3wx.md#c1"
     char_span: [2173, 3613]
     sentence_count: 16
     key_terms: [people, use, video, service, better, create, report, shorts]
+    concepts: [people, video, service, better, create]
     token_count: 311
   - id: "social-intelligence/reddit-deep/entrepreneur/1n4a3wx.md#c2"
-    char_span: [3628, 4778]
+    char_span: [3627, 4777]
     sentence_count: 5
     key_terms: [entrepreneur, please, happyhippo95, permanent, promotion, stickied, comment, thread]
+    concepts: [entrepreneur, please, happyhippo95, permanent, promotion]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/entrepreneur/1n4a3wx.md#c3"
-    char_span: [4780, 6036]
+    char_span: [4779, 6035]
     sentence_count: 7
     key_terms: [proposal, thanks, happy, sales, share, using, killuminati-savage, individualair3353]
+    concepts: [proposal, thanks, happy, sales, share]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/entrepreneur/1n4a3wx.md#c4"
-    char_span: [6038, 8037]
+    char_span: [6037, 8036]
     sentence_count: 11
     key_terms: [individualair3353, like, process, get, kbps, kind, time, interested]
+    concepts: [individualair3353, process, interested, analytics, companies]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1n4a3wx.md#c6"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/entrepreneur/1n4a3wx.md#c5"
-    char_span: [8039, 10148]
+    char_span: [8038, 10147]
     sentence_count: 22
     key_terms: [value, minutes, work, subscription, tools, year, infrastructure, tasks]
+    concepts: [minutes, value, subscription, tools, infrastructure]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/entrepreneur/1n4a3wx.md#c6"
-    char_span: [10150, 11929]
+    char_span: [10149, 11928]
     sentence_count: 13
     key_terms: [cost, process, report, traditional, erp, companies, processes, software]
+    concepts: [process, report, traditional, companies, processes]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1n4a3wx.md#c4"]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/entrepreneur/1n4a3wx.md#c7"
-    char_span: [11931, 13393]
+    char_span: [11930, 13392]
     sentence_count: 5
     key_terms: [space, like, use, workflows, analysis, field, b2b, gtm]
+    concepts: [space, workflows, analysis, field]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/entrepreneur/1n4a3wx.md#c8"
-    char_span: [13395, 14930]
+    char_span: [13394, 14929]
     sentence_count: 11
     key_terms: [using, use, replaced, horlio, people, pretty, substantial-sport903, finds]
+    concepts: [using, replaced, horlio, people, pretty]
     section: Comments
     token_count: 386
 ---

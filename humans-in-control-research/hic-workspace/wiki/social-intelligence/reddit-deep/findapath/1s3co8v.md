@@ -19,22 +19,29 @@ chunks:
     char_span: [0, 1907]
     sentence_count: 20
     key_terms: [salary, job, current, professional, year, findapath, comments, searched]
+    concepts: [salary, current, professional, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1s3co8v.md#c2"]
     token_count: 464
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1s3co8v/i_finally_got_a_job_offer_with_a_big_salary_and_i/"}]
   - id: "social-intelligence/reddit-deep/findapath/1s3co8v.md#c1"
     char_span: [1909, 2917]
     sentence_count: 14
     key_terms: ["couldn't", been, incredibly, "that's", dad, definitely, everything, afternoon]
+    concepts: ["couldn't", incredibly, "that's"]
     token_count: 236
   - id: "social-intelligence/reddit-deep/findapath/1s3co8v.md#c2"
-    char_span: [2932, 4905]
+    char_span: [2931, 4904]
     sentence_count: 19
     key_terms: [thank, helpful, please, job, findapath, comments, everyone, guidance]
+    concepts: [thank, helpful, please, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1s3co8v.md#c0"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/findapath/1s3co8v.md#c3"
-    char_span: [4907, 5697]
+    char_span: [4906, 5696]
     sentence_count: 9
     key_terms: [congratulations, proud, congrats, amazing, necessarydoughnut222, dad, good, accomplishments]
+    concepts: [congratulations, proud, congrats, amazing]
     section: Comments
     token_count: 218
 ---

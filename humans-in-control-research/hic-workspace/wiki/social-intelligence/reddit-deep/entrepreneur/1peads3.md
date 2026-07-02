@@ -20,29 +20,38 @@ chunks:
     char_span: [0, 1683]
     sentence_count: 13
     key_terms: [reviews, trustpilot, customers, real, review, automatically, entrepreneur, experienced]
+    concepts: [trustpilot, reviews, customers, automatically, entrepreneur]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1peads3.md#c2", "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c4"]
     token_count: 349
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1peads3/trustpilot_isnt_publishing_any_of_the_reviews/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c1"
-    char_span: [1698, 3691]
+    char_span: [1697, 3690]
     sentence_count: 10
     key_terms: [entrepreneur, please, permanent, promotion, accounts, flagging, stickied, backend]
+    concepts: [entrepreneur, please, permanent, promotion, accounts]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c2"
-    char_span: [3693, 5912]
+    char_span: [3692, 5911]
     sentence_count: 16
     key_terms: [trustpilot, google, platform, listing, reviews, de-tethering, page, business]
+    concepts: [trustpilot, google, platform, listing, reviews]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1peads3.md#c0", "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c4"]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c3"
-    char_span: [5914, 7990]
+    char_span: [5913, 7989]
     sentence_count: 9
     key_terms: [reviews, support, review, "don't", get, published, responses, directly]
+    concepts: [reviews, support, review, "don't", published]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c4"
-    char_span: [7992, 9163]
+    char_span: [7991, 9162]
     sentence_count: 10
     key_terms: [anmeldelser, trustpilot, det, reviews, der, skummelt, stjernet, fjernet]
+    concepts: [anmeldelser, trustpilot, reviews, skummelt, stjernet]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1peads3.md#c0", "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c2"]
     section: Comments
     token_count: 330
 ---

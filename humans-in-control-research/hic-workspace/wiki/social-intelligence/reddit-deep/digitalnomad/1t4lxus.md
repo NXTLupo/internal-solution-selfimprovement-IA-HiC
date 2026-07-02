@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1844]
     sentence_count: 13
     key_terms: ["i'm", business, guayaquil, digital, ecuador, digitalnomad, dream, going]
+    concepts: [business, guayaquil, digital, ecuador, digitalnomad]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1t4lxus/longterm_gf_or_digital_nomad_life/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1t4lxus.md#c1"
     char_span: [1858, 3492]
     sentence_count: 9
     key_terms: [relationship, committed, business, potentially, resentment, sergiosala, workable, content]
+    concepts: [relationship, committed, business, potentially, resentment]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/digitalnomad/1t4lxus.md#c2"
     char_span: [3494, 4645]
     sentence_count: 7
     key_terms: [therefore, wants, importantly, long, temporary, stints, travel, "don't"]
+    concepts: [therefore, importantly, wants, temporary, stints]
     section: Comments
     token_count: 289
   - id: "social-intelligence/reddit-deep/digitalnomad/1t4lxus.md#c3"
     char_span: [4647, 6190]
     sentence_count: 10
     key_terms: [don, option, feel, miserable, resentful, business, distance, digital]
+    concepts: [option, miserable, resentful, business, distance]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/digitalnomad/1t4lxus.md#c4"
     char_span: [6192, 8325]
     sentence_count: 23
     key_terms: [love, life, something, work, distance, living, option, relationships]
+    concepts: [something, distance, relationships, relationship, living]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/digitalnomad/1t4lxus.md#c5"
     char_span: [8327, 8945]
     sentence_count: 4
     key_terms: [feeling, crazy, long, relationships, adventurous, girlfriend, hopefully, nightlife]
+    concepts: [feeling, crazy]
     section: Comments
     token_count: 145
 ---

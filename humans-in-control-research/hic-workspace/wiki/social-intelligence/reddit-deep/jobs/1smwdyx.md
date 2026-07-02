@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 343]
     sentence_count: 2
     key_terms: [comments, job, jobs, reddit-deep, mrerving1, linkedin, openings, analyst]
+    concepts: [comments]
     token_count: 93
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1smwdyx/6month_job_search_entry_level_techanalyst_roles/"}]
   - id: "social-intelligence/reddit-deep/jobs/1smwdyx.md#c1"
     char_span: [357, 1737]
     sentence_count: 7
     key_terms: [analyst, roles, data, applied, developer, business, skills, offer]
+    concepts: [analyst, roles, applied, developer, business]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/jobs/1smwdyx.md#c2"
     char_span: [1739, 3331]
     sentence_count: 13
     key_terms: [offers, interview, asked, trainrweckz, data, mrerving1, snowflake, accepted]
+    concepts: [offers, interview, trainrweckz, asked, mrerving1]
     section: Comments
     token_count: 365
 ---

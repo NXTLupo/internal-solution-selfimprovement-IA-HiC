@@ -21,46 +21,58 @@ chunks:
     char_span: [0, 2235]
     sentence_count: 17
     key_terms: [like, feels, digitalnomad, citizenship, countries, currently, lifestyle, somewhere]
+    concepts: [feels, digitalnomad, citizenship, countries, currently]
     token_count: 481
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1r93zts/33m_trying_to_choose_between_settling_down_vs/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c1"
     char_span: [2237, 3370]
     sentence_count: 8
     key_terms: [traveling, dating, build, base, lean, want, opportunities, experiences]
+    concepts: [traveling, dating, build]
     token_count: 233
   - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c2"
     char_span: [3384, 4903]
     sentence_count: 12
     key_terms: [citizenship, german, get, "it's", canada, europe, great, bit]
+    concepts: [citizenship, german, canada, europe, great]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c4", "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c5"]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c3"
     char_span: [4905, 6889]
     sentence_count: 11
     key_terms: ["it's", house, equity, "there's", happen, important, although, "sister's"]
+    concepts: [house, equity, "there's", happen, important]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c4"
     char_span: [6891, 8992]
     sentence_count: 12
     key_terms: [property, citizenship, especially, need, canada, place, buy, want]
+    concepts: [property, citizenship, especially, canada, place]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c2"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c5"
     char_span: [8994, 10841]
     sentence_count: 12
     key_terms: [like, citizenship, europe, until, "it's", lot, yetimaverick, get]
+    concepts: [citizenship, europe, until, yetimaverick, decision]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c2"]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c6"
     char_span: [10843, 13002]
     sentence_count: 13
     key_terms: [country, poland, ukrainian, probably, context, someone, ukraine, europe]
+    concepts: [country, poland, ukrainian, probably, context]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c7"
     char_span: [13004, 14172]
     sentence_count: 9
     key_terms: [canada, here, stabilize, bought, making, moving, month, place]
+    concepts: [canada, stabilize, bought, making, moving]
     section: Comments
     token_count: 295
 ---

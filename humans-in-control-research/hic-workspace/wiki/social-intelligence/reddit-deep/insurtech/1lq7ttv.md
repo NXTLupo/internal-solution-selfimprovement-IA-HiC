@@ -7,31 +7,34 @@ subreddit: "insurtech"
 title: "The 27% Loyalty Problem: Why Insurance is Finally Waking Up to Customer Experience"
 author: "______Olivia______"
 date: "2025-07-02T21:25:33.000Z"
-score: 5
-upvote_ratio: 0.86
+score: 7
+upvote_ratio: 1
 num_comments: 3
 flair: ""
-extracted_at: "2026-06-17T19:26:21.384Z"
+extracted_at: "2026-06-20T17:51:48.342Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/insurtech/1lq7ttv.md#c0"
     char_span: [0, 1853]
     sentence_count: 11
     key_terms: [customers, data, companies, insurance, customer, "here's", seeing, information]
+    concepts: [customers, companies, insurance, customer, "here's"]
     token_count: 382
+    sources: [{"n":"reddit-deep: r/insurtech","u":"https://www.reddit.com/r/InsurTech/comments/1lq7ttv/the_27_loyalty_problem_why_insurance_is_finally/"}]
   - id: "social-intelligence/reddit-deep/insurtech/1lq7ttv.md#c1"
-    char_span: [1868, 3029]
+    char_span: [1867, 3028]
     sentence_count: 6
     key_terms: [elevating-customer-experience-a-win-win-for-insurers-and-customers, how-the-new-customer-experience-model-is-transforming-insurance, https, com, financial-services, insurance, www, our-insights]
+    concepts: [elevating-customer-experience-a-win-win-for-insurers-and-customers, how-the-new-customer-experience-model-is-transforming-insurance, https, financial-services, insurance]
     section: Comments
     token_count: 307
 ---
 # The 27% Loyalty Problem: Why Insurance is Finally Waking Up to Customer Experience
 
 Source: [reddit-deep: r/insurtech](https://www.reddit.com/r/InsurTech/comments/1lq7ttv/the_27_loyalty_problem_why_insurance_is_finally/)
-Posted by **______Olivia______** · **5↑** · **3 comments**
+Posted by **______Olivia______** · **7↑** · **3 comments**
 
 Here's a stat that should make every insurer uncomfortable: only 27% of customers feel loyal to their current provider.
 

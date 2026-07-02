@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1136]
     sentence_count: 7
     key_terms: [internship, impression, internships, good, want, questions, comments, summer]
+    concepts: [internship, impression, internships, questions, comments]
     token_count: 252
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1su27io/making_a_good_impression_before_and_during_the/"}]
   - id: "social-intelligence/reddit-deep/internships/1su27io.md#c1"
     char_span: [1150, 1692]
     sentence_count: 2
     key_terms: [did, helpful, manager, "you're", here, work, impression, check-ins]
+    concepts: [helpful, manager, "you're"]
     section: Comments
     token_count: 137
 ---

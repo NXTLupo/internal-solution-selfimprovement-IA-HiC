@@ -19,17 +19,24 @@ chunks:
     char_span: [0, 582]
     sentence_count: 4
     key_terms: [jobs, experience, require, comments, least, level, personal-ad9121, qualifications]
+    concepts: [experience, require, comments, least, level]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1psjonc.md#c1", "social-intelligence/reddit-deep/jobs/1psjonc.md#c2"]
     token_count: 146
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1psjonc/why_do_jobs_even_say_theyre_entrylevel_if_they/"}]
   - id: "social-intelligence/reddit-deep/jobs/1psjonc.md#c1"
     char_span: [596, 2305]
     sentence_count: 10
     key_terms: [entry, level, experience, field, don, people, internships, tell]
+    concepts: [entry, level, experience, field, people]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1psjonc.md#c0", "social-intelligence/reddit-deep/jobs/1psjonc.md#c2"]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/jobs/1psjonc.md#c2"
     char_span: [2307, 3191]
     sentence_count: 4
     key_terms: [experience, entry, level, difficult-celery4864, "isn't", pay, suck, realistically]
+    concepts: [experience, entry, level, "isn't"]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1psjonc.md#c0", "social-intelligence/reddit-deep/jobs/1psjonc.md#c1"]
     section: Comments
     token_count: 232
 ---

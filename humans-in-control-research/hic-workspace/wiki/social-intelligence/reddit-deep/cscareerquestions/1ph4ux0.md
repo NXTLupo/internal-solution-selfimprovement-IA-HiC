@@ -19,16 +19,21 @@ chunks:
     char_span: [0, 1241]
     sentence_count: 7
     key_terms: [super, cscareerquestions, "we're", typically, comments, looking, people, "you've"]
+    concepts: [cscareerquestions, super, "we're", typically, comments]
     token_count: 290
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ph4ux0/array_reversal_as_a_filtering_question/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c1"
     char_span: [1243, 2645]
     sentence_count: 10
     key_terms: [array, array2, len, easy, algorithms, algorithm, question, talking]
+    concepts: [array, array2, algorithms, algorithm, question]
     token_count: 365
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c2"
     char_span: [2647, 4996]
     sentence_count: 15
     key_terms: [array, able, reverse, requirements, crazy, interview, "i'm", job]
+    concepts: [requirements, array, reverse, interview, crazy]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c6", "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c8"]
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c3"
     char_span: [4998, 5448]
@@ -36,69 +41,83 @@ chunks:
     key_terms: [last, algorithms, especially, memorizing, arguments, reversing, something, astounds]
     token_count: 94
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c4"
-    char_span: [5463, 7167]
+    char_span: [5462, 7166]
     sentence_count: 14
     key_terms: [coding, getting, market, interviewed, job, plus, time, experience]
+    concepts: [coding, getting, market, interviewed, experience]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c5"
-    char_span: [7169, 9260]
+    char_span: [7168, 9259]
     sentence_count: 15
     key_terms: [array, experience, easy, someone, arrays, figure, curriculum, interviews]
+    concepts: [array, experience, someone, arrays, figure]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c6"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c6"
-    char_span: [9262, 11462]
+    char_span: [9261, 11461]
     sentence_count: 10
     key_terms: [array, experience, reverse, able, loop, knowledge, semicolon, question]
+    concepts: [array, experience, reverse, knowledge, semicolon]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c8"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c7"
-    char_span: [11464, 13448]
+    char_span: [11463, 13447]
     sentence_count: 14
     key_terms: [write, like, loop, new, developers, fibonacci, implement, knowledge]
+    concepts: [write, developers, fibonacci, implement, knowledge]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c8"
-    char_span: [13450, 15389]
+    char_span: [13449, 15388]
     sentence_count: 7
     key_terms: [born, "i'm", "it's", reverse, people, code, time, operator]
+    concepts: [reverse, people, operator, modulo, array]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c6"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c9"
-    char_span: [15391, 16520]
+    char_span: [15390, 16519]
     sentence_count: 11
     key_terms: ["don't", constant, comfortable, beginning, interview, console, little, buddy]
+    concepts: ["don't", constant, comfortable, beginning, interview]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c10"
-    char_span: [16522, 18094]
+    char_span: [16521, 18093]
     sentence_count: 10
     key_terms: [programming, easy, like, honestly, language, maxghost, question, thinking]
+    concepts: [programming, honestly, language, maxghost, question]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c11"
-    char_span: [18096, 20018]
+    char_span: [18095, 20017]
     sentence_count: 7
     key_terms: [languages, language, used, functions, interview, questions, learning, problem]
+    concepts: [languages, language, functions, interview, questions]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c12"
-    char_span: [20020, 21866]
+    char_span: [20019, 21865]
     sentence_count: 15
     key_terms: [issues, applicant, senior, like, different, assume, junior, memory]
+    concepts: [issues, applicant, senior, different, assume]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c13"
-    char_span: [21868, 23679]
+    char_span: [21867, 23678]
     sentence_count: 9
     key_terms: [like, mechanic, hiring, "can't", chief, needs, question, current]
+    concepts: [mechanic, hiring, "can't", chief, needs]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c14"
-    char_span: [23681, 24956]
+    char_span: [23680, 24955]
     sentence_count: 12
     key_terms: [applicants, biomedical, degrees, science, above, class, car, task]
+    concepts: [applicants, biomedical, degrees, science, above]
     section: Comments
     token_count: 280
 ---

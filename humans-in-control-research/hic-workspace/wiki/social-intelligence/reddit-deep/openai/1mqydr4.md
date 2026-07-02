@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1280]
     sentence_count: 11
     key_terms: [oververbosity, instructions, api, confirmed, analysis, comments, desired, injects]
+    concepts: [oververbosity, instructions, confirmed, analysis, comments]
     token_count: 284
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1mqydr4/gpt5_api_injects_hidden_instructions_with_your/"}]
   - id: "social-intelligence/reddit-deep/openai/1mqydr4.md#c1"
     char_span: [1294, 2931]
     sentence_count: 20
     key_terms: [prompt, always, openai, kathilliana, api, car, gets, "it's"]
+    concepts: [prompt, always, openai, kathilliana, guardrails]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/openai/1mqydr4.md#c2"
     char_span: [2933, 4840]
     sentence_count: 10
     key_terms: [katalogical, https, com, kathilliana, oververbosity, dashboard, chatgpt, harmony]
+    concepts: [katalogical, https, kathilliana, oververbosity, dashboard]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/openai/1mqydr4.md#c3"
     char_span: [4844, 6780]
     sentence_count: 10
     key_terms: [oververbosity, prompt, stunning-ad-2433, capabilities, comparative, chatgpt, tableau, bullet]
+    concepts: [oververbosity, prompt, stunning-ad-2433, capabilities, comparative]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/openai/1mqydr4.md#c4"
     char_span: [6782, 7976]
     sentence_count: 6
     key_terms: [instructions, prompt, use, available, router, system, reverse-engineering, model]
+    concepts: [instructions, prompt, available, router, system]
     section: Comments
     token_count: 327
 ---

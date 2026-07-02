@@ -19,21 +19,28 @@ chunks:
     char_span: [0, 2178]
     sentence_count: 20
     key_terms: [school, top, schools, waitlisted, applyingtocollege, want, class, get]
+    concepts: [school, schools, waitlisted, applyingtocollege, class]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sbe1w1.md#c1"]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sbe1w1/advice_from_a_college_sophomore_waitlisted_at_all/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sbe1w1.md#c1"
     char_span: [2180, 4318]
     sentence_count: 32
     key_terms: [look, school, opportunities, schools, institution, get, life, transfer]
+    concepts: [school, opportunities, schools, institution, transfer]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sbe1w1.md#c0"]
     token_count: 470
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sbe1w1.md#c2"
     char_span: [4320, 5571]
     sentence_count: 22
     key_terms: [better, school, professors, research, funding, contracts, schools, honors]
+    concepts: [better, school, professors, research, funding]
     token_count: 276
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sbe1w1.md#c3"
     char_span: [5585, 7345]
     sentence_count: 7
     key_terms: [people, going, year, because, school, perspective, rejected, thinking]
+    concepts: [people, going, because, school, perspective]
     section: Comments
     token_count: 430
 ---

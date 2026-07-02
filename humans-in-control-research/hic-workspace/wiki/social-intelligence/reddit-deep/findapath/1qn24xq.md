@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 516]
     sentence_count: 3
     key_terms: [work, findapath, immigrate, comments, career, authorization, international, experiences]
+    concepts: [findapath, immigrate, comments, career]
     token_count: 120
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1qn24xq/best_career_path_for_a_foreign_graduate_to/"}]
   - id: "social-intelligence/reddit-deep/findapath/1qn24xq.md#c1"
     char_span: [530, 2609]
     sentence_count: 12
     key_terms: [thank, helpful, please, engineering, here, want, findapath, comments]
+    concepts: [thank, helpful, please, engineering, findapath]
     section: Comments
     token_count: 476
 ---

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2203]
     sentence_count: 12
     key_terms: [jobs, get, workers, entry-level, degree, being, field, like]
+    concepts: [entry-level, workers, degree, being, field]
     token_count: 495
+    sources: [{"n":"Reddit Deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1reijwx/are_there_any_entrylevel_jobs_not_threatened_by_ai/"}]
   - id: "articles/reddit-deep-r-jobs/1eaaedf7ef.md#c1"
     char_span: [2205, 3098]
     sentence_count: 4
     key_terms: [outsourcing, needed, emergency-pollution2, new-veterinarian5597, budtrimmingbaddie, icenerveshatter, odd-flower2744, contributing]
+    concepts: [outsourcing, needed]
     token_count: 216
 ---
 # Are there any entry-level jobs not threatened by AI?

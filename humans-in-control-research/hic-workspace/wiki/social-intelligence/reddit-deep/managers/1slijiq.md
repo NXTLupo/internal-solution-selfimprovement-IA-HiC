@@ -21,29 +21,39 @@ chunks:
     char_span: [0, 1392]
     sentence_count: 20
     key_terms: [team, sarah, comments, protect, high, performer, managers, numbers]
+    concepts: [sarah, comments, protect, performer, managers]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1slijiq.md#c4", "social-intelligence/reddit-deep/managers/1slijiq.md#c9"]
     token_count: 319
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1slijiq/managing_a_toxic_high_performer_who_hits_150_of/"}]
   - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c1"
     char_span: [1406, 3551]
     sentence_count: 20
     key_terms: [need, meetings, been, like, team, work, something, behavior]
+    concepts: [meetings, something, behavior, feedback, change]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c2"
     char_span: [3553, 5263]
     sentence_count: 13
     key_terms: [team, meetings, rest, probably, because, support, direct, professional-mind439]
+    concepts: [meetings, probably, because, support, direct]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1slijiq.md#c13"]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c3"
     char_span: [5265, 7319]
     sentence_count: 19
     key_terms: [everyone, meetings, else, like, better, people, distributed, been]
+    concepts: [everyone, meetings, better, people, distributed]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1slijiq.md#c11"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c4"
     char_span: [7321, 9413]
     sentence_count: 12
     key_terms: [sarah, team, individual, management, performer, fun-to-grab-a-beer-with, because, morale]
+    concepts: [individual, management, sarah, performer, because]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1slijiq.md#c0", "social-intelligence/reddit-deep/managers/1slijiq.md#c9"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c5"
@@ -56,60 +66,77 @@ chunks:
     char_span: [9529, 11529]
     sentence_count: 15
     key_terms: [better, dwight, others, cares, sarah, achieving, promoted, asshole]
+    concepts: [better, dwight, others, cares, sarah]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1slijiq.md#c10"]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c7"
     char_span: [11531, 13554]
     sentence_count: 10
     key_terms: [toxic, high, team, performer, others, people, relationships, contributors]
+    concepts: [toxic, performer, relationships, contributors, professional]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1slijiq.md#c8"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c8"
     char_span: [13556, 15651]
     sentence_count: 9
     key_terms: [hazard-warning-the-unacceptable-cost-of-toxic-workers, performer, high, toxic, working-knowledge, person, productivity, did]
+    concepts: [hazard-warning-the-unacceptable-cost-of-toxic-workers, performer, working-knowledge, toxic, productivity]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1slijiq.md#c7"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c9"
     char_span: [15653, 17413]
     sentence_count: 15
     key_terms: ["you're", sarah, performer, sensitive, question, exactly, without, direct]
+    concepts: ["you're", sarah, performer, sensitive, question]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1slijiq.md#c0", "social-intelligence/reddit-deep/managers/1slijiq.md#c4"]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c10"
     char_span: [17415, 19009]
     sentence_count: 23
     key_terms: [sarah, job, meetings, others, does, need, manager, asking]
+    concepts: [sarah, meetings, others, manager, asking]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1slijiq.md#c6"]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c11"
     char_span: [19011, 21126]
     sentence_count: 18
     key_terms: [everyone, work, else, team, people, makes, sarah, cry]
+    concepts: [everyone, people, makes, sarah, situation]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1slijiq.md#c3"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c12"
     char_span: [21128, 23289]
     sentence_count: 10
     key_terms: [being, important, questions, situation, autistic, herself, someone, autism]
+    concepts: [being, important, questions, situation, autistic]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c13"
     char_span: [23291, 25119]
     sentence_count: 12
     key_terms: [direct, being, "it's", tell, pushback, because, improve, rolling]
+    concepts: [direct, being, pushback, because, improve]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1slijiq.md#c2"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c14"
     char_span: [25121, 26848]
     sentence_count: 11
     key_terms: [direct, people, criticism, herself, handle, being, sarah, isn]
+    concepts: [direct, people, criticism, herself, handle]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c15"
     char_span: [26850, 27327]
     sentence_count: 2
     key_terms: [already, company, elonmuskhuffingfarts, noestablishment1221, danielleelucky2024, incompetence, outfitter540, replacement]
+    concepts: [already, company]
     section: Comments
     token_count: 144
 ---

@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1604]
     sentence_count: 7
     key_terms: [povertyfinance, bank, card, comments, without, called, credit, calls]
+    concepts: [povertyfinance, comments, without, called, credit]
     token_count: 384
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1s7plcu/here_are_a_few_things_ive_been_through_hope_it/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1s7plcu.md#c1"
     char_span: [1618, 2850]
     sentence_count: 11
     key_terms: [people, internet, money, spend, budgeting, little, mobile, congratulations]
+    concepts: [people, internet, money, spend, budgeting]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1s7plcu.md#c2"]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/povertyfinance/1s7plcu.md#c2"
     char_span: [2852, 4525]
     sentence_count: 10
     key_terms: [money, like, transfers, vanguard, account, people, doing, great]
+    concepts: [money, transfers, vanguard, account, people]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1s7plcu.md#c1"]
     section: Comments
     token_count: 427
 ---

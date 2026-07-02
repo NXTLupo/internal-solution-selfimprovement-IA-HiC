@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 598]
     sentence_count: 2
     key_terms: [applyingtocollege, comments, chapter, college, letterexpert3849, reddit-deep, apprentice, benefits]
+    concepts: [applyingtocollege, comments, chapter, college]
     token_count: 157
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1m1reyv/my_dad_is_military_im_able_to_get_paid_to_go_to/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m1reyv.md#c1"
     char_span: [612, 934]
     sentence_count: 3

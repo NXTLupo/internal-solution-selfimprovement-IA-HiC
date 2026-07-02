@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1447]
     sentence_count: 20
     key_terms: ["i'm", final, "i've", grade, been, got, professor, academic]
+    concepts: [final, grade, professor, academic, comments]
     token_count: 354
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sweoby/feel_like_just_failed_my_final_what_can_i_do/"}]
   - id: "social-intelligence/reddit-deep/neu/1sweoby.md#c1"
     char_span: [1461, 2959]
     sentence_count: 5
     key_terms: [sovereignphobia, grade, disfiguredcoconut, email, transcript, professor, replaces, problem]
+    concepts: [sovereignphobia, grade, disfiguredcoconut, email, transcript]
     section: Comments
     token_count: 383
 ---

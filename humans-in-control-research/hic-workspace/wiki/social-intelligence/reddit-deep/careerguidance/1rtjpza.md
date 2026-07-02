@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 990]
     sentence_count: 7
     key_terms: [government, private, careerguidance, sector, jobs, stability, benefits, comments]
+    concepts: [government, private, careerguidance, sector, stability]
     token_count: 216
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rtjpza/government_jobs_vs_private_sector_which_career/"}]
 ---
 # Government jobs vs private sector which career path actually works out better long term?
 

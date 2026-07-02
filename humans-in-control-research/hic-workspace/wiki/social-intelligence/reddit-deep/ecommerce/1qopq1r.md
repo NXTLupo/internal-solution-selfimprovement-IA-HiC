@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1533]
     sentence_count: 16
     key_terms: [amazon, distraction, bar, like, meta, run, tik, tok]
+    concepts: [amazon, distraction, ecommerce, marketing, comments]
     token_count: 394
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1qopq1r/tik_tok_shop_or_meta_also_is_amazon_a_distraction/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1qopq1r.md#c1"
-    char_span: [1548, 3439]
+    char_span: [1547, 3438]
     sentence_count: 18
     key_terms: [skyeathletes, agency, amazon, anyway, enough, meta, yourself, product]
+    concepts: [skyeathletes, agency, amazon, anyway, enough]
     section: Comments
     token_count: 496
 ---

@@ -18,36 +18,44 @@ chunks:
     char_span: [0, 1419]
     sentence_count: 11
     key_terms: [internship, months, experience, careerguidance, job, project, working, estate]
+    concepts: [internship, experience, months, careerguidance, project]
     token_count: 330
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1oo75vr/looking_for_guidance_where_should_i_focus_my_job/"}]
   - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c1"
     char_span: [1421, 2464]
     sentence_count: 2
     key_terms: [environments, feedback, learning, without, rather, tasks, work, administrative]
+    concepts: [environments, feedback, learning, without, rather]
     token_count: 201
   - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c2"
     char_span: [2466, 4652]
     sentence_count: 2
     key_terms: [working, long-term, learning, leaders, success, market, clear, encouraging]
+    concepts: [working, long-term, learning, leaders, success]
     token_count: 395
   - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c3"
     char_span: [4654, 7308]
     sentence_count: 8
     key_terms: [feedback, roles, market, encouragement, constructive, goals, acquisition, work]
+    concepts: [feedback, roles, market, encouragement, constructive]
     token_count: 506
   - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c4"
     char_span: [7310, 9516]
     sentence_count: 14
     key_terms: [analyst, private, whether, underwriting, firms, focus, years, development]
+    concepts: [analyst, private, whether, underwriting, development]
     token_count: 474
   - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c5"
     char_span: [9518, 11878]
     sentence_count: 18
     key_terms: [management, acquisitions, industrial, asset, multifamily, firms, good, experience]
+    concepts: [management, acquisitions, industrial, asset, multifamily]
     token_count: 499
   - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c6"
     char_span: [11880, 12226]
     sentence_count: 3
     key_terms: [industrial, culture-screen, underwriting, reach-outs, rotational, dashboard, questions, feedback]
+    concepts: [industrial]
     token_count: 75
 ---
 # Looking for Guidance: Where Should I Focus My Job Search in Real Estate?

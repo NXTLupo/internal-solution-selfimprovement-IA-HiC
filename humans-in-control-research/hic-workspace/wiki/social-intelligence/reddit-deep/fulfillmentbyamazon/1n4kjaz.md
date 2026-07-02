@@ -20,28 +20,34 @@ chunks:
     char_span: [0, 1971]
     sentence_count: 9
     key_terms: [fulfillmentbyamazon, inventory, reviews, amazon, cogs, everything, comments, finally]
+    concepts: [fulfillmentbyamazon, inventory, reviews, amazon, everything]
     token_count: 497
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1n4kjaz/finally_hit_100k_in_the_last_12_months/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1n4kjaz.md#c1"
     char_span: [1973, 3304]
     sentence_count: 9
     key_terms: [contract, services, salary, never, reach, sales, years, recommendations]
+    concepts: [contract, services, salary, never, reach]
     token_count: 320
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1n4kjaz.md#c2"
-    char_span: [3319, 4455]
+    char_span: [3318, 4454]
     sentence_count: 6
     key_terms: [discord, fulfillmentbyamazon, superb-owl5418, https, fba, join, subreddit, discuss]
+    concepts: [discord, fulfillmentbyamazon, superb-owl5418, https, subreddit]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1n4kjaz.md#c3"
-    char_span: [4457, 6383]
+    char_span: [4456, 6382]
     sentence_count: 18
     key_terms: [strongbet4222, been, love, automation, currently, congrats, connect, looking]
+    concepts: [strongbet4222, automation, currently, congrats, connect]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1n4kjaz.md#c4"
-    char_span: [6386, 7201]
+    char_span: [6385, 7200]
     sentence_count: 9
     key_terms: [numbers, revenue, dapper-effective8010, long, congratulations, strongbet4222, continually, actionable]
+    concepts: [numbers, revenue]
     section: Comments
     token_count: 197
 ---

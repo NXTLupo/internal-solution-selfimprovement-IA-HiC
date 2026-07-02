@@ -21,47 +21,56 @@ chunks:
     char_span: [0, 1658]
     sentence_count: 8
     key_terms: [investing, voo, expected, equivalents, comments, optimize, assets, better]
+    concepts: [investing, expected, equivalents, comments, optimize]
     token_count: 362
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1te1hb8/the_more_you_learn_investing_the_more_you_realize/"}]
   - id: "social-intelligence/reddit-deep/investing/1te1hb8.md#c1"
     char_span: [1672, 3680]
     sentence_count: 17
     key_terms: [future, voo, investing, gambling, invest, essentially, good, financial]
+    concepts: [future, investing, gambling, invest, essentially]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/investing/1te1hb8.md#c2"
     char_span: [3682, 5547]
     sentence_count: 10
     key_terms: ["that's", future, pretty, rest, voo, bullish, stocks, illlliilillillllilll]
+    concepts: ["that's", future, pretty, bullish, stocks]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/investing/1te1hb8.md#c3"
     char_span: [5549, 7694]
     sentence_count: 11
     key_terms: [alexander, system, battle, gaugamela, average, general, macedonian, level]
+    concepts: [alexander, system, gaugamela, battle, average]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/investing/1te1hb8.md#c4"
     char_span: [7696, 9516]
     sentence_count: 16
     key_terms: [history, rome, yourself, etc, caesarian, javfan69, military, ancient]
+    concepts: [history, yourself, caesarian, javfan69, military]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/investing/1te1hb8.md#c5"
     char_span: [9518, 11733]
     sentence_count: 16
     key_terms: [roman, ancient, different, military, little, "rome's", translations, greek]
+    concepts: [roman, ancient, different, military, translations]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/investing/1te1hb8.md#c6"
     char_span: [11735, 13816]
     sentence_count: 11
     key_terms: [caesar, war, factors, civil, great, wrote, etc, something]
+    concepts: [caesar, factors, civil, great, wrote]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/investing/1te1hb8.md#c7"
     char_span: [13818, 15003]
     sentence_count: 6
     key_terms: [mistakes, diversification, enough, "that's", weekly, skepticalpositivity9, "it's", voo]
+    concepts: [diversification, mistakes, enough, "that's", weekly]
     section: Comments
     token_count: 303
 ---

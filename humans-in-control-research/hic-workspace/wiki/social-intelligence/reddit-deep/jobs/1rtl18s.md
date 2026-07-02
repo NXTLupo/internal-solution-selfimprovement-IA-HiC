@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 307]
     sentence_count: 3
     key_terms: [jobs, comments, entry, level, fetus-deletus1, reddit-deep, experience, fucking]
+    concepts: [comments, entry, level]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rtl18s.md#c2"]
     token_count: 90
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rtl18s/entry_level_jobs_arent_even_entry_level/"}]
   - id: "social-intelligence/reddit-deep/jobs/1rtl18s.md#c1"
     char_span: [321, 1788]
     sentence_count: 15
     key_terms: [option, get, job, nepotism, company, agency, career, people]
+    concepts: [option, nepotism, company, agency, career]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/jobs/1rtl18s.md#c2"
     char_span: [1790, 3275]
     sentence_count: 8
     key_terms: [experience, degree, entry, level, watermelonlollies, pay, doctorate, required]
+    concepts: [experience, degree, entry, level, watermelonlollies]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rtl18s.md#c0"]
     section: Comments
     token_count: 384
 ---

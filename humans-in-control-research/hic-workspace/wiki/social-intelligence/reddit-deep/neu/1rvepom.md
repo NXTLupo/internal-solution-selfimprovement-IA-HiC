@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1356]
     sentence_count: 8
     key_terms: [fafsa, estimator, circumstances, northeastern, css, different, financial, wondering]
+    concepts: [estimator, fafsa, circumstances, northeastern, different]
     token_count: 309
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rvepom/should_i_be_worried/"}]
   - id: "social-intelligence/reddit-deep/neu/1rvepom.md#c1"
     char_span: [1370, 3446]
     sentence_count: 12
     key_terms: [ok-banana-2859, did, cost, get, background-essay6470, got, estimate, affect]
+    concepts: [ok-banana-2859, background-essay6470, estimate, affect, better]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1rvepom.md#c2"

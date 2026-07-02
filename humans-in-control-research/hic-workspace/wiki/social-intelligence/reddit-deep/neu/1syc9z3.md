@@ -20,33 +20,42 @@ chunks:
     char_span: [0, 1958]
     sentence_count: 3
     key_terms: [college, because, tuition, school, field, etc, situation, comments]
+    concepts: [college, because, tuition, school, field]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1syc9z3.md#c3"]
     token_count: 472
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1syc9z3/emotionally_abusive_family_cutting_off_tuition/"}]
   - id: "social-intelligence/reddit-deep/neu/1syc9z3.md#c1"
     char_span: [1960, 4269]
     sentence_count: 7
     key_terms: [ultimatum, because, summer, definitely, tuition, responsibility, school, back]
+    concepts: [ultimatum, because, definitely, summer, responsibility]
     token_count: 511
   - id: "social-intelligence/reddit-deep/neu/1syc9z3.md#c2"
     char_span: [4271, 4925]
     sentence_count: 4
     key_terms: [don, contact, friend, going, stay, appointment, community, relatives]
+    concepts: [contact, friend, going]
     token_count: 157
   - id: "social-intelligence/reddit-deep/neu/1syc9z3.md#c3"
-    char_span: [4940, 7120]
+    char_span: [4939, 7119]
     sentence_count: 26
     key_terms: [want, college, back, life, parents, school, maybe, financially]
+    concepts: [college, parents, school, financially, independent]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1syc9z3.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1syc9z3.md#c4"
-    char_span: [6819, 8822]
+    char_span: [6818, 8821]
     sentence_count: 15
     key_terms: [independent, vulnerability, someone, support, people, satisfactionborn2798, system, build]
+    concepts: [independent, vulnerability, satisfactionborn2798, someone, support]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/neu/1syc9z3.md#c5"
-    char_span: [8824, 10988]
+    char_span: [8823, 10987]
     sentence_count: 25
     key_terms: [perfectly, complete, because, don, leverage, "she's", back, want]
+    concepts: [perfectly, complete, because, leverage, completely]
     section: Comments
     token_count: 487
 ---

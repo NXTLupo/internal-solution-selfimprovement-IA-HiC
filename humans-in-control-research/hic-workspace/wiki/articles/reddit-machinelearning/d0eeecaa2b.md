@@ -18,11 +18,16 @@ chunks:
     char_span: [0, 2304]
     sentence_count: 24
     key_terms: [paper, issue, bug, got, machinelearning, quality, hallucinations, model]
+    concepts: [paper, issue, machinelearning, hallucinations, quality]
+    related_chunks: ["articles/reddit-machinelearning/d0eeecaa2b.md#c1"]
     token_count: 500
+    sources: [{"n":"reddit: MachineLearning","u":"https://reddit.com/r/MachineLearning/comments/1p82cto/d_got_burned_by_an_apple_iclr_paper_it_was/"}]
   - id: "articles/reddit-machinelearning/d0eeecaa2b.md#c1"
     char_span: [2306, 3939]
     sentence_count: 12
     key_terms: [paper, community, quality, irresponsible, been, reviewers, because, comment]
+    concepts: [paper, community, irresponsible, quality, reviewers]
+    related_chunks: ["articles/reddit-machinelearning/d0eeecaa2b.md#c0"]
     token_count: 318
 ---
 # [D] Got burned by an Apple ICLR paper — it was withdrawn after my Public Comment.

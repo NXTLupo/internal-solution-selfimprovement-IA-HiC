@@ -19,99 +19,126 @@ chunks:
     char_span: [0, 1909]
     sentence_count: 20
     key_terms: [management, years, like, being, didnt, careerguidance, restaurant, comments]
+    concepts: [management, years, being, didnt, careerguidance]
     token_count: 464
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1nj6mhx/what_the_smartest_careerpivot_in_todays_economy/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c1"
     char_span: [1911, 4150]
     sentence_count: 32
     key_terms: [maybe, management, always, business, ive, thought, like, own]
+    concepts: [management, maybe, always, business, thought]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c3"]
     token_count: 502
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c2"
     char_span: [4153, 5128]
     sentence_count: 9
     key_terms: [did, business, college, getting, years, back, job, real]
+    concepts: [business, college, getting, years]
     token_count: 239
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c3"
     char_span: [5142, 7343]
     sentence_count: 13
     key_terms: [operations, because, management, like, business, manager, systems, people]
+    concepts: [operations, because, management, business, manager]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c1", "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c4", "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c5", "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c9", "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c11"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c4"
     char_span: [7345, 8597]
     sentence_count: 8
     key_terms: [business, industry, school, industries, operations, perhaps, running, start]
+    concepts: [business, industry, school, industries, operations]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c3", "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c5", "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c11"]
     section: Comments
     token_count: 262
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c5"
     char_span: [8599, 10763]
     sentence_count: 12
     key_terms: [operations, statement, industries, management, different, financial, business, elements]
+    concepts: [operations, statement, industries, management, different]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c3", "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c4"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c6"
     char_span: [10765, 12752]
     sentence_count: 17
     key_terms: [operations, financial, items, kpis, company, without, performance, like]
+    concepts: [operations, financial, items, company, without]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c11"]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c7"
     char_span: [12754, 15979]
     sentence_count: 1
     key_terms: [services, manufacturers, suppliers, software, companies, equipment, providers, maintenance]
+    concepts: [services, manufacturers, suppliers, software, companies]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c8"
     char_span: [15500, 17968]
     sentence_count: 11
     key_terms: [industries, manufacturers, suppliers, food, equipment, services, software, supply]
+    concepts: [industries, manufacturers, suppliers, equipment, services]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c7"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c9"
     char_span: [17971, 19586]
     sentence_count: 14
     key_terms: [because, like, everything, management, employees, company, success, always]
+    concepts: [because, everything, management, employees, company]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c3"]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c10"
     char_span: [19588, 21673]
     sentence_count: 26
     key_terms: [something, always, understanding, kinda, years, like, everything, financials]
+    concepts: [something, always, understanding, everything, financials]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c11"
     char_span: [21675, 23884]
     sentence_count: 15
     key_terms: [company, business, manager, manufacturing, been, operations, positions, promotion]
+    concepts: [company, business, manufacturing, manager, operations]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c3", "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c4", "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c6"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c12"
     char_span: [23886, 25740]
     sentence_count: 14
     key_terms: [electrical, work, degree, especially, nobleone19, looking, nursing, utility]
+    concepts: [electrical, degree, especially, nobleone19, looking]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c13"
     char_span: [25742, 27322]
     sentence_count: 11
     key_terms: [retirement, want, definitely, crashing, economy, decade, reddit, seems]
+    concepts: [retirement, definitely, crashing, economy, decade]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c14"
     char_span: [27324, 29078]
     sentence_count: 18
     key_terms: [something, over-candle-1878, like, enough, fairly, people, wanted, didnt]
+    concepts: [something, over-candle-1878, enough, fairly, people]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c15"
     char_span: [29080, 29786]
     sentence_count: 5
     key_terms: [oversaturation, degree, trades, years, apprenticeships, universities, outrageous, following]
+    concepts: [oversaturation, degree, trades, years]
     section: Comments
     token_count: 162
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c16"
     char_span: [29788, 31738]
     sentence_count: 10
     key_terms: [trexgiraffehybrid, back, get, program, years, take, forever, million]
+    concepts: [trexgiraffehybrid, program, years, forever, million]
     section: Comments
     token_count: 475
 ---

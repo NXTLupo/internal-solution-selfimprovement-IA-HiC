@@ -21,72 +21,88 @@ chunks:
     char_span: [0, 2133]
     sentence_count: 17
     key_terms: [financialindependence, comments, expenses, https, com, lifestyle, vacations, paycheck]
+    concepts: [financialindependence, comments, expenses, https, lifestyle]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1nuztzj/in_defense_of_one_more_year_an_update/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c1"
     char_span: [2135, 4182]
     sentence_count: 22
     key_terms: [been, work, mental, get, everything, employer, position, forever]
+    concepts: [mental, everything, employer, position, forever]
     token_count: 457
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c2"
     char_span: [4184, 5900]
     sentence_count: 19
     key_terms: [year, withdrawal, fear, numbers, investments, life, plug, security]
+    concepts: [withdrawal, numbers, investments, security, always]
     token_count: 398
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c3"
     char_span: [5902, 7654]
     sentence_count: 20
     key_terms: [bills, years, "isn't", got, "i'm", next, children, looking]
+    concepts: [bills, years, "isn't", children, looking]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c7"]
     token_count: 381
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c4"
     char_span: [7656, 9734]
     sentence_count: 16
     key_terms: [year, vacations, expenses, example, numbers, myself, people, random]
+    concepts: [vacations, expenses, example, numbers, myself]
     token_count: 464
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c5"
     char_span: [9736, 10248]
     sentence_count: 5
     key_terms: [parenting, circles, people, social, weird, significance, coworkers, employed]
+    concepts: [parenting, circles, people, social, weird]
     token_count: 113
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c6"
     char_span: [10262, 12454]
     sentence_count: 16
     key_terms: [people, money, "i'm", connections, fire, connection, interested, financial]
+    concepts: [people, money, connections, connection, interested]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c7"
     char_span: [12456, 14510]
     sentence_count: 13
     key_terms: [real, bills, "isn't", the-2021-early-retirement-update, years, post, read, resonated]
+    concepts: [bills, "isn't", years, resonated, targeting]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c3"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c8"
     char_span: [14512, 16155]
     sentence_count: 13
     key_terms: [thought, people, "don't", years, preferences, etc, glad, like]
+    concepts: [thought, people, preferences, "don't", years]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c9"
     char_span: [16157, 18025]
     sentence_count: 14
     key_terms: [doing, feel, post, household, justify, active, longer, point]
+    concepts: [doing, household, justify, active, longer]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c10"
     char_span: [18027, 19316]
     sentence_count: 11
     key_terms: ["don't", like, carrying, someone, grass, hire, need, role]
+    concepts: ["don't", carrying, someone, grass]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c11"
     char_span: [19318, 21111]
     sentence_count: 12
     key_terms: [time, uncertainty, reduction, numbers, couple, months, sports, been]
+    concepts: [uncertainty, reduction, numbers, couple, months]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c12"
     char_span: [21113, 21840]
     sentence_count: 5
     key_terms: [going, something, another, cancer, health, deductibles, frightening, standalone]
+    concepts: [going, something, another, cancer, health]
     section: Comments
     token_count: 150
 ---

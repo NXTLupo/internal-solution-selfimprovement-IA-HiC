@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 795]
     sentence_count: 1
     key_terms: [amateur, photography, candid, chatgpt, natural, background, comments, realism]
+    concepts: [photography, amateur, candid, chatgpt, natural]
     token_count: 189
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1ppvoj5/chatgpt_15_prompt_to_add_realism_in_images/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c1"
     char_span: [809, 1638]
     sentence_count: 6
     key_terms: [please, conversation, image, post, r-chatgpt-1050422060352024636, concerns, chatgpt-shared-links-faq, chatgpt]
+    concepts: [conversation, please, image, concerns, chatgpt]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c2"
     char_span: [1640, 3047]
     sentence_count: 2
     key_terms: [front, giphy, back, gif, backpacks, tourists, "didn't", notice]
+    concepts: [front, giphy, backpacks, tourists, "didn't"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c3"
@@ -50,18 +54,21 @@ chunks:
     char_span: [3660, 5249]
     sentence_count: 4
     key_terms: [scaffolding, sidewalk, d49ebd4ceae1a6b3a17d2e1f448a8c6614d72b72, observer, preview, casual, format, membershipsquare9818]
+    concepts: [scaffolding, sidewalk, observer, preview, casual]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c6"
     char_span: [5251, 6461]
     sentence_count: 10
     key_terms: ["it's", prompt, image, looks, copyrighted, lighting, chatgpt, deleted]
+    concepts: [prompt, copyrighted, image, looks, lighting]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c7"
     char_span: [6463, 8383]
     sentence_count: 8
     key_terms: [going, luentale, fucked, like, deadspline, something, images, people]
+    concepts: [going, luentale, fucked, deadspline, something]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c8"
@@ -80,6 +87,7 @@ chunks:
     char_span: [8638, 9953]
     sentence_count: 7
     key_terms: [preview, format, https, width, blast-from-the-80s, auto, png, redd]
+    concepts: [preview, blast-from-the-80s, format, https, width]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c11"

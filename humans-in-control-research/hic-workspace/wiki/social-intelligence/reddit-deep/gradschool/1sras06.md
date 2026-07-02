@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 2222]
     sentence_count: 6
     key_terms: [degree, school, "master's", working, allowance, end, nyc, "bachelor's"]
+    concepts: [degree, school, "master's", working, allowance]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1sras06/should_i_do_a_masters_degree_even_if_i_might_not/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1sras06.md#c1"
     char_span: [2236, 4456]
     sentence_count: 10
     key_terms: [opportunities, years, watership-down, anyway, school, internships, job, like]
+    concepts: [opportunities, years, watership-down, anyway, school]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/gradschool/1sras06.md#c2"
     char_span: [4458, 6434]
     sentence_count: 16
     key_terms: ["master's", field, "don't", personal, old-parking8765, watership-down, right, mia]
+    concepts: ["master's", field, "don't", old-parking8765, personal]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/gradschool/1sras06.md#c3"
     char_span: [6436, 8126]
     sentence_count: 9
     key_terms: [program, education, masters, like, mia, something, probably, network]
+    concepts: [program, education, masters, something, probably]
     section: Comments
     token_count: 369
 ---

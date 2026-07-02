@@ -19,29 +19,37 @@ chunks:
     char_span: [0, 1441]
     sentence_count: 10
     key_terms: [underpaid, cscareerquestions, months, experience, comments, average, company, living]
+    concepts: [cscareerquestions, underpaid, months, experience, comments]
     token_count: 361
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rmjieb/am_i_underpaid_78k_starting_after_10_months/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmjieb.md#c1"
     char_span: [1455, 3370]
     sentence_count: 15
     key_terms: [trimodal-nature-of-tech-compensation, underpaid, salary, ireallylikethemdogs, companies, pragmaticengineer, feature, "you're"]
+    concepts: [trimodal-nature-of-tech-compensation, underpaid, ireallylikethemdogs, pragmaticengineer, salary]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rmjieb.md#c3"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmjieb.md#c2"
     char_span: [3373, 4814]
     sentence_count: 14
     key_terms: [job, months, been, preparing, working, career, market, worked]
+    concepts: [months, preparing, working, career, market]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmjieb.md#c3"
     char_span: [4816, 5734]
     sentence_count: 8
     key_terms: [ireallylikethemdogs, weekly-offer6899, underpaid, thanks, fosschemepirate88, bank, get, paid]
+    concepts: [ireallylikethemdogs, weekly-offer6899, underpaid, thanks]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1rmjieb.md#c1"]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmjieb.md#c4"
     char_span: [5736, 7416]
     sentence_count: 16
     key_terms: [ireallylikethemdogs, "you're", experience, direct-stuff-2469, responsibilities, months, blacksoxing, feel]
+    concepts: [ireallylikethemdogs, "you're", experience, direct-stuff-2469, responsibilities]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmjieb.md#c5"

@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1437]
     sentence_count: 6
     key_terms: [engineering, internship, engineeringstudents, related, supply, chain, role, experience]
+    concepts: [engineering, engineeringstudents, internship, related, supply]
     token_count: 296
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rjx3a5/is_a_strategy_analytics_internship_worth_it/"}]
 ---
 # is a Strategy & Analytics internship worth it? (Mechanical Engineering student)
 

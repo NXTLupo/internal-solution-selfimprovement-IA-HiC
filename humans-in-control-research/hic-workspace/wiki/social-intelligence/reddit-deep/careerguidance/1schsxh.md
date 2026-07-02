@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 2182]
     sentence_count: 15
     key_terms: [working, communication, experience, careerguidance, financially, tech, year, marketing]
+    concepts: [working, communication, experience, careerguidance, financially]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1schsxh/need_career_guidance_2nd_year_student_with_tech/"}]
 ---
 # Need Career Guidance: 2nd Year Student with Tech + Freelance Experience but No Income Yet?
 

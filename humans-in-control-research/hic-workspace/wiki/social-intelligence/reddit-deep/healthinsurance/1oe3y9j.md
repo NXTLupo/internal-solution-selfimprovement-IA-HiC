@@ -20,82 +20,105 @@ chunks:
     char_span: [0, 2186]
     sentence_count: 17
     key_terms: [surgery, gallbladder, severe, emergency, insurance, healthinsurance, claims, pain]
+    concepts: [gallbladder, surgery, severe, emergency, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c1", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c4"]
     token_count: 500
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1oe3y9j/my_insurance_refused_to_cover_my_emergency/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c1"
     char_span: [2188, 4121]
     sentence_count: 20
     key_terms: [hospital, emergency, insurance, similar, around, normal, update, claim]
+    concepts: [hospital, emergency, insurance, similar, around]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c0", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c3", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c4", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c7", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c8"]
     token_count: 430
   - id: "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c2"
-    char_span: [4136, 6055]
+    char_span: [4135, 6054]
     sentence_count: 9
     key_terms: [insurance, please, healthinsurance, solicitation, questions, hospital, reddit, afrneit-4500]
+    concepts: [insurance, please, healthinsurance, solicitation, questions]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c3"
-    char_span: [6057, 8414]
+    char_span: [6056, 8413]
     sentence_count: 16
     key_terms: [appeal, hospital, insurance, claim, called, denied, information, day]
+    concepts: [appeal, hospital, insurance, claim, called]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c1", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c7", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c8", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c12", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c13"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c4"
-    char_span: [8416, 10224]
+    char_span: [8415, 10223]
     sentence_count: 9
     key_terms: [emergency, insurance, out-of-network, company, in-network, hospital, care, companies]
+    concepts: [emergency, out-of-network, insurance, company, in-network]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c0", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c1"]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c5"
-    char_span: [10226, 12325]
+    char_span: [10225, 12324]
     sentence_count: 27
     key_terms: [insurance, keep, health, ask, call, calm, care, down]
+    concepts: [insurance, health, healthcare, supervisor, understand]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c6"
-    char_span: [12327, 14436]
+    char_span: [12326, 14435]
     sentence_count: 34
     key_terms: [insurance, happen, copay, pay, time, deductible, difference, companies]
+    concepts: [insurance, happen, copay, deductible, difference]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c7"
-    char_span: [14438, 15878]
+    char_span: [14437, 15877]
     sentence_count: 14
     key_terms: [appeal, medicare-updates-inflation-chart, insurance, hospital, "doesn't", records, actual-government96, paid]
+    concepts: [appeal, insurance, hospital, "doesn't", records]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c1", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c3", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c8", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c12", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c13"]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c8"
-    char_span: [15880, 17986]
+    char_span: [15879, 17985]
     sentence_count: 22
     key_terms: [hospital, insurance, appeals, bethaliz6894, eob, lack, situations, something]
+    concepts: [hospital, insurance, appeals, bethaliz6894, situations]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c1", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c3", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c7", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c12"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c9"
-    char_span: [17988, 18254]
+    char_span: [17987, 18253]
     sentence_count: 2
     key_terms: [appeal, needed, information, insurance, hospital, provided, billing, company]
+    concepts: [appeal, needed]
     section: Comments
     token_count: 53
   - id: "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c10"
-    char_span: [18256, 20415]
+    char_span: [18255, 20414]
     sentence_count: 20
     key_terms: [eob, denied, owe, says, hospital, diskdinomite, responsible, generated]
+    concepts: [denied, hospital, diskdinomite, responsible, generated]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c11"
-    char_span: [20157, 20741]
+    char_span: [20156, 20740]
     sentence_count: 7
     key_terms: [provider, frequently, overturned, receive, appeal, sylviapellicore, explanation, assistance]
+    concepts: [provider, frequently, overturned, receive, appeal]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c12"
-    char_span: [20743, 21197]
+    char_span: [20742, 21196]
     sentence_count: 5
     key_terms: [insurance, department, hospital, claim, get, work, information, happening]
+    concepts: [insurance, department, hospital, claim]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c1", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c3", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c7", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c8", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c13"]
     section: Comments
     token_count: 97
   - id: "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c13"
-    char_span: [21199, 23357]
+    char_span: [21198, 23356]
     sentence_count: 15
     key_terms: [insurance, anything, claim, benefits, appeal, does, need, emergency]
+    concepts: [insurance, anything, claim, benefits, appeal]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c3", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c7", "social-intelligence/reddit-deep/healthinsurance/1oe3y9j.md#c12"]
     section: Comments
     token_count: 484
 ---

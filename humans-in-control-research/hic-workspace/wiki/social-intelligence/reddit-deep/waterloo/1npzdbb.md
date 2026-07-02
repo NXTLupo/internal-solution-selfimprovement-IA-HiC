@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1528]
     sentence_count: 13
     key_terms: [waterloo, albert, deposits, learned, don, ltb, comments, landlord]
+    concepts: [waterloo, albert, deposits, learned, comments]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1npzdbb.md#c1"]
     token_count: 378
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1npzdbb/beware_222_392_albert_st_landlords_charging/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1npzdbb.md#c1"
     char_span: [1542, 3454]
     sentence_count: 10
     key_terms: [are-key-deposits-legal-for-tenants-in-ontario, key, ontario, experience, deposits, waterloo, because, deposit]
+    concepts: [ontario, experience, deposits, waterloo, because]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1npzdbb.md#c0"]
     section: Comments
     token_count: 508
 ---

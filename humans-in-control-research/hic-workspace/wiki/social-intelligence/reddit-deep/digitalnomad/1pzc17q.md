@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1356]
     sentence_count: 7
     key_terms: [phone, laptop, digitalnomad, stand, life, tiny, difference, comments]
+    concepts: [phone, digitalnomad, laptop, difference, stand]
     token_count: 321
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1pzc17q/what_small_gadgets_have_actually_made_your/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1pzc17q.md#c1"
     char_span: [1370, 3006]
     sentence_count: 13
     key_terms: [ryantylerthomas, grinder, coffee, pasaatituuli, phone, "it's", vssl, wikipedia]
+    concepts: [ryantylerthomas, grinder, pasaatituuli, coffee, phone]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/digitalnomad/1pzc17q.md#c2"
     char_span: [3008, 3850]
     sentence_count: 4
     key_terms: [coffee, funnel, cards, "it's", shpongolised, randomweeb9, apartment, extension]
+    concepts: [coffee, funnel, cards]
     section: Comments
     token_count: 214
   - id: "social-intelligence/reddit-deep/digitalnomad/1pzc17q.md#c3"
     char_span: [3853, 5682]
     sentence_count: 8
     key_terms: [keyboard, monitor, extra, ipad, already, better, cables, laptop]
+    concepts: [keyboard, monitor, extra, already, better]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/digitalnomad/1pzc17q.md#c4"
     char_span: [5684, 7005]
     sentence_count: 6
     key_terms: [laptop, using, ergonomics, lighting, compact, never, stand, good]
+    concepts: [laptop, ergonomics, using, lighting, compact]
     section: Comments
     token_count: 305
 ---

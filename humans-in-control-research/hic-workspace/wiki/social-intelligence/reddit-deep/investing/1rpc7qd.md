@@ -20,37 +20,52 @@ chunks:
     char_span: [0, 2121]
     sentence_count: 17
     key_terms: [titanium, sponge, production, approximately, domestic, company, process, source]
+    concepts: [titanium, sponge, production, approximately, domestic]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rpc7qd.md#c2", "social-intelligence/reddit-deep/investing/1rpc7qd.md#c3", "social-intelligence/reddit-deep/investing/1rpc7qd.md#c4"]
     token_count: 440
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1rpc7qd/china_controls_65_of_global_titanium_production/"}]
   - id: "social-intelligence/reddit-deep/investing/1rpc7qd.md#c1"
     char_span: [2123, 4407]
     sentence_count: 12
     key_terms: [titanium, critical, process, finished, mineral, president, material, minerals]
+    concepts: [titanium, critical, process, finished, mineral]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rpc7qd.md#c2", "social-intelligence/reddit-deep/investing/1rpc7qd.md#c3"]
     token_count: 472
   - id: "social-intelligence/reddit-deep/investing/1rpc7qd.md#c2"
     char_span: [4409, 6404]
     sentence_count: 12
     key_terms: [titanium, sponge, hamr, directly, hydrogen, process, powder, supply]
+    concepts: [titanium, sponge, directly, hydrogen, process]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rpc7qd.md#c0", "social-intelligence/reddit-deep/investing/1rpc7qd.md#c1", "social-intelligence/reddit-deep/investing/1rpc7qd.md#c3"]
     token_count: 393
   - id: "social-intelligence/reddit-deep/investing/1rpc7qd.md#c3"
     char_span: [6406, 8609]
     sentence_count: 15
     key_terms: [process, iperionx, hamr, production, titanium, genx, continuous, batch]
+    concepts: [process, iperionx, production, titanium, continuous]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rpc7qd.md#c0", "social-intelligence/reddit-deep/investing/1rpc7qd.md#c1", "social-intelligence/reddit-deep/investing/1rpc7qd.md#c2"]
     token_count: 511
   - id: "social-intelligence/reddit-deep/investing/1rpc7qd.md#c4"
     char_span: [8611, 10327]
     sentence_count: 9
     key_terms: [approximately, tennessee, rare, titanium, global, earth, steel, development]
+    concepts: [approximately, tennessee, titanium, global, development]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rpc7qd.md#c0"]
     token_count: 357
   - id: "social-intelligence/reddit-deep/investing/1rpc7qd.md#c5"
-    char_span: [10342, 12479]
+    char_span: [10341, 12478]
     sentence_count: 14
     key_terms: [feelinglikeatamale, company, please, information, rare, investing, critical, titanium]
+    concepts: [feelinglikeatamale, company, please, information, investing]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rpc7qd.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1rpc7qd.md#c6"
-    char_span: [12484, 14592]
+    char_span: [12483, 14591]
     sentence_count: 19
     key_terms: [feelinglikeatamale, stock, opportunity, correction, company, holding, numbers, around]
+    concepts: [feelinglikeatamale, opportunity, correction, stock, company]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1rpc7qd.md#c5"]
     section: Comments
     token_count: 492
 ---

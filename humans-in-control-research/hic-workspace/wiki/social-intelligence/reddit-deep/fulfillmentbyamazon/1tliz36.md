@@ -20,23 +20,32 @@ chunks:
     char_span: [0, 1564]
     sentence_count: 11
     key_terms: [reviews, verified, support, review, fulfillmentbyamazon, sku, product, vine]
+    concepts: [reviews, verified, fulfillmentbyamazon, support, review]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1tliz36.md#c1", "social-intelligence/reddit-deep/fulfillmentbyamazon/1tliz36.md#c2", "social-intelligence/reddit-deep/fulfillmentbyamazon/1tliz36.md#c3"]
     token_count: 344
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1tliz36/verified_purchase_reviews_disappearing/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tliz36.md#c1"
-    char_span: [1579, 3971]
+    char_span: [1578, 3970]
     sentence_count: 8
     key_terms: [review, backend, fulfillmentbyamazon, issue, variation, fba, deleted, discord]
+    concepts: [review, fulfillmentbyamazon, backend, variation, issue]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1tliz36.md#c0", "social-intelligence/reddit-deep/fulfillmentbyamazon/1tliz36.md#c2"]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tliz36.md#c2"
-    char_span: [3973, 6425]
+    char_span: [3972, 6424]
     sentence_count: 14
     key_terms: [asin, review, different, variation, fbm, sku, catalog, support]
+    concepts: [review, different, variation, catalog, support]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1tliz36.md#c0", "social-intelligence/reddit-deep/fulfillmentbyamazon/1tliz36.md#c1"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tliz36.md#c3"
-    char_span: [6427, 8280]
+    char_span: [6426, 8279]
     sentence_count: 18
     key_terms: [reviews, product, account, amazon, review, health, ratings, units]
+    concepts: [reviews, product, account, amazon, review]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1tliz36.md#c0"]
     section: Comments
     token_count: 407
 ---

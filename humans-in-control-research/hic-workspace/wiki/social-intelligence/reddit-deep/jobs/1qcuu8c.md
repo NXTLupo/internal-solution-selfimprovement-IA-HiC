@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 2408]
     sentence_count: 29
     key_terms: [process, questions, entry-level, round, interview, hiring, role, time]
+    concepts: [process, questions, entry-level, interview, round]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1qcuu8c/a_four_round_hiring_process_for_an_entrylevel_job/"}]
   - id: "social-intelligence/reddit-deep/jobs/1qcuu8c.md#c1"
     char_span: [2410, 3251]
     sentence_count: 10
@@ -29,18 +31,24 @@ chunks:
     char_span: [3265, 5338]
     sentence_count: 15
     key_terms: [rounds, candidates, interviews, process, hiring, level, went, companies]
+    concepts: [rounds, candidates, interviews, process, hiring]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qcuu8c.md#c3"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/jobs/1qcuu8c.md#c3"
     char_span: [5343, 7282]
     sentence_count: 18
     key_terms: [interview, people, interviews, recruiter, job, rounds, entry, hired]
+    concepts: [interview, people, interviews, recruiter, rounds]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qcuu8c.md#c2", "social-intelligence/reddit-deep/jobs/1qcuu8c.md#c4"]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/jobs/1qcuu8c.md#c4"
     char_span: [7284, 8417]
     sentence_count: 8
     key_terms: [interview, role, entry, level, required, hour, recruiter, morbidobsession6958]
+    concepts: [interview, entry, level, required, recruiter]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qcuu8c.md#c3"]
     section: Comments
     token_count: 282
 ---

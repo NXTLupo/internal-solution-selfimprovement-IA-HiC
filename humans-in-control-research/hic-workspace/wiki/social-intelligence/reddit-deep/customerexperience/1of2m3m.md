@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1334]
     sentence_count: 12
     key_terms: [research, customerexperience, qualitative, customers, behavior, business, comments, customer]
+    concepts: [research, customerexperience, qualitative, customers, behavior]
     token_count: 265
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1of2m3m/how_do_you_currently_do_qualitative_research_for/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1of2m3m.md#c1"
-    char_span: [1349, 3569]
+    char_span: [1348, 3568]
     sentence_count: 15
     key_terms: [use, directly, product, tools, does, like, customers, important]
+    concepts: [directly, product, tools, customers, important]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/customerexperience/1of2m3m.md#c2"
-    char_span: [3571, 3855]
+    char_span: [3570, 3854]
     sentence_count: 1
     key_terms: [usercall, difference, interviews, moderator, regarding, bbling19, compared, happened]
+    concepts: [usercall]
     section: Comments
     token_count: 61
 ---

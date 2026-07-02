@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 978]
     sentence_count: 7
     key_terms: [waterloo, experience, comments, student, nearby, money, home, jobs]
+    concepts: [waterloo, experience, comments, student, nearby]
     token_count: 219
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1o1oln1/struggling_university_student_looking_for_real/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1o1oln1.md#c1"
     char_span: [992, 1685]
     sentence_count: 1
     key_terms: [snooploopssecret, hiring, thank, truthspeakslouder, job, work, seagullrockstar, opportunities]
+    concepts: [snooploopssecret, hiring, thank]
     section: Comments
     token_count: 189
 ---

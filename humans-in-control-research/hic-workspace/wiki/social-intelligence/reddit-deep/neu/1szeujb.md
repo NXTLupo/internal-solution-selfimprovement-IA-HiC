@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 785]
     sentence_count: 7
     key_terms: [advice, senior, year, experience, comments, college, friends, myself]
+    concepts: [advice, senior, experience, comments, college]
     token_count: 199
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1szeujb/becoming_a_senior_and_feeling_like_i_wasted_my/"}]
   - id: "social-intelligence/reddit-deep/neu/1szeujb.md#c1"
     char_span: [799, 1718]
     sentence_count: 8
     key_terms: [business, clubs, join, friends, co-ops, social, trying, far-independent6492]
+    concepts: [business, clubs, friends, co-ops, social]
     section: Comments
     token_count: 254
 ---

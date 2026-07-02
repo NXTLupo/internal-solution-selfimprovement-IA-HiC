@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 962]
     sentence_count: 9
     key_terms: [old, careerguidance, feel, comments, already, school, feels, since]
+    concepts: [careerguidance, comments, already, school, feels]
     token_count: 238
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1lr1ls6/is_28_too_old_to_go_back_to_school/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1lr1ls6.md#c1"
     char_span: [976, 2661]
     sentence_count: 15
     key_terms: [back, going, never, late, too, roborosiegogo, fall, good]
+    concepts: [going, never, roborosiegogo, c1m9h97, degree]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/careerguidance/1lr1ls6.md#c2"
     char_span: [2663, 4383]
     sentence_count: 21
     key_terms: [current, school, going, age, back, find, new, old]
+    concepts: [current, school, going, failure, masters]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/careerguidance/1lr1ls6.md#c3"
     char_span: [4386, 5945]
     sentence_count: 14
     key_terms: [linkedin, job, workatastartup, using, com, got, department, company]
+    concepts: [linkedin, workatastartup, department, using, company]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/careerguidance/1lr1ls6.md#c4"
     char_span: [5947, 7916]
     sentence_count: 15
     key_terms: [school, old, back, life, someone, age, best, professors]
+    concepts: [school, someone, professors, undergrad, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1lr1ls6.md#c5"
     char_span: [7706, 8032]
     sentence_count: 1
     key_terms: [answer, late, backdatsazzup, animousie, allowed, degrees, create, ius001]
+    concepts: [answer]
     section: Comments
     token_count: 100
   - id: "social-intelligence/reddit-deep/careerguidance/1lr1ls6.md#c6"

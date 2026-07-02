@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1257]
     sentence_count: 14
     key_terms: [lab, want, advice, year, gradschool, sometimes, comments, another]
+    concepts: [advice, gradschool, sometimes, comments, another]
     token_count: 287
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1lyukch/please_give_advice_for_future_grad_school/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1lyukch.md#c1"
     char_span: [1271, 2975]
     sentence_count: 15
     key_terms: [different, experience, toxic, lab, phd, researcher, recommend, undergrad]
+    concepts: [different, experience, toxic, researcher, recommend]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/gradschool/1lyukch.md#c2"
     char_span: [2977, 4595]
     sentence_count: 13
     key_terms: [good, phd, lab, stay, better, don, get, interests]
+    concepts: [better, interests, programs, career, letter]
     section: Comments
     token_count: 386
 ---

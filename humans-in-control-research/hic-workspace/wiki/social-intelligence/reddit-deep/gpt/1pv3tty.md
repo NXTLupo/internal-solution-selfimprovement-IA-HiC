@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 2291]
     sentence_count: 16
     key_terms: [gpt, something, tool, response, instead, openai, effectiveness, like]
+    concepts: [something, response, effectiveness, instead, openai]
     token_count: 517
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1pv3tty/i_really_wish_openai_was_more_in_line_with_the/"}]
   - id: "social-intelligence/reddit-deep/gpt/1pv3tty.md#c1"
     char_span: [2294, 3562]
     sentence_count: 9
     key_terms: [frustration, gpt, used, clearly, ask, didn, human-centered, meaning-making]
+    concepts: [frustration, clearly]
     token_count: 284
   - id: "social-intelligence/reddit-deep/gpt/1pv3tty.md#c2"
     char_span: [3576, 4775]
     sentence_count: 5
     key_terms: [guardrails, asking, overzealous, pretty, honest-quality-6422, local, don, hit]
+    concepts: [guardrails, asking, overzealous, pretty, local]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/gpt/1pv3tty.md#c3"
     char_span: [4777, 6997]
     sentence_count: 19
     key_terms: [gpt, because, responsible, mirror, back, code, like, llm]
+    concepts: [responsible, because, mirror, marafx2007, predictave]
     section: Comments
     token_count: 508
 ---

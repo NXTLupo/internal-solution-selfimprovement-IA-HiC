@@ -21,34 +21,43 @@ chunks:
     char_span: [0, 1055]
     sentence_count: 9
     key_terms: [applyingtocollege, northeastern, comments, finance, fully, money, pre-business, necessarily]
+    concepts: [applyingtocollege, northeastern, comments, finance, fully]
     token_count: 262
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1ss2d2k/advice_on_which_school_to_pick/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md#c1"
     char_span: [1057, 2356]
     sentence_count: 9
     key_terms: [kelley, undergrad, admitted, business, program, campus, school, aside]
+    concepts: [kelley, undergrad, admitted, business, program]
     token_count: 303
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md#c2"
     char_span: [2370, 4298]
     sentence_count: 14
     key_terms: [want, finance, program, schools, china, nyush, companies, competing]
+    concepts: [finance, program, schools, china, nyush]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md#c3"
     char_span: [4300, 6313]
     sentence_count: 17
     key_terms: [need, networking, companies, get, shanghai, network, people, nyush]
+    concepts: [networking, companies, shanghai, network, people]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md#c5"]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md#c4"
     char_span: [6315, 8606]
     sentence_count: 26
     key_terms: [information, get, semester, start, want, parents, alumni, relationships]
+    concepts: [information, semester, start, relationships, parents]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md#c5"
     char_span: [8608, 10011]
     sentence_count: 15
     key_terms: [fatima-zahra-foutouh-26-commencement-2026, people, want, shanghai, different, business, failure, student]
+    concepts: [fatima-zahra-foutouh-26-commencement-2026, people, shanghai, different, business]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md#c3"]
     section: Comments
     token_count: 326
 ---

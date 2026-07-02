@@ -21,23 +21,31 @@ chunks:
     char_span: [0, 601]
     sentence_count: 1
     key_terms: [codex, gpt-5, max, comments, context, openai, window, temperatureno3082]
+    concepts: [codex, gpt-5, comments, context, openai]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1p1ggo1.md#c3"]
     token_count: 159
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1p1ggo1/gpt51_codex_max_no_more_context_window_limit/"}]
   - id: "social-intelligence/reddit-deep/openai/1p1ggo1.md#c1"
     char_span: [615, 2414]
     sentence_count: 13
     key_terms: [high, windows, performance, medium, codex, auto-compaction, without, model]
+    concepts: [performance, windows, medium, auto-compaction, codex]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1p1ggo1.md#c3"]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/openai/1p1ggo1.md#c2"
     char_span: [2416, 3282]
     sentence_count: 5
     key_terms: [agent, windows, around, code, full, better, issues, codex]
+    concepts: [agent, windows, around, better, issues]
     section: Comments
     token_count: 225
   - id: "social-intelligence/reddit-deep/openai/1p1ggo1.md#c3"
     char_span: [3285, 5223]
     sentence_count: 15
     key_terms: [windows, codex, wsl, works, context, coding, understanding, real]
+    concepts: [windows, codex, works, understanding, context]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1p1ggo1.md#c0", "social-intelligence/reddit-deep/openai/1p1ggo1.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1p1ggo1.md#c4"

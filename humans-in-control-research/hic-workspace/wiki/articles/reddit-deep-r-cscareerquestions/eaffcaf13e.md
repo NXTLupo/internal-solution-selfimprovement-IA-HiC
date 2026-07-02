@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1991]
     sentence_count: 12
     key_terms: [cscareerquestions, engineering, been, career, healthcare, message, reddit, tech]
+    concepts: [cscareerquestions, engineering, healthcare, career, message]
     token_count: 472
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rwcdge/is_software_engineering_a_career_suicide/"}]
 ---
 # Is software engineering a career suicide?
 

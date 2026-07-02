@@ -21,29 +21,40 @@ chunks:
     char_span: [0, 1243]
     sentence_count: 8
     key_terms: [passionate, cscareerquestions, being, swe, work, comments, succeed, career]
+    concepts: [passionate, cscareerquestions, being, comments, succeed]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md#c2"]
     token_count: 311
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1kwm0y2/why_do_cs_students_and_swes_care_about_being/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md#c1"
     char_span: [1257, 3026]
     sentence_count: 14
     key_terms: [passionate, people, talking, market, job, work, something, industry]
+    concepts: [passionate, people, talking, market, something]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md#c4"]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md#c2"
     char_span: [3028, 4373]
     sentence_count: 11
     key_terms: [passionate, get, job, passion, people, being, swe, because]
+    concepts: [passionate, passion, people, being, because]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md#c1"]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md#c3"
     char_span: [4375, 5662]
     sentence_count: 8
     key_terms: [work, someone, doesn, something, easier, market, cause, money]
+    concepts: [someone, something, doesn, easier, market]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md#c1"]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md#c4"
     char_span: [5664, 7079]
     sentence_count: 5
     key_terms: [passionate, enjoy, "don't", sub, work, computers, something, deleted]
+    concepts: [passionate, enjoy, "don't", computers, something]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md#c1"]
     section: Comments
     token_count: 349
 ---

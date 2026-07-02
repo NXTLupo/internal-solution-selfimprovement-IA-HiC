@@ -19,22 +19,29 @@ chunks:
     char_span: [0, 1992]
     sentence_count: 14
     key_terms: [entertainment, interviewers, round, internships, felt, "it's", internship, interview]
+    concepts: [entertainment, interviewers, internships, internship, round]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rsb3l6.md#c2"]
     token_count: 444
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rsb3l6/waiting_on_internship_decision_after_round_2_at_a/"}]
   - id: "social-intelligence/reddit-deep/internships/1rsb3l6.md#c1"
     char_span: [1994, 2939]
     sentence_count: 10
     key_terms: [did, round, process, following, wednesday, because, company, invite]
+    concepts: [round, process, following, wednesday, because]
     token_count: 209
   - id: "social-intelligence/reddit-deep/internships/1rsb3l6.md#c2"
-    char_span: [2954, 5128]
+    char_span: [2953, 5127]
     sentence_count: 12
     key_terms: [company, entertainment, internship, offer, jobs, wait, skillsire, avoiding]
+    concepts: [company, entertainment, internship, offer, skillsire]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rsb3l6.md#c0"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/internships/1rsb3l6.md#c3"
-    char_span: [5130, 5430]
+    char_span: [5129, 5429]
     sentence_count: 4
     key_terms: ["you're", interested, desperate, proactive, recruiter, check-in, specific, timeline]
+    concepts: ["you're"]
     section: Comments
     token_count: 67
 ---

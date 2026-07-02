@@ -19,28 +19,34 @@ chunks:
     char_span: [0, 2170]
     sentence_count: 19
     key_terms: [lab, engineeringstudents, engineering, bit, days, completely, graduating, comments]
+    concepts: [engineeringstudents, engineering, completely, graduating, comments]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tibw1a/i_20m_have_a_massive_crush_on_a_graduating_senior/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tibw1a.md#c1"
     char_span: [2172, 3996]
     sentence_count: 18
     key_terms: ["i'm", completely, going, last, tell, day, lab, plan]
+    concepts: [completely, going, aggressive, internship, coffee]
     token_count: 431
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tibw1a.md#c2"
     char_span: [4010, 5351]
     sentence_count: 14
     key_terms: [rejection, read, comment, says, scared, lackinsocialawarenes, dissertation-pundit, didnt]
+    concepts: [rejection, comment, scared, didnt, least]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tibw1a.md#c3"
     char_span: [5353, 6297]
     sentence_count: 8
     key_terms: ["there's", coffee, "she's", woman, ask, good, says, froggyribbits]
+    concepts: ["there's", coffee, "she's", woman]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tibw1a.md#c4"
     char_span: [6299, 8214]
     sentence_count: 11
     key_terms: [says, hallway, student, heads, nerdy, "she's", shoot, quick-presence518]
+    concepts: [hallway, student, heads, nerdy, "she's"]
     section: Comments
     token_count: 486
 ---

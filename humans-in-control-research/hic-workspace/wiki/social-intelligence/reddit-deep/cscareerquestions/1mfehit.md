@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 1025]
     sentence_count: 7
     key_terms: [early, something, cscareerquestions, did, eventually, experience, comments, careers]
+    concepts: [cscareerquestions, something, early, eventually, experience]
     token_count: 244
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1mfehit/people_with_7_years_of_experience_in_tech/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c1"
     char_span: [1039, 2864]
     sentence_count: 18
     key_terms: [career, degree, life, never, day, started, through, myself]
+    concepts: [career, degree, never, started, through]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c2"
     char_span: [2866, 5007]
     sentence_count: 18
     key_terms: ["there's", job, work, working, hours, "i'm", like, current]
+    concepts: ["there's", working, hours, current, month-long]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c3"
     char_span: [5009, 6544]
     sentence_count: 16
     key_terms: [lot, take, work, problem, better, longer, communicating, unreasonable]
+    concepts: [communicating, problem, unreasonable, better, longer]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c4"
     char_span: [6547, 8309]
     sentence_count: 11
     key_terms: [something, working, pivot, years, job, work, motivation, building]
+    concepts: [something, working, motivation, pivot, years]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c5"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c5"
     char_span: [8311, 10202]
     sentence_count: 10
     key_terms: [money, work, motivation, something, doing, arkguardian, get, productive]
+    concepts: [money, motivation, something, arkguardian, doing]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c6"
     char_span: [9910, 10451]
     sentence_count: 4
     key_terms: [work, gotten, get, periodically, conditions, daydreamed, frustrated, carpenter]
+    concepts: [gotten]
     section: Comments
     token_count: 127
 ---

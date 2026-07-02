@@ -11,19 +11,23 @@ score: 7
 upvote_ratio: 1
 num_comments: 2
 flair: ""
-extracted_at: "2026-06-05T23:42:16.777Z"
+extracted_at: "2026-06-23T20:31:59.070Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+research_goal: "Analyze case studies of private equity firms and holding companies (such as Medforth) that build repeatable AI capabilities once and scale them across higher education portfolio companies. Deliver an operational playbook detailing the shared-service models, governance frameworks, and deployment strategies used to scale AI across admissions workflows, student communications, and enrollment operations to accelerate long enrollment cycles."
+engagement: "analyze-case-studies-of-private-equity-firms-and-holding-com"
 chunks:
   - id: "social-intelligence/reddit-deep/highereducation/1qpwg1h.md#c0"
     char_span: [0, 2060]
     sentence_count: 21
     key_terms: [interview, highereducation, higher, round, institution, job, team, experience]
+    concepts: [interview, highereducation, higher, institution, experience]
     token_count: 418
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1qpwg1h/second_interview_any_tipstricks/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1qpwg1h.md#c1"
     char_span: [2074, 2845]
     sentence_count: 7
     key_terms: [mobility, college, skills, social, goals, help, implementation, kilolimaoscar]
+    concepts: [mobility, college, skills, social, goals]
     section: Comments
     token_count: 168
 ---
@@ -50,5 +54,5 @@ Any advice, encouragement, or insights would be greatly appreciated. Thank you i
 
 ## Comments
 
-- **KiloLimaOscar** (6↑): Review the latest strategic plan or any information related to long term planning that may be available on the institution’s website.  Identify any goals tied to the area in which you are seeking a position. This will help you form thoughtful questions to ask interviewers and if you have experience and skills that you can frame as being helpful in the implementation of these goals, speak about them.  Best of luck to you in this process. HIgher Ed needs great people!
+- **KiloLimaOscar** (5↑): Review the latest strategic plan or any information related to long term planning that may be available on the institution’s website.  Identify any goals tied to the area in which you are seeking a position. This will help you form thoughtful questions to ask interviewers and if you have experience and skills that you can frame as being helpful in the implementation of these goals, speak about them.  Best of luck to you in this process. HIgher Ed needs great people!
 - **muff-peaksie** (-4↑): Say that their college is an “engine for social mobility” and you want to help them continue to be through xyz. Hype up your skills and passions that are relevant to the job/college. Schools love talking about social mobility and advancing careers.

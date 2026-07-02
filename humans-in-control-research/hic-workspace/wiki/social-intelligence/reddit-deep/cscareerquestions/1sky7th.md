@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1796]
     sentence_count: 11
     key_terms: [international, job, tech, canada, something, cscareerquestions, stable, right]
+    concepts: [international, canada, cscareerquestions, something, stable]
     token_count: 389
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sky7th/tech_related_careers_in_canada/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sky7th.md#c1"
     char_span: [1810, 2077]
     sentence_count: 1
     key_terms: [something, no-assist-8734, mydevreddit, tuckfrump69, zmajevamuda, healthcare, computer, offshore]
+    concepts: [something]
     section: Comments
     token_count: 83
 ---

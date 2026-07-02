@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 482]
     sentence_count: 5
     key_terms: [cscareerquestions, ban, comments, software, beginning-discount61, need, reddit-deep, nationwide]
+    concepts: [cscareerquestions, comments, software]
     token_count: 123
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t17ffr/ban_on_noncs_degrees_entering_software_job_market/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t17ffr.md#c1"
     char_span: [496, 2551]
     sentence_count: 12
     key_terms: [competition, beginning-discount61, "can't", someone, become, degree, universities, jobs]
+    concepts: [competition, beginning-discount61, "can't", someone, universities]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t17ffr.md#c2"
     char_span: [2553, 3314]
     sentence_count: 2
     key_terms: ["you're", bassrecorder, asking, beginning-discount61, keep, corporation, development, everywhere]
+    concepts: [bassrecorder, "you're", asking]
     section: Comments
     token_count: 203
 ---

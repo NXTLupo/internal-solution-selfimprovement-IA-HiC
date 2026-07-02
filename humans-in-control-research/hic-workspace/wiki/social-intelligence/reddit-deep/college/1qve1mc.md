@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 695]
     sentence_count: 3
     key_terms: [college, comments, through, get, opportunities, upperclassmen, connections, internships]
+    concepts: [college, comments, through]
     token_count: 161
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1qve1mc/how_often_do_people_get_internships_by_you_know/"}]
   - id: "social-intelligence/reddit-deep/college/1qve1mc.md#c1"
     char_span: [709, 2631]
     sentence_count: 10
     key_terms: [internships, got, school, going, internship, companies, applying, industry]
+    concepts: [internships, school, going, internship, companies]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qve1mc.md#c2"]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/college/1qve1mc.md#c2"
     char_span: [2633, 5024]
     sentence_count: 16
     key_terms: [connections, internships, internship, companies, got, online, listings, college]
+    concepts: [connections, internships, internship, companies, online]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qve1mc.md#c1"]
     section: Comments
     token_count: 512
 ---

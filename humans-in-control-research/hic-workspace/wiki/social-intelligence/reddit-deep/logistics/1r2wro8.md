@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1634]
     sentence_count: 20
     key_terms: [down, delivery, waiting, end, interested, logistics, comments, everyone]
+    concepts: [delivery, waiting, interested, logistics, comments]
     token_count: 342
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1r2wro8/everyones_busy_but_delivery_keeps_slowing_down/"}]
   - id: "social-intelligence/reddit-deep/logistics/1r2wro8.md#c1"
-    char_span: [1649, 3387]
+    char_span: [1648, 3386]
     sentence_count: 12
     key_terms: [deliveries, end, approved, physical, easterntrust7151, person, trucks, teams]
+    concepts: [deliveries, easterntrust7151, approved, physical, person]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/logistics/1r2wro8.md#c2"
-    char_span: [3389, 4219]
+    char_span: [3388, 4218]
     sentence_count: 4
     key_terms: [everyone, projects, process, busy, easterntrust7151, accountability, stealthagents, responsible]
+    concepts: [everyone, projects, process]
     section: Comments
     token_count: 165
 ---

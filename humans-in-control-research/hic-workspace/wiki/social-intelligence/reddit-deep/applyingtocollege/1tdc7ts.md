@@ -19,7 +19,10 @@ chunks:
     char_span: [0, 1867]
     sentence_count: 15
     key_terms: [school, gpa, weighted, applyingtocollege, sat, academic, because, schools]
+    concepts: [school, weighted, applyingtocollege, academic, valedictorian]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c12"]
     token_count: 440
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1tdc7ts/colleges_need_to_get_rid_of_test_optional_asap/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c1"
     char_span: [1869, 2275]
     sentence_count: 3
@@ -29,66 +32,83 @@ chunks:
     char_span: [2289, 4292]
     sentence_count: 15
     key_terms: [area, school, scores, score, bay, because, college, common]
+    concepts: [school, scores, score, because, college]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c4"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c3"
     char_span: [4297, 5981]
     sentence_count: 9
     key_terms: [school, gpa, duereporter6824, college, application, classmates, everywhere, classes]
+    concepts: [school, duereporter6824, college, application, classmates]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c2"]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c4"
     char_span: [5983, 7441]
     sentence_count: 8
     key_terms: [get, school, teachers, because, getting, competitive, grades, unjust]
+    concepts: [school, teachers, because, getting, competitive]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c2"]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c5"
     char_span: [7443, 8300]
     sentence_count: 4
     key_terms: [school, universities, colleges, private, smart, used-departure9606, high, happy-bee1269]
+    concepts: [universities, school, colleges, private, smart]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c12"]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c6"
     char_span: [8302, 9577]
     sentence_count: 7
     key_terms: [get, accommodations, documentation, adhd, additional, students, suddenly, college]
+    concepts: [accommodations, documentation, additional, students, suddenly]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c7"
     char_span: [9580, 11361]
     sentence_count: 7
     key_terms: [college, adhd, like, resources, people, alternative-web-5787, point, neat-professor-827]
+    concepts: [college, resources, people, point]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c8"
     char_span: [11363, 13496]
     sentence_count: 16
     key_terms: [test, resources, because, places, taking, opportunities, communities, individuals]
+    concepts: [resources, opportunities, because, places, taking]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c9"
     char_span: [13498, 15353]
     sentence_count: 16
     key_terms: [academic, students, based, optional, schools, intelligence, merit, test]
+    concepts: [academic, students, based, optional, schools]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c10"
     char_span: [15357, 17476]
     sentence_count: 15
     key_terms: [conscious-secret-775, because, aps, test, academic, colleges, merit, gpa]
+    concepts: [conscious-secret-775, because, academic, colleges, merit]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c12"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c11"
     char_span: [17188, 17648]
     sentence_count: 4
     key_terms: [interested, oxford, conscious-secret-775, everything, historians, prioritize, university, diversity]
+    concepts: [interested, oxford]
     section: Comments
     token_count: 99
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c12"
     char_span: [17650, 18601]
     sentence_count: 4
     key_terms: [admissions, academic, colleges, school, alternative-web-5787, relative-narwhal-519, normalscratch1241, ecs]
+    concepts: [admissions, academic, colleges, school]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1tdc7ts.md#c10"]
     section: Comments
     token_count: 227
 ---

@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 973]
     sentence_count: 8
     key_terms: [like, careeradvice, tools, engineering, comments, engineer, learning, software]
+    concepts: [careeradvice, engineering, tools, comments, engineer]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1ryskvh.md#c1"]
     token_count: 223
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1ryskvh/engineering_careers_in_the_ai_era/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1ryskvh.md#c1"
     char_span: [987, 2036]
     sentence_count: 8
     key_terms: [engineering, helpful, people, since, tools, find, job, like]
+    concepts: [engineering, helpful, people, since, tools]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1ryskvh.md#c0"]
     section: Comments
     token_count: 211
 ---

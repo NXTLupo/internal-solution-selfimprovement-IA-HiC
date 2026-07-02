@@ -21,33 +21,40 @@ chunks:
     char_span: [0, 1798]
     sentence_count: 14
     key_terms: [people, bad, povertyfinance, school, work, full-time, comments, because]
+    concepts: [people, povertyfinance, school, full-time, comments]
     token_count: 435
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1mz7uy0/stop_stereotyping_people_on_welfare_you_wouldnt/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1mz7uy0.md#c1"
     char_span: [1800, 3268]
     sentence_count: 16
     key_terms: [kids, because, don, pick, time, government, pathetic, parents]
+    concepts: [because, government, pathetic, parents, family]
     token_count: 354
   - id: "social-intelligence/reddit-deep/povertyfinance/1mz7uy0.md#c2"
     char_span: [3272, 4150]
     sentence_count: 6
     key_terms: [pay, because, able, childcare, homeless, without, wouldn, full]
+    concepts: [because, childcare, homeless, without, wouldn]
     token_count: 203
   - id: "social-intelligence/reddit-deep/povertyfinance/1mz7uy0.md#c3"
     char_span: [4164, 5989]
     sentence_count: 9
     key_terms: [people, years, get, section, issue, place, find, got]
+    concepts: [people, years, section, issue, place]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/povertyfinance/1mz7uy0.md#c4"
     char_span: [5991, 7917]
     sentence_count: 14
     key_terms: [pay, section, rent, portion, historianno9484, income, price, apartment]
+    concepts: [section, portion, historianno9484, income, price]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/povertyfinance/1mz7uy0.md#c5"
     char_span: [7919, 9913]
     sentence_count: 15
     key_terms: [get, kids, historianno9484, welfare, people, being, money, fed]
+    concepts: [historianno9484, welfare, people, being, money]
     section: Comments
     token_count: 485
 ---

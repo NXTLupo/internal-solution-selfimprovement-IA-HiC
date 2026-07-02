@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 879]
     sentence_count: 6
     key_terms: [internship, engineeringstudents, get, comments, ce-required, engineering, imthatvigga, internships]
+    concepts: [engineeringstudents, internship, comments]
     token_count: 209
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1na21iz/landed_my_first_internship_civil_engineering_3rd/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1na21iz.md#c1"
     char_span: [893, 2678]
     sentence_count: 10
     key_terms: [engineeringstudents, imthatvigga, applications, engineering, wiki, please, reddit, civil]
+    concepts: [engineeringstudents, imthatvigga, applications, engineering, please]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/engineeringstudents/1na21iz.md#c2"
     char_span: [2680, 4047]
     sentence_count: 11
     key_terms: [job, internship, graduate, imthatvigga, interned, landed, deep-technician-8568, civil]
+    concepts: [internship, graduate, imthatvigga, interned, landed]
     section: Comments
     token_count: 368
 ---

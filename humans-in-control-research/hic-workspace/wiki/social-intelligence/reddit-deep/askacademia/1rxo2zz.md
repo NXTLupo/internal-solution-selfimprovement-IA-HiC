@@ -21,41 +21,54 @@ chunks:
     char_span: [0, 1099]
     sentence_count: 8
     key_terms: [studies, askacademia, "i'm", religious, buddhist, comments, japanese, research]
+    concepts: [studies, askacademia, religious, buddhist, comments]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c1", "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c2", "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c3"]
     token_count: 259
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1rxo2zz/im_an_religious_studies_major_and_i_want_to_be_a/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c1"
     char_span: [1113, 2090]
     sentence_count: 7
     key_terms: [top, religious, programs, someone, studies, market, job, phd]
+    concepts: [religious, programs, someone, studies, market]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c0", "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c2"]
     section: Comments
     token_count: 227
   - id: "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c2"
     char_span: [2092, 4174]
     sentence_count: 14
     key_terms: [religious, studies, misfitmaterial, did, school, departments, top, university]
+    concepts: [religious, studies, misfitmaterial, school, departments]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c0", "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c3"
     char_span: [3872, 4879]
     sentence_count: 7
     key_terms: [studies, heidelberg, buddhist, program, right, departments, feasibility, considered]
+    concepts: [studies, heidelberg, buddhist, program, right]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c0", "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c4"]
     section: Comments
     token_count: 218
   - id: "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c4"
     char_span: [4882, 5207]
     sentence_count: 1
     key_terms: [studies, heidelberg, transcultural, classical, languages, recommend, buddhist, building]
+    concepts: [studies, heidelberg]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c3"]
     section: Comments
     token_count: 69
   - id: "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c5"
     char_span: [5210, 7449]
     sentence_count: 10
     key_terms: [professors, incentive, buddhism, economic, because, bluebirdonline, field, plotthound1]
+    concepts: [professors, incentive, buddhism, economic, bluebirdonline]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c6"
     char_span: [7138, 7667]
     sentence_count: 3
     key_terms: [specifically, neoprimitiveoasis, bluebirdonline, connections, meditations, attractive, interested, interfaith]
+    concepts: [specifically]
     section: Comments
     token_count: 115
 ---

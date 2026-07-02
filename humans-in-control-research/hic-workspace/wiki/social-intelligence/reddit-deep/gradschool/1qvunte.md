@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1622]
     sentence_count: 16
     key_terms: [application, recommendation, school, right, waive, comments, email, gradschool]
+    concepts: [application, recommendation, school, right, waive]
     token_count: 363
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1qvunte/accidentally_didnt_waive_rights/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1qvunte.md#c1"
     char_span: [1636, 3219]
     sentence_count: 11
     key_terms: [femboyhootersbee, recommendation, email, "it's", "won't", supposed, mistake, process]
+    concepts: [femboyhootersbee, recommendation, email, "won't", supposed]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/gradschool/1qvunte.md#c2"
     char_span: [3221, 4645]
     sentence_count: 10
     key_terms: [letter, "didn't", waive, applicant, rights, read, student, waiving]
+    concepts: [letter, "didn't", applicant, waive, rights]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/gradschool/1qvunte.md#c3"
     char_span: [4647, 5554]
     sentence_count: 6
     key_terms: [recommender, life-education-8030, students, access, change, letter, waived, right]
+    concepts: [life-education-8030, recommender, students, access, change]
     section: Comments
     token_count: 248
   - id: "social-intelligence/reddit-deep/gradschool/1qvunte.md#c4"
     char_span: [5556, 7699]
     sentence_count: 18
     key_terms: [letters, recommendations, glowing, waiving, recommendation, right, write, application]
+    concepts: [letters, recommendations, recommendation, glowing, waiving]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/gradschool/1qvunte.md#c5"

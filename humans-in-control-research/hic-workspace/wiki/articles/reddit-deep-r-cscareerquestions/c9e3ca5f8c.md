@@ -18,11 +18,16 @@ chunks:
     char_span: [0, 1868]
     sentence_count: 21
     key_terms: [amazon, people, cscareerquestions, got, grad, new, comments, honestly]
+    concepts: [amazon, cscareerquestions, people, comments, honestly]
+    related_chunks: ["articles/reddit-deep-r-cscareerquestions/c9e3ca5f8c.md#c1"]
     token_count: 455
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qpdxps/laid_off_w_6_months_of_experience_as_new_grad/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/c9e3ca5f8c.md#c1"
     char_span: [1870, 3589]
     sentence_count: 12
     key_terms: [people, layoff, got, amazon, months, rich-put4159, great, never]
+    concepts: [people, layoff, rich-put4159, amazon, months]
+    related_chunks: ["articles/reddit-deep-r-cscareerquestions/c9e3ca5f8c.md#c0"]
     token_count: 446
 ---
 # Laid off w/ 6 months of experience as new grad, worried it might be over.

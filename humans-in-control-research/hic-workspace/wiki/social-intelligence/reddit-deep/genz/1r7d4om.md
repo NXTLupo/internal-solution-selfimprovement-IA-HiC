@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 2065]
     sentence_count: 6
     key_terms: [time, years, feel, like, "i've", break, waste, gen]
+    concepts: [years, break, university, waste, inflation]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1r7d4om/gen_z_aged_adults_have_you_ever_felt_like_this_is/"}]
   - id: "social-intelligence/reddit-deep/genz/1r7d4om.md#c1"
     char_span: [2079, 4174]
     sentence_count: 16
     key_terms: [good, years, maintaining, work, currently, designers, because, discord]
+    concepts: [maintaining, years, currently, designers, because]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/genz/1r7d4om.md#c2"
     char_span: [4176, 5677]
     sentence_count: 10
     key_terms: [job, work, school, early, human, like, use, encountering]
+    concepts: [school, early, human]
     section: Comments
     token_count: 351
 ---

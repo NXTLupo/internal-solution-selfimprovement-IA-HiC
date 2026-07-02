@@ -19,64 +19,76 @@ chunks:
     char_span: [0, 2143]
     sentence_count: 19
     key_terms: [university, because, college, here, community, gpa, "i'm", constantly]
+    concepts: [university, because, college, community, constantly]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1lrqif4/im_losing_hope_because_of_trumps_big_beautiful/"}]
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c1"
     char_span: [2145, 4309]
     sentence_count: 21
     key_terms: ["i'm", like, enough, country, "don't", going, feel, here]
+    concepts: [enough, country, "don't", going, education]
     token_count: 495
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c2"
     char_span: [4323, 5094]
     sentence_count: 8
     key_terms: [job, snap, qualify, student, find, get, time, callmebigpahpa]
+    concepts: [qualify, student]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c3"
     char_span: [5096, 7166]
     sentence_count: 14
     key_terms: [snap, force, air, work, experience, enrolled, students, college]
+    concepts: [experience, force, enrolled, students, college]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c4"
     char_span: [7168, 9201]
     sentence_count: 21
     key_terms: [work, snap, take, participate, food, exemptions, separately, training]
+    concepts: [participate, exemptions, separately, training, college]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c5"
     char_span: [9203, 11252]
     sentence_count: 25
     key_terms: [vomitonvelvet, great, sorry, "i'm", want, direction, figure, money]
+    concepts: [vomitonvelvet, great, sorry, direction, figure]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c6"
     char_span: [11012, 11326]
     sentence_count: 4
     key_terms: [supporters, trump, here, assuming, craziest, honestly, laughing, "wouldn't"]
+    concepts: [supporters, trump]
     section: Comments
     token_count: 80
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c7"
     char_span: [11328, 12176]
     sentence_count: 10
     key_terms: [get, government, anything, everyone, money, taxes, redistribute, affordably]
+    concepts: [government, anything, everyone, money, taxes]
     section: Comments
     token_count: 184
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c8"
     char_span: [12178, 14126]
     sentence_count: 18
     key_terms: [bachelors, living, vomitonvelvet, going, available, community, college, tuition]
+    concepts: [bachelors, vomitonvelvet, living, going, available]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c9"
     char_span: [14128, 15543]
     sentence_count: 8
     key_terms: [citizen, expensive, student, talking, dental, single, xtergo, emt]
+    concepts: [citizen, expensive, student, talking, dental]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c10"
     char_span: [15545, 16760]
     sentence_count: 10
     key_terms: [something, homeless, college, germany, "don't", bank, feel, food]
+    concepts: [something, homeless, college, germany, "don't"]
     section: Comments
     token_count: 300
 ---

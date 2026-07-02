@@ -21,21 +21,26 @@ chunks:
     char_span: [0, 2408]
     sentence_count: 23
     key_terms: [specific, failure, constraints, output, allocation, investment, real, research]
+    concepts: [specific, constraints, failure, allocation, investment]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1slph2q/ive_spent_years_building_ai_prompt_systems_for/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1slph2q.md#c1"
     char_span: [2410, 5159]
     sentence_count: 28
     key_terms: [analysis, conclusion, model, financial, data, recommendation, conclusions, case]
+    concepts: [analysis, conclusion, model, financial, recommendation]
     token_count: 510
   - id: "social-intelligence/reddit-deep/chatgpt/1slph2q.md#c2"
     char_span: [5161, 7026]
     sentence_count: 27
     key_terms: [layer, output, weak, prompt, constraint, model, investment, framework]
+    concepts: [layer, output, constraint, prompt, investment]
     token_count: 365
   - id: "social-intelligence/reddit-deep/chatgpt/1slph2q.md#c3"
     char_span: [7040, 8216]
     sentence_count: 5
     key_terms: [openai, please, conversation, image, post, r-chatgpt-1050422060352024636, subreddit, concerns]
+    concepts: [conversation, openai, please, image, subreddit]
     section: Comments
     token_count: 294
 ---

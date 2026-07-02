@@ -19,29 +19,39 @@ chunks:
     char_span: [0, 1757]
     sentence_count: 16
     key_terms: [northeastern, co-op, co-ops, guaranteed, never, get, instead, half]
+    concepts: [northeastern, co-op, guaranteed, co-ops, never]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1ti1qsc.md#c1", "social-intelligence/reddit-deep/neu/1ti1qsc.md#c3"]
     token_count: 389
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1ti1qsc/finding_a_coop_was_never_supposed_to_be_easy/"}]
   - id: "social-intelligence/reddit-deep/neu/1ti1qsc.md#c1"
     char_span: [1771, 3743]
     sentence_count: 13
     key_terms: [co-ops, program, student, masters, master, northeastern, experience, internship]
+    concepts: [co-ops, program, student, masters, northeastern]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1ti1qsc.md#c0"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/neu/1ti1qsc.md#c2"
     char_span: [3745, 6158]
     sentence_count: 20
     key_terms: [students, international, guaranteed, graduate, student, feels, makes, sense]
+    concepts: [students, international, guaranteed, graduate, student]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1ti1qsc.md#c3"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/neu/1ti1qsc.md#c3"
     char_span: [6160, 8412]
     sentence_count: 20
     key_terms: [northeastern, co-op, internationals, students, international, undergraduate, grad, "it's"]
+    concepts: [northeastern, internationals, co-op, students, international]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1ti1qsc.md#c0", "social-intelligence/reddit-deep/neu/1ti1qsc.md#c2"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/neu/1ti1qsc.md#c4"
     char_span: [8414, 9403]
     sentence_count: 4
     key_terms: [applications, feel, employers, number, saying, negotiationcute5341, being, level]
+    concepts: [applications, employers, number, saying, being]
     section: Comments
     token_count: 231
 ---

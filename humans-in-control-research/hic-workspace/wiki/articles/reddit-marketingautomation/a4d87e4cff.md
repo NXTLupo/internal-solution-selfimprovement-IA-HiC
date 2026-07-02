@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2399]
     sentence_count: 24
     key_terms: [chatgpt, like, industry, because, content, marketingautomation, morning, months]
+    concepts: [chatgpt, industry, marketingautomation, because, content]
     token_count: 504
+    sources: [{"n":"reddit: marketingautomation","u":"https://reddit.com/r/MarketingAutomation/comments/1oerso3/finally_cracked_the_social_media_content_problem/"}]
 ---
 # Finally cracked the social media content problem after wasting 3 months on ChatGPT alone
 

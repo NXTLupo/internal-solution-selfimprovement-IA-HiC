@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2139]
     sentence_count: 11
     key_terms: [experience, cscareerquestions, software, over-qualified, career, applications, professional, environment]
+    concepts: [experience, cscareerquestions, software, over-qualified, applications]
     token_count: 467
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1lru5il/circuitous_career_path_through_academia_to_cs/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lru5il.md#c1"
     char_span: [2153, 4528]
     sentence_count: 16
     key_terms: [companies, "you're", skills, background, experience, right, interviews, understand]
+    concepts: [companies, "you're", background, experience, skills]
     section: Comments
     token_count: 487
 ---

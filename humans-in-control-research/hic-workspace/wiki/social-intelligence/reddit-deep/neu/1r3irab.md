@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1263]
     sentence_count: 10
     key_terms: [northeastern, scholarship, applicant, admitted, comments, guidance, recently, students]
+    concepts: [northeastern, scholarship, applicant, admitted, comments]
     token_count: 286
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1r3irab/admitted_to_northeastern_msba_fall_2026_20/"}]
   - id: "social-intelligence/reddit-deep/neu/1r3irab.md#c1"
     char_span: [1277, 1948]
     sentence_count: 8
     key_terms: [common-science-7643, visa, smartandstupid3, campus, housing, options, around, loan]
+    concepts: [common-science-7643, smartandstupid3, campus, housing, options]
     section: Comments
     token_count: 174
 ---

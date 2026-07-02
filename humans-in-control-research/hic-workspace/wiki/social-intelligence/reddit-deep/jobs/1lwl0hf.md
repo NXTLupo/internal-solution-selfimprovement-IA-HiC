@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 555]
     sentence_count: 6
     key_terms: [jobs, looking, something, comments, industry, entry, level, rockstarhuman2]
+    concepts: [looking, something, comments, industry, entry]
     token_count: 137
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1lwl0hf/what_are_some_good_entry_level_jobs_for_teenagers/"}]
   - id: "social-intelligence/reddit-deep/jobs/1lwl0hf.md#c1"
     char_span: [569, 2025]
     sentence_count: 10
     key_terms: [job, sharksfan707, "that's", like, doesn, cash, easy, food]
+    concepts: [sharksfan707, "that's", doesn]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/jobs/1lwl0hf.md#c2"
     char_span: [2027, 2505]
     sentence_count: 2
     key_terms: [stores, available-stick-7299, rockstarhuman2, fast-food, homedepot, homegoods, inventory, teenagers]
+    concepts: [stores]
     section: Comments
     token_count: 136
   - id: "social-intelligence/reddit-deep/jobs/1lwl0hf.md#c3"
     char_span: [2507, 4393]
     sentence_count: 17
     key_terms: [customer, because, people, entry-level, lkayschmidt, desk, difficult, service]
+    concepts: [customer, because, people, entry-level, lkayschmidt]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/jobs/1lwl0hf.md#c4"
     char_span: [4397, 6478]
     sentence_count: 19
     key_terms: [job, jobs, college, work, income, remote, get, nice]
+    concepts: [college, income, remote, experience, restaurant]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/jobs/1lwl0hf.md#c5"
     char_span: [6480, 6774]
     sentence_count: 1
     key_terms: [top-10-remote-work-from-home-jobs-experience-needed-logan-jack-vstgc, linkedin, https, pulse, com, www, simply, thanks]
+    concepts: [top-10-remote-work-from-home-jobs-experience-needed-logan-jack-vstgc, linkedin, https, pulse]
     section: Comments
     token_count: 80
 ---

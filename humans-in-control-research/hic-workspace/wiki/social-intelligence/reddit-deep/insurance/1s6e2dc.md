@@ -20,23 +20,31 @@ chunks:
     char_span: [0, 1453]
     sentence_count: 13
     key_terms: [company, agent, month, insurance, customer, service, cancellation, last]
+    concepts: [company, insurance, agent, month, customer]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1s6e2dc.md#c3"]
     token_count: 321
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1s6e2dc/customer_service_agent_lied_am_i_sol/"}]
   - id: "social-intelligence/reddit-deep/insurance/1s6e2dc.md#c1"
-    char_span: [1468, 2608]
+    char_span: [1467, 2607]
     sentence_count: 8
     key_terms: [insurance, declarations, policy, date, page, demanbmore, inception, coverage]
+    concepts: [insurance, declarations, policy, demanbmore, inception]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1s6e2dc.md#c3"]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/insurance/1s6e2dc.md#c2"
-    char_span: [2610, 4568]
+    char_span: [2609, 4567]
     sentence_count: 13
     key_terms: [cancelation, agent, email, new, required, calling, hours, call]
+    concepts: [cancelation, agent, email, required, calling]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/insurance/1s6e2dc.md#c3"
-    char_span: [4570, 5655]
+    char_span: [4569, 5654]
     sentence_count: 9
     key_terms: [insurance, anyone, cancel, policy, agent, call, following, customer]
+    concepts: [insurance, anyone, cancel, policy, agent]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1s6e2dc.md#c0", "social-intelligence/reddit-deep/insurance/1s6e2dc.md#c1"]
     section: Comments
     token_count: 231
 ---

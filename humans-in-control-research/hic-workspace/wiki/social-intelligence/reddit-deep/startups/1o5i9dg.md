@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1817]
     sentence_count: 15
     key_terms: [product, bootstrap, different, build, traditional, exit, single-company-with-employees, companies]
+    concepts: [product, bootstrap, different, traditional, build]
     token_count: 401
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1o5i9dg/has_bootstrapping_fundamentally_changed_i_will/"}]
   - id: "social-intelligence/reddit-deep/startups/1o5i9dg.md#c1"
-    char_span: [1832, 3794]
+    char_span: [1831, 3793]
     sentence_count: 15
     key_terms: [business, developer, senior, doing, product, development, code, feel]
+    concepts: [business, developer, senior, doing, product]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/startups/1o5i9dg.md#c2"
-    char_span: [3796, 5502]
+    char_span: [3795, 5501]
     sentence_count: 10
     key_terms: [product, describing, marketing, agency, "you're", build, accelerator, engineering]
+    concepts: [product, describing, marketing, agency, "you're"]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/startups/1o5i9dg.md#c3"
-    char_span: [5504, 7525]
+    char_span: [5503, 7524]
     sentence_count: 14
     key_terms: [marketing, companies, feech1970, "i'm", someone, equity, angelvsworld, traditional]
+    concepts: [marketing, companies, feech1970, someone, angelvsworld]
     section: Comments
     token_count: 478
 ---

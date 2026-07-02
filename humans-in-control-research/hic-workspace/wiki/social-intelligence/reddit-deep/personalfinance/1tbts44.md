@@ -21,71 +21,87 @@ chunks:
     char_span: [0, 1763]
     sentence_count: 17
     key_terms: [cash, taxable, brokerage, personalfinance, nursing, setup, hysa, currently]
+    concepts: [taxable, brokerage, personalfinance, nursing, setup]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1tbts44.md#c1"]
     token_count: 437
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1tbts44/70k_sitting_in_my_hysa_how_do_i_stop_hoarding/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c1"
     char_span: [1777, 3482]
     sentence_count: 15
     key_terms: [brokerage, investingnerd2020, vti, account, taxable, broker, invest, funds]
+    concepts: [investingnerd2020, brokerage, account, taxable, broker]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1tbts44.md#c0", "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c3"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c2"
     char_span: [3484, 4640]
     sentence_count: 11
     key_terms: [market, american, exposure, international, small, stock, investingnerd2020, businesses]
+    concepts: [market, international, american, exposure, investingnerd2020]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c3"
     char_span: [4642, 6401]
     sentence_count: 15
     key_terms: [emergency, paycheck, account, taxable, invest, months, automatically, pay]
+    concepts: [emergency, paycheck, automatically, account, taxable]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1tbts44.md#c1"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c4"
     char_span: [6403, 6996]
     sentence_count: 5
     key_terms: [money, start, idea, bivolion13, eventually, everything, downturns, investing]
+    concepts: [money, start]
     section: Comments
     token_count: 141
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c5"
     char_span: [6998, 8780]
     sentence_count: 10
     key_terms: [school, nursing, time, community, expenses, because, college, recover]
+    concepts: [school, nursing, community, expenses, because]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c6"
     char_span: [8782, 9418]
     sentence_count: 6
     key_terms: [program, free, hospital, "daughter's", presumably, bachelors, bassfartz, full-time]
+    concepts: [program, hospital]
     section: Comments
     token_count: 170
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c7"
     char_span: [9420, 10861]
     sentence_count: 8
     key_terms: [keep, college, going, next, community, schooling, planning, nursing]
+    concepts: [college, going, community, schooling, planning]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c8"
     char_span: [10863, 12922]
     sentence_count: 22
     key_terms: [tax, like, hsa, account, invest, advantaged, california, hsas]
+    concepts: [account, advantaged, california, invest, savings]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c9"
     char_span: [12924, 14304]
     sentence_count: 9
     key_terms: [going, taxes, need, probably, growth, invest, "you're", rollingprobablecause]
+    concepts: [going, taxes, probably, growth, invest]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c10"
     char_span: [14306, 16248]
     sentence_count: 15
     key_terms: [hsa, market, funds, gains, cash, accounts, invest, money]
+    concepts: [market, funds, gains, accounts, invest]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c11"
     char_span: [16250, 17883]
     sentence_count: 9
     key_terms: [hsa-earnings-taxable-in-california, need, california, accounts, loko8765, vanguard, federal, taxable]
+    concepts: [california, accounts, loko8765, vanguard, federal]
     section: Comments
     token_count: 416
 ---

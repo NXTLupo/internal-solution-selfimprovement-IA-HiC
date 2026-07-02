@@ -18,31 +18,40 @@ chunks:
     char_span: [0, 1833]
     sentence_count: 14
     key_terms: [care, financial, vet, low-cost, ability, routine, povertyfinance, need]
+    concepts: [financial, low-cost, povertyfinance, ability, routine]
     token_count: 426
+    sources: [{"n":"Reddit Deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1s214qw/some_poverty_finance_tips_for_pet_owners_for/"}]
   - id: "articles/reddit-deep-r-povertyfinance/d6de05abe3.md#c1"
     char_span: [1835, 3966]
     sentence_count: 12
     key_terms: [emergency, "don't", estimate, ask, savings, treatment, pet, afraid]
+    concepts: [emergency, "don't", estimate, savings, treatment]
+    related_chunks: ["articles/reddit-deep-r-povertyfinance/d6de05abe3.md#c5"]
     token_count: 490
   - id: "articles/reddit-deep-r-povertyfinance/d6de05abe3.md#c2"
     char_span: [3968, 5923]
     sentence_count: 17
     key_terms: [vet, care, get, pet, options, usually, comes, great]
+    concepts: [options, usually, information, comes, great]
     token_count: 457
   - id: "articles/reddit-deep-r-povertyfinance/d6de05abe3.md#c3"
     char_span: [5925, 8107]
     sentence_count: 14
     key_terms: [euthanasia, treatment, vet, understand, financial, suffering, choice, limitations]
+    concepts: [euthanasia, treatment, understand, financial, suffering]
     token_count: 447
   - id: "articles/reddit-deep-r-povertyfinance/d6de05abe3.md#c4"
     char_span: [8109, 9062]
     sentence_count: 11
     key_terms: [month, diagnosed, because, husband, cost, get, thrombocytopenia, hemangiosarcoma]
+    concepts: [month, diagnosed, because, husband]
     token_count: 233
   - id: "articles/reddit-deep-r-povertyfinance/d6de05abe3.md#c5"
     char_span: [9064, 10609]
     sentence_count: 15
     key_terms: [treatment, people, estimate, afford, happen, blood, cases, money]
+    concepts: [treatment, people, estimate, afford, happen]
+    related_chunks: ["articles/reddit-deep-r-povertyfinance/d6de05abe3.md#c1"]
     token_count: 355
 ---
 # Some poverty finance tips for pet owners for being able to afford the vet.

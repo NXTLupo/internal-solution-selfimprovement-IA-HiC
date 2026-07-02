@@ -7,50 +7,59 @@ subreddit: "shopify"
 title: "This Week's Top E-commerce News Stories 💥 June 8th, 2026"
 author: "adventurepaul"
 date: "2026-06-08T22:01:53.000Z"
-score: 8
-upvote_ratio: 0.78
+score: 7
+upvote_ratio: 0.77
 num_comments: 2
 flair: "Shopify General Discussion"
-extracted_at: "2026-06-18T13:35:23.049Z"
+extracted_at: "2026-06-24T22:14:23.470Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/shopify/1u0m9uy.md#c0"
-    char_span: [0, 815]
+    char_span: [0, 814]
     sentence_count: 4
     key_terms: [shopify, e-commerce, news, comments, stories, recaps, reddit, "week's"]
-    token_count: 213
+    concepts: [shopify, e-commerce, comments, stories, recaps]
+    token_count: 212
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1u0m9uy/this_weeks_top_ecommerce_news_stories_june_8th/"}]
   - id: "social-intelligence/reddit-deep/shopify/1u0m9uy.md#c1"
-    char_span: [817, 3318]
+    char_span: [816, 3317]
     sentence_count: 12
     key_terms: [search, google, publishers, discover, creator, feature, direct, tokens]
+    concepts: [search, google, publishers, discover, creator]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1u0m9uy.md#c2"
-    char_span: [2962, 5586]
+    char_span: [2961, 5585]
     sentence_count: 15
     key_terms: [business, walmart, competition, governments, new, delivery, in-store, company]
+    concepts: [business, walmart, competition, governments, delivery]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1u0m9uy.md#c3"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1u0m9uy.md#c3"
-    char_span: [5239, 7738]
+    char_span: [5238, 7737]
     sentence_count: 9
     key_terms: [june, business, walmart, prime, run, company, agents, announcement]
+    concepts: [business, walmart, prime, company, announcement]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1u0m9uy.md#c2"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1u0m9uy.md#c4"
-    char_span: [7441, 9800]
+    char_span: [7440, 9799]
     sentence_count: 12
     key_terms: [companies, prime, amazon, market, public, sales, membership, listening]
+    concepts: [companies, prime, amazon, market, public]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1u0m9uy.md#c5"
-    char_span: [9545, 10249]
+    char_span: [9544, 10248]
     sentence_count: 5
     key_terms: [consumer, across, sales, healthcare-related, ross, burlington, comparable, same-store]
+    concepts: [consumer, across, sales]
     token_count: 171
 ---
 # This Week's Top E-commerce News Stories 💥 June 8th, 2026
 
 Source: [reddit-deep: r/shopify](https://www.reddit.com/r/shopify/comments/1u0m9uy/this_weeks_top_ecommerce_news_stories_june_8th/)
-Posted by **adventurepaul** · **8↑** · **2 comments**
+Posted by **adventurepaul** · **7↑** · **2 comments**
 
 Hi [r/Shopify](https://www.reddit.com/r/Shopify/) \- I'm Paul and I follow the e-commerce industry closely for my Shopifreaks E-commerce Newsletter, which I've published weekly since 2021.
 

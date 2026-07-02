@@ -11,26 +11,30 @@ score: 5
 upvote_ratio: 0.73
 num_comments: 37
 flair: "📢 Marketing"
-extracted_at: "2026-06-18T13:35:23.803Z"
+extracted_at: "2026-06-24T22:13:57.306Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1sk32ao.md#c0"
     char_span: [0, 1779]
     sentence_count: 15
     key_terms: [ecommerce, ghosts, like, comments, everyone, tracking, visitors, forever]
+    concepts: [ecommerce, ghosts, comments, everyone, tracking]
     token_count: 371
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1sk32ao/apparently_ghosts_haunt_my_ecommerce_site_and/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1sk32ao.md#c1"
-    char_span: [1794, 3417]
+    char_span: [1793, 3416]
     sentence_count: 11
     key_terms: [loosepantsbigwallet, page, sure, relevant, website, clicks, money, spend]
+    concepts: [loosepantsbigwallet, relevant, website, clicks, money]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/ecommerce/1sk32ao.md#c2"
-    char_span: [3419, 5660]
+    char_span: [3418, 5659]
     sentence_count: 12
     key_terms: [abandonment, cart, visitors, "it's", tracking, leaving, exit-intent, high]
+    concepts: [abandonment, visitors, tracking, leaving, exit-intent]
     section: Comments
     token_count: 471
 ---
@@ -51,7 +55,7 @@ Edit: Thanks for all the tips everyone! I ended up trying Tie for tracking visit
 
 ## Comments
 
-- **loosepantsbigwallet** (5↑): A couple of years ago I tried Pmax.
+- **loosepantsbigwallet** (4↑): A couple of years ago I tried Pmax.
 
 Set the spend, waited for it to go live.  Poof my money was gone in 10minutes.
 

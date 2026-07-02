@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 1288]
     sentence_count: 11
     key_terms: [university, cscareerquestions, question, career, "i'm", subreddit, comments, matter]
+    concepts: [university, cscareerquestions, question, career, subreddit]
     token_count: 324
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1pl3gso/how_much_did_the_university_you_went_to_help_you/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pl3gso.md#c1"
     char_span: [1302, 3240]
     sentence_count: 9
     key_terms: [school, went, big, tech, top, schools, junior, internships]
+    concepts: [school, schools, junior, internships, network]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pl3gso.md#c2"
     char_span: [3242, 5282]
     sentence_count: 15
     key_terms: [school, good, swe, considering, need, university, technical, probably]
+    concepts: [school, considering, university, technical, probably]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pl3gso.md#c3"
     char_span: [5284, 7476]
     sentence_count: 17
     key_terms: [competence, smart, immediately, blah, get, swe, uni, experience]
+    concepts: [competence, immediately, experience, smart, university]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pl3gso.md#c4"
     char_span: [7478, 9566]
     sentence_count: 15
     key_terms: [school, job, helped, companies, easier, though, big, security]
+    concepts: [school, helped, companies, easier, though]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pl3gso.md#c5"

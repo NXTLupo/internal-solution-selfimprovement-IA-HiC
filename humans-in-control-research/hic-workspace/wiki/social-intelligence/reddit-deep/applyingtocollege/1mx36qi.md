@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1663]
     sentence_count: 11
     key_terms: [student, applyingtocollege, like, looking, international, colleges, comments, amherst]
+    concepts: [student, applyingtocollege, international, looking, colleges]
     token_count: 389
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1mx36qi/is_a_liberal_arts_college_the_right_choice_for_an/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mx36qi.md#c1"
     char_span: [1677, 1970]
     sentence_count: 3
@@ -32,24 +34,30 @@ chunks:
     char_span: [1972, 4287]
     sentence_count: 22
     key_terms: [financial, aid, because, medical, school, letpsychological650, lacs, research]
+    concepts: [financial, letpsychological650, because, medical, school]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mx36qi.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mx36qi.md#c3"
     char_span: [3965, 5099]
     sentence_count: 6
     key_terms: [research, school, education, advising, because, liberal, choice, premed]
+    concepts: [research, school, education, advising, because]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1mx36qi.md#c2"]
     section: Comments
     token_count: 235
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mx36qi.md#c4"
     char_span: [5101, 7221]
     sentence_count: 17
     key_terms: [lacs, internationals, international, aid, pre-med, schools, need, top]
+    concepts: [internationals, international, pre-med, schools, admissions]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mx36qi.md#c5"
     char_span: [7223, 8862]
     sentence_count: 12
     key_terms: [international, students, financial, generous, aid, undergrad, pre-med, schools]
+    concepts: [international, students, financial, generous, undergrad]
     section: Comments
     token_count: 359
 ---

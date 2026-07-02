@@ -21,56 +21,67 @@ chunks:
     char_span: [0, 1229]
     sentence_count: 3
     key_terms: [financialindependence, cost, reddit, https, comments, com, utm, www]
+    concepts: [financialindependence, reddit, comments, https, share]
     token_count: 347
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1plu8pi/cost_of_having_a_child_15_children_year_2/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c1"
     char_span: [1231, 2859]
     sentence_count: 4
     key_terms: [diapers, toddler-specific, grocery, cloth, baby, year, disposable, household]
+    concepts: [diapers, toddler-specific, grocery, cloth, disposable]
     token_count: 493
   - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c2"
     char_span: [2861, 4465]
     sentence_count: 6
     key_terms: [tickets, christmas, birthday, wooden, gifts, baby, year, secondhand]
+    concepts: [tickets, christmas, birthday, wooden, gifts]
     token_count: 366
   - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c3"
     char_span: [4467, 5710]
     sentence_count: 7
     key_terms: [year, insurance, utilities, premiums, include, amount, annual, costs]
+    concepts: [insurance, utilities, premiums, include, amount]
     token_count: 264
   - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c4"
     char_span: [5724, 7272]
     sentence_count: 8
     key_terms: [cost, home, opportunity, expenses, planning, another, "doesn't", housing]
+    concepts: [opportunity, expenses, planning, another, "doesn't"]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c5"
     char_span: [7274, 8595]
     sentence_count: 11
     key_terms: [money, home, parent, stay, necessary, families, problems, incomes]
+    concepts: [money, parent, necessary, families, problems]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c6"
     char_span: [8597, 10726]
     sentence_count: 18
     key_terms: [cost, children, great, opportunity, time, year, childcare, biggest]
+    concepts: [children, opportunity, great, childcare, biggest]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c7"
     char_span: [10730, 11947]
     sentence_count: 11
     key_terms: [contributions, medical, growth, early, start, years, add, bill]
+    concepts: [contributions, medical, growth, early, start]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c8"
     char_span: [11949, 13490]
     sentence_count: 11
     key_terms: [year, divorce, partner, relationship, childcare, providing, workforce, partners]
+    concepts: [divorce, partner, relationship, childcare, providing]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c9"
     char_span: [13492, 14376]
     sentence_count: 5
     key_terms: [dialecticallyalive, breast, feeding, produce, "don't", age, cost, milk]
+    concepts: [dialecticallyalive, breast, feeding, produce, "don't"]
     section: Comments
     token_count: 242
 ---

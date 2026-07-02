@@ -21,101 +21,130 @@ chunks:
     char_span: [0, 777]
     sentence_count: 7
     key_terms: [careerguidance, people, opportunity, expensive, comments, here, job, land]
+    concepts: [careerguidance, people, opportunity, expensive, comments]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c12"]
     token_count: 187
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t6bfe2/why_do_people_call_the_usa_the_land_of/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c1"
     char_span: [791, 2689]
     sentence_count: 17
     key_terms: [people, texas, collapsing, stories, better, living, missed, mostly]
+    concepts: [people, collapsing, texas, stories, better]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c2"
     char_span: [2691, 3931]
     sentence_count: 15
     key_terms: ["you're", glittering-let-2888, "don't", wages, world, waaaaaaaaaaaaaaaay, common-swing-4347, "i'm"]
+    concepts: ["you're", "don't", wages, world]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c3"
     char_span: [3933, 6087]
     sentence_count: 16
     key_terms: [people, good, race, "it's", business, religion, family, "that's"]
+    concepts: [people, business, religion, family, "that's"]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c6", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c10"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c4"
     char_span: [5801, 7925]
     sentence_count: 13
     key_terms: [caste, limitations, hard, home, blatantly, business, country, imagine]
+    concepts: [caste, limitations, blatantly, business, country]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c6"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c5"
     char_span: [7927, 9708]
     sentence_count: 13
     key_terms: [people, countries, working, access, harder, top, repeatedly, education]
+    concepts: [people, countries, working, access, harder]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c8", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c10", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c11"]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c6"
     char_span: [9710, 11117]
     sentence_count: 13
     key_terms: [countries, business, country, asianaddict247, family, "don't", nepotism, america]
+    concepts: [countries, business, asianaddict247, country, family]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c3", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c4", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c7", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c10", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c11"]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c7"
     char_span: [11119, 13043]
     sentence_count: 10
     key_terms: [countries, difficult, business, because, "you're", "don't", engineering, high]
+    concepts: [countries, difficult, business, because, "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c6", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c10"]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c8"
     char_span: [13046, 15043]
     sentence_count: 17
     key_terms: [people, america, countries, opportunities, here, talking, better, canada]
+    concepts: [people, america, countries, opportunities, talking]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c5", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c10", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c11"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c9"
     char_span: [15045, 16318]
     sentence_count: 6
     key_terms: [median, canada, engineering, top, different, higher, mostly, salary]
+    concepts: [median, canada, engineering, different, higher]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c10"
     char_span: [16321, 18389]
     sentence_count: 17
     key_terms: [people, countries, usa, family, good, jobs, won, work]
+    concepts: [people, countries, family, because, example]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c3", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c5", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c6", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c7", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c8"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c11"
     char_span: [18391, 20451]
     sentence_count: 15
     key_terms: [countries, country, living, people, significantly, etc, like, developing]
+    concepts: [countries, significantly, country, living, people]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c5", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c6", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c8", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c10", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c12"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c12"
     char_span: [20453, 22674]
     sentence_count: 13
     key_terms: [healthcare, people, country, doing, expensive, insurance, better, bit]
+    concepts: [healthcare, people, country, expensive, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c0", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c11", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c15"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c13"
     char_span: [22676, 24412]
     sentence_count: 7
     key_terms: [countries, paying, high, better, middle, class, job, like]
+    concepts: [countries, paying, better, middle, class]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c14"
     char_span: [24414, 26242]
     sentence_count: 19
     key_terms: [recruiters, multiple, cousins, degree, europe, drove, means, notimeforniceties]
+    concepts: [recruiters, multiple, cousins, degree, europe]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c15"
     char_span: [26244, 28305]
     sentence_count: 17
     key_terms: [people, high, jobs, country, guaranteed, drinking, problem, success]
+    concepts: [people, country, guaranteed, drinking, problem]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c11", "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c12"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c16"
     char_span: [28307, 28747]
     sentence_count: 3
     key_terms: [easier, guy, lot, futurethonk, proficient, countries, repairing, unskilled]
+    concepts: [easier]
     section: Comments
     token_count: 101
 ---

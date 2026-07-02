@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 516]
     sentence_count: 5
     key_terms: [financial, comments, habits, money, worst, ordinary-fish-9791, genz, too]
+    concepts: [financial, comments, habits, money, worst]
     token_count: 134
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1r4r1dj/what_are_your_worst_financial_habits/"}]
   - id: "social-intelligence/reddit-deep/genz/1r4r1dj.md#c1"
     char_span: [530, 2132]
     sentence_count: 7
     key_terms: [over-transition9609, lettuce, seriously, something, discord, eating, piedmontmountaineer, money]
+    concepts: [over-transition9609, lettuce, seriously, something, discord]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/genz/1r4r1dj.md#c2"
     char_span: [2134, 3835]
     sentence_count: 15
     key_terms: [buying, financier92, man, collection, paycheque, flexing, family, invest]
+    concepts: [buying, financier92, collection, paycheque, flexing]
     section: Comments
     token_count: 486
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1395]
     sentence_count: 5
     key_terms: [internships, engineeringstudents, state, rit, virginia, engineering, penn, tech]
+    concepts: [engineeringstudents, internships, state, virginia, engineering]
     token_count: 310
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rm13fc/cheme_penn_state_vs_virginia_tech_vs_rit/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rm13fc.md#c1"
     char_span: [1409, 2306]
     sentence_count: 15
     key_terms: [campus, living, schools, going, years, tall-cat-8890, upperclassman, comfortable]
+    concepts: [campus, living, schools, going, years]
     section: Comments
     token_count: 215
 ---

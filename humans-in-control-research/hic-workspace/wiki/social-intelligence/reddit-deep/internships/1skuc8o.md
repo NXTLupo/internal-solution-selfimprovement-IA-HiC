@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1289]
     sentence_count: 10
     key_terms: [internship, internships, work, graduate, job, comments, prepared, applied]
+    concepts: [internship, internships, graduate, comments, prepared]
     token_count: 307
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1skuc8o/do_i_ask_for_a_raise_on_my_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1skuc8o.md#c1"
     char_span: [1303, 3343]
     sentence_count: 17
     key_terms: [dry-remote826, school, hospital, scared, hours, match, week, internship]
+    concepts: [dry-remote826, school, hospital, scared, hours]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1skuc8o.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1skuc8o.md#c2"
     char_span: [3071, 3644]
     sentence_count: 6
     key_terms: [school, hours, week, hospital, website, program, completing, internship]
+    concepts: [school, hours, hospital, website, program]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1skuc8o.md#c1"]
     section: Comments
     token_count: 138
 ---

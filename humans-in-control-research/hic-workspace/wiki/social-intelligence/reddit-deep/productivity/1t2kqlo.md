@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1326]
     sentence_count: 1
     key_terms: [productivity, time, systems, day, like, ngl, decisions, something]
+    concepts: [productivity, systems, decisions, something, comments]
     token_count: 294
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1t2kqlo/ngl_i_realized_productivity_systems_fail_when/"}]
   - id: "social-intelligence/reddit-deep/productivity/1t2kqlo.md#c1"
     char_span: [1340, 3302]
     sentence_count: 11
     key_terms: [reminders, calflow, time, action, system, track, list, work]
+    concepts: [reminders, calflow, action, system, everything]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/productivity/1t2kqlo.md#c2"
     char_span: [3304, 5126]
     sentence_count: 5
     key_terms: [week, prioritisation, system, "don't", done, get, individual, productive]
+    concepts: [prioritisation, system, "don't", individual, productive]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/productivity/1t2kqlo.md#c3"

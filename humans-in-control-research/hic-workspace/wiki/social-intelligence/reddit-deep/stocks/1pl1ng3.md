@@ -20,35 +20,45 @@ chunks:
     char_span: [0, 1411]
     sentence_count: 10
     key_terms: [broadcom-tumbles-10percent-after-earnings-as-ai-trade-sells-off, infrastructure, broadcom, stocks, comments, earnings, across, market]
+    concepts: [infrastructure, broadcom, stocks, comments, earnings]
     token_count: 313
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1pl1ng3/broadcom_tumbles_11_despite_blockbuster_earnings/"}]
   - id: "social-intelligence/reddit-deep/stocks/1pl1ng3.md#c1"
-    char_span: [1426, 2919]
+    char_span: [1425, 2918]
     sentence_count: 7
     key_terms: [because, bullish, enough, market, "it's", exposure, company, better-than-expected]
+    concepts: [because, bullish, enough, market, exposure]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1pl1ng3.md#c5"]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/stocks/1pl1ng3.md#c2"
-    char_span: [2921, 4499]
+    char_span: [2920, 4498]
     sentence_count: 9
     key_terms: ["it's", company, proportional, knows, tesla, everyone, inverse, million]
+    concepts: [company, proportional, knows, tesla, everyone]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/stocks/1pl1ng3.md#c3"
-    char_span: [4501, 5708]
+    char_span: [4500, 5707]
     sentence_count: 5
     key_terms: [long, estimates, company, norecommendation617, lukaantetokounmpo, trumpscholesterol, working-mind-6490, time]
+    concepts: [estimates, company]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/stocks/1pl1ng3.md#c4"
-    char_span: [5710, 6870]
+    char_span: [5709, 6869]
     sentence_count: 15
     key_terms: [tsla, broadcom, evaluate, rational, compare, market, stock, avgo]
+    concepts: [broadcom, evaluate, rational, compare, market]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1pl1ng3.md#c5"]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/stocks/1pl1ng3.md#c5"
-    char_span: [6872, 8566]
+    char_span: [6871, 8565]
     sentence_count: 20
     key_terms: [buying, broadcom, back, lot, zordonbyrd, bullish, market, friendly-profit-8590]
+    concepts: [buying, broadcom, zordonbyrd, bullish, market]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1pl1ng3.md#c1", "social-intelligence/reddit-deep/stocks/1pl1ng3.md#c4"]
     section: Comments
     token_count: 457
 ---

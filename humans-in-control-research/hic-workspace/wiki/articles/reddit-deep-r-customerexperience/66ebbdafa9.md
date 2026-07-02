@@ -19,24 +19,29 @@ content_hash: "0df796d94b5df607"
 relevance_by_goal: {"c9d49044cb4d":30}
 chunks:
   - id: "articles/reddit-deep-r-customerexperience/66ebbdafa9.md#c0"
-    char_span: [0, 1435]
+    char_span: [0, 1434]
     sentence_count: 10
     key_terms: [automation, customerexperience, teams, did, scheduling, automated, comments, contact]
-    token_count: 300
+    concepts: [automation, customerexperience, scheduling, teams, automated]
+    token_count: 299
+    sources: [{"n":"Reddit Deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1s8fbr5/how_much_of_your_contact_center_is_actually/"}]
   - id: "articles/reddit-deep-r-customerexperience/66ebbdafa9.md#c1"
-    char_span: [1437, 3642]
+    char_span: [1436, 3641]
     sentence_count: 9
     key_terms: [containment, slack-mcp-ops-teams, teams, automation, deflection, repetitive, automated, designed]
+    concepts: [containment, slack-mcp-ops-teams, automation, deflection, repetitive]
     token_count: 512
   - id: "articles/reddit-deep-r-customerexperience/66ebbdafa9.md#c2"
-    char_span: [3281, 4228]
+    char_span: [3280, 4227]
     sentence_count: 7
     key_terms: [agents, human, replacing, automate, complex, support, like, dialpadofficial]
+    concepts: [agents, human, replacing, automate, complex]
     token_count: 183
   - id: "articles/reddit-deep-r-customerexperience/66ebbdafa9.md#c3"
-    char_span: [4230, 5122]
+    char_span: [4229, 5121]
     sentence_count: 5
     key_terms: [conversations, automation, context, without, human, straightforward, high-frequency, after-hours]
+    concepts: [conversations, automation, context, without, human]
     token_count: 170
 ---
 # How much of your contact center is actually automated with AI today?

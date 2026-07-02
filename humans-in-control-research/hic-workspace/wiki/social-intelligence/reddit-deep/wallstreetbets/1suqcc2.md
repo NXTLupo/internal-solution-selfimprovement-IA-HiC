@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1247]
     sentence_count: 16
     key_terms: [highs, time, all-time, wallstreetbets, ride, robinhood, comments, getting]
+    concepts: [highs, all-time, wallstreetbets, robinhood, comments]
     token_count: 347
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1suqcc2/intc_broke_all_time_highs_so_did_i/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1suqcc2.md#c1"
     char_span: [1261, 2670]
     sentence_count: 4
     key_terms: [https, years, put, discord, payment, preview, format, foreverythingthatis]
+    concepts: [https, years, discord, payment, preview]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/wallstreetbets/1suqcc2.md#c2"
     char_span: [2672, 4220]
     sentence_count: 8
     key_terms: [house, boomer, market, awetfartruinedmylife, oblivious-speculator, money, buy, day]
+    concepts: [house, boomer, market, money]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/wallstreetbets/1suqcc2.md#c3"

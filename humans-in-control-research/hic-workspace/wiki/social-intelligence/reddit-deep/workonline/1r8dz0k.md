@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1246]
     sentence_count: 10
     key_terms: [work, online, coordination, background, operations, workonline, exploring, comments]
+    concepts: [coordination, online, background, operations, workonline]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/workonline","u":"https://www.reddit.com/r/WorkOnline/comments/1r8dz0k/online_work_ideas_for_someone_with_project/"}]
   - id: "social-intelligence/reddit-deep/workonline/1r8dz0k.md#c1"
     char_span: [1260, 1768]
     sentence_count: 5
     key_terms: [online, good, job, luck, work, opportunities, charmingiris, contracting]
+    concepts: [online]
     section: Comments
     token_count: 120
 ---

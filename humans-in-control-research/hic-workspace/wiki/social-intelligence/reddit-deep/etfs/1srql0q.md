@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 466]
     sentence_count: 4
     key_terms: [split, comments, stocks, etf, etfs, reddit-deep, fractional, gilbey1993]
+    concepts: [split, comments, stocks]
     token_count: 137
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1srql0q/vo_etf_split/"}]
   - id: "social-intelligence/reddit-deep/etfs/1srql0q.md#c1"
-    char_span: [481, 740]
+    char_span: [480, 739]
     sentence_count: 3
     key_terms: [split, mbaforumlurker, fractional, gilbey1993, platforms, wjkramer, because, reason]
+    concepts: [split]
     section: Comments
     token_count: 82
 ---

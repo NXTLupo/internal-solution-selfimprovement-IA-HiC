@@ -20,41 +20,52 @@ chunks:
     char_span: [0, 1277]
     sentence_count: 4
     key_terms: [presentations, experience, financialcareers, nervous, client, corporate, comments, finance]
+    concepts: [presentations, experience, financialcareers, nervous, client]
     token_count: 280
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1qv8gkr/how_to_not_be_nervous_during_corporate/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1qv8gkr.md#c1"
-    char_span: [1292, 3549]
+    char_span: [1291, 3548]
     sentence_count: 23
     key_terms: [people, practice, questions, something, like, financialcareers, discord, script]
+    concepts: [people, practice, financialcareers, questions, something]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/financialcareers/1qv8gkr.md#c2"
-    char_span: [3551, 4215]
+    char_span: [3550, 4214]
     sentence_count: 7
     key_terms: [eliminating, yourself, pauses, thatawkwardmoment8, day, like, reps, conversations]
+    concepts: [eliminating, yourself, pauses]
     section: Comments
     token_count: 149
   - id: "social-intelligence/reddit-deep/financialcareers/1qv8gkr.md#c3"
-    char_span: [4217, 6342]
+    char_span: [4216, 6341]
     sentence_count: 24
     key_terms: [presentation, practice, like, audience, chilaquilesrojo, nervous, stop, discussing]
+    concepts: [presentation, practice, chilaquilesrojo, audience, nervous]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1qv8gkr.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1qv8gkr.md#c4"
-    char_span: [6079, 7591]
+    char_span: [6078, 7590]
     sentence_count: 26
     key_terms: [don, audience, presentation, control, room, discussing, question, through]
+    concepts: [audience, presentation, control, discussing, question]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1qv8gkr.md#c3"]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/financialcareers/1qv8gkr.md#c5"
-    char_span: [7593, 9240]
+    char_span: [7592, 9239]
     sentence_count: 12
     key_terms: [everyone, like, nervous, people, function, pitching, biggest, better]
+    concepts: [everyone, nervous, people, function, pitching]
     section: Comments
     token_count: 375
+    sources: [{"n":"I\u2019ve been in finance for 16 years. Everyone starts somewhere. Biggest mistake pe","u":""}]
   - id: "social-intelligence/reddit-deep/financialcareers/1qv8gkr.md#c6"
-    char_span: [9242, 9847]
+    char_span: [9241, 9846]
     sentence_count: 7
     key_terms: ["you'll", implementation, watchthegap49, presentation, predictable, preparation, acceptable, completely]
+    concepts: ["you'll"]
     section: Comments
     token_count: 144
 ---

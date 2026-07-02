@@ -21,48 +21,60 @@ chunks:
     char_span: [0, 2255]
     sentence_count: 18
     key_terms: [training, model, texture, erm, distribution, supervised, data, nuisance]
+    concepts: [training, model, texture, distribution, supervised]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1swsbca.md#c4"]
     token_count: 479
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1swsbca/we_proved_that_every_supervised_model_youve_ever/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1swsbca.md#c1"
     char_span: [2257, 4250]
     sentence_count: 16
     key_terms: [jacobian, erm, pgd, directions, magnitude, representations, adversarial, tdi]
+    concepts: [jacobian, directions, magnitude, representations, adversarial]
     token_count: 511
   - id: "social-intelligence/reddit-deep/deeplearning/1swsbca.md#c2"
     char_span: [4252, 6157]
     sentence_count: 8
     key_terms: [blind, ratio, spot, jacobian, nuisance, geometric-analysis-of-deep-learning, model, erm]
+    concepts: [blind, ratio, jacobian, nuisance, fine-tuned]
     token_count: 498
   - id: "social-intelligence/reddit-deep/deeplearning/1swsbca.md#c3"
     char_span: [6159, 7870]
     sentence_count: 15
     key_terms: [directions, preference, uniformly, across, correlations, distribution, adversarial, rlhf]
+    concepts: [directions, preference, uniformly, correlations, distribution]
     token_count: 402
   - id: "social-intelligence/reddit-deep/deeplearning/1swsbca.md#c4"
     char_span: [7872, 9782]
     sentence_count: 10
     key_terms: [tdi, model, frobenius, jacobian, theorem, distribution, "it's", norm]
+    concepts: [frobenius, model, jacobian, theorem, distribution]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1swsbca.md#c0"]
     token_count: 509
   - id: "social-intelligence/reddit-deep/deeplearning/1swsbca.md#c5"
     char_span: [9784, 10348]
     sentence_count: 3
     key_terms: [adversarial, fine-tuning, specific, training, labels, "you're", blind, spot]
+    concepts: [adversarial, fine-tuning, specific, training, labels]
     token_count: 113
   - id: "social-intelligence/reddit-deep/deeplearning/1swsbca.md#c6"
     char_span: [10362, 12265]
     sentence_count: 10
     key_terms: ["it's", picture, learn, always, models, grass, work, pictures]
+    concepts: [picture, learn, always, models, grass]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/deeplearning/1swsbca.md#c7"
     char_span: [12267, 14080]
     sentence_count: 16
     key_terms: [signal, nuisances, consistent, supervised, systematic, positions, preserve, problems]
+    concepts: [signal, nuisances, consistent, supervised, systematic]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/deeplearning/1swsbca.md#c8"
     char_span: [14082, 16262]
     sentence_count: 15
     key_terms: [patterns, sensitivity, activation, intuition, another, classes, matters, squeezing-the-balloon]
+    concepts: [patterns, sensitivity, activation, intuition, another]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/deeplearning/1swsbca.md#c9"

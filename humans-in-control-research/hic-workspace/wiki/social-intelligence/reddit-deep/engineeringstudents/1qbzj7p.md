@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 987]
     sentence_count: 9
     key_terms: [engineering, engineeringstudents, "i'm", mechanical, comments, advice, world, internships]
+    concepts: [engineering, engineeringstudents, mechanical, comments, advice]
     token_count: 231
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qbzj7p/new_mechanical_engineering_student_tips_advice/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qbzj7p.md#c1"
     char_span: [1001, 2366]
     sentence_count: 18
     key_terms: [year, sophomore, semester, broadly, develop, habits, maybe, never]
+    concepts: [sophomore, semester, broadly, develop, habits]
     section: Comments
     token_count: 341
 ---

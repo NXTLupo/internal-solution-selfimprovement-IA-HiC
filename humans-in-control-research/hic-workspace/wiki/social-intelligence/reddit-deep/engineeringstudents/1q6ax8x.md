@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 325]
     sentence_count: 1
     key_terms: [engineeringstudents, comments, greyeyeannabeth, engineering, opportunity, reddit-deep, internship, excited]
+    concepts: [engineeringstudents, comments]
     token_count: 85
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1q6ax8x/2nd_year_civil_engineering_student_who_got_their/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1q6ax8x.md#c1"
     char_span: [339, 1525]
     sentence_count: 10
     key_terms: [engineeringstudents, wiki, greyeyeannabeth, please, reddit, https, com, www]
+    concepts: [engineeringstudents, greyeyeannabeth, please, reddit, https]
     section: Comments
     token_count: 266
 ---

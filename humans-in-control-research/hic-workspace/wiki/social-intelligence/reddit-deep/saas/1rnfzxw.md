@@ -20,67 +20,84 @@ chunks:
     char_span: [0, 2011]
     sentence_count: 17
     key_terms: [comments, entrepreneur, posts, lead, generation, saas, "here's", reddit]
+    concepts: [comments, entrepreneur, generation, posts, "here's"]
     token_count: 500
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1rnfzxw/i_analyses_200_posts_and_17946_comments_from/"}]
   - id: "social-intelligence/reddit-deep/saas/1rnfzxw.md#c1"
     char_span: [2013, 4042]
     sentence_count: 26
     key_terms: [keywords, founders, subredditsignals, problem, reddit, posts, reply, tools]
+    concepts: [keywords, subredditsignals, founders, problem, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1rnfzxw.md#c3"]
     token_count: 503
   - id: "social-intelligence/reddit-deep/saas/1rnfzxw.md#c2"
     char_span: [4044, 6346]
     sentence_count: 16
     key_terms: [founders, person, described, crm, gap, team, messages, replies]
+    concepts: [founders, described, person, messages, replies]
     token_count: 510
   - id: "social-intelligence/reddit-deep/saas/1rnfzxw.md#c3"
     char_span: [6348, 8456]
     sentence_count: 12
     key_terms: [accounts, founders, reddit, tools, tool, manual, hours, gummysearch]
+    concepts: [accounts, founders, reddit, tools, manual]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1rnfzxw.md#c1", "social-intelligence/reddit-deep/saas/1rnfzxw.md#c8"]
     token_count: 474
   - id: "social-intelligence/reddit-deep/saas/1rnfzxw.md#c4"
     char_span: [8458, 10349]
     sentence_count: 14
     key_terms: [step, outreach, community-first, across, people, context-based, reply, data]
+    concepts: [community-first, outreach, context-based, across, people]
     token_count: 443
   - id: "social-intelligence/reddit-deep/saas/1rnfzxw.md#c5"
-    char_span: [10364, 12426]
+    char_span: [10363, 12425]
     sentence_count: 29
     key_terms: [gap, reddleads, intent, scoring, unpredictable, leads, like, guidelines]
+    concepts: [reddleads, intent, unpredictable, scoring, guidelines]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/saas/1rnfzxw.md#c6"
-    char_span: [12428, 13998]
+    char_span: [12427, 13997]
     sentence_count: 7
     key_terms: [picksubstantial2008, gap, appreciate, reddleads, founders, tracking, exactly, zealousidealimpact79]
+    concepts: [picksubstantial2008, appreciate, reddleads, founders, tracking]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1rnfzxw.md#c7"]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/saas/1rnfzxw.md#c7"
-    char_span: [14000, 15615]
+    char_span: [13999, 15614]
     sentence_count: 6
     key_terms: [picksubstantial2008, buying, deep, distribution, specificity, dive, appreciate, integrates]
+    concepts: [picksubstantial2008, buying, distribution, specificity, appreciate]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1rnfzxw.md#c6"]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/saas/1rnfzxw.md#c8"
-    char_span: [15617, 17992]
+    char_span: [15616, 17991]
     sentence_count: 8
     key_terms: [tools, been, lead, engagement, approach, founders, outreach, struggle]
+    concepts: [tools, engagement, approach, founders, outreach]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1rnfzxw.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/saas/1rnfzxw.md#c9"
-    char_span: [17704, 18037]
+    char_span: [17703, 18036]
     sentence_count: 2
     key_terms: [been, understanding, discussions, realising, surfacing, outbound, outreach, "person's"]
     section: Comments
     token_count: 72
   - id: "social-intelligence/reddit-deep/saas/1rnfzxw.md#c10"
-    char_span: [18041, 19924]
+    char_span: [18040, 19923]
     sentence_count: 9
     key_terms: [someone, video, worth, different, specific, specificity, complaint, reviewing]
+    concepts: [someone, different, video, worth, specific]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/saas/1rnfzxw.md#c11"
-    char_span: [19926, 20978]
+    char_span: [19925, 20977]
     sentence_count: 5
     key_terms: [discovery, expensive, judgment, budget, nobody, thread, picksubstantial2008, cheap]
+    concepts: [discovery, expensive, judgment, budget, nobody]
     section: Comments
     token_count: 230
 ---

@@ -21,52 +21,64 @@ chunks:
     char_span: [0, 1236]
     sentence_count: 11
     key_terms: [personalfinance, until, work, comments, continue, drawing, husband, working]
+    concepts: [personalfinance, until, comments, continue, drawing]
     token_count: 288
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1ok4kqb/im_super_concerned_about_our_future/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c1"
     char_span: [1238, 2744]
     sentence_count: 18
     key_terms: [job, year, retirement, expenses, mortgage, husband, payment, savings]
+    concepts: [retirement, expenses, mortgage, husband, payment]
     token_count: 348
   - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c2"
     char_span: [2758, 3483]
     sentence_count: 6
     key_terms: [retirement, situation, alarmingslothherder, adcomfortable2974, inheritance, semi-retire, certainly, financial]
+    concepts: [retirement, situation]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c3"]
     section: Comments
     token_count: 197
   - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c3"
     char_span: [3485, 5574]
     sentence_count: 15
     key_terms: [retirement, until, need, age, everything, situation, benefits, decision]
+    concepts: [retirement, until, everything, situation, benefits]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c2"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c4"
     char_span: [5576, 7369]
     sentence_count: 17
     key_terms: [retirement, "that's", pension, people, month, retiring, later, average]
+    concepts: [retirement, "that's", pension, people, month]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c5"
     char_span: [7371, 8806]
     sentence_count: 14
     key_terms: [husband, retired, health, month, security, issues, people, retire]
+    concepts: [husband, retired, health, month, security]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c6"
     char_span: [8808, 10397]
     sentence_count: 12
     key_terms: [retirement, unemployment, let, retire, least, another, husband, fairly]
+    concepts: [retirement, unemployment, retire, least, another]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c7"
     char_span: [10399, 11782]
     sentence_count: 11
     key_terms: [georgeretire, benefits, unemployment, deleted, husband, reduced, person, cases]
+    concepts: [georgeretire, benefits, unemployment, deleted, husband]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c8"
     char_span: [11784, 13291]
     sentence_count: 15
     key_terms: [retirement, savings, work, decided, mistake, answer, income, retire]
+    concepts: [retirement, savings, decided, mistake, answer]
     section: Comments
     token_count: 378
 ---

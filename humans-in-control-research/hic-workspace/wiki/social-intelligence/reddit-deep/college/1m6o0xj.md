@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1863]
     sentence_count: 13
     key_terms: [credits, bio-110, school, labs, want, semester, classes, psy-237]
+    concepts: [credits, bio-110, school, semester, classes]
     token_count: 457
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1m6o0xj/worried_about_workload_advice_neededwanted/"}]
   - id: "social-intelligence/reddit-deep/college/1m6o0xj.md#c1"
     char_span: [1877, 4009]
     sentence_count: 21
     key_terms: [classes, science, class, hard, social, bio, lab, take]
+    concepts: [classes, science, class, social, experiment]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/college/1m6o0xj.md#c2"
     char_span: [4011, 6276]
     sentence_count: 22
     key_terms: [works, because, stress, hours, courses, like, take, time]
+    concepts: [works, because, stress, hours, courses]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1m6o0xj.md#c3"
     char_span: [6278, 8336]
     sentence_count: 16
     key_terms: [school, college, don, yourself, like, something, because, credits]
+    concepts: [school, college, yourself, something, because]
     section: Comments
     token_count: 441
 ---

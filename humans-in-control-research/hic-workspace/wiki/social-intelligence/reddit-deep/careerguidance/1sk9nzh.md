@@ -21,29 +21,39 @@ chunks:
     char_span: [0, 1742]
     sentence_count: 17
     key_terms: [because, "i've", experience, engineering, like, careerguidance, "i'll", jobs]
+    concepts: [because, experience, engineering, careerguidance, interviews]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c1"]
     token_count: 397
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sk9nzh/the_job_market_has_me_feeling_like_i_will_never/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c1"
     char_span: [1756, 3994]
     sentence_count: 12
     key_terms: [engineering, engineers, sales, companies, feel, because, months, people]
+    concepts: [engineering, engineers, companies, sales, because]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c0", "social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c2", "social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c3"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c2"
     char_span: [3996, 5701]
     sentence_count: 19
     key_terms: [construction, engineering, mechanical, engineers, job, design, contractors, experience]
+    concepts: [construction, engineering, mechanical, engineers, design]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c1"]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c3"
     char_span: [5703, 7565]
     sentence_count: 13
     key_terms: [engineering, sales, job, finance, administration, months, "it's", jobs]
+    concepts: [engineering, sales, administration, finance, months]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c1"]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c4"
     char_span: [7567, 7988]
     sentence_count: 4
     key_terms: [teaching, get, barnext6046, certificate, engineering, traditional, eventually, supplement]
+    concepts: [teaching]
     section: Comments
     token_count: 92
 ---

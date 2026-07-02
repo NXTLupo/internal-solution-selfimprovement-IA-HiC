@@ -20,35 +20,42 @@ chunks:
     char_span: [0, 1682]
     sentence_count: 11
     key_terms: [productmanagement, "i'm", trying, been, devs, head, boundaries, engineers]
+    concepts: [productmanagement, trying, boundaries, engineers, comments]
     token_count: 364
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1p0jcl8/does_anyone_have_a_clear_raci_on_product_and_tech/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1p0jcl8.md#c1"
-    char_span: [1697, 3812]
+    char_span: [1696, 3811]
     sentence_count: 24
     key_terms: [team, people, teams, responsible, raci, step, take, want]
+    concepts: [people, responsible, teams, depends, getting]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/productmanagement/1p0jcl8.md#c2"
-    char_span: [3815, 6217]
+    char_span: [3814, 6216]
     sentence_count: 18
     key_terms: [team, testing, career, function, influence, ladders, manager, level]
+    concepts: [testing, career, function, influence, ladders]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/productmanagement/1p0jcl8.md#c3"
-    char_span: [6219, 7891]
+    char_span: [6218, 7890]
     sentence_count: 11
     key_terms: [the-limits-of-raci-and-a-better-way-to-make-decisions, people-and-organizational-performance, expectations, communicate, engineering, stakeholder, job, risk]
+    concepts: [expectations, communicate, engineering, stakeholder, potential]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/productmanagement/1p0jcl8.md#c4"
-    char_span: [7893, 9997]
+    char_span: [7892, 9996]
     sentence_count: 23
     key_terms: [raci, article, problem, authoritative, interesting, isn, want, authority]
+    concepts: [authoritative, article, problem, interesting, authority]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/productmanagement/1p0jcl8.md#c5"
-    char_span: [9999, 11968]
+    char_span: [9998, 11967]
     sentence_count: 18
     key_terms: [roles, product, person, engineering, devs, like, understand, pressure]
+    concepts: [roles, product, person, engineering, understand]
     section: Comments
     token_count: 428
 ---

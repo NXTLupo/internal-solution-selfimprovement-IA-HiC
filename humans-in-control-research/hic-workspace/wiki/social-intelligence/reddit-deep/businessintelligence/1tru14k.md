@@ -20,47 +20,61 @@ chunks:
     char_span: [0, 798]
     sentence_count: 5
     key_terms: [businessintelligence, comments, career, source, heads, fromprompttoplot, future-proofing, capabilities]
+    concepts: [businessintelligence, comments, career, source, heads]
     token_count: 183
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1tru14k/future_proofing_your_team_career/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1tru14k.md#c1"
-    char_span: [813, 2875]
+    char_span: [812, 2874]
     sentence_count: 14
     key_terms: [problems, jealous-painting550, data, kpis, claude, deterministic, model, solve]
+    concepts: [problems, jealous-painting550, deterministic, claude, model]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/businessintelligence/1tru14k.md#c2"
-    char_span: [2877, 5171]
+    char_span: [2876, 5170]
     sentence_count: 18
     key_terms: [requirements, llm, business, mostly, relationship, development, data, lot]
+    concepts: [requirements, business, relationship, mostly, development]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1tru14k.md#c4"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/businessintelligence/1tru14k.md#c3"
-    char_span: [5173, 6585]
+    char_span: [5172, 6584]
     sentence_count: 9
     key_terms: [data, business, analysts, progress, understanding--actual, future, build, users]
+    concepts: [business, analysts, progress, future, build]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/businessintelligence/1tru14k.md#c4"
-    char_span: [6587, 8902]
+    char_span: [6586, 8901]
     sentence_count: 8
     key_terms: [data, claude, need, business, requirements, using, databricks, databases]
+    concepts: [claude, business, requirements, databricks, using]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1tru14k.md#c2", "social-intelligence/reddit-deep/businessintelligence/1tru14k.md#c5"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/businessintelligence/1tru14k.md#c5"
-    char_span: [8904, 11013]
+    char_span: [8903, 11012]
     sentence_count: 11
     key_terms: [databricks, business, data, trying, like, governance, transition, creating]
+    concepts: [databricks, business, trying, governance, transition]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1tru14k.md#c4"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/businessintelligence/1tru14k.md#c6"
-    char_span: [11016, 12144]
+    char_span: [11015, 12143]
     sentence_count: 2
     key_terms: [message, com, remindmebot, reddit, www, delete, https, business]
+    concepts: [message, remindmebot, reddit, delete, https]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1tru14k.md#c7"]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/businessintelligence/1tru14k.md#c7"
-    char_span: [12146, 12659]
+    char_span: [12145, 12658]
     sentence_count: 1
     key_terms: [remindmebot, message, reddit, https, com, www, compose, subject]
+    concepts: [remindmebot, message, reddit, https, compose]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1tru14k.md#c6"]
     section: Comments
     token_count: 179
 ---

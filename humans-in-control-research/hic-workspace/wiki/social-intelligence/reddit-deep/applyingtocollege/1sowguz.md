@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 972]
     sentence_count: 8
     key_terms: [applyingtocollege, math, nyu, uiuc, internship, comments, opportunities, quantitative]
+    concepts: [applyingtocollege, internship, comments]
     token_count: 227
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sowguz/choosing_between_nyu_and_uiuc_for_math_cs/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sowguz.md#c1"
     char_span: [986, 2602]
     sentence_count: 16
     key_terms: [nyu, uiuc, courant, undergrad, math, schools, better, quant]
+    concepts: [courant, undergrad, schools, better, internships]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sowguz.md#c2"]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sowguz.md#c2"
     char_span: [2604, 4254]
     sentence_count: 11
     key_terms: [nyu, uiuc, better, zhiskd, opportunities, education, courant, private]
+    concepts: [better, zhiskd, opportunities, education, courant]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sowguz.md#c1"]
     section: Comments
     token_count: 465
 ---

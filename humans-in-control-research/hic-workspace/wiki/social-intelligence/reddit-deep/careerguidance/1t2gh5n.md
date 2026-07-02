@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1968]
     sentence_count: 16
     key_terms: [acca, qualification, data, exemptions, structured, learning, careerguidance, master]
+    concepts: [qualification, exemptions, structured, learning, careerguidance]
     token_count: 441
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t2gh5n/can_i_realistically_complete_acca_while_learning/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t2gh5n.md#c1"
     char_span: [1970, 2749]
     sentence_count: 8
     key_terms: [acca, complete, learning, focus, role, side, alternatively, internships]
+    concepts: [complete, learning, focus]
     token_count: 173
   - id: "social-intelligence/reddit-deep/careerguidance/1t2gh5n.md#c2"
     char_span: [2763, 3950]
     sentence_count: 8
     key_terms: [acca, exemptions, already, papers, legitimate-meat-2720, later, original-bus-6172, pay]
+    concepts: [exemptions, already, papers, later]
     section: Comments
     token_count: 281
 ---

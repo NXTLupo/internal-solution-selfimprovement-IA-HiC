@@ -21,7 +21,10 @@ chunks:
     char_span: [0, 1118]
     sentence_count: 11
     key_terms: [stocks, companies, space, revenue, profit, trading, valuation, comments]
+    concepts: [companies, stocks, space, revenue, profit]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1r6ajy0.md#c5", "social-intelligence/reddit-deep/stocks/1r6ajy0.md#c12"]
     token_count: 277
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1r6ajy0/space_stocks_the_real_bubble/"}]
   - id: "social-intelligence/reddit-deep/stocks/1r6ajy0.md#c1"
     char_span: [1132, 1296]
     sentence_count: 1
@@ -32,66 +35,81 @@ chunks:
     char_span: [1298, 3204]
     sentence_count: 18
     key_terms: [space, scientist, sold, infrastructure, invest, nvidia, nvda, companies]
+    concepts: [space, scientist, infrastructure, invest, nvidia]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/stocks/1r6ajy0.md#c3"
     char_span: [3206, 4610]
     sentence_count: 10
     key_terms: [phase, nvidia, like, people, using, did, gpus, financials]
+    concepts: [phase, nvidia, people, financials, using]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/stocks/1r6ajy0.md#c4"
     char_span: [4612, 6530]
     sentence_count: 17
     key_terms: [being, going, until, use, companies, guessing, company, likely]
+    concepts: [being, going, until, companies, guessing]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/stocks/1r6ajy0.md#c5"
     char_span: [6532, 8184]
     sentence_count: 9
     key_terms: [like, revenue, space, get, rklb, launched, because, people]
+    concepts: [revenue, space, launched, because, people]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1r6ajy0.md#c0", "social-intelligence/reddit-deep/stocks/1r6ajy0.md#c12"]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/stocks/1r6ajy0.md#c6"
     char_span: [8186, 9272]
     sentence_count: 6
     key_terms: [rklb, neutron, already, ahead, revenue, launch, right, space]
+    concepts: [neutron, already, ahead, revenue, launch]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/stocks/1r6ajy0.md#c7"
     char_span: [9274, 11127]
     sentence_count: 12
     key_terms: [revenue, quarter, sales, last, like, subreddit, bubble, doomer]
+    concepts: [revenue, quarter, sales, subreddit, bubble]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/stocks/1r6ajy0.md#c8"
     char_span: [11129, 12798]
     sentence_count: 12
     key_terms: [spacex, provider, profitable, companies, rklb, largest, launch, profit]
+    concepts: [spacex, provider, profitable, companies, largest]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/stocks/1r6ajy0.md#c9"
     char_span: [12800, 15097]
     sentence_count: 17
     key_terms: [look, scaling, infrastructure, uncertainty, asts, companies, valuation, billion]
+    concepts: [infrastructure, scaling, uncertainty, companies, valuation]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1r6ajy0.md#c10"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/stocks/1r6ajy0.md#c10"
     char_span: [15099, 17305]
     sentence_count: 13
     key_terms: [bubble, valuation, companies, asts, model, assumptions, compression, necessarily]
+    concepts: [bubble, valuation, companies, assumptions, compression]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1r6ajy0.md#c9"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/stocks/1r6ajy0.md#c11"
     char_span: [17307, 19200]
     sentence_count: 9
     key_terms: [space, players, don, high, industry, current, economy, bubble]
+    concepts: [space, players, industry, current, economy]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/stocks/1r6ajy0.md#c12"
     char_span: [19202, 21054]
     sentence_count: 9
     key_terms: [revenue, company, space, stock, valuation, icy-idkman3890, stocks, price]
+    concepts: [revenue, company, valuation, space, stock]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1r6ajy0.md#c0", "social-intelligence/reddit-deep/stocks/1r6ajy0.md#c5"]
     section: Comments
     token_count: 462
 ---

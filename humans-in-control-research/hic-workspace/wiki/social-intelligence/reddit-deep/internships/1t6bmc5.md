@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 1426]
     sentence_count: 9
     key_terms: [university, internship, host, internships, back, comments, graduate, minimum]
+    concepts: [university, internship, internships, comments, graduate]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1t6bmc5.md#c2"]
     token_count: 341
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t6bmc5/am_i_still_able_to_land_a_2026_summer_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1t6bmc5.md#c1"
     char_span: [1440, 2941]
     sentence_count: 18
     key_terms: [companies, accounting, firms, connections, big, etc, use, consulting]
+    concepts: [companies, accounting, connections, consulting, firms]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/internships/1t6bmc5.md#c2"
     char_span: [2943, 4930]
     sentence_count: 7
     key_terms: [internships, asu-student-mcclintock-tempe-1, summer, com, last, too, week, internship]
+    concepts: [asu-student-mcclintock-tempe-1, internships, summer, internship, something]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1t6bmc5.md#c0"]
     section: Comments
     token_count: 504
 ---

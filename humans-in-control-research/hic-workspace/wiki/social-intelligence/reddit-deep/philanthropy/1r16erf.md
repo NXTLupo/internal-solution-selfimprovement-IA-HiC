@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1398]
     sentence_count: 5
     key_terms: [philanthropy, mackenzie, organizations, scott, gives, non-profit, impactful, comments]
+    concepts: [philanthropy, mackenzie, organizations, scott, gives]
     token_count: 306
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1r16erf/mackenzie_scott_a_true_inspiration_but_why_arent/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1r16erf.md#c1"
-    char_span: [1413, 3772]
+    char_span: [1412, 3771]
     sentence_count: 16
     key_terms: [organization, control, what-evidence-is-there-on-the-impact-of-core-funding, money, match-immediate, giving, organizations, philanthropy]
+    concepts: [organization, control, match-immediate, money, organizations]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/philanthropy/1r16erf.md#c2"
-    char_span: [3774, 5863]
+    char_span: [3773, 5862]
     sentence_count: 16
     key_terms: [organisations, funding, core, better, collaboration, staff, trust, development]
+    concepts: [organisations, funding, collaboration, better, development]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1r16erf.md#c3"]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/philanthropy/1r16erf.md#c3"
-    char_span: [5865, 6842]
+    char_span: [5864, 6841]
     sentence_count: 8
     key_terms: [organisations, unrestricted, funding, grants, losing, core, historically, organisation]
+    concepts: [organisations, unrestricted, funding, grants, losing]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1r16erf.md#c2"]
     section: Comments
     token_count: 175
 ---

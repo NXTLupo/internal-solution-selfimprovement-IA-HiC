@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1986]
     sentence_count: 18
     key_terms: [dont, company, stuck, cscareerquestions, microfrontends, legacy, being, job]
+    concepts: [company, cscareerquestions, stuck, microfrontends, legacy]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rib4p8/feeling_stuck_in_career_advice_needed/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rib4p8.md#c1"
     char_span: [1988, 4036]
     sentence_count: 16
     key_terms: [work, job, engineering, dont, etc, different, something, finances]
+    concepts: [engineering, different, something, finances, language]
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rib4p8.md#c2"
     char_span: [4038, 4827]
     sentence_count: 9
     key_terms: [dont, time, stuck, job, jobs, additional, interested, recruiters]
+    concepts: [stuck]
     token_count: 169
 ---
 # Feeling stuck in career. Advice needed.

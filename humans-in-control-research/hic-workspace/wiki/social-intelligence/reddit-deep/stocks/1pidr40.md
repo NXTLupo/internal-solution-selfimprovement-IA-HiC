@@ -19,95 +19,121 @@ chunks:
     char_span: [0, 1104]
     sentence_count: 9
     key_terms: [investment, comments, stocks, feels, non-professional, recommendation, reddit-deep, responsible]
+    concepts: [investment, comments, stocks, feels]
     token_count: 256
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1pidr40/honestly_just_sold_everything_this_market_feels/"}]
   - id: "social-intelligence/reddit-deep/stocks/1pidr40.md#c1"
     char_span: [1118, 2099]
     sentence_count: 8
     key_terms: [investing, something, honestly, market, murphyat5braindamage, money, smart, dumb]
+    concepts: [investing, something, honestly, market, money]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1pidr40.md#c2", "social-intelligence/reddit-deep/stocks/1pidr40.md#c3"]
     section: Comments
     token_count: 233
   - id: "social-intelligence/reddit-deep/stocks/1pidr40.md#c2"
     char_span: [2101, 3572]
     sentence_count: 6
     key_terms: [market, back, inevitably, investing, trading, impact, shares, wonderful-process792]
+    concepts: [market, inevitably, investing, trading, impact]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1pidr40.md#c1", "social-intelligence/reddit-deep/stocks/1pidr40.md#c3"]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/stocks/1pidr40.md#c3"
     char_span: [3574, 5346]
     sentence_count: 9
     key_terms: [investing, market, timely-hospital8746, crash, right, since, mountain-seat-754, cash]
+    concepts: [investing, market, crash, right, since]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1pidr40.md#c1", "social-intelligence/reddit-deep/stocks/1pidr40.md#c2", "social-intelligence/reddit-deep/stocks/1pidr40.md#c4", "social-intelligence/reddit-deep/stocks/1pidr40.md#c10"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/stocks/1pidr40.md#c4"
     char_span: [5348, 6540]
     sentence_count: 7
     key_terms: [because, exactly, sweaty-beginning6886, crash, since, dip, try, stagedc0mbustion]
+    concepts: [because, exactly, crash, since]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1pidr40.md#c3"]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/stocks/1pidr40.md#c5"
     char_span: [6542, 8281]
     sentence_count: 13
     key_terms: [stocks, back, reallocate, waiting, cnzqv0vzhgcjputf1thbu, google, market, wasted]
+    concepts: [stocks, reallocate, waiting, google, market]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1pidr40.md#c8"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/stocks/1pidr40.md#c6"
     char_span: [8283, 10387]
     sentence_count: 17
     key_terms: [market, trump, like, everything, inflation, printing, spending, numerous-stand-1841]
+    concepts: [market, everything, trump, inflation, printing]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1pidr40.md#c8"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/stocks/1pidr40.md#c7"
     char_span: [10389, 11294]
     sentence_count: 8
     key_terms: [less, inflation, stocks, lower, revenue, demand, share, value]
+    concepts: [inflation, stocks, lower, revenue, demand]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1pidr40.md#c8"]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/stocks/1pidr40.md#c8"
     char_span: [11296, 13442]
     sentence_count: 21
     key_terms: [inflation, stocks, market, companies, inflationary, value, dca, employees]
+    concepts: [inflation, stocks, companies, market, inflationary]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1pidr40.md#c5", "social-intelligence/reddit-deep/stocks/1pidr40.md#c6", "social-intelligence/reddit-deep/stocks/1pidr40.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1pidr40.md#c9"
     char_span: [13198, 14508]
     sentence_count: 2
     key_terms: [like, inflation, gambling, appropriate-sell-659, ruinenvironmental394, money, draeneirestoshaman, genericusername71]
+    concepts: [inflation, gambling, money]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/stocks/1pidr40.md#c10"
     char_span: [14510, 16347]
     sentence_count: 16
     key_terms: [market, crash, goes, back, get, hard, "they're", reddit]
+    concepts: [market, crash, "they're", reddit, return]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1pidr40.md#c3"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/stocks/1pidr40.md#c11"
     char_span: [16349, 17751]
     sentence_count: 5
     key_terms: [market, deleted, advice, buying, people, stocks, exciting-direction69, hankmoodymaddafakaaa]
+    concepts: [market, deleted, advice, buying, people]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/stocks/1pidr40.md#c12"
     char_span: [17753, 19252]
     sentence_count: 6
     key_terms: [april, high, time, different, higher, market, typeiicivilization, ath]
+    concepts: [april, different, higher, market]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/stocks/1pidr40.md#c13"
     char_span: [19254, 21037]
     sentence_count: 12
     key_terms: [economy, earnings, crash, investment, companies, increased, increase, products]
+    concepts: [economy, earnings, crash, investment, companies]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/stocks/1pidr40.md#c14"
     char_span: [21039, 22293]
     sentence_count: 7
     key_terms: [year, going, information, investors, insiders, current, dumping, revenue]
+    concepts: [information, going, investors, insiders, current]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/stocks/1pidr40.md#c15"
     char_span: [22298, 23495]
     sentence_count: 12
     key_terms: [housing, people, houses, intergalacticpodcast, majestic-baby-3407, get, jobs, like]
+    concepts: [housing, people, houses]
     section: Comments
     token_count: 319
 ---

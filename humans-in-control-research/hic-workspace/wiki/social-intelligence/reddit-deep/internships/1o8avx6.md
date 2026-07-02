@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1055]
     sentence_count: 9
     key_terms: [music, internships, internship, publishing, company, concord, anyone, gotten]
+    concepts: [music, internships, internship, publishing, company]
     token_count: 241
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1o8avx6/has_anyone_successfully_gotten_a_music_publishing/"}]
   - id: "social-intelligence/reddit-deep/internships/1o8avx6.md#c1"
     char_span: [1069, 2497]
     sentence_count: 8
     key_terms: [connections, resume, because, posting, joinjukebox, hear, job, like]
+    concepts: [connections, resume, because, posting, joinjukebox]
     section: Comments
     token_count: 350
 ---

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1950]
     sentence_count: 15
     key_terms: [career, dutch, "i'm", careerguidance, since, currently, comments, european]
+    concepts: [career, dutch, careerguidance, since, currently]
     token_count: 450
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t0bubd/advice_for_a_dutch_first_year_bachelor_student/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t0bubd.md#c1"
     char_span: [1952, 2611]
     sentence_count: 3
     key_terms: [university, international, studies, bachelors, campus, "i'd", environment, suggestions]
+    concepts: [university, international, studies, bachelors, campus]
     token_count: 138
 ---
 # Advice for a Dutch first year bachelor student considering a UN / EU / Diplomacy career?

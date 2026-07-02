@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1817]
     sentence_count: 22
     key_terms: [get, jobs, told, right, back, work, everything, experience]
+    concepts: [everything, experience, right, comments, applied]
     token_count: 442
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1s0mz7z/ive_applied_to_1500_jobs_improved_my_skills_and/"}]
   - id: "social-intelligence/reddit-deep/jobs/1s0mz7z.md#c1"
     char_span: [1831, 3931]
     sentence_count: 27
     key_terms: [people, years, don, job, too, candidates, depression, experience]
+    concepts: [people, candidates, depression, experience, years]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/jobs/1s0mz7z.md#c2"
     char_span: [3933, 4800]
     sentence_count: 8
     key_terms: [interviews, probably, getting, resume, point, gap, "i'm", "i've"]
+    concepts: [interviews, probably, getting, resume, point]
     section: Comments
     token_count: 190
   - id: "social-intelligence/reddit-deep/jobs/1s0mz7z.md#c3"
     char_span: [4802, 6934]
     sentence_count: 17
     key_terms: [through, years, been, jobs, temp, situation, applying, getting]
+    concepts: [through, years, situation, applying, getting]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/jobs/1s0mz7z.md#c4"
     char_span: [6936, 8043]
     sentence_count: 10
     key_terms: [experience, companies, multiple, broken, like, work, hour-two-3104, overqualified]
+    concepts: [experience, companies, multiple, broken]
     section: Comments
     token_count: 247
 ---

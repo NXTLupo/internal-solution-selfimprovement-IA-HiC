@@ -17,14 +17,17 @@ research_goal: "Produce the definitive guide to personal investing in 2026 by an
 engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/investing/1q8ad0s.md#c0"
-    char_span: [0, 2314]
+    char_span: [0, 2313]
     sentence_count: 11
     key_terms: [oklo, meta, development, agreement, ohio, energy, support, county]
-    token_count: 500
+    concepts: [development, agreement, energy, support, county]
+    token_count: 499
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1q8ad0s/oklo_meta_announce_agreement_in_support_of_12_gw/"}]
   - id: "social-intelligence/reddit-deep/investing/1q8ad0s.md#c1"
-    char_span: [2316, 4450]
+    char_span: [2315, 4449]
     sentence_count: 8
     key_terms: [energy, infrastructure, project, gw-nuclear-energy-development-in-southern-ohio, oklo-meta-announce-agreement-in-support-of-1, meta, oklo, nuclear]
+    concepts: [energy, infrastructure, project, redevelopment, nuclear]
     token_count: 417
 ---
 # Oklo, Meta Announce Agreement in Support of 1.2 GW Nuclear Energy Development in Southern Ohio

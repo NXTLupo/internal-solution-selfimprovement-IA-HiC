@@ -18,26 +18,35 @@ chunks:
     char_span: [0, 1772]
     sentence_count: 11
     key_terms: [repost, questions, reddit, phd, gradadmissions, school, migorrortis96, https]
+    concepts: [repost, questions, reddit, gradadmissions, migorrortis96]
     token_count: 418
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1pp3ifw/master_list_of_interview_questions/"}]
   - id: "articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c1"
     char_span: [1774, 4343]
     sentence_count: 1
     key_terms: [research, institution, program, interests, questions, work, funding, project]
+    concepts: [research, institution, program, interests, questions]
+    related_chunks: ["articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c3", "articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c4"]
     token_count: 508
   - id: "articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c2"
     char_span: [4345, 6336]
     sentence_count: 6
     key_terms: [research, teaching, experience, lab, disagreement, combination, did, time]
+    concepts: [research, teaching, experience, disagreement, combination]
     token_count: 414
   - id: "articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c3"
     char_span: [6338, 8704]
     sentence_count: 1
     key_terms: [research, students, program, grad, advisor, working, people, environment]
+    concepts: [research, students, program, advisor, working]
+    related_chunks: ["articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c1", "articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c4"]
     token_count: 511
   - id: "articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c4"
     char_span: [8706, 11005]
     sentence_count: 10
     key_terms: [students, lab, questions, program, interview, projects, research, thank]
+    concepts: [students, questions, program, interview, projects]
+    related_chunks: ["articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c1", "articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c3"]
     token_count: 512
 ---
 # Master List of Interview Questions

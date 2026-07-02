@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 520]
     sentence_count: 4
     key_terms: [artificial, embroidery, comments, chatgpt, create, image, use, pyperthegay]
+    concepts: [artificial, embroidery, comments, chatgpt, create]
     token_count: 133
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1mhsaun/what_ai_can_i_use_for_image_generation_with_an/"}]
 ---
 # What ai can I use for image generation with an image prompt?
 

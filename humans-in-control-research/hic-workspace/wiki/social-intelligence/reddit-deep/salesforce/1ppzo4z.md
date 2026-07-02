@@ -20,28 +20,34 @@ chunks:
     char_span: [0, 2238]
     sentence_count: 7
     key_terms: [salesforce, experience, management, cloud, technical, delivery, documentation, stakeholder]
+    concepts: [salesforce, experience, management, technical, cloud]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1ppzo4z/10_years_exp_realistic_uk_salary_expectations/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1ppzo4z.md#c1"
     char_span: [2240, 2673]
     sentence_count: 2
     key_terms: [integrations, data, synchronisation, bidirectional, re-engineered, transparency, implemented, third-party]
+    concepts: [integrations]
     token_count: 88
   - id: "social-intelligence/reddit-deep/salesforce/1ppzo4z.md#c2"
-    char_span: [2688, 3751]
+    char_span: [2687, 3750]
     sentence_count: 7
     key_terms: [admin, "i've", lead, consulting, architect, different, working, likely]
+    concepts: [admin, consulting, architect, different, working]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/salesforce/1ppzo4z.md#c3"
-    char_span: [3754, 4991]
+    char_span: [3753, 4990]
     sentence_count: 4
     key_terms: [industry, best, end, time, consulting, experience, around, senior]
+    concepts: [industry, consulting, experience, around, senior]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/salesforce/1ppzo4z.md#c4"
-    char_span: [4993, 7086]
+    char_span: [4992, 7085]
     sentence_count: 11
     key_terms: [experience, been, insight, better, specialism, end, "you're", declarative]
+    concepts: [experience, insight, specialism, better, "you're"]
     section: Comments
     token_count: 478
 ---

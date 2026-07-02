@@ -20,21 +20,25 @@ chunks:
     char_span: [0, 1663]
     sentence_count: 8
     key_terms: [data, science, job, been, title, responsibilities, company, hybrid]
+    concepts: [science, responsibilities, title, company, hybrid]
     token_count: 359
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1mf44ek/using_a_hybrid_role_in_job_title_data_science_and/"}]
   - id: "social-intelligence/reddit-deep/datascience/1mf44ek.md#c1"
-    char_span: [1678, 3025]
+    char_span: [1677, 3024]
     sentence_count: 10
     key_terms: [title, data, understand, confusing, everyone, yourself, agreed, enough]
+    concepts: [title, understand, confusing, everyone, yourself]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/datascience/1mf44ek.md#c2"
-    char_span: [3027, 5042]
+    char_span: [3026, 5041]
     sentence_count: 11
     key_terms: [data, engineering, scientist, like, engineer, company, "it's", similar]
+    concepts: [engineering, scientist, engineer, company, similar]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/datascience/1mf44ek.md#c3"
-    char_span: [5044, 5259]
+    char_span: [5043, 5258]
     sentence_count: 3
     key_terms: [like, mle, background, programing, otherwise, bysines6, modeling, technica]
     section: Comments

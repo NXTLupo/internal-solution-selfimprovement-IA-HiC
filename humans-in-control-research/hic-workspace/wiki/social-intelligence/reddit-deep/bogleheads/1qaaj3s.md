@@ -20,20 +20,23 @@ chunks:
     char_span: [0, 2129]
     sentence_count: 16
     key_terms: [investment, platform, brokerage, investing, sofi, accounts, account, college]
+    concepts: [investment, platform, brokerage, investing, accounts]
     token_count: 464
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1qaaj3s/how_to_choose_an_investment_platform/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1qaaj3s.md#c1"
     char_span: [2131, 2396]
     sentence_count: 3
     key_terms: [clarification, exclusively, terminology, background, relatively, knowledge, anything, misused]
     token_count: 56
   - id: "social-intelligence/reddit-deep/bogleheads/1qaaj3s.md#c2"
-    char_span: [2411, 4483]
+    char_span: [2410, 4482]
     sentence_count: 19
     key_terms: [fidelity, good, funds, auto, free, bogleheads, excellent, customer]
+    concepts: [fidelity, bogleheads, funds, excellent, customer]
     section: Comments
     token_count: 515
   - id: "social-intelligence/reddit-deep/bogleheads/1qaaj3s.md#c3"
-    char_span: [4485, 4629]
+    char_span: [4484, 4628]
     sentence_count: 1
     key_terms: [currently, customer, fidelity, vanguard, linking, reviews, service, better]
     section: Comments

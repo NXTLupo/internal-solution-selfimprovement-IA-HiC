@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1959]
     sentence_count: 19
     key_terms: [insurance, feel, job, personalfinance, little, diego, day, san]
+    concepts: [insurance, personalfinance, little, diego, exhausted]
     token_count: 472
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1tpjvcm/i_need_advice_on_if_i_should_make_this_leap/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1tpjvcm.md#c1"
-    char_span: [1961, 2901]
+    char_span: [1961, 2900]
     sentence_count: 8
     key_terms: [job, insurance, somewhere, yourself, career, correctcombination11, grouchy-fisherman746, needroomatethanks]
+    concepts: [insurance, somewhere, yourself, career]
     section: Comments
     token_count: 223
 ---

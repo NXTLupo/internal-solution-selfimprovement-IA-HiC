@@ -19,9 +19,11 @@ chunks:
     char_span: [0, 1222]
     sentence_count: 10
     key_terms: [sociology, student, careerguidance, internships, successful, comments, chances, davis]
+    concepts: [sociology, careerguidance, student, internships, successful]
     token_count: 289
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1skqfps/i_am_a_recently_admitted_sociology_student_at_uc/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1skqfps.md#c1"
-    char_span: [1237, 1881]
+    char_span: [1236, 1880]
     sentence_count: 6
     key_terms: [help, thepandapear, differently, perspective, gradsimple, graduation, interviews, analytics]
     section: Comments

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 784]
     sentence_count: 7
     key_terms: [got, professors, professor, comments, college, around, conversation, relationship]
+    concepts: [professors, professor, comments, college, around]
     token_count: 187
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1l5k9ft/check_up_with_your_professors/"}]
   - id: "social-intelligence/reddit-deep/college/1l5k9ft.md#c1"
     char_span: [798, 1819]
     sentence_count: 7
     key_terms: [professors, recommending, "don't", industry, involved, students, world, friendshippast3386]
+    concepts: [professors, recommending, "don't", industry, involved]
     section: Comments
     token_count: 223
 ---

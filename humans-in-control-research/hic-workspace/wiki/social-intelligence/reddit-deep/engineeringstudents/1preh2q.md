@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1465]
     sentence_count: 3
     key_terms: [science, data, engineering, career, engineeringstudents, backlogs, prepare, final]
+    concepts: [science, engineering, engineeringstudents, career, backlogs]
     token_count: 340
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1preh2q/final_year_mechanical_engineering_student_seeking/"}]
 ---
 # Final Year Mechanical Engineering Student Seeking Career Change to Data Science – Need Guidance
 

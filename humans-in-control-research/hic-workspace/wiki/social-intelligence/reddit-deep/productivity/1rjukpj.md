@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 961]
     sentence_count: 6
     key_terms: [productivity, work, urgent, comments, system, back, get, role]
+    concepts: [productivity, urgent, comments, system]
     token_count: 208
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1rjukpj/struggling_to_adapt_my_productivity_system_when/"}]
   - id: "social-intelligence/reddit-deep/productivity/1rjukpj.md#c1"
     char_span: [975, 2869]
     sentence_count: 27
     key_terms: [work, reactive, strategic, percent, system, small, time, calendar]
+    concepts: [reactive, strategic, percent, system, small]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/productivity/1rjukpj.md#c2"
     char_span: [2871, 5150]
     sentence_count: 13
     key_terms: [work, strategic, blocks, deep, urgent, need, team, time]
+    concepts: [strategic, blocks, urgent, dedicated, blocking]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/productivity/1rjukpj.md#c3"

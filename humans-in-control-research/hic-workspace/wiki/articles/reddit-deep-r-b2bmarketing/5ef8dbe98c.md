@@ -19,29 +19,35 @@ content_hash: "d43c2e6c9c6ba95e"
 relevance_by_goal: {"7bbd4efaae7d":45}
 chunks:
   - id: "articles/reddit-deep-r-b2bmarketing/5ef8dbe98c.md#c0"
-    char_span: [0, 2045]
+    char_span: [0, 2044]
     sentence_count: 27
     key_terms: [work, leading, reddit, b2bmarketing, commission, recurring, linkedin, messages]
-    token_count: 458
+    concepts: [leading, b2bmarketing, reddit, commission, recurring]
+    token_count: 457
+    sources: [{"n":"Reddit Deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1rto93j/we_do_great_work_but_suck_at_selling_it_how_do/"}]
   - id: "articles/reddit-deep-r-b2bmarketing/5ef8dbe98c.md#c1"
-    char_span: [2047, 4200]
+    char_span: [2046, 4199]
     sentence_count: 22
     key_terms: [problem, looking-for-marketing-discussion-811236647760298024, people, data, don, need, service, reconciliation]
+    concepts: [problem, people, reconciliation, service, consultant]
     token_count: 471
   - id: "articles/reddit-deep-r-b2bmarketing/5ef8dbe98c.md#c2"
-    char_span: [4202, 6532]
+    char_span: [4201, 6531]
     sentence_count: 29
     key_terms: [numbers, salesforce, trigger, "you're", "don't", sentence, problem, conversation]
+    concepts: [numbers, salesforce, trigger, "you're", "don't"]
     token_count: 484
   - id: "articles/reddit-deep-r-b2bmarketing/5ef8dbe98c.md#c3"
-    char_span: [6534, 8792]
+    char_span: [6533, 8791]
     sentence_count: 25
     key_terms: [attendees, marketing, dinners, dinner, cfo, keep, customers, extremely]
+    concepts: [attendees, marketing, dinners, dinner, customers]
     token_count: 506
   - id: "articles/reddit-deep-r-b2bmarketing/5ef8dbe98c.md#c4"
-    char_span: [8794, 10448]
+    char_span: [8793, 10447]
     sentence_count: 9
     key_terms: [need, b2b, reddit, business, problems, specific, whatever, the-hidden-b2b-journey]
+    concepts: [reddit, business, problems, specific, whatever]
     token_count: 366
 ---
 # We do great work but suck at selling it. How do you sell a service nobody knows they need?

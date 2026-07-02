@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 699]
     sentence_count: 4
     key_terms: [comments, reddit, cscareerquestions, https, com, www, internship, developer]
+    concepts: [comments, cscareerquestions, reddit, https, internship]
     token_count: 193
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sh7etp/seo_tech_developer_vs_summer_internship/"}]
 ---
 # SEO Tech Developer vs. Summer Internship?
 

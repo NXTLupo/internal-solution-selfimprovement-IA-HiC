@@ -20,23 +20,31 @@ chunks:
     char_span: [0, 1059]
     sentence_count: 10
     key_terms: [freightos, logistics, australia, charges, destination, ddp, lcl, comments]
+    concepts: [freightos, logistics, australia, charges, destination]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1tr0ga5.md#c1", "social-intelligence/reddit-deep/logistics/1tr0ga5.md#c2"]
     token_count: 265
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1tr0ga5/china_australia_lcl_freightos_vs_ddp/"}]
   - id: "social-intelligence/reddit-deep/logistics/1tr0ga5.md#c1"
-    char_span: [1074, 2773]
+    char_span: [1073, 2772]
     sentence_count: 8
     key_terms: [destination, subreddit, inspection-related, charges, customs, freight, costs, inspection]
+    concepts: [destination, subreddit, inspection-related, charges, customs]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1tr0ga5.md#c0", "social-intelligence/reddit-deep/logistics/1tr0ga5.md#c2"]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/logistics/1tr0ga5.md#c2"
-    char_span: [2775, 4932]
+    char_span: [2774, 4931]
     sentence_count: 14
     key_terms: [charges, per, ask, cbm, ddp, freight, litter, quote]
+    concepts: [charges, freight, litter, destination, especially]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1tr0ga5.md#c0", "social-intelligence/reddit-deep/logistics/1tr0ga5.md#c1"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/logistics/1tr0ga5.md#c3"
-    char_span: [4934, 5684]
+    char_span: [4933, 5683]
     sentence_count: 4
     key_terms: [drycommunication9639, quote, ddp, lcl, sure, administrative, destination, re-delivery]
+    concepts: [quote]
     section: Comments
     token_count: 170
 ---

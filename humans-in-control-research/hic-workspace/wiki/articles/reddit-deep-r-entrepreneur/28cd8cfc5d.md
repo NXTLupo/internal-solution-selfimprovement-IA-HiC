@@ -19,14 +19,17 @@ content_hash: "eb911b61437fb97b"
 relevance_by_goal: {"490684cfa204":30}
 chunks:
   - id: "articles/reddit-deep-r-entrepreneur/28cd8cfc5d.md#c0"
-    char_span: [0, 2103]
+    char_span: [0, 2102]
     sentence_count: 13
     key_terms: [entrepreneur, customers, please, comments, reddit, trust, permanent, promotion]
-    token_count: 499
+    concepts: [entrepreneur, customers, please, comments, reddit]
+    token_count: 498
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1njsth0/would_you_trust_ai_to_handle_your_first_100/"}]
   - id: "articles/reddit-deep-r-entrepreneur/28cd8cfc5d.md#c1"
-    char_span: [2105, 2675]
+    char_span: [2104, 2674]
     sentence_count: 5
     key_terms: [process, customers, building, tell, mynameisgiles, automating, automation, convincing]
+    concepts: [process, customers, building]
     token_count: 132
 ---
 # Would you trust AI to handle your first 100 customers?

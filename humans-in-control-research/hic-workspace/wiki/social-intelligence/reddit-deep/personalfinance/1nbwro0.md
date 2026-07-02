@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1344]
     sentence_count: 12
     key_terms: [personalfinance, advice, investments, job, investing, remaining, spendings, comments]
+    concepts: [personalfinance, advice, investments, investing, remaining]
     token_count: 321
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1nbwro0/just_started_my_first_job_and_need_advice_on_how/"}]
 ---
 # Just started my first job and need advice on how to divide my income among spendings, investments and savings.
 

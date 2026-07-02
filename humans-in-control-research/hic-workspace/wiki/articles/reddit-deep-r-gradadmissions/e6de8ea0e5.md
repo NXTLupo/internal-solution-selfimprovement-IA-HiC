@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1076]
     sentence_count: 7
     key_terms: [thank, congratulations, gradadmissions, beyond, fsan13, ucla, undergrad, wonderful]
+    concepts: [congratulations, thank, gradadmissions, beyond, fsan13]
     token_count: 287
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rn2bx7/got_into_ucla/"}]
 ---
 # Got into UCLA!
 

@@ -20,41 +20,49 @@ chunks:
     char_span: [0, 1105]
     sentence_count: 7
     key_terms: [entrepreneur, ceo, automation, impressive, messaging, business, comments, running]
+    concepts: [entrepreneur, automation, impressive, messaging, business]
     token_count: 218
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1tvildd/whats_the_most_impressive_ai_automation_running/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1tvildd.md#c1"
-    char_span: [1120, 2257]
+    char_span: [1119, 2256]
     sentence_count: 5
     key_terms: [entrepreneur, please, permanent, promotion, stickied, comment, thread, weekly]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/entrepreneur/1tvildd.md#c2"
-    char_span: [2259, 3879]
+    char_span: [2258, 3878]
     sentence_count: 8
     key_terms: [automatically, customer, company, google, personalized, month, automation, onboarding]
+    concepts: [automatically, customer, company, personalized, google]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/entrepreneur/1tvildd.md#c3"
-    char_span: [3881, 6091]
+    char_span: [3880, 6090]
     sentence_count: 14
     key_terms: [agent, silver-teaching7619, agents, using, management, business, outreach, builder]
+    concepts: [agent, silver-teaching7619, agents, management, using]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/entrepreneur/1tvildd.md#c4"
-    char_span: [6093, 7824]
+    char_span: [6092, 7823]
     sentence_count: 14
     key_terms: [agent, automation, automatically, improvements, tool, linkedin, manually, probably]
+    concepts: [agent, automation, automatically, improvements, linkedin]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/entrepreneur/1tvildd.md#c5"
-    char_span: [7826, 9781]
+    char_span: [7825, 9780]
     sentence_count: 11
     key_terms: [linkedin, sales, research-mom, tool, navigator, outreach, requests, account]
+    concepts: [linkedin, sales, research-mom, navigator, outreach]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/entrepreneur/1tvildd.md#c6"
-    char_span: [9783, 12051]
+    char_span: [9782, 12050]
     sentence_count: 19
     key_terms: [automation, built, instagram, content, curious, transcription, impressive, business]
+    concepts: [automation, instagram, built, transcription, content]
     section: Comments
     token_count: 488
 ---

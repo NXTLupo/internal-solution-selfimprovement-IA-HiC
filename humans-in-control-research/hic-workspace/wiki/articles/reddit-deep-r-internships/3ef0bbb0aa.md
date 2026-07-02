@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1233]
     sentence_count: 10
     key_terms: [internship, internships, work, graduate, job, prepared, applied, minimum]
+    concepts: [internship, internships, graduate, prepared, applied]
     token_count: 289
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1skuc8o/do_i_ask_for_a_raise_on_my_internship/"}]
   - id: "articles/reddit-deep-r-internships/3ef0bbb0aa.md#c1"
     char_span: [1235, 2590]
     sentence_count: 12
     key_terms: [dry-remote826, top, complete, hospital, scared, match, worst, rank]
+    concepts: [dry-remote826, complete, hospital, scared, match]
     token_count: 325
 ---
 # Do I ask for a raise on my internship?

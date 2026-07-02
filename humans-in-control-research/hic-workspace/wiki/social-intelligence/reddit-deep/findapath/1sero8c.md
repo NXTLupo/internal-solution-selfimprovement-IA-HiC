@@ -19,38 +19,47 @@ chunks:
     char_span: [0, 2033]
     sentence_count: 17
     key_terms: [without, career, job, experience, findapath, comments, feelings, whether]
+    concepts: [without, career, experience, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1sero8c.md#c2"]
     token_count: 483
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1sero8c/just_turned_40_with_the_skills_and_career/"}]
   - id: "social-intelligence/reddit-deep/findapath/1sero8c.md#c1"
     char_span: [2035, 2955]
     sentence_count: 7
     key_terms: [hours, learn, able, been, non-essentials, intelligence, concentrate, monetizable]
+    concepts: [hours, learn]
     token_count: 213
   - id: "social-intelligence/reddit-deep/findapath/1sero8c.md#c2"
-    char_span: [2970, 5072]
+    char_span: [2969, 5071]
     sentence_count: 16
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, action]
+    concepts: [thank, helpful, please, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1sero8c.md#c0"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/findapath/1sero8c.md#c3"
-    char_span: [5074, 7110]
+    char_span: [5073, 7109]
     sentence_count: 14
     key_terms: [get, help, business, career, online, bit, jobs, already]
+    concepts: [business, career, online, already, clarity]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/findapath/1sero8c.md#c4"
-    char_span: [7112, 8898]
+    char_span: [7111, 8897]
     sentence_count: 13
     key_terms: [help, business, collegehelp2275, rehabilitation, "don't", vocational, thailand, library]
+    concepts: [collegehelp2275, business, rehabilitation, "don't", vocational]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/findapath/1sero8c.md#c5"
-    char_span: [8900, 11179]
+    char_span: [8899, 11178]
     sentence_count: 25
     key_terms: [intelligent, something, get, try, online, please, learn, work]
+    concepts: [intelligent, something, online, please, confidence]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/findapath/1sero8c.md#c6"
-    char_span: [11181, 11506]
+    char_span: [11180, 11505]
     sentence_count: 4
     key_terms: [glass-emotions963, "it's", encouragement, unstoppable, definitely, "husband's", something, recovery]
     section: Comments

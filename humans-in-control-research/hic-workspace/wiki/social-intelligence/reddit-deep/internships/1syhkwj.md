@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1326]
     sentence_count: 9
     key_terms: [contribute, startup, internships, opportunity, experience, building, comments, looking]
+    concepts: [contribute, startup, internships, opportunity, experience]
     token_count: 274
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1syhkwj/summer_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1syhkwj.md#c1"
-    char_span: [1341, 1777]
+    char_span: [1340, 1776]
     sentence_count: 1
     key_terms: [sweet-frosting4839, internshipdaily, roles, targeting, filter, summer, check, com]
+    concepts: [sweet-frosting4839, internshipdaily, roles, targeting, filter]
     section: Comments
     token_count: 107
 ---

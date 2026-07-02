@@ -9,44 +9,53 @@ author: ""
 date: "2026-04-20T22:00:09.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-06-18T13:38:24.612427+00:00"
+extracted_at: "2026-06-24T22:16:17.338805+00:00"
 chars: 10000
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
-collected_at: "2026-06-18T13:38:23.531Z"
-relevance: 99
-engagement_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
+collected_at: "2026-06-24T22:16:17.203Z"
+relevance: 95
+engagement_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
 content_hash: "cc592144ae161a3e"
-relevance_by_goal: {"490684cfa204":99}
+relevance_by_goal: {"490684cfa204":99,"5600fa7d89d5":95}
 chunks:
   - id: "articles/reddit-deep-r-ecommerce/cbbb7ce0fa.md#c0"
-    char_span: [0, 869]
+    char_span: [0, 868]
     sentence_count: 4
     key_terms: [e-commerce, ecommerce, week, industry, sources, arrive, reddit, "week's"]
-    token_count: 223
+    concepts: [e-commerce, ecommerce, industry, sources, arrive]
+    token_count: 222
+    sources: [{"n":"Reddit Deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1sr4h9t/ecommerce_industry_news_recap_week_of_april_20th/"}]
   - id: "articles/reddit-deep-r-ecommerce/cbbb7ce0fa.md#c1"
-    char_span: [871, 3416]
+    char_span: [870, 3415]
     sentence_count: 9
     key_terms: [amazon, financial, rfid, ups, company, prices, money, documents]
+    concepts: [amazon, financial, company, prices, money]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/cbbb7ce0fa.md#c2"
-    char_span: [3069, 5640]
+    char_span: [3068, 5639]
     sentence_count: 11
     key_terms: [amazon, ads, openai, created, action, market, prices, autos]
+    concepts: [amazon, openai, created, action, market]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/cbbb7ce0fa.md#c3"
-    char_span: [5348, 7678]
+    char_span: [5347, 7677]
     sentence_count: 12
     key_terms: [mode, new, google, questions, open, company, started, side-by-side]
+    concepts: [google, questions, company, started, side-by-side]
+    related_chunks: ["articles/reddit-deep-r-ecommerce/cbbb7ce0fa.md#c5"]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/cbbb7ce0fa.md#c4"
-    char_span: [7349, 9700]
+    char_span: [7348, 9699]
     sentence_count: 16
     key_terms: [salesforce, agents, google, data, across, tools, meta, new]
+    concepts: [salesforce, agents, google, across, agentforce]
     token_count: 512
   - id: "articles/reddit-deep-r-ecommerce/cbbb7ce0fa.md#c5"
-    char_span: [9424, 10202]
+    char_span: [9423, 10201]
     sentence_count: 6
     key_terms: [qvc, company, google, reels, right, meta, rate, run]
+    concepts: [company, google, reels, right]
+    related_chunks: ["articles/reddit-deep-r-ecommerce/cbbb7ce0fa.md#c3"]
     token_count: 191
 ---
 # E-commerce Industry News Recap 🔥 Week of April 20th, 2026

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1671]
     sentence_count: 22
     key_terms: [job, tech, anything, careerguidance, always, exams, engineering, govt]
+    concepts: [anything, careerguidance, always, engineering, completely]
     token_count: 386
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pj8laf/need_serious_personal_and_career_guidance_lost/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1pj8laf.md#c1"
     char_span: [1685, 2422]
     sentence_count: 5
     key_terms: [projects, direct-structure-555, build, small, like, expectations, persistent, placements]
+    concepts: [projects, build, small]
     section: Comments
     token_count: 181
 ---

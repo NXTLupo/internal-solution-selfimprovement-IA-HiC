@@ -16,10 +16,12 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1s7rrrc.md#c0"
-    char_span: [0, 1336]
+    char_span: [0, 1335]
     sentence_count: 2
     key_terms: [opportunities, internships, analysis, internship, currently, comments, feedback, learning]
+    concepts: [opportunities, internships, analysis, internship, currently]
     token_count: 322
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1s7rrrc/seeking_genuine_internship_opportunities_open_to/"}]
 ---
 # Seeking Genuine Internship Opportunities | Open to Feedback & Connections
 

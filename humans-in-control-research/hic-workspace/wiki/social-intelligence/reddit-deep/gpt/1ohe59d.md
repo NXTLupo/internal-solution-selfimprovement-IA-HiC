@@ -21,26 +21,35 @@ chunks:
     char_span: [0, 1862]
     sentence_count: 12
     key_terms: [post, llm, "it's", comparison, comments, services, training, chatgpt]
+    concepts: [comparison, comments, services, training, chatgpt]
     token_count: 436
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1ohe59d/evaluating_a_number_of_llm_services/"}]
   - id: "social-intelligence/reddit-deep/gpt/1ohe59d.md#c1"
     char_span: [1864, 3809]
     sentence_count: 12
     key_terms: [instructions, mistral-agents, gpt5, "i'm", llm, main, chattygpt, political]
+    concepts: [instructions, mistral-agents, chattygpt, political, academic]
     token_count: 465
   - id: "social-intelligence/reddit-deep/gpt/1ohe59d.md#c2"
     char_span: [3811, 5907]
     sentence_count: 19
     key_terms: [does, bulletpoints, using, note, response, chatgpt, headers, mistral]
+    concepts: [bulletpoints, using, response, chatgpt, headers]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1ohe59d.md#c3"]
     token_count: 493
   - id: "social-intelligence/reddit-deep/gpt/1ohe59d.md#c3"
     char_span: [5909, 8136]
     sentence_count: 21
     key_terms: [ethnicity, chatgpt, information, mistral, response, choice, though, image]
+    concepts: [ethnicity, chatgpt, information, mistral, response]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1ohe59d.md#c2", "social-intelligence/reddit-deep/gpt/1ohe59d.md#c4"]
     token_count: 500
   - id: "social-intelligence/reddit-deep/gpt/1ohe59d.md#c4"
     char_span: [8138, 10204]
     sentence_count: 18
     key_terms: [ethnicity, perfectly, provides, chatgpt, gemini, images, interestingly, asked]
+    concepts: [ethnicity, perfectly, provides, interestingly, chatgpt]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1ohe59d.md#c3"]
     token_count: 470
 ---
 # Evaluating a number of LLM Services

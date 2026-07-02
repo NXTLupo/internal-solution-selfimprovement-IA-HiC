@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 469]
     sentence_count: 1
     key_terms: [support, customer, entrepreneur, comments, reply, tools, best, docs]
+    concepts: [support, customer, entrepreneur, comments, reply]
     token_count: 103
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1qlmu7v/best_ai_tools_for_customer_support/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1qlmu7v.md#c1"
-    char_span: [484, 2347]
+    char_span: [483, 2346]
     sentence_count: 11
     key_terms: [entrepreneur, please, permanent, promotion, stickied, comment, client, thread]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/entrepreneur/1qlmu7v.md#c2"
-    char_span: [2349, 3844]
+    char_span: [2348, 3843]
     sentence_count: 11
     key_terms: [docs, replies, draft, questions, personal, answers, context, support]
+    concepts: [replies, draft, questions, personal, answers]
     section: Comments
     token_count: 381
 ---

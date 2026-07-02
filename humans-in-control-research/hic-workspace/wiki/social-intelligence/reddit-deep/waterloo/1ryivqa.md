@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 623]
     sentence_count: 5
     key_terms: [opportunities, "i'm", comments, waterloo, job, jobs, reddit-deep, everywhere]
+    concepts: [opportunities, comments, waterloo]
     token_count: 151
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1ryivqa/jobs/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1ryivqa.md#c1"
     char_span: [637, 1910]
     sentence_count: 10
     key_terms: [like, https, employment, now-hiring, starlingcs, recommend, herrles, student]
+    concepts: [https, employment, now-hiring, starlingcs, recommend]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/waterloo/1ryivqa.md#c2"
     char_span: [1912, 3477]
     sentence_count: 11
     key_terms: [hiring, jobs, students, sumknowbuddy, positions, westmount, "harvey's", location]
+    concepts: [hiring, students, sumknowbuddy, positions, westmount]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/waterloo/1ryivqa.md#c3"
     char_span: [3479, 4394]
     sentence_count: 8
     key_terms: [service, years, job, jobs, blackwoodjohnson, nursestephykat, frustrations, professional]
+    concepts: [service, years]
     section: Comments
     token_count: 243
 ---

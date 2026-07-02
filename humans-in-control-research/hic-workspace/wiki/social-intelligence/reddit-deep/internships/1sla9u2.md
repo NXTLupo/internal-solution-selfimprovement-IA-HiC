@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1046]
     sentence_count: 7
     key_terms: [internships, portfolio, comments, backend, science, advice, anyone, data]
+    concepts: [internships, portfolio, comments, backend, science]
     token_count: 234
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sla9u2/internshipjob_searching_advice_and_help_needed/"}]
   - id: "social-intelligence/reddit-deep/internships/1sla9u2.md#c1"
     char_span: [1060, 3315]
     sentence_count: 14
     key_terms: [anything, resume, confidently, description, work, processing, creation, keywords]
+    concepts: [anything, resume, confidently, description, processing]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/internships/1sla9u2.md#c2"
     char_span: [3317, 4556]
     sentence_count: 8
     key_terms: [internshipsolutions, helped, honestly, biggest, resume, ats, help, warm]
+    concepts: [internshipsolutions, helped, honestly, biggest, resume]
     section: Comments
     token_count: 280
 ---

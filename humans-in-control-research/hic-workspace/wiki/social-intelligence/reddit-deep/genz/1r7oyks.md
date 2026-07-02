@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 517]
     sentence_count: 5
     key_terms: [money, comments, "don't", ordinary-fish-9791, genz, "i'm", like, investments]
+    concepts: [money, comments, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1r7oyks.md#c2"]
     token_count: 137
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1r7oyks/are_you_saving_money_for_the_future_or_are_you/"}]
   - id: "social-intelligence/reddit-deep/genz/1r7oyks.md#c1"
     char_span: [531, 660]
     sentence_count: 1
     key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
+    concepts: [discord]
     section: Comments
     token_count: 41
   - id: "social-intelligence/reddit-deep/genz/1r7oyks.md#c2"
     char_span: [663, 2699]
     sentence_count: 18
     key_terms: [save, money, enjoy, pay, "don't", "i'm", rent, invest]
+    concepts: [money, enjoy, "don't", invest]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1r7oyks.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1r7oyks.md#c3"
     char_span: [2458, 3640]
     sentence_count: 5
     key_terms: [save, mostly, saving, chemical-village-211, money, life, chickennugs4hugs, youchasechickens]
+    concepts: [mostly, saving, money]
     section: Comments
     token_count: 312
 ---

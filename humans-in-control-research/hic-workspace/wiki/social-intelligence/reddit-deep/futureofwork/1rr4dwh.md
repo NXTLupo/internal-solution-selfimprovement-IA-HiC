@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2072]
     sentence_count: 12
     key_terms: [machines, currently, sovereign, administrative, people, futureofwork, saas, apocalypse]
+    concepts: [machines, currently, sovereign, administrative, futureofwork]
     token_count: 456
+    sources: [{"n":"reddit-deep: r/futureofwork","u":"https://www.reddit.com/r/FutureOfWork/comments/1rr4dwh/beyond_the_task_economy_why_the_future_belongs_to/"}]
 ---
 # Beyond the "Task" Economy: Why the future belongs to the Sovereign Operator.
 

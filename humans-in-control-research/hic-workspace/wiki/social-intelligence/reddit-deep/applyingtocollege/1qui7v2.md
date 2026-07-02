@@ -19,35 +19,46 @@ chunks:
     char_span: [0, 1909]
     sentence_count: 15
     key_terms: [purdue, "i'm", uiuc, college, parents, applyingtocollege, pay, year]
+    concepts: [purdue, college, parents, applyingtocollege, comments]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c1"]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1qui7v2/is_uiuc_cs_worth_20k_more_a_year_than_purdue/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c1"
     char_span: [1911, 3380]
     sentence_count: 12
     key_terms: [college, uiuc, parents, having, purdue, aid, financial, because]
+    concepts: [college, parents, having, purdue, financial]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c0"]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c2"
     char_span: [3382, 5468]
     sentence_count: 17
     key_terms: [uiuc, purdue, family, difference, firms, worth, situation, given]
+    concepts: [purdue, difference, family, situation, firms]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c3"
     char_span: [5470, 7329]
     sentence_count: 10
     key_terms: [purdue, placement, starting, https, edu, corporate, avg, income]
+    concepts: [purdue, placement, starting, https, corporate]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c4"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c4"
     char_span: [7331, 9186]
     sentence_count: 19
     key_terms: [purdue, https, edu, students, amazon, realistically, forth, majordetail]
+    concepts: [purdue, https, students, realistically, amazon]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c3"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c5"
     char_span: [9188, 10805]
     sentence_count: 7
     key_terms: [uiuc, stronger, good, program, purdue, school, "don't", get]
+    concepts: [stronger, program, purdue, school, "don't"]
     section: Comments
     token_count: 413
 ---

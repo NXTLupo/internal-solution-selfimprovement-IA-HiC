@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 2004]
     sentence_count: 14
     key_terms: [startup, google, internship, cscareerquestions, working, comp, down, get]
+    concepts: [startup, google, internship, cscareerquestions, working]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c3"]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1smdmkk/should_i_renege_my_google_internship_to_work_at_a/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c1"
     char_span: [2018, 4047]
     sentence_count: 15
     key_terms: [google, startup, thatsprettywild, avgvancouverperson, get, doing, competitive, anywhere]
+    concepts: [google, startup, thatsprettywild, avgvancouverperson, competitive]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c3"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c2"
     char_span: [4049, 5460]
     sentence_count: 10
     key_terms: [google, resume, "it's", anthropic, years, been, main, thatsprettywild]
+    concepts: [google, resume, anthropic, years]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c3"
     char_span: [5462, 7174]
     sentence_count: 10
     key_terms: [thatsprettywild, google, startup, startups, product, "it's", tech, elaborate]
+    concepts: [thatsprettywild, google, startup, startups, product]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c1"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c4"
     char_span: [7176, 7484]
     sentence_count: 2
     key_terms: [google, thatsprettywild, equivalent, understand, question, somewhat, company, opposed]
+    concepts: [google]
     section: Comments
     token_count: 75
 ---

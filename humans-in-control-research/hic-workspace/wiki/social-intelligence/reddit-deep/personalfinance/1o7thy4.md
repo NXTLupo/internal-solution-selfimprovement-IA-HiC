@@ -8,29 +8,33 @@ title: "I’m assuming this is a scam"
 author: "r1Rqc1vPeF"
 date: "2025-10-16T01:37:02.000Z"
 score: 24
-upvote_ratio: 0.78
+upvote_ratio: 0.79
 num_comments: 33
 flair: "Other"
-extracted_at: "2026-06-11T15:26:16.545Z"
+extracted_at: "2026-06-26T21:51:56.939Z"
 extraction_method: "praw-deep"
-research_goal: "Produce the definitive guide to personal investing in 2026 by analyzing the current state of the fintech and financial industries. Evaluate retail investor behaviors, emerging asset classes, and platform shifts using 2026 market news, industry reports, and social media trends to identify actionable investment strategies and market opportunities."
-engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
+research_goal: "Identify and analyze the top five consumer finance trends for 2026 across retail banking, fintech, and consumer lending, delivering a prioritized trend matrix that details key drivers, shifting consumer behaviors, and technological adoption."
+engagement: "identify-and-analyze-the-top-five-consumer-finance-trends-fo"
 chunks:
   - id: "social-intelligence/reddit-deep/personalfinance/1o7thy4.md#c0"
     char_span: [0, 1316]
     sentence_count: 12
     key_terms: [account, verify, personalfinance, wallets, wallet, financial, accounts, assuming]
+    concepts: [account, verify, personalfinance, wallets, wallet]
     token_count: 299
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1o7thy4/im_assuming_this_is_a_scam/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1o7thy4.md#c1"
-    char_span: [1331, 3160]
+    char_span: [1330, 3159]
     sentence_count: 17
-    key_terms: [scam, metamask, will-metama***REDACTED-KEY***, wallet, r1rqc1vpef, getting, related, access]
+    key_terms: [scam, metamask, will-metamask-ever-ask-me-to-verify-my-account, wallet, r1rqc1vpef, getting, related, access]
+    concepts: [metamask, wallet, r1rqc1vpef, getting, related]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/personalfinance/1o7thy4.md#c2"
-    char_span: [3162, 5123]
+    char_span: [3161, 5122]
     sentence_count: 17
     key_terms: [crypto, i-received-an-email-claiming-to-be-from-metamask-is-it-legit, metamask, legitimate, how-to-recognize-legitimate-metamask-emails, "it's", account, google]
+    concepts: [crypto, metamask, legitimate, account, google]
     section: Comments
     token_count: 462
 ---
@@ -57,17 +61,17 @@ If you don't verify your wallet, your wallet will be restricted.
 
 ## Comments
 
-- **itspurpleglitter** (54↑): This seems like a scam. Otherwise, you’d be getting this from every bank/account. 
+- **itspurpleglitter** (57↑): This seems like a scam. Otherwise, you’d be getting this from every bank/account. 
 
 Also, did you copy and paste the text exactly? Because there are typos with the punctuation, which is also a clear sign of a scam.
-  - **r1Rqc1vPeF** (17↑): That’s what I was thinking, just wanted to double check. 
+  - **r1Rqc1vPeF** (15↑): That’s what I was thinking, just wanted to double check. 
 
 Thanks
     - **vw_bugg** (9↑): Im sure they also included a convenient link for you to verify im sure you also forgot to copy and paste. I can almost garuntee the link includes many extra letters and just looks off. This is a common scam in USA too.
 
 In case you are still curious or wamt it spelled out in depth so you can be more conifident in scam identification next time, here it is direct from metamask themselves. 
 
-https://support.metamask.io/start/will-metama***REDACTED-KEY***/
+https://support.metamask.io/start/will-metamask-ever-ask-me-to-verify-my-account/
     - **Chalmers_1989** (2↑): Just incase it's not been confirmed - 100% scam. Metamask wallets are decentralised and so are controlled and looked after by the user, not by metamask. So they wouldn't ask for any KYC details. This also means they can't give you access to the wallet either as your wife would have recorded a seed phrase on creation.
 
 So sorry for your loss 😕

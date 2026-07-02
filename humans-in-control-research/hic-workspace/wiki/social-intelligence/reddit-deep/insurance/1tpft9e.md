@@ -20,50 +20,69 @@ chunks:
     char_span: [0, 1885]
     sentence_count: 16
     key_terms: [insurance, lawyer, get, car, accident, because, left, told]
+    concepts: [insurance, lawyer, accident, because, settlement]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tpft9e.md#c1", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c2", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c4", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c5", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c8"]
     token_count: 419
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1tpft9e/advice_on_whether_to_get_lawyer_for_car_accident/"}]
   - id: "social-intelligence/reddit-deep/insurance/1tpft9e.md#c1"
     char_span: [1887, 3787]
     sentence_count: 14
     key_terms: [lawyer, insurance, medical, settlement, bills, case, payment, actual]
+    concepts: [lawyer, insurance, medical, settlement, bills]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tpft9e.md#c0", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c4", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c5", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c7", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c8"]
     token_count: 400
   - id: "social-intelligence/reddit-deep/insurance/1tpft9e.md#c2"
     char_span: [3789, 5710]
     sentence_count: 13
     key_terms: [get, pain, because, lawyer, neck, time, injury, cases]
+    concepts: [because, lawyer, injury, cases, definitely]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tpft9e.md#c0"]
     token_count: 398
   - id: "social-intelligence/reddit-deep/insurance/1tpft9e.md#c3"
     char_span: [5712, 6750]
     sentence_count: 12
     key_terms: [guys, "that's", time, schedule, obvious, people, scummy, deal]
+    concepts: ["that's", schedule, obvious, people, scummy]
     token_count: 232
   - id: "social-intelligence/reddit-deep/insurance/1tpft9e.md#c4"
-    char_span: [6765, 7409]
+    char_span: [6764, 7408]
     sentence_count: 10
     key_terms: [insurance, lawyer, somebody, based, sales, "she's", car, get]
+    concepts: [insurance, lawyer, somebody, based, sales]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tpft9e.md#c0", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c1", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c5", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c8"]
     section: Comments
     token_count: 150
   - id: "social-intelligence/reddit-deep/insurance/1tpft9e.md#c5"
-    char_span: [7411, 9100]
+    char_span: [7410, 9099]
     sentence_count: 15
     key_terms: [mom, lawyer, settlement, insurance, been, like, attorneys, injuries]
+    concepts: [settlement, lawyer, insurance, attorneys, injuries]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tpft9e.md#c0", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c1", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c4", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c8"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/insurance/1tpft9e.md#c6"
-    char_span: [9102, 10955]
+    char_span: [9101, 10954]
     sentence_count: 11
     key_terms: [attorney, representative, lawyer, recommending, get, adjusters, insurance, advice]
+    concepts: [attorney, representative, recommending, lawyer, adjusters]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tpft9e.md#c8"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/insurance/1tpft9e.md#c7"
-    char_span: [10957, 11611]
+    char_span: [10956, 11610]
     sentence_count: 6
     key_terms: [covered, looking, medical, remarkable-donut6107, bills, day, pay, sure]
+    concepts: [covered, looking, medical, bills]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tpft9e.md#c1"]
     section: Comments
     token_count: 157
+    sources: [{"n":"look at my flair. I literally see these kinds of cases ever single day.","u":""}]
   - id: "social-intelligence/reddit-deep/insurance/1tpft9e.md#c8"
-    char_span: [11613, 13289]
+    char_span: [11612, 13288]
     sentence_count: 11
     key_terms: [insurance, lawyer, mom, attorney, against, remarkable-donut6107, claim, fault]
+    concepts: [insurance, lawyer, attorney, against, claim]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1tpft9e.md#c0", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c1", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c4", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c5", "social-intelligence/reddit-deep/insurance/1tpft9e.md#c6"]
     section: Comments
     token_count: 428
 ---

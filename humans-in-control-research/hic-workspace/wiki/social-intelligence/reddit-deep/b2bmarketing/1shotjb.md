@@ -20,22 +20,27 @@ chunks:
     char_span: [0, 2496]
     sentence_count: 20
     key_terms: [keywords, linkedin, campaigns, traffic, people, worked, b2bmarketing, ads]
+    concepts: [keywords, linkedin, campaigns, traffic, b2bmarketing]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1shotjb/competing_with_billion_dollar_companies_on_a/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1shotjb.md#c1"
     char_span: [2498, 3623]
     sentence_count: 9
     key_terms: [ads, competitor, conversation, campaigns, searches, landing, usually, search]
+    concepts: [competitor, conversation, campaigns, searches, landing]
     token_count: 233
   - id: "social-intelligence/reddit-deep/b2bmarketing/1shotjb.md#c2"
-    char_span: [3638, 5800]
+    char_span: [3637, 5799]
     sentence_count: 10
     key_terms: [looking-for-marketing-discussion-811236647760298024, different, cole-interteam, built, trust, "incumbent's", did, tax]
+    concepts: [different, cole-interteam, "incumbent's", built, conversion]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/b2bmarketing/1shotjb.md#c3"
-    char_span: [5802, 8027]
+    char_span: [5801, 8026]
     sentence_count: 16
     key_terms: [cole-interteam, teslalegacy, "you're", manufacturers, specificity, competing, promoting, targeting]
+    concepts: [cole-interteam, teslalegacy, "you're", manufacturers, specificity]
     section: Comments
     token_count: 490
 ---

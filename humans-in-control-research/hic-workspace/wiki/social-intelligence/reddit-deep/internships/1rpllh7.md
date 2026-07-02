@@ -21,23 +21,31 @@ chunks:
     char_span: [0, 497]
     sentence_count: 3
     key_terms: [internships, experience, interview, wondering, comments, tiktok, planeaccomplished489, round]
+    concepts: [internships, experience, interview, wondering, comments]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rpllh7.md#c2"]
     token_count: 118
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rpllh7/tiktok_ux_researcher_internship_experience/"}]
   - id: "social-intelligence/reddit-deep/internships/1rpllh7.md#c1"
     char_span: [511, 2403]
     sentence_count: 19
     key_terms: [interview, bluemoon35, round, planeaccomplished489, team, rounds, like, tech]
+    concepts: [interview, bluemoon35, planeaccomplished489, round, rounds]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rpllh7.md#c2"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/internships/1rpllh7.md#c2"
     char_span: [2405, 4317]
     sentence_count: 8
     key_terms: [round, planeaccomplished489, back, interview, heard, days, did, like]
+    concepts: [round, planeaccomplished489, interview, experience, heard]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rpllh7.md#c0", "social-intelligence/reddit-deep/internships/1rpllh7.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1rpllh7.md#c3"
     char_span: [4112, 5426]
     sentence_count: 8
     key_terms: [interview, seattle, everyone, because, candidates, willing, update, planeaccomplished489]
+    concepts: [interview, seattle, everyone, because, candidates]
     section: Comments
     token_count: 333
 ---

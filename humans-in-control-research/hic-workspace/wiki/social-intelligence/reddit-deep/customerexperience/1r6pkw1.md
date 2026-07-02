@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1726]
     sentence_count: 3
     key_terms: [lorikeetcx, cx-jobs, https, www, ai-automation-optimization-specialist-ulta-beauty, automations-ai-specialist-product-support-figma, founding-customer-support-manager-hyperscale, head-of-automation-efficiency-doctolib]
+    concepts: [lorikeetcx, cx-jobs, https, ai-automation-optimization-specialist-ulta-beauty, automations-ai-specialist-product-support-figma]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1r6pkw1.md#c1"]
     token_count: 489
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1r6pkw1/cxai_jobs_are_rising/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1r6pkw1.md#c1"
-    char_span: [1728, 1901]
+    char_span: [1728, 1900]
     sentence_count: 1
     key_terms: [lorikeetcx, cx-jobs, https, www, listings, deleted, updated, weekly]
+    concepts: [lorikeetcx, cx-jobs, https]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1r6pkw1.md#c0"]
     section: Comments
     token_count: 54
 ---

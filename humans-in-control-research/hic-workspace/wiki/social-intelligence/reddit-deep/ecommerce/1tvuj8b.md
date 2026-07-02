@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 688]
     sentence_count: 2
     key_terms: [agents, optimizing, ecommerce, checkout, comments, implemented, reddit-deep, completing]
+    concepts: [agents, optimizing, ecommerce, checkout, comments]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1tvuj8b.md#c1"]
     token_count: 158
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1tvuj8b/optimizing_checkouts_for_ai_agents/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1tvuj8b.md#c1"
-    char_span: [703, 2125]
+    char_span: [702, 2124]
     sentence_count: 9
     key_terms: [checkout, already, site, widespread, standard, agents, making, people]
+    concepts: [checkout, already, widespread, standard, agents]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1tvuj8b.md#c0"]
     section: Comments
     token_count: 310
 ---

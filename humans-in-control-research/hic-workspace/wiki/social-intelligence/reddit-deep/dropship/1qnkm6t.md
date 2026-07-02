@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1071]
     sentence_count: 5
     key_terms: [dropshipping, order, comments, dropship, shipping, days, put, confirmation]
+    concepts: [dropshipping, order, comments, dropship, shipping]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1qnkm6t.md#c1"]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1qnkm6t/support_is_eating_my_soul_and_my_margins_who_else/"}]
   - id: "social-intelligence/reddit-deep/dropship/1qnkm6t.md#c1"
-    char_span: [1086, 2390]
+    char_span: [1085, 2389]
     sentence_count: 10
     key_terms: [expectations, dropship, shipping, replies, bot, free, sell, spam]
+    concepts: [expectations, dropship, shipping, replies]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1qnkm6t.md#c0"]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/dropship/1qnkm6t.md#c2"
-    char_span: [2392, 3897]
+    char_span: [2391, 3896]
     sentence_count: 8
     key_terms: [local, order, fulfillment, hire, switching, overseas, shipping, supplier]
+    concepts: [fulfillment, local, order, switching, overseas]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/dropship/1qnkm6t.md#c3"
-    char_span: [3899, 4656]
+    char_span: [3898, 4655]
     sentence_count: 4
     key_terms: [get, shipping, support, acrobatic-leave-9073, day, less, per, ship]
+    concepts: [shipping, support]
     section: Comments
     token_count: 193
 ---

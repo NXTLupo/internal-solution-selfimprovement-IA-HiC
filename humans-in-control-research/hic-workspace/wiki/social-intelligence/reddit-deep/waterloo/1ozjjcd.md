@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 582]
     sentence_count: 4
     key_terms: [tooth, waterloo, chipped, comments, dentist, front, good, recommendation]
+    concepts: [waterloo, tooth, chipped, comments, dentist]
     token_count: 142
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1ozjjcd/suggestion_for_waterloo_dentist_for_chipped_tooth/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1ozjjcd.md#c1"
     char_span: [596, 1276]
     sentence_count: 4
     key_terms: [canigetahoeyeah, waterloo, dental, cartographerhot9174, dealt, positiveoutlook51, misdiagnosed, bratt4u2022]
+    concepts: [canigetahoeyeah, waterloo, dental, dealt]
     section: Comments
     token_count: 213
 ---

@@ -21,47 +21,61 @@ chunks:
     char_span: [0, 209]
     sentence_count: 1
     key_terms: [comments, openai, reddit-deep, chatgpt, posted, reddit, source, https]
+    concepts: [comments, openai]
     token_count: 79
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1stzivt/chatgpt_55/"}]
   - id: "social-intelligence/reddit-deep/openai/1stzivt.md#c1"
     char_span: [223, 1535]
     sentence_count: 9
     key_terms: [thinking, instant, seconds, extended, depends, appropriate-air3172, impressive-sun3742, hey]
+    concepts: [thinking, instant, seconds, extended, depends]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1stzivt.md#c3", "social-intelligence/reddit-deep/openai/1stzivt.md#c7"]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/openai/1stzivt.md#c2"
     char_span: [1537, 2348]
     sentence_count: 3
     key_terms: [dealing, asking, custom, like, quiet-money7892, glad-neat9221, instructions, investigated]
+    concepts: [dealing, asking, custom]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/openai/1stzivt.md#c3"
     char_span: [2350, 4074]
     sentence_count: 11
     key_terms: [thinking, extended, cf6d827ab27d42e1f62fa74bd1c1e5d9a08b3873, f2da08fd8956c22790cd2262835f208c0231fa26, johndoe1985, auto, intellidev, standard]
+    concepts: [thinking, extended, johndoe1985, intellidev, standard]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1stzivt.md#c1", "social-intelligence/reddit-deep/openai/1stzivt.md#c7"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/openai/1stzivt.md#c4"
     char_span: [4076, 4930]
     sentence_count: 2
     key_terms: [hanging, preview, format, https, width, substrate-adjacent, auto, png]
+    concepts: [hanging, preview, format, https, width]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1stzivt.md#c6"]
     section: Comments
     token_count: 266
   - id: "social-intelligence/reddit-deep/openai/1stzivt.md#c5"
     char_span: [4932, 6614]
     sentence_count: 10
     key_terms: [wash, a971e7ba71d872efe88fb5c581995c3474e8db39, right, car, need, engine, itself, peasantfarmerbernard]
+    concepts: [right, engine, itself, drive, model]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/openai/1stzivt.md#c6"
     char_span: [6616, 7763]
     sentence_count: 2
     key_terms: [png, preview, zipzapbloop, format, https, width, interstellarreddit, auto]
+    concepts: [zipzapbloop, preview, interstellarreddit, format, https]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1stzivt.md#c4"]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/openai/1stzivt.md#c7"
     char_span: [7765, 8642]
     sentence_count: 6
     key_terms: [thinking, like, extended, "doesn't", interstellarreddit, mode, pro, spanktank35]
+    concepts: [thinking, extended, "doesn't"]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1stzivt.md#c1", "social-intelligence/reddit-deep/openai/1stzivt.md#c3"]
     section: Comments
     token_count: 236
 ---

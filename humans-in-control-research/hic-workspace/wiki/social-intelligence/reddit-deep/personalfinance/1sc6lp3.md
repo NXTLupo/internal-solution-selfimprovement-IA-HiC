@@ -21,59 +21,73 @@ chunks:
     char_span: [0, 1268]
     sentence_count: 17
     key_terms: [payment, down, personalfinance, month, retirement, comments, thinking, selling]
+    concepts: [payment, personalfinance, month, retirement, comments]
     token_count: 350
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1sc6lp3/is_selling_a_big_chunk_of_stocks_for_a_down/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1sc6lp3.md#c1"
     char_span: [1282, 3385]
     sentence_count: 15
     key_terms: [money, need, retirement, actual, activitiesguy, point, good, life]
+    concepts: [money, retirement, activitiesguy, actual, point]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1sc6lp3.md#c2"
     char_span: [3074, 4423]
     sentence_count: 11
     key_terms: [want, something, stocks, "don't", goals, life, need, plan]
+    concepts: [something, stocks, "don't", goals]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/personalfinance/1sc6lp3.md#c3"
     char_span: [4425, 6007]
     sentence_count: 9
     key_terms: [point, high, stocks, especially, better, market, gains, going]
+    concepts: [point, stocks, especially, better, market]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/personalfinance/1sc6lp3.md#c4"
     char_span: [6009, 8044]
     sentence_count: 15
     key_terms: [retirement, tax, bracket, income, "you're", billionaire, rate, eventually]
+    concepts: [retirement, bracket, income, "you're", billionaire]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/personalfinance/1sc6lp3.md#c5"
     char_span: [8046, 10045]
     sentence_count: 14
     key_terms: [term, basis, short, cost, tax, long, highest, gains]
+    concepts: [basis, short, highest, gains, taxes]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sc6lp3.md#c6"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/personalfinance/1sc6lp3.md#c6"
     char_span: [10047, 11677]
     sentence_count: 15
     key_terms: [term, gains, capital, short, long, like, sell, katamino]
+    concepts: [gains, capital, short, katamino, offset]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sc6lp3.md#c5", "social-intelligence/reddit-deep/personalfinance/1sc6lp3.md#c9"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/personalfinance/1sc6lp3.md#c7"
     char_span: [11679, 13278]
     sentence_count: 13
     key_terms: [down, loan, payment, sbloc, get, additional, brokerage, mortgage]
+    concepts: [payment, additional, sbloc, brokerage, mortgage]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/personalfinance/1sc6lp3.md#c8"
     char_span: [13280, 14235]
     sentence_count: 8
     key_terms: [loan, consider, interest, earning, paying, return, carry, compounding]
+    concepts: [consider, interest, earning, paying, return]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/personalfinance/1sc6lp3.md#c9"
     char_span: [14237, 15559]
     sentence_count: 9
     key_terms: [tax, expenses, gains, consider, increase, capital, income, inevitable-novel-457]
+    concepts: [expenses, gains, consider, increase, capital]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sc6lp3.md#c6"]
     section: Comments
     token_count: 332
 ---

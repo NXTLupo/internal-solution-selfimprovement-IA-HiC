@@ -21,40 +21,48 @@ chunks:
     char_span: [0, 2197]
     sentence_count: 18
     key_terms: [chatgpt, models, people, versus, fundamental, take, want, comments]
+    concepts: [chatgpt, models, people, versus, fundamental]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1ns9ziz/its_about_more_than_4o_now/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1ns9ziz.md#c1"
     char_span: [2199, 3017]
     sentence_count: 17
     key_terms: [right, psychologically, insignificant, subscriptions, corporations, neighborhood, transparency, fundamental]
+    concepts: [right]
     token_count: 189
   - id: "social-intelligence/reddit-deep/chatgpt/1ns9ziz.md#c2"
     char_span: [3031, 4896]
     sentence_count: 8
     key_terms: [llama3, model, competition, like, r-chatgpt-1050422060352024636, meta-llama, benchmark, decisions]
+    concepts: [llama3, model, competition, meta-llama, benchmark]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/chatgpt/1ns9ziz.md#c3"
     char_span: [4898, 6172]
     sentence_count: 10
     key_terms: [deleted, military, palantir, become, ethics, safety, trust, pyroclastic466]
+    concepts: [deleted, military, palantir, become, ethics]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/chatgpt/1ns9ziz.md#c4"
     char_span: [6174, 7990]
     sentence_count: 17
     key_terms: [avalancharian, being, able, like, numbers, openai, feel, get]
+    concepts: [avalancharian, being, numbers, openai]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/chatgpt/1ns9ziz.md#c5"
     char_span: [7992, 9703]
     sentence_count: 10
     key_terms: [people, de6cac1a4117a220e5e456856602bd8aa666dfe3, vbelladonnav, care, like, expression, without, saying]
+    concepts: [people, vbelladonnav, expression, without, saying]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/chatgpt/1ns9ziz.md#c6"
     char_span: [9705, 11239]
     sentence_count: 9
     key_terms: [being, model, keep, use, switched, person, right, using]
+    concepts: [being, model, switched, person, right]
     section: Comments
     token_count: 372
 ---

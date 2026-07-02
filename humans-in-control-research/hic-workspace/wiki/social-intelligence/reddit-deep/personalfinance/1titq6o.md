@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1891]
     sentence_count: 21
     key_terms: ["i'm", month, personalfinance, looking, budget, "i've", comments, account]
+    concepts: [month, personalfinance, looking, budget, comments]
     token_count: 483
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1titq6o/creating_a_solo_budget_for_the_first_time/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1titq6o.md#c1"
-    char_span: [1906, 3838]
+    char_span: [1905, 3837]
     sentence_count: 13
     key_terms: [like, month, place, live, per, spending, yourself, afford]
+    concepts: [month, place, spending, yourself, afford]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/personalfinance/1titq6o.md#c2"
-    char_span: [3840, 4567]
+    char_span: [3839, 4566]
     sentence_count: 9
     key_terms: [too, hygiene, money, fsa, less-restrictive, entertainment, prescriptions, celebrations]
+    concepts: [hygiene, money]
     section: Comments
     token_count: 176
 ---

@@ -21,22 +21,29 @@ chunks:
     char_span: [0, 2079]
     sentence_count: 7
     key_terms: [applyingtocollege, columbia, school, year, comments, regional, harvard, program]
+    concepts: [applyingtocollege, columbia, school, comments, regional]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1shc9sg/message_to_all_internationals_and_anyone_who/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1shc9sg.md#c1"
     char_span: [2081, 4001]
     sentence_count: 16
     key_terms: [did, get, because, something, admitted, freshman, however, process]
+    concepts: [because, something, admitted, freshman, however]
     token_count: 444
   - id: "social-intelligence/reddit-deep/applyingtocollege/1shc9sg.md#c2"
     char_span: [4015, 6033]
     sentence_count: 15
     key_terms: [bergkauz-pfeifen579, essays, applyingtocollege, wiki, reddit, collegeessays, https, place]
+    concepts: [bergkauz-pfeifen579, essays, applyingtocollege, collegeessays, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1shc9sg.md#c3"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/applyingtocollege/1shc9sg.md#c3"
     char_span: [6035, 7456]
     sentence_count: 9
     key_terms: [bergkauz-pfeifen579, applyingtocollege, automatically, international, bot, admissions, moderators, performed]
+    concepts: [bergkauz-pfeifen579, applyingtocollege, automatically, international, admissions]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1shc9sg.md#c2"]
     section: Comments
     token_count: 375
 ---

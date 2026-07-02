@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 452]
     sentence_count: 1
     key_terms: [context, openai, window, comments, thinking, chatgpt, reddit, soft-relief-9952]
+    concepts: [context, openai, window, comments, thinking]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1rakqjx.md#c1", "social-intelligence/reddit-deep/openai/1rakqjx.md#c2"]
     token_count: 114
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1rakqjx/chatgpt_context_window/"}]
   - id: "social-intelligence/reddit-deep/openai/1rakqjx.md#c1"
     char_span: [466, 1495]
     sentence_count: 2
     key_terms: [context, window, free, crinkez, claude, gemini, higher, literaturemaximum125]
+    concepts: [context, window, crinkez, claude, gemini]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1rakqjx.md#c0"]
     section: Comments
     token_count: 298
   - id: "social-intelligence/reddit-deep/openai/1rakqjx.md#c2"
     char_span: [1497, 2684]
     sentence_count: 3
     key_terms: [literaturemaximum125, https, a0986bf83b2a64e7608f60bbc6ef94a5c2ccdd6e, com, chatgptpro, comments, thinking, comment]
+    concepts: [literaturemaximum125, https, chatgptpro, comments, thinking]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1rakqjx.md#c0"]
     section: Comments
     token_count: 393
 ---

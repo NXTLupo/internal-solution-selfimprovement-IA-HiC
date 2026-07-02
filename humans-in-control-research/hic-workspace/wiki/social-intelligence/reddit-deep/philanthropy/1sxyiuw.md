@@ -17,10 +17,12 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1sxyiuw.md#c0"
-    char_span: [0, 2451]
+    char_span: [0, 2450]
     sentence_count: 10
     key_terms: [pages, nonprofits, alaska, alaska-sues-gofundme-paypal-others-over-thousands-unauthorized-charity-pages, fundraising, charity, state, gofundme]
+    concepts: [pages, nonprofits, alaska, fundraising, charity]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1sxyiuw/alaska_sues_gofundme_paypal_inc_charity_navigator/"}]
 ---
 # Alaska sues GoFundMe, PayPal Inc., Charity Navigator, JustGiving, Pledgeto & Network for Good over thousands of unauthorized charity pages
 

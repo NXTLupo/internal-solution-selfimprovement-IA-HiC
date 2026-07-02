@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1763]
     sentence_count: 6
     key_terms: [university, canadian, staff, highereducation, housing, administrative, higher, recruitment]
+    concepts: [university, canadian, highereducation, staff, administrative]
     token_count: 414
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1o39vha/canada_higher_ed_staff_jobs/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1o39vha.md#c1"
     char_span: [1765, 2489]
     sentence_count: 10
     key_terms: [roles, positions, higher, certifications, early-career, institutions, universities, appreciated]
+    concepts: [roles, positions, higher]
     token_count: 145
   - id: "social-intelligence/reddit-deep/highereducation/1o39vha.md#c2"
     char_span: [2503, 3392]
     sentence_count: 8
     key_terms: [postings, positions, hiring, people, ubc, universities, government, university]
+    concepts: [postings, positions, hiring, people]
     section: Comments
     token_count: 210
 ---

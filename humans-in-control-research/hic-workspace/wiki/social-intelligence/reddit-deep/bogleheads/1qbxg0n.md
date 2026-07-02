@@ -20,41 +20,53 @@ chunks:
     char_span: [0, 957]
     sentence_count: 9
     key_terms: [robinhood, fidelity, investments, sure, bogleheads, complaints, comments, several]
+    concepts: [robinhood, fidelity, investments, bogleheads, complaints]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1qbxg0n.md#c4", "social-intelligence/reddit-deep/bogleheads/1qbxg0n.md#c5"]
     token_count: 218
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1qbxg0n/why_the_robinhood_dislike/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1qbxg0n.md#c1"
-    char_span: [972, 3008]
+    char_span: [971, 3007]
     sentence_count: 12
     key_terms: [investing, company, robinhood, match, ira, take, unethical, gambling]
+    concepts: [investing, company, robinhood, match, unethical]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1qbxg0n.md#c5"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/bogleheads/1qbxg0n.md#c2"
-    char_span: [3012, 4598]
+    char_span: [3011, 4597]
     sentence_count: 8
     key_terms: [how-robinhood-makes-money-on-customer-trades-despite-making-it-free, hardfork-grok-robinhood, https, com, html, www, gambling, platform]
+    concepts: [how-robinhood-makes-money-on-customer-trades-despite-making-it-free, hardfork-grok-robinhood, https, gambling, platform]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/bogleheads/1qbxg0n.md#c3"
-    char_span: [4600, 6018]
+    char_span: [4599, 6017]
     sentence_count: 10
     key_terms: [bonus, robinhood, small, withdrawal, clawback, platform, holding, "don't"]
+    concepts: [bonus, robinhood, small, withdrawal, clawback]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/bogleheads/1qbxg0n.md#c4"
-    char_span: [6020, 7902]
+    char_span: [6019, 7901]
     sentence_count: 12
     key_terms: [robinhood, people, fidelity, brokerage, opinion, issues, like, promised]
+    concepts: [robinhood, people, fidelity, brokerage, opinion]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1qbxg0n.md#c0", "social-intelligence/reddit-deep/bogleheads/1qbxg0n.md#c5"]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/bogleheads/1qbxg0n.md#c5"
-    char_span: [7904, 9801]
+    char_span: [7903, 9800]
     sentence_count: 17
     key_terms: [robinhood, fidelity, investing, comments, better, l7t4pg, reddit, https]
+    concepts: [robinhood, fidelity, investing, comments, better]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1qbxg0n.md#c0", "social-intelligence/reddit-deep/bogleheads/1qbxg0n.md#c1", "social-intelligence/reddit-deep/bogleheads/1qbxg0n.md#c4"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/bogleheads/1qbxg0n.md#c6"
-    char_span: [9803, 10396]
+    char_span: [9802, 10395]
     sentence_count: 3
     key_terms: [checking, platform, lot, blackpig643, advertises, convinced, difficult, laughably]
+    concepts: [checking, platform]
     section: Comments
     token_count: 138
 ---

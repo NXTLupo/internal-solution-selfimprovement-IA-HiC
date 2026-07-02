@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1062]
     sentence_count: 11
     key_terms: [internship, enrolment, solutions, internships, apexsquare, developer, comments, details]
+    concepts: [internship, enrolment, solutions, internships, apexsquare]
     token_count: 239
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1s3d5oj/is_this_legit/"}]
   - id: "social-intelligence/reddit-deep/internships/1s3d5oj.md#c1"
     char_span: [1076, 2760]
     sentence_count: 9
     key_terms: [scam, got, mail, "it's", received, no-remote-3116, "don't", email]
+    concepts: [received, no-remote-3116, "don't", email, internship]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/internships/1s3d5oj.md#c2"

@@ -21,16 +21,22 @@ chunks:
     char_span: [0, 1738]
     sentence_count: 14
     key_terms: [like, "i'm", "they're", never, voice, women, gpt, guys]
+    concepts: ["they're", never, voice, women, comments]
     token_count: 471
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1t9fnjo/theyre_never_women_what_a_3_am_voice_note_reveals/"}]
   - id: "social-intelligence/reddit-deep/gpt/1t9fnjo.md#c1"
     char_span: [1740, 3946]
     sentence_count: 26
     key_terms: [became, "wasn't", women, fear, help, read, experience, "couldn't"]
+    concepts: [became, "wasn't", experience, women, "couldn't"]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1t9fnjo.md#c2"]
     token_count: 487
   - id: "social-intelligence/reddit-deep/gpt/1t9fnjo.md#c2"
     char_span: [3948, 5374]
     sentence_count: 19
     key_terms: [conversation, without, "wasn't", night, experience, technical, "doesn't", design]
+    concepts: [conversation, without, "wasn't", experience, night]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1t9fnjo.md#c1"]
     token_count: 296
 ---
 # "They're Never Women": What a 3 AM Voice Note Reveals About AI Design

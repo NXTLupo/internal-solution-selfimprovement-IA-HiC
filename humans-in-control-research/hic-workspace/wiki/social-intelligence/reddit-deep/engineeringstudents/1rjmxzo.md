@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1153]
     sentence_count: 5
     key_terms: [engineering, mechanical, engineeringstudents, studying, programming, placements, comments, language]
+    concepts: [engineering, mechanical, engineeringstudents, studying, programming]
     token_count: 263
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rjmxzo/career_advice_for_mechanical_engineering/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rjmxzo.md#c1"
     char_span: [1167, 1955]
     sentence_count: 4
     key_terms: [probability, directions, increase, product, far, exponentially, verification, competition]
+    concepts: [probability, directions, increase, product]
     section: Comments
     token_count: 174
 ---

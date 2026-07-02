@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 1722]
     sentence_count: 2
     key_terms: [apache-spark-analytics, projectsbasedlearning, spark, apache, analytics, https, com, bigdata]
+    concepts: [apache-spark-analytics, projectsbasedlearning, spark, apache, analytics]
     token_count: 398
+    sources: [{"n":"reddit-deep: r/bigdata","u":"https://www.reddit.com/r/bigdata/comments/1mmbrpk/big_data_hadoop_and_spark_analytics_projects_end/"}]
   - id: "social-intelligence/reddit-deep/bigdata/1mmbrpk.md#c1"
     char_span: [1724, 2582]
     sentence_count: 1
     key_terms: [projectsbasedlearning, bigdata-hadoop, sensex-log-data-processing-pdf-file-processing-in-map-reduce-part-1, generate-analytics-from-a-product-based-company-web-log-part-1, https, analyze-social-bookmarking-sites-to-find-insights-part-1, com, project]
+    concepts: [projectsbasedlearning, bigdata-hadoop, https, project, processing]
     token_count: 201
   - id: "social-intelligence/reddit-deep/bigdata/1mmbrpk.md#c2"
-    char_span: [2597, 3394]
+    char_span: [2596, 3393]
     sentence_count: 8
     key_terms: [analytics, marketing, projects, career, skills, data, experimentcareer, experimentation]
+    concepts: [analytics, marketing, projects, career, skills]
     section: Comments
     token_count: 148
 ---

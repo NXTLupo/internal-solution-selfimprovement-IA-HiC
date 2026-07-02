@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 422]
     sentence_count: 2
     key_terms: [internships, looking, bangalore, comments, software, company, student, summer]
+    concepts: [internships, looking, bangalore, comments, software]
     token_count: 113
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rv09sp/looking_for_summer_internship_for_a_btech_2_nd/"}]
 ---
 # Looking for summer internship for a BTech 2 nd year student in a software company in Bangalore
 

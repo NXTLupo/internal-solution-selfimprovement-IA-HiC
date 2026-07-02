@@ -21,47 +21,62 @@ chunks:
     char_span: [0, 871]
     sentence_count: 7
     key_terms: [image, textures, chatgpt, diffusion, comments, control, images, stable]
+    concepts: [image, textures, chatgpt, diffusion, comments]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c7"]
     token_count: 206
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1svq2pe/weird_textures_watermarks/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c1"
     char_span: [885, 2400]
     sentence_count: 8
     key_terms: [isaacbunny, https, gonsalves, preview, format, width, auto, jpeg]
+    concepts: [isaacbunny, gonsalves, https, preview, format]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c6"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c2"
     char_span: [2402, 4176]
     sentence_count: 11
     key_terms: [image, spiral, reminds, https, disposition, art, isaacbunny, rob-gonsalves-tuttart]
+    concepts: [image, spiral, reminds, disposition, https]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c3"
     char_span: [4178, 5580]
     sentence_count: 7
     key_terms: [image, spiral-optical-illusion-image-generation-stable-diffusion, black-white-hypnotic-spiral-background-600nw-2558980603, https, like, generate, prompt, looks]
+    concepts: [image, https, generate, prompt, looks]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c2"]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c4"
     char_span: [5582, 7155]
     sentence_count: 4
     key_terms: [images, mountain-singer1764, multiple, earlier, https, gregpeden, chatgpt, example]
+    concepts: [images, mountain-singer1764, multiple, earlier, https]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c5"
     char_span: [7157, 8868]
     sentence_count: 10
     key_terms: [chat, definitely, images, chatgpt, scratch, gemini, prompt, sketch]
+    concepts: [definitely, images, chatgpt, scratch, gemini]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c6"
     char_span: [8870, 9265]
     sentence_count: 2
     key_terms: [preview, format, dualclassfightermage, thatisverytrue54321, https, width, auto, jpeg]
+    concepts: [preview, format, https, width]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c1"]
     section: Comments
     token_count: 167
   - id: "social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c7"
     char_span: [9267, 10783]
     sentence_count: 6
     key_terms: [spiral-optical-illusion-image-generation-stable-diffusion, like, image, diffusion, generated, monster, images, stable]
+    concepts: [image, diffusion, generated, monster, images]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c0"]
     section: Comments
     token_count: 386
 ---

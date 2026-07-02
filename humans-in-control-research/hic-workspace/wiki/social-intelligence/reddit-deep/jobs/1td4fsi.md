@@ -21,47 +21,61 @@ chunks:
     char_span: [0, 253]
     sentence_count: 2
     key_terms: [comments, jobs, maryjane7399420, reddit-deep, question, posting, posted, reddit]
+    concepts: [comments]
     token_count: 73
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1td4fsi/is_this_question_legal_on_a_job_posting/"}]
   - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c1"
     char_span: [267, 1937]
     sentence_count: 13
     key_terms: [question, company, illegal, throwawayfrompa1701, organization, legal, "it's", retirement]
+    concepts: [question, throwawayfrompa1701, company, illegal, organization]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1td4fsi.md#c3", "social-intelligence/reddit-deep/jobs/1td4fsi.md#c6"]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c2"
     char_span: [1939, 3575]
     sentence_count: 9
     key_terms: [company, work, christian, startup, people, throwawayfrompa1701, cult, don]
+    concepts: [company, christian, startup, people]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1td4fsi.md#c3"]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c3"
     char_span: [3577, 5597]
     sentence_count: 14
     key_terms: [conservative, question, christian, cousin, company, "isn't", discourages, did]
+    concepts: [conservative, question, christian, cousin, company]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1td4fsi.md#c1", "social-intelligence/reddit-deep/jobs/1td4fsi.md#c2", "social-intelligence/reddit-deep/jobs/1td4fsi.md#c5", "social-intelligence/reddit-deep/jobs/1td4fsi.md#c6"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c4"
     char_span: [5599, 7638]
     sentence_count: 10
     key_terms: [question, lawyer, backgrounds, flag, different, sentence, company, grammar]
+    concepts: [question, lawyer, backgrounds, different, sentence]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c5"
     char_span: [7640, 9309]
     sentence_count: 8
     key_terms: [christian, question, process, answer, conservative, information, "it's", religious]
+    concepts: [christian, question, process, conservative, answer]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1td4fsi.md#c3", "social-intelligence/reddit-deep/jobs/1td4fsi.md#c6"]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c6"
     char_span: [9311, 11072]
     sentence_count: 8
     key_terms: [conservative, question, company, accept, values, christian, business, religion]
+    concepts: [conservative, question, company, accept, values]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1td4fsi.md#c1", "social-intelligence/reddit-deep/jobs/1td4fsi.md#c3", "social-intelligence/reddit-deep/jobs/1td4fsi.md#c5"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c7"
     char_span: [11074, 11995]
     sentence_count: 5
     key_terms: [retirement, planning, worded, large, point, fightinghellfish12, ivar-the-bonefull, ick]
+    concepts: [retirement, planning, worded, large, point]
     section: Comments
     token_count: 245
 ---

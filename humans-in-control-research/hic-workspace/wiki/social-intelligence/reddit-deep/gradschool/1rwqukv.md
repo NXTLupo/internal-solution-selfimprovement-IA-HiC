@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 323]
     sentence_count: 1
     key_terms: [admissions, gradschool, comments, grad, universities, reddit-deep, admission, undergrad]
+    concepts: [admissions, gradschool, comments]
     token_count: 82
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rwqukv/grad_school_admissions/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1rwqukv.md#c1"
     char_span: [337, 2030]
     sentence_count: 11
     key_terms: [undergrad, top, program, universities, get, good, grad, literature]
+    concepts: [undergrad, program, universities, literature, crapshoot]
     section: Comments
     token_count: 376
 ---

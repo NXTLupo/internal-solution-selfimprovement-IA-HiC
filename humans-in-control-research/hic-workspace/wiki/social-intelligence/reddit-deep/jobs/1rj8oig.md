@@ -19,77 +19,102 @@ chunks:
     char_span: [0, 696]
     sentence_count: 4
     key_terms: [office, comments, managers, salary, upset, ok-equivalent-7171, jobs, restructuring]
+    concepts: [office, comments, managers, salary, upset]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rj8oig.md#c5", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c9", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c12"]
     token_count: 172
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rj8oig/should_i_be_upset_by_this_change/"}]
   - id: "social-intelligence/reddit-deep/jobs/1rj8oig.md#c1"
     char_span: [710, 2406]
     sentence_count: 9
     key_terms: [manager, change, office, because, associate, job, resume, title]
+    concepts: [manager, change, office, because, associate]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rj8oig.md#c6", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c7", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c9", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c10", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c11"]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/jobs/1rj8oig.md#c2"
     char_span: [2408, 4294]
     sentence_count: 10
     key_terms: [job, title, titles, company, change, resume, something, consider]
+    concepts: [title, titles, company, change, resume]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rj8oig.md#c4"]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/jobs/1rj8oig.md#c3"
     char_span: [4296, 6364]
     sentence_count: 12
     key_terms: [title, job, coordinator, recruitment, employers, interpretation, technically, resources]
+    concepts: [title, coordinator, recruitment, employers, interpretation]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/jobs/1rj8oig.md#c4"
     char_span: [6366, 8373]
     sentence_count: 13
     key_terms: [title, "i've", job, jobs, titles, like, seen, management]
+    concepts: [title, titles, management, technician, themselves]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rj8oig.md#c2"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/jobs/1rj8oig.md#c5"
     char_span: [8375, 9562]
     sentence_count: 4
     key_terms: [office, title, managers, accounting, assistants, exclude, manager, career]
+    concepts: [office, title, managers, accounting, assistants]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rj8oig.md#c0", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c6", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c10"]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/jobs/1rj8oig.md#c6"
     char_span: [9564, 11791]
     sentence_count: 14
     key_terms: [manager, accounting, role, office, associate, different, front, supervisory]
+    concepts: [manager, accounting, associate, different, office]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rj8oig.md#c1", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c5", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c7", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c10", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c11"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rj8oig.md#c7"
     char_span: [11793, 13443]
     sentence_count: 10
     key_terms: [manager, office, itsnotmeimnothere, change, people, server, title, get]
+    concepts: [manager, itsnotmeimnothere, office, change, people]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rj8oig.md#c1", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c6", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c9", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c10", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c12"]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/jobs/1rj8oig.md#c8"
     char_span: [13445, 14993]
     sentence_count: 8
     key_terms: [role, title, upset, time, work, grottysamsquanch, responsibilities, responsibility]
+    concepts: [title, upset]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/jobs/1rj8oig.md#c9"
     char_span: [14995, 15632]
     sentence_count: 5
     key_terms: [office, supervise, getting, change, salary, "you're", being, moved]
+    concepts: [office, supervise, getting, change, salary]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rj8oig.md#c0", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c1", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c7", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c12"]
     section: Comments
     token_count: 140
   - id: "social-intelligence/reddit-deep/jobs/1rj8oig.md#c10"
     char_span: [15634, 17570]
     sentence_count: 15
     key_terms: [office, manager, title, associate, looking, salary, start, elsewhere]
+    concepts: [office, manager, associate, title, looking]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rj8oig.md#c1", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c5", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c6", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c7", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c11"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rj8oig.md#c11"
     char_span: [17344, 18185]
     sentence_count: 6
     key_terms: [manager, junior, title, assistant, associate, position, office, bitter-regret-251]
+    concepts: [manager, junior, title, assistant, associate]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rj8oig.md#c1", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c6", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c10"]
     section: Comments
     token_count: 216
   - id: "social-intelligence/reddit-deep/jobs/1rj8oig.md#c12"
     char_span: [18187, 19241]
     sentence_count: 8
     key_terms: [job, duties, new, pay, manager, office, salary, disinterestedh0mo]
+    concepts: [duties, manager, office, salary]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rj8oig.md#c0", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c1", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c6", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c7", "social-intelligence/reddit-deep/jobs/1rj8oig.md#c9"]
     section: Comments
     token_count: 239
 ---

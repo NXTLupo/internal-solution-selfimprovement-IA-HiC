@@ -19,69 +19,82 @@ chunks:
     char_span: [0, 1671]
     sentence_count: 21
     key_terms: [path, findapath, comments, whatever, little, people, "don't", dream]
+    concepts: [findapath, comments, whatever, little, people]
     token_count: 418
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1l5e9pd/i_did_everything_wrong_i_have_no_regrets/"}]
   - id: "social-intelligence/reddit-deep/findapath/1l5e9pd.md#c1"
     char_span: [1673, 3740]
     sentence_count: 26
     key_terms: [did, degree, back, new, people, moved, got, job]
+    concepts: [degree, people, moved, "master's", english]
     token_count: 465
   - id: "social-intelligence/reddit-deep/findapath/1l5e9pd.md#c2"
     char_span: [3742, 5304]
     sentence_count: 24
     key_terms: [job, career, people, world, experiences, "i'm", lot, living]
+    concepts: [career, people, experiences, world, living]
     token_count: 380
   - id: "social-intelligence/reddit-deep/findapath/1l5e9pd.md#c3"
-    char_span: [5319, 6266]
+    char_span: [5318, 6265]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1l5e9pd.md#c4"
-    char_span: [6269, 7871]
+    char_span: [6268, 7870]
     sentence_count: 13
     key_terms: [achievements, path, choices, always, regret, though, maleficent-meet-265, brave]
+    concepts: [achievements, choices, always, regret, though]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/findapath/1l5e9pd.md#c5"
-    char_span: [7873, 9932]
+    char_span: [7872, 9931]
     sentence_count: 19
     key_terms: [life, like, career, "i'm", change, dream, feel, hope]
+    concepts: [career, change, dream, decisions, dentistry]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/findapath/1l5e9pd.md#c6"
-    char_span: [9934, 11737]
+    char_span: [9933, 11736]
     sentence_count: 16
     key_terms: [lot, myself, seriously, harder, people, throwaway33333333303, until, didn]
+    concepts: [myself, seriously, harder, people, until]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/findapath/1l5e9pd.md#c7"
-    char_span: [11739, 13280]
+    char_span: [11738, 13279]
     sentence_count: 14
     key_terms: [life, path, forward, experiences, yourself, "one's", adventure, because]
+    concepts: [experiences, forward, yourself, "one's", adventure]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/findapath/1l5e9pd.md#c8"
-    char_span: [13282, 14787]
+    char_span: [13281, 14786]
     sentence_count: 11
     key_terms: [like, great, life, need, too, provides, success, define]
+    concepts: [great, provides, success, define, people]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/findapath/1l5e9pd.md#c9"
-    char_span: [14789, 16228]
+    char_span: [14788, 16227]
     sentence_count: 13
     key_terms: [life, people, don, themselves, authentic, financial, feeling, instead]
+    concepts: [people, themselves, authentic, financial, feeling]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/findapath/1l5e9pd.md#c10"
-    char_span: [16230, 18260]
+    char_span: [16229, 18259]
     sentence_count: 22
     key_terms: ["don't", love, money, "didn't", happy, experiences, live, work]
+    concepts: ["don't", money, "didn't", experiences, happy]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1l5e9pd.md#c11"
-    char_span: [17981, 19171]
+    char_span: [17980, 19170]
     sentence_count: 12
     key_terms: [future, "don't", like, clear, never, best, life, anxiety-inducing]
+    concepts: [future, "don't", clear, never]
     section: Comments
     token_count: 293
 ---

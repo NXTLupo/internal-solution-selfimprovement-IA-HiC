@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1458]
     sentence_count: 5
     key_terms: [study, neu, feedback, "i'm", want, flashcards, comments, students]
+    concepts: [study, feedback, flashcards, comments, students]
     token_count: 375
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qti68p/built_a_study_tool_as_a_neu_student_would_love/"}]
   - id: "social-intelligence/reddit-deep/neu/1qti68p.md#c1"
     char_span: [1472, 2262]
     sentence_count: 6
     key_terms: [notebooklm, features, neither-scarcity-235, specifically, competitors, note-taking, recommended, background]
+    concepts: [notebooklm, features]
     section: Comments
     token_count: 184
 ---

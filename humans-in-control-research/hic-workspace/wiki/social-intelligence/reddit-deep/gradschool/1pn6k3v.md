@@ -21,53 +21,65 @@ chunks:
     char_span: [0, 874]
     sentence_count: 5
     key_terms: [university, comments, brown, gradschool, feeling, safety, dirtrepresentative9, grad]
+    concepts: [university, comments, brown, gradschool, feeling]
     token_count: 200
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1pn6k3v/tw_tragedy_at_brown_university/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c1"
     char_span: [888, 1818]
     sentence_count: 8
     key_terms: [department, semester, student, email, wanted, dirtrepresentative9, grad, explanation]
+    concepts: [department, semester, student, email, wanted]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c2"
     char_span: [1820, 4039]
     sentence_count: 17
     key_terms: [student, experience, been, someone, whole, different, undergrad, targeted]
+    concepts: [student, experience, someone, whole, different]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c3"
     char_span: [3752, 5149]
     sentence_count: 10
     key_terms: [get, rid, campus, everything, buttons, getting, better, police]
+    concepts: [campus, everything, buttons, getting, better]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c4"]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c4"
     char_span: [5151, 6141]
     sentence_count: 9
     key_terms: [panic, buttons, campus, around, dirtrepresentative9, don, time, accidentally]
+    concepts: [panic, buttons, campus, around]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c3"]
     section: Comments
     token_count: 225
   - id: "social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c5"
     char_span: [6143, 7854]
     sentence_count: 9
     key_terms: [act-alex-ophel-attempted-murder-two-women-anu-trial-begins, snowblindalbino, offices, news, building, buttons, faculty, "aren't"]
+    concepts: [act-alex-ophel-attempted-murder-two-women-anu-trial-begins, snowblindalbino, offices, building, buttons]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c6"
     char_span: [7856, 10154]
     sentence_count: 11
     key_terms: [emergency, allowed, campus, class, doors, exam, classrooms, university]
+    concepts: [emergency, allowed, campus, class, classrooms]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c7"
     char_span: [10156, 10582]
     sentence_count: 1
     key_terms: [public, safety, adisgruntledittech, best, additional, emergency, receptive, recommend]
+    concepts: [public, safety]
     section: Comments
     token_count: 102
   - id: "social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c8"
     char_span: [10584, 12431]
     sentence_count: 13
     key_terms: [classroom, relaxrerelapse, doors, interested, buildings, building, related, sharing]
+    concepts: [classroom, relaxrerelapse, doors, interested, buildings]
     section: Comments
     token_count: 436
 ---

@@ -19,24 +19,29 @@ content_hash: "a1afa2ea948d5e3f"
 relevance_by_goal: {"46dec9599ad5":85}
 chunks:
   - id: "articles/reddit-deep-r-stocks/dbaeb80a36.md#c0"
-    char_span: [0, 2393]
+    char_span: [0, 2392]
     sentence_count: 20
     key_terms: [fundamental, memory, technology, capabilities, years, core, allocation, benchmark]
-    token_count: 491
+    concepts: [fundamental, technology, memory, capabilities, allocation]
+    token_count: 490
+    sources: [{"n":"Reddit Deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1r3204h/my_aiheavy_allocation_plan/"}]
   - id: "articles/reddit-deep-r-stocks/dbaeb80a36.md#c1"
-    char_span: [2395, 4808]
+    char_span: [2394, 4807]
     sentence_count: 20
     key_terms: [power, companies, energy, cloud, enterprises, established, data, here]
+    concepts: [power, companies, energy, enterprises, established]
     token_count: 467
   - id: "articles/reddit-deep-r-stocks/dbaeb80a36.md#c2"
-    char_span: [4810, 5877]
+    char_span: [4809, 5876]
     sentence_count: 5
     key_terms: [materials, interconnection, energization, geopolitical, fundamental, rebalancing, constraint, especially]
+    concepts: [materials]
     token_count: 396
   - id: "articles/reddit-deep-r-stocks/dbaeb80a36.md#c3"
-    char_span: [5879, 7553]
+    char_span: [5878, 7552]
     sentence_count: 15
     key_terms: [avilacjf, diversification, stocks, robotics, expect, begin, "don't", plays]
+    concepts: [diversification, avilacjf, stocks, robotics, expect]
     token_count: 407
 ---
 # My AI-Heavy Allocation Plan

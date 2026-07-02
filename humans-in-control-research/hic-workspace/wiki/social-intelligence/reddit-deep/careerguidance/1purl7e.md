@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 1853]
     sentence_count: 12
     key_terms: [graduation, career, analytics, guidance, careerguidance, alternative, internships, bba]
+    concepts: [graduation, career, analytics, guidance, careerguidance]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1purl7e.md#c1"]
     token_count: 443
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1purl7e/21m_bba_student_cat_didnt_work_out_must_get_a_job/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1purl7e.md#c1"
     char_span: [1867, 2733]
     sentence_count: 6
     key_terms: [business, analyst, data, analytics, career, intern, maybe, good]
+    concepts: [business, analyst, analytics, career, intern]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1purl7e.md#c0"]
     section: Comments
     token_count: 187
 ---

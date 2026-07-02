@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 2149]
     sentence_count: 21
     key_terms: [job, myself, money, jobs, because, back, restaurant, coworkers]
+    concepts: [myself, money, because, restaurant, coworkers]
     token_count: 500
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rqx4jq/i_shouldve_stayed_at_my_toxic_job/"}]
   - id: "social-intelligence/reddit-deep/jobs/1rqx4jq.md#c1"
     char_span: [2163, 3210]
     sentence_count: 8
     key_terms: [response, like, believe, forever, bills, "won't", plus-marzipan-3851, done]
+    concepts: [response, believe, forever, bills, "won't"]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/jobs/1rqx4jq.md#c2"
     char_span: [3212, 5134]
     sentence_count: 11
     key_terms: [job, people, phlostonsparadise123, something, matter, find, interviews, burnout]
+    concepts: [phlostonsparadise123, people, something, matter, interviews]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/jobs/1rqx4jq.md#c3"
     char_span: [5136, 7196]
     sentence_count: 12
     key_terms: [interview, job, like, week, specific, "doesn't", however, "they'll"]
+    concepts: [interview, specific, "doesn't", however, "they'll"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/jobs/1rqx4jq.md#c4"
     char_span: [7198, 8869]
     sentence_count: 12
     key_terms: [jobs, without, people, like, travelling, innocuous, children, disagree]
+    concepts: [without, people, travelling, innocuous, children]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/jobs/1rqx4jq.md#c5"
     char_span: [8871, 10913]
     sentence_count: 9
     key_terms: [job, health, mental, quit, probably, wishmunk, economy, caused]
+    concepts: [health, mental, probably, wishmunk, economy]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rqx4jq.md#c6"
@@ -60,18 +67,21 @@ chunks:
     char_span: [11216, 12925]
     sentence_count: 13
     key_terms: [job, manager, work, everything, assistant, coworker, doing, employed]
+    concepts: [manager, everything, assistant, coworker, doing]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/jobs/1rqx4jq.md#c8"
     char_span: [12927, 13947]
     sentence_count: 5
     key_terms: [yourself, offer, start, until, job, quit, whatever, others]
+    concepts: [yourself, offer, start, until, whatever]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/jobs/1rqx4jq.md#c9"
     char_span: [13949, 15453]
     sentence_count: 9
     key_terms: [job, find, rocksareonenow, going, financially, something, expenses, because]
+    concepts: [rocksareonenow, financially, going, something, expenses]
     section: Comments
     token_count: 357
 ---

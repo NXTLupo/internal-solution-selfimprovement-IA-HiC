@@ -17,10 +17,12 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1q5hyx0.md#c0"
-    char_span: [0, 1670]
+    char_span: [0, 1669]
     sentence_count: 10
     key_terms: [new-donor-surge-brings-generational-shift-to-pubmedia-fundraising, trump-public-radio-cuts-donations, donors, https, stations, public, radio, increase]
-    token_count: 415
+    concepts: [new-donor-surge-brings-generational-shift-to-pubmedia-fundraising, trump-public-radio-cuts-donations, donors, stations, https]
+    token_count: 414
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1q5hyx0/local_public_radio_and_tv_stations_benefitted/"}]
 ---
 # local public radio and TV stations benefitted from "rage giving" in 2025. Is it sustainable?
 

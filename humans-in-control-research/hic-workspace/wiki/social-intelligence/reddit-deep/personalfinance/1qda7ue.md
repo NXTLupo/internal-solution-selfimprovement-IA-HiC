@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1013]
     sentence_count: 7
     key_terms: [money, personalfinance, invest, comments, school, spend, been, food]
+    concepts: [money, personalfinance, invest, comments, school]
     token_count: 247
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1qda7ue/5000_to_spend_or_saveinvest/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1qda7ue.md#c1"
     char_span: [1027, 2306]
     sentence_count: 14
     key_terms: [cost, saving, setup, important, techylocs, anywhere, college, console]
+    concepts: [saving, setup, important, techylocs, anywhere]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/personalfinance/1qda7ue.md#c2"
     char_span: [2309, 3752]
     sentence_count: 12
     key_terms: [like, yourself, gaming, "you're", stick, something, console, bought]
+    concepts: [yourself, gaming, "you're", stick, something]
     section: Comments
     token_count: 382
 ---

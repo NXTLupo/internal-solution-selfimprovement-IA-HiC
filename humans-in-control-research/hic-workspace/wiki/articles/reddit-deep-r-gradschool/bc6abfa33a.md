@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1793]
     sentence_count: 17
     key_terms: [research, papers, gradschool, returning, seriously, thoughts, become, likely]
+    concepts: [research, papers, gradschool, returning, seriously]
     token_count: 416
+    sources: [{"n":"Reddit Deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1lnudw5/midphd_and_its_looking_like_ive_made_a_huge/"}]
   - id: "articles/reddit-deep-r-gradschool/bc6abfa33a.md#c1"
     char_span: [1795, 3650]
     sentence_count: 22
     key_terms: [research, phd, "you're", opportunities, find, job, like, lot]
+    concepts: [research, opportunities, "you're", graduate, already]
     token_count: 469
   - id: "articles/reddit-deep-r-gradschool/bc6abfa33a.md#c2"
     char_span: [3655, 4270]
     sentence_count: 6
     key_terms: ["don't", want, decide, "you're", quit, take, overqualified, experience]
+    concepts: ["don't", decide, "you're"]
     token_count: 144
 ---
 # Mid-PhD and it's looking like I've made a huge mistake choosing to do a PhD

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 893]
     sentence_count: 7
     key_terms: [income, financially, findapath, comments, career, people, wouldn, paths]
+    concepts: [income, financially, findapath, comments, career]
     token_count: 197
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1qstrlg/what_career_or_income_path_did_you_choose_that/"}]
   - id: "social-intelligence/reddit-deep/findapath/1qstrlg.md#c1"
     char_span: [907, 2678]
     sentence_count: 14
     key_terms: [people, thank, everyone, helpful, helped, please, findapath, comments]
+    concepts: [people, thank, everyone, helpful, helped]
     section: Comments
     token_count: 390
 ---

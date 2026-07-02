@@ -20,34 +20,44 @@ chunks:
     char_span: [0, 2119]
     sentence_count: 16
     key_terms: [pricing, competitor, saas, tier, because, interpretation, month, tools]
+    concepts: [pricing, competitor, interpretation, because, e-commerce]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1sc3lgj.md#c1", "social-intelligence/reddit-deep/saas/1sc3lgj.md#c4"]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1sc3lgj/i_analyzed_9_competitor_monitoring_tools_to_see/"}]
   - id: "social-intelligence/reddit-deep/saas/1sc3lgj.md#c1"
     char_span: [2123, 3603]
     sentence_count: 12
     key_terms: [pricing, competitor, crayon, pages, competitive, year, genuinely, manually]
+    concepts: [pricing, competitor, crayon, competitive, pages]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1sc3lgj.md#c0"]
     token_count: 333
   - id: "social-intelligence/reddit-deep/saas/1sc3lgj.md#c2"
-    char_span: [3618, 5730]
+    char_span: [3617, 5729]
     sentence_count: 18
     key_terms: [monitoring, competitors, different, visibility, price, ecommerce, intelligence, brand]
+    concepts: [monitoring, competitors, different, visibility, ecommerce]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/saas/1sc3lgj.md#c3"
-    char_span: [5732, 7843]
+    char_span: [5731, 7842]
     sentence_count: 16
     key_terms: [tools, real, interpretation, intelligence, block, competitive, free, gap]
+    concepts: [tools, interpretation, intelligence, competitive, block]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/saas/1sc3lgj.md#c4"
-    char_span: [7845, 9896]
+    char_span: [7844, 9895]
     sentence_count: 12
     key_terms: [competitor, teams, changed, interpretation, change, like, saas, enterprise]
+    concepts: [competitor, teams, interpretation, changed, change]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1sc3lgj.md#c0"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/saas/1sc3lgj.md#c5"
-    char_span: [9898, 11705]
+    char_span: [9897, 11704]
     sentence_count: 16
     key_terms: [changes, pricing, people, teams, tools, lightweight, lot, competitor-research-tools]
+    concepts: [changes, pricing, people, lightweight, teams]
     section: Comments
     token_count: 413
 ---

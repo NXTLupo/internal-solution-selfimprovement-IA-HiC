@@ -21,46 +21,61 @@ chunks:
     char_span: [0, 2025]
     sentence_count: 6
     key_terms: [alphabet-stock-could-fall-as-much-as-25-in-black-swan-event-if-judge-orders-google-chrome-divestiture-174438942, google, search, chrome, finance, department, yahoo, barclays]
+    concepts: [alphabet-stock-could-fall-as-much-as-25-in-black-swan-event-if-judge-orders-google-chrome-divestiture-174438942, google, search, chrome, finance]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1l1pb6a.md#c3", "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c4", "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c5", "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c6"]
     token_count: 473
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1l1pb6a/alphabet_stock_could_drop_up_to_25_if_judge/"}]
   - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c1"
     char_span: [2027, 3192]
     sentence_count: 6
     key_terms: [alphabet, stock, shares, case, sandler, decide, google, monday]
+    concepts: [alphabet, stock, shares, sandler, decide]
     token_count: 262
   - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c2"
     char_span: [3206, 4428]
     sentence_count: 9
     key_terms: [google, better, claude, experience, another, chatgpt, forward, gemini]
+    concepts: [google, better, claude, experience, another]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c3"
     char_span: [4430, 6473]
     sentence_count: 13
     key_terms: [google, search, default, buying, engine, people, dip, products]
+    concepts: [google, search, default, buying, engine]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1l1pb6a.md#c0", "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c6"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c4"
     char_span: [6475, 8224]
     sentence_count: 9
     key_terms: [google, chrome, something, sell, browser, happens, search, makes]
+    concepts: [google, chrome, something, browser, happens]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1l1pb6a.md#c0", "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c5"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c5"
     char_span: [8226, 10136]
     sentence_count: 14
     key_terms: [google, chatgpt, don, company, happens, chrome, search, few-lingonberry2315]
+    concepts: [google, chatgpt, company, happens, chrome]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1l1pb6a.md#c0", "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c4"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c6"
     char_span: [10138, 11980]
     sentence_count: 7
     key_terms: [google, deleted, search, makes, sense, like, realize, people]
+    concepts: [google, deleted, search, makes, sense]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1l1pb6a.md#c0", "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c3", "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c7"
     char_span: [11719, 12288]
     sentence_count: 2
     key_terms: [search, browsers, results, makes, sense, "it's", basilthebatlord, groceriesn1trip]
+    concepts: [search, browsers, results, makes, sense]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1l1pb6a.md#c6"]
     section: Comments
     token_count: 129
 ---

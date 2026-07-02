@@ -8,23 +8,28 @@ chunks:
     char_span: [0, 263]
     sentence_count: 3
     key_terms: [z2v9pvhg23hlljeitpbdat, brand, design-tokens, northeastern, collection, university, variable, runtime]
+    concepts: [brand]
     token_count: 78
   - id: "brand/nu/design-system.md#c1"
     char_span: [280, 627]
     sentence_count: 1
     key_terms: [c8102e, accent, ffffff, cool, wash, accent-bright, band-text, sparingly]
+    concepts: [c8102e, accent, ffffff]
     section: Color tokens
     token_count: 144
   - id: "brand/nu/design-system.md#c2"
     char_span: [643, 2343]
     sentence_count: 6
     key_terms: [source, lora, red, medium, mono, takeaway, design-system, quote]
+    concepts: [source, medium, takeaway, design-system, source-teal]
     section: "Font roles / Dimensions / GOLD anatomy (every artifact page) / Case-study deep-dive variants (diversify, never repeat one) / Where the implementations live"
     token_count: 427
+    sources: [{"n":"lines in source-teal mono, never as a per-slide source strip.","u":""}]
   - id: "brand/nu/design-system.md#c3"
     char_span: [2395, 2844]
     sentence_count: 2
     key_terms: [artifact, anatomy, hashtag, pattern, page, recommendations, design-system, constructing]
+    concepts: [artifact, anatomy, hashtag, pattern]
     section: Pattern pages (per-hashtag construction specs)
     token_count: 107
 ---

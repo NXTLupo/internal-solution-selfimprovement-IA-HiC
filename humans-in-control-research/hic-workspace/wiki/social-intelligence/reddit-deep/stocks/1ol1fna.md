@@ -19,59 +19,73 @@ chunks:
     char_span: [0, 879]
     sentence_count: 7
     key_terms: [stocks, like, comments, thinking, market, burst, feel, lot]
+    concepts: [stocks, comments, thinking, market, burst]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1ol1fna.md#c6"]
     token_count: 224
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1ol1fna/i_want_to_invest_but_the_market_looks_like_its/"}]
   - id: "social-intelligence/reddit-deep/stocks/1ol1fna.md#c1"
     char_span: [893, 2758]
     sentence_count: 8
     key_terms: [https, com, stocks, portfolio, www, recommendations, please, stock]
+    concepts: [https, stocks, portfolio, recommendations, please]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/stocks/1ol1fna.md#c2"
     char_span: [2760, 4224]
     sentence_count: 12
     key_terms: [market, because, like, everything, everytime, happened, clients, months]
+    concepts: [market, because, everything, everytime, happened]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/stocks/1ol1fna.md#c3"
     char_span: [4226, 6047]
     sentence_count: 12
     key_terms: [money, happened, recover, time, people, been, problems, bigger]
+    concepts: [happened, money, recover, people, problems]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/stocks/1ol1fna.md#c4"
     char_span: [6049, 7984]
     sentence_count: 9
     key_terms: [economy, recover, nikkei, years, population, collapses, comparing, probably]
+    concepts: [economy, recover, nikkei, population, years]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1ol1fna.md#c5"
     char_span: [7739, 8288]
     sentence_count: 7
     key_terms: [buy, probably, years, back, don, bonerfriedcarrot, incrementally, everytime]
+    concepts: [probably, years]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/stocks/1ol1fna.md#c6"
     char_span: [8290, 8852]
     sentence_count: 1
     key_terms: [trading, market, stocks, money, yield, opportunistically, buy, underperforms]
+    concepts: [trading, market, stocks, money, yield]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1ol1fna.md#c0", "social-intelligence/reddit-deep/stocks/1ol1fna.md#c7"]
     section: Comments
     token_count: 133
   - id: "social-intelligence/reddit-deep/stocks/1ol1fna.md#c7"
     char_span: [8857, 10872]
     sentence_count: 11
     key_terms: [market, buy, money, markets, incrementally, risk, sure, continue]
+    concepts: [market, money, incrementally, markets, continue]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1ol1fna.md#c6"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/stocks/1ol1fna.md#c8"
     char_span: [10874, 12720]
     sentence_count: 8
     key_terms: [market, years, back, berkshire, financial, billions, hundreds, invest]
+    concepts: [market, years, berkshire, financial, billions]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/stocks/1ol1fna.md#c9"
     char_span: [12722, 13857]
     sentence_count: 8
     key_terms: [investing, bonerfriedcarrot, all-time-high, years, time, invested, "there's", market]
+    concepts: [bonerfriedcarrot, investing, all-time-high, years, invested]
     section: Comments
     token_count: 306
 ---

@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 1505]
     sentence_count: 9
     key_terms: [followloop, tasks, claude, model, app, cost, actual, automatically]
+    concepts: [followloop, tasks, claude, model, automatically]
     token_count: 376
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1t0soki/i_built_a_router_that_automatically_sends_your_ai/"}]
   - id: "social-intelligence/reddit-deep/artificial/1t0soki.md#c1"
     char_span: [1519, 3751]
     sentence_count: 17
     key_terms: [openrouter, route, routing, model, queeflatinahog, automatically, subscription, auto-router]
+    concepts: [openrouter, route, routing, model, queeflatinahog]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1t0soki.md#c2", "social-intelligence/reddit-deep/artificial/1t0soki.md#c3"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/artificial/1t0soki.md#c2"
     char_span: [3753, 5575]
     sentence_count: 18
     key_terms: [queeflatinahog, openrouter, because, router, bot, does, difference, comment]
+    concepts: [queeflatinahog, openrouter, because, router, difference]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1t0soki.md#c1"]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/artificial/1t0soki.md#c3"
     char_span: [5577, 7885]
     sentence_count: 16
     key_terms: [model, complexity, coder, routing, classification, queeflatinahog, switchboard, confidence]
+    concepts: [model, complexity, coder, classification, queeflatinahog]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1t0soki.md#c1"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/artificial/1t0soki.md#c4"
     char_span: [7887, 10073]
     sentence_count: 9
     key_terms: [models, tasks, frontier, routing, task, quality, classification, simple]
+    concepts: [models, frontier, tasks, routing, classification]
     section: Comments
     token_count: 457
 ---

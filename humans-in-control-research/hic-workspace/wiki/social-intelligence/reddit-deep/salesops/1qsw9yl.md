@@ -17,10 +17,12 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/salesops/1qsw9yl.md#c0"
-    char_span: [0, 1670]
+    char_span: [0, 1669]
     sentence_count: 14
     key_terms: [teams, data, audit, crm, reporting, comments, salesops, because]
-    token_count: 355
+    concepts: [teams, audit, reporting, comments, salesops]
+    token_count: 354
+    sources: [{"n":"reddit-deep: r/salesops","u":"https://www.reddit.com/r/SalesOps/comments/1qsw9yl/most_teams_trust_their_crm_until_they_audit_the/"}]
 ---
 # Most teams trust their CRM… until they audit the data
 

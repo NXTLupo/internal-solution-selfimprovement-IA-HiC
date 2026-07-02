@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1218]
     sentence_count: 8
     key_terms: [engineering, internship, software, development, graduated, cscareerquestions, bachelor, april]
+    concepts: [engineering, internship, software, development, cscareerquestions]
     token_count: 297
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1nojlmn/graduated_from_cs_in_april_do_bachelor_of/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nojlmn.md#c1"
     char_span: [1232, 2236]
     sentence_count: 7
     key_terms: [throwaway053100, internship, already, degree, accomplished-win9630, apply, cscareerquestions, metalreflectslime]
+    concepts: [throwaway053100, internship, already, degree, apply]
     section: Comments
     token_count: 247
 ---

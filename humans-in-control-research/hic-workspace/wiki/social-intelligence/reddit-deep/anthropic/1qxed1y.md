@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1924]
     sentence_count: 19
     key_terms: [context, window, api, compaction, anthropic, retrieval, teammates, adaptive]
+    concepts: [context, window, compaction, anthropic, retrieval]
     token_count: 489
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1qxed1y/opus_46_breakdown_1m_context_window_compaction/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1qxed1y.md#c1"
     char_span: [1927, 3106]
     sentence_count: 8
     key_terms: [writing, claude-opus-4-6, summarization, quality, output, https, onllm, prose]
+    concepts: [writing, claude-opus-4-6, summarization, quality, output]
     section: Comments
     token_count: 305
 ---

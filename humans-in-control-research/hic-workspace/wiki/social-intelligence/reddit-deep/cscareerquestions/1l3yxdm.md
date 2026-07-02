@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 1508]
     sentence_count: 12
     key_terms: [exams, actuarial, cscareerquestions, like, comments, software, actuary, seeking]
+    concepts: [exams, cscareerquestions, actuarial, comments, software]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l3yxdm.md#c2"]
     token_count: 364
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1l3yxdm/6_months_unemployed_and_seeking_advice_on_what_to/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l3yxdm.md#c1"
     char_span: [1522, 3627]
     sentence_count: 11
     key_terms: [software, average, masters, job, new, big, deleted, applications]
+    concepts: [software, average, masters, deleted, applications]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l3yxdm.md#c2"
     char_span: [3629, 5206]
     sentence_count: 12
     key_terms: [get, job, actuarial, knowledge, engineer, software, specific, actuary]
+    concepts: [actuarial, knowledge, engineer, software, specific]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l3yxdm.md#c0"]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l3yxdm.md#c3"
     char_span: [5208, 6618]
     sentence_count: 13
     key_terms: [keep, quant, job, recruiter, needleworkerwhich350, personalityelegant52, break, ask]
+    concepts: [quant, recruiter, break]
     section: Comments
     token_count: 352
 ---

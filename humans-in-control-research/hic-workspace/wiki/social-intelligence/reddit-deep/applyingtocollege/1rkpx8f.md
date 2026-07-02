@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2025]
     sentence_count: 16
     key_terms: [college, applyingtocollege, family, wants, aid, university, financial, accepted]
+    concepts: [college, applyingtocollege, family, university, wants]
     token_count: 464
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rkpx8f/should_i_choose_the_college_my_mom_wants_or_the/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c1"
     char_span: [2027, 2317]
     sentence_count: 3
@@ -31,42 +33,49 @@ chunks:
     char_span: [2331, 4212]
     sentence_count: 13
     key_terms: [ucf, national, merit, contact, formal-research4531, finalists, oos, finalist]
+    concepts: [national, merit, formal-research4531, contact, finalists]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c3"
     char_span: [4214, 4853]
     sentence_count: 3
     key_terms: [results, family, akron, cost, ucf, considerably, contributing, additional]
+    concepts: [results, family, akron]
     section: Comments
     token_count: 159
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c4"
     char_span: [4855, 6749]
     sentence_count: 14
     key_terms: [home, ucf, schools, insurance, cost, college, going, visit]
+    concepts: [schools, insurance, college, going, visit]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c5"
     char_span: [6751, 7489]
     sentence_count: 5
     key_terms: [home, abroad, school, akron, close, away, get, determining]
+    concepts: [abroad, school, akron, close]
     section: Comments
     token_count: 166
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c6"
     char_span: [7491, 9762]
     sentence_count: 21
     key_terms: [school, ucf, opportunities, visit, bhc, kid, son, graduated]
+    concepts: [school, opportunities, visit, graduated, attended]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c7"
     char_span: [9446, 11227]
     sentence_count: 14
     key_terms: [home, college, either, school, financial, possible, masters, someone]
+    concepts: [college, either, school, financial, possible]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c8"
     char_span: [11229, 12821]
     sentence_count: 16
     key_terms: [away, year, borrow, parent, "we're", lot, reasonable, understand]
+    concepts: [borrow, parent, reasonable, understand, "we're"]
     section: Comments
     token_count: 381
 ---

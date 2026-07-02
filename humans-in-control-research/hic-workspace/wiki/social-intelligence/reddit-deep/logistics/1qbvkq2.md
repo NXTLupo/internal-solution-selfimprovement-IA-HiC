@@ -20,26 +20,34 @@ chunks:
     char_span: [0, 2240]
     sentence_count: 11
     key_terms: [tariffs, logistics, billion, january, tariff, court, supreme, trump]
+    concepts: [tariffs, logistics, billion, january, tariff]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1qbvkq2.md#c3"]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1qbvkq2/catch_up_on_what_happened_this_past_week_in/"}]
   - id: "social-intelligence/reddit-deep/logistics/1qbvkq2.md#c1"
     char_span: [2242, 4759]
     sentence_count: 19
     key_terms: [amazon, "amazon's", million, company, small, federation, customers, financial]
+    concepts: [amazon, "amazon's", million, company, federation]
     token_count: 514
   - id: "social-intelligence/reddit-deep/logistics/1qbvkq2.md#c2"
     char_span: [4761, 7061]
     sentence_count: 7
     key_terms: [logistics, shopping, retail, manufacturing, operating, targeting, commerce, networks]
+    concepts: [logistics, shopping, manufacturing, retail, operating]
     token_count: 493
   - id: "social-intelligence/reddit-deep/logistics/1qbvkq2.md#c3"
     char_span: [7063, 7649]
     sentence_count: 3
     key_terms: [logistics, billion, market, fine, administrative, omnichannel, e-commerce, visibility]
+    concepts: [logistics, billion, market]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1qbvkq2.md#c0"]
     token_count: 144
   - id: "social-intelligence/reddit-deep/logistics/1qbvkq2.md#c4"
-    char_span: [7664, 8520]
+    char_span: [7663, 8519]
     sentence_count: 4
     key_terms: [quick-commerce-logistics-in-india-2025-26-ev-two-wheelers-green-warehousing-and-the-urgent-need-for-better-roads, wordpress, https, scmzz, com, infrastructure, stealthagents, vivid-ad-3529]
+    concepts: [quick-commerce-logistics-in-india-2025-26-ev-two-wheelers-green-warehousing-and-the-urgent-need-for-better-roads, wordpress, https, scmzz]
     section: Comments
     token_count: 229
 ---

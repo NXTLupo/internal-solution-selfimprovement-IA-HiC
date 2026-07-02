@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 1690]
     sentence_count: 13
     key_terms: [dartmouth, applyingtocollege, fiu, guy, engineering, nonprofit, comments, college]
+    concepts: [applyingtocollege, dartmouth, engineering, nonprofit, comments]
     token_count: 396
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1qmyuc1/stop_obsessing_over_t20s_omg/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md#c1"
     char_span: [1704, 3829]
     sentence_count: 15
     key_terms: [school, georgetown, college, dartmouth, tarasshevckeno, valedictorian, good, admissions]
+    concepts: [school, georgetown, college, dartmouth, tarasshevckeno]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md#c2"
     char_span: [3831, 6054]
     sentence_count: 13
     key_terms: [application, "don't", employees, get, readers, matter, others, prestigious]
+    concepts: [application, employees, "don't", readers, matter]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md#c3"
     char_span: [6056, 8148]
     sentence_count: 10
     key_terms: [school, guy, prestige, driven, skills, fiu, good, name]
+    concepts: [school, prestige, driven, skills, definitely]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md#c4"
     char_span: [8150, 10213]
     sentence_count: 11
     key_terms: [dartmouth, business, money, care, grad, name, time, work]
+    concepts: [dartmouth, business, money, examples, measure]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md#c5"
     char_span: [10215, 12095]
     sentence_count: 11
     key_terms: [dartmouth, major, underhanded, "it's", "doesn't", schools, people, apply]
+    concepts: [dartmouth, major, underhanded, "doesn't", schools]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md#c6"
     char_span: [11873, 12516]
     sentence_count: 8
     key_terms: [dartmouth, like, schools, people, swimming-ideal-6767, "it's", timetravel3000, beautifully]
+    concepts: [dartmouth, schools, people]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md#c5"]
     section: Comments
     token_count: 175
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md#c7"
     char_span: [12518, 13010]
     sentence_count: 7
     key_terms: [people, school, going, hypsm, get, admissions, constantly, criticized]
+    concepts: [people, school, going, hypsm]
     section: Comments
     token_count: 115
 ---

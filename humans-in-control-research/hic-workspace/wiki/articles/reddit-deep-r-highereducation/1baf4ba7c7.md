@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1962]
     sentence_count: 15
     key_terms: [rule, content, engagement, community, bots, highereducation, please, slop]
+    concepts: [content, engagement, community, highereducation, please]
     token_count: 484
+    sources: [{"n":"Reddit Deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1r8782c/new_rule_rule_12_no_ai_slop_no_bots/"}]
 ---
 # New Rule: Rule #12 No AI Slop No Bots
 

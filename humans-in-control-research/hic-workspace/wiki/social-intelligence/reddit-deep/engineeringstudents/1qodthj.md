@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 734]
     sentence_count: 5
     key_terms: [engineering, student, engineeringstudents, civil, comments, possible, delayed, intern]
+    concepts: [engineering, engineeringstudents, student, civil, comments]
     token_count: 180
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qodthj/internships_in_the_philippines_as_a_civil/"}]
 ---
 # Internships in the philippines as a civil engineering student
 

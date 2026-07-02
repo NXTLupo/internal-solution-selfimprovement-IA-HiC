@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1901]
     sentence_count: 14
     key_terms: [data, internship, roles, cscareerquestions, advice, graduating, analytics, something]
+    concepts: [internship, cscareerquestions, roles, advice, graduating]
     token_count: 444
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1prxzkn/seeking_careerinternship_advice/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1prxzkn.md#c1"
     char_span: [1915, 2674]
     sentence_count: 6
     key_terms: [required, because, masters, d1g1tald0lph1n, competition, definitely, everything, experience]
+    concepts: [required, because, masters]
     section: Comments
     token_count: 182
 ---

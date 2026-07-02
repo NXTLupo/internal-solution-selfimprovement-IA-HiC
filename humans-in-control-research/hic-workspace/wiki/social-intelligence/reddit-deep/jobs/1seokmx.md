@@ -19,35 +19,44 @@ chunks:
     char_span: [0, 1427]
     sentence_count: 1
     key_terms: [experience, applied, get, ghosted, because, dogs, job, jobs]
+    concepts: [experience, applied, ghosted, because, comments]
     token_count: 349
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1seokmx/how_do_you_get_experience_for_a_job_if_nobody/"}]
   - id: "social-intelligence/reddit-deep/jobs/1seokmx.md#c1"
     char_span: [1441, 3629]
     sentence_count: 16
     key_terms: [experience, applications, emailing, needed, keep, put, interviews, interview]
+    concepts: [experience, applications, emailing, needed, interviews]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1seokmx.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1seokmx.md#c2"
     char_span: [3338, 4231]
     sentence_count: 2
     key_terms: [needed, availability, interviews, because, hours, put, time, went]
+    concepts: [availability, needed, interviews, because, hours]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1seokmx.md#c1"]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/jobs/1seokmx.md#c3"
     char_span: [4234, 6148]
     sentence_count: 18
     key_terms: [get, work, working, random, worked, "you're", availability, did]
+    concepts: [working, availability, random, worked, "you're"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/jobs/1seokmx.md#c4"
     char_span: [6150, 8377]
     sentence_count: 23
     key_terms: [experience, positions, live, mychemicalromantasy, "don't", food, job, getting]
+    concepts: [experience, positions, mychemicalromantasy, "don't", getting]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/jobs/1seokmx.md#c5"
     char_span: [8380, 9032]
     sentence_count: 5
     key_terms: [hiring, applications, confidently, opportunity, allnewat52, appreciate, businesses, especially]
+    concepts: [hiring]
     section: Comments
     token_count: 142
 ---

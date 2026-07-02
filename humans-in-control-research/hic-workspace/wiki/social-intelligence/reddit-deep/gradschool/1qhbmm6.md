@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1955]
     sentence_count: 17
     key_terms: [like, because, start, statement, science, answer, environmental, application]
+    concepts: [because, statement, start, environmental, science]
     token_count: 435
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1qhbmm6/how_does_one_actually_start_a_grad_school/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1qhbmm6.md#c1"
     char_span: [1969, 3971]
     sentence_count: 6
     key_terms: [program, statement, undergrad, research, professional, help, text, applying]
+    concepts: [program, statement, undergrad, research, professional]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/gradschool/1qhbmm6.md#c2"
     char_span: [3973, 6180]
     sentence_count: 9
     key_terms: [paragraph, research, interested, subject, good, talk, interest, overview]
+    concepts: [paragraph, research, interested, subject, interest]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/gradschool/1qhbmm6.md#c3"
     char_span: [6182, 6990]
     sentence_count: 4
     key_terms: [story, creative, program, disastrous-pair-9466, short, prestigious, specializes, internship]
+    concepts: [story, creative, program, short]
     section: Comments
     token_count: 212
 ---

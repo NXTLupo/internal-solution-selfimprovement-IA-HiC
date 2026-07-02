@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 1242]
     sentence_count: 7
     key_terms: [child, college, development, take, want, psychology, currently, something]
+    concepts: [child, development, college, psychology, currently]
     token_count: 282
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1rc6fm0/can_i_take_classes_without_a_degree_in_mind/"}]
   - id: "social-intelligence/reddit-deep/college/1rc6fm0.md#c1"
     char_span: [1256, 2885]
     sentence_count: 13
     key_terms: [admissions, college, community, time, colleges, office, especially, non-degree]
+    concepts: [admissions, college, community, colleges, office]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rc6fm0.md#c2"]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/college/1rc6fm0.md#c2"
     char_span: [2887, 4420]
     sentence_count: 7
     key_terms: [college, community, degree, want, non-degree, specific, transfer, classes]
+    concepts: [college, community, degree, non-degree, specific]
+    related_chunks: ["social-intelligence/reddit-deep/college/1rc6fm0.md#c1"]
     section: Comments
     token_count: 375
 ---

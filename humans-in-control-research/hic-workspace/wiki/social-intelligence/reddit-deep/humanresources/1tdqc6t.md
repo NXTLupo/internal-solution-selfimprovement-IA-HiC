@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1547]
     sentence_count: 2
     key_terms: [integration, adp, year, humanresources, tool, workforce, comments, because]
+    concepts: [integration, humanresources, workforce, comments, because]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1tdqc6t.md#c1"]
     token_count: 365
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1tdqc6t/na_adp_just_acquired_another_hr_tech_vendor_5th/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1tdqc6t.md#c1"
     char_span: [1561, 2795]
     sentence_count: 6
     key_terms: [months, integration, timeline, because, bundle, locked, ended, exact]
+    concepts: [months, integration, timeline, because, bundle]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1tdqc6t.md#c0"]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/humanresources/1tdqc6t.md#c2"
     char_span: [2797, 5092]
     sentence_count: 14
     key_terms: [point, payroll, integrated, solutions, separate, vendor, operational, like]
+    concepts: [point, payroll, integrated, solutions, separate]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/humanresources/1tdqc6t.md#c3"
     char_span: [5094, 5712]
     sentence_count: 4
     key_terms: [single, solution, trackers, point, stack, micro-workflows, customization, middleware]
+    concepts: [single, solution, trackers, point, stack]
     section: Comments
     token_count: 127
 ---

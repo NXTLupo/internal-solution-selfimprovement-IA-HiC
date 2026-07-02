@@ -21,47 +21,60 @@ chunks:
     char_span: [0, 1466]
     sentence_count: 16
     key_terms: [school, college, applyingtocollege, life, getting, good, want, comments]
+    concepts: [school, college, applyingtocollege, getting, comments]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ndmyx2.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1ndmyx2.md#c7"]
     token_count: 350
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1ndmyx2/my_biggest_regret_in_life_was_not_getting_into_a/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ndmyx2.md#c1"
     char_span: [1480, 3142]
     sentence_count: 14
     key_terms: [school, years, regret, loans, parent, people, "you'll", help]
+    concepts: [school, years, regret, loans, parent]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ndmyx2.md#c2"
     char_span: [3144, 5106]
     sentence_count: 15
     key_terms: [measurementtop2885, mom, daughter, friends, school, being, world, lightweight]
+    concepts: [measurementtop2885, daughter, friends, school, lightweight]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ndmyx2.md#c5"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ndmyx2.md#c3"
     char_span: [5108, 7316]
     sentence_count: 19
     key_terms: [people, anything, college, lording, either, family, care, credential]
+    concepts: [people, anything, college, lording, either]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ndmyx2.md#c4"
     char_span: [7318, 8971]
     sentence_count: 22
     key_terms: [school, went, everyone, life, "doesn't", wanting, common, "didn't"]
+    concepts: [school, everyone, "doesn't", wanting, common]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ndmyx2.md#c5"
     char_span: [8973, 11011]
     sentence_count: 20
     key_terms: [school, schools, law, college, friends, prestigious, get, top]
+    concepts: [school, schools, college, friends, prestigious]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ndmyx2.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1ndmyx2.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1ndmyx2.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ndmyx2.md#c6"
     char_span: [10719, 11120]
     sentence_count: 5
     key_terms: [future, alone-struggle-8056, interesting, ambitious, undergrad, volunteer, position, because]
+    concepts: [future]
     section: Comments
     token_count: 95
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ndmyx2.md#c7"
     char_span: [11122, 13031]
     sentence_count: 23
     key_terms: [college, "didn't", school, going, helicopter, important, undergrad, negative]
+    concepts: [college, "didn't", school, going, helicopter]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ndmyx2.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1ndmyx2.md#c5"]
     section: Comments
     token_count: 483
 ---

@@ -21,37 +21,45 @@ chunks:
     char_span: [0, 1472]
     sentence_count: 11
     key_terms: [internship, months, experience, careerguidance, job, comments, project, working]
+    concepts: [internship, experience, months, careerguidance, comments]
     token_count: 351
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1oo75vr/looking_for_guidance_where_should_i_focus_my_job/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1oo75vr.md#c1"
     char_span: [1474, 2517]
     sentence_count: 2
     key_terms: [environments, feedback, learning, without, rather, tasks, work, administrative]
+    concepts: [environments, feedback, learning, without, rather]
     token_count: 201
   - id: "social-intelligence/reddit-deep/careerguidance/1oo75vr.md#c2"
     char_span: [2519, 4705]
     sentence_count: 2
     key_terms: [working, long-term, learning, leaders, success, market, clear, encouraging]
+    concepts: [working, long-term, learning, leaders, success]
     token_count: 395
   - id: "social-intelligence/reddit-deep/careerguidance/1oo75vr.md#c3"
     char_span: [4707, 7361]
     sentence_count: 8
     key_terms: [feedback, roles, market, encouragement, constructive, goals, acquisition, work]
+    concepts: [feedback, roles, market, encouragement, constructive]
     token_count: 506
   - id: "social-intelligence/reddit-deep/careerguidance/1oo75vr.md#c4"
     char_span: [7363, 9569]
     sentence_count: 14
     key_terms: [analyst, private, whether, underwriting, firms, focus, years, development]
+    concepts: [analyst, private, whether, underwriting, development]
     token_count: 474
   - id: "social-intelligence/reddit-deep/careerguidance/1oo75vr.md#c5"
     char_span: [9583, 11952]
     sentence_count: 18
     key_terms: [management, acquisitions, industrial, asset, multifamily, firms, good, experience]
+    concepts: [management, acquisitions, industrial, asset, multifamily]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1oo75vr.md#c6"
     char_span: [11954, 12564]
     sentence_count: 4
     key_terms: [industrial, underwriting, programs, research, sector, power, dashboard-handy, culture-screen]
+    concepts: [industrial, underwriting, programs, research, sector]
     section: Comments
     token_count: 139
 ---

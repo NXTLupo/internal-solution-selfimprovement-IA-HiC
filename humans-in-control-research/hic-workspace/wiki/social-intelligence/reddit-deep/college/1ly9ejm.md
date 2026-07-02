@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1795]
     sentence_count: 26
     key_terms: ["i'm", happy, college, far, making, going, proud, able]
+    concepts: [happy, college, making, going, proud]
     token_count: 442
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ly9ejm/proud_to_go_to_college/"}]
   - id: "social-intelligence/reddit-deep/college/1ly9ejm.md#c1"
     char_span: [1809, 2627]
     sentence_count: 7
     key_terms: [congratulations, intersection-focused, salt-difference-4770, saintsfan1622000, ubiquitousuguisu, transformative, funnyloud3067, engineering]
+    concepts: [congratulations]
     section: Comments
     token_count: 216
 ---

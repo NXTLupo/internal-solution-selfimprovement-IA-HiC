@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1454]
     sentence_count: 11
     key_terms: [consulting, developer, cscareerquestions, because, interviewed, comments, projects, startup]
+    concepts: [consulting, cscareerquestions, developer, because, interviewed]
     token_count: 331
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1nkdjxs/need_help_on_cs_career_path/"}]
 ---
 # Need help on Cs career path
 

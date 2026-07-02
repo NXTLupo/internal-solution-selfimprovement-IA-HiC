@@ -20,29 +20,39 @@ chunks:
     char_span: [0, 2161]
     sentence_count: 12
     key_terms: [retail, us-based, retailcx, outsourcing, score, criteria, call, center]
+    concepts: [retail, us-based, retailcx, outsourcing, criteria]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1u85rlb.md#c2"]
     token_count: 459
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1u85rlb/top_10_us_retail_call_center_outsourcing/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1u85rlb.md#c1"
     char_span: [2164, 4553]
     sentence_count: 18
     key_terms: [retail, serveretail, brands, omnichannel, concentrix, ecommerce, nearshore, delivery]
+    concepts: [retail, serveretail, brands, omnichannel, concentrix]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1u85rlb.md#c2", "social-intelligence/reddit-deep/customerexperience/1u85rlb.md#c4"]
     token_count: 471
   - id: "social-intelligence/reddit-deep/customerexperience/1u85rlb.md#c2"
     char_span: [4555, 6467]
     sentence_count: 11
     key_terms: [retail, retailcx, teleperformance, omnichannel, operations, technology, score, strengths]
+    concepts: [retail, retailcx, teleperformance, omnichannel, operations]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1u85rlb.md#c0", "social-intelligence/reddit-deep/customerexperience/1u85rlb.md#c1"]
     token_count: 475
   - id: "social-intelligence/reddit-deep/customerexperience/1u85rlb.md#c3"
     char_span: [6470, 8146]
     sentence_count: 12
     key_terms: [retail, foundever, significantly, alorica, post-merger, consumer, across, brands]
+    concepts: [retail, foundever, significantly, post-merger, alorica]
     token_count: 401
   - id: "social-intelligence/reddit-deep/customerexperience/1u85rlb.md#c4"
     char_span: [8149, 10287]
     sentence_count: 12
     key_terms: [retail, brands, conduent, compliance, enterprise, score, ecommerce, consumer]
+    concepts: [retail, brands, conduent, compliance, enterprise]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1u85rlb.md#c1"]
     token_count: 464
   - id: "social-intelligence/reddit-deep/customerexperience/1u85rlb.md#c5"
-    char_span: [10302, 10632]
+    char_span: [10301, 10631]
     sentence_count: 2
     key_terms: [get, recommended, serveretail, themselves, marketing, apgcobb, lifting, ranking]
     section: Comments

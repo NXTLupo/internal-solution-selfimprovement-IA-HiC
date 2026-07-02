@@ -19,59 +19,74 @@ chunks:
     char_span: [0, 1475]
     sentence_count: 7
     key_terms: [skills, marketable, careerguidance, certifications, affordable, university, comments, dead-end]
+    concepts: [marketable, skills, careerguidance, certifications, affordable]
     token_count: 348
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t9m8cm/34_years_old_stuck_in_a_deadend_job_no_marketable/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t9m8cm.md#c1"
     char_span: [1489, 3262]
     sentence_count: 12
     key_terms: [hospital, physical, jobs, tech, get, therapy, tuition, reimbursement]
+    concepts: [hospital, physical, reimbursement, therapy, tuition]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/careerguidance/1t9m8cm.md#c2"
     char_span: [3264, 5470]
     sentence_count: 14
     key_terms: [nursing, hospitals, program, own, education, schooling, hospital, training]
+    concepts: [nursing, hospitals, program, education, schooling]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t9m8cm.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1t9m8cm.md#c3"
     char_span: [5185, 7120]
     sentence_count: 21
     key_terms: [school, attackslug, hospital, work, possible, options, always, clinic]
+    concepts: [school, attackslug, hospital, possible, options]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t9m8cm.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1t9m8cm.md#c4"
     char_span: [6841, 8925]
     sentence_count: 18
     key_terms: [doing, patient, needles, get, attackslug, definitely, genuinely, fracture]
+    concepts: [doing, patient, needles, attackslug, definitely]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1t9m8cm.md#c5"
     char_span: [8703, 10442]
     sentence_count: 12
     key_terms: [school, helped, math, attackslug, experience, previous, prereqs, program]
+    concepts: [school, helped, attackslug, experience, previous]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t9m8cm.md#c3"]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/careerguidance/1t9m8cm.md#c6"
     char_span: [10444, 12740]
     sentence_count: 22
     key_terms: [schools, work, offer, clinicals, like, nursing, degree, school]
+    concepts: [schools, clinicals, offer, nursing, degree]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/careerguidance/1t9m8cm.md#c7"
     char_span: [12742, 14361]
     sentence_count: 14
     key_terms: [community, college, nursing, life, program, "don't", going, money]
+    concepts: [community, college, nursing, program, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t9m8cm.md#c2"]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/careerguidance/1t9m8cm.md#c8"
     char_span: [14363, 16221]
     sentence_count: 19
     key_terms: [looking, fitters, welders, good, constantly, something, become, crisis]
+    concepts: [looking, fitters, welders, constantly, something]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/careerguidance/1t9m8cm.md#c9"
     char_span: [16223, 17722]
     sentence_count: 20
     key_terms: [get, accepted, benefits, location, programs, online, revolutionary-luck-1, rude-obligation-2060]
+    concepts: [accepted, benefits, location, programs, online]
     section: Comments
     token_count: 342
 ---

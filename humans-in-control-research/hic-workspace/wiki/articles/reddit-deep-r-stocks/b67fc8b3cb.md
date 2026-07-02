@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1977]
     sentence_count: 13
     key_terms: [like, comments, stocks, gold, here, time, everyone, expected]
+    concepts: [comments, stocks, everyone, expected, benefit]
     token_count: 476
+    sources: [{"n":"Reddit Deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1o4my15/seriously_whats_with_the_panic_this_time/"}]
   - id: "articles/reddit-deep-r-stocks/b67fc8b3cb.md#c1"
     char_span: [1980, 3265]
     sentence_count: 8
     key_terms: [reddit, something, comments, whenever, hotline, suicide, thread, wickedsensitivecrew]
+    concepts: [reddit, something, comments, whenever, hotline]
     token_count: 302
 ---
 # Seriously, what's with the panic this time?

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1246]
     sentence_count: 7
     key_terms: [professors, comments, material, students, classes, finding, lecture, taught]
+    concepts: [professors, comments, material, students, classes]
     token_count: 266
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1krauc3/books_or_other_resources_about_active_learning/"}]
 ---
 # Books or other resources about active learning/ student engagement for science classes?
 

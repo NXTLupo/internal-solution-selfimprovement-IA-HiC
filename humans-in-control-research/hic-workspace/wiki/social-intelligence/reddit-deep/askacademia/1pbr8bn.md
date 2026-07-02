@@ -21,59 +21,76 @@ chunks:
     char_span: [0, 2311]
     sentence_count: 17
     key_terms: [students, clinical, religious, graduate, research, noticed, professional, believe]
+    concepts: [students, clinical, religious, graduate, research]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c2", "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c5", "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c7"]
     token_count: 464
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1pbr8bn/has_anybody_else_noticed_a_religious_divide/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c1"
     char_span: [2325, 3206]
     sentence_count: 6
     key_terms: [applicants, clinical, programs, religion, "it's", krabbypattyparty, geographically, work-education]
+    concepts: [applicants, clinical, programs, religion]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c8"]
     section: Comments
     token_count: 181
   - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c2"
     char_span: [3208, 5615]
     sentence_count: 13
     key_terms: [religious, catholic, research, university, attention, graduate, students, teaching]
+    concepts: [religious, catholic, research, university, attention]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c3"
     char_span: [5350, 5707]
     sentence_count: 1
     key_terms: [sciences, faculty, matthewsmugmanager, theological, regarding, religious, catholic, question]
+    concepts: [sciences, faculty]
     section: Comments
     token_count: 81
   - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c4"
     char_span: [5709, 7726]
     sentence_count: 9
     key_terms: [https, doi, people, onlinelibrary, anatomypubs, scientists, believing, christian]
+    concepts: [https, onlinelibrary, people, anatomypubs, scientists]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c5"
     char_span: [7728, 10251]
     sentence_count: 22
     key_terms: [students, professional, christian, academic, graduate, degrees, school, countries]
+    concepts: [students, professional, christian, academic, graduate]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c0", "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c7"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c6"
     char_span: [10253, 10741]
     sentence_count: 4
     key_terms: [largely, professional, school, white, concentrated, backgrounds, performance, correlated]
+    concepts: [largely, professional, school, white]
     section: Comments
     token_count: 86
   - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c7"
     char_span: [10743, 12890]
     sentence_count: 12
     key_terms: [students, religious, phd, pteradactylitis, like, experience, christian, comparing]
+    concepts: [students, religious, pteradactylitis, experience, christian]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c0", "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c8"
     char_span: [12613, 13622]
     sentence_count: 6
     key_terms: [believing, religious, programs, question, religion, imagine, being, idustriousraccoon]
+    concepts: [believing, religious, programs, question, religion]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c1"]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c9"
     char_span: [13624, 14169]
     sentence_count: 5
     key_terms: [something, data, science-based, interesting, questioning, constantly, definitely, needrain47]
+    concepts: [something]
     section: Comments
     token_count: 123
 ---

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 376]
     sentence_count: 3
     key_terms: [careerguidance, comments, career, define, job, reddit-deep, beginning, realized]
+    concepts: [careerguidance, comments, career, define]
     token_count: 106
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qx8e7h/when_did_you_realize_your_first_job_wasnt_going/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1qx8e7h.md#c1"
     char_span: [390, 1591]
     sentence_count: 5
     key_terms: [job, realized, deleted, retail, skills, years, initial-bread6135, like]
+    concepts: [realized, deleted, retail, skills, years]
     section: Comments
     token_count: 314
 ---

@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 384]
     sentence_count: 1
     key_terms: [gradadmissions, comments, wayaffectionate1530, internationals, reddit-deep, admissions, percentage, decisions]
+    concepts: [gradadmissions, comments]
     token_count: 99
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1ptnjzm/grad_school_admissions_fall_2026/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1ptnjzm.md#c1"
-    char_span: [399, 1413]
+    char_span: [398, 1412]
     sentence_count: 3
     key_terms: [wayaffectionate1530, deleted, rejection, training-outcome9981, good, like, international, applications]
+    concepts: [wayaffectionate1530, deleted, rejection]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/gradadmissions/1ptnjzm.md#c2"
-    char_span: [1415, 3403]
+    char_span: [1414, 3402]
     sentence_count: 9
     key_terms: [program, wayaffectionate1530, right, application, fall, wisconsin, students, schools]
+    concepts: [wayaffectionate1530, program, application, right, wisconsin]
     section: Comments
     token_count: 493
 ---

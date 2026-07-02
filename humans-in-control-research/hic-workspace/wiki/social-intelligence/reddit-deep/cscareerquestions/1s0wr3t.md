@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1295]
     sentence_count: 5
     key_terms: [data, science, cscareerquestions, etc, "master's", specializing, broadening, reasoning]
+    concepts: [science, cscareerquestions, "master's", specializing, broadening]
     token_count: 290
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1s0wr3t/3rd_year_cs_student_aiming_for_a_data_science/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s0wr3t.md#c1"
     char_span: [1309, 1750]
     sentence_count: 3
     key_terms: [recommend, snoorabbits9587, engineering, personally, statistics, building, question, software]
+    concepts: [recommend]
     section: Comments
     token_count: 114
 ---

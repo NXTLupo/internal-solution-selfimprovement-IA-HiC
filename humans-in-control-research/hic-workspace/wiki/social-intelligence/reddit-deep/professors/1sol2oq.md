@@ -19,49 +19,59 @@ chunks:
     char_span: [0, 1731]
     sentence_count: 16
     key_terms: [because, person, back, got, professors, comments, engineer, remember]
+    concepts: [because, person, professors, comments, engineer]
     token_count: 411
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1sol2oq/update_my_students_cannot_read_or_write_and_i/"}]
   - id: "social-intelligence/reddit-deep/professors/1sol2oq.md#c1"
     char_span: [1733, 4068]
     sentence_count: 18
     key_terms: [take, design, different, thought, lot, through, career, get]
+    concepts: [different, design, thought, through, career]
     token_count: 492
   - id: "social-intelligence/reddit-deep/professors/1sol2oq.md#c2"
     char_span: [4070, 6269]
     sentence_count: 27
     key_terms: [did, read, information, asked, homeowner, "it's", word, friend]
+    concepts: [information, homeowner, asked, implications, friend]
     token_count: 491
   - id: "social-intelligence/reddit-deep/professors/1sol2oq.md#c3"
     char_span: [6271, 7948]
     sentence_count: 15
     key_terms: [post-tensioned, engineering, cables, explanation, "i'll", job, constantly, structural]
+    concepts: [post-tensioned, engineering, cables, explanation, constantly]
     token_count: 390
   - id: "social-intelligence/reddit-deep/professors/1sol2oq.md#c4"
     char_span: [7950, 10244]
     sentence_count: 29
     key_terms: [going, "that's", explanations, feel, get, "i'm", safe, work]
+    concepts: [going, explanations, "that's", understand, personal]
     token_count: 503
   - id: "social-intelligence/reddit-deep/professors/1sol2oq.md#c5"
-    char_span: [10259, 11596]
+    char_span: [10258, 11595]
     sentence_count: 12
     key_terms: [students, bring, backwards, teaching, "that's", being, inlesbianswithher, get]
+    concepts: [students, backwards, bring, teaching, "that's"]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/professors/1sol2oq.md#c6"
-    char_span: [11598, 13438]
+    char_span: [11597, 13437]
     sentence_count: 16
     key_terms: [students, "didn't", civil, engineering, avgguy1968, technology, develop, lecture]
+    concepts: [students, "didn't", engineering, avgguy1968, civil]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/professors/1sol2oq.md#c7"
-    char_span: [13440, 15392]
+    char_span: [13439, 15391]
     sentence_count: 12
     key_terms: [zorandzam, tunedmassdamsel, writing, communication, programmers, programming, ceo, apathetic]
+    concepts: [zorandzam, tunedmassdamsel, communication, writing, programmers]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1sol2oq.md#c8"
-    char_span: [15188, 15843]
+    char_span: [15187, 15842]
     sentence_count: 6
     key_terms: [imhereforthevotes, lecture, inspectorsmooth8574, here, tunedmassdamsel, comprehension, wild-precious, emotionally]
+    concepts: [imhereforthevotes, lecture]
     section: Comments
     token_count: 197
 ---

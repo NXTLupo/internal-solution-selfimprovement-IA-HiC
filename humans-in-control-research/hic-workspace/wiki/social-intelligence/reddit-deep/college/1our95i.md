@@ -19,41 +19,54 @@ chunks:
     char_span: [0, 1160]
     sentence_count: 11
     key_terms: [college, hockey, school, like, play, management, comments, working]
+    concepts: [college, hockey, school, management, comments]
+    related_chunks: ["social-intelligence/reddit-deep/college/1our95i.md#c1", "social-intelligence/reddit-deep/college/1our95i.md#c4", "social-intelligence/reddit-deep/college/1our95i.md#c6"]
     token_count: 275
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1our95i/should_i_go_to_grad_school_right_after_graduation/"}]
   - id: "social-intelligence/reddit-deep/college/1our95i.md#c1"
     char_span: [1174, 3253]
     sentence_count: 24
     key_terms: [school, job, hockey, dancingmonkey1295, grad, want, animallover4321, dad]
+    concepts: [school, dancingmonkey1295, hockey, animallover4321, internship]
+    related_chunks: ["social-intelligence/reddit-deep/college/1our95i.md#c0", "social-intelligence/reddit-deep/college/1our95i.md#c2", "social-intelligence/reddit-deep/college/1our95i.md#c4", "social-intelligence/reddit-deep/college/1our95i.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1our95i.md#c2"
     char_span: [3005, 5145]
     sentence_count: 19
     key_terms: [school, get, grad, lot, choose, dancingmonkey1295, work, pressure]
+    concepts: [school, choose, dancingmonkey1295, pressure, understanding]
+    related_chunks: ["social-intelligence/reddit-deep/college/1our95i.md#c1", "social-intelligence/reddit-deep/college/1our95i.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1our95i.md#c3"
     char_span: [4937, 5510]
     sentence_count: 5
     key_terms: [dancingmonkey1295, get, experience, wrong, job, daddydillo892, heartonfiyah, zoerocks73]
+    concepts: [dancingmonkey1295, experience, wrong]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/college/1our95i.md#c4"
     char_span: [5512, 7569]
     sentence_count: 22
     key_terms: [job, too, school, going, right, dancingmonkey1295, get, grad]
+    concepts: [dancingmonkey1295, school, going, right, college]
+    related_chunks: ["social-intelligence/reddit-deep/college/1our95i.md#c0", "social-intelligence/reddit-deep/college/1our95i.md#c1", "social-intelligence/reddit-deep/college/1our95i.md#c2", "social-intelligence/reddit-deep/college/1our95i.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1our95i.md#c5"
     char_span: [7287, 7835]
     sentence_count: 6
     key_terms: [school, grad, lot, opportunities, considering, definitely, endlessly, important]
+    concepts: [school]
     section: Comments
     token_count: 119
   - id: "social-intelligence/reddit-deep/college/1our95i.md#c6"
     char_span: [7837, 9233]
     sentence_count: 16
     key_terms: [time, acceptablereward9210, dancingmonkey1295, hockey, college, started, working, adrian]
+    concepts: [acceptablereward9210, dancingmonkey1295, hockey, college, started]
+    related_chunks: ["social-intelligence/reddit-deep/college/1our95i.md#c0", "social-intelligence/reddit-deep/college/1our95i.md#c1", "social-intelligence/reddit-deep/college/1our95i.md#c4"]
     section: Comments
     token_count: 355
 ---

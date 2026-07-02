@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2080]
     sentence_count: 39
     key_terms: [americans, car, less, finance, povertyfinance, income, paying, years]
+    concepts: [americans, povertyfinance, finance, income, paying]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1px2kbs/why_were_financially_broke/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1px2kbs.md#c1"
     char_span: [2082, 3247]
     sentence_count: 16
     key_terms: [security, workers, social, congress, program, credit, earn, get]
+    concepts: [security, workers, social, congress, program]
     token_count: 258
   - id: "social-intelligence/reddit-deep/povertyfinance/1px2kbs.md#c2"
     char_span: [3261, 5381]
     sentence_count: 20
     key_terms: [job, savings, market, people, retire, underemployed, new, healthcare]
+    concepts: [underemployed, savings, market, people, retire]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1px2kbs.md#c3"
@@ -43,30 +47,35 @@ chunks:
     char_span: [5575, 7541]
     sentence_count: 15
     key_terms: [here, like, "don't", "it's", experience, financial, instead, actual]
+    concepts: ["don't", experience, financial, instead, actual]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/povertyfinance/1px2kbs.md#c5"
     char_span: [7543, 9702]
     sentence_count: 15
     key_terms: [people, solidarity, fighting, working, subscription, rent, americans, community]
+    concepts: [people, solidarity, fighting, working, subscription]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/povertyfinance/1px2kbs.md#c6"
     char_span: [9704, 11834]
     sentence_count: 14
     key_terms: [because, income, comfortable, "can't", people, calculation, unavoidable, get]
+    concepts: [because, income, comfortable, "can't", people]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/povertyfinance/1px2kbs.md#c7"
     char_span: [11836, 12463]
     sentence_count: 4
     key_terms: [items, years, shit, acknowledging, recognizing, considered, graduating, millennial]
+    concepts: [items, years]
     section: Comments
     token_count: 151
   - id: "social-intelligence/reddit-deep/povertyfinance/1px2kbs.md#c8"
     char_span: [12465, 14305]
     sentence_count: 20
     key_terms: [fees, insurance, medical, healthcare, anything, congress, ceiling, instead]
+    concepts: [insurance, medical, healthcare, anything, congress]
     section: Comments
     token_count: 430
 ---

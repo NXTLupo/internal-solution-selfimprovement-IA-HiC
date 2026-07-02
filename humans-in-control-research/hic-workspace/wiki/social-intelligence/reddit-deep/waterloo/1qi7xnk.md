@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 681]
     sentence_count: 5
     key_terms: [waterloo-kitchener, recommendations, comments, waterloo, looking, student, job, reddit-deep]
+    concepts: [waterloo-kitchener, recommendations, comments, waterloo, looking]
     token_count: 172
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1qi7xnk/looking_for_job_recommendations_in/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1qi7xnk.md#c1"
     char_span: [695, 1720]
     sentence_count: 7
     key_terms: [jobs, student, usually, consistent-opening01, good, job, year, theartofconcrete]
+    concepts: [student, usually]
     section: Comments
     token_count: 255
 ---

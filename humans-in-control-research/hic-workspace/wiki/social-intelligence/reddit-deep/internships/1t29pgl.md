@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 821]
     sentence_count: 5
     key_terms: [data, opportunities, internships, internship, analytics, currently, comments, looking]
+    concepts: [opportunities, internships, internship, analytics, currently]
     token_count: 188
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t29pgl/looking_for_data_analytics_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1t29pgl.md#c1"
     char_span: [835, 1384]
     sentence_count: 1
     key_terms: [analytics, roles, objective-bad-4447, sweet-frosting4839, efficient-touch69, com, data, internshipdaily]
+    concepts: [analytics, roles]
     section: Comments
     token_count: 152
 ---

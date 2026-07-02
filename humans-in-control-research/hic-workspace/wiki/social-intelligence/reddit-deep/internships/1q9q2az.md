@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 319]
     sentence_count: 3
     key_terms: [internships, comments, international, reddit-deep, struggling, student, advice, posted]
+    concepts: [internships, comments]
     token_count: 86
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1q9q2az/mscs_international_student_here_struggling_with/"}]
 ---
 # MSCS International Student here - Struggling with Summer 2026 Internships. Any advice?
 

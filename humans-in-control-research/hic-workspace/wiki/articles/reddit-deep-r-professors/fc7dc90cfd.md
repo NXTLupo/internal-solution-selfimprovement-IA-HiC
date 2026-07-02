@@ -18,21 +18,29 @@ chunks:
     char_span: [0, 1907]
     sentence_count: 17
     key_terms: [students, lectures, reading, class, "it's", completely, professors, believing]
+    concepts: [students, lectures, reading, class, completely]
+    related_chunks: ["articles/reddit-deep-r-professors/fc7dc90cfd.md#c1"]
     token_count: 433
+    sources: [{"n":"Reddit Deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1ph6086/im_back_to_actually_enjoying_and_believing_in/"}]
   - id: "articles/reddit-deep-r-professors/fc7dc90cfd.md#c1"
     char_span: [1909, 3727]
     sentence_count: 12
     key_terms: [class, students, free, paper, handwritten, "it's", writing, finish]
+    concepts: [students, class, handwritten, paper, writing]
+    related_chunks: ["articles/reddit-deep-r-professors/fc7dc90cfd.md#c0", "articles/reddit-deep-r-professors/fc7dc90cfd.md#c2"]
     token_count: 434
   - id: "articles/reddit-deep-r-professors/fc7dc90cfd.md#c2"
     char_span: [3729, 5760]
     sentence_count: 22
     key_terms: [students, institution, writing, phones, class, work, assessment, cheaters]
+    concepts: [students, institution, writing, phones, assessment]
+    related_chunks: ["articles/reddit-deep-r-professors/fc7dc90cfd.md#c1"]
     token_count: 471
   - id: "articles/reddit-deep-r-professors/fc7dc90cfd.md#c3"
     char_span: [5762, 6856]
     sentence_count: 10
     key_terms: [class, classes, activities, multiple, rotating, sections, students, collect]
+    concepts: [class, classes, activities, multiple, rotating]
     token_count: 260
 ---
 # I'm back to actually enjoying and believing in teaching gain after transforming my classes -- and AI usage is now a non-concern.

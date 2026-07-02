@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1221]
     sentence_count: 9
     key_terms: [data, internships, gradschool, scientist, comments, projects, learned, summer]
+    concepts: [internships, gradschool, scientist, comments, projects]
     token_count: 282
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1lw76cf/mldata_scientist_internships_for_grad_students/"}]
 ---
 # ML/Data Scientist internships for Grad students?
 

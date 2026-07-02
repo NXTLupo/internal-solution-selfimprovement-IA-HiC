@@ -19,14 +19,17 @@ content_hash: "8a9282043ab818d6"
 relevance_by_goal: {"46dec9599ad5":80}
 chunks:
   - id: "articles/reddit-deep-r-defi/ecb036acc8.md#c0"
-    char_span: [0, 2132]
+    char_span: [0, 2131]
     sentence_count: 17
     key_terms: [defi, people, wallet, already, crypto, "it's", management, approvals]
-    token_count: 475
+    concepts: [people, wallet, already, crypto, management]
+    token_count: 474
+    sources: [{"n":"Reddit Deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1s2kdb9/why_do_you_think_regular_people_still_arent_using/"}]
   - id: "articles/reddit-deep-r-defi/ecb036acc8.md#c1"
-    char_span: [2134, 3877]
+    char_span: [2133, 3876]
     sentence_count: 10
     key_terms: [understand, defi, crypto, totolitotix, instead, works, need, background]
+    concepts: [understand, crypto, totolitotix, instead, background]
     token_count: 414
 ---
 # Why do you think regular people still aren't using DeFi?

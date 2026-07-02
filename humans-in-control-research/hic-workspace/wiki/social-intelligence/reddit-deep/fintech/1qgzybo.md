@@ -20,20 +20,23 @@ chunks:
     char_span: [0, 2172]
     sentence_count: 27
     key_terms: [fund, allocations, sydecar, product, spvs, infrastructure, money, "it's"]
+    concepts: [allocations, sydecar, product, infrastructure, money]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1qgzybo/sydecar_pivots_fund_product_dead_allin_on_spvs/"}]
   - id: "social-intelligence/reddit-deep/fintech/1qgzybo.md#c1"
     char_span: [2174, 2251]
     sentence_count: 3
     key_terms: [thoughts, clients, hearing, sydecar, anyone, making, else, here]
     token_count: 18
   - id: "social-intelligence/reddit-deep/fintech/1qgzybo.md#c2"
-    char_span: [2266, 4328]
+    char_span: [2265, 4327]
     sentence_count: 14
     key_terms: [fund, transition, track, allocations, sure, investors, managers, capital]
+    concepts: [transition, allocations, track, investors, managers]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/fintech/1qgzybo.md#c3"
-    char_span: [4330, 4558]
+    char_span: [4329, 4557]
     sentence_count: 2
     key_terms: [littlejaysmith, allocations, situations, provider, cleanly, finding, helpful, matters]
     section: Comments

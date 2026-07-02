@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 554]
     sentence_count: 4
     key_terms: [opportunities, neu, molecular, comments, biology, cell, pharmaceuticals, northeastern]
+    concepts: [opportunities, molecular, comments, biology]
     token_count: 135
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rmhmxl/cell_and_molecular_biology_mcb/"}]
   - id: "social-intelligence/reddit-deep/neu/1rmhmxl.md#c1"
     char_span: [568, 1835]
     sentence_count: 7
     key_terms: [programrequirementstext, northeastern, undergraduate, experience, joshi1381, cell-molecular-biology-bs, academic, because]
+    concepts: [programrequirementstext, northeastern, undergraduate, experience, joshi1381]
     section: Comments
     token_count: 314
 ---

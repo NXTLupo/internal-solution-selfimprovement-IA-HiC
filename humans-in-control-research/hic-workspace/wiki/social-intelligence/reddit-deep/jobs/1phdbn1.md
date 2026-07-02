@@ -19,113 +19,137 @@ chunks:
     char_span: [0, 1876]
     sentence_count: 15
     key_terms: [gen, companies, don, job, people, blame, like, genuinely]
+    concepts: [companies, people, blame, genuinely, comments]
     token_count: 412
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1phdbn1/i_genuinely_dont_understand_why_gen_z_is_getting/"}]
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c1"
     char_span: [1890, 3413]
     sentence_count: 14
     key_terms: [millennials, like, avocado, killing, stories, around, killed, social]
+    concepts: [millennials, avocado, killing, stories, around]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c2"
     char_span: [3415, 4728]
     sentence_count: 10
     key_terms: [time, millennials, day, "you'll", yohoho-abottleofrum, "don't", worse, old]
+    concepts: [millennials, "you'll", "don't", worse]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c3"
     char_span: [4730, 6132]
     sentence_count: 11
     key_terms: [generation, giovannibernardonesi, lazy, irrelevant, hilarious, suffering, problems, people]
+    concepts: [generation, giovannibernardonesi, irrelevant, hilarious, suffering]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c4"
     char_span: [6134, 7750]
     sentence_count: 13
     key_terms: [gen, expectations, "that's", millennials, being, boss, "it's", too]
+    concepts: [expectations, "that's", millennials, being]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c5"
     char_span: [7752, 9937]
     sentence_count: 19
     key_terms: [millenials, work, expectations, always, "it's", generation, managers, boomers]
+    concepts: [millenials, expectations, always, generation, managers]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c6"
     char_span: [9939, 10398]
     sentence_count: 6
     key_terms: [experience, been, lie, humiliating, maintaining, interviews, resentment, suppressed]
+    concepts: [experience]
     section: Comments
     token_count: 98
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c7"
     char_span: [10400, 12588]
     sentence_count: 24
     key_terms: ["they're", young, millennials, like, something, bathroom, everyone, clicked]
+    concepts: ["they're", millennials, young, something, bathroom]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c8"
     char_span: [12383, 13336]
     sentence_count: 8
     key_terms: ["they're", employers, editor, nomansskywasalright, weird, been, get, paid]
+    concepts: ["they're", employers, editor, weird]
     section: Comments
     token_count: 230
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c9"
     char_span: [13338, 14829]
     sentence_count: 16
     key_terms: ["don't", take, conditions, expected, deserve, workers, easier, matter]
+    concepts: [conditions, "don't", expected, deserve, workers]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c10"
     char_span: [14831, 17043]
     sentence_count: 19
     key_terms: [lunch, job, take, work, collectively, "don't", bad, hour]
+    concepts: [lunch, collectively, "don't", recruiting, something]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1phdbn1.md#c13"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c11"
     char_span: [17045, 19109]
     sentence_count: 12
     key_terms: [labor, movement, "you're", protections, age, gen, generation, employees]
+    concepts: [labor, movement, "you're", protections, generation]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c12"
     char_span: [19111, 21084]
     sentence_count: 8
     key_terms: [publishing, back, job, getting, housing, rapidly, trapped, became]
+    concepts: [publishing, getting, housing, rapidly, trapped]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c13"
     char_span: [21086, 22525]
     sentence_count: 7
     key_terms: [lunch, year, "don't", raise, days, get, min, wage]
+    concepts: [lunch, "don't", raise]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1phdbn1.md#c10"]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c14"
     char_span: [22527, 24616]
     sentence_count: 11
     key_terms: [corporate, sick, happytapiocasuprise, college, people, corporations, kids, time]
+    concepts: [corporate, happytapiocasuprise, college, corporations, people]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1phdbn1.md#c15"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c15"
     char_span: [24357, 24916]
     sentence_count: 4
     key_terms: [college, degree, people, tons, yeah, strangeghoule, experience, exception]
+    concepts: [college, degree, people]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1phdbn1.md#c14"]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c16"
     char_span: [24919, 26856]
     sentence_count: 9
     key_terms: ["it's", good, college, money, generation, apartment, something, utilities]
+    concepts: [college, generation, money, apartment, something]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c17"
     char_span: [26858, 28362]
     sentence_count: 11
     key_terms: [pay, started, staff, another, deleted, shouldn, wealthy, beneficial-celery964]
+    concepts: [started, staff, another, deleted, shouldn]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/jobs/1phdbn1.md#c18"
     char_span: [28364, 29916]
     sentence_count: 18
     key_terms: [get, job, boomers, "can't", rich, different, classes, income]
+    concepts: [boomers, "can't", different, classes, income]
     section: Comments
     token_count: 426
 ---

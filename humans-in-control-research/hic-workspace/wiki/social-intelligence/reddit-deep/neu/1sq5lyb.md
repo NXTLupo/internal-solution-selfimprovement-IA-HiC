@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1295]
     sentence_count: 4
     key_terms: [https, trace, nubanner, github, hdkbdennhnoioejfmkijblagkeebjeco, "professor's", com, trace-ratings-for-nubanne]
+    concepts: [https, trace, nubanner, github, "professor's"]
     token_count: 354
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sq5lyb/i_built_a_chrome_extension_that_shows_trace/"}]
   - id: "social-intelligence/reddit-deep/neu/1sq5lyb.md#c1"
     char_span: [1309, 1710]
     sentence_count: 3
     key_terms: [maybe, link, express-eye-2758, northeastern, gravela2005, graduating, compiling, firefox]
+    concepts: [maybe]
     section: Comments
     token_count: 110
 ---

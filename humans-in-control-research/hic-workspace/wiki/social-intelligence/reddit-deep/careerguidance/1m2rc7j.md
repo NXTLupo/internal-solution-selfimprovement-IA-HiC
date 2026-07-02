@@ -21,41 +21,54 @@ chunks:
     char_span: [0, 1508]
     sentence_count: 15
     key_terms: [careerguidance, career, development, late, comments, software, feels, field]
+    concepts: [careerguidance, career, development, comments, software]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c5", "social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c6"]
     token_count: 350
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1m2rc7j/title_is_it_too_late_to_start_a_career_in/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c1"
     char_span: [1522, 3348]
     sentence_count: 14
     key_terms: [software, already, someone, "that's", drive, learning, schedulesame258, never]
+    concepts: [software, already, someone, "that's", drive]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c2"
     char_span: [3350, 5713]
     sentence_count: 10
     key_terms: [software, because, experience, people, companies, entry, level, tools]
+    concepts: [software, because, experience, people, companies]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c3"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c3"
     char_span: [5715, 7703]
     sentence_count: 11
     key_terms: [software, too, working, experience, pilgrim103, engineers, knowledge, something]
+    concepts: [software, working, experience, pilgrim103, engineers]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c2"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c4"
     char_span: [7705, 9672]
     sentence_count: 15
     key_terms: [start, get, extremely, recommend, mentally, extreme, without, career]
+    concepts: [start, extremely, recommend, mentally, extreme]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c5"
     char_span: [9674, 11764]
     sentence_count: 30
     key_terms: [software, development, escape, folder, job, web, embedded, engineer]
+    concepts: [software, development, escape, folder, embedded]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c0", "social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c6"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c6"
     char_span: [11766, 13821]
     sentence_count: 21
     key_terms: [software, engineering, degree, development, get, need, calculus, computer]
+    concepts: [software, engineering, degree, development, calculus]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c0", "social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c5"]
     section: Comments
     token_count: 502
 ---

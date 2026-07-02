@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1082]
     sentence_count: 6
     key_terms: [povertyfinance, like, everything, groceries, comments, paycheck, income, people]
+    concepts: [povertyfinance, everything, groceries, comments, paycheck]
     token_count: 275
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1low8e6/struggling_to_stay_afloat_how_do_you_make_it_work/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1low8e6.md#c1"
     char_span: [1096, 2767]
     sentence_count: 10
     key_terms: [car, pay, "wouldn't", deleted, money, lot, gamer30168, probably]
+    concepts: ["wouldn't", deleted, gamer30168, money, probably]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/povertyfinance/1low8e6.md#c2"
     char_span: [2770, 4671]
     sentence_count: 14
     key_terms: [debt, better, get, job, emergencies, car, subsidized, deleted]
+    concepts: [better, emergencies, subsidized, deleted, support]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/povertyfinance/1low8e6.md#c3"
     char_span: [4673, 5068]
     sentence_count: 4
     key_terms: [month, food, utilities, probably, deleted, outside, camper, likely]
+    concepts: [month]
     section: Comments
     token_count: 99
 ---

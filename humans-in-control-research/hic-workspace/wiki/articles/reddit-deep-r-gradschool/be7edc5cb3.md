@@ -18,21 +18,26 @@ chunks:
     char_span: [0, 2339]
     sentence_count: 20
     key_terms: ["i'm", experience, research, background, currently, neuropsychology, skills, opportunity]
+    concepts: [experience, research, background, currently, neuropsychology]
     token_count: 486
+    sources: [{"n":"Reddit Deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1r6ljt4/seeking_advice_on_gaining_research_experience/"}]
   - id: "articles/reddit-deep-r-gradschool/be7edc5cb3.md#c1"
     char_span: [2341, 4271]
     sentence_count: 19
     key_terms: [research, opportunity, programs, catspoopinboxes, project, similar, found, lab]
+    concepts: [research, opportunity, catspoopinboxes, programs, project]
     token_count: 414
   - id: "articles/reddit-deep-r-gradschool/be7edc5cb3.md#c2"
     char_span: [4273, 6422]
     sentence_count: 25
     key_terms: [read, get, being, start, like, approaches, different, questions]
+    concepts: [approaches, being, start, different, questions]
     token_count: 462
   - id: "articles/reddit-deep-r-gradschool/be7edc5cb3.md#c3"
     char_span: [6424, 7170]
     sentence_count: 9
     key_terms: [interesting, science, satelliteabstract, bit, like, too, neuroendocrine, publications]
+    concepts: [interesting, science]
     token_count: 163
 ---
 # Seeking advice on gaining research experience starting from a non-traditional background

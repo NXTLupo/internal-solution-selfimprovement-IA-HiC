@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 339]
     sentence_count: 2
     key_terms: [gradschool, comments, ohlawdhetreading, reddit-deep, full-time, careers, changed, posted]
+    concepts: [gradschool, comments]
     token_count: 99
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1o5pki9/for_those_who_changed_careers_after_15_years_and/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1o5pki9.md#c1"
     char_span: [353, 2333]
     sentence_count: 18
     key_terms: [career, skills, different, call, did, ohlawdhetreading, trick-love-4571, center]
+    concepts: [career, skills, ohlawdhetreading, different, trick-love-4571]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/gradschool/1o5pki9.md#c2"
     char_span: [2335, 3240]
     sentence_count: 6
     key_terms: [current, management, operations, program, field, data, feel, ohlawdhetreading]
+    concepts: [current, management, operations, program, field]
     section: Comments
     token_count: 198
   - id: "social-intelligence/reddit-deep/gradschool/1o5pki9.md#c3"
     char_span: [3242, 5136]
     sentence_count: 18
     key_terms: [school, grad, because, program, deathschlager, expectations, "i'm", industry]
+    concepts: [school, because, deathschlager, program, expectations]
     section: Comments
     token_count: 435
 ---

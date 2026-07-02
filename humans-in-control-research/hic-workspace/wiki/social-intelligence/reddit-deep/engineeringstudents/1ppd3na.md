@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1136]
     sentence_count: 15
     key_terms: [engineeringstudents, gpa, job, comments, don, give, got, low]
+    concepts: [engineeringstudents, comments]
     token_count: 281
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1ppd3na/dont_give_up_especially_you_low_gpa_kids/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ppd3na.md#c1"
     char_span: [1150, 2999]
     sentence_count: 11
     key_terms: [gambingabacho, good, gpa, definitely, industry, hopeful, making, matter]
+    concepts: [gambingabacho, definitely, industry, hopeful, making]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ppd3na.md#c2"
     char_span: [2789, 3049]
     sentence_count: 1
     key_terms: [matter, "it's", exoduseducation, timewaster50455, goddamnit, attitude, sharpest, stubborn]
+    concepts: [matter]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ppd3na.md#c3"
     char_span: [3051, 4763]
     sentence_count: 15
     key_terms: [gambingabacho, because, traditional, general, getting, process, advice, people]
+    concepts: [gambingabacho, because, traditional, general, getting]
     section: Comments
     token_count: 454
 ---

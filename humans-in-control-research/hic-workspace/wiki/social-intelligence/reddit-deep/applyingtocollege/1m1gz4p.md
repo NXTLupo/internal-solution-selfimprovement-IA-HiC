@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 556]
     sentence_count: 4
     key_terms: [applyingtocollege, application, comments, exotic-enthusiasm727, ultra, dontchuckitup, reddit-deep, a2civilian]
+    concepts: [applyingtocollege, application, comments, ultra]
     token_count: 151
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1m1gz4p/has_anyone_who_applied_for_college_admission_in/"}]
 ---
 # Has anyone who applied for college admission in past application cycles used Ultra AI? How much did it help with your application?
 

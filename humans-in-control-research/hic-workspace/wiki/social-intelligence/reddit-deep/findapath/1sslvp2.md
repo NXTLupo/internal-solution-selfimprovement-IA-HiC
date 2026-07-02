@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1320]
     sentence_count: 8
     key_terms: [data, skills, career, relatively, findapath, analysis, comments, science]
+    concepts: [skills, career, relatively, findapath, analysis]
     token_count: 292
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1sslvp2/class_12th_student_which_career_path_should_i/"}]
   - id: "social-intelligence/reddit-deep/findapath/1sslvp2.md#c1"
     char_span: [1334, 3155]
     sentence_count: 12
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, nursing]
+    concepts: [thank, helpful, please, findapath, comments]
     section: Comments
     token_count: 425
 ---

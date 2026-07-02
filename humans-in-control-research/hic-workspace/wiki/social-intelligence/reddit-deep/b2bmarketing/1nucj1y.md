@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 759]
     sentence_count: 6
     key_terms: [reddit, client, b2bmarketing, here, comments, received, invoice, reddit-deep]
+    concepts: [reddit, b2bmarketing, client, comments, received]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1nucj1y.md#c2"]
     token_count: 176
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1nucj1y/just_received_my_first_client_invoice_through/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1nucj1y.md#c1"
-    char_span: [774, 922]
+    char_span: [773, 921]
     sentence_count: 1
     key_terms: [looking-for-marketing-discussion-811236647760298024, discord, automoderator, community, questions, https, join]
+    concepts: [discord]
     section: Comments
     token_count: 40
   - id: "social-intelligence/reddit-deep/b2bmarketing/1nucj1y.md#c2"
-    char_span: [925, 2887]
+    char_span: [924, 2886]
     sentence_count: 11
     key_terms: [reddit, congrats, client, couple, here, real, invoices, channel]
+    concepts: [reddit, congrats, client, couple, invoices]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1nucj1y.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/b2bmarketing/1nucj1y.md#c3"
-    char_span: [2620, 4549]
+    char_span: [2619, 4548]
     sentence_count: 14
     key_terms: [conversations, people, thanks, chunkysunshine, asking, find, contribute, naturally]
+    concepts: [conversations, people, thanks, chunkysunshine, asking]
     section: Comments
     token_count: 458
 ---

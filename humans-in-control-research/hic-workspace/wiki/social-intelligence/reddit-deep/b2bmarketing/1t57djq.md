@@ -20,23 +20,32 @@ chunks:
     char_span: [0, 1805]
     sentence_count: 20
     key_terms: [linkedin, seo, business, personal, b2bmarketing, trade, been, help]
+    concepts: [linkedin, business, personal, b2bmarketing, trade]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1t57djq.md#c1", "social-intelligence/reddit-deep/b2bmarketing/1t57djq.md#c2"]
     token_count: 389
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1t57djq/im_so_lost_maybe_i_shouldnt_have_come_back_to/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1t57djq.md#c1"
-    char_span: [1820, 4055]
+    char_span: [1819, 4054]
     sentence_count: 13
     key_terms: [shows, looking-for-marketing-discussion-811236647760298024, people, marketing, b2b, linkedin, personal, manufacturers]
+    concepts: [shows, people, marketing, linkedin, personal]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1t57djq.md#c0", "social-intelligence/reddit-deep/b2bmarketing/1t57djq.md#c3"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/b2bmarketing/1t57djq.md#c2"
-    char_span: [4060, 6327]
+    char_span: [4059, 6326]
     sentence_count: 24
     key_terms: ["don't", business, personal, sometimes, trade, look, linkedin, polished]
+    concepts: [business, personal, "don't", sometimes, trade]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1t57djq.md#c0"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/b2bmarketing/1t57djq.md#c3"
-    char_span: [6329, 8511]
+    char_span: [6328, 8510]
     sentence_count: 20
     key_terms: [b2b, marketing, need, linkedin, outreach, "you're", operational, give]
+    concepts: [marketing, linkedin, outreach, "you're", operational]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1t57djq.md#c1"]
     section: Comments
     token_count: 483
 ---

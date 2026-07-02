@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 368]
     sentence_count: 1
     key_terms: [anthropic, comments, portkey, claude, prompt, system, code, reddit-deep]
+    concepts: [anthropic, comments, portkey, claude, prompt]
     token_count: 99
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1ma2ccg/claude_code_full_system_prompt/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1ma2ccg.md#c1"
     char_span: [382, 2308]
     sentence_count: 10
     key_terms: [claude, system, prompts, https, using, api, code, absolutely]
+    concepts: [claude, system, prompts, absolutely, https]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1ma2ccg.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/anthropic/1ma2ccg.md#c2"
     char_span: [2112, 3089]
     sentence_count: 3
     key_terms: [prompts, leaked-system-prompts, system, lesterpaintstheworld, good, own, repo, redblackcanary]
+    concepts: [prompts, system]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1ma2ccg.md#c1"]
     section: Comments
     token_count: 271
 ---

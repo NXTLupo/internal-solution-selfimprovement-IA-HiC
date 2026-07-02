@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2164]
     sentence_count: 3
     key_terms: [month, trading, friends, strategy, careerguidance, months, job, june]
+    concepts: [month, trading, friends, strategy, careerguidance]
     token_count: 523
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1spa2s8/final_year_engineering_student_torn_between_ml/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1spa2s8.md#c1"
     char_span: [2166, 4003]
     sentence_count: 18
     key_terms: [real, trading, market, months, build, money, accuracy, strategy]
+    concepts: [trading, market, months, build, money]
     section: Comments
     token_count: 399
 ---

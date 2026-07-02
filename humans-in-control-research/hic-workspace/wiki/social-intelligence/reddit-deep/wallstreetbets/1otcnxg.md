@@ -21,46 +21,57 @@ chunks:
     char_span: [0, 2122]
     sentence_count: 5
     key_terms: [tsmc-slowing-monthly-sales-fuel-072623633, com, wallstreetbets, nvidia, semiconductor, https, month, sales]
+    concepts: [tsmc-slowing-monthly-sales-fuel-072623633, wallstreetbets, semiconductor, nvidia, executives]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1otcnxg/tsmcs_october_sales_rose_169_the_slowest_since/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c1"
     char_span: [2124, 3042]
     sentence_count: 4
     key_terms: [tsmc, supplies, inc, executive, qualcomm, company, officer, chief]
+    concepts: [supplies, executive, qualcomm, company, officer]
     token_count: 185
   - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c2"
     char_span: [3056, 4090]
     sentence_count: 2
     key_terms: [revenue, record, jayarlington, https, because, discord, matter, months]
+    concepts: [revenue, jayarlington, record, https, because]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c3"
     char_span: [4092, 5270]
     sentence_count: 4
     key_terms: [bubble, growing, horizon, inside, weird, simultaneously, trigganomatroy, consequences]
+    concepts: [bubble, growing, horizon, inside, weird]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c4"
     char_span: [5272, 7401]
     sentence_count: 11
     key_terms: [growth, rate, acceleration, going, analysts, quarters, because, company]
+    concepts: [growth, acceleration, going, analysts, quarters]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c5"
     char_span: [7147, 8190]
     sentence_count: 5
     key_terms: [growth, acceleration, company, dollar, priced, banned3rdtimesacharm, dramaticdirection292, grows]
+    concepts: [growth, acceleration, company, dollar, priced]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c4"]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c6"
     char_span: [8192, 10229]
     sentence_count: 12
     key_terms: [growth, economic, nothing, bubble, unsustainable, productivity, hype, sentiment]
+    concepts: [growth, economic, unsustainable, nothing, productivity]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c7"
     char_span: [10231, 11970]
     sentence_count: 5
     key_terms: [new-daikon-5648, tsmc, companies, earnings, revenues, market, valued, homeless-coward-2143]
+    concepts: [new-daikon-5648, companies, earnings, revenues, market]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c8"
@@ -73,6 +84,7 @@ chunks:
     char_span: [12119, 13614]
     sentence_count: 13
     key_terms: [tesla, javimoran, something, someone, growth, optimal-interview902, thiskarmalimitsucks, burry]
+    concepts: [tesla, javimoran, something, someone, growth]
     section: Comments
     token_count: 410
 ---

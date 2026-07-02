@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 754]
     sentence_count: 7
     key_terms: [managers, team, comments, "they're", member, help, need, back-to-back]
+    concepts: [managers, comments, "they're", member]
     token_count: 178
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1maw95e/fellow_managers_need_your_perspective_on_a_tool/"}]
   - id: "social-intelligence/reddit-deep/managers/1maw95e.md#c1"
     char_span: [768, 2180]
     sentence_count: 13
     key_terms: [meeting, dented-spoiler, daily, scrum, impediments, time, software, someone]
+    concepts: [meeting, dented-spoiler, impediments, daily, scrum]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/managers/1maw95e.md#c2"
     char_span: [2182, 4176]
     sentence_count: 19
     key_terms: [problems, something, big, team, problem, project, member, urgent]
+    concepts: [problems, something, problem, project, member]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/managers/1maw95e.md#c3"
     char_span: [4178, 5344]
     sentence_count: 13
     key_terms: [team, coordination, culture, forsaken-suspect-793, chaos, did, feel, "it's"]
+    concepts: [coordination, culture, chaos]
     section: Comments
     token_count: 281
 ---

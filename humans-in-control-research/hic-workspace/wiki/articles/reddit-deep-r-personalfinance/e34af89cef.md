@@ -18,11 +18,16 @@ chunks:
     char_span: [0, 1658]
     sentence_count: 8
     key_terms: [savings, credit, card, debt, problem, pay, personalfinance, "you're"]
+    concepts: [savings, credit, problem, personalfinance, over-spending]
+    related_chunks: ["articles/reddit-deep-r-personalfinance/e34af89cef.md#c1"]
     token_count: 398
+    sources: [{"n":"Reddit Deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1s2gc84/should_i_wipe_out_my_credit_card_debt_or_keep/"}]
   - id: "articles/reddit-deep-r-personalfinance/e34af89cef.md#c1"
     char_span: [1660, 3804]
     sentence_count: 13
     key_terms: [savings, credit, interest, spending, debt, without, emergency, card]
+    concepts: [savings, credit, interest, spending, without]
+    related_chunks: ["articles/reddit-deep-r-personalfinance/e34af89cef.md#c0"]
     token_count: 479
 ---
 # Should I wipe out my credit card debt or keep money in savings?

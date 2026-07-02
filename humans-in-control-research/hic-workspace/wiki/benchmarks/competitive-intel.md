@@ -14,35 +14,46 @@ chunks:
     char_span: [0, 436]
     sentence_count: 3
     key_terms: [intelligence, competitive, benchmarks, intelligence-to-action, cross-referenced, corresponding, effectiveness, quantitative]
+    concepts: [intelligence, competitive, benchmarks]
+    related_chunks: ["benchmarks/competitive-intel.md#c1", "benchmarks/competitive-intel.md#c2", "benchmarks/competitive-intel.md#c3", "benchmarks/competitive-intel.md#c4"]
     token_count: 80
   - id: "benchmarks/competitive-intel.md#c1"
     char_span: [472, 1451]
     sentence_count: 1
     key_terms: [intelligence, competitive, data, organizations, benchmarks, confidence, cross-refs, frameworks]
+    concepts: [intelligence, competitive, organizations, benchmarks, confidence]
+    related_chunks: ["benchmarks/competitive-intel.md#c0", "benchmarks/competitive-intel.md#c2", "benchmarks/competitive-intel.md#c3", "benchmarks/competitive-intel.md#c4"]
     section: "CI Program Adoption & Maturity"
     token_count: 243
   - id: "benchmarks/competitive-intel.md#c2"
     char_span: [1475, 2817]
     sentence_count: 1
     key_terms: [win, loss, data, competitive, benchmarks, confidence, cross-refs, hypothesis]
+    concepts: [competitive, benchmarks, confidence, cross-refs, hypothesis]
+    related_chunks: ["benchmarks/competitive-intel.md#c0", "benchmarks/competitive-intel.md#c1", "benchmarks/competitive-intel.md#c3", "benchmarks/competitive-intel.md#c4"]
     section: Win/Loss Analysis
     token_count: 344
   - id: "benchmarks/competitive-intel.md#c3"
     char_span: [2861, 3717]
     sentence_count: 1
     key_terms: [competitive, battlecards, data, sales, battlecard, benchmarks, confidence, cross-refs]
+    concepts: [competitive, battlecards, battlecard, benchmarks, confidence]
+    related_chunks: ["benchmarks/competitive-intel.md#c0", "benchmarks/competitive-intel.md#c1", "benchmarks/competitive-intel.md#c2", "benchmarks/competitive-intel.md#c4"]
     section: "Competitive Positioning & Battlecards"
     token_count: 216
   - id: "benchmarks/competitive-intel.md#c4"
     char_span: [3757, 5164]
     sentence_count: 1
     key_terms: [intelligence, competitive, data, benchmarks, confidence, cross-refs, hypothesis, research]
+    concepts: [intelligence, competitive, benchmarks, confidence, cross-refs]
+    related_chunks: ["benchmarks/competitive-intel.md#c0", "benchmarks/competitive-intel.md#c1", "benchmarks/competitive-intel.md#c2", "benchmarks/competitive-intel.md#c3"]
     section: "Intelligence Timeliness & Sharing"
     token_count: 339
   - id: "benchmarks/competitive-intel.md#c5"
     char_span: [5187, 6276]
     sentence_count: 9
     key_terms: [research, figures, benchmarking, independent, data, crayon, market, verify]
+    concepts: [research, figures, benchmarking, independent, crayon]
     section: Validation Notes
     token_count: 225
 ---

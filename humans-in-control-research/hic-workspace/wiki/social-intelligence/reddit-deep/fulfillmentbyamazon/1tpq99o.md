@@ -20,48 +20,60 @@ chunks:
     char_span: [0, 2010]
     sentence_count: 15
     key_terms: [fulfillmentbyamazon, comments, "i'm", amazon, figure, needed, reddit, https]
+    concepts: [fulfillmentbyamazon, comments, amazon, figure, needed]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1tpq99o/my_brand_used_to_do_8figures_with_healthy_profits/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tpq99o.md#c1"
     char_span: [2012, 3712]
     sentence_count: 10
     key_terms: [containers, fees, inventory, placement, figure, expensive, stories, amazon]
+    concepts: [containers, inventory, placement, figure, expensive]
     token_count: 386
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tpq99o.md#c2"
     char_span: [3714, 6036]
     sentence_count: 19
     key_terms: [increase, pricing, conversion, because, product, amazon, price, competition]
+    concepts: [increase, pricing, conversion, because, product]
     token_count: 511
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tpq99o.md#c3"
     char_span: [6038, 8082]
     sentence_count: 14
     key_terms: [videos, shot, gemini, messaging, get, time, listings, shots]
+    concepts: [videos, gemini, messaging, listings, infographic]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1tpq99o.md#c4"]
     token_count: 444
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tpq99o.md#c4"
     char_span: [8084, 10048]
     sentence_count: 21
     key_terms: [video, campaigns, ppc, helped, videos, listings, product, "don't"]
+    concepts: [video, campaigns, helped, videos, listings]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1tpq99o.md#c3"]
     token_count: 463
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tpq99o.md#c5"
     char_span: [10050, 10511]
     sentence_count: 7
     key_terms: [video, bad, competitive, destroying, launched, products, retainer, flopped]
+    concepts: [video]
     token_count: 115
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tpq99o.md#c6"
-    char_span: [10526, 12546]
+    char_span: [10525, 12545]
     sentence_count: 19
     key_terms: [granto, fulfillmentbyamazon, post, discord, awd, fba, like, appreciate]
+    concepts: [fulfillmentbyamazon, granto, discord, appreciate, modifiers]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tpq99o.md#c7"
-    char_span: [12548, 14325]
+    char_span: [12547, 14324]
     sentence_count: 17
     key_terms: [product, bid, amount, here, ppc, aggregator, different, agencies]
+    concepts: [product, amount, aggregator, different, agencies]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tpq99o.md#c8"
-    char_span: [14327, 16078]
+    char_span: [14326, 16077]
     sentence_count: 17
     key_terms: [brand, did, great, thank, post, approach, people, video]
+    concepts: [brand, great, thank, approach, people]
     section: Comments
     token_count: 416
 ---

@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 1673]
     sentence_count: 6
     key_terms: [exams, oral, artificial, educators, platforms, comments, benefit, chatgpt]
+    concepts: [exams, artificial, educators, platforms, comments]
     token_count: 355
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1pkwtpo/professors_are_turning_to_this_oldschool_method/"}]
   - id: "social-intelligence/reddit-deep/artificial/1pkwtpo.md#c1"
     char_span: [1687, 3447]
     sentence_count: 10
     key_terms: [students, education, information, deeply, system, reveal, teachers, teaching]
+    concepts: [students, education, information, deeply, system]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/artificial/1pkwtpo.md#c2"
     char_span: [3449, 5380]
     sentence_count: 1
     key_terms: [competence, highschool, time, knowledge, obedience, dictated, relative, students]
+    concepts: [competence, highschool, knowledge, obedience, dictated]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/artificial/1pkwtpo.md#c3"
     char_span: [5382, 7113]
     sentence_count: 6
     key_terms: [ai-artificial-intelligence-college-oral-exam, https, silent-resort-3076, education, washingtonpost, pixelpionerd, scale, unpaywalled]
+    concepts: [ai-artificial-intelligence-college-oral-exam, silent-resort-3076, education, https, washingtonpost]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1pkwtpo.md#c4"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/artificial/1pkwtpo.md#c4"
     char_span: [7115, 8685]
     sentence_count: 8
     key_terms: [ai-artificial-intelligence-college-oral-exam, https, students, washingtonpost, understanding, memorization, university, education]
+    concepts: [ai-artificial-intelligence-college-oral-exam, https, students, washingtonpost, understanding]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1pkwtpo.md#c3"]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/artificial/1pkwtpo.md#c5"
     char_span: [8687, 10170]
     sentence_count: 7
     key_terms: [themrcurious, questions, dashingthroughsnow12, never, been, lot, nds, oral]
+    concepts: [themrcurious, questions, never]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/artificial/1pkwtpo.md#c6"
     char_span: [10172, 11254]
     sentence_count: 3
     key_terms: [because, themrcurious, oral, autistic, representativebarber, silent-resort-3076, talk, accommodation]
+    concepts: [because, themrcurious, autistic]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/artificial/1pkwtpo.md#c7"
     char_span: [11256, 12259]
     sentence_count: 7
     key_terms: [too, handwritten, pen, remaining, pens, work, impatience, photograph]
+    concepts: [handwritten, remaining]
     section: Comments
     token_count: 256
 ---

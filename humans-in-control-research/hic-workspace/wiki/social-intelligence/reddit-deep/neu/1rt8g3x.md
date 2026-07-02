@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 944]
     sentence_count: 11
     key_terms: [london, scholars, international, experience, currently, expensive, wondering, comments]
+    concepts: [london, scholars, international, experience, currently]
     token_count: 224
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rt8g3x/just_got_in_for_london_scholars_can_anyone_share/"}]
 ---
 # just got in for london scholars, can anyone share their experience?
 

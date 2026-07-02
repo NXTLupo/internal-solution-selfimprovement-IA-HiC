@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 2058]
     sentence_count: 17
     key_terms: [academic, students, because, university, using, time, however, worry]
+    concepts: [academic, students, because, university, using]
     token_count: 445
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1thlvto/navigating_universityacademia_without_using_ai/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1thlvto.md#c1"
     char_span: [2072, 4294]
     sentence_count: 11
     key_terms: [novel, llms, correct, erdosproblems, interesting, maintainer, references, abilities]
+    concepts: [novel, erdosproblems, correct, interesting, maintainer]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/askacademia/1thlvto.md#c2"
     char_span: [4300, 5317]
     sentence_count: 8
     key_terms: [writing, read, comments, develop, reading, results, reddit, https]
+    concepts: [writing, comments, develop, reading, results]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/askacademia/1thlvto.md#c3"
     char_span: [5319, 7241]
     sentence_count: 20
     key_terms: [others, field, research, student, like, look, probably, yourself]
+    concepts: [others, field, research, student, probably]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/askacademia/1thlvto.md#c4"
     char_span: [7243, 9146]
     sentence_count: 17
     key_terms: [research, supervisor, use, yourself, wrong, expectation, opinion, program]
+    concepts: [research, supervisor, yourself, expectation, wrong]
     section: Comments
     token_count: 435
 ---

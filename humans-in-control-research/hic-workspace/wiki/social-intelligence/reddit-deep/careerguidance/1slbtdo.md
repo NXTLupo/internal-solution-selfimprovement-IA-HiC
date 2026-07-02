@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2214]
     sentence_count: 26
     key_terms: [considering, taking, law, year, college, careerguidance, years, engineering]
+    concepts: [considering, taking, careerguidance, college, engineering]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1slbtdo/taking_a_gap_year_patent_law_lsat_prep/"}]
 ---
 # Taking a Gap year, Patent law LSAT prep?
 

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 361]
     sentence_count: 2
     key_terms: [careerguidance, comments, substantial-peace588, recommendations, certification, reddit-deep, placement, complete]
+    concepts: [careerguidance, comments]
     token_count: 95
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sd9aj6/i_am_looking_for_a_complete_ai_learning_path_with/"}]
 ---
 # I am looking for a complete AI learning path with training, certification, and job placement - Any recommendations ?
 

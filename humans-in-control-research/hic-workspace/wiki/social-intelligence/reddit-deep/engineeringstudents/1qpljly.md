@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 374]
     sentence_count: 1
     key_terms: [engineeringstudents, comments, student, away-prune6880, engineering, internships, reddit-deep, mechanical]
+    concepts: [engineeringstudents, comments, student]
     token_count: 91
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qpljly/student_second_year_mechanical_engineering/"}]
 ---
 # [Student] Second year mechanical engineering student looking for feedback/advice on resume (currently applying to internships/coops)
 

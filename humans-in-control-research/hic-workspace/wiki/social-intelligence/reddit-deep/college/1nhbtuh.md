@@ -19,41 +19,52 @@ chunks:
     char_span: [0, 1656]
     sentence_count: 12
     key_terms: [math, degree, class, college, school, keep, like, currently]
+    concepts: [degree, class, college, school, currently]
     token_count: 383
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1nhbtuh/i_cannot_complete_my_math_course_and_i_think_it/"}]
   - id: "social-intelligence/reddit-deep/college/1nhbtuh.md#c1"
     char_span: [1670, 3874]
     sentence_count: 16
     key_terms: [formulas, math, problems, rather, unfortunately, solve, take, time]
+    concepts: [formulas, problems, unfortunately, rather, repeatedly]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/college/1nhbtuh.md#c2"
     char_span: [3876, 5627]
     sentence_count: 14
     key_terms: [like, formulas, get, math, try, practice, formula, problem]
+    concepts: [formulas, practice, formula, problem, through]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nhbtuh.md#c5", "social-intelligence/reddit-deep/college/1nhbtuh.md#c6"]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/college/1nhbtuh.md#c3"
     char_span: [5629, 7592]
     sentence_count: 17
     key_terms: ["you're", problem, understand, solution, doing, "it's", math, confusion]
+    concepts: ["you're", problem, understand, solution, doing]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/college/1nhbtuh.md#c4"
     char_span: [7594, 8307]
     sentence_count: 12
     key_terms: [college-algebra-mat-117, college, options, course, asu, pay, therealmiridion, cybersecurity]
+    concepts: [college, options, course]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/college/1nhbtuh.md#c5"
     char_span: [8309, 10468]
     sentence_count: 22
     key_terms: [math, formula, write, formulas, recommendation, work, semester, because]
+    concepts: [formula, write, formulas, recommendation, semester]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nhbtuh.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1nhbtuh.md#c6"
     char_span: [10184, 10853]
     sentence_count: 3
     key_terms: [problem, through, helped, right, "i'm", classic-lie7836, statistics, attending]
+    concepts: [problem, through, helped, right]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nhbtuh.md#c2"]
     section: Comments
     token_count: 153
 ---

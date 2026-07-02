@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 635]
     sentence_count: 2
     key_terms: [college, careerguidance, comments, guy, help, path, reddit-deep, criticism]
+    concepts: [college, careerguidance, comments]
     token_count: 158
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1s2fatf/need_help_deciding_college_and_career_path_pcm/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1s2fatf.md#c1"
     char_span: [649, 1135]
     sentence_count: 2
     key_terms: [college, "you're", internships, contribute, especially, experience, concerned, genuinely]
+    concepts: [college, "you're"]
     section: Comments
     token_count: 115
 ---

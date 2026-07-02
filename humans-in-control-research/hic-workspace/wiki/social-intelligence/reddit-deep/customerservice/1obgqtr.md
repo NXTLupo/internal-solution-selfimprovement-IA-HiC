@@ -17,14 +17,17 @@ research_goal: "Generate a comprehensive product marketing report for NXT Humans
 engagement: "generate-a-comprehensive-product-marketing-report-for-nxt-hu"
 chunks:
   - id: "social-intelligence/reddit-deep/customerservice/1obgqtr.md#c0"
-    char_span: [0, 2080]
+    char_span: [0, 2079]
     sentence_count: 17
     key_terms: [brand, ltvplus, customerservice, shopify, small, outsourcing, partnerhero, comments]
-    token_count: 459
+    concepts: [brand, ltvplus, customerservice, shopify, outsourcing]
+    token_count: 458
+    sources: [{"n":"reddit-deep: r/customerservice","u":"https://www.reddit.com/r/CustomerService/comments/1obgqtr/im_a_small_dtc_brand_owner_honest_review_of_3/"}]
   - id: "social-intelligence/reddit-deep/customerservice/1obgqtr.md#c1"
-    char_span: [2082, 3941]
+    char_span: [2081, 3940]
     sentence_count: 13
     key_terms: [supportninja, partnerhero, feel, quality, strong, professional, value, best]
+    concepts: [supportninja, partnerhero, quality, professional, strong]
     token_count: 387
 ---
 # I’m a small DTC brand owner — honest review of 3 customer-service outsourcing partners i’ve used

@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 521]
     sentence_count: 2
     key_terms: [data, dataengineering, analytics, real-time, comments, modern, majestic-fig3921, engineering]
+    concepts: [dataengineering, analytics, real-time, comments, modern]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1sqfzvp.md#c1"]
     token_count: 117
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1sqfzvp/how_are_you_building_modern_data_engineering/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1sqfzvp.md#c1"
-    char_span: [536, 2362]
+    char_span: [535, 2361]
     sentence_count: 14
     key_terms: [data, real-time, need, analytics, companies, external, internal, account]
+    concepts: [real-time, analytics, companies, external, internal]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1sqfzvp.md#c0"]
     section: Comments
     token_count: 423
 ---

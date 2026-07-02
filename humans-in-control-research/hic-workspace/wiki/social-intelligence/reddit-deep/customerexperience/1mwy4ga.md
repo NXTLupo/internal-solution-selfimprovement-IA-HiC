@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 895]
     sentence_count: 6
     key_terms: [businesses, customerexperience, experience, improving, comments, customer, cryrevolutionary7536, small]
+    concepts: [customerexperience, businesses, experience, improving, comments]
     token_count: 190
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1mwy4ga/how_are_small_businesses_actually_improving/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1mwy4ga.md#c1"
-    char_span: [910, 3118]
+    char_span: [909, 3117]
     sentence_count: 13
     key_terms: [businesses, small, customer, automation, simple, like, lot, customers]
+    concepts: [businesses, customer, small, automation, simple]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/customerexperience/1mwy4ga.md#c2"
-    char_span: [3120, 4894]
+    char_span: [3119, 4893]
     sentence_count: 16
     key_terms: [experience, customer, big, like, difference, everything, customers, something]
+    concepts: [experience, customer, difference, everything, customers]
     section: Comments
     token_count: 382
 ---

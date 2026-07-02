@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1020]
     sentence_count: 7
     key_terms: [applyingtocollege, extracurriculars, overwhelming, application, comments, showcase, college, without]
+    concepts: [applyingtocollege, extracurriculars, overwhelming, application, comments]
     token_count: 220
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1pq1mii/how_can_i_best_showcase_my_extracurriculars_in_my/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pq1mii.md#c1"
     char_span: [1034, 2512]
     sentence_count: 14
     key_terms: [activities, common, instructions, significance, "don't", app, character, specific]
+    concepts: [activities, instructions, significance, common, "don't"]
     section: Comments
     token_count: 327
 ---

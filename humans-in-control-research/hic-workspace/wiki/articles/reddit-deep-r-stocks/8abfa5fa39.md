@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1994]
     sentence_count: 16
     key_terms: [bill, like, earnings, stocks, trump, permanent, probably, because]
+    concepts: [earnings, stocks, trump, permanent, probably]
     token_count: 453
+    sources: [{"n":"Reddit Deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1l5vyh4/earnings_up_yields_up_is_trumps_3t_bill_a_bull/"}]
   - id: "articles/reddit-deep-r-stocks/8abfa5fa39.md#c1"
     char_span: [1996, 4132]
     sentence_count: 11
     key_terms: [stocks, market, please, "you're", here, off-topic, political, earnings]
+    concepts: [stocks, market, please, "you're", off-topic]
     token_count: 463
   - id: "articles/reddit-deep-r-stocks/8abfa5fa39.md#c2"
     char_span: [4134, 5242]
     sentence_count: 12
     key_terms: [goebbels, people, flood, zone, striking-money-7792, party, pizza, uncriticalthinking]
+    concepts: [goebbels, people, flood, party, pizza]
     token_count: 278
 ---
 # Earnings up, yields up   is Trump’s $3T bill a bull trap in disguise?

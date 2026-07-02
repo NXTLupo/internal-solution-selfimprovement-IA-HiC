@@ -20,41 +20,54 @@ chunks:
     char_span: [0, 2050]
     sentence_count: 16
     key_terms: [damage, insurance, adjuster, car, claim, investigation, accident, allstate]
+    concepts: [damage, insurance, adjuster, claim, investigation]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1oik70z.md#c2", "social-intelligence/reddit-deep/insurance/1oik70z.md#c4", "social-intelligence/reddit-deep/insurance/1oik70z.md#c5", "social-intelligence/reddit-deep/insurance/1oik70z.md#c6"]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1oik70z/my_claim_was_sent_to_a_special_investigator/"}]
   - id: "social-intelligence/reddit-deep/insurance/1oik70z.md#c1"
-    char_span: [2065, 3122]
+    char_span: [2064, 3121]
     sentence_count: 9
     key_terms: [damage, siu, lovedr4fun, cooperate, computer, footage, exact, fully]
+    concepts: [damage, lovedr4fun, cooperate, computer, footage]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/insurance/1oik70z.md#c2"
-    char_span: [3124, 5119]
+    char_span: [3123, 5118]
     sentence_count: 8
     key_terms: [damage, photos, free-primary-3230, car, claim, cover, prior, here]
+    concepts: [damage, free-primary-3230, photos, claim, cover]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1oik70z.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/insurance/1oik70z.md#c3"
-    char_span: [4839, 5304]
+    char_span: [4838, 5303]
     sentence_count: 2
     key_terms: [damages, claim, car, "i'm", investigated, itsnotmyid4, collision, witnesses]
+    concepts: [damages, claim]
     section: Comments
     token_count: 114
   - id: "social-intelligence/reddit-deep/insurance/1oik70z.md#c4"
-    char_span: [5306, 7436]
+    char_span: [5305, 7435]
     sentence_count: 16
     key_terms: [photos, insurance, adjuster, request, conversation, car, siu, conjured]
+    concepts: [photos, insurance, adjuster, request, conversation]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1oik70z.md#c0"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/insurance/1oik70z.md#c5"
-    char_span: [7438, 9500]
+    char_span: [7437, 9499]
     sentence_count: 18
     key_terms: [damage, process, misunderstanding, insuranceguynyc, investigation, prior, car, case]
+    concepts: [damage, process, misunderstanding, insuranceguynyc, investigation]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1oik70z.md#c0"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/insurance/1oik70z.md#c6"
-    char_span: [9502, 11105]
+    char_span: [9501, 11104]
     sentence_count: 12
     key_terms: [insurance, get, escalation, something, ektap12, damage, review, loud-improvement3632]
+    concepts: [insurance, escalation, something, ektap12, damage]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1oik70z.md#c0"]
     section: Comments
     token_count: 386
 ---

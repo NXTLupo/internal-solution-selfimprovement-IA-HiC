@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1765]
     sentence_count: 11
     key_terms: [cloud, bangalore, gcp, training, careerguidance, google, especially, comments]
+    concepts: [bangalore, cloud, training, careerguidance, google]
     token_count: 380
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1lcq7k9/is_learning_google_cloud_platform_gcp_a_good/"}]
 ---
 # Is Learning Google Cloud Platform (GCP) a Good Career Move in 2025 for IT Students in  Bangalore ?
 

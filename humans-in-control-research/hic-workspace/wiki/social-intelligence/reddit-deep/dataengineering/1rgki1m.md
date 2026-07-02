@@ -20,41 +20,51 @@ chunks:
     char_span: [0, 717]
     sentence_count: 7
     key_terms: [dataengineering, comments, writing, counts, teams, tests, mountain-crow-5345, data]
+    concepts: [dataengineering, comments, writing, counts, teams]
     token_count: 172
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1rgki1m/what_is_actually_stopping_teams_from_writing_more/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1rgki1m.md#c1"
-    char_span: [732, 2409]
+    char_span: [731, 2408]
     sentence_count: 13
     key_terms: [data, tests, testing, don, collecting, something, professioncrazy2947, back]
+    concepts: [tests, testing, collecting, something]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1rgki1m.md#c3"]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/dataengineering/1rgki1m.md#c2"
-    char_span: [2411, 4193]
+    char_span: [2410, 4192]
     sentence_count: 12
     key_terms: [data, mountain-crow-5345, exactly, datakitchen, co-founded, happened, meeting, problem]
+    concepts: [mountain-crow-5345, exactly, datakitchen, co-founded, happened]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/dataengineering/1rgki1m.md#c3"
-    char_span: [4195, 6294]
+    char_span: [4194, 6293]
     sentence_count: 18
     key_terms: [tests, critical, pipeline, stop, "you're", test, fail, something]
+    concepts: [tests, critical, pipeline, "you're", something]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1rgki1m.md#c1"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/dataengineering/1rgki1m.md#c4"
-    char_span: [6296, 8018]
+    char_span: [6295, 8017]
     sentence_count: 13
     key_terms: [validation, data, tests, time, because, expensive, integrity, fixtures]
+    concepts: [validation, tests, because, expensive, integrity]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/dataengineering/1rgki1m.md#c5"
-    char_span: [8020, 10200]
+    char_span: [8019, 10199]
     sentence_count: 17
     key_terms: [tests, data, better, new, compares, expected, products, product]
+    concepts: [tests, better, compares, expected, products]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/dataengineering/1rgki1m.md#c6"
-    char_span: [10202, 11832]
+    char_span: [10201, 11831]
     sentence_count: 13
     key_terms: [data, code, like, did, test, expected, balance, changes]
+    concepts: [expected, balance, changes, realize, format]
     section: Comments
     token_count: 381
 ---

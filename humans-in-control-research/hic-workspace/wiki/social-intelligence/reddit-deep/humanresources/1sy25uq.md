@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1014]
     sentence_count: 7
     key_terms: [humanresources, travel, singapore, comments, continue, involve, people, inner-appearance-602]
+    concepts: [humanresources, travel, singapore, comments, continue]
     token_count: 247
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1sy25uq/jobs_in_hr_that_involve_travel_na/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1sy25uq.md#c1"
     char_span: [1028, 2929]
     sentence_count: 12
     key_terms: [travel, work, company, campus, people, "you're", international, local]
+    concepts: [travel, international, company, campus, people]
     section: Comments
     token_count: 469
 ---

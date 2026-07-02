@@ -20,22 +20,29 @@ chunks:
     char_span: [0, 2265]
     sentence_count: 15
     key_terms: [conversations, been, support, tickets, customer, because, started, review]
+    concepts: [conversations, support, tickets, customer, because]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tuan86.md#c2"]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1tuan86/we_stopped_trying_to_replace_support_agents_with/"}]
   - id: "social-intelligence/reddit-deep/startups/1tuan86.md#c1"
     char_span: [2267, 3029]
     sentence_count: 7
     key_terms: [chatbot, analysis, support, anyone, volume, need, conversations, frustration]
+    concepts: [chatbot, analysis, support, anyone, volume]
     token_count: 164
   - id: "social-intelligence/reddit-deep/startups/1tuan86.md#c2"
-    char_span: [3044, 5240]
+    char_span: [3043, 5239]
     sentence_count: 10
     key_terms: [support, n8n, chat, gpt, claude, custom, "it's", human]
+    concepts: [support, claude, custom, human, customer]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tuan86.md#c0"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/startups/1tuan86.md#c3"
-    char_span: [5242, 6455]
+    char_span: [5241, 6454]
     sentence_count: 6
     key_terms: [support, migrating-customer-query, teams, value, helpscout, analysis, already, impractical-for-people]
+    concepts: [support, migrating-customer-query, teams, value, helpscout]
     section: Comments
     token_count: 253
 ---

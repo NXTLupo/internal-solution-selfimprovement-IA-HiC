@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1240]
     sentence_count: 8
     key_terms: [cscareerquestions, year, backlogs, considering, back, currently, preparing, comments]
+    concepts: [cscareerquestions, backlogs, considering, currently, preparing]
     token_count: 314
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rfvqqt/feeling_lost_in_8th_semester_cs_with_year_back/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rfvqqt.md#c1"
     char_span: [1254, 1808]
     sentence_count: 1

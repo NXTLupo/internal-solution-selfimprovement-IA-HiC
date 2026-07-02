@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 387]
     sentence_count: 3
     key_terms: [applyingtocollege, comments, tangerinekitchen2260, application, reddit-deep, community, olympiads, research]
+    concepts: [applyingtocollege, comments]
     token_count: 107
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1suek94/what_do_you_think_was_the_one_thing_on_your/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1suek94.md#c1"
     char_span: [401, 2070]
     sentence_count: 5
     key_terms: [research, school, suitable-nothing-706, consideration, wrote, significant, ecs, lors]
+    concepts: [research, suitable-nothing-706, school, consideration, significant]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/applyingtocollege/1suek94.md#c2"
     char_span: [2072, 4061]
     sentence_count: 8
     key_terms: [oinkyoinkoinky, didn, got, lors, example, essays, school, wonder]
+    concepts: [oinkyoinkoinky, example, essays, school, wonder]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1suek94.md#c3"
     char_span: [3771, 4891]
     sentence_count: 3
     key_terms: [tangerinekitchen2260, extracurriculars, essays, measurementtop2885, did, got, test, recommendations]
+    concepts: [tangerinekitchen2260, extracurriculars, essays]
     section: Comments
     token_count: 275
   - id: "social-intelligence/reddit-deep/applyingtocollege/1suek94.md#c4"
     char_span: [4916, 6399]
     sentence_count: 6
     key_terms: [competition, tangerinekitchen2260, throwawaygremlins, regeneration, science, school, adventurous-rich-703, essay]
+    concepts: [tangerinekitchen2260, competition, throwawaygremlins, regeneration, science]
     section: Comments
     token_count: 381
 ---

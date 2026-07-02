@@ -20,38 +20,46 @@ chunks:
     char_span: [0, 2135]
     sentence_count: 25
     key_terms: [need, media, ads, "i've", buying, entrepreneur, buyer, been]
+    concepts: [media, entrepreneur, buying, buyer, comments]
     token_count: 473
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1to8mim/65k_with_ai_agents/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1to8mim.md#c1"
     char_span: [2137, 4555]
     sentence_count: 21
     key_terms: [ads, agents, creating, includes, account, create, images, media]
+    concepts: [agents, creating, includes, account, create]
     token_count: 510
   - id: "social-intelligence/reddit-deep/entrepreneur/1to8mim.md#c2"
     char_span: [4557, 6700]
     sentence_count: 31
     key_terms: ["it's", agent, pretty, doing, get, converting, accurate, facebook]
+    concepts: [agent, pretty, converting, doing, accurate]
     token_count: 474
   - id: "social-intelligence/reddit-deep/entrepreneur/1to8mim.md#c3"
     char_span: [6702, 7435]
     sentence_count: 7
     key_terms: ["i'm", accurate, somebody, saying, ads, time, additional, leveraging]
+    concepts: [accurate, somebody, saying]
     token_count: 164
   - id: "social-intelligence/reddit-deep/entrepreneur/1to8mim.md#c4"
-    char_span: [7450, 8256]
+    char_span: [7449, 8255]
     sentence_count: 4
     key_terms: [please, entrepreneur, permanent, promotion, stickied, comment, thread, weekly]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 181
   - id: "social-intelligence/reddit-deep/entrepreneur/1to8mim.md#c5"
-    char_span: [8259, 10239]
+    char_span: [8258, 10238]
     sentence_count: 4
     key_terms: [vvineyard, agent, does, context, memory, back, bot, like]
+    concepts: [vvineyard, agent, context, memory, re-brief]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/entrepreneur/1to8mim.md#c6"
-    char_span: [10008, 11096]
+    char_span: [10007, 11095]
     sentence_count: 4
     key_terms: [vvineyard, accounts, youre, felt, like, time, cybersecurity, autonomously]
+    concepts: [vvineyard, accounts, youre]
     section: Comments
     token_count: 252
 ---

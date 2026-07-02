@@ -21,28 +21,36 @@ chunks:
     char_span: [0, 1932]
     sentence_count: 5
     key_terms: [https, com, news, market, stocks, streetinsider, stockcharts, technical]
+    concepts: [https, market, stocks, streetinsider, stockcharts]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1ser3y1.md#c1"]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1ser3y1/rstocks_daily_discussion_technicals_tuesday_apr/"}]
   - id: "social-intelligence/reddit-deep/stocks/1ser3y1.md#c1"
     char_span: [1934, 2998]
     sentence_count: 1
     key_terms: [reddit, stocks, https, com, www, author, search, indicator]
+    concepts: [reddit, stocks, https, author, search]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1ser3y1.md#c0"]
     token_count: 305
   - id: "social-intelligence/reddit-deep/stocks/1ser3y1.md#c2"
     char_span: [3012, 4154]
     sentence_count: 4
     key_terms: [congress, farrisat, idiot, sheep, fact, plan, dementia-riddled, elgrandorado]
+    concepts: [congress, farrisat, idiot, sheep]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/stocks/1ser3y1.md#c3"
     char_span: [4156, 5719]
     sentence_count: 8
     key_terms: [market, going, something, bullish, "there's", happen, reddit, stocks]
+    concepts: [market, going, something, bullish, "there's"]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/stocks/1ser3y1.md#c4"
     char_span: [5721, 7152]
     sentence_count: 5
     key_terms: [raptorsfan93849, trump, market, reddit, bears, times, empathyfabrication, good]
+    concepts: [raptorsfan93849, trump, market, reddit, bears]
     section: Comments
     token_count: 402
 ---

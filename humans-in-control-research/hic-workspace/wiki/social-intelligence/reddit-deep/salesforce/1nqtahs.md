@@ -20,13 +20,17 @@ chunks:
     char_span: [0, 636]
     sentence_count: 5
     key_terms: [fsc, salesforce, comments, cloud, fraud, bank, seekinghaaaalp, specifically]
+    concepts: [salesforce, comments, cloud, fraud]
     token_count: 156
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1nqtahs/service_cloud_vs_fsc_for_a_banks_dispute_fraud/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1nqtahs.md#c1"
-    char_span: [651, 2899]
+    char_span: [650, 2898]
     sentence_count: 18
     key_terms: [fsc, service, cloud, management, disputes, existing, specific, dispute]
+    concepts: [service, management, cloud, disputes, existing]
     section: Comments
     token_count: 490
+    sources: [{"n":"this is what I do; FINS SFDC architect.","u":""}]
 ---
 # Service Cloud vs FSC for a bank’s dispute / fraud management
 

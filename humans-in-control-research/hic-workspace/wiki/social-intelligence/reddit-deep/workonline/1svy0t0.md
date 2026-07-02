@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 2098]
     sentence_count: 7
     key_terms: [com, psgglobal, teleperformance, mailto, onboardingtpcanada, canada, globalhalloa, felt]
+    concepts: [psgglobal, teleperformance, mailto, onboardingtpcanada, globalhalloa]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/workonline","u":"https://www.reddit.com/r/WorkOnline/comments/1svy0t0/is_this_teleperformance_canada_remote_job_process/"}]
   - id: "social-intelligence/reddit-deep/workonline/1svy0t0.md#c1"
     char_span: [2100, 3237]
     sentence_count: 9
     key_terms: [teleperformance, felt, interview, microsoft, process, cloud, https, video]
+    concepts: [teleperformance, interview, microsoft, process, cloud]
     token_count: 264
   - id: "social-intelligence/reddit-deep/workonline/1svy0t0.md#c2"
     char_span: [3251, 4757]
     sentence_count: 7
     key_terms: [teleperformance, experience, companies, people, ai-techguy001, outsourcing, like, glassdoor]
+    concepts: [teleperformance, experience, companies, ai-techguy001, people]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/workonline/1svy0t0.md#c3"
     char_span: [4759, 5769]
     sentence_count: 6
     key_terms: [address-before-interview, canada, needleworkersmart486, prestigious-drink459, designer-raisin9909, heard, legit, "teleperformance's"]
+    concepts: [canada, heard, legit]
     section: Comments
     token_count: 257
 ---

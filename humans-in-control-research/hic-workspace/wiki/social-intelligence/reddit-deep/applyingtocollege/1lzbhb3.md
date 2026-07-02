@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2151]
     sentence_count: 2
     key_terms: [college, basketball, applyingtocollege, nigerian-american, want, finance, looking, year]
+    concepts: [college, basketball, applyingtocollege, nigerian-american, finance]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1lzbhb3/need_college_career_guidance_nigerianamerican_hs/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lzbhb3.md#c1"
     char_span: [2153, 3610]
     sentence_count: 7
     key_terms: [want, career, work, colleges, internships, ambitious, network, around]
+    concepts: [career, colleges, internships, ambitious, network]
     token_count: 360
 ---
 # Need College & Career Guidance – Nigerian-American HS Student Retaking Junior Year

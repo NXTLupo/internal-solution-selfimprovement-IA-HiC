@@ -19,29 +19,37 @@ chunks:
     char_span: [0, 1503]
     sentence_count: 14
     key_terms: [interview, internships, day, like, questions, comments, leetcode, starting]
+    concepts: [interview, internships, questions, comments, leetcode]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1s2ll3e.md#c2"]
     token_count: 351
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1s2ll3e/amazon_interview_urgent/"}]
   - id: "social-intelligence/reddit-deep/internships/1s2ll3e.md#c1"
     char_span: [1517, 3470]
     sentence_count: 17
     key_terms: [coding, icy-asparagus-7643, dont, like, look, completely, interviews, leadership]
+    concepts: [icy-asparagus-7643, coding, completely, interviews, leadership]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1s2ll3e.md#c2"
     char_span: [3164, 4890]
     sentence_count: 17
     key_terms: [zealousideal-dot9052, stories, mock, leadership, interview, questions, leetcode, question]
+    concepts: [zealousideal-dot9052, stories, leadership, interview, questions]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1s2ll3e.md#c0"]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/internships/1s2ll3e.md#c3"
     char_span: [4892, 6982]
     sentence_count: 20
     key_terms: [icy-asparagus-7643, like, practice, clear-brush7795, sorting, resume, dsa, interview]
+    concepts: [icy-asparagus-7643, clear-brush7795, practice, sorting, resume]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/internships/1s2ll3e.md#c4"
     char_span: [6984, 7637]
     sentence_count: 5
     key_terms: [problems, quick-cantaloupe953, icy-asparagus-7643, complexity, currently, kingques0, remaining, throughly]
+    concepts: [problems]
     section: Comments
     token_count: 158
 ---

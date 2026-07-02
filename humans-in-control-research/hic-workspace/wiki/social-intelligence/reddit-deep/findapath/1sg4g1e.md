@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 1908]
     sentence_count: 23
     key_terms: [hours, skills, assignments, week, work, zero, currently, findapath]
+    concepts: [hours, skills, assignments, currently, findapath]
     token_count: 474
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1sg4g1e/wasted_4_years_of_college_in_survival_mode_dec/"}]
   - id: "social-intelligence/reddit-deep/findapath/1sg4g1e.md#c1"
     char_span: [1910, 2818]
     sentence_count: 12
     key_terms: [job, want, myself, strong, since, tired, gig, hard]
+    concepts: [myself, strong, since, tired]
     token_count: 225
   - id: "social-intelligence/reddit-deep/findapath/1sg4g1e.md#c2"
     char_span: [2832, 4311]
     sentence_count: 10
     key_terms: [thank, helpful, please, help, findapath, comments, everyone, guidance]
+    concepts: [thank, helpful, please, findapath, comments]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/findapath/1sg4g1e.md#c3"
     char_span: [4315, 6249]
     sentence_count: 21
     key_terms: [gpa, build, degree, fundamentals, opportunity, like, principles, employer]
+    concepts: [build, fundamentals, degree, opportunity, principles]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/findapath/1sg4g1e.md#c4"

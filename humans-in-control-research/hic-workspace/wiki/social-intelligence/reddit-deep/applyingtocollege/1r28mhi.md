@@ -19,39 +19,49 @@ chunks:
     char_span: [0, 2219]
     sentence_count: 18
     key_terms: [stanford, hopkins, johns, opportunity, brown, applyingtocollege, choice, family]
+    concepts: [stanford, hopkins, johns, opportunity, applyingtocollege]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1r28mhi.md#c3"]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1r28mhi/i_chose_stanford_over_brown_plme_and_johns/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r28mhi.md#c1"
     char_span: [2221, 3986]
     sentence_count: 16
     key_terms: [stanford, classes, world, proximity, powerful, people, computer, employed]
+    concepts: [stanford, classes, proximity, world, powerful]
     token_count: 354
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r28mhi.md#c2"
     char_span: [3988, 5583]
     sentence_count: 10
     key_terms: [stanford, outcomes, extraordinary, "don't", been, "i've", issues, people]
+    concepts: [stanford, outcomes, extraordinary, "don't", issues]
     token_count: 320
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r28mhi.md#c3"
     char_span: [5597, 7879]
     sentence_count: 18
     key_terms: [stanford, recognized, because, hopkins, school, opportunities, brown, connections]
+    concepts: [stanford, recognized, opportunities, because, hopkins]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1r28mhi.md#c0"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r28mhi.md#c4"
     char_span: [7881, 10092]
     sentence_count: 17
     key_terms: [stanford, intellectual, communities, connections, people, away-huckleberry1411, college, coast]
+    concepts: [stanford, intellectual, away-huckleberry1411, communities, connections]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r28mhi.md#c5"
     char_span: [9865, 11708]
     sentence_count: 12
     key_terms: [stanford, school, motivated, neglected, diseases, schools, impact, away-huckleberry1411]
+    concepts: [stanford, school, motivated, neglected, diseases]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r28mhi.md#c6"
     char_span: [11710, 13050]
     sentence_count: 12
     key_terms: [knowledge, company, stanford, breadth, depth, start, phd, post]
+    concepts: [knowledge, company, stanford, breadth, depth]
     section: Comments
     token_count: 292
 ---

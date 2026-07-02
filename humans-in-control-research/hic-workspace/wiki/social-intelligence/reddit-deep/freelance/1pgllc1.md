@@ -21,23 +21,31 @@ chunks:
     char_span: [0, 825]
     sentence_count: 6
     key_terms: [hours, regular, work, freelancer, freelance, billable, comments, employee]
+    concepts: [hours, regular, freelancer, freelance, billable]
+    related_chunks: ["social-intelligence/reddit-deep/freelance/1pgllc1.md#c2", "social-intelligence/reddit-deep/freelance/1pgllc1.md#c3"]
     token_count: 201
+    sources: [{"n":"reddit-deep: r/freelance","u":"https://www.reddit.com/r/freelance/comments/1pgllc1/lpt_you_are_not_supposed_to_have_40_hoursweek_of/"}]
   - id: "social-intelligence/reddit-deep/freelance/1pgllc1.md#c1"
     char_span: [839, 2351]
     sentence_count: 14
     key_terms: [cover, equipment, time, hourly, freelancers, freelancer, jwellscfo, business]
+    concepts: [cover, equipment, hourly, freelancers, freelancer]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/freelance/1pgllc1.md#c2"
     char_span: [2353, 4283]
     sentence_count: 15
     key_terms: [hours, time, working, hourly, compensation, rate, billable, package]
+    concepts: [hours, working, compensation, hourly, billable]
+    related_chunks: ["social-intelligence/reddit-deep/freelance/1pgllc1.md#c0"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/freelance/1pgllc1.md#c3"
     char_span: [4285, 6371]
     sentence_count: 13
     key_terms: [project, clients, hours, freelancer, calculate, rate, week, client]
+    concepts: [project, clients, hours, freelancer, calculate]
+    related_chunks: ["social-intelligence/reddit-deep/freelance/1pgllc1.md#c0"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/freelance/1pgllc1.md#c4"

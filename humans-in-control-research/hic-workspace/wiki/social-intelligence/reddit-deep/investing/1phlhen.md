@@ -20,26 +20,36 @@ chunks:
     char_span: [0, 2260]
     sentence_count: 12
     key_terms: [karman, launch, company, missile, double-digit, little-known, hypersonics, commercial]
+    concepts: [karman, launch, company, missile, double-digit]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1phlhen.md#c1", "social-intelligence/reddit-deep/investing/1phlhen.md#c2", "social-intelligence/reddit-deep/investing/1phlhen.md#c3"]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1phlhen/the_pickandshovel_doubledigit_growth_space_play/"}]
   - id: "social-intelligence/reddit-deep/investing/1phlhen.md#c1"
     char_span: [2262, 3982]
     sentence_count: 14
     key_terms: [company, numbers, yoy, revenue, growth, karman, double-digit, don]
+    concepts: [company, numbers, revenue, double-digit, growth]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1phlhen.md#c0"]
     token_count: 470
   - id: "social-intelligence/reddit-deep/investing/1phlhen.md#c2"
     char_span: [3984, 6249]
     sentence_count: 11
     key_terms: [karman-space-defense-reports-full-fiscal-year-2024-financial-results, systems, karman, defense, missile, strategic, next-generation, metallurgical]
+    concepts: [karman-space-defense-reports-full-fiscal-year-2024-financial-results, systems, karman, defense, missile]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1phlhen.md#c0"]
     token_count: 497
   - id: "social-intelligence/reddit-deep/investing/1phlhen.md#c3"
     char_span: [6251, 8652]
     sentence_count: 19
     key_terms: [launch, karman, commercial, components, government, glenn, national-security, new]
+    concepts: [launch, karman, commercial, components, government]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1phlhen.md#c0"]
     token_count: 514
   - id: "social-intelligence/reddit-deep/investing/1phlhen.md#c4"
-    char_span: [8654, 10362]
+    char_span: [8654, 10361]
     sentence_count: 13
     key_terms: [karman, payloads, rocket, vulcan, contracts, national-security, wins, missions]
+    concepts: [karman, payloads, national-security, rocket, vulcan]
     token_count: 381
 ---
 # 📓 The Pick-and-Shovel, Double-Digit Growth Space Play You Haven’t Heard Of

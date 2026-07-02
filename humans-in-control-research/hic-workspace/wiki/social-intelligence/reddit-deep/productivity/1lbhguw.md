@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 699]
     sentence_count: 6
     key_terms: [productivity, comments, quietly, stealth, testing, remote, help, inefficiencies]
+    concepts: [productivity, comments, quietly, stealth, testing]
     token_count: 147
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1lbhguw/stealth_mode_tools_in_remote_environments_to/"}]
   - id: "social-intelligence/reddit-deep/productivity/1lbhguw.md#c1"
     char_span: [713, 3089]
     sentence_count: 19
     key_terms: [monitoring, secret, silent, productivity, teams, like, employees, workflow]
+    concepts: [monitoring, productivity, secret, silent, teams]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/productivity/1lbhguw.md#c2"

@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 671]
     sentence_count: 5
     key_terms: [comments, boston, only-decision-5198, neu, opportunities, northeastern, engineering, reddit-deep]
+    concepts: [comments, boston]
     token_count: 174
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qgsmc2/starting_to_regret_my_choices/"}]
   - id: "social-intelligence/reddit-deep/neu/1qgsmc2.md#c1"
     char_span: [685, 2101]
     sentence_count: 11
     key_terms: [experience, good, like, mit, graduation, raytheon, harvard, boston]
+    concepts: [experience, graduation, raytheon, harvard, boston]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/neu/1qgsmc2.md#c2"
     char_span: [2103, 4114]
     sentence_count: 19
     key_terms: [northeastern, people, school, right, year, valuable, boston, economicsotherwise13]
+    concepts: [northeastern, people, school, right, valuable]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/neu/1qgsmc2.md#c3"
     char_span: [4116, 4721]
     sentence_count: 3
     key_terms: [program, shutyourswitchport, did, northeastern, specifically, engineering, opportunity, experience]
+    concepts: [program]
     section: Comments
     token_count: 151
 ---

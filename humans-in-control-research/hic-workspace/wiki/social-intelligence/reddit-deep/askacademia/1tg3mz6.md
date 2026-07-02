@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 2182]
     sentence_count: 16
     key_terms: [job, market, academic, myself, askacademia, use, challenges, colleagues]
+    concepts: [market, academic, myself, askacademia, challenges]
     token_count: 484
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1tg3mz6/try_the_tt_job_market_or_bail/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1tg3mz6.md#c1"
     char_span: [2196, 3084]
     sentence_count: 8
     key_terms: [get, job, jobs, everything, mrmcbussy, gurprofessional9534, apply, "won't"]
+    concepts: [everything, mrmcbussy, apply, "won't"]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/askacademia/1tg3mz6.md#c2"
     char_span: [3086, 4865]
     sentence_count: 15
     key_terms: [academia, through, years, location, already, program, lucky, makes]
+    concepts: [academia, through, years, location, already]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/askacademia/1tg3mz6.md#c3"
     char_span: [4867, 5709]
     sentence_count: 5
     key_terms: [working, people, isaac-get-the-golem, begin, job, pronetolaughter, self-reflection, informational]
+    concepts: [working, people, begin]
     section: Comments
     token_count: 210
   - id: "social-intelligence/reddit-deep/askacademia/1tg3mz6.md#c4"
     char_span: [5711, 7745]
     sentence_count: 14
     key_terms: [isaac-get-the-golem, faculty, market, publication, like, pubs, finishing, important]
+    concepts: [isaac-get-the-golem, faculty, market, publication, finishing]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/askacademia/1tg3mz6.md#c5"
     char_span: [7747, 9783]
     sentence_count: 16
     key_terms: [publications, market, years, get, job, theravingbandit, departments, ago]
+    concepts: [publications, market, theravingbandit, years, departments]
     section: Comments
     token_count: 480
 ---

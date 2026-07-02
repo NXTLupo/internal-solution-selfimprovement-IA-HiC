@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 319]
     sentence_count: 2
     key_terms: [careeradvice, comments, reddit-deep, marketing, replaced, career, decide, design]
+    concepts: [careeradvice, comments]
     token_count: 94
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1qrxpmu/is_marketing_or_design_as_a_career_more_likey_to/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1qrxpmu.md#c1"
     char_span: [333, 1102]
     sentence_count: 9
     key_terms: [career, something, design, come, find, get, like, new]
+    concepts: [career, something, design]
     section: Comments
     token_count: 183
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 614]
     sentence_count: 7
     key_terms: [private, neu, comments, looking, public, electrical-truck646, co-op, considerations]
+    concepts: [private, comments, looking, public, co-op]
     token_count: 145
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1kmso1a/looking_for_coop_advice_private_vs_public/"}]
   - id: "social-intelligence/reddit-deep/neu/1kmso1a.md#c1"
     char_span: [628, 1003]
     sentence_count: 3

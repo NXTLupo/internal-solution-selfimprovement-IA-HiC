@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1548]
     sentence_count: 9
     key_terms: [canggu, digitalnomad, everywhere, comments, around, locals, nature, travel]
+    concepts: [digitalnomad, canggu, everywhere, comments, around]
     token_count: 369
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1lyoddn/why_the_mass_bali_hype/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1lyoddn.md#c1"
     char_span: [1562, 2725]
     sentence_count: 7
     key_terms: [canggu, dontsaybasically, iamananonymouscoward, along, place, years, ill-surprise-2644, kuta]
+    concepts: [canggu, dontsaybasically, along, place, years]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/digitalnomad/1lyoddn.md#c2"
     char_span: [2727, 3891]
     sentence_count: 5
     key_terms: [place, pjmg2020, culture, traditional-milk-465, idontknowjuspickone, villa, current-clock-8229, bros]
+    concepts: [place, pjmg2020, culture, villa]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/digitalnomad/1lyoddn.md#c3"
     char_span: [3893, 5807]
     sentence_count: 10
     key_terms: [bali, traffic, canggu, dubai, tho, ubud, kristen-gray-bali-deported, afox1984]
+    concepts: [traffic, canggu, dubai, afox1984, crowded]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/digitalnomad/1lyoddn.md#c4"
     char_span: [5809, 7497]
     sentence_count: 14
     key_terms: [bali, found, years, nusa, seriously, peaceful, swimming, amazing]
+    concepts: [found, years, seriously, peaceful, swimming]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/digitalnomad/1lyoddn.md#c5"
     char_span: [7499, 8669]
     sentence_count: 8
     key_terms: [bali, been, canggu, island, places, gentrified, "haven't", people]
+    concepts: [canggu, island, places, gentrified, "haven't"]
     section: Comments
     token_count: 312
 ---

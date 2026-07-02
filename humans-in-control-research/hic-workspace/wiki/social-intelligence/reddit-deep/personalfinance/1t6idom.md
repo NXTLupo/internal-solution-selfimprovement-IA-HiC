@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 1643]
     sentence_count: 5
     key_terms: ["i'm", debt, personalfinance, paying, got, job, too, comments]
+    concepts: [personalfinance, paying, comments, better, kicked]
     token_count: 421
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1t6idom/just_turned_26_and_feel_like_im_drowning_in_debt/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c1"
     char_span: [1645, 3090]
     sentence_count: 13
     key_terms: [because, loans, "i'm", nothing, "didn't", people, "don't", "i've"]
+    concepts: [because, loans, nothing, "didn't", people]
     token_count: 333
   - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c2"
     char_span: [3104, 4014]
     sentence_count: 4
     key_terms: [money, loans, spending, habits, being, extra, spend, did]
+    concepts: [money, loans, spending, habits, being]
     section: Comments
     token_count: 225
   - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c3"
     char_span: [4016, 5998]
     sentence_count: 13
     key_terms: [insurance, georgeretire, work, regardless, m0o0onpie, consider, increase, medicaid]
+    concepts: [insurance, georgeretire, regardless, m0o0onpie, consider]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c4"
@@ -49,18 +54,21 @@ chunks:
     char_span: [6208, 8142]
     sentence_count: 16
     key_terms: [opportunities, income, debt, like, need, m0o0onpie, yourself, numbers]
+    concepts: [opportunities, income, m0o0onpie, yourself, numbers]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c6"
     char_span: [8144, 10274]
     sentence_count: 19
     key_terms: [design, graphic, "master's", jobs, get, job, extra, part]
+    concepts: [design, graphic, "master's", extra, m0o0onpie]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c7"
     char_span: [10276, 12285]
     sentence_count: 13
     key_terms: ["that's", jobs, probably, faceslikeflowers, personalfinance, masters, commontopics, debt]
+    concepts: ["that's", faceslikeflowers, personalfinance, probably, masters]
     section: Comments
     token_count: 491
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2239]
     sentence_count: 5
     key_terms: [platform, token, defi, solana, management, users, full, activity]
+    concepts: [platform, token, management, solana, users]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1qj7iay/early_users_wanted_help_shape_a_new_defi_platform/"}]
   - id: "social-intelligence/reddit-deep/defi/1qj7iay.md#c1"
-    char_span: [2241, 3398]
+    char_span: [2241, 3397]
     sentence_count: 3
     key_terms: [required, beta, defi, community, improving, platform, shaped, wallet]
+    concepts: [required, community, improving, platform, shaped]
     token_count: 258
 ---
 # Early users wanted: help shape a new DeFi platform on Solana

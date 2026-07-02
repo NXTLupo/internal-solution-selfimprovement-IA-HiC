@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1159]
     sentence_count: 6
     key_terms: [experience, program, field, professional, undergrad, gradadmissions, anyone, grad]
+    concepts: [experience, program, professional, field, undergrad]
     token_count: 237
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1s7ydjl/professional_experience_rather_than_academic/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1s7ydjl.md#c1"
-    char_span: [1174, 2036]
+    char_span: [1173, 2035]
     sentence_count: 6
     key_terms: [lonely-program, experience, thanks, longjumping-dingo175, early, mother-click-4465, work, communication]
+    concepts: [lonely-program, experience, thanks, early]
     section: Comments
     token_count: 206
 ---

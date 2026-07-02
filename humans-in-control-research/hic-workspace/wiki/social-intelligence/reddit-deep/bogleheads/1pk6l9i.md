@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 471]
     sentence_count: 4
     key_terms: [bogleheads, comments, reddit-deep, allocation, investment, tellequal6, currently, accounts]
+    concepts: [bogleheads, comments]
     token_count: 122
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1pk6l9i/just_started_a_new_job_currently_in_the_process/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1pk6l9i.md#c1"
-    char_span: [486, 1981]
+    char_span: [485, 1980]
     sentence_count: 6
     key_terms: [vanguard, international, fidelity, market, extended, sp500, maintenance, intl]
+    concepts: [vanguard, international, fidelity, market, extended]
     section: Comments
     token_count: 412
 ---

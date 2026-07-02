@@ -18,41 +18,54 @@ chunks:
     char_span: [0, 1727]
     sentence_count: 17
     key_terms: [anthropic, openai-strikes-deal-with-pentagon-hours-after-rival-anthropic-was-blacklisted-by-trump, pentagon, hegseth-declares-anthropic-supply-chain-risk, openai, signed, surveillance, hours]
+    concepts: [anthropic, pentagon, surveillance, openai, signed]
+    related_chunks: ["articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c1", "articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c3"]
     token_count: 378
+    sources: [{"n":"Reddit Deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1rh5nzg/the_pentagon_blacklisted_anthropic_for_refusing/"}]
   - id: "articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c1"
     char_span: [1746, 3841]
     sentence_count: 5
     key_terms: [anthropic, dario-amodei-says-he-cannot-in-good-conscience-bow-to-pentagons-demands-over-ai-use-in-military, ap-report-hegseth-warns-anthropic-to-let-the-military-use-companys-ai-tech-as-it-sees-fit, https, com, www, statement-department-of-war, anthropic-pentagon-supply-chain-risk-claude]
+    concepts: [anthropic, https, statement-department-of-war, february, pentagon]
+    related_chunks: ["articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c0", "articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c3"]
     section: What happened
     token_count: 497
   - id: "articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c2"
     char_span: [3866, 5310]
     sentence_count: 4
     key_terms: [congress-not-the-pentagon-or-anthropic-should-set-military-ai-rules, pentagon-threat-blacklist-anthropic-ai-experts-raise-concerns, anthropic-ceo-stands-firm-as-pentagon-deadline-looms, https, what-the-ndaa-means-for-ai-and-cybersecurity, fascsa, defensescoop, designation]
+    concepts: [https, defensescoop, fascsa, designation, techcrunch]
     section: The legal problems
     token_count: 360
   - id: "articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c3"
     char_span: [5334, 6497]
     sentence_count: 3
     key_terms: [openai-strikes-deal-with-pentagon-hours-after-rival-anthropic-was-blacklisted-by-trump, anthropic, openai-announces-pentagon-deal-after-trump-bans-anthropic, https, cnn, deal, www, principles]
+    concepts: [anthropic, https, principles, "openai's", pentagon]
+    related_chunks: ["articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c0", "articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c1"]
     section: The same-day deal
     token_count: 269
   - id: "articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c4"
     char_span: [6520, 8147]
     sentence_count: 3
     key_terms: [https, silicon-valley-ai-leaders-launch-100m-leading-future-super-pac, openais-sam-altman-warned-america-trump-now-partnering, openai-ups-its-lobbying-efforts-nearly-seven-fold, com, www, money-politics-roundup-october-2025, trump-aligned]
+    concepts: [https, trump-aligned, siliconangle, opensecrets, commitment]
     section: Follow the money
     token_count: 479
+    sources: [{"n":"MIT Technology Review","u":"https://www.technologyreview.com/2025/01/21/1110260/openai-ups-its-lobbying-efforts-nearly-seven-fold/"},{"n":"OpenSecrets","u":"https://www.opensecrets.org/federal-lobbying/clients/summary?id=D000084252"},{"n":"ABC News","u":"https://abcnews.com/US/openais-sam-altman-warned-america-trump-now-partnering/story?id=118145337"},{"n":"Brennan Center","u":"https://www.brennancenter.org/our-work/research-reports/money-politics-roundup-october-2025"}]
   - id: "articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c5"
     char_span: [8149, 9537]
     sentence_count: 9
     key_terms: [former, openai-expands-leadership-team-with-high-profile-former-government-officials, why-british-politicians-are-flocking-to-american-tech-giants, security, openai-expands-chatgpt-work-federal-government, https, national, policy]
+    concepts: [former, security, https, national, policy]
     section: Follow the money / The revolving door
     token_count: 351
+    sources: [{"n":"Maginative","u":"https://www.maginative.com/article/openai-expands-leadership-team-with-high-profile-former-government-officials/"},{"n":"FedScoop","u":"https://fedscoop.com/openai-expands-chatgpt-work-federal-government/"},{"n":"TechCrunch","u":"https://techcrunch.com/2025/12/18/why-british-politicians-are-flocking-to-american-tech-giants/"}]
   - id: "articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c6"
     char_span: [9567, 11365]
     sentence_count: 7
     key_terms: [trump-ai-czar-is-trying-to-take-down-anthropic-ai-2000672709, chatgpt, gizmodo, claude, justbrowsinandvibin, conversations, being, "don't"]
+    concepts: [trump-ai-czar-is-trying-to-take-down-anthropic-ai-2000672709, justbrowsinandvibin, chatgpt, gizmodo, claude]
     section: The White House AI czar
     token_count: 468
 ---

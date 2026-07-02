@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1914]
     sentence_count: 9
     key_terms: [month, want, povertyfinance, paying, home, pay, ride, work]
+    concepts: [month, povertyfinance, paying, appreciate, comments]
     token_count: 482
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1t5gdrc/is_60_a_month_fair_to_pay_a_coworker_for_a_ride/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1t5gdrc.md#c1"
     char_span: [1928, 2863]
     sentence_count: 6
     key_terms: [minutes, something, cookies, "doesn't", paperindependent5466, miles, small, good]
+    concepts: [minutes, something, cookies, "doesn't", miles]
     section: Comments
     token_count: 262
   - id: "social-intelligence/reddit-deep/povertyfinance/1t5gdrc.md#c2"
     char_span: [2865, 4751]
     sentence_count: 16
     key_terms: [miles, time, rides, gas, home, like, consistent, depending]
+    concepts: [miles, consistent, rides, depending, extremely]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1t5gdrc.md#c3"
     char_span: [4543, 6225]
     sentence_count: 10
     key_terms: ["you're", pay, thank, good, "it's", want, appreciate, coworker]
+    concepts: ["you're", appreciate, thank, coworker, everyday]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/povertyfinance/1t5gdrc.md#c4"
     char_span: [6227, 7820]
     sentence_count: 17
     key_terms: [nice, let, walk, coworker, honestly, outside, always, minute]
+    concepts: [coworker, honestly, outside, always, minute]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/povertyfinance/1t5gdrc.md#c5"
     char_span: [7822, 8690]
     sentence_count: 9
     key_terms: [abebroham-linkin, buy, like, sometimes, burrito, fridays, asked, maybe]
+    concepts: [abebroham-linkin, sometimes, burrito, fridays, asked]
     section: Comments
     token_count: 230
 ---

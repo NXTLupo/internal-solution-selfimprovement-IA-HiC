@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1175]
     sentence_count: 10
     key_terms: [productivity, tasks, important, reminders, calendar, comments, struggle, teuxdeux]
+    concepts: [productivity, tasks, important, reminders, calendar]
     token_count: 260
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1r15ngo/what_are_best_apps_for_productivity_and_focus_as/"}]
   - id: "social-intelligence/reddit-deep/productivity/1r15ngo.md#c1"
     char_span: [1189, 2945]
     sentence_count: 8
     key_terms: [reminders, something, work, reminder, ticktick, system, app, currently]
+    concepts: [reminders, something, reminder, ticktick, system]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/productivity/1r15ngo.md#c2"
     char_span: [2947, 4353]
     sentence_count: 1
     key_terms: [com, day, use, everything, important, details, outlook, singlio]
+    concepts: [everything, important, details, outlook, singlio]
     section: Comments
     token_count: 346
 ---

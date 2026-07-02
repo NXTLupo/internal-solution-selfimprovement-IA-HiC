@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 748]
     sentence_count: 5
     key_terms: [want, findapath, comments, college, working, "don't", jobs, life]
+    concepts: [findapath, comments, college, working, "don't"]
     token_count: 182
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1qzt4ap/almost_30_still_have_not_figured_out_what_to_do/"}]
   - id: "social-intelligence/reddit-deep/findapath/1qzt4ap.md#c1"
     char_span: [762, 1709]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1qzt4ap.md#c2"
     char_span: [1712, 3106]
     sentence_count: 9
     key_terms: [downtown-doubt4353, people, top, financial, degrees, realize, degree, having]
+    concepts: [downtown-doubt4353, people, financial, degrees, realize]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/findapath/1qzt4ap.md#c3"
     char_span: [3108, 5279]
     sentence_count: 12
     key_terms: [college, years, something, davidbosley353, almost, makes, start, engineering]
+    concepts: [college, something, years, davidbosley353, almost]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1qzt4ap.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1qzt4ap.md#c4"
     char_span: [5033, 6141]
     sentence_count: 8
     key_terms: [something, college, degree, appropriate-tutor587, don, get, jobs, need]
+    concepts: [something, college, degree]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1qzt4ap.md#c3"]
     section: Comments
     token_count: 280
 ---

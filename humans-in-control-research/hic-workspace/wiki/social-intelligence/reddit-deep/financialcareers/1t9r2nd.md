@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1075]
     sentence_count: 11
     key_terms: [clients, financialcareers, relationship, sales, role, management, education, financial]
+    concepts: [clients, financialcareers, relationship, management, sales]
     token_count: 238
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1t9r2nd/is_being_an_ib_closer_to_sales_client/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1t9r2nd.md#c1"
-    char_span: [1090, 2589]
+    char_span: [1089, 2588]
     sentence_count: 9
     key_terms: [deal, financialcareers, discord, mostly, professionals, full-time, analysts, banking]
+    concepts: [financialcareers, professionals, discord, mostly, full-time]
     section: Comments
     token_count: 347
 ---

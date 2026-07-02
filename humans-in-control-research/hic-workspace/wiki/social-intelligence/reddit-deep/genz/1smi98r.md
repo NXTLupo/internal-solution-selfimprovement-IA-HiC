@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 598]
     sentence_count: 6
     key_terms: [comments, feeling-currency6212, fake, genz, reddit-deep, completely, regularly, compared]
+    concepts: [comments]
     token_count: 155
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1smi98r/is_the_stock_market_just_completely_fake_now/"}]
   - id: "social-intelligence/reddit-deep/genz/1smi98r.md#c1"
     char_span: [612, 2349]
     sentence_count: 9
     key_terms: [market, inflation, stock, expectations, being, earnings, discord, outpace]
+    concepts: [market, inflation, stock, expectations, being]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1smi98r.md#c3"]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/genz/1smi98r.md#c2"
     char_span: [2351, 4390]
     sentence_count: 17
     key_terms: [people, stock, oracle, economic, growth, living, aren, don]
+    concepts: [people, stock, oracle, economic, growth]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/genz/1smi98r.md#c3"
     char_span: [4392, 5462]
     sentence_count: 10
     key_terms: [stock, market, dividends, buybacks, thinking, wages, last, pay]
+    concepts: [stock, market, dividends, buybacks, thinking]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1smi98r.md#c1"]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/genz/1smi98r.md#c4"
     char_span: [5464, 7190]
     sentence_count: 13
     key_terms: [market, feeling-currency6212, americans, own, invested, because, soaring, months]
+    concepts: [market, feeling-currency6212, americans, invested, because]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1smi98r.md#c5"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/genz/1smi98r.md#c5"
     char_span: [7192, 9018]
     sentence_count: 9
     key_terms: [market, years, down, want, because, people, plans, get]
+    concepts: [market, years, because, people, plans]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1smi98r.md#c4"]
     section: Comments
     token_count: 448
 ---

@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 742]
     sentence_count: 5
     key_terms: [waterloo, ayr, commuting, comments, adhesivenessmain1012, co-op, car, realistically]
+    concepts: [waterloo, commuting, comments, co-op]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1pq90mx.md#c1"]
     token_count: 186
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1pq90mx/coop_in_ayr_on_commuting_without_a_car/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1pq90mx.md#c1"
     char_span: [756, 2493]
     sentence_count: 18
     key_terms: [car, uber, cheaper, greatkangaroo, ayr, commuting, negotiate, co-op]
+    concepts: [greatkangaroo, cheaper, commuting, negotiate, co-op]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1pq90mx.md#c0"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/waterloo/1pq90mx.md#c2"
     char_span: [2495, 3639]
     sentence_count: 11
     key_terms: [membership, "it's", communauto, commuting, included, access, months, "don't"]
+    concepts: [membership, communauto, commuting, included, access]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/waterloo/1pq90mx.md#c3"
     char_span: [3641, 4456]
     sentence_count: 3
     key_terms: [poparide, commuting, environmentalway327, bus, car, cost, "i've", lyft]
+    concepts: [poparide, commuting]
     section: Comments
     token_count: 214
 ---

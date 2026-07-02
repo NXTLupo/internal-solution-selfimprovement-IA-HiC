@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1703]
     sentence_count: 8
     key_terms: [buy-america-bye-america-wall-street-exodus-gathers-pace-2026-02-20, investors, https, com, www, investing, business, comments]
+    concepts: [buy-america-bye-america-wall-street-exodus-gathers-pace-2026-02-20, investors, https, investing, business]
     token_count: 445
+    sources: [{"n":"Reddit Deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1ra9g3x/from_buy_america_to_bye_america_wall_street/"}]
 ---
 # From 'buy America' to 'bye America', Wall Street exodus gathers pace
 

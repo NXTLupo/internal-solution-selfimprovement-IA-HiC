@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1770]
     sentence_count: 11
     key_terms: [people, neu, connections, spontaneous, meet, comments, students, totally]
+    concepts: [people, connections, spontaneous, comments, students]
     token_count: 412
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qc0jin/feeling_like_times_running_out_to_really_meet/"}]
   - id: "social-intelligence/reddit-deep/neu/1qc0jin.md#c1"
     char_span: [1784, 3256]
     sentence_count: 13
     key_terms: [like, computercat19, co-op, app, find, idea, wonderful, sounds]
+    concepts: [computercat19, co-op, wonderful, sounds, "don't"]
     section: Comments
     token_count: 377
 ---

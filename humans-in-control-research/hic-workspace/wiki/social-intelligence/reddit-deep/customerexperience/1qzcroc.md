@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 2395]
     sentence_count: 17
     key_terms: [customerexperience, been, tickets, agents, haven, teams, value, implemented]
+    concepts: [customerexperience, tickets, agents, implemented, haven]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1qzcroc/where_does_ai_actually_add_value_today_beyond/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1qzcroc.md#c1"
-    char_span: [2397, 4237]
+    char_span: [2397, 4236]
     sentence_count: 13
     key_terms: [across, real, customer, context, agents, cryrevolutionary7536, agree, doesn]
+    concepts: [across, customer, context, agents, agree]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/customerexperience/1qzcroc.md#c2"
-    char_span: [4239, 6007]
+    char_span: [4238, 6006]
     sentence_count: 10
     key_terms: [create, data, customer, conversations, agent, point, incomplete, companies]
+    concepts: [create, customer, conversations, agent, incomplete]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/customerexperience/1qzcroc.md#c3"
-    char_span: [6009, 7804]
+    char_span: [6008, 7803]
     sentence_count: 12
     key_terms: [customers, knowledge, friction, support, around, faster, being, build]
+    concepts: [customers, knowledge, friction, support, around]
     section: Comments
     token_count: 390
 ---

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2199]
     sentence_count: 1
     key_terms: [experience, internship, companies, almabase, enough, right, internships, kong]
+    concepts: [experience, internship, companies, almabase, enough]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1setboz/feeling_like_a_loser_i_havent_got_a_summer_intern/"}]
   - id: "social-intelligence/reddit-deep/internships/1setboz.md#c1"
     char_span: [2201, 4680]
     sentence_count: 1
     key_terms: [interview, round, process, kong, went, hiring, asked, experience]
+    concepts: [interview, process, round, hiring, asked]
     token_count: 501
   - id: "social-intelligence/reddit-deep/internships/1setboz.md#c2"
     char_span: [4682, 4741]
@@ -34,12 +37,14 @@ chunks:
     char_span: [4755, 6793]
     sentence_count: 14
     key_terms: [internship, wild-ad-2346, people, get, keep, projects, these-age-4667, resume]
+    concepts: [internship, wild-ad-2346, people, projects, these-age-4667]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1setboz.md#c4"
     char_span: [6505, 7877]
     sentence_count: 9
     key_terms: [handshake, applying, projects, prachub, future, bills, https, start]
+    concepts: [handshake, applying, projects, prachub, future]
     section: Comments
     token_count: 358
 ---

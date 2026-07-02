@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2228]
     sentence_count: 19
     key_terms: [career, experiment, good, building, people, careeradvice, led, consulting]
+    concepts: [experiment, career, building, careeradvice, people]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1n6jpd3/i_was_stuck_in_a_successful_career_that_made_me/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1n6jpd3.md#c1"
     char_span: [2230, 2722]
     sentence_count: 6
     key_terms: [through, anyone, small, transitioning, experiments, transitions, experiment, non-linear]
+    concepts: [through, anyone, small]
     token_count: 100
   - id: "social-intelligence/reddit-deep/careeradvice/1n6jpd3.md#c2"
     char_span: [2736, 3928]
     sentence_count: 20
     key_terms: [passion, work, money, able, singularity, everywhere, fullfilled, energizes]
+    concepts: [passion, money]
     section: Comments
     token_count: 307
 ---

@@ -21,64 +21,81 @@ chunks:
     char_span: [0, 2212]
     sentence_count: 16
     key_terms: [student, around, house, loans, personalfinance, parents, credit, months]
+    concepts: [student, around, house, loans, personalfinance]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c9"]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1pqxmd2/i_will_not_have_my_parents_future/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c1"
     char_span: [2214, 3705]
     sentence_count: 13
     key_terms: [credit, card, payment, around, never, new, rent, available]
+    concepts: [credit, payment, around, never, available]
     token_count: 351
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c2"
     char_span: [3719, 5779]
     sentence_count: 18
     key_terms: [credit, interest, pay, balance, paying, cards, downvotes, full]
+    concepts: [credit, interest, balance, paying, downvotes]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c3", "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c4"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c3"
     char_span: [5781, 7874]
     sentence_count: 15
     key_terms: [balance, statement, pay, date, credit, interest, card, want]
+    concepts: [balance, statement, credit, interest, utilization]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c2", "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c4"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c4"
     char_span: [7876, 9617]
     sentence_count: 16
     key_terms: [credit, balance, interest, pay, full, paying, score, card]
+    concepts: [credit, balance, interest, paying, score]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c2", "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c3"]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c5"
     char_span: [9619, 11582]
     sentence_count: 17
     key_terms: [savings, accounts, like, pay, yourself, credit, future, financially]
+    concepts: [savings, accounts, yourself, credit, future]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c6"
     char_span: [11584, 13096]
     sentence_count: 10
     key_terms: ["you're", brain, "i've", balance, cutting, better, credit, such-cartographer425]
+    concepts: ["you're", brain, balance, cutting, better]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c7"
     char_span: [13098, 14767]
     sentence_count: 10
     key_terms: [rent, thousands, bababoey219, away, home, move, year, students]
+    concepts: [thousands, bababoey219, students, school, tenant]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c8"
     char_span: [14769, 16534]
     sentence_count: 14
     key_terms: [landlord, goal, home, being, big, like, knowledge, friends]
+    concepts: [landlord, being, knowledge, friends, credit]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c9"
     char_span: [16536, 18553]
     sentence_count: 15
     key_terms: [substantialbass9524, resource, personalfinance, house, month, bababoey219, save, wiki]
+    concepts: [substantialbass9524, personalfinance, resource, bababoey219, house]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c0"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c10"
     char_span: [18555, 19828]
     sentence_count: 15
     key_terms: ["you're", personalfinance, income, increasing, credit, emperoroftheuniverse, focus, need]
+    concepts: ["you're", personalfinance, income, increasing, credit]
     section: Comments
     token_count: 295
 ---

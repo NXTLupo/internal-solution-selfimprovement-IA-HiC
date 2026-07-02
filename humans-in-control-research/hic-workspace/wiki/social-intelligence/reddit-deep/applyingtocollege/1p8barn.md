@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1035]
     sentence_count: 7
     key_terms: [resilience, application, applyingtocollege, essays, "i'm", comments, college, psychologicalcall426]
+    concepts: [resilience, application, applyingtocollege, essays, comments]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1p8barn.md#c1"]
     token_count: 211
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1p8barn/how_can_i_effectively_demonstrate_resilience_in/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p8barn.md#c1"
     char_span: [1049, 2772]
     sentence_count: 18
     key_terms: [resilience, struggles, "i'm", application, got, specific, context, through]
+    concepts: [resilience, struggles, application, specific, context]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1p8barn.md#c0"]
     section: Comments
     token_count: 375
 ---

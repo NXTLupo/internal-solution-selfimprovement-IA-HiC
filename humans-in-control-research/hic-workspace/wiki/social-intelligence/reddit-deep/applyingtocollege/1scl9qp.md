@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1743]
     sentence_count: 2
     key_terms: [cornell, umich, applyingtocollege, hard, campus, school, strong, opportunities]
+    concepts: [cornell, applyingtocollege, umich, opportunities, campus]
     token_count: 391
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1scl9qp/cornell_vs_umich/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1scl9qp.md#c1"
     char_span: [1757, 1997]
     sentence_count: 4
     key_terms: [cornell, grade, deflation, inflation, necessary, amazing, college, helpful]
+    concepts: [cornell, grade]
     section: Comments
     token_count: 58
   - id: "social-intelligence/reddit-deep/applyingtocollege/1scl9qp.md#c2"
     char_span: [1999, 3831]
     sentence_count: 14
     key_terms: [cornell, great, michigan, school, umich, no-fish-180, big, med]
+    concepts: [cornell, great, michigan, school, no-fish-180]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1scl9qp.md#c3"
     char_span: [3560, 4291]
     sentence_count: 6
     key_terms: [cornell, communities, been, fractalkohlrabi, necessarily, attention, community, something]
+    concepts: [cornell, communities]
     section: Comments
     token_count: 175
 ---

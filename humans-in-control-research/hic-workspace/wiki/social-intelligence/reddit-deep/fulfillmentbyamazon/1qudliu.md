@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1935]
     sentence_count: 17
     key_terms: [product, amazon, listing, different, fulfillmentbyamazon, trademark, brand, customers]
+    concepts: [product, amazon, listing, different, fulfillmentbyamazon]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1qudliu.md#c1"]
     token_count: 406
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1qudliu/amazon_is_selling_on_my_listing_and_customers_are/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1qudliu.md#c1"
-    char_span: [1950, 4063]
+    char_span: [1949, 4062]
     sentence_count: 17
     key_terms: [amazon, infringement, brand, fulfillmentbyamazon, different, trademark, buy, test]
+    concepts: [infringement, amazon, brand, fulfillmentbyamazon, different]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1qudliu.md#c0"]
     section: Comments
     token_count: 473
 ---

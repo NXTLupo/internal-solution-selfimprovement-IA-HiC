@@ -20,46 +20,55 @@ chunks:
     char_span: [0, 2422]
     sentence_count: 17
     key_terms: [financial, construction, procurement, across, government, major, decisions, projects]
+    concepts: [financial, construction, procurement, government, across]
     token_count: 462
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1npbkc1/how_i_stumbled_into_b2b_lead_generation_by/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1npbkc1.md#c1"
     char_span: [2424, 2894]
     sentence_count: 4
     key_terms: [series, find, infrastructure, unconventional, announcements, inspirational, interesting, necessarily]
+    concepts: [series]
     token_count: 90
   - id: "social-intelligence/reddit-deep/b2bmarketing/1npbkc1.md#c2"
-    char_span: [2909, 5088]
+    char_span: [2908, 5087]
     sentence_count: 16
     key_terms: [looking-for-marketing-discussion-811236647760298024, migration, anywaymarketing, erp, move, time, technology, announces]
+    concepts: [migration, anywaymarketing, technology, announces, preceding]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/b2bmarketing/1npbkc1.md#c3"
-    char_span: [5092, 7176]
+    char_span: [5091, 7175]
     sentence_count: 20
     key_terms: [icy-product-4863, deliverables, like, businesses, financial, outreach, relevant, specific]
+    concepts: [icy-product-4863, deliverables, businesses, financial, outreach]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/b2bmarketing/1npbkc1.md#c4"
-    char_span: [7178, 8515]
+    char_span: [7177, 8514]
     sentence_count: 17
     key_terms: [buy, industries, specifically, going, application, want, contract, specific]
+    concepts: [industries, specifically, application, going, contract]
     section: Comments
     token_count: 275
   - id: "social-intelligence/reddit-deep/b2bmarketing/1npbkc1.md#c5"
-    char_span: [8519, 10896]
+    char_span: [8518, 10895]
     sentence_count: 20
     key_terms: [data, startup, subcontractors, niche, value, industries, financial, customer]
+    concepts: [startup, subcontractors, industries, niche, value]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/b2bmarketing/1npbkc1.md#c6"
-    char_span: [10898, 12863]
+    char_span: [10897, 12862]
     sentence_count: 12
     key_terms: [signal, new, funding, manufacturing, announcement, distribution, importgenius, maintenance]
+    concepts: [signal, manufacturing, funding, announcement, distribution]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/b2bmarketing/1npbkc1.md#c7"
-    char_span: [12865, 14723]
+    char_span: [12864, 14722]
     sentence_count: 13
     key_terms: [companies, generally, quarterly, icy-product-4863, reports, basic, start, crunchbase]
+    concepts: [icy-product-4863, companies, generally, quarterly, reports]
     section: Comments
     token_count: 417
 ---

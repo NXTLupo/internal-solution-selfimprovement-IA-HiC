@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 1876]
     sentence_count: 14
     key_terms: [address, store, right, commercial, completely, corporate, business, comments]
+    concepts: [address, store, commercial, completely, right]
     token_count: 393
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1r9vwh5/the_dumbest_conversion_killer_on_my_store_was/"}]
   - id: "social-intelligence/reddit-deep/dropship/1r9vwh5.md#c1"
-    char_span: [1891, 3777]
+    char_span: [1890, 3776]
     sentence_count: 15
     key_terms: [address, actual, people, degeneratex80, box, ups, aliexpress, dropship]
+    concepts: [address, degeneratex80, actual, people, aliexpress]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1r9vwh5.md#c2"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/dropship/1r9vwh5.md#c2"
-    char_span: [3779, 4678]
+    char_span: [3778, 4677]
     sentence_count: 9
     key_terms: [address, people, policies, view, signalbridgedata, neighborhood, consciously, consistency]
+    concepts: [address, people, policies]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1r9vwh5.md#c1"]
     section: Comments
     token_count: 185
 ---

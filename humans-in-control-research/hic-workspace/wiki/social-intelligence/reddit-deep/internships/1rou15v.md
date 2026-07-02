@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 718]
     sentence_count: 6
     key_terms: [internships, comments, applications, reddit-deep, appreciate, experience, internship, interview]
+    concepts: [internships, comments]
     token_count: 178
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rou15v/no_internship_calls/"}]
   - id: "social-intelligence/reddit-deep/internships/1rou15v.md#c1"
     char_span: [732, 2381]
     sentence_count: 10
     key_terms: [sometimes, ats, resume, companies, different, because, market, others]
+    concepts: [sometimes, resume, companies, different, because]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/internships/1rou15v.md#c2"
     char_span: [2383, 2994]
     sentence_count: 3
     key_terms: [resume, formatting, checking, industry-specific, ats, bit, specifically, especially]
+    concepts: [resume, formatting, checking]
     section: Comments
     token_count: 164
 ---

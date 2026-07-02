@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 475]
     sentence_count: 4
     key_terms: [applyingtocollege, comments, scholars, summer, thrive, noahtheboa1320, alternatives, reddit-deep]
+    concepts: [applyingtocollege, comments, scholars, summer, thrive]
     token_count: 119
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1p2jneh/does_anyone_have_experience_with_college_help/"}]
 ---
 # Does anyone have experience with college help programs like Thrive scholars, Leda, etc?
 

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2084]
     sentence_count: 7
     key_terms: [northeastern, engineering, analytics, software, co-op, data, scranton, trying]
+    concepts: [northeastern, engineering, analytics, software, co-op]
     token_count: 469
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sp7drz/northeastern_data_analytics_60k_coop_vs_scranton/"}]
   - id: "articles/reddit-deep-r-neu/a9cc3cc0d7.md#c1"
     char_span: [2086, 2454]
     sentence_count: 3
     key_terms: [levzn, else, like, few-lawyer3707, gooseclimber, engineering, personally, analytics]
+    concepts: [levzn]
     token_count: 95
 ---
 # Northeastern Data Analytics (60k, co-op) vs Scranton Software Engineering (30k) after failing MS CS — what should I choose?

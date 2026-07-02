@@ -19,24 +19,31 @@ content_hash: "6b5af2c2bfd1845e"
 relevance_by_goal: {"68c375ef0d4e":50}
 chunks:
   - id: "articles/reddit-deep-r-healthinsurance/ac60a2bef4.md#c0"
-    char_span: [0, 2016]
+    char_span: [0, 2015]
     sentence_count: 17
     key_terms: [insurance, year, surgery, last, company, healthinsurance, april, june]
-    token_count: 445
+    concepts: [insurance, surgery, company, healthinsurance, april]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/ac60a2bef4.md#c3"]
+    token_count: 444
+    sources: [{"n":"Reddit Deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1t82vt6/insurance_billed_the_wrong_company/"}]
   - id: "articles/reddit-deep-r-healthinsurance/ac60a2bef4.md#c1"
-    char_span: [2018, 4303]
+    char_span: [2017, 4302]
     sentence_count: 7
     key_terms: [post, questions, information, please, eob, help, following, edit]
+    concepts: [questions, information, please, following, healthinsurance]
     token_count: 478
   - id: "articles/reddit-deep-r-healthinsurance/ac60a2bef4.md#c2"
-    char_span: [4305, 6191]
+    char_span: [4304, 6190]
     sentence_count: 13
     key_terms: [insurance, hospital, contact, elegant-antelope-473, subreddit, coverage, company, manner]
+    concepts: [insurance, hospital, elegant-antelope-473, contact, subreddit]
     token_count: 424
   - id: "articles/reddit-deep-r-healthinsurance/ac60a2bef4.md#c3"
-    char_span: [6193, 7746]
+    char_span: [6192, 7745]
     sentence_count: 11
     key_terms: [billing, cigna, insurance, company, payment, office, claim, eob]
+    concepts: [billing, cigna, insurance, company, payment]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/ac60a2bef4.md#c0"]
     token_count: 351
 ---
 # Insurance billed the wrong company

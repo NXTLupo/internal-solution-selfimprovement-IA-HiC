@@ -21,76 +21,96 @@ chunks:
     char_span: [0, 1698]
     sentence_count: 4
     key_terms: [https, does-flipped-learning-work-a-new-analysis-dives-into-the-research, teaching, com, article, evidence-based, we-need-to-talk-about-scaffolding, scaffolding]
+    concepts: [https, teaching, evidence-based, article, scaffolding]
     token_count: 412
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1supuq0/chronicle_article_teaching_centers_degrade/"}]
   - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c1"
     char_span: [1700, 2427]
     sentence_count: 4
     key_terms: [why-pedagogy-experts-are-wrong, article, chronicle, colleague, students, https, share, com]
+    concepts: [why-pedagogy-experts-are-wrong, article, chronicle, colleague, students]
     token_count: 171
   - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c2"
     char_span: [2441, 4396]
     sentence_count: 15
     key_terms: [faculty, homeworks, ctl, problem, "i've", within, seen, department]
+    concepts: [faculty, homeworks, problem, within, department]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c3"
     char_span: [4398, 6598]
     sentence_count: 17
     key_terms: [people, experience, education, faculty, programming, don, run, individual]
+    concepts: [experience, people, education, faculty, programming]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1supuq0.md#c5", "social-intelligence/reddit-deep/professors/1supuq0.md#c11"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c4"
     char_span: [6600, 8628]
     sentence_count: 13
     key_terms: [administrator, online, instructional, edd, got, year, background, college]
+    concepts: [administrator, instructional, online, background, college]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c5"
     char_span: [8630, 10891]
     sentence_count: 11
     key_terms: [faculty, teaching, lecture, understanding, never, like, experience, meaningful]
+    concepts: [faculty, teaching, understanding, lecture, experience]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1supuq0.md#c3", "social-intelligence/reddit-deep/professors/1supuq0.md#c6", "social-intelligence/reddit-deep/professors/1supuq0.md#c11"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c6"
     char_span: [10893, 12509]
     sentence_count: 12
     key_terms: [dissertation, "don't", math, need, teaching, lecture, education, addition]
+    concepts: [dissertation, "don't", teaching, lecture, education]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1supuq0.md#c5"]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c7"
     char_span: [12511, 13941]
     sentence_count: 10
     key_terms: [university, new, research, admin, education, others, "don't", train]
+    concepts: [university, research, admin, education, others]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1supuq0.md#c9"]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c8"
     char_span: [13943, 15897]
     sentence_count: 9
     key_terms: ["it's", graduate, math, student, because, lecture, bad, work]
+    concepts: [graduate, student, because, lecture, especially]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c9"
     char_span: [15899, 17676]
     sentence_count: 11
     key_terms: [research, someone, easy, math, education, lecturing, because, lecture]
+    concepts: [research, someone, education, lecturing, because]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1supuq0.md#c7"]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c10"
     char_span: [17678, 19780]
     sentence_count: 13
     key_terms: [students, removed, never, educational, evidence, theories, cornell, student]
+    concepts: [students, removed, educational, never, evidence]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c11"
     char_span: [19782, 21936]
     sentence_count: 17
     key_terms: [teaching, faculty, people, instructional, learn, never, good, experience]
+    concepts: [teaching, faculty, instructional, people, experience]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1supuq0.md#c3", "social-intelligence/reddit-deep/professors/1supuq0.md#c5"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c12"
     char_span: [21938, 23639]
     sentence_count: 15
     key_terms: [objectives, experiences, generalizes, measurable, athletics, professor, coaching, analogy]
+    concepts: [objectives, experiences, generalizes, measurable, athletics]
     section: Comments
     token_count: 361
 ---

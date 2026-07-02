@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1428]
     sentence_count: 14
     key_terms: [texas, sales, washington, ibew, move, careerguidance, job, want]
+    concepts: [texas, sales, washington, careerguidance, background]
     token_count: 360
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1s74mmw/paychecktopaycheck_pizza_driver_in_texas_sales/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1s74mmw.md#c1"
     char_span: [1442, 2586]
     sentence_count: 8
     key_terms: ["you're", job, locals, "you'd", pre-apprenticeship, get, ibew, "it's"]
+    concepts: ["you're", locals, "you'd"]
     section: Comments
     token_count: 254
 ---

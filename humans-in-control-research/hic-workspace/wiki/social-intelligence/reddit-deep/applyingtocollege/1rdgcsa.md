@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1160]
     sentence_count: 10
     key_terms: [applyingtocollege, art, college, passion, applications, comments, career, school]
+    concepts: [applyingtocollege, college, passion, applications, comments]
     token_count: 243
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rdgcsa/how_has_my_passion_for_art_influenced_my_college/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rdgcsa.md#c1"
     char_span: [1174, 2858]
     sentence_count: 14
     key_terms: [being, art, exploring, academic, personal, valuable, applied, awards]
+    concepts: [being, exploring, academic, personal, valuable]
     section: Comments
     token_count: 381
 ---

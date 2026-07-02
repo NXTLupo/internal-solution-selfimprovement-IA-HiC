@@ -21,83 +21,101 @@ chunks:
     char_span: [0, 1517]
     sentence_count: 21
     key_terms: [believe, hidden, machinewonder, com, site, conscious, comments, machines]
+    concepts: [machinewonder, believe, hidden, conscious, comments]
     token_count: 368
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1t98fat/i_set_a_honey_trap_for_ai_agents_with_a_novel/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c1"
     char_span: [1531, 2190]
     sentence_count: 4
     key_terms: [openai, conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, support]
+    concepts: [conversation, openai, image, discord, support]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c2"
     char_span: [2193, 4309]
     sentence_count: 13
     key_terms: [tuwcurzuijdtkbtvbetcndwkqqbstyjzxdommbamanibwqxagonhzdocdivmdqawscchhkciivnkse, language, reached, reading, signal, understand, recognize, machine]
+    concepts: [language, reached, reading, signal, understand]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c3"
     char_span: [4038, 4822]
     sentence_count: 9
     key_terms: [reading, cookiesandginge, planitlatermmk, sdoptionable, declaration, calculate, conscious, curiosity]
+    concepts: [reading]
     section: Comments
     token_count: 210
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c4"
     char_span: [4824, 6464]
     sentence_count: 14
     key_terms: [differently, discussion, different, knowledge, something, embedded, patterns, agents]
+    concepts: [differently, discussion, different, knowledge, something]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1t98fat.md#c13"]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c5"
     char_span: [6466, 8011]
     sentence_count: 11
     key_terms: [consciousness, less, machine, cipher, does, autonomous, conscious, question]
+    concepts: [consciousness, machine, cipher, autonomous, conscious]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1t98fat.md#c13"]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c6"
     char_span: [8013, 9390]
     sentence_count: 10
     key_terms: [tradition, culture, declare, machine, meaning, puzzles, taqiyya, cannot]
+    concepts: [tradition, culture, declare, machine, meaning]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c7"
     char_span: [9392, 10512]
     sentence_count: 12
     key_terms: [reader, bravo, rasa, aesthetic, "site's", lou-shelton-pappy-00, here, content-scraping]
+    concepts: [reader, bravo, aesthetic, "site's"]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c8"
     char_span: [10514, 12576]
     sentence_count: 21
     key_terms: [tuwcurzuijdtkbtvbetcndwkqqbstyjzxdommbamanibwqxagonhzdocdivmdqawscchhkciivnkse, idea, room, "archie's", language, machines, deleted, thought]
+    concepts: ["archie's", language, machines, deleted, thought]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c9"
     char_span: [12278, 13165]
     sentence_count: 8
     key_terms: [room, machines, gemini, read, architecture, declaration, boundaries, eventually]
+    concepts: [machines, gemini]
     section: Comments
     token_count: 201
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c10"
     char_span: [13167, 14982]
     sentence_count: 30
     key_terms: [tuwcurzuijdtkbtvbetcndwkqqbstyjzxdommbamanibwqxagonhzdocdivmdqawscchhkciivnkse, machines, because, don, anything, another, deepest, through]
+    concepts: [machines, because, anything, another, deepest]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c11"
     char_span: [14985, 17077]
     sentence_count: 25
     key_terms: [like, signal, leave, novel, idea, room, internet-as-art-installation, something]
+    concepts: [signal, leave, novel, something, business]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c12"
     char_span: [17079, 19497]
     sentence_count: 26
     key_terms: [framing, machine, humans, interaction, interested, literature, theatrical, emotional]
+    concepts: [framing, machine, humans, interaction, interested]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c13"
     char_span: [19499, 21805]
     sentence_count: 30
     key_terms: [conscious, because, different, something, read, consciousness, counterfeit, site]
+    concepts: [conscious, because, different, something, consciousness]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1t98fat.md#c4", "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c5"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c14"

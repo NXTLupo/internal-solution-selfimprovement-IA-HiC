@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 2094]
     sentence_count: 15
     key_terms: [thailand, cheaper, months, chi, day, minh, because, digitalnomad]
+    concepts: [thailand, cheaper, months, because, digitalnomad]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1s31zsi/was_all_set_to_move_to_bangkok_but_now/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c1"
     char_span: [2096, 2771]
     sentence_count: 2
     key_terms: [cheaper, masterpiecemundane80, somethingaboutupdawg, terms, hcm, aspirations, adventure, affirming]
+    concepts: [cheaper, terms]
     section: Comments
     token_count: 162
   - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c2"
     char_span: [2773, 4650]
     sentence_count: 12
     key_terms: [gameover281997, bangkok, vietnam, somethingaboutupdawg, convenient, foreigner, pattaya, quality]
+    concepts: [gameover281997, somethingaboutupdawg, bangkok, vietnam, convenient]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c6"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c3"
     char_span: [4652, 5678]
     sentence_count: 8
     key_terms: [thailand, high-rise, bangkok, around, somethingaboutupdawg, great, seems, here]
+    concepts: [thailand, high-rise, bangkok, around, great]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c4"
     char_span: [5680, 7624]
     sentence_count: 16
     key_terms: [pattaya, been, don, motorbike, thailand, "haven't", comfortablemoney1888, somethingaboutupdawg]
+    concepts: [pattaya, motorbike, thailand, "haven't", beach]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c5"
     char_span: [7371, 7729]
     sentence_count: 3
     key_terms: [being, onedweezy, directly, humidity, northern, stunning, superior, terraces]
+    concepts: [being]
     section: Comments
     token_count: 96
   - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c6"
     char_span: [7731, 9062]
     sentence_count: 7
     key_terms: [somethingaboutupdawg, bkk, bangkok, hcm, budget, months, though, range]
+    concepts: [somethingaboutupdawg, bangkok, budget, months, though]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c2"]
     section: Comments
     token_count: 364
 ---

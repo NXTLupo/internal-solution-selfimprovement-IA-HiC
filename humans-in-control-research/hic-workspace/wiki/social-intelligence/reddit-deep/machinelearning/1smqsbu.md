@@ -19,38 +19,50 @@ chunks:
     char_span: [0, 1746]
     sentence_count: 9
     key_terms: [political, refusals, right-authoritarian, gpt-5, model, llm-political-eval, dannyyaou, left-libertarian]
+    concepts: [political, refusals, right-authoritarian, llm-political-eval, left-libertarian]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c1"]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1smqsbu/built_an_political_benchmark_for_llms_kimi_k2/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c1"
     char_span: [1750, 3440]
     sentence_count: 7
     key_terms: [right-authoritarian, left-libertarian, refusals, independent, claude, blocked, agree, gpt-5]
+    concepts: [right-authoritarian, left-libertarian, refusals, independent, claude]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c0"]
     token_count: 509
   - id: "social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c2"
     char_span: [3444, 5416]
     sentence_count: 10
     key_terms: [progressive, questions, strongly, conservative, speech, model, runs, structured]
+    concepts: [progressive, questions, strongly, conservative, speech]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c6"]
     token_count: 446
   - id: "social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c3"
     char_span: [5420, 6259]
     sentence_count: 5
     key_terms: [llm-political-eval, dannyyaou, github, https, com, report, interesting, models]
+    concepts: [llm-political-eval, dannyyaou, github, https, report]
     token_count: 214
   - id: "social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c4"
     char_span: [6273, 7723]
     sentence_count: 8
     key_terms: [chinese-llm-censorship-analysis, questions, geopolitical, question, models, huggingface, interesting, leonardlin]
+    concepts: [chinese-llm-censorship-analysis, questions, geopolitical, question, models]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c5"
     char_span: [7725, 9894]
     sentence_count: 6
     key_terms: [opinions, context, abliterated, interesting, political, axis, weights, nkondratyk93]
+    concepts: [opinions, abliterated, interesting, context, political]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c6"
     char_span: [9600, 10337]
     sentence_count: 6
     key_terms: [axis, authoritarian, conservative, libertarian, progressive, libertarian-authoritarian, progressive-conservative, social]
+    concepts: [authoritarian, conservative, libertarian, progressive, social]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c2"]
     section: Comments
     token_count: 164
 ---

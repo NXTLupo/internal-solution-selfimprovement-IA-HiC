@@ -21,34 +21,41 @@ chunks:
     char_span: [0, 1750]
     sentence_count: 14
     key_terms: [financialindependence, comments, money, family, reddit, https, com, etc]
+    concepts: [financialindependence, comments, money, family, reddit]
     token_count: 418
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1q2wqi1/handing_in_my_resignation_on_monday/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1q2wqi1.md#c1"
     char_span: [1752, 2696]
     sentence_count: 11
     key_terms: [independence, financial, "i'm", "i've", "it's", number, wanted, been]
+    concepts: [independence, financial, number, wanted]
     token_count: 250
   - id: "social-intelligence/reddit-deep/financialindependence/1q2wqi1.md#c2"
     char_span: [2710, 3099]
     sentence_count: 2
     key_terms: [around, here, congratulate, deezneezuts, howdyfriday, background, retirement, rayatello]
+    concepts: [around]
     section: Comments
     token_count: 122
   - id: "social-intelligence/reddit-deep/financialindependence/1q2wqi1.md#c3"
     char_span: [3101, 4610]
     sentence_count: 16
     key_terms: [health, thank, time, button, chance, future, market, press]
+    concepts: [health, thank, button, chance, future]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/financialindependence/1q2wqi1.md#c4"
     char_span: [4615, 6509]
     sentence_count: 16
     key_terms: [time, early, enjoy, small, transition, decisions, part-time, looking]
+    concepts: [early, enjoy, small, transition, decisions]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/financialindependence/1q2wqi1.md#c5"
     char_span: [6511, 8453]
     sentence_count: 19
     key_terms: [mom, congrats, resignation, dad, get, time, sometimes, thanks]
+    concepts: [congrats, resignation, sometimes, thanks, money]
     section: Comments
     token_count: 485
 ---

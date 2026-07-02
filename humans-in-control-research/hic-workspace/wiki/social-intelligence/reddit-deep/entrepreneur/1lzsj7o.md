@@ -20,40 +20,50 @@ chunks:
     char_span: [0, 2119]
     sentence_count: 26
     key_terms: [voice, agents, companies, company, system, entrepreneur, calls, integration]
+    concepts: [voice, companies, agents, company, entrepreneur]
     token_count: 431
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1lzsj7o/after_deploying_ai_agents_for_100_companies_heres/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1lzsj7o.md#c1"
     char_span: [2121, 4044]
     sentence_count: 28
     key_terms: [handle, agents, call, because, cases, sometimes, customer, handles]
+    concepts: [handle, agents, because, sometimes, cases]
     token_count: 375
   - id: "social-intelligence/reddit-deep/entrepreneur/1lzsj7o.md#c2"
-    char_span: [4059, 6182]
+    char_span: [4058, 6181]
     sentence_count: 14
     key_terms: [entrepreneur, please, check, human, case, read, use, damaan2981]
+    concepts: [entrepreneur, please, check, damaan2981, human]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/entrepreneur/1lzsj7o.md#c3"
-    char_span: [6184, 8502]
+    char_span: [6183, 8501]
     sentence_count: 20
     key_terms: [handle, collection, calls, customers, numbers, usually, agents, number]
+    concepts: [collection, handle, customers, calls, numbers]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1lzsj7o.md#c5"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/entrepreneur/1lzsj7o.md#c4"
-    char_span: [8504, 10301]
+    char_span: [8503, 10300]
     sentence_count: 11
     key_terms: [models, architecture, voice, llm, something, response, someone, sunchax]
+    concepts: [architecture, models, voice, something, response]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/entrepreneur/1lzsj7o.md#c5"
-    char_span: [10303, 12445]
+    char_span: [10302, 12444]
     sentence_count: 14
     key_terms: [implementations, handle, calls, cheap, appointment, background, damaan2981, repetitive]
+    concepts: [implementations, handle, appointment, background, calls]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1lzsj7o.md#c3"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/entrepreneur/1lzsj7o.md#c6"
-    char_span: [12447, 12827]
+    char_span: [12446, 12826]
     sentence_count: 3
     key_terms: [enough, gets, experience, repetitive, attention, automated, important, something]
+    concepts: [enough]
     section: Comments
     token_count: 88
 ---

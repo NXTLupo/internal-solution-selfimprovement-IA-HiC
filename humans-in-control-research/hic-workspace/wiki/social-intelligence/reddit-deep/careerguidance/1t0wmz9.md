@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1612]
     sentence_count: 14
     key_terms: [agriculture, agri, bpo, like, careerguidance, demand, philippines, graduates]
+    concepts: [agriculture, careerguidance, demand, philippines, graduates]
     token_count: 348
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t0wmz9/agri_student_dilemma_stay_in_farming_or_shift_to/"}]
 ---
 # Agri student dilemma: stay in farming or shift to BPO?
 

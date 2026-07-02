@@ -7,72 +7,86 @@ subreddit: "dataengineering"
 title: "Data Infrastructure at Mid Sized Company"
 author: "Feeling-Extreme-7555"
 date: "2026-05-09T07:21:04.000Z"
-score: 36
-upvote_ratio: 0.91
+score: 38
+upvote_ratio: 0.93
 num_comments: 53
 flair: "Help"
-extracted_at: "2026-06-11T18:58:17.201Z"
+extracted_at: "2026-06-29T14:40:47.213Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Define the 2026 \"state of the Art\" operational and technological benchmarks for \"The State of Data & Distribution in Asset Management\". Synthesize key developments across data infrastructure, distribution enablement, and AI governance frameworks to identify leading industry capabilities and compliance standards."
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
 chunks:
   - id: "social-intelligence/reddit-deep/dataengineering/1t7xwta.md#c0"
     char_span: [0, 2483]
     sentence_count: 24
     key_terms: [reports, data, reporting, infrastructure, report, manually, dataengineering, company]
+    concepts: [reports, infrastructure, reporting, report, dataengineering]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1t7xwta.md#c3"]
     token_count: 497
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1t7xwta/data_infrastructure_at_mid_sized_company/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1t7xwta.md#c1"
     char_span: [2485, 3488]
     sentence_count: 11
     key_terms: [whether, migration, company, fabric, data, sap, infrastructure, architecture]
+    concepts: [whether, migration, company, fabric]
     token_count: 192
   - id: "social-intelligence/reddit-deep/dataengineering/1t7xwta.md#c2"
-    char_span: [3503, 5490]
+    char_span: [3502, 5488]
     sentence_count: 14
     key_terms: [python, like, erp, overkill, infrastructure, fabric, cron, need]
+    concepts: [python, overkill, infrastructure, fabric, connector]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1t7xwta.md#c7"]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/dataengineering/1t7xwta.md#c3"
-    char_span: [5492, 7617]
+    char_span: [5490, 7615]
     sentence_count: 22
     key_terms: [data, per, erp, reporting, platform, infrastructure, manufacturing, month]
+    concepts: [reporting, platform, infrastructure, manufacturing, month]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1t7xwta.md#c0"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/dataengineering/1t7xwta.md#c4"
-    char_span: [7622, 9808]
+    char_span: [7620, 9806]
     sentence_count: 19
     key_terms: [fabric, data, get, sap, extracts, airflow, change, incremental]
+    concepts: [fabric, extracts, airflow, change, incremental]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/dataengineering/1t7xwta.md#c5"
-    char_span: [9810, 11403]
+    char_span: [9808, 11401]
     sentence_count: 10
     key_terms: [reporting, sap, data, system, warehouse, operational, erp, challenges]
+    concepts: [reporting, system, warehouse, operational, challenges]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/dataengineering/1t7xwta.md#c6"
-    char_span: [11405, 12488]
+    char_span: [11403, 12486]
     sentence_count: 7
     key_terms: [analytics, feeling-extreme-7555, excel, notes, data, want, tasrieitservices, infrastructure]
+    concepts: [analytics, excel, notes]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/dataengineering/1t7xwta.md#c7"
-    char_span: [12493, 14628]
+    char_span: [12491, 14626]
     sentence_count: 16
     key_terms: [fabric, azure, like, infrastructure, learn, don, need, databricks]
+    concepts: [fabric, azure, infrastructure, databricks, learn]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1t7xwta.md#c2"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/dataengineering/1t7xwta.md#c8"
-    char_span: [14630, 15342]
+    char_span: [14628, 15340]
     sentence_count: 8
     key_terms: [scheduler, data, transformation, separate, exasol, tools, etl, need]
+    concepts: [scheduler, transformation, separate, exasol, tools]
     section: Comments
     token_count: 155
 ---
 # Data Infrastructure at Mid Sized Company
 
 Source: [reddit-deep: r/dataengineering](https://www.reddit.com/r/dataengineering/comments/1t7xwta/data_infrastructure_at_mid_sized_company/)
-Posted by **Feeling-Extreme-7555** · **36↑** · **53 comments**
+Posted by **Feeling-Extreme-7555** · **38↑** · **53 comments**
 
 5 days into a data analytics role at a 130-person manufacturer. Is this architecture overkill or am I thinking about this right.
 
@@ -98,15 +112,15 @@ EDIT: Added more context.
 
 ## Comments
 
-- **Icy_Clench** (10↑): Why do you need Fabric exactly? If you just need something start simple and scale up. Start with Python and cron schedules and add something more complicated when it fulfills a business requirement.
-  - **Feeling-Extreme-7555** (4↑): Love this and I’m actually getting Python + VS Code set up this week. Problem is cron needs somewhere to live and we have literally zero infrastructure - no server, no VM, nothing. Running it on my laptop isn’t a real solution. Fabric gives me managed Python notebooks with scheduling built in and nothing to maintain myself. Once I have more infrastructure to work with I’d revisit this.
+- **Icy_Clench** (9↑): Why do you need Fabric exactly? If you just need something start simple and scale up. Start with Python and cron schedules and add something more complicated when it fulfills a business requirement.
+  - **Feeling-Extreme-7555** (3↑): Love this and I’m actually getting Python + VS Code set up this week. Problem is cron needs somewhere to live and we have literally zero infrastructure - no server, no VM, nothing. Running it on my laptop isn’t a real solution. Fabric gives me managed Python notebooks with scheduling built in and nothing to maintain myself. Once I have more infrastructure to work with I’d revisit this.
     - **Lastrevio** (3↑): Why not just rent a lightweight virtual machine from a cheap prrovider like Hetzner and use Python (pandas/polars) + cron on that VM? From your other comments, it seemed like the data volume is very small so an entire ecosystem like Fabric is overkill.
 
 Regarding migration: this might be overkill, but if you want your pipelines to survive both migrations then you can set up an intermediary layer between Python and SAP/the ERP that uses ODBC to connect and you can query the ERP directly using SQL. I think it's close to a microservices architecture, but not quite, just a de-coupling step. You create your own Python script that uses ODBC driver and the necessary credentials to connect to an ERP, and then simply define multiple connectors in separate files. Then you define your Python ETL logic on top of the data extracted through SQL by your ODBC connector.
 
 If your company ever switches their ERP, then you just create a new connector without needing to change anything from your ETL logic.
     - **PepegaQuen** (-6↑): if you need to "set up" "Python + VS code" then I doubt your chances
-- **PeitersSloppyBallz** (8↑): It is overkill, because it seems like you just have some few excel sheets.
+- **PeitersSloppyBallz** (9↑): It is overkill, because it seems like you just have some few excel sheets.
 
 Well the layout you have given us it not requirements, it seems more like you want to try some technologies.
 
@@ -115,7 +129,7 @@ What is the frequencies and what are the sources and how many.
 Provide us with amount of rows, storage and the amounts the data is increasing.
   - **Feeling-Extreme-7555** (3↑): Fair, here’s the numbers. 10-15 recurring reports per month minimum for our finance department alone, probably more I haven’t found yet. 6k-12k rows per SAP pull per report. 4-8 manual hours per report per cycle. Estimated 60-100 manual reporting hours per month across the team. SAP 2017 on prem, no API, ERP migration coming 2027, M365 already licensed. It’s not that I want to play with new tech - it’s that Fabric is the only architecture where the reporting layer survives the ERP migration without being rebuilt from scratch. That’s the real driver.
     - **bakochba** (3↑): Why can't you just run a simple automation using Python or R to pull the raw data and apply the transformations and right to the final destination folder. Just a simple data pipeline
-- **Gnaskefar** (4↑): No. You mention an F2. It is what.. 2-400$ a month for a fully managed data platform? That is not much money, requiring now real infrastructure/maintenance from your side.
+- **Gnaskefar** (6↑): No. You mention an F2. It is what.. 2-400$ a month for a fully managed data platform? That is not much money, requiring now real infrastructure/maintenance from your side.
 
   
 The point about using the same platform when you change ERP is very valid. 
@@ -137,7 +151,7 @@ And then spin up some more giving you extra infrastructure work when the IoT stu
 
   
 Or you can just use fabric, that for your case supports it all from the get go, and is cheap and you can buy bigger capacities as needed when the data expands.
-- **Time-Category4939** (6↑): Fabric for a company that so far has worked only on excel files and was ok with it? It's overkill. Way too overkill.
+- **Time-Category4939** (7↑): Fabric for a company that so far has worked only on excel files and was ok with it? It's overkill. Way too overkill.
 
 Spin up an Airflow and a PostgreSQL instance, build a DWH and do the reporting out of it. Most likely you won't need more than that.
   - **Feeling-Extreme-7555** (3↑): I wish. I’m the only person here thinking about any of this. No data engineering team, no DevOps, nobody who’s ever touched Postgres. Airflow needs maintaining and so does a database instance. Fabric is fully managed, already potentially covered by our M365 license, and has a visual pipeline builder my finance team can actually understand. The incremental cost of Fabric is close to zero. The incremental cost of self managed Airflow and Postgres for a one person show is very much not zero.

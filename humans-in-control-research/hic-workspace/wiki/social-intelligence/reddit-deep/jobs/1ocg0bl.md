@@ -21,71 +21,88 @@ chunks:
     char_span: [0, 1304]
     sentence_count: 9
     key_terms: [experience, developer, work, got, job, comments, oriented, previous]
+    concepts: [experience, developer, comments, oriented, previous]
     token_count: 284
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1ocg0bl/are_we_just_locked_into_the_line_of_work_we_chose/"}]
   - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c1"
     char_span: [1318, 3333]
     sentence_count: 16
     key_terms: [experience, job, jobs, years, marketing, being, find, "i'm"]
+    concepts: [experience, marketing, years, being, searching]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1ocg0bl.md#c9"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c2"
     char_span: [3336, 4833]
     sentence_count: 10
     key_terms: [deleted, working, people, remote, been, job, understand, better]
+    concepts: [deleted, working, people, remote, understand]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c3"
     char_span: [4835, 6911]
     sentence_count: 22
     key_terms: [want, field, change, people, manufacturing, going, don, work]
+    concepts: [field, manufacturing, change, people, going]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c4"
     char_span: [6621, 7753]
     sentence_count: 11
     key_terms: [managers, people, did, industry, talking, degree, hiring, gotta]
+    concepts: [managers, people, industry, talking, degree]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c5"
     char_span: [7756, 10042]
     sentence_count: 14
     key_terms: [paycheck, people, careers, reviews, course, change, switch, field]
+    concepts: [paycheck, people, careers, reviews, course]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c6"
     char_span: [10045, 11849]
     sentence_count: 19
     key_terms: [capitalism, careers, job, work, paying, trying, times, because]
+    concepts: [capitalism, careers, paying, trying, times]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c7"
     char_span: [11852, 13888]
     sentence_count: 17
     key_terms: [capitalism, people, want, government, level, because, entry, restriction]
+    concepts: [capitalism, people, government, level, because]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1ocg0bl.md#c8"]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c8"
     char_span: [13890, 15982]
     sentence_count: 22
     key_terms: [capitalism, unfairly, government, protecting, benefits, customer, country, insider]
+    concepts: [capitalism, unfairly, government, protecting, benefits]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1ocg0bl.md#c7"]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c9"
     char_span: [15984, 17675]
     sentence_count: 14
     key_terms: [administrative, lot, experience, marketing, young, didn, got, "i'm"]
+    concepts: [administrative, experience, marketing, young]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1ocg0bl.md#c1"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c10"
     char_span: [17677, 19621]
     sentence_count: 11
     key_terms: ["you're", opportunity, cost, get, college, deleted, example, factory]
+    concepts: ["you're", opportunity, college, deleted, example]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c11"
     char_span: [19417, 19718]
     sentence_count: 2
     key_terms: ["you're", white, dramatics, offensive, enslaved, correct, slavery, without]
+    concepts: ["you're", white]
     section: Comments
     token_count: 94
 ---

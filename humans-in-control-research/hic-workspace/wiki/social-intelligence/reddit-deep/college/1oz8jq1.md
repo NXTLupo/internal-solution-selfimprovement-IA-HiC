@@ -19,41 +19,49 @@ chunks:
     char_span: [0, 1467]
     sentence_count: 13
     key_terms: ["don't", "i'm", college, years, comments, writing, anyone, grades]
+    concepts: ["don't", college, years, comments, writing]
     token_count: 357
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1oz8jq1/i_ruined_my_college_life/"}]
   - id: "social-intelligence/reddit-deep/college/1oz8jq1.md#c1"
-    char_span: [1482, 2160]
+    char_span: [1481, 2159]
     sentence_count: 6
     key_terms: [get, grades, intelligentwill2665, ask, too, differently, experience, counselor]
+    concepts: [grades]
     section: Comments
     token_count: 155
   - id: "social-intelligence/reddit-deep/college/1oz8jq1.md#c2"
-    char_span: [2162, 4257]
+    char_span: [2161, 4256]
     sentence_count: 12
     key_terms: [been, get, testing, psychiatrist, major, adhd, help, like]
+    concepts: [testing, psychiatrist, major, diagnosis, something]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1oz8jq1.md#c3"
-    char_span: [3969, 4933]
+    char_span: [3968, 4932]
     sentence_count: 10
     key_terms: [com, help, psychologytoday, difficulties, student, support, testing, center]
+    concepts: [psychologytoday, difficulties, student, support, testing]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/college/1oz8jq1.md#c4"
-    char_span: [4936, 6584]
+    char_span: [4935, 6583]
     sentence_count: 15
     key_terms: [start, day, try, motivation, difficult, semester, routine, around]
+    concepts: [start, motivation, difficult, semester, routine]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/college/1oz8jq1.md#c5"
-    char_span: [6587, 8612]
+    char_span: [6586, 8611]
     sentence_count: 14
     key_terms: [college, going, back, hard, look, time, work, everyone]
+    concepts: [college, going, everyone, semester, failure]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1oz8jq1.md#c6"
-    char_span: [8370, 10164]
+    char_span: [8369, 10163]
     sentence_count: 21
     key_terms: [college, scholarships, like, talk, tutoring, already, parents, trying]
+    concepts: [college, scholarships, tutoring, already, parents]
     section: Comments
     token_count: 440
 ---

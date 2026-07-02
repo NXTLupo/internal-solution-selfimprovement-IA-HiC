@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1453]
     sentence_count: 13
     key_terms: [direction, web, careeradvice, dev, java, comments, computer, advice]
+    concepts: [direction, careeradvice, comments, computer, advice]
     token_count: 331
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1qseozs/unsure_about_my_career_direction_after_graduation/"}]
 ---
 # Unsure about my career direction after graduation (AI vs Web Dev)
 

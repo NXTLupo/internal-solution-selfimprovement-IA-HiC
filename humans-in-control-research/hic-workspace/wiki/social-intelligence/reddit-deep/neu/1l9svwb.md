@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1613]
     sentence_count: 11
     key_terms: [university, survey, looking, recent, pennsylvania, job, neu, understand]
+    concepts: [university, survey, looking, pennsylvania, recent]
     token_count: 392
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1l9svwb/cs_seniors_and_recent_grads_share_your_job_search/"}]
   - id: "social-intelligence/reddit-deep/neu/1l9svwb.md#c1"
     char_span: [1627, 2149]
     sentence_count: 6
     key_terms: ["we'll", results, school, study, part, representing, cross-post, engagement]
+    concepts: ["we'll", results, school, study]
     section: Comments
     token_count: 125
 ---

@@ -20,54 +20,65 @@ chunks:
     char_span: [0, 1888]
     sentence_count: 3
     key_terms: [financialindependence, comments, reddit, https, reflection, com, old, year]
+    concepts: [financialindependence, comments, reddit, reflection, https]
     token_count: 514
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1rs93im/fire_8_years_in_yearly_update_and_discussion/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1rs93im.md#c1"
     char_span: [1890, 2785]
     sentence_count: 9
     key_terms: [years, job, scientist, large, price, data, hit, sold]
+    concepts: [years, scientist, large, price]
     token_count: 223
   - id: "social-intelligence/reddit-deep/financialindependence/1rs93im.md#c2"
     char_span: [2787, 4840]
     sentence_count: 20
     key_terms: [last, month, year, retirement, portfolio, funds, house, worth]
+    concepts: [month, retirement, portfolio, funds, house]
     token_count: 509
   - id: "social-intelligence/reddit-deep/financialindependence/1rs93im.md#c3"
     char_span: [4842, 6400]
     sentence_count: 15
     key_terms: [year, money, account, around, need, liquidity, portfolio, probably]
+    concepts: [money, account, around, liquidity, portfolio]
     token_count: 357
   - id: "social-intelligence/reddit-deep/financialindependence/1rs93im.md#c4"
     char_span: [6402, 8435]
     sentence_count: 20
     key_terms: [spending, year, cash, because, money, spend, need, used]
+    concepts: [spending, because, money, spend, available]
     token_count: 481
   - id: "social-intelligence/reddit-deep/financialindependence/1rs93im.md#c5"
     char_span: [8437, 10272]
     sentence_count: 17
     key_terms: [year, because, bucket, car, bitcoin, bought, worth, did]
+    concepts: [because, bucket, bitcoin, bought, worth]
     token_count: 428
   - id: "social-intelligence/reddit-deep/financialindependence/1rs93im.md#c6"
     char_span: [10286, 12063]
     sentence_count: 13
     key_terms: [spending, admiration, interest, tracking, already, because, hours, since]
+    concepts: [spending, admiration, interest, tracking, already]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/financialindependence/1rs93im.md#c7"
     char_span: [12065, 14062]
     sentence_count: 20
     key_terms: [without, fartallnight, yield, post, time, too, want, investment]
+    concepts: [without, fartallnight, investment, yield, companies]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/financialindependence/1rs93im.md#c8"
     char_span: [14064, 15106]
     sentence_count: 9
     key_terms: [felicidades, investment, crypto, weird, got, que, una, appreciation]
+    concepts: [felicidades, investment, crypto, weird]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/financialindependence/1rs93im.md#c9"
     char_span: [15108, 16987]
     sentence_count: 15
     key_terms: [years, retired, did, retirement, encontrar, honestly, curious, people]
+    concepts: [years, retired, retirement, encontrar, honestly]
     section: Comments
     token_count: 494
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2093]
     sentence_count: 18
     key_terms: [sales, back, london, looking, analytics, sdr, finance, realistically]
+    concepts: [sales, london, looking, analytics, realistically]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1sf9u4g/3_years_out_of_sales_looking_to_get_back_in/"}]
   - id: "social-intelligence/reddit-deep/sales/1sf9u4g.md#c1"
-    char_span: [2095, 4231]
+    char_span: [2095, 4230]
     sentence_count: 20
     key_terms: [companies, good, tech, london, base, like, ote, role]
+    concepts: [companies, london, background, consultant, knowledge]
     section: Comments
     token_count: 493
 ---

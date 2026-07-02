@@ -20,28 +20,37 @@ chunks:
     char_span: [0, 2005]
     sentence_count: 19
     key_terms: [people, "i'm", get, opener, trying, maybe, reliability, week]
+    concepts: [people, opener, trying, reliability, maybe]
     token_count: 461
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1tkvhsv/i_will_not_promote_im_having_a_horrible_time/"}]
   - id: "social-intelligence/reddit-deep/startups/1tkvhsv.md#c1"
     char_span: [2007, 2929]
     sentence_count: 11
     key_terms: [agent, regressions, something, minutes, trying, "you've", quick, chat]
+    concepts: [agent, regressions, something, minutes, trying]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tkvhsv.md#c2", "social-intelligence/reddit-deep/startups/1tkvhsv.md#c3"]
     token_count: 209
   - id: "social-intelligence/reddit-deep/startups/1tkvhsv.md#c2"
-    char_span: [2944, 4712]
+    char_span: [2943, 4711]
     sentence_count: 9
     key_terms: [something, failure, agent, reliability, did, anything, business, probably]
+    concepts: [something, failure, reliability, agent, anything]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tkvhsv.md#c1"]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/startups/1tkvhsv.md#c3"
-    char_span: [4714, 6702]
+    char_span: [4713, 6701]
     sentence_count: 8
     key_terms: [something, linkedin, trying, ask, cold, messages, outreach, events]
+    concepts: [something, linkedin, trying, messages, outreach]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tkvhsv.md#c1"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/startups/1tkvhsv.md#c4"
-    char_span: [6705, 7627]
+    char_span: [6704, 7626]
     sentence_count: 8
     key_terms: [like, probably, problem, asking, sounds, u22024, cute-individual4472, solve]
+    concepts: [probably, problem, asking, sounds, u22024]
     section: Comments
     token_count: 233
 ---

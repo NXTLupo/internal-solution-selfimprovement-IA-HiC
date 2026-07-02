@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 861]
     sentence_count: 8
     key_terms: [aerospace, engineering, engineeringstudents, student, python, worth, comments, learning]
+    concepts: [aerospace, engineering, engineeringstudents, student, python]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1symg1d.md#c2"]
     token_count: 191
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1symg1d/still_worth_learning_python_as_an_aerospace/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1symg1d.md#c1"
     char_span: [875, 2683]
     sentence_count: 15
     key_terms: [worldtallestengineer, code, "it's", python, get, want, results, future]
+    concepts: [worldtallestengineer, python, results, future, making]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/engineeringstudents/1symg1d.md#c2"
     char_span: [2685, 4432]
     sentence_count: 14
     key_terms: [python, learn, heythere1212121212, "it's", cabbbagedealer, aerospace, generally, project]
+    concepts: [heythere1212121212, python, learn, cabbbagedealer, aerospace]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1symg1d.md#c0"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/engineeringstudents/1symg1d.md#c3"
     char_span: [4434, 5821]
     sentence_count: 11
     key_terms: [time, matlab, python, "it's", comments, learning, jubjjub, knowing]
+    concepts: [matlab, python, comments, learning, jubjjub]
     section: Comments
     token_count: 344
 ---

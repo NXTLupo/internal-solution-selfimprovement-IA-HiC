@@ -20,34 +20,41 @@ chunks:
     char_span: [0, 2073]
     sentence_count: 19
     key_terms: [like, business, face, work, good, job, want, customer]
+    concepts: [business, customer, starting, backbreaking, entrepreneur]
     token_count: 456
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1o4xkwk/is_it_a_good_idea_to_start_a_business_because_you/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1o4xkwk.md#c1"
     char_span: [2075, 3871]
     sentence_count: 26
     key_terms: [like, because, "don't", books, get, need, business, causing]
+    concepts: [because, "don't", books, business, causing]
     token_count: 405
   - id: "social-intelligence/reddit-deep/entrepreneur/1o4xkwk.md#c2"
-    char_span: [3886, 5002]
+    char_span: [3885, 5001]
     sentence_count: 5
     key_terms: [entrepreneur, please, permanent, promotion, stickied, comment, thread, weekly]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 255
   - id: "social-intelligence/reddit-deep/entrepreneur/1o4xkwk.md#c3"
-    char_span: [5004, 7015]
+    char_span: [5003, 7014]
     sentence_count: 15
     key_terms: [job, embarrassed-let-3924, bad, work, business, sounds, punchdrunky, back]
+    concepts: [embarrassed-let-3924, business, sounds, punchdrunky, coworkers]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/entrepreneur/1o4xkwk.md#c4"
-    char_span: [7017, 9175]
+    char_span: [7016, 9174]
     sentence_count: 10
     key_terms: [yourself, job, self, control, expectations, people, discipline, conscientiousness]
+    concepts: [yourself, expectations, control, discipline, conscientiousness]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/entrepreneur/1o4xkwk.md#c5"
-    char_span: [9177, 10031]
+    char_span: [9176, 10030]
     sentence_count: 11
     key_terms: [people, good, finances, idea, keep, pay, scholarships, interaction]
+    concepts: [people, finances]
     section: Comments
     token_count: 208
 ---

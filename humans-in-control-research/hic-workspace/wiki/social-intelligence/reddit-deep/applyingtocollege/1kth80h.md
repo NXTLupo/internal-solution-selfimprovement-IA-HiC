@@ -21,88 +21,111 @@ chunks:
     char_span: [0, 2011]
     sentence_count: 15
     key_terms: [school, safety, schools, applyingtocollege, "i'm", almost, shift, considering]
+    concepts: [school, safety, schools, applyingtocollege, almost]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c8", "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c10"]
     token_count: 457
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1kth80h/no_longer_your_average_safety_schools/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c1"
     char_span: [2013, 3840]
     sentence_count: 20
     key_terms: [university, safety, list, school, popularity, students, selectivity, acceptance]
+    concepts: [university, safety, popularity, school, students]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c2"]
     token_count: 396
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c2"
     char_span: [3854, 5802]
     sentence_count: 10
     key_terms: [georgia, safety, applyingtocollege, school, state, michigan, uga, acceptance]
+    concepts: [georgia, applyingtocollege, safety, school, state]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c3"
     char_span: [5804, 6365]
     sentence_count: 5
     key_terms: [suny, student, sunys, overwhelmingly, dramatically, nys-oriented, considering, apparently]
+    concepts: [student, sunys]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c4"
     char_span: [6367, 8587]
     sentence_count: 14
     key_terms: [students, top, schools, suny, in-state, tuition, safety, school]
+    concepts: [students, schools, in-state, tuition, applications]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c12"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c5"
     char_span: [8283, 8596]
     sentence_count: 3
     key_terms: ["don't", tacosandtheology, counselors, mistakenly, plagiarize, themselves, counselor, internet]
+    concepts: ["don't"]
     section: Comments
     token_count: 68
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c6"
     char_span: [8598, 8841]
     sentence_count: 3
     key_terms: [students, thousands, claiming, decision, mistake, parents, cooked, "didn't"]
+    concepts: [students]
     section: Comments
     token_count: 57
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c7"
     char_span: [8843, 10840]
     sentence_count: 17
     key_terms: [school, parents, people, acceptance, understand, seriously, safeties, because]
+    concepts: [school, parents, people, acceptance, understand]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c8"
     char_span: [10641, 12600]
     sentence_count: 18
     key_terms: [schools, safety, "it's", acceptance, everything, asmit318, increase, college]
+    concepts: [schools, safety, acceptance, everything, asmit318]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c0"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c9"
     char_span: [12602, 14815]
     sentence_count: 15
     key_terms: [universities, admissions, kids, applications, american, holistic, schools, enough]
+    concepts: [universities, admissions, applications, american, holistic]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c10"
     char_span: [14817, 16970]
     sentence_count: 14
     key_terms: [schools, school, college, number, target, students, reach, engineering]
+    concepts: [schools, school, college, number, target]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c0"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c11"
     char_span: [16972, 17435]
     sentence_count: 2
     key_terms: [accepts, colleges, here, competitiveness, admissions, household, directly, holistic]
+    concepts: [accepts, colleges]
     section: Comments
     token_count: 133
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c12"
     char_span: [17437, 19486]
     sentence_count: 11
     key_terms: [georgia, in-state, biology, schools, school, out-of-state, state, gpa]
+    concepts: [georgia, in-state, biology, schools, out-of-state]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c13"
     char_span: [19197, 19825]
     sentence_count: 4
     key_terms: [tuition, scholarship, graduate, georgia, receive, better, covers, gpa]
+    concepts: [tuition, scholarship, graduate, georgia, receive]
     section: Comments
     token_count: 139
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kth80h.md#c14"
     char_span: [19827, 20145]
     sentence_count: 2
     key_terms: [students, state, out-of-state, competitive, admissions, flagships, in-state, intended]
+    concepts: [students, state]
     section: Comments
     token_count: 79
 ---

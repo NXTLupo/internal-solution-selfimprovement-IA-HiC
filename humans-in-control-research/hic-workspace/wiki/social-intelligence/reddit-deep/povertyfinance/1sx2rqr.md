@@ -21,46 +21,59 @@ chunks:
     char_span: [0, 2113]
     sentence_count: 13
     key_terms: ["i'm", car, money, another, monthly, savings, been, need]
+    concepts: [money, another, monthly, savings, povertyfinance]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1sx2rqr/have_500_monthly_extra_after_calculating_need/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c1"
     char_span: [2115, 2697]
     sentence_count: 8
     key_terms: [budget, confident, stability, "don't", want, direction, stressing, finances]
+    concepts: [budget, confident, stability, "don't"]
     token_count: 135
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c2"
     char_span: [2711, 4600]
     sentence_count: 13
     key_terms: [interest, account, savings, retirement, money, emergency, something, badtastingparsnip]
+    concepts: [interest, account, savings, retirement, badtastingparsnip]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c3", "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c4"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c3"
     char_span: [4602, 6415]
     sentence_count: 15
     key_terms: [savings, get, account, emergency, investing, accounts, credit, money]
+    concepts: [savings, account, emergency, investing, accounts]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c2", "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c4", "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c5"]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c4"
     char_span: [6417, 8296]
     sentence_count: 17
     key_terms: [savings, expenses, retirement, accounts, clouddancing108, account, bendallymill, like]
+    concepts: [savings, expenses, retirement, clouddancing108, accounts]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c2", "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c3"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c5"
     char_span: [8298, 10344]
     sentence_count: 20
     key_terms: [account, accounts, car, maintenance, money, feel, enough, having]
+    concepts: [account, accounts, maintenance, money, enough]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c3"]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c6"
     char_span: [10346, 11879]
     sentence_count: 14
     key_terms: [money, worth, treat, expenses, sleeping, going, spent, bag]
+    concepts: [money, worth, expenses, treat, sleeping]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c7"
     char_span: [11881, 12934]
     sentence_count: 7
     key_terms: [budgeting, dozen, fund, get, half, tool, what-im-thinking, understanding]
+    concepts: [budgeting, dozen]
     section: Comments
     token_count: 256
 ---

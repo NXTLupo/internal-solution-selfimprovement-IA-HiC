@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1564]
     sentence_count: 10
     key_terms: [claude, anthropic, users, api, regular, apple, token, available]
+    concepts: [claude, anthropic, users, regular, apple]
     token_count: 373
+    sources: [{"n":"Reddit Deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1mpv450/will_claudes_1m_token_context_window_ever_reach/"}]
   - id: "articles/reddit-deep-r-anthropic/24e7bfbba2.md#c1"
     char_span: [1566, 2245]
     sentence_count: 4
     key_terms: [notefragrant9647, api, context, sending, higher, tokens, users, use]
+    concepts: [notefragrant9647, context, sending, higher, tokens]
     token_count: 170
 ---
 # Will Claude’s 1M Token Context Window Ever Reach Regular Users?

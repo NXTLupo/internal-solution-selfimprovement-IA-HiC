@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 955]
     sentence_count: 6
     key_terms: [financialcareers, comments, senior, summer, given, offer, get, applications]
+    concepts: [financialcareers, comments, senior, summer, given]
     token_count: 235
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1szkf21/senior_with_38_gpa_at_target_but_no_internship/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1szkf21.md#c1"
-    char_span: [970, 1527]
+    char_span: [969, 1526]
     sentence_count: 4
     key_terms: [discord, professionals, full-time, banking, financialcareers, automoderator, transitioned, dgptduseqv]
+    concepts: [professionals, discord, full-time, banking]
     section: Comments
     token_count: 119
   - id: "social-intelligence/reddit-deep/financialcareers/1szkf21.md#c2"
-    char_span: [1529, 3421]
+    char_span: [1528, 3420]
     sentence_count: 11
     key_terms: [banking, take, commercial, exams, finra, usepossible2731, less, management]
+    concepts: [banking, commercial, exams, finra, usepossible2731]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1szkf21.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1szkf21.md#c3"
-    char_span: [3196, 3874]
+    char_span: [3195, 3873]
     sentence_count: 8
     key_terms: [advice, exams, finra, bad, sie, take, usepossible2731, whatever7666653]
+    concepts: [advice, exams, finra]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1szkf21.md#c2"]
     section: Comments
     token_count: 188
 ---

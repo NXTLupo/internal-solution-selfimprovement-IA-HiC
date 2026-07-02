@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 2051]
     sentence_count: 2
     key_terms: [like, student, highereducation, school, summer, been, get, job]
+    concepts: [student, highereducation, school, summer, department]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1lv5xfk/burnout_or_is_it_just_summer/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1lv5xfk.md#c1"
     char_span: [2053, 2234]
     sentence_count: 1
@@ -29,18 +31,21 @@ chunks:
     char_span: [2248, 4299]
     sentence_count: 17
     key_terms: [better, community, tuition, working, degree, opportunities, group, staff]
+    concepts: [better, community, opportunities, tuition, working]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/highereducation/1lv5xfk.md#c3"
     char_span: [4301, 6538]
     sentence_count: 17
     key_terms: [time, school, work, coffeequeen28, get, experience, university, remission]
+    concepts: [school, coffeequeen28, experience, university, remission]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/highereducation/1lv5xfk.md#c4"
     char_span: [6540, 8409]
     sentence_count: 11
     key_terms: [time, students, school, job, mba, new, programs, staff]
+    concepts: [students, school, programs, staff, because]
     section: Comments
     token_count: 441
 ---

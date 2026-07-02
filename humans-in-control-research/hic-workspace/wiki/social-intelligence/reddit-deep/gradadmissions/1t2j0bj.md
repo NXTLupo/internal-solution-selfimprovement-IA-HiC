@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 1215]
     sentence_count: 10
     key_terms: [lor, gradadmissions, old, university, comments, programs, school, wanted]
+    concepts: [gradadmissions, university, comments, programs, school]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1t2j0bj.md#c1"]
     token_count: 291
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1t2j0bj/how_much_old_lor_can_be_used_in_grad_school/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1t2j0bj.md#c1"
-    char_span: [1230, 2300]
+    char_span: [1229, 2299]
     sentence_count: 10
     key_terms: [assassinbywords, lor, directly, programs, usually, school, professor, submitted]
+    concepts: [assassinbywords, directly, programs, usually, school]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1t2j0bj.md#c0"]
     section: Comments
     token_count: 250
 ---

@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1643]
     sentence_count: 11
     key_terms: [admissions, applyingtocollege, whether, northwestern, email, late, need, explaining]
+    concepts: [admissions, applyingtocollege, whether, northwestern, email]
     token_count: 361
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1q3gaq8/should_i_email_the_college_admissions_committee/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1q3gaq8.md#c1"
     char_span: [1657, 3609]
     sentence_count: 16
     key_terms: [submitted, application, late, illustrious-award-55, time, lustfullana214, review, applications]
+    concepts: [submitted, application, illustrious-award-55, lustfullana214, applications]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/applyingtocollege/1q3gaq8.md#c2"
     char_span: [3611, 4518]
     sentence_count: 3
     key_terms: [applyingtocollege, essays, wiki, reddit, collegeessays, bellbirdboom, https, com]
+    concepts: [applyingtocollege, essays, collegeessays, bellbirdboom, reddit]
     section: Comments
     token_count: 232
 ---

@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1983]
     sentence_count: 20
     key_terms: [experience, digitalnomad, "we're", consumption, subculture, together, another, believe]
+    concepts: [experience, digitalnomad, consumption, subculture, "we're"]
     token_count: 437
+    sources: [{"n":"Reddit Deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1nja7qs/my_dn_experience_has_lacked_meaning_and/"}]
   - id: "articles/reddit-deep-r-digitalnomad/d5bc2fcd47.md#c1"
     char_span: [1985, 4383]
     sentence_count: 13
     key_terms: [different, purpose, places, nomading, digital, people, conversations, fulfillment]
+    concepts: [different, purpose, places, nomading, conversations]
     token_count: 493
   - id: "articles/reddit-deep-r-digitalnomad/d5bc2fcd47.md#c2"
     char_span: [4385, 5719]
     sentence_count: 15
     key_terms: [meaningful, something, real, people, build, capitalize, privileged, co-living]
+    concepts: [meaningful, something, people, build, capitalize]
     token_count: 323
 ---
 # My DN experience has lacked meaning and fraternity, and is hinged on constant consumption

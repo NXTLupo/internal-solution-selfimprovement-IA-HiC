@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 2027]
     sentence_count: 10
     key_terms: [interviewer, interview, dsa, mins, through, solved, internships, test]
+    concepts: [interviewer, interview, through, solved, internships]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1n5li6w/cracked_microsofts_swe_intern_role_heres_how_the/"}]
   - id: "social-intelligence/reddit-deep/internships/1n5li6w.md#c1"
     char_span: [2029, 3577]
     sentence_count: 4
     key_terms: [northeastern-university-co-op-internship-opportunities, northeastern, microsoft, https, explore-microsoft, pipeline-programs, software-engineer, colleges]
+    concepts: [northeastern-university-co-op-internship-opportunities, northeastern, microsoft, explore-microsoft, pipeline-programs]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/internships/1n5li6w.md#c2"
     char_span: [3579, 4711]
     sentence_count: 4
     key_terms: [microsoft, like, coldincident8236, sorryescape7, internships, opportunity, internship, university]
+    concepts: [microsoft]
     section: Comments
     token_count: 372
 ---

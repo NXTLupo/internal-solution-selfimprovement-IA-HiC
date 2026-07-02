@@ -20,27 +20,32 @@ chunks:
     char_span: [0, 1097]
     sentence_count: 7
     key_terms: [observational, features, studies, datascience, use, comments, predict, answer]
+    concepts: [observational, features, studies, datascience, comments]
     token_count: 247
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1nl4oi1/how_to_actually_perform_observational_studies_in/"}]
   - id: "social-intelligence/reddit-deep/datascience/1nl4oi1.md#c1"
-    char_span: [1112, 3507]
+    char_span: [1111, 3506]
     sentence_count: 12
     key_terms: [entities, threshold, reach, question, methods, reached, cohort, effect]
+    concepts: [entities, threshold, reach, question, methods]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/datascience/1nl4oi1.md#c2"
-    char_span: [3509, 5052]
+    char_span: [3508, 5051]
     sentence_count: 11
     key_terms: [artistic-comb-5932, analytics, treatment, outreach, question, research, clearly, effects]
+    concepts: [artistic-comb-5932, analytics, treatment, outreach, question]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/datascience/1nl4oi1.md#c3"
-    char_span: [5054, 7168]
+    char_span: [5053, 7167]
     sentence_count: 9
     key_terms: [introduction-causal-inference, https, berkeley, learning, targeted, users, performance, pmc10603361]
+    concepts: [introduction-causal-inference, https, berkeley, learning, targeted]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/datascience/1nl4oi1.md#c4"
-    char_span: [7172, 7477]
+    char_span: [7171, 7476]
     sentence_count: 1
     key_terms: [sensitivity, rosenbaum, staggered, threshold, analyses, approach, consider, e-values]
     section: Comments

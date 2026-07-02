@@ -20,21 +20,28 @@ chunks:
     char_span: [0, 1973]
     sentence_count: 5
     key_terms: [charitable, funds, donor-advised, philanthropy, daf, sponsoring, philanthropyproject, nonprofit]
+    concepts: [charitable, donor-advised, funds, philanthropy, philanthropyproject]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1sqlzpf.md#c1"]
     token_count: 422
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1sqlzpf/dont_expand_dafs_without_a_payout_requirement/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1sqlzpf.md#c1"
     char_span: [1975, 4196]
     sentence_count: 10
     key_terms: [bill, congress, philanthropy, charitable, giving, likely, distributions, foundations]
+    concepts: [philanthropy, congress, charitable, distributions, giving]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1sqlzpf.md#c0"]
     token_count: 462
   - id: "social-intelligence/reddit-deep/philanthropy/1sqlzpf.md#c2"
     char_span: [4198, 4747]
     sentence_count: 4
     key_terms: [nonprofits, payout, per, requirements, independent, requirement, charitable, positioned]
+    concepts: [nonprofits, payout]
     token_count: 109
   - id: "social-intelligence/reddit-deep/philanthropy/1sqlzpf.md#c3"
-    char_span: [4762, 6801]
+    char_span: [4761, 6800]
     sentence_count: 14
     key_terms: [daf, philanthropic, salt-association6876, investment, almamahlerwerfel, institutions, philanthropy, agree]
+    concepts: [philanthropic, salt-association6876, investment, almamahlerwerfel, institutions]
     section: Comments
     token_count: 482
 ---

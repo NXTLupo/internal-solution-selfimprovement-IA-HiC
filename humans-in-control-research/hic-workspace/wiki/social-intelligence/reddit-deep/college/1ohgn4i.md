@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1113]
     sentence_count: 8
     key_terms: [like, college, money, technically, feel, comments, paycheck, anyone]
+    concepts: [college, technically, money, comments, paycheck]
     token_count: 254
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ohgn4i/is_anyone_else_constantly_stressed_about_money/"}]
   - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c1"
     char_span: [1127, 3123]
     sentence_count: 17
     key_terms: [money, experience, "i'm", like, always, because, relaxed, enough]
+    concepts: [experience, money, always, because, relaxed]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c2"
     char_span: [2870, 3491]
     sentence_count: 4
     key_terms: [school, non-financial, electrician, obligations, financial, interests, kragaster, something]
+    concepts: [school]
     section: Comments
     token_count: 143
   - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c3"
     char_span: [3493, 4578]
     sentence_count: 9
     key_terms: [best, feel, like, security, yourself, invest, "can't", lot]
+    concepts: [security, yourself, invest, "can't"]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c4"
     char_span: [4580, 6665]
     sentence_count: 17
     key_terms: [food, perishables, don, live, time, wife, work, paycheck]
+    concepts: [perishables, paycheck, samseus, student, without]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c5"
     char_span: [6407, 7042]
     sentence_count: 7
     key_terms: [emergency, sinking, budget, costs, funds, point, etc, like]
+    concepts: [emergency, sinking, budget, costs, funds]
     section: Comments
     token_count: 151
   - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c6"
     char_span: [7044, 7790]
     sentence_count: 7
     key_terms: [money, being, able, month-to-month, conceptualize, subscriptions, lackluster, retirement]
+    concepts: [money, being]
     section: Comments
     token_count: 176
 ---

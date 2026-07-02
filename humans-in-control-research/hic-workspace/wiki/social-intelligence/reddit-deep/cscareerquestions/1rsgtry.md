@@ -19,22 +19,27 @@ chunks:
     char_span: [0, 1722]
     sentence_count: 16
     key_terms: [experience, years, cscareerquestions, phd, relative, full-time, strategic, comments]
+    concepts: [experience, cscareerquestions, years, relative, full-time]
     token_count: 418
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rsgtry/the_road_to_the_us_phd_vs_industry_experience_for/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsgtry.md#c1"
     char_span: [1724, 2813]
     sentence_count: 7
     key_terms: [country, here, algorithms, employment, industry, research, focus, given]
+    concepts: [country, algorithms, employment, industry, research]
     token_count: 228
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsgtry.md#c2"
-    char_span: [2828, 4585]
+    char_span: [2827, 4584]
     sentence_count: 10
     key_terms: [education, masters, get, need, phd, understand, pursuing, "there's"]
+    concepts: [education, masters, understand, pursuing, "there's"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsgtry.md#c3"
-    char_span: [4589, 6402]
+    char_span: [4588, 6401]
     sentence_count: 7
     key_terms: [country, market, opportunities, "don't", place, usa, work, looking]
+    concepts: [opportunities, country, market, "don't", place]
     section: Comments
     token_count: 409
 ---

@@ -21,59 +21,74 @@ chunks:
     char_span: [0, 1558]
     sentence_count: 13
     key_terms: [month, countries, live, digitalnomad, life, affordable, lifestyle, comments]
+    concepts: [month, countries, digitalnomad, affordable, lifestyle]
     token_count: 368
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1rxiozy/how_can_they_be_serious_in_this_articles_listing/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c1"
     char_span: [1572, 3211]
     sentence_count: 10
     key_terms: [dargus77, hostels, hostel, been, better, others, shared, house]
+    concepts: [dargus77, hostels, hostel, better, others]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c2"
     char_span: [3213, 5032]
     sentence_count: 17
     key_terms: [people, living, share, roomshares, difficult, roommates, country, working]
+    concepts: [people, living, roomshares, share, difficult]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c5", "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c9"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c3"
     char_span: [5034, 6471]
     sentence_count: 16
     key_terms: [fishing, transportation, entertainment, "don't", restaurants, need, week, almost]
+    concepts: [transportation, entertainment, fishing, restaurants, "don't"]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c4"
     char_span: [6473, 8303]
     sentence_count: 22
     key_terms: [like, month, expensive, groceries, survival, cheaper, fishing, pitiful-recover-3747]
+    concepts: [month, expensive, groceries, survival, cheaper]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c5"
     char_span: [8305, 10404]
     sentence_count: 10
     key_terms: [month, living, thailand, quality, people, life, kinkachou, expenses]
+    concepts: [month, living, thailand, quality, people]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c2", "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c6", "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c9"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c6"
     char_span: [10406, 12386]
     sentence_count: 14
     key_terms: [living, thailand, like, going, month, around, meals, cost]
+    concepts: [living, thailand, going, month, around]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c5"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c7"
     char_span: [12388, 14229]
     sentence_count: 13
     key_terms: [australia, week, budget, "it's", groceries, dargus77, minimum, someone]
+    concepts: [australia, budget, groceries, dargus77, minimum]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c8"
     char_span: [14231, 16219]
     sentence_count: 21
     key_terms: [comfort, "don't", week, hostels, thread-lightly, cairns, doable, accomodation]
+    concepts: [comfort, "don't", thread-lightly, hostels, accomodation]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c9"
     char_span: [16221, 18286]
     sentence_count: 24
     key_terms: [lifestyle, digital, here, living, people, money, like, need]
+    concepts: [lifestyle, digital, living, people, money]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c2", "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c5"]
     section: Comments
     token_count: 504
 ---

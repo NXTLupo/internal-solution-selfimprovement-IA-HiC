@@ -7,77 +7,94 @@ subreddit: "healthinsurance"
 title: "Insurance has denied inpatient hospital stay and surgery as not medically necessary"
 author: "Chebby253"
 date: "2026-05-05T16:19:14.000Z"
-score: 37
+score: 38
 upvote_ratio: 0.89
 num_comments: 48
 flair: "Plan Benefits"
-extracted_at: "2026-06-17T19:26:43.273Z"
+extracted_at: "2026-06-20T17:52:36.285Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/healthinsurance/1t4k8kw.md#c0"
     char_span: [0, 2173]
     sentence_count: 15
     key_terms: [hospital, elbow, surgery, broken, healthinsurance, denied, trauma, mercy]
+    concepts: [hospital, elbow, surgery, broken, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t4k8kw.md#c1"]
     token_count: 483
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1t4k8kw/insurance_has_denied_inpatient_hospital_stay_and/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1t4k8kw.md#c1"
     char_span: [2175, 4254]
     sentence_count: 15
     key_terms: [highmark, surgery, decision, broken, stay, upmc, admission, contacted]
+    concepts: [highmark, surgery, decision, broken, admission]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t4k8kw.md#c0"]
     token_count: 455
   - id: "social-intelligence/reddit-deep/healthinsurance/1t4k8kw.md#c2"
     char_span: [4256, 6016]
     sentence_count: 12
     key_terms: [preauthorization, professional, member, highmark, provider, received, services, notice]
+    concepts: [preauthorization, professional, member, highmark, provider]
     token_count: 360
   - id: "social-intelligence/reddit-deep/healthinsurance/1t4k8kw.md#c3"
-    char_span: [6031, 7901]
+    char_span: [6030, 7900]
     sentence_count: 6
     key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    concepts: [information, questions, following, please, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t4k8kw.md#c4"]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/healthinsurance/1t4k8kw.md#c4"
-    char_span: [7903, 9472]
+    char_span: [7902, 9471]
     sentence_count: 8
     key_terms: [please, eob, contact, questions, subreddit, post, via, report]
+    concepts: [please, contact, questions, subreddit, report]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t4k8kw.md#c3"]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/healthinsurance/1t4k8kw.md#c5"
-    char_span: [9474, 11610]
+    char_span: [9473, 11609]
     sentence_count: 20
     key_terms: [hospital, patient, insurance, responsibility, providers, pay, because, network]
+    concepts: [hospital, patient, responsibility, insurance, providers]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t4k8kw.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1t4k8kw.md#c6"
-    char_span: [11325, 11813]
+    char_span: [11324, 11812]
     sentence_count: 4
     key_terms: [facility, patient, accept, bill, eob, partyhorse17610, responsibility, according]
+    concepts: [facility, patient, accept]
     section: Comments
     token_count: 104
   - id: "social-intelligence/reddit-deep/healthinsurance/1t4k8kw.md#c7"
-    char_span: [11815, 12970]
+    char_span: [11814, 12969]
     sentence_count: 15
     key_terms: [bill, hospital, responsibility, haven, get, anything, services, thousand]
+    concepts: [hospital, responsibility, haven, anything, services]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t4k8kw.md#c5"]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/healthinsurance/1t4k8kw.md#c8"
-    char_span: [12972, 15030]
+    char_span: [12971, 15028]
     sentence_count: 23
     key_terms: [time, bill, get, dispute, authorization, "don't", month, wait]
+    concepts: [authorization, dispute, "don't", month, insurance]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/healthinsurance/1t4k8kw.md#c9"
-    char_span: [15032, 17316]
+    char_span: [15030, 17314]
     sentence_count: 24
     key_terms: [appeal, authorization, because, hospital, received, responsibility, "don't", responsible]
+    concepts: [appeal, authorization, because, hospital, received]
     section: Comments
     token_count: 487
 ---
 # Insurance has denied inpatient hospital stay and surgery as not medically necessary
 
 Source: [reddit-deep: r/healthinsurance](https://www.reddit.com/r/HealthInsurance/comments/1t4k8kw/insurance_has_denied_inpatient_hospital_stay_and/)
-Posted by **Chebby253** · **37↑** · **48 comments**
+Posted by **Chebby253** · **38↑** · **48 comments**
 
 I would be grateful for any guidance that anyone can provide, as we are looking at almost $150,000 in denied claims, an amount that will literally destroy our lives.  Our insurance provider has denied Inpatient care for my wife after her admittance from a trauma hospital emergency room and subsequent surgery.  This is in Pittsburgh, Pennsylvania.  The provider is UPMC Mercy Hospital and the insurer is Highmark PPO Blue (BCBS).  I apologize for the length, but i didn't want to miss anything.
 
@@ -137,25 +154,25 @@ Please also read the following information carefully to help others assist with 
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/HealthInsurance) if you have any questions or concerns.*
-- **Botasoda102** (68↑): UPMC is the best one to appeal, they have the medical records, know how to appeal, and want to get paid. I'd bet money if the facts are as presented, which I'm sure they are, it will be approved. Taking a month on a large hospital bill to achieve payment is not unusual, unfortunately.
+- **Botasoda102** (70↑): UPMC is the best one to appeal, they have the medical records, know how to appeal, and want to get paid. I'd bet money if the facts are as presented, which I'm sure they are, it will be approved. Taking a month on a large hospital bill to achieve payment is not unusual, unfortunately.
 
 Good luck.
-  - **Chebby253** (12↑): Thank you.  I’m hoping they will do just that, I’m just the type of person who hates to sit back.  I need meditation, ha.
-    - **positivelycat** (20↑): Denial is very common for sometimes no reason,  sometimes provider did not chart quick enough.  Lots of hospital have a team who all they do is appeal these. I know it's hard but they likely got you
+  - **Chebby253** (11↑): Thank you.  I’m hoping they will do just that, I’m just the type of person who hates to sit back.  I need meditation, ha.
+    - **positivelycat** (21↑): Denial is very common for sometimes no reason,  sometimes provider did not chart quick enough.  Lots of hospital have a team who all they do is appeal these. I know it's hard but they likely got you
     - **katsrad** (11↑): I know it is hard to sit back but know that the hospital and doctor want the insurance to pay because they are guaranteed to get that money. They are going to be working on getting this appealed because they know that most people's ability to pay that much money is small but the insurance company will pay at least a portion. So, try to take a breather, and help your wife heal. I hope she is doing better!
-- **Swastik496** (27↑): Patient responsibility is $0. This is not your problem. Let the hospital and insurance fight it out
+- **Swastik496** (28↑): Patient responsibility is $0. This is not your problem. Let the hospital and insurance fight it out
   - **Long-Raccoon2131** (-2↑): Not true. When you go to all providers you sign forms and one is the patient responsibility form which states any amount not coveted by your insurance you agree to pay. These forms negate the patient $0. It appears the denial is because the ems shpuld have went to a normal ER and hospital verus a severe trauma level of care. While she had injuries they weren't trauma level as in life or death.
     - **Swastik496** (2↑): lmao.  
 They’re an in network provider. This isn’t an NSA issue with OON where that clause applies. There’s a reason the hospital hasn’t billed OP.  
 At least with UHC my plan language is very clear that prior auth or coverage decision is never the job or responsibility of the patient as long as they go to an in network facility and are treated by in network providers.  
 Any dollar amount billed ,even as little  to a 3% credit card fee, (explicitly called out by the broker during the benefits call) should be forwarded to waste fraud and abuse. Providers can refuse to accept certain kinds of payment but they can’t bill the patient anything about EOB if they do accept it.
-- **PartyHorse17610** (17↑): Has the hospital sent you a bill yet? The fact that your EOB says patient responsibility is good news. It means according to the contract between the facility and your insurer the facility can’t pass along the denied costs to you.
+- **PartyHorse17610** (16↑): Has the hospital sent you a bill yet? The fact that your EOB says patient responsibility is good news. It means according to the contract between the facility and your insurer the facility can’t pass along the denied costs to you.
 
 The hospital will appeal with the insurance in order to get paid. The bad news is that after that, your patient responsibility will probably be a couple thousand dollars ( up to your OOPmax if you haven’t met it already this year.)
-  - **Chebby253** (9↑): No, they haven’t sent a bill yet.  In fact they really wouldn’t tell me anything they plan on doing, just that I need to wait to see the eventual bill.
+  - **Chebby253** (8↑): No, they haven’t sent a bill yet.  In fact they really wouldn’t tell me anything they plan on doing, just that I need to wait to see the eventual bill.
 
 I wouldn’t have said it a month ago, but only owing a few thousand would have me dancing in the street.  Surreal!
-    - **Jcarlough** (18↑): Right.
+    - **Jcarlough** (17↑): Right.
 
 It’s because they haven’t processed anything on their end yet. These things take time.
 
@@ -168,7 +185,7 @@ Regarding your liability - review everything you signed. I’d be surprised if y
 Wait until you receive a bill….
     - **heyhello-** (6↑): This is how this process goes. Wait for a bill. If you don’t see anything change in a month, call the provider again. Do not appeal with the insurance company yourself.
     - **BumCadillac** (4↑): So stop worrying about it. Give it time and let the hospital do the fighting not you.
-- **kirpants** (10↑): It hasn't even been 30 days yet. Who initiated the peer to peer? Providers need time to get the denial and then make decisions on how it should be handled. I understand how scary this situation is but please allow the provider time to take action before moving into more advanced steps.
+- **kirpants** (9↑): It hasn't even been 30 days yet. Who initiated the peer to peer? Providers need time to get the denial and then make decisions on how it should be handled. I understand how scary this situation is but please allow the provider time to take action before moving into more advanced steps.
 - **Fit_Consequence7443** (4↑): My go to after being in medical billing for many years.  Never pay the first bill, wait till at least bill number three.  Then make a phone call.  Dont look at the EOB and think this is what you owe.  Dispute dispute dispute.   For years if you have to.   Never agree to a payment plan, they’ll use it against you and you’ll  be stuck with the whole thing.  The healthcare in this country is disgusting.    
 We pay a 1600 premium every month.  7200 deductible per person.  $90 for a specialist like dermatology, cardiology etc.  and then they deny my 2nd tier migraine medicine that costs $1200 a month!  So now I suffer
 - **LadyGreyIcedTea** (4↑): Insurance denying payment doesn't automatically equal you're on the hook for the entire amount. The hospital knows the average person doesn't have $150K lying around. They will appeal and, likely, will ultimately get paid by the insurer.

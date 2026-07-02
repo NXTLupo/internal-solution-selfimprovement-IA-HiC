@@ -21,46 +21,55 @@ chunks:
     char_span: [0, 2263]
     sentence_count: 13
     key_terms: [features, knowledge, cscareerquestions, time, infra, did, severance, anything]
+    concepts: [features, cscareerquestions, knowledge, infra, severance]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1l03xpo/fired_from_big_tech_1_yoe/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l03xpo.md#c1"
     char_span: [2265, 2958]
     sentence_count: 6
     key_terms: [never, been, feel, hypothetically, counterpart, demotivated, expectation, opportunity]
+    concepts: [never]
     token_count: 153
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l03xpo.md#c2"
     char_span: [2972, 4126]
     sentence_count: 11
     key_terms: [good, job, sounds, opportunity, "it's", like, sometimes, nothing]
+    concepts: [sounds, opportunity, sometimes, nothing, health]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l03xpo.md#c3"
     char_span: [4128, 6010]
     sentence_count: 19
     key_terms: [job, work, good, meds, psychiatric, big, shit, yourself]
+    concepts: [psychiatric, yourself, company, layoffs, manager]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l03xpo.md#c4"
     char_span: [6012, 8323]
     sentence_count: 18
     key_terms: [company, people, did, expectations, makes, work, productive, narrative]
+    concepts: [company, people, expectations, makes, productive]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l03xpo.md#c5"
     char_span: [8325, 9691]
     sentence_count: 11
     key_terms: [market, companies, severance, unemployment, pip, jumped, "you've", "don't"]
+    concepts: [companies, market, severance, unemployment, jumped]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l03xpo.md#c6"
     char_span: [9693, 11331]
     sentence_count: 9
     key_terms: [time, manager, take, everything, experience, amazon, better, people]
+    concepts: [manager, everything, experience, amazon, better]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l03xpo.md#c7"
     char_span: [11333, 13431]
     sentence_count: 21
     key_terms: [get, job, people, doing, time, year, homework, updates]
+    concepts: [people, doing, homework, updates, asked]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l03xpo.md#c8"
@@ -73,6 +82,7 @@ chunks:
     char_span: [13545, 15064]
     sentence_count: 17
     key_terms: [job, meant, boss, because, nothing, always, blamed, salary]
+    concepts: [meant, because, nothing, always, blamed]
     section: Comments
     token_count: 369
 ---

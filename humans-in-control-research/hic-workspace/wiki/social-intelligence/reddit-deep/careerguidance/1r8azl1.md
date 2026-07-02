@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 1807]
     sentence_count: 16
     key_terms: [hai, aur, hoon, main, kar, mein, careerguidance, karna]
+    concepts: [careerguidance, breadwinner, karna, developer, comments]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1r8azl1/only_future_breadwinner_soon_low_pay_toxic_job/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1r8azl1.md#c1"
     char_span: [1809, 2161]
     sentence_count: 3
     key_terms: [chahiye, guidance, karte, kisi, koi, nahi, direction, interview]
+    concepts: [chahiye, guidance, karte]
     token_count: 104
   - id: "social-intelligence/reddit-deep/careerguidance/1r8azl1.md#c2"
     char_span: [2175, 3953]
     sentence_count: 10
     key_terms: [stack, hai, mai, projects, django, remote, opportunities, tarunbedi1098]
+    concepts: [stack, projects, opportunities, tarunbedi1098, django]
     section: Comments
     token_count: 431
 ---

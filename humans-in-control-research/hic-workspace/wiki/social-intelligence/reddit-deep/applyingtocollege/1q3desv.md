@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1377]
     sentence_count: 9
     key_terms: [admissions, applyingtocollege, northwestern, need, explaining, committee, comments, opinions]
+    concepts: [admissions, applyingtocollege, northwestern, explaining, committee]
     token_count: 312
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1q3desv/should_i_email_the_college_admissions_committee/"}]
 ---
 # Should I email the college admissions committee if I applied almost a day late?!
 

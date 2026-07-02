@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 947]
     sentence_count: 7
     key_terms: [job, careerguidance, office, great, team, tips, mentorship, benefits]
+    concepts: [careerguidance, office, great, mentorship, benefits]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tf1kns.md#c1"]
     token_count: 247
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tf1kns/jobcareer_advice_not_sure_what_to_choose_any_tips/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tf1kns.md#c1"
     char_span: [961, 3191]
     sentence_count: 16
     key_terms: [job, mentorship, career, scope, good, like, pay, definitely]
+    concepts: [mentorship, career, scope, definitely, benefits]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tf1kns.md#c0"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/careerguidance/1tf1kns.md#c2"

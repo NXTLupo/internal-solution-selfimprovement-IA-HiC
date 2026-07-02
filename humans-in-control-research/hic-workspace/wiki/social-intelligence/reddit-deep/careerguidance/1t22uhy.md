@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 2012]
     sentence_count: 14
     key_terms: [gaming, industry, good, development, preferably, reasonable, idea, year]
+    concepts: [gaming, industry, development, preferably, reasonable]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t22uhy.md#c2"]
     token_count: 463
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t22uhy/is_going_into_the_gaming_industry_a_good_or/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t22uhy.md#c1"
     char_span: [2026, 3264]
     sentence_count: 8
     key_terms: [buntstick, quiet-compote4587, though, thank, like, long, time, roxoroxo]
+    concepts: [quiet-compote4587, buntstick, though, thank, roxoroxo]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/careerguidance/1t22uhy.md#c2"
     char_span: [3266, 4572]
     sentence_count: 6
     key_terms: [work, gaming, going, hours, year, buntstick, industry, company]
+    concepts: [gaming, going, hours, buntstick, industry]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t22uhy.md#c0"]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/careerguidance/1t22uhy.md#c3"
     char_span: [4574, 5389]
     sentence_count: 6
     key_terms: [maybe, good, jobs, guantanamobay1, jayant-74565, developing, reasonable, buntstick]
+    concepts: [maybe]
     section: Comments
     token_count: 198
 ---

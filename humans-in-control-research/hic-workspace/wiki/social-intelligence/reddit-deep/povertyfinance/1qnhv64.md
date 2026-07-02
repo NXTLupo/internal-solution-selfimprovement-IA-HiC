@@ -21,70 +21,83 @@ chunks:
     char_span: [0, 2175]
     sentence_count: 16
     key_terms: [parents, through, years, life, quality, povertyfinance, organizations, connections]
+    concepts: [parents, through, years, povertyfinance, organizations]
     token_count: 481
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1qnhv64/increasingly_your_quality_of_life_in_the_us_seems/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c1"
     char_span: [2177, 3351]
     sentence_count: 12
     key_terms: [life, like, amount, hard, work, hateful, poverty, towards]
+    concepts: [amount, hateful, poverty, towards, system]
     token_count: 251
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c2"
     char_span: [3365, 4989]
     sentence_count: 16
     key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
+    concepts: [submitter, appropriate, advice, vents, emotional]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c3"
     char_span: [4991, 7153]
     sentence_count: 15
     key_terms: [people, hard, disadvantaged, neighborhoods, born, don, jobs, work]
+    concepts: [people, disadvantaged, neighborhoods, childhood, decisions]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c4"
     char_span: [6809, 7610]
     sentence_count: 4
     key_terms: [disadvantaged, being, "it's", like, investigations, neighborhoods, socioeconomic, professional]
+    concepts: [disadvantaged, being]
     section: Comments
     token_count: 158
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c5"
     char_span: [7612, 9085]
     sentence_count: 8
     key_terms: [people, don, hard, luck, need, work, situation, someone]
+    concepts: [people, situation, someone, success, system]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c6"
     char_span: [9087, 11047]
     sentence_count: 14
     key_terms: [good, time, computer, progress, college, grandma, student, through]
+    concepts: [computer, progress, college, grandma, student]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c7"
     char_span: [11049, 11788]
     sentence_count: 8
     key_terms: [better, student, house, moved, debt, gig, role, depression]
+    concepts: [better, student, house, moved]
     section: Comments
     token_count: 181
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c8"
     char_span: [11790, 13988]
     sentence_count: 16
     key_terms: [time, standard, living, kaiservonrisk, hard, life, like, collective]
+    concepts: [standard, kaiservonrisk, living, collective, eventually]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c9"
     char_span: [13676, 14426]
     sentence_count: 9
     key_terms: [eventually, people, pennsylvania-based, rich, timely-way-1769, garyseconomics, determination, sampoqiser]
+    concepts: [eventually, people]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c10"
     char_span: [14429, 16218]
     sentence_count: 10
     key_terms: [research, house, europe, feudal, people, connections, genetics, "parent's"]
+    concepts: [research, house, europe, feudal, people]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c11"
     char_span: [16221, 17795]
     sentence_count: 6
     key_terms: [people, genetics, looks, "it's", life, luck, time, regarding]
+    concepts: [people, genetics, looks, regarding, certain]
     section: Comments
     token_count: 343
 ---

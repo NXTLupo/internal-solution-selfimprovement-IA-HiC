@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 1255]
     sentence_count: 12
     key_terms: [management, relations, field, grants, donor, stewardship, similarities, "i'm"]
+    concepts: [management, relations, field, grants, donor]
+    related_chunks: ["social-intelligence/reddit-deep/nonprofit/1q51wfs.md#c1"]
     token_count: 271
+    sources: [{"n":"reddit-deep: r/nonprofit","u":"https://www.reddit.com/r/nonprofit/comments/1q51wfs/are_there_similarities_between_the_fields_of/"}]
   - id: "social-intelligence/reddit-deep/nonprofit/1q51wfs.md#c1"
-    char_span: [1270, 2296]
+    char_span: [1269, 2295]
     sentence_count: 9
     key_terms: [grants, relations, donor, management, stewardship, seems, human-centered, organizations]
+    concepts: [relations, grants, donor, management, stewardship]
+    related_chunks: ["social-intelligence/reddit-deep/nonprofit/1q51wfs.md#c0"]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/nonprofit/1q51wfs.md#c2"
-    char_span: [2298, 4224]
+    char_span: [2297, 4223]
     sentence_count: 13
     key_terms: [grant, donors, relations, programs, related, grants, relationships, donor]
+    concepts: [grant, donors, relations, programs, relationships]
     section: Comments
     token_count: 405
 ---

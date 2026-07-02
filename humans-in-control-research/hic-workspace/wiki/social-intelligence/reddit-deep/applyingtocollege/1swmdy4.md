@@ -21,22 +21,31 @@ chunks:
     char_span: [0, 1841]
     sentence_count: 15
     key_terms: ["didn't", get, schools, school, got, like, dream, did]
+    concepts: ["didn't", schools, school, dream, applyingtocollege]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c3"]
     token_count: 474
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1swmdy4/jealous/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c1"
     char_span: [1843, 3644]
     sentence_count: 19
     key_terms: ["i'm", like, college, "don't", ccs, good, "it's", understand]
+    concepts: [college, "don't", understand, everyone, schools]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c3"]
     token_count: 430
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c2"
     char_span: [3658, 5306]
     sentence_count: 9
     key_terms: [schools, get, "you're", did, med, college, afford, school]
+    concepts: [schools, "you're", college, afford, school]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c3"]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c3"
     char_span: [5308, 6895]
     sentence_count: 8
     key_terms: [school, college, schools, good, med, want, undergrad, premed]
+    concepts: [school, college, schools, undergrad, premed]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c2"]
     section: Comments
     token_count: 404
 ---

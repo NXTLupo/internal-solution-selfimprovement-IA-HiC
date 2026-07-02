@@ -19,40 +19,48 @@ chunks:
     char_span: [0, 1734]
     sentence_count: 6
     key_terms: [month, years, year, financialindependence, salary, projected, comments, employer]
+    concepts: [month, financialindependence, years, salary, projected]
     token_count: 514
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1p6ngq7/38f_705k_salary_600k_nw_fire_in_9_years/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1p6ngq7.md#c1"
     char_span: [1736, 3310]
     sentence_count: 11
     key_terms: [goal, love, partner, change, house, fire, plan, roth]
+    concepts: [partner, change, house]
     token_count: 431
   - id: "social-intelligence/reddit-deep/financialindependence/1p6ngq7.md#c2"
     char_span: [3324, 5220]
     sentence_count: 20
     key_terms: ["you're", individual-fail4709, month, cost, healthcare, retirement, xfiregirlx, different]
+    concepts: [individual-fail4709, "you're", healthcare, month, retirement]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/financialindependence/1p6ngq7.md#c3"
     char_span: [5222, 6522]
     sentence_count: 11
     key_terms: [xfiregirlx, little, roth, brokerage, accounts, pre-tax, limits, taught]
+    concepts: [xfiregirlx, little, brokerage, accounts, pre-tax]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/financialindependence/1p6ngq7.md#c4"
     char_span: [6524, 8636]
     sentence_count: 15
     key_terms: [traditional, money, tax, ira, roth, trad, pre-tax, contributing]
+    concepts: [traditional, money, contributing, pre-tax, deductible]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/financialindependence/1p6ngq7.md#c5"
     char_span: [8638, 10348]
     sentence_count: 17
     key_terms: [partner, fire, family, goal, life, likely, status, find]
+    concepts: [partner, family, likely, status, lifestyle]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/financialindependence/1p6ngq7.md#c6"
     char_span: [10350, 12488]
     sentence_count: 18
     key_terms: [failure, medical, partner, future, having, later, zanzibar770, "it's"]
+    concepts: [failure, medical, partner, future, having]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/financialindependence/1p6ngq7.md#c7"

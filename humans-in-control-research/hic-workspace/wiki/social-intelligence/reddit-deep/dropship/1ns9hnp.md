@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 810]
     sentence_count: 12
     key_terms: [amazon, customers, suppliers, comments, complain, dropship, products, looking]
+    concepts: [amazon, customers, suppliers, comments, complain]
     token_count: 191
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1ns9hnp/found_my_niche_looking_for_suppliers/"}]
   - id: "social-intelligence/reddit-deep/dropship/1ns9hnp.md#c1"
-    char_span: [825, 2437]
+    char_span: [824, 2436]
     sentence_count: 10
     key_terms: [aliexpress, https, youtu, find, dsers, suppliers, dropship, products]
+    concepts: [aliexpress, https, youtu, suppliers, dsers]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/dropship/1ns9hnp.md#c2"
-    char_span: [2439, 4076]
+    char_span: [2438, 4075]
     sentence_count: 12
     key_terms: [dropshippers, strangedate1606, dropshipping, dirtyruscoe, like, aliexpress, packaging, shipping]
+    concepts: [dropshippers, strangedate1606, dropshipping, dirtyruscoe, aliexpress]
     section: Comments
     token_count: 401
 ---

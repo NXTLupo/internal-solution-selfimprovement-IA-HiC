@@ -21,53 +21,68 @@ chunks:
     char_span: [0, 2022]
     sentence_count: 15
     key_terms: [account, because, college, school, get, personalfinance, access, aunt]
+    concepts: [account, because, college, school, personalfinance]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1nu68ge.md#c3"]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1nu68ge/529_accountmy_family_dropped_the_ball/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1nu68ge.md#c1"
     char_span: [2036, 3927]
     sentence_count: 8
     key_terms: [roth, ira, income, pay, loans, roll, college, maedocc]
+    concepts: [income, loans, college, maedocc, earned]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/personalfinance/1nu68ge.md#c2"
     char_span: [3929, 5953]
     sentence_count: 17
     key_terms: [account, withdraw, money, aunt, get, like, years, "it's"]
+    concepts: [account, withdraw, money, years, expenses]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1nu68ge.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1nu68ge.md#c3"
     char_span: [5695, 7144]
     sentence_count: 10
     key_terms: [because, get, college, funds, experience, graduation, equipment, computer]
+    concepts: [because, college, experience, funds, graduation]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1nu68ge.md#c0"]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/personalfinance/1nu68ge.md#c4"
     char_span: [7146, 8567]
     sentence_count: 11
     key_terms: [fact-529-plans-cover-required-college-costs, college, educational, use, withdraw, future, going, needs]
+    concepts: [college, educational, withdraw, future, going]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/personalfinance/1nu68ge.md#c5"
     char_span: [8569, 9760]
     sentence_count: 6
     key_terms: [expenses, double-check, scholarships, money, penalty, qualify, amount, adpsychological6563]
+    concepts: [expenses, double-check, scholarships, money, penalty]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1nu68ge.md#c2"]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/personalfinance/1nu68ge.md#c6"
     char_span: [9763, 11789]
     sentence_count: 17
     key_terms: [beneficiary, expenses, amount, financial, qualified, withdraw, estate, wrong]
+    concepts: [beneficiary, expenses, amount, financial, qualified]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/personalfinance/1nu68ge.md#c7"
     char_span: [11792, 13760]
     sentence_count: 12
     key_terms: [tax, money, irs, take, purchases, proposed, yourself, current]
+    concepts: [money, purchases, proposed, yourself, current]
     section: Comments
     token_count: 474
+    sources: [{"n":"similarly going through it myself","u":""}]
   - id: "social-intelligence/reddit-deep/personalfinance/1nu68ge.md#c8"
     char_span: [13762, 15410]
     sentence_count: 12
     key_terms: [using-your-529-plan-to-pay-for-room-and-board, get, expenses, receipts, already, family, reddit, school]
+    concepts: [expenses, receipts, already, family, reddit]
     section: Comments
     token_count: 393
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 770]
     sentence_count: 6
     key_terms: [engineeringstudents, comments, hirevue, co-op, manufacturing, goldenp00per, information, interactive]
+    concepts: [engineeringstudents, comments, hirevue, co-op]
     token_count: 182
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tbfcx5/anyone_got_experience_with_keurig_dr_pepper_coop/"}]
 ---
 # Anyone got experience with Keurig Dr. Pepper Co-op hirevue video?
 

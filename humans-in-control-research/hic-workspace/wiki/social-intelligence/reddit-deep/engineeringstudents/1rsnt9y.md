@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1448]
     sentence_count: 7
     key_terms: [engineering, internship, engineeringstudents, f170b0957b364223ae5338c2ec39a948ffc3361f, student, infrastructure, civil, melbourne]
+    concepts: [engineering, engineeringstudents, internship, infrastructure, student]
     token_count: 363
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rsnt9y/student_2nd_year_civil_engineering_student/"}]
 ---
 # [Student] 2nd Year Civil Engineering Student – Australia – Looking for Internship Resume Feedback
 

@@ -17,10 +17,12 @@ research_goal: "Deliver a comprehensive 2026 outlook report on the global retail
 engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
 chunks:
   - id: "social-intelligence/reddit-deep/marketing/1lw3p4v.md#c0"
-    char_span: [0, 1123]
+    char_span: [0, 1122]
     sentence_count: 8
     key_terms: [golf, content, post, account, accounts, building, public, marketing]
-    token_count: 255
+    concepts: [content, account, accounts, building, public]
+    token_count: 254
+    sources: [{"n":"reddit-deep: r/marketing","u":"https://www.reddit.com/r/marketing/comments/1lw3p4v/building_in_public_which_account_to_post_under/"}]
 ---
 # building in public - which account to post under?
 

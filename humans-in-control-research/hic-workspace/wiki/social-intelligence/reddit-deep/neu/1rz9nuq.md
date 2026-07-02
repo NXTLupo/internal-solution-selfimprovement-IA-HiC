@@ -19,16 +19,20 @@ chunks:
     char_span: [0, 768]
     sentence_count: 4
     key_terms: [cpqnkll3xxhbqrbnb1xm0ins1cpgq4ifvkdb1o-moflh2o7o7lxivbjxfhdrgy3p0ggt-4itddmvwzob9bfwsw, eqdztgn4mqyscw7sl7pkiwgsykfmztzqgbxhkvrbqqo, northeastern, got, comments, tdospb-gseco9zyqwbwwmg, though, email]
+    concepts: [northeastern, comments, though, email, https]
     token_count: 285
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rz9nuq/email_implies_i_got_in_even_though_im_on_the/"}]
   - id: "social-intelligence/reddit-deep/neu/1rz9nuq.md#c1"
     char_span: [771, 2247]
     sentence_count: 5
     key_terms: [northeastern, welcome, admissions, admissionsevents, campus, day, edu, experience]
+    concepts: [northeastern, welcome, admissions, admissionsevents, campus]
     token_count: 381
   - id: "social-intelligence/reddit-deep/neu/1rz9nuq.md#c2"
     char_span: [2261, 2779]
     sentence_count: 2
     key_terms: [got, mistake, like, everyone, old-pop-5134, acceptance, meloncola7, mistakenly]
+    concepts: [mistake, everyone]
     section: Comments
     token_count: 144
 ---

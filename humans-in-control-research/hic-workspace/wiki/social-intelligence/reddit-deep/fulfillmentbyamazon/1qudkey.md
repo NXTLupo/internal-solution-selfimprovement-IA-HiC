@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1913]
     sentence_count: 17
     key_terms: [product, amazon, listing, different, fulfillmentbyamazon, trademark, brand, packaging]
+    concepts: [product, amazon, listing, different, fulfillmentbyamazon]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1qudkey.md#c1"]
     token_count: 401
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1qudkey/amazon_is_selling_a_different_product_on_my/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1qudkey.md#c1"
-    char_span: [1928, 3883]
+    char_span: [1927, 3882]
     sentence_count: 15
     key_terms: [amazon, product, listing, fulfillmentbyamazon, including, asin, discord, automatically]
+    concepts: [amazon, product, fulfillmentbyamazon, listing, including]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1qudkey.md#c0"]
     section: Comments
     token_count: 441
 ---

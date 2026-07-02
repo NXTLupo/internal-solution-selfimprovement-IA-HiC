@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 601]
     sentence_count: 7
     key_terms: [personalfinance, citizenship, "i'm", need, tell, comments, resident, cashapp]
+    concepts: [personalfinance, citizenship, comments, resident, cashapp]
     token_count: 152
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1tkars0/us_resident_getting_dual_citizenship_do_i_need_to/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1tkars0.md#c1"
-    char_span: [616, 1062]
+    char_span: [615, 1061]
     sentence_count: 4
     key_terms: [repercussions, citizenship, worried, tyrannicalduncery, dual, irs, compliance, understand]
+    concepts: [repercussions, citizenship, worried]
     section: Comments
     token_count: 103
 ---

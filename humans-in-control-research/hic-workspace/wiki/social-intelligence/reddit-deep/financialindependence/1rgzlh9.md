@@ -21,57 +21,68 @@ chunks:
     char_span: [0, 2054]
     sentence_count: 17
     key_terms: [financialindependence, around, early, investing, mostly, stocks, investments, job]
+    concepts: [financialindependence, around, investing, early, mostly]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1rgzlh9/early_40ies_about_to_pull_the_trigger_and_quit_a/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1rgzlh9.md#c1"
     char_span: [2056, 4390]
     sentence_count: 22
     key_terms: [financial, anxiety, myself, less, like, portfolio, business, ultimate]
+    concepts: [financial, anxiety, myself, portfolio, business]
     token_count: 508
   - id: "social-intelligence/reddit-deep/financialindependence/1rgzlh9.md#c2"
     char_span: [4392, 4793]
     sentence_count: 5
     key_terms: [something, self, well-deserved, soul-sucking, adventurous, situation, honestly, pre-fire]
+    concepts: [something]
     token_count: 104
   - id: "social-intelligence/reddit-deep/financialindependence/1rgzlh9.md#c3"
     char_span: [4807, 6607]
     sentence_count: 12
     key_terms: [vogons-passports, years, bitcoin, market, job, everything, education, honestly]
+    concepts: [vogons-passports, years, bitcoin, market, everything]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/financialindependence/1rgzlh9.md#c4"
     char_span: [6609, 8407]
     sentence_count: 17
     key_terms: ["don't", invest, like, market, build, etf, hard, want]
+    concepts: ["don't", invest, market, build, inevitable]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/financialindependence/1rgzlh9.md#c5"
     char_span: [8409, 9554]
     sentence_count: 7
     key_terms: [money, generate, hopium, people, banks, based, day, don]
+    concepts: [money, generate, hopium, people, banks]
     section: Comments
     token_count: 251
   - id: "social-intelligence/reddit-deep/financialindependence/1rgzlh9.md#c6"
     char_span: [9556, 11102]
     sentence_count: 17
     key_terms: [returns, rate, vogons-passports, average, invest, stocks, years, like]
+    concepts: [returns, vogons-passports, average, invest, stocks]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/financialindependence/1rgzlh9.md#c7"
     char_span: [11104, 13119]
     sentence_count: 18
     key_terms: [like, job, business, vogons-passports, trying, move, need, working]
+    concepts: [vogons-passports, business, trying, working, boring]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/financialindependence/1rgzlh9.md#c8"
     char_span: [13121, 15384]
     sentence_count: 19
     key_terms: ["don't", like, investments, restaurants, stores, something, enough, build]
+    concepts: ["don't", investments, restaurants, stores, something]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/financialindependence/1rgzlh9.md#c9"
     char_span: [15387, 16994]
     sentence_count: 19
     key_terms: [day, "don't", fire, tools, multiple, tracker, people, jdm783r29u3cwp3d76r9]
+    concepts: ["don't", tools, multiple, tracker, people]
     section: Comments
     token_count: 415
 ---

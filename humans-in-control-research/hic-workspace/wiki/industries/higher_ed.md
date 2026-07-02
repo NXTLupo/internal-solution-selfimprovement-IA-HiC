@@ -10,6 +10,7 @@ chunks:
     char_span: [0, 704]
     sentence_count: 2
     key_terms: [client-uploads, industries, sources, shared, articles, auto-generated, fundraising, education]
+    concepts: [client-uploads, industries, sources, shared, articles]
     section: Cross-over verticals (shared sources) / Representative sources
     token_count: 191
 ---

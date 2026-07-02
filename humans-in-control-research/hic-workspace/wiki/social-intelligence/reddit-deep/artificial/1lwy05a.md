@@ -21,31 +21,41 @@ chunks:
     char_span: [0, 2453]
     sentence_count: 11
     key_terms: [instructions, exploit, hidden, injection, malicious, data, prompt, review]
+    concepts: [instructions, exploit, hidden, injection, malicious]
     token_count: 481
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1lwy05a/hidden_prompts_in_manuscripts_exploit_aiassisted/"}]
   - id: "social-intelligence/reddit-deep/artificial/1lwy05a.md#c1"
     char_span: [2457, 4955]
     sentence_count: 7
     key_terms: [review, context-to-execution, strategies, epistemic, integrity, semantic, trustworthiness, prompts]
+    concepts: [context-to-execution, strategies, review, epistemic, integrity]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1lwy05a.md#c4"]
     token_count: 488
   - id: "social-intelligence/reddit-deep/artificial/1lwy05a.md#c2"
     char_span: [4957, 7256]
     sentence_count: 7
     key_terms: [review, meaning, application, violations, symbolic, concept, "ai's", integrity]
+    concepts: [review, application, meaning, violations, symbolic]
     token_count: 488
   - id: "social-intelligence/reddit-deep/artificial/1lwy05a.md#c3"
     char_span: [7258, 9582]
     sentence_count: 6
     key_terms: [prompts, review, peer, ai-assisted, prompt, system, application, prp]
+    concepts: [prompts, review, ai-assisted, prompt, system]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1lwy05a.md#c4"]
     token_count: 498
   - id: "social-intelligence/reddit-deep/artificial/1lwy05a.md#c4"
     char_span: [9584, 10264]
     sentence_count: 4
     key_terms: [integrity, review, processing, academic, prompt, peer, manipulation, prioritizing]
+    concepts: [integrity, review, processing, academic, prompt]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1lwy05a.md#c1", "social-intelligence/reddit-deep/artificial/1lwy05a.md#c3"]
     token_count: 121
   - id: "social-intelligence/reddit-deep/artificial/1lwy05a.md#c5"
     char_span: [10278, 12453]
     sentence_count: 15
     key_terms: [prompt, chaitanya-growthmarketing, instructions, doing, https, odchplliabghblnlfalamofnnlghbmab, new-meeting, com]
+    concepts: [chaitanya-growthmarketing, prompt, instructions, new-meeting, doing]
     section: Comments
     token_count: 495
 ---

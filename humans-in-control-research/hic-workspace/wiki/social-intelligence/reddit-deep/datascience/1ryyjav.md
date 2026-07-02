@@ -20,47 +20,56 @@ chunks:
     char_span: [0, 2033]
     sentence_count: 15
     key_terms: [resume, applications, problem, consultancy, datascience, consulting, analytics, companies]
+    concepts: [resume, applications, problem, consultancy, datascience]
     token_count: 449
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1ryyjav/2_yoe_ds_at_a_small_consultancy_70_applications_0/"}]
   - id: "social-intelligence/reddit-deep/datascience/1ryyjav.md#c1"
-    char_span: [2048, 3997]
+    char_span: [2047, 3996]
     sentence_count: 13
     key_terms: [projects, science, working, market, years, data, jobs, yoe]
+    concepts: [projects, science, working, market, adu1tishxd]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/datascience/1ryyjav.md#c2"
-    char_span: [3999, 6266]
+    char_span: [3998, 6265]
     sentence_count: 14
     key_terms: [impact, work, decisions, strategic, client, like, used, investment]
+    concepts: [impact, decisions, strategic, client, investment]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/datascience/1ryyjav.md#c3"
-    char_span: [6269, 8249]
+    char_span: [6268, 8248]
     sentence_count: 22
     key_terms: [like, business, going, "it's", manager, advice, hiring, skills]
+    concepts: [business, going, manager, advice, hiring]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/datascience/1ryyjav.md#c4"
-    char_span: [8251, 10125]
+    char_span: [8250, 10124]
     sentence_count: 11
     key_terms: [commercial, experience, managers, used, business, directly, explain, domain]
+    concepts: [commercial, experience, managers, business, directly]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/datascience/1ryyjav.md#c5"
-    char_span: [10127, 12129]
+    char_span: [10126, 12128]
     sentence_count: 7
     key_terms: [inference, causal, experimentation, resume, liberalhobbit, faang, niche, since]
+    concepts: [inference, causal, experimentation, liberalhobbit, resume]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/datascience/1ryyjav.md#c6"
-    char_span: [12131, 14412]
+    char_span: [12130, 14411]
     sentence_count: 20
     key_terms: [experience, data, resume, backgrounds, netherlands, consulting, candidate, different]
+    concepts: [experience, resume, backgrounds, netherlands, consulting]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/datascience/1ryyjav.md#c7"
-    char_span: [14414, 15413]
+    char_span: [14413, 15412]
     sentence_count: 6
     key_terms: [business, solution, problem, did, interviews, got, hit, team]
+    concepts: [business, solution, problem, interviews]
     section: Comments
     token_count: 228
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 451]
     sentence_count: 2
     key_terms: [comments, college, resume, opportunities, undergraduate, internships, reddit-deep, experience]
+    concepts: [comments, college, resume]
     token_count: 120
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1l5mupk/what_should_i_do_to_build_up_my_resume_for_poli/"}]
   - id: "social-intelligence/reddit-deep/college/1l5mupk.md#c1"
     char_span: [465, 2712]
     sentence_count: 15
     key_terms: [federal, election, local, state, college, resume, congressional, legislation]
+    concepts: [federal, election, local, state, congressional]
     section: Comments
     token_count: 475
 ---

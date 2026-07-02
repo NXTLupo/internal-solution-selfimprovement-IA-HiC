@@ -19,52 +19,62 @@ chunks:
     char_span: [0, 2080]
     sentence_count: 10
     key_terms: [graduated, been, because, internship, cscareerquestions, "i'm", focus, sure]
+    concepts: [graduated, because, internship, cscareerquestions, focus]
     token_count: 465
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qo5imy/graduated_in_2021_but_havent_been_able_to_find/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qo5imy.md#c1"
     char_span: [2082, 2333]
     sentence_count: 1
     key_terms: [career, appreciated, developing, different, together, credits, perhaps, recover]
+    concepts: [career]
     token_count: 55
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qo5imy.md#c2"
     char_span: [2347, 4578]
     sentence_count: 22
     key_terms: [interested, like, job, people, going, point, start, directjacob]
+    concepts: [interested, people, directjacob, programming, going]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qo5imy.md#c3"
     char_span: [4580, 6047]
     sentence_count: 17
     key_terms: [job, people, build, study, use, want, another, having]
+    concepts: [people, build, study, another, having]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qo5imy.md#c4"
     char_span: [6049, 7759]
     sentence_count: 17
     key_terms: [advice, degree, get, committed, because, through, working, people]
+    concepts: [advice, degree, committed, because, through]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qo5imy.md#c5"
     char_span: [7762, 9010]
     sentence_count: 11
     key_terms: [coyoteuseful8483, get, graduated, job, time, work, impressionable, suggestions]
+    concepts: [coyoteuseful8483, graduated]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qo5imy.md#c6"
     char_span: [9012, 11134]
     sentence_count: 16
     key_terms: ["don't", enjoy, tonyboy0924, job, lot, applying, projects, software]
+    concepts: [tonyboy0924, "don't", enjoy, applying, projects]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qo5imy.md#c7"
     char_span: [11136, 13192]
     sentence_count: 18
     key_terms: [sacrifice, need, work, start, get, time, situation, industry]
+    concepts: [sacrifice, start, situation, industry, related]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qo5imy.md#c8"
     char_span: [13194, 14281]
     sentence_count: 7
     key_terms: [itcareerquestions, decision, reddit, specialties, while-fancy, like, own, mathmokiwi]
+    concepts: [itcareerquestions, decision, reddit, specialties, while-fancy]
     section: Comments
     token_count: 275
 ---

@@ -21,47 +21,56 @@ chunks:
     char_span: [0, 603]
     sentence_count: 3
     key_terms: [cscareerquestions, comments, industry, career, life, amanhasnoname54, increasingly, reddit-deep]
+    concepts: [cscareerquestions, comments, industry, career]
     token_count: 155
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1l6era4/people_who_made_a_complete_career_pivot_to/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c1"
     char_span: [617, 1718]
     sentence_count: 10
     key_terms: [skills, trying, silenceredirectshere, fire, get, "i'm", like, quit]
+    concepts: [skills, trying]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c2"
     char_span: [1722, 3741]
     sentence_count: 10
     key_terms: [farming, money, day, jobs, something, organic, someone, point]
+    concepts: [farming, money, something, organic, someone]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c3"
     char_span: [3743, 4499]
     sentence_count: 7
     key_terms: [old, personally, dentist, hardly, money, like, want, latenighredditor]
+    concepts: [personally, dentist, hardly, money]
     section: Comments
     token_count: 181
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c4"
     char_span: [4501, 6424]
     sentence_count: 5
     key_terms: [work, dentistry, nightmare, career, fouoifjefoijvnioviow, enjoy, money, day]
+    concepts: [dentistry, nightmare, career, enjoy, money]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c5"
     char_span: [6428, 8474]
     sentence_count: 9
     key_terms: [good, law, work, immediately, willingness, journalism, asshole, around]
+    concepts: [immediately, willingness, journalism, asshole, around]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c6"
     char_span: [8477, 10539]
     sentence_count: 15
     key_terms: [get, dangerouspurpose5661, career, people, never, like, tech, fitness]
+    concepts: [dangerouspurpose5661, career, people, never, fitness]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c7"
     char_span: [10541, 10758]
     sentence_count: 2
     key_terms: [former, billboard, approved, coworker, manager, project, realtor, right]
+    concepts: [former]
     section: Comments
     token_count: 60
 ---

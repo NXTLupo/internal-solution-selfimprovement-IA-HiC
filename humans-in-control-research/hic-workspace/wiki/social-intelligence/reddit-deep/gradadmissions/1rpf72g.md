@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 736]
     sentence_count: 5
     key_terms: [gradadmissions, comments, letter, https, cmu, got, mse, png]
+    concepts: [gradadmissions, comments, letter, https]
     token_count: 217
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rpf72g/got_into_cmu_mse/"}]
 ---
 # Got into CMU MSE!
 

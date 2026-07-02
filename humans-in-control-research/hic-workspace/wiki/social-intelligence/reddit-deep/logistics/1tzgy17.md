@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1150]
     sentence_count: 6
     key_terms: [delivery, urban, micro-warehouse, logistics, comments, primary, micro-warehousing, core]
+    concepts: [delivery, micro-warehouse, urban, logistics, comments]
     token_count: 272
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1tzgy17/starting_an_urban_3pl_using_cargo_ebikes_as_the/"}]
   - id: "social-intelligence/reddit-deep/logistics/1tzgy17.md#c1"
-    char_span: [1165, 3245]
+    char_span: [1164, 3244]
     sentence_count: 14
     key_terms: [zeppyofreap, bike, constraints, b2b, businesses, deliveries, hyperlocal, messengers]
+    concepts: [zeppyofreap, constraints, businesses, deliveries, hyperlocal]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/logistics/1tzgy17.md#c2"
-    char_span: [3247, 5608]
+    char_span: [3246, 5607]
     sentence_count: 13
     key_terms: [businesses, multimodal-routing-last-mile-operators, delivery, service, local, small, blog, like]
+    concepts: [businesses, multimodal-routing-last-mile-operators, delivery, service, local]
     section: Comments
     token_count: 508
 ---

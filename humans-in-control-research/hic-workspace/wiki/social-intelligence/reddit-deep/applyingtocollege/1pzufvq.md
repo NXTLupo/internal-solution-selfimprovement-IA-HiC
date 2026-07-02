@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 808]
     sentence_count: 3
     key_terms: [program, applyingtocollege, choice, admission, accepted, comments, boston, campus]
+    concepts: [program, applyingtocollege, choice, admission, accepted]
     token_count: 191
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1pzufvq/if_i_get_accepted_to_my_top_choice_ne_program_can/"}]
 ---
 # If I get accepted to my top choice NE program, can I change after admission to the second one?
 

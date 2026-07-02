@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1475]
     sentence_count: 11
     key_terms: [documentation, davia, github, reddit, automatically, https, knowledge, workspace]
+    concepts: [documentation, davia, automatically, github, reddit]
     token_count: 305
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1oij9vs/your_internal_engineering_knowledge_base_that/"}]
 ---
 # Your internal engineering knowledge base that writes and updates itself from your GitHub repos
 

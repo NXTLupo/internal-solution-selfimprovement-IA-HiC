@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1243]
     sentence_count: 7
     key_terms: [people, applyingtocollege, someone, essays, reddit, comments, "people's", waitlist]
+    concepts: [applyingtocollege, people, someone, essays, reddit]
     token_count: 290
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1mcaccy/psa_people_can_and_will_lie_on_reddit_shocker/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mcaccy.md#c1"
     char_span: [1257, 2135]
     sentence_count: 3
     key_terms: [people, scholargrade, ajoyr17, full-evidence-4443, halo, pub, anonymussquidd, hellomouse1234]
+    concepts: [scholargrade, people, ajoyr17]
     section: Comments
     token_count: 266
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mcaccy.md#c2"
     char_span: [2137, 3928]
     sentence_count: 6
     key_terms: [harvard32ormcdonalds, street, valuablepriority6885, jane, essays, nobel, currently, laureate]
+    concepts: [harvard32ormcdonalds, valuablepriority6885, street, essays, nobel]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mcaccy.md#c3"
     char_span: [3930, 5108]
     sentence_count: 6
     key_terms: [childhoodconnect9687, account, college, student, help, jhu, nyu, yeah]
+    concepts: [childhoodconnect9687, account, college, student]
     section: Comments
     token_count: 297
 ---

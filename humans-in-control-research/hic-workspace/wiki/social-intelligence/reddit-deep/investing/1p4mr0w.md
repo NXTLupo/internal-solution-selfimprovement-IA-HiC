@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1028]
     sentence_count: 10
     key_terms: [companies, follow, investing, investor, market, oportunities, etc, knowledge]
+    concepts: [companies, follow, investing, investor, oportunities]
     token_count: 238
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1p4mr0w/what_to_follow_for_us_stock_market_as_a_foreign/"}]
   - id: "social-intelligence/reddit-deep/investing/1p4mr0w.md#c1"
     char_span: [1042, 2865]
     sentence_count: 11
     key_terms: [individual, stocks, "you're", etfs, small-caps, channels, earnings, exposure]
+    concepts: [individual, stocks, "you're", small-caps, channels]
     section: Comments
     token_count: 432
 ---

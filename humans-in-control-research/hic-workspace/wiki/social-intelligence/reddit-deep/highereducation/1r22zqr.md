@@ -21,41 +21,55 @@ chunks:
     char_span: [0, 1137]
     sentence_count: 11
     key_terms: [highereducation, student, events, professors, comments, students, attend, coordinator]
+    concepts: [highereducation, student, events, professors, comments]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1r22zqr.md#c1", "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c5"]
     token_count: 253
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1r22zqr/students_not_engaging/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c1"
     char_span: [1151, 3417]
     sentence_count: 22
     key_terms: [attendance, events, student, people, post-covid, "it's", faculty, advertising]
+    concepts: [attendance, events, student, post-covid, people]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1r22zqr.md#c0", "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c2"
     char_span: [3419, 5639]
     sentence_count: 17
     key_terms: [students, events, event, get, campus, free, like, engagement]
+    concepts: [students, events, event, campus, engagement]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1r22zqr.md#c3", "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c4", "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c5"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c3"
     char_span: [5641, 7606]
     sentence_count: 22
     key_terms: [class, students, events, pop-up, fun, competency, something, homework]
+    concepts: [class, students, events, pop-up, competency]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1r22zqr.md#c2"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c4"
     char_span: [7608, 9616]
     sentence_count: 17
     key_terms: [students, email, event, app, helicopterlife2620, problem, better, "don't"]
+    concepts: [students, email, event, helicopterlife2620, problem]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1r22zqr.md#c2", "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c5"]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c5"
     char_span: [9618, 11809]
     sentence_count: 16
     key_terms: [events, don, student, campus, email, event, good, work]
+    concepts: [events, student, campus, email, event]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1r22zqr.md#c0", "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c1", "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c2", "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c4"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c6"
     char_span: [11811, 12931]
     sentence_count: 13
     key_terms: [student, course, relevant, students, several, stories, workers, attend]
+    concepts: [student, course, relevant, students, several]
     section: Comments
     token_count: 231
 ---

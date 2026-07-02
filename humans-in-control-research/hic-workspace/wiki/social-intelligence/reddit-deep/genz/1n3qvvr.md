@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 2164]
     sentence_count: 19
     key_terms: [gen, get, live, everywhere, impossible, comments, anxiety, climate]
+    concepts: [everywhere, impossible, comments, anxiety, climate]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1n3qvvr/why_i_think_gen_z_is_basically_dying_inside/"}]
   - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c1"
     char_span: [2178, 2307]
     sentence_count: 1
     key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
+    concepts: [discord]
     section: Comments
     token_count: 41
   - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c2"
     char_span: [2310, 3796]
     sentence_count: 3
     key_terms: [no-construction-777, preview, format, revolution, https, width, jpeg, redd]
+    concepts: [no-construction-777, preview, revolution, format, https]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c3"
@@ -44,48 +48,58 @@ chunks:
     char_span: [3856, 4895]
     sentence_count: 3
     key_terms: [revolution, riots, college, slyraks-2nd-choice, trashmanufacturer, led, lol, went]
+    concepts: [revolution, riots, college]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1n3qvvr.md#c7"]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c5"
     char_span: [4897, 6156]
     sentence_count: 10
     key_terms: [recession, crash, like, revolution, reality, waiting, "you're", appropriate-food1757]
+    concepts: [recession, crash, revolution, reality, waiting]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c6"
     char_span: [6158, 7645]
     sentence_count: 8
     key_terms: ["children's", been, depression, economy, growing, numbers, waiting, people]
+    concepts: ["children's", depression, economy, growing, numbers]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c7"
     char_span: [7647, 9409]
     sentence_count: 8
     key_terms: ["i'm", mustachenchilada, top, revolution, expecting, political, college, similar]
+    concepts: [mustachenchilada, revolution, expecting, political, college]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1n3qvvr.md#c4"]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c8"
     char_span: [9411, 11344]
     sentence_count: 12
     key_terms: [crash, therevolutionwillnotbetelevised, put, inflation, economic, village-idiots-populists, "they're", stocks]
+    concepts: [crash, inflation, economic, "they're", stocks]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c9"
     char_span: [11346, 12867]
     sentence_count: 13
     key_terms: [going, money, economic, "you're", fact, find, "it's", job]
+    concepts: [going, money, economic, "you're", necessary]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c10"
     char_span: [12869, 14870]
     sentence_count: 16
     key_terms: ["it's", need, different, economics, existence, mistakes, forward, someone]
+    concepts: [different, economics, existence, mistakes, forward]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c11"
     char_span: [14649, 15158]
     sentence_count: 1
     key_terms: [culture, hugebeginning8404, cove-frolickr, frankincentss, stabilizers, millenials, positivity, dangerous]
+    concepts: [culture]
     section: Comments
     token_count: 146
 ---

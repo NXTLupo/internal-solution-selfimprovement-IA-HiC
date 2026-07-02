@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1017]
     sentence_count: 8
     key_terms: [products, hard, comments, dropship, shipping, product, quality, expert]
+    concepts: [products, comments, dropship, shipping, product]
     token_count: 248
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1qjh5k4/whats_the_best_way_to_build_a_brand_in_2026_is/"}]
   - id: "social-intelligence/reddit-deep/dropship/1qjh5k4.md#c1"
-    char_span: [1032, 3037]
+    char_span: [1031, 3036]
     sentence_count: 8
     key_terms: [shipping, dropshipping, work, faster, keep, like, test, questions]
+    concepts: [shipping, dropshipping, faster, questions, suppliers]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/dropship/1qjh5k4.md#c2"
-    char_span: [3039, 4904]
+    char_span: [3038, 4903]
     sentence_count: 13
     key_terms: [dropshipping, agent, quality, like, packaging, maggieyw, shipping, sourcing]
+    concepts: [dropshipping, agent, quality, packaging, maggieyw]
     section: Comments
     token_count: 416
 ---

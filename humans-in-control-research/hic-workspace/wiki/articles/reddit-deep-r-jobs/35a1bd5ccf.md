@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2071]
     sentence_count: 23
     key_terms: [applying, jobs, internships, resume, experience, roles, entry-level, been]
+    concepts: [applying, internships, experience, resume, entry-level]
     token_count: 481
+    sources: [{"n":"Reddit Deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1lcgq1k/graduated_with_stats_degree_applying_to/"}]
   - id: "articles/reddit-deep-r-jobs/35a1bd5ccf.md#c1"
     char_span: [2073, 3353]
     sentence_count: 8
     key_terms: [experience, years, get, internship, competing, positions, probably, against]
+    concepts: [experience, years, internship, competing, positions]
     token_count: 293
 ---
 # Graduated with stats degree, applying to entry-level data and insurance jobs for a year — not even interviews. What am I doing wrong?

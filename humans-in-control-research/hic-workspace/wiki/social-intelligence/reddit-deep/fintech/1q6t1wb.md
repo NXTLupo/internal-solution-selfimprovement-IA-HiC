@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1480]
     sentence_count: 9
     key_terms: [lending, onboarding, banks, compliance, understand, community, ex-banker, building]
+    concepts: [lending, onboarding, banks, compliance, understand]
     token_count: 317
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1q6t1wb/exbanker_turned_founder_building_digital/"}]
   - id: "social-intelligence/reddit-deep/fintech/1q6t1wb.md#c1"
-    char_span: [1495, 2698]
+    char_span: [1494, 2697]
     sentence_count: 11
     key_terms: [regulations, potential, because, latency, tooling, system, representativebig401, cycle]
+    concepts: [regulations, potential, because, latency, tooling]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/fintech/1q6t1wb.md#c2"
-    char_span: [2700, 4327]
+    char_span: [2699, 4326]
     sentence_count: 14
     key_terms: [vegetablebowl9258, dming, space, banks, happy, perspective, mortgage, digital]
+    concepts: [vegetablebowl9258, dming, space, perspective, banks]
     section: Comments
     token_count: 502
 ---

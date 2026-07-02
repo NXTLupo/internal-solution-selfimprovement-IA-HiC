@@ -8,45 +8,57 @@ title: "Assurant adjuster damaged my home during inspection"
 author: "AlternativeBug7782"
 date: "2026-06-09T23:32:54.000Z"
 score: 0
-upvote_ratio: 0.13
+upvote_ratio: 0.14
 num_comments: 31
 flair: ""
-extracted_at: "2026-06-17T19:26:46.477Z"
+extracted_at: "2026-06-20T17:52:10.513Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/insurance/1u1ljzd.md#c0"
     char_span: [0, 2005]
     sentence_count: 10
     key_terms: [adjuster, roof, damage, insurance, assurant, interior, shingles, hail]
+    concepts: [adjuster, damage, insurance, assurant, interior]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1u1ljzd.md#c3", "social-intelligence/reddit-deep/insurance/1u1ljzd.md#c4"]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1u1ljzd/assurant_adjuster_damaged_my_home_during/"}]
   - id: "social-intelligence/reddit-deep/insurance/1u1ljzd.md#c1"
     char_span: [2007, 4455]
     sentence_count: 18
     key_terms: [mold, roof, damage, finally, water, because, willing, going]
+    concepts: [damage, finally, water, because, willing]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1u1ljzd.md#c3"]
     token_count: 507
   - id: "social-intelligence/reddit-deep/insurance/1u1ljzd.md#c2"
     char_span: [4457, 5983]
     sentence_count: 11
     key_terms: [adjuster, shingles, because, asked, home, claimed, never, tore]
+    concepts: [adjuster, shingles, because, asked, claimed]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1u1ljzd.md#c3"]
     token_count: 337
   - id: "social-intelligence/reddit-deep/insurance/1u1ljzd.md#c3"
-    char_span: [5998, 7209]
+    char_span: [5997, 7208]
     sentence_count: 7
     key_terms: [alternativebug7782, adjuster, because, damage, evidence, shingles, tough, don]
+    concepts: [alternativebug7782, adjuster, because, damage, evidence]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1u1ljzd.md#c0", "social-intelligence/reddit-deep/insurance/1u1ljzd.md#c1", "social-intelligence/reddit-deep/insurance/1u1ljzd.md#c2", "social-intelligence/reddit-deep/insurance/1u1ljzd.md#c4"]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/insurance/1u1ljzd.md#c4"
-    char_span: [7211, 9399]
+    char_span: [7210, 9398]
     sentence_count: 19
     key_terms: [roof, issue, alternativebug7782, insurance, did, interior, damage, cover]
+    concepts: [alternativebug7782, insurance, issue, interior, damage]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1u1ljzd.md#c0", "social-intelligence/reddit-deep/insurance/1u1ljzd.md#c3"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/insurance/1u1ljzd.md#c5"
-    char_span: [9401, 10813]
+    char_span: [9400, 10812]
     sentence_count: 5
     key_terms: [longjumping-elk-6118, alternativebug7782, uninhabitable, backtracking, fault, home, asbestos, question]
+    concepts: [longjumping-elk-6118, alternativebug7782, uninhabitable, backtracking, fault]
     section: Comments
     token_count: 368
 ---
@@ -75,12 +87,12 @@ So then assurant asked if we could provide proof that the shingles were there be
 
 ## Comments
 
-- **ohhhhhhhhhhhhman** (13↑): Wall of text is tough to read.
+- **ohhhhhhhhhhhhman** (14↑): Wall of text is tough to read.
   - **WebstersPack** (1↑): AI will do that.
     - **AlternativeBug7782** (1↑): Lol I wish this was just some whack ass AI story but unfortunately it’s real life.
   - **AlternativeBug7782** (-10↑): It was tough typing out on my phone 🥴🥴🥴
-    - **fitchaber10** (7↑): No one is reading all that OP.
-- **LacyLove** (6↑): Do you have any evidence other than trust me bro that the person inspecting tore off the shingles? Because without it, this is word v word and they aren’t going to side with you.   
+    - **fitchaber10** (6↑): No one is reading all that OP.
+- **LacyLove** (4↑): Do you have any evidence other than trust me bro that the person inspecting tore off the shingles? Because without it, this is word v word and they aren’t going to side with you.   
    
 So you declined the claim because you had to pay for your deductible? And in the year since have not had the roof fixed? Now you want them to pay for mold damage and interior damage? 
 

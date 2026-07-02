@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1073]
     sentence_count: 9
     key_terms: [internships, opportunity, comments, looking, through, anyone, learn, been]
+    concepts: [internships, opportunity, comments, looking, through]
     token_count: 252
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1th26uk/aiml_fresher_looking_for_opportunity/"}]
 ---
 # AI/ML Fresher Looking for Opportunity
 

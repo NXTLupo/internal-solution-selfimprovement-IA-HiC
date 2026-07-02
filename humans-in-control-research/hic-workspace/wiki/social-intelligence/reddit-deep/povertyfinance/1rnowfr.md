@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 1571]
     sentence_count: 7
     key_terms: [food, pantries, povertyfinance, "i'm", "it's", recipients, comments, happily]
+    concepts: [pantries, povertyfinance, recipients, comments, happily]
     token_count: 369
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1rnowfr/budget_tip_get_extra_food_not_directly_from/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1rnowfr.md#c1"
     char_span: [1573, 2291]
     sentence_count: 3
     key_terms: [food, want, pantries, pantry, "you're", "can't", "don't", away]
+    concepts: [pantries, pantry, "you're", "can't", "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1rnowfr.md#c6"]
     token_count: 169
   - id: "social-intelligence/reddit-deep/povertyfinance/1rnowfr.md#c2"
     char_span: [2305, 4095]
     sentence_count: 14
     key_terms: [food, take, because, freezer, bags, eat, like, friendly]
+    concepts: [because, freezer, friendly, pantries, enough]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/povertyfinance/1rnowfr.md#c3"
     char_span: [4097, 4673]
     sentence_count: 4
     key_terms: [pasta, "there's", food, gets, good, duchessofcelery, rolekey6193, disability]
+    concepts: [pasta, "there's"]
     section: Comments
     token_count: 151
   - id: "social-intelligence/reddit-deep/povertyfinance/1rnowfr.md#c4"
     char_span: [4675, 6615]
     sentence_count: 17
     key_terms: [lentils, food, lot, knuds1b, always, people, folks, "it's"]
+    concepts: [lentils, knuds1b, always, people, folks]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1rnowfr.md#c5"
     char_span: [6310, 6917]
     sentence_count: 6
     key_terms: [restrictions, folks, get, "don't", often, food, "i'm", lot]
+    concepts: [restrictions, folks, "don't", often]
     section: Comments
     token_count: 135
   - id: "social-intelligence/reddit-deep/povertyfinance/1rnowfr.md#c6"
     char_span: [6919, 8849]
     sentence_count: 10
     key_terms: [food, pantry, away, sufficientopening218, "don't", give, lot, want]
+    concepts: [pantry, sufficientopening218, "don't", because, always]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1rnowfr.md#c1"]
     section: Comments
     token_count: 493
 ---

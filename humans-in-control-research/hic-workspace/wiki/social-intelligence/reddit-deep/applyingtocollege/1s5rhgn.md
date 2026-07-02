@@ -21,11 +21,15 @@ chunks:
     char_span: [0, 1649]
     sentence_count: 1
     key_terms: [years, applyingtocollege, schools, "i'm", comments, rejected, succeed, entire]
+    concepts: [applyingtocollege, years, schools, comments, rejected]
     token_count: 395
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1s5rhgn/i_hate_it_here/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c1"
     char_span: [1663, 3612]
     sentence_count: 13
     key_terms: [school, ivy, college, state, student, being, successful, schools]
+    concepts: [school, college, state, student, being]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c4"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c2"
@@ -38,12 +42,16 @@ chunks:
     char_span: [3774, 5982]
     sentence_count: 21
     key_terms: [school, college, get, going, best, goal, ivy-tier, research]
+    concepts: [school, college, going, ivy-tier, research]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c4"
     char_span: [5697, 6029]
     sentence_count: 5
     key_terms: [research, school, state, inexpensively, constraint, gradschool, important, requisite]
+    concepts: [research, school, state]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c3"]
     section: Comments
     token_count: 74
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c5"

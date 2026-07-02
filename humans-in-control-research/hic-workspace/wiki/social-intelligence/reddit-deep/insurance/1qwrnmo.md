@@ -11,32 +11,41 @@ score: 5
 upvote_ratio: 0.78
 num_comments: 34
 flair: "Home Insurance"
-extracted_at: "2026-06-17T19:26:46.487Z"
+extracted_at: "2026-06-20T17:52:10.529Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/insurance/1qwrnmo.md#c0"
     char_span: [0, 2066]
     sentence_count: 26
     key_terms: [insurance, claim, deck, repair, cost, get, "i'm", adjuster]
+    concepts: [insurance, claim, repair, adjuster, comments]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qwrnmo.md#c2", "social-intelligence/reddit-deep/insurance/1qwrnmo.md#c3"]
     token_count: 478
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1qwrnmo/someone_ran_their_car_into_my_house_and_insurance/"}]
   - id: "social-intelligence/reddit-deep/insurance/1qwrnmo.md#c1"
-    char_span: [2081, 4080]
+    char_span: [2080, 4079]
     sentence_count: 23
     key_terms: [insurance, deductible, damages, "don't", property, payment, subrogation, pay]
+    concepts: [insurance, deductible, damages, property, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qwrnmo.md#c3"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/insurance/1qwrnmo.md#c2"
-    char_span: [4082, 6283]
+    char_span: [4081, 6282]
     sentence_count: 16
     key_terms: [insurance, policy, covered, tiredhamachi, claim, fence, value, cash]
+    concepts: [insurance, policy, covered, tiredhamachi, claim]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qwrnmo.md#c0", "social-intelligence/reddit-deep/insurance/1qwrnmo.md#c3"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/insurance/1qwrnmo.md#c3"
-    char_span: [6285, 8334]
+    char_span: [6284, 8333]
     sentence_count: 14
     key_terms: [insurance, property, damage, adjuster, tiredhamachi, claim, fence, replacement]
+    concepts: [insurance, property, damage, adjuster, tiredhamachi]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qwrnmo.md#c0", "social-intelligence/reddit-deep/insurance/1qwrnmo.md#c1", "social-intelligence/reddit-deep/insurance/1qwrnmo.md#c2"]
     section: Comments
     token_count: 497
 ---
@@ -63,7 +72,7 @@ Edit: Thanks everyone, was spinning my wheels about the process but learned a lo
 
 ## Comments
 
-- **ektap12** (6↑): If your insurance hasn't made a payment, there is no subrogation to pursue. If they have made a payment, then yes, they'll refer it to subrogation, which can be a slow process. You mention other property damages as well.  You don't mention your state so it's unclear what property damage limit the driver may have.
+- **ektap12** (5↑): If your insurance hasn't made a payment, there is no subrogation to pursue. If they have made a payment, then yes, they'll refer it to subrogation, which can be a slow process. You mention other property damages as well.  You don't mention your state so it's unclear what property damage limit the driver may have.
 
 You best bet is to contact the car's insurance about your property damages. Don't overcomplicate this. Think of it no different than if your car got hit by someone, you have property damage, they have insurance. Insurance hopefully will pay for the damages.
   - **tiredhamachi** (2↑): They did make payment, but it was eaten up by the deductible. We're in NC. 
@@ -82,7 +91,7 @@ If you need someone to deal with another insurance for you, you can hire an atto
   - **tiredhamachi** (2↑): A couple friends who work in insurance for two of the major companies did. They said it would all be handled since the other party is most definitely liable. 
 
 Fence wasn't covered because I declined the Other Structures coverage when I bought it. It's just a small privacy fence. Didn't realize it counted as another structure.
-    - **Sondor6** (8↑): They probably suggested you file with your insurance because typically you have replacement cash value on your policy whereas filing through the other insurance would only result in actual cash value being owed to you. That’s the depreciated cash value. Call your insurance company and ask them if they are subrogating for their $200 and your $5k deductible. Caveat - I know that’s how it works in auto - I’m assuming it does for home as well. 
+    - **Sondor6** (7↑): They probably suggested you file with your insurance because typically you have replacement cash value on your policy whereas filing through the other insurance would only result in actual cash value being owed to you. That’s the depreciated cash value. Call your insurance company and ask them if they are subrogating for their $200 and your $5k deductible. Caveat - I know that’s how it works in auto - I’m assuming it does for home as well. 
 
 Side note, any damage done to landscaping/yard? That could be a covered loss too.
     - **The_Insurance_Man** (3↑): Gotcha, not really the best advice from them.  When trying to determine whether or not you should file a claim, there is not a one size fits all answer.  The decision should depend on the details of your policy ,your financial situation and the details of the claim.

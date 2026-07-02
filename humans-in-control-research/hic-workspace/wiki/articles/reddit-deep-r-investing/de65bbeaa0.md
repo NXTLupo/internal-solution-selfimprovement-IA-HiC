@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2042]
     sentence_count: 14
     key_terms: [investing, stocks, american, portfolio, "i'm", like, individual, companies]
+    concepts: [investing, stocks, american, portfolio, individual]
     token_count: 455
+    sources: [{"n":"Reddit Deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1qimilb/should_i_be_moving_away_from_us_stocks_as_a/"}]
   - id: "articles/reddit-deep-r-investing/de65bbeaa0.md#c1"
     char_span: [2044, 3666]
     sentence_count: 8
     key_terms: [politics, equities, current, nothing, events, "don't", jemicarus, portfolio-composition]
+    concepts: [politics, equities, current, nothing, events]
     token_count: 400
 ---
 # Should I be moving away from US stocks as a non-American?

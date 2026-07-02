@@ -19,46 +19,57 @@ chunks:
     char_span: [0, 2650]
     sentence_count: 21
     key_terms: [feedback, positive, responsibilities, outside, careerguidance, growth, strong, advancement]
+    concepts: [responsibilities, feedback, positive, careerguidance, outside]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tlls5f/has_anyone_ever_been_paid_to_leave_a_job_how_did/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c1"
     char_span: [2652, 3620]
     sentence_count: 4
     key_terms: [environments, work, corporate, whether, simply, solution-oriented, fit, constructively]
+    concepts: [environments, corporate, whether, simply]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c5"]
     token_count: 174
   - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c2"
     char_span: [3634, 5872]
     sentence_count: 21
     key_terms: [companies, want, someone, "you're", too, describing, diagnosed, meetings]
+    concepts: [companies, someone, "you're", describing, diagnosed]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c3"
     char_span: [5874, 7694]
     sentence_count: 11
     key_terms: [someone, performance, "i've", talk, want, promotion, getting, improve]
+    concepts: [someone, performance, promotion, getting, improve]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c4"
     char_span: [7696, 9832]
     sentence_count: 12
     key_terms: [get, projects, manager, project, performance, take, team, fantastic]
+    concepts: [projects, manager, project, performance, fantastic]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c5"
     char_span: [9834, 11128]
     sentence_count: 11
     key_terms: [corporate, environments, reality, never, want, severance, probably, company]
+    concepts: [corporate, environments, reality, never, severance]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c1"]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c6"
     char_span: [11130, 13142]
     sentence_count: 14
     key_terms: [company, myself, women, job, severance, people, thread, don]
+    concepts: [company, myself, women, severance, people]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c7"
     char_span: [13144, 14349]
     sentence_count: 14
     key_terms: [job, work, factory, people, found, done, due, got]
+    concepts: [factory, people, found]
     section: Comments
     token_count: 270
 ---

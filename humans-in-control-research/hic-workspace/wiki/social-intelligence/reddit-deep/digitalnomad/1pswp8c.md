@@ -21,47 +21,56 @@ chunks:
     char_span: [0, 1741]
     sentence_count: 16
     key_terms: [booking, feedback, details, flight, digitalnomad, "i'm", struggling, community]
+    concepts: [booking, feedback, details, digitalnomad, flight]
     token_count: 400
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1pswp8c/built_a_flight_booking_tool_struggling_to_find/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c1"
     char_span: [1755, 3425]
     sentence_count: 19
     key_terms: [like, booking, problem, google, autofill, "doesn't", people, travel]
+    concepts: [booking, problem, google, autofill, inconvenience]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c2"
     char_span: [3427, 5423]
     sentence_count: 14
     key_terms: [airline, travelers, directly, booking, support, through, trust, midomidito]
+    concepts: [airline, travelers, directly, booking, support]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c3"
     char_span: [5425, 7567]
     sentence_count: 28
     key_terms: ["it's", service, midomidito, time, nolatearrivals, enough, everyone, websites]
+    concepts: [service, midomidito, nolatearrivals, enough, everyone]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c4"
     char_span: [7288, 7963]
     sentence_count: 6
     key_terms: [midomidito, period, route, home, png, i5b9bzqgqq8g1, compelling, anything]
+    concepts: [midomidito, period, route]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c5"
     char_span: [7965, 9319]
     sentence_count: 16
     key_terms: [booking, flights, journey, search, immediately, book, show, alliance]
+    concepts: [booking, flights, journey, search, immediately]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c6"
     char_span: [9321, 11322]
     sentence_count: 23
     key_terms: [transparent, "it's", like, too, booking, website, especially, midomidito]
+    concepts: [transparent, booking, website, especially, midomidito]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c7"
     char_span: [11325, 12128]
     sentence_count: 3
     key_terms: [different, because, booking, process, service, "don't", book, time]
+    concepts: [different, because, booking, process, service]
     section: Comments
     token_count: 172
 ---

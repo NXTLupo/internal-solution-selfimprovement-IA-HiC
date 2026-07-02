@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1346]
     sentence_count: 2
     key_terms: [internship, internships, lernx, opportunity, marketing, resources, comments, freshers]
+    concepts: [internship, internships, lernx, opportunity, marketing]
     token_count: 365
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1mxuyzm/summer_internships_for_indian_girls/"}]
 ---
 # Summer internships for Indian girls
 

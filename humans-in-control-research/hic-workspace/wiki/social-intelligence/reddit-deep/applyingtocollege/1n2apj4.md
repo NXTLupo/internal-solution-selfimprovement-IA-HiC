@@ -19,61 +19,80 @@ chunks:
     char_span: [0, 1941]
     sentence_count: 14
     key_terms: [students, harvard, applyingtocollege, academic, consequences, harvard-college-grade-inflation, high, university]
+    concepts: [students, harvard, applyingtocollege, academic, consequences]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c4"]
     token_count: 449
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1n2apj4/the_atlantic_the_perverse_consequences_of_the/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c1"
     char_span: [1943, 4272]
     sentence_count: 21
     key_terms: [students, harvard, course, grades, professors, because, became, trend]
+    concepts: [students, harvard, course, grades, professors]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c6"]
     token_count: 465
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c2"
     char_span: [4274, 6225]
     sentence_count: 12
     key_terms: [students, grades, told, get, harvard, percent, student, work]
+    concepts: [students, grades, harvard, percent, student]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c6"]
     token_count: 402
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c3"
     char_span: [6227, 8570]
     sentence_count: 25
     key_terms: [students, clubs, harvard, everyone, extracurriculars, college, join, told]
+    concepts: [students, clubs, harvard, extracurriculars, everyone]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c4"]
     token_count: 475
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c4"
     char_span: [8572, 10269]
     sentence_count: 12
     key_terms: [students, committee, harvard, coursework, prioritize, prepare, student, internship-recruiting]
+    concepts: [students, committee, harvard, coursework, prioritize]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c3"]
     token_count: 313
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c5"
     char_span: [10283, 10992]
     sentence_count: 2
     key_terms: [harvard, school, sector, goes, type, kindly-stop5113, cultivating, hurhurdedur]
+    concepts: [harvard, school, sector]
     section: Comments
     token_count: 169
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c6"
     char_span: [10994, 13059]
     sentence_count: 12
     key_terms: [students, grade, high, because, getting, grades, school, inflation]
+    concepts: [students, grade, because, getting, grades]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c10"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c7"
     char_span: [13061, 14962]
     sentence_count: 13
     key_terms: [average, schools, school, lot, professors, otherwise, undergrad, everyone]
+    concepts: [average, schools, school, professors, otherwise]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c8"
     char_span: [14964, 17112]
     sentence_count: 14
     key_terms: [education, harvard, grading-system, infoforfaculty, pretty, fact, grad, themselves]
+    concepts: [education, grading-system, infoforfaculty, harvard, pretty]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c9"
     char_span: [17114, 18933]
     sentence_count: 11
     key_terms: [harvard, because, "don't", case, terrifying, themselves, exclusive-extracurricular, magazine]
+    concepts: [harvard, because, "don't", terrifying, themselves]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c10"
     char_span: [18935, 19640]
     sentence_count: 3
     key_terms: [grade, students, intelligent-rest-231, back, workingclassprep, demonstrate, coursework, misleading]
+    concepts: [grade, students]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c6"]
     section: Comments
     token_count: 177
 ---

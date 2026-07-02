@@ -21,47 +21,59 @@ chunks:
     char_span: [0, 1122]
     sentence_count: 8
     key_terms: [average, course, engineering, performance, considered, gradschool, comments, failing]
+    concepts: [average, course, engineering, performance, considered]
     token_count: 245
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1ryptox/i_see_people_say_that_a_b_is_considered_failing/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c1"
     char_span: [1136, 2857]
     sentence_count: 9
     key_terms: [students, schools, get, probably, people, class, curve, grade]
+    concepts: [students, schools, probably, people, class]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ryptox.md#c6"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c2"
     char_span: [2859, 3891]
     sentence_count: 6
     key_terms: [classes, students, core, got, program, quarters, sections, quarter]
+    concepts: [classes, students, program, quarters, sections]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ryptox.md#c6"]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c3"
     char_span: [3893, 5912]
     sentence_count: 16
     key_terms: [ru-tris-bpy, definitely, parrotwouldntvoom, grades, people, fellowships, didn, get]
+    concepts: [ru-tris-bpy, definitely, parrotwouldntvoom, grades, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c4"
     char_span: [5682, 5968]
     sentence_count: 2
     key_terms: [getting, parrotwouldntvoom, laziestindian, applications, fellowship, gradschool, biosketch, downvoted]
+    concepts: [getting]
     section: Comments
     token_count: 80
   - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c5"
     char_span: [5970, 7143]
     sentence_count: 12
     key_terms: [average, traditionally, around, grades, middle, school, above, grade]
+    concepts: [average, traditionally, around, grades, middle]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c6"
     char_span: [7145, 8906]
     sentence_count: 12
     key_terms: [class, grad, program, graduate, students, course, expectations, undergrad]
+    concepts: [class, program, graduate, students, expectations]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1ryptox.md#c1", "social-intelligence/reddit-deep/gradschool/1ryptox.md#c2"]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c7"
     char_span: [8909, 10323]
     sentence_count: 11
     key_terms: [mastery, grad, test, expected, students, tell, instructor, particular]
+    concepts: [mastery, expected, students, instructor, particular]
     section: Comments
     token_count: 298
 ---

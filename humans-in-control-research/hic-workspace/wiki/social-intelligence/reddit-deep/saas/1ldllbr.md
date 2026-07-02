@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 409]
     sentence_count: 3
     key_terms: [saas, comments, costs, reddit-deep, integrate, building, someone, advice]
+    concepts: [comments, costs]
     token_count: 106
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1ldllbr/how_do_people_manage_to_offer_free_trials_for_ai/"}]
   - id: "social-intelligence/reddit-deep/saas/1ldllbr.md#c1"
-    char_span: [424, 1498]
+    char_span: [423, 1497]
     sentence_count: 13
     key_terms: [customer, trial, cap, "you're", cost, free, get, drakedemon]
+    concepts: [customer, trial, "you're", drakedemon, profitable]
     section: Comments
     token_count: 288
 ---

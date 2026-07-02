@@ -1,9 +1,95 @@
 ---
+id: brand/image-slots/AGENT-GUIDE-find-image-references.md
 title: Agent Guide — how to find every image reference in the manifest (for the illustrator skill)
 type: brand
 updated: 2026-06-17
+chunks:
+  - id: "brand/image-slots/AGENT-GUIDE-find-image-references.md#c0"
+    char_span: [0, 401]
+    sentence_count: 2
+    key_terms: [agent, image, right, illustration, illustrator, placeholder, enumerate, reference]
+    concepts: [agent, image, right]
+    token_count: 87
+  - id: "brand/image-slots/AGENT-GUIDE-find-image-references.md#c1"
+    char_span: [434, 1829]
+    sentence_count: 14
+    key_terms: [registry, never, hic-workspace, table, reference, fragment, separate, "slot's"]
+    concepts: [registry, never, hic-workspace, table, reference]
+    section: 0. TL;DR (the loop you run)
+    token_count: 375
+  - id: "brand/image-slots/AGENT-GUIDE-find-image-references.md#c2"
+    char_span: [1867, 2645]
+    sentence_count: 3
+    key_terms: [component, reference, figma, image, node, automatically, "deliverable's", illustration]
+    concepts: [component, reference, figma, image]
+    related_chunks: ["brand/image-slots/AGENT-GUIDE-find-image-references.md#c9"]
+    section: "1. What an \"image reference\" IS"
+    token_count: 179
+  - id: "brand/image-slots/AGENT-GUIDE-find-image-references.md#c3"
+    char_span: [2704, 3795]
+    sentence_count: 2
+    key_terms: [thumbnails, panel, no-image, roadmap-org-themes-blueprint-brief-explainer, hic-workspace, minor-pages-and-journey-variants, fragments, contract]
+    concepts: [thumbnails, no-image, panel, hic-workspace, fragments]
+    section: 2. WHERE the references live (the manifest surfaces)
+    token_count: 277
+  - id: "brand/image-slots/AGENT-GUIDE-find-image-references.md#c4"
+    char_span: [3797, 4639]
+    sentence_count: 3
+    key_terms: [const, name, metadata, figma, frame, slots, meta, glyph-slot]
+    concepts: [const, metadata, figma, frame, glyph-slot]
+    section: 2. WHERE the references live (the manifest surfaces)
+    token_count: 241
+  - id: "brand/image-slots/AGENT-GUIDE-find-image-references.md#c5"
+    char_span: [4709, 6344]
+    sentence_count: 8
+    key_terms: [node, ground, imgelement, concept, bounds, column, authoritative, figma]
+    concepts: [imgelement, ground, authoritative, concept, bounds]
+    section: 3. The reference schema (the 7 columns of every fragment table)
+    token_count: 422
+  - id: "brand/image-slots/AGENT-GUIDE-find-image-references.md#c6"
+    char_span: [6416, 8352]
+    sentence_count: 5
+    key_terms: [transparent, generation, image, never, row, separate, payload, brand]
+    concepts: [transparent, generation, image, never, separate]
+    section: 4. Generate ONE transparent PNG per slot — NEVER a combined sheet
+    token_count: 487
+  - id: "brand/image-slots/AGENT-GUIDE-find-image-references.md#c7"
+    char_span: [8354, 9624]
+    sentence_count: 4
+    key_terms: [behaviorimages, illustrations, brand, concept, canvas, per, handoff, personas-competitive]
+    concepts: [behaviorimages, illustrations, brand, concept, canvas]
+    section: 4. Generate ONE transparent PNG per slot — NEVER a combined sheet
+    token_count: 377
+  - id: "brand/image-slots/AGENT-GUIDE-find-image-references.md#c8"
+    char_span: [9689, 10786]
+    sentence_count: 8
+    key_terms: [journeymap, string, persona-card, field, twins, components, generated, generate]
+    concepts: [journeymap, persona-card, string, components, field]
+    section: 5. WHERE the generated URL goes (runtime payload contract)
+    token_count: 278
+  - id: "brand/image-slots/AGENT-GUIDE-find-image-references.md#c9"
+    char_span: [10788, 12467]
+    sentence_count: 5
+    key_terms: [persona, image, per-behavior, archetype, reference, personas, renderer, archetype-vs-behavior]
+    concepts: [persona, image, per-behavior, archetype, reference]
+    related_chunks: ["brand/image-slots/AGENT-GUIDE-find-image-references.md#c2"]
+    section: 5. WHERE the generated URL goes (runtime payload contract)
+    token_count: 462
+  - id: "brand/image-slots/AGENT-GUIDE-find-image-references.md#c10"
+    char_span: [12513, 12918]
+    sentence_count: 4
+    key_terms: [image-free, connector-collision-prone, coverage, image, like, content-complete, intentionally, compositions]
+    concepts: [image-free, coverage, image]
+    section: 6. Skip the deliberate no-image entries
+    token_count: 84
+  - id: "brand/image-slots/AGENT-GUIDE-find-image-references.md#c11"
+    char_span: [12964, 13521]
+    sentence_count: 2
+    key_terms: [thumbnails, panels, nu-twin-inheriting, shared-plugin-data, nxt, section-divider, authoritative, per-element]
+    concepts: [thumbnails, panels]
+    section: 7. Quick inventory (what you will find)
+    token_count: 143
 ---
-
 # Agent Guide: find every image reference in the manifest
 
 **Audience:** the AI Coding agent. **Goal:** enumerate every image placeholder ("img-slot") across the

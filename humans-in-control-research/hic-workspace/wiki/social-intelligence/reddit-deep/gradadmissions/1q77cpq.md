@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 704]
     sentence_count: 5
     key_terms: [gradadmissions, accepted, comments, andrew, crazy, applications, achievement, necessarily]
+    concepts: [gradadmissions, accepted, comments, andrew, crazy]
     token_count: 169
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1q77cpq/accepted/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1q77cpq.md#c1"
     char_span: [718, 1675]
     sentence_count: 5
     key_terms: [congratulations, congrats, andrews, because, lovely, flaky-preference3645, otherwise-celery-280, doesn]
+    concepts: [congratulations, congrats, andrews, because, lovely]
     section: Comments
     token_count: 294
 ---

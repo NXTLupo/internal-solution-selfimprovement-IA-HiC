@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 1295]
     sentence_count: 11
     key_terms: [professional, dress, clothes, nice, sure, gradschool, undergrad, comments]
+    concepts: [professional, dress, clothes, gradschool, undergrad]
     token_count: 300
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1pphvrq/should_i_wear_more_professional_clothes_to_class/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1pphvrq.md#c1"
     char_span: [1309, 2887]
     sentence_count: 8
     key_terms: [people, presentations, dress, appropriate, "it's", week, masters, wearing]
+    concepts: [people, presentations, appropriate, dress, masters]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1pphvrq.md#c3"]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/gradschool/1pphvrq.md#c2"
     char_span: [2892, 4072]
     sentence_count: 9
     key_terms: [jeans, undergrad, sandals, t-shirt, casual, class, did, saw]
+    concepts: [jeans, undergrad, sandals, t-shirt, casual]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/gradschool/1pphvrq.md#c3"
     char_span: [4074, 5912]
     sentence_count: 8
     key_terms: [wear, dress, leggings, class, casual, people, jeans, lot]
+    concepts: [leggings, dress, class, casual, people]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1pphvrq.md#c1"]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/gradschool/1pphvrq.md#c4"
     char_span: [5914, 7765]
     sentence_count: 17
     key_terms: [wear, shorts, nicer, year, leggings, slightly, program, casual]
+    concepts: [shorts, nicer, leggings, slightly, program]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/gradschool/1pphvrq.md#c5"
     char_span: [7767, 8510]
     sentence_count: 4
     key_terms: [cardigan, casual, outfit, themarshmallowfairy, professionality, significantly, professional, temperature]
+    concepts: [cardigan, casual, outfit]
     section: Comments
     token_count: 161
 ---

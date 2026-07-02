@@ -20,76 +20,100 @@ chunks:
     char_span: [0, 2229]
     sentence_count: 30
     key_terms: [accounts, vanguard, password, wife, account, phone, get, because]
+    concepts: [accounts, vanguard, password, account, phone]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c4", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c8", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c11", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c12"]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1lkhhqn/done_with_vanguard_just_berated_my_wife_on_the/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c1"
     char_span: [2231, 4226]
     sentence_count: 41
     key_terms: [fidelity, call, customer, security, customer-service, transfer-assets, tired, inheritance]
+    concepts: [fidelity, customer-service, transfer-assets, customer, security]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c2", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c10"]
     token_count: 457
   - id: "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c2"
-    char_span: [4241, 6222]
+    char_span: [4240, 6221]
     sentence_count: 14
     key_terms: [fidelity, schwab, excellent, customer, service, fun-froyo7578, never, questions]
+    concepts: [fidelity, schwab, excellent, customer, fun-froyo7578]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c1", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c3"
-    char_span: [5959, 7665]
+    char_span: [5958, 7664]
     sentence_count: 13
     key_terms: [person, fidelity, called, minutes, experience, customer, website, either]
+    concepts: [person, fidelity, called, minutes, experience]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c4"
-    char_span: [7667, 9246]
+    char_span: [7666, 9245]
     sentence_count: 11
     key_terms: [schwab, fidelity, accounts, fun-froyo7578, been, vanguard, through, crowd]
+    concepts: [schwab, fidelity, accounts, fun-froyo7578, vanguard]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c0", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c2", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c6", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c7", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c11"]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c5"
-    char_span: [9248, 10682]
+    char_span: [9247, 10681]
     sentence_count: 8
     key_terms: [vanguard, wife, jedeyeknight5, boglehead, berating, berated, angry, makes]
+    concepts: [vanguard, jedeyeknight5, boglehead, berating, berated]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c6"
-    char_span: [10684, 11728]
+    char_span: [10683, 11727]
     sentence_count: 7
     key_terms: [fidelity, problems, vanguard, good, willfightforbeer, meowmobile999, frustrating, implemented]
+    concepts: [fidelity, problems, vanguard]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c4", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c7", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c11"]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c7"
-    char_span: [11730, 13345]
+    char_span: [11729, 13344]
     sentence_count: 13
     key_terms: [fidelity, vanguard, buy, fee, additional, products, through, buying]
+    concepts: [fidelity, vanguard, additional, products, through]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c4", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c6", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c11"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c8"
-    char_span: [13347, 14781]
+    char_span: [13346, 14780]
     sentence_count: 12
     key_terms: [vanguard, never, roth, backdoor, account, company, yesterdayambitious49, been]
+    concepts: [vanguard, never, backdoor, account, company]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c0", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c11", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c12"]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c9"
-    char_span: [14783, 16486]
+    char_span: [14782, 16485]
     sentence_count: 16
     key_terms: [security, jedeyeknight5, engineering, call, get, like, financial, questions]
+    concepts: [security, jedeyeknight5, engineering, financial, questions]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c10"
-    char_span: [16488, 18480]
+    char_span: [16487, 18479]
     sentence_count: 18
     key_terms: [service, like, customer, security, move, attitude, vanguard, problem]
+    concepts: [service, customer, security, attitude, vanguard]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c11"
-    char_span: [18232, 19683]
+    char_span: [18231, 19682]
     sentence_count: 13
     key_terms: [fidelity, vanguard, account, because, website, app, brokerage, customer]
+    concepts: [fidelity, vanguard, account, because, website]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c0", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c4", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c6", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c7", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c8"]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c12"
-    char_span: [19685, 21371]
+    char_span: [19684, 21370]
     sentence_count: 10
     key_terms: [vanguard, funds, brokerage, plan, account, deleted, app, transfers]
+    concepts: [vanguard, brokerage, funds, account, deleted]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c0", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c8", "social-intelligence/reddit-deep/bogleheads/1lkhhqn.md#c11"]
     section: Comments
     token_count: 436
 ---

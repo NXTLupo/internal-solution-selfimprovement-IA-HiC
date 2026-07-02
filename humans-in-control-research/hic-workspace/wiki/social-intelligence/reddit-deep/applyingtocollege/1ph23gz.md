@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 615]
     sentence_count: 2
     key_terms: [applyingtocollege, experience, comments, college, tarasshevckeno, supplemental, reddit-deep, skieurope12]
+    concepts: [applyingtocollege, experience, comments, college]
     token_count: 159
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1ph23gz/is_it_ok_to_write_about_my_summer_program/"}]
 ---
 # Is it ok to write about my summer program experience at another college for a supplemental essay?
 

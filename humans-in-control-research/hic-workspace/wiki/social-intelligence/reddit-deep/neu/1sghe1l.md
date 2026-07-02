@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1008]
     sentence_count: 8
     key_terms: [students, cybersecurity, northeastern, get, comments, everyone, co-ops, khoury]
+    concepts: [students, cybersecurity, northeastern, comments, everyone]
     token_count: 261
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sghe1l/northeastern_ms_cybersecurity_admit_fall_2026_do/"}]
 ---
 # Northeastern MS Cybersecurity Admit (Fall 2026) – Do Most Students Get Co-ops
 

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1265]
     sentence_count: 9
     key_terms: [international, financial, student, refund, cybersecurity, late, comments, deadline]
+    concepts: [international, financial, cybersecurity, student, refund]
     token_count: 274
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rho9zs/joined_late_to_my_masters_cybersecurity_drop/"}]
   - id: "social-intelligence/reddit-deep/neu/1rho9zs.md#c1"
     char_span: [1279, 1916]
     sentence_count: 3
     key_terms: [tough-surprise4298, ordinary-bird5170, course, drop, semester, january, started, doing]
+    concepts: [tough-surprise4298, ordinary-bird5170, course, semester, january]
     section: Comments
     token_count: 174
 ---

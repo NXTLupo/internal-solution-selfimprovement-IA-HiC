@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1898]
     sentence_count: 28
     key_terms: [days, get, ive, job, like, findapath, comments, thought]
+    concepts: [findapath, comments, thought, working, wouldnt]
     token_count: 451
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1tjws0b/i_feel_empty_ive_given_up_34f/"}]
   - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c1"
     char_span: [1912, 2859]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c2"
     char_span: [2862, 4215]
     sentence_count: 8
     key_terms: [bigbirdsbrain, brain, small, consistency, like, protecting, shrinking, something]
+    concepts: [bigbirdsbrain, consistency, brain, protecting, small]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c3"
     char_span: [4217, 6388]
     sentence_count: 19
     key_terms: [job, going, time, something, recovery, requires, yourself, getting]
+    concepts: [going, something, recovery, requires, yourself]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c4"
@@ -50,18 +55,21 @@ chunks:
     char_span: [6830, 8439]
     sentence_count: 20
     key_terms: [start, ancientgreenthings, going, life, time, exercise, doing, thank]
+    concepts: [start, ancientgreenthings, going, exercise, doing]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c6"
     char_span: [8441, 10544]
     sentence_count: 15
     key_terms: [people, university, psych, getting, counselling, life, experience, postgrad]
+    concepts: [university, people, psych, getting, counselling]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c7"
     char_span: [10546, 12733]
     sentence_count: 31
     key_terms: [too, experience, like, relevant, don, jobs, late, something]
+    concepts: [experience, relevant, something, pandemic, working]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c8"

@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1854]
     sentence_count: 12
     key_terms: [page, building, features, landing, right, experienced, developers, front-end]
+    concepts: [building, features, landing, experienced, developers]
     token_count: 395
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1mwgvz2/is_spending_almost_3k_on_a_landing_page_and_sign/"}]
   - id: "social-intelligence/reddit-deep/startups/1mwgvz2.md#c1"
-    char_span: [1869, 3956]
+    char_span: [1868, 3955]
     sentence_count: 16
     key_terms: [quality, startup, front, b2b, get, experience, strawboard, technology]
+    concepts: [quality, startup, experience, front, strawboard]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/startups/1mwgvz2.md#c2"
-    char_span: [3709, 4098]
+    char_span: [3708, 4097]
     sentence_count: 1
     key_terms: [get, something, basic, bludgeonerv, marketing, messaging, focused, landing]
+    concepts: [something, basic]
     section: Comments
     token_count: 96
   - id: "social-intelligence/reddit-deep/startups/1mwgvz2.md#c3"
-    char_span: [4100, 6084]
+    char_span: [4099, 6083]
     sentence_count: 23
     key_terms: [design, pretty, expensive, good, too, trying, cheap, conversions]
+    concepts: [design, pretty, expensive, trying, conversions]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/startups/1mwgvz2.md#c4"
-    char_span: [6086, 7508]
+    char_span: [6085, 7507]
     sentence_count: 10
     key_terms: [work, good, experience, geoffb912, designer, feedback, unbounce, someone]
+    concepts: [experience, geoffb912, designer, feedback, unbounce]
     section: Comments
     token_count: 348
 ---

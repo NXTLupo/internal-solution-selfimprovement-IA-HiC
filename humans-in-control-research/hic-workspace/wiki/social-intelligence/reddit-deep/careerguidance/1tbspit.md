@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 522]
     sentence_count: 3
     key_terms: [careerguidance, comments, career, cybersecurity, opportunities, poojasuthar, reddit-deep, difficulty]
+    concepts: [careerguidance, comments, career]
     token_count: 137
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tbspit/which_career_path_is_better_for_bsc_csit_students/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tbspit.md#c1"
     char_span: [536, 1803]
     sentence_count: 1
     key_terms: [data, need, entry, foundation, analytics, companies, different, probably]
+    concepts: [entry, foundation, analytics, companies, different]
     section: Comments
     token_count: 243
 ---

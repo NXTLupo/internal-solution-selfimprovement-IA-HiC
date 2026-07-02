@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1203]
     sentence_count: 11
     key_terms: [cscareerquestions, companies, comments, college, related, advice, trying, find]
+    concepts: [cscareerquestions, companies, comments, college, related]
     token_count: 284
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1lt8su4/cs_career_advice/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lt8su4.md#c1"
     char_span: [1217, 3350]
     sentence_count: 23
     key_terms: [companies, get, anything, chrithtoph, interviews, clearance, something, applying]
+    concepts: [companies, anything, chrithtoph, interviews, clearance]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lt8su4.md#c2"
     char_span: [3352, 4642]
     sentence_count: 4
     key_terms: ["you're", interview, willing, work, associated, different, questions, scripting]
+    concepts: ["you're", interview, willing, associated, different]
     section: Comments
     token_count: 293
 ---

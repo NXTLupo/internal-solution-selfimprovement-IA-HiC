@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1410]
     sentence_count: 11
     key_terms: [like, comments, college, pathway, being, feels, years, certifications]
+    concepts: [comments, college, pathway, being, feels]
     token_count: 294
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ol02kp/unsure_what_to_do_with_my_current_pathway/"}]
   - id: "social-intelligence/reddit-deep/college/1ol02kp.md#c1"
     char_span: [1424, 2449]
     sentence_count: 7
     key_terms: [going, time, healthcare, different, people, historical-hand8091, impressionnext3445, code]
+    concepts: [going, healthcare, different, people]
     section: Comments
     token_count: 260
 ---

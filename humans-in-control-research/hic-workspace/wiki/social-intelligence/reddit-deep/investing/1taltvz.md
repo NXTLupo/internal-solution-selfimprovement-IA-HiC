@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 978]
     sentence_count: 10
     key_terms: [innovation, fund, investing, comments, returned, market, trades, years]
+    concepts: [innovation, investing, comments, returned, market]
     token_count: 233
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1taltvz/how_does_anyone_take_cathie_wood_seriously/"}]
   - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c1"
     char_span: [992, 1478]
     sentence_count: 2
     key_terms: [market, current, genius, hulksinvinciblepants, doing, moron, "i'm", time]
+    concepts: [market, current, genius, doing, moron]
     section: Comments
     token_count: 133
   - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c2"
     char_span: [1480, 3299]
     sentence_count: 11
     key_terms: [earnings, broken, did, sold, yeah, remember, wonder, airplanealjefferson]
+    concepts: [earnings, broken, remember, wonder, clock]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c3"
     char_span: [3301, 4942]
     sentence_count: 9
     key_terms: [fund, investors, netflix, space, picking, cramer, stocks, thenorthernwhiteboy]
+    concepts: [investors, netflix, space, picking, cramer]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c4"
     char_span: [4944, 6099]
     sentence_count: 9
     key_terms: [portfolio, rebalance, manager, notapersonaltrainer, early, etf, got, sold]
+    concepts: [portfolio, rebalance, manager, early]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c5"
     char_span: [6101, 7400]
     sentence_count: 7
     key_terms: [glasses, stock, fund, "it's", need, greatness, millions, believe]
+    concepts: [glasses, stock, greatness, millions, believe]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c6"
     char_span: [7402, 9401]
     sentence_count: 18
     key_terms: [god, gametime2325, years, don, saw, bible, picks, right]
+    concepts: [gametime2325, years, bible, picks, right]
     section: Comments
     token_count: 511
 ---

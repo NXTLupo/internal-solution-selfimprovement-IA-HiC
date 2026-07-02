@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 1601]
     sentence_count: 14
     key_terms: [college, time, semester, something, comments, family, school, trying]
+    concepts: [college, semester, something, comments, family]
     token_count: 360
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1pw6sed/taking_a_semester_off_due_to_finances_need_advice/"}]
   - id: "social-intelligence/reddit-deep/college/1pw6sed.md#c1"
     char_span: [1615, 2310]
     sentence_count: 12
     key_terms: [bagaffectionate5121, fault, keep, kind, work, humble-bar-7869, scholarships, immigrants]
+    concepts: [fault]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/college/1pw6sed.md#c2"
     char_span: [2312, 4198]
     sentence_count: 18
     key_terms: [school, exams, education, clep, transfer, collegescorecard, schools, expensive]
+    concepts: [school, collegescorecard, education, exams, transfer]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/college/1pw6sed.md#c3"
     char_span: [4200, 5489]
     sentence_count: 12
     key_terms: [clep, credits, college, testing, credit, degree, redact, check]
+    concepts: [credits, college, testing, credit, degree]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/college/1pw6sed.md#c4"
     char_span: [5491, 7304]
     sentence_count: 12
     key_terms: [school, something, classes, thh1sz2iev4, possible, transfer, youtube, afford]
+    concepts: [school, something, classes, thh1sz2iev4, possible]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/college/1pw6sed.md#c5"
     char_span: [7306, 7998]
     sentence_count: 7
     key_terms: [peanutbutterjelly, community, keeps, connect-with-us, registration, scholarships, ambassador, incredibly]
+    concepts: [peanutbutterjelly, community, keeps]
     section: Comments
     token_count: 149
 ---

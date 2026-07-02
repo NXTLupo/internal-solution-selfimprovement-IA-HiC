@@ -19,10 +19,12 @@ content_hash: "79d80ba925e48c6e"
 relevance_by_goal: {"8e9ecc469395":95}
 chunks:
   - id: "articles/reddit-philanthropy/efbd65b7d8.md#c0"
-    char_span: [0, 983]
+    char_span: [0, 982]
     sentence_count: 4
     key_terms: [school, bondi, boindi-law-school, law, stetson, letter, philanthropy, donor]
-    token_count: 229
+    concepts: [school, boindi-law-school, bondi, stetson, philanthropy]
+    token_count: 228
+    sources: [{"n":"reddit: Philanthropy","u":"https://reddit.com/r/Philanthropy/comments/1s0qm2v/pam_bondi_law_school_leadership_facing_donor/"}]
 ---
 # Pam Bondi law school leadership facing donor boycott unless she's denounced
 

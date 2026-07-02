@@ -21,29 +21,39 @@ chunks:
     char_span: [0, 1368]
     sentence_count: 8
     key_terms: [waterloo, schools, catholic, student, public, school, environment, high]
+    concepts: [waterloo, schools, catholic, student, public]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1stkm2u.md#c3"]
     token_count: 290
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1stkm2u/high_school_recommendations_in_waterloo_public_vs/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1stkm2u.md#c1"
     char_span: [1382, 3278]
     sentence_count: 14
     key_terms: [school, program, daughter, xrainbowtreats, academically, environment, don, academics]
+    concepts: [school, program, daughter, xrainbowtreats, academically]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1stkm2u.md#c3"]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/waterloo/1stkm2u.md#c2"
     char_span: [3280, 4517]
     sentence_count: 9
     key_terms: [school, university, coming, doing, going, local, activitynovel8682, did]
+    concepts: [school, university, coming, doing, going]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/waterloo/1stkm2u.md#c3"
     char_span: [4521, 6725]
     sentence_count: 17
     key_terms: [school, catholic, schools, french, daughter, high, public, system]
+    concepts: [school, catholic, schools, french, daughter]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1stkm2u.md#c0", "social-intelligence/reddit-deep/waterloo/1stkm2u.md#c1", "social-intelligence/reddit-deep/waterloo/1stkm2u.md#c4"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/waterloo/1stkm2u.md#c4"
     char_span: [6728, 7840]
     sentence_count: 6
     key_terms: [catholic, school, chronicwheels, education, compareschoolrankings, french, public, faith]
+    concepts: [catholic, school, chronicwheels, education, french]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1stkm2u.md#c3"]
     section: Comments
     token_count: 252
 ---

@@ -20,58 +20,79 @@ chunks:
     char_span: [0, 1855]
     sentence_count: 17
     key_terms: [insurance, care, fep, blue, get, "i've", approved, healthinsurance]
+    concepts: [insurance, healthinsurance, approved, through, fertility]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c1", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c4", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c6"]
     token_count: 420
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1t6jxte/double_insured_everyone_keeps_running_my/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c1"
     char_span: [1857, 3798]
     sentence_count: 23
     key_terms: [insurance, through, eye, eyemed, secondary, doctor, vsp, however]
+    concepts: [insurance, through, secondary, eyemed, doctor]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c0", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c4", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c5", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c6", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c7"]
     token_count: 425
   - id: "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c2"
-    char_span: [3813, 5693]
+    char_span: [3812, 5692]
     sentence_count: 6
     key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    concepts: [information, questions, following, please, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c3"]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c3"
-    char_span: [5695, 7219]
+    char_span: [5694, 7218]
     sentence_count: 7
     key_terms: [please, eob, contact, questions, subreddit, post, via, report]
+    concepts: [please, contact, questions, subreddit, report]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c2"]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c4"
-    char_span: [7222, 9108]
+    char_span: [7221, 9107]
     sentence_count: 22
     key_terms: [primary, through, secondary, insurance, temperaturekind7949, double-insured, "i've", everything]
+    concepts: [primary, through, secondary, insurance, temperaturekind7949]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c0", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c1", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c5", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c6", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c7"]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c5"
-    char_span: [9111, 11265]
+    char_span: [9110, 11264]
     sentence_count: 16
     key_terms: [insurance, doctor, primary, secondary, cvs, claims, prior, meds]
+    concepts: [insurance, doctor, primary, secondary, claims]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c1", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c4", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c6", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c7", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c8"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c6"
-    char_span: [11267, 13602]
+    char_span: [11266, 13601]
     sentence_count: 26
     key_terms: [insurance, primary, provider, "i'm", because, through, everything, benefits]
+    concepts: [insurance, primary, provider, because, through]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c0", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c1", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c4", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c5", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c7"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c7"
-    char_span: [13604, 15619]
+    char_span: [13603, 15618]
     sentence_count: 14
     key_terms: [insurance, secondary, primary, provider, processed, claim, submit, above]
+    concepts: [insurance, secondary, primary, provider, processed]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c1", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c4", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c5", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c6", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c8"]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c8"
-    char_span: [15621, 17862]
+    char_span: [15620, 17861]
     sentence_count: 24
     key_terms: [insurance, secondary, providers, understand, submitted, "i'm", provider, helpful]
+    concepts: [insurance, secondary, providers, understand, submitted]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c1", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c4", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c5", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c7"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c9"
-    char_span: [17864, 19373]
+    char_span: [17863, 19372]
     sentence_count: 9
     key_terms: [insurance, employer, plan, network, primary, temperaturekind7949, provider, automatically]
+    concepts: [insurance, employer, temperaturekind7949, network, primary]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c4", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c5", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c6", "social-intelligence/reddit-deep/healthinsurance/1t6jxte.md#c7"]
     section: Comments
     token_count: 347
 ---

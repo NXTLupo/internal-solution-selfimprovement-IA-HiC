@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1467]
     sentence_count: 2
     key_terms: [enough, day, job, life, depressed, comments, paycheck, family]
+    concepts: [enough, depressed, comments, paycheck, family]
     token_count: 358
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1qcz5tg/life_is_so_miserable/"}]
   - id: "social-intelligence/reddit-deep/genz/1qcz5tg.md#c1"
     char_span: [1481, 1610]
     sentence_count: 1
     key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
+    concepts: [discord]
     section: Comments
     token_count: 41
   - id: "social-intelligence/reddit-deep/genz/1qcz5tg.md#c2"
     char_span: [1613, 3721]
     sentence_count: 21
     key_terms: [job, better, going, country, please, month, place, sorry]
+    concepts: [better, going, country, please, month]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1qcz5tg.md#c3"
@@ -44,6 +48,7 @@ chunks:
     char_span: [3757, 5742]
     sentence_count: 16
     key_terms: [change, habits, experiencing, need, unhealthy, majority, history, chemical-village-211]
+    concepts: [experiencing, change, habits, unhealthy, majority]
     section: Comments
     token_count: 463
 ---

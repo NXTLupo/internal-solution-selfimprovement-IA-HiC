@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1227]
     sentence_count: 12
     key_terms: [college, gradadmissions, school, grad, tech, comments, big, didn]
+    concepts: [gradadmissions, college, school, comments]
     token_count: 313
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1p01qtn/switching_from_industry_to_grad_school_last/"}]
 ---
 # Switching from industry to grad school last second, what do I have to know?
 

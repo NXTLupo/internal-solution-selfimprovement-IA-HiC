@@ -20,52 +20,62 @@ chunks:
     char_span: [0, 2136]
     sentence_count: 18
     key_terms: [manipulation, market, shares, overnight, real, stocks, price, short]
+    concepts: [manipulation, market, shares, overnight, stocks]
     token_count: 472
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1tbf2io/anyone_else_suspect_market_manipulation_caused/"}]
   - id: "social-intelligence/reddit-deep/etfs/1tbf2io.md#c1"
     char_span: [2138, 3439]
     sentence_count: 12
     key_terms: [overnight, price, retail, order, stop-losses, real, step, required]
+    concepts: [overnight, price, retail, stop-losses, order]
     token_count: 282
   - id: "social-intelligence/reddit-deep/etfs/1tbf2io.md#c2"
-    char_span: [3454, 5431]
+    char_span: [3453, 5430]
     sentence_count: 17
     key_terms: [leveraged, people, theblackbaron, manipulation, "it's", news, everything, overnight]
+    concepts: [leveraged, theblackbaron, manipulation, people, everything]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/etfs/1tbf2io.md#c3"
-    char_span: [5433, 7509]
+    char_span: [5432, 7508]
     sentence_count: 13
     key_terms: [drop, "it's", activity, concentrated, get, "i'm", suspicion, criminal]
+    concepts: [activity, concentrated, suspicion, criminal, crashes]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/etfs/1tbf2io.md#c4"
-    char_span: [7511, 9571]
+    char_span: [7510, 9570]
     sentence_count: 27
     key_terms: [earnings, companies, rally, news, sell, headlines, massive, season]
+    concepts: [earnings, companies, rally, headlines, massive]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/etfs/1tbf2io.md#c5"
-    char_span: [9573, 11533]
+    char_span: [9572, 11532]
     sentence_count: 41
     key_terms: [innovation, going, isn, investor, future, chips, gonna, maybe]
+    concepts: [innovation, going, investor, future, chips]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/etfs/1tbf2io.md#c6"
-    char_span: [11535, 12319]
+    char_span: [11534, 12318]
     sentence_count: 2
     key_terms: [buildout, compute, demand, being, capabilities, electricity, established, explanation]
+    concepts: [buildout, compute, demand, being]
     section: Comments
     token_count: 168
   - id: "social-intelligence/reddit-deep/etfs/1tbf2io.md#c7"
-    char_span: [12321, 13872]
+    char_span: [12320, 13871]
     sentence_count: 11
     key_terms: [inflation, market, dividend, hellario, until, down, biennial2, overnight]
+    concepts: [inflation, market, dividend, hellario, until]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/etfs/1tbf2io.md#c8"
-    char_span: [13874, 15016]
+    char_span: [13873, 15015]
     sentence_count: 7
     key_terms: [kickflipconnoisseur, market, "it's", meteoric, "doesn't", selloff, around, runup]
+    concepts: [kickflipconnoisseur, market, meteoric, "doesn't", selloff]
     section: Comments
     token_count: 290
 ---

@@ -18,66 +18,84 @@ chunks:
     char_span: [0, 1517]
     sentence_count: 12
     key_terms: [rose, memory, machinelearning, low, benchmarks, optimizer, sometimes, training]
+    concepts: [memory, machinelearning, benchmarks, optimizer, sometimes]
     token_count: 362
+    sources: [{"n":"Reddit Deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1sucjwp/new_optimizer_rose_low_vram_easy_to_use_great/"}]
   - id: "articles/reddit-deep-r-machinelearning/deba11fb58.md#c1"
     char_span: [1519, 2326]
     sentence_count: 1
     key_terms: [epoch, acc, avg, loss, hyperparameters, default, rose, text]
+    concepts: [epoch]
     token_count: 393
   - id: "articles/reddit-deep-r-machinelearning/deba11fb58.md#c2"
     char_span: [2328, 3398]
     sentence_count: 1
     key_terms: [epoch, acc, avg, loss, mnist, facebookresearch, hyperparameters, mannwhitneyu]
+    concepts: [epoch, mnist]
     token_count: 452
   - id: "articles/reddit-deep-r-machinelearning/deba11fb58.md#c3"
     char_span: [3400, 4511]
     sentence_count: 2
     key_terms: [result, rose, adamw, momentum, openai, adam, sgd, parameter-golf]
+    concepts: [result, adamw, momentum, openai]
     token_count: 477
   - id: "articles/reddit-deep-r-machinelearning/deba11fb58.md#c4"
     char_span: [4513, 4939]
     sentence_count: 6
     key_terms: [memory, performance, optimizers, parameters, extremely, optimizer, strengths, detailed]
+    concepts: [memory]
     token_count: 100
   - id: "articles/reddit-deep-r-machinelearning/deba11fb58.md#c5"
     char_span: [4941, 6387]
     sentence_count: 1
     key_terms: [step, bytes, "false", size, serialized, submission, model, total]
+    concepts: [bytes, "false", serialized, submission, model]
+    related_chunks: ["articles/reddit-deep-r-machinelearning/deba11fb58.md#c6", "articles/reddit-deep-r-machinelearning/deba11fb58.md#c8", "articles/reddit-deep-r-machinelearning/deba11fb58.md#c9"]
     token_count: 512
   - id: "articles/reddit-deep-r-machinelearning/deba11fb58.md#c6"
     char_span: [6178, 6552]
     sentence_count: 1
     key_terms: [bytes, size, submission, total, int8, zlib, serialized, payload]
+    concepts: [bytes, submission, total]
+    related_chunks: ["articles/reddit-deep-r-machinelearning/deba11fb58.md#c5", "articles/reddit-deep-r-machinelearning/deba11fb58.md#c8", "articles/reddit-deep-r-machinelearning/deba11fb58.md#c9"]
     token_count: 126
   - id: "articles/reddit-deep-r-machinelearning/deba11fb58.md#c7"
     char_span: [6554, 6875]
     sentence_count: 1
     key_terms: [args, rose, stabilize, params, "false", none, weight]
+    concepts: [stabilize, params, "false"]
     token_count: 85
   - id: "articles/reddit-deep-r-machinelearning/deba11fb58.md#c8"
     char_span: [6877, 8320]
     sentence_count: 1
     key_terms: [step, bytes, "false", size, serialized, submission, model, total]
+    concepts: [bytes, "false", serialized, submission, model]
+    related_chunks: ["articles/reddit-deep-r-machinelearning/deba11fb58.md#c5", "articles/reddit-deep-r-machinelearning/deba11fb58.md#c6", "articles/reddit-deep-r-machinelearning/deba11fb58.md#c9"]
     token_count: 512
   - id: "articles/reddit-deep-r-machinelearning/deba11fb58.md#c9"
     char_span: [8111, 8485]
     sentence_count: 1
     key_terms: [bytes, size, submission, total, int8, zlib, serialized, payload]
+    concepts: [bytes, submission, total]
+    related_chunks: ["articles/reddit-deep-r-machinelearning/deba11fb58.md#c5", "articles/reddit-deep-r-machinelearning/deba11fb58.md#c6", "articles/reddit-deep-r-machinelearning/deba11fb58.md#c8"]
     token_count: 126
   - id: "articles/reddit-deep-r-machinelearning/deba11fb58.md#c10"
     char_span: [8487, 9157]
     sentence_count: 6
     key_terms: [mean, optional, update, stablediffusion, centralization, equivalently, comparisons, non-leading]
+    concepts: [optional, update]
     token_count: 241
   - id: "articles/reddit-deep-r-machinelearning/deba11fb58.md#c11"
     char_span: [9159, 11224]
     sentence_count: 15
     key_terms: [adamw, muon, training, performance, memory, difference, parameters, mnist]
+    concepts: [adamw, training, performance, difference, parameters]
     token_count: 512
   - id: "articles/reddit-deep-r-machinelearning/deba11fb58.md#c12"
     char_span: [10945, 11232]
     sentence_count: 3
     key_terms: [parameters, memory, rose, requirements, gradients, temporary, matrices, training]
+    concepts: [parameters, memory]
     token_count: 68
 ---
 # [New Optimizer] 🌹 Rose: low VRAM, easy to use, great results, Apache 2.0 [P]

@@ -21,17 +21,22 @@ chunks:
     char_span: [0, 2157]
     sentence_count: 14
     key_terms: [raise, been, internships, internship, ask, year, stipend, good]
+    concepts: [raise, internships, internship, stipend, full-time]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1lak5u9/should_i_ask_for_a_stipend_raise_at_my_ai/"}]
   - id: "social-intelligence/reddit-deep/internships/1lak5u9.md#c1"
     char_span: [2171, 2883]
     sentence_count: 6
     key_terms: [full, raise, time, absolutely, employee, robotics-kid, lordofchubs, internship]
+    concepts: [absolutely, raise, employee]
     section: Comments
     token_count: 170
   - id: "social-intelligence/reddit-deep/internships/1lak5u9.md#c2"
     char_span: [2885, 4699]
     sentence_count: 6
     key_terms: [zestyclose-rub-4693, ask, time, bulky-strawberry-110, prestigious-hour-215, raise, asking, hourly]
+    concepts: [zestyclose-rub-4693, bulky-strawberry-110, prestigious-hour-215, raise, asking]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1lak5u9.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1lak5u9.md#c3"
@@ -44,6 +49,8 @@ chunks:
     char_span: [4924, 5641]
     sentence_count: 3
     key_terms: [potential-mind-6997, zestyclose-rub-4693, don, bakertheoptionmaker, offer, raise, get, currently]
+    concepts: [potential-mind-6997, zestyclose-rub-4693, offer, raise]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1lak5u9.md#c2"]
     section: Comments
     token_count: 228
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 956]
     sentence_count: 8
     key_terms: [businessintelligence, project, data, portfolio, comments, datasets, build, excel]
+    concepts: [businessintelligence, project, portfolio, comments, datasets]
     token_count: 204
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1ru9dvv/best_dataset_for_a_first_excel_portfolio_project/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1ru9dvv.md#c1"
-    char_span: [971, 2916]
+    char_span: [970, 2915]
     sentence_count: 16
     key_terms: [data, financial, sales, analysis, dataset, prachub, great, dashboard]
+    concepts: [financial, analysis, sales, dataset, prachub]
     section: Comments
     token_count: 450
 ---

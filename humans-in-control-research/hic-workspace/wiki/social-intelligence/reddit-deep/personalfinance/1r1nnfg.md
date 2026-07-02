@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 356]
     sentence_count: 2
     key_terms: [personalfinance, comments, payment, without, debit, reddit-deep, beginner, payments]
+    concepts: [personalfinance, comments, payment, without, debit]
     token_count: 93
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1r1nnfg/is_there_any_debit_cards_without_a_monthly/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1r1nnfg.md#c1"
-    char_span: [371, 1699]
+    char_span: [370, 1698]
     sentence_count: 11
     key_terms: [account, debit, free, accounts, checking, discover, balance, minimum]
+    concepts: [account, debit, accounts, checking, discover]
     section: Comments
     token_count: 290
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 287]
     sentence_count: 1
     key_terms: [artificial, comments, ai-generated, metaknowing, reddit-deep, "robinhood's", majority, posted]
+    concepts: [artificial, comments]
     token_count: 84
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1ncdg7a/robinhoods_ceo_says_majority_of_its_new_code_is/"}]
   - id: "social-intelligence/reddit-deep/artificial/1ncdg7a.md#c1"
     char_span: [301, 1672]
     sentence_count: 7
     key_terms: [code, deleted, people, hello, world, boilerplate, like, automated]
+    concepts: [deleted, people, boilerplate, hello, world]
     section: Comments
     token_count: 378
 ---

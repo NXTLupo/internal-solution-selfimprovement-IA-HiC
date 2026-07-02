@@ -10,6 +10,7 @@ chunks:
     char_span: [0, 669]
     sentence_count: 2
     key_terms: [social-intelligence, sources, industries, reddit-deep, shared, reddit-deep-r-wallstreetbets, articles, reddit-deep-r-gradschool]
+    concepts: [social-intelligence, industries, sources, reddit-deep, shared]
     section: Cross-over verticals (shared sources) / Representative sources
     token_count: 186
 ---

@@ -21,103 +21,127 @@ chunks:
     char_span: [0, 1773]
     sentence_count: 11
     key_terms: [chatgpt, told, friend, feedback, information, attached, comments, because]
+    concepts: [chatgpt, friend, feedback, information, attached]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c3", "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c13"]
     token_count: 387
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1ld6dot/a_close_friend_confessed_she_almost_fell_into/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c1"
     char_span: [1775, 3427]
     sentence_count: 12
     key_terms: [soul, lifetime, told, family, generational, past, contracts, chatgpt]
+    concepts: [lifetime, generational, family, contracts, chatgpt]
     token_count: 352
   - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c2"
     char_span: [3429, 5775]
     sentence_count: 16
     key_terms: [chatgpt, told, because, psychosis, connect, deleted, evolved, energy]
+    concepts: [chatgpt, because, psychosis, conversations, connect]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c3", "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c13"]
     token_count: 511
   - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c3"
     char_span: [5777, 8052]
     sentence_count: 14
     key_terms: [chatgpt, because, conversation, friend, people, conversations, asked, screenshots]
+    concepts: [chatgpt, because, conversation, conversations, friend]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c0", "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c2", "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c5", "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c13"]
     token_count: 494
   - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c4"
     char_span: [8054, 9438]
     sentence_count: 16
     key_terms: [chatgpt, believe, people, ask, deep, conversations, conversation, occasionally]
+    concepts: [chatgpt, believe, people]
     token_count: 303
   - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c5"
     char_span: [9452, 11434]
     sentence_count: 10
     key_terms: [chatgpt, conversation, please, image, post, r-chatgpt-1050422060352024636, distorted, generally]
+    concepts: [chatgpt, conversation, please, image, distorted]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c3"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c6"
     char_span: [11436, 13412]
     sentence_count: 7
     key_terms: [people, friend, "doesn't", help, remember, "what's", desperateastronaut65, "don't"]
+    concepts: [people, friend, "doesn't", remember, "what's"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c7"
     char_span: [13414, 15312]
     sentence_count: 4
     key_terms: [shit, "i'm", something, because, believe, months, weird, ass]
+    concepts: [something, because, believe, months, weird]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c8"
     char_span: [15314, 17119]
     sentence_count: 7
     key_terms: [push, yeah, delusions, spiritual, chatgpt, coming, based, thats]
+    concepts: [delusions, spiritual, chatgpt, coming, based]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c9"
     char_span: [17121, 18664]
     sentence_count: 11
     key_terms: [academic, personal, chatgpt, deleted, always, people, "don't", icyinformation8272]
+    concepts: [academic, personal, chatgpt, deleted, always]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c10"
     char_span: [18666, 20402]
     sentence_count: 7
     key_terms: [spiritual, like, soul, answer, here, something, garbage, someone]
+    concepts: [spiritual, answer, something, garbage, someone]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c11"
     char_span: [20404, 22501]
     sentence_count: 12
     key_terms: [conversation, particular, statement, catching, question, response, broader, chatgpt]
+    concepts: [conversation, particular, statement, catching, question]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c12"
     char_span: [22220, 22505]
     sentence_count: 3
     key_terms: [someone, sarmsgoblinchaser, conversation, encouraging, particular, question, response, exactly]
+    concepts: [someone]
     section: Comments
     token_count: 66
   - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c13"
     char_span: [22507, 24157]
     sentence_count: 11
     key_terms: [delusion, chatgpt, friend, conversations, like, esoteric, exactly, people]
+    concepts: [delusion, conversations, chatgpt, friend, esoteric]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c0", "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c2", "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c3"]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c14"
     char_span: [24159, 24956]
     sentence_count: 2
     key_terms: [ai-spiritual-delusions-destroying-human-relationships-1235330175, chatgpt-ai-chatbots-conspiracies, friend, freshcompetition6513, https, com, www, culture-features]
+    concepts: [friend, https]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c15"
     char_span: [24958, 26874]
     sentence_count: 10
     key_terms: [chatgpt, readings, tarot, like, understand, chatgpt-users-delusions, talking, youtube]
+    concepts: [chatgpt, readings, tarot, understand, talking]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c16"
     char_span: [26876, 28468]
     sentence_count: 11
     key_terms: [no-nefariousness956, sunsunsun2023, conversation, model, "it's", detailed, deleted, latent]
+    concepts: [no-nefariousness956, sunsunsun2023, conversation, model, detailed]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c17"
     char_span: [28470, 28999]
     sentence_count: 3
     key_terms: [been, subreddits, people, going, heat8596558, apocalypse, revelation, recommend]
+    concepts: [subreddits, people, going]
     section: Comments
     token_count: 121
 ---

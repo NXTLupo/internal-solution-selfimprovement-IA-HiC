@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2257]
     sentence_count: 28
     key_terms: [claude, memory, context, discipline, session, without, verification-before-completion, hard]
+    concepts: [claude, memory, context, discipline, session]
     token_count: 499
+    sources: [{"n":"reddit: claude","u":"https://reddit.com/r/claude/comments/1spef7j/my_full_claude_code_setup_after_months_of_daily/"}]
   - id: "articles/reddit-claude/f363edafd7.md#c1"
     char_span: [2259, 4270]
     sentence_count: 23
     key_terms: [claude, verification-before-completion, claude-flow, github, memory, consultation, superpowers, code]
+    concepts: [claude, verification-before-completion, claude-flow, github, consultation]
     token_count: 493
 ---
 # My full Claude Code setup after months of daily use — context discipline, MCPs, memory, subagents

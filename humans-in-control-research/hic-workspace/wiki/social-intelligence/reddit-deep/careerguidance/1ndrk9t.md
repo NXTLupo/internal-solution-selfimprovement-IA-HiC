@@ -21,53 +21,63 @@ chunks:
     char_span: [0, 501]
     sentence_count: 6
     key_terms: [careerguidance, comments, feeling, career, lost, year, new-penalty-4448, reddit-deep]
+    concepts: [careerguidance, comments, feeling, career]
     token_count: 147
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1ndrk9t/anyone_who_makes_300k_or_more_per_year_what_do/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c1"
     char_span: [515, 2320]
     sentence_count: 12
     key_terms: [greatest, entrepreneurship, dealership, potential, money, car, owns, business]
+    concepts: [greatest, entrepreneurship, dealership, potential, money]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c2"
     char_span: [2322, 4306]
     sentence_count: 11
     key_terms: [business, fail, restaurant, architect, millions, being, "can't", "isn't"]
+    concepts: [business, restaurant, architect, millions, being]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c3"
     char_span: [4308, 6315]
     sentence_count: 14
     key_terms: [companies, something, get, team, extremely, replaced, company, always]
+    concepts: [companies, something, extremely, replaced, company]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c4"
     char_span: [6317, 8348]
     sentence_count: 26
     key_terms: [sales, introverts, business, listen, people, skills, level, pivotcareer]
+    concepts: [sales, introverts, business, listen, people]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c5"
     char_span: [8350, 9874]
     sentence_count: 22
     key_terms: [advice, good, "i'm", per, read, biotech, company, started]
+    concepts: [advice, biotech, company, started, career]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c6"
     char_span: [9876, 11700]
     sentence_count: 19
     key_terms: [take, house, hour, extra, friend, back, day, less]
+    concepts: [house, extra, friend, business, cleaning]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c7"
     char_span: [11702, 12771]
     sentence_count: 4
     key_terms: [experience, business, started, vending, large, kind, dicksdraggon, right-ad8261]
+    concepts: [experience, business, started, vending, large]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c8"
     char_span: [12773, 14662]
     sentence_count: 9
     key_terms: [nyc, top, different, quarters, orleans, doctor, figure, people]
+    concepts: [different, quarters, orleans, doctor, figure]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c9"
@@ -86,12 +96,14 @@ chunks:
     char_span: [15086, 17046]
     sentence_count: 13
     key_terms: [work, life, days, corporate, grueling, already, growing, looked]
+    concepts: [corporate, grueling, already, growing, looked]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c12"
     char_span: [16866, 17842]
     sentence_count: 6
     key_terms: [hanjaseightfive, pilot, days, job, seniority, become, flying, tough]
+    concepts: [hanjaseightfive, pilot, seniority, become, flying]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c13"
@@ -104,6 +116,7 @@ chunks:
     char_span: [18021, 19983]
     sentence_count: 19
     key_terms: [doublebagger123, trading, based, development, like, background, undergrad, business]
+    concepts: [doublebagger123, trading, development, background, based]
     section: Comments
     token_count: 482
 ---

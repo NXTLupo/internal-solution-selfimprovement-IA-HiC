@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 734]
     sentence_count: 7
     key_terms: [managers, activity, team, centered, comments, reports, around, direct]
+    concepts: [managers, activity, centered, comments, reports]
     token_count: 165
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1qlaset/need_a_team_activity_for_connecting_the_manager/"}]
   - id: "social-intelligence/reddit-deep/managers/1qlaset.md#c1"
     char_span: [748, 2545]
     sentence_count: 11
     key_terms: [managers, connect, team, activities, building, escape, office, person]
+    concepts: [managers, connect, activities, building, escape]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/managers/1qlaset.md#c2"
     char_span: [2547, 3840]
     sentence_count: 10
     key_terms: [team, activity, random, silly, fact, food, guessing, manager]
+    concepts: [activity, random, silly, guessing, manager]
     section: Comments
     token_count: 297
 ---

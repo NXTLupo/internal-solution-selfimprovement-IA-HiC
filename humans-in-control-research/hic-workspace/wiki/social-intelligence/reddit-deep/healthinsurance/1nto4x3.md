@@ -20,47 +20,62 @@ chunks:
     char_span: [0, 2136]
     sentence_count: 14
     key_terms: [insurance, information, clinic, health, mayo, scan, healthinsurance, reached]
+    concepts: [insurance, information, clinic, health, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1nto4x3.md#c1", "social-intelligence/reddit-deep/healthinsurance/1nto4x3.md#c2", "social-intelligence/reddit-deep/healthinsurance/1nto4x3.md#c4"]
     token_count: 459
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1nto4x3/claim_retroactively_denied/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1nto4x3.md#c1"
-    char_span: [2151, 4097]
+    char_span: [2150, 4096]
     sentence_count: 11
     key_terms: [please, department, healthinsurance, solicitation, insurance, questions, billing, reddit]
+    concepts: [please, department, healthinsurance, solicitation, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1nto4x3.md#c0", "social-intelligence/reddit-deep/healthinsurance/1nto4x3.md#c5"]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/healthinsurance/1nto4x3.md#c2"
-    char_span: [4099, 5812]
+    char_span: [4098, 5811]
     sentence_count: 11
     key_terms: [insurance, information, mayo, experience, tangodream, situation, kirpants, provider]
+    concepts: [insurance, information, experience, tangodream, situation]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1nto4x3.md#c0"]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/healthinsurance/1nto4x3.md#c3"
-    char_span: [5814, 7067]
+    char_span: [5813, 7066]
     sentence_count: 8
     key_terms: [service, get, plan, spd, clinical, policy, wrong, services]
+    concepts: [service, clinical, policy, wrong, services]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1nto4x3.md#c4"]
     section: Comments
     token_count: 274
   - id: "social-intelligence/reddit-deep/healthinsurance/1nto4x3.md#c4"
-    char_span: [7069, 9151]
+    char_span: [7068, 9150]
     sentence_count: 13
     key_terms: [insurance, clinic, plan, clinical, policy, scan, spd, apparently]
+    concepts: [insurance, clinic, clinical, policy, apparently]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1nto4x3.md#c0", "social-intelligence/reddit-deep/healthinsurance/1nto4x3.md#c3"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/healthinsurance/1nto4x3.md#c5"
-    char_span: [9153, 10629]
+    char_span: [9152, 10628]
     sentence_count: 9
     key_terms: [insurance, appeal, registration, file, scan, department, properly, because]
+    concepts: [insurance, registration, appeal, department, properly]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1nto4x3.md#c1"]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/healthinsurance/1nto4x3.md#c6"
-    char_span: [10631, 12322]
+    char_span: [10630, 12321]
     sentence_count: 10
     key_terms: [insurance, waste, medical, erisa, issue, don, form, adjustment]
+    concepts: [insurance, waste, medical, adjustment, erisa]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/healthinsurance/1nto4x3.md#c7"
-    char_span: [12325, 13287]
+    char_span: [12324, 13286]
     sentence_count: 10
     key_terms: [insurance, designated, company, someone, "they'll", usually, person, dept]
+    concepts: [insurance, designated, company, someone, "they'll"]
     section: Comments
     token_count: 229
 ---

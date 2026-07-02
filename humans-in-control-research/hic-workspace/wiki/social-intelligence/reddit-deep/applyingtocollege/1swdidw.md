@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 888]
     sentence_count: 1
     key_terms: [someone, applyingtocollege, income, school, low, colleges, comments, probably]
+    concepts: [someone, applyingtocollege, income, school, colleges]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c4"]
     token_count: 210
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1swdidw/if_colleges_are_need_blind_when_admitting_why/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c1"
     char_span: [902, 2472]
     sentence_count: 10
     key_terms: [school, income, money, circumstances, spend, high, tell, available]
+    concepts: [school, income, money, circumstances, spend]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c2"]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c2"
     char_span: [2474, 4133]
     sentence_count: 13
     key_terms: [income, opportunities, school, available, went, applying, essays, expect]
+    concepts: [income, opportunities, school, available, applying]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c1"]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c3"
     char_span: [4135, 5342]
     sentence_count: 11
     key_terms: [kids, income, spots, parents, reality, tuition, weekend, blind]
+    concepts: [income, spots, parents, reality, tuition]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c4"
     char_span: [5344, 7669]
     sentence_count: 13
     key_terms: [school, schools, kids, someone, aos, feel, hang, like]
+    concepts: [school, schools, someone, because, context]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c5"
     char_span: [7337, 8961]
     sentence_count: 10
     key_terms: [financial, need-blind, aid, school, need, pell, recipients, affluence]
+    concepts: [financial, need-blind, school, recipients, affluence]
     section: Comments
     token_count: 354
 ---

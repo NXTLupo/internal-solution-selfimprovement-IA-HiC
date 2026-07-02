@@ -20,41 +20,51 @@ chunks:
     char_span: [0, 1628]
     sentence_count: 14
     key_terms: [communication, productmanagement, feature, work, management, collegues, comments, stopped]
+    concepts: [communication, productmanagement, feature, management, collegues]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1luockv.md#c3"]
     token_count: 369
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1luockv/management_and_collegues_blatantly_use_ai/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1luockv.md#c1"
-    char_span: [1643, 2492]
+    char_span: [1642, 2491]
     sentence_count: 7
     key_terms: [gigabyte-pun-8080, often, perfomance, satisfied, spreading, argument, features, pointing]
+    concepts: [gigabyte-pun-8080, often]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/productmanagement/1luockv.md#c2"
-    char_span: [2494, 4499]
+    char_span: [2493, 4498]
     sentence_count: 18
     key_terms: [people, like, work, thinking, time, nonsense, problems, response]
+    concepts: [people, thinking, nonsense, problems, response]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/productmanagement/1luockv.md#c3"
-    char_span: [4501, 5911]
+    char_span: [4500, 5910]
     sentence_count: 9
     key_terms: [communication, entrenched, management, strategy, thinking, people, steveholtismymother, bunch]
+    concepts: [communication, entrenched, management, strategy, thinking]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1luockv.md#c0"]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/productmanagement/1luockv.md#c4"
-    char_span: [5913, 7115]
+    char_span: [5912, 7114]
     sentence_count: 9
     key_terms: [part, product, quality, report, value, high, llms, long]
+    concepts: [product, quality, report, value]
     section: Comments
     token_count: 266
   - id: "social-intelligence/reddit-deep/productmanagement/1luockv.md#c5"
-    char_span: [7117, 8927]
+    char_span: [7116, 8926]
     sentence_count: 12
     key_terms: [professional-run-305, chatgpt, point, ask, use, learning, iterate, writing]
+    concepts: [professional-run-305, chatgpt, point, learning, iterate]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/productmanagement/1luockv.md#c6"
-    char_span: [8929, 10250]
+    char_span: [8928, 10249]
     sentence_count: 10
     key_terms: [communication, use, skills, problem, subject, "they're", people, "you'll"]
+    concepts: [communication, skills, problem, subject, "they're"]
     section: Comments
     token_count: 288
 ---

@@ -21,34 +21,41 @@ chunks:
     char_span: [0, 1815]
     sentence_count: 13
     key_terms: [rejection, application, applyingtocollege, years, get, applying, colleges, comments]
+    concepts: [rejection, application, applyingtocollege, years, applying]
     token_count: 438
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1s6nq6c/my_thoughts_on_my_college_application_cycle_this/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s6nq6c.md#c1"
     char_span: [1817, 3666]
     sentence_count: 18
     key_terms: [college, school, "you're", matter, especially, amazing, friends, looking]
+    concepts: [college, school, "you're", matter, especially]
     token_count: 403
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s6nq6c.md#c2"
     char_span: [3680, 5517]
     sentence_count: 13
     key_terms: [because, good, want, college, virilemongoose, universities, get, life]
+    concepts: [because, virilemongoose, college, universities, colleges]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s6nq6c.md#c3"
     char_span: [5519, 7048]
     sentence_count: 8
     key_terms: [school, get, high, activities, rejected, research, crazy, tufts]
+    concepts: [school, activities, rejected, research, crazy]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s6nq6c.md#c4"
     char_span: [7050, 8278]
     sentence_count: 5
     key_terms: [background, practical-guava5149, being, interesting, income, wide-palpitation945, right, longtermjuggernaut]
+    concepts: [practical-guava5149, background, interesting, being, income]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s6nq6c.md#c5"
     char_span: [8280, 9421]
     sentence_count: 8
     key_terms: [waitlisted, college, letter, ucla, work, daughter, practical-guava5149, significancebig7903]
+    concepts: [waitlisted, college, letter, daughter]
     section: Comments
     token_count: 268
 ---

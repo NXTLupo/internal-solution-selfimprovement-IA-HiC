@@ -21,52 +21,66 @@ chunks:
     char_span: [0, 1620]
     sentence_count: 14
     key_terms: [profs, uwaterloo, students, getting, good, like, regardless, comments]
+    concepts: [uwaterloo, profs, students, getting, regardless]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c2", "social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c3"]
     token_count: 402
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1syjs4d/graduating_mixed_feelings/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c1"
     char_span: [1624, 2932]
     sentence_count: 10
     key_terms: [experiences, regular, involvement, like, students, courses, through, better]
+    concepts: [experiences, regular, involvement, students, courses]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c2"]
     token_count: 280
   - id: "social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c2"
     char_span: [2946, 4163]
     sentence_count: 8
     key_terms: [department, profs, ece, courses, students, comment, getting, student]
+    concepts: [department, profs, courses, students, comment]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c0", "social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c1"]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c3"
     char_span: [4165, 5629]
     sentence_count: 10
     key_terms: [students, admissions, automoderator, ece, uwaterloo, further, asking, reddit]
+    concepts: [students, admissions, automoderator, uwaterloo, further]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c0"]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c4"
     char_span: [5631, 6647]
     sentence_count: 7
     key_terms: [uwaterloo, name, competent, increases, chances, "you're", potential-drag9761, like]
+    concepts: [uwaterloo, competent, increases, chances, "you're"]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c5"
     char_span: [6649, 8274]
     sentence_count: 4
     key_terms: [co-op, months, get, good, "it's", job, exclusive, uwaterloo]
+    concepts: [co-op, months, exclusive, uwaterloo, finances]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c6"
     char_span: [8276, 10044]
     sentence_count: 7
     key_terms: [research, "it's", co-ops, profs, get, good, graduating, positions]
+    concepts: [research, co-ops, graduating, profs, positions]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c7"
     char_span: [10046, 11832]
     sentence_count: 12
     key_terms: [get, university, related, support, through, co-op, counselling, job]
+    concepts: [university, related, support, through, counselling]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c8"
     char_span: [11834, 13080]
     sentence_count: 6
     key_terms: [students, school, need, resources, self-care, supports, options, student]
+    concepts: [students, school, resources, self-care, supports]
     section: Comments
     token_count: 254
 ---

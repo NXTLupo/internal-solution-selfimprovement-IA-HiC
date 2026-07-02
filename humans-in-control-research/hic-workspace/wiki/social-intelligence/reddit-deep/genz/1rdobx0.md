@@ -21,34 +21,43 @@ chunks:
     char_span: [0, 2087]
     sentence_count: 30
     key_terms: [later, together, like, gen, example, friend, weeks, millennial]
+    concepts: [later, together, example, friend, millennial]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1rdobx0/elder_millennial_here_is_this_a_gen_z_thing_or_am/"}]
   - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c1"
     char_span: [2089, 2835]
     sentence_count: 9
     key_terms: [talking, younger, people, social, folks, compartmentalizing, like, acknowledging]
+    concepts: [talking, younger, people, social, folks]
     token_count: 159
   - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c2"
     char_span: [2849, 4663]
     sentence_count: 19
     key_terms: [group, like, facebook, online, "we've", basketball, completely, hypothesis]
+    concepts: [group, facebook, online, basketball, completely]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c3"
     char_span: [4665, 6666]
     sentence_count: 17
     key_terms: ["didn't", smiled, back, like, odd, awkwardly, behavior, comments]
+    concepts: ["didn't", smiled, awkwardly, behavior, comments]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c4"
     char_span: [6668, 8247]
     sentence_count: 8
     key_terms: [remember, eachother, like, people, together, awkward, "didn't", memory]
+    concepts: [remember, eachother, people, together, awkward]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1rdobx0.md#c5"]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c5"
     char_span: [8250, 10156]
     sentence_count: 11
     key_terms: [people, recognize, someone, generational, "it's", remember, specific, problem]
+    concepts: [people, recognize, someone, generational, remember]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1rdobx0.md#c4"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c6"

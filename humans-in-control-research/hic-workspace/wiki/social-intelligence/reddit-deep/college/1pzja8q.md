@@ -19,29 +19,37 @@ chunks:
     char_span: [0, 1585]
     sentence_count: 14
     key_terms: [school, feel, college, prestigious, uga, southern, georgia, maybe]
+    concepts: [school, prestigious, college, southern, georgia]
+    related_chunks: ["social-intelligence/reddit-deep/college/1pzja8q.md#c2"]
     token_count: 377
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1pzja8q/is_going_to_a_less_prestigious_school_better_than/"}]
   - id: "social-intelligence/reddit-deep/college/1pzja8q.md#c1"
     char_span: [1599, 3715]
     sentence_count: 20
     key_terms: [school, going, confidence, debt, get, because, smaller, better]
+    concepts: [school, going, confidence, because, smaller]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/college/1pzja8q.md#c2"
     char_span: [3717, 5148]
     sentence_count: 8
     key_terms: [school, want, medical, prestigious, scholarship, resources, research, southern]
+    concepts: [school, medical, prestigious, scholarship, resources]
+    related_chunks: ["social-intelligence/reddit-deep/college/1pzja8q.md#c0"]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/college/1pzja8q.md#c3"
     char_span: [5150, 6921]
     sentence_count: 8
     key_terms: [school, important, good, normal, money, honestly, average, because]
+    concepts: [school, important, normal, money, honestly]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/college/1pzja8q.md#c4"
     char_span: [6923, 7387]
     sentence_count: 3
     key_terms: [school, lazy-yogurtcloset784, field, pediatrics, personally, psychology, neurology, nuerology]
+    concepts: [school, field]
     section: Comments
     token_count: 120
 ---

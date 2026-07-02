@@ -20,35 +20,44 @@ chunks:
     char_span: [0, 1696]
     sentence_count: 8
     key_terms: [guidelines, clinical, covered, medical, uhc, healthinsurance, benefit, breast]
+    concepts: [guidelines, clinical, covered, medical, healthinsurance]
     token_count: 351
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1t5ssco/need_help_uhc_denied_claim/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1t5ssco.md#c1"
-    char_span: [1711, 3592]
+    char_span: [1710, 3591]
     sentence_count: 6
     key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    concepts: [information, questions, following, please, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t5ssco.md#c2"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/healthinsurance/1t5ssco.md#c2"
-    char_span: [3594, 5871]
+    char_span: [3593, 5870]
     sentence_count: 15
     key_terms: [please, eob, contact, insurance, necessary, questions, subreddit, post]
+    concepts: [please, contact, insurance, necessary, questions]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t5ssco.md#c1"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/healthinsurance/1t5ssco.md#c3"
-    char_span: [5873, 8146]
+    char_span: [5872, 8145]
     sentence_count: 13
     key_terms: [activities, exclusion, plan, gynecomastia-surgery, insurance, comm-medical-drug, medical, living]
+    concepts: [activities, exclusion, gynecomastia-surgery, comm-medical-drug, insurance]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1t5ssco.md#c4"
-    char_span: [8148, 10291]
+    char_span: [8147, 10290]
     sentence_count: 14
     key_terms: [plan, insurance, benefits, coverage, medical, circumstances, pay, read]
+    concepts: [insurance, benefits, coverage, circumstances, medical]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/healthinsurance/1t5ssco.md#c5"
-    char_span: [10293, 11273]
+    char_span: [10292, 11272]
     sentence_count: 7
     key_terms: [exclusion, dental, appeals, time-understanding39, birth, cover, care, plan]
+    concepts: [exclusion, dental, appeals, birth, cover]
     section: Comments
     token_count: 236
 ---

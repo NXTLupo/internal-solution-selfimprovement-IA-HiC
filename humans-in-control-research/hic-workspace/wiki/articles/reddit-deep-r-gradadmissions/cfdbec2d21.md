@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1277]
     sentence_count: 9
     key_terms: [recommendation, letter, professor, gradadmissions, greenpelican24, josephnoexiste, comments, reddit]
+    concepts: [recommendation, letter, professor, gradadmissions, greenpelican24]
     token_count: 302
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rgigpf/roast_my_recommendation_letter/"}]
 ---
 # Roast my recommendation letter
 

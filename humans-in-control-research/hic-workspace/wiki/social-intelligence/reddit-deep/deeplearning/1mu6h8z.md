@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 327]
     sentence_count: 1
     key_terms: [deeplearning, comments, recommendations, fine-tuning, reddit-deep, generation, resource, bengali]
+    concepts: [deeplearning, comments]
     token_count: 93
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1mu6h8z/finetuning_a_code_generation_llm_on_bengali/"}]
 ---
 # Fine-tuning a Code Generation LLM on Bengali Dataset - Need Model & Resource Recommendations
 

@@ -21,52 +21,66 @@ chunks:
     char_span: [0, 1811]
     sentence_count: 12
     key_terms: [interview, housing, povertyfinance, living, total, car, card, job]
+    concepts: [interview, povertyfinance, housing, living, essentials]
     token_count: 525
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1qv1hat/how_to_survive/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c1"
     char_span: [1813, 3016]
     sentence_count: 11
     key_terms: [job, month, get, currently, insurance, obviously, hopeless, numbers]
+    concepts: [month, currently, insurance, obviously, hopeless]
     token_count: 317
   - id: "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c2"
     char_span: [3030, 5092]
     sentence_count: 17
     key_terms: [insurance, car, "don't", keep, been, find, need, pay]
+    concepts: [insurance, "don't", another, looking, online]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c3"
     char_span: [4814, 5301]
     sentence_count: 5
     key_terms: [income, ruleyoumind, struggling, everybody, "shouldn't", something, greatest, probably]
+    concepts: [income]
     section: Comments
     token_count: 128
   - id: "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c4"
     char_span: [5304, 7224]
     sentence_count: 18
     key_terms: [credit, cards, lower, food, list, bartending, pantries, possible]
+    concepts: [credit, bartending, cards, lower, pantries]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c5", "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c6", "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c7"]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c5"
     char_span: [7227, 7513]
     sentence_count: 3
     key_terms: [roommates, credit, cards, mandatory, yaphetsez, consider, either, clear]
+    concepts: [roommates, credit, cards]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c4", "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c6", "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c7"]
     section: Comments
     token_count: 79
   - id: "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c6"
     char_span: [7515, 9610]
     sentence_count: 13
     key_terms: [credit, agreeable-caramel13, cards, debt, get, already, roommate, course]
+    concepts: [credit, agreeable-caramel13, cards, already, roommate]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c4", "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c5", "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c7"
     char_span: [9354, 10196]
     sentence_count: 5
     key_terms: [credit, income, cards, roommate, chocolateboomslang, live, non-negotiable, deathrowslave]
+    concepts: [credit, income, cards, roommate]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c4", "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c5", "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c6"]
     section: Comments
     token_count: 204
   - id: "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c8"
     char_span: [10198, 11450]
     sentence_count: 13
     key_terms: [roommate, help, rent, utilities, mileage, agreeable-caramel13, other-special-3952, food]
+    concepts: [roommate, utilities, mileage]
     section: Comments
     token_count: 307
 ---

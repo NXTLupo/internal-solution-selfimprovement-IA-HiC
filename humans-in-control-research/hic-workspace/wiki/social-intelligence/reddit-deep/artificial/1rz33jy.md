@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1629]
     sentence_count: 14
     key_terms: [configuration, claude, trust, workspace, security, cve-2026-33068, attack, raxe-2026-040]
+    concepts: [configuration, claude, workspace, trust, security]
     token_count: 387
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1rz33jy/anthropics_claude_code_had_a_workspace_trust/"}]
   - id: "social-intelligence/reddit-deep/artificial/1rz33jy.md#c1"
     char_span: [1643, 3057]
     sentence_count: 14
     key_terms: [definetlyrandom, config-before-trust-dialog, code, interesting, arbitrary, executing, workspace, settings]
+    concepts: [config-before-trust-dialog, definetlyrandom, interesting, arbitrary, executing]
     section: Comments
     token_count: 338
 ---

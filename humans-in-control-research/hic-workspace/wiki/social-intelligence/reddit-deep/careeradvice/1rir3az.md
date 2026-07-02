@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 818]
     sentence_count: 8
     key_terms: [career, careeradvice, comments, anxiety, people, right, reddit-deep, collecting]
+    concepts: [careeradvice, career, comments, anxiety, people]
     token_count: 192
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1rir3az/how_are_you_personally_handling_ai_career_anxiety/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1rir3az.md#c1"
     char_span: [832, 2918]
     sentence_count: 13
     key_terms: [people, replaceable, get, questions, designer, judgment, option, being]
+    concepts: [people, replaceable, questions, designer, judgment]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/careeradvice/1rir3az.md#c2"
     char_span: [2920, 4368]
     sentence_count: 18
     key_terms: [anxiety, displacement, automatable, assessment, building, industry, instead, started]
+    concepts: [anxiety, displacement, automatable, assessment, building]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/careeradvice/1rir3az.md#c3"
     char_span: [4370, 5490]
     sentence_count: 8
     key_terms: [replaceable, framework, anxiety, seeing, share, implementations, anewfoundmatt, professions]
+    concepts: [replaceable, framework, anxiety, seeing, share]
     section: Comments
     token_count: 259
 ---

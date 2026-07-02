@@ -14,71 +14,87 @@ chunks:
     char_span: [0, 522]
     sentence_count: 4
     key_terms: [output, humans, deliverables, nxt, because, indistinguishable, rule, non-negotiable]
+    concepts: [output, deliverables, humans, because]
     token_count: 104
   - id: "brand/anti-slop.md#c1"
     char_span: [576, 2425]
     sentence_count: 17
     key_terms: [backgrounds, text, chartreuse, white, element, body, rule, content]
+    concepts: [backgrounds, chartreuse, white, element, recommendation]
     section: 9 Non-Negotiable Visual Rules (White Background)
     token_count: 477
   - id: "brand/anti-slop.md#c2"
     char_span: [2427, 4606]
     sentence_count: 9
     key_terms: [default, aesthetic, ai-generated, font, primary, signals, banned, chartreuse]
+    concepts: [default, ai-generated, aesthetic, primary, signals]
     section: 9 Non-Negotiable Visual Rules (White Background)
     token_count: 501
   - id: "brand/anti-slop.md#c3"
     char_span: [4608, 5974]
     sentence_count: 11
     key_terms: [illustrations, grid, layout, cards, pattern, rounded, card, use]
+    concepts: [illustrations, layout, cards, pattern, rounded]
     section: 9 Non-Negotiable Visual Rules (White Background)
     token_count: 318
   - id: "brand/anti-slop.md#c4"
     char_span: [6017, 7880]
     sentence_count: 22
     key_terms: [charts, chart, rule, source, color, citations, bar, banned]
+    concepts: [charts, chart, source, citations, color]
+    related_chunks: ["brand/anti-slop.md#c9"]
     section: 6 Data Visualization Anti-Slop Rules
     token_count: 413
+    sources: [{"n":"Internal data\" is acceptable. No source at all is not.","u":""}]
   - id: "brand/anti-slop.md#c5"
     char_span: [7902, 10056]
     sentence_count: 22
     key_terms: [specific, banned, integration, filler, describe, insights, specify, change]
+    concepts: [specific, banned, integration, filler, describe]
     section: Banned Language
     token_count: 513
   - id: "brand/anti-slop.md#c6"
     char_span: [10058, 10664]
     sentence_count: 1
     key_terms: [becomes, improvement, framework, minutes, significantly, game-changer, satisfaction, additional]
+    concepts: [becomes, improvement, framework, minutes]
     section: Banned Language
     token_count: 147
   - id: "brand/anti-slop.md#c7"
     char_span: [10725, 10977]
     sentence_count: 4
     key_terms: [output, item, ai-generated, deliverable, checklist, corrected, delivery, section]
+    concepts: [output]
     section: 15-Point Anti-Slop Detection Checklist (Authoritative)
     token_count: 55
+    sources: [{"n":"NXT Humans Design System Style Guide, Section 07. Use this checklist to audit an","u":""}]
   - id: "brand/anti-slop.md#c8"
     char_span: [10979, 13137]
     sentence_count: 12
     key_terms: [remove, chart, title, gradient, circles, present, replace, color]
+    concepts: [remove, chart, title, gradient, circles]
     section: 15-Point Anti-Slop Detection Checklist (Authoritative)
     token_count: 512
   - id: "brand/anti-slop.md#c9"
     char_span: [12857, 14380]
     sentence_count: 10
     key_terms: [text, body, size, source, chart, scale, information, conclusion]
+    concepts: [source, information, chart, conclusion, scale]
+    related_chunks: ["brand/anti-slop.md#c4"]
     section: 15-Point Anti-Slop Detection Checklist (Authoritative)
     token_count: 362
   - id: "brand/anti-slop.md#c10"
     char_span: [14382, 14757]
     sentence_count: 6
     key_terms: [output, signal, sequentially, underneath, checklist, introduce, detected, generate]
+    concepts: [output, signal]
     section: 15-Point Anti-Slop Detection Checklist (Authoritative)
     token_count: 83
   - id: "brand/anti-slop.md#c11"
     char_span: [14813, 16796]
     sentence_count: 12
     key_terms: [does, slop, contain, conclusion, detection, recommendations, section, recommendation]
+    concepts: [contain, conclusion, detection, recommendations, recommendation]
     section: "Additional Slop Detection: Language and Structure"
     token_count: 427
 ---

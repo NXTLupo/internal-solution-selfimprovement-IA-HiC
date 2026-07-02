@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1253]
     sentence_count: 5
     key_terms: [philanthropy-is-increasingly-betting-on-policy-advocacy-in-the-early-childhood-years, organizations, childhood, advocacy, philanthropy, early, investment, comments]
+    concepts: [organizations, childhood, advocacy, philanthropy, early]
     token_count: 288
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1n7shtm/why_not_more_investment_in_501c3s_for_early/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1n7shtm.md#c1"
-    char_span: [1268, 1720]
+    char_span: [1267, 1719]
     sentence_count: 1
     key_terms: [early, alliance, article, success, funds, philanthropists, francophone22, advertorial]
+    concepts: [early, alliance, article, success, funds]
     section: Comments
     token_count: 104
 ---

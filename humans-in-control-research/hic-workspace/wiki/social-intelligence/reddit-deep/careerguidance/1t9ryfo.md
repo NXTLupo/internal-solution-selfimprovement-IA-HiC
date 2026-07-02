@@ -19,32 +19,43 @@ chunks:
     char_span: [0, 2310]
     sentence_count: 18
     key_terms: [marketing, sports, like, careerguidance, people, big, feel, time]
+    concepts: [marketing, sports, careerguidance, people, experience]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c2", "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c4", "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c5"]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t9ryfo/im_22_finishing_my_marketing_degree_and_im_scared/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c1"
     char_span: [2312, 4433]
     sentence_count: 16
     key_terms: [job, don, want, because, insurance, transportation, especially, difficult]
+    concepts: [because, insurance, transportation, especially, difficult]
     token_count: 446
   - id: "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c2"
     char_span: [4435, 6586]
     sentence_count: 16
     key_terms: [marketing, want, sports, digital, money, big, makes, practical]
+    concepts: [marketing, sports, digital, money, makes]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c0", "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c4", "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c5"]
     token_count: 442
   - id: "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c3"
     char_span: [6588, 6962]
     sentence_count: 4
     key_terms: [sports, prioritize, happiness, influence, long-term, stability, business, decision]
+    concepts: [sports]
     token_count: 80
   - id: "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c4"
-    char_span: [6977, 9099]
+    char_span: [6976, 9098]
     sentence_count: 23
     key_terms: [marketing, sports, job, "don't", getting, "you'll", get, work]
+    concepts: [marketing, sports, "don't", getting, "you'll"]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c0", "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c2", "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c5"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c5"
-    char_span: [9101, 11085]
+    char_span: [9100, 11084]
     sentence_count: 17
     key_terms: [sports, marketing, working, sponsorships, opportunity, don, normal, level]
+    concepts: [sports, marketing, working, sponsorships, opportunity]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c0", "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c2", "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c4"]
     section: Comments
     token_count: 410
 ---

@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 922]
     sentence_count: 4
     key_terms: [windows, logistics, comments, looking, adventurous-buy-8223, truck, construction, reddit-deep]
+    concepts: [windows, logistics, comments, looking, truck]
     token_count: 247
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1u0m0xf/what_service_am_i_looking_for_trying_to_shop_for/"}]
   - id: "social-intelligence/reddit-deep/logistics/1u0m0xf.md#c1"
-    char_span: [937, 2594]
+    char_span: [936, 2593]
     sentence_count: 12
     key_terms: [adventurous-buy-8223, freight, broker, "don't", going, judochop71, canadian, shipping]
+    concepts: [adventurous-buy-8223, freight, broker, "don't", going]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/logistics/1u0m0xf.md#c2"
-    char_span: [2596, 4656]
+    char_span: [2595, 4655]
     sentence_count: 17
     key_terms: [adventurous-buy-8223, delivery, palletized, crated, manufacturer, contractor, forwarder, straight]
+    concepts: [adventurous-buy-8223, delivery, palletized, manufacturer, crated]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/logistics/1u0m0xf.md#c3"
-    char_span: [4419, 5153]
+    char_span: [4418, 5152]
     sentence_count: 6
     key_terms: [terminal, customs, freight, ddp, specified, adventurous-buy-8223, hub, manufacturer]
+    concepts: [terminal, customs, freight, specified]
     section: Comments
     token_count: 176
 ---

@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1017]
     sentence_count: 8
     key_terms: [careerguidance, office, job, currently, long-term, comments, mechanic, college]
+    concepts: [careerguidance, office, currently, long-term, comments]
     token_count: 241
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t7inir/what_degree_or_career_path_makes_sense_for_moving/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t7inir.md#c1"
     char_span: [1031, 3148]
     sentence_count: 17
     key_terms: [people, communicate, working, aggravatingaward8519, business, project, work, contractor]
+    concepts: [people, communicate, aggravatingaward8519, working, business]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/careerguidance/1t7inir.md#c2"
     char_span: [3150, 4021]
     sentence_count: 6
     key_terms: [management, technical, project, great, find, "it's", look, certifications]
+    concepts: [management, technical, project, great]
     section: Comments
     token_count: 176
 ---

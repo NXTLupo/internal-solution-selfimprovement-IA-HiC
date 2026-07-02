@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1036]
     sentence_count: 9
     key_terms: [gradadmissions, years, admissions, comments, program, without, school, senior]
+    concepts: [gradadmissions, admissions, years, comments, program]
     token_count: 241
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1skvy3u/grad_school_admissions_without_thesis/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1skvy3u.md#c1"
-    char_span: [1051, 1642]
+    char_span: [1050, 1641]
     sentence_count: 4
     key_terms: [senior, thesis, paper, applications, particularly, edelwoodoil, independent, department]
+    concepts: [senior, thesis, paper]
     section: Comments
     token_count: 121
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1862]
     sentence_count: 7
     key_terms: [reasoning, evolutionary, tree-of-thought, evolved, hand-designed, deeplearning, dags, structures]
+    concepts: [reasoning, evolutionary, tree-of-thought, hand-designed, evolved]
     token_count: 473
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1sna0da/i_evolved_the_structure_of_llm_reasoning_chains/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1sna0da.md#c1"
     char_span: [1876, 3847]
     sentence_count: 10
     key_terms: [dags, random, parallelism, call-matched, nodes, node, baselines, branching]
+    concepts: [random, parallelism, call-matched, nodes, baselines]
     section: Comments
     token_count: 452
 ---

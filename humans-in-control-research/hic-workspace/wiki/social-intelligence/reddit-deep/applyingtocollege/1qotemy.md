@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 348]
     sentence_count: 2
     key_terms: [applyingtocollege, comments, academy, zenith, prep, reddit-deep, experience, positive]
+    concepts: [applyingtocollege, comments, academy, zenith]
     token_count: 88
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1qotemy/anyone_has_positive_experience_with_zenith_prep/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qotemy.md#c1"
     char_span: [362, 2500]
     sentence_count: 9
     key_terms: [experience, guarantee, ok-signature-6892, get, college, beneficial, offputting, contract]
+    concepts: [experience, ok-signature-6892, guarantee, college, beneficial]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qotemy.md#c2"
     char_span: [2289, 2680]
     sentence_count: 5
     key_terms: [focused, ok-signature-6892, paid, counselors, leadership, directly, freshman, because]
+    concepts: [focused]
     section: Comments
     token_count: 101
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qotemy.md#c3"
     char_span: [2682, 4891]
     sentence_count: 10
     key_terms: [like, money, guarantee, program, anyone, zenith, get, help]
+    concepts: [guarantee, money, program, anyone, zenith]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qotemy.md#c4"
     char_span: [4615, 5161]
     sentence_count: 5
     key_terms: [zenith, goals, "it's", dangerzonefinder, extracurriculars, challenging, experience, productive]
+    concepts: [zenith, goals]
     section: Comments
     token_count: 120
 ---

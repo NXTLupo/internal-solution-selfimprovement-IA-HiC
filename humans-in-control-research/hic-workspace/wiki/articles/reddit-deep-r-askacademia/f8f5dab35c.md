@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2229]
     sentence_count: 12
     key_terms: [experiential, experience, learning, relevant, internship, applied, program, organization]
+    concepts: [experiential, experience, learning, relevant, internship]
     token_count: 471
+    sources: [{"n":"Reddit Deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1n7y1zm/how_is_experiential_learning_viewed_in_higher/"}]
 ---
 # How is experiential learning viewed in higher levels of academia?
 

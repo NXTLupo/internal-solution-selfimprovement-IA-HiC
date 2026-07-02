@@ -19,41 +19,52 @@ chunks:
     char_span: [0, 1554]
     sentence_count: 18
     key_terms: [jobs, applying, resume, roles, entry-level, internships, been, year]
+    concepts: [applying, resume, entry-level, internships, everything]
     token_count: 367
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1lcgq1k/graduated_with_stats_degree_applying_to/"}]
   - id: "social-intelligence/reddit-deep/jobs/1lcgq1k.md#c1"
-    char_span: [1569, 3104]
+    char_span: [1568, 3103]
     sentence_count: 13
     key_terms: [experience, against, years, contractor, internship, competing, recruiter, applying]
+    concepts: [experience, against, contractor, internship, years]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lcgq1k.md#c2"]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/jobs/1lcgq1k.md#c2"
-    char_span: [3107, 4602]
+    char_span: [3106, 4601]
     sentence_count: 5
     key_terms: [experience, internship, sometimes, student, degree, years, get, already]
+    concepts: [experience, internship, sometimes, student, degree]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lcgq1k.md#c1", "social-intelligence/reddit-deep/jobs/1lcgq1k.md#c3"]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/jobs/1lcgq1k.md#c3"
-    char_span: [4604, 6841]
+    char_span: [4603, 6840]
     sentence_count: 15
     key_terms: [graduate, student, degree, experience, years, position, biostatistician, market]
+    concepts: [graduate, student, experience, degree, biostatistician]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1lcgq1k.md#c2"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/jobs/1lcgq1k.md#c4"
-    char_span: [6843, 8251]
+    char_span: [6842, 8250]
     sentence_count: 13
     key_terms: [resume, recommend, citizen, get, put, top, bernardobrito, iphone1234789]
+    concepts: [resume, recommend, citizen]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/jobs/1lcgq1k.md#c5"
-    char_span: [8253, 10189]
+    char_span: [8252, 10188]
     sentence_count: 15
     key_terms: [experience, resume, formatting, work, "you're", job, apostrophe, relevant]
+    concepts: [experience, formatting, resume, "you're", apostrophe]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/jobs/1lcgq1k.md#c6"
-    char_span: [10191, 12154]
+    char_span: [10190, 12153]
     sentence_count: 22
     key_terms: [something, programming, apostrophe, language, students, resume, skills, wrong]
+    concepts: [something, programming, apostrophe, language, students]
     section: Comments
     token_count: 462
 ---

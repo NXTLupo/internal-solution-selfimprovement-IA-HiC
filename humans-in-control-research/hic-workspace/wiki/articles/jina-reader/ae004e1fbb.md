@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 381]
     sentence_count: 1
     key_terms: [financial-reports, reports-policies, finance, https, edu, jhu, university, medicine]
+    concepts: [financial-reports, reports-policies, finance, https, university]
     token_count: 91
+    sources: [{"n":"Jina Reader","u":"https://finance.jhu.edu/reports-policies/financial-reports/"}]
 ---
 # https://finance.jhu.edu/reports-policies/financial-reports/
 

@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1938]
     sentence_count: 11
     key_terms: [attribution, machinelearning, automatically, deterministic, trade, llm, commentary, precision]
+    concepts: [attribution, machinelearning, automatically, deterministic, commentary]
     token_count: 408
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1sv3cnm/how_would_you_build_an_automated_commentary/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1sv3cnm.md#c1"
     char_span: [1952, 4280]
     sentence_count: 21
     key_terms: [deterministic, llm, spot, hallucinated, verification, calculation, determinism, challenge]
+    concepts: [deterministic, hallucinated, verification, calculation, determinism]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/machinelearning/1sv3cnm.md#c2"
     char_span: [4282, 6034]
     sentence_count: 13
     key_terms: [model, use, data, language, specific, natural, handle, output]
+    concepts: [model, language, specific, natural, handle]
     section: Comments
     token_count: 360
 ---

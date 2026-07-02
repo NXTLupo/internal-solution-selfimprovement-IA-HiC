@@ -7,64 +7,73 @@ subreddit: "financialcareers"
 title: "[PWM] I regret pivoting from a large firm to a small one - I want to go back"
 author: "flockyflocky1"
 date: "2026-05-03T05:50:15.000Z"
-score: 44
-upvote_ratio: 0.89
+score: 46
+upvote_ratio: 0.91
 num_comments: 35
 flair: "Profession Insights"
-extracted_at: "2026-06-11T18:58:14.065Z"
+extracted_at: "2026-06-29T14:40:16.483Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Define the 2026 \"state of the Art\" operational and technological benchmarks for \"The State of Data & Distribution in Asset Management\". Synthesize key developments across data infrastructure, distribution enablement, and AI governance frameworks to identify leading industry capabilities and compliance standards."
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
 chunks:
   - id: "social-intelligence/reddit-deep/financialcareers/1t2cybt.md#c0"
     char_span: [0, 870]
     sentence_count: 8
     key_terms: [financialcareers, business, comments, smaller, large, firm, pwm, flockyflocky1]
+    concepts: [financialcareers, business, comments, smaller, large]
     token_count: 228
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1t2cybt/pwm_i_regret_pivoting_from_a_large_firm_to_a/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1t2cybt.md#c1"
     char_span: [872, 3073]
     sentence_count: 13
     key_terms: [boss, client, get, work, sibling, weeks, co-workers, bandwidth]
+    concepts: [client, sibling, co-workers, weeks, bandwidth]
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1t2cybt.md#c2"
     char_span: [2784, 4203]
     sentence_count: 8
     key_terms: [skillset, dismissive, interested, interview, technical, clients, sibling, asset]
+    concepts: [skillset, dismissive, interested, interview, technical]
     token_count: 315
   - id: "social-intelligence/reddit-deep/financialcareers/1t2cybt.md#c3"
     char_span: [4205, 4925]
     sentence_count: 9
     key_terms: [firm, treated, rather, large, iron, like, stereotypical, experiences]
+    concepts: [treated, rather, large]
     token_count: 169
   - id: "social-intelligence/reddit-deep/financialcareers/1t2cybt.md#c4"
-    char_span: [4940, 5497]
+    char_span: [4939, 5496]
     sentence_count: 4
     key_terms: [discord, professionals, full-time, banking, financialcareers, automoderator, transitioned, dgptduseqv]
+    concepts: [professionals, discord, full-time, banking]
     section: Comments
     token_count: 119
   - id: "social-intelligence/reddit-deep/financialcareers/1t2cybt.md#c5"
-    char_span: [5499, 7306]
+    char_span: [5498, 7303]
     sentence_count: 19
     key_terms: [trademarktower, owner, small, need, applying, business, people, back]
+    concepts: [trademarktower, owner, small, applying, business]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/financialcareers/1t2cybt.md#c6"
-    char_span: [7308, 9291]
+    char_span: [7305, 9288]
     sentence_count: 15
     key_terms: [client, especially, being, small, office, flockyflocky1, firm, ria]
+    concepts: [especially, client, being, small, flockyflocky1]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/financialcareers/1t2cybt.md#c7"
-    char_span: [9293, 10766]
+    char_span: [9290, 10763]
     sentence_count: 11
     key_terms: [willing, time, growth, place, cfa, exam, give, isn]
+    concepts: [willing, growth, place]
     section: Comments
     token_count: 344
 ---
 # [PWM] I regret pivoting from a large firm to a small one - I want to go back
 
 Source: [reddit-deep: r/financialcareers](https://www.reddit.com/r/FinancialCareers/comments/1t2cybt/pwm_i_regret_pivoting_from_a_large_firm_to_a/)
-Posted by **flockyflocky1** · **44↑** · **35 comments**
+Posted by **flockyflocky1** · **46↑** · **35 comments**
 
 Im 28, a CFA L2 candidate, and hold a master's degree from a Top20 business school. After spending over 5 years at a large bank in their PWM (Private Banking) business, I recently pivoted to a smaller RIA as a wealth planner. We're a firm of just 4 employees including me.
 
@@ -96,11 +105,11 @@ Thank you!
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/FinancialCareers) if you have any questions or concerns.*
 - **trademarktower** (79↑): Sounds like a dumpster fire.  Start applying now while you have nothing to do and are bored at.work so you can be productive looking for new jobs.
   - **flockyflocky1** (12↑): Have began applying the past 1-2 months, but haven’t heard back yet :( have applied to atleast 50-100 roles
-    - **trademarktower** (20↑): Yeah it's a tough market.  Have you ever thought of opening your own RIA?  You are getting a PHD level look at how not to run one now.
-- **010u3** (30↑): With a small firm, your experience is much more heavily dependant on what kind of boss you have. You drew a short straw.
-- **hereforthistoo** (10↑): Lols like you have to learn to manage up. But yeah, get another job asap
-- **thinkFinance-** (11↑): It's wild that people still think small shops have better wlb when usually it just means you do the jobs of three people and get yelled at by a guy who personally signs your paychecks. Go back to the big bank
-- **rickle3386** (3↑): Totally firm dependent. However, you went to the extreme side of small firms vs. Large bank Private Banking. Your current boss is an FA. I've been one for over 30 yrs. What you need to know is most independent FAs are sales guys who are running a book. They need to become (some can, most can't) business owner entrepreneurs who are building via resources and processes. They just don't know how to do that. 
+    - **trademarktower** (19↑): Yeah it's a tough market.  Have you ever thought of opening your own RIA?  You are getting a PHD level look at how not to run one now.
+- **010u3** (31↑): With a small firm, your experience is much more heavily dependant on what kind of boss you have. You drew a short straw.
+- **hereforthistoo** (9↑): Lols like you have to learn to manage up. But yeah, get another job asap
+- **thinkFinance-** (9↑): It's wild that people still think small shops have better wlb when usually it just means you do the jobs of three people and get yelled at by a guy who personally signs your paychecks. Go back to the big bank
+- **rickle3386** (4↑): Totally firm dependent. However, you went to the extreme side of small firms vs. Large bank Private Banking. Your current boss is an FA. I've been one for over 30 yrs. What you need to know is most independent FAs are sales guys who are running a book. They need to become (some can, most can't) business owner entrepreneurs who are building via resources and processes. They just don't know how to do that. 
 
 Very common for moving goalposts. Owner gets in his head "we need to do X" but has no process for doing X. Quickly moves to Y. No different than any business owner in any industry led by a "technician" vs a mgr or entrepreneur. 
 

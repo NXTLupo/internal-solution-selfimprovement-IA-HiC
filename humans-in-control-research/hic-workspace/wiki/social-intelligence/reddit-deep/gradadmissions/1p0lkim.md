@@ -21,45 +21,59 @@ chunks:
     char_span: [0, 917]
     sentence_count: 3
     key_terms: [gradadmissions, letter, write, perspective, comments, provide, sending, student]
+    concepts: [gradadmissions, letter, perspective, write, comments]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c3", "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c5"]
     token_count: 224
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1p0lkim/perspective_on_lors_after_sending_a_big_batch/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c1"
     char_span: [919, 2296]
     sentence_count: 9
     key_terms: [letter, "don't", want, customize, professor, signature, explain, however]
+    concepts: [letter, "don't", customize, professor, signature]
     token_count: 328
   - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c2"
     char_span: [2298, 3898]
     sentence_count: 11
     key_terms: [request, student, send, dynaroars, phd-cs-us, reminders, deadline, students]
+    concepts: [request, student, dynaroars, phd-cs-us, reminders]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c6"]
     token_count: 378
   - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c3"
     char_span: [3912, 5799]
     sentence_count: 10
     key_terms: [application, system, write, letter, prompt, profs, immediately, lor]
+    concepts: [application, system, write, letter, prompt]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c0", "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c5"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c4"
     char_span: [5801, 7428]
     sentence_count: 8
     key_terms: [letter, especially, ask, research, letters, usually, answer, draft]
+    concepts: [letter, especially, research, letters, usually]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c5"
     char_span: [7430, 9660]
     sentence_count: 13
     key_terms: [write, letter, program, student, applicants, applicant, programs, specific]
+    concepts: [write, letter, program, student, applicants]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c0", "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c3", "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c6"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c6"
     char_span: [9662, 11127]
     sentence_count: 9
     key_terms: [letter, student, minutes, request, schools, upload, minimumtelevision217, email]
+    concepts: [letter, student, minutes, request, schools]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c2", "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c5"]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c7"
     char_span: [11129, 12599]
     sentence_count: 6
     key_terms: [thank, cool, want, deadlines, reminders, signature, believe, sending]
+    concepts: [thank, deadlines, reminders, signature, believe]
     section: Comments
     token_count: 354
 ---

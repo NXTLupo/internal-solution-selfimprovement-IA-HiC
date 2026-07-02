@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 905]
     sentence_count: 5
     key_terms: [personalfinance, behind, don, feel, investing, comments, money, like]
+    concepts: [personalfinance, behind, investing, comments, money]
     token_count: 219
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1mzys0v/i_would_really_like_some_financial_advice_on_what/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1mzys0v.md#c1"
     char_span: [919, 2346]
     sentence_count: 6
     key_terms: [personalfinance, wiki, no-parsley-5698, personal-income-spending-flowchart-united-states-lsouqr2, thejontorrweno, automatically, automoderator, commontopics]
+    concepts: [personalfinance, no-parsley-5698, thejontorrweno, automatically, automoderator]
     section: Comments
     token_count: 404
 ---

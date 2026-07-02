@@ -21,46 +21,57 @@ chunks:
     char_span: [0, 2121]
     sentence_count: 15
     key_terms: [private, valuations, money, like, funds, need, endowments, investing]
+    concepts: [private, valuations, money, endowments, funds]
     token_count: 470
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1pn6w9k/the_sudden_push_to_democratize_private_equity/"}]
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c1"
     char_span: [2123, 3152]
     sentence_count: 11
     key_terms: [sell, democratization, assets, market, funds, investors, pockets, public]
+    concepts: [democratization, assets, market, funds, investors]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1pn6w9k.md#c5"]
     token_count: 217
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c2"
     char_span: [3166, 5073]
     sentence_count: 14
     key_terms: [retail, pseudonominom, right, fund, new, aerotyne, mckinsey, company]
+    concepts: [pseudonominom, retail, right, aerotyne, mckinsey]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c3"
     char_span: [5075, 7087]
     sentence_count: 10
     key_terms: [private, get, tax, boutique, planner, credit, enough, hurdle]
+    concepts: [private, boutique, planner, credit, enough]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c4"
     char_span: [6839, 8807]
     sentence_count: 13
     key_terms: [private, bag, starship, exactly, someone, always, assets, enough]
+    concepts: [private, starship, exactly, someone, always]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c5"
     char_span: [8811, 9762]
     sentence_count: 4
     key_terms: [investors, "it's", democratization, institutional, market, never, lollipopsaurus, mark-to-market]
+    concepts: [investors, democratization, institutional, market, never]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1pn6w9k.md#c1"]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c6"
     char_span: [9764, 11871]
     sentence_count: 15
     key_terms: [whiskey, barrels, "i'm", lollipopsaurus, barrel, going, years, ones]
+    concepts: [whiskey, barrels, lollipopsaurus, barrel, going]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c7"
     char_span: [11611, 12184]
     sentence_count: 4
     key_terms: [going, anything, benefit, good, caughtyalookin69, opportunities, democratized, themselves]
+    concepts: [going, anything, benefit]
     section: Comments
     token_count: 140
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c8"
@@ -73,12 +84,14 @@ chunks:
     char_span: [12650, 14835]
     sentence_count: 13
     key_terms: [businesses, been, medium, ferociouskuma, professional, small, get, destroying]
+    concepts: [businesses, ferociouskuma, professional, medium, destroying]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c10"
     char_span: [14596, 15010]
     sentence_count: 5
     key_terms: ["we're", been, investments, interested, community, included, official, murraco]
+    concepts: ["we're"]
     section: Comments
     token_count: 105
 ---

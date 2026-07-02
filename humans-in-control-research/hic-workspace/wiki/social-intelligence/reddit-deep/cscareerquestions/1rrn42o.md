@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1065]
     sentence_count: 5
     key_terms: [cscareerquestions, earlier, better, spring, international, later, start, recruiting]
+    concepts: [cscareerquestions, international, earlier, better, spring]
     token_count: 262
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rrn42o/for_best_cs_career_outcomes_is_it_better_to_start/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rrn42o.md#c1"
-    char_span: [1080, 2530]
+    char_span: [1079, 2529]
     sentence_count: 10
     key_terms: [masters, research, earlier, perspective, getting, career, "you're", doing]
+    concepts: [masters, research, earlier, perspective, getting]
     section: Comments
     token_count: 317
 ---

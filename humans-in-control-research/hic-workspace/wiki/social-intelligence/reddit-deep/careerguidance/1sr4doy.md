@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 734]
     sentence_count: 8
     key_terms: [careerguidance, "i'm", comments, feeling, taking, break, month, did]
+    concepts: [careerguidance, comments, feeling, taking, break]
     token_count: 194
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sr4doy/adviceim_26_have_a_highpaying_job_thinking_about/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sr4doy.md#c1"
     char_span: [748, 2449]
     sentence_count: 10
     key_terms: [field, time, economy, break, ask, tech, kaddras019, objective-salary6082]
+    concepts: [field, economy, break, kaddras019, being]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/careerguidance/1sr4doy.md#c2"
     char_span: [2451, 3457]
     sentence_count: 11
     key_terms: [months, job, comes, leave, turbulent-sky-1536, life, quit, definitely]
+    concepts: [months, comes, leave]
     section: Comments
     token_count: 252
 ---

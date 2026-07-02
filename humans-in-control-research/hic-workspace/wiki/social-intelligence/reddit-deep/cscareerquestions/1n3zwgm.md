@@ -21,71 +21,87 @@ chunks:
     char_span: [0, 1130]
     sentence_count: 8
     key_terms: [developers, struggling, technology, fewer, cscareerquestions, find, companies, comments]
+    concepts: [developers, struggling, technology, cscareerquestions, fewer]
     token_count: 248
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1n3zwgm/fewer_juniors_today_fewer_seniors_tomorrow/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3zwgm.md#c1"
     char_span: [1144, 2577]
     sentence_count: 6
     key_terms: [engineers, economy, juniors, anyone, higher, admit, don, high]
+    concepts: [engineers, economy, juniors, anyone, higher]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3zwgm.md#c2"
     char_span: [2579, 4672]
     sentence_count: 15
     key_terms: [question, company, answer, "what's", poach, like, blockchain, "doesn't"]
+    concepts: [question, company, answer, "what's", blockchain]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3zwgm.md#c3"
     char_span: [4674, 5563]
     sentence_count: 3
     key_terms: [companies, because, folks, level, work, understanding, experienced, psychopaths]
+    concepts: [companies, because, folks, level]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3zwgm.md#c4"
     char_span: [5565, 7281]
     sentence_count: 10
     key_terms: [senior, engineers, pay, get, management, company, happens, ireland]
+    concepts: [senior, engineers, management, company, happens]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3zwgm.md#c5"
     char_span: [7284, 9338]
     sentence_count: 15
     key_terms: [jobs, back, coding, people, being, folks, job, "aren't"]
+    concepts: [coding, people, being, folks, "aren't"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3zwgm.md#c6"
     char_span: [9109, 9999]
     sentence_count: 4
     key_terms: [dreams, sufficient-dinner319, being, maybe, jobs, tell, sunovershade, comfortable]
+    concepts: [dreams, being, maybe]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3zwgm.md#c7"
     char_span: [10001, 11382]
     sentence_count: 10
     key_terms: [math, betrayed, already, people, senior, anger, been, feel]
+    concepts: [betrayed, already, people, senior, anger]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3zwgm.md#c8"
     char_span: [11386, 13437]
     sentence_count: 11
     key_terms: [industry, hiring, senior, india, good, experience, companies, deleted]
+    concepts: [industry, hiring, senior, experience, india]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1n3zwgm.md#c9", "social-intelligence/reddit-deep/cscareerquestions/1n3zwgm.md#c10"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3zwgm.md#c9"
     char_span: [13439, 14881]
     sentence_count: 9
     key_terms: [juniors, today, term, absolutely, industry, hiring, junior, job]
+    concepts: [juniors, absolutely, today, industry, hiring]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1n3zwgm.md#c8"]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3zwgm.md#c10"
     char_span: [14884, 17049]
     sentence_count: 15
     key_terms: [experience, leaders, junior, senior, work, anything, software, doctors]
+    concepts: [experience, leaders, junior, senior, anything]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1n3zwgm.md#c8"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3zwgm.md#c11"
     char_span: [17051, 18204]
     sentence_count: 5
     key_terms: [college, easy, computer, science, degree, people, horniavocadofarmer11, field]
+    concepts: [college, computer, science, degree, people]
     section: Comments
     token_count: 262
 ---

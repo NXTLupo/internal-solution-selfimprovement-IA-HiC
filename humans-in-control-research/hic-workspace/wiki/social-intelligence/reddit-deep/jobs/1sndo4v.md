@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 2116]
     sentence_count: 19
     key_terms: [experience, level, job, jobs, feel, like, absolutely, comments]
+    concepts: [experience, level, absolutely, comments, being]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1sndo4v/i_feel_like_giving_up_i_cannot_land_a_job_for_the/"}]
   - id: "social-intelligence/reddit-deep/jobs/1sndo4v.md#c1"
     char_span: [2130, 3817]
     sentence_count: 16
     key_terms: [job, vjvisser, congratulations, months, field, unemployed, something, brutal]
+    concepts: [congratulations, vjvisser, months, field, unemployed]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sndo4v.md#c2"
     char_span: [3585, 4549]
     sentence_count: 6
     key_terms: [gap, getting, market, people, offer, infjgoestoplaces28, best, don]
+    concepts: [getting, market, people, offer]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/jobs/1sndo4v.md#c3"
     char_span: [4551, 6398]
     sentence_count: 7
     key_terms: [background, employer, because, checks, weary-ad-6615, lying, work, recommend]
+    concepts: [background, employer, weary-ad-6615, because, checks]
     section: Comments
     token_count: 473
 ---

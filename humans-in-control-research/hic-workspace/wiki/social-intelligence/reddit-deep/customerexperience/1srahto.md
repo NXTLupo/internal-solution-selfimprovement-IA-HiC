@@ -17,10 +17,12 @@ research_goal: "Deliver a comprehensive 2026 outlook report on the global retail
 engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
 chunks:
   - id: "social-intelligence/reddit-deep/customerexperience/1srahto.md#c0"
-    char_span: [0, 1686]
+    char_span: [0, 1685]
     sentence_count: 8
     key_terms: [lorikeetcx, cx-jobs, https, www, head-of-automation-healthcare-software-compugroup-medical-se-co-kgaa, data-scientist-mlops-for-ai-assist-squad-danske-bank, head-of-customer-experience-north-america-rapsodo, support-operations-analyst-ai-automation-linktree]
-    token_count: 449
+    concepts: [lorikeetcx, cx-jobs, https, customerexperience, automation]
+    token_count: 448
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1srahto/the_cxai_job_market_this_week_roles_are_going/"}]
 ---
 # The CX+AI job market this week: roles are going global fast
 

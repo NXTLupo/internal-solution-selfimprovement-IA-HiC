@@ -19,17 +19,24 @@ chunks:
     char_span: [0, 2175]
     sentence_count: 19
     key_terms: [school, college, "i've", something, been, years, get, high]
+    concepts: [school, college, something, experience, years]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qwacug.md#c1"]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1qwacug/going_back_5_years_after_dropping_out/"}]
   - id: "social-intelligence/reddit-deep/college/1qwacug.md#c1"
     char_span: [2189, 4391]
     sentence_count: 15
     key_terms: [school, dropping, back, because, classes, college, going, get]
+    concepts: [school, dropping, because, classes, college]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qwacug.md#c0", "social-intelligence/reddit-deep/college/1qwacug.md#c2"]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/college/1qwacug.md#c2"
     char_span: [4393, 6118]
     sentence_count: 13
     key_terms: [because, classes, subjects, years, back, advisor, college, intrest]
+    concepts: [because, classes, subjects, years, advisor]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qwacug.md#c1"]
     section: Comments
     token_count: 403
 ---

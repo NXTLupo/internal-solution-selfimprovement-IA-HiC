@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1072]
     sentence_count: 9
     key_terms: ["i'm", school, awards, applyingtocollege, "doesn't", application, kind, specifics]
+    concepts: [school, applyingtocollege, awards, "doesn't", application]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rnofff.md#c1"]
     token_count: 245
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rnofff/how_can_i_get_awards_outside_of_school_for_my/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rnofff.md#c1"
     char_span: [1086, 2328]
     sentence_count: 16
     key_terms: [college, school, start, application, activities, getting, awards, "you're"]
+    concepts: [college, school, application, activities, start]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rnofff.md#c0"]
     section: Comments
     token_count: 274
 ---

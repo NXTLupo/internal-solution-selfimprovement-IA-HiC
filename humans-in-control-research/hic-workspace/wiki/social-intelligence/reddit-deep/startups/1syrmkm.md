@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 2045]
     sentence_count: 16
     key_terms: [automation, business, no-code, agency, hiring, early, care, n8n]
+    concepts: [automation, business, no-code, agency, hiring]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1syrmkm.md#c1"]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1syrmkm/i_built_an_n8nfirst_automationai_agency_great/"}]
   - id: "social-intelligence/reddit-deep/startups/1syrmkm.md#c1"
     char_span: [2047, 4000]
     sentence_count: 13
     key_terms: [workflows, n8n, building, business, agency, competition, fast, automation]
+    concepts: [workflows, building, business, agency, competition]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1syrmkm.md#c0"]
     token_count: 465
   - id: "social-intelligence/reddit-deep/startups/1syrmkm.md#c2"
     char_span: [4002, 4385]
@@ -32,33 +37,38 @@ chunks:
     key_terms: [communication, client-heavy, maintenance, curiosity, different, mandatory, questions, recurring]
     token_count: 87
   - id: "social-intelligence/reddit-deep/startups/1syrmkm.md#c3"
-    char_span: [4400, 5696]
+    char_span: [4399, 5695]
     sentence_count: 10
     key_terms: [n8n, never, data, agency, client, strong-yesterday-183, takes, feel]
+    concepts: [never, agency, client, takes]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/startups/1syrmkm.md#c4"
-    char_span: [5698, 7499]
+    char_span: [5697, 7498]
     sentence_count: 19
     key_terms: [oyodeo, people, automating, josueorico, automate, maintain, learned, routing]
+    concepts: [oyodeo, people, automating, josueorico, automate]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/startups/1syrmkm.md#c5"
-    char_span: [7501, 8584]
+    char_span: [7500, 8583]
     sentence_count: 9
     key_terms: [project, build, maintenance, recurring, transfer, clients, better, people]
+    concepts: [project, maintenance, build, recurring, transfer]
     section: Comments
     token_count: 253
   - id: "social-intelligence/reddit-deep/startups/1syrmkm.md#c6"
-    char_span: [8587, 9777]
+    char_span: [8586, 9776]
     sentence_count: 8
     key_terms: [experience, building, technical, years, management, understand, something, clients]
+    concepts: [experience, building, technical, management, understand]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/startups/1syrmkm.md#c7"
-    char_span: [9779, 11276]
+    char_span: [9778, 11275]
     sentence_count: 9
     key_terms: [automation, everything, without, claude, "you're", code, good, like]
+    concepts: [automation, everything, without, claude, "you're"]
     section: Comments
     token_count: 340
 ---

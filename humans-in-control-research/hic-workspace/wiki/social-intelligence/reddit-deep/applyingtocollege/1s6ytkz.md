@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 456]
     sentence_count: 2
     key_terms: [college-preparatory, applyingtocollege, does, program, mean, comments, degree-seeking, institution]
+    concepts: [college-preparatory, applyingtocollege, program, comments]
     token_count: 113
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1s6ytkz/what_does_c4_does_your_institution_require_or/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s6ytkz.md#c1"
     char_span: [470, 736]
     sentence_count: 1
     key_terms: [program, summer, high, skieurope12, vocational, referring, elkrange, standard]
+    concepts: [program, summer]
     section: Comments
     token_count: 67
 ---

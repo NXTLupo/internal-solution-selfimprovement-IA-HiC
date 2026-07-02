@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 710]
     sentence_count: 4
     key_terms: [careerguidance, jobs, comments, skilled, systems, without, better, degree]
+    concepts: [careerguidance, comments, skilled, systems, without]
     token_count: 155
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rti3ik/tech_jobs_vs_skilled_trade_jobs_which_path_is/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rti3ik.md#c1"
     char_span: [724, 2808]
     sentence_count: 17
     key_terms: [degree, tech, going, projects, getting, without, level, care]
+    concepts: [degree, going, projects, getting, without]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/careerguidance/1rti3ik.md#c2"
     char_span: [2810, 4555]
     sentence_count: 21
     key_terms: [tech, fear, jobs, developers, saturated, software, already, through]
+    concepts: [developers, saturated, software, already, through]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/careerguidance/1rti3ik.md#c3"
     char_span: [4557, 4997]
     sentence_count: 3
     key_terms: [tech, right, give, job, truthteller6000, whatdoido8383, difficult, elemant48]
+    concepts: [right]
     section: Comments
     token_count: 118
 ---

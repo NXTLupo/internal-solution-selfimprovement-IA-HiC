@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 968]
     sentence_count: 6
     key_terms: [internships, fall, comments, getting, coffee, summer, chats, gap]
+    concepts: [internships, comments, getting, coffee, summer]
     token_count: 247
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t7lt4l/ghosted_on_coffee_chats_and_no_luck_for_fall/"}]
   - id: "social-intelligence/reddit-deep/internships/1t7lt4l.md#c1"
     char_span: [982, 1885]
     sentence_count: 6
     key_terms: [smaller, later, ask, mid, no-office-8830, dealbreaker, dialsoapbox, involvement]
+    concepts: [smaller, later]
     section: Comments
     token_count: 222
 ---

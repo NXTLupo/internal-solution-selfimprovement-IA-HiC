@@ -21,23 +21,32 @@ chunks:
     char_span: [0, 766]
     sentence_count: 7
     key_terms: [school, important, grad, experience, gradschool, comments, spirit, reddit-deep]
+    concepts: [important, school, experience, gradschool, comments]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qiamay.md#c2"]
     token_count: 182
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1qiamay/how_important_has_school_spirit_been_to_your/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1qiamay.md#c1"
     char_span: [780, 2400]
     sentence_count: 12
     key_terms: [school, institution, campus, events, spirit, graduate, going, felt]
+    concepts: [school, institution, campus, events, spirit]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qiamay.md#c3"]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/gradschool/1qiamay.md#c2"
     char_span: [2402, 3395]
     sentence_count: 5
     key_terms: [school, grad, important, undergrad, football, mostzealousideal7718, time, somuchsunrayzzz]
+    concepts: [school, important, undergrad, football]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qiamay.md#c0", "social-intelligence/reddit-deep/gradschool/1qiamay.md#c3"]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/gradschool/1qiamay.md#c3"
     char_span: [3397, 5083]
     sentence_count: 10
     key_terms: [school, grad, undergrad, events, students, spirit, institution, crayshack]
+    concepts: [school, undergrad, events, students, spirit]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1qiamay.md#c1", "social-intelligence/reddit-deep/gradschool/1qiamay.md#c2"]
     section: Comments
     token_count: 390
 ---

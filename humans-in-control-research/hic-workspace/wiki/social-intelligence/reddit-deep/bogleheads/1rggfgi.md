@@ -20,41 +20,56 @@ chunks:
     char_span: [0, 1955]
     sentence_count: 16
     key_terms: [vanguard, employer, fidelity, old, "it's", responses, long, accounts]
+    concepts: [vanguard, employer, fidelity, responses, accounts]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c1", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c2", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c3", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c5", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c6"]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1rggfgi/anyone_have_accounts_with_both_vanguard_and/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c1"
-    char_span: [1970, 3478]
+    char_span: [1969, 3477]
     sentence_count: 10
     key_terms: [fidelity, beneficiary, hsa, everything, multiplied, vanguard, dealing, jdsmn21]
+    concepts: [fidelity, beneficiary, everything, multiplied, vanguard]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c0", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c2", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c3", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c5", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c6"]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c2"
-    char_span: [3480, 5080]
+    char_span: [3479, 5079]
     sentence_count: 13
     key_terms: [fidelity, vanguard, accounts, schwab, employer, transfer, online, passed]
+    concepts: [fidelity, vanguard, accounts, schwab, employer]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c0", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c1", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c3", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c4", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c5"]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c3"
-    char_span: [5082, 6671]
+    char_span: [5081, 6670]
     sentence_count: 12
     key_terms: [fidelity, several, dedicated, vanguard, account, certain, options, option]
+    concepts: [fidelity, several, dedicated, vanguard, account]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c0", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c1", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c2", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c4", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c5"]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c4"
-    char_span: [6673, 8667]
+    char_span: [6672, 8666]
     sentence_count: 19
     key_terms: [account, brokerage, fidelity, schwab, money, here, checking, cause]
+    concepts: [account, brokerage, fidelity, schwab, money]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c2", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c3", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c5"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c5"
-    char_span: [8669, 10319]
+    char_span: [8668, 10318]
     sentence_count: 14
     key_terms: [fidelity, schwab, vanguard, funds, tsp, "fidelity's", robinhood, customer]
+    concepts: [fidelity, schwab, vanguard, "fidelity's", funds]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c0", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c1", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c2", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c3", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c4"]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c6"
-    char_span: [10321, 11293]
+    char_span: [10320, 11292]
     sentence_count: 10
     key_terms: [vanguard, fidelity, cash, robinhood, features, couple, credit, schwab]
+    concepts: [vanguard, fidelity, robinhood, features, couple]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c0", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c1", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c2", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c3", "social-intelligence/reddit-deep/bogleheads/1rggfgi.md#c5"]
     section: Comments
     token_count: 223
 ---

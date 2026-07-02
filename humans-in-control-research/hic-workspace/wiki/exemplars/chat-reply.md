@@ -1,4 +1,52 @@
-
+---
+id: exemplars/chat-reply.md
+chunks:
+  - id: "exemplars/chat-reply.md#c0"
+    char_span: [51, 3134]
+    sentence_count: 5
+    key_terms: [positive, user-cited, star-only, praise, signal, exemplary, because, vote]
+    concepts: [positive, user-cited, star-only, praise, signal]
+    related_chunks: ["exemplars/chat-reply.md#c2", "exemplars/chat-reply.md#c3", "exemplars/chat-reply.md#c4"]
+    section: EXEMPLAR (2026-06-12) - from 7 positive signals / EXEMPLAR (2026-06-15) - from 7 positive signals / EXEMPLAR (2026-06-15) - from 7 positive signals / EXEMPLAR (2026-06-15) - from 7 positive signals / EXEMPLAR (2026-06-16) - from 7 positive signals
+    token_count: 461
+  - id: "exemplars/chat-reply.md#c1"
+    char_span: [3189, 3562]
+    sentence_count: 3
+    key_terms: [positive, contextually, frictionless, efficiently, immediately, commentary, delivering, user-cited]
+    concepts: [positive]
+    section: EXEMPLAR (2026-06-16) - from 7 positive signals
+    token_count: 65
+  - id: "exemplars/chat-reply.md#c2"
+    char_span: [3617, 7002]
+    sentence_count: 8
+    key_terms: [positive, star-only, user-cited, praise, signal, exemplary, satisfies, vote]
+    concepts: [positive, star-only, user-cited, praise, signal]
+    related_chunks: ["exemplars/chat-reply.md#c0", "exemplars/chat-reply.md#c3", "exemplars/chat-reply.md#c4"]
+    section: EXEMPLAR (2026-06-16) - from 7 positive signals / EXEMPLAR (2026-06-17) - from 7 positive signals / EXEMPLAR (2026-06-17) - from 7 positive signals / EXEMPLAR (2026-06-17) - from 7 positive signals / EXEMPLAR (2026-06-17) - from 7 positive signals / EXEMPLAR (2026-06-17) - from 7 positive signals / EXEMPLAR (2026-06-17) - from 7 positive signals / EXEMPLAR (2026-06-17) - from 7 positive signals / EXEMPLAR (2026-06-17) - from 7 positive signals
+    token_count: 505
+  - id: "exemplars/chat-reply.md#c3"
+    char_span: [7057, 10343]
+    sentence_count: 5
+    key_terms: [positive, user-cited, star-only, chat-reply, exemplary, praise, signal, vote]
+    concepts: [positive, user-cited, star-only, chat-reply, exemplary]
+    related_chunks: ["exemplars/chat-reply.md#c0", "exemplars/chat-reply.md#c2", "exemplars/chat-reply.md#c4"]
+    section: EXEMPLAR (2026-06-17) - from 7 positive signals / EXEMPLAR (2026-06-18) - from 7 positive signals / EXEMPLAR (2026-06-18) - from 7 positive signals / EXEMPLAR (2026-06-18) - from 7 positive signals / EXEMPLAR (2026-06-18) - from 7 positive signals / EXEMPLAR (2026-06-18) - from 7 positive signals
+    token_count: 479
+  - id: "exemplars/chat-reply.md#c4"
+    char_span: [10398, 13766]
+    sentence_count: 7
+    key_terms: [positive, user-cited, star-only, chat-reply, praise, signal, vote, highly]
+    concepts: [positive, user-cited, star-only, chat-reply, praise]
+    related_chunks: ["exemplars/chat-reply.md#c0", "exemplars/chat-reply.md#c2", "exemplars/chat-reply.md#c3"]
+    section: EXEMPLAR (2026-06-18) - from 7 positive signals / EXEMPLAR (2026-06-22) - from 7 positive signals / EXEMPLAR (2026-06-22) - from 7 positive signals / EXEMPLAR (2026-06-22) - from 7 positive signals / EXEMPLAR (2026-06-23) - from 7 positive signals / EXEMPLAR (2026-06-23) - from 7 positive signals / EXEMPLAR (2026-06-23) - from 7 positive signals / EXEMPLAR (2026-06-23) - from 7 positive signals / EXEMPLAR (2026-06-23) - from 7 positive signals
+    token_count: 487
+  - id: "exemplars/chat-reply.md#c5"
+    char_span: [13821, 14000]
+    sentence_count: 1
+    key_terms: [immediately, chat-reply, delivering, user-cited, satisfies, star-only, accurate, complete]
+    section: EXEMPLAR (2026-06-23) - from 7 positive signals
+    token_count: 33
+---
 ## EXEMPLAR (2026-06-12) - from 7 positive signals
 This type of chat-reply works exceptionally well because it delivers immediate, friction-free value that fully satisfies the
 
@@ -267,5 +315,68 @@ User-cited praise: "(positive vote/star-only signal)"
 
 ## EXEMPLAR (2026-06-18) - from 7 positive signals
 This chat-reply works exceptionally well because it delivers a direct, highly accurate, and contextually precise response
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-06-22) - from 7 positive signals
+An exemplary chat-reply works well because it delivers a direct, highly accurate, and contextually relevant response that immediately
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-06-22) - from 7 positive signals
+This chat-reply succeeds by delivering immediate, highly relevant value that directly addresses the user's intent with clarity and
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-06-22) - from 7 positive signals
+An exemplary chat-reply succeeds by delivering direct, highly accurate answers that immediately resolve the user's query with
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-06-23) - from 7 positive signals
+High-performing chat replies succeed by delivering direct, concise, and contextually accurate answers that immediately satisfy the user's underlying intent. By presenting information in an easily digestible format without unnecessary filler, the output minimizes cognitive effort and provides instant, actionable value.
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-06-23) - from 7 positive signals
+This type of chat-reply works exceptionally well because it delivers immediate, highly relevant, and actionable information that
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-06-23) - from 7 positive signals
+This type of chat-reply works well because it delivers direct, contextually precise, and highly actionable information that
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-06-23) - from 7 positive signals
+An exemplary chat-reply succeeds by delivering concise, highly relevant information that directly addresses the user's prompt with immediate utility. This frictionless delivery minimizes cognitive effort, resulting in high user satisfaction and strong positive ratings without requiring further clarification.
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-06-23) - from 7 positive signals
+This exemplary chat-reply works well because it delivers direct, highly accurate, and immediately actionable information that fully satisfies
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-06-23) - from 7 positive signals
+This chat-reply succeeds by delivering a direct, highly accurate, and complete response that immediately satisfies the user'
 
 User-cited praise: "(positive vote/star-only signal)"

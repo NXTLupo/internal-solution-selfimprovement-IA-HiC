@@ -7,43 +7,52 @@ subreddit: "insurance"
 title: "Bird hit me - will my Progressive premium rise? (Georgia)"
 author: "PrincessCarolyn_1"
 date: "2026-03-07T16:21:10.000Z"
-score: 5
-upvote_ratio: 1
+score: 4
+upvote_ratio: 0.84
 num_comments: 34
 flair: ""
-extracted_at: "2026-06-17T19:26:46.485Z"
+extracted_at: "2026-06-20T17:52:10.526Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/insurance/1rne2br.md#c0"
     char_span: [0, 961]
     sentence_count: 9
     key_terms: [progressive, claims, comprehensive, bird, insurance, comments, coverage, damage]
+    concepts: [progressive, comprehensive, claims, insurance, comments]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1rne2br.md#c2", "social-intelligence/reddit-deep/insurance/1rne2br.md#c3"]
     token_count: 229
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1rne2br/bird_hit_me_will_my_progressive_premium_rise/"}]
   - id: "social-intelligence/reddit-deep/insurance/1rne2br.md#c1"
-    char_span: [976, 1752]
+    char_span: [975, 1751]
     sentence_count: 5
     key_terms: [claims, repair, birds, claim, zero, cryptohorologist, protoclown98, progressive]
+    concepts: [claims, repair, birds, claim]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1rne2br.md#c2"]
     section: Comments
     token_count: 204
   - id: "social-intelligence/reddit-deep/insurance/1rne2br.md#c2"
-    char_span: [1754, 3892]
+    char_span: [1753, 3891]
     sentence_count: 19
     key_terms: [comprehensive, claim, collision, claims, impact, get, definitely, insurance]
+    concepts: [comprehensive, claim, collision, claims, impact]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1rne2br.md#c0", "social-intelligence/reddit-deep/insurance/1rne2br.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/insurance/1rne2br.md#c3"
-    char_span: [3628, 4568]
+    char_span: [3627, 4567]
     sentence_count: 7
     key_terms: [claims, fartburgular, get, insurance, tofuttiklein-ein-ein, comprehensive, breathalyzer, underwriting]
+    concepts: [fartburgular, claims, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1rne2br.md#c0"]
     section: Comments
     token_count: 261
 ---
 # Bird hit me - will my Progressive premium rise? (Georgia)
 
 Source: [reddit-deep: r/insurance](https://www.reddit.com/r/Insurance/comments/1rne2br/bird_hit_me_will_my_progressive_premium_rise/)
-Posted by **PrincessCarolyn_1** · **5↑** · **34 comments**
+Posted by **PrincessCarolyn_1** · **4↑** · **34 comments**
 
 I was driving last night and a bird flew in front of my car and damaged my front end, and got lodged behind my grill. I have comprehensive coverage with Progressive, and it appears that the bird would fall under that. I’ve been with them nearly 20 years. No claims, and I have a safe driver discount.
 
@@ -53,16 +62,16 @@ Thanks.
 
 ## Comments
 
-- **Protoclown98** (14↑): You should get a repair estimate before having further talks with progressive.  The repair may be significant or it may be under your deductible. 
+- **Protoclown98** (15↑): You should get a repair estimate before having further talks with progressive.  The repair may be significant or it may be under your deductible. 
 
 I had geico for 20 years with zero claims except for a stolen converter during covid, they paid the claim with zero hassle and never saw a premium increase.
   - **whitenack** (1↑): This...I can't imagine the damage is enough to turn in.
 - **CryptoHorologist** (12↑): Does the bird have insurance?
   - **joeboo5150** (12↑): Possibly, was it an emu?
-  - **PrincessCarolyn_1** (4↑): I doubt it. Birds around here are idiots. 
+  - **PrincessCarolyn_1** (5↑): I doubt it. Birds around here are idiots. 
 
 I might leave its feathers on the front of my car as a warning to other birds.
-- **Mysterious_Jello69** (5↑): If you talked to a claims rep sounds like you already filed a claim.
+- **Mysterious_Jello69** (6↑): If you talked to a claims rep sounds like you already filed a claim.
 
 Unfortunately no one is going to be able to answer your question. Theres simply too many variables.
   - **nxpoz** (5↑): yes even if you don't open a claim, the fact you & an adjuster already spoke already means there's a claim on file. Good luck

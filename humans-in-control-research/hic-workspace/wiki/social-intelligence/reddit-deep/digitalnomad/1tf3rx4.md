@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 2078]
     sentence_count: 15
     key_terms: [job, "i'm", something, digitalnomad, learn, month, skill, new]
+    concepts: [something, digitalnomad, learn, month, skill]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1tf3rx4/it_guy_worried_about_ai_taking_my_job_has_anyone/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1tf3rx4.md#c1"
     char_span: [2092, 3744]
     sentence_count: 10
     key_terms: [get, companies, something, personal, anxiety, because, become, people]
+    concepts: [companies, something, personal, anxiety, because]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/digitalnomad/1tf3rx4.md#c2"
     char_span: [3746, 5715]
     sentence_count: 13
     key_terms: ["you're", international-fly735, doing, work, anywhere, language, position, current]
+    concepts: [international-fly735, "you're", doing, anywhere, language]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/digitalnomad/1tf3rx4.md#c3"
     char_span: [5717, 7538]
     sentence_count: 9
     key_terms: [situation, felixnoriel, back, get, "i'm", nomading, diving, remote]
+    concepts: [situation, felixnoriel, nomading, diving, remote]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/digitalnomad/1tf3rx4.md#c4"

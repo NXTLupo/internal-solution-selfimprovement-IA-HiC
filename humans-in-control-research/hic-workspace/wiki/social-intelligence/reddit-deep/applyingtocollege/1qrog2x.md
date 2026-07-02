@@ -21,7 +21,10 @@ chunks:
     char_span: [0, 2060]
     sentence_count: 16
     key_terms: [apply, safeties, people, because, university, applyingtocollege, college, reaches]
+    concepts: [apply, safeties, people, because, university]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qrog2x.md#c4"]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1qrog2x/hot_take_people_need_to_apply_to_less_safeties/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qrog2x.md#c1"
     char_span: [2062, 2270]
     sentence_count: 1
@@ -31,18 +34,23 @@ chunks:
     char_span: [2284, 4118]
     sentence_count: 7
     key_terms: [merit, safeties, state, good, different, prestige, deleted, iris700]
+    concepts: [merit, safeties, state, different, prestige]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qrog2x.md#c3"
     char_span: [3948, 5928]
     sentence_count: 10
     key_terms: [friends, safety, admission, gpa, apply, based, got, elixirceo]
+    concepts: [friends, safety, admission, apply, based]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qrog2x.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qrog2x.md#c4"
     char_span: [5668, 6827]
     sentence_count: 6
     key_terms: [safety, different, people, school, apply, don, safeties, strategy]
+    concepts: [safety, different, people, school, apply]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qrog2x.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1qrog2x.md#c3"]
     section: Comments
     token_count: 288
 ---

@@ -21,29 +21,39 @@ chunks:
     char_span: [0, 1033]
     sentence_count: 7
     key_terms: [reddit, platforms, growth, companies, investing, comments, revenue, market]
+    concepts: [reddit, platforms, growth, companies, investing]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1s5xuxw.md#c4"]
     token_count: 254
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1s5xuxw/is_reddit_the_most_overlooked_growth_stock_in_the/"}]
   - id: "social-intelligence/reddit-deep/investing/1s5xuxw.md#c1"
     char_span: [1047, 3156]
     sentence_count: 14
     key_terms: [reddit, people, internet, monetize, like, real, answers, believe]
+    concepts: [reddit, people, internet, monetize, answers]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1s5xuxw.md#c2"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/investing/1s5xuxw.md#c2"
     char_span: [3158, 5133]
     sentence_count: 11
     key_terms: [reddit, redditstock, getting, worse, people, https, com, www]
+    concepts: [reddit, redditstock, getting, worse, people]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1s5xuxw.md#c1", "social-intelligence/reddit-deep/investing/1s5xuxw.md#c4"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/investing/1s5xuxw.md#c3"
     char_span: [5135, 6247]
     sentence_count: 9
     key_terms: [point, because, revenue, anonymoustimewaster, equivalent-oil-3692, price, livinghighandwise, year3000stankonia]
+    concepts: [point, because, revenue, price]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/investing/1s5xuxw.md#c4"
     char_span: [6249, 8047]
     sentence_count: 7
     key_terms: [redditstock, reddit, wolfsbaneviking, growth, manipulation, https, com, risk]
+    concepts: [redditstock, reddit, wolfsbaneviking, manipulation, growth]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1s5xuxw.md#c0", "social-intelligence/reddit-deep/investing/1s5xuxw.md#c2"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/investing/1s5xuxw.md#c5"

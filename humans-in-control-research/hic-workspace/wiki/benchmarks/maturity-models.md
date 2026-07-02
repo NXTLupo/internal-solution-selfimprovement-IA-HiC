@@ -5,41 +5,54 @@ chunks:
     char_span: [0, 719]
     sentence_count: 6
     key_terms: [maturity, stage, model, data, benchmarks, forrester, framework, gartner]
+    concepts: [maturity, stage, benchmarks, model, forrester]
+    related_chunks: ["benchmarks/maturity-models.md#c2", "benchmarks/maturity-models.md#c4", "benchmarks/maturity-models.md#c6"]
     token_count: 144
   - id: "benchmarks/maturity-models.md#c1"
     char_span: [758, 2165]
     sentence_count: 5
     key_terms: [level, gartner, data, cx-maturity, confidence, cross-refs, hypothesis, evidence]
+    concepts: [level, gartner, cx-maturity, confidence, cross-refs]
+    related_chunks: ["benchmarks/maturity-models.md#c3"]
     section: Gartner 5-Stage CX Maturity Model
     token_count: 389
   - id: "benchmarks/maturity-models.md#c2"
     char_span: [2207, 3859]
     sentence_count: 5
     key_terms: [forrester, data, stages, maturity, differentiate, gartner, confidence, cross-refs]
+    concepts: [forrester, stages, differentiate, maturity, gartner]
+    related_chunks: ["benchmarks/maturity-models.md#c0", "benchmarks/maturity-models.md#c6"]
     section: Forrester 4-Stage CX Maturity Model
     token_count: 403
   - id: "benchmarks/maturity-models.md#c3"
     char_span: [3898, 5268]
     sentence_count: 1
     key_terms: [level, data, organizations, confidence, cross-refs, hypothesis, evidence, verified]
+    concepts: [level, organizations, confidence, cross-refs, hypothesis]
+    related_chunks: ["benchmarks/maturity-models.md#c1"]
     section: Time-to-Advance and Stall Points
     token_count: 357
   - id: "benchmarks/maturity-models.md#c4"
     char_span: [5316, 6526]
     sentence_count: 1
     key_terms: [correlation, maturity, benchmarks, financial-impact, level, verified, data, confidence]
+    concepts: [correlation, maturity, financial-impact, benchmarks, verified]
+    related_chunks: ["benchmarks/maturity-models.md#c0"]
     section: Maturity-to-Business-Outcome Correlations
     token_count: 328
   - id: "benchmarks/maturity-models.md#c5"
     char_span: [6562, 7796]
     sentence_count: 1
     key_terms: [cross-functional, evidence, verified, organizations, data, program, cx-maturity, confidence]
+    concepts: [cross-functional, organizations, evidence, verified, cx-maturity]
     section: Maturity Assessment Practices
     token_count: 330
   - id: "benchmarks/maturity-models.md#c6"
     char_span: [7819, 8445]
     sentence_count: 4
     key_terms: [forrester, gartner, verified, models, model, reconciliation, client-facing, strategically]
+    concepts: [forrester, gartner, verified, models, model]
+    related_chunks: ["benchmarks/maturity-models.md#c0", "benchmarks/maturity-models.md#c2"]
     section: Validation Notes
     token_count: 137
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 894]
     sentence_count: 3
     key_terms: [data, opportunities, internships, internship, exploring, comments, projects, student]
+    concepts: [opportunities, internships, internship, exploring, comments]
     token_count: 212
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1qdlqg8/4thyear_btech_ai_ds_student_exploring_paid/"}]
 ---
 # 4th-Year BTech AI & DS Student Exploring Paid Internship Opportunities (Web/Data) – India/Remote
 

@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 1483]
     sentence_count: 19
     key_terms: [job, experience, don, engineeringstudents, gpa, projects, nothing, jobs]
+    concepts: [experience, engineeringstudents, projects, nothing, comments]
     token_count: 376
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1pbgepz/gpa_truly_doesnt_matter_in_the_long_run/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pbgepz.md#c1"
     char_span: [1497, 3516]
     sentence_count: 14
     key_terms: [experience, job, because, graduation, years, gpa, "don't", internships]
+    concepts: [experience, because, graduation, years, internships]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pbgepz.md#c2"
     char_span: [3518, 4536]
     sentence_count: 7
     key_terms: [experience, academic, project, success, "don't", extracurriculars, self-motivation, inexperienced]
+    concepts: [experience, academic, project, success, "don't"]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pbgepz.md#c3"
     char_span: [4538, 6192]
     sentence_count: 12
     key_terms: [internships, get, gpa, clubs, companies, job, oracle5of7, better]
+    concepts: [internships, companies, clubs, oracle5of7, better]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pbgepz.md#c4"
     char_span: [6194, 8265]
     sentence_count: 18
     key_terms: [gpa, people, possible, grades, correlation, job, try, important]
+    concepts: [people, possible, grades, correlation, important]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1pbgepz.md#c6"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pbgepz.md#c5"
     char_span: [8267, 10030]
     sentence_count: 21
     key_terms: [gpa, school, students, matters, saying, internships, get, job]
+    concepts: [school, students, matters, saying, internships]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pbgepz.md#c6"
     char_span: [10032, 11108]
     sentence_count: 9
     key_terms: [masters, internships, grades, hiring, people, casuallyexploding88, clubs, gpas]
+    concepts: [masters, internships, grades, hiring, people]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1pbgepz.md#c4"]
     section: Comments
     token_count: 256
 ---

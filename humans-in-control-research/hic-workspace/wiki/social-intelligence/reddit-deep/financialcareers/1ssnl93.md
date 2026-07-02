@@ -20,21 +20,25 @@ chunks:
     char_span: [0, 1267]
     sentence_count: 10
     key_terms: [research, responsibilities, financialcareers, "i'm", mechanical, comments, equity, people]
+    concepts: [research, responsibilities, financialcareers, mechanical, comments]
     token_count: 276
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1ssnl93/my_job_has_become_utterly_boring_mechanical_and/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1ssnl93.md#c1"
-    char_span: [1282, 3174]
+    char_span: [1281, 3173]
     sentence_count: 11
     key_terms: [financialcareers, discord, professionals, full-time, automate, banking, nothing, doing]
+    concepts: [financialcareers, professionals, discord, full-time, automate]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/financialcareers/1ssnl93.md#c2"
-    char_span: [3176, 5334]
+    char_span: [3175, 5333]
     sentence_count: 8
     key_terms: [like, time, interesting, use, automate, quietly, better, claude]
+    concepts: [interesting, automate, quietly, better, claude]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/financialcareers/1ssnl93.md#c3"
-    char_span: [5336, 5565]
+    char_span: [5335, 5564]
     sentence_count: 1
     key_terms: [magically, something, learning, planning, reality, reverse, staying, usually]
     section: Comments

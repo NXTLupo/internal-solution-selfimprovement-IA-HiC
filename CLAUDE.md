@@ -14,7 +14,7 @@ This file is the platform-wide overview. Two deeper guides cover the surfaces yo
 > evidence-cited, design-system-governed **Artifact Factory** — every run emits an Artifact Intermediate
 > Representation (AIR), and the 8 Unified Vision principles bind at 9 workflow phases. Before non-trivial HiC
 > work, read the **`hic-unified-vision`** skill, [.claude/UNIFIED_VISION.md](.claude/UNIFIED_VISION.md), and
-> [humans-in-control-research/plans/hic-definitive-vision-and-100-percent-plan-v2-2026-06-30.md](humans-in-control-research/plans/hic-definitive-vision-and-100-percent-plan-v2-2026-06-30.md).
+> [humans-in-control-research/plans/hic-definitive-vision-and-100-percent-plan-v2-2026-07-01.md](humans-in-control-research/plans/hic-definitive-vision-and-100-percent-plan-v2-2026-07-01.md).
 
 ## Architecture Overview
 

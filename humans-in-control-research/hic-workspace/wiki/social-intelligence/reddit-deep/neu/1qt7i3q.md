@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1047]
     sentence_count: 5
     key_terms: [trustyhuskyneu, students, housing, forced, option, single, northeastern, com]
+    concepts: [trustyhuskyneu, students, housing, forced, northeastern]
     token_count: 238
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qt7i3q/northeastern_announces_new_forced_single_housing/"}]
   - id: "social-intelligence/reddit-deep/neu/1qt7i3q.md#c1"
     char_span: [1061, 1395]
     sentence_count: 4
     key_terms: [discord, nca4rcrzdr, https, join, satire-writing, trustyhuskyneu, surprisingly, seahorses]
+    concepts: [discord, nca4rcrzdr, https]
     section: Comments
     token_count: 99
 ---

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2106]
     sentence_count: 19
     key_terms: [internship, job, advice, decent, month, internships, role, experience]
+    concepts: [internship, advice, decent, internships, experience]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rce5pr/looking_for_advice_on_an_internship_offer_i/"}]
   - id: "social-intelligence/reddit-deep/internships/1rce5pr.md#c1"
-    char_span: [2121, 2735]
+    char_span: [2120, 2734]
     sentence_count: 3
     key_terms: [feralunity, remote, traditional-roof1663, month, "i'd", role, try, manojbakshikumar]
+    concepts: [feralunity, remote, month]
     section: Comments
     token_count: 184
 ---

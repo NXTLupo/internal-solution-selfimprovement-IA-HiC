@@ -19,10 +19,12 @@ content_hash: "e2d8c8928775501a"
 relevance_by_goal: {"490684cfa204":30}
 chunks:
   - id: "articles/reddit-deep-r-dropship/bb0e0bba51.md#c0"
-    char_span: [0, 1882]
+    char_span: [0, 1881]
     sentence_count: 12
     key_terms: [inventory, dropship, model, comments, products, testing, dropshippers, dropshipping]
-    token_count: 407
+    concepts: [inventory, dropship, model, comments, products]
+    token_count: 406
+    sources: [{"n":"Reddit Deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1sd609r/why_many_dropshippers_fail_to_scale_beyond_the/"}]
 ---
 # Why Many Dropshippers Fail to Scale Beyond the Dropshipping Model
 

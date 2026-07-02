@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 2054]
     sentence_count: 14
     key_terms: [something, environment, artificial, agent, own, building, stressors, suffering]
+    concepts: [something, environment, artificial, agent, building]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1t31ghg/i_gave_my_local_llm_a_suffering_meter_and_now_it/"}]
   - id: "social-intelligence/reddit-deep/artificial/1t31ghg.md#c1"
     char_span: [2068, 3634]
     sentence_count: 9
     key_terms: [suffering, conscious, buddhist, burning, suffer, illustrious-web-6011, onlyonequickquestion, distancesolar1449]
+    concepts: [suffering, conscious, buddhist, burning, suffer]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/artificial/1t31ghg.md#c2"
     char_span: [3636, 5773]
     sentence_count: 13
     key_terms: [suffering, like, real, matter, doesn, dog, here, own]
+    concepts: [suffering, matter, difference, doesn, complains]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/artificial/1t31ghg.md#c3"
     char_span: [5775, 7188]
     sentence_count: 7
     key_terms: [like, hollow, model, existence, predict, access, models, small]
+    concepts: [hollow, model, existence, predict, access]
     section: Comments
     token_count: 296
   - id: "social-intelligence/reddit-deep/artificial/1t31ghg.md#c4"
     char_span: [7190, 9001]
     sentence_count: 9
     key_terms: [been, context, theonlyvibemaster, day, seen, tell, reddituser567853, sparescrewdriver]
+    concepts: [context]
     section: Comments
     token_count: 474
 ---

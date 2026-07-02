@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 411]
     sentence_count: 3
     key_terms: [careerguidance, comments, reddit-deep, graduated, honours, husband, thought, working]
+    concepts: [careerguidance, comments]
     token_count: 121
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sy2j1m/career_path_advice_anyone_i_thought_id_have_a/"}]
 ---
 # Career path advice anyone ? I thought I’d have a secure job, house and husband at 24. I graduated with an honours Bsc 2 years ago yet I’m working min wage in my home town
 

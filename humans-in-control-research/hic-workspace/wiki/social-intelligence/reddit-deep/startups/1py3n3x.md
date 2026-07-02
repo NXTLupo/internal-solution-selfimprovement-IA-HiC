@@ -20,40 +20,51 @@ chunks:
     char_span: [0, 1524]
     sentence_count: 11
     key_terms: [months, strong, applications, successful, comments, startups, startup, apply]
+    concepts: [applications, months, strong, successful, comments]
     token_count: 378
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1py3n3x/applications_to_accelerators_vcs_competitions_etc/"}]
   - id: "social-intelligence/reddit-deep/startups/1py3n3x.md#c1"
     char_span: [1526, 2491]
     sentence_count: 14
     key_terms: ["don't", rejected, growth, maybe, wrong, get, unfortunately, accelerator]
+    concepts: ["don't", rejected, growth, maybe, wrong]
     token_count: 220
   - id: "social-intelligence/reddit-deep/startups/1py3n3x.md#c2"
-    char_span: [2506, 4444]
+    char_span: [2505, 4443]
     sentence_count: 13
     key_terms: [successful-tip1971, programs, because, mainstreetbetz, accelerator, need, time, interested]
+    concepts: [successful-tip1971, programs, mainstreetbetz, because, accelerator]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1py3n3x.md#c6"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/startups/1py3n3x.md#c3"
-    char_span: [4446, 6470]
+    char_span: [4445, 6469]
     sentence_count: 18
     key_terms: [early-startup-funding-stages, series, investors, quite, want, impression, profitable, regarding]
+    concepts: [early-startup-funding-stages, series, investors, impression, profitable]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/startups/1py3n3x.md#c4"
-    char_span: [6474, 8201]
+    char_span: [6473, 8200]
     sentence_count: 17
     key_terms: [mainstreetbetz, ourselves, iamzamek, startup, anyone, growth, paying, build]
+    concepts: [mainstreetbetz, ourselves, iamzamek, startup, anyone]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/startups/1py3n3x.md#c5"
-    char_span: [8203, 9935]
+    char_span: [8202, 9934]
     sentence_count: 24
     key_terms: [numbers, market, storytelling, proof, team, business, solution, without]
+    concepts: [numbers, storytelling, market, proof, business]
     section: Comments
     token_count: 380
+    sources: [{"n":"I\u2019m a lead mentor for a global accelerator.","u":""}]
   - id: "social-intelligence/reddit-deep/startups/1py3n3x.md#c6"
-    char_span: [9937, 11550]
+    char_span: [9936, 11549]
     sentence_count: 11
     key_terms: [faithlessnessvast136, mainstreetbetz, equity, accelerator, co-founders, e-commerce, companies, founders]
+    concepts: [faithlessnessvast136, mainstreetbetz, equity, accelerator, co-founders]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1py3n3x.md#c2"]
     section: Comments
     token_count: 401
 ---

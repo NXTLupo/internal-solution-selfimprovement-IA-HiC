@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1016]
     sentence_count: 10
     key_terms: [college, school, dorm, like, comments, minutes, living, rooms]
+    concepts: [college, school, comments, minutes, living]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qq12wj.md#c1"]
     token_count: 255
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1qq12wj/do_i_dorm/"}]
   - id: "social-intelligence/reddit-deep/college/1qq12wj.md#c1"
     char_span: [1030, 1863]
     sentence_count: 6
     key_terms: [free, living, moving, school, choicereflection965, going, grad, home]
+    concepts: [living, moving, school, going]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qq12wj.md#c0"]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/college/1qq12wj.md#c2"
     char_span: [1865, 3418]
     sentence_count: 11
     key_terms: [living, campus, experience, trustmeiknowthings, get, parents, people, away]
+    concepts: [living, trustmeiknowthings, experience, campus, parents]
     section: Comments
     token_count: 397
 ---

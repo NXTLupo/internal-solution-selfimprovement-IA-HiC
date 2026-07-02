@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1142]
     sentence_count: 2
     key_terms: [prompt, injection, fail, leak, warn, categories, comments, release]
+    concepts: [prompt, injection, categories, comments, release]
     token_count: 267
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1r8pga4/we_kept_missing_ai_api_security_edge_cases_so_we/"}]
   - id: "social-intelligence/reddit-deep/saas/1r8pga4.md#c1"
-    char_span: [1157, 1827]
+    char_span: [1156, 1826]
     sentence_count: 4
     key_terms: [promptbrake-remediation, promptbrake, specialist-bee9801, case-study, endpoints, follow-up, hardening, https]
+    concepts: [promptbrake-remediation, promptbrake, specialist-bee9801, case-study, endpoints]
     section: Comments
     token_count: 160
 ---

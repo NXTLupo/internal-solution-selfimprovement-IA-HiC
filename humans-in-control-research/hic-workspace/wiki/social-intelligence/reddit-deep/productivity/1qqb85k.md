@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1199]
     sentence_count: 9
     key_terms: [productivity, daily, organized, structure, comments, through, without, social]
+    concepts: [productivity, daily, organized, structure, comments]
     token_count: 267
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1qqb85k/i_realized_social_media_was_replacing_healthy/"}]
   - id: "social-intelligence/reddit-deep/productivity/1qqb85k.md#c1"
     char_span: [1213, 2439]
     sentence_count: 7
     key_terms: [less, like, time, social, media, instead, phone, track]
+    concepts: [social, media, instead, phone, track]
     section: Comments
     token_count: 287
 ---

@@ -21,58 +21,71 @@ chunks:
     char_span: [0, 2125]
     sentence_count: 24
     key_terms: [technical, never, cscareerquestions, "i've", always, been, "i'd", real]
+    concepts: [technical, never, cscareerquestions, always, knowledge]
     token_count: 471
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sdq9f1/i_ship_real_products_but_cant_pass_the_technical/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c1"
     char_span: [2127, 2904]
     sentence_count: 8
     key_terms: [work, technical, person, "i'm", encyclopedia, approached, exhausting, experience]
+    concepts: [technical, person]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c9"]
     token_count: 155
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c2"
     char_span: [2918, 5034]
     sentence_count: 15
     key_terms: [important, fundamentals, people, "it's", code, feel, confident, dichotomy]
+    concepts: [important, fundamentals, people, confident, dichotomy]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c3"
     char_span: [5036, 6992]
     sentence_count: 18
     key_terms: ["don't", code, absolutely, companies, engineers, technical, shipping, finding]
+    concepts: [absolutely, "don't", companies, engineers, technical]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c4"
     char_span: [6994, 7634]
     sentence_count: 7
     key_terms: [engineer, problem, being, solve, code, communicating, architecture, responsible]
+    concepts: [engineer, problem, being, solve]
     section: Comments
     token_count: 130
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c5"
     char_span: [7636, 9696]
     sentence_count: 17
     key_terms: [paleontologistbig318, something, because, interviewers, guess, everything, technical, engineer]
+    concepts: [paleontologistbig318, something, because, interviewers, everything]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c6"
     char_span: [9698, 11969]
     sentence_count: 22
     key_terms: [engineer, problems, technical, "it's", concepts, shipping, better, build]
+    concepts: [engineer, problems, technical, concepts, shipping]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c7"
     char_span: [11971, 13975]
     sentence_count: 24
     key_terms: [management, build, product, project, through, person, "don't", technically]
+    concepts: [management, build, product, project, through]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c8"
     char_span: [13977, 15764]
     sentence_count: 16
     key_terms: [people, hiring, ones, knowledge, answers, because, working, paleontologistbig318]
+    concepts: [people, hiring, knowledge, answers, because]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c9"
     char_span: [15766, 18085]
     sentence_count: 19
     key_terms: [technical, person, experience, ones, complexity, everybody, important, strengths]
+    concepts: [technical, experience, person, complexity, everybody]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c1"]
     section: Comments
     token_count: 470
 ---

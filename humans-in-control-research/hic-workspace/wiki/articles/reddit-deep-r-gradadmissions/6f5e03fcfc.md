@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2303]
     sentence_count: 22
     key_terms: [programs, get, policy, good, schools, student, gradadmissions, school]
+    concepts: [programs, policy, gradadmissions, international, schools]
     token_count: 500
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qjhd7j/advice_on_choosing_possible_grad_school_paths_as/"}]
   - id: "articles/reddit-deep-r-gradadmissions/6f5e03fcfc.md#c1"
     char_span: [2305, 2597]
     sentence_count: 3
     key_terms: [funded, fully, extraordinarily, gossipgal1324, competitive, admissions, experience, generally]
+    concepts: [funded, fully]
     token_count: 63
 ---
 # Advice on choosing possible grad school paths as an international student

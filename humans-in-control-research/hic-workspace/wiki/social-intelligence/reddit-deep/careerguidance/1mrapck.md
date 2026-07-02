@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 2024]
     sentence_count: 16
     key_terms: [estate, real, nightlife, bartending, careerguidance, job, experience, developer]
+    concepts: [estate, nightlife, bartending, careerguidance, experience]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1mrapck.md#c3"]
     token_count: 471
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1mrapck/thought_i_landed_my_dream_job_with_a_millionaire/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1mrapck.md#c1"
     char_span: [2038, 3796]
     sentence_count: 13
     key_terms: [sue, fafnirthesteed, sales, development, pay, harassment, agreement, diosababy]
+    concepts: [fafnirthesteed, development, harassment, sales, agreement]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/careerguidance/1mrapck.md#c2"
     char_span: [3798, 5706]
     sentence_count: 15
     key_terms: [experience, get, degree, industry, flexibility, don, diosababy, degrees]
+    concepts: [experience, degree, industry, flexibility, diosababy]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/careerguidance/1mrapck.md#c3"
     char_span: [5708, 7458]
     sentence_count: 10
     key_terms: [experience, real, estate, get, like, work, assistant, executive]
+    concepts: [experience, estate, assistant, executive, promoted]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1mrapck.md#c0"]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/careerguidance/1mrapck.md#c4"
     char_span: [7460, 9814]
     sentence_count: 14
     key_terms: [estate, real, market, analyst, another, almost, years, got]
+    concepts: [estate, market, analyst, another, almost]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1mrapck.md#c5"
     char_span: [9491, 11160]
     sentence_count: 14
     key_terms: [estate, get, real, isn, commission, diosababy, training, already]
+    concepts: [estate, commission, diosababy, training, already]
     section: Comments
     token_count: 401
 ---

@@ -21,69 +21,86 @@ chunks:
     char_span: [0, 2141]
     sentence_count: 17
     key_terms: [engineering, agents, companies, outcomes, software, old, artificial, conference]
+    concepts: [engineering, agents, companies, outcomes, software]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1t5ewzi.md#c9"]
     token_count: 457
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1t5ewzi/spent_two_days_at_the_ai_agents_conference_in_nyc/"}]
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c1"
     char_span: [2143, 4461]
     sentence_count: 18
     key_terms: [prompt, architecture, architectures, observability, magic, engineering, open-source, data]
+    concepts: [prompt, architecture, architectures, observability, engineering]
     token_count: 457
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c2"
     char_span: [4463, 5776]
     sentence_count: 8
     key_terms: [layer, prompt-architecture-as-product, risk, industries, regulated, wrapper, middle, "isn't"]
+    concepts: [industries, layer, regulated, wrapper, middle]
     token_count: 276
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c3"
     char_span: [5790, 7401]
     sentence_count: 11
     key_terms: [replacementready394, likely, critical, agentic, because, systems, whether, agents]
+    concepts: [replacementready394, likely, critical, agentic, because]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1t5ewzi.md#c4"]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c4"
     char_span: [7403, 8636]
     sentence_count: 7
     key_terms: [replacementready394, agentic, bright-secretary-710, does, full, gets, jobs, png]
+    concepts: [replacementready394, agentic]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1t5ewzi.md#c3"]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c5"
     char_span: [8638, 10788]
     sentence_count: 13
     key_terms: [mcp, systems, integrations, legacy, problem, implemented, integration, data]
+    concepts: [integrations, systems, legacy, problem, implemented]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c6"
     char_span: [10790, 12965]
     sentence_count: 17
     key_terms: ["it's", coding, different, use, good, hard, want, understand]
+    concepts: [different, coding, understand, decisions, business]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c7"
     char_span: [12967, 15026]
     sentence_count: 15
     key_terms: [programming, because, people, going, "doesn't", having, "don't", programmers]
+    concepts: [programming, because, people, going, "doesn't"]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c8"
     char_span: [15028, 16323]
     sentence_count: 7
     key_terms: [something, common, system, integration, understand, different, substrate, enough]
+    concepts: [something, common, system, integration, understand]
     section: Comments
     token_count: 289
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c9"
     char_span: [16325, 17999]
     sentence_count: 8
     key_terms: [software, own, connectors, companies, database, players, early, means]
+    concepts: [software, connectors, companies, database, players]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1t5ewzi.md#c0"]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c10"
     char_span: [18001, 19395]
     sentence_count: 9
     key_terms: [knowledge, converts, software, startup, domain, people, demonstrate, effectively]
+    concepts: [knowledge, converts, software, startup, domain]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c11"
     char_span: [19397, 21614]
     sentence_count: 18
     key_terms: [saas, cloud, companies, costs, company, "you're", doubling, industry]
+    concepts: [cloud, companies, costs, company, "you're"]
     section: Comments
     token_count: 475
 ---

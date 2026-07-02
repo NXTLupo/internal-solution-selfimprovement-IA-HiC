@@ -21,47 +21,59 @@ chunks:
     char_span: [0, 642]
     sentence_count: 4
     key_terms: [cscareerquestions, comments, job, imhighoncocaine, recommending, engineering, internships, reddit-deep]
+    concepts: [cscareerquestions, comments]
     token_count: 162
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1p1u8ll/why_are_people_recommending_electrical/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c1"
     char_span: [656, 2583]
     sentence_count: 19
     key_terms: [degree, work, software, graduated, knowledge, aptitude, classes, people]
+    concepts: [degree, software, graduated, knowledge, aptitude]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c5"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c2"
     char_span: [2585, 4673]
     sentence_count: 25
     key_terms: [mumble, "it's", exploration, good, hobbyist, college, mindset, passion]
+    concepts: [mumble, exploration, hobbyist, college, mindset]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c3"
     char_span: [4675, 6208]
     sentence_count: 10
     key_terms: [get, job, software, easier, career, degree, school, pivot]
+    concepts: [software, easier, career, degree, school]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c5"]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c4"
     char_span: [6210, 7315]
     sentence_count: 6
     key_terms: [jobs, embedded, already, checks, calm-tumbleweed-9820, mark, time-constrained, applicability]
+    concepts: [embedded, already, checks]
     section: Comments
     token_count: 251
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c5"
     char_span: [7317, 9391]
     sentence_count: 10
     key_terms: [degree, data, become, like, work, electrical, structures, software]
+    concepts: [degree, become, electrical, structures, software]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c6"
     char_span: [9103, 9737]
     sentence_count: 7
     key_terms: [swe, watered, level, been, big, down, far, pays]
+    concepts: [watered, level]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c7"
     char_span: [9739, 10566]
     sentence_count: 6
     key_terms: [hardware, job, swe, computer, somewherenormal9157, "it's", applications, differential]
+    concepts: [hardware, computer]
     section: Comments
     token_count: 210
 ---

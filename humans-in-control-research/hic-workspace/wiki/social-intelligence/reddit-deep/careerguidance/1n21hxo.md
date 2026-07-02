@@ -19,40 +19,53 @@ chunks:
     char_span: [0, 1967]
     sentence_count: 18
     key_terms: [flexibility, career, job, less, wife, primary, careerguidance, parent]
+    concepts: [flexibility, career, careerguidance, primary, parent]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c2"]
     token_count: 465
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1n21hxo/primary_parent_debating_keep_flexible_104k_job_or/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c1"
     char_span: [1969, 2491]
     sentence_count: 6
     key_terms: [require, plus, significantly, challenging, opportunity, experience, childcare, described]
+    concepts: [require]
     token_count: 111
   - id: "social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c2"
     char_span: [2505, 4282]
     sentence_count: 11
     key_terms: [childcare, flexibility, career, money, additional, schedule, forever, making]
+    concepts: [childcare, flexibility, career, additional, money]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c0"]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c3"
     char_span: [4284, 6159]
     sentence_count: 14
     key_terms: [flexibility, job, kids, current, get, especially, different, employer]
+    concepts: [flexibility, current, especially, different, employer]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c4", "social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c5"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c4"
     char_span: [6161, 7630]
     sentence_count: 11
     key_terms: [flexibility, commute, current, difference, calaf2525, anything, travel, great]
+    concepts: [flexibility, commute, current, difference, calaf2525]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c3", "social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c5"]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c5"
     char_span: [7632, 9441]
     sentence_count: 13
     key_terms: [times, flexibility, get, different, commute, company, concern, current]
+    concepts: [flexibility, times, different, commute, company]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c3", "social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c4"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c6"
     char_span: [9443, 10058]
     sentence_count: 5
     key_terms: [flexibility, interview, flexible, find, job, new, role, readsalotman]
+    concepts: [flexibility, interview, flexible]
     section: Comments
     token_count: 147
 ---

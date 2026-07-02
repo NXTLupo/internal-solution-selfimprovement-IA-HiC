@@ -19,76 +19,102 @@ chunks:
     char_span: [0, 2210]
     sentence_count: 7
     key_terms: [events, requirement, student, class, course, plenty, back-to-back, professors]
+    concepts: [requirement, events, student, class, course]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qnu38m.md#c1", "social-intelligence/reddit-deep/professors/1qnu38m.md#c5", "social-intelligence/reddit-deep/professors/1qnu38m.md#c8", "social-intelligence/reddit-deep/professors/1qnu38m.md#c12"]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1qnu38m/student_trying_to_prenegotiate_course_requirement/"}]
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c1"
     char_span: [2212, 3491]
     sentence_count: 9
     key_terms: [because, requirement, students, purpose, student, class, don, want]
+    concepts: [because, requirement, students, purpose, student]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qnu38m.md#c0", "social-intelligence/reddit-deep/professors/1qnu38m.md#c2", "social-intelligence/reddit-deep/professors/1qnu38m.md#c11", "social-intelligence/reddit-deep/professors/1qnu38m.md#c12"]
     token_count: 261
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c2"
     char_span: [3505, 5744]
     sentence_count: 18
     key_terms: [accommodations, student, disability, services, students, get, being, karen]
+    concepts: [accommodations, disability, student, services, students]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qnu38m.md#c1", "social-intelligence/reddit-deep/professors/1qnu38m.md#c3", "social-intelligence/reddit-deep/professors/1qnu38m.md#c8", "social-intelligence/reddit-deep/professors/1qnu38m.md#c9", "social-intelligence/reddit-deep/professors/1qnu38m.md#c11"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c3"
     char_span: [5746, 6885]
     sentence_count: 12
     key_terms: [student, assignments, disability, dampening, noise, back, time, work]
+    concepts: [student, assignments, disability, dampening, noise]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qnu38m.md#c2", "social-intelligence/reddit-deep/professors/1qnu38m.md#c8"]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c4"
     char_span: [6887, 8268]
     sentence_count: 10
     key_terms: [accommodation, office, requirements, disability, reasonable, student, cannot, speech]
+    concepts: [accommodation, office, requirements, disability, reasonable]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qnu38m.md#c5", "social-intelligence/reddit-deep/professors/1qnu38m.md#c7"]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c5"
     char_span: [8270, 10380]
     sentence_count: 17
     key_terms: [requirements, student, class, pass, accommodation, hazelstone37, "it's", work]
+    concepts: [requirements, student, class, accommodation, hazelstone37]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qnu38m.md#c0", "social-intelligence/reddit-deep/professors/1qnu38m.md#c4", "social-intelligence/reddit-deep/professors/1qnu38m.md#c6", "social-intelligence/reddit-deep/professors/1qnu38m.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c6"
     char_span: [10127, 10760]
     sentence_count: 4
     key_terms: [requirements, student, "don't", pass, fail, fantastic-antics, notaflatsquirrel, appropriate]
+    concepts: [requirements, student, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qnu38m.md#c5"]
     section: Comments
     token_count: 173
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c7"
     char_span: [10762, 12302]
     sentence_count: 9
     key_terms: [disability, answer, accommodation, requirements, need, reasonable, determine, something]
+    concepts: [disability, accommodation, requirements, answer, reasonable]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qnu38m.md#c4", "social-intelligence/reddit-deep/professors/1qnu38m.md#c5"]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c8"
     char_span: [12304, 14421]
     sentence_count: 18
     key_terms: [course, student, disability, like, approved, accommodations, requirement, drop]
+    concepts: [course, student, disability, approved, accommodations]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qnu38m.md#c0", "social-intelligence/reddit-deep/professors/1qnu38m.md#c2", "social-intelligence/reddit-deep/professors/1qnu38m.md#c3", "social-intelligence/reddit-deep/professors/1qnu38m.md#c9", "social-intelligence/reddit-deep/professors/1qnu38m.md#c11"]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c9"
     char_span: [14423, 15502]
     sentence_count: 7
     key_terms: [disability, "it's", anxiety, accommodations, services, spelled, student, going]
+    concepts: [disability, accommodations, anxiety, services, spelled]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qnu38m.md#c2", "social-intelligence/reddit-deep/professors/1qnu38m.md#c8"]
     section: Comments
     token_count: 218
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c10"
     char_span: [15504, 17002]
     sentence_count: 12
     key_terms: [thisnameishilarious, kidnapped, requirements, tell, department, negotiable, on-campus, student]
+    concepts: [thisnameishilarious, kidnapped, requirements, department, negotiable]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c11"
     char_span: [17004, 19246]
     sentence_count: 18
     key_terms: [accommodations, department, "it's", student, students, school, unfair, disability]
+    concepts: [accommodations, department, student, students, school]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qnu38m.md#c1", "social-intelligence/reddit-deep/professors/1qnu38m.md#c2", "social-intelligence/reddit-deep/professors/1qnu38m.md#c8", "social-intelligence/reddit-deep/professors/1qnu38m.md#c12"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c12"
     char_span: [19248, 21185]
     sentence_count: 16
     key_terms: [student, course, part, accommodations, interrupting, chair, requirement, cannot]
+    concepts: [student, course, accommodations, interrupting, requirement]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qnu38m.md#c0", "social-intelligence/reddit-deep/professors/1qnu38m.md#c1", "social-intelligence/reddit-deep/professors/1qnu38m.md#c2", "social-intelligence/reddit-deep/professors/1qnu38m.md#c8", "social-intelligence/reddit-deep/professors/1qnu38m.md#c11"]
     section: Comments
     token_count: 424
 ---

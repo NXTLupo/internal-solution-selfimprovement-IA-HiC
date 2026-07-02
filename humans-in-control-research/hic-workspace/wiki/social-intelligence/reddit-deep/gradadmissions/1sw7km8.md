@@ -21,52 +21,66 @@ chunks:
     char_span: [0, 1534]
     sentence_count: 7
     key_terms: [research, quant, gradadmissions, exp, undergrad, comments, rejected, stanford]
+    concepts: [research, quant, gradadmissions, undergrad, comments]
     token_count: 419
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1sw7km8/07_from_cmu_stanford_mit_harvard_epfl_eth_brown/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c1"
     char_span: [1536, 2846]
     sentence_count: 11
     key_terms: [academic, programs, research, industry-only, affiliation, internships, did, lor]
+    concepts: [academic, programs, research, industry-only, affiliation]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c5"]
     token_count: 295
   - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c2"
     char_span: [2860, 3839]
     sentence_count: 4
     key_terms: [candidates, because, funding, enough, simply, apply, spots, idustriousraccoon]
+    concepts: [candidates, because, funding, enough, simply]
     section: Comments
     token_count: 229
   - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c3"
     char_span: [3841, 6141]
     sentence_count: 18
     key_terms: [students, schools, best, research, program, administration, institution, fit]
+    concepts: [students, schools, research, administration, program]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c4"
     char_span: [5885, 6604]
     sentence_count: 5
     key_terms: [administration, cut, students, foreign, canada, "visa's", doing, mysterious-art8838]
+    concepts: [administration, students, foreign, canada, "visa's"]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c3"]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c5"
     char_span: [6606, 7433]
     sentence_count: 4
     key_terms: [research, something, academic, programs, whether, given, like, lor]
+    concepts: [research, something, academic, programs, whether]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c1"]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c6"
     char_span: [7435, 9597]
     sentence_count: 14
     key_terms: [profile, competitive, "master's", schools, papers, universities, competition, get]
+    concepts: [competitive, profile, "master's", schools, universities]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c7"
     char_span: [9345, 11282]
     sentence_count: 12
     key_terms: [low-contribution-266, research, applied, no-quality5546, international, accepted, profile, schools]
+    concepts: [low-contribution-266, research, no-quality5546, international, applied]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c8"
     char_span: [10978, 11416]
     sentence_count: 3
     key_terms: [getting, international, self-funded, applicants, government, iletienne, published, receiving]
+    concepts: [getting]
     section: Comments
     token_count: 97
 ---

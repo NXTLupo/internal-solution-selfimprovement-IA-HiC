@@ -21,59 +21,70 @@ chunks:
     char_span: [0, 1483]
     sentence_count: 8
     key_terms: [softbank-1-000-ai-agents-replace-1-job-10490309, agents, cscareerquestions, softbank, https, human, programming, end]
+    concepts: [softbank-1-000-ai-agents-replace-1-job-10490309, agents, cscareerquestions, softbank, programming]
     token_count: 352
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1m5kqv2/softbank_1000_ai_agents_replace_1_job_one_billion/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c1"
     char_span: [1497, 3417]
     sentence_count: 4
     key_terms: [wework, bankruptcy, masayoshi, company, without, dashingthroughsnow12, inevitable-craft-745, recognitionsignal425]
+    concepts: [wework, bankruptcy, masayoshi, company, without]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c2"
     char_span: [3132, 5026]
     sentence_count: 7
     key_terms: ["doesn't", bets, rate, masayoshi, getting, agents, recognitionsignal425, abject-kitchen3198]
+    concepts: ["doesn't", masayoshi, getting, agents]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c3"
     char_span: [4779, 5545]
     sentence_count: 2
     key_terms: [costs, openai, rate, profitable, operating, dashingthroughsnow12, "isn't", burn]
+    concepts: [costs, openai, profitable, operating, "isn't"]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c4"
     char_span: [5547, 7533]
     sentence_count: 15
     key_terms: ["it's", cheaper, media, lie, pay, compared, falling, better]
+    concepts: [cheaper, media, compared, falling, better]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c5"
     char_span: [7535, 9031]
     sentence_count: 13
     key_terms: [agents, talent, competitive, competitors, advantage, workforce, everyone, access]
+    concepts: [agents, talent, competitive, competitors, advantage]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c6"
     char_span: [9033, 10468]
     sentence_count: 8
     key_terms: [low, situations, because, cheaper, pretty, human, cost, llm]
+    concepts: [situations, because, cheaper, pretty, human]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c7"
     char_span: [10470, 12173]
     sentence_count: 10
     key_terms: [companies, programming, "i've", hungover, invested, company, anyone, burned]
+    concepts: [companies, programming, hungover, invested, company]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c8"
     char_span: [12175, 14093]
     sentence_count: 16
     key_terms: [right, yesterday, chatgpt, outages, claims, making, random, asked]
+    concepts: [right, yesterday, chatgpt, outages, claims]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c9"
     char_span: [14097, 16063]
     sentence_count: 22
     key_terms: [dick, solve, water, get, problem, right, work, absolutely]
+    concepts: [solve, water, problem, absolutely, right]
     section: Comments
     token_count: 465
 ---

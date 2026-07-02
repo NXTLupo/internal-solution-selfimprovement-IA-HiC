@@ -21,47 +21,61 @@ chunks:
     char_span: [0, 746]
     sentence_count: 6
     key_terms: [investment, investing, comments, lawsuits, problems, against, rezolve, large]
+    concepts: [investment, investing, comments, lawsuits, problems]
     token_count: 182
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1nj7eqk/rezolve_ai_rzlv_is_a_super_risky_investment_stock/"}]
   - id: "social-intelligence/reddit-deep/investing/1nj7eqk.md#c1"
     char_span: [760, 2587]
     sentence_count: 4
     key_terms: [yorkville, position, ragnaroksunset, chart, short, rzlv, agreement, financing]
+    concepts: [yorkville, position, ragnaroksunset, chart, short]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/investing/1nj7eqk.md#c2"
     char_span: [2589, 4366]
     sentence_count: 10
     key_terms: [rezolve, court, defendants, investment, agreement, companies, yorkville, bigger]
+    concepts: [rezolve, court, defendants, investment, agreement]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1nj7eqk.md#c3", "social-intelligence/reddit-deep/investing/1nj7eqk.md#c4"]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/investing/1nj7eqk.md#c3"
     char_span: [4368, 6466]
     sentence_count: 10
     key_terms: [rezolve-ai-rzlv-faking-arr-declining-revenue-dan-wagner-chatgpt-wrapper, rezolve, investment, fuzzypandaresearch, "rezolve's", situation, bitcoin, invest]
+    concepts: [rezolve-ai-rzlv-faking-arr-declining-revenue-dan-wagner-chatgpt-wrapper, rezolve, fuzzypandaresearch, investment, "rezolve's"]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1nj7eqk.md#c2", "social-intelligence/reddit-deep/investing/1nj7eqk.md#c4"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/investing/1nj7eqk.md#c4"
     char_span: [6468, 8513]
     sentence_count: 16
     key_terms: [rezolve, investment, "rezolve's", yorkville, new, court, situation, want]
+    concepts: [rezolve, investment, "rezolve's", yorkville, situation]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1nj7eqk.md#c2", "social-intelligence/reddit-deep/investing/1nj7eqk.md#c3"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/investing/1nj7eqk.md#c5"
     char_span: [8515, 10505]
     sentence_count: 15
     key_terms: [newyork-newyorkcountysc-2504749-rezolve-ai-plc-v-ya-ii-pn-ltd, information, maxgallow, history, google, stock, ceo, dan]
+    concepts: [information, maxgallow, history, google, stock]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1nj7eqk.md#c6"
     char_span: [10253, 12777]
     sentence_count: 13
     key_terms: [company, complaint, plaintiffs, spa, february, transactions, new, york]
+    concepts: [company, complaint, plaintiffs, transactions, february]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1nj7eqk.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1nj7eqk.md#c7"
     char_span: [12473, 13849]
     sentence_count: 10
     key_terms: [company, plaintiffs, sepa, agreement, ltd, spa, does, liquidity]
+    concepts: [company, plaintiffs, agreement, liquidity, entitled]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1nj7eqk.md#c6"]
     section: Comments
     token_count: 291
 ---

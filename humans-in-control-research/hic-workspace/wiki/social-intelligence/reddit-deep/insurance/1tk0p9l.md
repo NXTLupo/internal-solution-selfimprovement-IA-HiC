@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1733]
     sentence_count: 11
     key_terms: [damage, insurance, allstate, inspection, adjuster, shingles, claim, explanation]
+    concepts: [insurance, damage, allstate, inspection, adjuster]
     token_count: 332
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1tk0p9l/do_not_use_allstate/"}]
   - id: "social-intelligence/reddit-deep/insurance/1tk0p9l.md#c1"
-    char_span: [1748, 2406]
+    char_span: [1747, 2405]
     sentence_count: 4
     key_terms: [allstate, roof, photos, new, old, want, infinitemethod, freeski12345]
+    concepts: [allstate, photos]
     section: Comments
     token_count: 179
   - id: "social-intelligence/reddit-deep/insurance/1tk0p9l.md#c2"
-    char_span: [2408, 4013]
+    char_span: [2407, 4012]
     sentence_count: 11
     key_terms: [png, complaint, dda657f2c009b95b0ea6c9dd818ec4c4e61ec7bf, damaged, preview, format, https, width]
+    concepts: [complaint, damaged, preview, format, https]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/insurance/1tk0p9l.md#c3"
-    char_span: [4015, 4380]
+    char_span: [4014, 4379]
     sentence_count: 5
     key_terms: [electrical, adjuster, hire, roof, electrician, lightning, listening, engineer]
+    concepts: [electrical, adjuster]
     section: Comments
     token_count: 78
 ---

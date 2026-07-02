@@ -21,21 +21,26 @@ chunks:
     char_span: [0, 1846]
     sentence_count: 8
     key_terms: [sessions, log, benchmark, hdfs, machinelearning, anomaly, around, model]
+    concepts: [sessions, benchmark, machinelearning, anomaly, around]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1sbe0dk/p_i_trained_a_mamba3_log_anomaly_detector_that/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1sbe0dk.md#c1"
     char_span: [1848, 3793]
     sentence_count: 12
     key_terms: [model, template, like, normal, sessions, training, classification, something]
+    concepts: [model, template, normal, sessions, training]
     token_count: 475
   - id: "social-intelligence/reddit-deep/machinelearning/1sbe0dk.md#c2"
     char_span: [3795, 5451]
     sentence_count: 11
     key_terms: [d50ff21226e9aa97c2c0bbefed77be5dd8389cb8, thunderbird, experiment, automated, reading, papers, spirit, tuning]
+    concepts: [thunderbird, experiment, automated, reading, papers]
     token_count: 393
   - id: "social-intelligence/reddit-deep/machinelearning/1sbe0dk.md#c3"
     char_span: [5465, 7206]
     sentence_count: 5
     key_terms: [dataset, scores, static, retrospective, keogh, credibility, hdfs, algorithm]
+    concepts: [retrospective, dataset, scores, static, credibility]
     section: Comments
     token_count: 379
 ---

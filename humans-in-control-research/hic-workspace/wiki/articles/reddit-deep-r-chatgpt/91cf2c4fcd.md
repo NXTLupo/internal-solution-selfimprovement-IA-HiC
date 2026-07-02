@@ -18,21 +18,26 @@ chunks:
     char_span: [0, 2256]
     sentence_count: 17
     key_terms: [car, electricity, simply, autonomous, chatgpt, morning, service, future]
+    concepts: [electricity, autonomous, simply, chatgpt, morning]
     token_count: 465
+    sources: [{"n":"Reddit Deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1rtnlo3/the_future_of_ai_in_our_everyday_lives_how_we/"}]
   - id: "articles/reddit-deep-r-chatgpt/91cf2c4fcd.md#c1"
     char_span: [2258, 4597]
     sentence_count: 22
     key_terms: [groceries, order, car, generate, simply, entertainment, units, game]
+    concepts: [groceries, order, generate, entertainment, simply]
     token_count: 466
   - id: "articles/reddit-deep-r-chatgpt/91cf2c4fcd.md#c2"
     char_span: [4599, 7197]
     sentence_count: 20
     key_terms: [work, people, services, economy, evolved, administrative, infrastructure, conversation]
+    concepts: [people, services, administrative, infrastructure, economy]
     token_count: 510
   - id: "articles/reddit-deep-r-chatgpt/91cf2c4fcd.md#c3"
     char_span: [7199, 8760]
     sentence_count: 12
     key_terms: [create, openai, game, character, subreddit, concerns, together, whatever]
+    concepts: [create, openai, character, subreddit, concerns]
     token_count: 381
 ---
 # The future of AI in our everyday lives | How we probably won’t avoid it - or won’t even want to :)

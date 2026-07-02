@@ -19,71 +19,86 @@ chunks:
     char_span: [0, 2037]
     sentence_count: 21
     key_terms: [cscareerquestions, expectations, friendships, everything, microsoft, something, comments, honestly]
+    concepts: [cscareerquestions, expectations, friendships, everything, microsoft]
     token_count: 449
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1pj9hj2/joined_microsoft_as_a_new_grad_and_im_miserable/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c1"
     char_span: [2051, 3725]
     sentence_count: 9
     key_terms: [work, fulfillment, happiness, outside, sufficiently, diversified, performance, describing]
+    concepts: [fulfillment, happiness, outside, sufficiently, diversified]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c2"
     char_span: [3727, 5628]
     sentence_count: 12
     key_terms: [work, job, life, people, minimum, outside, invest, single]
+    concepts: [people, minimum, outside, invest, single]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c4"]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c3"
     char_span: [5630, 7504]
     sentence_count: 18
     key_terms: [everything, job, great, lot, previous, satisfaction, big, new]
+    concepts: [everything, great, previous, satisfaction, management]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c4"
     char_span: [7506, 9312]
     sentence_count: 13
     key_terms: [work, outside, live, people, "don't", going, find, job]
+    concepts: [outside, people, activities, "don't", going]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c2"]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c5"
     char_span: [9314, 9954]
     sentence_count: 2
     key_terms: [redact, abadasscutiepie, skateboarding, trexroboparty, attraction, abounding, introvert, tomica018]
+    concepts: [redact]
     section: Comments
     token_count: 168
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c6"
     char_span: [9956, 12137]
     sentence_count: 14
     key_terms: [people, find, like, groups, team, group, try, microsoft]
+    concepts: [people, groups, group, microsoft, activity]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c7"
     char_span: [12139, 14160]
     sentence_count: 15
     key_terms: [dysfunctional, asdfdelta, big, better, dysfunction, environment, performance, tech]
+    concepts: [dysfunctional, asdfdelta, better, dysfunction, environment]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c8"
     char_span: [14162, 16164]
     sentence_count: 20
     key_terms: [work, microsoft, asdfdelta, add, big, problems, feeling, through]
+    concepts: [microsoft, asdfdelta, problems, feeling, through]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c9"
     char_span: [16166, 17692]
     sentence_count: 11
     key_terms: [work, startup, big, like, tech, perfection, yourself, current]
+    concepts: [startup, perfection, yourself, current, friends]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c10"
     char_span: [17694, 19605]
     sentence_count: 20
     key_terms: [big, job, work, abadasscutiepie, people, time, want, complete]
+    concepts: [abadasscutiepie, people, complete, position, anxiety]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c11"
     char_span: [19607, 20498]
     sentence_count: 8
     key_terms: [soul-sucking, beginning, smaller, prefer, place, end, feel, left]
+    concepts: [soul-sucking, beginning, smaller, prefer, place]
     section: Comments
     token_count: 202
 ---

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 817]
     sentence_count: 7
     key_terms: [careerguidance, internship, comments, months, summer, switch, roles, fall]
+    concepts: [careerguidance, internship, comments, months, summer]
     token_count: 193
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tdes5d/advice_on_how_to_transition_from_my_summer/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tdes5d.md#c1"
     char_span: [831, 1495]
     sentence_count: 1
     key_terms: [strategy, antique-search-4653, fall, work, opportunities, happyloverss, departments, connection]
+    concepts: [strategy]
     section: Comments
     token_count: 140
 ---

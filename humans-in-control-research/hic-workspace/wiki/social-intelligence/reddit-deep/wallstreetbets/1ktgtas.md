@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 266]
     sentence_count: 3
     key_terms: [wallstreetbets, comments, news, wsb, dylanologist, reddit-deep, stupidity, assigned]
+    concepts: [wallstreetbets, comments]
     token_count: 77
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1ktgtas/wsb_in_the_news/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ktgtas.md#c1"
     char_span: [280, 1640]
     sentence_count: 3
     key_terms: [wife, wsb, degeneracy, marriage, discord, https, total, euphoric-bet-8577]
+    concepts: [degeneracy, marriage, discord, https, total]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ktgtas.md#c2"
     char_span: [1642, 3197]
     sentence_count: 4
     key_terms: [wealthsimple, emote, img, lol, post, because, called, brownbritishbrothers]
+    concepts: [wealthsimple, emote, because, called]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ktgtas.md#c3"
     char_span: [3021, 4603]
     sentence_count: 6
     key_terms: [news, incidentsome4403, deleted, though, benzinga, article, reddit, tarheelsrule441]
+    concepts: [incidentsome4403, deleted, though, benzinga, article]
     section: Comments
     token_count: 508
 ---

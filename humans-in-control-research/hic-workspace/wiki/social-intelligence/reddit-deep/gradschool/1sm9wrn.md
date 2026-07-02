@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 2217]
     sentence_count: 19
     key_terms: [gpa, art, school, admissions, university, classes, program, retake]
+    concepts: [admissions, university, school, classes, program]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sm9wrn.md#c2"]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1sm9wrn/admissions_encouraged_me_to_apply_despite_low_gpa/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1sm9wrn.md#c1"
     char_span: [2231, 4048]
     sentence_count: 22
     key_terms: [apply, got, cinnamonstixxxx, application, get, work, everything, wanted]
+    concepts: [apply, cinnamonstixxxx, application, everything, wanted]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/gradschool/1sm9wrn.md#c2"
     char_span: [4050, 5642]
     sentence_count: 18
     key_terms: [gpa, apply, program, got, grad, admissions, yourself, essay]
+    concepts: [apply, program, admissions, yourself, essay]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sm9wrn.md#c0"]
     section: Comments
     token_count: 408
 ---

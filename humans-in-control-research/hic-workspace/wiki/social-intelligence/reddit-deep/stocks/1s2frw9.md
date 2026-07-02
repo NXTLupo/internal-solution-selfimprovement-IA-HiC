@@ -19,22 +19,29 @@ chunks:
     char_span: [0, 2121]
     sentence_count: 11
     key_terms: [stocks, people, because, buying, completely, market, complacency, dip]
+    concepts: [stocks, people, because, completely, buying]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1s2frw9.md#c7"]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1s2frw9/people_are_not_ready_for_a_crash/"}]
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c1"
     char_span: [2123, 2701]
     sentence_count: 5
     key_terms: [stocks, money, last, complacency, conclusion, government, millennium, ancestors]
+    concepts: [stocks, money]
     token_count: 131
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c2"
     char_span: [2715, 4435]
     sentence_count: 16
     key_terms: [people, market, crash, ready, cash, time, trillions, instead]
+    concepts: [people, market, crash, ready, trillions]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1s2frw9.md#c7"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c3"
     char_span: [4437, 6402]
     sentence_count: 15
     key_terms: [ready, strategy, buy, shit, standard, fearful, "there's", without]
+    concepts: [ready, strategy, standard, fearful, "there's"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c4"
@@ -47,36 +54,43 @@ chunks:
     char_span: [6529, 8108]
     sentence_count: 17
     key_terms: [tradingdeck1, positions, comments, reddit, gonna, https, right, wrong]
+    concepts: [tradingdeck1, positions, comments, reddit, gonna]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c6"
     char_span: [8110, 9046]
     sentence_count: 6
     key_terms: [middle, people, trainingjellyfish643, times, east, keep, okay, unprecedented]
+    concepts: [middle, people, times]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c7"
     char_span: [9048, 10165]
     sentence_count: 4
     key_terms: [invested, buying, people, crash, money, "it's", like, man]
+    concepts: [invested, buying, people, crash, money]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1s2frw9.md#c0", "social-intelligence/reddit-deep/stocks/1s2frw9.md#c2"]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c8"
     char_span: [10168, 11802]
     sentence_count: 6
     key_terms: [global, dollar, "don't", march, pound, worse, does, here]
+    concepts: [global, dollar, "don't", march, pound]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c9"
     char_span: [11804, 13133]
     sentence_count: 4
     key_terms: [bought, internationaltwo3191, successful-bobcat701, feels, carrierarearrived, getup4thedownvote, llm, puts]
+    concepts: [bought, feels]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c10"
     char_span: [13135, 14156]
     sentence_count: 7
     key_terms: [market, year, defaulting, searches, banks, since, present-fudge-3156, dontforgetthedivy]
+    concepts: [market, defaulting, searches, banks, since]
     section: Comments
     token_count: 296
 ---

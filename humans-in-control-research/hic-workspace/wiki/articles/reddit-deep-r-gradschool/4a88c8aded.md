@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1859]
     sentence_count: 5
     key_terms: [applied, cal, programs, rejected, don, msw, experience, gradschool]
+    concepts: [applied, programs, rejected, experience, gradschool]
     token_count: 462
+    sources: [{"n":"Reddit Deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rohwqb/ive_just_been_rejected_from_every_grad_school_i/"}]
 ---
 # I’ve just been rejected from every grad school i applied too
 

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1932]
     sentence_count: 6
     key_terms: [compression, omnistack-rs, users, benchmark, kernel, deeplearning, personalized, quantization]
+    concepts: [compression, omnistack-rs, benchmark, users, deeplearning]
     token_count: 500
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1t3qu7o/p_i_built_a_triton_kvcache_compression_engine/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1t3qu7o.md#c1"
     char_span: [1934, 2365]
     sentence_count: 5

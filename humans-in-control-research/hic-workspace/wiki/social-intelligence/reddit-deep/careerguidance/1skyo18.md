@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1247]
     sentence_count: 8
     key_terms: [careerguidance, recreational, "i've", management, comments, learning, skills, "i'm"]
+    concepts: [careerguidance, recreational, management, comments, learning]
     token_count: 281
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1skyo18/careers_or_jobs_with_leadership_skills_that_arent/"}]
 ---
 # Careers or jobs with leadership skills, that aren't management?
 

@@ -14,54 +14,63 @@ chunks:
     char_span: [0, 1936]
     sentence_count: 6
     key_terms: [strategy, transformation, alternative, description, containing, anti-slop, detection, diagnosis]
+    concepts: [strategy, transformation, alternative, description, containing]
     section: "AP-STRATEGY-01: Goals Masquerading as Strategy / AP-STRATEGY-02: Fluff (Buzzwords Disguised as Concepts)"
     token_count: 402
   - id: "anti-patterns/strategy.md#c1"
     char_span: [1988, 2797]
     sentence_count: 5
     key_terms: [diagnosis, identifying, challenge, central, problem, without, avoids, naming]
+    concepts: [diagnosis, identifying, challenge, central, problem]
     section: "AP-STRATEGY-03: Failure to Face the Challenge"
     token_count: 143
   - id: "anti-patterns/strategy.md#c2"
     char_span: [2844, 3517]
     sentence_count: 3
     key_terms: [objectives, objective, without, cross-functional, accountability, organization, alternative, description]
+    concepts: [objectives, objective, without]
     section: "AP-STRATEGY-04: Bad Strategic Objectives"
     token_count: 134
   - id: "anti-patterns/strategy.md#c3"
     char_span: [3557, 4324]
     sentence_count: 4
     key_terms: [pillars, sustainability, strategic, customer, strategy, data, prioritization, transformation]
+    concepts: [sustainability, pillars, strategic, customer, strategy]
     section: "AP-STRATEGY-05: Boiling the Ocean"
     token_count: 170
   - id: "anti-patterns/strategy.md#c4"
     char_span: [4366, 4944]
     sentence_count: 2
     key_terms: [actions, specific, timeline, policy, domain-specific, recommendations, implementation, one-sentence]
+    concepts: [actions, specific, timeline, policy]
     section: "AP-STRATEGY-06: No Coherent Actions"
     token_count: 112
   - id: "anti-patterns/strategy.md#c5"
     char_span: [4988, 5619]
     sentence_count: 4
     key_terms: [investment, strategy, premium, service, conflict-averse, simultaneously, acknowledging, "stakeholder's"]
+    concepts: [investment, strategy, premium, service]
     section: "AP-STRATEGY-07: Kitchen Sink Strategy"
     token_count: 123
   - id: "anti-patterns/strategy.md#c6"
     char_span: [5665, 6270]
     sentence_count: 5
     key_terms: [investment, breakeven, modeling, month, npv, year, recommendation, recommending]
+    concepts: [investment, breakeven, modeling, month]
     section: "AP-STRATEGY-08: Missing Investment Case"
     token_count: 154
   - id: "anti-patterns/strategy.md#c7"
     char_span: [6306, 6778]
     sentence_count: 1
     key_terms: [sprint, comprehensiveness, days, fix, alternative, description, initiatives, deflection]
+    concepts: [sprint]
     section: "AP-STRATEGY-09: No Quick Wins"
     token_count: 115
   - id: "anti-patterns/strategy.md#c8"
     char_span: [6835, 7450]
     sentence_count: 5
     key_terms: [communication, audience, town, communications, segmentation, stakeholders, alternative, description]
+    concepts: [communication, audience]
     section: "AP-STRATEGY-10: Communication Plan as Afterthought"
     token_count: 123
 ---

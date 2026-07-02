@@ -19,35 +19,45 @@ chunks:
     char_span: [0, 1761]
     sentence_count: 20
     key_terms: [job, developer, software, working, careerguidance, years, got, comments]
+    concepts: [developer, software, careerguidance, working, years]
     token_count: 429
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1nqwpv1/can_i_become_a_programmer_at_38/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c1"
     char_span: [1775, 3535]
     sentence_count: 12
     key_terms: ["it's", today, years, get, job, market, being, refusals]
+    concepts: [today, years, market, being, refusals]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c2", "social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c4"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c2"
     char_span: [3537, 4186]
     sentence_count: 8
     key_terms: [anymore, years, market, field, ago, get, developers, rejections]
+    concepts: [anymore, years, market, field]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c1"]
     section: Comments
     token_count: 156
   - id: "social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c3"
     char_span: [4188, 6287]
     sentence_count: 10
     key_terms: [code, outlier, job, work, yourself, writing, degree, market]
+    concepts: [outlier, yourself, writing, degree, market]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c4"
     char_span: [6042, 8122]
     sentence_count: 16
     key_terms: [years, yourself, dyslechtchitect, being, job, life, different, anything]
+    concepts: [dyslechtchitect, years, yourself, being, different]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c5"
     char_span: [7870, 8978]
     sentence_count: 9
     key_terms: ["it's", language, possible, "that's", focus, grit, like, real]
+    concepts: [language, possible, "that's", focus]
     section: Comments
     token_count: 261
 ---

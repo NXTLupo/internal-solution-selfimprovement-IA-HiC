@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 276]
     sentence_count: 2
     key_terms: [careerguidance, comments, reddit-deep, guidance, student, career, posted, reddit]
+    concepts: [careerguidance, comments]
     token_count: 84
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sk7fo9/career_guidance_for_bsc_stats_ecobba_student/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sk7fo9.md#c1"
     char_span: [290, 1020]
     sentence_count: 4
     key_terms: [business, aimed, roles, data, show, transactions, description, internships]
+    concepts: [business, aimed, roles]
     section: Comments
     token_count: 152
 ---

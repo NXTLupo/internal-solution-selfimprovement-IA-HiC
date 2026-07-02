@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 915]
     sentence_count: 7
     key_terms: [engineering-related, engineeringstudents, opportunities, communities, orgs, volunteer, comments, students]
+    concepts: [engineering-related, engineeringstudents, opportunities, communities, volunteer]
     token_count: 204
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1omhxyy/any_engineeringrelated_orgs_or_opportunities_open/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1omhxyy.md#c1"
     char_span: [929, 1988]
     sentence_count: 9
     key_terms: [asme, join, because, greek, maybe, fitatmosphere1256, multidisciplinary, aiaa]
+    concepts: [because, greek, maybe]
     section: Comments
     token_count: 274
 ---

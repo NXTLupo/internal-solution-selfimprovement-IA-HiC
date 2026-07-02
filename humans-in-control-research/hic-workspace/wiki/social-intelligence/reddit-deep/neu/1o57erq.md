@@ -19,23 +19,32 @@ chunks:
     char_span: [0, 1691]
     sentence_count: 19
     key_terms: [everyone, here, experience, year, friends, support, better, academic]
+    concepts: [everyone, experience, friends, support, better]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1o57erq.md#c5"]
     token_count: 396
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1o57erq/currently_the_worst_experience_ever_in_oakland/"}]
   - id: "social-intelligence/reddit-deep/neu/1o57erq.md#c1"
     char_span: [1705, 3507]
     sentence_count: 20
     key_terms: [northeastern, people, experience, don, like, campus, butchunicorn, because]
+    concepts: [northeastern, people, experience, butchunicorn, campus]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1o57erq.md#c2", "social-intelligence/reddit-deep/neu/1o57erq.md#c3"]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/neu/1o57erq.md#c2"
     char_span: [3509, 4860]
     sentence_count: 12
     key_terms: [explore, campus, experience, student, define, great, staff, bay]
+    concepts: [explore, campus, experience, student, define]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1o57erq.md#c1"]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/neu/1o57erq.md#c3"
     char_span: [4862, 7021]
     sentence_count: 13
     key_terms: [campus, year, oakland, mrspicypotato, unfortunately, northeastern, years, bay]
+    concepts: [campus, mrspicypotato, unfortunately, oakland, northeastern]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1o57erq.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1o57erq.md#c4"
@@ -48,12 +57,15 @@ chunks:
     char_span: [7030, 9013]
     sentence_count: 11
     key_terms: [people, everyone, here, friends, oakland, support, drink, hours]
+    concepts: [people, everyone, friends, oakland, support]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1o57erq.md#c0"]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/neu/1o57erq.md#c6"
     char_span: [9015, 11293]
     sentence_count: 17
     key_terms: [campus, professors, mills, bart, station, transit, grouchyegg9380, going]
+    concepts: [campus, professors, mills, grouchyegg9380, station]
     section: Comments
     token_count: 509
 ---

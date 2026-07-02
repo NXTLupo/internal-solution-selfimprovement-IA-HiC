@@ -19,53 +19,65 @@ chunks:
     char_span: [0, 976]
     sentence_count: 7
     key_terms: [completely, comments, feels, right, years, been, get, job]
+    concepts: [completely, comments, feels, right, years]
     token_count: 223
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1tjlq91/is_anyone_else_genuinely_terrified_about_the/"}]
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c1"
     char_span: [990, 2903]
     sentence_count: 19
     key_terms: [people, departments, work, contract, already, better, faster, single]
+    concepts: [people, departments, contract, already, better]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c2"
     char_span: [2905, 4745]
     sentence_count: 12
     key_terms: [seeing, companies, layoffs, numbers, years, billionares, job, creation]
+    concepts: [seeing, companies, layoffs, numbers, billionares]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c3"
     char_span: [4750, 5848]
     sentence_count: 10
     key_terms: [ubi, something, universal, support, having, states, "that's", maybe]
+    concepts: [something, universal, support, having, states]
     section: Comments
     token_count: 237
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c4"
     char_span: [5850, 6928]
     sentence_count: 6
     key_terms: [experience, pressure, applesbananasrhinoc, doubt, knew, like, expectations, restrictions]
+    concepts: [experience, pressure, doubt]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c5"
     char_span: [6930, 8643]
     sentence_count: 14
     key_terms: [job, people, going, because, market, collapse, probably, awful]
+    concepts: [people, going, because, market, collapse]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c6"
     char_span: [8645, 11100]
     sentence_count: 13
     key_terms: [collective, power, understanding, ruling, class, leverage, boomers, housing]
+    concepts: [collective, power, understanding, ruling, leverage]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1tjlq91.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c7"
     char_span: [11103, 13525]
     sentence_count: 15
     key_terms: [collective, public, power, capable, people, understanding, stand, imagination]
+    concepts: [collective, public, power, understanding, capable]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1tjlq91.md#c6"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c8"
     char_span: [13527, 15506]
     sentence_count: 16
     key_terms: [like, office, hopelessness, politicians, "it's", because, "doesn't", wealthy]
+    concepts: [hopelessness, office, politicians, because, "doesn't"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c9"

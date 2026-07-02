@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 1099]
     sentence_count: 12
     key_terms: [experience, fair, internship, comments, college, connect, planned, advice]
+    concepts: [experience, internship, comments, college, connect]
     token_count: 268
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1r1ra3y/first_career_fair_advice/"}]
   - id: "social-intelligence/reddit-deep/college/1r1ra3y.md#c1"
-    char_span: [1114, 2775]
+    char_span: [1113, 2774]
     sentence_count: 9
     key_terms: [people, application, get, internship, because, looking, advice, doing]
+    concepts: [people, application, internship, because, looking]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/college/1r1ra3y.md#c2"
-    char_span: [2777, 5061]
+    char_span: [2776, 5060]
     sentence_count: 11
     key_terms: [professional, jobs, internships, ask, like, accounting, experience, interested]
+    concepts: [professional, internships, accounting, experience, interested]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/college/1r1ra3y.md#c3"
-    char_span: [5063, 6361]
+    char_span: [5062, 6360]
     sentence_count: 8
     key_terms: [recruiter, company, like, work, deloitte, specific, college, interns]
+    concepts: [recruiter, company, deloitte, specific, college]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/college/1r1ra3y.md#c4"
-    char_span: [6363, 8088]
+    char_span: [6362, 8087]
     sentence_count: 10
     key_terms: [internship, environment, get, like, talk, trip, week, structured]
+    concepts: [internship, environment, structured, something, suggest]
     section: Comments
     token_count: 399
 ---

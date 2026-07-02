@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1189]
     sentence_count: 9
     key_terms: [waterloo, mental-health, psychologist, assessments, adhd, referrals, comments, helpful]
+    concepts: [waterloo, mental-health, psychologist, assessments, referrals]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1pgav5a/where_do_people_in_waterloo_actually_get_mental/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1pgav5a.md#c1"
     char_span: [1203, 2655]
     sentence_count: 11
     key_terms: [children-youth-families, assessment, definitely, services, therapy, through, cmhaww, search]
+    concepts: [children-youth-families, assessment, definitely, services, therapy]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1pgav5a.md#c3"]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/waterloo/1pgav5a.md#c2"
     char_span: [2657, 4889]
     sentence_count: 23
     key_terms: [psychiatrist, free, therapy, health, trying, visits, insurances, like]
+    concepts: [psychiatrist, therapy, insurances, health, trying]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/waterloo/1pgav5a.md#c3"
     char_span: [4891, 6979]
     sentence_count: 7
     key_terms: [get, help, assessment, medication, therapist, able, started, therapy]
+    concepts: [assessment, medication, therapist, started, therapy]
+    related_chunks: ["social-intelligence/reddit-deep/waterloo/1pgav5a.md#c1"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/waterloo/1pgav5a.md#c4"

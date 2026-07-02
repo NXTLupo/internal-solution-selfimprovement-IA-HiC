@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 332]
     sentence_count: 2
     key_terms: [careerguidance, comments, l00k1ng4abetterl1fe, cross-cultural, early-career, opportunity, reddit-deep, translator]
+    concepts: [careerguidance, comments]
     token_count: 92
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1q98bei/earlycareer_translator_slowly_turned_into_shadow/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1q98bei.md#c1"
     char_span: [334, 2680]
     sentence_count: 17
     key_terms: [work, without, management, translator, being, local, long-term, responsibilities]
+    concepts: [without, management, translator, responsibilities, long-term]
     token_count: 448
   - id: "social-intelligence/reddit-deep/careerguidance/1q98bei.md#c2"
     char_span: [2694, 3191]

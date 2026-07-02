@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 706]
     sentence_count: 3
     key_terms: [team, comments, managers, remote, tech, underestimated, collaboration, relationships]
+    concepts: [comments, managers, remote]
     token_count: 163
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1rp6pvs/my_tech_team_needs_remote_work_collaboration_tools/"}]
   - id: "social-intelligence/reddit-deep/managers/1rp6pvs.md#c1"
     char_span: [720, 2757]
     sentence_count: 13
     key_terms: [remote, meeting, people, going, inclusion, something, together, problem]
+    concepts: [remote, meeting, people, going, inclusion]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/managers/1rp6pvs.md#c2"
     char_span: [2759, 4970]
     sentence_count: 23
     key_terms: [people, team, discussions, pair, something, anything, strategy, monthly]
+    concepts: [people, discussions, something, anything, strategy]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/managers/1rp6pvs.md#c3"
     char_span: [4972, 5303]
     sentence_count: 3
     key_terms: [frosted, meetings, junketacceptable1216, video, collaboration, presence, consent, inspire]
+    concepts: [frosted, meetings, video]
     section: Comments
     token_count: 78
 ---

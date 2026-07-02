@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1985]
     sentence_count: 13
     key_terms: [gen-z-feels-financially-insecure-here-s-what-it-means-for-your-credit-choices, feels, credit, https, money, been, feel, like]
+    concepts: [feels, credit, everything, https, money]
     token_count: 458
+    sources: [{"n":"Reddit Deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1oanoga/does_anyone_else_feel_like_money_anxiety_is_just/"}]
   - id: "articles/reddit-deep-r-genz/f6ac92e1eb.md#c1"
     char_span: [1988, 3905]
     sentence_count: 9
     key_terms: [enough, prosperity, money, food, good, generation, resources, anxiety]
+    concepts: [prosperity, enough, money, generation, resources]
     token_count: 425
 ---
 # Does anyone else feel like money anxiety is just a part of being Gen Z?

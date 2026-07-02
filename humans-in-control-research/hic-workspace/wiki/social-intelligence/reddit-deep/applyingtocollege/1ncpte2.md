@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1923]
     sentence_count: 14
     key_terms: [college, applyingtocollege, significantly, get, benefits, comments, classes, credits]
+    concepts: [college, applyingtocollege, significantly, benefits, comments]
     token_count: 450
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1ncpte2/benefits_of_going_to_a_college_with_a_higher/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ncpte2.md#c1"
     char_span: [1937, 3363]
     sentence_count: 14
     key_terms: [school, experience, especially, selective, ben-ma, "you're", point, years]
+    concepts: [school, experience, especially, selective, ben-ma]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ncpte2.md#c2"
     char_span: [3365, 5233]
     sentence_count: 14
     key_terms: [undergraduate, students, school, graduate, universities, grade, top, colleges]
+    concepts: [undergraduate, students, school, graduate, universities]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ncpte2.md#c3"
     char_span: [5235, 7441]
     sentence_count: 15
     key_terms: [ivy, honors, state, grad, university, colleges, flagship, programs]
+    concepts: [honors, state, university, colleges, flagship]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ncpte2.md#c4"
     char_span: [7443, 8255]
     sentence_count: 7
     key_terms: [carnegie, because, getting, rutgers, either, mellon, opportunities, undergraduate]
+    concepts: [carnegie, because, getting, rutgers, either]
     section: Comments
     token_count: 180
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ncpte2.md#c5"
     char_span: [8257, 9875]
     sentence_count: 4
     key_terms: [school, kooky-task-7582, college, credits, rutgers, chose, state, scholarship]
+    concepts: [school, kooky-task-7582, college, credits, rutgers]
     section: Comments
     token_count: 452
 ---

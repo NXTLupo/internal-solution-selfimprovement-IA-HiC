@@ -21,16 +21,23 @@ chunks:
     char_span: [0, 2831]
     sentence_count: 20
     key_terms: [psychology, applied, students, behaviour, psychological, undergraduate, program, social]
+    concepts: [psychology, applied, students, psychological, behaviour]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1r9mjrv.md#c1", "social-intelligence/reddit-deep/careerguidance/1r9mjrv.md#c2"]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1r9mjrv/understanding_people_in_real_life_what_a_ma/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1r9mjrv.md#c1"
     char_span: [2833, 6076]
     sentence_count: 19
     key_terms: [psychology, applied, students, learning, academic, behaviour, subjects, undergraduate]
+    concepts: [psychology, students, applied, learning, academic]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1r9mjrv.md#c0", "social-intelligence/reddit-deep/careerguidance/1r9mjrv.md#c2"]
     token_count: 509
   - id: "social-intelligence/reddit-deep/careerguidance/1r9mjrv.md#c2"
     char_span: [6078, 6888]
     sentence_count: 3
     key_terms: [psychology, applied, undergraduate, students, degree, personal-bit-295, institutions, postgraduate]
+    concepts: [psychology, undergraduate, applied, students, degree]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1r9mjrv.md#c0", "social-intelligence/reddit-deep/careerguidance/1r9mjrv.md#c1"]
     section: Comments
     token_count: 142
 ---

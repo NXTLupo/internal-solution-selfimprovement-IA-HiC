@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1824]
     sentence_count: 8
     key_terms: [workspace, email, agents, rendering, formatting, agent, workflows, gpt]
+    concepts: [workspace, email, rendering, agents, formatting]
     token_count: 357
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1t5bqpv/workspace_gpt_agents_keep_rendering_email_drafts/"}]
 ---
 # Workspace GPT Agents keep rendering email drafts as plain text instead of edit UI
 

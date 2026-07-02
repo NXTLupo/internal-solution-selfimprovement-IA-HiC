@@ -20,40 +20,48 @@ chunks:
     char_span: [0, 2252]
     sentence_count: 16
     key_terms: [anthropic, entrepreneur, something, comments, workflow, changes, content, english]
+    concepts: [anthropic, entrepreneur, something, comments, workflow]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1snchax/anthropic_just_made_it_possible_to_build_ai/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1snchax.md#c1"
     char_span: [2254, 2897]
     sentence_count: 6
     key_terms: [because, output, people, line, look, infrastructure, experiment, production]
+    concepts: [because, output, people]
     token_count: 130
   - id: "social-intelligence/reddit-deep/entrepreneur/1snchax.md#c2"
-    char_span: [2912, 5143]
+    char_span: [2911, 5142]
     sentence_count: 5
     key_terms: [entrepreneur, please, company, percent, output, kind, line, post]
+    concepts: [entrepreneur, please, company, percent, output]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/entrepreneur/1snchax.md#c3"
-    char_span: [5147, 7380]
+    char_span: [5146, 7379]
     sentence_count: 6
     key_terms: [better, found, temperature, enrichment, workflows, relevant, tweaking, content]
+    concepts: [better, temperature, enrichment, found, workflows]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/entrepreneur/1snchax.md#c4"
-    char_span: [7382, 8767]
+    char_span: [7381, 8766]
     sentence_count: 4
     key_terms: [agent, research, validation, accuracy, citation, linkedin, company, across]
+    concepts: [agent, research, validation, accuracy, citation]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/entrepreneur/1snchax.md#c5"
-    char_span: [8771, 10507]
+    char_span: [8770, 10506]
     sentence_count: 10
     key_terms: [api, knowledge, accuracy, business, workflow, through, claude, people]
+    concepts: [knowledge, accuracy, business, workflow, through]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/entrepreneur/1snchax.md#c6"
-    char_span: [10509, 12138]
+    char_span: [10508, 12137]
     sentence_count: 11
     key_terms: ["it's", claude, openclaw, spreadsheet, like, drunkmonk2, different, connects]
+    concepts: [claude, openclaw, spreadsheet, drunkmonk2, different]
     section: Comments
     token_count: 425
 ---

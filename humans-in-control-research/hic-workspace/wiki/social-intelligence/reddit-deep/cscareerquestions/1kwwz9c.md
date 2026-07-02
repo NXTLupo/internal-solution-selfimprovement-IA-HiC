@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 459]
     sentence_count: 5
     key_terms: [cscareerquestions, want, comments, career, path, reddit-deep, direction, children]
+    concepts: [cscareerquestions, comments, career]
     token_count: 133
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1kwwz9c/i_need_cs_for_the_cj_career_path_that_i_want/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kwwz9c.md#c1"
     char_span: [473, 674]
     sentence_count: 1

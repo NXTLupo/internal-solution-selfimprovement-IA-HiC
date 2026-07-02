@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1185]
     sentence_count: 14
     key_terms: [experience, graphic, design, careerguidance, market, comments, social, media]
+    concepts: [experience, graphic, design, careerguidance, market]
     token_count: 269
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rvsgwv/graphic_design_career_pivot_due_to_bad_job_market/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rvsgwv.md#c1"
     char_span: [1199, 2076]
     sentence_count: 8
     key_terms: [applying, better, build, since, seriousgourmetshit, like, work, coordination]
+    concepts: [applying, better, build, since]
     section: Comments
     token_count: 179
 ---

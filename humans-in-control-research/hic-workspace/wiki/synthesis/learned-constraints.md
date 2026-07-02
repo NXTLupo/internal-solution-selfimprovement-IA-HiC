@@ -1,9 +1,111 @@
 ---
+id: synthesis/learned-constraints.md
 title: Learned Constraints
 type: synthesis
 updated: 2026-06-12
+chunks:
+  - id: "synthesis/learned-constraints.md#c0"
+    char_span: [0, 87]
+    sentence_count: 1
+    key_terms: [auto-generated, constraints, patterns, research, sessions, learned, across, edit]
+    token_count: 14
+  - id: "synthesis/learned-constraints.md#c1"
+    char_span: [89, 2186]
+    sentence_count: 8
+    key_terms: [density, dense, case-study, design-system, constraint, variants, slidetostagehtml, hashtag]
+    concepts: [density, case-study, dense, design-system, constraint]
+    related_chunks: ["synthesis/learned-constraints.md#c2"]
+    token_count: 512
+    sources: [{"n":"user, confidence 1.0","u":""}]
+  - id: "synthesis/learned-constraints.md#c2"
+    char_span: [1942, 3976]
+    sentence_count: 8
+    key_terms: [claude-fable-5, constraint, outcome, named, qualitative, chat, case-study, confidence]
+    concepts: [claude-fable-5, constraint, outcome, qualitative, case-study]
+    related_chunks: ["synthesis/learned-constraints.md#c1"]
+    token_count: 512
+    sources: [{"n":"user, confidence 1.0","u":""}]
+  - id: "synthesis/learned-constraints.md#c3"
+    char_span: [3689, 5839]
+    sentence_count: 9
+    key_terms: [confidence, constraint, audit, never, source, skill, stage, inspiration]
+    concepts: [confidence, constraint, audit, never, source]
+    related_chunks: ["synthesis/learned-constraints.md#c4", "synthesis/learned-constraints.md#c5", "synthesis/learned-constraints.md#c6", "synthesis/learned-constraints.md#c7", "synthesis/learned-constraints.md#c8"]
+    token_count: 512
+    sources: [{"n":"auto+user, confidence 0.95","u":""},{"n":"user, confidence 1.0","u":""},{"n":"live export audit, confidence 1.0","u":""}]
+  - id: "synthesis/learned-constraints.md#c4"
+    char_span: [5613, 7717]
+    sentence_count: 7
+    key_terms: [confidence, constraint, user, source, variablecollectionid, never, subjects, design-system]
+    concepts: [confidence, constraint, variablecollectionid, source, never]
+    related_chunks: ["synthesis/learned-constraints.md#c3", "synthesis/learned-constraints.md#c5", "synthesis/learned-constraints.md#c6", "synthesis/learned-constraints.md#c7", "synthesis/learned-constraints.md#c8"]
+    token_count: 512
+    sources: [{"n":"user, confidence 1.0","u":""},{"n":"user, confidence 0.9","u":""}]
+  - id: "synthesis/learned-constraints.md#c5"
+    char_span: [7467, 9823]
+    sentence_count: 4
+    key_terms: [source, confidence, constraint, user, never, signals, generating, build]
+    concepts: [confidence, constraint, source, never, signals]
+    related_chunks: ["synthesis/learned-constraints.md#c3", "synthesis/learned-constraints.md#c4", "synthesis/learned-constraints.md#c6", "synthesis/learned-constraints.md#c7", "synthesis/learned-constraints.md#c8"]
+    token_count: 512
+    sources: [{"n":"user, confidence 1.0","u":""},{"n":"user, confidence 0.9","u":""},{"n":"5 feedback signals, confidence 0.85","u":""}]
+  - id: "synthesis/learned-constraints.md#c6"
+    char_span: [9478, 11659]
+    sentence_count: 4
+    key_terms: [confidence, constraint, source, user, never, timeframe, feedback, section]
+    concepts: [confidence, constraint, source, timeframe, never]
+    related_chunks: ["synthesis/learned-constraints.md#c3", "synthesis/learned-constraints.md#c4", "synthesis/learned-constraints.md#c5", "synthesis/learned-constraints.md#c7", "synthesis/learned-constraints.md#c8"]
+    token_count: 512
+    sources: [{"n":"5 feedback signals, confidence 0.85","u":""},{"n":"user, confidence 0.9","u":""},{"n":"user, 2026-06-09, confidence 0.85","u":""},{"n":"user, 2026-06-09, confidence 0.9","u":""},{"n":"4 feedback signals, confidence 0.80","u":""}]
+  - id: "synthesis/learned-constraints.md#c7"
+    char_span: [11383, 13640]
+    sentence_count: 1
+    key_terms: [confidence, constraint, source, user, feedback, signals, generating, brand]
+    concepts: [confidence, constraint, source, feedback, signals]
+    related_chunks: ["synthesis/learned-constraints.md#c3", "synthesis/learned-constraints.md#c4", "synthesis/learned-constraints.md#c5", "synthesis/learned-constraints.md#c6", "synthesis/learned-constraints.md#c8"]
+    token_count: 512
+    sources: [{"n":"4 feedback signals, confidence 0.80","u":""},{"n":"user, confidence 0.9","u":""},{"n":"5 feedback signals, confidence 0.85","u":""},{"n":"user, 2026-06-09, confidence 0.9","u":""},{"n":"user, 2026-06-09, confidence 0.85","u":""},{"n":"4 feedback signals from learning-pass simulation","u":""}]
+  - id: "synthesis/learned-constraints.md#c8"
+    char_span: [13341, 14274]
+    sentence_count: 1
+    key_terms: [constraint, confidence, source, user, slides, row, use, whitespace]
+    concepts: [constraint, confidence, source, slides, whitespace]
+    related_chunks: ["synthesis/learned-constraints.md#c3", "synthesis/learned-constraints.md#c4", "synthesis/learned-constraints.md#c5", "synthesis/learned-constraints.md#c6", "synthesis/learned-constraints.md#c7"]
+    token_count: 210
+    sources: [{"n":"3 feedback signals, confidence 0.75","u":""},{"n":"user, 2026-06-09, confidence 0.85","u":""},{"n":"user, confidence 0.85","u":""}]
+  - id: "synthesis/learned-constraints.md#c9"
+    char_span: [14278, 15668]
+    sentence_count: 7
+    key_terms: [journey, journey-map-in-table-anatomy, matrix-is-the-body, gold, nxt, render, design-system, opportunities]
+    concepts: [journey, journey-map-in-table-anatomy, matrix-is-the-body, design-system, opportunities]
+    token_count: 357
+    sources: [{"n":"user feedback 2026-06-12 + fb_1781292121810, confidence 1.0","u":""},{"n":"build 2026-06-12, confidence 1.0","u":""}]
+  - id: "synthesis/learned-constraints.md#c10"
+    char_span: [15761, 17362]
+    sentence_count: 5
+    key_terms: [confidence, constraint, engagement, fallback, chunk, deliverable, buildmanifestcorpusforgoal, attempts]
+    concepts: [confidence, constraint, engagement, fallback, deliverable]
+    related_chunks: ["synthesis/learned-constraints.md#c3", "synthesis/learned-constraints.md#c4", "synthesis/learned-constraints.md#c5", "synthesis/learned-constraints.md#c6", "synthesis/learned-constraints.md#c7"]
+    section: "2026-06-12 (EVE) - Supercharge P0 execution (source: hic-supercharge-plan-2026-06-12)"
+    token_count: 374
+  - id: "synthesis/learned-constraints.md#c11"
+    char_span: [17366, 19577]
+    sentence_count: 9
+    key_terms: [never, slide, source, confidence, constraint, title, typographic-system, user]
+    concepts: [never, slide, typographic-system, confidence, constraint]
+    related_chunks: ["synthesis/learned-constraints.md#c3", "synthesis/learned-constraints.md#c4", "synthesis/learned-constraints.md#c5", "synthesis/learned-constraints.md#c6", "synthesis/learned-constraints.md#c7"]
+    section: "2026-06-12 (EVE) - Supercharge P0 execution (source: hic-supercharge-plan-2026-06-12)"
+    token_count: 506
+    sources: [{"n":"user feedback 2026-06-12 screenshot, confidence 1.0","u":""},{"n":"user goal 2026-06-14, confidence 1.0","u":""},{"n":"5 feedback signals, confidence 0.85","u":""}]
+  - id: "synthesis/learned-constraints.md#c12"
+    char_span: [19580, 19987]
+    sentence_count: 2
+    key_terms: [render, advancement-alignment-cockpit, proto, state, activescreen, orchestrator, constraint, component]
+    concepts: [render, proto, state]
+    section: "2026-06-12 (EVE) - Supercharge P0 execution (source: hic-supercharge-plan-2026-06-12)"
+    token_count: 94
+    sources: [{"n":"headless render gate 2026-06-17","u":""}]
 ---
-
 # Learned Constraints
 
 Auto-generated from user edit patterns across research sessions.

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1987]
     sentence_count: 9
     key_terms: [school, parents, student, interests, applyingtocollege, college, earlier, started]
+    concepts: [school, parents, student, applyingtocollege, interests]
     token_count: 432
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1pmssxv/parents_who_helped_with_applications_what_did_you/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/be97c29bde.md#c1"
     char_span: [1989, 3852]
     sentence_count: 15
     key_terms: [visit, pretty, shared, essay, scholarship, spreadsheet, college, parents]
+    concepts: [visit, pretty, shared, scholarship, spreadsheet]
     token_count: 444
 ---
 # Parents who helped with applications - what did you wish you started earlier?

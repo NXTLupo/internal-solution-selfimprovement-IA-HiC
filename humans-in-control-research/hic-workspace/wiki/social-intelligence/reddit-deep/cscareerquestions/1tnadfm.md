@@ -21,34 +21,42 @@ chunks:
     char_span: [0, 1566]
     sentence_count: 12
     key_terms: [company, cscareerquestions, low-eng-culture, on-call, feels, comfortable, job, like]
+    concepts: [company, cscareerquestions, low-eng-culture, on-call, comfortable]
     token_count: 379
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tnadfm/going_from_lowengculture_job_to_tech_job/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tnadfm.md#c1"
     char_span: [1568, 2221]
     sentence_count: 7
     key_terms: [because, etc, got, job, experience, interested, recruiters, interview]
+    concepts: [because]
     token_count: 146
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tnadfm.md#c2"
     char_span: [2235, 4235]
     sentence_count: 14
     key_terms: [similar, environment, job, lot, position, people, high, time]
+    concepts: [environment, similar, position, people, another]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tnadfm.md#c3"
     char_span: [4237, 4761]
     sentence_count: 6
     key_terms: [job, current, market, unable-goat7551, unemployable, borderline, personally, stagnation]
+    concepts: [current, market]
     section: Comments
     token_count: 132
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tnadfm.md#c4"
     char_span: [4763, 6456]
     sentence_count: 11
     key_terms: [making, year, percentile, income-percentile-calculator, probably, program, someone, working]
+    concepts: [making, percentile, probably, program, someone]
     section: Comments
     token_count: 446
+    sources: [{"n":"income percentile calculator","u":"https://wealthvieu.com/personal-finance/income/income-percentile-calculator/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tnadfm.md#c5"
     char_span: [6461, 8473]
     sentence_count: 12
     key_terms: [people, risk, job, like, pay, stagnating, company, instead]
+    concepts: [people, stagnating, company, instead, learned]
     section: Comments
     token_count: 506
 ---

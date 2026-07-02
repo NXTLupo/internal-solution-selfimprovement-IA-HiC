@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 515]
     sentence_count: 1
     key_terms: [internships, internship, comments, entry, level, data, job, certification]
+    concepts: [internships, internship, comments, entry, level]
     token_count: 135
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1kxa9c7/hi_i_have_6_months_of_freelancing_experience_in/"}]
   - id: "social-intelligence/reddit-deep/internships/1kxa9c7.md#c1"
     char_span: [529, 2392]
     sentence_count: 14
     key_terms: [data, everything, better, engineering, mukultechai, luck, mix, tech]
+    concepts: [everything, better, engineering, mukultechai, experience]
     section: Comments
     token_count: 420
 ---

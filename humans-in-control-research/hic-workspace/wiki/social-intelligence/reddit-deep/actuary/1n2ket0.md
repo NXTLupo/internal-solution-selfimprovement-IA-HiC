@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 367]
     sentence_count: 2
     key_terms: [comments, actuary, international, descriptions, appreciated, reddit-deep, absolutely, executive]
+    concepts: [comments, actuary]
     token_count: 90
+    sources: [{"n":"reddit-deep: r/actuary","u":"https://www.reddit.com/r/actuary/comments/1n2ket0/entry_level_resume/"}]
   - id: "social-intelligence/reddit-deep/actuary/1n2ket0.md#c1"
-    char_span: [382, 825]
+    char_span: [381, 824]
     sentence_count: 2
     key_terms: [software, summary, trigger, ats, sponsorship, beneficial, experience, rejections]
+    concepts: [software, summary, trigger]
     section: Comments
     token_count: 111
 ---

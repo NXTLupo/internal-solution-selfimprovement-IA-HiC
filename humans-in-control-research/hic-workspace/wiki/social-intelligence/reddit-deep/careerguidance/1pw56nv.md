@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 556]
     sentence_count: 3
     key_terms: [careerguidance, bachelor, comments, bestconstruction191, physics-based, availability, flexibility, reddit-deep]
+    concepts: [careerguidance, bachelor, comments]
     token_count: 136
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pw56nv/what_bachelors_degrees_actually_age_well_toward/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c1"
     char_span: [570, 2495]
     sentence_count: 6
     key_terms: [truck, trades, hospitality, aviation, mechanic, physical, athlete, manager]
+    concepts: [truck, trades, hospitality, aviation, mechanic]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c2"
     char_span: [2497, 3847]
     sentence_count: 15
     key_terms: [military, transportation, job, industry, driver, crash, today, truck]
+    concepts: [military, transportation, industry, driver, crash]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c3"
     char_span: [3849, 5902]
     sentence_count: 15
     key_terms: [engineering, engineers, need, pilots, entertainment, civil, truck, good]
+    concepts: [engineering, engineers, entertainment, pilots, civil]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c4"
     char_span: [5905, 8081]
     sentence_count: 12
     key_terms: [probably, agriculture, engineering, education, business, engineer, specific, because]
+    concepts: [probably, agriculture, engineering, education, business]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c5"
     char_span: [8083, 10108]
     sentence_count: 17
     key_terms: [engineering, work, possible, patient, service, accounting, positions, customer]
+    concepts: [engineering, possible, patient, service, accounting]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c6"
@@ -62,42 +69,49 @@ chunks:
     char_span: [10502, 12448]
     sentence_count: 17
     key_terms: [occupations, patients, nursing, employment, physically, hospitals, projected, openings]
+    concepts: [occupations, patients, nursing, employment, physically]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c8"
     char_span: [12450, 13504]
     sentence_count: 10
     key_terms: [get, hospital, expect, pounds, weight, "don't", hours, shift]
+    concepts: [hospital, expect, pounds, weight, "don't"]
     section: Comments
     token_count: 255
   - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c9"
     char_span: [13507, 15252]
     sentence_count: 14
     key_terms: [nursing, progression, because, science, systems, career, main-assumption7554, far-watercress6658]
+    concepts: [nursing, progression, because, science, systems]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c10"
     char_span: [15254, 17420]
     sentence_count: 12
     key_terms: [undergraduate, because, people, humanities, major, degree, requirements, need]
+    concepts: [undergraduate, because, humanities, people, major]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c11"
     char_span: [17422, 19478]
     sentence_count: 19
     key_terms: [engineering, good, major, matter, get, experience, something, probably]
+    concepts: [engineering, major, matter, experience, something]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c12"
     char_span: [19481, 21868]
     sentence_count: 18
     key_terms: [something, planning, helping, making, development, job, like, work]
+    concepts: [something, planning, helping, making, development]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c13"
     char_span: [21870, 24172]
     sentence_count: 17
     key_terms: [university, planning, urban, research, architecture, people, learn, major]
+    concepts: [university, planning, urban, research, architecture]
     section: Comments
     token_count: 511
 ---

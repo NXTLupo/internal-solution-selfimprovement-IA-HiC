@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 857]
     sentence_count: 7
     key_terms: [nonprofit-compensation, salary, nonprofit, benchmarking, philanthropy, https, grantledger, data]
+    concepts: [nonprofit-compensation, salary, nonprofit, benchmarking, philanthropy]
     token_count: 195
+    sources: [{"n":"reddit: Philanthropy","u":"https://reddit.com/r/Philanthropy/comments/1se5z8t/i_built_a_free_nonprofit_salary_benchmarking_tool/"}]
 ---
 # I built a free nonprofit salary benchmarking tool using IRS 990 data
 

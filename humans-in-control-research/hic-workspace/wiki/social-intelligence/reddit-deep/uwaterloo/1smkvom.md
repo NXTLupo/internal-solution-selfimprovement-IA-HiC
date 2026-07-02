@@ -21,52 +21,66 @@ chunks:
     char_span: [0, 1764]
     sentence_count: 14
     key_terms: [uwaterloo, math, difficult, "it's", program, major, internships, get]
+    concepts: [uwaterloo, difficult, program, internships, major]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c8"]
     token_count: 400
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1smkvom/i_need_some_advice_for_an_important_decision/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c1"
     char_span: [1766, 2967]
     sentence_count: 10
     key_terms: [uwaterloo, "i'm", canada, engineering, planning, either, co-op, since]
+    concepts: [uwaterloo, canada, engineering, planning, either]
     token_count: 264
   - id: "social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c2"
     char_span: [2981, 4880]
     sentence_count: 8
     key_terms: [maximize, tight-sandwich-4847, advanced, sequence, transfer, chances, choose, chances-of-admission-for-fall-2023]
+    concepts: [maximize, tight-sandwich-4847, advanced, sequence, transfer]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c3"
     char_span: [4882, 5911]
     sentence_count: 7
     key_terms: [cs136, structures, recursion, dynamic, binary, linked, python, search]
+    concepts: [cs136, structures, recursion, dynamic, binary]
     section: Comments
     token_count: 251
   - id: "social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c4"
     char_span: [5913, 7174]
     sentence_count: 6
     key_terms: [math, courses, requires, transfer, program, python, "that's", unless]
+    concepts: [courses, requires, transfer, program, python]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c7"]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c5"
     char_span: [7178, 8402]
     sentence_count: 9
     key_terms: [year, average, student, international, competitive, math, ubc, answering]
+    concepts: [international, average, student, competitive, answering]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c6"
     char_span: [8404, 10511]
     sentence_count: 11
     key_terms: [uwaterloo, admissions, get, process, related, automoderator, tough, swe]
+    concepts: [uwaterloo, admissions, automoderator, process, related]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c7"
     char_span: [10513, 12605]
     sentence_count: 15
     key_terms: [courses, experience, students, getting, program, majors, useful, co-op]
+    concepts: [courses, experience, students, getting, program]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c4"]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c8"
     char_span: [12607, 14128]
     sentence_count: 10
     key_terms: [environment, difficult, grinding, internships, good, course, manage, "you're"]
+    concepts: [environment, difficult, grinding, internships, course]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c0"]
     section: Comments
     token_count: 356
 ---

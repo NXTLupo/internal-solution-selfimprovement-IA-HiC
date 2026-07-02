@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1251]
     sentence_count: 11
     key_terms: [career, feel, careerguidance, data, gap, comments, science, advice]
+    concepts: [career, careerguidance, comments, science, advice]
     token_count: 310
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1n1a5tw/5_years_unemployed_career_gap_feeling_lost_need/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1n1a5tw.md#c1"
     char_span: [1265, 2814]
     sentence_count: 20
     key_terms: [don, finance, jobs, like, work, gabag000l, pressure, analyst]
+    concepts: [finance, gabag000l, pressure, analyst, equity]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/careerguidance/1n1a5tw.md#c2"
     char_span: [2816, 4755]
     sentence_count: 17
     key_terms: [data, like, civil, power, science, better, specifically, gap]
+    concepts: [civil, power, science, specifically, better]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/careerguidance/1n1a5tw.md#c3"
     char_span: [4759, 6580]
     sentence_count: 18
     key_terms: [bulliedatmicrosoft, work, founder, myself, competitive, something, reading, startup]
+    concepts: [bulliedatmicrosoft, founder, myself, competitive, something]
     section: Comments
     token_count: 466
 ---

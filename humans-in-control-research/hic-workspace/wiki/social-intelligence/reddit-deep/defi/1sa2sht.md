@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 922]
     sentence_count: 8
     key_terms: [off-ramp, counterparty, self-custody, custodial, comments, stack, using, bank]
+    concepts: [off-ramp, counterparty, self-custody, custodial, comments]
     token_count: 242
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1sa2sht/selfcustody_bank_offramp_in_2026_what_stack_is/"}]
   - id: "social-intelligence/reddit-deep/defi/1sa2sht.md#c1"
-    char_span: [937, 1477]
+    char_span: [936, 1476]
     sentence_count: 4
     key_terms: [self-custody, "you're", yield, bluejumprabbit, dry-money-3640, yield-bearing, stablecoins, integrates]
+    concepts: [self-custody, "you're", yield]
     section: Comments
     token_count: 135
 ---

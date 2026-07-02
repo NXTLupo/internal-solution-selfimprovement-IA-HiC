@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 1200]
     sentence_count: 17
     key_terms: [serious, engineeringstudents, certainly, gpa, engineer, doesn, makes, graduating]
+    concepts: [engineeringstudents, serious, certainly, engineer, doesn]
     token_count: 274
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1ql3ej9/your_reminder_that_its_not_that_serious/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c1"
     char_span: [1214, 1628]
     sentence_count: 6
     key_terms: [gpa, experience, graduate, "you've", paleontologistfirm13, built, typical-user-87, transcendent]
+    concepts: [experience, graduate, "you've", built]
     section: Comments
     token_count: 125
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c2"
     char_span: [1630, 3421]
     sentence_count: 13
     key_terms: [graduating, gpa, people, engineering, spikeytree, something, kievz007, easily]
+    concepts: [graduating, people, engineering, spikeytree, something]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c3"
     char_span: [3423, 4862]
     sentence_count: 12
     key_terms: [get, college, gpa, job, companies, academic, company, require]
+    concepts: [college, companies, academic, company, require]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c4"
     char_span: [4864, 5972]
     sentence_count: 13
     key_terms: [matters, degree, enough, matter, grade, never, get, gpa]
+    concepts: [matters, degree, enough, matter, grade]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c5"]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c5"
     char_span: [5974, 7938]
     sentence_count: 12
     key_terms: [matter, matters, school, get, gpa, time, definitely, semester]
+    concepts: [matter, matters, school, definitely, semester]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c6"

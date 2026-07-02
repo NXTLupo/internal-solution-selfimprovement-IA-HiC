@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1589]
     sentence_count: 11
     key_terms: [years, dont, job, like, generation, comments, friends, parents]
+    concepts: [generation, years, comments, friends, parents]
     token_count: 371
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1s1fon3/anyone_else_feel_like_our_generation_is_lost/"}]
   - id: "social-intelligence/reddit-deep/genz/1s1fon3.md#c1"
     char_span: [1603, 3620]
     sentence_count: 6
     key_terms: [family, having, want, discord, cooked, dating, people, traditional-let9530]
+    concepts: [family, having, discord, cooked, dating]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/genz/1s1fon3.md#c2"
     char_span: [3622, 4438]
     sentence_count: 9
     key_terms: [work, government, market, wanted, cancermoon2caprising, means, fun, job]
+    concepts: [government, market, wanted, means]
     section: Comments
     token_count: 202
 ---

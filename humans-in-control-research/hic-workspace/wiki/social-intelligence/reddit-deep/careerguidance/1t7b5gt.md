@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1066]
     sentence_count: 8
     key_terms: [learning, company, careerguidance, leave, job, pay, slow, currently]
+    concepts: [learning, careerguidance, company, leave, currently]
     token_count: 259
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t7b5gt/stay_or_leave_a_high_paying_job_but_very_slow/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t7b5gt.md#c1"
     char_span: [1080, 1550]
     sentence_count: 1
@@ -32,6 +34,7 @@ chunks:
     char_span: [1552, 3246]
     sentence_count: 9
     key_terms: [skills, job, get, time, current, develop, people, notdavidjustsomeguy]
+    concepts: [skills, current, develop, people, "don't"]
     section: Comments
     token_count: 431
 ---

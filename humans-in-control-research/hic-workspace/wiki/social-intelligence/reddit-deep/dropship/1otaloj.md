@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 512]
     sentence_count: 4
     key_terms: [comments, dropship, dropshipping, reddit-deep, customers, honestly, optional, realized]
+    concepts: [comments, dropship]
     token_count: 122
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1otaloj/whats_a_dropshipping_tip_you_found_out_about_way/"}]
   - id: "social-intelligence/reddit-deep/dropship/1otaloj.md#c1"
-    char_span: [527, 2630]
+    char_span: [526, 2629]
     sentence_count: 9
     key_terms: [product, realizing, directly, dropship, shipping, country, process, shopify]
+    concepts: [product, realizing, directly, dropship, shipping]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/dropship/1otaloj.md#c2"
-    char_span: [2632, 3837]
+    char_span: [2631, 3836]
     sentence_count: 10
     key_terms: [experience, customer, another, stores, ijuststudyenglishere, being, books, build]
+    concepts: [experience, customer, another, stores, being]
     section: Comments
     token_count: 258
 ---

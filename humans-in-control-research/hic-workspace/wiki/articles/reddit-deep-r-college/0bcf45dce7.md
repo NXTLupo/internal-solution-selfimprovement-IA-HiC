@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2077]
     sentence_count: 13
     key_terms: [college, resources, live, pregnant, housing, baby, home, too]
+    concepts: [college, resources, pregnant, housing, apartment]
     token_count: 482
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1kzcj12/having_a_baby_in_college/"}]
   - id: "articles/reddit-deep-r-college/0bcf45dce7.md#c1"
     char_span: [2079, 2677]
     sentence_count: 8

@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1018]
     sentence_count: 9
     key_terms: [ipad, use, productivity, work, something, comments, because, todoist]
+    concepts: [productivity, something, comments, because, todoist]
     token_count: 248
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1tawblx/how_to_use_my_ipad_to_be_more_productive/"}]
   - id: "social-intelligence/reddit-deep/productivity/1tawblx.md#c1"
     char_span: [1032, 3196]
     sentence_count: 16
     key_terms: [everything, notes, grouchy-storm-8155, ipad, digital, onenote, tasks, mini]
+    concepts: [grouchy-storm-8155, everything, notes, digital, onenote]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/productivity/1tawblx.md#c2"
     char_span: [3198, 3621]
     sentence_count: 5
     key_terms: [calendar, onenote, preplanned, streamline, looking, meeting, outlook, quickly]
+    concepts: [calendar, onenote]
     section: Comments
     token_count: 104
 ---

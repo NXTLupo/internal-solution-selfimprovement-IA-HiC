@@ -21,47 +21,63 @@ chunks:
     char_span: [0, 1289]
     sentence_count: 14
     key_terms: [povertyfinance, credit, money, card, "i'm", time, desperate, something]
+    concepts: [povertyfinance, credit, money, desperate, something]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c16"]
     token_count: 335
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1knoqjt/im_completely_desperate_theres_got_to_be/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c1"
     char_span: [1303, 3165]
     sentence_count: 13
     key_terms: [month, budget, "don't", comments, because, dollar, health, making]
+    concepts: [month, budget, "don't", comments, because]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c3"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c2"
     char_span: [3167, 3710]
     sentence_count: 6
     key_terms: [because, insurance, "haven't", health, spent, need, absolutely, difference]
+    concepts: [because, insurance, "haven't", health, spent]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c3", "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c5"]
     section: Comments
     token_count: 122
   - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c3"
     char_span: [3712, 5518]
     sentence_count: 18
     key_terms: [take, "i'm", probably, cb7f2c70d970e37c37682fd39a5f0f3e9fa1599f, home, insurance, comments, because]
+    concepts: [probably, insurance, comments, because, monthly]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c1", "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c2", "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c15"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c4"
     char_span: [5315, 5911]
     sentence_count: 4
     key_terms: [month, year, insurance, bigchampionship7962, taxes, home, less, akaikitsune07]
+    concepts: [month, insurance, taxes]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c5"]
     section: Comments
     token_count: 173
   - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c5"
     char_span: [5913, 7623]
     sentence_count: 15
     key_terms: [taxes, insurance, family, health, income, take, superannuation, home]
+    concepts: [insurance, taxes, family, health, income]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c2", "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c4"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c6"
     char_span: [7625, 9443]
     sentence_count: 28
     key_terms: [everything, home, agree, car, year, struggling, insurance, budget]
+    concepts: [everything, agree, struggling, insurance, budget]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c7"
     char_span: [9446, 11243]
     sentence_count: 21
     key_terms: [kids, home, shop, money, find, like, expensive, probably]
+    concepts: [money, expensive, probably, coupons, around]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c15"]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c8"
@@ -74,6 +90,7 @@ chunks:
     char_span: [11979, 13969]
     sentence_count: 14
     key_terms: [food, ge-5-000-btu-115-volt-window-air-conditioner-for-150-sq-ft-rooms-in-white-awcs05bwt, get, pantry, ge-5-000-btu-115-volt-window-air-conditioner, https, homedepot, household]
+    concepts: [pantry, https, homedepot, household, pantries]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c10"
@@ -86,12 +103,14 @@ chunks:
     char_span: [14023, 15343]
     sentence_count: 11
     key_terms: [window, room, income, card, debt, get, good, ones]
+    concepts: [window, income]
     section: Comments
     token_count: 306
   - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c12"
     char_span: [15345, 17494]
     sentence_count: 18
     key_terms: [hours, get, help, job, time, doordash, opposite, cheaper]
+    concepts: [hours, doordash, opposite, cheaper, husband]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c13"
@@ -104,36 +123,44 @@ chunks:
     char_span: [17781, 19596]
     sentence_count: 10
     key_terms: [phone, groceries, insurance, money, month, car, georgepana, accounts]
+    concepts: [groceries, insurance, phone, georgepana, money]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c15"
     char_span: [19598, 21073]
     sentence_count: 11
     key_terms: [mortgage, probably, around, home, like, take, insurance, numbers]
+    concepts: [mortgage, probably, around, insurance, numbers]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c3", "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c7"]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c16"
     char_span: [21075, 23165]
     sentence_count: 24
     key_terms: [credit, household, budget, going, money, home, less, pay]
+    concepts: [credit, household, budget, going, money]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c0"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c17"
     char_span: [23167, 24988]
     sentence_count: 25
     key_terms: [please, worth, looking, health, unless, doing, field, older]
+    concepts: [please, worth, looking, health, unless]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c18"
     char_span: [24990, 26871]
     sentence_count: 17
     key_terms: [food, help, job, delivery, already, getting, grocery, network]
+    concepts: [delivery, already, getting, grocery, network]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c19"
     char_span: [26873, 27936]
     sentence_count: 13
     key_terms: [look, month, take, subsequent, account, plasma, traditional-dog-4938, hours]
+    concepts: [month, subsequent, account, plasma, hours]
     section: Comments
     token_count: 268
 ---

@@ -21,59 +21,74 @@ chunks:
     char_span: [0, 581]
     sentence_count: 3
     key_terms: [investing, comments, happened, market, longjumping-mango831, professional, reddit-deep, understand]
+    concepts: [investing, comments, happened, market]
     token_count: 140
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1tbhx28/wisdom_being_in_the_market_over_time/"}]
   - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c1"
     char_span: [595, 1854]
     sentence_count: 16
     key_terms: [divorce, retirement, payment, market, longjumping-mango831, funds, never, since]
+    concepts: [divorce, retirement, payment, market, funds]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1tbhx28.md#c2"]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c2"
     char_span: [1856, 3615]
     sentence_count: 12
     key_terms: [lost, market, investment, mortgage, divorce, recover, selling, "didn't"]
+    concepts: [market, investment, mortgage, divorce, recover]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1tbhx28.md#c1"]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c3"
     char_span: [3617, 5166]
     sentence_count: 10
     key_terms: [longjumping-mango831, people, don, good, business, fearful, stearns, buying]
+    concepts: [longjumping-mango831, people, business, fearful, stearns]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c4"
     char_span: [5168, 7060]
     sentence_count: 15
     key_terms: [luciusq2020, available, margin, people, stocks, information, management, averaging]
+    concepts: [luciusq2020, available, margin, people, stocks]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c5"
     char_span: [7062, 8802]
     sentence_count: 13
     key_terms: [acrobatic-song-3151, usually, down, got, put, leverage, numbers, almost]
+    concepts: [acrobatic-song-3151, usually, leverage, numbers, almost]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c6"
     char_span: [8804, 10631]
     sentence_count: 13
     key_terms: [longjumping-mango831, advice, thanks, single, stock, everything, valuations, portfolio]
+    concepts: [longjumping-mango831, advice, thanks, single, everything]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1tbhx28.md#c8"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c7"
     char_span: [10633, 10816]
     sentence_count: 2
     key_terms: [higher, "don't", benchmark, attempt, course, market, moment, stocks]
+    concepts: [higher, "don't"]
     section: Comments
     token_count: 43
   - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c8"
     char_span: [10818, 12726]
     sentence_count: 11
     key_terms: [money, stocks, longjumping-mango831, everything, lost, education, downturn, leverage]
+    concepts: [longjumping-mango831, money, everything, stocks, education]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1tbhx28.md#c6"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c9"
     char_span: [12728, 14580]
     sentence_count: 21
     key_terms: [been, started, longjumping-mango831, fine, "didn't", unemployment, luciusq2020, late]
+    concepts: [longjumping-mango831, started, unemployment, "didn't", luciusq2020]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c10"

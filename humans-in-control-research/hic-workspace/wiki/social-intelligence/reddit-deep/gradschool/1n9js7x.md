@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 754]
     sentence_count: 9
     key_terms: [thesis, gradschool, breakdown, comments, example, quarter, almost, mental]
+    concepts: [thesis, gradschool, breakdown, comments, example]
     token_count: 191
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1n9js7x/i_looked_at_the_thesis_example_sent_to_me_and_i/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c1"
     char_span: [768, 1131]
     sentence_count: 3
     key_terms: [pages, like, boltvnderhuge, bibliography, dissertation, spreadsheets, discussion, archknits]
+    concepts: [pages]
     section: Comments
     token_count: 96
   - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c2"
     char_span: [1133, 3067]
     sentence_count: 14
     key_terms: [thesis, masters, xoxowoman06, long, helpful, length, longer, trying]
+    concepts: [thesis, masters, xoxowoman06, helpful, length]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1n9js7x.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c3"
     char_span: [2827, 3423]
     sentence_count: 7
     key_terms: [did, examples, question, present, larger, themostperfectofcats, local, information]
+    concepts: [examples, question, present, larger, local]
     section: Comments
     token_count: 131
   - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c4"
     char_span: [3425, 5278]
     sentence_count: 18
     key_terms: [writing, paper, like, masters, program, thesis, department, discussion]
+    concepts: [writing, paper, masters, program, thesis]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1n9js7x.md#c2"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c5"
     char_span: [5280, 7195]
     sentence_count: 14
     key_terms: [thesis, pages, write, page, research, requirements, got, need]
+    concepts: [thesis, pages, write, research, requirements]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c6"
     char_span: [7197, 9399]
     sentence_count: 28
     key_terms: [work, methods, results, hypotheses, pages, already, figures, similar]
+    concepts: [methods, results, hypotheses, pages, already]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c7"
     char_span: [9401, 9768]
     sentence_count: 4
     key_terms: ["you'll", get, good, everything, examples, finished, probably, provided]
+    concepts: ["you'll"]
     section: Comments
     token_count: 91
 ---

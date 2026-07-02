@@ -21,7 +21,10 @@ chunks:
     char_span: [0, 1538]
     sentence_count: 15
     key_terms: [college, people, feel, "everyone's", something, sometimes, comments, "doesn't"]
+    concepts: [college, people, "everyone's", something, sometimes]
+    related_chunks: ["social-intelligence/reddit-deep/college/1n86lkn.md#c2"]
     token_count: 350
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1n86lkn/nobody_told_me_how_lonely_college_can_feel/"}]
   - id: "social-intelligence/reddit-deep/college/1n86lkn.md#c1"
     char_span: [1552, 1903]
     sentence_count: 4
@@ -32,24 +35,30 @@ chunks:
     char_span: [1905, 4184]
     sentence_count: 20
     key_terms: [college, school, "you're", university, people, high, "it's", connection]
+    concepts: [college, school, university, "you're", people]
+    related_chunks: ["social-intelligence/reddit-deep/college/1n86lkn.md#c0", "social-intelligence/reddit-deep/college/1n86lkn.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1n86lkn.md#c3"
     char_span: [3869, 6225]
     sentence_count: 17
     key_terms: [people, help, time, friends, campus, feel, get, lot]
+    concepts: [people, friends, campus, especially, university]
+    related_chunks: ["social-intelligence/reddit-deep/college/1n86lkn.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1n86lkn.md#c4"
     char_span: [5966, 6257]
     sentence_count: 2
     key_terms: [worse, room, want, pathetic, getting, housing, anyone, people]
+    concepts: [worse]
     section: Comments
     token_count: 70
   - id: "social-intelligence/reddit-deep/college/1n86lkn.md#c5"
     char_span: [6259, 8293]
     sentence_count: 19
     key_terms: [alone, events, time, yourself, friends, joined, feel, everyone]
+    concepts: [alone, events, yourself, friends, joined]
     section: Comments
     token_count: 484
 ---

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2431]
     sentence_count: 8
     key_terms: [retail, interpersonal, people, skills, limited, careerguidance, places, roles]
+    concepts: [retail, interpersonal, people, skills, careerguidance]
     token_count: 509
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qge6dm/help_finding_a_career_path_for_my_66yearold_mom/"}]
   - id: "articles/reddit-deep-r-careerguidance/afeacbe490.md#c1"
     char_span: [2436, 3756]
     sentence_count: 12
     key_terms: [banks, local, retail, satisfactionisunder0, store, value, unraveltheuniverse, real]
+    concepts: [banks, local, retail, store, value]
     token_count: 310
 ---
 # Help Finding a Career Path for My 66-Year-Old Mom - Retail Background, Amazing People Skills, Limited Computer Experience. Any guidance?

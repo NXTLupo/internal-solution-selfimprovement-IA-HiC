@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 516]
     sentence_count: 4
     key_terms: [gradadmissions, comments, grateful, relative-tonight-273, got, confirmation, universities, reddit-deep]
+    concepts: [gradadmissions, comments, grateful]
     token_count: 133
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rlgpsr/cant_believe_it_so_grateful/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rlgpsr.md#c1"
     char_span: [530, 1249]
     sentence_count: 2
     key_terms: [congratulations, relative-tonight-273, serious-phrase-4164, superstarrockyou, own-mobile-1775, tangerine766, scholarship, adill9822]
+    concepts: [congratulations, relative-tonight-273, serious-phrase-4164]
     section: Comments
     token_count: 242
 ---

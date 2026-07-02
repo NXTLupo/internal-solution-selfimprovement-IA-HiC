@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1175]
     sentence_count: 8
     key_terms: [civil, program, engineeringstudents, tech, engineering, experience, comments, transfer]
+    concepts: [civil, engineeringstudents, program, engineering, experience]
     token_count: 261
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1ry99rd/civil_engineering_tech_student_advice_needed/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ry99rd.md#c1"
     char_span: [1189, 2264]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    concepts: [engineeringstudents, please, reddit, https, automoderator]
     section: Comments
     token_count: 248
 ---

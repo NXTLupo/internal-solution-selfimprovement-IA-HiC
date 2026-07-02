@@ -18,16 +18,22 @@ chunks:
     char_span: [0, 2071]
     sentence_count: 14
     key_terms: [college, community, want, money, don, get, going, fall]
+    concepts: [college, community, money, especially, going]
+    related_chunks: ["articles/reddit-deep-r-college/ffdef4fded.md#c1"]
     token_count: 464
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1r18axj/im_planning_on_going_to_a_community_college_this/"}]
   - id: "articles/reddit-deep-r-college/ffdef4fded.md#c1"
     char_span: [2073, 4045]
     sentence_count: 9
     key_terms: [transfer, college, community, classes, take, university, studies, office]
+    concepts: [transfer, college, community, classes, university]
+    related_chunks: ["articles/reddit-deep-r-college/ffdef4fded.md#c0"]
     token_count: 428
   - id: "articles/reddit-deep-r-college/ffdef4fded.md#c2"
     char_span: [4047, 4754]
     sentence_count: 4
     key_terms: [opportunities, get, students, transfer, social, happylifecoffeehelps, good, want]
+    concepts: [opportunities, students, transfer, social]
     token_count: 143
 ---
 # I’m planning on going to a community college this fall and then go to an instate 4 year next fall. Should I just take general studies?

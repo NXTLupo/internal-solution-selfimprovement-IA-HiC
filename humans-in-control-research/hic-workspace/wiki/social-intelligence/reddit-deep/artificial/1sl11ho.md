@@ -21,39 +21,47 @@ chunks:
     char_span: [0, 2404]
     sentence_count: 28
     key_terms: [vulnerabilities, cost, exploit, mythos, found, bug, chaining, vulnerability]
+    concepts: [vulnerabilities, exploit, mythos, found, chaining]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1sl11ho/about_mythos_ai/"}]
   - id: "social-intelligence/reddit-deep/artificial/1sl11ho.md#c1"
     char_span: [2406, 5089]
     sentence_count: 23
     key_terms: [going, report, doing, security, humans, mythos, triage, vulnerability]
+    concepts: [going, report, doing, security, vulnerability]
     token_count: 503
   - id: "social-intelligence/reddit-deep/artificial/1sl11ho.md#c2"
     char_span: [5091, 6908]
     sentence_count: 21
     key_terms: [anthropic, models, people, field, understand, technical, question, security]
+    concepts: [anthropic, models, people, field, understand]
     token_count: 346
   - id: "social-intelligence/reddit-deep/artificial/1sl11ho.md#c3"
     char_span: [6922, 9012]
     sentence_count: 17
     key_terms: [opinion, mythos, "don't", analysts, judgment, year-old, because, openbsd]
+    concepts: [opinion, mythos, "don't", analysts, judgment]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/artificial/1sl11ho.md#c4"
     char_span: [9014, 10384]
     sentence_count: 3
     key_terms: [read, gonna, definitely, acrolith, detector, people, solid, write]
+    concepts: [definitely, gonna, acrolith, detector, people]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/artificial/1sl11ho.md#c5"
     char_span: [10386, 11662]
     sentence_count: 1
     key_terms: [manager, officer, director, engineer, chief, marketing, product, analyst]
+    concepts: [manager, officer, director, engineer, chief]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/artificial/1sl11ho.md#c6"
     char_span: [11664, 13265]
     sentence_count: 10
     key_terms: [integer, improvement, conditions, overflow, security, mythos, subtle, far-eagle7029]
+    concepts: [integer, improvement, conditions, overflow, security]
     section: Comments
     token_count: 396
 ---

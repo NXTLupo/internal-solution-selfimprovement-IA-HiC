@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 972]
     sentence_count: 7
     key_terms: [application, applyingtocollege, college, qualities, comments, personal, internal-remove7223, stand]
+    concepts: [application, applyingtocollege, college, qualities, comments]
     token_count: 205
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1r0gcpc/what_qualities_do_you_think_make_a_strong_college/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r0gcpc.md#c1"
     char_span: [986, 3373]
     sentence_count: 25
     key_terms: [college, activities, teacher, important, realistic, readers, essays, "you'd"]
+    concepts: [activities, college, teacher, important, realistic]
     section: Comments
     token_count: 505
 ---

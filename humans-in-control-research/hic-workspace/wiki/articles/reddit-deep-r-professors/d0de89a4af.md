@@ -18,11 +18,16 @@ chunks:
     char_span: [0, 2053]
     sentence_count: 26
     key_terms: [students, notes, take, learning, "don't", professors, comments, teachers]
+    concepts: [students, notes, learning, "don't", professors]
+    related_chunks: ["articles/reddit-deep-r-professors/d0de89a4af.md#c1"]
     token_count: 479
+    sources: [{"n":"Reddit Deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1se606z/my_students_dont_know_how_to_take_notes_anymore/"}]
   - id: "articles/reddit-deep-r-professors/d0de89a4af.md#c1"
     char_span: [2055, 4055]
     sentence_count: 16
     key_terms: [notes, students, because, lecture, note, undergrad, outline, provide]
+    concepts: [notes, students, because, lecture, undergrad]
+    related_chunks: ["articles/reddit-deep-r-professors/d0de89a4af.md#c0"]
     token_count: 454
 ---
 # My students don't know how to take notes anymore. What am I missing?

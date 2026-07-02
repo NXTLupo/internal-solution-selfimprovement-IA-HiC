@@ -17,10 +17,12 @@ research_goal: "Produce the definitive guide to personal investing in 2026 by an
 engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/defi/1rrze2c.md#c0"
-    char_span: [0, 898]
+    char_span: [0, 897]
     sentence_count: 6
     key_terms: [ans, web3, blockchain, anylayer, comments, service, wallet, names]
-    token_count: 206
+    concepts: [blockchain, anylayer, comments, service, wallet]
+    token_count: 205
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1rrze2c/what_is_anylayer_name_service_ans_and_why_it/"}]
 ---
 # What is AnyLayer Name Service (ANS) and why it matters for Web3?
 

@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1759]
     sentence_count: 1
     key_terms: [co-op, offer, searching, year, comments, received, company, illustriousking1166]
+    concepts: [co-op, offer, searching, comments, received]
     token_count: 411
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1lhwucx/can_ishould_i_reject_my_only_offer_at_the_end_of/"}]
   - id: "social-intelligence/reddit-deep/neu/1lhwucx.md#c1"
     char_span: [1773, 3599]
     sentence_count: 14
     key_terms: [clubs, funkensteinsmeunster, isn, job, time, research, coop, full]
+    concepts: [clubs, funkensteinsmeunster, research, experience, biggest]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/neu/1lhwucx.md#c2"
     char_span: [3601, 4969]
     sentence_count: 2
     key_terms: [co-op, company, back, date, another, certain, waiting, illustriousking1166]
+    concepts: [co-op, company, another, certain, waiting]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/neu/1lhwucx.md#c3"
     char_span: [4971, 6275]
     sentence_count: 7
     key_terms: [job, co-op, time, opportunity, experience, co-ops, people, few-engineering-890]
+    concepts: [co-op, opportunity, experience, co-ops, people]
     section: Comments
     token_count: 324
 ---

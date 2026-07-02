@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2118]
     sentence_count: 12
     key_terms: [annotation, innodata, working, careeradvice, data, here, want, experience]
+    concepts: [annotation, innodata, working, careeradvice, experience]
     token_count: 500
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1p5rsm0/25f_currently_in_ai_data_annotation_innodata_but/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1p5rsm0.md#c1"
     char_span: [2120, 3251]
     sentence_count: 8
     key_terms: [build, stability, another, writing, career, need, tech, want]
+    concepts: [build, stability, another, writing, career]
     token_count: 248
   - id: "social-intelligence/reddit-deep/careeradvice/1p5rsm0.md#c2"
     char_span: [3265, 5255]
     sentence_count: 13
     key_terms: [math, want, understanding, conversation, start, tech, specialty, without]
+    concepts: [understanding, conversation, start, specialty, without]
     section: Comments
     token_count: 468
 ---

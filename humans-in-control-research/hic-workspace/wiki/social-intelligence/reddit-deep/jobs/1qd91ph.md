@@ -19,65 +19,85 @@ chunks:
     char_span: [0, 1228]
     sentence_count: 7
     key_terms: [depression, great, jobs, hiring, levels, comments, extended, desired]
+    concepts: [depression, great, hiring, levels, comments]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qd91ph.md#c2", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c3", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c4", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c5", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c9"]
     token_count: 268
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1qd91ph/we_are_living_through_the_modern_day_great/"}]
   - id: "social-intelligence/reddit-deep/jobs/1qd91ph.md#c1"
     char_span: [1242, 3098]
     sentence_count: 19
     key_terms: [right, worse, recession, unemployment, get, time, expensive, housing]
+    concepts: [right, worse, recession, unemployment, expensive]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qd91ph.md#c4"]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/jobs/1qd91ph.md#c2"
     char_span: [3100, 4812]
     sentence_count: 15
     key_terms: [gambling, ads, intellectual, great, worse, depression, economic, because]
+    concepts: [gambling, intellectual, depression, great, worse]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qd91ph.md#c0", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c3", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c4", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c5", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c9"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/jobs/1qd91ph.md#c3"
     char_span: [4814, 6608]
     sentence_count: 17
     key_terms: [depression, people, great, economy, money, everyone, gambling, gamble]
+    concepts: [depression, people, great, economy, money]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qd91ph.md#c0", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c2", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c4", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c5", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c6"]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/jobs/1qd91ph.md#c4"
     char_span: [6610, 8720]
     sentence_count: 11
     key_terms: [unemployment, depression, great, worse, today, "it's", work, definition]
+    concepts: [unemployment, depression, great, worse, definition]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qd91ph.md#c0", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c1", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c2", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c3", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c5"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/jobs/1qd91ph.md#c5"
     char_span: [8722, 10350]
     sentence_count: 14
     key_terms: [depression, growth, recession, recovery, great, gdp, everyone, period]
+    concepts: [depression, growth, recession, recovery, great]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qd91ph.md#c0", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c2", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c3", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c4", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c9"]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/jobs/1qd91ph.md#c6"
     char_span: [10352, 11858]
     sentence_count: 7
     key_terms: [people, depression, everything, unemployment, fucking, efficient-support-89, the-original-spuggy, costs]
+    concepts: [people, depression, everything, unemployment, fucking]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qd91ph.md#c3", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c4", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c9"]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/jobs/1qd91ph.md#c7"
     char_span: [11860, 13726]
     sentence_count: 19
     key_terms: [fortunate, children, askoldpeople, pinexapplex, suffering, comments, families, freaking]
+    concepts: [fortunate, children, askoldpeople, pinexapplex, suffering]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/jobs/1qd91ph.md#c8"
     char_span: [13728, 15325]
     sentence_count: 11
     key_terms: [deleted, bad, economy, feeling, assets, burlap, enough, people]
+    concepts: [deleted, economy, feeling, assets, burlap]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/jobs/1qd91ph.md#c9"
     char_span: [15327, 17043]
     sentence_count: 14
     key_terms: [depression, great, jobs, unemployment, instability, work, shortage, "there's"]
+    concepts: [depression, great, unemployment, instability, shortage]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1qd91ph.md#c0", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c2", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c3", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c4", "social-intelligence/reddit-deep/jobs/1qd91ph.md#c5"]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/jobs/1qd91ph.md#c10"
     char_span: [17046, 18978]
     sentence_count: 13
     key_terms: [enough, "that's", "don't", been, pay, working, great, day]
+    concepts: [enough, "that's", "don't", working, depression]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/jobs/1qd91ph.md#c11"

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2023]
     sentence_count: 18
     key_terms: [email, clients, cold, comments, agency, b2bmarketing, click, b2b]
+    concepts: [email, clients, comments, b2bmarketing, agency]
     token_count: 457
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1s6wija/b2b_meetings_with_1_click_is_not_fantasy_anymore/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1s6wija.md#c1"
-    char_span: [2038, 2929]
+    char_span: [2037, 2928]
     sentence_count: 3
     key_terms: [looking-for-marketing-discussion-811236647760298024, interested, questions, discord, numbers, famous-plankton9351, beta, like]
+    concepts: [interested, questions, discord, numbers]
     section: Comments
     token_count: 260
 ---

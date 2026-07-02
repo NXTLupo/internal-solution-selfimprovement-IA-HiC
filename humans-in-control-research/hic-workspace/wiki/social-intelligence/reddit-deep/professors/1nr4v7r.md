@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 458]
     sentence_count: 3
     key_terms: [curriculum, professors, comments, follows, syllabi, reddit-deep, thesaltyace, transgender]
+    concepts: [curriculum, professors, comments, follows, syllabi]
     token_count: 112
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1nr4v7r/texas_tech_system_follows_angelo_state_in/"}]
   - id: "social-intelligence/reddit-deep/professors/1nr4v7r.md#c1"
     char_span: [460, 3193]
     sentence_count: 18
     key_terms: [compliance, universities, law, university, educational, system, state, texas]
+    concepts: [compliance, universities, university, educational, system]
     token_count: 462
   - id: "social-intelligence/reddit-deep/professors/1nr4v7r.md#c2"
     char_span: [3207, 5104]
     sentence_count: 14
     key_terms: [red, non-binary, state, texas, expression, intersex, pathway, people]
+    concepts: [non-binary, expression, state, texas, intersex]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/professors/1nr4v7r.md#c3"
     char_span: [5106, 7168]
     sentence_count: 11
     key_terms: [like, people, blue, intersex, because, gender, universities, state]
+    concepts: [people, intersex, because, universities, gender]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1nr4v7r.md#c4"]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/professors/1nr4v7r.md#c4"
     char_span: [7170, 8858]
     sentence_count: 8
     key_terms: [different, intersex, gender, right, community, socofrel, social, within]
+    concepts: [different, intersex, gender, right, community]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1nr4v7r.md#c3"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/professors/1nr4v7r.md#c5"
     char_span: [8860, 9374]
     sentence_count: 2
     key_terms: [cswe-statement-on-legislative-changes, educational, programs, presentationclean217, accreditation, heartbreaking, organizations, psychological]
+    concepts: [educational, programs]
     section: Comments
     token_count: 98
   - id: "social-intelligence/reddit-deep/professors/1nr4v7r.md#c6"
     char_span: [9376, 11582]
     sentence_count: 15
     key_terms: [apa, transgender, notmrchips, organization, professional, like, standards, statement]
+    concepts: [transgender, notmrchips, organization, professional, standards]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1nr4v7r.md#c7"

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1939]
     sentence_count: 26
     key_terms: [like, plan, friday, next, comments, wallstreetbets, crwv, absolutely]
+    concepts: [friday, comments, wallstreetbets, absolutely, coreweave]
     token_count: 512
+    sources: [{"n":"Reddit Deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1lxl1gc/yolod_500_crwv_150_calls_for_next_friday_no_hedge/"}]
   - id: "articles/reddit-deep-r-wallstreetbets/f7aa8d0bfb.md#c1"
     char_span: [1941, 2548]
     sentence_count: 4
     key_terms: [nuts, wsb, beautiful, discord, electronic-force-729, https, scarletcarsonrose, gold]
+    concepts: [beautiful, discord, https]
     token_count: 182
 ---
 # YOLO’d 500 $CRWV 150 Calls for Next Friday! No Hedge, No Braincells, Just AI-Induced Delusion

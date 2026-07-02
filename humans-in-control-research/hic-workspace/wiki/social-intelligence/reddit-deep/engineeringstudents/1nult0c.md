@@ -19,65 +19,81 @@ chunks:
     char_span: [0, 1264]
     sentence_count: 13
     key_terms: [engineering, experience, internship, engineeringstudents, comments, thought, career, point]
+    concepts: [engineering, engineeringstudents, experience, internship, comments]
     token_count: 278
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1nult0c/are_engineering_career_fairs_just_meant_to_be_a/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nult0c.md#c1"
-    char_span: [1279, 3050]
+    char_span: [1278, 3049]
     sentence_count: 10
     key_terms: [get, career, online, experience, interview, student, resume, apply]
+    concepts: [experience, career, online, interview, student]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nult0c.md#c2"
-    char_span: [3052, 4829]
+    char_span: [3051, 4828]
     sentence_count: 15
     key_terms: [online, apply, companies, recruiter, email, engineering, company, actual]
+    concepts: [online, companies, recruiter, apply, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1nult0c.md#c10"]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nult0c.md#c3"
-    char_span: [4831, 6288]
+    char_span: [4830, 6287]
     sentence_count: 20
     key_terms: [get, onlythephantomknows, good, around, dinner, people, disinterested, shoot]
+    concepts: [onlythephantomknows, disinterested, around, dinner, people]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nult0c.md#c4"
-    char_span: [6290, 7965]
+    char_span: [6289, 7964]
     sentence_count: 11
     key_terms: [corporate, career, disinterested, everyone, military, personal, theyre, going]
+    concepts: [corporate, disinterested, career, everyone, military]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nult0c.md#c5"
-    char_span: [7967, 10188]
+    char_span: [7966, 10187]
     sentence_count: 23
     key_terms: [like, company, people, recruiters, recruiting, interview, recruiter, stopped]
+    concepts: [company, people, recruiters, recruiting, interview]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nult0c.md#c6"
-    char_span: [9928, 10987]
+    char_span: [9927, 10986]
     sentence_count: 14
     key_terms: [using, like, time, chatgpt, student, talking, people, mid]
+    concepts: [using, chatgpt, student, talking, people]
     section: Comments
     token_count: 266
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nult0c.md#c7"
-    char_span: [10989, 12323]
+    char_span: [10988, 12322]
     sentence_count: 13
     key_terms: [looking, career, occasionally, apply, fairs, students, company, someone]
+    concepts: [looking, occasionally, career, apply, fairs]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nult0c.md#c8"
-    char_span: [12325, 13821]
+    char_span: [12324, 13820]
     sentence_count: 12
     key_terms: [like, care, companies, engineers, military, because, fucking, enough]
+    concepts: [companies, engineers, military, because, fucking]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1nult0c.md#c9", "social-intelligence/reddit-deep/engineeringstudents/1nult0c.md#c10"]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nult0c.md#c9"
-    char_span: [13823, 15934]
+    char_span: [13822, 15933]
     sentence_count: 15
     key_terms: ["they're", get, military, acquisitions, did, guys, like, companies]
+    concepts: ["they're", military, acquisitions, companies, college]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1nult0c.md#c8"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nult0c.md#c10"
-    char_span: [15936, 17459]
+    char_span: [15935, 17458]
     sentence_count: 10
     key_terms: [engineering, because, career, jobs, biomedical, companies, generally, require]
+    concepts: [engineering, because, career, biomedical, companies]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1nult0c.md#c2", "social-intelligence/reddit-deep/engineeringstudents/1nult0c.md#c8"]
     section: Comments
     token_count: 348
 ---

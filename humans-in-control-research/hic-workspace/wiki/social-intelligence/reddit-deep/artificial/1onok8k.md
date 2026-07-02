@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 697]
     sentence_count: 3
     key_terms: [development, artificial, comments, software, better, method, helps, human]
+    concepts: [development, artificial, comments, software, better]
     token_count: 152
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1onok8k/the_revolution_will_be_documented_a_manifesto_for/"}]
   - id: "social-intelligence/reddit-deep/artificial/1onok8k.md#c1"
     char_span: [711, 1615]
     sentence_count: 8
     key_terms: [adapt, "don't", gatekeeping, use, clients, people, illustrious-film4018, ways]
+    concepts: [gatekeeping, adapt, "don't", clients, people]
     section: Comments
     token_count: 223
 ---

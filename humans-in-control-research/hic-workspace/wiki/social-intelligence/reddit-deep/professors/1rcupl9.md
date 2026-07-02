@@ -21,46 +21,57 @@ chunks:
     char_span: [0, 2015]
     sentence_count: 9
     key_terms: [students, directions, "don't", use, academic, advanced, problem, set]
+    concepts: [students, directions, "don't", academic, advanced]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rcupl9.md#c5"]
     token_count: 453
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1rcupl9/taking_it_down_from_academic_integrity_to_not/"}]
   - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c1"
     char_span: [2017, 3108]
     sentence_count: 7
     key_terms: [class, students, problem, computer, outside, science, student, "it's"]
+    concepts: [class, students, problem, computer, outside]
     token_count: 226
   - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c2"
     char_span: [3122, 5095]
     sentence_count: 11
     key_terms: [incorrect, example, assignment, references, life-education-8030, citations, resources, students]
+    concepts: [incorrect, life-education-8030, example, assignment, references]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c3"
     char_span: [5097, 7129]
     sentence_count: 12
     key_terms: [writing, sources, students, because, shoehorning, "i'll", "it's", integrity]
+    concepts: [writing, sources, students, because, shoehorning]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c4"
     char_span: [7131, 9014]
     sentence_count: 14
     key_terms: [instructions, students, institutions, assignment, student, access, requirements, meet]
+    concepts: [instructions, students, institutions, assignment, student]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c5"
     char_span: [9016, 11233]
     sentence_count: 18
     key_terms: [directions, restrictions, students, college, science, safety, themselves, guarantee]
+    concepts: [directions, restrictions, students, college, science]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rcupl9.md#c0"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c6"
     char_span: [11235, 12166]
     sentence_count: 6
     key_terms: [students, use, penalizing, proctored, nothing, joshuatheprogrammer, exams, gave]
+    concepts: [students, penalizing, proctored, nothing, exams]
     section: Comments
     token_count: 252
   - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c7"
     char_span: [12168, 13290]
     sentence_count: 9
     key_terms: [shinypenny01, question, through, joshuatheprogrammer, "can't", "don't", ready, get]
+    concepts: [shinypenny01, question, through, "can't", "don't"]
     section: Comments
     token_count: 291
 ---

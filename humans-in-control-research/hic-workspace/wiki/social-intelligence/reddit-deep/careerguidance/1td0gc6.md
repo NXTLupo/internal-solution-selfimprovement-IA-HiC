@@ -21,65 +21,77 @@ chunks:
     char_span: [0, 353]
     sentence_count: 3
     key_terms: [careerguidance, comments, straight-rock8in, reddit-deep, thankful, advice, market, posted]
+    concepts: [careerguidance, comments]
     token_count: 106
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1td0gc6/is_a_95_really_it/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c1"
     char_span: [367, 909]
     sentence_count: 4
     key_terms: [difficult, get, degrees, showersneakers, otherwise, advanced, business, finances]
+    concepts: [difficult, degrees]
     section: Comments
     token_count: 124
   - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c2"
     char_span: [911, 2961]
     sentence_count: 13
     key_terms: [business, job, everyone, having, normal, people, stops, get]
+    concepts: [business, everyone, having, normal, people]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c3"
     char_span: [2963, 4792]
     sentence_count: 15
     key_terms: [job, become, right, work, passion, collar, gossip, having]
+    concepts: [become, right, passion, collar, gossip]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c4"
     char_span: [4794, 6490]
     sentence_count: 6
     key_terms: [living, something, people, creative, paycheck, pursuing, wealthy, "weren't"]
+    concepts: [living, something, people, creative, paycheck]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c5"
     char_span: [6492, 8274]
     sentence_count: 6
     key_terms: [business, work, hours, week, starting, running, someone, weeks]
+    concepts: [business, hours, starting, running, someone]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c6"
     char_span: [8087, 8530]
     sentence_count: 2
     key_terms: [weeks, characterblood5310, week, straight-rock8in, daydreaming, freelancing, definitely, something]
+    concepts: [weeks]
     section: Comments
     token_count: 127
   - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c7"
     char_span: [8532, 10412]
     sentence_count: 13
     key_terms: [corporate, lot, people, being, pivotcareer, give, soft, work]
+    concepts: [corporate, people, pivotcareer, being, careers]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c8"
     char_span: [10414, 11589]
     sentence_count: 9
     key_terms: [modern, trade, work, survive, people, passthemacandcheese, suspicious-oil-5890, life]
+    concepts: [modern, trade, survive, people]
     section: Comments
     token_count: 296
   - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c9"
     char_span: [11591, 13407]
     sentence_count: 16
     key_terms: ["don't", miserable, people, hours, lucky, industrialization, feel, "it's"]
+    concepts: ["don't", miserable, people, hours, lucky]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c10"
     char_span: [13409, 14141]
     sentence_count: 11
     key_terms: [work, hours, relevant-train5317, life, lot, alternative, jacktwoguns, struggling]
+    concepts: [hours]
     section: Comments
     token_count: 188
 ---

@@ -21,59 +21,72 @@ chunks:
     char_span: [0, 1691]
     sentence_count: 19
     key_terms: [chatgpt, comments, nobody, people, spiritual-reveal-195, water, don, food]
+    concepts: [chatgpt, comments, nobody, people, water]
     token_count: 426
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1lumomy/i_asked_chatgpt_top_10_current_warnings_being/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c1"
     char_span: [1705, 3556]
     sentence_count: 19
     key_terms: [please, conversation, image, post, r-chatgpt-1050422060352024636, concerns, warnings, chatgpt-shared-links-faq]
+    concepts: [conversation, please, image, concerns, warnings]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c2"
     char_span: [3558, 5360]
     sentence_count: 37
     key_terms: [war, pentagon, country, vietnam, cities, nobody, racism, rights]
+    concepts: [pentagon, country, vietnam, cities, nobody]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c3"
     char_span: [5362, 7385]
     sentence_count: 14
     key_terms: [problems, future, women, like, extreme, poverty, global, health]
+    concepts: [problems, future, women, extreme, poverty]
     section: Comments
     token_count: 514
   - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c4"
     char_span: [7387, 8958]
     sentence_count: 16
     key_terms: [people, future, global, despite, health, longer, toward, lives]
+    concepts: [people, future, global, despite, health]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c5"
     char_span: [8960, 10612]
     sentence_count: 14
     key_terms: [hugepines, ignoring, adding, better, spiritual-reveal-195, "we're", world, years]
+    concepts: [hugepines, ignoring, adding, better, "we're"]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c6"
     char_span: [10614, 12668]
     sentence_count: 22
     key_terms: [outlook, reality, concern, health, medium, microplastics, debt, high]
+    concepts: [outlook, reality, microplastics, concern, health]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lumomy.md#c7"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c7"
     char_span: [12670, 14080]
     sentence_count: 18
     key_terms: [outlook, reality, concern, surveillance, trust, isn, collapse, serious]
+    concepts: [outlook, reality, concern, surveillance, trust]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1lumomy.md#c6"]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c8"
     char_span: [14082, 15141]
     sentence_count: 8
     key_terms: [brought, spiritual-reveal-195, sumthingbrewing, professionally, chlomygod638, civilization, megathot2023, consectetur]
+    concepts: [brought]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c9"
     char_span: [15143, 17020]
     sentence_count: 15
     key_terms: [spiritual-reveal-195, fine, microplastics, "everything's", right, pfas, country, doesn]
+    concepts: [spiritual-reveal-195, microplastics, "everything's", right, country]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c10"
@@ -86,6 +99,7 @@ chunks:
     char_span: [17221, 19002]
     sentence_count: 10
     key_terms: [conservation, milestone, burmese, cancer, golden, record, seine, solar]
+    concepts: [conservation, milestone, burmese, cancer, golden]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c12"

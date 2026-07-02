@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 1305]
     sentence_count: 7
     key_terms: [chatgpt, context, openai, pro, comments, messages, earlier, window]
+    concepts: [chatgpt, context, openai, comments, messages]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1otatxl.md#c1"]
     token_count: 318
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1otatxl/chatgpt_pro_context_window_bug_forgets_after_6k/"}]
   - id: "social-intelligence/reddit-deep/openai/1otatxl.md#c1"
     char_span: [1319, 3272]
     sentence_count: 13
     key_terms: [context, like, chatgpt, pro, tokens, app, text, getting]
+    concepts: [context, chatgpt, tokens, getting, secret]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1otatxl.md#c0"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/openai/1otatxl.md#c2"
     char_span: [3274, 3714]
     sentence_count: 3
     key_terms: [probably, issues, memory, words, full, technically, beginning, something]
+    concepts: [probably, issues, memory, words]
     section: Comments
     token_count: 102
 ---

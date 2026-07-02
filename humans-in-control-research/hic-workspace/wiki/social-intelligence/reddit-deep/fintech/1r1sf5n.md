@@ -11,16 +11,18 @@ score: 3
 upvote_ratio: 1
 num_comments: 2
 flair: ""
-extracted_at: "2026-06-11T18:57:30.597Z"
+extracted_at: "2026-06-29T14:40:03.054Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Define the 2026 \"state of the Art\" operational and technological benchmarks for \"The State of Data & Distribution in Asset Management\". Synthesize key developments across data infrastructure, distribution enablement, and AI governance frameworks to identify leading industry capabilities and compliance standards."
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
 chunks:
   - id: "social-intelligence/reddit-deep/fintech/1r1sf5n.md#c0"
-    char_span: [0, 1986]
+    char_span: [0, 1985]
     sentence_count: 7
     key_terms: [financial, advisors, technology, advisor, solutions, systems, client, allow]
-    token_count: 347
+    concepts: [financial, advisors, technology, advisor, solutions]
+    token_count: 346
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1r1sf5n/how_can_financial_firms_improve_advisor/"}]
 ---
 # How can financial firms improve advisor productivity through technology?
 

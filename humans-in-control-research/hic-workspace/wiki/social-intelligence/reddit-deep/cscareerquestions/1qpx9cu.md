@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 2187]
     sentence_count: 18
     key_terms: [though, cscareerquestions, applications, programming, job, like, absolutely, interviews]
+    concepts: [cscareerquestions, though, applications, programming, absolutely]
     token_count: 477
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qpx9cu/completely_stumped_on_next_steps_need_some_career/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpx9cu.md#c1"
     char_span: [2190, 2976]
     sentence_count: 6
     key_terms: ["don't", something, "i'm", like, comfortably, potentially, absolutely, considered]
+    concepts: ["don't", something]
     token_count: 174
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpx9cu.md#c2"
     char_span: [2990, 4492]
     sentence_count: 11
     key_terms: [experience, companies, years, back, support, people, home, recommend]
+    concepts: [experience, companies, years, support, people]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpx9cu.md#c3"
     char_span: [4495, 6553]
     sentence_count: 20
     key_terms: [tech, something, job, doing, good, "i'm", isn, like]
+    concepts: [something, doing, experience, lucrative, pivoting]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpx9cu.md#c4"
@@ -49,6 +54,7 @@ chunks:
     char_span: [7005, 8893]
     sentence_count: 11
     key_terms: [pivot, tech, cjlcjl12, "i'm", need, countries, deleted, afford]
+    concepts: [pivot, cjlcjl12, countries, deleted, afford]
     section: Comments
     token_count: 437
 ---

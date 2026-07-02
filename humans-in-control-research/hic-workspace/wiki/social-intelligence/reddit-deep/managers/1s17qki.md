@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 987]
     sentence_count: 7
     key_terms: [remote, managers, micromanaging, "who's", visibility, comments, everyone, without]
+    concepts: [remote, managers, micromanaging, visibility, "who's"]
     token_count: 210
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1s17qki/how_do_you_get_any_remote_team_visibility_as_a/"}]
   - id: "social-intelligence/reddit-deep/managers/1s17qki.md#c1"
     char_span: [1001, 1664]
     sentence_count: 4
     key_terms: [managing, fairentertainment194, done, mins, team, time, suckerpunchdrunk, distractions]
+    concepts: [managing]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/managers/1s17qki.md#c2"
     char_span: [1666, 3528]
     sentence_count: 16
     key_terms: [performance, meetings, meeting, weekly, teams, tell, time, work]
+    concepts: [performance, meetings, meeting, weekly, teams]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/managers/1s17qki.md#c3"
     char_span: [3530, 4842]
     sentence_count: 8
     key_terms: [time, want, concerned, workload, weekly, "you're", asana, don]
+    concepts: [concerned, workload, weekly, "you're", asana]
     section: Comments
     token_count: 322
 ---

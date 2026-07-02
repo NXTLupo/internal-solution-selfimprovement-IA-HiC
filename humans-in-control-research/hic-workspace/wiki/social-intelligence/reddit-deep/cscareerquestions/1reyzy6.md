@@ -21,7 +21,10 @@ chunks:
     char_span: [0, 2162]
     sentence_count: 12
     key_terms: [software, cscareerquestions, people, engineering, code, engineers, something, comments]
+    concepts: [software, cscareerquestions, people, engineering, engineers]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c10"]
     token_count: 484
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1reyzy6/feeling_pessimistic_about_ai/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c1"
     char_span: [2164, 2316]
     sentence_count: 2
@@ -31,90 +34,109 @@ chunks:
     char_span: [2330, 4677]
     sentence_count: 20
     key_terms: [people, selling, unsustainable, never, less, own, businesses, eventually]
+    concepts: [people, selling, unsustainable, businesses, eventually]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c3"
     char_span: [4679, 6846]
     sentence_count: 17
     key_terms: [software, everyone, billionaires, engineering, automated, virtually, economy, endless]
+    concepts: [software, everyone, billionaires, engineering, automated]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c10"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c4"
     char_span: [6848, 8621]
     sentence_count: 9
     key_terms: [software, work, because, jobs, absolutely, offshoring, compared, devalued]
+    concepts: [software, because, absolutely, offshoring, compared]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c5"]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c5"
     char_span: [8623, 10667]
     sentence_count: 11
     key_terms: [engineering, software, through, because, being, hard, comments, devalued]
+    concepts: [engineering, software, through, because, being]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c10"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c6"
     char_span: [10669, 12821]
     sentence_count: 12
     key_terms: [going, people, "we're", professions, get, need, progress, software]
+    concepts: [going, people, professions, "we're", progress]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c7"
     char_span: [12823, 13999]
     sentence_count: 8
     key_terms: [money, everybody, knowledge, because, fucked, marionberrynormal957, etc, jobs]
+    concepts: [money, everybody, knowledge, because, fucked]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c8"
     char_span: [14001, 15734]
     sentence_count: 12
     key_terms: [hard, experience, companies, starting, agency, "you're", counter-intuitively, drive]
+    concepts: [experience, companies, starting, agency, "you're"]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c9"
     char_span: [15736, 17421]
     sentence_count: 16
     key_terms: [existing, stopping, struggle, forcing, plateau, humans, unique, brute]
+    concepts: [existing, stopping, struggle, forcing, plateau]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c10"
     char_span: [17424, 19743]
     sentence_count: 19
     key_terms: [manager, engineering, director, software, because, clarifications, people, llms]
+    concepts: [engineering, manager, director, software, clarifications]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c5"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c11"
     char_span: [19745, 20939]
     sentence_count: 5
     key_terms: [future, having, large, middle-of-the-road, fact, time, responsibility, conversations]
+    concepts: [future, having, large]
     section: Comments
     token_count: 253
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c12"
     char_span: [20941, 22658]
     sentence_count: 16
     key_terms: [anything, argument, computer, opinions, job, example, ideally, logical]
+    concepts: [anything, argument, computer, opinions, example]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c13"
     char_span: [22660, 24218]
     sentence_count: 18
     key_terms: [always, code, job, languages, learning, generativeadversary, areas, being]
+    concepts: [always, languages, learning, areas, being]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c14"
     char_span: [24220, 25224]
     sentence_count: 4
     key_terms: [simulated, "that's", new, bolehlandcitizen, cappuccinocodes, conveniently, dramatically, interviewing]
+    concepts: [simulated, "that's"]
     section: Comments
     token_count: 230
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c15"
     char_span: [25226, 27117]
     sentence_count: 21
     key_terms: [job, cappuccinocodes, always, "that's", code, "i'm", like, take]
+    concepts: [cappuccinocodes, always, "that's", decreased, excellent]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c16"
     char_span: [27119, 29051]
     sentence_count: 4
     key_terms: [everything, astroturfing, extension, graduated, samurottx, already, browser, getting]
+    concepts: [everything, astroturfing, extension, graduated, samurottx]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c17"

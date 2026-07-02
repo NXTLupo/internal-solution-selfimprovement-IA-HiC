@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1794]
     sentence_count: 12
     key_terms: [chinese, students, different, apps, like, feel, here, canadian]
+    concepts: [chinese, students, different, canadian, entertainment]
     token_count: 388
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1ssnj4n/anyone_else_feel_like_daily_habits_hit_different/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1ssnj4n.md#c1"
     char_span: [1808, 3619]
     sentence_count: 10
     key_terms: [chinese, like, english, daily, drive, using, use, question]
+    concepts: [chinese, english, daily, drive, using]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/uwaterloo/1ssnj4n.md#c2"

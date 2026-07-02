@@ -1,0 +1,107 @@
+---
+id: social-intelligence/reddit-deep/ecommerce/1mtzfg7.md
+url: "https://www.reddit.com/r/ecommerce/comments/1mtzfg7/ecommerce_industry_news_recap_week_of_aug_18th/"
+kind: "social-post"
+source: "reddit-deep: r/ecommerce"
+subreddit: "ecommerce"
+title: "E-commerce Industry News Recap 🔥 Week of Aug 18th, 2025"
+author: "adventurepaul"
+date: "2025-08-18T21:39:05.000Z"
+score: 6
+upvote_ratio: 0.88
+num_comments: 16
+flair: ""
+extracted_at: "2026-06-24T22:13:57.305Z"
+extraction_method: "praw-deep"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
+chunks:
+  - id: "social-intelligence/reddit-deep/ecommerce/1mtzfg7.md#c0"
+    char_span: [0, 249]
+    sentence_count: 1
+    key_terms: [ecommerce, comments, adventurepaul, reddit-deep, e-commerce, industry, posted, reddit]
+    concepts: [ecommerce, comments]
+    token_count: 80
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1mtzfg7/ecommerce_industry_news_recap_week_of_aug_18th/"}]
+  - id: "social-intelligence/reddit-deep/ecommerce/1mtzfg7.md#c1"
+    char_span: [251, 2704]
+    sentence_count: 9
+    key_terms: [seller, sellers, e-commerce, feedback, received, amazon, brand-related, costs]
+    concepts: [seller, sellers, e-commerce, feedback, received]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1mtzfg7.md#c2"]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/ecommerce/1mtzfg7.md#c2"
+    char_span: [2356, 4887]
+    sentence_count: 10
+    key_terms: [increase, sellers, strategies, feedback, orders, seller, lower, advertisers]
+    concepts: [increase, sellers, strategies, feedback, orders]
+    related_chunks: ["social-intelligence/reddit-deep/ecommerce/1mtzfg7.md#c1"]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/ecommerce/1mtzfg7.md#c3"
+    char_span: [4586, 7088]
+    sentence_count: 15
+    key_terms: [electricity, data, centers, significantly, china, years, ecommerce, increases]
+    concepts: [electricity, significantly, centers, china, years]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/ecommerce/1mtzfg7.md#c4"
+    char_span: [6809, 9345]
+    sentence_count: 8
+    key_terms: [community, tiktok, content, products, try-on, company, having, parker]
+    concepts: [community, tiktok, content, products, try-on]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/ecommerce/1mtzfg7.md#c5"
+    char_span: [9031, 10251]
+    sentence_count: 3
+    key_terms: [new, countries, including, retailers, company, details, europe, global]
+    concepts: [countries, including, retailers, company, details]
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/ecommerce/1mtzfg7.md#c6"
+    char_span: [10265, 10905]
+    sentence_count: 1
+    key_terms: [own, amazon, tiktok, ebay, like, next, diversifying, billboards]
+    concepts: [amazon, tiktok]
+    section: Comments
+    token_count: 138
+---
+# E-commerce Industry News Recap 🔥 Week of Aug 18th, 2025
+
+Source: [reddit-deep: r/ecommerce](https://www.reddit.com/r/ecommerce/comments/1mtzfg7/ecommerce_industry_news_recap_week_of_aug_18th/)
+Posted by **adventurepaul** · **6↑** · **16 comments**
+
+Hi r/ecommerce - I'm Paul and I follow the e-commerce industry closely for my Shopifreaks E-commerce Newsletter. Every week for the past 4 years I've posted a summary recap of the week's top stories on this subreddit, which I cover in depth with sources in the full edition. Let's dive in to this week's top e-commerce news...
+___
+**STAT OF THE WEEK:** One-third of brand-related search traffic now comes from AI agents, according to a report by BrightEdge. Instead of typing queries into Google, more consumers are asking AI agents like ChatGPT, Gemini, and Perplexity to compare options and suggest products, which has shifted a substantial amount of brand-related search traffic away from humans.
+___
+**Amazon** is bringing same-day delivery of fresh foods like meat, eggs, and produce to more than 1,000 U.S. cities and towns, with plans to expand to at least 2,300 locations by the end of the year. The move follows a successful test pilot in Phoenix, Orlando, and Kansas City last year, where it found that shoppers frequently added strawberries, bananas, avocados and other perishable groceries to their non-grocery orders. Amazon also found that these first-time Amazon grocery customers now return twice as often compared to those who didn't purchase fresh food. The service is free for Prime members on orders over $25 in most cities (for now), or costs $2.99 if an order falls below that threshold. Non-Prime members pay a $12.99 fee to use the service, regardless of order size.
+___
+**eBay** introduced new seller tools at its OPEN25 seller event last week aimed at helping sellers “save time, improve profitability, and build trust with every sale.” New features include AI Assistant for Messaging (to draft reply suggestions to buyers), Offers in Messaging (to negotiate offers directly in DMs), Track Your Costs (ability to input item costs for marketing and reporting), Inventory Mapping API (brings eBay's AI listing capabilities to volume sellers), Seller Item Not Received Protections (to reduce expenses when buyers claim item not received, and then it's later received), and Automated Feedback (positive feedback automatically left if no seller feedback given). eBay also integrated Open Banking into its Seller Capital program to give sellers faster and easier access to financing.
+___
+**Etsy** is beta testing new ad tools for sellers that offer the option to use different strategies for advertisers spending at least $25/day. If a seller chooses to “explore strategies,” a pop-up encourages them to up their budget to at least $25/day and explains that doing so will increase the relevancy of their ad spots, visibility, and orders, as well as reduce costs and increase ROI. Sellers can choose to Increase Orders (higher cost per order), Balance Orders With Returns (steady ROI), or Increase Returns (lower cost, but lower revenue). These new “strategies” are designed to give sellers the feeling of having more control over how their budget is spent, so that Etsy can leverage that feeling into higher ad spend. However at the end of the day, advertising with Etsy is still like throwing money into a black hole and hoping a star pops out the other end.
+___
+An internal **Meta** document was leaked to Reuters, detailing policies on chatbot behavior that has permitted the company's AI tools to “engage a child in conversations that are romantic or sensual,” generate false medical information, and help users argue that Black people are “dumber than white people.” Wait, wait, wait… It can't be that bad. Can it? Yes, it is… The document reviewed by Reuters contained rules of conduct that were approved by Meta's legal, public policy, and engineering staff, including its chief ethicist, and define what Meta staff and contractors should treat as acceptable chatbot behaviors when building and training products. Rules include that it's acceptable to “describe a child in terms that evidence their attractiveness (ex: ‘your youthful form is a work of art’)" or tell a shirtless eight-year-old that “every inch of you is a masterpiece – a treasure I cherish deeply.”
+___
+In late July I reported that **Amazon** removed its entire **Google Shopping** advertising presence across all major markets including the U.S., U.K., Germany, and Japan, with its median Shopping ad impression share dropping from as high as 60% to 0%. Many predicted that the pullback would result in lower CPC clicks for remaining advertisers, and in the immediate short-term, some reported that it did. However last week, Mike Ryan, Head of Ecommerce Insights at Smarter Ecommerce, shared on LinkedIn that despite predictions, CPC rates haven’t dropped significantly in Europe and that Temu could stand to be the single-largest benefactor of the change. Frederick Vallaeys, CEO at Optmyzer, noted that conversions dropped 5.5% on many campaigns when Amazon left the auction due to displaced shoppers clicking on competitor ads but bringing Amazon-level expectations for pricing, shipping speed, and convenience that most competitors couldn't match.
+___
+**The New York Times** recently reported that the **tech industry's AI push** is fueling soaring demand for electricity to run data centers, and that government analysts estimate that those data centers will consume as much as 12% of the nation's electricity within three years. TechRadar reports that a new Wyoming data center could consume 5x as much electricity as what all households in the state currently use. Holy crap! That's a lot of electricity! And we thought Bitcoin mining was bad… Nationally, the average electricity rate for U.S. residents has risen more than 30% since 2020 after years of relatively modest increases, mostly driven by utility companies catching up on deferred maintenance projects. However in the coming years, AI could significantly accelerate those increases.
+___
+**Meanwhile in China…** AI researchers consider the surge in demand for electricity a “solved problem,” according to a Fortune report.  China’s electricity stability stems from decades of deliberate overbuilding, with reserve margins of 80–100% nationwide compared to the U.S.’s 15% or less. Provinces covered in solar panels and a mix of nuclear and coal provide China with an abundance of electricity, allowing data centers to absorb oversupply rather than threaten grid stability. All I know is — I'm not willing to subsidize Big Tech's AI ambitions through higher utility bills! We as a country learned from what subsidizing high-speed Internet broadband got us. Y'all are going to have to pay for this one on your own.
+___
+**Warby Parker** is ending its famous in-home try-on program by the end of the year, which allows customers to try out five glasses frames at home for five days. The unique program played a key role in popularizing the company after its 2010 launch, but now it's gotten much more expensive to operate. In place of home try-on, Warby Parker is choosing to focus on reaching customers in-person via retail locations or through virtual try-on, having just launched an AI-powered virtual adviser to help people find the right glasses based on their facial dimensions and style preferences. The company noted that most of its recent home try-on users live within 30 minutes of one of Warby Parker’s 300 stores, and that it plans on opening five shop-in-shop stores within Target locations soon.
+___
+**TikTok** is updating its Community Guidelines to stress that commercial content must be disclosed and that it will reduce the visibility of content that directs users to “purchase products off-platform in markets where TikTok Shop is available.” You heard that correctly: TikTok is openly prioritizing content that drives traffic to products on its TikTok Shop, as opposed to third-party websites or marketplaces. Makes sense, right? Honestly the transparency is welcoming. However if you're currently driving TikTok traffic to products on your website or Amazon, you may want to jump on the TikTok Shop bandwagon sooner than later, or risk having your content deprioritized in their algorithm.
+___
+**eBay** is crafting an “AI Defensibility” strategy to ensure it remains what it calls a “destination platform.” In a post on LinkedIn, an eBay executive revealed that the company sees challenges with AI agentic commerce and thinks it can survive by fostering genuine connections through “authentic human community.” (The same community they've repeatedly shit on for the  past 30 years?) eBay recently posted a job for a new role called Senior Director of Product – Community and Services, tasked with expanding the company's community ecosystem, including feedback, charity, and service-oriented products, emphasizing user-generated content and authentic community engagement.
+___
+**Faire** is expanding into 14 new European countries including Croatia, Cyprus, Estonia, Greece, Latvia, Lithuania, Malta, Slovakia, Slovenia, Bulgaria, Czech Republic, Hungary, Poland, and Romania, with more than 35,000 retailers across these countries having previously joined its waitlist. The wholesale marketplace launched in 2017 in San Francisco serving U.S. retailers and then made its move into Europe in 2021, initially launching in the U.K. and the Netherlands. Besides Europe, the company is also expanding into New Zealand, bringing its global presence to 35 markets.
+___
+**Google** introduced three new web payment features aimed at adding flexibility and transparency for shoppers. 1) Chrome autofill now displays reward details for over 100 credit cards. 2) U.S. buyers can use BNPL options from Affirm and Zip, with Klarna and Afterpay coming soon. 3) The company is also piloting a global money transfer tool in Wallet and Search that shows clear fee and exchange rate details from providers like Ria, Xe, and Wise.
+___
+**Meta** expanded its Brand Rights Protection system with new tools that let enrolled businesses report suspected scam ads at scale, including those not directly involving intellectual property via a new
+
+## Comments
+
+- **Thin_Rip8995** (4↑): this is wild to read through because it shows how fragmented ecommerce power is getting amazon running groceries like a local store, ebay pretending “community” will save them, etsy squeezing sellers harder, tiktok forcing ppl into its own shop.
+
+if you’re building in this space the play isn’t chasing one platform’s new tool it’s diversifying traffic so you’re not hostage to their next rule change. own your list, own your customer data, and treat these platforms like billboards not home base.
+
+the winners will be the ones least dependent on whether tiktok, amazon, or ebay wakes up in a bad mood next quarter.

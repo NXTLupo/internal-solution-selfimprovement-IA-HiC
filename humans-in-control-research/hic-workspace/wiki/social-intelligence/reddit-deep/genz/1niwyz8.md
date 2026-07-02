@@ -21,22 +21,29 @@ chunks:
     char_span: [0, 2113]
     sentence_count: 18
     key_terms: [crypto, coin, meme, because, value, generations, genz, new]
+    concepts: [crypto, because, generations, generation, value]
     token_count: 465
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1niwyz8/spx6900_a_financialized_protest_for_genz/"}]
   - id: "social-intelligence/reddit-deep/genz/1niwyz8.md#c1"
     char_span: [2115, 3534]
     sentence_count: 15
     key_terms: [spx6900, financial, dissatisfaction, stopped, system, element, squeeze, occupy]
+    concepts: [spx6900, financial, dissatisfaction, stopped, system]
     token_count: 322
   - id: "social-intelligence/reddit-deep/genz/1niwyz8.md#c2"
     char_span: [3548, 4958]
     sentence_count: 2
     key_terms: [pull, rug, youchasechickens, future-bet4783, lol, because, discord, simple-designer-4121]
+    concepts: [youchasechickens, future-bet4783, because, discord, https]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1niwyz8.md#c3"]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/genz/1niwyz8.md#c3"
     char_span: [4960, 5872]
     sentence_count: 2
     key_terms: [future-bet4783, youchasechickens, checkmatefluff, asymmetrical, summerechoes, advertising, volatility, diversify]
+    concepts: [future-bet4783, youchasechickens]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1niwyz8.md#c2"]
     section: Comments
     token_count: 269
 ---

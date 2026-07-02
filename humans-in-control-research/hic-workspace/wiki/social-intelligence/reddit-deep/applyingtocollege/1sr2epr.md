@@ -19,47 +19,59 @@ chunks:
     char_span: [0, 1543]
     sentence_count: 16
     key_terms: [applyingtocollege, stanford, get, rah, comments, sibling, oldest, summer]
+    concepts: [applyingtocollege, stanford, comments, sibling, oldest]
     token_count: 373
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sr2epr/sibling_rivalryjealousycompetition/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c1"
     char_span: [1557, 2662]
     sentence_count: 8
     key_terms: [college, prepared, sounds, content-calendar5535, billie087ffranklin, get, like, accomplishment]
+    concepts: [college, prepared, sounds]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c3"]
     section: Comments
     token_count: 274
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c2"
     char_span: [2666, 4749]
     sentence_count: 12
     key_terms: [get, disappointment, "it's", like, own, anything, pressure, making]
+    concepts: [disappointment, anything, pressure, making, parent]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c3"
     char_span: [4751, 6205]
     sentence_count: 12
     key_terms: [prepared, want, expectations, get, careful, college, outcome, always]
+    concepts: [prepared, expectations, careful, college, outcome]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c6"]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c4"
     char_span: [6207, 8367]
     sentence_count: 11
     key_terms: [especially, younger, parent, truly, entitlement, age, get, intentions]
+    concepts: [especially, younger, parent, entitlement, intentions]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c5"
     char_span: [8369, 10399]
     sentence_count: 13
     key_terms: [ucla, want, college, student, "they're", "you're", "don't", right]
+    concepts: [college, student, "they're", "you're", "don't"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c6"
     char_span: [10401, 11889]
     sentence_count: 13
     key_terms: [college, expectations, being, short, kids, paranoid, sibling, essay]
+    concepts: [college, expectations, being, short, paranoid]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c3"]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c7"
     char_span: [11894, 12633]
     sentence_count: 3
     key_terms: [college, going, realize, little, school, older, whole, dangerous-cup-1114]
+    concepts: [college, going, realize, little, school]
     section: Comments
     token_count: 173
 ---

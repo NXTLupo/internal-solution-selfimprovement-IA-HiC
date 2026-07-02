@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1745]
     sentence_count: 7
     key_terms: [https, com, sam-3-segment-anything-with-concepts, segmentation, meta, sam, concept, model]
+    concepts: [https, sam-3-segment-anything-with-concepts, segmentation, concept, facebookresearch]
     token_count: 400
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1p1cfvx/r_segment_anything_model_3_sam_3_is_released/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1p1cfvx.md#c1"
     char_span: [1759, 3543]
     sentence_count: 7
     key_terms: [encoder, perception-encoder-the-best-visual-embeddings-are-not-at-the-output-of-the-network, hierarchical, perception, understanding, model, outperforms, sam2]
+    concepts: [encoder, hierarchical, perception, understanding, outperforms]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/machinelearning/1p1cfvx.md#c2"
     char_span: [3545, 5627]
     sentence_count: 10
     key_terms: [model, sam, text, roboflow, like, sam3, attention, prompting]
+    concepts: [model, roboflow, attention, prompting, combined]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/machinelearning/1p1cfvx.md#c3"

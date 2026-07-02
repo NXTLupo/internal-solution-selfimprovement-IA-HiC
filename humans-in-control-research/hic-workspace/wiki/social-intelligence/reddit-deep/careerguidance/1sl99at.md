@@ -21,89 +21,112 @@ chunks:
     char_span: [0, 1302]
     sentence_count: 12
     key_terms: [career, careerguidance, fired, years, new, residency, comments, explain]
+    concepts: [career, careerguidance, fired, years, residency]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sl99at.md#c1", "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c9"]
     token_count: 304
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sl99at/im_likely_to_be_fired_from_medical_residency/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c1"
     char_span: [1316, 2585]
     sentence_count: 4
     key_terms: [fired, associates, different, residency, resident, yesterdaysimilar2069, "don't", major]
+    concepts: [associates, fired, different, residency, resident]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sl99at.md#c0", "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c2", "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c9", "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c13"]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c2"
     char_span: [2587, 4672]
     sentence_count: 18
     key_terms: [resident, going, often, like, transition, different, education, something]
+    concepts: [resident, going, often, transition, different]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sl99at.md#c1"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c3"
     char_span: [4674, 6107]
     sentence_count: 11
     key_terms: [knowledge, medicine, school, residency, benefit, medical, degree, needed]
+    concepts: [knowledge, medicine, school, residency, benefit]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sl99at.md#c8"]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c4"
     char_span: [6109, 8080]
     sentence_count: 13
     key_terms: [school, companies, devices, medical, get, med, insurance, repairing]
+    concepts: [school, companies, devices, medical, insurance]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c5"
     char_span: [7816, 8553]
     sentence_count: 6
     key_terms: [residency, practice, yesterdaysimilar2069, lionclean8758, overbearing, prestigious, samarch0347, associates]
+    concepts: [residency, practice]
     section: Comments
     token_count: 184
   - id: "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c6"
     char_span: [8555, 10120]
     sentence_count: 9
     key_terms: ["you're", brother, serious, "it's", talk, something, advice, unless]
+    concepts: ["you're", brother, serious, something, advice]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c7"
     char_span: [10122, 12302]
     sentence_count: 12
     key_terms: [something, bad, did, freshliterature, access, substance, probably, "wouldn't"]
+    concepts: [something, freshliterature, access, substance, probably]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c8"
     char_span: [12304, 14369]
     sentence_count: 23
     key_terms: [residency, degree, insurance, something, medicine, notified, practice, probably]
+    concepts: [residency, degree, insurance, something, medicine]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sl99at.md#c3"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c9"
     char_span: [14371, 16156]
     sentence_count: 9
     key_terms: [question, non-renewed, fired, residency, training, issues, progression, because]
+    concepts: [question, non-renewed, residency, fired, training]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sl99at.md#c0", "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c1"]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c10"
     char_span: [16158, 17530]
     sentence_count: 11
     key_terms: [residency, performance, reasonable, attempt, fields, finish, people, result]
+    concepts: [residency, performance, reasonable, attempt, fields]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c11"
     char_span: [17532, 19595]
     sentence_count: 15
     key_terms: [degree, presentationlow7984, options, school, did, give, references, residency]
+    concepts: [degree, presentationlow7984, options, school, references]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c12"
     char_span: [19597, 21710]
     sentence_count: 21
     key_terms: [career, healthcare, get, medical, communication, take, everything, references]
+    concepts: [career, healthcare, communication, medical, everything]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c13"
     char_span: [21712, 23845]
     sentence_count: 12
     key_terms: [program, resident, residency, accomplishedwish3033, medical, cut, didn, year]
+    concepts: [program, resident, residency, accomplishedwish3033, medical]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sl99at.md#c1"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/careerguidance/1sl99at.md#c14"
     char_span: [23847, 25329]
     sentence_count: 14
     key_terms: [years, attendance, different, residents, sometimes, firings, illegal, presentationlow7984]
+    concepts: [attendance, years, different, residents, sometimes]
     section: Comments
     token_count: 365
 ---

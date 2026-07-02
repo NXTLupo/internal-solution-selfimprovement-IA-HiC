@@ -11,20 +11,23 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 3
 flair: ""
-extracted_at: "2026-06-17T19:26:46.469Z"
+extracted_at: "2026-06-20T17:52:10.501Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/insurance/1qt2oy7.md#c0"
     char_span: [0, 934]
     sentence_count: 12
     key_terms: [claim, warranty, insurance, comments, wal-mart, getting, card, gift]
+    concepts: [claim, warranty, insurance, comments, wal-mart]
     token_count: 225
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1qt2oy7/customer_service_and_warranty_claim_process_was/"}]
   - id: "social-intelligence/reddit-deep/insurance/1qt2oy7.md#c1"
-    char_span: [949, 1259]
+    char_span: [948, 1258]
     sentence_count: 3
     key_terms: [warranties, insurance, states, effectively, unregulated, different, regulates, crash866]
+    concepts: [warranties, insurance, states]
     section: Comments
     token_count: 68
 ---
@@ -37,5 +40,5 @@ We bought a Kenmore Elite Vacuum.  Getting the warranty claim completed was ver
 
 ## Comments
 
-- **crash866** (4↑): Warranty has nothing to do with insurance. Totally different things.
+- **crash866** (3↑): Warranty has nothing to do with insurance. Totally different things.
 - **key2616** (1↑): Call whoever regulates insurance in your state and hope that they also regulate warranties. Not all states do it that way and there are a couple of states where warranties are effectively unregulated.

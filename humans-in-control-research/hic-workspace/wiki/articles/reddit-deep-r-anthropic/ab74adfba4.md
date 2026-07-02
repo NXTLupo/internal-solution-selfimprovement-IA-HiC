@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1661]
     sentence_count: 7
     key_terms: [claude, going, code, anthropic, comments, anyone, deluge, period]
+    concepts: [claude, going, anthropic, comments, anyone]
     token_count: 410
+    sources: [{"n":"Reddit Deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1r3xk8t/spotify_says_its_best_developers_use_claude_and/"}]
 ---
 # Spotify says its best developers use Claude and haven't written a single line of code since December
 

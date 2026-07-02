@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1724]
     sentence_count: 15
     key_terms: [set, robinhood, want, brokerage, investing, recurring, comments, m1-style]
+    concepts: [robinhood, brokerage, investing, recurring, comments]
     token_count: 425
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1pthqwp/is_there_a_brokerage_that_offers_m1style_pies_but/"}]
   - id: "social-intelligence/reddit-deep/investing/1pthqwp.md#c1"
-    char_span: [1739, 3674]
+    char_span: [1738, 3673]
     sentence_count: 9
     key_terms: [rebalancing, want, performance, like, week, conviction, percentage, portfolio]
+    concepts: [rebalancing, performance, conviction, percentage, portfolio]
     section: Comments
     token_count: 455
 ---

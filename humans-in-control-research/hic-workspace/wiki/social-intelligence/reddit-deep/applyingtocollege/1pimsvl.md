@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1341]
     sentence_count: 7
     key_terms: [submit, retake, applyingtocollege, sat, situation, anything, comments, schools]
+    concepts: [submit, applyingtocollege, retake, situation, anything]
     token_count: 361
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1pimsvl/to_all_the_should_i_submit_my_sat_is_my_sat_high/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pimsvl.md#c1"
     char_span: [1355, 2977]
     sentence_count: 17
     key_terms: [score, school, scores, submit, above, college, common, data]
+    concepts: [score, school, scores, submit, above]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1pimsvl.md#c2"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pimsvl.md#c2"
     char_span: [2979, 4715]
     sentence_count: 10
     key_terms: [submit, score, schools, extinctedpanda, assume, school, don, admissions]
+    concepts: [submit, score, extinctedpanda, schools, assume]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1pimsvl.md#c1"]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pimsvl.md#c3"
     char_span: [4717, 5382]
     sentence_count: 4
     key_terms: [get, aviation, top, try, sorrycrossf1re, aeronautical, application, competitive]
+    concepts: [aviation]
     section: Comments
     token_count: 184
 ---

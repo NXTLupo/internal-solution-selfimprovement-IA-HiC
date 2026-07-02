@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 2045]
     sentence_count: 21
     key_terms: [internships, comments, experience, referrals, projects, content, instead, anyone]
+    concepts: [internships, comments, experience, referrals, projects]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1q3ux6d/3_things_that_got_me_from_0_procs_in_200_apps_to/"}]
   - id: "social-intelligence/reddit-deep/internships/1q3ux6d.md#c1"
     char_span: [2047, 3481]
     sentence_count: 8
     key_terms: [job, applying, frontend, backend, boards, thanks, apply, app]
+    concepts: [applying, frontend, backend, boards, thanks]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/internships/1q3ux6d.md#c2"
     char_span: [3483, 5131]
     sentence_count: 12
     key_terms: [did, job, use, early, like, something, template, backend]
+    concepts: [early, something, template, backend, message]
     section: Comments
     token_count: 435
 ---

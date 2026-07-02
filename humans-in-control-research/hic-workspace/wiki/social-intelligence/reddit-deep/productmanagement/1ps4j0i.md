@@ -17,10 +17,12 @@ research_goal: "Deliver a comprehensive 2026 outlook report on the global retail
 engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
 chunks:
   - id: "social-intelligence/reddit-deep/productmanagement/1ps4j0i.md#c0"
-    char_span: [0, 1739]
+    char_span: [0, 1738]
     sentence_count: 11
     key_terms: [local, productmanagement, indian, math, experience, something, comments, getting]
-    token_count: 377
+    concepts: [productmanagement, local, indian, experience, something]
+    token_count: 376
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1ps4j0i/localization_edge_cases_when_ai_gets_too_local/"}]
 ---
 # Localization Edge cases: When AI gets too local (Gemini Live Observation)
 

@@ -21,83 +21,104 @@ chunks:
     char_span: [0, 1482]
     sentence_count: 5
     key_terms: [google-is-offering-buyouts-to-us-employees-throughout-the-company-report-says-11752129, google, company, investopedia, teams, employees, cscareerquestions, offering]
+    concepts: [google-is-offering-buyouts-to-us-employees-throughout-the-company-report-says-11752129, google, investopedia, company, cscareerquestions]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c1"]
     token_count: 339
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1l8gwjz/breaking_google_offering_buyouts_to_us_employees/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c1"
     char_span: [1496, 2785]
     sentence_count: 10
     key_terms: [significantly, job, play, offshoring, company, google, living, people]
+    concepts: [significantly, offshoring, company, google, living]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c0"]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c2"
     char_span: [2787, 4568]
     sentence_count: 11
     key_terms: [manufacturing, peachscary413, trump, years, outsourcing, jobs, nothing, dollar]
+    concepts: [manufacturing, peachscary413, outsourcing, trump, years]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c3"
     char_span: [4570, 6606]
     sentence_count: 11
     key_terms: [outsourced, hyderabad, amortized, companies, customer, already, entire, person]
+    concepts: [outsourced, hyderabad, amortized, companies, customer]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c4"
     char_span: [6608, 8436]
     sentence_count: 9
     key_terms: [grads, new, technicianunlikely99, deleted, vep, planning, getting, google]
+    concepts: [grads, technicianunlikely99, deleted, planning, getting]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c5"
     char_span: [8438, 10512]
     sentence_count: 10
     key_terms: [hiring, people, devs, "there's", google, major, employees, engineers]
+    concepts: [hiring, people, "there's", google, major]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c6"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c6"
     char_span: [10514, 12405]
     sentence_count: 5
     key_terms: [employees, devs, hiring, people, technicianunlikely99, anything, firing, voluntary]
+    concepts: [employees, technicianunlikely99, hiring, people, anything]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c7"
     char_span: [12190, 12695]
     sentence_count: 2
     key_terms: [voluntary, iamathing420yoloswag, exits, thebrinkstruck, productivity, bwainfweeze, involuntary, researching]
+    concepts: [voluntary, exits]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c8"
     char_span: [12697, 14454]
     sentence_count: 5
     key_terms: [offshoring, tax, software, pringlesaremyfav, engineering, like, engineers, salaries]
+    concepts: [offshoring, pringlesaremyfav, software, engineering, engineers]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c9"
     char_span: [14456, 15971]
     sentence_count: 5
     key_terms: [america, though, accounting, threatened, students, funding, student, workers]
+    concepts: [america, though, accounting, threatened, students]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c10"
     char_span: [15973, 17359]
     sentence_count: 8
     key_terms: [compared, products, google, insane, corporations, software, talking, places]
+    concepts: [compared, products, corporations, google, insane]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c11"
     char_span: [17361, 18848]
     sentence_count: 7
     key_terms: [google, search, because, version, ads, bad, cost, shockingly]
+    concepts: [google, search, because, version, shockingly]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c12"]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c12"
     char_span: [18850, 19643]
     sentence_count: 5
     key_terms: [search, because, trivial, pretty, delicious-hurry-8373, working-language8266, best, "it's"]
+    concepts: [search, because, trivial, pretty]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c11"]
     section: Comments
     token_count: 210
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c13"
     char_span: [19645, 21156]
     sentence_count: 6
     key_terms: [going, market, fucking, revenue, anyone, bubble, happen, people]
+    concepts: [going, market, fucking, revenue, anyone]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c14"

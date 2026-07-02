@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 1209]
     sentence_count: 8
     key_terms: [agent, containment, understanding, customerexperience, contact, center, conversations, deflection]
+    concepts: [agent, containment, understanding, customerexperience, conversations]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1qua4gw.md#c2"]
     token_count: 257
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1qua4gw/containment_how_do_you_actually_measure_in_the/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1qua4gw.md#c1"
-    char_span: [1224, 2129]
+    char_span: [1223, 2128]
     sentence_count: 5
     key_terms: [conversations, measure, representative, total, automation, resolved, survey, agent]
+    concepts: [conversations, measure, representative, automation, total]
     section: Comments
     token_count: 187
   - id: "social-intelligence/reddit-deep/customerexperience/1qua4gw.md#c2"
-    char_span: [2134, 3803]
+    char_span: [2133, 3802]
     sentence_count: 10
     key_terms: [measure-ai-agent-performance-in-the-contact-center, containment, contact, blog, center, agent, deflection, customers]
+    concepts: [measure-ai-agent-performance-in-the-contact-center, containment, contact, center, agent]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1qua4gw.md#c0"]
     section: Comments
     token_count: 370
 ---

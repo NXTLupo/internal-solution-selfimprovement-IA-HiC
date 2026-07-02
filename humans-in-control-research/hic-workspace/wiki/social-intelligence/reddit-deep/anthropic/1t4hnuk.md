@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 319]
     sentence_count: 1
     key_terms: [anthropic, comments, reddit-deep, exhaustion, pollution, context, massive, claude]
+    concepts: [anthropic, comments]
     token_count: 95
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1t4hnuk/bug_claude_code_context_pollution_massive_token/"}]
 ---
 # [BUG] Claude Code “Context Pollution” & Massive Token Exhaustion on WSL due to CRLF Churn
 

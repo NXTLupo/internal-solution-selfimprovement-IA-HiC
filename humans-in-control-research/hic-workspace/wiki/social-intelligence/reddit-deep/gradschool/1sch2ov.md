@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1395]
     sentence_count: 10
     key_terms: [getting, program, years, less, gradschool, bachelors, comments, cost]
+    concepts: [getting, program, gradschool, years, bachelors]
     token_count: 334
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1sch2ov/is_grad_school_right_out_of_a_bachelors_worth_it/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1sch2ov.md#c1"
     char_span: [1409, 3217]
     sentence_count: 14
     key_terms: [work, masters, years, field, need, time, graduated, programs]
+    concepts: [masters, years, field, graduated, programs]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/gradschool/1sch2ov.md#c2"
     char_span: [3219, 5228]
     sentence_count: 14
     key_terms: [masters, experience, working, school, program, straight, degree, years]
+    concepts: [experience, masters, working, school, program]
     section: Comments
     token_count: 488
 ---

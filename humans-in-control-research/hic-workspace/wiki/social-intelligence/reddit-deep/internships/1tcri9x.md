@@ -19,22 +19,27 @@ chunks:
     char_span: [0, 1648]
     sentence_count: 12
     key_terms: [internships, email, emails, reply, open, students, rates, words]
+    concepts: [internships, email, emails, reply, students]
     token_count: 462
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tcri9x/we_analysed_6337_cold_emails_students_sent_for/"}]
   - id: "social-intelligence/reddit-deep/internships/1tcri9x.md#c1"
     char_span: [1650, 2242]
     sentence_count: 1
     key_terms: [cold-email-data-study-students-2026, methodology, specific, replies, rates, industry-wide, under-counted, rinternships]
+    concepts: [methodology, specific, replies, rates]
     token_count: 131
   - id: "social-intelligence/reddit-deep/internships/1tcri9x.md#c2"
     char_span: [2256, 3640]
     sentence_count: 8
     key_terms: [vandan-karakasia, giphy, gif, internship, targeting, students, manager, emails]
+    concepts: [vandan-karakasia, giphy, internship, targeting, students]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/internships/1tcri9x.md#c3"
     char_span: [3642, 4343]
     sentence_count: 6
     key_terms: [quality, number, like, jesuslizardgoat, ablefeeling933, emailverifier, neverbounce, appreciate]
+    concepts: [quality, number]
     section: Comments
     token_count: 156
 ---

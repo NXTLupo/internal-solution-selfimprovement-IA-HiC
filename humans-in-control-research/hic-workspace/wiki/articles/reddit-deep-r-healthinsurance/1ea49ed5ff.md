@@ -19,19 +19,25 @@ content_hash: "ae7ebcc7e24568f3"
 relevance_by_goal: {"68c375ef0d4e":40}
 chunks:
   - id: "articles/reddit-deep-r-healthinsurance/1ea49ed5ff.md#c0"
-    char_span: [0, 2368]
+    char_span: [0, 2367]
     sentence_count: 16
     key_terms: [information, medical, eligible, healthinsurance, through, county, income, review]
-    token_count: 506
+    concepts: [information, medical, eligible, healthinsurance, automatically]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/1ea49ed5ff.md#c1"]
+    token_count: 505
+    sources: [{"n":"Reddit Deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1u4un5a/unclear_whether_i_have_medical_or_not/"}]
   - id: "articles/reddit-deep-r-healthinsurance/1ea49ed5ff.md#c1"
-    char_span: [2370, 4320]
+    char_span: [2369, 4319]
     sentence_count: 6
     key_terms: [please, post, questions, information, eob, edit, help, via]
+    concepts: [please, questions, information, healthinsurance, comment]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/1ea49ed5ff.md#c0"]
     token_count: 426
   - id: "articles/reddit-deep-r-healthinsurance/1ea49ed5ff.md#c2"
-    char_span: [4323, 6171]
+    char_span: [4322, 6170]
     sentence_count: 15
     key_terms: [income, coveredca, get, sbleakleyinsures, because, monthly, county, eligibility]
+    concepts: [income, sbleakleyinsures, coveredca, because, monthly]
     token_count: 426
 ---
 # Unclear whether I have MediCal or not

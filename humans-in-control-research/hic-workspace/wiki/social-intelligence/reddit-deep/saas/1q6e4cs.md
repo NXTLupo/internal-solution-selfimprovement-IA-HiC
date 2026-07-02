@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 1091]
     sentence_count: 6
     key_terms: [verification, deliverability, api, saas, processing, validation, comments, syntax]
+    concepts: [verification, deliverability, processing, validation, comments]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1q6e4cs.md#c1"]
     token_count: 213
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1q6e4cs/is_there_an_email_verification_tool_with_api_that/"}]
   - id: "social-intelligence/reddit-deep/saas/1q6e4cs.md#c1"
-    char_span: [1106, 3462]
+    char_span: [1105, 3461]
     sentence_count: 13
     key_terms: [verification, real-time, batch, processing, zerobounce, significantly, requirements, costs]
+    concepts: [verification, real-time, batch, processing, zerobounce]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1q6e4cs.md#c0"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/saas/1q6e4cs.md#c2"
-    char_span: [3464, 5643]
+    char_span: [3463, 5642]
     sentence_count: 18
     key_terms: [email, verification, address, syntax, api, need, pricing, checks]
+    concepts: [email, verification, address, syntax, pricing]
     section: Comments
     token_count: 501
 ---

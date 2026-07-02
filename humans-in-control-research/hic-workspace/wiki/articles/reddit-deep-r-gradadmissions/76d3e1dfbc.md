@@ -18,21 +18,26 @@ chunks:
     char_span: [0, 1809]
     sentence_count: 10
     key_terms: [people, group, interview, gradadmissions, get, admissions, colleagues, incentive]
+    concepts: [people, interview, group, gradadmissions, admissions]
     token_count: 381
+    sources: [{"n":"Reddit Deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1re36l0/what_do_people_think_about_the_twoway_interview/"}]
   - id: "articles/reddit-deep-r-gradadmissions/76d3e1dfbc.md#c1"
     char_span: [1811, 3971]
     sentence_count: 24
     key_terms: [students, people, expectations, lab, want, questions, outcomes, personal]
+    concepts: [students, expectations, people, questions, outcomes]
     token_count: 456
   - id: "articles/reddit-deep-r-gradadmissions/76d3e1dfbc.md#c2"
     char_span: [3973, 5741]
     sentence_count: 18
     key_terms: [professor, questions, pivoting, "it's", interpret, interview, situation, because]
+    concepts: [professor, questions, pivoting, interpret, interview]
     token_count: 375
   - id: "articles/reddit-deep-r-gradadmissions/76d3e1dfbc.md#c3"
     char_span: [5743, 7308]
     sentence_count: 9
     key_terms: [questions, private, faculty, program, ask, like, zoom, interviews]
+    concepts: [questions, private, faculty, program, interviews]
     token_count: 344
 ---
 # What do people think about the "two-way interview" part of PhD/grad school admissions?

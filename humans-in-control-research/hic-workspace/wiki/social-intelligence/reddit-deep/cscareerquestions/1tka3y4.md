@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 363]
     sentence_count: 5
     key_terms: [cscareerquestions, comments, eggshellwalker4, reddit-deep, copefuel, hopefuel, response, ropefuel]
+    concepts: [cscareerquestions, comments]
     token_count: 103
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tka3y4/hopefuel_copefuel_ropefuel_which_one_should_i/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tka3y4.md#c1"
     char_span: [377, 1090]
     sentence_count: 5
     key_terms: [industry, number, gloomy-pineapple1729, tight-requirement-15, most-bookkeeper-950, greed, job, stay]
+    concepts: [industry, number, greed]
     section: Comments
     token_count: 181
 ---

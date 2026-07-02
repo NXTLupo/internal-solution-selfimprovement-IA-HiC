@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 1317]
     sentence_count: 7
     key_terms: [agents, entrepreneur, departments, currently, business, comments, finance, scaling]
+    concepts: [agents, entrepreneur, departments, currently, business]
     token_count: 286
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1olk83a/i_want_to_scale_how_i_use_ai_in_my_business_whats/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1olk83a.md#c1"
-    char_span: [1332, 2142]
+    char_span: [1331, 2141]
     sentence_count: 4
     key_terms: [please, entrepreneur, permanent, promotion, stickied, comment, thread, weekly]
+    concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/entrepreneur/1olk83a.md#c2"
-    char_span: [2145, 4465]
+    char_span: [2144, 4464]
     sentence_count: 16
     key_terms: [another, message, hours, like, new, next, time, use]
+    concepts: [another, message, hours, customers, dashboard]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1olk83a.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/entrepreneur/1olk83a.md#c3"
-    char_span: [4181, 5167]
+    char_span: [4180, 5166]
     sentence_count: 8
     key_terms: [another, etc, dashboard, friction, because, app, work, simultaneously]
+    concepts: [another, dashboard, friction, because]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1olk83a.md#c2"]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/entrepreneur/1olk83a.md#c4"
-    char_span: [5169, 6226]
+    char_span: [5168, 6225]
     sentence_count: 11
     key_terms: [teams, departments, starting, scaling, support, across, buy-in, avoid]
+    concepts: [departments, teams, starting, scaling, support]
     section: Comments
     token_count: 238
 ---

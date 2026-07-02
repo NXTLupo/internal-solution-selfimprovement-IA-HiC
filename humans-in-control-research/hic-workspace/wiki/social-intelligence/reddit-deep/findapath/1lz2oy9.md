@@ -21,47 +21,56 @@ chunks:
     char_span: [0, 905]
     sentence_count: 7
     key_terms: [working, people, good, "i'm", jobs, findapath, comments, seeing]
+    concepts: [working, people, findapath, comments, seeing]
     token_count: 214
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1lz2oy9/what_jobs_are_people_doing_in_their_mid_20s_to_30s/"}]
   - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c1"
     char_span: [919, 1866]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c2"
     char_span: [1869, 3678]
     sentence_count: 19
     key_terms: [job, "i'm", retail, ways, inescapablefree, makes, feel, life]
+    concepts: [retail, inescapablefree, makes, understand, current]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c3"
     char_span: [3680, 4791]
     sentence_count: 13
     key_terms: [school, buzzyscruggs94, trade, hvac, job, classes, doing, money]
+    concepts: [school, buzzyscruggs94, trade, classes, doing]
     section: Comments
     token_count: 266
   - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c4"
     char_span: [4793, 6576]
     sentence_count: 12
     key_terms: [breakiteven, life, apprenticeship, tehtexasranger, school, going, get, time]
+    concepts: [breakiteven, apprenticeship, tehtexasranger, school, going]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c5"
     char_span: [6578, 8166]
     sentence_count: 14
     key_terms: [spectrum1523, good, get, "it's", job, rewarding, something, sometimes]
+    concepts: [spectrum1523, rewarding, something, sometimes, operator]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c6"
     char_span: [8168, 8881]
     sentence_count: 8
     key_terms: [unlikely-loss5616, working, mid, time, confidence, determined, struggling, understand]
+    concepts: [unlikely-loss5616, working]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c7"
     char_span: [8883, 10193]
     sentence_count: 5
     key_terms: [engineering, did, work, wildlife, certification, got, job, biologist]
+    concepts: [engineering, wildlife, certification, biologist, engineer]
     section: Comments
     token_count: 322
 ---

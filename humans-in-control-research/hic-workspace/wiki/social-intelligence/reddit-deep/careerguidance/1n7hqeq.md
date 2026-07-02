@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 2125]
     sentence_count: 12
     key_terms: [engineering, computer, degree, part-time, considering, "i'm", evening, careerguidance]
+    concepts: [engineering, computer, part-time, degree, considering]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1n7hqeq.md#c1"]
     token_count: 443
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1n7hqeq/advice_on_transitioning_into_computer_engineering/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1n7hqeq.md#c1"
     char_span: [2139, 3059]
     sentence_count: 8
     key_terms: [loweringpass, engineering, "i'm", expensive, computer, classes, market, option]
+    concepts: [loweringpass, engineering, expensive, computer, classes]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1n7hqeq.md#c0"]
     section: Comments
     token_count: 215
 ---

@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1557]
     sentence_count: 12
     key_terms: [start, cscareerquestions, applying, personal, internships, experience, comments, semester]
+    concepts: [start, cscareerquestions, applying, personal, internships]
     token_count: 338
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1oskt3s/about_to_start_school_for_cs_but_have_personal/"}]
 ---
 # About to start school for CS but have personal project experience already. Things like a Real-time messaging system that can handle multiple concurrent clients. How soon can I start applying for internships?
 

@@ -21,29 +21,39 @@ chunks:
     char_span: [0, 1510]
     sentence_count: 14
     key_terms: [college, student, loans, comments, little, regret, taking, illustrious-mango536]
+    concepts: [college, student, loans, comments, little]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qlibs9.md#c1", "social-intelligence/reddit-deep/college/1qlibs9.md#c2", "social-intelligence/reddit-deep/college/1qlibs9.md#c3"]
     token_count: 357
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1qlibs9/be_honest_with_me_do_you_regret_your_student_loans/"}]
   - id: "social-intelligence/reddit-deep/college/1qlibs9.md#c1"
     char_span: [1524, 3411]
     sentence_count: 13
     key_terms: [education, loans, howlingfantods5564, college, "don't", get, loan, pay]
+    concepts: [education, loans, howlingfantods5564, college, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qlibs9.md#c0", "social-intelligence/reddit-deep/college/1qlibs9.md#c2"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/college/1qlibs9.md#c2"
     char_span: [3413, 4455]
     sentence_count: 6
     key_terms: [debt, loans, part-time, possible, college, student, campus, people]
+    concepts: [loans, part-time, possible, college, student]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qlibs9.md#c0", "social-intelligence/reddit-deep/college/1qlibs9.md#c1", "social-intelligence/reddit-deep/college/1qlibs9.md#c3"]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/college/1qlibs9.md#c3"
     char_span: [4457, 6562]
     sentence_count: 14
     key_terms: [loans, student, year, total, high, loan, take, wasn]
+    concepts: [loans, student, total, community, interest]
+    related_chunks: ["social-intelligence/reddit-deep/college/1qlibs9.md#c0", "social-intelligence/reddit-deep/college/1qlibs9.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1qlibs9.md#c4"
     char_span: [6328, 7822]
     sentence_count: 14
     key_terms: [college, years, degree, regret, school, loans, debt, student]
+    concepts: [college, years, degree, regret, school]
     section: Comments
     token_count: 364
 ---

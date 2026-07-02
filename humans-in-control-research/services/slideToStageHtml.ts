@@ -1818,14 +1818,26 @@ function renderOrgChart(slide: SlideDataLike, T: BrandTokens): string {
 // web.tsx ExecutiveBriefSlide. One template, three variants. Brand-token skinned.
 // ---------------------------------------------------------------------------
 
+// E3 (2026-07-02, artifact-total-elevation) DENSITY-ADAPTIVE ANATOMY. Three hard rules from the
+// creative-director pass over Figma 366:2 (evidence E-3: four fixed-height cards, ~45% empty wash,
+// two silent empty quote wells, zero visual slots):
+//   (a) no container underfills - cards hug content (auto rows), never stretch around dead space;
+//   (b) evidence-or-collapse - a section WITH a quote renders as a full card; a section WITHOUT one
+//       collapses into a compact SIGNAL row (no empty quote well, ever);
+//   (c) the page declares a VISUAL slot - executiveBrief.exhibitImage (registry executive-brief,
+//       native infographic composed from the sections' own evidence mix). Absent image -> the band
+//       collapses (recorded image-free, not an accident of layout).
 function renderExecutiveBrief(slide: SlideDataLike, T: BrandTokens): string {
     const d: any = slide.executiveBrief || {};
     const variant: string = d.variant || 'brief';
     const sections: any[] = Array.isArray(d.sections) ? d.sections.slice(0, Math.max(2, Math.min(_caps.items || 4, 6))) : [];
     if (sections.length === 0 && !d.hero) return `<p style="font-size:${SCALE.name}px">No brief content.</p>`;
     const gotchas: string[] = variant === 'explainer' && Array.isArray(d.gotchas) ? d.gotchas.slice(0, Math.min(_caps.sub || 4, 6)) : [];
-    const cols = sections.length <= 2 ? 1 : 2;
     const stepped = variant === 'explainer';
+    // evidence-or-collapse split (explainer keeps its stepped card walk - numbering IS the anatomy)
+    const quoted = stepped ? sections : sections.filter(s => s?.evidence?.quote);
+    const bare = stepped ? [] : sections.filter(s => !s?.evidence?.quote);
+    const cols = quoted.length <= 2 ? Math.max(1, quoted.length) : 2;
     const heroHtml = (d.hero?.stat && variant !== 'explainer')
         ? `<div class="ebhero"><span class="ebhv">${esc(trunc(d.hero.stat, 40))}</span><span class="ebhl">${esc(trunc(d.hero.label, 70))}</span></div>`
         : '';
@@ -1835,6 +1847,14 @@ function renderExecutiveBrief(slide: SlideDataLike, T: BrandTokens): string {
         <div class="ebbody">${esc(trunc(s.body || '', 240))}</div>
         ${s.evidence?.quote ? `<div class="ebq"><div class="ebqt">“${esc(trunc(s.evidence.quote, 150))}”</div><div class="ebqs">${esc(trunc(s.evidence.source || '', 44))}</div></div>` : ''}
       </div>`;
+    const signalRow = (s: any) => `
+      <div class="ebsig"><span class="ebsigh">${esc(trunc(s.heading || '', 48))}</span><span class="ebsigb">${esc(trunc(s.body || '', 170))}</span></div>`;
+    const signalsHtml = bare.length
+        ? `<div class="ebsigs"><div class="ebsigl">Signals</div>${bare.map(signalRow).join('')}</div>`
+        : '';
+    const exhibit = typeof d.exhibitImage === 'string' && d.exhibitImage.trim()
+        ? `<div class="ebex"><img src="${esc(d.exhibitImage)}" alt=""></div>`
+        : '';
     const gotchasHtml = gotchas.length
         ? `<div class="ebgot"><div class="ebgl">Gotchas</div>${gotchas.map(g => `<div class="ebgi">• ${esc(trunc(g, 120))}</div>`).join('')}</div>`
         : '';
@@ -1843,20 +1863,28 @@ function renderExecutiveBrief(slide: SlideDataLike, T: BrandTokens): string {
 .ebhero{display:flex;align-items:baseline;gap:20px;background:${T.callout};border-left:6px solid ${T.accent};padding:18px 26px}
 .ebhv{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.subhead}px;line-height:1;color:${T.ink}}
 .ebhl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase;color:${T.grey}}
-.ebgrid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(${cols},1fr);gap:18px}
+.ebgrid{display:grid;grid-template-columns:repeat(${cols},1fr);grid-auto-rows:min-content;align-content:start;gap:18px}
 .ebcard{background:${T.callout};border:1px solid ${T.hair};padding:18px 22px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
 .ebhead{display:flex;align-items:baseline;gap:12px}
 .ebnum{font-family:${T.monoFont};font-weight:700;font-size:${SCALE.caption}px;color:${T.accent}}
 .ebh{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.lead}px;line-height:1.15;color:${T.ink}}
 .ebbody{font-family:${T.bodyFont};font-size:${SCALE.label}px;line-height:1.45;color:${T.ink}}
-.ebq{margin-top:auto;border-left:3px solid ${T.accentCool};padding-left:12px}
+.ebq{margin-top:10px;border-left:3px solid ${T.accentCool};padding-left:12px}
 .ebqt{font-family:${T.titleFont};${T.titleFont.includes('Lora') ? 'font-style:italic;' : ''}font-size:${SCALE.label}px;line-height:1.4;color:${T.ink}}
 .ebqs{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:0.5px;text-transform:uppercase;color:${T.accentCool};margin-top:3px}
+.ebsigs{background:${T.callout};border:1px solid ${T.hair};border-left:6px solid ${T.accent};padding:12px 22px}
+.ebsigl{font-family:${T.monoFont};font-weight:700;font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase;color:${T.grey};margin-bottom:6px}
+.ebsig{display:flex;align-items:baseline;gap:14px;padding:5px 0;border-top:1px solid ${T.hair}}
+.ebsig:first-of-type{border-top:none}
+.ebsigh{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.label}px;color:${T.ink};white-space:nowrap}
+.ebsigb{font-family:${T.bodyFont};font-size:${SCALE.label}px;line-height:1.4;color:${T.ink}}
+.ebex{flex:1;min-height:0;display:flex;background:${T.callout};border:1px solid ${T.hair}}
+.ebex img{width:100%;height:100%;object-fit:contain}
 .ebgot{background:${T.washWarn};border-left:6px solid ${T.accentWarn};padding:14px 24px}
 .ebgl{font-family:${T.monoFont};font-weight:700;font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase;color:${T.accentWarn};margin-bottom:6px}
 .ebgi{font-family:${T.bodyFont};font-size:${SCALE.label}px;line-height:1.4;color:${T.ink}}
 </style>
-<div class="ebgold">${heroHtml}<div class="ebgrid">${sections.map(card).join('')}</div>${gotchasHtml}</div>`;
+<div class="ebgold">${heroHtml}${quoted.length ? `<div class="ebgrid">${quoted.map(card).join('')}</div>` : ''}${signalsHtml}${exhibit}${gotchasHtml}</div>`;
 }
 
 // ---------------------------------------------------------------------------
@@ -2133,7 +2161,37 @@ function renderArchitectureMap(slide: SlideDataLike, T: BrandTokens): string {
 // prd-feature - MoSCoW-priority feature cards with user story + AC
 // ---------------------------------------------------------------------------
 
+// 2026-07-02 (#prd depth uplift, canon 607:4) - the FR/NFR/OOS requirements ledger. Three
+// hugging columns with colored top rules and mono ID cells; rows flow (no fixed heights, no
+// dead wash). Native by construction: text runs + rule rects through the GEO walker.
+function renderPrdRequirements(req: any, T: BrandTokens): string {
+    const col = (label: string, rule: string, rows: any[]) => `
+      <div class="prq">
+        <div class="prqh" style="border-top:3px solid ${rule}">${esc(label)}</div>
+        ${rows.slice(0, Math.max(4, _caps.sub || 6)).map((r: any) => `
+        <div class="prqr"><span class="prqi">${esc(trunc(String(r.id || ''), 8))}</span><p>${esc(trunc(String(r.text || ''), 170))}</p></div>`).join('')}
+      </div>`;
+    return `<style>
+.prqg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px;align-content:start}
+.prq{display:flex;flex-direction:column;background:${T.callout};padding:0 22px 16px}
+.prqh{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase;color:${T.grey};padding:14px 0 10px}
+.prqr{display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:start;padding:9px 0;border-top:1px solid ${T.hair}}
+.prqi{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.accentCool};font-weight:600;padding-top:2px}
+.prqr p{font-size:${SCALE.caption}px;line-height:1.42;color:${T.ink}}
+</style>
+<div class="prqg">
+  ${col('Functional', T.accentCool, req.functional || [])}
+  ${col('Non-functional', T.ink, req.nonFunctional || [])}
+  ${col('Out of scope', T.accentWarn, req.outOfScope || [])}
+</div>`;
+}
+
 function renderPrdFeature(slide: SlideDataLike, T: BrandTokens): string {
+    // 2026-07-02 (#prd depth uplift): a requirements payload renders the canon-607:4 ledger table.
+    const req = (slide.prdFeature as any)?.requirements;
+    if (req && (Array.isArray(req.functional) || Array.isArray(req.nonFunctional) || Array.isArray(req.outOfScope))) {
+        return renderPrdRequirements(req, T);
+    }
     const features: any[] = Array.isArray(slide.prdFeature?.features) ? slide.prdFeature.features.slice(0, _caps.items) : [];
     // 2026-06-28 carrier-to-renderer: per-feature tokenized emblem, index-aligned to features
     // (registry prd-feature carrier featureImages, icon branch). Empty -> nothing (fail-open).
@@ -2189,14 +2247,20 @@ ${features.map((f, i) => `
  *  footer with technical / stakeholder mono lines. */
 function renderPrdFeatureDense(features: any[], T: BrandTokens, featureImages: string[] = []): string {
     const cards = features.slice(0, 2).map((f, i) => {
+        // 2026-07-02 depth uplift: Given/When/Then criteria run longer than the legacy one-line
+        // assertions; the per-item budget rises with the count-adaptive cap so complete sentences
+        // survive (no-truncation contract: compress at generation, never cut mid-thought here).
         const crit: string[] = Array.isArray(f.acceptanceCriteria) ? f.acceptanceCriteria.slice(0, 5) : [];
+        const critBudget = crit.length >= 5 ? 130 : 165;
+        const storyId = String(f.storyId || `US-${i + 1}`);
         const footer: string[] = [];
         if (f.technicalDetails) footer.push(trunc(f.technicalDetails, 76));
         if (f.stakeholders) footer.push(trunc(`Stakeholders: ${f.stakeholders}`, 76));
+        if (f.traces) footer.push(trunc(`Traces: ${f.traces}`, 76));
         return `
       <div class="pdc">
         <div class="pdh">
-          <div class="pdn">${String(i + 1).padStart(2, '0')}</div>
+          <div class="pdn">${esc(trunc(storyId, 8))}</div>
           ${featureImages[i] ? `<img class="pdglyph" src="${esc(String(featureImages[i]))}" alt="">` : ''}
           <div class="pdt">${esc(trunc(f.name, 44))}</div>
           <div class="pdp">${esc(trunc(f.priority || 'must', 12))}</div>
@@ -2204,7 +2268,8 @@ function renderPrdFeatureDense(features: any[], T: BrandTokens, featureImages: s
         ${f.problemSolved ? `<div class="pdps">${esc(trunc(f.problemSolved, 130))}</div>` : ''}
         ${f.userStory ? `<div class="pdl">User story</div><div class="pdst">${esc(trunc(f.userStory, 230))}</div>` : ''}
         ${crit.length > 0 ? `<div class="pdl">Acceptance criteria</div>
-        <div class="pdac">${crit.map(c => `<div class="pdai"><span></span><p>${esc(trunc(c, 105))}</p></div>`).join('')}</div>` : ''}
+        <div class="pdac">${crit.map(c => `<div class="pdai"><span></span><p>${esc(trunc(c, critBudget))}</p></div>`).join('')}</div>` : ''}
+        ${f.successMetric ? `<div class="pdl">Success metric</div><div class="pdsm">${esc(trunc(f.successMetric, 120))}</div>` : ''}
         ${footer.length > 0 ? `<div class="pdf">${footer.map(t => `<div>${esc(t)}</div>`).join('')}</div>` : ''}
       </div>`;
     }).join('');
@@ -2223,6 +2288,7 @@ function renderPrdFeatureDense(features: any[], T: BrandTokens, featureImages: s
 .pdai{display:grid;grid-template-columns:14px 1fr;gap:11px;align-items:start}
 .pdai span{width:9px;height:9px;background:${T.accentCool};margin-top:8px;display:block}
 .pdai p{font-size:${SCALE.caption}px;line-height:1.42;color:${T.ink}}
+.pdsm{font-size:${SCALE.caption}px;line-height:1.42;color:${T.ink};border-left:3px solid ${T.accent};padding-left:12px}
 .pdf{margin-top:auto;border-top:1px solid ${T.hair};padding-top:11px;display:flex;flex-direction:column;gap:4px;font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.grey};text-transform:uppercase}
 </style>
 <div class="pdg">${cards}</div>`;
@@ -2311,7 +2377,7 @@ function fullBleedImageDoc(brand: Brand, title: string, imgUri: string): string 
 <html lang="en" data-brand="${brand}">
 <head><meta charset="UTF-8"><title>${esc(title || 'Diagram')}</title>
 <style>*{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;background:#080808;overflow:hidden}
+html,body{width:100%;height:100%;background:${T.rail};overflow:hidden}
 #stage{position:absolute;width:1920px;height:1080px;background:${T.paper};transform-origin:top left}
 #stage img{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;display:block}
 </style></head>

@@ -19,41 +19,51 @@ chunks:
     char_span: [0, 1842]
     sentence_count: 13
     key_terms: [jobs, job, ago, days, got, week, restaurant, comments]
+    concepts: [restaurant, comments, because, exactly, months]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1oomdg2.md#c1"]
     token_count: 444
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1oomdg2/bruh_i_got_hired_a_week_ago/"}]
   - id: "social-intelligence/reddit-deep/jobs/1oomdg2.md#c1"
     char_span: [1856, 3514]
     sentence_count: 10
     key_terms: [get, uniform, hours, like, week, restaurant, wanderit, because]
+    concepts: [uniform, hours, restaurant, wanderit, because]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1oomdg2.md#c0"]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/jobs/1oomdg2.md#c2"
     char_span: [3516, 5078]
     sentence_count: 9
     key_terms: [congress, paycheck, deleted, insider, running, trading, twice, pastrychefpikachu]
+    concepts: [congress, paycheck, deleted, insider, running]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/jobs/1oomdg2.md#c3"
     char_span: [5080, 6962]
     sentence_count: 13
     key_terms: [people, westernmanner6788, job, business, owners, hours, means, small]
+    concepts: [people, westernmanner6788, business, owners, hours]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1oomdg2.md#c4"
     char_span: [6698, 7538]
     sentence_count: 7
     key_terms: [people, summertimethrowaway2, going, westernmanner6788, get, "i'm", need, new]
+    concepts: [people, going]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/jobs/1oomdg2.md#c5"
     char_span: [7540, 9683]
     sentence_count: 17
     key_terms: [job, people, got, jobs, work, experience, assistant, "doctor's"]
+    concepts: [people, experience, assistant, "doctor's", because]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/jobs/1oomdg2.md#c6"
     char_span: [9685, 9891]
     sentence_count: 2
     key_terms: [business, blogger8517, happened, sal10000, managed, poorly, never, small]
+    concepts: [business]
     section: Comments
     token_count: 57
 ---

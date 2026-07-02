@@ -20,22 +20,27 @@ chunks:
     char_span: [0, 2568]
     sentence_count: 14
     key_terms: [aircraft, pilot, merlin, autonomy, autonomous, time, building, existing]
+    concepts: [aircraft, pilot, merlin, autonomy, autonomous]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1tl1hwg/mrln_the_future_of_aviation_autonomy/"}]
   - id: "social-intelligence/reddit-deep/stocks/1tl1hwg.md#c1"
     char_span: [2570, 4961]
     sentence_count: 16
     key_terms: [merlin, currently, like, million, condor, cargo, spac, management]
+    concepts: [merlin, currently, million, condor, cargo]
     token_count: 479
   - id: "social-intelligence/reddit-deep/stocks/1tl1hwg.md#c2"
-    char_span: [4963, 6707]
+    char_span: [4963, 6706]
     sentence_count: 14
     key_terms: [companies, executive, financial, drseuss1020, been, bankrupt, military, msaleem]
+    concepts: [companies, executive, financial, drseuss1020, bankrupt]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/stocks/1tl1hwg.md#c3"
-    char_span: [6709, 7931]
+    char_span: [6708, 7930]
     sentence_count: 10
     key_terms: [drseuss1020, like, company, busy-firefighter204, looks, accurate-flow8078, interesting, speculative]
+    concepts: [drseuss1020, company, looks]
     section: Comments
     token_count: 319
 ---

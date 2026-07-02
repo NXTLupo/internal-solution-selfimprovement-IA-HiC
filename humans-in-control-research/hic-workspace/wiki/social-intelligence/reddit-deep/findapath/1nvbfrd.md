@@ -19,38 +19,51 @@ chunks:
     char_span: [0, 2240]
     sentence_count: 10
     key_terms: [applications, comments, months, worked, findapath, responses, emerging, exactly]
+    concepts: [applications, comments, months, worked, findapath]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1nvbfrd.md#c4"]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1nvbfrd/landed_a_job_after_5_months_heres_exactly_how_i/"}]
   - id: "social-intelligence/reddit-deep/findapath/1nvbfrd.md#c1"
     char_span: [2242, 4738]
     sentence_count: 9
     key_terms: [security, roles, innovation, cybersecurity, interviews, companies, problem, system]
+    concepts: [security, innovation, roles, cybersecurity, interviews]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1nvbfrd.md#c2"]
     token_count: 511
   - id: "social-intelligence/reddit-deep/findapath/1nvbfrd.md#c2"
     char_span: [4740, 7177]
     sentence_count: 9
     key_terms: [security, innovation, "you're", "i'd", assessment, compliance, networking, researched]
+    concepts: [security, innovation, "you're", assessment, compliance]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1nvbfrd.md#c1", "social-intelligence/reddit-deep/findapath/1nvbfrd.md#c3"]
     token_count: 493
   - id: "social-intelligence/reddit-deep/findapath/1nvbfrd.md#c3"
     char_span: [7179, 8968]
     sentence_count: 17
     key_terms: [career, helped, understanding, assessment, innovation, cognitive, interview, questions]
+    concepts: [understanding, career, helped, assessment, innovation]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1nvbfrd.md#c2"]
     token_count: 378
   - id: "social-intelligence/reddit-deep/findapath/1nvbfrd.md#c4"
-    char_span: [8983, 10414]
+    char_span: [8982, 10413]
     sentence_count: 12
     key_terms: [thank, helpful, please, here, findapath, comments, everyone, guidance]
+    concepts: [thank, helpful, please, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1nvbfrd.md#c0"]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/findapath/1nvbfrd.md#c5"
-    char_span: [10416, 12641]
+    char_span: [10415, 12640]
     sentence_count: 6
     key_terms: [profile, applications, experience, temporarydevice7895, job, roles, innovation, strategic]
+    concepts: [applications, temporarydevice7895, profile, experience, innovation]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/findapath/1nvbfrd.md#c6"
-    char_span: [12643, 13696]
+    char_span: [12642, 13695]
     sentence_count: 7
     key_terms: [job, keywords, sharing, across, thanks, legenddontwaitforit, never, "i've"]
+    concepts: [keywords, sharing, across, thanks, never]
     section: Comments
     token_count: 241
 ---

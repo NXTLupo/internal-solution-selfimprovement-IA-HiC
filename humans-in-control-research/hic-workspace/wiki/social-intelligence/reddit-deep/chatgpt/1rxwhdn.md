@@ -21,21 +21,26 @@ chunks:
     char_span: [0, 2320]
     sentence_count: 17
     key_terms: [spending, people, "don't", chatgpt, finance, actual, audit, money]
+    concepts: [spending, people, "don't", chatgpt, finance]
     token_count: 486
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1rxwhdn/chatgpt_prompt_of_the_day_the_personal_finance/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1rxwhdn.md#c1"
     char_span: [2322, 4708]
     sentence_count: 11
     key_terms: [spending, subscriptions, income, category, action, misalignment, constraints, ask]
+    concepts: [spending, subscriptions, income, category, misalignment]
     token_count: 495
   - id: "social-intelligence/reddit-deep/chatgpt/1rxwhdn.md#c2"
     char_span: [4710, 5477]
     sentence_count: 7
     key_terms: [input, month, subscriptions, categories, breakdown, disappear, freelance, groceries]
+    concepts: [input, month]
     token_count: 180
   - id: "social-intelligence/reddit-deep/chatgpt/1rxwhdn.md#c3"
     char_span: [5491, 6790]
     sentence_count: 8
     key_terms: [prompt, post, chatgpt, openai, please, conversation, image, r-chatgpt-1050422060352024636]
+    concepts: [prompt, chatgpt, conversation, openai, please]
     section: Comments
     token_count: 332
 ---

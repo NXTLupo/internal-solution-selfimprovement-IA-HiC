@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 2243]
     sentence_count: 23
     key_terms: [engineering, resume, mechanical, engineeringstudents, people, saying, been, don]
+    concepts: [engineering, engineeringstudents, mechanical, resume, people]
     token_count: 497
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1q8i7t2/burned_out_23_f_from_job_hunting_despite_strong/"}]
   - id: "articles/reddit-deep-r-engineeringstudents/6cadd6dc9b.md#c1"
     char_span: [2245, 4097]
     sentence_count: 20
     key_terms: [experience, because, right, blue, call, don, linkedin, similar]
+    concepts: [experience, because, right, linkedin, similar]
     token_count: 406
   - id: "articles/reddit-deep-r-engineeringstudents/6cadd6dc9b.md#c2"
     char_span: [4099, 6203]
     sentence_count: 12
     key_terms: [everything, physical, industries, mechanical, struggling, different, expand, people]
+    concepts: [everything, physical, industries, mechanical, struggling]
     token_count: 483
 ---
 # Burned out (23 F) from job hunting despite strong background. Not sure what else to do.

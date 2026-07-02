@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1315]
     sentence_count: 8
     key_terms: [careerguidance, career, opportunities, gap, freelance, building, comments, getting]
+    concepts: [careerguidance, opportunities, career, freelance, building]
     token_count: 307
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sqfqro/12year_career_gap_learned_sqlexcelpower_bi_but/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sqfqro.md#c1"
     char_span: [1329, 3313]
     sentence_count: 21
     key_terms: [data, skills, job, people, market, get, like, projects]
+    concepts: [skills, people, market, projects, analyst]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/careerguidance/1sqfqro.md#c2"
     char_span: [3315, 5157]
     sentence_count: 16
     key_terms: [data, learning, get, like, anything, personal, towards, skills]
+    concepts: [learning, anything, personal, towards, skills]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/careerguidance/1sqfqro.md#c3"

@@ -14,59 +14,74 @@ chunks:
     char_span: [0, 454]
     sentence_count: 3
     key_terms: [connector, data, research, source, platform, approximately, communities, connectors]
+    concepts: [connector, research, source, platform]
     token_count: 76
   - id: "sources-registry/connector-catalog.md#c1"
     char_span: [481, 2358]
     sentence_count: 12
     key_terms: [proxy, get, sources, datasourceconnector, connector, api, category, returns]
+    concepts: [proxy, datasourceconnector, sources, connector, category]
     section: Architecture Overview
     token_count: 428
   - id: "sources-registry/connector-catalog.md#c2"
     char_span: [2360, 2788]
     sentence_count: 1
     key_terms: [data, news, government, education, academic, economic, social, web]
+    concepts: [government, education, academic, economic, social]
+    related_chunks: ["sources-registry/connector-catalog.md#c3", "sources-registry/connector-catalog.md#c4"]
     section: Architecture Overview
     token_count: 111
   - id: "sources-registry/connector-catalog.md#c3"
     char_span: [2831, 3526]
     sentence_count: 2
     key_terms: [tier, data, credibility, news, government, research, social, credibility-tiers]
+    concepts: [credibility, government, research, social]
+    related_chunks: ["sources-registry/connector-catalog.md#c2"]
     section: Credibility Tier Mapping by Category
     token_count: 162
   - id: "sources-registry/connector-catalog.md#c4"
     char_span: [3560, 5340]
     sentence_count: 2
     key_terms: [tier, api, education, rss, higher, news, connectors, connector]
+    concepts: [education, higher, connectors, connector, academic]
+    related_chunks: ["sources-registry/connector-catalog.md#c2", "sources-registry/connector-catalog.md#c5"]
     section: Complete Connector Registry
     token_count: 466
   - id: "sources-registry/connector-catalog.md#c5"
     char_span: [5342, 6523]
     sentence_count: 1
     key_terms: [tier, api, data, federal, credibility, connectors, connector, display]
+    concepts: [credibility, federal, connectors, connector, display]
+    related_chunks: ["sources-registry/connector-catalog.md#c4", "sources-registry/connector-catalog.md#c6"]
     section: Complete Connector Registry
     token_count: 301
   - id: "sources-registry/connector-catalog.md#c6"
     char_span: [6525, 7719]
     sentence_count: 2
     key_terms: [data, tier, api, open, credibility, city, gov, news]
+    concepts: [credibility, connector, display, gdelt, notes]
+    related_chunks: ["sources-registry/connector-catalog.md#c5"]
     section: Complete Connector Registry
     token_count: 337
   - id: "sources-registry/connector-catalog.md#c7"
     char_span: [7721, 8761]
     sentence_count: 1
     key_terms: [tier, web, video, channel, content, connector, api, youtube]
+    concepts: [video, channel, content, connector, youtube]
     section: Complete Connector Registry
     token_count: 276
   - id: "sources-registry/connector-catalog.md#c8"
     char_span: [8763, 10588]
     sentence_count: 1
     key_terms: [tier, rss, coverage, news, research, review, marktechpost, venturebeat]
+    concepts: [coverage, research, marktechpost, review, venturebeat]
     section: Complete Connector Registry
     token_count: 512
   - id: "sources-registry/connector-catalog.md#c9"
     char_span: [10361, 10907]
     sentence_count: 1
     key_terms: [tier, web, rss, coverage, public-interest, infrastructure, deeplearning, interactive]
+    concepts: [coverage]
     section: Complete Connector Registry
     token_count: 157
   - id: "sources-registry/connector-catalog.md#c10"
@@ -79,72 +94,84 @@ chunks:
     char_span: [10949, 12821]
     sentence_count: 1
     key_terms: [tier, research, rss, blog, publications, posts, updates, openai]
+    concepts: [research, publications, posts, updates, openai]
     section: Complete Connector Registry
     token_count: 512
   - id: "sources-registry/connector-catalog.md#c12"
     char_span: [12600, 13319]
     sentence_count: 1
     key_terms: [site-scoped, research, tier, web, releases, stability, mistral, papers]
+    concepts: [site-scoped, research, releases, stability, mistral]
     section: Complete Connector Registry
     token_count: 213
   - id: "sources-registry/connector-catalog.md#c13"
     char_span: [13321, 14317]
     sentence_count: 1
     key_terms: [preprints, api, tier, arxiv, openreview, computer, dblp, human-computer]
+    concepts: [preprints, arxiv, openreview, computer]
     section: Complete Connector Registry
     token_count: 302
   - id: "sources-registry/connector-catalog.md#c14"
     char_span: [14319, 15486]
     sentence_count: 1
     key_terms: [tier, web, api, model, datasets, registry, dataset, benchmarks]
+    concepts: [datasets, registry, model, dataset, benchmarks]
     section: Complete Connector Registry
     token_count: 332
   - id: "sources-registry/connector-catalog.md#c15"
     char_span: [15488, 17302]
     sentence_count: 1
     key_terms: [tier, rss, policy, api, community, web, framework, institute]
+    concepts: [policy, community, framework, institute, standards]
     section: Complete Connector Registry
     token_count: 502
   - id: "sources-registry/connector-catalog.md#c16"
     char_span: [17304, 18942]
     sentence_count: 1
     key_terms: [tier, site-scoped, conference, web, github, api, docs, trending]
+    concepts: [site-scoped, conference, github, trending, credibility]
     section: Complete Connector Registry
     token_count: 490
   - id: "sources-registry/connector-catalog.md#c17"
     char_span: [18971, 20306]
     sentence_count: 4
     key_terms: [subreddit, research, reddit, ripper, discovery, tier, service, via]
+    concepts: [subreddit, research, reddit, ripper, discovery]
     section: CX Mesh Social Sources
     token_count: 295
   - id: "sources-registry/connector-catalog.md#c18"
     char_span: [20332, 21932]
     sentence_count: 6
     key_terms: [research, sources, search, refinement, get, gemini, deep, mode]
+    concepts: [research, sources, search, refinement, gemini]
     section: Deep Research Modes
     token_count: 348
   - id: "sources-registry/connector-catalog.md#c19"
     char_span: [21966, 23056]
     sentence_count: 6
     key_terms: [items, relevance, scoring, characters, enrichment, extraction, enriched, filtered]
+    concepts: [items, relevance, scoring, characters, enrichment]
     section: Content Enrichment Pipeline
     token_count: 259
   - id: "sources-registry/connector-catalog.md#c20"
     char_span: [23078, 23679]
     sentence_count: 2
     key_terms: [downstream, citation, corpus, mergeresultstocorpus, score, credibility-tiers, sources-registry, credibility]
+    concepts: [downstream, citation, corpus, score]
     section: Corpus Assembly
     token_count: 134
   - id: "sources-registry/connector-catalog.md#c21"
     char_span: [23704, 24057]
     sentence_count: 1
     key_terms: [sources, connectors, tier, mesh, site-scoped, categories, api-based, research]
+    concepts: [sources, connectors]
     section: Summary Statistics
     token_count: 104
   - id: "sources-registry/connector-catalog.md#c22"
     char_span: [24080, 24513]
     sentence_count: 1
     key_terms: [research, social-intelligence, sentiment-pipeline, credibility-tiers, tier, sources-registry, research-fabric, research-modes]
+    concepts: [research]
     section: Cross-References
     token_count: 93
 ---

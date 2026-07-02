@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 232]
     sentence_count: 1
     key_terms: [gradadmissions, comments, charlespotts64, reddit-deep, breathe, posted, reddit, source]
+    concepts: [gradadmissions, comments]
     token_count: 77
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qfz6s7/i_can_breathe_again/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qfz6s7.md#c1"
     char_span: [246, 1419]
     sentence_count: 7
     key_terms: [charlespotts64, thank, congratulations, congrats, amazing, somewillingness2503, great, top]
+    concepts: [charlespotts64, congratulations, thank, congrats, amazing]
     section: Comments
     token_count: 404
 ---

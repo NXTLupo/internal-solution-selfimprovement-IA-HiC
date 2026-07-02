@@ -1,9 +1,67 @@
 ---
+id: brand/image-slots/minor-pages-and-journey-variants.md
 title: Image Slots — minor pages (presentation / mindmap / meta-themes / agenda) + journey variants (NXT GOLD)
 type: brand
 updated: 2026-06-17
+chunks:
+  - id: "brand/image-slots/minor-pages-and-journey-variants.md#c0"
+    char_span: [0, 610]
+    sentence_count: 5
+    key_terms: [archetype, variants, journey, isqhavm7si4qhawb7y9c2z, setsharedplugindata, fills, pages, nxt]
+    concepts: [archetype, variants, journey, fills, pages]
+    token_count: 167
+  - id: "brand/image-slots/minor-pages-and-journey-variants.md#c1"
+    char_span: [612, 2287]
+    sentence_count: 1
+    key_terms: [thumbnail, journey, light, richer-evidence, more-structure, fragments, scattered, emerging]
+    concepts: [thumbnail, journey, light, richer-evidence, more-structure]
+    related_chunks: ["brand/image-slots/minor-pages-and-journey-variants.md#c2"]
+    token_count: 512
+  - id: "brand/image-slots/minor-pages-and-journey-variants.md#c2"
+    char_span: [2077, 3785]
+    sentence_count: 1
+    key_terms: [light, thumbnail, journey, in-table, base, meta-themes, portfolio, patterns]
+    concepts: [light, thumbnail, journey, in-table, meta-themes]
+    related_chunks: ["brand/image-slots/minor-pages-and-journey-variants.md#c1", "brand/image-slots/minor-pages-and-journey-variants.md#c3"]
+    token_count: 512
+  - id: "brand/image-slots/minor-pages-and-journey-variants.md#c3"
+    char_span: [3561, 4405]
+    sentence_count: 1
+    key_terms: [light, decomposition, glyph, meta-themes, ownership, portfolio, patterns, question]
+    concepts: [light, decomposition, meta-themes, glyph, ownership]
+    related_chunks: ["brand/image-slots/minor-pages-and-journey-variants.md#c2"]
+    token_count: 236
+  - id: "brand/image-slots/minor-pages-and-journey-variants.md#c4"
+    char_span: [4439, 5173]
+    sentence_count: 5
+    key_terms: [agenda, left, cover-left, already, cover, panel, right, title]
+    concepts: [agenda, cover-left, already, cover, panel]
+    section: Deliberately left image-free
+    token_count: 193
+  - id: "brand/image-slots/minor-pages-and-journey-variants.md#c5"
+    char_span: [5234, 6018]
+    sentence_count: 5
+    key_terms: [journeymap, stages, phase, per-phase, journey, string, empty, regression-tested]
+    concepts: [journeymap, stages, phase, per-phase, journey]
+    section: Runtime renderer contract (journey — WIRED 2026-06-17)
+    token_count: 210
+  - id: "brand/image-slots/minor-pages-and-journey-variants.md#c6"
+    char_span: [6030, 7624]
+    sentence_count: 5
+    key_terms: [matrix, takeaway, thumbnails, phase, imgoptional, grown, band, rail]
+    concepts: [matrix, takeaway, thumbnails, phase, imgoptional]
+    related_chunks: ["brand/image-slots/minor-pages-and-journey-variants.md#c7"]
+    section: Notes
+    token_count: 512
+  - id: "brand/image-slots/minor-pages-and-journey-variants.md#c7"
+    char_span: [7427, 8444]
+    sentence_count: 1
+    key_terms: [imgoptional, glyph-slot, thumbnails, columns, touched, empty, card, "true"]
+    concepts: [imgoptional, glyph-slot, thumbnails, columns, touched]
+    related_chunks: ["brand/image-slots/minor-pages-and-journey-variants.md#c6"]
+    section: Notes
+    token_count: 294
 ---
-
 # Image Slots — minor pages + journey variants
 
 Blank `img-slot` / `glyph-slot` placeholders placed into the NXT GOLD components on the journey

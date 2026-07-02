@@ -20,23 +20,31 @@ chunks:
     char_span: [0, 1368]
     sentence_count: 9
     key_terms: [finance, internship, financialcareers, comments, looking, whether, advice, mainly]
+    concepts: [finance, internship, financialcareers, comments, looking]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1rwv7oi.md#c1"]
     token_count: 322
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1rwv7oi/is_it_too_late_to_get_a_finance_internship_in/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1rwv7oi.md#c1"
-    char_span: [1383, 3336]
+    char_span: [1382, 3335]
     sentence_count: 13
     key_terms: [maleficent-race8472, year, finance, sense, consulting, internship, different, something]
+    concepts: [maleficent-race8472, finance, consulting, internship, sense]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1rwv7oi.md#c0", "social-intelligence/reddit-deep/financialcareers/1rwv7oi.md#c2"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/financialcareers/1rwv7oi.md#c2"
-    char_span: [3338, 5185]
+    char_span: [3337, 5184]
     sentence_count: 11
     key_terms: [maleficent-race8472, finance, summer, roles, big, wam, graduate, students]
+    concepts: [maleficent-race8472, finance, summer, roles, graduate]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1rwv7oi.md#c1"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/financialcareers/1rwv7oi.md#c3"
-    char_span: [5187, 5715]
+    char_span: [5186, 5714]
     sentence_count: 2
     key_terms: [cooked, maleficent-race8472, neithersuccess4159, read, recruiters, clickable, digitally, annually]
+    concepts: [cooked]
     section: Comments
     token_count: 137
 ---

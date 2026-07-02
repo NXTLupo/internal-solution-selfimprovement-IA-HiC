@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1474]
     sentence_count: 12
     key_terms: [return, comments, integration, returnsaver, api, mvp, saas, e-commerce]
+    concepts: [return, comments, integration, returnsaver, e-commerce]
     token_count: 341
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1swl1dn/i_built_an_ai_saas_to_solve_the_ecommerce_return/"}]
   - id: "social-intelligence/reddit-deep/saas/1swl1dn.md#c1"
-    char_span: [1489, 2405]
+    char_span: [1488, 2404]
     sentence_count: 10
     key_terms: [merchants, feedback, friction, native, e-com, csv, get, integrations]
+    concepts: [merchants, feedback, friction, native, e-com]
     section: Comments
     token_count: 194
 ---

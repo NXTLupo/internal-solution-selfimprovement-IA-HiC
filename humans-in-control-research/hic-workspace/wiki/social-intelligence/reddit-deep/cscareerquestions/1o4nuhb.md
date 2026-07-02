@@ -19,83 +19,101 @@ chunks:
     char_span: [0, 2056]
     sentence_count: 18
     key_terms: ["i'm", "i've", cscareerquestions, did, looking, several, years, good]
+    concepts: [cscareerquestions, looking, several, years, comments]
     token_count: 479
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1o4nuhb/no_one_will_hire_me_what_now/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c1"
-    char_span: [2071, 4221]
+    char_span: [2070, 4220]
     sentence_count: 13
     key_terms: [roles, friends, "don't", job, open, experience, recruiter, secondary]
+    concepts: [roles, friends, "don't", experience, recruiter]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c2"
-    char_span: [4223, 5168]
+    char_span: [4222, 5167]
     sentence_count: 9
     key_terms: [resume, interested, doing, engineeringresumes, good, "it's", job, look]
+    concepts: [resume, interested, doing]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c3"
-    char_span: [5170, 6435]
+    char_span: [5169, 6434]
     sentence_count: 7
     key_terms: [people, like, opinions, reviewed, resume, "that's", get, "i'm"]
+    concepts: [people, opinions, reviewed, resume, "that's"]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c7"]
     section: Comments
     token_count: 300
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c4"
-    char_span: [6437, 7452]
+    char_span: [6436, 7451]
     sentence_count: 6
     key_terms: [resume, software, specific, already, making, niche, "it's", job]
+    concepts: [resume, software, specific, already, making]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c5"
-    char_span: [7454, 8975]
+    char_span: [7453, 8974]
     sentence_count: 10
     key_terms: [because, resume, "i'm", difficult, interview, response, "doesn't", being]
+    concepts: [because, resume, difficult, interview, response]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c6"
-    char_span: [8977, 10263]
+    char_span: [8976, 10262]
     sentence_count: 7
     key_terms: [illustrious-pound266, unfortunately, point, "true", treating, deleted, become, longer]
+    concepts: [illustrious-pound266, unfortunately, point, treating, deleted]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c7"
-    char_span: [10265, 12335]
+    char_span: [10264, 12334]
     sentence_count: 14
     key_terms: [software, experience, get, engineering, people, work, "that's", job]
+    concepts: [software, experience, engineering, people, "that's"]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c13"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c8"
-    char_span: [12108, 13957]
+    char_span: [12107, 13956]
     sentence_count: 15
     key_terms: [applied, applications, level, get, job, jobs, because, numbers]
+    concepts: [applications, applied, level, because, numbers]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c9"
-    char_span: [13959, 16069]
+    char_span: [13958, 16068]
     sentence_count: 24
     key_terms: ["don't", good, "i'm", job, build, class, feel, high]
+    concepts: ["don't", build, class, harsh793xd, different]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c10"
-    char_span: [16071, 17574]
+    char_span: [16070, 17573]
     sentence_count: 13
     key_terms: [use, harsh793xd, programming, classmates, degree, syntax, "don't", learn]
+    concepts: [harsh793xd, programming, classmates, degree, syntax]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c11"
-    char_span: [17576, 19754]
+    char_span: [17575, 19753]
     sentence_count: 15
     key_terms: [company, find, get, deleted, school, doing, engineering, good]
+    concepts: [company, deleted, school, engineering, doing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c12"
-    char_span: [19471, 20663]
+    char_span: [19470, 20662]
     sentence_count: 10
     key_terms: [software, job, corporate, different, get, america, easier, trying]
+    concepts: [software, corporate, different, america, easier]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c13"
-    char_span: [20665, 22123]
+    char_span: [20664, 22122]
     sentence_count: 11
     key_terms: [job, engineering, software, find, tech, try, use, work]
+    concepts: [engineering, software, department, experience, something]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c7"]
     section: Comments
     token_count: 345
 ---

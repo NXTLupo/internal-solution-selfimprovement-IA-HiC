@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 593]
     sentence_count: 4
     key_terms: [careerguidance, trades, comments, without, career, degree, income, many-economics-4326]
+    concepts: [careerguidance, trades, comments, without, career]
     token_count: 140
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rpvbmz/are_skilled_trades_a_good_career_path_without_a/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rpvbmz.md#c1"
     char_span: [607, 2248]
     sentence_count: 18
     key_terms: [apprenticeship, trade, elevator, trades, work, mechanic, college, school]
+    concepts: [apprenticeship, elevator, trade, trades, mechanic]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/careerguidance/1rpvbmz.md#c2"
     char_span: [2250, 3026]
     sentence_count: 6
     key_terms: [trades, mindful, "there's", people, big, good, apprenticeship, opportunities]
+    concepts: [trades, mindful, "there's", people]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/careerguidance/1rpvbmz.md#c3"
     char_span: [3028, 5448]
     sentence_count: 22
     key_terms: [work, degree, "you're", experience, line, physical, college, trades]
+    concepts: [experience, degree, "you're", physical, college]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rpvbmz.md#c4"
     char_span: [5128, 5689]
     sentence_count: 4
     key_terms: [income, apprenticeships, certifications, electricians, specialized, estimating, controls, mornings]
+    concepts: [income]
     section: Comments
     token_count: 115
 ---

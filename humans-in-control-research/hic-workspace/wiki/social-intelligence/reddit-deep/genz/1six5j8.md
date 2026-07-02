@@ -21,100 +21,123 @@ chunks:
     char_span: [0, 1921]
     sentence_count: 11
     key_terms: [friends, run, because, bowling, alley, going, gen, genuinely]
+    concepts: [friends, because, bowling, alley, going]
     token_count: 480
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1six5j8/third_spaces_arent_dying_because_gen_z_are/"}]
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c1"
     char_span: [1923, 3005]
     sentence_count: 10
     key_terms: [prices, because, people, places, rising, doing, local, money]
+    concepts: [prices, because, people, places, rising]
     token_count: 229
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c2"
     char_span: [3019, 3941]
     sentence_count: 6
     key_terms: [teenagers, anywhere, discord, people, unless, "you're", down, like]
+    concepts: [teenagers, anywhere, discord, people, unless]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c3"
     char_span: [3943, 5705]
     sentence_count: 7
     key_terms: [anything, places, "don't", group, want, affordable, teenagers, because]
+    concepts: [anything, places, affordable, "don't", group]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c4"
     char_span: [5707, 6888]
     sentence_count: 4
     key_terms: [teenagers, businesses, local, money, been, don, get, like]
+    concepts: [teenagers, businesses, local, money]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c5"
     char_span: [6890, 8686]
     sentence_count: 9
     key_terms: [people, spaces, chill, always, loiter, going, cocovenomnomnom95, bar]
+    concepts: [people, spaces, chill, always, loiter]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1six5j8.md#c14", "social-intelligence/reddit-deep/genz/1six5j8.md#c15"]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c6"
     char_span: [8688, 9613]
     sentence_count: 8
     key_terms: [boomer, boomers, conservative, yall, places, being, power, earth-jupiter-mars]
+    concepts: [boomer, boomers, conservative, places, being]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c7"
     char_span: [9615, 11042]
     sentence_count: 4
     key_terms: [botanical, gardens, gen, because, boomers, power, free, here]
+    concepts: [botanical, gardens, because, boomers, power]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1six5j8.md#c8"]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c8"
     char_span: [11044, 13040]
     sentence_count: 12
     key_terms: [botanical, gen, gardens, free, here, like, grunchlet, around]
+    concepts: [botanical, gardens, grunchlet, around, member]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1six5j8.md#c7"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c9"
     char_span: [13042, 14554]
     sentence_count: 9
     key_terms: [land, everything, anything, though, home, lol, some1inreallife, bey0nd1nfinity]
+    concepts: [everything, anything, though]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c10"
     char_span: [14556, 16523]
     sentence_count: 18
     key_terms: [infrastructure, people, public, space, use, pedestrian, parking, traffic]
+    concepts: [infrastructure, people, public, pedestrian, space]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c11"
     char_span: [16525, 18085]
     sentence_count: 7
     key_terms: [bus, especially, spaces, being, gen, hour, like, town]
+    concepts: [especially, spaces, being]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c12"
     char_span: [18087, 19774]
     sentence_count: 18
     key_terms: [millennial, certainty, expensive, dollars, payment, tuesday, always, around]
+    concepts: [millennial, certainty, expensive, dollars, payment]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c13"
     char_span: [19776, 21147]
     sentence_count: 12
     key_terms: [mall, definitely, graduated, recession, managed, around, people, teens]
+    concepts: [definitely, graduated, recession, managed, around]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c14"
     char_span: [21149, 23195]
     sentence_count: 19
     key_terms: [people, spaces, free, comfortable, bars, dive, went, community]
+    concepts: [people, spaces, comfortable, community, libraries]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1six5j8.md#c5", "social-intelligence/reddit-deep/genz/1six5j8.md#c15"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c15"
     char_span: [23197, 24694]
     sentence_count: 10
     key_terms: [spaces, people, entertainment, world, unfortunate, american, "didn't", cost]
+    concepts: [spaces, entertainment, people, unfortunate, world]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1six5j8.md#c5", "social-intelligence/reddit-deep/genz/1six5j8.md#c14"]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c16"
     char_span: [24696, 26046]
     sentence_count: 7
     key_terms: [dopamine, developers, cities, spaces, build, urban, get, infrastructure]
+    concepts: [dopamine, developers, cities, spaces, build]
     section: Comments
     token_count: 278
 ---

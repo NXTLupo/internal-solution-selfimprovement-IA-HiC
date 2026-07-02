@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 394]
     sentence_count: 1
     key_terms: [gradadmissions, comments, reddit-deep, everywhere, shoulders, applying, rejected, applied]
+    concepts: [gradadmissions, comments]
     token_count: 96
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qumcei/finally_got_in_second_cycle_applying/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qumcei.md#c1"
     char_span: [408, 1091]
     sentence_count: 3
     key_terms: [congrats, congratulations, okconclusion2289, amazing, electrical-water-891, dulceignorancia, noprobllama9898, extra-put-7374]
+    concepts: [congrats, congratulations, okconclusion2289, amazing]
     section: Comments
     token_count: 237
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1532]
     sentence_count: 9
     key_terms: [students, experience, applyingtocollege, dev, get, web, year, freelance]
+    concepts: [students, experience, applyingtocollege, freelance, comments]
     token_count: 368
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1snuioa/what_can_u_advise_me_to_do_extracurricular_for_ee/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1snuioa.md#c1"
     char_span: [1546, 2389]
     sentence_count: 5
     key_terms: [competitions, engineering, math, something, physics, pursuit, "aren't", neckbackground5184]
+    concepts: [competitions, engineering, something, physics, pursuit]
     section: Comments
     token_count: 190
 ---

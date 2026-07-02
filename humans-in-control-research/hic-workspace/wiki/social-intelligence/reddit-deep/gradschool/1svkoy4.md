@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 328]
     sentence_count: 3
     key_terms: [gradschool, comments, school, get, reddit-deep, kenicandi, research, getting]
+    concepts: [gradschool, comments, school]
     token_count: 92
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1svkoy4/so_can_i_get_into_grad_school_and_get_paid_can_i/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1svkoy4.md#c1"
     char_span: [342, 2530]
     sentence_count: 17
     key_terms: [research, school, professor, bobbybobby507, grad, people, program, pay]
+    concepts: [research, professor, school, bobbybobby507, people]
     section: Comments
     token_count: 512
 ---

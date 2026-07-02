@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 827]
     sentence_count: 5
     key_terms: [accounting, nonprofits, why-nonprofits-need-fund-accounting-software, fund, philanthropy, comments, software, funds]
+    concepts: [accounting, nonprofits, philanthropy, comments, software]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1nqyc8h.md#c1"]
     token_count: 183
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1nqyc8h/why_is_fund_accounting_essential_for_nonprofits/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1nqyc8h.md#c1"
-    char_span: [842, 1437]
+    char_span: [841, 1436]
     sentence_count: 5
     key_terms: [funds, accounting, nonprofits, ensures, fund, organization, requirements, stakeholders]
+    concepts: [accounting, funds, nonprofits, ensures]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1nqyc8h.md#c0"]
     section: Comments
     token_count: 111
 ---

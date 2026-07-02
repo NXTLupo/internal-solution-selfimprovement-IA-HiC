@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1300]
     sentence_count: 9
     key_terms: [cybersecurity, analytics, data, "i'm", careerguidance, experience, comments, booming]
+    concepts: [cybersecurity, analytics, careerguidance, experience, comments]
     token_count: 300
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1q4e8un/computer_science_student_graduating_in_6_months/"}]
 ---
 # Computer Science student graduating in 6 months, what career path should I pursue?
 

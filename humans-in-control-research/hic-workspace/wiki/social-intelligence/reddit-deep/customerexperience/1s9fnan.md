@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1872]
     sentence_count: 12
     key_terms: [automation, teams, customerexperience, decision, feedback, take, frustrated, resolution]
+    concepts: [automation, customerexperience, teams, decision, feedback]
     token_count: 402
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1s9fnan/hot_take_cx_isnt_broken_your_decision_speed_is/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1s9fnan.md#c1"
-    char_span: [1887, 4311]
+    char_span: [1886, 4310]
     sentence_count: 17
     key_terms: [automation, context, conversations, soft-car-3231, unstructured, data, resolution, approvals]
+    concepts: [automation, conversations, soft-car-3231, context, unstructured]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/customerexperience/1s9fnan.md#c2"
-    char_span: [4313, 5465]
+    char_span: [4312, 5464]
     sentence_count: 4
     key_terms: [conversation, decision, resolution, structured, context, instead, agent, later]
+    concepts: [conversation, decision, resolution, structured, context]
     section: Comments
     token_count: 228
   - id: "social-intelligence/reddit-deep/customerexperience/1s9fnan.md#c3"
-    char_span: [5467, 7441]
+    char_span: [5466, 7440]
     sentence_count: 15
     key_terms: [decision, latency, agents, ownership, interactions, tools, data, instantly]
+    concepts: [decision, latency, agents, ownership, interactions]
     section: Comments
     token_count: 404
 ---

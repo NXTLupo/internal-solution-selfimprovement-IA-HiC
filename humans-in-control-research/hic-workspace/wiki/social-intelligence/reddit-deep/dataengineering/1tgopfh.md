@@ -20,47 +20,56 @@ chunks:
     char_span: [0, 1504]
     sentence_count: 14
     key_terms: [dataengineering, sufficiently, been, lot, comments, explain, forward, being]
+    concepts: [dataengineering, sufficiently, comments, explain, forward]
     token_count: 339
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1tgopfh/not_sufficiently_ai_forward/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1tgopfh.md#c1"
-    char_span: [1519, 3472]
+    char_span: [1518, 3471]
     sentence_count: 16
     key_terms: [professornopuede, entertainment, specifically, wrong, get, need, constantly, contract]
+    concepts: [professornopuede, entertainment, specifically, constantly, wrong]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/dataengineering/1tgopfh.md#c2"
-    char_span: [3474, 5464]
+    char_span: [3473, 5463]
     sentence_count: 13
     key_terms: [want, monochromedinosaur, fuckyouinyourface, culture, fit, mug, idealistic, bishop491]
+    concepts: [monochromedinosaur, fuckyouinyourface, culture, idealistic, bishop491]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/dataengineering/1tgopfh.md#c3"
-    char_span: [5466, 6746]
+    char_span: [5465, 6745]
     sentence_count: 7
     key_terms: [development, going, tools, leveraging, understand, across, "you're", come]
+    concepts: [development, going, leveraging, tools, understand]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/dataengineering/1tgopfh.md#c4"
-    char_span: [6748, 8795]
+    char_span: [6747, 8794]
     sentence_count: 14
     key_terms: [opinion, interviews, being, "don't", development, "it's", want, workflow]
+    concepts: [opinion, interviews, development, being, "don't"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/dataengineering/1tgopfh.md#c5"
-    char_span: [8797, 10772]
+    char_span: [8796, 10771]
     sentence_count: 13
     key_terms: [coding, new, use, vibe, answers, code, dev, like]
+    concepts: [coding, answers, expertise, consider, highest]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/dataengineering/1tgopfh.md#c6"
-    char_span: [10774, 13224]
+    char_span: [10773, 13223]
     sentence_count: 6
     key_terms: [engineering, development, workflows, want, software, impact, ai-assisted, experience]
+    concepts: [engineering, development, workflows, software, impact]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/dataengineering/1tgopfh.md#c7"
-    char_span: [13226, 14206]
+    char_span: [13225, 14205]
     sentence_count: 8
     key_terms: [get, job, opinions, company, results, hands, "it's", need]
+    concepts: [opinions, company, results, hands]
     section: Comments
     token_count: 219
 ---

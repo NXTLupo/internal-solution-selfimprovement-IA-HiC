@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1922]
     sentence_count: 18
     key_terms: [everything, money, spending, something, like, povertyfinance, credit, brain]
+    concepts: [everything, spending, money, something, povertyfinance]
     token_count: 431
+    sources: [{"n":"Reddit Deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1pgn3g6/is_it_normal_to_feel_guilty_spending_money_even/"}]
   - id: "articles/reddit-deep-r-povertyfinance/d0eec0f1f1.md#c1"
     char_span: [1924, 4085]
     sentence_count: 23
     key_terms: [therapy, deleted, get, need, feeling, budget, guilt, saved]
+    concepts: [therapy, deleted, feeling, budget, comfortable]
     token_count: 499
   - id: "articles/reddit-deep-r-povertyfinance/d0eec0f1f1.md#c2"
     char_span: [4087, 5710]
     sentence_count: 13
     key_terms: [fun, because, lot, money, feel, household, instead, therapy]
+    concepts: [because, money, household, instead, therapy]
     token_count: 371
 ---
 # Is it normal to feel guilty spending money even when you can technically afford it?

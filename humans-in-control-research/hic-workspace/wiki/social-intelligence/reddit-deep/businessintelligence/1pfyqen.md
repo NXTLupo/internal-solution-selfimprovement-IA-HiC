@@ -20,22 +20,26 @@ chunks:
     char_span: [0, 2357]
     sentence_count: 17
     key_terms: [mongo, metabase, company, businessintelligence, data, postgres, service, small]
+    concepts: [metabase, businessintelligence, mongo, company, postgres]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1pfyqen/sole_dev_moving_from_nodemongo_to_bi_for_a_small/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1pfyqen.md#c1"
     char_span: [2359, 2812]
     sentence_count: 4
     key_terms: [sql, responsibility, maintenance, underlying, direction, expecting, generally, pipelines]
     token_count: 95
   - id: "social-intelligence/reddit-deep/businessintelligence/1pfyqen.md#c2"
-    char_span: [2827, 4612]
+    char_span: [2826, 4611]
     sentence_count: 13
     key_terms: [stack, tools, like, sql, reporting, semaphor, because, changes]
+    concepts: [stack, tools, reporting, semaphor, because]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/businessintelligence/1pfyqen.md#c3"
-    char_span: [4617, 6801]
+    char_span: [4616, 6800]
     sentence_count: 15
     key_terms: [layer, metrics, financial, metabase, architecture, expectations, self-service, tools]
+    concepts: [layer, metrics, financial, metabase, architecture]
     section: Comments
     token_count: 466
 ---

@@ -21,47 +21,63 @@ chunks:
     char_span: [0, 1850]
     sentence_count: 11
     key_terms: [rddt, wallstreetbets, continued, comments, earnings, chatgpt, decided, despite]
+    concepts: [wallstreetbets, continued, comments, earnings, chatgpt]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1o2zf8d/dd_rddt_23m_full_family_port_yolo_btfd_betting/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c1"
     char_span: [1852, 3573]
     sentence_count: 5
     key_terms: [marketminute-2025-10-3-reddit-rebounds-analysts-dismiss-ai-fears-as-data-licensing-and-ad-growth-drive-optimism, sam-altmans-reddit-stake-now-worth-over-1-billion-after-earnings-pop, aswzdai2aepz4yfkuzhlyw43xkfw5jyglonf0rqc-xmco1xblhovzkcmoxodmv7rkoy, aoxkheaywliakyahjqlxoxevrchlej2ga5po3e7p5vmhy7ujwtgmmsjrj6u0, apple-stock-price-google-search-trial-774f4774, https, com, google]
+    concepts: [https, google, reddit, sites, citations]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c4", "social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c7"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c2"
     char_span: [3486, 3881]
     sentence_count: 3
     key_terms: [aoxkheaywliakyahjqlxoxevrchlej2ga5po3e7p5vmhy7ujwtgmmsjrj6u0ihez5ppiujpdvwsllsbfsjdouq, because, reddit, being, cited, "it's", wikipedia, comments]
+    concepts: [because, reddit, being, cited]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c5"]
     token_count: 152
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c3"
     char_span: [3883, 5051]
     sentence_count: 10
     key_terms: [hearing, meme-stock-resurgence-prompts-return-184355645, rddt, government, scheduled, timeline, wrinkle, meme]
+    concepts: [hearing, government, scheduled, timeline, wrinkle]
     token_count: 275
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c4"
     char_span: [5053, 6745]
     sentence_count: 4
     key_terms: [chairman-comer-invites-ceos-of-discord-steam-twitch-and-reddit-to-testify-on-radicalization-of-online-forum-users, wife-ex-nepali-prime-minister-burnt-alive-parliament-set-fire-live-updates-2126979, https, rddt, designating-antifa-as-a-domestic-terrorist-organization, morocco-nepal-gen-z-is-using-discord-rise-up-10821410, nepal-orders-ban-on-major-social-media-platforms, reddit]
+    concepts: [https, reddit, nepalese, newsweek, antifun]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c1", "social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c6", "social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c7"]
     token_count: 508
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c5"
     char_span: [6747, 8958]
     sentence_count: 14
     key_terms: [reddit, redditors, being, spez, threaten, social, media, rddt]
+    concepts: [reddit, redditors, being, threaten, social]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c2"]
     token_count: 492
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c6"
     char_span: [8960, 10283]
     sentence_count: 10
     key_terms: [reddit, antifun, meta, companies, sentiment, analysis, valuable, reviews]
+    concepts: [reddit, antifun, companies, sentiment, analysis]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c4"]
     token_count: 284
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c7"
     char_span: [10297, 11899]
     sentence_count: 1
     key_terms: [reddit-down-as-aws-outages-are-mitigating, https, windowscentral, reddit, software-apps, com, www, comments]
+    concepts: [reddit-down-as-aws-outages-are-mitigating, https, windowscentral, software-apps, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c1", "social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c4"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c8"
     char_span: [11901, 13486]
     sentence_count: 4
     key_terms: [omgitsmrtinkles, either, individualground2418, antique-sundae-8842, calls, words, multigenerational, ceo]
+    concepts: [omgitsmrtinkles, either, calls, words]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c9"
@@ -74,6 +90,7 @@ chunks:
     char_span: [13546, 15184]
     sentence_count: 18
     key_terms: [post, read, definitely, believe, chatgpt, money, alwayscursingaoe4, gone]
+    concepts: [definitely, believe, chatgpt, money]
     section: Comments
     token_count: 465
 ---

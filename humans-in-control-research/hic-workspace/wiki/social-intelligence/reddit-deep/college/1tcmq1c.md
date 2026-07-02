@@ -19,35 +19,44 @@ chunks:
     char_span: [0, 940]
     sentence_count: 7
     key_terms: [college, wanted, comments, around, school, doing, did, high]
+    concepts: [college, wanted, comments, around, school]
+    related_chunks: ["social-intelligence/reddit-deep/college/1tcmq1c.md#c3"]
     token_count: 232
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1tcmq1c/how_did_you_know_what_you_wanted_to_get_a_degree/"}]
   - id: "social-intelligence/reddit-deep/college/1tcmq1c.md#c1"
     char_span: [954, 3261]
     sentence_count: 22
     key_terms: [college, dental, hygiene, careers, health, coolcod3159, jobs, experience]
+    concepts: [college, dental, hygiene, careers, health]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1tcmq1c.md#c2"
     char_span: [2989, 4996]
     sentence_count: 14
     key_terms: [school, doing, something, always, high, like, experience, honestly]
+    concepts: [school, something, doing, always, experience]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/college/1tcmq1c.md#c3"
     char_span: [4998, 6947]
     sentence_count: 15
     key_terms: [school, degree, lot, people, wanted, figure, option, remote]
+    concepts: [school, degree, people, wanted, figure]
+    related_chunks: ["social-intelligence/reddit-deep/college/1tcmq1c.md#c0"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/college/1tcmq1c.md#c4"
     char_span: [6949, 9280]
     sentence_count: 11
     key_terms: [career, life, enjoy, get, college, major, something, want]
+    concepts: [career, enjoy, college, something, major]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/college/1tcmq1c.md#c5"
     char_span: [9282, 10160]
     sentence_count: 9
     key_terms: [expensive, decided, school, cheap-kaleidoscope91, class, life, biochemistry, bluewindice]
+    concepts: [expensive, decided, school, class]
     section: Comments
     token_count: 222
 ---

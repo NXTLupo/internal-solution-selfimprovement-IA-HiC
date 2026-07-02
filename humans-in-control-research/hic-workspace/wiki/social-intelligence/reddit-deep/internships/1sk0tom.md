@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 597]
     sentence_count: 1
     key_terms: [internship, year, internships, currently, comments, environmentalbag2703, clg, get]
+    concepts: [internship, internships, currently, comments]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1sk0tom.md#c1"]
     token_count: 154
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sk0tom/how_can_i_get_my_first_internship_as_a_first_year/"}]
   - id: "social-intelligence/reddit-deep/internships/1sk0tom.md#c1"
     char_span: [611, 2404]
     sentence_count: 11
     key_terms: [internships, appropriate-tutor587, environmentalbag2703, nepternship, get, year, internship, companies]
+    concepts: [appropriate-tutor587, environmentalbag2703, internships, nepternship, internship]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1sk0tom.md#c0"]
     section: Comments
     token_count: 416
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1479]
     sentence_count: 8
     key_terms: [graduate, probation, academic, dismissal, semester, appeal, gpa, advising]
+    concepts: [graduate, probation, academic, dismissal, semester]
     token_count: 330
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1pmz8cc/academic_probation_as_a_graduate_student_gpa/"}]
   - id: "social-intelligence/reddit-deep/neu/1pmz8cc.md#c1"
     char_span: [1493, 2159]
     sentence_count: 2
     key_terms: [update, specialist-ease-6322, levzn, gpa, information, ereqsxxevd, struggling, extension]
+    concepts: [update, levzn]
     section: Comments
     token_count: 215
 ---

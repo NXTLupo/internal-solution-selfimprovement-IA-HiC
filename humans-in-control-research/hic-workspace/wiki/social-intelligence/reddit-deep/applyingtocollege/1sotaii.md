@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1214]
     sentence_count: 6
     key_terms: [applyingtocollege, cons, pros, strong, admission, cheapish, comments, options]
+    concepts: [applyingtocollege, strong, admission, cheapish, comments]
     token_count: 330
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sotaii/which_t40t50_university_should_i_pick/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sotaii.md#c1"
     char_span: [1228, 2903]
     sentence_count: 13
     key_terms: [uiuc, factworking1097, significancebig7903, school, get, pay, parents, neckbackground5184]
+    concepts: [factworking1097, significancebig7903, school, parents]
     section: Comments
     token_count: 475
 ---

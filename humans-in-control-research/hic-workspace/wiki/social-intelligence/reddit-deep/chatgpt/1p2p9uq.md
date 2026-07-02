@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 463]
     sentence_count: 3
     key_terms: [chatgpt, comments, https, png, dellevenjack, reddit-deep, criminals, situation]
+    concepts: [chatgpt, comments, https]
     token_count: 165
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1p2p9uq/so_i_asked_chatgpt_who_would_you_save5_good/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1p2p9uq.md#c1"
     char_span: [477, 1587]
     sentence_count: 7
     key_terms: [please, automoderator, conversation, image, post, r-chatgpt-1050422060352024636, comments, concerns]
+    concepts: [automoderator, conversation, please, image, comments]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/chatgpt/1p2p9uq.md#c2"
     char_span: [1590, 3122]
     sentence_count: 12
     key_terms: [hearts, save, criminals, billion, federal, society, budget, "didn't"]
+    concepts: [hearts, criminals, billion, federal, society]
     section: Comments
     token_count: 364
 ---

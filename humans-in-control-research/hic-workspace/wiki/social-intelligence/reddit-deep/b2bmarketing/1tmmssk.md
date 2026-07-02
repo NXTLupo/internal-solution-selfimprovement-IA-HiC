@@ -20,28 +20,34 @@ chunks:
     char_span: [0, 2083]
     sentence_count: 25
     key_terms: ["we're", cold, mrr, outreach, channel, reddit, b2bmarketing, agent]
+    concepts: ["we're", outreach, channel, b2bmarketing, reddit]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1tmmssk/built_a_b2b_saas_from_scratch_just_surpassed_2500/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tmmssk.md#c1"
     char_span: [2087, 3719]
     sentence_count: 22
     key_terms: ["we're", retargeting, people, agent, meta, questions, comments, linkedin]
+    concepts: ["we're", retargeting, people, agent, questions]
     token_count: 349
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tmmssk.md#c2"
-    char_span: [3734, 3882]
+    char_span: [3733, 3881]
     sentence_count: 1
     key_terms: [looking-for-marketing-discussion-811236647760298024, discord, automoderator, community, questions, https, join]
+    concepts: [discord]
     section: Comments
     token_count: 40
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tmmssk.md#c3"
-    char_span: [3885, 6188]
+    char_span: [3884, 6187]
     sentence_count: 13
     key_terms: [cold, outreach, getting, traffic, identification, specifically, tools, automation]
+    concepts: [outreach, identification, getting, traffic, specifically]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tmmssk.md#c4"
-    char_span: [5834, 7569]
+    char_span: [5833, 7568]
     sentence_count: 10
     key_terms: [volume, running, through, reply, accounts, channels, linkedin, because]
+    concepts: [volume, running, through, reply, accounts]
     section: Comments
     token_count: 355
 ---

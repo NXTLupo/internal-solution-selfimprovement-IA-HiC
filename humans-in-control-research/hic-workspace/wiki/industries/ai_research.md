@@ -10,6 +10,7 @@ chunks:
     char_span: [0, 712]
     sentence_count: 2
     key_terms: [industries, sources, shared, articles, reddit-artificial, reddit-chatgpt, auto-generated, b3373178b4]
+    concepts: [industries, sources, reddit-artificial, shared, articles]
     section: Cross-over verticals (shared sources) / Representative sources
     token_count: 195
 ---

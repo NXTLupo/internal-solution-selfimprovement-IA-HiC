@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 421]
     sentence_count: 3
     key_terms: [necessities, pay, rent, gradschool, comments, school, did, grad]
+    concepts: [necessities, gradschool, comments, school]
     token_count: 108
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1splljs/how_did_you_pay_rent_during_grad_school/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1splljs.md#c1"
     char_span: [435, 1913]
     sentence_count: 8
     key_terms: [worked, loans, campus, time, program, student, working, unlikelyrainstorm]
+    concepts: [worked, loans, campus, program, student]
     section: Comments
     token_count: 411
 ---

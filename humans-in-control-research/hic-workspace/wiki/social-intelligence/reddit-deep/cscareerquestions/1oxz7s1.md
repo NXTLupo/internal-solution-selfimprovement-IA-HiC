@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 1592]
     sentence_count: 8
     key_terms: [internship, school, because, experience, cscareerquestions, doing, american, comments]
+    concepts: [internship, school, because, experience, cscareerquestions]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1oxz7s1.md#c3"]
     token_count: 378
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1oxz7s1/employer_wont_hire_me_because_i_am_too_expensive/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oxz7s1.md#c1"
     char_span: [1606, 2756]
     sentence_count: 5
     key_terms: [internship, robert, half, pay, work, superdietpepsi, marcablefluke, conversation]
+    concepts: [internship, robert]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oxz7s1.md#c2"
     char_span: [2758, 4595]
     sentence_count: 15
     key_terms: [experience, take, entry-level-talent-avoidant, something, software, "there's", easier, enough]
+    concepts: [experience, something, software, "there's", easier]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oxz7s1.md#c3"
     char_span: [4597, 6475]
     sentence_count: 10
     key_terms: [experience, get, internship, real, engineer, enough, months, jeffgerickson]
+    concepts: [experience, internship, engineer, jeffgerickson, enough]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1oxz7s1.md#c0"]
     section: Comments
     token_count: 497
 ---

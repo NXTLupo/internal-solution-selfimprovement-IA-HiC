@@ -20,38 +20,45 @@ chunks:
     char_span: [0, 2141]
     sentence_count: 12
     key_terms: [exchange, cryptocurrency, bullish, digital, trading, crypto, ipo, volume]
+    concepts: [exchange, cryptocurrency, bullish, digital, trading]
     token_count: 478
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1m3z8it/peter_thielbacked_cryptocurrency_exchange_bullish/"}]
   - id: "social-intelligence/reddit-deep/stocks/1m3z8it.md#c1"
     char_span: [2145, 3030]
     sentence_count: 3
     key_terms: [peter-thiel-backed-cryptocurrency-exchange-bullish-files-for-nyse-ipo, assets, trump, stablecoins, president, digital, crypto, https]
+    concepts: [peter-thiel-backed-cryptocurrency-exchange-bullish-files-for-nyse-ipo, assets, stablecoins, trump, president]
     token_count: 200
   - id: "social-intelligence/reddit-deep/stocks/1m3z8it.md#c2"
-    char_span: [3045, 3787]
+    char_span: [3044, 3786]
     sentence_count: 3
     key_terms: [cayman, islands, ok-amphibian3164, vegetableok718, mind-boggling, no-light-6040, encompasses, exodus3252]
+    concepts: [cayman, islands]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/stocks/1m3z8it.md#c3"
-    char_span: [3789, 5530]
+    char_span: [3788, 5529]
     sentence_count: 13
     key_terms: [people, thiel, destroyed, something, trillions, american, currency, deleted]
+    concepts: [people, thiel, destroyed, something, trillions]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/stocks/1m3z8it.md#c4"
-    char_span: [5533, 6829]
+    char_span: [5532, 6828]
     sentence_count: 14
     key_terms: [human, become, labor, ownership, crypto, longer, robots, amazonreviewscool67]
+    concepts: [human, become, labor, ownership, crypto]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/stocks/1m3z8it.md#c5"
-    char_span: [6831, 8661]
+    char_span: [6830, 8660]
     sentence_count: 7
     key_terms: [jeffrey-epstein-peter-thiel-estate, "they're", pumped, retail, alarmingadvertising5, "can't", thiel, erftheferfhaswerf]
+    concepts: ["they're", pumped, retail, "can't", thiel]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/stocks/1m3z8it.md#c6"
-    char_span: [8664, 8896]
+    char_span: [8663, 8895]
     sentence_count: 4
     key_terms: [bear, bull, definitely, typically, exchange, followed, "there's", behind]
     section: Comments

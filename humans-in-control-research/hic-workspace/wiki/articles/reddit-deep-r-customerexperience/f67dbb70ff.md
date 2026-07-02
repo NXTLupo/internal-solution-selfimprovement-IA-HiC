@@ -19,14 +19,17 @@ content_hash: "34ebcdd1dc140fd4"
 relevance_by_goal: {"490684cfa204":35}
 chunks:
   - id: "articles/reddit-deep-r-customerexperience/f67dbb70ff.md#c0"
-    char_span: [0, 2157]
+    char_span: [0, 2156]
     sentence_count: 4
     key_terms: [zoom, competitors, customerexperience, call, video, voice, integration, interface]
-    token_count: 457
+    concepts: [competitors, customerexperience, integration, video, voice]
+    token_count: 456
+    sources: [{"n":"Reddit Deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1q2uzkl/zoom_contact_center_pricing/"}]
   - id: "articles/reddit-deep-r-customerexperience/f67dbb70ff.md#c1"
-    char_span: [2159, 3175]
+    char_span: [2158, 3174]
     sentence_count: 4
     key_terms: [top-cloud-contact-center-software-comparison, zoom, contact, center, implemented, cloud9data, features, https]
+    concepts: [top-cloud-contact-center-software-comparison, contact, center, implemented, cloud9data]
     token_count: 204
 ---
 # Zoom Contact Center Pricing

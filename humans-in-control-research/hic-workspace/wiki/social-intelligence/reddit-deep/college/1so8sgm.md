@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 1045]
     sentence_count: 14
     key_terms: ["i'm", college, comments, passed, person, dad, help, like]
+    concepts: [college, comments, passed, person]
     token_count: 265
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1so8sgm/should_i_tell_my_profs_my_dad_passed/"}]
   - id: "social-intelligence/reddit-deep/college/1so8sgm.md#c1"
     char_span: [1059, 2391]
     sentence_count: 14
     key_terms: [breakup, give, different, college, exactly, through, losing, parent]
+    concepts: [breakup, different, college, exactly, through]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/college/1so8sgm.md#c2"
     char_span: [2393, 4426]
     sentence_count: 16
     key_terms: [work, because, etc, withdraw, missed, weeks, got, lot]
+    concepts: [because, withdraw, missed, weeks, hospital]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/college/1so8sgm.md#c3"
     char_span: [4428, 6553]
     sentence_count: 14
     key_terms: [professors, students, final, good, "it's", tell, ultimately, professor]
+    concepts: [professors, students, final, ultimately, professor]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/college/1so8sgm.md#c4"
     char_span: [6555, 8474]
     sentence_count: 15
     key_terms: [professor, unfortunately, class, email, comfortable, need, exceptions, forwarded]
+    concepts: [professor, unfortunately, comfortable, class, email]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/college/1so8sgm.md#c5"
     char_span: [8476, 8866]
     sentence_count: 3
     key_terms: [student, loss, communication, rock-paper-o, comfortable, flexibility, coordinate, situations]
+    concepts: [student]
     section: Comments
     token_count: 79
 ---

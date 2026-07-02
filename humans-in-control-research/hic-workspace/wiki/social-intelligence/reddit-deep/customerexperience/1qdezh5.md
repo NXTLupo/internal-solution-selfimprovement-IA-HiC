@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1029]
     sentence_count: 2
     key_terms: [customerexperience, human, comments, support, working, bot, csat, "it's"]
+    concepts: [customerexperience, human, comments, support, working]
     token_count: 223
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1qdezh5/how_are_you_handling_ai_escalation_without/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1qdezh5.md#c1"
-    char_span: [1044, 3119]
+    char_span: [1043, 3118]
     sentence_count: 14
     key_terms: [customers, bot, human, expectation, csat, get, frustrated, themselves]
+    concepts: [customers, expectation, frustrated, human, themselves]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/customerexperience/1qdezh5.md#c2"
-    char_span: [3121, 5143]
+    char_span: [3120, 5142]
     sentence_count: 7
     key_terms: [positive-writer-3015, bot, human, handoff, experience, agent, questions, seamless]
+    concepts: [positive-writer-3015, human, handoff, experience, questions]
     section: Comments
     token_count: 449
 ---

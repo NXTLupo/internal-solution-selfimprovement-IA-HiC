@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 746]
     sentence_count: 4
     key_terms: [engineeringstudents, amazon, technicals, interview, comments, hardware, ago, behaviorals]
+    concepts: [engineeringstudents, amazon, technicals, interview, comments]
     token_count: 169
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qglneu/amazon_hardware_development_engineering/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qglneu.md#c1"
     char_span: [760, 3304]
     sentence_count: 11
     key_terms: [questions, hardware, behavioral, want, design, fundamentals, leadership, situations]
+    concepts: [questions, hardware, behavioral, fundamentals, design]
     section: Comments
     token_count: 505
 ---

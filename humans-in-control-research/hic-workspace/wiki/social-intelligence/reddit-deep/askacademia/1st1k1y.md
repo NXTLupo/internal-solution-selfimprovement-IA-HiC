@@ -21,40 +21,48 @@ chunks:
     char_span: [0, 1971]
     sentence_count: 11
     key_terms: [family, "don't", "i'm", askacademia, children, comments, cultural, because]
+    concepts: [family, "don't", askacademia, children, comments]
     token_count: 470
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1st1k1y/im_devastated_and_i_dont_know_what_to_do_now_job/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c1"
     char_span: [1973, 2733]
     sentence_count: 4
     key_terms: [through, never, feel, hope, "i'm", understanding, heartbreak, particular]
+    concepts: [through, never]
     token_count: 168
   - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c2"
     char_span: [2747, 3527]
     sentence_count: 3
     key_terms: [writing, roles, academic-adjacent, work, remotejobseekers, university-side, administrative, interesting]
+    concepts: [writing, roles]
     section: Comments
     token_count: 172
   - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c3"
     char_span: [3529, 5728]
     sentence_count: 11
     key_terms: [schools, too, independent, good, jobs, visiting, faculty, private]
+    concepts: [schools, independent, visiting, faculty, private]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c4"
     char_span: [5502, 6771]
     sentence_count: 18
     key_terms: [move, history, least, loved, good, ones, too, responsibilities]
+    concepts: [history, least, loved]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c5"
     char_span: [6773, 8668]
     sentence_count: 16
     key_terms: [historian, dutchdynasty, community, like, work, scholar, totally, bakery]
+    concepts: [historian, dutchdynasty, community, scholar, totally]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c6"
     char_span: [8670, 10562]
     sentence_count: 15
     key_terms: [publishing, immediatebet6198, job, individual, positions, academic, tonos468, society]
+    concepts: [publishing, immediatebet6198, individual, positions, academic]
     section: Comments
     token_count: 489
 ---

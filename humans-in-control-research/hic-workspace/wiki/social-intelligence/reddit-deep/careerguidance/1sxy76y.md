@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 313]
     sentence_count: 2
     key_terms: [careerguidance, comments, snoopeppers3873, accountancy, reddit-deep, someone, advice, career]
+    concepts: [careerguidance, comments]
     token_count: 92
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sxy76y/career_advice_for_someone_that_wants_to_enter_the/"}]
 ---
 # career advice for someone that wants to enter the accountancy job market?
 

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 729]
     sentence_count: 5
     key_terms: [cscareerquestions, comments, campus, offer, miserabletrickster, next, reddit-deep, admittedly]
+    concepts: [cscareerquestions, comments, campus, offer]
     token_count: 187
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tdh3kr/what_advice_would_you_give_yourself_a_year_before/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tdh3kr.md#c1"
     char_span: [743, 1615]
     sentence_count: 6
     key_terms: [job, applying, projects, campus, hiredu, resume, https, spend]
+    concepts: [applying, projects, campus, hiredu, resume]
     section: Comments
     token_count: 232
 ---

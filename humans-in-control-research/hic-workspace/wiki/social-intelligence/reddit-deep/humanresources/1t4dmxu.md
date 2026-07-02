@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1089]
     sentence_count: 8
     key_terms: [placement, humanresources, india, good, internship, comments, shrm-cp, taking]
+    concepts: [placement, humanresources, india, internship, comments]
     token_count: 268
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1t4dmxu/should_i_go_for_shrmcp_as_fresher_india/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1t4dmxu.md#c1"
     char_span: [1103, 2347]
     sentence_count: 9
     key_terms: [india, post, subreddit, company, value, does, job, work]
+    concepts: [india, subreddit, company, value]
     section: Comments
     token_count: 307
 ---

@@ -20,7 +20,9 @@ chunks:
     char_span: [0, 2154]
     sentence_count: 13
     key_terms: [internships, applying, tracking, been, get, internship, tracker, helps]
+    concepts: [internships, applying, tracking, internship, tracker]
     token_count: 509
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1s6lcqj/internships_advice_help_meng/"}]
   - id: "articles/reddit-deep-r-internships/bdea2bdb65.md#c1"
     char_span: [2156, 2488]
     sentence_count: 1

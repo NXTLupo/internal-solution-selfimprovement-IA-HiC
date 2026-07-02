@@ -19,99 +19,124 @@ chunks:
     char_span: [0, 2141]
     sentence_count: 12
     key_terms: [important, candidates, cscareerquestions, here, job, hiring, "don't", interview]
+    concepts: [important, candidates, cscareerquestions, hiring, "don't"]
     token_count: 463
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1mfteom/hiring_norms_have_changed_much_faster_than_entry/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c1"
     char_span: [2143, 4470]
     sentence_count: 9
     key_terms: [resume, trying, something, communication, "don't", tools, job, candidates]
+    concepts: [resume, trying, something, communication, candidates]
     token_count: 475
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c2"
     char_span: [4472, 5199]
     sentence_count: 4
     key_terms: [candidates, doing, makes, look, inauthentically, authenticity, challenging, competitive]
+    concepts: [candidates, doing, makes]
     token_count: 145
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c3"
     char_span: [5213, 7543]
     sentence_count: 16
     key_terms: [applications, hiring, people, get, genuine, actual, chance, person]
+    concepts: [applications, hiring, people, genuine, actual]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c11"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c4"
     char_span: [7545, 9812]
     sentence_count: 19
     key_terms: [match, filtering, keyword, cryptography, like, something, matching, systems]
+    concepts: [filtering, match, keyword, cryptography, something]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c5"
     char_span: [9814, 11647]
     sentence_count: 16
     key_terms: [interview, candidate, knowledge, don, designed, trick, worse, interviewee]
+    concepts: [interview, candidate, knowledge, designed, interviewee]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c8"]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c6"
     char_span: [11649, 13195]
     sentence_count: 13
     key_terms: [answer, "don't", languages, listed, "i'll", applicants, questions, something]
+    concepts: [answer, languages, "don't", listed, applicants]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c7"
     char_span: [13197, 14634]
     sentence_count: 10
     key_terms: [job, guy, reasonable, candidate, bullshit, thousand, theorem, since]
+    concepts: [reasonable, candidate, bullshit, thousand, theorem]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c8"
     char_span: [14636, 16420]
     sentence_count: 6
     key_terms: [point, job, filtering, interview, knowledge, something, bullshit, ragebait]
+    concepts: [point, filtering, interview, knowledge, something]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c5"]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c9"
     char_span: [16422, 18014]
     sentence_count: 11
     key_terms: [interview, job, generally, interest, excited, general, nothing, advice]
+    concepts: [interview, generally, interest, excited, general]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c10"
     char_span: [18016, 19356]
     sentence_count: 8
     key_terms: [like, startups, "didn't", resume, fact, seen, time, federal-police22]
+    concepts: [startups, "didn't", resume]
     section: Comments
     token_count: 300
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c11"
     char_span: [19358, 20816]
     sentence_count: 7
     key_terms: [process, hiring, seem, want, recruiter, manager, people, posts]
+    concepts: [process, hiring, recruiter, manager, people]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c3"]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c12"
     char_span: [20818, 22814]
     sentence_count: 9
     key_terms: [hard, metrics, people, experience, project, metric, does, "it's"]
+    concepts: [metrics, experience, people, project, metric]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c13"]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c13"
     char_span: [22816, 24956]
     sentence_count: 11
     key_terms: [project, experience, quantifiable, experienced, lot, directly, probably, metrics]
+    concepts: [project, experience, quantifiable, experienced, directly]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c12"]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c14"
     char_span: [24958, 27266]
     sentence_count: 14
     key_terms: [problem, through, solution, need, requirements, approach, process, thought]
+    concepts: [problem, through, solution, requirements, approach]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c15"
     char_span: [27268, 29457]
     sentence_count: 20
     key_terms: [interview, interviews, "i'm", "i've", bit, got, job, like]
+    concepts: [interview, interviews, genuinely, including, questions]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfteom.md#c16"
     char_span: [29459, 30389]
     sentence_count: 11
     key_terms: [like, interviewing, cool, shit, process, "there's", money, offer]
+    concepts: [interviewing, process, "there's", money, offer]
     section: Comments
     token_count: 213
 ---

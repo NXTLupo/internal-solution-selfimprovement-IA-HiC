@@ -17,10 +17,12 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1sy52fi.md#c0"
-    char_span: [0, 2021]
+    char_span: [0, 2020]
     sentence_count: 11
     key_terms: [international, philanthropy, direct, through, dafs, new, comments, transfer]
-    token_count: 433
+    concepts: [international, philanthropy, direct, through, comments]
+    token_count: 432
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1sy52fi/for_those_giving_via_dafs_or_family_offices_what/"}]
 ---
 # For those giving via DAFs or Family Offices: What is your due diligence process for new international Direct Cash Transfer models?
 

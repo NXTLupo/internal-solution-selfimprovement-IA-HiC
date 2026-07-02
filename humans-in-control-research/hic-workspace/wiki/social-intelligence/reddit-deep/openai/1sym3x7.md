@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1005]
     sentence_count: 6
     key_terms: [precision, openai, recall, moderation, injection, comments, indirect, prompts]
+    concepts: [precision, openai, recall, moderation, injection]
     token_count: 273
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1sym3x7/built_a_proxy_that_blocks_prompt_injection_before/"}]
   - id: "social-intelligence/reddit-deep/openai/1sym3x7.md#c1"
     char_span: [1019, 2516]
     sentence_count: 7
     key_terms: [prompts, precision, roleplay, blocked, latency, benign, recall, "false"]
+    concepts: [prompts, precision, roleplay, blocked, latency]
     section: Comments
     token_count: 355
 ---

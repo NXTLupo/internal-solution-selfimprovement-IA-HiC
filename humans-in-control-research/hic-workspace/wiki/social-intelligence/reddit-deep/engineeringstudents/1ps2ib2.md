@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 1862]
     sentence_count: 2
     key_terms: [engineeringstudents, https, comments, wireless, design, discord, sub-40g, nordic]
+    concepts: [engineeringstudents, comments, wireless, https, design]
     token_count: 519
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1ps2ib2/building_a_sub40g_wireless_mouse_at_16_roast_my/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c1"
     char_span: [1864, 2893]
     sentence_count: 2
     key_terms: [firmware, development, feedback, chinese, looking, better, brands, design]
+    concepts: [firmware, development, feedback, chinese, looking]
     token_count: 223
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c2"
     char_span: [2907, 5018]
     sentence_count: 17
     key_terms: [cost, chinese, mouse, bom, good, supply, chain, cheap]
+    concepts: [chinese, mouse, supply, competitive, chain]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c4"]
     section: Comments
     token_count: 516
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c3"
     char_span: [5022, 6953]
     sentence_count: 15
     key_terms: [bom, costs, cost, weight, want, components, reconsider, smoothmarx]
+    concepts: [costs, weight, components, reconsider, smoothmarx]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c4"
     char_span: [6955, 8113]
     sentence_count: 9
     key_terms: [competitive, going, mouse, desk, try, clayquartercake, manufacturing, lightweight]
+    concepts: [competitive, going, mouse]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c2"]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c5"
     char_span: [8115, 10098]
     sentence_count: 7
     key_terms: [good, market, practicality, like, side, aspecially, probably, trix-one]
+    concepts: [practicality, market, aspecially, probably, trix-one]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c6"
     char_span: [10100, 11964]
     sentence_count: 2
     key_terms: [like, trix-one, linux, "i'm", bhop2003, comments, exactly, become]
+    concepts: [trix-one, linux, bhop2003, comments, exactly]
     section: Comments
     token_count: 463
 ---

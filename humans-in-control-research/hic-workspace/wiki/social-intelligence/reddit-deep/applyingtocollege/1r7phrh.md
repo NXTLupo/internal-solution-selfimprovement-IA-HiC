@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 970]
     sentence_count: 9
     key_terms: [application, experience, applyingtocollege, time, work, currently, comments, school]
+    concepts: [application, experience, applyingtocollege, currently, comments]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1r7phrh.md#c1"]
     token_count: 244
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1r7phrh/if_i_have_zero_work_experience_how_much_will_this/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r7phrh.md#c1"
     char_span: [984, 1950]
     sentence_count: 7
     key_terms: [experience, application, work, consider, schools, having, reader, help]
+    concepts: [experience, application, consider, schools, having]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1r7phrh.md#c0"]
     section: Comments
     token_count: 222
 ---

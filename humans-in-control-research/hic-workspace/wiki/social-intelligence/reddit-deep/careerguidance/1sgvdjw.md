@@ -19,33 +19,42 @@ chunks:
     char_span: [0, 2069]
     sentence_count: 2
     key_terms: [playbook, company, worked, "don't", years, dad, form, because]
+    concepts: [playbook, company, worked, "don't", years]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sgvdjw.md#c1"]
     token_count: 463
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sgvdjw/my_dad_worked_35_years_at_one_company_and_told_me/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sgvdjw.md#c1"
     char_span: [2071, 4346]
     sentence_count: 2
     key_terms: [experience, years, something, job, company, month, ago, need]
+    concepts: [experience, something, years, company, month]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sgvdjw.md#c0"]
     token_count: 507
   - id: "social-intelligence/reddit-deep/careerguidance/1sgvdjw.md#c2"
     char_span: [4348, 4809]
     sentence_count: 1
     key_terms: [because, "don't", "i'm", rhetorically, genuinely, questions, honestly, playbook]
+    concepts: [because, "don't"]
     token_count: 110
   - id: "social-intelligence/reddit-deep/careerguidance/1sgvdjw.md#c3"
     char_span: [4823, 6800]
     sentence_count: 14
     key_terms: [industries, companies, company, like, mazz001717, different, industry, working]
+    concepts: [industries, companies, company, mazz001717, different]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/careerguidance/1sgvdjw.md#c4"
     char_span: [6802, 8811]
     sentence_count: 13
     key_terms: [years, aerospace, moved, job, commercial, executive, stability, building]
+    concepts: [years, aerospace, commercial, moved, executive]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/careerguidance/1sgvdjw.md#c5"
     char_span: [8813, 9558]
     sentence_count: 7
     key_terms: [control, getting, having, keep, conversations, anticipating, sailyourface, boredtiger2]
+    concepts: [control, getting, having]
     section: Comments
     token_count: 186
 ---

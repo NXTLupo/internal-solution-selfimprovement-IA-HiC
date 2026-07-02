@@ -21,52 +21,62 @@ chunks:
     char_span: [0, 1028]
     sentence_count: 10
     key_terms: ["i'm", povertyfinance, comments, waiting, social, going, got, same-past-2783]
+    concepts: [povertyfinance, comments, waiting, social, going]
     token_count: 252
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1tc6ocq/i_terminated_my_lease_yesterday_and_now_me_and_my/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c1"
     char_span: [1030, 2400]
     sentence_count: 24
     key_terms: ["i'm", car, "can't", get, pay, apartment, anything, anymore]
+    concepts: ["can't", apartment, anything, anymore, besides]
     token_count: 325
   - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c2"
     char_span: [2414, 3820]
     sentence_count: 15
     key_terms: [without, same-past-2783, needs, world, through, better, "you'll", check]
+    concepts: [same-past-2783, without, needs, world, through]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c3"
     char_span: [3822, 4735]
     sentence_count: 9
     key_terms: [emergency-rent-and-utility-assistance, objective-kangaroo-7, going, https, place, economic-mobility, rental-assistance, good]
+    concepts: [going, https, place]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c4"
     char_span: [4740, 6253]
     sentence_count: 11
     key_terms: [homeless, brother, tenant-based-rental-assistance, through, utility, rental, "you're", "you've"]
+    concepts: [homeless, brother, through, utility, rental]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c5"
     char_span: [6255, 8198]
     sentence_count: 18
     key_terms: [hope, same-past-2783, been, like, everything, something, camping, thanks]
+    concepts: [same-past-2783, everything, something, camping, thanks]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c6"
     char_span: [8200, 9076]
     sentence_count: 7
     key_terms: [struggled, alterative-coping-skills, someone, website, please, mentalhealthrecovery, https, rental-assistance]
+    concepts: [struggled, someone, website, please, https]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c7"
     char_span: [9079, 11033]
     sentence_count: 28
     key_terms: [phoenix, same-past-2783, area, sikh, assistance, churches, maricopa, brother]
+    concepts: [same-past-2783, phoenix, assistance, churches, maricopa]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c8"
     char_span: [11035, 11702]
     sentence_count: 6
     key_terms: [stevedapirate91, dcs, instacart, paperwork, covering, directly, doordash, earnings]
+    concepts: [stevedapirate91]
     section: Comments
     token_count: 179
 ---

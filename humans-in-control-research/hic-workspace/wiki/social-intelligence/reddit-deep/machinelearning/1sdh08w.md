@@ -21,45 +21,59 @@ chunks:
     char_span: [0, 1644]
     sentence_count: 11
     key_terms: [italian, tokenizer, machinelearning, models, english-first, h200, comments, dante-2b]
+    concepts: [italian, tokenizer, machinelearning, english-first, models]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c2", "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c4"]
     token_count: 444
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1sdh08w/p_dante2b_im_training_a_21b_bilingual_fully_open/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c1"
     char_span: [1646, 3617]
     sentence_count: 16
     key_terms: [italian, phase, model, english, tokens, text, fine-tunes, community]
+    concepts: [italian, phase, model, english, tokens]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c4", "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c6"]
     token_count: 515
   - id: "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c2"
     char_span: [3619, 4912]
     sentence_count: 6
     key_terms: [tokenizer, training, italian, benchmarks, localllama, emerging, interest, "there's"]
+    concepts: [tokenizer, training, italian, benchmarks, localllama]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c0", "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c4"]
     token_count: 298
   - id: "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c3"
     char_span: [4926, 6914]
     sentence_count: 13
     key_terms: [embedding, licensing, something, workflows, italian, people, public, downstream]
+    concepts: [embedding, licensing, something, workflows, italian]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c4"
     char_span: [6916, 8970]
     sentence_count: 17
     key_terms: [italian, benchmarks, angeletti89, phase, tokenizer, understanding, "can't", evals]
+    concepts: [benchmarks, italian, angeletti89, tokenizer, phase]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c0", "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c1", "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c2"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c5"
     char_span: [8972, 10901]
     sentence_count: 15
     key_terms: [italian, della, robot, everything, repetition, tecnologia, learning, article]
+    concepts: [italian, della, everything, repetition, robot]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c6"
     char_span: [10903, 12782]
     sentence_count: 15
     key_terms: [english, italian, "l'intelligenza", regex, split, apostrophes, contraction, letter-apostrophe-letter]
+    concepts: [english, "l'intelligenza", italian, apostrophes, contraction]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c1"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c7"
     char_span: [12784, 13453]
     sentence_count: 4
     key_terms: [training, running, phase, debugging, days, part, time, checkpoint]
+    concepts: [training, running, phase, debugging]
     section: Comments
     token_count: 164
 ---

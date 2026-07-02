@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 642]
     sentence_count: 6
     key_terms: [engineering, engineeringstudents, student, positions, comments, process, hiring, cnrl]
+    concepts: [engineering, engineeringstudents, student, positions, comments]
     token_count: 143
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sxngvp/hiring_process_for_cnrl_engineering_coop_student/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sxngvp.md#c1"
     char_span: [656, 1832]
     sentence_count: 7
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    concepts: [engineeringstudents, reddit, https, resources, please]
     section: Comments
     token_count: 272
 ---

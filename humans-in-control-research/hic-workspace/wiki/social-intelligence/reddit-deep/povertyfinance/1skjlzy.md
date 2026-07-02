@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 1407]
     sentence_count: 5
     key_terms: [credit, povertyfinance, asking, months, financially, financial, comments, advice]
+    concepts: [credit, povertyfinance, asking, months, financially]
     token_count: 334
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1skjlzy/do_you_ever_plan_on_owning_a_house_asking_advice/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c1"
     char_span: [1421, 3182]
     sentence_count: 12
     key_terms: [buy, naca, mortgage, through, going, https, month, offer]
+    concepts: [mortgage, through, going, https, month]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c3"]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c2"
     char_span: [3184, 5145]
     sentence_count: 16
     key_terms: [income, years, new, thinking, student, loans, downpayment, need]
+    concepts: [income, years, thinking, student, downpayment]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c3"
     char_span: [5147, 6493]
     sentence_count: 13
     key_terms: [mortgage, get, overallcomplexities, great, month, paint, small, years]
+    concepts: [mortgage, great, month, paint, small]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c1"]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c4"
     char_span: [6495, 8021]
     sentence_count: 7
     key_terms: [time, apartment, closing, partner, better, market, "you're", "don't"]
+    concepts: [apartment, closing, partner, better, market]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c5"
     char_span: [8023, 8799]
     sentence_count: 6
     key_terms: [enough, credits, investigate, costs, homes, home, time, work]
+    concepts: [enough, credits, investigate, costs, homes]
     section: Comments
     token_count: 173
 ---

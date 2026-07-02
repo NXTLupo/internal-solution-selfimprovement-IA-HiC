@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 994]
     sentence_count: 8
     key_terms: [internship, looking, opportunities, internships, tech, experience, comments, https]
+    concepts: [internship, opportunities, looking, internships, experience]
     token_count: 239
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1s8rxmo/looking_for_internship_opportunities_btech_student/"}]
 ---
 # Looking for Internship Opportunities | B.Tech Student
 

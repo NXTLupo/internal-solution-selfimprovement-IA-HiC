@@ -20,26 +20,36 @@ chunks:
     char_span: [0, 1887]
     sentence_count: 7
     key_terms: [insurance, specialty, market, accelerant, ebitda, investing, comments, exchange]
+    concepts: [insurance, specialty, accelerant, market, ebitda]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1t5c3hk.md#c2", "social-intelligence/reddit-deep/investing/1t5c3hk.md#c4"]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1t5c3hk/arx_thesis_disguised_growth_ai_play_within/"}]
   - id: "social-intelligence/reddit-deep/investing/1t5c3hk.md#c1"
     char_span: [1889, 4137]
     sentence_count: 16
     key_terms: [consolidated, third-party, relationship, underwriting, ebitda, accounting, management, exchange]
+    concepts: [consolidated, third-party, relationship, underwriting, accounting]
     token_count: 483
   - id: "social-intelligence/reddit-deep/investing/1t5c3hk.md#c2"
     char_span: [4139, 6516]
     sentence_count: 20
     key_terms: [accelerant, infrastructure, specialty, loss, capacity, platform, because, becomes]
+    concepts: [accelerant, infrastructure, specialty, capacity, platform]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1t5c3hk.md#c0", "social-intelligence/reddit-deep/investing/1t5c3hk.md#c3"]
     token_count: 479
   - id: "social-intelligence/reddit-deep/investing/1t5c3hk.md#c3"
     char_span: [6518, 8654]
     sentence_count: 16
     key_terms: [platform, cy25a, ewp, infrastructure, growth, third-party, new, management]
+    concepts: [platform, cy25a, infrastructure, growth, third-party]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1t5c3hk.md#c2"]
     token_count: 488
   - id: "social-intelligence/reddit-deep/investing/1t5c3hk.md#c4"
-    char_span: [8656, 10362]
+    char_span: [8656, 10361]
     sentence_count: 16
     key_terms: [ebitda, trades, accelerant, basket, platforms, specialty, platform, kinsale]
+    concepts: [accelerant, ebitda, trades, basket, platforms]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1t5c3hk.md#c0"]
     token_count: 476
 ---
 # $ARX Thesis | Disguised Growth AI Play Within Insurance (116% Upside)

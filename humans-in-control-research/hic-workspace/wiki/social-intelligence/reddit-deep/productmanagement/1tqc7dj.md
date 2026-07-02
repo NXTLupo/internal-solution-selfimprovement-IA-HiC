@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1034]
     sentence_count: 9
     key_terms: [in-person, productmanagement, research, works, real, user, conditions, comments]
+    concepts: [productmanagement, in-person, research, conditions, works]
     token_count: 218
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1tqc7dj/do_earbuds_that_can_record_meetings_and_generate/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1tqc7dj.md#c1"
-    char_span: [1049, 2717]
+    char_span: [1048, 2716]
     sentence_count: 7
     key_terms: [transcript, recording, research, because, summary, people, accomplishedlow989, word]
+    concepts: [transcript, recording, research, because, summary]
     section: Comments
     token_count: 342
 ---

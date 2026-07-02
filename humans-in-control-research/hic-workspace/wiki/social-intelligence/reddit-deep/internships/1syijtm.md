@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1582]
     sentence_count: 8
     key_terms: [internships, interviews, data, getting, final, accelerated, analytics, something]
+    concepts: [internships, interviews, getting, accelerated, final]
     token_count: 373
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1syijtm/cs_student_getting_final_round_interviews_but_no/"}]
   - id: "social-intelligence/reddit-deep/internships/1syijtm.md#c1"
     char_span: [1596, 3135]
     sentence_count: 9
     key_terms: [interviews, multiple, practice, rounds, banggbangtan, final, often, questions]
+    concepts: [interviews, multiple, practice, banggbangtan, rounds]
     section: Comments
     token_count: 340
 ---

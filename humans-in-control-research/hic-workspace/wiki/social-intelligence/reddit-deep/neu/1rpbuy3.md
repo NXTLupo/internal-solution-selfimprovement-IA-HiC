@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 669]
     sentence_count: 3
     key_terms: [accelerate, business, comments, advice, long-construction386, neu, administration, understanding]
+    concepts: [accelerate, business, comments, advice]
     token_count: 165
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rpbuy3/advice_on_nu_accelerate_course_offerings/"}]
   - id: "social-intelligence/reddit-deep/neu/1rpbuy3.md#c1"
     char_span: [683, 1391]
     sentence_count: 4
     key_terms: [long-construction386, class, capacity, great, quite, low, year, stocktelephone11]
+    concepts: [long-construction386, class, capacity, great, quite]
     section: Comments
     token_count: 190
 ---

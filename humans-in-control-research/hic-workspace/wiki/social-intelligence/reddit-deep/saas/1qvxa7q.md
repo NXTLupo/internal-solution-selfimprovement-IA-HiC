@@ -20,45 +20,59 @@ chunks:
     char_span: [0, 2175]
     sentence_count: 13
     key_terms: [saas, vibe, coding, get, b2b, code, own, customers]
+    concepts: [coding, customers, something, comments, industry]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1qvxa7q/ai_is_killing_b2b_saas/"}]
   - id: "social-intelligence/reddit-deep/saas/1qvxa7q.md#c1"
     char_span: [2177, 4507]
     sentence_count: 16
     key_terms: [customers, saas, because, system, flexibility, don, workflows, customer]
+    concepts: [customers, because, system, flexibility, workflows]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1qvxa7q.md#c2"]
     token_count: 502
   - id: "social-intelligence/reddit-deep/saas/1qvxa7q.md#c2"
     char_span: [4509, 5640]
     sentence_count: 10
     key_terms: [saas, customers, ai-killing-b2b-saas, blog, because, complex, being, https]
+    concepts: [customers, ai-killing-b2b-saas, because, complex, being]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1qvxa7q.md#c1"]
     token_count: 262
   - id: "social-intelligence/reddit-deep/saas/1qvxa7q.md#c3"
-    char_span: [5655, 6493]
+    char_span: [5654, 6492]
     sentence_count: 10
     key_terms: [internal, dont, tech, companies, company, false-comfortable899, like, rare]
+    concepts: [internal, companies, company]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1qvxa7q.md#c4"]
     section: Comments
     token_count: 177
   - id: "social-intelligence/reddit-deep/saas/1qvxa7q.md#c4"
-    char_span: [6495, 8630]
+    char_span: [6494, 8629]
     sentence_count: 13
     key_terms: [saas, companies, company, build, liability, namanyayg, internal, exactly]
+    concepts: [companies, company, build, liability, namanyayg]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1qvxa7q.md#c3", "social-intelligence/reddit-deep/saas/1qvxa7q.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/saas/1qvxa7q.md#c5"
-    char_span: [8375, 9780]
+    char_span: [8374, 9779]
     sentence_count: 8
     key_terms: [get, like, company, maintaining, ycombinator, namanyayg, something, building]
+    concepts: [company, maintaining, ycombinator, namanyayg, something]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1qvxa7q.md#c4"]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/saas/1qvxa7q.md#c6"
-    char_span: [9782, 12024]
+    char_span: [9781, 12023]
     sentence_count: 16
     key_terms: [saas, killing, code, vibe, distribution, tools, isn, real]
+    concepts: [killing, distribution, tools, platform, workflow]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/saas/1qvxa7q.md#c7"
-    char_span: [12029, 12503]
+    char_span: [12028, 12502]
     sentence_count: 3
     key_terms: [threat, saas, transactions, automation, irrelevant, officially, behaviour, companies]
+    concepts: [threat]
     section: Comments
     token_count: 93
 ---

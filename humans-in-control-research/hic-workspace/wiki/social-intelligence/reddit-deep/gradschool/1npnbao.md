@@ -21,16 +21,22 @@ chunks:
     char_span: [0, 2039]
     sentence_count: 13
     key_terms: [program, programs, phd, clinical, research, psychologist, "i'm", gradschool]
+    concepts: [program, programs, clinical, research, psychologist]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1npnbao.md#c2"]
     token_count: 490
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1npnbao/the_ideal_grad_school_path_for_a_clinical/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1npnbao.md#c1"
     char_span: [2041, 2637]
     sentence_count: 4
     key_terms: [student, valedictorian, appreciate, leadership, psychology, waitlisted, haverford, societies]
+    concepts: [student]
     token_count: 152
   - id: "social-intelligence/reddit-deep/gradschool/1npnbao.md#c2"
     char_span: [2651, 3916]
     sentence_count: 9
     key_terms: [research, experience, clinical, electrical-finger-11, participants, phd, interested, empirical]
+    concepts: [research, experience, clinical, electrical-finger-11, participants]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1npnbao.md#c0"]
     section: Comments
     token_count: 285
 ---

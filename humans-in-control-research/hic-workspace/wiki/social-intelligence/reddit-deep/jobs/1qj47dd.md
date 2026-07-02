@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 587]
     sentence_count: 3
     key_terms: [jobs, struggling, comments, job, part, time, safe-table-6226, reddit-deep]
+    concepts: [struggling, comments]
     token_count: 150
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1qj47dd/struggling_to_find_jobs_and_this_happens/"}]
   - id: "social-intelligence/reddit-deep/jobs/1qj47dd.md#c1"
     char_span: [601, 1698]
     sentence_count: 6
     key_terms: [interviews, scheduled, chipotle, manager, course, playful-airport2928, "it's", need]
+    concepts: [interviews, scheduled, chipotle, manager, course]
     section: Comments
     token_count: 282
   - id: "social-intelligence/reddit-deep/jobs/1qj47dd.md#c2"
     char_span: [1700, 2905]
     sentence_count: 6
     key_terms: [happened, manager, downtownlasd, job, another, hiring, careless-disaster67, hours]
+    concepts: [happened, manager, downtownlasd, another, hiring]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/jobs/1qj47dd.md#c3"
     char_span: [2907, 4553]
     sentence_count: 15
     key_terms: [climateloud7679, safe-table-6226, people, availability, here, chipotle, retirees, around]
+    concepts: [climateloud7679, safe-table-6226, availability, people, chipotle]
     section: Comments
     token_count: 431
 ---

@@ -19,47 +19,56 @@ chunks:
     char_span: [0, 1927]
     sentence_count: 2
     key_terms: [feel, like, careerguidance, connections, experience, comments, feelings, because]
+    concepts: [careerguidance, connections, experience, comments, feelings]
     token_count: 443
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qf0tbm/im_25_and_i_dont_have_a_career_yet_and_im_totally/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c1"
     char_span: [1941, 3423]
     sentence_count: 17
     key_terms: [people, get, life, gonna, reach, connection, yourself, connect]
+    concepts: [people, connection, gonna, reach, yourself]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c2"
     char_span: [3425, 5773]
     sentence_count: 8
     key_terms: [abt, linkedin, street, interested, show, people, city, job]
+    concepts: [linkedin, interested, street, people, challenge]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c3"
     char_span: [5775, 7282]
     sentence_count: 27
     key_terms: [referral, skills, messages, without, ask, job, time, experience]
+    concepts: [referral, skills, messages, without, experience]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c4"
     char_span: [7284, 8997]
     sentence_count: 13
     key_terms: [imoldsoul, sammie-arellano, career, professional-fuel889, revolutionary-elk986, alone, fired, needs]
+    concepts: [imoldsoul, sammie-arellano, career, alone, fired]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c5"
     char_span: [8999, 11072]
     sentence_count: 14
     key_terms: [something, going, knows, introverted, yourself, chatgpt, deleted, overall]
+    concepts: [something, introverted, going, knows, yourself]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c6"
     char_span: [11074, 13176]
     sentence_count: 26
     key_terms: ["it's", job, task, experience, projects, chatgpt, outlier, someone]
+    concepts: [experience, projects, chatgpt, outlier, someone]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c7"
     char_span: [13178, 13775]
     sentence_count: 7
     key_terms: [chatgpt, killing, trying, world, use, manipulated, perspective, manipulate]
+    concepts: [chatgpt, killing, trying, world]
     section: Comments
     token_count: 137
 ---

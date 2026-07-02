@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 1382]
     sentence_count: 9
     key_terms: [traditional, paths, cscareerquestions, been, swe, business, comments, analyst]
+    concepts: [traditional, cscareerquestions, paths, business, comments]
     token_count: 291
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t5ybhq/anyone_else_in_cs_questioning_the_roi_of_the/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5ybhq.md#c1"
     char_span: [1396, 3284]
     sentence_count: 9
     key_terms: [engineering, stagnate, being, going, wages, tech, engineers, problems]
+    concepts: [engineering, stagnate, being, going, wages]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5ybhq.md#c2"
     char_span: [3287, 5051]
     sentence_count: 8
     key_terms: [software, utm, cscareerquestions, getting, people, share, big, endpoints]
+    concepts: [software, cscareerquestions, getting, people, share]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5ybhq.md#c3"
     char_span: [5053, 6395]
     sentence_count: 11
     key_terms: [good, exploitation, endh1bfraud, positions, criminal, organize, working, reddit]
+    concepts: [exploitation, endh1bfraud, positions, criminal, organize]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5ybhq.md#c4"
     char_span: [6400, 8461]
     sentence_count: 9
     key_terms: [innit2improve, get, bebetterennit, gen3archive, opportunity, swe, business, paycheck]
+    concepts: [innit2improve, bebetterennit, gen3archive, opportunity, business]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5ybhq.md#c5"
     char_span: [8186, 8698]
     sentence_count: 1
     key_terms: [industry, best, bebetterennit, perspective, including, subreddit, anywhere, everyone]
+    concepts: [industry]
     section: Comments
     token_count: 120
 ---

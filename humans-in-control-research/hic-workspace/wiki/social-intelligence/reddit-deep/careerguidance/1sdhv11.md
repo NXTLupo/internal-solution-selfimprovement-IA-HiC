@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1920]
     sentence_count: 13
     key_terms: [service, role, long-term, in-house, careerguidance, moving, been, technician]
+    concepts: [service, long-term, in-house, careerguidance, moving]
     token_count: 410
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sdhv11/can_i_get_some_advice_on_a_career_opportunity/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sdhv11.md#c1"
     char_span: [1934, 3373]
     sentence_count: 9
     key_terms: [role, manager, service, people, environments, life, like, structured]
+    concepts: [manager, service, environments, people, structured]
     section: Comments
     token_count: 304
 ---

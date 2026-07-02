@@ -11,45 +11,53 @@ score: 15
 upvote_ratio: 0.94
 num_comments: 17
 flair: "📰 News"
-extracted_at: "2026-06-18T13:35:23.812Z"
+extracted_at: "2026-06-24T22:13:57.308Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1r6lksk.md#c0"
     char_span: [0, 250]
     sentence_count: 1
     key_terms: [ecommerce, comments, adventurepaul, reddit-deep, e-commerce, industry, posted, reddit]
+    concepts: [ecommerce, comments]
     token_count: 82
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1r6lksk/ecommerce_industry_news_recap_week_of_feb_16th/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1r6lksk.md#c1"
     char_span: [252, 2684]
     sentence_count: 11
     key_terms: [google, e-commerce, local, commerce, launched, "openai's", already, content]
+    concepts: [e-commerce, google, local, commerce, launched]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1r6lksk.md#c2"
     char_span: [2350, 5035]
     sentence_count: 13
     key_terms: [marketplace, publishers, customers, payments, content, lenders, openai, bnpl]
+    concepts: [marketplace, publishers, customers, payments, content]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1r6lksk.md#c3"
     char_span: [4720, 7306]
     sentence_count: 11
     key_terms: [e-commerce, campaign, amazon, market, ring, customers, shipments, galloway]
+    concepts: [e-commerce, campaign, amazon, market, customers]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1r6lksk.md#c4"
     char_span: [6992, 9630]
     sentence_count: 11
     key_terms: [conversational, customer, through, project, venture, plans, meta, accounting]
+    concepts: [conversational, customer, through, project, venture]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1r6lksk.md#c5"
     char_span: [9322, 10252]
     sentence_count: 4
     key_terms: [project, meta, amazon, "anthropic's", code, production, investors, products]
+    concepts: [project, amazon, "anthropic's", production, investors]
     token_count: 186
   - id: "social-intelligence/reddit-deep/ecommerce/1r6lksk.md#c6"
-    char_span: [10267, 11845]
+    char_span: [10266, 11844]
     sentence_count: 15
     key_terms: [adventurepaul, sidekick, shopify, thanks, "that's", based, always, update]
+    concepts: [adventurepaul, sidekick, shopify, thanks, "that's"]
     section: Comments
     token_count: 429
 ---
@@ -90,7 +98,7 @@ ___
 
 ## Comments
 
-- **_Benzka_** (5↑): As always thanks for the Recap!
+- **_Benzka_** (4↑): As always thanks for the Recap!
   - **adventurepaul** (1↑): My pleasure!
 - **Ok_Entrance4879** (3↑): based recap
   - **adventurepaul** (1↑): Thank you

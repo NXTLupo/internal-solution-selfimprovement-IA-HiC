@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1034]
     sentence_count: 7
     key_terms: [debt, personalfinance, like, comments, savings, saving, feels, money]
+    concepts: [personalfinance, comments, savings, saving, feels]
     token_count: 235
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1nnpc51/should_i_prioritize_paying_off_debt_or_saving/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1nnpc51.md#c1"
     char_span: [1048, 2589]
     sentence_count: 7
     key_terms: [health, tax, flow, hsa, wiki, bogleheads, retirement, insurance]
+    concepts: [health, bogleheads, retirement, insurance, deleted]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/personalfinance/1nnpc51.md#c2"
     char_span: [2591, 4225]
     sentence_count: 11
     key_terms: [retirement, pay, interest, externalself1337, debt, put, save, emergency]
+    concepts: [retirement, externalself1337, interest, emergency, because]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/personalfinance/1nnpc51.md#c3"
     char_span: [4227, 6124]
     sentence_count: 14
     key_terms: [debt, savings, interest, muffinmatrix, pay, rate, charged, return]
+    concepts: [savings, interest, muffinmatrix, charged, return]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/personalfinance/1nnpc51.md#c4"
     char_span: [6126, 7730]
     sentence_count: 10
     key_terms: [emergency, debt, fund, savings, paying, pay, depending, financial]
+    concepts: [emergency, savings, paying, depending, financial]
     section: Comments
     token_count: 404
 ---

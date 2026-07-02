@@ -20,23 +20,32 @@ chunks:
     char_span: [0, 852]
     sentence_count: 3
     key_terms: [automation, customer, entrepreneurs, entrepreneur, comments, hours, save, time]
+    concepts: [automation, customer, entrepreneurs, entrepreneur, comments]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1rmdjl1.md#c1", "social-intelligence/reddit-deep/entrepreneur/1rmdjl1.md#c2", "social-intelligence/reddit-deep/entrepreneur/1rmdjl1.md#c3"]
     token_count: 178
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1rmdjl1/how_entrepreneurs_are_using_ai_automation_to_save/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1rmdjl1.md#c1"
-    char_span: [867, 2614]
+    char_span: [866, 2613]
     sentence_count: 10
     key_terms: [entrepreneur, please, here, slop, permanent, promotion, comments, miclowfi]
+    concepts: [entrepreneur, please, permanent, promotion, comments]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1rmdjl1.md#c0"]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/entrepreneur/1rmdjl1.md#c2"
-    char_span: [2616, 4447]
+    char_span: [2615, 4446]
     sentence_count: 16
     key_terms: [automation, everything, workflow, entrepreneur, follow-ups, automate, comments, founders]
+    concepts: [automation, everything, workflow, entrepreneur, follow-ups]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1rmdjl1.md#c0"]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/entrepreneur/1rmdjl1.md#c3"
-    char_span: [4449, 5643]
+    char_span: [4448, 5642]
     sentence_count: 7
     key_terms: [customer, small, real, automation, repetitive, handling, actual, teams]
+    concepts: [customer, automation, repetitive, small, handling]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1rmdjl1.md#c0"]
     section: Comments
     token_count: 254
 ---

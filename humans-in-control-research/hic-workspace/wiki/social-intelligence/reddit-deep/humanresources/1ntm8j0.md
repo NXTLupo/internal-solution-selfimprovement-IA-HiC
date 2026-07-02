@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1340]
     sentence_count: 8
     key_terms: [employees, company, humanresources, acquisition, coordinator, assistant, companies, comments]
+    concepts: [employees, humanresources, company, acquisition, coordinator]
     token_count: 322
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1ntm8j0/nj_how_many_hr_staff_does_your_company_have_for/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1ntm8j0.md#c1"
     char_span: [1354, 2990]
     sentence_count: 12
     key_terms: [company, including, payroll, goodvibezone, wrong, benicebuddy, superhuman, employees]
+    concepts: [company, including, payroll, goodvibezone, benicebuddy]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/humanresources/1ntm8j0.md#c2"
     char_span: [2992, 4156]
     sentence_count: 10
     key_terms: [benefits, manager, director, coordinator, comp, hris, processing, recruiting]
+    concepts: [benefits, manager, director, coordinator, processing]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/humanresources/1ntm8j0.md#c3"
     char_span: [4158, 6054]
     sentence_count: 14
     key_terms: [employees, people, admin, organization, understaffed, hrbp, hris, work]
+    concepts: [employees, people, admin, organization, understaffed]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/humanresources/1ntm8j0.md#c4"

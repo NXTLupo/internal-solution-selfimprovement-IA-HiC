@@ -19,17 +19,24 @@ chunks:
     char_span: [0, 988]
     sentence_count: 7
     key_terms: [year, campus, northeastern, comments, oakland, defiant-distance-755, ask, live]
+    concepts: [northeastern, campus, comments, oakland]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1sd48nm.md#c1"]
     token_count: 240
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sd48nm/could_i_request_for_a_different_first_year_campus/"}]
   - id: "social-intelligence/reddit-deep/neu/1sd48nm.md#c1"
     char_span: [1002, 1816]
     sentence_count: 6
     key_terms: [oakland, parents, transfer, campus, asked, did, pleniluneglaze, adtough2930]
+    concepts: [oakland, parents, transfer, campus, asked]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1sd48nm.md#c0", "social-intelligence/reddit-deep/neu/1sd48nm.md#c2"]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/neu/1sd48nm.md#c2"
     char_span: [1818, 3762]
     sentence_count: 14
     key_terms: [parents, nyc, want, lakeorjanzo, let, admissions, campuses, oakland]
+    concepts: [parents, lakeorjanzo, admissions, campuses, oakland]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1sd48nm.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1sd48nm.md#c3"

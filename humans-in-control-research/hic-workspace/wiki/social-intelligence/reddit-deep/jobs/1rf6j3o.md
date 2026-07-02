@@ -21,119 +21,151 @@ chunks:
     char_span: [0, 1507]
     sentence_count: 17
     key_terms: [job, offer, like, year, seniority, comments, everyone, "don't"]
+    concepts: [offer, seniority, comments, everyone, "don't"]
     token_count: 373
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rf6j3o/my_job_is_offering_me_150000_105000_after_tax_to/"}]
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c1"
     char_span: [1521, 2324]
     sentence_count: 5
     key_terms: [front, pay, take, year, aj3turtlesquad, nocoguy1968, potentially, completely]
+    concepts: [front]
     section: Comments
     token_count: 209
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c2"
     char_span: [2326, 4277]
     sentence_count: 16
     key_terms: [money, take, people, rehire, want, work, company, exactly]
+    concepts: [money, people, rehire, company, exactly]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rf6j3o.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c3"
     char_span: [4053, 4887]
     sentence_count: 7
     key_terms: [company, get, work, increase, money, offer, don, autoadviceseeker]
+    concepts: [company, increase, money, offer]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rf6j3o.md#c2"]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c4"
     char_span: [4889, 5941]
     sentence_count: 6
     key_terms: [take, employees, hopefully, severance, voluntary, layoffs, enough, life]
+    concepts: [employees, hopefully, severance, voluntary, layoffs]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c5"
     char_span: [5943, 8117]
     sentence_count: 29
     key_terms: [family, health, years, "he's", work, insurance, seniority, anywhere]
+    concepts: [family, health, years, insurance, seniority]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rf6j3o.md#c13", "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c17"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c6"
     char_span: [8119, 9924]
     sentence_count: 21
     key_terms: [something, right, good, job, side, management, employees, benefits]
+    concepts: [something, management, right, employees, benefits]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c7"
     char_span: [9926, 10715]
     sentence_count: 8
     key_terms: [buyout, something, maybe, locutusofborgia909, "i'll", job, like, compensation]
+    concepts: [buyout, something, maybe]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c8"
     char_span: [10717, 12769]
     sentence_count: 18
     key_terms: [years, pension, money, find, job, run, take, work]
+    concepts: [years, pension, money, retirement, consider]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rf6j3o.md#c12", "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c19"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c9"
     char_span: [12771, 14230]
     sentence_count: 15
     key_terms: [better, another, being, insurance, company, pension, solidly, future]
+    concepts: [better, another, being, insurance, company]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rf6j3o.md#c19"]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c10"
     char_span: [14232, 16402]
     sentence_count: 21
     key_terms: [people, ups, benefits, etc, here, job, contract, position]
+    concepts: [people, benefits, contract, position, pension]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rf6j3o.md#c16"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c11"
     char_span: [16132, 16725]
     sentence_count: 3
     key_terms: [company, ups, gainsmcnasty, physically, demanding, benefits, everyone, knowing]
+    concepts: [company]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c12"
     char_span: [16727, 18665]
     sentence_count: 19
     key_terms: [pension, retirement, insurance, everything, comment, union, life, look]
+    concepts: [pension, retirement, insurance, everything, comment]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rf6j3o.md#c8"]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c13"
     char_span: [18667, 19897]
     sentence_count: 10
     key_terms: [job, family, salary, get, work, year, benefits, finding]
+    concepts: [family, salary, benefits, finding, years]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rf6j3o.md#c5"]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c14"
     char_span: [19899, 21861]
     sentence_count: 21
     key_terms: [timeforitnowright, get, work, "they're", year, willing, living, people]
+    concepts: [timeforitnowright, "they're", willing, living, people]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c15"
     char_span: [21863, 24003]
     sentence_count: 16
     key_terms: [ups, people, going, get, like, drivers, amazon, events]
+    concepts: [people, going, drivers, amazon, events]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c16"
     char_span: [24005, 25633]
     sentence_count: 16
     key_terms: [job, find, benefits, people, come, plan, take, comparable]
+    concepts: [benefits, people, comparable, probably, pension]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rf6j3o.md#c10"]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c17"
     char_span: [25636, 27637]
     sentence_count: 15
     key_terms: [insurance, seniority, take, buyout, location, alldun, nobody, farts]
+    concepts: [insurance, seniority, buyout, location, alldun]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rf6j3o.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c18"
     char_span: [27356, 27726]
     sentence_count: 2
     key_terms: [longer, long, physically, activitiy, correctly, engaging, physical, probably]
+    concepts: [longer]
     section: Comments
     token_count: 85
   - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c19"
     char_span: [27728, 29108]
     sentence_count: 19
     key_terms: [take, going, money, insurance, consider, another, back, "i'd"]
+    concepts: [going, money, insurance, consider, another]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rf6j3o.md#c8", "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c9"]
     section: Comments
     token_count: 361
 ---

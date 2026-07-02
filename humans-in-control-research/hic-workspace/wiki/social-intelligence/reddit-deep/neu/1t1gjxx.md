@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 907]
     sentence_count: 7
     key_terms: [register, classes, registration, registering, meet, comments, advisor, email]
+    concepts: [register, classes, registration, registering, comments]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1t1gjxx.md#c1"]
     token_count: 223
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1t1gjxx/do_i_need_to_meet_an_advisor_before_registering/"}]
   - id: "social-intelligence/reddit-deep/neu/1t1gjxx.md#c1"
     char_span: [921, 2268]
     sentence_count: 8
     key_terms: [register, semester, classes, courses, need, take, want, joshi1381]
+    concepts: [register, semester, classes, courses, joshi1381]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1t1gjxx.md#c0"]
     section: Comments
     token_count: 325
 ---

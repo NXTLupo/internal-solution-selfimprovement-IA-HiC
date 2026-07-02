@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2505]
     sentence_count: 16
     key_terms: [pathways, nasa, internships, shutdown, offer, experience, graduation, meaningful]
+    concepts: [pathways, internships, shutdown, experience, graduation]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1prz7ws/advice_needed_following_nasa_pathways_program/"}]
   - id: "social-intelligence/reddit-deep/internships/1prz7ws.md#c1"
     char_span: [2519, 4454]
     sentence_count: 20
     key_terms: [personalityfickle498, definitely, experience, take, riaxuez, having, competitive, internships]
+    concepts: [personalityfickle498, definitely, experience, riaxuez, having]
     section: Comments
     token_count: 434
 ---

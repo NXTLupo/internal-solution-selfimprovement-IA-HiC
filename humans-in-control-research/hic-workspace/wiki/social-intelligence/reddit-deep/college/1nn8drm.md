@@ -19,41 +19,51 @@ chunks:
     char_span: [0, 1363]
     sentence_count: 5
     key_terms: [professors, relationships, classes, college, office, enthusiastic, hours, feel]
+    concepts: [professors, relationships, classes, college, enthusiastic]
     token_count: 287
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1nn8drm/how_to_build_relationships_with_professors/"}]
   - id: "social-intelligence/reddit-deep/college/1nn8drm.md#c1"
     char_span: [1377, 3472]
     sentence_count: 13
     key_terms: [interested, struggling, students, student, messageok239, force, helps, like]
+    concepts: [interested, struggling, students, student, messageok239]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/college/1nn8drm.md#c2"
     char_span: [3474, 5457]
     sentence_count: 17
     key_terms: [recommendation, writing, questions, ask, "we're", get, need, everything]
+    concepts: [recommendation, writing, questions, everything, "we're"]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/college/1nn8drm.md#c3"
     char_span: [5459, 7033]
     sentence_count: 7
     key_terms: [professors, noinfluence952, small, assignments, talk, definitely, classes, effort]
+    concepts: [professors, noinfluence952, assignments, definitely, small]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/college/1nn8drm.md#c4"
     char_span: [7035, 9141]
     sentence_count: 18
     key_terms: [professor, office, hours, ask, chance, professors, talk, assignments]
+    concepts: [professor, office, hours, professors, chance]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nn8drm.md#c6"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/college/1nn8drm.md#c5"
     char_span: [9143, 10763]
     sentence_count: 7
     key_terms: [class, professor, questions, get, ask, something, question, awkward]
+    concepts: [professor, questions, class, something, question]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/college/1nn8drm.md#c6"
     char_span: [10765, 12866]
     sentence_count: 20
     key_terms: [office, questions, cricketcounselor, process, hours, thank, good, interests]
+    concepts: [office, cricketcounselor, questions, process, hours]
+    related_chunks: ["social-intelligence/reddit-deep/college/1nn8drm.md#c4"]
     section: Comments
     token_count: 508
 ---

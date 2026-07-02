@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 430]
     sentence_count: 4
     key_terms: [gradschool, comments, post, cautiousherb, organization, reddit-deep, scholarship, employer]
+    concepts: [gradschool, comments]
     token_count: 118
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1qpr5qf/recently_won_a_scholarship_from_a_major/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1qpr5qf.md#c1"
     char_span: [444, 1859]
     sentence_count: 8
     key_terms: [replacement, projects, manager, future, notice, worked, isaac-get-the-golem, being]
+    concepts: [replacement, projects, manager, future, notice]
     section: Comments
     token_count: 315
 ---

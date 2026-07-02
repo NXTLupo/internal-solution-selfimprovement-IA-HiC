@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 885]
     sentence_count: 9
     key_terms: [cscareerquestions, companies, comments, advice, entry, level, get, undergraduates]
+    concepts: [cscareerquestions, companies, comments, advice, entry]
     token_count: 212
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t5uzak/advice_for_cs_student/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5uzak.md#c1"
     char_span: [899, 3391]
     sentence_count: 16
     key_terms: [industry, understanding, code, coding, different, good, concepts, sound]
+    concepts: [industry, understanding, coding, different, concepts]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5uzak.md#c2"
     char_span: [3393, 5042]
     sentence_count: 12
     key_terms: [need, doing, something, software, getting, going, code, else]
+    concepts: [doing, something, software, getting, going]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5uzak.md#c3"
     char_span: [5045, 5812]
     sentence_count: 5
     key_terms: [job, healthcare, librarianoutside2376, bad, been, get, exponentially, unfortunately]
+    concepts: [healthcare]
     section: Comments
     token_count: 178
 ---

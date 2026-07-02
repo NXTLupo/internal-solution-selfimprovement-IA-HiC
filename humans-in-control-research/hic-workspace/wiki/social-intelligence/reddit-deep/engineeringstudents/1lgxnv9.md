@@ -21,63 +21,80 @@ chunks:
     char_span: [0, 1950]
     sentence_count: 36
     key_terms: [shit, engineering, forget, calculator, engineeringstudents, "can't", questions, fuck]
+    concepts: [engineering, engineeringstudents, calculator, forget, questions]
     token_count: 467
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1lgxnv9/is_engineering_uni_really_just_memorizing_shit/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c1"
     char_span: [1952, 3297]
     sentence_count: 25
     key_terms: [fucking, shit, fuck, get, shotgun, school, "can't", cheat]
+    concepts: [fucking, shotgun, school, "can't", cheat]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c2"]
     token_count: 313
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c2"
     char_span: [3299, 4408]
     sentence_count: 12
     key_terms: [fucking, exam, because, english, pass, take, fucker, "can't"]
+    concepts: [fucking, because, english, fucker, "can't"]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c1"]
     token_count: 247
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c3"
     char_span: [4422, 5802]
     sentence_count: 11
     key_terms: [problems, questions, "you're", doing, alot, understand, practice, remember]
+    concepts: [problems, questions, "you're", doing, understand]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c4"
     char_span: [5804, 7076]
     sentence_count: 12
     key_terms: [approach, engineer, rewrite, easier, repeat, doing, least, get]
+    concepts: [approach, engineer, rewrite, easier, repeat]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c5"
     char_span: [7078, 9220]
     sentence_count: 20
     key_terms: [good, something, need, calculus, understanding, parts, start, developing]
+    concepts: [something, calculus, understanding, developing, parts]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c9"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c6"
     char_span: [9222, 11453]
     sentence_count: 21
     key_terms: [silent-warning9028, good, rewriting, anything, engineer, practice, problems, formula]
+    concepts: [silent-warning9028, rewriting, anything, engineer, practice]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c7"
     char_span: [11455, 13129]
     sentence_count: 10
     key_terms: [don, memorization, get, till, engineers, calculus, practice, problems]
+    concepts: [memorization, engineers, calculus, practice, problems]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c8"
     char_span: [13131, 15193]
     sentence_count: 17
     key_terms: [calculus, blocks, basic, engineering, "it's", like, everything, building]
+    concepts: [calculus, blocks, engineering, basic, everything]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c9"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c9"
     char_span: [15195, 17366]
     sentence_count: 15
     key_terms: [engineering, calculus, understanding, explanation, job, kind, use, experience]
+    concepts: [engineering, understanding, calculus, explanation, experience]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c5", "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c8"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c10"
     char_span: [17368, 18860]
     sentence_count: 14
     key_terms: [silent-warning9028, plzhqobowtqdmsr9k-rj53dwvrmyo3t5yr, instantbeef, able, week, calculus, memorize, being]
+    concepts: [silent-warning9028, instantbeef, calculus, memorize, being]
     section: Comments
     token_count: 378
 ---

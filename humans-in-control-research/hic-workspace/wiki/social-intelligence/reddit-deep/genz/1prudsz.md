@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 1562]
     sentence_count: 13
     key_terms: [sports, gambling, bets, betting, inside, contracts, comments, offering]
+    concepts: [sports, gambling, betting, inside, contracts]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1prudsz.md#c2"]
     token_count: 360
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1prudsz/weve_normalized_gambling_inside_finance_apps_what/"}]
   - id: "social-intelligence/reddit-deep/genz/1prudsz.md#c1"
     char_span: [1576, 3535]
     sentence_count: 19
     key_terms: ["it's", like, government, regulation, internet, "don't", money, fun]
+    concepts: [government, regulation, internet, "don't", money]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/genz/1prudsz.md#c2"
     char_span: [3538, 4990]
     sentence_count: 12
     key_terms: [australia, gambling, robinhood, because, betting, "doesn't", app, "it's"]
+    concepts: [australia, gambling, robinhood, because, betting]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1prudsz.md#c0", "social-intelligence/reddit-deep/genz/1prudsz.md#c3"]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/genz/1prudsz.md#c3"
     char_span: [4992, 6529]
     sentence_count: 9
     key_terms: [gambling, because, money, interesting, good, haikusbot, newad5289, separate]
+    concepts: [gambling, because, interesting, money, haikusbot]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1prudsz.md#c2"]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/genz/1prudsz.md#c4"
     char_span: [6531, 6956]
     sentence_count: 2
     key_terms: [haikusbot, delete, opt, regulations, investment, companies, worthless, accounts]
+    concepts: [haikusbot, delete]
     section: Comments
     token_count: 111
 ---

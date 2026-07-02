@@ -7,31 +7,34 @@ subreddit: "shopify"
 title: "Anyone using an ai shopping assistant on shopify without it sounding robotic?"
 author: "From_Earth_616_"
 date: "2025-12-04T16:07:25.000Z"
-score: 5
-upvote_ratio: 0.7
+score: 6
+upvote_ratio: 0.75
 num_comments: 25
 flair: "Shopify General Discussion"
-extracted_at: "2026-06-18T13:35:23.050Z"
+extracted_at: "2026-06-24T22:14:23.470Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/shopify/1pe3vqy.md#c0"
     char_span: [0, 757]
     sentence_count: 4
     key_terms: [shopify, customers, something, comments, talking, without, anyone, sounds]
+    concepts: [shopify, customers, something, comments, talking]
     token_count: 173
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1pe3vqy/anyone_using_an_ai_shopping_assistant_on_shopify/"}]
   - id: "social-intelligence/reddit-deep/shopify/1pe3vqy.md#c1"
-    char_span: [772, 2333]
+    char_span: [771, 2332]
     sentence_count: 6
     key_terms: [robots, bot, like, community, customers, questions, contact, product]
+    concepts: [robots, community, customers, questions, contact]
     section: Comments
     token_count: 375
 ---
 # Anyone using an ai shopping assistant on shopify without it sounding robotic?
 
 Source: [reddit-deep: r/shopify](https://www.reddit.com/r/shopify/comments/1pe3vqy/anyone_using_an_ai_shopping_assistant_on_shopify/)
-Posted by **From_Earth_616_** · **5↑** · **25 comments**
+Posted by **From_Earth_616_** · **6↑** · **25 comments**
 
 Every AI chatbot I've tried sounds so corporate and generic. Like "I'd be happy to assist you with that today" type responses that make it super obvious you're talking to a bot
 

@@ -19,95 +19,114 @@ chunks:
     char_span: [0, 2338]
     sentence_count: 18
     key_terms: [everyone, honestly, good, want, business, careerguidance, school, right]
+    concepts: [everyone, honestly, business, careerguidance, school]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c5"]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1t2bwyt/if_you_were_17_again_what_career_path_would_you/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c1"
-    char_span: [2340, 3642]
+    char_span: [2340, 3641]
     sentence_count: 12
     key_terms: [wanted, opportunities, because, always, career, school, ended, hobby]
+    concepts: [opportunities, wanted, because, always, career]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c2"
-    char_span: [3644, 5720]
+    char_span: [3643, 5719]
     sentence_count: 19
     key_terms: [college, economics, major, find, options, publications, did, journalism]
+    concepts: [college, economics, major, options, publications]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c3"
-    char_span: [5722, 7927]
+    char_span: [5721, 7926]
     sentence_count: 22
     key_terms: [got, something, job, work, supervisor, company, transportation, doing]
+    concepts: [something, supervisor, transportation, company, doing]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c4"
-    char_span: [7929, 8158]
+    char_span: [7928, 8157]
     sentence_count: 1
     key_terms: [certifications, specialized, situation, benefits, handcuff, promoted, requires, training]
     section: Comments
     token_count: 47
   - id: "social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c5"
-    char_span: [8160, 10192]
+    char_span: [8159, 10191]
     sentence_count: 14
     key_terms: [choose, get, work, business, school, kitchen-yam43, good, paid]
+    concepts: [choose, business, kitchen-yam43, school, contract]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c6"
-    char_span: [9919, 10626]
+    char_span: [9918, 10625]
     sentence_count: 4
     key_terms: [chazman1023, groundbreakingsir386, doing, trade, get, work, kitchen-yam43, unreasonable]
+    concepts: [chazman1023, doing, trade]
     section: Comments
     token_count: 189
   - id: "social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c7"
-    char_span: [10628, 12901]
+    char_span: [10627, 12900]
     sentence_count: 24
     key_terms: [finance, always, "i'm", path, science-related, broad, field, bookkeeping]
+    concepts: [finance, always, science-related, bookkeeping, broad]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c8"
-    char_span: [12903, 14962]
+    char_span: [12902, 14961]
     sentence_count: 15
     key_terms: [clep, college, https, website, clep-college-credit-policy-search, collegeboard, exam, step]
+    concepts: [college, clep-college-credit-policy-search, website, https, collegeboard]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c9"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c9"
-    char_span: [14964, 16908]
+    char_span: [14963, 16907]
     sentence_count: 8
     key_terms: [https, irs, www, gov, credits-deductions, individuals, college, forms-pubs]
+    concepts: [https, credits-deductions, individuals, college, forms-pubs]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c8"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c10"
-    char_span: [16910, 17961]
+    char_span: [16909, 17960]
     sentence_count: 12
     key_terms: [loan, interest, groups, principal, rate, group, clep, debt]
+    concepts: [interest, groups, principal, group, separately]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c11"
-    char_span: [17963, 19589]
+    char_span: [17962, 19588]
     sentence_count: 16
     key_terms: [college, school, military, ok-door-3664, air, "i'd", education, advice]
+    concepts: [college, school, military, ok-door-3664, education]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c12"
-    char_span: [19591, 21603]
+    char_span: [19590, 21602]
     sentence_count: 17
     key_terms: [vet, "i'm", aggressive-affect427, mediocre-pair-2821, get, too, billing, medical]
+    concepts: [aggressive-affect427, mediocre-pair-2821, billing, medical, veterinarian]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c13"
-    char_span: [21388, 23378]
+    char_span: [21387, 23377]
     sentence_count: 12
     key_terms: [aggressive-affect427, accounting, work, people, accountants, comfortable, math, average]
+    concepts: [aggressive-affect427, accounting, people, accountants, comfortable]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c14"
-    char_span: [23109, 23388]
+    char_span: [23108, 23387]
     sentence_count: 1
     key_terms: [accelerated, comfortable, portiajon, positions, settling, believe, pathway, talking]
     section: Comments
     token_count: 67
   - id: "social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c15"
-    char_span: [23390, 24055]
+    char_span: [23389, 24054]
     sentence_count: 5
     key_terms: [genetics, passion, piano, study, job, wish, kitchen-yam43, fascinating]
+    concepts: [genetics, passion, piano, study]
     section: Comments
     token_count: 151
 ---

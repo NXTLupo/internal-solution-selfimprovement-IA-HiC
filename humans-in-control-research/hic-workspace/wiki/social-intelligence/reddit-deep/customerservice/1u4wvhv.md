@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1301]
     sentence_count: 15
     key_terms: [customerservice, locker, whole, x200b, blah, days, like, collection]
+    concepts: [customerservice, locker, collection, whole, x200b]
     token_count: 332
+    sources: [{"n":"reddit-deep: r/customerservice","u":"https://www.reddit.com/r/CustomerService/comments/1u4wvhv/this_is_so_bad/"}]
   - id: "social-intelligence/reddit-deep/customerservice/1u4wvhv.md#c1"
-    char_span: [1316, 1662]
+    char_span: [1315, 1661]
     sentence_count: 4
     key_terms: [collected, flameeyedjabberwock, "can't", chargeback, provider, company, payment, provide]
+    concepts: [collected, "can't"]
     section: Comments
     token_count: 85
 ---

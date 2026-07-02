@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 625]
     sentence_count: 4
     key_terms: [costs, comments, volumes, xstocks, solana, stocks, defi, ondo]
+    concepts: [costs, comments, volumes, xstocks, solana]
     token_count: 162
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1rv5s4o/rwa_ondo_vs_xstocks/"}]
   - id: "social-intelligence/reddit-deep/defi/1rv5s4o.md#c1"
-    char_span: [640, 1980]
+    char_span: [639, 1979]
     sentence_count: 8
     key_terms: [ondo, xstocks, liquidity, stocks, holding, better, reason, "you're"]
+    concepts: [xstocks, liquidity, stocks, holding, better]
     section: Comments
     token_count: 328
 ---

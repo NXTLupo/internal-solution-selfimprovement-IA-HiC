@@ -20,31 +20,38 @@ chunks:
     char_span: [0, 2314]
     sentence_count: 21
     key_terms: [brokers, logistics, capacity, week, freight, market, court, brokerage]
+    concepts: [brokers, logistics, capacity, freight, market]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1tobchn/catch_up_on_what_happened_this_week_in_logistics/"}]
   - id: "social-intelligence/reddit-deep/logistics/1tobchn.md#c1"
     char_span: [2316, 4595]
     sentence_count: 25
     key_terms: [container, shipping, million, "you're", containers, production, insurance, carriers]
+    concepts: [container, shipping, million, "you're", containers]
     token_count: 498
   - id: "social-intelligence/reddit-deep/logistics/1tobchn.md#c2"
     char_span: [4597, 6796]
     sentence_count: 26
     key_terms: [packaging, boxes, mailers, amazon, shipping, people, costs, means]
+    concepts: [packaging, boxes, mailers, amazon, shipping]
     token_count: 434
   - id: "social-intelligence/reddit-deep/logistics/1tobchn.md#c3"
     char_span: [6798, 9165]
     sentence_count: 17
     key_terms: [fulfillment, e-commerce, warehouse, mailers, harder, traditional, real, warehouses]
+    concepts: [fulfillment, e-commerce, warehouse, mailers, harder]
     token_count: 445
   - id: "social-intelligence/reddit-deep/logistics/1tobchn.md#c4"
     char_span: [9167, 10258]
     sentence_count: 13
     key_terms: [researchers, warehouses, "amazon's", delivery, company, walmart, workers, amazon]
+    concepts: [researchers, warehouses, "amazon's", delivery, company]
     token_count: 205
   - id: "social-intelligence/reddit-deep/logistics/1tobchn.md#c5"
-    char_span: [10273, 11736]
+    char_span: [10272, 11735]
     sentence_count: 7
     key_terms: [container, supply, manufacturers, surveillance, boxes, chain, going, lines]
+    concepts: [container, manufacturers, surveillance, supply, boxes]
     section: Comments
     token_count: 313
 ---

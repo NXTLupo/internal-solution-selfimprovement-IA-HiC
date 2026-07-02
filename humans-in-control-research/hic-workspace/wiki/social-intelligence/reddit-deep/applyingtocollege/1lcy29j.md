@@ -21,65 +21,84 @@ chunks:
     char_span: [0, 1895]
     sentence_count: 14
     key_terms: [school, grade, applyingtocollege, math, calculus, district, algebra, pre-algebra]
+    concepts: [school, applyingtocollege, grade, calculus, district]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c8", "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c9"]
     token_count: 439
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1lcy29j/school_district_dropping_ap_calculus_bc_due_to/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c1"
     char_span: [1909, 2286]
     sentence_count: 1
     key_terms: [applyingtocollege, comments, reddit, https, com, www, automoderator, admissions]
+    concepts: [applyingtocollege, comments, reddit, https]
     section: Comments
     token_count: 95
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c2"
     char_span: [2288, 4415]
     sentence_count: 13
     key_terms: [woke, college, schools, school, universities, happening, bullshit, everyone]
+    concepts: [college, schools, universities, school, happening]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c7"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c3"
     char_span: [4417, 5229]
     sentence_count: 4
     key_terms: [school, growing, student, appropriately, disadvantaged, applications, universities, admissions]
+    concepts: [school, growing, student]
     section: Comments
     token_count: 162
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c4"
     char_span: [5231, 6875]
     sentence_count: 7
     key_terms: [the-woman-behind-corvallis-math-philosophy-and-her-impact, kids, school, math, high, calculus, district, relevant]
+    concepts: [school, calculus, district, relevant, schools]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c7", "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c8", "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c9"]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c5"
     char_span: [6877, 8859]
     sentence_count: 9
     key_terms: [school, years, math, time, districts, thought, middle, "that's"]
+    concepts: [school, years, districts, thought, middle]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c6"
     char_span: [8861, 10828]
     sentence_count: 13
     key_terms: [school, math, high, algebra, better, acceleration, kid, stem]
+    concepts: [school, algebra, acceleration, better, understand]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c9"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c7"
     char_span: [10830, 12820]
     sentence_count: 13
     key_terms: [calc, schools, year, college, deleted, school, "isn't", take]
+    concepts: [schools, college, deleted, school, "isn't"]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c4"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c8"
     char_span: [12822, 14156]
     sentence_count: 7
     key_terms: [school, calc, year, hours, accelerate, district, outside, senior]
+    concepts: [school, accelerate, hours, district, outside]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c9"]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c9"
     char_span: [14158, 16311]
     sentence_count: 19
     key_terms: [school, take, year, math, algebra, summer, get, daughter]
+    concepts: [school, algebra, summer, daughter, district]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c4", "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c10"
     char_span: [16060, 16864]
     sentence_count: 9
     key_terms: [course, ideal, worry, bar, calc, get, boulderadobill, academically]
+    concepts: [course, ideal, worry]
     section: Comments
     token_count: 209
 ---

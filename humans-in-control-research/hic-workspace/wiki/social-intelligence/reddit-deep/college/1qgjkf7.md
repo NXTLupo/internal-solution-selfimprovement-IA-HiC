@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1150]
     sentence_count: 9
     key_terms: [college, get, "bachelor's", comments, career, degree, "didn't", did]
+    concepts: [college, "bachelor's", comments, career, degree]
     token_count: 275
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1qgjkf7/tuition_and_expenses/"}]
   - id: "social-intelligence/reddit-deep/college/1qgjkf7.md#c1"
     char_span: [1164, 3420]
     sentence_count: 21
     key_terms: [degree, bachelors, job, field, work, specific, getting, loans]
+    concepts: [bachelors, degree, field, specific, getting]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/college/1qgjkf7.md#c2"
     char_span: [3422, 3846]
     sentence_count: 5
     key_terms: [people, gaps, challenging, employment, experience, caregiver, employers, explained]
+    concepts: [people]
     section: Comments
     token_count: 95
 ---

@@ -21,33 +21,40 @@ chunks:
     char_span: [0, 2012]
     sentence_count: 14
     key_terms: [financialindependence, comments, divorce, became, career, driver, worth, years]
+    concepts: [financialindependence, comments, divorce, became, career]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1me1wc1/5_years_into_fire_from_5k_after_divorce_to_214k/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1me1wc1.md#c1"
     char_span: [2014, 4111]
     sentence_count: 15
     key_terms: [year, percent, bonus, plus, pastor, salary, budget, income]
+    concepts: [percent, bonus, pastor, salary, independence]
     token_count: 482
   - id: "social-intelligence/reddit-deep/financialindependence/1me1wc1.md#c2"
     char_span: [4113, 4840]
     sentence_count: 12
     key_terms: [begin, house, car, plan, wife, independence, comfortable, significant]
+    concepts: [begin, house]
     token_count: 157
   - id: "social-intelligence/reddit-deep/financialindependence/1me1wc1.md#c3"
     char_span: [4854, 5611]
     sentence_count: 8
     key_terms: [keep, inspiring, congrats, staying, great, cosmicslug73, silentpulsex, frustrated]
+    concepts: [inspiring, congrats, staying, great]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/financialindependence/1me1wc1.md#c4"
     char_span: [5613, 7032]
     sentence_count: 9
     key_terms: [hour, situation, marriage, because, almost, people, hard, almamahlerwerfel]
+    concepts: [situation, marriage, because, almost, people]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/financialindependence/1me1wc1.md#c5"
     char_span: [7034, 8780]
     sentence_count: 13
     key_terms: [prenup, assets, marriage, divorce, married, people, person, shhhhhhhhhhhhhhhhhh]
+    concepts: [prenup, assets, marriage, divorce, married]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/financialindependence/1me1wc1.md#c6"

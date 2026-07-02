@@ -20,9 +20,11 @@ chunks:
     char_span: [0, 2075]
     sentence_count: 10
     key_terms: [data, anyone, broker, tax, clearing, provider, invesco, europe]
+    concepts: [anyone, broker, clearing, provider, automatically]
     token_count: 514
+    sources: [{"n":"reddit-deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1t0smkc/massive_broker_data_glitch_28000_in_taxes/"}]
   - id: "social-intelligence/reddit-deep/etfs/1t0smkc.md#c1"
-    char_span: [2077, 2454]
+    char_span: [2077, 2453]
     sentence_count: 3
     key_terms: [international, kontrollbank, screenshots, americans, complaint, compliant, populated, processed]
     section: Comments

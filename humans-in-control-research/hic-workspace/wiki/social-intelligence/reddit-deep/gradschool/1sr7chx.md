@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 2016]
     sentence_count: 15
     key_terms: [trying, "don't", feel, "it's", like, want, work, gradschool]
+    concepts: [trying, "don't", gradschool, comments, consider]
     token_count: 474
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1sr7chx/should_i_keep_trying_for_grad_programs_or_give_up/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1sr7chx.md#c1"
     char_span: [2030, 3909]
     sentence_count: 12
     key_terms: [job, next, consider, "that's", oceansrising, depending, geography, undergrad]
+    concepts: [consider, oceansrising, "that's", depending, geography]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/gradschool/1sr7chx.md#c2"
     char_span: [3911, 5336]
     sentence_count: 5
     key_terms: [pay, funding, tuition, watership-down, funded, investments, "master's", masters]
+    concepts: [funding, watership-down, tuition, funded, investments]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/gradschool/1sr7chx.md#c3"
     char_span: [5338, 7280]
     sentence_count: 21
     key_terms: [passion, grad, "i'm", try, experience, postfuture, position, yourself]
+    concepts: [passion, experience, postfuture, position, yourself]
     section: Comments
     token_count: 483
 ---

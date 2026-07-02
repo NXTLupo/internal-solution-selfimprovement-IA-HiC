@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 2133]
     sentence_count: 14
     key_terms: [college, community, want, money, don, get, going, fall]
+    concepts: [college, community, money, especially, going]
+    related_chunks: ["social-intelligence/reddit-deep/college/1r18axj.md#c1"]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1r18axj/im_planning_on_going_to_a_community_college_this/"}]
   - id: "social-intelligence/reddit-deep/college/1r18axj.md#c1"
     char_span: [2147, 4146]
     sentence_count: 9
     key_terms: [transfer, college, community, classes, take, university, studies, office]
+    concepts: [transfer, college, community, classes, university]
+    related_chunks: ["social-intelligence/reddit-deep/college/1r18axj.md#c0"]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/college/1r18axj.md#c2"
     char_span: [4148, 5326]
     sentence_count: 4
     key_terms: [transfer, get, generals, opportunities, students, social, happylifecoffeehelps, letterheadclassic306]
+    concepts: [transfer, generals, opportunities, students, social]
     section: Comments
     token_count: 245
 ---

@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 303]
     sentence_count: 1
     key_terms: [engineering, comments, openai, prompt, gpt, particularly, slowfail2433, reddit-deep]
+    concepts: [engineering, comments, openai, prompt]
     token_count: 83
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1mrydzj/prompt_engineering_for_gpt_5/"}]
   - id: "social-intelligence/reddit-deep/openai/1mrydzj.md#c1"
     char_span: [317, 2329]
     sentence_count: 20
     key_terms: [avoid, description, optional, o1-mini, prompts, full, grimreefer, different]
+    concepts: [avoid, description, optional, o1-mini, prompts]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/openai/1mrydzj.md#c2"
     char_span: [2331, 3469]
     sentence_count: 9
     key_terms: [prompt-optimizer-automated-meta-prompting, ferenczai, substack, example, explain, prompts, expect, prompt]
+    concepts: [prompt-optimizer-automated-meta-prompting, ferenczai, substack, example, explain]
     section: Comments
     token_count: 284
 ---

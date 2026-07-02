@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 2110]
     sentence_count: 8
     key_terms: [engineering, science, data, https, berkeley, mcds, www, master]
+    concepts: [engineering, science, berkeley, https, master]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1r22krf.md#c1"]
     token_count: 483
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1r22krf/uc_berkeley_mims_vs_cmu_mcds/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1r22krf.md#c1"
     char_span: [2112, 4199]
     sentence_count: 9
     key_terms: [courses, significantly, tuition, engineering, gsi, berkeley, semester, getting]
+    concepts: [courses, significantly, engineering, tuition, berkeley]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1r22krf.md#c0"]
     token_count: 462
 ---
 # UC Berkeley MIMS VS CMU MCDS

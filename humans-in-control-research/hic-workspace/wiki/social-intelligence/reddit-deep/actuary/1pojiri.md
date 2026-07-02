@@ -17,10 +17,12 @@ research_goal: "Deliver a comprehensive 2026 outlook on the global insurance ind
 engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
 chunks:
   - id: "social-intelligence/reddit-deep/actuary/1pojiri.md#c0"
-    char_span: [0, 460]
+    char_span: [0, 459]
     sentence_count: 3
     key_terms: [comments, actuary, resume, wrong-individual8476, physical-willow4800, exam, help, reddit-deep]
+    concepts: [comments, actuary, resume]
     token_count: 125
+    sources: [{"n":"reddit-deep: r/actuary","u":"https://www.reddit.com/r/actuary/comments/1pojiri/help_with_resume/"}]
 ---
 # Help with resume
 

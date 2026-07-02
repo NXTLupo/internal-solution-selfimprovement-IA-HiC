@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 625]
     sentence_count: 1
     key_terms: [applyingtocollege, experience, comments, programs, pre-med, necessarily, reddit-deep, financial]
+    concepts: [applyingtocollege, experience, comments, programs, pre-med]
     token_count: 156
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1mvkrxw/good_colleges_for_premed_programsexperience/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mvkrxw.md#c1"
     char_span: [639, 2207]
     sentence_count: 5
     key_terms: [financial, aid, need-based, help, students, college, premed, well-regarded]
+    concepts: [financial, need-based, students, well-regarded, college]
     section: Comments
     token_count: 383
 ---

@@ -17,14 +17,17 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/businessintelligence/1nofkij.md#c0"
-    char_span: [0, 1929]
+    char_span: [0, 1928]
     sentence_count: 4
     key_terms: [beyond-dashboards-how-conversational-ai-revolutionizing-structured-piugc, businessintelligence, dashboards, conversational, https, data, new2xobucg33hs4yxpz1tg, structured]
-    token_count: 455
+    concepts: [beyond-dashboards-how-conversational-ai-revolutionizing-structured-piugc, businessintelligence, conversational, dashboards, new2xobucg33hs4yxpz1tg]
+    token_count: 454
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1nofkij/beyond_dashboards_how_conversational_ai_is/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1nofkij.md#c1"
-    char_span: [1931, 2299]
+    char_span: [1930, 2298]
     sentence_count: 1
     key_terms: [beyond-dashboards-how-conversational-ai-is-revolutionizing-structured-finance-analytics, https, getwren, png, post, original, preview, format]
+    concepts: [beyond-dashboards-how-conversational-ai-is-revolutionizing-structured-finance-analytics, https, getwren]
     token_count: 113
 ---
 # Beyond Dashboards: How Conversational AI Is Transforming Structured BI

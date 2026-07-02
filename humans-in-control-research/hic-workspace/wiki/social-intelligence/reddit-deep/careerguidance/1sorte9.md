@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 832]
     sentence_count: 6
     key_terms: [organizing, careerguidance, good, comments, career, photos, ok-philosophy-7756, lot]
+    concepts: [organizing, careerguidance, comments, career, photos]
     token_count: 186
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sorte9/is_there_any_good_tools_or_devices_that_can/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sorte9.md#c1"
     char_span: [846, 1420]
     sentence_count: 4
     key_terms: [technical-entry9372, later, documentation, inspiration, everything, organizing, screenshot, reference]
+    concepts: [later]
     section: Comments
     token_count: 114
 ---

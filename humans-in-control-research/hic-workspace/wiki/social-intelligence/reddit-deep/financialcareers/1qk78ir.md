@@ -7,61 +7,71 @@ subreddit: "financialcareers"
 title: "I need help with my resume 😭"
 author: "Sad-Pangolin-6202"
 date: "2026-01-22T21:23:09.000Z"
-score: 16
-upvote_ratio: 0.94
+score: 15
+upvote_ratio: 0.9
 num_comments: 41
 flair: "Resume Feedback"
-extracted_at: "2026-06-11T18:58:14.074Z"
+extracted_at: "2026-06-29T14:40:16.485Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Define the 2026 \"state of the Art\" operational and technological benchmarks for \"The State of Data & Distribution in Asset Management\". Synthesize key developments across data infrastructure, distribution enablement, and AI governance frameworks to identify leading industry capabilities and compliance standards."
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
 chunks:
   - id: "social-intelligence/reddit-deep/financialcareers/1qk78ir.md#c0"
     char_span: [0, 508]
     sentence_count: 3
     key_terms: [financialcareers, comments, sad-pangolin-6202, resume-balanced, certification, applications, reddit-deep, impressive]
+    concepts: [financialcareers, comments]
     token_count: 126
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1qk78ir/i_need_help_with_my_resume/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1qk78ir.md#c1"
-    char_span: [523, 1682]
+    char_span: [522, 1681]
     sentence_count: 4
     key_terms: [sad-pangolin-6202, experience, pixelplayer17, quantifiable, work, management, margins, recent]
+    concepts: [sad-pangolin-6202, experience, pixelplayer17, quantifiable, management]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/financialcareers/1qk78ir.md#c2"
-    char_span: [1684, 2896]
+    char_span: [1683, 2895]
     sentence_count: 7
     key_terms: [template, resume, wrongdoermission1545, sad-pangolin-6202, good, want, pixelplayer17, zloveswaffles]
+    concepts: [template, resume]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/financialcareers/1qk78ir.md#c3"
-    char_span: [2898, 5133]
+    char_span: [2897, 5132]
     sentence_count: 24
     key_terms: [did, opportunity, like, formulas, cleaned, outcome, through, don]
+    concepts: [opportunity, formulas, cleaned, outcome, through]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1qk78ir.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1qk78ir.md#c4"
-    char_span: [4819, 7244]
+    char_span: [4818, 7243]
     sentence_count: 22
     key_terms: [formulas, opportunity, don, accounts, personal, through, oracle, maybe]
+    concepts: [formulas, opportunity, accounts, personal, through]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1qk78ir.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1qk78ir.md#c5"
-    char_span: [6863, 8195]
+    char_span: [6862, 8194]
     sentence_count: 7
     key_terms: [ratio, super, accounting, investment, financial, important, personal, finance]
+    concepts: [accounting, investment, ratio, super, financial]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/financialcareers/1qk78ir.md#c6"
-    char_span: [8197, 9189]
+    char_span: [8196, 9188]
     sentence_count: 6
     key_terms: [resume, slight-dimension1450, yours, inevitable-cut-3643, list, post, used, responsibilities]
+    concepts: [resume, slight-dimension1450, yours]
     section: Comments
     token_count: 255
 ---
 # I need help with my resume 😭
 
 Source: [reddit-deep: r/financialcareers](https://www.reddit.com/r/FinancialCareers/comments/1qk78ir/i_need_help_with_my_resume/)
-Posted by **Sad-Pangolin-6202** · **16↑** · **41 comments**
+Posted by **Sad-Pangolin-6202** · **15↑** · **41 comments**
 
 Well over 200 applications, handful of interviews including 3 final round yet no job landed. I am clearly not the most impressive student in the world but I am actively trying to become more involved and more resume-balanced. Working on BMC to add as a certification will be done soon.
 
@@ -82,7 +92,7 @@ instead of saying “hundreds” of client accounts i would make an estimate for
 - **Mysterious_Shake2894** (2↑): You received good feedback already. I want to echo the commenter who said to make the margins smaller on the top, bottom, and sides. This may allow you to add some spacing in between sections so your resume can breathe a bit. Otherwise I think it's good and you have plenty of time to find a job since you're graduating in May. Just keep trying :) PM me if you want more help
 - **medmac_2112** (1↑): I’m new to this sub and I noticed that a lot of people here have almost the exact same looking resume format. Are you all using the same template?
   - **Sad-Pangolin-6202** (4↑): My school made me use this for a business class. There’s like 3 or 4 formats I’ve seen but this is most common to my knowledge
-  - **pixelplayer17** (3↑): this is the WSO template, or at least a modified version of it.
+  - **pixelplayer17** (4↑): this is the WSO template, or at least a modified version of it.
     - **WrongdoerMission1545** (2↑): yea and its p close to the same shit all schools make u make anyways lol
 - **Zloveswaffles** (1↑): Ok, take this with a grain of salt, I’m being genuine, I promise:
 
@@ -111,8 +121,8 @@ For example:
 Try to list out accomplishments instead of responsibilities. Produced analysis - what were they used for?
 
 Don't need to list out what Excel functions you used.
-- **Spare_Sentence7259** (-7↑): They literally destroyed my resume earlier today lol. Look at my recent post on this forum, and I think mine is objectively more organized (no offense)
-  - **Inevitable-Cut-3643** (11↑): The layout of this resume is significantly better than yours
+- **Spare_Sentence7259** (-6↑): They literally destroyed my resume earlier today lol. Look at my recent post on this forum, and I think mine is objectively more organized (no offense)
+  - **Inevitable-Cut-3643** (10↑): The layout of this resume is significantly better than yours
     - **Slight-Dimension1450** (2↑): I couldn’t agree more, mind you he was getting tore up so bad he deleted the post he made. He put the frat he was in then argued with anyone saying to take it out
     - **Spare_Sentence7259** (-1↑): Send me your resume for reference please
   - **Slight-Dimension1450** (5↑): Dude yours is leaps and bounds worse than this guys. Curb your ego kid

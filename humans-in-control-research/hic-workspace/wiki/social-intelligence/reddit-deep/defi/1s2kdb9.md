@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1261]
     sentence_count: 14
     key_terms: [defi, people, comments, already, because, "that's", wallet, "we've"]
+    concepts: [people, comments, already, because, "that's"]
     token_count: 300
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1s2kdb9/why_do_you_think_regular_people_still_arent_using/"}]
   - id: "social-intelligence/reddit-deep/defi/1s2kdb9.md#c1"
-    char_span: [1276, 3449]
+    char_span: [1275, 3448]
     sentence_count: 9
     key_terms: [crypto, wallet, defi, instead, normal, "it's", background, everything]
+    concepts: [crypto, wallet, instead, normal, background]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/defi/1s2kdb9.md#c2"
-    char_span: [3451, 5443]
+    char_span: [3450, 5442]
     sentence_count: 8
     key_terms: [defi, trick-region4674, understand, people, transparency, totolitotix, financial, protocols]
+    concepts: [trick-region4674, understand, transparency, people, totolitotix]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1s2kdb9.md#c3"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/defi/1s2kdb9.md#c3"
-    char_span: [5447, 7203]
+    char_span: [5446, 7202]
     sentence_count: 8
     key_terms: [trick-region4674, people, around, shit, too, understand, sentiment, friction]
+    concepts: [trick-region4674, people, around, understand, sentiment]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1s2kdb9.md#c2"]
     section: Comments
     token_count: 430
 ---

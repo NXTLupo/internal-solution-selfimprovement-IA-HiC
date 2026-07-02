@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1321]
     sentence_count: 8
     key_terms: [careerguidance, work, underrated, comments, peaceful, position, advice, people]
+    concepts: [careerguidance, underrated, comments, peaceful, position]
     token_count: 330
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pbxv8e/whats_the_most_underrated_work_advice_you_received/"}]
 ---
 # What’s the most underrated work advice you received?
 

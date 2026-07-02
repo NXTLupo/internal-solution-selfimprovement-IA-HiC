@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1808]
     sentence_count: 19
     key_terms: [code, gemini, referral, days, get, link, crypto, trade]
+    concepts: [gemini, referral, crypto, jscryptopia, trade]
     token_count: 477
+    sources: [{"n":"Reddit Deep: r/gemini","u":"https://www.reddit.com/r/Gemini/comments/1no3ayr/referral_code_worked_for_me/"}]
 ---
 # Referral Code Worked for Me
 

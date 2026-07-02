@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1866]
     sentence_count: 11
     key_terms: [something, purpose, meaningful, business, products, adopt3d, create, custom]
+    concepts: [something, purpose, meaningful, business, products]
     token_count: 406
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1sgqo2i/my_friend_just_launched_and_is_asking_for/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1sgqo2i.md#c1"
-    char_span: [1881, 4468]
+    char_span: [1880, 4467]
     sentence_count: 8
     key_terms: [product, brand, messaging, adoption, personal, mission, printed, custom]
+    concepts: [product, messaging, brand, adoption, personal]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/ecommerce/1sgqo2i.md#c2"
-    char_span: [4470, 6106]
+    char_span: [4469, 6105]
     sentence_count: 7
     key_terms: [mobile, customization, accessible, conversion, navigation, checkout, consumer, complex]
+    concepts: [customization, mobile, accessible, conversion, navigation]
     section: Comments
     token_count: 331
 ---

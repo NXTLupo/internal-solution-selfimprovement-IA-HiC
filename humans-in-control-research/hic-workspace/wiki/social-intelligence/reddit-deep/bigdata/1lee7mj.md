@@ -17,10 +17,12 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/bigdata/1lee7mj.md#c0"
-    char_span: [0, 597]
+    char_span: [0, 596]
     sentence_count: 2
     key_terms: [hottest-data-analytics-trends-to-prepare-ahead-of-2025, https, analytics, comments, bigdata, data-science-insights, reddit, com]
-    token_count: 163
+    concepts: [https, analytics, comments, bigdata, reddit]
+    token_count: 162
+    sources: [{"n":"reddit-deep: r/bigdata","u":"https://www.reddit.com/r/bigdata/comments/1lee7mj/hottest_data_analytics_trends_2025/"}]
 ---
 # Hottest Data Analytics Trends 2025
 

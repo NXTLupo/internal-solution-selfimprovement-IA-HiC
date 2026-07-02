@@ -21,53 +21,67 @@ chunks:
     char_span: [0, 566]
     sentence_count: 2
     key_terms: [comments, chatgpt, icystatistician8716, case, real, went, conversation, instructions]
+    concepts: [comments, chatgpt]
     token_count: 157
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1n0kq9g/chatgpt5_tries_to_gaslight_me_that_the_luigi/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c1"
     char_span: [580, 1170]
     sentence_count: 5
     key_terms: [conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, openai, please]
+    concepts: [conversation, image, discord, openai, please]
     section: Comments
     token_count: 157
   - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c2"
     char_span: [1173, 3102]
     sentence_count: 9
     key_terms: [web, search, chatgpt, asks, don, questions, because, current]
+    concepts: [search, chatgpt, questions, because, current]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c10"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c3"
     char_span: [3104, 3974]
     sentence_count: 5
     key_terms: [fd69da89588dc31d0f40eb156a943675996148fd, chatgpt, totally, abjectgovernment1247, prove, big, omg, xc6865y5delf1]
+    concepts: [chatgpt, totally, prove]
     section: Comments
     token_count: 262
   - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c4"
     char_span: [3978, 5785]
     sentence_count: 12
     key_terms: [cutoff, "it's", openai, people, search, web, knowledge, president]
+    concepts: [cutoff, openai, people, search, knowledge]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c6", "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c8"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c5"
     char_span: [5787, 7828]
     sentence_count: 13
     key_terms: [knowledge, web, chatgpt, points, ask, base, like, president]
+    concepts: [knowledge, chatgpt, points, president, answer]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c6"
     char_span: [7572, 8842]
     sentence_count: 9
     key_terms: [gaslighting, knowledge, teaching, misused, people, "what's", going, base]
+    concepts: [gaslighting, knowledge, teaching, misused, people]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c4", "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c8"]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c7"
     char_span: [8844, 9713]
     sentence_count: 6
     key_terms: [gaslighting, certain, mislead, misinformation, theoretically, derbernd123, bluehelmet, completely]
+    concepts: [gaslighting, certain, mislead]
     section: Comments
     token_count: 208
   - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c8"
     char_span: [9715, 11456]
     sentence_count: 7
     key_terms: [understand, people, "don't", gaslighting, knowledge, current, provide, cutoff]
+    concepts: [understand, people, gaslighting, "don't", knowledge]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c4", "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c9"
@@ -80,6 +94,8 @@ chunks:
     char_span: [11581, 12260]
     sentence_count: 3
     key_terms: [acd67d6f7bb45b8c5b8dbef00d7eb1923cdfe958, https, chatgpt, search, share, parking-track-7151, com, web]
+    concepts: [https, chatgpt, search, share]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c2"]
     section: Comments
     token_count: 247
 ---

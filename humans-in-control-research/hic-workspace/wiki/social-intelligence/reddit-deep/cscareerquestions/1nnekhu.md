@@ -21,113 +21,142 @@ chunks:
     char_span: [0, 2305]
     sentence_count: 12
     key_terms: [offshoring, companies, cscareerquestions, act, hire, operations, comments, offshore]
+    concepts: [offshoring, cscareerquestions, companies, operations, comments]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c1"]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1nnekhu/the_hire_act_2025_the_only_real_effort_to/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c1"
     char_span: [2319, 3836]
     sentence_count: 12
     key_terms: [tax, american, offshoring, companies, operations, services, company, international]
+    concepts: [american, offshoring, companies, operations, services]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c18"]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c2"
     char_span: [3839, 4930]
     sentence_count: 4
     key_terms: [entity, international, uneducated, because, google, mountain-nobody-3548, acceptable-milk-314, legal]
+    concepts: [international, entity, uneducated, because, google]
     section: Comments
     token_count: 274
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c3"
     char_span: [4932, 6598]
     sentence_count: 8
     key_terms: [manufacturing, ultimately, companies, microsoft, happened, industry, america, because]
+    concepts: [manufacturing, ultimately, companies, microsoft, happened]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c4"
     char_span: [6600, 8551]
     sentence_count: 12
     key_terms: [acme, tax, company, corp, india, "it's", foreign, american]
+    concepts: [company, india, foreign, american, services]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c14"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c5"
     char_span: [8553, 10394]
     sentence_count: 10
     key_terms: [company, princeton-scholar-poor-and-middle-class-have-no-say-in-government-policy, desire, americans, payments, question, services, foreign]
+    concepts: [company, desire, americans, payments, question]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c6"
     char_span: [10396, 12394]
     sentence_count: 15
     key_terms: [voter-support-for-a-bill-has-near-zero-influence-on-whether-it-will-become-law, markets, like, nothing, google, republicans, bill, dems]
+    concepts: [markets, nothing, google, republicans, companies]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c7"
     char_span: [12399, 14007]
     sentence_count: 10
     key_terms: [google, white-house-clarifies-100k-h-1b-visa-fee-wont-apply-to-existing-holders-as-trump-stirs-anxiety, ireland, india, laughably, structure, alphabet, capital]
+    concepts: [google, ireland, india, laughably, structure]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c8"]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c8"
     char_span: [14009, 15780]
     sentence_count: 12
     key_terms: [google, offshoring, bills, donald-trump-h1b-visas-overhaul-00574345, ireland, support, usa, offshore]
+    concepts: [google, offshoring, bills, ireland, support]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c7"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c9"
     char_span: [15782, 18155]
     sentence_count: 19
     key_terms: [offshoring, americans, tax, "don't", competitive, pass, eventually, companies]
+    concepts: [offshoring, americans, competitive, "don't", eventually]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c10"
     char_span: [17842, 18254]
     sentence_count: 3
     key_terms: [outside, global, work, engineering, department, preventing, companies, american]
+    concepts: [outside, global]
     section: Comments
     token_count: 82
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c11"
     char_span: [18256, 19800]
     sentence_count: 12
     key_terms: [company, people, remote, "don't", companies, continued, impact, wonder]
+    concepts: [company, people, remote, "don't", companies]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c17"]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c12"
     char_span: [19802, 21404]
     sentence_count: 14
     key_terms: [companies, enough, global, "that's", being, seems, hire, outsourced]
+    concepts: [companies, enough, global, "that's", being]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c13"
     char_span: [21406, 23014]
     sentence_count: 13
     key_terms: [outside, companies, qol, work, biggest, hiring, "you're", being]
+    concepts: [outside, companies, biggest, hiring, "you're"]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c14"
     char_span: [23016, 25130]
     sentence_count: 10
     key_terms: [company, tax, american, indian, point, like, work, government]
+    concepts: [company, american, indian, government, point]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c4"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c15"
     char_span: [25132, 27409]
     sentence_count: 15
     key_terms: [less, west, culturally, immigrants, americans, anything, policies, country]
+    concepts: [culturally, immigrants, americans, anything, policies]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c16"
     char_span: [27411, 29432]
     sentence_count: 14
     key_terms: [powell, racial, immigration, want, companies, continued, economy, people]
+    concepts: [powell, racial, immigration, companies, continued]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c17"
     char_span: [29434, 31468]
     sentence_count: 16
     key_terms: [people, government, companies, tech, labor, let, mean, immigrants]
+    concepts: [government, people, companies, immigrants, labor]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c11"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c18"
     char_span: [31470, 33668]
     sentence_count: 18
     key_terms: [companies, american, competition, competing, citizens, referees, against, another]
+    concepts: [companies, american, competition, competing, citizens]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nnekhu.md#c1"]
     section: Comments
     token_count: 504
 ---

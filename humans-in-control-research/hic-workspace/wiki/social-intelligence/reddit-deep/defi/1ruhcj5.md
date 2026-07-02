@@ -17,14 +17,17 @@ research_goal: "Produce the definitive guide to personal investing in 2026 by an
 engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/defi/1ruhcj5.md#c0"
-    char_span: [0, 2472]
+    char_span: [0, 2471]
     sentence_count: 22
     key_terms: [compliance, risk, regulatory, crypto, reporting, built, documentation, library]
-    token_count: 519
+    concepts: [compliance, regulatory, reporting, crypto, documentation]
+    token_count: 518
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1ruhcj5/i_spent_years_in_crypto_compliance_and_built_a/"}]
   - id: "social-intelligence/reddit-deep/defi/1ruhcj5.md#c1"
-    char_span: [2474, 4773]
+    char_span: [2473, 4772]
     sentence_count: 21
     key_terms: [compliance, framework, policy, programme, sanctions, aml, control, transaction]
+    concepts: [compliance, framework, policy, programme, sanctions]
     token_count: 463
 ---
 # I spent years in crypto compliance and built a library of 12 practitioner-made

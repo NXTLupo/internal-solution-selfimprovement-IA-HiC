@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2292]
     sentence_count: 19
     key_terms: [authorization, professors, parent, tutoring, "he's", advice, conversations, class]
+    concepts: [authorization, professors, parent, tutoring, conversations]
     token_count: 507
+    sources: [{"n":"Reddit Deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1ryiook/students_parent_contacted_me/"}]
   - id: "articles/reddit-deep-r-professors/2f2c7b7ffa.md#c1"
     char_span: [2294, 4049]
     sentence_count: 17
     key_terms: [student, college, students, parent, adult, ferpa, himself, meeting]
+    concepts: [student, college, students, parent, adult]
     token_count: 414
 ---
 # Student's Parent Contacted Me!😳

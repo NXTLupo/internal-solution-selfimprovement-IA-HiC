@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1251]
     sentence_count: 6
     key_terms: [manager, something, comments, managers, moments, support, helps, day]
+    concepts: [manager, something, comments, managers, moments]
     token_count: 298
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1sdtgob/if_you_had_a_tool_to_support_you_as_a_manager/"}]
   - id: "social-intelligence/reddit-deep/managers/1sdtgob.md#c1"
     char_span: [1265, 3310]
     sentence_count: 11
     key_terms: [work, narrow-ad-7856, small, operational, did, help, training, manager]
+    concepts: [narrow-ad-7856, operational, small, training, manager]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1sdtgob.md#c2"
     char_span: [3118, 3702]
     sentence_count: 6
     key_terms: [kilimtilikum, context, "you're", great, bot, give, conversations, saduwastaken]
+    concepts: [kilimtilikum, context, "you're", great]
     section: Comments
     token_count: 169
   - id: "social-intelligence/reddit-deep/managers/1sdtgob.md#c3"
     char_span: [3704, 4914]
     sentence_count: 10
     key_terms: [everything, conversations, use, peopling, changes, context, place, app]
+    concepts: [everything, conversations, peopling, changes, context]
     section: Comments
     token_count: 286
 ---

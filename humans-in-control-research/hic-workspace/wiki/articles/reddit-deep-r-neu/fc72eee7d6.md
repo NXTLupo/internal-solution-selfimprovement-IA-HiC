@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 474]
     sentence_count: 3
     key_terms: [reddit, "i'm", neu, altunkaynak, courseload, first-year, difficult, finalized]
+    concepts: [reddit]
     token_count: 142
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1n27nc2/courseload_for_firstyear_fall/"}]
   - id: "articles/reddit-deep-r-neu/fc72eee7d6.md#c1"
     char_span: [476, 2527]
     sentence_count: 15
     key_terms: [physics, classes, study, back, class, engineering, long, time]
+    concepts: [physics, classes, study, class, engineering]
     token_count: 492
 ---
 # Courseload for first-year Fall

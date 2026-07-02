@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 785]
     sentence_count: 4
     key_terms: [presentation, gpt-5, code, comments, official, anyone, https, demo]
+    concepts: [presentation, gpt-5, comments, official, anyone]
     token_count: 229
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1mkxzcl/does_anyone_know_what_the_ide_shown_in_the/"}]
 ---
 # Does anyone know what the IDE shown in the official GPT-5 demo is? Is it available?
 

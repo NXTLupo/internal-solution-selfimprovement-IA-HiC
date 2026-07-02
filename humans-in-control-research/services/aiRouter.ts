@@ -510,8 +510,13 @@ export type TaskCategory = 'research' | 'fast_generation' | 'vision' | 'image' |
 // a 400 on every theme shard before falling back).
 // REVERT (after the cap lifts, e.g. 2026-07-01): set this to `false` — that ONE
 // flip restores Opus across all three sites in lockstep. No other edit required.
+// REVERTED 2026-07-01 (deferred-ledger D7): the Anthropic cap window ended today; Opus 4.8 is
+// restored for evidence/imagery/narrative artifacts + the #proto build path. The schema→Flash
+// tier is bake-off-validated and PERMANENT (not cap-dependent). If Opus still 400s, the router's
+// health/quota handling + cross-provider fallback (chooseArtifactModel quotaExhausted/healthDegraded
+// + callWithModelChain) absorb it; flip back to `true` only if Anthropic extends the cap.
 // ============================================================================
-export const OPUS_CAP_ACTIVE = true;
+export const OPUS_CAP_ACTIVE = false;
 
 // ============================================================================
 // CANONICAL HASHTAG-ARTIFACT MODEL POLICY — single source of truth (2026-06-30).
@@ -630,6 +635,19 @@ export function chooseArtifactModel(kind?: string | null, opts: RoutingOpts = {}
 
 /** The proxy AI endpoint family for a model id (so callers route the request to
  *  the matching endpoint + body shape). */
+/** E1 (2026-07-02, artifact-total-elevation): CACHE-BREAK MARKER - the single client-side source of
+ *  truth (mirrors proxy HIC_CACHE_BREAK; keep in lockstep). System prompts assembled as
+ *  [stable core][marker][engagement block][marker][dynamic] get multi-breakpoint Anthropic prompt
+ *  caching at the proxy; other providers strip the marker there. Never reaches any model. */
+export const HIC_CACHE_BREAK = '\n<<<HIC-CACHE-BREAK>>>\n';
+
+/** Strip cache-break markers for call paths that do NOT go through the proxy (e.g. the Gemini SDK).
+ *  The proxy strips them for its own non-Anthropic endpoints; direct-SDK callers use this. */
+export function stripCacheMarkers(s: string): string {
+    if (!s || s.indexOf('<<<HIC-CACHE-BREAK>>>') === -1) return s;
+    return s.split(HIC_CACHE_BREAK).join('\n').split(HIC_CACHE_BREAK.trim()).join('');
+}
+
 export function endpointForModel(modelId: string): 'gemini' | 'anthropic' | 'openai' {
     if (modelId.startsWith('claude-')) return 'anthropic';
     if (modelId.startsWith('gpt-') || modelId.startsWith('o1') || modelId.startsWith('o3')) return 'openai';

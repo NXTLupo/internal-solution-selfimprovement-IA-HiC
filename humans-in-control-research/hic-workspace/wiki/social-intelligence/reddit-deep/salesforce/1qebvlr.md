@@ -7,66 +7,83 @@ subreddit: "salesforce"
 title: "Spring'26 Release Notes - Abridged Edition by SFXD"
 author: "Windyo"
 date: "2026-01-16T09:50:34.000Z"
-score: 152
+score: 150
 upvote_ratio: 1
 num_comments: 23
 flair: "admin"
-extracted_at: "2026-06-11T18:58:38.958Z"
+extracted_at: "2026-06-25T15:21:44.738Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Identify how peer large private universities without medical schools are implementing AI across advancement workflows—including fundraising, alumni relations, and donor communications—to define our own adoption roadmap that balances ethical guardrails, staff readiness, and ROI."
+engagement: "identify-how-peer-large-private-universities-without-medical"
 chunks:
   - id: "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c0"
     char_span: [0, 661]
     sentence_count: 1
     key_terms: [salesforce, https, sfxd, abridged, comments, release, notes, self-realization]
+    concepts: [salesforce, https, abridged, comments, release]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qebvlr.md#c1", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c2", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c3", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c5", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c6"]
     token_count: 191
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1qebvlr/spring26_release_notes_abridged_edition_by_sfxd/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c1"
     char_span: [663, 2619]
     sentence_count: 4
     key_terms: [https, articleview, com, salesforce, release-notes, release, apps, help]
+    concepts: [https, articleview, release-notes, salesforce, release]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qebvlr.md#c0", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c2", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c3", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c5", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c6"]
     token_count: 482
   - id: "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c2"
     char_span: [2621, 4672]
     sentence_count: 4
     key_terms: [salesforce, https, release-notes, articleview, com, release, help, htm]
+    concepts: [salesforce, release-notes, https, articleview, release]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qebvlr.md#c0", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c1", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c3", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c5", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c6"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c3"
     char_span: [4422, 4983]
     sentence_count: 2
     key_terms: [salesforce, release-notes, articleview, release, com, htm, type, delete]
+    concepts: [salesforce, release-notes, articleview, release, delete]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qebvlr.md#c0", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c1", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c2", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c5", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c6"]
     token_count: 132
   - id: "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c4"
     char_span: [4986, 5272]
     sentence_count: 3
     key_terms: [pay-gated, general, historically, sections, unstable, another, because, content]
+    concepts: [pay-gated, general]
     token_count: 67
   - id: "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c5"
     char_span: [5274, 7335]
     sentence_count: 4
     key_terms: [salesforce, https, release-notes, articleview, com, release, help, htm]
+    concepts: [salesforce, release-notes, https, articleview, release]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qebvlr.md#c0", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c1", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c2", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c3", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c6"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c6"
     char_span: [7068, 9222]
     sentence_count: 4
     key_terms: [release-notes, articleview, salesforce, release, com, https, htm, type]
+    concepts: [release-notes, articleview, salesforce, release, https]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qebvlr.md#c0", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c1", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c2", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c3", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c5"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c7"
     char_span: [8926, 10244]
     sentence_count: 1
     key_terms: [release-notes, articleview, salesforce, https, release, com, help, htm]
+    concepts: [release-notes, articleview, salesforce, release, https]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qebvlr.md#c0", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c1", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c2", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c3", "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c5"]
     token_count: 313
   - id: "social-intelligence/reddit-deep/salesforce/1qebvlr.md#c8"
-    char_span: [10259, 11238]
+    char_span: [10258, 11238]
     sentence_count: 7
     key_terms: [kanban, windyo, thank, opportunity, amazing, thanks, snark, views]
+    concepts: [kanban, windyo, opportunity, thank, amazing]
     section: Comments
     token_count: 296
 ---
 # Spring'26 Release Notes - Abridged Edition by SFXD
 
 Source: [reddit-deep: r/salesforce](https://www.reddit.com/r/salesforce/comments/1qebvlr/spring26_release_notes_abridged_edition_by_sfxd/)
-Posted by **Windyo** · **152↑** · **23 comments**
+Posted by **Windyo** · **150↑** · **23 comments**
 
 - - - - -
 The [Salesforce Discord Collective](https://join.sfxd.org) Presents:        
@@ -112,12 +129,12 @@ _Turns out without AI slop in my notes, most sections are too small to hold thei
 ## Comments
 
 - **GreedyGreddy** (17↑): It's here! Thanks for the great work once again!
-  - **Windyo** (9↑): :) ty
+  - **Windyo** (10↑): :) ty
 - **neilmg** (14↑): Come for the snark, never disappointed (unlike the actual releases).
   - **Windyo** (11↑): I try to balance snark and helpfulness: )
-- **paziuziu** (6↑): Amazing as always! Thank you!
+- **paziuziu** (5↑): Amazing as always! Thank you!
   - **Windyo** (2↑): ty ty !
-- **OkKnowledge2064** (3↑): LWC's in Dashboards sound very interesting
+- **OkKnowledge2064** (4↑): LWC's in Dashboards sound very interesting
 - **AmbassadorOk570** (2↑): Im not ready
 - **andreyzh** (2↑): Hell yeah. This is amazing. Thanks!
 - **therealcognitio** (2↑): I wonder how over-the-head the geocities comment is.  Ah, the humor that ages you :).

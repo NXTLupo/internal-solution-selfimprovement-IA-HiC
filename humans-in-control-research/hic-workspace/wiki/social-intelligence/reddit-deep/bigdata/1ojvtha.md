@@ -17,19 +17,26 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/bigdata/1ojvtha.md#c0"
-    char_span: [0, 2430]
+    char_span: [0, 2525]
     sentence_count: 8
     key_terms: [cybersecurity, foundation, learning, systems, certifications, build, data, step]
-    token_count: 502
+    concepts: [cybersecurity, foundation, learning, certifications, systems]
+    related_chunks: ["social-intelligence/reddit-deep/bigdata/1ojvtha.md#c2"]
+    token_count: 524
+    sources: [{"n":"reddit-deep: r/bigdata","u":"https://www.reddit.com/r/bigdata/comments/1ojvtha/your_stepbystep_guide_to_learning_cybersecurity/"}]
   - id: "social-intelligence/reddit-deep/bigdata/1ojvtha.md#c1"
-    char_span: [2432, 4913]
-    sentence_count: 5
+    char_span: [2527, 4912]
+    sentence_count: 4
     key_terms: [cybersecurity, certification, organizations, program, top-8-cybersecurity-trends-to-watch-out-in-2026, security, trends, encryption]
-    token_count: 496
+    concepts: [cybersecurity, certification, organizations, program, security]
+    related_chunks: ["social-intelligence/reddit-deep/bigdata/1ojvtha.md#c2"]
+    token_count: 473
   - id: "social-intelligence/reddit-deep/bigdata/1ojvtha.md#c2"
-    char_span: [4915, 7082]
+    char_span: [4914, 7081]
     sentence_count: 7
     key_terms: [cybersecurity, certifications, global, learning, security, career, opportunities, organizations]
+    concepts: [cybersecurity, certifications, global, learning, security]
+    related_chunks: ["social-intelligence/reddit-deep/bigdata/1ojvtha.md#c0", "social-intelligence/reddit-deep/bigdata/1ojvtha.md#c1"]
     token_count: 425
 ---
 # Your Step-by-Step Guide to Learning Cybersecurity from Scratch

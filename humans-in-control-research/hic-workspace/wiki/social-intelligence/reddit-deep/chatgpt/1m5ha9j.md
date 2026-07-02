@@ -21,52 +21,65 @@ chunks:
     char_span: [0, 1943]
     sentence_count: 8
     key_terms: [meta-prompt, explained, response, chatgpt, warren, asked, buy, earnings]
+    concepts: [meta-prompt, explained, response, chatgpt, warren]
     token_count: 481
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1m5ha9j/i_turned_chatgpt_into_warren_buffett_with_a_40000/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c1"
     char_span: [1945, 2235]
     sentence_count: 2
     key_terms: [metapromptjc, people-inside-prompts, warren, conversations, engineered, buffet, github, having]
+    concepts: [metapromptjc, warren]
     token_count: 87
   - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c2"
     char_span: [2249, 3272]
     sentence_count: 4
     key_terms: [post, r-chatgpt-1050422060352024636, discord, never, years, withoutreason1729, "i'm", like]
+    concepts: [discord, never, years]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c3"
     char_span: [3274, 4143]
     sentence_count: 5
     key_terms: [look, buffet, simple-carpenter2361, saved, yachtswithpyramids, find, s1n0d3utscht3k, f4vyz58438ef1]
+    concepts: [buffet, saved]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c4"
     char_span: [4145, 5775]
     sentence_count: 7
     key_terms: [removed, watermark, buffett, prompt, remove, warren, tell, beginning]
+    concepts: [removed, watermark, buffett, prompt, remove]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c5", "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c6"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c5"
     char_span: [5777, 7266]
     sentence_count: 5
     key_terms: [watermark, prompt, response, appear, thethoccnessmonster, whyaminotstudying, notanelonfan2024, bennyskateboard]
+    concepts: [watermark, prompt, response, appear]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c4", "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c6"]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c6"
     char_span: [7268, 8348]
     sentence_count: 9
     key_terms: [gpt, prompt, watermark, applied, cringe, chats, using, originaltwatcunt]
+    concepts: [prompt, watermark, applied, cringe, chats]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c4", "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c5"]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c7"
     char_span: [8350, 10146]
     sentence_count: 7
     key_terms: [like, nothing, prompt, works, gpt, understand, character, language]
+    concepts: [nothing, prompt, understand, works, character]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c8"
     char_span: [9918, 11831]
     sentence_count: 12
     key_terms: [humans, convince, someone, always, robots, "that's", skeptical-speculator, get]
+    concepts: [humans, convince, someone, always, robots]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c9"
@@ -79,18 +92,21 @@ chunks:
     char_span: [12167, 13749]
     sentence_count: 7
     key_terms: [people, been, did, millions, because, fragile, thought, brains]
+    concepts: [people, millions, because, fragile, thought]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c11"
     char_span: [13752, 15785]
     sentence_count: 15
     key_terms: [advice, warren, works, going, right, get, like, use]
+    concepts: [advice, warren, works, going, right]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c12"
     char_span: [15787, 16411]
     sentence_count: 3
     key_terms: [question, implementation, fundamentals, fascinating, perceptions, conceptual, automated, different]
+    concepts: [question]
     section: Comments
     token_count: 134
 ---

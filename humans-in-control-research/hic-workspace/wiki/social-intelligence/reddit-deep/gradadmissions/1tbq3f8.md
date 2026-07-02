@@ -19,34 +19,46 @@ chunks:
     char_span: [0, 2088]
     sentence_count: 12
     key_terms: [department, school, deadline, graduate, application, admissions, fall, approval]
+    concepts: [department, school, deadline, graduate, application]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c1", "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c2", "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c3"]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1tbq3f8/admissions_advice_my_fall_2026_dream_was_ruined/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c1"
     char_span: [2090, 2960]
     sentence_count: 7
     key_terms: [school, department, grad, png, gfhfrylacu0h1, international, acknowledged, "department's"]
+    concepts: [school, department]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c0", "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c3"]
     token_count: 220
   - id: "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c2"
-    char_span: [2975, 5202]
+    char_span: [2974, 5201]
     sentence_count: 9
     key_terms: [department, get, deadline, international, fall, work, admissions, experience]
+    concepts: [department, deadline, international, admissions, experience]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c0", "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c3"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c3"
-    char_span: [5204, 6776]
+    char_span: [5203, 6775]
     sentence_count: 8
     key_terms: [department, purdue, school, deadline, happened, stunning-trade-4503, admit, inadvertently]
+    concepts: [department, purdue, school, deadline, happened]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c0", "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c1", "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c2", "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c5"]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c4"
-    char_span: [6778, 9000]
+    char_span: [6777, 8999]
     sentence_count: 20
     key_terms: [lafayette, international, good, west, students, museums, outside, better]
+    concepts: [international, lafayette, students, museums, outside]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c5"
-    char_span: [8716, 9870]
+    char_span: [8715, 9869]
     sentence_count: 14
     key_terms: [ncsu, department, universe, purdue, dean, like, administration, discrimination]
+    concepts: [department, universe, purdue]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c3"]
     section: Comments
     token_count: 278
 ---

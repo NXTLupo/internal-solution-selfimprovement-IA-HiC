@@ -19,71 +19,86 @@ chunks:
     char_span: [0, 1817]
     sentence_count: 12
     key_terms: [learning, like, cscareerquestions, language, people, "don't", feel, technical]
+    concepts: [learning, cscareerquestions, language, people, "don't"]
     token_count: 396
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sqg6rc/why_do_people_say_if_you_dont_use_ai_youll_get/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqg6rc.md#c1"
     char_span: [1831, 4150]
     sentence_count: 9
     key_terms: [going, either, collectively, implementing, world, get, executives, "facebook's"]
+    concepts: [going, collectively, implementing, either, executives]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqg6rc.md#c2"
     char_span: [4152, 6021]
     sentence_count: 7
     key_terms: [going, anything, everyone, managers, garbage, littlelordfuckleroy1, money, point]
+    concepts: [going, anything, everyone, managers, garbage]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqg6rc.md#c3"
     char_span: [6023, 8115]
     sentence_count: 13
     key_terms: [software, engineering, like, coding, hard, use, specific, yourself]
+    concepts: [software, engineering, coding, specific, yourself]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqg6rc.md#c4"
     char_span: [8118, 10317]
     sentence_count: 11
     key_terms: [productivity, like, "it's", tooling, bubble, years, eliminating, "i'm"]
+    concepts: [productivity, tooling, bubble, eliminating, "everyone's"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqg6rc.md#c5"
     char_span: [10319, 11618]
     sentence_count: 10
     key_terms: [companies, features, "there's", working, devs, "it's", keep, lot]
+    concepts: [companies, features, "there's", working, fraction]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqg6rc.md#c6"
     char_span: [11620, 13683]
     sentence_count: 12
     key_terms: [behind, tools, prompting, code, being, using, ones, reviewing]
+    concepts: [behind, prompting, tools, being, using]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sqg6rc.md#c7"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqg6rc.md#c7"
     char_span: [13685, 15553]
     sentence_count: 19
     key_terms: [behind, "aren't", react, using, tools, like, building, code]
+    concepts: [behind, "aren't", react, using, tools]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1sqg6rc.md#c6"]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqg6rc.md#c8"
     char_span: [15555, 17619]
     sentence_count: 12
     key_terms: [thinking, time, llms, because, using, code, own, themselves]
+    concepts: [thinking, because, themselves, using, something]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqg6rc.md#c9"
     char_span: [17621, 19089]
     sentence_count: 11
     key_terms: [get, better, like, people, best, fear, feel, "it's"]
+    concepts: [better, people]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqg6rc.md#c10"
     char_span: [19091, 20738]
     sentence_count: 8
     key_terms: [curve, skill, people, using, "it's", like, eventually, knowledge]
+    concepts: [curve, skill, people, eventually, using]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqg6rc.md#c11"
     char_span: [20740, 21924]
     sentence_count: 12
     key_terms: [code, better, essentially, business, football, practice, watching, because]
+    concepts: [better, essentially, business, football, practice]
     section: Comments
     token_count: 252
 ---

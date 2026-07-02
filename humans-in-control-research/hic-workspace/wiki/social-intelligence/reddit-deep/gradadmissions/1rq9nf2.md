@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 428]
     sentence_count: 3
     key_terms: [gradadmissions, comments, pretty, school, grad, anybodytiny1572, application, reddit-deep]
+    concepts: [gradadmissions, comments, pretty, school]
     token_count: 113
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rq9nf2/grad_school_admissions/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rq9nf2.md#c1"
-    char_span: [443, 1707]
+    char_span: [442, 1706]
     sentence_count: 10
     key_terms: [programs, phd, applied, jewishtigerpup, apply, bad, applying, because]
+    concepts: [programs, jewishtigerpup, applied, apply, applying]
     section: Comments
     token_count: 322
 ---

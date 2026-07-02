@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2064]
     sentence_count: 26
     key_terms: [yesterday, day, needed, done, pto, rejected, medical, boss]
+    concepts: [yesterday, needed, rejected, medical, available]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1qqfgk4/time_off_rejected_employee_worked_remotely/"}]
   - id: "social-intelligence/reddit-deep/managers/1qqfgk4.md#c1"
     char_span: [2078, 2378]
     sentence_count: 5
@@ -32,30 +34,37 @@ chunks:
     char_span: [2380, 4285]
     sentence_count: 14
     key_terms: [like, get, raiderxx, usually, leader, take, work, yesterday]
+    concepts: [raiderxx, usually, leader, yesterday, personal]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/managers/1qqfgk4.md#c3"
     char_span: [4287, 6073]
     sentence_count: 23
     key_terms: [request, bereavement, immediately, days, end, because, "i'm", time]
+    concepts: [request, bereavement, immediately, because]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/managers/1qqfgk4.md#c4"
     char_span: [6075, 7260]
     sentence_count: 11
     key_terms: [someone, day, fuck, worked, doing, need, take, bereavement]
+    concepts: [someone, worked, doing]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1qqfgk4.md#c6"]
     section: Comments
     token_count: 298
   - id: "social-intelligence/reddit-deep/managers/1qqfgk4.md#c5"
     char_span: [7262, 8439]
     sentence_count: 7
     key_terms: [boss, call, need, usually, phone, able, good, "i'm"]
+    concepts: [usually, phone]
     section: Comments
     token_count: 289
   - id: "social-intelligence/reddit-deep/managers/1qqfgk4.md#c6"
     char_span: [8441, 10091]
     sentence_count: 20
     key_terms: [day, boss, good, pto, next, take, time, work]
+    concepts: [hospital, company, someone, doing, right]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1qqfgk4.md#c4"]
     section: Comments
     token_count: 424
 ---

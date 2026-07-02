@@ -21,7 +21,10 @@ chunks:
     char_span: [0, 2352]
     sentence_count: 16
     key_terms: [sales, people, roles, data, work, report, careeradvice, jobs]
+    concepts: [sales, people, roles, careeradvice, report]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c4"]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1qbqvb4/linkedin_just_dropped_its_jobs_on_the_rise_report/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c1"
     char_span: [2354, 2732]
     sentence_count: 2
@@ -31,48 +34,62 @@ chunks:
     char_span: [2746, 4096]
     sentence_count: 7
     key_terms: [management, people, project, answer, redact, professionallet4612, "don't", tasks]
+    concepts: [management, people, project, answer, redact]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c3", "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c4", "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c6", "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c7", "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c8"]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c3"
     char_span: [4099, 6035]
     sentence_count: 9
     key_terms: [going, project, management, people, stakeholder, engineer, philosopherstoned12, professionallet4612]
+    concepts: [going, project, management, people, stakeholder]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c2", "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c4", "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c6", "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c7", "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c4"
     char_span: [5799, 6853]
     sentence_count: 7
     key_terms: [people, sales, important, project, professionallet4612, scale, buy, deal]
+    concepts: [people, sales, important, project, scale]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c0", "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c2", "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c3", "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c8"]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c5"
     char_span: [6855, 8861]
     sentence_count: 9
     key_terms: [sales, person, customer, somecontext346, wednesday, coming, flight, intake]
+    concepts: [sales, person, customer, somecontext346, wednesday]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c6"
     char_span: [8863, 10842]
     sentence_count: 13
     key_terms: [management, project, code, "it's", austin1975, developers, offshoring, security]
+    concepts: [management, project, austin1975, developers, offshoring]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c2", "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c3", "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c7"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c7"
     char_span: [10844, 12773]
     sentence_count: 11
     key_terms: [management, project, construction, coordinator, professionallet4612, role, degree, lab]
+    concepts: [management, construction, coordinator, professionallet4612, project]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c2", "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c3", "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c6"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c8"
     char_span: [12775, 14878]
     sentence_count: 11
     key_terms: [people, like, jobs, data, annotation, engineer, project, without]
+    concepts: [people, annotation, engineer, project, without]
+    related_chunks: ["social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c2", "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c3", "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c4"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c9"
     char_span: [14880, 16389]
     sentence_count: 8
     key_terms: ["i'm", find, expected, market, trying, good, work, mechanical]
+    concepts: [expected, market, trying, mechanical, technology]
     section: Comments
     token_count: 346
 ---

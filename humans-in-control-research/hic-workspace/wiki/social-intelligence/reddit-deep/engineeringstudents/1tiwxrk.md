@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1451]
     sentence_count: 11
     key_terms: [experience, research, engineeringstudents, equipment, internships, been, "i'm", developing]
+    concepts: [experience, research, engineeringstudents, equipment, internships]
     token_count: 293
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tiwxrk/what_kind_of_experience_will_fulltime_jobs_be/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tiwxrk.md#c1"
     char_span: [1465, 2542]
     sentence_count: 7
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    concepts: [engineeringstudents, reddit, https, resources, please]
     section: Comments
     token_count: 255
 ---

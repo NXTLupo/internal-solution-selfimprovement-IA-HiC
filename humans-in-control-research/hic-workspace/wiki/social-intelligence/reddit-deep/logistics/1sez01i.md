@@ -20,26 +20,32 @@ chunks:
     char_span: [0, 2111]
     sentence_count: 21
     key_terms: [surcharge, amazon, logistics, temporary, fees, prices, april, since]
+    concepts: [surcharge, amazon, logistics, temporary, prices]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1sez01i/catch_up_on_what_happened_this_week_in_logistics/"}]
   - id: "social-intelligence/reddit-deep/logistics/1sez01i.md#c1"
     char_span: [2113, 4276]
     sentence_count: 23
     key_terms: [amazon, usps, billion, year, delivery, alternative, respondents, got]
+    concepts: [amazon, billion, delivery, alternative, respondents]
     token_count: 449
   - id: "social-intelligence/reddit-deep/logistics/1sez01i.md#c2"
     char_span: [4278, 6631]
     sentence_count: 17
     key_terms: [logistics, autonomous, rates, freight, transportation, acquisitions, distribution, since]
+    concepts: [logistics, autonomous, rates, transportation, freight]
     token_count: 488
   - id: "social-intelligence/reddit-deep/logistics/1sez01i.md#c3"
     char_span: [6633, 7787]
     sentence_count: 10
     key_terms: [spend, logistics-pulse-by-fulfillyn, logistics, america, billion, walmart, center, chile]
+    concepts: [spend, logistics, america, billion, walmart]
     token_count: 264
   - id: "social-intelligence/reddit-deep/logistics/1sez01i.md#c4"
-    char_span: [7802, 8382]
+    char_span: [7801, 8381]
     sentence_count: 1
     key_terms: [charlesholmes1, money, info, truckerverse, connection, everything, experience, isolation]
+    concepts: [charlesholmes1, money]
     section: Comments
     token_count: 155
 ---

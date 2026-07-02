@@ -21,35 +21,45 @@ chunks:
     char_span: [0, 700]
     sentence_count: 5
     key_terms: [studying, background, gradschool, comments, student, writing, practical-plenty3028, play]
+    concepts: [studying, background, gradschool, comments, student]
     token_count: 169
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1osvh1k/what_do_you_play_in_the_background_when_studying/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1osvh1k.md#c1"
     char_span: [714, 1698]
     sentence_count: 5
     key_terms: [deleted, https, playlist, redact, ieat5orangeseveryday, youtu, "it's", need]
+    concepts: [deleted, https, playlist, redact, youtu]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1osvh1k.md#c2", "social-intelligence/reddit-deep/gradschool/1osvh1k.md#c4"]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/gradschool/1osvh1k.md#c2"
     char_span: [1700, 3377]
     sentence_count: 6
     key_terms: [playlist, youtube, ply7otrwy7p06a8dabyqzqgerlsuk, practical-plenty3028, https, com, list, www]
+    concepts: [playlist, ply7otrwy7p06a8dabyqzqgerlsuk, youtube, practical-plenty3028, https]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1osvh1k.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1osvh1k.md#c3"
     char_span: [3149, 3971]
     sentence_count: 4
     key_terms: [music, like, osts, crossing, animal, practical-plenty3028, immoralapple, incorporates]
+    concepts: [music, crossing, animal]
     section: Comments
     token_count: 210
   - id: "social-intelligence/reddit-deep/gradschool/1osvh1k.md#c4"
     char_span: [3974, 4936]
     sentence_count: 1
     key_terms: [https, youtu, music, d4kxhtdbaghxk8rx, dmdlc7ottrunebha, vrjkuhedaym3lygu, wjv8hwfkrnjxabnv, zo1u7uxzyqpqit0o]
+    concepts: [https, youtu, music]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1osvh1k.md#c1"]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/gradschool/1osvh1k.md#c5"
     char_span: [4938, 5736]
     sentence_count: 5
     key_terms: [been, practical-plenty3028, listening, soundtracks, currently, recently, sweaty-discipline746, thanosisonespookyboi]
+    concepts: [practical-plenty3028, listening, soundtracks, currently, recently]
     section: Comments
     token_count: 229
 ---

@@ -21,23 +21,32 @@ chunks:
     char_span: [0, 1484]
     sentence_count: 13
     key_terms: [job, school, doing, college, hours, high, year, brother]
+    concepts: [school, doing, college, hours, brother]
+    related_chunks: ["social-intelligence/reddit-deep/college/1p6qekr.md#c1", "social-intelligence/reddit-deep/college/1p6qekr.md#c2", "social-intelligence/reddit-deep/college/1p6qekr.md#c3"]
     token_count: 344
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1p6qekr/those_paying_for_your_own_college_do_you_regret/"}]
   - id: "social-intelligence/reddit-deep/college/1p6qekr.md#c1"
     char_span: [1498, 3192]
     sentence_count: 14
     key_terms: [school, high, did, job, worked, years, able, college]
+    concepts: [school, worked, years, college, redact]
+    related_chunks: ["social-intelligence/reddit-deep/college/1p6qekr.md#c0", "social-intelligence/reddit-deep/college/1p6qekr.md#c2", "social-intelligence/reddit-deep/college/1p6qekr.md#c3"]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/college/1p6qekr.md#c2"
     char_span: [3194, 5185]
     sentence_count: 12
     key_terms: [college, school, working, high, job, dumbindian21, scholarships, helped]
+    concepts: [college, school, working, dumbindian21, scholarships]
+    related_chunks: ["social-intelligence/reddit-deep/college/1p6qekr.md#c0", "social-intelligence/reddit-deep/college/1p6qekr.md#c1", "social-intelligence/reddit-deep/college/1p6qekr.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1p6qekr.md#c3"
     char_span: [4956, 5846]
     sentence_count: 6
     key_terms: [school, college, working, saved, summer, money, never, octopuswithabanjo]
+    concepts: [school, college, working, saved, summer]
+    related_chunks: ["social-intelligence/reddit-deep/college/1p6qekr.md#c0", "social-intelligence/reddit-deep/college/1p6qekr.md#c1", "social-intelligence/reddit-deep/college/1p6qekr.md#c2"]
     section: Comments
     token_count: 220
 ---

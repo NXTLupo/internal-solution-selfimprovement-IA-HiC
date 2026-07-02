@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1567]
     sentence_count: 12
     key_terms: [applyingtocollege, usa, process, application, admissions, comments, college, getting]
+    concepts: [applyingtocollege, process, application, admissions, comments]
     token_count: 334
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1s7ezbe/messed_up_random_college_application_process_in/"}]
 ---
 # Messed up /random college application process in the USA
 

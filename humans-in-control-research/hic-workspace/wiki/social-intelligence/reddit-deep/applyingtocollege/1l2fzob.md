@@ -19,106 +19,130 @@ chunks:
     char_span: [0, 1935]
     sentence_count: 18
     key_terms: [student, applyingtocollege, school, universities, stand, discernable, essentially, meaningless]
+    concepts: [student, applyingtocollege, universities, school, discernable]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c3"]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1l2fzob/take_the_road_less_traveled/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c1"
     char_span: [1937, 3788]
     sentence_count: 16
     key_terms: [interesting, stand, help, does, read, teacher, diving, great]
+    concepts: [interesting, stand, teacher, diving, great]
     token_count: 386
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c2"
     char_span: [3802, 4797]
     sentence_count: 5
     key_terms: [applyingtocollege, kids, comments, college, reddit, https, com, www]
+    concepts: [applyingtocollege, comments, college, reddit, https]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c3"
     char_span: [4799, 6942]
     sentence_count: 18
     key_terms: [exceptional, school, best, formula, universities, kid, harvard, student]
+    concepts: [exceptional, school, formula, universities, harvard]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c4"
     char_span: [6649, 8441]
     sentence_count: 15
     key_terms: [exceptional, schools, does, kid, student, great, don, "it's"]
+    concepts: [exceptional, schools, student, great]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c5"
     char_span: [8443, 10354]
     sentence_count: 13
     key_terms: [universities, exceptional, normal, kids, average, bluninja1234, liteshadow4, get]
+    concepts: [universities, exceptional, normal, average, bluninja1234]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c3"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c6"
     char_span: [10356, 12557]
     sentence_count: 14
     key_terms: [applicants, school, academically, institution, outstanding, top, interests, something]
+    concepts: [applicants, academically, school, institution, outstanding]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c7"
     char_span: [12236, 12716]
     sentence_count: 2
     key_terms: [life, great, contributing, development, difference, experience, character, discarded]
+    concepts: [great]
     section: Comments
     token_count: 95
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c8"
     char_span: [12718, 13381]
     sentence_count: 5
     key_terms: [school, find, time, through, grind, kid, kids, grand-parents]
+    concepts: [school, through, grind]
     section: Comments
     token_count: 142
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c9"
     char_span: [13383, 15657]
     sentence_count: 20
     key_terms: [kids, system, schools, experience, aos, colleges, because, broken]
+    concepts: [system, schools, experience, colleges, differentiate]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c10"
     char_span: [15369, 16235]
     sentence_count: 9
     key_terms: [kids, school, possibly, feeder, colleges, aos, head, ivy]
+    concepts: [school, possibly, feeder, colleges]
     section: Comments
     token_count: 204
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c11"
     char_span: [16237, 18416]
     sentence_count: 13
     key_terms: [enough, differentiate, "didn't", kids, advice, season, aos, did]
+    concepts: [differentiate, enough, "didn't", advice, season]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c12"
     char_span: [18418, 20419]
     sentence_count: 16
     key_terms: [school, get, kid, kids, picking, standardized, application, best]
+    concepts: [school, picking, standardized, application, subjective]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c13"
     char_span: [20421, 22280]
     sentence_count: 12
     key_terms: [students, admissions, all-around, olympiad, succeed, likely, school, instructions]
+    concepts: [students, admissions, all-around, olympiad, succeed]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c14"
     char_span: [22282, 23999]
     sentence_count: 10
     key_terms: [kids, admissions, reading, applications, excelling, thousands, officers, standing]
+    concepts: [admissions, reading, applications, excelling, thousands]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c15"]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c15"
     char_span: [24001, 26206]
     sentence_count: 20
     key_terms: [admissions, description, does, fair, university, thousands, atlantic, business]
+    concepts: [admissions, description, university, thousands, atlantic]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c14"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c16"
     char_span: [26208, 28397]
     sentence_count: 21
     key_terms: [great, college, getting, school, "you're", stand, "it's", applicants]
+    concepts: [great, college, getting, school, "you're"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/applyingtocollege/1l2fzob.md#c17"
     char_span: [28399, 29640]
     sentence_count: 10
     key_terms: ["you're", here, standard, doing, sometimes, kentucky, students, overall]
+    concepts: ["you're", standard, doing, sometimes, kentucky]
     section: Comments
     token_count: 290
 ---

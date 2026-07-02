@@ -19,35 +19,45 @@ chunks:
     char_span: [0, 1950]
     sentence_count: 18
     key_terms: [college, scholarships, semester, aid, got, removed, asked, girlfriend]
+    concepts: [college, scholarships, semester, removed, asked]
+    related_chunks: ["social-intelligence/reddit-deep/college/1m6otj2.md#c5"]
     token_count: 452
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1m6otj2/girlfriend_just_had_40k_in_scholarships_revoked/"}]
   - id: "social-intelligence/reddit-deep/college/1m6otj2.md#c1"
     char_span: [1964, 3701]
     sentence_count: 12
     key_terms: [going, reason, school, aid, case, "i'm", university, deleted]
+    concepts: [going, reason, school, university, deleted]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/college/1m6otj2.md#c2"
     char_span: [3703, 5896]
     sentence_count: 15
     key_terms: [scholarship, financial, get, grants, institutional, displacement, scholarships, aid]
+    concepts: [scholarship, financial, institutional, displacement, scholarships]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/college/1m6otj2.md#c3"
     char_span: [5898, 7054]
     sentence_count: 11
     key_terms: [school, community, college, expensive, financial, private, grants, office]
+    concepts: [school, community, college, expensive, financial]
+    related_chunks: ["social-intelligence/reddit-deep/college/1m6otj2.md#c5"]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/college/1m6otj2.md#c4"
     char_span: [7056, 8297]
     sentence_count: 8
     key_terms: [money, ohio, happened, transfer, western, people, state, aid]
+    concepts: [money, happened, transfer, western, people]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/college/1m6otj2.md#c5"
     char_span: [8299, 10385]
     sentence_count: 16
     key_terms: [scholarships, aid, school, college, wonderstarsss, like, processing, community]
+    concepts: [scholarships, school, college, wonderstarsss, processing]
+    related_chunks: ["social-intelligence/reddit-deep/college/1m6otj2.md#c0", "social-intelligence/reddit-deep/college/1m6otj2.md#c3"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/college/1m6otj2.md#c6"

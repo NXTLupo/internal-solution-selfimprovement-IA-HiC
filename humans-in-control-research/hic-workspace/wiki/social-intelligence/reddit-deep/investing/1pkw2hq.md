@@ -21,47 +21,57 @@ chunks:
     char_span: [0, 1496]
     sentence_count: 7
     key_terms: [quantitative, stocks, increasing, short-term, tightening, financial, investing, liquidity]
+    concepts: [quantitative, stocks, increasing, short-term, tightening]
     token_count: 307
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1pkw2hq/chairman_jerome_powell_has_ended_quantitative/"}]
   - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c1"
     char_span: [1510, 3468]
     sentence_count: 16
     key_terms: [labor, continue, assets, demand, wealth, increasing, inflation, position]
+    concepts: [labor, continue, assets, demand, wealth]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c2"
     char_span: [3470, 5492]
     sentence_count: 16
     key_terms: [people, work, been, home, someone, equity, some-palpitation-314, asset]
+    concepts: [people, someone, equity, asset, labor]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c3"
     char_span: [5494, 7375]
     sentence_count: 7
     key_terms: [median, people, shakeandbakethatcake, worth, wealth, net, retirement, inflation]
+    concepts: [median, shakeandbakethatcake, people, worth, wealth]
     section: Comments
     token_count: 465
+    sources: [{"n":"Vanguard 2024 Report:  https://corporate.vanguard.com/content/dam/corp/research/","u":""}]
   - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c4"
     char_span: [7377, 9263]
     sentence_count: 13
     key_terms: [quantitative, understandingthin40, short, duration, spending, easing, making, professional]
+    concepts: [quantitative, understandingthin40, short, duration, spending]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c5"
     char_span: [9265, 10439]
     sentence_count: 11
     key_terms: [bank, quantity, quantitative, money, commercial, directly, original, specific]
+    concepts: [quantity, quantitative, commercial, money, directly]
     section: Comments
     token_count: 275
   - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c6"
     char_span: [10441, 12209]
     sentence_count: 8
     key_terms: [bank, central, buying, end, financial, western, crisis, easing]
+    concepts: [central, buying, financial, western, crisis]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c7"
     char_span: [12211, 14417]
     sentence_count: 12
     key_terms: [short, market, reserve-management-reinvestment-purchases-faq, different, fed, end, "it's", last]
+    concepts: [short, market, different, liquidity, payments]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c8"

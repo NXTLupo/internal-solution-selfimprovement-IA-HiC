@@ -18,16 +18,23 @@ chunks:
     char_span: [0, 985]
     sentence_count: 6
     key_terms: [experience, cscareerquestions, fake, get, here, background, companies, adding]
+    concepts: [experience, cscareerquestions, background, companies, adding]
+    related_chunks: ["articles/reddit-deep-r-cscareerquestions/aaa1c06ba2.md#c1"]
     token_count: 223
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1nwoaa9/who_here_has_run_into_those_companies_that_fake/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/aaa1c06ba2.md#c1"
     char_span: [987, 3252]
     sentence_count: 7
     key_terms: [companies, experience, consultancy, years, get, someone, consultancies, least]
+    concepts: [companies, experience, consultancy, years, consultancies]
+    related_chunks: ["articles/reddit-deep-r-cscareerquestions/aaa1c06ba2.md#c0", "articles/reddit-deep-r-cscareerquestions/aaa1c06ba2.md#c2"]
     token_count: 512
   - id: "articles/reddit-deep-r-cscareerquestions/aaa1c06ba2.md#c2"
     char_span: [3002, 3658]
     sentence_count: 5
     key_terms: [experience, years, legitimate-mostlet, gandalf-and-frodo, like, megaascizorr, suggestions, occupation]
+    concepts: [experience, years]
+    related_chunks: ["articles/reddit-deep-r-cscareerquestions/aaa1c06ba2.md#c1"]
     token_count: 160
 ---
 # Who here has run into those companies that fake CS experience and background checks to get you $100K+ jobs?

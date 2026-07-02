@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1586]
     sentence_count: 17
     key_terms: [people, learn, want, working, careeradvice, like, use, comments]
+    concepts: [people, learn, working, careeradvice, comments]
     token_count: 389
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1osbo2p/student_here_doing_a_project_on_how_people_in/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1osbo2p.md#c1"
     char_span: [1600, 3399]
     sentence_count: 19
     key_terms: ["don't", use, benefits, formulas, learning, without, easier, infamousperformer100]
+    concepts: ["don't", benefits, formulas, learning, without]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/careeradvice/1osbo2p.md#c2"
     char_span: [3401, 4629]
     sentence_count: 11
     key_terms: [professionals, experience, possible, infamousperformer100, askiacareercoaching, learn, don, keen]
+    concepts: [professionals, experience, possible, learn]
     section: Comments
     token_count: 271
 ---

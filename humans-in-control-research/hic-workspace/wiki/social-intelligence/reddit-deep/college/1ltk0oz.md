@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 920]
     sentence_count: 9
     key_terms: [college, money, good, comments, making, reason, been, don]
+    concepts: [college, money, comments, making, reason]
     token_count: 225
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ltk0oz/should_i_keep_going_to_college_if_im_making_good/"}]
   - id: "social-intelligence/reddit-deep/college/1ltk0oz.md#c1"
     char_span: [934, 3040]
     sentence_count: 21
     key_terms: [jobs, college, former-hospital-3656, back, good, get, grow, wehrmacht]
+    concepts: [former-hospital-3656, college, wehrmacht, dropped, degree]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ltk0oz.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ltk0oz.md#c2"
     char_span: [2761, 4468]
     sentence_count: 17
     key_terms: [college, business, get, friends, going, money, connections, degree]
+    concepts: [college, business, friends, connections, going]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/college/1ltk0oz.md#c3"
     char_span: [4470, 6571]
     sentence_count: 13
     key_terms: [like, college, something, degree, school, "you're", time, further]
+    concepts: [college, something, degree, school, "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ltk0oz.md#c1"]
     section: Comments
     token_count: 465
 ---

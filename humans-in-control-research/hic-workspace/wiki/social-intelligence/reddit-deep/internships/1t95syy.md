@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1640]
     sentence_count: 8
     key_terms: [startups, early-stage, internships, team, work, interested, execution, genuinely]
+    concepts: [startups, early-stage, internships, interested, execution]
     token_count: 330
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t95syy/finding_earlystage_startups_that_hire_ambitious/"}]
   - id: "social-intelligence/reddit-deep/internships/1t95syy.md#c1"
     char_span: [1654, 3133]
     sentence_count: 7
     key_terms: [startups, swigofravioli349, collegeone1210, worked, roles, offerwatch, linkedin, outreach]
+    concepts: [swigofravioli349, startups, collegeone1210, worked, offerwatch]
     section: Comments
     token_count: 377
 ---

@@ -20,73 +20,90 @@ chunks:
     char_span: [0, 2214]
     sentence_count: 4
     key_terms: [trump, cryptocurrency, president, bitcoin, media, world, billion, liberty]
+    concepts: [trump, cryptocurrency, president, bitcoin, media]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1m5vzig.md#c1", "social-intelligence/reddit-deep/stocks/1m5vzig.md#c10", "social-intelligence/reddit-deep/stocks/1m5vzig.md#c11"]
     token_count: 471
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1m5vzig/trump_media_djt_builds_2_billion_bitcoin_hoard_as/"}]
   - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c1"
     char_span: [2216, 4711]
     sentence_count: 4
     key_terms: [company, trump, crypto, investors, bitcoin, media, truth, financial]
+    concepts: [company, trump, investors, crypto, bitcoin]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1m5vzig.md#c0", "social-intelligence/reddit-deep/stocks/1m5vzig.md#c11"]
     token_count: 490
   - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c2"
     char_span: [4713, 5015]
     sentence_count: 2
     key_terms: [trump-djt-bitcoin-net-worth, https, cnbc, com, html, www, blockchain, companies]
+    concepts: [trump-djt-bitcoin-net-worth, https]
     token_count: 93
   - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c3"
-    char_span: [5030, 5884]
+    char_span: [5029, 5883]
     sentence_count: 3
     key_terms: [stocks, please, off-topic, political, specific, removed, reddit, "you're"]
+    concepts: [stocks, please, off-topic, political, specific]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c4"
-    char_span: [5886, 7259]
+    char_span: [5885, 7258]
     sentence_count: 7
     key_terms: [inflation, levels, "that's", didntlikedefaultname, "don't", point, secretacademic1654, head-recover-2920]
+    concepts: [inflation, levels, "that's", "don't", point]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c5"
-    char_span: [7261, 9111]
+    char_span: [7260, 9110]
     sentence_count: 9
     key_terms: [head-recover-2920, buying, front, btc, bitcoin, running, fraud, late]
+    concepts: [head-recover-2920, buying, front, bitcoin, running]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c6"
-    char_span: [9114, 9390]
+    char_span: [9113, 9389]
     sentence_count: 1
     key_terms: ["isn't", tftisbetterthanlol, word, accomplishment, permissible, corruption, because, believe]
+    concepts: ["isn't"]
     section: Comments
     token_count: 72
   - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c7"
-    char_span: [9392, 11395]
+    char_span: [9391, 11394]
     sentence_count: 12
     key_terms: [prosecution, "he's", president, family, global, leader, people, trumps]
+    concepts: [prosecution, president, family, global, leader]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c8"
-    char_span: [11169, 12461]
+    char_span: [11168, 12460]
     sentence_count: 11
     key_terms: [genius, problem, divest, steak, been, cash, djt, "he's"]
+    concepts: [genius, problem, divest, steak]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c9"
-    char_span: [12463, 13818]
+    char_span: [12462, 13817]
     sentence_count: 10
     key_terms: [sacrifice, president, especially, hold, everything, presidency, terrorist, benefits]
+    concepts: [sacrifice, president, especially, everything, presidency]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c10"
-    char_span: [13820, 15449]
+    char_span: [13819, 15448]
     sentence_count: 7
     key_terms: [liquidity, litterary, president, bitcoin, enough, street, though, "wasn't"]
+    concepts: [liquidity, litterary, president, bitcoin, enough]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1m5vzig.md#c0"]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c11"
-    char_span: [15452, 17387]
+    char_span: [15451, 17386]
     sentence_count: 11
     key_terms: [crypto, trump, president, business, invested, bitcoin, deleted, dollars]
+    concepts: [crypto, trump, president, business, invested]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1m5vzig.md#c0", "social-intelligence/reddit-deep/stocks/1m5vzig.md#c1"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c12"
-    char_span: [17389, 17528]
+    char_span: [17388, 17527]
     sentence_count: 2
     key_terms: [guarantees, americans, decisions, business, interest, benefit, biemba, rather]
     section: Comments

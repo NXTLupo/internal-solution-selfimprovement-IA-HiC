@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1906]
     sentence_count: 16
     key_terms: [internships, engineeringstudents, through, engineering, gpa, job, especially, networking]
+    concepts: [engineeringstudents, internships, through, engineering, especially]
     token_count: 426
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1puna36/learn_to_socialize_seriously/"}]
   - id: "articles/reddit-deep-r-engineeringstudents/86dcca6e7d.md#c1"
     char_span: [1908, 4225]
     sentence_count: 15
     key_terms: [people, casual, social, professional, darkblitz01, internships, job, like]
+    concepts: [people, professional, casual, social, darkblitz01]
     token_count: 501
   - id: "articles/reddit-deep-r-engineeringstudents/86dcca6e7d.md#c2"
     char_span: [4227, 6178]
     sentence_count: 12
     key_terms: [people, conversation, got, hold, like, lot, put, talk]
+    concepts: [conversation, people, interviews, interview, outgoing]
     token_count: 432
 ---
 # Learn to socialize. Seriously.

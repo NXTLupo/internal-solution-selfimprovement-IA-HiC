@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 473]
     sentence_count: 3
     key_terms: [anthropic, comments, claude, code, thehighnotes, development, interesting, reddit-deep]
+    concepts: [anthropic, comments, claude]
     token_count: 121
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1sif2xq/claude_code_is_my_entire_development_team_heres/"}]
 ---
 # Claude Code is my entire development team. Here's the 15-project, 4-machine setup.
 

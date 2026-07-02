@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 822]
     sentence_count: 2
     key_terms: [people, gradadmissions, acceptances, win, comments, school, none, cellphonecase123]
+    concepts: [people, gradadmissions, acceptances, comments, school]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c2"]
     token_count: 201
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rjc8so/how_many_acceptances_do_you_need/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c1"
     char_span: [836, 909]
     sentence_count: 1
     key_terms: [venting, ghostcupcake1404, love, meta]
+    concepts: [venting]
     section: Comments
     token_count: 25
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c2"
     char_span: [911, 3105]
     sentence_count: 12
     key_terms: [people, get, vent, mongoisappaiied, school, acceptances, want, acceptance]
+    concepts: [people, mongoisappaiied, school, acceptances, acceptance]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c3"
     char_span: [2823, 3425]
     sentence_count: 4
     key_terms: [having, educational-kale-567, whose, mongoisappaiied, complaining, insensitive, subjective, attaining]
+    concepts: [having, whose]
     section: Comments
     token_count: 139
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c4"
     char_span: [3427, 5662]
     sentence_count: 15
     key_terms: [offer, school, accepted, getting, disappointed, distasteful, choice, apply]
+    concepts: [offer, school, accepted, disappointed, distasteful]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c5"
     char_span: [5664, 7622]
     sentence_count: 11
     key_terms: [acceptance, applying, subreddit, undergrad, gradapplicantswhodidntgetinanywhere, worked, chestfree776, acceptances]
+    concepts: [acceptance, applying, subreddit, undergrad, chestfree776]
     section: Comments
     token_count: 467
 ---

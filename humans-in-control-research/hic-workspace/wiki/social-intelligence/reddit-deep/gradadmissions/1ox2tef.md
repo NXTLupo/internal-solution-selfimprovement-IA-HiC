@@ -21,59 +21,72 @@ chunks:
     char_span: [0, 1037]
     sentence_count: 8
     key_terms: [applications, gradadmissions, time, interviews, psychology, applying, clinical, comments]
+    concepts: [applications, gradadmissions, interviews, psychology, applying]
     token_count: 240
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1ox2tef/clinical_psychology_applications_2026_canada/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c1"
     char_span: [1051, 2965]
     sentence_count: 13
     key_terms: [neat-initiative-13, psych, time, peachmall, clinical, everyone, someone, stuck]
+    concepts: [neat-initiative-13, psych, peachmall, clinical, everyone]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c2"
     char_span: [2967, 5137]
     sentence_count: 25
     key_terms: [clinical, year, don, research, hope, experience, relevant, applied]
+    concepts: [clinical, research, experience, relevant, applied]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c7"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c3"
     char_span: [5140, 5754]
     sentence_count: 3
     key_terms: [application, thanks, competitive-demand20, embarrassed-ad-3232, cycle, research-based, phoenixloop, resources]
+    concepts: [application, thanks, cycle]
     section: Comments
     token_count: 155
   - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c4"
     char_span: [5756, 7319]
     sentence_count: 6
     key_terms: [university, add, l8jvzc8afqt2q-badkostko, fe6a-uox5qphksah4vskxg, spreadsheet, please, embarrassed-ad-3232, spreadsheets]
+    concepts: [university, l8jvzc8afqt2q-badkostko, fe6a-uox5qphksah4vskxg, embarrassed-ad-3232, spreadsheet]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c5"
     char_span: [7056, 8021]
     sentence_count: 6
     key_terms: [universities, interview, document, received, acadia, thanks, both-improvement-697, affectionatebig4967]
+    concepts: [universities, interview, document, received, acadia]
     section: Comments
     token_count: 247
   - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c6"
     char_span: [8023, 9937]
     sentence_count: 11
     key_terms: [committee, students, profs, interview, dragonflybruises, choices, choice, prelim]
+    concepts: [committee, students, dragonflybruises, interview, profs]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c7"
     char_span: [9939, 11829]
     sentence_count: 11
     key_terms: [oise, clinical, counselling, psychotherapy, applied, awkwardwall3448, time, tmu]
+    concepts: [counselling, clinical, psychotherapy, applied, awkwardwall3448]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c2"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c8"
     char_span: [11831, 12845]
     sentence_count: 15
     key_terms: [university, clinical, interviews, anything, columbia, everyone, applied, british]
+    concepts: [university, clinical, interviews, anything, columbia]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c9"
     char_span: [12847, 13991]
     sentence_count: 10
     key_terms: [interviews, heard, neat-initiative-13, anyone, hey, committee, anything, initials]
+    concepts: [neat-initiative-13, interviews, heard, anyone, committee]
     section: Comments
     token_count: 311
 ---

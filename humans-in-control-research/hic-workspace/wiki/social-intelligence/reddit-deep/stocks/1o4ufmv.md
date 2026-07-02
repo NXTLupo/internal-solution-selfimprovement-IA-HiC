@@ -20,52 +20,68 @@ chunks:
     char_span: [0, 2214]
     sentence_count: 24
     key_terms: [bubble, predictions, technology, being, because, "doesn't", stocks, tech]
+    concepts: [bubble, predictions, technology, being, because]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1o4ufmv/yahoo_finance_says_no_ai_bubble/"}]
   - id: "social-intelligence/reddit-deep/stocks/1o4ufmv.md#c1"
     char_span: [2216, 3595]
     sentence_count: 9
     key_terms: [companies, valuations, amd, dominant, goldman, higher, enterprise-to-sales, peter]
+    concepts: [companies, valuations, dominant, goldman, higher]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1o4ufmv.md#c2"]
     token_count: 309
   - id: "social-intelligence/reddit-deep/stocks/1o4ufmv.md#c2"
-    char_span: [3610, 5278]
+    char_span: [3609, 5277]
     sentence_count: 9
     key_terms: [market, bubble, derivatives, valuations, companies, internet, people, injuryembarrassed532]
+    concepts: [market, bubble, derivatives, valuations, companies]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1o4ufmv.md#c1", "social-intelligence/reddit-deep/stocks/1o4ufmv.md#c3", "social-intelligence/reddit-deep/stocks/1o4ufmv.md#c4"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/stocks/1o4ufmv.md#c3"
-    char_span: [5280, 7209]
+    char_span: [5279, 7208]
     sentence_count: 14
     key_terms: [market, money, bubble, exhausted, buy, mmmffaq027s, stlouisfed, accounts]
+    concepts: [market, money, bubble, exhausted, mmmffaq027s]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1o4ufmv.md#c2"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/stocks/1o4ufmv.md#c4"
-    char_span: [7211, 9232]
+    char_span: [7210, 9231]
     sentence_count: 14
     key_terms: [real, bubble, valuations, deploying, impactful, processor, earnings, forward]
+    concepts: [bubble, valuations, deploying, impactful, processor]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1o4ufmv.md#c2"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/stocks/1o4ufmv.md#c5"
-    char_span: [9235, 11384]
+    char_span: [9234, 11383]
     sentence_count: 13
     key_terms: [companies, available, generally, tools, departments, industries, like, bubble]
+    concepts: [companies, available, generally, tools, departments]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1o4ufmv.md#c6"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/stocks/1o4ufmv.md#c6"
-    char_span: [11386, 13074]
+    char_span: [11385, 13073]
     sentence_count: 16
     key_terms: [companies, tools, mean, because, revenue, "they're", better, people]
+    concepts: [companies, tools, because, revenue, "they're"]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1o4ufmv.md#c5"]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/stocks/1o4ufmv.md#c7"
-    char_span: [13076, 15139]
+    char_span: [13075, 15138]
     sentence_count: 13
     key_terms: [companies, company, openai, entertainment, roundtripping, does, investing, industry]
+    concepts: [companies, company, openai, entertainment, roundtripping]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/stocks/1o4ufmv.md#c8"
-    char_span: [15141, 15939]
+    char_span: [15140, 15938]
     sentence_count: 6
     key_terms: [ignore, written, clearly, bubble, c-u-in-da-ballpit, researchersad9357, amd, etc]
+    concepts: [ignore, written, clearly, bubble]
     section: Comments
     token_count: 228
 ---

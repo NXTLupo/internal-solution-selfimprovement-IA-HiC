@@ -1,9 +1,45 @@
 ---
+id: brand/image-slot-rules.md
 title: Image-Slot Placement Rules (rollout sub-agents)
 type: brand
 updated: 2026-06-17
+chunks:
+  - id: "brand/image-slot-rules.md#c0"
+    char_span: [0, 551]
+    sentence_count: 6
+    key_terms: [isqhavm7si4qhawb7y9c2z, figma, image, content-complete, illustration, layout-aware, placeholders, flat-vector]
+    concepts: [figma, image]
+    token_count: 144
+  - id: "brand/image-slot-rules.md#c1"
+    char_span: [564, 1336]
+    sentence_count: 2
+    key_terms: [light, dark, thumbnail, accent, ground, setsharedplugindata, image, panel]
+    concepts: [light, thumbnail, accent, ground, image]
+    section: The slot
+    token_count: 213
+  - id: "brand/image-slot-rules.md#c2"
+    char_span: [1393, 3316]
+    sentence_count: 16
+    key_terms: [column, thumbnails, panel, element, matrix, source, image, slide]
+    concepts: [column, thumbnails, panel, element, matrix]
+    section: Per-layout-class rules (pick by what the layout IS)
+    token_count: 500
+    sources: [{"n":"\" prefixes that repeat). Per `.claude/CLAUDE.md` these are","u":""}]
+  - id: "brand/image-slot-rules.md#c3"
+    char_span: [3342, 4042]
+    sentence_count: 3
+    key_terms: [never, page, assigned, stroke, setcurrentpageasync, fix, slot, text]
+    concepts: [never, assigned, stroke]
+    section: MANDATORY discipline
+    token_count: 169
+  - id: "brand/image-slot-rules.md#c4"
+    char_span: [4097, 4434]
+    sentence_count: 2
+    key_terms: [brand, page-name-slug, hic-workspace, deliberately, frontmatter, image-slots, image-free, imgelement]
+    concepts: [brand]
+    section: REGISTER (each agent owns its own file — no race)
+    token_count: 92
 ---
-
 # Image-Slot Placement Rules (for the rollout sub-agents) — 2026-06-17
 
 You are placing BLANK image placeholders into NXT GOLD Figma components so the `illustrator` image-gen

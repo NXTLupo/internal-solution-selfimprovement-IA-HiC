@@ -20,23 +20,31 @@ chunks:
     char_span: [0, 956]
     sentence_count: 10
     key_terms: [best, thinking, personalfinance, capital, ally, comments, change, option]
+    concepts: [personalfinance, thinking, capital, comments, change]
     token_count: 232
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1q0qenp/hysa_recs_thinking_ally_or_capital_one/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1q0qenp.md#c1"
-    char_span: [971, 2759]
+    char_span: [970, 2758]
     sentence_count: 21
     key_terms: [fidelity, ally, cma, day, checking, bank, good, transfers]
+    concepts: [fidelity, checking, transfers, customer, transfer]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1q0qenp.md#c2", "social-intelligence/reddit-deep/personalfinance/1q0qenp.md#c3"]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/personalfinance/1q0qenp.md#c2"
-    char_span: [2762, 3602]
+    char_span: [2761, 3601]
     sentence_count: 7
     key_terms: [discover, always, checking, deposits, fidelity, capital, chemical-purple-5196, local]
+    concepts: [discover, always, checking, deposits, fidelity]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1q0qenp.md#c1", "social-intelligence/reddit-deep/personalfinance/1q0qenp.md#c3"]
     section: Comments
     token_count: 204
   - id: "social-intelligence/reddit-deep/personalfinance/1q0qenp.md#c3"
-    char_span: [3604, 5047]
+    char_span: [3603, 5046]
     sentence_count: 10
     key_terms: [ally, been, "it's", checking, fidelity, transfer, balance, capital]
+    concepts: [checking, fidelity, transfer, balance, capital]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1q0qenp.md#c1", "social-intelligence/reddit-deep/personalfinance/1q0qenp.md#c2"]
     section: Comments
     token_count: 361
 ---

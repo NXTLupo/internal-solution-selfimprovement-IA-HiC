@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 1715]
     sentence_count: 11
     key_terms: [defi, support, "what's", token, apps, developers, management, integrate]
+    concepts: [support, "what's", developers, management, token]
     token_count: 387
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1r03igg/defi_startup_looking_for_support_feedback/"}]
   - id: "social-intelligence/reddit-deep/defi/1r03igg.md#c1"
     char_span: [1717, 3208]
     sentence_count: 4
     key_terms: [developers, "we're", complete, platform, meteora, raydium, revenue, people]
+    concepts: [developers, "we're", complete, platform, meteora]
     token_count: 351
   - id: "social-intelligence/reddit-deep/defi/1r03igg.md#c2"
-    char_span: [3223, 3647]
+    char_span: [3222, 3646]
     sentence_count: 2
     key_terms: [everything, closed, launch, beta, want, measurement, consider, expected]
+    concepts: [everything, closed, launch]
     section: Comments
     token_count: 104
 ---

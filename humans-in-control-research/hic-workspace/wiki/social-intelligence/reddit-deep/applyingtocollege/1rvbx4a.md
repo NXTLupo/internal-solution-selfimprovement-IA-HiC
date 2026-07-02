@@ -19,29 +19,37 @@ chunks:
     char_span: [0, 1776]
     sentence_count: 11
     key_terms: [college, applyingtocollege, give, people, major, threatened, comments, cheaper]
+    concepts: [college, applyingtocollege, people, major, threatened]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rvbx4a.md#c3"]
     token_count: 376
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rvbx4a/choosing_a_collegemajor_in_the_age_of_ai/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rvbx4a.md#c1"
     char_span: [1790, 3550]
     sentence_count: 10
     key_terms: [science, labor-market-impacts, anthropic, computer, research, college, someone, degree]
+    concepts: [labor-market-impacts, science, anthropic, computer, research]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rvbx4a.md#c2"
     char_span: [3552, 5503]
     sentence_count: 6
     key_terms: [transferable, teachers, skills, peacockintime, pbmadman1994, field, going, architects]
+    concepts: [transferable, teachers, peacockintime, pbmadman1994, skills]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rvbx4a.md#c3"
     char_span: [5505, 7278]
     sentence_count: 15
     key_terms: [college, unemployment, major, stlouisfed, therapists, graduates, cgbd2024, machines]
+    concepts: [college, unemployment, major, stlouisfed, therapists]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rvbx4a.md#c0"]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rvbx4a.md#c4"
     char_span: [7280, 8885]
     sentence_count: 11
     key_terms: [good, replaced, already, career, enough, outrun, conscious-secret-775, being]
+    concepts: [replaced, already, career, enough, outrun]
     section: Comments
     token_count: 385
 ---

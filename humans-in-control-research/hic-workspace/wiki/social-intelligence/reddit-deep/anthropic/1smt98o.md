@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 330]
     sentence_count: 2
     key_terms: [anthropic, comments, claude, team, development, reddit-deep, posted, reddit]
+    concepts: [anthropic, comments, claude]
     token_count: 94
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1smt98o/how_can_i_get_this_deal_on_claude_team_plan_i/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1smt98o.md#c1"
     char_span: [344, 1050]
     sentence_count: 3
     key_terms: [anthropic, pricing, non, goodstacks, company, profit, vxmjcf, valuable-account-362]
+    concepts: [anthropic, pricing, goodstacks, company, profit]
     section: Comments
     token_count: 202
 ---

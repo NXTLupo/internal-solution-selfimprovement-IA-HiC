@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 407]
     sentence_count: 3
     key_terms: [engineeringstudents, comments, accomplished-bit8214, engineering, reddit-deep, freshman, honestly, nowadays]
+    concepts: [engineeringstudents, comments]
     token_count: 106
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1myu8f0/what_is_the_best_advice_you_could_give_to_a/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myu8f0.md#c1"
     char_span: [421, 2279]
     sentence_count: 14
     key_terms: [classes, engineering, got, year, freshman, because, despite, decent]
+    concepts: [classes, engineering, freshman, because, despite]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myu8f0.md#c2"
     char_span: [2281, 3972]
     sentence_count: 18
     key_terms: [time, recruiters, dont, schedule, study, take, companies, freshman]
+    concepts: [recruiters, schedule, study, companies, freshman]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myu8f0.md#c3"
     char_span: [3974, 6070]
     sentence_count: 16
     key_terms: [college, "don't", engineering, program, abet, get, "it's", work]
+    concepts: [college, engineering, "don't", program, engineer]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myu8f0.md#c4"
     char_span: [6072, 6959]
     sentence_count: 7
     key_terms: [class, get, classes, better, plan, work, necessarily, professors]
+    concepts: [class, classes, better]
     section: Comments
     token_count: 201
 ---

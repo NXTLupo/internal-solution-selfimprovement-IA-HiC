@@ -21,72 +21,92 @@ chunks:
     char_span: [0, 2128]
     sentence_count: 11
     key_terms: [machinelearning, image, comments, kernels, models, architecture, found, https]
+    concepts: [machinelearning, image, comments, kernels, architecture]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1pwd8su/p_s2id_scale_invariant_image_diffuser_trained_on/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c1"
     char_span: [2130, 3929]
     sentence_count: 14
     key_terms: [resolution, information, image, s2id, although, training, trained, photo]
+    concepts: [resolution, information, image, although, training]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c6"]
     token_count: 430
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c2"
     char_span: [3931, 5586]
     sentence_count: 7
     key_terms: [time, png, b03a59cc5ee0b05803de88b5d1efe9e6d0a88c87, digits, images, augmentation, model, training]
+    concepts: [augmentation, digits, images, model, training]
     token_count: 451
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c3"
     char_span: [5588, 6652]
     sentence_count: 1
     key_terms: [png, preview, format, https, width, auto, redd, webp]
+    concepts: [preview, format, https, width]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c4"]
     token_count: 510
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c4"
     char_span: [6654, 8406]
     sentence_count: 8
     key_terms: [png, time, resolution, last, fd2d587da70cae59b6dd2163e4d977553921f92f, preview, results, better]
+    concepts: [resolution, preview, results, better, format]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c3"]
     token_count: 463
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c5"
     char_span: [8408, 10432]
     sentence_count: 16
     key_terms: [model, coordinates, image, composition, coordinate, relative, data, pixels]
+    concepts: [model, coordinates, composition, coordinate, image]
     token_count: 444
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c6"
     char_span: [10446, 12649]
     sentence_count: 18
     key_terms: [information, resolution, different, mnist, invariance, textures, compare, resolutions]
+    concepts: [information, resolution, different, mnist, invariance]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c1"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c7"
     char_span: [12651, 14760]
     sentence_count: 18
     key_terms: [attention, using, latent, convolutions, axial, complexity, resolution, underlying]
+    concepts: [attention, using, convolutions, latent, axial]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c8"
     char_span: [14762, 16501]
     sentence_count: 12
     key_terms: [points, resolution, "don't", model, value, gaussian, pixels, values]
+    concepts: [points, resolution, "don't", model, value]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c9"
     char_span: [16503, 18851]
     sentence_count: 19
     key_terms: [vae, technique, process, latent, diffusion, datasets, misunderstanding, scale-invariant]
+    concepts: [technique, process, latent, misunderstanding, diffusion]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c11"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c10"
     char_span: [18853, 19486]
     sentence_count: 5
     key_terms: [sacrifices, invariant, exactly, suppose, "aren't", images, scale, size]
+    concepts: [sacrifices, invariant, exactly, suppose, "aren't"]
     section: Comments
     token_count: 159
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c11"
     char_span: [19488, 21238]
     sentence_count: 12
     key_terms: [diffusion, vae, architecture, latent, process, use, coordinate-aware, model]
+    concepts: [diffusion, architecture, latent, process, coordinate-aware]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c9"]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c12"
     char_span: [21240, 21737]
     sentence_count: 4
     key_terms: [model, architecture, resolutions, transformer, appreciate, coordinate, different, diffusion]
+    concepts: [model]
     section: Comments
     token_count: 127
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 910]
     sentence_count: 10
     key_terms: [careerguidance, gap, java, comments, learned, basic, dsa, eee]
+    concepts: [careerguidance, comments, learned, basic]
     token_count: 248
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rwb4q1/eee_graduate_2023_with_3year_gap_learned_java_web/"}]
 ---
 # EEE graduate (2023) with 3-year gap, learned Java, web dev & basic DSA – need guidance to land first IT job ?
 

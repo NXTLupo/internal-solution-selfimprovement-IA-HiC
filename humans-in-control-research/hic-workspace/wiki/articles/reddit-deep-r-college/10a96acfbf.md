@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1347]
     sentence_count: 6
     key_terms: [best-colleges-america-2026-f64d590e, college, school, https, com, list, wsj, www]
+    concepts: [best-colleges-america-2026-f64d590e, college, school, https, university]
     token_count: 342
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1o0j3uz/the_2026_best_colleges_in_america_stanford_babson/"}]
 ---
 # The 2026 Best Colleges in America: Stanford, Babson and Yale Take Top Spots
 

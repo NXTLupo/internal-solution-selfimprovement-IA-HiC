@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 1626]
     sentence_count: 2
     key_terms: [https, gradschool, com, www, comments, mel-curth-oklahoma-instructor-firing, reddit, university]
+    concepts: [https, gradschool, mel-curth-oklahoma-instructor-firing, comments, reddit]
     token_count: 436
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1px6ybx/megathread_ongoing_incident_with_oklahoma/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c1"
     char_span: [1628, 2424]
     sentence_count: 6
     key_terms: [bsky, oklasotagal, university, comments, oklahoma, profile, social, https]
+    concepts: [oklasotagal, university, comments, oklahoma, profile]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1px6ybx.md#c3"]
     token_count: 187
   - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c2"
     char_span: [2438, 4082]
     sentence_count: 8
     key_terms: [institutions, "it's", academic, programs, deleted, getting, offers, states]
+    concepts: [institutions, academic, programs, deleted, getting]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c3"
     char_span: [4084, 5631]
     sentence_count: 14
     key_terms: [bsky, school, oklasotagal, post, graduated, profile, student, social]
+    concepts: [school, oklasotagal, graduated, profile, student]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1px6ybx.md#c1"]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c4"
     char_span: [5633, 7622]
     sentence_count: 8
     key_terms: [autisticrocheter, student, lawyer, trans, absolutely, permissive, already, treated]
+    concepts: [autisticrocheter, student, lawyer, absolutely, permissive]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c5"
     char_span: [7357, 8698]
     sentence_count: 10
     key_terms: [people, erwinheisenberg, permissive, directly, grading, within, far, kind]
+    concepts: [people, erwinheisenberg, permissive, directly, grading]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c6"
     char_span: [8700, 10614]
     sentence_count: 16
     key_terms: [agree, student, grading, cite, assignment, discussion, university, important]
+    concepts: [agree, student, grading, assignment, discussion]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c7"

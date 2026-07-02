@@ -20,21 +20,25 @@ chunks:
     char_span: [0, 732]
     sentence_count: 4
     key_terms: [specialized, final-mile, logistics, comments, niches, makes, hard, seen]
+    concepts: [specialized, final-mile, logistics, comments, niches]
     token_count: 182
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1py7ah3/what_are_the_weirdest_most_specialized_finalmile/"}]
   - id: "social-intelligence/reddit-deep/logistics/1py7ah3.md#c1"
-    char_span: [747, 2955]
+    char_span: [746, 2954]
     sentence_count: 16
     key_terms: [countries, no-fisherman-8894, transportation, crates, doing, regulations, art, mile]
+    concepts: [no-fisherman-8894, countries, transportation, crates, regulations]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/logistics/1py7ah3.md#c2"
-    char_span: [2695, 3780]
+    char_span: [2694, 3779]
     sentence_count: 7
     key_terms: [dock, handling, several, special, psychological-will29, items, deal, like]
+    concepts: [handling, several, special, items]
     section: Comments
     token_count: 243
   - id: "social-intelligence/reddit-deep/logistics/1py7ah3.md#c3"
-    char_span: [3782, 4137]
+    char_span: [3781, 4136]
     sentence_count: 2
     key_terms: [no-fisherman-8894, risk, want, interesting, marketplace, everything, currently, logistics]
     section: Comments

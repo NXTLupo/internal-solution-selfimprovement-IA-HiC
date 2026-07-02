@@ -21,53 +21,66 @@ chunks:
     char_span: [0, 1579]
     sentence_count: 12
     key_terms: [underperforming, trained, rather, get, pip, told, wfh, processes]
+    concepts: [underperforming, trained, rather, processes, comments]
     token_count: 367
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1s3otou/floored_by_how_underperforming_employee_would/"}]
   - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c1"
     char_span: [1593, 3503]
     sentence_count: 15
     key_terms: [unemployment, job, conversationmore4104, company, market, get, like, process]
+    concepts: [unemployment, conversationmore4104, company, market, process]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1s3otou.md#c5", "social-intelligence/reddit-deep/managers/1s3otou.md#c7"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c2"
     char_span: [3506, 3980]
     sentence_count: 2
     key_terms: [job, market, bad, seeing, happy-personality-15, let, "true", specialization]
+    concepts: [market, seeing]
     section: Comments
     token_count: 118
   - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c3"
     char_span: [3982, 6277]
     sentence_count: 12
     key_terms: [unemployment, cause, fired, job, employee, states, state, got]
+    concepts: [unemployment, cause, fired, employee, states]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c4"
     char_span: [6279, 6628]
     sentence_count: 2
     key_terms: [come, saying, won, unemployment, resignation, attendance, terminated, agreement]
+    concepts: [saying]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c5"
     char_span: [6630, 8617]
     sentence_count: 11
     key_terms: [conversationmore4104, stickydeltastrike, pip, unemployment, needs, get, like, anything]
+    concepts: [conversationmore4104, stickydeltastrike, unemployment, needs, anything]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1s3otou.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c6"
     char_span: [8344, 9391]
     sentence_count: 8
     key_terms: [come, admitting, environmentalluck515, fired, days, get, job, like]
+    concepts: [admitting, fired]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c7"
     char_span: [9393, 11146]
     sentence_count: 11
     key_terms: [like, conversationmore4104, pip, insubordination, job, company, nothing, person]
+    concepts: [conversationmore4104, insubordination, company, nothing, person]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1s3otou.md#c1"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c8"
     char_span: [11148, 13124]
     sentence_count: 12
     key_terms: [work, conversationmore4104, considered, like, pip, someone, termination, come]
+    concepts: [conversationmore4104, considered, someone, termination, performers]
     section: Comments
     token_count: 482
 ---

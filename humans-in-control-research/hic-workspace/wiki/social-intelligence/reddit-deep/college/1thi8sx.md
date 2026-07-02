@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2180]
     sentence_count: 1
     key_terms: [studies, law, something, international, want, development, advice, policy]
+    concepts: [studies, international, something, development, advice]
     token_count: 467
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1thi8sx/should_i_shift_to_development_studies_or/"}]
 ---
 # should i shift to development studies or international studies? need honest advice
 

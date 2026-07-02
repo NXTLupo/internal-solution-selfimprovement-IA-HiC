@@ -20,47 +20,56 @@ chunks:
     char_span: [0, 2426]
     sentence_count: 17
     key_terms: [product, analytics, productmanagement, data, mixpanel, interesting, like, want]
+    concepts: [product, analytics, productmanagement, mixpanel, interesting]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1pb6s9b/looking_for_advice_product_analytics/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1pb6s9b.md#c1"
-    char_span: [2428, 4702]
+    char_span: [2428, 4701]
     sentence_count: 18
     key_terms: [tracking, data, like, certain, payload, product, architecture, help]
+    concepts: [tracking, certain, payload, product, architecture]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/productmanagement/1pb6s9b.md#c2"
-    char_span: [4704, 5511]
+    char_span: [4703, 5510]
     sentence_count: 7
     key_terms: [data, decisions, yourself, product, least, "won't", get, need]
+    concepts: [decisions, yourself, product, least, "won't"]
     section: Comments
     token_count: 172
   - id: "social-intelligence/reddit-deep/productmanagement/1pb6s9b.md#c3"
-    char_span: [5513, 7762]
+    char_span: [5512, 7761]
     sentence_count: 11
     key_terms: [data, new, reports, etc, team, use, evolution, important]
+    concepts: [reports, evolution, important, database, entities]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/productmanagement/1pb6s9b.md#c4"
-    char_span: [7764, 9891]
+    char_span: [7763, 9890]
     sentence_count: 12
     key_terms: [data, standard-feed-9260, tool, user, platforms, timestamp, activity, feedback]
+    concepts: [standard-feed-9260, platforms, timestamp, activity, feedback]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/productmanagement/1pb6s9b.md#c5"
-    char_span: [9893, 11696]
+    char_span: [9892, 11695]
     sentence_count: 12
     key_terms: [users, returning, activity, minutes, within, get, percentile, insights]
+    concepts: [users, returning, activity, minutes, within]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/productmanagement/1pb6s9b.md#c6"
-    char_span: [11698, 13678]
+    char_span: [11697, 13677]
     sentence_count: 13
     key_terms: [analytics, event, track, tool, honestly, actions, allowed, celoxis]
+    concepts: [analytics, event, track, honestly, actions]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/productmanagement/1pb6s9b.md#c7"
-    char_span: [13680, 14704]
+    char_span: [13679, 14703]
     sentence_count: 8
     key_terms: [pendo, especially, honestly, product, flows, been, get, serene-alessia]
+    concepts: [especially, pendo, honestly, product, flows]
     section: Comments
     token_count: 229
 ---

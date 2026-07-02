@@ -21,11 +21,15 @@ chunks:
     char_span: [0, 1738]
     sentence_count: 7
     key_terms: [chatgpt, humanresources, applications, cover, applicants, structure, comments, because]
+    concepts: [chatgpt, humanresources, applications, applicants, cover]
     token_count: 400
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1lcn1fp/has_anyone_else_been_seeing_an_influx_of/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c1"
     char_span: [1740, 2342]
     sentence_count: 4
     key_terms: [letters, cover, cookie-cutter, uncomfortable, unfortunately, absolutely, frustrated, community]
+    concepts: [letters, cover]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c4", "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c5"]
     token_count: 131
   - id: "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c2"
     char_span: [2356, 2774]
@@ -37,18 +41,24 @@ chunks:
     char_span: [2776, 5023]
     sentence_count: 8
     key_terms: [people, resumes, someone, experience, letters, cover, likely, application]
+    concepts: [people, experience, resumes, someone, letters]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c4"
     char_span: [4799, 6577]
     sentence_count: 9
     key_terms: [cover, people, job, letters, hiring, application, technology, rejecting]
+    concepts: [cover, people, letters, hiring, application]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c1", "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c3", "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c5"]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c5"
     char_span: [6579, 8455]
     sentence_count: 11
     key_terms: [cover, letter, interview, applying, letters, single, write, get]
+    concepts: [cover, letter, interview, applying, letters]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c1", "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c4"]
     section: Comments
     token_count: 450
 ---

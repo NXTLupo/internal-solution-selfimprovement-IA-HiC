@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 1107]
     sentence_count: 14
     key_terms: [college, financial, comments, tuition, school, money, aid, due]
+    concepts: [college, financial, comments, tuition, school]
+    related_chunks: ["social-intelligence/reddit-deep/college/1s9v1mu.md#c2"]
     token_count: 263
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1s9v1mu/hs_seniorsincoming_college_freshman/"}]
   - id: "social-intelligence/reddit-deep/college/1s9v1mu.md#c1"
     char_span: [1121, 1983]
     sentence_count: 8
     key_terms: [college, told, free, gone, kids, went, relationship, imsortofok]
+    concepts: [college]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/college/1s9v1mu.md#c2"
     char_span: [1985, 3675]
     sentence_count: 6
     key_terms: [going, college, financial, like, school, local, aid, year]
+    concepts: [college, going, financial, school, local]
+    related_chunks: ["social-intelligence/reddit-deep/college/1s9v1mu.md#c0"]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/college/1s9v1mu.md#c3"
     char_span: [3677, 4376]
     sentence_count: 3
     key_terms: [imsortofok, college, equipmentlopsided914, "i'm", overwhelmed, financial, honestly, reminder]
+    concepts: [imsortofok, college]
     section: Comments
     token_count: 176
 ---

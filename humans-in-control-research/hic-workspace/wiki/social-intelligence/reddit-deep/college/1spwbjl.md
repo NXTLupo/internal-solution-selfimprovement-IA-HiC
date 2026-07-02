@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 1262]
     sentence_count: 9
     key_terms: [college, residency, year, taking, establish, comments, graduate, better]
+    concepts: [college, residency, taking, establish, comments]
     token_count: 286
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1spwbjl/anyone_took_a_gap_year_to_establish_residency/"}]
   - id: "social-intelligence/reddit-deep/college/1spwbjl.md#c1"
     char_span: [1276, 3234]
     sentence_count: 10
     key_terms: [residency, school, illinois, animallover4321, chicago, housing, looking, tuition]
+    concepts: [residency, school, animallover4321, illinois, bullsatbuffalo]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/college/1spwbjl.md#c2"
     char_span: [3236, 5070]
     sentence_count: 8
     key_terms: [state, residency, resident, applying, schools, new, experience, something]
+    concepts: [state, residency, resident, applying, schools]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/college/1spwbjl.md#c3"
     char_span: [5072, 7217]
     sentence_count: 13
     key_terms: [year, time, especially, graduated, something, bachelor, oklahoma, schools]
+    concepts: [especially, graduated, something, bachelor, oklahoma]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/college/1spwbjl.md#c4"
     char_span: [7219, 7609]
     sentence_count: 4
     key_terms: [being, like, environment, internships, networking, finishing, interests, somewhere]
+    concepts: [being]
     section: Comments
     token_count: 80
 ---

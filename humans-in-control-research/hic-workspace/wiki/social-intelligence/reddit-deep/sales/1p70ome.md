@@ -20,33 +20,42 @@ chunks:
     char_span: [0, 2224]
     sentence_count: 18
     key_terms: [career, sales, financial, advice, change, comments, careers, people]
+    concepts: [career, financial, sales, advice, change]
+    related_chunks: ["social-intelligence/reddit-deep/sales/1p70ome.md#c2"]
     token_count: 514
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1p70ome/my_career_change_from_saas_sales_to_financial/"}]
   - id: "social-intelligence/reddit-deep/sales/1p70ome.md#c1"
     char_span: [2226, 3890]
     sentence_count: 9
     key_terms: [adviser, registered, jurisdiction, pay, tech, qualifications, junior, sales]
+    concepts: [adviser, registered, jurisdiction, qualifications, junior]
     token_count: 353
   - id: "social-intelligence/reddit-deep/sales/1p70ome.md#c2"
     char_span: [3892, 5746]
     sentence_count: 19
     key_terms: [sales, tech, career, change, confident, pay, cut, lot]
+    concepts: [sales, career, change, confident, financial]
+    related_chunks: ["social-intelligence/reddit-deep/sales/1p70ome.md#c0"]
     token_count: 435
   - id: "social-intelligence/reddit-deep/sales/1p70ome.md#c3"
-    char_span: [5761, 7457]
+    char_span: [5760, 7456]
     sentence_count: 13
     key_terms: [something, friends, years, considering, commission, financial, assuming, inbound]
+    concepts: [something, friends, considering, commission, years]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/sales/1p70ome.md#c4"
-    char_span: [7459, 9013]
+    char_span: [7458, 9012]
     sentence_count: 14
     key_terms: [money, advisers, clients, getting, quarter, client, pretty, sales]
+    concepts: [money, advisers, clients, getting, quarter]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/sales/1p70ome.md#c5"
-    char_span: [9015, 11149]
+    char_span: [9014, 11148]
     sentence_count: 11
     key_terms: [investment, financial, lot, planning, clients, arcademachin3, commercial, recommend]
+    concepts: [investment, financial, planning, arcademachin3, clients]
     section: Comments
     token_count: 509
 ---

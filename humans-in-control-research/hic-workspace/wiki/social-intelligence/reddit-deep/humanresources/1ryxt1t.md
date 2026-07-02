@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 929]
     sentence_count: 10
     key_terms: [humanresources, certification, compliance, comments, company, either, hrci, shrm]
+    concepts: [humanresources, certification, compliance, comments, company]
     token_count: 215
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1ryxt1t/shrm_vs_hrci_usa/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1ryxt1t.md#c1"
     char_span: [943, 2689]
     sentence_count: 13
     key_terms: [hrci, shrm, kungsuhpanda, affirmative, take, compliance, definitely, action]
+    concepts: [kungsuhpanda, affirmative, compliance, definitely, action]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/humanresources/1ryxt1t.md#c2"
     char_span: [2691, 4312]
     sentence_count: 10
     key_terms: [course, hrci, prep, shrm, executive, everyone, company, manager]
+    concepts: [course, executive, everyone, company, manager]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/humanresources/1ryxt1t.md#c3"
     char_span: [4314, 5689]
     sentence_count: 8
     key_terms: [questions, hrstudypro, recommend, practice, recent, taking, found, years]
+    concepts: [questions, hrstudypro, recommend, practice, recent]
     section: Comments
     token_count: 320
 ---

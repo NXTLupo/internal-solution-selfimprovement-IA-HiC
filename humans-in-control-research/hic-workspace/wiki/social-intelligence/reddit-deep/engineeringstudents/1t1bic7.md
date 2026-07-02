@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1766]
     sentence_count: 9
     key_terms: [position, salary, engineeringstudents, "i'm", internship, interview, negotiate, comments]
+    concepts: [position, engineeringstudents, salary, internship, interview]
     token_count: 388
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1t1bic7/should_i_ask_for_a_higher_salary_in_an_internship/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t1bic7.md#c1"
     char_span: [1780, 3722]
     sentence_count: 16
     key_terms: [leverage, internships, market, pay, wage, internship, negotiable, companies]
+    concepts: [leverage, internships, market, internship, negotiable]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t1bic7.md#c2"
     char_span: [3724, 5591]
     sentence_count: 11
     key_terms: [internship, offer, get, response, year, negotiate, flexible, company]
+    concepts: [internship, offer, response, negotiate, flexible]
     section: Comments
     token_count: 428
 ---

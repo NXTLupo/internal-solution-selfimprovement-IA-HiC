@@ -10,6 +10,7 @@ chunks:
     char_span: [0, 738]
     sentence_count: 2
     key_terms: [industries, sources, shared, social-intelligence, articles, sustainability, reddit-deep, reddit-deep-r-waterloo]
+    concepts: [industries, sources, shared, social-intelligence, articles]
     section: Cross-over verticals (shared sources) / Representative sources
     token_count: 205
 ---

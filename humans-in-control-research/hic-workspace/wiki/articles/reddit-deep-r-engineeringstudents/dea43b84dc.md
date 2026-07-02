@@ -18,16 +18,22 @@ chunks:
     char_span: [0, 2289]
     sentence_count: 13
     key_terms: [engineeringstudents, reddit, engineering, https, cal, com, wiki, please]
+    concepts: [engineeringstudents, reddit, engineering, https, please]
     token_count: 497
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1s00cq3/liberal_arts_colleges_vs_uc_berkeley_engineering/"}]
   - id: "articles/reddit-deep-r-engineeringstudents/dea43b84dc.md#c1"
     char_span: [2291, 4234]
     sentence_count: 18
     key_terms: [engineering, years, because, school, small, tight, lacs, like]
+    concepts: [engineering, years, because, school, small]
+    related_chunks: ["articles/reddit-deep-r-engineeringstudents/dea43b84dc.md#c2"]
     token_count: 444
   - id: "articles/reddit-deep-r-engineeringstudents/dea43b84dc.md#c2"
     char_span: [4236, 6405]
     sentence_count: 13
     key_terms: [engineering, maybe, programs, school, clubs, experience, internship, industry]
+    concepts: [engineering, maybe, programs, school, clubs]
+    related_chunks: ["articles/reddit-deep-r-engineeringstudents/dea43b84dc.md#c1"]
     token_count: 466
   - id: "articles/reddit-deep-r-engineeringstudents/dea43b84dc.md#c3"
     char_span: [6407, 6657]

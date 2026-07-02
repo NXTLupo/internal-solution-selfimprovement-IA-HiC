@@ -19,39 +19,49 @@ chunks:
     char_span: [0, 1287]
     sentence_count: 7
     key_terms: [college, being, returning, self-conscious, years, floundered, meandered, semesters]
+    concepts: [college, returning, being, self-conscious, floundered]
     token_count: 315
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1naaqnf/im_returning_to_college_at_22_at_a_fouryear/"}]
   - id: "social-intelligence/reddit-deep/college/1naaqnf.md#c1"
     char_span: [1289, 3314]
     sentence_count: 13
     key_terms: [college, life, years, feel, "i'm", year, going, late]
+    concepts: [college, years, going, anything, because]
+    related_chunks: ["social-intelligence/reddit-deep/college/1naaqnf.md#c5"]
     token_count: 479
   - id: "social-intelligence/reddit-deep/college/1naaqnf.md#c2"
     char_span: [3316, 3523]
     sentence_count: 4
     key_terms: ["don't", feel, posting, process, better, myself, others, "that's"]
+    concepts: ["don't"]
     token_count: 53
   - id: "social-intelligence/reddit-deep/college/1naaqnf.md#c3"
     char_span: [3537, 5434]
     sentence_count: 13
     key_terms: [upperclassmen, want, age, old, "don't", live, yourself, college]
+    concepts: [upperclassmen, "don't", yourself, college, "doesn't"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/college/1naaqnf.md#c4"
     char_span: [5436, 6937]
     sentence_count: 7
     key_terms: [degree, school, traditional, back, friends, health, dorms, angrybeaversociety]
+    concepts: [degree, school, traditional, friends, health]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/college/1naaqnf.md#c5"
     char_span: [6939, 8426]
     sentence_count: 11
     key_terms: [college, age, "you're", adult, years, because, friends, nobody]
+    concepts: [college, "you're", adult, years, because]
+    related_chunks: ["social-intelligence/reddit-deep/college/1naaqnf.md#c1"]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/college/1naaqnf.md#c6"
     char_span: [8428, 9537]
     sentence_count: 12
     key_terms: [years, life, yourself, ahead, hit, path, cigarettes, everything]
+    concepts: [years, yourself, ahead]
     section: Comments
     token_count: 276
 ---

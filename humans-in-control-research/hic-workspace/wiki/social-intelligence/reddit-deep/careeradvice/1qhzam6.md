@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1214]
     sentence_count: 7
     key_terms: [people, careeradvice, early-career, like, different, something, comments, starting]
+    concepts: [careeradvice, early-career, people, different, something]
     token_count: 293
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1qhzam6/how_ai_is_actually_changing_the_way_earlycareer/"}]
 ---
 # How AI is actually changing the way early-career people work
 

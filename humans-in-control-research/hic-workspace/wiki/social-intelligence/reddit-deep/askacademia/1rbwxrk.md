@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 2083]
     sentence_count: 9
     key_terms: [writing, someone, information, literature, like, enough, review, askacademia]
+    concepts: [writing, information, someone, literature, enough]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c2"]
     token_count: 460
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1rbwxrk/writing_like_a_human_and_subsequently_padding_out/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c1"
     char_span: [2085, 2657]
     sentence_count: 6
     key_terms: [did, writing, paper, want, complicated, effectively, prehistoric, admittedly]
+    concepts: [writing, paper]
     token_count: 132
   - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c2"
     char_span: [2671, 4724]
     sentence_count: 18
     key_terms: [writing, "it's", read, deleted, being, information, good, grad]
+    concepts: [writing, deleted, information, being, scholarly]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c0"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c3"
     char_span: [4726, 6215]
     sentence_count: 13
     key_terms: [explanation, job, thesis, additional, difference, reviewer, appears, article]
+    concepts: [explanation, thesis, additional, difference, reviewer]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c4"
     char_span: [6219, 7667]
     sentence_count: 9
     key_terms: [relevant, information, difference, detail-oriented, "don't", authors, careful, comment]
+    concepts: [relevant, information, difference, detail-oriented, "don't"]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c5"
     char_span: [7669, 9512]
     sentence_count: 11
     key_terms: [paper, student, everything, someone, review, field, bla, attitude]
+    concepts: [paper, student, everything, someone, review]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c6"
     char_span: [9517, 11269]
     sentence_count: 12
     key_terms: ["you're", questions, talking, get, "i'm", sentences, slachack1, research]
+    concepts: ["you're", questions, talking, sentences, slachack1]
     section: Comments
     token_count: 399
 ---

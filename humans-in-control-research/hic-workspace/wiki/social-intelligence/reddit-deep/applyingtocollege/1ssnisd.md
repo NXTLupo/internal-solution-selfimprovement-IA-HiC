@@ -21,47 +21,61 @@ chunks:
     char_span: [0, 1259]
     sentence_count: 11
     key_terms: [yale, pitt, medical, school, applyingtocollege, mit, gap, pick]
+    concepts: [medical, applyingtocollege, school, experience, regardless]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c4"]
     token_count: 301
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1ssnisd/mityalepitt_gap_bsmd_help_me_pick/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c1"
     char_span: [1273, 3558]
     sentence_count: 26
     key_terms: [school, mit, medical, yale, research, undergraduate, med, take]
+    concepts: [school, medical, undergraduate, research, undergraduates]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c4"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c2"
     char_span: [3560, 5410]
     sentence_count: 10
     key_terms: [average, mit, medical, schools, range, application, disciplines, gpa]
+    concepts: [average, medical, schools, application, disciplines]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c5"]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c3"
     char_span: [5412, 7527]
     sentence_count: 7
     key_terms: [med, degree, doctor, intelligent-web-8017, someone, school, opportunities, transaction]
+    concepts: [intelligent-web-8017, degree, doctor, opportunities, someone]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c4"
     char_span: [7529, 9508]
     sentence_count: 8
     key_terms: [school, mit, pitt, medical, reincarnatedbiscuits, program, good, med]
+    concepts: [school, reincarnatedbiscuits, medical, program, percentile]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c1"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c5"
     char_span: [9510, 11657]
     sentence_count: 12
     key_terms: [top, schools, yale, like, medical, med, mit, undergrads]
+    concepts: [schools, medical, undergrads, exposure, medicine]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c2"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c6"
     char_span: [11659, 13509]
     sentence_count: 2
     key_terms: [comment, getting, larp, deleted, program, access, making, school]
+    concepts: [comment, getting, deleted, program, access]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c7"
     char_span: [13511, 14100]
     sentence_count: 4
     key_terms: [research, early, years, pitt, ok-fishing609, relationships, competitive, connections]
+    concepts: [research, early, years]
     section: Comments
     token_count: 137
 ---

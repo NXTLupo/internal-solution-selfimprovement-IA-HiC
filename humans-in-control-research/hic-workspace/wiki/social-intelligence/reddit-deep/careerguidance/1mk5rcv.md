@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1546]
     sentence_count: 9
     key_terms: [ece, cse, college, careerguidance, better, engineering, placement, prospects]
+    concepts: [careerguidance, college, better, engineering, placement]
     token_count: 348
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1mk5rcv/ece_vs_cse_in_tier3_college_better_future_option/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1mk5rcv.md#c1"
     char_span: [1560, 2030]
     sentence_count: 3

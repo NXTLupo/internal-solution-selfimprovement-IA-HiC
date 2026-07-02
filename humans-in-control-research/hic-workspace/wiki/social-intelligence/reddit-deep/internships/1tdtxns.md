@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 544]
     sentence_count: 5
     key_terms: [internships, comments, teaches, career, small, step, communication, opportunities]
+    concepts: [internships, comments, teaches, career, small]
     token_count: 122
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tdtxns/career_growth_with_small_steps/"}]
   - id: "social-intelligence/reddit-deep/internships/1tdtxns.md#c1"
     char_span: [558, 1160]
     sentence_count: 4
     key_terms: [full-time, internships, lot, eventually, corporate, best, micro-management, decisions]
+    concepts: [full-time, internships, eventually, corporate]
     section: Comments
     token_count: 132
 ---

@@ -21,53 +21,63 @@ chunks:
     char_span: [0, 911]
     sentence_count: 7
     key_terms: [chatgpt, financial, analysis, comments, doubled, savings, amount, invest]
+    concepts: [chatgpt, financial, analysis, comments, doubled]
     token_count: 228
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1nfrxzx/chatgpt_doubled_all_my_savings_on_stock_market_in/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1nfrxzx.md#c1"
     char_span: [925, 1507]
     sentence_count: 5
     key_terms: [conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, openai, please]
+    concepts: [conversation, image, discord, openai, please]
     section: Comments
     token_count: 156
   - id: "social-intelligence/reddit-deep/chatgpt/1nfrxzx.md#c2"
     char_span: [1510, 3171]
     sentence_count: 9
     key_terms: [money, lose, market, bull, hard, time, everyone, months]
+    concepts: [money, market, everyone, months]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/chatgpt/1nfrxzx.md#c3"
     char_span: [3173, 4758]
     sentence_count: 7
     key_terms: [markets, outperformed, bull, greatly, putting, savings, months, jealous-researcher77]
+    concepts: [markets, outperformed, greatly, putting, savings]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1nfrxzx.md#c4"
     char_span: [4624, 5126]
     sentence_count: 2
     key_terms: [study, png, rhetoricalorator, outperformed, blindfolded, newspapers, financial, cglyszka]
+    concepts: [study]
     section: Comments
     token_count: 178
   - id: "social-intelligence/reddit-deep/chatgpt/1nfrxzx.md#c5"
     char_span: [5128, 5910]
     sentence_count: 3
     key_terms: [stocks, beat, patientpadawan, wallstreetbets, givingtree310, productivity, absolutely, fullertons]
+    concepts: [stocks]
     section: Comments
     token_count: 232
   - id: "social-intelligence/reddit-deep/chatgpt/1nfrxzx.md#c6"
     char_span: [5912, 7828]
     sentence_count: 10
     key_terms: [chatgpt, data, "it's", trading, speculation, ask, terrible, course]
+    concepts: [chatgpt, trading, speculation, terrible, course]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/chatgpt/1nfrxzx.md#c7"
     char_span: [7831, 8927]
     sentence_count: 9
     key_terms: [give, sometimes, better, redact, "it's", lot, post, too]
+    concepts: [sometimes, better, redact]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/chatgpt/1nfrxzx.md#c8"
     char_span: [8929, 10391]
     sentence_count: 9
     key_terms: [market, bull, bitterad6419, something, chatgpt, risky, stock, years]
+    concepts: [market, bitterad6419, something, chatgpt, risky]
     section: Comments
     token_count: 412
 ---

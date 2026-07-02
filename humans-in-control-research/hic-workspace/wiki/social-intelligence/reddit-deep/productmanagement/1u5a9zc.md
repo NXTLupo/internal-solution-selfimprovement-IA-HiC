@@ -20,41 +20,49 @@ chunks:
     char_span: [0, 2269]
     sentence_count: 15
     key_terms: [data, payroll, humans, sometimes, productmanagement, example, invoice, wrong]
+    concepts: [payroll, humans, productmanagement, sometimes, example]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1u5a9zc/the_role_of_llm_inside_software_executing/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1u5a9zc.md#c1"
-    char_span: [2271, 4156]
+    char_span: [2271, 4155]
     sentence_count: 9
     key_terms: [deterministic, non-deterministic, question, inputs, real, randomness, outcomes, because]
+    concepts: [deterministic, non-deterministic, question, inputs, randomness]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/productmanagement/1u5a9zc.md#c2"
-    char_span: [4158, 5840]
+    char_span: [4157, 5839]
     sentence_count: 16
     key_terms: ["it's", consumer, horse, llms, completely, industry, question, because]
+    concepts: [consumer, completely, horse, industry, question]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/productmanagement/1u5a9zc.md#c3"
-    char_span: [5842, 7921]
+    char_span: [5841, 7920]
     sentence_count: 19
     key_terms: [llms, understand, need, search, visual, ask, specific, problem]
+    concepts: [understand, search, visual, specific, problem]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/productmanagement/1u5a9zc.md#c4"
-    char_span: [7923, 9716]
+    char_span: [7922, 9715]
     sentence_count: 15
     key_terms: [case, use, quality, llms, boring, development, good, technology]
+    concepts: [quality, boring, development, technology, algorithm]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/productmanagement/1u5a9zc.md#c5"
-    char_span: [9718, 11770]
+    char_span: [9717, 11769]
     sentence_count: 15
     key_terms: [reversible, invoice, payroll, irreversible, error, human, keep, assistant]
+    concepts: [reversible, invoice, payroll, irreversible, error]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/productmanagement/1u5a9zc.md#c6"
-    char_span: [11772, 12405]
+    char_span: [11771, 12404]
     sentence_count: 6
     key_terms: [decision, boundary, failure, product, having, human, human-in-the-loop, specifically]
+    concepts: [decision, boundary, failure, product, having]
     section: Comments
     token_count: 124
 ---

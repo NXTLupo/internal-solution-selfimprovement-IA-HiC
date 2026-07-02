@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1552]
     sentence_count: 12
     key_terms: [experience, customerexperience, comments, score, sometimes, surveybox, customer, healthy]
+    concepts: [customerexperience, experience, comments, score, sometimes]
     token_count: 307
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1r1pxuu/high_nps_doesnt_always_mean_healthy_customer/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1r1pxuu.md#c1"
-    char_span: [1567, 2721]
+    char_span: [1566, 2720]
     sentence_count: 8
     key_terms: [friction, medallia, small, nps, text, last-matter-3617, soggycontact6106, conversations]
+    concepts: [friction, medallia, small]
     section: Comments
     token_count: 278
 ---

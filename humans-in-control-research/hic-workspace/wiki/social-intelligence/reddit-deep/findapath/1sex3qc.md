@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 776]
     sentence_count: 4
     key_terms: [school, findapath, comments, career, people, begin, did, high]
+    concepts: [school, findapath, comments, career, people]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1sex3qc.md#c1"]
     token_count: 180
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1sex3qc/did_your_high_school_provide_career_planning/"}]
   - id: "social-intelligence/reddit-deep/findapath/1sex3qc.md#c1"
     char_span: [790, 1922]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    concepts: [thank, helpful, please, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1sex3qc.md#c0"]
     section: Comments
     token_count: 248
 ---

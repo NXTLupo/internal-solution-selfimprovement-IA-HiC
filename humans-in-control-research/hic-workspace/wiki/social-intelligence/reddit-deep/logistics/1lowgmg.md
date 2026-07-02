@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 1139]
     sentence_count: 7
     key_terms: [logistics, https, deliverysim, com, interested, locations, comments, starting]
+    concepts: [logistics, deliverysim, https, interested, locations]
     token_count: 270
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1lowgmg/open_source_logistics_sim/"}]
   - id: "social-intelligence/reddit-deep/logistics/1lowgmg.md#c1"
-    char_span: [1154, 2602]
+    char_span: [1153, 2601]
     sentence_count: 3
     key_terms: [com, reddit, remindmebot, link, www, brother, message, remind]
+    concepts: [reddit, remindmebot, brother, message, remind]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1lowgmg.md#c2"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/logistics/1lowgmg.md#c2"
-    char_span: [2604, 4012]
+    char_span: [2603, 4011]
     sentence_count: 11
     key_terms: [message, remindmebot, reddit, https, com, www, compose, subject]
+    concepts: [message, remindmebot, reddit, https, compose]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1lowgmg.md#c1"]
     section: Comments
     token_count: 406
 ---

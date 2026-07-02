@@ -19,28 +19,36 @@ chunks:
     char_span: [0, 2197]
     sentence_count: 6
     key_terms: [engineering, nyu, umich, stern, applyingtocollege, like, outcomes, already]
+    concepts: [engineering, umich, applyingtocollege, stern, outcomes]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1thl3ux/advice_needed_follow_my_heart_umich_engineering/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thl3ux.md#c1"
     char_span: [2199, 3642]
     sentence_count: 3
     key_terms: [feel, like, nyu, employment, extremely, business, outcomes, program]
+    concepts: [employment, extremely, business, outcomes, program]
     token_count: 323
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thl3ux.md#c2"
     char_span: [3656, 5448]
     sentence_count: 13
     key_terms: [engineering, different, michigan, making, school, good, engineers, undergrad]
+    concepts: [engineering, different, michigan, making, school]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1thl3ux.md#c3"]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thl3ux.md#c3"
     char_span: [5450, 7435]
     sentence_count: 14
     key_terms: [michigan, school, business, better, arbor, engineering, ann, math]
+    concepts: [michigan, school, business, better, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1thl3ux.md#c2"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thl3ux.md#c4"
     char_span: [7437, 9317]
     sentence_count: 19
     key_terms: [grads, stern, tuition, better, family, full, usc, dominate]
+    concepts: [grads, stern, tuition, better, family]
     section: Comments
     token_count: 406
 ---

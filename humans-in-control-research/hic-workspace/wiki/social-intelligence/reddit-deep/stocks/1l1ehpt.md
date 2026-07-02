@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 1998]
     sentence_count: 6
     key_terms: [china-accuses-us-of-violating-trade-truce-vows-firm-response, china-accuses-us-violating-trade-024733891, china, https, com, chinese, interests, news]
+    concepts: [china-accuses-us-of-violating-trade-truce-vows-firm-response, china-accuses-us-violating-trade-024733891, china, https, chinese]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1l1ehpt/china_accuses_us_of_violating_trade_deal_vows/"}]
   - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c1"
     char_span: [2000, 3952]
     sentence_count: 10
     key_terms: [china, trump, president, week, trade, secretary, commerce, critical]
+    concepts: [china, trump, president, trade, secretary]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1l1ehpt.md#c3"]
     token_count: 373
   - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c2"
     char_span: [3966, 5626]
     sentence_count: 4
     key_terms: [stocks, market, please, reddit, "don't", money, lose, off-topic]
+    concepts: [stocks, market, please, reddit, "don't"]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c3"
     char_span: [5628, 6772]
     sentence_count: 8
     key_terms: [restrictions, china, bad, snap, snip, "doesn't", loosen, trade]
+    concepts: [restrictions, china, "doesn't", loosen, trade]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1l1ehpt.md#c1"]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c4"
     char_span: [6775, 7521]
     sentence_count: 6
     key_terms: [tofu, taco, better, tacos, dow, tsx, captaincanuck93, administration]
+    concepts: [better, tacos]
     section: Comments
     token_count: 222
   - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c5"
     char_span: [7524, 9585]
     sentence_count: 15
     key_terms: [administration, acp, guy, something, citizens, details, imagine, serious]
+    concepts: [administration, something, citizens, details, imagine]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c6"
     char_span: [9329, 9655]
     sentence_count: 3
     key_terms: [administration, shadowliberal, credibility, statements, greenland, takeover, believe, calling]
+    concepts: [administration]
     section: Comments
     token_count: 76
 ---

@@ -19,59 +19,70 @@ chunks:
     char_span: [0, 1103]
     sentence_count: 9
     key_terms: [getting, ideally, careerguidance, career, "don't", "i'm", jobs, life]
+    concepts: [careerguidance, getting, ideally, career, "don't"]
     token_count: 284
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1o1bplh/what_in_your_opinion_is_a_greatbest_career_pathjob/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c1"
     char_span: [1117, 2843]
     sentence_count: 16
     key_terms: [business, start, job, better, retire, early, years, traditional]
+    concepts: [business, start, better, retire, traditional]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c2"
     char_span: [2845, 4911]
     sentence_count: 10
     key_terms: [radiology, always, too, field, techs, already, medical, thought]
+    concepts: [radiology, always, field, techs, already]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c3"
     char_span: [4656, 5445]
     sentence_count: 5
     key_terms: [required, state, job, love, financialsailor1, pokeballer2k19, completing, especially]
+    concepts: [required, state]
     section: Comments
     token_count: 209
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c4"
     char_span: [5447, 7136]
     sentence_count: 17
     key_terms: [mate, financialsailor1, year, different, engineer, captain, manager, career]
+    concepts: [financialsailor1, different, engineer, captain, manager]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c5"
     char_span: [7138, 9109]
     sentence_count: 14
     key_terms: [ok-possession-2415, bachelor, software, trainer, communications, instructional, background, experience]
+    concepts: [ok-possession-2415, bachelor, software, communications, instructional]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c6"
     char_span: [9111, 10801]
     sentence_count: 13
     key_terms: [selling, yourself, sales, importance, probably, teachers, nurses, lankysignificance966]
+    concepts: [selling, yourself, importance, sales, probably]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c7"
     char_span: [10803, 11813]
     sentence_count: 7
     key_terms: [career, lowest, skills, entry, youre, data, pokeballer2k19, demonstrating]
+    concepts: [career, lowest, skills, entry, youre]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c8"
     char_span: [11815, 13859]
     sentence_count: 13
     key_terms: [engineering, healthcare, experience, nurse, saturated, deleted, doctor, new]
+    concepts: [engineering, healthcare, experience, saturated, nurse]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c9"
     char_span: [13861, 14201]
     sentence_count: 4
     key_terms: [autonomy, work, opportunity, challenged, day-to-day, competent, generally, satisfied]
+    concepts: [autonomy]
     section: Comments
     token_count: 70
 ---

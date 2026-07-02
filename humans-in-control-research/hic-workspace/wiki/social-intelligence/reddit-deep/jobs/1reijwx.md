@@ -19,47 +19,56 @@ chunks:
     char_span: [0, 1991]
     sentence_count: 12
     key_terms: [jobs, get, entry-level, degree, being, field, like, work]
+    concepts: [entry-level, degree, being, field, warehouse]
     token_count: 443
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1reijwx/are_there_any_entrylevel_jobs_not_threatened_by_ai/"}]
   - id: "social-intelligence/reddit-deep/jobs/1reijwx.md#c1"
     char_span: [2005, 3101]
     sentence_count: 4
     key_terms: [outsourcing, workers, emergency-pollution2, new-veterinarian5597, budtrimmingbaddie, isn, icenerveshatter, karateisntreal]
+    concepts: [outsourcing, workers]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/jobs/1reijwx.md#c2"
     char_span: [3103, 5181]
     sentence_count: 14
     key_terms: [needed, get, like, need, position, realize, always, being]
+    concepts: [needed, position, realize, always, being]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1reijwx.md#c3"
     char_span: [5020, 5722]
     sentence_count: 6
     key_terms: [anything, oversaturated, research, budtrimmingbaddie, data, accounting, definitely, especially]
+    concepts: [anything, oversaturated, research]
     section: Comments
     token_count: 201
   - id: "social-intelligence/reddit-deep/jobs/1reijwx.md#c4"
     char_span: [5724, 6983]
     sentence_count: 14
     key_terms: [accounting, like, too, components, having, "don't", entry, human]
+    concepts: [accounting, components, having, "don't", entry]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/jobs/1reijwx.md#c5"
     char_span: [6985, 9197]
     sentence_count: 14
     key_terms: [like, degree, "you're", throwaway999222111, budtrimmingbaddie, anything, mistakes, already]
+    concepts: [throwaway999222111, budtrimmingbaddie, degree, "you're", anything]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1reijwx.md#c6"
     char_span: [8891, 9347]
     sentence_count: 3
     key_terms: [several, throwaway999222111, get, increasingly, internships, opportunity, industries, difficult]
+    concepts: [several]
     section: Comments
     token_count: 96
   - id: "social-intelligence/reddit-deep/jobs/1reijwx.md#c7"
     char_span: [9349, 10564]
     sentence_count: 8
     key_terms: [assistant, companies, robotics, meeting, people, admin, entry, field]
+    concepts: [assistant, companies, robotics, meeting, people]
     section: Comments
     token_count: 259
 ---

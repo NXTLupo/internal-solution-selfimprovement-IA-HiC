@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 875]
     sentence_count: 5
     key_terms: [grad, school, experiences, gradschool, comments, younger, people, reddit-deep]
+    concepts: [school, experiences, gradschool, comments, younger]
     token_count: 205
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1pi94co/starting_grad_school_youngish/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1pi94co.md#c1"
     char_span: [889, 2349]
     sentence_count: 14
     key_terms: [school, grad, students, undergrad, phd, programs, straight, people]
+    concepts: [school, students, undergrad, programs, straight]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1pi94co.md#c2", "social-intelligence/reddit-deep/gradschool/1pi94co.md#c5"]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/gradschool/1pi94co.md#c2"
     char_span: [2351, 4299]
     sentence_count: 12
     key_terms: [undergrad, people, humanities, straight, students, masters, grad, phd]
+    concepts: [undergrad, humanities, people, straight, students]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1pi94co.md#c1"]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/gradschool/1pi94co.md#c3"
     char_span: [4301, 5887]
     sentence_count: 12
     key_terms: [asphyxiat3xx, being, starting, program, never, old, phd, anything]
+    concepts: [asphyxiat3xx, being, starting, program, never]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/gradschool/1pi94co.md#c4"
     char_span: [5889, 7673]
     sentence_count: 10
     key_terms: [started, young, undergrad, person, experience, graduated, research, youngest]
+    concepts: [started, undergrad, young, person, experience]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1pi94co.md#c5"]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/gradschool/1pi94co.md#c5"
     char_span: [7675, 9055]
     sentence_count: 8
     key_terms: [undergrad, young, year, responsible-bean, program, school, grad, advantage]
+    concepts: [undergrad, responsible-bean, young, program, school]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1pi94co.md#c1", "social-intelligence/reddit-deep/gradschool/1pi94co.md#c4"]
     section: Comments
     token_count: 338
 ---

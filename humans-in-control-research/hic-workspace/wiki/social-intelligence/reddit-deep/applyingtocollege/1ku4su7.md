@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 1501]
     sentence_count: 8
     key_terms: [university, tsinghua, ntu, application, applyingtocollege, process, taiwan, international]
+    concepts: [university, tsinghua, application, applyingtocollege, international]
     token_count: 334
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1ku4su7/my_awful_application_experience_with_tsinghua/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ku4su7.md#c1"
     char_span: [1503, 2932]
     sentence_count: 10
     key_terms: [deadline, anything, suddenly, changed, ntu, disorganization, accountability, disrespectful]
+    concepts: [deadline, anything, suddenly, changed]
     token_count: 346
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ku4su7.md#c2"
     char_span: [2946, 4756]
     sentence_count: 5
     key_terms: [applyingtocollege, essays, reddit, https, com, www, wiki, automoderator]
+    concepts: [applyingtocollege, essays, reddit, https, automoderator]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ku4su7.md#c3"

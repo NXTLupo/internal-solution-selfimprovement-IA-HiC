@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 504]
     sentence_count: 1
     key_terms: [careerguidance, comments, company, last, year, mother-onion-994, responsibilities, reddit-deep]
+    concepts: [careerguidance, comments, company]
     token_count: 133
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tdoqq5/i_had_been_promoted_last_year_to_a_pm_role_but/"}]
 ---
 # I had been Promoted last year to  a PM Role .but the job I did have No idea ? from One year There were No responsibilities , so due Skills decay started applying outside and ended up getting two Offers, so moral keep faith your last company is not your first company
 

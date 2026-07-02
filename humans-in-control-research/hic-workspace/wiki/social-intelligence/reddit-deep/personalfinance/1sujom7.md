@@ -20,23 +20,32 @@ chunks:
     char_span: [0, 2269]
     sentence_count: 13
     key_terms: [investing, optum, financial, money, hsa, bank, don, personalfinance]
+    concepts: [investing, optum, financial, money, personalfinance]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sujom7.md#c2"]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1sujom7/investing_hsa_money_with_optum_financial/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1sujom7.md#c1"
-    char_span: [2284, 4143]
+    char_span: [2283, 4142]
     sentence_count: 14
     key_terms: [fidelity, hsa, account, better, old, current, fees, investment]
+    concepts: [fidelity, account, better, current, investment]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sujom7.md#c2", "social-intelligence/reddit-deep/personalfinance/1sujom7.md#c3"]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/personalfinance/1sujom7.md#c2"
-    char_span: [4145, 6048]
+    char_span: [4144, 6047]
     sentence_count: 7
     key_terms: [hsa, account, investment, personalfinance, funds, investing, options, contributions]
+    concepts: [account, investment, personalfinance, funds, investing]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sujom7.md#c0", "social-intelligence/reddit-deep/personalfinance/1sujom7.md#c1", "social-intelligence/reddit-deep/personalfinance/1sujom7.md#c3"]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/personalfinance/1sujom7.md#c3"
-    char_span: [6050, 8228]
+    char_span: [6049, 8227]
     sentence_count: 21
     key_terms: [transfer, fidelity, account, funds, hsa, trustee-to-trustee, cash, employer]
+    concepts: [transfer, fidelity, account, funds, trustee-to-trustee]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sujom7.md#c1", "social-intelligence/reddit-deep/personalfinance/1sujom7.md#c2"]
     section: Comments
     token_count: 465
 ---

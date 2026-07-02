@@ -19,19 +19,23 @@ content_hash: "f983febb4bfa6bf8"
 relevance_by_goal: {"490684cfa204":85}
 chunks:
   - id: "articles/reddit-deep-r-customerexperience/423bedd6fd.md#c0"
-    char_span: [0, 1055]
+    char_span: [0, 1054]
     sentence_count: 15
     key_terms: [customerexperience, customer, happens, customers, support, reddit, brand, bot]
-    token_count: 239
+    concepts: [customerexperience, customer, happens, customers, support]
+    token_count: 238
+    sources: [{"n":"Reddit Deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1n2dqdf/what_happens_to_your_brand_when_your_next/"}]
   - id: "articles/reddit-deep-r-customerexperience/423bedd6fd.md#c1"
-    char_span: [1057, 3232]
+    char_span: [1056, 3231]
     sentence_count: 12
     key_terms: [google-launches-an-ai-agent-that-will-call-customer-service-for-you, customer, question, contact-center, brands, interactions, human, touchpoints]
+    concepts: [google-launches-an-ai-agent-that-will-call-customer-service-for-you, customer, question, contact-center, interactions]
     token_count: 490
   - id: "articles/reddit-deep-r-customerexperience/423bedd6fd.md#c2"
-    char_span: [3234, 3748]
+    char_span: [3233, 3747]
     sentence_count: 5
     key_terms: [team, questions, support, talkto, app, peak, text, exclusively]
+    concepts: [questions, support, talkto]
     token_count: 115
 ---
 # What happens to your brand when your next customer is a bot?

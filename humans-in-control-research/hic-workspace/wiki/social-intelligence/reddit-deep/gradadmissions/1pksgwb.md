@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 577]
     sentence_count: 7
     key_terms: [gradadmissions, left, comments, someone, school, back, did, didn]
+    concepts: [gradadmissions, comments, someone, school]
     token_count: 149
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1pksgwb/has_someone_left_the_industry_to_go_back_to_grad/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1pksgwb.md#c1"
     char_span: [591, 1975]
     sentence_count: 8
     key_terms: [career, work, experience, academia, graduate, industry, flamingbandaidbox, "i'm"]
+    concepts: [career, experience, academia, graduate, industry]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1pksgwb.md#c2"]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/gradadmissions/1pksgwb.md#c2"
     char_span: [1977, 3710]
     sentence_count: 12
     key_terms: [undergrad, industry, phd, years, got, career, school, brianborchers]
+    concepts: [undergrad, industry, years, brianborchers, career]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1pksgwb.md#c1"]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/gradadmissions/1pksgwb.md#c3"
     char_span: [3712, 5395]
     sentence_count: 13
     key_terms: ["i'm", school, worked, field, difficult, applying, whether, working]
+    concepts: [school, worked, field, difficult, applying]
     section: Comments
     token_count: 429
 ---

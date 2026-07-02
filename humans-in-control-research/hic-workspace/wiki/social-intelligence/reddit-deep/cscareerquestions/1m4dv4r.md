@@ -21,47 +21,57 @@ chunks:
     char_span: [0, 1303]
     sentence_count: 9
     key_terms: [cscareerquestions, saturated, comments, https, com, reddit, never, years]
+    concepts: [cscareerquestions, saturated, comments, https, reddit]
     token_count: 326
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1m4dv4r/this_sub_4_years_ago_cs_jobs_will_never_be/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c1"
     char_span: [1317, 3122]
     sentence_count: 6
     key_terms: [people, trend, normal, new, transitory, permanent, opposite, because]
+    concepts: [people, trend, normal, transitory, permanent]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c2"
     char_span: [3124, 4255]
     sentence_count: 10
     key_terms: [level, entry, including, scarcity, deleted, people, does, patrickisgreat]
+    concepts: [level, entry, including, scarcity, deleted]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c3"
     char_span: [4257, 6136]
     sentence_count: 15
     key_terms: [people, saturated, yoe, upskilling, future, redact, illustrious-pound266, complete-orchid3896]
+    concepts: [people, saturated, upskilling, future, redact]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c4"
     char_span: [6138, 7801]
     sentence_count: 8
     key_terms: [people, time, industry, technologies, development, new, tech, definitely]
+    concepts: [people, industry, technologies, development, definitely]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c10", "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c11"]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c5"
     char_span: [7804, 9799]
     sentence_count: 10
     key_terms: [people, skilled, jobs, created, "that's", "don't", developer, economic]
+    concepts: [people, skilled, created, "that's", "don't"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c6"
     char_span: [9803, 11899]
     sentence_count: 12
     key_terms: [years, coming, market, tech, too, increasing, struggling, attrition]
+    concepts: [years, coming, market, increasing, struggling]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c7"
     char_span: [11677, 12221]
     sentence_count: 4
     key_terms: [competent, growth, years, year, projections, bug-ridden, projected, bootcamp]
+    concepts: [competent, growth, years]
     section: Comments
     token_count: 148
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c8"
@@ -74,30 +84,37 @@ chunks:
     char_span: [12686, 14653]
     sentence_count: 14
     key_terms: [u-s-economy-added-818000-fewer-jobs-than-first-reported-sign-job-market-has-been-slowing, job, government, why-fear-government-data-u-125933904, "don't", https, trust, "it's"]
+    concepts: [u-s-economy-added-818000-fewer-jobs-than-first-reported-sign-job-market-has-been-slowing, government, "don't", https, trust]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c10"
     char_span: [14655, 16582]
     sentence_count: 7
     key_terms: [sub, industry, ghost-engineers-stanford-study-4643, people, being, govt, developers, americans]
+    concepts: [industry, people, being, developers, americans]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c11"]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c11"
     char_span: [16584, 18603]
     sentence_count: 11
     key_terms: [developers, industry, produces, throwaway133731, people, being, "it's", jobs]
+    concepts: [developers, throwaway133731, industry, produces, people]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c10"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c12"
     char_span: [18605, 20541]
     sentence_count: 12
     key_terms: [engineers, software, people, too, graduates, european, saturate, because]
+    concepts: [engineers, software, people, graduates, european]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c13"
     char_span: [20544, 21235]
     sentence_count: 4
     key_terms: [programming, market, people, though, seats, like, self-learned, automatable]
+    concepts: [programming, market, people, though, seats]
     section: Comments
     token_count: 144
 ---

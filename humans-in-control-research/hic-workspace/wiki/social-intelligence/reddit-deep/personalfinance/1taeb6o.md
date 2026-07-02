@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 331]
     sentence_count: 2
     key_terms: [personalfinance, comments, last-fisherman-4354, reddit-deep, investing, accounts, beginner, finances]
+    concepts: [personalfinance, comments]
     token_count: 90
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1taeb6o/beginner_trying_to_set_up_finances_properly_best/"}]
 ---
 # Beginner trying to set up finances properly — best savings/current/investing accounts?
 

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2034]
     sentence_count: 4
     key_terms: [company, internship, intern, option, opportunities, data-related, internships, longer-term]
+    concepts: [company, internship, opportunities, data-related, intern]
     token_count: 443
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sg40in/tough_internship_dillema_which_one/"}]
   - id: "social-intelligence/reddit-deep/internships/1sg40in.md#c1"
     char_span: [2048, 4393]
     sentence_count: 15
     key_terms: [option, company, resume, employees, pay, longer, return, skills]
+    concepts: [option, company, resume, employees, longer]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1sg40in.md#c2"

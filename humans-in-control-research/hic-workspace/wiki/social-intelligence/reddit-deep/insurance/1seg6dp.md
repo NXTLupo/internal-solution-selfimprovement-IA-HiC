@@ -20,23 +20,31 @@ chunks:
     char_span: [0, 1567]
     sentence_count: 13
     key_terms: [insurance, gap, loan, deductible, paid, payment, uncovered, comments]
+    concepts: [insurance, deductible, payment, uncovered, comments]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1seg6dp.md#c1", "social-intelligence/reddit-deep/insurance/1seg6dp.md#c3"]
     token_count: 396
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1seg6dp/gap_insurance_declined_my_claim/"}]
   - id: "social-intelligence/reddit-deep/insurance/1seg6dp.md#c1"
-    char_span: [1582, 3568]
+    char_span: [1581, 3567]
     sentence_count: 9
     key_terms: [gap, deductible, state, insurance, paid, adjuster, payoff, subjugatesm]
+    concepts: [deductible, insurance, state, adjuster, payoff]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1seg6dp.md#c0", "social-intelligence/reddit-deep/insurance/1seg6dp.md#c3"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/insurance/1seg6dp.md#c2"
-    char_span: [3570, 5284]
+    char_span: [3569, 5283]
     sentence_count: 13
     key_terms: [deductible, gap, applied, loan, already, balance, subtracting, need]
+    concepts: [deductible, applied, already, balance, subtracting]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/insurance/1seg6dp.md#c3"
-    char_span: [5286, 7047]
+    char_span: [5285, 7046]
     sentence_count: 6
     key_terms: [deductible, gap, down, loan, payment, never, come, next]
+    concepts: [deductible, payment, never, insurance, policies]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1seg6dp.md#c0", "social-intelligence/reddit-deep/insurance/1seg6dp.md#c1"]
     section: Comments
     token_count: 399
 ---

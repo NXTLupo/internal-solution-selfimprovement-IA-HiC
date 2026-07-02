@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2174]
     sentence_count: 17
     key_terms: [internship, years, full-time, cscareerquestions, semester, already, company, since]
+    concepts: [internship, cscareerquestions, full-time, years, semester]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1safslq/a_year_and_a_half_of_internship_experience_with/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1safslq.md#c1"
     char_span: [2176, 2772]
     sentence_count: 4
     key_terms: [being, done, time, possibilities, burstawesome, attractive, exhausting, pairstrong]
+    concepts: [being]
     section: Comments
     token_count: 135
 ---

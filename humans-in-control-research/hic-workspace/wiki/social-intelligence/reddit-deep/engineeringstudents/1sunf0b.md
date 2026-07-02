@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 303]
     sentence_count: 1
     key_terms: [engineeringstudents, comments, boom123546867, engineering, reddit-deep, mechanical, needing, student]
+    concepts: [engineeringstudents, comments]
     token_count: 82
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sunf0b/lost_broke_3rd_mechanical_engineering_student/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sunf0b.md#c1"
     char_span: [317, 1182]
     sentence_count: 7
     key_terms: [offer, training, opinion, salary, class, "isn't", money, bad]
+    concepts: [offer, training, opinion, salary, class]
     section: Comments
     token_count: 217
 ---

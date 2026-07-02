@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1052]
     sentence_count: 9
     key_terms: [without, careerguidance, becoming, comments, anyone, career, build, music]
+    concepts: [careerguidance, without, becoming, comments, anyone]
     token_count: 236
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1r6n5ur/has_anyone_successfully_monetized_skills_outside/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1r6n5ur.md#c1"
     char_span: [1066, 1436]
     sentence_count: 3

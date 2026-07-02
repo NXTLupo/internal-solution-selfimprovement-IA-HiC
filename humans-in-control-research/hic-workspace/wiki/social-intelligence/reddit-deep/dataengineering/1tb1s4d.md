@@ -11,55 +11,64 @@ score: 126
 upvote_ratio: 0.94
 num_comments: 55
 flair: "Rant"
-extracted_at: "2026-06-11T18:58:17.199Z"
+extracted_at: "2026-06-29T14:40:47.212Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Define the 2026 \"state of the Art\" operational and technological benchmarks for \"The State of Data & Distribution in Asset Management\". Synthesize key developments across data infrastructure, distribution enablement, and AI governance frameworks to identify leading industry capabilities and compliance standards."
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
 chunks:
   - id: "social-intelligence/reddit-deep/dataengineering/1tb1s4d.md#c0"
     char_span: [0, 1293]
     sentence_count: 12
     key_terms: [work, data, dataengineering, right, consulting, comments, delicious-view-8688, fun]
+    concepts: [dataengineering, consulting, right, comments]
     token_count: 294
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1tb1s4d/maybe_i_am_not_cut_out_to_be_a_de/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1tb1s4d.md#c1"
     char_span: [1295, 3307]
     sentence_count: 29
     key_terms: [data, different, failing, guy, change, trying, using, crap]
+    concepts: [different, failing, change, trying, using]
     token_count: 446
   - id: "social-intelligence/reddit-deep/dataengineering/1tb1s4d.md#c2"
-    char_span: [3322, 3463]
+    char_span: [3321, 3462]
     sentence_count: 1
     key_terms: [resources, learning, community-submitted, dataengineering, automoderator, https, find, here]
+    concepts: [resources, learning]
     section: Comments
     token_count: 33
   - id: "social-intelligence/reddit-deep/dataengineering/1tb1s4d.md#c3"
-    char_span: [3465, 5474]
+    char_span: [3464, 5473]
     sentence_count: 13
     key_terms: [github, delicious-view-8688, engineers, team, data, like, another, broader]
+    concepts: [delicious-view-8688, github, engineers, another, broader]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/dataengineering/1tb1s4d.md#c4"
-    char_span: [5212, 5895]
+    char_span: [5211, 5894]
     sentence_count: 7
     key_terms: [github, delicious-view-8688, job, specifically, department, parameters, beginning, daguito81]
+    concepts: [github]
     section: Comments
     token_count: 173
   - id: "social-intelligence/reddit-deep/dataengineering/1tb1s4d.md#c5"
-    char_span: [5897, 7391]
+    char_span: [5896, 7390]
     sentence_count: 13
     key_terms: [like, advantage, doing, because, making, "it's", job, jobs]
+    concepts: [advantage, doing, because, making, completely]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/dataengineering/1tb1s4d.md#c6"
-    char_span: [7393, 8817]
+    char_span: [7392, 8816]
     sentence_count: 15
     key_terms: [delicious-view-8688, engineer, people, job, like, "couldn't", mistakes, multiple]
+    concepts: [delicious-view-8688, engineer, people, "couldn't", mistakes]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/dataengineering/1tb1s4d.md#c7"
-    char_span: [8819, 9888]
+    char_span: [8818, 9887]
     sentence_count: 12
     key_terms: [data, fix, compute, issue, chemical-knee-1182, get, "i'm", job]
+    concepts: [compute, issue]
     section: Comments
     token_count: 275
 ---
@@ -85,19 +94,19 @@ It's tool overload, and with the range of tasks... I don't know if I am a stats 
 - **AutoModerator** (1↑): You can find a list of community-submitted learning resources here: https://dataengineering.wiki/Learning+Resources
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/dataengineering) if you have any questions or concerns.*
-- **Lastrevio** (133↑): Why are you managing Kubernetes clusters and tweaking ML models as a data engineer? It sounds like you are doing the work of 3-4 people as a single person.
-  - **proof_required** (31↑): I'm kind of in similar boat as OP. Doing lot of ML side, DE and Devops. With LLMs these boundaries keep getting broader and broader. We (my team) has no choice since we are all trying to keep our jobs.
+- **Lastrevio** (132↑): Why are you managing Kubernetes clusters and tweaking ML models as a data engineer? It sounds like you are doing the work of 3-4 people as a single person.
+  - **proof_required** (30↑): I'm kind of in similar boat as OP. Doing lot of ML side, DE and Devops. With LLMs these boundaries keep getting broader and broader. We (my team) has no choice since we are all trying to keep our jobs.
     - **No_Lifeguard_64** (6↑): Are you looking for another job while you do this?
   - **KarmaIssues** (9↑): I do both of those things along with building ETLs. I'm not going to create a dependency on another team just to do something simple.
   - **Mindless_Let1** (9↑): Good engineers are generally fine handling multiple related domains
-    - **Budget-Minimum6040** (3↑): ML is not a related domain though.
+    - **Budget-Minimum6040** (4↑): ML is not a related domain though.
   - **EntertainmentAble533** (1↑): Sounds like it's more of a bad experience with that company rather than the data engineering role being hard.  Data engineers \*can\* work on infrastructure tasks if it's a small team, but a larger (and mature) company will have a dedicated MLOps/DevOps team. In general, do what makes you happy; job stress is not worth a pay bump imo
-- **TheOverzealousEngie** (37↑): Not sure I've ever hear someone speak about such deep human purpose at the same time as vomiting 2 full paragraphs of some really good technobabble. Quite the contrast.
-  - **Delicious-View-8688** (6↑): Haha. Sorry for the rant.
-    - **idiots-abound** (7↑): It’s like you were keywording your post so it could get past the automated resume filter.
-- **figshot** (29↑): You didn't crash GitHub. GitHub crashes GitHub.
-  - **Delicious-View-8688** (5↑): I wish the best to those Engineers working at GitHub. Beginning to imagine what they must be dealing with and going through that all the issues are surfacing.
-- **daguito81** (18↑): That’s because you’re not a DE. You’re an entire department. That’s why it’s so jarring. You’re not the guy that’s tweaking model parameters, that’s the DS job. How to query a database specifically I would say it’s the DA job you know “analyse the data in the DB” 
+- **TheOverzealousEngie** (39↑): Not sure I've ever hear someone speak about such deep human purpose at the same time as vomiting 2 full paragraphs of some really good technobabble. Quite the contrast.
+  - **Delicious-View-8688** (4↑): Haha. Sorry for the rant.
+    - **idiots-abound** (5↑): It’s like you were keywording your post so it could get past the automated resume filter.
+- **figshot** (31↑): You didn't crash GitHub. GitHub crashes GitHub.
+  - **Delicious-View-8688** (7↑): I wish the best to those Engineers working at GitHub. Beginning to imagine what they must be dealing with and going through that all the issues are surfacing.
+- **daguito81** (16↑): That’s because you’re not a DE. You’re an entire department. That’s why it’s so jarring. You’re not the guy that’s tweaking model parameters, that’s the DS job. How to query a database specifically I would say it’s the DA job you know “analyse the data in the DB” 
 The Cicd stuff should be managed by a DevOps team unless it’s self service and you’re changing “your project” stuff. 
 
 Kubernetes should be handled by the engineering team. Same with Datadog. 
@@ -111,7 +120,7 @@ We're just telling you why this jobs seems like it's insane compared to the othe
 10/10 times is the company taking advantage of someone being proactive and self-justifying "no no, I really like it like that" or the other one "I like it because I get to learn a lot!" (which is completely true, but still it should be 3-4 different people). 
 
 I'm not talling you to quit or dislike your job. I'm also someone "taken advantage of" 100%.
-- **Demistr** (13↑): It's just a job in the end.
+- **Demistr** (14↑): It's just a job in the end.
   - **Big_Storage_94** (1↑): It’s not a lifestyle? lol
 - **Shadowlance23** (25↑): Honestly, I like that about it. Always a new problem to solve, something new to learn, another fire to put out. Keeps me on my toes and I don't get bored.
 
@@ -126,5 +135,5 @@ So it starts with a benign thing like. Hmm, I need to scale up that compute clus
 
 The log shows a few blips. Then your job fails. Wait, is this a data issue or a compute issue? Turns out it's a bit of both. You know the context, and you have an idea on how to fix it. Do you just fix the data side of the problem and raise a ticket to get the compute side of it fixed? Again, either wait up to 24 hours for it to get picked up and risk slipping deadline, or, do you go in and attempt a fix yourself? down the rabbit hole we go...
     - **Chemical-Knee-1182** (4↑): You sound like someone I would love to learn from.
-- **tiktokbot12** (8↑): Couldn’t agree more OP
-- **cakerev** (6↑): I feel you and with the age of AI. Now every dataset needs to be accessible to AI and optimally used by it as well. It feels like their has been a ground swell of what data engineering is in companies recently. Don't forget you have to have experience in every cloud, dbt, airflow, Databricks and snowflake. Learning on the job? that's for suckers. You are not alone man and daily I'm wondering how to step into a non-technical space because I'm struggling to keep up.
+- **tiktokbot12** (7↑): Couldn’t agree more OP
+- **cakerev** (5↑): I feel you and with the age of AI. Now every dataset needs to be accessible to AI and optimally used by it as well. It feels like their has been a ground swell of what data engineering is in companies recently. Don't forget you have to have experience in every cloud, dbt, airflow, Databricks and snowflake. Learning on the job? that's for suckers. You are not alone man and daily I'm wondering how to step into a non-technical space because I'm struggling to keep up.

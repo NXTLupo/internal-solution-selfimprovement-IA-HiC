@@ -21,41 +21,55 @@ chunks:
     char_span: [0, 1814]
     sentence_count: 12
     key_terms: [classes, semester, skipping, "i'm", class, addiction, "i've", college]
+    concepts: [classes, semester, skipping, addiction, class]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ocj4p3.md#c2", "social-intelligence/reddit-deep/college/1ocj4p3.md#c3", "social-intelligence/reddit-deep/college/1ocj4p3.md#c5"]
     token_count: 409
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ocj4p3/im_developing_a_skipping_addiction/"}]
   - id: "social-intelligence/reddit-deep/college/1ocj4p3.md#c1"
     char_span: [1828, 3609]
     sentence_count: 15
     key_terms: [questions, skipping, courses, opportunity, get, skip, doctorate, professor]
+    concepts: [questions, skipping, courses, opportunity, doctorate]
     section: Comments
     token_count: 416
+    sources: [{"n":"me, I had a skipping addiction in undergrad and I wound up flunking out before g","u":""}]
   - id: "social-intelligence/reddit-deep/college/1ocj4p3.md#c2"
     char_span: [3611, 5581]
     sentence_count: 16
     key_terms: [classes, class, thought, better, feel, like, read, undergrad]
+    concepts: [classes, class, thought, better, undergrad]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ocj4p3.md#c0", "social-intelligence/reddit-deep/college/1ocj4p3.md#c6"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/college/1ocj4p3.md#c3"
     char_span: [5583, 7281]
     sentence_count: 9
     key_terms: [learning, semester, dootymccool2000, class, "i'm", powerpoint, education, approach]
+    concepts: [dootymccool2000, learning, semester, class, powerpoint]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ocj4p3.md#c0", "social-intelligence/reddit-deep/college/1ocj4p3.md#c5"]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/college/1ocj4p3.md#c4"
     char_span: [7283, 9469]
     sentence_count: 17
     key_terms: [lecture, "i'm", instructor, class, history, upper-division, attend, engineering]
+    concepts: [lecture, instructor, class, upper-division, history]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ocj4p3.md#c5"
     char_span: [9471, 11173]
     sentence_count: 19
     key_terms: [class, did, get, time, professors, semester, skipping, degrees]
+    concepts: [class, professors, semester, skipping, degrees]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ocj4p3.md#c0", "social-intelligence/reddit-deep/college/1ocj4p3.md#c3"]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/college/1ocj4p3.md#c6"
     char_span: [11175, 12148]
     sentence_count: 5
     key_terms: [undergrad, research, better, video, get, objectmedium6335, backgrounds, discipline]
+    concepts: [undergrad, research, better, video]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ocj4p3.md#c2"]
     section: Comments
     token_count: 219
 ---

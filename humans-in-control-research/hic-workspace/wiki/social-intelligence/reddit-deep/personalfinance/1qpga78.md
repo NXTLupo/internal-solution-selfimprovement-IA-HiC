@@ -20,16 +20,22 @@ chunks:
     char_span: [0, 2063]
     sentence_count: 10
     key_terms: [checking, account, because, savings, ruled, overdraft, apy, high]
+    concepts: [checking, account, because, savings, overdraft]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1qpga78.md#c2"]
     token_count: 472
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1qpga78/searching_for_a_highyield_checking_account_can/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1qpga78.md#c1"
     char_span: [2065, 3156]
     sentence_count: 9
     key_terms: [zynlo, budgeting, criteria, search, app, accounts, checking, reviews]
+    concepts: [zynlo, budgeting, criteria, search, accounts]
     token_count: 240
   - id: "social-intelligence/reddit-deep/personalfinance/1qpga78.md#c2"
-    char_span: [3171, 4024]
+    char_span: [3170, 4023]
     sentence_count: 3
     key_terms: [account, checking, possible, choice-checking, because, "doesn't", ihaveamodel3, lacapfcu]
+    concepts: [account, choice-checking, checking, possible, because]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1qpga78.md#c0"]
     section: Comments
     token_count: 228
 ---

@@ -20,23 +20,32 @@ chunks:
     char_span: [0, 891]
     sentence_count: 6
     key_terms: [customerexperience, customer, human, improving, comments, support, cryrevolutionary7536, hand]
+    concepts: [customerexperience, customer, human, improving, comments]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1nv18nv.md#c3"]
     token_count: 191
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1nv18nv/is_ai_actually_improving_customer_service_or_just/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1nv18nv.md#c1"
-    char_span: [906, 2987]
+    char_span: [905, 2986]
     sentence_count: 19
     key_terms: [support, agent, frustrating, customers, customer, strategy, better, beyond]
+    concepts: [support, frustrating, agent, customers, customer]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1nv18nv.md#c2", "social-intelligence/reddit-deep/customerexperience/1nv18nv.md#c3"]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/customerexperience/1nv18nv.md#c2"
-    char_span: [2989, 4783]
+    char_span: [2988, 4782]
     sentence_count: 14
     key_terms: [customer, "it's", frustrating, good, customers, "doesn't", systems, simply]
+    concepts: [customer, frustrating, customers, "doesn't", systems]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1nv18nv.md#c1", "social-intelligence/reddit-deep/customerexperience/1nv18nv.md#c3"]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/customerexperience/1nv18nv.md#c3"
-    char_span: [4785, 6426]
+    char_span: [4784, 6425]
     sentence_count: 13
     key_terms: [human, difference, customers, customer, problems, instead, started, faster]
+    concepts: [human, difference, customers, customer, problems]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1nv18nv.md#c0", "social-intelligence/reddit-deep/customerexperience/1nv18nv.md#c1", "social-intelligence/reddit-deep/customerexperience/1nv18nv.md#c2"]
     section: Comments
     token_count: 330
 ---

@@ -19,34 +19,44 @@ chunks:
     char_span: [0, 2191]
     sentence_count: 13
     key_terms: [university, friends, nonetheless, applyingtocollege, year, personal, opportunities, competitive]
+    concepts: [university, nonetheless, friends, applyingtocollege, personal]
     token_count: 483
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1th5mfc/it_does_matter_where_you_go_to_college_but_not/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1th5mfc.md#c1"
     char_span: [2193, 3182]
     sentence_count: 9
     key_terms: [university, environment, empowered, supported, feel, need, universities, exploration]
+    concepts: [university, environment, empowered, supported]
     token_count: 205
   - id: "social-intelligence/reddit-deep/applyingtocollege/1th5mfc.md#c2"
     char_span: [3196, 5003]
     sentence_count: 6
     key_terms: [meowmeow1637327, school, year, college, support, pursue, admirable-location24, beginningzucchini364]
+    concepts: [meowmeow1637327, school, college, support, pursue]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1th5mfc.md#c4"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/applyingtocollege/1th5mfc.md#c3"
     char_span: [5005, 7305]
     sentence_count: 9
     key_terms: [classes, school, assignments, research, opportunities, stem, professors, completed]
+    concepts: [classes, school, assignments, research, opportunities]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1th5mfc.md#c4"]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/applyingtocollege/1th5mfc.md#c4"
     char_span: [7307, 8970]
     sentence_count: 9
     key_terms: [classes, actual, people, school, college, not-super-selective, being, leading-bobcat1151]
+    concepts: [classes, actual, people, school, college]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1th5mfc.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1th5mfc.md#c3"]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/applyingtocollege/1th5mfc.md#c5"
     char_span: [8973, 10968]
     sentence_count: 14
     key_terms: [school, option, experience, process, schools, aid, list, admissions]
+    concepts: [school, experience, option, process, schools]
     section: Comments
     token_count: 428
 ---

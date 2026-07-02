@@ -20,26 +20,32 @@ chunks:
     char_span: [0, 2151]
     sentence_count: 23
     key_terms: [logistics, usps, week, fuel, postmaster, comments, priority, general]
+    concepts: [logistics, postmaster, comments, priority, general]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1s8re9u/catch_up_on_what_happened_this_week_in_logistics/"}]
   - id: "social-intelligence/reddit-deep/logistics/1s8re9u.md#c1"
     char_span: [2153, 4388]
     sentence_count: 24
     key_terms: [amazon, companies, rural, years, delivery, storage, infrastructure, market]
+    concepts: [amazon, companies, rural, years, delivery]
     token_count: 472
   - id: "social-intelligence/reddit-deep/logistics/1s8re9u.md#c2"
     char_span: [4390, 6579]
     sentence_count: 22
     key_terms: [facilities, cargo, million, trailer, theft, time, congress, freight]
+    concepts: [facilities, cargo, million, trailer, theft]
     token_count: 440
   - id: "social-intelligence/reddit-deep/logistics/1s8re9u.md#c3"
     char_span: [6581, 8728]
     sentence_count: 18
     key_terms: [alliance, fedex, enforcement, surcharges, logistics-pulse-by-fulfillyn, australia, startrack, delivery]
+    concepts: [alliance, enforcement, fedex, surcharges, australia]
     token_count: 466
   - id: "social-intelligence/reddit-deep/logistics/1s8re9u.md#c4"
-    char_span: [8743, 10448]
+    char_span: [8742, 10447]
     sentence_count: 9
     key_terms: [charlesholmes1, fuel, organization, post, usps, surcharges, companies, surcharge]
+    concepts: [charlesholmes1, organization, surcharges, companies, surcharge]
     section: Comments
     token_count: 418
 ---

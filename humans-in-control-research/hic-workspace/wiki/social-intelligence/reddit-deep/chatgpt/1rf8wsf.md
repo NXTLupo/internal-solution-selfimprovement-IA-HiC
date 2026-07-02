@@ -21,44 +21,56 @@ chunks:
     char_span: [0, 2092]
     sentence_count: 12
     key_terms: [chatgpt, "it's", explain, something, bc0b-2685c7637c71, like, trying, instructions]
+    concepts: [chatgpt, explain, bc0b-2685c7637c71, something, instructions]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1rf8wsf/has_anyone_noticed_chatgpt_behaving_differently/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c1"
     char_span: [2094, 4695]
     sentence_count: 10
     key_terms: [manifestation, nature, failure, effect, modes, interaction, describe, discrete]
+    concepts: [manifestation, nature, failure, effect, interaction]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c2", "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c3"]
     token_count: 505
   - id: "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c2"
     char_span: [4701, 7651]
     sentence_count: 16
     key_terms: [manifestation, effect, nature, structural, internal, correct, offset, feels]
+    concepts: [manifestation, effect, nature, structural, internal]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c1", "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c3"]
     token_count: 489
   - id: "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c3"
     char_span: [7657, 10254]
     sentence_count: 14
     key_terms: [manifestation, effect, nature, semantic, displacement, structural, mirroring, fidelity]
+    concepts: [manifestation, effect, nature, semantic, displacement]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c1", "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c2"]
     token_count: 431
   - id: "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c4"
     char_span: [10268, 11572]
     sentence_count: 9
     key_terms: [openai, please, conversation, image, post, r-chatgpt-1050422060352024636, subreddit, annoying]
+    concepts: [conversation, openai, please, image, subreddit]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c5"
     char_span: [11574, 12677]
     sentence_count: 4
     key_terms: [sometimes, better, gemini, trying, feels, worse, they-walk-among-us, ways]
+    concepts: [sometimes, better, gemini, trying, feels]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c6"
     char_span: [12679, 14185]
     sentence_count: 16
     key_terms: [windows, expletives, sunderezz, loud-impression5114, novatartheviolator, recoveringsquirell, jerviscottonbelly, don]
+    concepts: [windows, expletives, sunderezz]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c7"
     char_span: [14188, 15331]
     sentence_count: 6
     key_terms: [asked, remember, claude, abuse, novatartheviolator, bottubtimemachine, did, tell]
+    concepts: [asked, remember, claude, abuse]
     section: Comments
     token_count: 296
 ---

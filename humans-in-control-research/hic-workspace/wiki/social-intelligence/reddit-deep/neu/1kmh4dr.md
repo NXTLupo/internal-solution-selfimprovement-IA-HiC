@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 608]
     sentence_count: 3
     key_terms: [cps, comments, student, fenway, neu, disappointing, celebration, contributed]
+    concepts: [comments, student, fenway]
     token_count: 147
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1kmh4dr/cps_gradates_not_invited_to_fenway/"}]
   - id: "social-intelligence/reddit-deep/neu/1kmh4dr.md#c1"
     char_span: [622, 2707]
     sentence_count: 6
     key_terms: [cps, professionals, students, degree, time, admissions, education, undergrad]
+    concepts: [professionals, students, degree, admissions, education]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1kmh4dr.md#c2"
     char_span: [2433, 3755]
     sentence_count: 10
     key_terms: [cps, "it's", programs, spawnofangels, part, time, different, college]
+    concepts: [programs, spawnofangels, different, college, friends]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/neu/1kmh4dr.md#c3"
     char_span: [3757, 4761]
     sentence_count: 7
     key_terms: [cps, different, northeastern, graduation, colleges, students, fenway, "it's"]
+    concepts: [different, northeastern, graduation, colleges, students]
     section: Comments
     token_count: 213
 ---

@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 760]
     sentence_count: 7
     key_terms: [first-year, internships, internship, comments, advice, secure, hope, connections]
+    concepts: [first-year, internships, internship, comments, advice]
     token_count: 173
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1mh0frf/advice_for_firstyear_looking_to_secure_an/"}]
 ---
 # Advice for first-year looking to secure an internship ASAP
 

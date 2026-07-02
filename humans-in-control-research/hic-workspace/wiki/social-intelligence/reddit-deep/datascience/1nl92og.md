@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 309]
     sentence_count: 3
     key_terms: [datascience, comments, based, reddit-deep, mid-senior, subreddit, applying, feedback]
+    concepts: [datascience, comments, based]
     token_count: 82
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1nl92og/updated_based_on_subreddit_feedback_applying_for/"}]
   - id: "social-intelligence/reddit-deep/datascience/1nl92og.md#c1"
-    char_span: [324, 2557]
+    char_span: [323, 2556]
     sentence_count: 16
     key_terms: [business, knowledge, understand, data, because, domain, people, joshuafalken1]
+    concepts: [business, knowledge, understand, joshuafalken1, because]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1nl92og.md#c2"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/datascience/1nl92og.md#c2"
-    char_span: [2559, 4515]
+    char_span: [2558, 4514]
     sentence_count: 10
     key_terms: [interview, shit, business, science, joshuafalken1, dashboards, computer, domain]
+    concepts: [interview, business, joshuafalken1, science, dashboards]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1nl92og.md#c1"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/datascience/1nl92og.md#c3"
-    char_span: [4517, 6235]
+    char_span: [4516, 6234]
     sentence_count: 16
     key_terms: [experience, include, profile, education, linkedin, showcase, example, section]
+    concepts: [experience, include, profile, education, linkedin]
     section: Comments
     token_count: 344
 ---

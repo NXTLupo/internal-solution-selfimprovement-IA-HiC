@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 624]
     sentence_count: 6
     key_terms: [applying, jobs, comments, places, "don't", shiny-baby-cheetah, reddit-deep, employment]
+    concepts: [applying, comments, places, "don't"]
     token_count: 160
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rr06lu/so_im_about_to_start_applying_to_jobs_entry_level/"}]
   - id: "social-intelligence/reddit-deep/jobs/1rr06lu.md#c1"
     char_span: [638, 2237]
     sentence_count: 12
     key_terms: [work, online, recruiters, shiny-baby-cheetah, remote, "you're", apply, going]
+    concepts: [shiny-baby-cheetah, recruiters, online, remote, "you're"]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/jobs/1rr06lu.md#c2"
     char_span: [2239, 3898]
     sentence_count: 16
     key_terms: [job, shiny-baby-cheetah, listing, separate, right, jobs, luck, time]
+    concepts: [shiny-baby-cheetah, listing, separate, right, different]
     section: Comments
     token_count: 420
 ---

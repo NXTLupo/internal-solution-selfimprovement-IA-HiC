@@ -20,16 +20,23 @@ chunks:
     char_span: [0, 2128]
     sentence_count: 23
     key_terms: [product, winning, spend, ads, problem, dropshipping, fulfillment, comments]
+    concepts: [product, winning, spend, problem, dropshipping]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1t7enan.md#c1"]
     token_count: 483
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1t7enan/how_to_find_a_winning_dropshipping_product_in/"}]
   - id: "social-intelligence/reddit-deep/dropship/1t7enan.md#c1"
     char_span: [2130, 3983]
     sentence_count: 25
     key_terms: [products, product, people, consideration, dropshipping, rates, time, conversion]
+    concepts: [products, consideration, product, dropshipping, people]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1t7enan.md#c0", "social-intelligence/reddit-deep/dropship/1t7enan.md#c2"]
     token_count: 390
   - id: "social-intelligence/reddit-deep/dropship/1t7enan.md#c2"
-    char_span: [3998, 5804]
+    char_span: [3997, 5803]
     sentence_count: 13
     key_terms: [people, product, usually, isn, themselves, questions, creative, dropship]
+    concepts: [people, product, usually, themselves, questions]
+    related_chunks: ["social-intelligence/reddit-deep/dropship/1t7enan.md#c1"]
     section: Comments
     token_count: 399
 ---

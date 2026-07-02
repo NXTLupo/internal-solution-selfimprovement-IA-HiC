@@ -20,35 +20,44 @@ chunks:
     char_span: [0, 1015]
     sentence_count: 10
     key_terms: [intel, comments, stocks, real, expectations, partnership, reddit-deep, government]
+    concepts: [intel, comments, stocks]
     token_count: 242
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1of94ze/intel_finally_showing_signs_of_a_real_turnaround/"}]
   - id: "social-intelligence/reddit-deep/stocks/1of94ze.md#c1"
-    char_span: [1030, 2229]
+    char_span: [1029, 2228]
     sentence_count: 8
     key_terms: [bought, share, nygiants181, unlimited, collect, expose, myself, trades]
+    concepts: [bought, nygiants181, share, unlimited, collect]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/stocks/1of94ze.md#c2"
-    char_span: [2231, 4177]
+    char_span: [2230, 4176]
     sentence_count: 17
     key_terms: [intel, communicationfew41, good, earnings, bought, shit, contracts, strike]
+    concepts: [communicationfew41, intel, earnings, bought, contracts]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1of94ze.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1of94ze.md#c3"
-    char_span: [3979, 5128]
+    char_span: [3978, 5127]
     sentence_count: 8
     key_terms: [fundamentals, dump, pump, earnings, holding, opdbzto, intel, least]
+    concepts: [fundamentals, earnings, holding, opdbzto, intel]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1of94ze.md#c2"]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/stocks/1of94ze.md#c4"
-    char_span: [5130, 6502]
+    char_span: [5129, 6501]
     sentence_count: 7
     key_terms: [earnings, years, goverment, remind, today, communicationfew41, com, held]
+    concepts: [earnings, years, goverment, remind, today]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/stocks/1of94ze.md#c5"
-    char_span: [6504, 7730]
+    char_span: [6503, 7729]
     sentence_count: 2
     key_terms: [message, remindmebot, reddit, com, https, compose, subject, www]
+    concepts: [message, remindmebot, reddit, compose, https]
     section: Comments
     token_count: 441
 ---

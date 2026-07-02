@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 956]
     sentence_count: 5
     key_terms: [engineeringstudents, years, job, summer, "it's", comments, student, posted]
+    concepts: [engineeringstudents, years, summer, comments, student]
     token_count: 231
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1te5irh/got_a_job_promotion_at_my_student_job_instead_of/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1te5irh.md#c1"
     char_span: [970, 2056]
     sentence_count: 9
     key_terms: [engineeringstudents, advanced-gain-2201, wiki, please, reddit, https, com, www]
+    concepts: [engineeringstudents, advanced-gain-2201, please, reddit, https]
     section: Comments
     token_count: 274
 ---

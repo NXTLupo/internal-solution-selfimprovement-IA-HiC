@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1500]
     sentence_count: 6
     key_terms: [customer, customerexperience, companies, head, strategy, roles, automation, operations]
+    concepts: [customer, customerexperience, companies, strategy, automation]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1tpl0y7.md#c2"]
     token_count: 349
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1tpl0y7/companies_are_creating_head_of_customer_ai_roles/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1tpl0y7.md#c1"
-    char_span: [1515, 3728]
+    char_span: [1514, 3727]
     sentence_count: 17
     key_terms: [consolidation, token, "it's", real, department, innovation, business, customer]
+    concepts: [consolidation, department, innovation, token, business]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/customerexperience/1tpl0y7.md#c2"
-    char_span: [3730, 6154]
+    char_span: [3729, 6153]
     sentence_count: 16
     key_terms: [customer, role, product, automation, roles, "didn't", hiring, day]
+    concepts: [customer, product, automation, roles, "didn't"]
+    related_chunks: ["social-intelligence/reddit-deep/customerexperience/1tpl0y7.md#c0"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/customerexperience/1tpl0y7.md#c3"
-    char_span: [6156, 8134]
+    char_span: [6155, 8133]
     sentence_count: 12
     key_terms: [customer, deflection, contacts, "effective-eagle5926's", around, number, "that's", point]
+    concepts: [customer, deflection, contacts, around, number]
     section: Comments
     token_count: 417
 ---

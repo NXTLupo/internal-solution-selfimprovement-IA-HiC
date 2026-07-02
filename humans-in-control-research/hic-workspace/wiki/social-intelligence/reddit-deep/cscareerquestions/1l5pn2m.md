@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1028]
     sentence_count: 5
     key_terms: [cscareerquestions, internships, jobs, comments, company, google, covid, right]
+    concepts: [cscareerquestions, internships, comments, company, google]
     token_count: 243
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1l5pn2m/was_getting_cs_internshipsjobs_really_that_easy/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l5pn2m.md#c1"
     char_span: [1042, 2998]
     sentence_count: 13
     key_terms: [like, horsesflyintoboxes, electrical-ad1886, marathonmarathon, company, career, summer, local]
+    concepts: [horsesflyintoboxes, electrical-ad1886, marathonmarathon, company, career]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l5pn2m.md#c2"
     char_span: [3000, 4827]
     sentence_count: 9
     key_terms: [ihlidxustpsoftdeve, companies, bubble, covid, get, jobs, stlouisfed, company]
+    concepts: [ihlidxustpsoftdeve, companies, bubble, covid, stlouisfed]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l5pn2m.md#c3"
     char_span: [4829, 6746]
     sentence_count: 14
     key_terms: [companies, number, hired, get, hire, jobs, tech, countries]
+    concepts: [companies, number, hired, countries, bootcamp]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l5pn2m.md#c4"
     char_span: [6748, 8482]
     sentence_count: 13
     key_terms: [internships, got, leetcode, people, importance, interviews, networking, university]
+    concepts: [internships, leetcode, people, importance, interviews]
     section: Comments
     token_count: 390
 ---

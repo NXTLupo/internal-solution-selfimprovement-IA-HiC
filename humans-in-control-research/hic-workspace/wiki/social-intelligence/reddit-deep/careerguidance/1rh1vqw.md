@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1416]
     sentence_count: 10
     key_terms: [job, careerguidance, depression, comments, quitting, physics, cooked, reason]
+    concepts: [careerguidance, depression, comments, quitting, physics]
     token_count: 335
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rh1vqw/am_i_cooked_35m_unemployed/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rh1vqw.md#c1"
     char_span: [1430, 3472]
     sentence_count: 15
     key_terms: [mental, health, exercise, someone, "you're", intelligence, feel, good]
+    concepts: [mental, health, exercise, someone, intelligence]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/careerguidance/1rh1vqw.md#c2"
     char_span: [3474, 5519]
     sentence_count: 20
     key_terms: [experience, jobs, company, people, "don't", smart, been, work]
+    concepts: [experience, company, people, "don't", smart]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/careerguidance/1rh1vqw.md#c3"
     char_span: [5521, 7366]
     sentence_count: 22
     key_terms: [like, cooked, maybe, "master's", standard, startups, profile, berlin]
+    concepts: [cooked, maybe, "master's", standard, startups]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/careerguidance/1rh1vqw.md#c4"
     char_span: [7368, 8242]
     sentence_count: 7
     key_terms: [cosmiccompass, psychological, strategic, career, health, help, life, intellectual]
+    concepts: [cosmiccompass, psychological, strategic, career, health]
     section: Comments
     token_count: 184
 ---

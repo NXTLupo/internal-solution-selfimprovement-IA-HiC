@@ -20,29 +20,34 @@ chunks:
     char_span: [0, 1114]
     sentence_count: 9
     key_terms: [automation, customerexperience, did, automated, comments, contact, running, cryrevolutionary7536]
+    concepts: [customerexperience, automation, automated, comments, contact]
     token_count: 234
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1s8fbr5/how_much_of_your_contact_center_is_actually/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1s8fbr5.md#c1"
-    char_span: [1129, 1495]
+    char_span: [1128, 1494]
     sentence_count: 2
     key_terms: [like, agent-assist, consistently, appointment, containment, automation, scheduling, deflected]
     section: Comments
     token_count: 85
   - id: "social-intelligence/reddit-deep/customerexperience/1s8fbr5.md#c2"
-    char_span: [1497, 3630]
+    char_span: [1496, 3629]
     sentence_count: 8
     key_terms: [containment, slack-mcp-ops-teams, teams, automation, deflection, automated, designed, journeys]
+    concepts: [containment, slack-mcp-ops-teams, automation, deflection, teams]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/customerexperience/1s8fbr5.md#c3"
-    char_span: [3313, 4337]
+    char_span: [3312, 4336]
     sentence_count: 8
     key_terms: [agents, human, automated, replacing, automate, complex, support, being]
+    concepts: [agents, human, automated, replacing, automate]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/customerexperience/1s8fbr5.md#c4"
-    char_span: [4339, 6081]
+    char_span: [4338, 6080]
     sentence_count: 10
     key_terms: [automation, straightforward, conversations, human, interesting, especially, experience, automate]
+    concepts: [automation, straightforward, conversations, interesting, especially]
     section: Comments
     token_count: 330
 ---

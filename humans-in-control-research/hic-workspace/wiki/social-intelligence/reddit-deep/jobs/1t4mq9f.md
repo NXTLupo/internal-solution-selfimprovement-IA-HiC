@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 408]
     sentence_count: 4
     key_terms: [experience, entry-level, comments, requires, get, job, jobs, katyreddit00]
+    concepts: [experience, entry-level, comments, requires]
     token_count: 103
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1t4mq9f/how_am_i_supposed_to_get_experience_when_every/"}]
   - id: "social-intelligence/reddit-deep/jobs/1t4mq9f.md#c1"
     char_span: [422, 987]
     sentence_count: 4
     key_terms: [want, someone, people, train, don, hate, historicalchew10, katyreddit00]
+    concepts: [someone, people, train]
     section: Comments
     token_count: 157
 ---

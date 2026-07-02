@@ -16,42 +16,51 @@ chunks:
     char_span: [0, 1793]
     sentence_count: 10
     key_terms: [topic, documents, using, pipeline, clustering, c-tf-idf, modeling, hdbscan]
+    concepts: [topic, documents, pipeline, using, clustering]
+    related_chunks: ["social-intelligence/topic-modeling.md#c1"]
     section: BERTopic Pipeline
     token_count: 360
   - id: "social-intelligence/topic-modeling.md#c1"
     char_span: [1795, 3946]
     sentence_count: 1
     key_terms: [topic, posts, documents, subreddit, number, none, per, embeddings]
+    concepts: [topic, documents, subreddit, posts, number]
+    related_chunks: ["social-intelligence/topic-modeling.md#c0"]
     section: BERTopic Pipeline
     token_count: 483
   - id: "social-intelligence/topic-modeling.md#c2"
     char_span: [3948, 5070]
     sentence_count: 1
     key_terms: [topic-model, int, api, topics, count, returns, cancel, sentiment]
+    concepts: [topic-model, topics, count, returns, cancel]
     section: BERTopic Pipeline
     token_count: 292
   - id: "social-intelligence/topic-modeling.md#c3"
     char_span: [5097, 7179]
     sentence_count: 7
     key_terms: [subreddit, post, comment, models, content, returns, stores, vector]
+    concepts: [subreddit, comment, models, redditcomment, content]
     section: pgvector Integration
     token_count: 470
   - id: "social-intelligence/topic-modeling.md#c4"
     char_span: [7229, 8555]
     sentence_count: 2
     key_terms: [search, openai-compatible, via, context, claude, prompt, api, llm]
+    concepts: [openai-compatible, search, context, claude, prompt]
     section: RAG (Retrieval-Augmented Generation) System
     token_count: 324
   - id: "social-intelligence/topic-modeling.md#c5"
     char_span: [8584, 9273]
     sentence_count: 1
     key_terms: [wiki, theme, topic, embeddings, similarity, identify, provides, semantic]
+    concepts: [embeddings, similarity, theme, topic, identify]
     section: Wiki Integration Rules
     token_count: 116
   - id: "social-intelligence/topic-modeling.md#c6"
     char_span: [9296, 9676]
     sentence_count: 1
     key_terms: [social-intelligence, competitive, frameworks, analysis, social, topic, sentiment-pipeline, credibility-tiers]
+    concepts: [social-intelligence, competitive, frameworks, analysis, social]
     section: Cross-References
     token_count: 86
 ---

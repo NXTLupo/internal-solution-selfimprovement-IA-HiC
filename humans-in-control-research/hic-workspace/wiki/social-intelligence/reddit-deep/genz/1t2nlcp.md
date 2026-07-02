@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1623]
     sentence_count: 13
     key_terms: [remote, "i'm", job, independence, doing, financial, comments, economy]
+    concepts: [remote, independence, doing, financial, comments]
     token_count: 399
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1t2nlcp/what_are_you_doing_in_your_20s_to_beat_the/"}]
   - id: "social-intelligence/reddit-deep/genz/1t2nlcp.md#c1"
     char_span: [1637, 2802]
     sentence_count: 3
     key_terms: [discord, remote, warm-pollution-1804, years, good, got, like, work]
+    concepts: [discord, remote, years]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/genz/1t2nlcp.md#c2"
     char_span: [2804, 4001]
     sentence_count: 12
     key_terms: [people, rent, work, company, parents, living, saving, bayouboybussybusters]
+    concepts: [people, company, parents, living, saving]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/genz/1t2nlcp.md#c3"
     char_span: [4003, 5143]
     sentence_count: 7
     key_terms: [truck, rackingupthemiles, "it's", job, week, fit-rhubarb-7820, cye0by6j4yyg1, particularly]
+    concepts: [truck]
     section: Comments
     token_count: 290
 ---

@@ -21,16 +21,22 @@ chunks:
     char_span: [0, 1432]
     sentence_count: 10
     key_terms: [gpt-5, thinking, coding, mode, comments, seconds, model, deep]
+    concepts: [gpt-5, thinking, coding, comments, seconds]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1mot0mf.md#c1"]
     token_count: 381
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1mot0mf/why_gpt5_is_absolute_garbage_endless_thinking/"}]
   - id: "social-intelligence/reddit-deep/gpt/1mot0mf.md#c1"
     char_span: [1434, 2902]
     sentence_count: 19
     key_terms: [gpt-5, model, code, coding, openai, like, claude, gemini]
+    concepts: [gpt-5, model, coding, openai, claude]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1mot0mf.md#c0"]
     token_count: 378
   - id: "social-intelligence/reddit-deep/gpt/1mot0mf.md#c2"
     char_span: [2916, 3498]
     sentence_count: 3
     key_terms: [better, independent-ruin-376, intheendentropywins, disappointment, hallucinations, pre-testers, propaganda, irritated]
+    concepts: [better]
     section: Comments
     token_count: 159
 ---

@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1722]
     sentence_count: 28
     key_terms: [commute, time, per, year, personalfinance, recurring, comments, personal]
+    concepts: [commute, personalfinance, recurring, comments, personal]
     token_count: 411
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1s5dwk6/your_commute_is_a_financial_liability/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c1"
     char_span: [1736, 3688]
     sentence_count: 13
     key_terms: [commute, throwawayrefiguy, commuting, transit, public, bike, car, traffic]
+    concepts: [commute, throwawayrefiguy, commuting, transit, public]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c2"
     char_span: [3454, 5370]
     sentence_count: 12
     key_terms: [commute, take, relaxing, "it's", like, listen, pretty, daily]
+    concepts: [commute, relaxing, listen, pretty, daily]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c3"
@@ -44,36 +48,44 @@ chunks:
     char_span: [5382, 7274]
     sentence_count: 16
     key_terms: [commute, time, minute, rural, live, driving, instead, hourly]
+    concepts: [commute, minute, rural, driving, instead]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c5"
     char_span: [7276, 9197]
     sentence_count: 11
     key_terms: [time, house, free, paying, extra, job, financial, liability]
+    concepts: [house, paying, extra, financial, liability]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c6"
     char_span: [9199, 10952]
     sentence_count: 12
     key_terms: [lowbatteries, costs, "it's", commute, hours, "isn't", childcare, commuting]
+    concepts: [lowbatteries, costs, commute, hours, "isn't"]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c8"]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c7"
     char_span: [10954, 12116]
     sentence_count: 7
     key_terms: [time, important, clothing, money, get, isn, chickenshrimp92, ownmanagement]
+    concepts: [important, clothing, money]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c8"
     char_span: [12118, 13322]
     sentence_count: 10
     key_terms: [time, day, extra, apartment, free, commute, hours, money]
+    concepts: [apartment, extra, commute, difference, hours]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c6"]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c9"
     char_span: [13324, 14643]
     sentence_count: 6
     key_terms: [time, hours, otherwise, something, free, costing, blarfk, "that's"]
+    concepts: [otherwise, something, hours, costing, blarfk]
     section: Comments
     token_count: 342
 ---

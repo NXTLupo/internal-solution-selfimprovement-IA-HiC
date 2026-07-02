@@ -19,29 +19,37 @@ chunks:
     char_span: [0, 929]
     sentence_count: 18
     key_terms: [entry, level, got, job, degree, manufacturing, find, business]
+    concepts: [entry, level, manufacturing, degree, business]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1notpa6.md#c3"]
     token_count: 229
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1notpa6/it_feels_impossible_to_find_an_entry_level_job/"}]
   - id: "social-intelligence/reddit-deep/jobs/1notpa6.md#c1"
     char_span: [943, 2434]
     sentence_count: 9
     key_terms: [cooked, entrepreneurhuge5008, degrees, better, means, projects, entry, level]
+    concepts: [entrepreneurhuge5008, cooked, degrees, better, means]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/jobs/1notpa6.md#c2"
     char_span: [2437, 3715]
     sentence_count: 10
     key_terms: [sales, get, experience, job, company, managerial, laterally, positions]
+    concepts: [sales, experience, company, managerial, laterally]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/jobs/1notpa6.md#c3"
     char_span: [3717, 5187]
     sentence_count: 11
     key_terms: [entry, level, sales, job, business, unrealistic, get, jobs]
+    concepts: [entry, level, sales, business, unrealistic]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1notpa6.md#c0"]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/jobs/1notpa6.md#c4"
     char_span: [5189, 7403]
     sentence_count: 20
     key_terms: [sales, because, "you're", something, job, took, relative, company]
+    concepts: [because, sales, "you're", something, relative]
     section: Comments
     token_count: 510
 ---

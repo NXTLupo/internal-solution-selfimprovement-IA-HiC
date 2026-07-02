@@ -19,24 +19,29 @@ content_hash: "f96bb3ee11457558"
 relevance_by_goal: {"68c375ef0d4e":50}
 chunks:
   - id: "articles/reddit-deep-r-healthinsurance/fbf007faa0.md#c0"
-    char_span: [0, 2249]
+    char_span: [0, 2248]
     sentence_count: 9
     key_terms: [healthcare, costs, health, employees, employers, insurance, benefits, employer]
-    token_count: 482
+    concepts: [healthcare, costs, health, employees, employers]
+    token_count: 481
+    sources: [{"n":"Reddit Deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1o6441x/the_wild_history_of_us_health_insurance/"}]
   - id: "articles/reddit-deep-r-healthinsurance/fbf007faa0.md#c1"
-    char_span: [2254, 4141]
+    char_span: [2253, 4140]
     sentence_count: 5
     key_terms: [insurance, please, solicitation, hospital, healthinsurance, reddit, https, com]
+    concepts: [insurance, please, solicitation, healthinsurance, hospital]
     token_count: 434
   - id: "articles/reddit-deep-r-healthinsurance/fbf007faa0.md#c2"
-    char_span: [4144, 5968]
+    char_span: [4143, 5967]
     sentence_count: 11
     key_terms: [health, nixon, kennedy, legislation, act, care, proposed, payroll]
+    concepts: [health, nixon, kennedy, legislation, proposed]
     token_count: 395
   - id: "articles/reddit-deep-r-healthinsurance/fbf007faa0.md#c3"
-    char_span: [5970, 6880]
+    char_span: [5969, 6879]
     sentence_count: 7
     key_terms: [healthcare, "it's", kennedy-health-care-timeline, deleted, people, system, majestic-parsnip-279, too]
+    concepts: [healthcare, deleted, people, system]
     token_count: 223
 ---
 # The wild history of US health insurance

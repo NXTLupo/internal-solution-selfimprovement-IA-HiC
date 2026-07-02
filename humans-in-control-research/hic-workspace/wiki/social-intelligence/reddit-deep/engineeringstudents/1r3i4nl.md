@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1054]
     sentence_count: 6
     key_terms: [math, degree, engineering, engineeringstudents, year, comments, remember, learned]
+    concepts: [degree, engineering, engineeringstudents, comments, remember]
     token_count: 239
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1r3i4nl/to_senior_and_junior_engineering_students_do_you/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r3i4nl.md#c1"
     char_span: [1068, 3094]
     sentence_count: 12
     key_terms: [math, courses, calc, "you'll", specific, classes, fundamentals, level]
+    concepts: [courses, "you'll", specific, classes, fundamentals]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r3i4nl.md#c2"
     char_span: [3096, 4333]
     sentence_count: 7
     key_terms: [need, building, materials, mechanics, something, equation, handbook, learned]
+    concepts: [building, materials, mechanics, something, equation]
     section: Comments
     token_count: 288
 ---

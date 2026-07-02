@@ -20,21 +20,27 @@ chunks:
     char_span: [0, 1811]
     sentence_count: 6
     key_terms: [linkedin, profile, connection, requests, b2bmarketing, don, comments, everyone]
+    concepts: [linkedin, profile, connection, requests, b2bmarketing]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1oc7vmy.md#c2"]
     token_count: 406
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1oc7vmy/my_10_years_of_experience_working_with_linkedin/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1oc7vmy.md#c1"
-    char_span: [1826, 3608]
+    char_span: [1825, 3607]
     sentence_count: 10
     key_terms: [looking-for-marketing-discussion-811236647760298024, like, linkedin, humans, survey, automoderator, shelf-made, marketing]
+    concepts: [linkedin, automoderator, humans, survey, shelf-made]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/b2bmarketing/1oc7vmy.md#c2"
-    char_span: [3611, 5435]
+    char_span: [3610, 5434]
     sentence_count: 17
     key_terms: [profile, momusthegreate, investors, designed, requests, reason, execs, entertaininguptake]
+    concepts: [profile, momusthegreate, investors, designed, requests]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1oc7vmy.md#c0"]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/b2bmarketing/1oc7vmy.md#c3"
-    char_span: [5437, 5909]
+    char_span: [5436, 5908]
     sentence_count: 3
     key_terms: [day, "it's", pawsomedogs, understand, something, business, contacts, designed]
     section: Comments

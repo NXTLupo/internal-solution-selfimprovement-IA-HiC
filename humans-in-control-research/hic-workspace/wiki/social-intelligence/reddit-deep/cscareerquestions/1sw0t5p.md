@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1475]
     sentence_count: 12
     key_terms: [michigan, international, realistic, cscareerquestions, vietnam, internships, open-source, especially]
+    concepts: [michigan, international, cscareerquestions, realistic, vietnam]
     token_count: 332
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sw0t5p/international_cs_student_transferring_to_svsu_in/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sw0t5p.md#c1"
-    char_span: [1490, 2885]
+    char_span: [1489, 2884]
     sentence_count: 11
     key_terms: [school, "you'll", difficult, internships, get, sure, especially, projects]
+    concepts: [school, "you'll", difficult, internships, especially]
     section: Comments
     token_count: 338
 ---

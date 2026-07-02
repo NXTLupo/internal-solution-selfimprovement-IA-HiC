@@ -17,10 +17,12 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/salesforce/1rkuoc4.md#c0"
-    char_span: [0, 804]
+    char_span: [0, 803]
     sentence_count: 6
     key_terms: [agent, fsc, agentforce, salesforce, comments, pinocchiodebergerac, tried, demo]
-    token_count: 190
+    concepts: [agent, agentforce, salesforce, comments, tried]
+    token_count: 189
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1rkuoc4/struggling_with_the_agentforce_fsc_financial/"}]
 ---
 # Struggling with the Agentforce FSC Financial Advisor Assistance Agent
 

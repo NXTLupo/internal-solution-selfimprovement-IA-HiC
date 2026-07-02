@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1009]
     sentence_count: 7
     key_terms: [autonomy, machinelearning, applied, comments, engineer, robotics, radar, years]
+    concepts: [machinelearning, autonomy, applied, comments, engineer]
     token_count: 244
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1t4ombd/radar_engineer_to_autonomyai_d/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1t4ombd.md#c1"
     char_span: [1023, 2313]
     sentence_count: 7
     key_terms: [people, understanding, radar, model, paper, start, end, lot]
+    concepts: [understanding, people, radar, model, paper]
     section: Comments
     token_count: 304
 ---

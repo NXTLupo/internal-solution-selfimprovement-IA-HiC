@@ -19,52 +19,66 @@ chunks:
     char_span: [0, 1712]
     sentence_count: 19
     key_terms: [swipes, applyingtocollege, year, almost, dorms, going, place, meal]
+    concepts: [swipes, applyingtocollege, almost, dorms, going]
     token_count: 406
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1t1rxpr/do_not_come_to_tufts/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c1"
     char_span: [1714, 3058]
     sentence_count: 12
     key_terms: [here, people, school, classes, killed, office, glad, got]
+    concepts: [people, school, classes, killed, office]
     token_count: 285
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c2"
     char_span: [3072, 5165]
     sentence_count: 12
     key_terms: [tufts, jellyfishflaky5634, someone, people, universities, transferred, year, experience]
+    concepts: [tufts, jellyfishflaky5634, someone, universities, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c3"
     char_span: [4900, 7108]
     sentence_count: 14
     key_terms: [housing, abroad, tufts, year, semester, students, lottery, student]
+    concepts: [housing, abroad, tufts, semester, students]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c4"
     char_span: [6845, 8141]
     sentence_count: 18
     key_terms: [nothing, tufts, hall, informed, bedding, housing, written, dining]
+    concepts: [nothing, tufts, informed, bedding, housing]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c3"]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c5"
     char_span: [8143, 9834]
     sentence_count: 10
     key_terms: [room, jealouscorner3811, mold, window, been, hall, student, tuition]
+    concepts: [jealouscorner3811, window, student, tuition, swipes]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c6"
     char_span: [9836, 11855]
     sentence_count: 15
     key_terms: [harvard, school, dorms, dorm, students, like, mold, college]
+    concepts: [harvard, school, dorms, students, college]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c7"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c7"
     char_span: [11857, 13736]
     sentence_count: 9
     key_terms: [tuition, mold, college, colleges, students, someone, courts, apprehensivescene686]
+    concepts: [tuition, college, colleges, students, someone]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c6"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c8"
     char_span: [13738, 15289]
     sentence_count: 13
     key_terms: [school, northeastern, tufts, duke, food, high, amazing, problem]
+    concepts: [northeastern, school, tufts, amazing, problem]
     section: Comments
     token_count: 392
 ---

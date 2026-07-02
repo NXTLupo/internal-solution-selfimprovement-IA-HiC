@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 319]
     sentence_count: 2
     key_terms: [cscareerquestions, comments, job, reddit-deep, increase, majoring, chances, getting]
+    concepts: [cscareerquestions, comments]
     token_count: 85
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1opgcbo/would_double_majoring_with_cs_increase_your/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opgcbo.md#c1"
     char_span: [333, 2414]
     sentence_count: 19
     key_terms: [useful, double, sub, job, jobs, fintech, science, "there's"]
+    concepts: [useful, double, fintech, science, "there's"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opgcbo.md#c2"
     char_span: [2416, 4228]
     sentence_count: 16
     key_terms: [degree, get, job, like, "you'll", jobs, math, definitely]
+    concepts: [degree, "you'll", definitely, embedded, specific]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opgcbo.md#c3"
     char_span: [4230, 6279]
     sentence_count: 16
     key_terms: [work, taught, like, use, masters, math, technical, classes]
+    concepts: [taught, masters, technical, classes, degrees]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opgcbo.md#c4"

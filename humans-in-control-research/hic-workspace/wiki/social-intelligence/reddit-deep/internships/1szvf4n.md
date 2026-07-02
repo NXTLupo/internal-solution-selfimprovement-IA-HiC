@@ -19,41 +19,53 @@ chunks:
     char_span: [0, 930]
     sentence_count: 11
     key_terms: [internships, advice, comments, people, hired, right, did, got]
+    concepts: [internships, advice, comments, people, hired]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1szvf4n.md#c1"]
     token_count: 236
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1szvf4n/looking_for_advice_from_people_who_got_hired_in/"}]
   - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c1"
     char_span: [944, 2725]
     sentence_count: 11
     key_terms: [internship, referral, people, internships, got, arleyx949, something, without]
+    concepts: [internship, referral, people, internships, arleyx949]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1szvf4n.md#c0", "social-intelligence/reddit-deep/internships/1szvf4n.md#c2"]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c2"
     char_span: [2727, 4685]
     sentence_count: 16
     key_terms: [internship, arleyx949, applying, got, getting, people, internships, referrals]
+    concepts: [internship, arleyx949, applying, getting, people]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1szvf4n.md#c1", "social-intelligence/reddit-deep/internships/1szvf4n.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c3"
     char_span: [4426, 5205]
     sentence_count: 10
     key_terms: [applying, experience, through, people, best, application, graduating, internally]
+    concepts: [applying, experience, through, people]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1szvf4n.md#c2"]
     section: Comments
     token_count: 170
   - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c4"
     char_span: [5207, 7423]
     sentence_count: 21
     key_terms: [experience, because, accounting, professional, local, story, gain, compelling]
+    concepts: [experience, because, accounting, professional, compelling]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c5"
     char_span: [7425, 9426]
     sentence_count: 16
     key_terms: [experience, get, doesn, job, arleyx949, companies, network, mostly]
+    concepts: [experience, doesn, arleyx949, companies, network]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c6"
     char_span: [9428, 10382]
     sentence_count: 9
     key_terms: [internship, working, degree, get, got, want, swigofravioli349, interactive]
+    concepts: [internship, working, degree]
     section: Comments
     token_count: 226
 ---

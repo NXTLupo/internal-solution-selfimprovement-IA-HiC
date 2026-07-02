@@ -16,10 +16,12 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1q7fnoo.md#c0"
-    char_span: [0, 539]
+    char_span: [0, 538]
     sentence_count: 3
     key_terms: [admissions, gradadmissions, answering, questions, comments, process, today, georgetownmccourt]
-    token_count: 139
+    concepts: [admissions, gradadmissions, answering, questions, comments]
+    token_count: 138
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1q7fnoo/ama_going_live_today_im_the_director_of/"}]
 ---
 # AMA going live today! I'm the Director of Admissions at Georgetown’s McCourt School of Public Policy, answering your grad admissions questions live
 

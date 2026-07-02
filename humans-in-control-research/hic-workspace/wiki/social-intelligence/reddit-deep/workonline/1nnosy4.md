@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2132]
     sentence_count: 16
     key_terms: [like, student, people, skills, philippines, feel, here, workonline]
+    concepts: [student, people, skills, philippines, workonline]
     token_count: 497
+    sources: [{"n":"reddit-deep: r/workonline","u":"https://www.reddit.com/r/WorkOnline/comments/1nnosy4/struggling_college_student_in_the_philippines/"}]
   - id: "social-intelligence/reddit-deep/workonline/1nnosy4.md#c1"
     char_span: [2146, 3476]
     sentence_count: 12
     key_terms: [potential, emotion, humans, skills, human, learn, accordingloss2675, don]
+    concepts: [potential, emotion, humans, skills, human]
     section: Comments
     token_count: 347
 ---

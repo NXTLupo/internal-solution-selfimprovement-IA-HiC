@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 354]
     sentence_count: 1
     key_terms: [anthropic, comments, metaknowing, reddit-deep, incredible, karpathy, moltbook, network]
+    concepts: [anthropic, comments]
     token_count: 106
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1qrex8n/andrej_karpathy_whats_going_on_at_moltbook_a/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c1"
     char_span: [368, 1531]
     sentence_count: 1
     key_terms: [moltbook, https, simonwillison, does, openclaw, triggers, skill, com]
+    concepts: [moltbook, https, simonwillison, openclaw, triggers]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1qrex8n.md#c2"]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c2"
     char_span: [1533, 2999]
     sentence_count: 9
     key_terms: [moltbook, typical, skill, ask, post, take, want, triggers]
+    concepts: [moltbook, typical, skill, triggers, chatgpt]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1qrex8n.md#c1"]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c3"
     char_span: [3001, 5036]
     sentence_count: 15
     key_terms: [sophisticated, accomplish, wickywire, advanced, because, "they're", vectors, subsimgpt2interactive]
+    concepts: [sophisticated, accomplish, wickywire, advanced, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c4"
@@ -50,24 +57,28 @@ chunks:
     char_span: [5162, 7006]
     sentence_count: 13
     key_terms: [moltbook, gemini, framework, roleplay, drive, depressive, something, because]
+    concepts: [moltbook, gemini, framework, roleplay, depressive]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c6"
     char_span: [7008, 8563]
     sentence_count: 8
     key_terms: [bots, telling, themselves, karpathy, roleplay, "doesn't", eliquy, enough]
+    concepts: [telling, themselves, karpathy, roleplay, "doesn't"]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c7"
     char_span: [8565, 9630]
     sentence_count: 7
     key_terms: ["it's", post, f9cc-49a3-8520-2bdf362606bb, anything, comments, language, telling, single]
+    concepts: [anything, comments, language, telling, single]
     section: Comments
     token_count: 276
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c8"
     char_span: [9632, 10929]
     sentence_count: 10
     key_terms: [que, notre, die, une, "n'est", practical-hand203, nous, pas]
+    concepts: [notre, "n'est"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c9"
@@ -80,18 +91,24 @@ chunks:
     char_span: [10997, 11525]
     sentence_count: 4
     key_terms: [e28430f2ab996b177b7118405fdd66394c83c265, connotation, religious, chinese, english, chose, words, png]
+    concepts: [connotation, religious, chinese, english, chose]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1qrex8n.md#c11"]
     section: Comments
     token_count: 141
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c11"
     char_span: [11527, 13611]
     sentence_count: 17
     key_terms: [chinese, german, english, french, habit, mindfulness, "it's", too]
+    concepts: [chinese, german, english, french, mindfulness]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1qrex8n.md#c10"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c12"
     char_span: [13613, 14865]
     sentence_count: 10
     key_terms: [translate, language, being, using, write, intra-sentential, saintpetejackboy, fredandlunchbox]
+    concepts: [translate, language, being, using, write]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1qrex8n.md#c15"]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c13"
@@ -110,6 +127,8 @@ chunks:
     char_span: [15812, 17900]
     sentence_count: 10
     key_terms: [language, translation, instructions, idea, translate, itself, upstairs-version-400, coded]
+    concepts: [language, translation, instructions, translate, itself]
+    related_chunks: ["social-intelligence/reddit-deep/anthropic/1qrex8n.md#c12"]
     section: Comments
     token_count: 479
 ---

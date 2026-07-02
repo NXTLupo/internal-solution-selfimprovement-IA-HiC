@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1566]
     sentence_count: 21
     key_terms: [investigations, school, careerguidance, shoplifters, associates, prevention, auditing, comments]
+    concepts: [investigations, school, careerguidance, shoplifters, associates]
     token_count: 371
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qgheyc/i_chose_to_study_it_and_learned_i_have_no_passion/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1qgheyc.md#c1"
     char_span: [1580, 3790]
     sentence_count: 18
     key_terms: [security, analyst, work, background, compliance, roles, get, next-garbage9163]
+    concepts: [security, analyst, background, compliance, next-garbage9163]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/careerguidance/1qgheyc.md#c2"
     char_span: [3792, 4927]
     sentence_count: 10
     key_terms: [spend, time, coding, people, hours, often, roles, like]
+    concepts: [spend, coding, people, hours, often]
     section: Comments
     token_count: 254
 ---

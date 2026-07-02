@@ -21,40 +21,53 @@ chunks:
     char_span: [0, 2281]
     sentence_count: 30
     key_terms: [ads, instagram, account, clients, through, people, freelance, spent]
+    concepts: [instagram, account, clients, through, people]
+    related_chunks: ["social-intelligence/reddit-deep/freelance/1s2hdo1.md#c2", "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c4", "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c5", "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c6"]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/freelance","u":"https://www.reddit.com/r/freelance/comments/1s2hdo1/spent_200_on_instagram_ads_got_8_dms_zero_clients/"}]
   - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c1"
     char_span: [2283, 2830]
     sentence_count: 7
     key_terms: [designers, instead, dms, "i'm", like, completely, motivation, different]
+    concepts: [designers, instead]
     token_count: 111
   - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c2"
     char_span: [2844, 4977]
     sentence_count: 16
     key_terms: [instagram, people, work, selling, design, ads, need, thirtysixx]
+    concepts: [instagram, people, selling, design, thirtysixx]
+    related_chunks: ["social-intelligence/reddit-deep/freelance/1s2hdo1.md#c0", "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c5", "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c6"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c3"
     char_span: [4979, 6966]
     sentence_count: 17
     key_terms: [people, get, right, acquisition, freelancers, positioning, dms, less]
+    concepts: [people, acquisition, freelancers, positioning, experience]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c4"
     char_span: [6968, 8181]
     sentence_count: 9
     key_terms: [ads, through, business, clients, trying, email, leads, place]
+    concepts: [through, business, clients, trying, email]
+    related_chunks: ["social-intelligence/reddit-deep/freelance/1s2hdo1.md#c0"]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c5"
     char_span: [8183, 10359]
     sentence_count: 12
     key_terms: [designs, ads, restaurant, people, instagram, target, budget, google]
+    concepts: [designs, restaurant, instagram, people, target]
+    related_chunks: ["social-intelligence/reddit-deep/freelance/1s2hdo1.md#c0", "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c2", "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c6"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c6"
     char_span: [10362, 12636]
     sentence_count: 15
     key_terms: [ads, people, instagram, platforms, money, gigs, like, work]
+    concepts: [people, instagram, platforms, money, probably]
+    related_chunks: ["social-intelligence/reddit-deep/freelance/1s2hdo1.md#c0", "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c2", "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c5"]
     section: Comments
     token_count: 501
 ---

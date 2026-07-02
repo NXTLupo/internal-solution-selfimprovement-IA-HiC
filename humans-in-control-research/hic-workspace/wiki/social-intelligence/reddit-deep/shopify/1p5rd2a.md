@@ -20,36 +20,46 @@ chunks:
     char_span: [0, 840]
     sentence_count: 4
     key_terms: [shopify, e-commerce, reddit, https, com, news, www, comments]
+    concepts: [shopify, e-commerce, reddit, https, comments]
     token_count: 224
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1p5rd2a/this_weeks_top_ecommerce_news_stories_nov_24th/"}]
   - id: "social-intelligence/reddit-deep/shopify/1p5rd2a.md#c1"
     char_span: [842, 3067]
     sentence_count: 12
     key_terms: [chatgpt, openai, target, checkout, instant, app, company, shopify]
+    concepts: [chatgpt, openai, target, checkout, instant]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1p5rd2a.md#c2"
     char_span: [2774, 5250]
     sentence_count: 11
     key_terms: [meta, shopify, social, networking, instagram, checkout, platform, vehicles]
+    concepts: [shopify, networking, social, instagram, checkout]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1p5rd2a.md#c3"
     char_span: [4943, 7509]
     sentence_count: 12
     key_terms: [social, users, platforms, accounts, children, youtube, media, buy]
+    concepts: [social, platforms, users, accounts, children]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1p5rd2a.md#c4"
     char_span: [7232, 9632]
     sentence_count: 15
     key_terms: [customer, company, support, bezos, sellers, recent, human, engineering]
+    concepts: [customer, company, support, bezos, sellers]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1p5rd2a.md#c5"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1p5rd2a.md#c5"
     char_span: [9307, 10247]
     sentence_count: 4
     key_terms: [company, listings, shipping, sellers, health, tools, list, live]
+    concepts: [company, listings, shipping, sellers, health]
+    related_chunks: ["social-intelligence/reddit-deep/shopify/1p5rd2a.md#c4"]
     token_count: 186
   - id: "social-intelligence/reddit-deep/shopify/1p5rd2a.md#c6"
-    char_span: [10262, 10845]
+    char_span: [10261, 10844]
     sentence_count: 4
     key_terms: [community, contact, shopify, fearless-umpire-9923, adventurepaul, automatically, automoderator, moderators]
+    concepts: [community, contact, shopify]
     section: Comments
     token_count: 142
 ---

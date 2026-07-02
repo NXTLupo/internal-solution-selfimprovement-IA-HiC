@@ -7,53 +7,62 @@ subreddit: "personalfinance"
 title: "NY Times has been charging me for a subscription that I don’t have"
 author: "sp444cedout"
 date: "2026-05-21T18:42:16.000Z"
-score: 41
-upvote_ratio: 0.75
+score: 39
+upvote_ratio: 0.74
 num_comments: 16
 flair: "Other"
-extracted_at: "2026-06-11T15:26:16.538Z"
+extracted_at: "2026-06-26T21:51:56.918Z"
 extraction_method: "praw-deep"
-research_goal: "Produce the definitive guide to personal investing in 2026 by analyzing the current state of the fintech and financial industries. Evaluate retail investor behaviors, emerging asset classes, and platform shifts using 2026 market news, industry reports, and social media trends to identify actionable investment strategies and market opportunities."
-engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
+research_goal: "Identify and analyze the top five consumer finance trends for 2026 across retail banking, fintech, and consumer lending, delivering a prioritized trend matrix that details key drivers, shifting consumer behaviors, and technological adoption."
+engagement: "identify-and-analyze-the-top-five-consumer-finance-trends-fo"
 chunks:
   - id: "social-intelligence/reddit-deep/personalfinance/1tjtsy6.md#c0"
     char_span: [0, 2249]
     sentence_count: 16
     key_terms: [subscription, email, charge, nyt, account, games, get, personalfinance]
+    concepts: [subscription, email, charge, account, games]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1tjtsy6/ny_times_has_been_charging_me_for_a_subscription/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1tjtsy6.md#c1"
     char_span: [2251, 4312]
     sentence_count: 18
     key_terms: [provided, email, reference, asked, numbers, back, bank, account]
+    concepts: [provided, email, reference, asked, numbers]
     token_count: 433
   - id: "social-intelligence/reddit-deep/personalfinance/1tjtsy6.md#c2"
     char_span: [4314, 5851]
     sentence_count: 13
     key_terms: [bank, get, dispute, back, like, nyt, try, statements]
+    concepts: [dispute, statements, charges, having, check]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1tjtsy6.md#c5"]
     token_count: 339
   - id: "social-intelligence/reddit-deep/personalfinance/1tjtsy6.md#c3"
-    char_span: [5866, 7053]
+    char_span: [5865, 7053]
     sentence_count: 9
     key_terms: [subscription, promotion, situation, dealing, refund, doesn, offer, back]
+    concepts: [subscription, promotion, situation, dealing, refund]
     section: Comments
     token_count: 276
   - id: "social-intelligence/reddit-deep/personalfinance/1tjtsy6.md#c4"
-    char_span: [7055, 8390]
+    char_span: [7055, 8391]
     sentence_count: 6
     key_terms: [charges, subscription, sp444cedout, automatic, merchant, possible, finding, someone]
+    concepts: [charges, subscription, sp444cedout, automatic, merchant]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/personalfinance/1tjtsy6.md#c5"
-    char_span: [8392, 9473]
+    char_span: [8393, 9474]
     sentence_count: 11
     key_terms: [bank, card, new, nyt, incredibly, statements, charging, dispute]
+    concepts: [incredibly, statements, charging, dispute, amazon]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1tjtsy6.md#c2"]
     section: Comments
     token_count: 257
 ---
 # NY Times has been charging me for a subscription that I don’t have
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1tjtsy6/ny_times_has_been_charging_me_for_a_subscription/)
-Posted by **sp444cedout** · **41↑** · **16 comments**
+Posted by **sp444cedout** · **39↑** · **16 comments**
 
 Hi everyone, I hope this is an appropriate place to ask for advice on this incredibly irritating situation I’ve been dealing with for the past week and a half. (Well, year and some change actually, I guess.)
 
@@ -75,17 +84,17 @@ Update: NYT finally responded back to me like a human and not a robot and essent
 
 ## Comments
 
-- **garbagepuff** (50↑): Wait I’m dealing with this exact situation!!!!!! I was just going to eat the $$ but didn’t realize I could potentially get nyt to refund charges further back….
+- **garbagepuff** (44↑): Wait I’m dealing with this exact situation!!!!!! I was just going to eat the $$ but didn’t realize I could potentially get nyt to refund charges further back….
 
 You should def call again! Also this makes me feel slightly less irresponsible lol so ty for that
-  - **sp444cedout** (9↑): From their most recent email reply, it doesn’t seem like they will be interested in doing any refund back to me. Feels pretty lame since they got so much money out of me without my knowledge, but a good lesson to stay on top of my finances better. Sorry you’re dealing with this, too!
-- **quieterenjoyer** (19↑): This doesn’t necessarily help with your situation but I will say that the New York Times has a bit of an odd promotion on their subs which is how the sudden $30 subscription climb gets to people. They tend to offer an extremely cheap subscription ($1 per week, billed as $4 a month for a year) before the promotion runs out (they don’t warn you as far as I know). They also have a bundled games and NYT sub for $30 that has a similar promotional offer.  
+  - **sp444cedout** (11↑): From their most recent email reply, it doesn’t seem like they will be interested in doing any refund back to me. Feels pretty lame since they got so much money out of me without my knowledge, but a good lesson to stay on top of my finances better. Sorry you’re dealing with this, too!
+- **quieterenjoyer** (21↑): This doesn’t necessarily help with your situation but I will say that the New York Times has a bit of an odd promotion on their subs which is how the sudden $30 subscription climb gets to people. They tend to offer an extremely cheap subscription ($1 per week, billed as $4 a month for a year) before the promotion runs out (they don’t warn you as far as I know). They also have a bundled games and NYT sub for $30 that has a similar promotional offer.  
 
 The only reason I’m mentioning it is in case it can help you identify what they’re trying to charge you for.
 
 Is it possible that you’re paying for someone else’s subscription?  There’s family plans that run at similar price points that give access to other email accounts.
-  - **sp444cedout** (8↑): I noticed the ads for that subscription model when I was looking for a solution to my problem. It seems like NYT is kind of just giving up on finding the answer, and has directed me to go through my bank to dispute the charges.
-- **NA_Faker** (9↑): Someone stole your CC info and used it to pay for their NYT
+  - **sp444cedout** (9↑): I noticed the ads for that subscription model when I was looking for a solution to my problem. It seems like NYT is kind of just giving up on finding the answer, and has directed me to go through my bank to dispute the charges.
+- **NA_Faker** (10↑): Someone stole your CC info and used it to pay for their NYT
   - **ninja542** (3↑): this feels like the most likely answer
 - **Wide_Pin7357** (6↑): Is it possible that you subscribed through the app on your phone? I know in the past when I’ve done that with newspapers & magazines there’s an entirely different ecosystem for finding where to cancel things (and in my experience Apple is much more liberal with refunding past charges than the actual publications are).
   - **sp444cedout** (3↑): This was one of the first few things that I checked and unfortunately no luck. Thanks for the idea though!

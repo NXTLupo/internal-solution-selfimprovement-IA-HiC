@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 297]
     sentence_count: 1
     key_terms: [artificial, comments, development, reddit-deep, yielding, gemini, helper, posted]
+    concepts: [artificial, comments]
     token_count: 81
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1prsbba/gemini_ai_yielding_sloppy_code_for_ubuntu/"}]
 ---
 # Gemini AI yielding sloppy code for Ubuntu development with new helper script
 

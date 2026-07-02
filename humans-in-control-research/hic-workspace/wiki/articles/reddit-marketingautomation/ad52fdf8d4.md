@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2213]
     sentence_count: 14
     key_terms: [onboarding, marketingautomation, https, marketing, airtable, emails, users, directories]
+    concepts: [marketingautomation, onboarding, marketing, https, airtable]
     token_count: 473
+    sources: [{"n":"reddit: marketingautomation","u":"https://reddit.com/r/MarketingAutomation/comments/1mn9h6e/automating_my_marketing_workflow_3_tools_that/"}]
 ---
 # Automating My Marketing Workflow: 3 Tools That Saved Me 10+ Hours a Week
 

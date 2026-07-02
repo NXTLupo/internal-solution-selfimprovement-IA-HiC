@@ -18,16 +18,23 @@ chunks:
     char_span: [0, 2168]
     sentence_count: 13
     key_terms: [projects, "i've", competitions, applyingtocollege, been, personal, because, applications]
+    concepts: [projects, competitions, applyingtocollege, personal, because]
+    related_chunks: ["articles/reddit-deep-r-applyingtocollege/b6acf5c7a3.md#c1", "articles/reddit-deep-r-applyingtocollege/b6acf5c7a3.md#c2"]
     token_count: 458
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1thl5qd/how_helpful_are_personal_projects_in_college/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/b6acf5c7a3.md#c1"
     char_span: [2170, 4624]
     sentence_count: 18
     key_terms: [competitions, impressive, projects, passion, schools, "don't", engineering, far]
+    concepts: [competitions, impressive, projects, passion, schools]
+    related_chunks: ["articles/reddit-deep-r-applyingtocollege/b6acf5c7a3.md#c0", "articles/reddit-deep-r-applyingtocollege/b6acf5c7a3.md#c2"]
     token_count: 507
   - id: "articles/reddit-deep-r-applyingtocollege/b6acf5c7a3.md#c2"
     char_span: [4626, 5308]
     sentence_count: 4
     key_terms: [competitions, compelling, projects, least, "applicant's", exploration, applicants, competitor]
+    concepts: [competitions, compelling, projects, least]
+    related_chunks: ["articles/reddit-deep-r-applyingtocollege/b6acf5c7a3.md#c0", "articles/reddit-deep-r-applyingtocollege/b6acf5c7a3.md#c1"]
     token_count: 137
 ---
 # How helpful are personal projects in college applications?

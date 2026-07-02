@@ -20,33 +20,40 @@ chunks:
     char_span: [0, 2001]
     sentence_count: 12
     key_terms: [people, agencies, outreach, because, b2bmarketing, kept, connection, engagement]
+    concepts: [people, agencies, outreach, because, b2bmarketing]
     token_count: 427
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1sr9aiu/the_most_common_mistakes_i_noticed_lead_gen/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sr9aiu.md#c1"
     char_span: [2003, 4298]
     sentence_count: 19
     key_terms: [message, profile, something, agencies, recent, reply, like, personal]
+    concepts: [message, profile, something, agencies, recent]
     token_count: 480
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sr9aiu.md#c2"
     char_span: [4300, 5806]
     sentence_count: 9
     key_terms: [outreach, stack, inhouse, doing, exact, using, did, own]
+    concepts: [outreach, stack, inhouse, doing, exact]
     token_count: 286
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sr9aiu.md#c3"
-    char_span: [5821, 8085]
+    char_span: [5820, 8084]
     sentence_count: 14
     key_terms: [looking-for-marketing-discussion-811236647760298024, messaging, dispatch, specific, onehamster1337, social, committee, prospects]
+    concepts: [messaging, dispatch, specific, onehamster1337, social]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sr9aiu.md#c4"
-    char_span: [8087, 10395]
+    char_span: [8086, 10394]
     sentence_count: 17
     key_terms: [something, someone, video, "it's", connection, text-based, sequences, agencies]
+    concepts: [something, someone, connection, text-based, video]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/b2bmarketing/1sr9aiu.md#c5"
-    char_span: [10397, 12570]
+    char_span: [10396, 12569]
     sentence_count: 12
     key_terms: [outreach, engagement, underrated, something, lot, linkedin, signals, point]
+    concepts: [outreach, engagement, underrated, something, linkedin]
     section: Comments
     token_count: 455
 ---

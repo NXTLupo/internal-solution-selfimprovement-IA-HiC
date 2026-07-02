@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1599]
     sentence_count: 15
     key_terms: [classes, class, feel, grad, gradschool, transcript, comments, freaking]
+    concepts: [classes, class, gradschool, transcript, comments]
     token_count: 377
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tcft8q/can_i_still_get_into_grad_school_if_i_have_an_f/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1tcft8q.md#c1"
     char_span: [1613, 3350]
     sentence_count: 20
     key_terms: [did, phd, year, important, finished, freshman, masters, grades]
+    concepts: [important, finished, freshman, masters, grades]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/gradschool/1tcft8q.md#c2"
     char_span: [3352, 5291]
     sentence_count: 20
     key_terms: [get, year, throughout, undergrad, programs, semester, classes, college]
+    concepts: [throughout, undergrad, programs, semester, classes]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/gradschool/1tcft8q.md#c3"
     char_span: [5293, 6314]
     sentence_count: 12
     key_terms: [school, english, health, mental, though, best, grad, "i'd"]
+    concepts: [school, english, health, mental, though]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/gradschool/1tcft8q.md#c4"
     char_span: [6316, 8517]
     sentence_count: 15
     key_terms: ["you're", help, show, creative, programs, reading, writing, immediately]
+    concepts: ["you're", creative, programs, reading, writing]
     section: Comments
     token_count: 438
 ---

@@ -20,28 +20,34 @@ chunks:
     char_span: [0, 2266]
     sentence_count: 22
     key_terms: [agent, api, "competitor's", saas, switching, mechanism, here, customer]
+    concepts: [agent, "competitor's", switching, mechanism, customer]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1txjoid/your_saas_is_going_to_die_from_the_agent_layer/"}]
   - id: "social-intelligence/reddit-deep/saas/1txjoid.md#c1"
     char_span: [2268, 3509]
     sentence_count: 10
     key_terms: [api, agent-native, management, agent, build, automation, disrupted, interface]
+    concepts: [agent-native, management, agent, automation, build]
     token_count: 237
   - id: "social-intelligence/reddit-deep/saas/1txjoid.md#c2"
-    char_span: [3524, 4694]
+    char_span: [3523, 4693]
     sentence_count: 13
     key_terms: [category, modulius, cheaper, fucking, free, year, exaggerations, bullshiters]
+    concepts: [category, modulius, cheaper, fucking]
     section: Comments
     token_count: 298
   - id: "social-intelligence/reddit-deep/saas/1txjoid.md#c3"
-    char_span: [4696, 6006]
+    char_span: [4695, 6005]
     sentence_count: 13
     key_terms: [agents, mcp, need, question, graphql, openapi, access, auth]
+    concepts: [agents, question, graphql, openapi, access]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/saas/1txjoid.md#c4"
-    char_span: [6008, 7843]
+    char_span: [6007, 7842]
     sentence_count: 11
     key_terms: [beautiful-training93, want, agents, agent, layer, enterprise, something, shifting]
+    concepts: [beautiful-training93, agents, agent, enterprise, layer]
     section: Comments
     token_count: 477
 ---

@@ -21,40 +21,48 @@ chunks:
     char_span: [0, 923]
     sentence_count: 3
     key_terms: [back, job, jobs, comments, getting, hiring, don, ok-flower2584]
+    concepts: [comments, getting, hiring]
     token_count: 232
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rrrkg1/anyone_else_have_clueless_friends_that_dont_know/"}]
   - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c1"
     char_span: [928, 2306]
     sentence_count: 9
     key_terms: [job, because, get, charged, despite, either, places, legal]
+    concepts: [because, charged, despite, either, places]
     token_count: 300
   - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c2"
     char_span: [2320, 3842]
     sentence_count: 11
     key_terms: [server, job, incredibly, felonies, charged, advice, people, hired]
+    concepts: [server, incredibly, felonies, charged, advice]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c3"
     char_span: [3844, 5867]
     sentence_count: 10
     key_terms: [because, people, get, python, interview, sql, ok-flower2584, basic]
+    concepts: [because, people, python, interview, ok-flower2584]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c4"
     char_span: [5869, 7654]
     sentence_count: 17
     key_terms: [ok-flower2584, yeetyateyote666, lonely, going, get, like, try, realistic]
+    concepts: [ok-flower2584, yeetyateyote666, lonely, going, realistic]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c5"
     char_span: [7656, 9888]
     sentence_count: 19
     key_terms: [like, people, rich, straight, got, guy, influence, laughing]
+    concepts: [people, straight, influence, laughing, another]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c6"
     char_span: [9890, 11245]
     sentence_count: 9
     key_terms: [ok-flower2584, maybe, job, something, customer, america, doctors, service]
+    concepts: [ok-flower2584, maybe, something, customer, america]
     section: Comments
     token_count: 326
 ---

@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 920]
     sentence_count: 3
     key_terms: [internships, internship, comments, company, offered, offer, job, wholesale-fruits]
+    concepts: [internships, internship, comments, company, offered]
     token_count: 219
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t6hlq4/company_offered_me_an_extension_but_not_a_job/"}]
   - id: "social-intelligence/reddit-deep/internships/1t6hlq4.md#c1"
     char_span: [922, 3077]
     sentence_count: 11
     key_terms: [internship, because, job, experience, told, work, future, months]
+    concepts: [internship, because, experience, future, months]
     token_count: 487
   - id: "social-intelligence/reddit-deep/internships/1t6hlq4.md#c2"
     char_span: [3079, 3825]
     sentence_count: 1
     key_terms: [because, family, look, opportunity, accounting, experience, repetitive, academics]
+    concepts: [because, family]
     section: Comments
     token_count: 178
 ---

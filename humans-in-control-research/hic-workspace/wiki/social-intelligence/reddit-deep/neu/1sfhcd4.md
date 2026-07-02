@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1059]
     sentence_count: 2
     key_terms: [therapy, uhcs, therapist, comments, oakland, outside, through, boston]
+    concepts: [therapy, therapist, comments, oakland, outside]
     token_count: 256
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sfhcd4/uhcstherapyuwill/"}]
   - id: "social-intelligence/reddit-deep/neu/1sfhcd4.md#c1"
     char_span: [1073, 1941]
     sentence_count: 4
     key_terms: [therapist, appointments, therapists, monthly, school, start, heavyweightcollege, been]
+    concepts: [therapist, appointments, therapists, monthly, school]
     section: Comments
     token_count: 207
 ---

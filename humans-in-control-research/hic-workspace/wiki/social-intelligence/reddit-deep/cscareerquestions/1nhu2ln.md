@@ -21,53 +21,63 @@ chunks:
     char_span: [0, 1219]
     sentence_count: 5
     key_terms: [lawsuit-says-musks-tesla-hires-visa-holders-instead-americans-so-it-can-pay-less-2025-09-12, holders, tesla, cscareerquestions, h1-b, visa, americans, citizens]
+    concepts: [holders, cscareerquestions, tesla, americans, citizens]
     token_count: 314
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1nhu2ln/elon_muskled_tesla_sued_for_hiring_h1b_visa/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c1"
     char_span: [1233, 2774]
     sentence_count: 9
     key_terms: [abledanger12, exploitative, "don't", work, volunteer, enough, intelligent-ad-1424, doesn]
+    concepts: [abledanger12, exploitative, "don't", volunteer, enough]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c2"
     char_span: [2776, 4773]
     sentence_count: 17
     key_terms: [immigrants, american, exploitation, americans, harder, corporations, work, against]
+    concepts: [immigrants, american, exploitation, americans, corporations]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c3"
     char_span: [4775, 5942]
     sentence_count: 7
     key_terms: [accomplishments, people, exploitation, here, despite, "there's", reward, desperate-till-9228]
+    concepts: [accomplishments, exploitation, people, despite, "there's"]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c4"
     char_span: [5944, 7762]
     sentence_count: 12
     key_terms: [concern, "it's", tacos314, because, cheaper, company, others, point]
+    concepts: [concern, tacos314, because, cheaper, company]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c5"
     char_span: [7764, 9140]
     sentence_count: 8
     key_terms: [h1b, elon, outsourced, companies, microsoft, amazon, google, recognitionsignal425]
+    concepts: [outsourced, companies, microsoft, amazon, google]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c6"
     char_span: [9142, 10985]
     sentence_count: 14
     key_terms: [h1b, people, republicans, like, anything, abolish, against, believe]
+    concepts: [people, republicans, anything, abolish, against]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c7"
     char_span: [10988, 12997]
     sentence_count: 15
     key_terms: [cscareerquestionsin, american, people, etc, citizen, monkey, reddit, cscareerquestionscad]
+    concepts: [cscareerquestionsin, american, people, citizen, monkey]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c8"
     char_span: [12999, 14239]
     sentence_count: 8
     key_terms: [american, capitalism, centered, market, reddit, insertsavvynamehere, throwaway0845reddit, "i'm"]
+    concepts: [american, capitalism, centered, market, reddit]
     section: Comments
     token_count: 351
 ---

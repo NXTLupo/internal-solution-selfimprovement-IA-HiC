@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 2184]
     sentence_count: 18
     key_terms: [feel, program, through, career, don, like, gradschool, interested]
+    concepts: [program, through, career, gradschool, interested]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c6"]
     token_count: 498
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rsj8yb/realised_i_hate_my_masters_program_but_i_feel/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c1"
     char_span: [2198, 3747]
     sentence_count: 11
     key_terms: [program, degree, therapist, projects, syllabus, enough, reddit, "you're"]
+    concepts: [program, degree, therapist, projects, syllabus]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c2"
     char_span: [3749, 5509]
     sentence_count: 15
     key_terms: [writer, editor, job, like, work, rejection, something, writing]
+    concepts: [writer, editor, rejection, something, writing]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c3"
     char_span: [5511, 7189]
     sentence_count: 12
     key_terms: [people, like, writing, arugulafanclub, novels, maybe, something, switching]
+    concepts: [people, arugulafanclub, writing, novels, maybe]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c4"
     char_span: [7191, 9062]
     sentence_count: 20
     key_terms: [like, right, direction, pressure, because, degrees, parents, career]
+    concepts: [right, direction, pressure, because, degrees]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c5"
     char_span: [9064, 10204]
     sentence_count: 6
     key_terms: [people, since, been, working, cohort, school, help, "i've"]
+    concepts: [people, since, working, cohort, school]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c6"
     char_span: [10206, 12448]
     sentence_count: 16
     key_terms: [through, "it's", bearcub42, engaged, program, always, cohort, people]
+    concepts: [through, bearcub42, engaged, program, always]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c7"
     char_span: [12123, 12981]
     sentence_count: 6
     key_terms: [question, feeling, alone, being, early, been, lot, okay]
+    concepts: [question, feeling, alone, being, early]
     section: Comments
     token_count: 190
 ---

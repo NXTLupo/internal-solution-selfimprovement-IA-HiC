@@ -21,21 +21,26 @@ chunks:
     char_span: [0, 2264]
     sentence_count: 29
     key_terms: [targeting, attribution, click, advertisers, ads, loop, comments, chatgpt]
+    concepts: [targeting, attribution, advertisers, click, comments]
     token_count: 504
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1sykx5t/how_chatgpt_actually_serves_ads_here_is_the_full/"}]
   - id: "social-intelligence/reddit-deep/gpt/1sykx5t.md#c1"
     char_span: [2266, 4349]
     sentence_count: 28
     key_terms: [attribution, paying, right, essentially, cpc, get, conversion, discovery]
+    concepts: [attribution, paying, essentially, conversion, right]
     token_count: 444
   - id: "social-intelligence/reddit-deep/gpt/1sykx5t.md#c2"
     char_span: [4351, 5500]
     sentence_count: 15
     key_terms: [sponsored, massive, network, privacy-conscious, dns, network-level, ad-blocking, blackholing]
+    concepts: [sponsored, massive, network]
     token_count: 238
   - id: "social-intelligence/reddit-deep/gpt/1sykx5t.md#c3"
     char_span: [5514, 6119]
     sentence_count: 4
     key_terms: [mentiondesk, optimizing, discovery, better, organically, documented, visibility, effective]
+    concepts: [mentiondesk, optimizing, discovery, better]
     section: Comments
     token_count: 123
 ---

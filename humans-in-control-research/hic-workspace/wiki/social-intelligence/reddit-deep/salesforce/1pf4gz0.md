@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 915]
     sentence_count: 10
     key_terms: [salesforce, business, firms, buy, encryption, financial, comments, services]
+    concepts: [salesforce, business, encryption, firms, financial]
     token_count: 214
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1pf4gz0/anyone_else_at_financial_services_firms_also/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1pf4gz0.md#c1"
-    char_span: [930, 2585]
+    char_span: [929, 2584]
     sentence_count: 7
     key_terms: [pretty, shield, security, data, time, compliance, royalbroke, salesforce]
+    concepts: [pretty, shield, security, compliance, royalbroke]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/salesforce/1pf4gz0.md#c2"
-    char_span: [2587, 4067]
+    char_span: [2586, 4066]
     sentence_count: 8
     key_terms: [data, remarkable-captain14, proper, department, restricted, company, actual, system]
+    concepts: [remarkable-captain14, proper, department, restricted, company]
     section: Comments
     token_count: 338
 ---

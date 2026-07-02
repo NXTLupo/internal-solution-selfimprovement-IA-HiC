@@ -21,46 +21,59 @@ chunks:
     char_span: [0, 2032]
     sentence_count: 2
     key_terms: [because, someone, brain, like, too, paragraphs, findapath, paragraph]
+    concepts: [because, someone, brain, paragraphs, findapath]
     token_count: 464
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1racw9h/you_already_know_the_answer_to_your_question/"}]
   - id: "social-intelligence/reddit-deep/findapath/1racw9h.md#c1"
     char_span: [2034, 4262]
     sentence_count: 1
     key_terms: [paragraph, because, misalignment, "don't", start, been, need, everything]
+    concepts: [paragraph, because, misalignment, "don't", everything]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1racw9h.md#c3"]
     token_count: 477
   - id: "social-intelligence/reddit-deep/findapath/1racw9h.md#c2"
     char_span: [4276, 6370]
     sentence_count: 14
     key_terms: [thank, helpful, please, time, interested, findapath, therapist, comments]
+    concepts: [thank, helpful, please, interested, findapath]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/findapath/1racw9h.md#c3"
     char_span: [6372, 8787]
     sentence_count: 15
     key_terms: [psychology, everything, because, like, neuroscience, scientific, subjective, chemistry]
+    concepts: [psychology, everything, because, neuroscience, scientific]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1racw9h.md#c1"]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/findapath/1racw9h.md#c4"
     char_span: [8789, 10580]
     sentence_count: 11
     key_terms: [career, right, doing, long, regarded, because, science, started]
+    concepts: [career, right, doing, regarded, because]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1racw9h.md#c5"]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/findapath/1racw9h.md#c5"
     char_span: [10582, 12921]
     sentence_count: 13
     key_terms: [because, like, music, love, doing, money, parts, able]
+    concepts: [because, music, accountant, doing, money]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1racw9h.md#c4"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/findapath/1racw9h.md#c6"
     char_span: [12923, 14880]
     sentence_count: 11
     key_terms: [ceramics, take, workshop, movingarchivist, spreadsheets, thats, spreadsheet, attention]
+    concepts: [ceramics, movingarchivist, workshop, spreadsheets, spreadsheet]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/findapath/1racw9h.md#c7"
     char_span: [14882, 16041]
     sentence_count: 6
     key_terms: [moment, themselves, thoughts, writing, frostyblackberry5191, helps, leads, post]
+    concepts: [moment, themselves, thoughts, writing, helps]
     section: Comments
     token_count: 252
 ---

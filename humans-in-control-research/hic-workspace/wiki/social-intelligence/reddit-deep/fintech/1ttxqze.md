@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 2107]
     sentence_count: 9
     key_terms: [international, corporate, fintech, multi-currency, significant, bank, fees, compliance]
+    concepts: [international, corporate, multi-currency, fintech, significant]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1ttxqze.md#c1"]
     token_count: 397
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1ttxqze/running_a_global_business_and_traditional/"}]
   - id: "social-intelligence/reddit-deep/fintech/1ttxqze.md#c1"
-    char_span: [2122, 3867]
+    char_span: [2121, 3866]
     sentence_count: 4
     key_terms: [bank, international, leastpattern5228, account, fees, like, part, accounting]
+    concepts: [international, leastpattern5228, account, accounting, corporate]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1ttxqze.md#c0"]
     section: Comments
     token_count: 365
 ---

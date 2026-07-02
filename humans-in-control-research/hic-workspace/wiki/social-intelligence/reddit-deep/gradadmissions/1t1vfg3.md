@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2086]
     sentence_count: 11
     key_terms: [school, semester, grad, last, year, since, "i'm", because]
+    concepts: [school, semester, since, gradadmissions, because]
     token_count: 495
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1t1vfg3/how_important_is_gpa_compared_to_publications_and/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1t1vfg3.md#c1"
     char_span: [2088, 2651]
     sentence_count: 4
     key_terms: [research, another, given, "i'm", appreciated, institution, publication, experience]
+    concepts: [research, another, given]
     token_count: 118
   - id: "social-intelligence/reddit-deep/gradadmissions/1t1vfg3.md#c2"
     char_span: [2665, 3347]
     sentence_count: 7
     key_terms: [requirement, softrains12, gpa, research, perfect, master, former-hospital-3656, cumulative]
+    concepts: [requirement, softrains12, research, perfect, master]
     section: Comments
     token_count: 204
 ---

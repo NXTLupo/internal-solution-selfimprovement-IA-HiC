@@ -21,71 +21,88 @@ chunks:
     char_span: [0, 1137]
     sentence_count: 15
     key_terms: [oversharing, performance, comments, posted, get, jobs, stop, work]
+    concepts: [oversharing, performance, comments, posted]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1tf1i5b/stop_oversharing/"}]
   - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c1"
     char_span: [1151, 3065]
     sentence_count: 11
     key_terms: [people, live, illustrious-shape383, work, professionalism, because, "it's", shorter]
+    concepts: [people, illustrious-shape383, professionalism, because, shorter]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1tf1i5b.md#c2"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c2"
     char_span: [3068, 3982]
     sentence_count: 6
     key_terms: [commute, hour, because, minutes, delays, people, though, get]
+    concepts: [commute, because, minutes, delays, people]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1tf1i5b.md#c1"]
     section: Comments
     token_count: 230
   - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c3"
     char_span: [3984, 6114]
     sentence_count: 17
     key_terms: [because, interview, distance, location, already, commute, around, disappointed]
+    concepts: [because, interview, distance, location, already]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c4"
     char_span: [6116, 7575]
     sentence_count: 13
     key_terms: [always, area, "i've", job, live, interview, address, commute]
+    concepts: [always, interview, address, commute, sharing]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c5"
     char_span: [7578, 9737]
     sentence_count: 19
     key_terms: [personal, manager, process, information, want, screening, everyone, because]
+    concepts: [personal, manager, process, information, screening]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1tf1i5b.md#c9"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c6"
     char_span: [9739, 10341]
     sentence_count: 3
     key_terms: [sharing, manager, need, work, responsibilities, brainwavecc, additional, exhaustion]
+    concepts: [sharing, manager]
     section: Comments
     token_count: 128
   - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c7"
     char_span: [10343, 12559]
     sentence_count: 14
     key_terms: [work, because, nobody, performative, personality, like, yourself, fucking]
+    concepts: [because, performative, nobody, personality, yourself]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c8"
     char_span: [12317, 14267]
     sentence_count: 11
     key_terms: [work, meeting, because, context, listen, too, prevalent, depends]
+    concepts: [meeting, because, context, listen, prevalent]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c9"
     char_span: [14028, 15289]
     sentence_count: 7
     key_terms: [entitled, information, coworker, personal, learned, family, listen, people]
+    concepts: [entitled, information, coworker, personal, learned]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1tf1i5b.md#c5"]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c10"
     char_span: [15291, 16979]
     sentence_count: 14
     key_terms: [friends, work, cultural, thedevil-youknow, manager, hiring, fit, weaponized]
+    concepts: [friends, thedevil-youknow, cultural, manager, hiring]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c11"
     char_span: [16981, 18972]
     sentence_count: 16
     key_terms: [coworkers, need, too, serious, allegations-sometimes, anyone, person, illustrious-shape383]
+    concepts: [coworkers, serious, anyone, person, being]
     section: Comments
     token_count: 465
 ---

@@ -21,47 +21,62 @@ chunks:
     char_span: [0, 2257]
     sentence_count: 16
     key_terms: [friends, people, struggle, don, around, constantly, adhd, like]
+    concepts: [friends, people, struggle, constantly, around]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1sratij.md#c3"]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1sratij/navigating_autism_not_adhd_in_academiaphd_program/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1sratij.md#c1"
     char_span: [2259, 3754]
     sentence_count: 17
     key_terms: [people, sunflowerstar4429, nuerodivergent, layers, onion, closeness, interact, "that's"]
+    concepts: [people, sunflowerstar4429, nuerodivergent, layers, onion]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/askacademia/1sratij.md#c2"
     char_span: [3757, 5780]
     sentence_count: 14
     key_terms: [inappropriate, like, mean, anything, conversations, group, jokes, too]
+    concepts: [inappropriate, anything, conversations, group, jokes]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/askacademia/1sratij.md#c3"
     char_span: [5782, 8095]
     sentence_count: 14
     key_terms: [friends, great-associate-9016, colleagues, feel, people, information, necessarily, exceptions]
+    concepts: [friends, great-associate-9016, colleagues, people, information]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1sratij.md#c0", "social-intelligence/reddit-deep/askacademia/1sratij.md#c5", "social-intelligence/reddit-deep/askacademia/1sratij.md#c6"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/askacademia/1sratij.md#c4"
     char_span: [8098, 9717]
     sentence_count: 14
     key_terms: ["didn't", social, job, autistic, advisor, because, issues, intra-departmental]
+    concepts: ["didn't", social, autistic, advisor, because]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1sratij.md#c5"]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/askacademia/1sratij.md#c5"
     char_span: [9719, 11938]
     sentence_count: 10
     key_terms: [neurodivergent, people, social, great-associate-9016, like, because, never, grad]
+    concepts: [neurodivergent, great-associate-9016, people, social, because]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1sratij.md#c3", "social-intelligence/reddit-deep/askacademia/1sratij.md#c4", "social-intelligence/reddit-deep/askacademia/1sratij.md#c6", "social-intelligence/reddit-deep/askacademia/1sratij.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1sratij.md#c6"
     char_span: [11667, 13703]
     sentence_count: 15
     key_terms: [people, social, great-associate-9016, rules, autism, others, jokes, interacting]
+    concepts: [great-associate-9016, people, social, rules, autism]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1sratij.md#c3", "social-intelligence/reddit-deep/askacademia/1sratij.md#c5", "social-intelligence/reddit-deep/askacademia/1sratij.md#c7"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/askacademia/1sratij.md#c7"
     char_span: [13705, 14988]
     sentence_count: 9
     key_terms: [great-associate-9016, social, feel, practicing, something, better, groups, people]
+    concepts: [great-associate-9016, social, practicing, something, better]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1sratij.md#c5", "social-intelligence/reddit-deep/askacademia/1sratij.md#c6"]
     section: Comments
     token_count: 290
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1573]
     sentence_count: 7
     key_terms: [internships, virtual, benefits-of-virtual-internships-malaysia, experiences, especially, comments, learning, on-site]
+    concepts: [internships, virtual, experiences, especially, comments]
     token_count: 350
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1qs52xv/virtual_internships_vs_onsite_internships_what/"}]
 ---
 # Virtual internships vs on-site internships — what actually helps with career readiness?
 

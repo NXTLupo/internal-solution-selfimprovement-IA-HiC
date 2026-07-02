@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 1823]
     sentence_count: 15
     key_terms: [international, in-person, comments, college, student, government, lectures, semester]
+    concepts: [international, in-person, comments, college, student]
+    related_chunks: ["social-intelligence/reddit-deep/college/1orr29i.md#c2"]
     token_count: 404
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1orr29i/my_inperson_class_has_no_lectures_just_sitting_in/"}]
   - id: "social-intelligence/reddit-deep/college/1orr29i.md#c1"
     char_span: [1837, 3923]
     sentence_count: 15
     key_terms: [chair, department, students, advisor, significant-mud-2066, report, international, conversation]
+    concepts: [chair, department, students, significant-mud-2066, advisor]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/college/1orr29i.md#c2"
     char_span: [3925, 5279]
     sentence_count: 13
     key_terms: [class, in-person, students, person, international, requirements, professor, happens]
+    concepts: [in-person, class, students, international, requirements]
+    related_chunks: ["social-intelligence/reddit-deep/college/1orr29i.md#c0"]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/college/1orr29i.md#c3"
     char_span: [5281, 7304]
     sentence_count: 20
     key_terms: [class, math, significant-mud-2066, "it's", classes, college, like, analytics]
+    concepts: [class, significant-mud-2066, classes, college, analytics]
+    related_chunks: ["social-intelligence/reddit-deep/college/1orr29i.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1orr29i.md#c4"
     char_span: [7040, 7886]
     sentence_count: 9
     key_terms: [class, significant-mud-2066, classes, does, college, talking, level, "it's"]
+    concepts: [class, significant-mud-2066, classes, college, talking]
+    related_chunks: ["social-intelligence/reddit-deep/college/1orr29i.md#c3"]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/college/1orr29i.md#c5"
     char_span: [7888, 9761]
     sentence_count: 16
     key_terms: [class, people, get, "it's", lectures, format, online, videos]
+    concepts: [class, people, lectures, format, online]
     section: Comments
     token_count: 433
 ---

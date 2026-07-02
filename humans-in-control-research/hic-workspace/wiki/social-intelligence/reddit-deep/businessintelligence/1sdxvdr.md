@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1515]
     sentence_count: 13
     key_terms: ["what's", businessintelligence, harbingerexplorer, agent, com, tool, governance, building]
+    concepts: ["what's", businessintelligence, harbingerexplorer, agent, governance]
     token_count: 352
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1sdxvdr/how_do_you_explore_raw_data_sources_before/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1sdxvdr.md#c1"
-    char_span: [1530, 2305]
+    char_span: [1529, 2304]
     sentence_count: 4
     key_terms: [tools, data, jupyter, etc, llm, look, run, sql]
+    concepts: [tools, jupyter]
     section: Comments
     token_count: 205
 ---

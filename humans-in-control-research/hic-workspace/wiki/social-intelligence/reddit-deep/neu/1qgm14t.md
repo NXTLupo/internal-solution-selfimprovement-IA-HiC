@@ -19,29 +19,38 @@ chunks:
     char_span: [0, 671]
     sentence_count: 5
     key_terms: [socializing, neu, introvert, comments, disconnected, particularly, unsuccessful, deagolmylov]
+    concepts: [socializing, introvert, comments]
     token_count: 159
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qgm14t/lonliness_and_socializing/"}]
   - id: "social-intelligence/reddit-deep/neu/1qgm14t.md#c1"
     char_span: [685, 2913]
     sentence_count: 26
     key_terms: [friends, joining, deagolmylov, less, try, political, stressful, isolated]
+    concepts: [friends, joining, deagolmylov, political, stressful]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1qgm14t.md#c3"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/neu/1qgm14t.md#c2"
     char_span: [2915, 3786]
     sentence_count: 13
     key_terms: [going, hey, like, classmates, classes, friends, saying, try]
+    concepts: [classmates, going, classes, friends, saying]
     section: Comments
     token_count: 208
   - id: "social-intelligence/reddit-deep/neu/1qgm14t.md#c3"
     char_span: [3788, 5940]
     sentence_count: 16
     key_terms: [friends, grad, people, students, boston, point, deagolmylov, neu]
+    concepts: [friends, people, students, boston, deagolmylov]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1qgm14t.md#c1", "social-intelligence/reddit-deep/neu/1qgm14t.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1qgm14t.md#c4"
     char_span: [5630, 6822]
     sentence_count: 16
     key_terms: [students, bulky-challenge-7967, people, graduate, nowadays, culture, social, going]
+    concepts: [students, bulky-challenge-7967, people, graduate, nowadays]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1qgm14t.md#c3"]
     section: Comments
     token_count: 283
 ---

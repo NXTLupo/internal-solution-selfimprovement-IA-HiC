@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1885]
     sentence_count: 16
     key_terms: [students, professors, class, back, like, exception, becoming, comments]
+    concepts: [students, professors, class, exception, becoming]
     token_count: 431
+    sources: [{"n":"Reddit Deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1sdl17b/are_students_today_really_that_different_from_how/"}]
   - id: "articles/reddit-deep-r-professors/f44bdc73db.md#c1"
     char_span: [1887, 3153]
     sentence_count: 10
     key_terms: [students, diggingupophelia, drop, feeling, recommend-reject-r2, teach, been, mad]
+    concepts: [students, diggingupophelia, feeling, teach]
     token_count: 285
 ---
 # Are students today really that different from how they used to be "back in the day?"

@@ -20,17 +20,24 @@ chunks:
     char_span: [0, 1270]
     sentence_count: 11
     key_terms: [insurance, company, number, vehicle, back, call, accident, comments]
+    concepts: [insurance, company, number, vehicle, accident]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qianrc.md#c1", "social-intelligence/reddit-deep/insurance/1qianrc.md#c2"]
     token_count: 287
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1qianrc/is_this_an_insurance_scam/"}]
   - id: "social-intelligence/reddit-deep/insurance/1qianrc.md#c1"
-    char_span: [1285, 3320]
+    char_span: [1284, 3319]
     sentence_count: 20
     key_terms: [insurance, information, carrier, vehicle, report, claim, clue-comprehensive-loss-underwriting-exchange, call]
+    concepts: [insurance, information, carrier, vehicle, report]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qianrc.md#c0"]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/insurance/1qianrc.md#c2"
-    char_span: [3322, 5390]
+    char_span: [3321, 5389]
     sentence_count: 22
     key_terms: [insurance, call, company, number, claim, recorded, something, accident]
+    concepts: [insurance, company, number, recorded, claim]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qianrc.md#c0"]
     section: Comments
     token_count: 504
 ---

@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 925]
     sentence_count: 2
     key_terms: [microsoft, employees, microsoft-to-lay-off-as-many-as-9000-employees-in-latest-round, cscareerquestions, layoffs, washington, wednesday, company]
+    concepts: [microsoft, employees, cscareerquestions, layoffs, washington]
     token_count: 226
+    sources: [{"n":"reddit: cscareerquestions","u":"https://reddit.com/r/cscareerquestions/comments/1lpwy62/microsoft_to_lay_off_about_9000_employees_in/"}]
 ---
 # Microsoft to lay off about 9,000 employees in latest round
 

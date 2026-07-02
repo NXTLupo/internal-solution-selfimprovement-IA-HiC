@@ -19,59 +19,76 @@ chunks:
     char_span: [0, 486]
     sentence_count: 3
     key_terms: [machinelearning, comments, review, informative, reddit-deep, discussion, high-level, indicative]
+    concepts: [machinelearning, comments, review]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1px1agd.md#c1", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c2", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c3", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c5", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c8"]
     token_count: 121
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1px1agd/d_rmachinelearning_a_year_in_review/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c1"
     char_span: [534, 1774]
     sentence_count: 4
     key_terms: [machinelearning, open-source, comments, upvotes, models, reddit, https, com]
+    concepts: [machinelearning, open-source, comments, upvotes, models]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1px1agd.md#c0", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c2", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c3", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c5", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c8"]
     section: Open-Source Parity and Training Efficiency
     token_count: 299
   - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c2"
     char_span: [1802, 3136]
     sentence_count: 3
     key_terms: [machinelearning, comments, upvotes, reddit, https, com, www, neurips]
+    concepts: [machinelearning, comments, upvotes, reddit, https]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1px1agd.md#c0", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c1", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c3", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c5", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c8"]
     section: The Conference Crisis
     token_count: 322
   - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c3"
     char_span: [3138, 4043]
     sentence_count: 2
     key_terms: [machinelearning, comments, upvotes, reddit, https, com, www, migration]
+    concepts: [machinelearning, comments, upvotes, reddit, https]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1px1agd.md#c0", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c1", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c2", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c5", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c8"]
     section: The Conference Crisis
     token_count: 207
   - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c4"
     char_span: [4074, 4768]
     sentence_count: 5
     key_terms: [visa, venues, machinelearning, accessibility, international, significantly, conferences, experiences]
+    concepts: [venues]
     section: Visa and Access Barriers
     token_count: 141
   - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c5"
     char_span: [4812, 7363]
     sentence_count: 13
     key_terms: [machinelearning, reviewers, paper, comments, upvotes, reddit, review, researcher]
+    concepts: [machinelearning, reviewers, comments, paper, upvotes]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1px1agd.md#c0", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c1", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c2", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c3", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c8"]
     section: Research Integrity and Review Quality
     token_count: 509
   - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c6"
     char_span: [7391, 8480]
     sentence_count: 2
     key_terms: [mamba, machinelearning, transformers, disappeared, commenters, discussion, comments, software]
+    concepts: [mamba, machinelearning, transformers, disappeared, commenters]
     section: "Mamba's Disappearance"
     token_count: 228
   - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c7"
     char_span: [8515, 9172]
     sentence_count: 3
     key_terms: [transformers, vision, machinelearning, architectures, alternatives, architecture, increasingly, competitive]
+    concepts: [transformers, vision]
     section: Vision Transformers vs. CNNs
     token_count: 124
   - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c8"
     char_span: [9213, 10233]
     sentence_count: 3
     key_terms: [machinelearning, limitations, gpu, discussion, ecosystem, comments, software, hdbscan]
+    concepts: [machinelearning, limitations, discussion, ecosystem, comments]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1px1agd.md#c0", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c1", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c2", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c3", "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c5"]
     section: Infrastructure and GPU Competition
     token_count: 241
   - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c9"
     char_span: [10248, 12005]
     sentence_count: 9
     key_terms: [attention, gid, linear, thanks, spreadsheets, https, mamba, com]
+    concepts: [attention, spreadsheets, linear, thanks, https]
     section: Comments
     token_count: 488
 ---

@@ -21,47 +21,60 @@ chunks:
     char_span: [0, 1845]
     sentence_count: 20
     key_terms: [cscareerquestions, market, job, like, building, comments, engineer, software]
+    concepts: [cscareerquestions, market, building, comments, engineer]
     token_count: 428
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1lzvwgu/im_33_spent_6_years_becoming_a_software_engineer/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c1"
     char_span: [1859, 3768]
     sentence_count: 17
     key_terms: [job, years, swe, year, certifications, adding, market, sales]
+    concepts: [years, certifications, adding, market, self-taught]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c2"
     char_span: [3770, 5580]
     sentence_count: 16
     key_terms: [degree, cost, getting, industries, management, deleted, anyway, bullet]
+    concepts: [degree, getting, industries, management, deleted]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c9"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c3"
     char_span: [5582, 7590]
     sentence_count: 15
     key_terms: [great, engineer, degree, experience, masters, through, "it's", software]
+    concepts: [great, engineer, experience, degree, masters]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c5"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c4"
     char_span: [7592, 8359]
     sentence_count: 3
     key_terms: [degree, deleted, redact, conscious-secret-775, illustrious-pound266, wants, get, old]
+    concepts: [degree, deleted, redact, wants]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c9"]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c5"
     char_span: [8361, 10144]
     sentence_count: 13
     key_terms: [degree, degrees, resume, absolutely, experience, masters, working, expire]
+    concepts: [degree, degrees, resume, absolutely, experience]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c3"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c6"
     char_span: [10146, 11711]
     sentence_count: 14
     key_terms: [job, without, time, getting, years, developer, mid-level, undergrad]
+    concepts: [without, getting, years, developer, mid-level]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c7"
     char_span: [11713, 13647]
     sentence_count: 15
     key_terms: [working, job, projects, market, quit, swe, yoe, eventually]
+    concepts: [working, projects, market, eventually, companies]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c8"
@@ -74,6 +87,8 @@ chunks:
     char_span: [14637, 15989]
     sentence_count: 10
     key_terms: [pivoting, deleted, officer, career, degree, useful, background-rub-3017, carelesspackage1982]
+    concepts: [pivoting, deleted, officer, career, degree]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c4"]
     section: Comments
     token_count: 370
 ---

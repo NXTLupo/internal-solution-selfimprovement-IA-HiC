@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1159]
     sentence_count: 12
     key_terms: [neu, comments, hardware, robotics, transfer, reality, advice, online]
+    concepts: [comments, hardware, robotics, transfer, reality]
     token_count: 280
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1s7wpnb/admitted_as_a_2ndyear_intl_transfer_for_bs_in_cs/"}]
   - id: "social-intelligence/reddit-deep/neu/1s7wpnb.md#c1"
     char_span: [1173, 2849]
     sentence_count: 10
     key_terms: [northeastern, school, neu, great, especially, decisions, rankings, transfer]
+    concepts: [northeastern, school, especially, great, decisions]
     section: Comments
     token_count: 380
 ---

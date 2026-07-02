@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 766]
     sentence_count: 5
     key_terms: [productivity, like, something, comments, professionstrong6563, doing, lot, reddit-deep]
+    concepts: [productivity, something, comments, doing]
     token_count: 179
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1rty69o/how_do_you_deal_with_wanting_to_do_a_lot_but/"}]
   - id: "social-intelligence/reddit-deep/productivity/1rty69o.md#c1"
     char_span: [780, 2461]
     sentence_count: 19
     key_terms: [day, burnout, like, need, tiny, minutes, matter, spiritual-courage-77]
+    concepts: [burnout, minutes, matter, doing, sleep]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/productivity/1rty69o.md#c2"
     char_span: [2464, 4394]
     sentence_count: 18
     key_terms: [enough, everything, done, drinking, despite, water, day, feel]
+    concepts: [everything, enough, drinking, despite, difference]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/productivity/1rty69o.md#c3"
     char_span: [4397, 6163]
     sentence_count: 16
     key_terms: [zent-productivity, habits, trying, want-too-much, https, been, work, described]
+    concepts: [zent-productivity, want-too-much, habits, trying, https]
     section: Comments
     token_count: 443
 ---

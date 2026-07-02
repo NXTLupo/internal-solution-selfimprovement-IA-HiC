@@ -19,71 +19,84 @@ chunks:
     char_span: [0, 719]
     sentence_count: 6
     key_terms: [cscareerquestions, comments, problem, enough, being, grads, roles, didn]
+    concepts: [cscareerquestions, comments, problem, enough, being]
     token_count: 178
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sco3bj/stop_pretending_its_a_skill_issue/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c1"
     char_span: [733, 1959]
     sentence_count: 11
     key_terms: [saturated, company, talent, top, companies, fighting, salaries, software]
+    concepts: [saturated, company, talent, companies, fighting]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c2"
     char_span: [1961, 4076]
     sentence_count: 14
     key_terms: [because, engineers, industry, salaries, company, happen, tech, millions]
+    concepts: [because, engineers, industry, salaries, company]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c3"
     char_span: [4079, 5312]
     sentence_count: 9
     key_terms: [people, because, "it's", beautiful, average, degree, goes, good]
+    concepts: [people, because, beautiful, average, degree]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c4"
     char_span: [5314, 7277]
     sentence_count: 12
     key_terms: [imhighoncocaine, circuits, thick-ask5250, hardware, network, design, pressureavailable615, doing]
+    concepts: [imhighoncocaine, circuits, thick-ask5250, hardware, network]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c5"
     char_span: [7017, 7555]
     sentence_count: 3
     key_terms: [shortage, work, idiots, fairjournalist6092, imhighoncocaine, comparatively, calculation, developers]
+    concepts: [shortage, idiots]
     section: Comments
     token_count: 146
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c6"
     char_span: [7557, 9329]
     sentence_count: 14
     key_terms: [graduated, fatiguedshrimp, get, "i'm", college, looking, degree, enough]
+    concepts: [graduated, fatiguedshrimp, college, looking, degree]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c7"
     char_span: [9331, 11542]
     sentence_count: 5
     key_terms: [want, work, unbelievable, "don't", start, job, like, companies]
+    concepts: [unbelievable, "don't", start, companies, chickens]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c8"
     char_span: [11322, 13024]
     sentence_count: 17
     key_terms: ["don't", going, job, college, enough, class, did, get]
+    concepts: ["don't", going, college, enough, class]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c9"
     char_span: [13026, 15005]
     sentence_count: 17
     key_terms: [job, get, work, projects, aendoarphinio, did, lot, employers]
+    concepts: [projects, aendoarphinio, employers, looking, people]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c10"
     char_span: [15007, 15922]
     sentence_count: 8
     key_terms: [applications, industry, keeping, people, jobs, breakthrough, connections, internships]
+    concepts: [applications, industry, keeping, people]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c11"
     char_span: [15925, 17821]
     sentence_count: 16
     key_terms: [networking, college, market, gaslighting, job, need, business, whatever]
+    concepts: [networking, college, market, gaslighting, business]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c12"

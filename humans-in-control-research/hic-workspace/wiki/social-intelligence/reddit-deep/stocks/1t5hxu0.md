@@ -20,59 +20,72 @@ chunks:
     char_span: [0, 1763]
     sentence_count: 26
     key_terms: [forward, intel, highest, semiconductor, stock, comments, trailing, company]
+    concepts: [forward, intel, semiconductor, highest, stock]
     token_count: 425
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1t5hxu0/intel_trading_at_a_119x_forward_pe_and_nobody_is/"}]
   - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c1"
-    char_span: [1778, 3508]
+    char_span: [1777, 3507]
     sentence_count: 14
     key_terms: [companies, profitable, sense, market, people, saying, effectively, been]
+    concepts: [companies, profitable, sense, market, people]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c2"
-    char_span: [3510, 5444]
+    char_span: [3509, 5443]
     sentence_count: 10
     key_terms: [demand, going, right, circle, handle, market, memory, perspective-parking]
+    concepts: [demand, going, right, circle, handle]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c3"
-    char_span: [5446, 6761]
+    char_span: [5445, 6760]
     sentence_count: 5
     key_terms: [intel, market, american, billion, nvidia, agitatedstranger9698, nottakengreatname, big]
+    concepts: [intel, market, american, billion, nvidia]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1t5hxu0.md#c7"]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c4"
-    char_span: [6763, 7769]
+    char_span: [6762, 7768]
     sentence_count: 7
     key_terms: [got, started, reddit, stock, dollar-doge-coins, been, get, pablosanchezbb]
+    concepts: [started, reddit, stock]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c5"
-    char_span: [7771, 9241]
+    char_span: [7770, 9240]
     sentence_count: 9
     key_terms: [investors, ok-adeptness-5834, "it's", profitable, projected, amazon, growth, people]
+    concepts: [ok-adeptness-5834, investors, profitable, projected, amazon]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c6"
-    char_span: [9243, 11091]
+    char_span: [9242, 11090]
     sentence_count: 23
     key_terms: [intel, appears, fabs, sold, "intel's", best, new, pat]
+    concepts: [intel, appears, "intel's", everything, million]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c7"
-    char_span: [11093, 12663]
+    char_span: [11092, 12662]
     sentence_count: 11
     key_terms: [intel, market, because, meloniousv2, fab, last, tsmc, win]
+    concepts: [intel, market, because, meloniousv2, hypothesis]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1t5hxu0.md#c3"]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c8"
-    char_span: [12665, 13992]
+    char_span: [12664, 13991]
     sentence_count: 10
     key_terms: [sold, stupid, intel, thursday, holders, recover, factor, retail]
+    concepts: [stupid, intel, thursday, holders, recover]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c9"
-    char_span: [13994, 14586]
+    char_span: [13993, 14585]
     sentence_count: 5
     key_terms: [multiples, here, neighborhood, asset-light, goddamn7788, high-growth, numerically, absolutely]
+    concepts: [multiples]
     section: Comments
     token_count: 146
 ---

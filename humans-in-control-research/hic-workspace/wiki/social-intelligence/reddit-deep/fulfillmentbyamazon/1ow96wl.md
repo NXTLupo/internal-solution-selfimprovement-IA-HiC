@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 2525]
     sentence_count: 4
     key_terms: [amazon, supplier, account, fulfillmentbyamazon, multiple, section, health, authorization]
+    concepts: [amazon, supplier, fulfillmentbyamazon, account, multiple]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1ow96wl/help_needed_section_3_suspension_submitted/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1ow96wl.md#c1"
     char_span: [2527, 4196]
     sentence_count: 11
     key_terms: [submitted, escalation, feedback, supplier, transparency, full, corrective, invoices]
+    concepts: [submitted, escalation, feedback, supplier, transparency]
     token_count: 336
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1ow96wl.md#c2"
-    char_span: [4211, 5720]
+    char_span: [4210, 5719]
     sentence_count: 9
     key_terms: [thesilentfounder, account, definitely, resolved, amazon, cricktydickty, accounts, multiple]
+    concepts: [thesilentfounder, account, definitely, resolved, cricktydickty]
     section: Comments
     token_count: 416
 ---

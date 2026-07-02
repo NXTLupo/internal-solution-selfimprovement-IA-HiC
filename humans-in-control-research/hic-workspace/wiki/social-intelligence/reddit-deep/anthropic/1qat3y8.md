@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 725]
     sentence_count: 3
     key_terms: [sub-agents, f37f8ef01dc84a943af5aa19f2af8e3c4aaadaaa, context, claude, tools, anthropic, comments, silverconsistent9222]
+    concepts: [sub-agents, context, claude, tools, anthropic]
     token_count: 205
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1qat3y8/how_claude_code_context_is_structured_main/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1qat3y8.md#c1"
     char_span: [739, 1162]
     sentence_count: 2
     key_terms: [playlist, youtube, claude, silverconsistent9222, https, com, list, vock]
+    concepts: [playlist, youtube, claude, https]
     section: Comments
     token_count: 166
 ---

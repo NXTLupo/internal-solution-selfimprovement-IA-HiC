@@ -20,39 +20,47 @@ chunks:
     char_span: [0, 1996]
     sentence_count: 17
     key_terms: [webull, options, robinhood, bull, hood, trading, stock, conference]
+    concepts: [webull, options, robinhood, trading, conference]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1otcxi3/bull_coiled_up_and_ready_to_charge/"}]
   - id: "social-intelligence/reddit-deep/stocks/1otcxi3.md#c1"
     char_span: [1998, 4096]
     sentence_count: 15
     key_terms: [market, like, because, chinese, recent, major, money, stock]
+    concepts: [market, because, chinese, recent, major]
     token_count: 471
   - id: "social-intelligence/reddit-deep/stocks/1otcxi3.md#c2"
     char_span: [4098, 4530]
     sentence_count: 5
     key_terms: [thesis, point, edit, aggressively, downvoting, anything, continue, surefire]
+    concepts: [thesis, point]
     token_count: 102
   - id: "social-intelligence/reddit-deep/stocks/1otcxi3.md#c3"
-    char_span: [4545, 4749]
+    char_span: [4544, 4748]
     sentence_count: 1
     key_terms: [people, post, someroastedbeef, misspellings, critical, thinking, clearly, grammar]
+    concepts: [people]
     section: Comments
     token_count: 52
   - id: "social-intelligence/reddit-deep/stocks/1otcxi3.md#c4"
-    char_span: [4751, 6736]
+    char_span: [4750, 6735]
     sentence_count: 19
     key_terms: [robinhood, counterakt, don, another, double, webull, shareholders, easy]
+    concepts: [robinhood, counterakt, another, shareholders, double]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1otcxi3.md#c5"
-    char_span: [6491, 7983]
+    char_span: [6490, 7982]
     sentence_count: 15
     key_terms: [earnings, originalpjy, counterakt, reported, getting, "that's", webull, stock]
+    concepts: [earnings, originalpjy, counterakt, reported, getting]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/stocks/1otcxi3.md#c6"
-    char_span: [7985, 8707]
+    char_span: [7984, 8706]
     sentence_count: 4
     key_terms: [conviction, counterakt, erocdotusa, long, manipulation, considering, depressing, excitement]
+    concepts: [conviction, counterakt, erocdotusa]
     section: Comments
     token_count: 191
 ---

@@ -21,46 +21,57 @@ chunks:
     char_span: [0, 1711]
     sentence_count: 10
     key_terms: [ucla, physics, university, applyingtocollege, research, uarizona, opportunities, scholarships]
+    concepts: [physics, university, applyingtocollege, research, uarizona]
     token_count: 440
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1segjdn/prestige_vs_opportunity/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1segjdn.md#c1"
     char_span: [1713, 3562]
     sentence_count: 9
     key_terms: [year, "it's", bama, duke, "i'm", ucla, china, considering]
+    concepts: [considering, technically, china, honestly, prestige]
     token_count: 481
   - id: "social-intelligence/reddit-deep/applyingtocollege/1segjdn.md#c2"
     char_span: [3576, 4589]
     sentence_count: 11
     key_terms: [astronomy, arizona, astrophysics, field, known, best, like, path]
+    concepts: [astronomy, astrophysics, arizona, field, known]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1segjdn.md#c6"]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/applyingtocollege/1segjdn.md#c3"
     char_span: [4591, 6965]
     sentence_count: 21
     key_terms: [research, arizona, ucla, resources, astro, undergraduate, department, birdtraditional8081]
+    concepts: [research, arizona, resources, undergraduate, astro]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1segjdn.md#c4"
     char_span: [6691, 7192]
     sentence_count: 7
     key_terms: [want, research, oncologist, professors, ultimately, beeseecan, observing, rationale]
+    concepts: [research]
     section: Comments
     token_count: 122
   - id: "social-intelligence/reddit-deep/applyingtocollege/1segjdn.md#c5"
     char_span: [7194, 8806]
     sentence_count: 8
     key_terms: [probably, alabama, physics, taxes, ucla, year, telescope, expenses]
+    concepts: [probably, alabama, physics, taxes, telescope]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/applyingtocollege/1segjdn.md#c6"
     char_span: [8808, 9891]
     sentence_count: 7
     key_terms: [stretchill5138, school, duke, astronomy, different, arizona, kunshan, enough]
+    concepts: [stretchill5138, school, astronomy, different, arizona]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1segjdn.md#c2"]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/applyingtocollege/1segjdn.md#c7"
     char_span: [9893, 11475]
     sentence_count: 9
     key_terms: [fredmcgriff493, ones, something, english, stipend, paying, pocket, school]
+    concepts: [fredmcgriff493, something, english, stipend, paying]
     section: Comments
     token_count: 425
 ---

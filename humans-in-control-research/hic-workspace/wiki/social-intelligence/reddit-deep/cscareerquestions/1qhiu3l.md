@@ -21,47 +21,64 @@ chunks:
     char_span: [0, 1045]
     sentence_count: 11
     key_terms: [cscareerquestions, amazon, focus, put, comments, improve, manager, friend]
+    concepts: [cscareerquestions, amazon, focus, comments, improve]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c6"]
     token_count: 251
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qhiu3l/amazon_focus_is_basically_being_let_go_right/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c1"
     char_span: [1059, 2253]
     sentence_count: 7
     key_terms: [pip, focus, called, course, ok-butterscotch-6955, never, pivot, get]
+    concepts: [focus, called, course, never, pivot]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c6"]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c2"
     char_span: [2255, 3902]
     sentence_count: 11
     key_terms: [manager, focus, teams, learned, getting, change, common, months]
+    concepts: [manager, focus, teams, learned, getting]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c7"]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c3"
     char_span: [3904, 5933]
     sentence_count: 12
     key_terms: [manager, focus, put, work, unrealistic, back, new, amazon]
+    concepts: [manager, focus, unrealistic, amazon, around]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c4", "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c6"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c4"
     char_span: [5935, 7957]
     sentence_count: 15
     key_terms: [put, focus, someone, good, like, team, time, work]
+    concepts: [focus, someone, friends, manager, working]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c7"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c5"
     char_span: [7959, 10087]
     sentence_count: 18
     key_terms: [focus, amazon, like, pip, people, comfortable, good, team]
+    concepts: [focus, amazon, people, comfortable, percentage]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c6"]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c6"
     char_span: [10089, 11786]
     sentence_count: 12
     key_terms: [focus, pip, quota, year, managers, amazon, pivot, due]
+    concepts: [focus, quota, managers, amazon, pivot]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c5"]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c7"
     char_span: [11788, 13419]
     sentence_count: 11
     key_terms: [pip, friend, focus, accomplishments, manager, fired, new, work]
+    concepts: [friend, accomplishments, focus, manager, fired]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c4"]
     section: Comments
     token_count: 372
 ---

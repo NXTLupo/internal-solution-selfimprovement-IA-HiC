@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1116]
     sentence_count: 11
     key_terms: [freelance, april, here, comments, specific, years, good, win]
+    concepts: [freelance, april, comments, specific, years]
     token_count: 284
+    sources: [{"n":"reddit-deep: r/freelance","u":"https://www.reddit.com/r/freelance/comments/1s4k0jm/how_to_write_freelance_proposals_that_actually_win/"}]
   - id: "social-intelligence/reddit-deep/freelance/1s4k0jm.md#c1"
     char_span: [1130, 2081]
     sentence_count: 4
     key_terms: [adilshaikh5786, client, understand, local-dependent-2421, lot, freelancers, gigmistress, everything]
+    concepts: [adilshaikh5786, client, understand]
     section: Comments
     token_count: 233
 ---

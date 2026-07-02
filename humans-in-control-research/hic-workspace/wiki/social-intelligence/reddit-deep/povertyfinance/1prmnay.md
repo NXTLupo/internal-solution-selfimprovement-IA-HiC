@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1658]
     sentence_count: 2
     key_terms: [insurance, need, cheapest, minimum, povertyfinance, legal, price, strategies]
+    concepts: [insurance, cheapest, povertyfinance, minimum, legal]
     token_count: 370
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1prmnay/cheapest_auto_insurance_2026_strategies_for_low/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1prmnay.md#c1"
     char_span: [1672, 2974]
     sentence_count: 14
     key_terms: [insurance, windshields, claim, independent, save, everybody, replaced, farmers]
+    concepts: [insurance, windshields, independent, claim, everybody]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/povertyfinance/1prmnay.md#c2"
     char_span: [2976, 4069]
     sentence_count: 8
     key_terms: [insurance, company, check, legit, vehicle, elegant-homework6166, helps, hope]
+    concepts: [insurance, company, check, legit, vehicle]
     section: Comments
     token_count: 293
 ---

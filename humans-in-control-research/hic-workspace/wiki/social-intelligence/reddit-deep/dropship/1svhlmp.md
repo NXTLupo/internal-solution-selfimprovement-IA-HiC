@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1113]
     sentence_count: 3
     key_terms: [shopify, stores, dropshippers, fulfillment, available, comments, dropship, orders]
+    concepts: [shopify, dropshippers, stores, fulfillment, available]
     token_count: 221
+    sources: [{"n":"reddit-deep: r/dropship","u":"https://www.reddit.com/r/dropship/comments/1svhlmp/looking_for_dropshippers_who_are_trying_to_scale/"}]
   - id: "social-intelligence/reddit-deep/dropship/1svhlmp.md#c1"
-    char_span: [1128, 1549]
+    char_span: [1127, 1548]
     sentence_count: 2
     key_terms: [dropship, charming-coast4717, spam, self-promotion, automatically, automoderator, moderators, performed]
+    concepts: [dropship]
     section: Comments
     token_count: 112
 ---

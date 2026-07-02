@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 887]
     sentence_count: 10
     key_terms: [money, spending, personalfinance, discipline, comments, problem, advice, individual-turn6417]
+    concepts: [money, personalfinance, spending, discipline, comments]
     token_count: 221
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1s1y2vr/young_adult_money_spending_problem/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1s1y2vr.md#c1"
     char_span: [901, 2377]
     sentence_count: 17
     key_terms: [spending, spend, good, want, eating, days, expensive, something]
+    concepts: [spending, spend, eating, expensive, something]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/personalfinance/1s1y2vr.md#c2"
     char_span: [2381, 4345]
     sentence_count: 14
     key_terms: [money, personal, cash, month, quick, eat, plan, envelopes]
+    concepts: [personal, money, month, quick, envelopes]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/personalfinance/1s1y2vr.md#c3"
     char_span: [4347, 5109]
     sentence_count: 5
     key_terms: [others, "that's", extra, "isn't", oktechnician636, flexibility, practically, sustainable]
+    concepts: [others, "that's", extra, "isn't"]
     section: Comments
     token_count: 181
 ---

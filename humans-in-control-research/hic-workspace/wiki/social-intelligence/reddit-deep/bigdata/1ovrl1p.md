@@ -17,10 +17,12 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/bigdata/1ovrl1p.md#c0"
-    char_span: [0, 1105]
+    char_span: [0, 1104]
     sentence_count: 5
     key_terms: [reaching-40m-customers-via-60-faster-campaign-delivery-for-a-leading-bank, ascendion, client-outcomes, personalization, https, com, marketing, campaign]
-    token_count: 246
+    concepts: [reaching-40m-customers-via-60-faster-campaign-delivery-for-a-leading-bank, ascendion, client-outcomes, personalization, https]
+    token_count: 245
+    sources: [{"n":"reddit-deep: r/bigdata","u":"https://www.reddit.com/r/bigdata/comments/1ovrl1p/how_do_you_balance_speed_and_personalization_in/"}]
 ---
 # How do you balance speed and personalization in banking campaigns?
 

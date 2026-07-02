@@ -17,10 +17,12 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1ssoei1.md#c0"
-    char_span: [0, 725]
+    char_span: [0, 724]
     sentence_count: 3
     key_terms: [philanthropy, comments, "unicef's", funding, inside, yield, cash, new]
-    token_count: 176
+    concepts: [philanthropy, comments, "unicef's", funding, inside]
+    token_count: 175
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1ssoei1/inside_unicefs_crypto_playbook_stablecoin_defi/"}]
 ---
 # Inside UNICEF's Crypto Playbook: Stablecoin DeFi Yield for Giga, Cash Transfers by SMS
 

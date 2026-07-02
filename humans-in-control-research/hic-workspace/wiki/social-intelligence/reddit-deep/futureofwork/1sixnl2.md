@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1984]
     sentence_count: 19
     key_terms: [new, time, automation, looking, futureofwork, here, business, comments]
+    concepts: [automation, looking, futureofwork, business, comments]
     token_count: 459
+    sources: [{"n":"reddit-deep: r/futureofwork","u":"https://www.reddit.com/r/FutureOfWork/comments/1sixnl2/new_here_looking_to_connect_with_similar_thinkers/"}]
   - id: "social-intelligence/reddit-deep/futureofwork/1sixnl2.md#c1"
     char_span: [1986, 4086]
     sentence_count: 14
     key_terms: [business, ongoing, yrs, started, learning, built, development, app]
+    concepts: [business, ongoing, started, learning, development]
     token_count: 502
   - id: "social-intelligence/reddit-deep/futureofwork/1sixnl2.md#c2"
     char_span: [4088, 4618]

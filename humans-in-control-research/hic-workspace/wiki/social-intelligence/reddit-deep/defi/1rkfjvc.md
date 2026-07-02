@@ -17,10 +17,12 @@ research_goal: "Produce the definitive guide to personal investing in 2026 by an
 engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/defi/1rkfjvc.md#c0"
-    char_span: [0, 1111]
+    char_span: [0, 1110]
     sentence_count: 8
     key_terms: [identity, multi-chain, defi, across, cross-chain, name, ecosystems, addresses]
-    token_count: 237
+    concepts: [identity, multi-chain, across, cross-chain, ecosystems]
+    token_count: 236
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1rkfjvc/anylayer_name_service_simplifying_multichain/"}]
 ---
 # Anylayer Name Service: Simplifying Multi-Chain Identity
 

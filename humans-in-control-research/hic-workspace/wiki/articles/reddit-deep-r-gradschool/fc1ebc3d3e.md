@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1095]
     sentence_count: 9
     key_terms: [congratulations, advice, school, grad, gradschool, comments, congrats, semester]
+    concepts: [congratulations, advice, school, gradschool, comments]
     token_count: 261
+    sources: [{"n":"Reddit Deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1m5zxsl/advice_for_a_first_gen_grad_student/"}]
 ---
 # Advice for a first gen Grad student?
 

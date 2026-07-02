@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2000]
     sentence_count: 9
     key_terms: [vanguard, account, transfer, letter, write, apparently, money, balance]
+    concepts: [vanguard, account, transfer, letter, write]
     token_count: 457
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1pdceov/vanguard_customer_service_emailproblem/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1pdceov.md#c1"
-    char_span: [2015, 2349]
+    char_span: [2014, 2348]
     sentence_count: 1
     key_terms: [send-money-to-vanguard, paper, send, surprisingly, move-money, brokerage, cclmd1984, vanguard]
+    concepts: [paper]
     section: Comments
     token_count: 87
 ---

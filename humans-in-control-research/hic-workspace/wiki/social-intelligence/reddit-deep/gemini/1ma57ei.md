@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1065]
     sentence_count: 9
     key_terms: [gemini, unable, comments, security, passkey, access, edited, emails]
+    concepts: [gemini, unable, comments, security, passkey]
     token_count: 264
+    sources: [{"n":"reddit-deep: r/gemini","u":"https://www.reddit.com/r/Gemini/comments/1ma57ei/unable_to_access_unsure_which_emails_are_scam/"}]
   - id: "social-intelligence/reddit-deep/gemini/1ma57ei.md#c1"
     char_span: [1079, 2384]
     sentence_count: 14
     key_terms: [shouldbeestudying, gemini, having, ticket, wallet, substantial-rice6344, haven, login]
+    concepts: [shouldbeestudying, gemini, having, ticket, wallet]
     section: Comments
     token_count: 356
 ---

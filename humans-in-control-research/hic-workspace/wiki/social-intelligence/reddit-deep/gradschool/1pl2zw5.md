@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1797]
     sentence_count: 15
     key_terms: [offer, "i'm", job, real, time, gradschool, full-time, permanent]
+    concepts: [gradschool, offer, full-time, permanent, comments]
     token_count: 397
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1pl2zw5/feedbackexperience_torn_between_grad_offer_and/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1pl2zw5.md#c1"
     char_span: [1811, 2594]
     sentence_count: 4
     key_terms: [people, school, grad, graduate, careers, pitifulasparagus2017, want, excruciating]
+    concepts: [people, school, graduate, careers]
     section: Comments
     token_count: 189
 ---

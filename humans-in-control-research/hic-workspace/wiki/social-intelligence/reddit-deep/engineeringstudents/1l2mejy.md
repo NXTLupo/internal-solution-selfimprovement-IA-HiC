@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 704]
     sentence_count: 2
     key_terms: [engineeringstudents, "c's", get, comments, career, grades, bad, gpa]
+    concepts: [engineeringstudents, comments, career, grades]
     token_count: 174
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1l2mejy/engineers_who_used_to_have_bad_grades_and_gpa_how/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1l2mejy.md#c1"
     char_span: [718, 1297]
     sentence_count: 8
     key_terms: [job, gpa, years, like, yamivsjulius, shecosmique, graduation, graduated]
+    concepts: [years]
     section: Comments
     token_count: 166
   - id: "social-intelligence/reddit-deep/engineeringstudents/1l2mejy.md#c2"
     char_span: [1299, 2771]
     sentence_count: 14
     key_terms: [job, benchristians3n, college, never, shecosmique, anything, engineer, grades]
+    concepts: [benchristians3n, college, shecosmique, never, anything]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/engineeringstudents/1l2mejy.md#c3"
     char_span: [2773, 4648]
     sentence_count: 14
     key_terms: [job, zrustyshackleford, engineering, accomplishments, school, did, graduated, average]
+    concepts: [zrustyshackleford, engineering, accomplishments, school, graduated]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/engineeringstudents/1l2mejy.md#c4"
     char_span: [4650, 6601]
     sentence_count: 15
     key_terms: [graduated, gpa, job, classes, passion, internship, professors, remember]
+    concepts: [graduated, classes, passion, internship, professors]
     section: Comments
     token_count: 478
 ---

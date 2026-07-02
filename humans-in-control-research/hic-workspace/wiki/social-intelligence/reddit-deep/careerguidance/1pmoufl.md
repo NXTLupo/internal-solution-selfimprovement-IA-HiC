@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1389]
     sentence_count: 10
     key_terms: [certifications, change, careerguidance, advice, career, job, need, comments]
+    concepts: [certifications, change, careerguidance, advice, career]
     token_count: 322
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pmoufl/career_guidanceadvice/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1pmoufl.md#c1"
     char_span: [1403, 2301]
     sentence_count: 4
     key_terms: [tech, networking, support, cybersecurity, additionally, background, beneficial, depressing]
+    concepts: [networking, support]
     section: Comments
     token_count: 196
 ---

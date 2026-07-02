@@ -21,29 +21,36 @@ chunks:
     char_span: [0, 1223]
     sentence_count: 5
     key_terms: [cscareerquestions, running, comments, cortisol, industry, easier, enough, normal]
+    concepts: [cscareerquestions, running, comments, cortisol, industry]
     token_count: 270
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1td2zgz/working_in_tech_and_my_cortisol_is_through_the/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1td2zgz.md#c1"
     char_span: [1237, 2875]
     sentence_count: 8
     key_terms: [forsookcomparison, find, neurologist, job, insecurity, processing, difficult, insurance]
+    concepts: [forsookcomparison, neurologist, insecurity, processing, difficult]
     section: Comments
     token_count: 385
+    sources: [{"n":"** locked into high cortisol for about 2 years due to extreme high-pressure tech","u":""}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1td2zgz.md#c2"
     char_span: [2877, 4741]
     sentence_count: 12
     key_terms: [forsookcomparison, job, been, security, company, freeway, giving, health]
+    concepts: [forsookcomparison, security, company, freeway, giving]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/cscareerquestions/1td2zgz.md#c3"
     char_span: [4744, 6368]
     sentence_count: 9
     key_terms: [until, life, stop, wasn, balance, working, making, media]
+    concepts: [until, balance, working, making, media]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/cscareerquestions/1td2zgz.md#c4"
     char_span: [6370, 8206]
     sentence_count: 15
     key_terms: [work, important, "you're", "isn't", something, inflated, reality, making]
+    concepts: [important, "you're", "isn't", something, inflated]
     section: Comments
     token_count: 445
 ---

@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1917]
     sentence_count: 20
     key_terms: [sometimes, google, firms, cold, deliverability, office, b2bmarketing, email]
+    concepts: [sometimes, google, firms, deliverability, b2bmarketing]
     token_count: 450
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1qnnhyw/i_own_a_120000_a_month_cold_email_agency_and/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1qnnhyw.md#c1"
-    char_span: [1932, 3972]
+    char_span: [1931, 3971]
     sentence_count: 9
     key_terms: [email, looking-for-marketing-discussion-811236647760298024, deliverability, questions, linkedin, content, discord, domains]
+    concepts: [email, deliverability, questions, linkedin, content]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/b2bmarketing/1qnnhyw.md#c2"
-    char_span: [3976, 6087]
+    char_span: [3975, 6086]
     sentence_count: 6
     key_terms: [firms, change, email, opens, appreciate, companies, linkedin, multiple]
+    concepts: [firms, change, appreciate, email, opens]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/b2bmarketing/1qnnhyw.md#c3"
-    char_span: [5854, 7222]
+    char_span: [5853, 7221]
     sentence_count: 5
     key_terms: [inboxes, lot, interface, workspace, business, matters, premium, bright-traffic-8215]
+    concepts: [inboxes, interface, workspace, business, matters]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/b2bmarketing/1qnnhyw.md#c4"
-    char_span: [7225, 7722]
+    char_span: [7224, 7721]
     sentence_count: 2
     key_terms: [because, service, conversations, service-based, challenging, experience, generation, campaigns]
+    concepts: [because, service]
     section: Comments
     token_count: 107
 ---

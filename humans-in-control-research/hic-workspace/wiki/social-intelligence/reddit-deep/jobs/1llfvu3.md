@@ -21,39 +21,52 @@ chunks:
     char_span: [0, 2152]
     sentence_count: 22
     key_terms: ["i'm", because, trying, like, interviews, maybe, exhausted, get]
+    concepts: [because, trying, interviews, exhausted, maybe]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1llfvu3.md#c8", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c15", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c17"]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1llfvu3/stop_treating_interviews_like_dating_this_isnt_a/"}]
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c1"
     char_span: [2154, 4407]
     sentence_count: 22
     key_terms: [because, someone, being, times, else, deserves, everyone, number]
+    concepts: [because, someone, being, times, deserves]
     token_count: 499
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c2"
     char_span: [4409, 5584]
     sentence_count: 11
     key_terms: [someone, people, reason, tired, isn, like, candidate, rejection]
+    concepts: [someone, people, reason, tired, candidate]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1llfvu3.md#c6", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c11"]
     token_count: 257
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c3"
     char_span: [5598, 7417]
     sentence_count: 14
     key_terms: [feedback, job, fit, like, ones, candidates, "didn't", market]
+    concepts: [feedback, candidates, "didn't", market, final]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c4"
     char_span: [7420, 8513]
     sentence_count: 7
     key_terms: [interviews, job, get, interview, revealing, deleted, gotten, though]
+    concepts: [interviews, interview, revealing, deleted, gotten]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1llfvu3.md#c5", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c13", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c15"]
     section: Comments
     token_count: 248
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c5"
     char_span: [8515, 10526]
     sentence_count: 25
     key_terms: [interview, job, insufferable, experience, interviews, someone, pricks, "i've"]
+    concepts: [interview, insufferable, experience, interviews, someone]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1llfvu3.md#c4", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c11", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c15"]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c6"
     char_span: [10528, 12151]
     sentence_count: 14
     key_terms: [person, job, people, insufferable, charismatic, got, mean, candidate]
+    concepts: [person, insufferable, people, charismatic, candidate]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1llfvu3.md#c2"]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c7"
@@ -66,72 +79,92 @@ chunks:
     char_span: [12677, 14473]
     sentence_count: 14
     key_terms: [job, interviews, cultural, because, person, personality, fit, get]
+    concepts: [interviews, cultural, because, person, personality]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1llfvu3.md#c0", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c15", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c17"]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c9"
     char_span: [14475, 16468]
     sentence_count: 21
     key_terms: [people, job, companies, important, work, replaceable, don, need]
+    concepts: [people, companies, important, replaceable, attitude]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c10"
     char_span: [16470, 18638]
     sentence_count: 24
     key_terms: [people, skills, good, job, work, engineering, interviewer, get]
+    concepts: [people, skills, engineering, interviewer, candidates]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c11"
     char_span: [18640, 20828]
     sentence_count: 17
     key_terms: [along, get, someone, people, job, need, work, pretending]
+    concepts: [along, someone, people, pretending, interview]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1llfvu3.md#c2", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c5", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c15", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c18"]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c12"
     char_span: [20830, 22562]
     sentence_count: 10
     key_terms: [job, personality, going, deleted, someone, skills, along, get]
+    concepts: [personality, going, deleted, someone, skills]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c13"
     char_span: [22564, 24531]
     sentence_count: 10
     key_terms: [people, job, fit, being, interviews, deleted, keeping, someone]
+    concepts: [people, being, interviews, deleted, keeping]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1llfvu3.md#c4", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c15", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c17"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c14"
     char_span: [24533, 26502]
     sentence_count: 21
     key_terms: [get, job, team, coworker, qualifications, morale, people, best]
+    concepts: [coworker, qualifications, morale, people, applicant]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1llfvu3.md#c16"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c15"
     char_span: [26504, 28539]
     sentence_count: 16
     key_terms: [interview, because, people, care, interviews, questions, critical, thinking]
+    concepts: [interview, because, people, interviews, questions]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1llfvu3.md#c0", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c4", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c5", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c8", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c11"]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c16"
     char_span: [28541, 30643]
     sentence_count: 22
     key_terms: [everyone, personality, cultural-afternoon72, like, coworker, people, constantly, genuinely]
+    concepts: [everyone, cultural-afternoon72, personality, coworker, people]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1llfvu3.md#c14", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c18"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c17"
     char_span: [30645, 32080]
     sentence_count: 12
     key_terms: [people, interviews, team, work, "that's", because, company, person]
+    concepts: [people, interviews, "that's", because, company]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1llfvu3.md#c0", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c8", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c13", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c15"]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c18"
     char_span: [32082, 33723]
     sentence_count: 10
     key_terms: [job, interview, people, hiring, like, coworkers, everyone, friendly]
+    concepts: [interview, people, hiring, coworkers, everyone]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1llfvu3.md#c11", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c15", "social-intelligence/reddit-deep/jobs/1llfvu3.md#c16"]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c19"
     char_span: [33725, 35412]
     sentence_count: 11
     key_terms: [like, going, work, background, diversity, sounds, "team's", best]
+    concepts: [going, background, diversity, sounds, "team's"]
     section: Comments
     token_count: 380
 ---

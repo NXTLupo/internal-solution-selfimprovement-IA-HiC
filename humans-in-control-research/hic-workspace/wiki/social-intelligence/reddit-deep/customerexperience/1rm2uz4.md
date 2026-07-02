@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1444]
     sentence_count: 3
     key_terms: [lorikeetcx, cx-jobs, https, www, support, support-operations-analyst-ai-automation-linktree, automations-ai-specialist-product-support-figma, specialist]
+    concepts: [lorikeetcx, cx-jobs, https, support, customerexperience]
     token_count: 382
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1rm2uz4/cx_jobs_this_week_where_ai_is_actually_part_of/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1rm2uz4.md#c1"
-    char_span: [1459, 3163]
+    char_span: [1458, 3162]
     sentence_count: 13
     key_terms: [automation, like, support, roles, teams, engineering, job, part]
+    concepts: [automation, support, engineering, roles, teams]
     section: Comments
     token_count: 335
 ---

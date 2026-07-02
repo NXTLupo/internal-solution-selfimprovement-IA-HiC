@@ -17,10 +17,12 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1rvjpol.md#c0"
-    char_span: [0, 1282]
+    char_span: [0, 1281]
     sentence_count: 5
     key_terms: [philanthropy, foundations, charitable, foundation, incarceration-immigration, comments, inside, monday]
-    token_count: 311
+    concepts: [philanthropy, foundations, charitable, foundation, comments]
+    token_count: 310
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1rvjpol/inside_philanthropy_front_page_monday_march_16/"}]
 ---
 # Inside Philanthropy front page Monday, March 16
 

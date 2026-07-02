@@ -21,77 +21,93 @@ chunks:
     char_span: [0, 1575]
     sentence_count: 15
     key_terms: [month, povertyfinance, money, year, comments, paycheck, tracking, coffee]
+    concepts: [month, povertyfinance, money, comments, paycheck]
     token_count: 349
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1nt2qs4/i_tracked_every_penny_i_spent_for_a_year_and_it/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1nt2qs4.md#c1"
     char_span: [1589, 3395]
     sentence_count: 10
     key_terms: [time, buy, want, dollars, exactly, example, minutes, payment]
+    concepts: [dollars, exactly, example, minutes, payment]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/povertyfinance/1nt2qs4.md#c2"
     char_span: [3397, 5312]
     sentence_count: 16
     key_terms: [like, someone, get, pay, subscription, bell, taco, something]
+    concepts: [someone, subscription, something, buying, coffee]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/povertyfinance/1nt2qs4.md#c3"
     char_span: [5314, 6602]
     sentence_count: 11
     key_terms: [money, work, left, available, insurance, expenses, minimum, income]
+    concepts: [money, available, insurance, expenses, minimum]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/povertyfinance/1nt2qs4.md#c4"
     char_span: [6604, 7944]
     sentence_count: 9
     key_terms: [does, absolutely, husband, tacosandsunscreen, hour, like, work, year]
+    concepts: [absolutely, husband]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/povertyfinance/1nt2qs4.md#c5"
     char_span: [7946, 9829]
     sentence_count: 15
     key_terms: [groceries, money, something, takeout, called, like, work, different]
+    concepts: [groceries, money, something, takeout, called]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1nt2qs4.md#c7"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/povertyfinance/1nt2qs4.md#c6"
     char_span: [9831, 11041]
     sentence_count: 10
     key_terms: [prices, groceries, friends, grocery, based, "can't", price, come]
+    concepts: [prices, groceries, friends, grocery, based]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/povertyfinance/1nt2qs4.md#c7"
     char_span: [11043, 13046]
     sentence_count: 15
     key_terms: [use, mint, "i've", money, something, spending, anymore, empower]
+    concepts: [money, something, spending, anymore, empower]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1nt2qs4.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1nt2qs4.md#c8"
     char_span: [12802, 13349]
     sentence_count: 5
     key_terms: [spending, cheat, "don't", back, feel, set, comfortablyadhd, reidmrdotcom]
+    concepts: [spending, cheat, "don't"]
     section: Comments
     token_count: 136
   - id: "social-intelligence/reddit-deep/povertyfinance/1nt2qs4.md#c9"
     char_span: [13351, 15300]
     sentence_count: 12
     key_terms: [budget, track, time, "don't", years, spreadsheet, went, unexpected]
+    concepts: [budget, track, spreadsheet, "don't", unexpected]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/povertyfinance/1nt2qs4.md#c10"
     char_span: [15302, 17262]
     sentence_count: 16
     key_terms: [stop, use, budgeting, expenses, buckets, started, buying, coffee]
+    concepts: [budgeting, expenses, buckets, started, buying]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/povertyfinance/1nt2qs4.md#c11"
     char_span: [17264, 19199]
     sentence_count: 13
     key_terms: [google, started, since, myself, doing, sheet, "i've", everything]
+    concepts: [google, started, since, myself, doing]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/povertyfinance/1nt2qs4.md#c12"
     char_span: [19201, 19651]
     sentence_count: 6
     key_terms: [money, life, improvements, dominguez, emergency, financial, groceries, jneedham2]
+    concepts: [money]
     section: Comments
     token_count: 109
 ---

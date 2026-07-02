@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 743]
     sentence_count: 6
     key_terms: [productivity, reddit, lives, tried, need, well-designed, suggestions, everything]
+    concepts: [productivity, reddit, lives, tried]
     token_count: 175
+    sources: [{"n":"reddit: productivity","u":"https://reddit.com/r/productivity/comments/1m91dt2/do_we_really_need_so_much_ai_in_our_lives/"}]
 ---
 # Do we really need so much ai in our lives?
 

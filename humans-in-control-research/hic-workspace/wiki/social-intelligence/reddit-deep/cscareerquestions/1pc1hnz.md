@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1469]
     sentence_count: 13
     key_terms: [start, cscareerquestions, learning, because, chatgpt, "it's", tech, comments]
+    concepts: [start, cscareerquestions, learning, because, chatgpt]
     token_count: 351
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1pc1hnz/i_got_my_cs_degree_because_of_chatgpt_how_can_i/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pc1hnz.md#c1"
     char_span: [1483, 3509]
     sentence_count: 15
     key_terms: [understand, learn, enough, whitchorence, "don't", group, didn, spoon-fed]
+    concepts: [understand, learn, whitchorence, enough, "don't"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pc1hnz.md#c2"
     char_span: [3511, 5296]
     sentence_count: 11
     key_terms: [software, stackoverflow, role, questions, overflow, chatgpt, scripts, forum]
+    concepts: [software, stackoverflow, questions, overflow, chatgpt]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pc1hnz.md#c3"
@@ -44,30 +48,35 @@ chunks:
     char_span: [5693, 7751]
     sentence_count: 8
     key_terms: [grade, exam, passing, through, degree, matter, switchorganic, assignments]
+    concepts: [grade, switchorganic, passing, through, degree]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pc1hnz.md#c5"
     char_span: [7753, 9630]
     sentence_count: 11
     key_terms: [courses, "don't", self-taught, "it's", jobs, anything, computer, concepts]
+    concepts: [courses, self-taught, "don't", anything, computer]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pc1hnz.md#c6"
     char_span: [9632, 10046]
     sentence_count: 3
     key_terms: [expecting, basics, junior, crud, understands, glassvase1, companies, developer]
+    concepts: [expecting, basics, junior]
     section: Comments
     token_count: 97
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pc1hnz.md#c7"
     char_span: [10048, 12040]
     sentence_count: 12
     key_terms: [degree, back, because, school, years, went, realized, company]
+    concepts: [degree, because, school, years, realized]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pc1hnz.md#c8"
     char_span: [11831, 13854]
     sentence_count: 11
     key_terms: [coding, use, going, tools, "don't", effectively, "it's", productive]
+    concepts: [coding, going, tools, effectively, "don't"]
     section: Comments
     token_count: 475
 ---

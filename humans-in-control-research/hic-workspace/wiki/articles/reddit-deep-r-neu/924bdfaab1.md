@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2101]
     sentence_count: 17
     key_terms: [models, claude, local, mahoraga, northeastern, run, honestly, "you're"]
+    concepts: [models, claude, mahoraga, northeastern, local]
     token_count: 510
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1t6crmm/running_out_of_claude_credits_mahoraga_is_here/"}]
   - id: "articles/reddit-deep-r-neu/924bdfaab1.md#c1"
     char_span: [2103, 3276]
     sentence_count: 10
     key_terms: [greedyworking1499, credits, claude, own-professional3092, people, premium, friend, bunch]
+    concepts: [greedyworking1499, own-professional3092, credits, claude, people]
     token_count: 301
 ---
 # Running out of Claude credits? Mahoraga is here.

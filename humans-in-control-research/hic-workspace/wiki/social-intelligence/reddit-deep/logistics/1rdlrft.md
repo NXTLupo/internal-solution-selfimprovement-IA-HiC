@@ -20,31 +20,38 @@ chunks:
     char_span: [0, 1841]
     sentence_count: 13
     key_terms: [logistics, tariffs, tariff, president, majority, impose, congressional, comments]
+    concepts: [logistics, tariffs, tariff, president, majority]
     token_count: 410
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1rdlrft/catch_up_on_what_happened_this_week_in_logistics/"}]
   - id: "social-intelligence/reddit-deep/logistics/1rdlrft.md#c1"
     char_span: [1843, 4226]
     sentence_count: 19
     key_terms: [refund, democrats, refunds, monday, legislation, importers, political, already]
+    concepts: [refund, democrats, refunds, monday, legislation]
     token_count: 480
   - id: "social-intelligence/reddit-deep/logistics/1rdlrft.md#c2"
     char_span: [4228, 6380]
     sentence_count: 16
     key_terms: [billion, trade, deficit, mexico, goods, exports, imports, tiktok]
+    concepts: [billion, trade, deficit, mexico, goods]
     token_count: 481
   - id: "social-intelligence/reddit-deep/logistics/1rdlrft.md#c3"
     char_span: [6382, 8423]
     sentence_count: 14
     key_terms: [tiktok, tests, inventory, logistics, warehouse, required, "tiktok's", "would've"]
+    concepts: [tiktok, inventory, tests, logistics, warehouse]
     token_count: 420
   - id: "social-intelligence/reddit-deep/logistics/1rdlrft.md#c4"
     char_span: [8425, 9844]
     sentence_count: 6
     key_terms: [feb, repair, depop, llc, logistics-pulse-by-fulfillyn, packaging, flextock, merchant]
+    concepts: [repair, depop, packaging, flextock, merchant]
     token_count: 334
   - id: "social-intelligence/reddit-deep/logistics/1rdlrft.md#c5"
-    char_span: [9859, 11582]
+    char_span: [9858, 11581]
     sentence_count: 12
     key_terms: [pricing, drivers, charlesholmes1, like, lot, contracts, already, changes]
+    concepts: [pricing, charlesholmes1, drivers, contracts, already]
     section: Comments
     token_count: 363
 ---

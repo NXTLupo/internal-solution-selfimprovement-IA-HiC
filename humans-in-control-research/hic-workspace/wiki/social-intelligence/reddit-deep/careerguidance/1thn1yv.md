@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2083]
     sentence_count: 24
     key_terms: [job, building, tool, careerguidance, career, months, people, learn]
+    concepts: [building, careerguidance, career, months, people]
     token_count: 500
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1thn1yv/laid_off_at_64_10_months_ago_i_spent_the_last_4/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1thn1yv.md#c1"
     char_span: [2097, 2496]
     sentence_count: 5
     key_terms: [learn, because, people, notannsaguypromise, ordinary-smoke190, jobs, real, particular]
+    concepts: [learn, because, people]
     section: Comments
     token_count: 103
 ---

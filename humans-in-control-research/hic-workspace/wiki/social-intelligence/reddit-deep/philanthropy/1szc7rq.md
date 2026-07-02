@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 1854]
     sentence_count: 9
     key_terms: [fundraising, director, foundation, associate, campaigns, engagement, volunteer, research]
+    concepts: [fundraising, director, foundation, associate, campaigns]
     token_count: 353
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1szc7rq/associate_director_fundraising_campaigns/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1szc7rq.md#c1"
     char_span: [1856, 4721]
     sentence_count: 4
     key_terms: [fundraising, volunteers, volunteer, engagement, events, campaigns, skills, strong]
+    concepts: [fundraising, volunteers, volunteer, engagement, events]
     token_count: 501
   - id: "social-intelligence/reddit-deep/philanthropy/1szc7rq.md#c2"
-    char_span: [4723, 4964]
+    char_span: [4723, 4963]
     sentence_count: 1
     key_terms: [linkedin, kangaroomandible, youcinnamonbit, organization, jcravens42, salary, https, write]
+    concepts: [linkedin]
     section: Comments
     token_count: 75
 ---

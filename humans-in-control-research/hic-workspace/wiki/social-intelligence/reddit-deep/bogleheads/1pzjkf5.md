@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 1387]
     sentence_count: 6
     key_terms: [contribution, remaining, ira, roth, limit, contributed, trad, bogleheads]
+    concepts: [contribution, remaining, contributed, bogleheads, contribute]
     token_count: 323
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1pzjkf5/confusion_on_backdoor_roth_conversion/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1pzjkf5.md#c1"
-    char_span: [1402, 3197]
+    char_span: [1401, 3196]
     sentence_count: 10
     key_terms: [ira, tax, contribution, conversion, contributions, traditional, pro, rata]
+    concepts: [contribution, conversion, contributions, traditional, deadline]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1pzjkf5.md#c2"]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/bogleheads/1pzjkf5.md#c2"
-    char_span: [3199, 4296]
+    char_span: [3198, 4295]
     sentence_count: 7
     key_terms: [contribution, conversion, contributions, limit, conversions, counts, matter, infernoexpedition]
+    concepts: [contribution, conversion, contributions, conversions, limit]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1pzjkf5.md#c1"]
     section: Comments
     token_count: 269
 ---

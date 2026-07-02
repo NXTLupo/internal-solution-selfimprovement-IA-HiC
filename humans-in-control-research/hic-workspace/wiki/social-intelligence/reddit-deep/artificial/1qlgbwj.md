@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 485]
     sentence_count: 2
     key_terms: [artificial, comments, vs4vijay, github, https, com, crowd-driven, development]
+    concepts: [artificial, comments, vs4vijay, github, https]
     token_count: 119
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1qlgbwj/opensource_experiment_crowddriven_software/"}]
 ---
 # Open-source experiment: crowd-driven software development with AI
 

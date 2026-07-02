@@ -18,11 +18,16 @@ chunks:
     char_span: [0, 2098]
     sentence_count: 14
     key_terms: [college, semester, sap, school, enrolled, classes, transferring, issue]
+    concepts: [college, semester, school, enrolled, classes]
+    related_chunks: ["articles/reddit-deep-r-college/bc53f94ccd.md#c1"]
     token_count: 475
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1q5jncc/title_sap_issue_discovered_too_late_daughter_now/"}]
   - id: "articles/reddit-deep-r-college/bc53f94ccd.md#c1"
     char_span: [2100, 3685]
     sentence_count: 10
     key_terms: [fall, classes, college, spring, enrolled, semester, appeal, look]
+    concepts: [classes, college, spring, enrolled, semester]
+    related_chunks: ["articles/reddit-deep-r-college/bc53f94ccd.md#c0"]
     token_count: 362
 ---
 # Title: SAP issue discovered too late — daughter now has nowhere to enroll this semester

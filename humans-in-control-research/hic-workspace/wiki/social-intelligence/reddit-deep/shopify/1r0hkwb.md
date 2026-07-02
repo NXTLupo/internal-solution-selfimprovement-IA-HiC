@@ -20,36 +20,44 @@ chunks:
     char_span: [0, 725]
     sentence_count: 3
     key_terms: [shopify, e-commerce, news, comments, recaps, weekly, adventurepaul, reddit-deep]
+    concepts: [shopify, e-commerce, comments, recaps, weekly]
     token_count: 191
+    sources: [{"n":"reddit-deep: r/shopify","u":"https://www.reddit.com/r/shopify/comments/1r0hkwb/this_weeks_top_ecommerce_news_stories_feb_9th_2026/"}]
   - id: "social-intelligence/reddit-deep/shopify/1r0hkwb.md#c1"
     char_span: [727, 3189]
     sentence_count: 11
     key_terms: [video, years, board, product, shopify, lores, experience, president]
+    concepts: [video, years, board, product, shopify]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1r0hkwb.md#c2"
     char_span: [2863, 5487]
     sentence_count: 11
     key_terms: [amazon, tools, european, recommendation, users, competition, screen-time, commission]
+    concepts: [amazon, tools, european, recommendation, competition]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1r0hkwb.md#c3"
     char_span: [5208, 7665]
     sentence_count: 11
     key_terms: [expensive, schindler, ads, mode, bookshop, directly, offers, within]
+    concepts: [expensive, schindler, bookshop, directly, offers]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1r0hkwb.md#c4"
     char_span: [7315, 9858]
     sentence_count: 10
     key_terms: [performance, tiktok, new, service, deliveries, launched, next-day, packages]
+    concepts: [performance, tiktok, service, deliveries, launched]
     token_count: 512
   - id: "social-intelligence/reddit-deep/shopify/1r0hkwb.md#c5"
     char_span: [9522, 10251]
     sentence_count: 4
     key_terms: [distribution, appealed, remedies, sharing, google, ruling, search, data]
+    concepts: [distribution, appealed, remedies, sharing, google]
     token_count: 131
   - id: "social-intelligence/reddit-deep/shopify/1r0hkwb.md#c6"
-    char_span: [10266, 10684]
+    char_span: [10265, 10683]
     sentence_count: 3
     key_terms: [community, contact, shopify, automatically, automoderator, moderators, soliciting, performed]
+    concepts: [community, contact, shopify]
     section: Comments
     token_count: 90
 ---

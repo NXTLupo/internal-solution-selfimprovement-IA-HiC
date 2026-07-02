@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 338]
     sentence_count: 1
     key_terms: [internships, comments, fall, find, opportunities, reddit-deep, internship, companies]
+    concepts: [internships, comments]
     token_count: 88
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1skpxtp/how_to_get_fall_internships_at_big_companies/"}]
   - id: "social-intelligence/reddit-deep/internships/1skpxtp.md#c1"
     char_span: [352, 1983]
     sentence_count: 6
     key_terms: [fall, appropriate-tutor587, internship, summer, start, rivocareers, companies, positions]
+    concepts: [appropriate-tutor587, internship, summer, rivocareers, start]
     section: Comments
     token_count: 417
 ---

@@ -21,13 +21,17 @@ chunks:
     char_span: [0, 641]
     sentence_count: 5
     key_terms: [waterloo, recommendations, comments, looking, moment, impressive-fan-8288, jobs, reddit-deep]
+    concepts: [recommendations, waterloo, comments, looking, moment]
     token_count: 156
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1nmvkyo/looking_for_pt_jobs_any_recommendations_would_be/"}]
   - id: "social-intelligence/reddit-deep/waterloo/1nmvkyo.md#c1"
     char_span: [655, 2684]
     sentence_count: 7
     key_terms: [subject-landscape451, own, through, workers, market, international, international-mobility-program, restaurant]
+    concepts: [subject-landscape451, international, through, workers, market]
     section: Comments
     token_count: 511
+    sources: [{"n":"former lifeguard","u":""}]
 ---
 # Looking for PT Jobs, any recommendations would be nice.
 

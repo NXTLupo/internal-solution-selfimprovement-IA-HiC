@@ -388,7 +388,167 @@ _KICK_FALLBACK = {
     "tech-architecture": "System Architecture", "architecture-map": "System Architecture",
     "mindmap": "Mind Map", "mind-map": "Mind Map", "blueprint": "Service Blueprint",
     "service-blueprint": "Service Blueprint",
+    "stat-row": "Key Signals", "process-flow": "How It Works", "comparison": "Side By Side",
+    "ranked-bars": "Ranked Findings", "composition": "Composition",
 }
+
+
+# ============================================================================
+# E4 (2026-07-02, artifact-total-elevation) - INFOGRAPHIC FAMILIES.
+# The NXT house infographic style, replacing the retired memphis-iso diffusion
+# lane on content slots: one idea per graphic; flat orthographic composition on
+# real type (Archivo titles, NXT Mono labels); token palette; real icon glyphs;
+# never a scene, never characters, never isometric depth, never model-drawn
+# text. Numbers render ONLY when the caller supplies them from cited evidence
+# (Quantitative Claim Rule holds inside graphics too - the spec carries the
+# source label alongside any value).
+# All families work in BOTH shells: the full-bleed GOLD exhibit and the
+# CHROMELESS slot variant (spec.chrome == "none", spec.frame = {w,h}).
+# ============================================================================
+
+_INFO_CSS = """
+/* --- infographic families (E4) --- */
+.statrow{display:flex;gap:14px;width:100%;align-items:stretch;justify-content:center}
+.stat{flex:1;min-width:0;border:1px solid __HAIR__;border-radius:4px;background:__PAPER__;
+  padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.stat .shead{display:flex;align-items:center;gap:8px}
+.stat .sv{font-family:'Saira Condensed';font-weight:600;font-size:34px;line-height:1;color:__INK__}
+.stat .sl{font-family:'NXT Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:__GREY__}
+.stat .sq{font-family:'Archivo';font-size:10.5px;font-style:italic;line-height:1.3;color:__INK__;
+  border-left:3px solid __KICK__;padding-left:8px;margin-top:2px}
+.stat .ss{font-family:'NXT Mono';font-size:8px;letter-spacing:.5px;color:__GREY__;text-transform:uppercase}
+.pflow{display:flex;gap:0;width:100%;align-items:stretch;justify-content:center}
+.pstep{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px;padding:12px 14px;
+  border:1px solid __HAIR__;border-radius:4px;background:__PAPER__}
+.pstep .pshead{display:flex;align-items:center;gap:8px}
+.pstep .psnum{font-family:'NXT Mono';font-size:8.5px;letter-spacing:1px;color:__GREY__}
+.pstep .pst{font-family:'Archivo';font-weight:700;font-size:14px;line-height:1.12;color:__INK__}
+.pstep .psd{font-family:'Archivo';font-size:10.5px;line-height:1.3;color:__GREY__}
+.pconn{flex:0 0 26px;display:flex;align-items:center;justify-content:center;color:__GREY__}
+.cmpwrap{display:flex;gap:14px;width:100%;align-items:stretch}
+.cmp{flex:1;min-width:0;border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.cmp.a{background:__WASHCOOL__}
+.cmp.b{background:__PAPER__;border:1px solid __HAIR__}
+.cmp .ct{font-family:'Archivo';font-weight:700;font-size:15px;line-height:1.12;color:__INK__}
+.cmp li{font-family:'Archivo';font-size:11px;line-height:1.3;color:__INK__;padding-left:10px;position:relative;list-style:none;margin-top:4px}
+.cmp li:before{content:'';position:absolute;left:0;top:6px;width:4px;height:4px;background:__KICK__}
+.rbars{display:flex;flex-direction:column;gap:9px;width:100%;justify-content:center}
+.rbar{display:grid;grid-template-columns:minmax(120px,32%) 1fr;gap:10px;align-items:center}
+.rbar .rl{font-family:'Archivo';font-weight:600;font-size:11.5px;line-height:1.2;color:__INK__;text-align:right}
+.rbar .rtrack{background:__HAIR__;border-radius:2px;height:16px;position:relative}
+.rbar .rfill{background:__ACCENT__;height:16px;border-radius:2px}
+.rbar .rn{font-family:'NXT Mono';font-size:8px;letter-spacing:.5px;color:__GREY__;margin-top:2px;grid-column:2}
+.compo{display:flex;flex-direction:column;gap:12px;width:100%;justify-content:center}
+.cbar{display:flex;height:34px;border-radius:3px;overflow:hidden}
+.cseg{height:100%}
+.clegend{display:flex;gap:16px;flex-wrap:wrap}
+.cleg{display:flex;align-items:center;gap:6px;font-family:'Archivo';font-size:10.5px;color:__INK__}
+.cleg i{width:10px;height:10px;display:block}
+"""
+
+
+def _info_css(pal: dict) -> str:
+    css = _INFO_CSS
+    for key, val in (("__HAIR__", pal["hairline"]), ("__PAPER__", pal["paper"]), ("__INK__", pal["ink"]),
+                     ("__GREY__", pal["grey"]), ("__KICK__", pal["kicker"]), ("__ACCENT__", pal["accent"]),
+                     ("__WASHCOOL__", pal["wash_cool"])):
+        css = css.replace(key, val)
+    return css
+
+
+def _stat_row_body(spec: dict, pal: dict) -> str:
+    stats = [s for s in _list(spec.get("stats")) if isinstance(s, dict)][:5]
+    cells = []
+    for st in stats:
+        icon = _icon(_s(st.get("label")) + " " + _s(st.get("icon")), "insight")
+        val = _e(_s(st.get("value")))
+        quote = _s(st.get("quote"))
+        src = _s(st.get("source"))
+        q_html = (f'<div class="sq">{_e(quote)}</div>' if quote else "")
+        s_html = (f'<div class="ss">SOURCE: {_e(src)}</div>' if src else "")
+        val_html = (f'<div class="sv">{val}</div>' if val else "")
+        cells.append(f'<div class="stat"><div class="shead">{_svg(icon, 18, pal["kicker"])}'
+                     f'<span class="sl">{_e(_s(st.get("label")))}</span></div>{val_html}{q_html}{s_html}</div>')
+    return f'<div class="statrow">{"".join(cells)}</div>'
+
+
+def _process_flow_body(spec: dict, pal: dict) -> str:
+    steps = [s if isinstance(s, dict) else {"name": _s(s)} for s in _list(spec.get("steps"))][:6]
+    chev = ('<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" '
+            'stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>')
+    cells = []
+    for i, st in enumerate(steps):
+        icon = _icon(_s(st.get("name")) + " " + _s(st.get("icon")), "process")
+        desc = _s(st.get("description"))
+        d_html = (f'<div class="psd">{_e(desc)}</div>' if desc else "")
+        cells.append(f'<div class="pstep"><div class="pshead">{_svg(icon, 18, pal["kicker"])}'
+                     f'<span class="psnum">{i + 1:02d}</span></div>'
+                     f'<div class="pst">{_e(_s(st.get("name")))}</div>{d_html}</div>')
+        if i < len(steps) - 1:
+            cells.append(f'<div class="pconn">{chev}</div>')
+    return f'<div class="pflow">{"".join(cells)}</div>'
+
+
+def _comparison_body(spec: dict, pal: dict) -> str:
+    panels = []
+    for side, cls in ((spec.get("left"), "a"), (spec.get("right"), "b")):
+        side = side if isinstance(side, dict) else {}
+        pts = "".join(f"<li>{_e(_s(p))}</li>" for p in _list(side.get("points"))[:6])
+        panels.append(f'<div class="cmp {cls}"><div class="ct">{_e(_s(side.get("title")))}</div><ul>{pts}</ul></div>')
+    return f'<div class="cmpwrap">{"".join(panels)}</div>'
+
+
+def _ranked_bars_body(spec: dict, pal: dict) -> str:
+    items = [i for i in _list(spec.get("items")) if isinstance(i, dict)][:8]
+    scores = [max(1.0, float(i.get("score") or 0)) for i in items] or [1.0]
+    top = max(scores)
+    rows = []
+    for it, sc in zip(items, scores):
+        pct = max(6, round(sc / top * 100))
+        note = _s(it.get("note"))
+        n_html = (f'<div class="rn">{_e(note)}</div>' if note else "")
+        rows.append(f'<div class="rbar"><div class="rl">{_e(_s(it.get("label")))}</div>'
+                    f'<div class="rtrack"><div class="rfill" style="width:{pct}%"></div></div>{n_html}</div>')
+    return f'<div class="rbars">{"".join(rows)}</div>'
+
+
+def _composition_body(spec: dict, pal: dict) -> str:
+    segs = [s for s in _list(spec.get("segments")) if isinstance(s, dict)][:6]
+    total = sum(max(0.0, float(s.get("share") or 0)) for s in segs) or 1.0
+    colors = [pal["accent"], pal["kicker"], pal["ink"], pal["grey"], pal["warn"], pal["hairline"]]
+    bars, legend = [], []
+    for i, s in enumerate(segs):
+        pct = max(2, round(max(0.0, float(s.get("share") or 0)) / total * 100))
+        c = colors[i % len(colors)]
+        bars.append(f'<div class="cseg" style="width:{pct}%;background:{c}"></div>')
+        note = _s(s.get("note"))
+        legend.append(f'<span class="cleg"><i style="background:{c}"></i>{_e(_s(s.get("label")))}'
+                      f'{(" · " + _e(note)) if note else ""}</span>')
+    return (f'<div class="compo"><div class="cbar">{"".join(bars)}</div>'
+            f'<div class="clegend">{"".join(legend)}</div></div>')
+
+
+_INFO_BODIES = {
+    "stat-row": _stat_row_body,
+    "process-flow": _process_flow_body,
+    "comparison": _comparison_body,
+    "ranked-bars": _ranked_bars_body,
+    "composition": _composition_body,
+}
+
+
+def _chromeless_shell(pal: dict, body_html: str, w: int, h: int) -> str:
+    """Slot variant: just the family body on paper, no rail/kicker/title/band (the graphic lives
+    INSIDE a GOLD slide that already carries the chrome). Sized to the slot's aspect."""
+    return f"""<!doctype html><html><head><meta charset="utf-8"><style>
+{_font_face_css()}
+*{{box-sizing:border-box;margin:0;padding:0}}
+html,body{{width:{w}px;height:{h}px;background:{pal['paper']};overflow:hidden}}
+.exhibit{{width:{w}px;height:{h}px;background:{pal['paper']};display:flex;align-items:center;
+  padding:10px 12px;font-family:'Archivo',system-ui,sans-serif;color:{pal['ink']};
+  -webkit-font-smoothing:antialiased}}
+{_info_css(pal)}
+</style></head><body><div class="exhibit">{body_html}</div></body></html>"""
 
 
 def diagram_html(spec: dict, pal: dict) -> str:
@@ -397,6 +557,14 @@ def diagram_html(spec: dict, pal: dict) -> str:
     title = _s(spec.get("title"))
     # takeaway band: explicit takeaway, else flowSummary (architecture) so the band is never empty
     takeaway = _s(spec.get("takeaway")) or _s(spec.get("flowSummary"))
+    if kind in _INFO_BODIES:
+        body = _INFO_BODIES[kind](spec, pal)
+        if str(spec.get("chrome") or "").lower() == "none":
+            frame = spec.get("frame") if isinstance(spec.get("frame"), dict) else {}
+            w = int(frame.get("w") or 984)
+            h = int(frame.get("h") or 580)
+            return _chromeless_shell(pal, body, w, h)
+        return _shell_with_info_css(pal, kicker, title, body, takeaway)
     if kind in ("journey", "journey-map", "flow", "funnel", "blueprint", "service-blueprint"):
         body = _journey_body(spec, pal)
     elif kind in ("arch", "architecture", "tech-architecture", "architecture-map"):
@@ -408,6 +576,12 @@ def diagram_html(spec: dict, pal: dict) -> str:
     return _shell(pal, kicker, title, body, takeaway)
 
 
+def _shell_with_info_css(pal: dict, kicker: str, title: str, body_html: str, takeaway: str) -> str:
+    """Full-bleed GOLD exhibit carrying an infographic family: reuse _shell and inject the family CSS."""
+    doc = _shell(pal, kicker, title, body_html, takeaway)
+    return doc.replace("</style>", _info_css(pal) + "\n</style>", 1)
+
+
 def render_diagram_png(spec: dict, pal: dict) -> bytes | None:
     """Compose the GOLD exhibit HTML and rasterize the .exhibit element to a 16:9 PNG (2x).
     Returns PNG bytes, or None if Chromium is unavailable (caller fails open)."""
@@ -417,6 +591,12 @@ def render_diagram_png(spec: dict, pal: dict) -> bytes | None:
         return None
     import tempfile
     doc = diagram_html(spec, pal)
+    # E4: chromeless slot graphics carry their own frame size; the viewport must match.
+    vw, vh = FRAME_W, FRAME_H
+    if str(spec.get("chrome") or "").lower() == "none":
+        frame = spec.get("frame") if isinstance(spec.get("frame"), dict) else {}
+        vw = int(frame.get("w") or 984)
+        vh = int(frame.get("h") or 580)
     tmp = tempfile.NamedTemporaryFile("w", suffix=".html", delete=False, encoding="utf-8")
     tmp.write(doc)
     tmp.close()
@@ -424,7 +604,7 @@ def render_diagram_png(spec: dict, pal: dict) -> bytes | None:
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(args=["--no-sandbox", "--force-color-profile=srgb"])
-            page = browser.new_page(viewport={"width": FRAME_W, "height": FRAME_H}, device_scale_factor=2)
+            page = browser.new_page(viewport={"width": vw, "height": vh}, device_scale_factor=2)
             page.goto("file://" + tmp.name.replace("\\", "/"), wait_until="networkidle", timeout=30000)
             try:
                 page.wait_for_timeout(350)  # let @font-face settle

@@ -21,53 +21,65 @@ chunks:
     char_span: [0, 905]
     sentence_count: 11
     key_terms: [school, did, live, job, gradschool, comments, savings, afford]
+    concepts: [school, gradschool, comments, savings, afford]
     token_count: 239
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1sdbmo2/but_seriously_how_did_you_afford_to_live_while_in/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c1"
     char_span: [919, 2575]
     sentence_count: 15
     key_terms: [stipend, undergrad, godwinson4king, school, lower, big, job, jobs]
+    concepts: [stipend, undergrad, godwinson4king, school, lower]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c2"
     char_span: [2577, 4307]
     sentence_count: 6
     key_terms: [stipend, phd, tuition, university, like, students, month, get]
+    concepts: [stipend, tuition, university, students, month]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c4"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c3"
     char_span: [4310, 4736]
     sentence_count: 2
     key_terms: [stipends, notavalgrinder, unrealistic, completely, especially, everywhere, pressured, canadian]
+    concepts: [stipends]
     section: Comments
     token_count: 98
   - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c4"
     char_span: [4738, 6618]
     sentence_count: 13
     key_terms: [stipend, tuition, least, city, live, year, university, roommates]
+    concepts: [stipend, tuition, least, university, roommates]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c5"
     char_span: [6409, 8253]
     sentence_count: 14
     key_terms: [loans, job, work, stipend, fellowship, financial, everyone, semester]
+    concepts: [loans, stipend, fellowship, financial, everyone]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c6"
     char_span: [8255, 9249]
     sentence_count: 8
     key_terms: [assistance, doing, phd, tuition, years, paying, entrepreneurhuge5008, "i'm"]
+    concepts: [assistance, doing, tuition, years, paying]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c7"
     char_span: [9251, 10624]
     sentence_count: 13
     key_terms: [outside, stipend, support, sacrifices, possible, masters, willing, without]
+    concepts: [outside, stipend, support, sacrifices, possible]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c8"
     char_span: [10626, 11416]
     sentence_count: 4
     key_terms: [devanclara, time, full, job, masters, studied, proud, until]
+    concepts: [devanclara, masters, studied, proud, until]
     section: Comments
     token_count: 246
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 939]
     sentence_count: 8
     key_terms: [engineeringstudents, college, engineering, internships, electrical, internship, community, comments]
+    concepts: [engineeringstudents, college, engineering, internships, electrical]
     token_count: 207
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1o2sffb/how_do_you_get_internships_for_electrical/"}]
 ---
 # How do you get internships for electrical engineering as a community college student?
 

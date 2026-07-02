@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1574]
     sentence_count: 9
     key_terms: [classes, week, courses, time, semester, cragdragon511, comments, standard]
+    concepts: [classes, courses, semester, cragdragon511, comments]
     token_count: 417
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1of5atl/4_eight_week_courses_instead_of_4_regular_courses/"}]
 ---
 # 4 eight week courses instead of 4 regular courses
 

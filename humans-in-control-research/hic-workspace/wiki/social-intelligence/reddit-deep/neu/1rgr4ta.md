@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 778]
     sentence_count: 5
     key_terms: [accelerate, comments, classes, offered, writing, taking, guide, neu]
+    concepts: [accelerate, comments, classes, offered, writing]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1rgr4ta.md#c1"]
     token_count: 190
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1rgr4ta/how_to_decide_classes_for_nuin/"}]
   - id: "social-intelligence/reddit-deep/neu/1rgr4ta.md#c1"
     char_span: [792, 2770]
     sentence_count: 14
     key_terms: [accelerate, courses, writing, course, major, first-year-writing, econ, find]
+    concepts: [accelerate, courses, writing, first-year-writing, course]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1rgr4ta.md#c0"]
     section: Comments
     token_count: 466
 ---

@@ -20,35 +20,44 @@ chunks:
     char_span: [0, 2100]
     sentence_count: 13
     key_terms: [coding, need, architecture, autocomplete, today, programming, experience, therefore]
+    concepts: [coding, architecture, autocomplete, programming, experience]
     token_count: 497
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1mgp7g9/ai_programming_today_is_just_enhanced/"}]
   - id: "social-intelligence/reddit-deep/saas/1mgp7g9.md#c1"
-    char_span: [2115, 4139]
+    char_span: [2114, 4138]
     sentence_count: 12
     key_terms: [architecture, systemiccharles, something, like, vibe-coding, suspicious, chatgptwrapperorpdfananlyzer, functionalprofitablesaas]
+    concepts: [architecture, systemiccharles, something, vibe-coding, suspicious]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1mgp7g9.md#c2"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/saas/1mgp7g9.md#c2"
-    char_span: [4141, 6146]
+    char_span: [4140, 6145]
     sentence_count: 17
     key_terms: [like, code, security, systemiccharles, architecture, point, draw, etc]
+    concepts: [systemiccharles, security, architecture, point, terrible]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1mgp7g9.md#c1"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/saas/1mgp7g9.md#c3"
-    char_span: [6148, 7064]
+    char_span: [6147, 7063]
     sentence_count: 8
     key_terms: [questions, prompt, app, get, real, systemiccharles, consultation, consultative]
+    concepts: [questions, prompt]
     section: Comments
     token_count: 210
   - id: "social-intelligence/reddit-deep/saas/1mgp7g9.md#c4"
-    char_span: [7066, 8906]
+    char_span: [7065, 8905]
     sentence_count: 12
     key_terms: [faststacked, app, point, "it's", useful, agree, something, because]
+    concepts: [faststacked, point, useful, agree, something]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/saas/1mgp7g9.md#c5"
-    char_span: [8908, 10940]
+    char_span: [8907, 10939]
     sentence_count: 13
     key_terms: [faststacked, boilerplate, limitations, extremists, building, software, thinking, scratch]
+    concepts: [faststacked, boilerplate, limitations, extremists, building]
     section: Comments
     token_count: 493
 ---

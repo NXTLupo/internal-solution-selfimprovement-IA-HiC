@@ -19,17 +19,24 @@ chunks:
     char_span: [0, 871]
     sentence_count: 9
     key_terms: [internship, amazon, internships, work, comments, company, insane, faang]
+    concepts: [internship, amazon, internships, comments, company]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1tngqgj.md#c1", "social-intelligence/reddit-deep/internships/1tngqgj.md#c2"]
     token_count: 213
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tngqgj/am_i_insane_for_turning_down_amazon_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1tngqgj.md#c1"
     char_span: [885, 2723]
     sentence_count: 15
     key_terms: [amazon, company, prestigious, meta, work, experience, companies, because]
+    concepts: [amazon, company, prestigious, experience, companies]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1tngqgj.md#c0"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/internships/1tngqgj.md#c2"
     char_span: [2725, 3766]
     sentence_count: 8
     key_terms: [amazon, cybersecurity, "don't", internship, whatever, better, gamesarerunningsims, accomplishedrule0]
+    concepts: [amazon, cybersecurity, "don't", internship, whatever]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1tngqgj.md#c0"]
     section: Comments
     token_count: 256
 ---

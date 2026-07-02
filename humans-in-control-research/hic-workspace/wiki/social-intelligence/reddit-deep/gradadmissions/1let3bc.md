@@ -21,21 +21,28 @@ chunks:
     char_span: [0, 1899]
     sentence_count: 6
     key_terms: [research, postbacc, predoc, phd, gradadmissions, work, undergrad, comments]
+    concepts: [research, postbacc, predoc, gradadmissions, undergrad]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1let3bc.md#c1"]
     token_count: 474
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1let3bc/do_i_need_to_do_a_postbaccpredoc_or_can_i_just/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1let3bc.md#c1"
     char_span: [1901, 4100]
     sentence_count: 9
     key_terms: [research, sociology, undergrad, graduate, course, relatively, studies, senior]
+    concepts: [research, sociology, undergrad, graduate, relatively]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1let3bc.md#c0"]
     token_count: 461
   - id: "social-intelligence/reddit-deep/gradadmissions/1let3bc.md#c2"
     char_span: [4102, 6606]
     sentence_count: 10
     key_terms: [research, school, undergraduate, program, experience, high, professional, events]
+    concepts: [research, school, undergraduate, experience, program]
     token_count: 494
   - id: "social-intelligence/reddit-deep/gradadmissions/1let3bc.md#c3"
     char_span: [6608, 6791]
     sentence_count: 1
     key_terms: [organizations, justice-related, international, participated, development, government, high-level, briefings]
+    concepts: [organizations]
     token_count: 28
 ---
 # Do i need to do a postbacc/predoc or can I just work?

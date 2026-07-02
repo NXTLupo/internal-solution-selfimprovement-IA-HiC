@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 931]
     sentence_count: 8
     key_terms: [engineeringstudents, did, companies, interview, on-demand, comments, prepared, student]
+    concepts: [engineeringstudents, companies, interview, on-demand, comments]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1ob0osg.md#c1"]
     token_count: 202
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1ob0osg/how_to_do_well_in_engineering_internships_as_a/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ob0osg.md#c1"
     char_span: [945, 3006]
     sentence_count: 11
     key_terms: [engineeringstudents, wiki, reddit, https, interview, questions, com, company]
+    concepts: [engineeringstudents, reddit, interview, questions, https]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1ob0osg.md#c0"]
     section: Comments
     token_count: 462
 ---

@@ -20,53 +20,67 @@ chunks:
     char_span: [0, 2030]
     sentence_count: 9
     key_terms: [data, new, grads, engineering, roles, science, advice, career]
+    concepts: [grads, engineering, roles, science, advice]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1r7btpj.md#c8"]
     token_count: 436
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1r7btpj/career_advice_for_new_grads_or_early_career_data/"}]
   - id: "social-intelligence/reddit-deep/datascience/1r7btpj.md#c1"
-    char_span: [2045, 3944]
+    char_span: [2044, 3943]
     sentence_count: 11
     key_terms: [grads, new, data, "i'm", analytics, projects, curious, jupyter]
+    concepts: [grads, analytics, projects, curious, jupyter]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/datascience/1r7btpj.md#c2"
-    char_span: [3946, 6120]
+    char_span: [3945, 6119]
     sentence_count: 18
     key_terms: [data, work, project, hiring, isn, dashboards, analytics, customers]
+    concepts: [project, hiring, dashboards, analytics, customers]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/datascience/1r7btpj.md#c3"
-    char_span: [6122, 8485]
+    char_span: [6121, 8484]
     sentence_count: 13
     key_terms: [data, work, modeling, someone, people, learn, engineering, like]
+    concepts: [modeling, someone, people, engineering, learn]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1r7btpj.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/datascience/1r7btpj.md#c4"
-    char_span: [8177, 8755]
+    char_span: [8176, 8754]
     sentence_count: 5
     key_terms: [data, science, modeling, problems, build, did, math, work]
+    concepts: [science, modeling, problems, build]
     section: Comments
     token_count: 122
   - id: "social-intelligence/reddit-deep/datascience/1r7btpj.md#c5"
-    char_span: [8757, 10772]
+    char_span: [8756, 10771]
     sentence_count: 14
     key_terms: [resources, programming, statistics, traditional, experience, hockey3331, learning, valuable]
+    concepts: [resources, programming, statistics, traditional, experience]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/datascience/1r7btpj.md#c6"
-    char_span: [10775, 11779]
+    char_span: [10774, 11778]
     sentence_count: 8
     key_terms: [people, engineering, genuinely, resources, something, exam, lean, business-facing]
+    concepts: [people, engineering, genuinely, resources, something]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1r7btpj.md#c3"]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/datascience/1r7btpj.md#c7"
-    char_span: [11781, 13861]
+    char_span: [11780, 13860]
     sentence_count: 14
     key_terms: [development, ok-energy-9785, specifically, get, real, work, experience, leadership]
+    concepts: [development, ok-energy-9785, specifically, experience, leadership]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/datascience/1r7btpj.md#c8"
-    char_span: [13863, 15996]
+    char_span: [13862, 15995]
     sentence_count: 14
     key_terms: [software, engineering, statistics, advice, being, job, scientist, programs]
+    concepts: [software, engineering, statistics, advice, being]
+    related_chunks: ["social-intelligence/reddit-deep/datascience/1r7btpj.md#c0"]
     section: Comments
     token_count: 450
 ---

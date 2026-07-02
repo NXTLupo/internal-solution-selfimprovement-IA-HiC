@@ -21,53 +21,65 @@ chunks:
     char_span: [0, 1432]
     sentence_count: 10
     key_terms: [ice, sick, comments, employee, managers, called, "didn't", "wasn't"]
+    concepts: [comments, employee, managers, called, "didn't"]
     token_count: 343
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1qrd1q3/employee_decided_to_nocallnoshow_to_protest_ice/"}]
   - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c1"
     char_span: [1446, 3155]
     sentence_count: 8
     key_terms: [issue, call, time, absence, someone, strike, panicswtchd, "it's"]
+    concepts: [issue, absence, someone, strike, panicswtchd]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c2"
     char_span: [3157, 4910]
     sentence_count: 12
     key_terms: [calling, strike, advice, doesn, documented, answer, issue, sound]
+    concepts: [calling, strike, advice, documented, doesn]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c3"
     char_span: [4913, 6365]
     sentence_count: 14
     key_terms: [important, "i'm", employee, calling, showing, people, reason, greedy-employment917]
+    concepts: [important, employee, calling, showing, people]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c4"
     char_span: [6367, 7992]
     sentence_count: 16
     key_terms: [policy, benevelotceasar, discretion, exception, deleted, manager, special, handle]
+    concepts: [policy, benevelotceasar, discretion, exception, deleted]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c5"
     char_span: [7994, 9959]
     sentence_count: 13
     key_terms: [day, call, need, specific, policy, like, guidance, contact]
+    concepts: [specific, policy, guidance, contact, "don't"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c6"
     char_span: [9962, 12033]
     sentence_count: 21
     key_terms: [employee, company, policy, unexpected, absences, coverage, fairness, whatever]
+    concepts: [employee, company, policy, unexpected, absences]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1qrd1q3.md#c7"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c7"
     char_span: [12035, 13719]
     sentence_count: 11
     key_terms: [coming, policy, "it's", like, employee, sickness, because, accept]
+    concepts: [coming, policy, employee, sickness, because]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1qrd1q3.md#c6"]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c8"
     char_span: [13721, 15472]
     sentence_count: 8
     key_terms: [strike, conversation, union, unannounced, call, attendance, disarray, employer]
+    concepts: [strike, conversation, unannounced, attendance, union]
     section: Comments
     token_count: 395
 ---

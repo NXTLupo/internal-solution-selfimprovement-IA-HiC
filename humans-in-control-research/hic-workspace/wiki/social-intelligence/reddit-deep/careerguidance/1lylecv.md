@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1915]
     sentence_count: 15
     key_terms: [university, mumbai, careerguidance, development, been, "i'm", especially, experience]
+    concepts: [university, mumbai, careerguidance, development, especially]
     token_count: 436
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1lylecv/is_it_worth_doing_msc_it_from_mumbai_university/"}]
 ---
 # Is it worth doing M.Sc. IT from Mumbai University after B.Sc. IT?
 

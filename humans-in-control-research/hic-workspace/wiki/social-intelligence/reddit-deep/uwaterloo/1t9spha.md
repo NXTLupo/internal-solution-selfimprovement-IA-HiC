@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1108]
     sentence_count: 8
     key_terms: [waterloo, been, ubc, year, uwaterloo, comments, tuition, around]
+    concepts: [waterloo, uwaterloo, comments, tuition, around]
     token_count: 289
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1t9spha/is_waterloo_worth_it/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1t9spha.md#c1"
     char_span: [1122, 1806]
     sentence_count: 5
     key_terms: [enderphone, accurate, relevant-yak-9657, cost, yeah, miscellaneous, conquest845, calculator]
+    concepts: [enderphone, accurate]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/uwaterloo/1t9spha.md#c2"
     char_span: [1808, 3799]
     sentence_count: 12
     key_terms: [waterloo, students, program, better, good, job, ubc, enderphone]
+    concepts: [waterloo, students, program, better, enderphone]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1t9spha.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/uwaterloo/1t9spha.md#c3"
     char_span: [3570, 3899]
     sentence_count: 2
     key_terms: [per, terms, term, months, month, muirgenemrys, situation, covering]
+    concepts: [terms, months, month]
     section: Comments
     token_count: 98
   - id: "social-intelligence/reddit-deep/uwaterloo/1t9spha.md#c4"
     char_span: [3901, 4852]
     sentence_count: 7
     key_terms: [costs, enderphone, province, waterloo, student, around, pure-construction546, misakamikasa10086]
+    concepts: [costs, enderphone, province, waterloo, student]
+    related_chunks: ["social-intelligence/reddit-deep/uwaterloo/1t9spha.md#c2"]
     section: Comments
     token_count: 244
 ---

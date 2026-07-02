@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1387]
     sentence_count: 15
     key_terms: [co-op, students, neu, current, program, get, tech, understand]
+    concepts: [students, co-op, current, program, understand]
     token_count: 340
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1roe0vp/neu_bostons_coop_program/"}]
   - id: "social-intelligence/reddit-deep/neu/1roe0vp.md#c1"
     char_span: [1401, 2396]
     sentence_count: 9
     key_terms: [neu, friends, international, student, frontsatisfaction152, co-op, find, got]
+    concepts: [international, friends, student, co-op]
     section: Comments
     token_count: 260
 ---

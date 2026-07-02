@@ -19,23 +19,32 @@ chunks:
     char_span: [0, 1936]
     sentence_count: 14
     key_terms: [college, experience, exchange, going, comments, been, commute, getting]
+    concepts: [college, experience, exchange, going, comments]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ls5fbx.md#c1", "social-intelligence/reddit-deep/college/1ls5fbx.md#c2", "social-intelligence/reddit-deep/college/1ls5fbx.md#c3"]
     token_count: 415
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ls5fbx/will_going_to_the_us_be_safe/"}]
   - id: "social-intelligence/reddit-deep/college/1ls5fbx.md#c1"
     char_span: [1950, 3532]
     sentence_count: 9
     key_terms: [experience, college, like, school, country, big, get, different]
+    concepts: [experience, college, school, country, different]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ls5fbx.md#c0", "social-intelligence/reddit-deep/college/1ls5fbx.md#c2", "social-intelligence/reddit-deep/college/1ls5fbx.md#c3"]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/college/1ls5fbx.md#c2"
     char_span: [3534, 5076]
     sentence_count: 8
     key_terms: [experience, college, "you're", exchange, students, anyways, usually, having]
+    concepts: [experience, college, "you're", exchange, students]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ls5fbx.md#c0", "social-intelligence/reddit-deep/college/1ls5fbx.md#c1", "social-intelligence/reddit-deep/college/1ls5fbx.md#c3"]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/college/1ls5fbx.md#c3"
     char_span: [5078, 7184]
     sentence_count: 14
     key_terms: [college, experience, american, everything, don, get, students, foreign]
+    concepts: [college, experience, american, everything, students]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ls5fbx.md#c0", "social-intelligence/reddit-deep/college/1ls5fbx.md#c1", "social-intelligence/reddit-deep/college/1ls5fbx.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ls5fbx.md#c4"
@@ -48,24 +57,28 @@ chunks:
     char_span: [7236, 9403]
     sentence_count: 23
     key_terms: [here, safe, students, current, foreign, student, feel, university]
+    concepts: [students, current, foreign, student, university]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/college/1ls5fbx.md#c6"
     char_span: [9405, 11610]
     sentence_count: 15
     key_terms: [come, get, "it's", people, experience, here, like, saying]
+    concepts: [experience, people, saying, exaggerated, happening]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ls5fbx.md#c7"
     char_span: [11362, 11779]
     sentence_count: 6
     key_terms: [cowards, get, experience, happening, regularly, downvote, platform, weekends]
+    concepts: [cowards]
     section: Comments
     token_count: 102
   - id: "social-intelligence/reddit-deep/college/1ls5fbx.md#c8"
     char_span: [11781, 12598]
     sentence_count: 7
     key_terms: [beginning-device-591, crime, women, engineering, experienced, christians, immigrants, christian]
+    concepts: [crime, women]
     section: Comments
     token_count: 199
 ---

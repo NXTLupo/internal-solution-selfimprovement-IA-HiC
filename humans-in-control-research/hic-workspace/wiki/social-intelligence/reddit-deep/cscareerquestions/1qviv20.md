@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 2142]
     sentence_count: 17
     key_terms: [online, masters, career, route, bachelors, cscareerquestions, getting, advice]
+    concepts: [online, masters, career, cscareerquestions, bachelors]
     token_count: 477
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qviv20/advice_needed_post_bacc_online_in_person_vs/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qviv20.md#c1"
-    char_span: [2157, 4354]
+    char_span: [2156, 4353]
     sentence_count: 7
     key_terms: [probably, putrid-caregiver7407, related, qualifications, degree, market, best, job]
+    concepts: [probably, putrid-caregiver7407, qualifications, related, degree]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qviv20.md#c2"
-    char_span: [4356, 6370]
+    char_span: [4355, 6369]
     sentence_count: 14
     key_terms: [masters, field, find, like, accounting, experience, situation, working]
+    concepts: [masters, accounting, experience, field, situation]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qviv20.md#c3"
-    char_span: [6372, 8455]
+    char_span: [6371, 8454]
     sentence_count: 9
     key_terms: [projects, putrid-caregiver7407, learning, online, internships, real, work, structured]
+    concepts: [projects, putrid-caregiver7407, learning, online, internships]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qviv20.md#c4"
-    char_span: [8457, 9040]
+    char_span: [8456, 9039]
     sentence_count: 3
     key_terms: [computer-science, techguide, online-computer-science-bachelors-degree, online-masters-in-computer-science, how-to-get-into-computer-science, https, org, computer-science-resources]
+    concepts: [computer-science, techguide, https, guides, online]
     section: Comments
     token_count: 151
 ---

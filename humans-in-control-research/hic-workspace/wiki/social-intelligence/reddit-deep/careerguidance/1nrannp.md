@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 800]
     sentence_count: 4
     key_terms: [careerguidance, building, comments, startups, justmakingmywayhome, wish, unconventional, cross-border]
+    concepts: [careerguidance, building, comments, startups]
     token_count: 206
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1nrannp/i_recently_turned_29_what_advice_do_you_wish_you/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1nrannp.md#c1"
     char_span: [802, 2671]
     sentence_count: 37
     key_terms: [real, always, "you're", don, work, especially, yourself, economy]
+    concepts: [always, "you're", especially, yourself, economy]
     token_count: 451
   - id: "social-intelligence/reddit-deep/careerguidance/1nrannp.md#c2"
     char_span: [2685, 2803]
@@ -35,18 +38,21 @@ chunks:
     char_span: [2805, 4561]
     sentence_count: 8
     key_terms: [justmakingmywayhome, kevin, iyam3ut, "don't", learning, yourself, account, invest]
+    concepts: [justmakingmywayhome, kevin, iyam3ut, "don't", learning]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1nrannp.md#c4"
     char_span: [4371, 5104]
     sentence_count: 5
     key_terms: [justmakingmywayhome, funds, zrustyshackleford, cabbage-soup, accordingly, vulnerable, lifestyle, klemosda]
+    concepts: [justmakingmywayhome, funds]
     section: Comments
     token_count: 222
   - id: "social-intelligence/reddit-deep/careerguidance/1nrannp.md#c5"
     char_span: [5106, 6945]
     sentence_count: 15
     key_terms: [justmakingmywayhome, companies, fun-imagination-2488, indexes, start, give, life, old]
+    concepts: [justmakingmywayhome, companies, fun-imagination-2488, indexes, allocating]
     section: Comments
     token_count: 462
 ---

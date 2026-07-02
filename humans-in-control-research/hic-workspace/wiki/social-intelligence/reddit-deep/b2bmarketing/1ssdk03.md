@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1455]
     sentence_count: 9
     key_terms: [marketing, business, clients, b2bmarketing, start, accountancy, referrals, comments]
+    concepts: [marketing, business, clients, b2bmarketing, accountancy]
     token_count: 332
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1ssdk03/marketing_for_uk_accountancy_business/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1ssdk03.md#c1"
-    char_span: [1470, 3561]
+    char_span: [1469, 3560]
     sentence_count: 9
     key_terms: [local, looking-for-marketing-discussion-811236647760298024, google, referrals, linkedin, studies, build, ads]
+    concepts: [local, google, referrals, linkedin, studies]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/b2bmarketing/1ssdk03.md#c2"
-    char_span: [3565, 5891]
+    char_span: [3564, 5890]
     sentence_count: 3
     key_terms: [ads, google, leads, clients, sales, need, paid, accounting]
+    concepts: [google, leads, clients, accounting, regulation]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/b2bmarketing/1ssdk03.md#c3"
-    char_span: [5893, 6713]
+    char_span: [5892, 6712]
     sentence_count: 1
     key_terms: [marketing, linkedin, outreach, start, relationships, inconsistent, sajalgh03987, accounting]
+    concepts: [marketing, linkedin, outreach, start]
     section: Comments
     token_count: 164
 ---

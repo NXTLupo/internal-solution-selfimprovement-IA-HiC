@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 560]
     sentence_count: 4
     key_terms: [humanresources, management, psychology, comments, book, communications, professional, internships]
+    concepts: [humanresources, management, psychology, comments]
     token_count: 133
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1srzhql/best_book_for_new_hr_professional_na/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1srzhql.md#c1"
     char_span: [574, 2107]
     sentence_count: 13
     key_terms: [book, post, subreddit, program, going, good, sure, work]
+    concepts: [subreddit, program, going]
     section: Comments
     token_count: 379
 ---

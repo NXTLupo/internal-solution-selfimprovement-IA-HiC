@@ -21,35 +21,46 @@ chunks:
     char_span: [0, 1175]
     sentence_count: 7
     key_terms: [gpt5-thinking-proof-of-concept-nes-emulator, healthy-nebula-3603, https, png, emulator, preview, format, github]
+    concepts: [gpt5-thinking-proof-of-concept-nes-emulator, healthy-nebula-3603, https, emulator, preview]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1nfgwjb.md#c1", "social-intelligence/reddit-deep/openai/1nfgwjb.md#c4", "social-intelligence/reddit-deep/openai/1nfgwjb.md#c5"]
     token_count: 394
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1nfgwjb/within_20_min_codexcli_with_gpt5_high_made/"}]
   - id: "social-intelligence/reddit-deep/openai/1nfgwjb.md#c1"
     char_span: [1189, 2806]
     sentence_count: 5
     key_terms: [healthy-nebula-3603, gpt5-thinking-proof-of-concept-nes-emulator, interesting, github, code, like, emascars, deliver]
+    concepts: [healthy-nebula-3603, gpt5-thinking-proof-of-concept-nes-emulator, interesting, github, emascars]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1nfgwjb.md#c0", "social-intelligence/reddit-deep/openai/1nfgwjb.md#c4", "social-intelligence/reddit-deep/openai/1nfgwjb.md#c5"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/openai/1nfgwjb.md#c2"
     char_span: [2811, 4800]
     sentence_count: 16
     key_terms: [impossible, distribution, impressive, better, beyond, claude, pretty, though]
+    concepts: [impossible, distribution, impressive, better, beyond]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/openai/1nfgwjb.md#c3"
     char_span: [4802, 6370]
     sentence_count: 11
     key_terms: [sleeperagentm, code, behavior, iterate, results, bubble, pretty, unless]
+    concepts: [sleeperagentm, behavior, iterate, results, bubble]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/openai/1nfgwjb.md#c4"
     char_span: [6372, 8013]
     sentence_count: 5
     key_terms: [healthy-nebula-3603, gpt5-thinking-proof-of-concept-nes-emulator, training, data, because, probably, github, source]
+    concepts: [healthy-nebula-3603, gpt5-thinking-proof-of-concept-nes-emulator, training, because, probably]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1nfgwjb.md#c0", "social-intelligence/reddit-deep/openai/1nfgwjb.md#c1", "social-intelligence/reddit-deep/openai/1nfgwjb.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1nfgwjb.md#c5"
     char_span: [7814, 9566]
     sentence_count: 10
     key_terms: [gpt5-thinking-proof-of-concept-nes-emulator, healthy-nebula-3603, emulators, implementation, github, source, lang, open]
+    concepts: [gpt5-thinking-proof-of-concept-nes-emulator, healthy-nebula-3603, emulators, implementation, github]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1nfgwjb.md#c0", "social-intelligence/reddit-deep/openai/1nfgwjb.md#c1", "social-intelligence/reddit-deep/openai/1nfgwjb.md#c4"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/openai/1nfgwjb.md#c6"

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1283]
     sentence_count: 11
     key_terms: [appworks, cscareerquestions, career, developer, viability, comments, official, courses]
+    concepts: [appworks, cscareerquestions, career, developer, viability]
     token_count: 270
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1nnjced/seeking_career_advice_and_learning_path_for/"}]
 ---
 # Seeking Career Advice and Learning Path for OpenText AppWorks
 

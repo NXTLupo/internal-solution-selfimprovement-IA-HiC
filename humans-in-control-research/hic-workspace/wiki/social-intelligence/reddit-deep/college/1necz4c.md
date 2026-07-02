@@ -19,57 +19,78 @@ chunks:
     char_span: [0, 957]
     sentence_count: 1
     key_terms: [https, college, comments, facts-statistics-the-scope-of-the-problem, assault, cc8df92f64acb9141d6d8ef0d79d0ce2fe15, sexual, statistics-campus-sexual-violence]
+    concepts: [https, college, comments, assault, sexual]
+    related_chunks: ["social-intelligence/reddit-deep/college/1necz4c.md#c3", "social-intelligence/reddit-deep/college/1necz4c.md#c4", "social-intelligence/reddit-deep/college/1necz4c.md#c5", "social-intelligence/reddit-deep/college/1necz4c.md#c8", "social-intelligence/reddit-deep/college/1necz4c.md#c9"]
     token_count: 263
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1necz4c/september_is_national_campus_sexual_assault/"}]
   - id: "social-intelligence/reddit-deep/college/1necz4c.md#c1"
     char_span: [959, 2886]
     sentence_count: 2
     key_terms: [https, com, www, is-this-comedy-monologue-a-rape-confession-updated-5834712, rapists-explain-themselves-on-reddit-and-we-should-listen, what-is-restorative-justice-definition-questions-circle, teenagers-learning-online-porn-literacy-sex-education, david-silverman-atheist-fired-sexual-misconduct]
+    concepts: [https, first-person, top-news, because, consent]
+    related_chunks: ["social-intelligence/reddit-deep/college/1necz4c.md#c3", "social-intelligence/reddit-deep/college/1necz4c.md#c7"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1necz4c.md#c2"
     char_span: [2614, 3110]
     sentence_count: 2
     key_terms: [what-is-restorative-justice-definition-questions-circle, rape, https, wikipedia, org, wiki, acquaintance, first-person]
+    concepts: [https, wikipedia]
     token_count: 123
   - id: "social-intelligence/reddit-deep/college/1necz4c.md#c3"
     char_span: [3113, 4533]
     sentence_count: 5
     key_terms: [hnhjgy9a4thcjrpwdunyau1bea3xepmkycxoa1epgc5x5cer7cvxof1xxo6wmenj6bdqyrlxuz5uknrwt-vvubhkpsin47pn0zliefbck-cmx3gcgsqz, www, https, pdf, gay-panic-austin-james-miller-texas-man-cleared-murder-a8327261, sexual, consent, explicit]
+    concepts: [https, sexual, consent, explicit, stable]
+    related_chunks: ["social-intelligence/reddit-deep/college/1necz4c.md#c0", "social-intelligence/reddit-deep/college/1necz4c.md#c1", "social-intelligence/reddit-deep/college/1necz4c.md#c4", "social-intelligence/reddit-deep/college/1necz4c.md#c5", "social-intelligence/reddit-deep/college/1necz4c.md#c7"]
     token_count: 431
   - id: "social-intelligence/reddit-deep/college/1necz4c.md#c4"
     char_span: [4535, 5328]
     sentence_count: 3
     key_terms: [sexual, articles, journals, sagepub, https, abs, com, doi]
+    concepts: [sexual, articles, journals, sagepub, https]
+    related_chunks: ["social-intelligence/reddit-deep/college/1necz4c.md#c0", "social-intelligence/reddit-deep/college/1necz4c.md#c3", "social-intelligence/reddit-deep/college/1necz4c.md#c5", "social-intelligence/reddit-deep/college/1necz4c.md#c8"]
     token_count: 204
   - id: "social-intelligence/reddit-deep/college/1necz4c.md#c5"
     char_span: [5330, 7205]
     sentence_count: 5
     key_terms: [mythcommunication-its-not-that-they-dont-understand-they-just-dont-like-the-answer, https, com, repeat-rape-and-multiple-offending-among-undetected-rapists, policy-crime-definitions, sexual, rejections, doi]
+    concepts: [https, policy-crime-definitions, rejections, sexual, journals]
+    related_chunks: ["social-intelligence/reddit-deep/college/1necz4c.md#c0", "social-intelligence/reddit-deep/college/1necz4c.md#c3", "social-intelligence/reddit-deep/college/1necz4c.md#c4", "social-intelligence/reddit-deep/college/1necz4c.md#c8"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1necz4c.md#c6"
     char_span: [6985, 7411]
     sentence_count: 2
     key_terms: [repeat-rape-and-multiple-offending-among-undetected-rapists, physical, violence, https, wazumlbod5gdlm7qi, virtual-library, experienced, precautions]
+    concepts: [physical, violence, https]
     token_count: 111
   - id: "social-intelligence/reddit-deep/college/1necz4c.md#c7"
     char_span: [7413, 8159]
     sentence_count: 3
     key_terms: [do-you-need-verbal-consent-for-holding-hands-kissing-sex-the-differences-between-men-and-women-may-s, dsfzmpguwuwayaxrvabuh9bjvhbme7yrtlbanwrhgets8blhvj-, https, www, consent, indicators, verbal, women]
+    concepts: [https, consent, indicators, verbal, women]
+    related_chunks: ["social-intelligence/reddit-deep/college/1necz4c.md#c1", "social-intelligence/reddit-deep/college/1necz4c.md#c3"]
     token_count: 241
   - id: "social-intelligence/reddit-deep/college/1necz4c.md#c8"
     char_span: [8161, 10150]
     sentence_count: 9
     key_terms: [https, sexual, articles, www, edu, gov, ncbi, nih]
+    concepts: [https, sexual, articles, interest, psychology]
+    related_chunks: ["social-intelligence/reddit-deep/college/1necz4c.md#c0", "social-intelligence/reddit-deep/college/1necz4c.md#c3", "social-intelligence/reddit-deep/college/1necz4c.md#c4", "social-intelligence/reddit-deep/college/1necz4c.md#c5"]
     token_count: 504
   - id: "social-intelligence/reddit-deep/college/1necz4c.md#c9"
     char_span: [10152, 12344]
     sentence_count: 21
     key_terms: [sexual, people, consent, assault, "didn't", though, canada-consent-understanding-metoo, men]
+    concepts: [sexual, people, consent, assault, "didn't"]
+    related_chunks: ["social-intelligence/reddit-deep/college/1necz4c.md#c0", "social-intelligence/reddit-deep/college/1necz4c.md#c3", "social-intelligence/reddit-deep/college/1necz4c.md#c10"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/college/1necz4c.md#c10"
     char_span: [12346, 13840]
     sentence_count: 11
     key_terms: [assault, sexual, rape, greenhorror4252, ilikeneurons, fce40214d4be53aba902929a328e8e69, https, definition]
+    concepts: [assault, sexual, greenhorror4252, ilikeneurons, definition]
+    related_chunks: ["social-intelligence/reddit-deep/college/1necz4c.md#c0", "social-intelligence/reddit-deep/college/1necz4c.md#c9"]
     section: Comments
     token_count: 399
 ---

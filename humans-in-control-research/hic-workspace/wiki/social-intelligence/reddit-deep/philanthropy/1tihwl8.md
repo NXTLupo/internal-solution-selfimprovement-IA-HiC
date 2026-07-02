@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1663]
     sentence_count: 4
     key_terms: [philanthropy, investment, alliance, funding, worldwide, alliancemagazine, digital, society]
+    concepts: [philanthropy, investment, alliance, funding, alliancemagazine]
     token_count: 362
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1tihwl8/alliance_for_philanthropy_and_social_investment/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1tihwl8.md#c1"
-    char_span: [1678, 2630]
+    char_span: [1677, 2629]
     sentence_count: 11
     key_terms: [intention, planned, giving, acknowledgment, communication, organization, relationship, development]
+    concepts: [intention, planned, giving]
     section: Comments
     token_count: 192
 ---

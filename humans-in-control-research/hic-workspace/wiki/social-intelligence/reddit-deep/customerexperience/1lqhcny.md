@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 936]
     sentence_count: 10
     key_terms: [customerexperience, adapting, analysis, becoming, comments, hyper-personalization, cryrevolutionary7536, team]
+    concepts: [customerexperience, adapting, analysis, becoming, comments]
     token_count: 209
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1lqhcny/how_is_your_team_adapting_cx_strategy_in_2025/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1lqhcny.md#c1"
-    char_span: [951, 2373]
+    char_span: [950, 2372]
     sentence_count: 12
     key_terms: [human, agents, contactpoint360, chatrep, bpo, customers, approach, general]
+    concepts: [human, agents, contactpoint360, chatrep, customers]
     section: Comments
     token_count: 331
 ---

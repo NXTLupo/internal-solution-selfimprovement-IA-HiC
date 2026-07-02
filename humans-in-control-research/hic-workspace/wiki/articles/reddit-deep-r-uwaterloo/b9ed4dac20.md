@@ -18,11 +18,16 @@ chunks:
     char_span: [0, 2010]
     sentence_count: 15
     key_terms: [waterloo, uchicago, tech, math, network, want, reputation, uwaterloo]
+    concepts: [waterloo, uchicago, network, reputation, uwaterloo]
+    related_chunks: ["articles/reddit-deep-r-uwaterloo/b9ed4dac20.md#c1"]
     token_count: 476
+    sources: [{"n":"Reddit Deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1t1to0m/recently_got_transfer_offer_from_uchicago_and/"}]
   - id: "articles/reddit-deep-r-uwaterloo/b9ed4dac20.md#c1"
     char_span: [2012, 4130]
     sentence_count: 12
     key_terms: [uchicago, waterloo, admissions, commissionrecent886, uwaterloo, prestige, chicago, school]
+    concepts: [uchicago, waterloo, commissionrecent886, admissions, uwaterloo]
+    related_chunks: ["articles/reddit-deep-r-uwaterloo/b9ed4dac20.md#c0"]
     token_count: 486
 ---
 # Recently got transfer offer from UChicago and wondering

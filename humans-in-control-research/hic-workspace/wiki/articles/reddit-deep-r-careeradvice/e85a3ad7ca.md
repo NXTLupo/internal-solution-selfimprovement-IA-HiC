@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2222]
     sentence_count: 16
     key_terms: ["i'm", work, design, learning, troubleshooting, careeradvice, engineering, maintenance]
+    concepts: [design, troubleshooting, learning, careeradvice, engineering]
     token_count: 463
+    sources: [{"n":"Reddit Deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1rs7uws/maintenance_technician_looking_to_transition_into/"}]
   - id: "articles/reddit-deep-r-careeradvice/e85a3ad7ca.md#c1"
     char_span: [2224, 2726]
     sentence_count: 4
     key_terms: [competitors, equipment, zizzianyouthminister, administration, capitalist, collected, customers, marketing]
+    concepts: [competitors, equipment]
     token_count: 102
 ---
 # Maintenance Technician Looking to Transition into IT/Design — Confused About What Skills Are Still Worth Learning in the Age of AI

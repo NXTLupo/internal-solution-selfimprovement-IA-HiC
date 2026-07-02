@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 671]
     sentence_count: 5
     key_terms: [commercialinsurance, commercial, comments, provide, better, claims, certifications, endorsements]
+    concepts: [commercialinsurance, commercial, comments, provide, better]
     token_count: 149
+    sources: [{"n":"reddit-deep: r/commercialinsurance","u":"https://www.reddit.com/r/commercialinsurance/comments/1rgb9m9/claimsloss_education/"}]
   - id: "social-intelligence/reddit-deep/commercialinsurance/1rgb9m9.md#c1"
-    char_span: [686, 2558]
+    char_span: [685, 2557]
     sentence_count: 6
     key_terms: [claims, commercial, thank, worth, mix, adjusters, property, carrier]
+    concepts: [claims, commercial, thank, worth, adjusters]
     section: Comments
     token_count: 405
 ---

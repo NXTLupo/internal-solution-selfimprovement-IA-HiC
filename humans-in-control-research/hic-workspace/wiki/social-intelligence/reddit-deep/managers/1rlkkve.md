@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2027]
     sentence_count: 29
     key_terms: [people, team, without, comments, everyone, managers, standups, because]
+    concepts: [people, without, comments, everyone, managers]
     token_count: 486
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1rlkkve/how_do_you_engage_with_your_team_tools_for_support/"}]
 ---
 # How do you engage with your team? Tools for support.
 

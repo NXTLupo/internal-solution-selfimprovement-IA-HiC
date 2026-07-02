@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 825]
     sentence_count: 11
     key_terms: [gemini, comments, account, passkey, windows, access, edited, trying]
+    concepts: [gemini, comments, account, passkey, windows]
+    related_chunks: ["social-intelligence/reddit-deep/gemini/1lq9pjz.md#c1"]
     token_count: 225
+    sources: [{"n":"reddit-deep: r/gemini","u":"https://www.reddit.com/r/Gemini/comments/1lq9pjz/unable_to_login_without_passkey/"}]
   - id: "social-intelligence/reddit-deep/gemini/1lq9pjz.md#c1"
     char_span: [839, 2009]
     sentence_count: 11
     key_terms: [phone, passkey, gemini, shouldbeestudying, code, set, trapfiend, account]
+    concepts: [phone, passkey, gemini, shouldbeestudying, trapfiend]
+    related_chunks: ["social-intelligence/reddit-deep/gemini/1lq9pjz.md#c0"]
     section: Comments
     token_count: 331
 ---

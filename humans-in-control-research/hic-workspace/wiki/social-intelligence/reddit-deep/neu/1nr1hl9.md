@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1066]
     sentence_count: 7
     key_terms: [neu, programs, competitive, comments, students, program, co-ops, nounderstanding4132]
+    concepts: [programs, competitive, comments, students, program]
     token_count: 277
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1nr1hl9/neu_ms_csdsai_programs_scholarships_pacing_coops/"}]
 ---
 # NEU MS CS/DS/AI programs — scholarships, pacing, co-ops?
 

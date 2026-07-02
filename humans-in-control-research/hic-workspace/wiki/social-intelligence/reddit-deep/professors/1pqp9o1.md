@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1192]
     sentence_count: 5
     key_terms: [students, student, life, professors, comments, question, choices, teacher]
+    concepts: [students, student, professors, comments, question]
     token_count: 252
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1pqp9o1/student_evaluations_make_me_question_my_life/"}]
   - id: "social-intelligence/reddit-deep/professors/1pqp9o1.md#c1"
     char_span: [1206, 2910]
     sentence_count: 13
     key_terms: [tablets, book, a06c192b34520acf6ed2b19af196f88a6a626efa, ravenhill-2171, learn, like, technology, imagining]
+    concepts: [tablets, ravenhill-2171, learn, technology, imagining]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/professors/1pqp9o1.md#c2"
     char_span: [2912, 4727]
     sentence_count: 14
     key_terms: [professor, students, comment, "don't", "it's", complaint, homework, ancient]
+    concepts: [professor, students, comment, "don't", complaint]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1pqp9o1.md#c4"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/professors/1pqp9o1.md#c3"
     char_span: [4730, 6031]
     sentence_count: 12
     key_terms: [technology, using, attention, learning, question, relevant, students, answer]
+    concepts: [technology, using, attention, learning, question]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/professors/1pqp9o1.md#c4"
     char_span: [6033, 7058]
     sentence_count: 5
     key_terms: ["don't", students, ageism, front-obligation-340, lovelydani20, assignments, weaponizing, definitely]
+    concepts: ["don't", students, ageism]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1pqp9o1.md#c2"]
     section: Comments
     token_count: 293
 ---

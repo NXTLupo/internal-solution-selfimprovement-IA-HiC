@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2087]
     sentence_count: 15
     key_terms: [support, uber, payments, solutions, cannot, email, eoin, workonline]
+    concepts: [support, payments, solutions, cannot, email]
     token_count: 448
+    sources: [{"n":"reddit-deep: r/workonline","u":"https://www.reddit.com/r/WorkOnline/comments/1t7dv5x/uber_ai_solutions_still_hasnt_paid_me_2700_since/"}]
   - id: "social-intelligence/reddit-deep/workonline/1t7dv5x.md#c1"
     char_span: [2101, 4172]
     sentence_count: 12
     key_terms: [uber, linkedin, project, worked, been, pay, another, malejjj]
+    concepts: [linkedin, project, worked, another, malejjj]
     section: Comments
     token_count: 507
 ---

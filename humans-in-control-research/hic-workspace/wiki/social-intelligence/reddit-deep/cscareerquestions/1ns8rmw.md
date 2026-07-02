@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 709]
     sentence_count: 7
     key_terms: [cscareerquestions, comments, industry, career, etc, unavailabelle, reddit-deep, experience]
+    concepts: [cscareerquestions, comments, industry, career]
     token_count: 182
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ns8rmw/which_career_in_cs_would_you_choose_if_you_were/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ns8rmw.md#c1"
     char_span: [723, 2950]
     sentence_count: 19
     key_terms: [get, opt, like, projects, cloud, roles, engineering, job]
+    concepts: [projects, engineering, cloud, roles, portfolio]
     section: Comments
     token_count: 497
 ---

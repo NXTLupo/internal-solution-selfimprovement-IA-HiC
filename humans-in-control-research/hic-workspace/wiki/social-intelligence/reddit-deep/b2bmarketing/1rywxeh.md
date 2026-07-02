@@ -20,49 +20,64 @@ chunks:
     char_span: [0, 2087]
     sentence_count: 5
     key_terms: [people, email, different, anymore, authentication, b2bmarketing, gonna, cold]
+    concepts: [people, different, email, authentication, anymore]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1rywxeh.md#c2"]
     token_count: 467
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1rywxeh/been_running_cold_email_for_6_years_and_the_game/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rywxeh.md#c1"
     char_span: [2089, 4264]
     sentence_count: 2
     key_terms: [volume, inbox, because, infrastructure, used, emails, people, day]
+    concepts: [volume, because, inbox, infrastructure, emails]
     token_count: 492
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rywxeh.md#c2"
     char_span: [4266, 6753]
     sentence_count: 2
     key_terms: [email, people, emails, using, cold, thats, generated, copy]
+    concepts: [email, people, emails, using, generated]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1rywxeh.md#c0"]
     token_count: 504
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rywxeh.md#c3"
     char_span: [6755, 9174]
     sentence_count: 2
     key_terms: [email, because, offer, specific, trust, curiosity, cold, prospect]
+    concepts: [email, because, specific, offer, curiosity]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1rywxeh.md#c4", "social-intelligence/reddit-deep/b2bmarketing/1rywxeh.md#c7"]
     token_count: 486
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rywxeh.md#c4"
     char_span: [9176, 10281]
     sentence_count: 1
     key_terms: [offer, something, fine, relevant, specific, because, makes, right]
+    concepts: [something, offer, relevant, specific, because]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1rywxeh.md#c3"]
     token_count: 206
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rywxeh.md#c5"
     char_span: [10295, 12215]
     sentence_count: 19
     key_terms: [looking-for-marketing-discussion-811236647760298024, email, copy, "i'm", questions, targeting, contact, discord]
+    concepts: [email, questions, targeting, contact, discord]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rywxeh.md#c6"
     char_span: [12217, 14131]
     sentence_count: 1
     key_terms: [personalization, enough, copy, segment-level, agree, list, meetings, per-lead]
+    concepts: [personalization, enough, segment-level, agree, meetings]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rywxeh.md#c7"
     char_span: [14133, 15810]
     sentence_count: 11
     key_terms: [email, multichannel, offer, real, campaigns, everyone, linkedin, personal]
+    concepts: [email, multichannel, offer, campaigns, everyone]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1rywxeh.md#c3"]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rywxeh.md#c8"
     char_span: [15812, 16765]
     sentence_count: 3
     key_terms: [accounts, channel, through, omni, semi-automation, infrastructure, browser-based, emailverifier]
+    concepts: [accounts, channel, through]
     section: Comments
     token_count: 212
 ---

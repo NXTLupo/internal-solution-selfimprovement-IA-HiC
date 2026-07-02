@@ -20,39 +20,49 @@ chunks:
     char_span: [0, 1778]
     sentence_count: 20
     key_terms: [compliance, built, saas, transilienceai, shasta, https, open-source, com]
+    concepts: [compliance, built, transilienceai, shasta, open-source]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1sejdsh.md#c5"]
     token_count: 427
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1sejdsh/i_built_an_opensource_competitor_to_delve/"}]
   - id: "social-intelligence/reddit-deep/saas/1sejdsh.md#c1"
-    char_span: [1793, 2375]
+    char_span: [1792, 2374]
     sentence_count: 8
     key_terms: [answerpositive6598, certification, newtablecloth, powerfulsquid, compliance, certified, expensive, mrlockett]
     section: Comments
     token_count: 146
   - id: "social-intelligence/reddit-deep/saas/1sejdsh.md#c2"
-    char_span: [2377, 4674]
+    char_span: [2376, 4673]
     sentence_count: 14
     key_terms: [something, maintenance, cost, changes, claude, source, open, soc]
+    concepts: [something, maintenance, changes, claude, source]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1sejdsh.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/saas/1sejdsh.md#c3"
-    char_span: [4341, 6636]
+    char_span: [4340, 6635]
     sentence_count: 19
     key_terms: [something, like, source, different, open, problem, relationships, notification]
+    concepts: [something, source, different, relationships, problem]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1sejdsh.md#c2"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/saas/1sejdsh.md#c4"
-    char_span: [6383, 7614]
+    char_span: [6382, 7613]
     sentence_count: 10
     key_terms: [answerpositive6598, company, people, gillescode, tweetpilot, expertise, moat, board-level]
+    concepts: [answerpositive6598, company, people, gillescode, tweetpilot]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/saas/1sejdsh.md#c5"
-    char_span: [7616, 9661]
+    char_span: [7615, 9660]
     sentence_count: 20
     key_terms: [vanta, evidence, people, built, pay, soc, type, compliance]
+    concepts: [vanta, evidence, people, built, compliance]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1sejdsh.md#c0"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/saas/1sejdsh.md#c6"
-    char_span: [9663, 9817]
+    char_span: [9662, 9816]
     sentence_count: 2
     key_terms: [answerpositive6598, expertise, replicate, shipping, respect, agreed, domain, either]
     section: Comments

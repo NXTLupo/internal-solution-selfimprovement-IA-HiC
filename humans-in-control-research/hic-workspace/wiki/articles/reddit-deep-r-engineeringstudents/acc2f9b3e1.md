@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2130]
     sentence_count: 12
     key_terms: [engineeringstudents, university, reddit, internships, https, students, com, wiki]
+    concepts: [engineeringstudents, university, reddit, internships, students]
     token_count: 453
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1ry069o/how_do_internshipscoops_actually_work_for_mining/"}]
   - id: "articles/reddit-deep-r-engineeringstudents/acc2f9b3e1.md#c1"
     char_span: [2132, 3159]
     sentence_count: 8
     key_terms: [internships, summer, engineeringstudents, fairs, speak, get, year, sipsipcoakrouch]
+    concepts: [internships, summer, fairs, speak]
     token_count: 218
 ---
 # How do internships/co-ops actually work for mining engineering students?

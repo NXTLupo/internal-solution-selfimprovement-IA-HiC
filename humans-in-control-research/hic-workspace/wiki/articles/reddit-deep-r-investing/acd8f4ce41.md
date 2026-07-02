@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2088]
     sentence_count: 14
     key_terms: [market, trump-media-cryptocom-launch-new-crypto-treasury-firm-via-spac-deal-2025-08-26, trump, com, https, www, administration, dow-jones-today-03102025-11693786]
+    concepts: [market, trump, https, administration, stock]
     token_count: 493
+    sources: [{"n":"Reddit Deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1n2mk6m/are_we_still_a_free_market_when_the_executive/"}]
   - id: "articles/reddit-deep-r-investing/acd8f4ce41.md#c1"
     char_span: [2090, 3270]
     sentence_count: 6
     key_terms: [yaboijack055, capitalism, corporations, socialism, market, usual-importance-893, free, goal]
+    concepts: [yaboijack055, capitalism, corporations, socialism, market]
     token_count: 294
 ---
 # Are we still a free market when the executive office manipulates the stock market and buys a crypto treasury firm?

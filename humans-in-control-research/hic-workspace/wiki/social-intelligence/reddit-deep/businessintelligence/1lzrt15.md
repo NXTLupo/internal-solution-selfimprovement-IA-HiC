@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 2078]
     sentence_count: 8
     key_terms: [solver, businessintelligence, power, "i'm", tool, functionality, excel, data]
+    concepts: [solver, businessintelligence, power, functionality, excel]
     token_count: 465
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1lzrt15/looking_for_a_low_cost_reporting_tool_to/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1lzrt15.md#c1"
-    char_span: [2080, 4171]
+    char_span: [2080, 4170]
     sentence_count: 9
     key_terms: [reports, seektable, report, tables, excel, power, like, use]
+    concepts: [reports, seektable, report, tables, excel]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/businessintelligence/1lzrt15.md#c2"
-    char_span: [4173, 6436]
+    char_span: [4172, 6435]
     sentence_count: 18
     key_terms: [reports, something, need, dashboards, automated, create, capabilities, area]
+    concepts: [reports, something, dashboards, automated, capabilities]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1lzrt15.md#c3"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/businessintelligence/1lzrt15.md#c3"
-    char_span: [6438, 7236]
+    char_span: [6437, 7235]
     sentence_count: 10
     key_terms: [reports, dashboards, framework, design, lower, cost, user, infragistics]
+    concepts: [dashboards, reports, framework, design, lower]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1lzrt15.md#c2"]
     section: Comments
     token_count: 175
 ---

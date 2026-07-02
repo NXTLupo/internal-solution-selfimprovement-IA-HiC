@@ -21,23 +21,32 @@ chunks:
     char_span: [0, 1180]
     sentence_count: 19
     key_terms: [degree, skills, careerguidance, opportunities, comments, because, matters, being]
+    concepts: [degree, skills, careerguidance, opportunities, comments]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sujk3f.md#c2", "social-intelligence/reddit-deep/careerguidance/1sujk3f.md#c3"]
     token_count: 259
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sujk3f/what_matters_more_in_2026your_degree_or_your/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sujk3f.md#c1"
     char_span: [1194, 3281]
     sentence_count: 11
     key_terms: [degree, masters, field, bachelors, companies, get, job, schools]
+    concepts: [degree, masters, bachelors, companies, field]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/careerguidance/1sujk3f.md#c2"
     char_span: [3283, 5471]
     sentence_count: 14
     key_terms: [degree, hiring, skills, skills-based, roles, engineering, candidates, important]
+    concepts: [degree, hiring, skills-based, skills, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sujk3f.md#c0", "social-intelligence/reddit-deep/careerguidance/1sujk3f.md#c3"]
     section: Comments
     token_count: 486
+    sources: [{"n":"federal dod intern that did ta for cyber cleared roles for 14 weeks, tons of tim","u":""}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sujk3f.md#c3"
     char_span: [5473, 6490]
     sentence_count: 11
     key_terms: [skills, degree, work, because, geologistvisual3097, going, speed, care]
+    concepts: [skills, degree, because, going, speed]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1sujk3f.md#c0", "social-intelligence/reddit-deep/careerguidance/1sujk3f.md#c2"]
     section: Comments
     token_count: 240
 ---

@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1584]
     sentence_count: 8
     key_terms: [worth, learning, properly, career, trying, going, structured, findapath]
+    concepts: [worth, learning, properly, career, trying]
     token_count: 348
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1su9th7/claude_vs_chatgpt_vs_google_ai_which_is_actually/"}]
   - id: "social-intelligence/reddit-deep/findapath/1su9th7.md#c1"
     char_span: [1598, 3866]
     sentence_count: 19
     key_terms: [thank, helpful, please, comments, everyone, guidance, helped, upvote]
+    concepts: [thank, helpful, please, comments, everyone]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/findapath/1su9th7.md#c2"
     char_span: [3869, 4991]
     sentence_count: 6
     key_terms: [removed, reddit, prompts, learn, critical-pipe-8799, fit-ingenuity-2814, best, like]
+    concepts: [removed, reddit, prompts, learn]
     section: Comments
     token_count: 292
 ---

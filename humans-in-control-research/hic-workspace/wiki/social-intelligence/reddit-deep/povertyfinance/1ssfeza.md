@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1637]
     sentence_count: 20
     key_terms: [credit, povertyfinance, comments, because, medical, savings, surgery, income]
+    concepts: [credit, povertyfinance, comments, because, medical]
     token_count: 415
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1ssfeza/my_story/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c1"
     char_span: [1639, 3516]
     sentence_count: 23
     key_terms: [car, food, transmission, hours, trade, get, promotion, several]
+    concepts: [transmission, hours, trade, promotion, several]
     token_count: 433
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c2"
     char_span: [3518, 4169]
@@ -36,30 +39,35 @@ chunks:
     char_span: [4183, 6011]
     sentence_count: 18
     key_terms: [descriptionno7446, through, needy, everything, something, people, "you're", motherofmercyandjoy]
+    concepts: [descriptionno7446, through, everything, needy, something]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c4"
     char_span: [6013, 6648]
     sentence_count: 7
     key_terms: [anything, hospital, case, get, like, pays, sure, appointments]
+    concepts: [anything, hospital]
     section: Comments
     token_count: 145
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c5"
     char_span: [6650, 8601]
     sentence_count: 16
     key_terms: [food, people, furniture, stranger, nothing, reddit, found, means]
+    concepts: [people, furniture, stranger, nothing, reddit]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c6"
     char_span: [8378, 10056]
     sentence_count: 18
     key_terms: [want, reading, through, people, right, snowpaws473, feel, list]
+    concepts: [reading, through, people, snowpaws473, appreciate]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c7"
     char_span: [10058, 10686]
     sentence_count: 11
     key_terms: [offer, get, help, absolutely, especially, mentioned, necessary, promotion]
+    concepts: [offer]
     section: Comments
     token_count: 151
 ---

@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 2038]
     sentence_count: 8
     key_terms: [delivery, funds, order, reserve, disbursement, fulfillmentbyamazon, january, amazon]
+    concepts: [delivery, funds, order, disbursement, fulfillmentbyamazon]
     token_count: 461
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1ntxhno/migration_to_dd7_on_march_12_2026/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1ntxhno.md#c1"
-    char_span: [2053, 3078]
+    char_span: [2052, 3077]
     sentence_count: 6
     key_terms: [fulfillmentbyamazon, discord, did, fba, amzingcpa, feedback, discuss, server]
+    concepts: [fulfillmentbyamazon, discord, amzingcpa, feedback, discuss]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1ntxhno.md#c2"
-    char_span: [3080, 4025]
+    char_span: [3079, 4024]
     sentence_count: 4
     key_terms: [fba, fbm, orders, email, applies, seller, "don't", links]
+    concepts: [orders, email, applies, seller, "don't"]
     section: Comments
     token_count: 245
 ---

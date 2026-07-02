@@ -21,37 +21,47 @@ chunks:
     char_span: [0, 1898]
     sentence_count: 5
     key_terms: [total, financialindependence, assets, retirement, comments, account, liquid, hard]
+    concepts: [financialindependence, total, assets, retirement, comments]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1p9owg6.md#c4"]
     token_count: 448
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1p9owg6/milestone_achieved_900k/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1p9owg6.md#c1"
     char_span: [1900, 3952]
     sentence_count: 3
     key_terms: [months, projection, nov, expected, insane, market, house, worth]
+    concepts: [months, projection, expected, insane, market]
     token_count: 421
   - id: "social-intelligence/reddit-deep/financialindependence/1p9owg6.md#c2"
     char_span: [3954, 4498]
     sentence_count: 1
     key_terms: [engineer, software, associate, non-profit, assistant, position, actual, annual]
+    concepts: [engineer, software, associate]
     token_count: 200
   - id: "social-intelligence/reddit-deep/financialindependence/1p9owg6.md#c3"
     char_span: [4500, 5555]
     sentence_count: 2
     key_terms: [fire, aggresive, invested, average, rolling, income, month, goal]
+    concepts: [aggresive, invested, average, rolling, income]
     token_count: 513
   - id: "social-intelligence/reddit-deep/financialindependence/1p9owg6.md#c4"
     char_span: [5557, 6454]
     sentence_count: 10
     key_terms: [financialindependence, comments, reddit, https, com, www, previously, expensive]
+    concepts: [financialindependence, comments, reddit, https]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1p9owg6.md#c0"]
     token_count: 264
   - id: "social-intelligence/reddit-deep/financialindependence/1p9owg6.md#c5"
     char_span: [6468, 7363]
     sentence_count: 9
     key_terms: [fimilestonesdeux, household, marriage, recent, been, keep, operating-on, progression]
+    concepts: [fimilestonesdeux, household, marriage, recent]
     section: Comments
     token_count: 243
   - id: "social-intelligence/reddit-deep/financialindependence/1p9owg6.md#c6"
     char_span: [7365, 9181]
     sentence_count: 12
     key_terms: [fimilestonesdeux, taxes, protected, expenses, current, assets, remote, money]
+    concepts: [fimilestonesdeux, taxes, protected, expenses, current]
     section: Comments
     token_count: 503
 ---

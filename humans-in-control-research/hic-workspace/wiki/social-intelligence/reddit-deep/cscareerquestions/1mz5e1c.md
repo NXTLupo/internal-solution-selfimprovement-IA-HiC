@@ -19,70 +19,87 @@ chunks:
     char_span: [0, 1704]
     sentence_count: 13
     key_terms: [been, cscareerquestions, "i've", family, freeloading, programming, confidence, comments]
+    concepts: [cscareerquestions, family, freeloading, programming, confidence]
     token_count: 402
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1mz5e1c/m23_2024_cs_graduate_from_maryland_20706_still/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c1"
     char_span: [1708, 3441]
     sentence_count: 14
     key_terms: [something, certification, programming, get, too, work, long-term, anything]
+    concepts: [something, certification, programming, long-term, anything]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c5"]
     token_count: 403
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c2"
     char_span: [3455, 5330]
     sentence_count: 8
     key_terms: [remote, goodnightlondon, caregiver, being, internships, get, jobs, experience]
+    concepts: [remote, goodnightlondon, caregiver, internships, being]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c3"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c3"
     char_span: [5332, 7381]
     sentence_count: 22
     key_terms: [remote, right, job, being, competitive, too, something, anything]
+    concepts: [remote, right, competitive, being, something]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c2"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c4"
     char_span: [7383, 9476]
     sentence_count: 15
     key_terms: [doordash, dangerous, get, programming, job, jobs, need, getting]
+    concepts: [doordash, dangerous, programming, getting, parents]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c5"
     char_span: [9478, 11498]
     sentence_count: 16
     key_terms: [job, like, something, get, career, market, "you're", shit]
+    concepts: [something, career, market, "you're", anything]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c1"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c6"
     char_span: [11500, 12649]
     sentence_count: 8
     key_terms: ["i'm", working, likely, hard, lot, work, lowest-hanging, self-reporting]
+    concepts: [working, likely]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c7"
     char_span: [12651, 14168]
     sentence_count: 13
     key_terms: [health, uniformed, because, officer, service, force, air, too]
+    concepts: [health, uniformed, because, officer, service]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c8"
     char_span: [14170, 15701]
     sentence_count: 9
     key_terms: [clearance, "you're", need, government, enlisting, getting, looking, decent]
+    concepts: [clearance, "you're", government, enlisting, getting]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c9"
     char_span: [15703, 16627]
     sentence_count: 6
     key_terms: [defense, career, force, intel, area, got, lots, want]
+    concepts: [defense, career, force, intel]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c10"
     char_span: [16629, 18605]
     sentence_count: 14
     key_terms: [clearance, "you'll", school, afb, get, got, job, tech]
+    concepts: [clearance, "you'll", school, probably, required]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c11"
     char_span: [18378, 18781]
     sentence_count: 2
     key_terms: [officer, joking, dont, graduate, sentence, enlist, hiring, listen]
+    concepts: [officer, joking]
     section: Comments
     token_count: 116
 ---

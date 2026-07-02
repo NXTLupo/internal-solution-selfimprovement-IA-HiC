@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 779]
     sentence_count: 12
     key_terms: [get, gradschool, comments, research, months, school, seems, grad]
+    concepts: [gradschool, comments, research, months, school]
     token_count: 203
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tegh08/grad_school_is_it_worth_it/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1tegh08.md#c1"
     char_span: [793, 2229]
     sentence_count: 13
     key_terms: [right, keep, applying, projects, correct, finding, letters, science]
+    concepts: [right, applying, projects, correct, finding]
     section: Comments
     token_count: 333
 ---

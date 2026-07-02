@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 852]
     sentence_count: 7
     key_terms: [received, boston, automatically, international, scholarships, considered, excellence, academic]
+    concepts: [received, automatically, international, scholarships, boston]
     token_count: 181
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1t3dfr3/ms_cs_align_boston_anyone_actually_received/"}]
 ---
 # MS CS Align (Boston) – Anyone actually received International Academic Excellence / CPS Leaders & Scholars?
 

@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 729]
     sentence_count: 6
     key_terms: [verification, business, comments, fintech, anyone, narrow-variation-169, docs, accountancy]
+    concepts: [verification, business, comments, fintech, anyone]
     token_count: 159
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1sbgap0/automating_business_verification_without_docs/"}]
   - id: "social-intelligence/reddit-deep/fintech/1sbgap0.md#c1"
-    char_span: [744, 3348]
+    char_span: [743, 3347]
     sentence_count: 26
     key_terms: [verification, data, documents, banking, company, open, use, friction]
+    concepts: [verification, documents, banking, company, friction]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1sbgap0.md#c2"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/fintech/1sbgap0.md#c2"
-    char_span: [3350, 4811]
+    char_span: [3349, 4810]
     sentence_count: 8
     key_terms: [different, verification, company, beneficial, connection, registries, friction, banking]
+    concepts: [different, verification, company, beneficial, connection]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1sbgap0.md#c1"]
     section: Comments
     token_count: 300
 ---

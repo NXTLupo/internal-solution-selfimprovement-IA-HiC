@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1046]
     sentence_count: 8
     key_terms: [living, going, american, comments, anymore, because, objective-outside-62, dream]
+    concepts: [living, going, american, comments, anymore]
     token_count: 277
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1m2mplr/the_american_dream/"}]
   - id: "social-intelligence/reddit-deep/genz/1m2mplr.md#c1"
     char_span: [1060, 2031]
     sentence_count: 10
     key_terms: [deleted, struggle, discord, being, work, themysteriousemu, automatically, automoderator]
+    concepts: [deleted, struggle, discord, being]
     section: Comments
     token_count: 289
   - id: "social-intelligence/reddit-deep/genz/1m2mplr.md#c2"
     char_span: [2033, 3932]
     sentence_count: 15
     key_terms: [food, time, generation, deleted, better, negative-river-2865, brand, deals]
+    concepts: [generation, deleted, better, brand, deals]
     section: Comments
     token_count: 504
 ---

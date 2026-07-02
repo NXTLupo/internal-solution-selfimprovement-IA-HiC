@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1445]
     sentence_count: 13
     key_terms: [college, time, summarizing, comments, organize, earlier, working, hours]
+    concepts: [college, summarizing, comments, organize, earlier]
     token_count: 342
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1n5w6wg/the_one_thing_i_wish_i_knew_earlier_in_college/"}]
   - id: "social-intelligence/reddit-deep/college/1n5w6wg.md#c1"
     char_span: [1459, 3306]
     sentence_count: 6
     key_terms: [busvegetable7490, digital, notes, tools, summarizing, theaipickss, referring, summaries]
+    concepts: [busvegetable7490, digital, summarizing, theaipickss, notes]
     section: Comments
     token_count: 458
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1290]
     sentence_count: 11
     key_terms: [certifications, professional, school, experience, gradschool, clinical, comments, pre-grad]
+    concepts: [certifications, professional, school, experience, gradschool]
     token_count: 274
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rqggu1/help_identifying_professional_training/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1rqggu1.md#c1"
     char_span: [1304, 1638]
     sentence_count: 1

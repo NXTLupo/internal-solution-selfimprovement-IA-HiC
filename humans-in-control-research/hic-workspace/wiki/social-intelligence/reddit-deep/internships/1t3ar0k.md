@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 833]
     sentence_count: 7
     key_terms: [months, internship, internships, side, comments, recently, training, complex-story-6796]
+    concepts: [months, internship, internships, comments, recently]
     token_count: 211
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1t3ar0k/i_am_getting_an_internship_3_months_training_and/"}]
   - id: "social-intelligence/reddit-deep/internships/1t3ar0k.md#c1"
     char_span: [847, 1138]
     sentence_count: 1

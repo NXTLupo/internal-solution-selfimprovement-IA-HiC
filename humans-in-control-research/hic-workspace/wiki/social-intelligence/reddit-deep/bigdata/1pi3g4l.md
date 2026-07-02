@@ -20,15 +20,18 @@ chunks:
     char_span: [0, 905]
     sentence_count: 4
     key_terms: [analytics, data, real, time, centrally, sensitive, comments, bigdata]
+    concepts: [analytics, centrally, sensitive, comments, bigdata]
     token_count: 181
+    sources: [{"n":"reddit-deep: r/bigdata","u":"https://www.reddit.com/r/bigdata/comments/1pi3g4l/real_time_analytics_on_sensitive_customer_data/"}]
   - id: "social-intelligence/reddit-deep/bigdata/1pi3g4l.md#c1"
-    char_span: [920, 3166]
+    char_span: [919, 3165]
     sentence_count: 13
     key_terms: [analytics, local, real-time, latency, privacy, computation, like, execution]
+    concepts: [analytics, local, real-time, latency, privacy]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/bigdata/1pi3g4l.md#c2"
-    char_span: [3168, 3394]
+    char_span: [3167, 3393]
     sentence_count: 1
     key_terms: [data, time, requirements, specifically, query-able, freshness, database, presence]
     section: Comments

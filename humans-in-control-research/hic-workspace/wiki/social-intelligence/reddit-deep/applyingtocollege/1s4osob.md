@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 795]
     sentence_count: 5
     key_terms: [applyingtocollege, comments, service, puzzleheaded-tear283, international-level, guess, state, isef]
+    concepts: [applyingtocollege, comments, service, guess, state]
     token_count: 195
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1s4osob/colleges_dont_value_isef_anymore_i_guess_please_i/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s4osob.md#c1"
     char_span: [809, 2683]
     sentence_count: 18
     key_terms: [puzzleheaded-tear283, life, college, matter, encouragement, peacockintime, relationships, opportunity]
+    concepts: [puzzleheaded-tear283, encouragement, peacockintime, relationships, college]
     section: Comments
     token_count: 428
 ---

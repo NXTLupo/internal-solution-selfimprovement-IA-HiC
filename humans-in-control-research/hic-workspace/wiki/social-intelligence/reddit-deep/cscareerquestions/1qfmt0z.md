@@ -19,41 +19,49 @@ chunks:
     char_span: [0, 765]
     sentence_count: 4
     key_terms: [cscareerquestions, internships, swe, tech, government, companies, comments, company]
+    concepts: [cscareerquestions, internships, government, companies, comments]
     token_count: 202
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qfmt0z/is_the_market_really_that_cooked/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qfmt0z.md#c1"
     char_span: [779, 2789]
     sentence_count: 15
     key_terms: [interviews, level, apps, openai, entry, high, undergrad, applying]
+    concepts: [interviews, level, openai, entry, undergrad]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qfmt0z.md#c2"
     char_span: [2791, 4838]
     sentence_count: 9
     key_terms: [interviews, people, got, since, rejected, harder, good, interview]
+    concepts: [interviews, people, since, rejected, harder]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qfmt0z.md#c3"
     char_span: [4545, 4950]
     sentence_count: 2
     key_terms: [interviews, round, ancientnon, applicants, fellowship, internship, sometimes, kater543]
+    concepts: [interviews, round]
     section: Comments
     token_count: 94
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qfmt0z.md#c4"
     char_span: [4952, 6400]
     sentence_count: 13
     key_terms: [right, applications, job, interview, insanely, jdd4318, resume, whole-reserve-4773]
+    concepts: [right, applications, interview, insanely, jdd4318]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qfmt0z.md#c5"
     char_span: [6403, 8048]
     sentence_count: 10
     key_terms: [interviews, job, "might've", depends, "didn't", ducksflytogether1988, nicementalhealthpal, significant-ad-7897]
+    concepts: [interviews, "might've", depends, "didn't", caste]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qfmt0z.md#c6"
     char_span: [8050, 8689]
     sentence_count: 1
     key_terms: [candid-operation2042, analytics, better, market, data, swe, interviews, percentage]
+    concepts: [candid-operation2042, analytics, better, market]
     section: Comments
     token_count: 165
 ---

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 657]
     sentence_count: 1
     key_terms: [offer, comments, co-op, neu, worldexecute, reddit-deep, inaccurate, accepting]
+    concepts: [offer, comments, co-op]
     token_count: 165
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sxlvrx/second_coop_search_results/"}]
   - id: "social-intelligence/reddit-deep/neu/1sxlvrx.md#c1"
     char_span: [671, 1404]
     sentence_count: 2
     key_terms: [worldexecute, being, linkedin, payapya, lol, swe, living-sand18, open-ad-7216]
+    concepts: [worldexecute, being, linkedin, payapya]
     section: Comments
     token_count: 219
 ---

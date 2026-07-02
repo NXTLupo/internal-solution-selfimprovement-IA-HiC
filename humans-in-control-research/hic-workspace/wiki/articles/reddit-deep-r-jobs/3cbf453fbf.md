@@ -18,16 +18,22 @@ chunks:
     char_span: [0, 1624]
     sentence_count: 12
     key_terms: [depression, great, jobs, hiring, levels, unemployment, comments, extended]
+    concepts: [depression, great, unemployment, hiring, levels]
+    related_chunks: ["articles/reddit-deep-r-jobs/3cbf453fbf.md#c2"]
     token_count: 364
+    sources: [{"n":"Reddit Deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1qd91ph/we_are_living_through_the_modern_day_great/"}]
   - id: "articles/reddit-deep-r-jobs/3cbf453fbf.md#c1"
     char_span: [1626, 3098]
     sentence_count: 14
     key_terms: [right, recession, worse, unemployment, time, expensive, gambling, housing]
+    concepts: [right, recession, worse, unemployment, expensive]
     token_count: 351
   - id: "articles/reddit-deep-r-jobs/3cbf453fbf.md#c2"
     char_span: [3100, 4365]
     sentence_count: 11
     key_terms: [intellectual, great, worse, depression, people, human, labor, media]
+    concepts: [intellectual, depression, great, worse, people]
+    related_chunks: ["articles/reddit-deep-r-jobs/3cbf453fbf.md#c0"]
     token_count: 292
 ---
 # We are living through the modern day Great Depression

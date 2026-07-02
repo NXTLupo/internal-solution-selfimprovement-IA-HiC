@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1724]
     sentence_count: 14
     key_terms: [job, positions, feel, hard, degree, employment, multimedia, part-time]
+    concepts: [positions, degree, employment, multimedia, part-time]
     token_count: 397
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1stnfbj/unemployed_for_8_months/"}]
   - id: "social-intelligence/reddit-deep/jobs/1stnfbj.md#c1"
     char_span: [1738, 3827]
     sentence_count: 18
     key_terms: [resume, everything, through, applications, specifically, broad, "isn't", means]
+    concepts: [resume, everything, applications, through, specifically]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/jobs/1stnfbj.md#c2"
     char_span: [3832, 5876]
     sentence_count: 18
     key_terms: [get, resume, need, content, degree, check, internships, work]
+    concepts: [resume, content, degree, internships, check]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/jobs/1stnfbj.md#c3"
     char_span: [5878, 6850]
     sentence_count: 8
     key_terms: [around, weezay5000, degree, write, got, job, move, use]
+    concepts: [around, weezay5000, degree, write]
     section: Comments
     token_count: 253
   - id: "social-intelligence/reddit-deep/jobs/1stnfbj.md#c4"
     char_span: [6852, 8488]
     sentence_count: 10
     key_terms: [linkedin, people, years, portfolio, positions, applying, always, degree]
+    concepts: [linkedin, people, years, portfolio, positions]
     section: Comments
     token_count: 365
 ---

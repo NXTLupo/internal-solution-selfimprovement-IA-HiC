@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1207]
     sentence_count: 10
     key_terms: [cooked, cscareerquestions, myself, grad, like, new, setting, people]
+    concepts: [cooked, cscareerquestions, myself, setting, people]
     token_count: 281
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sbg1yf/new_grad_am_i_setting_myself_up_for_failure/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/d62ff7d2bf.md#c1"
     char_span: [1209, 2117]
     sentence_count: 5
     key_terms: [code, industry, guineverefira, job, cooked, sounds, confident-green-9811, userwithaquestion12]
+    concepts: [industry, guineverefira, cooked, sounds, apple]
     token_count: 238
 ---
 # New grad - am i setting myself up for failure?

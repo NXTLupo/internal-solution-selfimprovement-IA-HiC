@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 2350]
     sentence_count: 23
     key_terms: [illustration, illustrator, project, experience, freelance, adobe, thank, photoshop]
+    concepts: [illustration, illustrator, experience, project, freelance]
     token_count: 464
+    sources: [{"n":"reddit-deep: r/freelance","u":"https://www.reddit.com/r/freelance/comments/1ny03pu/freelance_work_at_twine/"}]
   - id: "social-intelligence/reddit-deep/freelance/1ny03pu.md#c1"
     char_span: [2352, 4239]
     sentence_count: 15
     key_terms: [twine, pay, work, gotten, audio, engineering, pure-ad-821, experience]
+    concepts: [twine, gotten, engineering, pure-ad-821, audio]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/freelance/1ny03pu.md#c2"
     char_span: [4241, 5840]
     sentence_count: 14
     key_terms: [work, because, undervalue, explained, something, everyone, platform, looking]
+    concepts: [because, undervalue, explained, something, everyone]
     section: Comments
     token_count: 331
 ---

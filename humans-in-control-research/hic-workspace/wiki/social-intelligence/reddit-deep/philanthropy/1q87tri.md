@@ -17,10 +17,12 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1q87tri.md#c0"
-    char_span: [0, 1324]
+    char_span: [0, 1323]
     sentence_count: 4
     key_terms: [philanthropyproject, philanthropy, https, foundation, bipartisan-plan, payout, philanthropic, net]
-    token_count: 336
+    concepts: [philanthropyproject, philanthropy, https, foundation, bipartisan-plan]
+    token_count: 335
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1q87tri/a_bipartisan_plan_to_increase_foundation_payout/"}]
 ---
 # A Bipartisan Plan to Increase Foundation Payout Rate
 

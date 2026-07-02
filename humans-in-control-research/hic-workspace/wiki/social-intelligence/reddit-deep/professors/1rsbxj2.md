@@ -21,53 +21,71 @@ chunks:
     char_span: [0, 1338]
     sentence_count: 10
     key_terms: [notes, take, professors, students, provide, class, show, wondering]
+    concepts: [notes, professors, students, provide, class]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rsbxj2.md#c1", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c2", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c3", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c5", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c6"]
     token_count: 312
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1rsbxj2/is_asking_them_to_take_notes_unreasonable/"}]
   - id: "social-intelligence/reddit-deep/professors/1rsbxj2.md#c1"
     char_span: [1352, 3204]
     sentence_count: 15
     key_terms: [powerpoints, notes, write, thatcheekychick, provide, slides, board, class]
+    concepts: [powerpoints, notes, thatcheekychick, write, provide]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rsbxj2.md#c0", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c6"]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/professors/1rsbxj2.md#c2"
     char_span: [3206, 3974]
     sentence_count: 8
     key_terms: [students, powerpoints, network, thought, class, back, ctenophorever, dragonfeet1]
+    concepts: [students, powerpoints, network, thought, class]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rsbxj2.md#c0", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c3"]
     section: Comments
     token_count: 170
   - id: "social-intelligence/reddit-deep/professors/1rsbxj2.md#c3"
     char_span: [3976, 6092]
     sentence_count: 9
     key_terms: [students, powerpoint, notes, "i'm", take, class, going, lecture]
+    concepts: [students, powerpoint, notes, class, going]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rsbxj2.md#c0", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c2", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c5", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c6", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1rsbxj2.md#c4"
     char_span: [5815, 7076]
     sentence_count: 8
     key_terms: [notes, exam, last, evaluation, although, teaching, instead, slides]
+    concepts: [evaluation, notes, although, teaching, instead]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/professors/1rsbxj2.md#c5"
     char_span: [7078, 9166]
     sentence_count: 16
     key_terms: [notes, student, take, yourlurkingprof, students, slides, does, challenge]
+    concepts: [notes, student, yourlurkingprof, students, slides]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rsbxj2.md#c0", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c3", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c8"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/professors/1rsbxj2.md#c6"
     char_span: [9168, 11176]
     sentence_count: 14
     key_terms: [notes, class, provide, responsibility, piranhadream, "don't", don, "it's"]
+    concepts: [notes, class, responsibility, provide, piranhadream]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rsbxj2.md#c0", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c1", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c3", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c7"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/professors/1rsbxj2.md#c7"
     char_span: [11178, 12837]
     sentence_count: 15
     key_terms: [class, notes, slide, effective, notebook, students, noticed, skills]
+    concepts: [class, notes, slide, effective, notebook]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rsbxj2.md#c0", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c3", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c6"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/professors/1rsbxj2.md#c8"
     char_span: [12839, 13780]
     sentence_count: 9
     key_terms: [students, slides, "don't", grumble, notes, characteristicpea, get, give]
+    concepts: [students, slides, "don't", grumble, notes]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1rsbxj2.md#c0", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c3", "social-intelligence/reddit-deep/professors/1rsbxj2.md#c5"]
     section: Comments
     token_count: 217
 ---

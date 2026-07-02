@@ -20,34 +20,41 @@ chunks:
     char_span: [0, 2105]
     sentence_count: 27
     key_terms: [work, leading, b2bmarketing, commission, recurring, comments, linkedin, messages]
+    concepts: [leading, b2bmarketing, commission, recurring, comments]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1rto93j/we_do_great_work_but_suck_at_selling_it_how_do/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rto93j.md#c1"
     char_span: [2107, 3304]
     sentence_count: 13
     key_terms: [don, service, people, partners, because, channel, looking, problem]
+    concepts: [service, people, partners, because, channel]
     token_count: 251
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rto93j.md#c2"
-    char_span: [3319, 5606]
+    char_span: [3318, 5605]
     sentence_count: 23
     key_terms: [numbers, problem, looking-for-marketing-discussion-811236647760298024, "you're", salesforce, "don't", data, trigger]
+    concepts: [numbers, problem, salesforce, "you're", "don't"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rto93j.md#c3"
-    char_span: [5608, 7845]
+    char_span: [5607, 7844]
     sentence_count: 32
     key_terms: [attendees, dinner, people, leads, posts, cfo, commission, customers]
+    concepts: [attendees, dinner, people, commission, leads]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rto93j.md#c4"
-    char_span: [7847, 10074]
+    char_span: [7846, 10073]
     sentence_count: 15
     key_terms: [marketing, b2b, business, reddit, sales, get, want, whatever]
+    concepts: [marketing, business, reddit, sales, whatever]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/b2bmarketing/1rto93j.md#c5"
-    char_span: [10076, 11862]
+    char_span: [10075, 11861]
     sentence_count: 11
     key_terms: [problems, need, decision, identify, specific, already, content, parents]
+    concepts: [problems, decision, identify, specific, already]
     section: Comments
     token_count: 388
 ---

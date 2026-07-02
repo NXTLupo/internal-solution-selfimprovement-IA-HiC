@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2582]
     sentence_count: 14
     key_terms: [passkey, account, security, settings, passwords, sign, considering, experience]
+    concepts: [passkey, account, security, settings, passwords]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/gemini","u":"https://www.reddit.com/r/Gemini/comments/1ksv5wp/mixed_experience_with_passkey_and_suggestion_for/"}]
   - id: "social-intelligence/reddit-deep/gemini/1ksv5wp.md#c1"
     char_span: [2596, 3110]
     sentence_count: 2
     key_terms: [passkey, infinitecontrol9574, key, indefinitely, specifically, generation, answering, presented]
+    concepts: [passkey]
     section: Comments
     token_count: 127
 ---

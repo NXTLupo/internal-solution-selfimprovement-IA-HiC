@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 2178]
     sentence_count: 26
     key_terms: [enterprise, slack, hard, actions, sales, voice, credentials, assistant]
+    concepts: [enterprise, slack, actions, credentials, sales]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1sn2wbv/i_killed_my_180k_arr_voice_ai_startup_to_build_an/"}]
   - id: "social-intelligence/reddit-deep/saas/1sn2wbv.md#c1"
-    char_span: [2193, 3238]
+    char_span: [2192, 3237]
     sentence_count: 6
     key_terms: [year, google, credentials, ycombinator, last, something, comments, "wouldn't"]
+    concepts: [google, credentials, ycombinator, something, comments]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1sn2wbv.md#c4"]
     section: Comments
     token_count: 262
   - id: "social-intelligence/reddit-deep/saas/1sn2wbv.md#c2"
-    char_span: [3242, 5440]
+    char_span: [3241, 5439]
     sentence_count: 9
     key_terms: [data, saasyhomelessman, ceiling, finding, novelty, teams, abhicrysis, retention]
+    concepts: [saasyhomelessman, ceiling, finding, novelty, abhicrysis]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/saas/1sn2wbv.md#c3"
-    char_span: [5233, 5494]
+    char_span: [5232, 5493]
     sentence_count: 3
     key_terms: [finding, new, saasyhomelessman, commando501, abhicrysis, customers, something, already]
+    concepts: [finding]
     section: Comments
     token_count: 75
   - id: "social-intelligence/reddit-deep/saas/1sn2wbv.md#c4"
-    char_span: [5496, 7225]
+    char_span: [5495, 7224]
     sentence_count: 5
     key_terms: [year, google, reddit, ycombinator, away, back, comments, "wouldn't"]
+    concepts: [google, reddit, ycombinator, comments, "wouldn't"]
+    related_chunks: ["social-intelligence/reddit-deep/saas/1sn2wbv.md#c1"]
     section: Comments
     token_count: 436
 ---

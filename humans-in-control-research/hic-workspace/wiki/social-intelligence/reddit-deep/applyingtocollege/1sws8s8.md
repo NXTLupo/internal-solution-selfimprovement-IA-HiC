@@ -21,29 +21,40 @@ chunks:
     char_span: [0, 1614]
     sentence_count: 13
     key_terms: [school, applyingtocollege, students, hopkins, though, clubs, love, indecisive]
+    concepts: [school, applyingtocollege, students, hopkins, though]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c1"]
     token_count: 383
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sws8s8/caltech_vs_hopkins_vs_upenn_help_cost_not_a_factor/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c1"
     char_span: [1628, 2936]
     sentence_count: 13
     key_terms: [school, students, hopkins, caltech, bme, phd, went, subreddits]
+    concepts: [school, students, hopkins, caltech, subreddits]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c3", "social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c4"]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c2"
     char_span: [2938, 4981]
     sentence_count: 18
     key_terms: [hopkins, caltech, undergrad, research, lab, people, school, engineering]
+    concepts: [hopkins, caltech, undergrad, research, people]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c3"]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c3"
     char_span: [4983, 6595]
     sentence_count: 7
     key_terms: [caltech, bigger, great, day, want, another, hopkins, school]
+    concepts: [caltech, bigger, great, another, hopkins]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c2"]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c4"
     char_span: [6597, 8484]
     sentence_count: 6
     key_terms: [caltech, campus, school, available-jeweler452, baltimore, best, jhu, like]
+    concepts: [caltech, available-jeweler452, campus, school, baltimore]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c1"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c5"

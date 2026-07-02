@@ -21,28 +21,34 @@ chunks:
     char_span: [0, 1833]
     sentence_count: 11
     key_terms: [presentation, totally, front, felt, classmates, gradschool, comments, semester]
+    concepts: [presentation, totally, classmates, front, gradschool]
     token_count: 403
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1phxc1u/had_an_anxiety_attack_while_giving_a_presentation/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1phxc1u.md#c1"
     char_span: [1835, 2713]
     sentence_count: 11
     key_terms: [something, totally, school, skills, since, speaking-adjacent, grad, "i'm"]
+    concepts: [something, totally, school, skills, since]
     token_count: 199
   - id: "social-intelligence/reddit-deep/gradschool/1phxc1u.md#c2"
     char_span: [2727, 4989]
     sentence_count: 17
     key_terms: [myself, people, found, better, beta, like, blockers, project]
+    concepts: [myself, people, found, better, blockers]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/gradschool/1phxc1u.md#c3"
     char_span: [4991, 5726]
     sentence_count: 6
     key_terms: [easier, rejection, practice, speaking, talking, little, public, phone]
+    concepts: [easier, rejection, practice, speaking, talking]
     section: Comments
     token_count: 150
   - id: "social-intelligence/reddit-deep/gradschool/1phxc1u.md#c4"
     char_span: [5728, 7911]
     sentence_count: 13
     key_terms: [public, speaking, better, highschool, feel, like, remember, little]
+    concepts: [public, speaking, highschool, better, remember]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1phxc1u.md#c5"
@@ -55,6 +61,7 @@ chunks:
     char_span: [8052, 9530]
     sentence_count: 10
     key_terms: [blockers, beta, something, honestly, whatever, helpful, people, though]
+    concepts: [blockers, something, honestly, whatever, helpful]
     section: Comments
     token_count: 346
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2159]
     sentence_count: 18
     key_terms: ["i'm", "it's", job, power, best, sure, day, too]
+    concepts: [power, experience, incredibly, fortunate, something]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1q4tdan/comfortable_job_unclear_direction_how_do_i_make/"}]
   - id: "social-intelligence/reddit-deep/jobs/1q4tdan.md#c1"
     char_span: [2163, 3787]
     sentence_count: 13
     key_terms: [another, job, career, future, "i'd", "i'm", like, side]
+    concepts: [another, career, future, business, courses]
     token_count: 360
   - id: "social-intelligence/reddit-deep/jobs/1q4tdan.md#c2"
     char_span: [3801, 4301]

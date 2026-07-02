@@ -14,50 +14,60 @@ chunks:
     char_span: [0, 2620]
     sentence_count: 7
     key_terms: [persona, personas, behavioral, alternative, description, detection, criteria, severity]
+    concepts: [persona, personas, behavioral, alternative, description]
     section: "AP-PERSONA-001: Demographics-First Thinking / AP-PERSONA-002: Elastic Persona / AP-PERSONA-003: Too Many Personas"
     token_count: 493
   - id: "anti-patterns/personas.md#c1"
     char_span: [2679, 3473]
     sentence_count: 1
     key_terms: [points, pain, confidence, usability, citing, source, users, plausible-sounding]
+    concepts: [points, confidence, usability, citing, source]
     section: "AP-PERSONA-004: Generic Pain Points Without Evidence"
     token_count: 158
+    sources: [{"n":"Q3 usability study, n=18, confidence: moderate).\"","u":""}]
   - id: "anti-patterns/personas.md#c2"
     char_span: [3520, 4257]
     sentence_count: 4
     key_terms: [persona, statements, functional, emotional, design, social, job, decision-making]
+    concepts: [persona, statements, functional, emotional, design]
     section: "AP-PERSONA-005: Missing JTBD Integration"
     token_count: 143
   - id: "anti-patterns/personas.md#c3"
     char_span: [4302, 4951]
     sentence_count: 1
     key_terms: [narrative, persona, representative, quotes, scenario, day-in-the-life, storytelling, alternative]
+    concepts: [narrative, representative, persona, quotes, scenario]
     section: "AP-PERSONA-006: No Scenarios or Quotes"
     token_count: 121
   - id: "anti-patterns/personas.md#c4"
     char_span: [4994, 5834]
     sentence_count: 3
     key_terms: [features, workarounds, new, behaviors, patterns, positive, release, david]
+    concepts: [features, workarounds, behaviors, patterns, positive]
     section: "AP-PERSONA-007: Aspirational Persona"
     token_count: 153
   - id: "anti-patterns/personas.md#c5"
     char_span: [5877, 6615]
     sentence_count: 1
     key_terms: [anti-persona, deliverable, user, deprioritized, documentation, deliberately, exclusionary, incompatible]
+    concepts: [anti-persona, deliverable]
     section: "AP-PERSONA-008: Missing Anti-Persona"
     token_count: 144
   - id: "anti-patterns/personas.md#c6"
     char_span: [6673, 7403]
     sentence_count: 1
     key_terms: [demographic, personas, differentiated, professional, representing, segmentation, suspiciously, alternative]
+    concepts: [demographic, personas]
     section: "AP-PERSONA-009: All Personas Same Age and Education"
     token_count: 129
   - id: "anti-patterns/personas.md#c7"
     char_span: [7459, 8373]
     sentence_count: 1
     key_terms: [confidence, validated, attributes, analytics, attribute, inferred, persona, primary]
+    concepts: [confidence, validated, attributes, analytics, attribute]
     section: "AP-PERSONA-010: No Research Confidence Indicators"
     token_count: 174
+    sources: [{"n":"\"Primary channel preference: mobile (high confidence, validated in analytics, n=","u":""}]
 ---
 # Personas Anti-Patterns
 

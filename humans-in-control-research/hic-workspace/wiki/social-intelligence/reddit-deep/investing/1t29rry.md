@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1594]
     sentence_count: 11
     key_terms: [amd, stocks, growth, likely, conviction, high, risk, investing]
+    concepts: [stocks, conviction, growth, likely, investing]
     token_count: 463
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1t29rry/amd_earnings_are_upon_us_what_can_we_expect/"}]
   - id: "social-intelligence/reddit-deep/investing/1t29rry.md#c1"
     char_span: [1608, 3106]
     sentence_count: 20
     key_terms: [probably, peloton, redistributed, redistribute, amd, own, portfolio, earnings]
+    concepts: [probably, redistributed, peloton, redistribute, portfolio]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/investing/1t29rry.md#c2"
     char_span: [3108, 5022]
     sentence_count: 19
     key_terms: [redistributed, never, advice, stocks, significantly, amd, investing, portfolio]
+    concepts: [redistributed, never, significantly, advice, stocks]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/investing/1t29rry.md#c3"
     char_span: [5024, 6038]
     sentence_count: 6
     key_terms: [stocks, individual, portfolio, theses, maybe, time, thesixthnonsense, ill-mood6666]
+    concepts: [stocks, individual, portfolio, theses, maybe]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/investing/1t29rry.md#c4"
     char_span: [6040, 7913]
     sentence_count: 10
     key_terms: [amd, conviction, portfolio, high, went, management, holding, accomplishedbrain309]
+    concepts: [conviction, portfolio, management, holding, stock]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/investing/1t29rry.md#c5"
@@ -56,24 +62,28 @@ chunks:
     char_span: [8328, 10240]
     sentence_count: 16
     key_terms: [amd, going, stock, half, "i'm", like, because, "don't"]
+    concepts: [going, stock, because, "don't", palantir]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1t29rry.md#c7"
     char_span: [9973, 10682]
     sentence_count: 4
     key_terms: [because, buy, high, "i'm", sold, time, bourbonsupreme, speculative]
+    concepts: [because]
     section: Comments
     token_count: 180
   - id: "social-intelligence/reddit-deep/investing/1t29rry.md#c8"
     char_span: [10685, 12545]
     sentence_count: 14
     key_terms: [market, like, stock, amd, risk, comments, earnings, thinking]
+    concepts: [market, stock, comments, earnings, thinking]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/investing/1t29rry.md#c9"
     char_span: [12547, 13872]
     sentence_count: 9
     key_terms: [price, contract, money, buy, put, options, announcement, stock]
+    concepts: [price, contract, money, options, announcement]
     section: Comments
     token_count: 292
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 686]
     sentence_count: 4
     key_terms: [gradadmissions, comments, prepare, rhodes, school, post-baccalaureate, etc, grad]
+    concepts: [gradadmissions, comments, prepare, rhodes, school]
     token_count: 159
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1sqduoc/question_about_prep_for_grad/"}]
 ---
 # Question about prep for Grad School/Post-Baccalaureate Honors like Rhodes, Truman, Marshall, etc.
 

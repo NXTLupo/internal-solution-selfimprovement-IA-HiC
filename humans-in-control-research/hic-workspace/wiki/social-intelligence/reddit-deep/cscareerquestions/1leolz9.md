@@ -19,64 +19,80 @@ chunks:
     char_span: [0, 2018]
     sentence_count: 13
     key_terms: [generative, contract, industry, been, cscareerquestions, tech, months, whole]
+    concepts: [generative, contract, industry, cscareerquestions, months]
     token_count: 463
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1leolz9/i_am_getting_increasingly_disgusted_with_the_tech/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c1"
     char_span: [2020, 2417]
     sentence_count: 2
     key_terms: [generative, making, contribution, development, somewhere, subreddit, creating, entirely]
+    concepts: [generative, making]
     token_count: 86
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c2"
     char_span: [2431, 4633]
     sentence_count: 13
     key_terms: [people, retire, like, money, early, obviously, expenses, security]
+    concepts: [people, retire, money, early, obviously]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c3"
     char_span: [4635, 5987]
     sentence_count: 16
     key_terms: [years, "i'm", talking, people, "don't", words, euphoric-stock9065, "i've"]
+    concepts: [years, talking, people, "don't", words]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c4"]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c4"
     char_span: [5989, 8100]
     sentence_count: 15
     key_terms: ["don't", companies, engineers, practices, use, people, best, want]
+    concepts: ["don't", companies, engineers, practices, people]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c3"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c5"
     char_span: [8102, 10018]
     sentence_count: 13
     key_terms: [learn, deleted, don, like, understand, everyone, tooling, agents]
+    concepts: [learn, deleted, understand, everyone, tooling]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c6"
     char_span: [10020, 12158]
     sentence_count: 13
     key_terms: [used, mccringleberried, attract, always, better, making, people, turned]
+    concepts: [mccringleberried, attract, always, better, making]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c7"
     char_span: [12160, 14365]
     sentence_count: 11
     key_terms: [like, generative, always, contributing, money, corporatism, emikawakita, tech]
+    concepts: [generative, contributing, always, corporatism, emikawakita]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c8"
     char_span: [14369, 15816]
     sentence_count: 5
     key_terms: [good, blockchain, complicity, excited, bubble, point, hype, "it's"]
+    concepts: [blockchain, complicity, excited, bubble, point]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c9"]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c9"
     char_span: [15818, 18033]
     sentence_count: 16
     key_terms: [bubble, blockchain, requirements, day, use, scenarios, business, guessing]
+    concepts: [bubble, blockchain, requirements, scenarios, business]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c10"
     char_span: [17771, 18341]
     sentence_count: 7
     key_terms: [brutal, lawyer, field, sky-limit-5473, opportunities, ironically, "wouldn't", abandon]
+    concepts: [brutal, lawyer, field]
     section: Comments
     token_count: 147
 ---

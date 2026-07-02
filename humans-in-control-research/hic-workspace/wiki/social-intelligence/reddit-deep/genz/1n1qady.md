@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1079]
     sentence_count: 11
     key_terms: [kids, want, having, gen, like, comments, choice, people]
+    concepts: [having, comments, choice, people, taking]
     token_count: 258
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1n1qady/do_yall_want_kids/"}]
   - id: "social-intelligence/reddit-deep/genz/1n1qady.md#c1"
     char_span: [1093, 2914]
     sentence_count: 19
     key_terms: [kids, adoption, gaybrandflakes, people, definetly, realized, because, discord]
+    concepts: [adoption, gaybrandflakes, people, definetly, realized]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/genz/1n1qady.md#c2"
     char_span: [2916, 3313]
     sentence_count: 4
     key_terms: [different, kids, conversation, brotherhood, furthermore, perspective, belittling, mentorship]
+    concepts: [different]
     section: Comments
     token_count: 87
   - id: "social-intelligence/reddit-deep/genz/1n1qady.md#c3"
     char_span: [3315, 5286]
     sentence_count: 12
     key_terms: [kids, davidbosley353, issues, fallingender, want, asexual, sensory, working]
+    concepts: [davidbosley353, fallingender, issues, asexual, sensory]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1n1qady.md#c4"
     char_span: [5074, 6633]
     sentence_count: 7
     key_terms: [like, kids, cool, want, anything, country, parents, force]
+    concepts: [anything, country, parents, force]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/genz/1n1qady.md#c5"
     char_span: [6635, 8342]
     sentence_count: 9
     key_terms: [kids, want, "don't", lot, unpopular, probably, deleted, through]
+    concepts: ["don't", unpopular, probably, deleted, through]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/genz/1n1qady.md#c6"
     char_span: [8344, 10258]
     sentence_count: 9
     key_terms: [kids, want, dont, people, person, different, friends, reddit]
+    concepts: [people, person, different, friends, reddit]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1n1qady.md#c7"

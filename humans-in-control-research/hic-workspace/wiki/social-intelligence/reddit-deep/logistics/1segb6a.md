@@ -20,15 +20,18 @@ chunks:
     char_span: [0, 846]
     sentence_count: 4
     key_terms: [businesses, logistics, delivery, company, last, mile, understand, comments]
+    concepts: [businesses, logistics, delivery, company, understand]
     token_count: 187
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1segb6a/oppurtunities_for_a_last_mile_delivery_company/"}]
   - id: "social-intelligence/reddit-deep/logistics/1segb6a.md#c1"
-    char_span: [861, 2905]
+    char_span: [860, 2904]
     sentence_count: 14
     key_terms: [current-bowler1108, forwarders, last-mile, logistics, research, already, freight, thanks]
+    concepts: [current-bowler1108, forwarders, last-mile, logistics, research]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/logistics/1segb6a.md#c2"
-    char_span: [2907, 3195]
+    char_span: [2906, 3194]
     sentence_count: 1
     key_terms: [developing, interested, management, supporting, available, developed, developer, insights]
     section: Comments

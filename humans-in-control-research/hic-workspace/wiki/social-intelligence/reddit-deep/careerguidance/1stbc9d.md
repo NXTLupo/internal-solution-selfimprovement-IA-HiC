@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 496]
     sentence_count: 2
     key_terms: [careerguidance, comments, career, good, path, engineering, reddit-deep, interested]
+    concepts: [careerguidance, comments, career]
     token_count: 132
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1stbc9d/im_a_12th_grade_pcmb_student_and_im_so_confused/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1stbc9d.md#c1"
     char_span: [510, 873]
     sentence_count: 1

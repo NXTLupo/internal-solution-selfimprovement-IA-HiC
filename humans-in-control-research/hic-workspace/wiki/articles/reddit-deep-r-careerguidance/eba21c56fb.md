@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2033]
     sentence_count: 13
     key_terms: [business, chatyourcareer, communication, interviews, majesticparsley9002, value, careerguidance, impact]
+    concepts: [business, chatyourcareer, communication, majesticparsley9002, interviews]
     token_count: 451
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1q89wk7/what_skills_actually_matter_in_tech_careers/"}]
 ---
 # What skills actually matter in tech careers (beyond what job ads list)?
 

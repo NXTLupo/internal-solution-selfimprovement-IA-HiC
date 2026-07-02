@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1333]
     sentence_count: 6
     key_terms: [looking, research, data, gradschool, volunteer, comments, engineer, science]
+    concepts: [looking, research, gradschool, volunteer, comments]
     token_count: 311
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rrcpuj/looking_for_remote_volunteer_research/"}]
 ---
 # Looking for remote volunteer research opportunities for 2028 Grad School prep
 

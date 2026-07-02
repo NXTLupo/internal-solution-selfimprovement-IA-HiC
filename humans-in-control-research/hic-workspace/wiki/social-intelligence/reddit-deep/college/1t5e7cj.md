@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 895]
     sentence_count: 8
     key_terms: [college, university, academic, comments, semester, likely, bigsuggestion9664, gpa]
+    concepts: [college, university, academic, comments, semester]
+    related_chunks: ["social-intelligence/reddit-deep/college/1t5e7cj.md#c1"]
     token_count: 197
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1t5e7cj/impacts_and_options_after_likely_academic/"}]
   - id: "social-intelligence/reddit-deep/college/1t5e7cj.md#c1"
     char_span: [909, 3017]
     sentence_count: 12
     key_terms: [college, failed, went, classes, semester, credits, failing, school]
+    concepts: [college, failed, classes, semester, credits]
+    related_chunks: ["social-intelligence/reddit-deep/college/1t5e7cj.md#c0"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/college/1t5e7cj.md#c2"
     char_span: [3019, 5060]
     sentence_count: 15
     key_terms: [college, figure, issues, time, student, transferring, getting, failed]
+    concepts: [college, figure, issues, student, transferring]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/college/1t5e7cj.md#c3"
     char_span: [5062, 7060]
     sentence_count: 15
     key_terms: [something, take, academic, school, going, ready, years, aid]
+    concepts: [something, academic, school, going, ready]
     section: Comments
     token_count: 459
 ---

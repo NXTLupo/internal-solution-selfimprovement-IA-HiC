@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1166]
     sentence_count: 5
     key_terms: [fractional, companies, futureofwork, subscription, startups, single-digit-employee, reddit, going]
+    concepts: [fractional, companies, futureofwork, subscription, startups]
     token_count: 260
+    sources: [{"n":"reddit: futureofwork","u":"https://reddit.com/r/FutureOfWork/comments/1sytkup/my_predictions_for_software_development_over_the/"}]
 ---
 # My predictions for software development over the next 2 years
 

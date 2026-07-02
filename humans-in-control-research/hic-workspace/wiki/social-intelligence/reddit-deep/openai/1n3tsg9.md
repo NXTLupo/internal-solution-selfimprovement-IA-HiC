@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 548]
     sentence_count: 3
     key_terms: [openai, pro, gpt-5-in-chatgpt, https, com, articles, comments, context]
+    concepts: [openai, gpt-5-in-chatgpt, https, articles, comments]
     token_count: 163
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1n3tsg9/gpt_5pro_context_window/"}]
   - id: "social-intelligence/reddit-deep/openai/1n3tsg9.md#c1"
     char_span: [562, 1696]
     sentence_count: 3
     key_terms: [category, pro, thinking, context, model, fast, subscription, austeane]
+    concepts: [category, thinking, context, model, subscription]
     section: Comments
     token_count: 301
 ---

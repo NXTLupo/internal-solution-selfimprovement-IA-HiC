@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1316]
     sentence_count: 7
     key_terms: [roles, customer, careerguidance, paths, experience, operations, long-term, realistic]
+    concepts: [roles, customer, careerguidance, experience, operations]
     token_count: 274
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tgkw1w/what_career_paths_should_i_realistically_target/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tgkw1w.md#c1"
     char_span: [1330, 3009]
     sentence_count: 8
     key_terms: [customer, coordinator, success, sociology, degree, background, fast-paced, assistant]
+    concepts: [customer, coordinator, success, sociology, degree]
     section: Comments
     token_count: 310
 ---

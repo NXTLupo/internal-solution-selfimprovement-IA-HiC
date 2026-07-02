@@ -19,14 +19,17 @@ content_hash: "bfc027e7784c1aa0"
 relevance_by_goal: {"46dec9599ad5":72}
 chunks:
   - id: "articles/reddit-deep-r-stocks/8aa30dac3a.md#c0"
-    char_span: [0, 2279]
+    char_span: [0, 2278]
     sentence_count: 26
     key_terms: [traders, real, strategy, market, rules, share, predictable, big]
-    token_count: 486
+    concepts: [traders, strategy, market, predictable, management]
+    token_count: 485
+    sources: [{"n":"Reddit Deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1mai78i/why_profitable_traders_dont_share_their/"}]
   - id: "articles/reddit-deep-r-stocks/8aa30dac3a.md#c1"
-    char_span: [2281, 3645]
+    char_span: [2280, 3644]
     sentence_count: 11
     key_terms: [reddit, next, inversing, inverse, looking, posting, recruit, hedgie]
+    concepts: [reddit, inversing, inverse, looking, posting]
     token_count: 334
 ---
 # Why Profitable Traders Don’t Share Their Strategies And It Finally Makes Sense to Me

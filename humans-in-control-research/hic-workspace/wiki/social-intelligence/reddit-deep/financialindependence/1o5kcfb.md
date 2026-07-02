@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 1531]
     sentence_count: 4
     key_terms: [financialindependence, insurance, comments, roth, brokerage, current, monthly, reddit]
+    concepts: [financialindependence, insurance, comments, brokerage, current]
     token_count: 466
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1o5kcfb/1m_nw_at_age_38_lifetime_earnings_of_1m_annual/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1o5kcfb.md#c1"
     char_span: [1533, 3436]
     sentence_count: 16
     key_terms: [current, future, never, years, investments, get, "i'd", less]
+    concepts: [current, future, investments, never, years]
     token_count: 448
   - id: "social-intelligence/reddit-deep/financialindependence/1o5kcfb.md#c2"
     char_span: [3450, 4310]
     sentence_count: 6
     key_terms: [congratulations, idratherbeinegypt, work, dirty-neoliberal, vanillalifestyle, talicenseplate, encouragement, mountainous]
+    concepts: [congratulations]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/financialindependence/1o5kcfb.md#c3"
     char_span: [4312, 5482]
     sentence_count: 7
     key_terms: [spending, investments, "he's", retirement, accounts, access, redact, mammoth-series-9419]
+    concepts: [spending, investments, retirement, accounts, access]
     section: Comments
     token_count: 327
 ---

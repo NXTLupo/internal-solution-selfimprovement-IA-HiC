@@ -18,16 +18,22 @@ chunks:
     char_span: [0, 1940]
     sentence_count: 20
     key_terms: [everyone, here, northeastern, people, experience, year, friends, support]
+    concepts: [everyone, northeastern, experience, people, friends]
+    related_chunks: ["articles/reddit-deep-r-neu/a20dcd5dbb.md#c1"]
     token_count: 452
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1o57erq/currently_the_worst_experience_ever_in_oakland/"}]
   - id: "articles/reddit-deep-r-neu/a20dcd5dbb.md#c1"
     char_span: [1942, 4147]
     sentence_count: 24
     key_terms: [experience, don, like, year, because, campus, people, whole]
+    concepts: [experience, because, campus, people, whole]
+    related_chunks: ["articles/reddit-deep-r-neu/a20dcd5dbb.md#c0"]
     token_count: 505
   - id: "articles/reddit-deep-r-neu/a20dcd5dbb.md#c2"
     char_span: [4149, 5527]
     sentence_count: 11
     key_terms: [explore, northeastern, bay, take, programs, "doesn't", campus, "don't"]
+    concepts: [explore, northeastern, programs, "doesn't", campus]
     token_count: 298
 ---
 # Currently the worst experience ever in Oakland campus (yapping)

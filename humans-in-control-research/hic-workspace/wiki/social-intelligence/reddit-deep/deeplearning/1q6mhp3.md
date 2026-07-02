@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2341]
     sentence_count: 18
     key_terms: [self-attention, words, get, like, possible, sequence, encoder-decoder, output]
+    concepts: [self-attention, encoder-decoder, words, possible, sequence]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1q6mhp3/best_ways_to_explain_what_an_llm_is_doing/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1q6mhp3.md#c1"
     char_span: [2343, 2455]
     sentence_count: 3
@@ -31,24 +33,28 @@ chunks:
     char_span: [2469, 4931]
     sentence_count: 18
     key_terms: [element, attention, set, output, transformations, matrix, rubber, build]
+    concepts: [element, attention, transformations, output, matrix]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/deeplearning/1q6mhp3.md#c3"
     char_span: [4933, 6883]
     sentence_count: 9
     key_terms: [data, training, transformer, parameter, size, explanation, "it's", dimensions]
+    concepts: [training, transformer, parameter, explanation, dimensions]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/deeplearning/1q6mhp3.md#c4"
     char_span: [6885, 9228]
     sentence_count: 20
     key_terms: [scaling, learning, throwaway0134hdj, wahnsinnwanscene, meaning, understanding, intelligent, data]
+    concepts: [scaling, throwaway0134hdj, wahnsinnwanscene, learning, understanding]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/deeplearning/1q6mhp3.md#c5"
     char_span: [8921, 9681]
     sentence_count: 7
     key_terms: [sentience, time, semblance, thought, data, "it's", self, differentiate]
+    concepts: [sentience, semblance, thought]
     section: Comments
     token_count: 170
   - id: "social-intelligence/reddit-deep/deeplearning/1q6mhp3.md#c6"

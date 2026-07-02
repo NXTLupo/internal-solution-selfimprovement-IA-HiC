@@ -20,38 +20,45 @@ chunks:
     char_span: [0, 2547]
     sentence_count: 11
     key_terms: ["couldn't", without, dashboard, saas, customer, randomly, coding, proper]
+    concepts: ["couldn't", without, dashboard, customer, randomly]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1mgrt7u/built_my_saas_using_mostly_ai_heres_what_broke_in/"}]
   - id: "social-intelligence/reddit-deep/saas/1mgrt7u.md#c1"
     char_span: [2549, 4498]
     sentence_count: 7
     key_terms: [saas, billing, payment, subscription, enough, architecture, fundamentals, data]
+    concepts: [subscription, billing, payment, architecture, fundamentals]
     token_count: 362
   - id: "social-intelligence/reddit-deep/saas/1mgrt7u.md#c2"
-    char_span: [4513, 5912]
+    char_span: [4512, 5911]
     sentence_count: 9
     key_terms: [code, good, need, compliance, components, production, understand, architect]
+    concepts: [compliance, components, production, understand, architect]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/saas/1mgrt7u.md#c3"
-    char_span: [5914, 8030]
+    char_span: [5913, 8029]
     sentence_count: 19
     key_terms: [security, tell, beeaniegeni, bugs, building, implementation, readme, architecture]
+    concepts: [security, beeaniegeni, building, implementation, architecture]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/saas/1mgrt7u.md#c4"
-    char_span: [8032, 9797]
+    char_span: [8031, 9796]
     sentence_count: 19
     key_terms: [want, testing, code, get, something, security, design, built]
+    concepts: [testing, something, security, design, built]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/saas/1mgrt7u.md#c5"
-    char_span: [9802, 11371]
+    char_span: [9801, 11370]
     sentence_count: 14
     key_terms: [time, months, grumpy-554, full, experience, queries, thanks, spirited-reference-4]
+    concepts: [grumpy-554, months, experience, queries, thanks]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/saas/1mgrt7u.md#c6"
-    char_span: [11373, 12048]
+    char_span: [11372, 12047]
     sentence_count: 7
     key_terms: [whyamidoingthis1000, days, done, time, followedbyarock, andupotorac, assessment, grumpy-554]
     section: Comments

@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1545]
     sentence_count: 15
     key_terms: [options, trade, futures, buy, want, fidelity, margin, like]
+    concepts: [options, trade, futures, fidelity, margin]
     token_count: 389
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1l9nnk1/which_brokerage_offers_the_best_roth_ira_account/"}]
   - id: "social-intelligence/reddit-deep/investing/1l9nnk1.md#c1"
-    char_span: [1560, 3444]
+    char_span: [1559, 3443]
     sentence_count: 20
     key_terms: [trade, schwab, leverage, products, supports, want, trading, fractional]
+    concepts: [trade, schwab, leverage, products, supports]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/investing/1l9nnk1.md#c2"
-    char_span: [3446, 4342]
+    char_span: [3445, 4341]
     sentence_count: 6
     key_terms: [schwab-makes-expanded-24-hour-trading-available-to-all-clients, press-releases, press-release, aboutschwab, pressroom, robinhood, default, deleted]
+    concepts: [schwab-makes-expanded-24-hour-trading-available-to-all-clients, press-releases, press-release, aboutschwab, pressroom]
     section: Comments
     token_count: 250
 ---

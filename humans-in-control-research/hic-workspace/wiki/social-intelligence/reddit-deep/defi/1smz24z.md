@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 1296]
     sentence_count: 12
     key_terms: [defi, comments, cheaper, problem, someone, making, "that's", money]
+    concepts: [comments, cheaper, problem, someone, making]
     token_count: 305
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1smz24z/honest_question_has_defi_ux_actually_improved_or/"}]
   - id: "social-intelligence/reddit-deep/defi/1smz24z.md#c1"
-    char_span: [1311, 3764]
+    char_span: [1310, 3763]
     sentence_count: 16
     key_terms: [infrastructure, abstraction, better, management, understand, real, progress, account]
+    concepts: [infrastructure, abstraction, management, understand, better]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/defi/1smz24z.md#c2"
-    char_span: [3768, 5722]
+    char_span: [3767, 5721]
     sentence_count: 14
     key_terms: [yield, abstraction, high-responsibility, users, people, rebalancing, apy, like]
+    concepts: [yield, abstraction, high-responsibility, users, people]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/defi/1smz24z.md#c3"
-    char_span: [5724, 6246]
+    char_span: [5723, 6245]
     sentence_count: 7
     key_terms: [swaps, execution, smoother, layer, users, fees, everything, interfaces]
+    concepts: [swaps, execution, smoother, layer, users]
     section: Comments
     token_count: 123
 ---

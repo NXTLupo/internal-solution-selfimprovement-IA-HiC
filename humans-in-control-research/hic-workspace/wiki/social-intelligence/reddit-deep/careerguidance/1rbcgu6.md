@@ -19,53 +19,66 @@ chunks:
     char_span: [0, 2028]
     sentence_count: 26
     key_terms: ["i'm", getting, resume, believe, careerguidance, cancer, gap, got]
+    concepts: [getting, resume, careerguidance, believe, cancer]
     token_count: 466
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rbcgu6/cancer_left_a_huge_resume_gap_how_to_address_this/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rbcgu6.md#c1"
-    char_span: [2043, 3795]
+    char_span: [2042, 3794]
     sentence_count: 16
     key_terms: [cancer, work, professional, development, time, volunteer, straight, health]
+    concepts: [cancer, professional, development, volunteer, straight]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rbcgu6.md#c2"]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/careerguidance/1rbcgu6.md#c2"
-    char_span: [3797, 5854]
+    char_span: [3796, 5853]
     sentence_count: 5
     key_terms: [someone, cancer, professional, "it's", employers, something, medical, health]
+    concepts: [someone, professional, cancer, employers, something]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rbcgu6.md#c1", "social-intelligence/reddit-deep/careerguidance/1rbcgu6.md#c7"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/careerguidance/1rbcgu6.md#c3"
-    char_span: [5859, 7738]
+    char_span: [5858, 7737]
     sentence_count: 19
     key_terms: [cancer, family, member, ill, follow-up, interview, questions, thought]
+    concepts: [cancer, family, member, follow-up, interview]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/careerguidance/1rbcgu6.md#c4"
-    char_span: [7740, 8699]
+    char_span: [7739, 8698]
     sentence_count: 11
     key_terms: [totally, "isn't", tough, main-distributions, thequietlurker12, acknowledging, professional, calculates]
+    concepts: [totally, "isn't", tough]
     section: Comments
     token_count: 227
   - id: "social-intelligence/reddit-deep/careerguidance/1rbcgu6.md#c5"
-    char_span: [8701, 10123]
+    char_span: [8700, 10122]
     sentence_count: 8
     key_terms: [cancer, leave, interviews, companies, tinnitus, against, medical, resume]
+    concepts: [cancer, interviews, leave, companies, tinnitus]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/careerguidance/1rbcgu6.md#c6"
-    char_span: [10125, 11790]
+    char_span: [10124, 11789]
     sentence_count: 15
     key_terms: [agree, cancer, work, sabbatical, longer, capital-purchase5305, choice-temporary-144, conversationmental40]
+    concepts: [agree, cancer, sabbatical, longer, "don't"]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/careerguidance/1rbcgu6.md#c7"
-    char_span: [11792, 12963]
+    char_span: [11791, 12962]
     sentence_count: 7
     key_terms: [cancer, something, survivor, because, "that's", "don't", gap, year]
+    concepts: [cancer, something, survivor, because, "that's"]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1rbcgu6.md#c2"]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/careerguidance/1rbcgu6.md#c8"
-    char_span: [12965, 14316]
+    char_span: [12964, 14315]
     sentence_count: 16
     key_terms: [person, never, trip, position, spareohs, medical, people, "don't"]
+    concepts: [person, never, position, spareohs, medical]
     section: Comments
     token_count: 333
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1323]
     sentence_count: 6
     key_terms: [opportunities, transition, cscareerquestions, devops, cloud, job, path, try]
+    concepts: [opportunities, transition, cscareerquestions, devops, cloud]
     token_count: 277
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1seqy3d/career_path_advice/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1seqy3d.md#c1"
     char_span: [1337, 2027]
     sentence_count: 7
     key_terms: [analytics, companies, positions, situation, support, data, work, infrastructure]
+    concepts: [analytics, companies, positions, situation, support]
     section: Comments
     token_count: 138
 ---

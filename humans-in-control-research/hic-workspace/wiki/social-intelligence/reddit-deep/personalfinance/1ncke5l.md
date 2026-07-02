@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 731]
     sentence_count: 3
     key_terms: [personalfinance, comments, finance, spend, help, reddit-deep, authentic, clickbait]
+    concepts: [personalfinance, comments, finance, spend]
     token_count: 181
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1ncke5l/need_advice_for_investing_money_so_that_i_can/"}]
 ---
 # Need advice for investing money so that i can spend later on my higher studies . & and help me with some good finance creators
 

@@ -20,46 +20,55 @@ chunks:
     char_span: [0, 1874]
     sentence_count: 13
     key_terms: [market, nvidia, china, chip, "nvidia's", com, blackwell, companies]
+    concepts: [market, nvidia, china, "nvidia's", blackwell]
     token_count: 427
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1tr9c3n/nvidia_went_from_95_to_zero_market_share_in/"}]
   - id: "social-intelligence/reddit-deep/stocks/1tr9c3n.md#c1"
     char_span: [1876, 4347]
     sentence_count: 19
     key_terms: [billion, huawei, cambricon, companies, chip, year, revenue, china]
+    concepts: [billion, huawei, cambricon, companies, revenue]
     token_count: 492
   - id: "social-intelligence/reddit-deep/stocks/1tr9c3n.md#c2"
-    char_span: [4349, 6611]
+    char_span: [4349, 6610]
     sentence_count: 13
     key_terms: [stocks, companies, tech, american, nvidia, please, being, off-topic]
+    concepts: [stocks, companies, american, nvidia, please]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/stocks/1tr9c3n.md#c3"
-    char_span: [6613, 8392]
+    char_span: [6612, 8391]
     sentence_count: 20
     key_terms: [politicians, military, chinese, nvidia, electricity, don, materials, because]
+    concepts: [politicians, military, chinese, nvidia, electricity]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/stocks/1tr9c3n.md#c4"
-    char_span: [8394, 10504]
+    char_span: [8393, 10503]
     sentence_count: 11
     key_terms: [constellation, theconstellationguy, china, tech, massive, omnipresentcpu, chips, sell]
+    concepts: [constellation, theconstellationguy, china, omnipresentcpu, massive]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1tr9c3n.md#c5"
-    char_span: [10198, 10805]
+    char_span: [10197, 10804]
     sentence_count: 4
     key_terms: [chinas-deepseek-make-permanent-75-price-cut-flagship-v4pro-ai-model-2026-05-23, "china's", china, overall-double3948, accelerated, competitive, sufficiency, unfortunate]
+    concepts: ["china's", china]
     section: Comments
     token_count: 145
   - id: "social-intelligence/reddit-deep/stocks/1tr9c3n.md#c6"
-    char_span: [10807, 12611]
+    char_span: [10806, 12610]
     sentence_count: 11
     key_terms: [china, tech, steal, "it's", narrative, hardware, innovate, actual]
+    concepts: [china, steal, narrative, hardware, innovate]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/stocks/1tr9c3n.md#c7"
-    char_span: [12613, 14059]
+    char_span: [12612, 14058]
     sentence_count: 7
     key_terms: [visual-cranberry1210, chips, going, competitors, singapore, dwarkesh, podcast, entire]
+    concepts: [visual-cranberry1210, chips, competitors, going, singapore]
     section: Comments
     token_count: 367
 ---

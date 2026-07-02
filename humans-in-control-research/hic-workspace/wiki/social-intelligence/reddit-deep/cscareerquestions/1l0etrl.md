@@ -21,47 +21,56 @@ chunks:
     char_span: [0, 1220]
     sentence_count: 11
     key_terms: [development, cscareerquestions, get, art, job, web, work, comments]
+    concepts: [development, cscareerquestions, comments, learning, figure]
     token_count: 284
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1l0etrl/is_web_development_worth_it_in_2025/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c1"
     char_span: [1234, 1922]
     sentence_count: 5
     key_terms: [nothing, startup, years, age, laid, like, josephhabun, internship]
+    concepts: [nothing, startup, years]
     section: Comments
     token_count: 185
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c2"
     char_span: [1924, 3943]
     sentence_count: 13
     key_terms: [games, pixel, art, josephhabun, analytics, job, already, resume]
+    concepts: [games, pixel, josephhabun, analytics, already]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c3"
     char_span: [3945, 6160]
     sentence_count: 15
     key_terms: [getting, development, been, get, tech, different, designer, industry]
+    concepts: [getting, development, different, designer, industry]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c4"
     char_span: [6162, 7805]
     sentence_count: 9
     key_terms: [healthcare, donate, experience, deleted, dangerous-nerve9309, fantastic-fun-3179, app, "it's"]
+    concepts: [healthcare, donate, experience, deleted]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c5"
     char_span: [7807, 9798]
     sentence_count: 14
     key_terms: [healthcare, software, career, people, engineering, back, job, miserable]
+    concepts: [healthcare, software, career, people, engineering]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c6"
     char_span: [9800, 11854]
     sentence_count: 16
     key_terms: [code, get, "it's", job, week, working, "don't", good]
+    concepts: [working, conditions, "don't", yourself, drained]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c7"
     char_span: [11856, 13398]
     sentence_count: 5
     key_terms: [definitely, modelcroissant, yoe, experience, engineer, problems, software, looking]
+    concepts: [definitely, modelcroissant, experience, engineer, problems]
     section: Comments
     token_count: 395
 ---

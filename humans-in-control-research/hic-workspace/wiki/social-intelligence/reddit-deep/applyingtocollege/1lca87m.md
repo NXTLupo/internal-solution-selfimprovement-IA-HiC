@@ -19,34 +19,43 @@ chunks:
     char_span: [0, 2161]
     sentence_count: 15
     key_terms: [columbia, school, applyingtocollege, business, because, chapel, help, hill]
+    concepts: [columbia, applyingtocollege, school, business, because]
     token_count: 479
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1lca87m/help_me_pick_between_a_state_school_or_ivy_league/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lca87m.md#c1"
     char_span: [2163, 2884]
     sentence_count: 6
     key_terms: [unc, succeed, better, career, help, headquarters, possibility, publishing]
+    concepts: [succeed, better, career]
     token_count: 158
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lca87m.md#c2"
     char_span: [2898, 4707]
     sentence_count: 6
     key_terms: [applyingtocollege, creative, writing, unc, engineering, did, questions, columbia]
+    concepts: [applyingtocollege, creative, writing, engineering, questions]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lca87m.md#c4"]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lca87m.md#c3"
     char_span: [4711, 6356]
     sentence_count: 13
     key_terms: [columbia, unc, class, okay-advice, been, freshman, premier, program]
+    concepts: [columbia, okay-advice, class, freshman, premier]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lca87m.md#c4"
     char_span: [6358, 8351]
     sentence_count: 11
     key_terms: [college, money, columbia, creative, writing, nearly, going, saved]
+    concepts: [college, columbia, money, creative, writing]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lca87m.md#c2"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lca87m.md#c5"
     char_span: [8353, 8586]
     sentence_count: 1
     key_terms: [deleted, redact, mountainous, anonymized, "columbia's", simplistic, certainly, outgoing]
+    concepts: [deleted, redact]
     section: Comments
     token_count: 51
 ---

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1059]
     sentence_count: 12
     key_terms: [careerguidance, back, been, gap, get, appreciate, interviews, comments]
+    concepts: [careerguidance, appreciate, interviews, comments, market]
     token_count: 243
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1s4i4fg/three_year_career_gap_how_do_i_get_back_into_the/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1s4i4fg.md#c1"
     char_span: [1073, 2023]
     sentence_count: 4
     key_terms: [trying, gap, year, projects, because, doing, work, exitexisting2108]
+    concepts: [trying, projects, because, doing]
     section: Comments
     token_count: 245
 ---

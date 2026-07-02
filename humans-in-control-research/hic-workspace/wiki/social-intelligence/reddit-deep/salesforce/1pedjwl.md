@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 699]
     sentence_count: 10
     key_terms: [salesforce, certification, cloud, consultant, comments, certs, sales, next]
+    concepts: [salesforce, certification, cloud, consultant, comments]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1pedjwl.md#c1"]
     token_count: 163
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1pedjwl/which_cert_next/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1pedjwl.md#c1"
-    char_span: [714, 2442]
+    char_span: [713, 2441]
     sentence_count: 14
     key_terms: [experience, consultant, cert, admin, platform, cloud, sales, elpicoso]
+    concepts: [experience, consultant, platform, admin, cloud]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1pedjwl.md#c0"]
     section: Comments
     token_count: 425
 ---

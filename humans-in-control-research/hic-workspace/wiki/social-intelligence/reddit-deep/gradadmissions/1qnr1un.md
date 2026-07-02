@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1030]
     sentence_count: 7
     key_terms: [school, email, gradadmissions, follow, comments, month, thank, grad]
+    concepts: [school, email, gradadmissions, follow, comments]
     token_count: 251
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qnr1un/should_i_send_a_follow_up_email_after_a_thank_you/"}]
 ---
 # should I send a follow up email after a thank you email post grad school interview?
 

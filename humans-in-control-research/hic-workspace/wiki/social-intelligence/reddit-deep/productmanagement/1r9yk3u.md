@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1115]
     sentence_count: 7
     key_terms: [localization, productmanagement, international, translation, com, adverbum, comments, markets]
+    concepts: [localization, productmanagement, international, translation, adverbum]
     token_count: 236
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1r9yk3u/how_are_you_fitting_localization_into_2week/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1r9yk3u.md#c1"
-    char_span: [1130, 2980]
+    char_span: [1129, 2979]
     sentence_count: 15
     key_terms: [translations, translation, machine, freelancers, leadership, languages, english, exactly]
+    concepts: [translations, translation, machine, freelancers, leadership]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1r9yk3u.md#c2"]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/productmanagement/1r9yk3u.md#c2"
-    char_span: [2982, 4551]
+    char_span: [2981, 4550]
     sentence_count: 10
     key_terms: [translations, shipping, machine, copy, languages, product, better, delays]
+    concepts: [translations, shipping, machine, languages, product]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1r9yk3u.md#c1"]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/productmanagement/1r9yk3u.md#c3"
-    char_span: [4554, 5770]
+    char_span: [4553, 5769]
     sentence_count: 8
     key_terms: [translation, llm, plugin, figma, ok-appearance3478, plaid-knight, translations, arrangement]
+    concepts: [translation, plugin, figma]
     section: Comments
     token_count: 274
 ---

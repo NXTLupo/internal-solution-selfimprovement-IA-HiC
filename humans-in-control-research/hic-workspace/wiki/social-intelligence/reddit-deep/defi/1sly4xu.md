@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 725]
     sentence_count: 2
     key_terms: [defi, comments, recovery, backup, secure, wallet, west-criticism4415, user]
+    concepts: [comments, recovery, backup, secure, wallet]
     token_count: 173
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1sly4xu/what_features_should_a_defi_wallet_development/"}]
   - id: "social-intelligence/reddit-deep/defi/1sly4xu.md#c1"
-    char_span: [740, 2632]
+    char_span: [739, 2631]
     sentence_count: 8
     key_terms: [wallet, hardware, transaction, users, like, security, solid, integration]
+    concepts: [wallet, hardware, transaction, users, security]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/defi/1sly4xu.md#c2"
-    char_span: [2634, 3331]
+    char_span: [2633, 3330]
     sentence_count: 3
     key_terms: [backup, cryptofingldallas, authentication, multi-currency, non-custodial, user-friendly, berrnarrrrdo, multi-factor]
+    concepts: [backup]
     section: Comments
     token_count: 172
 ---

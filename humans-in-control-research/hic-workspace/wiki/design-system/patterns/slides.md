@@ -8,6 +8,7 @@ chunks:
     char_span: [0, 1488]
     sentence_count: 9
     key_terms: [slides, slide, mono, nxt, archivo, tokens, brand, dense]
+    concepts: [slides, slide, archivo, tokens, brand]
     section: Figma exemplars (source of truth) / Anatomy / Construction rule (1-to-1 PPTX)
     token_count: 403
 ---

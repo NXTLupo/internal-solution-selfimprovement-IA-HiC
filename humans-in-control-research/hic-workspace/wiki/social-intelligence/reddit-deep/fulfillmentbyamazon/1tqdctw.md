@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1600]
     sentence_count: 5
     key_terms: [asin, product, fulfillmentbyamazon, incorrect, correct, listing, amazon, ean]
+    concepts: [product, fulfillmentbyamazon, incorrect, correct, listing]
     token_count: 357
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1tqdctw/has_anyone_dealt_with_incorrect_upcean_on_a_live/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1tqdctw.md#c1"
-    char_span: [1615, 2810]
+    char_span: [1614, 2809]
     sentence_count: 8
     key_terms: [fulfillmentbyamazon, discord, fba, channels, concerns, discuss, listing, through]
+    concepts: [fulfillmentbyamazon, discord, channels, concerns, discuss]
     section: Comments
     token_count: 281
 ---

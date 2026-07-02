@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1679]
     sentence_count: 20
     key_terms: [college, full-time, starting, job, time, associates, comments, possible]
+    concepts: [college, full-time, starting, associates, comments]
     token_count: 380
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ofdzo7/is_it_no_longer_possible_to_support_oneself/"}]
   - id: "social-intelligence/reddit-deep/college/1ofdzo7.md#c1"
     char_span: [1693, 3578]
     sentence_count: 18
     key_terms: [time, work, full, semester, classes, doable, school, community]
+    concepts: [semester, classes, doable, school, community]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/college/1ofdzo7.md#c2"
     char_span: [3580, 5598]
     sentence_count: 15
     key_terms: [degree, loans, get, own, pay, something, federal, schools]
+    concepts: [degree, loans, something, federal, schools]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/college/1ofdzo7.md#c3"
     char_span: [5600, 7324]
     sentence_count: 13
     key_terms: [college, work, transferred, "it's", otherwise, graduate, working, minute]
+    concepts: [college, transferred, otherwise, graduate, working]
     section: Comments
     token_count: 404
 ---

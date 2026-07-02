@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 907]
     sentence_count: 6
     key_terms: [internship, hospitality, internships, comments, been, opportunities, connections, opportunity]
+    concepts: [internship, hospitality, internships, comments]
     token_count: 205
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1salcq4/searching_for_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1salcq4.md#c1"
     char_span: [921, 1440]
     sentence_count: 2

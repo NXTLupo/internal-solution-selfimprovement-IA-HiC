@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1481]
     sentence_count: 14
     key_terms: [feel, college, careerguidance, career, don, get, comments, student]
+    concepts: [careerguidance, college, career, comments, student]
     token_count: 355
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pcbjo6/how_do_i_choose_a_career_path_as_a_final_year_cs/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1pcbjo6.md#c1"
     char_span: [1495, 2726]
     sentence_count: 9
     key_terms: [looking, like, career, since, no-assumption4145, find, fit, tech]
+    concepts: [looking, career, since]
     section: Comments
     token_count: 272
 ---

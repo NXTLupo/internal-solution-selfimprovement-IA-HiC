@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1889]
     sentence_count: 17
     key_terms: [advice, cscareerquestions, "i'm", "i've", journey, overwhelming, learn, right]
+    concepts: [advice, cscareerquestions, journey, overwhelming, essentially]
     token_count: 413
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1mqjui7/need_cs_career_advice/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mqjui7.md#c1"
     char_span: [1903, 4048]
     sentence_count: 31
     key_terms: [everything, internship, "don't", learn, major, never, internships, opportunity]
+    concepts: [everything, internship, internships, opportunity, programming]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mqjui7.md#c2"
     char_span: [4050, 4590]
     sentence_count: 9
     key_terms: [something, tutorials, anything, tutorial, follow, learn, find, want]
+    concepts: [something, tutorials, anything, tutorial, follow]
     section: Comments
     token_count: 123
 ---

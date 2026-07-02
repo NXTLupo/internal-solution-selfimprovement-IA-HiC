@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 1466]
     sentence_count: 13
     key_terms: [because, povertyfinance, comments, grindset, against, barrier, mindset, enough]
+    concepts: [povertyfinance, because, comments, grindset, against]
     token_count: 339
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1qfrsff/im_tired_of_the_just_live_below_your_means/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1qfrsff.md#c1"
     char_span: [1480, 3446]
     sentence_count: 17
     key_terms: [submitter, appropriate, advice, need, please, vents, vent, themselves]
+    concepts: [submitter, appropriate, advice, please, themselves]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/povertyfinance/1qfrsff.md#c2"
     char_span: [3448, 5082]
     sentence_count: 16
     key_terms: [advice, activities, because, sports, get, good, expenses, cheap]
+    concepts: [activities, advice, because, sports, expenses]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/povertyfinance/1qfrsff.md#c3"
     char_span: [5084, 6603]
     sentence_count: 8
     key_terms: [point, baseline, income, vividpop2779, back, isn, certain, frugal]
+    concepts: [point, baseline, vividpop2779, income, certain]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/povertyfinance/1qfrsff.md#c4"
     char_span: [6605, 8694]
     sentence_count: 15
     key_terms: [like, year, imamajesticseahorse, because, people, raises, organization, raise]
+    concepts: [imamajesticseahorse, because, organization, people, raises]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1qfrsff.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1qfrsff.md#c5"
     char_span: [8410, 9382]
     sentence_count: 6
     key_terms: [property, because, people, values, taxes, "it's", like, try]
+    concepts: [property, because, people, values, taxes]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1qfrsff.md#c4"]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/povertyfinance/1qfrsff.md#c6"
     char_span: [9384, 10444]
     sentence_count: 10
     key_terms: [leakingmoonlight, doctor, cptmorgantravel89, "it's", certification, facilities, retraining, t1m3wizard]
+    concepts: [leakingmoonlight, doctor]
     section: Comments
     token_count: 276
 ---

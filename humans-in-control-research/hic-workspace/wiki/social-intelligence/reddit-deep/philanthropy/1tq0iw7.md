@@ -17,10 +17,12 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1tq0iw7.md#c0"
-    char_span: [0, 1661]
+    char_span: [0, 1660]
     sentence_count: 7
     key_terms: [trump-board-of-peace-official-gaza-fund-is-empty-despite-billions-pledged-source-says, board, reconstruction, source, fund, billion, philanthropy, https]
-    token_count: 375
+    concepts: [trump-board-of-peace-official-gaza-fund-is-empty-despite-billions-pledged-source-says, board, reconstruction, source, billion]
+    token_count: 374
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1tq0iw7/board_of_peace_has_no_cash_in_its_official_gaza/"}]
 ---
 # Board of Peace has no cash in its official Gaza reconstruction fund, despite member countries pledging billions of dollars
 

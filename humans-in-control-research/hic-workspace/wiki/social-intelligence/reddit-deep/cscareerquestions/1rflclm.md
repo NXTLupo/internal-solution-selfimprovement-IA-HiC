@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 441]
     sentence_count: 3
     key_terms: [cscareerquestions, comments, reddit-deep, espeically, hackathon, lune-soft, possible, friends]
+    concepts: [cscareerquestions, comments]
     token_count: 118
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rflclm/my_friends_said_if_you_are_a_cs_student_go_join/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rflclm.md#c1"
     char_span: [455, 1890]
     sentence_count: 10
     key_terms: [life, enjoy, college, hackathons, something, friends, coding, couple]
+    concepts: [enjoy, college, hackathons, something, friends]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rflclm.md#c2"
     char_span: [1892, 3325]
     sentence_count: 14
     key_terms: [opportunities, did, like, hackathons, network, school, "you're", value]
+    concepts: [opportunities, hackathons, network, school, "you're"]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rflclm.md#c3"
     char_span: [3327, 4998]
     sentence_count: 10
     key_terms: [internships, highest, value, experience, networking, hackathon, something, building]
+    concepts: [internships, highest, experience, networking, value]
     section: Comments
     token_count: 405
 ---

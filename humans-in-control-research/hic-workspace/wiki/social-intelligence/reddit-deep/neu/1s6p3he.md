@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 871]
     sentence_count: 7
     key_terms: [neu, students, boston, co-op, comments, schools, co-ops, cybersecurity]
+    concepts: [students, boston, co-op, comments, schools]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1s6p3he.md#c1"]
     token_count: 207
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1s6p3he/neu_coop/"}]
   - id: "social-intelligence/reddit-deep/neu/1s6p3he.md#c1"
     char_span: [885, 2838]
     sentence_count: 14
     key_terms: [student, international, students, co-op, harvard, program, northeastern, employers]
+    concepts: [international, student, students, northeastern, co-op]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1s6p3he.md#c0"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/neu/1s6p3he.md#c2"
     char_span: [2840, 3631]
     sentence_count: 6
     key_terms: [financial, same-cap7233, aid, expensive, package, hey, neu, too]
+    concepts: [financial, same-cap7233, expensive, package]
     section: Comments
     token_count: 216
 ---

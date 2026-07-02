@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 570]
     sentence_count: 4
     key_terms: [interview, careeradvice, comments, additionally, reddit-deep, appreciate, experience, interested]
+    concepts: [interview, careeradvice, comments]
     token_count: 136
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1t7evts/ai_interview_successes/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1t7evts.md#c1"
     char_span: [584, 1205]
     sentence_count: 6

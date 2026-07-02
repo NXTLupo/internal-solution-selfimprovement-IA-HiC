@@ -21,65 +21,81 @@ chunks:
     char_span: [0, 1045]
     sentence_count: 19
     key_terms: [want, employed, take, comments, people, find, game, job]
+    concepts: [employed, comments, people]
     token_count: 253
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1mlsuoq/i_want_to_be_honest_for_job_seekers/"}]
   - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c1"
     char_span: [1059, 2757]
     sentence_count: 12
     key_terms: [conversation, skill, job, open, set, recruiters, obvious, realize]
+    concepts: [conversation, recruiters, skill, obvious, realize]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c2"
     char_span: [2759, 3877]
     sentence_count: 10
     key_terms: [job, banner, reaching, having, pretty, turned, apprehensivesort9459, loudsheepherder5391]
+    concepts: [banner, reaching, having, pretty, turned]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c3"
     char_span: [3879, 5380]
     sentence_count: 11
     key_terms: [recruiter, banner, employed, manager, almost, trying, got, "i'm"]
+    concepts: [recruiter, banner, employed, manager, almost]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1mlsuoq.md#c9"]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c4"
     char_span: [5382, 6950]
     sentence_count: 8
     key_terms: [job, recruiters, unemployed, linkedin, deleted, someone, industry, managers]
+    concepts: [recruiters, unemployed, linkedin, deleted, someone]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c5"
     char_span: [6952, 8985]
     sentence_count: 18
     key_terms: [job, linkedin, right, got, "it's", too, change, jobs]
+    concepts: [linkedin, right, change, recruiter, reaching]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1mlsuoq.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c6"
     char_span: [8709, 10820]
     sentence_count: 19
     key_terms: [right, job, recruiter, deleted, perfect, through, people, got]
+    concepts: [right, recruiter, deleted, perfect, through]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1mlsuoq.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c7"
     char_span: [10483, 11790]
     sentence_count: 12
     key_terms: [experience, recruiters, managers, personal, biased, hiring, people, resume]
+    concepts: [experience, recruiters, managers, personal, biased]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c8"
     char_span: [11792, 13561]
     sentence_count: 14
     key_terms: [matter, job, like, recruiters, candidate, downvoted, recruiter, employed]
+    concepts: [matter, recruiters, candidate, downvoted, recruiter]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c9"
     char_span: [13563, 15428]
     sentence_count: 16
     key_terms: [don, want, work, employed, banner, calls, miles, mississippi]
+    concepts: [employed, banner, mississippi, calls, miles]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1mlsuoq.md#c3"]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c10"
     char_span: [15430, 16222]
     sentence_count: 6
     key_terms: [linkedin, work, through, banner, found, care, set, used]
+    concepts: [linkedin, through, banner, found]
     section: Comments
     token_count: 187
 ---

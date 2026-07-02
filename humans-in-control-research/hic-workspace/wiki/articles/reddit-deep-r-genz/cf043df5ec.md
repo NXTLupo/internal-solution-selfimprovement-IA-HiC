@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1022]
     sentence_count: 11
     key_terms: [why-gen-z-buys-luxury-its-not-about-money-anymore-475f564580fc, https, comments, discord, brands, luxury, market, reddit]
+    concepts: [https, comments, discord, brands, luxury]
     token_count: 269
+    sources: [{"n":"Reddit Deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1sym1f7/why_gen_z_are_buying_luxury_brands_so_much/"}]
   - id: "articles/reddit-deep-r-genz/cf043df5ec.md#c1"
     char_span: [1025, 2543]
     sentence_count: 12
     key_terms: [cars, cavalier, clapped, toyotas, afford, brands, luxury, money]
+    concepts: [cavalier, clapped, toyotas, afford, brands]
     token_count: 382
 ---
 # Why Gen Z are buying Luxury Brands so much?

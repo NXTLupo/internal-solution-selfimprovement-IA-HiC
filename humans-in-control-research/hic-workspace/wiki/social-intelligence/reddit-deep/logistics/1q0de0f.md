@@ -20,23 +20,31 @@ chunks:
     char_span: [0, 1750]
     sentence_count: 13
     key_terms: [management, logistics, related, distribution, role, experience, equipment, necessary]
+    concepts: [management, logistics, related, distribution, experience]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1q0de0f.md#c3"]
     token_count: 397
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1q0de0f/i_was_in_logistics_for_45_years_in_the_army_and_4/"}]
   - id: "social-intelligence/reddit-deep/logistics/1q0de0f.md#c1"
-    char_span: [1765, 3942]
+    char_span: [1764, 3941]
     sentence_count: 14
     key_terms: [experience, civilian, liquids, veterans, transitioning, specifically, maintenance, skillbridge]
+    concepts: [experience, civilian, liquids, veterans, transitioning]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/logistics/1q0de0f.md#c2"
-    char_span: [3944, 6103]
+    char_span: [3943, 6102]
     sentence_count: 16
     key_terms: [inventory, operations, manager, "you're", compliance, experience, military, control]
+    concepts: [inventory, operations, manager, compliance, experience]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1q0de0f.md#c3"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/logistics/1q0de0f.md#c3"
-    char_span: [6105, 8084]
+    char_span: [6104, 8083]
     sentence_count: 24
     key_terms: [work, everyone, manager, distribution, lots, sure, experience, leadership]
+    concepts: [everyone, manager, distribution, experience, leadership]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1q0de0f.md#c0", "social-intelligence/reddit-deep/logistics/1q0de0f.md#c2"]
     section: Comments
     token_count: 441
 ---

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1160]
     sentence_count: 1
     key_terms: [international, internships, need, internship, comments, company, pretty, offer]
+    concepts: [international, internships, internship, comments, company]
     token_count: 281
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1su6d3w/internship_i_didnt_wanted/"}]
   - id: "social-intelligence/reddit-deep/internships/1su6d3w.md#c1"
     char_span: [1174, 2579]
     sentence_count: 3
     key_terms: ["it's", take, student, summer, offer, get, got, look]
+    concepts: [student, summer, offer]
     section: Comments
     token_count: 340
 ---

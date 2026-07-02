@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1004]
     sentence_count: 7
     key_terms: [school, applyingtocollege, high, applications, grade, comments, students, college]
+    concepts: [school, applyingtocollege, applications, grade, comments]
     token_count: 223
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1qmlgp5/does_skipping_a_grade_in_high_school_affect/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qmlgp5.md#c1"
     char_span: [1018, 2956]
     sentence_count: 13
     key_terms: [grade, entrance, college, gifted, userwest-0317, different, advanced, everyone]
+    concepts: [grade, entrance, userwest-0317, college, gifted]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qmlgp5.md#c2"
     char_span: [2958, 4587]
     sentence_count: 11
     key_terms: [school, mit, ago, high, too, year, experience, graduated]
+    concepts: [school, experience, graduated, graduate, students]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qmlgp5.md#c3"
     char_span: [4589, 6782]
     sentence_count: 10
     key_terms: [less, time, top, year, because, admission, different, country]
+    concepts: [because, admission, different, country, process]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qmlgp5.md#c4"
     char_span: [6522, 6832]
     sentence_count: 2
     key_terms: [complicated, "you're", going, international, ilovecats39, birthday, overseas, college]
+    concepts: [complicated, "you're", going]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qmlgp5.md#c5"
     char_span: [6835, 7191]
     sentence_count: 5
     key_terms: [students, guardianship, accommodate, complicated, supervision, especially, obviously, boarding]
+    concepts: [students]
     section: Comments
     token_count: 69
 ---

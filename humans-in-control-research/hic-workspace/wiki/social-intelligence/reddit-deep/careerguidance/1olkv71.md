@@ -21,89 +21,107 @@ chunks:
     char_span: [0, 1062]
     sentence_count: 8
     key_terms: [decision, careerguidance, job, comments, changed, better, career, back]
+    concepts: [decision, careerguidance, comments, changed, better]
     token_count: 252
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1olkv71/whats_one_career_decision_you_made_that/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c1"
     char_span: [1076, 1876]
     sentence_count: 11
     key_terms: [work, wanted, engineering, field, did, role, opportunities, bimmerjustin]
+    concepts: [wanted, engineering, field]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c2"
     char_span: [1878, 4124]
     sentence_count: 13
     key_terms: [analysis, environmental, city, properties, different, leaders, looking, systems]
+    concepts: [analysis, environmental, properties, different, leaders]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c3"
     char_span: [3825, 4340]
     sentence_count: 4
     key_terms: [properties, city, etc, applications, requirements, consulting, contracts, decisions]
+    concepts: [properties]
     section: Comments
     token_count: 109
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c4"
     char_span: [4342, 5760]
     sentence_count: 11
     key_terms: [data, gis, navigon, certification, job, management, research, manager]
+    concepts: [certification, navigon, management, research, manager]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c5"
     char_span: [5762, 7374]
     sentence_count: 14
     key_terms: [google, work, thanks, revolutionaryegg4399, sufficient-hawk-7245, historicaldrawing29, field, learn]
+    concepts: [google, thanks, field, learn, phone]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c6"
     char_span: [7376, 8834]
     sentence_count: 15
     key_terms: [work, new, career, retail, asked, field, weeks, call]
+    concepts: [career, retail, asked, field, weeks]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c7"
     char_span: [8836, 10513]
     sentence_count: 17
     key_terms: [wherewegoingto, years, people, led, var, asked, house, later]
+    concepts: [wherewegoingto, years, people, asked, house]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1olkv71.md#c8"]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c8"
     char_span: [10515, 11414]
     sentence_count: 9
     key_terms: [bulliedatmicrosoft, people, years, pale-weather-2328, best, day, dog, led]
+    concepts: [bulliedatmicrosoft, people, years]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1olkv71.md#c7"]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c9"
     char_span: [11416, 12971]
     sentence_count: 9
     key_terms: [bulliedatmicrosoft, microsoft, working, better, global, dream, heard, since]
+    concepts: [bulliedatmicrosoft, microsoft, working, better, global]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c10"
     char_span: [12973, 15037]
     sentence_count: 16
     key_terms: [pay, cut, job, marketing, college, better, career, making]
+    concepts: [marketing, college, better, career, making]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c11"
     char_span: [14778, 15751]
     sentence_count: 9
     key_terms: [get, marketing, teacher, decade, school, no-communication2190, long, administrative]
+    concepts: [marketing, teacher, decade, school]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c12"
     char_span: [15753, 17568]
     sentence_count: 14
     key_terms: [teaching, years, back, new, boyfriend, services, station, moving]
+    concepts: [teaching, years, boyfriend, services, station]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c13"
     char_span: [17570, 19091]
     sentence_count: 9
     key_terms: [doing, edinburgh, better, city, "he's", son, london, adventurous-wolf777]
+    concepts: [edinburgh, doing, better, london]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c14"
     char_span: [19093, 20375]
     sentence_count: 12
     key_terms: [work, refugees, job, edinburgh, expensive, french, needed, back]
+    concepts: [refugees, edinburgh, expensive, french, needed]
     section: Comments
     token_count: 289
 ---

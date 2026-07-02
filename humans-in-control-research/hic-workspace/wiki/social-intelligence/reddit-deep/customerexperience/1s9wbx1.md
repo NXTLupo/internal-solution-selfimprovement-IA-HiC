@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 762]
     sentence_count: 5
     key_terms: [customerexperience, handled, comments, customer, support, working, teams, like]
+    concepts: [customerexperience, handled, comments, customer, support]
     token_count: 167
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1s9wbx1/how_much_of_your_customer_support_is_actually/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1s9wbx1.md#c1"
-    char_span: [777, 2911]
+    char_span: [776, 2910]
     sentence_count: 14
     key_terms: [queries, shotoil1398, like, support, teams, end-to-end, everything, repetitive]
+    concepts: [queries, shotoil1398, support, end-to-end, everything]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/customerexperience/1s9wbx1.md#c2"
-    char_span: [2913, 5069]
+    char_span: [2912, 5068]
     sentence_count: 9
     key_terms: [later, bathstrong723, back, come, shotoil1398, angry, contained, emotional]
+    concepts: [later, bathstrong723, shotoil1398, contained, emotional]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/customerexperience/1s9wbx1.md#c3"
-    char_span: [5071, 5988]
+    char_span: [5070, 5987]
     sentence_count: 9
     key_terms: [account-specific, because, product, around, lands, teams, b2b, base]
+    concepts: [account-specific, because, product, around, lands]
     section: Comments
     token_count: 202
 ---

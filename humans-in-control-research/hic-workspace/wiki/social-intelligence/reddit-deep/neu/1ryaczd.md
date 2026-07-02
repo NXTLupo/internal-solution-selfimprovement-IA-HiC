@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1067]
     sentence_count: 10
     key_terms: [neu, suggestions, autonomous, comments, robotics, systems, going, right]
+    concepts: [suggestions, autonomous, comments, robotics, systems]
     token_count: 251
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1ryaczd/got_into_ms_ai_robotics_autonomous_systems_for/"}]
 ---
 # Got into MS AI (Robotics & Autonomous Systems) for Fall 2026 – any suggestions?
 

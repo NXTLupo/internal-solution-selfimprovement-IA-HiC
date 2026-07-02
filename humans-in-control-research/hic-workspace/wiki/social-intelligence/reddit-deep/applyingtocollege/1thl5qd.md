@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 1687]
     sentence_count: 10
     key_terms: [projects, "i've", competitions, applyingtocollege, been, personal, because, applications]
+    concepts: [projects, competitions, applyingtocollege, personal, because]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1thl5qd.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1thl5qd.md#c2"]
     token_count: 353
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1thl5qd/how_helpful_are_personal_projects_in_college/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thl5qd.md#c1"
     char_span: [1701, 3741]
     sentence_count: 15
     key_terms: [niceunparticularman, doing, projects, competitions, stand, application, engineering, love]
+    concepts: [niceunparticularman, doing, projects, competitions, application]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1thl5qd.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1thl5qd.md#c2"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thl5qd.md#c2"
     char_span: [3743, 6097]
     sentence_count: 14
     key_terms: [competitions, projects, impressive, passion, compelling, texus86, making, "isn't"]
+    concepts: [competitions, projects, impressive, passion, compelling]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1thl5qd.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1thl5qd.md#c1"]
     section: Comments
     token_count: 505
 ---

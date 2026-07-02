@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 887]
     sentence_count: 6
     key_terms: [co-op, cycle, comments, honestly, classes, haven, fall, feel]
+    concepts: [co-op, cycle, comments, honestly, classes]
     token_count: 225
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1sjj98a/failed_to_get_coop_for_first_fall_cycle_am_i/"}]
   - id: "social-intelligence/reddit-deep/neu/1sjj98a.md#c1"
     char_span: [901, 2528]
     sentence_count: 14
     key_terms: [okaybrowhat, interviews, back, got, co-op, did, feel, get]
+    concepts: [okaybrowhat, interviews, co-op, interview, always]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/neu/1sjj98a.md#c2"
     char_span: [2530, 3836]
     sentence_count: 8
     key_terms: [e6b69c77a6d89d86075f50a0f9910f83880c8480, co-ops, find, undergrad, someone, around, school, co-op]
+    concepts: [co-ops, undergrad, someone, around, school]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/neu/1sjj98a.md#c3"
     char_span: [3838, 5881]
     sentence_count: 21
     key_terms: [positions, get, swe, number, don, let, definitely, extremely]
+    concepts: [positions, number, definitely, extremely, prachub]
     section: Comments
     token_count: 495
 ---

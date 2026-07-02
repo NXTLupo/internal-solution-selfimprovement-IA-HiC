@@ -20,45 +20,56 @@ chunks:
     char_span: [0, 1869]
     sentence_count: 15
     key_terms: [retirement, account, esop, bogleheads, boglehead, comments, employer, looking]
+    concepts: [retirement, account, bogleheads, boglehead, comments]
     token_count: 474
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1qhdclq/first_time_boglehead_looking_to_take_the_plunge/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1qhdclq.md#c1"
     char_span: [1871, 3845]
     sentence_count: 16
     key_terms: [fund, around, retirement, good, equity, appropriately, international, transferred]
+    concepts: [retirement, around, appropriately, international, equity]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1qhdclq.md#c4"]
     token_count: 493
   - id: "social-intelligence/reddit-deep/bogleheads/1qhdclq.md#c2"
     char_span: [3847, 4388]
     sentence_count: 7
     key_terms: [pretax, contribution, match, half, roth, contribute, percentage, advantage]
+    concepts: [contribution, pretax, match]
     token_count: 147
   - id: "social-intelligence/reddit-deep/bogleheads/1qhdclq.md#c3"
-    char_span: [4403, 6205]
+    char_span: [4402, 6204]
     sentence_count: 10
     key_terms: [vti, vxus, fund, target, funds, total, date, like]
+    concepts: [target, funds, total, international, "you're"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/bogleheads/1qhdclq.md#c4"
-    char_span: [6207, 8173]
+    char_span: [6206, 8172]
     sentence_count: 17
     key_terms: [fund, roth, traditional, bogleheads, wiki, annual, equity, "you're"]
+    concepts: [traditional, bogleheads, international, annual, equity]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1qhdclq.md#c1"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/bogleheads/1qhdclq.md#c5"
-    char_span: [8175, 10296]
+    char_span: [8174, 10295]
     sentence_count: 13
     key_terms: [account, fund, company, invest, "you're", get, like, "shouldn't"]
+    concepts: [account, company, invest, "you're", "shouldn't"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/bogleheads/1qhdclq.md#c6"
-    char_span: [10298, 12213]
+    char_span: [10297, 12212]
     sentence_count: 13
     key_terms: [contribution, annual, "don't", based, limit, fund, good, "i'm"]
+    concepts: [contribution, annual, "don't", based, limit]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/bogleheads/1qhdclq.md#c7"
-    char_span: [12215, 13077]
+    char_span: [12214, 13076]
     sentence_count: 4
     key_terms: [done, "i'm", retirement, situation, analysis, "you'll", ira, roth]
+    concepts: [retirement, situation, analysis, "you'll"]
     section: Comments
     token_count: 194
 ---

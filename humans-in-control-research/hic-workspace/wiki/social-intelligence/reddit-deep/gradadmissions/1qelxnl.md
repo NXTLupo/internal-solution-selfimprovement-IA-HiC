@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 331]
     sentence_count: 6
     key_terms: [gradadmissions, comments, teachingelectronic86, reddit-deep, completely, admission, yesterday, accepted]
+    concepts: [gradadmissions, comments]
     token_count: 88
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qelxnl/accepted_cant_believe_it/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qelxnl.md#c1"
     char_span: [345, 1729]
     sentence_count: 9
     key_terms: [congratulations, congrats, awesome, smolaniashki, admitted, brief-dragonfly-4127, teachingelectronic86, final]
+    concepts: [congratulations, congrats, awesome, smolaniashki, admitted]
     section: Comments
     token_count: 378
 ---

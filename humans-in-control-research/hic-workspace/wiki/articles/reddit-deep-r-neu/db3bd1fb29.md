@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 986]
     sentence_count: 8
     key_terms: [advice, mscs, neu, khoury, reddit, co-op, take, wish]
+    concepts: [advice, khoury, reddit, co-op]
     token_count: 244
+    sources: [{"n":"Reddit Deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1s57bn6/things_i_wish_i_knew_before_starting_mscs_at/"}]
 ---
 # things i  wish i knew before starting mscs at khoury.[ Advice needed]
 

@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 1271]
     sentence_count: 13
     key_terms: [advising, highereducation, outside, higher, transferable, "i'm", comments, skills]
+    concepts: [advising, highereducation, outside, transferable, higher]
     token_count: 294
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1l4kqtk/transferable_skills_advising_outside_of_higher_ed/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1l4kqtk.md#c1"
     char_span: [1285, 2153]
     sentence_count: 7
     key_terms: [institution, move, management, operations, advising, policy, skills, role]
+    concepts: [institution, management, operations, advising, policy]
     section: Comments
     token_count: 187
   - id: "social-intelligence/reddit-deep/highereducation/1l4kqtk.md#c2"
     char_span: [2155, 4562]
     sentence_count: 15
     key_terms: [programs, manager, student, different, role, company, success, institution]
+    concepts: [programs, manager, student, different, company]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/highereducation/1l4kqtk.md#c3"
     char_span: [4564, 6727]
     sentence_count: 16
     key_terms: [responsibilities, job, advancement, staff, career, school, recruitment, "i've"]
+    concepts: [responsibilities, advancement, staff, career, school]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/highereducation/1l4kqtk.md#c4"
     char_span: [6729, 7783]
     sentence_count: 12
     key_terms: [students, affairs, student, apprehensive-foot100, years, time, type, week]
+    concepts: [students, affairs, student, years]
     section: Comments
     token_count: 241
   - id: "social-intelligence/reddit-deep/highereducation/1l4kqtk.md#c5"
     char_span: [7785, 9450]
     sentence_count: 15
     key_terms: [university, program, etc, itstonjohn, something, advising, apprehensive-foot100, years]
+    concepts: [university, program, itstonjohn, something, advising]
     section: Comments
     token_count: 409
 ---

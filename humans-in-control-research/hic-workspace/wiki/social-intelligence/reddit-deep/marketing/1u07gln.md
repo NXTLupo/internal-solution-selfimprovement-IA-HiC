@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1569]
     sentence_count: 12
     key_terms: [companies, marketing, money, tokens, subscription, "don't", comments, honesty]
+    concepts: [companies, marketing, money, subscription, tokens]
     token_count: 346
+    sources: [{"n":"reddit-deep: r/marketing","u":"https://www.reddit.com/r/marketing/comments/1u07gln/why_companies_prefey_shady_tacticts_instead_of/"}]
   - id: "social-intelligence/reddit-deep/marketing/1u07gln.md#c1"
-    char_span: [1584, 3404]
+    char_span: [1583, 3403]
     sentence_count: 16
     key_terms: [companies, internet, because, trust, use, everywhere, started, money]
+    concepts: [companies, internet, because, everywhere, trust]
     section: Comments
     token_count: 441
 ---

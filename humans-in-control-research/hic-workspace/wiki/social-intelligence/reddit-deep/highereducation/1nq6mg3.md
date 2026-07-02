@@ -19,7 +19,10 @@ chunks:
     char_span: [0, 2055]
     sentence_count: 21
     key_terms: [students, whatsapp, email, don, highereducation, schools, comments, everyone]
+    concepts: [students, whatsapp, email, highereducation, schools]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1nq6mg3.md#c2"]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1nq6mg3/most_schools_lose_80_of_students_after_12_generic/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1nq6mg3.md#c1"
     char_span: [2057, 2201]
     sentence_count: 2
@@ -29,18 +32,23 @@ chunks:
     char_span: [2215, 4836]
     sentence_count: 22
     key_terms: [schools, different, application, get, students, better, school, researching]
+    concepts: [schools, different, application, students, better]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1nq6mg3.md#c0", "social-intelligence/reddit-deep/highereducation/1nq6mg3.md#c3"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/highereducation/1nq6mg3.md#c3"
     char_span: [4838, 6238]
     sentence_count: 3
     key_terms: [strategy, schools, take, different, marketing, tracking, deleted, decent]
+    concepts: [strategy, schools, different, marketing, tracking]
+    related_chunks: ["social-intelligence/reddit-deep/highereducation/1nq6mg3.md#c2"]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/highereducation/1nq6mg3.md#c4"
     char_span: [6240, 7498]
     sentence_count: 15
     key_terms: ["don't", crm, "it's", like, marketing, deadline, students, always]
+    concepts: ["don't", marketing, deadline, students, always]
     section: Comments
     token_count: 288
 ---

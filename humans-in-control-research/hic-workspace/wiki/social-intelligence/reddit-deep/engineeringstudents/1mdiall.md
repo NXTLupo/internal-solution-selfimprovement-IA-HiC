@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1678]
     sentence_count: 4
     key_terms: [engineeringstudents, ztwhmozkddtikrfu7, feedback, source, early-career, forms, https, open]
+    concepts: [engineeringstudents, ztwhmozkddtikrfu7, feedback, early-career, source]
     token_count: 405
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1mdiall/feedback_wanted_i_built_an_open_source_resource/"}]
 ---
 # Feedback wanted: I built an open source resource hub for early-career Electrical Engineers (resume help, interview prep, mentorship)
 

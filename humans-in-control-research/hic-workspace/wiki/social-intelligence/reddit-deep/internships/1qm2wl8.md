@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 963]
     sentence_count: 4
     key_terms: [sales, companies, internships, tech, candidates, connecting, placements, successful]
+    concepts: [sales, companies, internships, candidates, connecting]
     token_count: 215
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1qm2wl8/are_you_an_eager_driven_coachable_sales_person_or/"}]
   - id: "social-intelligence/reddit-deep/internships/1qm2wl8.md#c1"
     char_span: [977, 1249]
     sentence_count: 2
     key_terms: [rough-manager-172, acanthisittano6174, originally, finishing, carolina, relocate, willing, kindly]
+    concepts: [rough-manager-172]
     section: Comments
     token_count: 91
 ---

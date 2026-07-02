@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1586]
     sentence_count: 7
     key_terms: [qualtricsxmx4455njxw, scenarios, comments, humanresources, https, case, com, automated]
+    concepts: [qualtricsxmx4455njxw, scenarios, comments, humanresources, https]
     token_count: 358
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1ths43z/mod_approved_academic_how_do_you_deal_with/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1ths43z.md#c1"
     char_span: [1600, 3650]
     sentence_count: 16
     key_terms: [using, "i've", hiring, requirements, majorphaser, law, used, benefits]
+    concepts: [using, requirements, hiring, majorphaser, benefits]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/humanresources/1ths43z.md#c2"
     char_span: [3655, 4473]
     sentence_count: 5
     key_terms: [californias-ai-hiring-rules-are-now-in-effectand-new-lawsuits-expand-employer-risk, "you're", hollandhart, https, com, law, www, recommendation]
+    concepts: [californias-ai-hiring-rules-are-now-in-effectand-new-lawsuits-expand-employer-risk, "you're", hollandhart, https]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/humanresources/1ths43z.md#c3"
     char_span: [4475, 6423]
     sentence_count: 11
     key_terms: [act, qualtrics, gonebabythoughts, "it's", post, anonymous, familiar, rubber]
+    concepts: [gonebabythoughts, qualtrics, anonymous, familiar, rubber]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/humanresources/1ths43z.md#c4"
     char_span: [6425, 8222]
     sentence_count: 13
     key_terms: [questions, use, resume, survey, recruiting, another, auditor, human]
+    concepts: [questions, resume, survey, recruiting, another]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/humanresources/1ths43z.md#c5"
     char_span: [8224, 9068]
     sentence_count: 4
     key_terms: [research, hiring, thoughts, insight, survey, thank, okay, use]
+    concepts: [research, hiring, thoughts, insight, survey]
     section: Comments
     token_count: 211
 ---

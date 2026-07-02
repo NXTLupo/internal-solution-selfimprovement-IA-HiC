@@ -21,58 +21,76 @@ chunks:
     char_span: [0, 2262]
     sentence_count: 19
     key_terms: [students, faculty, class, member, colleagues, classroom, student, worked]
+    concepts: [students, faculty, class, colleagues, member]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1oy2tst.md#c3", "social-intelligence/reddit-deep/professors/1oy2tst.md#c5", "social-intelligence/reddit-deep/professors/1oy2tst.md#c7", "social-intelligence/reddit-deep/professors/1oy2tst.md#c9"]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1oy2tst/dear_colleagues_you_have_my_deepest_sympathy/"}]
   - id: "social-intelligence/reddit-deep/professors/1oy2tst.md#c1"
     char_span: [2264, 3481]
     sentence_count: 13
     key_terms: [students, experience, doing, given, guest, learn, long, disheartening]
+    concepts: [students, experience, doing, given, guest]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1oy2tst.md#c2"]
     token_count: 248
   - id: "social-intelligence/reddit-deep/professors/1oy2tst.md#c2"
     char_span: [3495, 5281]
     sentence_count: 15
     key_terms: ["it's", sciences, students, health, dollyjade89, experience, different, already]
+    concepts: [sciences, students, health, dollyjade89, experience]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1oy2tst.md#c1"]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/professors/1oy2tst.md#c3"
     char_span: [5283, 7100]
     sentence_count: 19
     key_terms: [faculty, back, students, admin, customer-service, grade-grubbing, looked, salary]
+    concepts: [faculty, students, customer-service, admin, grade-grubbing]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1oy2tst.md#c0", "social-intelligence/reddit-deep/professors/1oy2tst.md#c5"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/professors/1oy2tst.md#c4"
     char_span: [7102, 8535]
     sentence_count: 11
     key_terms: [students, life-education-8030, staff, thank, get, because, faculty, support]
+    concepts: [students, life-education-8030, staff, thank, because]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/professors/1oy2tst.md#c5"
     char_span: [8537, 9464]
     sentence_count: 4
     key_terms: [time, like, students, faculty, life-education-8030, "don't", work, tongue-lashing]
+    concepts: [students, faculty, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1oy2tst.md#c0", "social-intelligence/reddit-deep/professors/1oy2tst.md#c3"]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/professors/1oy2tst.md#c6"
     char_span: [9466, 11538]
     sentence_count: 19
     key_terms: [people, online, asynchronous, staff, synchronous, job, desktop-of-a-thousand-files, students]
+    concepts: [people, asynchronous, online, synchronous, staff]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/professors/1oy2tst.md#c7"
     char_span: [11540, 13712]
     sentence_count: 15
     key_terms: [students, speakers, classes, online, class, "it's", too, fortunate]
+    concepts: [students, speakers, classes, online, class]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1oy2tst.md#c0", "social-intelligence/reddit-deep/professors/1oy2tst.md#c9"]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/professors/1oy2tst.md#c8"
     char_span: [13714, 15208]
     sentence_count: 15
     key_terms: [call, afraid, course, people, blah, talk, respond, anyone]
+    concepts: [afraid, course, people, respond, anyone]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/professors/1oy2tst.md#c9"
     char_span: [15210, 17222]
     sentence_count: 16
     key_terms: [class, students, student, thought, practicum, kimber80, teaching, however]
+    concepts: [class, students, student, thought, practicum]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1oy2tst.md#c0", "social-intelligence/reddit-deep/professors/1oy2tst.md#c7"]
     section: Comments
     token_count: 489
 ---

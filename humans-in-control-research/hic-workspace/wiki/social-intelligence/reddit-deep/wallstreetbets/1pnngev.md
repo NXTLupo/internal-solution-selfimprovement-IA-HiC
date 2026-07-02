@@ -21,31 +21,43 @@ chunks:
     char_span: [0, 1782]
     sentence_count: 8
     key_terms: [market, altria, oral, bafc219ff278ed4bb0e6ca82c138cd864e75a58c, segment, wallstreetbets, growth, https]
+    concepts: [market, altria, wallstreetbets, segment, growth]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c1", "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c2"]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1pnngev/cigs_are_good_for_you_why_oral_turns_me_on/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c1"
     char_span: [1784, 3288]
     sentence_count: 6
     key_terms: [market, png, growth, b7cda30d5734f8478d1cb06d625a577e5e703ae8, d2cad0c05b5106dbc362823ba458d3ff04693c5e, preview, altria, format]
+    concepts: [market, growth, preview, altria, format]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c0", "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c2", "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c3", "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c5"]
     token_count: 472
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c2"
     char_span: [3290, 4981]
     sentence_count: 8
     key_terms: [png, altria, oral, preview, revenue, segment, format, growth]
+    concepts: [altria, preview, revenue, segment, format]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c0", "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c1", "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c3", "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c5"]
     token_count: 482
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c3"
     char_span: [4983, 5845]
     sentence_count: 3
     key_terms: [png, revenues, d70233abb42a1fbb31bd850d721e0bc8431742ed, margins, preview, format, https, width]
+    concepts: [revenues, margins, preview, format, https]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c1", "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c2", "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c5"]
     token_count: 279
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c4"
     char_span: [5847, 8065]
     sentence_count: 19
     key_terms: [declining, market, cigs, tobacco, consumers, cig, better, pouch]
+    concepts: [declining, market, tobacco, consumers, better]
     token_count: 506
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c5"
     char_span: [8067, 9040]
     sentence_count: 2
     key_terms: [png, https, preview, format, width, auto, redd, webp]
+    concepts: [https, preview, format, width, customer]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c1", "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c2", "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c3"]
     token_count: 372
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c6"
     char_span: [9054, 9121]
@@ -57,12 +69,14 @@ chunks:
     char_span: [9123, 10714]
     sentence_count: 10
     key_terms: [e0890ccfcd65f6b66bcfbc18912b3be0f0d009ed, quinoasqueefs, deleted, breakfastmedical5164, least, rancidsmellingshit, bro, free]
+    concepts: [quinoasqueefs, deleted, least]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c8"
     char_span: [10478, 12106]
     sentence_count: 7
     key_terms: [never, heard, quinoasqueefs, zyn, preview, circle, format, growth]
+    concepts: [never, heard, quinoasqueefs, preview, circle]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c9"
@@ -75,8 +89,10 @@ chunks:
     char_span: [12403, 12906]
     sentence_count: 7
     key_terms: [pouches, growth, extrapolating, quinoasqueefs, campcosmos3, sensitivity, anecdotal, something]
+    concepts: [pouches, growth]
     section: Comments
     token_count: 143
+    sources: [{"n":"anecdotal personal research.","u":""}]
 ---
 # Cigs Are Good For You: Why Oral Turns Me on!
 

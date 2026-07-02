@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 2020]
     sentence_count: 16
     key_terms: [experience, certification, cloud, project, salesforce, platform, consultant, admin]
+    concepts: [experience, certification, cloud, project, salesforce]
     token_count: 425
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1tipn1g/next_certification_to_take/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1tipn1g.md#c1"
-    char_span: [2035, 3148]
+    char_span: [2034, 3147]
     sentence_count: 8
     key_terms: [fsc, experience, admin, like, material, partner, portal, certs]
+    concepts: [experience, admin, material, partner, portal]
     section: Comments
     token_count: 260
 ---

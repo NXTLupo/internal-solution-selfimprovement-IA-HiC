@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1103]
     sentence_count: 5
     key_terms: [internships, comments, summer, https, com, list, comment, posted]
+    concepts: [internships, comments, summer, https, comment]
     token_count: 314
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rff7qh/its_not_too_late_for_summer_2026_internships/"}]
   - id: "social-intelligence/reddit-deep/internships/1rff7qh.md#c1"
     char_span: [1117, 2170]
     sentence_count: 4
     key_terms: [internship, late, thank, got, too, ddddeeeeg, summer, ecstatic-attention23]
+    concepts: [internship, thank, ddddeeeeg, summer]
     section: Comments
     token_count: 357
 ---

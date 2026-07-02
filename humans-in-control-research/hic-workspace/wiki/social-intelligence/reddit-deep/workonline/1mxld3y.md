@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 643]
     sentence_count: 9
     key_terms: [did, workonline, comments, feel, job, like, part, time]
+    concepts: [workonline, comments]
     token_count: 159
+    sources: [{"n":"reddit-deep: r/workonline","u":"https://www.reddit.com/r/WorkOnline/comments/1mxld3y/telus_international/"}]
   - id: "social-intelligence/reddit-deep/workonline/1mxld3y.md#c1"
     char_span: [657, 2508]
     sentence_count: 12
     key_terms: [get, tasks, got, paid, want, work, additional, onboarding]
+    concepts: [tasks, additional, onboarding, complete, pretty]
     section: Comments
     token_count: 462
 ---

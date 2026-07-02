@@ -19,14 +19,19 @@ content_hash: "a7f14d232a3eaf50"
 relevance_by_goal: {"46dec9599ad5":55}
 chunks:
   - id: "articles/reddit-deep-r-defi/912cedbb3b.md#c0"
-    char_span: [0, 903]
+    char_span: [0, 902]
     sentence_count: 10
     key_terms: [wallet, bitlock, metamask, recently, anyone, reddit, built, https]
-    token_count: 205
+    concepts: [wallet, bitlock, metamask, recently, anyone]
+    related_chunks: ["articles/reddit-deep-r-defi/912cedbb3b.md#c1"]
+    token_count: 204
+    sources: [{"n":"Reddit Deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1nxcfbi/anyone_using_bitlock_wallet/"}]
   - id: "articles/reddit-deep-r-defi/912cedbb3b.md#c1"
-    char_span: [905, 2263]
+    char_span: [904, 2262]
     sentence_count: 12
     key_terms: [bitlock, wallet, using, like, metamask, months, dependent-wafer1372, funds]
+    concepts: [bitlock, wallet, using, metamask, months]
+    related_chunks: ["articles/reddit-deep-r-defi/912cedbb3b.md#c0"]
     token_count: 345
 ---
 # Anyone using Bitlock wallet?

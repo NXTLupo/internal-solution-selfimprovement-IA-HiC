@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1647]
     sentence_count: 1
     key_terms: [classes, college, attend, doesn, going, feel, get, room]
+    concepts: [classes, college, attend, doesn, going]
     token_count: 389
+    sources: [{"n":"reddit: College","u":"https://reddit.com/r/college/comments/1nbnn15/roomate_isnt_going_to_class/"}]
 ---
 # Roomate isn’t going to class
 

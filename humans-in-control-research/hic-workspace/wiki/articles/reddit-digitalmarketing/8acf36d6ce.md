@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1245]
     sentence_count: 8
     key_terms: [web, google, digitalmarketing, mode, own, overviews, reddit, search]
+    concepts: [google, digitalmarketing, overviews, reddit, search]
     token_count: 278
+    sources: [{"n":"reddit: digitalmarketing","u":"https://reddit.com/r/DigitalMarketing/comments/1kwfdt9/google_is_quietly_burying_the_internet/"}]
 ---
 # Google is quietly burying the internet
 

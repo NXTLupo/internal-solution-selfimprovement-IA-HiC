@@ -17,10 +17,12 @@ research_goal: "Generate a comprehensive product marketing report for NXT Humans
 engagement: "generate-a-comprehensive-product-marketing-report-for-nxt-hu"
 chunks:
   - id: "social-intelligence/reddit-deep/saas/1sz7wj1.md#c0"
-    char_span: [0, 1796]
+    char_span: [0, 1795]
     sentence_count: 12
     key_terms: [https, like, linkence, company, product, across, interesting, com]
+    concepts: [https, linkence, company, product, across]
     token_count: 386
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1sz7wj1/creating_enterprise_copilot_ai/"}]
 ---
 # Creating Enterprise Copilot AI
 

@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 1442]
     sentence_count: 12
     key_terms: [comments, careers, findapath, https, best-ai-proof-no-degree-careers, com, eta, jobs]
+    concepts: [comments, careers, findapath, brahnbrahl, https]
     token_count: 376
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1rp8iny/i_ranked_the_top_20_aiproof_careers_you_can_start/"}]
   - id: "social-intelligence/reddit-deep/findapath/1rp8iny.md#c1"
     char_span: [1456, 2403]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1rp8iny.md#c2"
     char_span: [2406, 4339]
     sentence_count: 11
     key_terms: [like, care, work, elderly, health, poster, responsible-lunch552, dontfeedagalasponge]
+    concepts: [elderly, health, poster, being]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/findapath/1rp8iny.md#c3"
     char_span: [4341, 6194]
     sentence_count: 11
     key_terms: [people, dontfeedagalasponge, collectively, list, brahnbrahl, technician, mechanic, thinking]
+    concepts: [dontfeedagalasponge, people, collectively, brahnbrahl, technician]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1rp8iny.md#c4"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/findapath/1rp8iny.md#c4"
     char_span: [6197, 7806]
     sentence_count: 11
     key_terms: [dontfeedagalasponge, jobs, pay, officers, teach-xx, become, people, wooden-background107]
+    concepts: [dontfeedagalasponge, officers, teach-xx, become, people]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1rp8iny.md#c3"]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/findapath/1rp8iny.md#c5"
     char_span: [7808, 8712]
     sentence_count: 6
     key_terms: [controller, traffic, apples, people, "don't", unknownunknowns11, air, get]
+    concepts: [controller, traffic, apples, people, "don't"]
     section: Comments
     token_count: 231
 ---

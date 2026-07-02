@@ -21,40 +21,50 @@ chunks:
     char_span: [0, 2244]
     sentence_count: 35
     key_terms: [kid, selective, accepted, amazing, school, applyingtocollege, sub, private]
+    concepts: [selective, accepted, amazing, applyingtocollege, school]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c2"]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1naga4o/warning_about_this_sub_humans_actually_exist/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c1"
     char_span: [2246, 2878]
     sentence_count: 13
     key_terms: [school, face, time, fulfilling, education, selective, something, accepted]
+    concepts: [school]
     token_count: 150
   - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c2"
     char_span: [2892, 4447]
     sentence_count: 16
     key_terms: [schools, school, get, state, selective, transfer, people, apply]
+    concepts: [schools, school, state, selective, transfer]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c0"]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c3"
     char_span: [4449, 5231]
     sentence_count: 3
     key_terms: [law, school, hahahahahahaha, national-level, non-selective, well-regarded, absolutely, fellowship]
+    concepts: [school]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c4"
     char_span: [5233, 7307]
     sentence_count: 23
     key_terms: [college, fordham, school, northwestern, fit, confident, important, instead]
+    concepts: [college, fordham, northwestern, school, confident]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c5"
     char_span: [7309, 9096]
     sentence_count: 14
     key_terms: [applying, favorite, sub, college, acceptance, colleges, probably, profiles]
+    concepts: [applying, favorite, college, acceptance, colleges]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c6"
     char_span: [9098, 10425]
     sentence_count: 10
     key_terms: [skiing, colleges, figure, comfortablepractice5, famous-college-essay, found, never, littlerootvillager]
+    concepts: [skiing, colleges, figure, found, never]
     section: Comments
     token_count: 334
 ---

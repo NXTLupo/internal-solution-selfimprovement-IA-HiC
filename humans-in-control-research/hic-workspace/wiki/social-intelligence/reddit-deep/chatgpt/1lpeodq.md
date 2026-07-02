@@ -21,53 +21,63 @@ chunks:
     char_span: [0, 1266]
     sentence_count: 6
     key_terms: [openai-says-court-forcing-it-to-save-all-chatgpt-logs-is-a-privacy-nightmare, chatgpt, https, arstechnica, tech-policy, com, comments, delete]
+    concepts: [openai-says-court-forcing-it-to-save-all-chatgpt-logs-is-a-privacy-nightmare, chatgpt, arstechnica, tech-policy, https]
     token_count: 355
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1lpeodq/psa_all_of_your_chatgpt_chats_even_deleted_ones/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1lpeodq.md#c1"
     char_span: [1280, 2794]
     sentence_count: 6
     key_terms: [chatgpt, comments, deleted, secrets, serious, someone, stories, gluesniffingenabler]
+    concepts: [chatgpt, comments, deleted, secrets, serious]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/chatgpt/1lpeodq.md#c2"
     char_span: [2796, 4000]
     sentence_count: 3
     key_terms: [nerdyindoorcat, comprehensive-menu44, cheap-response5792, got, capt-yossarius, pinksmarties06, antipleasure, out-of-print]
+    concepts: [nerdyindoorcat]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/chatgpt/1lpeodq.md#c3"
     char_span: [4002, 5563]
     sentence_count: 4
     key_terms: [deleted, no-wishbone7270, romance, mine, dumping, freddy, goblin, novels]
+    concepts: [deleted, no-wishbone7270, romance, dumping, freddy]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1lpeodq.md#c4"
     char_span: [5375, 6747]
     sentence_count: 5
     key_terms: [use, deleted, lawyer, public, sample, l5s1microdiscectomy, right, you-create-energy]
+    concepts: [deleted, lawyer, public, sample, right]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/chatgpt/1lpeodq.md#c5"
     char_span: [6749, 8133]
     sentence_count: 10
     key_terms: [anonymized, identifiers, data, chat, risk, structured, payloads, deleted]
+    concepts: [anonymized, identifiers, structured, payloads, deleted]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/chatgpt/1lpeodq.md#c6"
     char_span: [8135, 9820]
     sentence_count: 11
     key_terms: [subscription, something, personal, neopets, credit, little, opposite-brother5331, semianonymousteacher]
+    concepts: [subscription, something, personal, neopets, credit]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/chatgpt/1lpeodq.md#c7"
     char_span: [9822, 11620]
     sentence_count: 5
     key_terms: [like, ohthehuemanatee, people, chat, everything, committed, "wouldn't", details]
+    concepts: [ohthehuemanatee, people, everything, committed, "wouldn't"]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/chatgpt/1lpeodq.md#c8"
     char_span: [11622, 12322]
     sentence_count: 2
     key_terms: [intimate, long-contribution466, a3zqvrh40cdhu, relationships, confidential, mayosucksass, regurgitates, satibagipula]
+    concepts: [intimate]
     section: Comments
     token_count: 188
 ---

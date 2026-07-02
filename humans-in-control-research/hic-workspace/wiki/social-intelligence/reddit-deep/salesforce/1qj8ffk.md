@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 1274]
     sentence_count: 9
     key_terms: [metadata, apex, salesforce, wsdl, mdapi, newer, api, approach]
+    concepts: [metadata, salesforce, mdapi, newer, approach]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qj8ffk.md#c1"]
     token_count: 299
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1qj8ffk/how_are_people_actually_using_salesforce_metadata/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1qj8ffk.md#c1"
-    char_span: [1289, 2859]
+    char_span: [1288, 2858]
     sentence_count: 9
     key_terms: [metadata, apex, api, using, salesforce, apexcode, external, handled]
+    concepts: [metadata, salesforce, using, apexcode, external]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qj8ffk.md#c0"]
     section: Comments
     token_count: 373
 ---

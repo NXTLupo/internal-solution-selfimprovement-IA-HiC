@@ -17,10 +17,12 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1pubpcb.md#c0"
-    char_span: [0, 1916]
+    char_span: [0, 1915]
     sentence_count: 6
     key_terms: [volunteerism, breaking-new-ground-united-nations-volunteers-and-university-pretoria-set-launch-first, report, volunteer, volunteers, unv, global, philanthropy]
-    token_count: 425
+    concepts: [volunteerism, volunteer, report, volunteers, philanthropy]
+    token_count: 424
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1pubpcb/2026_state_of_the_worlds_volunteerism_report_swvr/"}]
 ---
 # 2026 State of the World's Volunteerism Report (SWVR): Redefining the true value of Volunteerism (UNV report)
 

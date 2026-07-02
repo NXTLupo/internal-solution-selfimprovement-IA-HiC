@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 749]
     sentence_count: 13
     key_terms: [internships, led, comments, unicorn, email, cold, got, clevelchaos]
+    concepts: [internships, comments, unicorn, email]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1lcppz5.md#c2"]
     token_count: 186
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1lcppz5/i_got_into_a_unicorn_it_was_this_one_cold_email/"}]
   - id: "social-intelligence/reddit-deep/internships/1lcppz5.md#c1"
     char_span: [763, 2624]
     sentence_count: 10
     key_terms: [clevelchaos, companyname, background, tinkering, get, beginner, research, context]
+    concepts: [clevelchaos, companyname, background, tinkering, beginner]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1lcppz5.md#c2"
     char_span: [2626, 3268]
     sentence_count: 4
     key_terms: [email, unicorn, please, ok-revolution-1565, did, congratulations, aquarianbeyond, heissofluffy]
+    concepts: [email, unicorn, please]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1lcppz5.md#c0"]
     section: Comments
     token_count: 193
 ---

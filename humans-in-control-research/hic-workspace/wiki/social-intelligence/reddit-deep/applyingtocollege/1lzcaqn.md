@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1460]
     sentence_count: 8
     key_terms: [admissions, applyingtocollege, getting, advice, school, videos, cycle, get]
+    concepts: [admissions, applyingtocollege, getting, advice, school]
     token_count: 320
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1lzcaqn/possibly_unpopular_opinion_getting_into_a_top/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lzcaqn.md#c1"
     char_span: [1474, 1828]
     sentence_count: 3
     key_terms: [opinion, people, admissions, unpopular, college, advantage, bodross23, gullible]
+    concepts: [opinion, people, admissions, unpopular, college]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lzcaqn.md#c2"]
     section: Comments
     token_count: 85
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lzcaqn.md#c2"
     char_span: [1830, 3981]
     sentence_count: 11
     key_terms: [great, college, people, got, extracurriculars, essays, essay, money]
+    concepts: [great, college, people, extracurriculars, essays]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lzcaqn.md#c1"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lzcaqn.md#c3"
     char_span: [3727, 5204]
     sentence_count: 6
     key_terms: [low-agency2539, great, kids, coaches, players, rarely, sure, yourlittlebirdie]
+    concepts: [low-agency2539, great, coaches, players, rarely]
     section: Comments
     token_count: 349
 ---

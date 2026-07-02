@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1433]
     sentence_count: 11
     key_terms: [professors, assignment, submission, grade, high, put, work, comments]
+    concepts: [professors, assignment, submission, grade, comments]
     token_count: 338
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1mu3xru/a_zero_for_no_submission/"}]
   - id: "social-intelligence/reddit-deep/professors/1mu3xru.md#c1"
     char_span: [1447, 1634]
     sentence_count: 2
@@ -32,36 +34,44 @@ chunks:
     char_span: [1636, 3566]
     sentence_count: 11
     key_terms: [give, life-education-8030, coffee, latte, free, like, nothing, public]
+    concepts: [life-education-8030, coffee, latte, nothing, public]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1mu3xru.md#c3"
     char_span: [3318, 4271]
     sentence_count: 5
     key_terms: [analogy, youtube, https, money, watch, com, give, turn]
+    concepts: [analogy, youtube, https, money, watch]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/professors/1mu3xru.md#c4"
     char_span: [4273, 6249]
     sentence_count: 12
     key_terms: [students, get, life-education-8030, work, because, giving, unsuspecting, nope]
+    concepts: [students, life-education-8030, because, unsuspecting, giving]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mu3xru.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1mu3xru.md#c5"
     char_span: [6076, 6626]
     sentence_count: 5
     key_terms: [nope, concerned, schools, life-education-8030, valedictorians, lovelydani20, jun1p3rsm0m, assignment]
+    concepts: [concerned, schools]
     section: Comments
     token_count: 151
   - id: "social-intelligence/reddit-deep/professors/1mu3xru.md#c6"
     char_span: [6628, 8167]
     sentence_count: 7
     key_terms: [equity, alreadytired2025-26, work, because, students, primary, school, "can't"]
+    concepts: [alreadytired2025-26, equity, because, students, primary]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1mu3xru.md#c4"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/professors/1mu3xru.md#c7"
     char_span: [8169, 9528]
     sentence_count: 8
     key_terms: [student, work, damaging, students, deleted, better, points, class]
+    concepts: [student, damaging, students, deleted, better]
     section: Comments
     token_count: 359
 ---

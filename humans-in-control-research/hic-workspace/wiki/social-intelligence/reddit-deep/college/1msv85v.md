@@ -20,23 +20,32 @@ chunks:
     char_span: [0, 1560]
     sentence_count: 10
     key_terms: [schools, school, internships, experience, college, get, big-name, comments]
+    concepts: [schools, school, internships, experience, college]
+    related_chunks: ["social-intelligence/reddit-deep/college/1msv85v.md#c1", "social-intelligence/reddit-deep/college/1msv85v.md#c2", "social-intelligence/reddit-deep/college/1msv85v.md#c3"]
     token_count: 367
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1msv85v/why_go_to_a_bigname_school_when_a_smallercheaper/"}]
   - id: "social-intelligence/reddit-deep/college/1msv85v.md#c1"
     char_span: [1574, 3619]
     sentence_count: 13
     key_terms: [school, people, opportunities, differences, experience, university, research, program]
+    concepts: [school, opportunities, people, differences, experience]
+    related_chunks: ["social-intelligence/reddit-deep/college/1msv85v.md#c0", "social-intelligence/reddit-deep/college/1msv85v.md#c2"]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/college/1msv85v.md#c2"
     char_span: [3621, 5860]
     sentence_count: 14
     key_terms: [school, opportunities, college, schools, experience, name, students, connections]
+    concepts: [school, opportunities, college, schools, experience]
+    related_chunks: ["social-intelligence/reddit-deep/college/1msv85v.md#c0", "social-intelligence/reddit-deep/college/1msv85v.md#c1", "social-intelligence/reddit-deep/college/1msv85v.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1msv85v.md#c3"
     char_span: [5590, 7485]
     sentence_count: 15
     key_terms: [schools, school, financial, aid, debt, salary, within, proportion]
+    concepts: [schools, school, financial, salary, within]
+    related_chunks: ["social-intelligence/reddit-deep/college/1msv85v.md#c0", "social-intelligence/reddit-deep/college/1msv85v.md#c2"]
     section: Comments
     token_count: 439
 ---

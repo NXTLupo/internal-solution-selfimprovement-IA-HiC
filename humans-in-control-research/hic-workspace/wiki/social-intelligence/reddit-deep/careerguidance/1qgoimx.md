@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 946]
     sentence_count: 7
     key_terms: [timeshare, careerguidance, sales, years, marketing, comments, advice, switch]
+    concepts: [timeshare, careerguidance, sales, years, marketing]
     token_count: 232
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qgoimx/anyone_able_to_give_some_advice_or_guidance_for_a/"}]
 ---
 # Anyone able to give some advice or guidance for a mid-career switch?
 

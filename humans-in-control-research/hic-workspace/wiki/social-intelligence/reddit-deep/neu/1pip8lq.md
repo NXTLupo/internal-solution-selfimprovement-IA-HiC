@@ -19,11 +19,16 @@ chunks:
     char_span: [0, 2178]
     sentence_count: 15
     key_terms: [on-campus, employment, f-1-curricular-practical-training, co-op, cpt, full-time, ogs, time]
+    concepts: [on-campus, employment, f-1-curricular-practical-training, co-op, full-time]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1pip8lq.md#c1"]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1pip8lq/confused_about_cpt_rules_can_f1_students_work_on/"}]
   - id: "social-intelligence/reddit-deep/neu/1pip8lq.md#c1"
     char_span: [2192, 2921]
     sentence_count: 7
     key_terms: [co-op, on-campus, part-time, question, advisor, always, formal-operation4241, check]
+    concepts: [co-op, on-campus, part-time, question, advisor]
+    related_chunks: ["social-intelligence/reddit-deep/neu/1pip8lq.md#c0"]
     section: Comments
     token_count: 203
 ---

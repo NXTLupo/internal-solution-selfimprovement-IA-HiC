@@ -19,19 +19,25 @@ content_hash: "435adbd51ea50b84"
 relevance_by_goal: {"68c375ef0d4e":60}
 chunks:
   - id: "articles/reddit-deep-r-healthinsurance/db8ec80bcf.md#c0"
-    char_span: [0, 2219]
+    char_span: [0, 2218]
     sentence_count: 11
     key_terms: [healthinsurance, questions, information, post, please, reddit, comments, hospital]
-    token_count: 481
+    concepts: [healthinsurance, questions, information, please, reddit]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/db8ec80bcf.md#c1"]
+    token_count: 480
+    sources: [{"n":"Reddit Deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1u0khxg/us_health_group/"}]
   - id: "articles/reddit-deep-r-healthinsurance/db8ec80bcf.md#c1"
-    char_span: [2221, 4368]
+    char_span: [2220, 4367]
     sentence_count: 12
     key_terms: [please, post, eob, contact, information, insurance, questions, subreddit]
+    concepts: [please, information, contact, insurance, questions]
+    related_chunks: ["articles/reddit-deep-r-healthinsurance/db8ec80bcf.md#c0"]
     token_count: 475
   - id: "articles/reddit-deep-r-healthinsurance/db8ec80bcf.md#c2"
-    char_span: [4370, 6434]
+    char_span: [4369, 6433]
     sentence_count: 24
     key_terms: [appeal, insurance, did, process, denial, plan, hospital, appeals]
+    concepts: [insurance, appeal, process, denial, hospital]
     token_count: 475
 ---
 # US Health Group

@@ -20,17 +20,24 @@ chunks:
     char_span: [0, 704]
     sentence_count: 5
     key_terms: [vanguard, email, bogleheads, comments, address, like, specifically, reddit-deep]
+    concepts: [vanguard, bogleheads, email, comments, address]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1pab0d7.md#c1"]
     token_count: 163
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1pab0d7/vanguard_email_address_for_customer_service/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1pab0d7.md#c1"
-    char_span: [719, 2874]
+    char_span: [718, 2873]
     sentence_count: 16
     key_terms: [vanguard, email, customer, service, transfer, "don't", fee, disclaimer]
+    concepts: [vanguard, customer, email, service, transfer]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1pab0d7.md#c0", "social-intelligence/reddit-deep/bogleheads/1pab0d7.md#c2"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/bogleheads/1pab0d7.md#c2"
-    char_span: [2876, 4615]
+    char_span: [2875, 4614]
     sentence_count: 10
     key_terms: [transfer, transferred, fidelity, vanguard, contact, service, level, fees]
+    concepts: [transfer, transferred, fidelity, vanguard, contact]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1pab0d7.md#c1"]
     section: Comments
     token_count: 397
 ---

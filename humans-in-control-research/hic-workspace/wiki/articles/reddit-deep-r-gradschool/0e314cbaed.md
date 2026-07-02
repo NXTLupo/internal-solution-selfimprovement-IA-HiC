@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1401]
     sentence_count: 12
     key_terms: [without, afford, gradschool, honestly, hospital, masters, people, reddit]
+    concepts: [without, afford, gradschool, honestly, hospital]
     token_count: 334
+    sources: [{"n":"Reddit Deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1q2l8i4/how_do_i_get_my_masters_without_going_into/"}]
   - id: "articles/reddit-deep-r-gradschool/0e314cbaed.md#c1"
     char_span: [1403, 3305]
     sentence_count: 10
     key_terms: [program, time, online, school, university, decent, enough, full]
+    concepts: [program, university, online, school, decent]
     token_count: 419
   - id: "articles/reddit-deep-r-gradschool/0e314cbaed.md#c2"
     char_span: [3307, 4857]
     sentence_count: 9
     key_terms: [comms, people, university, director, "master's", private, program, tuition]
+    concepts: [comms, people, university, director, "master's"]
     token_count: 379
 ---
 # How do I get my Masters without going into crippling debt

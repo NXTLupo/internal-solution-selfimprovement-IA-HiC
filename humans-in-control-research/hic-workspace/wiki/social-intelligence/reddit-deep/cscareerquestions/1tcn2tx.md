@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1301]
     sentence_count: 8
     key_terms: [cscareerquestions, career, comments, everyone, personal, studying, already, student]
+    concepts: [cscareerquestions, career, comments, everyone, personal]
     token_count: 304
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tcn2tx/21yo_cs_student_with_no_direction_need_career/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tcn2tx.md#c1"
     char_span: [1315, 2699]
     sentence_count: 4
     key_terms: [like, research, getting, systems, behind, people, being, build]
+    concepts: [research, getting, systems, behind, people]
     section: Comments
     token_count: 319
 ---

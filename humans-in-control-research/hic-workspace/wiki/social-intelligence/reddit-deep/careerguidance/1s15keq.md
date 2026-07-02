@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 1413]
     sentence_count: 28
     key_terms: ["don't", want, looking, careerguidance, school, years, cdl, down]
+    concepts: ["don't", careerguidance, looking, school, years]
     token_count: 357
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1s15keq/im_a_30_year_old_male_no_direction_in_life_no/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1s15keq.md#c1"
-    char_span: [1428, 3542]
+    char_span: [1427, 3541]
     sentence_count: 11
     key_terms: [quality, inspector, company, understanding, gonna, good, got, like]
+    concepts: [quality, inspector, understanding, company, gonna]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1s15keq.md#c2"
-    char_span: [3281, 5411]
+    char_span: [3280, 5410]
     sentence_count: 14
     key_terms: [draftsman, technical, autocad, revit, cad, community, drafting, company]
+    concepts: [draftsman, technical, autocad, revit, community]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1s15keq.md#c3"
-    char_span: [5142, 6195]
+    char_span: [5141, 6194]
     sentence_count: 5
     key_terms: [hours, like, school, get, activities, places, field, bus]
+    concepts: [hours, school, activities, places, field]
     section: Comments
     token_count: 262
   - id: "social-intelligence/reddit-deep/careerguidance/1s15keq.md#c4"
-    char_span: [6197, 8096]
+    char_span: [6196, 8095]
     sentence_count: 17
     key_terms: [passion, skill, like, passions, fixed, cdl, get, take]
+    concepts: [passion, skill, passions, fixed, shoulder]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/careerguidance/1s15keq.md#c5"
-    char_span: [8098, 9296]
+    char_span: [8097, 9295]
     sentence_count: 12
     key_terms: [machines, formosan1986, sorts, good, interests, anything, running, working]
+    concepts: [machines, formosan1986, sorts, interests, anything]
     section: Comments
     token_count: 288
 ---

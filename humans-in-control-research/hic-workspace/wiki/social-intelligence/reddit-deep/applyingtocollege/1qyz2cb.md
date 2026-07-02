@@ -21,83 +21,106 @@ chunks:
     char_span: [0, 2258]
     sentence_count: 11
     key_terms: [anthropology, university, applyingtocollege, daughter, flight, mexico, world, opportunity]
+    concepts: [anthropology, university, applyingtocollege, daughter, flight]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1qyz2cb/my_daughter_is_freaking_out_and_now_so_am_i/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c1"
     char_span: [2272, 4534]
     sentence_count: 27
     key_terms: [classes, school, credits, student, enough, well-rounded, years, don]
+    concepts: [classes, school, credits, student, well-rounded]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c2"
     char_span: [4282, 4631]
     sentence_count: 7
     key_terms: [classes, junior, took, enrollment, community, accepted, daughter, grinnell]
+    concepts: [classes, junior]
     section: Comments
     token_count: 87
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c3"
     char_span: [4633, 6570]
     sentence_count: 15
     key_terms: [classes, college, able, need, experience, consider, daughter, require]
+    concepts: [classes, college, experience, consider, daughter]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c12"]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c4"
     char_span: [6572, 8651]
     sentence_count: 23
     key_terms: [daughter, schools, museum, possibilities, non-starter, isn, syracuse, studies]
+    concepts: [daughter, possibilities, schools, museum, non-starter]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c5"
     char_span: [8653, 9637]
     sentence_count: 8
     key_terms: [semester, schools, transcript, freshman, geometry, grades, since, throwawaygremlins]
+    concepts: [semester, schools, transcript, freshman, geometry]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c6", "social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c7", "social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c8"]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c6"
     char_span: [9639, 11030]
     sentence_count: 9
     key_terms: [schools, top, grade, year, freshman, grades, ok-dragonfruit9929, ivy]
+    concepts: [schools, grade, freshman, grades]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c7"]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c7"
     char_span: [11032, 12810]
     sentence_count: 7
     key_terms: [term, freshman, schools, requirements, reasonable, geometry, movement, stanford]
+    concepts: [freshman, schools, requirements, reasonable, geometry]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c5", "social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c6"]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c8"
     char_span: [12812, 14039]
     sentence_count: 10
     key_terms: [transcript, accepted, enrollment, geometry, required, students, classes, intelligentmaybe7401]
+    concepts: [transcript, accepted, enrollment, geometry, required]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c5"]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c9"
     char_span: [14041, 16133]
     sentence_count: 19
     key_terms: [schools, apply, schooled, don, home, difference, different, wingbatso]
+    concepts: [schools, apply, schooled, difference, different]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c10"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c10"
     char_span: [15809, 16457]
     sentence_count: 4
     key_terms: [difference, different, goal, anthropology, homeschooled, drastically, coursework, especially]
+    concepts: [difference, different]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c9"]
     section: Comments
     token_count: 138
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c11"
     char_span: [16459, 17530]
     sentence_count: 7
     key_terms: [traditional, learning, students, looking, grades, ok-lawfulness-5498, able, back]
+    concepts: [traditional, learning, students, looking, grades]
     section: Comments
     token_count: 253
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c12"
     char_span: [17532, 18843]
     sentence_count: 8
     key_terms: [top, classes, college, schools, state, year, additional, highschool]
+    concepts: [classes, college, schools, additional, highschool]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c3"]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qyz2cb.md#c13"
     char_span: [18845, 20782]
     sentence_count: 13
     key_terms: [schools, several, because, "isn't", interesting, year, comments, students]
+    concepts: [schools, several, because, interesting, "isn't"]
     section: Comments
     token_count: 435
 ---

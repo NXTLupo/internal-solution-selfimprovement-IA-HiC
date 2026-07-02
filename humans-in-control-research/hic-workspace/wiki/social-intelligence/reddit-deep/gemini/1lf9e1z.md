@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1729]
     sentence_count: 13
     key_terms: [gemini, login, passkey, stuck, able, app, browser, chrome]
+    concepts: [gemini, login, passkey, stuck, browser]
     token_count: 399
+    sources: [{"n":"reddit-deep: r/gemini","u":"https://www.reddit.com/r/Gemini/comments/1lf9e1z/passkey_work_around/"}]
   - id: "social-intelligence/reddit-deep/gemini/1lf9e1z.md#c1"
     char_span: [1743, 3525]
     sentence_count: 16
     key_terms: [passkey, mobile, app, device, device-specific, devices, create, auntietd]
+    concepts: [passkey, mobile, device, device-specific, devices]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/gemini/1lf9e1z.md#c2"
     char_span: [3528, 5321]
     sentence_count: 21
     key_terms: [auntietd, email, passkey, locked, account, gemini, hey, rooting]
+    concepts: [auntietd, email, passkey, locked, account]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gemini/1lf9e1z.md#c3"
     char_span: [5088, 5346]
     sentence_count: 5
     key_terms: [iphone, locked, clarify, passkey, windows, laptop, thanks, brain]
+    concepts: [iphone, locked]
     section: Comments
     token_count: 71
 ---

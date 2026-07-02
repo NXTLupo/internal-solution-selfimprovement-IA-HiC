@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 667]
     sentence_count: 3
     key_terms: [cscareerquestions, comments, learning, machine, worried, deliverables, engineering, reddit-deep]
+    concepts: [cscareerquestions, comments, learning, machine, worried]
     token_count: 161
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1stqqah/by_the_time_i_have_graduated_i_will_have_3_years/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1stqqah.md#c1"
     char_span: [681, 2011]
     sentence_count: 3
     key_terms: [team, offer, company, return, "you're", happyirishman633210, markzuccsforeskin, here]
+    concepts: [offer, company, return, "you're"]
     section: Comments
     token_count: 353
 ---

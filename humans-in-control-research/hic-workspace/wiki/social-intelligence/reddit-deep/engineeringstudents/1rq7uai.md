@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 1893]
     sentence_count: 21
     key_terms: [worked, engineeringstudents, hours, like, week, pay, internship, comments]
+    concepts: [worked, engineeringstudents, hours, internship, comments]
     token_count: 491
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1rq7uai/my_first_internship_is_going_to_pay_me_more_than/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rq7uai.md#c1"
     char_span: [1907, 3553]
     sentence_count: 9
     key_terms: [college, school, jobs, worked, being, engineering, customer, engineer]
+    concepts: [college, school, worked, engineering, being]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rq7uai.md#c2"
     char_span: [3555, 5460]
     sentence_count: 10
     key_terms: [nvidia-billionaire-ceo-went-denny-145530671, nvidia-dennys-trillion, https, com, engineering, experience, designed, supposed]
+    concepts: [nvidia-billionaire-ceo-went-denny-145530671, nvidia-dennys-trillion, https, engineering, experience]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rq7uai.md#c3"
     char_span: [5462, 6762]
     sentence_count: 7
     key_terms: [get, engineers, euphoric-gazelle7264, welds, years, ambitionno834, unfortunately, acknowledges]
+    concepts: [engineers, welds, years]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rq7uai.md#c4"
@@ -48,12 +53,14 @@ chunks:
     char_span: [7530, 9304]
     sentence_count: 12
     key_terms: [congratulations, carpet, decade, worked, get, lab, life, long]
+    concepts: [congratulations, carpet, decade, worked]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rq7uai.md#c6"
     char_span: [9306, 10906]
     sentence_count: 13
     key_terms: [beautifulcredit3672, want, brother, working, people, pretty, advanced-guidance482, next-explanation321]
+    concepts: [beautifulcredit3672, brother, working, people, pretty]
     section: Comments
     token_count: 424
 ---

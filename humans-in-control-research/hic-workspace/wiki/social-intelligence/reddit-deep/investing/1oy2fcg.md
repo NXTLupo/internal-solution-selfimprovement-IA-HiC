@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1537]
     sentence_count: 13
     key_terms: [support, cards, "i'm", thinking, account, capabilities, investments, good]
+    concepts: [support, cards, thinking, account, capabilities]
     token_count: 350
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1oy2fcg/money_broker_with_good_overseas_transactions/"}]
   - id: "social-intelligence/reddit-deep/investing/1oy2fcg.md#c1"
-    char_span: [1552, 2168]
+    char_span: [1551, 2167]
     sentence_count: 4
     key_terms: [about-foreign-currency-transfers, fidelity, gaylrdfocker, trading, https, com, www, internationally]
+    concepts: [about-foreign-currency-transfers, fidelity, gaylrdfocker, trading, https]
     section: Comments
     token_count: 157
 ---

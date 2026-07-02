@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 2073]
     sentence_count: 17
     key_terms: [working, asked, been, work, managers, hours, application, logs]
+    concepts: [working, asked, managers, application, hours]
     token_count: 474
+    sources: [{"n":"Reddit Deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1sfxnau/wfh_employee_lying_re_working_hours/"}]
   - id: "articles/reddit-deep-r-managers/0b835afcde.md#c1"
     char_span: [2076, 4182]
     sentence_count: 15
     key_terms: [because, everything, worked, being, team, work, productive, available]
+    concepts: [because, everything, worked, being, productive]
     token_count: 478
   - id: "articles/reddit-deep-r-managers/0b835afcde.md#c2"
     char_span: [4184, 4899]
     sentence_count: 2
     key_terms: [exactly, audit, order, thats, done, get, time, work]
+    concepts: [exactly, audit, order, thats]
     token_count: 165
 ---
 # WFH employee lying re working hours

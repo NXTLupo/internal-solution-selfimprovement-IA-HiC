@@ -19,14 +19,17 @@ content_hash: "8729fa15ee254ffa"
 relevance_by_goal: {"8e9ecc469395":30}
 chunks:
   - id: "articles/reddit-deep-r-philanthropy/cfea1c041d.md#c0"
-    char_span: [0, 2415]
+    char_span: [0, 2414]
     sentence_count: 13
     key_terms: [funding, nepal, education, infrastructure, donors, grants, school, international]
-    token_count: 512
+    concepts: [funding, nepal, education, infrastructure, international]
+    token_count: 511
+    sources: [{"n":"Reddit Deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1opwsfq/seeking_guidance_on_nonpolitical_international/"}]
   - id: "articles/reddit-deep-r-philanthropy/cfea1c041d.md#c1"
-    char_span: [2417, 3249]
+    char_span: [2416, 3248]
     sentence_count: 3
     key_terms: [compliance, foundation, reporting, donor, proselytizing, solicitations, fundsforngos, grant-search]
+    concepts: [compliance, foundation, reporting, donor]
     token_count: 172
 ---
 # Seeking guidance on non-political international funding for child education work in Nepal

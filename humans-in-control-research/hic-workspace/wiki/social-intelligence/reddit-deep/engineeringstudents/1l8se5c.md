@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1011]
     sentence_count: 5
     key_terms: [access, engineeringstudents, standards, student, engineering, comments, civil, no-television6249]
+    concepts: [engineeringstudents, access, standards, student, engineering]
     token_count: 211
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1l8se5c/civil_engineering_student_looking_for_free_access/"}]
 ---
 # Civil Engineering Student Looking for Free Access to ASTM or BS Standards
 

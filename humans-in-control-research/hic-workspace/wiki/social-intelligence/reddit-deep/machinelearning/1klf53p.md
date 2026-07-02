@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1430]
     sentence_count: 6
     key_terms: [engineering, machinelearning, models, prompt, tuning, fine-tuning, fine, interview]
+    concepts: [engineering, machinelearning, models, prompt, tuning]
     token_count: 300
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1klf53p/d_had_an_ai_engineer_interview_recently_and_the/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1klf53p.md#c1"
     char_span: [1444, 2904]
     sentence_count: 8
     key_terms: [clearlycylindrical, models, domain-specific, tasks, train, understand, decoder, trained]
+    concepts: [clearlycylindrical, domain-specific, models, tasks, train]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/machinelearning/1klf53p.md#c2"
     char_span: [2906, 5047]
     sentence_count: 18
     key_terms: [fine-tuning, model, fine, engineering, maintenance, "it's", learning, context]
+    concepts: [fine-tuning, model, engineering, maintenance, learning]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/machinelearning/1klf53p.md#c3"
     char_span: [5049, 7274]
     sentence_count: 5
     key_terms: [training, sparsevectormath, domain, distribution, model, engineering, performance, data]
+    concepts: [training, sparsevectormath, distribution, domain, engineering]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/machinelearning/1klf53p.md#c4"
     char_span: [7276, 9209]
     sentence_count: 11
     key_terms: [fine, fine-tuning, "it's", decision, tuning, "can't", coach, assessments]
+    concepts: [fine-tuning, decision, tuning, assessments, "can't"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/machinelearning/1klf53p.md#c5"
     char_span: [9211, 10700]
     sentence_count: 8
     key_terms: [customer, product, prompt, model, experience, surprised, probably, deliver]
+    concepts: [customer, product, prompt, experience, model]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/machinelearning/1klf53p.md#c6"
     char_span: [10702, 12646]
     sentence_count: 9
     key_terms: [finetuning, model, performance, language, scalpel, compared, specific, because]
+    concepts: [finetuning, performance, model, language, scalpel]
     section: Comments
     token_count: 410
 ---

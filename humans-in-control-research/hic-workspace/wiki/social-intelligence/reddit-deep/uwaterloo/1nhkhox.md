@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1347]
     sentence_count: 2
     key_terms: [uwaterloo, https, comments, com, reddit, admissions, megathread, www]
+    concepts: [uwaterloo, https, comments, admissions, megathread]
     token_count: 382
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1nhkhox/fall_2026_admissions_megathread/"}]
   - id: "social-intelligence/reddit-deep/uwaterloo/1nhkhox.md#c1"
     char_span: [1361, 2711]
     sentence_count: 8
     key_terms: [secure-lake5784, aviation, directly, anyone, degree, admission, geography, geomatics]
+    concepts: [secure-lake5784, aviation, directly, anyone, degree]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/uwaterloo/1nhkhox.md#c2"
     char_span: [2713, 4764]
     sentence_count: 13
     key_terms: [futurerefrigerator68, submit, science, application, admission, question, average, aif]
+    concepts: [futurerefrigerator68, submit, application, science, admission]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/uwaterloo/1nhkhox.md#c3"
     char_span: [4508, 5262]
     sentence_count: 4
     key_terms: [students, average, ontario, biomed, year, admission, science, trying]
+    concepts: [students, average, ontario, biomed, admission]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/uwaterloo/1nhkhox.md#c4"
     char_span: [5264, 6119]
     sentence_count: 4
     key_terms: [master-analysis-4473, mhf4u, get, ouac, says, sent, extracurriculars, chairman9876]
+    concepts: [mhf4u]
     section: Comments
     token_count: 238
 ---

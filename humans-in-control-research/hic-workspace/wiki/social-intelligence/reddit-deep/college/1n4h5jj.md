@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1545]
     sentence_count: 16
     key_terms: [college, people, friendships, comments, biggest, friends, making, regret]
+    concepts: [college, people, friendships, comments, biggest]
     token_count: 354
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1n4h5jj/my_biggest_regret_in_college_learn_from_me/"}]
   - id: "social-intelligence/reddit-deep/college/1n4h5jj.md#c1"
     char_span: [1559, 1729]
     sentence_count: 4
@@ -30,48 +32,59 @@ chunks:
     char_span: [1731, 3879]
     sentence_count: 24
     key_terms: [get, library, life, like, anybody, people, going, time]
+    concepts: [library, anybody, people, confidence, going]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1n4h5jj.md#c3"
     char_span: [3612, 5551]
     sentence_count: 13
     key_terms: [time, want, people, hard, classes, friend, conversation, clubs]
+    concepts: [people, classes, conversation, friend, assignments]
+    related_chunks: ["social-intelligence/reddit-deep/college/1n4h5jj.md#c4", "social-intelligence/reddit-deep/college/1n4h5jj.md#c8"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/college/1n4h5jj.md#c4"
     char_span: [5553, 7509]
     sentence_count: 17
     key_terms: [people, classes, like, around, friend, group, everywhere, activity]
+    concepts: [people, classes, around, friend, everywhere]
+    related_chunks: ["social-intelligence/reddit-deep/college/1n4h5jj.md#c3", "social-intelligence/reddit-deep/college/1n4h5jj.md#c8"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/college/1n4h5jj.md#c5"
     char_span: [7511, 8686]
     sentence_count: 13
     key_terms: [people, everyone, ask, give, time, want, work, thepandemicbabe]
+    concepts: [people, everyone]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/college/1n4h5jj.md#c6"
     char_span: [8688, 10678]
     sentence_count: 13
     key_terms: [friends, like, people, something, school, personality, events, groups]
+    concepts: [friends, people, something, school, personality]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/college/1n4h5jj.md#c7"
     char_span: [10680, 12561]
     sentence_count: 19
     key_terms: [college, being, "i'm", "don't", due, get, online, person]
+    concepts: [college, being, "don't", online, person]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/college/1n4h5jj.md#c8"
     char_span: [12564, 14182]
     sentence_count: 10
     key_terms: [people, connections, already, friend, close, clubs, established, friendships]
+    concepts: [people, connections, already, friend, established]
+    related_chunks: ["social-intelligence/reddit-deep/college/1n4h5jj.md#c3", "social-intelligence/reddit-deep/college/1n4h5jj.md#c4"]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/college/1n4h5jj.md#c9"
     char_span: [14184, 14864]
     sentence_count: 5
     key_terms: [college, effort, point, right, upper-system-9366, snowmanrandom, monumentally, afterwards]
+    concepts: [college, effort, point, right]
     section: Comments
     token_count: 162
 ---

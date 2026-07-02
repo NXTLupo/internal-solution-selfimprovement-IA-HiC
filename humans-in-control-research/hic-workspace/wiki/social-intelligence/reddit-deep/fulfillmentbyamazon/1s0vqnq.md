@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 833]
     sentence_count: 5
     key_terms: [fulfillmentbyamazon, queries, like, comments, handling, support, reasonable-jelly-143, order]
+    concepts: [fulfillmentbyamazon, queries, comments, handling, support]
     token_count: 188
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1s0vqnq/anyone_else_getting_flooded_with_where_is_my/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1s0vqnq.md#c1"
-    char_span: [848, 2796]
+    char_span: [847, 2795]
     sentence_count: 10
     key_terms: [fulfillmentbyamazon, discord, agents, fba, customers, genuinely, contacts, tracking]
+    concepts: [fulfillmentbyamazon, discord, agents, customers, genuinely]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1s0vqnq.md#c2"
-    char_span: [2798, 4639]
+    char_span: [2797, 4638]
     sentence_count: 9
     key_terms: [reasonable-jelly-143, tracking, amazon, volume, notification, personalised, templates, automate]
+    concepts: [reasonable-jelly-143, tracking, notification, personalised, amazon]
     section: Comments
     token_count: 422
 ---

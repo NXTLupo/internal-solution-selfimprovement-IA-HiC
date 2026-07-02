@@ -21,22 +21,28 @@ chunks:
     char_span: [0, 1941]
     sentence_count: 15
     key_terms: [poet, investing, been, wallstreetbets, market, early, portfolio, comments]
+    concepts: [investing, wallstreetbets, market, early, portfolio]
     token_count: 490
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1suxf9z/poet_finally_ripping_turned_student_loanera/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c1"
     char_span: [1943, 2633]
     sentence_count: 9
     key_terms: [poet, long-term, portfolio, bullish, trimmed, scholarship-funded, high, rollercoaster]
+    concepts: [long-term, portfolio, bullish, trimmed]
     token_count: 159
   - id: "social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c2"
     char_span: [2647, 3584]
     sentence_count: 1
     key_terms: [existing-mammoth-315, discord, months, total, ago, best, poet, wsb]
+    concepts: [existing-mammoth-315, discord, months, total]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c3"
     char_span: [3586, 5017]
     sentence_count: 4
     key_terms: [chance, back, like, preview, format, existing-mammoth-315, rutherfordrevelation, https]
+    concepts: [chance, preview, format, https, price]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c5"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c4"
@@ -49,12 +55,15 @@ chunks:
     char_span: [5619, 7115]
     sentence_count: 5
     key_terms: [existing-mammoth-315, d0379effc72adad9b5e2c68be3661ed6401162db, poet, preview, selling, cramer, format, honor]
+    concepts: [existing-mammoth-315, preview, selling, cramer, format]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c3"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c6"
     char_span: [7117, 8269]
     sentence_count: 6
     key_terms: [sonnythecoolboy, existing-mammoth-315, bigger, shares, right, today, sold, chaingoldstein]
+    concepts: [sonnythecoolboy, existing-mammoth-315, bigger, shares, right]
     section: Comments
     token_count: 387
 ---

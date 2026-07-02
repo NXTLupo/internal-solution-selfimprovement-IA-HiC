@@ -21,83 +21,99 @@ chunks:
     char_span: [0, 1520]
     sentence_count: 5
     key_terms: [expenses, credit, card, financialindependence, comments, month, insurance, february]
+    concepts: [expenses, credit, financialindependence, comments, month]
     token_count: 483
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1rcbr40/seven_year_update_44_yo_fired/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1rcbr40.md#c1"
     char_span: [1522, 3005]
     sentence_count: 16
     key_terms: [year, income, hsa, "it's", cruise, "i'm", like, insurance]
+    concepts: [income, cruise, insurance, purchases, couples]
     token_count: 375
   - id: "social-intelligence/reddit-deep/financialindependence/1rcbr40.md#c2"
     char_span: [3007, 4042]
     sentence_count: 6
     key_terms: [insurance, junksnack, pizza, food, category, amazon, dinner, auto]
+    concepts: [insurance, junksnack, pizza, category, amazon]
     token_count: 367
   - id: "social-intelligence/reddit-deep/financialindependence/1rcbr40.md#c3"
     char_span: [4044, 4787]
     sentence_count: 11
     key_terms: [items, fentimans, sparkling, lemonade, redbull, amazon, jerky, like]
+    concepts: [items, fentimans, sparkling, lemonade, redbull]
     token_count: 194
   - id: "social-intelligence/reddit-deep/financialindependence/1rcbr40.md#c4"
     char_span: [4789, 5699]
     sentence_count: 1
     key_terms: [years, total, ira, traditional, investment, retirement, brokerage, including]
+    concepts: [years, total]
     token_count: 421
   - id: "social-intelligence/reddit-deep/financialindependence/1rcbr40.md#c5"
     char_span: [5701, 7550]
     sentence_count: 18
     key_terms: [year, down, conversion, last, roth, bought, great, happy]
+    concepts: [conversion, bought, converting, great, happy]
     token_count: 482
   - id: "social-intelligence/reddit-deep/financialindependence/1rcbr40.md#c6"
     char_span: [7552, 8827]
     sentence_count: 17
     key_terms: [places, bread, never, year, different, couple, little, making]
+    concepts: [places, bread, never, different, couple]
     token_count: 304
   - id: "social-intelligence/reddit-deep/financialindependence/1rcbr40.md#c7"
     char_span: [8841, 10977]
     sentence_count: 19
     key_terms: [group, years, friends, friend, fire, bodhipooh, actively, retiring]
+    concepts: [group, years, friends, friend, bodhipooh]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1rcbr40.md#c8"
     char_span: [10725, 11013]
     sentence_count: 3
     key_terms: [actively, trading, solomongrumpy, absolutely, historic, deleted, person, posts]
+    concepts: [actively, trading]
     section: Comments
     token_count: 80
   - id: "social-intelligence/reddit-deep/financialindependence/1rcbr40.md#c9"
     char_span: [11016, 12931]
     sentence_count: 19
     key_terms: [bitcoin, icy-comfortable-714, roth, tira, retired, investments, btc, spending]
+    concepts: [bitcoin, icy-comfortable-714, retired, investments, spending]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/financialindependence/1rcbr40.md#c10"
     char_span: [12933, 13518]
     sentence_count: 5
     key_terms: [bitcoin, people, years, back, been, "i've", sell, sold]
+    concepts: [bitcoin, people, years]
     section: Comments
     token_count: 154
   - id: "social-intelligence/reddit-deep/financialindependence/1rcbr40.md#c11"
     char_span: [13520, 15493]
     sentence_count: 14
     key_terms: [groceries, portion, significant, food, especially, impressive, portfolio, surprised]
+    concepts: [groceries, portion, significant, especially, impressive]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/financialindependence/1rcbr40.md#c12"
     char_span: [15495, 17676]
     sentence_count: 17
     key_terms: [food, year, eating, pizza, times, assumptions, back, bbq]
+    concepts: [eating, pizza, assumptions, assessment, horrendous]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/financialindependence/1rcbr40.md#c13"
     char_span: [17678, 19399]
     sentence_count: 13
     key_terms: [people, pizza, food, healthy, definitely, cruise, future, health]
+    concepts: [people, pizza, healthy, definitely, cruise]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/financialindependence/1rcbr40.md#c14"
     char_span: [19404, 19866]
     sentence_count: 5
     key_terms: [seeing, like, progression, volatility, obsession, focaccia, managing, probably]
+    concepts: [seeing]
     section: Comments
     token_count: 93
 ---

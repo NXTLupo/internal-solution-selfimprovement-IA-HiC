@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1028]
     sentence_count: 8
     key_terms: [productivity, systems, simplified, structure, comments, planning, workflow, did]
+    concepts: [productivity, systems, simplified, structure, comments]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1t4tp9w.md#c2"]
     token_count: 234
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1t4tp9w/i_simplified_my_workflow_into_5_systems_actually/"}]
   - id: "social-intelligence/reddit-deep/productivity/1t4tp9w.md#c1"
     char_span: [1042, 2919]
     sentence_count: 14
     key_terms: [everything, because, review, weekly, simplifying, big, week, especially]
+    concepts: [everything, because, review, weekly, simplifying]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/productivity/1t4tp9w.md#c2"
     char_span: [2921, 5024]
     sentence_count: 16
     key_terms: [systems, day, morning, night, plan, planning, productivity, helps]
+    concepts: [systems, morning, night, planning, productivity]
+    related_chunks: ["social-intelligence/reddit-deep/productivity/1t4tp9w.md#c0"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/productivity/1t4tp9w.md#c3"
     char_span: [5026, 7395]
     sentence_count: 14
     key_terms: [instead, something, week, systems, enough, review, system, trying]
+    concepts: [instead, something, systems, enough, review]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/productivity/1t4tp9w.md#c4"

@@ -21,34 +21,43 @@ chunks:
     char_span: [0, 2069]
     sentence_count: 17
     key_terms: [comments, professor, hearing, code, external, because, tolower, coding]
+    concepts: [comments, professor, hearing, external, because]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ksdk11.md#c1"]
     token_count: 430
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1ksdk11/falsely_accused_of_cheating_and_appeal_denied/"}]
   - id: "social-intelligence/reddit-deep/college/1ksdk11.md#c1"
     char_span: [2071, 4206]
     sentence_count: 17
     key_terms: [code, assignments, professor, submitted, exam, hearing, appeal, course]
+    concepts: [assignments, professor, submitted, hearing, appeal]
+    related_chunks: ["social-intelligence/reddit-deep/college/1ksdk11.md#c0"]
     token_count: 458
   - id: "social-intelligence/reddit-deep/college/1ksdk11.md#c2"
     char_span: [4220, 5971]
     sentence_count: 15
     key_terms: ["they'll", "you're", administrator, department, material, cheated, thanks, chair]
+    concepts: [administrator, "they'll", "you're", department, material]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/college/1ksdk11.md#c3"
     char_span: [5973, 7992]
     sentence_count: 15
     key_terms: [appeal, process, through, credit, denied, board, class, grade]
+    concepts: [appeal, process, through, credit, denied]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/college/1ksdk11.md#c4"
     char_span: [7994, 9697]
     sentence_count: 12
     key_terms: [help, process, dean, possible, provost, chair, been, need]
+    concepts: [process, possible, provost, chair, department]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/college/1ksdk11.md#c5"
     char_span: [9699, 10973]
     sentence_count: 7
     key_terms: [legal, university, representation, like, moment, start, hard, use]
+    concepts: [legal, university, representation, moment, start]
     section: Comments
     token_count: 304
 ---

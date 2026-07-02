@@ -8,18 +8,21 @@ chunks:
     char_span: [0, 1288]
     sentence_count: 10
     key_terms: [nxt, org, node, hairline, archivo, tokens, gold, mono]
+    concepts: [hairline, archivo, tokens, structure, variables]
     section: Figma exemplars (source of truth) / Anatomy
     token_count: 368
   - id: "design-system/patterns/org.md#c1"
     char_span: [1325, 2104]
     sentence_count: 5
     key_terms: [chat, archivo, dense, graphic-collision, ibm, mono, plex, pptx]
+    concepts: [archivo, dense]
     section: Construction rule (1-to-1 PPTX)
     token_count: 186
   - id: "design-system/patterns/org.md#c2"
     char_span: [2148, 2992]
     sentence_count: 6
     key_terms: [org-chart, node, org, emphasis, source, never, tiers, corpuschatservice]
+    concepts: [org-chart, emphasis, source, never, tiers]
     section: Runtime template contract (2026-06-13)
     token_count: 218
 ---

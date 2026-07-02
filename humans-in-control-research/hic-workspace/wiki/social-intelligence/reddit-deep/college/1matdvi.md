@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1889]
     sentence_count: 20
     key_terms: ["i'm", "i've", working, degree, school, job, want, comments]
+    concepts: [working, degree, school, comments, because]
     token_count: 460
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1matdvi/working_full_time_in_school/"}]
   - id: "social-intelligence/reddit-deep/college/1matdvi.md#c1"
     char_span: [1903, 3664]
     sentence_count: 25
     key_terms: [time, full, school, psychology, did, college, through, feel]
+    concepts: [psychology, school, college, through, chersberes]
     section: Comments
     token_count: 449
 ---

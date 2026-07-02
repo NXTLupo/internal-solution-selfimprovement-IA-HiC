@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 922]
     sentence_count: 5
     key_terms: [internship, engineeringstudents, looking, engineering, experience, comments, research, student]
+    concepts: [engineeringstudents, internship, looking, engineering, experience]
     token_count: 196
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1pnmrfo/high_school_student_looking_for_summer/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pnmrfo.md#c1"
     char_span: [936, 2188]
     sentence_count: 8
     key_terms: [prepare-your-application-mites-summer-and-mites-semester, internship, program, apply-to-mites, discover-mites, https, internships, free]
+    concepts: [prepare-your-application-mites-summer-and-mites-semester, internship, apply-to-mites, discover-mites, program]
     section: Comments
     token_count: 298
 ---

@@ -19,54 +19,70 @@ chunks:
     char_span: [0, 1121]
     sentence_count: 13
     key_terms: [comments, "i'm", cscareerquestions, saying, opinion, advice, futurefaangemployee, crazy]
+    concepts: [comments, cscareerquestions, saying, opinion, advice]
     token_count: 297
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1tbps8v/i_got_14_cs_offers_here_are_6_years_of_advice_i/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c1"
     char_span: [1123, 3257]
     sentence_count: 30
     key_terms: [python, resume, interviews, want, description, because, achievements, "don't"]
+    concepts: [python, resume, interviews, description, because]
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c2"
     char_span: [2994, 5264]
     sentence_count: 28
     key_terms: [like, want, interview, company, questions, "they're", answer, "don't"]
+    concepts: [interview, company, questions, "they're", answer]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c4"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c3"
     char_span: [4972, 7155]
     sentence_count: 29
     key_terms: [questions, interview, "don't", want, "you're", question, ask, like]
+    concepts: [questions, interview, "don't", "you're", question]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c4"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c4"
     char_span: [6902, 9149]
     sentence_count: 29
     key_terms: [job, interview, because, "you're", questions, company, boards, remote]
+    concepts: [interview, because, questions, "you're", company]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c3"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c5"
     char_span: [8887, 9855]
     sentence_count: 10
     key_terms: [job, "don't", because, day, getting, enough, people, agree]
+    concepts: ["don't", because, getting, enough, people]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c6"]
     token_count: 235
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c6"
-    char_span: [9870, 10458]
+    char_span: [9869, 10457]
     sentence_count: 8
     key_terms: [suit, tie, because, dressed, people, reddit, interviewing, professional]
+    concepts: [because, dressed, people, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c5"]
     section: Comments
     token_count: 143
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c7"
-    char_span: [10460, 12483]
+    char_span: [10459, 12482]
     sentence_count: 13
     key_terms: [futurefaangemployee, veeva, people, some-btc-name, level, offer, don, suit]
+    concepts: [futurefaangemployee, veeva, some-btc-name, people, level]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c8"
-    char_span: [12230, 12862]
+    char_span: [12229, 12861]
     sentence_count: 3
     key_terms: [being, quarter, cscareerquestions, good, some-btc-name, individual, integrity, validates]
+    concepts: [being, quarter]
     section: Comments
     token_count: 161
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c9"
-    char_span: [12864, 14585]
+    char_span: [12863, 14584]
     sentence_count: 10
     key_terms: [being, people, something, likable, tell, resume, "you're", futurefaangemployee]
+    concepts: [being, people, something, likable, resume]
     section: Comments
     token_count: 436
 ---

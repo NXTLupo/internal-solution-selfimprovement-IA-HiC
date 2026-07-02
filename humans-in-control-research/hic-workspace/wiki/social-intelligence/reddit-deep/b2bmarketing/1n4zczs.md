@@ -20,35 +20,42 @@ chunks:
     char_span: [0, 1325]
     sentence_count: 14
     key_terms: ["i'm", b2b, meetings, b2bmarketing, best, solutions, channels, comments]
+    concepts: [meetings, b2bmarketing, solutions, channels, comments]
     token_count: 305
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1n4zczs/i_need_to_book_2530_b2b_meetings_a_month_what_are/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1n4zczs.md#c1"
-    char_span: [1340, 3412]
+    char_span: [1339, 3411]
     sentence_count: 17
     key_terms: [reddit, looking-for-marketing-discussion-811236647760298024, questions, linkedin, signals, consistently, posts, competitor]
+    concepts: [reddit, questions, linkedin, signals, consistently]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/b2bmarketing/1n4zczs.md#c2"
-    char_span: [3414, 5417]
+    char_span: [3413, 5416]
     sentence_count: 15
     key_terms: [email, personalized, cold, epicpersona18, personalised, right, follow-ups, interested]
+    concepts: [personalized, email, epicpersona18, personalised, follow-ups]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/b2bmarketing/1n4zczs.md#c3"
-    char_span: [5419, 7579]
+    char_span: [5418, 7578]
     sentence_count: 13
     key_terms: [sales, share, value, business, linkedin, proposition, outreach, valuable]
+    concepts: [sales, share, value, business, linkedin]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/b2bmarketing/1n4zczs.md#c4"
-    char_span: [7581, 9554]
+    char_span: [7580, 9553]
     sentence_count: 14
     key_terms: [building, "it's", new, try, jroberts67, different, c-suite, connect]
+    concepts: [building, jroberts67, different, c-suite, connect]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/b2bmarketing/1n4zczs.md#c5"
-    char_span: [9307, 9833]
+    char_span: [9306, 9832]
     sentence_count: 6
     key_terms: [industry, top, work, delboytrotter13, acquaintances, introductions, commenting, awareness]
+    concepts: [industry]
     section: Comments
     token_count: 133
 ---

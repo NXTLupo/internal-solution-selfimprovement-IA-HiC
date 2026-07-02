@@ -8,18 +8,23 @@ chunks:
     char_span: [0, 1803]
     sentence_count: 11
     key_terms: [gold, brief, font, executive-brief, slide, cards, explainer, hero]
+    concepts: [brief, executive-brief, slide, explainer, cards]
+    related_chunks: ["design-system/patterns/executive-brief.md#c2"]
     section: What it is / Figma / tokens / Anatomy (3 variants)
     token_count: 473
   - id: "design-system/patterns/executive-brief.md#c1"
     char_span: [1840, 2241]
     sentence_count: 4
     key_terms: [dense, base, chat, pptx, self-improvement, executive-brief, design-tokens, modification]
+    concepts: [dense]
     section: Construction rule (1-to-1 PPTX)
     token_count: 102
   - id: "design-system/patterns/executive-brief.md#c2"
     char_span: [2285, 2876]
     sentence_count: 4
     key_terms: [slide, executive-brief, explainer, variant, report, exportexecutivebrief, renderexecutivebrief, executivebriefslide]
+    concepts: [slide, executive-brief, explainer, variant, report]
+    related_chunks: ["design-system/patterns/executive-brief.md#c0"]
     section: Runtime template contract (2026-06-13)
     token_count: 157
 ---

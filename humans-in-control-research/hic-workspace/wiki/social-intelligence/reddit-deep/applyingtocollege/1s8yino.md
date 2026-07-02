@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1402]
     sentence_count: 11
     key_terms: [princeton, brown, applyingtocollege, columbia, love, comments, campus, school]
+    concepts: [princeton, applyingtocollege, brown, columbia, comments]
     token_count: 323
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1s8yino/princeton_v_columbia_v_brown/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8yino.md#c1"
     char_span: [1416, 2852]
     sentence_count: 8
     key_terms: [lgbtq-student-self-identification-has-doubled-since-2010-according-to-herald-polling-data, princeton, schools, school, browndailyherald, article, change, "you're"]
+    concepts: [lgbtq-student-self-identification-has-doubled-since-2010-according-to-herald-polling-data, princeton, schools, school, browndailyherald]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s8yino.md#c2"]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8yino.md#c2"
     char_span: [2854, 4923]
     sentence_count: 12
     key_terms: [schools, princeton, opportunities, prestige, best, med, scared-traffic-4060, deflation]
+    concepts: [schools, princeton, opportunities, prestige, scared-traffic-4060]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1s8yino.md#c1"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8yino.md#c3"
     char_span: [4925, 5532]
     sentence_count: 2
     key_terms: [princeton, yucky-yummy-6767, insanely, rigorous, single-type9144, manageable, supportive, preparing]
+    concepts: [princeton, yucky-yummy-6767, insanely, rigorous]
     section: Comments
     token_count: 149
 ---

@@ -20,33 +20,44 @@ chunks:
     char_span: [0, 2150]
     sentence_count: 15
     key_terms: [finance, listings, "that's", internship, excel, financialcareers, skills, real]
+    concepts: [finance, listings, internship, "that's", financialcareers]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1r98gkv.md#c1"]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1r98gkv/i_analyzed_53744_internship_listings_to_find_what/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1r98gkv.md#c1"
     char_span: [2152, 4203]
     sentence_count: 18
     key_terms: [listings, data, finance, "it's", median, free, sql, building]
+    concepts: [listings, finance, median, building, python]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1r98gkv.md#c0"]
     token_count: 507
   - id: "social-intelligence/reddit-deep/financialcareers/1r98gkv.md#c2"
     char_span: [4205, 5131]
     sentence_count: 17
     key_terms: [tier, data, python, excel, sql, accounting, powerpoint, financial]
+    concepts: [python, accounting, excel, powerpoint, financial]
     token_count: 249
   - id: "social-intelligence/reddit-deep/financialcareers/1r98gkv.md#c3"
-    char_span: [5146, 5703]
+    char_span: [5145, 5702]
     sentence_count: 4
     key_terms: [discord, professionals, full-time, banking, financialcareers, automoderator, transitioned, dgptduseqv]
+    concepts: [professionals, discord, full-time, banking]
     section: Comments
     token_count: 119
   - id: "social-intelligence/reddit-deep/financialcareers/1r98gkv.md#c4"
-    char_span: [5705, 7405]
+    char_span: [5704, 7404]
     sentence_count: 4
     key_terms: [ancient-way-1682, slop, python, like, internshipdaily, skills-demand, data, look]
+    concepts: [ancient-way-1682, python, internshipdaily, skills-demand, insights]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1r98gkv.md#c5"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/financialcareers/1r98gkv.md#c5"
-    char_span: [7407, 9060]
+    char_span: [7406, 9059]
     sentence_count: 10
     key_terms: [internshipdaily, internships, technical-machine-76, https, com, python, skills-demand, justdeegurl]
+    concepts: [internshipdaily, technical-machine-76, internships, https, skills-demand]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1r98gkv.md#c4"]
     section: Comments
     token_count: 445
 ---

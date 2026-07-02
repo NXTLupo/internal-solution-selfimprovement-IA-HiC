@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1216]
     sentence_count: 11
     key_terms: [code, deeplearning, programming, experience, comments, project, pygame, hand]
+    concepts: [deeplearning, programming, experience, comments, project]
     token_count: 264
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1sbkpe7/any_suggestion_for_making_ai_write_understandable/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1sbkpe7.md#c1"
     char_span: [1230, 2683]
     sentence_count: 2
     key_terms: [prompt, structure, rules, time, constraint, passes, pygame, review]
+    concepts: [prompt, structure, constraint, rules, passes]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/deeplearning/1sbkpe7.md#c2"
     char_span: [2685, 4113]
     sentence_count: 9
     key_terms: [code, intraluminal, ask, patterns, planning, clearly, defined, writing]
+    concepts: [intraluminal, patterns, planning, clearly, defined]
     section: Comments
     token_count: 325
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1537]
     sentence_count: 15
     key_terms: [ixigo, kept, time, airlines, customerservice, cancel, ticket, never]
+    concepts: [ixigo, customerservice, airlines, cancel, ticket]
     token_count: 361
+    sources: [{"n":"reddit-deep: r/customerservice","u":"https://www.reddit.com/r/CustomerService/comments/1u1woc9/do_not_use_ixigo_scammers/"}]
   - id: "social-intelligence/reddit-deep/customerservice/1u1woc9.md#c1"
-    char_span: [1552, 2188]
+    char_span: [1551, 2187]
     sentence_count: 9
     key_terms: [etc, anything, provider, airline, problem, resolve, talesfromthefrontdesk, travel]
+    concepts: [anything, provider, airline, problem, resolve]
     section: Comments
     token_count: 158
 ---

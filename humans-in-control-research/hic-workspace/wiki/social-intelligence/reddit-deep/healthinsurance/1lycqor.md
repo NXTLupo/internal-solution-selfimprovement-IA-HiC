@@ -20,41 +20,54 @@ chunks:
     char_span: [0, 1852]
     sentence_count: 17
     key_terms: [insurance, out-of-network, healthinsurance, people, claim, plan, ambulances, in-network]
+    concepts: [out-of-network, insurance, healthinsurance, people, ambulances]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1lycqor.md#c4"]
     token_count: 411
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1lycqor/i_wish_people_would_stop_posting_rage_bait_eobs/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1lycqor.md#c1"
-    char_span: [1867, 3901]
+    char_span: [1866, 3900]
     sentence_count: 15
     key_terms: [insurance, benefits, better, blossom73, job, year, another, authorization]
+    concepts: [insurance, benefits, better, blossom73, authorization]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/healthinsurance/1lycqor.md#c2"
-    char_span: [3903, 5940]
+    char_span: [3902, 5939]
     sentence_count: 13
     key_terms: [healthcare, health, insurance, eob, sessions, diddly, coordinators, squat]
+    concepts: [healthcare, health, insurance, sessions, coordinators]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1lycqor.md#c5", "social-intelligence/reddit-deep/healthinsurance/1lycqor.md#c6"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/healthinsurance/1lycqor.md#c3"
-    char_span: [5942, 7823]
+    char_span: [5941, 7822]
     sentence_count: 21
     key_terms: [insurance, call, resubmit, because, covered, newborn, broken, claims]
+    concepts: [insurance, resubmit, because, covered, newborn]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/healthinsurance/1lycqor.md#c4"
-    char_span: [7825, 9598]
+    char_span: [7824, 9597]
     sentence_count: 12
     key_terms: [insurance, company, ambulance, care, denying, people, profit, deductibles]
+    concepts: [insurance, company, ambulance, denying, people]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1lycqor.md#c0"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/healthinsurance/1lycqor.md#c5"
-    char_span: [9600, 10626]
+    char_span: [9599, 10625]
     sentence_count: 6
     key_terms: [medicare, for-profit, healthcare, employers, insurance, minimal, people, system]
+    concepts: [medicare, for-profit, healthcare, employers, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1lycqor.md#c2", "social-intelligence/reddit-deep/healthinsurance/1lycqor.md#c6"]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/healthinsurance/1lycqor.md#c6"
-    char_span: [10629, 12613]
+    char_span: [10628, 12612]
     sentence_count: 17
     key_terms: [insurance, healthcare, system, providers, already, explain, options, burden]
+    concepts: [insurance, healthcare, system, providers, already]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1lycqor.md#c2", "social-intelligence/reddit-deep/healthinsurance/1lycqor.md#c5"]
     section: Comments
     token_count: 454
 ---

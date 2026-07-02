@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 579]
     sentence_count: 2
     key_terms: [careerguidance, photography, comments, stable, job, reddit-deep, literature, education]
+    concepts: [careerguidance, photography, comments, stable]
     token_count: 149
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rv2sxh/wanting_a_stable_job_along_with_pursuing_my/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rv2sxh.md#c1"
     char_span: [593, 867]
     sentence_count: 2
     key_terms: [career, photography, education, fraught, hating, making, bills, craft]
+    concepts: [career, photography]
     section: Comments
     token_count: 66
 ---

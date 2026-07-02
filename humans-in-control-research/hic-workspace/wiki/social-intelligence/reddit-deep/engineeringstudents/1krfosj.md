@@ -21,40 +21,48 @@ chunks:
     char_span: [0, 2093]
     sentence_count: 26
     key_terms: [gpa, engineering, requirement, transcript, engineeringstudents, co-op, screening, year]
+    concepts: [engineering, engineeringstudents, requirement, transcript, screening]
     token_count: 477
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1krfosj/rejected_from_coop_due_to_gpa_have_to_stop/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c1"
     char_span: [2098, 2474]
     sentence_count: 5
     key_terms: [seems, get, like, responsibility, internship, anything, assuming, nowadays]
+    concepts: [seems]
     token_count: 90
   - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c2"
     char_span: [2488, 4529]
     sentence_count: 17
     key_terms: [wrong, emotions, companies, don, gpa, deleted, down, "it's"]
+    concepts: [wrong, emotions, companies, deleted, anything]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c3"
     char_span: [4531, 5940]
     sentence_count: 13
     key_terms: ["it's", reality, normal, emotions, happened, because, feel, something]
+    concepts: [reality, normal, emotions, happened, because]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c4"
     char_span: [5942, 7875]
     sentence_count: 21
     key_terms: [gpa, "don't", interview, because, juscurious21, requirement, list, professors]
+    concepts: [interview, "don't", because, juscurious21, requirement]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c5"
     char_span: [7877, 9935]
     sentence_count: 13
     key_terms: [gpa, questions, applying, niggamusprime17, proficiencies, keep, like, experience]
+    concepts: [questions, niggamusprime17, applying, proficiencies, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c6"
     char_span: [9939, 11403]
     sentence_count: 13
     key_terms: ["didn't", manufacturing, engineering, get, gpa, take, something, graduate]
+    concepts: ["didn't", manufacturing, engineering, something, graduate]
     section: Comments
     token_count: 350
 ---

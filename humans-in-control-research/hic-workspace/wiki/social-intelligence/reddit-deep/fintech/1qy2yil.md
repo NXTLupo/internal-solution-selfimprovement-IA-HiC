@@ -20,16 +20,22 @@ chunks:
     char_span: [0, 2174]
     sentence_count: 13
     key_terms: [earnings, fintech, real-time, risk, flags, "i've", red, management]
+    concepts: [earnings, fintech, real-time, flags, management]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/fintech","u":"https://www.reddit.com/r/fintech/comments/1qy2yil/building_an_llmpowered_risk_radar_for_earnings/"}]
   - id: "social-intelligence/reddit-deep/fintech/1qy2yil.md#c1"
     char_span: [2176, 2877]
     sentence_count: 2
     key_terms: [png, https, preview, format, width, auto, redd, webp]
+    concepts: [https, preview, format, width, m-audit]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1qy2yil.md#c2"]
     token_count: 275
   - id: "social-intelligence/reddit-deep/fintech/1qy2yil.md#c2"
-    char_span: [2892, 3161]
+    char_span: [2891, 3160]
     sentence_count: 3
     key_terms: [m-audit, stockai, lumpy-accountant-750, https, next4, html, www, ai-powered]
+    concepts: [m-audit, stockai, https, next4]
+    related_chunks: ["social-intelligence/reddit-deep/fintech/1qy2yil.md#c1"]
     section: Comments
     token_count: 77
 ---

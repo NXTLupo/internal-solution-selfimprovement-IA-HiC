@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1279]
     sentence_count: 3
     key_terms: [cloud, internship, learning, germany, looking, international, development, engineering]
+    concepts: [cloud, internship, learning, international, germany]
     token_count: 307
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1olkz06/looking_for_a_cloud_engineering_internship_in/"}]
 ---
 # Looking for a Cloud Engineering Internship in Germany (Exchange Student, Learning German)
 

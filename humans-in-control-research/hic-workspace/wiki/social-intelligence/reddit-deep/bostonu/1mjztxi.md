@@ -20,31 +20,42 @@ chunks:
     char_span: [0, 1776]
     sentence_count: 18
     key_terms: [class, thought, bad, guidelines, professor, comments, lectures, bostonu]
+    concepts: [class, thought, guidelines, professor, comments]
+    related_chunks: ["social-intelligence/reddit-deep/bostonu/1mjztxi.md#c2"]
     token_count: 433
+    sources: [{"n":"reddit-deep: r/bostonu","u":"https://www.reddit.com/r/BostonU/comments/1mjztxi/every_single_professor_ive_taken_at_bu/"}]
   - id: "social-intelligence/reddit-deep/bostonu/1mjztxi.md#c1"
     char_span: [1781, 3677]
     sentence_count: 19
     key_terms: [assignments, did, feedback, "wasn't", being, never, too, reasonable]
+    concepts: [assignments, feedback, "wasn't", being, never]
     token_count: 425
   - id: "social-intelligence/reddit-deep/bostonu/1mjztxi.md#c2"
     char_span: [3679, 5878]
     sentence_count: 19
     key_terms: [class, too, performance, lots, professor, anything, everyone, lectures]
+    concepts: [class, performance, professor, anything, everyone]
+    related_chunks: ["social-intelligence/reddit-deep/bostonu/1mjztxi.md#c0"]
     token_count: 496
   - id: "social-intelligence/reddit-deep/bostonu/1mjztxi.md#c3"
     char_span: [5880, 7964]
     sentence_count: 19
     key_terms: [exams, ratemyprofessors, class, super, considering, hard, professor, feedback]
+    concepts: [ratemyprofessors, exams, considering, class, super]
+    related_chunks: ["social-intelligence/reddit-deep/bostonu/1mjztxi.md#c4"]
     token_count: 490
   - id: "social-intelligence/reddit-deep/bostonu/1mjztxi.md#c4"
     char_span: [7966, 10222]
     sentence_count: 19
     key_terms: [interesting, class, final, zoom, history, exams, enjoyable, recommend]
+    concepts: [interesting, class, final, history, exams]
+    related_chunks: ["social-intelligence/reddit-deep/bostonu/1mjztxi.md#c3"]
     token_count: 505
   - id: "social-intelligence/reddit-deep/bostonu/1mjztxi.md#c5"
-    char_span: [10237, 11758]
+    char_span: [10236, 11757]
     sentence_count: 8
     key_terms: [professors, participation, class, completely, especially, professor, something, buowo]
+    concepts: [professors, participation, class, completely, especially]
     section: Comments
     token_count: 441
 ---

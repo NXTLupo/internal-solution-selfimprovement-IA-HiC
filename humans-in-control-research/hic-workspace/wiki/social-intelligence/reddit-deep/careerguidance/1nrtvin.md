@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 998]
     sentence_count: 9
     key_terms: [careerguidance, comments, computer, pursuing, science, given, opportunities, astrophysics]
+    concepts: [careerguidance, comments, computer, pursuing, science]
     token_count: 239
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1nrtvin/is_pursuing_computer_science_worth_it_in_2025/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1nrtvin.md#c1"
     char_span: [1012, 2667]
     sentence_count: 13
     key_terms: [tech, people, industry, process, through, weeding, anyone, suitablesherbert6127]
+    concepts: [people, industry, process, through, weeding]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/careerguidance/1nrtvin.md#c2"
     char_span: [2669, 4798]
     sentence_count: 14
     key_terms: [everyone, time, years, long, different, else, wanted, doing]
+    concepts: [everyone, years, different, wanted, doing]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/careerguidance/1nrtvin.md#c3"
     char_span: [4801, 6907]
     sentence_count: 12
     key_terms: [doing, good, tech, "don't", programming, pp-doo-doo, companies, computer]
+    concepts: [doing, programming, "don't", pp-doo-doo, companies]
     section: Comments
     token_count: 516
   - id: "social-intelligence/reddit-deep/careerguidance/1nrtvin.md#c4"
     char_span: [6909, 8999]
     sentence_count: 16
     key_terms: [glittering-duck-634, better, future, tech, want, direction, industry, probably]
+    concepts: [glittering-duck-634, better, future, direction, industry]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/careerguidance/1nrtvin.md#c5"
     char_span: [9001, 9597]
     sentence_count: 5
     key_terms: [good, because, "doesn't", career, personality, absolutely, management, reasonable]
+    concepts: [because, "doesn't", career]
     section: Comments
     token_count: 122
 ---

@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1303]
     sentence_count: 12
     key_terms: [crypto, money, fiat, borderless, comments, outdated, payments, works]
+    concepts: [crypto, borderless, money, comments, outdated]
     token_count: 294
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1mufjff/why_does_fiat_feel_outdated_once_you_try/"}]
   - id: "social-intelligence/reddit-deep/defi/1mufjff.md#c1"
-    char_span: [1318, 2702]
+    char_span: [1317, 2701]
     sentence_count: 8
     key_terms: [fiat, stablecoins, outdated, stables, okactuator1742, rails, using, experience]
+    concepts: [stablecoins, outdated, okactuator1742, stables, experience]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/defi/1mufjff.md#c2"
-    char_span: [2704, 4076]
+    char_span: [2703, 4075]
     sentence_count: 8
     key_terms: [crypto, okactuator1742, stores, payments, because, payment, without, always]
+    concepts: [crypto, okactuator1742, stores, payments, because]
     section: Comments
     token_count: 356
 ---

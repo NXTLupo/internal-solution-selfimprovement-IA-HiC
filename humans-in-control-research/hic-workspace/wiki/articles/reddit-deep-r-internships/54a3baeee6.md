@@ -20,21 +20,26 @@ chunks:
     char_span: [0, 2177]
     sentence_count: 1
     key_terms: [intern, internships, don, summer, internship, late, postings, apply]
+    concepts: [intern, internships, internship, summer, postings]
     token_count: 503
+    sources: [{"n":"Reddit Deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1r8lrcw/still_dont_have_a_summer_internship_here_is_what/"}]
   - id: "articles/reddit-deep-r-internships/54a3baeee6.md#c1"
     char_span: [2179, 4299]
     sentence_count: 1
     key_terms: [internships, don, companies, outreach, ask, get, someone, spring]
+    concepts: [internships, companies, outreach, someone, applications]
     token_count: 514
   - id: "articles/reddit-deep-r-internships/54a3baeee6.md#c2"
     char_span: [4301, 5728]
     sentence_count: 2
     key_terms: [relationships, offer, got, keep, relationship-building, hiring, cycle, later]
+    concepts: [relationships, offer, hiring, cycle, later]
     token_count: 330
   - id: "articles/reddit-deep-r-internships/54a3baeee6.md#c3"
     char_span: [5730, 6648]
     sentence_count: 2
     key_terms: [life-journalist-2790, experience, suitable-jelly-3693, relationships, anything, opportunities, additionally, competencies]
+    concepts: [life-journalist-2790, suitable-jelly-3693, experience, relationships, anything]
     token_count: 223
 ---
 # still don't have a summer internship? here is what i would do. you aren't cooked (just yet)

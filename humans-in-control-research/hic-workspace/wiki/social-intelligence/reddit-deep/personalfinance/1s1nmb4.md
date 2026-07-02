@@ -21,40 +21,55 @@ chunks:
     char_span: [0, 2011]
     sentence_count: 16
     key_terms: [month, personalfinance, credit, paying, cards, years, car, cut]
+    concepts: [month, personalfinance, credit, paying, cards]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c1", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c2", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c3", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c5", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c6"]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1s1nmb4/is_it_really_that_bad_to_cancel_credit_cards/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c1"
     char_span: [2013, 2778]
     sentence_count: 9
     key_terms: [credit, everyone, become, thanks, cards, cut, huge, difference]
+    concepts: [credit, everyone, become, thanks, cards]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c0", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c2", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c3", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c5", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c6"]
     token_count: 184
   - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c2"
     char_span: [2792, 4495]
     sentence_count: 9
     key_terms: [credit, cards, card, score, getting, cancel, worse, debt]
+    concepts: [credit, cards, score, getting, cancel]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c0", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c1", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c3", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c4", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c5"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c3"
     char_span: [4497, 5625]
     sentence_count: 11
     key_terms: [credit, score, accounts, typical-pollution459, cards, close, keep, utilization]
+    concepts: [credit, score, accounts, cards, close]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c0", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c1", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c2", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c4", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c5"]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c4"
     char_span: [5627, 7645]
     sentence_count: 15
     key_terms: [credit, score, card, use, access, freeze, "don't", using]
+    concepts: [credit, score, access, freeze, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c2", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c3", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c6"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c5"
     char_span: [7647, 9580]
     sentence_count: 14
     key_terms: [credit, cards, comments, impact, reddit, https, com, personalfinance]
+    concepts: [credit, cards, comments, impact, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c0", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c1", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c2", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c3", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c6"]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c6"
     char_span: [9582, 10948]
     sentence_count: 15
     key_terms: [credit, cards, score, important, accounts, without, cancel, db-cooperonthebeach]
+    concepts: [credit, cards, score, important, accounts]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c0", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c1", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c2", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c3", "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c4"]
     section: Comments
     token_count: 316
 ---

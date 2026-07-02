@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1505]
     sentence_count: 7
     key_terms: [live, presales, projects, presale, infrastructure, crypto, large, app]
+    concepts: [presales, projects, infrastructure, presale, crypto]
     token_count: 341
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1pgrdr2/digitap_tap_thoughts_on_a_live_crypto_banking_app/"}]
   - id: "social-intelligence/reddit-deep/defi/1pgrdr2.md#c1"
-    char_span: [1520, 3493]
+    char_span: [1519, 3492]
     sentence_count: 10
     key_terms: [compounding, large-tank-2770, different, mrintellyless1, fees, self-custody, people, rails]
+    concepts: [compounding, large-tank-2770, mrintellyless1, different, self-custody]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1pgrdr2.md#c2"]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/defi/1pgrdr2.md#c2"
-    char_span: [3495, 5521]
+    char_span: [3494, 5520]
     sentence_count: 18
     key_terms: [people, compounding, impatience, year, patience, mrintellyless1, get, like]
+    concepts: [people, compounding, impatience, patience, mrintellyless1]
+    related_chunks: ["social-intelligence/reddit-deep/defi/1pgrdr2.md#c1"]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/defi/1pgrdr2.md#c3"
-    char_span: [5523, 6627]
+    char_span: [5522, 6626]
     sentence_count: 8
     key_terms: [supply, large-tank-2770, circulating, presales, illegal, utility, educational-elk4137, fixed]
+    concepts: [supply, large-tank-2770, circulating, presales, illegal]
     section: Comments
     token_count: 259
 ---

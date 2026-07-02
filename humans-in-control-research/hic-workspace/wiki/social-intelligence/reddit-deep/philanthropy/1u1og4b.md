@@ -17,10 +17,12 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/philanthropy/1u1og4b.md#c0"
-    char_span: [0, 916]
+    char_span: [0, 915]
     sentence_count: 2
     key_terms: [habitat, international, philanthropy, https, job, usa, work, www]
-    token_count: 210
+    concepts: [habitat, international, philanthropy, https, comments]
+    token_count: 209
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1u1og4b/habitat_for_humanity_international_has_several/"}]
 ---
 # Habitat for Humanity International has several fundraising-related job openings in the USA and in other countries right now.
 

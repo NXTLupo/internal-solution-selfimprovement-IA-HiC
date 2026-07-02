@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2150]
     sentence_count: 34
     key_terms: [college, get, "i'm", because, scholarship, got, week, year]
+    concepts: [college, because, scholarship, comments, "couldn't"]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1o84jni/i_feel_like_im_just_dragging_my_feet_on_a_path_im/"}]
   - id: "social-intelligence/reddit-deep/college/1o84jni.md#c1"
     char_span: [2152, 2197]
     sentence_count: 2
@@ -31,12 +33,16 @@ chunks:
     char_span: [2211, 4257]
     sentence_count: 27
     key_terms: [through, "don't", degree, throwyaaydnks, thank, take, year, possible]
+    concepts: [through, "don't", throwyaaydnks, degree, thank]
+    related_chunks: ["social-intelligence/reddit-deep/college/1o84jni.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1o84jni.md#c3"
     char_span: [3964, 4899]
     sentence_count: 7
     key_terms: [degree, college, finish, "don't", like, full-time, longer, school]
+    concepts: [degree, college, finish, "don't", full-time]
+    related_chunks: ["social-intelligence/reddit-deep/college/1o84jni.md#c2"]
     section: Comments
     token_count: 194
 ---

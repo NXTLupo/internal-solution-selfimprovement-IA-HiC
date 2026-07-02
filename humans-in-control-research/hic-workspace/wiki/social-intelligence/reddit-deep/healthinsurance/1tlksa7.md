@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 2048]
     sentence_count: 17
     key_terms: [insurance, through, codes, because, order, lab, mismatch, national]
+    concepts: [insurance, through, codes, because, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1tlksa7.md#c3"]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1tlksa7/incompetence_or_intentional_coding_glitches_on/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1tlksa7.md#c1"
-    char_span: [2063, 4504]
+    char_span: [2062, 4503]
     sentence_count: 8
     key_terms: [post, information, questions, please, following, eob, help, edit]
+    concepts: [information, questions, please, following, healthinsurance]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1tlksa7.md#c2"
-    char_span: [4506, 6723]
+    char_span: [4505, 6722]
     sentence_count: 15
     key_terms: [contact, intentional, please, subreddit, report, being, issue, been]
+    concepts: [intentional, contact, please, subreddit, report]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/healthinsurance/1tlksa7.md#c3"
-    char_span: [6725, 8367]
+    char_span: [6724, 8366]
     sentence_count: 12
     key_terms: [insurance, woman-receives-358000-quest-diagnostic-whistleblower-lawsuit, diagnosis, effectiveegg5712, codes, lab, elefun992, example]
+    concepts: [insurance, effectiveegg5712, diagnosis, codes, elefun992]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1tlksa7.md#c0"]
     section: Comments
     token_count: 398
 ---

@@ -8,35 +8,40 @@ title: "What HYSA should I go with based on my needs?"
 author: "morpheusKKK"
 date: "2026-04-17T18:01:11.000Z"
 score: 0
-upvote_ratio: 0.29
+upvote_ratio: 0.25
 num_comments: 15
 flair: "Saving"
-extracted_at: "2026-06-11T15:26:16.543Z"
+extracted_at: "2026-06-26T21:51:56.931Z"
 extraction_method: "praw-deep"
-research_goal: "Produce the definitive guide to personal investing in 2026 by analyzing the current state of the fintech and financial industries. Evaluate retail investor behaviors, emerging asset classes, and platform shifts using 2026 market news, industry reports, and social media trends to identify actionable investment strategies and market opportunities."
-engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
+research_goal: "Identify and analyze the top five consumer finance trends for 2026 across retail banking, fintech, and consumer lending, delivering a prioritized trend matrix that details key drivers, shifting consumer behaviors, and technological adoption."
+engagement: "identify-and-analyze-the-top-five-consumer-finance-trends-fo"
 chunks:
   - id: "social-intelligence/reddit-deep/personalfinance/1so8k4n.md#c0"
     char_span: [0, 1192]
     sentence_count: 4
     key_terms: [personalfinance, bank, like, priorities, comments, whatever, online, good]
+    concepts: [personalfinance, priorities, comments, whatever, online]
     token_count: 292
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1so8k4n/what_hysa_should_i_go_with_based_on_my_needs/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1so8k4n.md#c1"
-    char_span: [1207, 2569]
+    char_span: [1206, 2568]
     sentence_count: 6
     key_terms: [chase, interest, werewolfdad, ally, high-interest-savings-to-get, in-person, automod, mab220]
+    concepts: [chase, interest, werewolfdad, in-person, automod]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/personalfinance/1so8k4n.md#c2"
-    char_span: [2571, 4387]
+    char_span: [2570, 4386]
     sentence_count: 20
     key_terms: [account, chase, use, ally, transfer, savings, transferring, money]
+    concepts: [account, chase, transfer, savings, transferring]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/personalfinance/1so8k4n.md#c3"
-    char_span: [4389, 4784]
+    char_span: [4388, 4783]
     sentence_count: 4
     key_terms: [haven, money, timely-job-3091, transferring, transferred, available, skeptical, checking]
+    concepts: [haven, money]
     section: Comments
     token_count: 96
 ---

@@ -21,23 +21,32 @@ chunks:
     char_span: [0, 1916]
     sentence_count: 12
     key_terms: [company, internships, cscareerquestions, job, removing, months, considering, experiences]
+    concepts: [company, internships, cscareerquestions, removing, months]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t4vad1.md#c2"]
     token_count: 442
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t4vad1/quit_previous_newgrad_job_at_8_months_for_this/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t4vad1.md#c1"
     char_span: [1930, 4232]
     sentence_count: 2
     key_terms: [experience, company, something, keep, like, similar, working, anyway]
+    concepts: [experience, company, something, similar, working]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t4vad1.md#c3"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t4vad1.md#c2"
     char_span: [4234, 5759]
     sentence_count: 6
     key_terms: [job, months, get, interview, backend, company, matters, school]
+    concepts: [months, interview, backend, company, matters]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t4vad1.md#c0"]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t4vad1.md#c3"
     char_span: [5761, 6975]
     sentence_count: 4
     key_terms: [experience, company, company-wide, engineering, software, layoff, right, get]
+    concepts: [experience, company, company-wide, engineering, software]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1t4vad1.md#c1"]
     section: Comments
     token_count: 302
 ---

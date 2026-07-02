@@ -17,10 +17,12 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/businessintelligence/1nthy8n.md#c0"
-    char_span: [0, 761]
+    char_span: [0, 760]
     sentence_count: 3
     key_terms: [businessintelligence, experience, comments, dallas, degree, paid, opportunity, reddit-deep]
-    token_count: 194
+    concepts: [businessintelligence, experience, comments, dallas, degree]
+    token_count: 193
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1nthy8n/job_opportunity_dallas_texas_usa/"}]
 ---
 # Job Opportunity (Dallas, Texas, U.S.A.)
 

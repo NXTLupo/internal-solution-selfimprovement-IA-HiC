@@ -21,23 +21,31 @@ chunks:
     char_span: [0, 652]
     sentence_count: 7
     key_terms: [internship, certificate, internships, tech, comments, urgently, college, "i'm"]
+    concepts: [internship, certificate, internships, comments, urgently]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1sy3sqw.md#c2"]
     token_count: 166
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sy3sqw/urgently_need_an_internship/"}]
   - id: "social-intelligence/reddit-deep/internships/1sy3sqw.md#c1"
     char_span: [666, 2629]
     sentence_count: 6
     key_terms: [robertlread, volunteer, invention, https, join, internship, interview, projects]
+    concepts: [robertlread, volunteer, invention, https, internship]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1sy3sqw.md#c2"
     char_span: [2369, 4371]
     sentence_count: 9
     key_terms: [internship, college, aedegffcgkjmbaefclfjlklommhmeokf, internships, like, handshake, handshaker-handshake-auto, linkedin]
+    concepts: [internship, college, internships, handshake, linkedin]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1sy3sqw.md#c0", "social-intelligence/reddit-deep/internships/1sy3sqw.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1sy3sqw.md#c3"
     char_span: [4050, 5349]
     sentence_count: 11
     key_terms: [companies, opportunities, internships, look, linkedin, openings, "you're", since]
+    concepts: [companies, opportunities, internships, linkedin, openings]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1sy3sqw.md#c2"]
     section: Comments
     token_count: 300
 ---

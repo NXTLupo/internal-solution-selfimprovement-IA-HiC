@@ -3,8 +3,76 @@ id: design-system/slides-component-manifest.md
 title: SLIDES Component Manifest (deck archetypes the model composes from)
 type: design-system
 updated: 2026-06-17
+chunks:
+  - id: "design-system/slides-component-manifest.md#c0"
+    char_span: [0, 613]
+    sentence_count: 3
+    key_terms: [archetype, composed, proto-component-manifest, slides, brand, deck, mode, nxt]
+    concepts: [archetype, composed, slides, brand]
+    related_chunks: ["design-system/slides-component-manifest.md#c1", "design-system/slides-component-manifest.md#c2"]
+    token_count: 166
+  - id: "design-system/slides-component-manifest.md#c1"
+    char_span: [663, 1221]
+    sentence_count: 3
+    key_terms: [archetype, slide, template, slides, composer, lengths, prefix, array]
+    concepts: [archetype, slide, template, slides, composer]
+    related_chunks: ["design-system/slides-component-manifest.md#c0", "design-system/slides-component-manifest.md#c2"]
+    section: How to emit a deck slide (MANDATORY contract)
+    token_count: 134
+  - id: "design-system/slides-component-manifest.md#c2"
+    char_span: [1294, 1730]
+    sentence_count: 2
+    key_terms: [slides, archetypes, archetype, thesis-interstitial, never, slide, body, deck]
+    concepts: [slides, archetypes, archetype, never, slide]
+    related_chunks: ["design-system/slides-component-manifest.md#c0", "design-system/slides-component-manifest.md#c1"]
+    section: "Selection doctrine (this fixes \"no variety / repeats one template\")"
+    token_count: 107
+  - id: "design-system/slides-component-manifest.md#c3"
+    char_span: [1778, 3154]
+    sentence_count: 5
+    key_terms: [body, evidence-table, chars, scale, org-model, readable, caption, matters]
+    concepts: [evidence-table, chars, scale, org-model, readable]
+    section: Type system (fully tokenized — 2026-06-18)
+    token_count: 394
+  - id: "design-system/slides-component-manifest.md#c4"
+    char_span: [3172, 3536]
+    sentence_count: 1
+    key_terms: [bottom-left, top, dot-mark, thesis-interstitial, saira, bar, rail, full-bleed-dark]
+    concepts: [bottom-left, dot-mark, saira]
+    section: Chrome modes
+    token_count: 110
+  - id: "design-system/slides-component-manifest.md#c5"
+    char_span: [3605, 5332]
+    sentence_count: 11
+    key_terms: [full-bleed-dark, payload, slides, title, illustration, imageconcept, presentation, kicker]
+    concepts: [full-bleed-dark, payload, slides, title, illustration]
+    related_chunks: ["design-system/slides-component-manifest.md#c6"]
+    section: Archetypes (template id · NODE NXT/NU · WHEN TO USE · PAYLOAD)
+    token_count: 473
+  - id: "design-system/slides-component-manifest.md#c6"
+    char_span: [5334, 6931]
+    sentence_count: 10
+    key_terms: [quote, title, payload, content-rail, slides, sourceline, featured, corroborating]
+    concepts: [quote, content-rail, title, payload, sourceline]
+    related_chunks: ["design-system/slides-component-manifest.md#c5", "design-system/slides-component-manifest.md#c7"]
+    section: Archetypes (template id · NODE NXT/NU · WHEN TO USE · PAYLOAD)
+    token_count: 443
+  - id: "design-system/slides-component-manifest.md#c7"
+    char_span: [6933, 8604]
+    sentence_count: 13
+    key_terms: [content-rail, label, columns, eyebrow, payload, "role's", slides, title]
+    concepts: [content-rail, columns, label, eyebrow, payload]
+    related_chunks: ["design-system/slides-component-manifest.md#c6"]
+    section: Archetypes (template id · NODE NXT/NU · WHEN TO USE · PAYLOAD)
+    token_count: 512
+  - id: "design-system/slides-component-manifest.md#c8"
+    char_span: [8606, 9150]
+    sentence_count: 3
+    key_terms: [slides, aggregate-roadmap, eyebrow, roadmap, matrix, role-recommendation, roles, per]
+    concepts: [slides, aggregate-roadmap, eyebrow, roadmap, matrix]
+    section: Archetypes (template id · NODE NXT/NU · WHEN TO USE · PAYLOAD)
+    token_count: 145
 ---
-
 # SLIDES Component Manifest
 
 The deck-native archetype library, harvested from Figma page `324:2` (NXT symbols `609:2-609:15`,
@@ -87,6 +155,22 @@ PAYLOAD: `{ kicker, title, stats: [ { figure, headline, means, matters } ] (exac
 ### slides:block-quote — 609:7 / 626:95 · content-rail
 One hero verbatim quote + a right panel of 3 corroborating data points.
 PAYLOAD: `{ topicKicker, quote, attributionName, attributionRole, corroborating: [ { figure, label, source } ] (exactly 3), sourceLine }`.
+OPTIONAL IMAGE (scenes-where-they-fit, USER OVERRIDE 2026-06-28): `panelImage` (a data-URI/URL) renders ONE supporting scene in the empty left band below the quote (Figma slot 901:477, 900x200). The runtime fills it from the quote subject; do NOT author a URL yourself. Omit if there is no supporting visual.
+
+### slides:infographic-exhibit — composer-native · content-rail  <- the DATA VISUAL slide
+The deck's native infographic slide (2026-07-02): kicker + action title + a FULL-WIDTH data panel +
+the takeaway band. The panel is COMPOSED FROM YOUR PAYLOAD'S OWN STRUCTURED FIELDS by the native
+render lane (never a scene, never diffusion): 3-5 steps/actions -> a process flow; a beforeAfter
+pair -> a comparison; 2-5 labeled stats -> a stat row; a 2+ source-type citation mix -> an
+evidence-mix composition. Use when a finding is STRUCTURAL (a sequence, a contrast, a distribution)
+and prose columns would bury it; at most 1-2 per deck.
+PAYLOAD: `{ kicker, title, takeaway: { label, statement }, sourceLine }` PLUS exactly ONE of:
+`steps: [ { name } ] (3-5 complete named moves)` OR `beforeAfter: { before: { points: [...] },
+after: { points: [...] } } (2-4 points each)` OR `stats: [ { label, value, quote?, source? } ] (2-5;
+values are QUALITATIVE words unless the number rides inside the cited quote)` OR `citations:
+[ "named source", ... ] (4+ real named sources across types)`. Do NOT author an image URL
+(exhibitImage is runtime-filled); do NOT emit this archetype without one of the four field shapes -
+that is a protocol violation (the slide would render an empty panel).
 
 ### slides:numbered-themes — 609:8 / 626:124 · content-rail ← profile N items/apps/themes
 4 numbered columns, each name + synthesis body + a verbatim quote. THE archetype for "profile each
@@ -102,6 +186,7 @@ Two contrasting halves as equals. PAYLOAD: `{ eyebrow, title, subhead, cards: [ 
 ### slides:org-model — 609:11 / 626:236 · content-rail
 A 3-part operating model as 3 peer columns (NOT a reporting-tier chart).
 PAYLOAD: `{ eyebrow, title, columns: [ { name, definition, teams: { label: "TEAMS", items: [..] }, outcomes: { label: "OWNED OUTCOMES", lines: [a, b] } } ] (3) }`.
+OPTIONAL ICON (scenes-where-they-fit, USER OVERRIDE 2026-06-28): each column may carry a CONTENT-TRUE operating-model glyph in the empty card-bottom band (Figma slots 901:5476/5477/5478, 72x72). The runtime resolves a tokenized glyph per column from that column's name/definition (carrier `columnIcons[]` index-aligned to `columns`, or `columns[i].icon`); do NOT author a URL. Content-true or nothing - never decoration.
 
 ### slides:role-needs — 609:12 / 626:286 · content-rail
 One role's current challenges (left) + that role's persona-needs card (right). G1 of the role trio.

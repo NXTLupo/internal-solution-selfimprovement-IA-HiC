@@ -19,58 +19,72 @@ chunks:
     char_span: [0, 2189]
     sentence_count: 14
     key_terms: [research, companies, "i'm", interviews, get, frontier, machinelearning, "i've"]
+    concepts: [research, companies, interviews, machinelearning, frontier]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1qepc05.md#c2", "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c8"]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1qepc05/d_burnout_from_the_hiring_process/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c1"
     char_span: [2191, 2970]
     sentence_count: 7
     key_terms: ["i'm", technical, research, process, "don't", gonna, get, researcher]
+    concepts: [technical, research, process, "don't", gonna]
     token_count: 184
   - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c2"
     char_span: [2984, 4666]
     sentence_count: 16
     key_terms: [companies, frontier, warning, expert, slayahheuw, expected, general, months]
+    concepts: [companies, frontier, warning, expert, slayahheuw]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1qepc05.md#c0"]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c3"
     char_span: [4668, 6580]
     sentence_count: 8
     key_terms: ["it's", get, expectation, time, slayahheuw, experts, enough, even-inevitable-7243]
+    concepts: [expectation, slayahheuw, experts, enough, adapt]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c4"
     char_span: [6582, 7985]
     sentence_count: 5
     key_terms: [candidates, coding, ability, code, projects, entarko, metric, research]
+    concepts: [candidates, coding, ability, projects, entarko]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c5"
     char_span: [7987, 10167]
     sentence_count: 15
     key_terms: [agent, different, important, questions, code, data, challenges, projects]
+    concepts: [different, important, questions, agent, challenges]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c6"
     char_span: [10174, 11977]
     sentence_count: 21
     key_terms: [ask, company, design, "it's", always, people, interview, recruiter]
+    concepts: [company, design, always, people, interview]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c7"
     char_span: [11980, 14075]
     sentence_count: 15
     key_terms: [market, "you're", understanding, top, everything, interviews, impacted, research]
+    concepts: [understanding, market, "you're", everything, interviews]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c8"
     char_span: [14077, 16289]
     sentence_count: 10
     key_terms: [engineering, research, people, competitive, too, interviews, something, academia]
+    concepts: [engineering, research, people, competitive, interviews]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1qepc05.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c9"
     char_span: [16036, 16615]
     sentence_count: 5
     key_terms: [engineering, something, coding, roles, round, tehfunkwagnalls, ilovecookies14, internships]
+    concepts: [engineering, something, coding, roles, round]
     section: Comments
     token_count: 143
 ---

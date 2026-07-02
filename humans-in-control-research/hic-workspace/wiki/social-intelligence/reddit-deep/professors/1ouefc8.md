@@ -21,53 +21,67 @@ chunks:
     char_span: [0, 1227]
     sentence_count: 11
     key_terms: [students, loud, experience, professors, comments, reading, "didn't", quoted]
+    concepts: [students, experience, professors, comments, reading]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ouefc8.md#c6"]
     token_count: 287
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1ouefc8/offensive_word_used_out_loud_in_class/"}]
   - id: "social-intelligence/reddit-deep/professors/1ouefc8.md#c1"
     char_span: [1241, 1516]
     sentence_count: 3
     key_terms: [complaint, ravenhill-2171, belaboring, department, seriously, surprised, students, already]
+    concepts: [complaint]
     section: Comments
     token_count: 74
   - id: "social-intelligence/reddit-deep/professors/1ouefc8.md#c2"
     char_span: [1518, 3731]
     sentence_count: 20
     key_terms: [student, complaint, word, students, context, reading, someone, inappropriate]
+    concepts: [student, complaint, students, inappropriate, context]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ouefc8.md#c4", "social-intelligence/reddit-deep/professors/1ouefc8.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1ouefc8.md#c3"
     char_span: [3430, 4489]
     sentence_count: 8
     key_terms: [triggering, chair, question, answers, someone, people, white, been]
+    concepts: [triggering, chair, question, answers, someone]
     section: Comments
     token_count: 230
   - id: "social-intelligence/reddit-deep/professors/1ouefc8.md#c4"
     char_span: [4491, 6147]
     sentence_count: 15
     key_terms: [students, email, situation, context, better, immediately, instructor, escalate]
+    concepts: [students, situation, email, context, better]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ouefc8.md#c2", "social-intelligence/reddit-deep/professors/1ouefc8.md#c6"]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/professors/1ouefc8.md#c5"
     char_span: [6149, 6726]
     sentence_count: 6
     key_terms: [context, hearing, matters, confusedinseminary, rap, completely, impossible, different]
+    concepts: [context, hearing, matters]
     section: Comments
     token_count: 148
   - id: "social-intelligence/reddit-deep/professors/1ouefc8.md#c6"
     char_span: [6728, 8740]
     sentence_count: 17
     key_terms: [word, students, used, context, reading, class, use, contextual]
+    concepts: [students, context, reading, class, contextual]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1ouefc8.md#c0", "social-intelligence/reddit-deep/professors/1ouefc8.md#c2", "social-intelligence/reddit-deep/professors/1ouefc8.md#c4"]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/professors/1ouefc8.md#c7"
     char_span: [8742, 10287]
     sentence_count: 8
     key_terms: [discussion, because, difference, african-americans, word, offended, capable, condescending]
+    concepts: [discussion, because, difference, african-americans, offended]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/professors/1ouefc8.md#c8"
     char_span: [10289, 12154]
     sentence_count: 18
     key_terms: [bibliophilebroad, black, "don't", word, "wouldn't", deleted, someone, always]
+    concepts: [bibliophilebroad, black, "don't", "wouldn't", deleted]
     section: Comments
     token_count: 445
 ---

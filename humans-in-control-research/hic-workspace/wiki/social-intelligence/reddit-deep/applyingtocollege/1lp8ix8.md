@@ -19,28 +19,37 @@ chunks:
     char_span: [0, 1930]
     sentence_count: 19
     key_terms: [years, applyingtocollege, friends, got, year, important, something, comments]
+    concepts: [applyingtocollege, years, friends, important, something]
     token_count: 451
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1lp8ix8/6_years_after_my_stanford_rejection_post_how_it/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lp8ix8.md#c1"
     char_span: [1932, 2661]
     sentence_count: 11
     key_terms: [life, college, because, doesn, right, good, got, perspective]
+    concepts: [college, because, doesn, right]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lp8ix8.md#c2"]
     token_count: 163
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lp8ix8.md#c2"
     char_span: [2675, 4297]
     sentence_count: 19
     key_terms: [life, georgetown, something, because, college, getting, sharing, cherrychocolatepizza]
+    concepts: [georgetown, something, because, college, getting]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lp8ix8.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1lp8ix8.md#c3"]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lp8ix8.md#c3"
     char_span: [4299, 5937]
     sentence_count: 11
     key_terms: [life, college, scholarship, important, stanford, getting, person, school]
+    concepts: [college, scholarship, important, stanford, getting]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1lp8ix8.md#c2"]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lp8ix8.md#c4"
     char_span: [5939, 7119]
     sentence_count: 9
     key_terms: [school, economicsjazzlike932, funny-negotiation304, thank, crinklednosesmile, life, like, love]
+    concepts: [school, thank]
     section: Comments
     token_count: 293
 ---

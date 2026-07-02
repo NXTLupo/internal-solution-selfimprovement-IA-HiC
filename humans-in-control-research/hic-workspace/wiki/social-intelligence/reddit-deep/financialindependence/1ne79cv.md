@@ -21,71 +21,88 @@ chunks:
     char_span: [0, 1231]
     sentence_count: 8
     key_terms: [financialindependence, worth, year, working, work, lifestyle, comments, evaluate]
+    concepts: [financialindependence, worth, working, lifestyle, comments]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c7"]
     token_count: 259
+    sources: [{"n":"reddit-deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1ne79cv/how_to_quantitatively_evaluate_if_working_one/"}]
   - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c1"
     char_span: [1245, 2811]
     sentence_count: 9
     key_terms: [retirement, big, etc, get, sequence, reduces, savings, return]
+    concepts: [retirement, sequence, reduces, savings, return]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c2"
     char_span: [2813, 4972]
     sentence_count: 9
     key_terms: [big, expenses, earlier, extra, makes, smart, time, difference]
+    concepts: [expenses, earlier, difference, extra, makes]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c3"
     char_span: [4712, 5806]
     sentence_count: 7
     key_terms: [etc, like, time, exactly, choice, bigadministration368, pay, work]
+    concepts: [exactly, choice]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c4"
     char_span: [5808, 7332]
     sentence_count: 10
     key_terms: [time, "i'm", disproportionate, unambiguously, extra, years, financially, year]
+    concepts: [disproportionate, unambiguously, financially, extra, retirement]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c5"
     char_span: [7334, 8704]
     sentence_count: 17
     key_terms: [annual, pounds, retirement, twenty, worth, expenditure, nineteen, income]
+    concepts: [retirement, annual, pounds, twenty, expenditure]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c6"
     char_span: [8706, 10567]
     sentence_count: 21
     key_terms: [health, years, feel, contract, customer, little, margin, though]
+    concepts: [health, years, contract, customer, little]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c7"
     char_span: [10569, 12312]
     sentence_count: 14
     key_terms: [retirement, retire, working, step, year, scrollsaw, comments, another]
+    concepts: [retirement, retire, working, scrollsaw, comments]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c0"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c8"
     char_span: [12314, 14114]
     sentence_count: 15
     key_terms: [get, satisfaction, "don't", etc, financial, software, advisor, another]
+    concepts: [satisfaction, "don't", financial, software, advisor]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c9"
     char_span: [14116, 15909]
     sentence_count: 12
     key_terms: [year, month, number, years, did, portfolio, questions, homework]
+    concepts: [month, number, years, portfolio, questions]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c10"]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c10"
     char_span: [15911, 17905]
     sentence_count: 14
     key_terms: [portfolio, month, year, extra, look, earnings, profits, through]
+    concepts: [portfolio, month, extra, earnings, profits]
+    related_chunks: ["social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c9"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c11"
     char_span: [17907, 19049]
     sentence_count: 9
     key_terms: [extra, another, cushion, overall, income, margin, market, safety]
+    concepts: [extra, another, cushion, overall, income]
     section: Comments
     token_count: 276
 ---

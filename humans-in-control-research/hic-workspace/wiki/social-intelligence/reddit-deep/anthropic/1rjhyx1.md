@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 315]
     sentence_count: 1
     key_terms: [anthropic, comments, shanraisshan, engineering, reddit-deep, changed, rakuten, shopify]
+    concepts: [anthropic, comments]
     token_count: 90
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1rjhyx1/claude_code_has_changed_engineering_at_inside/"}]
 ---
 # Claude Code has changed engineering at inside Ramp, Rakuten, Brex, Wiz, Shopify, and Spotify
 

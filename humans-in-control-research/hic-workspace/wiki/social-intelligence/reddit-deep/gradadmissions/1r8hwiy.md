@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 541]
     sentence_count: 4
     key_terms: [gradadmissions, comments, ananamuffin, reddit-deep, everything, incredibly, screaming, grateful]
+    concepts: [gradadmissions, comments]
     token_count: 154
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1r8hwiy/screaming_crying_throwing_up/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1r8hwiy.md#c1"
     char_span: [555, 1292]
     sentence_count: 7
     key_terms: [congrats, contractually, international, ananamuffin, no-test6484, scholarship, canobeesus, deductions]
+    concepts: [congrats]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/gradadmissions/1r8hwiy.md#c2"
     char_span: [1294, 3064]
     sentence_count: 16
     key_terms: [congrats, ananamuffin, phd, tutornervous8312, congratulations, engineering, saw, time]
+    concepts: [congrats, ananamuffin, tutornervous8312, congratulations, engineering]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1r8hwiy.md#c3"
     char_span: [2837, 3220]
     sentence_count: 4
     key_terms: [interview, congratulations, ananamuffin, congratsss, interviews, motivating, contacted, september]
+    concepts: [interview]
     section: Comments
     token_count: 104
 ---

@@ -20,29 +20,37 @@ chunks:
     char_span: [0, 1238]
     sentence_count: 10
     key_terms: [vanguard, cost, customer, bogleheads, advantage, comments, perhaps, qualify]
+    concepts: [vanguard, customer, bogleheads, advantage, comments]
     token_count: 295
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1mq2ygl/opinion_vanguard_has_lost_it_way/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1mq2ygl.md#c1"
-    char_span: [1253, 3053]
+    char_span: [1252, 3052]
     sentence_count: 19
     key_terms: [money, fidelity, website, don, brokerage, something, accounts, designed]
+    concepts: [money, fidelity, website, brokerage, something]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1mq2ygl.md#c2"]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/bogleheads/1mq2ygl.md#c2"
-    char_span: [3055, 4019]
+    char_span: [3054, 4018]
     sentence_count: 10
     key_terms: [fidelity, checking, money, curiousengineer601, back, fee, got, wait]
+    concepts: [fidelity, checking, money]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1mq2ygl.md#c1"]
     section: Comments
     token_count: 250
   - id: "social-intelligence/reddit-deep/bogleheads/1mq2ygl.md#c3"
-    char_span: [4021, 6163]
+    char_span: [4020, 6162]
     sentence_count: 16
     key_terms: [vanguard, institutions, products, services, fintech, been, use, "vanguard's"]
+    concepts: [vanguard, institutions, products, services, fintech]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/bogleheads/1mq2ygl.md#c4"
-    char_span: [6165, 8089]
+    char_span: [6164, 8088]
     sentence_count: 14
     key_terms: [vanguard, fidelity, funds, yield, buy, don, time, everything]
+    concepts: [vanguard, fidelity, everything, funds, "vanguard's"]
     section: Comments
     token_count: 471
 ---

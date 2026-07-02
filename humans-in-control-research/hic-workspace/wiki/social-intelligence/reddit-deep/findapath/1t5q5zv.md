@@ -19,40 +19,48 @@ chunks:
     char_span: [0, 1892]
     sentence_count: 14
     key_terms: [little, school, thesis, financially, job, creatively, interested, findapath]
+    concepts: [little, school, thesis, financially, creatively]
     token_count: 431
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1t5q5zv/looking_for_creatively_fulfilling_career_options/"}]
   - id: "social-intelligence/reddit-deep/findapath/1t5q5zv.md#c1"
     char_span: [1894, 3826]
     sentence_count: 16
     key_terms: [creative, experience, like, advice, independent, assistant, something, director]
+    concepts: [creative, experience, advice, independent, assistant]
     token_count: 414
   - id: "social-intelligence/reddit-deep/findapath/1t5q5zv.md#c2"
-    char_span: [3841, 5675]
+    char_span: [3840, 5674]
     sentence_count: 12
     key_terms: [thank, helpful, please, findapath, marketing, comments, everyone, guidance]
+    concepts: [thank, helpful, please, findapath, marketing]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/findapath/1t5q5zv.md#c3"
-    char_span: [5677, 7927]
+    char_span: [5676, 7926]
     sentence_count: 19
     key_terms: [going, creative, job, like, get, work, outside, decent]
+    concepts: [creative, going, outside, decent, skills]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1t5q5zv.md#c4"
-    char_span: [7631, 8924]
+    char_span: [7630, 8923]
     sentence_count: 9
     key_terms: [something, days, creativity, profession, passion, people, resume, dizzlethebizzlemizzl]
+    concepts: [something, creativity, profession, passion, people]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/findapath/1t5q5zv.md#c5"
-    char_span: [8926, 11282]
+    char_span: [8925, 11281]
     sentence_count: 19
     key_terms: [creative, work, something, teaching, city, get, like, corporate]
+    concepts: [creative, something, teaching, corporate, marketing]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/findapath/1t5q5zv.md#c6"
-    char_span: [11284, 11991]
+    char_span: [11283, 11990]
     sentence_count: 6
     key_terms: [indie, don, get, ridiculously, necessarily, solidserval, appreciate, commercial]
+    concepts: [indie]
     section: Comments
     token_count: 158
 ---

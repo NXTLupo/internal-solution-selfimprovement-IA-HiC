@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1133]
     sentence_count: 11
     key_terms: [performance, claude, connection, askuserquestion, code, day, "i've", too]
+    concepts: [performance, connection, claude, askuserquestion, anthropic]
     token_count: 280
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1qk7ayr/degraded_performance_all_day_retry_connection/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1qk7ayr.md#c1"
     char_span: [1147, 1376]
     sentence_count: 4

@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1947]
     sentence_count: 16
     key_terms: [interviews, interview, seen, through, remote, roles, brainwavecc, applicants]
+    concepts: [interviews, interview, through, remote, brainwavecc]
     token_count: 454
+    sources: [{"n":"Reddit Deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1o88xpd/no_more_remote_interviews/"}]
   - id: "articles/reddit-deep-r-managers/f1bc8c57bb.md#c1"
     char_span: [1949, 2229]
     sentence_count: 3
     key_terms: ["we'll-reimburse-you-later", model, employer-pre-paid, importantly, interviews, followed, "wouldn't", flying]
+    concepts: [model]
     token_count: 65
 ---
 # No more remote interviews

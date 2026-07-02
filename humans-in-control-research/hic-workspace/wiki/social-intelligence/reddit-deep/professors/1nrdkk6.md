@@ -19,52 +19,62 @@ chunks:
     char_span: [0, 1979]
     sentence_count: 15
     key_terms: [reddit, being, teach, texas, retribution, post, professors, overreach]
+    concepts: [reddit, retribution, being, professors, teach]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1nrdkk6/terror_in_texas_academia/"}]
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c1"
     char_span: [1981, 3449]
     sentence_count: 13
     key_terms: [controversial, state, law, curricula, recognize, personal, syllabi, comply]
+    concepts: [controversial, state, curricula, recognize, personal]
     token_count: 280
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c2"
     char_span: [3463, 5450]
     sentence_count: 22
     key_terms: [thinking, critical, try, gonna, stand, semester, students, classes]
+    concepts: [thinking, critical, gonna, stand, semester]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c3"
     char_span: [5452, 7248]
     sentence_count: 17
     key_terms: [happened, solidarity, chair, suck, happening, something, problem, arena]
+    concepts: [happened, solidarity, chair, happening, something]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c4"
     char_span: [7250, 8803]
     sentence_count: 11
     key_terms: [syllabus, specifically, law, like, capitulate, everything, described, process]
+    concepts: [syllabus, specifically, capitulate, everything, described]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c5"
     char_span: [8805, 10639]
     sentence_count: 11
     key_terms: [law, constitutional, attorneys, executive, gender, saying, expensive-mention-90, southern-cloud-9616]
+    concepts: [constitutional, attorneys, executive, gender, saying]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c6"
     char_span: [10641, 12827]
     sentence_count: 21
     key_terms: [persons, texas, amendment, genotypes, pregnant, current, faculty, federal]
+    concepts: [persons, texas, amendment, genotypes, pregnant]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c7"
     char_span: [12829, 14475]
     sentence_count: 7
     key_terms: [circuit, absolutely, questions, garcetti, official, "court's", outcome, pending]
+    concepts: [circuit, absolutely, questions, garcetti, official]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c8"
     char_span: [14477, 16799]
     sentence_count: 26
     key_terms: [case, classroom, circuit, speech, fifth, instruction, amendment, professor]
+    concepts: [classroom, circuit, speech, fifth, instruction]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c9"
@@ -77,6 +87,7 @@ chunks:
     char_span: [17082, 19395]
     sentence_count: 22
     key_terms: [florida, cold-nefariousness25, because, states, state, republican, far-right, faculty]
+    concepts: [florida, cold-nefariousness25, because, states, republican]
     section: Comments
     token_count: 507
 ---

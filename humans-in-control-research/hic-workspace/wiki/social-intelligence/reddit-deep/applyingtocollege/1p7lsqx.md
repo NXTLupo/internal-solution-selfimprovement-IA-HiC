@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 292]
     sentence_count: 1
     key_terms: [applyingtocollege, comments, ill-equivalent8316, reddit-deep, admissions, programs, college, posted]
+    concepts: [applyingtocollege, comments]
     token_count: 79
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1p7lsqx/which_summer_programs_actually_help_for_college/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p7lsqx.md#c1"
     char_span: [306, 2045]
     sentence_count: 4
     key_terms: [nation, summer, girls, boys, admitted-students, programs, uchicago, people]
+    concepts: [nation, summer, girls, admitted-students, programs]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p7lsqx.md#c2"
     char_span: [2047, 3822]
     sentence_count: 9
     key_terms: [competitive, aid, here, international, free, programs, research, student]
+    concepts: [competitive, international, programs, research, student]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1p7lsqx.md#c3"]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p7lsqx.md#c3"
     char_span: [3824, 4543]
     sentence_count: 4
     key_terms: [program, programs, competitive, certainly, college, potentialanywhere779, don, pre]
+    concepts: [program, programs, competitive, certainly, college]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1p7lsqx.md#c2"]
     section: Comments
     token_count: 161
 ---

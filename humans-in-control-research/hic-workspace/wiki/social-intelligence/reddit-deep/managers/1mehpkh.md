@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 619]
     sentence_count: 5
     key_terms: [tools, "i'm", comments, managers, curious, manage, investigatoralert832, etc]
+    concepts: [tools, comments, managers, curious, manage]
     token_count: 156
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1mehpkh/what_tools_do_you_actually_use_to_manage_your_team/"}]
   - id: "social-intelligence/reddit-deep/managers/1mehpkh.md#c1"
     char_span: [633, 2677]
     sentence_count: 16
     key_terms: [training, useful, team, investigatoralert832, everything, found, dedicated, education]
+    concepts: [training, useful, investigatoralert832, everything, dedicated]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/managers/1mehpkh.md#c2"
     char_span: [2679, 4888]
     sentence_count: 8
     key_terms: [teamhood, investigatoralert832, like, economistfar666, too, clearly, curious, without]
+    concepts: [teamhood, investigatoralert832, economistfar666, clearly, curious]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1mehpkh.md#c3"
     char_span: [4644, 4960]
     sentence_count: 1
     key_terms: [having, slack, maximusprohd, engagement, simpleperf, buddieshr, compared, honestly]
+    concepts: [having, slack]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/managers/1mehpkh.md#c4"
     char_span: [4962, 6070]
     sentence_count: 5
     key_terms: [feedback, project, agreed, needed, forms, day, docs, side]
+    concepts: [feedback, project, agreed, needed, forms]
     section: Comments
     token_count: 239
 ---

@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1200]
     sentence_count: 10
     key_terms: [meta-levelup, fibercareer, com, experience, technician, findapath, comments, someone]
+    concepts: [meta-levelup, fibercareer, experience, technician, findapath]
     token_count: 275
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1st2quw/is_fiber_technician_work_a_realistic_career_path/"}]
   - id: "social-intelligence/reddit-deep/findapath/1st2quw.md#c1"
-    char_span: [1215, 2556]
+    char_span: [1214, 2555]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    concepts: [thank, helpful, please, findapath, comments]
     section: Comments
     token_count: 297
 ---

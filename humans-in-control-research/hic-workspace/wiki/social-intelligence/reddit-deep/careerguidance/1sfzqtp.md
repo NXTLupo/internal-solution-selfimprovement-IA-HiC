@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 309]
     sentence_count: 3
     key_terms: [careerguidance, comments, advice, carbasic6975, reddit-deep, guidance, anyone, career]
+    concepts: [careerguidance, comments, advice]
     token_count: 92
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sfzqtp/need_advice_guidance_on_my_career_path_can_anyone/"}]
 ---
 # Need Advice/ Guidance on my Career Path. Can anyone give me some advice?
 

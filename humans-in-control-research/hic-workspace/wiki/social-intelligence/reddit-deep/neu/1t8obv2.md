@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1778]
     sentence_count: 14
     key_terms: [analytics, business, students, northeastern, current, honest, international, bba]
+    concepts: [analytics, business, students, northeastern, international]
     token_count: 374
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1t8obv2/indian_student_confused_about_northeastern_msba/"}]
   - id: "social-intelligence/reddit-deep/neu/1t8obv2.md#c1"
     char_span: [1792, 3836]
     sentence_count: 13
     key_terms: [here, get, market, job, forums, issue, place, roles]
+    concepts: [market, forums, issue, place, roles]
     section: Comments
     token_count: 497
 ---

@@ -14,47 +14,60 @@ chunks:
     char_span: [0, 493]
     sentence_count: 3
     key_terms: [research, orchestration, researchfabricorchestrator, services, fabric, source, data, methodexecutor]
+    concepts: [research, orchestration, services, fabric, source]
     token_count: 101
+    sources: [{"n":"`services/researchFabricOrchestrator.ts`, `services/methods/MethodExecutor.ts`","u":""}]
   - id: "methodologies/research-fabric.md#c1"
     char_span: [521, 2825]
     sentence_count: 20
     key_terms: [sources, search, phase, research, reviews, goal, function, papers]
+    concepts: [sources, search, research, phase, reviews]
     section: Orchestration Pipeline
     token_count: 517
+    sources: [{"n":"include year references (2025, 2026) for recency","u":""},{"n":"use field-specific terminology","u":""},{"n":"use indicator-relevant terms (GDP, employment, market size","u":""},{"n":"use community language, not formal terms","u":""}]
   - id: "methodologies/research-fabric.md#c2"
     char_span: [2827, 4222]
     sentence_count: 10
     key_terms: [items, function, relevance, content, scoring, phase, score, extraction]
+    concepts: [items, function, relevance, content, scoring]
     section: Orchestration Pipeline
     token_count: 339
   - id: "methodologies/research-fabric.md#c3"
     char_span: [4261, 6089]
     sentence_count: 12
     key_terms: [applicable, pipeline, required, ingest, lenses, stages, product, framework]
+    concepts: [applicable, pipeline, required, ingest, lenses]
+    related_chunks: ["methodologies/research-fabric.md#c4"]
     section: The Seven Research Methodologies
     token_count: 454
+    sources: [{"n":"`services/methods/MethodExecutor.ts`","u":""}]
   - id: "methodologies/research-fabric.md#c4"
     char_span: [6091, 6783]
     sentence_count: 3
     key_terms: [segmentation, wiki, applicable, synthesis, pipeline, required, driver, lenses]
+    concepts: [segmentation, applicable, synthesis, pipeline, required]
+    related_chunks: ["methodologies/research-fabric.md#c3"]
     section: The Seven Research Methodologies
     token_count: 161
   - id: "methodologies/research-fabric.md#c5"
     char_span: [6815, 7539]
     sentence_count: 1
     key_terms: [stage, methodology, stageid, output, getavailableoutputs, completedstages, interpretations, previousresults]
+    concepts: [methodology, stage, stageid, output]
     section: Method Executor Interface
     token_count: 147
   - id: "methodologies/research-fabric.md#c6"
     char_span: [7572, 8295]
     sentence_count: 2
     key_terms: [user, checkpoint, narrative, personas, review, stages, themes, methodology-specific]
+    concepts: [checkpoint, narrative, personas, review, stages]
     section: Human-in-the-Loop Pipeline
     token_count: 161
   - id: "methodologies/research-fabric.md#c7"
     char_span: [8324, 8733]
     sentence_count: 1
     key_terms: [wiki, deep-research, research, methodology-specific, analytical-lenses, cross-references, knowledge-graph, research-modes]
+    concepts: [deep-research, research]
     section: Wiki Integration Rules
     token_count: 89
 ---

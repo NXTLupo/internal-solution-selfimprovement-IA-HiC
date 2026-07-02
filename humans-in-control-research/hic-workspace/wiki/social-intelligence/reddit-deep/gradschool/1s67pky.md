@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 2322]
     sentence_count: 20
     key_terms: [situation, professor, withdraw, through, documentation, perspective, been, attendance]
+    concepts: [situation, professor, withdraw, documentation, through]
     token_count: 489
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1s67pky/withdraw_or_escalate_this_situation_after_losing/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1s67pky.md#c1"
     char_span: [2336, 3789]
     sentence_count: 11
     key_terms: [take, program, course, incomplete, graduate, semester, discuss, grades]
+    concepts: [program, course, incomplete, graduate, semester]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1s67pky.md#c2"]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/gradschool/1s67pky.md#c2"
     char_span: [3791, 5916]
     sentence_count: 17
     key_terms: [accommodations, semester, school, ombudsman, graduate, accommodation, grandmother, take]
+    concepts: [accommodations, semester, school, ombudsman, graduate]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1s67pky.md#c1"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/gradschool/1s67pky.md#c3"
     char_span: [5918, 7593]
     sentence_count: 11
     key_terms: [professors, change, unfortunately, sorry, attendance, education, "shouldn't", academic]
+    concepts: [professors, unfortunately, change, attendance, sorry]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/gradschool/1s67pky.md#c4"
     char_span: [7595, 9778]
     sentence_count: 14
     key_terms: [take, life, part, probably, withdraw, courses, don, lot]
+    concepts: [probably, withdraw, courses, discussion, incomplete]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1s67pky.md#c5"
     char_span: [9489, 9869]
     sentence_count: 4
     key_terms: [life, people, part, time, capricious, compassion, bullshit, champion]
+    concepts: [people]
     section: Comments
     token_count: 82
 ---

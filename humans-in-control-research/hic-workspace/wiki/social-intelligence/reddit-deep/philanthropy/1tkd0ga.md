@@ -20,32 +20,39 @@ chunks:
     char_span: [0, 2074]
     sentence_count: 16
     key_terms: [donors, giving, retention, households, comments, monthly, philanthropy, first-time]
+    concepts: [donors, retention, giving, households, comments]
     token_count: 487
+    sources: [{"n":"reddit-deep: r/philanthropy","u":"https://www.reddit.com/r/Philanthropy/comments/1tkd0ga/stanford_social_innovation_review_20_million/"}]
   - id: "social-intelligence/reddit-deep/philanthropy/1tkd0ga.md#c1"
     char_span: [2076, 2680]
     sentence_count: 6
     key_terms: [here, work, counterintuitive, recommendations, organizations, collectively, transparency, strategies]
     token_count: 120
   - id: "social-intelligence/reddit-deep/philanthropy/1tkd0ga.md#c2"
-    char_span: [2695, 4854]
+    char_span: [2694, 4853]
     sentence_count: 22
     key_terms: [grassroots-giving-collapse-social-innovation-threat, because, monthly, different, get, g-above-treeline, "they're", giving]
+    concepts: [grassroots-giving-collapse-social-innovation-threat, because, monthly, g-above-treeline, different]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/philanthropy/1tkd0ga.md#c3"
-    char_span: [4856, 7081]
+    char_span: [4855, 7080]
     sentence_count: 21
     key_terms: [donor, different, subscription, "you're", subscribe, because, "that's", right]
+    concepts: [donor, different, subscription, "you're", subscribe]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1tkd0ga.md#c4"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/philanthropy/1tkd0ga.md#c4"
-    char_span: [7083, 9127]
+    char_span: [7082, 9126]
     sentence_count: 17
     key_terms: [donors, donor, g-above-treeline, "you're", subscription, cause, subscribing, give]
+    concepts: [donors, g-above-treeline, donor, subscription, "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/philanthropy/1tkd0ga.md#c3"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/philanthropy/1tkd0ga.md#c5"
-    char_span: [9129, 9362]
+    char_span: [9128, 9361]
     sentence_count: 3
     key_terms: [subscriptions, describing, difference, preference, conflated, recurring, choosing, donation]
     section: Comments

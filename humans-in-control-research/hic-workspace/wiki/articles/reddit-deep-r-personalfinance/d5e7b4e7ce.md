@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2101]
     sentence_count: 15
     key_terms: [like, hold, time, personalfinance, updated, change, market, money]
+    concepts: [personalfinance, updated, change, market, intelligent]
     token_count: 503
+    sources: [{"n":"Reddit Deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1l0zp0g/the_intelligent_investor_kinda_rewired_how_i/"}]
   - id: "articles/reddit-deep-r-personalfinance/d5e7b4e7ce.md#c1"
     char_span: [2104, 3219]
     sentence_count: 7
     key_terms: ["don't", read, market, else, too, depressive, forward, minutes]
+    concepts: ["don't", market, depressive, forward, minutes]
     token_count: 242
 ---
 # The Intelligent Investor kinda rewired how I think about money

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 494]
     sentence_count: 2
     key_terms: [applyingtocollege, https, dkhmngcxqzb, com, www, instagram, comments, definitelynotalora]
+    concepts: [applyingtocollege, dkhmngcxqzb, https, instagram, comments]
     token_count: 142
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1o95xnt/what_colleges_offer_fly_in_programs_for_admitted/"}]
 ---
 # What colleges offer fly in programs for admitted students?
 

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 972]
     sentence_count: 8
     key_terms: [applyingtocollege, mental, applications, maintaining, comments, navigate, balance, college]
+    concepts: [applyingtocollege, applications, mental, maintaining, comments]
     token_count: 194
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1pg5nv5/how_do_i_balance_my_college_applications_with/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pg5nv5.md#c1"
     char_span: [986, 1623]
     sentence_count: 3
     key_terms: [yourself, school, "don't", try, supplementals, applications, remembering, assignment]
+    concepts: [yourself, school, "don't"]
     section: Comments
     token_count: 155
 ---

@@ -8,6 +8,7 @@ chunks:
     char_span: [0, 1360]
     sentence_count: 9
     key_terms: [mono, archivo, action, tokens, chat, ibm, nxt, plex]
+    concepts: [archivo, action, tokens, variables, strategy]
     section: Figma exemplars (source of truth) / Anatomy / Construction rule (1-to-1 PPTX)
     token_count: 368
 ---

@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 300]
     sentence_count: 1
     key_terms: [engineeringstudents, comments, zenitsunaidu, engineering, reddit-deep, advice, career, posted]
+    concepts: [engineeringstudents, comments]
     token_count: 84
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tie9mk/need_career_advice_after_2_year_gap_after_ece/"}]
 ---
 # Need career advice after 2 year gap after ECE engineering
 

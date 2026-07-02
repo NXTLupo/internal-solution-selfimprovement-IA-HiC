@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 1784]
     sentence_count: 7
     key_terms: [get, healthcare, careerguidance, career, school, field, like, tech]
+    concepts: [healthcare, careerguidance, career, school, background]
     token_count: 405
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tfygf8/fastest_entry_into_healthcare/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c1"
     char_span: [1798, 2582]
     sentence_count: 5
     key_terms: [hospitals, programs, pay, short-staffed, jdrelentless, certificate, credentials, perpetually]
+    concepts: [hospitals, programs]
     section: Comments
     token_count: 165
   - id: "social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c2"
     char_span: [2584, 4514]
     sentence_count: 9
     key_terms: [healthcare, job, poop, cna, eventually, hospital, college, medical]
+    concepts: [healthcare, eventually, hospital, college, medical]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c5"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c3"
     char_span: [4516, 5799]
     sentence_count: 13
     key_terms: [get, programs, looking, years, "i'm", something, program, little]
+    concepts: [programs, looking, years, something, program]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c4"
     char_span: [5801, 7768]
     sentence_count: 18
     key_terms: [healthcare, phlebotomy, like, beneficial-guess2140, entry, tech, places, certification]
+    concepts: [healthcare, phlebotomy, beneficial-guess2140, entry, certification]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c5"
     char_span: [7770, 9404]
     sentence_count: 23
     key_terms: [cna, don, programs, because, college, medical, science, course]
+    concepts: [programs, because, college, medical, science]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c2"]
     section: Comments
     token_count: 399
 ---

@@ -19,35 +19,46 @@ chunks:
     char_span: [0, 2050]
     sentence_count: 12
     key_terms: [beauty, background, struggling, don, want, myself, international, interviews]
+    concepts: [beauty, background, struggling, international, myself]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1q76ctj.md#c2"]
     token_count: 476
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1q76ctj/this_is_hard_to_post_tbh_im_about_to_give_up_and/"}]
   - id: "social-intelligence/reddit-deep/jobs/1q76ctj.md#c1"
-    char_span: [2065, 4209]
+    char_span: [2064, 4208]
     sentence_count: 13
     key_terms: [sponsorship, want, because, reason, international, right, bigopossums, don]
+    concepts: [sponsorship, international, because, reason, bigopossums]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/jobs/1q76ctj.md#c2"
-    char_span: [4211, 6410]
+    char_span: [4210, 6409]
     sentence_count: 14
     key_terms: [international, beauty, industry, fashion, opportunities, sponsorship, job, time]
+    concepts: [international, beauty, industry, opportunities, fashion]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1q76ctj.md#c0"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/jobs/1q76ctj.md#c3"
-    char_span: [6412, 8486]
+    char_span: [6411, 8485]
     sentence_count: 12
     key_terms: [marketing, people, resume, annienotmean, roles, like, background, experience]
+    concepts: [marketing, annienotmean, people, resume, background]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1q76ctj.md#c5"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/jobs/1q76ctj.md#c4"
-    char_span: [8488, 10064]
+    char_span: [8487, 10063]
     sentence_count: 15
     key_terms: [resume, data, achievements, linkedin, specific, action, people, result]
+    concepts: [resume, achievements, linkedin, specific, action]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/jobs/1q76ctj.md#c5"
-    char_span: [10066, 11554]
+    char_span: [10065, 11553]
     sentence_count: 17
     key_terms: [info, resume, job, background, analytics, companies, moidberg, imagine]
+    concepts: [resume, background, analytics, companies, moidberg]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1q76ctj.md#c3"]
     section: Comments
     token_count: 362
 ---

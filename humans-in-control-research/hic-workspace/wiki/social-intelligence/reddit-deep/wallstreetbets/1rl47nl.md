@@ -21,27 +21,35 @@ chunks:
     char_span: [0, 1772]
     sentence_count: 4
     key_terms: [broadcom-inc-announces-first-quarter-fiscal-year-2026-financial, broadcom-avgo-q1-earnings-report-2026, broadcom, billion, revenue, https, earnings, com]
+    concepts: [broadcom-inc-announces-first-quarter-fiscal-year-2026-financial, broadcom-avgo-q1-earnings-report-2026, broadcom, billion, revenue]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1rl47nl.md#c1"]
     token_count: 493
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1rl47nl/broadcom_5_afterhours_on_q1_2026_earnings_beat/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rl47nl.md#c1"
     char_span: [1774, 4217]
     sentence_count: 8
     key_terms: [billion, broadcom, revenue, streetaccount, tan, anthropic, software, semiconductor]
+    concepts: [billion, broadcom, streetaccount, revenue, anthropic]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1rl47nl.md#c0"]
     token_count: 510
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rl47nl.md#c2"
     char_span: [4219, 5387]
     sentence_count: 3
     key_terms: [broadcom, custom, accelerator, meta, tan, electrical, investing, packaging]
+    concepts: [broadcom, custom, accelerator, electrical, investing]
     token_count: 246
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rl47nl.md#c3"
     char_span: [5401, 5614]
     sentence_count: 1
     key_terms: [months, total, submissions, visualmod, comments, previous, account, report]
+    concepts: [months, total]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rl47nl.md#c4"
     char_span: [5616, 7049]
     sentence_count: 7
     key_terms: [hiro-nishi, earnings, discord, buying, illustrious-aside522, justbrowsinandvibin, going, learn]
+    concepts: [hiro-nishi, earnings, discord, buying, going]
     section: Comments
     token_count: 442
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 721]
     sentence_count: 5
     key_terms: [gpt, prompt, comments, gallery, github, source, https, image]
+    concepts: [prompt, comments, gallery, github, source]
     token_count: 189
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1suzlvf/i_made_a_small_gpt_image_2_prompt_gallery/"}]
 ---
 # I made a small GPT Image 2 prompt gallery
 

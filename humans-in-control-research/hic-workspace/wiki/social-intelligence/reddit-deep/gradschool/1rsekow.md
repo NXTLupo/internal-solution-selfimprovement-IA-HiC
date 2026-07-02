@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 804]
     sentence_count: 10
     key_terms: [grad, school, gradschool, comments, college, spicyspagettinoodle, want, inconveniences]
+    concepts: [school, gradschool, comments, college]
     token_count: 206
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rsekow/got_my_bachelors_degree_now_grad_school_what_are/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1rsekow.md#c1"
     char_span: [818, 2210]
     sentence_count: 14
     key_terms: [reading, undergrad, outside, "you're", ahead, responsible, grad, help]
+    concepts: [reading, undergrad, outside, "you're", responsible]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1rsekow.md#c2"]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/gradschool/1rsekow.md#c2"
     char_span: [2212, 4555]
     sentence_count: 15
     key_terms: [different, undergrad, class, classes, reading, information, grad, took]
+    concepts: [different, undergrad, class, classes, reading]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1rsekow.md#c1"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/gradschool/1rsekow.md#c3"
     char_span: [4557, 6320]
     sentence_count: 3
     key_terms: [week, hours, means, undergrad, expected, already, program, subject]
+    concepts: [hours, means, undergrad, expected, already]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/gradschool/1rsekow.md#c4"
     char_span: [6322, 8008]
     sentence_count: 14
     key_terms: [get, lot, sure, yourself, electrical-lobster64, placeeducational1705, doing, going]
+    concepts: [yourself, doing, going, learn]
     section: Comments
     token_count: 419
 ---

@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1783]
     sentence_count: 16
     key_terms: [projects, don, certs, cscareerquestions, certifications, github, roles, internships]
+    concepts: [projects, cscareerquestions, certs, certifications, github]
     token_count: 420
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1q93pnb/community_college_cs_student_looking_for_advice/"}]
 ---
 # Community college CS student looking for advice on internships
 

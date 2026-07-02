@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1534]
     sentence_count: 14
     key_terms: [people, cscareerquestions, applying, intermediate, job, network, junior, reddit]
+    concepts: [cscareerquestions, people, applying, intermediate, network]
     token_count: 368
+    sources: [{"n":"Reddit Deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qbzx4c/my_job_search_is_over_heres_what_i_learned/"}]
   - id: "articles/reddit-deep-r-cscareerquestions/239efbdc8a.md#c1"
     char_span: [1536, 3315]
     sentence_count: 14
     key_terms: [post, friends, recruiters, network, untrimmedbagel, get, experience, linkedin]
+    concepts: [friends, recruiters, untrimmedbagel, network, experience]
     token_count: 430
   - id: "articles/reddit-deep-r-cscareerquestions/239efbdc8a.md#c2"
     char_span: [3317, 3936]

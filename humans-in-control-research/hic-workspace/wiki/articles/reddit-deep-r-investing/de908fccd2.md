@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1846]
     sentence_count: 16
     key_terms: [nervous, nvidia, portfolio, reddit, shares, "you're", tax, correction]
+    concepts: [nervous, nvidia, portfolio, reddit, shares]
     token_count: 431
+    sources: [{"n":"Reddit Deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1o5hji1/retired_this_week_what_to_do_with_my_nvidia/"}]
   - id: "articles/reddit-deep-r-investing/de908fccd2.md#c1"
     char_span: [1848, 3155]
     sentence_count: 6
     key_terms: [order, price, filled, limit, stop, time, financials, companies]
+    concepts: [order, price, filled, financials, limit]
     token_count: 284
 ---
 # Retired this week. What to do with my Nvidia

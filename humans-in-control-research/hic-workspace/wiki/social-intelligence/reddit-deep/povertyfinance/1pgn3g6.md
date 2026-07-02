@@ -21,29 +21,38 @@ chunks:
     char_span: [0, 1981]
     sentence_count: 18
     key_terms: [everything, money, spending, something, like, povertyfinance, credit, brain]
+    concepts: [everything, spending, money, something, povertyfinance]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md#c3", "social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md#c4"]
     token_count: 448
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1pgn3g6/is_it_normal_to_feel_guilty_spending_money_even/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md#c1"
     char_span: [1995, 2613]
     sentence_count: 7
     key_terms: [need, clothing, budget, eating, bake, get, like, professional]
+    concepts: [clothing, budget, eating]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md#c2"
     char_span: [2615, 4178]
     sentence_count: 16
     key_terms: [therapy, deleted, saved, comfortable, because, feeling, always, people]
+    concepts: [therapy, deleted, comfortable, saved, because]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md#c3"
     char_span: [4180, 6055]
     sentence_count: 15
     key_terms: [money, fun, because, lot, feel, household, spending, instead]
+    concepts: [money, because, household, spending, instead]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md#c0", "social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md#c4"]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md#c4"
     char_span: [6057, 8059]
     sentence_count: 22
     key_terms: [money, spending, myself, needs, comfortable, financially, time, budgeting]
+    concepts: [spending, money, myself, comfortable, financially]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md#c0", "social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md#c3"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md#c5"

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2149]
     sentence_count: 17
     key_terms: [people, because, massive, started, actual, internships, find, completely]
+    concepts: [people, because, massive, started, actual]
     token_count: 451
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1shhsjd/why_your_internship_search_isnt_working/"}]
   - id: "social-intelligence/reddit-deep/internships/1shhsjd.md#c1"
     char_span: [2163, 3667]
     sentence_count: 9
     key_terms: [revorian, certifications, free, like, applying, students, instead, people]
+    concepts: [revorian, certifications, applying, students, instead]
     section: Comments
     token_count: 345
 ---

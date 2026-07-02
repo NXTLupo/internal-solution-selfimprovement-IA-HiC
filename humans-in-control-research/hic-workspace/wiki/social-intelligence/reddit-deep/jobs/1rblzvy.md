@@ -19,35 +19,42 @@ chunks:
     char_span: [0, 516]
     sentence_count: 3
     key_terms: [comments, job, jobs, time, reddit-deep, experience, benefited, situation]
+    concepts: [comments]
     token_count: 140
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rblzvy/employer_wants_me_to_do_four_hour_unpaid_trial_to/"}]
   - id: "social-intelligence/reddit-deep/jobs/1rblzvy.md#c1"
     char_span: [530, 2445]
     sentence_count: 13
     key_terms: [like, typos, mistakes, communicates, shift, trail, lot, work]
+    concepts: [typos, mistakes, communicates, shift, trail]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/jobs/1rblzvy.md#c2"
     char_span: [2447, 3464]
     sentence_count: 2
     key_terms: [work, mrjasong, accountforcontrovers, trial, flockinatrenchcoat, free, hire, read]
+    concepts: [mrjasong, trial]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/jobs/1rblzvy.md#c3"
     char_span: [3466, 4459]
     sentence_count: 9
     key_terms: [shifts, work, department, illegal, unpaid, signal-village-5757, trial, job]
+    concepts: [shifts, department, illegal, unpaid, trial]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/jobs/1rblzvy.md#c4"
     char_span: [4461, 6417]
     sentence_count: 19
     key_terms: [work, someone, like, people, time, business, spelling, dessert]
+    concepts: [someone, people, business, spelling, dessert]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rblzvy.md#c5"
     char_span: [6127, 6844]
     sentence_count: 9
     key_terms: [professionalism, grammar, poor, spelling, "doesn't", matter, halfsweethalfstreet, potentially]
+    concepts: [professionalism, grammar, spelling, "doesn't", matter]
     section: Comments
     token_count: 171
 ---

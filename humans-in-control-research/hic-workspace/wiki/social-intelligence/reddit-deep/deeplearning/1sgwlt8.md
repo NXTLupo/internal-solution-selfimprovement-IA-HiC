@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1887]
     sentence_count: 6
     key_terms: [representations, feedback, detection, models, hallucination, deeplearning, arxiv, https]
+    concepts: [representations, feedback, detection, hallucination, deeplearning]
     token_count: 426
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1sgwlt8/looking_for_feedback_on_llm_hallucination/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1sgwlt8.md#c1"
     char_span: [1901, 3742]
     sentence_count: 18
     key_terms: [https, org, aclanthology, paper, better, papers, arxiv, conferences]
+    concepts: [https, aclanthology, paper, better, papers]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/deeplearning/1sgwlt8.md#c2"
     char_span: [3744, 5780]
     sentence_count: 26
     key_terms: [paper, important, abstract, writing, introduction, formatting, like, equation]
+    concepts: [paper, important, abstract, introduction, writing]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/deeplearning/1sgwlt8.md#c3"
     char_span: [5782, 8009]
     sentence_count: 19
     key_terms: [internal, divergence, features, figures, sparse, interpretable, state, uncertainty]
+    concepts: [internal, divergence, features, interpretable, figures]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/deeplearning/1sgwlt8.md#c4"
     char_span: [8011, 8641]
     sentence_count: 5
     key_terms: [github, individual-ice4288, computational, contribution, correctness, demonstrate, scalability, supervision]
+    concepts: [github]
     section: Comments
     token_count: 141
 ---

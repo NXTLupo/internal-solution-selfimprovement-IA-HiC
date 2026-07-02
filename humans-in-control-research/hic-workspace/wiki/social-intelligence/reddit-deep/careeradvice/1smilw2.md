@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2140]
     sentence_count: 11
     key_terms: [entry-level, consulting, being, tech, research, problem-solving, careeradvice, human]
+    concepts: [entry-level, consulting, being, problem-solving, research]
     token_count: 505
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1smilw2/i_cant_stand_the_idea_of_being_an_ai_supervisor/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1smilw2.md#c1"
     char_span: [2142, 2309]
     sentence_count: 2
     key_terms: [because, consulting, research, machine, career, double, useful, audit]
+    concepts: [because]
     token_count: 38
 ---
 # I can’t stand the idea of being an "AI Supervisor" for my entry-level career. Is Research or Consulting a better path?

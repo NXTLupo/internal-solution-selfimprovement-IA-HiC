@@ -21,23 +21,32 @@ chunks:
     char_span: [0, 793]
     sentence_count: 6
     key_terms: [college, language, because, languages, comments, someone, better, school]
+    concepts: [college, language, because, languages, comments]
+    related_chunks: ["social-intelligence/reddit-deep/college/1luhckt.md#c1", "social-intelligence/reddit-deep/college/1luhckt.md#c2"]
     token_count: 176
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1luhckt/is_college_a_better_place_to_learn_languages_than/"}]
   - id: "social-intelligence/reddit-deep/college/1luhckt.md#c1"
     char_span: [807, 2579]
     sentence_count: 8
     key_terms: [language, turbulent-artist961, learning, college, better, school, conversations, learn]
+    concepts: [language, turbulent-artist961, learning, conversations, college]
+    related_chunks: ["social-intelligence/reddit-deep/college/1luhckt.md#c0", "social-intelligence/reddit-deep/college/1luhckt.md#c2"]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/college/1luhckt.md#c2"
     char_span: [2581, 4842]
     sentence_count: 12
     key_terms: [college, school, high, language, french, no-professional-9618, learned, better]
+    concepts: [college, school, language, french, no-professional-9618]
+    related_chunks: ["social-intelligence/reddit-deep/college/1luhckt.md#c0", "social-intelligence/reddit-deep/college/1luhckt.md#c1", "social-intelligence/reddit-deep/college/1luhckt.md#c3"]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/college/1luhckt.md#c3"
     char_span: [4844, 6087]
     sentence_count: 6
     key_terms: [school, high, language, german, class, bad, did, professors]
+    concepts: [school, language, german, class, professors]
+    related_chunks: ["social-intelligence/reddit-deep/college/1luhckt.md#c2"]
     section: Comments
     token_count: 276
 ---

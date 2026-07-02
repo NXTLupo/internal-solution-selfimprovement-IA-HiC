@@ -11,16 +11,18 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 1
 flair: ""
-extracted_at: "2026-06-17T19:26:46.469Z"
+extracted_at: "2026-06-20T17:52:10.501Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/insurance/1m8zpa1.md#c0"
-    char_span: [0, 1175]
+    char_span: [0, 1174]
     sentence_count: 11
     key_terms: [insurance, travel, comments, consumer, health, maleficent-pizza8799, professionalsnow4555, claim]
+    concepts: [insurance, travel, comments, consumer, health]
     token_count: 260
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1m8zpa1/care_health_travel_insurance_claim_worst_customer/"}]
 ---
 # Care Health Travel Insurance claim - Worst Customer Service
 

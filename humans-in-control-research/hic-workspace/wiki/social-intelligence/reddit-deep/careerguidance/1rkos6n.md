@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1492]
     sentence_count: 15
     key_terms: [year, school, field, something, "i'm", careerguidance, certifications, back]
+    concepts: [school, something, field, careerguidance, certifications]
     token_count: 367
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rkos6n/best_careers_to_get_work_towards_in_2026/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rkos6n.md#c1"
     char_span: [1506, 2714]
     sentence_count: 9
     key_terms: [proof-emergency-5441, job, get, yeah, check, ninjaknight520, firefighting, requirements]
+    concepts: [proof-emergency-5441, check]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/careerguidance/1rkos6n.md#c2"
     char_span: [2716, 4711]
     sentence_count: 13
     key_terms: [trades, figures, time, get, background, assistant, honestly, finance]
+    concepts: [trades, figures, background, assistant, honestly]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/careerguidance/1rkos6n.md#c3"
     char_span: [4713, 6527]
     sentence_count: 2
     key_terms: [certifications, nursing, construction, like, pay, time, experience, management]
+    concepts: [certifications, nursing, construction, experience, management]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/careerguidance/1rkos6n.md#c4"
     char_span: [6529, 7964]
     sentence_count: 11
     key_terms: [physiology, certifications, skills, roles, since, look, healthcare, assistant]
+    concepts: [physiology, certifications, skills, healthcare, roles]
     section: Comments
     token_count: 279
 ---

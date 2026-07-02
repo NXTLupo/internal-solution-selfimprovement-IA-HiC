@@ -18,31 +18,38 @@ chunks:
     char_span: [0, 2322]
     sentence_count: 21
     key_terms: [tunis, "i'd", like, digitalnomad, waste, destination, residential, trip]
+    concepts: [tunis, digitalnomad, destination, residential, experience]
     token_count: 512
+    sources: [{"n":"Reddit Deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1nskcl5/trip_report_tunis_regrettably_one_tomiss/"}]
   - id: "articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md#c1"
     char_span: [2324, 4589]
     sentence_count: 20
     key_terms: [downtown, around, like, beachside, different, guidance, upmarket, coastal]
+    concepts: [downtown, around, beachside, different, guidance]
     token_count: 474
   - id: "articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md#c2"
     char_span: [4591, 6989]
     sentence_count: 20
     key_terms: ["it's", internet, particularly, been, connection, coworking, elsewhere, downtown]
+    concepts: [internet, particularly, connection, coworking, elsewhere]
     token_count: 502
   - id: "articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md#c3"
     char_span: [6991, 8961]
     sentence_count: 15
     key_terms: [food, restaurants, local, often, style, day, everywhere, entering]
+    concepts: [restaurants, everywhere, local, often, style]
     token_count: 416
   - id: "articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md#c4"
     char_span: [8963, 11044]
     sentence_count: 13
     key_terms: [people, often, destination, directions, generally, language, driver, "you're"]
+    concepts: [people, destination, directions, often, generally]
     token_count: 468
   - id: "articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md#c5"
     char_span: [11046, 12186]
     sentence_count: 9
     key_terms: [slightly, written, "that's", useful, whitecollarbohemian, baku, infrastructure, jonwillington]
+    concepts: [slightly, written, "that's", useful]
     token_count: 278
 ---
 # Trip Report: Tunis - Regrettably, one to-miss

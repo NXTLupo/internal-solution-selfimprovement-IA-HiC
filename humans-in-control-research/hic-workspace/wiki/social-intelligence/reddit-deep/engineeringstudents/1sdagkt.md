@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 456]
     sentence_count: 2
     key_terms: [engineeringstudents, sophomore, comments, https, png, dq7n3iltvetg1, engineering, reddit-deep]
+    concepts: [engineeringstudents, sophomore, comments, https]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1sdagkt.md#c1"]
     token_count: 144
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1sdagkt/internship_results_aerospace_engineering_sophomore/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sdagkt.md#c1"
     char_span: [470, 1363]
     sentence_count: 8
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, www, index]
+    concepts: [engineeringstudents, please, reddit, https, index]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1sdagkt.md#c0"]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sdagkt.md#c2"
     char_span: [1365, 3274]
     sentence_count: 8
     key_terms: [numbers, connections, cold, autonomous, internship, different, startups, school]
+    concepts: [numbers, connections, autonomous, internship, different]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sdagkt.md#c3"
     char_span: [3062, 3286]
     sentence_count: 3
     key_terms: [school, engineering, technical, involved, non-aero, company, jdwjxia, no-name]
+    concepts: [school]
     section: Comments
     token_count: 67
 ---

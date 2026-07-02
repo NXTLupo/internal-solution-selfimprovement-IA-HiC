@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1916]
     sentence_count: 11
     key_terms: [chatgpt, claude, conversation, image, fail, "it's", like, post]
+    concepts: [chatgpt, conversation, claude, image, comments]
     token_count: 482
+    sources: [{"n":"Reddit Deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1mn7kkl/chatgpt_5_is_dumb_af/"}]
   - id: "articles/reddit-deep-r-chatgpt/f7e4ddee76.md#c1"
     char_span: [1918, 3043]
     sentence_count: 8
     key_terms: [summaries, r-chatgpt-1050422060352024636, concerns, discord, meeting, output, random, trying]
+    concepts: [summaries, concerns, discord, meeting, output]
     token_count: 269
   - id: "articles/reddit-deep-r-chatgpt/f7e4ddee76.md#c2"
     char_span: [3045, 4677]
     sentence_count: 10
     key_terms: [asking, give, "it's", like, instead, altruistic-slide-512, times, civilizedpsycho224]
+    concepts: [asking, instead, times]
     token_count: 380
 ---
 # Chatgpt 5 is Dumb AF

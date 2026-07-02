@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2072]
     sentence_count: 15
     key_terms: [like, never, cscareerquestions, projects, friends, coding, doing, competitive]
+    concepts: [cscareerquestions, never, projects, friends, coding]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ml0zcj/junior_in_cs_feeling_lost_i_like_simple_coding/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ml0zcj.md#c1"
     char_span: [2074, 2655]
     sentence_count: 7
@@ -31,18 +33,21 @@ chunks:
     char_span: [2669, 4748]
     sentence_count: 30
     key_terms: [discipline, doing, don, whatever, cares, enjoy, start, lost]
+    concepts: [discipline, doing, whatever, cares, enjoy]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ml0zcj.md#c3"
     char_span: [4750, 6744]
     sentence_count: 19
     key_terms: [don, pivot, everyone, start, like, need, okay, management]
+    concepts: [pivot, everyone, management, passionate, start]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ml0zcj.md#c4"
     char_span: [6746, 8678]
     sentence_count: 13
     key_terms: [management, career, projects, coordination, roles, need, want, strengths]
+    concepts: [management, career, projects, coordination, roles]
     section: Comments
     token_count: 380
 ---

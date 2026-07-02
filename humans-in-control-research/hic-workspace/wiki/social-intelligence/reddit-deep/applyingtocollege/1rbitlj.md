@@ -21,53 +21,70 @@ chunks:
     char_span: [0, 925]
     sentence_count: 7
     key_terms: [universities, acceptance, applyingtocollege, rates, competitive, applicants, colleges, comments]
+    concepts: [universities, acceptance, applyingtocollege, competitive, applicants]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c2"]
     token_count: 192
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rbitlj/how_inflated_are_us_university_acceptance_rates/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c1"
     char_span: [939, 3115]
     sentence_count: 16
     key_terms: [applications, schools, applicants, kids, rate, numbers, universities, "don't"]
+    concepts: [applications, schools, applicants, numbers, universities]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c5"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c2"
     char_span: [3117, 4492]
     sentence_count: 9
     key_terms: [applications, schools, universities, top, acceptance, university, admission, holistic]
+    concepts: [applications, schools, universities, acceptance, university]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c0", "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c5"]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c3"
     char_span: [4494, 5414]
     sentence_count: 5
     key_terms: [apply, students, universities, "wouldn't", results, zealousidealweird706, did, get]
+    concepts: [apply, students, universities, "wouldn't", results]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c5"]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c4"
     char_span: [5416, 7436]
     sentence_count: 12
     key_terms: [schools, kids, candidates, number, colleges, freshman, chicago, take]
+    concepts: [schools, candidates, number, colleges, freshman]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c5"
     char_span: [7438, 9603]
     sentence_count: 15
     key_terms: [students, top, faculty, applications, universities, population, schools, tuition]
+    concepts: [students, faculty, applications, universities, population]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c1", "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c2", "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c3"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c6"
     char_span: [9605, 10631]
     sentence_count: 6
     key_terms: [years, top, harvard, ivies, ago, qualifications, valedictorian, prototypical]
+    concepts: [years, harvard, ivies]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c7"
     char_span: [10633, 12456]
     sentence_count: 10
     key_terms: [schools, college, minimum, requirements, admit, kids, admissions, applicants]
+    concepts: [schools, college, minimum, requirements, admissions]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c8"]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c8"
     char_span: [12458, 14632]
     sentence_count: 20
     key_terms: [admissions, aggravating-mind-657, students, despite, schools, scores, applications, apply]
+    concepts: [admissions, aggravating-mind-657, students, despite, schools]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c7"]
     section: Comments
     token_count: 499
 ---

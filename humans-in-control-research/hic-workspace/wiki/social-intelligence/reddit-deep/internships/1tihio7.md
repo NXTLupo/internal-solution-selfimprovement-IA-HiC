@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1148]
     sentence_count: 5
     key_terms: [ok-organization1328, students, "we're", internships, internship, comments, writing, coding]
+    concepts: [ok-organization1328, students, internships, internship, "we're"]
     token_count: 309
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tihio7/internship_opportunity_for_students_who_love/"}]
 ---
 # Internship Opportunity for Students Who Love Logic & Coding
 

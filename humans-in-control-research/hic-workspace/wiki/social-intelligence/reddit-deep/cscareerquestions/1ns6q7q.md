@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1922]
     sentence_count: 21
     key_terms: [lastiberianlynx, programming, https, gamedev, com, focus, cscareerquestions, youtube]
+    concepts: [lastiberianlynx, programming, https, gamedev, cscareerquestions]
     token_count: 492
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ns6q7q/what_programming_career_path_should_i_focus_on/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ns6q7q.md#c1"
     char_span: [1936, 3719]
     sentence_count: 7
     key_terms: [architecture, like, though, applications, niche, programming, need, gamedev]
+    concepts: [architecture, applications, though, programming, niche]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ns6q7q.md#c2"
     char_span: [3721, 4201]
     sentence_count: 5
     key_terms: [gamedev, according-emu-8721, get, good, job, self-motivated, experience, learning]
+    concepts: [gamedev]
     section: Comments
     token_count: 125
 ---

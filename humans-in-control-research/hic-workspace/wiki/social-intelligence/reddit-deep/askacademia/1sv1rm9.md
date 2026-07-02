@@ -21,34 +21,41 @@ chunks:
     char_span: [0, 1957]
     sentence_count: 15
     key_terms: [working, career, seems, topic, askacademia, did, get, bachelors]
+    concepts: [working, career, askacademia, seems, topic]
     token_count: 445
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1sv1rm9/what_do_you_wish_you_knew_in_the_early_days_of/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1sv1rm9.md#c1"
     char_span: [1959, 2633]
     sentence_count: 7
     key_terms: [people, social, ignorance, through, doing, rules, unprofessional, throughout]
+    concepts: [people, social, ignorance, through, doing]
     token_count: 139
   - id: "social-intelligence/reddit-deep/askacademia/1sv1rm9.md#c2"
     char_span: [2647, 4424]
     sentence_count: 14
     key_terms: [someone, advice, purpleconversation36, work, help, helpful, humble, biglybiglytremendous]
+    concepts: [purpleconversation36, someone, advice, helpful, humble]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/askacademia/1sv1rm9.md#c3"
     char_span: [4426, 6742]
     sentence_count: 21
     key_terms: [culturalyesterday641, different, been, faculty, people, compensation, going, academia]
+    concepts: [culturalyesterday641, different, faculty, compensation, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1sv1rm9.md#c4"
     char_span: [6455, 7398]
     sentence_count: 9
     key_terms: [faculty, answer, purpleconversation36, doesn, place, administration, disrespectful, appreciable]
+    concepts: [faculty, answer, doesn, place]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/askacademia/1sv1rm9.md#c5"
     char_span: [7400, 8220]
     sentence_count: 7
     key_terms: [because, clinical, focus, gauge, offer, sense, don, like]
+    concepts: [because, clinical, focus, gauge, offer]
     section: Comments
     token_count: 174
 ---

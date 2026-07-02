@@ -20,46 +20,57 @@ chunks:
     char_span: [0, 1952]
     sentence_count: 17
     key_terms: [prototyping, generation, experiences, prototype, productmanagement, "doesn't", design, building]
+    concepts: [prototyping, generation, experiences, productmanagement, prototype]
     token_count: 457
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1mc7d9m/prototyping_are_you_really_using_it_is_it_helping/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1mc7d9m.md#c1"
     char_span: [1954, 2387]
     sentence_count: 5
     key_terms: [get, images, great, code, production-ready, experience, direction, iteration]
+    concepts: [images, great]
     token_count: 99
   - id: "social-intelligence/reddit-deep/productmanagement/1mc7d9m.md#c2"
-    char_span: [2402, 4061]
+    char_span: [2401, 4060]
     sentence_count: 8
     key_terms: [design, fidelity, focus, image, too, jontomato, something, building]
+    concepts: [design, fidelity, focus, image, jontomato]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/productmanagement/1mc7d9m.md#c3"
-    char_span: [4063, 5857]
+    char_span: [4062, 5856]
     sentence_count: 15
     key_terms: [cursor, figma, use, existing, products, lovable, product, quality]
+    concepts: [cursor, figma, existing, products, lovable]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/productmanagement/1mc7d9m.md#c4"
-    char_span: [5859, 7803]
+    char_span: [5858, 7802]
     sentence_count: 14
     key_terms: [using, party-operation-393, tools, figma, alot, new, coding, design]
+    concepts: [using, party-operation-393, tools, figma, coding]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/productmanagement/1mc7d9m.md#c5"
-    char_span: [7805, 10063]
+    char_span: [7804, 10062]
     sentence_count: 20
     key_terms: [code, use, week, hoping, pretty, prototypes, prototype, patterns]
+    concepts: [hoping, pretty, prototypes, prototype, patterns]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1mc7d9m.md#c6"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/productmanagement/1mc7d9m.md#c6"
-    char_span: [10065, 11999]
+    char_span: [10064, 11998]
     sentence_count: 16
     key_terms: [prototyping, prototypes, use, design, pretty, works, code, good]
+    concepts: [prototyping, prototypes, design, pretty, works]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1mc7d9m.md#c5"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/productmanagement/1mc7d9m.md#c7"
-    char_span: [12001, 12309]
+    char_span: [12000, 12308]
     sentence_count: 2
     key_terms: [tools, "it's", interaction, envisioned, impossible, designers, prototype, certain]
+    concepts: [tools]
     section: Comments
     token_count: 76
 ---

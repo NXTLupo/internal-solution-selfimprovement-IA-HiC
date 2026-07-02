@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 800]
     sentence_count: 5
     key_terms: [co-op, city, use, comments, students, people, trying, being]
+    concepts: [co-op, comments, students, people, trying]
     token_count: 194
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1q9urg4/would_you_use_an_app_to_find_other_students_on/"}]
   - id: "social-intelligence/reddit-deep/neu/1q9urg4.md#c1"
     char_span: [814, 1503]
     sentence_count: 6
     key_terms: [like, good, having, meetup, office, people, coop, definitely]
+    concepts: [having, meetup, office, people]
     section: Comments
     token_count: 167
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 408]
     sentence_count: 3
     key_terms: [jobs, experience, comments, introverted, reddit-deep, introverts, drfuckwad, posted]
+    concepts: [experience, comments]
     token_count: 113
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1palrsy/what_if_any_jobs_are_there_for_introverts_with_no/"}]
   - id: "social-intelligence/reddit-deep/jobs/1palrsy.md#c1"
     char_span: [422, 2204]
     sentence_count: 17
     key_terms: [job, get, warehouse, start, don, like, work, references]
+    concepts: [warehouse, references, start, security, deleted]
     section: Comments
     token_count: 457
 ---

@@ -19,29 +19,40 @@ chunks:
     char_span: [0, 1364]
     sentence_count: 9
     key_terms: [applications, interviews, applying, careerguidance, job, qualified, comments, company]
+    concepts: [applications, interviews, applying, careerguidance, qualified]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c1", "social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c3"]
     token_count: 314
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qjvthj/feeling_stuck_careerwise_whats_a_realistic_path/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c1"
     char_span: [1378, 3098]
     sentence_count: 8
     key_terms: [interviews, job, honestly, resume, conversations, applications, been, too]
+    concepts: [interviews, honestly, conversations, applications, resume]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c0", "social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c3"]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c2"
     char_span: [3103, 4786]
     sentence_count: 13
     key_terms: [job, messaging, applications, apply, right, recruiters, linkedin, probably]
+    concepts: [messaging, applications, apply, recruiters, right]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c4"]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c3"
     char_span: [4788, 7171]
     sentence_count: 19
     key_terms: [applications, applying, roles, job, linkedin, resume, "you're", doing]
+    concepts: [applications, applying, roles, linkedin, resume]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c0", "social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c1"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c4"
     char_span: [7173, 7965]
     sentence_count: 8
     key_terms: [applications, apply, companies, anyway, accomplished-win9630, right, "it's", jobs]
+    concepts: [applications, apply, companies, anyway, right]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c2"]
     section: Comments
     token_count: 185
 ---

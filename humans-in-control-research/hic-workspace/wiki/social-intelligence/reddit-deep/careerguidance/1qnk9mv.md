@@ -19,22 +19,27 @@ chunks:
     char_span: [0, 2402]
     sentence_count: 27
     key_terms: [culinary, because, considered, careerguidance, became, school, international, expectations]
+    concepts: [culinary, because, considered, careerguidance, international]
     token_count: 509
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1qnk9mv/from_top_student_to_feeling_lost_abroad/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1qnk9mv.md#c1"
     char_span: [2404, 4046]
     sentence_count: 17
     key_terms: [feel, being, like, expectations, engineering, don, want, everything]
+    concepts: [being, expectations, engineering, everything, creative]
     token_count: 366
   - id: "social-intelligence/reddit-deep/careerguidance/1qnk9mv.md#c2"
     char_span: [4060, 5187]
     sentence_count: 14
     key_terms: [trying, years, horror-cheek-7091, feel, get, time, work, opportunity]
+    concepts: [trying, years]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/careerguidance/1qnk9mv.md#c3"
     char_span: [5189, 6104]
     sentence_count: 7
     key_terms: [yourself, always, districtevening3681, bright-future-girl, horror-cheek-7091, give, step, encouraging]
+    concepts: [yourself, always]
     section: Comments
     token_count: 226
 ---

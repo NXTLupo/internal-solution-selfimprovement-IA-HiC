@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 309]
     sentence_count: 2
     key_terms: [engineeringstudents, comments, uzumakihuman, engineering, reddit-deep, internship, companies, embedded]
+    concepts: [engineeringstudents, comments]
     token_count: 85
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1s7lt7a/internship_in_embedded_companies_for_2nd_year/"}]
 ---
 # Internship in embedded companies for 2nd year engineering student?
 

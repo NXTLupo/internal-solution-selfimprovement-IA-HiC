@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 602]
     sentence_count: 7
     key_terms: [findapath, comments, school, try, reddit-deep, suggestions, brightest, education]
+    concepts: [findapath, comments, school]
     token_count: 165
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1oaf7ku/29f_with_some_college_education_willing_to_go/"}]
   - id: "social-intelligence/reddit-deep/findapath/1oaf7ku.md#c1"
     char_span: [616, 2593]
     sentence_count: 20
     key_terms: [thank, helpful, please, find, findapath, questions, comments, everyone]
+    concepts: [thank, helpful, please, findapath, questions]
     section: Comments
     token_count: 449
 ---

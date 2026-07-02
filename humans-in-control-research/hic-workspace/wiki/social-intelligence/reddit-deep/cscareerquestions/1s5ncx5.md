@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 1811]
     sentence_count: 7
     key_terms: [cscareerquestions, here, uni, knowledge, comments, projects, already, getting]
+    concepts: [cscareerquestions, knowledge, comments, projects, already]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1s5ncx5.md#c1"]
     token_count: 419
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1s5ncx5/final_year_of_unsw_cs_no_projects_internships_not/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s5ncx5.md#c1"
     char_span: [1825, 3813]
     sentence_count: 21
     key_terms: [something, "don't", done, get, job, use, projects, already]
+    concepts: [something, "don't", projects, already, project]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1s5ncx5.md#c0"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s5ncx5.md#c2"
     char_span: [3815, 5042]
     sentence_count: 6
     key_terms: [referral, already, nothing, meaningrealistic5561, job, fundamentals, comfortable, interesting]
+    concepts: [referral, already, nothing]
     section: Comments
     token_count: 255
 ---

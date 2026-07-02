@@ -16,10 +16,12 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1riqldr.md#c0"
-    char_span: [0, 1115]
+    char_span: [0, 1114]
     sentence_count: 11
     key_terms: [grad, gradadmissions, school, experience, comments, country, prepare, gpa]
-    token_count: 257
+    concepts: [gradadmissions, school, experience, comments, country]
+    token_count: 256
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1riqldr/how_to_prepare_for_european_grad_school_admission/"}]
 ---
 # How to prepare for European grad school admission?
 

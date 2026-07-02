@@ -19,52 +19,62 @@ chunks:
     char_span: [0, 1718]
     sentence_count: 22
     key_terms: [roles, cscareerquestions, job, etc, jobs, experience, recruiter, responses]
+    concepts: [cscareerquestions, roles, experience, recruiter, responses]
     token_count: 424
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1lijpsg/ms_cs_7_years_experience_and_unemployed_for_months/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c1"
     char_span: [1720, 2075]
     sentence_count: 2
     key_terms: [year, making, school, point, long, residency, complain, doctors]
+    concepts: [making, school, point]
     token_count: 92
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c2"
     char_span: [2089, 3962]
     sentence_count: 20
     key_terms: [company, experience, field, "it's", director, people, non-technical, engineering]
+    concepts: [company, experience, field, director, non-technical]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c3"
     char_span: [3964, 5942]
     sentence_count: 14
     key_terms: ["don't", applications, engineering, get, like, recruiters, something, advice]
+    concepts: ["don't", applications, engineering, recruiters, something]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c4"
     char_span: [5944, 7955]
     sentence_count: 13
     key_terms: [school, https, chocolate-emmi-87, outreach, resume, free-chapters, "don't", "it's"]
+    concepts: [chocolate-emmi-87, school, https, outreach, free-chapters]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c5"
     char_span: [7957, 9362]
     sentence_count: 11
     key_terms: [medicine, schools, family, med, want, carribean, because, people]
+    concepts: [medicine, schools, family, carribean, because]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c6"
     char_span: [9364, 10757]
     sentence_count: 10
     key_terms: [interviews, interviewing, being, "i've", time, companies, responses, applying]
+    concepts: [interviews, interviewing, being, companies, responses]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c7"
     char_span: [10760, 12909]
     sentence_count: 19
     key_terms: [engineering, programming, software, comparison, work, rizzosaurusrhex, worked, like]
+    concepts: [engineering, programming, software, comparison, rizzosaurusrhex]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c8"
     char_span: [12911, 13715]
     sentence_count: 5
     key_terms: [convictions, criminal, medicine, going, magnifuckingicient, rizzosaurusrhex, pessimistprime, opportunities]
+    concepts: [convictions, criminal, medicine, going]
     section: Comments
     token_count: 210
 ---

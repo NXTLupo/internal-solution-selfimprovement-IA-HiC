@@ -19,23 +19,30 @@ chunks:
     char_span: [0, 1717]
     sentence_count: 17
     key_terms: [internships, interview, intern, "i'm", internship, companies, full-time, questions]
+    concepts: [internships, interview, intern, internship, companies]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1shjs0r.md#c1"]
     token_count: 383
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1shjs0r/i_got_rejected_for_an_unpaid_intern_position/"}]
   - id: "social-intelligence/reddit-deep/internships/1shjs0r.md#c1"
     char_span: [1731, 3884]
     sentence_count: 13
     key_terms: [unpaid, time, get, internships, don, company, free, internship]
+    concepts: [unpaid, internships, company, internship, references]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1shjs0r.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1shjs0r.md#c2"
     char_span: [3667, 4791]
     sentence_count: 5
     key_terms: [video, give, interview, complete, answers, company, content, itself]
+    concepts: [video, interview, complete, answers, company]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/internships/1shjs0r.md#c3"
     char_span: [4795, 6015]
     sentence_count: 7
     key_terms: [round, confident, interview, skills, brandywinechemworks, areas, opportunities, capabilities]
+    concepts: [round, confident, interview, skills, areas]
     section: Comments
     token_count: 270
 ---

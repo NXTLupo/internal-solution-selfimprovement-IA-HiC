@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 259]
     sentence_count: 1
     key_terms: [gradschool, comments, reddit-deep, babyskele, exploring, research, posted, reddit]
+    concepts: [gradschool, comments]
     token_count: 75
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1o5tpw1/exploring_research_topics_for_grad_school/"}]
 ---
 # Exploring Research Topics for Grad School
 

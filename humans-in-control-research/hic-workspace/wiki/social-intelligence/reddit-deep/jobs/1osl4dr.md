@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1626]
     sentence_count: 17
     key_terms: [here, working, advice, comments, graphic, church, job, like]
+    concepts: [working, advice, comments, graphic, church]
     token_count: 402
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1osl4dr/advice_for_someone_who_likes_his_job_but_is/"}]
   - id: "social-intelligence/reddit-deep/jobs/1osl4dr.md#c1"
     char_span: [1640, 2817]
     sentence_count: 7
     key_terms: [because, job, time, freelance, churches, family, sonsoflibertynh1776, leave]
+    concepts: [because, freelance, churches, family, leave]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/jobs/1osl4dr.md#c2"
     char_span: [2819, 4561]
     sentence_count: 14
     key_terms: [freelance, work, people, side, want, employment, probably, current]
+    concepts: [freelance, people, employment, probably, current]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/jobs/1osl4dr.md#c3"
     char_span: [4563, 6592]
     sentence_count: 19
     key_terms: [freelance, job, work, like, look, time, experience, possible]
+    concepts: [freelance, experience, possible, another, friends]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/jobs/1osl4dr.md#c4"
     char_span: [6594, 8696]
     sentence_count: 16
     key_terms: [job, new, graphic, around, pursue, lockandload11, etc, time]
+    concepts: [lockandload11, graphic, around, pursue, management]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/jobs/1osl4dr.md#c5"
     char_span: [8699, 10353]
     sentence_count: 14
     key_terms: [job, don, graphic, designer, find, want, companies, something]
+    concepts: [graphic, designer, companies, something, purpose]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/jobs/1osl4dr.md#c6"
     char_span: [10355, 11331]
     sentence_count: 8
     key_terms: [another, raise, look, underpaid, employer, church, unless, later]
+    concepts: [another, raise, underpaid, employer, church]
     section: Comments
     token_count: 236
 ---

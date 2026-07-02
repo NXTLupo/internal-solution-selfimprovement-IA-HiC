@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1393]
     sentence_count: 5
     key_terms: [dev, jobs, cscareerquestions, pay, median, unique, role, disclosed]
+    concepts: [cscareerquestions, median, unique, disclosed, comments]
     token_count: 468
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1rdf7xp/i_found_5000_dev_unique_jobs_after_analyzing_440k/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rdf7xp.md#c1"
     char_span: [1395, 2340]
     sentence_count: 2
     key_terms: [median, senior, postings, direct, apply, staff, state, ats]
+    concepts: [median, senior, postings, direct, apply]
     token_count: 401
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rdf7xp.md#c2"
     char_span: [2342, 2628]
@@ -34,18 +37,21 @@ chunks:
     char_span: [2642, 4523]
     sentence_count: 10
     key_terms: [kotlin, day, java, job, jobs, average, surprising, seen]
+    concepts: [kotlin, average, surprising, oneok-field, crazy]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rdf7xp.md#c4"
     char_span: [4525, 6218]
     sentence_count: 8
     key_terms: [linkedin, indeed, postings, better, data, full, job, applying]
+    concepts: [linkedin, indeed, postings, better, applying]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rdf7xp.md#c5"
     char_span: [6220, 7052]
     sentence_count: 5
     key_terms: [voidwater1, hiring, offer, job, pristine-item680, lurkrrrrbrndnw, thr0waway12324, opportunities]
+    concepts: [voidwater1, hiring, offer]
     section: Comments
     token_count: 236
 ---

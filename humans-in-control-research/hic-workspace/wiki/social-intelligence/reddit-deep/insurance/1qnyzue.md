@@ -20,28 +20,38 @@ chunks:
     char_span: [0, 2240]
     sentence_count: 20
     key_terms: [appraisal, progressive, clause, car, comments, invoking, well-maintained, comps]
+    concepts: [appraisal, progressive, clause, well-maintained, comments]
     token_count: 507
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1qnyzue/worth_hiring_an_appraiser_for_a_lowball_total/"}]
   - id: "social-intelligence/reddit-deep/insurance/1qnyzue.md#c1"
     char_span: [2242, 2885]
     sentence_count: 7
     key_terms: [progressive, parameters, appraiser, hiring, comps, party, car, counter-comps]
+    concepts: [progressive, parameters, appraiser, hiring, comps]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qnyzue.md#c4"]
     token_count: 145
   - id: "social-intelligence/reddit-deep/insurance/1qnyzue.md#c2"
-    char_span: [2900, 4792]
+    char_span: [2899, 4791]
     sentence_count: 16
     key_terms: [car, because, company, comps, value, sale, appraisal, different]
+    concepts: [because, company, comps, value, appraisal]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qnyzue.md#c3"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/insurance/1qnyzue.md#c3"
-    char_span: [4794, 6345]
+    char_span: [4793, 6344]
     sentence_count: 17
     key_terms: [car, appraisal, vehicle, going, value, rare, insurance, clause]
+    concepts: [appraisal, vehicle, going, value, insurance]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qnyzue.md#c2"]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/insurance/1qnyzue.md#c4"
-    char_span: [6347, 7235]
+    char_span: [6346, 7234]
     sentence_count: 9
     key_terms: [worth, like, appraiser, difficult, vehicle, hiring, sounds, value]
+    concepts: [worth, appraiser, difficult, vehicle, hiring]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1qnyzue.md#c1"]
     section: Comments
     token_count: 209
 ---

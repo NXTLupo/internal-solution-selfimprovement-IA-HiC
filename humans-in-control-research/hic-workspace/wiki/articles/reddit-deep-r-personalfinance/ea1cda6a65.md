@@ -19,24 +19,32 @@ content_hash: "19c6c7f53d5459e3"
 relevance_by_goal: {"46dec9599ad5":30}
 chunks:
   - id: "articles/reddit-deep-r-personalfinance/ea1cda6a65.md#c0"
-    char_span: [0, 2017]
+    char_span: [0, 2016]
     sentence_count: 22
     key_terms: [account, checking, schwab, capital, immediately, checks, deposited, new]
-    token_count: 448
+    concepts: [account, checking, schwab, capital, immediately]
+    related_chunks: ["articles/reddit-deep-r-personalfinance/ea1cda6a65.md#c2"]
+    token_count: 447
+    sources: [{"n":"Reddit Deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1o8ay6o/my_experience_opening_a_new_schwab_checking/"}]
   - id: "articles/reddit-deep-r-personalfinance/ea1cda6a65.md#c1"
-    char_span: [2019, 3819]
+    char_span: [2018, 3818]
     sentence_count: 20
     key_terms: [account, days, documentation, inconvenience, email, money, "i'm", apparently]
+    concepts: [account, documentation, inconvenience, apparently, department]
     token_count: 402
   - id: "articles/reddit-deep-r-personalfinance/ea1cda6a65.md#c2"
-    char_span: [3821, 5901]
+    char_span: [3820, 5900]
     sentence_count: 19
     key_terms: [zelle, fraud, account, schwab, experience, pinetreevermont, using, dept]
+    concepts: [zelle, fraud, account, experience, schwab]
+    related_chunks: ["articles/reddit-deep-r-personalfinance/ea1cda6a65.md#c0", "articles/reddit-deep-r-personalfinance/ea1cda6a65.md#c3"]
     token_count: 467
   - id: "articles/reddit-deep-r-personalfinance/ea1cda6a65.md#c3"
-    char_span: [5903, 7556]
+    char_span: [5902, 7555]
     sentence_count: 20
     key_terms: [fraud, customer, service, detection, experience, likely, amounts, similar]
+    concepts: [fraud, customer, service, detection, experience]
+    related_chunks: ["articles/reddit-deep-r-personalfinance/ea1cda6a65.md#c2"]
     token_count: 366
 ---
 # My Experience Opening a New Schwab Checking Account

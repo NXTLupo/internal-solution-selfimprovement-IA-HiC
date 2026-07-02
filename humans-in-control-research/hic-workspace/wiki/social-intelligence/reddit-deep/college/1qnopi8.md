@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 868]
     sentence_count: 11
     key_terms: [college, career, professional, info, want, comments, fair, help]
+    concepts: [college, professional, career, comments]
     token_count: 205
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1qnopi8/what_info_do_you_want_at_a_career_fair/"}]
   - id: "social-intelligence/reddit-deep/college/1qnopi8.md#c1"
-    char_span: [883, 2412]
+    char_span: [882, 2411]
     sentence_count: 8
     key_terms: [metasequioa, field, student, organization, professional, help, work, employment]
+    concepts: [metasequioa, field, student, organization, professional]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/college/1qnopi8.md#c2"
-    char_span: [2414, 4384]
+    char_span: [2413, 4383]
     sentence_count: 5
     key_terms: [website, information, relocation, companies, listings, response, company, interns]
+    concepts: [website, information, relocation, companies, listings]
     section: Comments
     token_count: 449
 ---

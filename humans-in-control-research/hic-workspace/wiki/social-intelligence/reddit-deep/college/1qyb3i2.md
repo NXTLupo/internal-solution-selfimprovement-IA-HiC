@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1607]
     sentence_count: 1
     key_terms: [life, yourself, college, stick, meaningful, comments, accept, skills]
+    concepts: [yourself, college, meaningful, stick, comments]
     token_count: 362
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1qyb3i2/guide_to_ruin_your_college_life_may_not_work_for/"}]
   - id: "social-intelligence/reddit-deep/college/1qyb3i2.md#c1"
     char_span: [1621, 3589]
     sentence_count: 18
     key_terms: [school, graduating, networking, imaginary-roll-5665, important, get, friends, career]
+    concepts: [school, imaginary-roll-5665, graduating, networking, important]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/college/1qyb3i2.md#c2"
     char_span: [3591, 4886]
     sentence_count: 14
     key_terms: [excited, academics, message, career, linux, ask, did, else]
+    concepts: [excited, academics, message, career, linux]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/college/1qyb3i2.md#c3"
     char_span: [4889, 6775]
     sentence_count: 13
     key_terms: [college, deleted, lo1mteloj6o, graduate, youtube, glittering-phone-819, douchebagplatitudes, imaginary-roll-5665]
+    concepts: [college, deleted, lo1mteloj6o, graduate, youtube]
     section: Comments
     token_count: 488
 ---

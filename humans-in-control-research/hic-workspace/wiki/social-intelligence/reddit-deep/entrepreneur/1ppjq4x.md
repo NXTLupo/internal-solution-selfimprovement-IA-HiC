@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 1755]
     sentence_count: 8
     key_terms: [phone, voice, customers, because, entrepreneur, order, call, frustrated]
+    concepts: [customers, phone, voice, because, entrepreneur]
     token_count: 366
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1ppjq4x/voice_ai_handles_most_of_our_ecommerce_customer/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1ppjq4x.md#c1"
-    char_span: [1770, 3933]
+    char_span: [1769, 3932]
     sentence_count: 11
     key_terms: [entrepreneur, please, cleartouch, ecommerce, permanent, promotion, stickied, already]
+    concepts: [entrepreneur, please, cleartouch, ecommerce, permanent]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/entrepreneur/1ppjq4x.md#c2"
-    char_span: [3935, 4598]
+    char_span: [3934, 4597]
     sentence_count: 4
     key_terms: [handling, build, "it's", infrastructure, theecloutgenie, interruptions, off-the-shelf, conversation]
+    concepts: [handling, build]
     section: Comments
     token_count: 149
 ---

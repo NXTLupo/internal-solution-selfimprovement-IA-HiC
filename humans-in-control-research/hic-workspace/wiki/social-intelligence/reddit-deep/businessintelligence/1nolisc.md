@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 667]
     sentence_count: 6
     key_terms: [businessintelligence, comments, metabase, cursor, supermetrics, reddit-deep, dashboards, phenomenon]
+    concepts: [businessintelligence, comments, metabase, cursor]
     token_count: 166
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1nolisc/cursor_for_metabase_or_powerbi/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1nolisc.md#c1"
-    char_span: [682, 1681]
+    char_span: [681, 1680]
     sentence_count: 1
     key_terms: [alligatorjunior, context, dax, semantic, specific, chatgpt, measure, filter]
+    concepts: [alligatorjunior, context, semantic, specific, chatgpt]
     section: Comments
     token_count: 223
 ---

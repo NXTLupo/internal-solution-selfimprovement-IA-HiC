@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1420]
     sentence_count: 10
     key_terms: [year, international, grad, student, school, graduate, opt, work]
+    concepts: [international, student, school, graduate, gradschool]
     token_count: 331
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1m9hzo0/should_i_apply_for_grad_school_this_year_or_work/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1m9hzo0.md#c1"
     char_span: [1434, 2195]
     sentence_count: 11
     key_terms: [school, grad, working, people, resume, try, international, undergraduate]
+    concepts: [school, working, people, resume]
     section: Comments
     token_count: 170
 ---

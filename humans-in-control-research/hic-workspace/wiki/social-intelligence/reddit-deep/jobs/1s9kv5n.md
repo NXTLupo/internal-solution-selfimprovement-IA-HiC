@@ -21,89 +21,107 @@ chunks:
     char_span: [0, 1764]
     sentence_count: 11
     key_terms: [project, working, "don't", life, mean, meta, team, comments]
+    concepts: [project, working, "don't", comments, fucking]
     token_count: 433
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1s9kv5n/exgoogler_account_of_working_at_meta_so_you_dont/"}]
   - id: "social-intelligence/reddit-deep/jobs/1s9kv5n.md#c1"
     char_span: [1778, 3608]
     sentence_count: 15
     key_terms: [brownfield, something, greenfield, infrastructure, significantly, everything, because, bright]
+    concepts: [brownfield, something, greenfield, infrastructure, significantly]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1s9kv5n.md#c2"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/jobs/1s9kv5n.md#c2"
     char_span: [3610, 5076]
     sentence_count: 6
     key_terms: [development, new, greenfield, existing, brownfield, completely, investment, projects]
+    concepts: [development, greenfield, existing, brownfield, completely]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1s9kv5n.md#c1"]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/jobs/1s9kv5n.md#c3"
     char_span: [5078, 6022]
     sentence_count: 6
     key_terms: [meta, projects, doomed, google, backwardbuttplug, leafmeouttathis, backlikeclap, maintaining]
+    concepts: [projects, doomed, google]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/jobs/1s9kv5n.md#c4"
     char_span: [6024, 8157]
     sentence_count: 15
     key_terms: [too, google, balloons, project, ground, good, mp90, disaster]
+    concepts: [google, balloons, project, ground, disaster]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1s9kv5n.md#c5"
     char_span: [7878, 8339]
     sentence_count: 4
     key_terms: [significantfield2644, work, hopefully, liability, wandering, assigned, employee, hallways]
+    concepts: [significantfield2644]
     section: Comments
     token_count: 116
   - id: "social-intelligence/reddit-deep/jobs/1s9kv5n.md#c6"
     char_span: [8341, 10495]
     sentence_count: 18
     key_terms: [get, management, something, working, bureaucracy, done, work, constantly]
+    concepts: [management, something, working, bureaucracy, constantly]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/jobs/1s9kv5n.md#c7"
     char_span: [10497, 12239]
     sentence_count: 11
     key_terms: [company, people, manof1000usernames, end, men, meta, shit, tiny-part-4786]
+    concepts: [company, people]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/jobs/1s9kv5n.md#c8"
     char_span: [12242, 14570]
     sentence_count: 14
     key_terms: [regulators, usually, get, platform, products, company, growing, kingdom]
+    concepts: [regulators, usually, platform, products, company]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1s9kv5n.md#c9"
     char_span: [14219, 14901]
     sentence_count: 7
     key_terms: [regulators, teams, meta, developing, always, new, documentation, competitors]
+    concepts: [regulators, teams, developing, always]
     section: Comments
     token_count: 127
   - id: "social-intelligence/reddit-deep/jobs/1s9kv5n.md#c10"
     char_span: [14903, 16694]
     sentence_count: 14
     key_terms: [because, like, "that's", human, "it's", meta, marketed, projects]
+    concepts: [because, "that's", human, marketed, projects]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/jobs/1s9kv5n.md#c11"
     char_span: [16696, 18958]
     sentence_count: 19
     key_terms: [data, marketplace, healthcare, component, hardware, software, whatever, current]
+    concepts: [marketplace, healthcare, component, hardware, software]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/jobs/1s9kv5n.md#c12"
     char_span: [18961, 21051]
     sentence_count: 20
     key_terms: [wells, fargo, end, because, asked, data, user, natguy2016]
+    concepts: [wells, fargo, because, asked, natguy2016]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/jobs/1s9kv5n.md#c13"
     char_span: [21053, 22847]
     sentence_count: 35
     key_terms: [customers, accounts, business, account, cheat, sales, wells, goal]
+    concepts: [customers, accounts, business, account, cheat]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/jobs/1s9kv5n.md#c14"
     char_span: [22849, 24863]
     sentence_count: 13
     key_terms: [experience, influence, culture, working, simplegazelle, like, companies, everyone]
+    concepts: [experience, influence, simplegazelle, culture, working]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/jobs/1s9kv5n.md#c15"

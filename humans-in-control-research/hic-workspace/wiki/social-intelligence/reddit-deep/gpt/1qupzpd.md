@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 2146]
     sentence_count: 14
     key_terms: [technologies, biolife, chatgpt, quantum, patent-bearing, c-corporation, voice, inc]
+    concepts: [technologies, patent-bearing, c-corporation, biolife, chatgpt]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1qupzpd.md#c1"]
     token_count: 478
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1qupzpd/built_a_patentbearing_corp_on_chatgpt_heres_why/"}]
   - id: "social-intelligence/reddit-deep/gpt/1qupzpd.md#c1"
     char_span: [2150, 4535]
     sentence_count: 20
     key_terms: [technologies, trust, biolife, quantum, inc, because, visible, c-corporation]
+    concepts: [technologies, biolife, quantum, trust, c-corporation]
+    related_chunks: ["social-intelligence/reddit-deep/gpt/1qupzpd.md#c0"]
     token_count: 484
 ---
 # “Built a Patent-Bearing Corp on ChatGPT. Here’s Why It’s 4 Stars, Not 5.”

@@ -5,59 +5,77 @@ chunks:
     char_span: [0, 325]
     sentence_count: 3
     key_terms: [benchmarks, metrics, cross-referenced, corresponding, quantitative, experience, hypothesis, knowledge]
+    concepts: [benchmarks, metrics]
     token_count: 62
   - id: "benchmarks/cx-metrics.md#c1"
     char_span: [367, 2086]
     sentence_count: 2
     key_terms: [benchmarks, nps, verified, evidence, financial-impact, confidence, cross-refs, benchmark]
+    concepts: [benchmarks, verified, financial-impact, evidence, confidence]
+    related_chunks: ["benchmarks/cx-metrics.md#c2", "benchmarks/cx-metrics.md#c3", "benchmarks/cx-metrics.md#c4", "benchmarks/cx-metrics.md#c5", "benchmarks/cx-metrics.md#c6"]
     section: Net Promoter Score (NPS) by Industry
     token_count: 500
   - id: "benchmarks/cx-metrics.md#c2"
     char_span: [2121, 3212]
     sentence_count: 1
     key_terms: [csat, verified, data, benchmarks, confidence, cross-refs, evidence, financial-impact]
+    concepts: [verified, benchmarks, confidence, cross-refs, financial-impact]
+    related_chunks: ["benchmarks/cx-metrics.md#c1", "benchmarks/cx-metrics.md#c3", "benchmarks/cx-metrics.md#c4", "benchmarks/cx-metrics.md#c5", "benchmarks/cx-metrics.md#c6"]
     section: Customer Satisfaction (CSAT)
     token_count: 308
   - id: "benchmarks/cx-metrics.md#c3"
     char_span: [3246, 4412]
     sentence_count: 1
     key_terms: [experience, customers, verified, data, benchmarks, confidence, cross-refs, low-effort]
+    concepts: [experience, customers, verified, benchmarks, confidence]
+    related_chunks: ["benchmarks/cx-metrics.md#c1", "benchmarks/cx-metrics.md#c2", "benchmarks/cx-metrics.md#c4", "benchmarks/cx-metrics.md#c5", "benchmarks/cx-metrics.md#c6"]
     section: Customer Effort Score (CES)
     token_count: 333
   - id: "benchmarks/cx-metrics.md#c4"
     char_span: [4454, 5948]
     sentence_count: 1
     key_terms: [benchmarks, verified, financial-impact, technology-adoption, confidence, cross-refs, evidence, matched]
+    concepts: [benchmarks, verified, financial-impact, technology-adoption, confidence]
+    related_chunks: ["benchmarks/cx-metrics.md#c1", "benchmarks/cx-metrics.md#c2", "benchmarks/cx-metrics.md#c3", "benchmarks/cx-metrics.md#c5", "benchmarks/cx-metrics.md#c6"]
     section: "Contact Center & Resolution Metrics"
     token_count: 453
   - id: "benchmarks/cx-metrics.md#c5"
     char_span: [5990, 6793]
     sentence_count: 1
     key_terms: [customers, data, financial-impact, benchmarks, confidence, cross-refs, hypothesis, retention]
+    concepts: [financial-impact, customers, benchmarks, confidence, cross-refs]
+    related_chunks: ["benchmarks/cx-metrics.md#c1", "benchmarks/cx-metrics.md#c2", "benchmarks/cx-metrics.md#c3", "benchmarks/cx-metrics.md#c4", "benchmarks/cx-metrics.md#c6"]
     section: "Customer Lifetime Value & Retention"
     token_count: 210
   - id: "benchmarks/cx-metrics.md#c6"
     char_span: [6821, 7926]
     sentence_count: 1
     key_terms: [benchmarks, financial-impact, churn, verified, data, confidence, cross-refs, competitive-intel]
+    concepts: [benchmarks, financial-impact, verified, churn, confidence]
+    related_chunks: ["benchmarks/cx-metrics.md#c1", "benchmarks/cx-metrics.md#c2", "benchmarks/cx-metrics.md#c3", "benchmarks/cx-metrics.md#c4", "benchmarks/cx-metrics.md#c5"]
     section: Churn Rate Benchmarks
     token_count: 320
   - id: "benchmarks/cx-metrics.md#c7"
     char_span: [7960, 9095]
     sentence_count: 2
     key_terms: [benchmarks, financial-impact, verified, data, confidence, cross-refs, source, last]
+    concepts: [financial-impact, benchmarks, verified, confidence, cross-refs]
+    related_chunks: ["benchmarks/cx-metrics.md#c1", "benchmarks/cx-metrics.md#c2", "benchmarks/cx-metrics.md#c3", "benchmarks/cx-metrics.md#c4", "benchmarks/cx-metrics.md#c5"]
     section: "CX ROI & Investment Returns"
     token_count: 310
   - id: "benchmarks/cx-metrics.md#c8"
     char_span: [9134, 9939]
     sentence_count: 1
     key_terms: [personalization, data, benchmarks, confidence, cross-refs, hypothesis, verified, current]
+    concepts: [personalization, benchmarks, confidence, cross-refs, hypothesis]
+    related_chunks: ["benchmarks/cx-metrics.md#c1", "benchmarks/cx-metrics.md#c2", "benchmarks/cx-metrics.md#c3", "benchmarks/cx-metrics.md#c4", "benchmarks/cx-metrics.md#c5"]
     section: Customer Experience Expectations
     token_count: 212
   - id: "benchmarks/cx-metrics.md#c9"
     char_span: [9962, 10454]
     sentence_count: 3
     key_terms: [evidenced, retention-to-profitability, cited, data, cost-of-bad-cx, benchmarks, consulting, frequently]
+    concepts: [evidenced, cited]
     section: Validation Notes
     token_count: 113
 ---

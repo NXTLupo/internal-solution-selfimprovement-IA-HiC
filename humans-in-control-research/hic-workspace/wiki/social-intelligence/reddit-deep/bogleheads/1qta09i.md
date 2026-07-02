@@ -20,23 +20,31 @@ chunks:
     char_span: [0, 2152]
     sentence_count: 25
     key_terms: [roth, etfs, funds, index, plan, account, "don't", buy]
+    concepts: [funds, index, account, bogleheads, brokerages]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1qta09i.md#c2"]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1qta09i/index_etf_vs_index_mutual_funds_for_a_roth_ira/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1qta09i.md#c1"
-    char_span: [2167, 3919]
+    char_span: [2166, 3918]
     sentence_count: 11
     key_terms: [taxable, matter, funds, roth, tax, "doesn't", index, seems]
+    concepts: [taxable, matter, funds, "doesn't", equivalent]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/bogleheads/1qta09i.md#c2"
-    char_span: [3921, 5901]
+    char_span: [3920, 5900]
     sentence_count: 18
     key_terms: [fidelity, funds, mutual, vanguard, account, taxable, buy, inside]
+    concepts: [fidelity, funds, mutual, vanguard, account]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1qta09i.md#c0", "social-intelligence/reddit-deep/bogleheads/1qta09i.md#c3"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/bogleheads/1qta09i.md#c3"
-    char_span: [5903, 6768]
+    char_span: [5902, 6767]
     sentence_count: 7
     key_terms: [fidelity, mutual, funds, vanguard, buy, brianmx34, immediate-rice-1622, etfs]
+    concepts: [fidelity, mutual, funds, vanguard, brianmx34]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1qta09i.md#c2"]
     section: Comments
     token_count: 210
 ---

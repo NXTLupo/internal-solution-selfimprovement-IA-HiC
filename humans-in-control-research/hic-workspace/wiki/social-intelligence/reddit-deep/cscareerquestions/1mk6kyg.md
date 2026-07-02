@@ -19,29 +19,37 @@ chunks:
     char_span: [0, 1422]
     sentence_count: 3
     key_terms: [us-tech-job-postings-remain-below-pre-pandemic-levels, since, cscareerquestions, global-daily-news, tech, postings, staffingindustry, hiring]
+    concepts: [us-tech-job-postings-remain-below-pre-pandemic-levels, since, cscareerquestions, global-daily-news, staffingindustry]
     token_count: 344
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1mk6kyg/36_drop_in_us_tech_job_postings_since_prepandemic/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk6kyg.md#c1"
     char_span: [1436, 2911]
     sentence_count: 8
     key_terms: [experience, deleted, years, ding, job, offshoring, market, been]
+    concepts: [experience, deleted, offshoring, years, market]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk6kyg.md#c2"
     char_span: [2913, 4693]
     sentence_count: 14
     key_terms: [job, fucked, people, tech, healthcare, offshoring, companies, argument]
+    concepts: [fucked, people, healthcare, offshoring, companies]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mk6kyg.md#c3"]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk6kyg.md#c3"
     char_span: [4695, 6447]
     sentence_count: 10
     key_terms: [job, healthcare, tech, people, unemployed, medicaid, looking, workers]
+    concepts: [healthcare, people, unemployed, medicaid, looking]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mk6kyg.md#c2"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk6kyg.md#c4"
     char_span: [6449, 8026]
     sentence_count: 9
     key_terms: [state, "it's", recessions, ignores, carelesspackage1982, desperate-till-9228, grads, international-bed9]
+    concepts: [recessions, state, ignores, grads]
     section: Comments
     token_count: 403
 ---

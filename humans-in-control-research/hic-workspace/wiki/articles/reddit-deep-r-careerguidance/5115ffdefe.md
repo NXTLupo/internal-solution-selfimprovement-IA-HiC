@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 979]
     sentence_count: 4
     key_terms: [academic, careerguidance, situation, guidance, forward, career, moving, reddit]
+    concepts: [academic, careerguidance, situation, guidance, forward]
     token_count: 190
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1q9slno/international_student_seeking_guidance_on/"}]
 ---
 # International Student Seeking Guidance on Academic and Career Path Moving Forward?
 

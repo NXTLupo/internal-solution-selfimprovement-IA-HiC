@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1894]
     sentence_count: 14
     key_terms: [field, learn, "i'm", cscareerquestions, narrow, feel, get, good]
+    concepts: [field, learn, cscareerquestions, narrow, knowledge]
     token_count: 460
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1sjjyk6/how_does_a_new_grad_learn_the_needed_tech_when/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sjjyk6.md#c1"
     char_span: [1908, 3358]
     sentence_count: 11
     key_terms: [projects, learn, days, good, job, like, pick, work]
+    concepts: [projects, learn, learning, relevant, project]
     section: Comments
     token_count: 345
 ---

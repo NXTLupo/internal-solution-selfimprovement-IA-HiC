@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1453]
     sentence_count: 10
     key_terms: [digitalnomad, safetywing, incorrect, insurance, seriously, comments, constant, rejected]
+    concepts: [digitalnomad, safetywing, incorrect, insurance, seriously]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1szfsdg.md#c2"]
     token_count: 309
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1szfsdg/stay_away_from_safetywing/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1szfsdg.md#c1"
     char_span: [1467, 3528]
     sentence_count: 12
     key_terms: [insurance, companies, infrastructure, cigna, rates, like, pay, assman69x]
+    concepts: [insurance, companies, infrastructure, cigna, rates]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/digitalnomad/1szfsdg.md#c2"
     char_span: [3530, 5540]
     sentence_count: 10
     key_terms: [people, insurance, buy, "it's", complete, easy, safetywing, required]
+    concepts: [people, insurance, complete, safetywing, required]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1szfsdg.md#c0"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/digitalnomad/1szfsdg.md#c3"
     char_span: [5542, 6807]
     sentence_count: 9
     key_terms: [better, within, genki, experiences, days, claims, claim, heard]
+    concepts: [better, within, experiences, genki, claims]
     section: Comments
     token_count: 311
 ---

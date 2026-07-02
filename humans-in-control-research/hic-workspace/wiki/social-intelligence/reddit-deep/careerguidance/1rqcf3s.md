@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 2250]
     sentence_count: 10
     key_terms: ["i'm", like, work, "i've", careerguidance, career, enough, hairdressing]
+    concepts: [careerguidance, hairdressing, career, enough, experience]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rqcf3s/completely_lost_in_my_career_path_any_free_advice/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1rqcf3s.md#c1"
-    char_span: [2252, 4640]
+    char_span: [2252, 4639]
     sentence_count: 23
     key_terms: [something, like, career, work, honestly, commit, learn, constantly]
+    concepts: [something, career, honestly, commit, constantly]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/careerguidance/1rqcf3s.md#c2"
-    char_span: [4642, 6622]
+    char_span: [4641, 6621]
     sentence_count: 15
     key_terms: [like, completely, work, exaggerated, get, time, healthcare, something]
+    concepts: [completely, exaggerated, healthcare, something, bouncing]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/careerguidance/1rqcf3s.md#c3"
-    char_span: [6624, 7614]
+    char_span: [6623, 7613]
     sentence_count: 7
     key_terms: [exaggerating, getting, several, passionmysterious245, years, "i'm", understanding, difficulties]
+    concepts: [exaggerating, getting, several, years]
     section: Comments
     token_count: 212
 ---

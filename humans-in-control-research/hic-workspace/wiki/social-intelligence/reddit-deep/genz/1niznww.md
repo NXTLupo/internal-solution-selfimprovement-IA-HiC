@@ -21,41 +21,51 @@ chunks:
     char_span: [0, 934]
     sentence_count: 10
     key_terms: [year, inflation, comments, because, blindly, invest, market, didn]
+    concepts: [inflation, comments, because, blindly, invest]
     token_count: 227
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1niznww/is_the_stock_market_the_equivalent_of_a/"}]
   - id: "social-intelligence/reddit-deep/genz/1niznww.md#c1"
     char_span: [948, 1514]
     sentence_count: 2
     key_terms: [discord, automatically, automoderator, thelastbyte, absolutely, definitely, inevitably, moderators]
+    concepts: [discord]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/genz/1niznww.md#c2"
     char_span: [1517, 3565]
     sentence_count: 14
     key_terms: [market, money, "don't", index, own, time, collective, knowledge]
+    concepts: [market, money, collective, "don't", index]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/genz/1niznww.md#c3"
     char_span: [3567, 5796]
     sentence_count: 12
     key_terms: [investing, economy, feeding, stocks, system, participation, real, continue]
+    concepts: [investing, economy, feeding, stocks, system]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/genz/1niznww.md#c4"
     char_span: [5798, 7979]
     sentence_count: 11
     key_terms: [shareholders, companies, lives, big, like, business, benefit, pharmaceutical]
+    concepts: [shareholders, companies, lives, business, pharmaceutical]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1niznww.md#c5"]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/genz/1niznww.md#c5"
     char_span: [7981, 9836]
     sentence_count: 13
     key_terms: ["it's", scheme, companies, business, "you're", money, ponzi, speculative]
+    concepts: [scheme, companies, business, "you're", speculative]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1niznww.md#c4"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/genz/1niznww.md#c6"
     char_span: [9838, 11368]
     sentence_count: 10
     key_terms: [like, scheme, ponzi, stock, been, btc, government, sapphfire0]
+    concepts: [scheme, government, ponzi, sapphfire0, stock]
     section: Comments
     token_count: 401
 ---

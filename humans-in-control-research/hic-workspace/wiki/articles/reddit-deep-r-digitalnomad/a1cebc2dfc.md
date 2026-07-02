@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1265]
     sentence_count: 10
     key_terms: [number, digitalnomad, data, whatsapp, account, verizon, without, losing]
+    concepts: [number, digitalnomad, whatsapp, account, verizon]
     token_count: 310
+    sources: [{"n":"Reddit Deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1t5r538/american_nomads_how_to_park_your_number/"}]
   - id: "articles/reddit-deep-r-digitalnomad/a1cebc2dfc.md#c1"
     char_span: [1267, 2447]
     sentence_count: 14
     key_terms: [google, voice, country, works, receive, charge, number, thefullyloadednachos]
+    concepts: [google, voice, country, works, receive]
     token_count: 306
 ---
 # American Nomads how to park your number

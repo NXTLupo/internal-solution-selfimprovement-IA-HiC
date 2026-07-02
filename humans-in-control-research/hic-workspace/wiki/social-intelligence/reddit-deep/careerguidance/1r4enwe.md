@@ -19,29 +19,40 @@ chunks:
     char_span: [0, 988]
     sentence_count: 7
     key_terms: [learn, watching, youtube, careerguidance, comments, careers, change, people]
+    concepts: [learn, watching, careerguidance, youtube, comments]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c3"]
     token_count: 227
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1r4enwe/is_youtube_really_a_good_place_to_learn_skills/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c1"
     char_span: [1002, 2583]
     sentence_count: 12
     key_terms: [youtube, industry, people, like, standards, learning, career, making]
+    concepts: [youtube, industry, people, standards, learning]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c3", "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c4"]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c2"
     char_span: [2585, 4263]
     sentence_count: 15
     key_terms: [youtube, time, worldtallestengineer, use, defiant-ad2342, something, willpower, content]
+    concepts: [youtube, worldtallestengineer, defiant-ad2342, something, willpower]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c3", "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c4"]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c3"
     char_span: [4265, 6361]
     sentence_count: 15
     key_terms: [learning, watching, youtube, something, specific, amazingmrbrock, defiant-ad2342, "didn't"]
+    concepts: [learning, watching, youtube, something, specific]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c0", "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c1", "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c2", "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c4"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c4"
     char_span: [6363, 8546]
     sentence_count: 13
     key_terms: [learning, defiant-ad2342, youtube, thin-blueberry9183, new, resource, career, learn]
+    concepts: [learning, defiant-ad2342, youtube, thin-blueberry9183, resource]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c1", "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c2", "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c3"]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c5"

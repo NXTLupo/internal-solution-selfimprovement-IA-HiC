@@ -20,15 +20,18 @@ chunks:
     char_span: [0, 1698]
     sentence_count: 11
     key_terms: [supply, chain, management, role, quality, vendor, title, supplychain]
+    concepts: [supply, chain, management, quality, vendor]
     token_count: 368
+    sources: [{"n":"reddit-deep: r/supplychain","u":"https://www.reddit.com/r/supplychain/comments/1qubgoi/is_my_supply_chain_associate_role_misclassified/"}]
   - id: "social-intelligence/reddit-deep/supplychain/1qubgoi.md#c1"
-    char_span: [1713, 3713]
+    char_span: [1712, 3712]
     sentence_count: 18
     key_terms: [underpaid, role, opportunities, management, angeles, because, degrees, exactly]
+    concepts: [underpaid, opportunities, management, angeles, because]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/supplychain/1qubgoi.md#c2"
-    char_span: [3715, 4192]
+    char_span: [3714, 4191]
     sentence_count: 3
     key_terms: [bacardieeeee, professional, engineering, definitely, aerospace, underpaid, capacity, probably]
     section: Comments

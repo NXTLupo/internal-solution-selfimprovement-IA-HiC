@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1441]
     sentence_count: 6
     key_terms: [degree, oklahoma, programs, announcement, regents, professors, comments, meeting]
+    concepts: [degree, oklahoma, programs, announcement, regents]
     token_count: 328
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1pg1ttc/and_the_land_we_belong_to_is_grand_s/"}]
   - id: "social-intelligence/reddit-deep/professors/1pg1ttc.md#c1"
     char_span: [1455, 3206]
     sentence_count: 9
     key_terms: [education, state-regents-meetings, life-education-8030, geography, state-system, okhighered, esvadude, programs]
+    concepts: [education, state-regents-meetings, life-education-8030, geography, state-system]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/professors/1pg1ttc.md#c2"
     char_span: [3208, 4937]
     sentence_count: 9
     key_terms: [people, essentially, geographers, gis, themselves, christmas, geography, oklahoma]
+    concepts: [people, essentially, geographers, themselves, christmas]
     section: Comments
     token_count: 430
 ---

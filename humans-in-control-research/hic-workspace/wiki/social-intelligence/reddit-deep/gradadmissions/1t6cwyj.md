@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 2324]
     sentence_count: 7
     key_terms: [finance, math, research, econ, self, gradadmissions, school, computational]
+    concepts: [finance, research, gradadmissions, computational, school]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1t6cwyj.md#c1"]
     token_count: 485
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1t6cwyj/math_cs_vs_math_econ_at_udem_grad_school_and/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1t6cwyj.md#c1"
     char_span: [2326, 4023]
     sentence_count: 7
     key_terms: [finance, economics, like, research, insight, computational, path, appreciate]
+    concepts: [finance, economics, research, computational, insight]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1t6cwyj.md#c0"]
     token_count: 345
 ---
 # Math + CS vs Math + Econ at UdeM - grad school and career implications.

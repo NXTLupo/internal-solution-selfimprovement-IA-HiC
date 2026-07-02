@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1615]
     sentence_count: 8
     key_terms: [roles, learning, analyst, skills, careerguidance, supply, international, chain]
+    concepts: [learning, roles, analyst, skills, careerguidance]
     token_count: 328
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1osehpn/new_msc_international_business_management_student/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1osehpn.md#c1"
     char_span: [1629, 2397]
     sentence_count: 6
     key_terms: [learning, excel, power, sql, formulas, through, focus, help]
+    concepts: [learning, excel, power, formulas, through]
     section: Comments
     token_count: 165
 ---

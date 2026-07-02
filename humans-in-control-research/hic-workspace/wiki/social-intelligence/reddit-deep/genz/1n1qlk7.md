@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1488]
     sentence_count: 16
     key_terms: [time, "haven't", "don't", money, "it's", life, try, comments]
+    concepts: ["haven't", "don't", money, comments, explore]
     token_count: 370
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1n1qlk7/i_feel_like_its_too_late_for_me_to_succeed_in_life/"}]
   - id: "social-intelligence/reddit-deep/genz/1n1qlk7.md#c1"
     char_span: [1502, 3272]
     sentence_count: 12
     key_terms: [life, years, get, credit, card, don, new, emergency]
+    concepts: [years, credit, emergency, vriver41, discord]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/genz/1n1qlk7.md#c2"
     char_span: [3274, 4782]
     sentence_count: 13
     key_terms: [deleted, professional, https, comments, college, finance, grocery, advice]
+    concepts: [deleted, professional, https, comments, college]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/genz/1n1qlk7.md#c3"
     char_span: [4784, 6568]
     sentence_count: 17
     key_terms: [get, too, sure, yourself, program, enough, people, money]
+    concepts: [yourself, program, enough, people, money]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/genz/1n1qlk7.md#c4"

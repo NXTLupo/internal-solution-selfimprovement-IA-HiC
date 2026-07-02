@@ -20,16 +20,22 @@ chunks:
     char_span: [0, 1855]
     sentence_count: 10
     key_terms: [account, bogleheads, money, brokerage, currently, fidelity, funds, roboadvisor]
+    concepts: [account, bogleheads, brokerage, currently, money]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1tarcuf.md#c1"]
     token_count: 506
+    sources: [{"n":"reddit-deep: r/bogleheads","u":"https://www.reddit.com/r/Bogleheads/comments/1tarcuf/leaving_roboadvisor_brokerage_how_to_reallocate/"}]
   - id: "social-intelligence/reddit-deep/bogleheads/1tarcuf.md#c1"
     char_span: [1857, 3148]
     sentence_count: 9
     key_terms: [brokerage, money, withdraw, non-managed, replacement, fund, wiki, bogleheads]
+    concepts: [brokerage, money, withdraw, non-managed, replacement]
+    related_chunks: ["social-intelligence/reddit-deep/bogleheads/1tarcuf.md#c0"]
     token_count: 273
   - id: "social-intelligence/reddit-deep/bogleheads/1tarcuf.md#c2"
-    char_span: [3163, 5180]
+    char_span: [3162, 5179]
     sentence_count: 15
     key_terms: [fund, fidelity, like, brokerage, savings, contributions, complicated, roth]
+    concepts: [fidelity, brokerage, contributions, savings, complicated]
     section: Comments
     token_count: 479
 ---

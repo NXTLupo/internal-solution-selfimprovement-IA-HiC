@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 2342]
     sentence_count: 2
     key_terms: [best, resumes, conversation, anyone, hiring, someone, careerguidance, people]
+    concepts: [conversation, resumes, anyone, hiring, careerguidance]
     token_count: 473
+    sources: [{"n":"reddit: careerguidance","u":"https://reddit.com/r/careerguidance/comments/1rjixi6/has_anyone_else_noticed_that_the_best_hires/"}]
 ---
 # Has anyone else noticed that the best hires they've made had the "worst" resumes?
 

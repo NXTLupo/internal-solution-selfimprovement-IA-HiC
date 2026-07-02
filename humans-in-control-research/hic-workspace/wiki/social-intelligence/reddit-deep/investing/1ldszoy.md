@@ -21,59 +21,75 @@ chunks:
     char_span: [0, 1096]
     sentence_count: 9
     key_terms: [margins, investing, comments, coursera, duolingo, revenue, trading, strong]
+    concepts: [margins, investing, comments, coursera, duolingo]
     token_count: 296
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1ldszoy/duolingos_20b_valuation_is_so_ridiculous/"}]
   - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c1"
     char_span: [1110, 2496]
     sentence_count: 6
     key_terms: [trading, normal, fair, "it's", companies, market, retail, "that's"]
+    concepts: [trading, normal, companies, market, retail]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c2"
     char_span: [2498, 3724]
     sentence_count: 5
     key_terms: [google, spotify, people, apple, looks, value-investing, legalprocessto, dudeatwork77]
+    concepts: [google, spotify, people, apple, looks]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c3"
     char_span: [3726, 5199]
     sentence_count: 9
     key_terms: [language, learn, duolingo, company, german, deleted, spotify, source]
+    concepts: [language, learn, duolingo, company, german]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1ldszoy.md#c4", "social-intelligence/reddit-deep/investing/1ldszoy.md#c5", "social-intelligence/reddit-deep/investing/1ldszoy.md#c9"]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c4"
     char_span: [5201, 7175]
     sentence_count: 14
     key_terms: [duolingo, learning, language, duolingo-language-report, time, italian, german, people]
+    concepts: [duolingo, learning, duolingo-language-report, language, italian]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1ldszoy.md#c3", "social-intelligence/reddit-deep/investing/1ldszoy.md#c6", "social-intelligence/reddit-deep/investing/1ldszoy.md#c9"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c5"
     char_span: [7177, 9288]
     sentence_count: 11
     key_terms: [language, german, education, langsam-gesprochene-nachrichten, like, connecting, something, duolingo]
+    concepts: [language, german, education, connecting, something]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1ldszoy.md#c3"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c6"
     char_span: [9290, 10252]
     sentence_count: 6
     key_terms: [duolingo, successfully, using, like, used, learning, experts, moat]
+    concepts: [duolingo, successfully, using, learning, experts]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1ldszoy.md#c4"]
     section: Comments
     token_count: 222
   - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c7"
     char_span: [10254, 11620]
     sentence_count: 5
     key_terms: [reservations, "it's", adoption, learning, network, effect, "don't", big]
+    concepts: [reservations, adoption, learning, network, effect]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c8"
     char_span: [11622, 13628]
     sentence_count: 9
     key_terms: [language, languages, because, enough, learn, assumptions, good, different]
+    concepts: [language, languages, because, enough, assumptions]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c9"
     char_span: [13630, 15457]
     sentence_count: 13
     key_terms: [fluent, growth, share, cash, duol, flow, saas, duolingo]
+    concepts: [fluent, growth, share, duolingo, language]
+    related_chunks: ["social-intelligence/reddit-deep/investing/1ldszoy.md#c3", "social-intelligence/reddit-deep/investing/1ldszoy.md#c4"]
     section: Comments
     token_count: 451
 ---

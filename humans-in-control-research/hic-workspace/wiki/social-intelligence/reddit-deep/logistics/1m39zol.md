@@ -20,17 +20,21 @@ chunks:
     char_span: [0, 687]
     sentence_count: 8
     key_terms: [logistics, typically, comments, delivery, services, cabinetadmirable2905, last, mile]
+    concepts: [logistics, typically, comments, delivery, services]
     token_count: 164
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1m39zol/how_are_3pl_services_and_last_mile_delivery/"}]
   - id: "social-intelligence/reddit-deep/logistics/1m39zol.md#c1"
-    char_span: [702, 2481]
+    char_span: [701, 2480]
     sentence_count: 12
     key_terms: [weight, cabinetadmirable2905, iwla, residential, like, commodity, contracts, dedicated]
+    concepts: [cabinetadmirable2905, weight, residential, commodity, contracts]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/logistics/1m39zol.md#c2"
-    char_span: [2483, 3591]
+    char_span: [2482, 3590]
     sentence_count: 8
     key_terms: [per, rates, like, pricing, routes, tools, fuel, get]
+    concepts: [rates, pricing, routes, tools]
     section: Comments
     token_count: 256
 ---

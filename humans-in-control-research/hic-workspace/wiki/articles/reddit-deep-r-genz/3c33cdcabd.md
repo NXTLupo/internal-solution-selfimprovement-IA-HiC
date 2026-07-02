@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 705]
     sentence_count: 5
     key_terms: [comments, discord, reddit, https, money, genz, like, time]
+    concepts: [comments, discord, reddit, https, money]
     token_count: 185
+    sources: [{"n":"Reddit Deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1t61asn/how_do_i_stop_spending_all_of_my_money/"}]
   - id: "articles/reddit-deep-r-genz/3c33cdcabd.md#c1"
     char_span: [708, 2602]
     sentence_count: 11
     key_terms: [account, savings, bills, checking, automatically, pay, year, attractive]
+    concepts: [account, savings, bills, checking, automatically]
     token_count: 467
 ---
 # How do I stop spending all of my money?

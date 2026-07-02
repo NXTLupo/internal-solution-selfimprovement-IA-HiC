@@ -19,16 +19,22 @@ chunks:
     char_span: [0, 2364]
     sentence_count: 14
     key_terms: [background, non-stem, programs, analytics, gradadmissions, here, work, genuinely]
+    concepts: [background, non-stem, programs, analytics, gradadmissions]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1p57rff.md#c1"]
     token_count: 500
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1p57rff/feeling_completely_stuck_with_grad_school_options/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1p57rff.md#c1"
     char_span: [2366, 2759]
     sentence_count: 4
     key_terms: [analytics, programs, perspective, programming, applicants, appreciate, background, realistic]
+    concepts: [analytics, programs]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1p57rff.md#c0"]
     token_count: 79
   - id: "social-intelligence/reddit-deep/gradadmissions/1p57rff.md#c2"
-    char_span: [2774, 3616]
+    char_span: [2773, 3615]
     sentence_count: 3
     key_terms: [gtx-analytics-essential-tools-and-methods, micromasters, fightitdude, omsa, masters, though, entry, https]
+    concepts: [micromasters, fightitdude, masters, though, entry]
     section: Comments
     token_count: 220
 ---

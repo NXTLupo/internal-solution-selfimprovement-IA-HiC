@@ -19,40 +19,48 @@ chunks:
     char_span: [0, 1675]
     sentence_count: 14
     key_terms: [job, rejection, jobs, feel, get, give, like, benefits]
+    concepts: [rejection, benefits, comments, somewhat, applied]
     token_count: 396
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rluyqa/im_going_to_lose_it/"}]
   - id: "social-intelligence/reddit-deep/jobs/1rluyqa.md#c1"
     char_span: [1677, 2677]
     sentence_count: 8
     key_terms: [benefits, job, working, having, living, pretty, since, been]
+    concepts: [benefits, working, having, living, pretty]
     token_count: 233
   - id: "social-intelligence/reddit-deep/jobs/1rluyqa.md#c2"
-    char_span: [2692, 4507]
+    char_span: [2691, 4506]
     sentence_count: 12
     key_terms: [get, people, etc, interviews, happening, momentum, started, better]
+    concepts: [people, interviews, happening, momentum, started]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/jobs/1rluyqa.md#c3"
-    char_span: [4510, 6403]
+    char_span: [4509, 6402]
     sentence_count: 14
     key_terms: [experience, "it's", require, better, daliflowers46, been, feel, get]
+    concepts: [experience, daliflowers46, require, better, especially]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/jobs/1rluyqa.md#c4"
-    char_span: [6405, 8364]
+    char_span: [6404, 8363]
     sentence_count: 13
     key_terms: [few-painting-8096, apply, because, jobs, like, applying, company, daliflowers46]
+    concepts: [few-painting-8096, apply, because, applying, daliflowers46]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rluyqa.md#c5"
-    char_span: [8112, 9087]
+    char_span: [8111, 9086]
     sentence_count: 9
     key_terms: [apply, find, experience, education, technical, industry, writing, looked]
+    concepts: [apply, experience, education, technical, industry]
     section: Comments
     token_count: 229
   - id: "social-intelligence/reddit-deep/jobs/1rluyqa.md#c6"
-    char_span: [9089, 10810]
+    char_span: [9088, 10809]
     sentence_count: 16
     key_terms: [experience, people, get, lot, paid, applying, changing, looking]
+    concepts: [experience, people, applying, changing, looking]
     section: Comments
     token_count: 415
 ---

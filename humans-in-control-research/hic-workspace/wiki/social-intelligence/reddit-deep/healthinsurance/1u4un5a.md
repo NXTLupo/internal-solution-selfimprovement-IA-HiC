@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 1414]
     sentence_count: 12
     key_terms: [eligible, medical, healthinsurance, through, county, income, plan, healthcare]
+    concepts: [eligible, medical, healthinsurance, through, county]
     token_count: 326
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1u4un5a/unclear_whether_i_have_medical_or_not/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1u4un5a.md#c1"
-    char_span: [1429, 3301]
+    char_span: [1428, 3300]
     sentence_count: 6
     key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    concepts: [information, questions, following, please, healthinsurance]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1u4un5a.md#c2"]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/healthinsurance/1u4un5a.md#c2"
-    char_span: [3303, 5159]
+    char_span: [3302, 5158]
     sentence_count: 10
     key_terms: [please, eob, contact, questions, subreddit, post, via, report]
+    concepts: [please, contact, questions, subreddit, report]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1u4un5a.md#c1"]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/healthinsurance/1u4un5a.md#c3"
-    char_span: [5161, 6263]
+    char_span: [5160, 6262]
     sentence_count: 9
     key_terms: [income, coveredca, maintenance, card, eligible, medi-cal, because, monthly]
+    concepts: [income, coveredca, maintenance, eligible, medi-cal]
     section: Comments
     token_count: 261
 ---

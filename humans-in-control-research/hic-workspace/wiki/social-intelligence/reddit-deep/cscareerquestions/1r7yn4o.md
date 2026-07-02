@@ -21,47 +21,56 @@ chunks:
     char_span: [0, 520]
     sentence_count: 4
     key_terms: [cscareerquestions, comments, marathonmarathon, millennials, perspective, reddit-deep, bootstraps, variations]
+    concepts: [cscareerquestions, comments]
     token_count: 141
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1r7yn4o/which_is_the_worse_new_grad_job_market_20072009/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c1"
     char_span: [534, 2360]
     sentence_count: 8
     key_terms: [years, graduated, highschool, job, software, got, tech, experience]
+    concepts: [years, graduated, highschool, software, experience]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c2"
     char_span: [2362, 3792]
     sentence_count: 6
     key_terms: [work, companies, decisions, different, covid, small, look, time]
+    concepts: [companies, decisions, different, covid, small]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c3"
     char_span: [3794, 5535]
     sentence_count: 12
     key_terms: [outsourcing, marathonmarathon, market, "don't", like, "true", immigrants, companies]
+    concepts: [outsourcing, marathonmarathon, market, "don't", immigrants]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c4"
     char_span: [5539, 7352]
     sentence_count: 15
     key_terms: [job, graduated, suffering, market, like, because, seniors, offers]
+    concepts: [graduated, suffering, market, because, seniors]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c5"
     char_span: [7354, 9036]
     sentence_count: 14
     key_terms: [people, worked, years, outsourcing, find, "couldn't", because, decline]
+    concepts: [people, worked, outsourcing, years, "couldn't"]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c6"
     char_span: [9038, 10321]
     sentence_count: 9
     key_terms: [going, engineering, job, enrollment, computer, junior, market, skills]
+    concepts: [engineering, enrollment, going, computer, junior]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c7"
     char_span: [10323, 12374]
     sentence_count: 17
     key_terms: [masters, degree, like, engineering, people, got, "it's", went]
+    concepts: [masters, degree, engineering, people, different]
     section: Comments
     token_count: 483
 ---

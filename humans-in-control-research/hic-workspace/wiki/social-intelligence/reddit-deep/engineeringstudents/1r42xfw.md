@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 439]
     sentence_count: 3
     key_terms: [engineeringstudents, coursework, comments, job, yourlocalbok, internships, reddit-deep, experience]
+    concepts: [engineeringstudents, coursework, comments]
     token_count: 118
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1r42xfw/result_of_2_month_long_job_search_as_an_me_new/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r42xfw.md#c1"
     char_span: [453, 2263]
     sentence_count: 14
     key_terms: [engineeringstudents, com, wiki, please, reddit, https, sankeymatic, www]
+    concepts: [engineeringstudents, please, reddit, sankeymatic, https]
     section: Comments
     token_count: 429
 ---

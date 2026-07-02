@@ -14,26 +14,34 @@ chunks:
     char_span: [0, 1390]
     sentence_count: 7
     key_terms: [recommendation, slide, deck, slides, anti-patterns, conclusion, executive, narrative]
+    concepts: [recommendation, slide, anti-patterns, slides, conclusion]
+    related_chunks: ["anti-patterns/deck_structure.md#c2", "anti-patterns/deck_structure.md#c3"]
     token_count: 297
   - id: "anti-patterns/deck_structure.md#c1"
     char_span: [1392, 3401]
     sentence_count: 8
     key_terms: [section, recommendations, complication, deck, argument, forward, reader, slides]
+    concepts: [section, recommendations, complication, argument, forward]
     token_count: 436
   - id: "anti-patterns/deck_structure.md#c2"
     char_span: [3403, 5371]
     sentence_count: 10
     key_terms: [slide, recommendation, template, slides, evidence, data, section, appendix]
+    concepts: [slide, recommendation, template, slides, evidence]
+    related_chunks: ["anti-patterns/deck_structure.md#c0", "anti-patterns/deck_structure.md#c3"]
     token_count: 432
   - id: "anti-patterns/deck_structure.md#c3"
     char_span: [5373, 7250]
     sentence_count: 7
     key_terms: [slide, slides, decision, contain, numbers, quantification, rather, alternative]
+    concepts: [slide, slides, decision, quantification, contain]
+    related_chunks: ["anti-patterns/deck_structure.md#c0", "anti-patterns/deck_structure.md#c2"]
     token_count: 455
   - id: "anti-patterns/deck_structure.md#c4"
     char_span: [7290, 7802]
     sentence_count: 2
     key_terms: [user, patterns, appendlearnedantipattern, updated, layout, added, edits, slide]
+    concepts: [patterns, updated, layout, added, edits]
     section: Learned Anti-Patterns (auto-grown)
     token_count: 131
 ---

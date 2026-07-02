@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 1428]
     sentence_count: 14
     key_terms: [productmanagement, interpretation, notes, user, accurate, comments, research, specific]
+    concepts: [productmanagement, interpretation, notes, accurate, comments]
     token_count: 304
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1pojig7/user_feedback_gets_distorted_even_when_i_take/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1pojig7.md#c1"
-    char_span: [1443, 3547]
+    char_span: [1442, 3546]
     sentence_count: 17
     key_terms: [get, try, repeat, transcription, head, need, feedback, product]
+    concepts: [transcription, repeat, feedback, product, little]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/productmanagement/1pojig7.md#c2"
-    char_span: [3549, 5560]
+    char_span: [3548, 5559]
     sentence_count: 13
     key_terms: [uservoice, "i'm", user, transcript, listening, sentiment, customer, feedback]
+    concepts: [uservoice, transcript, listening, sentiment, customer]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/productmanagement/1pojig7.md#c3"
-    char_span: [5562, 7607]
+    char_span: [5561, 7606]
     sentence_count: 20
     key_terms: [discovery, transcripts, product, call, llm, everything, questions, summaries]
+    concepts: [discovery, transcripts, product, everything, questions]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/productmanagement/1pojig7.md#c4"
-    char_span: [7609, 9069]
+    char_span: [7608, 9068]
     sentence_count: 11
     key_terms: [notes, transcription, everything, important, something, another, person, taking]
+    concepts: [notes, transcription, everything, important, something]
     section: Comments
     token_count: 325
 ---

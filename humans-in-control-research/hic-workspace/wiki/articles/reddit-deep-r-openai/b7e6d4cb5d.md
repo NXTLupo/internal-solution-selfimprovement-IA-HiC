@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 2116]
     sentence_count: 10
     key_terms: [context, window, performance, models, openai, input, uniformly, comments]
+    concepts: [context, window, performance, models, openai]
     token_count: 497
+    sources: [{"n":"Reddit Deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1mj78xy/just_a_reminder_that_the_context_window_in/"}]
   - id: "articles/reddit-deep-r-openai/b7e6d4cb5d.md#c1"
     char_span: [2120, 4074]
     sentence_count: 10
     key_terms: [context, experience, gemini, tokens, conversation, been, use, amount]
+    concepts: [context, experience, conversation, gemini, tokens]
     token_count: 470
 ---
 # Just a reminder that the context window in ChatGPT Plus is still 32k…

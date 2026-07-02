@@ -7,43 +7,48 @@ subreddit: "ecommerce"
 title: "Conversational Commerce"
 author: "JennyAtBitly"
 date: "2025-08-12T14:59:30.000Z"
-score: 45
-upvote_ratio: 1
-num_comments: 40
+score: 41
+upvote_ratio: 0.97
+num_comments: 42
 flair: ""
-extracted_at: "2026-06-18T13:35:23.810Z"
+extracted_at: "2026-06-24T22:13:57.307Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1mob26y.md#c0"
     char_span: [0, 2141]
     sentence_count: 15
     key_terms: [like, customers, shopping, "it's", chatbots, recommendations, product, conversational]
+    concepts: [customers, shopping, recommendations, chatbots, conversational]
     token_count: 422
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1mob26y/conversational_commerce/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1mob26y.md#c1"
-    char_span: [2156, 4383]
+    char_span: [2155, 4382]
     sentence_count: 13
     key_terms: [customer, messaging, jennyatbitly, agents, communicate, app, chat, get]
+    concepts: [customer, messaging, jennyatbitly, agents, communicate]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/ecommerce/1mob26y.md#c2"
-    char_span: [4385, 6602]
+    char_span: [4384, 6601]
     sentence_count: 16
     key_terms: [data, letssharelove, jennyatbitly, like, llm, engagement, everything, investment]
+    concepts: [letssharelove, jennyatbitly, engagement, everything, investment]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/ecommerce/1mob26y.md#c3"
-    char_span: [6604, 7378]
+    char_span: [6603, 7377]
     sentence_count: 5
     key_terms: [texts, like, treating, another, someone, get, conversation, promotional]
+    concepts: [texts, treating, another, someone]
     section: Comments
     token_count: 158
 ---
 # Conversational Commerce
 
 Source: [reddit-deep: r/ecommerce](https://www.reddit.com/r/ecommerce/comments/1mob26y/conversational_commerce/)
-Posted by **JennyAtBitly** · **45↑** · **40 comments**
+Posted by **JennyAtBitly** · **41↑** · **42 comments**
 
 Anyone here started playing around with this?   
   

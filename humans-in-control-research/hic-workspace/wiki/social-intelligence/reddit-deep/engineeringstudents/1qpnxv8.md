@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1511]
     sentence_count: 13
     key_terms: [engineeringstudents, gonna, bad, comments, probably, semester, because, session]
+    concepts: [engineeringstudents, gonna, comments, probably, semester]
     token_count: 329
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1qpnxv8/should_i_quit/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c1"
     char_span: [1525, 1623]
     sentence_count: 1
@@ -32,42 +34,52 @@ chunks:
     char_span: [1626, 3705]
     sentence_count: 16
     key_terms: [live, life, engineer, father, moment, upset, approvement, engineering]
+    concepts: [engineer, father, moment, approvement, engineering]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c3"
     char_span: [3464, 4499]
     sentence_count: 10
     key_terms: ["don't", life, yourself, parents, others, parent, child, "i'm"]
+    concepts: ["don't", yourself, parents, others, parent]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c4"
     char_span: [4501, 5998]
     sentence_count: 17
     key_terms: [grades, school, complete, because, program, through, please, summer]
+    concepts: [grades, school, complete, because, program]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c5"
     char_span: [6000, 7624]
     sentence_count: 13
     key_terms: [engineering, please, "you're", best, don, hate, mechanical, interest]
+    concepts: [engineering, please, "you're", mechanical, interest]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c6"]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c6"
     char_span: [7626, 9838]
     sentence_count: 19
     key_terms: [engineering, yourself, "it's", "you're", maybe, absolutely, different, difficult]
+    concepts: [engineering, yourself, "you're", absolutely, maybe]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c5", "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c7"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c7"
     char_span: [9511, 9948]
     sentence_count: 5
     key_terms: [engineering, yourself, experience, abilities, confident, practical, believe, feeling]
+    concepts: [engineering, yourself]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c6"]
     section: Comments
     token_count: 87
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c8"
     char_span: [9950, 11564]
     sentence_count: 15
     key_terms: [life, take, yourself, ive, time, calculus, passions, remember]
+    concepts: [yourself, calculus, passions, remember, semester]
     section: Comments
     token_count: 365
 ---

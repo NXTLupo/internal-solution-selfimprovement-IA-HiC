@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 278]
     sentence_count: 1
     key_terms: [chatgpt, comments, reddit, image, reddit-deep, generate, typical, posted]
+    concepts: [chatgpt, comments, reddit, image]
     token_count: 85
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1sskiy4/i_asked_chatgpt_to_generate_an_image_of_typical/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1sskiy4.md#c1"
     char_span: [292, 1686]
     sentence_count: 6
     key_terms: [openai, please, conversation, image, legs, post, r-chatgpt-1050422060352024636, subreddit]
+    concepts: [conversation, openai, please, image, subreddit]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/chatgpt/1sskiy4.md#c2"
     char_span: [1688, 2656]
     sentence_count: 3
     key_terms: [topconcentrate8484, png, cb4dc8655fdd49f291653534ba2a7a770fad399b, preview, format, https, width, auto]
+    concepts: [topconcentrate8484, preview, format, https, width]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/chatgpt/1sskiy4.md#c3"
     char_span: [2658, 3837]
     sentence_count: 2
     key_terms: [lol, giphy, get, gif, people, reddit, jkcnenkriqxqbe8e49, telemonoskidin5000]
+    concepts: [giphy, people, reddit]
     section: Comments
     token_count: 399
 ---

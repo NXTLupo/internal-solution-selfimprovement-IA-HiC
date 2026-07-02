@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 552]
     sentence_count: 7
     key_terms: [opportunities, volunteering, comments, bright-swimming-6576, neu, environmental, experiences, reddit-deep]
+    concepts: [opportunities, volunteering, comments]
     token_count: 131
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qzcgos/volunteering_opportunities/"}]
   - id: "social-intelligence/reddit-deep/neu/1qzcgos.md#c1"
     char_span: [566, 1447]
     sentence_count: 7
     key_terms: [bright-swimming-6576, volunteer, opportunities, drive, semester, service, thanks, check]
+    concepts: [bright-swimming-6576, volunteer, opportunities, drive, semester]
     section: Comments
     token_count: 247
 ---

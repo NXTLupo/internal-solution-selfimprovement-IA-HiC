@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 1878]
     sentence_count: 12
     key_terms: [coverage, insurance, emergency, deductible, don, need, recommendations, looking]
+    concepts: [coverage, insurance, emergency, deductible, recommendations]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1lerbhp.md#c1"]
     token_count: 373
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1lerbhp/international_health_insurance_for_digital_nomads/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1lerbhp.md#c1"
     char_span: [1892, 2845]
     sentence_count: 7
     key_terms: [deductible, allianz, lot, insurances, coverage, directly, hospital, provider]
+    concepts: [deductible, allianz, insurances, coverage, directly]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1lerbhp.md#c0"]
     section: Comments
     token_count: 231
 ---

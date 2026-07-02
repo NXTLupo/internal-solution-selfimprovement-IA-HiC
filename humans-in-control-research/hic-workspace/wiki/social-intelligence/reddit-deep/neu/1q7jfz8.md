@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 758]
     sentence_count: 3
     key_terms: [comments, campus, remote, allthatearnswillburn, day, neu, reddit-deep, anticipate]
+    concepts: [comments, campus, remote]
     token_count: 181
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1q7jfz8/started_a_remote_coop_this_week_and_im_slowly/"}]
   - id: "social-intelligence/reddit-deep/neu/1q7jfz8.md#c1"
     char_span: [772, 2199]
     sentence_count: 9
     key_terms: [staying, boston, stay, work, apartment, bostonnu, classes, friends]
+    concepts: [staying, boston, apartment, bostonnu, classes]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/neu/1q7jfz8.md#c2"
     char_span: [2201, 3401]
     sentence_count: 8
     key_terms: [remote, work, hallsinmypocket, planning, friends, working, aswell, allthatearnswillburn]
+    concepts: [remote, hallsinmypocket, planning, friends, working]
     section: Comments
     token_count: 331
 ---

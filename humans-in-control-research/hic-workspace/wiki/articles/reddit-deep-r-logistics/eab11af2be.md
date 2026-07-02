@@ -19,14 +19,17 @@ content_hash: "97332ee5762ca12e"
 relevance_by_goal: {"490684cfa204":45}
 chunks:
   - id: "articles/reddit-deep-r-logistics/eab11af2be.md#c0"
-    char_span: [0, 1281]
+    char_span: [0, 1280]
     sentence_count: 10
     key_terms: [aliexpress, packaging, agent, feels, like, logistics, starting, private]
-    token_count: 280
+    concepts: [aliexpress, packaging, agent, feels, logistics]
+    token_count: 279
+    sources: [{"n":"Reddit Deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1rf85ak/store_finally_picking_up_10_ordersday_but/"}]
   - id: "articles/reddit-deep-r-logistics/eab11af2be.md#c1"
-    char_span: [1283, 2521]
+    char_span: [1282, 2520]
     sentence_count: 7
     key_terms: [packaging, delivery, shipping, agents, custom, orders, stress, agent]
+    concepts: [packaging, delivery, shipping, agents, custom]
     token_count: 261
 ---
 # Store finally picking up (10 orders/day) but aliexpress is stressing me out

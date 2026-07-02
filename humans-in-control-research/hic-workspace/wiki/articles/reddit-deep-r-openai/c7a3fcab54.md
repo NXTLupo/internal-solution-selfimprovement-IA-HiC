@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1910]
     sentence_count: 17
     key_terms: [engineer, job, chatgpt, openai, portfolio, bootcamp, comments, changed]
+    concepts: [engineer, chatgpt, openai, portfolio, bootcamp]
     token_count: 496
+    sources: [{"n":"Reddit Deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1nsah8w/chatgpt_changed_my_life/"}]
 ---
 # ChatGPT changed my life.
 

@@ -20,52 +20,63 @@ chunks:
     char_span: [0, 2181]
     sentence_count: 12
     key_terms: [job, finance, bank, financialcareers, however, "don't", graduated, long-term]
+    concepts: [finance, financialcareers, however, "don't", graduated]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1qonv0m/22m_recent_college_grad_and_credit_analyst_for/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1qonv0m.md#c1"
     char_span: [2183, 2478]
     sentence_count: 4
     key_terms: [here, "i'm", set, appreciated, experience, something, feedback, curious]
     token_count: 67
   - id: "social-intelligence/reddit-deep/financialcareers/1qonv0m.md#c2"
-    char_span: [2493, 4787]
+    char_span: [2492, 4786]
     sentence_count: 16
     key_terms: [experience, corporate, something, get, financialcareers, oldpostagescale, banking, discord]
+    concepts: [experience, financialcareers, corporate, something, oldpostagescale]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/financialcareers/1qonv0m.md#c3"
-    char_span: [4789, 6890]
+    char_span: [4788, 6889]
     sentence_count: 16
     key_terms: [job, banking, experience, networking, finance, likely, skills, professional]
+    concepts: [banking, experience, networking, finance, professional]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1qonv0m.md#c4"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/financialcareers/1qonv0m.md#c4"
-    char_span: [6892, 8966]
+    char_span: [6891, 8965]
     sentence_count: 18
     key_terms: ["i'm", job, good, pay, want, likely, professional, "don't"]
+    concepts: [professional, likely, "don't", experience, certainly]
+    related_chunks: ["social-intelligence/reddit-deep/financialcareers/1qonv0m.md#c3"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/financialcareers/1qonv0m.md#c5"
-    char_span: [8968, 10330]
+    char_span: [8967, 10329]
     sentence_count: 12
     key_terms: [job, likely, "i've", skills, start, been, plan, industry]
+    concepts: [likely, skills, start, industry, learning]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/financialcareers/1qonv0m.md#c6"
-    char_span: [10332, 12453]
+    char_span: [10331, 12452]
     sentence_count: 12
     key_terms: [excel, problems, oldpostagescale, banking, client, facing, like, look]
+    concepts: [excel, oldpostagescale, problems, banking, client]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/financialcareers/1qonv0m.md#c7"
-    char_span: [12455, 13606]
+    char_span: [12454, 13605]
     sentence_count: 9
     key_terms: [banking, large, commercial, corporate, positions, regionals, darcasm, people]
+    concepts: [banking, commercial, large, corporate, positions]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/financialcareers/1qonv0m.md#c8"
-    char_span: [13608, 14780]
+    char_span: [13607, 14779]
     sentence_count: 9
     key_terms: [bank, credit, platform, private, banks, huge, look, soon]
+    concepts: [credit, platform, private, banks]
     section: Comments
     token_count: 272
 ---

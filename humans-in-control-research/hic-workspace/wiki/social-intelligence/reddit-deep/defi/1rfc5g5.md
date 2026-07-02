@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1654]
     sentence_count: 5
     key_terms: [zypto, defi, cross-chain, wallet, chainlink, app, ccip, pay]
+    concepts: [zypto, cross-chain, wallet, interoperability, chainlink]
     token_count: 377
+    sources: [{"n":"reddit-deep: r/defi","u":"https://www.reddit.com/r/defi/comments/1rfc5g5/zypto_wallet_app_update_kucoin_pay_onramp_native/"}]
   - id: "social-intelligence/reddit-deep/defi/1rfc5g5.md#c1"
-    char_span: [1669, 2083]
+    char_span: [1668, 2082]
     sentence_count: 2
     key_terms: [siempre, jackfruit71618, investigation, manipulation, criptobros, wilder3312, productos, pregunta]
+    concepts: [siempre]
     section: Comments
     token_count: 102
 ---

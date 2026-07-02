@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1348]
     sentence_count: 13
     key_terms: [chat, gpt, different, memory, allocation, beginning, efficient, comments]
+    concepts: [different, memory, allocation, beginning, efficient]
     token_count: 336
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1nxktje/memory_allocation_vs_chat_length/"}]
   - id: "social-intelligence/reddit-deep/gpt/1nxktje.md#c1"
     char_span: [1362, 1854]
     sentence_count: 5
     key_terms: [dausone, specs, definitely, experience, according, extremely, seriously, switching]
+    concepts: [dausone, specs]
     section: Comments
     token_count: 151
 ---

@@ -20,94 +20,120 @@ chunks:
     char_span: [0, 2239]
     sentence_count: 21
     key_terms: [databricks, engineering, migrating, data, experience, pipelines, run, dataengineering]
+    concepts: [databricks, engineering, migrating, experience, pipelines]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c5", "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c13"]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1t6ch3j/is_anyone_migrating_away_from_databricks/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c1"
     char_span: [2241, 3515]
     sentence_count: 6
     key_terms: [databricks, using, data, external, mwaa, transform, services, aws]
+    concepts: [databricks, using, external, transform, services]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c7", "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c8"]
     token_count: 285
   - id: "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c2"
-    char_span: [3530, 5362]
+    char_span: [3529, 5361]
     sentence_count: 11
     key_terms: [databricks, data, workloads, big, dataengineering, optimized, resources, learning]
+    concepts: [databricks, workloads, dataengineering, optimized, resources]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c3"
-    char_span: [5364, 6964]
+    char_span: [5363, 6963]
     sentence_count: 13
     key_terms: [databricks, dbx, leadership, features, picked, teams, using, add]
+    concepts: [databricks, leadership, features, picked, teams]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c4"
-    char_span: [6966, 8919]
+    char_span: [6965, 8918]
     sentence_count: 19
     key_terms: [local, dev, databricks, deploy, cluster, job, run, workspace]
+    concepts: [local, databricks, deploy, cluster, workspace]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c7", "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c15"]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c5"
-    char_span: [8921, 10773]
+    char_span: [8920, 10772]
     sentence_count: 14
     key_terms: [databricks, cost, complexity, takes, jobs, compute, tests, engineering]
+    concepts: [databricks, complexity, takes, compute, engineering]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c0", "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c13"]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c6"
-    char_span: [10775, 12654]
+    char_span: [10774, 12653]
     sentence_count: 11
     key_terms: [data, cluster, compute, athena, long-running, write, environment, interactive]
+    concepts: [cluster, compute, long-running, athena, environment]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c7"]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c7"
-    char_span: [12656, 14889]
+    char_span: [12655, 14888]
     sentence_count: 15
     key_terms: [using, cluster, databricks, local, environment, interactive, aws, "it's"]
+    concepts: [cluster, using, databricks, environment, interactive]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c1", "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c4", "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c6", "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c15"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c8"
-    char_span: [14891, 16710]
+    char_span: [14890, 16709]
     sentence_count: 15
     key_terms: [databricks, data, transform, external, services, money, using, api]
+    concepts: [databricks, transform, external, services, autoloader]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c1"]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c9"
-    char_span: [16712, 17545]
+    char_span: [16711, 17544]
     sentence_count: 6
     key_terms: [data, autoloader, running, pandas, stages, scale, spark, write]
+    concepts: [autoloader, running, pandas, stages, scale]
     section: Comments
     token_count: 179
   - id: "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c10"
-    char_span: [17547, 19160]
+    char_span: [17546, 19159]
     sentence_count: 7
     key_terms: [spark, testing, databricks, unit, tests, dlt, specific, connect]
+    concepts: [databricks, spark, testing, tests, specific]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c11"
-    char_span: [19162, 21248]
+    char_span: [19161, 21247]
     sentence_count: 14
     key_terms: [server, spark, sql, use, modern, winterfrost15, dlt, get]
+    concepts: [server, spark, winterfrost15, modern, autoloader]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c12"
-    char_span: [20983, 22879]
+    char_span: [20982, 22878]
     sentence_count: 12
     key_terms: [snowflake, databricks, migration, because, prefer, use, work, business]
+    concepts: [snowflake, databricks, migration, because, prefer]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c13"
-    char_span: [22659, 24670]
+    char_span: [22658, 24669]
     sentence_count: 10
     key_terms: [databricks, data, use, engineering, aws, employees, knowledge, invidiah]
+    concepts: [databricks, engineering, employees, knowledge, invidiah]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c0", "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c5"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c14"
-    char_span: [24674, 26578]
+    char_span: [24673, 26577]
     sentence_count: 14
     key_terms: [clusters, data, gold, run, "doesn't", bronze, automatically, using]
+    concepts: [clusters, automatically, "doesn't", bronze, databricks]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c15"
-    char_span: [26580, 28320]
+    char_span: [26579, 28319]
     sentence_count: 11
     key_terms: [use, cluster, databricks, "you're", job, run, set, production]
+    concepts: [cluster, databricks, "you're", production, serverless]
+    related_chunks: ["social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c4", "social-intelligence/reddit-deep/dataengineering/1t6ch3j.md#c7"]
     section: Comments
     token_count: 371
 ---

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 337]
     sentence_count: 2
     key_terms: [careerguidance, comments, international, opportunities, monthlow7017, reddit-deep, looking, advice]
+    concepts: [careerguidance, comments]
     token_count: 100
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1rh9ke3/career_advice_amazon_site_lead_india_6_yoe_last/"}]
 ---
 # [Career Advice] Amazon Site Lead (India) | 6 YOE Last Mile | Looking for International Opportunities ?
 

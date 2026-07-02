@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 975]
     sentence_count: 6
     key_terms: [admissions, statements, gradadmissions, entertaining, blogs, comments, personal, youtube]
+    concepts: [admissions, statements, gradadmissions, entertaining, blogs]
     token_count: 219
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1owtfgl/admissions_people_whose_job_is_to_read_grad/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c1"
     char_span: [989, 3032]
     sentence_count: 10
     key_terms: [research, want, "don't", interests, "it's", specific, chatgpt, parallelisms]
+    concepts: [research, interests, "don't", specific, chatgpt]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c4", "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c8", "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c11", "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c14", "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c15"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c2"
     char_span: [3034, 5211]
     sentence_count: 19
     key_terms: [want, assume, write, statement, technical, writing, detail, specialized]
+    concepts: [assume, statement, technical, write, writing]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c3"
     char_span: [5213, 5522]
     sentence_count: 1
     key_terms: [faculty, understandable, algorithms, attractive, especially, networking, understood, applicant]
+    concepts: [faculty]
     section: Comments
     token_count: 61
   - id: "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c4"
     char_span: [5524, 7743]
     sentence_count: 18
     key_terms: [different, jeffgerickson, interests, statement, research, program, thought, actual]
+    concepts: [different, jeffgerickson, interests, statement, research]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c1", "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c8", "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c14"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c5"
@@ -56,66 +64,82 @@ chunks:
     char_span: [7822, 9988]
     sentence_count: 18
     key_terms: [statement, application, information, personal, students, program, administrators, crazy]
+    concepts: [statement, application, information, personal, students]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c7"
     char_span: [9990, 12134]
     sentence_count: 16
     key_terms: [admissions, students, without, essays, lefterliftist, interesting, phd, ai-written]
+    concepts: [admissions, students, lefterliftist, without, essays]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c8"
     char_span: [12136, 14531]
     sentence_count: 8
     key_terms: [research, undergrad, interested, explain, field, interests, work, problem]
+    concepts: [research, undergrad, interested, explain, interests]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c1", "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c4", "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c10", "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c11", "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c14"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c9"
     char_span: [14533, 16267]
     sentence_count: 7
     key_terms: [research, problem, experience, attack, "don't", field, need, show]
+    concepts: [research, problem, experience, attack, background]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c10"
     char_span: [16269, 18386]
     sentence_count: 10
     key_terms: [interest, want, interests, work, school, department, impression, interested]
+    concepts: [interest, interests, department, impression, interested]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c8", "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c11"]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c11"
     char_span: [18388, 20539]
     sentence_count: 10
     key_terms: [interested, department, perfectly, research, "don't", "i'm", different, formation]
+    concepts: [interested, department, perfectly, research, "don't"]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c1", "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c8", "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c10"]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c12"
     char_span: [20541, 22603]
     sentence_count: 15
     key_terms: [goals, planning, career, interested, urban, want, programs, transitioning]
+    concepts: [goals, planning, interested, career, urban]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c13"
     char_span: [22605, 25034]
     sentence_count: 14
     key_terms: [research, degree, idea, interest, planning, program, project, professional]
+    concepts: [research, degree, interest, planning, program]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c14"
     char_span: [25036, 26416]
     sentence_count: 5
     key_terms: [research, specific, interests, applying, internships, advanced, evidence, possible]
+    concepts: [research, specific, interests, applying, internships]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c1", "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c4", "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c8", "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c15"]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c15"
     char_span: [26418, 28273]
     sentence_count: 15
     key_terms: [research, specific, school, years, nope, show, admissions, questions]
+    concepts: [research, specific, school, admissions, years]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c1", "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c14"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/gradadmissions/1owtfgl.md#c16"
     char_span: [28275, 30351]
     sentence_count: 12
     key_terms: ["it's", problems, writing, people, establishes, like, attention, character]
+    concepts: [problems, writing, people, establishes, attention]
     section: Comments
     token_count: 452
 ---

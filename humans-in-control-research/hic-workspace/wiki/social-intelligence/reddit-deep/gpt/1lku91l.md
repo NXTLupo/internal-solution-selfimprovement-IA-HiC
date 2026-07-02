@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 978]
     sentence_count: 6
     key_terms: [gpt, language-native, tone, comments, feedback, semantic, github, states]
+    concepts: [language-native, comments, feedback, semantic, github]
     token_count: 260
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1lku91l/i_built_a_languagenative_control_layer_for_gpt_no/"}]
   - id: "social-intelligence/reddit-deep/gpt/1lku91l.md#c1"
     char_span: [992, 1565]
     sentence_count: 13

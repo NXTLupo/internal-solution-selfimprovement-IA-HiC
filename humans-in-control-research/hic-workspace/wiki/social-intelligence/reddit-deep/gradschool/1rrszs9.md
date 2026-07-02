@@ -21,17 +21,23 @@ chunks:
     char_span: [0, 2037]
     sentence_count: 14
     key_terms: [offer, conditional, gpa, requirement, admissions, equivalent, semester, like]
+    concepts: [conditional, offer, requirement, admissions, equivalent]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1rrszs9.md#c1"]
     token_count: 477
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1rrszs9/conditional_grad_school_offer_requires_35_gpa_but/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1rrszs9.md#c1"
     char_span: [2051, 3671]
     sentence_count: 9
     key_terms: [program, requirement, department, offer, like, talk, checked, contact]
+    concepts: [program, requirement, department, offer, checked]
+    related_chunks: ["social-intelligence/reddit-deep/gradschool/1rrszs9.md#c0"]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/gradschool/1rrszs9.md#c2"
     char_span: [3673, 5345]
     sentence_count: 11
     key_terms: [class, upper, gpa, rescind, "they'll", "they're", usually, degree]
+    concepts: [class, upper, rescind, "they'll", "they're"]
     section: Comments
     token_count: 446
 ---

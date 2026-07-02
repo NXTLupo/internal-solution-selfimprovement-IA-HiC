@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1784]
     sentence_count: 26
     key_terms: [like, plan, friday, next, wallstreetbets, crwv, absolutely, coreweave]
+    concepts: [friday, wallstreetbets, absolutely, coreweave, something]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1lxl1gc/yolod_500_crwv_150_calls_for_next_friday_no_hedge/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1lxl1gc.md#c1"
     char_span: [1798, 2002]
     sentence_count: 1
     key_terms: [total, year, submissions, visualmod, comments, previous, account, report]
+    concepts: [total]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/wallstreetbets/1lxl1gc.md#c2"
     char_span: [2004, 3528]
     sentence_count: 7
     key_terms: [electronic-force-729, c210c3619c4d34be05579b10ed54f560a5d1f3cd, biigiftrue1492, https, nuts, wsb, beautiful, discord]
+    concepts: [electronic-force-729, biigiftrue1492, https, beautiful, discord]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1lxl1gc.md#c3"
     char_span: [3402, 4247]
     sentence_count: 11
     key_terms: [c210c3619c4d34be05579b10ed54f560a5d1f3cd, sellers, market, electronic-force-729, calls, money, stock, worth]
+    concepts: [sellers, market, calls, money, stock]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/wallstreetbets/1lxl1gc.md#c4"
     char_span: [4250, 5581]
     sentence_count: 14
     key_terms: [company, smarter, brought, people, electronic-force-729, adventurousoil8382, iluptou39dcf1, professionals]
+    concepts: [company, smarter, brought, people]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/wallstreetbets/1lxl1gc.md#c5"
     char_span: [5584, 6339]
     sentence_count: 7
     key_terms: [evander85, market, electronic-force-729, sales, worth, debt, complicated, businesses]
+    concepts: [evander85, market, sales, worth]
     section: Comments
     token_count: 210
 ---

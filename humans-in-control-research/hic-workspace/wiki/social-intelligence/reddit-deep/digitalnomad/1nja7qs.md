@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 2036]
     sentence_count: 20
     key_terms: [experience, digitalnomad, "we're", consumption, subculture, comments, together, another]
+    concepts: [experience, digitalnomad, consumption, subculture, "we're"]
     token_count: 455
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1nja7qs/my_dn_experience_has_lacked_meaning_and/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c1"
     char_span: [2050, 4452]
     sentence_count: 13
     key_terms: [different, purpose, places, nomading, digital, people, conversations, fulfillment]
+    concepts: [different, purpose, places, nomading, conversations]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c2"
     char_span: [4454, 6153]
     sentence_count: 17
     key_terms: [meaningful, build, co-living, something, real, people, spaces, communities]
+    concepts: [meaningful, co-living, something, build, people]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c3"
     char_span: [6155, 8030]
     sentence_count: 18
     key_terms: [conversations, like, resources, bringing, personal, friends, problem, issues]
+    concepts: [conversations, resources, bringing, personal, friends]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c4"
     char_span: [8034, 9481]
     sentence_count: 22
     key_terms: ["you're", enjoying, doing, yourself, nomadic, change, people, being]
+    concepts: ["you're", enjoying, doing, yourself, nomadic]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c5"]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c5"
     char_span: [9483, 10933]
     sentence_count: 13
     key_terms: [meaning, find, yourself, cringe, people, "you're", like, meet]
+    concepts: [meaning, yourself, cringe, people, "you're"]
+    related_chunks: ["social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c4"]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c6"
     char_span: [10935, 12820]
     sentence_count: 15
     key_terms: [part, people, life, meditation, concerns, question, ethical, being]
+    concepts: [people, meditation, concerns, question, ethical]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c7"
     char_span: [12822, 13510]
     sentence_count: 12
     key_terms: [meaningless, around, myself, world, use, meaningful, personally, gardening]
+    concepts: [meaningless, around, myself, world]
     section: Comments
     token_count: 159
 ---

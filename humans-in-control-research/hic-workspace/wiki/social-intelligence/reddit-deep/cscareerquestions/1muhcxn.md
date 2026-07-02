@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2109]
     sentence_count: 22
     key_terms: [blockchain, school, cscareerquestions, work, agency, since, development, been]
+    concepts: [blockchain, school, cscareerquestions, agency, development]
     token_count: 484
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1muhcxn/am_i_on_the_right_track/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1muhcxn.md#c1"
     char_span: [2114, 3798]
     sentence_count: 19
     key_terms: ["i'm", work, since, been, job, internship, anything, leetcode]
+    concepts: [internship, since, anything, leetcode, courses]
     token_count: 381
 ---
 # Am I on the right track?

@@ -19,28 +19,36 @@ chunks:
     char_span: [0, 1921]
     sentence_count: 13
     key_terms: [because, applyingtocollege, people, experience, depressed, comments, everyone, freshmen]
+    concepts: [because, applyingtocollege, people, experience, depressed]
     token_count: 425
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sojjzi/to_incoming_freshmen_why_choosing_a_school_just/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sojjzi.md#c1"
     char_span: [1923, 3956]
     sentence_count: 17
     key_terms: [major, people, year, cut-throat, community, different, students, because]
+    concepts: [major, people, cut-throat, community, different]
     token_count: 415
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sojjzi.md#c2"
     char_span: [3970, 6103]
     sentence_count: 16
     key_terms: [pre-med, competitive, school, med, people, dreamingmermade, because, schools]
+    concepts: [pre-med, competitive, school, people, dreamingmermade]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sojjzi.md#c3"
     char_span: [6105, 8036]
     sentence_count: 15
     key_terms: [school, money, prestigious, experience, specific, another, nothing, problem]
+    concepts: [school, prestigious, experience, money, specific]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sojjzi.md#c4"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sojjzi.md#c4"
     char_span: [8038, 9350]
     sentence_count: 12
     key_terms: [school, selective, "it's", experience, supportive, cutthroat, princeton, culture]
+    concepts: [school, selective, experience, supportive, cutthroat]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1sojjzi.md#c3"]
     section: Comments
     token_count: 313
 ---

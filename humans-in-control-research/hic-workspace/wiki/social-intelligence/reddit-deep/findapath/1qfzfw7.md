@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 308]
     sentence_count: 2
     key_terms: [findapath, comments, reddit-deep, comparison, tracking, explore, faiz506, student]
+    concepts: [findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1qfzfw7.md#c1"]
     token_count: 84
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1qfzfw7/bca_student_who_loves_price_comparison_cost/"}]
   - id: "social-intelligence/reddit-deep/findapath/1qfzfw7.md#c1"
     char_span: [322, 1454]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    concepts: [thank, helpful, please, findapath, comments]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1qfzfw7.md#c0"]
     section: Comments
     token_count: 248
 ---

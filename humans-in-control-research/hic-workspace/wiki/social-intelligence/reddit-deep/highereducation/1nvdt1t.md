@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2413]
     sentence_count: 7
     key_terms: [pro-palestinian, amendment, department, decision, highereducation, federal, deport, speech]
+    concepts: [pro-palestinian, amendment, department, highereducation, decision]
     token_count: 501
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1nvdt1t/judge_rules_campaign_against_noncitizen/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1nvdt1t.md#c1"
     char_span: [2415, 4895]
     sentence_count: 6
     key_terms: [government, plaintiffs, university, president, because, administration, speech, trump]
+    concepts: [government, plaintiffs, university, president, administration]
     token_count: 463
   - id: "social-intelligence/reddit-deep/highereducation/1nvdt1t.md#c2"
     char_span: [4897, 5158]
     sentence_count: 1
     key_terms: [judge-rules-campaign-against-noncitizen-protesters-unlawful, insidehighered, free-speech, students, https, com, news, www]
+    concepts: [judge-rules-campaign-against-noncitizen-protesters-unlawful, insidehighered, free-speech, students, https]
     token_count: 81
   - id: "social-intelligence/reddit-deep/highereducation/1nvdt1t.md#c3"
     char_span: [5172, 5474]

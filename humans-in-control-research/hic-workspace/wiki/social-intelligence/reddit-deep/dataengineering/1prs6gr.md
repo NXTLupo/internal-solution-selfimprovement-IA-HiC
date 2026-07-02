@@ -20,35 +20,42 @@ chunks:
     char_span: [0, 1221]
     sentence_count: 11
     key_terms: [database, dataengineering, google, sheets, using, spreadsheet, comments, client]
+    concepts: [dataengineering, database, google, sheets, spreadsheet]
     token_count: 268
+    sources: [{"n":"reddit-deep: r/dataengineering","u":"https://www.reddit.com/r/dataengineering/comments/1prs6gr/seeing_posts_about_using_google_sheets_and_excel/"}]
   - id: "social-intelligence/reddit-deep/dataengineering/1prs6gr.md#c1"
-    char_span: [1236, 3093]
+    char_span: [1235, 3092]
     sentence_count: 11
     key_terms: [spreadsheet, data, use, simple, break, "don't", rdbms, leogodin217]
+    concepts: [spreadsheet, simple, leogodin217, break, "don't"]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/dataengineering/1prs6gr.md#c2"
-    char_span: [3095, 4876]
+    char_span: [3094, 4875]
     sentence_count: 21
     key_terms: [spreadsheet, data, solution, often, application, mvp, production, integrity]
+    concepts: [spreadsheet, solution, application, often, production]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/dataengineering/1prs6gr.md#c3"
-    char_span: [4878, 5889]
+    char_span: [4877, 5888]
     sentence_count: 8
     key_terms: [almost, issues, bad, witty-ninja-8403, preferences, spreadsheet, deployment, industries]
+    concepts: [almost, issues]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/dataengineering/1prs6gr.md#c4"
-    char_span: [5892, 7444]
+    char_span: [5891, 7443]
     sentence_count: 9
     key_terms: [people, "don't", data, "it's", like, understand, interface, something]
+    concepts: [people, "don't", understand, interface, something]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/dataengineering/1prs6gr.md#c5"
-    char_span: [7446, 8096]
+    char_span: [7445, 8095]
     sentence_count: 3
     key_terms: [scaling-to-millions-with-google-sheets, original, levels, pretty, sheets, fyi, used, completely]
+    concepts: [original, levels, pretty, sheets]
     section: Comments
     token_count: 166
 ---

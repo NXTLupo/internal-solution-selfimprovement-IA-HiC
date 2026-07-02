@@ -19,24 +19,29 @@ content_hash: "39513329d6085123"
 relevance_by_goal: {"46dec9599ad5":88}
 chunks:
   - id: "articles/reddit-deep-r-etfs/32b13dbded.md#c0"
-    char_span: [0, 2235]
+    char_span: [0, 2234]
     sentence_count: 20
     key_terms: [thematic, etfs, "i've", basket, thesis, weights, infrastructure, target]
-    token_count: 503
+    concepts: [thematic, basket, thesis, infrastructure, weights]
+    token_count: 502
+    sources: [{"n":"Reddit Deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1tt31qh/building_my_own_thesis_baskets_instead_of_buying/"}]
   - id: "articles/reddit-deep-r-etfs/32b13dbded.md#c1"
-    char_span: [2237, 2640]
+    char_span: [2236, 2639]
     sentence_count: 4
     key_terms: [anyone, emotional-breath-838, attribution, performance, spreadsheet, discipline, per-basket, comments]
+    concepts: [anyone]
     token_count: 88
   - id: "articles/reddit-deep-r-etfs/32b13dbded.md#c2"
-    char_span: [2642, 4816]
+    char_span: [2641, 4815]
     sentence_count: 18
     key_terms: [etf, new, companies, investing, something, almost, annual, coming]
+    concepts: [companies, investing, something, almost, annual]
     token_count: 501
   - id: "articles/reddit-deep-r-etfs/32b13dbded.md#c3"
-    char_span: [4818, 5293]
+    char_span: [4817, 5292]
     sentence_count: 3
     key_terms: [something, trying, doing, time, incompetence, inefficiency, exploratory, interesting]
+    concepts: [something, trying, doing]
     token_count: 105
 ---
 # Building my own thesis baskets instead of buying thematic ETFs, and the operational mess that comes with it. Suggestions?

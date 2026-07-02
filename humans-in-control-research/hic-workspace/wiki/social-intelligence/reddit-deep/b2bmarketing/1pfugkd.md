@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 903]
     sentence_count: 5
     key_terms: [clients, b2bmarketing, personalized, email, acquisition, lead, adaptive, comments]
+    concepts: [clients, b2bmarketing, personalized, acquisition, email]
     token_count: 205
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1pfugkd/ama_client_acquisition_lead_generation/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1pfugkd.md#c1"
-    char_span: [918, 1489]
+    char_span: [917, 1488]
     sentence_count: 3
     key_terms: [looking-for-marketing-discussion-811236647760298024, questions, discord, posts, colinbyprospectai, like, automatically, automoderator]
+    concepts: [questions, discord, posts]
     section: Comments
     token_count: 150
 ---

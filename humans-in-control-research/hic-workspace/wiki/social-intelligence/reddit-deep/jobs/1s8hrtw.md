@@ -19,17 +19,23 @@ chunks:
     char_span: [0, 429]
     sentence_count: 4
     key_terms: [jobs, tech, comments, entry, level, reddit-deep, desperate, graduated]
+    concepts: [comments, entry, level]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1s8hrtw.md#c2"]
     token_count: 111
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1s8hrtw/entry_level_tech_jobs/"}]
   - id: "social-intelligence/reddit-deep/jobs/1s8hrtw.md#c1"
     char_span: [443, 2125]
     sentence_count: 6
     key_terms: [roles, companies, referrals, tech, applying, market, number, leagueaggravating595]
+    concepts: [companies, referrals, roles, applying, market]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/jobs/1s8hrtw.md#c2"
     char_span: [2127, 4069]
     sentence_count: 14
     key_terms: [experience, entry, level, companies, people, entry-level, job, specific]
+    concepts: [experience, companies, entry, level, people]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1s8hrtw.md#c0"]
     section: Comments
     token_count: 466
 ---

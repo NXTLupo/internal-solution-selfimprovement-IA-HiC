@@ -17,24 +17,33 @@ research_goal: "Deliver a strategic market analysis answering \"What is The Stat
 engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
 chunks:
   - id: "social-intelligence/reddit-deep/bigdata/1njb0k7.md#c0"
-    char_span: [0, 2441]
+    char_span: [0, 2440]
     sentence_count: 15
     key_terms: [data, science, analytics, information, using, used, predictive, statistics]
-    token_count: 506
+    concepts: [science, analytics, information, predictive, statistics]
+    related_chunks: ["social-intelligence/reddit-deep/bigdata/1njb0k7.md#c2"]
+    token_count: 505
+    sources: [{"n":"reddit-deep: r/bigdata","u":"https://www.reddit.com/r/bigdata/comments/1njb0k7/key_differences_data_science_machine_learning_and/"}]
   - id: "social-intelligence/reddit-deep/bigdata/1njb0k7.md#c1"
-    char_span: [2443, 3528]
+    char_span: [2442, 3527]
     sentence_count: 6
     key_terms: [data, top-13-data-visualization-tools-for-2023-and-beyond, machine, learning, systems, data-science-insights, tools, gets]
+    concepts: [machine, learning, systems, tools]
+    related_chunks: ["social-intelligence/reddit-deep/bigdata/1njb0k7.md#c2", "social-intelligence/reddit-deep/bigdata/1njb0k7.md#c3"]
     token_count: 228
   - id: "social-intelligence/reddit-deep/bigdata/1njb0k7.md#c2"
-    char_span: [3530, 5802]
+    char_span: [3529, 5801]
     sentence_count: 3
     key_terms: [data, learning, analytics, machine, science, predictive, statistics, creating]
+    concepts: [learning, analytics, machine, science, predictive]
+    related_chunks: ["social-intelligence/reddit-deep/bigdata/1njb0k7.md#c0", "social-intelligence/reddit-deep/bigdata/1njb0k7.md#c1", "social-intelligence/reddit-deep/bigdata/1njb0k7.md#c3"]
     token_count: 465
   - id: "social-intelligence/reddit-deep/bigdata/1njb0k7.md#c3"
-    char_span: [5804, 7188]
+    char_span: [5803, 7187]
     sentence_count: 7
     key_terms: [data, future, comparing-data-science-big-data-and-data-analytics, career, analytics, learning, machine, science]
+    concepts: [future, career, analytics, learning, machine]
+    related_chunks: ["social-intelligence/reddit-deep/bigdata/1njb0k7.md#c1", "social-intelligence/reddit-deep/bigdata/1njb0k7.md#c2"]
     token_count: 291
 ---
 # Key Differences: Data Science, Machine Learning, and Data Analytics

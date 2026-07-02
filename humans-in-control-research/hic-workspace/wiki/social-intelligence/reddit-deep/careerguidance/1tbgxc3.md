@@ -21,29 +21,35 @@ chunks:
     char_span: [0, 1572]
     sentence_count: 15
     key_terms: [careerguidance, like, comments, because, science, shelves, simple, strong]
+    concepts: [careerguidance, comments, because, science, shelves]
     token_count: 376
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tbgxc3/jobscareers_that_are_best_for_an_introvert_thats/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tbgxc3.md#c1"
     char_span: [1586, 3003]
     sentence_count: 12
     key_terms: [like, instructions, good, look, components, repetitive, workplace, assembly]
+    concepts: [instructions, components, repetitive, workplace, assembly]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/careerguidance/1tbgxc3.md#c2"
     char_span: [3005, 5039]
     sentence_count: 12
     key_terms: [work, kyojur0, though, like, definitely, scott41373, inventory, nugget814]
+    concepts: [kyojur0, though, definitely, scott41373, inventory]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1tbgxc3.md#c3"
     char_span: [4784, 6965]
     sentence_count: 19
     key_terms: [like, always, being, "don't", dog, job, work, structured]
+    concepts: [always, being, "don't", structured, available]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1tbgxc3.md#c4"
     char_span: [6673, 7430]
     sentence_count: 5
     key_terms: [blacksockpaws, healthcare, support, pretty, principlewooden1621, being, did, tech]
+    concepts: [blacksockpaws, healthcare, support, pretty, being]
     section: Comments
     token_count: 186
 ---

@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1915]
     sentence_count: 5
     key_terms: [careerguidance, please, study, "bachelor's", currently, comments, position, another]
+    concepts: [careerguidance, please, "bachelor's", study, currently]
     token_count: 446
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sdluvf/im_a_25_year_old_male_in_dire_need_of_help_stuck/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sdluvf.md#c1"
     char_span: [1929, 4292]
     sentence_count: 20
     key_terms: [information, experience, like, business, analyst, degree, "you're", roles]
+    concepts: [information, experience, business, analyst, degree]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/careerguidance/1sdluvf.md#c2"
     char_span: [4297, 4716]
     sentence_count: 2
     key_terms: [gaming, companies, tech, perspective, background, experience, understand, approach]
+    concepts: [gaming, companies]
     section: Comments
     token_count: 76
 ---

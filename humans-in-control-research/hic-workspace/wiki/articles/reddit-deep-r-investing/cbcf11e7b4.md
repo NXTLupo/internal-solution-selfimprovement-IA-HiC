@@ -19,34 +19,46 @@ content_hash: "3524a4a08eaf7dba"
 relevance_by_goal: {"46dec9599ad5":30}
 chunks:
   - id: "articles/reddit-deep-r-investing/cbcf11e7b4.md#c0"
-    char_span: [0, 2249]
+    char_span: [0, 2248]
     sentence_count: 13
     key_terms: [retail, vusiongroup, shelf, infrastructure, electronic, thesis, vusion, operations]
-    token_count: 485
+    concepts: [retail, vusiongroup, infrastructure, shelf, electronic]
+    related_chunks: ["articles/reddit-deep-r-investing/cbcf11e7b4.md#c1", "articles/reddit-deep-r-investing/cbcf11e7b4.md#c4"]
+    token_count: 484
+    sources: [{"n":"Reddit Deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1twxya8/vusiongroup_dd_digital_shelf_infrastructure_saas/"}]
   - id: "articles/reddit-deep-r-investing/cbcf11e7b4.md#c1"
-    char_span: [2251, 4428]
+    char_span: [2250, 4427]
     sentence_count: 13
     key_terms: [shelf, vusion, retail, infrastructure, store, physical, revenue, electronic]
+    concepts: [shelf, vusion, retail, infrastructure, physical]
+    related_chunks: ["articles/reddit-deep-r-investing/cbcf11e7b4.md#c0", "articles/reddit-deep-r-investing/cbcf11e7b4.md#c4"]
     token_count: 456
   - id: "articles/reddit-deep-r-investing/cbcf11e7b4.md#c2"
-    char_span: [4430, 6502]
+    char_span: [4429, 6501]
     sentence_count: 13
     key_terms: [revenue, vas, recurring, growth, approximately, adjusted, million, guidance]
+    concepts: [revenue, recurring, growth, approximately, adjusted]
+    related_chunks: ["articles/reddit-deep-r-investing/cbcf11e7b4.md#c3"]
     token_count: 492
   - id: "articles/reddit-deep-r-investing/cbcf11e7b4.md#c3"
-    char_span: [6504, 8412]
+    char_span: [6503, 8411]
     sentence_count: 10
     key_terms: [walmart, carrefour, growth, recurring, reference, case, adoption, software]
+    concepts: [walmart, carrefour, growth, recurring, reference]
+    related_chunks: ["articles/reddit-deep-r-investing/cbcf11e7b4.md#c2"]
     token_count: 400
   - id: "articles/reddit-deep-r-investing/cbcf11e7b4.md#c4"
-    char_span: [8414, 10822]
+    char_span: [8413, 10821]
     sentence_count: 19
     key_terms: [data, vusion, store, shelf, execution, infrastructure, out-of-stock, opportunity]
+    concepts: [vusion, store, execution, shelf, infrastructure]
+    related_chunks: ["articles/reddit-deep-r-investing/cbcf11e7b4.md#c0", "articles/reddit-deep-r-investing/cbcf11e7b4.md#c1"]
     token_count: 497
   - id: "articles/reddit-deep-r-investing/cbcf11e7b4.md#c5"
-    char_span: [10824, 12246]
+    char_span: [10823, 12245]
     sentence_count: 6
     key_terms: [southern-voice-8209, major, stock, carrefour, execution, cameras, listed, market]
+    concepts: [southern-voice-8209, major, stock, carrefour, execution]
     token_count: 324
 ---
 # VusionGroup DD: Digital shelf infrastructure, SaaS upside, and the “retail operating system” question

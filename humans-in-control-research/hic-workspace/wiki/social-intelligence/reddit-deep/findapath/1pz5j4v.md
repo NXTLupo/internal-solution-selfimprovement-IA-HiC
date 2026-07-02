@@ -19,34 +19,43 @@ chunks:
     char_span: [0, 1807]
     sentence_count: 18
     key_terms: [school, went, "i'm", together, program, games, video, years]
+    concepts: [school, together, program, accounting, games]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1pz5j4v.md#c1"]
     token_count: 434
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1pz5j4v/im_30_but_im_10_years_behind_ive_been_lost_ever/"}]
   - id: "social-intelligence/reddit-deep/findapath/1pz5j4v.md#c1"
     char_span: [1809, 3521]
     sentence_count: 16
     key_terms: [need, working, school, games, loved, never, video, job]
+    concepts: [working, school, games, loved, never]
+    related_chunks: ["social-intelligence/reddit-deep/findapath/1pz5j4v.md#c0"]
     token_count: 391
   - id: "social-intelligence/reddit-deep/findapath/1pz5j4v.md#c2"
-    char_span: [3536, 5464]
+    char_span: [3535, 5463]
     sentence_count: 18
     key_terms: [thank, programs, helpful, people, please, need, findapath, comments]
+    concepts: [thank, programs, helpful, people, please]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/findapath/1pz5j4v.md#c3"
-    char_span: [5466, 7512]
+    char_span: [5465, 7511]
     sentence_count: 22
     key_terms: [need, get, work, accounting, experience, motivation, education, business]
+    concepts: [accounting, experience, motivation, education, business]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/findapath/1pz5j4v.md#c4"
-    char_span: [7514, 9024]
+    char_span: [7513, 9023]
     sentence_count: 17
     key_terms: [yourself, back, good, job, avoidingsubpoena, going, hard, accounting]
+    concepts: [yourself, avoidingsubpoena, accounting, going, bachelors]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/findapath/1pz5j4v.md#c5"
-    char_span: [9026, 10386]
+    char_span: [9025, 10385]
     sentence_count: 12
     key_terms: [cleanslate2, accountant, yourself, college, career, school, welshdragoninlondon, being]
+    concepts: [cleanslate2, accountant, yourself, college, career]
     section: Comments
     token_count: 362
 ---

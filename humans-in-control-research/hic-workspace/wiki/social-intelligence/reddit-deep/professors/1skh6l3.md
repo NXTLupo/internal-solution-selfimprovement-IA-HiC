@@ -21,34 +21,43 @@ chunks:
     char_span: [0, 1972]
     sentence_count: 12
     key_terms: [texas, university, academic, freedom, martinpeterson, chair, dean, colleagues]
+    concepts: [university, texas, academic, martinpeterson, freedom]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1skh6l3.md#c3"]
     token_count: 450
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1skh6l3/martin_peterson_philosophy_professor_at_texas_am/"}]
   - id: "social-intelligence/reddit-deep/professors/1skh6l3.md#c1"
     char_span: [1974, 2300]
     sentence_count: 1
     key_terms: [professor-banned-from-teaching-plato-excerpt-to-leave-texas-a-m-its-getting-worse, che-social, chronicle, article, https, com, utm, www]
+    concepts: [professor-banned-from-teaching-plato-excerpt-to-leave-texas-a-m-its-getting-worse, che-social, chronicle, article, https]
     token_count: 95
   - id: "social-intelligence/reddit-deep/professors/1skh6l3.md#c2"
     char_span: [2314, 3828]
     sentence_count: 8
     key_terms: [like, weirdonightowl, censorship, academics, teaching, shocked, martin, nopatnodontsitonthat]
+    concepts: [weirdonightowl, censorship, academics, teaching, shocked]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/professors/1skh6l3.md#c3"
     char_span: [3830, 5346]
     sentence_count: 10
     key_terms: [appointment, committee, president, academic, freedom, tenure, neckcomprehensive743, stand]
+    concepts: [appointment, committee, president, academic, freedom]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1skh6l3.md#c0"]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/professors/1skh6l3.md#c4"
     char_span: [5348, 7262]
     sentence_count: 10
     key_terms: [faculty, censorship, course, smu, the-case-against-reparations, academic, informal, specific]
+    concepts: [censorship, faculty, course, academic, informal]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/professors/1skh6l3.md#c5"
     char_span: [7264, 8447]
     sentence_count: 7
     key_terms: [philosophy, faculty, universities, least, "didn't", filled, fight, "it's"]
+    concepts: [philosophy, faculty, universities, least, "didn't"]
     section: Comments
     token_count: 301
 ---

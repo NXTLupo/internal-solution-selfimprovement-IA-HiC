@@ -21,47 +21,59 @@ chunks:
     char_span: [0, 1886]
     sentence_count: 10
     key_terms: [ai-boiling-frog-cognition-study, people, https, cognitive, minutes, effect, performance, researchers]
+    concepts: [ai-boiling-frog-cognition-study, people, cognitive, https, minutes]
     token_count: 470
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1sqcz1m/researchers_gave_1222_people_ai_assistants_then/"}]
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c1"
     char_span: [1900, 3270]
     sentence_count: 7
     key_terms: [because, study, interesting, experiment, motivation, available, internet, probably]
+    concepts: [because, interesting, experiment, motivation, study]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1sqcz1m.md#c3"]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c2"
     char_span: [3272, 5111]
     sentence_count: 15
     key_terms: [motivation, dependant, "it's", minutes, better, obliterated, get, gps]
+    concepts: [motivation, dependant, minutes, better, obliterated]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1sqcz1m.md#c3"]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c3"
     char_span: [5113, 7209]
     sentence_count: 13
     key_terms: [motivation, backhoe, effect, study, hole, "it's", tool, minutes]
+    concepts: [motivation, backhoe, effect, study, minutes]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1sqcz1m.md#c1", "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c2"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c4"
     char_span: [7211, 9255]
     sentence_count: 10
     key_terms: [reading, study, experiments, work, original, effects, forward, lowered]
+    concepts: [reading, experiments, study, original, effects]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c5"
     char_span: [9257, 11425]
     sentence_count: 15
     key_terms: [work, higher, level, calculator, minutes, productivity, engagement, cognitive]
+    concepts: [higher, level, calculator, minutes, productivity]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c6"
     char_span: [11427, 13489]
     sentence_count: 17
     key_terms: [offloaded, civil-interaction-76, thinking, direction, process, without, people, never]
+    concepts: [offloaded, civil-interaction-76, thinking, direction, process]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c7"
     char_span: [13491, 13836]
     sentence_count: 3
     key_terms: [gamers, build, synthesize, underlying, understand, bothering, insights, extends]
+    concepts: [gamers, build]
     section: Comments
     token_count: 76
 ---

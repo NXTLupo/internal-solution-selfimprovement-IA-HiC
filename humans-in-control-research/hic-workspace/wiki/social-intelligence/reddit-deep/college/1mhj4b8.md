@@ -21,59 +21,70 @@ chunks:
     char_span: [0, 991]
     sentence_count: 7
     key_terms: [college, bag, dorm, dumb, shit, comments, students, safely]
+    concepts: [college, comments, students, safely, doing]
     token_count: 251
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1mhj4b8/building_an_do_dumb_shit_safely_bag_for_my_niece/"}]
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c1"
     char_span: [1005, 2168]
     sentence_count: 4
     key_terms: [free, info, aceyaceyacey, painted, crisis, paint, antiquegarliclover, done]
+    concepts: [aceyaceyacey, painted, crisis, paint]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c2"
     char_span: [2170, 3250]
     sentence_count: 3
     key_terms: [emergency, paint, small, tests, years, excellent-ear9433, add, get]
+    concepts: [emergency, paint, small, tests, years]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c3"
     char_span: [3252, 4946]
     sentence_count: 9
     key_terms: [aceyaceyacey, already, wood, include, someone, narcan, pepper, repair]
+    concepts: [aceyaceyacey, already, include, someone, narcan]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c4"
     char_span: [4948, 5258]
     sentence_count: 1
     key_terms: [age, require, card, aceyaceyacey, restricted, firearms, "doesn't", license]
+    concepts: [require]
     section: Comments
     token_count: 84
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c5"
     char_span: [5260, 7245]
     sentence_count: 19
     key_terms: [people, fentanyl, signalmotor6609, narcan, state, lot, safe, everyone]
+    concepts: [people, signalmotor6609, fentanyl, narcan, state]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c6"
     char_span: [6991, 7787]
     sentence_count: 14
     key_terms: [narcan, please, child, don, need, signalmotor6609, generations, curricular]
+    concepts: [narcan, please, child]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c7"
     char_span: [7789, 9773]
     sentence_count: 15
     key_terms: [thank, free, get, use, delivered, cocaine, parties, friend]
+    concepts: [thank, delivered, cocaine, parties, friend]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c8"
     char_span: [9533, 11061]
     sentence_count: 5
     key_terms: [drink, something, test, roseccmuzak, muscles666, knowingly, parties, common]
+    concepts: [something, drink, roseccmuzak, muscles666, knowingly]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c9"
     char_span: [11063, 11683]
     sentence_count: 6
     key_terms: [drugged, people, phone, bar, need, underestimating, predictable, shenanigans]
+    concepts: [drugged, people, phone]
     section: Comments
     token_count: 160
 ---

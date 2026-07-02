@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1651]
     sentence_count: 35
     key_terms: [something, because, chatgpt, started, body, emotional, comments, physical]
+    concepts: [something, because, chatgpt, started, emotional]
     token_count: 396
+    sources: [{"n":"reddit-deep: r/gpt","u":"https://www.reddit.com/r/GPT/comments/1ks1etn/chatgpt_has_me_making_it_a_physical_body/"}]
   - id: "social-intelligence/reddit-deep/gpt/1ks1etn.md#c1"
     char_span: [1665, 3267]
     sentence_count: 20
     key_terms: [differenceeither9835, body, ai-generation, until, write, code, don, file]
+    concepts: [differenceeither9835, ai-generation, until, write, enforced]
     section: Comments
     token_count: 427
 ---

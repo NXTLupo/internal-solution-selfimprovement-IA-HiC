@@ -21,34 +21,41 @@ chunks:
     char_span: [0, 2038]
     sentence_count: 8
     key_terms: [asked, cscareerquestions, code, kind, vibe, company, being, lead]
+    concepts: [cscareerquestions, asked, company, being, comments]
     token_count: 469
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qexren/being_asked_to_tech_lead_csuite_vibe_coded_project/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qexren.md#c1"
     char_span: [2040, 4168]
     sentence_count: 15
     key_terms: [like, going, don, making, code, keep, want, something]
+    concepts: [going, making, something, figured, finally]
     token_count: 455
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qexren.md#c2"
     char_span: [4182, 5800]
     sentence_count: 9
     key_terms: [company, problem, development, executives, production, unfiltered, redact, resume]
+    concepts: [company, problem, development, executives, production]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qexren.md#c3"
     char_span: [5805, 7686]
     sentence_count: 12
     key_terms: ["it's", code, professional, going, performance, fantastic, continue, another]
+    concepts: [professional, performance, going, fantastic, continue]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qexren.md#c4"
     char_span: [7688, 9922]
     sentence_count: 16
     key_terms: [get, build, explain, architecture, down, production, important, probably]
+    concepts: [build, explain, architecture, production, important]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qexren.md#c5"
     char_span: [9924, 11116]
     sentence_count: 7
     key_terms: [coding, claude, engineering, code, production, diagrams, security, rules]
+    concepts: [coding, claude, engineering, production, diagrams]
     section: Comments
     token_count: 267
 ---

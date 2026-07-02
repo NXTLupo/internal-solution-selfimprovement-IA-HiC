@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 833]
     sentence_count: 5
     key_terms: [role, financialcareers, looking, office, comments, position, reasonable-broccoli1, early]
+    concepts: [financialcareers, looking, office, comments, position]
     token_count: 200
+    sources: [{"n":"reddit-deep: r/financialcareers","u":"https://www.reddit.com/r/FinancialCareers/comments/1ssjkjr/jumped_from_bo_to_mo_in_a_year_at_a_bank_looking/"}]
   - id: "social-intelligence/reddit-deep/financialcareers/1ssjkjr.md#c1"
-    char_span: [848, 1405]
+    char_span: [847, 1404]
     sentence_count: 4
     key_terms: [discord, professionals, full-time, banking, financialcareers, automoderator, transitioned, dgptduseqv]
+    concepts: [professionals, discord, full-time, banking]
     section: Comments
     token_count: 119
   - id: "social-intelligence/reddit-deep/financialcareers/1ssjkjr.md#c2"
-    char_span: [1407, 3401]
+    char_span: [1406, 3400]
     sentence_count: 11
     key_terms: [reasonable-broccoli1, trading, ambassador31, sales, business-music-1897, years, area, ask]
+    concepts: [reasonable-broccoli1, trading, ambassador31, sales, years]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialcareers/1ssjkjr.md#c3"
-    char_span: [3135, 3977]
+    char_span: [3134, 3976]
     sentence_count: 6
     key_terms: [desk, different, bracket, reasonable-broccoli1, bulge, howtosellyoursoul, mind, masterflation473]
+    concepts: [different, bracket, bulge]
     section: Comments
     token_count: 221
 ---

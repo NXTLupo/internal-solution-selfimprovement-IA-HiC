@@ -18,31 +18,37 @@ industries: [financial_services, enterprise_it]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t0dyty.md#c0"
-    char_span: [0, 1790]
-    sentence_count: 8
-    key_terms: [sandi***REDACTED-KEY***, sandisk, quarter, revenue, earnings, analyst, wallstreetbets, https]
-    token_count: 442
+    char_span: [0, 2092]
+    sentence_count: 11
+    key_terms: [sandisk, quarter, revenue, earnings, analyst, wallstreetbets, demand, redacted-key]
+    concepts: [sandisk, quarter, revenue, earnings, wallstreetbets]
+    token_count: 488
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1t0dyty/sandisk_6_afterhours_on_q3_fy26_595b_revenue_vs/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t0dyty.md#c1"
-    char_span: [1792, 2534]
-    sentence_count: 4
-    key_terms: [sandisk, enterprise, expected, billion, range, share, png, infrastructure]
-    token_count: 190
+    char_span: [2094, 2408]
+    sentence_count: 1
+    key_terms: [billion, range, png, xsdv57268fyg1, expected, non-gaap, company, diluted]
+    concepts: [billion, range]
+    token_count: 108
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t0dyty.md#c2"
-    char_span: [2548, 4217]
+    char_span: [2422, 4091]
     sentence_count: 8
     key_terms: [bloodmosshunter, slowing, growth, usb, previous, billion, discord, numbers]
+    concepts: [bloodmosshunter, slowing, growth, previous, billion]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t0dyty.md#c3"
-    char_span: [4219, 5946]
+    char_span: [4093, 5820]
     sentence_count: 7
     key_terms: [profit, agitatorsupreme, buy, take, market, prices, taking, prestigiousaccess765]
+    concepts: [profit, agitatorsupreme, market, prices, taking]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t0dyty.md#c4"
-    char_span: [5732, 6381]
+    char_span: [5606, 6255]
     sentence_count: 2
     key_terms: [market, prestigiousaccess765, negativesemicolon, nothingtoofancy26, horseok9732, absolutely, temporary, earnings]
+    concepts: [market]
     section: Comments
     token_count: 175
 ---

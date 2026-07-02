@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 691]
     sentence_count: 5
     key_terms: [university, studied, undergraduate, did, good, gradschool, comments, renowned]
+    concepts: [university, studied, undergraduate, gradschool, comments]
     token_count: 170
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1onb2p1/has_anyone_here_studied_in_a_good_undergraduate/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1onb2p1.md#c1"
     char_span: [705, 2823]
     sentence_count: 22
     key_terms: [undergrad, institution, phd, university, prestige, masters, big, research]
+    concepts: [undergrad, institution, university, prestige, masters]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/gradschool/1onb2p1.md#c2"
     char_span: [2825, 4664]
     sentence_count: 18
     key_terms: [lot, faculty, opportunities, program, department, student, administration, field]
+    concepts: [faculty, opportunities, program, department, administration]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/gradschool/1onb2p1.md#c3"
     char_span: [4666, 6533]
     sentence_count: 11
     key_terms: [school, world, time, research, biology, marine, known, bakersfield]
+    concepts: [school, world, research, biology, marine]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/gradschool/1onb2p1.md#c4"
     char_span: [6535, 8800]
     sentence_count: 20
     key_terms: [school, undergrad, oriented, students, teaching, opportunities, institutions, good]
+    concepts: [school, undergrad, oriented, students, teaching]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/gradschool/1onb2p1.md#c5"
     char_span: [8802, 10159]
     sentence_count: 13
     key_terms: [prestigious, reputable, programs, funding, getting, nervous, worked, back]
+    concepts: [prestigious, reputable, programs, funding, getting]
     section: Comments
     token_count: 317
 ---

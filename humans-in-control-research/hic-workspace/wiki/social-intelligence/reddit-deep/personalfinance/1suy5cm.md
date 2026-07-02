@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2095]
     sentence_count: 12
     key_terms: [savings, fun, account, currently, insurance, personalfinance, contributing, money]
+    concepts: [savings, account, currently, insurance, personalfinance]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1suy5cm/help_me_figure_out_a_budget_savings_vs_free_money/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1suy5cm.md#c1"
     char_span: [2109, 2866]
     sentence_count: 6
     key_terms: [yourself, expenses, whatever, numbers, picture, paying, massivedeparture9287, https]
+    concepts: [yourself, expenses, whatever, numbers, picture]
     section: Comments
     token_count: 189
 ---

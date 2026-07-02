@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1834]
     sentence_count: 12
     key_terms: [careerguidance, years, portfolio, personal, liberal, through, trading, career]
+    concepts: [careerguidance, years, portfolio, personal, liberal]
     token_count: 415
+    sources: [{"n":"Reddit Deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1msqkg4/what_are_the_best_ways_to_develop_skills_that/"}]
   - id: "articles/reddit-deep-r-careerguidance/e1facae942.md#c1"
     char_span: [1836, 3872]
     sentence_count: 8
     key_terms: [additional, business, income, revenue, career, skills, professional, don]
+    concepts: [additional, business, income, revenue, professional]
     token_count: 469
   - id: "articles/reddit-deep-r-careerguidance/e1facae942.md#c2"
     char_span: [3874, 5886]
     sentence_count: 11
     key_terms: [skills, employable, salesforce, tableau, federal-court-reporting-program, role, side, experience]
+    concepts: [employable, salesforce, skills, tableau, experience]
     token_count: 468
 ---
 # What are the best ways to develop skills that make me more employable and create additional income streams while feeling stuck in a dead-end career?

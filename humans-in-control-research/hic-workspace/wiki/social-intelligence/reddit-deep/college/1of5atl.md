@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 516]
     sentence_count: 3
     key_terms: [courses, classes, week, comments, college, half, engineering, reddit-deep]
+    concepts: [courses, classes, comments, college]
     token_count: 133
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1of5atl/4_eight_week_courses_instead_of_4_regular_courses/"}]
   - id: "social-intelligence/reddit-deep/college/1of5atl.md#c1"
     char_span: [530, 2012]
     sentence_count: 8
     key_terms: [classes, easier, cragdragon511, did, good, time, week, semester]
+    concepts: [classes, cragdragon511, easier, semester, standard]
     section: Comments
     token_count: 427
 ---

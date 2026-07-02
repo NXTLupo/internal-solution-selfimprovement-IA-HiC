@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 884]
     sentence_count: 9
     key_terms: [cscareerquestions, companies, comments, advice, entry, level, get, undergraduates]
+    concepts: [cscareerquestions, companies, comments, advice, entry]
     token_count: 212
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t5uztm/advice_for_cs_student/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5uztm.md#c1"
     char_span: [898, 2945]
     sentence_count: 11
     key_terms: [need, market, people, job, degree, school, "don't", connections]
+    concepts: [market, people, degree, school, connections]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5uztm.md#c2"
     char_span: [2949, 4407]
     sentence_count: 11
     key_terms: [engineering, because, major, electrical, thinking, problem, science, systems]
+    concepts: [engineering, because, electrical, major, thinking]
     section: Comments
     token_count: 346
 ---

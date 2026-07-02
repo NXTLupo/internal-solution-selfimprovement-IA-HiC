@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 395]
     sentence_count: 1
     key_terms: [engineeringstudents, internship, comments, robotics, engineering, reddit-deep, graduated, searching]
+    concepts: [engineeringstudents, internship, comments, robotics]
     token_count: 98
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1tjw7o4/my_internship_hunt_as_a_robotics_engineering_ms/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tjw7o4.md#c1"
     char_span: [409, 2306]
     sentence_count: 11
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, full, time]
+    concepts: [engineeringstudents, please, reddit, https, probably]
     section: Comments
     token_count: 457
 ---

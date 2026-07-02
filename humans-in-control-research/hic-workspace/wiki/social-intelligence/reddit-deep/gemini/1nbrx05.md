@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1229]
     sentence_count: 12
     key_terms: [withdraw, gemini, security, account, cryptocurrency, able, hold, comments]
+    concepts: [withdraw, gemini, security, cryptocurrency, account]
     token_count: 262
+    sources: [{"n":"reddit-deep: r/gemini","u":"https://www.reddit.com/r/Gemini/comments/1nbrx05/security_hold_question/"}]
   - id: "social-intelligence/reddit-deep/gemini/1nbrx05.md#c1"
     char_span: [1243, 2174]
     sentence_count: 8
     key_terms: [account, crypto, thebackupkid, response, support, future, ticket, fiat]
+    concepts: [account, thebackupkid, crypto, response, support]
     section: Comments
     token_count: 221
 ---

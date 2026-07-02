@@ -11,32 +11,40 @@ score: 1
 upvote_ratio: 1
 num_comments: 8
 flair: "getting started"
-extracted_at: "2026-06-11T18:58:38.961Z"
+extracted_at: "2026-06-23T20:32:01.769Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a strategic market analysis answering \"What is The State of Data & Distribution in Asset Management, in 2026?.\" Focus on how global asset managers leverage FinTech innovation, economic drivers, and advanced data infrastructure to optimize distribution channels, intermediary targeting, and client acquisition."
-engagement: "deliver-a-strategic-market-analysis-answering-what-is-the-st"
+research_goal: "Analyze case studies of private equity firms and holding companies (such as Medforth) that build repeatable AI capabilities once and scale them across higher education portfolio companies. Deliver an operational playbook detailing the shared-service models, governance frameworks, and deployment strategies used to scale AI across admissions workflows, student communications, and enrollment operations to accelerate long enrollment cycles."
+engagement: "analyze-case-studies-of-private-equity-firms-and-holding-com"
 chunks:
   - id: "social-intelligence/reddit-deep/salesforce/1qx5hhl.md#c0"
     char_span: [0, 1971]
     sentence_count: 8
     key_terms: [marketing, salesforce, cloud, revenue, background, admin, stability, path]
+    concepts: [marketing, salesforce, cloud, revenue, background]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qx5hhl.md#c1", "social-intelligence/reddit-deep/salesforce/1qx5hhl.md#c2"]
     token_count: 477
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1qx5hhl/confused_between_salesforce_admin_revenue_cloud/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1qx5hhl.md#c1"
-    char_span: [1986, 4178]
+    char_span: [1985, 4177]
     sentence_count: 18
     key_terms: [working, specialized, cloud, marketing, cpq, administration, admin, get]
+    concepts: [working, specialized, marketing, cloud, administration]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qx5hhl.md#c0", "social-intelligence/reddit-deep/salesforce/1qx5hhl.md#c2"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/salesforce/1qx5hhl.md#c2"
-    char_span: [4180, 6461]
+    char_span: [4179, 6460]
     sentence_count: 13
     key_terms: [marketing, cpq, cloud, revenue, admin, technical, trailhead, finance]
+    concepts: [marketing, cloud, revenue, technical, trailhead]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1qx5hhl.md#c0", "social-intelligence/reddit-deep/salesforce/1qx5hhl.md#c1"]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/salesforce/1qx5hhl.md#c3"
-    char_span: [6463, 7182]
+    char_span: [6462, 7181]
     sentence_count: 4
     key_terms: [cpq, experience, people, revops, cloud, folks, small, cert]
+    concepts: [experience, people, revops, cloud, folks]
     section: Comments
     token_count: 161
 ---
@@ -101,12 +109,12 @@ Thanks in advance 🙏
 
 ## Comments
 
-- **Alarmed-Tackle-4556** (8↑): Were I in your shoes... I would start with standard administration first. CPQ in many of its forms is rather complex and administering it can be a challenge. I would get my feet under me from an administrative standpoint first for like a year or two then start working toward CPQ/RCA. 
+- **Alarmed-Tackle-4556** (6↑): Were I in your shoes... I would start with standard administration first. CPQ in many of its forms is rather complex and administering it can be a challenge. I would get my feet under me from an administrative standpoint first for like a year or two then start working toward CPQ/RCA. 
 
 I suspect the thing you'll need to brush up on the most before CPQ, is your relational database architecture. 
 
 Context: Salesforce admin and architect for 10 years this spring
-- **Used-Comfortable-726** (4↑): Which is more personally interesting to you:
+- **Used-Comfortable-726** (5↑): Which is more personally interesting to you:
 
 * working with sales teams on sales operations 
 * working with marketing teams on creative ideas

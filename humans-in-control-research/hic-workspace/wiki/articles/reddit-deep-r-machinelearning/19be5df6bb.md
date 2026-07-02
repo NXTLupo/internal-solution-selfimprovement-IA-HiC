@@ -16,16 +16,20 @@ chunks:
     char_span: [0, 1609]
     sentence_count: 18
     key_terms: [openclaw, machinelearning, incredibly, ironclaw, security, machine, version, reddit]
+    concepts: [openclaw, machinelearning, incredibly, ironclaw, security]
     token_count: 375
+    sources: [{"n":"Reddit Deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1rlnwsk/d_ama_secure_version_of_openclaw/"}]
   - id: "articles/reddit-deep-r-machinelearning/19be5df6bb.md#c1"
     char_span: [1611, 3695]
     sentence_count: 13
     key_terms: [policy, access, information, credential, prevention, database, actions, ensure]
+    concepts: [policy, access, information, credential, prevention]
     token_count: 440
   - id: "articles/reddit-deep-r-machinelearning/19be5df6bb.md#c2"
     char_span: [3697, 5263]
     sentence_count: 11
     key_terms: [ironclaw, here, com, project, github, skills, ilblackdragon, agent]
+    concepts: [ironclaw, ilblackdragon, project, github, skills]
     token_count: 393
 ---
 # [D] AMA Secure version of OpenClaw

@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1755]
     sentence_count: 16
     key_terms: [tax, "i'm", leg, lots, messaged, instead, wallstreetbets, debit]
+    concepts: [messaged, wallstreetbets, instead, debit, robinhood]
     token_count: 421
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1rng43y/venting_robinhood_screwed_up_my_tax_lots_and_now/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rng43y.md#c1"
     char_span: [1769, 2855]
     sentence_count: 10
     key_terms: [choose, mortgage, options, capital, discord, gains, total, years]
+    concepts: [choose, mortgage, options, capital, discord]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rng43y.md#c2"
     char_span: [2857, 4522]
     sentence_count: 9
     key_terms: [robinhood, problem, someone, alwaysnevernotwrong, sea-advertising8372, thenicestredditor, case, don]
+    concepts: [robinhood, problem, someone]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rng43y.md#c3"
     char_span: [4374, 5918]
     sentence_count: 9
     key_terms: [account, picklerickletv, lots, tax, another, getting, support, broker]
+    concepts: [picklerickletv, account, another, getting, support]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rng43y.md#c4"
     char_span: [5922, 7490]
     sentence_count: 12
     key_terms: [schwab, contract, fills, money, assignments, commissions, pay, platform]
+    concepts: [schwab, contract, assignments, commissions, fills]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rng43y.md#c5"
     char_span: [7492, 9133]
     sentence_count: 16
     key_terms: [options, like, afterwards, contracts, adjusted, fidelity, basstid, believe]
+    concepts: [options, afterwards, contracts, adjusted, fidelity]
     section: Comments
     token_count: 436
 ---

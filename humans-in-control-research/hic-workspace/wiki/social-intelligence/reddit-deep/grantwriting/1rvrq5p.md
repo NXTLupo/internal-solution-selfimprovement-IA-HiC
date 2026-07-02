@@ -17,10 +17,12 @@ research_goal: "Identify emerging trends in higher education related ONLY to fun
 engagement: "identify-emerging-trends-in-higher-education-related-only-to"
 chunks:
   - id: "social-intelligence/reddit-deep/grantwriting/1rvrq5p.md#c0"
-    char_span: [0, 626]
+    char_span: [0, 625]
     sentence_count: 6
     key_terms: [grant, writing, course, grantwriting, nonprofit, comments, looking, special-rush-9217]
-    token_count: 148
+    concepts: [grant, writing, grantwriting, course, nonprofit]
+    token_count: 147
+    sources: [{"n":"reddit-deep: r/grantwriting","u":"https://www.reddit.com/r/grantwriting/comments/1rvrq5p/sdsu_grant_writing_course/"}]
 ---
 # SDSU Grant Writing Course?
 

@@ -20,27 +20,33 @@ chunks:
     char_span: [0, 2408]
     sentence_count: 24
     key_terms: [sales, solutions, ceo, security, team, company, selling, institutions]
+    concepts: [sales, solutions, security, company, selling]
     token_count: 494
+    sources: [{"n":"reddit-deep: r/sales","u":"https://www.reddit.com/r/sales/comments/1rfg6ee/a_20yearold_sales_lesson_that_saved_my_new_saas/"}]
   - id: "social-intelligence/reddit-deep/sales/1rfg6ee.md#c1"
     char_span: [2410, 4506]
     sentence_count: 20
     key_terms: [clients, cycle, selling, client, pitch, sales, preparation, salesperson]
+    concepts: [clients, cycle, selling, client, preparation]
     token_count: 508
   - id: "social-intelligence/reddit-deep/sales/1rfg6ee.md#c2"
     char_span: [4508, 5527]
     sentence_count: 8
     key_terms: [funnel, sales, qualification, important, chance, skinny, cycle, early]
+    concepts: [funnel, sales, qualification, important, chance]
     token_count: 223
   - id: "social-intelligence/reddit-deep/sales/1rfg6ee.md#c3"
-    char_span: [5542, 7314]
+    char_span: [5541, 7313]
     sentence_count: 14
     key_terms: [right, deals, spookythedevilcat, pipeline, question, disqualification, "don't", time]
+    concepts: [right, spookythedevilcat, disqualification, deals, pipeline]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/sales/1rfg6ee.md#c4"
-    char_span: [7316, 7899]
+    char_span: [7315, 7898]
     sentence_count: 4
     key_terms: [amicewong, bidgroundbreaking670, sales, smart, holy, cucupouette37, architecting, emceeflurry]
+    concepts: [amicewong, sales, smart]
     section: Comments
     token_count: 175
 ---

@@ -19,35 +19,44 @@ chunks:
     char_span: [0, 535]
     sentence_count: 2
     key_terms: [jobs, comments, earnings, weedwizard44, reddit-deep, experience, understand, outsource]
+    concepts: [comments, earnings]
     token_count: 130
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1rzjnc7/do_they_understand_if_they_outsource_entry_level/"}]
   - id: "social-intelligence/reddit-deep/jobs/1rzjnc7.md#c1"
     char_span: [549, 2724]
     sentence_count: 15
     key_terms: [like, individual, companies, problem, middle, people, "you're", class]
+    concepts: [individual, companies, problem, middle, people]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rzjnc7.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rzjnc7.md#c2"
     char_span: [2407, 3113]
     sentence_count: 4
     key_terms: [workers, people, "you're", cross-functional, relationships, consequences, notoriousrdc, combination]
+    concepts: [workers, people, "you're"]
     section: Comments
     token_count: 148
   - id: "social-intelligence/reddit-deep/jobs/1rzjnc7.md#c3"
     char_span: [3115, 5122]
     sentence_count: 14
     key_terms: [because, promote, "it's", management, something, certain, company, premise]
+    concepts: [because, promote, management, something, certain]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/jobs/1rzjnc7.md#c4"
     char_span: [5124, 6805]
     sentence_count: 11
     key_terms: [companies, people, batteries, products, becomes, dollars, become, electronic-goal-8141]
+    concepts: [companies, people, batteries, products, becomes]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1rzjnc7.md#c1"]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/jobs/1rzjnc7.md#c5"
     char_span: [6808, 8200]
     sentence_count: 14
     key_terms: [don, care, fine, everything, people, need, anything, dalearev]
+    concepts: [everything, people, anything, dalearev, because]
     section: Comments
     token_count: 344
 ---

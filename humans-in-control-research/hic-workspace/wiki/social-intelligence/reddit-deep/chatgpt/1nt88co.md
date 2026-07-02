@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 424]
     sentence_count: 1
     key_terms: [chatgpt, comments, wife, won, charlesonchain, reddit-deep, counsellor, agreeing]
+    concepts: [chatgpt, comments]
     token_count: 123
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1nt88co/my_wife_wont_know_she_wont_know/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1nt88co.md#c1"
     char_span: [438, 1174]
     sentence_count: 5
     key_terms: [r-chatgpt-1050422060352024636, discord, https, withoutreason1729, png, post, automatically, d139fw4pi4sf1]
+    concepts: [discord, https]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/chatgpt/1nt88co.md#c2"
     char_span: [1176, 2665]
     sentence_count: 5
     key_terms: [watch, ned, wife, reminded, husband, mother, drsheldonlcooperphd, redditzphkngarbage]
+    concepts: [watch, reminded, husband, mother]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/chatgpt/1nt88co.md#c3"
     char_span: [2667, 4363]
     sentence_count: 9
     key_terms: [a65727b6e233fed0cddea7de22076f9c9f38a1d2, charlesonchain, side, tell, anywhere, husband, preview, format]
+    concepts: [charlesonchain, anywhere, husband, preview, format]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1nt88co.md#c4"
     char_span: [4095, 4603]
     sentence_count: 2
     key_terms: [mateship, wikipedia, boring, nights, extrinsicpalpitation, pinkonehasbeenchosen, https, fri]
+    concepts: [mateship, wikipedia, boring, nights, https]
     section: Comments
     token_count: 132
   - id: "social-intelligence/reddit-deep/chatgpt/1nt88co.md#c5"
     char_span: [4605, 6217]
     sentence_count: 6
     key_terms: [marriage, advice, pillow, considered, emotional, penny1974, fucking, always]
+    concepts: [marriage, advice, pillow, considered, emotional]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/chatgpt/1nt88co.md#c6"
     char_span: [6219, 7931]
     sentence_count: 7
     key_terms: [instructions, couch, settings, deleted, glaring, redact, found, app]
+    concepts: [instructions, couch, settings, deleted, glaring]
     section: Comments
     token_count: 480
 ---

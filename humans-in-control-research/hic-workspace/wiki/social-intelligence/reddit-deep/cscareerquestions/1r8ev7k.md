@@ -19,17 +19,21 @@ chunks:
     char_span: [0, 1529]
     sentence_count: 12
     key_terms: [internships, cscareerquestions, recommendation, advice, pivot, development, back, been]
+    concepts: [internships, cscareerquestions, recommendation, advice, development]
     token_count: 353
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1r8ev7k/have_a_bs_in_cs_from_back_in_2017_and_need_advice/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r8ev7k.md#c1"
     char_span: [1543, 2831]
     sentence_count: 13
     key_terms: [ruinadventurous1931, transferable, definitely, building, backend, mobile, cloud, https]
+    concepts: [ruinadventurous1931, transferable, definitely, building, backend]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r8ev7k.md#c2"
     char_span: [2833, 4477]
     sentence_count: 14
     key_terms: [degree, general3dots, students, masters, advice, better, calm-tumbleweed-9820, objectbrilliant7592]
+    concepts: [degree, general3dots, students, masters, advice]
     section: Comments
     token_count: 425
 ---

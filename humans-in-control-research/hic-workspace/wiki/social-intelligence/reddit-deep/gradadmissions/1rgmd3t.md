@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 530]
     sentence_count: 5
     key_terms: [research, students, gradadmissions, recognized, chemistry, undergrad, comments, prestigious-sky-3174]
+    concepts: [research, students, gradadmissions, recognized, chemistry]
     token_count: 120
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rgmd3t/how_can_chemistry_students_applying_to_grad/"}]
 ---
 # How can chemistry students applying to grad school get recognized for research in undergrad?
 

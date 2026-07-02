@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2539]
     sentence_count: 13
     key_terms: [startup, university, engineering, potentially, boston, been, lab, role]
+    concepts: [startup, university, engineering, potentially, boston]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1spc24b/senior_engineering_student_deciding_between/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1spc24b.md#c1"
     char_span: [2541, 3134]
     sentence_count: 3
     key_terms: ["you're", involvement, negotiating, opportunity, motivation, geography, handcuffs, somewhere]
+    concepts: ["you're"]
     section: Comments
     token_count: 121
 ---

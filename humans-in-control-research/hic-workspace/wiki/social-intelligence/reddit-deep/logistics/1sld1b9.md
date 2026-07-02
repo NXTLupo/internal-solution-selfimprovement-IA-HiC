@@ -20,43 +20,54 @@ chunks:
     char_span: [0, 1926]
     sentence_count: 17
     key_terms: [logistics, million, new, size, inventory, comments, headache, apparel]
+    concepts: [logistics, million, inventory, comments, headache]
     token_count: 473
+    sources: [{"n":"reddit-deep: r/logistics","u":"https://www.reddit.com/r/logistics/comments/1sld1b9/catch_up_on_what_happened_this_week_in_logistics/"}]
   - id: "social-intelligence/reddit-deep/logistics/1sld1b9.md#c1"
     char_span: [1928, 4230]
     sentence_count: 17
     key_terms: [orders, logistics, freight, canada, fleets, mississauga, recovery, finally]
+    concepts: [logistics, orders, freight, canada, fleets]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1sld1b9.md#c4"]
     token_count: 491
   - id: "social-intelligence/reddit-deep/logistics/1sld1b9.md#c2"
     char_span: [4232, 6493]
     sentence_count: 24
     key_terms: [cold, "you're", storage, demand, market, infrastructure, established, fulfillment]
+    concepts: ["you're", storage, demand, market, infrastructure]
     token_count: 466
   - id: "social-intelligence/reddit-deep/logistics/1sld1b9.md#c3"
     char_span: [6495, 8770]
     sentence_count: 14
     key_terms: [apparel, facility, purpose-built, fulfillment, everything, attention, optimized, warehouse]
+    concepts: [apparel, facility, purpose-built, fulfillment, everything]
     token_count: 430
   - id: "social-intelligence/reddit-deep/logistics/1sld1b9.md#c4"
     char_span: [8772, 10260]
     sentence_count: 9
     key_terms: [logistics, acquired, freight, ai-native, truckstop, carriers, platform, provider]
+    concepts: [logistics, acquired, freight, ai-native, truckstop]
+    related_chunks: ["social-intelligence/reddit-deep/logistics/1sld1b9.md#c1"]
     token_count: 300
   - id: "social-intelligence/reddit-deep/logistics/1sld1b9.md#c5"
-    char_span: [10275, 11000]
+    char_span: [10274, 10999]
     sentence_count: 3
     key_terms: [charlesholmes1, getting, canada, cool, hvac, interesting, definitely, facilities]
+    concepts: [charlesholmes1, getting, canada]
     section: Comments
     token_count: 176
   - id: "social-intelligence/reddit-deep/logistics/1sld1b9.md#c6"
-    char_span: [11002, 13098]
+    char_span: [11001, 13097]
     sentence_count: 10
     key_terms: [charlesholmes1, truckerverse, because, experienced, drivers, parking, europe, trucks]
+    concepts: [charlesholmes1, truckerverse, because, experienced, drivers]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/logistics/1sld1b9.md#c7"
-    char_span: [12806, 13491]
+    char_span: [12805, 13490]
     sentence_count: 3
     key_terms: [curve, underestimating, end-of-season, fast-moving, annualized, balance006, categories, expensive]
+    concepts: [curve]
     section: Comments
     token_count: 148
 ---

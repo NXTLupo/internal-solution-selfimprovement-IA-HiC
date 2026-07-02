@@ -19,23 +19,28 @@ chunks:
     char_span: [0, 788]
     sentence_count: 3
     key_terms: [cscareerquestions, internships, comments, people, field, ask, jobs, baseballhead6898]
+    concepts: [cscareerquestions, internships, comments, people, field]
     token_count: 186
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1s47zqx/to_people_who_have_graduated_and_gotten/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s47zqx.md#c1"
     char_span: [802, 2318]
     sentence_count: 12
     key_terms: [get, jobs, personal, probably, because, comment, people, worked]
+    concepts: [personal, probably, because, comment, people]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s47zqx.md#c2"
     char_span: [2320, 4361]
     sentence_count: 12
     key_terms: [passion, understanding, hard, engineers, building, leetcode, because, making]
+    concepts: [understanding, passion, engineers, building, leetcode]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s47zqx.md#c3"
     char_span: [4363, 6267]
     sentence_count: 20
     key_terms: [real, people, years, "it's", instead, degree, taught, over-entertainer4074]
+    concepts: [people, years, instead, degree, taught]
     section: Comments
     token_count: 443
 ---

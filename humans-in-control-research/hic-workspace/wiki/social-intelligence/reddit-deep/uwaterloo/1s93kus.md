@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 941]
     sentence_count: 7
     key_terms: [experience, uwaterloo, comments, waterloo, stream, affectionate-ad6867, co-op, going]
+    concepts: [experience, uwaterloo, comments, waterloo, stream]
     token_count: 235
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1s93kus/highschool_student_going_into_ee_coop_stream_4_no/"}]
 ---
 # Highschool student going into EE co-op stream 4 no experience
 

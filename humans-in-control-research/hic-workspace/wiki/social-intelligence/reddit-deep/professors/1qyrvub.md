@@ -21,53 +21,70 @@ chunks:
     char_span: [0, 998]
     sentence_count: 10
     key_terms: [study, professors, students, guides, exam, comments, giving, review]
+    concepts: [study, professors, students, guides, comments]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qyrvub.md#c3", "social-intelligence/reddit-deep/professors/1qyrvub.md#c4", "social-intelligence/reddit-deep/professors/1qyrvub.md#c6", "social-intelligence/reddit-deep/professors/1qyrvub.md#c7"]
     token_count: 234
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1qyrvub/is_anyone_giving_their_students_study_guides/"}]
   - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c1"
     char_span: [1012, 2000]
     sentence_count: 8
     key_terms: [list, readings, grateful, headings, students, already, topics, guide]
+    concepts: [readings, grateful, headings, students, already]
     section: Comments
     token_count: 233
   - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c2"
     char_span: [2002, 4167]
     sentence_count: 16
     key_terms: [study, questions, list, work, guide, assignments, late, objectives]
+    concepts: [questions, study, assignments, guide, objectives]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qyrvub.md#c4", "social-intelligence/reddit-deep/professors/1qyrvub.md#c6", "social-intelligence/reddit-deep/professors/1qyrvub.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c3"
     char_span: [3852, 4746]
     sentence_count: 2
     key_terms: [different, guides, paste, study, copy, use, accidentally, hoopoebirdie]
+    concepts: [different, guides, paste, study]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qyrvub.md#c0", "social-intelligence/reddit-deep/professors/1qyrvub.md#c7"]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c4"
     char_span: [4748, 6506]
     sentence_count: 13
     key_terms: [class, study, exam, guide, sessions, students, times, get]
+    concepts: [class, study, guide, sessions, students]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qyrvub.md#c0", "social-intelligence/reddit-deep/professors/1qyrvub.md#c2", "social-intelligence/reddit-deep/professors/1qyrvub.md#c6"]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c5"
     char_span: [6508, 6885]
     sentence_count: 2
     key_terms: [questions, engineering, significant, waronadvent, everything, students, covered, similar]
+    concepts: [questions]
     section: Comments
     token_count: 96
   - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c6"
     char_span: [6887, 9208]
     sentence_count: 15
     key_terms: [study, students, test, guide, good, teaching, guides, expectations]
+    concepts: [study, students, guide, teaching, expectations]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qyrvub.md#c0", "social-intelligence/reddit-deep/professors/1qyrvub.md#c2", "social-intelligence/reddit-deep/professors/1qyrvub.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c7"
     char_span: [8909, 9482]
     sentence_count: 4
     key_terms: [study, student, guides, good, own, work, pedogogically, sandysanbar]
+    concepts: [study, student, guides]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qyrvub.md#c0", "social-intelligence/reddit-deep/professors/1qyrvub.md#c3"]
     section: Comments
     token_count: 130
   - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c8"
     char_span: [9484, 11270]
     sentence_count: 17
     key_terms: [exam, questions, question, study, learning, position, students, knowing]
+    concepts: [questions, question, study, learning, position]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1qyrvub.md#c2"]
     section: Comments
     token_count: 392
 ---

@@ -21,17 +21,24 @@ chunks:
     char_span: [0, 980]
     sentence_count: 8
     key_terms: [careerguidance, job, comments, customer, because, service, career, growth]
+    concepts: [careerguidance, comments, customer, because, service]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tai5do.md#c1", "social-intelligence/reddit-deep/careerguidance/1tai5do.md#c2"]
     token_count: 229
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1tai5do/for_people_who_worked_in_corporatelevel_customer/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1tai5do.md#c1"
     char_span: [994, 3066]
     sentence_count: 15
     key_terms: [customer, service, project, management, industry, coordination, did, get]
+    concepts: [customer, service, project, management, industry]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tai5do.md#c0", "social-intelligence/reddit-deep/careerguidance/1tai5do.md#c2"]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/careerguidance/1tai5do.md#c2"
     char_span: [3068, 5103]
     sentence_count: 26
     key_terms: [customer, did, service, job, support, professional, side, corporate]
+    concepts: [customer, service, support, professional, corporate]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1tai5do.md#c0", "social-intelligence/reddit-deep/careerguidance/1tai5do.md#c1"]
     section: Comments
     token_count: 414
 ---

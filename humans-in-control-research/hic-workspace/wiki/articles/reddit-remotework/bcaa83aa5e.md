@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 840]
     sentence_count: 10
     key_terms: [office, rto, remotework, reddit, job, week, investment, management]
+    concepts: [office, remotework, reddit]
     token_count: 212
+    sources: [{"n":"reddit: remotework","u":"https://reddit.com/r/remotework/comments/1nwlgji/my_job_went_rto_i_am_now_flying_to_the_office/"}]
 ---
 # My Job Went RTO.. I am now flying to the office every week
 

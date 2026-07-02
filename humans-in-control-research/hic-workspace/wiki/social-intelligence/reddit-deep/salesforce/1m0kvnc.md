@@ -20,35 +20,44 @@ chunks:
     char_span: [0, 1357]
     sentence_count: 9
     key_terms: [salesforce, experience, implementations, conversation, cloud, year, consultant, marketing]
+    concepts: [salesforce, experience, implementations, conversation, cloud]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1m0kvnc.md#c2"]
     token_count: 289
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1m0kvnc/11_with_manager_soon/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1m0kvnc.md#c1"
-    char_span: [1372, 3163]
+    char_span: [1371, 3162]
     sentence_count: 15
     key_terms: ["i'd", salary, like, want, get, appreciate, pancovnik, reasoning]
+    concepts: [salary, appreciate, pancovnik, reasoning, schedule]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/salesforce/1m0kvnc.md#c2"
-    char_span: [3166, 5385]
+    char_span: [3165, 5384]
     sentence_count: 12
     key_terms: [conversation, experience, scale, accomplishments, manager, metrics, blah, "it's"]
+    concepts: [conversation, experience, accomplishments, scale, manager]
+    related_chunks: ["social-intelligence/reddit-deep/salesforce/1m0kvnc.md#c0"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/salesforce/1m0kvnc.md#c3"
-    char_span: [5387, 7676]
+    char_span: [5386, 7675]
     sentence_count: 16
     key_terms: [slide, conversation, ask, blah, exp, pay, discussing, powerpoint]
+    concepts: [slide, conversation, discussing, powerpoint, highlight]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/salesforce/1m0kvnc.md#c4"
-    char_span: [7681, 9809]
+    char_span: [7680, 9808]
     sentence_count: 16
     key_terms: [hour, consultants, confident, per, billable, revenue, range, experience]
+    concepts: [consultants, confident, billable, revenue, experience]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/salesforce/1m0kvnc.md#c5"
-    char_span: [9811, 10457]
+    char_span: [9810, 10456]
     sentence_count: 6
     key_terms: [billed, given, raise, ask, math, oneweek2024, reasonable, appraisal]
+    concepts: [billed, given, raise]
     section: Comments
     token_count: 170
 ---

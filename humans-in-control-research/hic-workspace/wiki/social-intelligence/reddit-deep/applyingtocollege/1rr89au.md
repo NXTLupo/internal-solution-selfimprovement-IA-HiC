@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 2290]
     sentence_count: 13
     key_terms: [sure, applyingtocollege, like, stanford, classes, culture, friends, premed]
+    concepts: [applyingtocollege, stanford, classes, culture, friends]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rr89au/help_with_deciding_stanford_vs_yale/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rr89au.md#c1"
     char_span: [2292, 2597]
     sentence_count: 1
@@ -30,6 +32,7 @@ chunks:
     char_span: [2599, 4363]
     sentence_count: 7
     key_terms: [stanford, far-condition-56, yale, likely, like, rea, congrats, schools]
+    concepts: [stanford, far-condition-56, likely, congrats, schools]
     section: Comments
     token_count: 489
 ---

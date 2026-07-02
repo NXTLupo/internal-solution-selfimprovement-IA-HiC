@@ -20,52 +20,65 @@ chunks:
     char_span: [0, 2140]
     sentence_count: 11
     key_terms: [com, stripe, yourapp, api, need, services, http, productmanagement]
+    concepts: [stripe, yourapp, services, productmanagement, disputes]
     token_count: 502
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1ojesre/api_gateways_for_product_managers/"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1ojesre.md#c1"
     char_span: [2142, 2947]
     sentence_count: 10
     key_terms: [gateway, service, communication, real-time, internal, latency, through, extra]
+    concepts: [communication, gateway, service, real-time, internal]
     token_count: 171
   - id: "social-intelligence/reddit-deep/productmanagement/1ojesre.md#c2"
-    char_span: [2962, 5065]
+    char_span: [2961, 5064]
     sentence_count: 12
     key_terms: [message, intra-service, service, broker, event, services, randomreddithero, platypiarereal]
+    concepts: [message, intra-service, service, broker, randomreddithero]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/productmanagement/1ojesre.md#c3"
-    char_span: [5067, 7039]
+    char_span: [5066, 7038]
     sentence_count: 11
     key_terms: [com, yourapp, something, api, use, billing, service, search]
+    concepts: [yourapp, something, billing, service, search]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1ojesre.md#c4"]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/productmanagement/1ojesre.md#c4"
-    char_span: [7041, 8772]
+    char_span: [7040, 8771]
     sentence_count: 11
     key_terms: [billing, stripe, api, com, gateway, checkout, search, rules]
+    concepts: [billing, stripe, gateway, checkout, search]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1ojesre.md#c3", "social-intelligence/reddit-deep/productmanagement/1ojesre.md#c5"]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/productmanagement/1ojesre.md#c5"
-    char_span: [8774, 10871]
+    char_span: [8773, 10870]
     sentence_count: 14
     key_terms: [client, billing, gateway, api, stripe, implementation, com, dns]
+    concepts: [client, billing, gateway, implementation, stripe]
+    related_chunks: ["social-intelligence/reddit-deep/productmanagement/1ojesre.md#c4"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/productmanagement/1ojesre.md#c6"
-    char_span: [10873, 13008]
+    char_span: [10872, 13007]
     sentence_count: 16
     key_terms: [platypiarereal, gaming, events, need, complexity, definitely, listening, specific]
+    concepts: [platypiarereal, gaming, events, complexity, definitely]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/productmanagement/1ojesre.md#c7"
-    char_span: [13010, 15230]
+    char_span: [13009, 15229]
     sentence_count: 9
     key_terms: [api, url, company, gateway, com, need, platypiarereal, based]
+    concepts: [company, gateway, platypiarereal, perspective, based]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/productmanagement/1ojesre.md#c8"
-    char_span: [15233, 17206]
+    char_span: [15232, 17205]
     sentence_count: 14
     key_terms: [gateway, minutes, apis, like, everything, depending, different, catalog]
+    concepts: [gateway, minutes, everything, depending, different]
     section: Comments
     token_count: 421
 ---

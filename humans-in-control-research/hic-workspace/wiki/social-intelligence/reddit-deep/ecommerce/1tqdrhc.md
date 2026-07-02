@@ -20,23 +20,28 @@ chunks:
     char_span: [0, 2094]
     sentence_count: 21
     key_terms: [business, running, ecommerce, orders, trying, feels, like, customers]
+    concepts: [business, running, ecommerce, orders, trying]
     token_count: 443
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1tqdrhc/running_a_small_ecommerce_business_right_now/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1tqdrhc.md#c1"
-    char_span: [2109, 3822]
+    char_span: [2108, 3821]
     sentence_count: 21
     key_terms: [business, e-commerce, party-card-7747, bookkeeping, opening-rhubarb-8309, underestimated, small, fees]
+    concepts: [business, e-commerce, party-card-7747, opening-rhubarb-8309, bookkeeping]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/ecommerce/1tqdrhc.md#c2"
-    char_span: [3824, 5942]
+    char_span: [3823, 5941]
     sentence_count: 20
     key_terms: [locally, people, fontaddiction, worth, accounting, expensive, finance, smaller]
+    concepts: [locally, people, fontaddiction, accounting, worth]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/ecommerce/1tqdrhc.md#c3"
-    char_span: [5944, 7686]
+    char_span: [5943, 7685]
     sentence_count: 14
     key_terms: [business, lighter, question, never, get, problems, faster, online]
+    concepts: [business, lighter, question, never, problems]
     section: Comments
     token_count: 410
 ---

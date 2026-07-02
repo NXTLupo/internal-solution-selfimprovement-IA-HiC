@@ -19,14 +19,17 @@ content_hash: "57276b154ffc2558"
 relevance_by_goal: {"8e9ecc469395":65}
 chunks:
   - id: "articles/reddit-deep-r-nonprofit/3a8f4fc2cb.md#c0"
-    char_span: [0, 1646]
+    char_span: [0, 1645]
     sentence_count: 11
     key_terms: [retention, donor, relationships, never, rates, maintaining, newsletters, experience]
-    token_count: 375
+    concepts: [retention, donor, relationships, maintaining, newsletters]
+    token_count: 374
+    sources: [{"n":"Reddit Deep: r/nonprofit","u":"https://www.reddit.com/r/nonprofit/comments/1n162cr/donor_retention_rates/"}]
   - id: "articles/reddit-deep-r-nonprofit/3a8f4fc2cb.md#c1"
-    char_span: [1648, 3836]
+    char_span: [1647, 3835]
     sentence_count: 17
     key_terms: [through, donors, donation, opportunities, going, ask, find, need]
+    concepts: [through, donors, donation, opportunities, engagement]
     token_count: 449
 ---
 # Donor retention rates?

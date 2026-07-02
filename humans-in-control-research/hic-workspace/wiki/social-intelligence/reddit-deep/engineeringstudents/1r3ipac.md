@@ -21,41 +21,52 @@ chunks:
     char_span: [0, 954]
     sentence_count: 3
     key_terms: [engineeringstudents, turnitin, student, access, comments, multiple, case, "i'm"]
+    concepts: [engineeringstudents, turnitin, student, access, comments]
     token_count: 227
+    sources: [{"n":"reddit-deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1r3ipac/how_can_i_access_turnitin_ai_checker_as_a_student/"}]
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md#c1"
     char_span: [968, 1772]
     sentence_count: 5
     key_terms: [engineeringstudents, wiki, reddit, https, com, please, automoderator, read]
+    concepts: [engineeringstudents, reddit, https, automoderator, please]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md#c5", "social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md#c6"]
     section: Comments
     token_count: 184
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md#c2"
     char_span: [1774, 3506]
     sentence_count: 10
     key_terms: [access, reddit, check, get, account, removed, link, turnitin]
+    concepts: [access, reddit, check, account, removed]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md#c3"
     char_span: [3276, 3561]
     sentence_count: 5
     key_terms: [checker, "didn't", used, brianbernardengr, memories, reliable, student, matter]
+    concepts: [checker, "didn't"]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md#c4"
     char_span: [3563, 5669]
     sentence_count: 11
     key_terms: [own, cheating-with-accuracy-precision-recall-bea53774fedb, work, because, check, assignment, especially, cheating]
+    concepts: [because, assignment, check, especially, cheating]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md#c5"
     char_span: [5440, 6324]
     sentence_count: 5
     key_terms: [automoderator, because, advice, please, itchy-researcher-508, engineeringstudents, sure, imjustagirlyaar]
+    concepts: [automoderator, because, advice, please]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md#c1"]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md#c6"
     char_span: [6326, 8187]
     sentence_count: 4
     key_terms: [engineeringstudents, https, com, wiki, reddit, discord, update, heavymetalbby]
+    concepts: [engineeringstudents, https, reddit, heavymetalbby, discord]
+    related_chunks: ["social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md#c1"]
     section: Comments
     token_count: 504
 ---

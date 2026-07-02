@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1444]
     sentence_count: 6
     key_terms: [fire, financialindependence, total, years, after-tax, portfolio, expenses, learning]
+    concepts: [financialindependence, total, years, after-tax, portfolio]
     token_count: 440
+    sources: [{"n":"Reddit Deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1rttlz3/military_fire/"}]
   - id: "articles/reddit-deep-r-financialindependence/afdb80e3aa.md#c1"
     char_span: [1446, 3048]
     sentence_count: 12
     key_terms: [working, get, new, spending, friends, reading, realize, needed]
+    concepts: [working, spending, friends, reading, realize]
     token_count: 348
   - id: "articles/reddit-deep-r-financialindependence/afdb80e3aa.md#c2"
     char_span: [3050, 4344]
     sentence_count: 6
     key_terms: [healthcare, socialism, jimzzz38, military, because, housing, parents, retired]
+    concepts: [healthcare, socialism, jimzzz38, military, because]
     token_count: 315
 ---
 # Military FIRE

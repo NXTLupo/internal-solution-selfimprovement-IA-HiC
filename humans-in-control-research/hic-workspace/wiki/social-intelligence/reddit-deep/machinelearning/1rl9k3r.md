@@ -19,33 +19,42 @@ chunks:
     char_span: [0, 2006]
     sentence_count: 13
     key_terms: [training, recompilation, ane, step, entirely, machinelearning, program, runtime]
+    concepts: [recompilation, training, machinelearning, entirely, program]
     token_count: 480
+    sources: [{"n":"reddit-deep: r/machinelearning","u":"https://www.reddit.com/r/MachineLearning/comments/1rl9k3r/p_bypassing_coreml_to_natively_train_a_110m/"}]
   - id: "social-intelligence/reddit-deep/machinelearning/1rl9k3r.md#c1"
     char_span: [2008, 4113]
     sentence_count: 14
     key_terms: [compiler, ane, hardware, training, undocumented, compilation, operation, pipeline]
+    concepts: [compiler, hardware, training, undocumented, compilation]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1rl9k3r.md#c2"]
     token_count: 435
   - id: "social-intelligence/reddit-deep/machinelearning/1rl9k3r.md#c2"
     char_span: [4115, 5423]
     sentence_count: 11
     key_terms: [compilation, weight, here, multi-step, mechramc, training, runtime, github]
+    concepts: [compilation, weight, multi-step, mechramc, training]
+    related_chunks: ["social-intelligence/reddit-deep/machinelearning/1rl9k3r.md#c1"]
     token_count: 312
   - id: "social-intelligence/reddit-deep/machinelearning/1rl9k3r.md#c3"
     char_span: [5437, 7482]
     sentence_count: 15
     key_terms: [ane, operations, model, architecture, generalize, vocabulary, polyfill, channel]
+    concepts: [operations, model, architecture, generalize, vocabulary]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/machinelearning/1rl9k3r.md#c4"
     char_span: [7484, 9647]
     sentence_count: 19
     key_terms: [compilation, christinetyip, recompilation, interesting, ane, work, compiled, compiler]
+    concepts: [compilation, christinetyip, recompilation, interesting, compiled]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/machinelearning/1rl9k3r.md#c5"
     char_span: [9649, 10080]
     sentence_count: 6
     key_terms: [something, inference-only, on-device, gradient, overhead, training, clients, compile]
+    concepts: [something]
     section: Comments
     token_count: 108
 ---

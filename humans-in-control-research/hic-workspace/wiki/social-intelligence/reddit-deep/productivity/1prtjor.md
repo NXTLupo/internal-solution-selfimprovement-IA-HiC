@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1034]
     sentence_count: 10
     key_terms: [productivity, dashboards, comments, instead, systems, setup, tools, using]
+    concepts: [productivity, dashboards, comments, instead, systems]
     token_count: 236
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1prtjor/anyone_else_tired_of_rebuilding_productivity/"}]
   - id: "social-intelligence/reddit-deep/productivity/1prtjor.md#c1"
     char_span: [1048, 2900]
     sentence_count: 21
     key_terms: [google, simple, notion, setups, though, found, tasks, tools]
+    concepts: [google, simple, notion, setups, though]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/productivity/1prtjor.md#c2"
     char_span: [2902, 4229]
     sentence_count: 3
     key_terms: [tools, f2d2f542f3ed1e11c7b6d1de5c5706ace223b303, notes, preview, actual, format, notion, pretty]
+    concepts: [tools, notes, preview, actual, format]
     section: Comments
     token_count: 383
 ---

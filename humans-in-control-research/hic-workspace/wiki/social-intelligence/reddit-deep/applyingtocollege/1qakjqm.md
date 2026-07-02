@@ -21,16 +21,20 @@ chunks:
     char_span: [0, 2195]
     sentence_count: 1
     key_terms: [research, summer, academic, junior-year, spring, activities, begin, statement]
+    concepts: [research, summer, academic, junior-year, activities]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1qakjqm/a_comprehensive_monthly_checklist_for_college/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qakjqm.md#c1"
     char_span: [2197, 4569]
     sentence_count: 1
     key_terms: [early, essays, decision, applications, deadlines, continue, finalize, research]
+    concepts: [early, decision, essays, applications, deadlines]
     token_count: 481
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qakjqm.md#c2"
     char_span: [4583, 5815]
     sentence_count: 5
     key_terms: [applyingtocollege, essays, wiki, related, reddit, collegeessays, https, com]
+    concepts: [applyingtocollege, essays, collegeessays, related, reddit]
     section: Comments
     token_count: 324
 ---

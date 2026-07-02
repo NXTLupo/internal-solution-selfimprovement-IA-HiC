@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 760]
     sentence_count: 7
     key_terms: [own, professors, comments, college, school, "i'm", professional, appropriate]
+    concepts: [professors, comments, college, school]
     token_count: 169
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1skdv75/professional_etiquette_for_contacting_professors/"}]
   - id: "social-intelligence/reddit-deep/college/1skdv75.md#c1"
     char_span: [774, 2931]
     sentence_count: 16
     key_terms: [ask, office, reach, research, hours, appropriate, professors, question]
+    concepts: [office, reach, research, appropriate, hours]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1skdv75.md#c2"
     char_span: [2630, 3640]
     sentence_count: 5
     key_terms: [reaching, specific, office, email, professional, salutations, appreciate, completely]
+    concepts: [reaching, specific, office, email]
     section: Comments
     token_count: 230
 ---

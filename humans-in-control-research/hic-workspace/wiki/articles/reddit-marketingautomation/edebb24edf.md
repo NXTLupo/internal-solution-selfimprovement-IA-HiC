@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1301]
     sentence_count: 16
     key_terms: [marketingautomation, creatives, honestly, thinking, another, reddit, right, solid]
+    concepts: [marketingautomation, creatives, honestly, thinking, another]
     token_count: 291
+    sources: [{"n":"reddit: marketingautomation","u":"https://reddit.com/r/MarketingAutomation/comments/1r2i2gz/ai_tools_for_making_ad_creatives_actual_game/"}]
 ---
 # AI tools for making ad creatives… actual game changer or just another money trap?
 

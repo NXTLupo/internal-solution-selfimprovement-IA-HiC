@@ -9,48 +9,55 @@ author: "adventurepaul"
 date: "2026-06-01T21:53:53.000Z"
 score: 5
 upvote_ratio: 0.78
-num_comments: 4
+num_comments: 5
 flair: "📰 News"
-extracted_at: "2026-06-18T13:35:23.811Z"
+extracted_at: "2026-06-24T22:13:57.304Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
+engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1tu74bw.md#c0"
     char_span: [0, 600]
     sentence_count: 3
     key_terms: [e-commerce, ecommerce, comments, industry, edition, posted, "week's", recap]
+    concepts: [e-commerce, ecommerce, comments, industry, edition]
     token_count: 163
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1tu74bw/ecommerce_industry_news_recap_week_of_june_1st/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1tu74bw.md#c1"
     char_span: [602, 3141]
     sentence_count: 13
     key_terms: [amazon, customers, subscribe, dhl, delivery, through, prices, multi-year]
+    concepts: [amazon, customers, subscribe, delivery, through]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1tu74bw.md#c2"
     char_span: [2837, 5385]
     sentence_count: 13
     key_terms: [amazon, affiliate, motorola, savings, rate, auction, through, app]
+    concepts: [affiliate, amazon, motorola, savings, auction]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1tu74bw.md#c3"
     char_span: [5087, 7607]
     sentence_count: 13
     key_terms: [shopping, reddit, average, integration, platform, product, shopify, amazon]
+    concepts: [shopping, reddit, integration, average, platform]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1tu74bw.md#c4"
     char_span: [7271, 9467]
     sentence_count: 11
     key_terms: [chatbot, according, google, market, openai, retail, share, advertising]
+    concepts: [chatbot, according, google, market, openai]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1tu74bw.md#c5"
-    char_span: [9248, 10306]
+    char_span: [9248, 10305]
     sentence_count: 5
     key_terms: [wordpress, competitors, january, shopify, ground, toward, developer-focused, accelerating]
+    concepts: [wordpress, competitors, january, shopify, ground]
     token_count: 249
 ---
 # E-commerce Industry News Recap 🔥 Week of June 1st, 2026
 
 Source: [reddit-deep: r/ecommerce](https://www.reddit.com/r/ecommerce/comments/1tu74bw/ecommerce_industry_news_recap_week_of_june_1st/)
-Posted by **adventurepaul** · **5↑** · **4 comments**
+Posted by **adventurepaul** · **5↑** · **5 comments**
 
 Hi r/ecommerce \- I'm Paul and I follow the e-commerce industry closely for my Shopifreaks E-commerce Newsletter. Every week for the past 5 years I've posted a summary recap of the week's top stories on this subreddit, which I cover in depth with sources in the full edition.
 

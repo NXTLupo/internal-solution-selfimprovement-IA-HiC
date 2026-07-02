@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 277]
     sentence_count: 1
     key_terms: [comments, openai, reddit-deep, because, chatgpt, posted, reddit, source]
+    concepts: [comments, openai]
     token_count: 89
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1rj3par/if_you_didnt_move_yet_because_chatgpt_knows_you/"}]
   - id: "social-intelligence/reddit-deep/openai/1rj3par.md#c1"
     char_span: [291, 2206]
     sentence_count: 14
     key_terms: [use, claude, export, paid, caspercarr, chatgpt, better, gemini]
+    concepts: [claude, export, caspercarr, chatgpt, better]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1rj3par.md#c2"
     char_span: [1872, 2267]
     sentence_count: 4
     key_terms: [export, data, memory, conversations, restructures, reference, something, controls]
+    concepts: [export, memory]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1rj3par.md#c3"]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/openai/1rj3par.md#c3"
     char_span: [2269, 3581]
     sentence_count: 12
     key_terms: [export, email, chat, data, download, clicked, memory, works]
+    concepts: [export, email, download, clicked, memory]
+    related_chunks: ["social-intelligence/reddit-deep/openai/1rj3par.md#c2"]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/openai/1rj3par.md#c4"
     char_span: [3583, 5030]
     sentence_count: 9
     key_terms: [hours, mine, waiting, around, import, never, since, been]
+    concepts: [hours, waiting, around, import, never]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/openai/1rj3par.md#c5"
     char_span: [5032, 6929]
     sentence_count: 11
     key_terms: [claude, like, question, related, access, convos, google, phxees]
+    concepts: [claude, question, related, access, convos]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/openai/1rj3par.md#c6"
@@ -62,12 +71,14 @@ chunks:
     char_span: [7516, 8884]
     sentence_count: 4
     key_terms: [prestigious-fix-4852, developer, free, remodev, preview, product, better, format]
+    concepts: [prestigious-fix-4852, developer, remodev, preview, product]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/openai/1rj3par.md#c8"
     char_span: [8886, 10817]
     sentence_count: 16
     key_terms: [claude, reconstructed, well-structured, context, prompt, preferences, switching, because]
+    concepts: [claude, reconstructed, well-structured, context, prompt]
     section: Comments
     token_count: 470
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2285]
     sentence_count: 20
     key_terms: [programs, get, policy, good, schools, student, gradadmissions, school]
+    concepts: [programs, policy, gradadmissions, international, schools]
     token_count: 503
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1qjhd7j/advice_on_choosing_possible_grad_school_paths_as/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1qjhd7j.md#c1"
     char_span: [2287, 2655]
     sentence_count: 4
     key_terms: [funded, fully, extraordinarily, gossipgal1324, competitive, admissions, appreciate, experience]
+    concepts: [funded, fully]
     section: Comments
     token_count: 77
 ---

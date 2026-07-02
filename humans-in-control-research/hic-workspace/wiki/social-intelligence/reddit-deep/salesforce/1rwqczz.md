@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 918]
     sentence_count: 6
     key_terms: [financial, position, services, working, admin, job, agentforce, salesforce]
+    concepts: [financial, position, services, working, admin]
     token_count: 218
+    sources: [{"n":"reddit-deep: r/salesforce","u":"https://www.reddit.com/r/salesforce/comments/1rwqczz/agentforce_financial_services_newbie/"}]
   - id: "social-intelligence/reddit-deep/salesforce/1rwqczz.md#c1"
-    char_span: [933, 1674]
+    char_span: [932, 1673]
     sentence_count: 6
     key_terms: [fsc, specifically, trailmixes, financial, accounts, features, thin-whereas-1345, been]
+    concepts: [specifically, trailmixes, financial, accounts, features]
     section: Comments
     token_count: 183
 ---

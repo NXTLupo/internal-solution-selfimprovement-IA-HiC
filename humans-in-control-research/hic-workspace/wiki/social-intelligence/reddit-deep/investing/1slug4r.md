@@ -20,29 +20,35 @@ chunks:
     char_span: [0, 2042]
     sentence_count: 10
     key_terms: [support, interactive, investing, reporting, platform, brokers, fees, get]
+    concepts: [interactive, support, investing, reporting, platform]
     token_count: 436
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1slug4r/bad_experience_with_interactive_brokers_please/"}]
   - id: "social-intelligence/reddit-deep/investing/1slug4r.md#c1"
-    char_span: [2057, 3824]
+    char_span: [2056, 3823]
     sentence_count: 14
     key_terms: [data, ibkr, foreign, margin, fees, exchanges, platform, markets]
+    concepts: [foreign, margin, exchanges, platform, markets]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/investing/1slug4r.md#c2"
-    char_span: [3826, 6007]
+    char_span: [3825, 6006]
     sentence_count: 20
     key_terms: [luforyou, deposit, difficult, customer, declined, designed, probably, account]
+    concepts: [luforyou, deposit, difficult, customer, declined]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1slug4r.md#c3"
-    char_span: [5728, 6424]
+    char_span: [5727, 6423]
     sentence_count: 8
     key_terms: [money, suspicious, weeks, experience, impression, available, currently, customers]
+    concepts: [money, suspicious, weeks]
     section: Comments
     token_count: 155
   - id: "social-intelligence/reddit-deep/investing/1slug4r.md#c4"
-    char_span: [6426, 7144]
+    char_span: [6425, 7143]
     sentence_count: 5
     key_terms: [good, trading, improvementfluffy125, ibkr, super-term417, experiences, especially, eventually]
+    concepts: [trading]
     section: Comments
     token_count: 177
 ---

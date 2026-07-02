@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 715]
     sentence_count: 6
     key_terms: [internships, role, comments, intern, solve, help, uber, preparation]
+    concepts: [internships, comments, intern, solve]
     token_count: 186
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1nv0t4q/uber_swe_intern_oa_help/"}]
   - id: "social-intelligence/reddit-deep/internships/1nv0t4q.md#c1"
     char_span: [729, 1938]
     sentence_count: 4
     key_terms: [got, mail, question, deleted, saurabhanan, did, get, assessment]
+    concepts: [question, deleted, saurabhanan, assessment]
     section: Comments
     token_count: 392
 ---

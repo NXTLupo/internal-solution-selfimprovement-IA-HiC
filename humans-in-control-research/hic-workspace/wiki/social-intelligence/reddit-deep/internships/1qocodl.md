@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 2071]
     sentence_count: 4
     key_terms: [internship, intern, welaunch, content, internships, full-time, ownership, entrepreneurial]
+    concepts: [internship, intern, welaunch, internships, content]
     token_count: 488
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1qocodl/paid_internships_welaunch_india_us_timings/"}]
   - id: "social-intelligence/reddit-deep/internships/1qocodl.md#c1"
-    char_span: [2086, 2783]
+    char_span: [2085, 2782]
     sentence_count: 1
     key_terms: [palead1679, interested, powerful-quantity885, little-bug-797, welaunch, deleted, stipend, please]
+    concepts: [palead1679, interested, powerful-quantity885, little-bug-797, welaunch]
     section: Comments
     token_count: 254
 ---

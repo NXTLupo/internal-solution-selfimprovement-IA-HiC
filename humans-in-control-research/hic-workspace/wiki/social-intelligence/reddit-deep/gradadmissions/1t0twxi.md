@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1411]
     sentence_count: 12
     key_terms: [comments, astrophysicist, gradadmissions, accepted, finally, masters, program, through]
+    concepts: [comments, astrophysicist, gradadmissions, accepted, finally]
     token_count: 317
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1t0twxi/update_accepted/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1t0twxi.md#c1"
     char_span: [1425, 3133]
     sentence_count: 17
     key_terms: [congratulations, gay, winner, thank, hope, congrats, deserved, erasmus]
+    concepts: [congratulations, winner, thank, congrats, deserved]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1t0twxi.md#c2"
     char_span: [2873, 3934]
     sentence_count: 9
     key_terms: [congratulations, funded, programs, masters, program, stats, get, good]
+    concepts: [congratulations, funded, programs, masters, program]
     section: Comments
     token_count: 259
 ---

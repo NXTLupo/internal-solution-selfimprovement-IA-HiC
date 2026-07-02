@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 646]
     sentence_count: 2
     key_terms: [traditionalvariety48, uwaterloo, comments, course, school, full, load, secure-lake5784]
+    concepts: [traditionalvariety48, uwaterloo, comments, course, school]
     token_count: 160
+    sources: [{"n":"reddit-deep: r/uwaterloo","u":"https://www.reddit.com/r/uwaterloo/comments/1ncx2ge/im_in_the_first_year_of_my_sciencebusiness_dual/"}]
 ---
 # I'm in the first year of my science/business dual program at Waterloo, and planning a minimal load schedule (including summer) to apply for dentistry - any Sci/bus students have tips please?
 

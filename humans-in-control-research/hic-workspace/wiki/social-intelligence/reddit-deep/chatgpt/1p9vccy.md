@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1192]
     sentence_count: 9
     key_terms: [openai, money, ads, like, comments, chatgpt, twitter, making]
+    concepts: [openai, money, comments, chatgpt, twitter]
     token_count: 304
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1p9vccy/openai_isnt_making_moneybut_come_on/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c1"
     char_span: [1206, 2186]
     sentence_count: 3
     key_terms: [browser, r-chatgpt-1050422060352024636, discord, product, truman, beautiful-homework47, withoutreason1729, post]
+    concepts: [browser, discord, product, truman]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c2"
@@ -38,30 +41,35 @@ chunks:
     char_span: [3041, 4908]
     sentence_count: 9
     key_terms: [ads, like, personal, friend, preferable, something, anybody, banners]
+    concepts: [personal, friend, preferable, something, anybody]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c4"
     char_span: [4910, 6040]
     sentence_count: 5
     key_terms: [conversation, advertise, products, thinking, already, content, giving, karmaagriculturalist]
+    concepts: [conversation, advertise, products, thinking, already]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c5"
     char_span: [6042, 8054]
     sentence_count: 16
     key_terms: [ads, people, subscriptions, going, documentary, obviously, cheaper, bubble]
+    concepts: [subscriptions, people, documentary, going, obviously]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c6"
     char_span: [8056, 9866]
     sentence_count: 6
     key_terms: [tetris, enshittified, point, like, want, redditors, anymore, crackle]
+    concepts: [enshittified, tetris, point, redditors, anymore]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c7"
     char_span: [9868, 11223]
     sentence_count: 4
     key_terms: [d2467a8dc9e65c21269b8227f257bf66750bcae4, giphy, gif, old, accounts, fit-possibility-4248, pleasenteravaliduser, responsible-sky-1336]
+    concepts: [giphy, accounts]
     section: Comments
     token_count: 458
 ---

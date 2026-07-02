@@ -21,71 +21,87 @@ chunks:
     char_span: [0, 1487]
     sentence_count: 12
     key_terms: [office, already, days, week, work, mandating, comments, employee]
+    concepts: [office, already, mandating, comments, employee]
     token_count: 340
+    sources: [{"n":"reddit-deep: r/managers","u":"https://www.reddit.com/r/managers/comments/1t9g9tg/company_is_mandating_rto_but_one_employee_is/"}]
   - id: "social-intelligence/reddit-deep/managers/1t9g9tg.md#c1"
     char_span: [1501, 3413]
     sentence_count: 12
     key_terms: [replace, "don't", people, reduce, often, rto, seriously, intended]
+    concepts: [replace, "don't", people, reduce, often]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/managers/1t9g9tg.md#c2"
     char_span: [3415, 3785]
     sentence_count: 3
     key_terms: [role, company, responsibilities, constructive, materially, different, dismissal, eliminate]
+    concepts: [company]
     section: Comments
     token_count: 73
   - id: "social-intelligence/reddit-deep/managers/1t9g9tg.md#c3"
     char_span: [3787, 5524]
     sentence_count: 14
     key_terms: [employee, company, get, enforce, people, policy, imaginary-friend-228, infiniterespect4757]
+    concepts: [employee, company, enforce, people, policy]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1t9g9tg.md#c4", "social-intelligence/reddit-deep/managers/1t9g9tg.md#c5"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/managers/1t9g9tg.md#c4"
     char_span: [5526, 7289]
     sentence_count: 17
     key_terms: [mandate, explain, policy, back, employee, meeting, particular-macaron35, based]
+    concepts: [mandate, explain, policy, employee, meeting]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1t9g9tg.md#c3"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/managers/1t9g9tg.md#c5"
     char_span: [7291, 9110]
     sentence_count: 13
     key_terms: [advice, policy, here, company, professional, job, complain, personal]
+    concepts: [advice, policy, company, professional, complain]
+    related_chunks: ["social-intelligence/reddit-deep/managers/1t9g9tg.md#c3"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/managers/1t9g9tg.md#c6"
     char_span: [9112, 10011]
     sentence_count: 8
     key_terms: [minutes, office, complaints, opening-study8778, home, amenability, complained, supportive]
+    concepts: [minutes, office, complaints]
     section: Comments
     token_count: 209
   - id: "social-intelligence/reddit-deep/managers/1t9g9tg.md#c7"
     char_span: [10013, 11951]
     sentence_count: 20
     key_terms: ["she's", office, get, rto, "doesn't", give, discretion, refusing]
+    concepts: ["she's", office, "doesn't", discretion, refusing]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/managers/1t9g9tg.md#c8"
     char_span: [11953, 13518]
     sentence_count: 9
     key_terms: [last, rto, everyone, against, enforce, except, later, thanks-4allthefish]
+    concepts: [everyone, against, enforce, except, later]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/managers/1t9g9tg.md#c9"
     char_span: [13520, 15663]
     sentence_count: 19
     key_terms: [policy, team, warning, improvement, like, own, rto, annicreamy]
+    concepts: [policy, warning, improvement, annicreamy, terminated]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/managers/1t9g9tg.md#c10"
     char_span: [15665, 17675]
     sentence_count: 20
     key_terms: [going, find, rules, termination, like, rule, agreement, feelings]
+    concepts: [going, termination, rules, agreement, feelings]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/managers/1t9g9tg.md#c11"
     char_span: [17677, 19104]
     sentence_count: 14
     key_terms: [policy, decision, expectation, reiterate, whatever, days, does, find]
+    concepts: [policy, decision, expectation, reiterate, whatever]
     section: Comments
     token_count: 345
 ---

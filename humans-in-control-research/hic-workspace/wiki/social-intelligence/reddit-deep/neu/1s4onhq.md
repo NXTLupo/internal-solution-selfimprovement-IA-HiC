@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 668]
     sentence_count: 4
     key_terms: [northeastern, "i'm", talk, comments, students, current, neu, reddit-deep]
+    concepts: [northeastern, comments, students, current]
     token_count: 173
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1s4onhq/looking_for_current_northeastern_students_i_can/"}]
   - id: "social-intelligence/reddit-deep/neu/1s4onhq.md#c1"
     char_span: [682, 1061]
     sentence_count: 3
     key_terms: [please, noganache7059, butchunicorn, northeastern, experience, guaranteed, affording, interview]
+    concepts: [please]
     section: Comments
     token_count: 103
 ---

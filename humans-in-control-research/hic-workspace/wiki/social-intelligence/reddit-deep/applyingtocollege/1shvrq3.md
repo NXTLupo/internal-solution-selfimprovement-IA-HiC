@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1555]
     sentence_count: 17
     key_terms: [applyingtocollege, get, "i'm", "didn't", comments, college, through, around]
+    concepts: [applyingtocollege, "didn't", comments, college, through]
     token_count: 418
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1shvrq3/as_a_mom_im_so_proud_of_all_of_you/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1shvrq3.md#c1"
     char_span: [1569, 3358]
     sentence_count: 14
     key_terms: [heartzealousideal967, princeton, college, scholarship, beautiful, "that's", traditional-fix-5205, polevaultingishard]
+    concepts: [heartzealousideal967, princeton, college, scholarship, beautiful]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/applyingtocollege/1shvrq3.md#c2"
     char_span: [3360, 5159]
     sentence_count: 12
     key_terms: [admissions, measurementtop2885, applyingtocollege, high, shes, undergraduate, karen, kids]
+    concepts: [admissions, measurementtop2885, applyingtocollege, undergraduate, karen]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/applyingtocollege/1shvrq3.md#c3"
     char_span: [5161, 6006]
     sentence_count: 7
     key_terms: [patronizing, empathy, people, party, measurementtop2885, judgmentalism, recognizable, sonnyiniesta]
+    concepts: [patronizing, empathy, people, party]
     section: Comments
     token_count: 203
 ---

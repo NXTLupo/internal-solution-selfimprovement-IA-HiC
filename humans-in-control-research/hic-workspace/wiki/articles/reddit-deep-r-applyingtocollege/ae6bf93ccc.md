@@ -18,26 +18,34 @@ chunks:
     char_span: [0, 1956]
     sentence_count: 14
     key_terms: ["i'm", engineering, year, college, applyingtocollege, classes, school, taking]
+    concepts: [engineering, college, applyingtocollege, classes, school]
     token_count: 483
+    sources: [{"n":"Reddit Deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rncsyq/mit_is_my_dream_school_i_need_advice/"}]
   - id: "articles/reddit-deep-r-applyingtocollege/ae6bf93ccc.md#c1"
     char_span: [1958, 4076]
     sentence_count: 21
     key_terms: [branch, school, elementary, spark, resources, schoolers, "i'm", want]
+    concepts: [branch, school, elementary, resources, schoolers]
     token_count: 456
   - id: "articles/reddit-deep-r-applyingtocollege/ae6bf93ccc.md#c2"
     char_span: [4078, 4631]
     sentence_count: 4
     key_terms: ["i'm", because, like, "that's", main, extracurriculars, valedictorians, competitions]
+    concepts: [because, "that's"]
     token_count: 139
   - id: "articles/reddit-deep-r-applyingtocollege/ae6bf93ccc.md#c3"
     char_span: [4633, 6836]
     sentence_count: 16
     key_terms: [classes, molly-farag, hours, better, right, mit, time, work]
+    concepts: [molly-farag, classes, hours, better, right]
+    related_chunks: ["articles/reddit-deep-r-applyingtocollege/ae6bf93ccc.md#c4"]
     token_count: 512
   - id: "articles/reddit-deep-r-applyingtocollege/ae6bf93ccc.md#c4"
     char_span: [6604, 8291]
     sentence_count: 18
     key_terms: [classes, work, experience, hours, time, week, homework, students]
+    concepts: [classes, experience, hours, homework, students]
+    related_chunks: ["articles/reddit-deep-r-applyingtocollege/ae6bf93ccc.md#c3"]
     token_count: 406
 ---
 # MIT is my dream school - I need advice

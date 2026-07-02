@@ -21,59 +21,74 @@ chunks:
     char_span: [0, 1372]
     sentence_count: 14
     key_terms: [letter, askacademia, like, department, comments, personal, research, issues]
+    concepts: [letter, askacademia, department, comments, personal]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c7"]
     token_count: 308
+    sources: [{"n":"reddit-deep: r/askacademia","u":"https://www.reddit.com/r/AskAcademia/comments/1rbp6jy/letter_for_bad_ex_pi/"}]
   - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c1"
     char_span: [1386, 2593]
     sentence_count: 8
     key_terms: [letter, "didn't", never, negative, writing, write, did, funnymarzipan]
+    concepts: [letter, "didn't", never, negative, writing]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c2"
     char_span: [2595, 4746]
     sentence_count: 11
     key_terms: [institution, letter, totalcleanfbc, write, like, person, asked, candidate]
+    concepts: [institution, letter, totalcleanfbc, write, person]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c7"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c3"
     char_span: [4748, 6780]
     sentence_count: 16
     key_terms: [letter, tenure, ruslanglinka, back, want, students, against, decline]
+    concepts: [letter, tenure, ruslanglinka, students, against]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c7"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c4"
     char_span: [6782, 8054]
     sentence_count: 9
     key_terms: [challenges, letter, mentioning, evidence, faculty, helpful, issues, tenure]
+    concepts: [challenges, letter, mentioning, evidence, faculty]
     section: Comments
     token_count: 275
   - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c5"
     char_span: [8056, 10114]
     sentence_count: 15
     key_terms: [candidate, university, redacted, letters, write, department, including, recommend]
+    concepts: [candidate, university, redacted, letters, department]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c6"
     char_span: [10116, 11736]
     sentence_count: 8
     key_terms: ["advisor's", mentees, partner, advisor, productivity, case, academia, postdocs]
+    concepts: ["advisor's", mentees, partner, advisor, productivity]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c7"
     char_span: [11738, 13741]
     sentence_count: 20
     key_terms: [letter, person, tenure, get, department, experience, vulnerable, different]
+    concepts: [letter, person, tenure, department, experience]
+    related_chunks: ["social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c0", "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c2", "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c3"]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c8"
     char_span: [13743, 15856]
     sentence_count: 18
     key_terms: [letter, like, misconduct, mentioned, behavior, possible, students, trainees]
+    concepts: [letter, misconduct, mentioned, behavior, possible]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c9"
     char_span: [15858, 16359]
     sentence_count: 6
     key_terms: [write, dispassionate, persuasive, difficult, effective, incidents, objective, advising]
+    concepts: [write]
     section: Comments
     token_count: 107
 ---

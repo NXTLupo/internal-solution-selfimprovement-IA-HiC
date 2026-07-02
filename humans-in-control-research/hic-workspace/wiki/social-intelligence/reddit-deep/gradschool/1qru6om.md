@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1409]
     sentence_count: 9
     key_terms: ["i'm", work, country, abroad, considering, grad, visa, gradschool]
+    concepts: [country, abroad, considering, gradschool, realistic]
     token_count: 313
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1qru6om/as_an_international_student_is_it_realistic_for/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1qru6om.md#c1"
     char_span: [1423, 3193]
     sentence_count: 11
     key_terms: [countries, language, "you're", visas, education, postgrad, depends, looking]
+    concepts: [countries, language, "you're", visas, education]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/gradschool/1qru6om.md#c2"
     char_span: [3195, 5028]
     sentence_count: 9
     key_terms: [work, job, people, grad, country, field, scholarship, professors]
+    concepts: [people, country, scholarship, field, professors]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/gradschool/1qru6om.md#c3"
     char_span: [5030, 6570]
     sentence_count: 11
     key_terms: [get, like, whatever, because, process, being, years, job]
+    concepts: [whatever, because, process, being, years]
     section: Comments
     token_count: 360
 ---

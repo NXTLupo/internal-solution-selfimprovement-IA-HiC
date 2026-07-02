@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1229]
     sentence_count: 10
     key_terms: [career, working, life, findapath, something, comments, someone, anyone]
+    concepts: [career, working, findapath, something, comments]
     token_count: 299
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1rjqkop/27m_current_career_path_has_nothing_to_do_with/"}]
   - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c1"
     char_span: [1243, 2190]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    concepts: [thank, helpful, comments, everyone, guidance]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c2"
     char_span: [2193, 4199]
     sentence_count: 13
     key_terms: [caviarbentley, traveling, doing, did, work, dividends, working, greece]
+    concepts: [caviarbentley, traveling, doing, dividends, working]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c3"
     char_span: [4201, 6337]
     sentence_count: 14
     key_terms: [something, entrepreneurship, people, job, time, business, starting, content]
+    concepts: [entrepreneurship, something, people, business, starting]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c4"
     char_span: [6339, 8279]
     sentence_count: 10
     key_terms: [onacloverifalive, brutallyhonestb, thought, independent, experience, journalism, something, channel]
+    concepts: [onacloverifalive, brutallyhonestb, thought, independent, experience]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c5"
     char_span: [8281, 9915]
     sentence_count: 9
     key_terms: [electrician, get, businesses, people, skills, snoopredictions7570, years, misappropriations]
+    concepts: [electrician, businesses, people, skills, years]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c6"
     char_span: [9917, 10622]
     sentence_count: 7
     key_terms: [own, work, sales, job, brutallyhonestb, counseling, meaningful, overpriced]
+    concepts: [sales]
     section: Comments
     token_count: 181
 ---

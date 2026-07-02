@@ -20,52 +20,65 @@ chunks:
     char_span: [0, 1843]
     sentence_count: 16
     key_terms: [insurance, covered, iud, healthinsurance, coding, blah, something, comments]
+    concepts: [insurance, covered, healthinsurance, coding, something]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t3oeu8.md#c1"]
     token_count: 421
+    sources: [{"n":"reddit-deep: r/healthinsurance","u":"https://www.reddit.com/r/HealthInsurance/comments/1t3oeu8/iud_removal_not_covered/"}]
   - id: "social-intelligence/reddit-deep/healthinsurance/1t3oeu8.md#c1"
     char_span: [1845, 3597]
     sentence_count: 9
     key_terms: [insurance, removed, iud, hospital, company, covered, further, removal]
+    concepts: [insurance, removed, hospital, company, covered]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t3oeu8.md#c0", "social-intelligence/reddit-deep/healthinsurance/1t3oeu8.md#c4"]
     token_count: 379
   - id: "social-intelligence/reddit-deep/healthinsurance/1t3oeu8.md#c2"
-    char_span: [3612, 6051]
+    char_span: [3611, 6050]
     sentence_count: 8
     key_terms: [post, information, questions, please, following, eob, help, edit]
+    concepts: [information, questions, please, following, healthinsurance]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1t3oeu8.md#c3"
-    char_span: [6053, 7983]
+    char_span: [6052, 7982]
     sentence_count: 9
     key_terms: [procedure, contact, subreddit, bill, png, modifier, madnorr, removal]
+    concepts: [procedure, contact, subreddit, modifier, madnorr]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/healthinsurance/1t3oeu8.md#c4"
-    char_span: [7985, 9371]
+    char_span: [7984, 9370]
     sentence_count: 10
     key_terms: [unsuccessful, like, insurance, hospital, provided, billed, going, bill]
+    concepts: [unsuccessful, insurance, hospital, provided, billed]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t3oeu8.md#c1", "social-intelligence/reddit-deep/healthinsurance/1t3oeu8.md#c5"]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/healthinsurance/1t3oeu8.md#c5"
-    char_span: [9373, 11400]
+    char_span: [9372, 11399]
     sentence_count: 13
     key_terms: [procedure, like, hospital, pay, assistance, responsibility, billed, bill]
+    concepts: [procedure, hospital, assistance, responsibility, billed]
+    related_chunks: ["social-intelligence/reddit-deep/healthinsurance/1t3oeu8.md#c4"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/healthinsurance/1t3oeu8.md#c6"
-    char_span: [11402, 11758]
+    char_span: [11401, 11757]
     sentence_count: 6
     key_terms: [gave, like, meds, medication, ibuprofen, insurance, prescribe, already]
     section: Comments
     token_count: 86
   - id: "social-intelligence/reddit-deep/healthinsurance/1t3oeu8.md#c7"
-    char_span: [11760, 13898]
+    char_span: [11759, 13897]
     sentence_count: 18
     key_terms: [get, paid, physician, forgetaboutitbaby, people, like, insurance, "shouldn't"]
+    concepts: [forgetaboutitbaby, physician, people, insurance, "shouldn't"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/healthinsurance/1t3oeu8.md#c8"
-    char_span: [13663, 15126]
+    char_span: [13662, 15125]
     sentence_count: 12
     key_terms: [doctor, parenthood, different, confirm, planned, applicationroyal7172, sucks, forgetaboutitbaby]
+    concepts: [doctor, parenthood, different, confirm, planned]
     section: Comments
     token_count: 379
 ---

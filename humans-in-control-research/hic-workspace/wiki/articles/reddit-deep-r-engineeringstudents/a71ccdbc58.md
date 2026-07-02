@@ -18,7 +18,9 @@ chunks:
     char_span: [0, 1704]
     sentence_count: 10
     key_terms: [engineeringstudents, systems, reddit, power, https, com, wiki, www]
+    concepts: [engineeringstudents, systems, reddit, power, https]
     token_count: 380
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1nouni2/how_do_i_get_a_co_op_in_power_systems_as_a/"}]
 ---
 # How do I get a co op in Power systems as a Graduate Student?
 

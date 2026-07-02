@@ -19,7 +19,9 @@ chunks:
     char_span: [0, 1951]
     sentence_count: 26
     key_terms: [another, get, months, cscareerquestions, manager, "it's", like, developer]
+    concepts: [another, cscareerquestions, months, manager, developer]
     token_count: 461
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1nya0ix/how_to_break_the_layoff_cycle/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c1"
     char_span: [1953, 2230]
     sentence_count: 3
@@ -29,66 +31,82 @@ chunks:
     char_span: [2244, 3337]
     sentence_count: 12
     key_terms: [contractors, get, contract, company, cut, fte, "i've", role]
+    concepts: [contractors, contract, company, another, always]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c3"
     char_span: [3339, 5459]
     sentence_count: 19
     key_terms: [company, layoffs, conversation, companies, like, concerns, manager, stable]
+    concepts: [company, conversation, layoffs, companies, concerns]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c9", "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c10", "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c11", "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c12"]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c4"
     char_span: [5461, 7234]
     sentence_count: 11
     key_terms: [contract, people, contracting, information, need, reasonable, unexpected, decisions]
+    concepts: [contract, people, contracting, information, reasonable]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c5"
     char_span: [7236, 8927]
     sentence_count: 11
     key_terms: [salary, bad, productive, sometimes, because, problem, almost, additional-map-6256]
+    concepts: [salary, productive, sometimes, because, problem]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c6"
     char_span: [8929, 10915]
     sentence_count: 24
     key_terms: ["i'm", company, problem, fault, like, team, work, unemployed]
+    concepts: [company, problem, fault, unemployed, getting]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c7"
     char_span: [10917, 13005]
     sentence_count: 14
     key_terms: [contract, "i'm", laid, "it's", like, work, permanent, around]
+    concepts: [contract, permanent, around, signed, trash]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c8"
     char_span: [13007, 14653]
     sentence_count: 18
     key_terms: [another, "i've", been, contractor, frustrated, mentioned, problems, manager]
+    concepts: [another, contractor, frustrated, mentioned, problems]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c9"
     char_span: [14655, 16490]
     sentence_count: 15
     key_terms: [company, companies, good, people, interviews, investing, happened, looking]
+    concepts: [company, companies, people, interviews, investing]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c10", "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c11"]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c10"
     char_span: [16492, 18346]
     sentence_count: 20
     key_terms: [companies, find, good, got, "it's", developers, expressed, because]
+    concepts: [companies, developers, expressed, because, company]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c9", "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c11"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c11"
     char_span: [18348, 20010]
     sentence_count: 16
     key_terms: [regulations, "don't", companies, company, looking, product, "it's", job]
+    concepts: [regulations, companies, "don't", company, looking]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c9", "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c10"]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c12"
     char_span: [20012, 21379]
     sentence_count: 12
     key_terms: [layoffs, companies, financial, lot, work, stability, dzone64, choose]
+    concepts: [layoffs, companies, financial, stability, dzone64]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1nya0ix.md#c3"]
     section: Comments
     token_count: 334
 ---

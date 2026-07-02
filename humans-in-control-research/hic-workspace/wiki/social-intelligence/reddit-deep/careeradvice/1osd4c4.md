@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 927]
     sentence_count: 10
     key_terms: [career, want, careeradvice, comments, learning, field, learn, shift]
+    concepts: [career, careeradvice, comments, learning, field]
     token_count: 240
+    sources: [{"n":"reddit-deep: r/careeradvice","u":"https://www.reddit.com/r/careeradvice/comments/1osd4c4/career_shift_to_ai/"}]
   - id: "social-intelligence/reddit-deep/careeradvice/1osd4c4.md#c1"
     char_span: [941, 2174]
     sentence_count: 10
     key_terms: [ultimatechaos233, lazyllama21, engineer, askiacareercoaching, field, data, jobs, less]
+    concepts: [ultimatechaos233, lazyllama21, engineer, field]
     section: Comments
     token_count: 296
 ---

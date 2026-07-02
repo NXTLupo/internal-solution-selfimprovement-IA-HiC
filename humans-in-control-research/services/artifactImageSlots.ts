@@ -17,10 +17,12 @@
 export type SlotGround = 'dark' | 'light';
 export type SlotKind = 'panel' | 'hero' | 'thumbnail' | 'glyph';
 /** Which visual BRANCH fills this slot (the per-placeholder decision from the live-Figma GOLD audit,
- *  2026-06-26). icon = a tokenized reduced glyph (deterministic, $0); chart = a content-true data
- *  diagram (vizEngine); emotive = a brand-locked Nano-Banana illustration; none = image-free. The
- *  visual router treats this as the authoritative auto decision (the #img override still wins). */
-export type SlotBranch = 'icon' | 'chart' | 'emotive' | 'none';
+ *  2026-06-26; E4 revision 2026-07-02). icon = a tokenized reduced glyph (deterministic, $0);
+ *  chart = a content-true data diagram (vizEngine); infographic = a NATIVE chromeless infographic
+ *  (nxt_diagram_render families, built from the element's own data - replaces the retired memphis-iso
+ *  diffusion 'emotive' branch, which the router now aliases here); none = image-free. The visual
+ *  router treats this as the authoritative auto decision (the #img override still wins). */
+export type SlotBranch = 'icon' | 'chart' | 'infographic' | 'emotive' | 'none';
 
 export interface ArtifactImageSpec {
     /** Stable artifact key (matches the slide template id the twins dispatch on). */
@@ -117,8 +119,14 @@ export const ARTIFACT_IMAGE_SPECS: Record<string, ArtifactImageSpec> = {
     },
 
     // ---- SINGLE-PANEL deliverables ---------------------------------------------------------
+    'executive-brief': {
+        artifact: 'executive-brief', mode: 'panel', branch: 'infographic', node: '938:962',
+        ground: 'light', kind: 'panel', bounds: { w: 1660, h: 313, aspect: 5.3 }, fit: 'contain',
+        carrier: 'exhibitImage', optional: true, wired: true,
+        note: 'E3 2026-07-02 density-adaptive re-anatomy (plan artifact-total-elevation, evidence E-3): the brief page declares ONE full-width VISUAL slot - a native infographic composed from the brief sections OWN data (evidence-mix / process-flow via infographicSpecFrom). Both twins (slideToStageHtml renderExecutiveBrief + web ExecutiveBriefSlide) read executiveBrief.exhibitImage and COLLAPSE the band when absent (recorded decision, never an empty well); no-quote finding cards collapse to compact signal rows (evidence-or-collapse). FIGMA CANON LANDED 2026-07-02 (D16): frame 366:2 re-laid + componentized -> COMPONENT 938:962 with the named child brand-image-slot 937:973 (fill-width, renders 1660x313; the literal 1382 spec was rejected on-canvas because it left a 278px dead gutter). Token-bound: ecru/hairline; SIGNALS strip 937:962.',
+    },
     'recommendation': {
-        artifact: 'recommendation', mode: 'panel', branch: 'emotive', node: '678:5526',
+        artifact: 'recommendation', mode: 'panel', branch: 'infographic', node: '678:5526',
         ground: 'light', kind: 'panel', bounds: { w: 560, h: 140, aspect: 4.0 }, fit: 'cover',
         carrier: 'panelImage', optional: true, wired: true,
         note: 'USER OVERRIDE 2026-06-28 scenes-where-they-fit: per-recommendation supporting EMOTIVE scene. LIVE-FIGMA AUDIT 2026-06-28: the recommendation-detail component 597:4 (page 66:2 GOLD recommendations nxt) carries a lower-right img-slot 678:5526 below the EXPECTED IMPACT quote - STYLED this round into a token-bound brand-image-slot (560x140 ecru/hairline/radius-base, matching themes 895:338). NU twin 625:1841 inherits via mode-flip. 560x140 is a thin banner (aspect 4.0): the scene must read at banner crop (cover). NOTE the recommendation-DENSE GOLD component 614:5 (the renderRecommendation export auto-route for >=4-action payloads) is content-packed with NO room and stays image-free; this panel paints only on the NON-dense recommendation slide (web RecommendationSlide right rail + slideToStageHtml default 2-col branch). Renderer reads recommendation.panelImage, falls back to heroImage.src.',
@@ -138,13 +146,13 @@ export const ARTIFACT_IMAGE_SPECS: Record<string, ArtifactImageSpec> = {
         note: 'roadmap NOW-horizon (599:3, 290:50) 468x316 landscape - gantt/foundation-layers diagram fits',
     },
     'theme-cluster': {
-        artifact: 'theme-cluster', mode: 'per-element', branch: 'emotive', node: '590:9',
+        artifact: 'theme-cluster', mode: 'per-element', branch: 'infographic', node: '590:9',
         ground: 'light', kind: 'thumbnail', bounds: { w: 492, h: 290, aspect: 1.7 }, fit: 'cover',
         elementField: 'themes', carrier: 'themeImages', max: 4, optional: true, wired: true,
         note: 'USER OVERRIDE 2026-06-27: each theme card carries its OWN content-true emotive thumbnail derived from THAT theme thesis. FIGMA RELAYOUT 2026-06-27: per-card brand-image-slot placed as the FIRST child of each theme card on overview 590:9 (slots 895:338/895:339/895:340, 492x290 ecru/hairline/radius-base token-bound; card+row grown 470->700h; the prior SHARED decorative strip 892:337 was REMOVED). NU twin 625:385 inherits the per-card slots + recolor as a mode flip. NO PURE DECORATION: per-theme image must trace to that theme. Renderer reads themeCluster.themeImages[i] (index-aligned to themes), falls back to themes[i].brandImage.',
     },
     'persona-detail': {
-        artifact: 'persona-detail', mode: 'panel', branch: 'emotive', node: '602:2',
+        artifact: 'persona-detail', mode: 'panel', branch: 'infographic', node: '602:2',
         ground: 'light', kind: 'panel', bounds: { w: 460, h: 230, aspect: 2 }, fit: 'cover',
         carrier: 'panelImage', optional: false, wired: false,
         note: 'persona-detail portrait 602:2 (380x150) / fingerprint 602:3 (460x230) landscape figure panels - emotive abstract, never a face',
@@ -164,29 +172,31 @@ export const ARTIFACT_IMAGE_SPECS: Record<string, ArtifactImageSpec> = {
         note: 'SLOT ADDED 2026-06-27: mindmap 612:2 carries ONE central-hub glyph slot (683:5509) 120x120 crowning the radial decomposition; NU twin 626:615 inherits. icon = a tokenized mark for the central research question. WIRED (verified 2026-06-28): renderMindMapHtml is fully token-bound (tokensFor resolves every colour/font from getBrand, NO literal hex) AND paints the central hub glyph via compositeIcon (content-true-or-nothing) as the .mm-hub-glyph <img> overlay on the root disc. carrier name hubImage is the registry contract; the renderer derives the hub glyph deterministically from the research goal rather than reading a pre-generated URL, so no async carrier write is needed.',
     },
 
-    // ---- #slides archetypes: PORTRAIT full-bleed EMOTIVE panels -----------------------------
-    // fit=cover for emotive (full-bleed). A diagram routed here (router/#img=diagram) must NOT be
-    // cover-cropped to portrait: vizSlot renders it CONTAIN inside a landscape inner box.
+    // ---- #slides archetypes: PORTRAIT full-bleed panels -------------------------------------
+    // E4 INTERIM (2026-07-02): the memphis-iso diffusion lane that filled these DECORATIVE heroes is
+    // retired, and a chromeless data infographic is the wrong content for a cover/divider hero. These
+    // slots are branch:'none' (recorded image-free decision, phase 8) until the E3 creative-director
+    // pass defines the cover visual language (type-led covers / brand geometry are the candidates).
     'slides:cover': {
-        artifact: 'slides:cover', mode: 'panel', branch: 'emotive', node: '659:502',
+        artifact: 'slides:cover', mode: 'panel', branch: 'none', node: '659:502',
         ground: 'dark', kind: 'panel', bounds: { w: 820, h: 1080, aspect: 0.76 }, fit: 'cover',
         carrier: 'heroImage', optional: true, wired: true,
         note: 'cover 609:2 (659:502) 820x1080 portrait full-bleed - emotive signature visual. WIRED 2026-06-29: composer paints composerPayload.heroImage as a full-bleed <img> (slideComposer HERO_PANEL); GEO walker exports it as a native swappable picture placeholder. Nothing hardcoded (bounds=Figma canon, colors/fonts=tokens).',
     },
     'slides:section-divider': {
-        artifact: 'slides:section-divider', mode: 'panel', branch: 'emotive', node: '661:473',
+        artifact: 'slides:section-divider', mode: 'panel', branch: 'none', node: '661:473',
         ground: 'dark', kind: 'panel', bounds: { w: 820, h: 1080, aspect: 0.76 }, fit: 'cover',
         carrier: 'heroImage', optional: true, wired: true,
         note: 'section-divider 609:4 (661:473) 820x1080 portrait full-bleed - emotive transition visual. WIRED 2026-06-29: composer paints composerPayload.heroImage as a full-bleed <img> (slideComposer HERO_PANEL); GEO walker exports a native picture placeholder. Nothing hardcoded.',
     },
     'slides:thesis-interstitial': {
-        artifact: 'slides:thesis-interstitial', mode: 'panel', branch: 'emotive', node: '661:474',
+        artifact: 'slides:thesis-interstitial', mode: 'panel', branch: 'none', node: '661:474',
         ground: 'dark', kind: 'panel', bounds: { w: 920, h: 1080, aspect: 0.85 }, fit: 'cover',
         carrier: 'heroImage', optional: true, wired: true,
         note: 'thesis 609:5 (661:474) 920x1080 portrait full-bleed - emotive abstract of the thesis. WIRED 2026-06-29: composer paints composerPayload.heroImage as a full-bleed <img> (slideComposer HERO_PANEL); GEO walker exports a native picture placeholder. Nothing hardcoded.',
     },
     'slides:agenda': {
-        artifact: 'slides:agenda', mode: 'hero', branch: 'emotive', node: '661:472',
+        artifact: 'slides:agenda', mode: 'hero', branch: 'none', node: '661:472',
         ground: 'light', kind: 'hero', bounds: { w: 500, h: 420, aspect: 1.19 }, fit: 'cover',
         carrier: 'panelImage', optional: true, wired: false,
         note: 'agenda 609:3 (661:472) 500x420 lower-right accent - small emotive',
@@ -202,10 +212,16 @@ export const ARTIFACT_IMAGE_SPECS: Record<string, ArtifactImageSpec> = {
     // composer reads the carrier off the slide's composerPayload; the chat seam routes the carrier
     // write through SUBFIELD['slides:*'] = 'composerPayload' (CorpusChatPanel).
     'slides:block-quote': {
-        artifact: 'slides:block-quote', mode: 'panel', branch: 'emotive', node: '901:477',
+        artifact: 'slides:block-quote', mode: 'panel', branch: 'none', node: '901:477',
         ground: 'light', kind: 'panel', bounds: { w: 900, h: 200, aspect: 4.5 }, fit: 'cover',
         carrier: 'panelImage', optional: true, wired: true,
         note: 'USER OVERRIDE 2026-06-28 scenes-where-they-fit. LIVE-FIGMA AUDIT: block-quote 609:7 has a clear empty LEFT band between the quote (ends ~local y500) and the attribution (local y778). Added token-bound brand-image-slot 901:477 (900x200 ecru/hairline/radius-base, x209 y540) tracing to the quote subject; NU twin 626:95 inherits via mode-flip (verified navy/red/Lato). 900x200 is a thin banner (4.5) -> cover crop. Renderer twin = slideComposer block-quote image region (payload.panelImage).',
+    },
+    'slides:infographic-exhibit': {
+        artifact: 'slides:infographic-exhibit', mode: 'panel', branch: 'infographic', node: '324:2',
+        ground: 'light', kind: 'panel', bounds: { w: 1622, h: 600, aspect: 2.7 }, fit: 'contain',
+        carrier: 'exhibitImage', optional: false, wired: true,
+        note: '2026-07-02 #slides infographic uplift: the deck-native DATA VISUAL archetype. Composer spec slides:infographic-exhibit (slideComposer ARCHETYPE_SPECS) renders composerPayload.exhibitImage full-width between the title hairline and the takeaway band. The panel is composed from the slide payload OWN fields by the native lane (infographicSpecFrom: steps/actions -> process-flow; beforeAfter -> comparison; stats/kpiTiles -> stat-row; citations -> composition) via /api/ai/diagram chrome:none at these bounds. NOT optional: an infographic-exhibit slide without derivable data is a protocol violation (the model must only emit this archetype when it has the structured fields). Figma canon rides page 324:2 (exemplar frame pending the next canon pass); bounds here are the code-side contract.',
     },
     'slides:org-model': {
         artifact: 'slides:org-model', mode: 'per-element', branch: 'icon', node: '901:5476',
@@ -216,7 +232,7 @@ export const ARTIFACT_IMAGE_SPECS: Record<string, ArtifactImageSpec> = {
 
     // ---- DELIBERATELY image-free (registered decisions - NEVER generate) -------------------
     'case-study': {
-        artifact: 'case-study', mode: 'panel', branch: 'emotive', node: '890:357',
+        artifact: 'case-study', mode: 'panel', branch: 'infographic', node: '890:357',
         ground: 'light', kind: 'panel', bounds: { w: 544, h: 300, aspect: 1.81 }, fit: 'cover',
         carrier: 'panelImage', optional: true, wired: true,
         note: 'USER OVERRIDE 2026-06-28 scenes-where-they-fit: per-case supporting EMOTIVE scene. LIVE-FIGMA AUDIT 2026-06-28: the FOUR-BLOCK case-study component 588:7 (page 184:159) already carries a brand-image-slot 890:357 (544x300, IMAGE-fill placeholder, radius 4) at the top of the dark IN-THEIR-WORDS right panel; NU twin 625:314 inherits it (I625:314;890:357) via mode-flip. The other variants (before-after 585:2, evidence-stack 588:6, overview 588:4, Zappos-detail 588:5) are full-width dense layouts with NO room -> they stay image-free; this panel paints ONLY on the four-block variant. Renderer reads caseStudy.panelImage (four-block right panel only).',

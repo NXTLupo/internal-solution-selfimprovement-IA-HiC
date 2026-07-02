@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1083]
     sentence_count: 6
     key_terms: [neu, ambassadors, app, comments, details, student, dating, social]
+    concepts: [ambassadors, comments, details, student, dating]
     token_count: 268
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1qglafg/hiring_neu_students_as_paid_social_media/"}]
   - id: "social-intelligence/reddit-deep/neu/1qglafg.md#c1"
     char_span: [1097, 2079]
     sentence_count: 4
     key_terms: ["company's", socials, personal, content, app, too, ugc, magmakidreddit]
+    concepts: ["company's", socials, personal, content]
     section: Comments
     token_count: 268
 ---

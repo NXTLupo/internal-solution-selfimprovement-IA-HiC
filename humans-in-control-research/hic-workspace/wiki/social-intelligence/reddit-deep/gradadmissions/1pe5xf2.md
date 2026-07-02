@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1469]
     sentence_count: 10
     key_terms: [school, want, grad, research, gradadmissions, environment, comments, ecology]
+    concepts: [school, research, gradadmissions, environment, comments]
     token_count: 333
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1pe5xf2/should_i_know_exactly_what_i_want_to_research_if/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1pe5xf2.md#c1"
     char_span: [1483, 2013]
     sentence_count: 4
     key_terms: [question, specific, broad, imo, urbanization, professors, curiosity, important]
+    concepts: [question, specific, broad]
     section: Comments
     token_count: 118
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1828]
     sentence_count: 15
     key_terms: [fulfillment, domestic, per, production, china, order, warehouse, sellable]
+    concepts: [fulfillment, domestic, production, warehouse, china]
     token_count: 422
+    sources: [{"n":"reddit-deep: r/supplychain","u":"https://www.reddit.com/r/supplychain/comments/1sw7l4i/supply_chain_fulfillment_strategies_for_brands/"}]
   - id: "social-intelligence/reddit-deep/supplychain/1sw7l4i.md#c1"
-    char_span: [1843, 2564]
+    char_span: [1842, 2563]
     sentence_count: 5
     key_terms: [apples, cost, real, accountengineer, truthishere1, integration, lost-mekuri, transition]
+    concepts: [apples]
     section: Comments
     token_count: 178
 ---

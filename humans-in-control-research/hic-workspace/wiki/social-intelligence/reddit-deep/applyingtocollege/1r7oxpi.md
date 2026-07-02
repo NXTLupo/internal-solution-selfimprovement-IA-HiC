@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1641]
     sentence_count: 12
     key_terms: [schools, berkeley, "i'm", prestigious, applyingtocollege, deciding, college, private]
+    concepts: [schools, berkeley, prestigious, applyingtocollege, deciding]
     token_count: 359
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1r7oxpi/at_the_risk_of_sounding_snobby_private_college_is/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r7oxpi.md#c1"
     char_span: [1655, 3749]
     sentence_count: 28
     key_terms: [school, private, university, sometimes, better, agree, end, fit]
+    concepts: [school, private, university, sometimes, better]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1r7oxpi.md#c4"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r7oxpi.md#c2"
     char_span: [3751, 5313]
     sentence_count: 15
     key_terms: [austin, better, people, definitely, experience, getting, important-quit-9354, agree]
+    concepts: [austin, better, people, definitely, experience]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r7oxpi.md#c3"
     char_span: [5315, 6710]
     sentence_count: 10
     key_terms: [education, independent, big, experience, evidence, college, private, schools]
+    concepts: [education, independent, experience, evidence, college]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r7oxpi.md#c4"
     char_span: [6712, 7940]
     sentence_count: 1
     key_terms: [private, universities, top, university, different, coddling, college, special]
+    concepts: [private, universities, university, different, coddling]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1r7oxpi.md#c1"]
     section: Comments
     token_count: 283
 ---

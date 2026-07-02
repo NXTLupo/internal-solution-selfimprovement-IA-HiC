@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1236]
     sentence_count: 8
     key_terms: [startup, offer, engineering, internships, got, internship, on-campus, comments]
+    concepts: [startup, engineering, internships, internship, offer]
     token_count: 277
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1tefjad/got_two_offers_on_the_same_day_deferred_one_the/"}]
   - id: "social-intelligence/reddit-deep/internships/1tefjad.md#c1"
     char_span: [1250, 2977]
     sentence_count: 14
     key_terms: [get, like, time, classmates, different, floating, classes, picture]
+    concepts: [classmates, different, floating, classes, picture]
     section: Comments
     token_count: 414
 ---

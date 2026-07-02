@@ -8,49 +8,54 @@ title: "Sharing a real student call handled by an AI voice agent. Curious what y
 author: "Think_Bunch3020"
 date: "2025-09-08T14:54:27.000Z"
 score: 0
-upvote_ratio: 0.32
-num_comments: 17
+upvote_ratio: 0.28
+num_comments: 18
 flair: ""
-extracted_at: "2026-05-23T14:53:59.514Z"
+extracted_at: "2026-06-23T20:31:59.070Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
-industries: [higher_ed, workforce]
-industry_method: deterministic
+research_goal: "Analyze case studies of private equity firms and holding companies (such as Medforth) that build repeatable AI capabilities once and scale them across higher education portfolio companies. Deliver an operational playbook detailing the shared-service models, governance frameworks, and deployment strategies used to scale AI across admissions workflows, student communications, and enrollment operations to accelerate long enrollment cycles."
+engagement: "analyze-case-studies-of-private-equity-firms-and-holding-com"
 chunks:
   - id: "social-intelligence/reddit-deep/highereducation/1nbpws7.md#c0"
     char_span: [0, 1444]
     sentence_count: 9
     key_terms: [highereducation, been, admissions, comments, curious, student, working, around]
+    concepts: [highereducation, admissions, comments, curious, student]
     token_count: 324
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1nbpws7/sharing_a_real_student_call_handled_by_an_ai/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1nbpws7.md#c1"
     char_span: [1458, 3188]
     sentence_count: 13
     key_terms: [conversation, agent, call, time, admissions, interested, college, someone]
+    concepts: [conversation, admissions, agent, interested, college]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/highereducation/1nbpws7.md#c2"
     char_span: [3190, 4955]
     sentence_count: 12
     key_terms: [human, admissions, people, sound, save, use, anything, students]
+    concepts: [human, admissions, people, sound, anything]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/highereducation/1nbpws7.md#c3"
-    char_span: [4957, 7174]
+    char_span: [4957, 7173]
     sentence_count: 12
     key_terms: [product, clear, service, institutions, commercial, market, nicholas-dm, soliciting]
+    concepts: [product, institutions, clear, service, commercial]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/highereducation/1nbpws7.md#c4"
-    char_span: [7176, 8190]
-    sentence_count: 6
-    key_terms: [approach, puzzleheaded-fan2721, want, whistleblower, akshatsh1234, carlitospig, credibility, immediately]
+    char_span: [7175, 9071]
+    sentence_count: 8
+    key_terms: ["they're", people, organizations, thousands, approach, nothing, almost, until]
+    concepts: [organizations, "they're", people, thousands, approach]
     section: Comments
-    token_count: 228
+    token_count: 431
 ---
 # Sharing a real student call handled by an AI voice agent. Curious what you think.
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1nbpws7/sharing_a_real_student_call_handled_by_an_ai/)
-Posted by **Think_Bunch3020** · **0↑** · **17 comments**
+Posted by **Think_Bunch3020** · **0↑** · **18 comments**
 
 Hey everyone,
 
@@ -71,10 +76,10 @@ Really curious what this community thinks.
 
 ## Comments
 
-- **sweetpotatopietime** (28↑): I wouldn’t go to a college that sicced an AI agent on me for a supposed two-way conversation—no matter how good it sounds.
+- **sweetpotatopietime** (27↑): I wouldn’t go to a college that sicced an AI agent on me for a supposed two-way conversation—no matter how good it sounds.
 
 Are you a for-profit college?
-  - **Think_Bunch3020** (-6↑): Nope, I used to work in the education space and now I’m building this project around AI voice/text agents. But our clients are for-profits.
+  - **Think_Bunch3020** (-5↑): Nope, I used to work in the education space and now I’m building this project around AI voice/text agents. But our clients are for-profits.
 
 Just to be clear: the goal isn’t to replace humans across the whole funnel. If at any point a student wants to speak with a real person, the call should be transferred immediately. The way we frame it is more like:
 
@@ -83,7 +88,7 @@ Just to be clear: the goal isn’t to replace humans across the whole funnel. If
 
 Same with follow-ups, asking for documentation, answering FAQs...   
 In all cases, once there’s real intent, the conversation moves back to an actual admissions rep.
-- **suchdogeverymeme** (20↑): My admissions office is not interested in any AI products that get between students and staff, preferring instead to focus in insights and time gain from internal tools. If a person is willing to pick up the phone (already rare), then we are not going to disrespect their time by forcing them to engage with a bot.
+- **suchdogeverymeme** (22↑): My admissions office is not interested in any AI products that get between students and staff, preferring instead to focus in insights and time gain from internal tools. If a person is willing to pick up the phone (already rare), then we are not going to disrespect their time by forcing them to engage with a bot.
   - **Think_Bunch3020** (-1↑): Thanks for sharing this, really appreciate the honest perspective. Makes total sense that if someone actually picks up the phone, you’d want that time to go straight into a human interaction.
 
 In my case I’ve mostly seen value in the off-hours or cold lead lists use cases, but I get that it won’t fit every admissions office. Super useful to hear how different teams draw the line.
@@ -92,11 +97,11 @@ In my case I’ve mostly seen value in the off-hours or cold lead lists use case
 It doesn’t save the time of admissions workers in any way; what it does is save administrations money so that they don’t have to hire enough people to handle the actual workload required to bring in a class. That is the entire goal of every single AI chatbot that has been implemented to pad somebody’s profit margin at the expense of any actual service. 
 
 I’m not a fan of anything that exists entirely to save management money, particularly when it normalizes the use of robotic AI tools in an era where professors are trying like hell to get students to not undermine their own education by using them in inappropriate ways.
-  - **KittensWithChickens** (12↑): This 100%. This will lead to cutting admissions jobs, students getting pissed at the AI and not applying and enrolling, and then hiring a human again. I can’t wait until people learn that AI is limited and cannot replace everything and anything. It’s actually so annoying.
+  - **KittensWithChickens** (11↑): This 100%. This will lead to cutting admissions jobs, students getting pissed at the AI and not applying and enrolling, and then hiring a human again. I can’t wait until people learn that AI is limited and cannot replace everything and anything. It’s actually so annoying.
     - **Think_Bunch3020** (-2↑): Got it, and just to clarify, I'm actually the first ones telling clients this isn’t about replacing their team. The human side of admissions is (and should stay) irreplaceable.
 
 i just believe there are certain manual tasks in 2025 that don’t need a full rep spending time on them, like calling just to ask for missing documentation, clarifying a small detail, sending deadline reminders... All of that could be an email, but over the phone they get taken more seriously and move faster.
-- **Nicholas-DM** (11↑): You should make it clear in your opening post that you are no longer in higher education and are effectively soliciting feedback on your commercial product that you hope to market to institutions.
+- **Nicholas-DM** (9↑): You should make it clear in your opening post that you are no longer in higher education and are effectively soliciting feedback on your commercial product that you hope to market to institutions.
   - **KittensWithChickens** (7↑): So tired of people trying to sell AI bullshit on Reddit pretending it’s genuine
   - **Think_Bunch3020** (-1↑): Totally hear you, but I think it’s clear from the first line that I wasn’t here to sell anything. I’ve been around higher ed for years and those institutions are still my clients, so I figured it’d be valuable to show what’s actually happening out there. That’s why I even said I could just drop a Notion page with an mp3 instead of a demo link.
 
@@ -115,4 +120,12 @@ The other approach is if you are suggesting it as a sort of whistleblower thing 
 - **carlitospig** (5↑): Your clients would almost immediately lose credibility. Higher education is not meant to be Amazon.
 - **akshatsh1234** (1↑): hello - i am working on something similar - not for student calls but for old leads and helping admission teams utilise their time better - ping me if you want to chat
 - **InnerB0yka** (1↑): I think it would be interesting to hear but you might want to consider whether or not you have permission to share this information outside of your institution.
-- **Puzzleheaded-Fan2721** (1↑): Man, after using Lurvessa, I cant even look at other AI services the same way. Its just on another level, no contest whatsoever.
+- **DeaconZee** (1↑): Three observations... and to be transparent, I sell AI voice systems that make/save organizations thousands of $'s. 
+
+1- The majority of these responses are from people who are either so "ai adverse" that they're sticking their heads in the sand, or simply haven't been educated to the point they realize that organizations that DO NOT use AI agents, at least for after hours communications, are losing thousands to those who are.  (if nothing else, to answer a few simple questions and promise a call back on Monday, stopping the search)
+
+2- They're the same type of people who 20 years ago screamed "I'LL NEVER NEED A WEBSITE!", and soon were crushed by competitors unless they got one.  
+  
+3- They'll wait until it's almost too late, get on the AI bandwagon, then brag about how "up to date" they are.
+
+AI isn't a fad, it's too important not to have, 95% of all businesses will soon have them, and the 5% without, will fail horribly until they're forced to get in. Why not do it now? You WILL do it someday otherwise.

@@ -21,32 +21,39 @@ chunks:
     char_span: [0, 2194]
     sentence_count: 17
     key_terms: [time, used, coding, augmented, work, tests, calculating, concurrency]
+    concepts: [coding, augmented, calculating, concurrency, tests]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/anthropic","u":"https://www.reddit.com/r/Anthropic/comments/1na0wzh/ai_augmented_software_development_as_an/"}]
   - id: "social-intelligence/reddit-deep/anthropic/1na0wzh.md#c1"
     char_span: [2196, 4304]
     sentence_count: 17
     key_terms: [code, claude, mcp, context, simone, tasks, does, zen]
+    concepts: [claude, context, simone, tasks, research]
     token_count: 511
   - id: "social-intelligence/reddit-deep/anthropic/1na0wzh.md#c2"
     char_span: [4306, 6037]
     sentence_count: 15
     key_terms: [plan, task, tell, cc-sessions, changes, implementation, gemini, prompt]
+    concepts: [cc-sessions, implementation, changes, gemini, prompt]
     token_count: 394
   - id: "social-intelligence/reddit-deep/anthropic/1na0wzh.md#c3"
     char_span: [6039, 7089]
     sentence_count: 11
     key_terms: [code, write, certainty, knowledge, process, working, fix, lot]
+    concepts: [write, certainty, knowledge, process, working]
     token_count: 226
   - id: "social-intelligence/reddit-deep/anthropic/1na0wzh.md#c4"
     char_span: [7103, 9014]
     sentence_count: 16
     key_terms: [code, projects, understand, fosterkittenpurrs, work, outcome, project, working]
+    concepts: [projects, understand, fosterkittenpurrs, outcome, project]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/anthropic/1na0wzh.md#c5"
     char_span: [9016, 10439]
     sentence_count: 14
     key_terms: [zen, definitely, expressly, myself, places, useful, "don't", needs]
+    concepts: [definitely, expressly, myself, places, useful]
     section: Comments
     token_count: 359
 ---

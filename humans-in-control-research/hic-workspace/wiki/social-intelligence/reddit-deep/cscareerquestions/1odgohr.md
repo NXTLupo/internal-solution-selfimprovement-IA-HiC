@@ -21,41 +21,55 @@ chunks:
     char_span: [0, 1497]
     sentence_count: 14
     key_terms: [cscareerquestions, everyone, thinking, mistake, branch, start, did, new]
+    concepts: [cscareerquestions, everyone, thinking, mistake, branch]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c6"]
     token_count: 340
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1odgohr/new_grad_made_a_big_mistake_at_my_first_job/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c1"
     char_span: [1511, 3444]
     sentence_count: 16
     key_terms: [time, biggest, company, deleted, accidentally, dev, something, college]
+    concepts: [biggest, company, deleted, accidentally, something]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c2"]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c2"
     char_span: [3446, 5311]
     sentence_count: 16
     key_terms: [company, because, "it's", like, something, yourself, without, branch]
+    concepts: [company, because, something, yourself, without]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c1", "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c5"]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c3"
     char_span: [5313, 7353]
     sentence_count: 16
     key_terms: [branch, merge, walkslikeaduck08, changes, without, access, review, able]
+    concepts: [branch, walkslikeaduck08, merge, changes, without]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c5", "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c6"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c4"
     char_span: [7070, 7693]
     sentence_count: 5
     key_terms: [engineer, process, always, right, etc, appropriate, engineering, incorrectly]
+    concepts: [engineer, process, always, right]
     section: Comments
     token_count: 132
   - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c5"
     char_span: [7695, 9990]
     sentence_count: 14
     key_terms: [branch, because, without, prevent, process, devops, review, regardless]
+    concepts: [branch, because, without, prevent, process]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c2", "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c6"]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c6"
     char_span: [9992, 11542]
     sentence_count: 11
     key_terms: [branch, changes, mistake, process, deploy, devops, merged, pushed]
+    concepts: [branch, changes, mistake, process, deploy]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c0", "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c3", "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c5"]
     section: Comments
     token_count: 371
 ---

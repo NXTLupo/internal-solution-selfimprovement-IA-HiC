@@ -21,35 +21,44 @@ chunks:
     char_span: [0, 748]
     sentence_count: 6
     key_terms: [stocks, portfolio, comments, trading, like, time, outperforming, zachparent93]
+    concepts: [stocks, portfolio, comments, trading]
     token_count: 196
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1q56guz/what_are_your_top_stock_picks_in_2026/"}]
   - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c1"
     char_span: [762, 2551]
     sentence_count: 12
     key_terms: [year, alpha, andthentherewastwo, returns, administration, launch, market, institutional]
+    concepts: [andthentherewastwo, alpha, administration, institutional, returns]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c2"
     char_span: [2553, 3875]
     sentence_count: 8
     key_terms: [earnings, guidance, stocks, year, coverage, forward, buying, europe]
+    concepts: [earnings, guidance, stocks, coverage, forward]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c3"
     char_span: [3877, 4404]
     sentence_count: 1
     key_terms: [message, delete, reddit, remindmebot, com, compose, subject, others]
+    concepts: [message, delete, reddit, remindmebot, compose]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1q56guz.md#c4"]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c4"
     char_span: [4406, 5511]
     sentence_count: 6
     key_terms: [remindmebot, message, reddit, https, com, "it's", www, quuxquxbazbarfoo]
+    concepts: [remindmebot, message, reddit, quuxquxbazbarfoo, https]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1q56guz.md#c3"]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c5"
     char_span: [5513, 7068]
     sentence_count: 9
     key_terms: [asts, late, rklb, selling, winners, shares, alarmingadvertising5, morrisseysrubikscube]
+    concepts: [selling, winners, shares, basis, wm313]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c6"
@@ -62,18 +71,21 @@ chunks:
     char_span: [7211, 8983]
     sentence_count: 13
     key_terms: [probably, shares, asts, msft, sls, want, beautiful, launches]
+    concepts: [probably, shares, beautiful, launches, amazon]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c8"
     char_span: [8792, 9158]
     sentence_count: 4
     key_terms: [amazon, weak, year, burnertaintlol, olddirtybaird, hottruth999, overperform, yesterday]
+    concepts: [amazon]
     section: Comments
     token_count: 118
   - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c9"
     char_span: [9160, 10814]
     sentence_count: 13
     key_terms: [google, amazon, price, investments, revenue, competitive-ad-9866, based, going]
+    concepts: [google, amazon, investments, price, revenue]
     section: Comments
     token_count: 434
 ---

@@ -1,4 +1,14 @@
-
+---
+id: synthesis/chat-insights.md
+chunks:
+  - id: "synthesis/chat-insights.md#c0"
+    char_span: [46, 2271]
+    sentence_count: 15
+    key_terms: [advancement, report, study, case, transformation, data, findings, northeastern]
+    concepts: [advancement, report, transformation, study, findings]
+    section: "2026-06-18T16:15:24.181Z - Analyst insight"
+    token_count: 415
+---
 ## 2026-06-18T16:15:24.181Z - Analyst insight
 **Q:** Frame the NXT Northeastern Advancement initiative from the information I gave you
 

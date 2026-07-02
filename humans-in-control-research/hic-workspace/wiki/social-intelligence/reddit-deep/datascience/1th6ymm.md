@@ -20,34 +20,41 @@ chunks:
     char_span: [0, 2197]
     sentence_count: 15
     key_terms: [day, hour, oos, demand, search, store, festive, item]
+    concepts: [demand, search, store, festive, festival]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/datascience","u":"https://www.reddit.com/r/datascience/comments/1th6ymm/ideas_on_a_forecasting_problem/"}]
   - id: "social-intelligence/reddit-deep/datascience/1th6ymm.md#c1"
     char_span: [2199, 2937]
     sentence_count: 4
     key_terms: [distance, temporal, search, volume, sales, lost, high-volatility, distance-based]
+    concepts: [distance, temporal, search, volume, sales]
     token_count: 137
   - id: "social-intelligence/reddit-deep/datascience/1th6ymm.md#c2"
-    char_span: [2952, 4504]
+    char_span: [2951, 4503]
     sentence_count: 7
     key_terms: [sales, total, rate, chilledroland, necessarily, features, question, include]
+    concepts: [sales, total, chilledroland, necessarily, features]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/datascience/1th6ymm.md#c3"
-    char_span: [4506, 5528]
+    char_span: [4505, 5527]
     sentence_count: 13
     key_terms: [quantiles, better, model, use, approaches, boosting, gradient, training]
+    concepts: [quantiles, better, approaches, model, boosting]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/datascience/1th6ymm.md#c4"
-    char_span: [5530, 7332]
+    char_span: [5529, 7331]
     sentence_count: 12
     key_terms: [stock, language, products, embeddings, hour, features, natural, model]
+    concepts: [language, products, stock, embeddings, features]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/datascience/1th6ymm.md#c5"
-    char_span: [7334, 7910]
+    char_span: [7333, 7909]
     sentence_count: 4
     key_terms: [conversion, day, rate, encoding, festival, standard-broccoli130, stock, hour]
+    concepts: [conversion, encoding, festival, stock]
     section: Comments
     token_count: 141
 ---

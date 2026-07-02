@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1337]
     sentence_count: 12
     key_terms: [money, start, comments, talking, whether, reddit, bucks, adamantheusenigma]
+    concepts: [money, start, comments, talking, whether]
     token_count: 320
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1nunjuz/financial_literacy_among_our_generation_should_be/"}]
   - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c1"
     char_span: [1351, 2904]
     sentence_count: 8
     key_terms: [money, interest, deltaforce632, account, because, discord, earning, person]
+    concepts: [money, interest, deltaforce632, account, because]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c2"
     char_span: [2906, 4565]
     sentence_count: 9
     key_terms: [interest, got, employed, personal, question, finance, teacher, answer]
+    concepts: [interest, employed, personal, question, finance]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c3"
     char_span: [4567, 5464]
     sentence_count: 7
     key_terms: [business, having, taxes, "i'm", need, self, non-traditional, penguintheyeti]
+    concepts: [business, having, taxes]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c4"
     char_span: [5474, 7467]
     sentence_count: 8
     key_terms: [money, foxwyrd, responsibility, people, going, "it's", retirement, financial]
+    concepts: [money, responsibility, foxwyrd, people, going]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c5"
     char_span: [7469, 8912]
     sentence_count: 11
     key_terms: [thecitizenxane, reality, telling, impressivepapercut, adamantheusenigma, own, put, work]
+    concepts: [thecitizenxane, reality, telling]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c6"
     char_span: [8914, 9934]
     sentence_count: 2
     key_terms: [thecitizenxane, greater, purpose, swimmingbarracuda182, naive, point, grandchildren, mqzcoihs1esf1]
+    concepts: [thecitizenxane, greater, purpose, naive, point]
     section: Comments
     token_count: 307
 ---

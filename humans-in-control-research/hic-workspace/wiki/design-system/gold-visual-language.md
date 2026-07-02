@@ -5,47 +5,56 @@ chunks:
     char_span: [0, 370]
     sentence_count: 5
     key_terms: [isqhavm7si4qhawb7y9c2z, z2v9pvhg23hlljeitpbdat, brands, values, figma-node-map, deliverable, identical, geometry]
+    concepts: [brands, values]
     token_count: 117
   - id: "design-system/gold-visual-language.md#c1"
     char_span: [408, 1433]
     sentence_count: 8
     key_terms: [line-height, color, tracking, source, mono, rail, uppercase, semibold]
+    concepts: [line-height, color, tracking, source, uppercase]
     section: Shared anatomy (every GOLD page)
     token_count: 337
+    sources: [{"n":"lines in mono 12-12.5px at color/source accent; NEVER a per-slide source strip |","u":""}]
   - id: "design-system/gold-visual-language.md#c2"
     char_span: [1452, 2056]
     sentence_count: 1
     key_terms: [archivo, accent, c8102e, band, face, mono, b8b800, ddddd6]
+    concepts: [archivo, accent, c8102e, b8b800, ddddd6]
     section: Brand tokens
     token_count: 250
   - id: "design-system/gold-visual-language.md#c3"
     char_span: [2094, 3901]
     sentence_count: 11
     key_terms: [body, title, weight, hero, numerals, kicker, labels, label]
+    concepts: [title, weight, numerals, kicker, labels]
     section: Typographic system (2026-06-14)
     token_count: 505
   - id: "design-system/gold-visual-language.md#c4"
     char_span: [3903, 4774]
     sentence_count: 4
     key_terms: [continuation, never, artifacts, layout, floor, slide, competitive-matrix, service-blueprint]
+    concepts: [continuation, never, artifacts, layout, floor]
     section: Typographic system (2026-06-14)
     token_count: 200
   - id: "design-system/gold-visual-language.md#c5"
     char_span: [4810, 5996]
     sentence_count: 4
     key_terms: [label, quote, justify-between, column, source, figma, panel, qualitative]
+    concepts: [justify-between, label, quote, column, source]
     section: Case-study deep-dive variants
     token_count: 337
   - id: "design-system/gold-visual-language.md#c6"
     char_span: [6043, 6728]
     sentence_count: 1
     key_terms: [slidetemplates, components, design-system, gold, services, nxt-visual-renderer, twin, slidetostagehtml]
+    concepts: [slidetemplates, components, design-system, services]
     section: "Code twins (keep in sync, in this order)"
     token_count: 195
   - id: "design-system/gold-visual-language.md#c7"
     char_span: [6770, 7763]
     sentence_count: 6
     key_terms: [dense, density, ceilings, per-template, item, preview, export, raises]
+    concepts: [dense, density, ceilings, per-template, preview]
     section: Universal density axis (2026-06-10)
     token_count: 235
 ---

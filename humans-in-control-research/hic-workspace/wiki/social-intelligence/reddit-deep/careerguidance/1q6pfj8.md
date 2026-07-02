@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 396]
     sentence_count: 3
     key_terms: [careerguidance, career, comments, salmanmalik1988, professional, reddit-deep, economics, learning]
+    concepts: [careerguidance, career, comments]
     token_count: 106
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1q6pfj8/what_is_the_best_career_advice_for_learning_in/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1q6pfj8.md#c1"
     char_span: [410, 828]
     sentence_count: 2
     key_terms: [planning, policy, urban, dense-nectarine368, intersection, development, consulting, positioned]
+    concepts: [planning, policy, urban]
     section: Comments
     token_count: 93
 ---

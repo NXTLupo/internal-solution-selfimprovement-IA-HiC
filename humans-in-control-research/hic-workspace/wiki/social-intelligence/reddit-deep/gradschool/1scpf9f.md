@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2208]
     sentence_count: 12
     key_terms: [psychology, paths, school, experience, grad, clinical, whether, career]
+    concepts: [psychology, paths, experience, school, clinical]
     token_count: 474
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1scpf9f/need_advice_psych_student_unsure_about_grad/"}]
   - id: "social-intelligence/reddit-deep/gradschool/1scpf9f.md#c1"
     char_span: [2222, 2476]
     sentence_count: 3

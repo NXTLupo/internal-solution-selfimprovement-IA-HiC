@@ -21,22 +21,29 @@ chunks:
     char_span: [0, 1702]
     sentence_count: 4
     key_terms: [tax, year, opportunity, qof, federal, wallstreetbets, tracts, gain]
+    concepts: [opportunity, wallstreetbets, federal, tracts, comments]
     token_count: 473
+    sources: [{"n":"reddit-deep: r/wallstreetbets","u":"https://www.reddit.com/r/wallstreetbets/comments/1sr6oex/psa_for_the_3_people_who_made_money_this_year/"}]
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sr6oex.md#c1"
     char_span: [1704, 2671]
     sentence_count: 1
     key_terms: ["you're", accidentally, gain, underlying, money, rules, years, cpa]
+    concepts: [accidentally, "you're", underlying, money, rules]
     token_count: 240
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sr6oex.md#c2"
     char_span: [2685, 4026]
     sentence_count: 5
     key_terms: [taxes, years, discord, rather, single, ishitbloodandcumshit, money, total]
+    concepts: [taxes, years, discord, rather, single]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1sr6oex.md#c3"]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sr6oex.md#c3"
     char_span: [4028, 5505]
     sentence_count: 10
     key_terms: [money, down, lol, ytd, guaranteed, control, ishitbloodandcumshit, totallycomputername]
+    concepts: [guaranteed, money, control, taxes, years]
+    related_chunks: ["social-intelligence/reddit-deep/wallstreetbets/1sr6oex.md#c2"]
     section: Comments
     token_count: 487
 ---

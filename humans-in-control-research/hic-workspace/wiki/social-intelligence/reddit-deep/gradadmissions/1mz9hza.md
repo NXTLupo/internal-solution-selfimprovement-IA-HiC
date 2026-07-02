@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1067]
     sentence_count: 8
     key_terms: [year, programs, gradadmissions, biomedical, comments, sciences, students, funding]
+    concepts: [programs, gradadmissions, biomedical, comments, sciences]
     token_count: 245
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1mz9hza/grad_school_admission_in_biomedical_sciences_some/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1mz9hza.md#c1"
-    char_span: [1082, 1461]
+    char_span: [1081, 1460]
     sentence_count: 3
     key_terms: [schools, early, good, raisedbybooksntv, usual-try-2059, chesneywills, quartzoheart, thenaterator]
+    concepts: [schools, early]
     section: Comments
     token_count: 121
 ---

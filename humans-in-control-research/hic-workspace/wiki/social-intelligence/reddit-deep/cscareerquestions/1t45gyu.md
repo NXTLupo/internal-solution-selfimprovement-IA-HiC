@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1060]
     sentence_count: 4
     key_terms: [cscareerquestions, friend, job, comments, market, salary, dummy, help]
+    concepts: [cscareerquestions, friend, comments, market, salary]
     token_count: 270
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1t45gyu/is_onpaper_experiencedummy_job_a_viable/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t45gyu.md#c1"
     char_span: [1074, 2585]
     sentence_count: 5
     key_terms: [reference, get, manager, interviewers, like, companies, relieving, resume]
+    concepts: [reference, manager, interviewers, companies, relieving]
     section: Comments
     token_count: 335
 ---

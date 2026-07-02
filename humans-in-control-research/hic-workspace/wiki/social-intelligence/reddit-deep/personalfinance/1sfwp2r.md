@@ -21,76 +21,101 @@ chunks:
     char_span: [0, 1940]
     sentence_count: 14
     key_terms: [utilization, card, credit, put, personalfinance, cards, down, completely]
+    concepts: [utilization, credit, personalfinance, cards, completely]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c6", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c9", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c11"]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1sfwp2r/got_a_2000_tax_refund_do_i_wipe_out_3_small/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c1"
     char_span: [1942, 2611]
     sentence_count: 4
     key_terms: [monthly, balance, interest, card, apr, utilizations, individual, attacking]
+    concepts: [monthly, balance, interest]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c2", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c7", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c12"]
     token_count: 197
   - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c2"
     char_span: [2625, 4451]
     sentence_count: 14
     key_terms: [interest, monthly, balance, card, transfer, apr, debt, cards]
+    concepts: [interest, monthly, balance, transfer, cards]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c1", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c3", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c6", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c7", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c9"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c3"
     char_span: [4453, 6038]
     sentence_count: 13
     key_terms: [interest, pay, transfer, credit, big, ones, put, remaining]
+    concepts: [interest, transfer, credit, remaining, yourself]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c2", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c6", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c7", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c9", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c11"]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c4"
     char_span: [6040, 8051]
     sentence_count: 17
     key_terms: [interest, debt, highest, rate, address, because, getting, optimal]
+    concepts: [interest, highest, address, because, getting]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c5", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c9"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c5"
     char_span: [8053, 10368]
     sentence_count: 18
     key_terms: [debt, interest, avalanche, snowball, because, highest, method, keep]
+    concepts: [interest, avalanche, snowball, because, highest]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c4", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c9"]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c6"
     char_span: [10370, 12293]
     sentence_count: 15
     key_terms: [month, pay, interest, debt, credit, paying, cards, card]
+    concepts: [month, interest, credit, paying, cards]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c0", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c2", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c3", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c7", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c9"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c7"
     char_span: [12295, 14359]
     sentence_count: 13
     key_terms: [interest, pay, balance, smaller, credit, debts, money, get]
+    concepts: [interest, balance, smaller, credit, debts]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c1", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c2", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c3", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c6", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c9"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c8"
     char_span: [14361, 15354]
     sentence_count: 4
     key_terms: [interest, problem, advice, situation, spending, highest, credit, enough]
+    concepts: [interest, problem, advice, situation, spending]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c9"
     char_span: [15356, 17339]
     sentence_count: 21
     key_terms: [cards, interest, highest, credit, debt, payments, biggest, paying]
+    concepts: [interest, cards, highest, credit, payments]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c0", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c2", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c3", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c4", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c5"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c10"
     char_span: [17341, 19246]
     sentence_count: 15
     key_terms: [interest, money, debt, "it's", like, mental, agree, cards]
+    concepts: [interest, money, mental, drastically, inefficient]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c11"
     char_span: [19248, 21140]
     sentence_count: 18
     key_terms: [interest, cards, card, rate, credit, month, rates, pay]
+    concepts: [interest, cards, credit, month, rates]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c0", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c2", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c3", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c6", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c7"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c12"
     char_span: [21142, 21698]
     sentence_count: 4
     key_terms: [purchases, new, interest, balance, steps, ireallyhateoatmeal, paid, subsequently]
+    concepts: [purchases, interest, balance, steps]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c1", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c2", "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c7"]
     section: Comments
     token_count: 131
 ---

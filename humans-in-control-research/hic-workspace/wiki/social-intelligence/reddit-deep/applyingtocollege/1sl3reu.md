@@ -19,29 +19,35 @@ chunks:
     char_span: [0, 2213]
     sentence_count: 25
     key_terms: [genuinely, school, everything, applyingtocollege, get, emory, "i'm", ucsd]
+    concepts: [genuinely, school, everything, applyingtocollege, emory]
     token_count: 486
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1sl3reu/how_do_you_get_over_the_prestige_factor_and/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sl3reu.md#c1"
     char_span: [2227, 4318]
     sentence_count: 25
     key_terms: [emory, better, campus, life-calligrapher156, upset-leader-4725, uga, prestige, school]
+    concepts: [emory, life-calligrapher156, better, campus, upset-leader-4725]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sl3reu.md#c2"
     char_span: [4052, 6082]
     sentence_count: 22
     key_terms: [life-calligrapher156, school, excited, college, attending, american, better, campus]
+    concepts: [life-calligrapher156, school, excited, college, attending]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sl3reu.md#c3"
     char_span: [5841, 6344]
     sentence_count: 5
     key_terms: [admissionsjumpstart, focus, set, engagement, featofclay, reputation, belonging, community]
+    concepts: [focus]
     section: Comments
     token_count: 120
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sl3reu.md#c4"
     char_span: [6348, 7013]
     sentence_count: 6
     key_terms: [life-calligrapher156, opportunities, get, experience, thank, universities, wo-manifest, themselves]
+    concepts: [life-calligrapher156, opportunities, experience, thank]
     section: Comments
     token_count: 164
 ---

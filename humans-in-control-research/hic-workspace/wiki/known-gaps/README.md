@@ -9,6 +9,7 @@ chunks:
     char_span: [0, 1440]
     sentence_count: 6
     key_terms: [engagements, shortfalls, topics, topic, scheduler, shortfall, detected, cross-engagement]
+    concepts: [engagements, shortfalls, topics, cross-engagement, scheduler]
     token_count: 298
 ---
 # Cross-Engagement Knowledge Shortfalls

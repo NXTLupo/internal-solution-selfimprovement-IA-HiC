@@ -20,11 +20,16 @@ chunks:
     char_span: [0, 738]
     sentence_count: 5
     key_terms: [fulfillmentbyamazon, comments, listing, product, reviews, through, health, reddit-deep]
+    concepts: [fulfillmentbyamazon, comments, listing, product, reviews]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1smv5n5.md#c1"]
     token_count: 170
+    sources: [{"n":"reddit-deep: r/fulfillmentbyamazon","u":"https://www.reddit.com/r/FulfillmentByAmazon/comments/1smv5n5/how_do_you_track_reviews_and_listing_health_any/"}]
   - id: "social-intelligence/reddit-deep/fulfillmentbyamazon/1smv5n5.md#c1"
-    char_span: [753, 2375]
+    char_span: [752, 2374]
     sentence_count: 7
     key_terms: [review, fulfillmentbyamazon, discord, fba, like, discuss, listing, reviews]
+    concepts: [review, fulfillmentbyamazon, discord, discuss, listing]
+    related_chunks: ["social-intelligence/reddit-deep/fulfillmentbyamazon/1smv5n5.md#c0"]
     section: Comments
     token_count: 375
 ---

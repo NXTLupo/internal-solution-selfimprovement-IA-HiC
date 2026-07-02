@@ -7,43 +7,51 @@ subreddit: "insurance"
 title: "Insurance agent intentionally fibbing to get their clients more discounts… can clients be held accountable?"
 author: "Fiveby21"
 date: "2025-12-20T08:05:55.000Z"
-score: 19
-upvote_ratio: 0.88
+score: 18
+upvote_ratio: 0.85
 num_comments: 48
 flair: ""
-extracted_at: "2026-06-17T19:26:46.484Z"
+extracted_at: "2026-06-20T17:52:10.523Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
-engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+research_goal: "Deliver a strategic outlook report on the global insurance industry in 2026, analyzing how AI adoption, emerging technology trends, and macroeconomic pressures collectively reshape coverage structures and consumer perception."
+engagement: "deliver-a-strategic-outlook-report-on-the-global-insurance-i"
 chunks:
   - id: "social-intelligence/reddit-deep/insurance/1pr97hj.md#c0"
     char_span: [0, 1669]
     sentence_count: 14
     key_terms: [insurance, garaging, address, intentionally, rates, down, put, comments]
+    concepts: [insurance, garaging, address, intentionally, rates]
     token_count: 367
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1pr97hj/insurance_agent_intentionally_fibbing_to_get/"}]
   - id: "social-intelligence/reddit-deep/insurance/1pr97hj.md#c1"
-    char_span: [1684, 3635]
+    char_span: [1683, 3634]
     sentence_count: 21
     key_terms: [policy, agent, information, insurance, document, optimismbyfire, legal, ask]
+    concepts: [policy, agent, information, insurance, document]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1pr97hj.md#c2", "social-intelligence/reddit-deep/insurance/1pr97hj.md#c3"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/insurance/1pr97hj.md#c2"
-    char_span: [3637, 5555]
+    char_span: [3636, 5554]
     sentence_count: 14
     key_terms: [policy, insurance, cancel, premium, administrative, "don't", replacement, days]
+    concepts: [policy, insurance, cancel, administrative, premium]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1pr97hj.md#c1"]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/insurance/1pr97hj.md#c3"
-    char_span: [5557, 7325]
+    char_span: [5556, 7324]
     sentence_count: 15
     key_terms: [agent, agency, correct, report, information, "it's", tell, insurance]
+    concepts: [agent, agency, correct, report, information]
+    related_chunks: ["social-intelligence/reddit-deep/insurance/1pr97hj.md#c1"]
     section: Comments
     token_count: 393
 ---
 # Insurance agent intentionally fibbing to get their clients more discounts… can clients be held accountable?
 
 Source: [reddit-deep: r/insurance](https://www.reddit.com/r/Insurance/comments/1pr97hj/insurance_agent_intentionally_fibbing_to_get/)
-Posted by **Fiveby21** · **19↑** · **48 comments**
+Posted by **Fiveby21** · **18↑** · **48 comments**
 
 So I recently moved to a city with higher car insurance rates. I contacted a local insurance agent with stellar ratings, spoke with them and got good vibes, and I got quotes where the prices seemed reasonable. Something came up during our conversation though - I wanted to make sure that when they quoted they had put my car down for pleasure use, and the correct mileage (since I don’t commute and don’t drive all too much).
 
@@ -59,11 +67,11 @@ EDIT: Called the corporate line to report it. Putting the correct garaging addre
 
 ## Comments
 
-- **LifeOfFate** (60↑): Absolutely that’s a big issue. 
+- **LifeOfFate** (58↑): Absolutely that’s a big issue. 
 
 Let’s be honest if there is ever a claim and the insurance company is trying to verify the information the insurance agent will just say that is what OP told me, I sold the policy based on the information provided by OP. You are the one that signed a legal document attesting that the information on the application is the truth.
-  - **Fiveby21** (-5↑): Actually she never had me sign a legal document, which I thought was weird.
-    - **gerenukftw** (13↑): You signed the policy.  That is a legal document.
+  - **Fiveby21** (-6↑): Actually she never had me sign a legal document, which I thought was weird.
+    - **gerenukftw** (14↑): You signed the policy.  That is a legal document.
 - **TX-Pete** (28↑): Ohh. Thats no good. The mileage thing is “eh, kinda” they’ll sometimes ask you to verify or fill out an audit form next year.
 
 Garaging address is a big deal. Really big deal. I’d call the carrier directly and find out what the corrected rate is and then make a decision. If their rate is still decent and you stick with it, ask the carrier for a broker of record form so you can use a different agent.
@@ -96,7 +104,7 @@ Call the carriers customer service like to correct all the mistakes and be sure 
 
 Don't buy coverage from that agent even if you can get the errors corrected and report the pattern of facts you experienced to the state DOI.
 - **QuickPea3259** (5↑): Thats wild. I would contact his carrier and tell them exactly what he did. Buddy needs to find a new industry
-- **Sledge313** (5↑): Call the company directly and put the correct garaging address. See how much that changes the rate. 
+- **Sledge313** (3↑): Call the company directly and put the correct garaging address. See how much that changes the rate. 
 
 Then tell them that the agent put the wrong address to get you the lower rate. That should kick off an investigation into the agent and agency. Where you will be contacted by the investigator.
   - **[deleted]** (3↑): I am going to guess the agency is already in hot water. Every company keeps track of loss ratio by agency and if enough business is being materially misrepresented, it will affect the agency's loss ratio.

@@ -21,59 +21,72 @@ chunks:
     char_span: [0, 1374]
     sentence_count: 8
     key_terms: [chatgpt, comments, anymore, model, back, good, use, used]
+    concepts: [chatgpt, comments, anymore, model]
     token_count: 331
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1mnh3nj/well_chatgpt_was_fun_while_it_lasted_time_to_move/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1mnh3nj.md#c1"
     char_span: [1388, 3479]
     sentence_count: 15
     key_terms: [conversational, "that's", like, commenting, subreddit, business, comments, chatgpt]
+    concepts: [conversational, "that's", commenting, subreddit, business]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/chatgpt/1mnh3nj.md#c2"
     char_span: [3481, 5529]
     sentence_count: 10
     key_terms: [people, conversational, don, tool, understand, anything, approach, everyone]
+    concepts: [people, conversational, understand, anything, approach]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1mnh3nj.md#c8"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1mnh3nj.md#c3"
     char_span: [5251, 5630]
     sentence_count: 2
     key_terms: [models, promptasaurusrex, workflows, anywhere, grateful, majority, planning, already]
+    concepts: [models]
     section: Comments
     token_count: 93
   - id: "social-intelligence/reddit-deep/chatgpt/1mnh3nj.md#c4"
     char_span: [5632, 7514]
     sentence_count: 14
     key_terms: [chatgpt, use, claude, like, kindroid, little, botomsdntdeservright, being]
+    concepts: [chatgpt, claude, kindroid, little, being]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1mnh3nj.md#c5"
     char_span: [7255, 8396]
     sentence_count: 9
     key_terms: [response, timeline, special-outcome-3233, suitable-special-414, like, placeholder, subrogation, endearing]
+    concepts: [response, timeline]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/chatgpt/1mnh3nj.md#c6"
     char_span: [8398, 10218]
     sentence_count: 16
     key_terms: [models, copilot, years, available, changed, coding, legacy, fixed]
+    concepts: [models, copilot, years, available, changed]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1mnh3nj.md#c7"
     char_span: [9965, 10410]
     sentence_count: 1
     key_terms: [legacy, models, ok-blackberry-3926, back-and-forth, flip-flopping, creativity, especially, available]
+    concepts: [legacy, models]
     section: Comments
     token_count: 109
   - id: "social-intelligence/reddit-deep/chatgpt/1mnh3nj.md#c8"
     char_span: [10412, 12388]
     sentence_count: 15
     key_terms: [people, information, profitable, "it's", like, happy, understand, attached]
+    concepts: [people, information, profitable, happy, understand]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1mnh3nj.md#c2"]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/chatgpt/1mnh3nj.md#c9"
     char_span: [12390, 13414]
     sentence_count: 5
     key_terms: ["it's", plus, access, models, others, users, less, like]
+    concepts: [access, models, others, users]
     section: Comments
     token_count: 292
 ---

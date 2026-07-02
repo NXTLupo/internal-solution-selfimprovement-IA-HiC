@@ -18,11 +18,16 @@ chunks:
     char_span: [0, 1890]
     sentence_count: 12
     key_terms: [college, honors, latin, matter, gpa, otterlyoddityy, school, laude]
+    concepts: [college, honors, latin, matter, otterlyoddityy]
+    related_chunks: ["articles/reddit-deep-r-college/8e3f4d6fbb.md#c1"]
     token_count: 466
+    sources: [{"n":"Reddit Deep: r/college","u":"https://www.reddit.com/r/college/comments/1ptrei3/are_latin_honors_important/"}]
   - id: "articles/reddit-deep-r-college/8e3f4d6fbb.md#c1"
     char_span: [1892, 3725]
     sentence_count: 24
     key_terms: [laude, cum, school, summa, honors, got, college, program]
+    concepts: [laude, school, summa, honors, college]
+    related_chunks: ["articles/reddit-deep-r-college/8e3f4d6fbb.md#c0"]
     token_count: 440
 ---
 # are latin honors important?

@@ -21,22 +21,28 @@ chunks:
     char_span: [0, 1882]
     sentence_count: 6
     key_terms: [chatgpt, portfolio, ratio, trading, annualized, comments, prompts, results]
+    concepts: [chatgpt, portfolio, ratio, trading, annualized]
     token_count: 513
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1n5ssf6/what_happens_when_chatgpt_runs_a_stock_portfolio/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c1"
     char_span: [1884, 3619]
     sentence_count: 11
     key_terms: [com, chatgpt-micro-cap-experiment, https, research, nathanbsmith729, github, luckyone7777, nathanbsmith]
+    concepts: [chatgpt-micro-cap-experiment, https, nathanbsmith729, research, luckyone7777]
     token_count: 432
+    sources: [{"n":"Contributors are very welcome! I want this to be a community oriented project.","u":""}]
   - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c2"
     char_span: [3633, 4478]
     sentence_count: 6
     key_terms: [please, conversation, image, post, r-chatgpt-1050422060352024636, concerns, chatgpt-shared-links-faq, chatgpt]
+    concepts: [conversation, please, image, concerns, chatgpt]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c3"
     char_span: [4480, 6021]
     sentence_count: 4
     key_terms: [remindme, days, outragedaardvark, apples, performance, benchmark, useful, index]
+    concepts: [remindme, outragedaardvark, apples, performance, benchmark]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c4"
@@ -49,24 +55,30 @@ chunks:
     char_span: [6039, 6580]
     sentence_count: 1
     key_terms: [message, delete, reddit, remindmebot, com, compose, subject, others]
+    concepts: [message, delete, reddit, remindmebot, compose]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c6"]
     section: Comments
     token_count: 196
   - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c6"
     char_span: [6582, 8118]
     sentence_count: 2
     key_terms: [remindme, days, remindmebot, message, reddit, https, com, www]
+    concepts: [remindme, remindmebot, message, reddit, https]
+    related_chunks: ["social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c7"
     char_span: [7846, 9240]
     sentence_count: 5
     key_terms: [tubasarefun, unfettered, correctly, chatgpt, hedgies, access, market, lucky-necessary-8382]
+    concepts: [tubasarefun, unfettered, correctly, chatgpt, hedgies]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c8"
     char_span: [9242, 10879]
     sentence_count: 17
     key_terms: [recommendations, cool, universe, against, managed, whether, bucks, bank]
+    concepts: [recommendations, universe, against, managed, whether]
     section: Comments
     token_count: 407
 ---

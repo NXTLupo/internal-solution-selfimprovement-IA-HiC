@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 734]
     sentence_count: 7
     key_terms: [transfer, student, comments, co-ops, fall, feel, neu, year]
+    concepts: [transfer, student, comments, co-ops]
     token_count: 192
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1slf6xk/transfer_student_need_advice/"}]
 ---
 # Transfer student. Need advice!
 

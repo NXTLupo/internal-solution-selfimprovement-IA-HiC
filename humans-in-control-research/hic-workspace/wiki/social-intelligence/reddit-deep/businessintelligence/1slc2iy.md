@@ -20,23 +20,30 @@ chunks:
     char_span: [0, 2383]
     sentence_count: 29
     key_terms: [clients, dashboards, building, data, want, instead, businessintelligence, dashboard]
+    concepts: [clients, dashboards, building, businessintelligence, instead]
     token_count: 510
+    sources: [{"n":"reddit-deep: r/businessintelligence","u":"https://www.reddit.com/r/BusinessIntelligence/comments/1slc2iy/is_anyone_else_getting_fewer_dashboard_requests/"}]
   - id: "social-intelligence/reddit-deep/businessintelligence/1slc2iy.md#c1"
-    char_span: [2385, 4652]
+    char_span: [2385, 4651]
     sentence_count: 21
     key_terms: [dashboards, analytics, dashboard, feisty-donut-5546, data, insights, tools, using]
+    concepts: [dashboards, analytics, dashboard, feisty-donut-5546, insights]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1slc2iy.md#c2"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/businessintelligence/1slc2iy.md#c2"
-    char_span: [4654, 6765]
+    char_span: [4653, 6764]
     sentence_count: 15
     key_terms: [want, zealousideal-pen7888, dashboards, dashboard, pull, semantic, layer, push]
+    concepts: [zealousideal-pen7888, dashboards, dashboard, semantic, complexity]
+    related_chunks: ["social-intelligence/reddit-deep/businessintelligence/1slc2iy.md#c1"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/businessintelligence/1slc2iy.md#c3"
-    char_span: [6767, 8643]
+    char_span: [6766, 8642]
     sentence_count: 20
     key_terms: [dashboards, delivery, seeing, slack, teams, chat, get, especially]
+    concepts: [dashboards, delivery, seeing, especially, slack]
     section: Comments
     token_count: 462
 ---

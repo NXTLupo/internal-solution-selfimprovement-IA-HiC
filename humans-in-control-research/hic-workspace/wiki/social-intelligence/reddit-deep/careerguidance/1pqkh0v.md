@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 2058]
     sentence_count: 15
     key_terms: [planning, project, experience, health, careerguidance, senior, organisation, pay]
+    concepts: [planning, project, experience, health, careerguidance]
     token_count: 443
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1pqkh0v/my_manger_recruits_people_to_senior_positions/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1pqkh0v.md#c1"
     char_span: [2060, 2478]
     sentence_count: 5
@@ -31,18 +33,21 @@ chunks:
     char_span: [2492, 4602]
     sentence_count: 19
     key_terms: [counter-offer, opportunities, offer, replacement, don, hire, look, take]
+    concepts: [counter-offer, opportunities, replacement, experience, indirectly]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/careerguidance/1pqkh0v.md#c3"
     char_span: [4604, 6284]
     sentence_count: 18
     key_terms: [company, never, justme39908, red, learning, because, sooner, plans]
+    concepts: [company, justme39908, never, learning, because]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/careerguidance/1pqkh0v.md#c4"
     char_span: [6286, 7617]
     sentence_count: 17
     key_terms: [job, start, find, red, applying, another, company, better]
+    concepts: [start, applying, another, company, better]
     section: Comments
     token_count: 322
 ---

@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1216]
     sentence_count: 10
     key_terms: [field, job, jobs, graduated, comments, industry, learning, market]
+    concepts: [field, graduated, comments, industry, learning]
     token_count: 257
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1pvaffe/what_industryprofession_is_not_oversaturated/"}]
   - id: "social-intelligence/reddit-deep/jobs/1pvaffe.md#c1"
     char_span: [1230, 2648]
     sentence_count: 10
     key_terms: [brilliantdishevelled, sailing, career, being, great, days, like, time]
+    concepts: [brilliantdishevelled, sailing, career, being, great]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/jobs/1pvaffe.md#c2"
     char_span: [2650, 4254]
     sentence_count: 15
     key_terms: [education, work, country, teacher, "isn't", generally, teachers, deleted]
+    concepts: [education, country, teacher, "isn't", generally]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/jobs/1pvaffe.md#c3"
     char_span: [4256, 5311]
     sentence_count: 9
     key_terms: [people, "it's", like, pay, insurance, delivery, because, "can't"]
+    concepts: [people, insurance, delivery, because, "can't"]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/jobs/1pvaffe.md#c4"
     char_span: [5313, 6705]
     sentence_count: 7
     key_terms: [jobs, get, insurance, program, office, though, start, sillyapartment7479]
+    concepts: [insurance, program, office, though, start]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/jobs/1pvaffe.md#c5"
     char_span: [6707, 8390]
     sentence_count: 11
     key_terms: [inconsistent, job, teacher, whitesnowball, get, teaching, because, getting]
+    concepts: [inconsistent, whitesnowball, teacher, teaching, because]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/jobs/1pvaffe.md#c6"
     char_span: [8392, 10393]
     sentence_count: 16
     key_terms: [look, companies, like, products, construction, depot, sales, home]
+    concepts: [companies, products, construction, depot, sales]
     section: Comments
     token_count: 483
 ---

@@ -20,16 +20,20 @@ chunks:
     char_span: [0, 2047]
     sentence_count: 3
     key_terms: [human-handled, customerexperience, agent, interaction, compliance, attrition, annually, comments]
+    concepts: [human-handled, customerexperience, interaction, agent, compliance]
     token_count: 479
+    sources: [{"n":"reddit-deep: r/customerexperience","u":"https://www.reddit.com/r/customerexperience/comments/1s4y1bm/went_from_100_humanhandled_to_65_aiautomated_in/"}]
   - id: "social-intelligence/reddit-deep/customerexperience/1s4y1bm.md#c1"
     char_span: [2049, 3099]
     sentence_count: 3
     key_terms: [weeks, time, documentation, multi-country, conservative, multilingual, negotiations, approaching]
+    concepts: [weeks]
     token_count: 204
   - id: "social-intelligence/reddit-deep/customerexperience/1s4y1bm.md#c2"
-    char_span: [3114, 3991]
+    char_span: [3113, 3990]
     sentence_count: 10
     key_terms: [implementation, platform, contact, story, did, powerful-ad4905, transformation, organizations]
+    concepts: [implementation, platform, contact, story]
     section: Comments
     token_count: 200
 ---

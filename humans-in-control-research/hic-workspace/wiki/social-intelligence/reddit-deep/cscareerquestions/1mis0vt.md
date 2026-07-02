@@ -19,47 +19,58 @@ chunks:
     char_span: [0, 1611]
     sentence_count: 9
     key_terms: [cscareerquestions, job, degree, get, role, tech, anything, comments]
+    concepts: [cscareerquestions, degree, anything, comments, software]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c6"]
     token_count: 374
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1mis0vt/if_i_cant_get_a_tech_job_a_year_after_graduating/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c1"
     char_span: [1625, 3649]
     sentence_count: 15
     key_terms: ["it's", answer, slow-bodybuilder-972, degree, people, resume, "that's", did]
+    concepts: [slow-bodybuilder-972, answer, degree, people, resume]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c2"
     char_span: [3651, 5670]
     sentence_count: 12
     key_terms: [market, question, hiring, people, get, job, time, candidate]
+    concepts: [market, question, hiring, people, candidate]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c3"
     char_span: [5674, 7634]
     sentence_count: 12
     key_terms: [interviews, job, tech, getting, blah, role, graduated, "couldn't"]
+    concepts: [interviews, getting, graduated, "couldn't", question]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c4"
     char_span: [7636, 9364]
     sentence_count: 8
     key_terms: [years, tech, sharepoint, paradigms, because, answer, competitive-adagio18, maybe]
+    concepts: [sharepoint, years, paradigms, because, answer]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c5"
     char_span: [9366, 11441]
     sentence_count: 13
     key_terms: [devops, software, coding, roles, commonsearchterm, people, admin, get]
+    concepts: [devops, software, coding, commonsearchterm, roles]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c6"
     char_span: [11443, 13433]
     sentence_count: 12
     key_terms: [projects, cscareerquestions, tech, astral902, mandatory, comments, industry, reddit]
+    concepts: [projects, cscareerquestions, astral902, mandatory, comments]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c0"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c7"
     char_span: [13210, 13491]
     sentence_count: 3
     key_terms: [share, cscareerquestions, commenter, subreddit, comments, learning, provided, valuable]
+    concepts: [share]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c8"
@@ -72,18 +83,21 @@ chunks:
     char_span: [13760, 15725]
     sentence_count: 8
     key_terms: [applying, day, projects, resume, tailor, trying, least, rjballer36o]
+    concepts: [applying, projects, resume, tailor, trying]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c10"
     char_span: [15727, 17468]
     sentence_count: 17
     key_terms: [job, junior, "you're", applications, cover, "won't", jobs, need]
+    concepts: [applications, junior, "you're", cover, experience]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c11"
     char_span: [17470, 19267]
     sentence_count: 17
     key_terms: [job, getting, degree, get, here, year, friend, worked]
+    concepts: [getting, degree, friend, worked, rusty]
     section: Comments
     token_count: 412
 ---

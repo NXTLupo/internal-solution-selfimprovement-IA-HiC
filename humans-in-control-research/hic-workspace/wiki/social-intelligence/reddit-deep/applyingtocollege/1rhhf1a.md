@@ -19,34 +19,43 @@ chunks:
     char_span: [0, 1860]
     sentence_count: 11
     key_terms: [university, engineering, admissions, "don't", aerospace, applyingtocollege, colleges, college]
+    concepts: [university, engineering, admissions, applyingtocollege, aerospace]
     token_count: 443
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1rhhf1a/how_good_this_school_is_for_your_field_is_a_more/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md#c1"
     char_span: [1862, 3453]
     sentence_count: 13
     key_terms: [college, school, becoming, degree, get, "it's", exiting, having]
+    concepts: [college, school, becoming, degree, exiting]
     token_count: 344
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md#c2"
     char_span: [3467, 5140]
     sentence_count: 12
     key_terms: [school, reasonably, good, uiuc, majors, field, want, dartmouth]
+    concepts: [school, reasonably, majors, field, dartmouth]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md#c3"
     char_span: [5142, 6051]
     sentence_count: 2
     key_terms: [https, cojobrien, research, status, college-labor-market, photo, outcomes-by-major, com]
+    concepts: [https, cojobrien, research, college-labor-market, outcomes-by-major]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md#c4"
     char_span: [6053, 8002]
     sentence_count: 14
     key_terms: [music, arts, "i'm", ivy, marathonmarathon, schools, school, major]
+    concepts: [music, marathonmarathon, schools, school, major]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md#c5"]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md#c5"
     char_span: [8004, 9703]
     sentence_count: 14
     key_terms: [school, students, schools, supplementals, something, supposed, clarity, college]
+    concepts: [school, students, supplementals, schools, something]
+    related_chunks: ["social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md#c4"]
     section: Comments
     token_count: 369
 ---

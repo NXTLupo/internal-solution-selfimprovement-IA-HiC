@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 1230]
     sentence_count: 18
     key_terms: [something, find, based, jobs, text, workonline, anything, comments]
+    concepts: [something, based, workonline, anything, comments]
     token_count: 301
+    sources: [{"n":"reddit-deep: r/workonline","u":"https://www.reddit.com/r/WorkOnline/comments/1mzgteo/text_based_jobs/"}]
   - id: "social-intelligence/reddit-deep/workonline/1mzgteo.md#c1"
     char_span: [1244, 3195]
     sentence_count: 13
     key_terms: [experience, temporary-party-8009, job, jobs, customers, recommend, messages, training]
+    concepts: [experience, temporary-party-8009, customers, recommend, messages]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/workonline/1mzgteo.md#c2"
     char_span: [3197, 5244]
     sentence_count: 14
     key_terms: [work, coding, claims, "i've", job, jobs, want, experience]
+    concepts: [coding, claims, experience, something, customer]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/workonline/1mzgteo.md#c3"
     char_span: [4988, 5649]
     sentence_count: 5
     key_terms: [number, since, paypal, "i've", life, sec, soc, registered]
+    concepts: [number, since, paypal]
     section: Comments
     token_count: 159
   - id: "social-intelligence/reddit-deep/workonline/1mzgteo.md#c4"
     char_span: [5651, 7580]
     sentence_count: 16
     key_terms: [get, because, social, going, job, like, difficult, escribers]
+    concepts: [because, social, going, difficult, escribers]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/workonline/1mzgteo.md#c5"
     char_span: [7582, 8465]
     sentence_count: 14
     key_terms: [find, editing, videos, "don't", video, jobs, copywriting, interesting]
+    concepts: [editing, videos, "don't", video]
     section: Comments
     token_count: 224
 ---

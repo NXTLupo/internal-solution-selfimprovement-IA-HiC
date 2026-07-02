@@ -21,23 +21,30 @@ chunks:
     char_span: [0, 1240]
     sentence_count: 4
     key_terms: [affective, cognitive, consciousness, architecture, deeplearning, state, real, comments]
+    concepts: [affective, cognitive, consciousness, architecture, deeplearning]
     token_count: 261
+    sources: [{"n":"reddit-deep: r/deeplearning","u":"https://www.reddit.com/r/deeplearning/comments/1sez7d0/i_built_a_functional_cognitive_engine_sovereign/"}]
   - id: "social-intelligence/reddit-deep/deeplearning/1sez7d0.md#c1"
     char_span: [1254, 3757]
     sentence_count: 11
     key_terms: [probabilistic, universe, hypothesis, recursive, pocket, simulation, epistemic, simulated]
+    concepts: [probabilistic, universe, hypothesis, recursive, simulation]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1sez7d0.md#c2"]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/deeplearning/1sez7d0.md#c2"
     char_span: [3759, 5462]
     sentence_count: 12
     key_terms: [universe, probabilistic, within, indistinguishability, epistemic, indistinguishable, via, define]
+    concepts: [probabilistic, universe, indistinguishability, indistinguishable, within]
+    related_chunks: ["social-intelligence/reddit-deep/deeplearning/1sez7d0.md#c1"]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/deeplearning/1sez7d0.md#c3"
     char_span: [5464, 7069]
     sentence_count: 17
     key_terms: ["it's", state, inference, prompting, substrate, actively, bryany97, certain]
+    concepts: [state, inference, prompting, substrate, actively]
     section: Comments
     token_count: 365
 ---

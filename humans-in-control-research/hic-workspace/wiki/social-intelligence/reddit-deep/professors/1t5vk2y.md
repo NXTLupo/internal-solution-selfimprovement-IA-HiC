@@ -21,29 +21,39 @@ chunks:
     char_span: [0, 1259]
     sentence_count: 17
     key_terms: [student, finance, did, post, professors, recommend, comments, somebody]
+    concepts: [student, finance, professors, recommend, comments]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1t5vk2y.md#c9"]
     token_count: 283
+    sources: [{"n":"reddit-deep: r/professors","u":"https://www.reddit.com/r/Professors/comments/1t5vk2y/student_badmouths_me_on_rmp_and_evals_shocked/"}]
   - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c1"
     char_span: [1273, 3233]
     sentence_count: 12
     key_terms: [students, letter, recommendation, ask, program, asking, person, skills]
+    concepts: [students, letter, recommendation, program, asking]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1t5vk2y.md#c2"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c2"
     char_span: [3235, 5573]
     sentence_count: 17
     key_terms: [recommendation, course, student, letter, letters, confidential, class, did]
+    concepts: [recommendation, course, student, letter, letters]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1t5vk2y.md#c1"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c3"
     char_span: [5575, 6484]
     sentence_count: 10
     key_terms: [reviews, students, negative, usually, better, letter, profdoesntsleepenuff, left]
+    concepts: [reviews, students, negative, usually, better]
     section: Comments
     token_count: 214
   - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c4"
     char_span: [6486, 8481]
     sentence_count: 19
     key_terms: [student, left, professor, address, reviews, similar, profdoesntsleepenuff, public-minimum1650]
+    concepts: [student, professor, address, reviews, similar]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1t5vk2y.md#c6"]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c5"
@@ -56,24 +66,30 @@ chunks:
     char_span: [9133, 11112]
     sentence_count: 12
     key_terms: [colleague, professor, seriously, reviews, student, review, wonder, fresh-requirement862]
+    concepts: [colleague, professor, seriously, reviews, student]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1t5vk2y.md#c4"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c7"
     char_span: [10903, 12256]
     sentence_count: 8
     key_terms: [grade, orangecatisback, student, people, class, students, because, posted]
+    concepts: [grade, orangecatisback, student, people, class]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c8"
     char_span: [12261, 13036]
     sentence_count: 10
     key_terms: [rule, finance, corporations, business, people, "don't", liabilities, obsessively]
+    concepts: [finance, corporations, business, people, "don't"]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c9"
     char_span: [13040, 14483]
     sentence_count: 12
     key_terms: [liabilities, fair-garlic8240, finance, notlikeotherai, good, rmp, student, assets]
+    concepts: [liabilities, fair-garlic8240, notlikeotherai, finance, student]
+    related_chunks: ["social-intelligence/reddit-deep/professors/1t5vk2y.md#c0"]
     section: Comments
     token_count: 397
 ---

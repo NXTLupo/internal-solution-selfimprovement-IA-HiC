@@ -21,22 +21,27 @@ chunks:
     char_span: [0, 1955]
     sentence_count: 15
     key_terms: [tools, gpt-5, personality, mentioned, comments, either, openai, never]
+    concepts: [tools, gpt-5, personality, mentioned, comments]
     token_count: 457
+    sources: [{"n":"reddit-deep: r/openai","u":"https://www.reddit.com/r/OpenAI/comments/1mnuys2/weird_experiences_with_the_gpt5_api/"}]
   - id: "social-intelligence/reddit-deep/openai/1mnuys2.md#c1"
     char_span: [1957, 2669]
     sentence_count: 6
     key_terms: [thinking, higher, models, keeps, good, keep, curveballs, surprising]
+    concepts: [thinking, higher, models, keeps]
     token_count: 162
   - id: "social-intelligence/reddit-deep/openai/1mnuys2.md#c2"
     char_span: [2683, 4590]
     sentence_count: 20
     key_terms: [use, model, work, models, agent, tools, good, nstevnc77]
+    concepts: [model, models, agent, tools, nstevnc77]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/openai/1mnuys2.md#c3"
     char_span: [4592, 4933]
     sentence_count: 4
     key_terms: [system, prompt, lot, possible-ad-6765, documentation, suggestions, correctly, following]
+    concepts: [system, prompt]
     section: Comments
     token_count: 75
 ---

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 1851]
     sentence_count: 10
     key_terms: [experience, https, why-stride-stock-plummeting-today-153731196, com, undervalued, lrn, according, investing]
+    concepts: [experience, https, undervalued, according, investing]
     token_count: 457
+    sources: [{"n":"reddit-deep: r/investing","u":"https://www.reddit.com/r/investing/comments/1ojyk7t/is_lrn_undervalued_right_now_and_why_i_think_it/"}]
   - id: "social-intelligence/reddit-deep/investing/1ojyk7t.md#c1"
-    char_span: [1855, 3015]
+    char_span: [1855, 3014]
     sentence_count: 8
     key_terms: [correction, enrollment, software, lower, seems, buy, like, implementation]
+    concepts: [correction, enrollment, software, lower, seems]
     token_count: 257
 ---
 # Is $LRN undervalued right now? and why I think it is. open for discussion

@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 500]
     sentence_count: 1
     key_terms: [college, applyingtocollege, prep, comments, programs, scholars, fancy-effective9724, matchlighters]
+    concepts: [college, applyingtocollege, comments, programs, scholars]
     token_count: 127
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1tlru65/college_prep_programs/"}]
 ---
 # college prep programs
 

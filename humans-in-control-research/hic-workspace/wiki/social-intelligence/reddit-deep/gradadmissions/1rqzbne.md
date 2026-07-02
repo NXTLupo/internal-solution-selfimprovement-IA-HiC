@@ -21,23 +21,31 @@ chunks:
     char_span: [0, 638]
     sentence_count: 4
     key_terms: [gradadmissions, comments, posted, reddit, unlucky-drink-9277, phd, undergraduate, appreciated]
+    concepts: [gradadmissions, comments, posted, reddit]
     token_count: 159
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1rqzbne/accepted_to_harvard_for_phd/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1rqzbne.md#c1"
     char_span: [652, 2280]
     sentence_count: 13
     key_terms: [undergrad, gpa, unlucky-drink-9277, congratulations, harvard, process, publications, admissions]
+    concepts: [undergrad, unlucky-drink-9277, congratulations, harvard, process]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rqzbne.md#c2", "social-intelligence/reddit-deep/gradadmissions/1rqzbne.md#c3"]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/gradadmissions/1rqzbne.md#c2"
     char_span: [2282, 4235]
     sentence_count: 17
     key_terms: [unlucky-drink-9277, school, good, like, congrats, congratulations, hope, low]
+    concepts: [unlucky-drink-9277, school, congratulations, congrats, everyone]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rqzbne.md#c1", "social-intelligence/reddit-deep/gradadmissions/1rqzbne.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rqzbne.md#c3"
     char_span: [4039, 5105]
     sentence_count: 12
     key_terms: [congratulations, unlucky-drink-9277, experience, interested, harvard, program, school, argumentmysterious31]
+    concepts: [congratulations, unlucky-drink-9277, experience, interested, harvard]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1rqzbne.md#c1", "social-intelligence/reddit-deep/gradadmissions/1rqzbne.md#c2"]
     section: Comments
     token_count: 277
 ---

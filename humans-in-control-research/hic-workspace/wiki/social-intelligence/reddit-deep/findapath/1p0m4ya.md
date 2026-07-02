@@ -21,53 +21,63 @@ chunks:
     char_span: [0, 1411]
     sentence_count: 11
     key_terms: [interesting, love, everything, findapath, something, comments, physical, years]
+    concepts: [interesting, everything, findapath, something, comments]
     token_count: 351
+    sources: [{"n":"reddit-deep: r/findapath","u":"https://www.reddit.com/r/findapath/comments/1p0m4ya/32_and_want_to_do_something_that_wont_destroy_my/"}]
   - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c1"
     char_span: [1425, 3663]
     sentence_count: 14
     key_terms: [thank, helpful, sales, comments, everyone, please, hospitality, don]
+    concepts: [thank, helpful, sales, comments, everyone]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c2"
     char_span: [3665, 4433]
     sentence_count: 4
     key_terms: [flight, pay, hours, hour, like, paid, international, blazinazn38]
+    concepts: [flight, hours]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c3"
     char_span: [4435, 6241]
     sentence_count: 9
     key_terms: [ok-experience5315, door, like, sales, don, people, job, successful]
+    concepts: [ok-experience5315, sales, people, successful, understand]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c4"
     char_span: [6243, 7407]
     sentence_count: 1
     key_terms: [corporate, customers, actual, person, case, life, bureaucracy, meaningless]
+    concepts: [corporate, customers, actual, person]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c5"
     char_span: [7409, 9349]
     sentence_count: 19
     key_terms: [corporate, bartender, sales, look, associated, bartending, something, premise]
+    concepts: [corporate, bartender, associated, bartending, sales]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c6"
     char_span: [9351, 11464]
     sentence_count: 26
     key_terms: [law, school, iamthebakersdaughter, generally, get, lawyer, being, enjoy]
+    concepts: [school, iamthebakersdaughter, generally, lawyer, being]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c7"
     char_span: [11466, 13531]
     sentence_count: 16
     key_terms: [jobs, happens, happyasmrgamer, lawyer, people, public, school, being]
+    concepts: [happyasmrgamer, happens, lawyer, people, public]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c8"
     char_span: [13288, 15193]
     sentence_count: 11
     key_terms: [being, job, bartending, everyone, anymore, "aren't", proper, reason]
+    concepts: [bartending, being, everyone, anymore, "aren't"]
     section: Comments
     token_count: 453
 ---

@@ -19,59 +19,76 @@ chunks:
     char_span: [0, 1473]
     sentence_count: 13
     key_terms: [nyc, seattle, understand, being, cscareerquestions, career, opportunity, comments]
+    concepts: [seattle, understand, cscareerquestions, being, career]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ouo8jc.md#c8"]
     token_count: 340
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1ouo8jc/does_being_in_sf_really_give_you_an_advantage/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ouo8jc.md#c1"
     char_span: [1487, 3558]
     sentence_count: 12
     key_terms: [engineers, experience, companies, coworkers, resources, climbing, dogpatch, personal]
+    concepts: [engineers, experience, companies, coworkers, resources]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ouo8jc.md#c2"]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ouo8jc.md#c2"
     char_span: [3560, 5104]
     sentence_count: 4
     key_terms: [nyc, col, companies, engineers, seattle, insane, redact, high]
+    concepts: [companies, engineers, seattle, insane, redact]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ouo8jc.md#c1"]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ouo8jc.md#c3"
     char_span: [5106, 7047]
     sentence_count: 14
     key_terms: [tech, people, great, competitors, deal, nyc, work, everywhere]
+    concepts: [people, competitors, everywhere, great, probably]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ouo8jc.md#c4"
     char_span: [7049, 8521]
     sentence_count: 1
     key_terms: [people, seattle, place, nyc, because, reddit, lived, years]
+    concepts: [people, seattle, place, because, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ouo8jc.md#c5"]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ouo8jc.md#c5"
     char_span: [8523, 10281]
     sentence_count: 11
     key_terms: [people, nyc, seattle, weather, city, here, straight, terrible]
+    concepts: [people, seattle, weather, straight, terrible]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ouo8jc.md#c4"]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ouo8jc.md#c6"
     char_span: [10283, 12044]
     sentence_count: 14
     key_terms: [work, nyc, finance, fun, want, oriented, culture, nothing]
+    concepts: [finance, oriented, culture, nothing, boring]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ouo8jc.md#c7"
     char_span: [12046, 13872]
     sentence_count: 19
     key_terms: [nyc, work, tech, boring, people, longjumping-speed511, coast, leave]
+    concepts: [boring, people, coast, leave]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ouo8jc.md#c8"
     char_span: [13874, 15157]
     sentence_count: 14
     key_terms: [boring, seattle, advertising, career, south, bay, bus, fun]
+    concepts: [boring, seattle, advertising, career, south]
+    related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1ouo8jc.md#c0"]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ouo8jc.md#c9"
     char_span: [15159, 16661]
     sentence_count: 9
     key_terms: [nyc, opportunities, fun, team, probably, seattle, visited, better]
+    concepts: [opportunities, probably, seattle, visited, better]
     section: Comments
     token_count: 374
 ---

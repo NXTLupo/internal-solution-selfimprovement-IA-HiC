@@ -21,53 +21,67 @@ chunks:
     char_span: [0, 1585]
     sentence_count: 9
     key_terms: [software, careerguidance, development, job, comments, computer, problems, because]
+    concepts: [software, careerguidance, development, comments, computer]
     token_count: 350
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1s4gyka/is_anyone_else_just_getting_tired_of_sitting_in/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c1"
     char_span: [1599, 3699]
     sentence_count: 19
     key_terms: [dad, job, jobs, everything, community, computer, whatever, yourself]
+    concepts: [everything, community, computer, whatever, yourself]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c2"
     char_span: [3432, 4825]
     sentence_count: 10
     key_terms: [back, get, anymore, weather, around, degree, years, no-restaurant-7510]
+    concepts: [anymore, weather, around, degree, years]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c3"
     char_span: [4830, 6889]
     sentence_count: 18
     key_terms: [job, hours, day, role, sabbatical, computer, problems, screens]
+    concepts: [hours, sabbatical, computer, problems, screens]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c4"
     char_span: [6891, 8894]
     sentence_count: 17
     key_terms: [something, jobs, software, doing, been, different, living, thread]
+    concepts: [something, software, doing, different, living]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c7", "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c8"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c5"
     char_span: [8896, 10716]
     sentence_count: 19
     key_terms: [work, stacksmasher, something, money, job, nothing, significant-chest-28, wrong]
+    concepts: [stacksmasher, something, money, nothing, wrong]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c7"]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c6"
     char_span: [10718, 12910]
     sentence_count: 15
     key_terms: [surrogate, activities, activity, because, other-directed, people, clear-sighted, goal]
+    concepts: [surrogate, activities, activity, other-directed, clear-sighted]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c7"
     char_span: [12912, 14967]
     sentence_count: 24
     key_terms: [job, life, people, money, something, software, reflect, "they're"]
+    concepts: [people, money, something, software, reflect]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c4", "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c5"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c8"
     char_span: [14970, 15988]
     sentence_count: 10
     key_terms: [software, doing, right, work, bluebaggins1, lycheenights, mpboomboom22, shareholders]
+    concepts: [software, doing, right]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c4"]
     section: Comments
     token_count: 247
 ---

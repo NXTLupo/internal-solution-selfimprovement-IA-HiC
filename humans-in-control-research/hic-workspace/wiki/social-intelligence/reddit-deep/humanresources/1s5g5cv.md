@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1567]
     sentence_count: 9
     key_terms: [humanresources, comments, anyone, trying, going, using, leveldisastrous945, been]
+    concepts: [humanresources, comments, anyone, trying, going]
     token_count: 354
+    sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1s5g5cv/anyone_else_seen_that_linkedin_post_ripping_apart/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1s5g5cv.md#c1"
     char_span: [1581, 2963]
     sentence_count: 9
     key_terms: [leveldisastrous945, deel, find, companies, countries, employer, called, former]
+    concepts: [leveldisastrous945, companies, countries, employer, called]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/humanresources/1s5g5cv.md#c2"
     char_span: [2965, 4744]
     sentence_count: 11
     key_terms: ["don't", deel, year, experience, another, counsel, always, issues]
+    concepts: ["don't", experience, another, counsel, always]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/humanresources/1s5g5cv.md#c3"
     char_span: [4746, 5513]
     sentence_count: 4
     key_terms: [remote, contractors, workmotion, deel, own, pay, adactylousalien, responsibility]
+    concepts: [remote, contractors, workmotion]
     section: Comments
     token_count: 164
 ---

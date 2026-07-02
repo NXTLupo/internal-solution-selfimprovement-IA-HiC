@@ -20,35 +20,42 @@ chunks:
     char_span: [0, 1933]
     sentence_count: 18
     key_terms: [executive, previous, plan, been, director, relationships, establishing, board]
+    concepts: [executive, previous, director, relationships, establishing]
     token_count: 399
+    sources: [{"n":"reddit-deep: r/nonprofit","u":"https://www.reddit.com/r/nonprofit/comments/1tl9onq/incoming_executive_director/"}]
   - id: "social-intelligence/reddit-deep/nonprofit/1tl9onq.md#c1"
-    char_span: [1948, 4018]
+    char_span: [1947, 4017]
     sentence_count: 22
     key_terms: [time, outgoing, organizations, relationships, organization, fundraising, lesbianbog, forward]
+    concepts: [outgoing, organizations, relationships, organization, fundraising]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/nonprofit/1tl9onq.md#c2"
-    char_span: [4020, 6121]
+    char_span: [4019, 6120]
     sentence_count: 20
     key_terms: [like, imposter, organization, important, something, surprise, syndrome, feeling]
+    concepts: [imposter, organization, important, something, surprise]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/nonprofit/1tl9onq.md#c3"
-    char_span: [6123, 8381]
+    char_span: [6122, 8380]
     sentence_count: 19
     key_terms: [board, significantly, lot, work, everything, decisions, advice, issues]
+    concepts: [board, significantly, everything, decisions, advice]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/nonprofit/1tl9onq.md#c4"
-    char_span: [8383, 10647]
+    char_span: [8382, 10646]
     sentence_count: 20
     key_terms: [relationships, days, onboarding, listening, recommend, dynamics, existing, yourself]
+    concepts: [relationships, onboarding, listening, recommend, dynamics]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/nonprofit/1tl9onq.md#c5"
-    char_span: [10649, 12048]
+    char_span: [10648, 12047]
     sentence_count: 14
     key_terms: [coaches, leaders, listen, professional, etc, change, board, "don't"]
+    concepts: [coaches, leaders, professional, listen, change]
     section: Comments
     token_count: 303
 ---

@@ -21,71 +21,92 @@ chunks:
     char_span: [0, 1819]
     sentence_count: 14
     key_terms: [college, kind, povertyfinance, people, school, scholarships, costs, job]
+    concepts: [college, povertyfinance, scholarships, people, school]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c1", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c6"]
     token_count: 413
+    sources: [{"n":"reddit-deep: r/povertyfinance","u":"https://www.reddit.com/r/povertyfinance/comments/1pi9i2k/affording_college_is_kind_of_crazy_right_now/"}]
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c1"
     char_span: [1833, 2759]
     sentence_count: 3
     key_terms: ["that's", get, "it's", community, college, transit, people, school]
+    concepts: ["that's", community, college, transit, people]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c0", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c2", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c4", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c5", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c10"]
     section: Comments
     token_count: 232
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c2"
     char_span: [2761, 4899]
     sentence_count: 19
     key_terms: [colleges, college, community, expensive, generations, free, like, amherst]
+    concepts: [colleges, college, community, expensive, generations]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c1", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c4", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c5", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c10"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c3"
     char_span: [4901, 6421]
     sentence_count: 7
     key_terms: [college, experience, cities, sports, opportunities, years, expensive, students]
+    concepts: [college, experience, opportunities, cities, sports]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c4"]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c4"
     char_span: [6423, 7415]
     sentence_count: 6
     key_terms: [college, community, education, experience, student, degree, lordofthereef, multi-million]
+    concepts: [college, community, education, experience, student]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c1", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c2", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c3", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c5", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c10"]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c5"
     char_span: [7417, 9212]
     sentence_count: 7
     key_terms: [college, year, community, classes, parent, loans, get, government]
+    concepts: [college, community, classes, parent, government]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c1", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c2", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c4", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c10"]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c6"
     char_span: [9214, 10595]
     sentence_count: 13
     key_terms: [don, scholarships, take, want, properly, college, degree, grants]
+    concepts: [scholarships, properly, college, degree, grants]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c0", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c10"]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c7"
     char_span: [10597, 11849]
     sentence_count: 11
     key_terms: [force, air, pay, decade, school, trying, money, years]
+    concepts: [force, decade, school, trying, money]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c8"
     char_span: [11851, 13924]
     sentence_count: 13
     key_terms: [because, people, years, absolutely, consider, military, benefit, medical]
+    concepts: [because, people, absolutely, years, consider]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c9"
     char_span: [13926, 15679]
     sentence_count: 16
     key_terms: [job, experiences, people, got, kaiservonrisk, great, time, definitely]
+    concepts: [experiences, people, kaiservonrisk, definitely, great]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c10"
     char_span: [15681, 17662]
     sentence_count: 18
     key_terms: [college, community, degree, get, help, classes, appointment, aid]
+    concepts: [college, community, degree, classes, appointment]
+    related_chunks: ["social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c1", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c2", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c4", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c5", "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c6"]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c11"
     char_span: [17664, 19413]
     sentence_count: 13
     key_terms: [based, merit, school, need, income, experience, year, scholarships]
+    concepts: [based, merit, school, experience, income]
     section: Comments
     token_count: 390
 ---

@@ -21,47 +21,60 @@ chunks:
     char_span: [0, 1521]
     sentence_count: 14
     key_terms: [people, research, gradadmissions, institutions, grad, list, name-brand, important]
+    concepts: [people, research, gradadmissions, institutions, name-brand]
     token_count: 349
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1pjrxst/reasons_for_so_many_ivyonly_lists/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c1"
     char_span: [1535, 3127]
     sentence_count: 8
     key_terms: [applying, students, international, kanoncyn, because, programmes, university, european]
+    concepts: [international, applying, students, kanoncyn, because]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c5"]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c2"
     char_span: [3129, 5062]
     sentence_count: 8
     key_terms: [fantasticmrsfields, schools, applying, unlikely-sleep-7717, livable, people, fee, somewhere]
+    concepts: [fantasticmrsfields, schools, applying, unlikely-sleep-7717, livable]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c3"
     char_span: [5064, 7225]
     sentence_count: 15
     key_terms: [better, ivy, schools, top, university, generally, important, academia]
+    concepts: [better, schools, university, generally, important]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c5", "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c6"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c4"
     char_span: [7227, 9073]
     sentence_count: 9
     key_terms: [school, state, elite, low-tier, students, statistically, universities, ended]
+    concepts: [school, state, elite, low-tier, students]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c5"
     char_span: [9075, 10714]
     sentence_count: 6
     key_terms: [better, ivy, outcomes, students, because, schools, people, researchers]
+    concepts: [better, outcomes, students, because, schools]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c1", "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c3"]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c6"
     char_span: [10716, 11835]
     sentence_count: 6
     key_terms: [top, professors, university, professor, academic, schools, student, people]
+    concepts: [professors, university, professor, academic, schools]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c3"]
     section: Comments
     token_count: 234
   - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c7"
     char_span: [11838, 13162]
     sentence_count: 4
     key_terms: [top, because, institutions, ivies, prestige, college, country, support]
+    concepts: [because, institutions, ivies, prestige, college]
     section: Comments
     token_count: 312
 ---

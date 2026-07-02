@@ -2,7 +2,7 @@ import { describe, it, expect, afterEach } from 'vitest';
 import { routeSlot, setDesignerBranchEnabled, isDesignerBranchEnabled } from './visualRouter';
 import { parseImgDirective } from './hashtagParser';
 
-afterEach(() => setDesignerBranchEnabled(undefined)); // reset the section-8 gate between tests
+afterEach(() => setDesignerBranchEnabled(undefined)); // deprecated no-op; kept for import compat
 
 describe('parseImgDirective (#img override)', () => {
     it('parses #img=diagram | generate | none', () => {
@@ -30,38 +30,36 @@ describe('routeSlot - explicit #img override wins', () => {
     it('#img=none suppresses', () => {
         expect(routeSlot({ artifact: 'journey-map', override: 'none', slotWired: true, hasAuthoredData: true }).branch).toBe('none');
     });
-    it('#img=diagram forces the deterministic viz even on an emotive surface', () => {
+    it('#img=diagram forces the deterministic viz even on an infographic surface', () => {
         expect(routeSlot({ artifact: 'journey-map', override: 'diagram', slotWired: true }).branch).toBe('diagram');
     });
     it('#img=icon forces a tokenized glyph', () => {
         expect(routeSlot({ artifact: 'slides:cover', override: 'icon' }).branch).toBe('icon');
     });
-    it('#img=generate forces the designer skill even when the gate is off', () => {
-        expect(isDesignerBranchEnabled()).toBe(false);
-        expect(routeSlot({ artifact: 'competitive-matrix', override: 'generate', mode: 'per-element' }).branch).toBe('emotive');
+    it('#img=generate forces the native infographic lane (E4: diffusion branch retired)', () => {
+        expect(routeSlot({ artifact: 'competitive-matrix', override: 'generate', mode: 'per-element' }).branch).toBe('infographic');
     });
 });
 
 describe('routeSlot - GOLD audit branch is authoritative on auto', () => {
     it('registry image-free / unknown -> none', () => {
-        // 2026-06-28 USER OVERRIDE moved case-study off the image-free set (it now carries a wired
-        // per-case emotive panel). gap-matrix remains a registered image-free deliverable.
+        // gap-matrix remains a registered image-free deliverable.
         expect(routeSlot({ artifact: 'gap-matrix' }).branch).toBe('none');
         expect(routeSlot({ artifact: 'unknown-thing' }).branch).toBe('none');
     });
-    it('2026-06-28 USER OVERRIDE: case-study + recommendation carry wired per-item emotive panels -> emotive', () => {
-        // The runtime caller (resolveRoutedSlotImages) passes slotWired from the registry spec
-        // (wired:true), so these route to the designer/emotive branch even with the section-8 gate off.
-        expect(routeSlot({ artifact: 'case-study', slotWired: true }).branch).toBe('emotive');
-        expect(routeSlot({ artifact: 'recommendation', slotWired: true }).branch).toBe('emotive');
+    it('case-study + recommendation per-item content panels route native -> infographic (E4)', () => {
+        // The runtime caller (resolveRoutedSlotImages) passes slotWired from the registry spec.
+        // Post-E4 the legacy 'emotive' audit value and 'infographic' both resolve to the native
+        // infographic lane, UNGATED (deterministic Chromium render, no diffusion risk).
+        expect(routeSlot({ artifact: 'case-study', slotWired: true }).branch).toBe('infographic');
+        expect(routeSlot({ artifact: 'recommendation', slotWired: true }).branch).toBe('infographic');
     });
-    it('audit ICON branches route to icon (deterministic, NOT gated)', () => {
-        expect(isDesignerBranchEnabled()).toBe(false);
+    it('audit ICON branches route to icon (deterministic)', () => {
         expect(routeSlot({ artifact: 'competitive-matrix' }).branch).toBe('icon');
         expect(routeSlot({ artifact: 'strategy' }).branch).toBe('icon');
         expect(routeSlot({ artifact: 'prd-feature' }).branch).toBe('icon');
         expect(routeSlot({ artifact: 'personas-overview' }).branch).toBe('icon');
-        // 2026-06-27 container audit: journey per-phase is 150x150 square -> ICON (not emotive)
+        // 2026-06-27 container audit: journey per-phase is 150x150 square -> ICON (not infographic)
         expect(routeSlot({ artifact: 'journey-map', slotWired: true }).branch).toBe('icon');
     });
     it('audit CHART branches route to diagram', () => {
@@ -72,20 +70,17 @@ describe('routeSlot - GOLD audit branch is authoritative on auto', () => {
         expect(routeSlot({ artifact: 'meta-themes' }).branch).toBe('icon');
         expect(routeSlot({ artifact: 'mindmap' }).branch).toBe('icon');
     });
-    it('emotive audit branch on a WIRED surface satisfies the section-8 gate', () => {
-        expect(routeSlot({ mode: 'panel', branch: 'emotive', slotWired: true }).branch).toBe('emotive');
-        // 2026-06-27 USER OVERRIDE: themes carries per-theme content-true emotive thumbnails (wired).
-        expect(routeSlot({ artifact: 'theme-cluster', slotWired: true }).branch).toBe('emotive');
+    it('legacy emotive audit value routes to the native infographic lane, ungated (E4)', () => {
+        expect(routeSlot({ mode: 'panel', branch: 'emotive', slotWired: true }).branch).toBe('infographic');
+        // 2026-06-27 USER OVERRIDE: themes carries per-theme content-true thumbnails (wired).
+        expect(routeSlot({ artifact: 'theme-cluster', slotWired: true }).branch).toBe('infographic');
     });
-    it('audit EMOTIVE branch on an UNWIRED surface is gated OFF by default (section 8)', () => {
-        expect(routeSlot({ artifact: 'slides:cover', slotWired: false }).branch).toBe('none');
+    it('infographic audit value routes native regardless of wiring or gate args (section-8 gate retired)', () => {
+        expect(routeSlot({ mode: 'panel', branch: 'infographic', slotWired: false }).branch).toBe('infographic');
+        expect(routeSlot({ mode: 'panel', branch: 'infographic', slotWired: false, designerEnabled: false }).branch).toBe('infographic');
     });
-    it('UNWIRED emotive surface turns on once the designer branch is enabled', () => {
-        setDesignerBranchEnabled(true);
-        expect(routeSlot({ artifact: 'slides:cover', slotWired: false }).branch).toBe('emotive');
-    });
-    it('explicit designerEnabled arg overrides the global gate', () => {
-        expect(routeSlot({ artifact: 'recommendation', slotWired: false, designerEnabled: true }).branch).toBe('emotive');
+    it('decorative slides:* surfaces are registered image-free until the E3 CD pass (interim)', () => {
+        expect(routeSlot({ artifact: 'slides:cover' }).branch).toBe('none');
     });
 });
 
@@ -96,15 +91,16 @@ describe('routeSlot - heuristic fallback (no audit branch on the spec)', () => {
     it('glyph slot with no audit branch -> icon', () => {
         expect(routeSlot({ mode: 'glyph' }).branch).toBe('icon');
     });
+    it('conceptual slot with no audit branch and no authored data -> infographic (native)', () => {
+        expect(routeSlot({ mode: 'panel' }).branch).toBe('infographic');
+    });
 });
 
-describe('isDesignerBranchEnabled - default-off gate', () => {
-    it('defaults to false (verify-before-default, plan section 8)', () => {
+describe('section-8 gate retired (E4, 2026-07-02)', () => {
+    it('isDesignerBranchEnabled is a deprecated always-true no-op (native lane needs no diffusion gate)', () => {
         setDesignerBranchEnabled(undefined);
-        expect(isDesignerBranchEnabled()).toBe(false);
-    });
-    it('honors an explicit override', () => {
-        setDesignerBranchEnabled(true);
+        expect(isDesignerBranchEnabled()).toBe(true);
+        setDesignerBranchEnabled(false);
         expect(isDesignerBranchEnabled()).toBe(true);
     });
 });

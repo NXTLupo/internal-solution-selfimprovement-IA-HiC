@@ -20,28 +20,37 @@ chunks:
     char_span: [0, 2419]
     sentence_count: 17
     key_terms: [business, local, audit, services, workflow, website, agency, b2bmarketing]
+    concepts: [business, local, audit, services, workflow]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1tg5bpp.md#c1", "social-intelligence/reddit-deep/b2bmarketing/1tg5bpp.md#c3"]
     token_count: 559
+    sources: [{"n":"reddit-deep: r/b2bmarketing","u":"https://www.reddit.com/r/b2bmarketing/comments/1tg5bpp/ive_been_testing_a_local_business_auditdemo/"}]
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tg5bpp.md#c1"
     char_span: [2421, 3430]
     sentence_count: 7
     key_terms: [agency, workflow, website, local, business, question, version, owners]
+    concepts: [agency, workflow, website, local, business]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1tg5bpp.md#c0"]
     token_count: 209
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tg5bpp.md#c2"
-    char_span: [3445, 5596]
+    char_span: [3444, 5595]
     sentence_count: 16
     key_terms: [angle, becomes, looking-for-marketing-discussion-811236647760298024, audit, scale, demo, business, leaderatleading]
+    concepts: [angle, becomes, audit, leaderatleading, scale]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tg5bpp.md#c3"
-    char_span: [5600, 7681]
+    char_span: [5599, 7680]
     sentence_count: 19
     key_terms: [audit, own, business, showing, prospecting, real, site, structure]
+    concepts: [audit, business, showing, prospecting, structure]
+    related_chunks: ["social-intelligence/reddit-deep/b2bmarketing/1tg5bpp.md#c0"]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/b2bmarketing/1tg5bpp.md#c4"
-    char_span: [7683, 8632]
+    char_span: [7682, 8631]
     sentence_count: 7
     key_terms: [prospecting, something, workflow, speed, video, feel, page, plan]
+    concepts: [prospecting, something, workflow, speed, video]
     section: Comments
     token_count: 211
 ---

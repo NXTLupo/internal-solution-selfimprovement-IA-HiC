@@ -21,58 +21,74 @@ chunks:
     char_span: [0, 2229]
     sentence_count: 6
     key_terms: [administration, companies, government, trump-equity-stakes-pose-these-risks-to-us-companies-and-markets, stakes, trump, lincicome, business]
+    concepts: [administration, companies, government, stakes, lincicome]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1qyqjq4.md#c1", "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c9"]
     token_count: 454
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1qyqjq4/trump_administration_equity_stakes_pose_risks_to/"}]
   - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c1"
     char_span: [2231, 2828]
     sentence_count: 2
     key_terms: [government, stakes, trump, administration, intervention, accelerates, distasteful, enterprise]
+    concepts: [government, stakes, trump]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1qyqjq4.md#c0"]
     token_count: 112
   - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c2"
     char_span: [2842, 4369]
     sentence_count: 6
     key_terms: [stocks, free, markets, please, off-topic, political, specific, capping]
+    concepts: [stocks, markets, please, off-topic, political]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c3"
     char_span: [4371, 6008]
     sentence_count: 14
     key_terms: [republicans, market, party, free, capitalism, democracy, democrat, wonderful-sail-1126]
+    concepts: [republicans, market, capitalism, party, democracy]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c4"
     char_span: [6010, 7835]
     sentence_count: 14
     key_terms: [socialism, trump, benefit, corporatism, people, run, government, corporate]
+    concepts: [socialism, trump, corporatism, benefit, people]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c5"
     char_span: [7837, 9949]
     sentence_count: 12
     key_terms: [market, trust, bailouts, equity, reason, government, trillion, finance-mcp-001]
+    concepts: [market, trust, bailouts, government, equity]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c6"
     char_span: [9710, 10531]
     sentence_count: 3
     key_terms: [corporations, government, username, fascism, running, checks, headpaleontologist40, mountain-detail-8213]
+    concepts: [corporations, government, username, fascism, running]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1qyqjq4.md#c7"]
     section: Comments
     token_count: 218
   - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c7"
     char_span: [10533, 12735]
     sentence_count: 15
     key_terms: [companies, socialism, fascism, corporations, intervention, "don't", republicans, "it's"]
+    concepts: [companies, socialism, fascism, corporations, intervention]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1qyqjq4.md#c6"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c8"
     char_span: [12737, 14673]
     sentence_count: 18
     key_terms: [question, answer, people, public, corporations, crown, hate, maga]
+    concepts: [question, corporations, answer, people, public]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c9"
     char_span: [14675, 15928]
     sentence_count: 12
     key_terms: [people, government, companies, getting, "that's", doing, right, trump]
+    concepts: [people, government, companies, getting, "that's"]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1qyqjq4.md#c0"]
     section: Comments
     token_count: 283
 ---

@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 438]
     sentence_count: 2
     key_terms: [cscareerquestions, experience, comments, jobs, reddit-deep, requiring, postings, software]
+    concepts: [cscareerquestions, experience, comments]
     token_count: 112
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1qp74fx/what_is_it_with_all_of_these_tech_jobs_requiring/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qp74fx.md#c1"
     char_span: [452, 2129]
     sentence_count: 12
     key_terms: [software, "you're", get, job, experience, companies, another, current]
+    concepts: [software, "you're", experience, companies, another]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qp74fx.md#c2"
     char_span: [2131, 3919]
     sentence_count: 5
     key_terms: [oracle, software, adb, back, erp, honestly, company, details]
+    concepts: [oracle, software, honestly, company, details]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qp74fx.md#c3"
     char_span: [3921, 4340]
     sentence_count: 2
     key_terms: [workers, internationalend8934, certifications, frighteningly, insignificant, diminishing, companies, expensive]
+    concepts: [workers]
     section: Comments
     token_count: 84
 ---

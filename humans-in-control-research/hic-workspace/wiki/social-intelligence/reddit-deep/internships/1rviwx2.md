@@ -19,23 +19,31 @@ chunks:
     char_span: [0, 1431]
     sentence_count: 7
     key_terms: [internships, summer, security, housing, publix, cybersecurity, mercedes-benz, financial]
+    concepts: [internships, summer, security, cybersecurity, mercedes-benz]
     token_count: 310
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rviwx2/choosing_between_two_summer_internships_publix_vs/"}]
   - id: "social-intelligence/reddit-deep/internships/1rviwx2.md#c1"
     char_span: [1445, 3330]
     sentence_count: 14
     key_terms: [interns, publix, internship, oktown8217, mercedes, intern, offers, free]
+    concepts: [interns, internship, oktown8217, publix, mercedes]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rviwx2.md#c2", "social-intelligence/reddit-deep/internships/1rviwx2.md#c3"]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/internships/1rviwx2.md#c2"
     char_span: [3332, 5466]
     sentence_count: 14
     key_terms: [benz, mercedes, better, publix, oktown8217, prestige, atlanta, because]
+    concepts: [mercedes, better, publix, oktown8217, prestige]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rviwx2.md#c1", "social-intelligence/reddit-deep/internships/1rviwx2.md#c3"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1rviwx2.md#c3"
     char_span: [5189, 6161]
     sentence_count: 7
     key_terms: [interview, because, mercedes, better, publix, puzzleheadedweb9492, liked, legalwisegentleman]
+    concepts: [interview, because, mercedes, better, publix]
+    related_chunks: ["social-intelligence/reddit-deep/internships/1rviwx2.md#c1", "social-intelligence/reddit-deep/internships/1rviwx2.md#c2"]
     section: Comments
     token_count: 225
 ---

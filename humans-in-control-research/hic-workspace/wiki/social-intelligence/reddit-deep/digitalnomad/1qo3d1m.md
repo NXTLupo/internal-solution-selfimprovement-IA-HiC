@@ -21,29 +21,36 @@ chunks:
     char_span: [0, 1349]
     sentence_count: 10
     key_terms: [ocean, digitalnomad, best, live, want, somewhere, comments, digital]
+    concepts: [ocean, digitalnomad, somewhere, comments, digital]
     token_count: 323
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1qo3d1m/best_place_to_be_a_digital_nomad_for_nature_and/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1qo3d1m.md#c1"
     char_span: [1363, 3331]
     sentence_count: 22
     key_terms: ["it's", life, pacific, ocean, like, consistent, snorkeling, caeru1ean]
+    concepts: [pacific, consistent, ocean, snorkeling, caeru1ean]
     section: Comments
     token_count: 486
+    sources: [{"n":"Live on my sailboat in the Caribbean","u":""}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1qo3d1m.md#c2"
     char_span: [3333, 4448]
     sentence_count: 14
     key_terms: [diving, daily, sites, life, around, people, beach, scene]
+    concepts: [diving, daily, sites, around, people]
     section: Comments
     token_count: 248
   - id: "social-intelligence/reddit-deep/digitalnomad/1qo3d1m.md#c3"
     char_span: [4450, 5618]
     sentence_count: 11
     key_terms: [island, small, get, tourist, traffic, little, people, "you'll"]
+    concepts: [island, small, tourist, traffic, little]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/digitalnomad/1qo3d1m.md#c4"
     char_span: [5620, 6919]
     sentence_count: 8
     key_terms: [digital, nomads, costa, considering, definitely, expensive, nicaragua, girona]
+    concepts: [digital, nomads, considering, costa, definitely]
     section: Comments
     token_count: 326
 ---

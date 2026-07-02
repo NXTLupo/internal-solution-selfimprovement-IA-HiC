@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 460]
     sentence_count: 2
     key_terms: [experience, comments, waterloo, roles, sales, job, manufacturing, reddit-deep]
+    concepts: [experience, comments, waterloo, roles, sales]
     token_count: 113
+    sources: [{"n":"reddit-deep: r/waterloo","u":"https://www.reddit.com/r/waterloo/comments/1l1jisy/job_search/"}]
 ---
 # Job search
 

@@ -21,23 +21,28 @@ chunks:
     char_span: [0, 1951]
     sentence_count: 15
     key_terms: [experience, spain, "i'm", move, comments, software, digitalnomad, quite]
+    concepts: [experience, spain, comments, software, digitalnomad]
     token_count: 471
+    sources: [{"n":"reddit-deep: r/digitalnomad","u":"https://www.reddit.com/r/digitalnomad/comments/1tk1oeh/23m_software_engineer_from_spain_15_yoe_feeling/"}]
   - id: "social-intelligence/reddit-deep/digitalnomad/1tk1oeh.md#c1"
     char_span: [1965, 3548]
     sentence_count: 8
     key_terms: ["you're", living, find, like, experience, anyways, country, opinion]
+    concepts: ["you're", living, experience, anyways, country]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/digitalnomad/1tk1oeh.md#c2"
     char_span: [3553, 5437]
     sentence_count: 13
     key_terms: [experience, skills, international, engineering, anime00s, everyone, already, better]
+    concepts: [experience, international, skills, engineering, anime00s]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/digitalnomad/1tk1oeh.md#c3"
     char_span: [5439, 7775]
     sentence_count: 27
     key_terms: [move, people, especially, demanding, crashing, burning, market, "it's"]
+    concepts: [especially, people, demanding, crashing, burning]
     section: Comments
     token_count: 511
 ---

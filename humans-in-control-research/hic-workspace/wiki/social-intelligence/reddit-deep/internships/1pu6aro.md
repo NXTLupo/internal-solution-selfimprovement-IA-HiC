@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 329]
     sentence_count: 2
     key_terms: [internships, comments, justaboredstudent9, reddit-deep, underground, preferably, student, places]
+    concepts: [internships, comments]
     token_count: 85
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1pu6aro/niche_places_to_apply_for_internships_first_year/"}]
   - id: "social-intelligence/reddit-deep/internships/1pu6aro.md#c1"
     char_span: [343, 747]
     sentence_count: 2
     key_terms: [freshmen, unlikely-resort1324, jamesjohnbushytail, ones, no-cockroach9505, gillyboi100, internship, companies]
+    concepts: [freshmen]
     section: Comments
     token_count: 109
 ---

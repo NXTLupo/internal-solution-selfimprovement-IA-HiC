@@ -20,17 +20,23 @@ chunks:
     char_span: [0, 613]
     sentence_count: 7
     key_terms: [customers, comments, startups, product, get, reddit-deep, fsociety10, struggling]
+    concepts: [customers, comments, startups, product]
     token_count: 152
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1tg4cq0/how_do_i_get_first_customers_for_ai_product_i/"}]
   - id: "social-intelligence/reddit-deep/startups/1tg4cq0.md#c1"
-    char_span: [628, 2721]
+    char_span: [627, 2720]
     sentence_count: 8
     key_terms: [fsociety10, product, already, alexsicart, problem, without, people, cost]
+    concepts: [fsociety10, product, already, alexsicart, problem]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tg4cq0.md#c2"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/startups/1tg4cq0.md#c2"
-    char_span: [2723, 4707]
+    char_span: [2722, 4706]
     sentence_count: 14
     key_terms: [fsociety10, get, problem, product, spend, teams, api, show]
+    concepts: [fsociety10, problem, product, spend, teams]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1tg4cq0.md#c1"]
     section: Comments
     token_count: 481
 ---

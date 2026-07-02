@@ -19,16 +19,22 @@ chunks:
     char_span: [0, 2061]
     sentence_count: 11
     key_terms: [important, college, teach, teachers, yourself, class, good, life]
+    concepts: [important, college, teachers, yourself, teach]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mlgvwo.md#c1"]
     token_count: 461
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1mlgvwo/advice_for_anyone_entering_college/"}]
   - id: "social-intelligence/reddit-deep/college/1mlgvwo.md#c1"
     char_span: [2064, 3178]
     sentence_count: 10
     key_terms: [experience, learn, learning, teachers, college, people, email, life]
+    concepts: [experience, learn, learning, teachers, college]
+    related_chunks: ["social-intelligence/reddit-deep/college/1mlgvwo.md#c0"]
     token_count: 242
   - id: "social-intelligence/reddit-deep/college/1mlgvwo.md#c2"
-    char_span: [3193, 4411]
+    char_span: [3192, 4410]
     sentence_count: 10
     key_terms: [fragrantdifficulty68, scholarship, traditional, exospike99, compound, younger, opened, thanks]
+    concepts: [fragrantdifficulty68, scholarship, traditional, exospike99, compound]
     section: Comments
     token_count: 327
 ---

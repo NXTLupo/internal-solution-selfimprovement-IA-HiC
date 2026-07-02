@@ -18,11 +18,14 @@ chunks:
     char_span: [0, 1883]
     sentence_count: 1
     key_terms: [internships, apply, the-10-best-websites-for-finding-an-internship, how-many-internships-should-i-apply-to, indeed, resume, https, com]
+    concepts: [internships, apply, indeed, resume, everything]
     token_count: 478
+    sources: [{"n":"reddit: internships","u":"https://reddit.com/r/internships/comments/1r0nk5p/how_to_get_an_internship_in_2026_everything_i_am/"}]
   - id: "articles/reddit-internships/64e8f2ddda.md#c1"
     char_span: [1885, 3756]
     sentence_count: 1
     key_terms: [follow-ups, resume, follow-up, recruiter, applying, how-and-why-write-great-cover-letter, cover, track]
+    concepts: [follow-ups, resume, follow-up, recruiter, applying]
     token_count: 475
 ---
 # how to get an internship in 2026: everything i am using/doing

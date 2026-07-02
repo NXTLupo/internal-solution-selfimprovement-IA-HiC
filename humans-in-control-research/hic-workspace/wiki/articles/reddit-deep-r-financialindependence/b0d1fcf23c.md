@@ -18,16 +18,20 @@ chunks:
     char_span: [0, 1951]
     sentence_count: 14
     key_terms: [financialindependence, divorce, became, career, driver, reddit, worth, years]
+    concepts: [financialindependence, divorce, became, career, driver]
     token_count: 489
+    sources: [{"n":"Reddit Deep: r/financialindependence","u":"https://www.reddit.com/r/financialindependence/comments/1me1wc1/5_years_into_fire_from_5k_after_divorce_to_214k/"}]
   - id: "articles/reddit-deep-r-financialindependence/b0d1fcf23c.md#c1"
     char_span: [1953, 4050]
     sentence_count: 15
     key_terms: [year, percent, bonus, plus, pastor, salary, budget, income]
+    concepts: [percent, bonus, pastor, salary, independence]
     token_count: 482
   - id: "articles/reddit-deep-r-financialindependence/b0d1fcf23c.md#c2"
     char_span: [4052, 6276]
     sentence_count: 24
     key_terms: [keep, significant, hard, work, inspiring, congrats, staying, almost]
+    concepts: [significant, inspiring, congrats, staying, almost]
     token_count: 511
 ---
 # 5 Years into FIRE: From $5k After Divorce to $214k Net Worth and a New Marriage

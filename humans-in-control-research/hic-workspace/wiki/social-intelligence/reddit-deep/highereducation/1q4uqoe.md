@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 982]
     sentence_count: 9
     key_terms: [sub, highereducation, members, bots, join, education, comments, farming]
+    concepts: [highereducation, members, education, comments, farming]
     token_count: 244
+    sources: [{"n":"reddit-deep: r/highereducation","u":"https://www.reddit.com/r/highereducation/comments/1q4uqoe/pausing_joining_the_sub_innundated_by_bots_and_ai/"}]
   - id: "social-intelligence/reddit-deep/highereducation/1q4uqoe.md#c1"
     char_span: [996, 1665]
     sentence_count: 8
     key_terms: [mods, help, appreciate, thanks, human, thank, midnightgladness, falafelwaffle10]
+    concepts: [appreciate, thanks, human, thank]
     section: Comments
     token_count: 187
 ---

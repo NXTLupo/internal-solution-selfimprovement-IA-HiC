@@ -21,11 +21,16 @@ chunks:
     char_span: [0, 2325]
     sentence_count: 9
     key_terms: [scientific, chemistry, interdisciplinary, "i'm", learning, research, specific, gradadmissions]
+    concepts: [scientific, interdisciplinary, chemistry, learning, research]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1oeuwnd.md#c1"]
     token_count: 470
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1oeuwnd/prefinal_year_undergrad_math_sci_comp_seeking/"}]
   - id: "social-intelligence/reddit-deep/gradadmissions/1oeuwnd.md#c1"
     char_span: [2327, 3777]
     sentence_count: 7
     key_terms: [research, academic, niche, like, scientific, transition, alphafold, building]
+    concepts: [research, academic, niche, scientific, transition]
+    related_chunks: ["social-intelligence/reddit-deep/gradadmissions/1oeuwnd.md#c0"]
     token_count: 279
 ---
 # Pre-final year undergrad (Math & Sci Comp) seeking guidance: Research career in AI/ML for Physical/Biological Sciences

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2082]
     sentence_count: 22
     key_terms: [work, careerguidance, feels, years, don, live, definitely, especially]
+    concepts: [careerguidance, definitely, especially, experience, feels]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1s6tkcy/at_36_with_13_years_in_tech_am_i_crazy_to/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c1"
     char_span: [2084, 4371]
     sentence_count: 26
     key_terms: [like, someone, feel, don, life, meaningful, sometimes, anything]
+    concepts: [someone, meaningful, sometimes, anything, honestly]
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c2"
     char_span: [4373, 4767]
@@ -36,24 +39,30 @@ chunks:
     char_span: [4781, 6906]
     sentence_count: 19
     key_terms: [career, working, keep, long, time, financial, medicine, yourself]
+    concepts: [career, working, financial, medicine, yourself]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c4"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c4"
     char_span: [6908, 9034]
     sentence_count: 21
     key_terms: [yourself, time, medicine, healthy, family, fulfillment, want, work]
+    concepts: [yourself, medicine, healthy, family, fulfillment]
+    related_chunks: ["social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c3"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c5"
     char_span: [9036, 11148]
     sentence_count: 17
     key_terms: [medical, like, try, medicine, always, school, volunteering, work]
+    concepts: [medical, medicine, volunteering, always, school]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c6"
     char_span: [11150, 12864]
     sentence_count: 13
     key_terms: [healthcare, computational, diagnostics, specialties, neurology, biology, degrees, matyyyy]
+    concepts: [healthcare, computational, diagnostics, specialties, neurology]
     section: Comments
     token_count: 396
 ---

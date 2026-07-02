@@ -19,14 +19,17 @@ content_hash: "01ba0259d8372204"
 relevance_by_goal: {"46dec9599ad5":55}
 chunks:
   - id: "articles/reddit-deep-r-etfs/f4a2a8ab0e.md#c0"
-    char_span: [0, 1971]
+    char_span: [0, 1970]
     sentence_count: 10
     key_terms: [etfs, https, specific, github, return, total, rebalancing, page]
-    token_count: 501
+    concepts: [https, specific, github, return, rebalancing]
+    token_count: 500
+    sources: [{"n":"Reddit Deep: r/etfs","u":"https://www.reddit.com/r/ETFs/comments/1qyoj24/oc_i_built_a_free_etf_portfolio/"}]
   - id: "articles/reddit-deep-r-etfs/f4a2a8ab0e.md#c1"
-    char_span: [1973, 2845]
+    char_span: [1972, 2844]
     sentence_count: 5
     key_terms: [new, rigorously, portfoliovisualizer, coded, going, thats, case, data]
+    concepts: [rigorously, coded, going, thats]
     token_count: 171
 ---
 # [OC] I built a free ETF & Portfolio Backtester/Comparator with dynamic currency conversion and Full Total Return support.

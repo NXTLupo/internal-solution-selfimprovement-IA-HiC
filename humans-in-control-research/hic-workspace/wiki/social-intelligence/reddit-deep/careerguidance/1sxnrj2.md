@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 1682]
     sentence_count: 15
     key_terms: [job, careerguidance, career, jobs, applying, comments, seekers, "here's"]
+    concepts: [careerguidance, career, applying, comments, seekers]
     token_count: 384
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sxnrj2/job_search_hacks_from_a_career_coach_that/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sxnrj2.md#c1"
-    char_span: [1697, 2622]
+    char_span: [1696, 2621]
     sentence_count: 1
     key_terms: [sunflowerwellnesshtx, posting, substantial-car5791, job, plus, top, applications, responsible]
+    concepts: [sunflowerwellnesshtx, posting]
     section: Comments
     token_count: 227
 ---

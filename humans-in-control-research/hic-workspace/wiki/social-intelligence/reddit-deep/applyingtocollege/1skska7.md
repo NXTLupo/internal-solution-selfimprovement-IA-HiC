@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1410]
     sentence_count: 11
     key_terms: [ivy, like, applyingtocollege, cwru, comments, thought, visited, happy]
+    concepts: [applyingtocollege, comments, thought, visited, happy]
     token_count: 349
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1skska7/i_grinded_for_ivies_just_to_not_want_them_anymore/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skska7.md#c1"
     char_span: [1424, 3348]
     sentence_count: 6
     key_terms: [school, starfirepet, good, getting, drexel, helpmehehehe1, focus, food]
+    concepts: [school, starfirepet, helpmehehehe1, getting, drexel]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skska7.md#c2"
     char_span: [3064, 5122]
     sentence_count: 19
     key_terms: [kindly-interview5966, conference, case, ivies, food, get, ivy, cleveland]
+    concepts: [kindly-interview5966, conference, ivies, cleveland, athletic]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skska7.md#c3"
@@ -44,6 +48,7 @@ chunks:
     char_span: [5353, 6806]
     sentence_count: 11
     key_terms: [like, yale, cmu, get, got, lol, galaxycrow, accepted]
+    concepts: [galaxycrow, accepted, school, nerdy]
     section: Comments
     token_count: 378
 ---

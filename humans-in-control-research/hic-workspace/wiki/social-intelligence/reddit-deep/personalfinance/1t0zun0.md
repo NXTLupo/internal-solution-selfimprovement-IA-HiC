@@ -8,28 +8,35 @@ title: "My credit union's systems tried to F me over."
 author: "DrakeSavory"
 date: "2026-05-01T17:22:55.000Z"
 score: 0
-upvote_ratio: 0.22
+upvote_ratio: 0.31
 num_comments: 20
 flair: "Saving"
-extracted_at: "2026-06-11T15:26:16.541Z"
+extracted_at: "2026-06-26T21:51:56.922Z"
 extraction_method: "praw-deep"
-research_goal: "Produce the definitive guide to personal investing in 2026 by analyzing the current state of the fintech and financial industries. Evaluate retail investor behaviors, emerging asset classes, and platform shifts using 2026 market news, industry reports, and social media trends to identify actionable investment strategies and market opportunities."
-engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
+research_goal: "Identify and analyze the top five consumer finance trends for 2026 across retail banking, fintech, and consumer lending, delivering a prioritized trend matrix that details key drivers, shifting consumer behaviors, and technological adoption."
+engagement: "identify-and-analyze-the-top-five-consumer-finance-trends-fo"
 chunks:
   - id: "social-intelligence/reddit-deep/personalfinance/1t0zun0.md#c0"
     char_span: [0, 1479]
     sentence_count: 11
     key_terms: [mortgage, account, transfer, personalfinance, "i'm", put, principal, accounts]
+    concepts: [mortgage, account, personalfinance, transfer, principal]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1t0zun0.md#c1", "social-intelligence/reddit-deep/personalfinance/1t0zun0.md#c2"]
     token_count: 364
+    sources: [{"n":"reddit-deep: r/personalfinance","u":"https://www.reddit.com/r/personalfinance/comments/1t0zun0/my_credit_unions_systems_tried_to_f_me_over/"}]
   - id: "social-intelligence/reddit-deep/personalfinance/1t0zun0.md#c1"
     char_span: [1481, 2799]
     sentence_count: 15
     key_terms: [mortgage, account, transfer, joint, money, month, collections, did]
+    concepts: [mortgage, account, transfer, collections, joint]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1t0zun0.md#c0", "social-intelligence/reddit-deep/personalfinance/1t0zun0.md#c2"]
     token_count: 305
   - id: "social-intelligence/reddit-deep/personalfinance/1t0zun0.md#c2"
-    char_span: [2814, 4565]
+    char_span: [2813, 4564]
     sentence_count: 11
     key_terms: [drakesavory, bank, mortgage, transfer, payment, credit, paying, issue]
+    concepts: [drakesavory, mortgage, transfer, payment, credit]
+    related_chunks: ["social-intelligence/reddit-deep/personalfinance/1t0zun0.md#c0", "social-intelligence/reddit-deep/personalfinance/1t0zun0.md#c1"]
     section: Comments
     token_count: 458
 ---
@@ -50,9 +57,9 @@ So this month, yep the first transfer went through and when I login to the secon
 
 Get a new bank...
   - **DrakeSavory** (-1↑): Ummm ... our mortgage would still be with the CU and paying it from another bank would be even more of a cluster,
-    - **iamfury** (5↑): More of a cluster than letting a bank with competent technology just mail a check out for you once a month? You’re overthinking this.
-- **Imaginary_Set1984** (3↑): Why would you bank there?  Why do you still bank there?
-  - **Locke_and_Lloyd** (2↑): Because reddit said to use your credit union obviously.
+    - **iamfury** (4↑): More of a cluster than letting a bank with competent technology just mail a check out for you once a month? You’re overthinking this.
+- **Imaginary_Set1984** (4↑): Why would you bank there?  Why do you still bank there?
+  - **Locke_and_Lloyd** (3↑): Because reddit said to use your credit union obviously.
   - **DrakeSavory** (-1↑): We didn't know this would be an issue until after the mortgage.
     - **jelloslug** (3↑): So again, why do you continue to bank with them?
 - **oldster2020** (1↑): Um, paying extra on principal is always a bit tricky, and often gets confused with paying ahead.

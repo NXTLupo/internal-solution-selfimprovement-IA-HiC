@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 1979]
     sentence_count: 23
     key_terms: ["i'm", university, college, student, unfortunately, orientation, been, comments]
+    concepts: [university, unfortunately, college, student, orientation]
     token_count: 460
+    sources: [{"n":"reddit-deep: r/college","u":"https://www.reddit.com/r/college/comments/1loicnl/im_afraid_im_going_to_lose_my_mind_this_upcoming/"}]
   - id: "social-intelligence/reddit-deep/college/1loicnl.md#c1"
     char_span: [1993, 3434]
     sentence_count: 14
     key_terms: [need, yourself, school, opportunities, give, grad, everything, schedule]
+    concepts: [yourself, school, opportunities, everything, schedule]
     section: Comments
     token_count: 337
 ---

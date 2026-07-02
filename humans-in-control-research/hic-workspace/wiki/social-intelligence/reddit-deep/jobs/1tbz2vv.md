@@ -21,71 +21,88 @@ chunks:
     char_span: [0, 1034]
     sentence_count: 13
     key_terms: [interviews, job, comments, reality, people, person, skills, wanted]
+    concepts: [interviews, comments, reality, people, person]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1tbz2vv.md#c6"]
     token_count: 263
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1tbz2vv/reality_check_interviews_are_about_being_liked/"}]
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c1"
     char_span: [1048, 3035]
     sentence_count: 16
     key_terms: [personality, like, lol, too, zwicker101, buzzwords, responses, normally]
+    concepts: [personality, zwicker101, buzzwords, responses, normally]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c2"
     char_span: [3037, 5292]
     sentence_count: 15
     key_terms: [company, someone, technically, negative-counter-766, personality, job, team, describing]
+    concepts: [negative-counter-766, technically, company, someone, personality]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c3"
     char_span: [5294, 6777]
     sentence_count: 7
     key_terms: [right, work, different, professor, questions, technical, conflict, answer]
+    concepts: [right, different, professor, questions, technical]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c4"
     char_span: [6779, 8122]
     sentence_count: 9
     key_terms: [interview, something, skills, demonstrated, roles, technical, "you're", negative-counter-766]
+    concepts: [interview, something, demonstrated, skills, roles]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1tbz2vv.md#c7"]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c5"
     char_span: [8124, 9645]
     sentence_count: 7
     key_terms: [negative-counter-766, interview, specialized, applicants, especially, algorithm, technical, everyone]
+    concepts: [negative-counter-766, interview, specialized, applicants, especially]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c6"
     char_span: [9647, 11720]
     sentence_count: 10
     key_terms: [interview, interviews, person, stage, demonstrate, job, lawsuit, someone]
+    concepts: [interview, interviews, person, demonstrate, stage]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1tbz2vv.md#c0"]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c7"
     char_span: [11723, 13778]
     sentence_count: 13
     key_terms: [technical, get, skills, "you're", kind-information-689, interview, "didn't", "won't"]
+    concepts: [technical, kind-information-689, skills, "you're", interview]
+    related_chunks: ["social-intelligence/reddit-deep/jobs/1tbz2vv.md#c4"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c8"
     char_span: [13780, 14092]
     sentence_count: 1
     key_terms: [prick, knowledgeable, insufferable, override, asshole, comment, skilled, amount]
+    concepts: [prick]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c9"
     char_span: [14094, 16083]
     sentence_count: 13
     key_terms: [people, "it's", work, getting, school, ok-sink-8875, etc, networking]
+    concepts: [people, getting, ok-sink-8875, school, networking]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c10"
     char_span: [15827, 16144]
     sentence_count: 1
     key_terms: [networking, ohgr8whatnow, ok-sink-8875, connections, frustrated, turnaround, zwicker101, actively]
+    concepts: [networking]
     section: Comments
     token_count: 85
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c11"
     char_span: [16146, 17869]
     sentence_count: 13
     key_terms: [interview, manager, interviewer, "it's", jobseekers, minutes, working, hiring]
+    concepts: [interview, manager, interviewer, jobseekers, minutes]
     section: Comments
     token_count: 405
 ---

@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 482]
     sentence_count: 3
     key_terms: [assistant, artificial, comments, accidentally, reddit-deep, attachment, emotional, pipeline]
+    concepts: [assistant, artificial, comments]
     token_count: 120
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1lbwzp6/accidentally_referred_to_ai_assistant_as_my/"}]
   - id: "social-intelligence/reddit-deep/artificial/1lbwzp6.md#c1"
     char_span: [496, 2183]
     sentence_count: 14
     key_terms: ["don't", "it's", business, bee8bc30ecc125278e93344b84477719f212d554, intelligence, pleasant, workflow, tools]
+    concepts: ["don't", business, intelligence, pleasant, workflow]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/artificial/1lbwzp6.md#c2"
     char_span: [2185, 3297]
     sentence_count: 13
     key_terms: ["i'm", working, always, dogs, find, old, sure, use]
+    concepts: [working, always]
     section: Comments
     token_count: 280
 ---

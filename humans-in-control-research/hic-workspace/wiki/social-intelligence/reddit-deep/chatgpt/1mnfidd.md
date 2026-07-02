@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 1171]
     sentence_count: 6
     key_terms: [nerf, clear, comments, emotions, function, chatgpt, recipes, making]
+    concepts: [clear, comments, emotions, function, chatgpt]
     token_count: 284
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1mnfidd/gpt_has_nothing_to_do_with_emotions_its_a_clear/"}]
   - id: "social-intelligence/reddit-deep/chatgpt/1mnfidd.md#c1"
     char_span: [1185, 3287]
     sentence_count: 9
     key_terms: [model, users, asked, simply, books, check, bad, feel]
+    concepts: [model, users, asked, simply, books]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/chatgpt/1mnfidd.md#c2"
     char_span: [3289, 4468]
     sentence_count: 6
     key_terms: [openai, please, conversation, image, post, r-chatgpt-1050422060352024636, concerns, chatgpt-shared-links-faq]
+    concepts: [conversation, openai, please, image, concerns]
     section: Comments
     token_count: 286
 ---

@@ -21,11 +21,14 @@ chunks:
     char_span: [0, 2133]
     sentence_count: 5
     key_terms: [job, applications, resume, right, careerguidance, market, exact, "i'd"]
+    concepts: [applications, resume, right, careerguidance, market]
     token_count: 478
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1skmy9k/does_the_job_market_is_brutal_right_now_heres/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1skmy9k.md#c1"
     char_span: [2135, 4319]
     sentence_count: 8
     key_terms: [applications, people, "you're", feels, works, job, networking, submitted]
+    concepts: [applications, people, "you're", feels, networking]
     token_count: 451
 ---
 # Does the job market is brutal right now? here's what I learned after 200 applications

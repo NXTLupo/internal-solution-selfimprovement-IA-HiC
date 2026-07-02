@@ -19,11 +19,14 @@ chunks:
     char_span: [0, 341]
     sentence_count: 3
     key_terms: [careerguidance, comments, underqualified, engineering, reddit-deep, guidance, provide, someone]
+    concepts: [careerguidance, comments]
     token_count: 96
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1sk0n5f/in_an_engineering_job_that_i_hate_and_am/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1sk0n5f.md#c1"
     char_span: [355, 1338]
     sentence_count: 5
     key_terms: [want, strengths, current, problem-action-result, feel, job, role, underqualified]
+    concepts: [strengths, current]
     section: Comments
     token_count: 214
 ---

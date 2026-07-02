@@ -21,17 +21,21 @@ chunks:
     char_span: [0, 421]
     sentence_count: 3
     key_terms: [careerguidance, advice, career, aged, comments, reddit-deep, popular, common]
+    concepts: [careerguidance, advice, career, comments]
     token_count: 117
+    sources: [{"n":"reddit-deep: r/careerguidance","u":"https://www.reddit.com/r/careerguidance/comments/1mpj5t5/learn_to_code_was_the_top_career_advice_over_15/"}]
   - id: "social-intelligence/reddit-deep/careerguidance/1mpj5t5.md#c1"
     char_span: [435, 1915]
     sentence_count: 7
     key_terms: [people, since, like, anymore, because, working, advice, hiring]
+    concepts: [people, since, anymore, because, working]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/careerguidance/1mpj5t5.md#c2"
     char_span: [1917, 3303]
     sentence_count: 12
     key_terms: [get, "you're", braincovey32, good, like, interviews, hundreds, degrees]
+    concepts: [braincovey32, "you're", interviews, hundreds, degrees]
     section: Comments
     token_count: 378
 ---

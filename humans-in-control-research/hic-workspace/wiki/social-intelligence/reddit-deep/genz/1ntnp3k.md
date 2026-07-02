@@ -21,29 +21,37 @@ chunks:
     char_span: [0, 1821]
     sentence_count: 17
     key_terms: [like, people, trying, being, cards, building, comments, honestly]
+    concepts: [people, trying, being, cards, building]
     token_count: 428
+    sources: [{"n":"reddit-deep: r/genz","u":"https://www.reddit.com/r/GenZ/comments/1ntnp3k/why_does_being_broke_in_your_20s_feel_like_a/"}]
   - id: "social-intelligence/reddit-deep/genz/1ntnp3k.md#c1"
     char_span: [1835, 1964]
     sentence_count: 1
     key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
+    concepts: [discord]
     section: Comments
     token_count: 41
   - id: "social-intelligence/reddit-deep/genz/1ntnp3k.md#c2"
     char_span: [1967, 3761]
     sentence_count: 12
     key_terms: [positiveswimming4755, everyone, broke, money, hit, rich, people, adamantheusenigma]
+    concepts: [positiveswimming4755, everyone, broke, money, people]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1ntnp3k.md#c3"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/genz/1ntnp3k.md#c3"
     char_span: [3763, 5831]
     sentence_count: 22
     key_terms: [life, later, living, people, broke, cash, don, live]
+    concepts: [later, living, people, broke, disposable]
+    related_chunks: ["social-intelligence/reddit-deep/genz/1ntnp3k.md#c2"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/genz/1ntnp3k.md#c4"
     char_span: [5833, 6531]
     sentence_count: 4
     key_terms: [spending, because, "isn't", gen, environment, difference, everything, prioritize]
+    concepts: [spending, because, "isn't"]
     section: Comments
     token_count: 164
 ---

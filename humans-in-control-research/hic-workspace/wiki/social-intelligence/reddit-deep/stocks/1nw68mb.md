@@ -21,47 +21,58 @@ chunks:
     char_span: [0, 1243]
     sentence_count: 6
     key_terms: [reddit, content, https, wiki, wikipedia, comments, visited, stocks]
+    concepts: [reddit, content, https, wikipedia, comments]
     token_count: 296
+    sources: [{"n":"reddit-deep: r/stocks","u":"https://www.reddit.com/r/stocks/comments/1nw68mb/regarding_the_recent_rddt_decline_i_want_to_point/"}]
   - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c1"
     char_span: [1257, 2684]
     sentence_count: 12
     key_terms: [reddit, stock, "it's", saying, rddt, overpriced, advertise, horrible]
+    concepts: [reddit, stock, saying, overpriced, advertise]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c2"
     char_span: [2686, 4742]
     sentence_count: 8
     key_terms: [people, like, lot, reddit, been, lol, new, subreddits]
+    concepts: [people, reddit, subreddits, zipski577, momentum]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c3"
     char_span: [4744, 6426]
     sentence_count: 11
     key_terms: [reddit, alwaysfavoriteasian, ads, like, person, vanilaagorila, intrusive, people]
+    concepts: [alwaysfavoriteasian, reddit, vanilaagorila, person, intrusive]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c4"
     char_span: [6428, 8334]
     sentence_count: 8
     key_terms: [reddit, selling, though, product, google, growth, comes, money]
+    concepts: [reddit, selling, though, product, google]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nw68mb.md#c5"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c5"
     char_span: [8081, 8857]
     sentence_count: 2
     key_terms: [money, selling, reddit, rev, i-state-facts, accidentally, antoniafauci, organically]
+    concepts: [money, selling, reddit]
+    related_chunks: ["social-intelligence/reddit-deep/stocks/1nw68mb.md#c4"]
     section: Comments
     token_count: 210
   - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c6"
     char_span: [8859, 10679]
     sentence_count: 13
     key_terms: [data, revenue, being, advertising, ptrboyz, selling, models, reddit]
+    concepts: [revenue, advertising, being, ptrboyz, selling]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c7"
     char_span: [10681, 11545]
     sentence_count: 2
     key_terms: [people, orangehorton, high, since, accelerationfinish, genericusername71, nottakengreatname, soapinthepeehole]
+    concepts: [people, orangehorton, since]
     section: Comments
     token_count: 256
 ---

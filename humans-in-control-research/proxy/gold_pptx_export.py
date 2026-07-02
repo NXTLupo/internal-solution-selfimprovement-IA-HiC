@@ -486,8 +486,8 @@ def _render_into_presentation(prs, html_list: list) -> list:
                     doc = stage_html.replace("</head>", RESET + "</head>", 1) if "</head>" in stage_html else RESET + stage_html
                     tmp = tempfile.NamedTemporaryFile("w", suffix=".html", delete=False, encoding="utf-8")
                     tmp.write(doc); tmp.close(); tmp_paths.append(tmp.name)
-                    bgfile = tempfile.NamedTemporaryFile(suffix=".png", delete=False); bgfile.close()
-                    bg_paths.append(bgfile.name)
+                    # D15 (2026-07-02): no per-slide bg raster temp file - the full-bleed raster
+                    # tier is deleted; bg_paths kept (empty) only for the shared cleanup loop.
 
                     pg = b.new_page(viewport={"width": W, "height": H}, device_scale_factor=2)
                     pg.goto("file://" + tmp.name.replace("\\", "/"), wait_until="networkidle", timeout=30000)
@@ -514,39 +514,35 @@ def _render_into_presentation(prs, html_list: list) -> list:
                     content_imgs = [i for i in all_imgs if not i.get("chrome")]
                     chrome_imgs = [i for i in all_imgs if i.get("chrome")]
                     all_svgs = geo.get("svgRegions", [])
-                    native = bool(all_rects)
+                    # D15 (E3, 2026-07-02): the empty-geometry FULL-SLIDE RASTER fallback is REMOVED
+                    # (phase 9: every PPTX native + editable from every path). A slide whose geometry
+                    # walk finds no rects still exports NATIVE: text -> native runs, <img> -> native
+                    # pictures, each <svg> -> its OWN tokenized native picture at its bounds, chrome
+                    # inherited from the per-variant layout. There is no full-bleed screenshot tier.
                     sig = _chrome_signature(chrome_rects, [s for s in all_svgs if s.get("chrome")], chrome_imgs)
-                    need_chrome = native and sig not in sig_to_layout
+                    need_chrome = sig not in sig_to_layout
                     content_svg_pics = []
                     chrome_svg_pics = []
-                    if native:
-                        # Hide non-svg text + <img> so neither bakes into a per-svg region shot
-                        # (text is native runs; <img> are native pictures). HIDE_TEXT keeps <svg>
-                        # visible, so each region screenshot captures the tokenized vector as-is.
-                        pg.add_style_tag(content=HIDE_TEXT)
-                        if all_imgs:
-                            pg.add_style_tag(content="#stage img{visibility:hidden !important}")
-                        pg.wait_for_timeout(80)
-                        import base64 as _b64svg
-                        for _r in all_svgs:
-                            _is_chrome = bool(_r.get("chrome"))
-                            if _is_chrome and not need_chrome:
-                                continue  # this variant's chrome layout already built
-                            try:
-                                _shot = pg.screenshot(clip={"x": max(0, _r["x"]), "y": max(0, _r["y"]),
-                                                            "width": max(1, _r["w"]), "height": max(1, _r["h"])})
-                                _rec = {"x": _r["x"], "y": _r["y"], "w": _r["w"], "h": _r["h"],
-                                        "src": "data:image/png;base64," + _b64svg.b64encode(_shot).decode()}
-                                (chrome_svg_pics if _is_chrome else content_svg_pics).append(_rec)
-                            except Exception:
-                                pass
-                    else:
-                        # Fallback: geometry walk empty -> keep the proven full-bleed raster.
-                        pg.add_style_tag(content=HIDE_TEXT)
-                        if all_imgs:
-                            pg.add_style_tag(content="#stage img{visibility:hidden !important}")
-                        pg.wait_for_timeout(120)
-                        pg.screenshot(path=bgfile.name, clip={"x": 0, "y": 0, "width": W, "height": H})
+                    # Hide non-svg text + <img> so neither bakes into a per-svg region shot
+                    # (text is native runs; <img> are native pictures). HIDE_TEXT keeps <svg>
+                    # visible, so each region screenshot captures the tokenized vector as-is.
+                    pg.add_style_tag(content=HIDE_TEXT)
+                    if all_imgs:
+                        pg.add_style_tag(content="#stage img{visibility:hidden !important}")
+                    pg.wait_for_timeout(80)
+                    import base64 as _b64svg
+                    for _r in all_svgs:
+                        _is_chrome = bool(_r.get("chrome"))
+                        if _is_chrome and not need_chrome:
+                            continue  # this variant's chrome layout already built
+                        try:
+                            _shot = pg.screenshot(clip={"x": max(0, _r["x"]), "y": max(0, _r["y"]),
+                                                        "width": max(1, _r["w"]), "height": max(1, _r["h"])})
+                            _rec = {"x": _r["x"], "y": _r["y"], "w": _r["w"], "h": _r["h"],
+                                    "src": "data:image/png;base64," + _b64svg.b64encode(_shot).decode()}
+                            (chrome_svg_pics if _is_chrome else content_svg_pics).append(_rec)
+                        except Exception:
+                            pass
                     pg.close()
 
                     # GET-OR-CREATE the per-variant LAYOUT carrying this slide's chrome (defined once,
@@ -556,37 +552,38 @@ def _render_into_presentation(prs, html_list: list) -> list:
                     layout = sig_to_layout.get(sig)
                     if layout is None:
                         layout = _clone_blank_layout(prs, f"GOLD variant {len(sig_to_layout) + 1}")
-                        if native:
-                            from pptx.oxml import parse_xml as _px  # noqa: F401 (kept for symmetry)
-                            for _ci, rc in enumerate(chrome_rects):
-                                if rc["x"] >= W or rc["y"] >= H:
+                        from pptx.oxml import parse_xml as _px  # noqa: F401 (kept for symmetry)
+                        for _ci, rc in enumerate(chrome_rects):
+                            if rc["x"] >= W or rc["y"] >= H:
+                                continue
+                            layout.shapes._spTree.append(_rect_sp(
+                                8000 + _ci, "GOLD chrome", ex(rc["x"]), ey(rc["y"]),
+                                ex(max(rc["w"], 1.0)), ey(max(rc["h"], 1.0)), rc["fill"]))
+                        import base64 as _b64ch, io as _ioch
+                        for _ci, im in enumerate(list(chrome_imgs) + chrome_svg_pics):
+                            if im["x"] >= W or im["y"] >= H:
+                                continue
+                            _src = im.get("src") or ""
+                            try:
+                                if _src.startswith("data:"):
+                                    _st = _ioch.BytesIO(_b64ch.b64decode(_src.split(",", 1)[1]))
+                                elif _src.startswith("http"):
+                                    import urllib.request as _uch
+                                    _st = _ioch.BytesIO(_uch.urlopen(_src, timeout=10).read())
+                                else:
                                     continue
-                                layout.shapes._spTree.append(_rect_sp(
-                                    8000 + _ci, "GOLD chrome", ex(rc["x"]), ey(rc["y"]),
-                                    ex(max(rc["w"], 1.0)), ey(max(rc["h"], 1.0)), rc["fill"]))
-                            import base64 as _b64ch, io as _ioch
-                            for _ci, im in enumerate(list(chrome_imgs) + chrome_svg_pics):
-                                if im["x"] >= W or im["y"] >= H:
-                                    continue
-                                _src = im.get("src") or ""
-                                try:
-                                    if _src.startswith("data:"):
-                                        _st = _ioch.BytesIO(_b64ch.b64decode(_src.split(",", 1)[1]))
-                                    elif _src.startswith("http"):
-                                        import urllib.request as _uch
-                                        _st = _ioch.BytesIO(_uch.urlopen(_src, timeout=10).read())
-                                    else:
-                                        continue
-                                    _layout_add_picture(layout, _st, ex(im["x"]), ey(im["y"]),
-                                                        ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)),
-                                                        8500 + _ci, "GOLD chrome logo")
-                                except Exception:
-                                    pass
+                                _layout_add_picture(layout, _st, ex(im["x"]), ey(im["y"]),
+                                                    ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)),
+                                                    8500 + _ci, "GOLD chrome logo")
+                            except Exception:
+                                pass
                         sig_to_layout[sig] = layout
                     slide = prs.slides.add_slide(layout)
-                    if native:
-                        # NATIVE GEOMETRY tier: every fill and border bar is a real
-                        # PPTX rectangle a consultant can recolor/move/resize.
+                    if True:
+                        # NATIVE GEOMETRY tier (the ONLY tier post-D15): every fill and border bar is
+                        # a real PPTX rectangle a consultant can recolor/move/resize. An empty
+                        # content_rects list simply adds no shapes - the slide still carries its
+                        # inherited chrome layout, native text runs, and native pictures.
                         from pptx.enum.shapes import MSO_SHAPE
                         try:
                             from pptx_export import _set_solid_fill_with_alpha, _suppress_effects
@@ -639,13 +636,9 @@ def _render_into_presentation(prs, html_list: list) -> list:
                         # OWN tokenized native picture at its bounds (no full-slide raster). Placed
                         # alongside the <img> slot art so every decorative vector is movable/swappable.
                         _place_geo_images(slide, list(content_imgs) + content_svg_pics, ex, ey, W, H)
-                    else:
-                        slide.shapes.add_picture(bgfile.name, 0, 0, width=Emu(int(13.333 * EMU)), height=Emu(int(7.5 * EMU)))
-                        # 2026-06-27 - SVG (raster) tier: the HTML <img> overlays were HIDDEN in the
-                        # raster capture above, so re-place each as a REAL native picture over the
-                        # raster (the mind-map hub glyph, any slot art on a diagram stage). SVG-embedded
-                        # marks (<image> inside <svg>) stay in the diagram raster by design.
-                        _place_geo_images(slide, content_imgs, ex, ey, W, H)
+                    # D15 (E3, 2026-07-02): the full-bleed raster tier (slide-sized screenshot picture)
+                    # is DELETED. Every slide - including one whose geometry walk found no rects - now
+                    # exports on the native path above (phase 9: native + editable from every path).
 
                     for r in m.get("runs", []):
                         txt = r["text"]

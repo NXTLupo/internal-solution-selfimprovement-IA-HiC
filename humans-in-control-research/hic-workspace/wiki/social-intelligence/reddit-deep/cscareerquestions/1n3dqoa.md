@@ -21,35 +21,42 @@ chunks:
     char_span: [0, 556]
     sentence_count: 2
     key_terms: [cscareerquestions, applicants, comments, "you're", goes, virtualrun706, interviewers, reddit-deep]
+    concepts: [cscareerquestions, applicants, comments, "you're"]
     token_count: 147
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1n3dqoa/if_you_can_get_a_tech_job_in_this_marketit_only/"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3dqoa.md#c1"
     char_span: [570, 2241]
     sentence_count: 11
     key_terms: [leetcode, companies, deleted, medium, "you're", repulsive-hurry8172, great, c-u-in-da-ballpit]
+    concepts: [leetcode, companies, deleted, medium, "you're"]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3dqoa.md#c2"
     char_span: [2243, 3946]
     sentence_count: 9
     key_terms: [pants, shit, unshit, good, job, developers, conflictpotential204, dragonlordkingslayer]
+    concepts: [pants, unshit, developers]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3dqoa.md#c3"
     char_span: [3948, 5774]
     sentence_count: 15
     key_terms: [engineering, turing-complete, software, people, engineers, languages, complete, because]
+    concepts: [engineering, turing-complete, software, people, engineers]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3dqoa.md#c4"
     char_span: [5776, 7574]
     sentence_count: 15
     key_terms: [complete, curious, turing, probably, company, learned, banner, people]
+    concepts: [complete, curious, turing, probably, company]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3dqoa.md#c5"
     char_span: [7576, 9472]
     sentence_count: 11
     key_terms: [hybrid, job, remote, fully, going, been, page, companies]
+    concepts: [hybrid, remote, fully, going, companies]
     section: Comments
     token_count: 497
 ---

@@ -21,41 +21,49 @@ chunks:
     char_span: [0, 1029]
     sentence_count: 8
     key_terms: [applyingtocollege, comments, programs, college, time, too, application, reddit-deep]
+    concepts: [applyingtocollege, comments, programs, college]
     token_count: 275
+    sources: [{"n":"reddit-deep: r/applyingtocollege","u":"https://www.reddit.com/r/ApplyingToCollege/comments/1oa95ni/how_do_you_guys_have_so_much_time/"}]
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oa95ni.md#c1"
     char_span: [1043, 1420]
     sentence_count: 4
     key_terms: [reddit, liars, ill-equivalent8316, full, paxongoat, chanceme, stressed, college]
+    concepts: [reddit, liars]
     section: Comments
     token_count: 102
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oa95ni.md#c2"
     char_span: [1422, 3589]
     sentence_count: 11
     key_terms: [student, ecs, never, lies, haunting-fruit7154, thelegendmosalah, participants, club]
+    concepts: [student, never, haunting-fruit7154, thelegendmosalah, participants]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oa95ni.md#c3"
     char_span: [3291, 5307]
     sentence_count: 7
     key_terms: [haunting-fruit7154, lot, outright, exaggerated, "it's", lie, work, president]
+    concepts: [haunting-fruit7154, outright, exaggerated, president, students]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oa95ni.md#c4"
     char_span: [5094, 6158]
     sentence_count: 9
     key_terms: [school, because, college, dependent-royal-7908, hours, lot, steaknotcake, competitive]
+    concepts: [school, because, college, hours]
     section: Comments
     token_count: 256
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oa95ni.md#c5"
     char_span: [6160, 6559]
     sentence_count: 6
     key_terms: [time, healthcare, hours, sleep, organization, volunteering, competition, everything]
+    concepts: [healthcare, hours, sleep]
     section: Comments
     token_count: 89
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oa95ni.md#c6"
     char_span: [6561, 8686]
     sentence_count: 10
     key_terms: [week, extracurriculars, application, year, commitment, definitely, impressive, including]
+    concepts: [extracurriculars, application, commitment, definitely, impressive]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oa95ni.md#c7"

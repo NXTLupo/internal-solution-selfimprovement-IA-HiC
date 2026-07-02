@@ -21,7 +21,9 @@ chunks:
     char_span: [0, 1761]
     sentence_count: 11
     key_terms: [research, gradadmissions, career, pharmacology, publications, been, phd, admissions]
+    concepts: [research, gradadmissions, pharmacology, publications, career]
     token_count: 382
+    sources: [{"n":"reddit-deep: r/gradadmissions","u":"https://www.reddit.com/r/gradadmissions/comments/1o5twsw/considering_grad_school_phd_in_pharmacology_or/"}]
 ---
 # Considering grad school (PhD in pharmacology or related field) after a non-linear career path — advice?
 

@@ -20,11 +20,14 @@ chunks:
     char_span: [0, 268]
     sentence_count: 4
     key_terms: [comments, bostonu, dawg, hey, reddit-deep, training, writing, posted]
+    concepts: [comments, bostonu]
     token_count: 90
+    sources: [{"n":"reddit-deep: r/bostonu","u":"https://www.reddit.com/r/BostonU/comments/1rjq8bc/hey_dawg_its_rhett_from_bu/"}]
   - id: "social-intelligence/reddit-deep/bostonu/1rjq8bc.md#c1"
-    char_span: [283, 912]
+    char_span: [282, 911]
     sentence_count: 4
     key_terms: [jleonardbc, march, dawg, numbers, writing, rhymes, april, buowo]
+    concepts: [jleonardbc, march, numbers, writing, rhymes]
     section: Comments
     token_count: 219
 ---
